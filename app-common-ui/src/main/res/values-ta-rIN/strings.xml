@@ -8,6 +8,7 @@
         <item quantity="other">%d பாதைகள் தேர்ந்தெடுக்கப்பட்டுள்ளன</item>
     </plurals>
     <string name="picker_home_action">தரவு பகுதிகள்</string>
+    <string name="picker_select_hint">அதைத் தேர்ந்தெடுக்க ஒரு உருப்படியைப் பிடித்து வைக்கவும்.</string>
     <string name="tour_action_next">அடுத்தது</string>
     <string name="tour_action_previous">முந்தைய</string>
     <string name="tour_action_cancel">தவிர்</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">சுற்றுப்பயணத்தைத் தொடரவும்</string>
     <string name="tour_confirm_dont_show_this_tour">இந்தச் சுற்றுப்பயணத்தைக் காட்டவேண்டாம்</string>
     <string name="tour_confirm_disable_all">அனைத்து சுற்றுப்பயணங்களையும் முடக்கவும்</string>
-    <string name="navigation_unknown_destination_title">விரைவில் வரும்</string>
-    <string name="navigation_unknown_destination_message">இந்த திரை இன்னும் புதிய UI-க்கு மாற்றப்பட்டுக் கொண்டிருக்கிறது.</string>
+    <string name="navigation_unknown_destination_title">திரை கிடைக்கவில்லை</string>
+    <string name="navigation_unknown_destination_message">இந்த திரையைத் திறக்க முடியவில்லை.</string>
 </resources>

@@ -37,13 +37,9 @@
     <string name="scheduler_notification_result_failure_message">ਕੁਝ ਸ਼ੈਡਿਊਲਡ ਟਾਸਕ ਅਸਫਲ ਹੋਏ ਜਾਂ ਗਲਤੀਆਂ ਆਈਆਂ। ਇਹਨਾਂ ਨੂੰ ਮੈਨੁਅਲੀ ਚਲਾਉਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">ਛੱਡ ਦਿੱਤਾ ਗਿਆ, ਸਕ੍ਰੀਨ ਬੰਦ ਜਾਂ ਲਾਕ ਸੀ</string>
     <string name="scheduler_acs_screenlocked_hint_title">ਐਪ ਸਾਫ਼ਾਈ ਛੱਡੀ ਜਾ ਸਕਦੀ ਹੈ</string>
-    <string name="scheduler_acs_screenlocked_hint_body">ਐਪ ਸਾਫ਼ਾਈ ਪਹੁੰਚ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ, ਜਿਸ ਨੂੰ ਸਕ੍ਰੀਨ ਅਨਲਾਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਡਿਵਾਇਸ ਦੇ ਲਾਕ ਹੋਣ ਦੌਰਾਨ ਨਿਰਧਾਰਿਤ ਚਲਾਉਣ ਛੱਡ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ।
-
-ਪਿਛੋਕੜ ਸਾਫ਼ਾਈ ਲਈ Shizuku ਜਾਂ ਰੂਟ ਦੀ ਵਰਤੋਂ ਕਰੋ, ਜਾਂ ਇਸ ਨੂੰ ਉਸ ਸਮੇਂ ਲਈ ਸੈਟ ਕਰੋ ਜਦੋਂ ਤੁਸੀਂ ਡਿਵਾਇਸ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ਐਪ ਸਾਫ਼ਾਈ ਪਹੁੰਚ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਦੀ ਹੈ, ਜਿਸ ਨੂੰ ਸਕ੍ਰੀਨ ਅਨਲਾਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। ਡਿਵਾਇਸ ਦੇ ਲਾਕ ਹੋਣ ਦੌਰਾਨ ਨਿਰਧਾਰਿਤ ਚਲਾਉਣ ਛੱਡ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ।\n\nਪਿਛੋਕੜ ਸਾਫ਼ਾਈ ਲਈ Shizuku ਜਾਂ ਰੂਟ ਦੀ ਵਰਤੋਂ ਕਰੋ, ਜਾਂ ਇਸ ਨੂੰ ਉਸ ਸਮੇਂ ਲਈ ਸੈਟ ਕਰੋ ਜਦੋਂ ਤੁਸੀਂ ਡਿਵਾਇਸ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">ਸਿਸਟਮ ਐਪਸ ਛੱਡੀਆਂ ਜਾ ਸਕਦੀਆਂ ਹਨ</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ਬਹੁਤੀ ਕੈਸ਼ ਨੂੰ ਪਿਛੋਕੜ ਵਿੱਚ ਸਾਫ਼ ਕਰਦਾ ਹੈ, ਪਰ ਸਿਸਟਮ ਐਪਸ ਨੂੰ ਪਹੁੰਚ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ, ਜਿਸ ਨੂੰ ਸਕ੍ਰੀਨ ਅਨਲਾਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। \"ਸਿਸਟਮ ਐਪਸ ਸ਼ਾਮਲ ਕਰੋ\" ਚਾਲੂ ਹੋਣ ਨਾਲ, ਜਦੋਂ ਡਿਵਾਇਸ ਲਾਕ ਹੁੰਦਾ ਹੈ ਤਾਂ ਉਹ ਛੱਡ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ।
-
-\"ਸਿਸਟਮ ਐਪਸ ਸ਼ਾਮਲ ਕਰੋ\" ਬੰਦ ਕਰੋ, ਜਾਂ ਅਨਲਾਕ ਹੁੰਦਿਆਂ ਇਸਨੂੰ ਚਲਾਓ।</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ਬਹੁਤੀ ਕੈਸ਼ ਨੂੰ ਪਿਛੋਕੜ ਵਿੱਚ ਸਾਫ਼ ਕਰਦਾ ਹੈ, ਪਰ ਸਿਸਟਮ ਐਪਸ ਨੂੰ ਪਹੁੰਚ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ, ਜਿਸ ਨੂੰ ਸਕ੍ਰੀਨ ਅਨਲਾਕ ਕਰਨ ਦੀ ਲੋੜ ਹੈ। \"ਸਿਸਟਮ ਐਪਸ ਸ਼ਾਮਲ ਕਰੋ\" ਚਾਲੂ ਹੋਣ ਨਾਲ, ਜਦੋਂ ਡਿਵਾਇਸ ਲਾਕ ਹੁੰਦਾ ਹੈ ਤਾਂ ਉਹ ਛੱਡ ਦਿੱਤੇ ਜਾਂਦੇ ਹਨ।\n\n\"ਸਿਸਟਮ ਐਪਸ ਸ਼ਾਮਲ ਕਰੋ\" ਬੰਦ ਕਰੋ, ਜਾਂ ਅਨਲਾਕ ਹੁੰਦਿਆਂ ਇਸਨੂੰ ਚਲਾਓ।</string>
     <string name="scheduler_commands_after_schedule_label">ਸ਼ੈਡਿਊਲ ਬਾਅਦ ਕਮਾਂਡਾਂ</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell ਕਮਾਂਡਾਂ ਜੋ ਸ਼ੈਡਿਊਲ ਦੇ ਅੰਤ ਵਿੱਚ ਐਕਜ਼ੀਕਿਊਟ ਕੀਤੀਆਂ ਜਾਣਗੀਆਂ।</string>
     <string name="scheduler_battery_optimization_hint">ਜੇ ਤੁਸੀਂ ਬੈਕਗ੍ਰਾਉਂਡ ਐਕਜ਼ੀਕਿਊਸ਼ਨ ਨਾਲ ਸਮੱਸਿਆਵਾਂ ਦਾ ਅਨੁਭਵ ਕਰਦੇ ਹੋ ਤਾਂ SD Maid ਲਈ ਬੈਟਰੀ ਆਪਟੀਮਾਈਜ਼ੇਸ਼ਨ ਨੂੰ ਅਸਮਰੱਥ ਕਰਨ ਬਾਰੇ ਸੋਚੋ।</string>

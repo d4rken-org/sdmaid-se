@@ -38,6 +38,7 @@
     <string name="general_error_label">Problema</string>
     <string name="general_upgrade_action">Mag-upgrade</string>
     <string name="general_refresh_action">I-refresh</string>
+    <string name="general_retry_action">Subukan muli</string>
     <string name="general_progress_searching">Naghahanap</string>
     <string name="general_progress_generating_searchpaths">Gumagawa ng mga path sa paghahanap</string>
     <string name="general_progress_filtering">Nagsasala</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Pangalan (A → Z)</string>
     <string name="general_sort_size_desc">Pinakamalaki muna</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Library</string>
     <string name="general_navigate_up_action">Pataas</string>
     <string name="general_filter_action">Salain</string>
     <string name="general_filter_by_tags_label">I-filter gamit ang mga tag</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">I-report ang bug</string>
     <string name="general_error_ipc_deadobject_title">Naputol ang Koneksyon sa Serbisyo</string>
     <string name="general_error_ipc_deadobject_description">Ang koneksyon sa isang kritikal na serbisyo (hal. Magisk, Shizuku, o iba pang serbisyo sa antas ng sistema) ay hindi inaasahang naputol. Mangyaring i-reboot ang iyong device. Kung magpapatuloy ang isyu, suriin ang mga update o makipag-ugnayan sa akin upang maayos ito.</string>
-    <string name="general_error_upgrade_required_title">Kinakailangan ang Pro version</string>
-    <string name="general_error_upgrade_required_description">Ito ay Pro feature. Mangyaring i-upgrade ang SD Maid SE upang gamitin ito.</string>
+    <string name="general_error_upgrade_required_title">Kailangan ng Upgrade</string>
+    <string name="general_error_upgrade_required_description">Ang feature na ito ay nangangailangan ng upgrade. Mag-upgrade ng SD Maid SE para magamit ito.</string>
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Pag-setup</string>

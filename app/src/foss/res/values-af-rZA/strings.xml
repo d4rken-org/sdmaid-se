@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Hoe om te help</string>
     <string name="upgrade_screen_how_body">Word \'n beskermheer en borg ontwikkeling! Tik die knoppie hieronder om alle ekstra funksies te aktiveer en my GitHub Sponsors profiel oop te maak.</string>
     <string name="upgrade_screen_why_title">Voordele van opgradering</string>
-    <string name="upgrade_screen_why_body">• Maak app-caches en weggooibare data skoon
-• Verwyder duplikaatlêers
-• Aktiveer geplande opskoning
-• Skep pasgemaakte filters en opskoonreëls
-• Volg opslagneigings en opskooningsgeskiedenis op
-• Meer funksies en kontroles regdeur die app
-• Ondersteun oopbronwerk</string>
+    <string name="upgrade_screen_why_body">• App-kas en rommelopskoning\n• Verwydering van duplikaatlêers\n• Foto- en videokompressie\n• Veeg om oue lêers op te ruim\n• Eentik-skoonmaak via widget\n• Skoonmaak-skedulering\n• Pasgemaakte filters en reëls\n• Bergingneigings en -geskiedenis\n• Meer funksies en kontroles regdeur die app\n• Ondersteun oopbronwerk</string>
     <string name="upgrade_screen_sponsor_action">Borg ontwikkeling</string>
     <string name="upgrade_screen_sponsor_action_hint">Die alternatief is advertensies, analitiek en Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Dankie dat jy oopbron ontwikkeling ondersteun ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Al terug? Jou ondersteuning hou SD Maid aan die lewe!</string>
+    <string name="upgrade_screen_status_free_title">Gratis weergawe</string>
+    <string name="upgrade_screen_status_free_body">Jy gebruik die gratis weergawe van SD Maid. Ekstra funksies kan ontsluit word deur ontwikkeling te ondersteun.</string>
+    <string name="upgrade_screen_status_free_action">Sien opgraderingsopsies</string>
+    <string name="upgrade_screen_status_upgraded_title">Opgradering aktief</string>
+    <string name="upgrade_screen_status_upgraded_body">Alle ekstra funksies is ontsluit. Dankie dat jy oopbron-ontwikkeling ondersteun ❤️</string>
+    <string name="upgrade_screen_recurring_title">Hou dit aan</string>
+    <string name="upgrade_screen_recurring_body">SD Maid bly voortdurend ontwikkel deur opdaterings en regstellings. As jy dit wil volhou, oorweeg \'n herhalende skenking via GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Open GitHub Sponsors</string>
 </resources>

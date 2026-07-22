@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s askatuta</string>
     <string name="dashboard_hero_freeable_x_items">%1$s kendu daiteke</string>
     <string name="dashboard_hero_freed_x_items">%1$s kenduta</string>
-    <string name="dashboard_hero_freeable_hint">Sakatu botoia espazioa askatzeko. Sakatu txipa lehenbailehen egiaztatzeko.</string>
+    <string name="dashboard_hero_freeable_hint">Sakatu botoia espazioa libratzeko, edo txipa aurrenekoa egiaztatzeko.</string>
     <string name="dashboard_hero_freed_hint">Sakatu txipa detaleak ikusteko.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s eskaneatuta</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Hurrengo</string>
     <string name="debug_logview_jump_to_bottom_action">Azkenekora saltatu</string>
     <string name="debug_logview_paused_msg">Pauzatuta — buferra izoztuta</string>
-    <string name="debug_logview_paused_dropped_msg">Pauzatuta — %1$d lerro(a) baztertuta</string>
+    <string name="debug_logview_paused_dropped_msg">Pausatuta — linea berriak baztertuta: %1$d</string>
     <string name="debug_logview_copied_msg">Loga arbelera kopiatuta</string>
     <string name="debug_logview_share_label">Loga partekatu</string>
     <string name="debug_debuglog_screen_title">Arazketa erregistroa</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Pribatutasun-politika</string>
     <string name="settings_privacy_policy_desc">Datuak erantzunkidetasunez kudeatzea.</string>
     <string name="settings_category_other_label">Bestelakoak</string>
+    <string name="settings_upgrade_description">Eguneratu egoera eta aukerak.</string>
     <string name="general_settings_label">Orokorra</string>
     <string name="general_settings_desc">Aplikazio osoa eragiten duten doikuntza orokorrak.</string>
     <string name="settings_category_ui_label">Erabiltzaile-interfazea</string>
@@ -299,10 +300,8 @@
     </plurals>
     <string name="anniversary_share_title">Partekatu zure SD Maiden urteurrea</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d urte SD Maidekin — Askatutako espazioa: %2$s. Zure Android garbi eta txukun mantentzen. #SDMaid
-Probatu: %3$s</item>
-        <item quantity="other">%1$d urte SD Maidekin — Askatutako espazioa: %2$s. Zure Android garbi eta txukun mantentzen. #SDMaid
-Probatu: %3$s</item>
+        <item quantity="one">%1$d urte SD Maidekin — Askatutako espazioa: %2$s. Zure Android garbi eta txukun mantentzen. #SDMaid\nProbatu: %3$s</item>
+        <item quantity="other">%1$d urte SD Maidekin — Askatutako espazioa: %2$s. Zure Android garbi eta txukun mantentzen. #SDMaid\nProbatu: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Bilatu + Ezabatu</string>
     <string name="shortcut_onetap_long">Bilatu eta ezabatu ekintza bakarrean</string>
@@ -323,11 +322,17 @@ Probatu: %3$s</item>
     <string name="widget_home_description">Biltegiaren erabilera eta norberaren bidez garbitzea</string>
     <string name="widget_home_storage_internal">Barne</string>
     <string name="widget_home_storage_external">Kanpo</string>
-    <string name="widget_home_freed_label">Askatua: %1$s</string>
+    <string name="widget_home_freed_label">Bizitza-denbora: %1$s</string>
     <string name="widget_home_clean_action">Garbitu</string>
     <string name="widget_home_working">Lantzen…</string>
     <string name="widget_home_unavailable">Biltegia ez dago erabilgarri</string>
-    <string name="shortcut_onetap_started">Bilaketa &amp; ezabaketa hasi…</string>
+    <string name="settings_category_widget">Trepeta</string>
+    <string name="widget_settings_oneclick_summary">Baimendu etxearen pantailaren trepetako Clean botoia bilaketa eta borratzea tap bakarrean egiteko, baiezkada gabe.</string>
+    <string name="widget_oneclick_consent_title">Gaitu tap bakarreko garbitzea?</string>
+    <string name="widget_oneclick_consent_message">Trepetako Clean botoia bilaketa eta borratzea batera egingo du, aurrenekoa galdetu gabe eta zer borratu behar den aztertzerik utzi gabe.</string>
+    <string name="widget_oneclick_consent_enable_action">Gaitu</string>
+    <string name="widget_oneclick_consent_decline_action">Orain ez</string>
+    <string name="shortcut_onetap_started">Eskanatze + Ezabaketa hasi…</string>
     <string name="shortcut_onetap_nothing_enabled">Ez dago takamailako tresnarik gaituta</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Segureskua &amp; Berrezarri</string>
@@ -354,7 +359,7 @@ Probatu: %3$s</item>
     <string name="backup_restore_warn_android_body">Babeskopia hau Android %1$s-n egin zen, baina gailu honek Android %2$s ditu.</string>
     <string name="backup_restore_warn_device_body">Babeskopia hau beste gailu batean egin zen (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Babeskopia hau aplikazioaren edizio desberdin batetik dago (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Babeskopia honen historia datuak (estatistikak, konpresio historika, gezia saioak) aplikazioaren bertsio desberdin batetik daude eta ezin dira berreskuratu. Baina gainerakoa berreskuratuko da.</string>
+    <string name="backup_restore_warn_history_body">Babeskopia honetako historia-datuak (estatistikak, konpresioen historia, xuxatu sesioak) aplikazioaren beste bertsio batetik datoz eta ezin dira berreskuratu. Beste guztia berreskuratuko da.</string>
     <string name="backup_restore_ack_understand">Ulertzen dut eta jarraitu nahi dut</string>
     <string name="backup_restore_action_restore">Berreskuratu</string>
 </resources>

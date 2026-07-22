@@ -40,9 +40,7 @@
     <string name="swiper_sensitive_root_warning_message">扫描 %1$s 将包括此存储空间上的所有文件 — 照片、文档、下载内容、应用媒体等。是否继续？</string>
     <string name="swiper_sensitive_root_warning_continue_action">仍然继续</string>
     <string name="swiper_session_risky_label">全存储空间扫描</string>
-    <string name="swiper_session_risky_info_message">此会话针对存储卷的根目录，因此该存储空间上的所有文件都在范围内 — 照片、文档、下载内容、应用媒体等。
-
-全存储空间扫描可能会返回许多项目，包括您可能不想审查的文件。应用文件类型过滤器来缩小扫描范围。</string>
+    <string name="swiper_session_risky_info_message">此会话针对存储卷的根目录，因此该存储空间上的所有文件都在范围内 — 照片、文档、下载内容、应用媒体等。\n\n全存储空间扫描可能会返回许多项目，包括您可能不想审查的文件。应用文件类型过滤器来缩小扫描范围。</string>
     <string name="swiper_delete_x_action">删除 %1$d</string>
     <string name="swiper_settings_swap_directions_title">交换滑动方向</string>
     <string name="swiper_settings_swap_directions_summary">向左滑动保留，向右滑动删除。</string>
@@ -145,8 +143,8 @@
     <string name="swiper_session_no_matching_files">未找到匹配文件</string>
     <string name="swiper_open_externally_action">在外部应用中打开</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">滑动照片来决定其去向：向左右滑动保留或删除，向上滑动跳过，向下滑动撤销。下面的按钮效果相同 — 并显示各边代表什么。</string>
-    <string name="tour_swiper_openin_body">此按钮在另一个应用中打开照片，便于在决定前检查。</string>
+    <string name="tour_swiper_gestures_body">滑动文件以做出选择：横向滑动保留或删除，向上滑动跳过，向下滑动撤销。下方的按钮功能相同 — 并显示每一侧是什么功能。</string>
+    <string name="tour_swiper_openin_body">此按钮在另一个应用中打开文件，便于您在做决定前检查。</string>
     <string name="tour_swiper_preview_body">此按钮打开全屏预览以便更仔细地查看。</string>
     <string name="tour_swiper_actions_body">不喜欢滑动？我们也有按钮！跳过会使其保持待定以便稍后处理，长按跳过会将文件从以后的扫描中排除。撤销会还原您的上次选择。</string>
     <string name="tour_swiper_review_body">您的保留和删除选择仅处于暂存状态。打开审核以查看它们，并在准备好时应用删除。</string>

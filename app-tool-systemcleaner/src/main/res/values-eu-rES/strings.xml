@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Inportatu iragazki berria</string>
     <string name="systemcleaner_customfilter_export_action">Esportatu hautatutako iragazkia</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner zaborra aurkitzen du aplikaziorik zehazten ez duten iragazkiak erabiliz. Aurrez egindako arauak daude hutsak diren karpetetarako, geratzen diren erregistroetarako eta zaharkitutako miniaturentzat. Bisitatu ezarpenak zeure arau berriak sortzea nahi izanez gero.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner zaborra aurkitzen du aplikazio-espezifikoak ez diren filtroak erabiliz. Hutsik dauden karpetak, geratutako egunkaria eta zaharkitutako irudiak bezalakoentzat borneak daude. Bisitatu ezarpenak borneak bereak sortzeko nahi baduzu.</string>
     <string name="tour_systemcleaner_filter_body">Errenkada bakoitza iragazki bat eta aurkitu dena da. Ireki bere xehetasunak zein fitxategiek bat egokitzen diren ikusiteko, ezabatu aurretik.</string>
 </resources>

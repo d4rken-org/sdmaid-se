@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Inaasahang ~%d%% na matitipid para sa JPEG files</string>
     <string name="squeezer_onboarding_got_it">Kuha ko</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Ang Squeezer ay muling nag-compress ng iyong mga larawan at video upang gumamit ng mas kaunting lugar. Ang mga file ay nananatiling magagamit, mas maliit lamang, at bawat isa ay nagpapakita ng inaasahang pagtitipid.</string>
+    <string name="tour_squeezer_intro_body">Ang Squeezer ay muling nag-compress ng iyong mga larawan at video upang mabawasan ang espasyo na ginagamit. Ikaw ay nagsasakripisyo ng kaunting kalidad upang makakuha ng mas maraming espasyo. Bawat item ay nagpapakita ng inaasahang pagtitipid, kaya maaari mong magpasya kung alin ang sulit.</string>
     <string name="tour_squeezer_compress_body">I-compress ang lahat nang sabay-sabay dito, o i-tap ang isang item upang bawasan lamang ang iyon. Mahabang-press upang pumili ng marami. Lagi mong makikita ang preview bago magbago ang kahit ano.</string>
 </resources>

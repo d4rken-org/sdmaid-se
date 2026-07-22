@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Kunin ang SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">Ang SD Maid ay walang mga ad at hindi nagbebenta ng data ng user. Ang aking trabaho ay pinopondohan mo ❤️.</string>
     <string name="upgrade_screen_benefits_title">Mga benepisyo ng pag-upgrade</string>
-    <string name="upgrade_screen_benefits_body">• Linisin ang app caches at disposable data
-• Alisin ang duplicate files
-• I-enable ang scheduled cleanups
-• Lumikha ng custom filters at cleanup rules
-• Subaybayan ang storage trends at cleanup history
-• Higit pang features at controls sa buong app
-• Suportahan ang patuloy na development</string>
+    <string name="upgrade_screen_benefits_body">• Paglilinis ng app cache at basura\n• Pagtanggal ng duplicate files\n• Compression ng mga larawan at video\n• Swipe-to-declutter ng mga lumang file\n• One-tap cleaning sa pamamagitan ng widget\n• Pag-iskedyul ng cleanup\n• Mga custom na filter at patakaran\n• Mga trend at kasaysayan ng storage\n• Higit pang mga feature at kontrol sa buong app\n• Suporta sa patuloy na pag-unlad</string>
+    <string name="upgrade_screen_offers_title">Mga opsyon sa pag-upgrade</string>
+    <string name="upgrade_screen_offers_body">Pareho ang mga feature, iba lang ang mga modelo ng pagpepresyo.</string>
+    <string name="upgrade_screen_offers_or">o</string>
     <string name="upgrade_screen_subscription_offer_title">Taunang subscription</string>
+    <string name="upgrade_screen_subscription_offer_body">Nagre-renew taun-taon pagkatapos ng libreng trial. Puwedeng ikansela anumang oras sa Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Nagre-renew taun-taon. Puwedeng ikansela anumang oras sa Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Bumili nang isang beses</string>
+    <string name="upgrade_screen_iap_offer_body">Isang beses lang magbabayad, walang renewal.</string>
     <string name="upgrade_screen_offers_unavailable_message">Ang mga presyo ay hindi maaaring i-load ngayon. Tingnan ang Google Play at subukan ulit sa ilang sandali.</string>
     <string name="upgrade_screen_subscription_trial_action">Simulan ang libreng 14-day trial</string>
     <string name="upgrade_screen_subscription_action">Mag-subscribe</string>
     <string name="upgrade_screen_iap_action">One-time na pagbili</string>
     <string name="upgrade_screen_thanks_toast">Ikaw ang pinakamahusay! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">I-restore ang pagbili</string>
+    <string name="upgrade_screen_restore_banner_title">Nabili mo na ang Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Mukhang nag-upgrade ka na sa Pro sa device na ito dati. I-restore ang iyong pagbili upang i-unlock ito muli.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ang Play Store synchronization ay maaaring tumagal ng oras. Subukang mag-reboot, i-clear ang Google Play cache o maghintay lamang.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Ang maramihang mga account ay maaaring makalito sa Google Play. Mag-install ng app sa pamamagitan ng Google Play website, na napipilitang nakipag-ugnayan sa isang partikular na account.</string>
+    <string name="upgrade_screen_owned_hero_title">Binabati kita!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Mayroon kang %1$s, na-unlock ng iyong subscription.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Mayroon kang %1$s, na-unlock ng iyong one-time na pagbili.</string>
+    <string name="upgrade_screen_owned_iap_title">One-time na pagbili</string>
+    <string name="upgrade_screen_owned_iap_body">Nagmamay-ari ka ng one-time na Pro upgrade. Mananatiling naka-unlock ang Pro sa Google account na ito. Salamat sa pagsuporta sa SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Ang iyong Pro subscription ay aktibo at naka-set na mag-renew. Ang billing ay pinamamahalaan ng Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Mas gusto ang one-time na pagbili? Magiging available ito kapag ang iyong subscription ay hindi na naka-set na mag-renew. I-cancel ang subscription sa Google Play upang lumipat.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Ang iyong Pro subscription ay aktibo, ngunit hindi naka-set na mag-renew. Mananatiling available ang Pro hanggang sa matapos ang kasalukuyang panahon.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Ang subscription na ito ay naka-set pa rin na mag-renew, kahit na mayroon ka nang one-time na upgrade. Maaari mo itong i-cancel sa Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Pamahalaan ang subscription</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Ito ay isang hiwalay na pagbili: hindi nito ikinakansela o nire-refund ang iyong subscription. Gamitin ang parehong Google account para sa dalawa.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Ang subscription ay aktibo pa rin</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Iniulat ng Google Play na naka-set pa rin ang iyong subscription na mag-renew. Upang bumili ng one-time na upgrade, i-cancel muna ang subscription sa Google Play, pagkatapos bumalik dito.\n\nKakakansela mo lang? Bigyan ng sandali ang Google Play at subukan ulit. Tiyakin din na ginagamit mo ang parehong Google account.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Hindi ma-check ang status ng iyong subscription sa Google Play. Subukan ulit sa loob ng ilang sandali.</string>
+    <string name="upgrade_screen_restore_success_message">Na-restore na ang pagbili, aktibo na ang iyong Pro upgrade.</string>
+    <string name="upgrade_screen_grace_title">Kino-confirm ang iyong pagbili</string>
+    <string name="upgrade_screen_grace_body_short">Aktibo pa rin ang Pro. Naghihintay sa Google Play na muling kumpirmahin ang iyong pagbili, mananatiling naka-unlock ang lahat ng Pro features sa ngayon.</string>
+    <string name="upgrade_screen_grace_body">Aktibo pa rin ang Pro, ngunit hindi pa nakumpirma ng Google Play ang iyong pagbili sa loob ng mahabang panahon. Kung bumili ka ng Pro, i-restore ang pagbili at siguraduhing ginagamit ng Google Play ang account na bumili nito. Kung natapos ang subscription o na-refund ang pagbili, mag-o-off na lang ang Pro nang mag-isa, wala nang ibang dapat gawin.</string>
+    <string name="upgrade_screen_restore_body">Ang pag-restore ay humihiling sa Google Play na muling suriin ang mga pagbili ng app na ito para sa kasalukuyang account. Hindi ito nagsisimula ng bagong pagbili.</string>
+    <string name="upgrade_screen_restore_status_title">Mukhang hindi tama ang status?</string>
+    <string name="upgrade_screen_restore_status_body">Kung nawawala ang isang pagbili o mukhang hindi tama ang status na ito, muling suriin sa Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontakin ang suporta</string>
+    <string name="upgrade_screen_restore_checked_message">Nagsuri na ang SD Maid sa Google Play, pero hindi mapatunayan ang anumang pagbili ng Pro para sa account na ginagamit ng Google Play para sa app na ito.</string>
+    <string name="upgrade_screen_restore_contact_hint">Hirap pa rin? Kontakin ang suporta mula sa email na gumawa ng pagbili at isama ang iyong Google Play order number.</string>
 </resources>

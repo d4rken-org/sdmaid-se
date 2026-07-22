@@ -38,6 +38,7 @@
     <string name="general_error_label">Грешка</string>
     <string name="general_upgrade_action">Надградба</string>
     <string name="general_refresh_action">Освежи</string>
+    <string name="general_retry_action">Повтори</string>
     <string name="general_progress_searching">Пребарување</string>
     <string name="general_progress_generating_searchpaths">Генерирам патеки за пребарување</string>
     <string name="general_progress_filtering">Филтрирај</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Име (А → Ш)</string>
     <string name="general_sort_size_desc">Прво најголемите</string>
     <string name="general_tag_system">Систем</string>
+    <string name="general_tag_library">Библиотека</string>
     <string name="general_navigate_up_action">Оди нагоре</string>
     <string name="general_filter_action">Филтер</string>
     <string name="general_filter_by_tags_label">Филтрирајте по ознаки</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Пријави грешка</string>
     <string name="general_error_ipc_deadobject_title">Врската со услугата е изгубена</string>
     <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пр. Magisk, Shizuku или други услуги на системско ниво) неочекувано беше изгубена. Ве молиме рестартирајте го вашиот уред. Ако проблемот продолжи, проверете за ажурирања или контактирајте ме за да го поправам.</string>
-    <string name="general_error_upgrade_required_title">Потребна е Pro верзија</string>
-    <string name="general_error_upgrade_required_description">Ова е Pro функција. Молиме надградете го SD Maid SE за да ја користите.</string>
+    <string name="general_error_upgrade_required_title">Потребна е надградба</string>
+    <string name="general_error_upgrade_required_description">Оваа функција бара надградба. Ве молам надградете SD Maid SE за да ја користите.</string>
     <string name="general_user_label_owner">Сопственик</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Поставување</string>

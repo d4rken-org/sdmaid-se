@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">協力するには</string>
     <string name="upgrade_screen_how_body">パトロンとスポンサーの開発になりましょう！下のボタンをタップすると、すべての追加機能が有効になり、GitHub Sponsors プロファイルを開きます。</string>
     <string name="upgrade_screen_why_title">アップグレード特典</string>
-    <string name="upgrade_screen_why_body">• アプリキャッシュと不要なデータを削除
-• 重複ファイルを削除
-• スケジュール済みクリーンアップを有効化
-• カスタムフィルターとクリーンアップルールを作成
-• ストレージの傾向とクリーンアップ履歴を追跡
-• アプリ全体でより多くの機能と制御
-• オープンソース開発をサポート</string>
+    <string name="upgrade_screen_why_body">• アプリのキャッシュとジャンクのクリーニング\n• 重複ファイルの削除\n• 写真と動画の圧縮\n• スワイプで古いファイルを整理\n• ウィジェットからのワンタップクリーニング\n• クリーンアップのスケジュール設定\n• カスタムフィルターとルール\n• ストレージの傾向と履歴\n• アプリ全体でのその他の機能とコントロール\n• オープンソースの活動をサポート</string>
     <string name="upgrade_screen_sponsor_action">開発支援者</string>
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">もう戻りましたか？あなたのサポートがSD Maidを支えています！</string>
+    <string name="upgrade_screen_status_free_title">無料版</string>
+    <string name="upgrade_screen_status_free_body">現在、SD Maidの無料版をご利用いただいています。開発をサポートすることで追加機能のロックを解除できます。</string>
+    <string name="upgrade_screen_status_free_action">アップグレードオプションを見る</string>
+    <string name="upgrade_screen_status_upgraded_title">アップグレード有効</string>
+    <string name="upgrade_screen_status_upgraded_body">すべての追加機能のロックが解除されています。オープンソースの開発をサポートしていただきありがとうございます❤️</string>
+    <string name="upgrade_screen_recurring_title">継続をサポート</string>
+    <string name="upgrade_screen_recurring_body">SD Maidは更新や修正を通じて進化を続けています。これを支えたい場合は、GitHub Sponsorsでの定期寄付をご検討ください。</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsorsを開く</string>
 </resources>

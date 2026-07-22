@@ -37,13 +37,9 @@
     <string name="scheduler_notification_result_failure_message">କିଛି ନିର୍ଦ୍ଧାରିତ କାର୍ଯ୍ୟ ବିଫଳ ହୋଇଛି କିମ୍ବା ତ୍ରୁଟିର ସମ୍ମୁଖୀନ ହୋଇଛି। ସେଗୁଡ଼ିକୁ ହସ୍ତକୃତ ଭାବରେ ଚଲାଇବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">ଏଡ଼ାଇ ଦେଇଛି, ସ୍କ୍ରିନ ବନ୍ଦ ଥିଲା ବା ଲକ ଥିଲା</string>
     <string name="scheduler_acs_screenlocked_hint_title">ଆପ୍ ସଫାଇ ଏଡ଼ାଇ ଦେଇ ୟାଇ ପାରେ</string>
-    <string name="scheduler_acs_screenlocked_hint_body">ଆପ୍ ସଫାଇ ଆନୁକୂଲ୍ୟ ସେବା ବ୍ୟବହାର କରେ, ୟାହାର ସ୍କ୍ରିନ ଅନଲକ ଥିବା ଆବଶ୍ୟକ। ଡିଭାଇସ ଲକ ଥାଇବା ସମୟରେ ନିର୍ଧାରିତ ଚଳନଗୁଡ଼ିକ ଏଡ଼ାଇ ଦେଇ ୟାଏ।
-
-ପୃଷ୍ଠଭୂମି ସଫାଇ ପାଇଁ Shizuku ବା root ବ୍ୟବହାର କରନ୍ତୁ, ବା ଆପଣ ଡିଭାଇସ ବ୍ୟବହାର କରୁଥାଇବା ସମୟ ପାଇଁ ଏଟି ନିର୍ଧାରଣ କରନ୍ତୁ।</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ଆପ୍ ସଫାଇ ଆନୁକୂଲ୍ୟ ସେବା ବ୍ୟବହାର କରେ, ୟାହାର ସ୍କ୍ରିନ ଅନଲକ ଥିବା ଆବଶ୍ୟକ। ଡିଭାଇସ ଲକ ଥାଇବା ସମୟରେ ନିର୍ଧାରିତ ଚଳନଗୁଡ଼ିକ ଏଡ଼ାଇ ଦେଇ ୟାଏ।\n\nପୃଷ୍ଠଭୂମି ସଫାଇ ପାଇଁ Shizuku ବା root ବ୍ୟବହାର କରନ୍ତୁ, ବା ଆପଣ ଡିଭାଇସ ବ୍ୟବହାର କରୁଥାଇବା ସମୟ ପାଇଁ ଏଟି ନିର୍ଧାରଣ କରନ୍ତୁ।</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">ସିଷ୍ଟମ ଆପଗୁଡ଼ିକ ଏଡ଼ାଇ ଦେଇ ୟାଇ ପାରେ</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ପୃଷ୍ଠଭୂମିରେ ଅଧିକାଂଶ କ୍ୟାଚ ସଫାଇ କରେ, କିନ୍ତୁ ସିଷ୍ଟମ ଆପଗୁଡ଼ିକୁ ଆନୁକୂଲ୍ୟ ସେବା ଦରକାର, ୟାହା ସ୍କ୍ରିନ ଅନଲକ ଥିବାର ଦାବି କରେ। \"ସିଷ୍ଟମ ଆପ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ\" ଚାଲୁ ଥାଇବାରେ, ସେଗୁଡ଼ିକ ଡିଭାଇସ ଲକ ଥାଇବା ସମୟରେ ଏଡ଼ାଇ ଦେଇ ୟାଏ।
-
-\"ସିଷ୍ଟମ ଆପ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ\" ବନ୍ଦ କରନ୍ତୁ, ବା ଅନଲକ ଥାଇବା ସମୟରେ ନିର୍ଧାରଣ ଚଳନ ଚଲାନ୍ତୁ।</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku ପୃଷ୍ଠଭୂମିରେ ଅଧିକାଂଶ କ୍ୟାଚ ସଫାଇ କରେ, କିନ୍ତୁ ସିଷ୍ଟମ ଆପଗୁଡ଼ିକୁ ଆନୁକୂଲ୍ୟ ସେବା ଦରକାର, ୟାହା ସ୍କ୍ରିନ ଅନଲକ ଥିବାର ଦାବି କରେ। \"ସିଷ୍ଟମ ଆପ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ\" ଚାଲୁ ଥାଇବାରେ, ସେଗୁଡ଼ିକ ଡିଭାଇସ ଲକ ଥାଇବା ସମୟରେ ଏଡ଼ାଇ ଦେଇ ୟାଏ।\n\n\"ସିଷ୍ଟମ ଆପ୍ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ\" ବନ୍ଦ କରନ୍ତୁ, ବା ଅନଲକ ଥାଇବା ସମୟରେ ନିର୍ଧାରଣ ଚଳନ ଚଲାନ୍ତୁ।</string>
     <string name="scheduler_commands_after_schedule_label">ସମୟସୂଚୀ ପରବର୍ତ୍ତୀ କମାଣ୍ଡ</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell କମାଣ୍ଡ ଯାହା ଏକ ସମୟସୂଚୀର ଶେଷରେ କାର୍ଯ୍ୟକାରୀ ହେବ।</string>
     <string name="scheduler_battery_optimization_hint">ଯଦି ଆପଣ ପୃଷ୍ଠଭୂମି କାର୍ଯ୍ୟକାରିତା ସହିତ ସମସ୍ୟା ଅନୁଭବ କରୁଛନ୍ତି ତେବେ SD Maid ପାଇଁ ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ କରିବାକୁ ବିଚାର କରନ୍ତୁ।</string>

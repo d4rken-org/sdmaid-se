@@ -19,9 +19,10 @@
     <string name="deduplicator_detection_method_checksum_title">ឆេកសាំមាតិកា</string>
     <string name="deduplicator_detection_method_checksum_summary">កំណត់​សែសែ​ដោយ​ការ​ឡើ​ចន្ល​ម៉ួល​ប៉័ដ​សម្រួល​កំពិល័។ កំពិល័​ដែល​មាន​ចន្ល​​ម៉ួល​ប៉័ដ​ដឹក​គ្នា​មាន​និយម​ដឹក​គ្នា។</string>
     <string name="deduplicator_detection_method_phash_title">ឡើ​ហាស​​ប៉័ដ​ក្នុង​ចន្ល​</string>
-    <string name="deduplicator_detection_method_phash_summary">រក​កំពិល័​ដែល​​ស័ក់ញ្ញ​ដោយ​ការ​វិជ័យ​ព័ត័​ នឹង​ប្រើប្រាស់​ហាស​​ប៉័ដ​ក្នុង​ចន្ល​។ ⚠️ ការស័ក់​ដោយ​᠀អិន​អាច​មាន​កំហុស​ប៉ុន្តែ​ត្រូវការ​បញ្ជាក់​ដែល​ត្រូវ​ការ​បញ្ជាក់​ដោយ​ដែលឯបនើ។</string>
+    <string name="deduplicator_detection_method_phash_summary">ស្វែងរកឯកសារស្រដៀងគ្នាដោយវិលិ័ល់លក្ខណៈខ្លឹមសារ និងប្រៀបធៀបតម្លៃ hash ដែលយល់ឃើញ។</string>
     <string name="deduplicator_detection_method_media_title">រូបមន្តប្រព័ន្ធផ្សព្វផ្សាយ</string>
-    <string name="deduplicator_detection_method_media_summary">រក​ឯកសារ​វីដេអូ​និង​អូឌីយ៉ូ​ស្រដៀង​គ្នា​ដោយ​វិភាគ​ស្នាម​ម្រាមដៃ​អូឌីយ៉ូ។ ⚠️ ការ​រក​ឃើញ​ដែល​ផ្អែក​លើ​ភាព​ស្រដៀង​គ្នា​អាច​រួម​បញ្ចូល​ការ​រក​ឃើញ​មិន​ត្រឹម​ត្រូវ​ដែល​ត្រូវ​ការ​ការ​ផ្ទៀង​ផ្ទាត់​ដោយ​ដៃ។</string>
+    <string name="deduplicator_detection_method_media_summary">ស្វែងរកឯកសារវីដេអូ និងអូឌីយូស្រដៀងគ្នាដោយវិលិ័ល់ស្នាមម្រាមឧទ្ធរណ៍អូឌីយូ។</string>
+    <string name="deduplicator_detection_method_similarity_caveat">ការស៊ើបអង្កេតដែលផ្អែកលើភាពស្រដៀងគ្នាអាចរួមបញ្ចូលលទ្ធផលវិជ្ជមានមិនពិត ដែលតម្រូវឱ្យផ្ទៀងផ្ទាត់ដោយដៃ។</string>
     <string name="deduplicator_media_match_audio">ការ​ផ្គូផ្គង​ផ្អែក​លើ​សំឡេង</string>
     <string name="deduplicator_media_match_visual">ការ​ផ្គូផ្គង​ផ្អែក​លើ​វីដេអូ</string>
     <string name="deduplicator_media_match_audio_visual">ការ​ផ្គូផ្គង​ផ្អែក​លើ​សំឡេង​និង​វីដេអូ</string>

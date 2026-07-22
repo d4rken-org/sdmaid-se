@@ -10,6 +10,7 @@
         <item quantity="other">%d шляхів вибрано</item>
     </plurals>
     <string name="picker_home_action">Області даних</string>
+    <string name="picker_select_hint">Утримуйте елемент, щоб його вибрати</string>
     <string name="tour_action_next">Далі</string>
     <string name="tour_action_previous">Назад</string>
     <string name="tour_action_cancel">Пропустити</string>
@@ -18,6 +19,6 @@
     <string name="tour_confirm_continue">Продовжити екскурсію</string>
     <string name="tour_confirm_dont_show_this_tour">Не показувати цю екскурсію</string>
     <string name="tour_confirm_disable_all">Вимкнути всі екскурсії</string>
-    <string name="navigation_unknown_destination_title">Незабаром</string>
-    <string name="navigation_unknown_destination_message">Цей екран ще переходить на новий інтерфейс.</string>
+    <string name="navigation_unknown_destination_title">Екран недоступний</string>
+    <string name="navigation_unknown_destination_message">Цей екран не вдалося відкрити.</string>
 </resources>

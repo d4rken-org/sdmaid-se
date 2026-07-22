@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Bagaimana untuk membantu</string>
     <string name="upgrade_screen_how_body">Menjadi penaung dan penaja pembangunan! Ketik butang di bawah untuk mengaktifkan semua ciri tambahan dan buka profil Penaja GitHub saya.</string>
     <string name="upgrade_screen_why_title">Faedah peningkatan</string>
-    <string name="upgrade_screen_why_body">• Bersihkan cache aplikasi dan data yang boleh dibuang
-• Alih keluar fail pendua
-• Dayakan pembersihan berjadual
-• Buat penapis tersuai dan peraturan pembersihan
-• Jejak arah aliran penyimpanan dan sejarah pembersihan
-• Lebih banyak ciri dan kawalan di seluruh aplikasi
-• Sokong kerja sumber terbuka</string>
+    <string name="upgrade_screen_why_body">• Pembersihan cache dan sampah aplikasi\n• Penghapusan fail pendua\n• Mampatan foto dan video\n• Pembersihan fail lama dengan sapuan\n• Pembersihan sekali sentuh melalui widget\n• Penjadualan pembersihan\n• Penapis dan peraturan tersuai\n• Arah aliran dan sejarah penyimpanan\n• Lebih banyak ciri dan kawalan di seluruh aplikasi\n• Sokongan untuk kerja sumber terbuka</string>
     <string name="upgrade_screen_sponsor_action">Pembangunan penaja</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifnya ialah iklan, analitik dan Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Terima kasih kerana menyokong pembangunan sumber terbuka ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Dah balik? Sokongan anda menghidupkan SD Maid!</string>
+    <string name="upgrade_screen_status_free_title">Versi percuma</string>
+    <string name="upgrade_screen_status_free_body">Anda menggunakan versi percuma SD Maid. Ciri tambahan boleh diaktifkan dengan menyokong pembangunan.</string>
+    <string name="upgrade_screen_status_free_action">Lihat pilihan peningkatan</string>
+    <string name="upgrade_screen_status_upgraded_title">Peningkatan aktif</string>
+    <string name="upgrade_screen_status_upgraded_body">Semua ciri tambahan telah dibuka kunci. Terima kasih atas sokongan anda terhadap pembangunan sumber terbuka ❤️</string>
+    <string name="upgrade_screen_recurring_title">Teruskan</string>
+    <string name="upgrade_screen_recurring_body">SD Maid terus berkembang melalui kemaskini dan pembetulan. Jika anda ingin mengekalkan itu, pertimbangkan sumbangan berulang melalui GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Buka GitHub Sponsors</string>
 </resources>

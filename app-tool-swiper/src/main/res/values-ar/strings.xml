@@ -228,8 +228,8 @@
     <string name="swiper_session_no_matching_files">لم يتم العثور على ملفات مطابقة</string>
     <string name="swiper_open_externally_action">فتح في تطبيق خارجي</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">امسح صورة لتحديد مصيرها: جانباً للاحتفاظ أو الحذف، لأعلى للتخطي، لأسفل للتراجع. تفعل الأزرار أدناه الشيء ذاته — وتوضح أي جانب هو أي جانب.</string>
-    <string name="tour_swiper_openin_body">هذا الزر يفتح الصورة في تطبيق آخر، مفيد للتحقق منها قبل الاختيار.</string>
+    <string name="tour_swiper_gestures_body">اسحب ملفًا لتحديد مصيره: جانبًا للاحتفاظ به أو حذفه، لأعلى للتخطي، لأسفل للتراجع. الأزرار أدناه تفعل نفس الشيء - وتوضح أي جانب هو أي.</string>
+    <string name="tour_swiper_openin_body">يفتح هذا الزر الملف في تطبيق آخر، وهو مفيد للتحقق منه قبل الاختيار.</string>
     <string name="tour_swiper_preview_body">هذا الزر يفتح معاينة ملء الشاشة لإلقاء نظرة أقرب.</string>
     <string name="tour_swiper_actions_body">لا تفضل المسح بالإصبع؟ لدينا أزرار أيضاً! تخطي يتركها غير محددة لوقت لاحق، والضغط لفترة طويلة على تخطي يستبعد الملف من الفحوصات المستقبلية. التراجع يعيد اختيارك الأخير.</string>
     <string name="tour_swiper_review_body">خياراتك في الاحتفاظ والحذف مرحلية فقط. افتح المراجعة لمراجعتها وتطبيق الحذف عندما تكون مستعداً.</string>

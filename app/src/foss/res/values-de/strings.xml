@@ -2,16 +2,24 @@
 <resources>
     <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrades_dashcard_title">SD Maid SE upgraden</string>
-    <string name="upgrades_dashcard_body">Schalten Sie zusätzliche Funktionen frei und werden Sie Patron, um die Weiterentwicklung zu unterstützen!</string>
+    <string name="upgrades_dashcard_body">Schalte zusätzliche Funktionen frei und werde Unterstützer, um die weitere Entwicklung zu fördern!</string>
     <string name="upgrades_dashcard_upgrade_action">Upgrade</string>
     <string name="upgrade_screen_title">SD Maid unterstützen</string>
-    <string name="upgrade_screen_preamble">SD Maid enthält keine Werbung und verkauft keine Benutzerdaten. Die Weiterentwicklung wird nur durch Dich ermöglicht.</string>
+    <string name="upgrade_screen_preamble">SD Maid enthält keine Werbung und verkauft keine Nutzerdaten. Die weitere Entwicklung wird einzig durch dich ermöglicht.</string>
     <string name="upgrade_screen_how_title">Wie man hilft</string>
-    <string name="upgrade_screen_how_body">Werde Förderer und unterstütze Entwicklung! Klicke auf die Schaltfläche unten, um alle zusätzlichen Funktionen zu aktivieren und mein GitHub-Sponsorenprofil zu öffnen.</string>
+    <string name="upgrade_screen_how_body">Werde Unterstützer und fördere die Entwicklung! Tippe auf den Button unten, um alle Zusatzfunktionen zu aktivieren und mein GitHub-Sponsors-Profil zu öffnen.</string>
     <string name="upgrade_screen_why_title">Vorteile des Upgrades</string>
-    <string name="upgrade_screen_why_body">• App-Caches und überflüssige Daten bereinigen\n• Doppelte Dateien entfernen\n• Geplante Bereinigungen aktivieren\n• Benutzerdefinierte Filter und Bereinigungsregeln erstellen\n• Speichertrends und Bereinigungsverlauf verfolgen\n• Weitere Funktionen und Steuerelemente in der gesamten App\n• Open-Source-Arbeiten unterstützen</string>
-    <string name="upgrade_screen_sponsor_action">Weiterentwicklung unterstützen</string>
-    <string name="upgrade_screen_sponsor_action_hint">Die Alternative sind Anzeigen, Analysen und Google Play 🙁</string>
-    <string name="upgrade_screen_thanks_toast">Vielen Dank für Deine Unterstützung der Open-Source-Entwicklung ❤️</string>
+    <string name="upgrade_screen_why_body">• App-Cache- und Müllreinigung\n• Entfernen doppelter Dateien\n• Foto- und Videokomprimierung\n• Wischen zum Aufräumen alter Dateien\n• Ein-Tipp-Reinigung per Widget\n• Zeitgesteuerte Reinigung\n• Eigene Filter und Regeln\n• Speicher-Trends und -Verlauf\n• Weitere Funktionen und Einstellungen in der gesamten App\n• Open-Source-Arbeit unterstützen</string>
+    <string name="upgrade_screen_sponsor_action">Entwicklung fördern</string>
+    <string name="upgrade_screen_sponsor_action_hint">Die Alternativen wären Werbung, Tracking und Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Vielen Dank, dass du Open-Source-Entwicklung unterstützt ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Schon zurück? Deine Unterstützung hält SD Maid am Leben!</string>
+    <string name="upgrade_screen_status_free_title">Kostenlose Version</string>
+    <string name="upgrade_screen_status_free_body">Du nutzt die kostenlose Version von SD Maid. Zusatzfunktionen können freigeschaltet werden, indem du die Entwicklung unterstützt.</string>
+    <string name="upgrade_screen_status_free_action">Upgrade-Optionen ansehen</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade aktiv</string>
+    <string name="upgrade_screen_status_upgraded_body">Alle Zusatzfunktionen sind freigeschaltet. Vielen Dank, dass du die Open-Source-Entwicklung unterstützt ❤️</string>
+    <string name="upgrade_screen_recurring_title">Projekt unterstützen</string>
+    <string name="upgrade_screen_recurring_body">SD Maid entwickelt sich durch Updates und Fehlerbehebungen stetig weiter. Wenn du das nachhaltig unterstützen möchtest, ziehe eine wiederkehrende Spende über GitHub Sponsors in Betracht.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors öffnen</string>
 </resources>

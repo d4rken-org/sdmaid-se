@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">导入新过滤规则</string>
     <string name="systemcleaner_customfilter_export_action">导出选中的过滤规则</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner 使用非应用程序特定的过滤器查找垃圾文件。存在针对空文件夹、剩余日志和过时缩略图等的现成规则。如果要创建自己的规则，请访问设置。</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner 使用非应用专用的过滤器来查找垃圾文件。存在针对空文件夹、剩余日志和过期缩略图等的现成规则。如果您想创建自己的规则，请访问设置。</string>
     <string name="tour_systemcleaner_filter_body">每一行是一个过滤器及其搜索结果。在删除任何内容之前，打开其详细信息以查看在哪些文件匹配。</string>
 </resources>

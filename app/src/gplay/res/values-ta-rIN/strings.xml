@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD Maid SE Pro பெறுக</string>
     <string name="upgrade_screen_preamble">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்கவில்லை. எனது பணி உங்களால் நிதியளிக்கப்படுகிறது ❤️.</string>
     <string name="upgrade_screen_benefits_title">மேம்படுத்தல் நன்மைகள்</string>
-    <string name="upgrade_screen_benefits_body">• பயன்பாட்டு கேச் மற்றும் செலவிடக்கூடிய தகவல் சுத்தம் செய்யவும்
-• நகலெடுக்கப்பட்ட கோப்புகளை அகற்றவும்
-• திட்டமிடப்பட்ட சுத்தீகரணங்களை இயக்கவும்
-• தனிப்பயன் வடிப்பிகள் மற்றும் சுத்தம் செய்யும் விதிகளை உருவாக்கவும்
-• சேமிப்பக போக்குகள் மற்றும் சுத்தீகரணத் வரலாறுகளைக் கண்காணிக்கவும்
-• பயன்பாட்டு முழுவதும் கூடுதல் அம்சங்கள் மற்றும் கட்டுப்பாடுகள்
-• தொடர்ந்த வளர்ச்சிக்கு ஆதரவு</string>
+    <string name="upgrade_screen_benefits_body">• பயன்பாட்டு கேச் மற்றும் குப்பை சுத்தம் செய்தல்\n• நகல் கோப்பு நீக்குதல்\n• புகைப்படம் மற்றும் வீடியோ சுருக்கல்\n• பழைய கோப்புகளை நீக்குவதற்கு ஸ்வைப் செய்யவும்\n• விட்ஜெட் மூலம் ஒரு-தட்டல் சுத்தம் செய்தல்\n• சுத்தம் செய்தல் அட்டவணைப்படுத்தல்\n• தனிப்பயன் வடிப்பான்கள் மற்றும் விதிகள்\n• சேமிப்பு போக்குகள் மற்றும் வரலாறு\n• பயன்பாட்டு முழுவதும் மேலும் அம்சங்கள் மற்றும் கட்டுப்பாடுகள்\n• தொடர்ந்த வளர்ச்சிக்கு ஆதரவு</string>
+    <string name="upgrade_screen_offers_title">மேம்படுத்தல் விருப்பங்கள்</string>
+    <string name="upgrade_screen_offers_body">அதே அம்சங்கள், வெறுமனே வெவ்வேறு விலை நிர்ணய மாதிரிகள்.</string>
+    <string name="upgrade_screen_offers_or">அல்லது</string>
     <string name="upgrade_screen_subscription_offer_title">வருடாந்திர சந்தா</string>
+    <string name="upgrade_screen_subscription_offer_body">இலவச சோதனைக்குப் பிறகு ஆண்டுதோறும் புதுப்பிக்கப்படுகிறது. Google Play இல் எப்போது வேண்டுமானும் ரத்து செய்யவும்.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">ஆண்டுதோறும் புதுப்பிக்கப்படுகிறது. Google Play இல் எப்போது வேண்டுமானும் ரத்து செய்யவும்.</string>
     <string name="upgrade_screen_iap_offer_title">ஒரு முறை வாங்கவும்</string>
+    <string name="upgrade_screen_iap_offer_body">ஒரு முறை பணம், புதுப்பிப்புகள் இல்லை.</string>
     <string name="upgrade_screen_offers_unavailable_message">விலைகள் இப்போது ஏற்ற முடியவில்லை. Google Play ஐ சரிபார்க்கவும் மற்றும் சிறிது நேரத்தில் மீண்டும் முயற்சி செய்யவும்.</string>
     <string name="upgrade_screen_subscription_trial_action">இலவச 14-நாள் சோதனையைத் தொடங்கு</string>
     <string name="upgrade_screen_subscription_action">சந்தா</string>
     <string name="upgrade_screen_iap_action">ஒரு முறை வாங்குதல்</string>
     <string name="upgrade_screen_thanks_toast">நீங்கள் சிறந்தவர்! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">வாங்குதலை மீட்டமை</string>
+    <string name="upgrade_screen_restore_banner_title">ஏற்கனவே Pro வாங்கியுள்ளீர்களா?</string>
+    <string name="upgrade_screen_restore_banner_body">இந்த சாதனத்தில் நீங்கள் முன்பு Pro-க்கு மாற்றியுள்ளீர்கள் என்று தெரிகிறது. உங்கள் வாங்குதலை மீட்டமை செய்து அதை மீண்டும் திறக்கவும்.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store ஒத்திசைவு நேரம் எடுக்கலாம். மறுதொடக்கம் செய்ய, Google Play தற்காலிக சேமிப்பை அழிக்க அல்லது காத்திருக்க முயற்சிக்கவும்.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">பல கணக்குகள் Google Playஐ குழப்பலாம். Google Play வலைத்தளம் வழியாக பயன்பாட்டை நிறுவவும், இது குறிப்பிட்ட கணக்குடன் தொடர்புகளை கட்டாயப்படுத்துகிறது.</string>
+    <string name="upgrade_screen_owned_hero_title">வாழ்த்துக்கள்!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">நீங்கள் %1$s உள்ளீர்கள், உங்கள் சந்தா மூலம் திறக்கப்பட்டுள்ளது.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">நீங்கள் %1$s உள்ளீர்கள், உங்கள் ஒரு முறை வாங்குதல் மூலம் திறக்கப்பட்டுள்ளது.</string>
+    <string name="upgrade_screen_owned_iap_title">ஒரு முறை வாங்குதல்</string>
+    <string name="upgrade_screen_owned_iap_body">நீங்கள் ஒரு முறை Pro மாற்றுதலை வசம் வைத்துள்ளீர்கள். Pro இந்த Google கணக்கில் திறந்த நிலையில் உள்ளது. SD Maid ஐ ஆதரவளித்ததற்கு நன்றி ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">உங்கள் Pro சந்தா செயல்பட்டுக் கொண்டுள்ளது மற்றும் புதுப்பிக்க அமைக்கப்பட்டுள்ளது. பில்லிங் Google Play மூலம் நிர்வகிக்கப்படுகிறது.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">ஒரு முறை வாங்குதலை விரும்புகிறீர்களா? உங்கள் சந்தா புதுப்பிக்க அமைக்கப்படாமல் இருந்தால் இது கிடைக்கிறது. மாற்ற Google Play இல் சந்தாவை ரத்து செய்யவும்.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">உங்கள் Pro சந்தா செயல்பட்டுக் கொண்டுள்ளது, ஆனால் புதுப்பிக்க அமைக்கப்படவில்லை. Pro தற்போதைய காலம் முடியும் வரை கிடைக்கிறது.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">இந்த சந்தாவு இன்னும் புதுப்பிக்க அமைக்கப்பட்டிருக்கிறது, இருப்பினும் நீங்கள் ஏற்கனவே ஒரு முறை மேம்பாட்டை வாங்கியிருக்கீர்கள். Google Play-ல் நீங்கள் அதை ரத்து செய்யலாம்.</string>
+    <string name="upgrade_screen_manage_subscription_action">சந்தாவை நிர்வகிக்கவும்</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">இது ஒரு தனித்தனிய கொள்முதல்: இது உங்கள் சந்தாவை ரத்து செய்யாது அல்லது திரும்ப பெற்றுக்கொடுக்காது. இரண்டுக்கும் ஒரே Google கணக்கைப் பயன்படுத்தவும்.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">சந்தா இன்னும் செயல்பட்டுக்கொண்டிருக்கிறது</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play உங்கள் சந்தா இன்னும் புதுப்பிக்க அமைக்கப்பட்டுள்ளது என்று தெரிவிக்கிறது. ஒரு முறை மேம்பாட்டை வாங்குவதற்கு, முதலில் Google Play-ல் சந்தாவை ரத்து செய்து, பின்னர் இங்கே திரும்பவும்.\n\nஇப்போதுதான் ரத்து செய்துவிட்டீர்களா? Google Play க்கு ஒரு தருணம் கொடுங்கள் மற்றும் மீண்டும் முயற்சி செய்யவும். நீங்கள் ஒரே Google கணக்கைப் பயன்படுத்துகிறீர்கள் என்பதையும் உறுதிசெய்து கொள்ளவும்.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Google Play உடன் உங்கள் சந்தா நிலையைச் சரிபார்க்க முடியவில்லை. தயவுசெய்து சிறிதுநேரத்தில் மீண்டும் முயற்சி செய்யவும்.</string>
+    <string name="upgrade_screen_restore_success_message">கொள்முதல் மீட்டெடுக்கப்பட்டது, உங்கள் Pro மேம்பாடு செயல்பட்டுக்கொண்டிருக்கிறது.</string>
+    <string name="upgrade_screen_grace_title">உங்கள் கொள்முதலை உறுதிப்படுத்துகிறது</string>
+    <string name="upgrade_screen_grace_body_short">Pro இன்னும் செயல்பட்டுக்கொண்டிருக்கிறது. Google Play உங்கள் கொள்முதலை மீண்டும் உறுதிப்படுத்த பொறுத்திருக்கிறது, இதற்குள் அனைத்து Pro அம்சங்களும் செயல்பட்டுக்கொண்டிருக்கிறது.</string>
+    <string name="upgrade_screen_grace_body">Pro இன்னும் செயல்பட்டுக்கொண்டிருக்கிறது, ஆனால் Google Play உங்கள் கொள்முதலை சிறிதுநேரமாக உறுதிப்படுத்தவில்லை. நீங்கள் Pro வாங்கினால், கொள்முதலை மீட்டெடுத்து Google Play அதை வாங்கிய கணக்கைப் பயன்படுத்துகிறது என்பதைச் சரிபார்க்கவும். சந்தா முடிந்துவிட்டாலோ அல்லது கொள்முதல் திரும்ப பெற்றுக்கொடுக்கப்பட்டாலோ, Pro தனே முடிந்துவிடும், வேறு எதுவும் செய்ய வேண்டியதில்லை.</string>
+    <string name="upgrade_screen_restore_body">மீட்டெடுக்கல் Google Play ஐ இந்தப் பயன்பாட்டின் கொள்முதல்களை தற்போதைய கணக்குக்கு மீண்டும் சரிபார்க்கக் கேட்கிறது. இது புதிய கொள்முதலைத் தொடங்காது.</string>
+    <string name="upgrade_screen_restore_status_title">நிலை தவறாக இருக்கிறதா?</string>
+    <string name="upgrade_screen_restore_status_body">கொள்முதல் விடுபட்டிருந்தால் அல்லது இந்த நிலை தவறாக இருந்தால், Google Play உடன் மீண்டும் சரிபார்க்கவும்.</string>
+    <string name="upgrade_screen_contact_support_action">ஆதரவைத் தொடர்புகொள்ளவும்</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid Google Play ஐ சரிபார்த்தது, ஆனால் இந்த பயன்பாட்டிற்கு Google Play பயன்படுத்தும் கணக்குக்கு Pro கொள்முதல் உறுதிப்படுத்த முடியவில்லை.</string>
+    <string name="upgrade_screen_restore_contact_hint">இன்னும் சிக்கிக்கொண்டிருக்கீர்களா? கொள்முதல் செய்த மின்னஞ்சல் முகவரியிலிருந்து ஆதரவைத் தொடர்புகொள்ளவும் மற்றும் உங்கள் Google Play ஆர்டர் எண்ணைச் சேர்க்கவும்.</string>
 </resources>

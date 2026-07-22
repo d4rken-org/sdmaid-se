@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD Maid SE 프로 구매</string>
     <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 유저 데이터를 팔지 않습니다. 여러분의 지원으로 개발됩니다. ❤️</string>
     <string name="upgrade_screen_benefits_title">업그레이드 혜택</string>
-    <string name="upgrade_screen_benefits_body">• 앱 캐시 및 불필요한 데이터 정리
-• 중복 파일 제거
-• 예약된 정리 활성화
-• 사용자 정의 필터 및 정리 규칙 만들기
-• 저장소 추세 및 정리 기록 추적
-• 앱 전체에서 더 많은 기능 및 제어
-• 지속적인 개발 지원</string>
+    <string name="upgrade_screen_benefits_body">• 앱 캐시 및 정크 파일 정리\n• 중복 파일 제거\n• 사진 및 동영상 압축\n• 스와이프로 오래된 파일 정리\n• 위젯을 통한 한 번의 탭 정리\n• 정리 예약\n• 사용자 정의 필터 및 규칙\n• 저장소 트렌드 및 히스토리\n• 앱 전체의 더 많은 기능 및 제어\n• 지속적인 개발 지원</string>
+    <string name="upgrade_screen_offers_title">업그레이드 옵션</string>
+    <string name="upgrade_screen_offers_body">동일한 기능, 다양한 가격 모델일 뿐입니다.</string>
+    <string name="upgrade_screen_offers_or">또는</string>
     <string name="upgrade_screen_subscription_offer_title">연간 구독</string>
+    <string name="upgrade_screen_subscription_offer_body">무료 체험 후 매년 갱신됩니다. Google Play에서 언제든지 취소할 수 있습니다.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">매년 갱신됩니다. Google Play에서 언제든지 취소할 수 있습니다.</string>
     <string name="upgrade_screen_iap_offer_title">한 번 구입</string>
+    <string name="upgrade_screen_iap_offer_body">한 번의 결제, 갱신 없음.</string>
     <string name="upgrade_screen_offers_unavailable_message">지금 가격을 불러올 수 없습니다. Google Play를 확인하고 잠시 후 다시 시도해주세요.</string>
     <string name="upgrade_screen_subscription_trial_action">14일 무료 평가판 시작</string>
     <string name="upgrade_screen_subscription_action">구독하기</string>
     <string name="upgrade_screen_iap_action">영구적 구매</string>
     <string name="upgrade_screen_thanks_toast">감사합니다! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">구매 복원</string>
+    <string name="upgrade_screen_restore_banner_title">이미 Pro를 구매하셨나요?</string>
+    <string name="upgrade_screen_restore_banner_body">이전에 이 기기에서 Pro로 업그레이드한 것 같습니다. 구매를 복원하여 다시 잠금을 해제하세요.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 스토어 동기화는 시간이 걸릴 수 있습니다. 재부팅하거나 Google Play 캐시를 지우거나 잠시 기다려 보세요.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">여러 계정이 Google Play를 혼동할 수 있습니다. Google Play 웹사이트를 통해 앱을 설치하면 특정 계정과의 연결이 강제됩니다.</string>
+    <string name="upgrade_screen_owned_hero_title">축하합니다!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">구독으로 잠금이 해제된 %1$s이(가) 있습니다.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">일회성 구매로 잠금이 해제된 %1$s이(가) 있습니다.</string>
+    <string name="upgrade_screen_owned_iap_title">일회성 구매</string>
+    <string name="upgrade_screen_owned_iap_body">일회성 Pro 업그레이드를 소유하고 있습니다. Pro는 이 Google 계정에서 계속 잠금이 해제된 상태로 유지됩니다. SD Maid를 지원해주셔서 감사합니다 ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Pro 구독이 활성화되어 있으며 갱신할 예정입니다. 청구는 Google Play에서 관리합니다.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">일회성 구매를 선호하세요? 구독이 더 이상 갱신하도록 설정되지 않으면 사용할 수 있습니다. 변경하려면 Google Play에서 구독을 취소하세요.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Pro 구독이 활성화되어 있지만 갱신할 예정이 아닙니다. Pro는 현재 기간이 끝날 때까지 사용 가능합니다.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">이 구독은 여전히 자동 갱신으로 설정되어 있지만, 이미 일회 업그레이드를 소유하고 있습니다. Google Play에서 취소할 수 있습니다.</string>
+    <string name="upgrade_screen_manage_subscription_action">구독 관리</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">이것은 별도의 구매입니다: 구독을 취소하거나 환불하지 않습니다. 두 경우 모두 동일한 Google 계정을 사용하세요.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">구독이 여전히 활성 상태입니다</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play에서 귀하의 구독이 여전히 자동 갱신으로 설정되어 있다고 보고합니다. 일회 업그레이드를 구매하려면 먼저 Google Play에서 구독을 취소한 후 여기로 돌아오세요.\n\n방금 취소했습니까? Google Play가 처리될 때까지 잠시 기다렸다가 다시 시도하세요. 동일한 Google 계정을 사용하고 있는지도 확인하세요.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Google Play로 구독 상태를 확인할 수 없습니다. 잠시 후 다시 시도해주세요.</string>
+    <string name="upgrade_screen_restore_success_message">구매가 복구되었으며, Pro 업그레이드가 활성화되었습니다.</string>
+    <string name="upgrade_screen_grace_title">구매 확인 중</string>
+    <string name="upgrade_screen_grace_body_short">Pro가 여전히 활성입니다. Google Play가 구매를 다시 확인할 때까지 기다리는 중이며, 그동안 모든 Pro 기능은 잠금 해제 상태로 유지됩니다.</string>
+    <string name="upgrade_screen_grace_body">Pro가 여전히 활성이지만, Google Play가 구매를 한동안 확인하지 못했습니다. Pro를 구매했다면 구매를 복구하고 Google Play가 구매한 계정을 사용하고 있는지 확인하세요. 구독이 끝났거나 구매가 환불되었다면 Pro는 자동으로 꺼질 것이므로 추가 조치는 필요 없습니다.</string>
+    <string name="upgrade_screen_restore_body">복원하기는 Google Play에 현재 계정의 이 앱의 구매를 다시 확인하도록 요청합니다. 새로운 구매를 시작하지 않습니다.</string>
+    <string name="upgrade_screen_restore_status_title">상태가 잘못된 것 같나요?</string>
+    <string name="upgrade_screen_restore_status_body">구매가 누락되었거나 이 상태가 올바르지 않은 경우 Google Play에서 다시 확인하세요.</string>
+    <string name="upgrade_screen_contact_support_action">지원팀에 문의</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid가 Google Play를 확인했지만 이 앱이 사용하는 계정에 대해 Pro 구매를 확인할 수 없습니다.</string>
+    <string name="upgrade_screen_restore_contact_hint">여전히 문제가 있으신가요? 구매를 진행한 이메일에서 지원팀에 문의하고 Google Play 주문 번호를 포함하세요.</string>
 </resources>

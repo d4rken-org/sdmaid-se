@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ഫ്രീ ആക്കി</string>
     <string name="dashboard_hero_freeable_x_items">%1$s നീക്കം ചെയ്യാം</string>
     <string name="dashboard_hero_freed_x_items">%1$s നീക്കം ചെയ്യപ്പെട്ടു</string>
-    <string name="dashboard_hero_freeable_hint">സ്പേസ് സ്വതന്ത്രമാക്കാൻ ബട്ടൺ ടാപ്പ് ചെയ്യുക. ആദ്യം പരിശോധിക്കാൻ ചിപ്പ് ടാപ്പ് ചെയ്യുക.</string>
+    <string name="dashboard_hero_freeable_hint">സ്ഥലം സ്വതന്ത്ര ചെയ്യാൻ ബട്ടൺ തൊടുക, അല്ലെങ്കിൽ ആദ്യം പരിശോധിക്കാൻ ഒരു ചിപ് തൊടുക.</string>
     <string name="dashboard_hero_freed_hint">വിശദാംശങ്ങൾക്കായി ചിപ്പ് ടാപ്പ് ചെയ്യുക.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">സ്കാൻ ചെയ്ത %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">അടുത്ത പൊരുത്തം</string>
     <string name="debug_logview_jump_to_bottom_action">ഏറ്റവും പുതിയതിലേക്ക് ചാടുക</string>
     <string name="debug_logview_paused_msg">നിർത്തിയിരിക്കുന്നു — ബഫർ ഫ്രോസൻ</string>
-    <string name="debug_logview_paused_dropped_msg">നിർത്തിയിരിക്കുന്നു — %1$d പുതിയ വരി(കൾ) ഒഴിവാക്കിയിരിക്കുന്നു</string>
+    <string name="debug_logview_paused_dropped_msg">നിർത്തിയിരിക്കുന്നു — പുതിയ ലൈനുകൾ ഒഴിവാക്കിയിരിക്കുന്നു: %1$d</string>
     <string name="debug_logview_copied_msg">ലോഗ് ക്ലിപ്പ്‌ബോർഡിലേക്ക് പകർ‍ത്തി</string>
     <string name="debug_logview_share_label">ലോഗ് പങ്കുവെയ്യുക</string>
     <string name="debug_debuglog_screen_title">ഡീബഗ് ലോഗ്</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുന്നു.</string>
     <string name="settings_category_other_label">മറ്റുള്ളവ</string>
+    <string name="settings_upgrade_description">അപ്‌ഗ്രേഡ് നിലയും ഐച്ഛികതകളും.</string>
     <string name="general_settings_label">പൊതുവായ</string>
     <string name="general_settings_desc">മുഴുവൻ ആപ്പിനെയും ബാധിക്കുന്ന പൊതുവായ ക്രമീകരണങ്ങൾ.</string>
     <string name="settings_category_ui_label">ഉപയോക്തൃ ഇന്റർഫേസ്</string>
@@ -299,10 +300,8 @@
     </plurals>
     <string name="anniversary_share_title">നിങ്ങളുടെ SD Maid വാർഷികി പങ്കിടുക</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">SD Maid-ല്‍ %1$d വർഷം — മുക്തമാക്കിയ സ്ഥലം: %2$s. നിങ്ങളുടെ Android സ്വച്ചവും കൃത്യവും സൂക്ഷിക്കുന്നു. #SDMaid
-പരീക്ഷിക്കുക: %3$s</item>
-        <item quantity="other">SD Maid-ല്‍ %1$d വർഷം — മുക്തമാക്കിയ സ്ഥലം: %2$s. നിങ്ങളുടെ Android സ്വച്ചവും കൃത്യവും സൂക്ഷിക്കുന്നു. #SDMaid
-പരീക്ഷിക്കുക: %3$s</item>
+        <item quantity="one">SD Maid-ല്‍ %1$d വർഷം — മുക്തമാക്കിയ സ്ഥലം: %2$s. നിങ്ങളുടെ Android സ്വച്ചവും കൃത്യവും സൂക്ഷിക്കുന്നു. #SDMaid\nപരീക്ഷിക്കുക: %3$s</item>
+        <item quantity="other">SD Maid-ല്‍ %1$d വർഷം — മുക്തമാക്കിയ സ്ഥലം: %2$s. നിങ്ങളുടെ Android സ്വച്ചവും കൃത്യവും സൂക്ഷിക്കുന്നു. #SDMaid\nപരീക്ഷിക്കുക: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">സ്കാൻ + ഡിലീറ്റ്</string>
     <string name="shortcut_onetap_long">ഒരു നടപടിയിൽ സ്കാൻ ചെയ്യുകയും ഡിലീറ്റ് ചെയ്യുകയും ചെയ്യുക</string>
@@ -323,11 +322,17 @@
     <string name="widget_home_description">സ്ഥലം ഉപയോഗവും ഒരു-ടാപ്പ് ശുദ്ധീകരണവും</string>
     <string name="widget_home_storage_internal">ആന്തരിക</string>
     <string name="widget_home_storage_external">ബാഹ്യ</string>
-    <string name="widget_home_freed_label">മുക്തമാക്കിയത്: %1$s</string>
+    <string name="widget_home_freed_label">ജീവനകാലം: %1$s</string>
     <string name="widget_home_clean_action">ശുദ്ധമാക്കുക</string>
     <string name="widget_home_working">പ്രവർത്തിക്കുന്നു…</string>
     <string name="widget_home_unavailable">സ്റ്റോറേജ് ലഭ്യമല്ല</string>
-    <string name="shortcut_onetap_started">സ്കാൻ &amp; ഡിലിറ്റ് ആരംഭിച്ചു…</string>
+    <string name="settings_category_widget">വിജറ്റ്</string>
+    <string name="widget_settings_oneclick_summary">ഹോം സ്ക്രീൻ വിജറ്റിന്റെ ക്ലീൻ ബട്ടൺ ഒരു തൊടലിൽ സ്കാൻ ചെയ്യാനും ഇല്ലാതാക്കാനും അനുവദിക്കുക, ഓരോ തവണയും ചോദിക്കാതെ.</string>
+    <string name="widget_oneclick_consent_title">ഒരു തൊടൽ ശുചിത്വം പ്രാപ്തമാക്കണോ?</string>
+    <string name="widget_oneclick_consent_message">വിജറ്റിന്റെ ക്ലീൻ ബട്ടൺ ഒരെണ്ണത്തിൽ സ്കാൻ ചെയ്യും, ഇല്ലാതാക്കും — ആദ്യം ചോദിക്കാതെയും നീക്കം ചെയ്യുന്നത് അവലോകനം ചെയ്യാൻ അനുവദിക്കാതെയും.</string>
+    <string name="widget_oneclick_consent_enable_action">പ്രാപ്തമാക്കുക</string>
+    <string name="widget_oneclick_consent_decline_action">ഇപ്പോൾ അല്ല</string>
+    <string name="shortcut_onetap_started">സ്കാൻ + ഇല്ലാതാക്കൽ തുടങ്ങിയിരിക്കുന്നു…</string>
     <string name="shortcut_onetap_nothing_enabled">ഒരു ടാപ്പ് ഉപകരണങ്ങളൊന്നും സജ്ജമാക്കിയിട്ടില്ല</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ബാക്കപ്പ് &amp; പുനഃസ്ഥാപനം</string>
@@ -354,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ഈ ബാക്കപ്പ് Android %1$s ൽ നിർമ്മിക്കപ്പെട്ടതാണ്, എന്നാൽ ഈ ഉപകരണം Android %2$s ൽ പ്രവർത്തിക്കുന്നു.</string>
     <string name="backup_restore_warn_device_body">ഈ ബാക്കപ്പ് വ്യത്യസ്ത ഉപകരണത്തിൽ നിർമ്മിക്കപ്പെട്ടതാണ് (%1$s വേറെ %2$s).</string>
     <string name="backup_restore_warn_flavor_body">ഈ ബാക്കപ്പ് വ്യത്യസ്ത അപ്ലിക്കേഷൻ പതിപ്പിൽ നിന്നുള്ളതാണ് (%1$s വെർസസ് %2$s).</string>
-    <string name="backup_restore_warn_history_body">ഈ ബാക്കപ്പിന്റെ ചരിത്ര ഡാറ്റ (സ്ഥിതിവിവരം, കംപ്രെഷൻ ചരിത്രം, സ്വൈപ്പ് സെഷനുകൾ) വ്യത്യസ്ത അപ്ലിക്കേഷൻ പതിപ്പിൽ നിന്നുള്ളതാണ് കൂടാതെ പുനരുദ്ധരിക്കാൻ കഴിയില്ല. ബാക്കിയെല്ലാം പുനരുദ്ധരിക്കപ്പെടും.</string>
+    <string name="backup_restore_warn_history_body">ഈ ബാക്കപ്പിന്റെ ചരിത്ര ഡാറ്റ (സ്ഥിതിവിവരണം, കംപ്രെഷൻ ചരിത്രം, സ്വൈപ്പ് സെഷനുകൾ) വ്യത്യസ്ത ആപ്പ് സംസ്കരണത്തിൽ നിന്നുള്ളതും പുനരുദ്ധരിക്കാൻ കഴിയാത്തതുമാണ്. മറ്റെല്ലാം പുനരുദ്ധരിക്കും.</string>
     <string name="backup_restore_ack_understand">ഞാൻ മനസ്സിലാക്കി തുടരാൻ ആഗ്രഹിക്കുന്നു</string>
     <string name="backup_restore_action_restore">പുനരുദ്ധരിക്കുക</string>
 </resources>

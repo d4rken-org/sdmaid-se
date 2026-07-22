@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Vlerësohet ~%d%% kursim për skedarët JPEG</string>
     <string name="squeezer_onboarding_got_it">E kuptova</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer rikompreson fotot dhe videot tuaja në mënyrë që të zënë më pak vend. Skedarët mbeten të përdorshëm, vetëm më të vegjël, dhe secili tregon kursimin e vlerësuar.</string>
+    <string name="tour_squeezer_intro_body">Squeezer ripunon fotografitë dhe videot tuaja në mënyrë që të zënë më pak vend. Ju sakrifikoni pak cilësi për hapësirën që fitoni. Çdo artikull tregon kursimet e vlerësuara, kështu që mund të vendosni se çfarë vlen.</string>
     <string name="tour_squeezer_compress_body">Kompresi gjithçka në të njëjtën kohë këtu, ose trokit një element për ta zvogëluar atë. Shtypja e gjatë për të zgjedhur disa. Gjithmonë do të shikoni një pamje përpara se të ndryshojë ndonjë gjë.</string>
 </resources>

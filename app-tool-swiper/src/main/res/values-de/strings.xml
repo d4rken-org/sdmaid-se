@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Keine passenden Dateien gefunden</string>
     <string name="swiper_open_externally_action">In externer App öffnen</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Wischen Sie über ein Foto, um über sein Schicksal zu entscheiden: Seitwärts zum Behalten oder Löschen, nach oben zum Überspringen, nach unten zum Rückgängigmachen. Die Schaltflächen unten machen dasselbe – und zeigen, welche Seite welche ist.</string>
-    <string name="tour_swiper_openin_body">Diese Schaltfläche öffnet das Foto in einer anderen App – praktisch zum Überprüfen vor Ihrer Entscheidung.</string>
+    <string name="tour_swiper_gestures_body">Wische eine Datei seitwärts zum Behalten oder Löschen, oben zum Überspringen oder unten zum Rückgängigmachen. Die Schaltflächen unten machen dasselbe – und zeigen, welche Seite welche ist.</string>
+    <string name="tour_swiper_openin_body">Diese Schaltfläche öffnet die Datei in einer anderen App, praktisch um sie vor der Entscheidung zu überprüfen.</string>
     <string name="tour_swiper_preview_body">Diese Schaltfläche öffnet eine Vollbildvorschau zum genaueren Betrachten.</string>
     <string name="tour_swiper_actions_body">Mögen Sie das Wischen nicht? Wir haben auch Schaltflächen! Mit „Überspringen“ bleibt die Entscheidung für später offen, und das lange Drücken von „Überspringen“ schließt eine Datei aus zukünftigen Scans aus. „Rückgängig“ macht Ihre letzte Wahl rückgängig.</string>
     <string name="tour_swiper_review_body">Ihre Beibehaltungs- und Löschentscheidungen sind nur vorgemerkt. Öffnen Sie die Überprüfung, um diese durchzugehen und die Löschungen anzuwenden, wenn Sie bereit sind.</string>

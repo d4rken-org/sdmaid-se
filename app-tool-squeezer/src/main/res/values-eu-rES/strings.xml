@@ -79,9 +79,7 @@
     <string name="squeezer_history_clear_title">Garbitu konpresio-historia</string>
     <string name="squeezer_history_clear_message">Honek aurretik konprimatutako fitxategiak berriro konprimatzea ahalbidetuko du. Fitxategiek beraiek ez dute eraginik jasaten.</string>
     <string name="squeezer_onboarding_title">Irudi-konpresioa buruz</string>
-    <string name="squeezer_onboarding_message">Irudi-konpresioak fitxategi-tamaina murrizten du xehetasun bisuala kenduz. Prozesu hau itzulezina da - jatorrizko kalitatea ezin da berreskuratu.
-
-Hona hemen zure irudiak nola ikusiko diren aurrebista:</string>
+    <string name="squeezer_onboarding_message">Irudi-konpresioak fitxategi-tamaina murrizten du xehetasun bisuala kenduz. Prozesu hau itzulezina da - jatorrizko kalitatea ezin da berreskuratu.\n\nHona hemen zure irudiak nola ikusiko diren aurrebista:</string>
     <string name="squeezer_onboarding_original_label">Jatorrizkoa</string>
     <string name="squeezer_onboarding_compressed_label">Konpresio ondoren</string>
     <string name="squeezer_onboarding_video_original_label">Bideo-fotograma</string>
@@ -117,6 +115,6 @@ Hona hemen zure irudiak nola ikusiko diren aurrebista:</string>
     <string name="squeezer_estimated_savings_percent">Gutxi gorabehera ~%d%% aurrezkia JPEG fitxategientzat</string>
     <string name="squeezer_onboarding_got_it">Ulertuta</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer zure argazkiak eta bideoak berkonprimitu egiten ditu gutxiago hartzeko. Fitxategiak erabilgarriak geratzen dira, besterik ez txikiagoak, eta bakoitzak aurrezkia erakusten du.</string>
+    <string name="tour_squeezer_intro_body">Squeezer zure argazkiak eta bideoak berriro konprimitzen ditu, gutxiago tokia hartzen dute. Kalitate txiki bat trukatzen duzu bueltatzen dizun espazioarekin. Elementu bakoitzak aurreztia erakusten du, harik eta zuk erabaki dezan zer balio duen.</string>
     <string name="tour_squeezer_compress_body">Konprimitu dena hemen aldi berean, edo kolpatu elementu bakarrean soilik bera txikitzeko. Luze sakatu batzuk aukeratzeko. Aurrebista ikusiko duzu beti, ezer aldatzen den aurretik.</string>
 </resources>

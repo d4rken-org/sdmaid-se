@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Как помочь</string>
     <string name="upgrade_screen_how_body">Станьте спонсором, чтобы поддержать разработку приложения! Нажмите кнопку ниже, чтобы активировать все дополнительные функции и открыть мой профиль на Github Sponsors.</string>
     <string name="upgrade_screen_why_title">Преимущества обновления</string>
-    <string name="upgrade_screen_why_body">• Удаление кэша приложений и временных данных\n• Удаление дубликатов файлов\n• Включение автоматических очисток\n• Создание пользовательских фильтров и правил очистки\n• Отслеживание тенденций хранилища и истории очистки\n• Больше функций и возможностей управления во всём приложении\n• Поддержка разработки с открытым исходным кодом</string>
+    <string name="upgrade_screen_why_body">• Очистка кэша приложений и мусора\n• Удаление дублирующихся файлов\n• Сжатие фотографий и видео\n• Удаление старых файлов свайпом\n• Очистка одним касанием через виджет\n• Планирование очистки\n• Пользовательские фильтры и правила\n• Тренды и история хранилища\n• Больше функций и элементов управления по всему приложению\n• Поддержка разработки открытого кода</string>
     <string name="upgrade_screen_sponsor_action">Поддержать разработку</string>
     <string name="upgrade_screen_sponsor_action_hint">Альтернативой являются реклама, аналитика и Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Благодарим Вас за поддержку разработки с открытым исходным кодом ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Уже возвращаетесь? Ваша поддержка помогает SD Maid!</string>
+    <string name="upgrade_screen_status_free_title">Бесплатная версия</string>
+    <string name="upgrade_screen_status_free_body">Вы используете бесплатную версию SD Maid. Дополнительные функции можно разблокировать, поддержав разработку.</string>
+    <string name="upgrade_screen_status_free_action">Посмотреть варианты обновления</string>
+    <string name="upgrade_screen_status_upgraded_title">Обновление активно</string>
+    <string name="upgrade_screen_status_upgraded_body">Все дополнительные функции разблокированы. Спасибо за поддержку разработки открытого исходного кода ❤️</string>
+    <string name="upgrade_screen_recurring_title">Поддержите развитие</string>
+    <string name="upgrade_screen_recurring_body">SD Maid постоянно развивается через обновления и исправления. Если Вы хотите осуществить поддержку, рассмотрите возможность регулярного пожертвования через GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Открыть GitHub Sponsors</string>
 </resources>

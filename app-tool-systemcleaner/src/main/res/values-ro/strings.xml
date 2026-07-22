@@ -103,6 +103,6 @@
     <string name="systemcleaner_customfilter_import_action">Importă filtru nou</string>
     <string name="systemcleaner_customfilter_export_action">Exportă filtrul selectat</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner găsește gunoi folosind filtre nespecifice aplicației. Există reguli gata făcute pentru lucruri precum foldere goale, înregistrări rămase în urmă și miniaturi expirate. Mergi la setări dacă vrei să-ți creezi ale tale.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner găsește gunoi folosind filtre care nu sunt specifice aplicațiilor. Există reguli gata de utilizat pentru lucruri cum ar fi dosare goale, jurnale rămase și miniaturi vechi. Vizitați setările dacă doriți să creați propriile reguli.</string>
     <string name="tour_systemcleaner_filter_body">Fiecare rând este un filtru și ce a găsit. Deschide detaliile pentru a vedea exact care fișiere se potrivesc înainte să ștergi ceva.</string>
 </resources>

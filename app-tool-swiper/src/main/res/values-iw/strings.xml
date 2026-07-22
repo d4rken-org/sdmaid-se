@@ -194,8 +194,8 @@
     <string name="swiper_session_no_matching_files">לא נמצאו קבצים תואמים</string>
     <string name="swiper_open_externally_action">פתח באפליקציה חיצונית</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">החלק תמונה כדי להחליט על גורלה: החלק הצידה כדי לשמור או למחוק, החלק למעלה כדי לדלג, החלק למטה כדי לבטל את הפעולה האחרונה. הכפתורים להלן עושים את אותו הדבר — והם מראים איזה צד הוא איזה.</string>
-    <string name="tour_swiper_openin_body">כפתור זה פותח את התמונה באפליקציה אחרת, שימושי כדי לבדוק אותה לפני החלטה.</string>
+    <string name="tour_swiper_gestures_body">החלק קובץ כדי להחליט על גורלו: צדדי כדי לשמור או למחוק, למעלה כדי לדלג, למטה כדי לבטל. הכפתורים למטה עושים את אותו הדבר ומראים איזה צד זה.</string>
+    <string name="tour_swiper_openin_body">כפתור זה פותח את הקובץ ביישום אחר, שימושי כדי לבדוק אותו לפני החלטה.</string>
     <string name="tour_swiper_preview_body">כפתור זה פותח תצוגה מקדימה במלוא המסך להסתכלות מקרוב יותר.</string>
     <string name="tour_swiper_actions_body">לא אוהב להחליק? יש לנו גם כפתורים! דילוג משאיר את זה לא מוכרע להמשך, ולחיצה ארוכה על דילוג מוציאה קובץ מסריקות עתידיות. ביטול משחזר את הבחירה האחרונה שלך.</string>
     <string name="tour_swiper_review_body">בחירות השמירה והמחיקה שלך מוצגות בלבד. פתח את סקירה כדי לעבור עליהן ולבצע את המחיקות כשתהיה מוכן.</string>

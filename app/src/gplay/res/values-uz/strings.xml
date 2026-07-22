@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD Maid SE Pro ni oling</string>
     <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Mening ishim sizning moliyalashtirishingiz hisobiga amalga oshiriladi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Yangilash imtiyozlari</string>
-    <string name="upgrade_screen_benefits_body">• Ilova keshlarini va keraksiz ma\'lumotlarni tozalang
-• Takroriy fayllarni o\'chiring
-• Rejalashtirilgan tozalashlarni yoqing
-• Maxsus filtrlar va tozalash qoidalarini yarating
-• Xotira sarfi tendensiyalari va tozalash tarixini kuzating
-• Ilovadagi ko\'proq xususiyat va boshqaruvlardan foydalaning
-• Ilova rivojlanishini qo\'llab-quvvatlang</string>
+    <string name="upgrade_screen_benefits_body">• Ilovaning keshi va chiqindilarni tozalash\n• Takroriy fayllarni o\'chirish\n• Rasm va videoni siqish\n• Eski fayllarni kaydirish orqali olib tashlash\n• Vidjet orqali bir bosishda tozalash\n• Tozalashni rejalashtirish\n• Maxsus filterlar va qoidalar\n• Saqlash tendensiyalari va tarixi\n• Ilovada ko\'proq xususiyatlar va boshqaruvlar\n• Taraqqiyotni qo\'llab-quvvatlash</string>
+    <string name="upgrade_screen_offers_title">Yangilash variantlari</string>
+    <string name="upgrade_screen_offers_body">Bir xil xususiyatlar, faqat boshqacha narx modellari.</string>
+    <string name="upgrade_screen_offers_or">yoki</string>
     <string name="upgrade_screen_subscription_offer_title">Yillik obuna</string>
+    <string name="upgrade_screen_subscription_offer_body">Bepul sinovdan keyin har yili yangilanadi. Istalgan vaqtda Google Play-da bekor qiling.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Har yili yangilanadi. Istalgan vaqtda Google Play-da bekor qiling.</string>
     <string name="upgrade_screen_iap_offer_title">Bir martalik xarid</string>
+    <string name="upgrade_screen_iap_offer_body">Bitta to\'lov, yangilanish yo\'q.</string>
     <string name="upgrade_screen_offers_unavailable_message">Narxlarni hozircha yuklab bo\'lmadi. Google Play\'ni tekshiring va birozdan so\'ng qayta urinib ko\'ring.</string>
     <string name="upgrade_screen_subscription_trial_action">Bepul 14 kunlik sinovni boshlang</string>
     <string name="upgrade_screen_subscription_action">Obuna bo\'ling</string>
     <string name="upgrade_screen_iap_action">Bir martalik xarid</string>
     <string name="upgrade_screen_thanks_toast">Siz eng zo\'rsiz! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Xaridni tiklash</string>
+    <string name="upgrade_screen_restore_banner_title">Allaqachon Pro sotib oldingiz?</string>
+    <string name="upgrade_screen_restore_banner_body">Shunday ko\'rinadi, siz oldin shu qurilmada Pro ga yangilangansiz. Uni qayta faollashtirish uchun xaridni tiklang.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronlashtiruvi vaqt olishi mumkin. Qayta ishga tushirish, Google Play keshini tozalash yoki shunchaki kutishni sinab ko\'ring.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Ko\'p hisoblar Google Play-ni chalkashtirib yuborishi mumkin. Google Play veb-sayti orqali ilovani o\'rnating, bu esa ma\'lum bir hisob bilan bog\'lanishni majburiy qiladi.</string>
+    <string name="upgrade_screen_owned_hero_title">Tabriklaymiz!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Sizda %1$s bor, u obuna orqali faollashtirilgan.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Sizda %1$s bor, u bir martalik xarid orqali faollashtirilgan.</string>
+    <string name="upgrade_screen_owned_iap_title">Bir martalik xarid</string>
+    <string name="upgrade_screen_owned_iap_body">Siz bir martalik Pro yangilanishga egasiz. Pro bu Google hisobida faollashtirilgan bo\'lib qoladi. SD Maid-ni qo\'llab-quvvatlashingiz uchun rahmat ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Sizning Pro obunangiz faol va yangilashga tayinlangan. To\'lovni Google Play boshqaradi.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Bir martalik xaridni afzal ko\'rasizmi? U obunangiz yangilashga tayinlanmasa, mavjud bo\'ladi. O\'tish uchun Google Play-da obunani bekor qiling.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Sizning Pro obunangiz faol, lekin yangilashga tayinlanmagan. Pro joriy muddat tugagunga qadar mavjud bo\'lib qoladi.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Bu obuna hali ham yangilanish uchun o\'rnatilgan, garchi siz bir martalik yangilash sotib olgan bo\'lsangiz. Uni Google Play-da bekor qilishingiz mumkin.</string>
+    <string name="upgrade_screen_manage_subscription_action">Obunani boshqarish</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Bu alohida sotib olish: u sizning obunangizni bekor qilmaydi va qaytarish puli bermaydi. Ikkalasi uchun bir xil Google akkauntni ishlating.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Obuna hali aktiv</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play sizning obunangiz hali ham yangilanishga o\'rnatilganligini xabar beradi. Bir martalik yangilash sotib olish uchun, avval Google Play-da obunani bekor qiling, keyin bu yerga qaytavering.\n\nHozirgina bekor qildingizmi? Google Play-ga biroz vaqt bering va qayta urinib ko\'ring. Shuningdek, bir xil Google akkauntdan foydalanayotganingizni tekshiring.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Google Play bilan sizning obuna holatini tekshira olmadik. Iltimos, biroz vaqt o\'tib qayta urinib ko\'ring.</string>
+    <string name="upgrade_screen_restore_success_message">Sotib olish tiklandi, sizning Pro yangilash aktiv.</string>
+    <string name="upgrade_screen_grace_title">Sotib olishingizni tasdiqlash</string>
+    <string name="upgrade_screen_grace_body_short">Pro hali aktiv. Google Play sizning sotib olishingizni qayta tasdiqlashini kutmoqda, shu vaqtda barcha Pro xususiyatlari qulfsiz qoladi.</string>
+    <string name="upgrade_screen_grace_body">Pro hali aktiv, lekin Google Play sizning sotib olishingizni bir muncha vaqtdan beri tasdiqlamadi. Agar siz Pro sotib olgan bo\'lsangiz, sotib olishni tiklang va Google Play uni sotib olgan akkauntdan foydalanayotganligini tekshiring. Agar obuna tugasa yoki sotib olish puli qaytarilsa, Pro o\'zi o\'chib ketadi, boshqa biror narsa qilish shart emas.</string>
+    <string name="upgrade_screen_restore_body">Tiklash Google Play-ni ushbu ilovaning joriy hisob uchun xaridlarini qayta tekshirishini so\'raydi. Bu yangi xarid boshlamaydi.</string>
+    <string name="upgrade_screen_restore_status_title">Holat noto\'g\'ri ko\'rinib turibdimi?</string>
+    <string name="upgrade_screen_restore_status_body">Agar xarid etishmayotgan bo\'lsa yoki bu holat noto\'g\'ri ko\'rinib turibsa, Google Play bilan qayta tekshiring.</string>
+    <string name="upgrade_screen_contact_support_action">Qo\'llab-quvvatlash xizmatiga murojaat qiling</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid Google Play-ni hozirgina tekshirdi, lekin Google Play ushbu ilova uchun ishlatayotgan hisob uchun hech qanday Pro xaridi tasdiqlanmadi.</string>
+    <string name="upgrade_screen_restore_contact_hint">Hali ham muammo bormi? Xaridni qilgan email orqali qo\'llab-quvvatlash xizmatiga murojaat qiling va Google Play buyurtma raqamingizni qo\'shib yuboring.</string>
 </resources>

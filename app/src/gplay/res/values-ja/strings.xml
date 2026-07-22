@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD Maid SE Proを入手</string>
     <string name="upgrade_screen_preamble">SDメイドは広告がなく、ユーザーデータを販売していません。私の作品はあなたによって賄われています❤️</string>
     <string name="upgrade_screen_benefits_title">アップグレード特典</string>
-    <string name="upgrade_screen_benefits_body">• アプリキャッシュと不要なデータを削除
-• 重複ファイルを削除
-• スケジュール済みクリーンアップを有効化
-• カスタムフィルターとクリーンアップルールを作成
-• ストレージの傾向とクリーンアップ履歴を追跡
-• アプリ全体でより多くの機能と制御
-• 継続的な開発をサポート</string>
+    <string name="upgrade_screen_benefits_body">• アプリのキャッシュとジャンクのクリーニング\n• 重複ファイルの削除\n• 写真と動画の圧縮\n• スワイプで古いファイルを整理\n• ウィジェットからのワンタップクリーニング\n• クリーンアップのスケジュール設定\n• カスタムフィルターとルール\n• ストレージの傾向と履歴\n• アプリ全体でのその他の機能とコントロール\n• 継続的な開発をサポート</string>
+    <string name="upgrade_screen_offers_title">アップグレードオプション</string>
+    <string name="upgrade_screen_offers_body">機能は同じで、料金プランが異なるだけです。</string>
+    <string name="upgrade_screen_offers_or">または</string>
     <string name="upgrade_screen_subscription_offer_title">年間サブスクリプション</string>
+    <string name="upgrade_screen_subscription_offer_body">無料トライアル終了後、年ごとに更新されます。Google Playからいつでも解約できます。</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">年ごとに更新されます。Google Playからいつでも解約できます。</string>
     <string name="upgrade_screen_iap_offer_title">買い切り</string>
+    <string name="upgrade_screen_iap_offer_body">一度の支払いのみ、更新はありません。</string>
     <string name="upgrade_screen_offers_unavailable_message">現在、価格を読み込むことができません。Google Playを確認して、後でもう一度試してください。</string>
     <string name="upgrade_screen_subscription_trial_action">14日間の無料トライアルを開始</string>
     <string name="upgrade_screen_subscription_action">登録</string>
     <string name="upgrade_screen_iap_action">1 回限りの購入</string>
     <string name="upgrade_screen_thanks_toast">あなたは最高です！ ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">購入を復元</string>
+    <string name="upgrade_screen_restore_banner_title">すでにProを購入済みですか?</string>
+    <string name="upgrade_screen_restore_banner_body">以前このデバイスでProにアップグレードしたようです。購入を復元して再度ロックを解除してください。</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Playストアの同期には時間がかかる場合があります。 そのまましばらくお待ちください。改善されない場合は、再起動するか、Playストアのキャッシュを削除してみてください。</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">複数のアカウントがあるとGoogle Playが混乱することがあります。特定のアカウントとの関連付けを強制するGoogle PlayのWebサイトからアプリをインストールしてください。</string>
+    <string name="upgrade_screen_owned_hero_title">おめでとうございます！</string>
+    <string name="upgrade_screen_owned_hero_sub_body">%1$s をご利用いただけます。サブスクリプションによってロックが解除されています。</string>
+    <string name="upgrade_screen_owned_hero_iap_body">%1$s をご利用いただけます。一度限りの購入によってロックが解除されています。</string>
+    <string name="upgrade_screen_owned_iap_title">一度限りの購入</string>
+    <string name="upgrade_screen_owned_iap_body">一度限りのProアップグレードを購入済みです。このGoogleアカウントではProのロックが解除されたままになります。SD Maidを応援していただきありがとうございます❤️。</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Proサブスクリプションは有効で、更新するように設定されています。請求はGoogle Playが管理しています。</string>
+    <string name="upgrade_screen_owned_iap_locked_note">一度限りの購入をご希望ですか? サブスクリプションが更新されなくなると利用可能になります。切り替えるにはGoogle Playでサブスクリプションを解約してください。</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Proサブスクリプションは有効ですが、更新するようには設定されていません。現在の期間が終了するまでProはご利用いただけます。</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">一度限りのアップグレードをすでに購入済みですが、このサブスクリプションはまだ更新するように設定されています。Google Playで解約できます。</string>
+    <string name="upgrade_screen_manage_subscription_action">サブスクリプションを管理</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">これは別個の購入です。サブスクリプションの解約や返金は行われません。両方に同じGoogleアカウントを使用してください。</string>
+    <string name="upgrade_screen_sub_still_renewing_title">サブスクリプションはまだ有効です</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Playによると、サブスクリプションはまだ更新するように設定されています。一度限りのアップグレードを購入するには、まず Google Play でサブスクリプションを解約してから、ここに戻ってきてください。\n\n解約したばかりですか? しばらく待ってからもう一度お試しください。また、同じGoogleアカウントを使用していることをご確認ください。</string>
+    <string name="upgrade_screen_sub_check_failed_message">Google Playでサブスクリプションの状態を確認できませんでした。しばらくしてからもう一度お試しください。</string>
+    <string name="upgrade_screen_restore_success_message">購入が復元され、Proアップグレードが有効になりました。</string>
+    <string name="upgrade_screen_grace_title">購入を確認しています</string>
+    <string name="upgrade_screen_grace_body_short">Proはまだ有効です。Google Playが購入を再確認するのを待っている間も、Proの全機能のロックは解除されたままです。</string>
+    <string name="upgrade_screen_grace_body">Proはまだ有効ですが、Google Playがしばらく購入を確認していません。Proを購入した場合は、購入を復元し、購入したアカウントをGoogle Playが使用していることを確認してください。サブスクリプションが終了した場合や返金された場合は、Proは自動的にオフになります。他に必要なことはありません。</string>
+    <string name="upgrade_screen_restore_body">復元を行うと、現在のアカウントについてこのアプリの購入をGoogle Playに再確認してもらいます。新規の購入は開始されません。</string>
+    <string name="upgrade_screen_restore_status_title">状態がおかしいですか?</string>
+    <string name="upgrade_screen_restore_status_body">購入が見つからない場合や、この状態が正しくないと思われる場合は、Google Playで再確認してください。</string>
+    <string name="upgrade_screen_contact_support_action">サポートに連絡</string>
+    <string name="upgrade_screen_restore_checked_message">SD MaidはGoogle Playを確認しましたが、このアプリでGoogle Playが使用しているアカウントではProの購入を確認できませんでした。</string>
+    <string name="upgrade_screen_restore_contact_hint">まだ解決しませんか? 購入に使用したメールアドレスから、Google Playの注文番号を記載してサポートに連絡してください。</string>
 </resources>

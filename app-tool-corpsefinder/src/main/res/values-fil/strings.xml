@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Walang marker</string>
     <string name="corpsefinder_markers_dialog_normal_description">Karaniwang natitira. Karaniwang ligtas na alisin — ang mga file na ito ay mula sa mga app na hindi na naka-install.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">Ang CorpseFinder ay nakahanap ng data na natitira mula sa mga app na iyong na-uninstall na. Hindi na ito kinikilala ng kahit anong naka-install na app, kaya ligtas itong alisin at nagbibigay ng libreng espasyo.</string>
+    <string name="tour_corpsefinder_intro_body">Ang CorpseFinder ay nakakahanap ng data na natitira mula sa mga app na na-uninstall mo na. Hindi na ito pag-aari ng anumang naka-install, kaya ang pagtanggal nito ay nagbibigay-daan sa espasyo. Karamihan nito ay ligtas na tanggalin, pero tingnan ang marker kung hindi ka sigurado.</string>
     <string name="tour_corpsefinder_row_body">Bawat item ay natitirang data at ang app na nagmula dito. Ang marker ay nagpapakita kung gaano kumpiyansa ang SD Maid na ligtas itong alisin — i-tap ang ⓘ sa itaas upang alaman ang kahulugan ng mga marker.</string>
 </resources>

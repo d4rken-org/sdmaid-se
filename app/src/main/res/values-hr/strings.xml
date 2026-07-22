@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s oslobođeno</string>
     <string name="dashboard_hero_freeable_x_items">%1$s može biti uklonjeno</string>
     <string name="dashboard_hero_freed_x_items">%1$s uklonjeno</string>
-    <string name="dashboard_hero_freeable_hint">Dodirnite gumb da oslobodite prostor. Dodirnite čip da prvo provjerite.</string>
+    <string name="dashboard_hero_freeable_hint">Dodirnite gumb za oslobađanje prostora ili čip za prethodnu provjeru.</string>
     <string name="dashboard_hero_freed_hint">Dodirnite čip za detalje.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenirano %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Sljedeće poklapanje</string>
     <string name="debug_logview_jump_to_bottom_action">Skoči na najnovije</string>
     <string name="debug_logview_paused_msg">Pauziran — međuspremnik zamrznut</string>
-    <string name="debug_logview_paused_dropped_msg">Pauziran — preskočeno %1$d novih redaka</string>
+    <string name="debug_logview_paused_dropped_msg">Pauzirano — preskočeni novi redovi: %1$d</string>
     <string name="debug_logview_copied_msg">Zapisnik kopiran u međuspremnik</string>
     <string name="debug_logview_share_label">Podijeli zapisnik</string>
     <string name="debug_debuglog_screen_title">Zapisnik za otklanjanje pogrešaka</string>
@@ -110,6 +110,7 @@
     <string name="settings_privacy_policy_label">Politika privatnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno postupanje s podacima.</string>
     <string name="settings_category_other_label">Ostalo</string>
+    <string name="settings_upgrade_description">Status nadogradnje i mogućnosti.</string>
     <string name="general_settings_label">Općenito</string>
     <string name="general_settings_desc">Opće postavke koje utječu na cijelu aplikaciju.</string>
     <string name="settings_category_ui_label">Korisničko sučelje</string>
@@ -328,11 +329,17 @@
     <string name="widget_home_description">Korištenje pohrane i čišćenje jednim dodirom</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Vanjsko</string>
-    <string name="widget_home_freed_label">Oslobođeno: %1$s</string>
+    <string name="widget_home_freed_label">Ukupno: %1$s</string>
     <string name="widget_home_clean_action">Očisti</string>
     <string name="widget_home_working">Obrada…</string>
     <string name="widget_home_unavailable">Pohrana nije dostupna</string>
-    <string name="shortcut_onetap_started">Skeniranje &amp; brisanje je započeto…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Neka gumb Čišćenje na widgetu početnog zaslona skenira i briše jednim dodirom, bez pitanja svaki put.</string>
+    <string name="widget_oneclick_consent_title">Omogućiti čišćenje jednim dodirom?</string>
+    <string name="widget_oneclick_consent_message">Gumb Čišćenje na widgetu će skenirati i brisati odjednom, bez prethodnog pitanja ili mogućnosti pregleda onoga što se uklanja.</string>
+    <string name="widget_oneclick_consent_enable_action">Omogući</string>
+    <string name="widget_oneclick_consent_decline_action">Ne sada</string>
+    <string name="shortcut_onetap_started">Skeniranje + brisanje pokrenuto…</string>
     <string name="shortcut_onetap_nothing_enabled">Nema omogućenih alata za jedan dodir</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Sigurnosna kopija &amp; Obnova</string>
@@ -359,7 +366,7 @@
     <string name="backup_restore_warn_android_body">Ova sigurnosna kopija je napravljena na Android %1$s, ali ovaj uređaj pokreće Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Ova sigurnosna kopija je napravljena na drugom uređaju (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Ova sigurnosna kopija je iz druge verzije aplikacije (%1$s naspram %2$s).</string>
-    <string name="backup_restore_warn_history_body">Podaci iz povijesti ove sigurnosne kopije (statistika, povijest kompresije, sesije klizanja) dolaze iz druge verzije aplikacije i ne mogu se vratiti. Sve ostalo će se vratiti.</string>
+    <string name="backup_restore_warn_history_body">Podaci povijesti ove sigurnosne kopije (statistika, povijest sažimanja, sesije povlačenja) potječu iz druge verzije aplikacije i ne mogu se vratiti. Sve ostalo bit će vraćeno.</string>
     <string name="backup_restore_ack_understand">Razumijem i želim nastaviti</string>
     <string name="backup_restore_action_restore">Obnovi</string>
 </resources>

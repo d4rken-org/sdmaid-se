@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s felszabadult</string>
     <string name="dashboard_hero_freeable_x_items">%1$s eltávolítható</string>
     <string name="dashboard_hero_freed_x_items">%1$s eltávolítva</string>
-    <string name="dashboard_hero_freeable_hint">Koppints a gombra a hely felszabadításához. Koppints egy chipre az ellenőrzéshez először.</string>
+    <string name="dashboard_hero_freeable_hint">Nyomd meg a gombot a hely felszabadításához, vagy egy gombot az ellenőrzéshez.</string>
     <string name="dashboard_hero_freed_hint">Koppints egy chipre a részletekért.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Beolvasva: %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Következő találat</string>
     <string name="debug_logview_jump_to_bottom_action">Ugrás a legújabbra</string>
     <string name="debug_logview_paused_msg">Szüneteltetve — puffer befagyasztva</string>
-    <string name="debug_logview_paused_dropped_msg">Szüneteltetve — %1$d új sor(ok) kihagyva</string>
+    <string name="debug_logview_paused_dropped_msg">Szüneteltetett — új sorok kihagyva: %1$d</string>
     <string name="debug_logview_copied_msg">Napló vágólapra másolva</string>
     <string name="debug_logview_share_label">Napló megosztása</string>
     <string name="debug_debuglog_screen_title">Hibakeresési napló</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Adatvédelmi irányelvek</string>
     <string name="settings_privacy_policy_desc">Az adatok felelősségteljes kezelése.</string>
     <string name="settings_category_other_label">Egyéb</string>
+    <string name="settings_upgrade_description">Frissítsd az állapotot és a beállításokat.</string>
     <string name="general_settings_label">Általános</string>
     <string name="general_settings_desc">Általános módosítások, amelyek az egész alkalmazást érintik.</string>
     <string name="settings_category_ui_label">Felhasználói felület</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Tárolóhasználat és egykattintásos tisztítás</string>
     <string name="widget_home_storage_internal">Belső</string>
     <string name="widget_home_storage_external">Külső</string>
-    <string name="widget_home_freed_label">Felszabadított: %1$s</string>
+    <string name="widget_home_freed_label">Élettartam: %1$s</string>
     <string name="widget_home_clean_action">Tisztítás</string>
     <string name="widget_home_working">Feldolgozás alatt…</string>
     <string name="widget_home_unavailable">A tárterület nem érhető el</string>
-    <string name="shortcut_onetap_started">Keresés &amp; törlés elkezdődött…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Az otthonképernyő widgetjének Tisztítás gombja egy koppintásra végezze el a vizsgálatot és törlést anélkül, hogy minden alkalommal kérdezne.</string>
+    <string name="widget_oneclick_consent_title">Engedélyezzem az egykoppintásos tisztítást?</string>
+    <string name="widget_oneclick_consent_message">A widget Tisztítás gombja egyetlen lépésben megvizsgálja és törli a fájlokat anélkül, hogy először kérdezne vagy lehetőséget adna az eltávolítandó elemek áttekintésére.</string>
+    <string name="widget_oneclick_consent_enable_action">Engedélyezés</string>
+    <string name="widget_oneclick_consent_decline_action">Most nem</string>
+    <string name="shortcut_onetap_started">Vizsgálat + törlés elindítva…</string>
     <string name="shortcut_onetap_nothing_enabled">Nincs egyérintéses eszköz engedélyezve</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Biztonsági mentés &amp; Visszaállítás</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Ez a biztonsági mentés Android %1$s verzión készült, de ezen az eszközön Android %2$s fut.</string>
     <string name="backup_restore_warn_device_body">Ez a biztonsági mentés egy másik eszközön készült (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Ez a biztonsági mentés az alkalmazás egy másik kiadásából származik (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">A biztonsági mentés előzményadatai (statisztikák, tömörítési előzmények, seprési munkamenetek) az alkalmazás egy másik verziójából származnak, és nem állíthatók vissza. Minden más vissza lesz állítva.</string>
+    <string name="backup_restore_warn_history_body">A biztonsági mentés előzményadatai (statisztikák, tömörítési előzmények, swipe munkamenetek) egy másik alkalmazásverzióból származnak, és nem állíthatók vissza. Minden más vissza lesz állítva.</string>
     <string name="backup_restore_ack_understand">Megértettem, és folytatni szeretnék</string>
     <string name="backup_restore_action_restore">Visszaállítás</string>
 </resources>

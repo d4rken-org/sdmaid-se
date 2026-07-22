@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">%1$s\'ni skanerlash ushbu xotiradagi barcha fayllarni qamrab oladi — rasmlar, hujjatlar, yuklab olinganlar, ilova media fayllari va boshqalar. Davom etilsinmi?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Baribir davom etish</string>
     <string name="swiper_session_risky_label">Butun xotirani skanerlash</string>
-    <string name="swiper_session_risky_info_message">Bu seans xotira hajmining ildiz jildini nishonga oladi, shuning uchun shu xotiradagi barcha fayllar qamrovga kiradi — rasmlar, hujjatlar, yuklab olinganlar, ilova media fayllari va boshqalar.
-
-Butun xotirani skanerlash ko\'p natija qaytarishi mumkin, jumladan ko\'rib chiqishni mo\'ljallamagan fayllaringiz ham. Skanerlashni toraytirish uchun fayl turi filtridan foydalaning.</string>
+    <string name="swiper_session_risky_info_message">Bu seans xotira hajmining ildiz jildini nishonga oladi, shuning uchun shu xotiradagi barcha fayllar qamrovga kiradi — rasmlar, hujjatlar, yuklab olinganlar, ilova media fayllari va boshqalar.\n\nButun xotirani skanerlash ko\'p natija qaytarishi mumkin, jumladan ko\'rib chiqishni mo\'ljallamagan fayllaringiz ham. Skanerlashni toraytirish uchun fayl turi filtridan foydalaning.</string>
     <string name="swiper_delete_x_action">%1$d ni o\'chirish</string>
     <string name="swiper_settings_swap_directions_title">Surish yo\'nalishlarini almashtirish</string>
     <string name="swiper_settings_swap_directions_summary">Saqlash uchun chapga, o\'chirish uchun o\'ngga surish.</string>
@@ -162,8 +160,8 @@ Butun xotirani skanerlash ko\'p natija qaytarishi mumkin, jumladan ko\'rib chiqi
     <string name="swiper_session_no_matching_files">Mos keladigan fayllar topilmadi</string>
     <string name="swiper_open_externally_action">Tashqi ilovada ochish</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Rasmning taqdirini hal qilish uchun uni suring: yon tomonga — saqlash yoki o\'chirish, yuqoriga — o\'tkazib yuborish, pastga — orqaga qaytarish. Quyidagi tugmalar ham xuddi shu vazifani bajaradi va qaysi tomon nimaga mos kelishini ko\'rsatadi.</string>
-    <string name="tour_swiper_openin_body">Bu tugma rasmni boshqa ilovada ochadi — qaror qilishdan oldin tekshirish uchun qulay.</string>
+    <string name="tour_swiper_gestures_body">Faylning taqdirini qaror qilish uchun uni suring: yon tomoniga — saqlash yoki o\'chirish, tepaga — o\'tkazib yuborish, pastga — qaytarish. Quyidagi tugmalar ham xuddi shunday ishlaydi va qaysi tomon qaysi ekanligini ko\'rsatadi.</string>
+    <string name="tour_swiper_openin_body">Ushbu tugma faylni boshqa ilovada ochadi, qaror qilishdan oldin tekshirish uchun qulay.</string>
     <string name="tour_swiper_preview_body">Bu tugma yaqindan ko\'rish uchun to\'liq ekranli ko\'rib chiqishni ochadi.</string>
     <string name="tour_swiper_actions_body">Surishni yoqtirmaysizmi? Bizda tugmalar ham bor! O\'tkazib yuborish uni keyinga qoldiradi, uni uzoq bosish esa faylni keyingi skanerlashlardan chiqarib tashlaydi. Orqaga qaytarish oxirgi tanlovingizni bekor qiladi.</string>
     <string name="tour_swiper_review_body">Saqlash va o\'chirish tanlovlaringiz faqat vaqtincha belgilangan. Ularni ko\'rib chiqish va tayyor bo\'lganingizda o\'chirishlarni amalga oshirish uchun Ko\'rib chiqishni oching.</string>

@@ -38,6 +38,7 @@
     <string name="general_error_label">Napaka</string>
     <string name="general_upgrade_action">Nadgradi</string>
     <string name="general_refresh_action">Osveži</string>
+    <string name="general_retry_action">Poskusite ponovno</string>
     <string name="general_progress_searching">Iskanje</string>
     <string name="general_progress_generating_searchpaths">Ustvarjanje iskalnih poti</string>
     <string name="general_progress_filtering">Filtriranje</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Ime (A → Ž)</string>
     <string name="general_sort_size_desc">Najprej največje</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_tag_library">Knjižnica</string>
     <string name="general_navigate_up_action">Pomik navzgor</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Filtriraj po oznakah</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Prijavi napako</string>
     <string name="general_error_ipc_deadobject_title">Povezava s storitvijo je prekinjena</string>
     <string name="general_error_ipc_deadobject_description">Povezava s kritično storitvijo (npr. Magisk, Shizuku ali druge sistemske storitve) je bila nepričakovano prekinjena. Prosimo, ponovno zaženite napravo. Če se težava ponavlja, preverite posodobitve ali me kontaktirajte, da lahko težavo odpravim.</string>
-    <string name="general_error_upgrade_required_title">Potrebna je različica Pro</string>
-    <string name="general_error_upgrade_required_description">To je funkcija različice Pro. Za uporabo nadgradite SD Maid SE.</string>
+    <string name="general_error_upgrade_required_title">Nadgradnja je potrebna</string>
+    <string name="general_error_upgrade_required_description">Ta funkcija zahteva nadgradnjo. Prosimo, nadgradite SD Maid SE, da jo lahko uporabite.</string>
     <string name="general_user_label_owner">Lastnik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Nastavi</string>

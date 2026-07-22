@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Hakuna alama</string>
     <string name="corpsefinder_markers_dialog_normal_description">Mabaki ya kawaida. Kwa ujumla ni salama kuondoa — faili hizi ni za programu ambazo hazijasakinishwa tena.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder hupata data iliyoachwa na programu ulizokwisha kuzisanidua. Haihusiani tena na chochote kilichosakinishwa, hivyo kuiondoa ni salama na huachilia nafasi.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder hupata data iliyoachwa na programu ambazo tayari umeziondoa. Haihusiani tena na kitu chochote kilichosakinishwa, hivyo kuiondoa kunaachia nafasi. Sehemu kubwa ni salama kuondoa, lakini angalia alama pale unapokuwa na shaka.</string>
     <string name="tour_corpsefinder_row_body">Kila kipengele ni data iliyobaki na programu inayotoka kwayo. Alama huonyesha kiwango cha uhakika cha SD Maid kuwa ni salama kuondoa — gusa ⓘ juu ili kujifunza maana ya alama.</string>
 </resources>

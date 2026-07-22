@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">JPEG faylları üçün təxminən ~%d%% qənaət</string>
     <string name="squeezer_onboarding_got_it">Başa düşdüm</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer fotoşəkillərinizi və videolarınızı yenidən sıxlaşdırır ki, daha az yer tutsunlar. Fayllar faydalı qalır, sadəcə daha kiçikdir və hər biri onun təxmini qənaətini göstərir.</string>
+    <string name="tour_squeezer_intro_body">Squeezer fotoşəkillərinizi və videolarınızı yenidən sıxlaşdırır ki, daha az yer tutsunlar. Bir az keyfiyyətdən imtina edərək aldığınız yerdən faydalanırsınız. Hər bir element təxmini qənaətini göstərir, buna görə hansının dəyər olduğuna qərar verə bilərsiniz.</string>
     <string name="tour_squeezer_compress_body">Burada hər şeyi bir dəfəyə sıxlaşdırın, və ya sadəcə onu kiçiltmək üçün tək bir elementə toxunun. Bir neçəsini seçmək üçün uzun basın. Hər şey dəyişdirilmədən əvvəl həmişə önizləməni görəcəksiniz.</string>
 </resources>

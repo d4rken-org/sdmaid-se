@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s слободно</string>
     <string name="dashboard_hero_freeable_x_items">%1$s може да се отстрани</string>
     <string name="dashboard_hero_freed_x_items">%1$s отстрането</string>
-    <string name="dashboard_hero_freeable_hint">Притиснете го копчето за да ослободите простор. Прво притиснете чип за проверка.</string>
+    <string name="dashboard_hero_freeable_hint">Допрете го копчето за да ослободите простор, или фишка за прво проверка.</string>
     <string name="dashboard_hero_freed_hint">Притиснете чип за детали.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Скенирано %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Следно совпаѓање</string>
     <string name="debug_logview_jump_to_bottom_action">Скокни на најново</string>
     <string name="debug_logview_paused_msg">Паузирано — привремена меморија замрзната</string>
-    <string name="debug_logview_paused_dropped_msg">Паузирано — %1$d нови линии пропуштени</string>
+    <string name="debug_logview_paused_dropped_msg">Паузирано — нови редови прескокнати: %1$d</string>
     <string name="debug_logview_copied_msg">Дневникот копиран на таблата со исечоци</string>
     <string name="debug_logview_share_label">Дели дневник</string>
     <string name="debug_debuglog_screen_title">Дневник за дебагирање</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Политика за приватност</string>
     <string name="settings_privacy_policy_desc">Одговорно ракување со податоци.</string>
     <string name="settings_category_other_label">Друго</string>
+    <string name="settings_upgrade_description">Надградба на статус и опции.</string>
     <string name="general_settings_label">Општо</string>
     <string name="general_settings_desc">Општи прилагодувања што влијаат на целата апликација.</string>
     <string name="settings_category_ui_label">Кориснички интерфејс</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Користење на складиште и чистење со еден допир</string>
     <string name="widget_home_storage_internal">Внатрешно</string>
     <string name="widget_home_storage_external">Надворешно</string>
-    <string name="widget_home_freed_label">Ослободено: %1$s</string>
+    <string name="widget_home_freed_label">Животен век: %1$s</string>
     <string name="widget_home_clean_action">Очисти</string>
     <string name="widget_home_working">Работи…</string>
     <string name="widget_home_unavailable">Складишниот простор не е достапен</string>
-    <string name="shortcut_onetap_started">Скенирање &amp; бришење започнато…</string>
+    <string name="settings_category_widget">Виџет</string>
+    <string name="widget_settings_oneclick_summary">Дозволи копчето Исчисти на виџетот на почетниот екран да скенира и брише во еден допир, без секогаш да прашува.</string>
+    <string name="widget_oneclick_consent_title">Овозможи чистење со еден допир?</string>
+    <string name="widget_oneclick_consent_message">Копчето Исчисти на виџетот ќе скенира и брише во еден потег, без претходно прашување или можност да прегледате што се отстранува.</string>
+    <string name="widget_oneclick_consent_enable_action">Овозможи</string>
+    <string name="widget_oneclick_consent_decline_action">Не сега</string>
+    <string name="shortcut_onetap_started">Скенирање + Бришење почнаа…</string>
     <string name="shortcut_onetap_nothing_enabled">Нема активирани алатки за еден допир</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Резервна копија &amp; Враќање</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Оваа резервна копија беше направена на Android %1$s, но овој уред работи со Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Оваа резервна копија беше направена на различен уред (%1$s наспроти %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Оваа резервна копија е од друго издание на апликацијата (%1$s наспроти %2$s).</string>
-    <string name="backup_restore_warn_history_body">Историските податоци на оваа резервна копија (статистика, историја на компресирање, сесии на Swiper) се од друга верзија на апликацијата и не можат да се вратат. Сè останато ќе биде.</string>
+    <string name="backup_restore_warn_history_body">Податоците од историјата на оваа резервна копија (статистика, историја на компресија, сесии на лизгање) се од различна верзија на апликацијата и не можат да се восстанат. Сè останато ќе биде восстановено.</string>
     <string name="backup_restore_ack_understand">Разбирам и сакам да продолжам</string>
     <string name="backup_restore_action_restore">Врати</string>
 </resources>

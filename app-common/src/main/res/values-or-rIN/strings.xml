@@ -38,6 +38,7 @@
     <string name="general_error_label">ତ୍ରୁଟି</string>
     <string name="general_upgrade_action">ଅପଗ୍ରେଡ୍ କରିବା</string>
     <string name="general_refresh_action">ସତେଜ କର</string>
+    <string name="general_retry_action">ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="general_progress_searching">ସନ୍ଧାନ ଚାଲିଛି</string>
     <string name="general_progress_generating_searchpaths">ସନ୍ଧାନ ପଥ ସୃଷ୍ଟି ଚାଲିଛି</string>
     <string name="general_progress_filtering">ଶୋଧନ ଚାଲିଛି</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">ନାମ (A → Z)</string>
     <string name="general_sort_size_desc">ସବୁଠୁ ବଡ଼ ପ୍ରଥମ</string>
     <string name="general_tag_system">ସିଷ୍ଟମ୍</string>
+    <string name="general_tag_library">ଲାଇବ୍ରେରୀ</string>
     <string name="general_navigate_up_action">ଉପରକୁ ଯାଆନ୍ତୁ</string>
     <string name="general_filter_action">ଶୋଧନ କରାଇବା</string>
     <string name="general_filter_by_tags_label">ଟ୍ୟାଗ୍ ଦ୍ଵାରା ଫିଲ୍ଟର କରନ୍ତୁ</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">ବଗ୍ ରିପୋର୍ଟ କରିବା</string>
     <string name="general_error_ipc_deadobject_title">ସେବା ସଂଯୋଗ ହଜିଗଲା</string>
     <string name="general_error_ipc_deadobject_description">ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସେବାକୁ (ଯେପରିକି Magisk, Shizuku, କିମ୍ବା ଅନ୍ୟାନ୍ୟ ସିସ୍ଟମ୍-ସ୍ତରୀୟ ସେବା) ସଂଯୋଗ ଅନପେକ୍ଷିତ ଭାବେ ହଜିଗଲା। ଦୟାକରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଚାଲୁଥାଏ, ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ସମ୍ପର୍କ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ସମାଧାନ କରିପାରିବି।</string>
-    <string name="general_error_upgrade_required_title">Pro ସଂସ୍କରଣ ଆବଶ୍ୟକ</string>
-    <string name="general_error_upgrade_required_description">ଏହା ଏକ Pro ବୈଶିଷ୍ଟ୍ୟ। ଏହା ବ୍ୟବହାର କରିବାକୁ ଦୟା କରି SD Maid SE କୁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ।</string>
+    <string name="general_error_upgrade_required_title">ଅପଗ୍ରେଡ ଆବଶ୍ୟକ</string>
+    <string name="general_error_upgrade_required_description">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଏକ ଅପଗ୍ରେଡ ଆବଶ୍ୟକ କରେ। ଏହାକୁ ବ୍ୟବହାର କରିବାକୁ ଦୟାକରି SD Maid SE କୁ ଅପଗ୍ରେଡ କରନ୍ତୁ।</string>
     <string name="general_user_label_owner">ମାଲିକ</string>
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
     <string name="setup_title">ସେଟଅପ</string>

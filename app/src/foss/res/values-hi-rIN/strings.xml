@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">कैसे सहायता करें</string>
     <string name="upgrade_screen_how_body">संरक्षक बनें और विकास को प्रायोजित करें! सभी अतिरिक्त सुविधाओं को सक्रिय करने और मेरी GitHub Sponsors प्रोफ़ाइल खोलने के लिए नीचे दिए गए बटन को टैप करें।</string>
     <string name="upgrade_screen_why_title">अपग्रेड लाभ</string>
-    <string name="upgrade_screen_why_body">• ऐप कैश और व्यय योग्य डेटा साफ़ करें\n• डुप्लिकेट फ़ाइलें हटाएं\n• अनुसूचित सफाई सक्षम करें\n• कस्टम फ़िल्टर और सफाई नियम बनाएं\n• स्टोरेज प्रवृत्तियों और सफाई इतिहास को ट्रैक करें\n• ऐप भर में अधिक सुविधाएं और नियंत्रण\n• ओपन-सोर्स कार्य का समर्थन करें</string>
+    <string name="upgrade_screen_why_body">• ऐप कैश और जंक सफाई\n• डुप्लिकेट फ़ाइल हटाना\n• फ़ोटो और वीडियो संपीड़न\n• पुरानी फ़ाइलों को स्वाइप से साफ़ करना\n• विजेट के माध्यम से एक-टैप सफाई\n• सफाई शेड्यूलिंग\n• कस्टम फ़िल्टर और नियम\n• स्टोरेज ट्रेंड और इतिहास\n• ऐप में अधिक सुविधाएं और नियंत्रण\n• ओपन-सोर्स काम का समर्थन करें</string>
     <string name="upgrade_screen_sponsor_action">विकास को प्रायोजक करें</string>
     <string name="upgrade_screen_sponsor_action_hint">विज्ञापन, एनालिटिक्स और गूगल प्ले ये सभी वैकल्पिक है🙁</string>
     <string name="upgrade_screen_thanks_toast">ओपन-सोर्स विकास ❤️ का समर्थन करने के लिए धन्यवाद</string>
     <string name="upgrade_screen_sponsor_return_too_quick">वापस आ गए? आपका समर्थन SD Maid को जीवित रखता है!</string>
+    <string name="upgrade_screen_status_free_title">मुफ्त संस्करण</string>
+    <string name="upgrade_screen_status_free_body">आप SD Maid के मुफ्त संस्करण का उपयोग कर रहे हैं। विकास का समर्थन करके अतिरिक्त सुविधाओं को अनलॉक किया जा सकता है।</string>
+    <string name="upgrade_screen_status_free_action">अपग्रेड विकल्प देखें</string>
+    <string name="upgrade_screen_status_upgraded_title">अपग्रेड सक्रिय</string>
+    <string name="upgrade_screen_status_upgraded_body">सभी अतिरिक्त सुविधाएं अनलॉक की गई हैं। ओपन-सोर्स विकास का समर्थन करने के लिए धन्यवाद ❤️</string>
+    <string name="upgrade_screen_recurring_title">इसे जारी रखें</string>
+    <string name="upgrade_screen_recurring_body">SD Maid अपडेट और सुधार के माध्यम से विकसित होता रहता है। यदि आप इसे जारी रखना चाहते हैं, तो GitHub Sponsors के माध्यम से आवर्ती दान पर विचार करें।</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors खोलें</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s განთავისუფლდა</string>
     <string name="dashboard_hero_freeable_x_items">%1$s შეიძლება წაიშალოს</string>
     <string name="dashboard_hero_freed_x_items">%1$s წაშლილია</string>
-    <string name="dashboard_hero_freeable_hint">შეეხეთ ღილაკს ადგილის გასათავისუფლებლად. შეეხეთ ჩიპს ჯერ შემოწმებისთვის.</string>
+    <string name="dashboard_hero_freeable_hint">დააჭირეთ ღილაკს ადგილის გასაწყობლად ან ჯერ ჩიპს შეამოწმეთ.</string>
     <string name="dashboard_hero_freed_hint">შეეხეთ ჩიპს დეტალებისთვის.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">გამოსკანირებული %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">შემდეგი ემთხვევა</string>
     <string name="debug_logview_jump_to_bottom_action">გადხტი უახლესზე</string>
     <string name="debug_logview_paused_msg">შეჩერებული — ბუფერი გაყინულია</string>
-    <string name="debug_logview_paused_dropped_msg">შეჩერებული — გამოტოვებულია %1$d ახალი ხაზი</string>
+    <string name="debug_logview_paused_dropped_msg">დაპაუზებული — ახალი სტრიქონები გამოტოვებული: %1$d</string>
     <string name="debug_logview_copied_msg">ჟურნალი კოპირდა კლიპბორდში</string>
     <string name="debug_logview_share_label">ჟურნალის გაზიარება</string>
     <string name="debug_debuglog_screen_title">გამართვის ჟურნალი</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Კონფიდენციალურობის პოლიტიკა</string>
     <string name="settings_privacy_policy_desc">მონაცემების პასუხისმგებლობით დამუშავება.</string>
     <string name="settings_category_other_label">სხვა</string>
+    <string name="settings_upgrade_description">განახლების სტატუსი და პარამეტრები.</string>
     <string name="general_settings_label">ზოგადი</string>
     <string name="general_settings_desc">ზოგადი შესწორებები, რომლებიც გავლენას ახდენს მთელ აპლიკაციაზე.</string>
     <string name="settings_category_ui_label">Მომხმარებლის ინტერფეისი</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">საცავის გამოყენება და ერთი დაჭერის გაწმენდა</string>
     <string name="widget_home_storage_internal">შიდა</string>
     <string name="widget_home_storage_external">გარე</string>
-    <string name="widget_home_freed_label">გამოთავისუფლებული: %1$s</string>
+    <string name="widget_home_freed_label">სულ დანაზოგი: %1$s</string>
     <string name="widget_home_clean_action">გაწმენდა</string>
     <string name="widget_home_working">მუშაობა…</string>
     <string name="widget_home_unavailable">საცავი მიუწვდომელია</string>
-    <string name="shortcut_onetap_started">სკანირება &amp; წაშლა დაწყებულია…</string>
+    <string name="settings_category_widget">ვიჯეტი</string>
+    <string name="widget_settings_oneclick_summary">საწყისი ეკრანის ვიჯეტის „გაწმენდის“ ღილაკს დაუშვით სკანირება და წაშლა ერთი შეხებით, ყოველ ჯერზე კითხვის გარეშე.</string>
+    <string name="widget_oneclick_consent_title">ჩაირთოს ერთი შეხებით გაწმენდა?</string>
+    <string name="widget_oneclick_consent_message">ვიჯეტის „გაწმენდის“ ღილაკი დაასკანირებს და წაშლის ერთბაშად, კითხვის გარეშე და თქვენთვის მოსაცილებელი ფაილების გადახედვის საშუალების გარეშე.</string>
+    <string name="widget_oneclick_consent_enable_action">ჩართვა</string>
+    <string name="widget_oneclick_consent_decline_action">ახლა არა</string>
+    <string name="shortcut_onetap_started">სკანირება + წაშლა დაიწყო…</string>
     <string name="shortcut_onetap_nothing_enabled">არცერთი ერთი-დაჭერის ინსტრუმენტი არ არის ჩართული</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">სარეზერვო კოპია &amp; აღდგენა</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ეს სარეზერვო კოპია Android %1$s-ზე შეიქმნა, მაგრამ ეს მოწყობილობა Android %2$s-ს იყენებს.</string>
     <string name="backup_restore_warn_device_body">ეს სარეზერვო კოპია სხვა მოწყობილობაზე შეიქმნა (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">ეს სარეზერვო კოპია აპის სხვა გამოშვებიდან არის (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">ამ სარეზერვო კოპიის ისტორიის მონაცემები (სტატისტიკა, შეკუმშვის ისტორია, სვაიპის სესიები) აპის სხვა ვერსიიდან არის და ვერ აღდგება. ყველაფერი დანარჩენი აღდგება.</string>
+    <string name="backup_restore_warn_history_body">ამ სარეზერვო ასლის ისტორიის მონაცემები (სტატისტიკა, შეკუმშვის ისტორია, გადაფურცვის სესიები) განსხვავებული აპლიკაციის ვერსიისაა და ვერ აღდგება. დანარჩენი ყველაფერი აღდგება.</string>
     <string name="backup_restore_ack_understand">მესმის და მინდა გავაგრძელო</string>
     <string name="backup_restore_action_restore">აღდგენა</string>
 </resources>

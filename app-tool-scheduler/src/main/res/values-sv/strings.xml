@@ -37,13 +37,9 @@
     <string name="scheduler_notification_result_failure_message">Vissa schemalagda uppgifter misslyckades eller påträffade fel. Försök köra dem manuellt.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Hoppades över, skärmen var av eller låst</string>
     <string name="scheduler_acs_screenlocked_hint_title">Appstädning kan hoppas över</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Appstädning använder tillgänglighetstjänsten, som kräver att skärmen är olåst. Schemalagda körningar medan enheten är låst hoppas över.
-
-Använd Shizuku eller root för bakgrundsstädning, eller schemalägg det för när du använder enheten.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Appstädning använder tillgänglighetstjänsten, som kräver att skärmen är olåst. Schemalagda körningar medan enheten är låst hoppas över.\n\nAnvänd Shizuku eller root för bakgrundsstädning, eller schemalägg det för när du använder enheten.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Systemappar kan hoppas över</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku rensar de flesta cacheminnen i bakgrunden, men systemappar behöver tillgänglighetstjänsten, som kräver att skärmen är olåst. Med \"Inkludera systemappar\" på hoppar dessa över när enheten är låst.
-
-Stäng av \"Inkludera systemappar\", eller kör schemat medan det är olåst.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku rensar de flesta cacheminnen i bakgrunden, men systemappar behöver tillgänglighetstjänsten, som kräver att skärmen är olåst. Med \"Inkludera systemappar\" på hoppar dessa över när enheten är låst.\n\nStäng av \"Inkludera systemappar\", eller kör schemat medan det är olåst.</string>
     <string name="scheduler_commands_after_schedule_label">Post-schemakommandon</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell-kommandon som kommer att köras i slutet av ett schema.</string>
     <string name="scheduler_battery_optimization_hint">Överväg att inaktivera batterioptimering för SD Maid om du upplever problem med bakgrundskörning.</string>

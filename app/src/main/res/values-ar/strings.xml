@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s محررة</string>
     <string name="dashboard_hero_freeable_x_items">%1$s يمكن إزالته</string>
     <string name="dashboard_hero_freed_x_items">%1$s تمت إزالته</string>
-    <string name="dashboard_hero_freeable_hint">اضغط على الزر لتحرير المساحة. اضغط على شريط للتحقق أولاً.</string>
+    <string name="dashboard_hero_freeable_hint">اضغط على الزر لتحرير مساحة، أو على شريحة للفحص أولاً</string>
     <string name="dashboard_hero_freed_hint">اضغط على شريط للاطلاع على التفاصيل.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">تم فحص %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">المطابقة التالية</string>
     <string name="debug_logview_jump_to_bottom_action">الانتقال إلى الأحدث</string>
     <string name="debug_logview_paused_msg">متوقف مؤقتاً — تم تجميد المخزن المؤقت</string>
-    <string name="debug_logview_paused_dropped_msg">متوقف مؤقتاً — تم تخطي %1$d سطر(ة) جديدة</string>
+    <string name="debug_logview_paused_dropped_msg">متوقف — تم تخطي %1$d أسطر جديدة</string>
     <string name="debug_logview_copied_msg">تم نسخ السجل إلى الحافظة</string>
     <string name="debug_logview_share_label">مشاركة السجل</string>
     <string name="debug_debuglog_screen_title">سجل التصحيح</string>
@@ -119,6 +119,7 @@
     <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
     <string name="settings_privacy_policy_desc">التعامل مع البيانات بمسؤولية.</string>
     <string name="settings_category_other_label">أخرى</string>
+    <string name="settings_upgrade_description">ترقية الحالة والخيارات</string>
     <string name="general_settings_label">عام</string>
     <string name="general_settings_desc">التعديلات العامة التي تؤثر على التطبيق بأكمله.</string>
     <string name="settings_category_ui_label">واجهة المستخدم</string>
@@ -349,11 +350,17 @@
     <string name="widget_home_description">استخدام التخزين والتنظيف بنقرة واحدة</string>
     <string name="widget_home_storage_internal">داخلي</string>
     <string name="widget_home_storage_external">خارجي</string>
-    <string name="widget_home_freed_label">تم تحرير: %1$s</string>
+    <string name="widget_home_freed_label">العمر الافتراضي: %1$s</string>
     <string name="widget_home_clean_action">تنظيف</string>
     <string name="widget_home_working">جاري العمل…</string>
     <string name="widget_home_unavailable">التخزين غير متاح</string>
-    <string name="shortcut_onetap_started">بدء المسح &amp; الحذف…</string>
+    <string name="settings_category_widget">أداة</string>
+    <string name="widget_settings_oneclick_summary">دع زر التنظيف في أداة الشاشة الرئيسية يفحص ويحذف الملفات بنقرة واحدة، دون السؤال كل مرة</string>
+    <string name="widget_oneclick_consent_title">تفعيل التنظيف بنقرة واحدة؟</string>
+    <string name="widget_oneclick_consent_message">سيقوم زر التنظيف في الأداة بفحص وحذف الملفات دفعة واحدة، دون السؤال أولاً أو عرض قائمة بما سيتم حذفه</string>
+    <string name="widget_oneclick_consent_enable_action">تفعيل</string>
+    <string name="widget_oneclick_consent_decline_action">ليس الآن</string>
+    <string name="shortcut_onetap_started">تم بدء المسح والحذف…</string>
     <string name="shortcut_onetap_nothing_enabled">لا توجد أدوات بنقرة واحدة مفعلة</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">النسخ الاحتياطي &amp; الاستعادة</string>
@@ -380,7 +387,7 @@
     <string name="backup_restore_warn_android_body">تم إنشاء هذه النسخة الاحتياطية في Android %1$s، لكن هذا الجهاز يعمل بـ Android %2$s.</string>
     <string name="backup_restore_warn_device_body">تم إنشاء هذه النسخة الاحتياطية على جهاز مختلف (%1$s مقابل %2$s).</string>
     <string name="backup_restore_warn_flavor_body">هذا النسخ الاحتياطي من نسخة تطبيق مختلفة (%1$s مقابل %2$s).</string>
-    <string name="backup_restore_warn_history_body">بيانات السجل في هذه النسخة الاحتياطية (الإحصائيات، سجل الضغط، جلسات المسح) من نسخة تطبيق مختلفة ولا يمكن استعادتها. كل شيء آخر سيتم استعادته.</string>
+    <string name="backup_restore_warn_history_body">بيانات سجل هذه النسخة الاحتياطية (الإحصائيات وسجل الضغط وجلسات الكسح) من نسخة تطبيق مختلفة ولا يمكن استعادتها. سيتم استعادة كل شيء آخر.</string>
     <string name="backup_restore_ack_understand">أنا أفهم وأريد المتابعة</string>
     <string name="backup_restore_action_restore">استعادة</string>
 </resources>

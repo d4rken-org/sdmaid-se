@@ -38,6 +38,7 @@
     <string name="general_error_label">ഇറർ</string>
     <string name="general_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
     <string name="general_refresh_action">റിഫ്രഷ്</string>
+    <string name="general_retry_action">വീണ്ടും ശ്രമിക്കുക</string>
     <string name="general_progress_searching">തിരയുന്നു</string>
     <string name="general_progress_generating_searchpaths">സെർച്ച് പാത്ത് സൃഷ്ടിക്കുന്നു</string>
     <string name="general_progress_filtering">ഫിൽട്ടറിംഗ്</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">പേര് (A → Z)</string>
     <string name="general_sort_size_desc">ഏറ്റവും വലുത് ആദ്യം</string>
     <string name="general_tag_system">സിസ്റ്റം</string>
+    <string name="general_tag_library">ലൈബ്രറി</string>
     <string name="general_navigate_up_action">മുകളിലേക്ക് നാവിഗേറ്റ് ചെയ്യുക</string>
     <string name="general_filter_action">ഫില്‍റ്റര്‍</string>
     <string name="general_filter_by_tags_label">ട്യാഗ് അനുസരിച്ച് ഫിൽട്ടർ ചെയ്യുക</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">ബഗ് റിപ്പോർട്ട് ചെയ്യുക</string>
     <string name="general_error_ipc_deadobject_title">സേവന കണക്ഷൻ നഷ്ടപ്പെട്ടു</string>
     <string name="general_error_ipc_deadobject_description">ഒരു നിർണായക സേവനത്തിലേക്കുള്ള കണക്ഷൻ (ഉദാ. Magisk, Shizuku, അല്ലെങ്കിൽ മറ്റ് സിസ്റ്റം-ലെവൽ സേവനങ്ങൾ) അപ്രതീക്ഷിതമായി നഷ്ടപ്പെട്ടു. ദയവായി നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക. പ്രശ്നം തുടരുകയാണെങ്കിൽ, അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുക അല്ലെങ്കിൽ എന്നെ ബന്ധപ്പെടുക.</string>
-    <string name="general_error_upgrade_required_title">പ്രോ പതിപ്പ് ആവശ്യമാണ്</string>
-    <string name="general_error_upgrade_required_description">ഇത് പ്രോ ഫീച്ചറാണ്. ഇത് ഉപയോഗിക്കുവാൻ SD Maid SE അപ്ഗ്രേഡ് ചെയ്യുക.</string>
+    <string name="general_error_upgrade_required_title">അപ്‌ഗ്രേഡ് ആവശ്യമാണ്</string>
+    <string name="general_error_upgrade_required_description">ഈ ഫീച്ചറിന് അപ്‌ഗ്രേഡ് ആവശ്യമാണ്. ദയവായി അത് ഉപയോഗിക്കാൻ SD Maid SE അപ്‌ഗ്രേഡ് ചെയ്യുക.</string>
     <string name="general_user_label_owner">ഉടമ</string>
     <string name="general_user_label_system">സിസ്റ്റം</string>
     <string name="setup_title">സെറ്റപ്പ്</string>

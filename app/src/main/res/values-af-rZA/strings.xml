@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s vrygestel</string>
     <string name="dashboard_hero_freeable_x_items">%1$s kan verwyder word</string>
     <string name="dashboard_hero_freed_x_items">%1$s verwyder</string>
-    <string name="dashboard_hero_freeable_hint">Tik die knop om ruimte vry te maak. Tik eers \'n chip om te kontroleer.</string>
+    <string name="dashboard_hero_freeable_hint">Tik die knop om plek vry te maak, of \'n knoppie om eers na te gaan.</string>
     <string name="dashboard_hero_freed_hint">Tik \'n chip vir besonderhede.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Geskandeer %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Volgende ooreenkoms</string>
     <string name="debug_logview_jump_to_bottom_action">Spring na nuutste</string>
     <string name="debug_logview_paused_msg">Onderbreek — buffer bevrore</string>
-    <string name="debug_logview_paused_dropped_msg">Onderbreek — %1$d nuwe lyne oorgeslaan</string>
+    <string name="debug_logview_paused_dropped_msg">Onderbreek — nuwe lyne oorgeslaan: %1$d</string>
     <string name="debug_logview_copied_msg">Logboek gekopieer na die Knipbord</string>
     <string name="debug_logview_share_label">Deel logboek</string>
     <string name="debug_debuglog_screen_title">Ontfoutingslog</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Privaatheid beleid</string>
     <string name="settings_privacy_policy_desc">Hanteer data verantwoordelik.</string>
     <string name="settings_category_other_label">Ander</string>
+    <string name="settings_upgrade_description">Opgraderingstatus en -opsies.</string>
     <string name="general_settings_label">Algemeen</string>
     <string name="general_settings_desc">Algemene aanpassings wat die hele toepassing affekteer.</string>
     <string name="settings_category_ui_label">Gebruikerskoppelvlak</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Opslaggebruik en een-tik skoonmaak</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Ekstern</string>
-    <string name="widget_home_freed_label">Bevry: %1$s</string>
+    <string name="widget_home_freed_label">Leeftyd: %1$s</string>
     <string name="widget_home_clean_action">Maak skoon</string>
     <string name="widget_home_working">Besig…</string>
     <string name="widget_home_unavailable">Opslag nie beskikbaar nie</string>
-    <string name="shortcut_onetap_started">Skandering &amp; verwydering begin…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Laat die tuisskerm-widget se Skoonmaak-knop in een tik skandeer en skrap, sonder om elke keer te vra.</string>
+    <string name="widget_oneclick_consent_title">Skakel eentik-skoonmaak in?</string>
+    <string name="widget_oneclick_consent_message">Die widget se Skoonmaak-knop sal in een keer skandeer en skrap, sonder om eers te vra of jou toe te laat om na te gaan wat verwyder word.</string>
+    <string name="widget_oneclick_consent_enable_action">Skakel in</string>
+    <string name="widget_oneclick_consent_decline_action">Nie nou nie</string>
+    <string name="shortcut_onetap_started">Skandeer + Skrap begin…</string>
     <string name="shortcut_onetap_nothing_enabled">Geen eentik-gereedskap is geaktiveer nie</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Rugsteun &amp; Herstel</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Hierdie rugsteun is gemaak op Android %1$s, maar hierdie toestel loop Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Hierdie rugsteun is gemaak op \'n ander toestel (%1$s teen %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Hierdie rugsteun is van \'n ander app-uitgawe (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Hierdie rugsteun se geskiedenisdata (statistieke, kompressiegeskiedenis, swipe-sessies) is van \'n ander app-weergawe en kan nie herstel word nie. Alles ander sal wel herstel word.</string>
+    <string name="backup_restore_warn_history_body">Hierdie rugsteun se geskiedenisdata (statistieke, kompressiegeskiedenis, veeg-sessies) is van \'n ander app-weergawe en kan nie herstel word nie. Alles anders sal herstel word.</string>
     <string name="backup_restore_ack_understand">Ek verstaan en wil voortgaan</string>
     <string name="backup_restore_action_restore">Herstel</string>
 </resources>

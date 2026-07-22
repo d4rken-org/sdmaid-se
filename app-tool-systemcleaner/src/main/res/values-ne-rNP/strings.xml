@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">नयाँ फिल्टर आयात गर्नुहोस्</string>
     <string name="systemcleaner_customfilter_export_action">चयनित फिल्टर निर्यात गर्नुहोस्</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner एप-स्वतन्त्र फिल्टरहरू प्रयोग गरेर फोहोर खोज्छ। खाली फोल्डरहरू, बचेको लगहरू र पुरानो थम्बनेलहरूको लागि तयार नियमहरू अस्तित्वमा छन्। आफ्नै नियमहरू सिर्जना गर्न चाहेको खण्डमा सेटिङहरू हेर्नुहोस्।</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner एप-विशिष्ट नहुने फिल्टर प्रयोग गरी जंक खोज्दछ। खाली फोल्डर, बाकी रहेका लग र बिर्सिएको थम्बनेल जस्ता कुराहरूको लागि तयार-निर्मित नियमहरू अवस्थित छन्। यदि तपाईं आफ्नै नियम बनाउन चाहनुहुन्छ भने सेटिङ्ग भ्रमण गर्नुहोस्।</string>
     <string name="tour_systemcleaner_filter_body">प्रत्येक पङ्क्ति एक फिल्टर र यसले भेट्टाने कुरा हो। कुनै पनि कुरा मेटाउनु अघि कुन फाइलहरू मेल खान्छन् भनी सटीकसँग हेर्न यसको विवरण खोल्नुहोस्।</string>
 </resources>

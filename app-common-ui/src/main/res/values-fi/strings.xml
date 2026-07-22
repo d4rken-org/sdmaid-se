@@ -8,6 +8,7 @@
         <item quantity="other">%d polkua valittu</item>
     </plurals>
     <string name="picker_home_action">Tietoalueet</string>
+    <string name="picker_select_hint">Pidä kohdetta painettuna valitaksesi sen.</string>
     <string name="tour_action_next">Seuraava</string>
     <string name="tour_action_previous">Edellinen</string>
     <string name="tour_action_cancel">Ohita</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Jatka opastusta</string>
     <string name="tour_confirm_dont_show_this_tour">Älä näytä tätä opastusta</string>
     <string name="tour_confirm_disable_all">Poista kaikki opastukset käytöstä</string>
-    <string name="navigation_unknown_destination_title">Tulossa pian</string>
-    <string name="navigation_unknown_destination_message">Tätä näyttöä siirretään parhaillaan uuteen käyttöliittymään.</string>
+    <string name="navigation_unknown_destination_title">Näyttö ei ole saatavilla</string>
+    <string name="navigation_unknown_destination_message">Tätä näyttöä ei voitu avata.</string>
 </resources>

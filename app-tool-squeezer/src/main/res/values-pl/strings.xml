@@ -38,7 +38,7 @@
         <item quantity="other">pominięto %d plików (niedostępne)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_lossy_aux">
-        <item quantity="one">%d pominięte (HDR/głębia zachowana)</item>
+        <item quantity="one">%d pominięty (HDR/głębia zachowana)</item>
         <item quantity="few">%d pominięte (HDR/głębia zachowana)</item>
         <item quantity="many">%d pominiętych (HDR/głębia zachowana)</item>
         <item quantity="other">%d pominiętych (HDR/głębia zachowana)</item>
@@ -67,15 +67,15 @@
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Dołącz obrazy WebP (.webp).</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
-    <string name="squeezer_type_heic_description">Uwzględnij obrazy HEIC/HEIF (.heic, .heif). Data, lokalizacja i inne metadane EXIF są zachowywane. Mapy HDR gain, dane głębi i elementy towarzyszące Live/Motion Photo nie mogą być zachowane; pliki wieloobrazkowe są pomijane.</string>
+    <string name="squeezer_type_heic_description">Uwzględnij obrazy HEIC/HEIF (.heic, .heif). Data, lokalizacja i inne metadane EXIF są zachowywane. Mapy wzmocnienia HDR, dane głębi i powiązane pliki zdjęć z ruchem nie mogą zostać zachowane; pliki zawierające wiele obrazów są pomijane.</string>
     <string name="squeezer_type_video_title">Wideo MP4</string>
     <string name="squeezer_type_video_description">Dołącz pliki wideo MP4 (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Pomiń poprzednio skompresowane</string>
     <string name="squeezer_skip_compressed_description">Pomiń pliki, które zostały już skompresowane przez SD Maid.</string>
     <string name="squeezer_exif_marker_title">Zapisz znacznik EXIF</string>
     <string name="squeezer_exif_marker_description">Dołącz znacznik do pola komentarza użytkownika EXIF obrazu, aby zapobiec ponownemu kompresji, nawet jeśli historia kompresji jest wyczyszczona.</string>
-    <string name="squeezer_include_lossy_aux_title">Kompresuj zdjęcia HDR &amp; głębi</string>
-    <string name="squeezer_include_lossy_aux_description">Domyślnie wyłączone: zdjęcia z mapą HDR gain lub danymi głębi/portretu są pomijane, aby nie uległy spłaszczeniu. Włącz, aby kompresować je, gdzie to możliwe — stracą mapę HDR gain lub dane głębi. Niektóre wieloobrazkowe zdjęcia HEIC pozostają chronione niezależnie.</string>
+    <string name="squeezer_include_lossy_aux_title">Kompresuj zdjęcia HDR i głębi</string>
+    <string name="squeezer_include_lossy_aux_description">Domyślnie wyłączone: zdjęcia z mapą wzmocnienia HDR lub danymi głębi/portretu są pomijane, aby nie zostały spłaszczone. Włącz tę opcję, aby je skompresować, jeśli to możliwe — utracisz mapę wzmocnienia HDR lub dane głębi. Niektóre zdjęcia HEIC z wieloma obrazami pozostają chronione niezależnie od tego.</string>
     <string name="squeezer_estimated_savings_format">~%s zaoszczędzone</string>
     <string name="squeezer_no_savings_expected">Ograniczone oszczędności</string>
     <string name="squeezer_current_size_format">Rozmiar: %s</string>
@@ -108,10 +108,10 @@
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
     <string name="squeezer_result_empty_message">Nie znaleziono kompresowalnych multimediów.</string>
     <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Brak plików do kompresji — pominięte %d zdjęcie HDR/głębi. Włącz opcję „Kompresuj zdjęcia HDR &amp; głębi” w ustawieniach, aby je uwzględnić.</item>
-        <item quantity="few">Brak plików do kompresji — pominięte %d zdjęcia HDR/głębi. Włącz opcję „Kompresuj zdjęcia HDR &amp; głębi” w ustawieniach, aby je uwzględnić.</item>
-        <item quantity="many">Brak plików do kompresji — pominiętych %d zdjęć HDR/głębi. Włącz opcję „Kompresuj zdjęcia HDR &amp; głębi” w ustawieniach, aby je uwzględnić.</item>
-        <item quantity="other">Brak plików do kompresji — pominiętych %d zdjęć HDR/głębi. Włącz opcję „Kompresuj zdjęcia HDR &amp; głębi” w ustawieniach, aby je uwzględnić.</item>
+        <item quantity="one">Brak plików do kompresji — pominięte %d zdjęcie HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
+        <item quantity="few">Brak plików do kompresji — pominięte %d zdjęcia HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
+        <item quantity="many">Brak plików do kompresji — pominiętych %d zdjęć HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
+        <item quantity="other">Brak plików do kompresji — pominiętych %d zdjęć HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
     </plurals>
     <string name="squeezer_setup_warning">Kompresja trwale obniża jakość, oszczędzając miejsce na dysku. Tej operacji nie można cofnąć. Przed rozpoczęciem dokładnie sprawdź ustawienia.</string>
     <plurals name="squeezer_setup_path_dropped_message">
@@ -139,6 +139,6 @@
     <string name="squeezer_estimated_savings_percent">Szacowane oszczędności ~%d%% dla plików JPEG</string>
     <string name="squeezer_onboarding_got_it">Rozumiem</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer ponownie kompresuje twoje zdjęcia i wideo, aby zajmowały mniej miejsca. Pliki pozostają użyteczne, po prostu mniejsze, a każdy pokazuje szacunkowe oszczędności.</string>
-    <string name="tour_squeezer_compress_body">Kompresuj wszystko na raz tutaj lub naciśnij pojedynczy element, aby zmniejszyć tylko ten jeden. Naciśnij długo, aby wybrać kilka. Zawsze zobaczysz podgląd przed zmianą.</string>
+    <string name="tour_squeezer_intro_body">Kompresja multimediów ponownie kompresuje twoje zdjęcia i filmy, dzięki czemu zajmują mniej miejsca. W zamian za odzyskane miejsce tracisz nieco na jakości. Każdy element pokazuje szacowaną oszczędność, dzięki czemu możesz zdecydować, co jest tego warte.</string>
+    <string name="tour_squeezer_compress_body">Kompresuj wszystko na raz tutaj lub naciśnij pojedynczy element, aby zmniejszyć tylko ten jeden. Przytrzymaj, aby wybrać kilka. Zawsze zobaczysz podgląd przed zmianą.</string>
 </resources>

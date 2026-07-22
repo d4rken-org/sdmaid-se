@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s чөлөөлөгдсөн</string>
     <string name="dashboard_hero_freeable_x_items">%1$s-ийг хасах боломжтой</string>
     <string name="dashboard_hero_freed_x_items">%1$s хасагдсан</string>
-    <string name="dashboard_hero_freeable_hint">Орон зайг чөлөөлөхийн тулд товчлуурыг дарна уу. Эхлээд цэгийг дараарай.</string>
+    <string name="dashboard_hero_freeable_hint">Сансар чөлөөлөхийн тулд товчийг дарах, эсвэл эхлээд шалгахын тулд сонголтыг сонгох.</string>
     <string name="dashboard_hero_freed_hint">Дэлгэрэнгүй үзэхийн тулд цэгийг дараарай.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s сканнерласан</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Дараагийн тохирол</string>
     <string name="debug_logview_jump_to_bottom_action">Сүүлийнх рүү үсрэх</string>
     <string name="debug_logview_paused_msg">Түр хүлээх — буфер хөлджээ</string>
-    <string name="debug_logview_paused_dropped_msg">Түр хүлээх — %1$d шинэ мөр алгасагдсан</string>
+    <string name="debug_logview_paused_dropped_msg">Зогсоосон — шинэ мөрүүд алгасагдсан: %1$d</string>
     <string name="debug_logview_copied_msg">Логийг хуулагдсан</string>
     <string name="debug_logview_share_label">Логийг хуваалцах</string>
     <string name="debug_debuglog_screen_title">Дебаг лог</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Нууцлалын бодлого</string>
     <string name="settings_privacy_policy_desc">Өгөгдлийг хариуцлагатай зохицуулах.</string>
     <string name="settings_category_other_label">Бусад</string>
+    <string name="settings_upgrade_description">Шинэчлэлийн статус болон сонголтуудыг үзэх.</string>
     <string name="general_settings_label">Ерөнхий</string>
     <string name="general_settings_desc">Аппликешн даяар нөлөөлөх ерөнхий тохиргоо.</string>
     <string name="settings_category_ui_label">Хэрэглэгчийн интерфейс</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Сан ашиглалт болон нэг товшилтын цэвэрлэлт</string>
     <string name="widget_home_storage_internal">Дотоод</string>
     <string name="widget_home_storage_external">Гадаад</string>
-    <string name="widget_home_freed_label">Чөлөөлсөн: %1$s</string>
+    <string name="widget_home_freed_label">Ашиглалтын хугацаа: %1$s</string>
     <string name="widget_home_clean_action">Цэвэрлэх</string>
     <string name="widget_home_working">Ажиллаж байна…</string>
     <string name="widget_home_unavailable">Сан боломжгүй</string>
-    <string name="shortcut_onetap_started">Сканнерлалт &amp; устгалт эхэлсэн…</string>
+    <string name="settings_category_widget">Виджет</string>
+    <string name="widget_settings_oneclick_summary">Үндсэн дэлгэцийн виджетийн Цэвэрлэх товчийг нэг даралтаар сканнаж, устгахыг зөвшөөрөх, асуухгүйгээр.</string>
+    <string name="widget_oneclick_consent_title">Нэг даралтаар цэвэрлэхийг идэвхжүүлэх үү?</string>
+    <string name="widget_oneclick_consent_message">Виджетийн Цэвэрлэх товч нэг явцаар сканнаж, устгах болно, эхлээд асуухгүй, устагдах зүйлсийг нь шалгуулахгүй.</string>
+    <string name="widget_oneclick_consent_enable_action">Идэвхжүүлэх</string>
+    <string name="widget_oneclick_consent_decline_action">Одоо биш</string>
+    <string name="shortcut_onetap_started">Сканнерлэх + Устгалт эхэллээ…</string>
     <string name="shortcut_onetap_nothing_enabled">Нэг товшилтоор идэвхтэй хэрэгслүүд байхгүй</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Нөөцлөх &amp; Сэргээх</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Энэ нөөц хуулбар Android %1$s дээр хийгдсэн, гэхдээ энэ төхөөрөмж Android %2$s ажилладаг.</string>
     <string name="backup_restore_warn_device_body">Энэ нөөц хуулбар өөр төхөөрөмж дээр хийгдсэн (%1$s ба %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Энэ нөөц хуулбар өөр апп хувилбар (%1$s ба %2$s) -аас үүдэлтэй.</string>
-    <string name="backup_restore_warn_history_body">Энэ нөөц хуулбарын түүхийн өгөгдөл (статистик, шахалтын түүх, гулсалтын сеансууд) өөр апп хувилбаас гаралтай бөгөөд сэргээгдэх боломжгүй. Бусад бүх зүйл сэргээгдэх болно.</string>
+    <string name="backup_restore_warn_history_body">Энэ резервийн түүхийн өгөгдөл (статистик, шахалтын түүх, шүүрдэх сессиүүд) өөр аппын хувилбарын үтээстэй тул сэргээгдэх боломжгүй. Бусад бүх зүйл сэргээгдэх болно.</string>
     <string name="backup_restore_ack_understand">Би ойлгосон бөгөөд үргэлжлүүлэхийг хүсч байна</string>
     <string name="backup_restore_action_restore">Сэргээх</string>
 </resources>

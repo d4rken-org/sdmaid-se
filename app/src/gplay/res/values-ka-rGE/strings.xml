@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">მიიღეთ SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid-ს არ აქვს რეკლამები და არ ყიდის მომხმარებლის მონაცემებს. ჩემი სამუშაო თქვენ აფინანსებთ ❤️.</string>
     <string name="upgrade_screen_benefits_title">განახლების უპირატესობები</string>
-    <string name="upgrade_screen_benefits_body">• აპის კეშისა და ზედმეტი მონაცემების გაწმენდა
-• დუბლირებული ფაილების წაშლა
-• დაგეგმილი გაწმენდის ჩართვა
-• მომხმარებლის ფილტრები და გაწმენდის წესების შექმნა
-• შენახვის ტენდენციების და გაწმენდის ისტორიის მეთვალყურება
-• მეტი ფუნქციები და კონტროლი აპის მასშტაბით
-• განვითარების გაგრძელების მხარდაჭერა</string>
+    <string name="upgrade_screen_benefits_body">• აპლიკაციის კეში და ნაგროვი წაშლა\n• დუბლიკატ ფაილების წაშლა\n• ფოტო და ვიდეო შეკუმშვა\n• გადაფურცვის მეშვეობით ძველი ფაილების გასუფთავება\n• ერთი შეხებით გასუფთავება ვიჯეტის მეშვეობით\n• გასუფთავების დაგეგმვა\n• მორგებული ფილტრები და წესები\n• საცავის ტენდენციები და ისტორია\n• მეტი ფუნქცია და კონტროლი აპლიკაციის მასშტაბით\n• გაგრძელებული განვითარების მხარდაჭერა</string>
+    <string name="upgrade_screen_offers_title">განახლების ვარიანტები</string>
+    <string name="upgrade_screen_offers_body">იგივე ფუნქციები, მხოლოდ განსხვავებული ფასების მოდელი.</string>
+    <string name="upgrade_screen_offers_or">ან</string>
     <string name="upgrade_screen_subscription_offer_title">წლიური გამოწერა</string>
+    <string name="upgrade_screen_subscription_offer_body">წელიწადში ერთხელ განახლდება უფასო საცდელი პერიოდის შემდეგ. გააუქმეთ ნებისმიერ დროს Google Play-ში.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">წელიწადში ერთხელ განახლდება. გააუქმეთ ნებისმიერ დროს Google Play-ში.</string>
     <string name="upgrade_screen_iap_offer_title">ერთჯერადი ყიდვა</string>
+    <string name="upgrade_screen_iap_offer_body">ერთი გადახდა, განახლება არ არის.</string>
     <string name="upgrade_screen_offers_unavailable_message">ფასები ამ მომენტში ვერ ჩატვირთა. Google Play-ს შეამოწმეთ და ცოტა ხნის შემდეგ ხელახლა სცადეთ.</string>
     <string name="upgrade_screen_subscription_trial_action">დაიწყეთ უფასო 14-დღიანი საცდელი</string>
     <string name="upgrade_screen_subscription_action">გამოწერა</string>
     <string name="upgrade_screen_iap_action">ერთჯერადი შეძენა</string>
     <string name="upgrade_screen_thanks_toast">Საუკეთესო ხარ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">შეძენის აღდგენა</string>
+    <string name="upgrade_screen_restore_banner_title">უკვე იყიდე Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">ჩანს, რომ თქვენ ადრე ამ მოწყობილობაზე Pro-ზე განახლეთ. აღადგინეთ თქვენი შეძენა, რათა ისევ განბლოკოთ.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store სინქრონიზაციას შეიძლება დრო დასჭირდეს. სცადეთ გადატვირთვა, Google Play ქეშის გასუფთავება ან უბრალოდ დაელოდეთ.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">მრავალი ანგარიში შეიძლება აბნევდეს Google Play-ს. დააინსტალირეთ აპი Google Play ვებსაიტის მეშვეობით, რაც აიძულებს კონკრეტულ ანგარიშთან ასოციაციას.</string>
+    <string name="upgrade_screen_owned_hero_title">გილოცავთ!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">თქვენ გაქვთ %1$s, რომელიც განბლოკირებულია თქვენი გამოწერით.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">თქვენ გაქვთ %1$s, რომელიც განბლოკირებულია თქვენი ერთჯერადი შეძენით.</string>
+    <string name="upgrade_screen_owned_iap_title">ერთჯერადი შეძენა</string>
+    <string name="upgrade_screen_owned_iap_body">თქვენ გაქვთ ერთჯერადი Pro განახლება. Pro ამ Google ანგარიშზე განბლოკირებული რჩება. გმადლობთ SD Maid-ის მხარდამჭერობისთვის ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">თქვენი Pro გამოწერა აქტიური და განახლებაზე დაყენებულია. ბილინგი Google Play-ის მიერ მართლდება.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">ერთჯერადი შეძენა უპირატეს წააჩეთ? ის ხელმისაწვდომი ხდება, როდესაც თქვენი გამოწერა აღარ დაყენებულია განახლებაზე. ამისთვის Google Play-ში გააუქმეთ გამოწერა.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">თქვენი Pro გამოწერა აქტიური, მაგრამ განახლებაზე დაყენებული არ არის. Pro ხელმისაწვდომი რჩება მიმდინარე პერიოდის ბოლომდე.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">ეს გამოწერა კვლავ დაყენებულია განახლებისთვის, თუმცა თქვენ უკვე გაქვთ ერთჯერადი განახლება. თქვენ შეგიძლიათ გაუქმოთ იგი Google Play-ში.</string>
+    <string name="upgrade_screen_manage_subscription_action">გამოწერის მართვა</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">ეს არის ცალკე ყიდვა: იგი არ გაუქმებს და არ დაბრუნებს თქვენს გამოწერას. გამოიყენეთ იგივე Google ანგარიში ორივესთვის.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">გამოწერა კვლავ აქტიური</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play იტყობინება, რომ თქვენი გამოწერა კვლავ დაყენებულია განახლებისთვის. ერთჯერადი განახლება რომ ვიყიდოთ, ჯერ გაუქმოთ გამოწერა Google Play-ში, შემდეგ დაბრუნდით აქ.\n\nახლახან გაუქმეთ? მოცემეთ Google Play-ს დრო და სცადეთ ხელახლა. ასევე დარწმუნდით, რომ იყენებთ იგივე Google ანგარიშს.</string>
+    <string name="upgrade_screen_sub_check_failed_message">ვერ შეძლო თქვენი გამოწერის სტატუსის შემოწმება Google Play-ში. გთხოვთ, მომენტში ხელახლა სცადეთ.</string>
+    <string name="upgrade_screen_restore_success_message">ყიდვა აღდგა, თქვენი Pro განახლება აქტიური.</string>
+    <string name="upgrade_screen_grace_title">თქვენი ყიდვის დადასტურება</string>
+    <string name="upgrade_screen_grace_body_short">Pro კვლავ აქტიური. ველოდებთ, რომ Google Play ხელახლა დაადასტუროს თქვენი ყიდვა, ყველა Pro ფუნქცია განბლოკირებული რჩება ამ დროს.</string>
+    <string name="upgrade_screen_grace_body">Pro კვლავ აქტიური, მაგრამ Google Play დიდი ხნის განმავლობაში არ დადასტურებს თქვენი ყიდვას. თუ თქვენ ყიდეთ Pro, აღდგით ყიდვა და დარწმუნდით, რომ Google Play იყენებს იმ ანგარიშს, რომელმაც ყიდა. თუ გამოწერა დასრულდა ან ყიდვა დაბრუნებული იყო, Pro თავის თავზე გაითიშება, სხვა რაიმე არ უნდა გააკეთოთ.</string>
+    <string name="upgrade_screen_restore_body">აღდგენა Google Play-ს ხელახლა შეამოწმოს ამ აპლიკაციის ყიდვები მიმდინარე ანგარიშისთვის. ეს არ იწყებს ახალ ყიდვას.</string>
+    <string name="upgrade_screen_restore_status_title">სტატუსი არასწორი ჩანს?</string>
+    <string name="upgrade_screen_restore_status_body">თუ ყიდვა აკლია ან სტატუსი არასწორი ჩანს, Google Play-თან ხელახლა შეამოწმეთ.</string>
+    <string name="upgrade_screen_contact_support_action">დაუკავშირდით მხარდაჭერას</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid-მა ახლახან შეამოწმა Google Play, მაგრამ Pro ყიდვა ვერ დადასტურდა ანგარიშისთვის, რომელსაც Google Play იყენებს ამ აპლიკაციისთვის.</string>
+    <string name="upgrade_screen_restore_contact_hint">ჯერ კიდევ გაჭირვებული ხართ? დაუკავშირდით მხარდაჭერას იმ ელფოსტიდან, საიდანაც ყიდვა განახორციელეთ, და მიუთითეთ თქვენი Google Play შეკვეთის ნომერი.</string>
 </resources>

@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">Anggaran ~%d%% penjimatan untuk fail JPEG</string>
     <string name="squeezer_onboarding_got_it">Faham</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer memampatkan semula foto dan video anda supaya mereka memakan kurang ruang. Fail tetap boleh digunakan, hanya lebih kecil, dan setiap satu menunjukkan penjimatan anggaran.</string>
+    <string name="tour_squeezer_intro_body">Squeezer memampatkan semula foto dan video anda supaya ia mengambil ruang yang lebih sedikit. Anda mengorbankan sedikit kualiti untuk ruang yang anda dapat kembali. Setiap item menunjukkan anggaran simpanan, jadi anda boleh memutuskan apa yang berbaloi.</string>
     <string name="tour_squeezer_compress_body">Mampatkan semuanya sekali gus di sini, atau ketuk satu item untuk mengecilkan hanya itu sahaja. Tekan lama untuk memilih beberapa. Anda akan sentiasa melihat pratonton sebelum sesuatu berubah.</string>
 </resources>

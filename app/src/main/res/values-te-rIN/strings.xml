@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s విడిపించబడింది</string>
     <string name="dashboard_hero_freeable_x_items">%1$s తొలగించవచ్చు</string>
     <string name="dashboard_hero_freed_x_items">%1$s తొలగించబడింది</string>
-    <string name="dashboard_hero_freeable_hint">స్థలాన్ని విడిపించడానికి బటన్‌ను నొక్కండి. ముందుగా తనిఖీ చేయడానికి చిప్‌ను నొక్కండి.</string>
+    <string name="dashboard_hero_freeable_hint">స్థలాన్ని విడిపించడానికి బటన్‌ను నొక్కండి లేదా ముందుగా చెక్ చేయడానికి చిప్‌ను నొక్కండి.</string>
     <string name="dashboard_hero_freed_hint">వివరాల కోసం చిప్‌ను నొక్కండి.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s స్కాన్ చేయబడింది</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">తదుపరి సరిపోలిక</string>
     <string name="debug_logview_jump_to_bottom_action">సరికొత్తకు వెళ్లండి</string>
     <string name="debug_logview_paused_msg">ఆపివేయబడింది — బఫర్ ఫ్రీజ్ చేయబడింది</string>
-    <string name="debug_logview_paused_dropped_msg">ఆపివేయబడింది — %1$d కొత్త పంక్తి(లు) దాటవేయబడ్డాయి</string>
+    <string name="debug_logview_paused_dropped_msg">పాజ్ చేయబడిన — కొత్త లైన్‌లు దాటవేయబడ్డాయి: %1$d</string>
     <string name="debug_logview_copied_msg">లాగ్ క్లిప్‌బోర్డ్‌కు కాపీ చేయబడింది</string>
     <string name="debug_logview_share_label">లాగ్‌ను పంచుకోండి</string>
     <string name="debug_debuglog_screen_title">డీబగ్ లాగ్</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">గోప్యతా విధానం</string>
     <string name="settings_privacy_policy_desc">డేటాను బాధ్యతగా నిర్వహించడం.</string>
     <string name="settings_category_other_label">ఇతర</string>
+    <string name="settings_upgrade_description">స్థితి మరియు ఎంపికలను నవీకరించండి.</string>
     <string name="general_settings_label">సాధారణ</string>
     <string name="general_settings_desc">ముందు ఎప్లికేషన్‌ను ప్రభావితం చేసే సాధారణ సెట్టింగ్సు.</string>
     <string name="settings_category_ui_label">వాడుకరి ఇంటర్‌ఫేస్</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">నిల్వ వినియోగం మరియు ఒక-ట్యాప్ శుభ్రీకరణ</string>
     <string name="widget_home_storage_internal">అంతర్గత</string>
     <string name="widget_home_storage_external">బాహ్య</string>
-    <string name="widget_home_freed_label">విడిపించారు: %1$s</string>
+    <string name="widget_home_freed_label">జీవితకాలం: %1$s</string>
     <string name="widget_home_clean_action">శుభ్రపరచు</string>
     <string name="widget_home_working">పని జరుగుతోంది…</string>
     <string name="widget_home_unavailable">నిల్వ అందుబాటులో లేనిది</string>
-    <string name="shortcut_onetap_started">స్కాన్ &amp; తొలగించు ప్రారంభమైంది…</string>
+    <string name="settings_category_widget">విడ్జెట్</string>
+    <string name="widget_settings_oneclick_summary">హోమ్-స్క్రీన్ విడ్జెట్ యొక్క Clean బటన్ ఒక్క నొక్కటోపై స్కాన్ చేసి డిలీట్ చేయనివ్వండి, ప్రతిసారీ అడగకుండా.</string>
+    <string name="widget_oneclick_consent_title">వన్-ట్యాప్ క్లీనింగ్‌ను ప్రారంభించాలా?</string>
+    <string name="widget_oneclick_consent_message">విడ్జెట్ యొక్క Clean బటన్ ఒక్కసారిగా స్కాన్ చేసి డిలీట్ చేస్తుంది, ముందుగా అడగకుండా లేదా కూడలీకరించినవిని సమీక్షించనివ్వకుండా.</string>
+    <string name="widget_oneclick_consent_enable_action">ప్రారంభించండి</string>
+    <string name="widget_oneclick_consent_decline_action">ఇప్పుడు కాదు</string>
+    <string name="shortcut_onetap_started">స్కాన్ + డిలీట్ ప్రారంభమైంది…</string>
     <string name="shortcut_onetap_nothing_enabled">ఏ ఒక-ట్యాప్ సాధనాలు ప్రారంభించబడలేదు</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">బ్యాకప్ &amp; పునరుద్ధరించు</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ఈ బ్యాకప్ Android %1$s లో తయారు చేయబడింది, కానీ ఈ పరికరం Android %2$s నడుపుతుంది.</string>
     <string name="backup_restore_warn_device_body">ఈ బ్యాకప్ వేర్వేరు పరికరంపై తయారు చేయబడింది (%1$s వర్సెస్ %2$s).</string>
     <string name="backup_restore_warn_flavor_body">ఈ బ్యాకప్ భిన్న యాప్ ఎడిషన్ నుండి ఉంది (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">ఈ బ్యాకప్ చరిత్ర డేటా (గణాంకాలు, సంపీడన చరిత్ర, స్వైప్ సెషన్‌లు) భిన్న యాప్ సంస్కరణ నుండి ఉంది మరియు పునరుద్ధరించబడదు. మిగిలినవన్నీ పునరుద్ధరించబడతాయి.</string>
+    <string name="backup_restore_warn_history_body">ఈ బ్యాకప్ యొక్క చరిత్ర డేటా (గణాంకాలు, కంప్రెషన్ చరిత్ర, స్వైప్ సెషన్‌లు) భిన్న ఆప్ సంస్కరణ నుండి ఉంది మరియు పునరుద్ధరించబడదు. మిగతావన్నీ పునరుద్ధరించబడుతుంది.</string>
     <string name="backup_restore_ack_understand">నేను అర్థం చేసుకున్నాను మరియు కొనసాగాలనుకుంటున్నాను</string>
     <string name="backup_restore_action_restore">పునరుద్ధరించు</string>
 </resources>

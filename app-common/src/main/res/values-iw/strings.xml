@@ -38,6 +38,7 @@
     <string name="general_error_label">שגיאה</string>
     <string name="general_upgrade_action">שדרוג</string>
     <string name="general_refresh_action">רענן</string>
+    <string name="general_retry_action">נסה שוב</string>
     <string name="general_progress_searching">מחפש</string>
     <string name="general_progress_generating_searchpaths">יצירת נתיבי חיפוש</string>
     <string name="general_progress_filtering">מסנן</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">שם (א → ת)</string>
     <string name="general_sort_size_desc">הגדולים ביותר תחילה</string>
     <string name="general_tag_system">מערכת</string>
+    <string name="general_tag_library">ספרייה</string>
     <string name="general_navigate_up_action">נווט למעלה</string>
     <string name="general_filter_action">סינון</string>
     <string name="general_filter_by_tags_label">סנן לפי תגיות</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">דווח על באג</string>
     <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
     <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
-    <string name="general_error_upgrade_required_title">נדרשת גרסת Pro</string>
-    <string name="general_error_upgrade_required_description">זו תכונה בגרסת Pro. אנא שדרג את SD Maid SE כדי להשתמש בה.</string>
+    <string name="general_error_upgrade_required_title">שדרוג נדרש</string>
+    <string name="general_error_upgrade_required_description">התכונה הזו דורשת שדרוג. אנא שדרג את SD Maid SE כדי להשתמש בה.</string>
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
     <string name="setup_title">הגדרה</string>

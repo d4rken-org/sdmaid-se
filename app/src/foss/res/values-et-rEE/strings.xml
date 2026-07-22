@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Kuidas aidata?</string>
     <string name="upgrade_screen_how_body">Hakake toetajaks ja rahastage arendamist. Kõikide lisavõimaluste kasutamiseks ja minu GitHub Sponsors profiili avamiseks puudutage alumist nuppu.</string>
     <string name="upgrade_screen_why_title">Uuendamise eelised</string>
-    <string name="upgrade_screen_why_body">• Puhasta rakenduste vahemälu ja mittevajalikud andmed\n• Eemalda duplikaadfailid\n• Luba ajastatud puhastused\n• Loo kohandatud filtrid ja puhastusreeglid\n• Jälgi salvestusruumi trende ja puhastuse ajalugu\n• Rohkem funktsioone ja kontrollimise võimalusi kogu rakenduses\n• Toeta avatud lähtekoodiga tööd</string>
+    <string name="upgrade_screen_why_body">• Rakenduse vahemälu ja prügi puhastamine\n• Duplikaatfailide eemaldamine\n• Fotode ja videote kokkupakkimine\n• Vana failide lohistamisega puhastamine\n• Ühe puudutusega puhastamine vidina kaudu\n• Puhastamise ajagraafik\n• Kohandatud filtrid ja reeglid\n• Salvestusmahu trendid ja ajalugu\n• Rohkem funktsioone ja juhtimise võimalusi kogu rakenduses\n• Toetus avatud lähtekoodiga tööle</string>
     <string name="upgrade_screen_sponsor_action">Rahastage arendamist</string>
     <string name="upgrade_screen_sponsor_action_hint">Teiseks võimaluseks on reklaamid, analüüs ja Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Aitäh, et toetate avatud lähtekoodiga arendamist ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Juba tagasi? Sinu toetus utsitab arendama SD Maidi!</string>
+    <string name="upgrade_screen_status_free_title">Tasuta versioon</string>
+    <string name="upgrade_screen_status_free_body">Kasutate SD Maidi tasuta versiooni. Lisafunktsioonid saab avada arenduse toetamise teel.</string>
+    <string name="upgrade_screen_status_free_action">Vaadake täiendamise valikuid</string>
+    <string name="upgrade_screen_status_upgraded_title">Uuendus aktiivne</string>
+    <string name="upgrade_screen_status_upgraded_body">Kõik lisafunktsioonid on avatud. Täname, et toetate avatud lähtekoodiga arendamist ❤️</string>
+    <string name="upgrade_screen_recurring_title">Jätka nii</string>
+    <string name="upgrade_screen_recurring_body">SD Maid areneb pidevalt värskenduste ja paranduste kaudu. Kui soovite seda toetada, kaaluge korduvat annetust GitHub Sponsorsi kaudu.</string>
+    <string name="upgrade_screen_recurring_action">Ava GitHub Sponsors</string>
 </resources>

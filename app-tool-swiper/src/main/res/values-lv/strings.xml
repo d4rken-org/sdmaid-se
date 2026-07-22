@@ -52,9 +52,7 @@
     <string name="swiper_sensitive_root_warning_message">Skenējot %1$s, tiek iekļauti visi faili šajā krātuvē — fotogrāfijas, dokumenti, lejupielādes, lietotnes multimēdija un daudz kas cits. Turpināt?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Turpināt jebkurā gadījumā</string>
     <string name="swiper_session_risky_label">Visas krātuves skenēšana</string>
-    <string name="swiper_session_risky_info_message">Šī sesija mērķē uz krātuves apjoma sakni, tāpēc visi faili šajā krātuvē ir iekļauti — fotogrāfijas, dokumenti, lejupielādes, lietotnes multimēdija un daudz kas cits.
-
-Visas krātuves skenēšana var atgriezt daudzus vienumus, tostarp failus, kurus iespējams neplānojāt pārskatīt. Piemērojiet failu tipa filtru, lai sašaurinātu skenēšanu.</string>
+    <string name="swiper_session_risky_info_message">Šī sesija mērķē uz krātuves apjoma sakni, tāpēc visi faili šajā krātuvē ir iekļauti — fotogrāfijas, dokumenti, lejupielādes, lietotnes multimēdija un daudz kas cits.\n\nVisas krātuves skenēšana var atgriezt daudzus vienumus, tostarp failus, kurus iespējams neplānojāt pārskatīt. Piemērojiet failu tipa filtru, lai sašaurinātu skenēšanu.</string>
     <string name="swiper_delete_x_action">Dzēst %1$d</string>
     <string name="swiper_settings_swap_directions_title">Mainīt velkšanas virzienus</string>
     <string name="swiper_settings_swap_directions_summary">Velciet pa kreisi, lai saglabātu, pa labi, lai dzēstu.</string>
@@ -160,16 +158,7 @@ Visas krātuves skenēšana var atgriezt daudzus vienumus, tostarp failus, kurus
     <string name="swiper_gesture_overlay_up_skip">↑ Izlaist</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Atsaukt</string>
     <string name="swiper_help_title">Kā darbojas Swiper</string>
-    <string name="swiper_help_message">Velciet katru failu, lai pieņemtu lēmumu:
-
-← Velciet pa kreisi: %1$s
-→ Velciet pa labi: %2$s
-↑ Velciet uz augšu: Izlaist
-↓ Velciet uz leju: Atcelt (pēc pirmā vilkšanas)
-
-Varat arī izmantot pogas apakšā.
-
-Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. Nekas netiks dzēsts, kamēr neapstiprināsiet pārskata ekrānā.</string>
+    <string name="swiper_help_message">Velciet katru failu, lai pieņemtu lēmumu:\n\n← Velciet pa kreisi: %1$s\n→ Velciet pa labi: %2$s\n↑ Velciet uz augšu: Izlaist\n↓ Velciet uz leju: Atcelt (pēc pirmā vilkšanas)\n\nVarat arī izmantot pogas apakšā.\n\nKad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. Nekas netiks dzēsts, kamēr neapstiprināsiet pārskata ekrānā.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Sapratu</string>
     <string name="swiper_file_type_filter_title">Rādīt tikai šos failu tipus</string>
     <string name="swiper_file_type_filter_hint">Atzīmējiet tipus, kurus vēlaties redzēt. Ja neviens nav atzīmēts, tiek rādīti visi faili.</string>
@@ -188,8 +177,8 @@ Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. 
     <string name="swiper_session_no_matching_files">Nav atrasts neviens atbilstošs fails</string>
     <string name="swiper_open_externally_action">Atvērt ārējā lietotne</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Velciet fotogrāfiju, lai izlēmtu: uz sāniem — paturēt vai dzēst, uz augšu — izlaist, uz leju — atsaukt. Tālāk esošās pogas darīs to pašu — un rādīs, kura puse ir kura.</string>
-    <string name="tour_swiper_openin_body">Šī poga atver fotogrāfiju citā lietotnē — ērti ir to pārbaudīt pirms izlēmes.</string>
+    <string name="tour_swiper_gestures_body">Pavelciet failu, lai izlemtu tā likteni: uz sāniem, lai saglabātu vai dzēstu, uz augšu, lai pārlaistu, uz leju, lai atsauktu. Pogas zemāk dara to pašu — un parāda, kura puse ir kura.</string>
+    <string name="tour_swiper_openin_body">Šī poga atver failu citā lietotnē — ērti, lai to pārbaudītu pirms lēmuma pieņemšanas.</string>
     <string name="tour_swiper_preview_body">Šī poga atver pilnekrāna priekšskatījumu, lai apskatītu detalizētāk.</string>
     <string name="tour_swiper_actions_body">Nevēlaties vilkt? Mums ir arī pogas! Izlaist atstāj to neizlēmtu vēlākam, un ilgs spiediens uz Izlaist izslēdz failu no turpmākajām skenēšanām. Atsaukt atceļ jūsu pēdējo izvēli.</string>
     <string name="tour_swiper_review_body">Jūsu saglabāšanas un dzēšanas izvēles ir tikai uzkrātas. Atveriet Pārskatu, lai tās pārskatītu un piemērotu dzēšanas darbības, kad esat gatavs.</string>

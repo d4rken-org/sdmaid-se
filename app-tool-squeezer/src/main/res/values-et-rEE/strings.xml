@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
     <string name="squeezer_onboarding_got_it">Selge!</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer tihendab oma fotosid ja videosid uuesti, et need võtaksid vähem ruumi. Failid jäävad kasutatavaks, lihtsalt väiksemad, ja igühe näitab hinnangulist kokkuhoidu.</string>
+    <string name="tour_squeezer_intro_body">Squeezer tihendab teie fotosid ja videoid uuesti, et need võtaksid vähem ruumi. Vahetate veidi kvaliteeti ruumi vastu. Iga ese näitab selle hinnangulist kokkuhoidu, nii et saate otsustada, mis on selle väärt.</string>
     <string name="tour_squeezer_compress_body">Tihenda kõik korraga siin või puuduta üksikut elementi, et see kahaneks. Pikk vajutus mitme valimiseks. Enne muutusi näed alati eelvaadet.</string>
 </resources>

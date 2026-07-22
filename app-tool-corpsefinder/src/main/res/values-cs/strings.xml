@@ -68,6 +68,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Bez značky</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standardní zbytky. Obvykle bezpečné k odstranění — tyto soubory patří aplikacím, které již nejsou nainstalovány.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder nalezne data opuštěná aplikacemi, které jste již odinstalovali. Nepatří již ničemu nainstalovanému, takže jeho odstranění je bezpečné a uvolní místo.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder najde data zanechaná aplikacemi, které jste již odinstalovali. Již nepatří ničemu nainstalovanému, takže jejich odstranění uvolní prostor. Většinu z toho je bezpečné odstranit, ale zkontrolujte značku, pokud si nejste jisti.</string>
     <string name="tour_corpsefinder_row_body">Každá položka je zbývající data a aplikace, ze které pochází. Značka ukazuje, jak si je SD Maid jistá, že je bezpečné je odstranit — klepněte na ⓘ v horní části a dozvíte se, co značky znamenají.</string>
 </resources>

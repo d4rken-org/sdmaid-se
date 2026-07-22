@@ -54,11 +54,11 @@
         <item quantity="other">…i %d folderów więcej</item>
     </plurals>
     <string name="swiper_delete_confirmation_checkbox">Rozumiem, że te pliki zostaną trwale usunięte.</string>
-    <string name="swiper_sensitive_root_warning_title">Zeskanować całą pamięć masową?</string>
-    <string name="swiper_sensitive_root_warning_message">Skanowanie %1$s obejmuje każdy plik na tej pamięci masowej — zdjęcia, dokumenty, pobrane pliki, media aplikacji i wiele więcej. Kontynuować?</string>
+    <string name="swiper_sensitive_root_warning_title">Zeskanować całą pamięć wewnętrzną?</string>
+    <string name="swiper_sensitive_root_warning_message">Skanowanie %1$s obejmuje każdy plik na tej pamięci wewnętrznej — zdjęcia, dokumenty, pobrane pliki, multimedia aplikacji i wiele więcej. Kontynuować?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Kontynuuj mimo wszystko</string>
-    <string name="swiper_session_risky_label">Skanowanie całej pamięci masowej</string>
-    <string name="swiper_session_risky_info_message">Ta sesja obejmuje główny katalog wolumenu pamięci masowej, dlatego każdy plik na tej pamięci masowej jest w zakresie — zdjęcia, dokumenty, pobrane pliki, media aplikacji i wiele więcej.\n\nSkanowania całej pamięci masowej mogą zwrócić wiele pozycji, w tym pliki, których być może nie zamierzałeś przeglądać. Zastosuj filtr typu pliku, aby zawęzić skanowanie.</string>
+    <string name="swiper_session_risky_label">Skanowanie całej pamięci wewnętrznej</string>
+    <string name="swiper_session_risky_info_message">Ta sesja obejmuje główny katalog pamięci wewnętrznej, dlatego każdy plik na tej pamięci wewnętrznej jest w zakresie — zdjęcia, dokumenty, pobrane pliki, media aplikacji i wiele więcej.\n\nSkanowania całej pamięci masowej mogą zwrócić wiele pozycji, w tym pliki, których być może nie zamierzałeś przeglądać. Zastosuj filtr typu pliku, aby zawęzić skanowanie.</string>
     <string name="swiper_delete_x_action">Usuń %1$d</string>
     <string name="swiper_settings_swap_directions_title">Zamień kierunki przesuwania</string>
     <string name="swiper_settings_swap_directions_summary">Przesuń palcem w lewo, aby pozostawić, w prawo, aby usunąć.</string>
@@ -89,7 +89,7 @@
     </plurals>
     <string name="swiper_session_timestamps">Utworzono %1$s, ostatnia aktywność %2$s</string>
     <string name="swiper_session_remove_action">Usuń sesję</string>
-    <string name="swiper_sessions_empty_hint">Dotknij + aby wybrać folder i zacząć przesuwać</string>
+    <string name="swiper_sessions_empty_hint">Dotknij +, aby wybrać folder i zacząć przesuwać</string>
     <string name="swiper_sessions_upgrade_body">Uaktualnij, aby usunąć te limity i wesprzeć rozwój. Wersja darmowa jest ograniczona do:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
         <item quantity="one">%d plik na sesję</item>
@@ -194,9 +194,9 @@
     <string name="swiper_session_no_matching_files">Nie znaleziono pasujących plików</string>
     <string name="swiper_open_externally_action">Otwórz w aplikacji zewnętrznej</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Przesuń zdjęcie, aby zdecydować o jego losie: na boki — aby zatrzymać lub usunąć, w górę — aby pominąć, w dół — aby cofnąć. Przyciski poniżej działają tak samo — i pokazują, która strona jest która.</string>
-    <string name="tour_swiper_openin_body">Ten przycisk otwiera zdjęcie w innej aplikacji — przydatne do sprawdzenia przed podjęciem decyzji.</string>
+    <string name="tour_swiper_gestures_body">Przesuń plik, aby zdecydować o jego losie: w bok, aby zachować lub usunąć, w górę, aby pominąć, w dół, aby cofnąć. Przyciski poniżej działają tak samo — i pokazują, która strona odpowiada której opcji.</string>
+    <string name="tour_swiper_openin_body">Ten przycisk otwiera plik w innej aplikacji, co jest przydatne, aby go sprawdzić przed podjęciem decyzji.</string>
     <string name="tour_swiper_preview_body">Ten przycisk otwiera pełnoekranowy podgląd, aby lepiej zobaczyć.</string>
-    <string name="tour_swiper_actions_body">Nie lubisz przesuwania? Mamy też przyciski! Pomiń pozostawia to bez decyzji na później, a długie naciśnięcie Pomiń wyklucza plik ze skanów w przyszłości. Cofnij powraca do ostatniego wyboru.</string>
+    <string name="tour_swiper_actions_body">Nie lubisz przesuwać? Mamy też przyciski! Opcja  Pomiń, pozostawia problem do późniejszej decyzji, a przytrzymanie Pomiń wyklucza plik z przyszłych skanowań. Cofnij, cofając ostatni wybór.</string>
     <string name="tour_swiper_review_body">Twoje wybory dotyczące zachowania i usunięcia są tylko przygotowane. Otwórz Przegląd, aby je przejrzeć i zastosować usunięcia, kiedy będziesz gotów.</string>
 </resources>

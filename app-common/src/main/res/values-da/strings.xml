@@ -38,6 +38,7 @@
     <string name="general_error_label">Fejl</string>
     <string name="general_upgrade_action">Opgrader</string>
     <string name="general_refresh_action">Genindlæs</string>
+    <string name="general_retry_action">Prøv igen</string>
     <string name="general_progress_searching">Søger</string>
     <string name="general_progress_generating_searchpaths">Genererer søgestier</string>
     <string name="general_progress_filtering">Filtrerer</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Navn (A → Z)</string>
     <string name="general_sort_size_desc">Størst først</string>
     <string name="general_tag_system">System</string>
+    <string name="general_tag_library">Bibliotek</string>
     <string name="general_navigate_up_action">Gå op</string>
     <string name="general_filter_action">Filtrér</string>
     <string name="general_filter_by_tags_label">Filtrer efter tags</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Rapportér fejl</string>
     <string name="general_error_ipc_deadobject_title">Tjenesteforbindelse tabt</string>
     <string name="general_error_ipc_deadobject_description">Forbindelsen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre systemtjenester) blev uventet afbrudt. Genstart din enhed. Hvis problemet fortsætter, søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
-    <string name="general_error_upgrade_required_title">Pro-versionen påkrævet</string>
-    <string name="general_error_upgrade_required_description">Dette er en Pro-funktion. Opgrader venligst SD Maid SE for at bruge den.</string>
+    <string name="general_error_upgrade_required_title">Opgradering påkrævet</string>
+    <string name="general_error_upgrade_required_description">Denne funktion kræver en opgradering. Opgrader venligst SD Maid SE for at bruge den.</string>
     <string name="general_user_label_owner">Ejer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>

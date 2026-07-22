@@ -21,9 +21,10 @@
     <string name="deduplicator_detection_method_checksum_title">Suma de verificación del contenido</string>
     <string name="deduplicator_detection_method_checksum_summary">Determinar duplicados calculando sumas de verificación para archivos. Los archivos con sumas de verificación coincidentes tienen exactamente el mismo contenido.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptual</string>
-    <string name="deduplicator_detection_method_phash_summary">Encuentra archivos similares analizando el contenido y comparando los valores hash perceptuales. ⚠️ La detección basada en similitudes puede incluir falsos positivos que requieran una verificación manual.</string>
+    <string name="deduplicator_detection_method_phash_summary">Encontrar archivos similares analizando características del contenido y comparando valores de hash perceptual.</string>
     <string name="deduplicator_detection_method_media_title">Huella digital de medios</string>
-    <string name="deduplicator_detection_method_media_summary">Encuentra archivos de video y audio similares analizando huellas digitales de audio. ⚠️ La detección basada en similitud puede incluir falsos positivos que requieren verificación manual.</string>
+    <string name="deduplicator_detection_method_media_summary">Encuentra archivos de video y audio similares analizando huellas dactilares de audio.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">La detección basada en similitud puede incluir falsos positivos que requieren verificación manual.</string>
     <string name="deduplicator_media_match_audio">Coincidencia basada en audio</string>
     <string name="deduplicator_media_match_visual">Coincidencia basada en video</string>
     <string name="deduplicator_media_match_audio_visual">Coincidencia basada en audio y video</string>

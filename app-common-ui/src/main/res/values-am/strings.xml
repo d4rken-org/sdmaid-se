@@ -8,6 +8,7 @@
         <item quantity="other">%d መንገዶች ተመርጠዋል</item>
     </plurals>
     <string name="picker_home_action">የውሂብ አካባቢዎች</string>
+    <string name="picker_select_hint">ምርጥ ሕዋስ ይዙ</string>
     <string name="tour_action_next">ቀጥሎ</string>
     <string name="tour_action_previous">ቀዳሚ</string>
     <string name="tour_action_cancel">ዝለል</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">ጉብኝቱን ቀጥል</string>
     <string name="tour_confirm_dont_show_this_tour">ይህ ጉብኝት አታሳይ</string>
     <string name="tour_confirm_disable_all">ሁሉንም ጉብኞችን ያሰናክል</string>
-    <string name="navigation_unknown_destination_title">በቅርቡ ይመጫል</string>
-    <string name="navigation_unknown_destination_message">ይህ ስክሪን አሁኑም ወደ አዲሱ በይነገጽ ይሰላላል።</string>
+    <string name="navigation_unknown_destination_title">ማያ አልተገኘም</string>
+    <string name="navigation_unknown_destination_message">ይህ ማያ ሊከፈት አልቻለም።</string>
 </resources>

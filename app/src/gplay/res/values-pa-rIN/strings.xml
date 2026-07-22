@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD Maid SE Pro ਪ੍ਰਾਪਤ ਕਰੋ</string>
     <string name="upgrade_screen_preamble">SD Maid ਵਿੱਚ ਕੋਈ ਵਿਗਿਆਪਨ ਨਹੀਂ ਹਨ ਅਤੇ ਇਹ ਉਪਭੋਗਤਾ ਡੇਟਾ ਨਹੀਂ ਵੇਚਦਾ। ਮੇਰਾ ਕੰਮ ਤੁਹਾਡੇ ਦੁਆਰਾ ਵਿੱਤ ਕੀਤਾ ਜਾਂਦਾ ਹੈ ❤️।</string>
     <string name="upgrade_screen_benefits_title">ਅਪਗ੍ਰੇਡ ਲਾਭ</string>
-    <string name="upgrade_screen_benefits_body">• ਐਪ ਕੈਸ਼ ਅਤੇ ਖਰਚ ਕਰਨ ਯੋਗ ਡੇਟਾ ਸਾਫ ਕਰੋ
-• ਡੁਪਲੀਕੇਟ ਫਾਇਲਾਂ ਹਟਾਓ
-• ਨਿਰਧਾਰਿਤ ਸਫਾਈ ਨੂੰ ਸਮਰਥ ਬਣਾਓ
-• ਕਸਟਮ ਫਿਲਟਰ ਅਤੇ ਸਫਾਈ ਨਿਯਮ ਬਣਾਓ
-• ਸਟੋਰੇਜ ਰੁਝਾਨਾਂ ਅਤੇ ਸਫਾਈ ਇਤਿਹਾਸ ਨੂੰ ਟ੍ਰੈਕ ਕਰੋ
-• ਐਪ ਭਰ ਵਿੱਚ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਤੇ ਨਿਯੰਤਰਣ
-• ਨਿਰੰਤਰ ਵਿਕਾਸ ਨੂੰ ਸਮਰਥਨ ਦਿਓ</string>
+    <string name="upgrade_screen_benefits_body">• ਐਪ ਕੈਸ਼ ਅਤੇ ਜੰਕ ਸਫ਼ਾਈ\n• ਡੁਪਲੀਕੇਟ ਫ਼ਾਈਲ ਹਟਾਉਣਾ\n• ਫ਼ੋਟੋ ਅਤੇ ਵੀਡੀਓ ਕੰਪਰੈਸ਼ਨ\n• ਪੁਰਾਣੀਆਂ ਫ਼ਾਈਲਾਂ ਨੂੰ ਸਵਾਈਪ ਕਰਕੇ ਹਟਾਉਣਾ\n• ਵਿੱਜਟ ਦੁਆਰਾ ਇਕ-ਟੈਪ ਸਫ਼ਾਈ\n• ਸਫ਼ਾਈ ਸਮਾਂ ਨਿਰਧਾਰਤ ਕਰਨਾ\n• ਕਸਟਮ ਫ਼ਿਲਟਰ ਅਤੇ ਨਿਯਮ\n• ਸਟੋਰੇਜ ਸੁਝਾਵਾਂ ਅਤੇ ਇਤਿਹਾਸ\n• ਐਪ ਦੁਆਰਾ ਹੋਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਤੇ ਨਿਯੰਤਰਣ\n• ਨਿਰੰਤਰ ਵਿਕਾਸ ਲਈ ਸਮਰਥਨ</string>
+    <string name="upgrade_screen_offers_title">ਅਪਗ੍ਰੇਡ ਵਿਕਲਪ</string>
+    <string name="upgrade_screen_offers_body">ਇਕੋ ਜਿਹੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ, ਸਿਰਫ਼ ਵੱਖ-ਵੱਖ ਮੁੱਲ ਨਿਰਧਾਰਣ ਮਾਡਲ।</string>
+    <string name="upgrade_screen_offers_or">ਜਾਂ</string>
     <string name="upgrade_screen_subscription_offer_title">ਸਾਲਾਨਾ ਗ੍ਰਾਹਕੀ</string>
+    <string name="upgrade_screen_subscription_offer_body">ਮੁਫ਼ਤ ਅਜ਼ਮਾਇਸ਼ ਤੋਂ ਬਾਅਦ ਸਾਲਾਨਾ ਨਵਿਆਇਆ ਜਾਂਦਾ ਹੈ। Google Play ਵਿੱਚ ਕਿਸੇ ਵੀ ਸਮੇਂ ਰੱਦ ਕਰੋ।</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">ਸਾਲਾਨਾ ਨਵਿਆਇਆ ਜਾਂਦਾ ਹੈ। Google Play ਵਿੱਚ ਕਿਸੇ ਵੀ ਸਮੇਂ ਰੱਦ ਕਰੋ।</string>
     <string name="upgrade_screen_iap_offer_title">ਇੱਕ ਵਾਰ ਖਰੀਦੋ</string>
+    <string name="upgrade_screen_iap_offer_body">ਇੱਕ ਭੁਗਤਾਨ, ਕੋਈ ਨਵਿਆਈ ਨਹੀਂ।</string>
     <string name="upgrade_screen_offers_unavailable_message">ਕੀਮਤਾਂ ਇਸ ਸਮੇਂ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੀਆਂ। Google Play ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਇੱਕ ਪਲ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="upgrade_screen_subscription_trial_action">ਮੁਫਤ 14-ਦਿਨਾਂ ਦਾ ਟ੍ਰਾਇਲ ਸ਼ੁਰੂ ਕਰੋ</string>
     <string name="upgrade_screen_subscription_action">ਗਾਹਕੀ ਲਓ</string>
     <string name="upgrade_screen_iap_action">ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ</string>
     <string name="upgrade_screen_thanks_toast">ਤੁਸੀਂ ਸਭ ਤੋਂ ਵਧੀਆ ਹੋ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ਖਰੀਦਦਾਰੀ ਰੀਸਟੋਰ ਕਰੋ</string>
+    <string name="upgrade_screen_restore_banner_title">ਪਹਿਲਾਂ ਤੋਂ Pro ਖ਼ਰੀਦ ਲਿਆ?</string>
+    <string name="upgrade_screen_restore_banner_body">ਅਜਿਹਾ ਲਗਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਇਸ ਡਿਵਾਈਸ ਤੇ ਪਹਿਲਾਂ Pro ਤੱਕ ਅਪਗ੍ਰੇਡ ਕੀਤਾ ਸੀ। ਇਸ ਨੂੰ ਦੁਬਾਰਾ ਅਨਲਾਕ ਕਰਨ ਲਈ ਆਪਣੀ ਖਰੀਦ ਨੂੰ ਰੀਸਟੋਰ ਕਰੋ।</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store ਸਮਕਾਲੀਕਰਨ ਵਿੱਚ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ। ਰੀਬੂਟ ਕਰਨ, Google Play ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਜਾਂ ਸਿਰਫ਼ ਉਡੀਕ ਕਰਨ ਦੀ ਕੋਸ਼ਿਖ ਕਰੋ।</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ਕਈ ਖਾਤੇ Google Play ਨੂੰ ਉਲਝਾ ਸਕਦੇ ਹਨ। Google Play ਵੈੱਬਸਾਈਟ ਰਾਹੀਂ ਐਪ ਨੂੰ ਇੰਸਟਾਲ ਕਰੋ, ਜੋ ਇੱਕ ਖਾਸ ਖਾਤੇ ਨਾਲ ਸੰਬੰਧਾਂ ਨੂੰ ਮਜਬੂਰ ਕਰਦਾ ਹੈ।</string>
+    <string name="upgrade_screen_owned_hero_title">ਮੁਬਾਰਕ ਹੋ!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">ਤੁਹਾਡੇ ਕੋਲ %1$s ਹੈ, ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਦੁਆਰਾ ਅਨਲਾਕ ਕੀਤਾ ਗਿਆ।</string>
+    <string name="upgrade_screen_owned_hero_iap_body">ਤੁਹਾਡੇ ਕੋਲ %1$s ਹੈ, ਤੁਹਾਡੀ ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ ਦੁਆਰਾ ਅਨਲਾਕ ਕੀਤਾ ਗਿਆ।</string>
+    <string name="upgrade_screen_owned_iap_title">ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ</string>
+    <string name="upgrade_screen_owned_iap_body">ਤੁਸੀਂ ਇੱਕ ਵਾਰ ਦੀ Pro ਅਪਗ੍ਰੇਡ ਦੇ ਮਾਲਕ ਹੋ। Pro ਇਸ Google ਖਾਤੇ ਤੇ ਅਨਲਾਕ ਰਹਿੰਦਾ ਹੈ। SD Maid ਨੂੰ ਸਮਰਥਨ ਦੇਣ ਲਈ ਧੰਨਵਾਦ ❤️।</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">ਤੁਹਾਡੀ Pro ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਸਕ੍ਰੀਯ ਹੈ ਅਤੇ ਨਵੇਂ ਕਰਨ ਲਈ ਸੈਟ ਕੀਤੀ ਗਈ ਹੈ। ਬਿਲਿੰਗ Google Play ਦੁਆਰਾ ਪ੍ਰਬੰਧਿਤ ਕੀਤੀ ਜਾਂਦੀ ਹੈ।</string>
+    <string name="upgrade_screen_owned_iap_locked_note">ਇੱਕ ਵਾਰ ਦੀ ਖਰੀਦ ਨੂੰ ਪਸੰਦ ਕਰਦੇ ਹੋ? ਇਹ ਉਪਲਬੱਧ ਹੋ ਜਾਂਦਾ ਹੈ ਜਦੋਂ ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨਵੇਂ ਕਰਨ ਲਈ ਸੈਟ ਨਹੀਂ ਰਹਿੰਦੀ। ਸਵਿੱਚ ਕਰਨ ਲਈ Google Play ਵਿੱਚ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨੂੰ ਰੱਦ ਕਰੋ।</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">ਤੁਹਾਡੀ Pro ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਸਕ੍ਰੀਯ ਹੈ, ਪਰ ਨਵੇਂ ਕਰਨ ਲਈ ਸੈਟ ਨਹੀਂ ਕੀਤੀ ਗਈ। Pro ਮੌਜੂਦਾ ਮਿਆਦ ਪੂਰੀ ਹੋਣ ਤਕ ਉਪਲਬੱਧ ਰਹਿੰਦਾ ਹੈ।</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">ਇਹ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਅਜੇ ਵੀ ਨਵਿਆਉਣ ਲਈ ਸੈਟ ਹੈ, ਹਾਲਾਂਕਿ ਤੁਸੀਂ ਪਹਿਲਾਂ ਹੀ ਇਕ-ਵਾਰ ਅਪਗ੍ਰੇਡ ਦੀ ਮਾਲਕੀ ਰੱਖਦੇ ਹੋ। ਤੁਸੀਂ ਇਸ ਨੂੰ Google Play ਵਿੱਚ ਰੱਦ ਕਰ ਸਕਦੇ ਹੋ।</string>
+    <string name="upgrade_screen_manage_subscription_action">ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨੂੰ ਪ੍ਰਬੰਧਿਤ ਕਰੋ</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">ਇਹ ਇੱਕ ਵੱਖ ਖਰੀਦ ਹੈ: ਇਹ ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨੂੰ ਰੱਦ ਨਹੀਂ ਕਰਦੀ ਜਾਂ ਰਿਫੰਡ ਨਹੀਂ ਕਰਦੀ। ਦੋਵਾਂ ਲਈ ਉਸੇ Google ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
+    <string name="upgrade_screen_sub_still_renewing_title">ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਅਜੇ ਸਰਗਰਮ ਹੈ</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play ਦੱਸਦਾ ਹੈ ਕਿ ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਅਜੇ ਵੀ ਨਵਿਆਉਣ ਲਈ ਸੈਟ ਹੈ। ਇਕ-ਵਾਰ ਅਪਗ੍ਰੇਡ ਖਰੀਦਣ ਲਈ, ਪਹਿਲਾਂ Google Play ਵਿੱਚ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨੂੰ ਰੱਦ ਕਰੋ, ਫਿਰ ਇਥੇ ਵਾਪਸ ਆਓ।\n\nਹੁਣੇ ਹੀ ਰੱਦ ਕੀਤਾ ਹੈ? Google Play ਨੂੰ ਇੱਕ ਪਲ ਦਿਓ ਅਤੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ। ਇਹ ਵੀ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਉਸੇ Google ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।</string>
+    <string name="upgrade_screen_sub_check_failed_message">Google Play ਦੇ ਨਾਲ ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਸਥਿਤੀ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਇੱਕ ਪਲ ਵਿੱਚ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="upgrade_screen_restore_success_message">ਖਰੀਦ ਬਹਾਲ ਕੀਤੀ, ਤੁਹਾਡਾ Pro ਅਪਗ੍ਰੇਡ ਸਰਗਰਮ ਹੈ।</string>
+    <string name="upgrade_screen_grace_title">ਤੁਹਾਡੀ ਖਰੀਦ ਦੀ ਪੁ਷ਟੀ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="upgrade_screen_grace_body_short">Pro ਅਜੇ ਵੀ ਸਰਗਰਮ ਹੈ। Google Play ਦੀ ਉਡੀਕ ਕਰ ਰਹੇ ਹਾਂ ਤੁਹਾਡੀ ਖਰੀਦ ਨੂੰ ਦੁਬਾਰਾ ਪੁ਷ਟੀ ਕਰਨ ਲਈ, ਇਸ ਦੌਰਾਨ ਸਾਰੀਆਂ Pro ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਣਬੰਦ ਰਹਿੰਦੀਆਂ ਹਨ।</string>
+    <string name="upgrade_screen_grace_body">Pro ਅਜੇ ਵੀ ਸਰਗਰਮ ਹੈ, ਪਰ Google Play ਨੇ ਤੁਹਾਡੀ ਖਰੀਦ ਦੀ ਕੁਝ ਸਮੇਂ ਤੋਂ ਪੁ਷ਟੀ ਨਹੀਂ ਕੀਤੀ ਹੈ। ਜੇਕਰ ਤੁਸੀਂ Pro ਖਰੀਦਿਆ ਹੈ, ਖਰੀਦ ਨੂੰ ਬਹਾਲ ਕਰੋ ਅਤੇ ਯਕੀਨੀ ਬਣਾਓ ਕਿ Google Play ਉਸ ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਿਹਾ ਹੈ ਜਿਸ ਨੇ ਇਸ ਨੂੰ ਖਰੀਦਿਆ ਸੀ। ਜੇਕਰ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਖਤਮ ਹੋ ਗਈ ਹੈ ਜਾਂ ਖਰੀਦ ਨੂੰ ਰਿਫੰਡ ਕੀਤਾ ਗਿਆ ਹੈ, Pro ਆਪਣੇ ਆਪ ਬੰਦ ਹੋ ਜਾਵੇਗਾ, ਤੁਹਾਨੂੰ ਕੁਝ ਹੋਰ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।</string>
+    <string name="upgrade_screen_restore_body">ਬਹਾਲ ਕਰਨਾ Google Play ਨੂੰ ਇਸ ਐਪ ਦੀਆਂ ਖਰੀਦਾਰੀਆਂ ਨੂੰ ਮੌਜੂਦਾ ਖਾਤੇ ਲਈ ਦੁਬਾਰਾ ਜਾਂਚ ਕਰਨ ਲਈ ਕਹਿੰਦਾ ਹੈ। ਇਹ ਨਵੀਂ ਖਰੀਦਾਰੀ ਸ਼ੁਰੂ ਨਹੀਂ ਕਰਦਾ।</string>
+    <string name="upgrade_screen_restore_status_title">ਸਥਿਤੀ ਗਲਤ ਲੱਗ ਰਹੀ ਹੈ?</string>
+    <string name="upgrade_screen_restore_status_body">ਜੇ ਕੋਈ ਖਰੀਦਾਰੀ ਗੁਆਚ ਗਈ ਹੈ ਜਾਂ ਇਹ ਸਥਿਤੀ ਗਲਤ ਲੱਗ ਰਹੀ ਹੈ, ਤਾਂ Google Play ਨਾਲ ਦੁਬਾਰਾ ਜਾਂਚ ਕਰੋ।</string>
+    <string name="upgrade_screen_contact_support_action">ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid ਨੇ ਹੁਣੇ ਹੀ Google Play ਨੂੰ ਜਾਂਚਿਆ, ਪਰ Pro ਖਰੀਦਾਰੀ ਨੂੰ ਉਸ ਖਾਤੇ ਲਈ ਪੁ਷ਟੀ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ ਜਿਸ ਨੂੰ Google Play ਇਸ ਐਪ ਲਈ ਵਰਤ ਰਿਹਾ ਹੈ।</string>
+    <string name="upgrade_screen_restore_contact_hint">ਅਜੇ ਫਸੇ ਹੋ? ਉਸ ਈ-ਮੇਲ ਤੋਂ ਸਹਾਇਤਾ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਜਿਸ ਨਾਲ ਖਰੀਦਾਰੀ ਕੀਤੀ ਸੀ ਅਤੇ ਆਪਣਾ Google Play ਆਰਡਰ ਨੰਬਰ ਸ਼ਾਮਲ ਕਰੋ।</string>
 </resources>

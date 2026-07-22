@@ -38,6 +38,7 @@
     <string name="general_error_label">Xato</string>
     <string name="general_upgrade_action">Yangilash</string>
     <string name="general_refresh_action">Yangilash</string>
+    <string name="general_retry_action">Qayta urinish</string>
     <string name="general_progress_searching">Qidiruv</string>
     <string name="general_progress_generating_searchpaths">Qidiruv yo\'llarini yaratish</string>
     <string name="general_progress_filtering">Filtrlash</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nom (A → Z)</string>
     <string name="general_sort_size_desc">Avval eng kattasi</string>
     <string name="general_tag_system">Tizim</string>
+    <string name="general_tag_library">Kutubxona</string>
     <string name="general_navigate_up_action">Yuqoriga qaytish</string>
     <string name="general_filter_action">Filtrlash</string>
     <string name="general_filter_by_tags_label">Teglar bo\'yicha filtrlash</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Xato haqida xabar berish</string>
     <string name="general_error_ipc_deadobject_title">Xizmat aloqasi uzildi</string>
     <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog\'laning.</string>
-    <string name="general_error_upgrade_required_title">Pro versiyasi kerak</string>
-    <string name="general_error_upgrade_required_description">Bu Pro xususiyati. Undan foydalanish uchun SD Maid SE\'ni yangilang.</string>
+    <string name="general_error_upgrade_required_title">Yangilash kerak</string>
+    <string name="general_error_upgrade_required_description">Bu xususiyat yangilashni talab qiladi. Uni ishlatish uchun SD Maid SE\'ni yangilang.</string>
     <string name="general_user_label_owner">Egasi</string>
     <string name="general_user_label_system">Tizim</string>
     <string name="setup_title">Sozlash</string>

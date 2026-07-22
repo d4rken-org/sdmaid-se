@@ -105,6 +105,6 @@
     <string name="systemcleaner_customfilter_import_action">Importuj nowy filtr</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuj wybrany filtr</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner znajduje śmieci za pomocą filtrów niezależnych od aplikacji. Istnieją gotowe reguły dla rzeczy takich jak puste foldery, pozostałe logi i nieaktualne miniatury. Odwiedź ustawienia, jeśli chcesz utworzyć własne.</string>
+    <string name="tour_systemcleaner_intro_body">Czyszczenie systemu wyszukuje niepotrzebne pliki za pomocą filtrów, które nie są przypisane do konkretnych aplikacji. Gotowe reguły istnieją dla takich elementów jak puste foldery, pozostałe pliki dzienników i nieaktualne miniatury. Odwiedź ustawienia, jeśli chcesz utworzyć własne.</string>
     <string name="tour_systemcleaner_filter_body">Każdy wiersz to filtr i to, co znalazł. Otwórz szczegóły, aby zobaczyć dokładnie, które pliki pasują, zanim cokolwiek usuniesz.</string>
 </resources>

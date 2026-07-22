@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">ਨਵਾਂ ਫਿਲਟਰ ਆਯਾਤ ਕਰੋ</string>
     <string name="systemcleaner_customfilter_export_action">ਚੁਣਿਆ ਫਿਲਟਰ ਨਿਰਯਾਤ ਕਰੋ</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner ਬਿਨਾ ਖਾਸ ਐਪ ਦੇ ਫਿਲਟਰਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਜੰਕ ਲੱਭਦਾ ਹੈ। ਖਾਲੀ ਫੋਲਡਰਾਂ, ਬਚੀਆਂ ਹੋਈਆਂ ਲਾਗਸ ਅਤੇ ਪੁਰਾਣੀਆਂ ਥੰਬਨੇਲਾਂ ਜਿਹੀਆਂ ਚੀਜ਼ਾਂ ਲਈ ਤਿਆਰ-ਬਣੇ ਨਿਯਮ ਮੌਜੂਦ ਹਨ। ਜੇ ਤੁਸੀਂ ਆਪਣਾ ਬਣਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ ਤਾਂ ਸੈਟਿੰਗਸ ਖੋਲ੍ਹੋ।</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ਫਿਲਟਰਾਂ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਜੰਕ ਲੱਭਦਾ ਹੈ ਜੋ ਐਪ-ਵਿਸ਼ੇਸ਼ ਨਹੀਂ ਹਨ। ਖਾਲੀ ਫੋਲਡਰ, ਬਾਕੀ ਲਾਗ ਅਤੇ ਪੁਰਾਣੇ ਥੰਬਨੇਲ ਵਰਗੀਆਂ ਚੀਜ਼ਾਂ ਲਈ ਤਿਆਰ ਕੀਤੇ ਨਿਯਮ ਮੌਜੂਦ ਹਨ। ਜੇ ਤੁਸੀਂ ਆਪਣੀ ਬਣਾਉਣਾ ਚਾਹੋ ਤਾਂ ਸੈਟਿੰਗਸ \'ਚ ਜਾਓ।</string>
     <string name="tour_systemcleaner_filter_body">ਹਰੇਕ ਕਤਾਰ ਇੱਕ ਫਿਲਟਰ ਹੈ ਅਤੇ ਜੋ ਇਸਨੇ ਲੱਭਿਆ ਹੈ। ਕੁਝ ਵੀ ਮਿਟਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਕਿਹੜੀਆਂ ਫਾਈਲਾਂ ਮਿਲਦੀਆਂ ਹਨ ਇਹ ਦੇਖਣ ਲਈ ਇਸ ਦੇ ਵੇਰਵੇ ਖੋਲ੍ਹੋ।</string>
 </resources>

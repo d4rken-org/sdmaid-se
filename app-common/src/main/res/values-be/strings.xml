@@ -38,6 +38,7 @@
     <string name="general_error_label">Памылка</string>
     <string name="general_upgrade_action">Абнавіць</string>
     <string name="general_refresh_action">Абнавіць</string>
+    <string name="general_retry_action">Паўтарыць</string>
     <string name="general_progress_searching">Ідзе пошук</string>
     <string name="general_progress_generating_searchpaths">Стварэнне шляхоў пошуку</string>
     <string name="general_progress_filtering">Ідзе фільтраванне</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Назва (А → Я)</string>
     <string name="general_sort_size_desc">Спачатку найбольшыя</string>
     <string name="general_tag_system">Сістэма</string>
+    <string name="general_tag_library">Бібліятэка</string>
     <string name="general_navigate_up_action">Перайсці угору</string>
     <string name="general_filter_action">Фільтр</string>
     <string name="general_filter_by_tags_label">Фільтраваць паводле тэгаў</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Паведаміць пра памылку</string>
     <string name="general_error_ipc_deadobject_title">Страчана падключэнне да службы</string>
     <string name="general_error_ipc_deadobject_description">Падключэнне да важнай службы (напрыклад, Magisk, Shizuku або іншымі службамі сістэмнага ўзроўню) было нечакана страчана. Перазагрузіце прыладу. Калі праблема не знікне, праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог яе выправіць.</string>
-    <string name="general_error_upgrade_required_title">Патрэбна версія Pro</string>
-    <string name="general_error_upgrade_required_description">Гэта функцыя Pro. Каб карыстацца ею, абнавіце SD Maid SE.</string>
+    <string name="general_error_upgrade_required_title">Патрэбна абнаўленне</string>
+    <string name="general_error_upgrade_required_description">Гэта функцыя патрабуе абнаўлення. Калі ласка, абнавіце SD Maid SE, каб яе выкарыстоўваць.</string>
     <string name="general_user_label_owner">Уладальнік</string>
     <string name="general_user_label_system">Сістэма</string>
     <string name="setup_title">Наладжванне</string>

@@ -127,6 +127,6 @@
     <string name="squeezer_estimated_savings_percent">Aptuvenais ~%d%% ietaupījums JPEG failiem</string>
     <string name="squeezer_onboarding_got_it">Sapratu</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer atkārtoti saspieš jūsu fotogrāfijas un videoklipus, lai tie aizņemtu mazāk vietas. Faili paliek lietojami, tikai mazāki, un katrs rāda aptuveno ietaupījumu.</string>
+    <string name="tour_squeezer_intro_body">Squeezer pārkompresē jūsu fotogrāfijas un video, lai tie aizņemtu mazāk vietas. Jūs apmaināt nedaudz kvalitātes pret vietu, ko iegūstat atpakaļ. Katrs vienums rāda savu aprēķināto ietaupījumu, tāpēc varat izlemt, kas ir vērts.</string>
     <string name="tour_squeezer_compress_body">Saspiediet visu uzreiz šeit, vai pieskarieties vienam vienumam, lai samazinātu tikai to. Ilgi nospiediet, lai izvēlētos vairākus. Jūs vienmēr redzēsiet priekšskatījumu pirms jebkādām izmaiņām.</string>
 </resources>

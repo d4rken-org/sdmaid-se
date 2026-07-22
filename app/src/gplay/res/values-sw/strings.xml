@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Pata SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid haina matangazo na hauzuzi data za watumiaji. Kazi yangu inafadhiliwa na wewe ❤️.</string>
     <string name="upgrade_screen_benefits_title">Faida za kuboresha</string>
-    <string name="upgrade_screen_benefits_body">• Safisha hifadhi ya programu na data inayoweza kutupwa
-• Ondoa faili nakala
-• Washa usafishaji uliopangwa
-• Unda vichujio vya kibinafsi na sheria za usafishaji
-• Fuatilia mielekeo ya hifadhi na historia ya usafishaji
-• Vipengele na vidhibiti zaidi katika programu nzima
-• Saidia maendeleo endelevu</string>
+    <string name="upgrade_screen_benefits_body">• Kusafisha kashe na taka za programu\n• Kuondoa faili zinazorudiwa\n• Kubana picha na video\n• Kuswaipi ili kuondoa faili za zamani\n• Kusafisha kwa mgusa mmoja kupitia wijeti\n• Kupanga ratiba ya usafishaji\n• Vichujio na kanuni maalum\n• Mielekeo na historia ya hifadhi\n• Sifa na vidhibiti zaidi katika programu nzima\n• Kuunga mkono maendeleo yanayoendelea</string>
+    <string name="upgrade_screen_offers_title">Chaguo za kuboresha</string>
+    <string name="upgrade_screen_offers_body">Sifa ni zilezile, ni mifumo tofauti ya bei tu.</string>
+    <string name="upgrade_screen_offers_or">au</string>
     <string name="upgrade_screen_subscription_offer_title">Usajili wa mwaka</string>
+    <string name="upgrade_screen_subscription_offer_body">Inasasishwa kila mwaka baada ya jaribio la bure. Ghairi wakati wowote kwenye Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Inasasishwa kila mwaka. Ghairi wakati wowote kwenye Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Nunua mara moja</string>
+    <string name="upgrade_screen_iap_offer_body">Malipo moja tu, hakuna usasishaji.</string>
     <string name="upgrade_screen_offers_unavailable_message">Bei hazikuweza kupakiwa kwa sasa. Angalia Google Play na ujaribu tena baada ya muda mfupi.</string>
     <string name="upgrade_screen_subscription_trial_action">Anza majaribio ya bure ya siku 14</string>
     <string name="upgrade_screen_subscription_action">Jisajili</string>
     <string name="upgrade_screen_iap_action">Ununuzi wa mara moja</string>
     <string name="upgrade_screen_thanks_toast">Wewe ni bora zaidi! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rejesha ununuzi</string>
+    <string name="upgrade_screen_restore_banner_title">Tayari umenunua Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Inaonekana hapo awali ulikuwa na Pro kwenye kifaa hiki. Rejesha ununuzi wako ili kupata Pro tena.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ulandanishi wa Play Store unaweza kuchukua muda. Jaribu kuanzisha upya, kusafisha akiba ya Google Play au tu subiri.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Akaunti nyingi zinaweza kuchanganya Google Play. Sakinisha programu kupitia tovuti ya Google Play, ambayo inalazimisha uhusiano na akaunti maalum.</string>
+    <string name="upgrade_screen_owned_hero_title">Hongera!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Una %1$s, iliyofunguliwa na usajili wako.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Una %1$s, iliyofunguliwa na ununuzi wako wa mara moja.</string>
+    <string name="upgrade_screen_owned_iap_title">Ununuzi wa mara moja</string>
+    <string name="upgrade_screen_owned_iap_body">Unamiliki boresho la Pro la mara moja. Pro inabaki imefunguliwa kwenye akaunti hii ya Google. Asante kwa kuunga mkono SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Usajili wako wa Pro ni hai na umewekwa kurejeshwa. Malipo yanasimamiwa na Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Unapendelea ununuzi wa mara moja? Utapatikana pindi usajili wako utakapoacha kurejeshwa. Ghairi usajili katika Google Play ili kubadili.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Usajili wako wa Pro ni hai, lakini haujawekwa kurejeshwa. Pro inabaki inapatikana hadi mwisho wa kipindi cha sasa.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Usajili huu bado umewekwa kurejeshwa, ingawa tayari unamiliki boresho la mara moja. Unaweza kuughairi katika Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Dhibiti usajili</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Huu ni ununuzi tofauti: hauughairi wala kurudisha pesa za usajili wako. Tumia akaunti sawa ya Google kwa vyote viwili.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Usajili bado ni hai</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play inaripoti kwamba usajili wako bado umewekwa kurejeshwa. Ili kununua boresho la mara moja, ghairi usajili katika Google Play kwanza, kisha rudi hapa.\n\nUmeghairi hivi punde? Mpe Google Play muda kidogo kisha jaribu tena. Pia hakikisha unatumia akaunti sawa ya Google.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Imeshindwa kuangalia hali ya usajili wako na Google Play. Tafadhali jaribu tena baada ya muda.</string>
+    <string name="upgrade_screen_restore_success_message">Ununuzi umerejeshwa, boresho lako la Pro ni hai.</string>
+    <string name="upgrade_screen_grace_title">Inathibitisha ununuzi wako</string>
+    <string name="upgrade_screen_grace_body_short">Pro bado ni hai. Inasubiri Google Play kuthibitisha tena ununuzi wako, vipengele vyote vya Pro vinabaki vimefunguliwa wakati huo huo.</string>
+    <string name="upgrade_screen_grace_body">Pro bado ni hai, lakini Google Play haijathibitisha ununuzi wako kwa muda. Ikiwa ulinunua Pro, rejesha ununuzi na hakikisha Google Play inatumia akaunti iliyonunua. Ikiwa usajili uliisha au ununuzi ulirudishiwa pesa, Pro itazimika yenyewe, hakuna kingine cha kufanya.</string>
+    <string name="upgrade_screen_restore_body">Kurejesha kunauliza Google Play kuangalia tena manunuzi ya programu hii kwa akaunti ya sasa. Haianzishi ununuzi mpya.</string>
+    <string name="upgrade_screen_restore_status_title">Hali inaonekana si sahihi?</string>
+    <string name="upgrade_screen_restore_status_body">Ikiwa ununuzi haupo au hali hii inaonekana si sahihi, angalia tena na Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Wasiliana na msaada</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid imekagua Google Play hivi punde, lakini hakuna ununuzi wa Pro uliothibitishwa kwa akaunti ambayo Google Play inatumia kwa programu hii.</string>
+    <string name="upgrade_screen_restore_contact_hint">Bado una tatizo? Wasiliana na msaada kutoka barua pepe iliyofanya ununuzi na jumuisha nambari ya agizo lako la Google Play.</string>
 </resources>

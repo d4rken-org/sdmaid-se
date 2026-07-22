@@ -25,9 +25,10 @@
     <string name="deduplicator_detection_method_checksum_title">Контрольная сумма содержимого</string>
     <string name="deduplicator_detection_method_checksum_summary">Выявлять дубликаты вычислением контрольной суммы файлов. Файлы с одинаковой контрольной суммой идентичны по содержимому.</string>
     <string name="deduplicator_detection_method_phash_title">Похожее содержимое</string>
-    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов посредством анализа свойств содержимого и сравнения значений хэша. ⚠️ Обнаружение на основе схожести может включать неверные позиции, требующие ручной проверки.</string>
+    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов путем анализа и сравнения уникальных свойств содержимого.</string>
     <string name="deduplicator_detection_method_media_title">Отпечаток медиа</string>
-    <string name="deduplicator_detection_method_media_summary">Находите похожие видео и аудио файлы, анализируя аудио отпечатки. ⚠️ Обнаружение на основе схожих признаков может включать ложные срабатывания, требующие ручной проверки.</string>
+    <string name="deduplicator_detection_method_media_summary">Найти похожие видео и аудиофайлы путем анализа аудиоотпечатков.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Определение на основе сходства может включать ложные срабатывания, требующие ручной проверки.</string>
     <string name="deduplicator_media_match_audio">Совпадение на основе аудио</string>
     <string name="deduplicator_media_match_visual">Совпадение на основе видео</string>
     <string name="deduplicator_media_match_audio_visual">Совпадение на основе аудио и видео</string>

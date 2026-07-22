@@ -38,6 +38,7 @@
     <string name="general_error_label">Feil</string>
     <string name="general_upgrade_action">Oppgrader</string>
     <string name="general_refresh_action">Oppdater</string>
+    <string name="general_retry_action">Prøv igjen</string>
     <string name="general_progress_searching">Søker</string>
     <string name="general_progress_generating_searchpaths">Generer søkebaner</string>
     <string name="general_progress_filtering">Filtrerer</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Navn (A → Å)</string>
     <string name="general_sort_size_desc">Største først</string>
     <string name="general_tag_system">System</string>
+    <string name="general_tag_library">Bibliotek</string>
     <string name="general_navigate_up_action">Naviger opp</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Filtrer etter merkelapper</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Rapporter feil</string>
     <string name="general_error_ipc_deadobject_title">Tjenestetilkobling brutt</string>
     <string name="general_error_ipc_deadobject_description">Tilkoblingen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre tjenester på systemnivå) ble uventet brutt. Start enheten på nytt. Hvis problemet vedvarer, kan du se etter oppdateringer eller kontakte meg slik at jeg kan fikse det.</string>
-    <string name="general_error_upgrade_required_title">Pro-versjon påkrevd</string>
-    <string name="general_error_upgrade_required_description">Dette er en Pro-funksjon. Vennligst oppgrader SD Maid SE for å bruke den.</string>
+    <string name="general_error_upgrade_required_title">Oppgradering påkrevd</string>
+    <string name="general_error_upgrade_required_description">Denne funksjonen krever en oppgradering. Vennligst oppgrader SD Maid SE for å bruke den.</string>
     <string name="general_user_label_owner">Eier</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Oppsett</string>

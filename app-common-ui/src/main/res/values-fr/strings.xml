@@ -8,6 +8,7 @@
         <item quantity="other">%d chemins ont été choisis</item>
     </plurals>
     <string name="picker_home_action">Zones des données</string>
+    <string name="picker_select_hint">Maintenez appuyé un élément pour le sélectionner</string>
     <string name="tour_action_next">Suivant</string>
     <string name="tour_action_previous">Précédent</string>
     <string name="tour_action_cancel">Ignorer</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Continuer la visite</string>
     <string name="tour_confirm_dont_show_this_tour">Ne pas afficher cette visite guidée</string>
     <string name="tour_confirm_disable_all">Désactiver toutes les visites guidées</string>
-    <string name="navigation_unknown_destination_title">Bientôt disponible</string>
-    <string name="navigation_unknown_destination_message">Cet écran est en cours de migration vers la nouvelle interface.</string>
+    <string name="navigation_unknown_destination_title">Écran inaccessible</string>
+    <string name="navigation_unknown_destination_message">Cet écran n’a pas pu être ouvert.</string>
 </resources>

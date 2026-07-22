@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">كيف أساعدك</string>
     <string name="upgrade_screen_how_body">كن داعما وراعيا للتطوير! انقر على الزر أدناه لتفعيل جميع الميزات الإضافية وفتح ملفي الخاص برعاة GitHub.</string>
     <string name="upgrade_screen_why_title">فوائد الترقية</string>
-    <string name="upgrade_screen_why_body">• تنظيف ذاكرات التطبيقات المؤقتة والبيانات غير الضرورية\n• إزالة الملفات المكررة\n• تفعيل التنظيف المجدول\n• إنشاء عوامل تصفية مخصصة وقواعد التنظيف\n• تتبع اتجاهات التخزين وسجل التنظيف\n• مزيد من الميزات والتحكم في جميع أنحاء التطبيق\n• دعم العمل مفتوح المصدر</string>
+    <string name="upgrade_screen_why_body">• تنظيف ذاكرة التخزين المؤقت والملفات غير الضرورية للتطبيقات\n• إزالة الملفات المكررة\n• ضغط الصور ومقاطع الفيديو\n• التخلص من الملفات القديمة بحركة تمرير\n• التنظيف بلمسة واحدة عبر أداة الويدجت\n• جدولة التنظيف\n• المرشحات والقواعد المخصصة\n• إحصائيات التخزين والسجل\n• مزيد من الميزات والخيارات عبر التطبيق\n• دعم العمل مفتوح المصدر</string>
     <string name="upgrade_screen_sponsor_action">ادعم التطوير</string>
     <string name="upgrade_screen_sponsor_action_hint">البديل هو الإعلانات والتحليلات و Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">شكراً على دعمك لتطوير المصادر المفتوحة ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">عدت بالفعل؟ دعمك يبقي SD Maid حياً!</string>
+    <string name="upgrade_screen_status_free_title">الإصدار المجاني</string>
+    <string name="upgrade_screen_status_free_body">أنت تستخدم الإصدار المجاني من SD Maid. يمكنك فتح ميزات إضافية بدعم التطوير.</string>
+    <string name="upgrade_screen_status_free_action">عرض خيارات الترقية</string>
+    <string name="upgrade_screen_status_upgraded_title">الترقية نشطة</string>
+    <string name="upgrade_screen_status_upgraded_body">تم فتح جميع الميزات الإضافية. شكرًا لدعمك تطوير المصدر المفتوح ❤️</string>
+    <string name="upgrade_screen_recurring_title">استمر في الدعم</string>
+    <string name="upgrade_screen_recurring_body">يستمر تطبيق SD Maid في التطور من خلال التحديثات والإصلاحات. إذا كنت تود دعم هذا المشروع، فكر في التبرع المتكرر عبر GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">فتح GitHub Sponsors</string>
 </resources>

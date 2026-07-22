@@ -8,6 +8,7 @@
         <item quantity="other">%d പാതുകൾ തിരഞ്ഞെടുക്കപ്പെട്ടു</item>
     </plurals>
     <string name="picker_home_action">ഡേറ്റ മേഖലകൾ</string>
+    <string name="picker_select_hint">ഒരു ഇനം തിരഞ്ഞെടുക്കാൻ അത് നിലനിർത്തുക</string>
     <string name="tour_action_next">അടുത്തത്</string>
     <string name="tour_action_previous">മുമ്പത്തെ</string>
     <string name="tour_action_cancel">ഒഴിവാക്കുക</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">ടൂർ തുടരുക</string>
     <string name="tour_confirm_dont_show_this_tour">ഈ ടൂർ കാണിക്കരുത്</string>
     <string name="tour_confirm_disable_all">എല്ലാ ടൂറുകളും പ്രവർത്തനരഹിതമാക്കുക</string>
-    <string name="navigation_unknown_destination_title">ഉടനെ വരുന്നത്</string>
-    <string name="navigation_unknown_destination_message">ഈ സ്ക്രീൻ ഇപ്പോഴും പുതിയ ഇന്റർഫേസിലേക്ക് മാറ്റുകയാണ്.</string>
+    <string name="navigation_unknown_destination_title">സ്ക്രീൻ ലഭ്യമല്ല</string>
+    <string name="navigation_unknown_destination_message">ഈ സ്ക്രീൻ തുറക്കാനാകിയില്ല.</string>
 </resources>

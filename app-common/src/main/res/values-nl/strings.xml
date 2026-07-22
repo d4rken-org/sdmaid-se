@@ -38,6 +38,7 @@
     <string name="general_error_label">Fout</string>
     <string name="general_upgrade_action">Upgraden</string>
     <string name="general_refresh_action">Vernieuwen</string>
+    <string name="general_retry_action">Opnieuw proberen</string>
     <string name="general_progress_searching">Zoeken</string>
     <string name="general_progress_generating_searchpaths">Genereren van zoekpaden</string>
     <string name="general_progress_filtering">Filteren</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Naam (A → Z)</string>
     <string name="general_sort_size_desc">Grootste eerst</string>
     <string name="general_tag_system">Systeem</string>
+    <string name="general_tag_library">Bibliotheek</string>
     <string name="general_navigate_up_action">Omhoog navigeren</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Filteren op tags</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Bug melden</string>
     <string name="general_error_ipc_deadobject_title">Serviceverbinding verbroken</string>
     <string name="general_error_ipc_deadobject_description">De verbinding met een kritieke service (bijv. Magisk, Shizuku of andere services op systeemniveau) is onverwacht verbroken. Start je apparaat opnieuw op. Als het probleem aanhoudt, controleer dan op updates of neem contact met mij op zodat ik het kan oplossen.</string>
-    <string name="general_error_upgrade_required_title">Pro-versie vereist</string>
-    <string name="general_error_upgrade_required_description">Dit is een Pro-functie. Upgrade SD Maid SE om het te gebruiken.</string>
+    <string name="general_error_upgrade_required_title">Upgrade vereist</string>
+    <string name="general_error_upgrade_required_description">Deze functie vereist een upgrade. Upgrade SD Maid SE om deze te gebruiken.</string>
     <string name="general_user_label_owner">Eigenaar</string>
     <string name="general_user_label_system">Systeem</string>
     <string name="setup_title">Instelling</string>

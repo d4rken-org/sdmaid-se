@@ -9,6 +9,7 @@
         <item quantity="other">%d путања изабрано</item>
     </plurals>
     <string name="picker_home_action">Области података</string>
+    <string name="picker_select_hint">Држите ставку да је изаберете</string>
     <string name="tour_action_next">Даље</string>
     <string name="tour_action_previous">Претходно</string>
     <string name="tour_action_cancel">Прескочи</string>
@@ -17,6 +18,6 @@
     <string name="tour_confirm_continue">Наставите туру</string>
     <string name="tour_confirm_dont_show_this_tour">Не приказуј ову туру</string>
     <string name="tour_confirm_disable_all">Онемогући све туре</string>
-    <string name="navigation_unknown_destination_title">Ускоро</string>
-    <string name="navigation_unknown_destination_message">Овај екран се још увек мигрира на нови интерфејс.</string>
+    <string name="navigation_unknown_destination_title">Екран недоступан</string>
+    <string name="navigation_unknown_destination_message">Овај екран није могао бити отворен.</string>
 </resources>

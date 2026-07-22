@@ -139,6 +139,6 @@
     <string name="squeezer_estimated_savings_percent">Ocenjeno ~%d%% prihrankov za datoteke JPEG</string>
     <string name="squeezer_onboarding_got_it">Razumem!</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer ponovno stisne vaše fotografije in videoposnetke, da zavzamejo manj prostora. Datoteke ostanejo uporabne, le manjše, in vsaka prikaže svoj ocenjeni prihranek.</string>
+    <string name="tour_squeezer_intro_body">Squeezer ponovno stisne vaše fotografije in video posnetke, da zavzamejo manj prostora. Malo kakovosti zamenjate za prostor, ki ga pridobite. Vsaka postavka prikazuje ocenjeno varčevanje, da se lahko odločite, kaj se splača.</string>
     <string name="tour_squeezer_compress_body">Stisnite vse naenkrat tukaj ali pritisnite en predmet, da ga zmanjšate. Dolgo pritisnite, da izberete več. Pred kakršnimi koli spremembami vedno vidite predogled.</string>
 </resources>

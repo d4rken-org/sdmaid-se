@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Kako pomoći</string>
     <string name="upgrade_screen_how_body">Postanite pokrovitelj i sponzorirajte razvoj! Dodirnite gumb ispod da biste aktivirali sve dodatne značajke i otvorili moj GitHub sponzorski profil.</string>
     <string name="upgrade_screen_why_title">Prednosti nadogradnje</string>
-    <string name="upgrade_screen_why_body">• Očisti predmemoriju aplikacija i potrošne podatke\n• Ukloni duplikatne datoteke\n• Omogući zakazana čišćenja\n• Kreiraj prilagođene filtere i pravila čišćenja\n• Prati trendove pohrane i povijest čišćenja\n• Više mogućnosti i kontrola u aplikaciji\n• Podrži rad otvorenog koda</string>
+    <string name="upgrade_screen_why_body">• Čišćenje predmemorije i smeća aplikacija\n• Uklanjanje duplikata datoteka\n• Sažimanje fotografija i videozapisa\n• Povlačenje za uklanjanje starih datoteka\n• Čišćenje jednim dodirom putem widgeta\n• Raspoređivanje čišćenja\n• Prilagođeni filtri i pravila\n• Trendovi i povijest pohrane\n• Više značajki i kontrola diljem aplikacije\n• Podrška radu otvorenog koda</string>
     <string name="upgrade_screen_sponsor_action">Podržite razvoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativa su oglasi, analitika i Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Hvala vam što podržavate razvoj otvorenog koda ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Već se vraćaš? Vaša podrška održava SD Maid živim!</string>
+    <string name="upgrade_screen_status_free_title">Besplatna verzija</string>
+    <string name="upgrade_screen_status_free_body">Koristite besplatnu verziju SD Maida. Dodatne značajke mogu se otključati podrškom razvoju.</string>
+    <string name="upgrade_screen_status_free_action">Pogledajte mogućnosti nadogradnje</string>
+    <string name="upgrade_screen_status_upgraded_title">Nadogradnja aktivna</string>
+    <string name="upgrade_screen_status_upgraded_body">Sve dodatne značajke su otključane. Hvala vam na podršci razvoju otvorenog koda ❤️</string>
+    <string name="upgrade_screen_recurring_title">Nastavite podržavati</string>
+    <string name="upgrade_screen_recurring_body">SD Maid se neprestano razvija kroz ažuriranja i ispravke. Ako biste to željeli podržati, razmislite o redovitoj donaciji putem GitHub Sponsorsa.</string>
+    <string name="upgrade_screen_recurring_action">Otvorite GitHub Sponsors</string>
 </resources>

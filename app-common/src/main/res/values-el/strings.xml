@@ -38,6 +38,7 @@
     <string name="general_error_label">Σφάλμα</string>
     <string name="general_upgrade_action">Αναβάθμιση</string>
     <string name="general_refresh_action">Ανανέωση</string>
+    <string name="general_retry_action">Δοκιμή ξανά</string>
     <string name="general_progress_searching">Αναζήτηση</string>
     <string name="general_progress_generating_searchpaths">Δημιουργία διαδρομών αναζήτησης</string>
     <string name="general_progress_filtering">Φιλτράρισμα</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Όνομα (Α → Ω)</string>
     <string name="general_sort_size_desc">Μεγαλύτερα πρώτα</string>
     <string name="general_tag_system">Σύστημα</string>
+    <string name="general_tag_library">Βιβλιοθήκη</string>
     <string name="general_navigate_up_action">Πλοήγηση προς τα πάνω</string>
     <string name="general_filter_action">Φίλτρο</string>
     <string name="general_filter_by_tags_label">Φιλτράρισμα κατά ετικέτες</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Αναφορά σφάλματος</string>
     <string name="general_error_ipc_deadobject_title">Απώλεια Σύνδεσης Υπηρεσίας</string>
     <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Shizuku ή άλλες υπηρεσίες σε επίπεδο συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Εάν το πρόβλημα επιμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
-    <string name="general_error_upgrade_required_title">Απαιτείται η έκδοση Pro</string>
-    <string name="general_error_upgrade_required_description">Αυτή είναι λειτουργία Pro. Αναβαθμίστε το SD Maid SE για να την χρησιμοποιήσετε.</string>
+    <string name="general_error_upgrade_required_title">Απαιτείται αναβάθμιση</string>
+    <string name="general_error_upgrade_required_description">Αυτή η δυνατότητα απαιτεί αναβάθμιση. Αναβαθμίστε το SD Maid SE για να τη χρησιμοποιήσετε.</string>
     <string name="general_user_label_owner">Κάτοχος</string>
     <string name="general_user_label_system">Σύστημα</string>
     <string name="setup_title">Εγκατάσταση</string>

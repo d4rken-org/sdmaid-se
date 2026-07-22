@@ -8,6 +8,7 @@
         <item quantity="other">%d stier valgt</item>
     </plurals>
     <string name="picker_home_action">Dataområder</string>
+    <string name="picker_select_hint">Hold et element nede for at vælge det</string>
     <string name="tour_action_next">Næste</string>
     <string name="tour_action_previous">Forrige</string>
     <string name="tour_action_cancel">Spring over</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Fortsæt rundvisning</string>
     <string name="tour_confirm_dont_show_this_tour">Vis ikke denne rundvisning</string>
     <string name="tour_confirm_disable_all">Deaktiver alle rundvisninger</string>
-    <string name="navigation_unknown_destination_title">Kommer snart</string>
-    <string name="navigation_unknown_destination_message">Dette skærmbillede er stadig under migrering til det nye brugerinterface.</string>
+    <string name="navigation_unknown_destination_title">Skærm utilgængelig</string>
+    <string name="navigation_unknown_destination_message">Denne skærm kunne ikke åbnes.</string>
 </resources>

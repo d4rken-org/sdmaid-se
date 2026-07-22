@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Ingen markør</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standard gjenværende filer. Generelt trygt å fjerne — disse filene tilhører apper som ikke lenger er installert.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder finner data som er etterlatt av apper du allerede har avinstallert. Det tilhører ikke lenger noe installert, så det er trygt å fjerne og frigjør plass.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder finner data som er etterlatt av apper du allerede har avinstallert. Det tilhører ikke lenger noe som er installert, så å fjerne det frigjør plass. Det meste av det er trygt å fjerne, men sjekk markøren når du er usikker.</string>
     <string name="tour_corpsefinder_row_body">Hvert element er gjenværende data og appen det kom fra. Markøren viser hvor sikker SD Maid er på at det er trygt å fjerne — trykk på ⓘ øverst for å lære hva markørene betyr.</string>
 </resources>

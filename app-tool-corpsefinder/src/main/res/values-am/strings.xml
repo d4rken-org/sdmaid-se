@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">ምንም ምልክት የለም</string>
     <string name="corpsefinder_markers_dialog_normal_description">መደበኛ ቅሪት። በአጠቃላይ ለማስወገድ ደህና ነው — እነዚህ ፋይሎች ወደ ኋላ ያልተገጣጠሙ መተግበሪያዎች ናቸው።</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder ቀደም ሲል ያወገዙትን መተግበሪያዎች ተቀሪ ውሂብ ያገኛል። ከእንዲህ በኋላ ለማንም ተገጣጠም አይደለም፣ ስለዚህ ማስወገዙ ደህና እና ቦታ ይሰጣል።</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ያልተጫወሩ መተግበሪያዎች ውሂብ ያገኛል። ይህ ውሂብ ከተጫወተ ምንም ነገር ጋር አይዛመድም ስለዚህ ማንሳት ቦታ ያዶልቃል። አብዛኛውን ሰርዞ ደህና ነው፣ ግን ካልተወሰኑ ሲሆኑ ምልክቱን ይወቁ።</string>
     <string name="tour_corpsefinder_row_body">እያንዳንዱ ንጥል ተቀሪ ውሂብ እና ከሱ የመጣው መተግበሪያ ነው። ሚልክቱ SD Maid ምን ያህል ደህና ነው ብሎ ሲያምን ያሳያል — ሚልክቶቹ ምን ማለት ነው ለማወቅ ከላይ ⓘ ይታቡ።</string>
 </resources>

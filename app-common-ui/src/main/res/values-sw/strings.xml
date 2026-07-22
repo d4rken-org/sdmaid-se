@@ -8,6 +8,7 @@
         <item quantity="other">njia %d zimechaguliwa</item>
     </plurals>
     <string name="picker_home_action">Maeneo ya data</string>
+    <string name="picker_select_hint">Shikilia kipengele ili kukichagua</string>
     <string name="tour_action_next">Inayofuata</string>
     <string name="tour_action_previous">Iliyotangulia</string>
     <string name="tour_action_cancel">Ruka</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Endelea na ziara</string>
     <string name="tour_confirm_dont_show_this_tour">Usionyeshe ziara hii</string>
     <string name="tour_confirm_disable_all">Zima ziara zote</string>
-    <string name="navigation_unknown_destination_title">Inakuja hivi karibuni</string>
-    <string name="navigation_unknown_destination_message">Skrini hii bado inahamishwa kwenda muundo mpya wa mwonekano.</string>
+    <string name="navigation_unknown_destination_title">Skrini haipatikani</string>
+    <string name="navigation_unknown_destination_message">Skrini hii haikuweza kufunguliwa.</string>
 </resources>

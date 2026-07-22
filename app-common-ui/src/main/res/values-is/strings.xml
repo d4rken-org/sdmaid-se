@@ -8,6 +8,7 @@
         <item quantity="other">%d slóðir valdar</item>
     </plurals>
     <string name="picker_home_action">Gagnasvæði</string>
+    <string name="picker_select_hint">Haltu atriði til að velja það</string>
     <string name="tour_action_next">Næst</string>
     <string name="tour_action_previous">Fyrri</string>
     <string name="tour_action_cancel">Sleppa</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Halda áfram</string>
     <string name="tour_confirm_dont_show_this_tour">Ekki sýna þennan túr</string>
     <string name="tour_confirm_disable_all">Slökkva á öllum túrum</string>
-    <string name="navigation_unknown_destination_title">Kemur flótlega</string>
-    <string name="navigation_unknown_destination_message">Þessi skjár er ennþá að flytjast til nýja viðmótsins.</string>
+    <string name="navigation_unknown_destination_title">Skjár ekki tiltækur</string>
+    <string name="navigation_unknown_destination_message">Ekki var hægt að opna þennan skjá.</string>
 </resources>

@@ -8,6 +8,7 @@
         <item quantity="other">%d ପଥ ମନୋନୀତ</item>
     </plurals>
     <string name="picker_home_action">ଡାଟା କ୍ଷେତ୍ର</string>
+    <string name="picker_select_hint">ଏଟି ଚୟନ କରିବା ପାଇଁ ଏକ ଜିନିଷ ଧରି ରଖନ୍ତୁ</string>
     <string name="tour_action_next">ଆଗେ</string>
     <string name="tour_action_previous">ପଛେ</string>
     <string name="tour_action_cancel">ଛାଡ଼ନ୍ତୁ</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">ଟୁର ଜାରି ରଖନ୍ତୁ</string>
     <string name="tour_confirm_dont_show_this_tour">ଏହି ଟୁର ଦେଖାନ୍ତୁ ନାହିଁ</string>
     <string name="tour_confirm_disable_all">ସମସ୍ତ ଟୁର ନିଷ୍କ୍ରିୟ କରନ୍ତୁ</string>
-    <string name="navigation_unknown_destination_title">ଶୀଘ୍ର ଆସିବ</string>
-    <string name="navigation_unknown_destination_message">ଏହି ସ୍କ୍ରିନ ବର୍ତ୍ତମାନ ନୂତନ UI କୁ ସ୍ଥାନାନ୍ତରିତ ହେଉଛି।</string>
+    <string name="navigation_unknown_destination_title">ସ୍କ୍ରିନ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="navigation_unknown_destination_message">ଏହି ସ୍କ୍ରିନ ଖୋଲାଯାଇ ପାରିଲା ନାହିଁ।</string>
 </resources>

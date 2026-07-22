@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Jak pomoci</string>
     <string name="upgrade_screen_how_body">Staňte se patronem a sponzorujte vývoj! Klepnutím na tlačítko níže aktivujete všechny extra funkce a otevřete můj sponzorský profil na GitHub.</string>
     <string name="upgrade_screen_why_title">Výhody upgradu</string>
-    <string name="upgrade_screen_why_body">• Vyčistěte mezipaměti aplikací a zbytečná data
-• Odstraňte duplicitní soubory
-• Povolte plánované čištění
-• Vytvořte vlastní filtry a pravidla čištění
-• Sledujte trendy úložiště a historii čištění
-• Více funkcí a ovládacích prvků v celé aplikaci
-• Podpořte open-source vývoj</string>
+    <string name="upgrade_screen_why_body">• Čištění mezipaměti aplikací a zbytečných souborů\n• Odebrání duplicitních souborů\n• Komprese fotek a videí\n• Potažením pro vyčištění starých souborů\n• Čištění jedním klepnutím přes widget\n• Plánování čištění\n• Vlastní filtry a pravidla\n• Trendy úložiště a historie\n• Více funkcí a ovládacích prvků v aplikaci\n• Podpora vývoje open-source</string>
     <string name="upgrade_screen_sponsor_action">Sponzorovat vývoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativou jsou reklamy, analytika a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Děkuji vám za podporu vývoje open-source ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Už jsi zpět? Vaše podpora udržuje SD Maid naživu!</string>
+    <string name="upgrade_screen_status_free_title">Bezplatná verze</string>
+    <string name="upgrade_screen_status_free_body">Používáte bezplatnou verzi SD Maid. Další funkce lze odemknout podporou vývoje.</string>
+    <string name="upgrade_screen_status_free_action">Zobrazit možnosti upgradu</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade je aktivní</string>
+    <string name="upgrade_screen_status_upgraded_body">Všechny extra funkce jsou odemknuty. Děkujeme za podporu vývoje open-source ❤️</string>
+    <string name="upgrade_screen_recurring_title">Ať to pokračuje</string>
+    <string name="upgrade_screen_recurring_body">SD Maid se neustále vyvíjí prostřednictvím aktualizací a oprav. Pokud to chcete podporovat, zvažte pravidelný příspěvek prostřednictvím GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Otevřít GitHub Sponsors</string>
 </resources>

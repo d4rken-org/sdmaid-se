@@ -8,6 +8,7 @@
         <item quantity="other">%d पथहरू चयनित</item>
     </plurals>
     <string name="picker_home_action">डेटा क्षेत्रहरू</string>
+    <string name="picker_select_hint">वस्तु चयन गर्न यसलाई समातेर राख्नुहोस्</string>
     <string name="tour_action_next">अर्को</string>
     <string name="tour_action_previous">अघिल्लो</string>
     <string name="tour_action_cancel">छोड्नुहोस्</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">भ्रमण जारी राख्नुहोस्</string>
     <string name="tour_confirm_dont_show_this_tour">यो भ्रमण देखाउनु नहोस्</string>
     <string name="tour_confirm_disable_all">सबै भ्रमणहरू अक्षम गर्नुहोस्</string>
-    <string name="navigation_unknown_destination_title">शीघ्रै आउँदैछ</string>
-    <string name="navigation_unknown_destination_message">यो स्क्रिन अझै नयाँ UI मा माइग्रेट गरिइरहेको छ।</string>
+    <string name="navigation_unknown_destination_title">स्क्रिन उपलब्ध छैन</string>
+    <string name="navigation_unknown_destination_message">यो स्क्रिन खोल्न सकिएन।</string>
 </resources>

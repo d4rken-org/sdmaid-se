@@ -64,6 +64,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Nema oznake</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standardni ostatak. Općenito sigurno ukloniti — te datoteke pripadaju aplikacijama koje više nisu instalirane.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder pronalazi podatke koje su ostavile aplikacije koje ste već deinstalirali. Više ne pripada ničemu što je instalirano, pa je uklanjanje sigurno i oslobođa prostor.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder pronalazi podatke koje su ostavile aplikacije koje ste već deinstalirali. Više ne pripadaju ničemu instaliranom, pa njihovo uklanjanje oslobođa prostor. Većinu je sigurno ukloniti, ali provjerite oznaku kada niste sigurni.</string>
     <string name="tour_corpsefinder_row_body">Svaka stavka je preostali podatak i aplikacija iz koje je došla. Oznaka pokazuje koliko je SD Maid siguran da je sigurno ukloniti — dodirnite ⓘ na vrhu da saznate što oznake znače.</string>
 </resources>

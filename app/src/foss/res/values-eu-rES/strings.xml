@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Nola lagundu</string>
     <string name="upgrade_screen_how_body">Izan babesle eta garapen babeslari! Egin klik beheko botoian eginbide gehigarri guztiak aktibatzeko eta nire GitHub Sponsors profila irekitzeko.</string>
     <string name="upgrade_screen_why_title">Eguneratzearen onurak</string>
-    <string name="upgrade_screen_why_body">• Aplikazioaren cacheak eta deskargarriak diren datuak garbitu\n• Fitxategi bikoizak kendu\n• Garbiketa programatuak gaitu\n• Pertsonalizatutako iragazkiak eta garbiketa arauak sortu\n• Biltegiaren joera eta garbiketa historika jarraitu\n• Aplikazio osoaren zehar ezaugarri eta kontrol gehiago\n• Kode irekiko lanaren laguntza</string>
+    <string name="upgrade_screen_why_body">• Aplikazio cachea eta basura garbitze\n• Bikoitz fitxategien ezabatze\n• Argazkien eta bideoen konpresioa\n• Irristatu zahar fitxategiak garbitzeko\n• Talkean garbiketa widgeten bidez\n• Garbitze ordutogia\n• Pertsonalizatutako sibilak eta arauak\n• Biltegiaren trendak eta historia\n• Gehiago funtzioak eta kontrolak aplikazio osoan\n• Iturri irekia sustatzea</string>
     <string name="upgrade_screen_sponsor_action">Garapena babestu</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatiboa iragarkinak, analisiak eta Google Play dira 🙁</string>
     <string name="upgrade_screen_thanks_toast">Eskerrik asko iturburu irekiko garapena babesten duzulako ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Dagoeneko itzuli zara? Zure laguntzak SD Maid bizirik mantentzen du!</string>
+    <string name="upgrade_screen_status_free_title">Doako bertsioa</string>
+    <string name="upgrade_screen_status_free_body">SD Maid-en doako bertsioa erabiltzen ari zara. Gehiago funtzio desblokeatu daitezke garapena sustatzean.</string>
+    <string name="upgrade_screen_status_free_action">Ikus eguneratze aukerak</string>
+    <string name="upgrade_screen_status_upgraded_title">Eguneraketa aktiboa</string>
+    <string name="upgrade_screen_status_upgraded_body">Funtzionalitate gehigarri guztiak desblokeaturik daude. Eskerrik asko kode irekiko garapenari laguntzearengatik ❤️</string>
+    <string name="upgrade_screen_recurring_title">Jarraitu aurrera</string>
+    <string name="upgrade_screen_recurring_body">SD Maid etengabe garatzen ari da eguneraketak eta konponketak bidez. Hori sustatzea nahi baduzu, kontuan hartu GitHub Sponsors-en bidezko behin-behineko donatiboa.</string>
+    <string name="upgrade_screen_recurring_action">Ireki GitHub Sponsors</string>
 </resources>

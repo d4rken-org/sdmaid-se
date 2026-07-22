@@ -103,6 +103,6 @@
     <string name="systemcleaner_customfilter_import_action">Uvezi novi filter</string>
     <string name="systemcleaner_customfilter_export_action">Izvezi odabrani filter</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner pronalazi neželjeni sadržaj koristeći filtere koji nisu specifični za aplikacije. Postoje unaprijed pripremljena pravila za stvari poput praznih mapa, zaboravljenih zapisnika i zastarjelih minijatura. Posjetite postavke ako želite stvoriti vlastite.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner pronalazi smeće koristeći filtre koji nisu specifični za pojedinu aplikaciju. Gotova pravila postoje za stvari poput praznih mapa, zaostalih zapisnika i zastarjelih sličica. Posjetite postavke ako želite izraditi vlastita.</string>
     <string name="tour_systemcleaner_filter_body">Svaki red je filtar i ono što je pronašao. Otvorite njegove detalje kako biste vidjeli točno koje datoteke se podudaraju prije nego što nešto izbrišete.</string>
 </resources>

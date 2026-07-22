@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">ຮັບ SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid ບໍ່ມີໂຄສະນາ ແລະບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້. ວຽກຂອງຂ້ອຍໄດ້ຮັບການສະໜັບສະໜູນທາງການເງິນໂດຍທ່ານ ❤️.</string>
     <string name="upgrade_screen_benefits_title">ປະໂຫຍດຂອງການຍົກລະດັບ</string>
-    <string name="upgrade_screen_benefits_body">• ລຶບລ້າງແຄຊ໊ຂອງແອັບ ແລະ ຂໍ້ມູນທີ່ບໍ່ຈຳເປັນ
-• ລຶບລ້າງໄຟລ೫ທີ່ຊ້ຳກັນ
-• ເປີດໃຊ້ການລຶບລ້າງຕາມກຳໝົດເວລາ
-• ສ້າງຕົວກອງທີ່ກຳໝົດເອງ ແລະ ກໍດລະບີບການລຶບລ້າງ
-• ຕິດຕາມແນວໂນ້ມຂໍ້ມູນ ແລະ ປະໝັດການລຶບລ້າງ
-• ຄຸນສົມບັດ ແລະ ການຄວບຄຸມເພີ່ມເຕີມທໍ່ວທັງແອັບ
-• ສະໝັບສະໝູນການພັດທະນາຍ່າງຕໍ່ເນື່ອງ</string>
+    <string name="upgrade_screen_benefits_body">• ການລຶບລາຍລະບາກ ແລະ ຂໍ້ມູນວຕະ\n• ການລຶບແຟ້ມທີ່ຊໍ້າກັນ\n• ການບີບອັດຮູບ ແລະ ວິດີໂອ\n• ການກວາດເພື່ອລຶບແຟ້ມເກົ່າ\n• ການແຊ້ໜຶ່ງຄັ້ງຜ່ານວິດເຈັດ\n• ການກຳນົດເວລາການແຊ້\n• ຕົວກອງ ແລະ ກົດລະບຽບທີ່ກຳນົດເອງ\n• ແນວໂນ້ມ ແລະ ປະວັດ ການເກັບຮັກສາ\n• ລັກສະນະ ແລະ ການຄວບຄຸມເພີ້ມເຕີມທົ່ວແອັບ\n• ສະໜັບສະໜູນການພັຒນາຢ່າງຕໍ່ເນື່ອງ</string>
+    <string name="upgrade_screen_offers_title">ທາງເລືອກການອັບເກຣດ</string>
+    <string name="upgrade_screen_offers_body">ຄຸນສົມບັດດຽວກັນ, ພຽງແຕ່ແບບຈໍາລອງລາຄາທີ່ແຕກຕ່າງກັນ.</string>
+    <string name="upgrade_screen_offers_or">ຫຼື</string>
     <string name="upgrade_screen_subscription_offer_title">ການສະໝັກປະຈຳປີ</string>
+    <string name="upgrade_screen_subscription_offer_body">ອັບເດດໃໝ່ທຸກປີຫຼັງຈາກທົດລອງໃຊ້ຟຣີ. ຍົກເລີກໄດ້ຕະຫລອດໃນ Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">ອັບເດດໃໝ່ທຸກປີ. ຍົກເລີກໄດ້ຕະຫລອດໃນ Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">ຊື້ຄັ້ງດຽວ</string>
+    <string name="upgrade_screen_iap_offer_body">ການຊໍາລະເງິນຄັ້ງດຽວ, ບໍ່ມີການອັບເດດໃໝ່.</string>
     <string name="upgrade_screen_offers_unavailable_message">ລາຄາບໍ່ສາມາດໂຫລດໄດ້ໃນຕອນນີ້. ກວດສອບ Google Play ແລະ ລອງໃໝມ່ອີກຄັ້ງໃນບາດກາວ.</string>
     <string name="upgrade_screen_subscription_trial_action">ເລີ່ມທົດລອງຟຣີ 14 ວັນ</string>
     <string name="upgrade_screen_subscription_action">ສະໝັກສະມາຊິກ</string>
     <string name="upgrade_screen_iap_action">ການຊື້ຄັ້ງດຽວ</string>
     <string name="upgrade_screen_thanks_toast">ທ່ານດີທີ່ສຸດ! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ກູ້ຄືນການຊື້</string>
+    <string name="upgrade_screen_restore_banner_title">ຊື້ Pro ແລ້ວບໍ?</string>
+    <string name="upgrade_screen_restore_banner_body">ເບິ່ງຄືວ່າທ່ານໄດ້ອັບເກຣດເປັນ Pro ໃນອຸປະກອນນີ້ກ່ອນແລ້ວ. ກູ້ຄືນການຊື້ຂອງທ່ານເພື່ອປໍ່ງລອກມັນອີກຄັ້ງ.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">ການຊິງຄ໌ Play Store ອາດໃຊ້ເວລາ. ລອງຣີບູດ, ລ້າງແຄສ Google Play ຫຼືພຽງແຕ່ລໍຖ້າ.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ບັນຊີຫຼາຍບັນຊີສາມາດເຮັດໃຫ້ Google Play ສັບສົນ. ຕິດຕັ້ງແອັບພລິເກຊັນຜ່ານເວັບໄຊ Google Play, ເຊິ່ງບັງຄັບການເຊື່ອມໂຍງກັບບັນຊີສະເພາະ.</string>
+    <string name="upgrade_screen_owned_hero_title">ຊົມເຊີຍ!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">ທ່ານມີ %1$s, ປຽ່ງລອກໂດຍການສະໝັດສະໝາຊິກຂອງທ່ານ.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">ທ່ານມີ %1$s, ປຽ່ງລອກໂດຍການຊື້ຄັ້ງດຽວຂອງທ່ານ.</string>
+    <string name="upgrade_screen_owned_iap_title">ການຊື້ຄັ້ງດຽວ</string>
+    <string name="upgrade_screen_owned_iap_body">ທ່ານເປັນເຈ້າຂອງການອັບເກຣດ Pro ຄັ້ງດຽວ. Pro ຍັງຄົງປຽ່ງລອກໃນບັນຊີ Google ນີ້. ຂອບໃຈທີ່ສະໝັບສະໝູນ SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">ການສະໝັດສະໝາຊິກ Pro ຂອງທ່ານກໍາລັງມີຜົລ ແລະ ຕັ້ງໃຫ້ທໍາຊ້ຳ. ການຄິດຄ່າທໍາລາຍຖືກຈັດການໂດຍ Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">ທ່ານມັກການຊື້ຄັ້ງດຽວບໍ? ມັນກາຍເປັນວ່າມີໃຊ້ໄດ້ໃນເວລາທີ່ການສະໝັດສະໝາຊິກຂອງທ່ານບໍ່ໄດ້ຕັ້ງໃຫ້ທໍາຊ້ຳອີກ. ຍົກເລີກການສະໝັດສະໝາຊິກໃນ Google Play ເພື່ອສະລັບ.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">ການສະໝັດສະໝາຊິກ Pro ຂອງທ່ານກໍາລັງມີຜົລ, ແຕ່ບໍ່ໄດ້ຕັ້ງໃຫ້ທໍາຊ້ຳ. Pro ຍັງຄົງມີໃຊ້ໄດ້ຈົນກ່ວາໄລຢະເວລາປະຈຸບັນສິ້ນສຸດ.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">ການສະໝັກສະບັບນີ້ຍັງຄົງຕັ້ງໄວ້ເພື່ອຕໍ່ອາຍຸ ເຖິງວ່າທ່ານມີການອັບເກຣດຄັ້ງດຽວແລ້ວ. ທ່ານສາມາດຍົກເລີກມັນໃນ Google Play ໄດ້.</string>
+    <string name="upgrade_screen_manage_subscription_action">ຈັດການການສະໝັກສະບັບ</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">ນີ້ແມ່ນການຊື້ແຍກຕ່າງຫາກ: ມັນບໍ່ໄດ້ຍົກເລີກ ຫຼືຄືນເງິນທີ່ສະບັບຂອງທ່ານ. ໃຊ້ບັນຊີ Google ດຽວກັນສໍາລັບທັງສອງ.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">ການສະໝັກສະບັບຍັງຄົງໃຊ້ວຽກ</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play ລາຍງານວ່າການສະໝັກສະບັບຂອງທ່ານຍັງຄົງຕັ້ງໄວ້ເພື່ອຕໍ່ອາຍຸ. ເພື່ອຊື້ຕົວອັບເກຣດຄັ້ງດຽວ ໃຫ້ຍົກເລີກການສະໝັກສະບັບໃນ Google Play ກ່ອນ ແລ້ວກັບມາທີ່ນີ້.\n\nຫາກເພິ່ງຍົກເລີກ? ລໍ່ Google Play ສັກຈັກນາທີ ແລ້ວລອງອີກຄັ້ງ. ນອກຈາກນັ້ນໃຫ້ແນ່ໃຈວ່າທ່ານໃຊ້ບັນຊີ Google ດຽວກັນ.</string>
+    <string name="upgrade_screen_sub_check_failed_message">ບໍ່ສາມາດກວດສອບສະຖານະການສະໝັກສະບັບຂອງທ່ານກັບ Google Play. ກະລຸນາລອງອີກຄັ້ງຕໍ່ໄປ.</string>
+    <string name="upgrade_screen_restore_success_message">ການຊື້ໄດ້ຮັບຟື້ນຟູ ການອັບເກຣດ Pro ຂອງທ່ານໄດ້ເປີດໃຊ້ງານ.</string>
+    <string name="upgrade_screen_grace_title">ກໍາລັງຢືນຢັນການຊື້ຂອງທ່ານ</string>
+    <string name="upgrade_screen_grace_body_short">Pro ຍັງຄົງໃຊ້ວຽກ. ກໍາລັງລໍ່ຕໍ່ Google Play ໃຫ້ຢືນຢັນການຊື້ຂອງທ່ານຄືນ, ທຸກລັກສະນະ Pro ຍັງຄົງປົດລັອກໃນລະຫວ່າງນີ້.</string>
+    <string name="upgrade_screen_grace_body">Pro ຍັງຄົງໃຊ້ວຽກ ແຕ່ Google Play ບໍ່ໄດ້ຢືນຢັນການຊື້ຂອງທ່ານໄປນານແລ້ວ. ຖ້າທ່ານຊື້ Pro ໃຫ້ຟື້ນຟູການຊື້ ແລະກວດສອບວ່າ Google Play ກໍາລັງໃຊ້ບັນຊີທີ່ຊື້ມັນ. ຖ້າການສະໝັກສະບັບໝົດອາຍຸ ຫຼືການຊື້ໄດ້ຮັບເງິນຄືນ Pro ຈະປິດເອງ, ບໍ່ຕ້ອງເຮັດຫຍັງອື່ນ.</string>
+    <string name="upgrade_screen_restore_body">ການກູ້ຄືນຈະຂໍໃຫ້ Google Play ກວດສອບການຊື້ຂອງແອັບນີ້ຄືນໃໝ່ສໍາລັບບັນຊີປະຈຸບັນ. ມັນບໍ່ໄດ້ເລີ່ມການຊື້ໃໝ່.</string>
+    <string name="upgrade_screen_restore_status_title">ສະຖານະເບິ່ງຜິດບໍ?</string>
+    <string name="upgrade_screen_restore_status_body">ຖ້າການຊື້ຫາຍໄປ ຫຼື ສະຖານະນີ້ເບິ່ງຜິດ, ໃຫ້ກວດສອບຄືນໃໝ່ກັບ Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">ຕິດຕໍ່ສະໝັບສະໝູນ</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid ຫາກໍ່ກວດສອບ Google Play, ແຕ່ບໍ່ສາມາດຍືນຍັນການຊື້ Pro ສຳລັບບັນຊີທີ່ Google Play ໃຊ້ສຳລັບແອັບນີ້ໄດ້.</string>
+    <string name="upgrade_screen_restore_contact_hint">ຍັງຄົງມີບັນຫາ? ຕິດຕໍ່ສະໝັບສະໝູນຈາກທີ່ຍູ່ອີເມວທີ່ຮັກສາການຊື້ ແລະ ລຽມເອາເລກທີຄຳສັ່ງ Google Play ຂອງທ່ານ.</string>
 </resources>

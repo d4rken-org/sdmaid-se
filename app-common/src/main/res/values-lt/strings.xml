@@ -38,6 +38,7 @@
     <string name="general_error_label">Klaida</string>
     <string name="general_upgrade_action">Atnaujinti</string>
     <string name="general_refresh_action">Atnaujinti</string>
+    <string name="general_retry_action">Bandyti iš naujo</string>
     <string name="general_progress_searching">Ieškoma</string>
     <string name="general_progress_generating_searchpaths">Generuojami paieškos keliai</string>
     <string name="general_progress_filtering">Filtruojama</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Pavadinimas (A → Z)</string>
     <string name="general_sort_size_desc">Didžiausias pirmas</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Biblioteka</string>
     <string name="general_navigate_up_action">Grįžti atgal</string>
     <string name="general_filter_action">Filtruoti</string>
     <string name="general_filter_by_tags_label">Filtruoti pagal žymes</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Pranešti apie klaidą</string>
     <string name="general_error_ipc_deadobject_title">Prarastas ryšys su paslauga</string>
     <string name="general_error_ipc_deadobject_description">Ryšys su kritiškai svarbia paslauga (pvz., Magisk, Shizuku ar kitomis sistemos paslaugomis) netikėtai nutrūko. Paleiskite įrenginį iš naujo. Jei problema išlieka, patikrinkite, ar yra atnaujinimų, arba kreipkitės į mane, kad galėčiau ją išspręsti.</string>
-    <string name="general_error_upgrade_required_title">Reikalinga Pro versija</string>
-    <string name="general_error_upgrade_required_description">Tai Pro funkcija. Norėdami ją naudoti, atnaujinkite SD Maid SE.</string>
+    <string name="general_error_upgrade_required_title">Reikalingas atnaujinimas</string>
+    <string name="general_error_upgrade_required_description">Ši funkcija reikalinga atnaujinimo. Atnaujinkite SD Maid SE, kad ją naudotumėte.</string>
     <string name="general_user_label_owner">Savininkas</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Nustatymai</string>

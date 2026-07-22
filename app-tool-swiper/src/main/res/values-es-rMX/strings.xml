@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">El escaneo de %1$s incluye cada archivo en este almacenamiento — fotos, documentos, descargas, archivos multimedia de aplicaciones y más. ¿Continuar?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Continuar de todas formas</string>
     <string name="swiper_session_risky_label">Escaneo de almacenamiento completo</string>
-    <string name="swiper_session_risky_info_message">Esta sesión se dirige a la raíz de un volumen de almacenamiento, por lo que cada archivo en ese almacenamiento está en el alcance — fotos, documentos, descargas, archivos multimedia de aplicaciones y más.
-
-Los escaneos de almacenamiento completo pueden devolver muchos elementos, incluidos archivos que quizás no pretendías revisar. Aplica un filtro de tipo de archivo para reducir el escaneo.</string>
+    <string name="swiper_session_risky_info_message">Esta sesión se dirige a la raíz de un volumen de almacenamiento, por lo que cada archivo en ese almacenamiento está en el alcance — fotos, documentos, descargas, archivos multimedia de aplicaciones y más.\n\nLos escaneos de almacenamiento completo pueden devolver muchos elementos, incluidos archivos que quizás no pretendías revisar. Aplica un filtro de tipo de archivo para reducir el escaneo.</string>
     <string name="swiper_delete_x_action">Eliminar %1$d</string>
     <string name="swiper_settings_swap_directions_title">Intercambiar direcciones de deslizamiento</string>
     <string name="swiper_settings_swap_directions_summary">Deslizar a la izquierda para conservar, a la derecha para eliminar.</string>
@@ -162,8 +160,8 @@ Los escaneos de almacenamiento completo pueden devolver muchos elementos, inclui
     <string name="swiper_session_no_matching_files">No se encontraron archivos coincidentes</string>
     <string name="swiper_open_externally_action">Abrir en aplicación externa</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Desliza una foto para decidir su destino: Hacia los lados para guardar o eliminar, hacia arriba para saltar, hacia abajo para deshacer. Los botones de abajo hacen lo mismo — y muestran qué lado es cuál.</string>
-    <string name="tour_swiper_openin_body">Este botón abre la foto en otra aplicación, útil para verificarla antes de decidir.</string>
+    <string name="tour_swiper_gestures_body">Desliza un archivo para decidir su destino: lateralmente para mantener o eliminar, hacia arriba para omitir, hacia abajo para deshacer. Los botones de abajo hacen lo mismo — y muestran qué lado es cuál.</string>
+    <string name="tour_swiper_openin_body">Este botón abre el archivo en otra app, útil para verificarlo antes de decidir.</string>
     <string name="tour_swiper_preview_body">Este botón abre una vista previa de pantalla completa para una mirada más cercana.</string>
     <string name="tour_swiper_actions_body">¿No te gusta deslizar? ¡También tenemos botones! Saltar lo deja sin decidir para después, y mantener presionado Saltar excluye un archivo de escaneos futuros. Deshacer revierte tu última opción.</string>
     <string name="tour_swiper_review_body">Tus opciones de mantener y eliminar solo están preparadas. Abre Revisión para revisarlas y aplicar las eliminaciones cuando estés listo.</string>

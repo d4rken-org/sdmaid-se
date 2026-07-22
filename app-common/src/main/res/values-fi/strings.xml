@@ -38,6 +38,7 @@
     <string name="general_error_label">Virhe</string>
     <string name="general_upgrade_action">Päivitä</string>
     <string name="general_refresh_action">Virkistä</string>
+    <string name="general_retry_action">Yritä uudelleen</string>
     <string name="general_progress_searching">Etsitään</string>
     <string name="general_progress_generating_searchpaths">Luodaan hakupolkuja</string>
     <string name="general_progress_filtering">Suodatetaan</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nimi (A → Ö)</string>
     <string name="general_sort_size_desc">Suurin ensin</string>
     <string name="general_tag_system">Järjestelmä</string>
+    <string name="general_tag_library">Kirjasto</string>
     <string name="general_navigate_up_action">Siirry ylös</string>
     <string name="general_filter_action">Suodata</string>
     <string name="general_filter_by_tags_label">Suodata tunnisteiden perusteella</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Raportoi virhe</string>
     <string name="general_error_ipc_deadobject_title">Palveluyhteys katosi</string>
     <string name="general_error_ipc_deadobject_description">Yhteys kriittiseen palveluun (esim. Magisk, Shizuku tai muut järjestelmätason palvelut) katkesi odottamattomasti. Käynnistä laitteesi uudelleen. Jos ongelma jatkuu, tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
-    <string name="general_error_upgrade_required_title">Pro-versio vaaditaan</string>
-    <string name="general_error_upgrade_required_description">Tämä on Pro-ominaisuus. Päivitä SD Maid SE käyttääksesi sitä.</string>
+    <string name="general_error_upgrade_required_title">Päivitys vaaditaan</string>
+    <string name="general_error_upgrade_required_description">Tämä ominaisuus vaatii päivityksen. Päivitä SD Maid SE käyttääksesi sitä.</string>
     <string name="general_user_label_owner">Omistaja</string>
     <string name="general_user_label_system">Järjestelmä</string>
     <string name="setup_title">Asennus</string>

@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Importar un nuevo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar el filtro seleccionado</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner encuentra basura usando filtros no específicos de aplicaciones. Existen reglas predefinidas para cosas como carpetas vacías, registros antiguos y miniaturas obsoletas. Visita la configuración si quieres crear las tuyas propias.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner encuentra basura usando filtros que no son específicos de la aplicación. Existen reglas predefinidas para cosas como carpetas vacías, registros obsoletos y miniaturas antiguas. Visita la configuración si quieres crear las tuyas propias.</string>
     <string name="tour_systemcleaner_filter_body">Cada fila es un filtro y lo que encontró. Abre sus detalles para ver exactamente qué archivos coinciden antes de eliminar nada.</string>
 </resources>

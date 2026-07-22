@@ -38,6 +38,7 @@
     <string name="general_error_label">غلطی</string>
     <string name="general_upgrade_action">اپ گریڈ کریں</string>
     <string name="general_refresh_action">تازہ کریں</string>
+    <string name="general_retry_action">دوبارہ کوشش کریں</string>
     <string name="general_progress_searching">تلاش کر رہا ہے</string>
     <string name="general_progress_generating_searchpaths">تلاشی راستے بنا رہا ہے</string>
     <string name="general_progress_filtering">فلٹر کر رہا ہے</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">نام (الف → ے)</string>
     <string name="general_sort_size_desc">سب سے بڑا پہلے</string>
     <string name="general_tag_system">سسٹم</string>
+    <string name="general_tag_library">لائبریری</string>
     <string name="general_navigate_up_action">اوپر جائیں</string>
     <string name="general_filter_action">فلٹر کریں</string>
     <string name="general_filter_by_tags_label">ٹیگز کے ذریعے فلٹر کریں</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">بگ کی رپورٹ کریں</string>
     <string name="general_error_ipc_deadobject_title">سروس کنکشن ضائع</string>
     <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
-    <string name="general_error_upgrade_required_title">Pro ورژن ضروری ہے</string>
-    <string name="general_error_upgrade_required_description">یہ ایک Pro خصوصیت ہے۔ براہ کرم SD Maid SE کو اپ گریڈ کریں تاکہ اسے استعمال کر سکیں۔</string>
+    <string name="general_error_upgrade_required_title">اپ گریڈ درکار ہے</string>
+    <string name="general_error_upgrade_required_description">اس خصوصیت کو استعمال کرنے کے لیے اپ گریڈ کی ضرورت ہے۔ براہ کرم اسے استعمال کرنے کے لیے SD Maid SE کو اپ گریڈ کریں۔</string>
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سسٹم</string>
     <string name="setup_title">سیٹ اپ</string>

@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">Impor filter baru</string>
     <string name="systemcleaner_customfilter_export_action">Ekspor filter yang dipilih</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner menemukan sampah menggunakan filter yang tidak spesifik untuk aplikasi. Aturan siap pakai tersedia untuk hal-hal seperti folder kosong, log sisa, dan thumbnail kadaluarsa. Kunjungi pengaturan jika Anda ingin membuat aturan Anda sendiri.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner menemukan sampah menggunakan filter yang tidak spesifik untuk aplikasi. Aturan siap pakai tersedia untuk hal-hal seperti folder kosong, log yang tersisa, dan thumbnail basi. Kunjungi pengaturan jika Anda ingin membuat aturan sendiri.</string>
     <string name="tour_systemcleaner_filter_body">Setiap baris adalah filter dan apa yang ditemukannya. Buka detailnya untuk melihat file mana yang cocok sebelum Anda menghapus apa pun.</string>
 </resources>

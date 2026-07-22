@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Πώς να βοηθήσετε</string>
     <string name="upgrade_screen_how_body">Γίνετε patron και χορηγήστε την ανάπτυξη! Πατήστε το κουμπί παρακάτω για να ενεργοποιήσετε όλα τα επιπλέον χαρακτηριστικά και ανοίξτε το προφίλ μου GitHub Sponsors.</string>
     <string name="upgrade_screen_why_title">Πλεονεκτήματα αναβάθμισης</string>
-    <string name="upgrade_screen_why_body">• Καθαρίστε κρυμμένα αρχεία εφαρμογών και περιττά δεδομένα\n• Αφαιρέστε διπλότυπα αρχεία\n• Ενεργοποιήστε προγραμματισμένες εκκαθαρίσεις\n• Δημιουργήστε προσαρμοσμένα φίλτρα και κανόνες εκκαθάρισης\n• Παρακολουθήστε τις τάσεις αποθήκευσης και το ιστορικό εκκαθάρισης\n• Περισσότερες δυνατότητες και έλεγχοι σε όλη την εφαρμογή\n• Υποστηρίξτε το έργο ανοιχτού κώδικα</string>
+    <string name="upgrade_screen_why_body">• Καθαρισμός cache εφαρμογών και σκουπιδιών\n• Κατάργηση διπλών αρχείων\n• Συμπίεση φωτογραφιών και βίντεο\n• Σάρωση για αποσυσσώρευση παλιών αρχείων\n• Καθαρισμός με ένα άγγιγμα μέσω widget\n• Προγραμματισμός καθαρισμού\n• Προσαρμοσμένα φίλτρα και κανόνες\n• Τάσεις και ιστορικό αποθήκευσης\n• Περισσότερες λειτουργίες και στοιχεία ελέγχου σε όλη την εφαρμογή\n• Υποστήριξη ανοιχτού κώδικα</string>
     <string name="upgrade_screen_sponsor_action">Χορηγήστε την ανάπτυξη</string>
     <string name="upgrade_screen_sponsor_action_hint">Η εναλλακτική λύση είναι οι διαφημίσεις, τα αναλυτικά και το Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Σας ευχαριστούμε που υποστηρίζετε την ανάπτυξη ανοιχτού κώδικα ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Επέστρεψες ήδη; Η υποστήριξή σου κρατά το SD Maid ζωντανό!</string>
+    <string name="upgrade_screen_status_free_title">Δωρεάν έκδοση</string>
+    <string name="upgrade_screen_status_free_body">Χρησιμοποιείτε τη δωρεάν έκδοση του SD Maid. Επιπλέον δυνατότητες μπορούν να ξεκλειδωθούν με την υποστήριξη της ανάπτυξης.</string>
+    <string name="upgrade_screen_status_free_action">Δείτε τις επιλογές αναβάθμισης</string>
+    <string name="upgrade_screen_status_upgraded_title">Αναβάθμιση ενεργή</string>
+    <string name="upgrade_screen_status_upgraded_body">Όλες οι επιπλέον δυνατότητες είναι ξεκλείδωτες. Ευχαριστούμε που υποστηρίζετε την ανάπτυξη ανοιχτού κώδικα ❤️</string>
+    <string name="upgrade_screen_recurring_title">Συνεχίστε</string>
+    <string name="upgrade_screen_recurring_body">Το SD Maid συνεχίζει να εξελίσσεται μέσω ενημερώσεων και διορθώσεων. Αν θέλετε να το διατηρήσετε, σκεφτείτε μια επαναλαμβανόμενη δωρεά μέσω GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Άνοιγμα GitHub Sponsors</string>
 </resources>

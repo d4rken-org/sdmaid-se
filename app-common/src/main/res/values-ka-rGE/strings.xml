@@ -38,6 +38,7 @@
     <string name="general_error_label">შეცდომა</string>
     <string name="general_upgrade_action">გარემონტება</string>
     <string name="general_refresh_action">განახლება</string>
+    <string name="general_retry_action">კიდევ სცდა</string>
     <string name="general_progress_searching">ვეძებ</string>
     <string name="general_progress_generating_searchpaths">ძიების გზების გენერირება</string>
     <string name="general_progress_filtering">ფილტრაცია</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">სახელი (A → Z)</string>
     <string name="general_sort_size_desc">უდიდესი პირველი</string>
     <string name="general_tag_system">სისტემა</string>
+    <string name="general_tag_library">ბიბლიოთეკა</string>
     <string name="general_navigate_up_action">ზემოთ გადახვევა</string>
     <string name="general_filter_action">ფილტრი</string>
     <string name="general_filter_by_tags_label">ფილტრი ტეგების მიხედვით</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">ბაგის მოხსენება</string>
     <string name="general_error_ipc_deadobject_title">სერვისის კავშირი დაიკარგა</string>
     <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Shizuku, ან სხვა სისტემის დონის სერვისები) მოულოდნელად დაიკარგა. გთხოვთ გადატვირთოთ თქვენი მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ შევასწოროთ.</string>
-    <string name="general_error_upgrade_required_title">საჭიროა პრო ვერსია</string>
-    <string name="general_error_upgrade_required_description">ეს არის პრო ფუნქცია. გთხოვთ განაახლოთ SD Maid SE რათა გამოიყენოთ იგი.</string>
+    <string name="general_error_upgrade_required_title">განახლება საჭიროა</string>
+    <string name="general_error_upgrade_required_description">ეს ფუნქცია საჭიროებს განახლებას. გთხოვთ, განაახლოთ SD Maid SE მის გამოსაყენებლად.</string>
     <string name="general_user_label_owner">მფლობელი</string>
     <string name="general_user_label_system">სისტემა</string>
     <string name="setup_title">დაყენება</string>

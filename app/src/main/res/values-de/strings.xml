@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s freigegeben</string>
     <string name="dashboard_hero_freeable_x_items">%1$s kann entfernt werden</string>
     <string name="dashboard_hero_freed_x_items">%1$s entfernt</string>
-    <string name="dashboard_hero_freeable_hint">Tippe auf den Button, um Platz freizugeben. Tippe auf einen Chip, um zuerst zu prüfen.</string>
+    <string name="dashboard_hero_freeable_hint">Tippe auf den Button, um Speicher freizugeben, oder auf einen Chip, um zunächst zu prüfen.</string>
     <string name="dashboard_hero_freed_hint">Tippe auf einen Chip für Details.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s gescannt</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Nächstes Ergebnis</string>
     <string name="debug_logview_jump_to_bottom_action">Zum Neuesten springen</string>
     <string name="debug_logview_paused_msg">Angehalten — Puffer eingefroren</string>
-    <string name="debug_logview_paused_dropped_msg">Angehalten — %1$d neue Zeile(n) übersprungen</string>
+    <string name="debug_logview_paused_dropped_msg">Pausiert – neue Zeilen übersprungen: %1$d</string>
     <string name="debug_logview_copied_msg">Protokoll in die Zwischenablage kopiert</string>
     <string name="debug_logview_share_label">Protokoll teilen</string>
     <string name="debug_debuglog_screen_title">Debug-Protokoll</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
     <string name="settings_privacy_policy_desc">Verantwortungsvoller Umgang mit Daten.</string>
     <string name="settings_category_other_label">Sonstiges</string>
+    <string name="settings_upgrade_description">Upgrade-Status und -Optionen.</string>
     <string name="general_settings_label">Allgemein</string>
     <string name="general_settings_desc">Allgemeine Optimierungen, die die gesamte App betreffen.</string>
     <string name="settings_category_ui_label">Benutzeroberfläche</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Speichernutzung und Bereinigung mit einem Tippen</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Freigegeben: %1$s</string>
+    <string name="widget_home_freed_label">Lebensdauer: %1$s</string>
     <string name="widget_home_clean_action">Bereinigen</string>
     <string name="widget_home_working">Läuft…</string>
     <string name="widget_home_unavailable">Speicher nicht verfügbar</string>
-    <string name="shortcut_onetap_started">Scan &amp; Löschen gestartet…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Lass den Clean-Button des Home-Screen-Widgets mit einem Tipp scannen und löschen, ohne jedes Mal nachzufragen.</string>
+    <string name="widget_oneclick_consent_title">One-Tap-Reinigung aktivieren?</string>
+    <string name="widget_oneclick_consent_message">Der Clean-Button des Widgets scannt und löscht in einem Schritt, ohne vorher zu fragen oder dir zu zeigen, was gelöscht wird.</string>
+    <string name="widget_oneclick_consent_enable_action">Aktivieren</string>
+    <string name="widget_oneclick_consent_decline_action">Nicht jetzt</string>
+    <string name="shortcut_onetap_started">Scan + Löschen gestartet…</string>
     <string name="shortcut_onetap_nothing_enabled">Keine Tools für die Schnellaktion aktiviert</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Sicherung &amp; Wiederherstellung</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Diese Sicherung wurde auf Android %1$s erstellt, aber dieses Gerät läuft auf Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Diese Sicherung wurde auf einem anderen Gerät erstellt (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Diese Sicherung stammt von einer anderen App-Edition (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Die Verlaufsdaten dieser Sicherung (Statistiken, Komprimierungsverlauf, Wisch-Sitzungen) stammen von einer anderen App-Version und können nicht wiederhergestellt werden. Alles andere wird wiederhergestellt.</string>
+    <string name="backup_restore_warn_history_body">Die Verlaufsdaten dieser Sicherung (Statistiken, Kompressionsverlauf, Wisch-Sitzungen) stammen aus einer anderen App-Version und können nicht wiederhergestellt werden. Alles andere wird wiederhergestellt.</string>
     <string name="backup_restore_ack_understand">Ich verstehe und möchte fortfahren</string>
     <string name="backup_restore_action_restore">Wiederherstellen</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">Błąd</string>
     <string name="general_upgrade_action">Uaktualnij</string>
     <string name="general_refresh_action">Odśwież</string>
+    <string name="general_retry_action">Ponów</string>
     <string name="general_progress_searching">Wyszukiwanie</string>
     <string name="general_progress_generating_searchpaths">Tworzenie ścieżek wyszukiwania</string>
     <string name="general_progress_filtering">Filtrowanie</string>
@@ -58,7 +59,7 @@
     <string name="general_progress_loading_egg_9">Buforuję życiowe wybory</string>
     <string name="general_progress_loading_egg_10">Przywołuję Cthulhu</string>
     <string name="general_progress_loading_egg_11">W porządeczku</string>
-    <string name="general_progress_loading_egg_12">Proszę czekać</string>
+    <string name="general_progress_loading_egg_12">Przytrzymaj</string>
     <string name="general_progress_loading_egg_13">Przynajmniej nie czekasz</string>
     <string name="general_help_action">Pomoc</string>
     <string name="general_continue">Kontynuuj</string>
@@ -72,12 +73,13 @@
     <string name="general_sort_name_asc">Nazwa (A - Z)</string>
     <string name="general_sort_size_desc">Najpierw największe</string>
     <string name="general_tag_system">Systemowy</string>
-    <string name="general_navigate_up_action">Nawiguj w górę</string>
+    <string name="general_tag_library">Biblioteka</string>
+    <string name="general_navigate_up_action">Przejdź wyżej</string>
     <string name="general_filter_action">Filtruj</string>
     <string name="general_filter_by_tags_label">Filtruj według tagów</string>
     <string name="general_filter_add_action">Dodaj filtr</string>
     <string name="general_filter_remove_x_action">Usuń filtr %s</string>
-    <string name="general_filter_empty_row_hint">Dotknij + aby filtrować</string>
+    <string name="general_filter_empty_row_hint">Naciśnij +, aby filtrować</string>
     <string name="general_result_success_message">Operacja zakończona sukcesem</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Zwolniono %s miejsca.</item>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Zgłoś błąd</string>
     <string name="general_error_ipc_deadobject_title">Połączenie z usługą zostało utracone</string>
     <string name="general_error_ipc_deadobject_description">Połączenie z usługą krytyczną (np. Magisk, Shizuku, lub innymi usługami na poziomie systemowym) zostało niespodziewanie utracone. Uruchom ponownie urządzenie. Jeśli problem będzie się powtarzał, sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
-    <string name="general_error_upgrade_required_title">Wymagana wersja Pro</string>
-    <string name="general_error_upgrade_required_description">To jest funkcja Pro. Aby jej użyć, uaktualnij SD Maid SE.</string>
+    <string name="general_error_upgrade_required_title">Wymagana aktualizacja</string>
+    <string name="general_error_upgrade_required_description">Ta funkcja wymaga aktualizacji. Aby z niej korzystać, zaktualizuj aplikację SD Maid SE.</string>
     <string name="general_user_label_owner">Właściciel</string>
     <string name="general_user_label_system">Systemowy</string>
     <string name="setup_title">Konfiguracja</string>
@@ -230,19 +232,19 @@
     <string name="ui_theme_color_sunset_label">Zachód słońca</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
-    <string name="access_blocked_root_unavailable">Ta funkcja wymaga dostępu root, ale SD Maid nie mógł go uzyskać na tym urządzeniu.</string>
+    <string name="access_blocked_root_unavailable">Ta funkcja wymaga dostępu do root, ale SD Maid nie mógł go uzyskać na tym urządzeniu.</string>
     <string name="access_blocked_root_declined">Ta funkcja wymaga dostępu root. Możesz włączyć go za pośrednictwem ekranu konfiguracji.</string>
     <string name="access_blocked_root_or_shizuku">Ta funkcja wymaga dostępu root lub Shizuku, które nie są dostępne na tym urządzeniu.</string>
     <!-- Config backup/restore errors -->
-    <string name="backup_restore_error_invalid_title">Nieprawidłowy plik kopii zapasowej</string>
-    <string name="backup_restore_error_invalid_body">Ten plik nie jest prawidłową kopią zapasową SD Maid lub jest uszkodzony.</string>
-    <string name="backup_restore_error_version_body">Ta kopia zapasowa została utworzona w nowszej wersji SD Maid. Zaktualizuj aplikację i spróbuj ponownie.</string>
-    <string name="backup_restore_error_restore_failed_title">Przywrócenie nie powiodło się</string>
+    <string name="backup_restore_error_invalid_title">Nieprawidłowy plik kopii</string>
+    <string name="backup_restore_error_invalid_body">Ten plik nie jest prawidłową kopią SD Maid lub jest uszkodzony.</string>
+    <string name="backup_restore_error_version_body">Ta kopia została utworzona w nowszej wersji SD Maid. Zaktualizuj aplikację i spróbuj ponownie.</string>
+    <string name="backup_restore_error_restore_failed_title">Przywracanie nieudane</string>
     <string name="backup_restore_error_restore_failed_body">Te części nie mogły być przywrócone: %1$s. Poprzednia konfiguracja została zapisana i może być przywrócona.</string>
     <string name="backup_restore_error_safety_title">Przywrócenie nie zostało rozpoczęte</string>
     <string name="backup_restore_error_safety_body">SD Maid nie potrafił zapisać bezpiecznej kopii bieżącej konfiguracji, więc nic się nie zmieniło.</string>
-    <string name="backup_restore_error_busy_title">Proszę czekać</string>
-    <string name="backup_restore_error_busy_body">Zadanie czyszczenia lub inna operacja kopii zapasowej jest aktualnie uruchomiona. Spróbuj ponownie po jej zakończeniu.</string>
-    <string name="backup_restore_error_schema_title">Niezgodna kopia zapasowa</string>
-    <string name="backup_restore_error_schema_body">Format bazy danych kopii zapasowej nie jest zgodny z tą wersją SD Maid. Przywracanie danych historii jest obsługiwane tylko między identycznymi wersjami aplikacji.</string>
+    <string name="backup_restore_error_busy_title">Czekaj</string>
+    <string name="backup_restore_error_busy_body">Zadanie czyszczenia lub inna operacja kopii jest aktualnie uruchomiona. Spróbuj ponownie po jej zakończeniu.</string>
+    <string name="backup_restore_error_schema_title">Niezgodna kopia</string>
+    <string name="backup_restore_error_schema_body">Format bazy danych kopii nie jest zgodny z tą wersją SD Maid. Przywracanie danych historii jest obsługiwane tylko między identycznymi wersjami aplikacji.</string>
 </resources>

@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Kaip padėti</string>
     <string name="upgrade_screen_how_body">Tapkite globėju ir rėmėju plėtros! Palieskite žemiau esantį mygtuką, kad suaktyvintumėte visas papildomas funkcijas ir atidarytumėte mano GitHub Sponsors profilį.</string>
     <string name="upgrade_screen_why_title">Atnaujinimo privalumai</string>
-    <string name="upgrade_screen_why_body">• Išvalyti programų talpyklas ir nereikalingus duomenis
-• Pašalinti dublikatus
-• Įgalinti iš anksto suplanuotus valymus
-• Sukurti pasirinktinius filtrus ir valymo taisykles
-• Sekti saugyklos tendencijas ir valymo istoriją
-• Daugiau funkcijų ir valdymo nustatymų visoje programoje
-• Palaikyti atvirojo kodo darbą</string>
+    <string name="upgrade_screen_why_body">• Programų keš ir šiukšlių valymas\n• Pasikartojančių failų šalinimas\n• Nuotraukų ir vaizdo suspaudimas\n• Braukimas siekiant išvalyti senus failus\n• Vieno paspaudimo valymas per valdiklį\n• Valymo planavimas\n• Pasirinktiniai filtrai ir taisyklės\n• Saugyklos tendencijos ir istorija\n• Daugiau funkcijų ir nustatymų visoje programoje\n• Palaikyti atvirojo kodo darbą</string>
     <string name="upgrade_screen_sponsor_action">Remti plėtrą</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatyva yra reklamos, analitika ir Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ačiū, kad remiате atvirojo kodo plėtrą ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Jau grįžote? Jūsų parama palaiko SD Maid gyvą!</string>
+    <string name="upgrade_screen_status_free_title">Nemokama versija</string>
+    <string name="upgrade_screen_status_free_body">Naudojate nemokamą „SD Maid“ versiją. Papildomas funkcijas galima atrakinti palaikant plėtrą.</string>
+    <string name="upgrade_screen_status_free_action">Peržiūrėkite atnaujinimo variantus</string>
+    <string name="upgrade_screen_status_upgraded_title">Atnaujinimas aktyvas</string>
+    <string name="upgrade_screen_status_upgraded_body">Visos papildomos funkcijos yra atrakintos. Ačiū už atvirojo kodo tobulinimo palaikymą ❤️</string>
+    <string name="upgrade_screen_recurring_title">Tęskite toliau</string>
+    <string name="upgrade_screen_recurring_body">SD Maid nuolat tobulėja dėl atnaujinimų ir pataisymų. Jei norite tai palaikyti, apsvarstykite pasikartojančią auką per GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Atidaryti GitHub Sponsors</string>
 </resources>

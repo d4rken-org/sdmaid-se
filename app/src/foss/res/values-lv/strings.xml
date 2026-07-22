@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Kā palīdzēt</string>
     <string name="upgrade_screen_how_body">Kļūstiet par aizbildni un sponsorējiet attīstību! Pieskarieties pogas zemāk, lai aktivizētu visas papildu funkcijas un atvērtu manu GitHub Sponsors profilu.</string>
     <string name="upgrade_screen_why_title">Jaunināšanas priekšrocības</string>
-    <string name="upgrade_screen_why_body">• Iztīrīt lietotņu kešu un nevajadzīgos datus
-• Noņemt dublētos failus
-• Iespējot plānotos tīrīšanas darbus
-• Izveidot pielāgotus filtrus un tīrīšanas noteikumus
-• Izsekot krātuves tendences un tīrīšanas vēsturi
-• Vairāk funkciju un vadības iespēju lietotnē
-• Atbalstīt atvērtā koda darbu</string>
+    <string name="upgrade_screen_why_body">• Lietotnes kešatmiņas un atkritumu tīrīšana\n• Dublētu failu noņemšana\n• Fotogrāfiju un video saspiešana\n• Slīdīšana vecu failu attīrīšanai\n• Viena pieskāriena tīrīšana, izmantojot vidžetu\n• Tīrīšanas plānošana\n• Pielāgoti filtri un noteikumi\n• Krātuves tendences un vēsture\n• Vairāk funkciju un vadības iespēju visā lietotnē\n• Atbalstiet atvērtā koda darbu</string>
     <string name="upgrade_screen_sponsor_action">Sponsorēt attīstību</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatīva ir reklāmas, analītika un Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Paldies par atklātā koda attīstības atbalstīšanu ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Jau atpakaļ? Jūsu atbalsts uztur SD Maid dzīvu!</string>
+    <string name="upgrade_screen_status_free_title">Bezmaksas versija</string>
+    <string name="upgrade_screen_status_free_body">Jūs izmantojat SD Maid bezmaksas versiju. Papildu funkcijas var atbloķēt, atbalstot izstrādi.</string>
+    <string name="upgrade_screen_status_free_action">Skatīt jaunināšanas iespējas</string>
+    <string name="upgrade_screen_status_upgraded_title">Jauninājums aktīvs</string>
+    <string name="upgrade_screen_status_upgraded_body">Visas papildu funkcijas ir atbloķētas. Paldies par atbalstu atvērtā koda izstrādei ❤️</string>
+    <string name="upgrade_screen_recurring_title">Turpiniet atbalstu</string>
+    <string name="upgrade_screen_recurring_body">SD Maid turpina attīstīties ar jauninājumiem un labojumiem. Ja vēlaties to turpināt atbalstīt, apsveriet regulāru ziedojumu caur GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Atvērt GitHub Sponsors</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">Chyba</string>
     <string name="general_upgrade_action">Inovovať</string>
     <string name="general_refresh_action">Obnoviť</string>
+    <string name="general_retry_action">Skúsiť znova</string>
     <string name="general_progress_searching">Vyhľadávanie</string>
     <string name="general_progress_generating_searchpaths">Generovanie ciest vyhľadávania</string>
     <string name="general_progress_filtering">Filtrovanie</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Názov (A → Z)</string>
     <string name="general_sort_size_desc">Najväčšie ako prvé</string>
     <string name="general_tag_system">Systém</string>
+    <string name="general_tag_library">Knižnica</string>
     <string name="general_navigate_up_action">Navigovať nahor</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Filtrovať podľa značiek</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Nahlásiť chybu</string>
     <string name="general_error_ipc_deadobject_title">Spojenie so službou sa pretržilo</string>
     <string name="general_error_ipc_deadobject_description">Spojenie s kritickou službou (napr. Magisk, Shizuku alebo iné systémové služby) sa neočakávane pretržilo. Prosím, reštartujte svoje zariadenie. Ak problém pretrváva, skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
-    <string name="general_error_upgrade_required_title">Vyžaduje sa Pro verzia</string>
-    <string name="general_error_upgrade_required_description">Toto je funkcia Pro. Prosím, aktualizujte SD Maid SE, aby ste ju mohli používať.</string>
+    <string name="general_error_upgrade_required_title">Upgrade potrebný</string>
+    <string name="general_error_upgrade_required_description">Táto funkcia vyžaduje upgrade. Ak ju chcete používať, aktualizujte SD Maid SE.</string>
     <string name="general_user_label_owner">Vlastník</string>
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavenie</string>

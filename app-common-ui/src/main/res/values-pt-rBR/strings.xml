@@ -8,6 +8,7 @@
         <item quantity="other">%d caminhos selecionados</item>
     </plurals>
     <string name="picker_home_action">Áreas de dados</string>
+    <string name="picker_select_hint">Segure um item para selecioná-lo</string>
     <string name="tour_action_next">Próximo</string>
     <string name="tour_action_previous">Anterior</string>
     <string name="tour_action_cancel">Pular</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Continuar tour</string>
     <string name="tour_confirm_dont_show_this_tour">Não mostrar este tour</string>
     <string name="tour_confirm_disable_all">Desativar todos os tours</string>
-    <string name="navigation_unknown_destination_title">Em breve</string>
-    <string name="navigation_unknown_destination_message">Esta tela ainda está sendo migrada para a nova interface.</string>
+    <string name="navigation_unknown_destination_title">Tela indisponível</string>
+    <string name="navigation_unknown_destination_message">Esta tela não pôde ser aberta.</string>
 </resources>

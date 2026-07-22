@@ -8,6 +8,7 @@
         <item quantity="other">%d paden geselecteerd</item>
     </plurals>
     <string name="picker_home_action">Datagebieden</string>
+    <string name="picker_select_hint">Houd een item ingedrukt om het te selecteren</string>
     <string name="tour_action_next">Volgende</string>
     <string name="tour_action_previous">Vorige</string>
     <string name="tour_action_cancel">Overslaan</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Tour voortzetten</string>
     <string name="tour_confirm_dont_show_this_tour">Deze tour niet meer weergeven</string>
     <string name="tour_confirm_disable_all">Alle rondleidingen uitschakelen</string>
-    <string name="navigation_unknown_destination_title">Binnenkort beschikbaar</string>
-    <string name="navigation_unknown_destination_message">Dit scherm wordt nog gemigreerd naar de nieuwe UI.</string>
+    <string name="navigation_unknown_destination_title">Scherm niet beschikbaar</string>
+    <string name="navigation_unknown_destination_message">Dit scherm kon niet worden geopend.</string>
 </resources>

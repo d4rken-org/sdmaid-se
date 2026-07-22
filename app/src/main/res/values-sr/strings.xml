@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ослобођено</string>
     <string name="dashboard_hero_freeable_x_items">%1$s се може уклонити</string>
     <string name="dashboard_hero_freed_x_items">%1$s уклоњено</string>
-    <string name="dashboard_hero_freeable_hint">Додирните дугме да ослободите простор. Прво додирните чип да проверите.</string>
+    <string name="dashboard_hero_freeable_hint">Притисните дугме да ослободите простор, или чип да прво проверите.</string>
     <string name="dashboard_hero_freed_hint">Додирните чип за детаље.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Сканирано %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Следеће подударање</string>
     <string name="debug_logview_jump_to_bottom_action">Скочи на најновије</string>
     <string name="debug_logview_paused_msg">Паузирано — бафер замрзнут</string>
-    <string name="debug_logview_paused_dropped_msg">Паузирано — пропуштено %1$d нових линија</string>
+    <string name="debug_logview_paused_dropped_msg">Паузирано — нове линије прескочене: %1$d</string>
     <string name="debug_logview_copied_msg">Дневник копиран у спремник</string>
     <string name="debug_logview_share_label">Подели дневник</string>
     <string name="debug_debuglog_screen_title">Дневник отклањања грешака</string>
@@ -110,6 +110,7 @@
     <string name="settings_privacy_policy_label">Политика приватности</string>
     <string name="settings_privacy_policy_desc">Одговорно поступање са подацима.</string>
     <string name="settings_category_other_label">Остало</string>
+    <string name="settings_upgrade_description">Статус надоградње и опције.</string>
     <string name="general_settings_label">Oпште</string>
     <string name="general_settings_desc">Општа подешавања која утичу на целу апликацију.</string>
     <string name="settings_category_ui_label">Кориснички интерфејс</string>
@@ -215,8 +216,7 @@
     <string name="setup_root_state_waiting_label">Root приступ није доступан.</string>
     <string name="setup_root_enable_root_use_label">Покушајте да користите root приступ</string>
     <string name="setup_root_disable_root_use_label">Нисам укорењивао свој уређај</string>
-    <string name="setup_root_card_body2">Доступно једино не уре
-Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
+    <string name="setup_root_card_body2">Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дозволи да SD Maid користи Shizuku где је могуће да побољша резултате и омогући функције.</string>
     <string name="setup_shizuku_card_body2">Ово подешавање нема утицаја ако апликација Shizuku није инсталирана на вашем уређају.</string>
@@ -329,11 +329,17 @@
     <string name="widget_home_description">Употреба складишта и чишћење једним додиром</string>
     <string name="widget_home_storage_internal">Унутрашњи</string>
     <string name="widget_home_storage_external">Спољашњи</string>
-    <string name="widget_home_freed_label">Ослобођено: %1$s</string>
+    <string name="widget_home_freed_label">Животни век: %1$s</string>
     <string name="widget_home_clean_action">Очисти</string>
     <string name="widget_home_working">Обрађивање…</string>
     <string name="widget_home_unavailable">Складиште није доступно</string>
-    <string name="shortcut_onetap_started">Скенирање и брисање су започети…</string>
+    <string name="settings_category_widget">Видгет</string>
+    <string name="widget_settings_oneclick_summary">Омогућите да дугме Очисти видгета на почетном екрану скенира и брише једним додиром, без питања сваки пут.</string>
+    <string name="widget_oneclick_consent_title">Омогућити једнотапно чишћење?</string>
+    <string name="widget_oneclick_consent_message">Дугме Очисти видгета ће скенирати и брисати одједном, без претходног питања или дозвољавања да прегледате шта се уклања.</string>
+    <string name="widget_oneclick_consent_enable_action">Омогући</string>
+    <string name="widget_oneclick_consent_decline_action">Не сада</string>
+    <string name="shortcut_onetap_started">Скенирање + Брисање започето…</string>
     <string name="shortcut_onetap_nothing_enabled">Нема омогућених алата за чишћење једним додиром</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Резервна копија и враћање</string>
@@ -360,7 +366,7 @@
     <string name="backup_restore_warn_android_body">Ова резервна копија је направљена на Android %1$s, али овај уређај покреће Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Ова резервна копија је направљена на другом уређају (%1$s наспрам %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Ова резервна копија је из другачијег издања апликације (%1$s наспрам %2$s).</string>
-    <string name="backup_restore_warn_history_body">Историјски подаци ове резервне копије (статистика, историја компресије, сесије клизања) су из другачије верзије апликације и не могу се вратити. Све остало ће бити враћено.</string>
+    <string name="backup_restore_warn_history_body">Подаци историје резервне копије (статистика, историја компресије, сесије свајпа) су из другачије верзије апликације и не могу бити враћени. Све остало ће бити враћено.</string>
     <string name="backup_restore_ack_understand">Разумем и желим да наставим</string>
     <string name="backup_restore_action_restore">Врати</string>
 </resources>

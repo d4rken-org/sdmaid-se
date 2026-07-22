@@ -38,6 +38,7 @@
     <string name="general_error_label">Помилка</string>
     <string name="general_upgrade_action">Оновити</string>
     <string name="general_refresh_action">Оновити</string>
+    <string name="general_retry_action">Повторити</string>
     <string name="general_progress_searching">Пошук</string>
     <string name="general_progress_generating_searchpaths">Створення шляхів пошуку</string>
     <string name="general_progress_filtering">Фільтрація</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Ім\'я (А → Я)</string>
     <string name="general_sort_size_desc">Спочатку найбільші</string>
     <string name="general_tag_system">Система</string>
+    <string name="general_tag_library">Бібліотека</string>
     <string name="general_navigate_up_action">Перейти вгору</string>
     <string name="general_filter_action">Фільтр</string>
     <string name="general_filter_by_tags_label">Фільтрувати за тегами</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Повідомити про помилку</string>
     <string name="general_error_ipc_deadobject_title">З’єднання з сервісом втрачено</string>
     <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
-    <string name="general_error_upgrade_required_title">Потрібна версія Pro</string>
-    <string name="general_error_upgrade_required_description">Це функція Pro. Будь ласка, оновіть SD Maid SE, щоб її використовувати.</string>
+    <string name="general_error_upgrade_required_title">Потрібно оновлення</string>
+    <string name="general_error_upgrade_required_description">Ця функція вимагає оновлення. Будь ласка, оновіть SD Maid SE, щоб використовувати її.</string>
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Налаштування</string>

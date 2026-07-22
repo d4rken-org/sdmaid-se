@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Belgi yo\'q</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standart qoldiq. Odatda olib tashlash xavfsiz — bu fayllar endi o\'rnatilmagan ilovalarga tegishli.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder siz allaqachon o\'chirib tashlagan ilovalardan qolgan ma\'lumotlarni topadi. U endi hech qanday o\'rnatilgan ilovaga tegishli emas, shuning uchun uni olib tashlash xavfsiz va joy bo\'shatadi.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder siz allaqachon o\'chirib tashlagan ilovalar qoldirib ketgan ma\'lumotlarni topadi. Bu endi hech qaysi o\'rnatilgan ilovaga tegishli emas, shuning uchun uni o\'chirib tashlash xotirani bo\'shatadi. Uning ko\'p qismi xavfsiz o\'chirilishi mumkin, lekin aniq bo\'lmaganda belgilashni tekshirib ko\'ring.</string>
     <string name="tour_corpsefinder_row_body">Har bir element qoldiq ma\'lumot va u qaysi ilovadan qolganini bildiradi. Belgi SD Maid uni olib tashlash xavfsizligiga qanchalik ishonch bilan qaraganini ko\'rsatadi — belgilarning ma\'nosini bilish uchun yuqoridagi ⓘ belgisini bosing.</string>
 </resources>

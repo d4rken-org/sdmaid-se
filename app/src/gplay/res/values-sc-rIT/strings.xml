@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Otene SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>
     <string name="upgrade_screen_benefits_title">Beneficios de s\'aggiornamentu</string>
-    <string name="upgrade_screen_benefits_body">• Netza sos caches de l\'app e sos datos despensuales
-• Borra sos archivos dopios
-• Abilita sos nettamientos programmados
-• Chrea filtros personalizados e regulas de nettamentu
-• Traccia sos trends de memoria e sa historia de sos nettamientos
-• Pius fechuras e controllos in tota l\'app
-• Suportu pro sa continuidade de su sviluppu</string>
+    <string name="upgrade_screen_benefits_body">• Mundiza de cache e files inutiles de appliche\n• Remotziòne de files dobiados\n• Compressioni de fotos e videos\n• Mundiza de files antigos istrisciende\n• Mundiza cun un solu toque via widget\n• Programatzione de mundizas\n• Filtros e regulas personalizados\n• Tendencias e istoria de immagatzame\n• Pius carateristicas e controlos in tota s\'appliche\n• Suporta al sviluppamentu continuadu</string>
+    <string name="upgrade_screen_offers_title">Opsiones de aggiornamentu</string>
+    <string name="upgrade_screen_offers_body">Istessas carateristicas, nemente cun modelos de prezu diferentes.</string>
+    <string name="upgrade_screen_offers_or">o</string>
     <string name="upgrade_screen_subscription_offer_title">Suscritzione anuala</string>
+    <string name="upgrade_screen_subscription_offer_body">Si renovit ogni annu dopo su tempus libberu. Puedit cancelara in cale momentu in Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Si renovit ogni annu. Puedit cancelara in cale momentu in Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Cumpra una volta</string>
+    <string name="upgrade_screen_iap_offer_body">Un pagamentu solu, sena renovatzionis.</string>
     <string name="upgrade_screen_offers_unavailable_message">Sos prezos non sunt stados carrigados in custu momentu. Controlla Google Play e torrapa in un momentu.</string>
     <string name="upgrade_screen_subscription_trial_action">Cumintza sa proa de badas de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Abbòna·ti</string>
     <string name="upgrade_screen_iap_action">Cùmperu de una borta</string>
     <string name="upgrade_screen_thanks_toast">Ses su mègius! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
+    <string name="upgrade_screen_restore_banner_title">Giai at compadu Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Senpat chi tue ses aggraduadu a Pro in custa dispositivu in antis. Recùpera su cùmperu tuyu pro at recupera s\'accessu.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sa sincronizatzione de Play Store podet leare tempus. Proa a torrare a allùghere, limpiare sa cache de Google Play o simplesmente iseta.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Contos mùltiplos podent cunfùndere Google Play. Installa s\'aplicatzione dae su situ web de Google Play, chi fortza assotziatziones cun unu contu ispetzíficu.</string>
+    <string name="upgrade_screen_owned_hero_title">Felitatziones!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Tu tenes %1$s, imblocàdu dae sa subscribe tuya.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Tu tenes %1$s, imblocàdu dae su cùmperu de una borta tuyu.</string>
+    <string name="upgrade_screen_owned_iap_title">Cùmperu de una borta</string>
+    <string name="upgrade_screen_owned_iap_body">Tu tenes s\'aggraduamidu Pro de una borta. Pro simbrocàdu in sa cunta Google. Gràtzias pro at supporta SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Sa subscribe Pro tuya est attibba e arregiada pro at se rinnuada. Su contu est manazadu dae Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Preferis su cùmperu de una borta? Divenis disponibbile candu sa subscribe tuya no est prus arregiada pro at se rinnuada. Annulla sa subscribe in Google Play pro at isbòghere.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Sa subscribe Pro tuya est attibba, ma no arregiada pro at se rinnuada. Pro simbrocàdu finu a chi sa períodu atual no finet.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Sa sottoscritzione tua est ancora impostada pro renovare, anque si già posides s\'atibalzu ùnicu. Puedes cantzellare in Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Gestiona sa sottoscritzione</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Custu est una iscanta separada: no at cancellare o restitùere sa sottoscritzione tua. Imprea s\'istessu contu Google pro ambos.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Sottoscritzione ancora attivu</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play nuntiat chi sa sottoscritzione tua est ancora impostada pro renovare. Pro cumparare s\'atibalzu ùnicu, cantzella prima sa sottoscritzione in Google Play, dopo torna chie.\n\nL\'as cantzellada oe? Astat un\'intziada a Google Play e tenta ancora. Asserta chi stais imprendu s\'istessu contu Google.</string>
+    <string name="upgrade_screen_sub_check_failed_message">No at podiddu contrallare s\'istadu de sa sottoscritzione tua in Google Play. Tenta ancora, perbai.</string>
+    <string name="upgrade_screen_restore_success_message">Iscanta ripristinada, s\'atibalzu Pro tuu est attivu.</string>
+    <string name="upgrade_screen_grace_title">Cunfirmande s\'iscanta tua</string>
+    <string name="upgrade_screen_grace_body_short">Pro est ancora attivu. Ant\'aspettende chi Google Play cunfirmet de nou s\'iscanta tua, totu sas caraterìsticas Pro ant\'a restare desbloadas.</string>
+    <string name="upgrade_screen_grace_body">Pro est ancora attivu, ma Google Play no at cunfirmadu s\'iscanta tua pro un\'acua. Si at cunpradu Pro, ripristina s\'iscanta e contralla chi Google Play impreas su contu chi at cunpradu. Si sa sottoscritzione est arriàda o s\'iscanta est stata readdada, Pro sì at iscazzare solu, nudda altru de fàghere.</string>
+    <string name="upgrade_screen_restore_body">Sa ristoradura dimanda a Google Play de tornar a controrare is compras de custa appliche pro s\'acontu attuale. Non inizia una noa compra.</string>
+    <string name="upgrade_screen_restore_status_title">L\'istadu at paret male?</string>
+    <string name="upgrade_screen_restore_status_body">Si una compra manca o custa istadu paret scorrettu, tornar a controrala cun Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kuntatza sa sostegnu</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid issu nau at controrau Google Play, ma ninga compra Pro no ddeu poderia essi cunfirmada pro s\'acontu chi Google Play leverai pro custa appliche.</string>
+    <string name="upgrade_screen_restore_contact_hint">Sempre bloadu? Kuntatza sa sostegnu dae s\'indirizu de posta chi at fatu sa compra e includi su numeru de ordine de Google Play.</string>
 </resources>

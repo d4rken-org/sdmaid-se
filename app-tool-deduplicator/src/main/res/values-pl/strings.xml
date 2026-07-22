@@ -25,9 +25,10 @@
     <string name="deduplicator_detection_method_checksum_title">Suma kontrolna zawartości</string>
     <string name="deduplicator_detection_method_checksum_summary">Określ duplikaty, obliczając sumy kontrolne dla plików. Pliki z pasującymi sumami kontrolnymi mają dokładnie taką samą zawartość.</string>
     <string name="deduplicator_detection_method_phash_title">Percepcyjny skrót</string>
-    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki, analizując cechy treści i porównując percepcyjne wartości skrótów. ⚠️ Wykrywanie na podstawie podobieństwa może obejmować fałszywe alarmy wymagające ręcznej weryfikacji.</string>
+    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki analizując funkcje zawartości i porównując percepcyjne wartości hash.</string>
     <string name="deduplicator_detection_method_media_title">Sygnatury multimediów</string>
-    <string name="deduplicator_detection_method_media_summary">Znajdź podobne pliki wideo i audio poprzez analizę sygnatur audio. ⚠️ Wykrywanie oparte na podobieństwie może zawierać fałszywe trafienia wymagające ręcznej weryfikacji.</string>
+    <string name="deduplicator_detection_method_media_summary">Znajdź podobne pliki wideo i audio, analizując sygnatury dźwiękowe.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Wykrywanie oparte na podobieństwie może obejmować fałszywe alarmy wymagające ręcznej weryfikacji.</string>
     <string name="deduplicator_media_match_audio">Dopasowanie na podstawie dźwięku</string>
     <string name="deduplicator_media_match_visual">Dopasowanie na podstawie wideo</string>
     <string name="deduplicator_media_match_audio_visual">Dopasowanie na podstawie dźwięku i wideo</string>
@@ -95,6 +96,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferuj mniejsze pliki</string>
     <string name="deduplicator_view_mode_groups_label">Grupy</string>
     <string name="deduplicator_view_mode_directories_label">Foldery</string>
-    <string name="tour_deduplicator_details_cluster_body">Te pliki wyglądają na ten sam element lub treść multimedialną, skupienie duplikatów.</string>
+    <string name="tour_deduplicator_details_cluster_body">Wszystkie te pliki wydają się tym samym elementem lub treścią multimedialną, zbiorem duplikatów.</string>
     <string name="tour_deduplicator_details_delete_mark_body">Pliki z tą ikoną zostaną usunięte; pozostały plik w grupie to ten, który zachowuje SD Maid. Możesz zmienić sposób wyboru pliku do zachowania w ustawieniach strategii usuwania.</string>
 </resources>

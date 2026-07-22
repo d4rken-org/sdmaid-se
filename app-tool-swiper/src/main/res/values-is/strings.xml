@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Engar samsvarandi skrár fundust</string>
     <string name="swiper_open_externally_action">Opna í utanaðkomandi forriti</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Strjúktu mynd til að ákveða örlög hennar: Til hliðar til að halda eða eyða, upp til að sleppa, niður til að afturkalla. Takkarnir hér að neðan gera það sama — og sýna hvaða hlið er hvað.</string>
-    <string name="tour_swiper_openin_body">Þessi takki opnar myndina í öðru forriti, hentugt til að athuga hana áður en ákveðið er.</string>
+    <string name="tour_swiper_gestures_body">Strokkaðu skrá til að ákveða örlög hennar: til hliðar til að halda eða eyða, upp til að sleppa, niður til að afturkalla. Hnapparnir hér fyrir neðan gera það sama — og sýna hvaða hlið er hver.</string>
+    <string name="tour_swiper_openin_body">Þessi hnappur opnar skrána í öðru forriti, handhægur til að athuga hana áður en þú ákveður.</string>
     <string name="tour_swiper_preview_body">Þessi takki opnar forskoðun á fullum skjá fyrir nánari skoðun.</string>
     <string name="tour_swiper_actions_body">Líkar ekki að strjúka? Við erum með takka líka! Sleppa skilur þetta eftir óákveðið fyrir seinna, og löng þrýsting á Sleppa útilokar skrá frá komandi skönnunum. Afturkalla afturkallar síðasta val þitt.</string>
     <string name="tour_swiper_review_body">Haldbær og eyðingarval þín eru aðeins til skoðunar. Opnaðu Yfirlit til að yfirfara þaú og framkvæma eyðingarnar þgar þú ert tilbúin.</string>

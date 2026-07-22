@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Атрымаць SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid не змяшчае рэкламы і не прадае даныя карыстальнікаў. Мая праца фінансуецца вамі ❤️.</string>
     <string name="upgrade_screen_benefits_title">Перавагі абнаўлення</string>
-    <string name="upgrade_screen_benefits_body">• Ачышчаць кэш праграм і непатрэбныя дадзеныя
-• Выдаляць дублікаты файлаў
-• Уключыць запланаваныя ачышткі
-• Стварыць ўласныя фільтры і правілы ачысткі
-• Адследжваць тэндэнцыі сховішча і гісторыю ачысткі
-• Дадатковыя функцыі і кантролі па ўсёй праграме
-• Падтрымка бесперапыннага развіцця</string>
+    <string name="upgrade_screen_benefits_body">• Ачыстка кэша і смецця прыкладанняў\n• Выдаленне дублікатаў файлаў\n• Сцісканне фота і відэа\n• Разбор старых файлаў пры дапамозе жэстаў\n• Ачыстка ў адзін дотык праз віджэт\n• Планаванне ачысткі\n• Уласныя фільтры і правілы\n• Тэндэнцыі і гісторыя сховішча\n• Больш магчымасцей і кіравання ва ўсёй праграме\n• Падтрымка далейшай распрацоўкі</string>
+    <string name="upgrade_screen_offers_title">Варыянты абнаўлення</string>
+    <string name="upgrade_screen_offers_body">Аднолькавыя функцыі, толькі розныя мадэлі коштаў.</string>
+    <string name="upgrade_screen_offers_or">або</string>
     <string name="upgrade_screen_subscription_offer_title">Гадавая падпіска</string>
+    <string name="upgrade_screen_subscription_offer_body">Аднаўляецца штогод пасля бясплатнага пробнага перыяду. Адмяніце ў любы час у Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Аднаўляецца штогод. Адмяніце ў любы час у Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Купіць адзін раз</string>
+    <string name="upgrade_screen_iap_offer_body">Адна плата, без аднаўленняў.</string>
     <string name="upgrade_screen_offers_unavailable_message">Не атрымалася загрузіць цэны зараз. Праверце Google Play і паспрабуйце зноў праз мамент.</string>
     <string name="upgrade_screen_subscription_trial_action">Пачаць бясплатны пробны 14-дзённы перыяд</string>
     <string name="upgrade_screen_subscription_action">Падпісацца</string>
     <string name="upgrade_screen_iap_action">Аднаразовая пакупка</string>
     <string name="upgrade_screen_thanks_toast">Вы найлепшы! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Аднавіць пакупку</string>
+    <string name="upgrade_screen_restore_banner_title">Ужо купілі Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Выглядае, вы раней ужо купілі Pro на гэтай прыладзе. Адновіце сваю куплю, каб зноў яе разблакіраваць.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Сінхранізацыя з Play Store можа заняць пэўны час. Паспрабуйце перазагрузіцца, ачысціць кэш Google Play або проста пачакаць.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Некалькі рахункі могуць заблытаць Google Play. Усталюйце праграму праз сайт Google Play, які прывязвае яе да пэўнага рахунку.</string>
+    <string name="upgrade_screen_owned_hero_title">Віншуем!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">У вас ёсць %1$s, разблакіравана вашай падпіскай.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">У вас ёсць %1$s, разблакіравана вашай адзінаразовай куплёй.</string>
+    <string name="upgrade_screen_owned_iap_title">Адзінаразовая купля</string>
+    <string name="upgrade_screen_owned_iap_body">Вы валодаеце адзінаразовай куплёй Pro. Pro застаецца разблакіраваным на гэтым ўліковым запісе Google. Дзякуем за падтрымку SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Ваша падпіска Pro актыўная і наладжана на аднаўленне. Аплатай кіруе Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Аддаеце перавагу адзінаразовай куплі? Яна становіцца даступнай, як толькі ваша падпіска перастане быць наладжанай на аднаўленне. Каб пераключыцца, адмяніце падпіску ў Google Play.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Ваша падпіска Pro актыўная, але не наладжана на аднаўленне. Pro застаецца даступным да канца бягучага перыяду.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Гэтая падпіска ўсё яшчэ наладжана на аднаўленне, хаця вы ўжо маеце адзінаразовы Pro. Вы можаце скасаваць яе ў Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Кіраваць падпіскай</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Гэта асобная купля: яна не скасоўвае і не вяртае грошы за вашу падпіску. Выкарыстоўвайце адзін і той жа ўліковы запіс Google для абодвух.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Падпіска ўсё яшчэ актыўная</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play паведамляе, што ваша падпіска ўсё яшчэ наладжана на аднаўленне. Каб купіць адзінаразовы Pro, спачатку скасуйце падпіску ў Google Play, а потым вярніцеся сюды.\n\nТолькі што скасавалі? Дайце Google Play крыху часу і паспрабуйце яшчэ раз. Таксама пераканайцеся, што выкарыстоўваеце той жа ўліковы запіс Google.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Не ўдалося праверыць статус вашай падпіскі ў Google Play. Паспрабуйце яшчэ раз праз хвіліну.</string>
+    <string name="upgrade_screen_restore_success_message">Купля адноўлена, ваш Pro актыўны.</string>
+    <string name="upgrade_screen_grace_title">Пацвярджэнне вашай куплі</string>
+    <string name="upgrade_screen_grace_body_short">Pro ўсё яшчэ актыўны. Чакаем, пакуль Google Play паўторна пацвердзіць вашу куплю; усе функцыі Pro тым часам застаюцца разблакіраванымі.</string>
+    <string name="upgrade_screen_grace_body">Pro ўсё яшчэ актыўны, але Google Play ўжо некаторы час не пацвярджае вашу куплю. Калі вы купілі Pro, аднавіце куплю і пераканайцеся, што Google Play выкарыстоўвае ўліковы запіс, з якога яна была купленая. Калі падпіска скончылася або купля была вернута, Pro адключыцца сам, больш нічога рабіць не трэба.</string>
+    <string name="upgrade_screen_restore_body">Аднаўленне просіць Google Play яшчэ раз праверыць куплі гэтай праграмы для бягучага ўліковага запісу. Яно не пачынае новую куплю.</string>
+    <string name="upgrade_screen_restore_status_title">Статус выглядае няправільна?</string>
+    <string name="upgrade_screen_restore_status_body">Калі куплі не хапае або статус выглядае няправільна, праверце яшчэ раз праз Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Звязацца з падтрымкай</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid толькі што праверыў Google Play, але купля Pro не пацверджана для ўліковага запісу, які Google Play выкарыстоўвае для гэтай праграмы.</string>
+    <string name="upgrade_screen_restore_contact_hint">Усё яшчэ не атрымліваецца? Звяжыцеся з падтрымкай з той электроннай пошты, якая рабіла куплю, і дадайце нумар вашага заказу Google Play.</string>
 </resources>

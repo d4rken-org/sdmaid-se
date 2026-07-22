@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Makadirio ya ~%d%% akiba kwa faili za JPEG</string>
     <string name="squeezer_onboarding_got_it">Nimeelewa</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer inabana upya picha zako na video ili zichukue nafasi ndogo. Faili zinabaki zinazoweza kutumika, ni ndogo tu, na kila moja huonyesha akiba yake iliyokadiriwa.</string>
+    <string name="tour_squeezer_intro_body">Squeezer hubana tena picha na video zako ili zichukue nafasi kidogo. Unabadilishana ubora kidogo kwa nafasi unayopata. Kila kipengele kinaonyesha akiba inayokadiriwa, ili uweze kuamua kinachostahili.</string>
     <string name="tour_squeezer_compress_body">Bana kila kitu mara moja hapa, au gusa kipengele kimoja ili kukibana peke yake. Bonyeza kwa muda mrefu ili kuchagua kadhaa. Utaona mapitio kila wakati kabla ya mabadiliko yoyote.</string>
 </resources>

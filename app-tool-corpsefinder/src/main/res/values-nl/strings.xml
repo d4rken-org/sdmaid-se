@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Geen markering</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standaard restant. Over het algemeen veilig om te verwijderen — deze bestanden behoren toe aan apps die niet meer zijn geïnstalleerd.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder vindt gegevens die achtergelaten zijn door apps die je al hebt verwijderd. Het behoort niet meer tot iets wat is geïnstalleerd, dus het verwijderen ervan is veilig en geeft ruimte vrij.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder vindt gegevens die zijn achtergelaten door apps die je al hebt verwijderd. Ze horen niet meer bij iets dat geïnstalleerd is, dus het verwijderen ervan maakt ruimte vrij. Het meeste is veilig om te verwijderen, maar controleer de markering als je het niet zeker weet.</string>
     <string name="tour_corpsefinder_row_body">Elk item is achtergebleven gegevens en de app waarvan het afkomstig is. De markering toont hoe zeker SD Maid is dat het veilig is om te verwijderen — tik op de ⓘ bovenaan om te leren wat de markeringen betekenen.</string>
 </resources>

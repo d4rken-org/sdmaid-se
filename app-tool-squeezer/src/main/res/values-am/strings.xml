@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">ለ JPEG ፋይሎች ግምታውይ ~%d%% ቦታ ቅነሳ</string>
     <string name="squeezer_onboarding_got_it">ገባኝ</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer ፎቶውን እና ቂዲዎን ዳግም ይጨምቃቻውል ወደ ትንሽ ቦታ ወስደው። ፋይሎችው ሊሰሩ ይችላሉ - ትንሽ ብቻ - እና እያንዳንዱ ግምታውይ ሕጼብ ይሳያል።</string>
+    <string name="tour_squeezer_intro_body">Squeezer ፎቶ እና ቪዲዮዎን እንደገና ይጭብርብራል ስለዚህ ቦታ ያኖራል። ትንሽ ጥራትን ለተመለሰው ቦታ ይለዋወጣሉ። እያንዳንዱ ሕዋስ ግምታዊ ቅነሳውን ያሳያል፣ ስለዚህ ምን ዋጋ ያለበት ልትወስኑ ይችላሉ።</string>
     <string name="tour_squeezer_compress_body">ሁሉንም በአንድ ጊዜ ይጨምቁ ወይም አንድ ነገር ይምቱ ትንሽ ለመወገድ። ብዙ ለመምረጥ ክብብ-ይጀኑ። ሁሉ ሊቀያር ቅድሚያ ሁሌ ድምድም ይታያሉ።</string>
 </resources>

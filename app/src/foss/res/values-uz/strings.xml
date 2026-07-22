@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Qanday yordam berish</string>
     <string name="upgrade_screen_how_body">Homiy bo\'ling va rivojlanishni sponsorlik qiling! Barcha qo\'shimcha xususiyatlarni faollashtirish va GitHub Sponsors profilimni ochish uchun quyidagi tugmani bosing.</string>
     <string name="upgrade_screen_why_title">Yangilash imtiyozlari</string>
-    <string name="upgrade_screen_why_body">• Ilova keshlarini va keraksiz ma\'lumotlarni tozalang
-• Takroriy fayllarni o\'chiring
-• Rejalashtirilgan tozalashlarni yoqing
-• Maxsus filtrlar va tozalash qoidalarini yarating
-• Xotira sarfi tendensiyalari va tozalash tarixini kuzating
-• Ilovadagi ko\'proq xususiyat va boshqaruvlardan foydalaning
-• Ochiq manba ishlarini qo\'llab-quvvatlang</string>
+    <string name="upgrade_screen_why_body">• Ilovaning keshi va chiqindilarni tozalash\n• Takroriy fayllarni o\'chirish\n• Rasm va videoni siqish\n• Eski fayllarni kaydirish orqali olib tashlash\n• Vidjet orqali bir bosishda tozalash\n• Tozalashni rejalashtirish\n• Maxsus filterlar va qoidalar\n• Saqlash tendensiyalari va tarixi\n• Ilovada ko\'proq xususiyatlar va boshqaruvlar\n• Ochiq kodli ishlarni qo\'llab-quvvatlash</string>
     <string name="upgrade_screen_sponsor_action">Rivojlanishni sponsorlik qilish</string>
     <string name="upgrade_screen_sponsor_action_hint">Muqobil reklama, tahlil va Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ochiq manba rivojlanishini qo\'llab-quvvatlaganingiz uchun rahmat ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Allaqachon qaytdingizmi? Sizning qo\'llab-quvvatlashingiz SD Maidni tirik saqlaydi!</string>
+    <string name="upgrade_screen_status_free_title">Bepul versiya</string>
+    <string name="upgrade_screen_status_free_body">Siz SD Maid ning bepul versiyasini ishlatmoqdasiz. Qo\'shimcha xususiyatlarni taraqqiyotni qo\'llab-quvvatlash orqali ochish mumkin.</string>
+    <string name="upgrade_screen_status_free_action">Yangilash variantlarini ko\'ring</string>
+    <string name="upgrade_screen_status_upgraded_title">Yangilash faol</string>
+    <string name="upgrade_screen_status_upgraded_body">Barcha qo\'shimcha xususiyatlar ochildi. Ochiq manba rivojlantirilishini qo\'llab-quvvatlashingiz uchun rahmat ❤️</string>
+    <string name="upgrade_screen_recurring_title">Davom eting</string>
+    <string name="upgrade_screen_recurring_body">SD Maid yangilanishlar va tuzatishlari orqali doimiy rivojlanmoqda. Agar buning davomini istasangiz, GitHub Sponsors orqali muntazam xayriya qilishni o\'ylang.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors\'ni ochish</string>
 </resources>

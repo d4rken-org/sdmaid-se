@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">Skandering van %1$s sluit alle lêers op hierdie opslag in — foto\'s, dokumente, aflaaie, app-media en meer. Gaan voort?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Gaan desondanks voort</string>
     <string name="swiper_session_risky_label">Hele-opslagskandering</string>
-    <string name="swiper_session_risky_info_message">Hierdie sessie neem die wortel van \'n opslagvolume as doel, dus alle lêers op daardie opslag is in reikwydte — foto\'s, dokumente, aflaaie, app-media en meer.
-
-Volledige opslagskanderings kan baie items teruggee, insluitend lêers wat jy nie noodwendig wou hersien nie. Pas \'n lêertipe-filter toe om die skandering te beperk.</string>
+    <string name="swiper_session_risky_info_message">Hierdie sessie neem die wortel van \'n opslagvolume as doel, dus alle lêers op daardie opslag is in reikwydte — foto\'s, dokumente, aflaaie, app-media en meer.\n\nVolledige opslagskanderings kan baie items teruggee, insluitend lêers wat jy nie noodwendig wou hersien nie. Pas \'n lêertipe-filter toe om die skandering te beperk.</string>
     <string name="swiper_delete_x_action">Verwyder %1$d</string>
     <string name="swiper_settings_swap_directions_title">Ruil swieprigtings om</string>
     <string name="swiper_settings_swap_directions_summary">Swiep links om te hou, regs om te verwyder.</string>
@@ -162,8 +160,8 @@ Volledige opslagskanderings kan baie items teruggee, insluitend lêers wat jy ni
     <string name="swiper_session_no_matching_files">Geen ooreenstemmende lêers gevind nie</string>
     <string name="swiper_open_externally_action">Maak oop in eksterne program</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Veeg \'n foto opsy om sy noodlot te bepaal: sykant om te hou of te verwyder, op om oor te slaan, af om te ontdoen. Die knoppies hieronder doen dieselfde — en wys watter kant wat is.</string>
-    <string name="tour_swiper_openin_body">Hierdie knoppie open die foto in \'n ander app, nuttig om dit eers na te sien voordat jy besluit.</string>
+    <string name="tour_swiper_gestures_body">Veeg \'n lêer om sy lot te bepaal: sywaarts om te hou of te skrap, op om oor te slaan, af om ongedaan te maak. Die knoppies hieronder doen dieselfde — en toon watter sy vir wat is.</string>
+    <string name="tour_swiper_openin_body">Hierdie knoppie maak die lêer in \'n ander program oop, gerieflik om dit eers te kontroleer voordat jy besluit.</string>
     <string name="tour_swiper_preview_body">Hierdie knoppie open \'n volskerm-voorskou vir \'n nader blik.</string>
     <string name="tour_swiper_actions_body">Hou jy nie van veeg nie? Ons het ook knoppies! Slaan oor laat dit onbeslis vir later, en lank druk op Slaan oor sluit \'n lêer van toekomstige skanderings uit. Ontdoen maak jou laaste keuse ongedaan.</string>
     <string name="tour_swiper_review_body">Jou hou- en skrap-keuses is slegs voorbereiding. Maak Review oop om dit deur te gaan en die skrappings toe te pas wanneer jy gereed is.</string>

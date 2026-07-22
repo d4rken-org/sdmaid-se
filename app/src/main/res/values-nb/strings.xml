@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s frigjort</string>
     <string name="dashboard_hero_freeable_x_items">%1$s kan fjernes</string>
     <string name="dashboard_hero_freed_x_items">%1$s fjernet</string>
-    <string name="dashboard_hero_freeable_hint">Trykk på knappen for å frigjøre plass. Trykk på en brikke for å sjekke først.</string>
+    <string name="dashboard_hero_freeable_hint">Trykk på knappen for å frigjøre plass, eller en brikke for å sjekke først.</string>
     <string name="dashboard_hero_freed_hint">Trykk på en brikke for detaljer.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannet %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Neste treff</string>
     <string name="debug_logview_jump_to_bottom_action">Hopp til siste</string>
     <string name="debug_logview_paused_msg">Pauset — buffer fryst</string>
-    <string name="debug_logview_paused_dropped_msg">Pauset — %1$d nye linjer hoppet over</string>
+    <string name="debug_logview_paused_dropped_msg">Pauset — nye linjer hoppet over: %1$d</string>
     <string name="debug_logview_copied_msg">Logg kopiert til utklippstavle</string>
     <string name="debug_logview_share_label">Del logg</string>
     <string name="debug_debuglog_screen_title">Feilsøkingslogg</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Personvernregler</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
     <string name="settings_category_other_label">Andre</string>
+    <string name="settings_upgrade_description">Oppdater status og alternativer.</string>
     <string name="general_settings_label">Generelt</string>
     <string name="general_settings_desc">Generelle justeringer som påvirker hele appen.</string>
     <string name="settings_category_ui_label">Brukergrensesnitt</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Lagringsbruk og en-taps-rydding</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Ekstern</string>
-    <string name="widget_home_freed_label">Frigjort: %1$s</string>
+    <string name="widget_home_freed_label">Levetid: %1$s</string>
     <string name="widget_home_clean_action">Rens</string>
     <string name="widget_home_working">Arbeider…</string>
     <string name="widget_home_unavailable">Lagring utilgjengelig</string>
-    <string name="shortcut_onetap_started">Skanning &amp; sletting startet…</string>
+    <string name="settings_category_widget">Miniprogram</string>
+    <string name="widget_settings_oneclick_summary">La miniprogrammets Rens-knapp på hjemmeskjermen skanne og slette i ett trykk, uten å spørre hver gang.</string>
+    <string name="widget_oneclick_consent_title">Aktiver rengjøring med ett trykk?</string>
+    <string name="widget_oneclick_consent_message">Miniprogrammets Rens-knapp vil skanne og slette på en gang, uten å spørre først eller la deg se gjennom hva som blir fjernet.</string>
+    <string name="widget_oneclick_consent_enable_action">Aktiver</string>
+    <string name="widget_oneclick_consent_decline_action">Ikke nå</string>
+    <string name="shortcut_onetap_started">Skanning + Sletting startet…</string>
     <string name="shortcut_onetap_nothing_enabled">Ingen ett-trykk verktøy er aktivert</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Sikkerhetskopi &amp; Gjenopprett</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Denne sikkerhetskopien ble opprettet på Android %1$s, men denne enheten kjører Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Denne sikkerhetskopien ble opprettet på en annen enhet (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Denne sikkerhetskopien er fra en annen appversjon (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Denne sikkerhetskopiens historikkdata (statistikk, komprimeringshistorikk, swipe-økter) er fra en annen appversjon og kan ikke gjenopprettes. Alt annet vil bli det.</string>
+    <string name="backup_restore_warn_history_body">Denne sikkerhetskopiens historikkdata (statistikk, kompresjonhistorikk, swipe-økter) er fra en annen app-versjon og kan ikke gjenopprettes. Alt annet blir gjenopprettet.</string>
     <string name="backup_restore_ack_understand">Jeg forstår og vil fortsette</string>
     <string name="backup_restore_action_restore">Gjenopprett</string>
 </resources>

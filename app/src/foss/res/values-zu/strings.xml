@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Indlela yokusiza</string>
     <string name="upgrade_screen_how_body">Yiba ngumnikazi futhi uxhase ukuthuthukiswa! Thepha inkinobho engezansi ukuze unike amandla zonke izici ezengeziwe futhi uvule iphrofayili yami ye-GitHub Sponsors.</string>
     <string name="upgrade_screen_why_title">Izinzuzo zokuthuthukisa</string>
-    <string name="upgrade_screen_why_body">• Hlanza i-cache ye-app kanye nedata engenakusetshenziselwa
-• Susa amafayeli azilinganiswayo
-• Vumela okuhlanzwa okucetshwe esikhathini
-• Dala ama-filter ayingqayizwayo kanye nemithetho yokuhlanza
-• Lando amalonje e-storage kanye nekhisitholeri yokuhlanza
-• Eminye imithakathaka kanye okunye okuningi kuyo yonke ihlelo lwesofthiwe
-• Singathe umsebenzi we-open source</string>
+    <string name="upgrade_screen_why_body">• Ukulungisa i-cache nokususa izifo\n• Ukususa amafayela angelezele\n• Ukucithisa izithombe nokuvidiyo\n• Ukunakha amafayela andala ngokudonsela\n• Ukulungisa ngesisindo sisodwa nge-widget\n• Ukubeka isicwajiso sokucitsha\n• Izigali nezihlaka ezenzakelelile\n• Imikhuba yesitoreji nehistori\n• Izici eziningi nokulawula kumaphutha kohlelo\n• Ukusekela umsebenzi we-open-source</string>
     <string name="upgrade_screen_sponsor_action">Xhasa ukuthuthukiswa</string>
     <string name="upgrade_screen_sponsor_action_hint">Enye indlela izikhangiso, ukuhlaziya ne-Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ngiyabonga ngokusekela ukuthuthukiswa komthombo ovulekile ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Usuyabuyela? Ukusekela kwakho kugcina i-SD Maid iphila!</string>
+    <string name="upgrade_screen_status_free_title">Inguqulo yamahhala</string>
+    <string name="upgrade_screen_status_free_body">Usebenzisa inguqulo yamahhala ye-SD Maid. Izici zokwengeziwe zingavulwa ngokusekela ukuthuthukiswa.</string>
+    <string name="upgrade_screen_status_free_action">Buka amanela e-upgrade</string>
+    <string name="upgrade_screen_status_upgraded_title">I-upgrade iyasebenza</string>
+    <string name="upgrade_screen_status_upgraded_body">Zonke izici zokwengeziwe zivuliwe. Ngiyabonga ekusekeni ukuthuthukiswa kwe-open-source ❤️</string>
+    <string name="upgrade_screen_recurring_title">Qhubeleka nalo</string>
+    <string name="upgrade_screen_recurring_body">SD Maid izongezeleke nge-updates ne-fixes. Uma uthanda ukubulela lokho, cabanga nge-donasioni emuva-muva nge-GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Vula i-GitHub Sponsors</string>
 </resources>

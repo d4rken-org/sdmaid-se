@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">ලකුණු නැත</string>
     <string name="corpsefinder_markers_dialog_normal_description">සම්මත අවශේෂය. සාමාන්‍යයෙන් ඉවත් කිරීමට ආරක්ෂිතයි — මෙම ගොනු තවදුරටත් ස්ථාපනය කර නොමැති යෙදුම්වලට අයත් වේ.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder ඔබ දැනටමත් ස්ථාපනය ඉවත් කර ඇති යෙදුම් මගින් ඉතිරි කරන ලද දත්ත සොයා ගනී. එය තවදුරටත් ස්ථාපිත කිසිවකට අයත් නොවන බැවින්, එය ඉවත් කිරීම ආරක්ෂිත වන අතර ඉඩ නිදහස් කරයි.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ඔබ දැනටමත් ඉවත් කර දැමූ යෙදුම්වලින් ඉතිරි වී ඇති දත්ත සොයා ගනී. එය තවදුරටත් ස්ථාපිත කර ඇති කිසිවකට අයත් නැත, එබැවින් එය ඉවත් කිරීම අවකාශ නිදහස් කරයි. එකතුවෙන් බොහොමයක් ඉවත් කිරීමට ආරක්ෂිතයි, නමුත් ඔබ නිශ්චිත නැති විට සලකුණ පරීක්ෂා කරන්න.</string>
     <string name="tour_corpsefinder_row_body">සෑම අයිතමයක්ම ඉතිරි දත්ත සහ එය පැමිණි යෙදුමයි. එය ඉවත් කිරීම කොතරම් ආරක්ෂිතද යන්න පිළිබඳ SD Maid ගේ විශ්වාසය ලකුණින් දැක්වේ — ලකුණුවල අර්ථය ඉගෙන ගැනීමට ඉහළ ⓘ ටැප් කරන්න.</string>
 </resources>

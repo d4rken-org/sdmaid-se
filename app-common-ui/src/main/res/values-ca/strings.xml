@@ -8,6 +8,7 @@
         <item quantity="other">Rutes seleccionades: %d</item>
     </plurals>
     <string name="picker_home_action">Àrees de dades</string>
+    <string name="picker_select_hint">Manteniu premut un element per seleccionar-lo</string>
     <string name="tour_action_next">Següent</string>
     <string name="tour_action_previous">Anterior</string>
     <string name="tour_action_cancel">Omet</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Continua la visita guiada</string>
     <string name="tour_confirm_dont_show_this_tour">No mostris aquesta visita guiada</string>
     <string name="tour_confirm_disable_all">Desactiva totes les visites guiades</string>
-    <string name="navigation_unknown_destination_title">Pròximament</string>
-    <string name="navigation_unknown_destination_message">Aquesta pantalla encara s\'està migrant a la nova interfície d\'usuari.</string>
+    <string name="navigation_unknown_destination_title">Pantalla no disponible</string>
+    <string name="navigation_unknown_destination_message">No s\'ha pogut obrir aquesta pantalla.</string>
 </resources>

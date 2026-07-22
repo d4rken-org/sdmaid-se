@@ -7,6 +7,7 @@
         <item quantity="other">%d ທາງຖືກເລືອກ</item>
     </plurals>
     <string name="picker_home_action">ພື້ນທີ່ຂໍ້ມູນ</string>
+    <string name="picker_select_hint">ຖືລາຍການເພື່ອເລືອກມັນ</string>
     <string name="tour_action_next">ຕໍ່ໄປ</string>
     <string name="tour_action_previous">ກໍ່ນ</string>
     <string name="tour_action_cancel">ຂ້າມ</string>
@@ -15,6 +16,6 @@
     <string name="tour_confirm_continue">ສືບຕໍ່ການທ່ຽວທໍງ</string>
     <string name="tour_confirm_dont_show_this_tour">ຢ່າສະແດງການທ່ຽວທໍງນີ້</string>
     <string name="tour_confirm_disable_all">ປິດການທ່ຽວທໍງທັງໝົດ</string>
-    <string name="navigation_unknown_destination_title">ມາເຖິງໄວໆ</string>
-    <string name="navigation_unknown_destination_message">ຫນ້າຈໍນີ້ຍັງບໍ່ສຳເລັດການຍ້າຍໄປສູ່ UI ໃໝ່.</string>
+    <string name="navigation_unknown_destination_title">ໜ້າຈໍບໍ່ພ້ອມໃຊ້ໄດ້</string>
+    <string name="navigation_unknown_destination_message">ໜ້າຈໍນີ້ບໍ່ສາມາດເປິດໄດ້.</string>
 </resources>

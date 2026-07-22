@@ -8,14 +8,15 @@
         <item quantity="other">%d Pfade ausgewählt</item>
     </plurals>
     <string name="picker_home_action">Datenbereiche</string>
+    <string name="picker_select_hint">Halte ein Element, um es auszuwählen</string>
     <string name="tour_action_next">Weiter</string>
     <string name="tour_action_previous">Zurück</string>
     <string name="tour_action_cancel">Überspringen</string>
     <string name="tour_confirm_title">Tour überspringen?</string>
-    <string name="tour_confirm_message">Sie können Touren jederzeit über die Einstellungen erneut aktivieren.</string>
+    <string name="tour_confirm_message">Du kannst Touren jederzeit in den Einstellungen wieder aktivieren.</string>
     <string name="tour_confirm_continue">Tour fortsetzen</string>
     <string name="tour_confirm_dont_show_this_tour">Diese Tour nicht mehr anzeigen</string>
     <string name="tour_confirm_disable_all">Alle Touren deaktivieren</string>
-    <string name="navigation_unknown_destination_title">Demnächst verfügbar</string>
-    <string name="navigation_unknown_destination_message">Dieser Bildschirm wird noch auf die neue Benutzeroberfläche migriert.</string>
+    <string name="navigation_unknown_destination_title">Bildschirm nicht verfügbar</string>
+    <string name="navigation_unknown_destination_message">Dieser Bildschirm konnte nicht geöffnet werden.</string>
 </resources>

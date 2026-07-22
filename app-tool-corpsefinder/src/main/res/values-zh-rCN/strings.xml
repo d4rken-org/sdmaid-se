@@ -56,6 +56,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">无标记</string>
     <string name="corpsefinder_markers_dialog_normal_description">标准残留。通常可以安全删除 — 这些文件属于已卸载的应用。</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder 查找已卸载应用留下的数据。这些数据不再属于任何已安装的应用，所以删除它们是安全的，并且可以释放空间。</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder 查找已卸载的应用留下的数据。这些数据不再属于任何已安装的应用，因此删除它会释放空间。大部分数据删除是安全的，但当您不确定时请检查标记。</string>
     <string name="tour_corpsefinder_row_body">每个项目都是残留数据及其所来自的应用。标记显示 SD Maid 对删除其安全性的信心程度 — 点击顶部的 ⓘ 了解标记的含义。</string>
 </resources>

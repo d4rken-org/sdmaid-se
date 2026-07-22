@@ -8,6 +8,7 @@
         <item quantity="other">%d yo\'l tanlandi</item>
     </plurals>
     <string name="picker_home_action">Ma\'lumotlar sohalari</string>
+    <string name="picker_select_hint">Elementni tanlash uchun uni ushlab turing</string>
     <string name="tour_action_next">Keyingi</string>
     <string name="tour_action_previous">Oldingi</string>
     <string name="tour_action_cancel">O\'tkazib yuborish</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Sayohatni davom ettirish</string>
     <string name="tour_confirm_dont_show_this_tour">Bu sayohatni ko\'rsatmang</string>
     <string name="tour_confirm_disable_all">Barcha sayohatlarni o\'chirish</string>
-    <string name="navigation_unknown_destination_title">Tez orada</string>
-    <string name="navigation_unknown_destination_message">Bu ekran hali yangi interfeysga ko\'chirilmoqda.</string>
+    <string name="navigation_unknown_destination_title">Ekran mavjud emas</string>
+    <string name="navigation_unknown_destination_message">Ushbu ekran ochilmadi.</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ຖືກປົດປ່ອຍ</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ສາມາດລຶບອອກໄດ້</string>
     <string name="dashboard_hero_freed_x_items">%1$s ຖືກລຶບອອກແລ້ວ</string>
-    <string name="dashboard_hero_freeable_hint">ແຕະປຸ່ມເພື່ອປົດປ່ອຍພື້ນທີ່. ແຕະຊິບເພື່ອກວດສອບກ່ອນ.</string>
+    <string name="dashboard_hero_freeable_hint">ແຕະປຸ່ມເພື່ອເຮັດຄວາມສະອາດ ຫຼືແຕະສະຫຸ່ນເພື່ອກວດສອບກ່ອນ</string>
     <string name="dashboard_hero_freed_hint">ແຕະຊິບສໍາລັບລາຍລະອຽດ.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ກວດເບິ່ງ %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ກໍລະນີຖັດໄປ</string>
     <string name="debug_logview_jump_to_bottom_action">ກະໂດດໄປຫາລາສຸດ</string>
     <string name="debug_logview_paused_msg">ຢຸດຊົ່ວຄາວ — buffer ຖືກກວດຕໍ່</string>
-    <string name="debug_logview_paused_dropped_msg">ຢຸດຊົ່ວຄາວ — ສາຍໃໝ່ %1$d ໄດ້ຖືກຂ້າມໄປ</string>
+    <string name="debug_logview_paused_dropped_msg">ຢຸດຊົ່ວຄາວ — ລາຍການໃຫມ່ຖືກຂ້າມ: %1$d</string>
     <string name="debug_logview_copied_msg">ບັນທຶກໄດ້ຖືກຄັດລອກໄປຫາໂຄນປ້າຍ</string>
     <string name="debug_logview_share_label">ແບ່ງປັນບັນທຶກ</string>
     <string name="debug_debuglog_screen_title">ບັນທຶກ Debug</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
     <string name="settings_privacy_policy_desc">ການຈັດການຂໍ້ມູນຢ່າງມີຄວາມຮັບຜິດຊອບ.</string>
     <string name="settings_category_other_label">ອື່ນໆ</string>
+    <string name="settings_upgrade_description">ອັບເກຣດສະຖານະ ແລະ ທາງເລືອກ</string>
     <string name="general_settings_label">ທົ່ວໄປ</string>
     <string name="general_settings_desc">ການປັບຕົວທົ່ວໄປທີ່ສົ່ງຜົນຕໍ່ແອັບທັງຫມົດ.</string>
     <string name="settings_category_ui_label">ການໂຕ້ຕອບຜູ້ໃຊ້</string>
@@ -293,8 +294,7 @@
     </plurals>
     <string name="anniversary_share_title">ແບ່ງປັນວັນຄ້າຍ SD Maid ຂອງທ່ານ</string>
     <plurals name="anniversary_share_text">
-        <item quantity="other">%1$d ປີກັບ SD Maid — ພື້ນທີ່ທີ່ເສລີ: %2$s. ຮັກສາ Android ຂອງທ່ານໃຫ້ສະອາດແລະເປັນລະບຽບ. #SDMaid
-ລອງ: %3$s</item>
+        <item quantity="other">%1$d ປີກັບ SD Maid — ພື້ນທີ່ທີ່ເສລີ: %2$s. ຮັກສາ Android ຂອງທ່ານໃຫ້ສະອາດແລະເປັນລະບຽບ. #SDMaid\nລອງ: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">ສະແກນ + ລົບ</string>
     <string name="shortcut_onetap_long">ສະແກນ ແລະ ລົບໃນການກະທໍາດຽວ</string>
@@ -315,11 +315,17 @@
     <string name="widget_home_description">ການໃຊ້ໝ່ວຍເກັບ ແລະ ການສະອາດແຕະຄັ້ງດຽວ</string>
     <string name="widget_home_storage_internal">ພາຍໃນ</string>
     <string name="widget_home_storage_external">ພາຍນອກ</string>
-    <string name="widget_home_freed_label">ປະໜຼາຍອອກ: %1$s</string>
+    <string name="widget_home_freed_label">ອາຍຸການໃຊ້ງານ: %1$s</string>
     <string name="widget_home_clean_action">ທຳຄວາມສະອາດ</string>
     <string name="widget_home_working">ກຳລັງເຮັດວຽກ…</string>
     <string name="widget_home_unavailable">ບໍ່ສາມາດໃຊ້ງານພື້ນທີ່ເກັບຮັກສາ</string>
-    <string name="shortcut_onetap_started">ກວດສອບ &amp; ລຶບເລີ່ມຕົ້ນ…</string>
+    <string name="settings_category_widget">ວິດເຈັກ</string>
+    <string name="widget_settings_oneclick_summary">ໃຫ້ປຸ່ມທໍາຄວາມສະອາດຂອງວິດເຈັກໜ້າຈໍາຫຼັກສະແກນ ແລະ ລຶບໄຟລ໌ໃນຄັ້ງດຽວ ໂດຍບໍ່ຕ້ອງຖາມທຸກຄັ້ງ</string>
+    <string name="widget_oneclick_consent_title">ເປີດໃຊ້ການທໍາຄວາມສະອາດຄັ້ງດຽວບໍ?</string>
+    <string name="widget_oneclick_consent_message">ປຸ່ມທໍາຄວາມສະອາດຂອງວິດເຈັກຈະສະແກນ ແລະ ລຶບໄຟລ໌ໃນຄັ້ງດຽວ ໂດຍບໍ່ຕ້ອງຖາມກ່ອນ ຫຼື ໃຫ້ທ່ານກວດທາວ່າມີຫຍັງຖືກລຶບ</string>
+    <string name="widget_oneclick_consent_enable_action">ເປີດໃຊ້</string>
+    <string name="widget_oneclick_consent_decline_action">ບໍ່ຕອນນີ້</string>
+    <string name="shortcut_onetap_started">ການສະແກນ + ການລຶບໄດ້ເລີ່ມຕົ້ນແລ້ວ…</string>
     <string name="shortcut_onetap_nothing_enabled">ບໍ່ມີເຄື່ອງມືແຕະດຽວທີ່ເປີດໃຊ້ງານ</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ສຳໝອງຂໍ້ມູນ &amp; ກູ້ຄືນ</string>
@@ -346,7 +352,7 @@
     <string name="backup_restore_warn_android_body">ຖ້ານີ້ໄດ້ຖືກສ້າງຂຶ້ນໃນ Android %1$s, ແຕ່ອຸປະກອນນີ້ໃຊ້ Android %2$s.</string>
     <string name="backup_restore_warn_device_body">ຖ້ານີ້ໄດ້ຖືກສ້າງຂຶ້ນໃນອຸປະກອນທີ່ຕ່າງກັນ (%1$s ທີຍບກັບ %2$s).</string>
     <string name="backup_restore_warn_flavor_body">ສະຫຼັບນີ້ແມ່ນມາຈາກສະບັບແອັບທີ່ຕ່າງກັນ (%1$s ທຽບກັບ %2$s).</string>
-    <string name="backup_restore_warn_history_body">ຂໍ້ມູນປະໝັດຂອງສະຫຼັບນີ້ (ສະຖິຕິ, ປະໝັດການບີບອັດ, ເຊສຊັນການກວາດ) ແມ່ນມາຈາກສະບັບແອັບທີ່ຕ່າງກັນ ແລະ ບໍ່ສາມາດກໍາຄືນໄດ້. ສ່ວນອື່ນທັງໝົດຈະໄດ້ກໍາຄືນ.</string>
+    <string name="backup_restore_warn_history_body">ຂໍ້ມູນປະຫວັດຂອງການສຳຮອງນີ້ (ສະຖິຕິ, ປະຫວັດການບີບອັດ, ວາລະການກວາດ) ແມ່ນມາຈາກເວີຊັນແອັບຯທີ່ຕ່າງກັນ ແລະບໍ່ສາມາດຟື້ນຟູໄດ້. ທຸກຢ່າງອື່ນຈະຖືກຟື້ນຟູ.</string>
     <string name="backup_restore_ack_understand">ຂ້ອຍເຂົ້າໃຈ ແລະ ຕ້ອງການສືບຕໍ່</string>
     <string name="backup_restore_action_restore">ກໍາຄືນ</string>
 </resources>

@@ -16,8 +16,7 @@
     <string name="automation_error_compatibility_title">Compatibilidade de automação</string>
     <string name="automation_error_compatibility_body">SD Maid não conseguiu descobrir o layout da tela. Se isso continuar a acontecer, o idioma ou instalação pode não ser totalmente suportado. Verifique se há atualizações ou entre em contacto comigo para que eu possa corrigi-lo.</string>
     <string name="automation_error_timeout_title">Tempo de automação terminado</string>
-    <string name="automation_error_timeout_body">O SD Maid não completou todas as etapas dentro do limite de tempo. Se isso continuar a 
- acontecer, talvez precise ajustar o aplicativo para o seu dispositivo. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="automation_error_timeout_body">O SD Maid não completou todas as etapas dentro do limite de tempo. Se isso continuar a acontecer, talvez precise ajustar o aplicativo para o seu dispositivo. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
     <string name="automation_error_overlay_title">Erro de automação</string>
     <string name="automation_error_overlay_body">O SD Maid não pôde mostrar a sobreposição de automação. Verifique as permissões e tente reiniciar o seu dispositivo.</string>
     <string name="automation_error_scheduler_title">Falha na automatização agendada</string>

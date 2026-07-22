@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">預估 JPEG 檔案可節省 ~%d%%</string>
     <string name="squeezer_onboarding_got_it">瞭解了</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer 會重新壓縮您的相片和影片，讓它們佔用更少空間。檔案保持可用，只是變小了，每個檔案都會顯示其預估節省。</string>
+    <string name="tour_squeezer_intro_body">Squeezer 會重新壓縮您的相片和影片以節省空間。您用少量質素換取節省的空間。每個項目都會顯示預計節省量，您可決定是否值得進行。</string>
     <string name="tour_squeezer_compress_body">在此一次壓縮所有內容，或點選單一項目只壓縮該項目。長按以選擇多個。進行任何變更前，您始終會看到預覽。</string>
 </resources>

@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Engin merking</string>
     <string name="corpsefinder_markers_dialog_normal_description">Venjulegur afgangur. Almennt öruggt að fjarlægja — þær skrár tilheyra forritum sem eru ekki lengur uppsett.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder finnur gögn sem eftir eru eftir forrit sem þú hefur fjarlægt. Þaú tilheyra engu sem er til, svo það er öruggt að fjarlægja þaú og losnar um pláss.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder finnur gögn sem forrit sem þú hefur þegar fjarlægt skildu eftir. Þau tilheyra ekki lengur neinu uppsettu forriti, svo að fjarlægja þau losar um pláss. Flest þeirra eru óhættuleg að fjarlægja, en athugaðu merkimiðann ef þú ert óviss.</string>
     <string name="tour_corpsefinder_row_body">Hvert atriði sýnir afgangsgögn og forritið sem þaú komu frá. Merkingin sýnir hversu örugg SD Maid er um að hægt sé að fjarlægja þaú — þttu á ⓘ efst til að læra hvað merkingar þýða.</string>
 </resources>

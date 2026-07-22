@@ -38,6 +38,7 @@
     <string name="general_error_label">Hiba</string>
     <string name="general_upgrade_action">Frissítés</string>
     <string name="general_refresh_action">Frissítés</string>
+    <string name="general_retry_action">Újra</string>
     <string name="general_progress_searching">Keresés</string>
     <string name="general_progress_generating_searchpaths">Keresési útvonalak generálása</string>
     <string name="general_progress_filtering">Szűrés</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Név (A → Z)</string>
     <string name="general_sort_size_desc">Legnagyobb először</string>
     <string name="general_tag_system">Rendszer</string>
+    <string name="general_tag_library">Könyvtár</string>
     <string name="general_navigate_up_action">Felfelé navigálás</string>
     <string name="general_filter_action">Szűrő</string>
     <string name="general_filter_by_tags_label">Szűrés címkék szerint</string>
@@ -119,17 +121,12 @@
         <item quantity="other">%s elemek</item>
     </plurals>
     <plurals name="result_x_successful">
-        <item quantity="one">%d sikeres 
-
-%d sikeres</item>
-        <item quantity="other">%d sikeres
-%d sikeres</item>
+        <item quantity="one">%d sikeres \n\n%d sikeres</item>
+        <item quantity="other">%d sikeres\n%d sikeres</item>
     </plurals>
     <plurals name="result_x_failed">
-        <item quantity="one">%d hibás
-%d hibás</item>
-        <item quantity="other">%d hibás
-%d hibás</item>
+        <item quantity="one">%d hibás\n%d hibás</item>
+        <item quantity="other">%d hibás\n%d hibás</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="one">%s felszabadítható</item>
@@ -179,8 +176,8 @@
     <string name="general_error_report_bug_action">Hiba jelentése</string>
     <string name="general_error_ipc_deadobject_title">Szolgáltatás kapcsolat elveszett</string>
     <string name="general_error_ipc_deadobject_description">Egy kritikus szolgáltatáshoz (pl. Magisk, Shizuku vagy más rendszerszintű szolgáltatások) való kapcsolat váratlanul megszakadt. Kérjük, indítsa újra az eszközét. Ha a probléma továbbra is fennáll, ellenőrizze a frissítéseket, vagy lépjen kapcsolatba velem, hogy kijavíthassam.</string>
-    <string name="general_error_upgrade_required_title">Pro verzió szükséges</string>
-    <string name="general_error_upgrade_required_description">Ez egy Pro funkció. Kérjük, frissítse az SD Maid SE-t a használatához.</string>
+    <string name="general_error_upgrade_required_title">Frissítés szükséges</string>
+    <string name="general_error_upgrade_required_description">Ehhez a funkcióhoz frissítés szükséges. Kérjük, frissítsd az SD Maid SE-t a használatához.</string>
     <string name="general_user_label_owner">Tulajdonos</string>
     <string name="general_user_label_system">Rendszer</string>
     <string name="setup_title">Beállítás</string>

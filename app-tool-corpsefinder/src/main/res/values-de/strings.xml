@@ -58,8 +58,8 @@
     <string name="corpsefinder_risk_common_chip">Häufig</string>
     <string name="corpsefinder_markers_dialog_title">Über diese Markierungen</string>
     <string name="corpsefinder_markers_dialog_normal_label">Keine Markierung</string>
-    <string name="corpsefinder_markers_dialog_normal_description">Standardreste. Im Allgemeinen sicher zu entfernen – diese Dateien gehören zu Apps, die nicht mehr installiert sind.</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Standard-Überbleibsel. In der Regel gefahrlos zu entfernen – diese Dateien gehören zu Apps, die nicht mehr installiert sind.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder findet Daten, die von Apps hinterlassen wurden, die Sie bereits deinstalliert haben. Sie gehören nicht mehr zu etwas Installiertem, daher ist das Entfernen sicher und gibt Speicherplatz frei.</string>
-    <string name="tour_corpsefinder_row_body">Jedes Element sind Restdaten und die App, von der diese stammen. Der Marker zeigt, wie sicher SD Maid ist, dass das Löschen sicher ist — tippen Sie auf das ⓘ oben, um zu erfahren, was die Marker bedeuten.</string>
+    <string name="tour_corpsefinder_intro_body">Der Leichenfinder spürt Daten auf, die von bereits deinstallierten Apps zurückgelassen wurden. Sie gehören zu keiner installierten App mehr, sodass das Entfernen Speicherplatz freigibt. Das Meiste kann gefahrlos gelöscht werden – prüfe im Zweifel aber die Markierung.</string>
+    <string name="tour_corpsefinder_row_body">Jedes Element besteht aus verbliebenen Daten und der App, von der sie stammen. Die Markierung zeigt, wie sicher sich SD Maid ist, dass das Entfernen gefahrlos ist – tippe oben auf ⓘ, um mehr über die Bedeutung der Markierungen zu erfahren.</string>
 </resources>

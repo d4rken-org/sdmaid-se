@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Ingen markör</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standardrester. Generellt säkert att ta bort — dessa filer tillhör appar som inte längre är installerade.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder hittar data som lämnats kvar av appar du redan avinstallerat. Det tillhör inte längre något installerat, så att ta bort det är säkert och frigör utrymme.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder hittar data som lämnats kvar av appar du redan har avinstallerat. Det tillhör inte längre något installerat, så att ta bort det frigör utrymme. Det mesta är säkert att ta bort, men kontrollera markeringen när du är osäker.</string>
     <string name="tour_corpsefinder_row_body">Varje objekt är restdata och appen det kommer från. Markeringen visar hur säker SD Maid är på att det är säkert att ta bort — tryck på ⓘ överst för att lära dig vad markeringarna betyder.</string>
 </resources>

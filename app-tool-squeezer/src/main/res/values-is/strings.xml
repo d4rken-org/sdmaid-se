@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Um ~%d%% sparnaður fyrir JPEG skrár</string>
     <string name="squeezer_onboarding_got_it">Ég skil</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer þjappar myndum þínum og myndböndum svo þaú taki minni pláss. Skrárnar eru áfram nothæfar, bara minni, og hver ein sýnir áætlaðan sparnað.</string>
+    <string name="tour_squeezer_intro_body">Squeezer endurþjappar myndir og myndbönd þín svo þau taki minna pláss. Þú gefur eftir gæðum til að fá pláss til baka. Hver atriði sýnir áætlaðan sparnað, svo þú getur ákveðið hvað borgar sig.</string>
     <string name="tour_squeezer_compress_body">Þjappaðu allt í einu hér, eða þttu á einn hlut til að minnka bara hann. Haltu lengi niðri til að velja marga. Þú munt alltaf sjá forskoðun áður en eitthvað breytist.</string>
 </resources>

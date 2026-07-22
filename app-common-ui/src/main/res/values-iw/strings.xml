@@ -10,6 +10,7 @@
         <item quantity="other">נבחרו %d נתיבים</item>
     </plurals>
     <string name="picker_home_action">אזורי נתונים</string>
+    <string name="picker_select_hint">החזק פריט כדי לבחור אותו</string>
     <string name="tour_action_next">הבא</string>
     <string name="tour_action_previous">הקודם</string>
     <string name="tour_action_cancel">דלג</string>
@@ -18,6 +19,6 @@
     <string name="tour_confirm_continue">המשך בסיור</string>
     <string name="tour_confirm_dont_show_this_tour">אל תציג סיור זה</string>
     <string name="tour_confirm_disable_all">השבת את כל הסיורים</string>
-    <string name="navigation_unknown_destination_title">בקרוב</string>
-    <string name="navigation_unknown_destination_message">מסך זה עדיין בתהליך מעבר לממשק החדש.</string>
+    <string name="navigation_unknown_destination_title">מסך לא זמין</string>
+    <string name="navigation_unknown_destination_message">לא היה ניתן לפתוח את המסך הזה.</string>
 </resources>

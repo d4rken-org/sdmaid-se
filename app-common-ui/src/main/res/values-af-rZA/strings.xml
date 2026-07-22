@@ -8,6 +8,7 @@
         <item quantity="other">%d paaie gekies</item>
     </plurals>
     <string name="picker_home_action">Data-areas</string>
+    <string name="picker_select_hint">Hou \'n item ingedrukt om dit te kies</string>
     <string name="tour_action_next">Volgende</string>
     <string name="tour_action_previous">Vorige</string>
     <string name="tour_action_cancel">Slaan oor</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Gaan voort</string>
     <string name="tour_confirm_dont_show_this_tour">Wys hierdie rondleiding nie</string>
     <string name="tour_confirm_disable_all">Deaktiveer alle rondleidings</string>
-    <string name="navigation_unknown_destination_title">Kom binnekort</string>
-    <string name="navigation_unknown_destination_message">Hierdie skerm word nog na die nuwe UI migreer.</string>
+    <string name="navigation_unknown_destination_title">Skerm nie beskikbaar nie</string>
+    <string name="navigation_unknown_destination_message">Hierdie skerm kon nie oopgemaak word nie.</string>
 </resources>

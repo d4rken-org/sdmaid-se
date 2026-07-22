@@ -8,6 +8,7 @@
         <item quantity="other">%d ڕێگا هەڵبژێردراوە</item>
     </plurals>
     <string name="picker_home_action">بەشی دەرەنجام</string>
+    <string name="picker_select_hint">شتێک هەڵگرەوە بۆ هەڵبژاردن</string>
     <string name="tour_action_next">دواتر</string>
     <string name="tour_action_previous">پێشوو</string>
     <string name="tour_action_cancel">تێپەڕاندن</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">گەشت بەردەوام بکە</string>
     <string name="tour_confirm_dont_show_this_tour">ئەم گەشتە پیشان مەدە</string>
     <string name="tour_confirm_disable_all">هەموو گەشتەکان ناچالاک بکە</string>
-    <string name="navigation_unknown_destination_title">بە زوودی دێت</string>
-    <string name="navigation_unknown_destination_message">ئەم سەرگێڵە هێشتا بۆ روکاری نوێ گواستەوە دەکرێت.</string>
+    <string name="navigation_unknown_destination_title">شاشە بەردەست نیە</string>
+    <string name="navigation_unknown_destination_message">ئەم شاشەیە نەتوانێت بکرایەوە.</string>
 </resources>

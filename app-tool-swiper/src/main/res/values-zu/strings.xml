@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">Iskena i-%1$s kufaka yonke ifayili — izithombe, amadokiyumenti, izikhulumuzi, imidiya yeappi, kanye nokukunye. Qhubeka?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Qhubeka kepha</string>
     <string name="swiper_session_risky_label">Iskena lesitoreji lonke</string>
-    <string name="swiper_session_risky_info_message">Lesi seshini sihlose i-root yevolumu yesitoreji, ngakho yonke ifayili esitoreshing isisiki — izithombe, amadokiyumenti, izikhulumuzi, imidiya yeappi, nokukunye.
-
-Iskena lesitoreji lonke lingabuyisa izinto eziningi, kufaka ifayili oyingahlukahluki ukuthi awasifunayo. Sebenzisa isife sohlobo lwefayili ukunciphisa iskena.</string>
+    <string name="swiper_session_risky_info_message">Lesi seshini sihlose i-root yevolumu yesitoreji, ngakho yonke ifayili esitoreshing isisiki — izithombe, amadokiyumenti, izikhulumuzi, imidiya yeappi, nokukunye.\n\nIskena lesitoreji lonke lingabuyisa izinto eziningi, kufaka ifayili oyingahlukahluki ukuthi awasifunayo. Sebenzisa isife sohlobo lwefayili ukunciphisa iskena.</string>
     <string name="swiper_delete_x_action">Susa %1$d</string>
     <string name="swiper_settings_swap_directions_title">Shintsha izindlela zokuswayipha</string>
     <string name="swiper_settings_swap_directions_summary">Swayipha kwesokunxele ukugcina, kwesokudla ukususa.</string>
@@ -162,8 +160,8 @@ Iskena lesitoreji lonke lingabuyisa izinto eziningi, kufaka ifayili oyingahlukah
     <string name="swiper_session_no_matching_files">Awekho amafayela afanayo atholakalayo</string>
     <string name="swiper_open_externally_action">Vula kusoftware yangaphandle</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Susa ifoto ukuze unqume umgomo wayo: Ngakamoshla ugcine noma ususe, phezulu uskipha, ngezansi ubuyise. Izinkinobho ezingezansi zenza okufanayo — futhi zibonisa ukuthi iyofiniyantsi iyi-efe.</string>
-    <string name="tour_swiper_openin_body">Leli kinobho livula ifoto kuappi enye, okusizayo ukuyihlola ngaphambi koquinisela.</string>
+    <string name="tour_swiper_gestures_body">Swayela ifayili ukunquma isizathu sayo: ohlangothini ukugcina noma kususa, phezulu ukuskipa, phansi ukukhipha. Imikhompula engezansi yenzela okufanayo — futhi ikhombise izinhlangothi ezihlukene.</string>
+    <string name="tour_swiper_openin_body">Leli sikhompula sibuka ifayili kunye nenye inhluluzo, ibalulekile ukuze ubuke phambi kokuchaza.</string>
     <string name="tour_swiper_preview_body">Leli kinobho livula isithombe sokubona okusheshayo sesikrini esiphelele.</string>
     <string name="tour_swiper_actions_body">Awuthandi ukususa? Sineminini futhi! I-Skip iyashiya ngaphandle koquiniselo ngokulandelayo, futhi ukubamba i-Skip kususula ifayili ekuskeneni esikhathi esizayo. I-Undo ibuyisa ukukhetha kwakho okwedlula.</string>
     <string name="tour_swiper_review_body">Izinqumo zakho zokugcina nokususa ziphakamisiwe kuphela. Vula i-Review ukuze ubheke futhi usebenzise izokususa lapho usukulungele.</string>

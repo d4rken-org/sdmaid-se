@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Geen merker</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standaard oorblyfsel. Oor die algemeen veilig om te verwyder — hierdie lêers behoort aan apps wat nie meer geïnstalleer is nie.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder vind data wat agtergelaat is deur apps wat u reeds gedein stalleer het. Dit behoort nie meer tot iets wat geïnstalleer is nie, dus is dit veilig om dit te verwyder en gee dit spasie vry.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder vind data wat deur gedeïnstalleerde programme agtergelaat is. Dit behoort nie meer tot iets geïnstalleerds nie, dus word ruimte bevry wanneer jy dit verwyder. Meeste daarvan is veilig om te verwyder, maar kontroleer die merker as jy onseker is.</string>
     <string name="tour_corpsefinder_row_body">Elke item is oorblywende data en die app waar dit vandaan kom. Die merker toon hoe seker SD Maid is dat dit veilig is om te verwyder — tik die ⓘ bo-aan om te leer wat die merkers beteken.</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">ਖ਼ਾਮੀ</string>
     <string name="general_upgrade_action">ਅੱਪਗਰੇਡ</string>
     <string name="general_refresh_action">ਤਾਜ਼ਾ ਕਰੋ</string>
+    <string name="general_retry_action">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
     <string name="general_progress_searching">ਲੱਭ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_generating_searchpaths">ਖੋਜ ਮਾਰਗ ਬਣਾ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_filtering">ਪੁਣ-ਛਾਣ ਕਰ ਰਿਹਾ ਹੈ</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">ਨਾਮ (A → Z)</string>
     <string name="general_sort_size_desc">ਸਭ ਤੋਂ ਵੱਡੇ ਪਹਿਲਾਂ</string>
     <string name="general_tag_system">ਸਿਸਟਮ</string>
+    <string name="general_tag_library">ਲਾਇਬ੍ਰੇਰੀ</string>
     <string name="general_navigate_up_action">ਉੱਪਰ ਨੇਵੀਗੇਟ ਕਰੋ</string>
     <string name="general_filter_action">ਪੁਣ-ਛਾਣ ਕਰੋ</string>
     <string name="general_filter_by_tags_label">ਟੈਗਾਂ ਦੁਆਰਾ ਫਿਲਟਰ ਕਰੋ</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ</string>
     <string name="general_error_ipc_deadobject_title">ਸੇਵਾ ਸੰਪਰਕ ਗੁਆਚ ਗਿਆ</string>
     <string name="general_error_ipc_deadobject_description">ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਸੇਵਾ (ਜਿਵੇਂ ਕਿ Magisk, Shizuku, ਜਾਂ ਹੋਰ ਸਿਸਟਮ-ਪੱਧਰ ਦੀਆਂ ਸੇਵਾਵਾਂ) ਨਾਲ ਸੰਪਰਕ ਅਚਾਨਕ ਟੁੱਟ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਯੰਤਰ ਰੀਬੂਟ ਕਰੋ। ਜੇ ਸਮੱਸਿਆ ਜਾਰੀ ਰਹਿੰਦੀ ਹੈ, ਅਪਡੇਟ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
-    <string name="general_error_upgrade_required_title">Pro ਸੰਸਕਰਣ ਦੀ ਲੋੜ ਹੈ</string>
-    <string name="general_error_upgrade_required_description">ਇਹ ਇੱਕ Pro ਵਿਸ਼ੇਸ਼ਤਾ ਹੈ। ਇਸ ਨੂੰ ਵਰਤਣ ਲਈ ਕਿਰਪਾ ਕਰਕੇ SD Maid SE ਨੂੰ ਅਪਗ੍ਰੇਡ ਕਰੋ।</string>
+    <string name="general_error_upgrade_required_title">ਅਪਗ੍ਰੇਡ ਲਾਜ਼ਮੀ ਹੈ</string>
+    <string name="general_error_upgrade_required_description">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਲਈ ਅਪਗ੍ਰੇਡ ਲਾਜ਼ਮੀ ਹੈ। ਕਿਰਪਾ ਕਰ ਕੇ ਇਸ ਨੂੰ ਵਰਤਣ ਲਈ SD Maid SE ਨੂੰ ਅਪਗ੍ਰੇਡ ਕਰੋ।</string>
     <string name="general_user_label_owner">ਮਾਲਕ</string>
     <string name="general_user_label_system">ਸਿਸਟਮ</string>
     <string name="setup_title">ਸੈਟਅੱਪ</string>

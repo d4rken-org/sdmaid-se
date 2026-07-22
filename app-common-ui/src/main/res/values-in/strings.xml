@@ -7,6 +7,7 @@
         <item quantity="other">%d jalur dipilih</item>
     </plurals>
     <string name="picker_home_action">Area data</string>
+    <string name="picker_select_hint">Tahan item untuk memilihnya</string>
     <string name="tour_action_next">Berikutnya</string>
     <string name="tour_action_previous">Sebelumnya</string>
     <string name="tour_action_cancel">Lewati</string>
@@ -15,6 +16,6 @@
     <string name="tour_confirm_continue">Lanjutkan tur</string>
     <string name="tour_confirm_dont_show_this_tour">Jangan tampilkan tur ini</string>
     <string name="tour_confirm_disable_all">Matikan semua tur</string>
-    <string name="navigation_unknown_destination_title">Akan datang</string>
-    <string name="navigation_unknown_destination_message">Layar ini masih bermigrasi ke antarmuka baru.</string>
+    <string name="navigation_unknown_destination_title">Layar tidak tersedia</string>
+    <string name="navigation_unknown_destination_message">Layar ini tidak dapat dibuka.</string>
 </resources>

@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Získat SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Výhody upgradu</string>
-    <string name="upgrade_screen_benefits_body">• Vyčistěte mezipaměti aplikací a zbytečná data
-• Odstraňte duplicitní soubory
-• Povolte plánované čištění
-• Vytvořte vlastní filtry a pravidla čištění
-• Sledujte trendy úložiště a historii čištění
-• Více funkcí a ovládacích prvků v aplikaci
-• Podpora pokračujícího vývoje</string>
+    <string name="upgrade_screen_benefits_body">• Čištění mezipaměti aplikací a zbytečných souborů\n• Odebrání duplicitních souborů\n• Komprese fotek a videí\n• Potažením pro vyčištění starých souborů\n• Čištění jedním klepnutím přes widget\n• Plánování čištění\n• Vlastní filtry a pravidla\n• Trendy úložiště a historie\n• Více funkcí a ovládacích prvků v aplikaci\n• Podpora pokračování vývoje</string>
+    <string name="upgrade_screen_offers_title">Možnosti upgradu</string>
+    <string name="upgrade_screen_offers_body">Stejné funkce, jen s různými modely cen.</string>
+    <string name="upgrade_screen_offers_or">nebo</string>
     <string name="upgrade_screen_subscription_offer_title">Roční předplatné</string>
+    <string name="upgrade_screen_subscription_offer_body">Obnovuje se ročně po bezplatné zkušební verzi. Zrušit lze kdykoli v Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Obnovuje se ročně. Zrušit lze kdykoli v Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Koupit jednou</string>
-    <string name="upgrade_screen_offers_unavailable_message">Ceny nelze načíst právě teď. Zkontrolujte Google Play a zkuste to za chvíli.</string>
+    <string name="upgrade_screen_iap_offer_body">Jedna platba, bez obnovení.</string>
+    <string name="upgrade_screen_offers_unavailable_message">Ceny se momentálně nepodařilo načíst. Podívejte se na Google Play a zkuste to za chvíli znovu.</string>
     <string name="upgrade_screen_subscription_trial_action">Zahájit bezplatnou 14denní zkušební verzi</string>
     <string name="upgrade_screen_subscription_action">Předplatit</string>
     <string name="upgrade_screen_iap_action">Jednorázový nákup</string>
     <string name="upgrade_screen_thanks_toast">Jste nejlepší! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Obnovit nákup</string>
+    <string name="upgrade_screen_restore_banner_title">Již máte Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Zdá se, že jste na tomto zařízení již dříve zakoupili Pro. Obnovte nákup a znovu jej odemkněte.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synchronizace Obchodu Play může chvíli trvat. Zkuste restartovat, vymazat mezipaměť Google Play nebo prostě počkat.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Více účtů může zmást Google Play. Nainstalujte aplikaci přes webové stránky Google Play, což vynucuje asociace s konkrétním účtem.</string>
+    <string name="upgrade_screen_owned_hero_title">Gratulujeme!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Máte %1$s, odemčeno vaším předplatným.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Máte %1$s, odemčeno vaším jednorázovým nákupem.</string>
+    <string name="upgrade_screen_owned_iap_title">Jednorázový nákup</string>
+    <string name="upgrade_screen_owned_iap_body">Vlastníte jednorázový upgrade Pro. Pro zůstává odemknuto na tomto účtu Google. Děkujeme za podporu SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Vaše předplatné Pro je aktivní a nastaveno na obnovení. Fakturaci spravuje Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Raději jednorázový nákup? Bude dostupný, jakmile vaše předplatné již nebude nastaveno na obnovení. Zrušte předplatné v Google Play pro přepnutí.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Vaše předplatné Pro je aktivní, ale není nastaveno na obnovení. Pro zůstává dostupné až do konce aktuálního období.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Toto předplatné je stále nastaveno na obnovení, ačkoli již vlastníte jednorázový upgrade. Můžete jej zrušit v Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Spravovat předplatné</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Toto je samostatný nákup: nezrušuje ani nevrací vaše předplatné. Používejte pro obě možnosti stejný účet Google.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Předplatné je stále aktivní</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play hlásí, že je vaše předplatné stále nastaveno na obnovení. Chcete-li koupit jednorázový upgrade, zrušte nejdříve předplatné v Google Play a poté se vraťte sem.\n\nPrávě jste ho zrušili? Dejte Google Play chvíli a zkuste to znovu. Ujistěte se také, že používáte stejný účet Google.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Nepovedlo se ověřit stav vašeho předplatného pomocí Google Play. Zkuste to prosím za chvíli.</string>
+    <string name="upgrade_screen_restore_success_message">Nákup obnoven, váš upgrade Pro je aktivní.</string>
+    <string name="upgrade_screen_grace_title">Potvrzování vašeho nákupu</string>
+    <string name="upgrade_screen_grace_body_short">Pro je stále aktivní. Čekání na Google Play, aby znovu potvrdil váš nákup, všechny funkce Pro zůstávají odemčeny.</string>
+    <string name="upgrade_screen_grace_body">Pro je stále aktivní, ale Google Play po dlouhou dobu nepotvrdil váš nákup. Pokud jste si Pro koupili, obnovte nákup a ověřte, že Google Play používá účet, který jej koupil. Pokud předplatné skončilo nebo byl nákup vrácen, Pro se sám vypne, není třeba dělat nic jiného.</string>
+    <string name="upgrade_screen_restore_body">Obnovení požádá Google Play, aby znovu zkontroloval nákupy této aplikace pro aktuální účet. Nezačíná nový nákup.</string>
+    <string name="upgrade_screen_restore_status_title">Stav vypadá špatně?</string>
+    <string name="upgrade_screen_restore_status_body">Pokud nákup chybí nebo stav vypadá nesprávně, znovu jej ověřte pomocí Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontaktovat podporu</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid právě zkontroloval Google Play, ale nepodařilo se potvrdit žádný nákup Pro verze pro účet, který aplikace používá.</string>
+    <string name="upgrade_screen_restore_contact_hint">Stále máte problém? Kontaktujte podporu z e-mailu, který jste použili pro nákup, a uveďte číslo objednávky z Google Play.</string>
 </resources>

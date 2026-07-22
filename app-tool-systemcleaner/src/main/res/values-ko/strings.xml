@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">새로운 필터 가져오기</string>
     <string name="systemcleaner_customfilter_export_action">선택한 필터 내보내기</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner는 앱 비특정 필터를 사용하여 정크를 찾습니다. 빈 폴더, 남은 로그, 오래된 썸네일 등에 대한 기본 규칙이 있습니다. 자신만의 규칙을 만들고 싶다면 설정을 방문하세요.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner는 앱 특정이 아닌 필터를 사용하여 불필요한 파일을 찾습니다. 빈 폴더, 남겨진 로그 및 오래된 썸네일과 같은 항목에 대한 기본 규칙이 있습니다. 직접 만들려면 설정을 방문하세요.</string>
     <string name="tour_systemcleaner_filter_body">각 행은 필터와 발견된 항목입니다. 삭제하기 전에 세부사항을 열어 정확히 어느 파일이 일치하는지 확인하세요.</string>
 </resources>

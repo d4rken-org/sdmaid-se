@@ -8,6 +8,7 @@
         <item quantity="other">%d jol tańlandı</item>
     </plurals>
     <string name="picker_home_action">Ma\'lumot sahalar</string>
+    <string name="picker_select_hint">Jetín qábatny tastandıruw ushín tutíp turiń.</string>
     <string name="tour_action_next">Keyingi</string>
     <string name="tour_action_previous">Aldıńǵı</string>
     <string name="tour_action_cancel">Ótkerip jiber</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Sayaxattı dawam etiw</string>
     <string name="tour_confirm_dont_show_this_tour">Bul sayaxattı kórsetpew</string>
     <string name="tour_confirm_disable_all">Barlıq sayaxatlardı óshiriw</string>
-    <string name="navigation_unknown_destination_title">Tezde</string>
-    <string name="navigation_unknown_destination_message">Bul ekran áli jańa interfeyske kóshirilip atır.</string>
+    <string name="navigation_unknown_destination_title">Ekran jetimsiz</string>
+    <string name="navigation_unknown_destination_message">Bul ekranni ashílíp bilmedi.</string>
 </resources>

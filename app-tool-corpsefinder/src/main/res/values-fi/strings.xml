@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Ei merkkiä</string>
     <string name="corpsefinder_markers_dialog_normal_description">Tavallinen jäänne. Yleensä turvallista poistaa — nämä tiedostot kuuluvat sovelluksille, joita ei ole enää asennettuna.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder löytää tiedot, jotka jäivät jäljelle sovelluksista, jotka olet jo poistanut. Koska ne eivät kuulu enää yhdellekään asennetulle sovellukselle, niiden poistaminen on turvallista ja vapauttaa tilaa.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder löytää tietoja, jotka jäivät jäljelle jo poistamistasi sovelluksista. Nämä tiedot eivät enää kuulu mihinkään asennetulle sovellukselle, joten niiden poistaminen vapauttaa tilaa. Suurin osa niistä on turvallista poistaa, mutta tarkista merkintä, jos olet epävarma.</string>
     <string name="tour_corpsefinder_row_body">Jokainen kohde on jäljelle jäänyttä dataa ja sovellus, josta se tuli. Merkki näyttää, kuinka varma SD Maid on siitä, että sen poistaminen on turvallista — napauta ⓘ yläosassa saadaksesi lisätietoa merkkien merkityksestä.</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">錯誤</string>
     <string name="general_upgrade_action">升級</string>
     <string name="general_refresh_action">重新整理</string>
+    <string name="general_retry_action">重試</string>
     <string name="general_progress_searching">正在搜尋</string>
     <string name="general_progress_generating_searchpaths">正在產生搜尋路徑</string>
     <string name="general_progress_filtering">正在過濾</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">名稱（A → Z）</string>
     <string name="general_sort_size_desc">最大優先</string>
     <string name="general_tag_system">系統</string>
+    <string name="general_tag_library">程式庫</string>
     <string name="general_navigate_up_action">向上導覽</string>
     <string name="general_filter_action">過濾器</string>
     <string name="general_filter_by_tags_label">依標籤過濾</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">報告錯誤</string>
     <string name="general_error_ipc_deadobject_title">服務連線中斷</string>
     <string name="general_error_ipc_deadobject_description">與重要服務（例如 Magisk、Shizuku 或其他系統級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續存在，請檢查更新或聯絡我以便修復。</string>
-    <string name="general_error_upgrade_required_title">需要專業版</string>
-    <string name="general_error_upgrade_required_description">這是專業版功能。請升級 SD Maid SE 以使用此功能。</string>
+    <string name="general_error_upgrade_required_title">需要升級</string>
+    <string name="general_error_upgrade_required_description">此功能需要升級。請升級 SD Maid SE 以使用此功能。</string>
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>

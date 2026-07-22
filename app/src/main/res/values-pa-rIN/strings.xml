@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ਮੁਕਤ ਕੀਤਾ ਗਿਆ</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ਹਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ</string>
     <string name="dashboard_hero_freed_x_items">%1$s ਹਟਾਇਆ ਗਿਆ</string>
-    <string name="dashboard_hero_freeable_hint">ਸਥਾਨ ਮੁਕਤ ਕਰਨ ਲਈ ਬਟਨ ਨੂੰ ਦਬਾਓ। ਪਹਿਲਾਂ ਜਾਂਚ ਕਰਨ ਲਈ ਚਿਪ ਨੂੰ ਦਬਾਓ।</string>
+    <string name="dashboard_hero_freeable_hint">ਸਪੇਸ ਖਾਲੀ ਕਰਨ ਲਈ ਬਟਨ \'ਤੇ ਟੈਪ ਕਰੋ, ਜਾਂ ਪਹਿਲਾਂ ਚੈਕ ਕਰਨ ਲਈ ਚਿਪ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="dashboard_hero_freed_hint">ਵਿਸਥਾਰ ਲਈ ਚਿਪ ਨੂੰ ਦਬਾਓ।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ਸਕੈਨ ਕੀਤਾ ਗਿਆ</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ਅਗਲਾ ਮੇਲ</string>
     <string name="debug_logview_jump_to_bottom_action">ਸਭ ਤੋਂ ਹਾਲੀਆ ਤਕ ਜਾਓ</string>
     <string name="debug_logview_paused_msg">ਰੋਕਿਆ ਗਿਆ — ਬਫਰ ਫ੍ਰੀਜ਼ ਹੋ ਗਿਆ</string>
-    <string name="debug_logview_paused_dropped_msg">ਰੋਕਿਆ ਗਿਆ — %1$d ਨਵੀਆਂ ਲਾਈਨ(ਾਂ) ਛੱਡੀਆਂ ਗਈਆਂ</string>
+    <string name="debug_logview_paused_dropped_msg">ਮੁਲਤਵੀ — ਨਵੀਆਂ ਲਾਈਨਾਂ ਛੱਡੀਆਂ ਗਈਆਂ: %1$d</string>
     <string name="debug_logview_copied_msg">ਲਾਗ ਕਲਿੱਪਬੋਰਡ ਤੇ ਕਾਪੀ ਕੀਤਾ ਗਿਆ</string>
     <string name="debug_logview_share_label">ਲਾਗ ਸ਼ੇਅਰ ਕਰੋ</string>
     <string name="debug_debuglog_screen_title">ਡੀਬੱਗ ਲੌਗ</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
     <string name="settings_privacy_policy_desc">ਡੇਟਾ ਨੂੰ ਜ਼ਿੰਮੇਵਾਰੀ ਨਾਲ ਸੰਭਾਲ ਰਿਹਾ ਹੈ।</string>
     <string name="settings_category_other_label">ਹੋਰ</string>
+    <string name="settings_upgrade_description">ਸਥਿਤੀ ਅਤੇ ਵਿਕਲਪ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।</string>
     <string name="general_settings_label">ਆਮ</string>
     <string name="general_settings_desc">ਆਮ ਟਵੀਕਸ ਜੋ ਪੂਰੀ ਐਪ ਨੂੰ ਪ੍ਰਭਾਵਿਤ ਕਰਦੇ ਹਨ।</string>
     <string name="settings_category_ui_label">ਵਰਤੋਂਕਾਰ ਇੰਟਰਫੇਸ</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">ਸਟੋਰੇਜ ਵਰਤੋਂ ਅਤੇ ਇੱਕ-ਟੈਪ ਸਫ਼ਾਈ</string>
     <string name="widget_home_storage_internal">ਅੰਦਰੂਨੀ</string>
     <string name="widget_home_storage_external">ਬਾਹਰੀ</string>
-    <string name="widget_home_freed_label">ਮੁਕਤ: %1$s</string>
+    <string name="widget_home_freed_label">ਜੀਵਨ ਭਰ: %1$s</string>
     <string name="widget_home_clean_action">ਸਾਫ਼ ਕਰੋ</string>
     <string name="widget_home_working">ਕਾਰਜ ਜਾਰੀ…</string>
     <string name="widget_home_unavailable">ਸਟੋਰੇਜ ਉਪਲਬਧ ਨਹੀਂ</string>
-    <string name="shortcut_onetap_started">ਸਕੈਨ &amp; ਮਿਟਾਉਣਾ ਸ਼ੁਰੂ ਹੋਇਆ…</string>
+    <string name="settings_category_widget">ਵਿਜੇਟ</string>
+    <string name="widget_settings_oneclick_summary">ਹੋਮ ਸਕ੍ਰੀਨ ਵਿਜੇਟ ਦੇ ਕਲੀਨ ਬਟਨ ਨੂੰ ਇੱਕ ਟੈਪ ਵਿੱਚ ਸਕੈਨ ਅਤੇ ਮਿਟਾਉਣ ਦਿਓ, ਹਰ ਵਾਰ ਪੁੱਛੇ ਬਿਨਾਂ।</string>
+    <string name="widget_oneclick_consent_title">ਇੱਕ-ਟੈਪ ਸਫਾਈ ਨੂੰ ਸਮਰੱਥ ਕਰੋ?</string>
+    <string name="widget_oneclick_consent_message">ਵਿਜੇਟ ਦਾ ਕਲੀਨ ਬਟਨ ਇੱਕ ਬਾਰ ਵਿੱਚ ਸਕੈਨ ਅਤੇ ਮਿਟਾਵੇਗਾ, ਪਹਿਲਾਂ ਪੁੱਛੇ ਬਿਨਾਂ ਜਾਂ ਤੁਹਾਨੂੰ ਹਟਾਉਣ ਦਾ ਮੁਲਾਂਕਣ ਕਰਨ ਦਿਓ।</string>
+    <string name="widget_oneclick_consent_enable_action">ਸਮਰੱਥ ਕਰੋ</string>
+    <string name="widget_oneclick_consent_decline_action">ਹਾਲੇ ਨਹੀਂ</string>
+    <string name="shortcut_onetap_started">ਸਕੈਨ + ਡਿਲੀਟ ਸ਼ੁਰੂ ਹੋਇਆ…</string>
     <string name="shortcut_onetap_nothing_enabled">ਕੋਈ ਇੱਕ-ਟੈਪ ਸਾਧਨ ਸਮਰਥ ਨਹੀਂ</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ਬੈਕਅਪ &amp; ਬਹਾਲੀ</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ਇਹ ਬੈਕਅੱਪ Android %1$s ਤੇ ਬਣਾਇਆ ਗਿਆ ਸੀ, ਪਰ ਇਹ ਡਿਵਾਇਸ Android %2$s ਚਲਾਉਂਦਾ ਹੈ।</string>
     <string name="backup_restore_warn_device_body">ਇਹ ਬੈਕਅੱਪ ਇੱਕ ਵੱਖਰੀ ਡਿਵਾਇਸ ਤੇ ਬਣਾਇਆ ਗਿਆ ਸੀ (%1$s ਬਨਾਮ %2$s)।</string>
     <string name="backup_restore_warn_flavor_body">ਇਹ ਬੈਕਅੱਪ ਇੱਕ ਵੱਖਰੀ ਐਪ ਸੰਸਕਰਣ ਤੋਂ ਹੈ (%1$s ਬਨਾਮ %2$s)।</string>
-    <string name="backup_restore_warn_history_body">ਇਸ ਬੈਕਅੱਪ ਦਾ ਇਤਿਹਾਸ ਡੇਟਾ (ਅੰਕੜੇ, ਸੰਕੁਚਨ ਇਤਿਹਾਸ, ਸਵਾਈਪ ਸੈਸ਼ਨ) ਇੱਕ ਵੱਖਰੀ ਐਪ ਵਰਜ਼ਨ ਤੋਂ ਹੈ ਅਤੇ ਬਹਾਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਬਾਕੀ ਸਭ ਕੁਝ ਬਹਾਲ ਹੋਵੇਗਾ।</string>
+    <string name="backup_restore_warn_history_body">ਇਸ ਬੈਕਅੱਪ ਦਾ ਇਤਿਹਾਸ ਡੇਟਾ (ਅੰਕੜੇ, ਸੰਕੁਚਨ ਇਤਿਹਾਸ, ਸਵਾਈਪ ਸੈਸ਼ਨ) ਇੱਕ ਵੱਖਰੇ ਐਪ ਸੰਸਕਰਣ ਤੋਂ ਹੈ ਅਤੇ ਬਹਾਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਬਾਕੀ ਸਭ ਕੁਝ ਬਹਾਲ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
     <string name="backup_restore_ack_understand">ਮੈਂ ਸਮਝਦਾ ਹਾਂ ਅਤੇ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦਾ ਹਾਂ</string>
     <string name="backup_restore_action_restore">ਬਹਾਲ ਕਰੋ</string>
 </resources>

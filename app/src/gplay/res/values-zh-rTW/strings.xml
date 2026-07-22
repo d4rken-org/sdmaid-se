@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">取得 SD 女僕 SE 專業版</string>
     <string name="upgrade_screen_preamble">SD 女僕沒有廣告，也不會出售使用者資料。我的工作由你們資助❤️。</string>
     <string name="upgrade_screen_benefits_title">升級優點</string>
-    <string name="upgrade_screen_benefits_body">• 清理應用程式快取和可清除的資料
-• 移除重複的檔案
-• 啟用排定的清理
-• 建立自訂篩選和清理規則
-• 追蹤儲存空間趨勢和清理歷史記錄
-• 應用程式各處提供更多功能和控制選項
-• 支持持續開發</string>
+    <string name="upgrade_screen_benefits_body">• 應用程式快取和垃圾清理\n• 重複檔案移除\n• 照片和影片壓縮\n• 滑動清除舊檔案\n• 透過小工具一鍵清理\n• 清理排程\n• 自訂篩選器和規則\n• 儲存空間趨勢和歷史\n• 應用程式各處的更多功能和控制項\n• 支援持續開發</string>
+    <string name="upgrade_screen_offers_title">升級選項</string>
+    <string name="upgrade_screen_offers_body">功能相同，只是定價模式不同。</string>
+    <string name="upgrade_screen_offers_or">或</string>
     <string name="upgrade_screen_subscription_offer_title">年度訂閱</string>
+    <string name="upgrade_screen_subscription_offer_body">免費試用後每年續訂。可隨時在 Google Play 中取消。</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">每年續訂。可隨時在 Google Play 中取消。</string>
     <string name="upgrade_screen_iap_offer_title">購買一次</string>
+    <string name="upgrade_screen_iap_offer_body">一次性付款，無需續訂。</string>
     <string name="upgrade_screen_offers_unavailable_message">目前無法載入價格。請檢查 Google Play，稍後再試。</string>
     <string name="upgrade_screen_subscription_trial_action">開始 14 天免費試用</string>
     <string name="upgrade_screen_subscription_action">訂閱</string>
     <string name="upgrade_screen_iap_action">一次購買</string>
     <string name="upgrade_screen_thanks_toast">您是最棒的！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">還原購買</string>
+    <string name="upgrade_screen_restore_banner_title">已購買 Pro？</string>
+    <string name="upgrade_screen_restore_banner_body">看起來您之前在此裝置上已升級至 Pro。恢復購買以再次解鎖。</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步處理可能需要一些時間。請嘗試重新開機、清除 Google Play 快取或只需等候。</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">多個帳戶可能會混淆 Google Play。請透過 Google Play 網站安裝應用程式，這會強制與特定帳戶相關聯。</string>
+    <string name="upgrade_screen_owned_hero_title">恭喜！</string>
+    <string name="upgrade_screen_owned_hero_sub_body">您有 %1$s，由您的訂閱解鎖。</string>
+    <string name="upgrade_screen_owned_hero_iap_body">您有 %1$s，由您的一次性購買解鎖。</string>
+    <string name="upgrade_screen_owned_iap_title">一次性購買</string>
+    <string name="upgrade_screen_owned_iap_body">您擁有一次性 Pro 升級。Pro 將在此 Google 帳戶上保持解鎖。感謝您支持 SD Maid ❤️。</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">您的 Pro 訂閱目前生效中，並設定為續約。帳單由 Google Play 管理。</string>
+    <string name="upgrade_screen_owned_iap_locked_note">偏好一次性購買？一旦您的訂閱不再設定為續約，它就會變為可用。在 Google Play 中取消訂閱以切換。</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">您的 Pro 訂閱目前生效中，但未設定為續約。Pro 將保持可用，直到目前週期結束。</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">這個訂閱仍設定為自動續約，但您已購買一次性升級。您可以在 Google Play 中取消訂閱。</string>
+    <string name="upgrade_screen_manage_subscription_action">管理訂閱</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">這是單獨的購買：不會取消或退款您的訂閱。請使用相同的 Google 帳戶進行兩次購買。</string>
+    <string name="upgrade_screen_sub_still_renewing_title">訂閱仍作用中</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play 報告您的訂閱仍設定為自動續約。若要購買一次性升級，請先在 Google Play 中取消訂閱，然後回到此處。\n\n剛取消？請給 Google Play 一些時間，然後再試一次。同時確保您使用的是相同的 Google 帳戶。</string>
+    <string name="upgrade_screen_sub_check_failed_message">無法透過 Google Play 檢查您的訂閱狀態。請稍後再試。</string>
+    <string name="upgrade_screen_restore_success_message">購買已復原，您的 Pro 升級已作用中。</string>
+    <string name="upgrade_screen_grace_title">正在確認您的購買</string>
+    <string name="upgrade_screen_grace_body_short">Pro 仍作用中。等待 Google Play 重新確認您的購買，在此期間所有 Pro 功能保持解鎖。</string>
+    <string name="upgrade_screen_grace_body">Pro 仍作用中，但 Google Play 有一段時間未確認您的購買。如果您購買了 Pro，請復原購買並確認 Google Play 使用的是購買帳戶。如果訂閱已結束或購買已退款，Pro 將自動關閉，無需進行任何操作。</string>
+    <string name="upgrade_screen_restore_body">恢復會要求 Google Play 重新檢查目前帳號的此應用程式購買項目。這不會啟動新購買。</string>
+    <string name="upgrade_screen_restore_status_title">狀態看起來不對嗎？</string>
+    <string name="upgrade_screen_restore_status_body">如果購買項目遺失或狀態看起來不正確，請透過 Google Play 重新檢查。</string>
+    <string name="upgrade_screen_contact_support_action">聯絡支援</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid 剛剛檢查了 Google Play，但無法為此應用程式所使用的 Google Play 帳號確認 Pro 購買項目。</string>
+    <string name="upgrade_screen_restore_contact_hint">仍然有問題？請透過進行購買的電子郵件聯絡支援，並附上您的 Google Play 訂單編號。</string>
 </resources>

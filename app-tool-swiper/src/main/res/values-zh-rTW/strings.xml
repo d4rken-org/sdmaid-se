@@ -40,9 +40,7 @@
     <string name="swiper_sensitive_root_warning_message">掃描 %1$s 包含此儲存空間上的每個檔案 — 照片、文件、下載、應用程式媒體等等。繼續？</string>
     <string name="swiper_sensitive_root_warning_continue_action">繼續進行</string>
     <string name="swiper_session_risky_label">完整儲存空間掃描</string>
-    <string name="swiper_session_risky_info_message">此工作階段的目標是儲存空間的根目錄，因此該儲存空間上的所有檔案都在範圍內 — 照片、文件、下載、應用程式媒體等等。
-
-完整儲存空間掃描可能會傳回許多項目，包括您可能不打算檢查的檔案。套用檔案類型篩選器來縮小掃描範圍。</string>
+    <string name="swiper_session_risky_info_message">此工作階段的目標是儲存空間的根目錄，因此該儲存空間上的所有檔案都在範圍內 — 照片、文件、下載、應用程式媒體等等。\n\n完整儲存空間掃描可能會傳回許多項目，包括您可能不打算檢查的檔案。套用檔案類型篩選器來縮小掃描範圍。</string>
     <string name="swiper_delete_x_action">刪除 %1$d</string>
     <string name="swiper_settings_swap_directions_title">交換滑動方向</string>
     <string name="swiper_settings_swap_directions_summary">向左滑動保留，向右滑動刪除。</string>
@@ -145,8 +143,8 @@
     <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
     <string name="swiper_open_externally_action">在外部應用程式中開啟</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">滑動照片以決定其命運：向側邊滑動保留或刪除，向上滑動略過，向下滑動復原。下方按鈕的作用相同 — 並顯示哪一側是哪個。</string>
-    <string name="tour_swiper_openin_body">此按鈕在另一個應用程式中開啟照片，便於在做決定前檢查。</string>
+    <string name="tour_swiper_gestures_body">滑動檔案以決定其命運：向側邊滑動以保留或刪除、向上滑動以跳過、向下滑動以復原。下方的按鈕作用相同，並顯示每一側的用途。</string>
+    <string name="tour_swiper_openin_body">此按鈕可在另一個應用程式中開啟檔案，方便您在決定前進行檢查。</string>
     <string name="tour_swiper_preview_body">此按鈕開啟全螢幕預覽以仔細查看。</string>
     <string name="tour_swiper_actions_body">不喜歡滑動？我們也有按鈕！「略過」會讓您稍後再決定，長按「略過」會將檔案排除在未來掃描之外。「復原」會恢復您上一個選擇。</string>
     <string name="tour_swiper_review_body">您的保留和刪除選擇只是暫時儲存的。開啟審查頁面來檢視它們，並在您準備好時應用刪除操作。</string>

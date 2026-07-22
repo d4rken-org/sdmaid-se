@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Istimadu ~%d%% de risparmiu pro ficheros JPEG</string>
     <string name="squeezer_onboarding_got_it">Apat cumprèndiu</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer ri-cumprimis tue fotos e vídeos ita-nde occupant menzus spatiu. Is ficheros restand ùtiles, mancu majores, e cadaunu mostra su risparmiu istimadu.</string>
+    <string name="tour_squeezer_intro_body">Squeezer ricomprime tue fotus e bideos pro che prendan pocu logu. Cambias un pagu de qualidade pro s\'espaziu chi ti torrat. Cada elementu mostrat s\'economia estimada, pro che ti podes decider cos\'est meritzevu.</string>
     <string name="tour_squeezer_compress_body">Cumprimi totu a una volta chì, o tunga un ìtemu singulu pro diminuiri desso. Premi a longa pro ischeddiri prus. Semper vides una anteprima prima chi mudes calche cosa.</string>
 </resources>

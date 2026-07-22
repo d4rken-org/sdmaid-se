@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD Maid SE Pro ያግኙ</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
     <string name="upgrade_screen_benefits_title">የአሻሪ ጥቅማጥቅሞች</string>
-    <string name="upgrade_screen_benefits_body">• የመተግበሪያ ቅሪተ አዋጅ እና ሊወገድ የሚችል ውሂብ ንጹህ ያድርጉ
-• ተመሳሳይ ፋይሎች ያስወግዱ
-• የታቀዱ ንጹህ ሥራዎች ያንቁ
-• ብጁ ማጣሪያ እና የንጹህ ሥራ ህጎች ይፍጠሩ
-• የማከማቻ አዝማሚያ እና የንጹህ ሥራ ታሪክ ይከታተሉ
-• በመተግበሪያው ላይ ተጨማሪ ባህሪዎች እና ቁጥጥር
-• ቀጣይ ልማት ድጋፍ</string>
+    <string name="upgrade_screen_benefits_body">• አፓ ምግብ እና ቆሻሻ ውጣር\n• ድርብ ፋይል ማስወገድ\n• ፎቶ እና ቪዲዮ ምግብ\n• ወግ-ሰርቅ ጥንታዊ ፋይሎች\n• አንድ-መታ ውጣር ዊጄት ቁልፍ\n• ውጣር መርሐግብር\n• ሙሉ ሦስት እና ህግ\n• ክምችት አተገባበር እና ታሪክ\n• ብዙ ባህሪ እና ቁጥጥር በሙሉ አፓ ውስጥ\n• ቀጥሎ ጥራት ድጋፍ</string>
+    <string name="upgrade_screen_offers_title">ማሻሻል አማራጮች</string>
+    <string name="upgrade_screen_offers_body">ተመሳሳይ ባህሪያት፣ ነገር ግን የተለያዩ የዋጋ ሞዴሎች።</string>
+    <string name="upgrade_screen_offers_or">ወይም</string>
     <string name="upgrade_screen_subscription_offer_title">ዓመታዊ ምዝገባ</string>
+    <string name="upgrade_screen_subscription_offer_body">ከነጻ ሙከራ በኋላ በዓመት ይታደሳል። በGoogle Play ማንኛውም ጊዜ ይሰርዙ።</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">በዓመት ይታደሳል። በGoogle Play ማንኛውም ጊዜ ይሰርዙ።</string>
     <string name="upgrade_screen_iap_offer_title">አንድ ጊዜ ይገዙ</string>
+    <string name="upgrade_screen_iap_offer_body">አንድ ጊዜ ክፍያ፣ ምንም ታደስ የለም።</string>
     <string name="upgrade_screen_offers_unavailable_message">ዋጋዎች አሁን ሊጫኑ አልቻሉም። Google Play ይመልከቱ እና ከአጭር ጊዜ በኋላ እንደገና ሞክሩ።</string>
     <string name="upgrade_screen_subscription_trial_action">ነፃ የ14 ቀን ሙከራ ይጀምሩ</string>
     <string name="upgrade_screen_subscription_action">ይመዝገቡ</string>
     <string name="upgrade_screen_iap_action">አንድ ጊዜ ግዢ</string>
     <string name="upgrade_screen_thanks_toast">እርስዎ ምርጥ ነዎት! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">ግዢን ወደነበረበት መልስ</string>
+    <string name="upgrade_screen_restore_banner_title">ቀድሞ Pro ገዝተዋል?</string>
+    <string name="upgrade_screen_restore_banner_body">በዚህ መሳሪያ ላይ ቀድሞ ወደ Pro ተሸጋገሩ ይመስላል። Pro ን እንደገና ለመክፈት ግዢዎን ወደነበረበት ይመልሱ።</string>
     <string name="upgrade_screen_restore_sync_patience_hint">የPlay Store ሲምሪዝሽን ጊዜ ሊወስድ ይችላል። እንደገና ማስጀመር፣ የGoogle Play መሸጎጫ ማጥራት ወይም ብቻ መጠበቅ ይሞክሩ።</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ብዙ መለያዎች Google Play ማምታታት ይችላሉ። በGoogle Play ድርጣቢያ በኩል ይጫኑ፣ ይህም ከተወሰነ መለያ ጋር ግንኙነቶችን ያስገድዳል።</string>
+    <string name="upgrade_screen_owned_hero_title">ወደረበትን!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">%1$s አለዎት፣ በመደበኛ ደግፍ ተከፍቷል።</string>
+    <string name="upgrade_screen_owned_hero_iap_body">%1$s አለዎት፣ በአንድ ጊዜ ግዢ ተከፍቷል።</string>
+    <string name="upgrade_screen_owned_iap_title">አንድ ጊዜ ግዢ</string>
+    <string name="upgrade_screen_owned_iap_body">አንድ ጊዜ Pro ስሪት ያለዎ። Pro በዚህ Google መለያ ላይ ተከፍቷል ሆኖ ይቆያል። SD Maid ደግፍ ስለሰጡ አመሰግናለሁ ❤️።</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">የPro ደግፍዎ ንቁ ነው እና ታደስ እንዲሆን ተቀናብሯል። ክፍያ በGoogle Play ይወራራል።</string>
+    <string name="upgrade_screen_owned_iap_locked_note">አንድ ጊዜ ግዢን ይመርጡ? ደንበኝነትዎ ወደ ገና ሲቆም ይገኛል። ለመቀየር Google Play ውስጥ ደንበኝነትን ይሰርዙ።</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">የፕሮ ደንበኝነትዎ ንቁ ነው ነገር ግን ወደ ገና ተዘጋጅ አይደለም። ፕሮ አሁን ወር እስካልተወደሰ ድረስ ይገኛል።</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">ይህ ደንበኝነት ወደ ገና ተዘጋጅቷል ምንም እንኳ አንድ ጊዜ ማሳሻ ሊይዥዎ ቢሆንም። በGoogle Play ውስጥ ሊሰርዙት ይችላሉ።</string>
+    <string name="upgrade_screen_manage_subscription_action">ደንበኝነትን ቆጣጣር</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">ይህ ተለያይተ ግዢ ነው: ደንበኝነትዎን አትሰርዘውም ወይም አትመልስም። ለሁለቱ ተመሳሳይ Google ሂሳብ ተጠቀሙ።</string>
+    <string name="upgrade_screen_sub_still_renewing_title">ደንበኝነት ገና ንቁ ነው</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play ደንበኝነትዎ ወደ ገና ታዛዥ እንደሆነ ሪፖርት ሰጠ። አንድ ጊዜ ማሳሻ ለመገዛት በGoogle Play ውስጥ ደንበኝነትን አሁን ሰርዝ ከዚያ ወደ ሃሳብ ተመለስ።\n\nአሁን ጠርጠርሃል? Google Play ለአንድ ጊዜ ስጥ እና እንደገና ሞክር። ተመሳሳይ Google ሂሳብ እየተጠቀምክ ነው ያረጋግጥ።</string>
+    <string name="upgrade_screen_sub_check_failed_message">Google Play ደንበኝነት ሁኔታ ሪምር አልቻለም። እባክህ ከአሁን በሪ ጊዜ ሞክር።</string>
+    <string name="upgrade_screen_restore_success_message">ግዢ ተመልስ፣ የፕሮ ማሳሻ ንቁ ነው።</string>
+    <string name="upgrade_screen_grace_title">ግዢ ከሚያረጋገጥ</string>
+    <string name="upgrade_screen_grace_body_short">ፕሮ ገና ንቁ ነው። ግዢህን ለመክተር Google Play ን ጠብቅ፣ ሁሉም ፕሮ ባህሪ በጊዜው ይታጠቁ ይቀራሉ።</string>
+    <string name="upgrade_screen_grace_body">ፕሮ ገና ንቁ ነው ነገር ግን Google Play ግዢህን ለብዙ ጊዜ አልገለጋወም። ፕሮ ከገዙ ግዢውን ተመለስ እና Google Play ሳጠወቀ ሂሳብ ይጠቀማል ያረጋግጥ። ደንበኝነት ወደ ማብቂያ ወይም ግዢ ወደ ተመለሰ ከሆነ ፕሮ በራሱ ይዘጋል፣ ሌላ ምንም አልፈልጋ።</string>
+    <string name="upgrade_screen_restore_body">Google Play ቋሚ ሂሳብ ዘንድ ሚስ ግዢ ለመመርመር ይጠይቃል። አዲስ ግዢ አይጀምርም።</string>
+    <string name="upgrade_screen_restore_status_title">ሁኔታ ተሳሳተ ይመስላል?</string>
+    <string name="upgrade_screen_restore_status_body">ይህ ክንውን ጠፍቶ ከሆነ ወይም ይህ ሁኔታ ትክክል ካልመስ Google Play ጋር ድጋሞ ያረጋግጡ።</string>
+    <string name="upgrade_screen_contact_support_action">ድጋፍ ያነጋግሩ</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid ከ Google Play ጋር ወደቅ ሞክሯል ነገር ግን ምንም Pro ክንውን ለዚህ ትግበራ ከሚጠቀምበት Google Play ሂሳብ ማረጋገጥ አልቻለ።</string>
+    <string name="upgrade_screen_restore_contact_hint">ገና ችግር ውስጥ ናት? ይህን ክንውን ከሞከርካ ኢሜይል አድራሻ በ ድጋፍ ያነጋግሩ እና Google Play ትዕዛዝ ቁጥር አካትት።</string>
 </resources>

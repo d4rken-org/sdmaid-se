@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Få SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid har ingen reklamer og sælger ikke brugerdata. Mit arbejde er finansieret af jer ❤️</string>
     <string name="upgrade_screen_benefits_title">Opgraderingsfordele</string>
-    <string name="upgrade_screen_benefits_body">• Rens app-cache og unødvendig data
-• Fjern duplikerede filer
-• Aktivér planlagte oprydninger
-• Opret brugerdefinerede filtre og oprydningsregler
-• Spor lagringstrends og oprydningshistorik
-• Flere funktioner og kontroller i hele appen
-• Støt videre udvikling</string>
+    <string name="upgrade_screen_benefits_body">• App-cache og uønsket filrensning\n• Dublettfjerning\n• Foto- og videokomprimering\n• Stryg-og-rydning af gamle filer\n• Rensning med ét tryk via widget\n• Planlagt rensning\n• Brugerdefinerede filtre og regler\n• Lagertrends og historik\n• Flere funktioner og kontroller i hele appen\n• Støt fortsat udvikling</string>
+    <string name="upgrade_screen_offers_title">Opgraderingsmuligheder</string>
+    <string name="upgrade_screen_offers_body">Samme funktioner, bare forskellige prismodeller.</string>
+    <string name="upgrade_screen_offers_or">eller</string>
     <string name="upgrade_screen_subscription_offer_title">Årligt abonnement</string>
+    <string name="upgrade_screen_subscription_offer_body">Fornyes årligt efter gratis prøveperiode. Annuller når som helst i Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Fornyes årligt. Annuller når som helst i Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Køb én gang</string>
+    <string name="upgrade_screen_iap_offer_body">Engangsbetaling, ingen fornyelser.</string>
     <string name="upgrade_screen_offers_unavailable_message">Priserne kunne ikke indlæses lige nu. Tjek Google Play og prøv igen om et øjeblik.</string>
     <string name="upgrade_screen_subscription_trial_action">Start gratis 14-dages prøveperiode</string>
     <string name="upgrade_screen_subscription_action">Abonner</string>
     <string name="upgrade_screen_iap_action">Engangskøb</string>
     <string name="upgrade_screen_thanks_toast">Du er den bedste! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Gendan køb</string>
+    <string name="upgrade_screen_restore_banner_title">Har du allerede købt Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Det ser ud til, at du tidligere har købt Pro på denne enhed. Genopret dit køb for at låse det op igen.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Synkronisering af Play Butik kan tage tid. Prøv at genstarte, rydde Google Play-cachen eller bare vent.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Flere konti kan forvirre Google Play. Installer appen via Google Play-hjemmesiden, som fremtvinger tilknytning til en bestemt konto.</string>
+    <string name="upgrade_screen_owned_hero_title">Tillykke!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Du har %1$s, låst op af dit abonnement.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Du har %1$s, som blev låst op af dit engangskøb.</string>
+    <string name="upgrade_screen_owned_iap_title">Engangskøb</string>
+    <string name="upgrade_screen_owned_iap_body">Du ejer Pro-opgraderingen som engangskøb. Pro forbliver låst op på denne Google-konto. Tak for at støtte SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Dit Pro-abonnement er aktivt og indstillet til at forny sig. Fakturering administreres af Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Foretrækker du engangskøbet? Det bliver tilgængeligt når dit abonnement ikke længere er indstillet til at forny sig. Annuller abonnementet i Google Play for at skifte.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Dit Pro-abonnement er aktivt, men ikke indstillet til at forny sig. Pro forbliver tilgængeligt til den nuværende periode slutter.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Dette abonnement er stadig indstillet til at forny sig, selvom du allerede ejer engangskøbet. Du kan annullere det i Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Administrer abonnement</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Dette er et separat køb: det annullerer eller refunderer ikke dit abonnement. Brug den samme Google-konto til begge.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Abonnement stadig aktivt</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play rapporterer, at dit abonnement stadig er indstillet til at forny sig. For at købe engangskøbet skal du først annullere abonnementet i Google Play og derefter vende tilbage her.\n\nNetop annulleret det? Giv Google Play et øjeblik og prøv igen. Sørg også for at du bruger den samme Google-konto.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Kunne ikke kontrollere dit abonnementstatus hos Google Play. Prøv venligst igen om et øjeblik.</string>
+    <string name="upgrade_screen_restore_success_message">Køb gendannet, din Pro-opgradering er aktiv.</string>
+    <string name="upgrade_screen_grace_title">Bekræfter dit køb</string>
+    <string name="upgrade_screen_grace_body_short">Pro er stadig aktiv. Venter på, at Google Play bekræfter dit køb igen, alle Pro-funktioner forbliver låst op i mellemtiden.</string>
+    <string name="upgrade_screen_grace_body">Pro er stadig aktiv, men Google Play har ikke bekræftet dit køb i et stykke tid. Hvis du har købt Pro, skal du gendanne købet og kontrollere, at Google Play bruger den konto, der foretog købet. Hvis abonnementet udløb eller købet blev refunderet, slukker Pro af sig selv, der er intet mere at gøre.</string>
+    <string name="upgrade_screen_restore_body">Gendannelse beder Google Play om at kontrollere denne apps køb igen for den aktuelle konto. Det starter ikke et nyt køb.</string>
+    <string name="upgrade_screen_restore_status_title">Status ser forkert ud?</string>
+    <string name="upgrade_screen_restore_status_body">Hvis et køb mangler, eller denne status ser forkert ud, skal du kontrollere igen med Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontakt support</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid kontrollerede Google Play, men der kunne ikke bekræftes nogen Pro-køb for den konto, som Google Play bruger til denne app.</string>
+    <string name="upgrade_screen_restore_contact_hint">Stadig i problemer? Kontakt support fra den e-mail, der foretog købet, og inkluder dit Google Play-ordrenummer.</string>
 </resources>

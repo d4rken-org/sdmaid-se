@@ -56,6 +56,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">ไม่มีเครื่องหมาย</string>
     <string name="corpsefinder_markers_dialog_normal_description">ซากปกติ โดยทั่วไปปลอดภัยในการลบ — ไฟล์เหล่านี้เป็นของแอปที่ถอนการติดตั้งแล้ว</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder ค้นหาข้อมูลที่เหลือจากแอปที่คุณถอนการติดตั้งแล้ว ไม่มีแอปที่ติดตั้งใดเป็นเจ้าของอีกต่อไป ดังนั้นการลบจึงปลอดภัยและช่วยเพิ่มพื้นที่ว่าง</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ค้นหาข้อมูลที่เหลือจากแอปที่คุณถอนการติดตั้งไปแล้ว มันไม่ได้เป็นของแอปใดที่ติดตั้งอยู่อีกต่อไป การลบจึงช่วยเพิ่มพื้นที่ว่าง ส่วนใหญ่ปลอดภัยที่จะลบ แต่ตรวจสอบเครื่องหมายเมื่อคุณไม่แน่ใจ</string>
     <string name="tour_corpsefinder_row_body">แต่ละรายการคือข้อมูลซากและแอปที่มาจาก เครื่องหมายแสดงความมั่นใจของ SD Maid ว่าปลอดภัยในการลบเพียงใด — แตะ ⓘ ด้านบนเพื่อเรียนรู้ว่าเครื่องหมายหมายถึงอะไร</string>
 </resources>

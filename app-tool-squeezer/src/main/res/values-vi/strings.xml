@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm khoảng %d%% cho các tệp JPEG</string>
     <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer nén lại các ảnh và video của bạn để chúng chiếm ít dung lượng hơn. Các tệp vẫn sử dụng được, chỉ nhỏ hơn, và mỗi tệp sẽ hiển thị mức tiết kiệm ước tính.</string>
+    <string name="tour_squeezer_intro_body">Squeezer nén lại các ảnh và video của bạn để chúng chiếm ít không gian hơn. Bạn đánh đổi một chút chất lượng để lấy lại không gian. Mỗi mục hiển thị mức tiết kiệm ước tính của nó, vì vậy bạn có thể quyết định những gì đáng giá.</string>
     <string name="tour_squeezer_compress_body">Nén mọi thứ cùng một lúc ở đây, hoặc nhấn một mục duy nhất để chỉ làm nhỏ cái đó. Nhấn và giữ để chọn nhiều mục. Bạn sẽ luôn thấy bản xem trước trước khi có bất kỳ thay đổi nào.</string>
 </resources>

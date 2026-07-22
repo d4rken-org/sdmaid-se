@@ -40,8 +40,7 @@
     <string name="corpsefinder_filter_appsource_private_label">Fontes de apps privadas</string>
     <string name="corpsefinder_filter_appsource_private_summary">Dados de instalação restritos do aplicativo, por exemplo, aplicativos de terceiros protegidos.</string>
     <string name="corpsefinder_filter_appasec_label">Recursos de aplicativos encriptados</string>
-    <string name="corpsefinder_filter_appasec_summary">Recursos do aplicativo encriptados, por exemplo, 
-Recursos dos jogos.</string>
+    <string name="corpsefinder_filter_appasec_summary">Recursos do aplicativo encriptados, por exemplo, recursos dos jogos.</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d resto de app encontrado</item>
         <item quantity="other">%d restos de apps encontrados</item>
@@ -61,6 +60,6 @@ Recursos dos jogos.</string>
     <string name="corpsefinder_markers_dialog_normal_label">Sem marcador</string>
     <string name="corpsefinder_markers_dialog_normal_description">Resíduo padrão. Geralmente seguro remover — estes ficheiros pertencem a aplicações que já não estão instaladas.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">O CorpseFinder encontra dados deixados por aplicações que já não estão instaladas. Como já não pertencem a nada que está instalado, removê-los é seguro e liberta espaço.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder encontra dados deixados por aplicações que já desinstalou. Já não pertence a nada que esteja instalado, portanto removê-lo liberta espaço. A maioria é segura de remover, mas verifique a marcação quando tem dúvidas.</string>
     <string name="tour_corpsefinder_row_body">Cada item consiste em dados restantes e na aplicação de origem. O marcador mostra o nível de confiança do SD Maid na segurança da remoção — toque no ⓘ no topo para compreender o significado dos marcadores.</string>
 </resources>

@@ -127,6 +127,6 @@
     <string name="squeezer_estimated_savings_percent">Se estimează că ~%d%% economii pentru fișierele JPEG</string>
     <string name="squeezer_onboarding_got_it">Am înțeles</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer recomprimă fotografiile și videoclipurile tale ca să ocupe mai puțin spațiu. Fișierele rămân utilizabile, doar mai mici, iar fiecare arată economisirea estimată.</string>
+    <string name="tour_squeezer_intro_body">Squeezer recomprimă fotografiile și videoclipurile dvs. pentru a ocupa mai puțin spațiu. Sacrificați puțin din calitate pentru spațiul pe care îl obțineți înapoi. Fiecare element afișează economiile estimate, așa că puteți decide ce merită.</string>
     <string name="tour_squeezer_compress_body">Comprimă totul dintr-o dată aici, sau atinge un singur element pentru a-l micșora. Apasă lung pentru a alege mai multe. Vei vedea întotdeauna o previzualizare înainte ca ceva să se schimbe.</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">ስህተት</string>
     <string name="general_upgrade_action">አሻሽል</string>
     <string name="general_refresh_action">ማደስ</string>
+    <string name="general_retry_action">ድጋሞ ሞክር</string>
     <string name="general_progress_searching">ማሰስ</string>
     <string name="general_progress_generating_searchpaths">የፍለጋ መንገዶች ማመንጨት</string>
     <string name="general_progress_filtering">ማጣራት</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">ስም (ሀ → ፐ)</string>
     <string name="general_sort_size_desc">ትልቁ አስቀድሞ</string>
     <string name="general_tag_system">ሲስተም</string>
+    <string name="general_tag_library">ቤተ መጽሐፍት</string>
     <string name="general_navigate_up_action">ወደ ላይ ሂድ</string>
     <string name="general_filter_action">ማርሽ</string>
     <string name="general_filter_by_tags_label">በመለያዎች ማጣራት</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">ስህተት ሪፖርት ያድርጉ</string>
     <string name="general_error_ipc_deadobject_title">የአገልግሎት ግንኙነት ጠፋ</string>
     <string name="general_error_ipc_deadobject_description">ከአስፈላጊ አገልግሎት (ምሳሌ Magisk፣ Shizuku፣ ወይም ሌሎች የስርዓት-ደረጃ አገልግሎቶች) ጋር ያለው ግንኙነት በሚያስደንቅ ሁኔታ ጠፋ። እባክዎ መሳሪያዎን እንደገና ይጀምሩ። ችግሩ ቢቀጥል፣ ለዝመናዎች ይፈትሹ ወይም ለማስተካከል ያገኙኝ።</string>
-    <string name="general_error_upgrade_required_title">Pro ስሪት ያስፍልጋል</string>
-    <string name="general_error_upgrade_required_description">ይህ የ Pro ባህሪይ ነው። እባክዎ SD Maid SE ን ለመጠቀም ያሻሽሉ።</string>
+    <string name="general_error_upgrade_required_title">ማሻሻል ያስፈልጋል</string>
+    <string name="general_error_upgrade_required_description">ይህ ባህሪ ማሻሻል ያስፈልጋል። ይህን ለመጠቀም SD Maid SE ን እባክዎ ያሻሽሉ።</string>
     <string name="general_user_label_owner">ባለቤት</string>
     <string name="general_user_label_system">ስርዓት</string>
     <string name="setup_title">ማዋቀሪያ</string>

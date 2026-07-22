@@ -8,6 +8,7 @@
         <item quantity="other">%d გზა არჩეულია</item>
     </plurals>
     <string name="picker_home_action">მონაცემთა ზონები</string>
+    <string name="picker_select_hint">ელემენტის ასარჭევად დააჭირეთ და დაიჯირეთ</string>
     <string name="tour_action_next">შემდეგი</string>
     <string name="tour_action_previous">წინა</string>
     <string name="tour_action_cancel">გამოტოვება</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">განაგრძელეთ ტური</string>
     <string name="tour_confirm_dont_show_this_tour">ეს ტური აღარ აჩვენე</string>
     <string name="tour_confirm_disable_all">ყველა ტური გამორთე</string>
-    <string name="navigation_unknown_destination_title">მალე</string>
-    <string name="navigation_unknown_destination_message">ეს ეკრანი ჯერ კიდევ ახალ ინტერფეისზე მიგრირებულია.</string>
+    <string name="navigation_unknown_destination_title">ეკრანი მიუწვდომელია</string>
+    <string name="navigation_unknown_destination_message">ეს ეკრანი არ შეიძლება გაიხსნას.</string>
 </resources>

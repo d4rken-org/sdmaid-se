@@ -139,6 +139,6 @@
     <string name="squeezer_estimated_savings_percent">חסכון משוער של ~%d%% לקבצי JPEG</string>
     <string name="squeezer_onboarding_got_it">הבנתי</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer דוחסת מחדש את התמונות וסרטוני הוידאו שלך כדי שיתפסו פחות מקום. הקבצים נשארים שמישים, רק קטנים יותר, וכל אחד מציג את החסכון המשוער שלו.</string>
+    <string name="tour_squeezer_intro_body">Squeezer דוחס מחדש את התמונות וסרטוני הווידאו שלך כדי שיתפסו פחות מקום. אתה מוותר על קצת איכות בתמורה למקום שאתה מחזיר. כל פריט מציג את החיסכון המשוער שלו, כך שתוכל להחליט מה שווה זאת.</string>
     <string name="tour_squeezer_compress_body">דחוס הכל בבת אחת כאן, או הקש על פריט יחיד כדי להקטין רק אותו. הקש הקשה ארוכה כדי לבחור כמה פריטים. תמיד תראה תצוגה מקדימה לפני כל שינוי.</string>
 </resources>

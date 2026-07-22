@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Marker yoxdur</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standart qalıq. Ümumiyyətlə silmək təhlükəsizdir — bu fayllar artıq silinmiş tətbiqlərə aiddir.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder artıq sildiyiniz tətbiqlərdən qalan məlumatları tapır. Bu məlumat artıq quraşdırılmış heç bir tətbiqə aid deyil, ona görə onu silmək təhlükəsizdir və yer azad edir.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder silinmiş tətbiqlərin qoyduğu verilənləri tapır. Bu verilənlər artıq quraşdırılmış heç bir tətbiqə aid deyil, buna görə onu silmək yer boşaldar. Onun çoxu silmək üçün təhlükəsizdir, amma əmin olmadığınız zaman markeri yoxlayın.</string>
     <string name="tour_corpsefinder_row_body">Hər bir element qalıq məlumat və onun gəldiyi tətbiqdir. Marker SD Maid-in bunu silmənin təhlükəsiz olduğuna nə qədər əmin olduğunu göstərir — markerlərin mənasını öyrənmək üçün yuxarıdakı ⓘ-yə toxunun.</string>
 </resources>

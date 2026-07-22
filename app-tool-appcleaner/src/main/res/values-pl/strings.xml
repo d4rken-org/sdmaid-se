@@ -39,8 +39,8 @@
     <string name="appcleaner_filter_webview_summary">Pliki buforowane przez instancje WebView używane w aplikacjach.</string>
     <string name="appcleaner_filter_shortcutservice_label">Ikony skrótu aplikacji</string>
     <string name="appcleaner_filter_shortcutservice_summary">Podręczne ikony dla skrótów aplikacji i menu udostępniania.</string>
-    <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">Kopie WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie WhatsApp i zachowaj tylko najnowszą.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
     <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane przez WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Pliki wysłane przez WhatsApp</string>

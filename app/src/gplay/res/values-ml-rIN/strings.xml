@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">SD മെയ്ഡ് SE പ്രോ വാങ്ങുക</string>
     <string name="upgrade_screen_preamble">SD മെയ്ഡിൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നില്ല. എന്റെ ജോലി നിങ്ങൾ ധനസഹായം ചെയ്യുന്നു ❤️.</string>
     <string name="upgrade_screen_benefits_title">അപ്ഗ്രേഡ് നേട്ടങ്ങൾ</string>
-    <string name="upgrade_screen_benefits_body">• അപ്ലിക്കേഷൻ കാഷെയും കാലാവധിക്ഷിപ്തമായ ഡാറ്റയും വൃത്തിയാക്കുക
-• നകലിയായ ഫയലുകൾ നീക്കം ചെയ്യുക
-• സമയാനുസൃത വൃത്തിയാക്കൽ പ്രവർത്തനക്ഷമമാക്കുക
-• ഇഷ്ടാനുസൃത ഫിൽട്ടറുകളും വൃത്തിയാക്കൽ നിയമങ്ങളും സൃഷ്ടിക്കുക
-• സംഭരണ പ്രവണതകളും വൃത്തിയാക്കൽ ചരിത്രവും ട്രാക്കുചെയ്യുക
-• അപ്ലിക്കേഷൻ ഉടനീളമുള്ള കൂടുതൽ സവിശേഷതകളും നിയന്ത്രണങ്ങളും
-• നിരന്തരമായ വികാസത്തെ പിന്തുണയ്ക്കുക</string>
+    <string name="upgrade_screen_benefits_body">• ആപ്പ് ക്യാഷും ചോരയും ശുചിത്വം\n• ഡ്യുപ്ലിക്കേറ്റ് ഫയൽ നീക്കം\n• ഫോട്ടോയും വീഡിയോയും കംപ്രെഷൻ\n• പഴയ ഫയലുകൾ നീക്കാൻ സ്വൈപ് ചെയ്യുക\n• വിജറ്റ് വഴി ഒരു-തൊടൽ ശുചിത്വം\n• ശുചിത്വ ഷെഡ്യൂൾ\n• കസ്റ്റം ഫിൽട്ടറുകളും നിയമങ്ങളും\n• സംഭരണ പ്രവണതകളും ചരിത്രവും\n• ആപ്പ് ഉടനീളം കൂടുതൽ ഫീച്ചറുകളും നിയന്ത്രണവും\n• തുടരുന്ന വികാസത്തെ പിന്തുണയ്ക്കുക</string>
+    <string name="upgrade_screen_offers_title">അപ്‌ഗ്രേഡ് ഐച്ഛികതകൾ</string>
+    <string name="upgrade_screen_offers_body">സമാനമായ ഫീച്ചറുകൾ, വെറുതെ വ്യത്യസ്ത വിലനിർണ്ണയ മാതൃകകൾ.</string>
+    <string name="upgrade_screen_offers_or">അല്ലെങ്കിൽ</string>
     <string name="upgrade_screen_subscription_offer_title">വാര്ഷിക സബ്സ്ക്രിപ്ഷൻ</string>
+    <string name="upgrade_screen_subscription_offer_body">സ്വതന്ത്ര പരീക്ഷണത്തിനുശേഷം വർഷത്തിൽ ഒരിക്കൽ നവീകരിക്കുന്നു. Google Play-യിൽ ഏത് സമയത്തും റദ്ദാക്കുക.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">വർഷത്തിൽ ഒരിക്കൽ നവീകരിക്കുന്നു. Google Play-യിൽ ഏത് സമയത്തും റദ്ദാക്കുക.</string>
     <string name="upgrade_screen_iap_offer_title">ഒരിക്കൽ വാങ്ങുക</string>
+    <string name="upgrade_screen_iap_offer_body">ഒരു പേയ്‌മെന്റ്, നവീകരണങ്ങൾ ഇല്ല.</string>
     <string name="upgrade_screen_offers_unavailable_message">വിലകൾ ഇപ്പോൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. Google Play പരിശോധിക്കുക, കുറച്ച് കാലത്തിനുശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_subscription_trial_action">സൗജന്യ 14-ദിവസ ട്രയൽ ആരംഭിക്കുക</string>
     <string name="upgrade_screen_subscription_action">സബ്‌സ്ക്രൈബ്</string>
     <string name="upgrade_screen_iap_action">ഒറ്റത്തവണ വാങ്ങൽ</string>
     <string name="upgrade_screen_thanks_toast">നന്ദി❤️</string>
     <string name="upgrade_screen_restore_purchase_action">വാങ്ങൽ പുനഃസ്ഥാപിക്കുക</string>
+    <string name="upgrade_screen_restore_banner_title">ഇതിനകം Pro വാങ്ങിയോ?</string>
+    <string name="upgrade_screen_restore_banner_body">നിങ്ങൾ ഈ ഉപകരണത്തിൽ മുമ്പ് Pro-ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്തതായി തോന്നുന്നു. അത് വീണ്ടും അൻലോക്ക് ചെയ്യാൻ നിങ്ങളുടെ വാങ്ങൽ പുനൃസ്ഥാപിക്കുക.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play സ്റ്റോർ സിൻക്രൊണൈസേഷൻ സമയമെടുത്തേക്കാം. റീബൂട്ട് ചെയ്യുക, Google Play കാഷെ മായ്‌ക്കുക അല്ലെങ്കിൽ കാത്തിരിക്കുക.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">ഒന്നിലധികം അക്കൗണ്ടുകൾ Google Play-യെ ആശയക്കുഴപ്പത്തിലാക്കാം. Google Play വെബ്‌സൈറ്റ് വഴി ആപ്ലികേഷൻ ഇൻസ്റ്റാൽ ചെയ്യുക, ഇത് ഒരു നിർദ്ദിഷ്ട അക്കൗണ്ടുമായുള്ള ബന്ധം നിർബന്ധമാക്കുന്നു.</string>
+    <string name="upgrade_screen_owned_hero_title">അഭിനന്ദനങ്ങൾ!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">നിങ്ങളുടെ സബ്‌സ്ക്രിപ്‌ഷൻ വഴി അൻലോക്ക് ചെയ്ത %1$s നിങ്ങളുടെ പക്കലുണ്ട്.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">നിങ്ങളുടെ ഒറ്റത്തവണ വാങ്ങൽ വഴി അൻലോക്ക് ചെയ്ത %1$s നിങ്ങളുടെ പക്കലുണ്ട്.</string>
+    <string name="upgrade_screen_owned_iap_title">ഒറ്റത്തവണ വാങ്ങൽ</string>
+    <string name="upgrade_screen_owned_iap_body">നിങ്ങൾ ഒറ്റത്തവണ Pro അപ്‌ഗ്രേഡ് സ്വന്തമാക്കിയിരിക്കുന്നു. Pro ഈ Google അക്കൗണ്ടിൽ അൻലോക്ക് ചെയ്തതായി തുടരും. SD Maid പിന്തുണ ചെയ്തതിന് നന്ദി ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">നിങ്ങളുടെ Pro സബ്‌സ്ക്രിപ്‌ഷൻ സജീവമാണ് കൂടാതെ നവീകരിക്കാൻ സജ്ജമാണ്. ബില്ലിംഗ് Google Play വഴി നിയന്ത്രിക്കപ്പെടുന്നു.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">ഒറ്റത്തവണ വാങ്ങൽ ഇഷ്ടപ്പെടുന്നോ? നിങ്ങളുടെ സബ്‌സ്ക്രിപ്‌ഷൻ ഇനി നവീകരിക്കാൻ സജ്ജമല്ലാകുമ്പോൾ അത് ലഭ്യമാകും. മാറാൻ Google Play-യിൽ സബ്‌സ്ക്രിപ്‌ഷൻ റദ്ദാക്കുക.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">നിങ്ങളുടെ Pro സബ്‌സ്ക്രിപ്‌ഷൻ സജീവമാണ്, പക്ഷേ നവീകരിക്കാൻ സജ്ജമല്ല. നിലവിലെ കാലാവധി അവസാനിക്കുന്നതുവരെ Pro ലഭ്യമായി തുടരും.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">ഈ സബ്സ്ക്രിപ്ഷൻ നവീകരിക്കാനായി സജ്ജീകരിച്ചിരിക്കുന്നു, എങ്കിലും നിങ്ങൾ ഇതിനകം ഒറ്റത്തവണ അപ്‌ഗ്രേഡ് കൈവശം വച്ചിരിക്കുന്നു. നിങ്ങൾക്ക് ഇത് Google Play-ൽ റദ്ദാക്കാനാകും.</string>
+    <string name="upgrade_screen_manage_subscription_action">സബ്സ്ക്രിപ്ഷൻ നിയന്ത്രിക്കുക</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">ഇത് വേറിട്ടുള്ള ഒരു വാങ്ങൽ ആണ്: ഇത് നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കുകയോ കാശ് തിരികെ നൽകുകയോ ചെയ്യുന്നില്ല. രണ്ടിനുമായി ഒറെ Google അക്കൗണ്ട് ഉപയോഗിക്കുക.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">സബ്സ്ക്രിപ്ഷൻ ഇപ്പോഴും സജീവമാണ്</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play റിപ്പോർട്ട് ചെയ്യുന്നത് നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ നവീകരിക്കാനായി സജ്ജീകരിച്ചിരിക്കുന്നുവെന്നാണ്. ഒറ്റത്തവണ അപ്‌ഗ്രേഡ് വാങ്ങാൻ, ആദ്യം Google Play-ൽ സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കുക, തുടർന്ന് ഇവിടെ തിരിച്ചുവരിക.\n\nഇതുവെച്ച് റദ്ദാക്കി? Google Play-യ്ക് കുറച്ച് സമയം കൊടുക്കുക കൂടാതെ വീണ്ടും ശ്രമിക്കുക. ഒറെ Google അക്കൗണ്ട് ഉപയോഗിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക.</string>
+    <string name="upgrade_screen_sub_check_failed_message">നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ നില Google Play-ജംമായി പരിശോധിക്കാനായില്ല. കുറച്ച് സമയത്തിനിടയിൽ വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="upgrade_screen_restore_success_message">വാങ്ങൽ പുനൃസ്ഥാപിതമായി, നിങ്ങളുടെ Pro അപ്‌ഗ്രേഡ് സജീവമാണ്.</string>
+    <string name="upgrade_screen_grace_title">നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിക്കുന്നു</string>
+    <string name="upgrade_screen_grace_body_short">Pro ഇപ്പോഴും സജീവമാണ്. Google Play നിങ്ങളുടെ വാങ്ങൽ വീണ്ടും സ്ഥിരീകരിക്കാനായി കാത്തിരിക്കുന്നു, അതിനിടയ്ക്ക് എല്ലാ Pro ഫീച്ചറുകളും അൻലോക്ക് ആയതായി തുടരുന്നു.</string>
+    <string name="upgrade_screen_grace_body">Pro ഇപ്പോഴും സജീവമാണ്, പക്ഷേ Google Play നിങ്ങളുടെ വാങ്ങൽ കുറച്ച് സമയത്തിനിടയിൽ സ്ഥിരീകരിച്ചിട്ടില്ല. നിങ്ങൾ Pro വാങ്ങിയെങ്കിൽ, വാങ്ങൽ പുനൃസ്ഥാപിക്കുക കൂടാതെ Google Play അത് വാങ്ങിയ അക്കൗണ്ട് ഉപയോഗിക്കുന്നുവെന്ന് പരിശോധിക്കുക. സബ്സ്ക്രിപ്ഷൻ അവസാനിച്ചതോ വാങ്ങൽ കാശ് തിരികെ നൽകിയതോ ആണെങ്കിൽ, Pro സ്വതോ ഓഫാകും, മറ്റൊന്നും ചെയ്യേണ്ടതില്ല.</string>
+    <string name="upgrade_screen_restore_body">പുനൃസ്ഥാപിതമാക്കൽ Google Play-യെ നിലവിലെ അക്കൗണ്ടിനായി ഈ ആപ്പിന്റെ വാങ്ങൽ വീണ്ടും പരിശോധിക്കാൻ അഭ്യർത്ഥിക്കുന്നു. ഇത് ഒരു പുതിയ വാങ്ങൽ ആരംഭിക്കുന്നില്ല.</string>
+    <string name="upgrade_screen_restore_status_title">നില തെറ്റായി കാണുന്നുണ്ടോ?</string>
+    <string name="upgrade_screen_restore_status_body">വാങ്ങൽ നഷ്ടപ്പെട്ടതോ ഈ നില തെറ്റായി കാണുന്നതോ ആണെങ്കിൽ, Google Play-ജംമായി വീണ്ടും പരിശോധിക്കുക.</string>
+    <string name="upgrade_screen_contact_support_action">സപ്പോർട്ടുമായി ബന്ധപ്പെടുക</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid ഇതുവെച്ച് Google Play പരിശോധിച്ചു, പക്ഷേ Google Play ഈ ആപ്പിനായി ഉപയോഗിക്കുന്ന അക്കൗണ്ടിനായി Pro വാങ്ങൽ സ്ഥിരീകരിക്കാനായില്ല.</string>
+    <string name="upgrade_screen_restore_contact_hint">ഇപ്പോഴും പ്രശ്നമുണ്ടോ? വാങ്ങിയ ഇമെയിൽ വിലാസത്തിൽ നിന്ന് സപ്പോർട്ടിനെ ബന്ധപ്പെടുക കൂടാതെ നിങ്ങളുടെ Google Play ഓർഡർ നമ്പർ ഉൾപ്പെടുത്തുക.</string>
 </resources>

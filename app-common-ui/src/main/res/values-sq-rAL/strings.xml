@@ -8,6 +8,7 @@
         <item quantity="other">%d shtegje të zgjedhura</item>
     </plurals>
     <string name="picker_home_action">Zonat e të dhënave</string>
+    <string name="picker_select_hint">Mbani të shtypur një artikull për ta zgjedhur.</string>
     <string name="tour_action_next">Tjetra</string>
     <string name="tour_action_previous">Mëpara</string>
     <string name="tour_action_cancel">Anashkalo</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Vazhdo turin</string>
     <string name="tour_confirm_dont_show_this_tour">Mos e shfaq më këtë tur</string>
     <string name="tour_confirm_disable_all">Çaktivizo të gjitha turret</string>
-    <string name="navigation_unknown_destination_title">Shpejt</string>
-    <string name="navigation_unknown_destination_message">Ky ekran po migrohet ende në ndërfaqen e re.</string>
+    <string name="navigation_unknown_destination_title">Ekrani nuk disponohet</string>
+    <string name="navigation_unknown_destination_message">Ky ekran nuk mund të hapet.</string>
 </resources>

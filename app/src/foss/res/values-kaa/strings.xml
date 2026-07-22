@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Járdem beriwdiń jolı</string>
     <string name="upgrade_screen_how_body">Homiyshı bolıń hám rawajlanıwdı sponsorlaw qılıń! Barlıq qosımsha mümkinliklerdi faallastırıw hám meniń GitHub Sponsors profilimdi ashıw úshin tómendegi túymeshikti basıń.</string>
     <string name="upgrade_screen_why_title">Jetilistiriw payda</string>
-    <string name="upgrade_screen_why_body">• Qosımsha keshi hám keregi joq derekterdi tazalaw\n• Qos qusılǵan fayllardı aliw\n• Kestelengen tazalawlardı qosıw\n• Óz filtrleriń hám tazalaw qaǵıydaların jaratıw\n• Saqlaw orın tenderciyasın hám tazalaw tariyxın baqlaw\n• Qosımshada kóbirek mümkinshilik hám basqarıw\n• Ashıq derekli isti qollap-quwatlaw</string>
+    <string name="upgrade_screen_why_body">• Qollanba keshan we shaptalıqty tazmalayw\n• Qaytalanıp ketkeken fayllardı o\'shiriw\n• Foto we video sıqıstırıw\n• Eski fayllardı silkiw arqalı tazmalayw\n• Widget arqalı bir ketme tazmalayw\n• Tazmalayw rejeleştirüwi\n• Andaza şaqılı filtirler we qaidalar\n• Saqlaw tendensiyalary we tarixy\n• Qollanba boyınsha kóp xususiyatlar we baqılawlar\n• Açıq kod işína qolday berüw</string>
     <string name="upgrade_screen_sponsor_action">Rawajlanıwdı sponsorlaw qılıw</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativa jaríyalar, analitika hám Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ashıq kod rawajlanıwın qollap-quwatlaǵanıñız úshin raxmet ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Qaytıp keldińiz be? Sіzdіń qollawıńız SD Maid tіrshіlіgіn saqlap turады!</string>
+    <string name="upgrade_screen_status_free_title">Tegin verziyası</string>
+    <string name="upgrade_screen_status_free_body">Siz SD Maid-diń tegin verziyasın qollanıp atırsız. Qosımsha xususiyatlar development-ti qolday berü arqalı açıla alatın.</string>
+    <string name="upgrade_screen_status_free_action">Upgrade variantlarını korıń</string>
+    <string name="upgrade_screen_status_upgraded_title">Jañartıw aktivlı</string>
+    <string name="upgrade_screen_status_upgraded_body">Barlyq qosımsha qızıqlılıqlar ashılıp ketdi. Açıq kod işlemesine qollap bergen soñiñiz üşin rahmat ❤️</string>
+    <string name="upgrade_screen_recurring_title">Davammen beringiz</string>
+    <string name="upgrade_screen_recurring_body">SD Maid jañartıwlar wa tüzetiwler arqalı taraqqiyat etip barmaqta. Eger siz buni qollap beriwni istesañiz, GitHub Sponsors arqalı muntazamli doymak beriwni eslaw.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors-ni ashıw</string>
 </resources>

@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
     <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner vindt ongewenste bestanden met behulp van app-onafhankelijke filters. Er zijn kant-en-klare regels voor dingen zoals lege mappen, achtergelaten logboeken en verouderde miniaturen. Ga naar instellingen als je je eigen regels wilt maken.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner vindt rommel met behulp van filters die niet app-specifiek zijn. Kant-en-klare regels bestaan voor dingen zoals lege mappen, achtergebleven logboeken en verouderde miniaturen. Bezoek de instellingen als je je eigen regels wilt maken.</string>
     <string name="tour_systemcleaner_filter_body">Elke rij is een filter en wat het heeft gevonden. Open de details om precies te zien welke bestanden overeenkomen voordat je iets verwijdert.</string>
 </resources>

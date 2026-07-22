@@ -37,13 +37,9 @@
     <string name="scheduler_notification_result_failure_message">Disa detyra të planifikuara dështuan ose hasën në gabime. Provoni t\'i ekzekutoni ato manualisht.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">U kaloi, ekrani ishte i fikur ose i bllokuar</string>
     <string name="scheduler_acs_screenlocked_hint_title">Pastrimi i aplikacionit mund të kalohet</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Pastrimi i aplikacionit përdor shërbimin e aksesibilitetit, i cili kërkon ekranin të zbllokuar. Ekzekutimet e planifikuara ndërsa pajisja është e bllokuar kalohen.
-
-Përdorni Shizuku ose root për pastrimin në sfond, ose planifikoni atë për kohën kur po e përdorni pajisjen.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Pastrimi i aplikacionit përdor shërbimin e aksesibilitetit, i cili kërkon ekranin të zbllokuar. Ekzekutimet e planifikuara ndërsa pajisja është e bllokuar kalohen.\n\nPërdorni Shizuku ose root për pastrimin në sfond, ose planifikoni atë për kohën kur po e përdorni pajisjen.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Aplikacionet e sistemit mund të kalohen</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku pastron shumicën e kesheve në sfond, por aplikacionet e sistemit kanë nevojë për shërbimin e aksesibilitetit, i cili kërkon ekranin të zbllokuar. Me \"Përfshi aplikacionet e sistemit\" aktive, ato kalohen kur pajisja është e bllokuar.
-
-Çaktivizoni \"Përfshi aplikacionet e sistemit\", ose ekzekutoni orarin ndërsa është zbllokuar.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku pastron shumicën e kesheve në sfond, por aplikacionet e sistemit kanë nevojë për shërbimin e aksesibilitetit, i cili kërkon ekranin të zbllokuar. Me \"Përfshi aplikacionet e sistemit\" aktive, ato kalohen kur pajisja është e bllokuar.\n\nÇaktivizoni \"Përfshi aplikacionet e sistemit\", ose ekzekutoni orarin ndërsa është zbllokuar.</string>
     <string name="scheduler_commands_after_schedule_label">Komandat pas orarit</string>
     <string name="scheduler_commands_after_schedule_desc">Komandat e guaskës Android që do të ekzekutohen në fund të një plani.</string>
     <string name="scheduler_battery_optimization_hint">Kjo veçori mund të kërkojë çaktivizimin e optimizimit të baterisë për SD Maid për të funksionuar si duhet.</string>

@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Dapatkan SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Kerja saya dibiayai oleh anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Faedah peningkatan</string>
-    <string name="upgrade_screen_benefits_body">• Bersihkan cache aplikasi dan data yang boleh dibuang
-• Alih keluar fail pendua
-• Dayakan pembersihan berjadual
-• Buat penapis tersuai dan peraturan pembersihan
-• Jejak arah aliran penyimpanan dan sejarah pembersihan
-• Lebih banyak ciri dan kawalan di seluruh aplikasi
-• Sokong pembangunan yang berterusan</string>
+    <string name="upgrade_screen_benefits_body">• Pembersihan cache aplikasi dan sampah\n• Penghapusan fail pendua\n• Mampatan foto dan video\n• Sapuan untuk mengusuli fail lama\n• Pembersihan sekali sentuh melalui widget\n• Penjadualan pembersihan\n• Penapis dan peraturan tersuai\n• Trend storan dan sejarah\n• Lebih banyak ciri dan kawalan di seluruh aplikasi\n• Sokongan pembangunan berterusan</string>
+    <string name="upgrade_screen_offers_title">Pilihan peningkatan</string>
+    <string name="upgrade_screen_offers_body">Ciri yang sama, hanya model harga yang berbeza.</string>
+    <string name="upgrade_screen_offers_or">atau</string>
     <string name="upgrade_screen_subscription_offer_title">Langganan tahunan</string>
+    <string name="upgrade_screen_subscription_offer_body">Diperbaharui setiap tahun selepas percubaan percuma. Batalkan bila-bila masa dalam Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Diperbaharui setiap tahun. Batalkan bila-bila masa dalam Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Beli sekali</string>
+    <string name="upgrade_screen_iap_offer_body">Satu pembayaran, tiada pembaharuan.</string>
     <string name="upgrade_screen_offers_unavailable_message">Harga tidak dapat dimuatkan sekarang. Periksa Google Play dan cuba lagi dalam sesaat.</string>
     <string name="upgrade_screen_subscription_trial_action">Mulakan percubaan 14 hari percuma</string>
     <string name="upgrade_screen_subscription_action">Langgan</string>
     <string name="upgrade_screen_iap_action">Belian sekali</string>
     <string name="upgrade_screen_thanks_toast">Anda lah yang terbaik! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Pulihkan pembelian</string>
+    <string name="upgrade_screen_restore_banner_title">Sudah membeli Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Sepertinya anda telah naik taraf ke Pro pada peranti ini sebelum ini. Pulihkan pembelian anda untuk membukanya semula.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Penyegerakan Play Store mungkin mengambil masa. Cuba but semula, kosongkan cache Google Play atau tunggu sahaja.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Pelbagai akaun boleh mengelirukan Google Play. Pasang aplikasi melalui laman web Google Play, yang memaksa perkaitan dengan akaun tertentu.</string>
+    <string name="upgrade_screen_owned_hero_title">Tahniah!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Anda mempunyai %1$s, dibuka oleh langganan anda.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Anda mempunyai %1$s, dibuka oleh belian sekali anda.</string>
+    <string name="upgrade_screen_owned_iap_title">Belian sekali</string>
+    <string name="upgrade_screen_owned_iap_body">Anda memiliki peningkatan Pro sekali. Pro tetap dibuka pada akaun Google ini. Terima kasih telah menyokong SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Langganan Pro anda aktif dan ditetapkan untuk diperbaharui. Pengebilan diuruskan oleh Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Lebih suka belian sekali? Ia menjadi tersedia apabila langganan anda tidak lagi ditetapkan untuk diperbaharui. Batalkan langganan di Google Play untuk bertukar.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Langganan Pro anda aktif, tetapi tidak ditetapkan untuk diperbaharui. Pro tetap tersedia sehingga tempoh semasa berakhir.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Langganan ini masih ditetapkan untuk diperbaharui, walaupun anda sudah memiliki peningkatan sekali sahaja. Anda boleh membatalkannya di Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Urus langganan</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Ini adalah pembelian yang berasingan: ia tidak membatalkan atau memulangkan bayaran langganan anda. Gunakan akaun Google yang sama untuk kedua-duanya.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Langganan masih aktif</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play melaporkan bahawa langganan anda masih ditetapkan untuk diperbaharui. Untuk membeli peningkatan sekali sahaja, batalkan langganan di Google Play terlebih dahulu, kemudian kembali ke sini.\n\nBaru saja membatalkannya? Tunggu sebentar lagi dan cuba lagi. Pastikan juga bahawa anda menggunakan akaun Google yang sama.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Tidak dapat memeriksa status langganan anda dengan Google Play. Sila cuba lagi sebentar lagi.</string>
+    <string name="upgrade_screen_restore_success_message">Pembelian dipulihkan, peningkatan Pro anda aktif.</string>
+    <string name="upgrade_screen_grace_title">Mengesahkan pembelian anda</string>
+    <string name="upgrade_screen_grace_body_short">Pro masih aktif. Menunggu Google Play mengesahkan semula pembelian anda, semua ciri Pro kekal dibuka buat sementara waktu.</string>
+    <string name="upgrade_screen_grace_body">Pro masih aktif, tetapi Google Play belum mengesahkan pembelian anda selama ini. Jika anda membeli Pro, pulihkan pembelian dan periksa bahawa Google Play menggunakan akaun yang membelinya. Jika langganan berakhir atau pembelian itu dibayar balik, Pro akan dimatikan dengan sendirinya, tiada apa-apa lagi yang perlu dilakukan.</string>
+    <string name="upgrade_screen_restore_body">Pemulihan meminta Google Play untuk menyemak semula pembelian aplikasi ini untuk akaun semasa. Ia tidak memulakan pembelian baru.</string>
+    <string name="upgrade_screen_restore_status_title">Status kelihatan salah?</string>
+    <string name="upgrade_screen_restore_status_body">Jika pembelian hilang atau status ini kelihatan tidak betul, sila semak semula dengan Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Hubungi sokongan</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid baru sahaja menyemak Google Play, tetapi tiada pembelian Pro yang dapat disahkan untuk akaun yang Google Play gunakan untuk aplikasi ini.</string>
+    <string name="upgrade_screen_restore_contact_hint">Masih bermasalah? Hubungi sokongan daripada e-mel yang membuat pembelian dan sertakan nombor pesanan Google Play anda.</string>
 </resources>

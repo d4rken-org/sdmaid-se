@@ -38,6 +38,7 @@
     <string name="general_error_label">Hata</string>
     <string name="general_upgrade_action">Yükselt</string>
     <string name="general_refresh_action">Yenile</string>
+    <string name="general_retry_action">Yeniden dene</string>
     <string name="general_progress_searching">Aranıyor</string>
     <string name="general_progress_generating_searchpaths">Arama yolları oluşturuluyor</string>
     <string name="general_progress_filtering">Filtreleme</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Ad (A → Z)</string>
     <string name="general_sort_size_desc">Önce en büyük</string>
     <string name="general_tag_system">Sistem</string>
+    <string name="general_tag_library">Kitaplık</string>
     <string name="general_navigate_up_action">Yukarı git</string>
     <string name="general_filter_action">Filtre</string>
     <string name="general_filter_by_tags_label">Etiketlere göre filtrele</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Hata bildir</string>
     <string name="general_error_ipc_deadobject_title">Servis bağlantısı kesildi</string>
     <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
-    <string name="general_error_upgrade_required_title">Pro sürümü gerekli</string>
-    <string name="general_error_upgrade_required_description">Bu bir Pro özelliğidir. Bunu kullanmak için lütfen SD Maid SE\'yi yükseltin.</string>
+    <string name="general_error_upgrade_required_title">Yükseltme gerekli</string>
+    <string name="general_error_upgrade_required_description">Bu özellik bir yükseltme gerektirir. Bunu kullanmak için lütfen SD Maid SE\'yi yükseltin.</string>
     <string name="general_user_label_owner">Sahibi</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Kur</string>

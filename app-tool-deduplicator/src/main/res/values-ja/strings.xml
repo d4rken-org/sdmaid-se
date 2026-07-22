@@ -19,9 +19,10 @@
     <string name="deduplicator_detection_method_checksum_title">コンテンツのチェックサム</string>
     <string name="deduplicator_detection_method_checksum_summary">ファイルのチェックサムを計算することで重複を決定します。チェックサムに一致するファイルは全く同じ内容を持ちます。</string>
     <string name="deduplicator_detection_method_phash_title">概念ハッシュ</string>
-    <string name="deduplicator_detection_method_phash_summary">コンテンツの特徴を分析し知覚ハッシュ値を比較して類似ファイルを検出します。⚠️ 類似性に基づく検出では誤検出が含まれる場合があり、手動確認が必要です。</string>
+    <string name="deduplicator_detection_method_phash_summary">コンテンツの特徴を分析し、知覚ハッシュ値を比較することによって、類似したファイルを見つけます。</string>
     <string name="deduplicator_detection_method_media_title">メディアフィンガープリント</string>
-    <string name="deduplicator_detection_method_media_summary">オーディオフィンガープリントを解析して類似した動画・音声ファイルを検索します。⚠️ 類似性ベースの検出には誤検知が含まれる場合があり、手動での確認が必要です。</string>
+    <string name="deduplicator_detection_method_media_summary">音声フィンガープリントを分析して、類似した動画と音声ファイルを検索します。</string>
+    <string name="deduplicator_detection_method_similarity_caveat">類似度に基づく検出では、手動での確認が必要な誤検知が含まれることがあります。</string>
     <string name="deduplicator_media_match_audio">音声ベースの一致</string>
     <string name="deduplicator_media_match_visual">映像ベースの一致</string>
     <string name="deduplicator_media_match_audio_visual">音声・映像ベースの一致</string>

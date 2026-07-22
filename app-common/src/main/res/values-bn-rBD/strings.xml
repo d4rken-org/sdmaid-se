@@ -38,6 +38,7 @@
     <string name="general_error_label">ত্রুটি দেখা দিয়েছে</string>
     <string name="general_upgrade_action">আপগ্রেড করুন</string>
     <string name="general_refresh_action">সতেজকরণ করুন</string>
+    <string name="general_retry_action">পুনরায় চেষ্টা করুন</string>
     <string name="general_progress_searching">সন্ধান করা হচ্ছে</string>
     <string name="general_progress_generating_searchpaths">অনুসন্ধান পথ তৈরি করা হচ্ছে</string>
     <string name="general_progress_filtering">ছেঁকে বাছা হচ্ছে</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">নাম (অ → জ)</string>
     <string name="general_sort_size_desc">বড় আগে</string>
     <string name="general_tag_system">সিস্টেম</string>
+    <string name="general_tag_library">লাইব্রেরি</string>
     <string name="general_navigate_up_action">উপরে যান</string>
     <string name="general_filter_action">পরিশ্রুতক</string>
     <string name="general_filter_by_tags_label">ট্যাগ দ্বারা ফিল্টার করুন</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">বাগ রিপোর্ট করুন</string>
     <string name="general_error_ipc_deadobject_title">পরিষেবা সংযোগ বিচ্ছিন্ন হয়েছে</string>
     <string name="general_error_ipc_deadobject_description">একটি গুরুত্বপূর্ণ পরিষেবার (যেমন Magisk, Shizuku, অথবা অন্যান্য সিস্টেম-স্তরের পরিষেবা) সাথে সংযোগ অপ্রত্যাশিতভাবে বিচ্ছিন্ন হয়ে গেছে। আপনার ডিভাইসটি রিবুট করুন। যদি সমস্যাটি থেকে যায়, তাহলে আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
-    <string name="general_error_upgrade_required_title">Pro সংস্করণ প্রয়োজন</string>
-    <string name="general_error_upgrade_required_description">এটি একটি Pro বৈশিষ্ট্য। এটি ব্যবহার করতে অনুগ্রহ করে SD Maid SE আপগ্রেড করুন।</string>
+    <string name="general_error_upgrade_required_title">আপগ্রেড প্রয়োজন</string>
+    <string name="general_error_upgrade_required_description">এই বৈশিষ্ট্যটি একটি আপগ্রেড প্রয়োজন। এটি ব্যবহার করতে দয়া করে SD Maid SE আপগ্রেড করুন।</string>
     <string name="general_user_label_owner">মালিক</string>
     <string name="general_user_label_system">সিস্টেম</string>
     <string name="setup_title">সেটআপ</string>

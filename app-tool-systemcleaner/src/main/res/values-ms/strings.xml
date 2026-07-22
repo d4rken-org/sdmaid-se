@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">Import penapis tersuai</string>
     <string name="systemcleaner_customfilter_export_action">Eksport penapis tersuai</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner menemui sampah menggunakan penapis umum bukan khusus apl. Peraturan sedia ada untuk perkara seperti folder kosong, log tertinggal, dan lakaran kecil usang. Lawati tetapan jika anda ingin membuat sendiri.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner mencari sampah menggunakan penapis yang bukan khusus aplikasi. Peraturan siap ada untuk perkara seperti folder kosong, sisa log dan gambar kecil lama. Lawati tetapan jika anda ingin membuat yang anda sendiri.</string>
     <string name="tour_systemcleaner_filter_body">Setiap baris ialah penapis dan apa yang ditemuinya. Buka butirannya untuk melihat dengan jelas fail mana yang sepadan sebelum anda memadam apa-apa.</string>
 </resources>

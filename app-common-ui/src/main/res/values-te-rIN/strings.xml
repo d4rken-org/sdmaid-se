@@ -8,6 +8,7 @@
         <item quantity="other">%d పాథ్‌లు ఎంచుకొబడినాయి</item>
     </plurals>
     <string name="picker_home_action">డేటా ప్రాంతాలు</string>
+    <string name="picker_select_hint">ఎంచుకోవడానికి ఒక అంశాన్ని పట్టుకొండి</string>
     <string name="tour_action_next">తర్వాత</string>
     <string name="tour_action_previous">మునుపటి</string>
     <string name="tour_action_cancel">దాటవేయండి</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">కొనసాగించండి</string>
     <string name="tour_confirm_dont_show_this_tour">ఈ టూర్‌ను చూపవద్దు</string>
     <string name="tour_confirm_disable_all">అన్ని టూర్‌లను నిలిపివేయండి</string>
-    <string name="navigation_unknown_destination_title">త్వరలో వస్తుంది</string>
-    <string name="navigation_unknown_destination_message">ఈ స్క్రీన్ ఇంకా కొత్త UI కు బదిలీ చేయబడుతోంది.</string>
+    <string name="navigation_unknown_destination_title">స్క్రీన్ అనుపలబ్ధం</string>
+    <string name="navigation_unknown_destination_message">ఈ స్క్రీన్‌ను తెరవలేకపోయింది.</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s atlaisvinta</string>
     <string name="dashboard_hero_freeable_x_items">%1$s gali būti pašalinta</string>
     <string name="dashboard_hero_freed_x_items">%1$s pašalinta</string>
-    <string name="dashboard_hero_freeable_hint">Palieskite mygtuką, kad atlaisvintumėte vietos. Palieskite lustą, kad iš pradžių patikrintumėte.</string>
+    <string name="dashboard_hero_freeable_hint">Paspauskite mygtuką laisvai atlaisvinti, arba žetoną norėdami iš pradžios patikrinti.</string>
     <string name="dashboard_hero_freed_hint">Palieskite lustą, kad sužinotumėte daugiau.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Nuskaityta %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Kitas atitikmuo</string>
     <string name="debug_logview_jump_to_bottom_action">Pereiti prie naujausio</string>
     <string name="debug_logview_paused_msg">Pauzė — buferis užšaldytas</string>
-    <string name="debug_logview_paused_dropped_msg">Pauzė — praleistos %1$d naujos eilutės</string>
+    <string name="debug_logview_paused_dropped_msg">Sustabdyta — praleistos naujos eilutės: %1$d</string>
     <string name="debug_logview_copied_msg">Žurnalas nukopijuotas į iškarpinę</string>
     <string name="debug_logview_share_label">Dalintis žurnalu</string>
     <string name="debug_debuglog_screen_title">Derinimo žurnalas</string>
@@ -113,6 +113,7 @@
     <string name="settings_privacy_policy_label">Privatumo politika</string>
     <string name="settings_privacy_policy_desc">Atsakingas duomenų tvarkymas.</string>
     <string name="settings_category_other_label">Kita</string>
+    <string name="settings_upgrade_description">Atnaujinti statusą ir parinktis.</string>
     <string name="general_settings_label">Bendrieji</string>
     <string name="general_settings_desc">Bendrieji patobulinimai, turintys įtakos visai programėlei.</string>
     <string name="settings_category_ui_label">Vartotojo sąsaja</string>
@@ -311,14 +312,10 @@
     </plurals>
     <string name="anniversary_share_title">Pasidalinkite savo SD Maid jubiliejumi</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d metas su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid
-Bandykite: %3$s</item>
-        <item quantity="few">%1$d metai su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid
-Bandykite: %3$s</item>
-        <item quantity="many">%1$d metų su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid
-Bandykite: %3$s</item>
-        <item quantity="other">%1$d metų su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid
-Bandykite: %3$s</item>
+        <item quantity="one">%1$d metas su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid\nBandykite: %3$s</item>
+        <item quantity="few">%1$d metai su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid\nBandykite: %3$s</item>
+        <item quantity="many">%1$d metų su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid\nBandykite: %3$s</item>
+        <item quantity="other">%1$d metų su SD Maid — Atlaiduota vieta: %2$s. Jūsų Android lieka švarus ir tvarkingas. #SDMaid\nBandykite: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Nuskaityti + Ištrinti</string>
     <string name="shortcut_onetap_long">Nuskaityti ir ištrinti vienu veiksmu</string>
@@ -339,11 +336,17 @@ Bandykite: %3$s</item>
     <string name="widget_home_description">Saugyklos naudojimas ir vieno paspaudimo valymas</string>
     <string name="widget_home_storage_internal">Vidinis</string>
     <string name="widget_home_storage_external">Išorinis</string>
-    <string name="widget_home_freed_label">Atlaisvinta: %1$s</string>
+    <string name="widget_home_freed_label">Visą laiką: %1$s</string>
     <string name="widget_home_clean_action">Valyti</string>
     <string name="widget_home_working">Vykdoma…</string>
     <string name="widget_home_unavailable">Saugykla nepasiekiama</string>
-    <string name="shortcut_onetap_started">Nuskaitymas &amp; trynimas pradėti…</string>
+    <string name="settings_category_widget">Valdiklis</string>
+    <string name="widget_settings_oneclick_summary">Leiskite pagrindinio ekrano valdiklio „Valyti“ mygtukui vienu paspaudimu nuskaitinti ir ištrinti, neklausdamas kiekvieną kartą.</string>
+    <string name="widget_oneclick_consent_title">Įjungti vieno paspaudimo valymą?</string>
+    <string name="widget_oneclick_consent_message">Valdiklio „Valyti“ mygtukas iš karto nuskaitos ir ištrins, neklausdamas ir neleisdamas peržiūrėti, kas bus ištrinta.</string>
+    <string name="widget_oneclick_consent_enable_action">Įjungti</string>
+    <string name="widget_oneclick_consent_decline_action">Ne dabar</string>
+    <string name="shortcut_onetap_started">Nuskaitymas + Šalinimas pradėtas…</string>
     <string name="shortcut_onetap_nothing_enabled">Nėra įjungtų vieno spustelėjimo įrankių</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Atsarginė kopija &amp; atkūrimas</string>
@@ -370,7 +373,7 @@ Bandykite: %3$s</item>
     <string name="backup_restore_warn_android_body">Ši atsarginė kopija buvo sukurta naudojant Android %1$s, tačiau šis įrenginys naudoja Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Ši atsarginė kopija buvo sukurta kitame įrenginyje (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Ši atsarginė kopija yra iš skirtingos programos versijos (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Šios atsarginės kopijos istorijos duomenys (statistika, suspaudimo istorija, slydimo sesijos) yra iš skirtingos programos versijos ir negali būti atkurti. Visa kita bus atkurta.</string>
+    <string name="backup_restore_warn_history_body">Šios atsarginės kopijos istorijos duomenys (statistika, glaudinimo istorija, gestų seansai) yra iš kitos programos versijos ir negali būti atkurti. Visa kita bus atkurta.</string>
     <string name="backup_restore_ack_understand">Suprantu ir noriu tęsti</string>
     <string name="backup_restore_action_restore">Atkurti</string>
 </resources>

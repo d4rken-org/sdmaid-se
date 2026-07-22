@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s освобождено</string>
     <string name="dashboard_hero_freeable_x_items">Можно удалить: %1$s</string>
     <string name="dashboard_hero_freed_x_items">%1$s удалено</string>
-    <string name="dashboard_hero_freeable_hint">Коснитесь кнопки, чтобы освободить место. Сначала коснитесь чипа для проверки.</string>
+    <string name="dashboard_hero_freeable_hint">Коснитесь кнопки, чтобы освободить место, или чипа для предварительной проверки.</string>
     <string name="dashboard_hero_freed_hint">Коснитесь чипа для получения подробной информации.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Просканировано %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Следующее совпадение</string>
     <string name="debug_logview_jump_to_bottom_action">Перейти к последнему</string>
     <string name="debug_logview_paused_msg">Приостановлено — буфер заморожен</string>
-    <string name="debug_logview_paused_dropped_msg">Приостановлено — пропущено строк: %1$d</string>
+    <string name="debug_logview_paused_dropped_msg">Приостановлено — пропущено новых строк: %1$d</string>
     <string name="debug_logview_copied_msg">Журнал скопирован в буфер обмена</string>
     <string name="debug_logview_share_label">Поделиться журналом</string>
     <string name="debug_debuglog_screen_title">Журнал отладки</string>
@@ -85,7 +85,7 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Результаты выполнения задач</string>
     <string name="tasks_result_subtext">Результат выполнения задачи</string>
-    <string name="tasks_result_failed_msg">Задача не завершилась успешно.</string>
+    <string name="tasks_result_failed_msg">Задача завершилась с ошибкой.</string>
     <string name="tasks_timeout_error_label">Время выполнения задачи истекло</string>
     <string name="tasks_timeout_error_desc">Задача выполнялась слишком долго и была остановлена. Пожалуйста, попробуйте снова.</string>
     <string name="onboarding_welcome_title">Добро пожаловать</string>
@@ -104,15 +104,16 @@
     <string name="onboarding_setup_title">Настройка</string>
     <string name="onboarding_setup_body1">SD Maid выполнит поиск во всех доступных областях данных.</string>
     <string name="onboarding_setup_body2">Доступность зависит от Вашего устройства, версии Android и предоставленных разрешений.</string>
-    <string name="onboarding_setup_body4">Параметры SD Maid по умолчанию настроены так, чтобы быть безопасными и тщательными, предлагая хороший баланс для большинства пользователей.</string>
-    <string name="onboarding_setup_body5">Для более тщательных результатов посетите настройки каждого инструмента и настройте их по своему усмотрению.</string>
+    <string name="onboarding_setup_body4">Параметры SD Maid по умолчанию настроены так, чтобы быть безопасными и работоспособными, предлагая хороший баланс для большинства пользователей.</string>
+    <string name="onboarding_setup_body5">Для более эффективных результатов зайдите в настройки каждого инструмента и отрегулируйте их по своему усмотрению.</string>
     <string name="onboarding_setup_body3">Начните использовать SD Maid, настроив доступ.</string>
     <string name="onboarding_setup_continue_action">Настроить доступ</string>
-    <string name="onboarding_setup_tours_enabled_label">Показывать экскурсии</string>
-    <string name="onboarding_setup_tours_enabled_explanation">Краткая экскурсия по каждой функции при её открытии.</string>
+    <string name="onboarding_setup_tours_enabled_label">Показывать руководства</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Краткое руководство по каждой функции при её открытии.</string>
     <string name="settings_privacy_policy_label">Политика конфиденциальности</string>
     <string name="settings_privacy_policy_desc">Ответственность за обращение с данными.</string>
     <string name="settings_category_other_label">Прочее</string>
+    <string name="settings_upgrade_description">Статус и параметры обновления.</string>
     <string name="general_settings_label">Общее</string>
     <string name="general_settings_desc">Настройки, которые влияют на всё приложение.</string>
     <string name="settings_category_ui_label">Интерфейс пользователя</string>
@@ -129,7 +130,7 @@
     <string name="ui_theme_style_highcontrast_label">Высокий контраст</string>
     <string name="ui_theme_color_setting_label">Цвет темы</string>
     <string name="ui_theme_color_setting_explanation">Цветовая палитра, используемая для оформления приложения.</string>
-    <string name="ui_theme_color_setting_disabled_materialyou">Цвета предоставляются Material You на основе ваших обоев.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Цвета создаются Material You на основе Ваших обоев.</string>
     <string name="ui_theme_color_value_system">Системные цвета</string>
     <string name="ui_previews_title">Предпросмотр файлов</string>
     <string name="ui_previews_summary">Предварительный просмотр файлов во всех инструментах (например эскизы изображений и видео).</string>
@@ -227,7 +228,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku в сочетании с root-доступом не включает дополнительные возможности, но повышает надежность. SD Maid будет использовать его как резервный метод.</string>
     <string name="setup_shizuku_state_ready_label">Связь с Shizuku настроена.</string>
     <string name="setup_shizuku_state_waiting_label">Ожидание связи с Shizuku.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Попытаться использовать Shizuku</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Попробовать использовать Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не использовать Shizuku</string>
     <string name="setup_dismiss_hint">Вы можете снова перейти к экрану установки через меню настроек.</string>
     <string name="setup_permission_granted_label">Разрешение предоствлено</string>
@@ -255,14 +256,14 @@
     <string name="setup_acs_disallow_hint">Если Вы передумаете, Вы можете изменить эту опцию, зайдя в настройки и перезапустив установку.</string>
     <string name="setup_acs_appops_restriction_title">Ограниченные настройки</string>
     <string name="setup_acs_appops_restriction_body">Не удаётся включить службу специальных возможностей для SD Maid? Android 13+ может накладывать ограничения на приложения, установленные не через Google Play. Снимите эти ограничения в системных настройках для SD Maid. Опция находится в контекстном меню в правом верхнем углу.</string>
-    <string name="setup_acs_advanced_protection_title">Заблокировано Advanced Protection</string>
-    <string name="setup_acs_advanced_protection_body">Функция Advanced Protection блокирует функцию доступности SD Maid на Android 17 и новее, поэтому её невозможно включить, пока активна Advanced Protection. Нажмите справку для получения подробной информации и альтернатив.</string>
+    <string name="setup_acs_advanced_protection_title">Заблокировано расширенной защитой</string>
+    <string name="setup_acs_advanced_protection_body">Расширенная защита Android блокирует службу специальных возможностей SD Maid на Android 17 и новее, поэтому она не может быть активирована, пока включена расширенная защита. Нажмите Помощь, чтобы узнать о деталях и альтернативах.</string>
     <string name="setup_inventory_card_title">Инвентарь</string>
     <string name="setup_inventory_card_body">SD Maid нужно знать какие приложения установлены, чтобы находить файлы не принадлежащие каким-либо из них.</string>
     <string name="setup_inventory_card_extra">Ищите разрешение \"Список приложений\" или \"Запросить все пакеты\".</string>
     <string name="setup_inventory_limitation_title">Возможное ограничение устройства</string>
     <string name="setup_inventory_limitation_body">Система вернула неполный список установленных приложений, хотя требуемые разрешения выглядят предоставленными.</string>
-    <string name="setup_inventory_limitation_body2">Некоторые устройства (например HarmonyOS) никогда не предоставляют полный список приложений. Для защиты ваших данных инструменты управления приложениями остаются отключены, но вы все еще можете просматривать использование хранилища с меньшей детализацией.</string>
+    <string name="setup_inventory_limitation_body2">Некоторые устройства (например HarmonyOS) никогда не предоставляют полный список приложений. Для защиты Ваших данных инструменты управления приложениями остаются отключены, но Вы все еще можете просматривать использование хранилища с меньшей детализацией.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не обнаружило области для сканирования. Закончили ли Вы установку?</string>
     <string name="dataarea_warningcard_label">Области сканирования</string>
     <string name="dataarea_warningcard_reload_action">Обновить области сканирования</string>
@@ -328,18 +329,24 @@
     <string name="tour_dashboard_main_action_body">Большая кнопка внизу — это универсальное действие. Один тап для сканирования, один тап для очистки со всеми автоматическими инструментами.</string>
     <string name="tour_dashboard_manual_tools_body">Некоторые инструменты, такие как Swiper, не являются автоматическими. Они предлагают управляемый рабочий процесс, который вы проходите самостоятельно.</string>
     <string name="tour_dashboard_settings_body">Стандартные параметры SD Maid консервативны и безопасны. Каждое устройство немного отличается, поэтому настройте параметры под свои нужды.</string>
-    <string name="tour_setup_intro_body">Каждая карточка на этом экране — это разрешение, которое может использовать SD Maid. Все они необязательны, но больше разрешений означает больше функций и более тщательное сканирование. Без них большинство инструментов найдут мало для очистки.</string>
+    <string name="tour_setup_intro_body">Каждая карточка на этом экране — это разрешение, которое может использовать SD Maid. Все они необязательны, но больше разрешений означает больше функций и более тщательное сканирование. Без них большинство инструментов найдут мало элементов для очистки.</string>
     <string name="general_settings_reset_guided_tours_label">Сбросить обучающие туры</string>
-    <string name="general_settings_reset_guided_tours_summary">Показать все обучающие туры снова при следующем посещении их экранов. Также повторно включит все туры, если вы их ранее отключили.</string>
+    <string name="general_settings_reset_guided_tours_summary">Показать все обучающие туры снова при следующем посещении их экранов. Также повторно включит все туры, если Вы их ранее отключили.</string>
     <string name="widget_home_title">SD Maid</string>
     <string name="widget_home_description">Использование хранилища и очистка одним касанием</string>
     <string name="widget_home_storage_internal">Внутреннее</string>
     <string name="widget_home_storage_external">Внешнее</string>
-    <string name="widget_home_freed_label">Освобождено: %1$s</string>
+    <string name="widget_home_freed_label">Время жизни: %1$s</string>
     <string name="widget_home_clean_action">Очистить</string>
     <string name="widget_home_working">Обработка…</string>
     <string name="widget_home_unavailable">Хранилище недоступно</string>
-    <string name="shortcut_onetap_started">Сканирование &amp; удаление начато…</string>
+    <string name="settings_category_widget">Виджет</string>
+    <string name="widget_settings_oneclick_summary">Позвольте кнопке «Очистить» на виджете главного экрана сканировать и удалять одним касанием, без повторных вопросов.</string>
+    <string name="widget_oneclick_consent_title">Включить очистку одним касанием?</string>
+    <string name="widget_oneclick_consent_message">Кнопка «Очистить» на виджете будет сканировать и удалять за один раз, без предварительного вопроса и возможности просмотра удаляемого.</string>
+    <string name="widget_oneclick_consent_enable_action">Включить</string>
+    <string name="widget_oneclick_consent_decline_action">Не сейчас</string>
+    <string name="shortcut_onetap_started">Сканирование + Удаление начато…</string>
     <string name="shortcut_onetap_nothing_enabled">Не включены инструменты быстрого действия</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Резервная копия &amp; Восстановление</string>
@@ -362,7 +369,7 @@
     <string name="backup_restore_mode_merge_desc">Добавить резервную копию поверх текущей конфигурации</string>
     <string name="backup_restore_mode_replace">Заменить</string>
     <string name="backup_restore_mode_replace_desc">Сбросить текущую конфигурацию и затем применить резервную копию</string>
-    <string name="backup_restore_warn_version_body">Эта резервная копия создана в SD Maid %1$s, но вы используете %2$s. Восстановление официально поддерживается только между одинаковыми версиями.</string>
+    <string name="backup_restore_warn_version_body">Эта резервная копия создана в SD Maid %1$s, но Вы используете %2$s. Восстановление официально поддерживается только между одинаковыми версиями.</string>
     <string name="backup_restore_warn_android_body">Эта резервная копия была создана на Android %1$s, но на этом устройстве установлена Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Эта резервная копия была создана на другом устройстве (%1$s против %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Эта резервная копия из другого издания приложения (%1$s против %2$s).</string>

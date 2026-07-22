@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s khululiwe</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ingasuswa</string>
     <string name="dashboard_hero_freed_x_items">%1$s susuliwe</string>
-    <string name="dashboard_hero_freeable_hint">Thinta inkinobho ukuze khululiwe isikhala. Thinta ichip ukuze uhlole kuqala.</string>
+    <string name="dashboard_hero_freeable_hint">Cisha inkinobho ukuze kukhululeke indawo, noma ichips ukuze uhlole kuqala.</string>
     <string name="dashboard_hero_freed_hint">Thinta ichip ukuthola imininingwane.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenwe %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Ukufana okulandelayo</string>
     <string name="debug_logview_jump_to_bottom_action">Yeqa ekuseni</string>
     <string name="debug_logview_paused_msg">Kusumjwe — i-buffer imikilizile</string>
-    <string name="debug_logview_paused_dropped_msg">Kusumjwe — %1$d imigqa emisha elahlakelwe</string>
+    <string name="debug_logview_paused_dropped_msg">Zamiswe — imigqa emisha eshiywe: %1$d</string>
     <string name="debug_logview_copied_msg">Log yokulungeleledwa kwi-clipboard</string>
     <string name="debug_logview_share_label">Yabelana Log</string>
     <string name="debug_debuglog_screen_title">Umvala Wokulungisa</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Inqubomgomo yobumfihlo</string>
     <string name="settings_privacy_policy_desc">Ukuphatha idatha ngokufanele.</string>
     <string name="settings_category_other_label">Okunye</string>
+    <string name="settings_upgrade_description">Ushintshela isimo nokukhetha</string>
     <string name="general_settings_label">Okujwayelekile</string>
     <string name="general_settings_desc">Izilungiso ezijwayelekile ezithinta uhlelo lonke.</string>
     <string name="settings_category_ui_label">Isixhumi somsebenzisi</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Ukusebenziswa kwesitoreji nokococela ngeshaya okukodwa</string>
     <string name="widget_home_storage_internal">Sangaphakathi</string>
     <string name="widget_home_storage_external">Sangaphandle</string>
-    <string name="widget_home_freed_label">Kusunguliwe: %1$s</string>
+    <string name="widget_home_freed_label">Isikhathi sempilo: %1$s</string>
     <string name="widget_home_clean_action">Hlanza</string>
     <string name="widget_home_working">Isebenza…</string>
     <string name="widget_home_unavailable">Isiturage asitholakali</string>
-    <string name="shortcut_onetap_started">Ukushanwa nokukhipha kuqale…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Vumela ibutoni lokhlanzela lewidget ukuze lisukele nokususe ngokunye, ngaphandle kokubuza isikhathi ngasinye.</string>
+    <string name="widget_oneclick_consent_title">Vumela uhlanzelo lwesinye?</string>
+    <string name="widget_oneclick_consent_message">Ibutoni lokhlanzela lewidget lizosukela nokususa ngaxesunye, ngaphandle kokubuza kuqala noma ukukuvumela ukubheka ukuthi yini eyosuswa.</string>
+    <string name="widget_oneclick_consent_enable_action">Vumela</string>
+    <string name="widget_oneclick_consent_decline_action">Ayisekho manje</string>
+    <string name="shortcut_onetap_started">Ukusukela + Ukususa kuqalile…</string>
     <string name="shortcut_onetap_nothing_enabled">Azikho amathulusi e-one-tap enabunkunqe</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">I-Backup Nokubuyisela</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Le backup yenziwe ku-Android %1$s, kodwa le divayisi isebenzisa i-Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Le backup yenziwe kudivayisi ehlukile (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Leli likhohi livela kuhlobo lwehluke lwesoftware (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Idatha yemlando yale likhohi (amathathelo, imlando yokunciphisa, izigubgu zokuswape) ivela kuvesini lwehluke lwesoftware futhi akunakubuyiswa. Konke okunye kuzobuyiswa.</string>
+    <string name="backup_restore_warn_history_body">Lena idatha yomlando yekopisi (izibalo, umlando wokucindezeleka, izinhlanganiso zokuswayipa) isevela ekugcineni okwehlelo okunye futhi ayikwazi ukubuyela. Konke okusisayo kuzolunga kabusha.</string>
     <string name="backup_restore_ack_understand">Ngiyaqonda futhi ngifuna ukuqhubeka</string>
     <string name="backup_restore_action_restore">Buyisa</string>
 </resources>

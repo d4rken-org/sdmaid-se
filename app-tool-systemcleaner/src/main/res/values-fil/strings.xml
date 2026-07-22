@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Mag-import ng bagong filter</string>
     <string name="systemcleaner_customfilter_export_action">I-export ang napilingi na filter</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">Ang SystemCleaner ay nakakahanap ng basura gamit ang app-agnostic filters. May handang-handa nang mga rules para sa mga tulad ng walang laman na mga folder, natitirang logs at lumang thumbnails. Bisitahin ang mga setting kung nais mong lumikha ng iyong sarili.</string>
+    <string name="tour_systemcleaner_intro_body">Ang SystemCleaner ay naghahanap ng basura gamit ang mga filter na hindi app-specific. May handang-handa na mga patakaran para sa mga bagay tulad ng mga walang laman na folder, natitirang mga log, at lumang mga thumbnail. Pumunta sa settings kung gusto mong gumawa ng iyong sarili.</string>
     <string name="tour_systemcleaner_filter_body">Bawat hilera ay isang filter at kung ano ang nahanap nito. Buksan ang mga detalye upang makita nang eksakto kung aling mga file ang tumutugma bago magbura ng kahit ano.</string>
 </resources>

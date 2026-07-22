@@ -38,6 +38,7 @@
     <string name="general_error_label">Kļūda</string>
     <string name="general_upgrade_action">Jaunināt</string>
     <string name="general_refresh_action">Atsvaidzināt</string>
+    <string name="general_retry_action">Mēģināt vēlreiz</string>
     <string name="general_progress_searching">Meklēšana</string>
     <string name="general_progress_generating_searchpaths">Ģenerē meklēšanas ceļus</string>
     <string name="general_progress_filtering">Filtrēšana</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nosaukums (A → Z)</string>
     <string name="general_sort_size_desc">Vispirms lielākie</string>
     <string name="general_tag_system">Sistēma</string>
+    <string name="general_tag_library">Bibliotēka</string>
     <string name="general_navigate_up_action">Pārvietoties uz augšu</string>
     <string name="general_filter_action">Filtrēt</string>
     <string name="general_filter_by_tags_label">Filtrēt pēc etiķetēm</string>
@@ -186,8 +188,8 @@
     <string name="general_error_report_bug_action">Ziņot par kļūdu</string>
     <string name="general_error_ipc_deadobject_title">Pakalpojuma savienojums zaudēts</string>
     <string name="general_error_ipc_deadobject_description">Savienojums ar kritiski svarīgu pakalpojumu (piemēram, Magisk, Shizuku vai citi sistēmas līmeņa pakalpojumi) tika negaidīti zaudēts. Lūdzu restartējiet savu ierīci. Ja problēma turpinās, pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to labotu.</string>
-    <string name="general_error_upgrade_required_title">Nepieciešama Pro versija</string>
-    <string name="general_error_upgrade_required_description">Šī ir Pro funkcija. Lūdzu, atjauniniet SD Maid SE, lai to izmantotu.</string>
+    <string name="general_error_upgrade_required_title">Nepieciešams jauninājums</string>
+    <string name="general_error_upgrade_required_description">Šī funkcija prasa jauninājumu. Lūdzu, iegādājieties SD Maid SE jauninājumu, lai to izmantotu.</string>
     <string name="general_user_label_owner">Īpašnieks</string>
     <string name="general_user_label_system">Sistēma</string>
     <string name="setup_title">Iestatīšana</string>

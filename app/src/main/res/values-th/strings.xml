@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ปล่อยออก</string>
     <string name="dashboard_hero_freeable_x_items">%1$s สามารถลบออกได้</string>
     <string name="dashboard_hero_freed_x_items">%1$s ลบออก</string>
-    <string name="dashboard_hero_freeable_hint">แตะปุ่มเพื่อปล่อยพื้นที่ แตะชิปเพื่อตรวจสอบก่อน</string>
+    <string name="dashboard_hero_freeable_hint">แตะปุ่มเพื่อเพิ่มพื้นที่ว่าง หรือแตะชิปเพื่อตรวจสอบก่อน</string>
     <string name="dashboard_hero_freed_hint">แตะชิปเพื่อดูรายละเอียด</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">สแกน %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ผลลัพธ์ถัดไป</string>
     <string name="debug_logview_jump_to_bottom_action">ข้ามไปยังล่าสุด</string>
     <string name="debug_logview_paused_msg">หยุดชั่วคราว — บัฟเฟอร์ล็อก</string>
-    <string name="debug_logview_paused_dropped_msg">หยุดชั่วคราว — ข้าม %1$d บรรทัดใหม่</string>
+    <string name="debug_logview_paused_dropped_msg">หยุดชั่วคราว — ข้ามบรรทัดใหม่: %1$d</string>
     <string name="debug_logview_copied_msg">คัดลอกบันทึกไปยังคลิปบอร์ด</string>
     <string name="debug_logview_share_label">แชร์บันทึก</string>
     <string name="debug_debuglog_screen_title">บันทึกดีบัก</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">นโยบายความเป็นส่วนตัว</string>
     <string name="settings_privacy_policy_desc">จัดการข้อมูลอย่างมีความรับผิดชอบ</string>
     <string name="settings_category_other_label">อื่นๆ</string>
+    <string name="settings_upgrade_description">อัปเกรดสถานะและตัวเลือก</string>
     <string name="general_settings_label">ทั่วไป</string>
     <string name="general_settings_desc">ตัวปรับแต่งทั่วไปที่มีผลต่อทั้งแอพ</string>
     <string name="settings_category_ui_label">ส่วนติดต่อผู้ใช้</string>
@@ -314,10 +315,16 @@
     <string name="widget_home_description">การใช้งานพื้นที่จัดเก็บข้อมูลและการทำความสะอาดแตะครั้งเดียว</string>
     <string name="widget_home_storage_internal">ภายใน</string>
     <string name="widget_home_storage_external">ภายนอก</string>
-    <string name="widget_home_freed_label">เพิ่มพื้นที่ว่าง: %1$s</string>
+    <string name="widget_home_freed_label">อายุการใช้งาน: %1$s</string>
     <string name="widget_home_clean_action">ทำความสะอาด</string>
     <string name="widget_home_working">กำลังดำเนินการ…</string>
     <string name="widget_home_unavailable">ไม่สามารถใช้พื้นที่เก็บข้อมูลได้</string>
+    <string name="settings_category_widget">วิดเจ็ต</string>
+    <string name="widget_settings_oneclick_summary">ให้ปุ่มทำความสะอาดของวิดเจ็ตหน้าจอหลักสแกนและลบในการแตะเดียว โดยไม่ต้องถามทุกครั้ง</string>
+    <string name="widget_oneclick_consent_title">เปิดใช้งานการทำความสะอาดแบบแตะเดียว?</string>
+    <string name="widget_oneclick_consent_message">ปุ่มทำความสะอาดของวิดเจ็ตจะสแกนและลบในครั้งเดียว โดยไม่ต้องถามก่อนหรือแสดงให้คุณตรวจสอบว่าจะลบสิ่งใด</string>
+    <string name="widget_oneclick_consent_enable_action">เปิดใช้งาน</string>
+    <string name="widget_oneclick_consent_decline_action">ไม่ตอนนี้</string>
     <string name="shortcut_onetap_started">เริ่มการสแกนและลบแล้ว…</string>
     <string name="shortcut_onetap_nothing_enabled">ไม่มีเครื่องมือแตะครั้งเดียวที่เปิดใช้งาน</string>
     <!-- Config backup & restore -->
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">ข้อมูลสำรองนี้สร้างบน Android %1$s แต่อุปกรณ์นี้ใช้ Android %2$s</string>
     <string name="backup_restore_warn_device_body">ข้อมูลสำรองนี้สร้างจากอุปกรณ์ที่แตกต่างกัน (%1$s เทียบกับ %2$s)</string>
     <string name="backup_restore_warn_flavor_body">การสำรองข้อมูลนี้มาจากรุ่นแอปพลิเคชันที่แตกต่างกัน (%1$s เทียบกับ %2$s)</string>
-    <string name="backup_restore_warn_history_body">ข้อมูลประวัติของการสำรองข้อมูลนี้ (สถิติ ประวัติการบีบอัด เซสชันการปัด) มาจากเวอร์ชันแอปพลิเคชันที่แตกต่างกันและไม่สามารถกู้คืนได้ ข้อมูลอื่นๆ ทั้งหมดจะได้รับการกู้คืน</string>
+    <string name="backup_restore_warn_history_body">ข้อมูลประวัติของการสำรองข้อมูลนี้ (สถิติ ประวัติการบีบอัด เซสชันการปัด) มาจากเวอร์ชั่นแอปที่แตกต่างกัน และไม่สามารถกู้คืนได้ ข้อมูลอื่นๆ ทั้งหมดจะถูกกู้คืน</string>
     <string name="backup_restore_ack_understand">ฉันเข้าใจและต้องการดำเนินการต่อ</string>
     <string name="backup_restore_action_restore">กู้คืน</string>
 </resources>

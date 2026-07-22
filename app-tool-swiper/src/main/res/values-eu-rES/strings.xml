@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Ez da bat datorren fitxategirik aurkitu</string>
     <string name="swiper_open_externally_action">Ireki kanpoko aplikazioan</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Irristatu argazkia zer egin behar den erabakitzeko: albo batean eduki edo ezabatu, gora saltatu, behera desegin. Beheko botoiek bera egiten dute — eta zer albo den erakusten dute.</string>
-    <string name="tour_swiper_openin_body">Botoi honek argazkia beste aplikazioan irekitzen du, oso baliagarria erabaki baino lehen begiratzeko.</string>
+    <string name="tour_swiper_gestures_body">Igurtzi fitxategi bat nola tratatu erabakitzeko: albora mantentzeko edo ezabatzeko, gora saltatzeko, behera desegin. Azpiko botoiek gauza bera egiten dute — eta zer aldea den adierazten dute.</string>
+    <string name="tour_swiper_openin_body">Botoi honek fitxategia beste aplikazio batean irekitzen du, lagarra da erabaki aurretik egiaztatzeko.</string>
     <string name="tour_swiper_preview_body">Botoi honek pantaila osoan aurreikuspena irekitzen du, hurbilagotik begiratzeko.</string>
     <string name="tour_swiper_actions_body">Irristatzea ez zaizu atsegin? Botoiak ere baditugu! Jauzi fitxategia erabakigabea uzten du, eta Jauzi luzean sakatuta fitxategia etorkizuneko bilaketa guztietatik kanporatzen du. Desegin zure azken aukera itzultzen du.</string>
     <string name="tour_swiper_review_body">Zure mantendu eta ezabatu aukerak zintzo batean daude. Ireki Berrikuspen-a horien gainean joateko eta ezabaketak aplikatzeko prest zaudenean.</string>

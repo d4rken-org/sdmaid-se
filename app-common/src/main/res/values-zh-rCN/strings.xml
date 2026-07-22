@@ -38,6 +38,7 @@
     <string name="general_error_label">错误</string>
     <string name="general_upgrade_action">升级</string>
     <string name="general_refresh_action">刷新</string>
+    <string name="general_retry_action">重试</string>
     <string name="general_progress_searching">正在搜索</string>
     <string name="general_progress_generating_searchpaths">正在生成搜索路径</string>
     <string name="general_progress_filtering">正在过滤</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">名称（A → Z）</string>
     <string name="general_sort_size_desc">最大优先</string>
     <string name="general_tag_system">系统</string>
+    <string name="general_tag_library">库</string>
     <string name="general_navigate_up_action">向上导航</string>
     <string name="general_filter_action">过滤器</string>
     <string name="general_filter_by_tags_label">按标签筛选</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">报告错误</string>
     <string name="general_error_ipc_deadobject_title">服务连接丢失</string>
     <string name="general_error_ipc_deadobject_description">与关键服务（如 Magisk、Shizuku 或其他系统级服务）的连接意外丢失。请重启您的设备。如果问题仍然存在，请检查更新或与我联系，以便我可以修复它。</string>
-    <string name="general_error_upgrade_required_title">需要专业版</string>
-    <string name="general_error_upgrade_required_description">这是一项专业版功能。请升级 SD Maid SE 来使用它。</string>
+    <string name="general_error_upgrade_required_title">需要升级</string>
+    <string name="general_error_upgrade_required_description">此功能需要升级。请升级 SD Maid SE 来使用它。</string>
     <string name="general_user_label_owner">所有者</string>
     <string name="general_user_label_system">系统</string>
     <string name="setup_title">设置</string>

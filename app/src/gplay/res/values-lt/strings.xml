@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Gaukite SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda naudotojų duomenų. Mano darbas finansuojamas jūsų ❤️.</string>
     <string name="upgrade_screen_benefits_title">Atnaujinimo privalumai</string>
-    <string name="upgrade_screen_benefits_body">• Išvalyti programų talpyklas ir nereikalingus duomenis
-• Pašalinti pasikartojančius failus
-• Įjungti suplanuotą valymą
-• Sukurti pasirinktinus filtrus ir valytojo taisykles
-• Sekti saugyklos tendencijas ir valytojo istoriją
-• Daugiau funkcijų ir valdymo galimybių visoje programoje
-• Remti tolesnę programėlės plėtrą</string>
+    <string name="upgrade_screen_benefits_body">• Programos keš ir šiukšlės valymas\n• Pasikartojančių failų šalinimas\n• Nuotraukų ir vaizdo įrašų glaudinimas\n• Tvarkant senas bylas gestais\n• Vienu bakstelėjimu valyti per valdiklį\n• Valymo planavimas\n• Pasirinktiniai filtrai ir taisyklės\n• Saugyklos tendencijos ir istorija\n• Daugiau funkcijų ir valdiklių visoje programoje\n• Paramėkite tęstinį kūrimą</string>
+    <string name="upgrade_screen_offers_title">Atnaujinimo parinktys</string>
+    <string name="upgrade_screen_offers_body">Tos pačios funkcijos, tik skirtingi kainų modeliai.</string>
+    <string name="upgrade_screen_offers_or">arba</string>
     <string name="upgrade_screen_subscription_offer_title">Metinė prenumerata</string>
+    <string name="upgrade_screen_subscription_offer_body">Atsinaujina kasmet po bandomojo laikotarpio. Atšaukti bet kuriuo metu programoje Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Atsinaujina kasmet. Atšaukti bet kuriuo metu programoje Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Nusipirkti vieną kartą</string>
+    <string name="upgrade_screen_iap_offer_body">Vienas mokėjimas, nėra atnaujinimų.</string>
     <string name="upgrade_screen_offers_unavailable_message">Šiuo metu nepavyko įkelti kainų. Patikrinkite Google Play ir po kurio laiko bandykite dar kartą.</string>
     <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą 14 dienų bandomąjį laikotarpį</string>
     <string name="upgrade_screen_subscription_action">Prenumeruoti</string>
     <string name="upgrade_screen_iap_action">Vienkartinis pirkimas</string>
     <string name="upgrade_screen_thanks_toast">Jūs geriausi! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Atkurti pirkimą</string>
+    <string name="upgrade_screen_restore_banner_title">Jau nusipirkote Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Atrodo, kad jau anksčiau šiame įrenginyje atnaujinote į Pro. Atkurkite savo pirkimą, kad jį vėl atrakintumėte.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinchronizacija gali užtrukti. Pabandykite paleisti iš naujo, išvalyti Google Play talpyklą arba tiesiog palaukti.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Kelios paskyros gali supainioti Google Play. Įdiekite programa per Google Play svetainę, kuri priverčia susieti su konkrečia paskyra.</string>
+    <string name="upgrade_screen_owned_hero_title">Sveikiname!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Turite %1$s, atrakintą jūsų prenumerate.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Turite %1$s, atrakintą vienkartinio pirkimo.</string>
+    <string name="upgrade_screen_owned_iap_title">Vienkartinis pirkimas</string>
+    <string name="upgrade_screen_owned_iap_body">Turite vienkartinį Pro atnaujinimą. Pro lieka atrakinta šioje Google paskyroje. Ačiū, kad palaikote SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Jūsų Pro prenumerata yra aktyvi ir nustatyta atsinaujinti. Sąskaita faktūra tvarkoma „Google Play“.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Labiau norite vienkartinio pirkimo? Jis bus prieinamas, kai jūsų prenumerata nebus nustatyta atsinaujinti. Atšaukite prenumeratą „Google Play“, kad perjungtumėte.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Jūsų Pro prenumerata yra aktyvi, bet nenustatyta atsinaujinti. Pro lieka prieinama iki dabartinio laikotarpio pabaigos.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Ši prenumerata vis dar nustatyta atsinaujinti, nors jūs jau turite vienkartinį atnaujinimą. Galite ją atšaukti programoje „Google Play“.</string>
+    <string name="upgrade_screen_manage_subscription_action">Valdyti prenumeratą</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Tai atskiras pirkinys: tai neatsauks jūsų prenumeratos ir nesugražins pinigų. Naudokite tą pačią „Google“ paskyrą abiem.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Prenumerata vis dar aktyvi</string>
+    <string name="upgrade_screen_sub_still_renewing_message">„Google Play“ praneša, kad jūsų prenumerata vis dar nustatyta atsinaujinti. Norėdami įsigyti vienkartinį atnaujinimą, pirmiausia atšaukite prenumeratą programoje „Google Play“, tada grįžkite čia.\n\nJau atšaukėte? Leiskite „Google Play“ momentui ir bandykite dar kartą. Taip pat įsitikinkite, kad naudojate tą pačią „Google“ paskyrą.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Nepavyko patikrinti jūsų prenumeratos būsenos naudojant „Google Play“. Prašome bandyti dar kartą šiek tiek vėliau.</string>
+    <string name="upgrade_screen_restore_success_message">Pirkinys atkurtas, jūsų „Pro“ atnaujinimas yra aktyvus.</string>
+    <string name="upgrade_screen_grace_title">Patvirtinamas jūsų pirkinys</string>
+    <string name="upgrade_screen_grace_body_short">„Pro“ vis dar aktyvus. Laukiame, kol „Google Play“ patvirtins jūsų pirkinį. Tuo tarpu visos „Pro“ funkcijos lieka atblokuotos.</string>
+    <string name="upgrade_screen_grace_body">„Pro“ vis dar aktyvus, tačiau „Google Play“ jūsų pirkinio nepatvirtino jau kurį laiką. Jei įsigijote „Pro“, atkurkite pirkinį ir patikrinkite, ar „Google Play“ naudoja paskyrą, kuri jį įsigijo. Jei prenumerata baigėsi arba pirkinys grąžintas, „Pro“ išsijungs pats, nieko daugiau daryti nereikia.</string>
+    <string name="upgrade_screen_restore_body">Atkūrimas prašo „Google Play“ dar kartą patikrinti šios programos pirkimus dabartinei paskyrai. Jis nepradeda naujo pirkimo.</string>
+    <string name="upgrade_screen_restore_status_title">Statusas atrodo neteisingas?</string>
+    <string name="upgrade_screen_restore_status_body">Jei pirkimas trūksta arba šis statusas atrodo neteisingas, dar kartą patikrinkite naudodami „Google Play“.</string>
+    <string name="upgrade_screen_contact_support_action">Susisiekite su pagalba</string>
+    <string name="upgrade_screen_restore_checked_message">„SD Maid“ ką tik patikrino „Google Play“, tačiau negalėjo patvirtinti jokio „Pro“ pirkimo paskyroje, kurią „Google Play“ naudoja šiai programai.</string>
+    <string name="upgrade_screen_restore_contact_hint">Vis dar sustrigote? Susisiekite su pagalba iš el. pašto, kuris atliko pirkimą, ir nurodykite jūsų „Google Play“ užsakymo numerį.</string>
 </resources>

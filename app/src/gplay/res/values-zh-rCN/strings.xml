@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">获取 SD Maid SE 专业版</string>
     <string name="upgrade_screen_preamble">SD Maid 不含广告，也不出售用户数据。我的工作是由您们资助的 ❤️</string>
     <string name="upgrade_screen_benefits_title">升级优惠</string>
-    <string name="upgrade_screen_benefits_body">• 清理应用缓存和可消耗数据
-• 删除重复文件
-• 启用定时清理
-• 创建自定义筛选器和清理规则
-• 跟踪存储趋势和清理历史
-• 应用中的更多功能和控制
-• 支持持续开发</string>
+    <string name="upgrade_screen_benefits_body">• 应用缓存和垃圾清理\n• 删除重复文件\n• 照片和视频压缩\n• 滑动整理旧文件\n• 通过小组件一键清理\n• 清理计划\n• 自定义筛选条件和规则\n• 存储趋势和历史记录\n• 应用中的更多功能和控制\n• 支持持续开发</string>
+    <string name="upgrade_screen_offers_title">升级选项</string>
+    <string name="upgrade_screen_offers_body">相同功能，只是定价模式不同。</string>
+    <string name="upgrade_screen_offers_or">或</string>
     <string name="upgrade_screen_subscription_offer_title">年度订阅</string>
+    <string name="upgrade_screen_subscription_offer_body">免费试用后每年续订。可以随时在 Google Play 中取消。</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">每年续订。可以随时在 Google Play 中取消。</string>
     <string name="upgrade_screen_iap_offer_title">一次性购买</string>
+    <string name="upgrade_screen_iap_offer_body">一次性付款，无需续订。</string>
     <string name="upgrade_screen_offers_unavailable_message">价格暂时无法加载。请查看 Google Play 并稍后重试。</string>
     <string name="upgrade_screen_subscription_trial_action">开始 14 天免费试用</string>
     <string name="upgrade_screen_subscription_action">订阅</string>
     <string name="upgrade_screen_iap_action">一次性购买</string>
     <string name="upgrade_screen_thanks_toast">您最棒了！❤️</string>
     <string name="upgrade_screen_restore_purchase_action">恢复购买</string>
+    <string name="upgrade_screen_restore_banner_title">已经购买 Pro？</string>
+    <string name="upgrade_screen_restore_banner_body">看起来您之前在此设备上升级为 Pro。恢复您的购买以再次解锁。</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Play 商店同步可能需要一些时间。尝试重启设备、清除 Google Play 缓存或稍作等候。</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">多个账户可能会导致 Google Play 混乱。通过 Google Play 网站安装应用，这可强制与特定账户关联。</string>
+    <string name="upgrade_screen_owned_hero_title">恭喜！</string>
+    <string name="upgrade_screen_owned_hero_sub_body">您拥有 %1$s，已通过您的订阅解锁。</string>
+    <string name="upgrade_screen_owned_hero_iap_body">您拥有 %1$s，已通过一次性购买解锁。</string>
+    <string name="upgrade_screen_owned_iap_title">一次性购买</string>
+    <string name="upgrade_screen_owned_iap_body">您拥有一次性 Pro 升级。Pro 在此 Google 账户上保持解锁。感谢您支持 SD Maid ❤️。</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">您的 Pro 订阅处于活跃状态且已设置自动续费。账单由 Google Play 管理。</string>
+    <string name="upgrade_screen_owned_iap_locked_note">更倾向于一次性购买？在您的订阅不再设置为续费后，它将变为可用。在 Google Play 中取消订阅以切换。</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">您的 Pro 订阅处于活跃状态，但未启用自动续费。Pro 将在当前周期结束前保持可用。</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">此订阅仍设置为续订，但您已拥有一次性升级。您可以在 Google Play 中取消。</string>
+    <string name="upgrade_screen_manage_subscription_action">管理订阅</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">这是单独购买：它不会取消或退款您的订阅。两者请使用同一个 Google 账户。</string>
+    <string name="upgrade_screen_sub_still_renewing_title">订阅仍处于活动状态</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play 报告您的订阅仍设置为续订。要购买一次性升级，请先在 Google Play 中取消订阅，然后返回此处。\n\n刚取消？请给 Google Play 一点时间，然后重试。另外请确保您使用的是同一个 Google 账户。</string>
+    <string name="upgrade_screen_sub_check_failed_message">无法通过 Google Play 检查您的订阅状态。请稍后重试。</string>
+    <string name="upgrade_screen_restore_success_message">购买已恢复，您的 Pro 升级已激活。</string>
+    <string name="upgrade_screen_grace_title">正在确认您的购买</string>
+    <string name="upgrade_screen_grace_body_short">Pro 仍处于活动状态。等待 Google Play 重新确认您的购买，在此期间所有 Pro 功能保持解锁。</string>
+    <string name="upgrade_screen_grace_body">Pro 仍处于活动状态，但 Google Play 已有一段时间未确认您的购买。如果您购买了 Pro，请恢复购买并检查 Google Play 是否使用了购买它的账户。如果订阅已结束或购买已退款，Pro 将自动关闭，无需其他操作。</string>
+    <string name="upgrade_screen_restore_body">恢复会要求 Google Play 重新检查此应用在当前账户的购买记录。它不会启动新购买。</string>
+    <string name="upgrade_screen_restore_status_title">状态看起来有问题？</string>
+    <string name="upgrade_screen_restore_status_body">如果购买记录丢失或此状态显示不正确，请与 Google Play 重新检查。</string>
+    <string name="upgrade_screen_contact_support_action">联系支持</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid 刚才检查了 Google Play，但无法为此应用在 Google Play 使用的账户确认 Pro 购买记录。</string>
+    <string name="upgrade_screen_restore_contact_hint">仍然卡住了？从进行购买的电子邮件地址联系支持，并提供您的 Google Play 订单号。</string>
 </resources>

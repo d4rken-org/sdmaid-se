@@ -38,6 +38,7 @@
     <string name="general_error_label">エラー</string>
     <string name="general_upgrade_action">アップグレード</string>
     <string name="general_refresh_action">再読み込み</string>
+    <string name="general_retry_action">再試行</string>
     <string name="general_progress_searching">検索中です</string>
     <string name="general_progress_generating_searchpaths">検索パスの生成</string>
     <string name="general_progress_filtering">フィルタリング</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">名前 (A → Z)</string>
     <string name="general_sort_size_desc">大きい順</string>
     <string name="general_tag_system">システム</string>
+    <string name="general_tag_library">ライブラリ</string>
     <string name="general_navigate_up_action">上へ移動</string>
     <string name="general_filter_action">フィルタ</string>
     <string name="general_filter_by_tags_label">タグでフィルター</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">バグ報告</string>
     <string name="general_error_ipc_deadobject_title">サービス接続が失われました</string>
     <string name="general_error_ipc_deadobject_description">重要なサービス（Magisk、Shizuku、その他のシステムレベルサービスなど）への接続が予期せず失われました。デバイスを再起動してください。問題が解決しない場合は、アップデートを確認するか、私に連絡して修正できるようにしてください。</string>
-    <string name="general_error_upgrade_required_title">Pro版が必要です</string>
-    <string name="general_error_upgrade_required_description">これはPro機能です。SD Maid SEをアップグレードして使用してください。</string>
+    <string name="general_error_upgrade_required_title">アップグレードが必要です</string>
+    <string name="general_error_upgrade_required_description">この機能にはアップグレードが必要です。ご利用には SD Maid SE をアップグレードしてください。</string>
     <string name="general_user_label_owner">オーナー</string>
     <string name="general_user_label_system">システム</string>
     <string name="setup_title">セットアップ</string>

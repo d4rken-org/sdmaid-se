@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">Skanimi i %1$s përfshin çdo skedar në këtë ruajtje — foto, dokumente, shkarkime, media aplikacioni, dhe më shumë. Të vazhdohet?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Vazhdo megjithatë</string>
     <string name="swiper_session_risky_label">Skanim i të gjithë ruajtjes</string>
-    <string name="swiper_session_risky_info_message">Kjo seancë synon rrënjën e një vëllimi ruajtjeje, kështu që çdo skedar në atë ruajtje është në shqyrtim — foto, dokumente, shkarkime, media aplikacioni, dhe më shumë.
-
-Skanimet e plotë të ruajtjes mund të kthejnë shumë artikuj, duke përfshirë skedarë të cilët mund të mos e keni nënkuptuar të shqyrtoni. Zbato një filtër të tipit të skedarit për të ngushtuar skanimin.</string>
+    <string name="swiper_session_risky_info_message">Kjo seancë synon rrënjën e një vëllimi ruajtjeje, kështu që çdo skedar në atë ruajtje është në shqyrtim — foto, dokumente, shkarkime, media aplikacioni, dhe më shumë.\n\nSkanimet e plotë të ruajtjes mund të kthejnë shumë artikuj, duke përfshirë skedarë të cilët mund të mos e keni nënkuptuar të shqyrtoni. Zbato një filtër të tipit të skedarit për të ngushtuar skanimin.</string>
     <string name="swiper_delete_x_action">Fshi %1$d</string>
     <string name="swiper_settings_swap_directions_title">Ndrysho drejtimet e rrëshqitjes</string>
     <string name="swiper_settings_swap_directions_summary">Rrëshqitni majtas për të mbajtur, djathtas për të fshirë.</string>
@@ -162,8 +160,8 @@ Skanimet e plotë të ruajtjes mund të kthejnë shumë artikuj, duke përfshir�
     <string name="swiper_session_no_matching_files">Nuk u gjetën skedarë përputhës</string>
     <string name="swiper_open_externally_action">Hap në aplikacion të jashtëm</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Rrëshqiti një foto për të vendosur fatin e saj: Anash për ta mbajtur ose fshirë, lart për ta kaluar, poshtë për të zhbërë. Butonat më poshtë bëjnë të njëjtën — dhe tregojnë se cila anë është cila.</string>
-    <string name="tour_swiper_openin_body">Ky buton hap foton në një aplikacion tjetër, i dobishëm për ta kontrolluar para se të vendosësh.</string>
+    <string name="tour_swiper_gestures_body">Rrëshqisni një skedar për të vendosur fatin e tij: anash për ta mbajtur ose fshirë, lart për ta kaluar, poshtë për ta zhbërë. Butonat më poshtë bëjnë të njëjtën gjë — dhe tregojnë cilën anë përfaqëson çfarë.</string>
+    <string name="tour_swiper_openin_body">Ky buton hap skedarin në një aplikacion tjetër, i dobishëm për ta kontrolluar përpara se të vendosni.</string>
     <string name="tour_swiper_preview_body">Ky buton hap një parafytyrim me ekran të plotë për një pamje më të afërt.</string>
     <string name="tour_swiper_actions_body">Nuk të pëlqen rrëshqitja? Kemi edhe butona! Kalimi e lën të pavendosur për më vonë, dhe shtypja e gjatë e Kalimit përjashton një skedar nga skanime të ardhshme. Zhbërja rikthen zgjedhjen tuaj të fundit.</string>
     <string name="tour_swiper_review_body">Zgjedhjet e ruajtjes dhe fshirjes tuaja janë vetëm fazuar. Hapni Rishikim për t\'i shqyrtuar dhe zbatoni fshirjet kur jeni gati.</string>

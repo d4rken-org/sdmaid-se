@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">എങ്ങനെ സഹായിക്കാം</string>
     <string name="upgrade_screen_how_body">പാട്രോൺ ആകുകയും വികസനം സ്പോൺസർ ചെയ്യുകയും ചെയ്യുക! എല്ലാ അധിക സവിശേഷതകളും സജീവമാക്കാനും എന്റെ GitHub Sponsors പ്രൊഫൈൽ തുറക്കാനും താഴെയുള്ള ബട്ടൺ ടാപ്പ് ചെയ്യുക.</string>
     <string name="upgrade_screen_why_title">നവീകരണ ലാഭങ്ങൾ</string>
-    <string name="upgrade_screen_why_body">• ആപ്ലിക്കേഷൻ കാഷെയും ഉപയോഗശൂന്യ ഡാറ്റയും ശുദ്ധീകരിക്കുക
-• നകല് ഫയലുകൾ നീക്കംചെയ്യുക
-• ഷെഡ്യൂൾ ചെയ്ത ശുദ്ധീകരണങ്ങൾ പ്രവർത്തനക്ഷമമാക്കുക
-• കസ്റ്റം ഫിൽട്ടർ കൂടാതെ ശുദ്ധീകരണ നിയമങ്ങൾ സൃഷ്ടിക്കുക
-• സംഭരണ പ്രവണതകൾ കൂടാതെ ശുദ്ധീകരണ ചരിത്രം ട്രാക്ക് ചെയ്യുക
-• ആപ്ലിക്കേഷനിലുടനീളം കൂടുതൽ സവിശേഷതകൾ കൂടാതെ നിയന്ത്രണങ്ങൾ
-• സ്വതന്ത്ര സോഫ്റ്റ്‌വെയർ പ്രവർത്തനത്തെ സഹായിക്കുക</string>
+    <string name="upgrade_screen_why_body">• ആപ്പ് ക്യാഷ് കൂടാതെ അനാവശ്യ ഫയലുകൾ വൃത്തിയാക്കൽ\n• നകൽ ഫയലുകൾ നീക്കം ചെയ്യൽ\n• ഫോട്ടോ കൂടാതെ വീഡിയോ കംപ്രെഷൻ\n• പഴയ ഫയലുകൾ തുരത്തുന്നതിനുള്ള സ്വൈപ്പ്\n• വിജെറ്റിലൂടെ ഒരു ടാപ്പിൽ വൃത്തിയാക്കൽ\n• വൃത്തിയാക്കൽ ഷെഡ്യൂളിംഗ്\n• കസ്റ്റം ഫിൽട്ടർ കൂടാതെ നിയമങ്ങൾ\n• സംഭരണ പ്രവണതകൾ കൂടാതെ ചരിത്രം\n• ആപ്പിലുടനീളം കൂടുതൽ ഫീച്ചർ കൂടാതെ നിയന്ത്രണങ്ങൾ\n• ഓപ്പൺ സോഴ്സ് പ്രവർത്തനത്തെ പിന്തുണയ്ക്കുക</string>
     <string name="upgrade_screen_sponsor_action">വികസനം സ്പോൺസർ ചെയ്യുക</string>
     <string name="upgrade_screen_sponsor_action_hint">പരസ്യങ്ങൾ, അനലിറ്റിക്‌സ്, ഗൂഗിൾ പ്ലേ എന്നിവയാണ് ബദൽ🙁</string>
     <string name="upgrade_screen_thanks_toast">ഓപ്പൺ സോഴ്‌സ് വികസനത്തെ പിന്തുണച്ചതിന് നന്ദി ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">ഇതിനകം തിരിച്ചു വന്നോ? നിങ്ങളുടെ പിന്തുണ SD Maid നെ ജീവനോടെ നിലനിർത്തുന്നു!</string>
+    <string name="upgrade_screen_status_free_title">സ്വതന്ത്ര പതിപ്പ്</string>
+    <string name="upgrade_screen_status_free_body">നിങ്ങൾ SD Maid ന്റെ സ്വതന്ത്ര പതിപ്പ് ഉപയോഗിക്കുന്നു. വികാസത്തെ പിന്തുണയ്ക്കുന്നതിലൂടെ അധിക ഫീച്ചറുകൾ അൻലോക്ക് ചെയ്യാൻ കഴിയും.</string>
+    <string name="upgrade_screen_status_free_action">അപ്‌ഗ്രേഡ് ഓപ്‌ഷനുകൾ കാണുക</string>
+    <string name="upgrade_screen_status_upgraded_title">അപ്‌ഗ്രേഡ് സജീവം</string>
+    <string name="upgrade_screen_status_upgraded_body">എല്ലാ അധിക ഫീച്ചറുകളും അൻലോക്ക് ചെയ്യപ്പെട്ടു. ഓപ്പൺ സോഴ്സ് വികാസത്തെ പിന്തുണയ്ക്കുന്നതിന് നന്ദി ❤️</string>
+    <string name="upgrade_screen_recurring_title">അത് തുടരുക</string>
+    <string name="upgrade_screen_recurring_body">SD Maid പുതുക്കൽ കൂടാതെ പരിഷ്കരണങ്ങളിലൂടെ വികസിച്ചുകൊണ്ടിരിക്കുന്നു. നിങ്ങൾ അത് ഉണ്ടായിരിക്കാൻ ആഗ്രഹിക്കുന്നുവെങ്കിൽ, GitHub Sponsors വഴി ആവർത്തിച്ചുള്ള ദാനം പരിഗണിക്കുക.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors തുറക്കുക</string>
 </resources>

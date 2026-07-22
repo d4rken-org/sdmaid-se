@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Importera nytt filter</string>
     <string name="systemcleaner_customfilter_export_action">Exportera valt filter</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner hittar skräp med hjälp av filter som inte är app-specifika. Färdiga regler finns för saker som tomma mappar, återstående loggar och gamla miniatyrbilder. Besök inställningarna om du vill skapa dina egna.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner hittar skräp med hjälp av filter som inte är appspecifika. Färdiga regler finns för saker som tomma mappar, kvarvarande loggar och gamla miniatyrbilder. Gå till inställningarna om du vill skapa dina egna.</string>
     <string name="tour_systemcleaner_filter_body">Varje rad är ett filter och vad det hittat. Öppna dess detaljer för att se exakt vilka filer som matchar innan du tar bort något.</string>
 </resources>

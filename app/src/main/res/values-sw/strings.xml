@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">Kuachiliwa %1$s</string>
     <string name="dashboard_hero_freeable_x_items">%1$s inaweza kuondolewa</string>
     <string name="dashboard_hero_freed_x_items">Kuondolewa %1$s</string>
-    <string name="dashboard_hero_freeable_hint">Gusa kitufe ili kuachilia nafasi. Gusa kiambishi ili kuangalia kwanza.</string>
+    <string name="dashboard_hero_freeable_hint">Gusa kitufe ili kuachia nafasi, au chip ili kuangalia kwanza.</string>
     <string name="dashboard_hero_freed_hint">Gusa kiambishi kwa maelezo.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Kuchunguzwa %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Mechi inayofuata</string>
     <string name="debug_logview_jump_to_bottom_action">Ruka hadi mwisho</string>
     <string name="debug_logview_paused_msg">Imesimamishwa — kumbukumbu imegandishwa</string>
-    <string name="debug_logview_paused_dropped_msg">Imesimamishwa — mistari %1$d mipya imerukwa</string>
+    <string name="debug_logview_paused_dropped_msg">Imesimamishwa — mistari mipya iliyorukwa: %1$d</string>
     <string name="debug_logview_copied_msg">Kumbukumbu imenakiliwa kwenye ubao wa kunakili</string>
     <string name="debug_logview_share_label">Shiriki kumbukumbu</string>
     <string name="debug_debuglog_screen_title">Rekodi ya Marekebisho</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Sera ya faragha</string>
     <string name="settings_privacy_policy_desc">Kushughulikia data kwa uwazi.</string>
     <string name="settings_category_other_label">Nyingine</string>
+    <string name="settings_upgrade_description">Hali na chaguo za kuboresha.</string>
     <string name="general_settings_label">Jumla</string>
     <string name="general_settings_desc">Marekebisho ya jumla yanayoathiri programu nzima.</string>
     <string name="settings_category_ui_label">Kiolesura cha mtumiaji</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Matumizi ya hifadhi na usafishaji kwa mgusoo mmoja</string>
     <string name="widget_home_storage_internal">Ndani</string>
     <string name="widget_home_storage_external">Nje</string>
-    <string name="widget_home_freed_label">Imeachiliwa: %1$s</string>
+    <string name="widget_home_freed_label">Maisha yote: %1$s</string>
     <string name="widget_home_clean_action">Safisha</string>
     <string name="widget_home_working">Inafanya kazi…</string>
     <string name="widget_home_unavailable">Hifadhi haipatikani</string>
-    <string name="shortcut_onetap_started">Uchunguzi na ufutaji vimeanza…</string>
+    <string name="settings_category_widget">Wijeti</string>
+    <string name="widget_settings_oneclick_summary">Ruhusu kitufe cha Safisha cha wijeti ya skrini ya nyumbani kutafuta na kufuta kwa mgusa mmoja, bila kuuliza kila wakati.</string>
+    <string name="widget_oneclick_consent_title">Washa usafishaji wa mgusa mmoja?</string>
+    <string name="widget_oneclick_consent_message">Kitufe cha Safisha cha wijeti kitatafuta na kufuta kwa hatua moja, bila kuuliza kwanza au kukuruhusu kukagua kinachoondolewa.</string>
+    <string name="widget_oneclick_consent_enable_action">Washa</string>
+    <string name="widget_oneclick_consent_decline_action">Sio sasa</string>
+    <string name="shortcut_onetap_started">Ukaguzi + Kufuta kulianza…</string>
     <string name="shortcut_onetap_nothing_enabled">Hakuna zana za mgusoo mmoja zilizowezeshwa</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Nakala Rudufu na Urejeshaji</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Nakala rudufu hii ilitengenezwa kwenye Android %1$s, lakini kifaa hiki kinaendesha Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Nakala rudufu hii ilitengenezwa kwenye kifaa tofauti (%1$s dhidi ya %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Nakala rudufu hii ni kutoka toleo tofauti la programu (%1$s dhidi ya %2$s).</string>
-    <string name="backup_restore_warn_history_body">Data ya historia ya nakala rudufu hii (takwimu, historia ya ukandamizaji, vipindi vya kutelezesha) ni kutoka toleo tofauti la programu na haiwezi kurejeshwa. Kila kitu kingine kitarejeshwa.</string>
+    <string name="backup_restore_warn_history_body">Data ya historia ya nakala hii rudufu (takwimu, historia ya kubana, vikao vya kuswaipi) inatoka toleo tofauti la programu na haiwezi kurejeshwa. Kila kitu kingine kitarejeshwa.</string>
     <string name="backup_restore_ack_understand">Ninaelewa na nataka kuendelea</string>
     <string name="backup_restore_action_restore">Rejesha</string>
 </resources>

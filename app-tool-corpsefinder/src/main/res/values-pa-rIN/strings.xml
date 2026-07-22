@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">ਕੋਈ ਨਿਸ਼ਾਨ ਨਹੀਂ</string>
     <string name="corpsefinder_markers_dialog_normal_description">ਸਟੈਂਡਰਡ ਬਾਕੀ। ਆਮ ਤੌਰ \'ਤੇ ਹਟਾਉਣਾ ਸੁਰੱਖਿਅਤ — ਇਹ ਫਾਇਲਾਂ ਉਹਨਾਂ ਐਪਸ ਦੀਆਂ ਹਨ ਜੋ ਹੁਣ ਇੰਸਟਾਲ ਨਹੀਂ ਹਨ।</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder ਉਹ ਡੇਟਾ ਲੱਭਦਾ ਹੈ ਜੋ ਤੁਹਾਡੀਆਂ ਅਣ-ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਸ ਨੇ ਬਾਕੀ ਛੱਡਿਆ ਹੈ। ਇਹ ਹੁਣ ਕਿਸੇ ਇੰਸਟਾਲ ਕੀਤੀ ਚੀਜ਼ ਨਾਲ ਸੰਬੰਧਤ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਇਸ ਨੂੰ ਹਟਾਉਣਾ ਸੁਰੱਖਿਅਤ ਹੈ ਅਤੇ ਸਥਾਨ ਖਾਲੀ ਕਰਦਾ ਹੈ।</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ਉਹ ਡਾਟਾ ਲੱਭਦਾ ਹੈ ਜੋ ਅਨਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਸ ਦੁਆਰਾ ਛੱਡਿਆ ਗਿਆ ਹੈ। ਇਹ ਹੁਣ ਕਿਸੇ ਵੀ ਇੰਸਟਾਲ ਕੀਤੀ ਚੀਜ਼ ਨਾਲ ਸੰਬੰਧਤ ਨਹੀਂ ਹੈ, ਇਸ ਲਈ ਇਸ ਨੂੰ ਹਟਾਉਣ ਨਾਲ ਜਗ੍ਹਾ ਖਾਲੀ ਹੋ ਜਾਂਦੀ ਹੈ। ਜ਼ਿਆਦਾਤਰ ਇਸ ਨੂੰ ਹਟਾਉਣਾ ਸੁਰੱਖਿਅਤ ਹੈ, ਪਰ ਜਦੋਂ ਤੁਸੀਂ ਸ਼ੱਕ ਵਿੱਚ ਹੋ ਤਾਂ ਮਾਰਕਰ ਦੀ ਜਾਂਚ ਕਰੋ।</string>
     <string name="tour_corpsefinder_row_body">ਹਰੇਕ ਆਈਟਮ ਬਚਿਆ ਹੋਇਆ ਡੇਟਾ ਅਤੇ ਜਿਸ ਐਪ ਤੋਂ ਇਹ ਆਇਆ ਹੈ। ਨਿਸ਼ਾਨ ਦਰਸਾਉਂਦਾ ਹੈ ਕਿ SD Maid ਨੂੰ ਕਿੰਨਾ ਭਰੋਸਾ ਹੈ ਕਿ ਇਸ ਨੂੰ ਹਟਾਉਣਾ ਸੁਰੱਖਿਅਤ ਹੈ — ਸਿਖਰ ਉੱਤੇ ⓘ ਨੂੰ ਟੈਪ ਕਰੋ ਤਾਂਕਿ ਨਿਸ਼ਾਨਾਂ ਦਾ ਮਤਲਬ ਸਮਝ ਸਕੋ।</string>
 </resources>

@@ -21,9 +21,10 @@
     <string name="deduplicator_detection_method_checksum_title">Sisu kontrollsumma</string>
     <string name="deduplicator_detection_method_checksum_summary">Tuvasta koopiad failide kontrollsummade arvutamisel. Kattuvate kontrollsummadega failide sisu on sama.</string>
     <string name="deduplicator_detection_method_phash_title">Tajuräsi</string>
-    <string name="deduplicator_detection_method_phash_summary">Leidke sarnaseid faile, analüüsides sisu võimalusi ja võrreldes tajuräsi väärtusi. ⚠️ Sarnasusel põhinev tuvastus võib sisaldada valeteateid, mis vajavad inimese kontrolli.</string>
+    <string name="deduplicator_detection_method_phash_summary">Sarnaste failide leidmiseks analüüsige sisu omadusi ja võrrelge tajuräsi väärtusi.</string>
     <string name="deduplicator_detection_method_media_title">Meedia sõrmejälg</string>
-    <string name="deduplicator_detection_method_media_summary">Leia sarnaseid video- ja helifaile, analüüsides heli sõrmejälge. ⚠️ Sarnasusepõhine tuvastamine võib sisaldada valetulemusi, mis nõuavad käsitsi kontrollimist.</string>
+    <string name="deduplicator_detection_method_media_summary">Leidke sarnased video- ja helifailid, analüüsides heli sõrmejälgi.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Sarnasusel põhinev tuvastamine võib sisaldada valepositiivseid tulemusi, mis nõuavad käsitsi kontrollimist.</string>
     <string name="deduplicator_media_match_audio">Helipõhine vaste</string>
     <string name="deduplicator_media_match_visual">Videopõhine vaste</string>
     <string name="deduplicator_media_match_audio_visual">Heli- ja videopõhine vaste</string>

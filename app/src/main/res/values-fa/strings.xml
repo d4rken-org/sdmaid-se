@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s آزادسازی شده</string>
     <string name="dashboard_hero_freeable_x_items">%1$s قابل حذف است</string>
     <string name="dashboard_hero_freed_x_items">%1$s حذف شده</string>
-    <string name="dashboard_hero_freeable_hint">برای آزادسازی فضا روی دکمه ضربه بزنید. ابتدا برای بررسی روی یک چیپ ضربه بزنید.</string>
+    <string name="dashboard_hero_freeable_hint">برای آزادسازی فضا روی دکمه ضربه بزنید یا روی یک برچسب برای بررسی اول ضربه بزنید.</string>
     <string name="dashboard_hero_freed_hint">برای جزئیات روی یک چیپ ضربه بزنید.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s اسکن شده</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">تطابق بعدی</string>
     <string name="debug_logview_jump_to_bottom_action">رفتن به آخرین</string>
     <string name="debug_logview_paused_msg">متوقف — بافر فریز شده</string>
-    <string name="debug_logview_paused_dropped_msg">متوقف — %1$d خط جدید نادیده گرفته شد</string>
+    <string name="debug_logview_paused_dropped_msg">متوقف شده — خطوط جدید رد شده: %1$d</string>
     <string name="debug_logview_copied_msg">گزارش در کلیپ‌بورد کپی شد</string>
     <string name="debug_logview_share_label">اشتراک‌گذاری گزارش</string>
     <string name="debug_debuglog_screen_title">گزارش خطا</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">سیاست حفظ حریم خصوصی</string>
     <string name="settings_privacy_policy_desc">رعایت مسئولانه داده‌ها.</string>
     <string name="settings_category_other_label">بقیه</string>
+    <string name="settings_upgrade_description">ارتقاء وضعیت و گزینه‌ها.</string>
     <string name="general_settings_label">عمومی</string>
     <string name="general_settings_desc">تغییرات عمومی که بر کل برنامه تأثیر می‌گذارد.</string>
     <string name="settings_category_ui_label">رابط کاربری</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">استفاده از فضای ذخیره‌سازی و پاکسازی یک‌ضربتی</string>
     <string name="widget_home_storage_internal">داخلی</string>
     <string name="widget_home_storage_external">خارجی</string>
-    <string name="widget_home_freed_label">آزاد شده: %1$s</string>
+    <string name="widget_home_freed_label">مدت‌زمان: %1$s</string>
     <string name="widget_home_clean_action">پاکسازی</string>
     <string name="widget_home_working">درحال انجام…</string>
     <string name="widget_home_unavailable">ذخیره‌سازی در دسترس نیست</string>
-    <string name="shortcut_onetap_started">اسکن &amp; حذف آغاز شد…</string>
+    <string name="settings_category_widget">ابزارک</string>
+    <string name="widget_settings_oneclick_summary">اجازه دهید دکمه تمیز‌کردن ابزارک صفحه‌ی خانه در یک ضربه اسکن و حذف کند، بدون اینکه هر بار بپرسد.</string>
+    <string name="widget_oneclick_consent_title">آیا تمیز‌کردن یک‌ضربه‌ای را فعال کنید؟</string>
+    <string name="widget_oneclick_consent_message">دکمه تمیز‌کردن ابزارک یک‌باره اسکن و حذف خواهد کرد، بدون اینکه اول بپرسد یا به شما اجازه بررسی بدهد که چه چیزی حذف می‌شود.</string>
+    <string name="widget_oneclick_consent_enable_action">فعال کردن</string>
+    <string name="widget_oneclick_consent_decline_action">فعلاً نه</string>
+    <string name="shortcut_onetap_started">اسکن و حذف شروع شد…</string>
     <string name="shortcut_onetap_nothing_enabled">هیچ ابزار یک‌لمسی فعال نشده است</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">پشتیبان‌گیری &amp; بازیابی</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">این پشتیبان با Android %1$s ایجاد شده است، اما این دستگاه Android %2$s را اجرا می‌کند.</string>
     <string name="backup_restore_warn_device_body">این پشتیبان در دستگاه دیگری ایجاد شد (%1$s در برابر %2$s).</string>
     <string name="backup_restore_warn_flavor_body">این پشتیبان‌گیری از نسخه‌ی متفاوتی از برنامه است (%1$s در برابر %2$s).</string>
-    <string name="backup_restore_warn_history_body">داده‌های تاریخچه‌ی این پشتیبان‌گیری (آمار، تاریخچه فشرده‌سازی، جلسات Swiper) از نسخه‌ی دیگری از برنامه است و قابل بازگردانی نیست. بقیه موارد بازگردانی خواهند شد.</string>
+    <string name="backup_restore_warn_history_body">داده‌های تاریخچه این پشتیبان (آمار، تاریخچه فشرده‌سازی، جلسات سوایپ) از نسخه‌ای متفاوت از برنامه است و نمی‌تواند بازیابی شود. بقیه‌ی موارد بازیابی خواهند شد.</string>
     <string name="backup_restore_ack_understand">متوجه شدم و می‌خواهم ادامه دهم</string>
     <string name="backup_restore_action_restore">بازیابی</string>
 </resources>

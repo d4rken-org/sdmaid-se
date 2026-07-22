@@ -194,8 +194,8 @@
     <string name="swiper_session_no_matching_files">Ni ujemajočih se datotek.</string>
     <string name="swiper_open_externally_action">Odpri v zunanjem programu</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Podrsajte fotografijo, da se odločite o njeni usodi: postrani za ohranitev ali izbris, navzgor za preskok, navzdol za razveljavitev. Spodnji gumbi počnejo enako — in prikažejo, katera stran je katera.</string>
-    <string name="tour_swiper_openin_body">Ta gumb odpre fotografijo v drugi aplikaciji, priročno za preverjanje pred odločitvijo.</string>
+    <string name="tour_swiper_gestures_body">Povlecite datoteko: v stran, da jo obdržite ali izbrišete, navzgor, da preskočite, navzdol, da razveljavite. Spodnji gumbi delujejo enako — in pokažejo, katera stran je katera.</string>
+    <string name="tour_swiper_openin_body">Ta gumb odpre datoteko v drugi aplikaciji, kar je priročno za preverjanje pred odločitvijo.</string>
     <string name="tour_swiper_preview_body">Ta gumb odpre celozaslonski predogled za podrobnejši pogled.</string>
     <string name="tour_swiper_actions_body">Vam drsenje ni všeč? Imamo tudi gumbe! Preskoči pusti fotografijo neodločeno za kasneje, dolg pritisk na Preskoči pa datoteko izloči iz prihodnjih pregledov. Razveljavi prekliče vašo zadnjo izbiro.</string>
     <string name="tour_swiper_review_body">Vaše izbire za ohranitev in brisanje so le pripravljene. Odprite Pregled, da jih pregledate in izvedete brisanje, ko ste pripravljeni.</string>

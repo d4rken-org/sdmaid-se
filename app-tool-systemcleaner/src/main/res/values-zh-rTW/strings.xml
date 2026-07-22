@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">匯入新過濾器</string>
     <string name="systemcleaner_customfilter_export_action">匯出選取的過濾器</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">系統清理器使用應用程式無關的篩選條件來尋找垃圾檔案。現成的規則適用於空資料夾、遺留日誌和過時縮圖等項目。如果您想建立自己的規則，請造訪設定。</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner 使用非應用程式特定的篩選器尋找垃圾檔案。現有預設規則適用於空資料夾、遺留日誌和過期縮圖等情況。如果您想建立自己的規則，請造訪設定。</string>
     <string name="tour_systemcleaner_filter_body">每一列是一個篩選條件及其找到的內容。開啟其詳細資料以查看完全符合的檔案，然後再進行刪除。</string>
 </resources>

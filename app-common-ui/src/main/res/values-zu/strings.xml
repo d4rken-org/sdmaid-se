@@ -8,6 +8,7 @@
         <item quantity="other">Izindlela ezingu-%d zikhethiwe</item>
     </plurals>
     <string name="picker_home_action">Izindawo zedatha</string>
+    <string name="picker_select_hint">Bamba into ukhethe yona</string>
     <string name="tour_action_next">Okulandelayo</string>
     <string name="tour_action_previous">Okwandulele</string>
     <string name="tour_action_cancel">Yeqa</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Qhubeka</string>
     <string name="tour_confirm_dont_show_this_tour">Ungakubonisi umhlahlandlela</string>
     <string name="tour_confirm_disable_all">Vimela wonke umhlahlandlela</string>
-    <string name="navigation_unknown_destination_title">Kulandelayo</string>
-    <string name="navigation_unknown_destination_message">Le skrini isalindile ekuguqulweni kwe-UI entsha</string>
+    <string name="navigation_unknown_destination_title">Isikrini asitholakali</string>
+    <string name="navigation_unknown_destination_message">Lesi skrini asinakuvuleka.</string>
 </resources>

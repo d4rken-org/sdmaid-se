@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s απελευθερώθηκε</string>
     <string name="dashboard_hero_freeable_x_items">%1$s μπορεί να καταργηθεί</string>
     <string name="dashboard_hero_freed_x_items">%1$s καταργήθηκε</string>
-    <string name="dashboard_hero_freeable_hint">Πατήστε το κουμπί για να ελευθερώσετε χώρο. Πατήστε ένα chip για να ελέγξετε πρώτα.</string>
+    <string name="dashboard_hero_freeable_hint">Πατήστε το κουμπί για να ελευθερώσετε χώρο, ή ένα chip για να ελέγξετε πρώτα.</string>
     <string name="dashboard_hero_freed_hint">Πατήστε ένα chip για λεπτομέρειες.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Σαρώθηκε %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Επόμενη αντιστοίχιση</string>
     <string name="debug_logview_jump_to_bottom_action">Μεταπήδηση στο τελευταίο</string>
     <string name="debug_logview_paused_msg">Σταμάτησε — το buffer παγώθηκε</string>
-    <string name="debug_logview_paused_dropped_msg">Σταμάτησε — %1$d νέες γραμμές παραλήφθησαν</string>
+    <string name="debug_logview_paused_dropped_msg">Σε αναμονή — παραλείφθηκαν νέες γραμμές: %1$d</string>
     <string name="debug_logview_copied_msg">Αρχείο καταγραφής αντιγράφηκε στο πρόχειρο</string>
     <string name="debug_logview_share_label">Κοινοποίηση αρχείου καταγραφής</string>
     <string name="debug_debuglog_screen_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Πολιτική απορρήτου</string>
     <string name="settings_privacy_policy_desc">Υπεύθυνη διαχείριση δεδομένων.</string>
     <string name="settings_category_other_label">Άλλο</string>
+    <string name="settings_upgrade_description">Κατάσταση και επιλογές αναβάθμισης.</string>
     <string name="general_settings_label">Γενικά</string>
     <string name="general_settings_desc">Γενικές τροποποιήσεις που επηρεάζουν ολόκληρη την εφαρμογή.</string>
     <string name="settings_category_ui_label">Περιβάλλον χρήστη</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Χρήση αποθήκευσης και καθαρισμός με ένα πάτημα</string>
     <string name="widget_home_storage_internal">Εσωτερικό</string>
     <string name="widget_home_storage_external">Εξωτερικό</string>
-    <string name="widget_home_freed_label">Ελευθερώθηκε: %1$s</string>
+    <string name="widget_home_freed_label">Διάρκεια ζωής: %1$s</string>
     <string name="widget_home_clean_action">Καθαρισμός</string>
     <string name="widget_home_working">Σε εξέλιξη…</string>
     <string name="widget_home_unavailable">Ο αποθηκευτικός χώρος δεν είναι διαθέσιμος</string>
-    <string name="shortcut_onetap_started">Η σάρωση &amp; διαγραφή ξεκίνησαν…</string>
+    <string name="settings_category_widget">Γραφικό στοιχείο</string>
+    <string name="widget_settings_oneclick_summary">Αφήστε το κουμπί Clean του widget της αρχικής οθόνης να σαρώσει και να διαγράψει με ένα άγγιγμα, χωρίς να ρωτάει κάθε φορά.</string>
+    <string name="widget_oneclick_consent_title">Ενεργοποίηση καθαρισμού με ένα άγγιγμα;</string>
+    <string name="widget_oneclick_consent_message">Το κουμπί Clean του widget θα σαρώσει και θα διαγράψει σε μια κίνηση, χωρίς να ρωτήσει πρώτα ή να σας αφήσει να ελέγξετε τι θα αφαιρεθεί.</string>
+    <string name="widget_oneclick_consent_enable_action">Ενεργοποίηση</string>
+    <string name="widget_oneclick_consent_decline_action">Όχι τώρα</string>
+    <string name="shortcut_onetap_started">Σάρωση + Διαγραφή ξεκίνησε…</string>
     <string name="shortcut_onetap_nothing_enabled">Δεν είναι ενεργοποιημένα εργαλεία μίας πίεσης</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Αντίγραφο ασφαλείας &amp; Επαναφορά</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε στο Android %1$s, αλλά αυτή η συσκευή εκτελεί Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε σε διαφορετική συσκευή (%1$s έναντι %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Αυτό το αντίγραφο ασφαλείας είναι από διαφορετική έκδοση της εφαρμογής (%1$s έναντι %2$s).</string>
-    <string name="backup_restore_warn_history_body">Τα δεδομένα ιστορικού αυτού του αντιγράφου ασφαλείας (στατιστικά, ιστορικό συμπίεσης, περίοδοι σάρωσης) είναι από διαφορετική έκδοση της εφαρμογής και δεν μπορούν να επαναφερθούν. Όλα τα υπόλοιπα θα μπορούν.</string>
+    <string name="backup_restore_warn_history_body">Τα δεδομένα ιστορικού αυτής της δημιουργίας αντιγράφων ασφαλείας (στατιστικά, ιστορικό συμπίεσης, σεάνς σάρωσης) προέρχονται από μια διαφορετική έκδοση της εφαρμογής και δεν μπορούν να επαναφερθούν. Όλα τα άλλα θα επαναφερθούν.</string>
     <string name="backup_restore_ack_understand">Καταλαβαίνω και θέλω να συνεχίσω</string>
     <string name="backup_restore_action_restore">Επαναφορά</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s liberato</string>
     <string name="dashboard_hero_freeable_x_items">%1$s può essere rimosso</string>
     <string name="dashboard_hero_freed_x_items">%1$s rimosso</string>
-    <string name="dashboard_hero_freeable_hint">Tocca il pulsante per liberare spazio. Tocca una scheda per controllare prima.</string>
+    <string name="dashboard_hero_freeable_hint">Tocca il pulsante per liberare spazio, oppure un chip per controllare prima.</string>
     <string name="dashboard_hero_freed_hint">Tocca una scheda per i dettagli.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scansionato %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Corrispondenza successiva</string>
     <string name="debug_logview_jump_to_bottom_action">Salta all’ultimo</string>
     <string name="debug_logview_paused_msg">In pausa — buffer congelato</string>
-    <string name="debug_logview_paused_dropped_msg">In pausa — %1$d righe saltate</string>
+    <string name="debug_logview_paused_dropped_msg">In pausa — nuove righe saltate: %1$d</string>
     <string name="debug_logview_copied_msg">Log copiato negli appunti</string>
     <string name="debug_logview_share_label">Condividi log</string>
     <string name="debug_debuglog_screen_title">Log di debug</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Informativa sulla privacy</string>
     <string name="settings_privacy_policy_desc">Trattamento responsabile dei dati.</string>
     <string name="settings_category_other_label">Altro</string>
+    <string name="settings_upgrade_description">Stato e opzioni dell’aggiornamento.</string>
     <string name="general_settings_label">Generale</string>
     <string name="general_settings_desc">Modifiche generali che interessano l\'intera app.</string>
     <string name="settings_category_ui_label">Interfaccia utente</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Utilizzo dello spazio di archiviazione e pulizia con un tocco</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Esterno</string>
-    <string name="widget_home_freed_label">Liberati: %1$s</string>
+    <string name="widget_home_freed_label">Durata: %1$s</string>
     <string name="widget_home_clean_action">Pulisci</string>
     <string name="widget_home_working">In elaborazione…</string>
     <string name="widget_home_unavailable">Archiviazione non disponibile</string>
-    <string name="shortcut_onetap_started">Scansione &amp; eliminazione avviate…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Consenti al pulsante Pulisci del widget della schermata iniziale di eseguire la scansione ed eliminare con un solo tocco, senza chiedere ogni volta.</string>
+    <string name="widget_oneclick_consent_title">Abilitare la pulizia con un solo tocco?</string>
+    <string name="widget_oneclick_consent_message">Il pulsante Pulisci del widget eseguirà la scansione ed eliminerà in una sola volta, senza chiedere prima e senza permetterti di revisionare ciò che viene rimosso.</string>
+    <string name="widget_oneclick_consent_enable_action">Abilita</string>
+    <string name="widget_oneclick_consent_decline_action">Non ora</string>
+    <string name="shortcut_onetap_started">Scansione + eliminazione avviata…</string>
     <string name="shortcut_onetap_nothing_enabled">Nessuno strumento a un tocco è abilitato</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Backup &amp; Ripristino</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Questo backup è stato creato su Android %1$s, ma questo dispositivo esegue Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Questo backup è stato creato su un dispositivo diverso (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Questo backup è da un’edizione diversa dell’app (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">I dati di cronologia del backup (statistiche, cronologia di compressione, sessioni di scorrimento) provengono da una versione diversa dell’app e non possono essere ripristinati. Tutto il resto lo sarà.</string>
+    <string name="backup_restore_warn_history_body">I dati cronologici di questo backup (statistiche, cronologia della compressione, sessioni di swipe) provengono da una versione diversa dell’app e non possono essere ripristinati. Tutto il resto verrà ripristinato.</string>
     <string name="backup_restore_ack_understand">Ho capito e voglio continuare</string>
     <string name="backup_restore_action_restore">Ripristina</string>
 </resources>

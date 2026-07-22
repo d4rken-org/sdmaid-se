@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">JPEG फ़ाइलों के लिए अनुमानित ~%d%% बचत</string>
     <string name="squeezer_onboarding_got_it">समझ गया</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer आपकी फ़ोटो और वीडियो को फिर से संपीड़ित करता है ताकि वे कम जगह लें। फ़ाइलें उपयोग योग्य रहती हैं, बस छोटी होती हैं, और प्रत्येक अपनी अनुमानित बचत दिखाता है।</string>
+    <string name="tour_squeezer_intro_body">Squeezer आपकी तस्वीरों और वीडियो को फिर से कंप्रेस करता है ताकि वे कम जगह लें। आप गुणवत्ता में थोड़ी कमी के बदले मिली जगह पाते हैं। हर आइटम अनुमानित बचत दिखाता है, इसलिए आप तय कर सकते हैं कि यह लायक है या नहीं।</string>
     <string name="tour_squeezer_compress_body">यहाँ सब कुछ एक साथ संपीड़ित करें, या केवल किसी एक को छोटा करने के लिए उस पर टैप करें। कई को चुनने के लिए लंबे समय तक दबाएँ। कुछ भी बदलने से पहले आप हमेशा एक पूर्वावलोकन देखेंगे।</string>
 </resources>

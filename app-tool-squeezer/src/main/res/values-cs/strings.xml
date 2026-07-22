@@ -139,6 +139,6 @@
     <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pro JPEG soubory</string>
     <string name="squeezer_onboarding_got_it">Rozumím</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer znovu komprimuje vaše fotografie a videa, aby zabíraly méně místa. Soubory zůstávají použitelné, jen menší, a každý zobrazuje odhadovanou úsporu.</string>
+    <string name="tour_squeezer_intro_body">Squeezer znovu zkomprimuje vaše fotografie a videa, aby zabíraly méně místa. Vyměňujete si trochu kvality za prostor, který získáte zpět. Každá položka ukazuje odhadovanou úsporu, takže se můžete rozhodnout, co stojí za to.</string>
     <string name="tour_squeezer_compress_body">Komprimujte vše najednou zde, nebo klepněte na jednu položku, aby se zmenšila jen ta. Dlouhým stisknutím vyberte několik. Vždy se vám zobrazí náhled, než se cokoliv změní.</string>
 </resources>

@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">எப்படி உதவுவது</string>
     <string name="upgrade_screen_how_body">புரவலராக மாறி மேம்பாட்டை ஸ்பான்சர் செய்யுங்கள்! அனைத்து கூடுதல் அம்சங்களையும் செயல்படுத்த மற்றும் எனது GitHub Sponsors சுயவிவரத்தைத் திறக்க கீழே உள்ள பொத்தானைத் தட்டவும்.</string>
     <string name="upgrade_screen_why_title">மேம்பாட்டு நன்மைகள்</string>
-    <string name="upgrade_screen_why_body">• பயன்பாட்டு கேஷ்களையும் நீக்கக்கூடிய தரவையும் சுத்தம் செய்யவும்
-• நகல் கோப்புகளை அகற்றவும்
-• திட்டமிடப்பட்ட சுத்தங்களை செயல்படுத்தவும்
-• தனிப்பயன் வடிப்பான்கள் மற்றும் சுத்தி விதிகளை உருவாக்கவும்
-• சேமிப்பக போக்குகள் மற்றும் சுத்தி வரலாற்றைக் கண்காணிக்கவும்
-• பயன்பாட்டில் கூடுதல் சிறப்பியல்புகளும் கட்டுப்பாடுகளும்
-• திறந்த மூல பணிக்கு ஆதரவு</string>
+    <string name="upgrade_screen_why_body">• ஆப் கேச் மற்றும் குப்பை சுத்தம்\n• நகல் கோப்பு அகற்றுதல்\n• புகைப்படம் மற்றும் வீடியோ சுகுமாரம்\n• ஸ்வைப் மூலம் பழைய கோப்புகளைச் சுத்தம் செய்தல்\n• விட்ஜெட் மூலம் ஒரு தட்டல் சுத்தம்\n• சுத்தம் செய்வதைத் திட்டமிடுதல்\n• விருப்பமான வடிப்பிகள் மற்றும் விதிகள்\n• சேமிப்பு போக்குவரவு மற்றும் வரலாறு\n• பயன்பாடு முழுவதும் மேலும் அம்சங்கள் மற்றும் கட்டுப்பாடுகள்\n• திறந்த மூல வேலைக்கு ஆதரவு</string>
     <string name="upgrade_screen_sponsor_action">மேம்பாட்டை ஸ்பான்சர் செய்யுங்கள்</string>
     <string name="upgrade_screen_sponsor_action_hint">மாற்று விளம்பரங்கள், பகுப்பாய்வுகள் மற்றும் Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">திறந்த மூல மேம்பாட்டை ஆதரித்ததற்கு நன்றி ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">ஏற்கனவே திரும்பிவிட்டீர்களா? உங்கள் ஆதரவு SD Maid-ஐ உயிரோடு வைக்கிறது!</string>
+    <string name="upgrade_screen_status_free_title">இலவச பதிப்பு</string>
+    <string name="upgrade_screen_status_free_body">நீங்கள் SD Maid இன் இலவச பதிப்பைப் பயன்படுத்துகிறீர்கள். மேம்பாட்டிற்கு ஆதரவு வழங்குவதன் மூலம் கூடுதல் அம்சங்களைத் திறக்க முடியும்.</string>
+    <string name="upgrade_screen_status_free_action">மேம்படுத்தல் விருப்பங்களைப் பார்க்கவும்</string>
+    <string name="upgrade_screen_status_upgraded_title">மேம்படுத்தல் செயல்பட்டுக்கொண்டுள்ளது</string>
+    <string name="upgrade_screen_status_upgraded_body">அனைத்து கூடுதல் அம்சங்களும் திறக்கப்பட்டுள்ளன. திறந்த மூல வளர்ச்சிக்கு ஆதரவை அளித்ததற்கு நன்றி ❤️</string>
+    <string name="upgrade_screen_recurring_title">தொடர்ந்து வைக்கவும்</string>
+    <string name="upgrade_screen_recurring_body">SD Maid புதுப்பிப்பு மற்றும் சரிசெய்தல்கள் மூலம் தொடர்ந்து வளர்ந்து வருகிறது. நீங்கள் அதைத் தொடர்ந்து வைக்க விரும்பினால், GitHub Sponsors மூலம் மீண்டும் மீண்டும் செய்யும் நன்கொடையைக் கருத்தில் கொள்ளவும்.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors ஐ திறக்கவும்</string>
 </resources>

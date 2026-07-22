@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s libéré</string>
     <string name="dashboard_hero_freeable_x_items">%1$s peut être supprimé</string>
     <string name="dashboard_hero_freed_x_items">%1$s supprimé</string>
-    <string name="dashboard_hero_freeable_hint">Appuyez sur le bouton pour libérer de l’espace. Appuyez sur une puce pour vérifier d’abord.</string>
+    <string name="dashboard_hero_freeable_hint">Appuyez sur le bouton pour libérer de l’espace, ou sur une puce pour vérifier d’abord.</string>
     <string name="dashboard_hero_freed_hint">Appuyez sur une puce pour les détails.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Analysé %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Résultat suivant</string>
     <string name="debug_logview_jump_to_bottom_action">Aller au plus récent</string>
     <string name="debug_logview_paused_msg">Suspendu — tampon figé</string>
-    <string name="debug_logview_paused_dropped_msg">Suspendu — %1$d nouvelle(s) ligne(s) ignorée(s)</string>
+    <string name="debug_logview_paused_dropped_msg">En pause — nouvelles lignes ignorées : %1$d</string>
     <string name="debug_logview_copied_msg">Journal copié dans le presse-papiers</string>
     <string name="debug_logview_share_label">Partager le journal</string>
     <string name="debug_debuglog_screen_title">Journal de débogage</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Politique de confidentialité</string>
     <string name="settings_privacy_policy_desc">Traitement responsable des données.</string>
     <string name="settings_category_other_label">Autres</string>
+    <string name="settings_upgrade_description">État et options de mise à niveau.</string>
     <string name="general_settings_label">Général</string>
     <string name="general_settings_desc">Peaufinages généraux qui affectent l’ensemble de l’appli.</string>
     <string name="settings_category_ui_label">Interface utilisateur</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Utilisation du stockage et nettoyage en une pression</string>
     <string name="widget_home_storage_internal">Interne</string>
     <string name="widget_home_storage_external">Externe</string>
-    <string name="widget_home_freed_label">Libéré : %1$s</string>
+    <string name="widget_home_freed_label">Durée de vie : %1$s</string>
     <string name="widget_home_clean_action">Nettoyer</string>
     <string name="widget_home_working">En cours…</string>
     <string name="widget_home_unavailable">Stockage indisponible</string>
-    <string name="shortcut_onetap_started">Analyse et suppression lancées…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Laissez le bouton Nettoyer du widget d’écran d’accueil analyser et supprimer en un appui, sans demander à chaque fois.</string>
+    <string name="widget_oneclick_consent_title">Activer le nettoyage en un appui ?</string>
+    <string name="widget_oneclick_consent_message">Le bouton Nettoyer du widget analysera et supprimera d’un coup, sans demander d’abord ni vous laisser vérifier ce qui sera supprimé.</string>
+    <string name="widget_oneclick_consent_enable_action">Activer</string>
+    <string name="widget_oneclick_consent_decline_action">Pas maintenant</string>
+    <string name="shortcut_onetap_started">Analyse + Suppression lancée…</string>
     <string name="shortcut_onetap_nothing_enabled">Aucun outil en une pression n’est activé</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Sauvegarde &amp; Restauration</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Cette sauvegarde a été créée sur Android %1$s, mais cet appareil exécute Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Cette sauvegarde a été créée sur un appareil différent (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Cette sauvegarde provient d’une édition d’appli différente (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Les données d’historique de cette sauvegarde (statistiques, historique de compression, sessions de balayage) proviennent d’une version d’appli différente et ne peuvent pas être restaurées. Tout le reste le sera.</string>
+    <string name="backup_restore_warn_history_body">Les données d’historique de cette sauvegarde (statistiques, historique de compression, sessions de balayage) proviennent d’une version d’appli différente et ne peuvent pas être restaurées. Tout le reste sera restauré.</string>
     <string name="backup_restore_ack_understand">Je comprends et veux continuer</string>
     <string name="backup_restore_action_restore">Restaurer</string>
 </resources>

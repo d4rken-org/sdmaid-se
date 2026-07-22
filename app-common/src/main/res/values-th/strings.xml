@@ -38,6 +38,7 @@
     <string name="general_error_label">ข้อผิดพลาด</string>
     <string name="general_upgrade_action">อัปเกรด</string>
     <string name="general_refresh_action">รีเฟรช</string>
+    <string name="general_retry_action">ลองใหม่</string>
     <string name="general_progress_searching">กำลังค้นหา</string>
     <string name="general_progress_generating_searchpaths">กำลังสร้างเส้นทางการค้นหา</string>
     <string name="general_progress_filtering">กำลังกรอง</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">ชื่อ (ก → ฮ)</string>
     <string name="general_sort_size_desc">ใหญ่ที่สุดก่อน</string>
     <string name="general_tag_system">ระบบ</string>
+    <string name="general_tag_library">ไลบรารี</string>
     <string name="general_navigate_up_action">นำทางขึ้น</string>
     <string name="general_filter_action">กรอง</string>
     <string name="general_filter_by_tags_label">กรองตามแท็ก</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">รายงานข้อผิดพลาด</string>
     <string name="general_error_ipc_deadobject_title">สูญเสียการเชื่อมต่อบริการ</string>
     <string name="general_error_ipc_deadobject_description">การเชื่อมต่อกับบริการสำคัญ (เช่น Magisk, Shizuku หรือบริการระดับระบบอื่นๆ) สูญหายโดยไม่คาดคิด โปรดรีสตาร์ทอุปกรณ์ของคุณ หากปัญหายังคงอยู่ ให้ตรวจสอบการอัปเดตหรือติดต่อฉันเพื่อแก้ไข</string>
-    <string name="general_error_upgrade_required_title">ต้องการเวอร์ชั่น Pro</string>
-    <string name="general_error_upgrade_required_description">นี่เป็นฟีเจอร์ของ Pro โปรดอัปเกรด SD Maid SE เพื่อใช้งาน</string>
+    <string name="general_error_upgrade_required_title">ต้องการอัปเกรด</string>
+    <string name="general_error_upgrade_required_description">ฟีเจอร์นี้ต้องการอัปเกรด โปรดอัปเกรด SD Maid SE เพื่อใช้งาน</string>
     <string name="general_user_label_owner">เจ้าของ</string>
     <string name="general_user_label_system">ระบบ</string>
     <string name="setup_title">การตั้งค่า</string>

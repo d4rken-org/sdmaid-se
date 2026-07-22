@@ -69,7 +69,7 @@
     <string name="squeezer_preview_total_size">Gesamtgröße</string>
     <string name="squeezer_preview_estimated_savings">Geschätzte Ersparnis</string>
     <string name="squeezer_compress_confirmation_title">Ausgewählte Elemente komprimieren?</string>
-    <string name="squeezer_compress_confirmation_message">Dadurch werden Originaldateien durch komprimierte Versionen ersetzt. Diese Aktion kann nicht rükgängig gemacht werden.</string>
+    <string name="squeezer_compress_confirmation_message">Dadurch werden Originaldateien durch komprimierte Versionen ersetzt. Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="squeezer_history_title">Komprimierungsverlauf</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d Element (%2$s)</item>
@@ -93,12 +93,12 @@
         <item quantity="one">Keine Medien zum Komprimieren – %d HDR-/Tiefenfoto wurde übersprungen. Aktivieren Sie „HDR &amp; Tiefenfotos komprimieren“ in den Einstellungen, um es einzubeziehen.</item>
         <item quantity="other">Keine Medien zum Komprimieren – %d HDR-/Tiefenfotos wurden übersprungen. Aktivieren Sie „HDR &amp; Tiefenfotos komprimieren“ in den Einstellungen, um sie einzubeziehen.</item>
     </plurals>
-    <string name="squeezer_setup_warning">Komprimierung reduziert die Qualität dauerhaft, um Speicherplatz zu sparen. Dies kann nicht rükgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig, bevor du beginnst.</string>
+    <string name="squeezer_setup_warning">Komprimierung reduziert die Qualität dauerhaft, um Speicherplatz zu sparen. Dies kann nicht rückgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig, bevor du beginnst.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d Speicherort kann nicht für die Komprimierung verwendet werden und wurde entfernt. Die Komprimierung erfordert direkten Zugriff auf den internen Speicher.</item>
         <item quantity="other">%d Speicherorte können nicht für die Komprimierung verwendet werden und wurden entfernt. Die Komprimierung erfordert direkten Zugriff auf den internen Speicher.</item>
     </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze reduziert die Dateigröße von Bildern und Videos, um Speicherplatz freizugeben. Dies reduziert die Qualität dauerhaft und kann nicht rükgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig, bevor du beginnst.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduziert die Dateigröße von Bildern und Videos, um Speicherplatz freizugeben. Dies reduziert die Qualität dauerhaft und kann nicht rückgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig, bevor du beginnst.</string>
     <string name="squeezer_setup_paths_title">Suchorte</string>
     <string name="squeezer_setup_paths_default">Ordner zum Durchsuchen auswählen</string>
     <string name="squeezer_setup_quality_title">Komprimierungsqualität</string>
@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Geschätzte ~%d%% Einsparungen für JPEG-Dateien</string>
     <string name="squeezer_onboarding_got_it">Verstanden</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer komprimiert Ihre Fotos und Videos erneut, damit sie weniger Platz benötigen. Die Dateien bleiben verwendbar, nur kleiner, und jede zeigt ihre geschätzte Einsparung.</string>
+    <string name="tour_squeezer_intro_body">Squeezer komprimiert deine Fotos und Videos neu, sodass sie weniger Speicherplatz brauchen. Du tauschst ein wenig Qualität gegen den Speicherplatz ein, den du zurückbekommst. Jeder Eintrag zeigt die geschätzte Einsparung, damit du entscheiden kannst, was es wert ist.</string>
     <string name="tour_squeezer_compress_body">Komprimieren Sie hier alles auf einmal, oder tippen Sie auf ein einzelnes Element, um nur dieses zu verkleinern. Drücken Sie lange, um mehrere auszuwählen. Sie sehen immer eine Vorschau, bevor sich etwas ändert.</string>
 </resources>

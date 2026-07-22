@@ -177,8 +177,8 @@
     <string name="swiper_session_no_matching_files">Nu s-au găsit fișiere corespunzătoare</string>
     <string name="swiper_open_externally_action">Deschide în aplicație externă</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Gliseză o fotografie pentru a decide soarta ei: Lateral pentru a păstra sau șterge, sus pentru a sări, jos pentru a anula. Butoanele de mai jos fac același lucru — și arată care latură este care.</string>
-    <string name="tour_swiper_openin_body">Acest buton deschide fotografia într-o altă aplicație, util pentru a o verifica înainte de a decide.</string>
+    <string name="tour_swiper_gestures_body">Glisați un fișier pentru a-i decide soarta: lateral pentru a păstra sau șterge, sus pentru a omite, jos pentru a anula. Butoanele de mai jos fac același lucru — și arată care parte este care.</string>
+    <string name="tour_swiper_openin_body">Acest buton deschide fișierul într-o altă aplicație, util pentru a-l verifica înainte de a decide.</string>
     <string name="tour_swiper_preview_body">Acest buton deschide o previzualizare pe ecran complet pentru o privire mai atentă.</string>
     <string name="tour_swiper_actions_body">Nu-ți place să glisești? Avem și butoane! Sări lasă decizia pentru mai târziu, iar apăsarea lungă a Sări exclude un fișier din scanările viitoare. Anulează revine la alegerea ta anterioară.</string>
     <string name="tour_swiper_review_body">Alegerile tale de păstrare și ștergere sunt doar pregătite. Deschide Revizuire pentru a le verifica și a aplica ștergerea când ești gata.</string>

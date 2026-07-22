@@ -38,6 +38,7 @@
     <string name="general_error_label">Qátelik</string>
     <string name="general_upgrade_action">Jańalaw</string>
     <string name="general_refresh_action">Jańalaw</string>
+    <string name="general_retry_action">Qayta sınamaǵ</string>
     <string name="general_progress_searching">Izlenbekte</string>
     <string name="general_progress_generating_searchpaths">Izlew jollardı jasaw</string>
     <string name="general_progress_filtering">Filtrlew</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Ат (А → Я)</string>
     <string name="general_sort_size_desc">Ең үлкен биринши</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Kitapxana</string>
     <string name="general_navigate_up_action">Joqarı qarap barıw</string>
     <string name="general_filter_action">Filtr</string>
     <string name="general_filter_by_tags_label">Belgiler boyınsha súzgilew</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Qáte haqqında xabar beriw</string>
     <string name="general_error_ipc_deadobject_title">Xızmet baylanısı úzildi</string>
     <string name="general_error_ipc_deadobject_description">Mánisli xızmetke (masalan, Magisk, Shizuku, yamasa basqa sistema darajasındaǵı xızmetler) baylanıs kútilmegen túrde úzildi. Qurılmańızdı qayta júklań. Eger máselerni dawam etse, jańartıwlardı tekseriń yamasa mańa ádepki ústinde ózi sheshimni tapıw ushın xabar beriń.</string>
-    <string name="general_error_upgrade_required_title">Pro nusqası kerek</string>
-    <string name="general_error_upgrade_required_description">Bul — Pro mümkinshiligi. Onı paydalanıw ushın SD Maid SE-ni jartılay etip jetilistiriń.</string>
+    <string name="general_error_upgrade_required_title">Jañartıw kerek</string>
+    <string name="general_error_upgrade_required_description">Bul qızıqlı jañartıw talap etedi. Buny qollaw üshin SD Maid SE-ni jañartıńız.</string>
     <string name="general_user_label_owner">Iye</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ornatıw</string>

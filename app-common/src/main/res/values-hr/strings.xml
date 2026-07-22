@@ -38,6 +38,7 @@
     <string name="general_error_label">Greška</string>
     <string name="general_upgrade_action">Nadogradnja</string>
     <string name="general_refresh_action">Osvježi</string>
+    <string name="general_retry_action">Pokušaj ponovno</string>
     <string name="general_progress_searching">Pretraživanje</string>
     <string name="general_progress_generating_searchpaths">Generiranje putanja pretraživanja</string>
     <string name="general_progress_filtering">Filtriranje</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Naziv (A → Z)</string>
     <string name="general_sort_size_desc">Najveći prvo</string>
     <string name="general_tag_system">Sustav</string>
+    <string name="general_tag_library">Biblioteka</string>
     <string name="general_navigate_up_action">Idi gore</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Filtriraj po oznakama</string>
@@ -186,8 +188,8 @@
     <string name="general_error_report_bug_action">Prijavi grešku</string>
     <string name="general_error_ipc_deadobject_title">Veza s uslugom izgubljena</string>
     <string name="general_error_ipc_deadobject_description">Veza s kritičnom uslugom (npr. Magisk, Shizuku ili druge usluge na razini sustava) neočekivano je izgubljena. Ponovno pokrenite uređaj. Ako se problem nastavi, provjerite ima li ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
-    <string name="general_error_upgrade_required_title">Potrebna Pro verzija</string>
-    <string name="general_error_upgrade_required_description">Ovo je Pro značajka. Nadogradite SD Maid SE da biste je koristili.</string>
+    <string name="general_error_upgrade_required_title">Potrebna je nadogradnja</string>
+    <string name="general_error_upgrade_required_description">Ova značajka zahtijeva nadogradnju. Nadogradite SD Maid SE kako biste je koristili.</string>
     <string name="general_user_label_owner">Vlasnik</string>
     <string name="general_user_label_system">Sustav</string>
     <string name="setup_title">Postavljanje</string>

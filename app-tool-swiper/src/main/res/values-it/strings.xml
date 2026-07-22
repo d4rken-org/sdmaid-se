@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Nessun file corrispondente trovato</string>
     <string name="swiper_open_externally_action">Apri nell’app esterna</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Scorri una foto per deciderne il destino: di lato per tenere o eliminare, su per saltare, giù per annullare. I pulsanti qui sotto fanno lo stesso — e mostrano quale lato è quale.</string>
-    <string name="tour_swiper_openin_body">Questo pulsante apre la foto in un’altra app, utile per controllarla prima di decidere.</string>
+    <string name="tour_swiper_gestures_body">Fai swipe su un file per decidere il suo destino: lateralmente per tenerlo o eliminarlo, verso l’alto per saltarlo, verso il basso per annullare. I pulsanti sottostanti fanno lo stesso — e mostrano quale lato corrisponde a cosa.</string>
+    <string name="tour_swiper_openin_body">Questo pulsante apre il file in un’altra app, utile per controllarlo prima di decidere.</string>
     <string name="tour_swiper_preview_body">Questo pulsante apre un’anteprima a schermo intero per uno sguardo più ravvicinato.</string>
     <string name="tour_swiper_actions_body">Non ti piace scorrere? Abbiamo anche i pulsanti! Salta lo lascia indeciso per dopo, e premere a lungo Salta esclude un file dalle scansioni future. Annulla ripristina la tua ultima scelta.</string>
     <string name="tour_swiper_review_body">Le tue scelte di mantenimento e cancellazione sono solo in sospeso. Apri Revisione per esaminarle e applicare le cancellazioni quando sei pronto.</string>

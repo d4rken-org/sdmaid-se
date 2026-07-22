@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s liberado</string>
     <string name="dashboard_hero_freeable_x_items">%1$s pódese eliminar</string>
     <string name="dashboard_hero_freed_x_items">%1$s eliminado</string>
-    <string name="dashboard_hero_freeable_hint">Toca o botón para liberar espazo. Toca un chip para comprobar primeiro.</string>
+    <string name="dashboard_hero_freeable_hint">Toca o botón para liberar espazo, ou un chip para comprobar primeiro.</string>
     <string name="dashboard_hero_freed_hint">Toca un chip para máis detalles.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s escaneado</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Seguinte coincidencia</string>
     <string name="debug_logview_jump_to_bottom_action">Saltar ao máis recente</string>
     <string name="debug_logview_paused_msg">Pausado — buffer conxelado</string>
-    <string name="debug_logview_paused_dropped_msg">Pausado — omitíronse %1$d liña(s) nova(s)</string>
+    <string name="debug_logview_paused_dropped_msg">Pausado — novas liñas saltadas: %1$d</string>
     <string name="debug_logview_copied_msg">Rexistro copiado ao portapapeis</string>
     <string name="debug_logview_share_label">Compartir rexistro</string>
     <string name="debug_debuglog_screen_title">Rexistro de depuración</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Política de privacidade</string>
     <string name="settings_privacy_policy_desc">Manexando os datos responsablemente.</string>
     <string name="settings_category_other_label">Outros</string>
+    <string name="settings_upgrade_description">Estado e opcións da mellora.</string>
     <string name="general_settings_label">Xeral</string>
     <string name="general_settings_desc">Axustes xerais que afectan toda a aplicación.</string>
     <string name="settings_category_ui_label">Interface de usuario</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Uso de almacenamento e limpeza dun toque</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Externo</string>
-    <string name="widget_home_freed_label">Liberado: %1$s</string>
+    <string name="widget_home_freed_label">Vida útil: %1$s</string>
     <string name="widget_home_clean_action">Limpar</string>
     <string name="widget_home_working">Traballando…</string>
     <string name="widget_home_unavailable">Almacenamento non dispoñible</string>
-    <string name="shortcut_onetap_started">Exploración &amp; eliminación iniciadas…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Permite que o botón Limpiar do widget explore e borre nun só toque, sen preguntar cada vez.</string>
+    <string name="widget_oneclick_consent_title">Activar a limpeza dun toque?</string>
+    <string name="widget_oneclick_consent_message">O botón Limpiar do widget vai explorar e borrar todo dunha vez, sen preguntar antes nin deixarte revisar o que se elimina.</string>
+    <string name="widget_oneclick_consent_enable_action">Activar</string>
+    <string name="widget_oneclick_consent_decline_action">Agora non</string>
+    <string name="shortcut_onetap_started">Escaneo + Eliminación iniciados…</string>
     <string name="shortcut_onetap_nothing_enabled">Non hai ferramentas de un toque activadas</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Copia de seguridade &amp; Restaurar</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Esta copia de seguridade foi feita en Android %1$s, pero este dispositivo executa Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Esta copia de seguridade foi feita nun dispositivo diferente (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Esta copia de seguridade é dunha edición diferente da aplicación (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Os datos de historial desta copia de seguridade (estatísticas, historial de compresión, sesións de deslizamento) proceden dunha versión diferente da aplicación e non se restaurarán. Todo o demáis si se restaurará.</string>
+    <string name="backup_restore_warn_history_body">Os datos do historial desta copia de seguridade (estatísticas, historial de compresión, sesións de deslizamento) proceden dunha versión diferente da aplicación e non se poden restaurar. Todo o demais será restaurado.</string>
     <string name="backup_restore_ack_understand">Entendo e quero continuar</string>
     <string name="backup_restore_action_restore">Restaurar</string>
 </resources>

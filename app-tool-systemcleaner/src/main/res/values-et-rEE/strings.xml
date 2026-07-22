@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Impordi uus filter</string>
     <string name="systemcleaner_customfilter_export_action">Ekspordi valitud filter</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">Süsteemipuhastaja leiab prügi, kasutades üldiseid filtreid. Olemas on valmis reeglid tühjade kaustade, jäänud logide ja aegunud pisipiltide jaoks. Avage seaded, kui soovite luua omi.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner leiab prügi, kasutades filtreid, mis pole rakenduspõhised. Valmis reeglid on olemas asjadele nagu tühjad kaustad, jäänud logid ja iganenud pisipildid. Külastage seadeid, kui soovite oma luua.</string>
     <string name="tour_systemcleaner_filter_body">Iga rida on filter ja selle leiud. Avage selle üksikasjad, et näha täpsemalt, millised failid vastavad, enne kui kustutate midagi.</string>
 </resources>

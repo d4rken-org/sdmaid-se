@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">นำเข้าตัวกรองใหม่</string>
     <string name="systemcleaner_customfilter_export_action">ส่งออกตัวกรองที่เลือก</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner ค้นหาไฟล์ขยะโดยใช้ตัวกรองที่ไม่เจาะจงกับแอป มีกฎสำเร็จรูปสำหรับสิ่งต่างๆ เช่น โฟลเดอร์ว่าง บันทึกค้าง และภาพขนาดย่อเก่า เยี่ยมชมการตั้งค่าหากคุณต้องการสร้างของคุณเอง</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ค้นหาไฟล์ขยะโดยใช้ตัวกรองที่ไม่เจาะจงกับแอปใดแอปหนึ่ง มีกฎสำเร็จรูปสำหรับสิ่งต่างๆ เช่น โฟลเดอร์ว่าง บันทึกที่เหลือ และภาพขนาดย่อมที่ล้าสมัย ไปที่การตั้งค่าหากคุณต้องการสร้างของคุณเอง</string>
     <string name="tour_systemcleaner_filter_body">แต่ละแถวเป็นตัวกรองและสิ่งที่พบ เปิดรายละเอียดเพื่อดูไฟล์ที่ตรงกันแน่นอนก่อนที่คุณจะลบอะไร</string>
 </resources>

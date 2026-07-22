@@ -23,9 +23,10 @@
     <string name="deduplicator_detection_method_checksum_title">Контролна сума садржаја</string>
     <string name="deduplicator_detection_method_checksum_summary">Одреди дупликате израчунавањем контролних сума за датотеке. Датотеке са поклапајућим контролним сумама имају потпуно исти садржај.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуални хеш</string>
-    <string name="deduplicator_detection_method_phash_summary">Пронађите сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности. ⚠️ Детекција заснована на сличности може укључити лажне позитивне резултате који захтевају ручну верификацију.</string>
+    <string name="deduplicator_detection_method_phash_summary">Пронађи сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности.</string>
     <string name="deduplicator_detection_method_media_title">Медијски отисак</string>
-    <string name="deduplicator_detection_method_media_summary">Пронађите сличне видео и аудио датотеке анализом аудио отисака. ⚠️ Детекција заснована на сличности може укључивати лажне позитиве који захтевају ручну верификацију.</string>
+    <string name="deduplicator_detection_method_media_summary">Пронађите сличне видео и аудио датотеке анализирањем аудио отиска прста.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Детекција заснована на сличности може укључити лажне позитиве који захтевају ручну проверу.</string>
     <string name="deduplicator_media_match_audio">Подударање засновано на аудио</string>
     <string name="deduplicator_media_match_visual">Подударање засновано на видео</string>
     <string name="deduplicator_media_match_audio_visual">Подударање засновано на аудио и видео</string>

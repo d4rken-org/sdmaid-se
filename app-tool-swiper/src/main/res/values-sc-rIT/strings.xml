@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">Su scanniu de %1$s includit omni ficheru in sa memoria — fotografias, documentus, downloadus, media de s\'aplicatzione, e prus. Continuamos?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Continua de totu</string>
     <string name="swiper_session_risky_label">Scanniu de tota sa memoria</string>
-    <string name="swiper_session_risky_info_message">Sa sessione est indiriada a sa raighe de sa memoria, ita ca omni ficheru in sa memoria est in ambitu — fotografias, documentus, downloadus, media de s\'aplicatzione, e prus.
-
-Su scanniu de tota sa memoria diat potere torrare tantu elementos, inclusive ficheros chi non ti depas abere pensadu a rreviare. Aprica unu filtru de tzipu de ficheru pro angustare su scanniu.</string>
+    <string name="swiper_session_risky_info_message">Sa sessione est indiriada a sa raighe de sa memoria, ita ca omni ficheru in sa memoria est in ambitu — fotografias, documentus, downloadus, media de s\'aplicatzione, e prus.\n\nSu scanniu de tota sa memoria diat potere torrare tantu elementos, inclusive ficheros chi non ti depas abere pensadu a rreviare. Aprica unu filtru de tzipu de ficheru pro angustare su scanniu.</string>
     <string name="swiper_delete_x_action">Cantzella %1$d</string>
     <string name="swiper_settings_swap_directions_title">Iscàmbia is diretzione de iscòrrimentu</string>
     <string name="swiper_settings_swap_directions_summary">Iscòrre a manu manca pro mantènnere, a manu destra pro cantzellare.</string>
@@ -162,8 +160,8 @@ Su scanniu de tota sa memoria diat potere torrare tantu elementos, inclusive fic
     <string name="swiper_session_no_matching_files">Nisciunu archiviu currispundente agatadu</string>
     <string name="swiper_open_externally_action">Aberi in app esterna</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Frisca una fotografica pro decidere sa sina: de banda pro tenere o scancellare, in artu pro sartare, in cascadu pro annullare. Os buttones de abaixu faghint sa medesimu — e mostrant cuai fronti est cuai.</string>
-    <string name="tour_swiper_openin_body">Custu buttone abrit sa fotografica in una atra aplicatzione, bon pro bidzare inanti de decidere.</string>
+    <string name="tour_swiper_gestures_body">Passa un archivio pro decider sa sua suerte: de ladu pro mantere o borrai, in artu pro saltare, in bagu pro desfere. Sos bottones de basu faghent sa mesma cosa — e mostrant cuales lados pro cada cosa.</string>
+    <string name="tour_swiper_openin_body">Custu bottone abrit s\'archivio in un\'altu programa, pro che podes verrigare ante de decider.</string>
     <string name="tour_swiper_preview_body">Custu buttone abrit una previsualizatzione in tota sa pantalla pro una guarda prus achosu.</string>
     <string name="tour_swiper_actions_body">Non ti pighat de friscare? Nois temes buttones fintzas! Sartare lo lasshet indichisu pro pui tarde, e sa friczone larga de Sartare escludit unu ficheru dsos scannius futuros. Annullare revertit sa tua urtima scelta.</string>
     <string name="tour_swiper_review_body">Is sellezioni tias de cusserbiri e borrai sunt solu preparadas. Abri Revisioni pro controllare e aplicare is borradas cand ses prontu.</string>

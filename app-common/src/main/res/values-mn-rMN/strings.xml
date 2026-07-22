@@ -38,6 +38,7 @@
     <string name="general_error_label">Алдаа</string>
     <string name="general_upgrade_action">Сайжруулах</string>
     <string name="general_refresh_action">Сэргээх</string>
+    <string name="general_retry_action">Дахин оролдох</string>
     <string name="general_progress_searching">Хайж байна</string>
     <string name="general_progress_generating_searchpaths">Хайлтын замыг үүсгэж байна</string>
     <string name="general_progress_filtering">Шүүж байна</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Нэр (А → Я)</string>
     <string name="general_sort_size_desc">Хамгийн том эхэлж</string>
     <string name="general_tag_system">Систем</string>
+    <string name="general_tag_library">Номын сан</string>
     <string name="general_navigate_up_action">Дээшээ явах</string>
     <string name="general_filter_action">Шүүлтүүр</string>
     <string name="general_filter_by_tags_label">Шошгоор шүүх</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Алдаа мэдээлэх</string>
     <string name="general_error_ipc_deadobject_title">Үйлчилгээний холболт тасарсан</string>
     <string name="general_error_ipc_deadobject_description">Чухал үйлчилгээний холболт (жишээ нь Magisk, Shizuku эсвэл бусад системийн түвшний үйлчилгээнүүд) гэнэт тасарсан. Төхөөрөмжөө дахин эхлүүлнэ үү. Хэрэв асуудал үргэлжилвэл шинэчлэлийг шалгаж эсвэл надтай холбогдоно уу.</string>
-    <string name="general_error_upgrade_required_title">Pro хувилбар шаардлагатай</string>
-    <string name="general_error_upgrade_required_description">Энэ нь Pro функц юм. Үүнийг ашиглахын тулд SD Maid SE-г шинэчлэнэ үү.</string>
+    <string name="general_error_upgrade_required_title">Сайжруулалт шаардлагатай</string>
+    <string name="general_error_upgrade_required_description">Энэ функц сайжруулалт шаардлагатай. Үүнийг ашиглахын тулд SD Maid SE-ийг сайжруулаарай.</string>
     <string name="general_user_label_owner">Эзэмшигч</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Тохиргоо</string>

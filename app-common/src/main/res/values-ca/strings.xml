@@ -38,6 +38,7 @@
     <string name="general_error_label">Error</string>
     <string name="general_upgrade_action">Millora</string>
     <string name="general_refresh_action">Refresca</string>
+    <string name="general_retry_action">Reintenta</string>
     <string name="general_progress_searching">S\'està cercant</string>
     <string name="general_progress_generating_searchpaths">S\'estan generant rutes de cerca</string>
     <string name="general_progress_filtering">S\'està filtrant</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nom (A → Z)</string>
     <string name="general_sort_size_desc">Els més grans primer</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Biblioteca</string>
     <string name="general_navigate_up_action">Navega cap amunt</string>
     <string name="general_filter_action">Filtra</string>
     <string name="general_filter_by_tags_label">Filtra per etiquetes</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Informa d\'un error</string>
     <string name="general_error_ipc_deadobject_title">S\'ha perdut la connexió amb el servei</string>
     <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (per exemple, Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
-    <string name="general_error_upgrade_required_title">Versió Pro requerida</string>
-    <string name="general_error_upgrade_required_description">Aquesta és una funció Pro. Actualitza SD Maid SE per usar-la.</string>
+    <string name="general_error_upgrade_required_title">Actualització requerida</string>
+    <string name="general_error_upgrade_required_description">Aquesta funcionalitat requereix una actualització. Si us plau, actualitzeu SD Maid SE per a utilitzar-la.</string>
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuració</string>

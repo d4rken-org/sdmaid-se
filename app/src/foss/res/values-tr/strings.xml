@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Nasıl yardım edilir</string>
     <string name="upgrade_screen_how_body">Patron ol ve gelişime sponsor ol! Tüm ekstra özellikleri etkinleştirmek ve GitHub Sponsorları profilimi açmak için aşağıdaki düğmeyi tıklayın.</string>
     <string name="upgrade_screen_why_title">Yükseltme Avantajları</string>
-    <string name="upgrade_screen_why_body">• Uygulama önbelleklerini ve gereksiz verileri temizle\n• Yinelenen dosyaları kaldır\n• Zamanlanmış temizlemeleri etkinleştir\n• Özel filtreler ve temizleme kuralları oluştur\n• Depolama eğilimlerini ve temizleme geçmişini takip et\n• Uygulama genelinde daha fazla özellik ve kontrol\n• Açık kaynak çalışmasını destekle</string>
+    <string name="upgrade_screen_why_body">• Uygulama önbelleği ve çöp temizliği\n• Yinelenen dosya kaldırma\n• Fotoğraf ve video sıkıştırma\n• Eski dosyaları kaydırarak temizleme\n• Widget aracılığıyla tek dokunuşta temizleme\n• Temizleme planlaması\n• Özel filtreler ve kurallar\n• Depolama eğilimleri ve geçmişi\n• Uygulamada daha fazla özellik ve kontrol\n• Açık kaynak çalışmalarını destekle</string>
     <string name="upgrade_screen_sponsor_action">Geliştirmeyi destekleyin</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifler reklamlar, analizler ve Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Açık kaynak geliştirmeyi desteklediğiniz için teşekkür ederiz ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Zaten geri mi döndünüz? Desteğiniz SD Maid\'i hayatta tutuyor!</string>
+    <string name="upgrade_screen_status_free_title">Ücretsiz sürüm</string>
+    <string name="upgrade_screen_status_free_body">SD Maid\'in ücretsiz sürümünü kullanıyorsunuz. Ek özellikler, geliştirmeyi destekleyerek açılabilir.</string>
+    <string name="upgrade_screen_status_free_action">Yükseltme seçeneklerini gör</string>
+    <string name="upgrade_screen_status_upgraded_title">Yükseltme etkin</string>
+    <string name="upgrade_screen_status_upgraded_body">Tüm ek özellikler açıldı. Açık kaynak geliştirmeyi desteklediğiniz için teşekkür ederiz ❤️</string>
+    <string name="upgrade_screen_recurring_title">Sürdürün</string>
+    <string name="upgrade_screen_recurring_body">SD Maid, güncellemeler ve düzeltmeler aracılığıyla gelişmeye devam ediyor. Bunu sürdürmek istiyorsanız, GitHub Sponsors aracılığıyla düzenli bir bağış yapmayı düşünün.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors\'ı aç</string>
 </resources>

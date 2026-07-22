@@ -8,6 +8,7 @@
         <item quantity="other">%d пътища избрани</item>
     </plurals>
     <string name="picker_home_action">Области с данни</string>
+    <string name="picker_select_hint">Задръжте елемент, за да го изберете</string>
     <string name="tour_action_next">Следващ</string>
     <string name="tour_action_previous">Предишен</string>
     <string name="tour_action_cancel">Пропусни</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Продължи обиколката</string>
     <string name="tour_confirm_dont_show_this_tour">Не показвай тази обиколка</string>
     <string name="tour_confirm_disable_all">Изключи всички обиколки</string>
-    <string name="navigation_unknown_destination_title">Скоро</string>
-    <string name="navigation_unknown_destination_message">Този екран все още се мигрира към новия интерфейс.</string>
+    <string name="navigation_unknown_destination_title">Екранът не е наличен</string>
+    <string name="navigation_unknown_destination_message">Този екран не можа да бъде отворен.</string>
 </resources>

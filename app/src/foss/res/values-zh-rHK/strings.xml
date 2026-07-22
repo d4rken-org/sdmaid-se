@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">如何協助</string>
     <string name="upgrade_screen_how_body">成為贊助者並贊助開發！輕觸下面的按鈕，啟用所有額外功能，並開啟我的 Github 贊助者設定檔。</string>
     <string name="upgrade_screen_why_title">升級優勢</string>
-    <string name="upgrade_screen_why_body">• 清理應用程式快取和可清除的資料
-• 移除重複檔案
-• 啟用排程清理
-• 建立自訂篩選器和清理規則
-• 追蹤儲存空間趨勢和清理歷史記錄
-• 應用程式各處提供更多功能和控制項
-• 支持開源工作</string>
+    <string name="upgrade_screen_why_body">• 應用程式快取及垃圾清理\n• 刪除重複檔案\n• 相片和影片壓縮\n• 滑動清理舊檔案\n• 透過小工具一鍵清理\n• 清理排程\n• 自訂篩選和規則\n• 儲存空間趨勢和歷史記錄\n• 應用程式中的更多功能和控制項\n• 支持開放原始碼工作</string>
     <string name="upgrade_screen_sponsor_action">贊助開發</string>
     <string name="upgrade_screen_sponsor_action_hint">替代品為廣告、分析和 Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">感謝您對開放原始碼開發的支持 ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">已經回來了？您的支持讓 SD Maid 保持活力！</string>
+    <string name="upgrade_screen_status_free_title">免費版本</string>
+    <string name="upgrade_screen_status_free_body">您正在使用 SD Maid 免費版。透過支持開發可以解鎖額外功能。</string>
+    <string name="upgrade_screen_status_free_action">查看升級選項</string>
+    <string name="upgrade_screen_status_upgraded_title">升級已啟用</string>
+    <string name="upgrade_screen_status_upgraded_body">所有額外功能已解鎖。感謝您支持開源開發 ❤️</string>
+    <string name="upgrade_screen_recurring_title">繼續支持</string>
+    <string name="upgrade_screen_recurring_body">SD Maid 透過更新和修復不斷發展。如果您想維持這點，請考慮透過 GitHub Sponsors 進行經常性捐贈。</string>
+    <string name="upgrade_screen_recurring_action">開啟 GitHub Sponsors</string>
 </resources>

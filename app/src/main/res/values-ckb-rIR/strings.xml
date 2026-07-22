@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s خالی کرا</string>
     <string name="dashboard_hero_freeable_x_items">%1$s دەتوانرێت سڕاوە</string>
     <string name="dashboard_hero_freed_x_items">%1$s سڕاوە</string>
-    <string name="dashboard_hero_freeable_hint">دوپەی لێدە بۆ جێی خالیکردن. سەتێک لێدە بۆ پشکدان.</string>
+    <string name="dashboard_hero_freeable_hint">دکمە کۆتایی بکە بۆ فریکردنی جێگا، یان چپیلێک بۆ پێشتر پشکنین.</string>
     <string name="dashboard_hero_freed_hint">سەتێک لێدە بۆ وردەکاری</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s بووە سکێن</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">داهاتوو</string>
     <string name="debug_logview_jump_to_bottom_action">پرێدا بۆ نوێترین</string>
     <string name="debug_logview_paused_msg">ڕاوگری — بافەری لقایە</string>
-    <string name="debug_logview_paused_dropped_msg">ڕاوگری — %1$d ڕیزی نوێ پاسڕاو</string>
+    <string name="debug_logview_paused_dropped_msg">وەستاو — لاینی نوێ تێپەڕ کرا: %1$d</string>
     <string name="debug_logview_copied_msg">تۆمار کۆپی کرا بۆ بۆردی کلیپ</string>
     <string name="debug_logview_share_label">هاوبەشی تۆمار</string>
     <string name="debug_debuglog_screen_title">لۆگی دەبوگ</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">سیاسەتی تایبەتمەندی</string>
     <string name="settings_privacy_policy_desc">مامەڵەکردن لەگەڵ داتا بە بەرپرسیارێتییەوە.</string>
     <string name="settings_category_other_label">هی تر</string>
+    <string name="settings_upgrade_description">بارگەری هاوپۆلی و بژاردەکان</string>
     <string name="general_settings_label">گشتی</string>
     <string name="general_settings_desc">گۆڕانکاریەکانی گشتی کە کاریگەری لەسەر تەواوی ئەپەکە دەبێت.</string>
     <string name="settings_category_ui_label">ڕووکاری بەکارهێنەر</string>
@@ -299,10 +300,8 @@
     </plurals>
     <string name="anniversary_share_title">ساڵگرەی SD Maidەکەت بەشێوە بەھەڵبژێڕە</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d ساڵ لەگەڵ SD Maid — جێگای ئازادکراو: %2$s. ئەندرۆیدت پاک و ڕێکخراو نگەریدەت. #SDMaid
-تاقییش بکە: %3$s</item>
-        <item quantity="other">%1$d ساڵ لەگەڵ SD Maid — جێگای ئازادکراو: %2$s. ئەندرۆیدت پاک و ڕێکخراو نگەریدەت. #SDMaid
-تاقییش بکە: %3$s</item>
+        <item quantity="one">%1$d ساڵ لەگەڵ SD Maid — جێگای ئازادکراو: %2$s. ئەندرۆیدت پاک و ڕێکخراو نگەریدەت. #SDMaid\nتاقییش بکە: %3$s</item>
+        <item quantity="other">%1$d ساڵ لەگەڵ SD Maid — جێگای ئازادکراو: %2$s. ئەندرۆیدت پاک و ڕێکخراو نگەریدەت. #SDMaid\nتاقییش بکە: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">بگەڕێ + بسێبەوە</string>
     <string name="shortcut_onetap_long">بگەڕێ و سێبەردن لە یەک کرداردا</string>
@@ -323,11 +322,17 @@
     <string name="widget_home_description">بەکارهێنانی هیسک و پاکسازی یەک ڕاپۆش</string>
     <string name="widget_home_storage_internal">ناوەندی</string>
     <string name="widget_home_storage_external">دەرەکی</string>
-    <string name="widget_home_freed_label">خالاکراو: %1$s</string>
+    <string name="widget_home_freed_label">ئەبەدی: %1$s</string>
     <string name="widget_home_clean_action">پاک کردن</string>
     <string name="widget_home_working">کارکردن…</string>
     <string name="widget_home_unavailable">بیرگە بەردەست نیە</string>
-    <string name="shortcut_onetap_started">پشکنین &amp; سڕینەوە دەستپێکرا…</string>
+    <string name="settings_category_widget">ویجێت</string>
+    <string name="widget_settings_oneclick_summary">ویجێتی سەرەتای نیشاندانیی بە دکمەی پاکسازی پشکنین و سڕینەوە لە یەک کۆتایی بکات، بێ پرسیاری هەر جار.</string>
+    <string name="widget_oneclick_consent_title">پاکسازی یەک کۆتایی چالاک بکەم؟</string>
+    <string name="widget_oneclick_consent_message">دکمەی پاکسازی ویجێتەکە پشکنین و سڕینەوە دەکات لە یەک جار، بێ پرسیاری یان چانسی پێداچونەوە.</string>
+    <string name="widget_oneclick_consent_enable_action">چالاکە</string>
+    <string name="widget_oneclick_consent_decline_action">ئێستا نا</string>
+    <string name="shortcut_onetap_started">پشکنین + سڕینەوە دەستی پێکرد…</string>
     <string name="shortcut_onetap_nothing_enabled">هیچ ئامرازی یەک-کلیک چالاک نیە</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">پاشکۆکی &amp; بەرگەڕاندن</string>
@@ -354,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ئەم پاڅپشتیە لە Android %1$s دا دروستکراوە، لەکی ئەم دەستگەیە Android %2$s هەڵدەگرێت.</string>
     <string name="backup_restore_warn_device_body">ئەم پاڅپشتیە لە دەستگەیەکی جیاوازدا دروستکراوە (%1$s بەتێ %2$s).</string>
     <string name="backup_restore_warn_flavor_body">ئەم پاڅپشتە لە چاپەی جیاوازی ئەپلیکێشنە (%1$s بەرامبەر %2$s).</string>
-    <string name="backup_restore_warn_history_body">زانیاریی مێژووی ئەم پاڅپشتە (ئامارەکان، مێژووی کۆمپرەسکردن، کۆمەکانی سواپ) لە وەشانی جیاوازی ئەپلیکێشن هاتووە و ناتوانرێت بگێڕدرێتەوە. هەموو شتی دیکە دەگێڕدرێتەوە.</string>
+    <string name="backup_restore_warn_history_body">داتای مێژوی ئەم پاشکۆکدنە (ئامار، مێژوی سوڕاندن، دانیشتنی سوایپ) لە وەشانی جیاوازی بەرنامە بووە و ناتوانێت ڕیکخستن. هەمووی تری ڕیکخستن دەبێت.</string>
     <string name="backup_restore_ack_understand">تێدەگەم و دەمەوێت بەردەوام بم</string>
     <string name="backup_restore_action_restore">گێڕانەوە</string>
 </resources>

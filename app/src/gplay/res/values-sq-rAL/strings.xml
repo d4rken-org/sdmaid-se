@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Merr SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nuk ka reklama dhe nuk shet të dhënat e përdoruesit. Puna ime financohet nga ju ❤️.</string>
     <string name="upgrade_screen_benefits_title">Përfitimet e përmirësimit</string>
-    <string name="upgrade_screen_benefits_body">• Pastroni gyra të aplikacioneve dhe të dhëna të harxhueshme
-• Hiqni skedarë të dyfishta
-• Aktivizoni pastrimin e planifikuar
-• Krijoni filtra dhe rregulla pastrimi të personalizuara
-• Ndiqni tendencat e hapësirës ruajtëse dhe historikun e pastrimit
-• Më shumë veçori dhe kontroll në të gjithë aplikacionin
-• Mbështetni zhvillimin e vazhdueshëm</string>
+    <string name="upgrade_screen_benefits_body">• Pastrimi i cache-it dhe mbeturinave të aplikacionit\n• Heqja e skedarëve të dyfishuar\n• Kompresimi i fotove dhe videove\n• Rrëshqitje për pastrimin e skedarëve të vjetër\n• Pastrimi me një prekje nëpërmjet widget-it\n• Planifikimi i pastrimit\n• Filtrat dhe rregullat e personalizuara\n• Trendet dhe historiku i ruajtjes\n• Më shumë veçori dhe kontrolle në të gjithë aplikacionin\n• Mbështetja e zhvillimit të vazhdueeshëm</string>
+    <string name="upgrade_screen_offers_title">Opsionet e përmirësimit</string>
+    <string name="upgrade_screen_offers_body">Të njëjtat veçori, vetëm modele të ndryshëm çmimesh.</string>
+    <string name="upgrade_screen_offers_or">ose</string>
     <string name="upgrade_screen_subscription_offer_title">Abonim vjetor</string>
+    <string name="upgrade_screen_subscription_offer_body">Rinovohet çdo vit pas periudhës së provës falas. Anuloni në çdo kohë në Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Rinovohet çdo vit. Anuloni në çdo kohë në Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Blej njëherë</string>
+    <string name="upgrade_screen_iap_offer_body">Një pagesë, pa rinovime.</string>
     <string name="upgrade_screen_offers_unavailable_message">Çmimet nuk mund të ngarkohen tani. Kontrolloni Google Play dhe provoni përsëri pas një momenti.</string>
     <string name="upgrade_screen_subscription_trial_action">Filloni provën falas 14-ditore</string>
     <string name="upgrade_screen_subscription_action">Abonohu</string>
     <string name="upgrade_screen_iap_action">Blerje një herë</string>
     <string name="upgrade_screen_thanks_toast">Ti je më i miri! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Rivendos blerjen</string>
+    <string name="upgrade_screen_restore_banner_title">Tashmë blerë Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Duket se keni kaluar në Pro në këtë pajisje më parë. Rivendosni blerjen tuaj për ta zhbllokuar përsëri.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Sinkronizimi i Play Store-it mund të marrë kohë. Provoni të rindizni, pastroni cache-in e Google Play ose thjesht prisni.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Llogaritë e shumta mund të habisin Google Play. Instaloni aplikacionin përmes faqes së internetit të Google Play, e cila detyron lidhjen me një llogari specifike.</string>
+    <string name="upgrade_screen_owned_hero_title">Urime!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Ju keni %1$s, zhbllokuar përmes abonimit tuaj.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Ju keni %1$s, zhbllokuar përmes blerjes tuaj një herë.</string>
+    <string name="upgrade_screen_owned_iap_title">Blerje një herë</string>
+    <string name="upgrade_screen_owned_iap_body">Ju zotëroni përmirësimin Pro një herë. Pro mbetet i zhbllokuar në këtë llogari Google. Faleminderit për mbështetjen e SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">Abonimi juaj Pro është aktiv dhe i vendosur për të rinovuar. Faturimi menaxhohet nga Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Preferoni blerjen një herë? Ajo bëhet e disponueshme sapo abonimi juaj të mos jetë më i vendosur për të rinovuar. Anuloni abonimin në Google Play për të kaluar.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">Abonimi juaj Pro është aktiv, por nuk është i vendosur për të rinovuar. Pro mbetet i disponueshëm derisa perioda aktuale të përfundojë.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Ky abonim është ende i caktuar për të rinovuar, edhe pse tashmë keni përmirësimin një herë. Mund ta anuloni atë në Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Menaxhoni abonimin</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Ky është një blerje e veçantë: nuk anulon ose nuk kthen paratë për abonimin tuaj. Përdorni të njëjtën llogari Google për të dyja.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Abonimi ende aktiv</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play raporton se abonimi juaj është ende i caktuar për të rinovuar. Për të blerë përmirësimin një herë, anuloni abonimin në Google Play fillimisht, pastaj kthehuni këtu.\n\nSapo e anuluat atë? Jepini Google Play një çast dhe provoni përsëri. Gjithashtu sigurohuni që përdorni të njëjtën llogari Google.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Nuk mund të kontrollohej statusi i abonimit tuaj me Google Play. Ju lutemi provoni përsëri në një çast.</string>
+    <string name="upgrade_screen_restore_success_message">Blerja u rikthye, përmirësimi juaj Pro është aktiv.</string>
+    <string name="upgrade_screen_grace_title">Po konfirmohet blerja juaj</string>
+    <string name="upgrade_screen_grace_body_short">Pro është ende aktiv. Duke pritur që Google Play të ri-konfirmojë blerjen tuaj, të gjitha veçoritë e Pro mbeten të disponueshëme në ndërkohë.</string>
+    <string name="upgrade_screen_grace_body">Pro është ende aktiv, por Google Play nuk e ka konfirmuar blerjen tuaj për ca kohë. Nëse keni blerë Pro, rikuperoni blerjen dhe kontrolloni se Google Play përdor llogarinë që e bleu. Nëse abonimi ka përfunduar ose blerja u refundua, Pro do të fiket vetë, asgjë tjetër për të bërë.</string>
+    <string name="upgrade_screen_restore_body">Rivendosja kërkon nga Google Play të rikontrollojë blerjet e këtij aplikacioni për llogarinë aktuale. Nuk fillon një blerje të re.</string>
+    <string name="upgrade_screen_restore_status_title">Statusi duket i gabuar?</string>
+    <string name="upgrade_screen_restore_status_body">Nëse një blerje mungon ose ky status duket i pasaktë, rikontrolloni me Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Kontaktoni mbështetjen</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid sapo kontrolloi Google Play, por asnjë blerje Pro nuk mund të konfirmohej për llogarinë që Google Play po përdor për këtë aplikacion.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ende i bllokuar? Kontaktoni mbështetjen nga email-i që bëri blerjen dhe përfshini numrin e porosëës tuaj në Google Play.</string>
 </resources>

@@ -64,6 +64,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Fără marcator</string>
     <string name="corpsefinder_markers_dialog_normal_description">Rest standard. De obicei sigur de șters — aceste fișiere aparțin aplicațiilor care nu mai sunt instalate.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder găsește date lăsate în urmă de aplicații pe care le-ai dezinstalat. Nu mai aparțin niciunei aplicații instalate, deci ștergerea lor este sigură și eliberează spațiu.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder găsește date lăsate în urmă de aplicații pe care le-ați dezinstalat deja. Nu mai aparțin niciunei aplicații instalate, deci ștergerea lor eliberează spațiu. Cea mai mare parte este sigură de șters, dar verificați marcatorul când nu sunteți sigur.</string>
     <string name="tour_corpsefinder_row_body">Fiecare element arată date rămase și aplicația din care provin. Marcatorul arată cât de sigur este SD Maid că este sigur să ștergi — apasă pe ⓘ de sus pentru a afla ce înseamnă marcatorii.</string>
 </resources>

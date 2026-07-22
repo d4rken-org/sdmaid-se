@@ -68,6 +68,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Brez oznake</string>
     <string name="corpsefinder_markers_dialog_normal_description">Običajen ostanek. Običajno je varno za brisanje — te datoteke pripadajo aplikacijam, ki niso več nameščene.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">Iskalec trupel najde podatke, ki so ostali od aplikacij, ki ste jih že odstranili. Ne pripada več ničemer nameščenemu, zato je njihovo brisanje varno in sprosti prostor.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder najde podatke, ki so jih pustile aplikacije, ki ste jih že odstranili. Ker te aplikacije več niso nameščene, njihovo odstranjevanje sprosti prostor. Večino je varno odstraniti, vendar preverite oznako, kadar niste prepričani.</string>
     <string name="tour_corpsefinder_row_body">Vsaka postavka je ostanek podatkov in aplikacija, iz katere izhaja. Oznaka prikazuje, kako prepričan je SD Maid, da je varno za brisanje — tapnite ⓘ na vrhu, da izveste, kaj pomenijo oznake.</string>
 </resources>

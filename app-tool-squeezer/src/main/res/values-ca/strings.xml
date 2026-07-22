@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un %d%% per a fitxers JPEG</string>
     <string name="squeezer_onboarding_got_it">Entesos</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer recomprimeix les teves fotos i els teus vídeos perquè ocupin menys espai. Els fitxers continuen sent utilitzables, només més petits, i cadascú mostra l\'estalvi estimat.</string>
+    <string name="tour_squeezer_intro_body">Squeezer recomprimeix les vostres fotos i vídeos perquè ocupin menys espai. Canvieu una mica de qualitat per l\'espai que recupereu. Cada element mostra l\'estalvi estimat, perquè podeu decidir què en val la pena.</string>
     <string name="tour_squeezer_compress_body">Comprimeix-ho tot alhora aquí, o toca un element per reduir només aquest. Prem llargament per triar-ne diversos. Sempre veuràs una previsualització abans que res canviï.</string>
 </resources>

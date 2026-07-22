@@ -38,6 +38,7 @@
     <string name="general_error_label">பிழை</string>
     <string name="general_upgrade_action">மேம்படுத்து</string>
     <string name="general_refresh_action">புதுப்பி</string>
+    <string name="general_retry_action">மீண்டும் முயற்சிக்கவும்</string>
     <string name="general_progress_searching">தேடுகிறது</string>
     <string name="general_progress_generating_searchpaths">தேடல் பாதைகளை உருவாக்குகிறது</string>
     <string name="general_progress_filtering">வடிகட்டுகிறது</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">பெயர் (அ → ஆ)</string>
     <string name="general_sort_size_desc">பெரியது முதலில்</string>
     <string name="general_tag_system">கணினி</string>
+    <string name="general_tag_library">நூலகம்</string>
     <string name="general_navigate_up_action">மேலே செல்ல</string>
     <string name="general_filter_action">வடிகட்டு</string>
     <string name="general_filter_by_tags_label">குறிச்சொற்களால் வடிப்பெடுக்கவும்</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">பிழையைப் புகாரளி</string>
     <string name="general_error_ipc_deadobject_title">சேவை இணைப்பு இழந்தது</string>
     <string name="general_error_ipc_deadobject_description">முக்கியமான சேவைக்கான இணைப்பு (உதா. Magisk, Shizuku, அல்லது பிற கணினி-நிலை சேவைகள்) எதிர்பாராதவிதமாக இழக்கப்பட்டது. உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும். சிக்கல் தொடர்ந்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதை சரிசெய்வதற்காக என்னைத் தொடர்பு கொள்ளவும்.</string>
-    <string name="general_error_upgrade_required_title">Pro பதிப்பு தேவை</string>
-    <string name="general_error_upgrade_required_description">இது Pro பண்பு. தயவுசெய்து SD Maid SE ஐ பயன்படுத்த மேம்படுத்தவும்.</string>
+    <string name="general_error_upgrade_required_title">மேம்படுத்தல் தேவை</string>
+    <string name="general_error_upgrade_required_description">இந்த அம்சத்திற்கு மேம்படுத்தல் தேவை. இதைப் பயன்படுத்த SD Maid SE ஐ மேம்படுத்தவும்.</string>
     <string name="general_user_label_owner">உரிமையாளர்</string>
     <string name="general_user_label_system">கணினி</string>
     <string name="setup_title">அமைப்பு</string>

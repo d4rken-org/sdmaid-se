@@ -58,9 +58,7 @@
     <string name="swiper_sensitive_root_warning_message">Nuskaitant %1$s bus apimti visi failai šioje saugykloje — nuotraukos, dokumentai, atsisiuntimai, programų medija ir dar daugiau. Tęsti?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Vis tiek tęsti</string>
     <string name="swiper_session_risky_label">Viso saugyklos nuskaitymas</string>
-    <string name="swiper_session_risky_info_message">Šis seansas apima saugyklos šaknį, todėl visi failai toje saugykloje yra apimami — nuotraukos, dokumentai, atsisiuntimai, programų medija ir daugiau.
-
-Viso saugyklos nuskaitymai gali grąžinti daug elementų, įskaitant failų, kurių galbūt neketinote peržiūrėti. Norėdami susiaurinti nuskaitymo sritį, taikykite failų tipo filtrą.</string>
+    <string name="swiper_session_risky_info_message">Šis seansas apima saugyklos šaknį, todėl visi failai toje saugykloje yra apimami — nuotraukos, dokumentai, atsisiuntimai, programų medija ir daugiau.\n\nViso saugyklos nuskaitymai gali grąžinti daug elementų, įskaitant failų, kurių galbūt neketinote peržiūrėti. Norėdami susiaurinti nuskaitymo sritį, taikykite failų tipo filtrą.</string>
     <string name="swiper_delete_x_action">Ištrinti %1$d</string>
     <string name="swiper_settings_swap_directions_title">Pakeisti braukimo kryptis</string>
     <string name="swiper_settings_swap_directions_summary">Braukti kairėn, kad palikti, dešinėn, kad ištrinti.</string>
@@ -196,8 +194,8 @@ Viso saugyklos nuskaitymai gali grąžinti daug elementų, įskaitant failų, ku
     <string name="swiper_session_no_matching_files">Atitinkančių failų nerasta</string>
     <string name="swiper_open_externally_action">Atidaryti išorine programa</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Perbraukite nuotrauką, kad nuspręstumėte jos likimą: šonuose — norėdami ją pasilikti arba ištrinti, aukštyn — norėdami praleisti, žemyn — norėdami anuliuoti. Žemiau esantys mygtukai daro tą patį — ir parodo, kuri pusė yra kuri.</string>
-    <string name="tour_swiper_openin_body">Šis mygtukas atidaro nuotrauką kitoje programoje — patogus būdas ją patikrinti prieš nusprendžiant.</string>
+    <string name="tour_swiper_gestures_body">Perbraukite failą norėdami nuspręsti jo likimą: į šoną – palikti arba ištrinti, aukštyn – praleisti, žemyn – grąžinti. Toliau esantys mygtukai daro tą patį ir parodo, kuri pusė kam skirta.</string>
+    <string name="tour_swiper_openin_body">Šis mygtukas atidaro failą kitoje programoje – naudinga jį patikrinti prieš sprendimą.</string>
     <string name="tour_swiper_preview_body">Šis mygtukas atidaro pilną ekrano peržiūrą, kad geriau pamatytumėte.</string>
     <string name="tour_swiper_actions_body">Nepatinka perbraukimas? Turime ir mygtukus! Praleisti palieka jį neapibrėžtą vėliau, o ilgai spaudžiant Praleisti, failas nebus nuskaitomas ateityje. Anuliuoti anuliuoja jūsų paskutinį pasirinkimą.</string>
     <string name="tour_swiper_review_body">Jūsų pasirinkimai išsaugoti ir ištrinti yra tik paruošti. Atidarykite Peržiūrą, kad juos peržiūrėtumėte ir pritaikytumėte, kai būsite pasirengę.</string>

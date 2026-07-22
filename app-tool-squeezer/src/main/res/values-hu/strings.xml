@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás a JPEG fájlokhoz</string>
     <string name="squeezer_onboarding_got_it">Megvan</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">A Squeezer újra tömöríti az Ön fényképeit és videóit, hogy kevesebb helyet foglaljanak. A fájlok használhatók maradnak, csak kisebbek, és mindegyik megjeleníti a becsült megtakarítást.</string>
+    <string name="tour_squeezer_intro_body">A Squeezer újratömöríti a fényképeidet és videóidat, hogy kevesebb helyet foglaljanak. Egy kis minőséget adsz fel a visszanyert helyért cserébe. Minden elem megmutatja a becsült megtakarítást, hogy eldönthesd, mi éri meg.</string>
     <string name="tour_squeezer_compress_body">Tömörítse az összes fájlt egyszerre, vagy érintsen meg egy elemet, hogy csak azt tömörítse. Nyomja hosszan meg több elemet választásához. Ön mindig lát egy előnézetet, mielőtt bármi megváltozna.</string>
 </resources>

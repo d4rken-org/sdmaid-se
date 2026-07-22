@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Markarik ez</string>
     <string name="corpsefinder_markers_dialog_normal_description">Ohiko hondakina. Nahiko segurua da ezabatzea — fitxategi hauek desinstalatu diren aplikazioei dagozkien.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder-ek dagoeneko desinstalatu dituzun aplikazioek utzi dituzten datuak aurkitzen ditu. Ez dagokio jadanik instalatutako aplikazioari, beraz segurua dugu ezabatzea eta tokia askatzea.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder-k desinstalatu dituzun aplikazioek utzitako datuen bila aritzen da. Instalatutakoari ez dagokio gehiago, beraz kenduz tokia askatzen du. Gehiena segurua da kentzea, baina markatzailea begiratu dudarik baduzu.</string>
     <string name="tour_corpsefinder_row_body">Bakoitza hondakina datua da eta bertatik datorren aplikazioa. Markak SD Maid-ek nola dago seguru dena ezabatzea den erakusten du — sakatu goiko ⓘ markek zer esan nahi duten ikasteko.</string>
 </resources>

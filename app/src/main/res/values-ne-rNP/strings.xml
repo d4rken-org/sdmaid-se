@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s खाली गरिएको छ</string>
     <string name="dashboard_hero_freeable_x_items">%1$s हटाउन सकिन्छ</string>
     <string name="dashboard_hero_freed_x_items">%1$s हटाइएको छ</string>
-    <string name="dashboard_hero_freeable_hint">स्पेस खाली गर्न बटन ट्याप गर्नुहोस्। पहिले जाँच गर्न चिप ट्याप गर्नुहोस्।</string>
+    <string name="dashboard_hero_freeable_hint">स्पेस खाली गर्न बटन दबाउनुहोस्, वा पहिले जाँच गर्न एक चिप दबाउनुहोस्।</string>
     <string name="dashboard_hero_freed_hint">विवरणका लागि चिप ट्याप गर्नुहोस्।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s स्क्यान गरिएको छ</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">अर्को मिलान</string>
     <string name="debug_logview_jump_to_bottom_action">सबैभन्दा नयाँमा जानुहोस्</string>
     <string name="debug_logview_paused_msg">रोकिएको — बफर फ्रिज भएको</string>
-    <string name="debug_logview_paused_dropped_msg">रोकिएको — %1$d नयाँ लाइन(हरू) छोडिएको</string>
+    <string name="debug_logview_paused_dropped_msg">रोकिएको — नयाँ लाइनहरू छोडिएको: %1$d</string>
     <string name="debug_logview_copied_msg">लग क्लिपबोर्डमा कपी गरिएको</string>
     <string name="debug_logview_share_label">लग साझा गर्नुहोस्</string>
     <string name="debug_debuglog_screen_title">डिबग लग</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">गोपनीयता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा जिम्मेवारीपूर्वक ह्यान्डल गर्दै।</string>
     <string name="settings_category_other_label">अन्य</string>
+    <string name="settings_upgrade_description">स्थिति र विकल्पहरू अपग्रेड गर्नुहोस्।</string>
     <string name="general_settings_label">सामान्य</string>
     <string name="general_settings_desc">सम्पूर्ण एपलाई प्रभावित गर्ने सामान्य समायोजनहरू।</string>
     <string name="settings_category_ui_label">प्रयोगकर्ता इन्टरफेस</string>
@@ -299,10 +300,8 @@
     </plurals>
     <string name="anniversary_share_title">आफ्नो SD Maid वर्षगाँठ साझा गर्नुहोस्</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">SD Maid संग %1$d वर्ष — मुक्त गरिएको स्थान: %2$s। तपाईंको Android स्वच्छ र सुव्यवस्थित राख्दै। #SDMaid
-यो प्रयास गर्नुहोस्: %3$s</item>
-        <item quantity="other">SD Maid संग %1$d वर्षहरू — मुक्त गरिएको स्थान: %2$s। तपाईंको Android स्वच्छ र सुव्यवस्थित राख्दै। #SDMaid
-यो प्रयास गर्नुहोस्: %3$s</item>
+        <item quantity="one">SD Maid संग %1$d वर्ष — मुक्त गरिएको स्थान: %2$s। तपाईंको Android स्वच्छ र सुव्यवस्थित राख्दै। #SDMaid\nयो प्रयास गर्नुहोस्: %3$s</item>
+        <item quantity="other">SD Maid संग %1$d वर्षहरू — मुक्त गरिएको स्थान: %2$s। तपाईंको Android स्वच्छ र सुव्यवस्थित राख्दै। #SDMaid\nयो प्रयास गर्नुहोस्: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">स्क्यान गर्नुहोस् + मेटाउनुहोस्</string>
     <string name="shortcut_onetap_long">एकै कार्यमा स्क्यान गर्नुहोस् र मेटाउनुहोस्</string>
@@ -323,11 +322,17 @@
     <string name="widget_home_description">स्टोरेज उपयोग र एक-ट्याप सफाई</string>
     <string name="widget_home_storage_internal">आन्तरिक</string>
     <string name="widget_home_storage_external">बाह्य</string>
-    <string name="widget_home_freed_label">मुक्त गरिएको: %1$s</string>
+    <string name="widget_home_freed_label">आजीवन: %1$s</string>
     <string name="widget_home_clean_action">सफा गर्नुहोस्</string>
     <string name="widget_home_working">काम गरिरहेको छ…</string>
     <string name="widget_home_unavailable">भण्डारण उपलब्ध छैन</string>
-    <string name="shortcut_onetap_started">स्क्यान &amp; हटाउन सुरु भयो…</string>
+    <string name="settings_category_widget">विजेट</string>
+    <string name="widget_settings_oneclick_summary">होम स्क्रिन विजेटको क्लिन बटनलाई एक ट्यापमा स्क्यान र हटाउन दिनुहोस्, हरेक पटक सोधी नदिई।</string>
+    <string name="widget_oneclick_consent_title">एक-ट्याप सफाइ सक्षम गर्नुहोस्?</string>
+    <string name="widget_oneclick_consent_message">विजेटको क्लिन बटनले एकै पटकमा स्क्यान र मेटाउनेछ, पहिले सोधी नदिई वा हटाइने कुराको समीक्षा गर्न दिइनेछ।</string>
+    <string name="widget_oneclick_consent_enable_action">सक्षम गर्नुहोस्</string>
+    <string name="widget_oneclick_consent_decline_action">अहिले होइन</string>
+    <string name="shortcut_onetap_started">स्क्यान + डिलिट सुरु भयो…</string>
     <string name="shortcut_onetap_nothing_enabled">कुनै एक-ट्याप उपकरण सक्षम छैन</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ब्याकअप &amp; पुनर्स्थापन</string>
@@ -354,7 +359,7 @@
     <string name="backup_restore_warn_android_body">यो ब्याकअप Android %1$s मा बनाइएको थियो, तर यो डिभाइसले Android %2$s चलाउँछ।</string>
     <string name="backup_restore_warn_device_body">यो ब्याकअप फरक डिभाइसमा बनेको थियो (%1$s बनाम %2$s)।</string>
     <string name="backup_restore_warn_flavor_body">यो ब्याकअप फरक अनुप्रयोग संस्करणबाट हो (%1$s बनाम %2$s)।</string>
-    <string name="backup_restore_warn_history_body">यो ब्याकअपको इतिहास डेटा (तथ्याङ्क, संपीडन इतिहास, स्वाइप सत्र) फरक अनुप्रयोग संस्करणबाट हो र पुनः स्थापना गर्न सकिँदैन। बाँकी सबै कुरा पुनःस्थापना हुनेछ।</string>
+    <string name="backup_restore_warn_history_body">यो ब्याकअपको इतिहास डेटा (तथ्याङ्क, कम्प्रेसन इतिहास, स्वाइप सत्र) फरक एपको संस्करणबाट छ र यसलाई पुनर्स्थापन गर्न सकिँदैन। बाकि सबै कुरा पुनर्स्थापन हुनेछ।</string>
     <string name="backup_restore_ack_understand">मैले बुझें र जारी राख्न चाहन्छु</string>
     <string name="backup_restore_action_restore">पुनः स्थापन गर्नुहोस्</string>
 </resources>

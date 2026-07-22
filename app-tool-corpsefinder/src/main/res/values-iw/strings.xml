@@ -68,6 +68,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">אין סמן</string>
     <string name="corpsefinder_markers_dialog_normal_description">שריד סטנדרטי. בדרך כלל בטוח להסיר — קבצים אלה שייכים לאפליקציות שכבר אינן מותקנות.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder מוצא נתונים שנותרו מאפליקציות שכבר הסרת. זה כבר לא שייך לשום דבר מותקן, כך שהסרתו בטוחה ומשחררת מקום.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder מוצא נתונים שנותרו מיישומים שכבר הסרתם. זה כבר לא שייך לשום דבר שמותקן, אז הסרתו משחררת מקום. רוב זה בטוח להסרה, אך בדוק את הסימן כשאתה לא בטוח.</string>
     <string name="tour_corpsefinder_row_body">כל פריט הוא נתוני שארית והאפליקציה שממנה הוא הגיע. הסמן מראה כמה SD Maid בטוח שזה בטוח להסיר — הקש על ה-ⓘ בחלק העליון כדי ללמוד מה הסמנים אומרים.</string>
 </resources>

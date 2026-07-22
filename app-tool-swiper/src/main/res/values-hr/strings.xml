@@ -177,8 +177,8 @@
     <string name="swiper_session_no_matching_files">Nisu pronađene odgovarajuće datoteke</string>
     <string name="swiper_open_externally_action">Otvori u vanjskoj aplikaciji</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Prevucite fotografiju kako biste odlučili njezinu sudbinu: ulijevo ili udesno za čuvanje ili brisanje, gore za preskakanje, dolje za vraćanje. Donji gumbi rade istu stvar — i pokazuju koja je strana za što.</string>
-    <string name="tour_swiper_openin_body">Ovaj gumb otvara fotografiju u drugoj aplikaciji — praktično je provjeriti prije nego što se odlučite.</string>
+    <string name="tour_swiper_gestures_body">Povucite datoteku da odlučite njezinu sudbinu: postrance za zadržavanje ili brisanje, gore za preskakanje, dolje za poništavanje. Gumbi ispod rade isto — i pokazuju koja je strana koja.</string>
+    <string name="tour_swiper_openin_body">Ovaj gumb otvara datoteku u drugoj aplikaciji, korisno za provjeru prije odlučivanja.</string>
     <string name="tour_swiper_preview_body">Ovaj gumb otvara prikaz cijelog ekrana za bliži pogled.</string>
     <string name="tour_swiper_actions_body">Ne sviđa vam se prevlačenje? Imamo i gumbe! Preskakanje odgađa odluku za kasnije, a dugo pritiskanje na Preskakanje isključuje datoteku iz budućih skeniranja. Vraćanje poništava vašu zadnju odluku.</string>
     <string name="tour_swiper_review_body">Vaše odluke o čuvanju i brisanju su samo privremeno spremljene. Otvorite Pregled kako biste ih pregledali i primijenili brisanja kada budete spremni.</string>

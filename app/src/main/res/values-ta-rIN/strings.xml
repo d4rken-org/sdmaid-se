@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s விடுவிக்கப்பட்டது</string>
     <string name="dashboard_hero_freeable_x_items">%1$s நீக்கப்படலாம்</string>
     <string name="dashboard_hero_freed_x_items">%1$s நீக்கப்பட்டது</string>
-    <string name="dashboard_hero_freeable_hint">இடத்தை விடுவிக்க பொத்தானை தட்டவும். முதலில் சரிபார்க்க ஒரு சிப்பை தட்டவும்.</string>
+    <string name="dashboard_hero_freeable_hint">பொத்தானைத் தட்டி இடைவெளியை விடுவிக்க, அல்லது முதலில் சரிபார்க்க ஒரு சிப்பைத் தட்டவும்.</string>
     <string name="dashboard_hero_freed_hint">விவரங்களுக்கு ஒரு சிப்பை தட்டவும்.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ஸ்கேன் செய்யப்பட்டது %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">அடுத்த பொருத்தம்</string>
     <string name="debug_logview_jump_to_bottom_action">சமீபத்திற்குக் குதிக்கவும்</string>
     <string name="debug_logview_paused_msg">இடைநிறுத்தப்பட்டுள்ளது — இடைநினைவகம் உறைந்துவிட்டது</string>
-    <string name="debug_logview_paused_dropped_msg">இடைநிறுத்தப்பட்டுள்ளது — %1$d புதிய வரிகள் தவிர்க்கப்பட்டுள்ளன</string>
+    <string name="debug_logview_paused_dropped_msg">இடைநிறுத்தப்பட்டது — புதிய வரிகள் தவிர்க்கப்பட்டுள்ளன: %1$d</string>
     <string name="debug_logview_copied_msg">பதிவு நகல் செய்யப்பட்டுள்ளது</string>
     <string name="debug_logview_share_label">பதிவைப் பகிரவும்</string>
     <string name="debug_debuglog_screen_title">பிழைத்திருத்த பதிவு</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">தனியுரிமை கொள்கை</string>
     <string name="settings_privacy_policy_desc">தகவலை பொறுப்புடனுடன் கைகாளவது.</string>
     <string name="settings_category_other_label">மற்றவை</string>
+    <string name="settings_upgrade_description">நிலை மற்றும் விருப்பங்களை மேம்படுத்தவும்.</string>
     <string name="general_settings_label">பொது</string>
     <string name="general_settings_desc">முழு பயன்பாட்டையும் பாதிக்கும் பொது வின்யாசங்கள்.</string>
     <string name="settings_category_ui_label">பயனர் இணையதுளம்</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">சேமிப்பக பயன்பாடு மற்றும் ஒற்றை-தட்டு சுத்தம்</string>
     <string name="widget_home_storage_internal">உள்ளிலான</string>
     <string name="widget_home_storage_external">வெளிப்புற</string>
-    <string name="widget_home_freed_label">விடுவிக்கப்பட்டது: %1$s</string>
+    <string name="widget_home_freed_label">ஆயுட்காலம்: %1$s</string>
     <string name="widget_home_clean_action">சுத்தப்படுத்து</string>
     <string name="widget_home_working">செயல்படுகிறது…</string>
     <string name="widget_home_unavailable">சேமிப்பக கிடைக்கவில்லை</string>
-    <string name="shortcut_onetap_started">ஸ்கேன் &amp; நீக்கம் தொடங்கப்பட்டது…</string>
+    <string name="settings_category_widget">விட்ஜெட்</string>
+    <string name="widget_settings_oneclick_summary">முகப்புத் திரை விட்ஜெட்டின் சுத்தப்படுத்து பொத்தான் ஒரு தட்டலில் ஸ்கேன் செய்து நீக்குவிக்கும், ஒவ்வொரு முறையும் கேட்காமல்.</string>
+    <string name="widget_oneclick_consent_title">ஒரு தட்டலில் சுத்தப்படுத்தலை இயக்கவா?</string>
+    <string name="widget_oneclick_consent_message">விட்ஜெட்டின் சுத்தப்படுத்து பொத்தான் ஒரே தடவையில் ஸ்கேன் செய்து நீக்கும், முதலில் கேட்காமல் அல்லது நீக்கப்படுவதை மீளாய்வு செய்ய விடாமல்.</string>
+    <string name="widget_oneclick_consent_enable_action">இயக்கவும்</string>
+    <string name="widget_oneclick_consent_decline_action">இப்போது இல்லை</string>
+    <string name="shortcut_onetap_started">ஸ்கேன் + நீக்குதல் தொடங்கியது…</string>
     <string name="shortcut_onetap_nothing_enabled">எந்த ஒரு-தட்ட கருவிகளும் இயக்கப்படவில்லை</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">பேக்கப் &amp; மீட்டெடுப்பு</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">இந்த பேக்கப் Android %1$s இல் உருவாக்கப்பட்டது, ஆனால் இந்த சாதனம் Android %2$s ஐ இயக்குகிறது.</string>
     <string name="backup_restore_warn_device_body">இந்த பேக்கப் வெவ்வேறு சாதனத்தில் (%1$s vs %2$s) உருவாக்கப்பட்டது.</string>
     <string name="backup_restore_warn_flavor_body">இந்த பேக்கப் வெவ்வேறு பயன்பாட்டு பதிப்பிலிருந்து (%1$s vs %2$s) உள்ளது.</string>
-    <string name="backup_restore_warn_history_body">இந்த பேக்கப்பின் வரலாற்றுத் தகவல் (புள்ளிவிபரங்கள், சுருக்க வரலாறு, தட்டி இழுத்தல் அமர்வுகள்) வேறுபட்ட பயன்பாட்டு பதிப்பிலிருந்து உள்ளது மற்றும் மீட்டெடுக்க முடியாது. மற்ற எல்லாம் மீட்டெடுக்கப்படும்.</string>
+    <string name="backup_restore_warn_history_body">இந்த காப்புப்படி வரலாற்று தரவு (புள்ளிவிவரங்கள், சுருக்கல் வரலாறு, ஸ்வைப் அமர்வுகள்) வேறுபட்ட பயன்பாடு பதிப்பிலிருந்து வந்தது மற்றும் மீட்டெடுக்க முடியாது. மற்றவை மீட்டெடுக்கப்படும்.</string>
     <string name="backup_restore_ack_understand">நான் புரிந்துகொள்கிறேன் மற்றும் தொடர விரும்புகிறேன்</string>
     <string name="backup_restore_action_restore">மீட்டெடுக்கவும்</string>
 </resources>

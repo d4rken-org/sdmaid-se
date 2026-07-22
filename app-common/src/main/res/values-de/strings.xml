@@ -7,15 +7,15 @@
     <string name="slogan_message_3">Das Notwendige tun.</string>
     <string name="slogan_message_4">All Deine Schäfchen im Trockenen.</string>
     <string name="slogan_message_5">Makellos.</string>
-    <string name="slogan_message_6">Bytes, verschwindet!</string>
+    <string name="slogan_message_6">Tschüss, Datenmüll!</string>
     <string name="slogan_message_7">Freier Platz, glücklicher Platz.</string>
-    <string name="slogan_message_8">Gebe dich nie auf.</string>
+    <string name="slogan_message_8">Never Gonna Give You Up.</string>
     <string name="general_thank_you_label">Danke</string>
-    <string name="general_error_type_mismatch_msg">Falscher Typ: Wollte %1$s, aber erhielt %2$s.</string>
+    <string name="general_error_type_mismatch_msg">Typenabweichung: %1$s erwartet, aber %2$s erhalten.</string>
     <string name="general_error_cant_access_msg">Zugriff auf %s nicht möglich.</string>
     <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>
     <string name="general_error_no_compatible_app_found_msg">Es wurde keine kompatible App gefunden, die diese Anfrage verarbeiten kann.</string>
-    <string name="general_todo_msg">An dieser Funktion wird noch gearbeitet und ist nicht verfügbar.</string>
+    <string name="general_todo_msg">An dieser Funktion wird noch gearbeitet und sie ist derzeit nicht verfügbar.</string>
     <string name="general_share_action">Teilen</string>
     <string name="general_done_action">Fertig</string>
     <string name="general_apply_action">Anwenden</string>
@@ -37,7 +37,8 @@
     <string name="general_manage_action">Verwalten</string>
     <string name="general_error_label">Fehler</string>
     <string name="general_upgrade_action">Upgrade</string>
-    <string name="general_refresh_action">Aktualisierung</string>
+    <string name="general_refresh_action">Aktualisieren</string>
+    <string name="general_retry_action">Erneut versuchen</string>
     <string name="general_progress_searching">Suchen</string>
     <string name="general_progress_generating_searchpaths">Suchpfade generieren</string>
     <string name="general_progress_filtering">Filtern</string>
@@ -55,9 +56,9 @@
     <string name="general_progress_loading_egg_6">Übergebe die Butter</string>
     <string name="general_progress_loading_egg_7">Na, wie geht es dir?</string>
     <string name="general_progress_loading_egg_8">Piep boop bop</string>
-    <string name="general_progress_loading_egg_9">Puffern von Lebensentscheidungen</string>
+    <string name="general_progress_loading_egg_9">Puffere Lebensentscheidungen</string>
     <string name="general_progress_loading_egg_10">Beschwöre Cthulhu</string>
-    <string name="general_progress_loading_egg_11">Das ist in Ordnung</string>
+    <string name="general_progress_loading_egg_11">Alles bestens</string>
     <string name="general_progress_loading_egg_12">Bitte warten</string>
     <string name="general_progress_loading_egg_13">Zumindest bist du nicht in der Warteschleife</string>
     <string name="general_help_action">Hilfe</string>
@@ -66,18 +67,19 @@
     <string name="general_progress_deleting">Am Löschen</string>
     <string name="general_progress_deleting_x">%s wird gelöscht</string>
     <string name="general_sort_by_title">Sortieren nach</string>
-    <string name="general_sort_reverse_action">Sortiermodus umkehren</string>
+    <string name="general_sort_reverse_action">Umgekehrte Sortierung</string>
     <string name="general_sort_oldest_first">Älteste zuerst</string>
     <string name="general_sort_newest_first">Neueste zuerst</string>
     <string name="general_sort_name_asc">Name (A → Z)</string>
     <string name="general_sort_size_desc">Größte zuerst</string>
     <string name="general_tag_system">System</string>
+    <string name="general_tag_library">Bibliothek</string>
     <string name="general_navigate_up_action">Nach oben navigieren</string>
     <string name="general_filter_action">Filter</string>
     <string name="general_filter_by_tags_label">Nach Tags filtern</string>
     <string name="general_filter_add_action">Filter hinzufügen</string>
     <string name="general_filter_remove_x_action">%s-Filter entfernen</string>
-    <string name="general_filter_empty_row_hint">Tippen Sie auf +, um zu filtern</string>
+    <string name="general_filter_empty_row_hint">Tippe auf +, um zu filtern</string>
     <string name="general_result_success_message">Operation erfolgreich</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s Speicherplatz freigegeben.</item>
@@ -107,16 +109,16 @@
     </plurals>
     <string name="general_remove_action">Entfernen</string>
     <plurals name="general_remove_success_x_items">
-        <item quantity="one">Ein Objekt wurde entfernt</item>
-        <item quantity="other">%d Objekte wurden entfernt</item>
+        <item quantity="one">Ein Element wurde entfernt</item>
+        <item quantity="other">%d Elemente wurden entfernt</item>
     </plurals>
     <string name="general_search_action">Suchen</string>
     <string name="general_search_no_matches">Keine Übereinstimmungen</string>
     <string name="general_open_system_settings_action">Systemeinstellungen öffnen</string>
     <string name="general_fast_scroller_action">Schnellscroller</string>
     <plurals name="result_x_items">
-        <item quantity="one">%s Objekt</item>
-        <item quantity="other">%s Objekte</item>
+        <item quantity="one">%s Element</item>
+        <item quantity="other">%s Elemente</item>
     </plurals>
     <plurals name="result_x_successful">
         <item quantity="one">%d erfolgreich</item>
@@ -173,9 +175,9 @@
     <string name="general_information_for_the_developer">Informationen für den Entwickler</string>
     <string name="general_error_report_bug_action">Fehler melden</string>
     <string name="general_error_ipc_deadobject_title">Verbindung zum Dienst verloren</string>
-    <string name="general_error_ipc_deadobject_description">Die Verbindung zu einem kritischen Dienst (z.B. Magisk, Shizuku oder anderen System-Level-Diensten) wurde unerwartet verloren. Bitte starten Sie Ihr Gerät neu. Wenn das Problem weiterhin besteht, prüfen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
-    <string name="general_error_upgrade_required_title">Pro-Version erforderlich</string>
-    <string name="general_error_upgrade_required_description">Dies ist eine Pro-Funktion. Bitte aktualisieren Sie SD Maid SE, um sie zu nutzen.</string>
+    <string name="general_error_ipc_deadobject_description">Die Verbindung zu einem kritischen Dienst (z. B. Magisk, Shizuku oder anderen Diensten auf Systemebene) wurde unerwartet getrennt. Bitte starte dein Gerät neu. Falls das Problem weiterhin besteht, suche nach Updates oder kontaktiere mich, damit ich es beheben kann.</string>
+    <string name="general_error_upgrade_required_title">Upgrade erforderlich</string>
+    <string name="general_error_upgrade_required_description">Diese Funktion erfordert ein Upgrade. Bitte aktualisiere SD Maid SE, um sie zu nutzen.</string>
     <string name="general_user_label_owner">Besitzer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Einrichtung</string>
@@ -204,19 +206,19 @@
     <string name="ui_theme_color_sunset_label">Sonnenuntergang</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
-    <string name="access_blocked_root_unavailable">Diese Funktion benötigt Root-Zugriff, aber SD Maid konnte ihn auf diesem Gerät nicht erhalten.</string>
+    <string name="access_blocked_root_unavailable">Diese Funktion benötigt Root-Zugriff, aber SD Maid konnte ihn auf diesem Gerät nicht erlangen.</string>
     <string name="access_blocked_root_declined">Diese Funktion benötigt Root-Zugriff. Sie können ihn über den Einrichtungsbildschirm aktivieren.</string>
     <string name="access_blocked_root_or_shizuku">Diese Funktion benötigt Root- oder Shizuku-Zugriff, was auf diesem Gerät nicht verfügbar ist.</string>
     <!-- Config backup/restore errors -->
     <string name="backup_restore_error_invalid_title">Ungültige Sicherungsdatei</string>
     <string name="backup_restore_error_invalid_body">Diese Datei ist keine gültige SD Maid-Sicherung oder ist beschädigt.</string>
-    <string name="backup_restore_error_version_body">Diese Sicherung wurde mit einer neueren Version von SD Maid erstellt. Bitte aktualisieren Sie die App und versuchen Sie es erneut.</string>
+    <string name="backup_restore_error_version_body">Dieses Backup wurde mit einer neueren Version von SD Maid erstellt. Bitte aktualisiere die App und versuche es erneut.</string>
     <string name="backup_restore_error_restore_failed_title">Wiederherstellung fehlgeschlagen</string>
-    <string name="backup_restore_error_restore_failed_body">Diese Teile konnten nicht wiederhergestellt werden: %1$s. Ihre vorherige Konfiguration wurde gespeichert und kann wiederhergestellt werden.</string>
+    <string name="backup_restore_error_restore_failed_body">Diese Teile konnten nicht wiederhergestellt werden: %1$s. Deine vorherige Konfiguration wurde gespeichert und kann wiederhergestellt werden.</string>
     <string name="backup_restore_error_safety_title">Wiederherstellung nicht gestartet</string>
-    <string name="backup_restore_error_safety_body">SD Maid konnte keine Sicherheitskopie Ihrer aktuellen Konfiguration speichern, daher wurde nichts geändert.</string>
+    <string name="backup_restore_error_safety_body">SD Maid konnte kein Sicherheits-Snapshot deiner aktuellen Konfiguration speichern, daher wurde nichts verändert.</string>
     <string name="backup_restore_error_busy_title">Bitte warten</string>
-    <string name="backup_restore_error_busy_body">Eine Reinigungsaufgabe oder ein anderer Sicherungsvorgang wird gerade ausgeführt. Versuchen Sie es später erneut, wenn der Vorgang beendet ist.</string>
+    <string name="backup_restore_error_busy_body">Ein Reinigungs- oder anderer Sicherungsvorgang läuft derzeit. Versuche es erneut, wenn er abgeschlossen ist.</string>
     <string name="backup_restore_error_schema_title">Inkompatible Sicherung</string>
-    <string name="backup_restore_error_schema_body">Das Datenbankformat der Sicherung stimmt nicht mit dieser Version von SD Maid überein. Die Wiederherstellung von Verlaufsdaten wird nur zwischen identischen App-Versionen unterstützt.</string>
+    <string name="backup_restore_error_schema_body">Das Datenbankformat des Backups passt nicht zu dieser Version von SD Maid. Das Wiederherstellen von Verlaufsdaten wird nur zwischen identischen App-Versionen unterstützt.</string>
 </resources>

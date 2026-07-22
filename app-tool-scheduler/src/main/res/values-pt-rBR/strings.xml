@@ -37,13 +37,9 @@
     <string name="scheduler_notification_result_failure_message">Algumas tarefas agendadas falharam ou encontraram erros. Tente executá-las manualmente.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Ignorado, a tela estava desligada ou bloqueada</string>
     <string name="scheduler_acs_screenlocked_hint_title">A limpeza do aplicativo pode ser ignorada</string>
-    <string name="scheduler_acs_screenlocked_hint_body">A limpeza do aplicativo usa o serviço de acessibilidade, que precisa que a tela seja desbloqueada. Execuções agendadas enquanto o dispositivo está bloqueado são ignoradas.
-
-Use Shizuku ou root para limpeza em segundo plano, ou agende para quando você estiver usando o dispositivo.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">A limpeza do aplicativo usa o serviço de acessibilidade, que precisa que a tela seja desbloqueada. Execuções agendadas enquanto o dispositivo está bloqueado são ignoradas.\n\nUse Shizuku ou root para limpeza em segundo plano, ou agende para quando você estiver usando o dispositivo.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Aplicativos de sistema podem ser ignorados</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku limpa a maioria dos caches em segundo plano, mas os aplicativos de sistema precisam do serviço de acessibilidade, que precisa que a tela seja desbloqueada. Com \"Incluir aplicativos de sistema\" ativado, eles são ignorados quando o dispositivo está bloqueado.
-
-Desative \"Incluir aplicativos de sistema\", ou execute o agendamento enquanto desbloqueado.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku limpa a maioria dos caches em segundo plano, mas os aplicativos de sistema precisam do serviço de acessibilidade, que precisa que a tela seja desbloqueada. Com \"Incluir aplicativos de sistema\" ativado, eles são ignorados quando o dispositivo está bloqueado.\n\nDesative \"Incluir aplicativos de sistema\", ou execute o agendamento enquanto desbloqueado.</string>
     <string name="scheduler_commands_after_schedule_label">Comandos pós-agendado</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell do Android que serão executados no final de um cronograma.</string>
     <string name="scheduler_battery_optimization_hint">Considere desabilitar as otimizações de bateria para o SD Maid se você tiver problemas com a execução em segundo plano.</string>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s खाली की गई</string>
     <string name="dashboard_hero_freeable_x_items">%1$s हटाया जा सकता है</string>
     <string name="dashboard_hero_freed_x_items">%1$s हटा दी गई</string>
-    <string name="dashboard_hero_freeable_hint">स्पेस खाली करने के लिए बटन पर टैप करें। पहले जांचने के लिए एक चिप पर टैप करें।</string>
+    <string name="dashboard_hero_freeable_hint">स्पेस फ्री करने के लिए बटन दबाएं, या पहले जांचने के लिए एक चिप दबाएं।</string>
     <string name="dashboard_hero_freed_hint">विवरण के लिए एक चिप पर टैप करें।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s स्कैन किया गया</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">अगला मिलान</string>
     <string name="debug_logview_jump_to_bottom_action">नवीनतम पर जाएं</string>
     <string name="debug_logview_paused_msg">रुका हुआ — बफर जमा हुआ</string>
-    <string name="debug_logview_paused_dropped_msg">रुका हुआ — %1$d नई लाइन(ों) को छोड़ा गया</string>
+    <string name="debug_logview_paused_dropped_msg">रोका गया — नई पंक्तियां छोड़ी गईं: %1$d</string>
     <string name="debug_logview_copied_msg">लॉग क्लिपबोर्ड में कॉपी किया गया</string>
     <string name="debug_logview_share_label">लॉग साझा करें</string>
     <string name="debug_debuglog_screen_title">डिबग लॉग</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">निजता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा को जिम्मेदारी से संभालना।</string>
     <string name="settings_category_other_label">अन्य</string>
+    <string name="settings_upgrade_description">स्थिति और विकल्पों को अपडेट करें।</string>
     <string name="general_settings_label">सामान्य</string>
     <string name="general_settings_desc">सामान्य बदलाव जो पूरे ऐप को प्रभावित करते हैं।</string>
     <string name="settings_category_ui_label">उपयोगकर्ता अंतरपृष्‍ठ</string>
@@ -282,8 +283,7 @@
     <string name="translation_encourage_title">SD मेड का अनुवाद करें</string>
     <string name="translation_encourage_body">SD मेड का अनुवाद स्वयंसेवकों द्वारा किया जाता है। अनुवाद, समीक्षा या प्रूफरीडिंग, आपकी सहायता की सराहना की जाती है!</string>
     <string name="translation_translators_title">यह संस्करण इन सभी द्वारा अनुवादित है</string>
-    <string name="translation_translators_people">Yogesh KaushiK
-(KaushikYogesh@yahoo.com)</string>
+    <string name="translation_translators_people">Yogesh KaushiK\n(KaushikYogesh@yahoo.com)</string>
     <string name="motd_setting_enabled_label">डेवलपर संदेश</string>
     <string name="motd_setting_enabled_explanation">डैशबोर्ड पर डेवलपर संदेश दिखाएं।</string>
     <string name="updatecheck_setting_enabled_label">अपडेट जांच</string>
@@ -300,10 +300,8 @@
     </plurals>
     <string name="anniversary_share_title">अपना SD Maid वर्षगांठ शेयर करें</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid
-इसे आजमाएं: %3$s</item>
-        <item quantity="other">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid
-इसे आजमाएं: %3$s</item>
+        <item quantity="one">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid\nइसे आजमाएं: %3$s</item>
+        <item quantity="other">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid\nइसे आजमाएं: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">स्कैन + हटाएं</string>
     <string name="shortcut_onetap_long">एक क्रिया में स्कैन और हटाएं</string>
@@ -324,11 +322,17 @@
     <string name="widget_home_description">स्टोरेज उपयोग और वन-टैप क्लीनअप</string>
     <string name="widget_home_storage_internal">आंतरिक</string>
     <string name="widget_home_storage_external">बाहरी</string>
-    <string name="widget_home_freed_label">मुक्त: %1$s</string>
+    <string name="widget_home_freed_label">आजीवन: %1$s</string>
     <string name="widget_home_clean_action">साफ करें</string>
     <string name="widget_home_working">काम जारी है…</string>
     <string name="widget_home_unavailable">स्टोरेज उपलब्ध नहीं है</string>
-    <string name="shortcut_onetap_started">स्कैन &amp; हटाना शुरू हुआ…</string>
+    <string name="settings_category_widget">विजेट</string>
+    <string name="widget_settings_oneclick_summary">होम-स्क्रीन विजेट के क्लीन बटन को एक टैप में स्कैन और डिलीट करने दें, बिना हर बार पूछे।</string>
+    <string name="widget_oneclick_consent_title">एक-टैप सफाई सक्षम करें?</string>
+    <string name="widget_oneclick_consent_message">विजेट का क्लीन बटन एक ही बार में स्कैन और डिलीट करेगा, पहले पूछे बिना या हटाए जाने वाले को देखने का मौका दिए बिना।</string>
+    <string name="widget_oneclick_consent_enable_action">सक्षम करें</string>
+    <string name="widget_oneclick_consent_decline_action">अभी नहीं</string>
+    <string name="shortcut_onetap_started">स्कैन + डिलीट शुरू हो गया…</string>
     <string name="shortcut_onetap_nothing_enabled">कोई एक-टैप टूल सक्षम नहीं है</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">बैकअप &amp; बहाली</string>
@@ -355,7 +359,7 @@
     <string name="backup_restore_warn_android_body">यह बैकअप Android %1$s पर बनाया गया था, लेकिन यह डिवाइस Android %2$s चलाता है।</string>
     <string name="backup_restore_warn_device_body">यह बैकअप एक अलग डिवाइस पर बनाया गया था (%1$s बनाम %2$s)।</string>
     <string name="backup_restore_warn_flavor_body">यह बैकअप एक अलग ऐप संस्करण से है (%1$s बनाम %2$s)।</string>
-    <string name="backup_restore_warn_history_body">इस बैकअप का इतिहास डेटा (आंकड़े, संपीड़न इतिहास, स्वाइप सेशन) एक अलग ऐप संस्करण से है और इसे पुनः स्थापित नहीं किया जा सकता। बाकी सब कुछ पुनः स्थापित किया जाएगा।</string>
+    <string name="backup_restore_warn_history_body">यह बैकअप का इतिहास डेटा (आंकड़े, संपीड़न इतिहास, स्वाइप सेशन) एक अलग ऐप संस्करण से है और इसे पुनः स्थापित नहीं किया जा सकता। बाकी सब कुछ पुनः स्थापित किया जाएगा।</string>
     <string name="backup_restore_ack_understand">मैं समझता हूँ और जारी रखना चाहता हूँ</string>
     <string name="backup_restore_action_restore">पुनः स्थापित करें</string>
 </resources>

@@ -38,13 +38,9 @@
     <string name="scheduler_notification_result_failure_message">Неки заказани задаци су неуспешни или су наишли на грешке. Покушајте их покренути ручно.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Прескочено, екран је био искључен или закључан</string>
     <string name="scheduler_acs_screenlocked_hint_title">Чишћење апликација може бити прескочено</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Чишћење апликација користи услугу приступачности, која захтева откључан екран. Заказана извршавања док је уређај закључан су прескочена.
-
-Користите Shizuku или root за чишћење у позадини, или га закажите за време када користите уређај.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Чишћење апликација користи услугу приступачности, која захтева откључан екран. Заказана извршавања док је уређај закључан су прескочена.\n\nКористите Shizuku или root за чишћење у позадини, или га закажите за време када користите уређај.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Системске апликације могу бити прескочене</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku чисти већину кешева у позадини, али системске апликације захтевају услугу приступачности, која захтева откључан екран. Када је опција „Укључи системске апликације” укључена, оне се прескачу када је уређај закључан.
-
-Искључите „Укључи системске апликације”, или покрените распоред док је уређај откључан.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku чисти већину кешева у позадини, али системске апликације захтевају услугу приступачности, која захтева откључан екран. Када је опција „Укључи системске апликације” укључена, оне се прескачу када је уређај закључан.\n\nИскључите „Укључи системске апликације”, или покрените распоред док је уређај откључан.</string>
     <string name="scheduler_commands_after_schedule_label">Команде након распореда</string>
     <string name="scheduler_commands_after_schedule_desc">Андроид shell команде које ће бити извршене на крају распореда.</string>
     <string name="scheduler_battery_optimization_hint">Размотрите искључивање оптимизације батерије за СД Чистач ако имате проблеме са извршавањем у позадини.</string>

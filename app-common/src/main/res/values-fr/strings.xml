@@ -38,6 +38,7 @@
     <string name="general_error_label">Erreur</string>
     <string name="general_upgrade_action">Passer Pro</string>
     <string name="general_refresh_action">Actualiser</string>
+    <string name="general_retry_action">Réessayer</string>
     <string name="general_progress_searching">Recherche…</string>
     <string name="general_progress_generating_searchpaths">Génération des chemins de recherche</string>
     <string name="general_progress_filtering">Filtrage</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nom (A → Z)</string>
     <string name="general_sort_size_desc">Plus grandes tailles en premier</string>
     <string name="general_tag_system">Système</string>
+    <string name="general_tag_library">Bibliothèque</string>
     <string name="general_navigate_up_action">Remonter</string>
     <string name="general_filter_action">Filtrer</string>
     <string name="general_filter_by_tags_label">Filtrer par étiquettes</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Signaler un bogue</string>
     <string name="general_error_ipc_deadobject_title">La connexion au serveur est perdue</string>
     <string name="general_error_ipc_deadobject_description">La connexion à un service essentiel (p. ex. Magisk, Shizuku ou d’autres services au niveau du système) a été perdue de manière inattendue. Redémarrez votre appareil. Si le problème persiste, cherchez les mises à jour ou contactez-moi pour que je puisse le corriger.</string>
-    <string name="general_error_upgrade_required_title">Version Pro requise</string>
-    <string name="general_error_upgrade_required_description">C’est une fonction Pro. Veuillez mettre à jour SD Maid SE pour l’utiliser.</string>
+    <string name="general_error_upgrade_required_title">Mise à niveau requise</string>
+    <string name="general_error_upgrade_required_description">Cette fonctionnalité nécessite une mise à niveau. Veuillez mettre à niveau SD Maid SE pour l’utiliser.</string>
     <string name="general_user_label_owner">Propriétaire</string>
     <string name="general_user_label_system">Système</string>
     <string name="setup_title">Configuration</string>

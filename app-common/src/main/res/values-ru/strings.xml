@@ -38,6 +38,7 @@
     <string name="general_error_label">Ошибка</string>
     <string name="general_upgrade_action">Обновить</string>
     <string name="general_refresh_action">Обновить</string>
+    <string name="general_retry_action">Повторить</string>
     <string name="general_progress_searching">Поиск</string>
     <string name="general_progress_generating_searchpaths">Создание путей поиска</string>
     <string name="general_progress_filtering">Фильтрация</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">По имени (A - Z)</string>
     <string name="general_sort_size_desc">Сначала большие</string>
     <string name="general_tag_system">Системная</string>
+    <string name="general_tag_library">Библиотека</string>
     <string name="general_navigate_up_action">Перейти вверх</string>
     <string name="general_filter_action">Фильтр</string>
     <string name="general_filter_by_tags_label">Фильтровать по тегам</string>
@@ -198,8 +200,8 @@
     <string name="general_error_report_bug_action">Сообщить об ошибке</string>
     <string name="general_error_ipc_deadobject_title">Потеряно соединение с сервисом</string>
     <string name="general_error_ipc_deadobject_description">Соединение с необходимой службой (например, Magisk, Shizuku или другой службой системного уровня) потеряно. Пожалуйста, перезагрузите Ваше устройство. Если проблема не исчезает, проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
-    <string name="general_error_upgrade_required_title">Требуется Pro версия</string>
-    <string name="general_error_upgrade_required_description">Это функция Pro версии. Пожалуйста, обновите SD Maid SE, чтобы её использовать.</string>
+    <string name="general_error_upgrade_required_title">Требуется обновление</string>
+    <string name="general_error_upgrade_required_description">Эта функция требует обновления. Пожалуйста, обновите SD Maid SE, чтобы её использовать.</string>
     <string name="general_user_label_owner">Владелец</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Установка</string>
@@ -230,9 +232,9 @@
     <string name="ui_theme_color_sunset_label">Закат</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
-    <string name="access_blocked_root_unavailable">Эта функция требует прав администратора (root), но SD Maid не смогла их получить на этом устройстве.</string>
-    <string name="access_blocked_root_declined">Эта функция требует прав администратора (root). Вы можете включить это на экране настройки.</string>
-    <string name="access_blocked_root_or_shizuku">Эта функция требует доступа root или Shizuku, который недоступен на этом устройстве.</string>
+    <string name="access_blocked_root_unavailable">Эта функция требует рут-доступа, но SD Maid не смогла получить его на этом устройстве.</string>
+    <string name="access_blocked_root_declined">Эта функция требует рут-доступа. Вы можете включить это на экране настроек.</string>
+    <string name="access_blocked_root_or_shizuku">Эта функция требует рут-доступа или Shizuku, которые недоступны на этом устройстве.</string>
     <!-- Config backup/restore errors -->
     <string name="backup_restore_error_invalid_title">Недействительный файл резервной копии</string>
     <string name="backup_restore_error_invalid_body">Этот файл не является корректной резервной копией SD Maid или повреждён.</string>
@@ -240,7 +242,7 @@
     <string name="backup_restore_error_restore_failed_title">Восстановление не удалось</string>
     <string name="backup_restore_error_restore_failed_body">Эти части не удалось восстановить: %1$s. Ваша предыдущая конфигурация была сохранена и может быть восстановлена.</string>
     <string name="backup_restore_error_safety_title">Восстановление не начато</string>
-    <string name="backup_restore_error_safety_body">SD Maid не смог сохранить снимок вашей текущей конфигурации, поэтому ничего не было изменено.</string>
+    <string name="backup_restore_error_safety_body">SD Maid не смогла сохранить снимок Вашей текущей конфигурации, поэтому ничего не было изменено.</string>
     <string name="backup_restore_error_busy_title">Пожалуйста, подождите</string>
     <string name="backup_restore_error_busy_body">Задача очистки или другая операция резервного копирования в настоящий момент выполняется. Попробуйте снова, когда она завершится.</string>
     <string name="backup_restore_error_schema_title">Несовместимая резервная копия</string>

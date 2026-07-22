@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">କିପରି ସାହାଯ୍ୟ କରିବେ</string>
     <string name="upgrade_screen_how_body">ଜଣେ ପୃଷ୍ଠପୋଷକ ହୋଇଯାଆନ୍ତୁ ଏବଂ ବିକାଶକୁ ପ୍ରାୟୋଜନ କରନ୍ତୁ! ସମସ୍ତ ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ସକ୍ରିୟ କରିବା ଏବଂ ମୋର GitHub Sponsors ପ୍ରୋଫାଇଲ ଖୋଲିବା ପାଇଁ ନିମ୍ନର ବଟନ ଦବାନ୍ତୁ।</string>
     <string name="upgrade_screen_why_title">ଅପଗ୍ରେଡ ସୁବିଧା</string>
-    <string name="upgrade_screen_why_body">• ଆପ୍ର ଥଇ ଏବଂ ଅପରିହାର୍ୟ୍ୟ ତଥ୍ୟ ସଫା କରନ୍ତୁ
-• ନକଲ ଫାଇଲ ଅପସାରଣ କରନ୍ତୁ
-• ଅନୁସୂଚୀତ ପରିଷ୍କାରକରଣ ସକ୍ଷମ କରନ୍ତୁ
-• ଅନୁକୂଳିତ ଫିଲ୍ଟର ଏବଂ ପରିଷ୍କାରକରଣ ନିୟମ ତୈରି କରନ୍ତୁ
-• ସଂଚୟନ ପ୍ରବୃତ୍ତି ଏବଂ ପରିଷ୍କାରକରଣ ଇତିହାସ ଦେଖନ୍ତୁ
-• ସାରା ଆପ୍ ମଧ୍ୟରେ ଅଧିକ ବୈଶିଷ୍ଟ୍ୟ ଏବଂ ନିୟନ୍ତ୍ରଣ
-• ଓପେନ୍-ସୋର୍ସ କାମକୁ ସମର୍ଥନ କରନ୍ତୁ</string>
+    <string name="upgrade_screen_why_body">• ଆପ୍ ଭଣ୍ଡାର ଏବଂ ଆବର୍ଜନା ପରିଷ୍କାର\n• ନକଲ ଫାଇଲ ଅପସାରଣ\n• ଫଟୋ ଏବଂ ଭିଡିଓ ସଙ୍କୋଚନ\n• ପୁରାତନ ଫାଇଲଗୁଡ଼ିକୁ ସାଫା କରିବାକୁ ସ୍ୱାଇପ କରନ୍ତୁ\n• ୱିଜେଟ ମାଧ୍ୟମରେ ଏକ-ଟ୍ୟାପ ପରିଷ୍କାର\n• ପରିଷ୍କାର ସୂଚୀବଦ୍ଧତା\n• କଷ୍ଟମ ଫିଲ୍ଟର ଏବଂ ନିୟମ\n• ଷ୍ଟୋରେଜ ଧାରା ଏବଂ ଇତିହାସ\n• ଆପ୍ ଜୁଡ଼ା ଅଧିକ ବୈଶିଷ୍ଟ୍ୟ ଏବଂ ନିୟନ୍ତ୍ରଣ\n• ଖୋଲା-ଉତ୍ସ କାର୍ଯ୍ୟକୁ ସମର୍ଥନ</string>
     <string name="upgrade_screen_sponsor_action">ବିକାଶକୁ ପ୍ରାୟୋଜନ କରନ୍ତୁ</string>
     <string name="upgrade_screen_sponsor_action_hint">ବିକଳ୍ପ ହେଉଛି ବିଜ୍ଞାପନ, ବିଶ୍ଳେଷଣ ଏବଂ Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ମୁକ୍ତ ଉତ୍ସ ଵିକାଶକୁ ସମର୍ଥନ କରିଥିବାରୁ ଧନ୍ୟଵାଦ ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">ଆଗରୁ ଫେରିଗଲ? ଆପଣଙ୍କ ସମର୍ଥନ SD Maid କୁ ଜୀବନ୍ତ ରଖୁଛି!</string>
+    <string name="upgrade_screen_status_free_title">ମୁକ୍ତ ସଂସ୍କରଣ</string>
+    <string name="upgrade_screen_status_free_body">ଆପଣ SD Maid ର ମୁକ୍ତ ସଂସ୍କରଣ ବ୍ୟବହାର କରୁଛନ୍ତି। ବିକାଶକୁ ସମର୍ଥନ କରି ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟ ଖୋଲା ହୋଇଯାଇପାରେ।</string>
+    <string name="upgrade_screen_status_free_action">ଅପଗ୍ରେଡ ବିକଳ୍ପ ଦେଖନ୍ତୁ</string>
+    <string name="upgrade_screen_status_upgraded_title">ଅପଗ୍ରେଡ ସକ୍ରିୟ</string>
+    <string name="upgrade_screen_status_upgraded_body">ସମସ୍ତ ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟ ଖୋଲା ହୋଇଛି। ଖୋଲା-ଉତ୍ସ ବିକାଶକୁ ସମର୍ଥନ କରିଥିବାରୁ ଧନ୍ୟବାଦ ❤️</string>
+    <string name="upgrade_screen_recurring_title">ଏହାକୁ ଚାଲୁ ରଖନ୍ତୁ</string>
+    <string name="upgrade_screen_recurring_body">SD Maid ଅପଡେଟ ଏବଂ ସଂଶୋଧନ ମାଧ୍ୟମରେ ବିକଶିତ ହୋଇ ରହିଛି। ଯଦି ଆପଣ ତାହା ଜାରି ରଖିବାକୁ ଚାହାଁନ୍ତି, ତେବେ GitHub Sponsors ମାଧ୍ୟମରେ ଏକ ପୁନରାବୃତ୍ତି ଦାନ ବିବେଚନା କରନ୍ତୁ।</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors ଖୋଲନ୍ତୁ</string>
 </resources>

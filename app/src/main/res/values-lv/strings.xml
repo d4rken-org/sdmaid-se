@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s atbrīvots</string>
     <string name="dashboard_hero_freeable_x_items">%1$s var tikt noņemts</string>
     <string name="dashboard_hero_freed_x_items">%1$s noņemts</string>
-    <string name="dashboard_hero_freeable_hint">Nospiediet pogu, lai atbrīvotu vietu. Vispirms nospiediet žetonu, lai pārbaudītu.</string>
+    <string name="dashboard_hero_freeable_hint">Nospiediet pogu, lai atbrīvotu vietu, vai čipu, lai vispirms pārbaudītu.</string>
     <string name="dashboard_hero_freed_hint">Nospiediet žetonu sīkumiem.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenēts %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Nākamais rezultāts</string>
     <string name="debug_logview_jump_to_bottom_action">Pāriet uz jaunāko</string>
     <string name="debug_logview_paused_msg">Pauzēts — buferis iesaldēts</string>
-    <string name="debug_logview_paused_dropped_msg">Pauzēts — izlaistas %1$d jaunas rindas</string>
+    <string name="debug_logview_paused_dropped_msg">Pauzēts — jaunas rindas izlaistas: %1$d</string>
     <string name="debug_logview_copied_msg">Žurnāls nokopēts starpliktuvē</string>
     <string name="debug_logview_share_label">Koplietot žurnālu</string>
     <string name="debug_debuglog_screen_title">Atkļūdošanas žurnāls</string>
@@ -110,6 +110,7 @@
     <string name="settings_privacy_policy_label">Privātuma politika</string>
     <string name="settings_privacy_policy_desc">Atbildīga datu apstrāde.</string>
     <string name="settings_category_other_label">Cits</string>
+    <string name="settings_upgrade_description">Jaunināšanas statuss un opcijas.</string>
     <string name="general_settings_label">Vispārīgi</string>
     <string name="general_settings_desc">Vispārīgi pielāgojumi, kas ietekmē visu lietotni.</string>
     <string name="settings_category_ui_label">Lietotāja saskarne</string>
@@ -305,12 +306,9 @@
     </plurals>
     <string name="anniversary_share_title">Dalīties ar savu SD Maid gadadienu</string>
     <plurals name="anniversary_share_text">
-        <item quantity="zero">%1$d gadu ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid
-Mēģiniet: %3$s</item>
-        <item quantity="one">%1$d gads ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid
-Mēģiniet: %3$s</item>
-        <item quantity="other">%1$d gadi ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid
-Mēģiniet: %3$s</item>
+        <item quantity="zero">%1$d gadu ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid\nMēģiniet: %3$s</item>
+        <item quantity="one">%1$d gads ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid\nMēģiniet: %3$s</item>
+        <item quantity="other">%1$d gadi ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid\nMēģiniet: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Skenēt + Dzēst</string>
     <string name="shortcut_onetap_long">Skenēt un dzēst vienā darbībā</string>
@@ -331,11 +329,17 @@ Mēģiniet: %3$s</item>
     <string name="widget_home_description">Krātuves izmantošana un vienas pieskaršanas tīrīšana</string>
     <string name="widget_home_storage_internal">Iekšējā</string>
     <string name="widget_home_storage_external">Ārējā</string>
-    <string name="widget_home_freed_label">Atbrīvots: %1$s</string>
+    <string name="widget_home_freed_label">Mūžs: %1$s</string>
     <string name="widget_home_clean_action">Tīrīt</string>
     <string name="widget_home_working">Notiek…</string>
     <string name="widget_home_unavailable">Krātuve nav pieejama</string>
-    <string name="shortcut_onetap_started">Skenēšana &amp; dzēšana sākta…</string>
+    <string name="settings_category_widget">Vidžets</string>
+    <string name="widget_settings_oneclick_summary">Ļaujiet sākuma ekrāna vidžeta tīrīšanas pogai skenēt un dzēst vienā piespiediena reizē, bez atkārtotas jautāšanas.</string>
+    <string name="widget_oneclick_consent_title">Iespējot viena piespiediena tīrīšanu?</string>
+    <string name="widget_oneclick_consent_message">Vidžeta tīrīšanas poga skenēs un dzēsīs vienā piegājienā, bez jautāšanas vispirms un bez iespējas pārskatīt noņemamos elementus.</string>
+    <string name="widget_oneclick_consent_enable_action">Iespējot</string>
+    <string name="widget_oneclick_consent_decline_action">Ne tagad</string>
+    <string name="shortcut_onetap_started">Skenēšana + Dzēšana sākta…</string>
     <string name="shortcut_onetap_nothing_enabled">Nav iespējotu vienklikšķa rīku</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Dublējumkopija &amp; atjaunošana</string>
@@ -362,7 +366,7 @@ Mēģiniet: %3$s</item>
     <string name="backup_restore_warn_android_body">Šī rezerves kopija tika izveidota uz Android %1$s, bet šī ierīce darbojas ar Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Šī rezerves kopija tika izveidota uz citas ierīces (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Šī rezerves kopija ir no citas aplikācijas izdevuma (%1$s pret %2$s).</string>
-    <string name="backup_restore_warn_history_body">Šīs rezerves kopijas vēstures dati (statistika, saspiešanas vēsture, vilkšanas sesijas) ir no citas aplikācijas versijas un nevar tikt atjaunoti. Viss pārējais tiks atjaunots.</string>
+    <string name="backup_restore_warn_history_body">Šīs rezerves kopijas vēstures dati (statistika, saspiešanas vēsture, slīdīšanas sesijas) ir no citas lietotnes versijas un tos nevar atjaunot. Viss pārējais tiks atjaunots.</string>
     <string name="backup_restore_ack_understand">Saprotu un vēlos turpināt</string>
     <string name="backup_restore_action_restore">Atjaunot</string>
 </resources>

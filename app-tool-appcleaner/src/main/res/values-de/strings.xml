@@ -85,6 +85,6 @@
     <string name="appcleaner_automation_error_securitycenter_permission_title">System-App falsch konfiguriert</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Der HyperOS-Sicherheits-App (com.miui.securitycenter) fehlt die Berechtigung zur Nutzung von Statistiken (GET_USAGE_STATS). Dies behindert Funktionen wie \"Daten löschen\" in den App-Details und Cache-Clearing über den Barrierefreiheitsdienst. Gewähre die Berechtigung, um die volle Funktionalität wiederherzustellen.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Vor dem Leeren zwangsweise beenden</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Apps vor dem Leeren ihres Caches zwangsbeenden. Dies kann helfen, den Cache einiger Apps zu leeren, kann aber dazu führen, dass Apps nicht richtig funktionieren und manuell neu gestartet werden müssen.</string>
-    <string name="appcleaner_progress_force_stopping">Apps werden zwangsbeendet…</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Beende Apps sofort, bevor ihr Cache geleert wird. Das kann beim Leeren des Caches einiger Apps helfen, führt jedoch möglicherweise dazu, dass Apps nicht mehr ordnungsgemäß funktionieren und manuell neu gestartet werden müssen.</string>
+    <string name="appcleaner_progress_force_stopping">Beenden von Apps erzwingen…</string>
 </resources>

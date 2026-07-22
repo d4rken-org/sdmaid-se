@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Aucun marqueur</string>
     <string name="corpsefinder_markers_dialog_normal_description">Résidu standard. Généralement sûr à supprimer — ces fichiers appartiennent à des applis qui ne sont plus installées.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder trouve les données laissées par les applis que vous avez déjà désinstallées. Elles n’appartiennent plus à rien d’installé, donc les supprimer est sûr et libère de l’espace.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder trouve les données laissées par les applis que vous avez déjà désinstallées. Cela n’appartient plus à rien d’installé, donc le supprimer libère de l’espace. La plupart peut être supprimée en toute sécurité, mais vérifiez l’indicateur si vous n’êtes pas sûr.</string>
     <string name="tour_corpsefinder_row_body">Chaque élément est une donnée restante et l’appli dont elle provient. Le marqueur indique le degré de confiance de SD Maid que la suppression est sûre — appuyez sur le ⓘ en haut pour savoir ce que les marqueurs signifient.</string>
 </resources>

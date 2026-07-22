@@ -38,6 +38,7 @@
     <string name="general_error_label">Lỗi</string>
     <string name="general_upgrade_action">Nâng cấp</string>
     <string name="general_refresh_action">Làm mới</string>
+    <string name="general_retry_action">Thử lại</string>
     <string name="general_progress_searching">Đang tìm</string>
     <string name="general_progress_generating_searchpaths">Đang tạo đường dẫn tìm kiếm</string>
     <string name="general_progress_filtering">Đang lọc</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Tên (A → Z)</string>
     <string name="general_sort_size_desc">Lớn nhất trước</string>
     <string name="general_tag_system">Hệ thống</string>
+    <string name="general_tag_library">Thư viện</string>
     <string name="general_navigate_up_action">Quay lại</string>
     <string name="general_filter_action">Bộ lọc</string>
     <string name="general_filter_by_tags_label">Lọc theo thẻ</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">Báo cáo lỗi</string>
     <string name="general_error_ipc_deadobject_title">Kết nối dịch vụ bị mất</string>
     <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
-    <string name="general_error_upgrade_required_title">Yêu cầu phiên bản Pro</string>
-    <string name="general_error_upgrade_required_description">Đây là tính năng Pro. Vui lòng nâng cấp SD Maid SE để sử dụng nó.</string>
+    <string name="general_error_upgrade_required_title">Yêu cầu nâng cấp</string>
+    <string name="general_error_upgrade_required_description">Tính năng này yêu cầu nâng cấp. Vui lòng nâng cấp SD Maid SE để sử dụng nó.</string>
     <string name="general_user_label_owner">Người sở hữu</string>
     <string name="general_user_label_system">Hệ thống</string>
     <string name="setup_title">Thiết lập</string>

@@ -8,6 +8,7 @@
         <item quantity="other">%d шлях сонгогдсон</item>
     </plurals>
     <string name="picker_home_action">Өгөгдлийн бүсүүд</string>
+    <string name="picker_select_hint">Зүйлийг сонгохын тулд дарж байлгана.</string>
     <string name="tour_action_next">Дараа</string>
     <string name="tour_action_previous">Өмнөх</string>
     <string name="tour_action_cancel">Алгасах</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Аялалыг үргэлжлүүлэх</string>
     <string name="tour_confirm_dont_show_this_tour">Энэ аялалыг харуулахгүй байх</string>
     <string name="tour_confirm_disable_all">Бүх аялалыг идэвхгүй болгох</string>
-    <string name="navigation_unknown_destination_title">Удахгүй ирэх</string>
-    <string name="navigation_unknown_destination_message">Энэ дэлгэц шинэ интерфейс рүү шилжүүлж байгаа байна.</string>
+    <string name="navigation_unknown_destination_title">Дэлгэц ашиглах боломжгүй.</string>
+    <string name="navigation_unknown_destination_message">Энэ дэлгэцийг нээх боломжгүй.</string>
 </resources>

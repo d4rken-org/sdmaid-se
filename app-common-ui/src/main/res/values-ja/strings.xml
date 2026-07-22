@@ -7,6 +7,7 @@
         <item quantity="other">%d個のパスが選択されました</item>
     </plurals>
     <string name="picker_home_action">データ領域</string>
+    <string name="picker_select_hint">長押ししてアイテムを選択</string>
     <string name="tour_action_next">次へ</string>
     <string name="tour_action_previous">前へ</string>
     <string name="tour_action_cancel">スキップ</string>
@@ -15,6 +16,6 @@
     <string name="tour_confirm_continue">ツアーを続行</string>
     <string name="tour_confirm_dont_show_this_tour">このツアーを表示しない</string>
     <string name="tour_confirm_disable_all">すべてのツアーを無効にする</string>
-    <string name="navigation_unknown_destination_title">近日公開予定</string>
-    <string name="navigation_unknown_destination_message">このスクリーンはまだ新しいUIへ移行中です。</string>
+    <string name="navigation_unknown_destination_title">画面を利用できません</string>
+    <string name="navigation_unknown_destination_message">この画面を開けませんでした。</string>
 </resources>

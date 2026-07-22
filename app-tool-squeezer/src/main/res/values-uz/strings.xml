@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">JPEG fayllar uchun taxminan ~%d%% tejash kutilmoqda</string>
     <string name="squeezer_onboarding_got_it">Tushundim</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer rasmlar va videolaringizni qayta siqib, kamroq joy egallashini ta\'minlaydi. Fayllar foydalanishga yaroqli bo\'lib qoladi, faqat kichikroq bo\'ladi, va har biri taxminiy tejamini ko\'rsatadi.</string>
+    <string name="tour_squeezer_intro_body">Squeezer sizning fotolaringiz va videolaringizni qayta siqadi, shunda ular kamroq joyni egallaydi. Bir oz sifatni qurbon qilib, ko\'proq joyni tejaysiz. Har bir element uning taxminiy tejamkorligini ko\'rsatadi, shuning uchun qaysi narsani qo\'lga kiritish qiymatli ekanligini qaror qila olasiz.</string>
     <string name="tour_squeezer_compress_body">Shu yerda hammasini birdaniga siqing yoki faqat bittasini kichraytirish uchun uni bosing. Bir nechtasini tanlash uchun uzoq bosib turing. Har qanday o\'zgarishdan oldin doim ko\'rib chiqish imkoniyati bo\'ladi.</string>
 </resources>

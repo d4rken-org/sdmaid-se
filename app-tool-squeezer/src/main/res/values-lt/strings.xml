@@ -139,6 +139,6 @@
     <string name="squeezer_estimated_savings_percent">Apytiksliai ~%d%% sutaupymų JPEG failams</string>
     <string name="squeezer_onboarding_got_it">Supratau</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer pakartotinai suglaudina jūsų nuotraukas ir vaizdo įrašus, kad jie užimtų mažiau vietos. Failai lieka naudojami, tik mažesni, ir kiekvienas rodo numatomą sutaupymą.</string>
+    <string name="tour_squeezer_intro_body">Squeezer iš naujo suspaudžia jūsų nuotraukas ir vaizdo įrašus, todėl jie užima mažiau vietą. Jūs mainote šiek tiek kokybės į erdvę, kurią atgaunate. Kiekvienas elementas parodo numatytą sutaupymą, todėl galite nuspręsti, ką verta.</string>
     <string name="tour_squeezer_compress_body">Suglaudinkite viską iš karto čia arba palieskite vieną elementą, norėdami sumažinti tik tą. Ilgai spustelėkite, norėdami pasirinkti kelis. Prieš bet kokius pokyčius visada matysite peržiūrą.</string>
 </resources>

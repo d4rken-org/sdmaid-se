@@ -38,6 +38,7 @@
     <string name="general_error_label">त्रुटी है</string>
     <string name="general_upgrade_action">उन्नत करें</string>
     <string name="general_refresh_action">रिफ्रेश करें</string>
+    <string name="general_retry_action">पुनः प्रयास करें</string>
     <string name="general_progress_searching">खोज रहा है</string>
     <string name="general_progress_generating_searchpaths">खोज पथ बना रहा है</string>
     <string name="general_progress_filtering">निष्पंदन कर रहा है</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">नाम (A → Z)</string>
     <string name="general_sort_size_desc">पहले सबसे बड़े</string>
     <string name="general_tag_system">सिस्टम</string>
+    <string name="general_tag_library">लाइब्रेरी</string>
     <string name="general_navigate_up_action">ऊपर जाएं</string>
     <string name="general_filter_action">फ़िल्टर</string>
     <string name="general_filter_by_tags_label">टैग के अनुसार फ़िल्टर करें</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">बग रिपोर्ट करें</string>
     <string name="general_error_ipc_deadobject_title">सेवा कनेक्शन खो गया</string>
     <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जैसे Magisk, Shizuku, या अन्य सिस्टम-स्तर सेवाओं) का कनेक्शन अप्रत्याशित रूप से खो गया था। कृपया अपने डिवाइस को रीबूट करें। यदि समस्या बनी रहती है, तो अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
-    <string name="general_error_upgrade_required_title">प्रो संस्करण आवश्यक है</string>
-    <string name="general_error_upgrade_required_description">यह एक प्रो फीचर है। इसे उपयोग करने के लिए कृपया SD Maid SE को अपग्रेड करें।</string>
+    <string name="general_error_upgrade_required_title">अपग्रेड आवश्यक है</string>
+    <string name="general_error_upgrade_required_description">इस सुविधा के लिए अपग्रेड आवश्यक है। इसका उपयोग करने के लिए कृपया SD Maid SE को अपग्रेड करें।</string>
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">सिस्टम</string>
     <string name="setup_title">व्यवस्थित</string>

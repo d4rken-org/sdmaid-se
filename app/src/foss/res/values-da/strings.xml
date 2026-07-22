@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Sådan hjælper du</string>
     <string name="upgrade_screen_how_body">Bliv patron og sponsorér udvikling! Tryk på knappen nedenfor for at aktivere alle ekstra funktioner og åbne min GitHub-sponsorprofil.</string>
     <string name="upgrade_screen_why_title">Opgraderingsfordele</string>
-    <string name="upgrade_screen_why_body">• Rens app-cache og unødvendig data
-• Fjern duplikerede filer
-• Aktivér planlagte oprydninger
-• Opret brugerdefinerede filtre og oprydningsregler
-• Spor lagringstrends og oprydningshistorik
-• Flere funktioner og kontroller i hele appen
-• Støt open source-arbejde</string>
+    <string name="upgrade_screen_why_body">• Rengøring af app-cache og junk\n• Fjernelse af duplikerede filer\n• Komprimering af fotos og videoer\n• Stryg for at rydde gamle filer\n• Rengøring med ét klik via widget\n• Planlægning af rengøring\n• Brugerdefinerede filtre og regler\n• Lagringstendenser og historie\n• Flere funktioner og kontrolelementer i hele appen\n• Understøt open source-arbejde</string>
     <string name="upgrade_screen_sponsor_action">Sponsorudvikling</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativet er annoncer, analyser og Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Tak, fordi du støtter open source-udvikling ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Tilbage allerede? Din støtte holder SD Maid i live!</string>
+    <string name="upgrade_screen_status_free_title">Gratis version</string>
+    <string name="upgrade_screen_status_free_body">Du bruger den gratis version af SD Maid. Ekstra funktioner kan låses op ved at støtte udviklingen.</string>
+    <string name="upgrade_screen_status_free_action">Se opgraderingsmuligheder</string>
+    <string name="upgrade_screen_status_upgraded_title">Opgradering aktiv</string>
+    <string name="upgrade_screen_status_upgraded_body">Alle ekstra funktioner er låst op. Tak for at støtte open source-udvikling ❤️</string>
+    <string name="upgrade_screen_recurring_title">Fortsæt med det</string>
+    <string name="upgrade_screen_recurring_body">SD Maid udvikler sig konstant gennem opdateringer og rettelser. Hvis du gerne vil støtte det, bør du overveje en tilbagevendende donation via GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Åbn GitHub Sponsors</string>
 </resources>

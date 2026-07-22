@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Icilelo elilindelekile elingaba %d%% lwamafayili e-JPEG</string>
     <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">I-Squeezer iphinda itshintsha izithombe nezvideo zakho ukuze zithathe indawo encane. Amafayili ahlala asebenzisekayo, ayincane kuphela, futhi enye ngenye ibonisa icilelo layo elilindelekile.</string>
+    <string name="tour_squeezer_intro_body">I-Squeezer iyubusha izifanekiso zakho nevidiyo upho ukuze zicele isikhala esincane. Uthintela ubuciko obukaningincinci ngesikhala osuthola. Into ngayinye ikhombisa okusesha okuqikitshwe, ngakho ungakwazi ukunquma okuthile okumfanele.</string>
     <string name="tour_squeezer_compress_body">Cinza izinto zonke ngesikhathi esisodwa lapha, noma cindezela into eyodwa ukuncinane kuleyo kuphela. Cindezela isikhathi eside ukuze ukhethile eziningizane. Uzohlala ubona imodeli phambi kokuba okuthile itshintshwe.</string>
 </resources>

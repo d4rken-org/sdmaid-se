@@ -38,6 +38,7 @@
     <string name="general_error_label">त्रुटि</string>
     <string name="general_upgrade_action">अपग्रेड गर्नुहोस्</string>
     <string name="general_refresh_action">ताजा गर्नुहोस्</string>
+    <string name="general_retry_action">पुनः प्रयास गर्नुहोस्</string>
     <string name="general_progress_searching">खोजी गर्दै</string>
     <string name="general_progress_generating_searchpaths">खोजी पथहरू सिर्जना गर्दै</string>
     <string name="general_progress_filtering">फिल्टर गर्दै</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">नाम (अ → ज्ञ)</string>
     <string name="general_sort_size_desc">सबैभन्दा ठूलो पहिले</string>
     <string name="general_tag_system">सिस्टम</string>
+    <string name="general_tag_library">लाइब्रेरी</string>
     <string name="general_navigate_up_action">माथि जानुहोस्</string>
     <string name="general_filter_action">फिल्टर गर्नुहोस्</string>
     <string name="general_filter_by_tags_label">ट्यागहरू अनुसार फिल्टर गर्नुहोस्</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">बग रिपोर्ट गर्नुहोस्</string>
     <string name="general_error_ipc_deadobject_title">सेवा जडान हराएको</string>
     <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जस्तै Magisk, Shizuku, वा अन्य सिस्टम-स्तर सेवाहरू) को जडान अप्रत्याशित रूपमा हराएको छ। कृपया आफ्नो उपकरण पुनः सुरु गर्नुहोस्। यदि समस्या कायम रह्यो भने, अपडेटहरू जाँच्नुहोस् वा मलाई सम्पर्क गर्नुहोस्।</string>
-    <string name="general_error_upgrade_required_title">Pro संस्करण आवश्यक छ</string>
-    <string name="general_error_upgrade_required_description">यो एक Pro सुविधा हो। यसलाई प्रयोग गर्नको लागि कृपया SD Maid SE लाई अपग्रेड गर्नुहोस्।</string>
+    <string name="general_error_upgrade_required_title">अपग्रेड आवश्यक</string>
+    <string name="general_error_upgrade_required_description">यो सुविधाका लागि अपग्रेड आवश्यक छ। यसलाई प्रयोग गर्न कृपया SD Maid SE अपग्रेड गर्नुहोस्।</string>
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">प्रणाली</string>
     <string name="setup_title">सेटअप</string>

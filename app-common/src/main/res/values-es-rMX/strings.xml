@@ -3,8 +3,8 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">A tu servicio.</string>
     <string name="slogan_message_1">Limpio y ordenado.</string>
-    <string name="slogan_message_2">Evitando el caos.</string>
-    <string name="slogan_message_3">Haciendo lo que es necesario.</string>
+    <string name="slogan_message_2">Previene el caos.</string>
+    <string name="slogan_message_3">Haciendo lo necesario.</string>
     <string name="slogan_message_4">Todo en orden.</string>
     <string name="slogan_message_5">Impecable.</string>
     <string name="slogan_message_6">¡Bytes, fuera!</string>
@@ -38,6 +38,7 @@
     <string name="general_error_label">Error</string>
     <string name="general_upgrade_action">Actualizar</string>
     <string name="general_refresh_action">Actualizar</string>
+    <string name="general_retry_action">Reintentar</string>
     <string name="general_progress_searching">Buscando</string>
     <string name="general_progress_generating_searchpaths">Generando rutas de búsqueda</string>
     <string name="general_progress_filtering">Filtrando</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nombre (A → Z)</string>
     <string name="general_sort_size_desc">Más grandes primero</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Biblioteca</string>
     <string name="general_navigate_up_action">Navegar hacia arriba</string>
     <string name="general_filter_action">Filtrar</string>
     <string name="general_filter_by_tags_label">Filtrar por etiquetas</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Reportar error</string>
     <string name="general_error_ipc_deadobject_title">Conexión de Servicio Perdida</string>
     <string name="general_error_ipc_deadobject_description">La conexión a un servicio crítico (por ejemplo, Magisk, Shizuku u otros servicios a nivel del sistema) se perdió inesperadamente. Por favor reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o contáctame para que pueda solucionarlo.</string>
-    <string name="general_error_upgrade_required_title">Se requiere versión Pro</string>
-    <string name="general_error_upgrade_required_description">Esta es una función Pro. Por favor, actualiza SD Maid SE para usarla.</string>
+    <string name="general_error_upgrade_required_title">Actualización requerida</string>
+    <string name="general_error_upgrade_required_description">Esta función requiere una actualización. Por favor, actualiza SD Maid SE para usarla.</string>
     <string name="general_user_label_owner">Propietario</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuración</string>

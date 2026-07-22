@@ -8,6 +8,7 @@
         <item quantity="other">%d مسیر انتخابی</item>
     </plurals>
     <string name="picker_home_action">مناطق داده</string>
+    <string name="picker_select_hint">برای انتخاب یک مورد، آن را نگه دارید</string>
     <string name="tour_action_next">بعدی</string>
     <string name="tour_action_previous">قبلی</string>
     <string name="tour_action_cancel">رد کردن</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">ادامه تور</string>
     <string name="tour_confirm_dont_show_this_tour">این تور را نشان نده</string>
     <string name="tour_confirm_disable_all">تمام تورها را غیرفعال کن</string>
-    <string name="navigation_unknown_destination_title">به زودی</string>
-    <string name="navigation_unknown_destination_message">این صفحه هنوز در حال انتقال به رابط کاربری جدید است.</string>
+    <string name="navigation_unknown_destination_title">صفحه نمایش در دسترس نیست</string>
+    <string name="navigation_unknown_destination_message">این صفحه نمایش باز نشد.</string>
 </resources>

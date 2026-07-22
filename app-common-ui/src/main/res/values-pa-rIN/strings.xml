@@ -8,6 +8,7 @@
         <item quantity="other">%d ਮਾਰਗ ਚੁਣੇ ਗਏ</item>
     </plurals>
     <string name="picker_home_action">ਡਾਟਾ ਖੇਤਰ</string>
+    <string name="picker_select_hint">ਆਈਟਮ ਨੂੰ ਚੁਣਨ ਲਈ ਦਬਾਈ ਰੱਖੋ</string>
     <string name="tour_action_next">ਅਗਲਾ</string>
     <string name="tour_action_previous">ਪਿਛਲਾ</string>
     <string name="tour_action_cancel">ਛੱਡੋ</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">ਟੂਰ ਜਾਰੀ ਰੱਖੋ</string>
     <string name="tour_confirm_dont_show_this_tour">ਇਹ ਟੂਰ ਨਾ ਦਿਖਾਓ</string>
     <string name="tour_confirm_disable_all">ਸਾਰੇ ਟੂਰ ਅਸਮਰਥ ਕਰੋ</string>
-    <string name="navigation_unknown_destination_title">ਜਲਦੀ ਆ ਰਿਹਾ ਹੈ</string>
-    <string name="navigation_unknown_destination_message">ਇਹ ਸਕ੍ਰੀਨ ਅਜੇ ਵੀ ਨਵੇਂ UI ਵਿੱਚ ਤਬਦੀਲ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ।</string>
+    <string name="navigation_unknown_destination_title">ਸਕ੍ਰੀਨ ਉਪਲਬੱਧ ਨਹੀਂ</string>
+    <string name="navigation_unknown_destination_message">ਇਹ ਸਕ੍ਰੀਨ ਖੋਲੀ ਨਹੀਂ ਜਾ ਸਕਦੀ।</string>
 </resources>

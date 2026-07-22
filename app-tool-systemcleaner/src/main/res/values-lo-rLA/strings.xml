@@ -99,6 +99,6 @@
     <string name="systemcleaner_customfilter_import_action">ນໍາເຂ້ຕັວກ໭ງໃຫມ່</string>
     <string name="systemcleaner_customfilter_export_action">ສ່ອອກຕັວກ໭ງທີ່ເລືອກ</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner ຊອກຫາສິ່ງເສດເຫຼືອໂດຍໃຊ້ຕົວກອງທົ່ວໄປ. ມີກົດລະບຽບພ້ອມໃຊ້ສຳລັບສິ່ງຕ່າງໆເຊັ່ນ folder ຫວ່າງ, log ເກົ່າ ແລະ thumbnail ຕົກຄ້າງ. ໄປຫາການຕັ້ງຄ່າ ຖ້າທ່ານຕ້ອງການສ້າງຂອງທ່ານເອງ.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ຊອກຫາຂີ້ເຫຼື່ອໂດຍໃຊ້ຕົວກອງທີ່ບໍ່ແມ່ນສະເພາະກັບແອັບ. ກົດລະບີບທີ່ກຳນົດໄວ້ລ່ວງໝ້າມີສຳລັບສິ່ງຕ່າງໆເຊັ່ນ: ໂຟນເດີວ່າງ, ບັນທຶກທີ່ຍັງເຫຼືອ ແລະ ຮູບຕໍ່ຕາງເກ່າ. ເຂົ້າໄປທີ່ການຕັ້ງຄ່າ ຖ້າທ່ານຕ້ອງການສ້າງສິ່ງຂອງທ່ານເອງ.</string>
     <string name="tour_systemcleaner_filter_body">ແຕ່ລະແຖວແມ່ນຕົວກອງ ແລະ ສິ່ງທີ່ມັນພົບ. ເປີດລາຍລະອຽດ ເພື່ອເບິ່ງໄຟລ໌ໃດກົງກັນກ່ອນລົບ.</string>
 </resources>

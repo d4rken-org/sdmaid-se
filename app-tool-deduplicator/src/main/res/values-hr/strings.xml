@@ -23,9 +23,10 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolni zbroj sadržaja</string>
     <string name="deduplicator_detection_method_checksum_summary">Odredite duplikate izračunavanjem kontrolnih zbrojeva za datoteke. Datoteke s podudarajućim kontrolnim zbrojevima imaju potpuno isti sadržaj.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptualni hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Pronađite slične datoteke analizom značajki sadržaja i usporedbom perceptivnih hash vrijednosti. ⚠️ Detekcija na temelju sličnosti može uključivati ​​lažno pozitivne rezultate koji zahtijevaju ručnu provjeru.</string>
+    <string name="deduplicator_detection_method_phash_summary">Pronađite slične datoteke analizom značajki sadržaja i usporedbom perceptivnih hash vrijednosti.</string>
     <string name="deduplicator_detection_method_media_title">Medijski otisak prsta</string>
-    <string name="deduplicator_detection_method_media_summary">Pronađi slične video i audio datoteke analizom audio otisaka prstiju. ⚠️ Detekcija temeljena na sličnosti može sadržavati lažno pozitivne rezultate koji zahtijevaju ručnu provjeru.</string>
+    <string name="deduplicator_detection_method_media_summary">Pronađite slične video i audio datoteke analizom audio otisaka.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Otkrivanje na temelju sličnosti može uključivati lažne pozitivne rezultate koji zahtijevaju ručnu provjeru.</string>
     <string name="deduplicator_media_match_audio">Podudaranje temeljeno na zvuku</string>
     <string name="deduplicator_media_match_visual">Podudaranje temeljeno na videu</string>
     <string name="deduplicator_media_match_audio_visual">Podudaranje temeljeno na zvuku i videu</string>

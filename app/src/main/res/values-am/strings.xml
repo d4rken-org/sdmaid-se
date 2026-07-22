@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ተገለለ</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ሊወገድ ይችላል</string>
     <string name="dashboard_hero_freed_x_items">%1$s ተወግዷል</string>
-    <string name="dashboard_hero_freeable_hint">ቦታ ለመገለል ቁልፉን ታች ያድርጉ። መጀመሪያ ለመጠይቅ ሊባ ታች ያድርጉ።</string>
+    <string name="dashboard_hero_freeable_hint">ቦታ ለመክፈት ቁልፍ ይጫኑ ወይም መጀመሪያ ለመመርመር ሪባ ይጫኑ።</string>
     <string name="dashboard_hero_freed_hint">ዝርዝሮች ለማየት ሊባ ታች ያድርጉ።</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ተመርምሯል</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ሚቀጥለው ማዛመጃ</string>
     <string name="debug_logview_jump_to_bottom_action">ወደ ስሪ ሂድ</string>
     <string name="debug_logview_paused_msg">ተጭኗል — ምዝገባ ታግዷል</string>
-    <string name="debug_logview_paused_dropped_msg">ተጭኗል — %1$d አዲስ መስመር ተዘልሏል</string>
+    <string name="debug_logview_paused_dropped_msg">ተገድብቷል — አዲስ መስመሮች ተዘልቀዋል: %1$d</string>
     <string name="debug_logview_copied_msg">ምዝገባ ወደ ቅንጥብ ሳጥን ተቅዳ</string>
     <string name="debug_logview_share_label">ምዝገባ ተካፍል</string>
     <string name="debug_debuglog_screen_title">የመለያ ምዝግብ ማስታወሻ</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">የግላዊነት ፖሊሲ</string>
     <string name="settings_privacy_policy_desc">ውሂቡን በኃላፊነት መያዝ።</string>
     <string name="settings_category_other_label">ሌላ</string>
+    <string name="settings_upgrade_description">ሁኔታ እና አማራጮች ማሻሻል</string>
     <string name="general_settings_label">አጠቃላይ</string>
     <string name="general_settings_desc">መሙሉ መተግበሪያ የሚነኩ አጠቃላይ ማስተካከያዎች።</string>
     <string name="settings_category_ui_label">የተጠቃሚ በይነገጽ</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">ስቶሬጅ ሐብት እና ነጠላ-መታ ማጽጃ</string>
     <string name="widget_home_storage_internal">ውስጣዊ</string>
     <string name="widget_home_storage_external">ውጪ</string>
-    <string name="widget_home_freed_label">ተወሰደ: %1$s</string>
+    <string name="widget_home_freed_label">ሕይወት: %1$s</string>
     <string name="widget_home_clean_action">ጽህ</string>
     <string name="widget_home_working">በስራ ላይ…</string>
     <string name="widget_home_unavailable">ማከማቻ አልተገኘም</string>
-    <string name="shortcut_onetap_started">ስካን &amp; ሰርዞ ጀመረ…</string>
+    <string name="settings_category_widget">ዊጄት</string>
+    <string name="widget_settings_oneclick_summary">የቤት ስክሪን ዊጄት ውጣፍ ቁልፍ በአንድ መታ ስካን እና ሰርዝ ሙሉ ጊዜ ሳይጠይቅ።</string>
+    <string name="widget_oneclick_consent_title">አንድ-መታ ውጣር ምቹ?</string>
+    <string name="widget_oneclick_consent_message">ዊጄት ውጣፍ ቁልፍ በአንድ ወቅት ስካን እና ሰርዝ ይሆናል ቅድሚያ ሳይጠይቅ ወይም ምን ይስረዙ እንደሚሆነ ሳይመልከት።</string>
+    <string name="widget_oneclick_consent_enable_action">ምቹ</string>
+    <string name="widget_oneclick_consent_decline_action">አሁን ሳይሆን</string>
+    <string name="shortcut_onetap_started">ስካን + ሰርዝ ተጀመረ…</string>
     <string name="shortcut_onetap_nothing_enabled">ምንም ነጠላ-ታንቡ መሳሪያ ተገብር</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ምትክ &amp; ማገገም</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ይህ ድጋ በAndroid %1$s ላይ ተሠሪ ነበር፣ ግን ይህ መሣሪያ Android %2$s ያሮጋል።</string>
     <string name="backup_restore_warn_device_body">ይህ ድጋ በተለየ መሣሪያ ላይ ተሠሪ ነበር (%1$s ከ %2$s)።</string>
     <string name="backup_restore_warn_flavor_body">ይህ ምትክ ከተለያዩ መተግበሪያ እትሞች ነው (%1$s vs %2$s)።</string>
-    <string name="backup_restore_warn_history_body">የዚህ ምትክ ታሪክ ውሂብ (ስታቲስቲክስ፣ ሙቅል ታሪክ፣ ተንሸራታች ክፍለ-ጊዜ) ከተለያዩ መተግበሪያ ስሪት ነው እና ሊመለስ አይችልም። ሌላው ሁሉ ይሆናል።</string>
+    <string name="backup_restore_warn_history_body">ይህ ባክሥ ታሪክ ውሂብ (ስታቲስቲክስ፣ ምግብ ታሪክ፣ ወግ ክፍለ-ጊዜ) ከተለያዩ አፓ ስሪት ሲሆን ተመለሰ አይችልም። ሁሉም ሌሎች ውሂብ ተመለስ ይሆናል።</string>
     <string name="backup_restore_ack_understand">ተረድቻለሁ እና መቀጠል እፈልጋለሁ</string>
     <string name="backup_restore_action_restore">ወደ ቀድሞው ሁኔታ አምጣ</string>
 </resources>

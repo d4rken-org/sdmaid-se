@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Importér nyt filter</string>
     <string name="systemcleaner_customfilter_export_action">Eksportér valgt filter</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">Systemrenser finder affald ved hjælp af app-uspecifikke filtre. Færdiglavede regler findes for ting som tomme mapper, efterladte logs og forældede miniaturebilleder. Besøg indstillingerne hvis du vil oprette dine egne.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner finder skrammel ved hjælp af filtre, der ikke er app-specifikke. Forudopsatte regler findes for ting som tomme mapper, efterladte logfiler og gamle miniaturebilleder. Besøg indstillingerne, hvis du vil oprette dine egne.</string>
     <string name="tour_systemcleaner_filter_body">Hver række er et filter og hvad det fandt. Åbn dets detaljer for at se præcis hvilke filer der matcher før du sletter noget.</string>
 </resources>

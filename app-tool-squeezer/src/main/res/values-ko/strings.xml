@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">JPEG 파일의 예상 ~%d%% 절감</string>
     <string name="squeezer_onboarding_got_it">확인</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer는 사진과 동영상을 다시 압축하여 공간을 덜 차지하도록 합니다. 파일은 그대로 사용 가능하지만 크기가 작아지며, 각각 예상 절감량이 표시됩니다.</string>
+    <string name="tour_squeezer_intro_body">Squeezer는 사진과 동영상을 다시 압축하여 저장 공간을 절약합니다. 약간의 화질 손실로 더 많은 공간을 확보합니다. 각 항목은 예상 절약량을 표시하므로 가치 있는 항목을 선택할 수 있습니다.</string>
     <string name="tour_squeezer_compress_body">여기서 모든 항목을 한 번에 압축하거나 단일 항목을 탭하여 해당 항목만 줄입니다. 여러 항목을 선택하려면 길게 누르세요. 변경되기 전에 항상 미리보기를 볼 수 있습니다.</string>
 </resources>

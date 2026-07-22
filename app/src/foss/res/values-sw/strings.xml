@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Jinsi ya kusaidia</string>
     <string name="upgrade_screen_how_body">Kuwa mfumo na mfadhili wa maendeleo! Gusa kitufe kilicho hapa chini ili kuwezesha vipengele vyote vya ziada na kufungua wasifu wangu wa GitHub Sponsors.</string>
     <string name="upgrade_screen_why_title">Faida za kuboresha</string>
-    <string name="upgrade_screen_why_body">• Safisha akiba za programu na data isiyohitajika
-• Ondoa faili nakala
-• Washa usafishaji uliopangwa
-• Unda vichujio vya kibinafsi na sheria za usafishaji
-• Fuatilia mielekeo ya hifadhi na historia ya usafishaji
-• Vipengele na vidhibiti zaidi katika programu nzima
-• Saidia kazi ya chanzo huria</string>
+    <string name="upgrade_screen_why_body">• Kusafisha kashe na taka za programu\n• Kuondoa faili zinazorudiwa\n• Kubana picha na video\n• Kuswaipi ili kuondoa faili za zamani\n• Kusafisha kwa mgusa mmoja kupitia wijeti\n• Kupanga ratiba ya usafishaji\n• Vichujio na kanuni maalum\n• Mielekeo na historia ya hifadhi\n• Sifa na vidhibiti zaidi katika programu nzima\n• Kuunga mkono kazi ya chanzo wazi</string>
     <string name="upgrade_screen_sponsor_action">Faidhi maendeleo</string>
     <string name="upgrade_screen_sponsor_action_hint">Mbadala ni matangazo, uchambuzi na Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Asante kwa kuunga mkono maendeleo ya chanzo wazi ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Umerudi tayari? Msaada wako unaweka SD Maid hai!</string>
+    <string name="upgrade_screen_status_free_title">Toleo la bure</string>
+    <string name="upgrade_screen_status_free_body">Unatumia toleo la bure la SD Maid. Vipengele vya ziada vinaweza kufunguliwa kwa kuunga mkono maendeleo.</string>
+    <string name="upgrade_screen_status_free_action">Angalia chaguo za kuboresha</string>
+    <string name="upgrade_screen_status_upgraded_title">Boresho ni hai</string>
+    <string name="upgrade_screen_status_upgraded_body">Vipengele vyote vya ziada vimefunguliwa. Asante kwa kuunga mkono maendeleo ya chanzo wazi ❤️</string>
+    <string name="upgrade_screen_recurring_title">Endelea</string>
+    <string name="upgrade_screen_recurring_body">SD Maid inaendelea kuboreshwa kupitia masasisho na marekebisho. Ikiwa ungependa kuendeleza hilo, fikiria mchango wa mara kwa mara kupitia GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Fungua GitHub Sponsors</string>
 </resources>

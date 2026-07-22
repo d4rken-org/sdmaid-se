@@ -163,6 +163,6 @@
     <string name="squeezer_estimated_savings_percent">توفير مقدر ~%d%% لملفات JPEG</string>
     <string name="squeezer_onboarding_got_it">عُلم</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">يعيد Squeezer ضغط صورك ومقاطع الفيديو الخاصة بك بحيث تشغل مساحة أقل. تبقى الملفات قابلة للاستخدام، فقط أصغر، وتعرض كل واحدة توفيرها المقدر.</string>
+    <string name="tour_squeezer_intro_body">يعيد Squeezer ضغط صورك ومقاطع الفيديو الخاصة بك حتى تشغل مساحة أقل. ستضحي بقليل من الجودة مقابل المساحة التي تحصل عليها. يعرض كل عنصر التوفير المقدر، حتى تتمكني من تحديد أي منها يستحق ذلك.</string>
     <string name="tour_squeezer_compress_body">اضغط كل شيء في نفس الوقت هنا، أو اضغط على عنصر واحد لتقليص حجم هذا العنصر فقط. اضغط لفترة طويلة لاختيار عدة عناصر. سترى دائماً معاينة قبل أي تغيير.</string>
 </resources>

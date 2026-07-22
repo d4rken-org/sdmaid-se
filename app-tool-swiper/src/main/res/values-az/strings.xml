@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Uyğun fayl tapılmadı</string>
     <string name="swiper_open_externally_action">Xərici tətbibdə aç</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Bir fotonu sürüşdürərək onun taləyini həll edin: saxlamaq və ya silmək üçün yana, keçmək üçün yuxarı, geri almaq üçün aşağı sürüşdürün. Aşağıdakı düymələr də eynisini edir — və hansı tərəfin nə olduğunu göstərir.</string>
-    <string name="tour_swiper_openin_body">Bu düymə fotonu başqa bir tətbiqdə açır, qərar verməzdən əvvəl yoxlamaq üçün əlverişlidir.</string>
+    <string name="tour_swiper_gestures_body">Faylın taləyini qərar vermək üçün onu sürüşdürün: saxlamaq və ya silmək üçün yan, atlamaq üçün yuxarı, geri almaq üçün aşağı. Aşağıdakı düymələr eyni şeyi edir — və hansı tərəfin hansı əməliyyat olduğunu göstərir.</string>
+    <string name="tour_swiper_openin_body">Bu düymə faylı başqa tətbiqdə açır, qərar vermədən əvvəl onu yoxlamaq üçün əlverişlidir.</string>
     <string name="tour_swiper_preview_body">Bu düymə daha yaxından baxmaq üçün tam ekran önizləməsi açır.</string>
     <string name="tour_swiper_actions_body">Sürüşdürməyi bəyənmirsiniz? Düymələrimiz də var! Keç düyməsi qərarı sonraya saxlayır, Keç düyməsinə uzun basmaq isə faylı gələcək skanlardan çıxarır. Geri al son seçiminizi ləğv edir.</string>
     <string name="tour_swiper_review_body">Saxlama və silmə seçimləriniz yalnız hazırlanmış vəziyyətdədir. Nəzərdən Keçir bölməsini açaraq onları yoxlayın və silməyə hazır olduğunuzda tətbiq edin.</string>

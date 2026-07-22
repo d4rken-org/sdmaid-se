@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s losað</string>
     <string name="dashboard_hero_freeable_x_items">%1$s má fjarlægja</string>
     <string name="dashboard_hero_freed_x_items">%1$s fjarlægð</string>
-    <string name="dashboard_hero_freeable_hint">Ýttu á hnappinn til að losa pláss. Ýttu á flís til að athuga fyrst.</string>
+    <string name="dashboard_hero_freeable_hint">Ýttu á hnappinn til að losa um pláss, eða á flís til að athuga fyrst.</string>
     <string name="dashboard_hero_freed_hint">Ýttu á flís fyrir upplýsingar.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannað %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Næsta samsvörun</string>
     <string name="debug_logview_jump_to_bottom_action">Stökkva til nýjasta</string>
     <string name="debug_logview_paused_msg">Freстаð — biðminni fryst</string>
-    <string name="debug_logview_paused_dropped_msg">Freстаð — %1$d ný línur sleppt</string>
+    <string name="debug_logview_paused_dropped_msg">Stöðvað — nýjar línur hoppað yfir: %1$d</string>
     <string name="debug_logview_copied_msg">Annál afritað á klippiborð</string>
     <string name="debug_logview_share_label">Deila annáli</string>
     <string name="debug_debuglog_screen_title">Villuleitarskrá</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Friðhelgisstefna</string>
     <string name="settings_privacy_policy_desc">Ábyrgð meðhöndlun gagna.</string>
     <string name="settings_category_other_label">Annað</string>
+    <string name="settings_upgrade_description">Uppfærðu stöðu og valkosti.</string>
     <string name="general_settings_label">Almennt</string>
     <string name="general_settings_desc">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_category_ui_label">Notendaviðmót</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Geymslunotkun og hreinsun með einni snertu</string>
     <string name="widget_home_storage_internal">Innri</string>
     <string name="widget_home_storage_external">Ytri</string>
-    <string name="widget_home_freed_label">Losað: %1$s</string>
+    <string name="widget_home_freed_label">Ævi: %1$s</string>
     <string name="widget_home_clean_action">Hreinsa</string>
     <string name="widget_home_working">Að vinna…</string>
     <string name="widget_home_unavailable">Geymsla ekki tiltæk</string>
-    <string name="shortcut_onetap_started">Skönnun &amp; eyðing hafin…</string>
+    <string name="settings_category_widget">Græja</string>
+    <string name="widget_settings_oneclick_summary">Leyfðu hreinsunarhnappinum á forsíðugrækjunni að skanna og eyða í einu smelli, án þess að spyrja í hvert sinn.</string>
+    <string name="widget_oneclick_consent_title">Virkja eins-smells hreinsun?</string>
+    <string name="widget_oneclick_consent_message">Hreinsunarhnappinn á græjunni mun skanna og eyða í einni aðgerð, án þess að spyrja fyrst eða leyfa þér að yfirfara hvað verður eytt.</string>
+    <string name="widget_oneclick_consent_enable_action">Virkja</string>
+    <string name="widget_oneclick_consent_decline_action">Ekki núna</string>
+    <string name="shortcut_onetap_started">Skönnun + Eyðing hafin…</string>
     <string name="shortcut_onetap_nothing_enabled">Engin tæki með einni snertu eru virkjuð</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Öryggisafrit &amp; Endurheimta</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Þessi öryggisafrit var búið til á Android %1$s, en þessi tæki keyrir Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Þessi öryggisafrit var búið til á öðru tæki (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Þessi afrit er frá annarri útgáfu forritsins (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Ferlagögn þessa afrita (tölfræði, þjöppunarsaga, straukveisl) eru frá annarri útgáfu forritsins og ekki er hægt að endurheimta þa. Allt annað verður endurheimt.</string>
+    <string name="backup_restore_warn_history_body">Sögulegir gögn þessa öryggisafrita (tölfræði, þjöppun sögu, stroka lotur) eru frá annarri útgáfu forritsins og ekki er hægt að endurheimta þau. Allt annað verður endurheimt.</string>
     <string name="backup_restore_ack_understand">Ég skil og vil halda áfram</string>
     <string name="backup_restore_action_restore">Endurheimta</string>
 </resources>

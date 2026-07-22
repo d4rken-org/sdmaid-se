@@ -56,6 +56,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">マーカーなし</string>
     <string name="corpsefinder_markers_dialog_normal_description">標準的な残留ファイル。一般的に安全に削除できます。これらのファイルはインストールされなくなったアプリに属します。</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">残留ファイル検索はすでにアンインストールしたアプリによって残されたデータを検索します。インストール済みのアプリに属さなくなったため、削除しても安全でスペースを解放できます。</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinderは、すでにアンインストールしたアプリが残したデータを検出します。もはやどのアプリにも属していないため、削除すればスペースを解放できます。ほとんどの場合は安全に削除できますが、判断に迷うときはマーカーを確認してください。</string>
     <string name="tour_corpsefinder_row_body">各項目は残留データと、そのデータが由来するアプリです。マーカーはSD Maidが削除しても安全だと確信する程度を示しています。上部のⓘをタップしてマーカーの意味を確認してください。</string>
 </resources>

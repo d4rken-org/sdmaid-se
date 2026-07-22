@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">እንዴት መርዳት እንደሚችሉ</string>
     <string name="upgrade_screen_how_body">ደጋፊ ይሁኑ እና ልማትን ይደግፉ! ሁሉንም ተጨማሪ ባህሪያት ለማንቃት እና የእኔን GitHub Sponsors መገለጫ ለመክፈት ከታች ያለውን ቁልፍ ይንኩ።</string>
     <string name="upgrade_screen_why_title">የአሻሚያ ጠቀመታ</string>
-    <string name="upgrade_screen_why_body">• የአፕ ካሽ እና ሊወገዱ የሚችሉ መረጃዎችን ይጽዱ
-• ተመሳሳይ ፋይሎችን ያስወግዱ
-• የታቀዱ ንጽህናዎችን ያንቁ
-• ብጁ ማጣሪያዎች እና ንጽህና ደንቦችን ይፍጠሩ
-• ማከማቻ አዝማሚያዎች እና ንጽህና ታሪክ ይከታተሉ
-• በአተገባበር ውስጥ ተጨማሪ ባህሪያትና ቁጥጥር
-• ክፍት-ምንጭ ስራን ይደግጹ</string>
+    <string name="upgrade_screen_why_body">• ትግበራ ካሽ እና ቆሪ ማጠጋ\n• ድግግሞሽ ፋይል ማስወገድ\n• ፎቶ እና ቪዲዮ መጭነቅ\n• ግጥሞ-ለማጠጋ ዓሮጥ ፋይሎች\n• አንድ-ታይፕ ማጠጋ በ widget\n• ማጠጋ ቅደም ተከተል\n• ዓሙዶ ማጣሪያ እና ደንቦች\n• ሙሉ ትግበራ ውስጥ ተጨማሪ ባህሪዎች እና ቁጥጥር\n• ክፍት-ምንጭ ስራ ድጋፍ</string>
     <string name="upgrade_screen_sponsor_action">ልማትን ይደግፉ</string>
     <string name="upgrade_screen_sponsor_action_hint">አማራጩ ማስታወቂያዎች፣ ትንታኔዎች እና Google Play ናቸው 🙁</string>
     <string name="upgrade_screen_thanks_toast">ክፍት ምንጭ ልማትን ስለደገፉ እናመሰግናለን ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">ቀደም ብለው ተመለሱ? የእርስዎ ድጋፍ SD Maid ህያው ያደርገዋል!</string>
+    <string name="upgrade_screen_status_free_title">ነጻ ስሪት</string>
+    <string name="upgrade_screen_status_free_body">ነጻ ስሪት SD Maid ይጠቀማሉ ። ተጨማሪ ባህሪዎች በ እድገት ድጋፍ ሊክፈቱ ይችላሉ ።</string>
+    <string name="upgrade_screen_status_free_action">ማሻሻያ ምርጫ ይመልከቱ</string>
+    <string name="upgrade_screen_status_upgraded_title">ማሻሻያ ንቁ</string>
+    <string name="upgrade_screen_status_upgraded_body">ሁሉም ተጨማሪ ባህሪዎች ተከፈሉ ። ክፍት-ምንጭ እድገት ድጋፍ ለሰጡ ምስጋና ❤️</string>
+    <string name="upgrade_screen_recurring_title">ይቀጥሉት</string>
+    <string name="upgrade_screen_recurring_body">SD Maid በ ማሻሻያ እና ስሌት ውስጥ ሰሪ ይሞላ ። ይህን ቋሚ ለምታሰቡት ፣ GitHub Sponsors በ ተደጋጋሚ መስጫ ያስቡ ።</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors ይክፈቱ</string>
 </resources>

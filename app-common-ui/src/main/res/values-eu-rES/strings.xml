@@ -8,6 +8,7 @@
         <item quantity="other">%d bide hautatuta</item>
     </plurals>
     <string name="picker_home_action">Datu-eremuak</string>
+    <string name="picker_select_hint">Mantendu elementu bat hautatzeko</string>
     <string name="tour_action_next">Hurrengoa</string>
     <string name="tour_action_previous">Aurrekoa</string>
     <string name="tour_action_cancel">Saltatu</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Jarraitu ibilbidea</string>
     <string name="tour_confirm_dont_show_this_tour">Ez erakutsi ibilbide hau</string>
     <string name="tour_confirm_disable_all">Desgaitu ibilbide guztiak</string>
-    <string name="navigation_unknown_destination_title">Laster etortzekoa</string>
-    <string name="navigation_unknown_destination_message">Pantaila hau oraindik interfaze berrira migratzen ari da.</string>
+    <string name="navigation_unknown_destination_title">Pantaila ez dago erabilgarri</string>
+    <string name="navigation_unknown_destination_message">Pantaila hau ezin izan da ireki.</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">Errorea</string>
     <string name="general_upgrade_action">Eguneratu</string>
     <string name="general_refresh_action">Freskatu</string>
+    <string name="general_retry_action">Saiatu berriro</string>
     <string name="general_progress_searching">Bilatzen</string>
     <string name="general_progress_generating_searchpaths">Bilaketa-bideak sortzen</string>
     <string name="general_progress_filtering">Iragazten</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Izena (A → Z)</string>
     <string name="general_sort_size_desc">Handienak lehenik</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Liburutegia</string>
     <string name="general_navigate_up_action">Gora joan</string>
     <string name="general_filter_action">Iragazki</string>
     <string name="general_filter_by_tags_label">Etiketez iragazki</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Errore txostena</string>
     <string name="general_error_ipc_deadobject_title">Zerbitzuaren konexioa galdu da</string>
     <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko batekin (adib. Magisk, Shizuku edo bestelako sistema-mailako zerbitzuak) konexioa ustekabean galdu da. Mesedez berrabiarazi zure gailua. Arazoa jarraitzen badu, eguneraketak egiaztatu edo nirekin harremanetan jarri konpon dezadan.</string>
-    <string name="general_error_upgrade_required_title">Pro bertsioa beharrezkoa</string>
-    <string name="general_error_upgrade_required_description">Hau Pro ezaugarria da. Mesedez eguneratu SD Maid SE hau erabiltzeko.</string>
+    <string name="general_error_upgrade_required_title">Eguneraketa beharrezkoa</string>
+    <string name="general_error_upgrade_required_description">Funtzionalitate honek eguneraketa behar du. Mesedez, eguneratu SD Maid SE hau erabiltzeko.</string>
     <string name="general_user_label_owner">Jabea</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Konfigurazioa</string>

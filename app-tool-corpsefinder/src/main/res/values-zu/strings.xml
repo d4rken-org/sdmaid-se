@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Awekho imaki</string>
     <string name="corpsefinder_markers_dialog_normal_description">Insalela ejwayelekile. Kunothando ukukhipha — lawa mafayela kuzo izinhlelo zesofthiwe ezingekho.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">I-CorpseFinder ithola idata eyasiwe izinhlelo zesofthiwe ozwazikhipele. Ayikho into efakwe enayo, ngakho ukukhipha kuvumelekile futhi kuhlehlisela isikhala.</string>
+    <string name="tour_corpsefinder_intro_body">I-CorpseFinder ithola idatha eyasala ngesemva sezihlelo ozoselibonakalisiwe. Alikho okukhuluma nalo noma kumuntu okamuva efakwe, ngakho ukuyisusa kuvula indawo. Okuningi kulokhu kuvikile ukususa, kodwa bheka umakela uma unwelekile.</string>
     <string name="tour_corpsefinder_row_body">Isiqeshelo ngasinye siyidata eyasiwe nehlelo lokusofthiwe evela kuyo. Imaki ikhombisa ukuthi SD Maid iqinisekile kangakanani ukuthi kulungile ukukhipha — thinta i-ⓘ ngenhla ukwazi incazelo yemaki.</string>
 </resources>

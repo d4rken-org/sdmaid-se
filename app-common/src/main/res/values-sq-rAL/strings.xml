@@ -38,6 +38,7 @@
     <string name="general_error_label">Gabim</string>
     <string name="general_upgrade_action">Përmirëso</string>
     <string name="general_refresh_action">Rifresko</string>
+    <string name="general_retry_action">Riprovo</string>
     <string name="general_progress_searching">Duke kërkuar</string>
     <string name="general_progress_generating_searchpaths">Gjenerimi i shtigjeve të kërkimit</string>
     <string name="general_progress_filtering">Filtrimi</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Emri (A → Z)</string>
     <string name="general_sort_size_desc">Më të mëdhatë fillimisht</string>
     <string name="general_tag_system">Sistemi</string>
+    <string name="general_tag_library">Bibliotekë</string>
     <string name="general_navigate_up_action">Lëviz lart</string>
     <string name="general_filter_action">Filtro</string>
     <string name="general_filter_by_tags_label">Filtro sipas etiketave</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Raporto gabim</string>
     <string name="general_error_ipc_deadobject_title">Lidhja e shërbimit u ndërpre</string>
     <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Shizuku, ose shërbime të tjera të nivelit të sistemit) u ndërpre papritur. Ju lutemi rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose më kontaktoni që ta rregulloj.</string>
-    <string name="general_error_upgrade_required_title">Kërkohet versioni Pro</string>
-    <string name="general_error_upgrade_required_description">Ky është një veçori Pro. Ju lutemi përditësoni SD Maid SE për ta përdorur atë.</string>
+    <string name="general_error_upgrade_required_title">Kërkohet përmirësim</string>
+    <string name="general_error_upgrade_required_description">Kjo veçori kërkon një përmirësim. Ju lutem përmirësoni SD Maid SE për ta përdorur atë.</string>
     <string name="general_user_label_owner">Pronari</string>
     <string name="general_user_label_system">Sistemi</string>
     <string name="setup_title">Konfigurim</string>

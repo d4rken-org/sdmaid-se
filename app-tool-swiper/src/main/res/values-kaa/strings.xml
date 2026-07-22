@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Sáykes fayllar tabılmadı</string>
     <string name="swiper_open_externally_action">Sırtqı qosılmada ashıw</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Súwrettin taǵdirin sheshiw ushın onı súyriń: Qaptalǵa — saqlaw yamasa óshiriw, joqarıǵa — ótkerip jiberiw, tómenge — biykarlaw. Tómendegi dügmeler de sonı isleydi — hám qay tárep qaysı ekenin kórsetedi.</string>
-    <string name="tour_swiper_openin_body">Bul dügme súwretti basqa qosımshada ashadı, sheshim qabıllawdan aldın tekseriw ushın qolaylı.</string>
+    <string name="tour_swiper_gestures_body">Faildi qaytaraw arqalı taqdírín cheship beriń: kóntseń basíp saqlaw yaki óshíruw, órtínе basíp chetlab cuytuw, astıńa basíp qaytаrıw. Astıńdagí tugmálár da shuńday ishlásár jáne qaysi táreptiñ nemedeni kórsetíptu.</string>
+    <string name="tour_swiper_openin_body">Bul tugma failní basqa programmada ashíp berídí, anıqlap bermesińde uni tígerip korap bolasız.</string>
     <string name="tour_swiper_preview_body">Bul dügme jaqınıraq kóriw ushın tolıq ekran aldın kóriwin ashadı.</string>
     <string name="tour_swiper_actions_body">Súyriwdi jaqsı kórmeysiz be? Bizde dügmeler de bar! Ótkerip jiberiw onı keyinge qaldıradı, hám Ótkerip jiberiwdi uzaq basıw fayldı keleshek skanerlerden shıǵarıp taslaydi. Biykarlaw aqırǵı tańlawıńızdı qaytaradı.</string>
     <string name="tour_swiper_review_body">Saqlaw hám óshiriw tańlawlarıńız tek belgilengen. Olardı kórip shıǵıw hám tayın bolǵanda óshiriwlerdi qollanıw ushın Kórip shıǵıwdı ashıń.</string>

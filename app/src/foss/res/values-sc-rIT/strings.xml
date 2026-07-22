@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Comente agiudare</string>
     <string name="upgrade_screen_how_body">Diventa patronu e sponsoriza s\'isvilupu! Tocca su butone in bassu pro ativare totu sas funtzionalidades addizionales e abèrrere su profilu meu de GitHub Sponsors.</string>
     <string name="upgrade_screen_why_title">Vantaggios de s\'aggiornamentu</string>
-    <string name="upgrade_screen_why_body">• Pulire caches de appas e datos che non servin
-• Bogare figas duplicadas
-• Abiliziare pulizie programadas
-• Creare filtros personalizados e règulas de pulizia
-• Monitorare tendensias de armazenamentu e istòria de pulizie
-• Pius funzionalitades e controlos in tota s\'appligazzione
-• Suporta sa laboro de íbera software</string>
+    <string name="upgrade_screen_why_body">• Mundiza de cache e files inutiles de appliche\n• Remotziòne de files dobiados\n• Compressioni de fotos e videos\n• Mundiza de files antigos istrisciende\n• Mundiza cun un solu toque via widget\n• Programatzione de mundizas\n• Filtros e regulas personalizados\n• Tendencias e istoria de immagatzame\n• Pius carateristicas e controlos in tota s\'appliche\n• Suporta al travalu de programma abiertu</string>
     <string name="upgrade_screen_sponsor_action">Sponsoriza s\'isvilupu</string>
     <string name="upgrade_screen_sponsor_action_hint">S\'alternativa sunt sa pubblicidade, s\'anàlisi e Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gràtzias pro sustènnere s\'isvilupu de còdighe abertu ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Già torradu? Su tuo appozu mantenat SD Maid viva!</string>
+    <string name="upgrade_screen_status_free_title">Versioni libera</string>
+    <string name="upgrade_screen_status_free_body">Leverandes sa versioni libera de SD Maid. Carateristicas extras podent essi desbloadas sustennende su sviluppamentu.</string>
+    <string name="upgrade_screen_status_free_action">Bide is optzionis de aggiornamentu</string>
+    <string name="upgrade_screen_status_upgraded_title">Atzuada ativu</string>
+    <string name="upgrade_screen_status_upgraded_body">Totu is features extras sunt desbloccadas. Graccia pro su suportu a su disviluppu open-source ❤️</string>
+    <string name="upgrade_screen_recurring_title">Prosegui</string>
+    <string name="upgrade_screen_recurring_body">SD Maid sigui a evoluire cun atzuadas e corretziones. Si cheres a sustènnere custu, consigera una donatzione ricurrente via GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">Abri GitHub Sponsors</string>
 </resources>

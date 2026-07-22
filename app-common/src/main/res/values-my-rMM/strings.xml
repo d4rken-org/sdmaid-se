@@ -38,6 +38,7 @@
     <string name="general_error_label">အမှား</string>
     <string name="general_upgrade_action">အဆင့်မြှင့်ပါ</string>
     <string name="general_refresh_action">ပြန်လည်ရယူပါ</string>
+    <string name="general_retry_action">ထပ်မံကြိုးစားပါ။</string>
     <string name="general_progress_searching">ရှာဖွေနေပါသည်</string>
     <string name="general_progress_generating_searchpaths">ရှာဖွေရန်လမ်းကြောင်းများ ဖန်တီးနေပါသည်</string>
     <string name="general_progress_filtering">စစ်ထုတ်နေပါသည်</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">နာမည် (A → Z)</string>
     <string name="general_sort_size_desc">အကြီးဆုံးကို ဦးစွာ</string>
     <string name="general_tag_system">စနစ်</string>
+    <string name="general_tag_library">ကျမ်းတိုက်</string>
     <string name="general_navigate_up_action">အထက်သို့ သွားရန်</string>
     <string name="general_filter_action">စစ်ထုတ်ပါ</string>
     <string name="general_filter_by_tags_label">အညွှန်းများဖြင့် စစ်ထုတ်ရန်</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">အမှားတင်ပြပါ</string>
     <string name="general_error_ipc_deadobject_title">ဝန်ဆောင်မှုချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်</string>
     <string name="general_error_ipc_deadobject_description">အရေးကြီးသောဝန်ဆောင်မှု (ဥပမာ - Magisk, Shizuku, သို့မဟုတ် အခြားစနစ်အဆင့် ဝန်ဆောင်မှုများ) နှင့် ချိတ်ဆက်မှုသည် မျှော်လင့်မထားစွာ ပြတ်တောက်သွားပါသည်။ သင့်စက်ပစ္စည်းကို ပြန်လည်စတင်ပါ။ အကယ်၍ ပြဿနာ ဆက်လက်ဖြစ်ပေါ်နေပါက အပ်ဒိတ်များကို စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ။</string>
-    <string name="general_error_upgrade_required_title">Pro ဗားရှင်း လိုအပ်သည်</string>
-    <string name="general_error_upgrade_required_description">ဤသည်မှာ Pro လုပ်ဆောင်ချက်ဖြစ်သည်။ ၎င်းကိုအသုံးပြုရန် SD Maid SE အား အဆင့်မြှင့်တင်ပါ။</string>
+    <string name="general_error_upgrade_required_title">အဆင့်မြှင့်တင်မှု လိုအပ်သည်</string>
+    <string name="general_error_upgrade_required_description">ဤအင်္ဂါရပ်သည် အဆင့်မြှင့်တင်မှု လိုအပ်သည်။ ၎င်းကို အသုံးပြုရန် SD Maid SE ကို အဆင့်မြှင့်တင်ပါ။</string>
     <string name="general_user_label_owner">ပိုင်ရှင်</string>
     <string name="general_user_label_system">စနစ်</string>
     <string name="setup_title">တပ်ဆင်မှု</string>

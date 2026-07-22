@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s解放されました</string>
     <string name="dashboard_hero_freeable_x_items">%1$sを削除できます</string>
     <string name="dashboard_hero_freed_x_items">%1$s削除されました</string>
-    <string name="dashboard_hero_freeable_hint">スペースを解放するボタンをタップしてください。確認するにはチップをタップしてください。</string>
+    <string name="dashboard_hero_freeable_hint">ボタンをタップしてスペースを解放するか、チップをタップして最初に確認してください。</string>
     <string name="dashboard_hero_freed_hint">詳細を確認するにはチップをタップしてください。</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$sをスキャンしました</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">次のマッチ</string>
     <string name="debug_logview_jump_to_bottom_action">最新にジャンプ</string>
     <string name="debug_logview_paused_msg">一時停止 — バッファがフリーズしています</string>
-    <string name="debug_logview_paused_dropped_msg">一時停止 — %1$d 行がスキップされました</string>
+    <string name="debug_logview_paused_dropped_msg">一時停止 — スキップされた新規行: %1$d</string>
     <string name="debug_logview_copied_msg">ログをクリップボードにコピーしました</string>
     <string name="debug_logview_share_label">ログを共有</string>
     <string name="debug_debuglog_screen_title">デバッグログ</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">プライバシーポリシー</string>
     <string name="settings_privacy_policy_desc">責任を持ってデータを扱います。</string>
     <string name="settings_category_other_label">その他</string>
+    <string name="settings_upgrade_description">アップグレードの状況とオプション。</string>
     <string name="general_settings_label">一般</string>
     <string name="general_settings_desc">アプリ全体に影響を与える一般的な調整。</string>
     <string name="settings_category_ui_label">ユーザーインターフェース</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">ストレージの使用量とワンタップクリーンアップ</string>
     <string name="widget_home_storage_internal">内部</string>
     <string name="widget_home_storage_external">外部</string>
-    <string name="widget_home_freed_label">解放: %1$s</string>
+    <string name="widget_home_freed_label">ライフタイム: %1$s</string>
     <string name="widget_home_clean_action">クリーン</string>
     <string name="widget_home_working">処理中…</string>
     <string name="widget_home_unavailable">ストレージが利用できません</string>
-    <string name="shortcut_onetap_started">スキャン&amp;削除を開始しました…</string>
+    <string name="settings_category_widget">ウィジェット</string>
+    <string name="widget_settings_oneclick_summary">ホーム画面ウィジェットのクリーンボタンで、毎回確認することなく、1回のタップでスキャンして削除できます。</string>
+    <string name="widget_oneclick_consent_title">ワンタップクリーニングを有効にしますか?</string>
+    <string name="widget_oneclick_consent_message">ウィジェットのクリーンボタンで、確認なしに一度にスキャンして削除されます。</string>
+    <string name="widget_oneclick_consent_enable_action">有効</string>
+    <string name="widget_oneclick_consent_decline_action">後で</string>
+    <string name="shortcut_onetap_started">スキャン＋削除を開始しました…</string>
     <string name="shortcut_onetap_nothing_enabled">ワンタップツールが有効になっていません</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">バックアップ &amp; 復元</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">このバックアップはAndroid %1$sで作成されていますが、このデバイスはAndroid %2$sを実行しています。</string>
     <string name="backup_restore_warn_device_body">このバックアップは異なるデバイス（%1$s対%2$s）で作成されました。</string>
     <string name="backup_restore_warn_flavor_body">このバックアップは異なるアプリエディション（%1$s対%2$s）からのものです。</string>
-    <string name="backup_restore_warn_history_body">このバックアップの履歴データ（統計、圧縮履歴、スワイプセッション）は異なるアプリバージョンからのものであり、復元できません。それ以外のすべては復元されます。</string>
+    <string name="backup_restore_warn_history_body">このバックアップの履歴データ（統計、圧縮履歴、スワイプセッション）は別のアプリバージョンのものであるため復元できません。それ以外のデータはすべて復元されます。</string>
     <string name="backup_restore_ack_understand">理解しました。続行します</string>
     <string name="backup_restore_action_restore">復元</string>
 </resources>

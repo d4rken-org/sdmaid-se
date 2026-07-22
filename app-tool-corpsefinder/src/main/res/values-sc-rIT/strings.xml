@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Sena marchetta</string>
     <string name="corpsefinder_markers_dialog_normal_description">Residuu standard. Comunemente siguru da bogare — custos archivos pertenent a aplicatziones chi non sunt prus instaladas.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder attat datos lassados de aplicatziones chi tue as desinstaladu gia. Non pertenent prus a nessuna cosa instalada, ita que est siguru bogare e liberat ispatzio.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder attat dattu lassadu dae aplicatziones chi as jai desinstaladu. Iddest non apertenet prus a niente chi est installadu, issa bogare liberat ispatzieu. Sa majoridade est segura de bogare, pero controlla sa marca cand\'est incertu.</string>
     <string name="tour_corpsefinder_row_body">Cada oghja est datos lassados de un\'aplicatzione. Sa marchetta mostrat cun que siguridade SD Maid est chi est siguru da bogare — tue sa ⓘ in su cabu pro aprendere cales significant sas marchetas.</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">Вызвалена %1$s</string>
     <string name="dashboard_hero_freeable_x_items">%1$s можна выдаліць</string>
     <string name="dashboard_hero_freed_x_items">Выдалена %1$s</string>
-    <string name="dashboard_hero_freeable_hint">Кацніце кнопку, каб вызваліць памяць. Кацніце чып, каб спачатку праверыць.</string>
+    <string name="dashboard_hero_freeable_hint">Дакніце на кнопку, каб вызваліць месца, або на чып для праверкі спачатку.</string>
     <string name="dashboard_hero_freed_hint">Кацніце чып для дэталяў.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Адскадавана %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Наступнае супадзенне</string>
     <string name="debug_logview_jump_to_bottom_action">Перайсці да найноўшага</string>
     <string name="debug_logview_paused_msg">Прыпынена — буфер заблакаваны</string>
-    <string name="debug_logview_paused_dropped_msg">Прыпынена — прапушчана %1$d новых радкоў</string>
+    <string name="debug_logview_paused_dropped_msg">Прыпынена — новыя радкі прапушчаны: %1$d</string>
     <string name="debug_logview_copied_msg">Журнал скапіяваны ў буфер абмену</string>
     <string name="debug_logview_share_label">Падзяліцца журналам</string>
     <string name="debug_debuglog_screen_title">Журналы адладкі</string>
@@ -113,6 +113,7 @@
     <string name="settings_privacy_policy_label">Палітыка канфідэнцыяльнасці</string>
     <string name="settings_privacy_policy_desc">Адказнае абыходжанне з данымі.</string>
     <string name="settings_category_other_label">Іншае</string>
+    <string name="settings_upgrade_description">Стан абнаўлення і параметры.</string>
     <string name="general_settings_label">Агульныя</string>
     <string name="general_settings_desc">Агульныя налады, якія ўплываюць на ўсю праграму.</string>
     <string name="settings_category_ui_label">Карыстальніцкі інтэрфейс</string>
@@ -335,11 +336,17 @@
     <string name="widget_home_description">Выкарыстанне сховішча і ачыстка ў адзін дотык</string>
     <string name="widget_home_storage_internal">Унутраны</string>
     <string name="widget_home_storage_external">Знешны</string>
-    <string name="widget_home_freed_label">Вызвалена: %1$s</string>
+    <string name="widget_home_freed_label">Увесь час: %1$s</string>
     <string name="widget_home_clean_action">Ачысціць</string>
     <string name="widget_home_working">Ідзе праца…</string>
     <string name="widget_home_unavailable">Сховішча недаступна</string>
-    <string name="shortcut_onetap_started">Сканаванне &amp; выдаленне пачаліся…</string>
+    <string name="settings_category_widget">Віджэт</string>
+    <string name="widget_settings_oneclick_summary">Дазволіць кнопцы «Ачысціць» на віджэце галоўнага экрана сканаваць і выдаляць адным дотыкам, без пытання кожны раз.</string>
+    <string name="widget_oneclick_consent_title">Уключыць ачыстку ў адзін дотык?</string>
+    <string name="widget_oneclick_consent_message">Кнопка «Ачысціць» на віджэце будзе сканаваць і выдаляць за адзін раз, без папярэдняга пытання і магчымасці праверыць, што выдаляецца.</string>
+    <string name="widget_oneclick_consent_enable_action">Уключыць</string>
+    <string name="widget_oneclick_consent_decline_action">Не зараз</string>
+    <string name="shortcut_onetap_started">Сканаванне + Выдаленне пачалося…</string>
     <string name="shortcut_onetap_nothing_enabled">Не ўключаны ніводны інструмент з адзіным дотыкам</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Рэзервовая копія &amp; Аднаўленне</string>
@@ -366,7 +373,7 @@
     <string name="backup_restore_warn_android_body">Гэта рэзервовая копія была створана на Android %1$s, але гэта прылада працуе на Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Гэта рэзервовая копія была створана на іншай прыладзе (%1$s праці %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Гэта рэзервовая копія з іншага выдання праграмы (%1$s супраць %2$s).</string>
-    <string name="backup_restore_warn_history_body">Дадзеныя гісторыі гэтай рэзервовай копіі (статыстыка, гісторыя сціскання, сеансы Swiper) з іншай версіі праграмы і не могуць быць адноўлены. Усё астатняе будзе адноўлена.</string>
+    <string name="backup_restore_warn_history_body">Дадзеныя гісторыі гэтай копіі (статыстыка, гісторыя сцісканняў, сеансы перахопу) з іншай версіі праграмы і не могуць быць адноўлены. Усё астатняе будзе адноўлена.</string>
     <string name="backup_restore_ack_understand">Я разумею і хачу працягнуць</string>
     <string name="backup_restore_action_restore">Адновіць</string>
 </resources>

@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">JPEG 文件预计节省约 %d%%</string>
     <string name="squeezer_onboarding_got_it">明白</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer 重新压缩您的照片和视频，使其占用更少空间。文件保持可用，只是变小了，每个文件都会显示其预计的节省。</string>
+    <string name="tour_squeezer_intro_body">Squeezer 会重新压缩您的照片和视频，使其占用更少的空间。您可以用较少的质量换取更多的空间。每个项目都显示其估计的节省量，因此您可以决定哪些值得压缩。</string>
     <string name="tour_squeezer_compress_body">在此处一次性压缩所有内容，或点击单个项目以仅缩小该项目。长按可选择多个。在进行任何更改之前，您将始终看到预览。</string>
 </resources>

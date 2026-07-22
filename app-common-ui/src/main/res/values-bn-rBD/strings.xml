@@ -8,6 +8,7 @@
         <item quantity="other">%dটি পথ নির্বাচিত হয়েছে</item>
     </plurals>
     <string name="picker_home_action">ডেটা এলাকা</string>
+    <string name="picker_select_hint">এটি নির্বাচন করতে একটি আইটেম ধরুন</string>
     <string name="tour_action_next">পরবর্তী</string>
     <string name="tour_action_previous">পূর্ববর্তী</string>
     <string name="tour_action_cancel">এড়িয়ে যান</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">ট্যুর চালিয়ে যান</string>
     <string name="tour_confirm_dont_show_this_tour">এই ট্যুর আবার দেখাবেন না</string>
     <string name="tour_confirm_disable_all">সব ট্যুর অক্ষম করুন</string>
-    <string name="navigation_unknown_destination_title">শীঘ্রই আসছে</string>
-    <string name="navigation_unknown_destination_message">এই স্ক্রিনটি এখনও নতুন ইউআই-তে মাইগ্রেট করা হচ্ছে।</string>
+    <string name="navigation_unknown_destination_title">স্ক্রীন অনুপলব্ধ</string>
+    <string name="navigation_unknown_destination_message">এই স্ক্রীন খোলা যায়নি।</string>
 </resources>

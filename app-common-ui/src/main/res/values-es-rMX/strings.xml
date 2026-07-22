@@ -8,6 +8,7 @@
         <item quantity="other">%d rutas seleccionadas</item>
     </plurals>
     <string name="picker_home_action">Áreas de datos</string>
+    <string name="picker_select_hint">Mantén presionado un elemento para seleccionarlo</string>
     <string name="tour_action_next">Siguiente</string>
     <string name="tour_action_previous">Anterior</string>
     <string name="tour_action_cancel">Omitir</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Continuar tour</string>
     <string name="tour_confirm_dont_show_this_tour">No mostrar este tour</string>
     <string name="tour_confirm_disable_all">Deshabilitar todos los tours</string>
-    <string name="navigation_unknown_destination_title">Próximamente</string>
-    <string name="navigation_unknown_destination_message">Esta pantalla aún se está migrando a la nueva interfaz de usuario.</string>
+    <string name="navigation_unknown_destination_title">No hay pantalla disponible</string>
+    <string name="navigation_unknown_destination_message">No se pudo abrir esta pantalla.</string>
 </resources>

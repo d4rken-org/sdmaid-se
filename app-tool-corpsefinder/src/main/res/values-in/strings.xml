@@ -56,6 +56,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Tidak ada penanda</string>
     <string name="corpsefinder_markers_dialog_normal_description">Sisa standar. Umumnya aman untuk dihapus — file ini milik aplikasi yang tidak lagi terpasang.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder menemukan data yang ditinggalkan oleh aplikasi yang telah Anda copot. Data ini tidak lagi milik apa pun yang terpasang, jadi menghapusnya aman dan membebaskan ruang.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder menemukan data yang ditinggalkan oleh aplikasi yang sudah Anda hapus instalannya. Data ini tidak lagi dimiliki oleh apa pun yang terpasang, jadi menghapusnya akan membebaskan ruang. Sebagian besar aman untuk dihapus, tetapi periksa penanda jika Anda ragu.</string>
     <string name="tour_corpsefinder_row_body">Setiap item adalah sisa data dan aplikasi asalnya. Penanda menunjukkan seberapa yakin SD Maid bahwa aman untuk dihapus — ketuk ⓘ di atas untuk mengetahui arti penanda.</string>
 </resources>

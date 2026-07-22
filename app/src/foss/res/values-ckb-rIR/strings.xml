@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">چۆنیەتی یارمەتیدان</string>
     <string name="upgrade_screen_how_body">ببە بە سپۆنسەر و پشتگیری پەرەپێدان بکە! دوگمەی خوارەوە داگرە بۆ کاراکردنی هەموو تایبەتمەندییە زیادەکان و کردنەوەی پڕۆفایلی سپۆنسەرانی گیتھەبی من.</string>
     <string name="upgrade_screen_why_title">سوودەکانی بەرزکردنەوە</string>
-    <string name="upgrade_screen_why_body">• پاکسازی کاشی بەرنامە و زانیاری پڕبڕبوون\n• لابردنی فایلە دوپلیکاتەکان\n• چالاککردنی پاککردنەوەی دەستپێکراو\n• درووستکردنی پالێوەری تایبەت و یاساکانی پاککردنەوە\n• شوێن نیشاندان بۆ ڕوونگەکانی بیرگە و مێژووی پاککردنەوە\n• زیاتر تایبەتمەندی و کۆنترۆلەکان لە سەرجەمی بەرنامەکان\n• پاڵپشتی کاری سەرچاوەی کراوە</string>
+    <string name="upgrade_screen_why_body">• پاکسازی کەش و پڕلەی بەرنامە\n• لابردنی فایلە دووبارە\n• پاکخستنی وێنە و ڤیدیۆ\n• سوایپ بۆ پاکسازی فایلە کۆنەکان\n• پاکسازی یەک کۆتایی ڕێگەی ویجێتەوە\n• بەرنامەکردنی پاکسازی\n• فیلتەرە تایبەت و رێزمان\n• ڕوند و مێژووی ڕێپێدان\n• زیاتر تایبەتمەندی و کۆنترۆل لە سەرتاپایی بەرنامە\n• پشتگیری کردنی کارێ سەرچاوەی کراوە</string>
     <string name="upgrade_screen_sponsor_action">سپۆنسەریکردنی پەرەپێدان</string>
     <string name="upgrade_screen_sponsor_action_hint">بژاردەی دیکە بریتین لە ڕێکلام، شیکاری و گوگڵ پلەی 🙁</string>
     <string name="upgrade_screen_thanks_toast">سوپاس بۆ پشتگیریکردنی پەرەپێدانی سەرچاوە کراوە ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">زووتت گەڕایەوە؟ پشتیوانیت SD Maid زیندوو دەهێڵێتەوە!</string>
+    <string name="upgrade_screen_status_free_title">وێشانەی ئازاد</string>
+    <string name="upgrade_screen_status_free_body">تۆ وێشانەی ئازادی SD Maid بەکارت دێنی. تایبەتمەندیە زیاترەکان دەتوانرێت کراوە بکرێن بە پشتگیری کردنی بەرهەمهێنان.</string>
+    <string name="upgrade_screen_status_free_action">بژاردە بارگەریەکان ببینە</string>
+    <string name="upgrade_screen_status_upgraded_title">بارگەری چالاکە</string>
+    <string name="upgrade_screen_status_upgraded_body">هەموو تایبەتمەندیە زیاترەکان کراوەن. سپاس بۆ پشتگیری کردنی بەرهەمهێنانی سەرچاوەی کراوە ❤️</string>
+    <string name="upgrade_screen_recurring_title">بەردەوام بە پێشیەوەبر</string>
+    <string name="upgrade_screen_recurring_body">SD Maid بەردەوام پێش دەچێت لە ڕێگەی نوێکردنەوە و چاکسازیەکان. ئەگەر دەتەوێت بەردەوامی بکەیەوە، بیری لە بەخشینی دووبارەی هەمیشەیی لە ڕێگەی GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">کردنەوەی GitHub Sponsors</string>
 </resources>

@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s খালি হয়েছে</string>
     <string name="dashboard_hero_freeable_x_items">%1$s সরানো যেতে পারে</string>
     <string name="dashboard_hero_freed_x_items">%1$s সরানো হয়েছে</string>
-    <string name="dashboard_hero_freeable_hint">স্থান খালি করতে বোতাম ট্যাপ করুন। প্রথমে চেক করতে একটি চিপ ট্যাপ করুন।</string>
+    <string name="dashboard_hero_freeable_hint">স্থান খালি করতে বোতামটি ট্যাপ করুন, বা আগে যাচাই করতে একটি চিপ ট্যাপ করুন।</string>
     <string name="dashboard_hero_freed_hint">বিবরণের জন্য একটি চিপ ট্যাপ করুন।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s স্ক্যান করা হয়েছে</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">পরবর্তী মিল</string>
     <string name="debug_logview_jump_to_bottom_action">সর্বশেষে যান</string>
     <string name="debug_logview_paused_msg">বিরত — বাফার জমে গেছে</string>
-    <string name="debug_logview_paused_dropped_msg">বিরত — %1$d নতুন লাইন এড়ানো হয়েছে</string>
+    <string name="debug_logview_paused_dropped_msg">বিরত — নতুন লাইনগুলি এড়িয়ে যাওয়া হয়েছে: %1$d</string>
     <string name="debug_logview_copied_msg">ক্লিপবোর্ডে লগ কপি করা হয়েছে</string>
     <string name="debug_logview_share_label">লগ শেয়ার করুন</string>
     <string name="debug_debuglog_screen_title">ডিবাগ লগ</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">গোপনীয়তার নীতিমালা</string>
     <string name="settings_privacy_policy_desc">দায়িত্বের সাথে ডেটা পরিচালনা করা।</string>
     <string name="settings_category_other_label">অন্যান্য</string>
+    <string name="settings_upgrade_description">আপগ্রেড স্ট্যাটাস এবং অপশন।</string>
     <string name="general_settings_label">সাধারণ</string>
     <string name="general_settings_desc">খুঁটিনাটি পরিবর্তন যা পুরো অ্যাপকে প্রভাবিত করে।</string>
     <string name="settings_category_ui_label">ব্যবহারকারীর ইন্টারফেস</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">স্টোরেজ ব্যবহার এবং এক-ট্যাপ পরিষ্কার</string>
     <string name="widget_home_storage_internal">অভ্যন্তরীণ</string>
     <string name="widget_home_storage_external">বাহ্যিক</string>
-    <string name="widget_home_freed_label">মুক্ত: %1$s</string>
+    <string name="widget_home_freed_label">জীবনকাল: %1$s</string>
     <string name="widget_home_clean_action">পরিষ্কার করুন</string>
     <string name="widget_home_working">কাজ করছে…</string>
     <string name="widget_home_unavailable">স্টোরেজ অনুপলব্ধ</string>
-    <string name="shortcut_onetap_started">স্ক্যান &amp; মুছে ফেলা শুরু হয়েছে…</string>
+    <string name="settings_category_widget">উইজেট</string>
+    <string name="widget_settings_oneclick_summary">হোম-স্ক্রিন উইজেটের ক্লিন বোতামটিকে একটি ট্যাপে স্ক্যান এবং মুছে ফেলতে দিন, প্রতিবার জিজ্ঞাসা না করে।</string>
+    <string name="widget_oneclick_consent_title">এক-ট্যাপ পরিষ্কারকরণ সক্রিয় করবেন?</string>
+    <string name="widget_oneclick_consent_message">উইজেটের ক্লিন বোতাম প্রথমে জিজ্ঞাসা না করে এবং পর্যালোচনার সুযোগ না দিয়ে এক সাথে স্ক্যান এবং মুছে ফেলবে।</string>
+    <string name="widget_oneclick_consent_enable_action">সক্রিয় করুন</string>
+    <string name="widget_oneclick_consent_decline_action">এখন নয়</string>
+    <string name="shortcut_onetap_started">স্ক্যান + মুছুন শুরু হয়েছে…</string>
     <string name="shortcut_onetap_nothing_enabled">কোনো এক-ট্যাপ সরঞ্জাম সক্ষম নয়</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ব্যাকআপ &amp; পুনরুদ্ধার</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">এই ব্যাকআপ Android %1$s এ তৈরি করা হয়েছিল, কিন্তু এই ডিভাইস Android %2$s চালায়।</string>
     <string name="backup_restore_warn_device_body">এই ব্যাকআপ একটি ভিন্ন ডিভাইসে তৈরি করা হয়েছিল (%1$s বনাম %2$s)।</string>
     <string name="backup_restore_warn_flavor_body">এই ব্যাকআপটি একটি ভিন্ন অ্যাপ সংস্করণ থেকে (%1$s বনাম %2$s)।</string>
-    <string name="backup_restore_warn_history_body">এই ব্যাকআপের ইতিহাস ডেটা (পরিসংখ্যান, সংকোচন ইতিহাস, সোয়াইপ সেশন) একটি ভিন্ন অ্যাপ সংস্করণ থেকে এবং পুনরুদ্ধার করা যাবে না। অন্য সবকিছু পুনরুদ্ধার হবে।</string>
+    <string name="backup_restore_warn_history_body">এই ব্যাকআপের ইতিহাস ডেটা (পরিসংখ্যান, কম্প্রেশন ইতিহাস, সোয়াইপ সেশন) একটি ভিন্ন অ্যাপ সংস্করণ থেকে এবং পুনরুদ্ধার করা যায় না। বাকি সবকিছু পুনরুদ্ধার করা হবে।</string>
     <string name="backup_restore_ack_understand">আমি বুঝেছি এবং চালিয়ে যেতে চাই</string>
     <string name="backup_restore_action_restore">পুনরুদ্ধার করুন</string>
 </resources>

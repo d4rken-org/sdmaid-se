@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">已释放 %1$s 空间</string>
     <string name="dashboard_hero_freeable_x_items">可删除 %1$s</string>
     <string name="dashboard_hero_freed_x_items">已删除 %1$s</string>
-    <string name="dashboard_hero_freeable_hint">点击按钮释放空间。先点击标签进行检查。</string>
+    <string name="dashboard_hero_freeable_hint">点按按钮释放空间，或点按标签先检查。</string>
     <string name="dashboard_hero_freed_hint">点击标签查看详情。</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">已扫描 %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">下一个匹配</string>
     <string name="debug_logview_jump_to_bottom_action">跳转到最新</string>
     <string name="debug_logview_paused_msg">已暂停 — 缓冲区已冻结</string>
-    <string name="debug_logview_paused_dropped_msg">已暂停 — 跳过了 %1$d 行新内容</string>
+    <string name="debug_logview_paused_dropped_msg">已暂停——跳过新行：%1$d</string>
     <string name="debug_logview_copied_msg">日志已复制到剪切板</string>
     <string name="debug_logview_share_label">分享日志</string>
     <string name="debug_debuglog_screen_title">调试日志</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">隐私政策</string>
     <string name="settings_privacy_policy_desc">以负责任的态度来处理数据。</string>
     <string name="settings_category_other_label">其他</string>
+    <string name="settings_upgrade_description">升级状态和选项。</string>
     <string name="general_settings_label">常规</string>
     <string name="general_settings_desc">影响整个应用的常规设置。</string>
     <string name="settings_category_ui_label">用户界面</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">存储使用情况和一键清理</string>
     <string name="widget_home_storage_internal">内部</string>
     <string name="widget_home_storage_external">外部</string>
-    <string name="widget_home_freed_label">已释放: %1$s</string>
+    <string name="widget_home_freed_label">累计：%1$s</string>
     <string name="widget_home_clean_action">清理</string>
     <string name="widget_home_working">处理中…</string>
     <string name="widget_home_unavailable">存储不可用</string>
-    <string name="shortcut_onetap_started">扫描&amp;删除已开始…</string>
+    <string name="settings_category_widget">小组件</string>
+    <string name="widget_settings_oneclick_summary">让主屏幕小组件的清理按钮一键扫描并删除，无需每次都要确认。</string>
+    <string name="widget_oneclick_consent_title">启用一键清理？</string>
+    <string name="widget_oneclick_consent_message">小组件的清理按钮将一次性扫描和删除，不会提前询问或让您查看要删除的内容。</string>
+    <string name="widget_oneclick_consent_enable_action">启用</string>
+    <string name="widget_oneclick_consent_decline_action">暂不</string>
+    <string name="shortcut_onetap_started">扫描 + 删除已启动…</string>
     <string name="shortcut_onetap_nothing_enabled">未启用任何一键清理工具</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">备份&amp;恢复</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">此备份是在 Android %1$s 上创建的，但此设备运行 Android %2$s。</string>
     <string name="backup_restore_warn_device_body">此备份是在不同的设备上创建的（%1$s vs %2$s）。</string>
     <string name="backup_restore_warn_flavor_body">此备份来自不同的应用版本 (%1$s vs %2$s)。</string>
-    <string name="backup_restore_warn_history_body">此备份的历史数据（统计、压缩历史、滑动清理会话）来自不同的应用版本，无法恢复。其他内容将被恢复。</string>
+    <string name="backup_restore_warn_history_body">此备份的历史数据（统计数据、压缩历史、滑动会话）来自不同的应用版本，无法还原。其他所有内容将被还原。</string>
     <string name="backup_restore_ack_understand">我已了解，继续</string>
     <string name="backup_restore_action_restore">恢复</string>
 </resources>

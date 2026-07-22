@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">උදව් කරන්නේ කෙසේද</string>
     <string name="upgrade_screen_how_body">අනුග්‍රාහකයෙකු වී සංවර්ධනයට අනුග්‍රහ කරන්න! සියලු අමතර විශේෂාංග සක්‍රිය කර මගේ GitHub Sponsors පැතිකඩ විවෘත කිරීමට පහත බොත්තම ස්පර්ශ කරන්න.</string>
     <string name="upgrade_screen_why_title">උසස් කිරීමේ ප්‍රතිලාභ</string>
-    <string name="upgrade_screen_why_body">• යෙදුම් කෑෂ් සහ අනවශ්‍ය දත්ත පිරිසිදු කරන්න\n• අනුපිටපත් ගොනු ඉවත් කරන්න\n• කාලසටහන්ගත පිරිසිදු කිරීම් සක්‍රීය කරන්න\n• අභිරුචි පෙරහන් සහ පිරිසිදු කිරීමේ නීති සාදන්න\n• ගබඩා ප්‍රවණතා සහ පිරිසිදු කිරීමේ ඉතිහාසය නිරීක්ෂණය කරන්න\n• යෙදුම පුරා තවත් විශේෂාංග සහ පාලන\n• විවෘත කේතය සඳහා සහාය වන්න</string>
+    <string name="upgrade_screen_why_body">• යෙදුම කෑෂ් සහ අපි ගිණුම පරිශීලනය\n• අනුපිටපත් ගිණුම ඉවත් කිරීම\n• ඡායාරූප සහ වීඩියෝ සම්පීඩනය\n• පැරණි ගිණුම් ස්වයිප් ඉවතට දැමීම\n• විජටයි මගින් එක්-ටැප් පරිශීලනය\n• පරිශීලනය කාලසටහන\n• අනුකූල පෙරහණ සහ නීති\n• ගබඩා ප්‍රවණතා සහ ඉතිහාසය\n• යෙදුම පුරා වැඩි විශේෂතා සහ පාලනයන්\n• විවෘත-ප්‍රභවය සංවර්ධනය සහාය දීම</string>
     <string name="upgrade_screen_sponsor_action">සංවර්ධනයට අනුග්‍රහය දෙන්න</string>
     <string name="upgrade_screen_sponsor_action_hint">විකල්පය දැන්වීම්, විශ්ලේෂණ සහ Google Play වේ 🙁</string>
     <string name="upgrade_screen_thanks_toast">විවෘත මූලාශ්‍ර සංවර්ධනයට සහාය දීම ගැන ස්තූතියි ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">දැනටමත් ආපසු? ඔබේ සහාය SD Maid ජීවත් කරවයි!</string>
+    <string name="upgrade_screen_status_free_title">නිදහස් සංස්කරණය</string>
+    <string name="upgrade_screen_status_free_body">ඔබ SD Maid ගේ නිදහස් සංස්කරණය භාවිතා කරයි. සංවර්ධනය සහාය දීමෙන් අතිරේක විශේෂතා ලබා ගැනීමට හැකි වනු ඇත.</string>
+    <string name="upgrade_screen_status_free_action">උත්නයන විකල්ප බලන්න</string>
+    <string name="upgrade_screen_status_upgraded_title">යාවත්කරණ සක්‍රිය</string>
+    <string name="upgrade_screen_status_upgraded_body">සියලු අතිරේක විශේෂාංග අගුලු හැරුණු ඇත. විවෘත-ප්‍රභවය සඳහා සහාය දැක්වීම ගැන ස්තුතියි ❤️</string>
+    <string name="upgrade_screen_recurring_title">එය දිගටම කරගෙන යන්න</string>
+    <string name="upgrade_screen_recurring_body">SD Maid යාවත්කරණ සහ නිෂ්පාදනවල මඟින් දිගටම විකශනය වෙමින් පවතී. ඔබ එය පවත්වා ගැනීමට කැමති නම්, GitHub Sponsors හරහා නිතර පරිත්‍යාග සලකා බලන්න.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors විවෘත කරන්න</string>
 </resources>

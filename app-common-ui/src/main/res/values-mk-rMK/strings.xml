@@ -8,6 +8,7 @@
         <item quantity="other">%d патеки избрани</item>
     </plurals>
     <string name="picker_home_action">Области со податоци</string>
+    <string name="picker_select_hint">Задржи предмет за да го избереш</string>
     <string name="tour_action_next">Следно</string>
     <string name="tour_action_previous">Претходно</string>
     <string name="tour_action_cancel">Прескочи</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Продолжи тур</string>
     <string name="tour_confirm_dont_show_this_tour">Не го прикажувај овој тур</string>
     <string name="tour_confirm_disable_all">Оневозможи ги сите тури</string>
-    <string name="navigation_unknown_destination_title">Наскоро</string>
-    <string name="navigation_unknown_destination_message">Овој екран сè уште се мигрира на новиот кориснички интерфејс.</string>
+    <string name="navigation_unknown_destination_title">Екран недостапен</string>
+    <string name="navigation_unknown_destination_message">Овој екран не можеше да се отвори.</string>
 </resources>

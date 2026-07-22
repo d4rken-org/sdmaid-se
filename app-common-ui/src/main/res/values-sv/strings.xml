@@ -8,6 +8,7 @@
         <item quantity="other">%d sökvägar valda</item>
     </plurals>
     <string name="picker_home_action">Dataområden</string>
+    <string name="picker_select_hint">Håll ett objekt tryckt för att välja det</string>
     <string name="tour_action_next">Nästa</string>
     <string name="tour_action_previous">Tidigare</string>
     <string name="tour_action_cancel">Hoppa över</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Fortsätt rundvisningen</string>
     <string name="tour_confirm_dont_show_this_tour">Visa inte denna rundvisning</string>
     <string name="tour_confirm_disable_all">Inaktivera alla rundvisningar</string>
-    <string name="navigation_unknown_destination_title">Kommer snart</string>
-    <string name="navigation_unknown_destination_message">Den här skärmen migreras fortfarande till det nya användargränssnittet.</string>
+    <string name="navigation_unknown_destination_title">Skärmen är inte tillgänglig</string>
+    <string name="navigation_unknown_destination_message">Den här skärmen kunde inte öppnas.</string>
 </resources>

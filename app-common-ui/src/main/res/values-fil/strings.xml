@@ -8,6 +8,7 @@
         <item quantity="other">%d mga path na napili</item>
     </plurals>
     <string name="picker_home_action">Mga data area</string>
+    <string name="picker_select_hint">Hawakan ng matagal ang isang item upang piliin ito</string>
     <string name="tour_action_next">Susunod</string>
     <string name="tour_action_previous">Nakaraan</string>
     <string name="tour_action_cancel">Laktawan</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Magpatuloy sa tour</string>
     <string name="tour_confirm_dont_show_this_tour">Huwag ipakita ang tour na ito</string>
     <string name="tour_confirm_disable_all">I-disable ang lahat ng tours</string>
-    <string name="navigation_unknown_destination_title">Paparating na</string>
-    <string name="navigation_unknown_destination_message">Ang screen na ito ay patuloy pa ring inililipat sa bagong UI.</string>
+    <string name="navigation_unknown_destination_title">Hindi available ang screen</string>
+    <string name="navigation_unknown_destination_message">Hindi mabuksan ang screen na ito.</string>
 </resources>

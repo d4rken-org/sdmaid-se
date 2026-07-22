@@ -7,6 +7,7 @@
         <item quantity="other">បានជ្រើសព័ត្រូ %d</item>
     </plurals>
     <string name="picker_home_action">ត្រងតវ័ភបល័យ</string>
+    <string name="picker_select_hint">ចុចទូលាយលើវត្ថុដើម្បីជ្រើសរើសវា</string>
     <string name="tour_action_next">បន្ទាប់</string>
     <string name="tour_action_previous">មុន</string>
     <string name="tour_action_cancel">រំលង</string>
@@ -15,6 +16,6 @@
     <string name="tour_confirm_continue">បន្តដំណើរណែនាំ</string>
     <string name="tour_confirm_dont_show_this_tour">កុំបង្ហាញដំណើរណែនាំនេះ</string>
     <string name="tour_confirm_disable_all">បិទដំណើរណែនាំទាំងអស់</string>
-    <string name="navigation_unknown_destination_title">នឹងមក</string>
-    <string name="navigation_unknown_destination_message">អេក្រង់នេះនៅតែកំពុងផ្លាស់ប្តូរទៅចំណុចប្រទាក់ថ្មី។</string>
+    <string name="navigation_unknown_destination_title">អេក្រង់មិនអាចប្រើបាន</string>
+    <string name="navigation_unknown_destination_message">អេក្រង់នេះមិនអាចបើកបានទេ។</string>
 </resources>

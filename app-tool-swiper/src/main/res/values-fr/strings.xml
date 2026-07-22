@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">L’analyse de %1$s inclut chaque fichier sur ce stockage — photos, documents, téléchargements, médias d’appli, et plus. Continuer ?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Continuer quand même</string>
     <string name="swiper_session_risky_label">Analyse du stockage entier</string>
-    <string name="swiper_session_risky_info_message">Cette session cible la racine d’un volume de stockage, donc chaque fichier sur ce stockage est concerné — photos, documents, téléchargements, médias d’appli, et plus.
-
-Les analyses de tout le stockage peuvent retourner de nombreux éléments, y compris des fichiers que vous n’aviez peut-être pas l’intention d’examiner. Appliquez un filtre de type de fichier pour réduire l’analyse.</string>
+    <string name="swiper_session_risky_info_message">Cette session cible la racine d’un volume de stockage, donc chaque fichier sur ce stockage est concerné — photos, documents, téléchargements, médias d’appli, et plus.\n\nLes analyses de tout le stockage peuvent retourner de nombreux éléments, y compris des fichiers que vous n’aviez peut-être pas l’intention d’examiner. Appliquez un filtre de type de fichier pour réduire l’analyse.</string>
     <string name="swiper_delete_x_action">Supprimer %1$d</string>
     <string name="swiper_settings_swap_directions_title">Inverser le sens de balayage</string>
     <string name="swiper_settings_swap_directions_summary">Balayer vers la gauche pour conserver, vers la droite pour supprimer.</string>
@@ -162,8 +160,8 @@ Les analyses de tout le stockage peuvent retourner de nombreux éléments, y com
     <string name="swiper_session_no_matching_files">Aucun fichier correspondant n’a été trouvé</string>
     <string name="swiper_open_externally_action">Ouvrir dans une appli externe</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Balayez une photo pour décider de son sort : latéralement pour la garder ou la supprimer, vers le haut pour l’ignorer, vers le bas pour annuler. Les boutons ci-dessous font la même chose — et montrent quel côté est lequel.</string>
-    <string name="tour_swiper_openin_body">Ce bouton ouvre la photo dans une autre appli, pratique pour la vérifier avant de décider.</string>
+    <string name="tour_swiper_gestures_body">Balayez un fichier pour décider de son sort : de côté pour conserver ou supprimer, vers le haut pour ignorer, vers le bas pour annuler. Les boutons ci-dessous font de même et indiquent quel côté est quel.</string>
+    <string name="tour_swiper_openin_body">Ce bouton ouvre le fichier dans une autre appli, pratique pour le vérifier avant de décider.</string>
     <string name="tour_swiper_preview_body">Ce bouton ouvre un aperçu plein écran pour un examen plus approfondi.</string>
     <string name="tour_swiper_actions_body">Vous n’aimez pas balayer ? Nous avons aussi des boutons ! Ignorer la laisse en attente pour plus tard, et appuyer longuement sur Ignorer l’exclut des analyses futures. Annuler rétablit votre dernier choix.</string>
     <string name="tour_swiper_review_body">Vos choix de conservation et de suppression ne sont que provisoires. Ouvrez Examen pour les passer en revue et appliquer les suppressions quand vous êtes prêt.</string>

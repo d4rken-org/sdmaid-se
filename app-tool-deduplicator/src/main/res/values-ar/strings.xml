@@ -29,9 +29,10 @@
     <string name="deduplicator_detection_method_checksum_title">مجموع اختبار المحتوى</string>
     <string name="deduplicator_detection_method_checksum_summary">تحديد التكرارات عن طريق حساب مقادير الاختبار للملفات. الملفات مع مقاييس الاختبار المطابقة لها نفس المحتوى بالضبط.</string>
     <string name="deduplicator_detection_method_phash_title">التجزئة المفهومة</string>
-    <string name="deduplicator_detection_method_phash_summary">البحث عن ملفات مشابهة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية. ⚠️ قد يتضمن الكشف القائم على المماثلة إيجابيات خاطئة تتطلب التحقق اليدوي.</string>
+    <string name="deduplicator_detection_method_phash_summary">العثور على ملفات مماثلة عن طريق تحليل ميزات المحتوى ومقارنة قيم التجزئة الإدراكية.</string>
     <string name="deduplicator_detection_method_media_title">بصمة الوسائط</string>
-    <string name="deduplicator_detection_method_media_summary">البحث عن ملفات الفيديو والصوت المتشابهة عن طريق تحليل البصمات الصوتية. ⚠️ قد يتضمن الكشف القائم على التشابه نتائج إيجابية كاذبة تتطلب التحقق اليدوي.</string>
+    <string name="deduplicator_detection_method_media_summary">ابحث عن ملفات الفيديو والصوت المتشابهة من خلال تحليل بصمات الصوت.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">قد يتضمن الكشف القائم على التشابه نتائج إيجابية خاطئة تتطلب التحقق اليدوي.</string>
     <string name="deduplicator_media_match_audio">تطابق قائم على الصوت</string>
     <string name="deduplicator_media_match_visual">تطابق قائم على الفيديو</string>
     <string name="deduplicator_media_match_audio_visual">تطابق قائم على الصوت والفيديو</string>

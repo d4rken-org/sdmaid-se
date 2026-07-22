@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s bo\'shatildi</string>
     <string name="dashboard_hero_freeable_x_items">%1$s o\'chirish mumkin</string>
     <string name="dashboard_hero_freed_x_items">%1$s o\'chirildi</string>
-    <string name="dashboard_hero_freeable_hint">Joyni bo\'shatish uchun tugmani bosing. Avval tekshirish uchun chipni bosing.</string>
+    <string name="dashboard_hero_freeable_hint">Maydonni bo\'shatish uchun tugmani bosing yoki birinchi tekshirish uchun chipni bosing.</string>
     <string name="dashboard_hero_freed_hint">Batafsil uchun chipni bosing.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s tekshirildi</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Keyingi natija</string>
     <string name="debug_logview_jump_to_bottom_action">Eng yangisiga o\'tish</string>
     <string name="debug_logview_paused_msg">Pauzalangan — bufer to\'xtatilgan</string>
-    <string name="debug_logview_paused_dropped_msg">Pauzalangan — %1$d ta yangi qator o\'tkazib yuborildi</string>
+    <string name="debug_logview_paused_dropped_msg">To\'xtatildi — yangi qatorlar o\'tkazib yuborildi: %1$d</string>
     <string name="debug_logview_copied_msg">Jurnal buferga nusxalandi</string>
     <string name="debug_logview_share_label">Jurnalni ulashish</string>
     <string name="debug_debuglog_screen_title">Xatoliklarni qayd qilish</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Maxfiylik siyosati</string>
     <string name="settings_privacy_policy_desc">Ma\'lumotlar bilan mas\'uliyat bilan ishlash.</string>
     <string name="settings_category_other_label">Boshqa</string>
+    <string name="settings_upgrade_description">Holat va variantlarni yangilash.</string>
     <string name="general_settings_label">Umumiy</string>
     <string name="general_settings_desc">Butun ilovaga ta\'sir qiladigan umumiy sozlamalar.</string>
     <string name="settings_category_ui_label">Foydalanuvchi interfeysi</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Xotira sarfi va bir bosishli tozalash</string>
     <string name="widget_home_storage_internal">Ichki</string>
     <string name="widget_home_storage_external">Tashqi</string>
-    <string name="widget_home_freed_label">Bo\'shatildi: %1$s</string>
+    <string name="widget_home_freed_label">Umr: %1$s</string>
     <string name="widget_home_clean_action">Tozalash</string>
     <string name="widget_home_working">Ishlanmoqda…</string>
     <string name="widget_home_unavailable">Xotira mavjud emas</string>
-    <string name="shortcut_onetap_started">Skanerlash &amp; o\'chirish boshlandi…</string>
+    <string name="settings_category_widget">Vidjet</string>
+    <string name="widget_settings_oneclick_summary">Bosh ekran vidjetining \'Tozalash\' tugmasi bitta bosishda skanerlash va o\'chirishni amalga oshiradi, har safar so\'romasdan.</string>
+    <string name="widget_oneclick_consent_title">Bir bosishda tozalashni yoqish?</string>
+    <string name="widget_oneclick_consent_message">Vidjetning \'Tozalash\' tugmasi bitta bosishda skanerlash va o\'chirishni amalashtiradi, birinchi so\'ramasdan yoki qaysi narsalar o\'chirilishini ko\'rib chiqish imkonini bermasdan.</string>
+    <string name="widget_oneclick_consent_enable_action">Yoqish</string>
+    <string name="widget_oneclick_consent_decline_action">Hozir emas</string>
+    <string name="shortcut_onetap_started">Skanerlash + O\'chirish boshlandi…</string>
     <string name="shortcut_onetap_nothing_enabled">Hech qanday bir bosishli vosita yoqilmagan</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Zaxira nusxasi &amp; Tiklash</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Bu zaxira Android %1$sda yaratilgan, ammo bu qurilma Android %2$sni ishlatmoqda.</string>
     <string name="backup_restore_warn_device_body">Bu zaxira boshqa qurilmada yaratilgan (%1$s va %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Bu zaxira ilovaning boshqa nashridan (%1$s va %2$s).</string>
-    <string name="backup_restore_warn_history_body">Ushbu zaxiradagi tarix ma\'lumotlari (statistika, siqish tarixi, Swiper seanslari) ilovaning boshqa versiyasidan bo\'lgani uchun tiklanmaydi. Qolgan hamma narsa tiklanadi.</string>
+    <string name="backup_restore_warn_history_body">Ushbu zaxiralashning tarix ma\'lumotlari (statistika, siqish tarixi, kaydirish seanslar) boshqa ilovaning versiyasidan kelgan va tiklanishi mumkin emas. Boshqa hamma narsalar tiklanadi.</string>
     <string name="backup_restore_ack_understand">Men tushundim va davom etmoqchiman</string>
     <string name="backup_restore_action_restore">Tiklash</string>
 </resources>

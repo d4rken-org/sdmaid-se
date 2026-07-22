@@ -56,6 +56,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Tanpa penanda</string>
     <string name="corpsefinder_markers_dialog_normal_description">Sisa piawai. Secara amnya selamat dibuang — fail-fail ini adalah milik aplikasi yang tidak lagi dipasang.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder mencari data yang ditinggalkan oleh aplikasi yang telah anda nyahpasang. Ia tidak lagi milik sebarang aplikasi yang terpasang, jadi memadamkannya adalah selamat dan membebaskan ruang.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder mencari data yang ditinggalkan oleh apl yang telah anda nyahpasang. Ia tidak lagi milik sebarang aplikasi yang dipasang, jadi penyingkirannya membebaskan ruang. Sebahagian besarnya selamat untuk dibuang, tetapi semak penanda apabila anda tidak pasti.</string>
     <string name="tour_corpsefinder_row_body">Setiap item ialah data sisa dan aplikasi asalnya. Penanda menunjukkan sejauh mana keyakinan SD Maid bahawa ia selamat untuk dibuang — ketik ⓘ di bahagian atas untuk mengetahui maksud penanda.</string>
 </resources>

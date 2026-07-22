@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s ମୁକ୍ତ କରାଗଲା</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ଅପସାରଣ କରିହେବ</string>
     <string name="dashboard_hero_freed_x_items">%1$s ଅପସାରଣ କରାଗଲା</string>
-    <string name="dashboard_hero_freeable_hint">ସ୍ଥାନ ମୁକ୍ତ କରିବାକୁ ବଟନ୍‌ ଟ୍ୟାପ କରନ୍ତୁ। ପ୍ରଥମେ ଯାଞ୍ଚ କରିବାକୁ ଏକ ଚିପ୍ ଟ୍ୟାପ କରନ୍ତୁ।</string>
+    <string name="dashboard_hero_freeable_hint">ସ୍ଥାନ ମୁକ୍ତ କରିବାକୁ ବଟନକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ, ଅଥବା ପ୍ରଥମେ ଚେକ୍ କରିବାକୁ ଏକ ଚିପକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="dashboard_hero_freed_hint">ବିବରଣୀ ପାଇଁ ଏକ ଚିପ୍ ଟ୍ୟାପ କରନ୍ତୁ।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ସ୍କ୍ୟାନ୍ କରାଗଲା</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ପରବର୍ତ୍ତୀ ମେଳ</string>
     <string name="debug_logview_jump_to_bottom_action">ସର୍ବଶେଷକୁ ଯାଆନ୍ତୁ</string>
     <string name="debug_logview_paused_msg">ବିରାମିତ — ବଫର ଫ୍ରୋଜେନ</string>
-    <string name="debug_logview_paused_dropped_msg">ବିରାମିତ — %1$d ନୂଆ ଧାଡ଼ି(ଗୁଡ଼ିକ) ଛାଡ଼ା ହୋଇଛି</string>
+    <string name="debug_logview_paused_dropped_msg">ବିରାମ ଦିଆଗଲା — ନୂତନ ଲାଇନ ଛାଡି ଦିଆଗଲା: %1$d</string>
     <string name="debug_logview_copied_msg">ଲଗ କ୍ଲିପବୋର୍ଡକୁ ନକଲ କରାଯାଇଛି</string>
     <string name="debug_logview_share_label">ଲଗ ଶେୟାର କରନ୍ତୁ</string>
     <string name="debug_debuglog_screen_title">ଡିବଗ୍ ଲଗ୍</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">ଗୋପନୀୟତା ନୀତି</string>
     <string name="settings_privacy_policy_desc">ଦାୟିତ୍ୱପୂର୍ଣ୍ଣ ଭାବରେ ତଥ୍ୟ ପରିଚାଳନା କରିବା।</string>
     <string name="settings_category_other_label">ଅନ୍ୟ</string>
+    <string name="settings_upgrade_description">ଅପଗ୍ରେଡ୍ ସ୍ଥିତି ଏବଂ ବିକଳ୍ପଗୁଡ଼ିକ।</string>
     <string name="general_settings_label">ସାଧାରଣ</string>
     <string name="general_settings_desc">ସମଗ୍ର ଆପ୍‌କୁ ପ୍ରଭାବିତ କରୁଥିବା ସାଧାରଣ ଟ୍ୱିକ୍ସ।</string>
     <string name="settings_category_ui_label">ବ୍ୟବହାରକାରୀ ଇଣ୍ଟରଫେସ୍</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">ସଂଗ୍ରହାଗାର ବ୍ୟବହାର ଏବଂ ଏକ-ଟ୍ୟାପ ସଫାଇ</string>
     <string name="widget_home_storage_internal">ଆଭ୍ୟନ୍ତରୀଣ</string>
     <string name="widget_home_storage_external">ବାହ୍ୟ</string>
-    <string name="widget_home_freed_label">ମୁକ୍ତ: %1$s</string>
+    <string name="widget_home_freed_label">ଜୀବନକାଳ: %1$s</string>
     <string name="widget_home_clean_action">ସଫା କର</string>
     <string name="widget_home_working">କାମ ଚାଲିଛି…</string>
     <string name="widget_home_unavailable">ସ୍ଟୋରେଜ ଉପଲବ୍ଧ ନାହିଁ</string>
-    <string name="shortcut_onetap_started">ସ୍କ୍ୟାନ୍ &amp; ଡିଲିଟ୍ ଆରମ୍ଭ ହୋଇଜାଇଛି…</string>
+    <string name="settings_category_widget">ୱିଜେଟ</string>
+    <string name="widget_settings_oneclick_summary">ହୋମ-ସ୍କ୍ରିନ ୱିଜେଟର ସଫା ବଟନକୁ ଏକ ଟ୍ୟାପରେ ସ୍କ୍ୟାନ୍ ଏବଂ ଅପସାରଣ କରିବାକୁ ଦିନ୍ତୁ, ପ୍ରତ୍ୟେକ ଥର ପଚାରିବା ବିନା।</string>
+    <string name="widget_oneclick_consent_title">ଏକ-ଟ୍ୟାପ ସଫା ସକ୍ଷମ କରିବେ?</string>
+    <string name="widget_oneclick_consent_message">ୱିଜେଟର ସଫା ବଟନ ଏକ ବାରରେ ସ୍କ୍ୟାନ୍ ଏବଂ ଅପସାରଣ କରିବ, ପ୍ରଥମେ ପଚାରିବା ବିନା ଅଥବା ଆପଣଙ୍କୁ ଯାହା ଅପସାରଣ ହେଉଛି ତାହା ଦେଖିବାକୁ ଦେଇବା ବିନା।</string>
+    <string name="widget_oneclick_consent_enable_action">ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="widget_oneclick_consent_decline_action">ଏବେ ନୁହେଁ</string>
+    <string name="shortcut_onetap_started">ସ୍କ୍ୟାନ୍ + ଅପସାରଣ ଆରମ୍ଭ ହେଲା…</string>
     <string name="shortcut_onetap_nothing_enabled">କୌଣସି ଏକ-ଟ୍ୟାପ ଉପକରଣ ସକ୍ଷମ ନାହିଁ</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">ବ୍ୟାକଅପ୍ &amp; ପୁନଃସ୍ଥାପନ</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">ଏହି ବ୍ୟାକଅପ୍ Android %1$s ରେ ତୈରି ହୋଇଥିଲା, କିନ୍ତୁ ଏହି ଡିଭାଇସ Android %2$s ଚଳାଇଥାଏ।</string>
     <string name="backup_restore_warn_device_body">ଏହି ବ୍ୟାକଅପ୍ ଏକ ଭିନ୍ନ ଡିଭାଇସରେ ତୈରି ହୋଇଥିଲା (%1$s ବନାମ %2$s)।</string>
     <string name="backup_restore_warn_flavor_body">ଏହି ବ୍ୟାକଅପ ଏକ ଭିନ୍ନ ଆପ୍ ସଂସ୍କରଣରୁ ଅଛି (%1$s vs %2$s)।</string>
-    <string name="backup_restore_warn_history_body">ଏହି ବ୍ୟାକଅପର ଇତିହାସ ତଥ୍ୟ (ପରିସଂଖ୍ୟାନ, ସଙ୍କୋଚନ ଇତିହାସ, ସ୍ୱାଇପ ସେସନ) ଏକ ଭିନ୍ନ ଆପ୍ ସଂସ୍କରଣରୁ ଅଛି ଏବଂ ପୁନରୁଦ୍ଧାର କରାଯାଇ ପାରିବ ନାହିଁ। ବାକି ସବୁକିଛି ପୁନରୁଦ୍ଧାର ହେବ।</string>
+    <string name="backup_restore_warn_history_body">ଏହି ବ୍ୟାକଅପର ଇତିହାସ ତଥ୍ୟ (ପରିସଂଖ୍ୟାନ, ସଙ୍କୋଚନ ଇତିହାସ, ସ୍ୱାଇପ୍ ସେସନ) ଏକ ଭିନ୍ନ ଆପ୍ ସଂସ୍କରଣଠାରୁ ଆସିଛି ଏବଂ ପୁନରସ୍ଥାପନ କରାଯାଇ ପାରିବ ନାହିଁ। ଅନ୍ୟ ସବୁକିଛି ପୁନରସ୍ଥାପନ ହେବ।</string>
     <string name="backup_restore_ack_understand">ମୁଁ ବୁଝିଲି ଏବଂ ଚାଲିବାକୁ ଚାହୁଁ</string>
     <string name="backup_restore_action_restore">ପୁନରୁଦ୍ଧାର</string>
 </resources>

@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Ahorros estimados ~%d%% para archivos JPEG</string>
     <string name="squeezer_onboarding_got_it">Entendido</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer recomprime tus fotos y videos para que ocupen menos espacio. Los archivos siguen siendo útiles, solo más pequeños, y cada uno muestra su ahorro estimado.</string>
+    <string name="tour_squeezer_intro_body">Squeezer recomprime tus fotos y videos para que ocupen menos espacio. Sacrificás un poco de calidad a cambio del espacio que recuperás. Cada elemento muestra el ahorro estimado, así que podés decidir qué vale la pena.</string>
     <string name="tour_squeezer_compress_body">Comprimí todo aquí de una vez, o tocá un único elemento para reducir solo ese. Presioná prolongadamente para elegir varios. Siempre verás una vista previa antes de cualquier cambio.</string>
 </resources>

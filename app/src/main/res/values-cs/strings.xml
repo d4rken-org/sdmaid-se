@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">Uvolněno %1$s</string>
     <string name="dashboard_hero_freeable_x_items">Je možné odstranit %1$s</string>
     <string name="dashboard_hero_freed_x_items">Odstraněno %1$s</string>
-    <string name="dashboard_hero_freeable_hint">Klepnutím na tlačítko uvolněte místo. Klepnutím na prvek nejdříve zkontrolujte.</string>
+    <string name="dashboard_hero_freeable_hint">Klepnutím na tlačítko uvolněte místo, nebo klepnutím na prvek nejdříve zkontrolujte.</string>
     <string name="dashboard_hero_freed_hint">Klepnutím na prvek zobrazíte podrobnosti.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Naskenováno %1$s</string>
@@ -27,20 +27,20 @@
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte pouze s důvěryhodnými protistranami.</string>
     <string name="debug_debuglog_screen_subtitle">Exportovat ladicí informace pro řešení problémů</string>
     <string name="debug_logview_screen_title">Prohlížeč protokolu</string>
-    <string name="debug_logview_pause_action">Pozastavit (zmrazit vyrovnávací paměť)</string>
+    <string name="debug_logview_pause_action">Pozastavit (zmrazit mezipaměť)</string>
     <string name="debug_logview_resume_action">Obnovit</string>
     <string name="debug_logview_copy_action">Kopírovat protokol</string>
     <string name="debug_logview_collapse_action">Sbalit</string>
-    <string name="debug_logview_close_action">Zavřít panel</string>
+    <string name="debug_logview_close_action">Zavřít panel protokolů</string>
     <string name="debug_logview_resize_action">Změnit velikost</string>
     <string name="debug_logview_more_action">Další možnosti</string>
     <string name="debug_logview_level_action">Úroveň protokolu</string>
     <string name="debug_logview_clear_action">Vymazat mezipaměť</string>
-    <string name="debug_logview_search_prev_action">Předchozí</string>
+    <string name="debug_logview_search_prev_action">Předchozí shoda</string>
     <string name="debug_logview_search_next_action">Další shoda</string>
     <string name="debug_logview_jump_to_bottom_action">Přejít na poslední</string>
-    <string name="debug_logview_paused_msg">Pozastaveno — vyrovnávací paměť zmrazena</string>
-    <string name="debug_logview_paused_dropped_msg">Pozastaveno — přeskočeno %1$d řádků</string>
+    <string name="debug_logview_paused_msg">Pozastaveno — mezipaměť zmrazena</string>
+    <string name="debug_logview_paused_dropped_msg">Pozastaveno — nové řádky přeskočeny: %1$d</string>
     <string name="debug_logview_copied_msg">Protokol zkopírován do schránky</string>
     <string name="debug_logview_share_label">Sdílet protokol</string>
     <string name="debug_debuglog_screen_title">Protokol ladění</string>
@@ -85,7 +85,7 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Výsledky úlohy</string>
     <string name="tasks_result_subtext">Výsledek úlohy</string>
-    <string name="tasks_result_failed_msg">Úkol se nedokončil úspěšně.</string>
+    <string name="tasks_result_failed_msg">Úkol nebyl úspěšně dokončen.</string>
     <string name="tasks_timeout_error_label">Úkol vypršel</string>
     <string name="tasks_timeout_error_desc">Úkol trval příliš dlouho a byl zastaven. Zkuste to prosím znovu.</string>
     <string name="onboarding_welcome_title">Vítejte</string>
@@ -104,7 +104,7 @@
     <string name="onboarding_setup_title">Nastavení</string>
     <string name="onboarding_setup_body1">SD Maid prohledá všechny dostupné oblasti dat.</string>
     <string name="onboarding_setup_body2">Přístupnost závisí na zařízení, verzi systému Android a udělených oprávněních.</string>
-    <string name="onboarding_setup_body4">Výchozí nastavení SD Maidu je nakonfigurováno tak, aby bylo bezpečné a důkladné, což nabízí dobrý kompromis pro běžné uživatele.</string>
+    <string name="onboarding_setup_body4">Výchozí nastavení SD Maid je nakonfigurováno tak, aby bylo bezpečné a důkladné, což nabízí dobrý kompromis pro běžné uživatele.</string>
     <string name="onboarding_setup_body5">Pro podrobnější výsledky navštivte nastavení jednotlivých nástrojů a upravte je podle svých preferencí.</string>
     <string name="onboarding_setup_body3">Začněte používat SD Maid nastavením přístupu.</string>
     <string name="onboarding_setup_continue_action">Nastavit přístup</string>
@@ -113,6 +113,7 @@
     <string name="settings_privacy_policy_label">Zásady ochrany osobních údajů</string>
     <string name="settings_privacy_policy_desc">Zodpovědné nakládání s daty.</string>
     <string name="settings_category_other_label">Ostatní</string>
+    <string name="settings_upgrade_description">Upgrade stavu a možností.</string>
     <string name="general_settings_label">Obecné</string>
     <string name="general_settings_desc">Obecná vylepšení, která ovlivňují celou aplikaci.</string>
     <string name="settings_category_ui_label">Uživatelské rozhraní</string>
@@ -129,7 +130,7 @@
     <string name="ui_theme_style_highcontrast_label">Vysoký kontrast</string>
     <string name="ui_theme_color_setting_label">Barva motivu</string>
     <string name="ui_theme_color_setting_explanation">Barevná paleta použitá pro vzhled aplikace.</string>
-    <string name="ui_theme_color_setting_disabled_materialyou">Barvy jsou poskytovány aplikací Material You z vaší tapety.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Barvy jsou poskytovány designem Material You z vaší tapety.</string>
     <string name="ui_theme_color_value_system">Systémové barvy</string>
     <string name="ui_previews_title">Náhledy souboru</string>
     <string name="ui_previews_summary">Zobrazení náhledů souborů ve všech nástrojích (např. náhledy obrázků a videí).</string>
@@ -219,7 +220,7 @@
     <string name="setup_root_state_ready_label">Root přístup je připraven.</string>
     <string name="setup_root_state_waiting_label">Přístup root není k dispozici.</string>
     <string name="setup_root_enable_root_use_label">Zkusit použít root přístup</string>
-    <string name="setup_root_disable_root_use_label">Nerooted jsem si zařízení</string>
+    <string name="setup_root_disable_root_use_label">Nemám své zařízení rootnuté</string>
     <string name="setup_root_card_body2">K dispozici pouze na zařízeních s root přístupem. Pokud jste tuto úpravu neprovedli, vaše zařízení nemá root přístup a toto nastavení nemá žádný vliv.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Povolte aplikaci SD Maid používat Shizuku, pokud je to možné, pro zlepšení výkonu a aktivaci funkcí.</string>
@@ -255,14 +256,14 @@
     <string name="setup_acs_disallow_hint">Pokud si to rozmyslíte, můžete tuto možnost znovu změnit v nastavení a úvodní nastavení znovu spustit.</string>
     <string name="setup_acs_appops_restriction_title">Omezená nastavení</string>
     <string name="setup_acs_appops_restriction_body">Nelze povolit službu přístupnosti aplikace SD Maid? Systém Android 13+ může uplatňovat omezení na aplikace, které nejsou nainstalovány prostřednictvím služby Google Play. Tato omezení zrušte na stránce s podrobnostmi o aplikaci SD Maid. Tato možnost se nachází v kontextové nabídce v pravém horním rohu.</string>
-    <string name="setup_acs_advanced_protection_title">Blokováno - Advanced Protection</string>
-    <string name="setup_acs_advanced_protection_body">Advanced Protection blokuje službu přístupnosti SD Maidu na Androidu 17 a novějším, takže ji nelze zapnout, pokud je Advanced Protection zapnuta. Klepnutím na Nápověda si přečtete podrobnosti a alternativy.</string>
+    <string name="setup_acs_advanced_protection_title">Zablokováno pokročilou ochranou</string>
+    <string name="setup_acs_advanced_protection_body">Pokročilá ochrana Androidu blokuje službu přístupnosti SD Maid na Android 17 a novějším, takže ji nelze zapnout, pokud je Pokročilá ochrana zapnuta. Klepnutím na nápovědu si přečtete podrobnosti a alternativy.</string>
     <string name="setup_inventory_card_title">Inventář aplikace</string>
     <string name="setup_inventory_card_body">Aplikace SD Maid potřebuje vědět, které aplikace máte, aby našla soubory, které nepatří k žádným nainstalovaným aplikacím.</string>
     <string name="setup_inventory_card_extra">Vyhledejte oprávnění s názvem \"Seznam aplikací\" nebo \"Dotaz na všechny balíčky\".</string>
     <string name="setup_inventory_limitation_title">Možné omezení zařízení</string>
     <string name="setup_inventory_limitation_body">Systém vrátil neúplný seznam nainstalovaných aplikací, přestože se zdá, že jsou udělena požadovaná oprávnění.</string>
-    <string name="setup_inventory_limitation_body2">Některá zařízení (např. HarmonyOS) nikdy neposkytují úplný seznam aplikací. Abychom chránili vaše údaje, nástroje související s aplikacemi zůstávají zakázány, ale stále si můžete prohlédnout využití úložiště se sníženou přesností.</string>
+    <string name="setup_inventory_limitation_body2">Některá zařízení (např. HarmonyOS) nikdy neposkytují úplný seznam aplikací. Abychom chránili vaše údaje, nástroje související s aplikacemi budou zakázány, ale stále si můžete prohlédnout využití úložiště se sníženou detaily.</string>
     <string name="dataarea_warningcard_empty_message">Aplikace SD Maid nenašla žádné datové oblasti, které by bylo možné skenovat. Dokončili jste úvodní nastavení?</string>
     <string name="dataarea_warningcard_label">Oblasti dat</string>
     <string name="dataarea_warningcard_reload_action">Znovu načíst oblasti dat</string>
@@ -270,9 +271,9 @@
     <string name="debug_mode_explanation">Povolení možností testování a podrobnějšího slovního výstupu. Aplikace poběží pomaleji a její chování se změní.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Režim ladění je povolen</string>
-    <string name="debug_card_description">Diagnostika vývojáře a přepsání za běhu. Tato karta se zobrazuje pouze při zapnutém režimu ladění.</string>
+    <string name="debug_card_description">Vývojářská diagnostika a přepsání běhu. Tato karta se zobrazuje pouze při zapnutém režimu ladění.</string>
     <string name="debug_card_section_diagnostics">Diagnostika</string>
-    <string name="debug_card_section_reload">Znovu načíst</string>
+    <string name="debug_card_section_reload">Obnovit</string>
     <string name="debug_card_trace_mode_title">Trasovací protokolování</string>
     <string name="debug_card_trace_mode_desc">Podrobné protokoly krok za krokem. Výrazně zpomaluje aplikaci.</string>
     <string name="debug_card_dryrun_mode_title">Režim simulace</string>
@@ -322,27 +323,33 @@
     <string name="shortcuts_onetap_enabled_title">Zkratka jedním klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s za 7 dní</string>
-    <string name="tour_dashboard_overview_body">Toto je váš ovládací panel, domovská obrazovka SD Maid. Každý nástroj a operace se zde nacházejí na kartě.</string>
+    <string name="tour_dashboard_overview_body">Toto je váš ovládací panel, domovská obrazovka SD Maid. Každý nástroj a operace se nachází zde na kartě.</string>
     <string name="tour_dashboard_setup_body">Karta nastavení se zobrazí, když je potřeba něco nakonfigurovat. Otevřete ji a vyřešte problémy, aby SD Maid mohla dělat více. Pokud si tuto kartu zavřete, nastavení je také dostupné v nabídce nastavení.</string>
     <string name="tour_dashboard_tools_body">Otevřete kartu nástroje pro podrobnosti. Akce skenování a odstranění se nacházejí na každé kartě, podrobnosti se zobrazí, jakmile skenování něco najde.</string>
-    <string name="tour_dashboard_main_action_body">Velké tlačítko v dolní části je akce jedním dotykem. Jedním dotykem skenovat, jedním dotykem čistit, všechny automatické nástroje.</string>
+    <string name="tour_dashboard_main_action_body">Velké tlačítko v dolní části je akce jedním dotykem. Jedním dotykem skenovat, jedním dotykem čistit, plně automatické nástroje.</string>
     <string name="tour_dashboard_manual_tools_body">Některé nástroje, jako Swiper, nejsou automatické, nabízejí vám průvodce, kterým si projdete sami.</string>
-    <string name="tour_dashboard_settings_body">Výchozí nastavení SD Maidu jsou konzervativní a bezpečná. Každé zařízení je trochu jiné, takže si nastavení upravte, abyste z toho vytěžili více.</string>
-    <string name="tour_setup_intro_body">Každá karta na této obrazovce je oprávnění, které SD Maid může používat. Všechna jsou volitelná, ale více oprávnění znamená více funkcí a důkladnější skenování. Bez nich budou mít nejvíce nástrojů málo co čistit.</string>
+    <string name="tour_dashboard_settings_body">Výchozí nastavení SD Maid jsou konzervativní a bezpečná. Každé zařízení je trochu jiné, takže si nastavení upravte, abyste z toho vytěžili více.</string>
+    <string name="tour_setup_intro_body">Každá karta na této obrazovce je oprávnění, které SD Maid může používat. Všechna jsou volitelná, ale více oprávnění znamená více funkcí a důkladnější skenování. Bez nich najde většina nástrojů málo k čištění.</string>
     <string name="general_settings_reset_guided_tours_label">Resetovat průvodce</string>
     <string name="general_settings_reset_guided_tours_summary">Zobrazit všechny průvodce znovu při přištím navštívení jejich obrazovky. Také opět povolí všechny průvodce, pokud jste je dříve vypnuli.</string>
     <string name="widget_home_title">SD Maid</string>
-    <string name="widget_home_description">Použití úložiště a vyčištění jedním klepnutím</string>
+    <string name="widget_home_description">Využití úložného prostoru a vyčištění jedním klepnutím</string>
     <string name="widget_home_storage_internal">Interní</string>
     <string name="widget_home_storage_external">Externí</string>
-    <string name="widget_home_freed_label">Uvolněno: %1$s</string>
-    <string name="widget_home_clean_action">Čistit</string>
+    <string name="widget_home_freed_label">Doba života: %1$s</string>
+    <string name="widget_home_clean_action">Vyčistit</string>
     <string name="widget_home_working">Pracuji…</string>
-    <string name="widget_home_unavailable">Úložiště je nedostupné</string>
-    <string name="shortcut_onetap_started">Skenování &amp; smazání zahájeno…</string>
-    <string name="shortcut_onetap_nothing_enabled">Nejsou povoleny žádné jednoklepové nástroje</string>
+    <string name="widget_home_unavailable">Úložiště není dostupné</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Nechte tlačítko Vyčistit domovní obrazovky skenovat a mazat jedním klepnutím, aniž byste se pokaždé ptali.</string>
+    <string name="widget_oneclick_consent_title">Povolit čištění jedním klepnutím?</string>
+    <string name="widget_oneclick_consent_message">Tlačítko Vyčistit na widgetu bude skenovat a mazat najednou, aniž by se nejdříve ptalo nebo vám umožnilo zkontrolovat, co bude odebráno.</string>
+    <string name="widget_oneclick_consent_enable_action">Povolit</string>
+    <string name="widget_oneclick_consent_decline_action">Teď ne</string>
+    <string name="shortcut_onetap_started">Skenování a mazání zahájeno…</string>
+    <string name="shortcut_onetap_nothing_enabled">Nejsou povoleny žádné nástroje s jedním klepnutím</string>
     <!-- Config backup & restore -->
-    <string name="backup_restore_title">Záloha &amp; obnovení</string>
+    <string name="backup_restore_title">Záloha a obnovení</string>
     <string name="backup_restore_desc">Uložit nastavení a konfiguraci do souboru nebo je obnovit</string>
     <string name="backup_restore_export_title">Vytvořit zálohu</string>
     <string name="backup_restore_export_desc">Uložit nastavení, vyloučení, plány a vlastní filtry do souboru</string>
@@ -366,7 +373,7 @@
     <string name="backup_restore_warn_android_body">Tato záloha byla vytvořena v Androidu %1$s, ale toto zařízení běží v Androidu %2$s.</string>
     <string name="backup_restore_warn_device_body">Tato záloha byla vytvořena na jiném zařízení (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Tato záloha je z jiné edice aplikace (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Historie dat této zálohy (statistiky, historie komprese, relace přejetí) je z jiné verze aplikace a nelze ji obnovit. Vše ostatní bude obnoveno.</string>
+    <string name="backup_restore_warn_history_body">Data historie tohoto zálohování (statistiky, historie komprese, relace potažení) pocházejí z jiné verze aplikace a nelze je obnovit. Vše ostatní bude obnoveno.</string>
     <string name="backup_restore_ack_understand">Rozumím a chci pokračovat</string>
     <string name="backup_restore_action_restore">Obnovit</string>
 </resources>

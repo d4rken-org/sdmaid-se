@@ -38,6 +38,7 @@
     <string name="general_error_label">Fel</string>
     <string name="general_upgrade_action">Uppgradera</string>
     <string name="general_refresh_action">Uppdatera</string>
+    <string name="general_retry_action">Försök igen</string>
     <string name="general_progress_searching">Sökande</string>
     <string name="general_progress_generating_searchpaths">Genererar sökvägar</string>
     <string name="general_progress_filtering">Filtrering</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Namn (A → Ö)</string>
     <string name="general_sort_size_desc">Störst först</string>
     <string name="general_tag_system">System</string>
+    <string name="general_tag_library">Bibliotek</string>
     <string name="general_navigate_up_action">Navigera upp</string>
     <string name="general_filter_action">Filtrera</string>
     <string name="general_filter_by_tags_label">Filtrera efter taggar</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Rapportera fel</string>
     <string name="general_error_ipc_deadobject_title">Tjänstanslutning förlorad</string>
     <string name="general_error_ipc_deadobject_description">Anslutningen till en kritisk tjänst (t.ex. Magisk, Shizuku eller andra tjänster på systemnivå) förlorades oväntat. Starta om din enhet. Om problemet kvarstår, sök efter uppdateringar eller kontakta mig så att jag kan åtgärda det.</string>
-    <string name="general_error_upgrade_required_title">Pro-version krävs</string>
-    <string name="general_error_upgrade_required_description">Det här är en Pro-funktion. Uppgradera SD Maid SE för att använda den.</string>
+    <string name="general_error_upgrade_required_title">Uppgradering krävs</string>
+    <string name="general_error_upgrade_required_description">Den här funktionen kräver en uppgradering. Uppgradera SD Maid SE för att använda den.</string>
     <string name="general_user_label_owner">Ägare</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Inställningar</string>

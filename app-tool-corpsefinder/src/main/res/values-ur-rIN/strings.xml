@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">کوئی نشان نہیں</string>
     <string name="corpsefinder_markers_dialog_normal_description">معیاری بقایا۔ عام طور پر ہٹانا محفوظ ہے — یہ فائلیں ایسی ایپس سے تعلق رکھتی ہیں جو اب انسٹال نہیں ہیں۔</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder ایسی ایپس کے ڈیٹا کو تلاش کرتا ہے جو آپ نے پہلے ہی ان انسٹال کی ہیں۔ یہ اب کسی انسٹال شدہ چیز سے تعلق نہیں رکھتا، اس لیے اسے ہٹانا محفوظ ہے اور جگہ خالی کرتا ہے۔</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder ان ایپس کے پیچھے چھوڑے گئے ڈیٹا کو تلاش کرتا ہے جنہیں آپ نے پہلے سے ہٹا دیا ہے۔ یہ اب کسی نصب شدہ چیز سے تعلق نہیں رکھتا، تو اسے ہٹانے سے جگہ خالی ہوتی ہے۔ اس میں سے زیادہ تر کو ہٹانا محفوظ ہے، لیکن جب آپ کو یقین نہ ہو تو مارکر کو چیک کریں۔</string>
     <string name="tour_corpsefinder_row_body">ہر چیز بقایا ڈیٹا اور وہ ایپ ہے جس سے یہ آیا۔ نشان یہ ظاہر کرتا ہے کہ SD Maid کو کتنا اعتماد ہے کہ اسے ہٹانا محفوظ ہے — اوپر ⓘ پر ٹیپ کریں نشانات کا مطلب جاننے کے لیے۔</string>
 </resources>

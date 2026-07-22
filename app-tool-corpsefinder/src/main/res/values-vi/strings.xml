@@ -56,6 +56,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Không có dấu hiệu</string>
     <string name="corpsefinder_markers_dialog_normal_description">Dư thừa tiêu chuẩn. Thường an toàn để xóa — các tệp này thuộc về các ứng dụng không còn được cài đặt.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder tìm dữ liệu bị bỏ lại bởi các ứng dụng mà bạn đã gỡ cài đặt. Nó không còn thuộc về bất kỳ ứng dụng nào được cài đặt, vì vậy xóa nó là an toàn và giải phóng không gian.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder tìm thấy dữ liệu bị bỏ lại bởi các ứng dụng mà bạn đã gỡ cài đặt. Nó không còn thuộc về bất kỳ ứng dụng nào được cài đặt, vì vậy xóa nó sẽ giải phóng không gian. Hầu hết những dữ liệu này đều an toàn để xóa, nhưng hãy kiểm tra dấu hiệu khi bạn không chắc chắn.</string>
     <string name="tour_corpsefinder_row_body">Mỗi mục là dữ liệu dư thừa và ứng dụng mà nó thuộc về. Dấu hiệu cho thấy SD Maid tự tin như thế nào rằng việc xóa nó là an toàn — nhấn vào ⓘ ở trên cùng để tìm hiểu ý nghĩa của các dấu hiệu.</string>
 </resources>

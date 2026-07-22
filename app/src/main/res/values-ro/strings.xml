@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s eliberat</string>
     <string name="dashboard_hero_freeable_x_items">%1$s poate fi eliminat</string>
     <string name="dashboard_hero_freed_x_items">%1$s eliminat</string>
-    <string name="dashboard_hero_freeable_hint">Apasă butonul pentru a elibera spațiu. Apasă o etichetă pentru a verifica mai întâi.</string>
+    <string name="dashboard_hero_freeable_hint">Atingeți butonul pentru a elibera spațiu, sau o etichetă pentru a verifica mai întâi.</string>
     <string name="dashboard_hero_freed_hint">Apasă o etichetă pentru detalii.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scanat %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Potrivire următoare</string>
     <string name="debug_logview_jump_to_bottom_action">Mergi la cel mai recent</string>
     <string name="debug_logview_paused_msg">Pus în pauză — buffer congelat</string>
-    <string name="debug_logview_paused_dropped_msg">Pauzat — %1$d linii noi omise</string>
+    <string name="debug_logview_paused_dropped_msg">Pus în pauză — liniile noi omise: %1$d</string>
     <string name="debug_logview_copied_msg">Jurnal copiat în clipboard</string>
     <string name="debug_logview_share_label">Partajează jurnal</string>
     <string name="debug_debuglog_screen_title">Jurnal de depanare</string>
@@ -110,6 +110,7 @@
     <string name="settings_privacy_policy_label">Politica de confidențialitate</string>
     <string name="settings_privacy_policy_desc">Gestionarea responsabilă a datelor.</string>
     <string name="settings_category_other_label">Altele</string>
+    <string name="settings_upgrade_description">Status de upgrade și opțiuni.</string>
     <string name="general_settings_label">General</string>
     <string name="general_settings_desc">Ajustări generale care afectează întreaga aplicație.</string>
     <string name="settings_category_ui_label">Interfața utilizatorului</string>
@@ -328,11 +329,17 @@
     <string name="widget_home_description">Utilizarea spațiului de stocare și curățare cu o singură atingere</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Eliberat: %1$s</string>
+    <string name="widget_home_freed_label">Viață: %1$s</string>
     <string name="widget_home_clean_action">Curăță</string>
     <string name="widget_home_working">Se lucrează…</string>
     <string name="widget_home_unavailable">Stocare indisponibilă</string>
-    <string name="shortcut_onetap_started">Scanare &amp; ștergere a început…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Permiteți butonului Clean al widgetului de pe ecranul principal să scaneze și să șteargă cu o singură atingere, fără a cere confirmare de fiecare dată.</string>
+    <string name="widget_oneclick_consent_title">Activați curățarea cu o singură atingere?</string>
+    <string name="widget_oneclick_consent_message">Butonul Clean al widgetului va scana și va șterge în aceeași operație, fără a cere confirmare sau fără a vă permite să revizuiți ceea ce se șterge.</string>
+    <string name="widget_oneclick_consent_enable_action">Activare</string>
+    <string name="widget_oneclick_consent_decline_action">Nu acum</string>
+    <string name="shortcut_onetap_started">Scanare + Ștergere a început…</string>
     <string name="shortcut_onetap_nothing_enabled">Nu sunt activate unelte cu o singură apăsare</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Backup &amp; Restabilire</string>
@@ -359,7 +366,7 @@
     <string name="backup_restore_warn_android_body">Această copie de siguranță a fost făcută pe Android %1$s, dar dispozitivul tău rulează Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Această copie de siguranță a fost făcută pe un dispozitiv diferit (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Această copie de siguranță este dintr-o ediție diferită a aplicației (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Datele de istoric ale acestei copii de siguranță (statistici, istoric de compresie, sesiuni de glisare) sunt dintr-o versiune diferită a aplicației și nu pot fi restaurate. Restul va fi restaurat.</string>
+    <string name="backup_restore_warn_history_body">Datele istorice ale acestei copii de siguranță (statistici, istoricul compresiei, sesiunile de ștergere) sunt dintr-o versiune diferită a aplicației și nu pot fi restaurate. Restul va fi restaurat.</string>
     <string name="backup_restore_ack_understand">Înțeleg și vreau să continui</string>
     <string name="backup_restore_action_restore">Restaurează</string>
 </resources>

@@ -140,7 +140,7 @@
     <string name="shortcut_appcontrol_short">Aplikacje</string>
     <string name="shortcut_appcontrol_long">Zarządzaj zainstalowanymi aplikacjami</string>
     <string name="tour_appcontrol_search_body">Wyszukaj aplikację według nazwy. Przydatne na urządzeniach z wieloma zainstalowanymi aplikacjami.</string>
-    <string name="tour_appcontrol_filter_body">Zawęź listę według aplikacji użytkownika/systemu, stanu włączenia, ostatniej aktywności i wiele więcej. Aktywne filtry pojawiają się tutaj jako chipy.</string>
+    <string name="tour_appcontrol_filter_body">Zawęź listę według aplikacji użytkownika/systemu, stanu włączenia, ostatniej aktywności i wiele więcej. Aktywne filtry pojawiają się tutaj jako znaczniki.</string>
     <string name="tour_appcontrol_sort_body">Sortuj aplikacje według nazwy, daty instalacji, ostatniej aktualizacji, rozmiaru lub czasu ekranu. Naciśnij tę samą opcję, aby zmienić kierunek.</string>
-    <string name="tour_appcontrol_app_row_body">Naciśnij aplikację, aby otworzyć jej szczegóły i dostępne akcje. Długie naciśnięcie umożliwia zaznaczenie i korzystanie z akcji zbiorczych.</string>
+    <string name="tour_appcontrol_app_row_body">Naciśnij aplikację, aby otworzyć jej szczegóły i dostępne akcje. Przytrzymanie umożliwia zaznaczenie i korzystanie z akcji zbiorczych.</string>
 </resources>

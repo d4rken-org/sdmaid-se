@@ -38,6 +38,7 @@
     <string name="general_error_label">Errore</string>
     <string name="general_upgrade_action">Aggiorna</string>
     <string name="general_refresh_action">Refresh</string>
+    <string name="general_retry_action">Riprova</string>
     <string name="general_progress_searching">Ricerca</string>
     <string name="general_progress_generating_searchpaths">Generazione di percorsi di ricerca</string>
     <string name="general_progress_filtering">Filtraggio</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nome (A → Z)</string>
     <string name="general_sort_size_desc">Prima i più grandi</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Libreria</string>
     <string name="general_navigate_up_action">Naviga su</string>
     <string name="general_filter_action">Filtro</string>
     <string name="general_filter_by_tags_label">Filtra per tag</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Segnala bug</string>
     <string name="general_error_ipc_deadobject_title">Connessione al servizio persa</string>
     <string name="general_error_ipc_deadobject_description">La connessione a un servizio critico (ad es. Magisk, Shizuku o altri servizi a livello di sistema) è stata persa inaspettatamente. Riavvia il dispositivo. Se il problema persiste, controlla gli aggiornamenti o contattami per risolvere il problema.</string>
-    <string name="general_error_upgrade_required_title">Versione Pro richiesta</string>
-    <string name="general_error_upgrade_required_description">Questa è una funzione Pro. Aggiorna SD Maid SE per utilizzarla.</string>
+    <string name="general_error_upgrade_required_title">Aggiornamento richiesto</string>
+    <string name="general_error_upgrade_required_description">Questa funzionalità richiede un aggiornamento. Aggiorna SD Maid SE per utilizzarla.</string>
     <string name="general_user_label_owner">Proprietario</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configurazione</string>

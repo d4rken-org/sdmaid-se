@@ -12,6 +12,7 @@
         <item quantity="other">تم تحديد مسارات %d</item>
     </plurals>
     <string name="picker_home_action">مناطق البيانات</string>
+    <string name="picker_select_hint">اضغط مع الاستمرار على عنصر لتحديده</string>
     <string name="tour_action_next">التالي</string>
     <string name="tour_action_previous">السابق</string>
     <string name="tour_action_cancel">تخطي</string>
@@ -20,6 +21,6 @@
     <string name="tour_confirm_continue">متابعة الجولة</string>
     <string name="tour_confirm_dont_show_this_tour">عدم عرض هذه الجولة</string>
     <string name="tour_confirm_disable_all">تعطيل جميع الجولات</string>
-    <string name="navigation_unknown_destination_title">قريباً</string>
-    <string name="navigation_unknown_destination_message">هذه الشاشة لا تزال قيد الترحيل إلى واجهة المستخدم الجديدة.</string>
+    <string name="navigation_unknown_destination_title">الشاشة غير متاحة</string>
+    <string name="navigation_unknown_destination_message">تعذر فتح هذه الشاشة.</string>
 </resources>

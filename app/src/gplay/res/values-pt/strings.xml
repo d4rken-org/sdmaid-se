@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Obter SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid não tem anúncios e não vende dados dos utilizadores. O meu trabalho é financiado por si ❤️.</string>
     <string name="upgrade_screen_benefits_title">Benefícios da atualização</string>
-    <string name="upgrade_screen_benefits_body">• Limpar caches de aplicações e dados descartáveis
-• Remover ficheiros duplicados
-• Ativar limpezas agendadas
-• Criar filtros e regras de limpeza personalizados
-• Acompanhar tendências de armazenamento e histórico de limpeza
-• Mais funcionalidades e controlos em toda a aplicação
-• Apoiar o desenvolvimento contínuo</string>
+    <string name="upgrade_screen_benefits_body">• Limpeza de cache de aplicações e ficheiros desnecessários\n• Remoção de ficheiros duplicados\n• Compressão de fotos e vídeos\n• Deslizar para remover ficheiros antigos\n• Limpeza num único toque via widget\n• Agendamento de limpeza\n• Filtros e regras personalizadas\n• Tendências e histórico de armazenamento\n• Mais funcionalidades e controlos em toda a aplicação\n• Apoio ao desenvolvimento contínuo</string>
+    <string name="upgrade_screen_offers_title">Opções de atualização</string>
+    <string name="upgrade_screen_offers_body">Mesmas funcionalidades, apenas modelos de preço diferentes.</string>
+    <string name="upgrade_screen_offers_or">ou</string>
     <string name="upgrade_screen_subscription_offer_title">Subscrição anual</string>
+    <string name="upgrade_screen_subscription_offer_body">Renova anualmente após o período de teste gratuito. Pode cancelar a qualquer momento no Google Play.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Renova anualmente. Pode cancelar a qualquer momento no Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Compra única</string>
+    <string name="upgrade_screen_iap_offer_body">Um pagamento único, sem renovações.</string>
     <string name="upgrade_screen_offers_unavailable_message">Os preços não puderam ser carregados neste momento. Verifique o Google Play e tente novamente em alguns instantes.</string>
     <string name="upgrade_screen_subscription_trial_action">Iniciar teste gratuito de 14 dias</string>
     <string name="upgrade_screen_subscription_action">Subscrever</string>
     <string name="upgrade_screen_iap_action">Compra única</string>
     <string name="upgrade_screen_thanks_toast">Você é o/a maior! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Restaurar compra</string>
+    <string name="upgrade_screen_restore_banner_title">Já comprou a versão Pro?</string>
+    <string name="upgrade_screen_restore_banner_body">Parece que fez upgrade para Pro neste dispositivo antes. Restaure a sua compra para desbloqueá-lo novamente.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A sincronização com Play Store pode demorar. Tente reiniciar, limpar a cache do Google Play ou simplesmente aguarde.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Várias contas podem confundir o Google Play. Instale a aplicação através do site do Google Play, o que força a associação com uma conta específica.</string>
+    <string name="upgrade_screen_owned_hero_title">Parabéns!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Tem %1$s, desbloqueado pela sua subscrição.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Tem %1$s, desbloqueado pela sua compra única.</string>
+    <string name="upgrade_screen_owned_iap_title">Compra única</string>
+    <string name="upgrade_screen_owned_iap_body">Tem o upgrade Pro de compra única. Pro permanece desbloqueado nesta conta Google. Obrigado por apoiar SD Maid ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">A sua subscrição Pro está ativa e definida para renovar. A faturação é gerida pelo Google Play.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Prefere a compra única? Fica disponível assim que a sua subscrição deixar de estar definida para renovar. Cancele a subscrição no Google Play para mudar.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">A sua subscrição Pro está ativa, mas não definida para renovar. Pro permanece disponível até ao final do período atual.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Esta subscrição ainda está definida para renovar, embora já possua o upgrade de compra única. Pode cancelá-la no Google Play.</string>
+    <string name="upgrade_screen_manage_subscription_action">Gerir subscrição</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Esta é uma compra separada: não cancela nem reembolsa a sua subscrição. Utilize a mesma conta Google para ambas.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Subscrição ainda ativa</string>
+    <string name="upgrade_screen_sub_still_renewing_message">O Google Play reporta que a sua subscrição ainda está definida para renovar. Para comprar o upgrade único, primeiro cancele a subscrição no Google Play e depois volte aqui.\n\nAcabou de cancelá-la? Dê ao Google Play um momento e tente novamente. Certifique-se também de que está a utilizar a mesma conta Google.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Não foi possível verificar o estado da sua subscrição com o Google Play. Por favor, tente novamente dentro de momentos.</string>
+    <string name="upgrade_screen_restore_success_message">Compra restaurada, o seu upgrade Pro está ativo.</string>
+    <string name="upgrade_screen_grace_title">A confirmar a sua compra</string>
+    <string name="upgrade_screen_grace_body_short">Pro ainda está ativo. À espera que o Google Play reconfirme a sua compra, todas as funcionalidades Pro permanecem desbloqueadas entretanto.</string>
+    <string name="upgrade_screen_grace_body">Pro ainda está ativo, mas o Google Play não confirmou a sua compra há algum tempo. Se comprou Pro, restaure a compra e verifique se o Google Play utiliza a conta que a comprou. Se a subscrição terminou ou a compra foi reembolsada, Pro desativa-se automaticamente, nada mais a fazer.</string>
+    <string name="upgrade_screen_restore_body">Restaurar pede ao Google Play para verificar novamente as compras desta aplicação na conta atual. Não inicia uma nova compra.</string>
+    <string name="upgrade_screen_restore_status_title">O estado parece incorreto?</string>
+    <string name="upgrade_screen_restore_status_body">Se uma compra está em falta ou este estado parece incorreto, verifique novamente com o Google Play.</string>
+    <string name="upgrade_screen_contact_support_action">Contactar suporte</string>
+    <string name="upgrade_screen_restore_checked_message">SD Maid acabou de verificar o Google Play, mas não foi possível confirmar uma compra Pro na conta que o Google Play está a usar para esta aplicação.</string>
+    <string name="upgrade_screen_restore_contact_hint">Ainda sem resolver? Contacte o suporte a partir do email que fez a compra e inclua o seu número de encomenda do Google Play.</string>
 </resources>

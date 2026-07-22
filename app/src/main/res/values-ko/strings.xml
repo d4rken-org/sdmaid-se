@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s 확보됨</string>
     <string name="dashboard_hero_freeable_x_items">%1$s를 제거할 수 있습니다</string>
     <string name="dashboard_hero_freed_x_items">%1$s 제거됨</string>
-    <string name="dashboard_hero_freeable_hint">공간을 확보하려면 버튼을 누르세요. 먼저 칩을 눌러 확인하세요.</string>
+    <string name="dashboard_hero_freeable_hint">버튼을 탭하여 공간을 확보하거나 먼저 확인하려면 칩을 탭하세요.</string>
     <string name="dashboard_hero_freed_hint">칩을 눌러 자세한 정보를 확인하세요.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s 스캔됨</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">다음 일치</string>
     <string name="debug_logview_jump_to_bottom_action">최신으로 이동</string>
     <string name="debug_logview_paused_msg">일시 중지 — 버퍼 고정됨</string>
-    <string name="debug_logview_paused_dropped_msg">일시 중지 — %1$d개의 새 줄 건너뜀</string>
+    <string name="debug_logview_paused_dropped_msg">일시 중지됨 — 건너뛴 새 줄: %1$d</string>
     <string name="debug_logview_copied_msg">로그가 클립보드로 복사됨</string>
     <string name="debug_logview_share_label">로그 공유</string>
     <string name="debug_debuglog_screen_title">디버그 로그</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">개인정보보호정책</string>
     <string name="settings_privacy_policy_desc">개인정보를 책임지고 다룹니다.</string>
     <string name="settings_category_other_label">기타</string>
+    <string name="settings_upgrade_description">업그레이드 상태 및 옵션.</string>
     <string name="general_settings_label">일반</string>
     <string name="general_settings_desc">전체 앱의 작동에 영향을 주는 일반적 설정입니다.</string>
     <string name="settings_category_ui_label">인터페이스</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">저장 공간 사용량 및 한 번 탭 정리</string>
     <string name="widget_home_storage_internal">내부</string>
     <string name="widget_home_storage_external">외부</string>
-    <string name="widget_home_freed_label">확보됨: %1$s</string>
+    <string name="widget_home_freed_label">수명: %1$s</string>
     <string name="widget_home_clean_action">정리</string>
     <string name="widget_home_working">작업 중…</string>
     <string name="widget_home_unavailable">저장 공간 이용 불가</string>
-    <string name="shortcut_onetap_started">스캔 &amp; 삭제 시작됨…</string>
+    <string name="settings_category_widget">위젯</string>
+    <string name="widget_settings_oneclick_summary">홈 화면 위젯의 청소 버튼으로 매번 묻지 않고 한 번의 탭으로 스캔하고 삭제합니다.</string>
+    <string name="widget_oneclick_consent_title">한 번의 탭으로 청소를 활성화할까요?</string>
+    <string name="widget_oneclick_consent_message">위젯의 청소 버튼이 먼저 묻지 않고 제거될 항목을 검토할 수 있게 하지 않으며 한 번에 스캔하고 삭제합니다.</string>
+    <string name="widget_oneclick_consent_enable_action">활성화</string>
+    <string name="widget_oneclick_consent_decline_action">지금은 아니오</string>
+    <string name="shortcut_onetap_started">스캔 + 삭제 시작됨…</string>
     <string name="shortcut_onetap_nothing_enabled">활성화된 빠른 도구가 없습니다</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">백업 &amp; 복원</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">이 백업은 Android %1$s에서 만들어졌지만 이 기기는 Android %2$s를 실행합니다.</string>
     <string name="backup_restore_warn_device_body">이 백업은 다른 기기에서 만들어졌습니다 (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">이 백업은 다른 앱 에디션에서 왔습니다 (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">이 백업의 기록 데이터(통계, 압축 기록, 스와이프 세션)는 다른 앱 버전에서 왔으므로 복원할 수 없습니다. 나머지는 모두 복원됩니다.</string>
+    <string name="backup_restore_warn_history_body">이 백업의 히스토리 데이터(통계, 압축 히스토리, 스와이프 세션)는 다른 앱 버전에서 생성되었으며 복원할 수 없습니다. 나머지는 모두 복원됩니다.</string>
     <string name="backup_restore_ack_understand">알겠고 계속하겠습니다</string>
     <string name="backup_restore_action_restore">복원</string>
 </resources>

@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Ingen markering</string>
     <string name="corpsefinder_markers_dialog_normal_description">Almindelig rest. Generelt sikkert at fjerne – disse filer tilhører apps, der ikke længere er installeret.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">Ligfinder finder data, der er efterladt af apps, du allerede har afinstalleret. Det tilhører ikke længere noget installeret, så det er sikkert at fjerne det og frigør plads.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder finder data efterladt af apps, du allerede har afinstalleret. Det tilhører ikke længere noget installeret, så hvis du fjerner det, frigives der plads. Det meste af det er sikkert at fjerne, men tjek markøren, når du er usikker.</string>
     <string name="tour_corpsefinder_row_body">Hver vare er restdata og den app, det kom fra. Markeringen viser, hvor sikker SD Maid er på, at det er sikkert at fjerne – tryk på ⓘ øverst for at lære, hvad markeringerne betyder.</string>
 </resources>

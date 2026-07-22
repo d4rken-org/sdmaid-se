@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Импортиране на нов филтър</string>
     <string name="systemcleaner_customfilter_export_action">Експортиране на избрания филтър</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner намира боклук, използвайки универсални филтри. Съществуват готови правила за неща като празни папки, оставени журнали и остарели миниатюри. Посетете настройките, ако искате да създадете свои собствени.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner намира боклук, използвайки филтри, които не са специфични за приложения. Съществуват готови правила за неща като празни папки, остатъчни регистри и остарели миниатюри. Посетете настройките, ако искате да създадете свои.</string>
     <string name="tour_systemcleaner_filter_body">Всеки ред е филтър и какво е намерил. Отворете неговите детайли, за да видите точно кои файлове съответстват, преди да изтриете нещо.</string>
 </resources>

@@ -44,7 +44,7 @@
     <string name="analyzer_storage_content_type_system_description">Aplikacje systemowe i dane systemowe. Aplikacje i dane od innych użytkowników, jeśli na tym urządzeniu ustawiono kilka kont użytkowników.</string>
     <string name="analyzer_storage_content_type_system_other_label">Inne</string>
     <string name="analyzer_storage_content_type_system_info">Pliki, które nie pasują do kategorii Aplikacje ani Pliki użytkownika. Tylko przeglądanie — usuwanie nie jest obsługiwane. Niektóre obszary mogą być niepełne z powodu ograniczeń dostępu.</string>
-    <string name="analyzer_storage_content_type_media_readonly_info">Nie można teraz dopasować plików do aplikacji, które je posiadają. Rozmiary są wyświetlane wyłącznie dla orientacji — usuwanie, filtry i Swiper są wyłączone.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Plików nie można obecnie dopasować do aplikacji, które je posiadają. Rozmiary są podane wyłącznie w celach informacyjnych — usuwanie, filtry i przesuwanie są wyłączone.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Pliki systemowe i inne dane, do których SD Maid nie miał dostępu ani nie mógł ich sklasyfikować. System operacyjny ogranicza możliwość wyświetlania zawartości niektórych obszarów.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacji</string>
     <string name="analyzer_storage_content_app_code_description">Pliki aplikacji, biblioteki i zasoby. Przestrzeń, która może zostać uwolniona przez odinstalowanie aplikacji lub jej archiwizację (dostępne w nowszej wersji Androida).</string>
@@ -58,6 +58,6 @@
     <string name="analyzer_app_details_app_is_archived">Aplikacja została zarchiwizowana.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s w 7 dni</string>
     <!-- Guided tour -->
-    <string name="tour_analyzer_intro_body">Zobacz, co naprawdę zajmuje Twoją pamięć. Analyzer pokazuje, gdzie trafia Twoja przestrzeń. Każda z tych kart to chip pamięci na Twoim urządzeniu.</string>
-    <string name="tour_analyzer_storage_body">Otwórz pamięć, aby podzielić ją na aplikacje, multimedia i pliki, a następnie stale dotykaj, aby znaleźć największych sprawców.</string>
+    <string name="tour_analyzer_intro_body">Zobacz, co naprawdę zajmuje miejsce w pamięci. Analiza pamięci pokazuje, na co jest wykorzystywana dostępna przestrzeń. Każda z tych kart przedstawia element pamięci na urządzeniu.</string>
+    <string name="tour_analyzer_storage_body">Otwórz pamięć wewnętrzną, aby podzielić ją na aplikacje, multimedia i pliki, a następnie stale naciskaj, aby znaleźć największych sprawców.</string>
 </resources>

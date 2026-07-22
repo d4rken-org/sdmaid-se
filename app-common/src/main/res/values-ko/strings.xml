@@ -38,6 +38,7 @@
     <string name="general_error_label">오류</string>
     <string name="general_upgrade_action">업그레이드</string>
     <string name="general_refresh_action">새로고침</string>
+    <string name="general_retry_action">다시 시도</string>
     <string name="general_progress_searching">검색 중</string>
     <string name="general_progress_generating_searchpaths">검색을 준비하는 중</string>
     <string name="general_progress_filtering">필터링 중</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">이름 (A → Z)</string>
     <string name="general_sort_size_desc">큰 것 먼저</string>
     <string name="general_tag_system">시스템</string>
+    <string name="general_tag_library">라이브러리</string>
     <string name="general_navigate_up_action">위로 탐색</string>
     <string name="general_filter_action">필터</string>
     <string name="general_filter_by_tags_label">태그별로 필터</string>
@@ -162,8 +164,8 @@
     <string name="general_error_report_bug_action">버그 신고</string>
     <string name="general_error_ipc_deadobject_title">서비스 연결 끊김</string>
     <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
-    <string name="general_error_upgrade_required_title">Pro 버전 필요</string>
-    <string name="general_error_upgrade_required_description">이것은 Pro 기능입니다. SD Maid SE를 업그레이드하여 사용하세요.</string>
+    <string name="general_error_upgrade_required_title">업그레이드 필요</string>
+    <string name="general_error_upgrade_required_description">이 기능은 업그레이드가 필요합니다. SD Maid SE를 업그레이드하여 사용해주세요.</string>
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>

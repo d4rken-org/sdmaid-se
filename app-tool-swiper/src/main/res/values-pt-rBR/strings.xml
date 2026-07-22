@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">Escanear %1$s inclui todos os arquivos neste armazenamento — fotos, documentos, downloads, mídia de apps e muito mais. Continuar?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Continuar mesmo assim</string>
     <string name="swiper_session_risky_label">Varredura de todo o armazenamento</string>
-    <string name="swiper_session_risky_info_message">Esta sessão tem como alvo a raiz de um volume de armazenamento, portanto todos os arquivos desse armazenamento estão no escopo — fotos, documentos, downloads, mídia de apps e muito mais.
-
-Varreduras de todo o armazenamento podem retornar muitos itens, incluindo arquivos que você pode não ter tido a intenção de revisar. Aplique um filtro de tipo de arquivo para reduzir a varredura.</string>
+    <string name="swiper_session_risky_info_message">Esta sessão tem como alvo a raiz de um volume de armazenamento, portanto todos os arquivos desse armazenamento estão no escopo — fotos, documentos, downloads, mídia de apps e muito mais.\n\nVarreduras de todo o armazenamento podem retornar muitos itens, incluindo arquivos que você pode não ter tido a intenção de revisar. Aplique um filtro de tipo de arquivo para reduzir a varredura.</string>
     <string name="swiper_delete_x_action">Excluir %1$d</string>
     <string name="swiper_settings_swap_directions_title">Inverter direções de deslize</string>
     <string name="swiper_settings_swap_directions_summary">Deslize para a esquerda para manter, para a direita para excluir.</string>
@@ -162,8 +160,8 @@ Varreduras de todo o armazenamento podem retornar muitos itens, incluindo arquiv
     <string name="swiper_session_no_matching_files">Nenhum arquivo correspondente encontrado</string>
     <string name="swiper_open_externally_action">Abrir em aplicativo externo</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Deslize uma foto para decidir seu destino: Para os lados para manter ou deletar, para cima para pular, para baixo para desfazer. Os botões abaixo fazem o mesmo — e mostram qual lado é qual.</string>
-    <string name="tour_swiper_openin_body">Este botão abre a foto em outro aplicativo, útil para verificá-la antes de decidir.</string>
+    <string name="tour_swiper_gestures_body">Deslize em um arquivo para decidir seu destino: para os lados para manter ou deletar, para cima para pular, para baixo para desfazer. Os botões abaixo fazem o mesmo — e mostram qual lado é qual.</string>
+    <string name="tour_swiper_openin_body">Este botão abre o arquivo em outro app, útil para verificá-lo antes de decidir.</string>
     <string name="tour_swiper_preview_body">Este botão abre uma visualização em tela inteira para um exame melhor.</string>
     <string name="tour_swiper_actions_body">Não gosta de deslizar? Temos botões também! Pular deixa para decidir depois, e pressionar longamente Pular exclui um arquivo de futuras varreduras. Desfazer reverte sua última escolha.</string>
     <string name="tour_swiper_review_body">Suas escolhas de manter e deletar estão apenas preparadas. Abra Revisão para analisá-las e aplicar as exclusões quando estiver pronto.</string>

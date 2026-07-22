@@ -8,6 +8,7 @@
         <item quantity="other">%d yolları seçildi</item>
     </plurals>
     <string name="picker_home_action">Veri alanları</string>
+    <string name="picker_select_hint">Seçmek için bir öğeyi basılı tutun</string>
     <string name="tour_action_next">Sonraki</string>
     <string name="tour_action_previous">Önceki</string>
     <string name="tour_action_cancel">Atla</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Tura devam et</string>
     <string name="tour_confirm_dont_show_this_tour">Bu turu gösterme</string>
     <string name="tour_confirm_disable_all">Tüm turları devre dışı bırak</string>
-    <string name="navigation_unknown_destination_title">Yakında geliyor</string>
-    <string name="navigation_unknown_destination_message">Bu ekran hala yeni arayüze taşınıyor.</string>
+    <string name="navigation_unknown_destination_title">Ekran kullanılamıyor</string>
+    <string name="navigation_unknown_destination_message">Bu ekran açılamadı.</string>
 </resources>

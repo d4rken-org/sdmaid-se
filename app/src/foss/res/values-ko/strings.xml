@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">도움 주기</string>
     <string name="upgrade_screen_how_body">후원자가 되어 개발을 지원하세요! 아래 버튼을 눌러 Github Sponsors 프로필을 열고 추가 기능을 잠금해제하세요.</string>
     <string name="upgrade_screen_why_title">업그레이드 혜택</string>
-    <string name="upgrade_screen_why_body">• 앱 캐시 및 불필요한 데이터 정리
-• 중복 파일 제거
-• 예약된 정리 활성화
-• 사용자 정의 필터 및 정리 규칙 만들기
-• 저장소 추세 및 정리 기록 추적
-• 앱 전체에서 더 많은 기능 및 제어
-• 오픈소스 작업 지원</string>
+    <string name="upgrade_screen_why_body">• 앱 캐시 및 정크 파일 정리\n• 중복 파일 제거\n• 사진 및 동영상 압축\n• 스와이프로 오래된 파일 정리\n• 위젯으로 원탭 정리\n• 정리 스케줄링\n• 사용자 정의 필터 및 규칙\n• 저장 공간 추세 및 기록\n• 앱 전체에서 더 많은 기능 및 컨트롤\n• 오픈소스 작업 지원</string>
     <string name="upgrade_screen_sponsor_action">개발 후원하기</string>
     <string name="upgrade_screen_sponsor_action_hint">다른 방식은 광고, 데이터 수집, 그리고 플레이 스토어입니다 🙁</string>
     <string name="upgrade_screen_thanks_toast">오픈소스 개발을 지원해주셔서 감사합니다 ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">벌써 돌아오셨나요? 여러분의 후원이 SD Maid를 살아있게 합니다!</string>
+    <string name="upgrade_screen_status_free_title">무료 버전</string>
+    <string name="upgrade_screen_status_free_body">무료 버전의 SD Maid를 사용 중입니다. 개발을 지원하여 추가 기능을 잠금 해제할 수 있습니다.</string>
+    <string name="upgrade_screen_status_free_action">업그레이드 옵션 보기</string>
+    <string name="upgrade_screen_status_upgraded_title">업그레이드 활성화됨</string>
+    <string name="upgrade_screen_status_upgraded_body">모든 추가 기능이 잠금 해제되었습니다. 오픈소스 개발을 지원해주셔서 감사합니다 ❤️</string>
+    <string name="upgrade_screen_recurring_title">계속해주세요</string>
+    <string name="upgrade_screen_recurring_body">SD Maid는 업데이트와 수정을 통해 계속 발전하고 있습니다. 이를 지속하고 싶다면 GitHub Sponsors를 통한 정기 기부를 고려해보세요.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors 열기</string>
 </resources>

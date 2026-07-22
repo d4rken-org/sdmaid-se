@@ -8,6 +8,7 @@
         <item quantity="other">%d caminhos selecionados</item>
     </plurals>
     <string name="picker_home_action">Áreas de dados</string>
+    <string name="picker_select_hint">Mantenha um item premido para o selecionar</string>
     <string name="tour_action_next">Seguinte</string>
     <string name="tour_action_previous">Anterior</string>
     <string name="tour_action_cancel">Saltar</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Continuar visita guiada</string>
     <string name="tour_confirm_dont_show_this_tour">Não mostrar esta visita guiada</string>
     <string name="tour_confirm_disable_all">Desativar todas as visitas guiadas</string>
-    <string name="navigation_unknown_destination_title">Em breve</string>
-    <string name="navigation_unknown_destination_message">Este ecrã ainda está a ser migrado para a nova interface.</string>
+    <string name="navigation_unknown_destination_title">Ecrã indisponível</string>
+    <string name="navigation_unknown_destination_message">Este ecrã não pôde ser aberto.</string>
 </resources>

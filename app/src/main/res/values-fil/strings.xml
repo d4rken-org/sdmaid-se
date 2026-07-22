@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">Napakawalan ang %1$s</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ay maaaring ma-alisin</string>
     <string name="dashboard_hero_freed_x_items">Naalis ang %1$s</string>
-    <string name="dashboard_hero_freeable_hint">I-tap ang buton upang magbakante ng espasyo. I-tap ang chip upang suriin muna.</string>
+    <string name="dashboard_hero_freeable_hint">I-tap ang button upang magbigay ng espasyo, o ang chip upang munang suriin.</string>
     <string name="dashboard_hero_freed_hint">I-tap ang chip para sa mga detalye.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Nag-scan ng %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Susunod na tugma</string>
     <string name="debug_logview_jump_to_bottom_action">Lumipat sa pinakabago</string>
     <string name="debug_logview_paused_msg">Napatigil — ang buffer ay naka-freeze</string>
-    <string name="debug_logview_paused_dropped_msg">Napatigil — %1$d bagong linya na nali-skip</string>
+    <string name="debug_logview_paused_dropped_msg">Naka-pause — mga bagong linya na na-skip: %1$d</string>
     <string name="debug_logview_copied_msg">Ang log ay nakopya sa clipboard</string>
     <string name="debug_logview_share_label">Ibahagi ang log</string>
     <string name="debug_debuglog_screen_title">Debug Log</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_category_other_label">Iba</string>
+    <string name="settings_upgrade_description">Katayuan at mga opsyon sa pag-upgrade.</string>
     <string name="general_settings_label">Pangkalahatan</string>
     <string name="general_settings_desc">Mga pangkalahatang pagbabago na nakakaapekto sa buong app.</string>
     <string name="settings_category_ui_label">User interface</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Paggamit ng imbakan at isang pindot na paglilinis</string>
     <string name="widget_home_storage_internal">Panloob</string>
     <string name="widget_home_storage_external">Panlabas</string>
-    <string name="widget_home_freed_label">Napalaya: %1$s</string>
+    <string name="widget_home_freed_label">Habambuhay: %1$s</string>
     <string name="widget_home_clean_action">Linisin</string>
     <string name="widget_home_working">Tumatrabaho…</string>
     <string name="widget_home_unavailable">Hindi available ang storage</string>
-    <string name="shortcut_onetap_started">Nagsimula ang pag-scan &amp; pag-delete…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Hayaan ang Clean button ng home-screen widget na mag-scan at mag-delete sa isang tap, nang hindi nagtatanong sa bawat oras.</string>
+    <string name="widget_oneclick_consent_title">I-enable ang isang-tap na pag-linis?</string>
+    <string name="widget_oneclick_consent_message">Ang Clean button ng widget ay mag-scan at mag-delete sa isang beses, nang hindi unang magtanong o nagbibigay-daan sa iyo na tingnan kung ano ang tatanggalin.</string>
+    <string name="widget_oneclick_consent_enable_action">I-enable</string>
+    <string name="widget_oneclick_consent_decline_action">Hindi ngayon</string>
+    <string name="shortcut_onetap_started">Nagsimula na ang Scan + Delete…</string>
     <string name="shortcut_onetap_nothing_enabled">Walang na-enable na one-tap tools</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Backup &amp; Restore</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Ang backup na ito ay ginawa sa Android %1$s, ngunit ang device na ito ay gumagamit ng Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Ang backup na ito ay ginawa sa ibang device (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Ang backup na ito ay mula sa ibang edisyon ng app (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Ang history data ng backup na ito (statistics, compression history, swipe sessions) ay mula sa ibang bersyon ng app at hindi maaaring ibalik. Ang lahat ng iba ay mababawi.</string>
+    <string name="backup_restore_warn_history_body">Ang kasaysayan ng data ng backup na ito (istatistika, kasaysayan ng compression, swipe sessions) ay mula sa ibang bersyon ng app at hindi maaaring ibalik. Maibabalik ang lahat ng iba pa.</string>
     <string name="backup_restore_ack_understand">Nauunawaan ko at nais kong magpatuloy</string>
     <string name="backup_restore_action_restore">I-restore</string>
 </resources>

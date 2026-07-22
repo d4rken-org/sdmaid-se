@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">როგორ დაგეხმაროთ</string>
     <string name="upgrade_screen_how_body">გახდით მფარველი და სპონსორობა გაუწიეთ განვითარებას! შეეხეთ ქვემოთ მოცემულ ღილაკს, რათა ააქტიუროთ ყველა დამატებითი ფუნქცია და გახსნათ ჩემი GitHub Sponsors პროფილი.</string>
     <string name="upgrade_screen_why_title">განახლების უპირატესობები</string>
-    <string name="upgrade_screen_why_body">• აპის კეშისა და ზედმეტი მონაცემების გაწმენდა
-• დუბლირებული ფაილების წაშლა
-• დაგეგმილი გაწმენდის ჩართვა
-• მომხმარებლის ფილტრები და გაწმენდის წესების შექმნა
-• შენახვის ტენდენციების და გაწმენდის ისტორიის მეთვალყურება
-• მეტი ფუნქციები და კონტროლი აპის მასშტაბით
-• ღია კოდის მხარდაჭერა</string>
+    <string name="upgrade_screen_why_body">• აპლიკაციის ქეშისა და ნაგვის გასუფთავება\n• დუბლიკატი ფაილების წაშლა\n• ფოტოსა და ვიდეოს შეკუმშვა\n• ძველი ფაილების გასუფთავება გადაფურცვის მეშვეობით\n• ერთი შეხებით გასუფთავება ვიჯეტის მეშვეობით\n• გასუფთავების დაგეგმვა\n• მორგებული ფილტრები და წესები\n• საცავის ტენდენციები და ისტორია\n• მეტი ფუნქცია და კონტროლი აპლიკაციის მასშტაბით\n• ღია კოდის მუშაობის მხარდაჭერა</string>
     <string name="upgrade_screen_sponsor_action">სპონსორის განვითარება</string>
     <string name="upgrade_screen_sponsor_action_hint">ალტერნატივა არის რეკლამა, ანალიტიკა და Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">გმადლობთ ღია კოდის განვითარების მხარდაჭერისთვის ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">უკვე დაბრუნდით? თქვენი მხარდაჭერა SD Maid-ს სიცოცხლეს ანარჩუნებს!</string>
+    <string name="upgrade_screen_status_free_title">უფასო ვერსია</string>
+    <string name="upgrade_screen_status_free_body">თქვენ იყენებთ SD Maid-ის უფასო ვერსიას. დამატებითი ფუნქციების განბლოკვა შესაძლებელია განვითარების მხარდაჭერით.</string>
+    <string name="upgrade_screen_status_free_action">იხილეთ განახლების ვარიანტები</string>
+    <string name="upgrade_screen_status_upgraded_title">განახლება აქტიურია</string>
+    <string name="upgrade_screen_status_upgraded_body">ყველა დამატებითი ფუნქცია განბლოკილია. მადლობა ღია კოდის განვითარების მხარდასაჭერად ❤️</string>
+    <string name="upgrade_screen_recurring_title">გააგრძელე</string>
+    <string name="upgrade_screen_recurring_body">SD Maid განაგრძობს განვითარებას განახლებებისა და გამოსწორებების საშუალებით. თუ გსურთ ამის მხარდაჭერა, გაითვალისწინეთ განმეორებული დონაცია GitHub Sponsors-ის მეშვეობით.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors-ის გახსნა</string>
 </resources>

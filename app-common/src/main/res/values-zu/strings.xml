@@ -38,6 +38,7 @@
     <string name="general_error_label">Iphutha</string>
     <string name="general_upgrade_action">Thuthukisa</string>
     <string name="general_refresh_action">Vuselela</string>
+    <string name="general_retry_action">Zama futhi</string>
     <string name="general_progress_searching">Iyasesha</string>
     <string name="general_progress_generating_searchpaths">Yakha indlela zokusesha</string>
     <string name="general_progress_filtering">Iyahlola</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Igama (A → Z)</string>
     <string name="general_sort_size_desc">Olukhulu kuqala</string>
     <string name="general_tag_system">Uhlelo</string>
+    <string name="general_tag_library">Ithala</string>
     <string name="general_navigate_up_action">Hamba phezulu</string>
     <string name="general_filter_action">Hlola</string>
     <string name="general_filter_by_tags_label">Hlela ngezilebhu</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Bika iphutha</string>
     <string name="general_error_ipc_deadobject_title">Ukuxhuma Kwensizakalo Kulahlekile</string>
     <string name="general_error_ipc_deadobject_description">Ukuxhuma ensizakalweni ebalulekile (isib. Magisk, Shizuku, noma ezinye izinsizakalo zezinga lesistimu) kulahleke ngendlela engalindelekile. Sicela uphinde uqalise idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma xhumana nami ukuze ngiyilungise.</string>
-    <string name="general_error_upgrade_required_title">Inguqulo ye-Pro yenelekile</string>
-    <string name="general_error_upgrade_required_description">Lena inguqulo ye-Pro. Ngiyacela uku-upgrade i-SD Maid SE ukuze ukwazi ukuyisebenzisa.</string>
+    <string name="general_error_upgrade_required_title">I-upgrade iyafunekile</string>
+    <string name="general_error_upgrade_required_description">Ingalo eningilo idinga i-upgrade. Ngiyacela u-upgrade SD Maid SE ukuze yisebenzise.</string>
     <string name="general_user_label_owner">Umnikazi</string>
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>

@@ -46,9 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">%1$s skannimine sisaldab iga faili sellel hoiuruumil — fotosid, dokumente, allalaadimisi, rakenduse meediat ja muud. Jätkata?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Jätka siiski</string>
     <string name="swiper_session_risky_label">Kogu hoiuruumi skannimine</string>
-    <string name="swiper_session_risky_info_message">See seanss suunatakse salvestusseadme juurikaustale, nii et kõik selle salvestuse failid on kaasatud — fotod, dokumendid, allalaadimised, rakenduse meedia ja palju muud.
-
-Täissalvestuse skaneerimised võivad tagastada palju elemente, sealhulgas faile, mida te võib-olla ei kavatsenud üle vaadata. Skaneerimise kitsendamiseks rakendage faili tüübi filtrit.</string>
+    <string name="swiper_session_risky_info_message">See seanss suunatakse salvestusseadme juurikaustale, nii et kõik selle salvestuse failid on kaasatud — fotod, dokumendid, allalaadimised, rakenduse meedia ja palju muud.\n\nTäissalvestuse skaneerimised võivad tagastada palju elemente, sealhulgas faile, mida te võib-olla ei kavatsenud üle vaadata. Skaneerimise kitsendamiseks rakendage faili tüübi filtrit.</string>
     <string name="swiper_delete_x_action">Kustuta %1$d</string>
     <string name="swiper_settings_swap_directions_title">Pühkimise suunad</string>
     <string name="swiper_settings_swap_directions_summary">Säilitamiseks pühi vasakule, kustutamiseks paremale.</string>
@@ -162,8 +160,8 @@ Täissalvestuse skaneerimised võivad tagastada palju elemente, sealhulgas faile
     <string name="swiper_session_no_matching_files">Ühtegi sobivat faili ei leitud</string>
     <string name="swiper_open_externally_action">Ava muus rakenduses</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Libista fotot, et otsustada selle saatus: küljele libistades hoia või kustuta, üles libistades jäta vahele, alla libistades tühista. Allpool olevad nupud teevad sama — ja näitavad, kumb pool on kumb.</string>
-    <string name="tour_swiper_openin_body">See nupp avab foto teises rakenduses, mugav kontrollida enne otsustamist.</string>
+    <string name="tour_swiper_gestures_body">Lohistage faili, et otsustada selle saatus: küljele hoidmiseks või kustutamiseks, üles vahele jätmiseks, alla tühistamiseks. Allpool olevad nupud teevad sama ja näitavad, kumb pool on kumb.</string>
+    <string name="tour_swiper_openin_body">See nupp avab faili teises rakenduses, käepärane selle kontrollimiseks enne otsustamist.</string>
     <string name="tour_swiper_preview_body">See nupp avab täisekraanil eelvaate lähemale vaatamiseks.</string>
     <string name="tour_swiper_actions_body">Ei meeldi libistamine? Meil on ka nupud! Jäta vahele jätab selle otsustamata hilisemaks ja pikk vajutus nupule Jäta vahele välistab faili tulevastest skaneeringutest. Tühista tühistab teie viimase valiku.</string>
     <string name="tour_swiper_review_body">Teie säilitamise ja kustutamise valikud on ainult etapiks. Avage Ülevaade, et neid üle vaadata ja rakendada kustutamised, kui olete valmis.</string>

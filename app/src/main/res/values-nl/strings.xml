@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s vrijgemaakt</string>
     <string name="dashboard_hero_freeable_x_items">%1$s kan worden verwijderd</string>
     <string name="dashboard_hero_freed_x_items">%1$s verwijderd</string>
-    <string name="dashboard_hero_freeable_hint">Raak de knop aan om ruimte vrij te maken. Raak een chip aan om eerst te controleren.</string>
+    <string name="dashboard_hero_freeable_hint">Tik op de knop om ruimte vrij te maken, of op een chip om eerst te controleren.</string>
     <string name="dashboard_hero_freed_hint">Raak een chip aan voor details.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Gescand %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Volgende overeenkomst</string>
     <string name="debug_logview_jump_to_bottom_action">Spring naar nieuwste</string>
     <string name="debug_logview_paused_msg">Gepauzeerd — buffer bevroren</string>
-    <string name="debug_logview_paused_dropped_msg">Gepauzeerd — %1$d nieuwe regel(s) overgeslagen</string>
+    <string name="debug_logview_paused_dropped_msg">Gepauzeerd — nieuwe regels overgeslagen: %1$d</string>
     <string name="debug_logview_copied_msg">Log naar klembord gekopieerd</string>
     <string name="debug_logview_share_label">Log delen</string>
     <string name="debug_debuglog_screen_title">Debug-logboek</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Privacybeleid</string>
     <string name="settings_privacy_policy_desc">Verantwoord met gegevens omgaan.</string>
     <string name="settings_category_other_label">Andere</string>
+    <string name="settings_upgrade_description">Status en opties upgraden.</string>
     <string name="general_settings_label">Algemeen</string>
     <string name="general_settings_desc">Algemene aanpassingen die de hele app beïnvloeden.</string>
     <string name="settings_category_ui_label">Gebruikersinterface</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Opslaggebruik en opschoning met één tik</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Vrijgemaakt: %1$s</string>
+    <string name="widget_home_freed_label">Levensduur: %1$s</string>
     <string name="widget_home_clean_action">Schoonmaken</string>
     <string name="widget_home_working">Bezig…</string>
     <string name="widget_home_unavailable">Opslag niet beschikbaar</string>
-    <string name="shortcut_onetap_started">Scan &amp; verwijderen gestart…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Laat de Clean-knop van de startscherm-widget in één tik scannen en verwijderen, zonder elke keer te vragen.</string>
+    <string name="widget_oneclick_consent_title">Eén-tiks reinigen inschakelen?</string>
+    <string name="widget_oneclick_consent_message">De Clean-knop van de widget zal in één keer scannen en verwijderen, zonder eerst te vragen of u te laten controleren wat wordt verwijderd.</string>
+    <string name="widget_oneclick_consent_enable_action">Inschakelen</string>
+    <string name="widget_oneclick_consent_decline_action">Nu niet</string>
+    <string name="shortcut_onetap_started">Scan + verwijderen gestart…</string>
     <string name="shortcut_onetap_nothing_enabled">Geen one-tap hulpmiddelen ingeschakeld</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Back-up &amp; Herstellen</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Deze back-up is gemaakt op Android %1$s, maar dit apparaat voert Android %2$s uit.</string>
     <string name="backup_restore_warn_device_body">Deze back-up is gemaakt op een ander apparaat (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Deze back-up is van een andere app-editie (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">De geschiedenisgegevens van deze back-up (statistieken, compressiegeschiedenis, swipe-sessies) zijn van een andere app-versie en kunnen niet worden hersteld. Al het andere wel.</string>
+    <string name="backup_restore_warn_history_body">De geschiedenisgegevens van deze back-up (statistieken, compressiegeschiedenis, swipe-sessies) zijn van een verschillende app-versie en kunnen niet worden hersteld. Al het andere wordt wel hersteld.</string>
     <string name="backup_restore_ack_understand">Ik begrijp het en wil doorgaan</string>
     <string name="backup_restore_action_restore">Herstellen</string>
 </resources>

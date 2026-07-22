@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s frigjord</string>
     <string name="dashboard_hero_freeable_x_items">%1$s kan tas bort</string>
     <string name="dashboard_hero_freed_x_items">%1$s borttagen</string>
-    <string name="dashboard_hero_freeable_hint">Tryck på knappen för att frigöra utrymme. Tryck på en chip för att kontrollera först.</string>
+    <string name="dashboard_hero_freeable_hint">Tryck på knappen för att frigöra utrymme, eller på ett chip för att kontrollera först.</string>
     <string name="dashboard_hero_freed_hint">Tryck på en chip för detaljer.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannade %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Nästa träff</string>
     <string name="debug_logview_jump_to_bottom_action">Hoppa till senaste</string>
     <string name="debug_logview_paused_msg">Pausad — buffert fryst</string>
-    <string name="debug_logview_paused_dropped_msg">Pausad — %1$d nya rader hoppade över</string>
+    <string name="debug_logview_paused_dropped_msg">Pausad — nya rader överhoppade: %1$d</string>
     <string name="debug_logview_copied_msg">Logg kopierad till urklipp</string>
     <string name="debug_logview_share_label">Dela logg</string>
     <string name="debug_debuglog_screen_title">Felsökningslogg</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Sekretesspolicy</string>
     <string name="settings_privacy_policy_desc">Hantering av uppgifter på ett ansvarsfullt sätt.</string>
     <string name="settings_category_other_label">Övriga</string>
+    <string name="settings_upgrade_description">Uppgradera status och alternativ.</string>
     <string name="general_settings_label">Allmänt</string>
     <string name="general_settings_desc">Allmänna justeringar som påverkar hela appen.</string>
     <string name="settings_category_ui_label">Användargränssnitt</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Lagringsanvändning och engångsrensning</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Frigjord: %1$s</string>
+    <string name="widget_home_freed_label">Livstid: %1$s</string>
     <string name="widget_home_clean_action">Rensa</string>
     <string name="widget_home_working">Arbetar…</string>
     <string name="widget_home_unavailable">Lagring inte tillgänglig</string>
-    <string name="shortcut_onetap_started">Skanning &amp; borttagning startad…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Låt hemskärmens widgets rengöringsknapp söka igenom och ta bort på ett tryck, utan att fråga varje gång.</string>
+    <string name="widget_oneclick_consent_title">Aktivera rengöring på ett tryck?</string>
+    <string name="widget_oneclick_consent_message">Widgetens rengöringsknapp kommer att söka igenom och ta bort i en gång, utan att fråga först eller låta dig se vad som tas bort.</string>
+    <string name="widget_oneclick_consent_enable_action">Aktivera</string>
+    <string name="widget_oneclick_consent_decline_action">Inte nu</string>
+    <string name="shortcut_onetap_started">Genomsökning + borttagning påbörjad…</string>
     <string name="shortcut_onetap_nothing_enabled">Inga verktyg för ettknappsrensning är aktiverade</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Säkerhetskopiering &amp; Återställning</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Denna säkerhetskopia gjordes på Android %1$s, men denna enhet kör Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Denna säkerhetskopia gjordes på en annan enhet (%1$s kontra %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Den här säkerhetskopian är från en annan appversion (%1$s jämfört med %2$s).</string>
-    <string name="backup_restore_warn_history_body">Säkerhetskopians historikdata (statistik, komprimeringshistorik, svepessioner) är från en annan appversion och kan inte återställas. Allt annat kommer att återställas.</string>
+    <string name="backup_restore_warn_history_body">Den här säkerhetskopians historikdata (statistik, komprimeringshistorik, svepesessioner) är från en annan appversion och kan inte återställas. Allt annat kommer att återställas.</string>
     <string name="backup_restore_ack_understand">Jag förstår och vill fortsätta</string>
     <string name="backup_restore_action_restore">Återställ</string>
 </resources>

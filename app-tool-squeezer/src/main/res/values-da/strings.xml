@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Estimeret ~%d%% besparelser for JPEG-filer</string>
     <string name="squeezer_onboarding_got_it">Forstået</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer genkomprimerer dine billeder og videoer, så de fylder mindre. Filerne forbliver brugbare, bare mindre, og hver enkelt viser sin estimerede besparelse.</string>
+    <string name="tour_squeezer_intro_body">Squeezer komprimerer dine fotos og videoer igen, så de fylder mindre. Du bytter lidt kvalitet for den plads, du får tilbage. Hvert element viser sin estimerede besparelse, så du kan beslutte, hvad der er værd det.</string>
     <string name="tour_squeezer_compress_body">Komprimer alt på én gang her, eller tryk på et enkelt element for kun at formindske det. Langt tryk for at vælge flere. Du ser altid en forhåndsvisning, før der sker noget.</string>
 </resources>

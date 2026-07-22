@@ -40,9 +40,7 @@
     <string name="swiper_sensitive_root_warning_message">%1$sをスキャンすると、このストレージのすべてのファイル（写真、ドキュメント、ダウンロード、アプリメディアなど）が対象になります。続行しますか？</string>
     <string name="swiper_sensitive_root_warning_continue_action">それでも続行する</string>
     <string name="swiper_session_risky_label">ストレージ全体のスキャン</string>
-    <string name="swiper_session_risky_info_message">このセッションはストレージボリュームのルートが対象なので、そのストレージのすべてのファイル（写真、ドキュメント、ダウンロード、アプリメディアなど）が対象になります。
-
-ストレージ全体のスキャンでは、確認するつもりなかったファイルを含む多くの項目が返されることがあります。ファイルタイプフィルタを適用してスキャンを絞ります。</string>
+    <string name="swiper_session_risky_info_message">このセッションはストレージボリュームのルートが対象なので、そのストレージのすべてのファイル（写真、ドキュメント、ダウンロード、アプリメディアなど）が対象になります。\n\nストレージ全体のスキャンでは、確認するつもりなかったファイルを含む多くの項目が返されることがあります。ファイルタイプフィルタを適用してスキャンを絞ります。</string>
     <string name="swiper_delete_x_action">%1$d 個を削除</string>
     <string name="swiper_settings_swap_directions_title">スワイプ方向を入れ替え</string>
     <string name="swiper_settings_swap_directions_summary">左にスワイプで保持、右にスワイプで削除。</string>
@@ -145,8 +143,8 @@
     <string name="swiper_session_no_matching_files">一致するファイルが見つかりません</string>
     <string name="swiper_open_externally_action">外部アプリで開く</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">写真をスワイプして判断します。横スワイプで保持または削除、上スワイプでスキップ、下スワイプで戻します。下のボタンも同じ機能があり、どちらがどちらかを表示します。</string>
-    <string name="tour_swiper_openin_body">このボタンは写真を別のアプリで開きます。判断前に確認するのに便利です。</string>
+    <string name="tour_swiper_gestures_body">ファイルをスワイプして、その運命を決めます: 横にスワイプすると保存または削除、上にスワイプするとスキップ、下にスワイプすると元に戻します。下のボタンでも同じことができ、どちらがどちらの操作かも表示されます。</string>
+    <string name="tour_swiper_openin_body">このボタンでファイルを別のアプリで開き、判断前に確認できます。</string>
     <string name="tour_swiper_preview_body">このボタンで全画面プレビューを開いて、詳しく確認できます。</string>
     <string name="tour_swiper_actions_body">スワイプが好みでなければボタンもあります！スキップは後で判断するため未決定のままにし、スキップを長押しするとファイルを今後のスキャンから除外します。戻すは最後の選択を元に戻します。</string>
     <string name="tour_swiper_review_body">保持と削除の選択は一時的なものです。確認を開いて確認し、準備ができたら削除を適用してください。</string>

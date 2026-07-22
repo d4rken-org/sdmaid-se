@@ -38,6 +38,7 @@
     <string name="general_error_label">లోపం</string>
     <string name="general_upgrade_action">అప్‌గ్రేడ్ చేయండి</string>
     <string name="general_refresh_action">రిఫ్రెష్ చేయండి</string>
+    <string name="general_retry_action">మళ్లీ ప్రయత్నించండి</string>
     <string name="general_progress_searching">వెతుకుతూంది</string>
     <string name="general_progress_generating_searchpaths">వెతుకుట మార్గాలను రూపొందిస్తుంది</string>
     <string name="general_progress_filtering">ఫిల్టర్ చేస్తుంది</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">పేరు (A → Z)</string>
     <string name="general_sort_size_desc">పెద్దవి ముందు</string>
     <string name="general_tag_system">సిస్టం</string>
+    <string name="general_tag_library">లైబ్రరీ</string>
     <string name="general_navigate_up_action">పైకి నావిగేట్ చేయండి</string>
     <string name="general_filter_action">ఫిల్టర్ చేయండి</string>
     <string name="general_filter_by_tags_label">ట్యాగ్‌ల ద్వారా ఫిల్టర్ చేయండి</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">బగ్ రిపోర్ట్ చేయండి</string>
     <string name="general_error_ipc_deadobject_title">సేవా కనెక్షన్ కోల్పోయింది</string>
     <string name="general_error_ipc_deadobject_description">క్రిటికల్ సేవకు (ఉదా. Magisk, Shizuku, లేదా ఇతర సిస్టమ్-స్థాయి సేవలు) కనెక్షన్ అనుకోకుండా కోల్పోయింది. దయచేసి మీ పరికరాన్ని రీస్టార్ట్ చేయండి. సమస్య కొనసాగితే, అప్‌డేట్‌లను తనిఖీ చేయండి లేదా దాన్ని పరిష్కరించడానికి నన్ను సంప్రదించండి.</string>
-    <string name="general_error_upgrade_required_title">Pro సంస్కరణ అవసరం</string>
-    <string name="general_error_upgrade_required_description">ఇది Pro ఫీచర్. దీనిని ఉపయోగించడానికి దయచేసి SD Maid SE ను అప్‌గ్రేడ్ చేయండి.</string>
+    <string name="general_error_upgrade_required_title">అప్‌గ్రేడ్ అవసరం</string>
+    <string name="general_error_upgrade_required_description">ఈ ఫీచర్ కు అప్‌గ్రేడ్ అవసరం. దీన్ని ఉపయోగించడానికి దయచేసి SD Maid SE ను అప్‌గ్రేడ్ చేయండి.</string>
     <string name="general_user_label_owner">యజమాని</string>
     <string name="general_user_label_system">సిస్టమ్</string>
     <string name="setup_title">సెటప్</string>

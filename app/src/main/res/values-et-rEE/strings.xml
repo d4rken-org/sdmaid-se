@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s vabastatud</string>
     <string name="dashboard_hero_freeable_x_items">%1$s saab eemaldada</string>
     <string name="dashboard_hero_freed_x_items">%1$s eemaldatud</string>
-    <string name="dashboard_hero_freeable_hint">Vajuta nuppu, et vabastada ruumi. Esmalt vajuta kiibi peale, et kontrollida.</string>
+    <string name="dashboard_hero_freeable_hint">Puuduta nuppu ruumi vabastamiseks, või puuduta kiipi esmalt kontrollimiseks.</string>
     <string name="dashboard_hero_freed_hint">Vajuta kiibi peale täpsemalt.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skaneeritud %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Järgmine vaste</string>
     <string name="debug_logview_jump_to_bottom_action">Hüppa viimasele</string>
     <string name="debug_logview_paused_msg">Pauseeritud — puhver külmutatud</string>
-    <string name="debug_logview_paused_dropped_msg">Pauseeritud — %1$d uut rida vahele jäetud</string>
+    <string name="debug_logview_paused_dropped_msg">Peatatud — uued read vahele jäetud: %1$d</string>
     <string name="debug_logview_copied_msg">Logi kopeeritud lõikelauale</string>
     <string name="debug_logview_share_label">Jaga logi</string>
     <string name="debug_debuglog_screen_title">Silumislogi</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Privaatsusteatis</string>
     <string name="settings_privacy_policy_desc">Andmete vastutustundlik haldamine.</string>
     <string name="settings_category_other_label">Muu</string>
+    <string name="settings_upgrade_description">Uuenda olekut ja valikuid.</string>
     <string name="general_settings_label">Üldine</string>
     <string name="general_settings_desc">Üldseaded, mis mõjutavad kogu rakendust.</string>
     <string name="settings_category_ui_label">Kasutajaliides</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Salvestusruumi kasutamine ja ühe puudutusega puhastamine</string>
     <string name="widget_home_storage_internal">Sisemine</string>
     <string name="widget_home_storage_external">Väline</string>
-    <string name="widget_home_freed_label">Vabanes: %1$s</string>
+    <string name="widget_home_freed_label">Eluiga: %1$s</string>
     <string name="widget_home_clean_action">Puhasta</string>
     <string name="widget_home_working">Töötamine…</string>
     <string name="widget_home_unavailable">Salvestusruum pole saadaval</string>
-    <string name="shortcut_onetap_started">Skaneerimine &amp; kustutamine alustatud…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Lase kodulehe vidina Puhasta nupul skannida ja kustutada ühe puudutusega, ilma iga kord küsimata.</string>
+    <string name="widget_oneclick_consent_title">Lubada ühe puudutusega puhastamine?</string>
+    <string name="widget_oneclick_consent_message">Vidina Puhasta nupp skannib ja kustutab korraga, ilma küsimata ja ülevaatamise võimaluseta.</string>
+    <string name="widget_oneclick_consent_enable_action">Luba</string>
+    <string name="widget_oneclick_consent_decline_action">Mitte praegu</string>
+    <string name="shortcut_onetap_started">Skaneerimine + Kustutamine alustati…</string>
     <string name="shortcut_onetap_nothing_enabled">Ühtegi üheklopsutööriista pole lubatud</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Varukoopia &amp; taastamine</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">See varukoopia tehti Androidil %1$s, kuid see seade käitab Androidi %2$s.</string>
     <string name="backup_restore_warn_device_body">See varukoopia tehti muul seadmel (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">See varukoopia on rakenduse erinevast väljaandest (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Selle varukoopia ajalooandmed (statistika, pakkimisajalugu, pühkimise seansid) on rakenduse erinevast versioonist ja ei ole taastetavad. Kõik ülejäänud taastetakse.</string>
+    <string name="backup_restore_warn_history_body">Selle varukoopiaga seotud ajalooandmed (statistika, pakkimise ajalugu, lohistamise seansid) on teisest rakenduse versioonist ja ei saa taastada. Kõik muu taastatakse.</string>
     <string name="backup_restore_ack_understand">Saan aru ja tahan jätkata</string>
     <string name="backup_restore_action_restore">Taasta</string>
 </resources>

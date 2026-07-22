@@ -38,6 +38,7 @@
     <string name="general_error_label">Error</string>
     <string name="general_upgrade_action">Actualizar</string>
     <string name="general_refresh_action">Actualizar</string>
+    <string name="general_retry_action">Reintentar</string>
     <string name="general_progress_searching">Buscando</string>
     <string name="general_progress_generating_searchpaths">Generando las rutas de la búsqueda</string>
     <string name="general_progress_filtering">Filtrando</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nombre (A → Z)</string>
     <string name="general_sort_size_desc">Más grandes primero</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Biblioteca</string>
     <string name="general_navigate_up_action">Navegar arriba</string>
     <string name="general_filter_action">Filtrar</string>
     <string name="general_filter_by_tags_label">Filtrar por etiquetas</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Informar de un error</string>
     <string name="general_error_ipc_deadobject_title">Se ha perdido la conexión con el servidor</string>
     <string name="general_error_ipc_deadobject_description">Se ha perdido inesperadamente la conexión con un servicio esencial (por ejemplo, Magisk, Shizuku u otros servicios del sistema). Reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o ponte en contacto conmigo para que pueda solucionarlo.</string>
-    <string name="general_error_upgrade_required_title">Se requiere versión Pro</string>
-    <string name="general_error_upgrade_required_description">Esta es una característica Pro. Por favor, actualiza SD Maid SE para usarla.</string>
+    <string name="general_error_upgrade_required_title">Actualización requerida</string>
+    <string name="general_error_upgrade_required_description">Esta función requiere una actualización. Por favor, actualiza SD Maid SE para usarla.</string>
     <string name="general_user_label_owner">Autor</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuración</string>

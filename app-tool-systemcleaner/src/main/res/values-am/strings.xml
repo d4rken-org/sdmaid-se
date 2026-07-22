@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">አዲስ ማጣሪያ አስመጣ</string>
     <string name="systemcleaner_customfilter_export_action">የተመረጠ ማጣሪያ ላክ</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner ፕሮግራም ያልተወሰነ ማጣሪያ ተጠቅሞ ብልቻ ይፍልጋል። ባዶ አቃፊዎች፣ ቀሪ ምዝግብ እና ድር ምስሎች ለሚሉ ነገርች ለተዝጋጁ ሕገች አሉ። አንተ የራስህን ፈልፐ ከሆነ ቅንብር ገብኝ።</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner ትግበራ-ተለዋዋጭ ያልሆኑ ሳጥን ተጠቀሚ ጫጫታ ያገኛል። ባዶ ፎልደር፣ ቀሪ ሎግ እና ጊዜ ያለፈ ሰዓት ለሚሉ ነገሮች ዝግጅት ያለ ሕግጋት አለ። ራስዎ ለመፍጠር ከፈለጉ ቅናናሙን ይጎብኙ።</string>
     <string name="tour_systemcleaner_filter_body">እያንዳንዱ ሬድፍ ማጣሪያ እና የተገኞው ውጠት ነው። ዝርዝሩን ክፍት ወደ ምን ፋይሎች ለይ ሲወል ለመመልከት ሰዝተሃቸውን ከመሰረዝ በፊት።</string>
 </resources>

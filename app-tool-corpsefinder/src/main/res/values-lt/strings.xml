@@ -30,8 +30,7 @@
     <string name="corpsefinder_filter_publicdata_label">Viešieji programėlės duomenys</string>
     <string name="corpsefinder_filter_publicdata_summary">Neskelbtini programėlės duomenys, pvz., žemėlapių talpyklos.</string>
     <string name="corpsefinder_filter_sdcard_label">SD kortelė</string>
-    <string name="corpsefinder_filter_sdcard_summary">Bendra viešoji saugykla, vidinė ir išorinė 
-(pvz., SD kortelės).</string>
+    <string name="corpsefinder_filter_sdcard_summary">Bendra viešoji saugykla, vidinė ir išorinė \n(pvz., SD kortelės).</string>
     <string name="corpsefinder_filter_privatedata_label">Privatūs programėlės duomenys</string>
     <string name="corpsefinder_filter_privatedata_summary">Privatūs programėlės duomenys, pvz., įgaliojimai, programėlės nustatymai, taip pat naršyklės talpyklos.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik talpykla</string>
@@ -69,6 +68,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Nėra žymos</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standartinis likutis. Paprastai saugus šalinti — šie failai priklauso jau pašalintoms programėlėms.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder randa duomenis, paliktus jau pašalintų programėlių. Jie nebepriklauso jokiai įdiegtai programai, todėl jų pašalinimas yra saugus ir atlaisvina vietą.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder randa duomenis, kuriuos paliko programos, kurias jau pašalinote. Jie nebepriklauso jokiai įdiegtai programai, todėl jų pašalinimas atlaisvina vietą. Dauguma jų yra saugios pašalinti, bet patikrinkite žymeklį, kai nepasitikite.</string>
     <string name="tour_corpsefinder_row_body">Kiekvienas elementas yra likutiniai duomenys ir programėlė, iš kurios jie atsirado. Žyma rodo, kaip užtikrinta SD Maid, kad saugiai galima juos pašalinti — norėdami sužinoti, ką reiškia žymos, spustelėkite ⓘ viršuje.</string>
 </resources>

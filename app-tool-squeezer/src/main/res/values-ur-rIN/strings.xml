@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">JPEG فائلوں کے لیے تخمینی ~%d%% بچت</string>
     <string name="squeezer_onboarding_got_it">سمجھ گیا</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer آپ کی تصاویر اور ویڈیوز کو دوبارہ کمپریس کرتا ہے تاکہ وہ کم جگہ لیں۔ فائلیں قابلِ استعمال رہتی ہیں، صرف چھوٹی ہوتی ہیں، اور ہر ایک اپنی متوقع بچت دکھاتا ہے۔</string>
+    <string name="tour_squeezer_intro_body">Squeezer آپ کی تصاویر اور ویڈیوز کو دوبارہ کمپریس کرتا ہے تاکہ وہ کم جگہ لیں۔ آپ معمولی کوالٹی سے سمجھوتہ کر کے جگہ حاصل کرتے ہیں۔ ہر چیز اپنی متوقع بچت دکھاتی ہے، تو آپ فیصلہ کر سکتے ہیں کہ یہ قابلِقدر ہے۔</string>
     <string name="tour_squeezer_compress_body">یہاں سب کچھ ایک ساتھ کمپریس کریں، یا صرف ایک چیز کو سکڑانے کے لیے اس پر ٹیپ کریں۔ متعدد کو منتخب کرنے کے لیے طویل دبائیں۔ آپ کو ہمیشہ کچھ بھی تبدیل ہونے سے پہلے پیش نظارہ نظر آئے گا۔</string>
 </resources>

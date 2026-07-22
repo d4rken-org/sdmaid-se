@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">លុបចោល %1$s</string>
     <string name="dashboard_hero_freeable_x_items">%1$s អាចដកចេញបាន</string>
     <string name="dashboard_hero_freed_x_items">ដកចេញ %1$s</string>
-    <string name="dashboard_hero_freeable_hint">ចុចប៊ូតុងដើម្បីលុបចោលទំហំ។ ចុចបន្ទះដើម្បីពិនិត្យមើលដំបូង។</string>
+    <string name="dashboard_hero_freeable_hint">ចុចប៉ោលដើម្បីលាតលំហ ឬចុចឈីបដើម្បីពិនិត្យមើលដំបូង។</string>
     <string name="dashboard_hero_freed_hint">ចុចបន្ទះដើម្បីមើលព័ត៌មានលម្អិត។</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ស្កេន %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ការផ្គូផ្គងបន្ទាប់</string>
     <string name="debug_logview_jump_to_bottom_action">លោតទៅចុងក្រោយ</string>
     <string name="debug_logview_paused_msg">បានផ្អាក — ឆ្នាំងស្តុកបានចាក់សោ</string>
-    <string name="debug_logview_paused_dropped_msg">បានផ្អាក — បានលុបចោល %1$d បន្ទាត់ថ្មី</string>
+    <string name="debug_logview_paused_dropped_msg">ផ្អាក — បន្ទាត់ថ្មីលែង: %1$d</string>
     <string name="debug_logview_copied_msg">ចម្លងកំណត់ហេតុទៅក្តាច់</string>
     <string name="debug_logview_share_label">ចែករំលែកកំណត់ហេតុ</string>
     <string name="debug_debuglog_screen_title">កំណត់ហេតុបំបាត់កំហុស</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">គោលការណ៍ឯកជនភាព</string>
     <string name="settings_privacy_policy_desc">ការដោះស្រាយទិន្នន័យដោយមានការទទួលខុសត្រូវ។</string>
     <string name="settings_category_other_label">ដទៃ</string>
+    <string name="settings_upgrade_description">ឡើងថ្នាក់ស្ថានភាព និងជម្រើស។</string>
     <string name="general_settings_label">ជាទូទៅ</string>
     <string name="general_settings_desc">ការកែលម្អ ទូទៅដែលប៉ះពាល់ដល់កម្មវិធីទាំងមូល។</string>
     <string name="settings_category_ui_label">អន្តរមុខអ្នកប្រើ</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">ការប្រើប្រាស់ឃ្លាំងផ្ទុក និងការសម្អាតម្តង</string>
     <string name="widget_home_storage_internal">ខាងក្នុង</string>
     <string name="widget_home_storage_external">ខាងក្រៅ</string>
-    <string name="widget_home_freed_label">បានរំដោះ៖ %1$s</string>
+    <string name="widget_home_freed_label">រយៈពេល: %1$s</string>
     <string name="widget_home_clean_action">សម្អាត</string>
     <string name="widget_home_working">កំពុងដំណើរការ…</string>
     <string name="widget_home_unavailable">ឃ្លាំងផ្ទុកមិនមាន</string>
-    <string name="shortcut_onetap_started">ការស្កេន &amp; លុបបានចាប់ផ្តើម…</string>
+    <string name="settings_category_widget">វីដែត</string>
+    <string name="widget_settings_oneclick_summary">ឱ្យប៉ោលសម្អាតលើវីដែតអេក្រង់ដើម អាចស្កេនលុបក្នុងលើកម្តង ដោយមិនសួរ។</string>
+    <string name="widget_oneclick_consent_title">ធ្វើឱ្យសកម្មការសម្អាតលើកម្តង?</string>
+    <string name="widget_oneclick_consent_message">ប៉ោលសម្អាតរបស់វីដែត នឹងស្កេនលុបក្នុងលើកម្តង ដោយមិនសួរដំបូង ឬឱ្យលោកអ្នកពិនិត្យលម្អិតថាដូចម្តេចដែលបានលុប។</string>
+    <string name="widget_oneclick_consent_enable_action">បើក</string>
+    <string name="widget_oneclick_consent_decline_action">មិនឥឡូវនេះ</string>
+    <string name="shortcut_onetap_started">ការស្កេន + លុបបានចាប់ផ្តើម…</string>
     <string name="shortcut_onetap_nothing_enabled">គ្មានឧបករណ៍ចុចម្តងដែលបានបើក</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">បម្រុង &amp; ស្ដារ</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">ការបម្រុងនេះត្រូវបានធ្វើលើ Android %1$s ប៉ុន្តែឧបករណ៍នេះដំណើរការលើ Android %2$s។</string>
     <string name="backup_restore_warn_device_body">ការបម្រុងនេះត្រូវបានធ្វើលើឧបករណ៍ផ្សេង (%1$s ធៀបនឹង %2$s)។</string>
     <string name="backup_restore_warn_flavor_body">ឯកសារបម្រុងទុកនេះគឺមកពីប្រភេទកម្មវិធីផ្សេងគ្នា (%1$s vs %2$s)។</string>
-    <string name="backup_restore_warn_history_body">ទិន្នន័យប្រវត្តិនៃឯកសារបម្រុងទុកនេះ (ស្ថិតិ, ប្រវត្តិការបង្ហាប់, សម័យលើច) គឺមកពីកម្មវិធីផ្នែកខុសគ្នា ហើយមិនអាចស្ដារឡើងវិញបានទេ។ រឿងផ្សេងទៀតទាំងអស់នឹងអាចស្ដារបាន។</string>
+    <string name="backup_restore_warn_history_body">ទិន្នន័យប្រវត្តិនៃការបម្រុងទុកនេះ (ស្ថិតិ ប្រវត្តិការបង្ហាប់ សម័យកាលលុប) គឺមកពីកំណែកម្មវិធីផ្សេងគ្នា ហើយមិនអាចស្ដារបានទេ។ អ្វីដទៃទៀតនឹងត្រូវបានស្ដារ។</string>
     <string name="backup_restore_ack_understand">ខ្ញុំយល់ដឹង ហើយចង់បន្តទៅ</string>
     <string name="backup_restore_action_restore">ស្ដារ</string>
 </resources>

@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Nincs jelölés</string>
     <string name="corpsefinder_markers_dialog_normal_description">Szokásos maradék. Általában biztonságos eltávolítani – ezek a fájlok olyan alkalmazásokhoz tartoznak, amelyeket már eltávolított.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">A CorpseFinder megtalálja az olyan alkalmazások által hagyott adatokat, amelyeket már eltávolított. Mivel ezek az adatok nem tartoznak semmilyen telepített alkalmazáshoz, biztonságos eltávolítani őket, és helyet szabadít fel.</string>
+    <string name="tour_corpsefinder_intro_body">A CorpseFinder megtalálja a már eltávolított alkalmazások által hátrahagyott adatokat. Ezek már nem tartoznak semmilyen telepített alkalmazáshoz, így eltávolításuk helyet szabadít fel. A legtöbbjük biztonságosan eltávolítható, de ellenőrizd a jelölést, ha bizonytalan vagy.</string>
     <string name="tour_corpsefinder_row_body">Minden elem egy-egy maradék adat és az abból származó alkalmazás. A jelölés mutatja, hogy az SD Maid mennyire biztos benne, hogy biztonságos eltávolítani – a tetején lévő ⓘ gombra koppintva megtudhatja, mit jelentenek a jelölések.</string>
 </resources>

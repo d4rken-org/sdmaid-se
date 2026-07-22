@@ -8,6 +8,7 @@
         <item quantity="other">%d මාර්ග සේල කර ඇත</item>
     </plurals>
     <string name="picker_home_action">දත්ත ප්‍රදේශ</string>
+    <string name="picker_select_hint">තේරීම සඳහා අයිතමයක් අල්ලුන් සිටින්න</string>
     <string name="tour_action_next">ඉදිරි</string>
     <string name="tour_action_previous">පෙර</string>
     <string name="tour_action_cancel">මඟ හරින්න</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">චාරිකාව දිගටම කරගෙන යන්න</string>
     <string name="tour_confirm_dont_show_this_tour">මෙම මාර්ගෝපදේශිත චාරිකාව පෙන්වන්න එපා</string>
     <string name="tour_confirm_disable_all">සියලුම මාර්ගෝපදේශිත චාරිකා අබල කරන්න</string>
-    <string name="navigation_unknown_destination_title">ළඟදීම</string>
-    <string name="navigation_unknown_destination_message">මෙම තිරය තවමත් නව අතුරුමුහුණතට සංක්‍රමණය වෙමින් පවතී.</string>
+    <string name="navigation_unknown_destination_title">තිරය ලබා ගත නොහැකිවේ</string>
+    <string name="navigation_unknown_destination_message">මෙම තිරය විවෘත කළ නොහැකි විය.</string>
 </resources>

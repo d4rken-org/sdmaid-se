@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s خالی کیا گیا</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ہٹایا جا سکتا ہے</string>
     <string name="dashboard_hero_freed_x_items">%1$s ہٹایا گیا</string>
-    <string name="dashboard_hero_freeable_hint">جگہ خالی کرنے کے لیے بٹن کو تھپتھپائیں۔ پہلے چیک کرنے کے لیے ایک چپ کو تھپتھپائیں۔</string>
+    <string name="dashboard_hero_freeable_hint">جگہ خالی کرنے کے لیے بٹن دبائیں یا پہلے چیک کرنے کے لیے ایک چپ دبائیں</string>
     <string name="dashboard_hero_freed_hint">تفصیلات کے لیے ایک چپ کو تھپتھپائیں۔</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s اسکین کیا گیا</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">اگلا میچ</string>
     <string name="debug_logview_jump_to_bottom_action">تازہ ترین پر جائیں</string>
     <string name="debug_logview_paused_msg">موقوف — بفر منجمد ہے</string>
-    <string name="debug_logview_paused_dropped_msg">موقوف — %1$d نیا لائن(یں) چھوڑ دی گئیں</string>
+    <string name="debug_logview_paused_dropped_msg">موقوف — نئی لائنیں چھوڑی گئیں: %1$d</string>
     <string name="debug_logview_copied_msg">لاگ کلپ بورڈ پر کاپی ہوگیا</string>
     <string name="debug_logview_share_label">لاگ شیئر کریں</string>
     <string name="debug_debuglog_screen_title">ڈیبگ لاگ</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">پرائیویسی پالیسی</string>
     <string name="settings_privacy_policy_desc">ڈیٹا کو ذمہ داری سے سنبھالنا۔</string>
     <string name="settings_category_other_label">دیگر</string>
+    <string name="settings_upgrade_description">حالت اور اختیارات کو اپ گریڈ کریں</string>
     <string name="general_settings_label">عمومی</string>
     <string name="general_settings_desc">عمومی تبدیلیاں جو پوری ایپ کو متاثر کرتی ہیں۔</string>
     <string name="settings_category_ui_label">یوزر انٹرفیس</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">اسٹوریج کا استعمال اور ایک ٹیپ کی صفائی</string>
     <string name="widget_home_storage_internal">اندرونی</string>
     <string name="widget_home_storage_external">بیرونی</string>
-    <string name="widget_home_freed_label">خالی کیا گیا: %1$s</string>
+    <string name="widget_home_freed_label">عمر: %1$s</string>
     <string name="widget_home_clean_action">صاف کریں</string>
     <string name="widget_home_working">کام جاری ہے…</string>
     <string name="widget_home_unavailable">سٹوریج دستیاب نہیں ہے</string>
-    <string name="shortcut_onetap_started">اسکین &amp; حذف شروع ہو گیا…</string>
+    <string name="settings_category_widget">ویجٹ</string>
+    <string name="widget_settings_oneclick_summary">ہوم اسکرین ویجٹ کے صفائی بٹن کو ایک ٹیپ میں اسکین اور حذف کرنے دیں، ہر بار پوچھے بغیر</string>
+    <string name="widget_oneclick_consent_title">ایک ٹیپ صفائی فعال کریں؟</string>
+    <string name="widget_oneclick_consent_message">ویجٹ کا صفائی بٹن ایک جانب اسکین اور حذف کرے گا، پہلے پوچھے بغیر یا آپ کو نظرثانی کرنے کی اجازت دیے بغیر</string>
+    <string name="widget_oneclick_consent_enable_action">فعال کریں</string>
+    <string name="widget_oneclick_consent_decline_action">ابھی نہیں</string>
+    <string name="shortcut_onetap_started">اسکین + حذف شروع ہو گیا…</string>
     <string name="shortcut_onetap_nothing_enabled">کوئی ایک ٹیپ ٹول فعال نہیں ہے</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">بیک اپ &amp; بحالی</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">یہ بیک اپ Android %1$s پر بنایا گیا تھا، لیکن یہ ڈیوائس Android %2$s چلا رہا ہے۔</string>
     <string name="backup_restore_warn_device_body">یہ بیک اپ ایک مختلف ڈیوائس پر بنایا گیا تھا (%1$s بمقابلہ %2$s)۔</string>
     <string name="backup_restore_warn_flavor_body">یہ بیک اپ ایک مختلف ایپ ایڈیشن سے ہے (%1$s بمقابلہ %2$s)۔</string>
-    <string name="backup_restore_warn_history_body">اس بیک اپ کا ہسٹری ڈیٹا (شماریات، کمپریشن ہسٹری، سوائپ سیشنز) ایک مختلف ایپ ورژن سے ہے اور اسے بحال نہیں کیا جا سکتا۔ باقی سب کچھ بحال ہوگا۔</string>
+    <string name="backup_restore_warn_history_body">اس بیک اپ کا ہسٹری ڈیٹا (شماریات، کمپریشن ہسٹری، سوائپ سیشنز) ایک مختلف ایپ ورژن سے ہے اور بحال نہیں کیا جا سکتا۔ باقی سب کچھ بحال کیا جائے گا۔</string>
     <string name="backup_restore_ack_understand">میں سمجھتا ہوں اور جاری رکھنا چاہتا ہوں</string>
     <string name="backup_restore_action_restore">بحال کریں</string>
 </resources>

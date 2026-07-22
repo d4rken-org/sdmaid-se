@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Asnjë shënues</string>
     <string name="corpsefinder_markers_dialog_normal_description">Mbetje standarde. Në përgjithësi sigurt për t\'u hequr — këto skedarë përkasin aplikacioneve që nuk janë më të instaluara.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder gjen të dhëna të lëna pas nga aplikacionet që keni çinstaluar tashmë. Ato nuk i përkasin më asnjë aplikacioni të instaluar, kështu që heqja e tyre është e sigurt dhe lirohet hapësira.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder gjen të dhëna të lëna prapa nga aplikacionet që keni hequr tashmë. Ato nuk i përkasin më asnjë aplikacioni të instaluar, kështu që heqja e tyre çliron hapësirë. Shumica e tyre janë të sigurta për t\'u hequr, por kontrolloni shnënuesit kur jeni të pasigurt.</string>
     <string name="tour_corpsefinder_row_body">Secili artikull është të dhëna të mbetura dhe aplikacioni nga i cili vjen. Shënuesi tregon se sa i sigurt është SD Maid që heqja është e sigurt — prekni ⓘ në krye për të mësuar se çfarë nënkuptojnë shënuesit.</string>
 </resources>

@@ -9,6 +9,7 @@
         <item quantity="other">%d ceļi atlasīti</item>
     </plurals>
     <string name="picker_home_action">Datu apgabali</string>
+    <string name="picker_select_hint">Turiet vienumu, lai to atlasītu</string>
     <string name="tour_action_next">Nākamais</string>
     <string name="tour_action_previous">Iepriekšējais</string>
     <string name="tour_action_cancel">Izlaist</string>
@@ -17,6 +18,6 @@
     <string name="tour_confirm_continue">Turpināt tūri</string>
     <string name="tour_confirm_dont_show_this_tour">Neparādīt šo tūri</string>
     <string name="tour_confirm_disable_all">Atspējot visas tūres</string>
-    <string name="navigation_unknown_destination_title">Drīzumā</string>
-    <string name="navigation_unknown_destination_message">Šis ekrāns vēl tiek migrēts uz jauno saskarni.</string>
+    <string name="navigation_unknown_destination_title">Ekrāns nav pieejams</string>
+    <string name="navigation_unknown_destination_message">Šo ekrānu nevarēja atvērt.</string>
 </resources>

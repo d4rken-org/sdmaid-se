@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s שוחרר</string>
     <string name="dashboard_hero_freeable_x_items">ניתן להסיר %1$s</string>
     <string name="dashboard_hero_freed_x_items">הוסר %1$s</string>
-    <string name="dashboard_hero_freeable_hint">הקש על הכפתור כדי לפנות מקום. הקש על שבב כדי לבדוק תחילה.</string>
+    <string name="dashboard_hero_freeable_hint">הקש על הכפתור כדי לשחרר מקום, או על שבב לבדיקה תחילה.</string>
     <string name="dashboard_hero_freed_hint">הקש על שבב לפרטים.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">נסרק %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">התאמה הבאה</string>
     <string name="debug_logview_jump_to_bottom_action">קפוץ לאחרון</string>
     <string name="debug_logview_paused_msg">מושהה — המאגר קפוא</string>
-    <string name="debug_logview_paused_dropped_msg">מושהה — %1$d שורות חדשות דולגו</string>
+    <string name="debug_logview_paused_dropped_msg">מושהה — שורות חדשות שדולגו: %1$d</string>
     <string name="debug_logview_copied_msg">היומן הועתק ללוח</string>
     <string name="debug_logview_share_label">שתף יומן</string>
     <string name="debug_debuglog_screen_title">יומן ניפוי שגיאות</string>
@@ -113,6 +113,7 @@
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
     <string name="settings_category_other_label">אחר</string>
+    <string name="settings_upgrade_description">שדרוג מצב ואפשרויות.</string>
     <string name="general_settings_label">כללי</string>
     <string name="general_settings_desc">שינויים כללים המשפיעים על כל האפליקציה.</string>
     <string name="settings_category_ui_label">ממשק משתמש</string>
@@ -224,8 +225,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">אפשר ל-SD Maid להשתמש ב- Shizuku במידת האפשר כדי לשפר תוצאות ולאפשר תכונות.</string>
     <string name="setup_shizuku_card_body2">להגדרה זו אין השפעה אם אפליקציית Shizuku אינה מוגדרת במכשיר שלך.</string>
-    <string name="setup_shizuku_card_root_info">Shizuku בשילוב עם הרשאות גישת root לא מאפשרים פונקציונליות נוספת, אבל משפרים האמינות.
-SD Maid ישתמש בו כאלטרנטיבה.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku בשילוב עם הרשאות גישת root לא מאפשרים פונקציונליות נוספת, אבל משפרים האמינות.\nSD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_shizuku_state_ready_label">קישור Shizuku מוכן.</string>
     <string name="setup_shizuku_state_waiting_label">מחכה לקישור עם Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">נסה להשתמש ב-Shizuku</string>
@@ -336,11 +336,17 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="widget_home_description">שימוש באחסון וניקוי בהקשה אחת</string>
     <string name="widget_home_storage_internal">פנימי</string>
     <string name="widget_home_storage_external">חיצוני</string>
-    <string name="widget_home_freed_label">שוחרר: %1$s</string>
+    <string name="widget_home_freed_label">תוקף: %1$s</string>
     <string name="widget_home_clean_action">נקה</string>
     <string name="widget_home_working">בעבודה…</string>
     <string name="widget_home_unavailable">אחסון לא זמין</string>
-    <string name="shortcut_onetap_started">סריקה &amp; מחיקה התחילו…</string>
+    <string name="settings_category_widget">ווידג\'ט</string>
+    <string name="widget_settings_oneclick_summary">תן לכפתור הנקיון של ווידג\'ט המסך הבית לסרוק ולמחוק בהקשה אחת, ללא שאלה בכל פעם.</string>
+    <string name="widget_oneclick_consent_title">האם להפעיל ניקיון בהקשה אחת?</string>
+    <string name="widget_oneclick_consent_message">כפתור הנקיון של הווידג\'ט יסרוק וימחוק בבת אחת, ללא בקשה או אפשרות לסקור מה יימחק.</string>
+    <string name="widget_oneclick_consent_enable_action">אפשר</string>
+    <string name="widget_oneclick_consent_decline_action">לא עכשיו</string>
+    <string name="shortcut_onetap_started">סריקה + מחיקה החלו…</string>
     <string name="shortcut_onetap_nothing_enabled">לא הופעלו כלים של הקשה אחת</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">גיבוי &amp; שחזור</string>
@@ -367,7 +373,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="backup_restore_warn_android_body">גיבוי זה נוצר ב-Android %1$s, אך במכשיר זה פועל Android %2$s.</string>
     <string name="backup_restore_warn_device_body">גיבוי זה נוצר במכשיר אחר (%1$s לעומת %2$s).</string>
     <string name="backup_restore_warn_flavor_body">גיבוי זה מגרסת יישום שונה (%1$s לעומת %2$s).</string>
-    <string name="backup_restore_warn_history_body">נתוני ההיסטוריה של גיבוי זה (סטטיסטיקה, היסטוריית דחיסה, מפגשי החלקה) הם מגרסת יישום שונה ולא ניתן לשחזר אותם. כל שאר הדברים יוחזרו.</string>
+    <string name="backup_restore_warn_history_body">נתוני ההיסטוריה של הגיבוי הזה (סטטיסטיקה, היסטוריית דחיסה, הפעלות החלקה) הם מגרסה אחרת של האפליקציה ולא ניתן להחזיר אותם. כל השאר יוחזר.</string>
     <string name="backup_restore_ack_understand">אני מבין ורוצה להמשיך</string>
     <string name="backup_restore_action_restore">שחזר</string>
 </resources>

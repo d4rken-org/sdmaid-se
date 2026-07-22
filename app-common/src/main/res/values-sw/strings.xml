@@ -38,6 +38,7 @@
     <string name="general_error_label">Hitilafu</string>
     <string name="general_upgrade_action">Boresha</string>
     <string name="general_refresh_action">Onyesha upya</string>
+    <string name="general_retry_action">Jaribu tena</string>
     <string name="general_progress_searching">Kutafuta</string>
     <string name="general_progress_generating_searchpaths">Kuunda njia za utafutaji</string>
     <string name="general_progress_filtering">Kuchuja</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Jina (A → Z)</string>
     <string name="general_sort_size_desc">Kubwa kwanza</string>
     <string name="general_tag_system">Mfumo</string>
+    <string name="general_tag_library">Maktaba</string>
     <string name="general_navigate_up_action">Nenda juu</string>
     <string name="general_filter_action">Chuja</string>
     <string name="general_filter_by_tags_label">Chuja kwa lebo</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Ripoti hitilafu</string>
     <string name="general_error_ipc_deadobject_title">Muunganisho wa Huduma Umepotea</string>
     <string name="general_error_ipc_deadobject_description">Muunganisho na huduma muhimu (k.m. Magisk, Shizuku, au huduma zingine za kiwango cha mfumo) umepotea bila kutarajiwa. Tafadhali anzisha upya kifaa chako. Ikiwa tatizo linaendelea, angalia masasisho au niwasiliane nami ili niweze kulirekebisha.</string>
-    <string name="general_error_upgrade_required_title">Toleo la Pro linahitajika</string>
-    <string name="general_error_upgrade_required_description">Hii ni kipengele cha Pro. Tafadhali boresha SD Maid SE ili kukitumia.</string>
+    <string name="general_error_upgrade_required_title">Boresho linahitajika</string>
+    <string name="general_error_upgrade_required_description">Kipengele hiki kinahitaji boresho. Tafadhali boresha SD Maid SE ili kukitumia.</string>
     <string name="general_user_label_owner">Mmiliki</string>
     <string name="general_user_label_system">Mfumo</string>
     <string name="setup_title">Usanidi</string>

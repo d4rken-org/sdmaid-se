@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Eşleşen dosya bulunamadı</string>
     <string name="swiper_open_externally_action">Harici uygulamada aç</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Bir fotoğrafı kaydırarak kaderini belirleyin: Saklamak veya silmek için yanlara, atlamak için yukarı, geri almak için aşağı. Aşağıdaki düğmeler aynısını yapar — ve hangi tarafın ne olduğunu gösterir.</string>
-    <string name="tour_swiper_openin_body">Bu düğme fotoğrafı başka bir uygulamada açar, karar vermeden önce kontrol etmek için kullanışlıdır.</string>
+    <string name="tour_swiper_gestures_body">Bir dosyanın kaderini belirlemek için kaydırın: tutmak veya silmek için yana, atlamak için yukarı, geri almak için aşağı. Aşağıdaki düğmeler de aynı şeyi yapar ve hangi tarafın hangisi olduğunu gösterir.</string>
+    <string name="tour_swiper_openin_body">Bu düğme, dosyayı başka bir uygulamada açar; karar vermeden önce kontrol etmek için uygun.</string>
     <string name="tour_swiper_preview_body">Bu düğme daha yakından bakmak için tam ekran bir önizleme açar.</string>
     <string name="tour_swiper_actions_body">Kaydırmaktan hoşlanmıyor musunuz? Düğmelerimiz de var! Atla, kararı sonraya bırakarak dosyayı belirsiz bırakır; Atla\'ya uzun basmak ise dosyayı gelecekteki taramalardan hariç tutar. Geri Al, son seçiminizi geri alır.</string>
     <string name="tour_swiper_review_body">Saklama ve silme seçimleriniz yalnızca hazırlanmış durumdadır. Bunları gözden geçirmek ve hazır olduğunuzda silmeleri uygulamak için İncele\'yi açın.</string>

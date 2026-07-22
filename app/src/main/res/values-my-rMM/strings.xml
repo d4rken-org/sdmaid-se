@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s လွတ်လပ်စေပြီးပါပြီ</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ကို ဖျက်သိမ်းနိုင်ပါသည်</string>
     <string name="dashboard_hero_freed_x_items">%1$s ဖျက်သိမ်းပြီးပါပြီ</string>
-    <string name="dashboard_hero_freeable_hint">နေရာ လွတ်လပ်စေရန် ခလုတ်ကို နှိပ်ပါ။ ပထမဦးစွာ စစ်ဆေးရန် အညွှန်းကို နှိပ်ပါ။</string>
+    <string name="dashboard_hero_freeable_hint">ခလုတ်ကို နှိပ်ပြီး နေရာ လွတ်ရန် သို့မဟုတ် ဦးစွာ စစ်ဆေးရန် အညွှန်းကို နှိပ်ပါ။</string>
     <string name="dashboard_hero_freed_hint">အချက်အလက်အတွက် အညွှန်းကို နှိပ်ပါ။</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s စကင်းပြီးပါပြီ</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">နောက်အကိုက်ညီမှု</string>
     <string name="debug_logview_jump_to_bottom_action">နောက်ဆုံးသို့ခုန်သည်</string>
     <string name="debug_logview_paused_msg">ရပ်တန့်ထားသည် — ကျက်သီးမီ အစည်းအရုံး</string>
-    <string name="debug_logview_paused_dropped_msg">ရပ်တန့်ထားသည် — စာလိုင်း %1$d ခု ကျခဲ့ပြီး</string>
+    <string name="debug_logview_paused_dropped_msg">ရပ်တန့်ထားသည် — အသစ်လိုင်းများ ကျော်လွှားထားသည်: %1$d</string>
     <string name="debug_logview_copied_msg">မှတ်တမ်းကို ကလစ်ပ်ဘုတ်သို့ ကူးယူပြီး</string>
     <string name="debug_logview_share_label">မှတ်တမ်းမျှဝေ</string>
     <string name="debug_debuglog_screen_title">ဒီဘတ်ဂ်လုံ</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">ကိုယ်ပိုင်လုံခြုံမှု မူဝါဒ</string>
     <string name="settings_privacy_policy_desc">ဒေတာကို တာဝန်ယူစွာ ကိုင်တွယ်ခြင်း။</string>
     <string name="settings_category_other_label">အခြား</string>
+    <string name="settings_upgrade_description">အဆင့်မြှင့်တင်ခြင်း အခြေအနေ နှင့် ရွေးချယ်စရာများ။</string>
     <string name="general_settings_label">ယေဘူယျ</string>
     <string name="general_settings_desc">အက်ပ်တစ်ခုလုံးကို ထိခိုက်စေသော ယေဘူယျ ချိန်ညှိမှုများ။</string>
     <string name="settings_category_ui_label">အသုံးပြုသူ အင်တာဖေ့စ်</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">သိုလှောင်ခန်း အသုံးပြုမှု နှင့် တစ်ချက်သန့်စင်ခြင်း</string>
     <string name="widget_home_storage_internal">အတွင်းပိုင်း</string>
     <string name="widget_home_storage_external">အပြင်ပိုင်း</string>
-    <string name="widget_home_freed_label">လွှတ်ပြီး: %1$s</string>
+    <string name="widget_home_freed_label">ကြာချိန်: %1$s</string>
     <string name="widget_home_clean_action">သန့်စင်</string>
     <string name="widget_home_working">လုပ်ဆောင်နေသည်…</string>
     <string name="widget_home_unavailable">သိုလှုပ်သုံးဆောင်မရ</string>
-    <string name="shortcut_onetap_started">ရှာဖွေခြင်း &amp; ဖျက်ခြင်း စတင်ပြီး…</string>
+    <string name="settings_category_widget">ဆုဒ်ဂျက်</string>
+    <string name="widget_settings_oneclick_summary">မူလစခရင်း ဆုဒ်ဂျက်ရဲ့ ရှင်းလင်းခြင်း ခလုတ်ကို တစ်ကြိမ် နှိပ်ပြီး စကင်မတ်ပြီး ဖျက်စေပါ၊ တစ်ခါတစ်ရံ မေးမြန်းခြင်း မပြုလုပ်ပါ။</string>
+    <string name="widget_oneclick_consent_title">တစ်ကြိမ် နှိပ်ခြင်းဖြင့် ရှင်းလင်းခြင်းကို ကျင့်သုံးမည်လား?</string>
+    <string name="widget_oneclick_consent_message">ဆုဒ်ဂျက်ရဲ့ ရှင်းလင်းခြင်း ခလုတ်သည် တစ်ကြိမ်တွင် စကင်မတ်ပြီး ဖျက်လိုက်မည်ဖြစ်ပြီး၊ ဦးစွာ မေးမြန်းခြင်း သို့မဟုတ် ဖျက်ခြင်းခံရသည့် အရာများကို ပြန်လည်သုံးသပ်ခွင့်မပေးပါ။</string>
+    <string name="widget_oneclick_consent_enable_action">ကျင့်သုံး</string>
+    <string name="widget_oneclick_consent_decline_action">ယခုတစ်ခါမ</string>
+    <string name="shortcut_onetap_started">စကင်မတ် + ဖျက်ခြင်း စတင်ခဲ့သည်…</string>
     <string name="shortcut_onetap_nothing_enabled">တစ်ကလစ်ကိရိယာများ မည်မျှမဖွင့်ထားပါ</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">အရန်သိုလှုပ် &amp; ပြန်လည်ရယူခွင့်</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">ဤအရန်သိမ်းဆည်းမှုကို Android %1$s တွင်ပြုလုပ်ခဲ့သည် သည် ယခုကိုယ်ပိုင်လုပ်ဆောင်ချက်သည် Android %2$s တွင်လည်ပတ်သည်။</string>
     <string name="backup_restore_warn_device_body">ဤအရန်သိမ်းဆည်းမှုကိုကွဲပြားသောကိုယ်ပိုင်လုပ်ဆောင်ချက်တွင်ပြုလုပ်ခဲ့သည် (%1$s နှင့် %2$s)။</string>
     <string name="backup_restore_warn_flavor_body">ဤ backup သည် မတူညီသော app edition မှ (%1$s vs %2$s) ဖြစ်သည်။</string>
-    <string name="backup_restore_warn_history_body">ဤ backup ၏ မှတ်တမ်းဒေတာ (စာရင်းအင်းဒေတာ၊ ကျည်းဘိုင်းပုံစံ မှတ်တမ်း၊ swipe sessions) သည် မတူညီသော app version မှ ဖြစ်ပြီး ပြန်လည်ရယူ၍ မရနိုင်ပါ။ အခြား အရာအားလုံးကို ပြန်လည်ရယူနိုင်ပါသည်။</string>
+    <string name="backup_restore_warn_history_body">ဤအရန်ကူးယူမှု၏ သမိုင်းဝင်ဒေတာ (စာရင်းအင်းများ၊ ချုံ့ခြင်းသမိုင်းဝင်၊ စွဲချက်အလုပ်ခွင်များ) သည် ကွဲပြားသောအက်ပ်ဗားရှင်းမှ ရှိပြီး ပြန်လည်ရယူ၍မရပါ။ အခြားအရာအားလုံးကို ပြန်လည်ရယူလိုက်မည်။</string>
     <string name="backup_restore_ack_understand">ကျွန်ုပ် နားလည်ပြီး ဆက်လက်လုပ်ဆောင်လိုသည်</string>
     <string name="backup_restore_action_restore">ပြန်လည်ရယူခြင်း</string>
 </resources>

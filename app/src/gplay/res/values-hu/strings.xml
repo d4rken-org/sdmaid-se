@@ -17,20 +17,47 @@
     <string name="upgrade_screen_title">Szerezze be az SD Maid SE Pro-t</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>
     <string name="upgrade_screen_benefits_title">Frissítés előnyei</string>
-    <string name="upgrade_screen_benefits_body">• Az alkalmazás gyorsítótárainak és felesleges adatainak törlése
-• Duplikált fájlok eltávolítása
-• Ütemezett tisztítások engedélyezése
-• Egyéni szűrők és tisztítási szabályok létrehozása
-• Tárolóhelyek trendjeinek és tisztítási előzményeinek nyomon követése
-• További funkciók és vezérlőelemek az alkalmazásban
-• A folyamatos fejlesztés támogatása</string>
+    <string name="upgrade_screen_benefits_body">• Alkalmazás gyorsítótár és szemét tisztítása\n• Duplikált fájlok eltávolítása\n• Fénykép- és videótömörítés\n• Régi fájlok rendszerezése húzással\n• Egykoppintásos tisztítás widgeten keresztül\n• Tisztítás ütemezése\n• Egyéni szűrők és szabályok\n• Tárhelytrendek és előzmények\n• További funkciók és vezérlők az egész alkalmazásban\n• A folyamatos fejlesztés támogatása</string>
+    <string name="upgrade_screen_offers_title">Frissítési lehetőségek</string>
+    <string name="upgrade_screen_offers_body">Ugyanazok a funkciók, csak más árazási modellek.</string>
+    <string name="upgrade_screen_offers_or">vagy</string>
     <string name="upgrade_screen_subscription_offer_title">Éves előfizetés</string>
+    <string name="upgrade_screen_subscription_offer_body">Az ingyenes próbaidőszak után évente megújul. Bármikor lemondható a Google Playen.</string>
+    <string name="upgrade_screen_subscription_offer_body_no_trial">Évente megújul. Bármikor lemondható a Google Playen.</string>
     <string name="upgrade_screen_iap_offer_title">Egyszeri vásárlás</string>
+    <string name="upgrade_screen_iap_offer_body">Egyszeri fizetés, nincs megújítás.</string>
     <string name="upgrade_screen_offers_unavailable_message">Az árak jelenleg nem tölthetők be. Ellenőrizze a Google Play oldalt, és próbálja újra egy pillanat múlva.</string>
     <string name="upgrade_screen_subscription_trial_action">Ingyenes 14 napos próbaidőszak indítása</string>
     <string name="upgrade_screen_subscription_action">Iratkozz fel</string>
     <string name="upgrade_screen_iap_action">Egyszeri vásárlás</string>
     <string name="upgrade_screen_thanks_toast">Te vagy a legjobb! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Vásárlás visszaállítása</string>
+    <string name="upgrade_screen_restore_banner_title">Már megvásároltad a Pro verziót?</string>
+    <string name="upgrade_screen_restore_banner_body">Úgy tűnik, korábban már frissítettél Pro verzióra ezen az eszközön. Állítsd vissza a vásárlásodat, hogy újra felold.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">A Play Áruház szinkronizálása időbe telhet. Próbáld meg az újraindítást, a Google Play gyorsítótárának törlését vagy egyszerűen várj.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Több fiók összezavarhatja a Google Playt. Telepítsd az alkalmazást a Google Play weboldalán keresztül, ami egy adott fiókhoz köti a telepítést.</string>
+    <string name="upgrade_screen_owned_hero_title">Gratulálunk!</string>
+    <string name="upgrade_screen_owned_hero_sub_body">%1$s áll rendelkezésedre, amit az előfizetésed oldott fel.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">%1$s áll rendelkezésedre, amit az egyszeri vásárlásod oldott fel.</string>
+    <string name="upgrade_screen_owned_iap_title">Egyszeri vásárlás</string>
+    <string name="upgrade_screen_owned_iap_body">Tiéd az egyszeri Pro frissítés. A Pro feloldva marad ezen a Google-fiókon. Köszönjük, hogy támogatod az SD Maidet ❤️.</string>
+    <string name="upgrade_screen_owned_sub_renewing_body">A Pro előfizetésed aktív, és meg fog újulni. A számlázást a Google Play kezeli.</string>
+    <string name="upgrade_screen_owned_iap_locked_note">Inkább az egyszeri vásárlást szeretnéd? Az akkor válik elérhetővé, ha az előfizetésed már nem fog megújulni. Mondd le az előfizetést a Google Playen a váltáshoz.</string>
+    <string name="upgrade_screen_owned_sub_not_renewing_body">A Pro előfizetésed aktív, de nem fog megújulni. A Pro a jelenlegi időszak végéig elérhető marad.</string>
+    <string name="upgrade_screen_owned_both_renewing_warning">Ez az előfizetés még mindig meg fog újulni, pedig már megvásároltad az egyszeri frissítést. Lemondhatod a Google Playen.</string>
+    <string name="upgrade_screen_manage_subscription_action">Előfizetés kezelése</string>
+    <string name="upgrade_screen_owned_iap_purchase_note">Ez egy külön vásárlás: nem mondja le és nem térít vissza az előfizetésedet. Használd ugyanazt a Google-fiókot mindkettőhöz.</string>
+    <string name="upgrade_screen_sub_still_renewing_title">Az előfizetés még mindig aktív</string>
+    <string name="upgrade_screen_sub_still_renewing_message">A Google Play szerint az előfizetésed még mindig meg fog újulni. Az egyszeri frissítés megvásárlásához először mondd le az előfizetést a Google Playen, majd térj vissza ide.\n\nMost mondtad le? Adj egy kis időt a Google Playnek, és próbáld újra. Győződj meg róla, hogy ugyanazt a Google-fiókot használod.</string>
+    <string name="upgrade_screen_sub_check_failed_message">Nem sikerült ellenőrizni az előfizetésed állapotát a Google Playnél. Kérjük, próbáld újra egy kicsit később.</string>
+    <string name="upgrade_screen_restore_success_message">A vásárlás visszaállítva, a Pro frissítésed aktív.</string>
+    <string name="upgrade_screen_grace_title">Vásárlás megerősítése</string>
+    <string name="upgrade_screen_grace_body_short">A Pro továbbra is aktív. A Google Play megerősítésére várunk, addig is minden Pro funkció feloldva marad.</string>
+    <string name="upgrade_screen_grace_body">A Pro továbbra is aktív, de a Google Play egy ideje nem erősítette meg a vásárlásodat. Ha megvásároltad a Prót, állítsd vissza a vásárlást, és ellenőrizd, hogy a Google Play azt a fiókot használja-e, amellyel vásároltál. Ha az előfizetés lejárt vagy a vásárlást visszatérítették, a Pro magától kikapcsol, nincs más teendő.</string>
+    <string name="upgrade_screen_restore_body">A visszaállítás megkéri a Google Playt, hogy ellenőrizze újra ennek az alkalmazásnak a vásárlásait a jelenlegi fiókhoz. Nem indít új vásárlást.</string>
+    <string name="upgrade_screen_restore_status_title">Az állapot helytelennek tűnik?</string>
+    <string name="upgrade_screen_restore_status_body">Ha egy vásárlás hiányzik, vagy ez az állapot helytelennek tűnik, ellenőrizd újra a Google Playnél.</string>
+    <string name="upgrade_screen_contact_support_action">Ügyfélszolgálat elérése</string>
+    <string name="upgrade_screen_restore_checked_message">Az SD Maid most ellenőrizte a Google Playt, de nem sikerült megerősíteni Pro-vásárlást ahhoz a fiókhoz, amelyet a Google Play ehhez az alkalmazáshoz használ.</string>
+    <string name="upgrade_screen_restore_contact_hint">Még mindig elakadtál? Vedd fel a kapcsolatot az ügyfélszolgálattal arról az e-mail-címről, amellyel a vásárlás történt, és add meg a Google Play rendelési számodat.</string>
 </resources>

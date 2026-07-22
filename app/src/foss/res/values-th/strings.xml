@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">วิธีการช่วยเหลือ</string>
     <string name="upgrade_screen_how_body">เป็นผู้อุปถัมภ์และสปอนเซอร์การพัฒนา! แตะปุ่มด้านล่างเพื่อเปิดใช้ฟีเจอร์เพิ่มเติมทั้งหมดและเปิดโปรไฟล์ GitHub Sponsors ของฉัน</string>
     <string name="upgrade_screen_why_title">ประโยชน์ของการอัปเกรด</string>
-    <string name="upgrade_screen_why_body">• ล้างแคชแอปพลิเคชันและข้อมูลที่ไม่จำเป็น\n• ลบไฟล์ที่ซ้ำกัน\n• เปิดใช้งานการล้างข้อมูลตามกำหนดเวลา\n• สร้างตัวกรองและกฎการล้างข้อมูลแบบกำหนดเอง\n• ติดตามแนวโน้มพื้นที่จัดเก็บและประวัติการล้างข้อมูล\n• ฟีเจอร์และการควบคุมเพิ่มเติมทั่วแอป\n• สนับสนุนงานโอเพนซอร์ส</string>
+    <string name="upgrade_screen_why_body">• การทำความสะอาดแคชแอปและขยะ\n• การลบไฟล์ที่ซ้ำกัน\n• การบีบอัดรูปภาพและวิดีโอ\n• ปัดจากไฟล์เก่าเพื่อลดความยุ่งวุ่นวาย\n• การทำความสะอาดแบบกดเดียวผ่านวิดเจ็ต\n• การจัดตารางการทำความสะอาด\n• ตัวกรองและกฎที่กำหนดเอง\n• แนวโน้มและประวัติการจัดเก็บ\n• คุณสมบัติเพิ่มเติมและการควบคุมทั่วแอป\n• สนับสนุนงานโอเพนซอร์ส</string>
     <string name="upgrade_screen_sponsor_action">สปอนเซอร์การพัฒนา</string>
     <string name="upgrade_screen_sponsor_action_hint">ทางเลือกคือโฆษณา การวิเคราะห์ และ Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ขอบคุณสำหรับการสนับสนุนการพัฒนาโอเพ่นซอร์ส ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">กลับมาแล้วเหรอ? การสนับสนุนของคุณช่วยให้ SD Maid อยู่รอด!</string>
+    <string name="upgrade_screen_status_free_title">เวอร์ชันฟรี</string>
+    <string name="upgrade_screen_status_free_body">คุณกำลังใช้เวอร์ชันฟรีของ SD Maid คุณสมบัติเพิ่มเติมสามารถปลดล็อกได้ด้วยการสนับสนุนการพัฒนา</string>
+    <string name="upgrade_screen_status_free_action">ดูตัวเลือกการอัปเกรด</string>
+    <string name="upgrade_screen_status_upgraded_title">อัปเกรดใช้งานอยู่</string>
+    <string name="upgrade_screen_status_upgraded_body">ฟีเจอร์เพิ่มเติมทั้งหมดถูกปลดล็อก ขอบคุณที่สนับสนุนการพัฒนาซอฟต์แวร์เปิดต้นฉบับ ❤️</string>
+    <string name="upgrade_screen_recurring_title">ช่วยสนับสนุน</string>
+    <string name="upgrade_screen_recurring_body">SD Maid ยังคงพัฒนาผ่านการอัปเดตและการแก้ไข หากคุณต้องการสนับสนุนให้ดำเนินต่อไป โปรดพิจารณาการบริจาคซ้ำๆ ผ่าน GitHub Sponsors</string>
+    <string name="upgrade_screen_recurring_action">เปิด GitHub Sponsors</string>
 </resources>

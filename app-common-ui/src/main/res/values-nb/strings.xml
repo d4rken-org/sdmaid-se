@@ -8,6 +8,7 @@
         <item quantity="other">%d baner valgt</item>
     </plurals>
     <string name="picker_home_action">Dataområder</string>
+    <string name="picker_select_hint">Hold et element for å velge det</string>
     <string name="tour_action_next">Neste</string>
     <string name="tour_action_previous">Forrige</string>
     <string name="tour_action_cancel">Hopp over</string>
@@ -16,6 +17,6 @@
     <string name="tour_confirm_continue">Fortsett omvisning</string>
     <string name="tour_confirm_dont_show_this_tour">Ikke vis denne omvisningen igjen</string>
     <string name="tour_confirm_disable_all">Deaktiver alle omvisninger</string>
-    <string name="navigation_unknown_destination_title">Kommer snart</string>
-    <string name="navigation_unknown_destination_message">Denne skjermen migreres fortsatt til det nye brukergrensesnittet.</string>
+    <string name="navigation_unknown_destination_title">Skjerm utilgjengelig</string>
+    <string name="navigation_unknown_destination_message">Denne skjermen kunne ikke åpnes.</string>
 </resources>

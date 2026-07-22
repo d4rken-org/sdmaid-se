@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s dibebaskan</string>
     <string name="dashboard_hero_freeable_x_items">%1$s dapat dihapus</string>
     <string name="dashboard_hero_freed_x_items">%1$s dihapus</string>
-    <string name="dashboard_hero_freeable_hint">Ketuk tombol untuk membebaskan ruang. Ketuk chip untuk memeriksa terlebih dahulu.</string>
+    <string name="dashboard_hero_freeable_hint">Ketuk tombol untuk membebaskan ruang, atau chip untuk memeriksa terlebih dahulu.</string>
     <string name="dashboard_hero_freed_hint">Ketuk chip untuk detail.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Dipindai %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Kecocokan berikutnya</string>
     <string name="debug_logview_jump_to_bottom_action">Lompat ke terbaru</string>
     <string name="debug_logview_paused_msg">Dijeda — buffer membeku</string>
-    <string name="debug_logview_paused_dropped_msg">Dijeda — %1$d baris baru terlewat</string>
+    <string name="debug_logview_paused_dropped_msg">Dijeda — baris baru dilewati: %1$d</string>
     <string name="debug_logview_copied_msg">Log disalin ke papan klip</string>
     <string name="debug_logview_share_label">Bagikan log</string>
     <string name="debug_debuglog_screen_title">Catatan debug</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">Kebijakan privasi</string>
     <string name="settings_privacy_policy_desc">Menangani data secara bertanggung jawab.</string>
     <string name="settings_category_other_label">Lainnya</string>
+    <string name="settings_upgrade_description">Status peningkatan dan opsi.</string>
     <string name="general_settings_label">Umum</string>
     <string name="general_settings_desc">Tweak umum yang memengaruhi seluruh aplikasi.</string>
     <string name="settings_category_ui_label">Antarmuka pengguna</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">Penggunaan penyimpanan dan pembersihan sekali ketuk</string>
     <string name="widget_home_storage_internal">Internal</string>
     <string name="widget_home_storage_external">Eksternal</string>
-    <string name="widget_home_freed_label">Dibebaskan: %1$s</string>
+    <string name="widget_home_freed_label">Seumur hidup: %1$s</string>
     <string name="widget_home_clean_action">Bersihkan</string>
     <string name="widget_home_working">Sedang bekerja…</string>
     <string name="widget_home_unavailable">Penyimpanan tidak tersedia</string>
-    <string name="shortcut_onetap_started">Pemindaian &amp; penghapusan dimulai…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Biarkan tombol Bersihkan widget layar beranda memindai dan menghapus dalam satu ketukan, tanpa bertanya setiap kali.</string>
+    <string name="widget_oneclick_consent_title">Aktifkan pembersihan satu ketukan?</string>
+    <string name="widget_oneclick_consent_message">Tombol Bersihkan widget akan memindai dan menghapus sekaligus, tanpa bertanya terlebih dahulu atau membiarkan Anda meninjau apa yang akan dihapus.</string>
+    <string name="widget_oneclick_consent_enable_action">Aktifkan</string>
+    <string name="widget_oneclick_consent_decline_action">Tidak sekarang</string>
+    <string name="shortcut_onetap_started">Pemindaian + Penghapusan dimulai…</string>
     <string name="shortcut_onetap_nothing_enabled">Tidak ada alat satu sentuh yang diaktifkan</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Cadangan &amp; Pemulihan</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">Cadangan ini dibuat pada Android %1$s, tetapi perangkat ini menjalankan Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Cadangan ini dibuat pada perangkat yang berbeda (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Cadangan ini berasal dari edisi aplikasi yang berbeda (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Data riwayat cadangan ini (statistik, riwayat kompresi, sesi sapuan) berasal dari versi aplikasi yang berbeda dan tidak dapat dipulihkan. Sisanya akan dipulihkan.</string>
+    <string name="backup_restore_warn_history_body">Data riwayat cadangan ini (statistik, riwayat kompresi, sesi geser) berasal dari versi aplikasi yang berbeda dan tidak dapat dipulihkan. Semua yang lain akan dipulihkan.</string>
     <string name="backup_restore_ack_understand">Saya mengerti dan ingin melanjutkan</string>
     <string name="backup_restore_action_restore">Pulihkan</string>
 </resources>

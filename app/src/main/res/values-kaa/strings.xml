@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s bostatıldı</string>
     <string name="dashboard_hero_freeable_x_items">%1$s óshirile alması múmkin</string>
     <string name="dashboard_hero_freed_x_items">%1$s óshirildi</string>
-    <string name="dashboard_hero_freeable_hint">Bosań túr ushın túymeni basıń. Aldın tekserіw ushın chipti basıń.</string>
+    <string name="dashboard_hero_freeable_hint">Jorlama ushun tugmani basıp qosıń, yaki avval teksheriw ushun chipni basıń.</string>
     <string name="dashboard_hero_freed_hint">Detallar ushın chipti basıń.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s tekserildi</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Keyiń jıynaw</string>
     <string name="debug_logview_jump_to_bottom_action">Sońǵi kóńilew</string>
     <string name="debug_logview_paused_msg">Toxtaw — buferi tegelengen</string>
-    <string name="debug_logview_paused_dropped_msg">Toxtaw — %1$d jana qattar sálınbadi</string>
+    <string name="debug_logview_paused_dropped_msg">Toxtaldı — yanǵı qatarlar saklanǵan: %1$d</string>
     <string name="debug_logview_copied_msg">Jurnál alabara kóshirildi</string>
     <string name="debug_logview_share_label">Jurnáldı pálelew</string>
     <string name="debug_debuglog_screen_title">Debaglash jurnaly</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">Qupiyalıq siyasatı</string>
     <string name="settings_privacy_policy_desc">Maǵlıwmatlarǵa juwapkershilik penen qayta islew.</string>
     <string name="settings_category_other_label">Basqa</string>
+    <string name="settings_upgrade_description">Status ha optsiyalarni yanǵarlaw.</string>
     <string name="general_settings_label">Ulıwmalıq</string>
     <string name="general_settings_desc">Pútkil qosımshaǵa tásir etetuǵın ulıwma sazlawlar.</string>
     <string name="settings_category_ui_label">Paydalanıwshı interfeysı</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">Saqlaw orınının paydalanılıwı hám bir basıwlıq tazalaw</string>
     <string name="widget_home_storage_internal">Ishki</string>
     <string name="widget_home_storage_external">Sırtqı</string>
-    <string name="widget_home_freed_label">Bosatıldı: %1$s</string>
+    <string name="widget_home_freed_label">Ómir: %1$s</string>
     <string name="widget_home_clean_action">Tazala</string>
     <string name="widget_home_working">Islanbekte…</string>
     <string name="widget_home_unavailable">Saqlaw orını jetimsiz</string>
-    <string name="shortcut_onetap_started">Skanerlew &amp; óshiriw baslandı…</string>
+    <string name="settings_category_widget">Widjit</string>
+    <string name="widget_settings_oneclick_summary">Baspisi widjitiniń Tozalau tugmasine bir basiwda qidirup salıwga ruksat beríń, her sabapda sormasay.</string>
+    <string name="widget_oneclick_consent_title">Bir basiwda tozalawni qosıwsha?</string>
+    <string name="widget_oneclick_consent_message">Widjitiniń Tozalau tugmasi bir ıyda qidirup salıp tastaydı, avval sormasay ha qaraw bermeydi.</string>
+    <string name="widget_oneclick_consent_enable_action">Qosıw</string>
+    <string name="widget_oneclick_consent_decline_action">Ayanap yoq</string>
+    <string name="shortcut_onetap_started">Skanerlew + Ósherip başlandi…</string>
     <string name="shortcut_onetap_nothing_enabled">Hesh bir bir basıwlıq qural qosılmaǵan</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Zaxiralaw &amp; Qayta tiklew</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">Bul záxira Android %1$s-da jasaldı, biraq bul qurılǵa Android %2$s-di isletedi.</string>
     <string name="backup_restore_warn_device_body">Bul záxira basqa qurılǵada jasaldı (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Bul záxira basqa qosımsha nusqasınan (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Bul záxiranıń tariyx máliwmatları (statistika, sıǵıw tariyxı, swayp seansları) basqa qosımsha nusqasınan bolıp, qayta tiklenip bolmaydı. Qalǵanınıń hámmesi qayta tiklenedi.</string>
+    <string name="backup_restore_warn_history_body">Bul zápasnıqnıń taríqhı maglumatı (statistika, qísartıw taríqhı, swipe sessiyaları) basqa app versiyasından bolıp, qayta tikleme múmkin emes. Báremen qayta tiklenim.</string>
     <string name="backup_restore_ack_understand">Men túsindim hám dawam etiwdi qáleymen</string>
     <string name="backup_restore_action_restore">Qayta tiklew</string>
 </resources>

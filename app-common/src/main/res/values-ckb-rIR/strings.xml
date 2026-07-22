@@ -38,6 +38,7 @@
     <string name="general_error_label">هەڵە</string>
     <string name="general_upgrade_action">نوێکردنەوە</string>
     <string name="general_refresh_action">نوێکردنەوە</string>
+    <string name="general_retry_action">دووبارە هەوڵ بدە</string>
     <string name="general_progress_searching">گەڕان</string>
     <string name="general_progress_generating_searchpaths">دروستکردنی ڕێڕەوی گەڕان</string>
     <string name="general_progress_filtering">پاڵاوتن</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">ناو (آ ← یائ)(ئەلێفبە بەرەو)</string>
     <string name="general_sort_size_desc">بزورترین ھەروێی</string>
     <string name="general_tag_system">سیستەم</string>
+    <string name="general_tag_library">کتێبخانە</string>
     <string name="general_navigate_up_action">سەرتێ بڕۆ</string>
     <string name="general_filter_action">پاڵاوتن</string>
     <string name="general_filter_by_tags_label">پالاوتنیکردن بە تاگ</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">ڕاپۆرتکردنی هەڵە</string>
     <string name="general_error_ipc_deadobject_title">پەیوەندی خزمەتگوزاری پچڕا</string>
     <string name="general_error_ipc_deadobject_description">پەیوەندی بە خزمەتگوزارییەکی گرنگەوە (بۆ نموونە ماجیسک، شیزوکو، یان خزمەتگوزارییەکانی ئاستی سیستەمی دیکە) بە شێوەیەکی چاوەڕواننەکراو پچڕا. تکایە ئامێرەکەت ڕیستارت بکە. ئەگەر کێشەکە بەردەوام بوو، نوێکردنەوەکان بپشکنە یان پەیوەندیم پێوە بکە تا بتوانم چاکی بکەمەوە.</string>
-    <string name="general_error_upgrade_required_title">وەشانی Pro پێویستە</string>
-    <string name="general_error_upgrade_required_description">ئەمە تایبەتمەندییەکی Pro یە. تکایە SD Maid SE بە وەشانی Pro بەرز بکەوە بۆ بەکارهێنان.</string>
+    <string name="general_error_upgrade_required_title">بارگەری پێویستە</string>
+    <string name="general_error_upgrade_required_description">ئەم تایبەتمەندیە پێویستی بارگەرییە. تکایە SD Maid SE بارگەر بکە بۆ بەکارهێنانی.</string>
     <string name="general_user_label_owner">خاوەن</string>
     <string name="general_user_label_system">سیستەم</string>
     <string name="setup_title">ڕێکخستن</string>

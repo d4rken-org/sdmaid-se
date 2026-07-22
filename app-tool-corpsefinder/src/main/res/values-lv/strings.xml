@@ -64,6 +64,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Nav marķiera</string>
     <string name="corpsefinder_markers_dialog_normal_description">Standarta atliekas. Parasti droši noņemt — šie faili pieder lietotnēm, kas vairs nav instalētas.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder atrod datus, kurus atstājušas lietotnes, ko jūs jau esat deinstalējuši. Tas vairs nepieder nekam instalētam, tāpēc to ir droši noņemt un tas atbrīvo vietu.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder atrod datus no lietotnēm, kuras jūs jau atinstalējāt. Tie vairs nepieder nevienai instalētai lietotnei, tāpēc to noņemšana atbrīvo vietu. Lielākā daļa ir droši noņemama, bet pārbaudiet atzīmi, ja neesat pārliecināts.</string>
     <string name="tour_corpsefinder_row_body">Katrs vienums ir atlieku dati un lietotne, no kuras tas nāca. Marķieris parāda, cik pārliecināts ir SD Maid, ka to ir droši noņemt — pieskarieties ⓘ augšpusē, lai uzzinātu, ko nozīmē marķieri.</string>
 </resources>

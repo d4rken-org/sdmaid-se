@@ -38,6 +38,7 @@
     <string name="general_error_label">Viga</string>
     <string name="general_upgrade_action">Täienda</string>
     <string name="general_refresh_action">Värskenda</string>
+    <string name="general_retry_action">Proovi uuesti</string>
     <string name="general_progress_searching">Otsin</string>
     <string name="general_progress_generating_searchpaths">Otsimiskohtade loomine</string>
     <string name="general_progress_filtering">Filtreerin</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nimi (A → Z)</string>
     <string name="general_sort_size_desc">Suurimad ees</string>
     <string name="general_tag_system">Süsteem</string>
+    <string name="general_tag_library">Teek</string>
     <string name="general_navigate_up_action">Liiguta ülespoole</string>
     <string name="general_filter_action">Filtreeri</string>
     <string name="general_filter_by_tags_label">Filtreeri siltide järgi</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Teata veast</string>
     <string name="general_error_ipc_deadobject_title">Ühendus teenusega katkes</string>
     <string name="general_error_ipc_deadobject_description">Ühendus olulise teenusega (nt Magisk, Shizuku või muu süsteemi tasemel oleva teenusega) katkes ootamatult. Taaskäivitage oma seade. Probleemi kordumisel kontrollige uuendusi või suhelge minuga, et saaksin seda parandada.</string>
-    <string name="general_error_upgrade_required_title">Pro versioon nõutud</string>
-    <string name="general_error_upgrade_required_description">See on Pro funktsioon. Palun uuenda SD Maid SE, et seda kasutada.</string>
+    <string name="general_error_upgrade_required_title">Uuendamine nõutav</string>
+    <string name="general_error_upgrade_required_description">See funktsioon nõuab uuendamist. Palun uuendage SD Maid SE, et seda kasutada.</string>
     <string name="general_user_label_owner">Omanik</string>
     <string name="general_user_label_system">Süsteem</string>
     <string name="setup_title">Seadistamine</string>

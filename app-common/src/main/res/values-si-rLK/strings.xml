@@ -38,6 +38,7 @@
     <string name="general_error_label">දෝෂය</string>
     <string name="general_upgrade_action">වැඩිදියුණු කරන්න</string>
     <string name="general_refresh_action">නැවුම් කරන්න</string>
+    <string name="general_retry_action">නැවත උත්සාහ කරන්න</string>
     <string name="general_progress_searching">සෙවීම</string>
     <string name="general_progress_generating_searchpaths">සෙවුම් මාර්ග ජනනය කරමින්</string>
     <string name="general_progress_filtering">පෙරීම</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">නම (A → Z)</string>
     <string name="general_sort_size_desc">විශාලතම මුලින්</string>
     <string name="general_tag_system">පද්ධතිය</string>
+    <string name="general_tag_library">පුස්තකාලය</string>
     <string name="general_navigate_up_action">ඉහළට යන්න</string>
     <string name="general_filter_action">පෙරහන් කරන්න</string>
     <string name="general_filter_by_tags_label">ටැග අනුව පෙරන්න</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">දෝෂ වාර්තා කරන්න</string>
     <string name="general_error_ipc_deadobject_title">සේවා සම්බන්ධතාවය නැති විය</string>
     <string name="general_error_ipc_deadobject_description">වැදගත් සේවාවකට (උදා: Magisk, Shizuku, හෝ වෙනත් පද්ධති මට්ටමේ සේවා) සම්බන්ධතාවය අනපේක්ෂිතව නැති විය. කරුණාකර ඔබගේ උපකරණය නැවත ආරම්භ කරන්න. ගැටලුව දිගටම පවතින්නේ නම්, යාවත්කාලීන පරීක්ෂා කරන්න හෝ එය නිවැරදි කිරීම සඳහා මා සම්බන්ධ කරගන්න.</string>
-    <string name="general_error_upgrade_required_title">Pro සංස්කරණය අවශ්‍යයි</string>
-    <string name="general_error_upgrade_required_description">මෙය Pro විශේෂතාවයකි. එය භාවිතා කිරීමට SD Maid SE උසස් කරන්න.</string>
+    <string name="general_error_upgrade_required_title">යාවත්කරණ අවශ්‍ය</string>
+    <string name="general_error_upgrade_required_description">මෙම විශේෂතාවය යාවත්කරණ අවශ්‍ය. එය භාවිතා කිරීමට කරුණාකර SD Maid SE යාවත්කරණය කරන්න.</string>
     <string name="general_user_label_owner">හිමිකරු</string>
     <string name="general_user_label_system">පද්ධතිය</string>
     <string name="setup_title">පිහිටුවීම</string>

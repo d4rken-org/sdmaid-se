@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Geskatte ~%d%% besparing vir JPEG-lêers</string>
     <string name="squeezer_onboarding_got_it">Verstaan</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer komprimeer jou foto\'s en video\'s opnuut sodat hulle minder ruimte in beslag neem. Die lêers bly bruikbaar, net kleiner, en elkeen toon sy geskatte besparing.</string>
+    <string name="tour_squeezer_intro_body">Squeezer druk jou foto\'s en video\'s weer saam sodat hulle minder plek inneem. Jy ruil \'n bietjie kwaliteit vir die ruimte wat jy bespaar. Elke item toon sy geraamde besparing, sodat jy kan besluit watter items die moeite werd is.</string>
     <string name="tour_squeezer_compress_body">Komprimeer alles op een keer hier, of tik \'n enkele item om slegs daardie een te verklein. Lank vashou om verskeie te kies. Jy sal altyd \'n voorskou sien voordat enigiets verander.</string>
 </resources>

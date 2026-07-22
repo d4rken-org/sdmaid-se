@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Arvioidut ~%d%% säästöt JPEG-tiedostoissa</string>
     <string name="squeezer_onboarding_got_it">Selvä</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer pakkaa uudelleen valokuviasi ja videoitasi niin, että ne vievät vähemmän tilaa. Tiedostot säilyvät käyttökelpoisina, vain pienempinä, ja jokainen näyttää arvioitua säästöään.</string>
+    <string name="tour_squeezer_intro_body">Squeezer pakkaa kuvia ja videoita uudelleen, jotta ne vievät vähemmän tilaa. Vaihdat hieman laatua säästyvään tilaan. Jokainen kohde näyttää arvioidun säästön, joten voit päättää, mikä kannattaa.</string>
     <string name="tour_squeezer_compress_body">Pakkaa kaikki kerralla tässä tai napauta yksittäistä kohdetta pakataksesi vain sitä. Pidä pitkään painettuna valitaksesi useita. Näet aina esikatselun ennen kuin mitään muuttuu.</string>
 </resources>

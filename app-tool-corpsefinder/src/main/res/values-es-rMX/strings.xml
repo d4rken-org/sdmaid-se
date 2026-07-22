@@ -60,6 +60,6 @@
     <string name="corpsefinder_markers_dialog_normal_label">Sin marcador</string>
     <string name="corpsefinder_markers_dialog_normal_description">Residuo estándar. Es generalmente seguro eliminar — estos archivos pertenecen a aplicaciones que ya no están instaladas.</string>
     <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">Buscador de cadáveres encuentra datos dejados por aplicaciones que ya has desinstalado. Ya no pertenece a nada instalado, así que eliminarlo es seguro y libera espacio.</string>
+    <string name="tour_corpsefinder_intro_body">CorpseFinder encuentra datos dejados atrás por aplicaciones que ya has desinstalado. Ya no pertenece a nada instalado, así que eliminarlo libera espacio. La mayoría es segura de remover, pero verifica el marcador cuando no estés seguro.</string>
     <string name="tour_corpsefinder_row_body">Cada elemento es datos residuales y la aplicación de la que proviene. El marcador muestra cuán confiado está SD Maid de que es seguro eliminarlo — toca el ⓘ en la parte superior para aprender qué significan los marcadores.</string>
 </resources>

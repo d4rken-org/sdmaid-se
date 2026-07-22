@@ -9,6 +9,7 @@
         <item quantity="other">%d odabranih putanja</item>
     </plurals>
     <string name="picker_home_action">Područja podataka</string>
+    <string name="picker_select_hint">Držite stavku da biste je odabrali</string>
     <string name="tour_action_next">Dalje</string>
     <string name="tour_action_previous">Prethodno</string>
     <string name="tour_action_cancel">Preskoči</string>
@@ -17,6 +18,6 @@
     <string name="tour_confirm_continue">Nastavite vodič</string>
     <string name="tour_confirm_dont_show_this_tour">Ne prikazujte ovaj vodič</string>
     <string name="tour_confirm_disable_all">Onemogućite sve vodiče</string>
-    <string name="navigation_unknown_destination_title">Uskoro</string>
-    <string name="navigation_unknown_destination_message">Ovaj se zaslon još uvijek migrira na novo korisničko sučelje.</string>
+    <string name="navigation_unknown_destination_title">Zaslon nedostupan</string>
+    <string name="navigation_unknown_destination_message">Ovaj zaslon nije bilo moguće otvoriti.</string>
 </resources>

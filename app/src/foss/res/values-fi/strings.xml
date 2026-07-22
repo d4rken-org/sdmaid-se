@@ -9,15 +9,17 @@
     <string name="upgrade_screen_how_title">Kuinka auttaa</string>
     <string name="upgrade_screen_how_body">Ryhdy tukijaksi ja sponsoroi kehitystä! Napauta alla olevaa painiketta aktivoidaksesi kaikki lisäominaisuudet ja avataksesi GitHub Sponsors -profiilini.</string>
     <string name="upgrade_screen_why_title">Päivityksen edut</string>
-    <string name="upgrade_screen_why_body">• Puhdista sovellusten välimuisti ja käyttämätön data
-• Poista kaksoiskappaleet
-• Ota käyttöön aikataulutetut puhdistukset
-• Luo mukautetut suodattimet ja puhdistussäännöt
-• Seuraa tallennustilan kehitystä ja puhdistushistoriaa
-• Lisää ominaisuuksia ja säätöjä koko sovelluksessa
-• Tue avoimen lähdekoodin työtä</string>
+    <string name="upgrade_screen_why_body">• Sovelluksien välimuistin ja roskien puhdistus\n• Kaksoiskappaleiden poistaminen\n• Kuvien ja videoiden pakkaaminen\n• Vanhojen tiedostojen pyyhkäisy\n• Puhdistus yhdellä napautuksella widgetin kautta\n• Puhdistuksen ajastaminen\n• Mukautetut suodattimet ja säännöt\n• Tallennustilan trendit ja historia\n• Lisää ominaisuuksia ja hallintavaihtoehtoja sovelluksessa\n• Avoimen lähdekoodin työn tukeminen</string>
     <string name="upgrade_screen_sponsor_action">Sponsoroi kehitystä</string>
     <string name="upgrade_screen_sponsor_action_hint">Vaihtoehto on mainokset, analytiikka ja Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Kiitos avoimen lähdekoodin kehityksen tukemisesta ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Jo takaisin? Tukesi pitää SD Maidin hengissä!</string>
+    <string name="upgrade_screen_status_free_title">Ilmainen versio</string>
+    <string name="upgrade_screen_status_free_body">Käytät SD Maidin ilmaista versiota. Lisäominaisuuksia voi vapauttaa tukemalla kehitystä.</string>
+    <string name="upgrade_screen_status_free_action">Katso päivitysvaihtoehdot</string>
+    <string name="upgrade_screen_status_upgraded_title">Päivitys aktiivinen</string>
+    <string name="upgrade_screen_status_upgraded_body">Kaikki lisäominaisuudet on avattu. Kiitos avoimen lähdekoodin kehityksen tukemisesta ❤️</string>
+    <string name="upgrade_screen_recurring_title">Jatka</string>
+    <string name="upgrade_screen_recurring_body">SD Maid kehittyy jatkuvasti päivitysten ja korjausten kautta. Jos haluat tukea tätä, harkitse säännöllistä lahjoitusta GitHub Sponsorsin kautta.</string>
+    <string name="upgrade_screen_recurring_action">Avaa GitHub Sponsors</string>
 </resources>

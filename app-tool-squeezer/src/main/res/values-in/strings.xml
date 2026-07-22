@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">Perkiraan hemat ~%d%% untuk file JPEG</string>
     <string name="squeezer_onboarding_got_it">Mengerti</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer mengompres ulang foto dan video Anda sehingga memerlukan lebih sedikit ruang. File tetap dapat digunakan, hanya lebih kecil, dan masing-masing menampilkan perkiraan penghematannya.</string>
+    <string name="tour_squeezer_intro_body">Squeezer mengompresi ulang foto dan video Anda sehingga memakan lebih sedikit ruang. Anda mengorbankan sedikit kualitas demi ruang yang didapat kembali. Setiap item menampilkan perkiraan penghematannya, sehingga Anda dapat memutuskan mana yang sepadan.</string>
     <string name="tour_squeezer_compress_body">Kompres semuanya sekaligus di sini, atau ketuk satu item untuk mengecilkan hanya yang itu. Tekan lama untuk memilih beberapa. Anda akan selalu melihat pratinjau sebelum apa pun berubah.</string>
 </resources>

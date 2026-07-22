@@ -7,6 +7,7 @@
         <item quantity="other">已选中 %d 个路径</item>
     </plurals>
     <string name="picker_home_action">数据区域</string>
+    <string name="picker_select_hint">长按项目以选择它</string>
     <string name="tour_action_next">下一个</string>
     <string name="tour_action_previous">上一个</string>
     <string name="tour_action_cancel">跳过</string>
@@ -15,6 +16,6 @@
     <string name="tour_confirm_continue">继续导览</string>
     <string name="tour_confirm_dont_show_this_tour">不再显示此导览</string>
     <string name="tour_confirm_disable_all">禁用所有导览</string>
-    <string name="navigation_unknown_destination_title">即将推出</string>
-    <string name="navigation_unknown_destination_message">此屏幕仍在迁移到新 UI 中。</string>
+    <string name="navigation_unknown_destination_title">屏幕不可用</string>
+    <string name="navigation_unknown_destination_message">无法打开此屏幕。</string>
 </resources>

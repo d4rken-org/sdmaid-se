@@ -160,8 +160,8 @@
     <string name="swiper_session_no_matching_files">Non se atoparon ficheiros coincidentes</string>
     <string name="swiper_open_externally_action">Abrir nunha aplicación externa</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Pasa un dedo sobre unha foto para decidir o seu destino: Lateral para mantelo ou eliminalo, arriba para saltalo, abaixo para desfacelo. Os botóns abaixo fan o mesmo — e amosan cal é cada lado.</string>
-    <string name="tour_swiper_openin_body">Este botón abre a foto noutra aplicación, práctico para comprobala antes de decidir.</string>
+    <string name="tour_swiper_gestures_body">Desliza un ficheiro para decidir o seu destino: cara aos lados para manter ou borrar, cara arriba para saltar, cara abaixo para desfacer. Os botóns de abaixo fan o mesmo e mostran cal é cada lado.</string>
+    <string name="tour_swiper_openin_body">Este botón abre o ficheiro noutra app, útil para verificalo antes de decidir.</string>
     <string name="tour_swiper_preview_body">Este botón abre unha vista previa de pantalla completa para ver con máis detalle.</string>
     <string name="tour_swiper_actions_body">Non che gusta pasar co dedo? Tamén temos botóns! Saltar deixaa sen decidir para máis tarde, e manter premido Saltar exclúeo dos escaneos futuros. Desfacer reverte a túa última elección.</string>
     <string name="tour_swiper_review_body">As túas opcións de manter e eliminar están só en borrador. Abre Revisión para revisalas e aplicarlas cando esteas listo.</string>

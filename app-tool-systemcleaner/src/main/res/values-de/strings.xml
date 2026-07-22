@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
     <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner findet Unrat mit App-unabhängigen Filtern. Es gibt vordefinierte Regeln für Dinge wie leere Ordner, verwaiste Protokolle und veraltete Miniaturansichten. Besuchen Sie die Einstellungen, wenn Sie Ihre eigenen erstellen möchten.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner findet Müll mit Filtern, die nicht app-spezifisch sind. Es gibt vordefinierte Regeln für Dinge wie leere Ordner, verwaiste Protokolle und veraltete Miniaturansichten. Besuche die Einstellungen, wenn du deine eigenen erstellen möchtest.</string>
     <string name="tour_systemcleaner_filter_body">Jede Zeile ist ein Filter und das, was er gefunden hat. Öffnen Sie seine Details, um genau zu sehen, welche Dateien passen, bevor Sie etwas löschen.</string>
 </resources>

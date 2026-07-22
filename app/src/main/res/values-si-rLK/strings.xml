@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s නිදහස් කරගෙන ඇත</string>
     <string name="dashboard_hero_freeable_x_items">%1$s ඉවත් කළ හැක</string>
     <string name="dashboard_hero_freed_x_items">%1$s ඉවත් කරගෙන ඇත</string>
-    <string name="dashboard_hero_freeable_hint">ඉඩ නිදහස් කිරීමට බොත්තම ටැප් කරන්න. පළමුව පරීක්ෂා කිරීමට චිප ටැප් කරන්න.</string>
+    <string name="dashboard_hero_freeable_hint">ඉතිරි පිටපතක් ගිණීමට බොත්තම තට්ටු කරන්න, හෝ පළමුව පරීක්ෂා කිරීමට ඡිපය තට්ටු කරන්න.</string>
     <string name="dashboard_hero_freed_hint">විස්තර සඳහා චිප ටැප් කරන්න.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ස්කෑන් කරගෙන ඇත</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">ඉදිරි ගැළපුම</string>
     <string name="debug_logview_jump_to_bottom_action">නවතම වෙත යන්න</string>
     <string name="debug_logview_paused_msg">විරාමයි — බෆරය නවත්වා ඇත</string>
-    <string name="debug_logview_paused_dropped_msg">විරාමයි — නව පෙළි %1$dක් මග හරින ලදී</string>
+    <string name="debug_logview_paused_dropped_msg">විරාමයි — නව පේළි %1$d මඟ හරිණි</string>
     <string name="debug_logview_copied_msg">ලඝු-වාර්තාව පසුරු-පුවරුවට පිටපත් කරන ලදී</string>
     <string name="debug_logview_share_label">ලඝු-වාර්තාව බෙදා දෙන්න</string>
     <string name="debug_debuglog_screen_title">නිදොස්කරණ ලොගය</string>
@@ -107,6 +107,7 @@
     <string name="settings_privacy_policy_label">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
     <string name="settings_privacy_policy_desc">දත්ත වගකීමෙන් හැසිරවීම.</string>
     <string name="settings_category_other_label">වෙනත්</string>
+    <string name="settings_upgrade_description">තත්ත්වය සහ විකල්පයන් වැඩිදියුණු කරන්න.</string>
     <string name="general_settings_label">සාමාන්‍ය</string>
     <string name="general_settings_desc">සමස්ත යෙදුම බලපාන සාමාන්‍ය සකසන.</string>
     <string name="settings_category_ui_label">පරිශීලක අතුරුමුඛය</string>
@@ -321,11 +322,17 @@
     <string name="widget_home_description">ගබඩා භාවිතය සහ එක්-ටැප් පිරිසිදු කිරීම</string>
     <string name="widget_home_storage_internal">අභ්‍යන්තර</string>
     <string name="widget_home_storage_external">බාහිර</string>
-    <string name="widget_home_freed_label">නිදහස් කරන ලද: %1$s</string>
+    <string name="widget_home_freed_label">ජීවිතකාලය: %1$s</string>
     <string name="widget_home_clean_action">පිරිසිදු කරන්න</string>
     <string name="widget_home_working">ක්‍රියා කරමින්…</string>
     <string name="widget_home_unavailable">ගබඩාව ලබා ගත නොහැක</string>
-    <string name="shortcut_onetap_started">පරිලෝකනය &amp; මකා දැමීම ආරම්භ විය…</string>
+    <string name="settings_category_widget">විජට</string>
+    <string name="widget_settings_oneclick_summary">ගෘහ තිරයේ විජටයේ පිරිසිදු බොත්තම එක් තට්ටුවෙන් ස්කෑන් සහ මැකීමට ඉඩ දෙන්න, ප්‍රතිවතාව ඉදිරිපත් නොකරන්න.</string>
+    <string name="widget_oneclick_consent_title">එක් තට්ටුවෙන් පිරිසිදු කිරීම සක්‍රිය කරන්න?</string>
+    <string name="widget_oneclick_consent_message">විජටයේ පිරිසිදු බොත්තම එක් ගමනින් ස්කෑන් සහ මැකිනු ඇත, පෙර ඉදිරිපත් නොකරයි හෝ ඉවත් කරන දේ සමාලෝචනය කිරීමට ඉඩ නොදෙයි.</string>
+    <string name="widget_oneclick_consent_enable_action">සක්‍රිය කරන්න</string>
+    <string name="widget_oneclick_consent_decline_action">දැන් නොවේ</string>
+    <string name="shortcut_onetap_started">ස්කෑන් + මකා දැමීම ආරම්භ විය…</string>
     <string name="shortcut_onetap_nothing_enabled">එක-ටැප් මෙවලම් කිසිවක් සක්‍රිය කළ ඇත්තේ නැත</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">උපස්ථ කිරීම &amp; නැවත ස්ථාපනය</string>
@@ -352,7 +359,7 @@
     <string name="backup_restore_warn_android_body">මෙම උපස්ථය Android %1$s හි සාදන ලද, නමුත් මෙම උපාංගය Android %2$s ධාවනය කරයි.</string>
     <string name="backup_restore_warn_device_body">මෙම උපස්ථය වෙනස් උපාංගයක සාදන ලදී (%1$s එදිරිව %2$s).</string>
     <string name="backup_restore_warn_flavor_body">මෙම උපස්ථය වෙනස් යෙදුම් සංස්කරණයකින් වේ (%1$s එදිරිව %2$s).</string>
-    <string name="backup_restore_warn_history_body">මෙම උපස්ථයේ ඉතිහාස දත්ත (සංඛ්‍යාලේඛන, සම්පීඩන ඉතිහාසය, ස්වයිප් සැසි) වෙනස් යෙදුම් අනුවාදයකින් වන අතර නැවත ස්ථාපනය කළ නොහැක. අනෙකුත් සියල්ල නැවත ස්ථාපනය කරනු ලැබේ.</string>
+    <string name="backup_restore_warn_history_body">මෙම උපස්කරයේ ඉතිහාස ගැණුම් (සංඛ්‍යාත්මක, සම්පීඩන ඉතිහාසය, ස්වයිප් සැසි) විවිධ යෙදුම් අනුවාදයක සිටින අතර ප්‍රතිස්ථාපනය කළ නොහැක. අනෙකුත් සියල්ල ප්‍රතිස්ථාපනය කරනු ඇත.</string>
     <string name="backup_restore_ack_understand">මම තේරූම් ගෙන ඉදිරියට යාමට කැමතියි</string>
     <string name="backup_restore_action_restore">නැවත ස්ථාපනය කරන්න</string>
 </resources>

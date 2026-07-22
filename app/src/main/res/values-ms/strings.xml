@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">%1$s dibebaskan</string>
     <string name="dashboard_hero_freeable_x_items">%1$s boleh dibuang</string>
     <string name="dashboard_hero_freed_x_items">%1$s dibuang</string>
-    <string name="dashboard_hero_freeable_hint">Tekan butang untuk membebaskan ruang. Tekan cip untuk semak dahulu.</string>
+    <string name="dashboard_hero_freeable_hint">Ketuk butang untuk membebaskan ruang, atau cip untuk menyemak terlebih dahulu.</string>
     <string name="dashboard_hero_freed_hint">Tekan cip untuk butiran.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Diimbas %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Padanan berikutnya</string>
     <string name="debug_logview_jump_to_bottom_action">Lompat ke terbaru</string>
     <string name="debug_logview_paused_msg">Dijeda — penimbal beku</string>
-    <string name="debug_logview_paused_dropped_msg">Dijeda — %1$d baris baru terlewat</string>
+    <string name="debug_logview_paused_dropped_msg">Dijeda — baris baru dilewatkan: %1$d</string>
     <string name="debug_logview_copied_msg">Log disalin ke papan klip</string>
     <string name="debug_logview_share_label">Kongsi log</string>
     <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">Dasar privasi</string>
     <string name="settings_privacy_policy_desc">Mengendalikan data secara bertanggungjawab.</string>
     <string name="settings_category_other_label">Lain-lain</string>
+    <string name="settings_upgrade_description">Tingkatkan status dan pilihan.</string>
     <string name="general_settings_label">Umum</string>
     <string name="general_settings_desc">Tweak umum yang mempengaruhi keseluruhan aplikasi.</string>
     <string name="settings_category_ui_label">Antaramuka pengguna</string>
@@ -314,11 +315,17 @@
     <string name="widget_home_description">Penggunaan storan dan pembersihan satu sentuhan</string>
     <string name="widget_home_storage_internal">Dalaman</string>
     <string name="widget_home_storage_external">Luaran</string>
-    <string name="widget_home_freed_label">Dibebaskan: %1$s</string>
+    <string name="widget_home_freed_label">Seumur hidup: %1$s</string>
     <string name="widget_home_clean_action">Bersihkan</string>
     <string name="widget_home_working">Sedang bekerja…</string>
     <string name="widget_home_unavailable">Storan tidak tersedia</string>
-    <string name="shortcut_onetap_started">Imbas &amp; padam dimulakan…</string>
+    <string name="settings_category_widget">Widget</string>
+    <string name="widget_settings_oneclick_summary">Biarkan butang Bersihkan widget skrin rumah mengimbas dan memadam dalam satu ketukan, tanpa bertanya setiap kali.</string>
+    <string name="widget_oneclick_consent_title">Dayakan pembersihan satu ketukan?</string>
+    <string name="widget_oneclick_consent_message">Butang Bersihkan widget akan mengimbas dan memadam dalam sekali jalan, tanpa bertanya terlebih dahulu atau membiarkan anda menyemak apa yang dikeluarkan.</string>
+    <string name="widget_oneclick_consent_enable_action">Dayakan</string>
+    <string name="widget_oneclick_consent_decline_action">Tidak sekarang</string>
+    <string name="shortcut_onetap_started">Imbas + Padam dimulakan…</string>
     <string name="shortcut_onetap_nothing_enabled">Tiada alat satu sentuhan yang didayakan</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Sandaran &amp; Pulihkan</string>
@@ -345,7 +352,7 @@
     <string name="backup_restore_warn_android_body">Sandaran ini dibuat pada Android %1$s, tetapi peranti ini menjalankan Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Sandaran ini dibuat pada peranti berbeza (%1$s lwn %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Sandaran ini daripada edisi aplikasi yang berbeza (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">Data sejarah sandaran ini (statistik, sejarah pemampatan, sesi sapuan) adalah daripada versi aplikasi yang berbeza dan tidak dapat dipulihkan. Semua yang lain akan dapat dipulihkan.</string>
+    <string name="backup_restore_warn_history_body">Data sejarah sandaran ini (statistik, sejarah mampatan, sesi sapu) adalah daripada versi aplikasi yang berbeza dan tidak dapat dipulihkan. Semua yang lain akan dipulihkan.</string>
     <string name="backup_restore_ack_understand">Saya faham dan ingin meneruskan</string>
     <string name="backup_restore_action_restore">Pulihkan</string>
 </resources>

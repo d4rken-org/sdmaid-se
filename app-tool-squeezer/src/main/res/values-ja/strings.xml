@@ -103,6 +103,6 @@
     <string name="squeezer_estimated_savings_percent">JPEGファイルの推定 ~%d%% の節約</string>
     <string name="squeezer_onboarding_got_it">わかりました。</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezerは写真と動画を再圧縮して、容量を削減します。ファイルは使用可能なまま、サイズだけが小さくなり、推定削減量が表示されます。</string>
+    <string name="tour_squeezer_intro_body">Squeezerは写真や動画を再圧縮して、必要なスペースを小さくします。若干の画質と引き換えに、スペースを取り戻せます。各アイテムには推定の節約量が表示されるので、何が値するかを判断できます。</string>
     <string name="tour_squeezer_compress_body">ここですべてを一度に圧縮するか、1つの項目をタップしてそれだけを縮小できます。長押しで複数を選択できます。変更前には常にプレビューが表示されます。</string>
 </resources>

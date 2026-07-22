@@ -105,6 +105,6 @@
     <string name="systemcleaner_customfilter_import_action">Importovať nový filter</string>
     <string name="systemcleaner_customfilter_export_action">Exportovať vybraný filter</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner nachádza odpad pomocou nešpecifických aplikačných filtrov. Existujú vopred pripravené pravidlá na veci ako prázdne zložky, zvyšné záznamy a zastarané miniatúry. Ak chcete vytvoriť svoje vlastné, navštívte nastavenia.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner nájde odpad pomocou filtrov, ktoré nie sú špecifické pre aplikácie. Existujú hotové pravidlá na veci ako prázdne priečinky, zvyšné denníky a zastarané miniatúry. Navštívte nastavenia, ak chcete vytvoriť svoje vlastné.</string>
     <string name="tour_systemcleaner_filter_body">Každý riadok je filter a to, čo našiel. Otvorte jeho podrobnosti, aby ste videli presne, ktoré súbory sa zhodujú, pred vymazaním čohokoľvek.</string>
 </resources>

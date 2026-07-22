@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">Hoe kun je helpen</string>
     <string name="upgrade_screen_how_body">Word mecenas en sponsor ontwikkelaar! Tik op de onderstaande knop om alle extra functies te activeren en mijn GitHub Sponsors-profiel te openen.</string>
     <string name="upgrade_screen_why_title">Upgradevoordelen</string>
-    <string name="upgrade_screen_why_body">• App-caches en wegwerpgegevens opschonen\n• Dubbele bestanden verwijderen\n• Geplande opruimingen inschakelen\n• Aangepaste filters en opruimingsregels maken\n• Opslagtrends en opruimingsgeschiedenis volgen\n• Meer functies en besturingselementen in de hele app\n• Open-sourcewerk ondersteunen</string>
+    <string name="upgrade_screen_why_body">• App-cache en junk opschonen\n• Dubbele bestanden verwijderen\n• Foto\'s en video\'s comprimeren\n• Swipe-to-declutter voor oude bestanden\n• Eenklik opschonen via widget\n• Opschoning plannen\n• Aangepaste filters en regels\n• Opslagtrends en geschiedenis\n• Meer functies en instellingen in de app\n• Ondersteuning voor open-sourcewerk</string>
     <string name="upgrade_screen_sponsor_action">Sponsor ontwikkeling</string>
     <string name="upgrade_screen_sponsor_action_hint">Het alternatief zijn advertenties, analyses en Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Bedankt voor het ondersteunen van open-sourceontwikkeling ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">Al terug? Jouw steun zorgt ervoor dat SD Maid kan blijven bestaan!</string>
+    <string name="upgrade_screen_status_free_title">Gratis versie</string>
+    <string name="upgrade_screen_status_free_body">Je gebruikt de gratis versie van SD Maid. Extra functies kunnen worden ontgrendeld door de ontwikkeling te ondersteunen.</string>
+    <string name="upgrade_screen_status_free_action">Bekijk upgrade-opties</string>
+    <string name="upgrade_screen_status_upgraded_title">Upgrade actief</string>
+    <string name="upgrade_screen_status_upgraded_body">Alle extra functies zijn ontgrendeld. Dank je wel dat je open-source-ontwikkeling ondersteunt ❤️</string>
+    <string name="upgrade_screen_recurring_title">Hou het gaande</string>
+    <string name="upgrade_screen_recurring_body">SD Maid blijft zich verder ontwikkelen door updates en fixes. Als je dat wilt steunen, overweeg dan een terugkerende donatie via GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">GitHub Sponsors openen</string>
 </resources>

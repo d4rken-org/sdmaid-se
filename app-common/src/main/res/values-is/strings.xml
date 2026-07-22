@@ -38,6 +38,7 @@
     <string name="general_error_label">Villa</string>
     <string name="general_upgrade_action">Uppfæra</string>
     <string name="general_refresh_action">Endurnýja</string>
+    <string name="general_retry_action">Reyna aftur</string>
     <string name="general_progress_searching">Leitar</string>
     <string name="general_progress_generating_searchpaths">Býr til leitarslóðir</string>
     <string name="general_progress_filtering">Síar</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nafn (A → Ö)</string>
     <string name="general_sort_size_desc">Stærsta fyrst</string>
     <string name="general_tag_system">Kerfi</string>
+    <string name="general_tag_library">Bókasafn</string>
     <string name="general_navigate_up_action">Fara upp</string>
     <string name="general_filter_action">Sía</string>
     <string name="general_filter_by_tags_label">Sía eftir merkjum</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Tilkynna villu</string>
     <string name="general_error_ipc_deadobject_title">Þjónustutengingu tapað</string>
     <string name="general_error_ipc_deadobject_description">Tenging við mikilvæga þjónustu (t.d. Magisk, Shizuku eða aðra kerfisstigs þjónustu) tapaðist óvænt. Vinsamlegast endurræstu tækið þitt. Ef vandamálið helst áfram skaltu athuga uppfærslur eða hafa samband við mig svo ég geti lagað það.</string>
-    <string name="general_error_upgrade_required_title">Pro útgáfa nauðsynleg</string>
-    <string name="general_error_upgrade_required_description">Þetta er Pro-eiginleiki. Uppfærðu SD Maid SE til að nota hann.</string>
+    <string name="general_error_upgrade_required_title">Uppfærsla krafist</string>
+    <string name="general_error_upgrade_required_description">Þessi aðgerð krefst uppfærslu. Endilega uppfærðu SD Maid SE til að nota hana.</string>
     <string name="general_user_label_owner">Eigandi</string>
     <string name="general_user_label_system">Kerfi</string>
     <string name="setup_title">Uppsetning</string>

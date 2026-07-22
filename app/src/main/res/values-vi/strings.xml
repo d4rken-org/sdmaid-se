@@ -5,7 +5,7 @@
     <string name="dashboard_hero_freed_headline">Đã giải phóng %1$s</string>
     <string name="dashboard_hero_freeable_x_items">%1$s có thể được xóa</string>
     <string name="dashboard_hero_freed_x_items">Đã xóa %1$s</string>
-    <string name="dashboard_hero_freeable_hint">Nhấn nút để giải phóng dung lượng. Nhấn một chip để kiểm tra trước.</string>
+    <string name="dashboard_hero_freeable_hint">Nhấn nút để giải phóng dung lượng, hoặc nhấn một chip để kiểm tra trước.</string>
     <string name="dashboard_hero_freed_hint">Nhấn một chip để xem chi tiết.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Đã quét %1$s</string>
@@ -40,7 +40,7 @@
     <string name="debug_logview_search_next_action">Kết quả tiếp theo</string>
     <string name="debug_logview_jump_to_bottom_action">Nhảy tới mới nhất</string>
     <string name="debug_logview_paused_msg">Tạm dừng — bộ đệm bị đóng băng</string>
-    <string name="debug_logview_paused_dropped_msg">Tạm dừng — bỏ qua %1$d dòng mới</string>
+    <string name="debug_logview_paused_dropped_msg">Tạm dừng — các dòng mới được bỏ qua: %1$d</string>
     <string name="debug_logview_copied_msg">Nhật ký đã chép vào bộ nhớ tạm</string>
     <string name="debug_logview_share_label">Chia sẻ nhật ký</string>
     <string name="debug_debuglog_screen_title">Nhật ký gỡ lỗi</string>
@@ -104,6 +104,7 @@
     <string name="settings_privacy_policy_label">Chính sách bảo mật</string>
     <string name="settings_privacy_policy_desc">Xử lý dữ liệu có trách nhiệm.</string>
     <string name="settings_category_other_label">Khác</string>
+    <string name="settings_upgrade_description">Cập nhật trạng thái và tùy chọn.</string>
     <string name="general_settings_label">Tổng quan</string>
     <string name="general_settings_desc">Các chỉnh sửa chung ảnh hưởng đến toàn bộ ứng dụng.</string>
     <string name="settings_category_ui_label">Giao diện người dùng</string>
@@ -277,9 +278,7 @@
     <string name="translation_encourage_title">Dịch SD Maid</string>
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
-    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau);
-Hai511;
-TheNothingGuy</string>
+    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau);\nHai511;\nTheNothingGuy</string>
     <string name="motd_setting_enabled_label">Tin nhắn quan trọng</string>
     <string name="motd_setting_enabled_explanation">Cho phép SD Maid kiểm tra các tin nhắn quan trọng từ nhà phát triển.</string>
     <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
@@ -313,14 +312,20 @@ TheNothingGuy</string>
     <string name="general_settings_reset_guided_tours_label">Đặt lại các tour hướng dẫn</string>
     <string name="general_settings_reset_guided_tours_summary">Hiển thị lại tất cả các tour hướng dẫn lần tới khi bạn truy cập màn hình của chúng. Cũng kích hoạt lại tất cả các tour nếu bạn đã tắt chúng trước đó.</string>
     <string name="widget_home_title">SD Maid</string>
-    <string name="widget_home_description">Sử dụng bộ nhớ và dọn dẹp một lần nhấn</string>
+    <string name="widget_home_description">Sử dụng bộ nhớ và dọn dẹp bằng một lần nhấn</string>
     <string name="widget_home_storage_internal">Nội bộ</string>
     <string name="widget_home_storage_external">Bên ngoài</string>
-    <string name="widget_home_freed_label">Đã giải phóng: %1$s</string>
+    <string name="widget_home_freed_label">Vòng đời: %1$s</string>
     <string name="widget_home_clean_action">Làm sạch</string>
     <string name="widget_home_working">Đang xử lý…</string>
     <string name="widget_home_unavailable">Bộ nhớ không khả dụng</string>
-    <string name="shortcut_onetap_started">Quét &amp; xóa đã bắt đầu…</string>
+    <string name="settings_category_widget">Tiện ích</string>
+    <string name="widget_settings_oneclick_summary">Cho phép nút Làm sạch của tiện ích trên màn hình chính quét và xóa bằng một lần nhấn mà không cần hỏi mỗi lần.</string>
+    <string name="widget_oneclick_consent_title">Bật làm sạch bằng một lần nhấn?</string>
+    <string name="widget_oneclick_consent_message">Nút Làm sạch của tiện ích sẽ quét và xóa một lần mà không cần hỏi trước hay cho phép bạn xem lại những gì sẽ bị xóa.</string>
+    <string name="widget_oneclick_consent_enable_action">Bật</string>
+    <string name="widget_oneclick_consent_decline_action">Để sau</string>
+    <string name="shortcut_onetap_started">Quét + Xóa đã bắt đầu…</string>
     <string name="shortcut_onetap_nothing_enabled">Không có công cụ một chạm nào được bật</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Sao lưu &amp; Khôi phục</string>

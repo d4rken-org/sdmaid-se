@@ -9,9 +9,17 @@
     <string name="upgrade_screen_how_title">איך לעזור</string>
     <string name="upgrade_screen_how_body">הפוך לפטרון ונותן חסות לפיתוח! הקש על הכפתור למטה כדי להפעיל את כל התכונות הנוספות ולפתוח את פרופיל הספונסרים בגיטהאב שלי.</string>
     <string name="upgrade_screen_why_title">יתרונות שדרוג</string>
-    <string name="upgrade_screen_why_body">• ניקוי מטמוני אפליקציות ונתונים שניתן לשחרר\n• הסרת קבצים כפולים\n• הפעלת ניקיונות מתוזמנים\n• יצירת מסננים וחוקי ניקיון מותאמים\n• עקיבה אחר מגמות אחסון והיסטוריית ניקיון\n• עוד תכונות ואפשרויות בכל האפליקציה\n• תמיכה בעבודה בקוד פתוח</string>
+    <string name="upgrade_screen_why_body">• ניקוי מטמון אפליקציה וזבל\n• הסרת קבצים כפולים\n• דחיסת תמונות וסרטונים\n• החלק לניקוי קבצים ישנים\n• ניקוי בלחיצה אחת דרך וידג׳ט\n• תזמון ניקוי\n• מסננים וכללים מותאמים אישית\n• מגמות והיסטוריה של אחסון\n• עוד תכונות ובקרות ברחבי האפליקציה\n• תמיכה בעבודה בקוד פתוח</string>
     <string name="upgrade_screen_sponsor_action">תמוך בפיתוח</string>
     <string name="upgrade_screen_sponsor_action_hint">האלטרנטיבה הן מודעות, אנליטיקס ו-Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">תודה שתמכת בפיתוח קוד פתוח ❤️</string>
     <string name="upgrade_screen_sponsor_return_too_quick">חזרת כבר? התמיכה שלך שומרת על SD Maid בחיים!</string>
+    <string name="upgrade_screen_status_free_title">גרסה חינמית</string>
+    <string name="upgrade_screen_status_free_body">אתה משתמש בגרסה החינמית של SD Maid. ניתן לפתוח תכונות נוספות על ידי תמיכה בפיתוח.</string>
+    <string name="upgrade_screen_status_free_action">ראה אפשרויות שדרוג</string>
+    <string name="upgrade_screen_status_upgraded_title">שדרוג פעיל</string>
+    <string name="upgrade_screen_status_upgraded_body">כל התכונות הנוספות פתוחות. תודה על תמיכה בפיתוח קוד פתוח ❤️</string>
+    <string name="upgrade_screen_recurring_title">תמשיכו הלאה</string>
+    <string name="upgrade_screen_recurring_body">SD Maid ממשיכה להתפתח דרך עדכונים ותיקונים. אם אתה רוצה לתמוך בזה, שקול תרומה חוזרת דרך GitHub Sponsors.</string>
+    <string name="upgrade_screen_recurring_action">פתח את GitHub Sponsors</string>
 </resources>

@@ -38,6 +38,7 @@
     <string name="general_error_label">Errore</string>
     <string name="general_upgrade_action">Agiornare</string>
     <string name="general_refresh_action">Atualizare</string>
+    <string name="general_retry_action">Proa de nou</string>
     <string name="general_progress_searching">Chirchende</string>
     <string name="general_progress_generating_searchpaths">Generande sa lista de chirca</string>
     <string name="general_progress_filtering">Filtrende</string>
@@ -72,6 +73,7 @@
     <string name="general_sort_name_asc">Nòmine (A → Z)</string>
     <string name="general_sort_size_desc">Pius mannu primmu</string>
     <string name="general_tag_system">Sistema</string>
+    <string name="general_tag_library">Biblioteca</string>
     <string name="general_navigate_up_action">Sube</string>
     <string name="general_filter_action">Filtrare</string>
     <string name="general_filter_by_tags_label">Filtrare pro etichetas</string>
@@ -174,8 +176,8 @@
     <string name="general_error_report_bug_action">Sinnalare bug</string>
     <string name="general_error_ipc_deadobject_title">Connessione de su servìtziu pèrdida</string>
     <string name="general_error_ipc_deadobject_description">Sa connessione a unu servìtziu crìticu (pro es. Magisk, Shizuku, o àteros servìtzios de sistema) est istada pèrdida in manera inaspetada. Pro piaghere torra a aviare su dispositivu. Si su problema persistit, verìfica sos agiornamentos o cuntàtami pro lu currigere.</string>
-    <string name="general_error_upgrade_required_title">Recheria la versione Pro</string>
-    <string name="general_error_upgrade_required_description">Custa est una caratzeristica Pro. Ascendi a SD Maid SE Pro pro usala.</string>
+    <string name="general_error_upgrade_required_title">Atzuada rechesta</string>
+    <string name="general_error_upgrade_required_description">Custa funtzionalidade rechesta una atzuada. Pro usala, atzua SD Maid SE.</string>
     <string name="general_user_label_owner">Propriedàriu</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Cunfiguratzione</string>

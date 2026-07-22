@@ -7,6 +7,7 @@
         <item quantity="other">%d laluan dipilih</item>
     </plurals>
     <string name="picker_home_action">Rumah</string>
+    <string name="picker_select_hint">Tahan item untuk memilihnya</string>
     <string name="tour_action_next">Seterusnya</string>
     <string name="tour_action_previous">Sebelumnya</string>
     <string name="tour_action_cancel">Langkau</string>
@@ -15,6 +16,6 @@
     <string name="tour_confirm_continue">Teruskan lawatan</string>
     <string name="tour_confirm_dont_show_this_tour">Jangan tunjukkan lawatan ini</string>
     <string name="tour_confirm_disable_all">Matikan semua lawatan</string>
-    <string name="navigation_unknown_destination_title">Akan datang</string>
-    <string name="navigation_unknown_destination_message">Skrin ini masih sedang dipindahkan ke UI baharu.</string>
+    <string name="navigation_unknown_destination_title">Skrin tidak tersedia</string>
+    <string name="navigation_unknown_destination_message">Skrin ini tidak dapat dibuka.</string>
 </resources>
