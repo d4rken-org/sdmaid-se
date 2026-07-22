@@ -105,8 +105,9 @@ class BillingConnection(
 
         // Snapshots first, overlay overwrites: a surviving overlay entry is by construction newer
         // than the last successful query of its type (older ones were cleared), so its purchase
-        // data (ack state etc.) is fresher. purchaseToken is the real purchase identity — Purchase
-        // has no equals(), object-identity dedup would keep duplicates.
+        // data (ack state etc.) is fresher. Dedup by purchaseToken (the stable purchase identity):
+        // snapshot and overlay instances of the same purchase can differ in ack state, so Purchase
+        // equality or object identity would retain both instead of letting the newer one win.
         internal fun merged(): Collection<Purchase> {
             val byToken = LinkedHashMap<String, Purchase>()
             iapSnapshot.orEmpty().forEach { byToken[it.purchaseToken] = it }

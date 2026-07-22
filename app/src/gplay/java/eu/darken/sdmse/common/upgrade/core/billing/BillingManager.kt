@@ -164,6 +164,15 @@ class BillingManager @Inject constructor(
         .setupCommonEventHandlers(TAG) { "freshBillingData" }
         .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 
+    // Tokens we've already SUCCESSFULLY acknowledged this process. LOG-LEVEL HINT ONLY: it selects
+    // INFO (first ack) vs DEBUG (idempotent repeat) and MUST NOT gate the acknowledgePurchase call
+    // below. The immutable Purchase snapshot keeps reporting isAcknowledged=false until a fresh Play
+    // query supersedes it, so the ack re-fires every emission until then; re-acking is a documented
+    // no-op on Play's side, whereas skipping a needed ack gets the purchase auto-refunded after 3
+    // days -- so the ack stays unconditional and this set only quiets the log spam. Single
+    // sequential collector (the onEach below), no locking needed.
+    private val loggedAckTokens = mutableSetOf<String>()
+
     init {
         purchases
             .onEach { purchases ->
@@ -171,18 +180,24 @@ class BillingManager @Inject constructor(
                     .filter {
                         val needsAck = !it.isAcknowledged
 
-                        if (needsAck) log(TAG, INFO) { "Needs ACK: $it" }
+                        if (needsAck) log(TAG) { "Needs ACK: $it" }
                         else log(TAG) { "Already ACK'ed: $it" }
 
                         needsAck
                     }
                     .forEach {
-                        log(TAG, INFO) { "Acknowledging purchase: $it" }
+                        // First ack of a token is INFO; idempotent repeats drop to DEBUG. This never
+                        // gates the ack -- acknowledgePurchase runs regardless of set membership.
+                        val ackPriority = if (it.purchaseToken in loggedAckTokens) DEBUG else INFO
+                        log(TAG, ackPriority) { "Acknowledging purchase: $it" }
 
                         try {
                             useConnection {
                                 acknowledgePurchase(it)
                             }
+                            // Only after a *successful* ack (acknowledgePurchase throws on non-OK):
+                            // a failed ack never lands here, so it stays loud and retryable.
+                            loggedAckTokens.add(it.purchaseToken)
                         } catch (e: CancellationException) {
                             // AppScope death is not an acknowledgement failure.
                             throw e
