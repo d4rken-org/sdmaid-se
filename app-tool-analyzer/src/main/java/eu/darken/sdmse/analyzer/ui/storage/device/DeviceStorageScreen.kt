@@ -45,8 +45,8 @@ import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 @Composable
 fun DeviceStorageScreenHost(
@@ -66,13 +66,13 @@ fun DeviceStorageScreenHost(
 
 @Composable
 internal fun DeviceStorageScreen(
-    stateSource: Flow<DeviceStorageViewModel.State> = MutableStateFlow(DeviceStorageViewModel.State()),
+    stateSource: StateFlow<DeviceStorageViewModel.State> = MutableStateFlow(DeviceStorageViewModel.State()),
     onNavigateUp: () -> Unit = {},
     onStorageClick: (DeviceStorageViewModel.Row) -> Unit = {},
     onTrendClick: (DeviceStorageViewModel.Row) -> Unit = {},
     onRefresh: () -> Unit = {},
 ) {
-    val state by stateSource.collectAsStateWithLifecycle(initialValue = DeviceStorageViewModel.State())
+    val state by stateSource.collectAsStateWithLifecycle()
     val context = LocalContext.current
     val gridState = rememberLazyGridState()
 

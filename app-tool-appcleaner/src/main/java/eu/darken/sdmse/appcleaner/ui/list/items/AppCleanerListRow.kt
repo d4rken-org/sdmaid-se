@@ -18,8 +18,7 @@ import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
+import eu.darken.sdmse.common.coil.AppIconImage
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
 import eu.darken.sdmse.common.R as CommonR
@@ -68,8 +67,8 @@ fun AppCleanerListRow(
                     .onFailure { log(TAG, WARN) { "Settings intent failed for ${junk.pkg}: $it" } }
             },
         ) {
-            AsyncImage(
-                model = ImageRequest.Builder(context).data(junk.pkg).build(),
+            AppIconImage(
+                pkg = junk.pkg,
                 contentDescription = stringResource(CommonR.string.general_details_label),
                 modifier = Modifier.size(40.dp),
             )

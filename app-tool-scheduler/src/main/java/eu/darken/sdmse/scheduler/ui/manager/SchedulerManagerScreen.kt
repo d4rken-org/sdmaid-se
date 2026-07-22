@@ -58,8 +58,8 @@ import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRow
 import eu.darken.sdmse.scheduler.ui.manager.items.CommandsEditDialog
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRow
 import eu.darken.sdmse.scheduler.ui.manager.tour.SchedulerManagerTour
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 private val TAG = logTag("Scheduler", "Manager", "Screen")
 
@@ -126,7 +126,7 @@ fun SchedulerManagerScreenHost(
 
 @Composable
 internal fun SchedulerManagerScreen(
-    stateSource: Flow<SchedulerManagerViewModel.State> = MutableStateFlow(SchedulerManagerViewModel.State()),
+    stateSource: StateFlow<SchedulerManagerViewModel.State> = MutableStateFlow(SchedulerManagerViewModel.State()),
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onNavigateUp: () -> Unit = {},
     onShowHelp: () -> Unit = {},
@@ -143,7 +143,7 @@ internal fun SchedulerManagerScreen(
     onDismissBattery: () -> Unit = {},
     onDismissAcsScreenLockedHint: () -> Unit = {},
 ) {
-    val state by stateSource.collectAsStateWithLifecycle(initialValue = SchedulerManagerViewModel.State())
+    val state by stateSource.collectAsStateWithLifecycle()
     val listState = rememberLazyListState()
 
     val tourController = LocalGuidedTourController.current

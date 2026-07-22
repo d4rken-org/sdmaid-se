@@ -18,8 +18,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import coil.compose.AsyncImage
-import coil.request.ImageRequest
 import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.SortSettings
@@ -27,6 +25,7 @@ import eu.darken.sdmse.appcontrol.ui.list.AppControlListViewModel
 import eu.darken.sdmse.appcontrol.ui.list.AppInfoTagsRow
 import eu.darken.sdmse.appcontrol.ui.preview.previewAppControlRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.AppIconImage
 import eu.darken.sdmse.common.compose.SdmFastScrollerLaneWidth
 import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -54,8 +53,8 @@ fun AppControlListRow(
         onClick = onClick,
         onLongClick = onLongClick,
     ) {
-        AsyncImage(
-            model = ImageRequest.Builder(context).data(appInfo.pkg).build(),
+        AppIconImage(
+            pkg = appInfo.pkg,
             contentDescription = null,
             modifier = Modifier.size(40.dp),
         )

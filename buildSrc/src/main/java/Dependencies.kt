@@ -19,6 +19,9 @@ private fun DependencyHandler.testImplementation(
     this, "testImplementation", dependencyNotation, dependencyConfiguration
 )
 
+private fun DependencyHandler.screenshotTestImplementation(dependencyNotation: Any): Dependency? =
+    add("screenshotTestImplementation", dependencyNotation)
+
 private fun DependencyHandler.ksp(dependencyNotation: Any): Dependency? =
     add("ksp", dependencyNotation)
 
@@ -181,6 +184,18 @@ fun DependencyHandlerScope.addCompose() {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
 
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
+}
+
+/**
+ * Dependencies for the `com.android.compose.screenshot` plugin's `screenshotTest` source set.
+ * Apply alongside `id("com.android.compose.screenshot")` in a module that hosts Play Store
+ * screenshot previews. Requires `android.experimental.enableScreenshotTest=true` (set globally in
+ * gradle.properties).
+ */
+fun DependencyHandlerScope.addScreenshotTest() {
+    screenshotTestImplementation(platform("androidx.compose:compose-bom:${Versions.AndroidX.Compose.bom}"))
+    screenshotTestImplementation("com.android.tools.screenshot:screenshot-validation-api:${Versions.ComposeScreenshot.core}")
+    screenshotTestImplementation("androidx.compose.ui:ui-tooling")
 }
 
 fun DependencyHandlerScope.addGlance() {

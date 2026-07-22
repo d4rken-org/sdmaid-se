@@ -1,0 +1,18 @@
+# Single source of truth for Play Store screenshot locales.
+# Format: <androidResourceQualifier> <fastlaneMetadataDir>
+# - androidResourceQualifier -> @Preview(locale = ...) in the generated PlayStoreLocales.kt
+# - fastlaneMetadataDir       -> fastlane/metadata/android/<dir>/images/phoneScreenshots/
+#
+# This "smoke" set is committed to git (see .gitignore). It covers LTR, RTL (ar) and CJK (ja, zh).
+# This file DOCUMENTS the locale set; it is not yet auto-consumed. The authoritative render list is the
+# @Preview lines in each module's screenshotTest/.../PlayStoreLocales.kt — keep those and this file in
+# sync by hand. Lines starting with # and blank lines are ignored.
+
+en     en-US
+de     de-DE
+es     es-ES
+fr     fr-FR
+ja     ja-JP
+zh-rCN zh-CN
+ru     ru-RU
+ar     ar

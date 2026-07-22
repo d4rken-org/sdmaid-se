@@ -62,6 +62,24 @@ platform :android do
     )
   end
 
+  # Uploads ONLY the Play Store screenshots (fastlane/metadata/android/*/images/phoneScreenshots),
+  # leaving APK/AAB, listing metadata, changelogs and other images (icon/featureGraphic) untouched.
+  # Locales absent from the upload keep whatever the Store already has, so a smoke-only set is safe.
+  # Regenerate images first: fastlane/generate_screenshots.sh && fastlane/copy_screenshots.sh --clean
+  lane :screenshots_only do
+    sh "bash ./remove_unsupported_languages.sh"
+    supply(
+      track: 'production',
+      package_name: 'eu.darken.sdmse',
+      skip_upload_apk: 'true',
+      skip_upload_aab: 'true',
+      skip_upload_metadata: 'true',
+      skip_upload_changelogs: 'true',
+      skip_upload_images: 'true',
+      skip_upload_screenshots: 'false',
+    )
+  end
+
   after_all do |lane|
     # This block is called, only if the executed lane was successful
 

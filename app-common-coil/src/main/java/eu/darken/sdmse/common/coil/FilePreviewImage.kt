@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.coil
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -108,9 +109,29 @@ fun FilePreviewImage(
     }
 
     // Under @Preview the mock lookups point at paths that don't exist on the render host; letting Coil
-    // resolve them trips Studio's render sandbox (SecurityException: read access not allowed). Render the
-    // placeholder instead so previews stay side-effect free.
-    if (!lookup.canAttemptFilePreview() || LocalInspectionMode.current) {
+    // resolve them trips Studio's render sandbox (SecurityException: read access not allowed). Render a
+    // screenshot-provided sample (if one is installed and this item could hold a real preview) or the
+    // placeholder, so previews stay side-effect free.
+    if (LocalInspectionMode.current) {
+        val sample = if (lookup.canAttemptFilePreview()) {
+            LocalPreviewImageProvider.current?.fileImage(lookup)
+        } else {
+            null
+        }
+        if (sample != null) {
+            Image(
+                painter = sample,
+                contentDescription = contentDescription,
+                modifier = modifier,
+                contentScale = contentScale,
+                colorFilter = colorFilter,
+            )
+        } else {
+            fallbackContent(modifier)
+        }
+        return
+    }
+    if (!lookup.canAttemptFilePreview()) {
         fallbackContent(modifier)
         return
     }

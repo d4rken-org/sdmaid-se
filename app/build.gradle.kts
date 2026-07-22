@@ -4,6 +4,7 @@ plugins {
     id("projectConfig")
     id("com.google.devtools.ksp")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.android.compose.screenshot")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
@@ -104,6 +105,10 @@ android {
         buildConfig = true
         compose = true
     }
+
+    // Enables the screenshotTest source set (com.android.compose.screenshot). The matching
+    // apply-time gate lives in gradle.properties (android.experimental.enableScreenshotTest).
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
@@ -259,4 +264,6 @@ dependencies {
 
 
     testImplementation("androidx.test.ext:junit:1.3.0")
+
+    addScreenshotTest()
 }

@@ -41,4 +41,9 @@ object Versions {
     object Robolectric {
         const val core = "4.16.1"
     }
+
+    object ComposeScreenshot {
+        // Keep in sync with the plugin version in the root build.gradle.kts plugins block.
+        const val core = "0.0.1-alpha15"
+    }
 }

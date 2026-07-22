@@ -4,6 +4,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("projectConfig")
     id("org.jetbrains.kotlin.plugin.compose")
+    id("com.android.compose.screenshot")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
@@ -19,6 +20,10 @@ android {
     buildFeatures {
         compose = true
     }
+
+    // Enables the screenshotTest source set (com.android.compose.screenshot). The matching
+    // apply-time gate lives in gradle.properties (android.experimental.enableScreenshotTest).
+    experimentalProperties["android.experimental.enableScreenshotTest"] = true
 
     setupCompileOptions()
 
@@ -61,4 +66,6 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
+
+    addScreenshotTest()
 }
