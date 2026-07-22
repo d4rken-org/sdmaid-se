@@ -2,7 +2,9 @@ package eu.darken.sdmse.appcleaner.screenshots
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.res.painterResource
 import com.android.tools.screenshot.PreviewTest
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListScreen
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
@@ -20,6 +22,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 
 private const val KB = 1024L
 private const val MB = 1024L * KB
+
+// Neutral generated app-icon glyphs (debug/res) — real launcher icons are third-party trademarks.
+internal val SAMPLE_APP_ICONS = listOf(
+    R.drawable.ss_appicon_00, R.drawable.ss_appicon_01, R.drawable.ss_appicon_02, R.drawable.ss_appicon_03,
+    R.drawable.ss_appicon_04, R.drawable.ss_appicon_05, R.drawable.ss_appicon_06, R.drawable.ss_appicon_07,
+    R.drawable.ss_appicon_08, R.drawable.ss_appicon_09, R.drawable.ss_appicon_10, R.drawable.ss_appicon_11,
+    R.drawable.ss_appicon_12, R.drawable.ss_appicon_13,
+)
 
 private fun appRow(label: String, pkg: String, size: Long, items: Int) = previewAppCleanerRow(
     previewAppJunk(
@@ -50,8 +60,9 @@ private val APP_ROWS = listOf(
 @PlayStoreLocales
 @Composable
 fun AppCleanerScreenshot() {
+    val provider = rememberSampleImageProvider(iconPainters = SAMPLE_APP_ICONS.map { painterResource(it) })
     PreviewWrapper {
-        CompositionLocalProvider(LocalPreviewImageProvider provides rememberSampleImageProvider()) {
+        CompositionLocalProvider(LocalPreviewImageProvider provides provider) {
             AppCleanerListScreen(
                 stateSource = MutableStateFlow(
                     AppCleanerListViewModel.State(

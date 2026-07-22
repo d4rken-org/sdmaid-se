@@ -13,21 +13,26 @@ import eu.darken.sdmse.common.pkgs.Pkg
 /**
  * A [PreviewImageProvider] for screenshot/preview renders where Coil can't run (layoutlib).
  *
- * File thumbnails use [filePainters] when supplied (deterministically picked per file path so the same
- * file looks the same across locales), otherwise a generated gradient tile. Pass real sample images
- * for screens where photo content matters (e.g. the Deduplicator grid) via
- * `rememberSampleImageProvider(filePainters = listOf(painterResource(R.drawable.…), …))` — the drawables
- * live in that module's `debug/res` (a `screenshotTest` source set can read `debug` res via its R class,
- * but not its own `res`). App icons always use a generated tile: real launcher icons are third-party
- * trademarks, so a neutral placeholder is the correct choice there.
+ * Both file thumbnails ([filePainters]) and app icons ([iconPainters]) use the supplied painters when
+ * given (deterministically picked per file path / package name so the same item looks the same across
+ * locales), otherwise a generated gradient tile. Pass real sample images for screens where the content
+ * matters via `rememberSampleImageProvider(filePainters = …, iconPainters = …)` with
+ * `painterResource(R.drawable.…)` — the drawables live in that module's `debug/res` (a `screenshotTest`
+ * source set can read `debug` res via its R class, but not its own `res`). Icon samples are neutral
+ * generated glyphs, never real launcher icons (those are third-party trademarks).
  *
  * Production never installs a provider, so this only ever runs under inspection/screenshot rendering.
  */
 @Composable
-fun rememberSampleImageProvider(filePainters: List<Painter> = emptyList()): PreviewImageProvider =
-    SampleImageProvider(filePainters)
+fun rememberSampleImageProvider(
+    filePainters: List<Painter> = emptyList(),
+    iconPainters: List<Painter> = emptyList(),
+): PreviewImageProvider = SampleImageProvider(filePainters, iconPainters)
 
-private class SampleImageProvider(private val filePainters: List<Painter>) : PreviewImageProvider {
+private class SampleImageProvider(
+    private val filePainters: List<Painter>,
+    private val iconPainters: List<Painter>,
+) : PreviewImageProvider {
     @Composable
     override fun fileImage(lookup: APathLookup<*>): Painter = when {
         filePainters.isEmpty() -> GradientSamplePainter(lookup.path.hashCode())
@@ -35,8 +40,10 @@ private class SampleImageProvider(private val filePainters: List<Painter>) : Pre
     }
 
     @Composable
-    override fun appIcon(pkg: Pkg): Painter =
-        GradientSamplePainter(pkg.packageName.hashCode())
+    override fun appIcon(pkg: Pkg): Painter = when {
+        iconPainters.isEmpty() -> GradientSamplePainter(pkg.packageName.hashCode())
+        else -> iconPainters[Math.floorMod(pkg.packageName.hashCode(), iconPainters.size)]
+    }
 }
 
 private class GradientSamplePainter(seed: Int) : Painter() {

@@ -2,7 +2,9 @@ package eu.darken.sdmse.appcontrol.screenshots
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.res.painterResource
 import com.android.tools.screenshot.PreviewTest
+import eu.darken.sdmse.appcontrol.R
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListScreen
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListViewModel
 import eu.darken.sdmse.appcontrol.ui.preview.previewAppControlRow
@@ -19,6 +21,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 // (no real names/packages); sizes and active state are varied to look like a real device.
 
 private const val MB = 1024L * 1024L
+
+// Neutral generated app-icon glyphs (debug/res) — real launcher icons are third-party trademarks.
+internal val SAMPLE_APP_ICONS = listOf(
+    R.drawable.ss_appicon_00, R.drawable.ss_appicon_01, R.drawable.ss_appicon_02, R.drawable.ss_appicon_03,
+    R.drawable.ss_appicon_04, R.drawable.ss_appicon_05, R.drawable.ss_appicon_06, R.drawable.ss_appicon_07,
+    R.drawable.ss_appicon_08, R.drawable.ss_appicon_09, R.drawable.ss_appicon_10, R.drawable.ss_appicon_11,
+    R.drawable.ss_appicon_12, R.drawable.ss_appicon_13,
+)
 
 private fun appRow(label: String, pkg: String, appMb: Long, cacheMb: Long, dataMb: Long, active: Boolean) =
     previewAppControlRow(
@@ -50,8 +60,9 @@ private val APP_ROWS = listOf(
 @PlayStoreLocales
 @Composable
 fun AppControlScreenshot() {
+    val provider = rememberSampleImageProvider(iconPainters = SAMPLE_APP_ICONS.map { painterResource(it) })
     PreviewWrapper {
-        CompositionLocalProvider(LocalPreviewImageProvider provides rememberSampleImageProvider()) {
+        CompositionLocalProvider(LocalPreviewImageProvider provides provider) {
             AppControlListScreen(
                 stateSource = MutableStateFlow(
                     AppControlListViewModel.State(rows = APP_ROWS),

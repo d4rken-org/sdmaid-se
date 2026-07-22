@@ -60,34 +60,16 @@ private fun sampleRow(id: String, fileName: String, sizeMb: Long, copies: Int): 
 @Composable
 fun DeduplicatorScreenshot() {
     val sampleImages = rememberSampleImageProvider(
-        filePainters = listOf(
-            painterResource(R.drawable.ss_photo_beach),
-            painterResource(R.drawable.ss_photo_forest),
-            painterResource(R.drawable.ss_photo_ocean),
-            painterResource(R.drawable.ss_photo_desert),
-            painterResource(R.drawable.ss_photo_mountain),
-            painterResource(R.drawable.ss_photo_meadow),
-        ),
+        filePainters = COAST_DRAWABLES.map { painterResource(it) },
     )
     PreviewWrapper {
         CompositionLocalProvider(LocalPreviewImageProvider provides sampleImages) {
             DeduplicatorListScreen(
                 stateSource = MutableStateFlow(
                     DeduplicatorListViewModel.State(
-                        rows = listOf(
-                            sampleRow("dupe-1", "vacation.jpg", sizeMb = 8, copies = 2),
-                            sampleRow("dupe-2", "sunset_beach.jpg", sizeMb = 6, copies = 3),
-                            sampleRow("dupe-3", "mountains.png", sizeMb = 12, copies = 2),
-                            sampleRow("dupe-4", "birthday.jpg", sizeMb = 3, copies = 4),
-                            sampleRow("dupe-5", "concert.jpg", sizeMb = 5, copies = 2),
-                            sampleRow("dupe-6", "roadtrip.png", sizeMb = 9, copies = 2),
-                            sampleRow("dupe-7", "hiking_trail.jpg", sizeMb = 7, copies = 2),
-                            sampleRow("dupe-8", "city_lights.jpg", sizeMb = 4, copies = 3),
-                            sampleRow("dupe-9", "forest_walk.png", sizeMb = 11, copies = 2),
-                            sampleRow("dupe-10", "old_harbour.jpg", sizeMb = 2, copies = 5),
-                            sampleRow("dupe-11", "desert_dunes.jpg", sizeMb = 14, copies = 2),
-                            sampleRow("dupe-12", "garden.png", sizeMb = 6, copies = 3),
-                        ),
+                        rows = DUPE_SPECS.mapIndexed { i, (name, sizeMb, copies) ->
+                            sampleRow("dupe-$i", name, sizeMb = sizeMb.toLong(), copies = copies)
+                        },
                         layoutMode = LayoutMode.GRID,
                     ),
                 ),
@@ -95,3 +77,20 @@ fun DeduplicatorScreenshot() {
         }
     }
 }
+
+private val COAST_DRAWABLES = listOf(
+    R.drawable.ss_coast_00, R.drawable.ss_coast_01, R.drawable.ss_coast_02, R.drawable.ss_coast_03,
+    R.drawable.ss_coast_04, R.drawable.ss_coast_05, R.drawable.ss_coast_06, R.drawable.ss_coast_07,
+    R.drawable.ss_coast_08, R.drawable.ss_coast_09,
+)
+
+// (fileName, sizeMb, copies) — distinct file names so the provider picks a spread of sample photos.
+private val DUPE_SPECS = listOf(
+    Triple("beach_day.jpg", 8, 2), Triple("sunset_bay.jpg", 6, 3), Triple("cliffs.jpg", 12, 2),
+    Triple("boardwalk.jpg", 3, 4), Triple("harbour.jpg", 5, 2), Triple("surfers.jpg", 9, 2),
+    Triple("tide_pool.jpg", 7, 2), Triple("lighthouse.jpg", 4, 3), Triple("seawall.jpg", 11, 2),
+    Triple("dunes.jpg", 2, 5), Triple("pier.jpg", 14, 2), Triple("rockpool.jpg", 6, 3),
+    Triple("shoreline.jpg", 10, 2), Triple("coast_road.jpg", 5, 2), Triple("seagulls.jpg", 3, 4),
+    Triple("driftwood.jpg", 8, 2), Triple("marina.jpg", 16, 2), Triple("sandbar.jpg", 4, 3),
+    Triple("cove.jpg", 7, 2), Triple("breakwater.jpg", 9, 2), Triple("promenade.jpg", 5, 3),
+)
