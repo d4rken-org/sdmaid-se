@@ -36,5 +36,16 @@ class BillingCacheTest : BaseTest() {
 
         cache.lastProStateAt.value() shouldBe 5678L
         cache.lastProStateSku.value() shouldBe OurSku.Sub.PRO_UPGRADE.id
+
+        // Occurrence-aware episode clear: a confirmation closes an episode that began at or before
+        // it, but must leave a NEWER episode intact — a connection failure that occurred after this
+        // confirmation but was processed out of order opened a still-valid episode.
+        cache.proUnconfirmedSince.value(4_000L)
+        cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 5_000L) // confirmation newer than episode
+        cache.proUnconfirmedSince.value() shouldBe 0L
+
+        cache.proUnconfirmedSince.value(9_000L)
+        cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 8_000L) // confirmation older than episode
+        cache.proUnconfirmedSince.value() shouldBe 9_000L
     }
 }

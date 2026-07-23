@@ -107,6 +107,18 @@ class UpgradeRepoGplay @Inject constructor(
             }
             .setupCommonEventHandlers(TAG) { "asyncAlreadyOwned" }
             .launchIn(scope)
+
+        // Connect-loop failures never reach an explicit refresh() caller (the loop retries
+        // internally and downstream flows just go quiet), so without this a sustained Play outage
+        // between ON_RESUME refreshes wouldn't advance the grace episode clock. The emitted value is
+        // the failure's occurrence time: recordProUnconfirmed uses it (not processing-time) so a
+        // buffered failure that a later success already superseded is dropped rather than reopening a
+        // closed episode. Set-if-unset and grace-guarded, so repeated outages collapse to a single
+        // episode start and installs that were never Pro (lastProStateAt == 0) are ignored.
+        billingManager.connectionFailures
+            .onEach { failedAt -> recordProUnconfirmed(failedAt) }
+            .setupCommonEventHandlers(TAG) { "connectionFailureRecorder" }
+            .launchIn(scope)
     }
 
     // False until the first real billing outcome after process start — the window where
@@ -330,7 +342,8 @@ class UpgradeRepoGplay @Inject constructor(
         if (sku == null) {
             // A full snapshot proves absence; a partial one (purchase event, single-type query)
             // only proves presence of what it contains and must not start an unconfirmed episode.
-            if (fresh.isFullSnapshot) recordProUnconfirmedLocked()
+            // occurredAt is the snapshot's commit time — when Play confirmed the absence.
+            if (fresh.isFullSnapshot) recordProUnconfirmedLocked(fresh.occurredAt)
             return@withLock
         }
         val storedSkuId = billingCache.lastProStateSku.value()
@@ -347,28 +360,38 @@ class UpgradeRepoGplay @Inject constructor(
             sku.id
         }
         log(TAG, VERBOSE) { "Fresh Pro state confirmed by $sku, stamping $effectiveSkuId" }
-        // One transaction: also closes any unconfirmed episode atomically.
-        billingCache.stampLastProState(effectiveSkuId, System.currentTimeMillis())
+        // Stamp with the confirmation's OWN commit time, not processing-now: the same value gates
+        // which unconfirmed episode this closes (BillingCache only clears an episode that began at or
+        // before it) and lets a later connection failure be correctly ordered against this success.
+        billingCache.stampLastProState(effectiveSkuId, fresh.occurredAt)
     }
 
-    private suspend fun recordProUnconfirmed() = proStateLock.withLock { recordProUnconfirmedLocked() }
+    private suspend fun recordProUnconfirmed(occurredAt: Long = System.currentTimeMillis()) =
+        proStateLock.withLock { recordProUnconfirmedLocked(occurredAt) }
 
     // Fresh reconciliation failed to confirm a known Pro purchase (full-snapshot empty result or
     // query error). Starts the unconfirmed-episode clock that delays the grace hint on the upgrade
     // screen. Set-if-unset so follow-up failures never refresh it; stamps from an earlier episode
     // (older than the last confirmation) or from the future (clock changes) are replaced.
     // Fail-quiet: purely informational, must never affect entitlement handling.
-    private suspend fun recordProUnconfirmedLocked() {
+    //
+    // occurredAt is WHEN the failure happened. Imperative callers (refresh/restore/empty snapshot)
+    // pass the default (now), which is also their event time. The buffered connectionFailures feed
+    // passes the failure's own timestamp so that a failure which happened BEFORE the latest
+    // confirmation — e.g. one enqueued during an outage but consumed only after a later retry
+    // succeeded and stamped Pro — is rejected by the sinceConfirm <= 0 guard instead of reopening
+    // an episode Play already closed.
+    private suspend fun recordProUnconfirmedLocked(occurredAt: Long = System.currentTimeMillis()) {
         try {
             val lastProStateAt = billingCache.lastProStateAt.value()
-            val now = System.currentTimeMillis()
-            val sinceConfirm = now - lastProStateAt
-            // sinceConfirm <= 0 also rejects future confirmations (clock moved backwards) — they
-            // would otherwise pass the window check and re-stamp the episode on every attempt.
+            val sinceConfirm = occurredAt - lastProStateAt
+            // sinceConfirm <= 0 rejects failures superseded by a later confirmation AND future
+            // confirmations (clock moved backwards) — both would otherwise pass the window check and
+            // (re)stamp the episode.
             if (lastProStateAt <= 0L || sinceConfirm <= 0L || sinceConfirm >= graceWindowMs()) return
             billingCache.proUnconfirmedSince.update { current ->
-                val stale = current <= 0L || current < lastProStateAt || current > now
-                if (stale) now else current
+                val stale = current <= 0L || current < lastProStateAt || current > occurredAt
+                if (stale) occurredAt else current
             }
         } catch (e: CancellationException) {
             throw e

@@ -30,6 +30,7 @@ import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -169,13 +170,16 @@ class BillingManagerTest : BaseTest() {
         val manager = manager(
             connection(
                 freshUpdatesFlow = flowOf(
-                    BillingConnection.FreshUpdate(listOf(owned), isFullSnapshot = false),
+                    BillingConnection.FreshUpdate(listOf(owned), isFullSnapshot = false, occurredAt = 4242L),
                 ),
             )
         )
 
-        manager.freshBillingData.first() shouldBe
-            BillingManager.FreshData(BillingData(listOf(owned)), isFullSnapshot = false)
+        val fresh = manager.freshBillingData.first()
+        fresh.data shouldBe BillingData(listOf(owned))
+        fresh.isFullSnapshot shouldBe false
+        // The commit time must propagate verbatim: the entitlement layer keys episode ordering on it.
+        fresh.occurredAt shouldBe 4242L
     }
 
     @Test fun `non-OK purchase events are exposed as purchase failures`() = runTest2 {
@@ -481,6 +485,153 @@ class BillingManagerTest : BaseTest() {
 
         refreshed.await() shouldBe BillingData(listOf(owned))
         attempts shouldBe 2
+    }
+
+    // endregion
+
+    // region connection failure feed
+
+    // Drains the manager's connectionFailures (occurrence timestamps) into a list. Launched on
+    // backgroundScope so it lives for the whole test.
+    private fun TestScope.collectFailures(manager: BillingManager): List<Long> = mutableListOf<Long>().also { out ->
+        backgroundScope.launch { manager.connectionFailures.collect { out.add(it) } }
+    }
+
+    @Test fun `a failure buffered before subscription is still delivered`() = runTest2 {
+        // The consumer (UpgradeRepoGplay) and the connect loop both start in init with no ordering,
+        // so a failure can fire before anyone subscribes — the UNLIMITED channel must buffer it.
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow { throw BillingException("Play is down") }
+        }
+        val manager = manager(provider)
+        runCurrent() // attempt 1 fails and enqueues BEFORE any collector subscribes
+
+        val failures = collectFailures(manager)
+        runCurrent()
+        failures.isNotEmpty() shouldBe true
+    }
+
+    @Test fun `a failed connection attempt emits a connection failure`() = runTest2 {
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow { throw BillingException("Play is down") }
+        }
+        val manager = manager(provider)
+        val failures = collectFailures(manager)
+
+        runCurrent() // attempt 1 fails (backoff not yet elapsed -> exactly one iteration)
+        failures.size shouldBe 1
+    }
+
+    @Test fun `a failing initial refresh emits a connection failure`() = runTest2 {
+        val bad = connection().apply {
+            coEvery { refreshPurchases() } throws
+                GplayServiceUnavailableException(RuntimeException("cold Play, broken queries"))
+        }
+        val manager = manager(bad)
+        val failures = collectFailures(manager)
+
+        runCurrent() // connects, initial refresh throws -> connection failure
+        failures.size shouldBe 1
+    }
+
+    @Test fun `a hanging initial refresh emits a connection failure on timeout`() = runTest2 {
+        val bad = connection().apply {
+            coEvery { refreshPurchases() } coAnswers { awaitCancellation() }
+        }
+        val manager = manager(bad)
+        val failures = collectFailures(manager)
+
+        runCurrent() // attempt 1: refresh hangs
+        advanceTimeBy(30_001) // initial-refresh timeout fires -> failure (backoff not yet elapsed)
+        runCurrent()
+        failures.size shouldBe 1
+    }
+
+    @Test fun `an unexpected provider completion emits a connection failure`() = runTest2 {
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow<BillingConnection> {
+                // completes normally without ever emitting -> treated as a failure
+            }
+        }
+        val manager = manager(provider)
+        val failures = collectFailures(manager)
+
+        runCurrent()
+        failures.size shouldBe 1
+    }
+
+    @Test fun `an established connection alone does not emit`() = runTest2 {
+        // A healthy connection that stays open must not look like a reconciliation failure.
+        val manager = manager(connection())
+        val failures = collectFailures(manager)
+
+        runCurrent()
+        failures shouldBe emptyList()
+    }
+
+    @Test fun `a cancelled connect loop does not emit`() = runTest2 {
+        // Scope death is not an outage: the CancellationException path must stay silent.
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow { throw CancellationException("scope died") }
+        }
+        val manager = manager(provider)
+        val failures = collectFailures(manager)
+
+        runCurrent()
+        failures shouldBe emptyList()
+    }
+
+    @Test fun `an action-level disconnect emits a connection failure`() = runTest2 {
+        val owned = purchase()
+        // Connection 1 connects, then a later action reports the binder dead (invalidating code) —
+        // the invalidation tears the connection down, which the connect loop sees as a failure.
+        val dead = connection().apply {
+            coEvery { refreshPurchases() } returns
+                BillingConnection.PurchaseRefresh(emptyList(), isComplete = true) andThenThrows
+                GplayServiceUnavailableException(
+                    BillingClientException(result(BillingResponseCode.SERVICE_DISCONNECTED))
+                )
+        }
+        val good = connection(refreshResults = listOf(emptyList(), listOf(owned)))
+        var attempts = 0
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow {
+                attempts++
+                emit(if (attempts == 1) dead else good)
+                awaitCancellation()
+            }
+        }
+        val manager = manager(provider)
+        val failures = collectFailures(manager)
+        runCurrent() // connected via connection 1 (success, no emit)
+
+        shouldThrow<GplayServiceUnavailableException> { manager.refresh() }
+
+        // A second action is fresh demand: it deterministically drives the loop THROUGH the
+        // invalidation catch (where the failure is emitted) and onto connection 2, which heals.
+        val refreshed = async { manager.refresh() }
+        advanceUntilIdle()
+        refreshed.await() shouldBe BillingData(listOf(owned))
+
+        // The invalidated connection is a failed reconciliation. Exact count isn't pinned (the
+        // reconnect may fail an extra iteration) and doesn't matter — downstream is idempotent.
+        failures.isNotEmpty() shouldBe true
+    }
+
+    @Test fun `a non-invalidating action error does not emit`() = runTest2 {
+        // A strict querySubscriptions failure whose code is NOT invalidating leaves the connection
+        // installed, so no connect-loop iteration fails and nothing feeds the episode clock.
+        val conn = connection().apply {
+            coEvery { querySubscriptions() } throws BillingClientException(result(BillingResponseCode.ERROR))
+        }
+        val manager = manager(conn)
+        val failures = collectFailures(manager)
+        runCurrent() // connection established
+
+        shouldThrow<Exception> { manager.querySubscriptions() }
+        advanceUntilIdle()
+
+        failures shouldBe emptyList()
     }
 
     // endregion

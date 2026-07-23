@@ -423,12 +423,17 @@ class BillingConnectionTest : BaseTest() {
             ),
         )
 
+        val beforeCommit = System.currentTimeMillis()
         connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(owned))
         connection.refreshPurchases() // complete, clears the event
 
         val updates = connection.freshUpdates.take(2).toList()
-        updates[0] shouldBe BillingConnection.FreshUpdate(listOf(owned), isFullSnapshot = false)
-        updates[1] shouldBe BillingConnection.FreshUpdate(emptyList(), isFullSnapshot = true)
+        updates[0].purchases shouldBe listOf(owned)
+        updates[0].isFullSnapshot shouldBe false
+        // Each update is stamped with its commit time (wall-clock), not left unset.
+        (updates[0].occurredAt >= beforeCommit) shouldBe true
+        updates[1].purchases shouldBe emptyList()
+        updates[1].isFullSnapshot shouldBe true
     }
 
     @Test fun `fresh updates carry only query-confirmed data, never retained stale purchases`() = runTest2 {
@@ -449,10 +454,12 @@ class BillingConnectionTest : BaseTest() {
         shouldThrow<Exception> { connection.refreshPurchases() }
 
         val updates = connection.freshUpdates.take(2).toList()
-        updates[0] shouldBe BillingConnection.FreshUpdate(listOf(iapOwned), isFullSnapshot = true)
+        updates[0].purchases shouldBe listOf(iapOwned)
+        updates[0].isFullSnapshot shouldBe true
         // The retained IAP purchase is still in the reactive view, but it is NOT fresh Play data —
         // re-emitting it would keep re-stamping the grace window without a real round-trip.
-        updates[1] shouldBe BillingConnection.FreshUpdate(emptyList(), isFullSnapshot = false)
+        updates[1].purchases shouldBe emptyList()
+        updates[1].isFullSnapshot shouldBe false
         connection.purchases.first().map { it.purchaseToken } shouldBe listOf("iap")
     }
 
@@ -480,7 +487,8 @@ class BillingConnectionTest : BaseTest() {
         refresh.await()
 
         val updates = connection.freshUpdates.take(2).toList()
-        updates[0] shouldBe BillingConnection.FreshUpdate(listOf(raced), isFullSnapshot = false)
+        updates[0].purchases shouldBe listOf(raced)
+        updates[0].isFullSnapshot shouldBe false
         updates[1].purchases shouldBe emptyList()
         updates[1].isFullSnapshot shouldBe false
     }
@@ -531,7 +539,8 @@ class BillingConnectionTest : BaseTest() {
         connection.purchases.first().map { it.purchaseToken } shouldContainExactly listOf("sub", "iap")
         val updates = connection.freshUpdates.take(2).toList()
         // Partial by definition: it proves what the SUBS query found, never absence of the rest.
-        updates[1] shouldBe BillingConnection.FreshUpdate(listOf(subOwned), isFullSnapshot = false)
+        updates[1].purchases shouldBe listOf(subOwned)
+        updates[1].isFullSnapshot shouldBe false
     }
 
     @Test fun `a failed querySubscriptions propagates and commits nothing`() = runTest2 {

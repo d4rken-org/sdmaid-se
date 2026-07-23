@@ -51,13 +51,18 @@ class BillingCache @Inject constructor(
     )
 
     // One transaction for all three values: the timestamp gates the grace period, the SKU modifies
-    // its window length, and a confirmation closes any unconfirmed episode — none of it may be
-    // observable half-updated.
+    // its window length, and a confirmation closes the unconfirmed episode — none of it may be
+    // observable half-updated. `at` is the confirmation's OCCURRENCE time (commit time of the Play
+    // round-trip). The episode is closed only if it began at or before `at`: a failure that occurred
+    // AFTER this confirmation (e.g. a connection drop right after this success, delivered to the
+    // entitlement layer out of order) opened a still-valid episode that this older confirmation must
+    // not erase.
     suspend fun stampLastProState(skuId: String, at: Long) {
         dataStore.edit { prefs ->
             prefs[lastProStateSkuKey] = skuId
             prefs[lastProStateAtKey] = at
-            prefs[proUnconfirmedSinceKey] = 0L
+            val episodeStart = prefs[proUnconfirmedSinceKey] ?: 0L
+            if (episodeStart in 1..at) prefs[proUnconfirmedSinceKey] = 0L
         }
     }
 }

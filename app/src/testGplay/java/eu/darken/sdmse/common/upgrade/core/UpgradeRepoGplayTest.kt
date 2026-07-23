@@ -28,12 +28,14 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
@@ -60,10 +62,12 @@ class UpgradeRepoGplayTest : BaseTest() {
         freshBillingData: BillingManager.FreshData? = null,
         purchaseFailures: List<BillingResult> = emptyList(),
         proUnconfirmedSince: Long = 0L,
+        connectionFailures: Flow<Long> = emptyFlow(),
     ): UpgradeRepoGplay {
         every { billingManager.billingData } returns flowOf(billingData)
         every { billingManager.freshBillingData } returns
             (freshBillingData?.let { flowOf(it) } ?: emptyFlow())
+        every { billingManager.connectionFailures } returns connectionFailures
         every { billingManager.isSettled } returns flowOf(true)
         every { billingManager.purchaseFailures } returns
             if (purchaseFailures.isEmpty()) emptyFlow() else flowOf(*purchaseFailures.toTypedArray())
@@ -223,6 +227,23 @@ class UpgradeRepoGplayTest : BaseTest() {
         )
 
         coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, any()) }
+    }
+
+    @Test fun `a confirmation stamps the grace cache with the fresh data's occurrence time`() = runTest2 {
+        // The confirmation anchor must be the success's COMMIT time, not processing-now: it's what
+        // BillingCache compares against to decide which episode to close and how a later failure
+        // orders against this success.
+        val occurredAt = 7_777_000L
+        repo(
+            lastProAt = 0L,
+            freshBillingData = BillingManager.FreshData(
+                BillingData(setOf(proPurchase())),
+                isFullSnapshot = true,
+                occurredAt = occurredAt,
+            ),
+        )
+
+        coVerify(exactly = 1) { billingCache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, occurredAt) }
     }
 
     @Test fun `fresh data without a known pro SKU does not stamp`() = runTest2 {
@@ -435,6 +456,68 @@ class UpgradeRepoGplayTest : BaseTest() {
         // A future stamp (clock moved backwards since it was written) is replaced.
         val future = System.currentTimeMillis() + Duration.ofDays(1).toMillis()
         transform.captured(future) shouldBe stamped
+    }
+
+    @Test fun `a connection-failure feed emission during grace starts the episode`() = runTest2 {
+        // Connect-loop failures don't reach an explicit refresh() caller; the feed must still
+        // advance the episode clock for a recently-Pro user. Driven as a live hot emission AFTER
+        // construction, so it proves the collector reacts to real events, not just wiring.
+        val failures = MutableSharedFlow<Long>(extraBufferCapacity = 1)
+        val confirmedAt = System.currentTimeMillis() - 1_000
+        repo(lastProAt = confirmedAt, connectionFailures = failures)
+
+        val failedAt = confirmedAt + 500 // after the confirmation -> a genuine post-confirm outage
+        failures.emit(failedAt)
+        advanceUntilIdle()
+
+        val transform = slot<(Long) -> Long?>()
+        coVerify { proUnconfirmedMock.update(capture(transform)) }
+        // The episode is stamped with the failure's OWN occurrence time, not processing-now.
+        transform.captured(0L) shouldBe failedAt
+    }
+
+    @Test fun `a connection-failure feed emission without recent pro does not start the episode`() = runTest2 {
+        val failures = MutableSharedFlow<Long>(extraBufferCapacity = 1)
+        repo(lastProAt = 0L, connectionFailures = failures)
+
+        failures.emit(System.currentTimeMillis())
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `a connection failure superseded by a later confirmation does not reopen the episode`() = runTest2 {
+        // The blocker case: a failure buffered during an outage is consumed only AFTER a later retry
+        // succeeded and stamped Pro (lastProStateAt). Because the event carries its own time, which
+        // is older than the confirmation, it must be dropped rather than reopening a closed episode.
+        val failures = MutableSharedFlow<Long>(extraBufferCapacity = 1)
+        val confirmedAt = System.currentTimeMillis()
+        repo(lastProAt = confirmedAt, connectionFailures = failures)
+
+        failures.emit(confirmedAt - 5_000) // the failure happened before the confirmation
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `repeated connection failures keep the original episode timestamp`() = runTest2 {
+        val failures = MutableSharedFlow<Long>(extraBufferCapacity = 1)
+        val confirmedAt = System.currentTimeMillis() - 10_000
+        repo(lastProAt = confirmedAt, connectionFailures = failures)
+
+        val firstFailure = confirmedAt + 1_000
+        val secondFailure = confirmedAt + 2_000
+        failures.emit(firstFailure)
+        failures.emit(secondFailure)
+        advanceUntilIdle()
+
+        // Both failures are processed (neither is dropped), so the count is exactly two.
+        val transforms = mutableListOf<(Long) -> Long?>()
+        coVerify(exactly = 2) { proUnconfirmedMock.update(capture(transforms)) }
+        transforms.size shouldBe 2
+        // Set-if-unset: the second failure, applied to the first episode's stamp, preserves it —
+        // the episode start never moves once opened.
+        transforms[1](firstFailure) shouldBe firstFailure
     }
 
     @Test fun `already-owned restore that only yields grace still surfaces the error`() = runTest2 {

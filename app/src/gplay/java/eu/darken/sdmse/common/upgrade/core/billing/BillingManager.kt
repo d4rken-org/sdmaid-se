@@ -39,6 +39,8 @@ class BillingManager @Inject constructor(
     data class FreshData(
         val data: BillingData,
         val isFullSnapshot: Boolean,
+        // Commit time of the underlying Play round-trip — see BillingConnection.FreshUpdate.occurredAt.
+        val occurredAt: Long = System.currentTimeMillis(),
     )
 
     // Bumped whenever someone actively wants billing NOW (see useConnection): a pending reconnect
@@ -66,6 +68,25 @@ class BillingManager @Inject constructor(
     // an outage — gates that used to observe a propagated error need this explicit signal.
     private val settledOnce = MutableStateFlow(false)
     val isSettled: Flow<Boolean> = settledOnce
+
+    // Fires once per failed connect-loop iteration: connection setup failure, the mandatory initial
+    // refreshPurchases erroring or timing out, an established connection dropping, an action-level
+    // invalidation (SERVICE_DISCONNECTED/SERVICE_TIMEOUT from any useConnection call), or an
+    // unexpected provider completion. Every one is a fresh reconciliation that couldn't confirm Pro.
+    // The connect loop retries these internally and downstream flows just go quiet, so without this
+    // explicit signal the grace episode clock (UpgradeRepoGplay.proUnconfirmedSince) would only
+    // advance on an explicit ON_RESUME refresh().
+    //
+    // Each value is the failure's OCCURRENCE time (epoch millis). It has to be, not a bare Unit: the
+    // channel buffers, and this feed and freshBillingData are separate flows with no cross-stream
+    // ordering, so a failure enqueued before a later retry succeeds could be consumed AFTER that
+    // success already confirmed Pro and closed the episode. Carrying the failure's own timestamp lets
+    // the consumer compare it against the last confirmation and drop a superseded one instead of
+    // reopening a closed episode. UNLIMITED + receiveAsFlow (same idiom as BillingConnection
+    // .freshUpdates): one lifetime consumer, buffered so a failure that fires before it subscribes
+    // isn't lost.
+    private val connectionFailuresChannel = Channel<Long>(Channel.UNLIMITED)
+    val connectionFailures: Flow<Long> = connectionFailuresChannel.receiveAsFlow()
 
     init {
         // The connect loop: owns ALL retry policy. Deliberately NOT wrapped in
@@ -117,6 +138,11 @@ class BillingManager @Inject constructor(
                     throw e
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Billing connection failed: ${e.asLog()}" }
+                    // A failed iteration is a fresh reconciliation that couldn't confirm Pro — signal
+                    // it (with its occurrence time) so the entitlement layer can advance the grace
+                    // episode clock even when no explicit refresh() caller is watching. Superseded
+                    // failures are dropped downstream; duplicates are idempotent (set-if-unset).
+                    connectionFailuresChannel.trySend(System.currentTimeMillis())
                 }
                 connectionHolder.value = null
                 settledOnce.value = true
@@ -160,7 +186,7 @@ class BillingManager @Inject constructor(
     // consumer — this chain — which must not depend on downstream subscribers.
     val freshBillingData: Flow<FreshData> = connectionHolder
         .flatMapLatest { it?.freshUpdates ?: emptyFlow() }
-        .map { FreshData(data = BillingData(purchases = it.purchases), isFullSnapshot = it.isFullSnapshot) }
+        .map { FreshData(data = BillingData(purchases = it.purchases), isFullSnapshot = it.isFullSnapshot, occurredAt = it.occurredAt) }
         .setupCommonEventHandlers(TAG) { "freshBillingData" }
         .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 

@@ -125,6 +125,14 @@ class BillingConnection(
     data class FreshUpdate(
         val purchases: Collection<Purchase>,
         val isFullSnapshot: Boolean,
+        // Wall-clock time this update was COMMITTED under reducerLock — i.e. when Play actually
+        // confirmed this data. Defaults to construction time, which at every production call site is
+        // the commit instant (this type is only ever built inside the reducer commit below). The Pro
+        // entitlement layer stamps its grace anchor with this so a confirmation and a later
+        // connection failure are ordered by when they HAPPENED, not by when each separate flow got
+        // around to processing them — see UpgradeRepoGplay.recordProState / BillingCache
+        // .stampLastProState.
+        val occurredAt: Long = System.currentTimeMillis(),
     )
 
     // Guards state mutation + fresh emission as one atomic step. Kept a plain monitor (not a
