@@ -41,6 +41,40 @@ jobs:
     runs-on: ubuntu-22.04
     environment: foss-production
     steps:
+      - name: Guard against publishing from a non-tag ref
+        if: "!(github.event_name == 'workflow_dispatch' && inputs.dry_run) && !startsWith(github.ref, 'refs/tags/v')"
+        run: |
+          echo "Refusing to build/publish a release from non-tag ref: ${{ github.ref }}" >&2
+          echo "Non-dry runs must target a 'v*' tag; immutable releases cannot be undone." >&2
+          exit 1
+
+      # Make reruns safe under immutable releases: if a published release with the
+      # APK already exists, skip build+release so the rerun is green. A stale draft
+      # from a prior failed run is deleted so notes/assets aren't duplicated. A
+      # published-but-empty release is immutable and unrepairable — fail loudly.
+      - name: Reconcile existing release
+        id: existing_release
+        if: "!(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          published=false
+          if json=$(gh release view "${{ github.ref_name }}" \
+              --repo "${{ github.repository }}" \
+              --json isDraft,assets 2>/dev/null); then
+            if echo "$json" | jq -e '.isDraft == false and ([.assets[].name | select(endswith(".apk"))] | length > 0)' >/dev/null; then
+              published=true
+              echo "Release ${{ github.ref_name }} already published with an APK asset; skipping build and release." >&2
+            elif echo "$json" | jq -e '.isDraft == true' >/dev/null; then
+              echo "Removing stale draft release ${{ github.ref_name }} from a prior failed run." >&2
+              gh release delete "${{ github.ref_name }}" --repo "${{ github.repository }}" --yes || true
+            else
+              echo "::error::Release ${{ github.ref_name }} is published but has no APK asset and is immutable. It cannot be repaired — cut a new tag." >&2
+              exit 1
+            fi
+          fi
+          echo "published=$published" >> "$GITHUB_OUTPUT"
+
       - name: Decode Keystore
         env:
           ENCODED_KEYSTORE: ${{ secrets.SIGNING_KEYSTORE_BASE64 }}
@@ -61,7 +95,7 @@ jobs:
         uses: ./.github/actions/common-setup
 
       - name: Assemble beta APK
-        if: contains(github.ref_name, '-beta')
+        if: "contains(github.ref_name, '-beta') && steps.existing_release.outputs.published != 'true'"
         run: ./gradlew assembleFossBeta
         env:
           VERSION: ${{ github.ref }}
@@ -70,7 +104,7 @@ jobs:
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
       - name: Assemble production APK
-        if: "!contains(github.ref_name, '-beta')"
+        if: "!contains(github.ref_name, '-beta') && steps.existing_release.outputs.published != 'true'"
         run: ./gradlew assembleFossRelease
         env:
           VERSION: ${{ github.ref }}
@@ -78,29 +112,47 @@ jobs:
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
 
-      - name: Create pre-release
-        if: "contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda #v3.0.0
+      # Immutable releases become read-only the moment they are published, so assets
+      # must be attached while the release is still a draft. Create as draft here, then
+      # publish in the "Publish GitHub release" step once the APK is uploaded.
+      - name: Create pre-release (draft)
+        if: "contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run) && steps.existing_release.outputs.published != 'true'"
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 #v3.0.2
         with:
+          draft: true
           prerelease: true
           tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
           generate_release_notes: true
+          fail_on_unmatched_files: true
           files: app/build/outputs/apk/foss/beta/eu.darken.sdmse-*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create release
-        if: "!contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
-        uses: softprops/action-gh-release@b4309332981a82ec1c5618f44dd2e27cc8bfbfda #v3.0.0
+      - name: Create release (draft)
+        if: "!contains(github.ref_name, '-beta') && !(github.event_name == 'workflow_dispatch' && inputs.dry_run) && steps.existing_release.outputs.published != 'true'"
+        uses: softprops/action-gh-release@3d0d9888cb7fd7b750713d6e236d1fcb99157228 #v3.0.2
         with:
+          draft: true
           prerelease: false
           tag_name: ${{ github.ref_name }}
           name: ${{ github.ref_name }}
           generate_release_notes: true
+          fail_on_unmatched_files: true
           files: app/build/outputs/apk/foss/release/eu.darken.sdmse-*.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish GitHub release
+        if: "!(github.event_name == 'workflow_dispatch' && inputs.dry_run) && steps.existing_release.outputs.published != 'true'"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [[ "${{ github.ref_name }}" == *-beta* ]]; then
+            gh release edit "${{ github.ref_name }}" --draft=false --prerelease
+          else
+            gh release edit "${{ github.ref_name }}" --draft=false --latest
+          fi
 
       - name: Trigger GitHub Pages deployment
         if: "!(github.event_name == 'workflow_dispatch' && inputs.dry_run)"
