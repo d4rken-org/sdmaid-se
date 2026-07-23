@@ -15,7 +15,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Fullscreen
 import androidx.compose.material.icons.twotone.GraphicEq
@@ -47,6 +47,7 @@ import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListViewModel.DeduplicatorListRow
 import eu.darken.sdmse.deduplicator.ui.preview.previewDeduplicatorListRow
+import eu.darken.sdmse.deduplicator.ui.preview.previewDeduplicatorListRowAllTypes
 
 @Composable
 internal fun DeduplicatorGridRow(
@@ -96,13 +97,11 @@ internal fun DeduplicatorGridRow(
                         onLongClick = onLongClick,
                     ),
             )
-            // Small overlay button (top-left): open the full-screen preview. Long-press still selects.
+            // Small corner-cutout button (top-start): open the full-screen preview. Long-press still selects.
             PreviewOverlayButton(
                 onClick = onPreviewButtonClick,
                 onLongClick = onLongClick,
-                modifier = Modifier
-                    .align(Alignment.TopStart)
-                    .padding(4.dp),
+                modifier = Modifier.align(Alignment.TopStart),
             )
             // Caption overlaid at the bottom: tap = open details; long-press selects.
             Column(
@@ -123,7 +122,7 @@ internal fun DeduplicatorGridRow(
                         DeduplicatorR.string.deduplicator_list_grid_freeable_x,
                         Formatter.formatShortFileSize(context, row.freeableSize),
                     ),
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.bodySmall,
                     color = Color.White,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -138,7 +137,7 @@ internal fun DeduplicatorGridRow(
                             cluster.count,
                             cluster.count,
                         ),
-                        style = MaterialTheme.typography.bodySmall,
+                        style = MaterialTheme.typography.labelSmall,
                         color = Color.White.copy(alpha = 0.85f),
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
@@ -161,37 +160,51 @@ private fun PreviewOverlayButton(
     modifier: Modifier = Modifier,
 ) {
     val label = stringResource(DeduplicatorR.string.deduplicator_action_open_preview)
+    // 48dp transparent box keeps an accessible tap target; the visible control is a small 28dp cutout
+    // notched into the corner. The Card's Surface clips the outer top-start corner to the card radius,
+    // so only the inner (bottom-end) corner needs rounding to read as a cutout.
     Box(
         modifier = modifier
-            .size(40.dp)
-            .clip(CircleShape)
-            .background(MaterialTheme.colorScheme.scrim.copy(alpha = 0.45f))
+            .size(48.dp)
             .combinedClickable(
                 role = Role.Button,
                 onClickLabel = label,
                 onClick = onClick,
                 onLongClick = onLongClick,
             ),
-        contentAlignment = Alignment.Center,
+        contentAlignment = Alignment.TopStart,
     ) {
-        Icon(
-            imageVector = Icons.TwoTone.Fullscreen,
-            contentDescription = label,
-            tint = Color.White,
-            modifier = Modifier.size(22.dp),
-        )
+        Box(
+            modifier = Modifier
+                .size(28.dp)
+                .clip(RoundedCornerShape(bottomEnd = 12.dp))
+                .background(MaterialTheme.colorScheme.scrim.copy(alpha = 0.55f)),
+            contentAlignment = Alignment.Center,
+        ) {
+            Icon(
+                imageVector = Icons.TwoTone.Fullscreen,
+                contentDescription = label,
+                tint = Color.White,
+                modifier = Modifier.size(16.dp),
+            )
+        }
     }
 }
 
-/** Grid cards show detection types as compact icons (no labels) to keep the card to two short lines. */
+/**
+ * Grid cards show detection types as compact icons (no labels) to keep the card to two short lines.
+ * All icons share the caption's text color so they stay legible on the scrim; the glyph shapes still
+ * distinguish the match type.
+ */
 @Composable
 private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
+    val tint = Color.White.copy(alpha = 0.85f)
     Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
         if (Duplicate.Type.CHECKSUM in types) {
             Icon(
                 imageVector = SdmIcons.CodeEqualBox,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_checksum_title),
-                tint = MaterialTheme.colorScheme.primary,
+                tint = tint,
                 modifier = Modifier.size(16.dp),
             )
         }
@@ -199,7 +212,7 @@ private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
             Icon(
                 imageVector = SdmIcons.ApproximatelyEqualBox,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_phash_title),
-                tint = MaterialTheme.colorScheme.secondary,
+                tint = tint,
                 modifier = Modifier.size(16.dp),
             )
         }
@@ -207,7 +220,7 @@ private fun MatchTypeIcons(types: Set<Duplicate.Type>) {
             Icon(
                 imageVector = Icons.TwoTone.GraphicEq,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_detection_method_media_title),
-                tint = MaterialTheme.colorScheme.tertiary,
+                tint = tint,
                 modifier = Modifier.size(16.dp),
             )
         }
@@ -222,6 +235,41 @@ private fun DeduplicatorGridRowPreview() {
         Box(modifier = Modifier.width(180.dp)) {
             DeduplicatorGridRow(
                 row = previewDeduplicatorListRow(),
+                selected = false,
+                onThumbnailClick = {},
+                onCaptionClick = {},
+                onPreviewButtonClick = {},
+                onLongClick = {},
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun DeduplicatorGridRowSelectedPreview() {
+    PreviewWrapper {
+        Box(modifier = Modifier.width(180.dp)) {
+            DeduplicatorGridRow(
+                row = previewDeduplicatorListRow(),
+                selected = true,
+                onThumbnailClick = {},
+                onCaptionClick = {},
+                onPreviewButtonClick = {},
+                onLongClick = {},
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun DeduplicatorGridRowAllTypesNarrowPreview() {
+    PreviewWrapper {
+        // Narrow tile (3-column layout) with all three match types: the tightest caption layout.
+        Box(modifier = Modifier.width(115.dp)) {
+            DeduplicatorGridRow(
+                row = previewDeduplicatorListRowAllTypes(),
                 selected = false,
                 onThumbnailClick = {},
                 onCaptionClick = {},

@@ -154,3 +154,21 @@ internal fun previewDeduplicatorListRow(
         freeableSize = duplicates.filter { it.identifier in targets }.sumOf { it.size },
     )
 }
+
+/**
+ * A worst-case list-row for previews: a cluster matched by all three detection types, so the grid card
+ * renders every match-type icon next to the item count (the tightest caption layout on narrow tiles).
+ */
+internal fun previewDeduplicatorListRowAllTypes(
+    identifier: Duplicate.Cluster.Id = Duplicate.Cluster.Id("preview-cluster-all"),
+): DeduplicatorListViewModel.DeduplicatorListRow {
+    val cluster = previewCluster(
+        identifier = identifier,
+        groups = setOf(previewChecksumGroup(), previewPHashGroup(), previewMediaGroup()),
+    )
+    return DeduplicatorListViewModel.DeduplicatorListRow(
+        cluster = cluster,
+        deleteTargetIds = emptySet(),
+        freeableSize = 13L * 1024 * 1024,
+    )
+}
