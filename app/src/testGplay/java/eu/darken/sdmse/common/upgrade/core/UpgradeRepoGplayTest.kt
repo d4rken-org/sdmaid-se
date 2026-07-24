@@ -24,11 +24,13 @@ import io.mockk.mockk
 import io.mockk.slot
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
@@ -59,16 +61,18 @@ class UpgradeRepoGplayTest : BaseTest() {
         lastProAt: Long,
         lastSku: String = "",
         billingData: BillingData = BillingData(emptySet()),
+        billingDataFlow: Flow<BillingData>? = null,
         freshBillingData: BillingManager.FreshData? = null,
         purchaseFailures: List<BillingResult> = emptyList(),
         proUnconfirmedSince: Long = 0L,
         connectionFailures: Flow<Long> = emptyFlow(),
+        failureSettled: Flow<Boolean> = flowOf(false),
     ): UpgradeRepoGplay {
-        every { billingManager.billingData } returns flowOf(billingData)
+        every { billingManager.billingData } returns (billingDataFlow ?: flowOf(billingData))
         every { billingManager.freshBillingData } returns
             (freshBillingData?.let { flowOf(it) } ?: emptyFlow())
         every { billingManager.connectionFailures } returns connectionFailures
-        every { billingManager.isSettled } returns flowOf(true)
+        every { billingManager.isFailureSettled } returns failureSettled
         every { billingManager.purchaseFailures } returns
             if (purchaseFailures.isEmpty()) emptyFlow() else flowOf(*purchaseFailures.toTypedArray())
         lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true).apply {
@@ -638,8 +642,13 @@ class UpgradeRepoGplayTest : BaseTest() {
         // storage) -> an error Info keeps the flow alive; after the capped delay it recovers.
         val infos = repo.upgradeInfo.take(2).toList()
         infos[0].error shouldNotBe null
+        // A local storage failure is a definitive best-knowledge outcome -> settled.
+        infos[0].isSettled shouldBe true
         infos[1].error shouldBe null
         infos[1].isPro shouldBe false
+        // Monotonic across the retry resubscribe: the re-emitted null seed must not regress an
+        // already-settled stream back to unsettled (the runningReduce latch).
+        infos[1].isSettled shouldBe true
     }
 
     @Test fun `a persistently failing grace cache does not kill upgradeInfo`() = runTest2 {
@@ -650,6 +659,107 @@ class UpgradeRepoGplayTest : BaseTest() {
         // of terminating.
         repo.upgradeInfo.first().error shouldNotBe null
     }
+
+    // region settledness travels with the data
+
+    @Test fun `ownership and settledness arrive in the same emission`() = runTest2 {
+        // The core structural guarantee: no settled-non-Pro emission may precede the owner
+        // emission on a healthy cold start — settled-by-success IS the data emission.
+        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(proPurchase())))
+
+        val infos = repo.upgradeInfo.take(2).toList()
+        infos[0].isPro shouldBe false
+        infos[0].isSettled shouldBe false
+        infos[1].isPro shouldBe true
+        infos[1].isSettled shouldBe true
+    }
+
+    @Test fun `the pre-settle seed is unsettled`() = runTest2 {
+        val repo = repo(lastProAt = 0L, billingDataFlow = emptyFlow())
+
+        repo.upgradeInfo.first().apply {
+            isPro shouldBe false
+            isSettled shouldBe false
+        }
+    }
+
+    @Test fun `a connect-loop failure settles the seed`() = runTest2 {
+        val repo = repo(lastProAt = 0L, billingDataFlow = emptyFlow(), failureSettled = flowOf(true))
+
+        repo.upgradeInfo.first { it.isSettled }.isPro shouldBe false
+    }
+
+    @Test fun `a connect-loop failure settles the grace mapping for a recent owner`() = runTest2 {
+        val repo = repo(
+            lastProAt = System.currentTimeMillis() - 1_000,
+            billingDataFlow = emptyFlow(),
+            failureSettled = flowOf(true),
+        )
+
+        repo.upgradeInfo.first { it.isSettled }.isPro shouldBe true
+    }
+
+    @Test fun `a settled flip on identical content passes distinctUntilChanged`() = runTest2 {
+        val failureSettled = MutableStateFlow(false)
+        val repo = repo(lastProAt = 0L, billingDataFlow = emptyFlow(), failureSettled = failureSettled)
+
+        val infos = async { repo.upgradeInfo.take(2).toList() }
+        advanceUntilIdle()
+        failureSettled.value = true
+
+        infos.await().let {
+            it[0].isSettled shouldBe false
+            it[1].isSettled shouldBe true
+            it[1].isPro shouldBe it[0].isPro
+        }
+    }
+
+    @Test fun `restore results are settled`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
+        repo(lastProAt = 0L).restorePurchaseNow().isSettled shouldBe true
+
+        // The grace fallback is a definitive substitution for a real round-trip -> also settled.
+        coEvery { billingManager.refresh() } throws RuntimeException("Play unavailable")
+        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().apply {
+            isPro shouldBe true
+            isSettled shouldBe true
+        }
+    }
+
+    @Test fun `after a failure the seed settles before the data lands - accepted residual`() = runTest2 {
+        // Documented D7 residual: isFailureSettled is sticky, so a failure-then-recovery sequence
+        // pairs the null seed with settled=true for the moment before the billing replay arrives —
+        // identical to the old sticky settledOnce, and strictly narrower (requires a prior
+        // failure). The structural guarantee this change makes is about the PURE success path:
+        // without a failure, no settled emission ever precedes the first reconciled data.
+        val failureSettled = MutableStateFlow(true) // a previous connect attempt failed
+        val repo = repo(
+            lastProAt = 0L,
+            billingData = BillingData(setOf(proPurchase())),
+            failureSettled = failureSettled,
+        )
+
+        val infos = repo.upgradeInfo.take(2).toList()
+        infos[0].isPro shouldBe false
+        infos[0].isSettled shouldBe true
+        infos[1].isPro shouldBe true
+        infos[1].isSettled shouldBe true
+    }
+
+    @Test fun `a committed partial snapshot settles even without a known purchase`() = runTest2 {
+        // data != null means a COMMITTED round-trip, not a complete one: the manager tolerates one
+        // failed product type when the other returned a purchase, so an unknown-only result still
+        // settles (matches the old parallel signal; grace covers a recently-confirmed owner).
+        val unknown = mockk<Purchase>().apply {
+            every { products } returns listOf("some.unknown.product")
+            every { purchaseTime } returns 1_000L
+        }
+        val repo = repo(lastProAt = 0L, billingData = BillingData(setOf(unknown)))
+
+        repo.upgradeInfo.first { it.isSettled }.isPro shouldBe false
+    }
+
+    // endregion
 
     @Test fun `retry delay grows and caps at five minutes`() {
         UpgradeRepoGplay.retryDelayMs(0) shouldBe 30_000L

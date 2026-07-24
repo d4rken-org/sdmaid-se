@@ -152,9 +152,11 @@ class SystemCleanerSettingsViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(
-                mockk<UpgradeRepo.Info>().apply { every { this@apply.isPro } returns isPro },
+                mockk<UpgradeRepo.Info>().apply {
+                    every { this@apply.isPro } returns isPro
+                    every { isSettled } returns true
+                },
             )
-            every { isSettled } returns flowOf(true)
         }
         val rootManager = mockk<RootManager>().apply {
             every { accessState } returns flowOf(

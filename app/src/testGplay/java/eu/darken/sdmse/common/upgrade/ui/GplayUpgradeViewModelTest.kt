@@ -184,8 +184,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
-        every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
-        every { isSettled } returns MutableStateFlow(true)
+        every { upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null, isSettled = true))
         every { wasEverPro } returns MutableStateFlow(false)
         every { proUnconfirmedSince } returns MutableStateFlow(0L)
         // Relaxed mocks return a no-op Flow that never emits -- the state combine would starve.
@@ -212,6 +211,8 @@ class GplayUpgradeViewModelTest : BaseTest() {
         false,
         BillingData(purchases = purchases.toList()),
         null,
+        // Ownership data implies a committed reconciliation -> always settled.
+        isSettled = true,
     )
 
     @Test
@@ -267,7 +268,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(30_000) // longer than the 15s restore timeout
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         }
         val vm = buildVm(repo)
 
@@ -312,7 +313,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     fun `banner flag stays off while grace still keeps the user pro`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         // gracePeriod = true => Info.isPro is true even without a current raw purchase.
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         every { repo.wasEverPro } returns MutableStateFlow(true)
         coEvery { repo.querySkus(OurSku.Iap.PRO_UPGRADE) } returns emptyList()
         coEvery { repo.querySkus(OurSku.Sub.PRO_UPGRADE) } returns emptyList()
@@ -331,7 +332,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(5_000)
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         }
         val vm = buildVm(repo)
 
@@ -501,16 +502,16 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `unsettled billing stays loading only while detail queries are pending`() = runTest2(
+    fun `successful queries never render from an unsettled Info`() = runTest2(
         context = testDispatcher,
     ) {
+        // The adversarial order behind the old flash: SKU queries finish BEFORE the reconciled
+        // Info propagates. The screen must hold at Loading instead of rendering acquisition UI
+        // from the pre-reconciliation seed — even though the queries are done.
         val repo = mockRepo()
-        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro")))
-        every { repo.isSettled } returns MutableStateFlow(false)
-        coEvery { repo.querySkus(any()) } coAnswers {
-            delay(2_000)
-            emptyList()
-        }
+        val infos = MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        every { repo.upgradeInfo } returns infos
+        coEvery { repo.querySkus(any()) } returns emptyList()
         val vm = buildVm(repo)
 
         val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
@@ -518,10 +519,47 @@ class GplayUpgradeViewModelTest : BaseTest() {
         testScheduler.advanceTimeBy(1_000)
         vm.state.value shouldBe GplayUpgradeUiState.Loading
 
-        // The settling wait is bounded by the detail queries: once they resolve, rendering
-        // proceeds even if billing never settles — a starved billing layer must degrade to a
-        // rendered screen, not an endless spinner.
+        // The settled Info arrives (here: reconciled ownership) -> rendering proceeds.
+        infos.value = proInfo(mockPurchase("upgrade.pro"))
         advanceUntilIdle()
+        vm.state.value.shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        collector.cancel()
+    }
+
+    @Test
+    fun `two failed queries resolve to unavailable without waiting for settled`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // Carve-out: a Done where BOTH fresh SKU queries failed is itself a definitive
+        // can't-reach-Play outcome — the Unavailable card keeps its ~15s worst-case bound from
+        // the query timeouts instead of also waiting out the connect loop's failure signal.
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(false, null, null))
+        coEvery { repo.querySkus(any()) } throws IllegalStateException("Play unavailable")
+        val vm = buildVm(repo)
+
+        val unavailable = async { vm.state.first { it is GplayUpgradeUiState.Unavailable } }
+        advanceUntilIdle()
+
+        unavailable.await().shouldBeInstanceOf<GplayUpgradeUiState.Unavailable>()
+    }
+
+    @Test
+    fun `settled owner renders ownership while queries are still pending`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(proInfo(mockPurchase("upgrade.pro")))
+        coEvery { repo.querySkus(any()) } coAnswers {
+            delay(60_000) // effectively never within this test
+            emptyList()
+        }
+        val vm = buildVm(repo)
+
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+
+        testScheduler.advanceTimeBy(1_000)
+        // Owners don't depend on offer prices: status renders immediately, never acquisition.
         vm.state.value.shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
         collector.cancel()
     }
@@ -559,7 +597,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `grace-only pro gets a quiet hint without diagnostics`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         coEvery { repo.querySkus(any()) } returns emptyList()
         val vm = buildVm(repo)
 
@@ -573,7 +611,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `young grace episode keeps diagnostics hidden`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         every { repo.proUnconfirmedSince } returns MutableStateFlow(
             System.currentTimeMillis() - Duration.ofHours(1).toMillis()
         )
@@ -589,7 +627,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `aged grace episode shows diagnostics`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         every { repo.proUnconfirmedSince } returns MutableStateFlow(
             System.currentTimeMillis() - UpgradeViewModel.GRACE_DIAGNOSTICS_AFTER_MS - 1_000
         )
@@ -630,7 +668,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `grace user keeps the grace card when both detail queries fail`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         // During an outage (exactly when grace matters) the price queries fail too — the user
         // must keep the Loaded grace presentation, not get an acquisition-style Unavailable.
         coEvery { repo.querySkus(any()) } throws IllegalStateException("Play unavailable")
@@ -645,7 +683,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `grace diagnostics appear when the episode crosses the threshold`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null))
+        every { repo.upgradeInfo } returns MutableStateFlow(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         val base = System.currentTimeMillis()
         // Episode is 10 virtual seconds short of the threshold.
         every { repo.proUnconfirmedSince } returns MutableStateFlow(
@@ -673,7 +711,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     fun `restore that only finds grace shows the troubleshooting dialog`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         // Grace keeps isPro=true, but no actual purchase came back — not a restore success.
-        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(gracePeriod = true, billingData = null)
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
         val vm = buildVm(repo)
 
         val event = async { vm.events.first() }

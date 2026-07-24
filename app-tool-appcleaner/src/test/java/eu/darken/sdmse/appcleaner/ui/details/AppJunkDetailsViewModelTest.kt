@@ -63,6 +63,7 @@ class AppJunkDetailsViewModelTest : BaseTest() {
 
     private fun upgradeInfo(isPro: Boolean): UpgradeRepo.Info = mockk<UpgradeRepo.Info>().apply {
         every { this@apply.isPro } returns isPro
+        every { isSettled } returns true
     }
 
     private class Harness(
@@ -101,7 +102,6 @@ class AppJunkDetailsViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
-            every { isSettled } returns flowOf(true)
         }
         val vm = AppJunkDetailsViewModel(
             handle = savedHandle,

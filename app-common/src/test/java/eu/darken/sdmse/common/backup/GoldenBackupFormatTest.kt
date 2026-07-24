@@ -86,7 +86,7 @@ class GoldenBackupFormatTest : BaseTest() {
             sectionContributors = sections,
             databaseContributors = databases,
             json = json,
-            upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply { every { isSettled } returns flowOf(true) },
+            upgradeRepo = mockk<UpgradeRepo>(relaxed = true),
             envelopeSource = envelopeSource,
             gate = BackupOperationGate(),
             limits = BackupLimits(),

@@ -29,6 +29,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.launchIn
@@ -36,6 +37,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
+import kotlinx.coroutines.flow.runningReduce
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
@@ -121,18 +123,29 @@ class UpgradeRepoGplay @Inject constructor(
             .launchIn(scope)
     }
 
-    // False until the first real billing outcome after process start — the window where
-    // upgradeInfo below reports non-Pro even for paying users (its flow is seeded with null).
-    // A failed connection attempt counts as settled: gating callers must not wait on a broken
-    // connection (the connect loop keeps retrying, but that can take arbitrarily long).
-    override val isSettled: Flow<Boolean> = billingManager.isSettled
-        .distinctUntilChanged()
-
-    override val upgradeInfo: Flow<Info> = billingManager.billingData
-        .map<BillingData, BillingData?> { it }
-        .onStart { emit(null) }
+    // Settledness travels WITH the ownership data (Info.isSettled), never on a parallel flow —
+    // a parallel signal could be observed out of step and pair "settled" with a stale non-Pro
+    // seed for one emission (the old cosmetic flash at owners).
+    //
+    // Per emission: data != null means a COMMITTED Play round-trip happened by construction
+    // (BillingConnection.purchases only emits after refreshPurchases committed under the reducer
+    // lock, and the manager only publishes the connection after that refresh succeeded). Note:
+    // committed, not necessarily complete — combinePurchaseResults tolerates one failed product
+    // type when the other returned a purchase, so a partial snapshot also settles (same as the
+    // old signal; grace covers a recently-confirmed Pro whose type failed). A null seed settles
+    // only via isFailureSettled: Play is unreachable, so seed + grace mapping IS the best
+    // knowledge. Accepted residual: isFailureSettled is sticky, so after a failure-then-recovery
+    // a fresh resubscribe can briefly pair the seed with settled=true before the data replay
+    // lands — identical to the old signal's stickiness, covered by grace + the UI Loading gates;
+    // the pure-success-path race (settled leading the FIRST reconciliation) is now impossible.
+    override val upgradeInfo: Flow<Info> = combine(
+        billingManager.billingData
+            .map<BillingData, BillingData?> { it }
+            .onStart { emit(null) },
+        billingManager.isFailureSettled,
+    ) { data, failureSettled -> data to (data != null || failureSettled) }
         .setupCommonEventHandlers(TAG) { "upgradeInfo1" }
-        .map { data: BillingData? -> data.toUpgradeInfo() }
+        .map { (data, settled) -> data.toUpgradeInfo(settled = settled) }
         .distinctUntilChanged()
         .retryWhen { error, attempt ->
             if (error is CancellationException) return@retryWhen false
@@ -141,22 +154,30 @@ class UpgradeRepoGplay @Inject constructor(
             // mapping, plausible exactly when storage is full. Keep the flow alive and keep a
             // recently-Pro user in their grace window.
             log(TAG, WARN) { "upgradeInfo mapping failed (attempt=$attempt): ${error.asLog()}" }
+            // Fallbacks are settled: a local storage failure is a definitive best-knowledge
+            // outcome — gates must resolve now, not stall out a 30s+ retry backoff.
             val fallback = try {
                 if ((System.currentTimeMillis() - billingCache.lastProStateAt.value()) < graceWindowMs()) {
-                    Info(gracePeriod = true, billingData = null)
+                    Info(gracePeriod = true, billingData = null, isSettled = true)
                 } else {
-                    Info(billingData = null, error = error)
+                    Info(billingData = null, error = error, isSettled = true)
                 }
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
                 // The grace probe reads the same storage that just failed — a second failure must
                 // not kill the retry loop that exists for exactly this situation.
-                Info(billingData = null, error = error)
+                Info(billingData = null, error = error, isSettled = true)
             }
             emit(fallback)
             delay(retryDelayMs(attempt))
             true
+        }
+        // Settledness is monotonic within a subscription span: the retry above resubscribes the
+        // upstream, whose onStart re-emits the null seed — without this latch, that seed would
+        // regress an already-settled stream back to unsettled until the billing replay lands.
+        .runningReduce { acc, next ->
+            if (acc.isSettled && !next.isSettled) next.copy(isSettled = true) else next
         }
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
         .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
@@ -296,7 +317,8 @@ class UpgradeRepoGplay @Inject constructor(
     suspend fun restorePurchaseNow(): Info {
         log(TAG) { "restorePurchaseNow()" }
         return try {
-            billingManager.refresh().toUpgradeInfo()
+            // A restore result IS a real Play round-trip outcome -> settled.
+            billingManager.refresh().toUpgradeInfo(settled = true)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -307,7 +329,7 @@ class UpgradeRepoGplay @Inject constructor(
             if ((System.currentTimeMillis() - lastProStateAt) < graceWindowMs()) {
                 log(TAG, VERBOSE) { "restore hit a Play error but we were Pro recently -> grace" }
                 recordProUnconfirmed()
-                Info(gracePeriod = true, billingData = null)
+                Info(gracePeriod = true, billingData = null, isSettled = true)
             } else {
                 throw e
             }
@@ -403,13 +425,15 @@ class UpgradeRepoGplay @Inject constructor(
     // Shared Pro/grace mapping used by both the reactive upgradeInfo flow and restorePurchaseNow().
     // Only relinquishes Pro if we haven't had it for a while (grace period). READ-ONLY: this runs on
     // replayed shared-flow data too, so it must never stamp the grace cache — see recordProState().
-    private suspend fun BillingData?.toUpgradeInfo(): Info {
+    // settled comes from the caller, never from billingData nullness: the grace branch returns an
+    // Info with billingData = null that may well be settled (built from a real empty snapshot).
+    private suspend fun BillingData?.toUpgradeInfo(settled: Boolean): Info {
         // Branch on MAPPED upgrades, not raw purchases: a purchase list containing only products
         // this app doesn't know maps to zero upgrades and must fall through to the grace check —
         // otherwise a recently-Pro user is denied grace they're entitled to. A known purchase is
         // decided before any grace-cache read, so failing local storage can't turn a confirmed
         // purchase into an error episode.
-        val mapped = Info(billingData = this)
+        val mapped = Info(billingData = this, isSettled = settled)
         if (mapped.upgrades.isNotEmpty()) return mapped
 
         val now = System.currentTimeMillis()
@@ -418,7 +442,7 @@ class UpgradeRepoGplay @Inject constructor(
         return when {
             (now - lastProStateAt) < graceWindowMs() -> {
                 log(TAG, VERBOSE) { "We are not pro, but were recently, did GPlay try annoy us again?" }
-                Info(gracePeriod = true, billingData = null)
+                Info(gracePeriod = true, billingData = null, isSettled = settled)
             }
 
             else -> mapped
@@ -439,6 +463,10 @@ class UpgradeRepoGplay @Inject constructor(
         private val gracePeriod: Boolean = false,
         private val billingData: BillingData?,
         override val error: Throwable? = null,
+        // Default false is the fail-safe direction: a forgotten stamp shows up as "never
+        // settles" (loud), never as a settled pre-reconciliation flash. Mapping-only
+        // constructions (trackProState, recordProState) never read this.
+        override val isSettled: Boolean = false,
     ) : UpgradeRepo.Info {
 
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.GPLAY

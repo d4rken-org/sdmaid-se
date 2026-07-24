@@ -34,6 +34,7 @@ class ConfigBackupManagerTest : BaseTest() {
         override val type = UpgradeRepo.Type.FOSS
         override val upgradedAt: Instant? = null
         override val error: Throwable? = null
+        override val isSettled: Boolean = true
     }
 
     private class FakeUpgradeRepo(pro: Boolean) : UpgradeRepo {
@@ -41,7 +42,6 @@ class ConfigBackupManagerTest : BaseTest() {
         override val upgradeSite = ""
         override val betaSite = ""
         override val upgradeInfo: Flow<UpgradeRepo.Info> = flowOf(FakeInfo(pro))
-        override val isSettled: Flow<Boolean> = flowOf(true)
         override suspend fun refresh() {}
     }
 

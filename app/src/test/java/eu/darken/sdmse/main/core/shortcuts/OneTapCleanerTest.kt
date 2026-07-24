@@ -42,9 +42,11 @@ class OneTapCleanerTest : BaseTest() {
         app: Boolean = false,
         dedup: Boolean = false,
     ) {
-        val info = mockk<UpgradeRepo.Info> { every { isPro } returns pro }
+        val info = mockk<UpgradeRepo.Info> {
+            every { isPro } returns pro
+            every { isSettled } returns true
+        }
         every { upgradeRepo.upgradeInfo } returns flowOf(info)
-        every { upgradeRepo.isSettled } returns flowOf(true)
         every { generalSettings.oneClickCorpseFinderEnabled } returns mockSetting(corpse)
         every { generalSettings.oneClickSystemCleanerEnabled } returns mockSetting(system)
         every { generalSettings.oneClickAppCleanerEnabled } returns mockSetting(app)

@@ -50,6 +50,7 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
 
     private fun upgradeInfo(isPro: Boolean): UpgradeRepo.Info = mockk<UpgradeRepo.Info>().apply {
         every { this@apply.isPro } returns isPro
+        every { isSettled } returns true
     }
 
     private class Values(
@@ -143,7 +144,6 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
-            every { isSettled } returns flowOf(true)
         }
         val rootManager = mockk<RootManager>().apply {
             every { accessState } returns flowOf(rootAccess)

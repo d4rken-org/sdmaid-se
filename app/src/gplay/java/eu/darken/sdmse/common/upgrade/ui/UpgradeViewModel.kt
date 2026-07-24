@@ -139,14 +139,13 @@ class UpgradeViewModel @Inject constructor(
     internal val state: StateFlow<GplayUpgradeUiState> = combine(
         skuQueries,
         upgradeRepo.upgradeInfo,
-        upgradeRepo.isSettled,
         upgradeRepo.wasEverPro,
         upgradeRepo.proUnconfirmedSince,
         graceTick,
         restoring,
         upgradeRepo.autoRestoreBusy,
         verifying,
-    ) { queries, current, settled, wasEverPro, proUnconfirmedSince, _, isRestoring, isAutoRestoring, isVerifying ->
+    ) { queries, current, wasEverPro, proUnconfirmedSince, _, isRestoring, isAutoRestoring, isVerifying ->
         val ownership = current.toOwnership()
         // Pro without any owned purchase == grace. Stage 1 (quiet "still active" line) shows
         // immediately; the diagnostics + restore CTA only once the unconfirmed episode has aged
@@ -168,10 +167,18 @@ class UpgradeViewModel @Inject constructor(
             // A new attempt starts a new error episode.
             hasShownServiceUnavailableError = false
             hasShownPartialQueryError = false
-            // Acquisition renders with prices like it always has; billing must have settled first
-            // either way (an unsettled owner must not be flashed acquisition offers).
-            if (!settled || !priceIndependent) return@combine GplayUpgradeUiState.Loading
         }
+        // Structural close: entitlement-dependent UI never renders from a pre-reconciliation
+        // Info — even if fast SKU queries finish before the reconciled Info propagates, an
+        // unsettled owner must not be flashed acquisition offers. Carve-out: a Done where BOTH
+        // fresh SKU queries failed is itself a definitive can't-reach-Play outcome and may
+        // resolve to Unavailable/grace without waiting for the connect loop's failure signal
+        // (preserves the ~15s bound from the query timeouts during a total Play hang).
+        val bothQueriesFailed = done != null && done.iap.isFailure && done.sub.isFailure
+        if (!current.isSettled && !bothQueriesFailed) return@combine GplayUpgradeUiState.Loading
+        // Acquisition renders with prices like it always has; owners and grace users render
+        // their status immediately without waiting for prices.
+        if (done == null && !priceIndependent) return@combine GplayUpgradeUiState.Loading
 
         val iap = done?.iap?.getOrNull()
         val sub = done?.sub?.getOrNull()

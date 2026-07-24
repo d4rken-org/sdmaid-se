@@ -346,7 +346,10 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `UP climbs the hero for Pro users without the upgrade button`() {
-        val proInfo = mockk<UpgradeRepo.Info> { every { isPro } returns true }
+        val proInfo = mockk<UpgradeRepo.Info> {
+            every { isPro } returns true
+            every { isSettled } returns true
+        }
         composeRule.setDashboardContent(
             listState = DashboardViewModel.ListState(items = defaultItems()),
             bottomBarState = bottomBarState(heroSummary = heroSummary()).copy(upgradeInfo = proInfo),

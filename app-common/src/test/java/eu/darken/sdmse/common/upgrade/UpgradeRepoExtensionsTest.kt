@@ -1,10 +1,14 @@
 package eu.darken.sdmse.common.upgrade
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.currentTime
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -13,7 +17,10 @@ import kotlinx.coroutines.launch
 
 class UpgradeRepoExtensionsTest : BaseTest() {
 
-    private class FakeInfo(override val isPro: Boolean) : UpgradeRepo.Info {
+    private class FakeInfo(
+        override val isPro: Boolean,
+        override val isSettled: Boolean,
+    ) : UpgradeRepo.Info {
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
         override val upgradedAt: Instant? = null
         override val error: Throwable? = null
@@ -23,22 +30,20 @@ class UpgradeRepoExtensionsTest : BaseTest() {
         pro: Boolean,
         settled: Boolean,
     ) : UpgradeRepo {
-        val proFlow = MutableStateFlow<UpgradeRepo.Info>(FakeInfo(pro))
-        val settledFlow = MutableStateFlow(settled)
+        // Settledness rides the Info itself — a single flow, like the production repos.
+        val infoFlow = MutableStateFlow<UpgradeRepo.Info>(FakeInfo(pro, settled))
         var refreshCalls = 0
 
         override val storeSite: String = ""
         override val upgradeSite: String = ""
         override val betaSite: String = ""
-        override val upgradeInfo: Flow<UpgradeRepo.Info> = proFlow
-        override val isSettled: Flow<Boolean> = settledFlow
+        override val upgradeInfo: Flow<UpgradeRepo.Info> = infoFlow
         override suspend fun refresh() {
             refreshCalls++
         }
 
         fun settle(pro: Boolean) {
-            proFlow.value = FakeInfo(pro)
-            settledFlow.value = true
+            infoFlow.value = FakeInfo(pro, isSettled = true)
         }
     }
 
@@ -85,10 +90,36 @@ class UpgradeRepoExtensionsTest : BaseTest() {
     }
 
     @Test
+    fun `the settle decision reads ownership off the settling Info itself`() = runTest {
+        // The old two-step (wait on isSettled, re-read upgradeInfo) could pair the settle signal
+        // with a stale replay. Now the Info that satisfies the settled-wait IS the decision.
+        val repo = FakeRepo(pro = false, settled = false)
+
+        launch {
+            advanceTimeBy(500)
+            repo.infoFlow.value = FakeInfo(isPro = true, isSettled = true)
+        }
+
+        repo.isProForUi() shouldBe true
+    }
+
+    @Test
     fun `billing that never settles falls back to non-pro after the timeout`() = runTest {
         val repo = FakeRepo(pro = false, settled = false)
         repo.isProForUi() shouldBe false
         currentTime shouldBe 3_000
+    }
+
+    @Test
+    fun `cancellation during the settle wait propagates instead of failing open`() = runTest {
+        // A destroyed caller (ViewModel gone mid-wait) must not continue down the Pro path.
+        val repo = FakeRepo(pro = false, settled = false)
+
+        val gate = async { repo.isProForUi() }
+        runCurrent()
+        gate.cancel()
+
+        shouldThrow<CancellationException> { gate.await() }
     }
 
     @Test
@@ -98,7 +129,6 @@ class UpgradeRepoExtensionsTest : BaseTest() {
             override val upgradeSite: String = ""
             override val betaSite: String = ""
             override val upgradeInfo: Flow<UpgradeRepo.Info> get() = throw IllegalStateException("billing exploded")
-            override val isSettled: Flow<Boolean> = MutableStateFlow(true)
             override suspend fun refresh() = Unit
         }
         repo.isProForUi() shouldBe true

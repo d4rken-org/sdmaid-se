@@ -61,6 +61,7 @@ class SqueezerListViewModelTest : BaseTest() {
 
     private fun upgradeInfo(isPro: Boolean): UpgradeRepo.Info = mockk<UpgradeRepo.Info>().apply {
         every { this@apply.isPro } returns isPro
+        every { isSettled } returns true
     }
 
     // Mirrors the helper used in CorpseFinderSettingsViewModelTest. `.value(value: T)` is an
@@ -134,7 +135,6 @@ class SqueezerListViewModelTest : BaseTest() {
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
-            every { isSettled } returns flowOf(true)
         }
 
         val vm = SqueezerListViewModel(

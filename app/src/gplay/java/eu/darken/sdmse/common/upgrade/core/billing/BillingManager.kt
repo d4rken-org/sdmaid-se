@@ -63,11 +63,14 @@ class BillingManager @Inject constructor(
     // dead connection is unreachable by construction — no replay cache to serve stale clients.
     private val connectionHolder = MutableStateFlow<BillingConnection?>(null)
 
-    // First real billing outcome after process start, success OR failure. The connect loop
-    // swallows connection errors (it retries forever), so downstream flows just stay quiet during
-    // an outage — gates that used to observe a propagated error need this explicit signal.
-    private val settledOnce = MutableStateFlow(false)
-    val isSettled: Flow<Boolean> = settledOnce
+    // At least one connect-loop iteration FAILED since process start. Success needs no explicit
+    // signal: it is implied by billingData emitting (the connection is only published after its
+    // initial refreshPurchases committed), so settledness travels with the data itself and can't
+    // lead it. Failures are different — the connect loop swallows them (it retries forever) and
+    // downstream flows just stay quiet during an outage, so consumers need this explicit signal
+    // to settle their null seed instead of waiting on a broken connection indefinitely.
+    private val failedOnce = MutableStateFlow(false)
+    val isFailureSettled: Flow<Boolean> = failedOnce
 
     // Fires once per failed connect-loop iteration: connection setup failure, the mandatory initial
     // refreshPurchases erroring or timing out, an established connection dropping, an action-level
@@ -114,7 +117,7 @@ class BillingManager @Inject constructor(
                                 // A refresh that can't verify anything (nothing found + a query
                                 // failed) throws and counts as a connection failure — otherwise a
                                 // cold start against a broken Play would starve billingData and
-                                // isSettled forever with no retry. withTimeoutOrNull, NOT
+                                // isFailureSettled forever with no retry. withTimeoutOrNull, NOT
                                 // withTimeout: TimeoutCancellationException is a
                                 // CancellationException and would kill this loop.
                                 withTimeoutOrNull(INITIAL_REFRESH_TIMEOUT_MS) {
@@ -122,7 +125,6 @@ class BillingManager @Inject constructor(
                                 } ?: throw BillingException("Initial purchase refresh timed out")
 
                                 failStreak = 0
-                                settledOnce.value = true
                                 connectionHolder.value = connection
                                 log(TAG, INFO) { "Billing connection established" }
                             }
@@ -145,7 +147,9 @@ class BillingManager @Inject constructor(
                     connectionFailuresChannel.trySend(System.currentTimeMillis())
                 }
                 connectionHolder.value = null
-                settledOnce.value = true
+                // Only reachable via the catch above (the collect never returns normally and
+                // cancellation rethrows past this) — a genuinely failure-only signal.
+                failedOnce.value = true
                 // A swallowed cancellation (e.g. via a flow wrapper) must not convert scope death
                 // into another connection attempt.
                 ensureActive()

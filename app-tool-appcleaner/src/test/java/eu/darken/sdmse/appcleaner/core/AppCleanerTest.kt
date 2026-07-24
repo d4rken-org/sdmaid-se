@@ -94,10 +94,12 @@ class AppCleanerTest : BaseTest() {
     }
 
     private fun mockUpgradeRepo(pro: Boolean): UpgradeRepo {
-        val info = mockk<UpgradeRepo.Info>().apply { every { isPro } returns pro }
+        val info = mockk<UpgradeRepo.Info>().apply {
+            every { isPro } returns pro
+            every { isSettled } returns true
+        }
         return mockk<UpgradeRepo>(relaxed = true) {
             every { upgradeInfo } returns flowOf(info)
-            every { isSettled } returns flowOf(true)
         }
     }
 

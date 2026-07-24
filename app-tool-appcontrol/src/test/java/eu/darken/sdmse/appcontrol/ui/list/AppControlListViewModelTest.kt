@@ -162,6 +162,7 @@ class AppControlListViewModelTest : BaseTest() {
 
     private fun upgradeInfo(isPro: Boolean): UpgradeRepo.Info = mockk<UpgradeRepo.Info>().apply {
         every { this@apply.isPro } returns isPro
+        every { isSettled } returns true
         every { type } returns UpgradeRepo.Type.FOSS
         every { upgradedAt } returns null
         every { error } returns null
@@ -278,7 +279,6 @@ class AppControlListViewModelTest : BaseTest() {
         val exclusionManager = mockk<ExclusionManager>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
-            every { this@apply.isSettled } returns flowOf(true)
         }
         val context = mockk<Context>(relaxed = true)
         val usageStatsSetupModule = mockk<SetupModule>(relaxed = true)

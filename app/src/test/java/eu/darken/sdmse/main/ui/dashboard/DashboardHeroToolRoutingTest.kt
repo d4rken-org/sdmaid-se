@@ -86,7 +86,6 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply {
             every { upgradeInfo } returns emptyFlow()
-            every { isSettled } returns flowOf(true)
         }
         val updateService = mockk<UpdateService>(relaxed = true).apply { every { availableUpdate } returns emptyFlow() }
         val debugCardProvider = mockk<DebugCardProvider>(relaxed = true).apply {

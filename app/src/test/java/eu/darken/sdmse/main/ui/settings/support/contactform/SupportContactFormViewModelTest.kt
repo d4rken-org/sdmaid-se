@@ -44,6 +44,7 @@ class SupportContactFormViewModelTest : BaseTest() {
             override val isPro = false
             override val upgradedAt: Instant? = null
             override val error: Throwable? = null
+            override val isSettled = true
         })
 
         every { sessionManager.sessions } returns sessionsFlow
@@ -53,7 +54,6 @@ class SupportContactFormViewModelTest : BaseTest() {
         coEvery { sessionManager.forceStopRecording() } returns null
 
         every { upgradeRepo.upgradeInfo } returns upgradeFlow
-        every { upgradeRepo.isSettled } returns flowOf(true)
 
         every { emailTool.build(any(), any()) } returns Intent(Intent.ACTION_SEND)
     }
