@@ -56,7 +56,12 @@ class CustomFilterListViewModelTest : BaseTest() {
         val configsFlow = MutableStateFlow(configs)
         val upgradeFlow = MutableSharedFlow<UpgradeRepo.Info>(replay = if (emitUpgradeInfo) 1 else 0)
         if (emitUpgradeInfo) {
-            upgradeFlow.tryEmit(mockk<UpgradeRepo.Info>().apply { every { this@apply.isPro } returns isPro })
+            upgradeFlow.tryEmit(
+                mockk<UpgradeRepo.Info>().apply {
+                    every { this@apply.isPro } returns isPro
+                    every { isSettled } returns true
+                }
+            )
         }
         val repo = mockk<CustomFilterRepo>(relaxed = true).apply {
             every { this@apply.configs } returns configsFlow
@@ -67,7 +72,6 @@ class CustomFilterListViewModelTest : BaseTest() {
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns upgradeFlow
-            every { isSettled } returns flowOf(true)
         }
         val webpageTool = mockk<WebpageTool>(relaxed = true)
         val context = mockk<Context>(relaxed = true)

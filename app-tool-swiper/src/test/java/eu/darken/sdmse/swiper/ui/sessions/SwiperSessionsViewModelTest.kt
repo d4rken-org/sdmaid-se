@@ -81,7 +81,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val taskSubmitter: TaskSubmitter,
         val navCtrl: NavigationController,
         val pickerResults: MutableSharedFlow<PickerResult>,
-        val isUpgradeSettledFlow: MutableStateFlow<Boolean>,
+        val upgradeFlow: MutableStateFlow<UpgradeRepo.Info>,
     )
 
     private class CollectedEvents<T>(val list: MutableList<T>, private val job: Job) {
@@ -110,9 +110,9 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val progressFlow = MutableStateFlow(progress)
         val upgradeInfo: UpgradeRepo.Info = mockk<UpgradeRepo.Info>(relaxed = true).apply {
             every { this@apply.isPro } returns isPro
+            every { this@apply.isSettled } returns isUpgradeSettled
         }
-        val upgradeFlow = MutableStateFlow<UpgradeRepo.Info>(upgradeInfo)
-        val isUpgradeSettledFlow = MutableStateFlow(isUpgradeSettled)
+        val upgradeFlow = MutableStateFlow(upgradeInfo)
         val areaStateFlow = MutableStateFlow(DataAreaManager.State(areas = areas))
         // Use a hot SharedFlow so tests can inject picker results after construction. The VM's init
         // block collects this; emitting a PickerResult here exercises the createSession path.
@@ -125,7 +125,6 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns upgradeFlow
-            every { this@apply.isSettled } returns isUpgradeSettledFlow
         }
         // currentAreas() is an extension that reads state.first().areas — no separate stub needed.
         val dataAreaManager = mockk<DataAreaManager>().apply {
@@ -156,7 +155,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             taskSubmitter = taskSubmitter,
             navCtrl = navCtrl,
             pickerResults = pickerResults,
-            isUpgradeSettledFlow = isUpgradeSettledFlow,
+            upgradeFlow = upgradeFlow,
         )
     }
 
@@ -198,7 +197,11 @@ class SwiperSessionsViewModelTest : BaseTest() {
 
         h.vm.state.first().isPro shouldBe null
 
-        h.isUpgradeSettledFlow.value = true
+        // Settledness arrives ON the Info emission itself, never on a parallel signal.
+        h.upgradeFlow.value = mockk<UpgradeRepo.Info>(relaxed = true).apply {
+            every { isPro } returns false
+            every { isSettled } returns true
+        }
         advanceUntilIdle()
 
         h.vm.state.first().isPro shouldBe false

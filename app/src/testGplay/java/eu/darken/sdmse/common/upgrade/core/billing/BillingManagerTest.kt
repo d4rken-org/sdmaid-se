@@ -216,9 +216,9 @@ class BillingManagerTest : BaseTest() {
         attempts shouldBe 2
     }
 
-    @Test fun `a failed first attempt marks billing as settled`() = runTest2 {
+    @Test fun `a failed first attempt trips the failure-settled signal`() = runTest2 {
         // The connect loop swallows connection errors (it retries forever), so downstream flows
-        // stay silent during an outage -- gates like isProSettled need the explicit signal.
+        // stay silent during an outage -- consumers need the explicit signal to settle their seed.
         val provider = mockk<BillingConnectionProvider>().apply {
             every { this@apply.connection } returns flow {
                 throw BillingException("Play is down")
@@ -226,14 +226,23 @@ class BillingManagerTest : BaseTest() {
         }
         val manager = manager(provider)
 
-        manager.isSettled.first() shouldBe false
+        manager.isFailureSettled.first() shouldBe false
         runCurrent() // first attempt fails
-        manager.isSettled.first() shouldBe true
+        manager.isFailureSettled.first() shouldBe true
+    }
+
+    @Test fun `a healthy connection does not trip the failure-settled signal`() = runTest2 {
+        // Success-settledness travels WITH the data: billingData emitting IS the settle signal,
+        // there is no parallel success flag that could lead the data.
+        val manager = manager(connection(purchasesFlow = flowOf(listOf(purchase()))))
+
+        manager.billingData.first().purchases.size shouldBe 1
+        manager.isFailureSettled.first() shouldBe false
     }
 
     @Test fun `a cold refresh that can't verify anything retries instead of starving billing`() = runTest2 {
         // "Nothing found AND a query failed" throws from refreshPurchases: the old onEach swallowed
-        // that, leaving billingData/isSettled starved forever with no retry.
+        // that, leaving billingData/isFailureSettled starved forever with no retry.
         val bad = connection().apply {
             coEvery { refreshPurchases() } throws
                 GplayServiceUnavailableException(RuntimeException("cold Play, broken queries"))
@@ -250,7 +259,7 @@ class BillingManagerTest : BaseTest() {
         val manager = manager(provider)
 
         runCurrent() // attempt 1: connects, initial refresh fails -> connection failure
-        manager.isSettled.first() shouldBe true
+        manager.isFailureSettled.first() shouldBe true
 
         advanceTimeBy(2_001) // backoff, then attempt 2 heals
         manager.billingData.first() shouldBe BillingData(emptyList())

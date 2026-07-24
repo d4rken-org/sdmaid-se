@@ -90,7 +90,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             appCleaner = appCleaner,
             deduplicator = deduplicator,
             generalSettings = generalSettings,
-            upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply { every { isSettled } returns flowOf(true) },
+            upgradeRepo = mockk<UpgradeRepo>(relaxed = true),
             upgradeInfo = flowOf(null),
             submitTask = { task ->
                 submittedTasks.add(task)
@@ -156,10 +156,12 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     fun `freed hero includes the deduplicator removable-file count`() {
         // Regression for the post-delete path: a deduplicator-only cleanup must report the deleted
         // file count, not 0. The FREED itemCount used to exclude the deduplicator entirely.
-        val proInfo = mockk<UpgradeRepo.Info>(relaxed = true) { every { isPro } returns true }
+        val proInfo = mockk<UpgradeRepo.Info>(relaxed = true) {
+            every { isPro } returns true
+            every { isSettled } returns true
+        }
         val upgradeRepo = mockk<UpgradeRepo>(relaxed = true) {
             every { upgradeInfo } returns MutableStateFlow(proInfo)
-            every { isSettled } returns flowOf(true)
         }
         val taskManager = mockk<TaskManager>(relaxed = true) {
             every { state } returns MutableStateFlow(TaskSubmitter.State())

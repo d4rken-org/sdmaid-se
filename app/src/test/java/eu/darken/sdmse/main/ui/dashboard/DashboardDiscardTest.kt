@@ -98,7 +98,6 @@ internal class DashboardDiscardTest : BaseTest() {
             },
             upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply {
                 every { upgradeInfo } returns emptyFlow()
-                every { isSettled } returns flowOf(true)
             },
             generalSettings = mockk<GeneralSettings>(relaxed = true),
             webpageTool = mockk<WebpageTool>(relaxed = true),

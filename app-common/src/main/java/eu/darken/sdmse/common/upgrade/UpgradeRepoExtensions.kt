@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.withTimeoutOrNull
@@ -35,6 +36,9 @@ suspend fun UpgradeRepo.isProSettled(timeout: Duration = 5.seconds): Boolean = t
         refresh()
         withTimeoutOrNull(timeout) { upgradeInfo.firstOrNull { it.isPro } != null } == true
     }
+} catch (e: CancellationException) {
+    // A cancelled caller must not continue down the Pro path via the fail-open below.
+    throw e
 } catch (e: Exception) {
     log(TAG, WARN) { "isProSettled() failed, failing open (allowing): ${e.asLog()}" }
     true
@@ -47,19 +51,25 @@ suspend fun UpgradeRepo.isProSettled(timeout: Duration = 5.seconds): Boolean = t
  * upgrade screen stays snappy for free users (unlike [isProSettled], whose non-Pro path always
  * waits out its timeout). Only while billing is still connecting (GPlay cold start or reconnect,
  * where [UpgradeRepo.upgradeInfo] reports non-Pro even for paying users) does it wait, up to
- * [timeout], for the first real billing result — so a Pro user isn't bounced to the upgrade
- * screen by the handshake race. On timeout or error it falls back to the current state: the UI
- * route is recoverable, and the backend [isProSettled] gate remains the enforcement safety net.
+ * [timeout], for the first settled Info — so a Pro user isn't bounced to the upgrade screen by
+ * the handshake race. Every decision reads isPro and isSettled off the SAME Info emission, so a
+ * settle signal can never pair with stale ownership. On timeout or error it falls back to the
+ * current state: the UI route is recoverable, and the backend [isProSettled] gate remains the
+ * enforcement safety net.
  */
 suspend fun UpgradeRepo.isProForUi(timeout: Duration = 3.seconds): Boolean = try {
+    val current = upgradeInfo.first()
     when {
-        upgradeInfo.first().isPro -> true
-        isSettled.first() -> false
+        current.isPro -> true
+        current.isSettled -> false
         else -> {
-            withTimeoutOrNull(timeout) { isSettled.first { settled -> settled } }
-            upgradeInfo.first().isPro
+            val settled = withTimeoutOrNull(timeout) { upgradeInfo.first { it.isSettled } }
+            (settled ?: upgradeInfo.first()).isPro
         }
     }
+} catch (e: CancellationException) {
+    // A cancelled caller must not continue down the Pro path via the fail-open below.
+    throw e
 } catch (e: Exception) {
     log(TAG, WARN) { "isProForUi() failed, failing open (allowing): ${e.asLog()}" }
     true

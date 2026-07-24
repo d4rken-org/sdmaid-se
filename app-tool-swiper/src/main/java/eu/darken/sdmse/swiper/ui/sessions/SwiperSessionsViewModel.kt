@@ -65,12 +65,11 @@ class SwiperSessionsViewModel @Inject constructor(
         swiper.progress,
         selectedPaths,
         upgradeRepo.upgradeInfo,
-        upgradeRepo.isSettled,
         scanningSessionId,
         cancellingSessionId,
         refreshingSessionId,
         dataAreaManager.state,
-    ) { sessionsWithStats, progress, paths, upgradeInfo, isUpgradeSettled,
+    ) { sessionsWithStats, progress, paths, upgradeInfo,
         scanningId, cancellingId, refreshingId, areaState ->
         val riskySessionPaths = sessionsWithStats
             .associate { entry ->
@@ -85,9 +84,10 @@ class SwiperSessionsViewModel @Inject constructor(
             progress = progress,
             // GPlay initially reports non-Pro while its billing handshake is still in flight.
             // Keep that state unknown so the free-tier card is only shown after a real lookup.
+            // Settledness rides the same Info emission, so it can't pair with stale ownership.
             isPro = when {
                 upgradeInfo.isPro -> true
-                isUpgradeSettled -> false
+                upgradeInfo.isSettled -> false
                 else -> null
             },
             scanningSessionId = scanningId,
