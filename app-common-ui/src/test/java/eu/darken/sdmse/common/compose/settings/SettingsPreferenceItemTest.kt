@@ -108,6 +108,12 @@ class SettingsPreferenceItemTest : BaseComposeRobolectricTest() {
         }
     }
 
+    /**
+     * "Not ellipsized" is asserted as "no characters were dropped": the last line's visible end
+     * covers the whole string and the layout isn't height/line truncated. `hasVisualOverflow` is
+     * unusable here — under Robolectric's font stack `didOverflowWidth` is true for every `Text`,
+     * including the untouched title, even when a 24px line sits in a 328px constraint.
+     */
     @Test
     fun `long value is not ellipsized`() {
         composeRule.setContent {
@@ -124,7 +130,15 @@ class SettingsPreferenceItemTest : BaseComposeRobolectricTest() {
             }
         }
 
-        value(TAG_VALUE).textLayoutResult().hasVisualOverflow shouldBe false
+        val layout = value(TAG_VALUE).textLayoutResult()
+
+        withClue("value must not be line-limited") {
+            layout.layoutInput.maxLines shouldBe Int.MAX_VALUE
+        }
+        layout.didOverflowHeight shouldBe false
+        withClue("last visible line must end at the full string length") {
+            layout.getLineEnd(layout.lineCount - 1, visibleEnd = true) shouldBe VALUE.length
+        }
     }
 
     @Test
