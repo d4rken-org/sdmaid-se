@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -39,6 +40,7 @@ fun SettingsBaseItem(
     iconTint: Color? = null,
     iconSize: Dp = 24.dp,
     subtitle: String? = null,
+    value: String? = null,
     enabled: Boolean = true,
     requiresUpgrade: Boolean = false,
     onLongClick: (() -> Unit)? = null,
@@ -106,15 +108,23 @@ fun SettingsBaseItem(
                     )
                     if (requiresUpgrade) {
                         Spacer(Modifier.width(6.dp))
-                        UpgradeBadge()
+                        UpgradeBadge(modifier = Modifier.alpha(contentAlpha))
                     }
+                }
+                if (value != null) {
+                    Text(
+                        text = value,
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.tertiary.copy(alpha = contentAlpha),
+                        modifier = Modifier.padding(top = 2.dp),
+                    )
                 }
                 if (subtitle != null) {
                     Text(
                         text = subtitle,
                         style = MaterialTheme.typography.bodyMedium,
                         color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.7f * contentAlpha),
-                        modifier = Modifier.padding(top = 2.dp),
+                        modifier = Modifier.padding(top = if (value != null) 4.dp else 2.dp),
                     )
                 }
             }
@@ -158,6 +168,14 @@ private fun SettingsBaseItemPreview() {
                 onClick = {},
                 icon = Icons.TwoTone.Settings,
                 requiresUpgrade = true,
+            )
+            SettingsBaseItem(
+                title = "Wykrywanie systemu operacyjnego",
+                value = "Automatyczne (domyślnie)",
+                subtitle = "Automatyzacja oparta na usłudze ułatwień dostępu może się nie powieść, " +
+                    "jeśli SD Maid nie wykryje poprawnie systemu operacyjnego.",
+                onClick = {},
+                icon = Icons.TwoTone.Settings,
             )
         }
     }
