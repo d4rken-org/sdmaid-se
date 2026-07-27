@@ -137,26 +137,26 @@ class UpgradeRepoGplayTest : BaseTest() {
     @Test fun `restore returns pro when a purchase is found`() = runTest2 {
         coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
 
-        repo(lastProAt = 0L).restorePurchaseNow().isPro shouldBe true
+        repo(lastProAt = 0L).restorePurchaseNow().info.isPro shouldBe true
     }
 
     @Test fun `restore keeps pro within grace when the query comes back empty`() = runTest2 {
         coEvery { billingManager.refresh() } returns BillingData(emptySet())
 
-        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().isPro shouldBe true
+        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().info.isPro shouldBe true
     }
 
     @Test fun `restore is not pro when the query is empty and grace has expired`() = runTest2 {
         coEvery { billingManager.refresh() } returns BillingData(emptySet())
 
         val expired = System.currentTimeMillis() - UpgradeRepoGplay.GRACE_PERIOD_MS - 1_000
-        repo(lastProAt = expired).restorePurchaseNow().isPro shouldBe false
+        repo(lastProAt = expired).restorePurchaseNow().info.isPro shouldBe false
     }
 
     @Test fun `restore keeps pro within grace when the query errors`() = runTest2 {
         coEvery { billingManager.refresh() } throws RuntimeException("Play unavailable")
 
-        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().isPro shouldBe true
+        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().info.isPro shouldBe true
     }
 
     @Test fun `restore rethrows the error when it happens outside grace`() = runTest2 {
@@ -173,7 +173,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         val twentyDaysAgo = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
 
         repo(lastProAt = twentyDaysAgo, lastSku = OurSku.Iap.PRO_UPGRADE.id)
-            .restorePurchaseNow().isPro shouldBe true
+            .restorePurchaseNow().info.isPro shouldBe true
     }
 
     @Test fun `subscription grace expires after the short window`() = runTest2 {
@@ -181,7 +181,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         val twentyDaysAgo = System.currentTimeMillis() - Duration.ofDays(20).toMillis()
 
         repo(lastProAt = twentyDaysAgo, lastSku = OurSku.Sub.PRO_UPGRADE.id)
-            .restorePurchaseNow().isPro shouldBe false
+            .restorePurchaseNow().info.isPro shouldBe false
     }
 
     @Test fun `legacy empty last SKU falls back to the short window`() = runTest2 {
@@ -190,7 +190,7 @@ class UpgradeRepoGplayTest : BaseTest() {
 
         // Existing installs have a timestamp but no recorded SKU: they keep the old 7-day window
         // until the next successful query records one.
-        repo(lastProAt = twentyDaysAgo, lastSku = "").restorePurchaseNow().isPro shouldBe false
+        repo(lastProAt = twentyDaysAgo, lastSku = "").restorePurchaseNow().info.isPro shouldBe false
     }
 
     @Test fun `IAP grace window is longer than the subscription window`() {
@@ -607,7 +607,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         }
         coEvery { billingManager.refresh() } returns BillingData(setOf(unknown))
 
-        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().isPro shouldBe true
+        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().info.isPro shouldBe true
     }
 
     @Test fun `unknown-only purchases without recent grace are not pro`() = runTest2 {
@@ -617,7 +617,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         }
         coEvery { billingManager.refresh() } returns BillingData(setOf(unknown))
 
-        repo(lastProAt = 0L).restorePurchaseNow().isPro shouldBe false
+        repo(lastProAt = 0L).restorePurchaseNow().info.isPro shouldBe false
     }
 
     @Test fun `a known purchase is pro even when the grace cache is unreadable`() = runTest2 {
@@ -627,7 +627,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         val repo = repo(lastProAt = 0L)
         every { lastProAtMock.flow } returns flow { throw IOException("disk full") }
 
-        repo.restorePurchaseNow().isPro shouldBe true
+        repo.restorePurchaseNow().info.isPro shouldBe true
     }
 
     @Test fun `upgradeInfo recovers after a transient grace cache failure`() = runTest2 {
@@ -716,14 +716,38 @@ class UpgradeRepoGplayTest : BaseTest() {
 
     @Test fun `restore results are settled`() = runTest2 {
         coEvery { billingManager.refresh() } returns BillingData(setOf(proPurchase()))
-        repo(lastProAt = 0L).restorePurchaseNow().isSettled shouldBe true
+        repo(lastProAt = 0L).restorePurchaseNow().info.isSettled shouldBe true
 
         // The grace fallback is a definitive substitution for a real round-trip -> also settled.
         coEvery { billingManager.refresh() } throws RuntimeException("Play unavailable")
-        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().apply {
+        repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow().info.apply {
             isPro shouldBe true
             isSettled shouldBe true
         }
+    }
+
+    @Test fun `a Play error absorbed by grace is reported as inconclusive`() = runTest2 {
+        // Entitlement is unchanged (grace still keeps Pro), but the lookup never landed. Without
+        // this the UI can't tell it apart from a successful empty query and would tell a recent
+        // owner that Play was checked and had nothing.
+        val boom = RuntimeException("Play unavailable")
+        coEvery { billingManager.refresh() } throws boom
+
+        val outcome = repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow()
+
+        outcome.shouldBeInstanceOf<UpgradeRepoGplay.RestoreOutcome.Inconclusive>()
+        outcome.cause shouldBe boom
+        outcome.info.isPro shouldBe true
+    }
+
+    @Test fun `a successful empty query is reported as checked even when grace keeps pro`() = runTest2 {
+        // Mirror image of the test above: Play DID answer, so escalation copy is warranted.
+        coEvery { billingManager.refresh() } returns BillingData(emptySet())
+
+        val outcome = repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow()
+
+        outcome.shouldBeInstanceOf<UpgradeRepoGplay.RestoreOutcome.Checked>()
+        outcome.info.isPro shouldBe true
     }
 
     @Test fun `after a failure the seed settles before the data lands - accepted residual`() = runTest2 {

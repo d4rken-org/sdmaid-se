@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.getPackageInfo
+import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
 import eu.darken.sdmse.main.core.CurriculumVitae
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -51,6 +52,7 @@ class RecorderModuleTest : BaseTest() {
     private val sdmId: SDMId = mockk()
     private val dataAreaManager: DataAreaManager = mockk()
     private val curriculumVitae: CurriculumVitae = mockk()
+    private val upgradeDiagnostics: UpgradeDiagnostics = mockk()
     private val recorderProvider: Provider<Recorder> = mockk()
     private val mockRecorder: Recorder = mockk()
 
@@ -78,6 +80,8 @@ class RecorderModuleTest : BaseTest() {
             proLostCount = 0,
             proLostLast = null,
         )
+
+        coEvery { upgradeDiagnostics.debugInfo() } returns "BillingCache(test)"
 
         every { recorderProvider.get() } returns mockRecorder
         coEvery { mockRecorder.start(any()) } returns Unit
@@ -118,6 +122,7 @@ class RecorderModuleTest : BaseTest() {
             sdmId = sdmId,
             debugSettings = debugSettings,
             curriculumVitae = curriculumVitae,
+            upgradeDiagnostics = upgradeDiagnostics,
             recorderProvider = recorderProvider,
         )
 
@@ -182,6 +187,49 @@ class RecorderModuleTest : BaseTest() {
             advanceUntilIdle()
 
             module.state.first { it.isRecording }.isRecording shouldBe true
+        }
+
+        @Test
+        fun `a failing upgrade diagnostics read does not prevent recording`() = runTest {
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+            coEvery { upgradeDiagnostics.debugInfo() } throws IOException("disk full")
+
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            val module = createModule(backgroundScope, dispatcher)
+            advanceUntilIdle()
+
+            module.state.first { it.isRecording }.isRecording shouldBe true
+        }
+
+        @Test
+        fun `a failing pro history read still reports upgrade diagnostics`() = runTest {
+            // Separate failure boundaries: these read different DataStores, and the pro-state
+            // counters are too new to speak for installs that predate them. One failing must not
+            // suppress the other's evidence.
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+            coEvery { curriculumVitae.proHistory() } throws IOException("disk full")
+
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            val module = createModule(backgroundScope, dispatcher)
+            advanceUntilIdle()
+
+            module.state.first { it.isRecording }
+            coVerify { upgradeDiagnostics.debugInfo() }
+        }
+
+        @Test
+        fun `upgrade diagnostics are not read when recording does not start`() = runTest {
+            // Resolving diagnostics must stay inert and lazy: on GPlay this path must never be the
+            // thing that first touches the billing stack.
+            coEvery { recorderPath.value() } returns null
+
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            createModule(backgroundScope, dispatcher)
+            advanceUntilIdle()
+
+            coVerify(exactly = 0) { upgradeDiagnostics.debugInfo() }
         }
 
         @Test

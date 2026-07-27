@@ -11,6 +11,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.basicReader
 import eu.darken.sdmse.common.datastore.basicWriter
 import eu.darken.sdmse.common.datastore.createValue
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -49,6 +50,24 @@ class BillingCache @Inject constructor(
         reader = basicReader(0L),
         writer = basicWriter(),
     )
+
+    // Point-in-time view of all three values. Reading them via three separate .value() calls can
+    // straddle a concurrent stampLastProState() and observe a combination that never existed --
+    // that write is transactional precisely because the values are only meaningful together.
+    data class Snapshot(
+        val lastProStateAt: Long,
+        val lastProStateSku: String,
+        val proUnconfirmedSince: Long,
+    )
+
+    suspend fun snapshot(): Snapshot {
+        val prefs = dataStore.data.first()
+        return Snapshot(
+            lastProStateAt = prefs[lastProStateAtKey] ?: 0L,
+            lastProStateSku = prefs[lastProStateSkuKey] ?: "",
+            proUnconfirmedSince = prefs[proUnconfirmedSinceKey] ?: 0L,
+        )
+    }
 
     // One transaction for all three values: the timestamp gates the grace period, the SKU modifies
     // its window length, and a confirmation closes the unconfirmed episode — none of it may be
