@@ -68,4 +68,5 @@
     <string name="upgrade_screen_contact_support_action">Contact support</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid just checked Google Play, but no Pro purchase could be confirmed for the account Google Play is using for this app.</string>
     <string name="upgrade_screen_restore_contact_hint">Still stuck? Contact support from the email that made the purchase and include your Google Play order number.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">The check with Google Play didn\'t finish in time, so your purchase status is still unknown. Nothing has changed on your account.</string>
 </resources>

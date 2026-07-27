@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.getPackageInfo
+import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
 import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -55,6 +56,7 @@ class RecorderModule @Inject constructor(
     private val sdmId: SDMId,
     private val debugSettings: DebugSettings,
     private val curriculumVitae: CurriculumVitae,
+    private val upgradeDiagnostics: UpgradeDiagnostics,
     private val recorderProvider: Provider<Recorder>,
 ) {
 
@@ -262,6 +264,17 @@ class RecorderModule @Inject constructor(
         } catch (e: Exception) {
             // Diagnostics only — a broken history read must not stop the recorder from starting.
             log(TAG, WARN) { "Pro history unavailable: ${e.asLog()}" }
+        }
+
+        // Separate boundary from the block above on purpose: these read different DataStores, and
+        // the counters above only cover installs new enough to have them. A failure to read one
+        // must not suppress the other's independent evidence.
+        try {
+            upgradeDiagnostics.debugInfo()?.let { log(TAG, INFO) { "Upgrade diagnostics: $it" } }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Upgrade diagnostics unavailable: ${e.asLog()}" }
         }
     }
 

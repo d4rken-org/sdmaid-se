@@ -365,13 +365,23 @@ class UpgradeViewModel @Inject constructor(
             }
             when {
                 restored == null -> {
-                    // Play never answered in time; the restore-failed dialog already suggests waiting /
-                    // clearing the Play cache, which fits a timeout too.
+                    // Budget covers connecting, the refresh mutex AND both queries, so a query may
+                    // well have started. All we know is the check didn't finish -- not that Play
+                    // said no. Reporting this as a completed check would send an owner chasing the
+                    // multi-account explanation for what is really a slow or unreachable Play.
                     log(TAG, WARN) { "Restore purchase timed out" }
-                    events.tryEmit(UpgradeEvents.RestoreFailed)
+                    events.tryEmit(UpgradeEvents.RestoreInconclusive)
                 }
 
-                restored.upgrades.isNotEmpty() -> {
+                restored is UpgradeRepoGplay.RestoreOutcome.Inconclusive -> {
+                    // Play errored and grace kept Pro alive. Same non-answer as a timeout, and the
+                    // user is by definition a recent owner -- the last person to tell that we
+                    // checked and found nothing.
+                    log(TAG, WARN) { "Restore purchase inconclusive: ${restored.cause.asLog()}" }
+                    events.tryEmit(UpgradeEvents.RestoreInconclusive)
+                }
+
+                restored.info.upgrades.isNotEmpty() -> {
                     log(TAG, INFO) { "Restored purchase :))" }
                     // Explicit feedback: on the ownership screen a successful restore changes
                     // nothing visible (the user already is Pro), so silence reads as "broken".
@@ -379,9 +389,10 @@ class UpgradeViewModel @Inject constructor(
                 }
 
                 else -> {
-                    // Includes grace-only results: Pro may still be active, but the restore found
-                    // no actual purchase — troubleshooting dialog, not a success toast.
-                    log(TAG, WARN) { "Restore purchase found no purchases (isPro=${restored.isPro})" }
+                    // Play answered and had nothing. Includes a grace-only result from a successful
+                    // EMPTY query: Pro may still be active, but the check really did complete, so
+                    // troubleshooting and escalation are warranted.
+                    log(TAG, WARN) { "Restore purchase found no purchases (isPro=${restored.info.isPro})" }
                     events.tryEmit(UpgradeEvents.RestoreFailed)
                 }
             }

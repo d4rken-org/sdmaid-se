@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.Test
@@ -531,6 +532,62 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body_no_trial))
             .assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_subscription_offer_body)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `the inconclusive dialog neither claims a check nor escalates`() {
+        // The whole point of splitting this off RestoreFailed: a non-answer must not assert that
+        // Play was checked, must not blame the account setup, and must not push toward support.
+        composeRule.setUpgradeContent { RestoreInconclusiveDialog() }
+
+        composeRule.onNodeWithText(
+            context.getString(R.string.upgrade_screen_restore_inconclusive_message),
+            substring = true,
+        ).assertExists()
+        composeRule.onNodeWithText(
+            context.getString(R.string.upgrade_screen_restore_sync_patience_hint),
+            substring = true,
+        ).assertExists()
+
+        composeRule.onAllNodesWithText(
+            context.getString(R.string.upgrade_screen_restore_checked_message),
+            substring = true,
+        ).assertCountEquals(0)
+        composeRule.onAllNodesWithText(
+            context.getString(R.string.upgrade_screen_restore_multiaccount_hint),
+            substring = true,
+        ).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_contact_support_action))
+            .assertCountEquals(0)
+    }
+
+    @Test
+    fun `the inconclusive dialog offers a retry that fires the callback`() {
+        var retries = 0
+        composeRule.setUpgradeContent { RestoreInconclusiveDialog(onRetry = { retries++ }) }
+
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_retry_action)).performClick()
+        composeRule.runOnIdle { retries shouldBe 1 }
+    }
+
+    @Test
+    fun `the empty-result dialog keeps the escalation path`() {
+        // Counterpart to the test above: here Play really did answer, so the multi-account hint and
+        // contact-support action remain warranted.
+        var supportTaps = 0
+        composeRule.setUpgradeContent { RestoreFailedDialog(onContactSupport = { supportTaps++ }) }
+
+        composeRule.onNodeWithText(
+            context.getString(R.string.upgrade_screen_restore_checked_message),
+            substring = true,
+        ).assertExists()
+        composeRule.onNodeWithText(
+            context.getString(R.string.upgrade_screen_restore_multiaccount_hint),
+            substring = true,
+        ).assertExists()
+
+        composeRule.onNodeWithText(context.getString(R.string.upgrade_screen_contact_support_action)).performClick()
+        composeRule.runOnIdle { supportTaps shouldBe 1 }
     }
 }
 

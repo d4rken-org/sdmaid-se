@@ -27,6 +27,15 @@ class BillingCacheTest : BaseTest() {
         cache.lastProStateAt.value() shouldBe 0L
         cache.lastProStateSku.value() shouldBe ""
 
+        // Defaults on a never-Pro install: this exact triple is what the debug-log header reports
+        // as "never / unknown-legacy / none", and it's the signal that separates a never-bought
+        // install from one whose entitlement went missing.
+        cache.snapshot() shouldBe BillingCache.Snapshot(
+            lastProStateAt = 0L,
+            lastProStateSku = "",
+            proUnconfirmedSince = 0L,
+        )
+
         cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 1234L)
 
         cache.lastProStateAt.value() shouldBe 1234L
@@ -47,5 +56,14 @@ class BillingCacheTest : BaseTest() {
         cache.proUnconfirmedSince.value(9_000L)
         cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 8_000L) // confirmation older than episode
         cache.proUnconfirmedSince.value() shouldBe 9_000L
+
+        // snapshot() must agree with the individual reads. It exists so the debug-log header reads
+        // all three in ONE DataStore emission: three separate reads can straddle a concurrent
+        // stampLastProState and report a combination that never existed.
+        cache.snapshot() shouldBe BillingCache.Snapshot(
+            lastProStateAt = 8_000L,
+            lastProStateSku = OurSku.Iap.PRO_UPGRADE.id,
+            proUnconfirmedSince = 9_000L,
+        )
     }
 }

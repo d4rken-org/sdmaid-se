@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
+import eu.darken.sdmse.common.upgrade.core.billing.client.redacted
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
@@ -210,8 +211,8 @@ class BillingManager @Inject constructor(
                     .filter {
                         val needsAck = !it.isAcknowledged
 
-                        if (needsAck) log(TAG) { "Needs ACK: $it" }
-                        else log(TAG) { "Already ACK'ed: $it" }
+                        if (needsAck) log(TAG) { "Needs ACK: ${it.redacted()}" }
+                        else log(TAG) { "Already ACK'ed: ${it.redacted()}" }
 
                         needsAck
                     }
@@ -219,7 +220,7 @@ class BillingManager @Inject constructor(
                         // First ack of a token is INFO; idempotent repeats drop to DEBUG. This never
                         // gates the ack -- acknowledgePurchase runs regardless of set membership.
                         val ackPriority = if (it.purchaseToken in loggedAckTokens) DEBUG else INFO
-                        log(TAG, ackPriority) { "Acknowledging purchase: $it" }
+                        log(TAG, ackPriority) { "Acknowledging purchase: ${it.redacted()}" }
 
                         try {
                             useConnection {

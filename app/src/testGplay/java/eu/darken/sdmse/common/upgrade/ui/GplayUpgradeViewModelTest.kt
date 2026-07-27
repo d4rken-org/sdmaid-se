@@ -215,10 +215,13 @@ class GplayUpgradeViewModelTest : BaseTest() {
         isSettled = true,
     )
 
+    /** Play answered. The default for restore mocks; use Inconclusive only to model a non-answer. */
+    private fun checked(info: UpgradeRepoGplay.Info) = UpgradeRepoGplay.RestoreOutcome.Checked(info)
+
     @Test
     fun `restore that finds a purchase emits RestoreSucceeded`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.restorePurchaseNow() } returns proInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro"))
+        coEvery { repo.restorePurchaseNow() } returns checked(proInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro")))
         val vm = buildVm(repo)
 
         val event = async { vm.events.first() }
@@ -233,7 +236,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         // The repo answers instantly here — the user must still see the check "run": the result
         // event may only surface once RESTORE_MIN_VISIBLE_MS elapsed.
         val repo = mockRepo()
-        coEvery { repo.restorePurchaseNow() } returns proInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro"))
+        coEvery { repo.restorePurchaseNow() } returns checked(proInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro")))
         val vm = buildVm(repo)
 
         val received = mutableListOf<UpgradeEvents>()
@@ -253,7 +256,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `restore with no purchase emits RestoreFailed`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(false, null, null)
+        coEvery { repo.restorePurchaseNow() } returns checked(UpgradeRepoGplay.Info(false, null, null))
         val vm = buildVm(repo)
 
         val event = async { vm.events.first() }
@@ -264,11 +267,14 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `restore that times out emits RestoreFailed`() = runTest2(context = testDispatcher) {
+    fun `restore that times out emits RestoreInconclusive not RestoreFailed`() = runTest2(context = testDispatcher) {
+        // A timeout proves nothing about ownership: the budget also covers connecting and the
+        // refresh mutex. RestoreFailed would assert a completed check and steer the user toward
+        // the multi-account explanation for what may just be a slow Play.
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(30_000) // longer than the 15s restore timeout
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
+            checked(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         }
         val vm = buildVm(repo)
 
@@ -276,7 +282,27 @@ class GplayUpgradeViewModelTest : BaseTest() {
         vm.restorePurchase()
         advanceUntilIdle()
 
-        event.await() shouldBe UpgradeEvents.RestoreFailed
+        event.await() shouldBe UpgradeEvents.RestoreInconclusive
+    }
+
+    @Test
+    fun `a Play error absorbed by grace emits RestoreInconclusive not RestoreFailed`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // Same non-answer as a timeout, and the affected user is by definition a recent owner --
+        // exactly who must not be told Play was checked and had nothing.
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.RestoreOutcome.Inconclusive(
+            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true),
+            RuntimeException("Play unavailable"),
+        )
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.RestoreInconclusive
     }
 
     @Test
@@ -332,7 +358,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         val repo = mockRepo()
         coEvery { repo.restorePurchaseNow() } coAnswers {
             delay(5_000)
-            UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
+            checked(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         }
         val vm = buildVm(repo)
 
@@ -347,7 +373,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `a finished restore allows a new attempt`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(false, null, null)
+        coEvery { repo.restorePurchaseNow() } returns checked(UpgradeRepoGplay.Info(false, null, null))
         val vm = buildVm(repo)
 
         vm.restorePurchase()
@@ -711,7 +737,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     fun `restore that only finds grace shows the troubleshooting dialog`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         // Grace keeps isPro=true, but no actual purchase came back — not a restore success.
-        coEvery { repo.restorePurchaseNow() } returns UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true)
+        coEvery { repo.restorePurchaseNow() } returns checked(UpgradeRepoGplay.Info(gracePeriod = true, billingData = null, isSettled = true))
         val vm = buildVm(repo)
 
         val event = async { vm.events.first() }

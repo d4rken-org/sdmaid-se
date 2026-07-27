@@ -10,6 +10,7 @@ import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.Purchase.PurchaseState
 import com.android.billingclient.api.QueryProductDetailsParams
 import com.android.billingclient.api.QueryPurchasesParams
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -162,7 +163,8 @@ class BillingConnection(
     internal fun onPurchasesUpdated(result: BillingResult, purchases: Collection<Purchase>?) {
         if (result.isSuccess) {
             log(TAG) {
-                "onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, purchases=$purchases)"
+                "onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, " +
+                    "purchases=${purchases?.redacted()})"
             }
             // PENDING purchases must never surface as owned (or stamp the Pro grace cache).
             val purchased = purchases.orEmpty().filter { it.purchaseState == PurchaseState.PURCHASED }
@@ -174,7 +176,8 @@ class BillingConnection(
             }
         } else {
             log(TAG, WARN) {
-                "error: onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, purchases=$purchases)"
+                "error: onPurchasesUpdated(code=${result.responseCode}, message=${result.debugMessage}, " +
+                    "purchases=${purchases?.redacted()})"
             }
             failureChannel.trySend(result)
         }
@@ -212,7 +215,7 @@ class BillingConnection(
             val subJob = async { queryPurchasedProducts(BillingClient.ProductType.SUBS) }
             val iap = iapJob.await()
             val sub = subJob.await()
-            log(TAG) { "Refreshed IAPs=${iap.getOrNull()}, SUBs=${sub.getOrNull()}" }
+            log(TAG) { "Refreshed IAPs=${iap.getOrNull()?.redacted()}, SUBs=${sub.getOrNull()?.redacted()}" }
 
             // Commit BEFORE the couldn't-verify error check: a successful per-type result is
             // authoritative even when its sibling failed — verified absence (e.g. a refunded IAP)
@@ -238,6 +241,17 @@ class BillingConnection(
                     freshUpdatesChannel.trySend(FreshUpdate(confirmed, isFullSnapshot = provesAbsence))
                 }
                 next
+            }
+
+            // Support-log anchor, at INFO because purchase complaints arrive as debug recordings.
+            // Logs what these queries CONFIRMED, kept distinct from the committed view: merged()
+            // retains a failed type's previous purchases, so reporting it as "what Play returned"
+            // would be the same false-certainty trap the copy elsewhere had to fix. Product IDs
+            // only -- never the Purchase, which carries order and token data.
+            log(TAG, INFO) {
+                val confirmedIds = (iap.getOrNull().orEmpty() + sub.getOrNull().orEmpty()).flatMap { it.products }
+                "refreshPurchases(): confirmed=$confirmedIds, isComplete=$isComplete, " +
+                    "iapOk=${iap.isSuccess}, subOk=${sub.isSuccess}, merged=${committed.merged().size}"
             }
 
             // Throws when nothing was found and a query failed, so the caller can tell "not
@@ -278,7 +292,8 @@ class BillingConnection(
         }
 
         log(TAG) {
-            "queryPurchases($type): code=${billingResult.isSuccess}, message=${billingResult.debugMessage}, purchaseData=${purchaseData}"
+            "queryPurchases($type): code=${billingResult.isSuccess}, message=${billingResult.debugMessage}, " +
+                "purchaseData=${purchaseData.redacted()}"
         }
 
         if (!billingResult.isSuccess) {
@@ -331,7 +346,8 @@ class BillingConnection(
             }
         }
         log(TAG) {
-            "acknowledgePurchase(purchase=$purchase): code=${ackResult.responseCode}, message=${ackResult.debugMessage})"
+            "acknowledgePurchase(purchase=${purchase.redacted()}): code=${ackResult.responseCode}, " +
+                "message=${ackResult.debugMessage})"
         }
 
         if (!ackResult.isSuccess) {

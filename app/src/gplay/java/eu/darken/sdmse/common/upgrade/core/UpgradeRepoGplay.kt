@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
+import eu.darken.sdmse.common.upgrade.core.billing.client.redacted
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -264,7 +265,9 @@ class UpgradeRepoGplay @Inject constructor(
             autoRestoreJob?.takeIf { it.isActive } ?: scope.async {
                 autoRestoreState.value = true
                 try {
-                    withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow() }
+                    // Provenance is irrelevant here: the caller only checks whether the claimed SKU
+                    // came back, and a grace-only result doesn't reconcile it either way.
+                    withTimeoutOrNull(RESTORE_ON_OWNED_TIMEOUT_MS) { restorePurchaseNow().info }
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
@@ -314,11 +317,13 @@ class UpgradeRepoGplay @Inject constructor(
     // Explicit "Restore purchase": query Play now and evaluate Pro from the returned data in the same
     // coroutine (real happens-before), so we never read a stale upgradeInfo replay. Billing errors
     // propagate so the caller can distinguish "not owned" from "Play unavailable".
-    suspend fun restorePurchaseNow(): Info {
-        log(TAG) { "restorePurchaseNow()" }
+    suspend fun restorePurchaseNow(): RestoreOutcome {
+        // INFO: pairs with the refreshPurchases() outcome line so a support log shows which Play
+        // round-trip belongs to an explicit restore tap.
+        log(TAG, INFO) { "restorePurchaseNow()" }
         return try {
             // A restore result IS a real Play round-trip outcome -> settled.
-            billingManager.refresh().toUpgradeInfo(settled = true)
+            RestoreOutcome.Checked(billingManager.refresh().toUpgradeInfo(settled = true))
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -329,11 +334,31 @@ class UpgradeRepoGplay @Inject constructor(
             if ((System.currentTimeMillis() - lastProStateAt) < graceWindowMs()) {
                 log(TAG, VERBOSE) { "restore hit a Play error but we were Pro recently -> grace" }
                 recordProUnconfirmed()
-                Info(gracePeriod = true, billingData = null, isSettled = true)
+                // Grace keeps Pro, but the lookup itself never landed. Reported as Inconclusive so
+                // the UI can't claim a completed check: an owner in grace is exactly who must not
+                // be told "we checked Play and found nothing".
+                RestoreOutcome.Inconclusive(Info(gracePeriod = true, billingData = null, isSettled = true), e)
             } else {
                 throw e
             }
         }
+    }
+
+    /**
+     * Provenance of an explicit restore, kept apart from [Info] so entitlement stays untouched.
+     *
+     * [Info] alone can't carry this: a grace-substituted `Info(gracePeriod = true, billingData =
+     * null)` is produced both by a successful empty query (a real answer) and by a swallowed Play
+     * error (no answer at all). Those need opposite UI treatment.
+     */
+    sealed interface RestoreOutcome {
+        val info: Info
+
+        /** Play answered. [info] reflects a real entitlement lookup. */
+        data class Checked(override val info: Info) : RestoreOutcome
+
+        /** Play couldn't be reached; [info] is grace-substituted and ownership stays unknown. */
+        data class Inconclusive(override val info: Info, val cause: Throwable) : RestoreOutcome
     }
 
     // Reports the Pro-state transition history to CurriculumVitae (grace engaged, Pro lost) —
@@ -476,10 +501,10 @@ class UpgradeRepoGplay @Inject constructor(
                 purchase.products.mapNotNull { productId ->
                     val sku = OurSku.PRO_SKUS.singleOrNull { it.id == productId }
                     if (sku == null) {
-                        log(TAG, ERROR) { "Unknown product: $productId ($purchase)" }
+                        log(TAG, ERROR) { "Unknown product: $productId (${purchase.redacted()})" }
                         return@mapNotNull null
                     } else {
-                        log(TAG) { "Mapped $productId to $sku ($purchase)" }
+                        log(TAG) { "Mapped $productId to $sku (${purchase.redacted()})" }
                     }
                     PurchasedSku(sku, purchase)
                 }

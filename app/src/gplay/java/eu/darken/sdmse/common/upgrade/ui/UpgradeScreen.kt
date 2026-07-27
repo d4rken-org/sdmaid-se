@@ -18,7 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
@@ -53,9 +53,12 @@ fun UpgradeScreenHost(
     // No screen-level resume refresh: MainActivity already refreshes the upgrade repo on every
     // activity resume, which covers returning from Play after cancelling the subscription there.
 
-    var showRestoreFailed by remember { mutableStateOf(false) }
-    var showStillRenewing by remember { mutableStateOf(false) }
-    var showCheckFailed by remember { mutableStateOf(false) }
+    // rememberSaveable, not remember: these are driven by one-shot events that are already consumed
+    // from the flow, so a rotation while a dialog is up would drop it for good.
+    var showRestoreFailed by rememberSaveable { mutableStateOf(false) }
+    var showRestoreInconclusive by rememberSaveable { mutableStateOf(false) }
+    var showStillRenewing by rememberSaveable { mutableStateOf(false) }
+    var showCheckFailed by rememberSaveable { mutableStateOf(false) }
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -67,6 +70,7 @@ fun UpgradeScreenHost(
                 ).show()
 
                 UpgradeEvents.RestoreFailed -> showRestoreFailed = true
+                UpgradeEvents.RestoreInconclusive -> showRestoreInconclusive = true
                 UpgradeEvents.SubscriptionStillRenewing -> showStillRenewing = true
                 UpgradeEvents.SubscriptionCheckFailed -> showCheckFailed = true
             }
@@ -74,28 +78,22 @@ fun UpgradeScreenHost(
     }
 
     if (showRestoreFailed) {
-        // Leads with the just-happened live Play check (hedged: RestoreFailed also fires on
-        // timeout). This dialog is the ONLY contact-support surface — escalation comes after an
-        // empty restore, never before.
-        val checkedMsg = stringResource(R.string.upgrade_screen_restore_checked_message)
-        val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
-        val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
-        val contactHint = stringResource(R.string.upgrade_screen_restore_contact_hint)
-        val message = "$checkedMsg\n\n$multiAccountHint\n\n$syncHint\n\n$contactHint"
-        SdmConfirmDialog(
-            message = message,
-            onDismissRequest = { showRestoreFailed = false },
-            positive = SdmDialogAction(
-                label = stringResource(R.string.upgrade_screen_contact_support_action),
-                onClick = {
-                    showRestoreFailed = false
-                    vm.onContactSupport()
-                },
-            ),
-            negative = SdmDialogAction(
-                label = stringResource(CommonR.string.general_dismiss_action),
-                onClick = { showRestoreFailed = false },
-            ),
+        RestoreFailedDialog(
+            onContactSupport = {
+                showRestoreFailed = false
+                vm.onContactSupport()
+            },
+            onDismiss = { showRestoreFailed = false },
+        )
+    }
+
+    if (showRestoreInconclusive) {
+        RestoreInconclusiveDialog(
+            onRetry = {
+                showRestoreInconclusive = false
+                vm.restorePurchase()
+            },
+            onDismiss = { showRestoreInconclusive = false },
         )
     }
 
@@ -140,6 +138,60 @@ fun UpgradeScreenHost(
         onManageSubscription = vm::onManageSubscription,
         onRetry = vm::retrySkuQuery,
         onNavigateUp = vm::navUp,
+    )
+}
+
+/**
+ * Shown when Play answered and no purchase was found. Leads with the just-happened live check,
+ * which is literally true here: non-answers route to [RestoreInconclusiveDialog] instead. This is
+ * the ONLY contact-support surface — escalation comes after an empty restore, never before.
+ */
+@Composable
+internal fun RestoreFailedDialog(
+    onContactSupport: () -> Unit = {},
+    onDismiss: () -> Unit = {},
+) {
+    val checkedMsg = stringResource(R.string.upgrade_screen_restore_checked_message)
+    val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
+    val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
+    val contactHint = stringResource(R.string.upgrade_screen_restore_contact_hint)
+    SdmConfirmDialog(
+        message = "$checkedMsg\n\n$multiAccountHint\n\n$syncHint\n\n$contactHint",
+        onDismissRequest = onDismiss,
+        positive = SdmDialogAction(
+            label = stringResource(R.string.upgrade_screen_contact_support_action),
+            onClick = onContactSupport,
+        ),
+        negative = SdmDialogAction(
+            label = stringResource(CommonR.string.general_dismiss_action),
+            onClick = onDismiss,
+        ),
+    )
+}
+
+/**
+ * Shown when the restore never got an answer (timeout, or a Play error absorbed by grace). Carries
+ * no multi-account hint and no contact-support action: nothing was established, so both would be
+ * premature. Retry is the useful move, and `restorePurchase()` is single-flight.
+ */
+@Composable
+internal fun RestoreInconclusiveDialog(
+    onRetry: () -> Unit = {},
+    onDismiss: () -> Unit = {},
+) {
+    val inconclusiveMsg = stringResource(R.string.upgrade_screen_restore_inconclusive_message)
+    val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
+    SdmConfirmDialog(
+        message = "$inconclusiveMsg\n\n$syncHint",
+        onDismissRequest = onDismiss,
+        positive = SdmDialogAction(
+            label = stringResource(CommonR.string.general_retry_action),
+            onClick = onRetry,
+        ),
+        negative = SdmDialogAction(
+            label = stringResource(CommonR.string.general_dismiss_action),
+            onClick = onDismiss,
+        ),
     )
 }
 
