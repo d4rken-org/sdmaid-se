@@ -160,6 +160,22 @@ class BillingManagerTest : BaseTest() {
         verify(exactly = 1) { Bugs.report(any()) }
     }
 
+    @Test fun `an unavailable offer surfaces without a bug report`() = runTest2 {
+        // Play withholding a product or offer is a merchandising state, not a defect on our side:
+        // it must stay off the bug-report path (it is already a user-friendly BillingException).
+        val manager = manager(
+            connection().apply {
+                coEvery { launchBillingFlow(any(), any(), null) } throws
+                    OfferUnavailableBillingException(OurSku.Iap.PRO_UPGRADE, null)
+            }
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            manager.startIapFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null)
+        }
+        verify(exactly = 0) { Bugs.report(any()) }
+    }
+
     @Test fun `cancellation during the iap flow is neither reported nor mapped`() = runTest2 {
         val manager = manager(
             connection().apply {
