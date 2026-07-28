@@ -340,9 +340,9 @@ class UpgradeViewModel @Inject constructor(
         launch {
             if (!acquireOp(BusyOp.SUBSCRIPTION)) return@launch
             try {
-                // launchBillingFlowNow, not the fire-and-forget launchBillingFlow: the guard has to
-                // cover the whole tap-to-sheet window. The flow itself still runs on AppScope, so
-                // closing the screen mid-launch doesn't abort the purchase.
+                // launchBillingFlowNow suspends until the launch resolved, so the guard covers the
+                // whole tap-to-sheet window. The flow itself still runs on AppScope, so closing the
+                // screen mid-launch doesn't abort the purchase.
                 upgradeRepo.launchBillingFlowNow(
                     activity,
                     OurSku.Sub.PRO_UPGRADE,
