@@ -6,6 +6,9 @@ import com.android.billingclient.api.BillingResult
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.Purchase.PurchaseState
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
@@ -22,15 +25,19 @@ import io.mockk.unmockkObject
 import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -62,6 +69,21 @@ class BillingManagerTest : BaseTest() {
         every { purchaseTime } returns 1_000L
         every { purchaseToken } returns "token"
         every { isAcknowledged } returns true
+    }
+
+    // An unacknowledged purchase with its own token: the ack bookkeeping (log level, permanent
+    // failure reports) is keyed per token, so tests need distinguishable ones.
+    private fun unackedPurchase(
+        token: String,
+        time: Long = 1_000L,
+        product: String = OurSku.Iap.PRO_UPGRADE.id,
+    ) = mockk<Purchase>().apply {
+        every { purchaseState } returns PurchaseState.PURCHASED
+        every { purchaseTime } returns time
+        every { purchaseToken } returns token
+        every { isAcknowledged } returns false
+        every { products } returns listOf(product)
+        every { isAutoRenewing } returns false
     }
 
     private fun connection(
@@ -641,6 +663,406 @@ class BillingManagerTest : BaseTest() {
         advanceUntilIdle()
 
         failures shouldBe emptyList()
+    }
+
+    // endregion
+
+    // region purchase acknowledgement
+
+    // Controllable per-connection streams: the manager's purchases flow is distinctUntilChanged, so
+    // a test must be able to drive the canonical list and the fresh-data signal independently.
+    // replay=1 so an emission that lands before the shared flow's subscriber arrives isn't lost.
+    private fun purchasesFlow() = MutableSharedFlow<Collection<Purchase>>(replay = 1, extraBufferCapacity = 8)
+
+    private fun freshUpdatesFlow() = MutableSharedFlow<BillingConnection.FreshUpdate>(extraBufferCapacity = 8)
+
+    // Scripted acknowledgePurchase: records every call (in order) and answers per invocation index,
+    // so a test can script "fail, fail, succeed" or a hang without re-stubbing the connection.
+    private fun BillingConnection.scriptAck(
+        answer: suspend (call: Int, purchase: Purchase) -> BillingResult,
+    ): MutableList<Purchase> {
+        val calls = mutableListOf<Purchase>()
+        coEvery { acknowledgePurchase(any()) } coAnswers {
+            val purchase = firstArg<Purchase>()
+            calls.add(purchase)
+            answer(calls.size, purchase)
+        }
+        return calls
+    }
+
+    private fun transientAckFailure(): Nothing =
+        throw BillingClientException(result(BillingResponseCode.SERVICE_UNAVAILABLE))
+
+    @Test fun `a transient ack failure is retried without a new purchases emission`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> transientAckFailure() }
+        manager(conn)
+        runCurrent() // connection established
+
+        purchases.tryEmit(listOf(unacked))
+        runCurrent()
+        acks.size shouldBe 1
+
+        advanceTimeBy(3_001) // first inline backoff
+        runCurrent()
+        acks.size shouldBe 2
+
+        advanceTimeBy(6_001) // second inline backoff
+        runCurrent()
+        acks.size shouldBe 3
+
+        // Nothing new arrives from Play: the list is byte-identical (and deduped), so ONLY the
+        // reschedule timer can re-drive the pass -- the old chain died here.
+        advanceTimeBy(290_000)
+        runCurrent()
+        acks.size shouldBe 3
+
+        advanceTimeBy(11_000)
+        runCurrent()
+        acks.size shouldBe 4
+    }
+
+    @Test fun `a fresh round-trip re-drives the pass for a byte-identical purchase list`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        val fresh = freshUpdatesFlow()
+        val conn = connection(purchasesFlow = purchases, freshUpdatesFlow = fresh)
+        val acks = conn.scriptAck { _, _ -> transientAckFailure() }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unacked))
+        advanceTimeBy(10_000)
+        runCurrent()
+        acks.size shouldBe 3
+
+        // A refresh that returns the SAME still-unacknowledged purchase: distinctUntilChanged drops
+        // the list, so before the signal-driven re-drive this could never retry the failed ack.
+        purchases.tryEmit(listOf(unacked))
+        fresh.tryEmit(BillingConnection.FreshUpdate(listOf(unacked), isFullSnapshot = true))
+        runCurrent()
+
+        acks.size shouldBe 4
+    }
+
+    @Test fun `a partial fresh emission never becomes the retried purchase list`() = runTest2 {
+        val iap = unackedPurchase("iap-token")
+        val sub = unackedPurchase("sub-token", time = 2_000L, product = OurSku.Sub.PRO_UPGRADE.id)
+        val purchases = purchasesFlow()
+        val fresh = freshUpdatesFlow()
+        val conn = connection(purchasesFlow = purchases, freshUpdatesFlow = fresh)
+        val acks = conn.scriptAck { _, _ -> transientAckFailure() }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(iap))
+        advanceTimeBy(10_000)
+        runCurrent()
+        acks.size shouldBe 3
+
+        // A SUBS-only query commits a partial fresh update. It is a SIGNAL only -- using its payload
+        // as the retried list would silently drop the failed IAP ack.
+        fresh.tryEmit(BillingConnection.FreshUpdate(listOf(sub), isFullSnapshot = false))
+        advanceTimeBy(10_000)
+        runCurrent()
+        acks.size shouldBe 6
+
+        // Just past the 5min reschedule the first failing pass armed (t=9s + 300s).
+        advanceTimeBy(289_500)
+        runCurrent()
+        acks.size shouldBe 7
+        acks.map { it.purchaseToken }.toSet() shouldBe setOf("iap-token")
+    }
+
+    @Test fun `BILLING_UNAVAILABLE aborts the pass but the reschedule keeps re-attempting`() = runTest2 {
+        val first = unackedPurchase("token-1")
+        val second = unackedPurchase("token-2", time = 2_000L)
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> throw BillingClientException(result(BillingResponseCode.BILLING_UNAVAILABLE)) }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(first, second))
+        advanceTimeBy(10_000)
+        runCurrent()
+
+        // Connection-level condition: no inline retries, and the second purchase isn't attempted.
+        acks.size shouldBe 1
+
+        // The old chain treated this as terminal and never acked anything again.
+        advanceTimeBy(300_001)
+        runCurrent()
+        acks.size shouldBe 2
+    }
+
+    @Test fun `repeated failing passes never stack more than one reschedule`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        val fresh = freshUpdatesFlow()
+        val conn = connection(purchasesFlow = purchases, freshUpdatesFlow = fresh)
+        val acks = conn.scriptAck { _, _ -> transientAckFailure() }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unacked))
+        advanceTimeBy(9_002) // pass 1 exhausts its attempts and arms the timer
+        runCurrent()
+        acks.size shouldBe 3
+
+        // Two more failing passes while the timer is pending: each one re-arming would produce its
+        // own extra re-drive later.
+        fresh.tryEmit(BillingConnection.FreshUpdate(listOf(unacked), isFullSnapshot = true))
+        advanceTimeBy(9_002)
+        runCurrent()
+        acks.size shouldBe 6
+
+        fresh.tryEmit(BillingConnection.FreshUpdate(listOf(unacked), isFullSnapshot = true))
+        advanceTimeBy(9_002)
+        runCurrent()
+        acks.size shouldBe 9
+
+        // Exactly ONE timer-driven pass (3 attempts). Stacked timers would have fired around
+        // t=318s and t=327s too, adding further passes inside this window.
+        advanceTimeBy(282_000)
+        runCurrent()
+        advanceTimeBy(20_000)
+        runCurrent()
+        acks.size shouldBe 12
+    }
+
+    @Test fun `a successful ack quiets its repeats and arms no reschedule`() = runTest2 {
+        val recorder = RecordingLogger()
+        Logging.install(recorder)
+        try {
+            val unacked = unackedPurchase("token-1")
+            val purchases = purchasesFlow()
+            val fresh = freshUpdatesFlow()
+            val conn = connection(purchasesFlow = purchases, freshUpdatesFlow = fresh)
+            val acks = conn.scriptAck { _, _ -> result(BillingResponseCode.OK) }
+            manager(conn)
+            runCurrent()
+
+            purchases.tryEmit(listOf(unacked))
+            runCurrent()
+            acks.size shouldBe 1
+            // First ack of a token is INFO...
+            recorder.ackLogs(INFO) shouldBe 1
+            recorder.ackLogs(DEBUG) shouldBe 0
+
+            // The snapshot still says isAcknowledged=false until a fresh query supersedes it, so the
+            // ack re-fires -- but as a quiet idempotent repeat.
+            fresh.tryEmit(BillingConnection.FreshUpdate(listOf(unacked), isFullSnapshot = true))
+            runCurrent()
+            acks.size shouldBe 2
+            recorder.ackLogs(INFO) shouldBe 1
+            recorder.ackLogs(DEBUG) shouldBe 1
+
+            // A pass without failures must not arm the timer.
+            advanceTimeBy(400_000)
+            runCurrent()
+            acks.size shouldBe 2
+        } finally {
+            Logging.remove(recorder)
+        }
+    }
+
+    @Test fun `a hanging ack times out each attempt and reschedules`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> awaitCancellation() }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unacked))
+        runCurrent()
+        acks.size shouldBe 1
+
+        advanceTimeBy(30_001) // per-attempt timeout fires
+        runCurrent()
+        acks.size shouldBe 1
+
+        advanceTimeBy(3_001) // 3s backoff, then attempt 2
+        runCurrent()
+        acks.size shouldBe 2
+
+        advanceTimeBy(36_001) // attempt 2 times out, 6s backoff, then attempt 3
+        runCurrent()
+        acks.size shouldBe 3
+
+        advanceTimeBy(30_001) // attempt 3 times out -> transient -> reschedule
+        runCurrent()
+        acks.size shouldBe 3
+
+        advanceTimeBy(300_001)
+        runCurrent()
+        acks.size shouldBe 4
+    }
+
+    @Test fun `waiting for a connection is bounded and counts as a failed attempt`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        // Connection 1 reports the binder dead on the ack, which uninstalls it. Connection 2 only
+        // materializes minutes later -- the attempts in between must time out, not park forever.
+        val dead = connection(purchasesFlow = purchases)
+        val acks = dead.scriptAck { call, _ ->
+            if (call == 1) throw BillingClientException(result(BillingResponseCode.SERVICE_DISCONNECTED))
+            result(BillingResponseCode.OK)
+        }
+        val healthy = connection(purchasesFlow = purchases).apply {
+            coEvery { acknowledgePurchase(any()) } coAnswers {
+                acks.add(firstArg())
+                result(BillingResponseCode.OK)
+            }
+        }
+        var attempts = 0
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow {
+                attempts++
+                if (attempts == 1) {
+                    emit(dead)
+                } else {
+                    delay(200_000) // Play stays unreachable
+                    emit(healthy)
+                }
+                awaitCancellation()
+            }
+        }
+        manager(provider)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unacked))
+        runCurrent()
+        acks.size shouldBe 1
+
+        // Attempts 2 and 3 never reach a connection: each burns its 30s wait budget instead.
+        advanceTimeBy(100_000)
+        runCurrent()
+        acks.size shouldBe 1
+
+        // The pass ended (instead of hanging), so its reschedule can heal it once Play is back.
+        advanceTimeBy(300_001)
+        runCurrent()
+        acks.size shouldBe 2
+    }
+
+    @Test fun `scope cancellation during an ack neither retries nor reschedules`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> awaitCancellation() }
+        val ackScope = CoroutineScope(StandardTestDispatcher(testScheduler))
+        BillingManager(ackScope, providerOf(conn))
+        runCurrent()
+
+        purchases.tryEmit(listOf(unacked))
+        runCurrent()
+        acks.size shouldBe 1
+
+        ackScope.cancel("test over")
+        advanceTimeBy(400_000)
+        runCurrent()
+
+        // Scope death is not an acknowledgement failure: no further attempt, no timer.
+        acks.size shouldBe 1
+    }
+
+    @Test fun `a permanent ack failure is reported once and left to organic signals`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        val purchases = purchasesFlow()
+        val fresh = freshUpdatesFlow()
+        val conn = connection(purchasesFlow = purchases, freshUpdatesFlow = fresh)
+        val acks = conn.scriptAck { _, _ -> throw BillingClientException(result(BillingResponseCode.DEVELOPER_ERROR)) }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unacked))
+        advanceTimeBy(10_000)
+        runCurrent()
+
+        // Retrying a code Play will keep returning is pointless: one attempt, one report.
+        acks.size shouldBe 1
+        verify(exactly = 1) { Bugs.report(any()) }
+
+        advanceTimeBy(310_000)
+        runCurrent()
+        acks.size shouldBe 1
+
+        // Fresh Play data still re-attempts it -- the ack is never abandoned, only the timer is.
+        fresh.tryEmit(BillingConnection.FreshUpdate(listOf(unacked), isFullSnapshot = true))
+        runCurrent()
+        acks.size shouldBe 2
+        verify(exactly = 1) { Bugs.report(any()) }
+    }
+
+    @Test fun `an upstream purchases failure recovers and the ack chain keeps processing`() = runTest2 {
+        val unacked = unackedPurchase("token-1")
+        var subscriptions = 0
+        val flaky = flow {
+            subscriptions++
+            emit(listOf(unacked))
+            // The hot shareIn has no owner to restart it: without the source-level retry this kills
+            // the sharing coroutine and every subscriber (incl. the ack collector) hangs forever.
+            if (subscriptions == 1) throw RuntimeException("purchases source died")
+            awaitCancellation()
+        }
+        val conn = connection(purchasesFlow = flaky)
+        val acks = conn.scriptAck { _, _ -> result(BillingResponseCode.OK) }
+        manager(conn)
+        runCurrent()
+        acks.size shouldBe 1
+
+        advanceTimeBy(60_001)
+        runCurrent()
+
+        subscriptions shouldBe 2
+        acks.size shouldBe 2
+    }
+
+    @Test fun `the ack collector survives a failure from the pass plumbing`() = runTest2 {
+        var reads = 0
+        val flakyPurchase = mockk<Purchase>().apply {
+            every { purchaseState } returns PurchaseState.PURCHASED
+            every { purchaseTime } returns 1_000L
+            every { purchaseToken } returns "token-1"
+            every { products } returns listOf(OurSku.Iap.PRO_UPGRADE.id)
+            every { isAutoRenewing } returns false
+            // Not a BillingException and not from the ack call itself: the belt is what keeps the
+            // process-lifetime collector alive through it.
+            every { isAcknowledged } answers {
+                if (reads++ == 0) throw IllegalStateException("Play data unreadable") else false
+            }
+        }
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> result(BillingResponseCode.OK) }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(flakyPurchase))
+        runCurrent()
+        acks.size shouldBe 0
+
+        advanceTimeBy(60_001)
+        runCurrent()
+        acks.size shouldBe 1
+    }
+
+    // Captures the ack log lines so the INFO-then-DEBUG log-level contract can be asserted without
+    // exposing the token bookkeeping.
+    private class RecordingLogger : Logging.Logger {
+        private val lines = mutableListOf<Pair<Logging.Priority, String>>()
+
+        override fun log(priority: Logging.Priority, tag: String, message: String, metaData: Map<String, Any>?) {
+            synchronized(lines) { lines.add(priority to message) }
+        }
+
+        fun ackLogs(priority: Logging.Priority): Int = synchronized(lines) {
+            lines.count { it.first == priority && it.second.startsWith("Acknowledging purchase:") }
+        }
     }
 
     // endregion

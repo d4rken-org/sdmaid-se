@@ -173,6 +173,17 @@ class BillingManager @Inject constructor(
         .flatMapLatest { it?.purchases ?: emptyFlow() }
         .distinctUntilChanged()
         .setupCommonEventHandlers(TAG) { "purchases" }
+        // A hot shareIn has no owner to restart it: an upstream failure would kill the sharing
+        // coroutine and leave every subscriber (incl. the ack collector) hanging for the process
+        // lifetime. Resubscribing re-runs connectionHolder's flatMapLatest, which is a state holder
+        // that never throws itself. distinctUntilChanged state resets on retry; a duplicate
+        // emission after recovery is harmless (the ack pass is idempotent).
+        .retryWhen { cause, _ ->
+            if (cause is CancellationException) return@retryWhen false
+            log(TAG, ERROR) { "purchases source failed, resubscribing: ${cause.asLog()}" }
+            delay(SHARE_RETRY_MS)
+            true
+        }
         .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
 
     val billingData: Flow<BillingData> = purchases
@@ -193,6 +204,14 @@ class BillingManager @Inject constructor(
         .flatMapLatest { it?.freshUpdates ?: emptyFlow() }
         .map { FreshData(data = BillingData(purchases = it.purchases), isFullSnapshot = it.isFullSnapshot, occurredAt = it.occurredAt) }
         .setupCommonEventHandlers(TAG) { "freshBillingData" }
+        // Same reasoning as `purchases`: an Eagerly shared flow that dies stays dead, and this one
+        // feeds both the grace bookkeeping and the ack collector's re-drive signal.
+        .retryWhen { cause, _ ->
+            if (cause is CancellationException) return@retryWhen false
+            log(TAG, ERROR) { "freshBillingData source failed, resubscribing: ${cause.asLog()}" }
+            delay(SHARE_RETRY_MS)
+            true
+        }
         .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 
     // Tokens we've already SUCCESSFULLY acknowledged this process. LOG-LEVEL HINT ONLY: it selects
@@ -201,69 +220,162 @@ class BillingManager @Inject constructor(
     // query supersedes it, so the ack re-fires every emission until then; re-acking is a documented
     // no-op on Play's side, whereas skipping a needed ack gets the purchase auto-refunded after 3
     // days -- so the ack stays unconditional and this set only quiets the log spam. Single
-    // sequential collector (the onEach below), no locking needed.
+    // sequential collector (the ack pass below), no locking needed.
     private val loggedAckTokens = mutableSetOf<String>()
 
+    // Tokens whose PERMANENT ack failure was already reported. Play will keep rejecting these
+    // (developer error, item not owned, unsupported feature), so the bug report fires once per token
+    // instead of once per pass. Same single-collector confinement as loggedAckTokens.
+    private val reportedAckFailures = mutableSetOf<String>()
+
+    // Re-drives the ack pass WITHOUT a new purchases emission: `purchases` is distinctUntilChanged,
+    // so a refresh returning a byte-identical (still unacknowledged) list is deduped and could never
+    // retry a failed ack -- the pipeline starved until Play sent something different.
+    private val ackRetryTrigger = MutableStateFlow(0)
+
+    // At most one reschedule timer in flight: repeated failures must not stack timers.
+    private val ackRetryPending = MutableStateFlow(false)
+
     init {
-        purchases
-            .onEach { purchases ->
-                purchases
-                    .filter {
-                        val needsAck = !it.isAcknowledged
-
-                        if (needsAck) log(TAG) { "Needs ACK: ${it.redacted()}" }
-                        else log(TAG) { "Already ACK'ed: ${it.redacted()}" }
-
-                        needsAck
-                    }
-                    .forEach {
-                        // First ack of a token is INFO; idempotent repeats drop to DEBUG. This never
-                        // gates the ack -- acknowledgePurchase runs regardless of set membership.
-                        val ackPriority = if (it.purchaseToken in loggedAckTokens) DEBUG else INFO
-                        log(TAG, ackPriority) { "Acknowledging purchase: ${it.redacted()}" }
-
-                        try {
-                            useConnection {
-                                acknowledgePurchase(it)
-                            }
-                            // Only after a *successful* ack (acknowledgePurchase throws on non-OK):
-                            // a failed ack never lands here, so it stays loud and retryable.
-                            loggedAckTokens.add(it.purchaseToken)
-                        } catch (e: CancellationException) {
-                            // AppScope death is not an acknowledgement failure.
-                            throw e
-                        } catch (e: Exception) {
-                            log(TAG, ERROR) { "Failed to acknowledge purchase: $it\n${e.asLog()}" }
-                        }
-                    }
-            }
+        combine(
+            // The canonical list is the ONLY data slot. The other side is signal-only, so a partial
+            // (e.g. SUBS-only) fresh emission can never become the retried set.
+            purchases,
+            merge(freshBillingData.map { }, ackRetryTrigger.map { }),
+        ) { currentPurchases, _ -> currentPurchases }
+            .onEach { runAckPass(it) }
             .setupCommonEventHandlers(TAG) { "connection-acks" }
-            .retryWhen { cause, attempt ->
+            // Never-dying belt: runAckPass only lets CancellationException escape, so this catches
+            // flow-plumbing failures only -- the collector must live for the whole process.
+            .retryWhen { cause, _ ->
                 if (cause is CancellationException) {
-                    log(TAG) { "Ack was cancelled (appScope?) cancelled." }
+                    log(TAG) { "Ack collector was cancelled (appScope died)" }
                     return@retryWhen false
                 }
-                if (attempt > 5) {
-                    log(TAG, WARN) { "Reached attempt limit: $attempt due to $cause" }
-                    return@retryWhen false
-                }
-                if (cause !is BillingException) {
-                    log(TAG, WARN) { "Unknown BillingClient exception type: $cause" }
-                    return@retryWhen false
-                } else {
-                    log(TAG) { "BillingClient exception: $cause" }
-                }
-
-                if (cause is BillingClientException && cause.result.responseCode == BillingResponseCode.BILLING_UNAVAILABLE) {
-                    log(TAG) { "Got BILLING_UNAVAILABLE while trying to ACK purchase." }
-                    return@retryWhen false
-                }
-
-                log(TAG) { "Will retry ACK" }
-                delay(3000 * attempt)
+                log(TAG, ERROR) { "Ack collector failed, restarting: ${cause.asLog()}" }
+                delay(ACK_CHAIN_RETRY_MS)
                 true
             }
             .launchIn(scope)
+    }
+
+    // Per-purchase acknowledgement result. Derived ONLY from the acknowledgePurchase call (success =
+    // returned without throwing; it throws on non-OK) -- NEVER from re-reading Purchase
+    // .isAcknowledged, whose immutable snapshot stays false until a fresh Play query.
+    private enum class AckOutcome { SUCCESS, TRANSIENT, PERMANENT }
+
+    // One acknowledgement pass over the canonical purchase list. Never throws except cancellation:
+    // transient failures schedule a re-drive, permanent ones are reported and left to organic fresh
+    // -data signals.
+    private suspend fun runAckPass(purchases: Collection<Purchase>) {
+        val needAck = purchases.filter {
+            val needsAck = !it.isAcknowledged
+
+            if (needsAck) log(TAG) { "Needs ACK: ${it.redacted()}" }
+            else log(TAG) { "Already ACK'ed: ${it.redacted()}" }
+
+            needsAck
+        }
+
+        var transientFailures = 0
+
+        for (purchase in needAck) {
+            // First ack of a token is INFO; idempotent repeats drop to DEBUG. This never gates the
+            // ack -- acknowledgePurchase runs regardless of set membership.
+            val ackPriority = if (purchase.purchaseToken in loggedAckTokens) DEBUG else INFO
+            log(TAG, ackPriority) { "Acknowledging purchase: ${purchase.redacted()}" }
+
+            var outcome = AckOutcome.TRANSIENT
+            var abortPass = false
+
+            for (attempt in 1..ACK_MAX_ATTEMPTS) {
+                outcome = try {
+                    // Bounded: useConnection waits for a connection indefinitely, so without this an
+                    // outage would park the pass (and every later retry) forever. A null result is a
+                    // failed TRANSIENT attempt -- either the wait or the ack itself ran out of time.
+                    val acked = withTimeoutOrNull(ACK_CONNECTION_TIMEOUT_MS) {
+                        useConnection { acknowledgePurchase(purchase) }
+                    }
+                    if (acked != null) {
+                        AckOutcome.SUCCESS
+                    } else {
+                        log(TAG, WARN) { "Ack attempt $attempt timed out: ${purchase.redacted()}" }
+                        AckOutcome.TRANSIENT
+                    }
+                } catch (e: CancellationException) {
+                    // AppScope death is not an acknowledgement failure: no reschedule, no retries.
+                    throw e
+                } catch (e: Exception) {
+                    val code = (e as? BillingClientException)?.result?.responseCode
+                    when {
+                        code == BillingResponseCode.BILLING_UNAVAILABLE -> {
+                            // Connection-level condition: every other purchase in this pass would
+                            // fail the same way. The reschedule keeps re-attempting later -- unlike
+                            // before, this no longer permanently kills the ack retries.
+                            log(TAG, WARN) { "BILLING_UNAVAILABLE, aborting ack pass:\n${e.asLog()}" }
+                            abortPass = true
+                            AckOutcome.TRANSIENT
+                        }
+
+                        (code != null && code in PERMANENT_ACK_CODES) || e !is BillingException -> {
+                            reportPermanentAckFailure(purchase, e)
+                            AckOutcome.PERMANENT
+                        }
+
+                        else -> {
+                            log(TAG, WARN) { "Ack attempt $attempt failed: ${purchase.redacted()}\n${e.asLog()}" }
+                            AckOutcome.TRANSIENT
+                        }
+                    }
+                }
+
+                if (outcome == AckOutcome.SUCCESS) {
+                    // Only after a *successful* ack: a failed one never lands here, so it stays loud
+                    // and retryable.
+                    loggedAckTokens.add(purchase.purchaseToken)
+                    break
+                }
+                if (outcome == AckOutcome.PERMANENT || abortPass) break
+                // 3s, 6s -- `attempt` starts at 1, deliberately no zero-delay first retry.
+                if (attempt < ACK_MAX_ATTEMPTS) delay(ACK_RETRY_DELAY_MS * attempt)
+            }
+
+            if (outcome == AckOutcome.TRANSIENT) transientFailures++
+            if (abortPass) break
+        }
+
+        // Permanent failures never arm the timer -- only organic fresh-data signals re-attempt them.
+        if (transientFailures > 0) {
+            log(TAG, ERROR) {
+                "$transientFailures purchase(s) left unacknowledged, re-driving in ${ACK_RESCHEDULE_MS}ms"
+            }
+            scheduleAckRetry()
+        }
+    }
+
+    // A purchase Play will keep rejecting: report it once per token, then stay quiet. The pass still
+    // re-attempts it whenever fresh Play data arrives -- the ack is never skipped, only the noise is.
+    private fun reportPermanentAckFailure(purchase: Purchase, error: Exception) {
+        if (reportedAckFailures.add(purchase.purchaseToken)) {
+            log(TAG, ERROR) { "Permanent ack failure for ${purchase.redacted()}:\n${error.asLog()}" }
+            Bugs.report(RuntimeException("Failed to acknowledge purchase", error))
+        } else {
+            log(TAG, WARN) { "Permanent ack failure (already reported) for ${purchase.redacted()}" }
+        }
+    }
+
+    // Arms the re-drive timer at most once: further failures while it is pending join the same
+    // scheduled pass instead of stacking timers.
+    private fun scheduleAckRetry() {
+        if (!ackRetryPending.compareAndSet(expect = false, update = true)) {
+            log(TAG) { "Ack retry already scheduled" }
+            return
+        }
+        scope.launch {
+            delay(ACK_RESCHEDULE_MS)
+            ackRetryPending.value = false
+            ackRetryTrigger.update { it + 1 }
+        }
     }
 
     private suspend fun <T> useConnection(action: suspend BillingConnection.() -> T): T {
@@ -381,8 +493,30 @@ class BillingManager @Inject constructor(
             BillingResponseCode.SERVICE_TIMEOUT,
         )
 
+        // Ack failures Play won't stop reporting no matter how often we retry: a retry loop would
+        // just burn battery and log noise. Everything else (service down, network, timeouts,
+        // unmapped codes) is treated as transient.
+        private val PERMANENT_ACK_CODES = setOf(
+            BillingResponseCode.DEVELOPER_ERROR,
+            BillingResponseCode.FEATURE_NOT_SUPPORTED,
+            BillingResponseCode.ITEM_NOT_OWNED,
+        )
+
         private const val INITIAL_REFRESH_TIMEOUT_MS = 30_000L
         private const val MAX_BACKOFF_MS = 300_000L
+
+        // Inline attempts per purchase and their backoff (3s, 6s): covers a short Play hiccup
+        // without leaving an unacknowledged purchase near its 3-day auto-refund deadline.
+        private const val ACK_MAX_ATTEMPTS = 3
+        private const val ACK_RETRY_DELAY_MS = 3_000L
+        // Whole-pass re-drive after the inline attempts couldn't finish: the purchase list itself is
+        // deduped, so this timer is what keeps a failed ack alive across a longer outage.
+        private const val ACK_RESCHEDULE_MS = 300_000L
+        // Bounds the (otherwise unbounded) connection wait plus ack round-trip of one attempt.
+        private const val ACK_CONNECTION_TIMEOUT_MS = 30_000L
+        // Restart delay for the ack collector itself and for the hot shared sources it feeds on.
+        private const val ACK_CHAIN_RETRY_MS = 60_000L
+        private const val SHARE_RETRY_MS = 60_000L
 
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "Manager")
     }
