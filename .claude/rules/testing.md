@@ -1,3 +1,11 @@
+---
+paths:
+  - "**/src/test*/**"
+  - "**/src/androidTest/**"
+  - "**/src/screenshotTest/**"
+  - "app-common-test/**"
+---
+
 # Testing Guidelines
 
 ## Framework Selection

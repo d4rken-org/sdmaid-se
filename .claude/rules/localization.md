@@ -1,3 +1,10 @@
+---
+paths:
+  - "**/res/values*/strings.xml"
+  - "tooling/translation/**"
+  - "crowdin.yml"
+---
+
 # Localization Guidelines
 
 ## String Extraction

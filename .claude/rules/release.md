@@ -1,3 +1,15 @@
+---
+paths:
+  - "version.properties"
+  - "VERSION"
+  - "tools/release/**"
+  - ".github/workflows/release*.yml"
+  - ".github/workflows/code-checks.yml"
+  - ".github/RELEASING.md"
+  - "fastlane/Fastfile"
+  - "buildSrc/src/main/java/ProjectConfigPlugin.kt"
+---
+
 # Release
 
 Operator-facing release docs: see `.github/RELEASING.md`.
