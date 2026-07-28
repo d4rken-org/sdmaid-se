@@ -64,6 +64,7 @@ class UpgradeRepoGplayTest : BaseTest() {
         billingDataFlow: Flow<BillingData>? = null,
         freshBillingData: BillingManager.FreshData? = null,
         purchaseFailures: List<BillingResult> = emptyList(),
+        purchaseFailureFlow: Flow<BillingResult>? = null,
         proUnconfirmedSince: Long = 0L,
         connectionFailures: Flow<Long> = emptyFlow(),
         failureSettled: Flow<Boolean> = flowOf(false),
@@ -73,8 +74,13 @@ class UpgradeRepoGplayTest : BaseTest() {
             (freshBillingData?.let { flowOf(it) } ?: emptyFlow())
         every { billingManager.connectionFailures } returns connectionFailures
         every { billingManager.isFailureSettled } returns failureSettled
-        every { billingManager.purchaseFailures } returns
-            if (purchaseFailures.isEmpty()) emptyFlow() else flowOf(*purchaseFailures.toTypedArray())
+        // A hot flow lets a test drive async already-owned events AFTER construction, e.g. while an
+        // earlier recovery is still in flight; the cold list covers the static wiring cases.
+        every { billingManager.purchaseFailures } returns when {
+            purchaseFailureFlow != null -> purchaseFailureFlow
+            purchaseFailures.isEmpty() -> emptyFlow()
+            else -> flowOf(*purchaseFailures.toTypedArray())
+        }
         lastProAtMock = mockk<DataStoreValue<Long>>(relaxed = true).apply {
             every { flow } returns flowOf(lastProAt)
         }
@@ -584,18 +590,37 @@ class UpgradeRepoGplayTest : BaseTest() {
         }
 
         val errors = mutableListOf<Throwable>()
-        val repo = repo(lastProAt = 0L)
-        // Two buy taps race into the already-owned recovery while the first restore is in flight.
-        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
-        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
+        // The two recovery triggers must arrive on DIFFERENT paths: a second launch call would be
+        // coalesced by the launch-level single-flight and never reach a recovery at all.
+        val asyncFailures = MutableSharedFlow<BillingResult>(extraBufferCapacity = 1)
+        val repo = repo(lastProAt = 0L, purchaseFailureFlow = asyncFailures)
 
+        // Trigger 1: a buy tap whose launch result comes back ITEM_ALREADY_OWNED.
+        repo.launchBillingFlow(mockk<Activity>(), OurSku.Iap.PRO_UPGRADE, null) { errors.add(it) }
         repo.autoRestoreBusy.first() shouldBe true
+
+        // Trigger 2: Play's async already-owned event lands while that restore is still in flight.
+        // The subscriber check keeps the coalescing assertion honest: a dropped emission would
+        // otherwise look exactly like a successfully coalesced one.
+        asyncFailures.subscriptionCount.first() shouldBe 1
+        asyncFailures.emit(result(BillingResponseCode.ITEM_ALREADY_OWNED))
+        advanceUntilIdle()
+
         gate.complete(Unit)
+        advanceUntilIdle()
 
         // Both triggers joined the SAME restore -- one Play query, no stacked recoveries.
         coVerify(exactly = 1) { billingManager.refresh() }
+        // Trigger 1 resolved: the restore reconciled the SKU (no dialog) and the launch released.
         errors shouldBe emptyList()
+        repo.purchaseLaunchSku.first() shouldBe null
         repo.autoRestoreBusy.first() shouldBe false
+
+        // Trigger 2 resolved too: the async collector is serial, so it could only process this
+        // second event if its await on the joined restore had returned.
+        asyncFailures.emit(result(BillingResponseCode.ITEM_ALREADY_OWNED))
+        advanceUntilIdle()
+        coVerify(exactly = 2) { billingManager.refresh() }
     }
 
     @Test fun `unknown-only purchases still fall through to the grace check`() = runTest2 {
