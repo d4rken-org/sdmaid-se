@@ -49,7 +49,10 @@ import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
@@ -430,6 +433,7 @@ private fun MainActionFab(
                 .fillMaxSize()
                 .combinedClickable(
                     enabled = enabled && actionState != BottomBarState.Action.WORKING,
+                    role = Role.Button,
                     onClick = onClick,
                     onLongClick = onLongClick,
                 ),
@@ -451,7 +455,10 @@ private fun MainActionFab(
                     contentDescription = stringResource(R.string.dashboard_settings_oneclick_tools_title),
                 )
 
-                BottomBarState.Action.WORKING -> Unit
+                BottomBarState.Action.WORKING -> {
+                    val workingLabel = stringResource(R.string.widget_home_working)
+                    Box(Modifier.semantics { contentDescription = workingLabel })
+                }
 
                 BottomBarState.Action.WORKING_CANCELABLE -> Icon(
                     painter = painterResource(UiR.drawable.ic_cancel),
