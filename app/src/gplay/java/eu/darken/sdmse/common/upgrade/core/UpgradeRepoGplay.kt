@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
+import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
 import eu.darken.sdmse.common.upgrade.core.billing.ItemAlreadyOwnedBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
@@ -31,6 +32,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
@@ -81,6 +83,10 @@ class UpgradeRepoGplay @Inject constructor(
     // Which purchase launch (if any) is currently in flight, so the UI can present the busy state
     // even for a launch a previous ViewModel instance started.
     val purchaseLaunchSku: StateFlow<Sku?> = launchBusySku
+
+    // Test seam: the launch body runs on AppScope (a real dispatcher), so a virtual-time test
+    // cannot advance the production bound. Same pattern as UpgradeViewModel's `clock`.
+    internal var launchTimeoutMs: Long = LAUNCH_TIMEOUT_MS
 
     // Serializes the pro-state recorders: the fresh-data collector and the failure paths in
     // refresh()/restorePurchaseNow() can run concurrently, and a stale unconfirmed-stamp read must
@@ -194,14 +200,30 @@ class UpgradeRepoGplay @Inject constructor(
 
     // True once we've ever confirmed a (known) Pro purchase on this install; drives the proactive
     // restore banner. Local signal only — a fresh install or switched Google account starts false.
+    // Fail-soft, and that matters more here than the value itself: this is combined into the whole
+    // upgrade-screen state, whose safeStateIn fallback is TERMINAL (it catches, so the retry button
+    // can't revive the stream). A full-disk DataStore would otherwise take the entire screen down
+    // until it is reopened, over a decoration. Degrade to "not previously pro" instead — entitlement
+    // does not depend on this, upgradeInfo reads the cache on its own retrying path.
     val wasEverPro: Flow<Boolean> = billingCache.lastProStateAt.flow
         .map { it > 0 }
+        .catch { e ->
+            if (e is CancellationException) throw e
+            log(TAG, WARN) { "wasEverPro read failed: ${e.asLog()}" }
+            emit(false)
+        }
         .distinctUntilChanged()
 
     // Epoch millis of the first fresh reconciliation that couldn't confirm Pro in the current grace
     // episode (0 = none). The upgrade screen delays its grace diagnostics until this has aged, so
     // self-healing Play blips never surface it.
     val proUnconfirmedSince: Flow<Long> = billingCache.proUnconfirmedSince.flow
+        // Same fail-soft reasoning as wasEverPro — 0 reads as "no episode", i.e. the quiet grace stage.
+        .catch { e ->
+            if (e is CancellationException) throw e
+            log(TAG, WARN) { "proUnconfirmedSince read failed: ${e.asLog()}" }
+            emit(0L)
+        }
         .distinctUntilChanged()
 
     // Suspends until the Play launch resolved (sheet up, or failed) — callers holding an
@@ -233,7 +255,19 @@ class UpgradeRepoGplay @Inject constructor(
             return
         }
         try {
-            billingManager.startIapFlow(activity, sku, offer)
+            // Bounded, like every other Play path (refresh, restore, SKU query, ack). useConnection
+            // waits for a healthy connection indefinitely, so a Play outage between rendering the
+            // offers and this tap would park the launch forever — with launchBusySku still held,
+            // which leaves every purchase button busy and never surfaces an error. Generous on
+            // purpose: a cold Play can take >8s just for the SKU query this launch does first.
+            // Residual: a timeout landing in the millisecond window between launchBillingFlow's
+            // binder call and its result shows an error while the sheet opens. The purchase itself
+            // is unaffected — it arrives via onPurchasesUpdated, independent of this coroutine.
+            withTimeoutOrNull(launchTimeoutMs) {
+                billingManager.startIapFlow(activity, sku, offer)
+            } ?: throw GplayServiceUnavailableException(
+                RuntimeException("Billing flow launch timed out for ${sku.id}")
+            )
         } catch (e: CancellationException) {
             // Not an error: must not reach onError (spurious dialog) — rethrow for structured
             // cancellation.
@@ -544,6 +578,10 @@ class UpgradeRepoGplay @Inject constructor(
         val GRACE_PERIOD_IAP_MS = Duration.ofDays(30).toMillis()
         private const val RESTORE_ON_OWNED_TIMEOUT_MS = 15_000L
         private const val REFRESH_TIMEOUT_MS = 30_000L
+
+        // Covers connecting, the SKU query the launch does first, and the sheet launch itself.
+        // Matches REFRESH_TIMEOUT_MS: both bound "connection wait + Play round-trip".
+        internal const val LAUNCH_TIMEOUT_MS = 30_000L
         val TAG: String = logTag("Upgrade", "Gplay", "Repo")
 
         // The SKU whose grace window applies when several are owned: the permanent one-time purchase
