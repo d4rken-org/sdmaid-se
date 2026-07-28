@@ -4,6 +4,8 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.test.advanceTimeBy
@@ -13,6 +15,7 @@ import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.time.Instant
+import kotlin.time.Duration.Companion.seconds
 import kotlinx.coroutines.launch
 
 class UpgradeRepoExtensionsTest : BaseTest() {
@@ -20,19 +23,24 @@ class UpgradeRepoExtensionsTest : BaseTest() {
     private class FakeInfo(
         override val isPro: Boolean,
         override val isSettled: Boolean,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
         override val upgradedAt: Instant? = null
-        override val error: Throwable? = null
     }
 
     private class FakeRepo(
         pro: Boolean,
         settled: Boolean,
+        error: Throwable? = null,
     ) : UpgradeRepo {
         // Settledness rides the Info itself — a single flow, like the production repos.
-        val infoFlow = MutableStateFlow<UpgradeRepo.Info>(FakeInfo(pro, settled))
+        val infoFlow = MutableStateFlow<UpgradeRepo.Info>(FakeInfo(pro, settled, error))
         var refreshCalls = 0
+
+        // What a refresh() round-trip does before returning: production ones can hang, publish a
+        // new Info a dispatcher turn later, or land in an error state.
+        var onRefresh: suspend FakeRepo.() -> Unit = {}
 
         override val storeSite: String = ""
         override val upgradeSite: String = ""
@@ -40,12 +48,121 @@ class UpgradeRepoExtensionsTest : BaseTest() {
         override val upgradeInfo: Flow<UpgradeRepo.Info> = infoFlow
         override suspend fun refresh() {
             refreshCalls++
+            onRefresh()
         }
 
-        fun settle(pro: Boolean) {
-            infoFlow.value = FakeInfo(pro, isSettled = true)
+        fun settle(pro: Boolean, error: Throwable? = null) {
+            infoFlow.value = FakeInfo(pro, isSettled = true, error = error)
         }
     }
+
+    // region isProSettled (backend gate)
+
+    @Test
+    fun `a known pro user resolves true without refreshing`() = runTest {
+        val repo = FakeRepo(pro = true, settled = false)
+
+        repo.isProSettled() shouldBe true
+
+        repo.refreshCalls shouldBe 0
+        currentTime shouldBe 0
+    }
+
+    @Test
+    fun `a pro state published after the refresh returned still counts`() = runTest {
+        // The refresh discovers the purchase, but the shared upgradeInfo pipeline publishes the new
+        // Info a dispatcher turn later. Waiting on a settled-predicate would have matched the
+        // replayed pre-refresh emission and denied a paying user.
+        val repo = FakeRepo(pro = false, settled = true)
+        repo.onRefresh = {
+            backgroundScope.launch { settle(pro = true) }
+        }
+
+        repo.isProSettled() shouldBe true
+    }
+
+    @Test
+    fun `a pro state appearing within the window resolves true`() = runTest {
+        val repo = FakeRepo(pro = false, settled = false)
+        backgroundScope.launch {
+            delay(500)
+            repo.settle(pro = true)
+        }
+
+        repo.isProSettled() shouldBe true
+        currentTime shouldBe 500
+    }
+
+    @Test
+    fun `a settled state without a purchase denies after the full window`() = runTest {
+        // The realistic "free user reached a Pro-only path" case — the only one that denies.
+        val repo = FakeRepo(pro = false, settled = true)
+
+        repo.isProSettled() shouldBe false
+        currentTime shouldBe 5_000
+    }
+
+    @Test
+    fun `billing that never settles fails open`() = runTest {
+        // Unsettled means "couldn't verify", which must not be turned into "not entitled".
+        val repo = FakeRepo(pro = false, settled = false)
+
+        repo.isProSettled() shouldBe true
+        currentTime shouldBe 5_000
+    }
+
+    @Test
+    fun `an initial settled error state fails open`() = runTest {
+        val repo = FakeRepo(pro = false, settled = true, error = IllegalStateException("billing broke"))
+
+        repo.isProSettled() shouldBe true
+    }
+
+    @Test
+    fun `an error published by the refresh fails open`() = runTest {
+        val repo = FakeRepo(pro = false, settled = false)
+        repo.onRefresh = { settle(pro = false, error = IllegalStateException("billing broke")) }
+
+        repo.isProSettled() shouldBe true
+    }
+
+    @Test
+    fun `a hanging refresh fails open within the supplied budget`() = runTest {
+        // The timeout covers refresh + wait: the old shape started the wait only AFTER an unbounded
+        // refresh, so a hanging Play call could park a task-submit gate far past the window.
+        val repo = FakeRepo(pro = false, settled = false)
+        repo.onRefresh = { awaitCancellation() }
+
+        repo.isProSettled(timeout = 2.seconds) shouldBe true
+        currentTime shouldBe 2_000
+    }
+
+    @Test
+    fun `cancellation during the reconciliation propagates instead of failing open`() = runTest {
+        val repo = FakeRepo(pro = false, settled = false)
+        repo.onRefresh = { awaitCancellation() }
+
+        val gate = async { repo.isProSettled() }
+        runCurrent()
+        gate.cancel()
+
+        shouldThrow<CancellationException> { gate.await() }
+    }
+
+    @Test
+    fun `isProSettled errors fail open`() = runTest {
+        val repo = object : UpgradeRepo {
+            override val storeSite: String = ""
+            override val upgradeSite: String = ""
+            override val betaSite: String = ""
+            override val upgradeInfo: Flow<UpgradeRepo.Info> get() = throw IllegalStateException("billing exploded")
+            override suspend fun refresh() = Unit
+        }
+
+        repo.isProSettled() shouldBe true
+    }
+
+    // endregion
 
     @Test
     fun `pro user resolves true without waiting`() = runTest {

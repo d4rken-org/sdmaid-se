@@ -6,7 +6,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlin.time.Duration
 import kotlin.time.Duration.Companion.seconds
@@ -20,12 +19,16 @@ suspend fun UpgradeRepo.isPro(): Boolean = upgradeInfo.first().isPro
  *
  * Deliberately generous — it prefers to fail open rather than block a paying user:
  * - Returns `true` immediately if we already know the user is Pro (active purchase or grace period).
- * - Otherwise nudges a billing [UpgradeRepo.refresh] and waits up to [timeout] for a Pro state to
- *   appear. This rescues a genuine Pro user from the GPlay cold-start race, where [UpgradeRepo.upgradeInfo]
- *   reports non-Pro until the billing connection settles.
- * - Only denies when billing settles within the window and still reports no purchase (the realistic
- *   "free user reached a Pro-only path via a UI mistake" case, where billing is already connected).
- * - On any error, fails open (returns `true`) — a billing hiccup must never block a paying user.
+ * - Otherwise nudges a billing [UpgradeRepo.refresh] and waits for a Pro state to appear. This
+ *   rescues a genuine Pro user from the GPlay cold-start race, where [UpgradeRepo.upgradeInfo]
+ *   reports non-Pro until the billing connection settles. [timeout] is the budget for the WHOLE
+ *   reconciliation (refresh round-trip plus wait), so a Play call that hangs can't stretch the gate
+ *   past it.
+ * - Only denies when the state after that window is settled, error-free and still reports no
+ *   purchase (the realistic "free user reached a Pro-only path via a UI mistake" case, where billing
+ *   is already connected).
+ * - Fails open (returns `true`) when the window elapses without billing settling, when the settled
+ *   state carries an error, and on any exception — a billing hiccup must never block a paying user.
  *
  * The FOSS flavor reads from a synchronous cache, so the fast path resolves immediately there.
  */
@@ -33,8 +36,25 @@ suspend fun UpgradeRepo.isProSettled(timeout: Duration = 5.seconds): Boolean = t
     if (upgradeInfo.first().isPro) {
         true
     } else {
-        refresh()
-        withTimeoutOrNull(timeout) { upgradeInfo.firstOrNull { it.isPro } != null } == true
+        // One budget for the WHOLE reconciliation: refresh + wait. Waiting only for isPro (not
+        // isSettled) is deliberate — replayed emissions are already settled, so a settled-predicate
+        // would return the stale pre-refresh state instead of the refresh outcome.
+        val proAppeared = withTimeoutOrNull(timeout) {
+            refresh()
+            upgradeInfo.first { it.isPro }
+            true
+        } == true
+        if (proAppeared) {
+            true
+        } else {
+            // Full window elapsed after the refresh started — the pipeline has caught up by now.
+            val current = upgradeInfo.first()
+            when {
+                current.error != null -> true   // settled error state: fail open
+                current.isSettled -> false      // settled and still no purchase: the documented deny
+                else -> true                    // never settled within the budget: documented fail-open
+            }
+        }
     }
 } catch (e: CancellationException) {
     // A cancelled caller must not continue down the Pro path via the fail-open below.
