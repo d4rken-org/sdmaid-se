@@ -566,6 +566,12 @@ class BillingConnectionTest : BaseTest() {
         every { offerToken } returns token
     }
 
+    // Play's QueryProductDetailsParams rejects a product list that mixes INAPP and SUBS, so an
+    // "omitted sku" fixture needs a second sku of the SAME type as the one Play does answer with.
+    private object OtherIap : Sku.Iap {
+        override val id: String = "eu.darken.sdmse.iap.other"
+    }
+
     private fun unfetchedProduct(
         id: String,
         status: Int,
@@ -605,15 +611,15 @@ class BillingConnectionTest : BaseTest() {
     }
 
     @Test fun `a requested sku omitted from the response throws for that sku`() = runTest2 {
-        // Iterating the response instead of the request would silently return only the IAP details
-        // and never notice that the subscription is missing.
+        // Iterating the response instead of the request would silently return only the details Play
+        // did send and never notice that the second requested sku is missing.
         val connection = BillingConnection(
             client = skuClient(details = listOf(productDetails(OurSku.Iap.PRO_UPGRADE.id))),
         )
 
         shouldThrow<OfferUnavailableBillingException> {
-            connection.querySkus(OurSku.Iap.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE)
-        }.sku shouldBe OurSku.Sub.PRO_UPGRADE
+            connection.querySkus(OurSku.Iap.PRO_UPGRADE, OtherIap)
+        }.sku shouldBe OtherIap
     }
 
     @Test fun `duplicate details for one requested sku are ambiguous, never guessed`() = runTest2 {
