@@ -23,9 +23,18 @@ internal sealed interface GplayUpgradeUiState {
         val ownership: Ownership = Ownership(),
         val grace: GraceHint? = null,
         val wasPreviouslyPro: Boolean = false,
-        val restoreInProgress: Boolean = false,
-        val verificationInProgress: Boolean = false,
+        val busy: BusyOp? = null,
     ) : GplayUpgradeUiState
+}
+
+// The ONE entitlement operation currently running. Purchases and restores talk to the same Play
+// account state, so they are mutually exclusive by construction: a single slot (instead of the
+// former independent verifying/restoring flags) makes "which one is busy" unambiguous for both the
+// arbiter in the ViewModel and the spinner placement in the UI.
+internal enum class BusyOp {
+    IAP,
+    SUBSCRIPTION,
+    RESTORE,
 }
 
 // Pro is active purely via the local grace window (no owned purchase). Stage 1 shows a quiet
@@ -70,8 +79,7 @@ internal fun toLoadedState(
     ownership: Ownership,
     grace: GraceHint? = null,
     wasPreviouslyPro: Boolean = false,
-    restoreInProgress: Boolean = false,
-    verificationInProgress: Boolean = false,
+    busy: BusyOp? = null,
 ): GplayUpgradeUiState.Loaded {
     val iapOffer = iap?.details?.oneTimePurchaseOfferDetails
     val subOffer = sub?.details?.subscriptionOfferDetails?.singleOrNull { offer ->
@@ -87,18 +95,17 @@ internal fun toLoadedState(
             subOffer != null -> SubscriptionAction.STANDARD
             else -> SubscriptionAction.UNAVAILABLE
         },
-        // A running restore (manual or the invisible already-owned recovery) pauses the buy
-        // actions too — starting a purchase while an entitlement is being reconciled just races
-        // Play into ITEM_ALREADY_OWNED.
+        // Any running entitlement operation (restore, manual or the invisible already-owned
+        // recovery, and purchases) pauses the buy actions too — starting a purchase while an
+        // entitlement is being reconciled just races Play into ITEM_ALREADY_OWNED.
         subscriptionEnabled = (subOffer != null || subOfferTrial != null) &&
-            ownership.subscription == null && !restoreInProgress,
+            ownership.subscription == null && busy == null,
         subscriptionPrice = subOffer?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice,
-        iapEnabled = iapOffer != null && !ownership.hasIap && !restoreInProgress,
+        iapEnabled = iapOffer != null && !ownership.hasIap && busy == null,
         iapPrice = iapOffer?.formattedPrice,
         ownership = ownership,
         grace = grace,
         wasPreviouslyPro = wasPreviouslyPro,
-        restoreInProgress = restoreInProgress,
-        verificationInProgress = verificationInProgress,
+        busy = busy,
     )
 }

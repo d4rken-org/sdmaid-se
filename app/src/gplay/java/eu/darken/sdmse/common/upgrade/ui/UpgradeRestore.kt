@@ -30,10 +30,13 @@ internal fun UpgradeRestoreSection(
     body: String,
     onRestore: () -> Unit,
     modifier: Modifier = Modifier,
-    restoreInProgress: Boolean = false,
+    busy: BusyOp? = null,
     emphasized: Boolean = false,
     restoreTag: String = UpgradeScreenTags.GPLAY_RESTORE,
 ) {
+    // Any running entitlement action (purchase included) blocks a restore — they all reconcile the
+    // same Play account state. Only a running RESTORE shows the spinner.
+    val restoreInProgress = busy == BusyOp.RESTORE
     UpgradeSectionCard(
         title = title,
         icon = Icons.TwoTone.Restore,
@@ -60,7 +63,7 @@ internal fun UpgradeRestoreSection(
         if (emphasized) {
             Button(
                 onClick = onRestore,
-                enabled = !restoreInProgress,
+                enabled = busy == null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(restoreTag),
@@ -70,7 +73,7 @@ internal fun UpgradeRestoreSection(
         } else {
             OutlinedButton(
                 onClick = onRestore,
-                enabled = !restoreInProgress,
+                enabled = busy == null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(restoreTag),
@@ -114,7 +117,7 @@ private fun UpgradeRestoreSectionEmphasizedPreview() {
             body = "It looks like you upgraded to Pro on this device before.",
             onRestore = {},
             emphasized = true,
-            restoreInProgress = true,
+            busy = BusyOp.RESTORE,
         )
     }
 }
