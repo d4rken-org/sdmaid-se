@@ -1,3 +1,10 @@
+---
+paths:
+  - "app-common-automation/**"
+  - "**/automation/**"
+  - "**/*Automation*.kt"
+---
+
 # Automation System
 
 SD Maid SE uses an accessibility service for automation features (AppCleaner automation).

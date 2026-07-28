@@ -2,50 +2,16 @@
 
 ## Module Structure
 
-Modules follow two naming conventions: `app-common-*` for shared infrastructure and `app-tool-*` for the cleaning tools.
-The authoritative list lives in `settings.gradle`.
+Modules follow two naming conventions: `app-common-*` for shared infrastructure and `app-tool-*` for the cleaning
+tools (one module per tool). The authoritative list lives in `settings.gradle`.
 
-### Core Application
+Non-obvious module facts:
 
-- `app`: Main application module — entry point, flavor-specific implementations, setup flow wiring
-
-### Foundation Modules
-
-- `app-common`: Core shared utilities, logging, DataStore helpers, theming, common base classes
-- `app-common-test`: Testing utilities, helpers, and base test classes for JVM unit tests
-
-### Platform Integration Modules
-
-- `app-common-io`: File I/O, abstract path system (`APath`), gateway pattern for file access
-- `app-common-root`: Root access and root-based file operations
-- `app-common-adb`: ADB integration via Shizuku
-- `app-common-shell`: Shell operations with reactive `FlowShell`
-- `app-common-pkgs`: Package management and package event handling
-- `app-common-data`: Room database, type converters, shared persisted data; hosts `BaseCSITest`
-
-### UI & Feature Modules
-
-- `app-common-ui`: Custom ViewModel hierarchy (`ViewModel1` → `ViewModel2` → `ViewModel4`), Compose navigation
-- `app-common-coil`: Coil-based image loading and request pipeline
-- `app-common-automation`: Accessibility-service automation engine
-- `app-common-exclusion`: Shared exclusion rules across tools
-- `app-common-picker`: File / path picker UI
-- `app-common-setup`: Onboarding and setup flow
-- `app-common-stats`: Statistics tracking
-
-### Cleaning Tool Modules
-
-Each cleaning tool is its own Gradle module under `app-tool-*`:
-
-- `app-tool-corpsefinder`: Data from uninstalled apps
-- `app-tool-systemcleaner`: System-wide configurable file filters
-- `app-tool-appcleaner`: App cache / junk cleaning
-- `app-tool-deduplicator`: Duplicate file detection and removal
-- `app-tool-squeezer`: Storage squeezing / optimization
-- `app-tool-analyzer`: Storage analysis and overview
-- `app-tool-swiper`: Swipe-to-declutter old files
-- `app-tool-appcontrol`: App management and control
-- `app-tool-scheduler`: Task scheduling and automation
+- `app`: entry point, flavor-specific implementations, setup flow wiring
+- `app-common-test`: JVM test utilities and base test classes (a `src/main` library consumed by other modules' tests)
+- `app-common-data`: Room database, type converters; hosts `BaseCSITest`
+- `app-common-adb`: ADB integration goes through Shizuku
+- `app-common-shell`: shell operations via reactive `FlowShell`
 
 ## Cleaning Tools Architecture
 

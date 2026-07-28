@@ -56,3 +56,14 @@ All lint-vital checks, unit tests, and builds must pass.
 - Debug builds include additional logging and debug tools
 - Large file operations are chunked to prevent memory issues
 - Progress reporting is essential for long-running operations
+
+## Rules Loading
+
+Some files in `.claude/rules/` are path-scoped (`paths:` frontmatter) and only load into context when matching files
+are touched: testing, localization, automation, release, build system. Two rules that must apply *before* their files
+would ever be touched:
+
+- All user-facing text must be extracted into the owning module's `strings.xml` — never hardcode UI strings
+  (details: `.claude/rules/localization.md`).
+- Before writing a test from scratch, read a similar existing test first — that also pulls the testing rules into
+  context (`.claude/rules/testing.md`: JUnit 4/5 split, base classes, MockK/coroutine traps).
