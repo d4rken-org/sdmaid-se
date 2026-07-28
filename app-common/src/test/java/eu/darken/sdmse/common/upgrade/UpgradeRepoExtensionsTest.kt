@@ -127,6 +127,21 @@ class UpgradeRepoExtensionsTest : BaseTest() {
     }
 
     @Test
+    fun `a pro state published by a hanging refresh still resolves true`() = runTest {
+        // The refresh publishes the purchase to the pipeline but its round-trip never returns, so
+        // the isPro wait (which only starts after refresh()) never runs: the post-window read is
+        // the only place that can see the pro state — it must honor it, not deny off isSettled.
+        val repo = FakeRepo(pro = false, settled = true)
+        repo.onRefresh = {
+            settle(pro = true)
+            awaitCancellation()
+        }
+
+        repo.isProSettled() shouldBe true
+        currentTime shouldBe 5_000
+    }
+
+    @Test
     fun `a hanging refresh fails open within the supplied budget`() = runTest {
         // The timeout covers refresh + wait: the old shape started the wait only AFTER an unbounded
         // refresh, so a hanging Play call could park a task-submit gate far past the window.
