@@ -41,7 +41,6 @@ import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.runningReduce
 import kotlinx.coroutines.flow.shareIn
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeoutOrNull
@@ -204,15 +203,6 @@ class UpgradeRepoGplay @Inject constructor(
     // self-healing Play blips never surface it.
     val proUnconfirmedSince: Flow<Long> = billingCache.proUnconfirmedSince.flow
         .distinctUntilChanged()
-
-    fun launchBillingFlow(
-        activity: Activity,
-        sku: Sku,
-        offer: Sku.Subscription.Offer?,
-        onError: (Throwable) -> Unit,
-    ) {
-        scope.launch { launchBillingFlowInternal(activity, sku, offer, onError) }
-    }
 
     // Suspends until the Play launch resolved (sheet up, or failed) — callers holding an
     // in-progress guard (e.g. the IAP verification single-flight) stay guarded through the
