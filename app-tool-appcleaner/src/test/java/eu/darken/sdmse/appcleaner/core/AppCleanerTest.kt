@@ -97,9 +97,12 @@ class AppCleanerTest : BaseTest() {
         val info = mockk<UpgradeRepo.Info>().apply {
             every { isPro } returns pro
             every { isSettled } returns true
+            every { error } returns null
         }
         return mockk<UpgradeRepo>(relaxed = true) {
-            every { upgradeInfo } returns flowOf(info)
+            // Hot and never-completing, like the production repos: the pro gate waits for a pro
+            // state to appear, so a finite flow would complete the wait instead of denying.
+            every { upgradeInfo } returns MutableStateFlow(info)
         }
     }
 
