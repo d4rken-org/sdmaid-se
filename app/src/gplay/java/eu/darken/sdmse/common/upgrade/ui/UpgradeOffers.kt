@@ -78,12 +78,23 @@ internal fun LoadedOffers(
                     SubscriptionAction.UNAVAILABLE,
                         -> onSubscription
                 },
-                // Also locked during IAP verification: two concurrent billing launches must not race.
-                enabled = uiState.subscriptionEnabled && !uiState.verificationInProgress,
+                // Locked while ANY entitlement action runs: two concurrent billing launches (or a
+                // launch racing a restore) must not be startable from here.
+                enabled = uiState.subscriptionEnabled && uiState.busy == null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION),
             ) {
+                // The spinner marks the action the user actually started, never a sibling one.
+                if (uiState.busy == BusyOp.SUBSCRIPTION) {
+                    CircularProgressIndicator(
+                        modifier = Modifier
+                            .size(18.dp)
+                            .testTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION_SPINNER),
+                        strokeWidth = 2.dp,
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                }
                 Text(subscriptionText)
             }
         }
@@ -111,14 +122,16 @@ internal fun LoadedOffers(
         ) {
             OutlinedButton(
                 onClick = onIap,
-                enabled = uiState.iapEnabled && !uiState.verificationInProgress,
+                enabled = uiState.iapEnabled && uiState.busy == null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(UpgradeScreenTags.GPLAY_IAP),
             ) {
-                if (uiState.verificationInProgress) {
+                if (uiState.busy == BusyOp.IAP) {
                     CircularProgressIndicator(
-                        modifier = Modifier.size(18.dp),
+                        modifier = Modifier
+                            .size(18.dp)
+                            .testTag(UpgradeScreenTags.GPLAY_IAP_SPINNER),
                         strokeWidth = 2.dp,
                     )
                     Spacer(modifier = Modifier.width(8.dp))

@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
+import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.main.ui.navigation.SupportFormRoute
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldBeEmpty
@@ -158,7 +159,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `the repo's auto-restore busy state folds into restoreInProgress`() = runTest2(
+    fun `the repo's auto-restore busy state folds into the busy op`() = runTest2(
         context = testDispatcher,
     ) {
         val autoBusy = MutableStateFlow(false)
@@ -171,16 +172,16 @@ class GplayUpgradeViewModelTest : BaseTest() {
             vm.state.first { it is GplayUpgradeUiState.Loaded } as GplayUpgradeUiState.Loaded
         }
         advanceUntilIdle()
-        idle.await().restoreInProgress shouldBe false
+        idle.await().busy shouldBe null
 
         // The invisible already-owned recovery must pause the entitlement actions like a manual
         // restore does -- the user can't be allowed to race it with a buy or another restore.
         autoBusy.value = true
         val busy = async {
-            vm.state.first { it is GplayUpgradeUiState.Loaded && it.restoreInProgress }
+            vm.state.first { it is GplayUpgradeUiState.Loaded && it.busy != null }
         }
         advanceUntilIdle()
-        (busy.await() as GplayUpgradeUiState.Loaded).restoreInProgress shouldBe true
+        (busy.await() as GplayUpgradeUiState.Loaded).busy shouldBe BusyOp.RESTORE
     }
 
     private fun mockRepo(): UpgradeRepoGplay = mockk<UpgradeRepoGplay>(relaxed = true).apply {
@@ -189,6 +190,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         every { proUnconfirmedSince } returns MutableStateFlow(0L)
         // Relaxed mocks return a no-op Flow that never emits -- the state combine would starve.
         every { autoRestoreBusy } returns MutableStateFlow(false)
+        every { purchaseLaunchSku } returns MutableStateFlow<Sku?>(null)
     }
 
     private fun buildVm(
@@ -506,6 +508,122 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
         coVerify(exactly = 1) { repo.queryCurrentSubscriptions() }
         coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), eq(OurSku.Iap.PRO_UPGRADE), isNull(), any()) }
+    }
+
+    // A repo whose Play launch takes a while to resolve: the guard has to cover the whole
+    // tap-to-sheet window, so every arbiter test needs a launch that is actually in flight.
+    private fun UpgradeRepoGplay.withSlowLaunch(durationMs: Long = 5_000L) = apply {
+        coEvery { launchBillingFlowNow(any(), any(), any(), any()) } coAnswers { delay(durationMs) }
+    }
+
+    @Test
+    fun `subscription taps are single-flight`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo().withSlowLaunch()
+        val vm = buildVm(repo)
+
+        // The old fire-and-forget path had no guard at all: every tap opened another Play sheet.
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        vm.onGoSubscriptionTrial(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), eq(OurSku.Sub.PRO_UPGRADE), any(), any()) }
+    }
+
+    @Test
+    fun `a running subscription launch blocks the iap and restore actions`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo().withSlowLaunch()
+        val vm = buildVm(repo)
+
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        testScheduler.advanceTimeBy(1_000) // launch in flight
+        testScheduler.runCurrent()
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        // One arbiter for all three: the purchase and the restore would otherwise run concurrent
+        // Play operations against the same account state.
+        coVerify(exactly = 0) { repo.queryCurrentSubscriptions() }
+        coVerify(exactly = 0) { repo.restorePurchaseNow() }
+        coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `a running restore blocks the purchase actions`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } coAnswers {
+            delay(5_000)
+            checked(UpgradeRepoGplay.Info(false, null, null))
+        }
+        val vm = buildVm(repo)
+
+        vm.restorePurchase()
+        testScheduler.advanceTimeBy(1_000)
+        testScheduler.runCurrent()
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.restorePurchaseNow() }
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+        coVerify(exactly = 0) { repo.queryCurrentSubscriptions() }
+    }
+
+    @Test
+    fun `the arbiter is released once the launch resolved`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo().withSlowLaunch()
+        val vm = buildVm(repo)
+
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 2) { repo.launchBillingFlowNow(any(), eq(OurSku.Sub.PRO_UPGRADE), any(), any()) }
+    }
+
+    @Test
+    fun `a running subscription launch is exposed as the busy op`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo().withSlowLaunch()
+        coEvery { repo.querySkus(any()) } returns emptyList()
+        val vm = buildVm(repo)
+
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+        advanceUntilIdle()
+
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        testScheduler.advanceTimeBy(1_000)
+        testScheduler.runCurrent()
+        (vm.state.value as GplayUpgradeUiState.Loaded).busy shouldBe BusyOp.SUBSCRIPTION
+
+        advanceUntilIdle()
+        (vm.state.value as GplayUpgradeUiState.Loaded).busy shouldBe null
+        collector.cancel()
+    }
+
+    @Test
+    fun `a launch from another ViewModel instance blocks this one`() = runTest2(context = testDispatcher) {
+        // The launch lives on AppScope and outlives the ViewModel that started it, so after a
+        // rotation the fresh ViewModel must not start a second one.
+        val repo = mockRepo().withSlowLaunch()
+        val launchSku = MutableStateFlow<Sku?>(OurSku.Sub.PRO_UPGRADE)
+        every { repo.purchaseLaunchSku } returns launchSku
+        val vm = buildVm(repo)
+
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+        coVerify(exactly = 0) { repo.restorePurchaseNow() }
+
+        // Once the foreign launch resolved, this ViewModel works normally again.
+        launchSku.value = null
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
     }
 
     @Test

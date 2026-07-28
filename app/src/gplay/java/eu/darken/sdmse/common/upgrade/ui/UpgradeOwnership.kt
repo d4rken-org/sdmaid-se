@@ -103,12 +103,12 @@ internal fun UpgradeOwnershipContent(
                     onClick = onIap,
                     // Not gated on iapEnabled: prices may have failed to load while the purchase
                     // itself would work (the billing flow re-queries details on launch).
-                    enabled = switchUnlocked && !uiState.verificationInProgress && !uiState.restoreInProgress,
+                    enabled = switchUnlocked && uiState.busy == null,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(UpgradeScreenTags.GPLAY_IAP),
                 ) {
-                    if (uiState.verificationInProgress) {
+                    if (uiState.busy == BusyOp.IAP) {
                         CircularProgressIndicator(
                             modifier = Modifier.size(18.dp),
                             strokeWidth = 2.dp,
@@ -126,7 +126,7 @@ internal fun UpgradeOwnershipContent(
         title = stringResource(R.string.upgrade_screen_restore_status_title),
         body = stringResource(R.string.upgrade_screen_restore_status_body),
         onRestore = onRestore,
-        restoreInProgress = uiState.restoreInProgress,
+        busy = uiState.busy,
     )
 }
 
@@ -185,8 +185,9 @@ internal fun UpgradeGraceCard(
     showDiagnostics: Boolean,
     onRestore: () -> Unit,
     modifier: Modifier = Modifier,
-    restoreInProgress: Boolean = false,
+    busy: BusyOp? = null,
 ) {
+    val restoreInProgress = busy == BusyOp.RESTORE
     UpgradeSectionCard(
         title = stringResource(R.string.upgrade_screen_grace_title),
         icon = Icons.TwoTone.Verified,
@@ -219,7 +220,8 @@ internal fun UpgradeGraceCard(
         if (showDiagnostics) {
             Button(
                 onClick = onRestore,
-                enabled = !restoreInProgress,
+                // Any running entitlement action blocks a restore; only a running RESTORE spins.
+                enabled = busy == null,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE),

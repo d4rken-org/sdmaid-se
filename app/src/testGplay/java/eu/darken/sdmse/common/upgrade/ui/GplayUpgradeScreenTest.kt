@@ -206,7 +206,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
                     iapEnabled = true,
                     iapPrice = "$24.99",
                     wasPreviouslyPro = true,
-                    restoreInProgress = true,
+                    busy = BusyOp.RESTORE,
                 ),
             )
         }
@@ -247,10 +247,10 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `a running restore pauses the buy actions too`() {
-        // toLoadedState computes the enabled flags: a restore in progress (manual or the invisible
-        // already-owned recovery) must gate them even when offers are available -- a buy tap would
-        // just race the restore into ITEM_ALREADY_OWNED.
+    fun `a running entitlement action pauses the buy actions too`() {
+        // toLoadedState computes the enabled flags: any busy op (a restore -- manual or the
+        // invisible already-owned recovery -- or a purchase launch) must gate them even when offers
+        // are available; a buy tap would just race the other operation into ITEM_ALREADY_OWNED.
         val iapOffer = mockk<ProductDetails.OneTimePurchaseOfferDetails>(relaxed = true)
         val iapDetails = mockk<ProductDetails>(relaxed = true).apply {
             every { oneTimePurchaseOfferDetails } returns iapOffer
@@ -267,7 +267,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             iap = SkuDetails(OurSku.Iap.PRO_UPGRADE, iapDetails),
             sub = SkuDetails(OurSku.Sub.PRO_UPGRADE, subDetails),
             ownership = Ownership(),
-            restoreInProgress = true,
+            busy = BusyOp.RESTORE,
         )
 
         check(!loaded.iapEnabled) { "IAP buy must be disabled during a restore" }
@@ -278,7 +278,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             iap = SkuDetails(OurSku.Iap.PRO_UPGRADE, iapDetails),
             sub = SkuDetails(OurSku.Sub.PRO_UPGRADE, subDetails),
             ownership = Ownership(),
-            restoreInProgress = false,
+            busy = null,
         )
         check(idle.iapEnabled) { "IAP buy should be enabled when idle" }
         check(idle.subscriptionEnabled) { "Subscription buy should be enabled when idle" }
@@ -321,7 +321,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             .assertCountEquals(0)
     }
 
-    private fun ownedState(ownership: Ownership, verificationInProgress: Boolean = false) =
+    private fun ownedState(ownership: Ownership, busy: BusyOp? = null) =
         GplayUpgradeUiState.Loaded(
             subscriptionAction = SubscriptionAction.UNAVAILABLE,
             subscriptionEnabled = false,
@@ -329,7 +329,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             iapEnabled = !ownership.hasIap,
             iapPrice = "$24.99",
             ownership = ownership,
-            verificationInProgress = verificationInProgress,
+            busy = busy,
         )
 
     @Test
@@ -457,7 +457,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
     @Test
     fun `grace restore action is disabled while a restore runs`() {
         composeRule.setUpgradeContent {
-            UpgradeScreen(uiState = graceState(showDiagnostics = true).copy(restoreInProgress = true))
+            UpgradeScreen(uiState = graceState(showDiagnostics = true).copy(busy = BusyOp.RESTORE))
         }
 
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_GRACE_RESTORE).assertIsNotEnabled()
@@ -468,7 +468,7 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.setUpgradeContent {
             UpgradeScreen(
                 uiState = ownedState(Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)))
-                    .copy(restoreInProgress = true),
+                    .copy(busy = BusyOp.RESTORE),
             )
         }
 
@@ -507,12 +507,36 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             UpgradeScreen(
                 uiState = ownedState(
                     Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)),
-                    verificationInProgress = true,
+                    busy = BusyOp.IAP,
                 ),
             )
         }
 
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
+    }
+
+    @Test
+    fun `a running subscription launch spins on its own button and pauses the rest`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = true,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = true,
+                    iapPrice = "$24.99",
+                    busy = BusyOp.SUBSCRIPTION,
+                ),
+            )
+        }
+
+        // The spinner belongs to the action the user started -- the IAP button must not claim it,
+        // and every other entitlement action is paused while Play is being talked to.
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertIsNotEnabled()
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertIsNotEnabled()
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION_SPINNER).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_IAP_SPINNER).assertCountEquals(0)
     }
 
     @Test

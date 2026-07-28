@@ -78,8 +78,10 @@ class UpgradeViewModel @Inject constructor(
             .launchInViewModel()
     }
 
-    private val restoring = MutableStateFlow(false)
-    private val verifying = MutableStateFlow(false)
+    // ONE arbiter for every entitlement action (both purchase paths and restore). They all talk to
+    // the same Play account state, so two independent guards let a subscription tap and a restore
+    // tap run concurrent Play operations against each other.
+    private val activeOp = MutableStateFlow<BusyOp?>(null)
     private val retryTrigger = MutableStateFlow(0)
 
     // Test seam: the diagnostics threshold compares wall-clock time, which coroutine test
@@ -142,10 +144,10 @@ class UpgradeViewModel @Inject constructor(
         upgradeRepo.wasEverPro,
         upgradeRepo.proUnconfirmedSince,
         graceTick,
-        restoring,
+        activeOp,
         upgradeRepo.autoRestoreBusy,
-        verifying,
-    ) { queries, current, wasEverPro, proUnconfirmedSince, _, isRestoring, isAutoRestoring, isVerifying ->
+        upgradeRepo.purchaseLaunchSku,
+    ) { queries, current, wasEverPro, proUnconfirmedSince, _, vmOp, isAutoRestoring, launchSku ->
         val ownership = current.toOwnership()
         // Pro without any owned purchase == grace. Stage 1 (quiet "still active" line) shows
         // immediately; the diagnostics + restore CTA only once the unconfirmed episode has aged
@@ -243,10 +245,12 @@ class UpgradeViewModel @Inject constructor(
             ownership = ownership,
             grace = grace,
             wasPreviouslyPro = wasEverPro && !current.isPro,
-            // Manual restore or the repo's invisible already-owned auto-restore: either pauses the
-            // entitlement actions, so the two can't be raced against each other from the UI.
-            restoreInProgress = isRestoring || isAutoRestoring,
-            verificationInProgress = isVerifying,
+            // This ViewModel's own action wins; otherwise a launch started elsewhere (previous VM
+            // instance, e.g. across a rotation — the launch lives on AppScope) or the repo's
+            // invisible already-owned auto-restore still pauses the entitlement actions here.
+            busy = vmOp
+                ?: launchSku?.let { if (it is Sku.Subscription) BusyOp.SUBSCRIPTION else BusyOp.IAP }
+                ?: BusyOp.RESTORE.takeIf { isAutoRestoring },
         )
     }.safeStateIn(
         initialValue = GplayUpgradeUiState.Loading,
@@ -263,14 +267,26 @@ class UpgradeViewModel @Inject constructor(
         retryTrigger.update { it + 1 }
     }
 
+    // Acquires the single action slot. Rejects while ANY other entitlement action of this ViewModel
+    // runs, and while the repo reports a Play launch in flight (which may belong to another VM
+    // instance — the repo CAS remains the authoritative gate, this only avoids the pointless tap).
+    private fun acquireOp(op: BusyOp): Boolean {
+        upgradeRepo.purchaseLaunchSku.value?.let {
+            log(TAG) { "$op ignored, a billing launch for $it is already in flight" }
+            return false
+        }
+        if (!activeOp.compareAndSet(expect = null, update = op)) {
+            log(TAG) { "$op ignored, ${activeOp.value} is already in progress" }
+            return false
+        }
+        return true
+    }
+
     fun onGoIap(activity: Activity) {
         log(TAG) { "onGoIap($activity)" }
         launch {
             // Single-flight: repeated taps must not stack verifications or billing launches.
-            if (!verifying.compareAndSet(expect = false, update = true)) {
-                log(TAG) { "onGoIap() ignored, verification already in progress" }
-                return@launch
-            }
+            if (!acquireOp(BusyOp.IAP)) return@launch
             try {
                 // Hard gate against double-billing: verify against a FRESH SUBS-only query — the
                 // replayed upgradeInfo can be stale or built from partial results. Fails closed:
@@ -305,29 +321,38 @@ class UpgradeViewModel @Inject constructor(
                     )
                 }
             } finally {
-                verifying.value = false
+                activeOp.value = null
             }
         }
     }
 
     fun onGoSubscription(activity: Activity) {
         log(TAG) { "onGoSubscription($activity)" }
-        upgradeRepo.launchBillingFlow(
-            activity,
-            OurSku.Sub.PRO_UPGRADE,
-            OurSku.Sub.PRO_UPGRADE.BASE_OFFER,
-            onError = errorEvents::tryEmit,
-        )
+        startSubPurchase(activity, OurSku.Sub.PRO_UPGRADE.BASE_OFFER)
     }
 
     fun onGoSubscriptionTrial(activity: Activity) {
         log(TAG) { "onGoSubscriptionTrial($activity)" }
-        upgradeRepo.launchBillingFlow(
-            activity,
-            OurSku.Sub.PRO_UPGRADE,
-            OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER,
-            onError = errorEvents::tryEmit,
-        )
+        startSubPurchase(activity, OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER)
+    }
+
+    private fun startSubPurchase(activity: Activity, offer: Sku.Subscription.Offer) {
+        launch {
+            if (!acquireOp(BusyOp.SUBSCRIPTION)) return@launch
+            try {
+                // launchBillingFlowNow, not the fire-and-forget launchBillingFlow: the guard has to
+                // cover the whole tap-to-sheet window. The flow itself still runs on AppScope, so
+                // closing the screen mid-launch doesn't abort the purchase.
+                upgradeRepo.launchBillingFlowNow(
+                    activity,
+                    OurSku.Sub.PRO_UPGRADE,
+                    offer,
+                    onError = errorEvents::tryEmit,
+                )
+            } finally {
+                activeOp.value = null
+            }
+        }
     }
 
     fun onManageSubscription() {
@@ -344,11 +369,9 @@ class UpgradeViewModel @Inject constructor(
 
     fun restorePurchase() = launch {
         // Single-flight: repeated taps while a restore is running (worst case bounded by
-        // RESTORE_TIMEOUT_MS) must not stack concurrent restores and duplicate result dialogs.
-        if (!restoring.compareAndSet(expect = false, update = true)) {
-            log(TAG) { "restorePurchase() ignored, already in progress" }
-            return@launch
-        }
+        // RESTORE_TIMEOUT_MS) must not stack concurrent restores and duplicate result dialogs —
+        // and a restore must not run alongside a purchase either.
+        if (!acquireOp(BusyOp.RESTORE)) return@launch
         log(TAG) { "restorePurchase()" }
 
         try {
@@ -405,7 +428,7 @@ class UpgradeViewModel @Inject constructor(
             errorEvents.tryEmit(e)
         } finally {
             // Reset only after result handling, so the single-flight guard covers the whole action.
-            restoring.value = false
+            activeOp.value = null
         }
     }
 

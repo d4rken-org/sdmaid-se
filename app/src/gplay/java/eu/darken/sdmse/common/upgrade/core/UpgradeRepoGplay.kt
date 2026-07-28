@@ -30,6 +30,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
@@ -72,6 +73,15 @@ class UpgradeRepoGplay @Inject constructor(
     // The already-owned auto-restores run invisibly on AppScope; expose their busy state so the
     // UI can pause entitlement actions instead of racing them with a manual restore or a buy.
     val autoRestoreBusy: Flow<Boolean> = autoRestoreState
+
+    // Process-wide single-flight for Play launches: the launch runs on AppScope and outlives the
+    // ViewModel that started it, so a VM-level guard alone lets a rotation (or a second screen)
+    // start a competing purchase flow. Holds the SKU being launched, null while idle.
+    private val launchBusySku = MutableStateFlow<Sku?>(null)
+
+    // Which purchase launch (if any) is currently in flight, so the UI can present the busy state
+    // even for a launch a previous ViewModel instance started.
+    val purchaseLaunchSku: StateFlow<Sku?> = launchBusySku
 
     // Serializes the pro-state recorders: the fresh-data collector and the failure paths in
     // refresh()/restorePurchaseNow() can run concurrently, and a stale unconfirmed-stamp read must
@@ -224,6 +234,14 @@ class UpgradeRepoGplay @Inject constructor(
         onError: (Throwable) -> Unit,
     ) {
         log(TAG) { "launchBillingFlow($activity,$sku)" }
+        // Silent coalesce, no error event: a second tap (or a second ViewModel instance after a
+        // rotation) must not open a competing Play sheet. Cleared in the finally below, so the next
+        // deliberate tap works. The already-owned recovery inside only restores, it never re-enters
+        // this function.
+        if (!launchBusySku.compareAndSet(null, sku)) {
+            log(TAG, WARN) { "Billing launch already in flight, ignoring" }
+            return
+        }
         try {
             billingManager.startIapFlow(activity, sku, offer)
         } catch (e: CancellationException) {
@@ -253,6 +271,10 @@ class UpgradeRepoGplay @Inject constructor(
                     onError(e)
                 }
             }
+        } finally {
+            // Released on ANY termination, including the already-owned recovery path and caller
+            // cancellation: a launch that is over must not block the next one.
+            launchBusySku.value = null
         }
     }
 

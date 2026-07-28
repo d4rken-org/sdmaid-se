@@ -274,7 +274,7 @@ private fun UpgradeAcquisitionContent(
         UpgradeGraceCard(
             showDiagnostics = grace.showDiagnostics,
             onRestore = onRestore,
-            restoreInProgress = loadedState.restoreInProgress,
+            busy = loadedState.busy,
         )
     }
 
@@ -301,7 +301,7 @@ private fun UpgradeAcquisitionContent(
                 body = stringResource(R.string.upgrade_screen_restore_banner_body),
                 onRestore = onRestore,
                 modifier = Modifier.testTag(UpgradeScreenTags.GPLAY_RESTORE_BANNER),
-                restoreInProgress = uiState.restoreInProgress,
+                busy = uiState.busy,
                 emphasized = true,
                 restoreTag = UpgradeScreenTags.GPLAY_RESTORE_BANNER_ACTION,
             )
@@ -336,7 +336,7 @@ private fun UpgradeAcquisitionContent(
             title = stringResource(R.string.upgrade_screen_restore_banner_title),
             body = stringResource(R.string.upgrade_screen_restore_body),
             onRestore = onRestore,
-            restoreInProgress = loadedForRestore.restoreInProgress,
+            busy = loadedForRestore.busy,
         )
     }
 }
