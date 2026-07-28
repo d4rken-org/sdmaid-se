@@ -10,7 +10,7 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -41,7 +41,10 @@ class ConfigBackupManagerTest : BaseTest() {
         override val storeSite = ""
         override val upgradeSite = ""
         override val betaSite = ""
-        override val upgradeInfo: Flow<UpgradeRepo.Info> = flowOf(FakeInfo(pro))
+
+        // Hot and never-completing, like the production repos: the pro gate waits for a pro state to
+        // appear, so a finite flow would complete the wait instead of exercising the timeout budget.
+        override val upgradeInfo: Flow<UpgradeRepo.Info> = MutableStateFlow(FakeInfo(pro))
         override suspend fun refresh() {}
     }
 
