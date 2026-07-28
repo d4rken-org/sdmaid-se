@@ -50,6 +50,7 @@ suspend fun UpgradeRepo.isProSettled(timeout: Duration = 5.seconds): Boolean = t
             // Full window elapsed after the refresh started — the pipeline has caught up by now.
             val current = upgradeInfo.first()
             when {
+                current.isPro -> true           // pro landed as the window closed: never deny a known pro
                 current.error != null -> true   // settled error state: fail open
                 current.isSettled -> false      // settled and still no purchase: the documented deny
                 else -> true                    // never settled within the budget: documented fail-open
