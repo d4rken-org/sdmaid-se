@@ -17,6 +17,9 @@
     <string name="upgrades_gplay_network_error_title">Connection error</string>
     <string name="upgrades_gplay_network_error_description">Unable to connect to Google Play. Please check your internet connection and try again.</string>
 
+    <string name="upgrades_gplay_offer_unavailable_title">Offer unavailable</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play is currently not offering this upgrade option. Please try again later or check the Google Play Store.</string>
+
     <string name="upgrades_gplay_already_owned_error_title">Already purchased</string>
     <string name="upgrades_gplay_already_owned_error_description">Use the \"Restore purchase\" option to restore your purchase. If the issue persists, try clearing Google Play cache and restarting your device.</string>
 

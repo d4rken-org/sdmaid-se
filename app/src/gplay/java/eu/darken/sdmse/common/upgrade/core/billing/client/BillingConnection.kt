@@ -3,13 +3,15 @@ package eu.darken.sdmse.common.upgrade.core.billing.client
 import android.app.Activity
 import com.android.billingclient.api.AcknowledgePurchaseParams
 import com.android.billingclient.api.BillingClient
+import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingFlowParams
 import com.android.billingclient.api.BillingResult
-import com.android.billingclient.api.ProductDetails
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.Purchase.PurchaseState
 import com.android.billingclient.api.QueryProductDetailsParams
+import com.android.billingclient.api.QueryProductDetailsResult
 import com.android.billingclient.api.QueryPurchasesParams
+import com.android.billingclient.api.UnfetchedProduct
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -17,6 +19,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager.Companion.tryMapUserFriendly
+import eu.darken.sdmse.common.upgrade.core.billing.OfferUnavailableBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import kotlinx.coroutines.CancellationException
@@ -358,15 +361,17 @@ class BillingConnection(
 
     suspend fun querySkus(vararg skus: Sku): Collection<SkuDetails> {
         log(TAG) { "querySkus(skus=${skus.joinToString { it.print() }})..." }
-        val productList = skus.map { sku ->
+        // Play answers per product, not per request entry: a duplicated request entry would make the
+        // exactly-one-match rule below ambiguous for no reason.
+        val requested = skus.distinctBy { it.id to it.type }
+        if (requested.size != skus.size) {
+            log(TAG, WARN) { "querySkus(): deduped duplicate request entries: ${skus.joinToString { it.print() }}" }
+        }
+
+        val productList = requested.map { sku ->
             QueryProductDetailsParams.Product.newBuilder().apply {
                 setProductId(sku.id)
-                setProductType(
-                    when (sku.type) {
-                        Sku.Type.IAP -> BillingClient.ProductType.INAPP
-                        Sku.Type.SUBSCRIPTION -> BillingClient.ProductType.SUBS
-                    }
-                )
+                setProductType(sku.playProductType)
             }.build()
         }
 
@@ -376,33 +381,70 @@ class BillingConnection(
 
         // Cancellable so the ViewModel's query timeout and flatMapLatest-based retry actually work:
         // with suspendCoroutine a missing Play callback kept the timeout suspended indefinitely.
-        val (result, details) = suspendCancellableCoroutine<Pair<BillingResult, Collection<ProductDetails>?>> { continuation ->
+        val (result, queryResult) = suspendCancellableCoroutine<Pair<BillingResult, QueryProductDetailsResult>> { continuation ->
             client.queryProductDetailsAsync(params) { result, queryResult ->
                 if (continuation.isActive) {
-                    continuation.resume(result to queryResult.productDetailsList) { _, _, _ -> }
+                    continuation.resume(result to queryResult) { _, _, _ -> }
                 }
             }
         }
+        val details = queryResult.productDetailsList.orEmpty()
+        val unfetched = queryResult.unfetchedProductList.orEmpty()
 
         log(TAG) {
-            "querySkus(skus=${skus.joinToString { it.print() }}): code=${result.responseCode}, debug=${result.debugMessage}), skuDetails=$details"
+            "querySkus(skus=${skus.joinToString { it.print() }}): code=${result.responseCode}, " +
+                "debug=${result.debugMessage}, skuDetails=$details, unfetched=${unfetched.printed()}"
         }
 
-        if (!result.isSuccess) throw BillingClientException(result)
-
-        if (details.isNullOrEmpty()) {
-            throw IllegalStateException("No details available for ${skus.joinToString { "${it.type}-${it.id}" }}")
-        }
-
-        return details
-            .groupBy { it.productId }
-            .mapNotNull { (key, details) ->
-                val sku = skus
-                    .single { it.id == key }
-                val detail = details.single { it.productId == sku.id }
-
-                SkuDetails(sku, detail)
+        if (!result.isSuccess) {
+            log(TAG, WARN) { "querySkus() failed: code=${result.responseCode}, message=${result.debugMessage}" }
+            val firstSku = requested.firstOrNull()
+            if (result.responseCode == BillingResponseCode.ITEM_UNAVAILABLE && firstSku != null) {
+                // Merchandising state (region, account eligibility, pulled product), not a defect:
+                // typed so the user gets copy instead of a bug report.
+                throw OfferUnavailableBillingException(firstSku, null)
             }
+            throw BillingClientException(result)
+        }
+
+        if (unfetched.isNotEmpty()) {
+            log(TAG, WARN) { "querySkus(): Play did not fetch ${unfetched.printed()}" }
+        }
+        // A malformed product ID is OUR configuration defect and stays on the reportable path. The
+        // merchandising statuses (product pulled, no eligible offer) are normal Play conditions and
+        // fall out of the per-sku matching below as OfferUnavailableBillingException.
+        unfetched
+            .firstOrNull { it.statusCode == UnfetchedProduct.StatusCode.INVALID_PRODUCT_ID_FORMAT }
+            ?.let { invalid ->
+                throw BillingClientException(
+                    BillingResult.newBuilder().apply {
+                        setResponseCode(BillingResponseCode.DEVELOPER_ERROR)
+                        setDebugMessage("Invalid product id format: ${invalid.productId} (${invalid.productType})")
+                    }.build()
+                )
+            }
+
+        val returned = details.groupBy { it.productId to it.productType }
+        val requestedKeys = requested.map { it.id to it.playProductType }.toSet()
+        returned.keys
+            .filterNot { it in requestedKeys }
+            .forEach { (id, type) -> log(TAG, WARN) { "querySkus(): skipping unrequested product $id ($type)" } }
+
+        // Iterating the REQUEST (not the response) is what makes an omitted sku visible at all:
+        // walking the returned groups only ever visits what Play chose to send.
+        return requested.map { sku ->
+            val matches = returned[sku.id to sku.playProductType].orEmpty()
+            // Exactly one, never "the first of several": a duplicate row means we can't tell which
+            // one Play meant, and guessing would sell the user a different product.
+            val detail = matches.singleOrNull()
+            if (detail == null) {
+                log(TAG, WARN) {
+                    "querySkus(): expected exactly 1 detail for ${sku.print()}, got ${matches.size} of $details"
+                }
+                throw OfferUnavailableBillingException(sku, null)
+            }
+            SkuDetails(sku, detail)
+        }
     }
 
     suspend fun launchBillingFlow(activity: Activity, sku: Sku, targetOffer: Sku.Subscription.Offer?): BillingResult {
@@ -411,14 +453,31 @@ class BillingConnection(
             requireNotNull(targetOffer) { "SUB skus require a target offer" }
         }
 
-        val data = querySkus(sku).single { it.sku == sku }
+        val skuDetails = querySkus(sku)
+        val data = skuDetails.singleOrNull { it.sku == sku }
+        if (data == null) {
+            log(TAG, WARN) { "launchBillingFlow(): no unique details for ${sku.print()} in $skuDetails" }
+            throw OfferUnavailableBillingException(sku, targetOffer)
+        }
 
         val params = BillingFlowParams.newBuilder().apply {
             val productDetail = BillingFlowParams.ProductDetailsParams.newBuilder().apply {
                 setProductDetails(data.details)
                 if (sku is Sku.Subscription && targetOffer != null) {
-                    val offer = data.details.subscriptionOfferDetails!!.single {
+                    // singleOrNull, not single: an absent offer (withheld/revoked) and an ambiguous
+                    // duplicate both mean we must not guess an offer token — the wrong one bills the
+                    // user at the wrong price.
+                    val offer = data.details.subscriptionOfferDetails?.singleOrNull {
                         targetOffer.matches(it)
+                    }
+                    if (offer == null) {
+                        log(TAG, WARN) {
+                            val available = data.details.subscriptionOfferDetails
+                                ?.map { "${it.basePlanId}/${it.offerId}" }
+                            "launchBillingFlow(): offer ${targetOffer.basePlanId}/${targetOffer.offerId} " +
+                                "unavailable for ${sku.print()}, available=$available"
+                        }
+                        throw OfferUnavailableBillingException(sku, targetOffer)
                     }
                     setOfferToken(offer.offerToken)
                 }
@@ -436,13 +495,32 @@ class BillingConnection(
         log(TAG) {
             "launchBillingFlow(sku=$sku): code=${result.responseCode}, message=${result.debugMessage}"
         }
-        if (!result.isSuccess) throw BillingClientException(result)
+        if (!result.isSuccess) {
+            // Same merchandising state as at query time, just reported by the launch instead: the
+            // product/offer isn't purchasable, which is not a defect worth reporting.
+            if (result.responseCode == BillingResponseCode.ITEM_UNAVAILABLE) {
+                throw OfferUnavailableBillingException(sku, targetOffer)
+            }
+            throw BillingClientException(result)
+        }
 
         return result
     }
 
     companion object {
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "ClientConnection")
+
+        // Play's product-type string for one of our SKUs. Part of the match key: a product ID alone
+        // is not unique across product types.
+        private val Sku.playProductType: String
+            get() = when (type) {
+                Sku.Type.IAP -> BillingClient.ProductType.INAPP
+                Sku.Type.SUBSCRIPTION -> BillingClient.ProductType.SUBS
+            }
+
+        // Log-friendly rendering of the products Play refused to fetch (no purchase data involved).
+        private fun Collection<UnfetchedProduct>.printed(): String =
+            joinToString(prefix = "[", postfix = "]") { "${it.productId}(${it.productType})=${it.statusCode}" }
 
         // Classifies event purchases by product type at ingestion, so a later per-type query can
         // authoritatively supersede them. Unknown products stay untyped (cleared only by a

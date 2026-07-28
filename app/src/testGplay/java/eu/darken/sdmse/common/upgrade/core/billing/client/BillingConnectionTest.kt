@@ -1,15 +1,21 @@
 package eu.darken.sdmse.common.upgrade.core.billing.client
 
+import android.text.TextUtils
 import com.android.billingclient.api.AcknowledgePurchaseParams
 import com.android.billingclient.api.AcknowledgePurchaseResponseListener
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingResult
+import com.android.billingclient.api.ProductDetails
+import com.android.billingclient.api.ProductDetailsResponseListener
 import com.android.billingclient.api.Purchase
 import com.android.billingclient.api.Purchase.PurchaseState
 import com.android.billingclient.api.PurchasesResponseListener
+import com.android.billingclient.api.QueryProductDetailsResult
 import com.android.billingclient.api.QueryPurchasesParams
+import com.android.billingclient.api.UnfetchedProduct
 import eu.darken.sdmse.common.upgrade.core.OurSku
+import eu.darken.sdmse.common.upgrade.core.billing.OfferUnavailableBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactly
@@ -17,21 +23,46 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.unmockkStatic
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceTimeBy
+import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runCurrent
+import kotlinx.coroutines.test.setMain
 import kotlinx.coroutines.withTimeoutOrNull
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
 
 class BillingConnectionTest : BaseTest() {
+
+    @BeforeEach
+    fun setup() {
+        // launchBillingFlow() hops to the main thread (documented BillingClient contract) --
+        // unconfined so the hop resolves in place on the test thread.
+        Dispatchers.setMain(UnconfinedTestDispatcher())
+        // BillingFlowParams' builders validate through android.text.TextUtils, whose JVM stub throws
+        // "not mocked". Give it its real semantics instead.
+        mockkStatic(TextUtils::class)
+        every { TextUtils.isEmpty(any()) } answers { firstArg<CharSequence?>().isNullOrEmpty() }
+    }
+
+    @AfterEach
+    fun teardown() {
+        Dispatchers.resetMain()
+        unmockkStatic(TextUtils::class)
+    }
 
     private fun purchase(
         time: Long,
@@ -510,6 +541,262 @@ class BillingConnectionTest : BaseTest() {
         }
 
         outcome shouldBe null
+    }
+
+    // endregion
+
+    // region querySkus + offer resolution
+
+    private fun productDetails(
+        id: String,
+        type: String = BillingClient.ProductType.INAPP,
+        offers: List<ProductDetails.SubscriptionOfferDetails>? = null,
+    ) = mockk<ProductDetails>(relaxed = true).apply {
+        every { productId } returns id
+        every { productType } returns type
+        every { subscriptionOfferDetails } returns offers
+    }
+
+    private fun offerDetails(
+        offer: Sku.Subscription.Offer,
+        token: String = "offer-token",
+    ) = mockk<ProductDetails.SubscriptionOfferDetails>(relaxed = true).apply {
+        every { basePlanId } returns offer.basePlanId
+        every { offerId } returns offer.offerId
+        every { offerToken } returns token
+    }
+
+    private fun unfetchedProduct(
+        id: String,
+        status: Int,
+        type: String = BillingClient.ProductType.SUBS,
+    ) = mockk<UnfetchedProduct>(relaxed = true).apply {
+        every { productId } returns id
+        every { statusCode } returns status
+        every { productType } returns type
+    }
+
+    private fun skuClient(
+        queryResponse: BillingResult = result(BillingResponseCode.OK),
+        details: List<ProductDetails> = emptyList(),
+        unfetched: List<UnfetchedProduct> = emptyList(),
+        launchResult: BillingResult = result(BillingResponseCode.OK),
+    ): BillingClient {
+        val queryResult = mockk<QueryProductDetailsResult>().apply {
+            every { productDetailsList } returns details
+            every { unfetchedProductList } returns unfetched
+        }
+        return mockk<BillingClient>().apply {
+            every { queryProductDetailsAsync(any(), any()) } answers {
+                secondArg<ProductDetailsResponseListener>().onProductDetailsResponse(queryResponse, queryResult)
+            }
+            every { launchBillingFlow(any(), any()) } returns launchResult
+        }
+    }
+
+    @Test fun `an OK response with no details is an offer problem, not a raw state exception`() = runTest2 {
+        val connection = BillingConnection(client = skuClient(details = emptyList()))
+
+        // Play omitting the product entirely used to surface as IllegalStateException -> bug report
+        // plus an unlocalized dialog.
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.querySkus(OurSku.Iap.PRO_UPGRADE)
+        }.sku shouldBe OurSku.Iap.PRO_UPGRADE
+    }
+
+    @Test fun `a requested sku omitted from the response throws for that sku`() = runTest2 {
+        // Iterating the response instead of the request would silently return only the IAP details
+        // and never notice that the subscription is missing.
+        val connection = BillingConnection(
+            client = skuClient(details = listOf(productDetails(OurSku.Iap.PRO_UPGRADE.id))),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.querySkus(OurSku.Iap.PRO_UPGRADE, OurSku.Sub.PRO_UPGRADE)
+        }.sku shouldBe OurSku.Sub.PRO_UPGRADE
+    }
+
+    @Test fun `duplicate details for one requested sku are ambiguous, never guessed`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(
+                details = listOf(
+                    productDetails(OurSku.Iap.PRO_UPGRADE.id),
+                    productDetails(OurSku.Iap.PRO_UPGRADE.id),
+                ),
+            ),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.querySkus(OurSku.Iap.PRO_UPGRADE)
+        }.sku shouldBe OurSku.Iap.PRO_UPGRADE
+    }
+
+    @Test fun `an unrequested row is skipped and does not satisfy the omitted request`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(details = listOf(productDetails("some.other.product"))),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.querySkus(OurSku.Iap.PRO_UPGRADE)
+        }.sku shouldBe OurSku.Iap.PRO_UPGRADE
+    }
+
+    @Test fun `duplicate request entries are deduped instead of failing`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(details = listOf(productDetails(OurSku.Iap.PRO_UPGRADE.id))),
+        )
+
+        val details = connection.querySkus(OurSku.Iap.PRO_UPGRADE, OurSku.Iap.PRO_UPGRADE)
+
+        details.map { it.sku } shouldBe listOf(OurSku.Iap.PRO_UPGRADE)
+    }
+
+    @Test fun `ITEM_UNAVAILABLE at query time maps to the offer problem`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(queryResponse = result(BillingResponseCode.ITEM_UNAVAILABLE)),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.querySkus(OurSku.Sub.PRO_UPGRADE)
+        }.sku shouldBe OurSku.Sub.PRO_UPGRADE
+    }
+
+    @Test fun `other query failures keep the generic client exception`() = runTest2 {
+        val connection = BillingConnection(client = skuClient(queryResponse = result(BillingResponseCode.ERROR)))
+
+        shouldThrow<BillingClientException> { connection.querySkus(OurSku.Iap.PRO_UPGRADE) }
+    }
+
+    @Test fun `an unfetched merchandising status surfaces as an offer problem`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(
+                unfetched = listOf(
+                    unfetchedProduct(OurSku.Sub.PRO_UPGRADE.id, UnfetchedProduct.StatusCode.NO_ELIGIBLE_OFFER),
+                ),
+            ),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.querySkus(OurSku.Sub.PRO_UPGRADE)
+        }.sku shouldBe OurSku.Sub.PRO_UPGRADE
+    }
+
+    @Test fun `an invalid product id format stays on the reportable path`() = runTest2 {
+        // Our own configuration defect: this one SHOULD reach the bug report, unlike the
+        // merchandising states.
+        val connection = BillingConnection(
+            client = skuClient(
+                unfetched = listOf(
+                    unfetchedProduct(
+                        OurSku.Sub.PRO_UPGRADE.id,
+                        UnfetchedProduct.StatusCode.INVALID_PRODUCT_ID_FORMAT,
+                    ),
+                ),
+            ),
+        )
+
+        shouldThrow<BillingClientException> {
+            connection.querySkus(OurSku.Sub.PRO_UPGRADE)
+        }.result.responseCode shouldBe BillingResponseCode.DEVELOPER_ERROR
+    }
+
+    @Test fun `a withheld offer at launch time is an offer problem, not a NoSuchElement`() = runTest2 {
+        // Play returns the subscription but not the offer we want (revoked/withheld): the strict
+        // single() used to blow up with an unmapped NoSuchElementException.
+        val connection = BillingConnection(
+            client = skuClient(
+                details = listOf(
+                    productDetails(
+                        id = OurSku.Sub.PRO_UPGRADE.id,
+                        type = BillingClient.ProductType.SUBS,
+                        offers = listOf(offerDetails(OurSku.Sub.PRO_UPGRADE.BASE_OFFER)),
+                    ),
+                ),
+            ),
+        )
+
+        val error = shouldThrow<OfferUnavailableBillingException> {
+            connection.launchBillingFlow(
+                activity = mockk(),
+                sku = OurSku.Sub.PRO_UPGRADE,
+                targetOffer = OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER,
+            )
+        }
+        error.sku shouldBe OurSku.Sub.PRO_UPGRADE
+        error.offer shouldBe OurSku.Sub.PRO_UPGRADE.TRIAL_OFFER
+    }
+
+    @Test fun `duplicate offer rows at launch time are ambiguous, never guessed`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(
+                details = listOf(
+                    productDetails(
+                        id = OurSku.Sub.PRO_UPGRADE.id,
+                        type = BillingClient.ProductType.SUBS,
+                        offers = listOf(
+                            offerDetails(OurSku.Sub.PRO_UPGRADE.BASE_OFFER, token = "token-a"),
+                            offerDetails(OurSku.Sub.PRO_UPGRADE.BASE_OFFER, token = "token-b"),
+                        ),
+                    ),
+                ),
+            ),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.launchBillingFlow(
+                activity = mockk(),
+                sku = OurSku.Sub.PRO_UPGRADE,
+                targetOffer = OurSku.Sub.PRO_UPGRADE.BASE_OFFER,
+            )
+        }.offer shouldBe OurSku.Sub.PRO_UPGRADE.BASE_OFFER
+    }
+
+    @Test fun `a missing subscriptionOfferDetails list at launch time is an offer problem`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(
+                details = listOf(
+                    productDetails(
+                        id = OurSku.Sub.PRO_UPGRADE.id,
+                        type = BillingClient.ProductType.SUBS,
+                        offers = null,
+                    ),
+                ),
+            ),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.launchBillingFlow(
+                activity = mockk(),
+                sku = OurSku.Sub.PRO_UPGRADE,
+                targetOffer = OurSku.Sub.PRO_UPGRADE.BASE_OFFER,
+            )
+        }
+    }
+
+    @Test fun `ITEM_UNAVAILABLE from the launch result maps to the offer problem`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(
+                details = listOf(productDetails(OurSku.Iap.PRO_UPGRADE.id)),
+                launchResult = result(BillingResponseCode.ITEM_UNAVAILABLE),
+            ),
+        )
+
+        shouldThrow<OfferUnavailableBillingException> {
+            connection.launchBillingFlow(mockk(), OurSku.Iap.PRO_UPGRADE, null)
+        }.sku shouldBe OurSku.Iap.PRO_UPGRADE
+    }
+
+    @Test fun `other launch failures keep the generic client exception`() = runTest2 {
+        val connection = BillingConnection(
+            client = skuClient(
+                details = listOf(productDetails(OurSku.Iap.PRO_UPGRADE.id)),
+                launchResult = result(BillingResponseCode.DEVELOPER_ERROR),
+            ),
+        )
+
+        shouldThrow<BillingClientException> {
+            connection.launchBillingFlow(mockk(), OurSku.Iap.PRO_UPGRADE, null)
+        }
     }
 
     // endregion
