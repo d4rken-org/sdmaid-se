@@ -1,5 +1,7 @@
 package eu.darken.sdmse.common.upgrade.core.billing.client
 
+import com.android.billingclient.api.AcknowledgePurchaseParams
+import com.android.billingclient.api.AcknowledgePurchaseResponseListener
 import com.android.billingclient.api.BillingClient
 import com.android.billingclient.api.BillingClient.BillingResponseCode
 import com.android.billingclient.api.BillingResult
@@ -11,6 +13,7 @@ import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -21,6 +24,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.withTimeoutOrNull
 import org.junit.jupiter.api.Test
@@ -646,6 +650,35 @@ class BillingConnectionTest : BaseTest() {
         // surface as owned.
         connection.querySubscriptions() shouldBe emptyList()
         connection.purchases.first() shouldBe emptyList()
+    }
+
+    // endregion
+
+    // region acknowledgement
+
+    @Test fun `a late ack callback after the caller gave up is ignored`() = runTest2 {
+        var listener: AcknowledgePurchaseResponseListener? = null
+        val client = mockk<BillingClient>().apply {
+            every { acknowledgePurchase(any<AcknowledgePurchaseParams>(), any()) } answers {
+                listener = secondArg()
+            }
+        }
+        val connection = BillingConnection(client = client)
+
+        val ack = async(start = CoroutineStart.UNDISPATCHED) {
+            withTimeoutOrNull(1_000) { connection.acknowledgePurchase(purchase(1_000)) }
+        }
+        runCurrent()
+        listener.shouldNotBeNull()
+
+        advanceTimeBy(1_001) // the ack path's per-attempt timeout fires while Play is still silent
+        runCurrent()
+        ack.await() shouldBe null
+
+        // Play answers late, on its own thread: resuming the abandoned continuation must be a no-op,
+        // not an IllegalStateException — the bounded ack attempts depend on that contract.
+        listener!!.onAcknowledgePurchaseResponse(result(BillingResponseCode.OK))
+        runCurrent()
     }
 
     // endregion
