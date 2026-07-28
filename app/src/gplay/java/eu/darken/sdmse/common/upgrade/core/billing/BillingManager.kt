@@ -168,22 +168,49 @@ class BillingManager @Inject constructor(
         }
     }
 
-    private val purchases = connectionHolder
-        // NOT filterNotNull(): the null emission is what detaches a dead connection's inner flows.
-        .flatMapLatest { it?.purchases ?: emptyFlow() }
-        .distinctUntilChanged()
-        .setupCommonEventHandlers(TAG) { "purchases" }
-        // A hot shareIn has no owner to restart it: an upstream failure would kill the sharing
-        // coroutine and leave every subscriber (incl. the ack collector) hanging for the process
-        // lifetime. Resubscribing re-runs connectionHolder's flatMapLatest, which is a state holder
-        // that never throws itself. distinctUntilChanged state resets on retry; a duplicate
-        // emission after recovery is harmless (the ack pass is idempotent).
-        .retryWhen { cause, _ ->
+    // Re-drives the ack pass WITHOUT a new purchases emission: `purchases` is distinctUntilChanged,
+    // so a refresh returning a byte-identical (still unacknowledged) list is deduped and could never
+    // retry a failed ack -- the pipeline starved until Play sent something different. Declared ahead
+    // of `purchases` because that chain's failure recovery signals it.
+    private val ackRetryTrigger = MutableStateFlow(0)
+
+    // Never-terminal resubscribe for the hot billing sources: a shared flow has no owner to restart
+    // it, so an upstream failure would kill the sharing coroutine and leave every subscriber (incl.
+    // the ack collector) hanging for the process lifetime.
+    private fun <T> Flow<T>.resubscribeOnFailure(label: String, onRecover: () -> Unit = {}): Flow<T> =
+        retryWhen { cause, _ ->
             if (cause is CancellationException) return@retryWhen false
-            log(TAG, ERROR) { "purchases source failed, resubscribing: ${cause.asLog()}" }
+            log(TAG, ERROR) { "$label failed, resubscribing: ${cause.asLog()}" }
             delay(SHARE_RETRY_MS)
+            onRecover()
             true
         }
+
+    private val purchases = connectionHolder
+        // NOT filterNotNull(): the null emission is what detaches a dead connection's inner flows.
+        .flatMapLatest { connection ->
+            (connection?.purchases ?: emptyFlow())
+                // The retry sits INSIDE the flatMapLatest, and that placement is load-bearing:
+                // flatMapLatest hands values to its downstream across a channel, and a failure of
+                // the inner flow cancels the coroutine that drains it -- a value emitted just
+                // before the failure is then discarded instead of delivered. Retrying out here
+                // keeps the failure off that boundary, so the last pre-failure emission (e.g. the
+                // purchase that still needs acknowledging) survives the outage.
+                .resubscribeOnFailure("purchases") {
+                    // The resubscribed source replays a byte-identical list, which the
+                    // distinctUntilChanged below rightly drops -- so recovery has to nudge the ack
+                    // pass explicitly, or a purchase that arrived just before the failure would sit
+                    // there until the 5-minute reschedule.
+                    ackRetryTrigger.update { it + 1 }
+                }
+        }
+        .distinctUntilChanged()
+        .setupCommonEventHandlers(TAG) { "purchases" }
+        // Belt for the plumbing outside the source flow itself: connectionHolder is a state holder
+        // that never throws, so this should never fire -- but a dead sharing coroutine is
+        // unrecoverable, and that is not a risk worth leaving open. No nudge needed here: this
+        // resubscribes distinctUntilChanged too, so the replayed list gets through on its own.
+        .resubscribeOnFailure("purchases-share")
         .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
 
     val billingData: Flow<BillingData> = purchases
@@ -201,17 +228,18 @@ class BillingManager @Inject constructor(
     // bookkeeping like the Pro grace period. Eagerly: the per-connection channel has exactly one
     // consumer — this chain — which must not depend on downstream subscribers.
     val freshBillingData: Flow<FreshData> = connectionHolder
-        .flatMapLatest { it?.freshUpdates ?: emptyFlow() }
+        .flatMapLatest { connection ->
+            (connection?.freshUpdates ?: emptyFlow())
+                // Inside the flatMapLatest for the same reason as `purchases`: a failure escaping
+                // the boundary discards the update that was already handed to the channel -- and
+                // every emission here is a real Play round-trip the grace bookkeeping needs.
+                .resubscribeOnFailure("freshBillingData")
+        }
         .map { FreshData(data = BillingData(purchases = it.purchases), isFullSnapshot = it.isFullSnapshot, occurredAt = it.occurredAt) }
         .setupCommonEventHandlers(TAG) { "freshBillingData" }
-        // Same reasoning as `purchases`: an Eagerly shared flow that dies stays dead, and this one
-        // feeds both the grace bookkeeping and the ack collector's re-drive signal.
-        .retryWhen { cause, _ ->
-            if (cause is CancellationException) return@retryWhen false
-            log(TAG, ERROR) { "freshBillingData source failed, resubscribing: ${cause.asLog()}" }
-            delay(SHARE_RETRY_MS)
-            true
-        }
+        // Same belt as `purchases`: an Eagerly shared flow that dies stays dead, and this one feeds
+        // both the grace bookkeeping and the ack collector's re-drive signal.
+        .resubscribeOnFailure("freshBillingData-share")
         .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 
     // Tokens we've already SUCCESSFULLY acknowledged this process. LOG-LEVEL HINT ONLY: it selects
@@ -227,11 +255,6 @@ class BillingManager @Inject constructor(
     // (developer error, item not owned, unsupported feature), so the bug report fires once per token
     // instead of once per pass. Same single-collector confinement as loggedAckTokens.
     private val reportedAckFailures = mutableSetOf<String>()
-
-    // Re-drives the ack pass WITHOUT a new purchases emission: `purchases` is distinctUntilChanged,
-    // so a refresh returning a byte-identical (still unacknowledged) list is deduped and could never
-    // retry a failed ack -- the pipeline starved until Play sent something different.
-    private val ackRetryTrigger = MutableStateFlow(0)
 
     // At most one reschedule timer in flight: repeated failures must not stack timers.
     private val ackRetryPending = MutableStateFlow(false)
