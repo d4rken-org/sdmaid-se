@@ -24,6 +24,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
@@ -48,8 +49,11 @@ class DeduplicatorTest : BaseTest() {
         val info = mockk<UpgradeRepo.Info>()
         every { info.isPro } returns isPro
         every { info.isSettled } returns true
+        every { info.error } returns null
         val upgradeRepo = mockk<UpgradeRepo>(relaxed = true)
-        every { upgradeRepo.upgradeInfo } returns flowOf(info)
+        // Hot and never-completing, like the production repos: the pro gate waits for a pro state
+        // to appear, so a finite flow would complete the wait instead of denying.
+        every { upgradeRepo.upgradeInfo } returns MutableStateFlow(info)
         return Deduplicator(
             appScope = gateScope,
             gatewaySwitch = mockk(relaxed = true),
