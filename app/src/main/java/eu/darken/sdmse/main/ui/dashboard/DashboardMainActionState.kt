@@ -39,8 +39,11 @@ data class HeroSummary(
     /** When the displayed data came to be: latest scan of the included tools (FREEABLE) or deletion end (FREED). */
     val timestamp: Instant? = null,
 ) {
-    /** FREEABLE = "X will be freed" (post-scan); FREED = "X freed" (post-delete/one-click). */
-    enum class Mode { FREEABLE, FREED }
+    /**
+     * FREEABLE = "X will be freed" (post-scan); FREED = "X freed" (post-delete/one-click);
+     * NOTHING_FREED = a cleanup ran but freed nothing, which carries no amounts and no [tools].
+     */
+    enum class Mode { FREEABLE, FREED, NOTHING_FREED }
 
     data class ToolSlice(
         val type: SDMTool.Type,

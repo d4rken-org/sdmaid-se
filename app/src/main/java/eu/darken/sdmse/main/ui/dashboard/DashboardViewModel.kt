@@ -564,6 +564,8 @@ class DashboardViewModel @Inject constructor(
         when (mode) {
             HeroSummary.Mode.FREED -> showToolReport(type)
             HeroSummary.Mode.FREEABLE -> showTool(type)
+            // Renders no chips, so there is nothing here to tap.
+            HeroSummary.Mode.NOTHING_FREED -> {}
         }
     }
 

@@ -6,9 +6,14 @@
     <string name="dashboard_hero_freed_x_items">%1$s removed</string>
     <string name="dashboard_hero_freeable_hint">Tap the button to free space, or a chip to check first.</string>
     <string name="dashboard_hero_freed_hint">Tap a chip for details.</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nothing was freed</string>
+    <string name="dashboard_hero_nothing_freed_caption">The cleanup finished, but none of the found data could be removed.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Some data can only be removed with extra access, such as the accessibility service or root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scanned %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Freed %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Attempted %1$s</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">A message from the developer</string>
     <string name="dashboard_settings_oneclick_title">One-Tap Mode</string>

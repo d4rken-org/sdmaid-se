@@ -1,9 +1,11 @@
 package eu.darken.sdmse.main.ui.dashboard
 
+import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -12,8 +14,9 @@ import testhelpers.BaseTest
 
 /**
  * Contract of [DashboardMainActionEngine.resolveMainAction]: which results arm the main button's DELETE
- * action (and thereby summon the hero card). Deduplicator only counts when it is opted into
- * one-click and the user is Pro — matching what the DELETE branch of mainAction will actually free.
+ * action (and thereby summon the hero card). A tool only counts when it is opted into one-click
+ * (Deduplicator additionally requires Pro) — matching what the DELETE branch of mainAction will
+ * actually free, so the button never offers a deletion that provably does nothing.
  */
 class DashboardMainActionTest : BaseTest() {
 
@@ -23,17 +26,35 @@ class DashboardMainActionTest : BaseTest() {
         every { corpses } returns setOf(mockk())
     }
 
+    private fun system() = mockk<SystemCleaner.Data> {
+        every { filterContents } returns setOf(mockk())
+    }
+
+    private fun app() = mockk<AppCleaner.Data> {
+        every { junks } returns setOf(mockk())
+    }
+
     private fun dedupe() = mockk<Deduplicator.Data> {
         every { clusters } returns setOf(mockk<Duplicate.Cluster>())
     }
 
-    private fun oneClick(dedupe: Boolean = false) = OneClickOptionsState(
+    private fun oneClick(
+        corpse: Boolean = true,
+        system: Boolean = true,
+        app: Boolean = true,
+        dedupe: Boolean = false,
+    ) = OneClickOptionsState(
+        corpseFinderEnabled = corpse,
+        systemCleanerEnabled = system,
+        appCleanerEnabled = app,
         deduplicatorEnabled = dedupe,
     )
 
     private fun resolve(
         taskState: TaskSubmitter.State = idle,
         corpse: CorpseFinder.Data? = null,
+        system: SystemCleaner.Data? = null,
+        app: AppCleaner.Data? = null,
         dedupe: Deduplicator.Data? = null,
         oneClick: OneClickOptionsState = oneClick(),
         isPro: Boolean = true,
@@ -41,8 +62,8 @@ class DashboardMainActionTest : BaseTest() {
     ) = DashboardMainActionEngine.resolveMainAction(
         taskState = taskState,
         corpse = corpse,
-        system = null,
-        app = null,
+        system = system,
+        app = app,
         dedupe = dedupe,
         oneClick = oneClick,
         isPro = isPro,
@@ -58,6 +79,41 @@ class DashboardMainActionTest : BaseTest() {
     @Test
     fun `default tool data arms DELETE`() {
         resolve(corpse = corpse()) shouldBe BottomBarState.Action.DELETE
+    }
+
+    @Test
+    fun `data does not arm DELETE when its one-click toggle is off`() {
+        // mainAction's DELETE branch returns early for a tool that is opted out, so arming here
+        // would offer a button that submits no task at all.
+        resolve(
+            corpse = corpse(),
+            oneClick = oneClick(corpse = false),
+        ) shouldBe BottomBarState.Action.SCAN
+        resolve(
+            system = system(),
+            oneClick = oneClick(system = false),
+        ) shouldBe BottomBarState.Action.SCAN
+        resolve(
+            app = app(),
+            oneClick = oneClick(app = false),
+        ) shouldBe BottomBarState.Action.SCAN
+    }
+
+    @Test
+    fun `an opted-in tool still arms DELETE when a different tool is opted out`() {
+        resolve(
+            corpse = corpse(),
+            app = app(),
+            oneClick = oneClick(corpse = false, app = true),
+        ) shouldBe BottomBarState.Action.DELETE
+    }
+
+    @Test
+    fun `AppCleaner data arms DELETE without Pro so mainAction can upsell`() {
+        resolve(
+            app = app(),
+            isPro = false,
+        ) shouldBe BottomBarState.Action.DELETE
     }
 
     @Test

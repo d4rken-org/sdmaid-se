@@ -44,6 +44,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
 import java.time.Instant
 import kotlin.time.Duration.Companion.minutes
@@ -101,6 +102,20 @@ class DashboardMainActionEngine(
 
     /** In-flight main-action cleanup branches; the freed hero stays hidden until this reaches 0. */
     private val pendingMainCleanup = MutableStateFlow(0)
+
+    /**
+     * Whether the current cleanup actually submitted a deletion task, regardless of how much it
+     * freed. Distinguishes "ran and freed nothing" (worth telling the user about) from "every
+     * branch opted out or upsold instead", which produces no result by design.
+     */
+    private val cleanupRan = MutableStateFlow(false)
+
+    /**
+     * Whether any branch of the current cleanup failed or was cancelled. Such a run did not
+     * "finish with nothing to free" — the user gets an error dialog, or stopped it themselves —
+     * so the zero-result card must stay away and not contradict that.
+     */
+    private val cleanupFailed = MutableStateFlow(false)
 
     /** While [discardResults] clears the tools one by one, suppress the hero so it never shows partial data. */
     private val discarding = MutableStateFlow(false)
@@ -189,8 +204,10 @@ class DashboardMainActionEngine(
         val queuedTasks = taskState.tasks.filter { it.isQueued }.size
         // Post-scan "will be freed" takes priority; otherwise, once the action has settled, show the
         // "freed" result of the last main-action deletion/one-click. While working, both stay hidden
-        // and the bar carries progress.
-        val freeable = if (actionState == BottomBarState.Action.DELETE) {
+        // and the bar carries progress. [pendingCleanup] gates this too, not just [settled]: the
+        // task manager reports idle again before the branches fold in their results, and without
+        // the gate the identical "can be freed" card flashes in that window.
+        val freeable = if (actionState == BottomBarState.Action.DELETE && pendingCleanup == 0) {
             buildHeroSummary(
                 corpse = corpseState.data,
                 system = filterState.data,
@@ -203,7 +220,10 @@ class DashboardMainActionEngine(
         } else {
             null
         }
-        val heroSummary = (freeable ?: freed?.takeIf { taskState.isIdle && pendingCleanup == 0 })
+        val settled = freed?.takeIf { taskState.isIdle && pendingCleanup == 0 }
+        // A cleanup that freed nothing outranks [freeable]: the data survived, so FREEABLE rebuilds
+        // identically and would bury the fact that the deletion ran at all.
+        val heroSummary = (settled?.takeIf { it.mode == HeroSummary.Mode.NOTHING_FREED } ?: freeable ?: settled)
             .takeIf { !isDiscarding }
         BottomBarState(
             isReady = listReady,
@@ -278,11 +298,49 @@ class DashboardMainActionEngine(
     // Runs one main-action tool branch and, for cleanups, decrements the pending counter when it
     // settles — so the freed hero only appears once *all* branches are done (no partial flash).
     private fun launchMainBranch(isCleanup: Boolean, block: suspend () -> Unit) = scope.launch {
+        var failed = false
         try {
             block()
+        } catch (e: Throwable) {
+            // Cancellation counts too: a run the user stopped did not "finish".
+            failed = true
+            throw e
         } finally {
-            if (isCleanup) pendingMainCleanup.update { (it - 1).coerceAtLeast(0) }
+            if (isCleanup) {
+                if (failed) cleanupFailed.value = true
+                val remaining = pendingMainCleanup.updateAndGet { (it - 1).coerceAtLeast(0) }
+                // Last branch home. A cleanup that ran but freed nothing leaves the tools' data
+                // untouched, so the identical "can be freed" card would just re-render and the
+                // whole thing reads as "the button did nothing". Say so instead.
+                if (remaining == 0 && cleanupRan.value && !cleanupFailed.value) {
+                    val nothingFreed = HeroSummary(
+                        mode = HeroSummary.Mode.NOTHING_FREED,
+                        totalSize = 0L,
+                        itemCount = 0,
+                        tools = emptyList(),
+                        timestamp = Instant.now(),
+                    )
+                    // Fold rather than assign: a result arriving from an overlapping cleanup must
+                    // win over this placeholder, never be clobbered by it. The lambda stays pure —
+                    // `update` retries it on contention.
+                    val applied = freedResult.updateAndGet { current -> current ?: nothingFreed }
+                    if (applied === nothingFreed) log(TAG, INFO) { "Cleanup finished without freeing anything." }
+                }
+            }
         }
+    }
+
+    /**
+     * Whether a Pro-free tool will actually contribute to this cleanup: it has findings *and* is
+     * opted into one-click. The upgrade upsell is only appropriate when no free tool would run, so
+     * this has to mirror [resolveMainAction]'s arming conditions — testing raw scan data instead
+     * suppresses the upsell for a tool that is opted out and therefore about to be skipped, which
+     * leaves the whole cleanup doing nothing at all.
+     */
+    private suspend fun freeToolsWillRun(): Boolean {
+        val corpse = corpseFinder.state.first().data.hasData && generalSettings.oneClickCorpseFinderEnabled.value()
+        val system = systemCleaner.state.first().data.hasData && generalSettings.oneClickSystemCleanerEnabled.value()
+        return corpse || system
     }
 
     fun mainAction(actionState: BottomBarState.Action) {
@@ -290,8 +348,19 @@ class DashboardMainActionEngine(
         // Start a fresh "freed" tally for this deletion/one-click. The hero stays hidden until every
         // branch has settled (pendingMainCleanup == 0) so a partial per-tool result can't flash.
         val isCleanup = actionState == BottomBarState.Action.DELETE || actionState == BottomBarState.Action.ONECLICK
+        // Single-flight: a second cleanup would reset the batch tally under the branches still
+        // running on it, mixing their results and settling the hero early. It would also gain
+        // nothing — every task queues on its tool's resource lock, so it would just run again
+        // against tools the first pass already emptied. Safe without a lock: this is not a suspend
+        // function and only the main thread calls it, so taps serialize.
+        if (isCleanup && pendingMainCleanup.value > 0) {
+            log(TAG, WARN) { "mainAction($actionState): a cleanup is already in flight, ignoring." }
+            return
+        }
         if (isCleanup) {
             freedResult.value = null
+            cleanupRan.value = false
+            cleanupFailed.value = false
             // Stamp before any branch runs so it's <= every resulting report's end_at.
             freedResultSince = Instant.now()
             pendingMainCleanup.value = 4 // CorpseFinder + SystemCleaner + AppCleaner + Deduplicator
@@ -349,7 +418,7 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.DELETE -> {
                     if (appCleaner.state.first().data != null && upgradeRepo.isProForUi()) {
                         accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerProcessingTask()))
-                    } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
+                    } else if (appCleaner.state.first().data.hasData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
                 }
@@ -357,7 +426,7 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isProForUi()) {
                         accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerOneClickTask()))
-                    } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
+                    } else if (appCleaner.state.first().data.hasData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
                 }
@@ -380,7 +449,7 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isProForUi()) {
                         accumulateFreed(SDMTool.Type.DEDUPLICATOR, submitTask(DeduplicatorOneClickTask()))
-                    } else if (deduplicator.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
+                    } else if (deduplicator.state.first().data.hasData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
                 }
@@ -390,6 +459,9 @@ class DashboardMainActionEngine(
 
     /** Folds a deletion/one-click result into [freedResult] so the hero can show what was freed. */
     private fun accumulateFreed(type: SDMTool.Type, result: SDMTool.Task.Result) {
+        // Reaching here means a deletion task ran for this tool, even if it turned out to free
+        // nothing; [launchMainBranch] needs that distinction to report a zero-result cleanup.
+        cleanupRan.value = true
         val space = (result as? ReportDetails.AffectedSpace)?.affectedSpace ?: 0L
         val count = (result as? ReportDetails.AffectedCount)?.affectedCount ?: 0
         if (space <= 0L && count <= 0) return
@@ -410,11 +482,12 @@ class DashboardMainActionEngine(
         private val TAG = logTag("Dashboard", "MainActionEngine")
 
         /**
-         * Resolves what the main dashboard button does. CorpseFinder/SystemCleaner/AppCleaner data
-         * arms DELETE unconditionally (AppCleaner upsells non-Pro users instead of deleting).
-         * Deduplicator arms DELETE only when it is opted into one-click AND the user is Pro —
-         * exactly the conditions under which [mainAction]'s DELETE branch will actually submit a
-         * deletion task for it; its primary delete flow remains in-tool cluster selection.
+         * Resolves what the main dashboard button does. Every tool arms DELETE only when it is
+         * opted into one-click, because [mainAction] skips a tool whose toggle is off — arming
+         * without that check offers a button that provably frees nothing. Deduplicator
+         * additionally requires Pro; its primary delete flow remains in-tool cluster selection.
+         * AppCleaner deliberately arms *without* Pro so [mainAction] can upsell instead of
+         * deleting, which is why no [isPro] check appears on its line.
          */
         internal fun resolveMainAction(
             taskState: TaskSubmitter.State,
@@ -428,7 +501,9 @@ class DashboardMainActionEngine(
         ): BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
             !taskState.isIdle -> BottomBarState.Action.WORKING
-            corpse.hasData || system.hasData || app.hasData -> BottomBarState.Action.DELETE
+            corpse.hasData && oneClick.corpseFinderEnabled -> BottomBarState.Action.DELETE
+            system.hasData && oneClick.systemCleanerEnabled -> BottomBarState.Action.DELETE
+            app.hasData && oneClick.appCleanerEnabled -> BottomBarState.Action.DELETE
             dedupe.hasData && oneClick.deduplicatorEnabled && isPro -> BottomBarState.Action.DELETE
             oneClickMode -> BottomBarState.Action.ONECLICK
             else -> BottomBarState.Action.SCAN
