@@ -97,6 +97,15 @@ class UpgradeViewModel @Inject constructor(
         upgradeRepo.openGithubSponsorsPage()
     }
 
+    /**
+     * Whether a sponsor-page launch is still awaiting its return.
+     *
+     * Handle-backed, so it survives process recreation while the browser is in front — the screen's
+     * in-memory return tracker does not, and gating on that alone drops the first return after a
+     * recreation.
+     */
+    fun hasPendingSponsorLaunch(): Boolean = handle.contains(KEY_SPONSOR_PRESSED_AT)
+
     fun checkSponsorReturn() = launch {
         val pressedAt = handle.remove<Long>(KEY_SPONSOR_PRESSED_AT) ?: return@launch
         val elapsed = SystemClock.elapsedRealtime() - pressedAt

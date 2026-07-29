@@ -54,7 +54,12 @@ fun UpgradeScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
-    val sponsorReturnTracker = remember { SponsorReturnTracker() }
+    // Seeded from the ViewModel's handle-backed pending launch: after a process death while the
+    // sponsor page was open, a blank tracker would swallow the very first return. The handle is the
+    // authority on whether a return is still expected, so it reconstructs the tracker's state.
+    val sponsorReturnTracker = remember(vm) {
+        SponsorReturnTracker(wentToBackground = vm.hasPendingSponsorLaunch())
+    }
 
     LaunchedEffect(Unit) {
         vm.snackbarEvents.collect { stringRes ->
@@ -257,8 +262,9 @@ private fun UpgradeStatusUpgradedContent(
     }
 }
 
-internal class SponsorReturnTracker {
-    private var wentToBackground = false
+internal class SponsorReturnTracker(
+    private var wentToBackground: Boolean = false,
+) {
 
     fun onStop() {
         wentToBackground = true
