@@ -16,6 +16,10 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
 
@@ -85,17 +89,37 @@ class FossUpgradeScreenTest : BaseComposeRobolectricTest() {
 
     @Test
     fun `upgraded status view thanks the supporter and offers a recurring donation`() {
+        val since = Instant.ofEpochMilli(1_700_000_000_000L)
         composeRule.setUpgradeContent {
-            UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED)
+            UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED, supporterSince = since)
         }
 
         composeRule.onAllNodesWithText("${context.getString(CommonR.string.app_name)} ${context.getString(R.string.app_name_upgrade_postfix)}").assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_STATUS_UPGRADED).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_status_upgraded_body))
             .assertCountEquals(1)
+        val formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withZone(ZoneId.systemDefault())
+        composeRule.onAllNodesWithText(
+            context.getString(R.string.upgrade_screen_supporter_since, formatter.format(since))
+        ).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_DONATE).assertCountEquals(1)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SHOW_OPTIONS).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_SPONSOR).assertCountEquals(0)
+    }
+
+    @Test
+    fun `the supporter-since line stays away without a date`() {
+        // UpgradeRepoFoss can report an upgrade whose timestamp predates the field: no date line
+        // instead of a bogus one.
+        composeRule.setUpgradeContent {
+            UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED, supporterSince = null)
+        }
+
+        val formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withZone(ZoneId.systemDefault())
+        composeRule.onAllNodesWithText(
+            context.getString(R.string.upgrade_screen_supporter_since, formatter.format(Instant.EPOCH))
+        ).assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.FOSS_STATUS_UPGRADED).assertCountEquals(1)
     }
 
     @Test
