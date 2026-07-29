@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Slette resultater i alle verktøy?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan frigjøres</string>
     <string name="dashboard_hero_freed_headline">%1$s frigjort</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s kan fjernes</string>
-    <string name="dashboard_hero_freed_x_items">%1$s fjernet</string>
     <string name="dashboard_hero_freeable_hint">Trykk på knappen for å frigjøre plass, eller en brikke for å sjekke først.</string>
     <string name="dashboard_hero_freed_hint">Trykk på en brikke for detaljer.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

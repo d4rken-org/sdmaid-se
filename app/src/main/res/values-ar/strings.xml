@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">حذف النتائج في كل الأدوات؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s يمكن تحريره</string>
     <string name="dashboard_hero_freed_headline">%1$s محررة</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s يمكن إزالته</string>
-    <string name="dashboard_hero_freed_x_items">%1$s تمت إزالته</string>
     <string name="dashboard_hero_freeable_hint">اضغط على الزر لتحرير مساحة، أو على شريحة للفحص أولاً</string>
     <string name="dashboard_hero_freed_hint">اضغط على شريط للاطلاع على التفاصيل.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

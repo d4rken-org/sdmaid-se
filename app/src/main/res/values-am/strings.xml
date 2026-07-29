@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">በሁሉም መሳሪያዎች ውስጥ ያሉ ውጤቶችን ይሰረዙ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ነፃ ሊሆን ይችላል</string>
     <string name="dashboard_hero_freed_headline">%1$s ተገለለ</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ሊወገድ ይችላል</string>
-    <string name="dashboard_hero_freed_x_items">%1$s ተወግዷል</string>
     <string name="dashboard_hero_freeable_hint">ቦታ ለመክፈት ቁልፍ ይጫኑ ወይም መጀመሪያ ለመመርመር ሪባ ይጫኑ።</string>
     <string name="dashboard_hero_freed_hint">ዝርዝሮች ለማየት ሊባ ታች ያድርጉ።</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

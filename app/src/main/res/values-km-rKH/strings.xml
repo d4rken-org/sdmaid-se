@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">លុបលទ្ធផលនៅក្នុងឧបករណ៍ទាំងអស់ឬ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s អាចនៅទំនេរ</string>
     <string name="dashboard_hero_freed_headline">លុបចោល %1$s</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s អាចដកចេញបាន</string>
-    <string name="dashboard_hero_freed_x_items">ដកចេញ %1$s</string>
     <string name="dashboard_hero_freeable_hint">ចុចប៉ោលដើម្បីលាតលំហ ឬចុចឈីបដើម្បីពិនិត្យមើលដំបូង។</string>
     <string name="dashboard_hero_freed_hint">ចុចបន្ទះដើម្បីមើលព័ត៌មានលម្អិត។</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

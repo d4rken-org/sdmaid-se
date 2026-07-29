@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">सबै उपकरणहरूमा परिणामहरू मेटाउने?</string>
     <string name="dashboard_hero_freeable_headline">%1$s खाली गर्न सकिन्छ</string>
     <string name="dashboard_hero_freed_headline">%1$s खाली गरिएको छ</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s हटाउन सकिन्छ</string>
-    <string name="dashboard_hero_freed_x_items">%1$s हटाइएको छ</string>
     <string name="dashboard_hero_freeable_hint">स्पेस खाली गर्न बटन दबाउनुहोस्, वा पहिले जाँच गर्न एक चिप दबाउनुहोस्।</string>
     <string name="dashboard_hero_freed_hint">विवरणका लागि चिप ट्याप गर्नुहोस्।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

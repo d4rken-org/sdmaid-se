@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Burahin ang mga resulta sa lahat ng mga kagamitan?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ay maaaring ma-free</string>
     <string name="dashboard_hero_freed_headline">Napakawalan ang %1$s</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ay maaaring ma-alisin</string>
-    <string name="dashboard_hero_freed_x_items">Naalis ang %1$s</string>
     <string name="dashboard_hero_freeable_hint">I-tap ang button upang magbigay ng espasyo, o ang chip upang munang suriin.</string>
     <string name="dashboard_hero_freed_hint">I-tap ang chip para sa mga detalye.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

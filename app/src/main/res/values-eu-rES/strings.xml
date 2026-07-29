@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Erraminta guztietako emaitzak ezabatu?</string>
     <string name="dashboard_hero_freeable_headline">%1$s askatu daiteke</string>
     <string name="dashboard_hero_freed_headline">%1$s askatuta</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s kendu daiteke</string>
-    <string name="dashboard_hero_freed_x_items">%1$s kenduta</string>
     <string name="dashboard_hero_freeable_hint">Sakatu botoia espazioa libratzeko, edo txipa aurrenekoa egiaztatzeko.</string>
     <string name="dashboard_hero_freed_hint">Sakatu txipa detaleak ikusteko.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

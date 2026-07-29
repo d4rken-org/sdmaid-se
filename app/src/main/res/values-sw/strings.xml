@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Futa matokeo katika zana zote?</string>
     <string name="dashboard_hero_freeable_headline">%1$s inaweza kuachiliwa</string>
     <string name="dashboard_hero_freed_headline">Kuachiliwa %1$s</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s inaweza kuondolewa</string>
-    <string name="dashboard_hero_freed_x_items">Kuondolewa %1$s</string>
     <string name="dashboard_hero_freeable_hint">Gusa kitufe ili kuachia nafasi, au chip ili kuangalia kwanza.</string>
     <string name="dashboard_hero_freed_hint">Gusa kiambishi kwa maelezo.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

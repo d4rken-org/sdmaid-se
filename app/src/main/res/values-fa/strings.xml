@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">نتایج در همه ابزارها حذف شود؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s قابل آزادسازی است</string>
     <string name="dashboard_hero_freed_headline">%1$s آزادسازی شده</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s قابل حذف است</string>
-    <string name="dashboard_hero_freed_x_items">%1$s حذف شده</string>
     <string name="dashboard_hero_freeable_hint">برای آزادسازی فضا روی دکمه ضربه بزنید یا روی یک برچسب برای بررسی اول ضربه بزنید.</string>
     <string name="dashboard_hero_freed_hint">برای جزئیات روی یک چیپ ضربه بزنید.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

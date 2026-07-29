@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Διαγραφή αποτελεσμάτων σε όλα τα εργαλεία;</string>
     <string name="dashboard_hero_freeable_headline">%1$s μπορεί να απελευθερωθεί</string>
     <string name="dashboard_hero_freed_headline">%1$s απελευθερώθηκε</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s μπορεί να καταργηθεί</string>
-    <string name="dashboard_hero_freed_x_items">%1$s καταργήθηκε</string>
     <string name="dashboard_hero_freeable_hint">Πατήστε το κουμπί για να ελευθερώσετε χώρο, ή ένα chip για να ελέγξετε πρώτα.</string>
     <string name="dashboard_hero_freed_hint">Πατήστε ένα chip για λεπτομέρειες.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

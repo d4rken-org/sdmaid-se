@@ -3,8 +3,14 @@
     <string name="dashboard_delete_all_message">Ergebnisse in allen Tools löschen?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kann freigegeben werden</string>
     <string name="dashboard_hero_freed_headline">%1$s freigegeben</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s kann entfernt werden</string>
-    <string name="dashboard_hero_freed_x_items">%1$s entfernt</string>
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d Element kann entfernt werden</item>
+        <item quantity="other">%d Elemente können entfernt werden</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d Element entfernt</item>
+        <item quantity="other">%d Elemente entfernt</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Tippe auf den Button, um Speicher freizugeben, oder auf einen Chip, um zunächst zu prüfen.</string>
     <string name="dashboard_hero_freed_hint">Tippe auf einen Chip für Details.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

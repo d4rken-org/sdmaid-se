@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Izbriši rezultate v vseh orodjih?</string>
     <string name="dashboard_hero_freeable_headline">Sprostite lahko %1$s.</string>
     <string name="dashboard_hero_freed_headline">Sproščeno je bilo %1$s.</string>
-    <string name="dashboard_hero_freeable_x_items">Odstraniti je mogoče %1$s.</string>
-    <string name="dashboard_hero_freed_x_items">Odstranjeno je bilo %1$s.</string>
     <string name="dashboard_hero_freeable_hint">Pritisnite gumb, da sprostite prostor, ali oznako za preverjanje najprej.</string>
     <string name="dashboard_hero_freed_hint">Tapnite čip za podrobnosti.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

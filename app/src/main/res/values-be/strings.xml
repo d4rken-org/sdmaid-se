@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Выдаліць рэзультаты ва ўсіх інструментах?</string>
     <string name="dashboard_hero_freeable_headline">%1$s можна вызваліць</string>
     <string name="dashboard_hero_freed_headline">Вызвалена %1$s</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s можна выдаліць</string>
-    <string name="dashboard_hero_freed_x_items">Выдалена %1$s</string>
     <string name="dashboard_hero_freeable_hint">Дакніце на кнопку, каб вызваліць месца, або на чып для праверкі спачатку.</string>
     <string name="dashboard_hero_freed_hint">Кацніце чып для дэталяў.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

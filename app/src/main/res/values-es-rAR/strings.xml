@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_hero_freeable_headline">%1$s se puede liberar</string>
     <string name="dashboard_hero_freed_headline">%1$s liberado</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s se puede remover</string>
-    <string name="dashboard_hero_freed_x_items">%1$s removido</string>
     <string name="dashboard_hero_freeable_hint">Tocá el botón para liberar espacio, o un chip para verificar primero.</string>
     <string name="dashboard_hero_freed_hint">Presioná un chip para ver detalles.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

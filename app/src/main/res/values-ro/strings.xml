@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Ștergeți rezultatele din toate instrumentele?</string>
     <string name="dashboard_hero_freeable_headline">%1$s poate fi eliberat</string>
     <string name="dashboard_hero_freed_headline">%1$s eliberat</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s poate fi eliminat</string>
-    <string name="dashboard_hero_freed_x_items">%1$s eliminat</string>
     <string name="dashboard_hero_freeable_hint">Atingeți butonul pentru a elibera spațiu, sau o etichetă pentru a verifica mai întâi.</string>
     <string name="dashboard_hero_freed_hint">Apasă o etichetă pentru detalii.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

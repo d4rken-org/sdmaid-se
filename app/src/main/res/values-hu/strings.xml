@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_hero_freeable_headline">%1$s felszabadítható</string>
     <string name="dashboard_hero_freed_headline">%1$s felszabadult</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s eltávolítható</string>
-    <string name="dashboard_hero_freed_x_items">%1$s eltávolítva</string>
     <string name="dashboard_hero_freeable_hint">Nyomd meg a gombot a hely felszabadításához, vagy egy gombot az ellenőrzéshez.</string>
     <string name="dashboard_hero_freed_hint">Koppints egy chipre a részletekért.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

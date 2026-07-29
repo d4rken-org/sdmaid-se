@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">すべてのツールの結果を削除しますか？</string>
     <string name="dashboard_hero_freeable_headline">%1$sを解放できます</string>
     <string name="dashboard_hero_freed_headline">%1$s解放されました</string>
-    <string name="dashboard_hero_freeable_x_items">%1$sを削除できます</string>
-    <string name="dashboard_hero_freed_x_items">%1$s削除されました</string>
     <string name="dashboard_hero_freeable_hint">ボタンをタップしてスペースを解放するか、チップをタップして最初に確認してください。</string>
     <string name="dashboard_hero_freed_hint">詳細を確認するにはチップをタップしてください。</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

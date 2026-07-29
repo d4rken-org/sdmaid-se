@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Të fshihen rezultatet në të gjitha mjetet?</string>
     <string name="dashboard_hero_freeable_headline">%1$s mund të lirohet</string>
     <string name="dashboard_hero_freed_headline">%1$s u lirua</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s mund të hiqet</string>
-    <string name="dashboard_hero_freed_x_items">%1$s u hoq</string>
     <string name="dashboard_hero_freeable_hint">Prekni butonin për të liruar hapësirë, ose një çip për të kontrolluar fillimisht.</string>
     <string name="dashboard_hero_freed_hint">Prek një çip për më shumë detaje.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

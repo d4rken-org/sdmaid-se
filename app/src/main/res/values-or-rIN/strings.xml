@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">ସମସ୍ତ ଟୁଲ୍‌ର ଫଳାଫଳ ଡିଲିଟ୍ କରିବେ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ମୁକ୍ତ କରିହେବ</string>
     <string name="dashboard_hero_freed_headline">%1$s ମୁକ୍ତ କରାଗଲା</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ଅପସାରଣ କରିହେବ</string>
-    <string name="dashboard_hero_freed_x_items">%1$s ଅପସାରଣ କରାଗଲା</string>
     <string name="dashboard_hero_freeable_hint">ସ୍ଥାନ ମୁକ୍ତ କରିବାକୁ ବଟନକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ, ଅଥବା ପ୍ରଥମେ ଚେକ୍ କରିବାକୁ ଏକ ଚିପକୁ ଟ୍ୟାପ୍ କରନ୍ତୁ।</string>
     <string name="dashboard_hero_freed_hint">ବିବରଣୀ ପାଇଁ ଏକ ଚିପ୍ ଟ୍ୟାପ କରନ୍ତୁ।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

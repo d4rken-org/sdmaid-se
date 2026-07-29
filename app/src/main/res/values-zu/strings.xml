@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Susa imiphumela kuwo wonke amathuluzi?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ingakhululwa</string>
     <string name="dashboard_hero_freed_headline">%1$s khululiwe</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ingasuswa</string>
-    <string name="dashboard_hero_freed_x_items">%1$s susuliwe</string>
     <string name="dashboard_hero_freeable_hint">Cisha inkinobho ukuze kukhululeke indawo, noma ichips ukuze uhlole kuqala.</string>
     <string name="dashboard_hero_freed_hint">Thinta ichip ukuthola imininingwane.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

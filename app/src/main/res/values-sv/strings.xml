@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Ta bort resultat i alla verktyg?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan frigöras</string>
     <string name="dashboard_hero_freed_headline">%1$s frigjord</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s kan tas bort</string>
-    <string name="dashboard_hero_freed_x_items">%1$s borttagen</string>
     <string name="dashboard_hero_freeable_hint">Tryck på knappen för att frigöra utrymme, eller på ett chip för att kontrollera först.</string>
     <string name="dashboard_hero_freed_hint">Tryck på en chip för detaljer.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

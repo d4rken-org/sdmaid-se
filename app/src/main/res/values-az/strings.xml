@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələr silinsin?</string>
     <string name="dashboard_hero_freeable_headline">%1$s azad edilə bilər</string>
     <string name="dashboard_hero_freed_headline">%1$s azad edildi</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s silinə bilər</string>
-    <string name="dashboard_hero_freed_x_items">%1$s silindi</string>
     <string name="dashboard_hero_freeable_hint">Yeri azaltmaq üçün düyməyə basın, ya da əvvəl yoxlamaq üçün chip-ə toxunun.</string>
     <string name="dashboard_hero_freed_hint">Detallar üçün çipə toxunun.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

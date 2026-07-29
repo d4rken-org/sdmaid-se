@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả công cụ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s có thể được giải phóng</string>
     <string name="dashboard_hero_freed_headline">Đã giải phóng %1$s</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s có thể được xóa</string>
-    <string name="dashboard_hero_freed_x_items">Đã xóa %1$s</string>
     <string name="dashboard_hero_freeable_hint">Nhấn nút để giải phóng dung lượng, hoặc nhấn một chip để kiểm tra trước.</string>
     <string name="dashboard_hero_freed_hint">Nhấn một chip để xem chi tiết.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

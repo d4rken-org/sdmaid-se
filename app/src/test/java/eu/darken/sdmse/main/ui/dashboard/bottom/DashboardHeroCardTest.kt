@@ -20,6 +20,7 @@ import eu.darken.sdmse.main.ui.dashboard.HeroSummary
 import eu.darken.sdmse.main.core.SDMTool
 import org.junit.Assert.assertEquals
 import org.junit.Test
+import org.robolectric.annotation.Config
 import testhelpers.compose.BaseComposeRobolectricTest
 import java.time.Instant
 
@@ -27,10 +28,13 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
 
-    private fun summary(timestamp: Instant? = null) = HeroSummary(
+    private fun summary(
+        timestamp: Instant? = null,
+        itemCount: Int = 37,
+    ) = HeroSummary(
         mode = HeroSummary.Mode.FREEABLE,
         totalSize = 2L * 1024 * 1024 * 1024,
-        itemCount = 37,
+        itemCount = itemCount,
         tools = listOf(
             HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
             HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 1L * 1024 * 1024 * 1024, 25),
@@ -68,6 +72,54 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             }
         }
         composeRule.onNodeWithText("can be removed", substring = true).assertExists()
+    }
+
+    private fun renderHero(hero: HeroSummary) {
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(hero),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                )
+            }
+        }
+    }
+
+    @Test
+    fun `freeable caption uses the singular form for a single item`() {
+        renderHero(summary(itemCount = 1))
+        composeRule.onNodeWithText("1 item can be removed", substring = true).assertExists()
+    }
+
+    // Regression: the caption used to splice an already-pluralized noun phrase into a plain <string>,
+    // so German was locked to the singular verb and rendered "10 Elemente kann entfernt werden".
+    //
+    // Expected text is resolved through the resources rather than hardcoded — values-de is a Crowdin
+    // download target, so pinning wording would make a translator reword or a crowdin pull fail CI.
+    // Matching is exact and positive-only: a substring check can spuriously fail when one form
+    // legitimately contains the other, and asserting the absence of the opposing form breaks on the
+    // impersonal rephrasings that make both forms identical (several locales already do this). An
+    // exact match on the form for the real count already fails if the wrong form is selected.
+    @Test
+    @Config(qualifiers = "de")
+    fun `german caption picks the plural form for multiple items`() {
+        val expected = context.resources.getQuantityString(R.plurals.dashboard_hero_freeable_x_items, 10, 10)
+        renderHero(summary(itemCount = 10))
+        composeRule.onNodeWithText(expected).assertExists()
+    }
+
+    @Test
+    @Config(qualifiers = "de")
+    fun `german caption picks the singular form for a single item`() {
+        val expected = context.resources.getQuantityString(R.plurals.dashboard_hero_freeable_x_items, 1, 1)
+        renderHero(summary(itemCount = 1))
+        composeRule.onNodeWithText(expected).assertExists()
     }
 
     @Test

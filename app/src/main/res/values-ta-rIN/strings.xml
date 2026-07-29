@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">அனைத்து கருவிகளிலும் முடிவுகளை நீக்கவா?</string>
     <string name="dashboard_hero_freeable_headline">%1$s விடுவிக்கப்படலாம்</string>
     <string name="dashboard_hero_freed_headline">%1$s விடுவிக்கப்பட்டது</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s நீக்கப்படலாம்</string>
-    <string name="dashboard_hero_freed_x_items">%1$s நீக்கப்பட்டது</string>
     <string name="dashboard_hero_freeable_hint">பொத்தானைத் தட்டி இடைவெளியை விடுவிக்க, அல்லது முதலில் சரிபார்க்க ஒரு சிப்பைத் தட்டவும்.</string>
     <string name="dashboard_hero_freed_hint">விவரங்களுக்கு ஒரு சிப்பை தட்டவும்.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

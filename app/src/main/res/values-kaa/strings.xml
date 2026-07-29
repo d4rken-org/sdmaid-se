@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Nátiyjeler barlıq ásbaplardan óshirilsin be?</string>
     <string name="dashboard_hero_freeable_headline">%1$s bostatıla alması múmkin</string>
     <string name="dashboard_hero_freed_headline">%1$s bostatıldı</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s óshirile alması múmkin</string>
-    <string name="dashboard_hero_freed_x_items">%1$s óshirildi</string>
     <string name="dashboard_hero_freeable_hint">Jorlama ushun tugmani basıp qosıń, yaki avval teksheriw ushun chipni basıń.</string>
     <string name="dashboard_hero_freed_hint">Detallar ushın chipti basıń.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
