@@ -34,6 +34,10 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import androidx.compose.ui.unit.dp
+import java.time.Instant
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter
+import java.time.format.FormatStyle
 
 // Which presentation the FOSS upgrade screen shows: the classic support pitch, or one of the
 // status views behind the settings "upgrade status" entry.
@@ -82,12 +86,13 @@ fun UpgradeScreenHost(
         }
     }
 
-    val view by vm.state.collectAsStateWithLifecycle()
+    val state by vm.state.collectAsStateWithLifecycle()
 
     UpgradeScreen(
         // Until the route binding lands (one frame): the default route keeps rendering the pitch
         // exactly as before, only the manage route waits for the status decision.
-        view = view ?: FossUpgradeView.PITCH.takeIf { !route.manage },
+        view = state.view ?: FossUpgradeView.PITCH.takeIf { !route.manage },
+        supporterSince = state.supporterSince,
         snackbarHostState = snackbarHostState,
         onGithubSponsors = vm::goGithubSponsors,
         onShowUpgradeOptions = vm::onShowUpgradeOptions,
@@ -98,6 +103,7 @@ fun UpgradeScreenHost(
 @Composable
 internal fun UpgradeScreen(
     view: FossUpgradeView? = FossUpgradeView.PITCH,
+    supporterSince: Instant? = null,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onGithubSponsors: () -> Unit = {},
     onShowUpgradeOptions: () -> Unit = {},
@@ -128,6 +134,7 @@ internal fun UpgradeScreen(
 
             FossUpgradeView.STATUS_UPGRADED -> UpgradeStatusUpgradedContent(
                 paddingValues = paddingValues,
+                supporterSince = supporterSince,
                 onGithubSponsors = onGithubSponsors,
             )
         }
@@ -221,6 +228,7 @@ private fun UpgradeStatusFreeContent(
 @Composable
 private fun UpgradeStatusUpgradedContent(
     paddingValues: PaddingValues,
+    supporterSince: Instant? = null,
     onGithubSponsors: () -> Unit,
 ) {
     UpgradeScreenContent(
@@ -243,6 +251,15 @@ private fun UpgradeStatusUpgradedContent(
                 text = stringResource(R.string.upgrade_screen_status_upgraded_body),
                 style = MaterialTheme.typography.bodyMedium,
             )
+            supporterSince?.let { since ->
+                val formatter = remember {
+                    DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).withZone(ZoneId.systemDefault())
+                }
+                Text(
+                    text = stringResource(R.string.upgrade_screen_supporter_since, formatter.format(since)),
+                    style = MaterialTheme.typography.bodySmall,
+                )
+            }
         }
 
         UpgradeSectionCard(
@@ -300,6 +317,9 @@ private fun UpgradeScreenStatusFreePreview() {
 @Composable
 private fun UpgradeScreenStatusUpgradedPreview() {
     PreviewWrapper {
-        UpgradeScreen(view = FossUpgradeView.STATUS_UPGRADED)
+        UpgradeScreen(
+            view = FossUpgradeView.STATUS_UPGRADED,
+            supporterSince = Instant.ofEpochMilli(1_700_000_000_000L),
+        )
     }
 }

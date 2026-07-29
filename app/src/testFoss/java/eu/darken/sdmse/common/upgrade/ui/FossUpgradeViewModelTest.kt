@@ -76,37 +76,53 @@ class FossUpgradeViewModelTest : BaseTest() {
     fun `manage route shows the free status to non-upgraded users`() = runTest2(context = testDispatcher) {
         val vm = buildVm()
 
-        val view = async { vm.state.first { it != null } }
+        val view = async { vm.state.first { it.view != null } }
         vm.bindRoute(UpgradeRoute(manage = true))
         advanceUntilIdle()
 
-        view.await() shouldBe FossUpgradeView.STATUS_FREE
+        view.await().view shouldBe FossUpgradeView.STATUS_FREE
     }
 
     @Test
     fun `manage route shows the upgraded status to supporters`() = runTest2(context = testDispatcher) {
         val vm = buildVm(repo = mockRepo(MutableStateFlow(upgradedInfo())))
 
-        val view = async { vm.state.first { it != null } }
+        val view = async { vm.state.first { it.view != null } }
         vm.bindRoute(UpgradeRoute(manage = true))
         advanceUntilIdle()
 
-        view.await() shouldBe FossUpgradeView.STATUS_UPGRADED
+        view.await().view shouldBe FossUpgradeView.STATUS_UPGRADED
+    }
+
+    @Test
+    fun `supporterSince reflects the repo's upgradedAt`() = runTest2(context = testDispatcher) {
+        // Derived in the same emission as the view: the upgraded status must never render a frame
+        // without the date it is supposed to carry.
+        val vm = buildVm(repo = mockRepo(MutableStateFlow(upgradedInfo())))
+
+        val state = async { vm.state.first { it.view != null } }
+        vm.bindRoute(UpgradeRoute(manage = true))
+        advanceUntilIdle()
+
+        state.await() shouldBe UpgradeViewModel.State(
+            view = FossUpgradeView.STATUS_UPGRADED,
+            supporterSince = Instant.EPOCH,
+        )
     }
 
     @Test
     fun `default and forced routes show the pitch`() = runTest2(context = testDispatcher) {
         val defaultVm = buildVm()
-        val defaultView = async { defaultVm.state.first { it != null } }
+        val defaultView = async { defaultVm.state.first { it.view != null } }
         defaultVm.bindRoute(UpgradeRoute())
 
         val forcedVm = buildVm()
-        val forcedView = async { forcedVm.state.first { it != null } }
+        val forcedView = async { forcedVm.state.first { it.view != null } }
         forcedVm.bindRoute(UpgradeRoute(forced = true))
         advanceUntilIdle()
 
-        defaultView.await() shouldBe FossUpgradeView.PITCH
-        forcedView.await() shouldBe FossUpgradeView.PITCH
+        defaultView.await().view shouldBe FossUpgradeView.PITCH
+        forcedView.await().view shouldBe FossUpgradeView.PITCH
     }
 
     @Test
@@ -114,15 +130,15 @@ class FossUpgradeViewModelTest : BaseTest() {
         val vm = buildVm()
         vm.bindRoute(UpgradeRoute(manage = true))
 
-        val freeView = async { vm.state.first { it != null } }
+        val freeView = async { vm.state.first { it.view != null } }
         advanceUntilIdle()
-        freeView.await() shouldBe FossUpgradeView.STATUS_FREE
+        freeView.await().view shouldBe FossUpgradeView.STATUS_FREE
 
-        val pitchView = async { vm.state.first { it == FossUpgradeView.PITCH } }
+        val pitchView = async { vm.state.first { it.view == FossUpgradeView.PITCH } }
         vm.onShowUpgradeOptions()
         advanceUntilIdle()
 
-        pitchView.await() shouldBe FossUpgradeView.PITCH
+        pitchView.await().view shouldBe FossUpgradeView.PITCH
     }
 
     @Test
@@ -135,11 +151,11 @@ class FossUpgradeViewModelTest : BaseTest() {
 
         // Same handle, fresh ViewModel — as after the process was killed on the pitch.
         val recreatedVm = buildVm(handle = handle)
-        val view = async { recreatedVm.state.first { it != null } }
+        val view = async { recreatedVm.state.first { it.view != null } }
         recreatedVm.bindRoute(UpgradeRoute(manage = true))
         advanceUntilIdle()
 
-        view.await() shouldBe FossUpgradeView.PITCH
+        view.await().view shouldBe FossUpgradeView.PITCH
     }
 
     @Test
@@ -151,15 +167,15 @@ class FossUpgradeViewModelTest : BaseTest() {
         vm.bindRoute(UpgradeRoute(manage = true))
         vm.onShowUpgradeOptions()
 
-        val pitchView = async { vm.state.first { it != null } }
+        val pitchView = async { vm.state.first { it.view != null } }
         advanceUntilIdle()
-        pitchView.await() shouldBe FossUpgradeView.PITCH
+        pitchView.await().view shouldBe FossUpgradeView.PITCH
 
-        val upgradedView = async { vm.state.first { it == FossUpgradeView.STATUS_UPGRADED } }
+        val upgradedView = async { vm.state.first { it.view == FossUpgradeView.STATUS_UPGRADED } }
         info.value = upgradedInfo()
         advanceUntilIdle()
 
-        upgradedView.await() shouldBe FossUpgradeView.STATUS_UPGRADED
+        upgradedView.await().view shouldBe FossUpgradeView.STATUS_UPGRADED
     }
 
     @Test

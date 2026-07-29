@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -43,20 +44,29 @@ class UpgradeViewModel @Inject constructor(
     // gets a status view first; the pitch only appears once a free user asks for the upgrade
     // options. Upgrading wins over that choice — completing the sponsor flow from the pitch must
     // land on the upgraded status, not back on the ask. null until the route is bound.
-    internal val state: StateFlow<FossUpgradeView?> = combine(
+    internal val state: StateFlow<State> = combine(
         routeFlow,
         upgradeRepo.upgradeInfo,
         handle.getStateFlow(KEY_SHOW_UPGRADE_OPTIONS, false),
     ) { route, info, showOptions ->
-        when {
+        val view = when {
             route == null -> null
             route.manage && info.isPro -> FossUpgradeView.STATUS_UPGRADED
             route.manage && !showOptions -> FossUpgradeView.STATUS_FREE
             else -> FossUpgradeView.PITCH
         }
+        // Derived in the same emission as the view on purpose: a sibling flow would let the
+        // upgraded status render for a frame without the date it is supposed to carry.
+        State(view = view, supporterSince = info.upgradedAt)
     }.safeStateIn(
-        initialValue = null,
-        onError = { FossUpgradeView.PITCH },
+        initialValue = State(),
+        onError = { State(view = FossUpgradeView.PITCH) },
+    )
+
+    // internal like FossUpgradeView: the view enum is a screen-local presentation detail.
+    internal data class State(
+        val view: FossUpgradeView? = null,
+        val supporterSince: Instant? = null,
     )
 
     init {
