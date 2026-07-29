@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
 import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filter
@@ -99,9 +100,22 @@ class RecorderModule @Inject constructor(
 
                         val newRecorder = recorderProvider.get().apply { start(logDir) }
 
-                        if (!triggerFile.exists()) triggerFile.createNewFile()
+                        try {
+                            if (!triggerFile.exists()) triggerFile.createNewFile()
 
-                        logInfos()
+                            logInfos()
+                        } catch (e: Exception) {
+                            // The recorder is already live but not yet committed to the state: an exception escaping
+                            // the header would abandon it where stopRecorder() can't reach it.
+                            withContext(NonCancellable) {
+                                try {
+                                    newRecorder.stop()
+                                } catch (stopError: Exception) {
+                                    e.addSuppressed(stopError)
+                                }
+                            }
+                            throw e
+                        }
 
                         copy(
                             recorder = newRecorder,

@@ -25,9 +25,15 @@ import io.mockk.mockkStatic
 import io.mockk.slot
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
@@ -178,6 +184,48 @@ class RecorderModuleTest : BaseTest() {
             advanceUntilIdle()
 
             module.state.first { it.isRecording }.isRecording shouldBe true
+        }
+
+        @Test
+        fun `a cancellation during the log header stops the uncommitted recorder`() = runTest {
+            // The recorder is started before the header is written but only committed to the state
+            // afterwards: a cancellation in between would orphan a running recorder that
+            // stopRecorder() can never reach.
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+            coEvery { upgradeDiagnostics.debugInfo() } coAnswers { awaitCancellation() }
+
+            val dispatcher = UnconfinedTestDispatcher(testScheduler)
+            val moduleScope = CoroutineScope(dispatcher + Job())
+            val module = createModule(moduleScope, dispatcher)
+            advanceUntilIdle()
+
+            // Cancelling the module's scope cancels the in-flight header read.
+            moduleScope.cancel()
+            advanceUntilIdle()
+
+            coVerify { mockRecorder.start(any()) }
+            coVerify { mockRecorder.stop() }
+            module.state.first().isRecording shouldBe false
+        }
+
+        @Test
+        fun `a failing header read stops the uncommitted recorder`() = runTest {
+            // Same window as above, but for ordinary failures of the unguarded header reads.
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+            every { curriculumVitae.history } returns flow { throw IOException("disk full") }
+
+            val dispatcher = UnconfinedTestDispatcher(testScheduler)
+            val moduleScope = CoroutineScope(dispatcher + Job())
+            val module = createModule(moduleScope, dispatcher)
+            advanceUntilIdle()
+
+            coVerify { mockRecorder.start(any()) }
+            coVerify { mockRecorder.stop() }
+            module.state.first().isRecording shouldBe false
+
+            moduleScope.cancel()
         }
 
         @Test
