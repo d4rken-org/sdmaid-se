@@ -267,6 +267,14 @@ class UpgradeViewModel @Inject constructor(
         retryTrigger.update { it + 1 }
     }
 
+    // Returning to the screen is the user's own "try again": a transient Play outage would
+    // otherwise leave the retry card up until it's tapped by hand. Only re-queries from the
+    // unavailable state — a loaded or still-loading screen has nothing to retry.
+    fun onResume() {
+        log(TAG) { "onResume()" }
+        if (state.value is GplayUpgradeUiState.Unavailable) retrySkuQuery()
+    }
+
     // Acquires the single action slot. Rejects while ANY other entitlement action of this ViewModel
     // runs, and while the repo reports a Play launch in flight (which may belong to another VM
     // instance — the repo CAS remains the authoritative gate, this only avoids the pointless tap).

@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -27,6 +28,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
@@ -50,8 +53,9 @@ fun UpgradeScreenHost(
     val context = LocalContext.current
     val activity = context as? android.app.Activity
 
-    // No screen-level resume refresh: MainActivity already refreshes the upgrade repo on every
-    // activity resume, which covers returning from Play after cancelling the subscription there.
+    // MainActivity's per-resume refresh only covers the entitlement, never the screen-local SKU
+    // query — so a transient Play outage would leave the retry card up until it's tapped by hand.
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { vm.onResume() }
 
     // rememberSaveable, not remember: these are driven by one-shot events that are already consumed
     // from the flow, so a rotation while a dialog is up would drop it for good.
@@ -360,14 +364,24 @@ private fun UpgradeOffersBox(
         when (state) {
             GplayUpgradeUiState.Loading -> UpgradeActionCard { UpgradeLoadingBlock() }
             is GplayUpgradeUiState.Unavailable -> UpgradeInlineStateCard(
-                title = stringResource(R.string.upgrades_gplay_unavailable_error_title),
+                title = stringResource(R.string.upgrade_screen_offers_unavailable_title),
                 body = stringResource(R.string.upgrade_screen_offers_unavailable_message),
                 icon = Icons.TwoTone.WarningAmber,
             ) {
                 // Play can be slow rather than broken (cold store, first sign-in): let
                 // the user re-run the offer queries instead of leaving a dead screen.
+                // No reset needed: this composable unmounts the moment the state leaves Unavailable.
+                var retryTapped by remember { mutableStateOf(false) }
                 OutlinedButton(
-                    onClick = onRetry,
+                    // Guard inside the callback, not just via `enabled`: `enabled` only takes effect
+                    // after recomposition, so two taps in the same frame would both fire.
+                    onClick = {
+                        if (!retryTapped) {
+                            retryTapped = true
+                            onRetry()
+                        }
+                    },
+                    enabled = !retryTapped,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(UpgradeScreenTags.GPLAY_RETRY),
