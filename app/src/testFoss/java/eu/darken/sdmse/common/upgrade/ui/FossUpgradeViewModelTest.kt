@@ -237,4 +237,34 @@ class FossUpgradeViewModelTest : BaseTest() {
         thanks.await() shouldBe R.string.upgrade_screen_thanks_toast
         coVerify(exactly = 1) { repo.persistUpgrade() }
     }
+
+    /**
+     * Process death between the sponsor launch and the return: the screen's in-memory return
+     * tracker is gone, so the handle-backed pending launch has to carry the state across. Without
+     * it the very first return after a recreation is dropped and the supporter never gets unlocked.
+     */
+    @Test
+    fun `a sponsor return after process recreation still persists the upgrade`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val handle = SavedStateHandle()
+        val firstVm = buildVm(handle = handle)
+        firstVm.goGithubSponsors()
+        advanceUntilIdle()
+
+        // Same handle, fresh ViewModel — as after the process was killed while the browser was up.
+        val repo = mockRepo()
+        val recreatedVm = buildVm(repo = repo, handle = handle)
+        recreatedVm.hasPendingSponsorLaunch() shouldBe true
+
+        val thanks = async { recreatedVm.toastEvents.first() }
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        recreatedVm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        thanks.await() shouldBe R.string.upgrade_screen_thanks_toast
+        coVerify(exactly = 1) { repo.persistUpgrade() }
+        // Consumed: a later resume must not re-run the unlock.
+        recreatedVm.hasPendingSponsorLaunch() shouldBe false
+    }
 }
