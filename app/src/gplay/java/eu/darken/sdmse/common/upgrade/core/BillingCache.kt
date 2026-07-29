@@ -11,19 +11,27 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.basicReader
 import eu.darken.sdmse.common.datastore.basicWriter
 import eu.darken.sdmse.common.datastore.createValue
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.withTimeoutOrNull
+import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
+private val Context.billingCacheDataStore by preferencesDataStore(name = "settings_gplay")
+
 @Singleton
-class BillingCache @Inject constructor(
-    @ApplicationContext private val context: Context,
+class BillingCache internal constructor(
+    private val dataStore: DataStore<Preferences>,
 ) {
 
-    private val Context.dataStore by preferencesDataStore(name = "settings_gplay")
+    @Inject constructor(@ApplicationContext context: Context) : this(context.billingCacheDataStore)
 
-    private val dataStore: DataStore<Preferences>
-        get() = context.dataStore
+    // Test seam: the bounded reads/writes below run on real dispatchers, so a virtual-time test
+    // cannot advance the production bound. Same pattern as UpgradeRepoGplay.launchTimeoutMs.
+    internal var cacheTimeoutMs: Long = CACHE_TIMEOUT_MS
 
     // Raw keys shared between the DataStoreValues and stampLastProState's transaction — one
     // source of truth for key name and encoding.
@@ -60,8 +68,15 @@ class BillingCache @Inject constructor(
         val proUnconfirmedSince: Long,
     )
 
+    // Bounded on purpose: a wedged DataStore file lock would otherwise hang the caller forever.
+    // A timeout must NOT fall back to the default snapshot -- that would report "never bought"
+    // for an install whose evidence merely couldn't be read, which is the exact distinction the
+    // debug-log header exists to make.
     suspend fun snapshot(): Snapshot {
-        val prefs = dataStore.data.first()
+        val prefs = withTimeoutOrNull(cacheTimeoutMs) { dataStore.data.first() } ?: run {
+            log(TAG, WARN) { "snapshot() timed out after ${cacheTimeoutMs}ms" }
+            throw IOException("BillingCache snapshot timed out after ${cacheTimeoutMs}ms")
+        }
         return Snapshot(
             lastProStateAt = prefs[lastProStateAtKey] ?: 0L,
             lastProStateSku = prefs[lastProStateSkuKey] ?: "",
@@ -77,11 +92,19 @@ class BillingCache @Inject constructor(
     // entitlement layer out of order) opened a still-valid episode that this older confirmation must
     // not erase.
     suspend fun stampLastProState(skuId: String, at: Long) {
-        dataStore.edit { prefs ->
-            prefs[lastProStateSkuKey] = skuId
-            prefs[lastProStateAtKey] = at
-            val episodeStart = prefs[proUnconfirmedSinceKey] ?: 0L
-            if (episodeStart in 1..at) prefs[proUnconfirmedSinceKey] = 0L
-        }
+        // Fail-soft: this decorates the entitlement path, it must never be the thing that blocks it.
+        withTimeoutOrNull(cacheTimeoutMs) {
+            dataStore.edit { prefs ->
+                prefs[lastProStateSkuKey] = skuId
+                prefs[lastProStateAtKey] = at
+                val episodeStart = prefs[proUnconfirmedSinceKey] ?: 0L
+                if (episodeStart in 1..at) prefs[proUnconfirmedSinceKey] = 0L
+            }
+        } ?: log(TAG, WARN) { "stampLastProState($skuId, $at) timed out after ${cacheTimeoutMs}ms, write skipped" }
+    }
+
+    companion object {
+        private const val CACHE_TIMEOUT_MS = 2_000L
+        private val TAG = logTag("Upgrade", "Gplay", "BillingCache")
     }
 }

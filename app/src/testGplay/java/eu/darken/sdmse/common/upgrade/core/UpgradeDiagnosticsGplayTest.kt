@@ -4,6 +4,7 @@ import eu.darken.sdmse.main.core.CurriculumVitae
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.string.shouldNotContain
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.CancellationException
@@ -104,6 +105,22 @@ class UpgradeDiagnosticsGplayTest : BaseTest() {
                 history = { throw CancellationException("scope died") },
             ).debugInfo()
         }
+    }
+
+    @Test
+    fun `a wedged billing cache is reported as unavailable, not as a never-pro install`() = runTest {
+        // End-to-end over a real BillingCache whose store never answers: the bounded read throws,
+        // and the header must say the evidence is missing instead of claiming "never bought".
+        val diagnostics = UpgradeDiagnosticsGplay(
+            billingCache = BillingCache(HangingPreferencesDataStore()).apply { cacheTimeoutMs = 50L },
+            curriculumVitae = mockk<CurriculumVitae>().apply { coEvery { proHistory() } returns proHistory },
+        )
+
+        val info = diagnostics.debugInfo()
+
+        info shouldContain "BillingCache=unavailable"
+        info shouldNotContain "lastProStateAt=never"
+        info shouldContain "ProHistory=$proHistory"
     }
 
     @Test
