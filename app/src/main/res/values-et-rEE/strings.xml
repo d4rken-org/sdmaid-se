@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Kustutada kõikide vahendite tulemused?</string>
     <string name="dashboard_hero_freeable_headline">%1$s saab vabastada</string>
     <string name="dashboard_hero_freed_headline">%1$s vabastatud</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s saab eemaldada</string>
-    <string name="dashboard_hero_freed_x_items">%1$s eemaldatud</string>
     <string name="dashboard_hero_freeable_hint">Puuduta nuppu ruumi vabastamiseks, või puuduta kiipi esmalt kontrollimiseks.</string>
     <string name="dashboard_hero_freed_hint">Vajuta kiibi peale täpsemalt.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

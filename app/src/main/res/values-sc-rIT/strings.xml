@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Cantzellare is risultados in totu is ainas?</string>
     <string name="dashboard_hero_freeable_headline">%1$s si podet isberare</string>
     <string name="dashboard_hero_freed_headline">%1$s isberadu</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s si podet tòllere</string>
-    <string name="dashboard_hero_freed_x_items">%1$s tollidu</string>
     <string name="dashboard_hero_freeable_hint">Toca su butone pro liberare spazzu, o un chip pro controlare subprima.</string>
     <string name="dashboard_hero_freed_hint">Toca un chip pro dettallus.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

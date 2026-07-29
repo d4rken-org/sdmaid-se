@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">ลบการรายงานผลทั้งหมดหรือไม่?</string>
     <string name="dashboard_hero_freeable_headline">%1$s สามารถปล่อยออกได้</string>
     <string name="dashboard_hero_freed_headline">%1$s ปล่อยออก</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s สามารถลบออกได้</string>
-    <string name="dashboard_hero_freed_x_items">%1$s ลบออก</string>
     <string name="dashboard_hero_freeable_hint">แตะปุ่มเพื่อเพิ่มพื้นที่ว่าง หรือแตะชิปเพื่อตรวจสอบก่อน</string>
     <string name="dashboard_hero_freed_hint">แตะชิปเพื่อดูรายละเอียด</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

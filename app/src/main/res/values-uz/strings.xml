@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Barcha vositalardan natijalarni o\'chirish kerakmi?</string>
     <string name="dashboard_hero_freeable_headline">%1$s bo\'shatish mumkin</string>
     <string name="dashboard_hero_freed_headline">%1$s bo\'shatildi</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s o\'chirish mumkin</string>
-    <string name="dashboard_hero_freed_x_items">%1$s o\'chirildi</string>
     <string name="dashboard_hero_freeable_hint">Maydonni bo\'shatish uchun tugmani bosing yoki birinchi tekshirish uchun chipni bosing.</string>
     <string name="dashboard_hero_freed_hint">Batafsil uchun chipni bosing.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Ištrinti visų įrankių rezultatus?</string>
     <string name="dashboard_hero_freeable_headline">%1$s gali būti atlaisvinta</string>
     <string name="dashboard_hero_freed_headline">%1$s atlaisvinta</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s gali būti pašalinta</string>
-    <string name="dashboard_hero_freed_x_items">%1$s pašalinta</string>
     <string name="dashboard_hero_freeable_hint">Paspauskite mygtuką laisvai atlaisvinti, arba žetoną norėdami iš pradžios patikrinti.</string>
     <string name="dashboard_hero_freed_hint">Palieskite lustą, kad sužinotumėte daugiau.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

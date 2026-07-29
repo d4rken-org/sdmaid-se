@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">تمام ٹولز میں نتائج کو حذف کریں؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s خالی کیا جا سکتا ہے</string>
     <string name="dashboard_hero_freed_headline">%1$s خالی کیا گیا</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ہٹایا جا سکتا ہے</string>
-    <string name="dashboard_hero_freed_x_items">%1$s ہٹایا گیا</string>
     <string name="dashboard_hero_freeable_hint">جگہ خالی کرنے کے لیے بٹن دبائیں یا پہلے چیک کرنے کے لیے ایک چپ دبائیں</string>
     <string name="dashboard_hero_freed_hint">تفصیلات کے لیے ایک چپ کو تھپتھپائیں۔</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

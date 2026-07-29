@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan worden vrijgemaakt</string>
     <string name="dashboard_hero_freed_headline">%1$s vrijgemaakt</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s kan worden verwijderd</string>
-    <string name="dashboard_hero_freed_x_items">%1$s verwijderd</string>
     <string name="dashboard_hero_freeable_hint">Tik op de knop om ruimte vrij te maken, of op een chip om eerst te controleren.</string>
     <string name="dashboard_hero_freed_hint">Raak een chip aan voor details.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

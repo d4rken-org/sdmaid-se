@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">在所有工具中刪除結果？</string>
     <string name="dashboard_hero_freeable_headline">%1$s 可釋出</string>
     <string name="dashboard_hero_freed_headline">%1$s 已釋出</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s 可移除</string>
-    <string name="dashboard_hero_freed_x_items">%1$s 已移除</string>
     <string name="dashboard_hero_freeable_hint">點擊按鈕以釋放空間，或點擊標籤先檢查。</string>
     <string name="dashboard_hero_freed_hint">點擊標籤以取得詳細資訊。</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import android.text.format.DateUtils
+import androidx.annotation.PluralsRes
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -162,15 +163,11 @@ private fun HeroBody(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                val captionText = if (hasAmounts) {
-                    val itemsText = pluralStringResource(
-                        CommonR.plurals.result_x_items,
-                        summary.itemCount,
-                        summary.itemCount,
-                    )
-                    stringResource(modeRes.caption, itemsText)
-                } else {
-                    stringResource(modeRes.caption)
+                val captionText = when (val caption = modeRes.caption) {
+                    is HeroCaption.Counted ->
+                        pluralStringResource(caption.id, summary.itemCount, summary.itemCount)
+
+                    is HeroCaption.Plain -> stringResource(caption.id)
                 }
                 Text(
                     // Two lines so the item-count result reads fully at large font scales (the column
@@ -305,10 +302,20 @@ private fun HeroFooter(
 private const val SIZE_ARG = "%1\$s"
 private const val MUTED_ALPHA = 0.8f
 
+/**
+ * A mode's caption is either driven by the item count or a plain sentence, and the two need different
+ * resource types. Modelled rather than left as a bare id so a mode cannot be wired to the wrong one.
+ */
+private sealed interface HeroCaption {
+    /** Must be a `<plurals>`: languages with verb agreement need a different form per quantity. */
+    data class Counted(@PluralsRes val id: Int) : HeroCaption
+    data class Plain(@StringRes val id: Int) : HeroCaption
+}
+
 /** Per-mode string resources, kept together so each mode is defined in one place. */
 private data class HeroModeResources(
     @StringRes val headline: Int,
-    @StringRes val caption: Int,
+    val caption: HeroCaption,
     @StringRes val hint: Int,
     @StringRes val timestampDescription: Int,
 )
@@ -317,21 +324,21 @@ private val HeroSummary.Mode.resources: HeroModeResources
     get() = when (this) {
         HeroSummary.Mode.FREEABLE -> HeroModeResources(
             headline = R.string.dashboard_hero_freeable_headline,
-            caption = R.string.dashboard_hero_freeable_x_items,
+            caption = HeroCaption.Counted(R.plurals.dashboard_hero_freeable_x_items),
             hint = R.string.dashboard_hero_freeable_hint,
             timestampDescription = R.string.dashboard_hero_scanned_timestamp_description,
         )
 
         HeroSummary.Mode.FREED -> HeroModeResources(
             headline = R.string.dashboard_hero_freed_headline,
-            caption = R.string.dashboard_hero_freed_x_items,
+            caption = HeroCaption.Counted(R.plurals.dashboard_hero_freed_x_items),
             hint = R.string.dashboard_hero_freed_hint,
             timestampDescription = R.string.dashboard_hero_freed_timestamp_description,
         )
 
         HeroSummary.Mode.NOTHING_FREED -> HeroModeResources(
             headline = R.string.dashboard_hero_nothing_freed_headline,
-            caption = R.string.dashboard_hero_nothing_freed_caption,
+            caption = HeroCaption.Plain(R.string.dashboard_hero_nothing_freed_caption),
             hint = R.string.dashboard_hero_nothing_freed_hint,
             timestampDescription = R.string.dashboard_hero_nothing_freed_timestamp_description,
         )

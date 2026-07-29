@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">සියලුම මෙවලම්වල ප්‍රතිඵල මකා දමන්නද?</string>
     <string name="dashboard_hero_freeable_headline">%1$s නිදහස් කළ හැක</string>
     <string name="dashboard_hero_freed_headline">%1$s නිදහස් කරගෙන ඇත</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ඉවත් කළ හැක</string>
-    <string name="dashboard_hero_freed_x_items">%1$s ඉවත් කරගෙන ඇත</string>
     <string name="dashboard_hero_freeable_hint">ඉතිරි පිටපතක් ගිණීමට බොත්තම තට්ටු කරන්න, හෝ පළමුව පරීක්ෂා කිරීමට ඡිපය තට්ටු කරන්න.</string>
     <string name="dashboard_hero_freed_hint">විස්තර සඳහා චිප ටැප් කරන්න.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

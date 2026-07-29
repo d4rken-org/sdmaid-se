@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Padamkan hasil dalam semua alatan?</string>
     <string name="dashboard_hero_freeable_headline">%1$s boleh dibebaskan</string>
     <string name="dashboard_hero_freed_headline">%1$s dibebaskan</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s boleh dibuang</string>
-    <string name="dashboard_hero_freed_x_items">%1$s dibuang</string>
     <string name="dashboard_hero_freeable_hint">Ketuk butang untuk membebaskan ruang, atau cip untuk menyemak terlebih dahulu.</string>
     <string name="dashboard_hero_freed_hint">Tekan cip untuk butiran.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

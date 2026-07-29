@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Бүх хэрэгслийн үр дүнг устгах уу?</string>
     <string name="dashboard_hero_freeable_headline">%1$s-ийг чөлөөлөх боломжтой</string>
     <string name="dashboard_hero_freed_headline">%1$s чөлөөлөгдсөн</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s-ийг хасах боломжтой</string>
-    <string name="dashboard_hero_freed_x_items">%1$s хасагдсан</string>
     <string name="dashboard_hero_freeable_hint">Сансар чөлөөлөхийн тулд товчийг дарах, эсвэл эхлээд шалгахын тулд сонголтыг сонгох.</string>
     <string name="dashboard_hero_freed_hint">Дэлгэрэнгүй үзэхийн тулд цэгийг дараарай.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

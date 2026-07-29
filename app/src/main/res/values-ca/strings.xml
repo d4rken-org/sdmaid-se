@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Voleu suprimir els resultats de totes les eines?</string>
     <string name="dashboard_hero_freeable_headline">%1$s es pot alliberar</string>
     <string name="dashboard_hero_freed_headline">%1$s alliberat</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s es pot eliminar</string>
-    <string name="dashboard_hero_freed_x_items">%1$s eliminat</string>
     <string name="dashboard_hero_freeable_hint">Toca el botó per alliberar espai, o una fitxa per comprovar primer.</string>
     <string name="dashboard_hero_freed_hint">Toca un xip per a detalls.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

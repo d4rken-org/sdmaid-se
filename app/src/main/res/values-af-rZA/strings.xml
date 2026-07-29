@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Skrap resultate in alle gereedskap?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan vrygestel word</string>
     <string name="dashboard_hero_freed_headline">%1$s vrygestel</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s kan verwyder word</string>
-    <string name="dashboard_hero_freed_x_items">%1$s verwyder</string>
     <string name="dashboard_hero_freeable_hint">Tik die knop om plek vry te maak, of \'n knoppie om eers na te gaan.</string>
     <string name="dashboard_hero_freed_hint">Tik \'n chip vir besonderhede.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

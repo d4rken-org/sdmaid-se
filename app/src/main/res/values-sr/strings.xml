@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">Избрисати резултате у свим алаткама?</string>
     <string name="dashboard_hero_freeable_headline">%1$s се може ослободити</string>
     <string name="dashboard_hero_freed_headline">%1$s ослобођено</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s се може уклонити</string>
-    <string name="dashboard_hero_freed_x_items">%1$s уклоњено</string>
     <string name="dashboard_hero_freeable_hint">Притисните дугме да ослободите простор, или чип да прво проверите.</string>
     <string name="dashboard_hero_freed_hint">Додирните чип за детаље.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

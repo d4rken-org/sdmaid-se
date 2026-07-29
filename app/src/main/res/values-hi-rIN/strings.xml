@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">सभी टूल में परिणाम मिटाएं?</string>
     <string name="dashboard_hero_freeable_headline">%1$s मुक्त किया जा सकता है</string>
     <string name="dashboard_hero_freed_headline">%1$s खाली की गई</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s हटाया जा सकता है</string>
-    <string name="dashboard_hero_freed_x_items">%1$s हटा दी गई</string>
     <string name="dashboard_hero_freeable_hint">स्पेस फ्री करने के लिए बटन दबाएं, या पहले जांचने के लिए एक चिप दबाएं।</string>
     <string name="dashboard_hero_freed_hint">विवरण के लिए एक चिप पर टैप करें।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

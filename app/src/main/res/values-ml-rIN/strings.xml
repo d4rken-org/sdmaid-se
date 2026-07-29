@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">എല്ലാ ടൂളുകളിലെ ഫലങ്ങൾ ഇല്ലാതാക്കണോ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s സ്വതന്ത്രമാക്കാം</string>
     <string name="dashboard_hero_freed_headline">%1$s ഫ്രീ ആക്കി</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s നീക്കം ചെയ്യാം</string>
-    <string name="dashboard_hero_freed_x_items">%1$s നീക്കം ചെയ്യപ്പെട്ടു</string>
     <string name="dashboard_hero_freeable_hint">സ്ഥലം സ്വതന്ത്ര ചെയ്യാൻ ബട്ടൺ തൊടുക, അല്ലെങ്കിൽ ആദ്യം പരിശോധിക്കാൻ ഒരു ചിപ് തൊടുക.</string>
     <string name="dashboard_hero_freed_hint">വിശദാംശങ്ങൾക്കായി ചിപ്പ് ടാപ്പ് ചെയ്യുക.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->

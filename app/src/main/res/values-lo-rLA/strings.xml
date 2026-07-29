@@ -3,8 +3,6 @@
     <string name="dashboard_delete_all_message">ລຶບຜົນລັບໃນທຸກເຄື່ອງມືບໍ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ສາມາດປົດປ່ອຍໄດ້</string>
     <string name="dashboard_hero_freed_headline">%1$s ຖືກປົດປ່ອຍ</string>
-    <string name="dashboard_hero_freeable_x_items">%1$s ສາມາດລຶບອອກໄດ້</string>
-    <string name="dashboard_hero_freed_x_items">%1$s ຖືກລຶບອອກແລ້ວ</string>
     <string name="dashboard_hero_freeable_hint">ແຕະປຸ່ມເພື່ອເຮັດຄວາມສະອາດ ຫຼືແຕະສະຫຸ່ນເພື່ອກວດສອບກ່ອນ</string>
     <string name="dashboard_hero_freed_hint">ແຕະຊິບສໍາລັບລາຍລະອຽດ.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
