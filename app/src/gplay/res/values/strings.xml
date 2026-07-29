@@ -35,6 +35,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Renews yearly. Cancel anytime in Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Buy once</string>
     <string name="upgrade_screen_iap_offer_body">One payment, no renewals.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prices unavailable</string>
     <string name="upgrade_screen_offers_unavailable_message">Prices couldn\'t be loaded right now. Check Google Play and try again in a moment.</string>
     <string name="upgrade_screen_subscription_trial_action">Start free 14-day trial</string>
     <string name="upgrade_screen_subscription_action">Subscribe</string>

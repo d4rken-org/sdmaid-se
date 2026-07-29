@@ -151,6 +151,12 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_UNAVAILABLE).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_unavailable_message)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
+        // The card is about the prices, not about Play as a whole -- the generic service-unavailable
+        // title contradicted its own body.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_offers_unavailable_title))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrades_gplay_unavailable_error_title))
+            .assertCountEquals(0)
     }
 
     @Test
@@ -300,6 +306,26 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         // would silently miss the button.
         composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RETRY).performScrollTo().performClick()
         composeRule.runOnIdle { check(retryClicks == 1) { "expected 1 retry click, got $retryClicks" } }
+    }
+
+    @Test
+    fun `the retry latches after the first tap`() {
+        var retryClicks = 0
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Unavailable(
+                    error = RuntimeException("Google Play services unavailable"),
+                ),
+                onRetry = { retryClicks++ },
+            )
+        }
+
+        val retry = composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RETRY).performScrollTo()
+        retry.performClick()
+        retry.performClick()
+
+        composeRule.runOnIdle { check(retryClicks == 1) { "expected 1 retry click, got $retryClicks" } }
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RETRY).assertIsNotEnabled()
     }
 
     @Test
