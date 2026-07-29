@@ -73,13 +73,6 @@ class RecorderModuleTest : BaseTest() {
         every { sdmId.id } returns "abcd"
         every { dataAreaManager.latestState } returns emptyFlow()
         every { curriculumVitae.history } returns emptyFlow()
-        coEvery { curriculumVitae.proHistory() } returns CurriculumVitae.ProHistory(
-            lastState = null,
-            graceEngagedCount = 0,
-            graceEngagedLast = null,
-            proLostCount = 0,
-            proLostLast = null,
-        )
 
         coEvery { upgradeDiagnostics.debugInfo() } returns "BillingCache(test)"
 
@@ -175,21 +168,6 @@ class RecorderModuleTest : BaseTest() {
         }
 
         @Test
-        fun `a failing pro history read does not prevent recording`() = runTest {
-            // The pro history line in the log header is diagnostics only -- a broken DataStore
-            // must not stop the recorder from starting.
-            File(externalDir, "force_debug_run").createNewFile()
-            coEvery { recorderPath.value() } returns null
-            coEvery { curriculumVitae.proHistory() } throws IOException("disk full")
-
-            val dispatcher = StandardTestDispatcher(testScheduler)
-            val module = createModule(backgroundScope, dispatcher)
-            advanceUntilIdle()
-
-            module.state.first { it.isRecording }.isRecording shouldBe true
-        }
-
-        @Test
         fun `a failing upgrade diagnostics read does not prevent recording`() = runTest {
             File(externalDir, "force_debug_run").createNewFile()
             coEvery { recorderPath.value() } returns null
@@ -200,23 +178,6 @@ class RecorderModuleTest : BaseTest() {
             advanceUntilIdle()
 
             module.state.first { it.isRecording }.isRecording shouldBe true
-        }
-
-        @Test
-        fun `a failing pro history read still reports upgrade diagnostics`() = runTest {
-            // Separate failure boundaries: these read different DataStores, and the pro-state
-            // counters are too new to speak for installs that predate them. One failing must not
-            // suppress the other's evidence.
-            File(externalDir, "force_debug_run").createNewFile()
-            coEvery { recorderPath.value() } returns null
-            coEvery { curriculumVitae.proHistory() } throws IOException("disk full")
-
-            val dispatcher = StandardTestDispatcher(testScheduler)
-            val module = createModule(backgroundScope, dispatcher)
-            advanceUntilIdle()
-
-            module.state.first { it.isRecording }
-            coVerify { upgradeDiagnostics.debugInfo() }
         }
 
         @Test

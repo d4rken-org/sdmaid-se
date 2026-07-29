@@ -256,20 +256,7 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "Update history: ${curriculumVitae.history.firstOrNull()}" }
 
         try {
-            // Billing complaints usually arrive as debug logs: having the lifetime grace/Pro-loss
-            // history in the header saves a support round-trip.
-            log(TAG, INFO) { "Pro history: ${curriculumVitae.proHistory()}" }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            // Diagnostics only — a broken history read must not stop the recorder from starting.
-            log(TAG, WARN) { "Pro history unavailable: ${e.asLog()}" }
-        }
-
-        // Separate boundary from the block above on purpose: these read different DataStores, and
-        // the counters above only cover installs new enough to have them. A failure to read one
-        // must not suppress the other's independent evidence.
-        try {
+            // Diagnostics only — a broken read must not stop the recorder from starting.
             upgradeDiagnostics.debugInfo()?.let { log(TAG, INFO) { "Upgrade diagnostics: $it" } }
         } catch (e: CancellationException) {
             throw e
