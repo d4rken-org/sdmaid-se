@@ -119,6 +119,36 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `nothing-freed hero states the outcome without printing a zero size`() {
+        val nothingFreed = HeroSummary(
+            mode = HeroSummary.Mode.NOTHING_FREED,
+            totalSize = 0L,
+            itemCount = 0,
+            tools = emptyList(),
+        )
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(nothingFreed),
+                    isVisible = true,
+                    heroVisible = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText(context.getString(R.string.dashboard_hero_nothing_freed_headline)).assertExists()
+        // The size-interpolating headline path would render "0 B" here; this mode must not.
+        composeRule.onNodeWithText(
+            ByteFormatter.formatSize(context, 0L).first,
+            substring = true,
+        ).assertDoesNotExist()
+    }
+
+    @Test
     fun `activating a tool chip invokes onToolClick with the rendered mode and tool`() {
         var clickedMode: HeroSummary.Mode? = null
         var clickedType: SDMTool.Type? = null

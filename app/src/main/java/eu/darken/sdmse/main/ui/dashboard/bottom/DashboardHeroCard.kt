@@ -74,13 +74,17 @@ internal fun DashboardHeroCard(
     // (UP from the bar/FAB) lands on Discard when present, else on the X; UP from Discard and
     // the tool chips goes to the X; UP from the X falls out of the dock (back to the grid).
     val dismissFocusRequester = remember { FocusRequester() }
-    // Colour tracks the action: destructive (red) while a deletion is pending, positive once freed.
+    // Colour tracks the action: destructive (red) while a deletion is pending, positive once freed,
+    // neutral when the cleanup ran but came up empty (nothing was lost, nothing was gained).
     val (containerColor, contentColor) = when (summary.mode) {
         HeroSummary.Mode.FREEABLE ->
             MaterialTheme.colorScheme.error to MaterialTheme.colorScheme.onError
 
         HeroSummary.Mode.FREED ->
             MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer
+
+        HeroSummary.Mode.NOTHING_FREED ->
+            MaterialTheme.colorScheme.surfaceVariant to MaterialTheme.colorScheme.onSurfaceVariant
     }
     Surface(
         modifier = modifier,
@@ -125,6 +129,9 @@ private fun HeroBody(
 ) {
     val context = LocalContext.current
     val modeRes = summary.mode.resources
+    // NOTHING_FREED carries no size and no item count, so its headline and caption are plain
+    // sentences rather than templates wrapped around a number.
+    val hasAmounts = summary.mode != HeroSummary.Mode.NOTHING_FREED
     Column(modifier = modifier) {
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -141,27 +148,34 @@ private fun HeroBody(
                 Text(
                     text = buildAnnotatedString {
                         val sizeAt = template.indexOf(SIZE_ARG)
-                        if (sizeAt == -1) {
-                            append(sizeText)
-                        } else {
-                            withStyle(labelSpan) { append(template.take(sizeAt)) }
-                            append(sizeText)
-                            withStyle(labelSpan) { append(template.substring(sizeAt + SIZE_ARG.length)) }
+                        when {
+                            !hasAmounts -> withStyle(labelSpan) { append(template) }
+                            sizeAt == -1 -> append(sizeText)
+                            else -> {
+                                withStyle(labelSpan) { append(template.take(sizeAt)) }
+                                append(sizeText)
+                                withStyle(labelSpan) { append(template.substring(sizeAt + SIZE_ARG.length)) }
+                            }
                         }
                     },
                     style = MaterialTheme.typography.headlineMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                val itemsText = pluralStringResource(
-                    CommonR.plurals.result_x_items,
-                    summary.itemCount,
-                    summary.itemCount,
-                )
+                val captionText = if (hasAmounts) {
+                    val itemsText = pluralStringResource(
+                        CommonR.plurals.result_x_items,
+                        summary.itemCount,
+                        summary.itemCount,
+                    )
+                    stringResource(modeRes.caption, itemsText)
+                } else {
+                    stringResource(modeRes.caption)
+                }
                 Text(
                     // Two lines so the item-count result reads fully at large font scales (the column
                     // is narrow next to the dismiss button); the card height grows to make room.
-                    text = stringResource(modeRes.caption, itemsText),
+                    text = captionText,
                     style = MaterialTheme.typography.bodyMedium,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
@@ -314,6 +328,13 @@ private val HeroSummary.Mode.resources: HeroModeResources
             hint = R.string.dashboard_hero_freed_hint,
             timestampDescription = R.string.dashboard_hero_freed_timestamp_description,
         )
+
+        HeroSummary.Mode.NOTHING_FREED -> HeroModeResources(
+            headline = R.string.dashboard_hero_nothing_freed_headline,
+            caption = R.string.dashboard_hero_nothing_freed_caption,
+            hint = R.string.dashboard_hero_nothing_freed_hint,
+            timestampDescription = R.string.dashboard_hero_nothing_freed_timestamp_description,
+        )
     }
 
 private fun previewSummary(
@@ -361,6 +382,12 @@ private fun DashboardHeroCardFreeablePreview() {
 @Composable
 private fun DashboardHeroCardFreedPreview() {
     HeroCardPreview(summary = previewSummary(mode = HeroSummary.Mode.FREED))
+}
+
+@Preview2
+@Composable
+private fun DashboardHeroCardNothingFreedPreview() {
+    HeroCardPreview(summary = previewSummary(mode = HeroSummary.Mode.NOTHING_FREED, tools = emptyList()))
 }
 
 // Worst case: all four tools (chips wrap to a second row) + the two-line freeable hint — validates
