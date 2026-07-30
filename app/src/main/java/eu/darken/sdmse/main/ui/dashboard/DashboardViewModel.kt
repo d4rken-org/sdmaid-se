@@ -474,28 +474,28 @@ class DashboardViewModel @Inject constructor(
         upgradeInfo = upgradeInfo,
         submitTask = ::submitTask,
         onUpgradeRequired = { navTo(UpgradeRoute()) },
+        onStateError = { errorEvents.tryEmit(it) },
     )
 
-    val oneClickOptionsState: StateFlow<OneClickOptionsState> = mainActionEngine.oneClickOptions.safeStateIn(
-        initialValue = OneClickOptionsState(),
-        onError = { OneClickOptionsState() },
-    )
+    val oneClickOptionsState: StateFlow<OneClickOptionsState> = mainActionEngine.oneClickOptionsState
 
     val bottomBarState: StateFlow<BottomBarState?> = mainActionEngine.bottomBarState(
         listIsReady = listState.map { state -> state?.items?.any { it is MainActionItem } == true },
-        oneClickOptionsState = oneClickOptionsState,
     ).safeStateIn(
         initialValue = null,
         onError = { null },
     )
 
-    /** Whether the user dismissed the hero for the current results. In-memory; resets on a fresh scan. */
-    val isHeroDismissed: StateFlow<Boolean> = mainActionEngine.isHeroDismissed
+    /**
+     * Whether the hero card is expanded. Auto-expands only for a one-tap main action that produced
+     * a result; anything started elsewhere leaves it collapsed and reachable via the bar's chip.
+     */
+    val isHeroExpanded: StateFlow<Boolean> = mainActionEngine.isHeroExpanded
 
     fun dismissHero() = mainActionEngine.dismissHero()
 
-    /** Re-shows a hero the user dismissed (via the compact summary chip in the bar). */
-    fun restoreHero() = mainActionEngine.restoreHero()
+    /** Expands a collapsed hero (via the compact summary chip in the bar). */
+    fun expandHero() = mainActionEngine.expandHero()
 
     /**
      * Drops all pending scan results, returning the dashboard to its pristine SCAN state. Unlike

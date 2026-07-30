@@ -97,9 +97,9 @@ internal fun BottomBar(
     onUpgrade: () -> Unit,
     onDismissHero: () -> Unit,
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
-    onRestoreHero: () -> Unit = {},
+    onExpandHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
-    isHeroDismissed: Boolean = false,
+    canExpandHero: Boolean = false,
     mainActionModifier: Modifier = Modifier,
     settingsModifier: Modifier = Modifier,
     upgradeModifier: Modifier = Modifier,
@@ -238,9 +238,10 @@ internal fun BottomBar(
                 compactSummary = heroSummary?.takeIf { !showHero },
                 onSettings = onSettings,
                 onUpgrade = onUpgrade,
-                // Only the user-dismissed compact chip restores the hero; during a tour the same
-                // chip stays a passive info chip (the tour suppresses the floating hero on purpose).
-                onRestoreHero = onRestoreHero.takeIf { isHeroDismissed },
+                // The chip expands the hero whenever one is available and collapsed — never
+                // auto-shown (card-triggered) or dismissed by the user. During a tour it stays a
+                // passive info chip (the tour suppresses the floating hero on purpose).
+                onExpandHero = onExpandHero.takeIf { canExpandHero },
                 contentBottomPadding = navBottom,
                 settingsModifier = settingsModifier,
                 upgradeModifier = upgradeModifier,
@@ -313,7 +314,7 @@ private fun BarContent(
     compactSummary: HeroSummary?,
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
-    onRestoreHero: (() -> Unit)? = null,
+    onExpandHero: (() -> Unit)? = null,
     contentBottomPadding: Dp = 0.dp,
     settingsModifier: Modifier = Modifier,
     upgradeModifier: Modifier = Modifier,
@@ -358,8 +359,8 @@ private fun BarContent(
                     label = ByteFormatter.formatSize(context, compactSummary.totalSize).first,
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
-                    // Tapping it re-shows a dismissed hero (null during a tour → passive chip).
-                    onClick = onRestoreHero,
+                    // Tapping it expands the collapsed hero (null during a tour → passive chip).
+                    onClick = onExpandHero,
                 )
             }
 

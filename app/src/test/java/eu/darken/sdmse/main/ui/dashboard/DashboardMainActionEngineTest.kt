@@ -4,7 +4,9 @@ import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -15,6 +17,7 @@ import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
 import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldBeEmpty
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.coVerify
 import io.mockk.every
@@ -24,19 +27,29 @@ import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceTimeBy
+import kotlinx.coroutines.test.runCurrent
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.coroutine.runTest2
 import java.time.Instant
+import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicReference
 
 /**
  * Direct contract tests for [DashboardMainActionEngine]: discarding clears both the tools' data and
- * the task manager's completed results, and cleanups stamp [DashboardMainActionEngine.freedResultSince]
- * so freed-hero chips resolve to *this* cleanup's reports.
+ * the task manager's completed results, cleanups stamp [DashboardMainActionEngine.freedResultSince]
+ * so freed-hero chips resolve to *this* cleanup's reports, and the hero only auto-expands as the
+ * outcome of a one-tap main action that actually produced something.
  */
 internal class DashboardMainActionEngineTest : BaseTest() {
 
@@ -44,14 +57,22 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         val engine: DashboardMainActionEngine,
         val engineScope: CoroutineScope,
         val taskManager: TaskManager,
+        val taskState: MutableStateFlow<TaskSubmitter.State>,
         val corpseFinder: CorpseFinder,
+        val corpseState: MutableStateFlow<CorpseFinder.State>,
         val systemCleaner: SystemCleaner,
         val appCleaner: AppCleaner,
         val deduplicator: Deduplicator,
         val submittedTasks: MutableList<SDMTool.Task>,
         /** Branch failures the scope's handler caught — in production these reach `errorEvents`. */
         val branchErrors: List<Throwable>,
-    )
+        /** State-flow failures the engine reported — in production these reach `errorEvents`. */
+        val stateErrors: List<Throwable>,
+    ) {
+        fun barState(): BottomBarState = runBlocking {
+            engine.bottomBarState(listIsReady = MutableStateFlow(true)).first()!!
+        }
+    }
 
     private fun mockBool(value: Boolean): DataStoreValue<Boolean> = mockk(relaxed = true) {
         every { flow } returns MutableStateFlow(value)
@@ -62,6 +83,27 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         every { isSettled } returns true
         every { error } returns null
     }
+
+    private fun corpseToolState(data: CorpseFinder.Data?): CorpseFinder.State = mockk(relaxed = true) {
+        every { this@mockk.data } returns data
+    }
+
+    /** Real [CorpseFinder.Data] so `hasData` and the hero's tool slice behave like production. */
+    private fun corpseData(count: Int = 1): CorpseFinder.Data = CorpseFinder.Data(
+        corpses = (0 until count).map { mockk<Corpse>(relaxed = true) },
+    )
+
+    private fun completedScanState(at: Instant): TaskSubmitter.State = TaskSubmitter.State(
+        tasks = listOf(
+            TaskSubmitter.ManagedTask(
+                id = "scan-$at",
+                toolType = SDMTool.Type.CORPSEFINDER,
+                task = mockk(relaxed = true),
+                completedAt = at,
+                result = CorpseFinderScanTask.Success(itemCount = 1, recoverableSpace = 1L),
+            ),
+        ),
+    )
 
     private fun harness(
         taskState: TaskSubmitter.State = TaskSubmitter.State(),
@@ -74,12 +116,18 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         failingTaskType: Class<out SDMTool.Task>? = null,
         onUpgradeRequired: () -> Unit = {},
         gate: CompletableDeferred<Unit>? = null,
+        /** Replaces CorpseFinder's state flow; for tests that need a non-StateFlow source. */
+        corpseStateSource: Flow<CorpseFinder.State>? = null,
+        /** Replaces the engine scope; for tests that need virtual time instead of eager execution. */
+        scope: CoroutineScope? = null,
     ): Harness {
+        val taskStateFlow = MutableStateFlow(taskState)
         val taskManager = mockk<TaskManager>(relaxed = true).apply {
-            every { state } returns MutableStateFlow(taskState)
+            every { state } returns taskStateFlow
         }
+        val corpseStateFlow = MutableStateFlow(corpseToolState(corpseData))
         val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply {
-            every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns corpseData })
+            every { state } returns (corpseStateSource ?: corpseStateFlow)
         }
         val systemCleaner = mockk<SystemCleaner>(relaxed = true).apply {
             every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns null })
@@ -99,11 +147,12 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         }
         val submittedTasks = mutableListOf<SDMTool.Task>()
         val branchErrors = mutableListOf<Throwable>()
+        val stateErrors = mutableListOf<Throwable>()
         // Production-like scope: supervised like vmScope, eager like TestDispatcherProvider's
         // Unconfined; cancelled per test so the engine's internal collectors don't leak. The
         // handler mirrors vmScope's — without it a branch failure escapes to the JVM's default
         // handler, which kotlinx-coroutines-test then blames on whichever test runs next.
-        val engineScope = CoroutineScope(
+        val engineScope = scope ?: CoroutineScope(
             SupervisorJob() + Dispatchers.Unconfined + CoroutineExceptionHandler { _, e -> branchErrors.add(e) },
         )
         val engine = DashboardMainActionEngine(
@@ -129,17 +178,21 @@ internal class DashboardMainActionEngineTest : BaseTest() {
                 mockk(relaxed = true)
             },
             onUpgradeRequired = onUpgradeRequired,
+            onStateError = { stateErrors.add(it) },
         )
         return Harness(
             engine,
             engineScope,
             taskManager,
+            taskStateFlow,
             corpseFinder,
+            corpseStateFlow,
             systemCleaner,
             appCleaner,
             deduplicator,
             submittedTasks,
             branchErrors,
+            stateErrors,
         )
     }
 
@@ -200,25 +253,19 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         // leaves the tools' data intact, so the identical FREEABLE hero rebuilds and buries the
         // fact that the deletion ran at all. The relaxed task result is neither AffectedSpace nor
         // AffectedCount, which is exactly the "freed 0" shape.
-        val corpseData = mockk<CorpseFinder.Data>(relaxed = true) {
-            every { corpses } returns setOf(mockk(relaxed = true))
-        }
-        val h = harness(corpseData = corpseData)
+        val h = harness(corpseData = corpseData())
 
         try {
             h.engine.mainAction(BottomBarState.Action.DELETE)
 
-            val hero = runBlocking {
-                h.engine.bottomBarState(
-                    listIsReady = MutableStateFlow(true),
-                    oneClickOptionsState = MutableStateFlow(OneClickOptionsState()),
-                ).first().heroSummary!!
-            }
+            val hero = h.barState().heroSummary!!
 
             hero.mode shouldBe HeroSummary.Mode.NOTHING_FREED
             hero.totalSize shouldBe 0L
             hero.itemCount shouldBe 0
             hero.tools.shouldBeEmpty()
+            // A NOTHING_FREED card IS a hero, so this one-tap cleanup auto-expands it.
+            h.engine.isHeroExpanded.value shouldBe true
         } finally {
             h.engineScope.cancel()
         }
@@ -232,15 +279,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         try {
             h.engine.mainAction(BottomBarState.Action.ONECLICK)
 
-            val state = runBlocking {
-                h.engine.bottomBarState(
-                    listIsReady = MutableStateFlow(true),
-                    oneClickOptionsState = MutableStateFlow(OneClickOptionsState()),
-                ).first()
-            }
-
             h.submittedTasks.shouldBeEmpty()
-            state.heroSummary shouldBe null
+            h.barState().heroSummary shouldBe null
         } finally {
             h.engineScope.cancel()
         }
@@ -270,7 +310,10 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     }
 
     @Test
-    fun `scans are never blocked by an in-flight cleanup`() {
+    fun `a second tracked run is ignored while the first is still in flight`() {
+        // Scans open the batch counters too, so a second run of any kind would reset them under the
+        // branches still on the first: both counters would hit 0 after any four of the eight
+        // branches returned, settling the hero while tasks are still running.
         val gate = CompletableDeferred<Unit>()
         val h = harness(gate = gate)
 
@@ -278,9 +321,30 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             h.engine.mainAction(BottomBarState.Action.ONECLICK)
             h.engine.mainAction(BottomBarState.Action.SCAN)
 
-            h.submittedTasks.size shouldBe 2
+            h.submittedTasks.size shouldBe 1
         } finally {
             gate.complete(Unit)
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a rapid double tap on scan starts a single run`() {
+        // Until the task manager reports non-idle the FAB still resolves to SCAN, so both taps of a
+        // double tap reach mainAction.
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(gate = gate)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.submittedTasks.size shouldBe 1
+
+            // Once the batch settles, the button works again.
+            gate.complete(Unit)
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.submittedTasks.size shouldBe 2
+        } finally {
             h.engineScope.cancel()
         }
     }
@@ -291,11 +355,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         // claiming the cleanup "finished" on top of it would contradict it. The findings survived
         // the failure, so the freeable card legitimately stays — it just must not be the
         // NOTHING_FREED one.
-        val corpseData = mockk<CorpseFinder.Data>(relaxed = true) {
-            every { corpses } returns setOf(mockk(relaxed = true))
-        }
         val h = harness(
-            corpseData = corpseData,
+            corpseData = corpseData(),
             otherToolsOneClick = true,
             failingTaskType = SystemCleanerOneClickTask::class.java,
         )
@@ -303,14 +364,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         try {
             h.engine.mainAction(BottomBarState.Action.ONECLICK)
 
-            val state = runBlocking {
-                h.engine.bottomBarState(
-                    listIsReady = MutableStateFlow(true),
-                    oneClickOptionsState = MutableStateFlow(OneClickOptionsState()),
-                ).first()
-            }
-
-            state.heroSummary?.mode shouldBe HeroSummary.Mode.FREEABLE
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.FREEABLE
             // The failure isn't swallowed — in production this is the dialog the user sees.
             h.branchErrors.map { it.message } shouldBe listOf("task failed")
         } finally {
@@ -322,15 +376,12 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     fun `a non-Pro AppCleaner upsell fires even when an opted-out free tool has data`() {
         // The upsell guard used to test raw CorpseFinder/SystemCleaner data, so an opted-out tool
         // with findings silently blocked it — the DELETE branch then did nothing whatsoever.
-        val corpseData = mockk<CorpseFinder.Data>(relaxed = true) {
-            every { corpses } returns setOf(mockk(relaxed = true))
-        }
         val appData = mockk<AppCleaner.Data>(relaxed = true) {
             every { junks } returns setOf(mockk(relaxed = true))
         }
         var upgradeRequired = 0
         val h = harness(
-            corpseData = corpseData,
+            corpseData = corpseData(),
             appData = appData,
             corpseFinderOneClick = false,
             appCleanerOneClick = true,
@@ -346,6 +397,224 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         } finally {
             h.engineScope.cancel()
         }
+    }
+
+    @Test
+    fun `a one-tap scan that finds data expands the hero`() {
+        // The gate holds the branches in flight so the findings land while the batch is still open,
+        // mirroring a real scan where the tool's data fills before its task returns.
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(gate = gate)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.engine.isHeroExpanded.value shouldBe false
+
+            h.corpseState.value = corpseToolState(corpseData())
+            gate.complete(Unit)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe true
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `the settled snapshot re-reads the tool states`() {
+        // Regression for the settle-edge race: the batch phase is applied by re-deriving the hero,
+        // so the settled snapshot reads every source *after* the branches decremented, instead of
+        // pairing the settled counter with whatever a long-lived per-source collector happened to
+        // have picked up. This source only reveals its value at (re)subscription — standing in for
+        // one whose update the previous subscription hadn't seen yet — so a settle edge that does
+        // not re-read leaves the hero collapsed.
+        val gate = CompletableDeferred<Unit>()
+        val corpseHolder = AtomicReference(corpseToolState(null))
+        val h = harness(
+            gate = gate,
+            corpseStateSource = flow {
+                emit(corpseHolder.get())
+                awaitCancellation()
+            },
+        )
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+
+            // The scan's findings, published where only a re-subscription can pick them up.
+            corpseHolder.set(corpseToolState(corpseData()))
+            gate.complete(Unit)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe true
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a transient derivation failure falls back and then recovers`() = runTest2 {
+        // The share is eager and permanently subscribed, so nothing would ever resubscribe it: a
+        // terminating operator here would cost the dashboard its bottom bar — the app's primary
+        // action — for the ViewModel's lifetime, over one failed settings read.
+        val attempts = AtomicInteger(0)
+        val h = harness(
+            scope = CoroutineScope(SupervisorJob() + StandardTestDispatcher(testScheduler)),
+            corpseStateSource = flow {
+                if (attempts.getAndIncrement() == 0) throw IllegalStateException("upstream blip")
+                emit(corpseToolState(corpseData()))
+                awaitCancellation()
+            },
+        )
+
+        try {
+            runCurrent()
+
+            // The outage is visible as the bar's not-ready state, and reported once.
+            h.engine.bottomBarState(listIsReady = MutableStateFlow(true)).first() shouldBe null
+            h.stateErrors.map { it.message } shouldBe listOf("upstream blip")
+
+            // Past the first backoff the derivation resubscribes and the bar comes back.
+            advanceTimeBy(2 * 1_000L)
+            runCurrent()
+
+            h.engine.bottomBarState(listIsReady = MutableStateFlow(true)).first().shouldNotBeNull()
+            h.stateErrors.size shouldBe 1
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a one-tap scan that finds nothing does not expand the hero`() {
+        val h = harness()
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+
+            h.barState().heroSummary shouldBe null
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a fruitless one-tap scan does not arm a later foreign scan`() {
+        // The leak this design closes: a one-tap scan that produced no hero must still consume its
+        // arm, or the next card-triggered scan inherits it and pops the hero open by itself.
+        val h = harness()
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.engine.isHeroExpanded.value shouldBe false
+
+            // A tool card's own scan finding something — no mainAction() involved.
+            h.corpseState.value = corpseToolState(corpseData())
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a card-triggered scan leaves the hero collapsed`() {
+        // The reported defect: results the user didn't ask for with the one-tap button must not
+        // throw the hero card over the dashboard.
+        val h = harness()
+
+        try {
+            h.corpseState.value = corpseToolState(corpseData())
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a card-triggered scan does not re-expand a dismissed hero`() {
+        val h = harness(corpseData = corpseData())
+
+        try {
+            h.engine.expandHero()
+            h.engine.dismissHero()
+
+            h.corpseState.value = corpseToolState(corpseData(count = 2))
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `cancelling via the main action does not arm auto-expand`() {
+        // WORKING/WORKING_CANCELABLE taps stop the current run; they start nothing and must not
+        // leave an arm behind for whatever produces the next hero.
+        val h = harness()
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.WORKING_CANCELABLE)
+            h.engine.mainAction(BottomBarState.Action.WORKING)
+
+            h.corpseState.value = corpseToolState(corpseData())
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `dismissing mid-flight is respected when the result arrives`() {
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(corpseData = corpseData(), gate = gate)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.ONECLICK)
+            h.engine.dismissHero()
+
+            gate.complete(Unit)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a newer scan still clears a stale freed summary`() {
+        val h = harness(corpseData = corpseData())
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+
+            // A newer scan supersedes the last cleanup's outcome; the bar goes back to "freeable".
+            h.taskState.value = completedScanState(Instant.now())
+
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.FREEABLE
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `expandHero and dismissHero toggle the flag`() = withHarness { h ->
+        h.engine.isHeroExpanded.value shouldBe false
+
+        h.engine.expandHero()
+        h.engine.isHeroExpanded.value shouldBe true
+
+        h.engine.dismissHero()
+        h.engine.isHeroExpanded.value shouldBe false
     }
 
     @Test
@@ -401,6 +670,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             upgradeInfo = MutableStateFlow(proInfo),
             submitTask = { task -> if (task is DeduplicatorDeleteTask) deleteResult else mockk(relaxed = true) },
             onUpgradeRequired = {},
+            onStateError = {},
         )
 
         try {
@@ -410,10 +680,9 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             dedupState.value = Deduplicator.State(data = null, progress = null)
 
             val hero = runBlocking {
-                engine.bottomBarState(
-                    listIsReady = MutableStateFlow(true),
-                    oneClickOptionsState = MutableStateFlow(OneClickOptionsState(deduplicatorEnabled = true)),
-                ).first { it.heroSummary != null }.heroSummary!!
+                engine.bottomBarState(listIsReady = MutableStateFlow(true))
+                    .first { it?.heroSummary != null }!!
+                    .heroSummary!!
             }
 
             hero.mode shouldBe HeroSummary.Mode.FREED

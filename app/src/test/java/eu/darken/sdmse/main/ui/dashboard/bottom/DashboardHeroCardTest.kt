@@ -5,6 +5,7 @@ import android.text.format.DateUtils
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasClickAction
+import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -306,23 +307,23 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `tapping the compact bar chip restores a dismissed hero`() {
-        var restored = 0
+    fun `tapping the compact bar chip expands a collapsed hero`() {
+        var expanded = 0
         val hero = summary()
         composeRule.setContent {
             PreviewWrapper {
                 BottomBar(
                     state = deleteState(hero),
                     isVisible = true,
-                    // Dismissed: the floating hero is gone and the bar shows the compact chip instead.
+                    // Collapsed: the floating hero is gone and the bar shows the compact chip instead.
                     heroVisible = false,
-                    isHeroDismissed = true,
+                    canExpandHero = true,
                     onMainAction = {},
                     onMainActionLongClick = {},
                     onSettings = {},
                     onUpgrade = {},
                     onDismissHero = {},
-                    onRestoreHero = { restored++ },
+                    onExpandHero = { expanded++ },
                 )
             }
         }
@@ -330,7 +331,60 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText(label)
             .assertHasClickAction()
             .performSemanticsAction(SemanticsActions.OnClick)
-        composeRule.runOnIdle { assertEquals(1, restored) }
+        composeRule.runOnIdle { assertEquals(1, expanded) }
+    }
+
+    @Test
+    fun `the compact chip is clickable for a hero that was never expanded`() {
+        // Card-triggered results never auto-show the hero; the chip is the way back to it, and it
+        // must not depend on the user having dismissed something first.
+        var expanded = 0
+        val hero = summary()
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(hero),
+                    isVisible = true,
+                    heroVisible = false,
+                    canExpandHero = true,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                    onExpandHero = { expanded++ },
+                )
+            }
+        }
+        composeRule.onNodeWithText(ByteFormatter.formatSize(context, hero.totalSize).first)
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { assertEquals(1, expanded) }
+    }
+
+    @Test
+    fun `the compact chip is passive during a tour`() {
+        // The tour suppresses the floating hero on purpose, so the chip must not be able to bring
+        // it back and fight the tour's targets.
+        val hero = summary()
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(hero),
+                    isVisible = true,
+                    heroVisible = false,
+                    canExpandHero = false,
+                    onMainAction = {},
+                    onMainActionLongClick = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                    onExpandHero = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText(ByteFormatter.formatSize(context, hero.totalSize).first)
+            .assertHasNoClickAction()
     }
 
     @Test
