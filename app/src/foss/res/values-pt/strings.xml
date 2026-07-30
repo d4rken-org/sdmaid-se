@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrades_dashcard_title">Upgrade do SD Maid</string>
     <string name="upgrades_dashcard_body">Desbloqueie funcionalidades extra e torne-se um patrono para apoiar o desenvolvimento contínuo!</string>
     <string name="upgrades_dashcard_upgrade_action">Atualizar</string>

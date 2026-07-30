@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="app_name_upgrade_postfix" translatable="false">FOSS</string>
 
 
     <string name="upgrades_dashcard_title">Upgrade SD Maid SE</string>

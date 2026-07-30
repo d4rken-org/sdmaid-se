@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgrade_postfix">البرمجيات الحرة (FOSS)</string>
     <string name="upgrades_dashcard_title">ترقية SD Maid SE</string>
     <string name="upgrades_dashcard_body">افتح ميزات إضافية وكن راعياً لدعم التطوير المستمر!</string>
     <string name="upgrades_dashcard_upgrade_action">ترقية</string>

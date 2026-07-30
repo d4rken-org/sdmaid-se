@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgrade_postfix">FOSS</string>
 
     <string name="upgrades_dashcard_title">Aġġorna SD Maid</string>
     <string name="upgrades_dashcard_body">Iftaħ karatteristiċi addizzjonali u sir patrun biex tappoġġja l-iżvilupp kontinwu!</string>
