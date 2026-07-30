@@ -38,7 +38,7 @@ class DataAreasViewModelTest : BaseTest() {
 
         every { dataAreaManager.state } returns areaState
         every { taskManager.state } returns taskState
-        every { webpageTool.open(any()) } returns Unit
+        every { webpageTool.open(any()) } returns true
         coEvery { dataAreaManager.reloadAndAwait() } returns DataAreaManager.State(
             areas = emptySet(),
             refreshGeneration = 1L,

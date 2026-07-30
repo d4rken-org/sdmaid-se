@@ -101,9 +101,28 @@ class UpgradeViewModel @Inject constructor(
         handle[KEY_SHOW_UPGRADE_OPTIONS] = true
     }
 
+    /** Armed variant: the pitch's sponsor button, which starts the return-after-5s unlock heuristic. */
     fun goGithubSponsors() {
         log(TAG) { "goGithubSponsors()" }
+        if (hasPendingSponsorLaunch()) {
+            log(TAG) { "A sponsor launch is already awaiting its return" }
+            return
+        }
+        // Only arm the heuristic if the page actually opened; otherwise an unrelated later
+        // background/foreground round-trip would grant supporter status with no page ever shown.
+        if (!upgradeRepo.openGithubSponsorsPage()) {
+            log(TAG) { "Sponsor page didn't open; not arming the unlock heuristic" }
+            return
+        }
         handle[KEY_SPONSOR_PRESSED_AT] = SystemClock.elapsedRealtime()
+    }
+
+    /**
+     * Unarmed variant: the status view's donate button. An existing supporter re-visiting the page
+     * must not re-arm the unlock heuristic — there is nothing left to unlock.
+     */
+    fun openSponsors() {
+        log(TAG) { "openSponsors()" }
         upgradeRepo.openGithubSponsorsPage()
     }
 
@@ -118,18 +137,21 @@ class UpgradeViewModel @Inject constructor(
 
     fun checkSponsorReturn() = launch {
         val pressedAt = handle.remove<Long>(KEY_SPONSOR_PRESSED_AT) ?: return@launch
+
+        // Evaluated before the duration: an already upgraded supporter (recurring donation button)
+        // has nothing left to unlock, and persisting again would rewrite their upgradedAt — visibly
+        // resetting the "supporter since" date the status screen shows them.
+        if (upgradeRepo.upgradeInfo.first().isPro) {
+            log(TAG) { "checkSponsorReturn(): Already upgraded, staying quiet" }
+            return@launch
+        }
+
         val elapsed = SystemClock.elapsedRealtime() - pressedAt
         log(TAG) { "checkSponsorReturn(): elapsed=${elapsed}ms" }
 
         if (elapsed < SPONSOR_DELAY_MS) {
-            // The nudge belongs to the unlock heuristic. An already upgraded user (recurring
-            // donation button) has nothing to unlock — peeking at the page needs no feedback.
-            if (upgradeRepo.upgradeInfo.first().isPro) {
-                log(TAG) { "checkSponsorReturn(): Too quick, but already upgraded, staying quiet" }
-            } else {
-                log(TAG) { "checkSponsorReturn(): Too quick, showing snackbar" }
-                snackbarEvents.tryEmit(R.string.upgrade_screen_sponsor_return_too_quick)
-            }
+            log(TAG) { "checkSponsorReturn(): Too quick, showing snackbar" }
+            snackbarEvents.tryEmit(R.string.upgrade_screen_sponsor_return_too_quick)
         } else {
             log(TAG) { "checkSponsorReturn(): Delay passed, persisting upgrade" }
             upgradeRepo.persistUpgrade()
