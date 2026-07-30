@@ -8,6 +8,7 @@ import io.kotest.matchers.string.shouldNotContain
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -121,6 +122,29 @@ class UpgradeDiagnosticsGplayTest : BaseTest() {
         info shouldContain "BillingCache=unavailable"
         info shouldNotContain "lastProStateAt=never"
         info shouldContain "ProHistory=$proHistory"
+    }
+
+    @Test
+    fun `a wedged history is reported as unavailable`() = runTest {
+        // Counterpart to the wedged cache above: a never-answering CurriculumVitae store would hold
+        // the debug-log header -- and with it the start of the recording -- forever.
+        val diagnostics = UpgradeDiagnosticsGplay(
+            billingCache = mockk<BillingCache>().apply {
+                coEvery { snapshot() } returns BillingCache.Snapshot(
+                    lastProStateAt = 0L,
+                    lastProStateSku = "",
+                    proUnconfirmedSince = 0L,
+                )
+            },
+            curriculumVitae = mockk<CurriculumVitae>().apply {
+                coEvery { proHistory() } coAnswers { awaitCancellation() }
+            },
+        ).apply { historyTimeoutMs = 50L }
+
+        val info = diagnostics.debugInfo()
+
+        info shouldContain "BillingCache(lastProStateAt=never"
+        info shouldContain "ProHistory=unavailable"
     }
 
     @Test

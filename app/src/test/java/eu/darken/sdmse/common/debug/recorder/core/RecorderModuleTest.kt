@@ -11,9 +11,11 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
+import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
 import eu.darken.sdmse.main.core.CurriculumVitae
+import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.mockk.coEvery
@@ -26,16 +28,20 @@ import io.mockk.slot
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
@@ -44,7 +50,9 @@ import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
 import java.io.IOException
+import java.util.concurrent.CopyOnWriteArrayList
 import javax.inject.Provider
+import kotlin.system.measureTimeMillis
 
 class RecorderModuleTest : BaseTest() {
 
@@ -198,7 +206,9 @@ class RecorderModuleTest : BaseTest() {
             val dispatcher = UnconfinedTestDispatcher(testScheduler)
             val moduleScope = CoroutineScope(dispatcher + Job())
             val module = createModule(moduleScope, dispatcher)
-            advanceUntilIdle()
+            // runCurrent(), not advanceUntilIdle(): advancing would jump virtual time past the
+            // header's read deadline, and the cancellation has to arrive while the read is in flight.
+            runCurrent()
 
             // Cancelling the module's scope cancels the in-flight header read.
             moduleScope.cancel()
@@ -210,8 +220,10 @@ class RecorderModuleTest : BaseTest() {
         }
 
         @Test
-        fun `a failing header read stops the uncommitted recorder`() = runTest {
-            // Same window as above, but for ordinary failures of the unguarded header reads.
+        fun `a failing header read degrades to unavailable instead of aborting the recording`() = runTest {
+            // Deliberate contract: debug recording is what a user reaches for when the app is
+            // ALREADY misbehaving, so a broken header source must not be the thing that denies them
+            // the log. Only an outer cancellation (above) still rolls the uncommitted recorder back.
             File(externalDir, "force_debug_run").createNewFile()
             coEvery { recorderPath.value() } returns null
             every { curriculumVitae.history } returns flow { throw IOException("disk full") }
@@ -222,8 +234,8 @@ class RecorderModuleTest : BaseTest() {
             advanceUntilIdle()
 
             coVerify { mockRecorder.start(any()) }
-            coVerify { mockRecorder.stop() }
-            module.state.first().isRecording shouldBe false
+            coVerify(exactly = 0) { mockRecorder.stop() }
+            module.state.first().isRecording shouldBe true
 
             moduleScope.cancel()
         }
@@ -277,6 +289,134 @@ class RecorderModuleTest : BaseTest() {
             val clearSlot = slot<(String?) -> String?>()
             coVerify(atLeast = 1) { recorderPath.update(capture(clearSlot)) }
             clearSlot.captured("ignored") shouldBe null
+        }
+    }
+
+    @Nested
+    inner class HeaderReads {
+
+        private val logLines = CopyOnWriteArrayList<String>()
+        private val logCapture = object : Logging.Logger {
+            override fun log(priority: Logging.Priority, tag: String, message: String, metaData: Map<String, Any>?) {
+                logLines.add(message)
+            }
+        }
+
+        @BeforeEach
+        fun installLogCapture() {
+            Logging.install(logCapture)
+        }
+
+        @AfterEach
+        fun removeLogCapture() {
+            Logging.remove(logCapture)
+        }
+
+        /**
+         * Real dispatchers on purpose: the header deadline is wall-clock, a virtual-time test would
+         * skip it instead of exercising it. The recording is started via [RecorderModule.startRecorder]
+         * so the seam can be set before any header read runs.
+         */
+        private suspend fun withRealtimeModule(
+            headerTimeoutMs: Long = 300L,
+            block: suspend (RecorderModule) -> Unit,
+        ) {
+            coEvery { recorderPath.value() } returns null
+            val moduleScope = CoroutineScope(Dispatchers.IO + Job())
+            try {
+                val module = createModule(moduleScope, Dispatchers.IO)
+                module.headerReadTimeoutMs = headerTimeoutMs
+                block(module)
+            } finally {
+                moduleScope.cancel()
+            }
+        }
+
+        @Test
+        fun `a wedged data area read does not hold up the recording`() = runTest {
+            every { dataAreaManager.latestState } returns flow { awaitCancellation() }
+
+            withRealtimeModule { module ->
+                module.startRecorder()
+
+                module.state.first().isRecording shouldBe true
+                logLines.any { it.startsWith("Data areas unavailable") } shouldBe true
+                // The other sources are unaffected -- they were read concurrently.
+                logLines.any { it.startsWith("Update history:") } shouldBe true
+                logLines.any { it.startsWith("Upgrade diagnostics: ") } shouldBe true
+            }
+        }
+
+        @Test
+        fun `a wedged update history read does not hold up the recording`() = runTest {
+            every { curriculumVitae.history } returns flow { awaitCancellation() }
+
+            withRealtimeModule { module ->
+                module.startRecorder()
+
+                module.state.first().isRecording shouldBe true
+                logLines.any { it.startsWith("Update history unavailable") } shouldBe true
+                logLines.any { it.startsWith("Data areas: ") } shouldBe true
+                logLines.any { it.startsWith("Upgrade diagnostics: ") } shouldBe true
+            }
+        }
+
+        @Test
+        fun `a wedged upgrade diagnostics read does not hold up the recording`() = runTest {
+            coEvery { upgradeDiagnostics.debugInfo() } coAnswers { awaitCancellation() }
+
+            withRealtimeModule { module ->
+                module.startRecorder()
+
+                module.state.first().isRecording shouldBe true
+                logLines.any { it.startsWith("Upgrade diagnostics unavailable") } shouldBe true
+                logLines.any { it.startsWith("Data areas: ") } shouldBe true
+                logLines.any { it.startsWith("Update history:") } shouldBe true
+            }
+        }
+
+        @Test
+        fun `all header reads wedged at once still costs only one shared deadline`() = runTest {
+            every { dataAreaManager.latestState } returns flow { awaitCancellation() }
+            every { curriculumVitae.history } returns flow { awaitCancellation() }
+            coEvery { upgradeDiagnostics.debugInfo() } coAnswers { awaitCancellation() }
+
+            withRealtimeModule(headerTimeoutMs = 300L) { module ->
+                val elapsed = measureTimeMillis { module.startRecorder() }
+
+                // One budget for all three: they are read concurrently, so three wedged sources
+                // cost the same as one. Bounding each source separately would cost three times as
+                // much, and not bounding them at all would never return.
+                elapsed shouldBeLessThan 750L
+                module.state.first().isRecording shouldBe true
+            }
+        }
+
+        @Test
+        fun `a data area state that is not known yet is not reported as unavailable`() = runTest {
+            // latestState legitimately starts out null -- that is a normal header line, not a failure.
+            every { dataAreaManager.latestState } returns flowOf(null)
+
+            withRealtimeModule { module ->
+                module.startRecorder()
+
+                logLines.any { it == "Data areas: (null)" } shouldBe true
+                logLines.any { it.startsWith("Data areas unavailable") } shouldBe false
+            }
+        }
+
+        @Test
+        fun `a flavor without diagnostics is not reported as unavailable`() = runTest {
+            // FOSS has nothing to report and returns null: no diagnostics line at all, and above all
+            // not one claiming the read failed.
+            coEvery { upgradeDiagnostics.debugInfo() } returns null
+
+            withRealtimeModule { module ->
+                module.startRecorder()
+
+                module.state.first().isRecording shouldBe true
+                logLines.any { it.startsWith("Upgrade diagnostics") } shouldBe false
+            }
         }
     }
 }
