@@ -12,8 +12,10 @@ import eu.darken.sdmse.common.datastore.basicReader
 import eu.darken.sdmse.common.datastore.basicWriter
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import java.io.IOException
@@ -93,14 +95,24 @@ class BillingCache internal constructor(
     // not erase.
     suspend fun stampLastProState(skuId: String, at: Long) {
         // Fail-soft: this decorates the entitlement path, it must never be the thing that blocks it.
-        withTimeoutOrNull(cacheTimeoutMs) {
-            dataStore.edit { prefs ->
-                prefs[lastProStateSkuKey] = skuId
-                prefs[lastProStateAtKey] = at
-                val episodeStart = prefs[proUnconfirmedSinceKey] ?: 0L
-                if (episodeStart in 1..at) prefs[proUnconfirmedSinceKey] = 0L
-            }
-        } ?: log(TAG, WARN) { "stampLastProState($skuId, $at) timed out after ${cacheTimeoutMs}ms, write skipped" }
+        // A wedged file lock (timeout) and a broken write (IOException, corrupt file, no disk space)
+        // are the same to the caller — the stamp is lost, the bookkeeping around it carries on.
+        try {
+            withTimeoutOrNull(cacheTimeoutMs) {
+                dataStore.edit { prefs ->
+                    prefs[lastProStateSkuKey] = skuId
+                    prefs[lastProStateAtKey] = at
+                    val episodeStart = prefs[proUnconfirmedSinceKey] ?: 0L
+                    if (episodeStart in 1..at) prefs[proUnconfirmedSinceKey] = 0L
+                }
+            } ?: log(TAG, WARN) { "stampLastProState($skuId, $at) timed out after ${cacheTimeoutMs}ms, write skipped" }
+        } catch (e: CancellationException) {
+            // Caught before the general case on purpose: our caller going away is not a write
+            // failure, and swallowing it would break their structured concurrency.
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "stampLastProState($skuId, $at) failed, write skipped: ${e.asLog()}" }
+        }
     }
 
     companion object {

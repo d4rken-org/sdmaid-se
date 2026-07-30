@@ -7,6 +7,7 @@ import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.common.datastore.value
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.Flow
@@ -94,6 +95,28 @@ class BillingCacheTest : BaseTest() {
         // The write only decorates the entitlement path, it must never block it.
         cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 1234L)
     }
+
+    @Test
+    fun `a failing datastore write does not abort the entitlement bookkeeping`() = runTest {
+        // A broken write (corrupt file, no disk space) is not the same failure as a wedged lock, and
+        // the timeout alone doesn't cover it -- the exception would propagate straight through the
+        // stamp into the caller that was only decorating its entitlement work.
+        val cache = BillingCache(ThrowingPreferencesDataStore())
+
+        cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 1234L)
+
+        // Reads stay loud: a snapshot that can't be read must not look like "never bought".
+        shouldThrow<IOException> { cache.snapshot() }
+    }
+
+    @Test
+    fun `a cancelled stamp still cancels`() = runTest {
+        // Fail-soft must not extend to cancellation -- swallowing it would break the structured
+        // concurrency of whatever entitlement work is being torn down.
+        val cache = BillingCache(CancellingPreferencesDataStore())
+
+        shouldThrow<CancellationException> { cache.stampLastProState(OurSku.Iap.PRO_UPGRADE.id, 1234L) }
+    }
 }
 
 /** DataStore that never answers -- stands in for a wedged file lock. */
@@ -102,4 +125,20 @@ internal class HangingPreferencesDataStore : DataStore<Preferences> {
 
     override suspend fun updateData(transform: suspend (Preferences) -> Preferences): Preferences =
         awaitCancellation()
+}
+
+/** DataStore whose I/O fails -- stands in for a corrupt file or a full disk. */
+internal class ThrowingPreferencesDataStore : DataStore<Preferences> {
+    override val data: Flow<Preferences> = flow { throw IOException("Preferences file is broken") }
+
+    override suspend fun updateData(transform: suspend (Preferences) -> Preferences): Preferences =
+        throw IOException("Preferences file is broken")
+}
+
+/** DataStore whose write is cancelled from the outside. */
+internal class CancellingPreferencesDataStore : DataStore<Preferences> {
+    override val data: Flow<Preferences> = flow { throw CancellationException("Torn down") }
+
+    override suspend fun updateData(transform: suspend (Preferences) -> Preferences): Preferences =
+        throw CancellationException("Torn down")
 }
