@@ -76,6 +76,9 @@ fun DashboardScreenshot() {
                 ),
                 upgradeInfo = null,
             ),
+            // The hero starts collapsed unless a one-tap action expanded it; without this the card
+            // would silently vanish from the store screenshot.
+            isHeroExpanded = true,
         )
     }
 }

@@ -85,7 +85,7 @@ fun DashboardScreenHost(
     val listState by vm.listState.collectAsStateWithLifecycle()
     val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle()
     val oneClickOptionsState by vm.oneClickOptionsState.collectAsStateWithLifecycle()
-    val isHeroDismissed by vm.isHeroDismissed.collectAsStateWithLifecycle()
+    val isHeroExpanded by vm.isHeroExpanded.collectAsStateWithLifecycle()
 
     var dialogState by remember { mutableStateOf<DashboardDialogState?>(null) }
 
@@ -173,7 +173,7 @@ fun DashboardScreenHost(
         bottomBarState = bottomBarState,
         isTv = vm.isTvDevice,
         oneClickOptionsState = oneClickOptionsState,
-        isHeroDismissed = isHeroDismissed,
+        isHeroExpanded = isHeroExpanded,
         snackbarHostState = snackbarHostState,
         onDismissHero = vm::dismissHero,
         onMainAction = {
@@ -186,7 +186,7 @@ fun DashboardScreenHost(
             }
         },
         onToolClick = vm::onHeroToolClick,
-        onRestoreHero = vm::restoreHero,
+        onExpandHero = vm::expandHero,
         onDiscardResults = vm::discardResults,
         onSettings = { vm.navTo(SettingsRoute) },
         onUpgrade = { vm.navTo(UpgradeRoute()) },
@@ -203,11 +203,11 @@ internal fun DashboardScreen(
     bottomBarState: BottomBarState? = null,
     isTv: Boolean = false,
     oneClickOptionsState: OneClickOptionsState = OneClickOptionsState(),
-    isHeroDismissed: Boolean = false,
+    isHeroExpanded: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
-    onRestoreHero: () -> Unit = {},
+    onExpandHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     onSettings: () -> Unit = {},
     onUpgrade: () -> Unit = {},
@@ -413,7 +413,7 @@ internal fun DashboardScreen(
     }
 
     // Suppress the hero while a tour is active so it can't cover or fight tour targets.
-    val heroVisible = bottomBarState?.heroSummary != null && !isHeroDismissed && !dashboardTourActive
+    val heroVisible = bottomBarState?.heroSummary != null && isHeroExpanded && !dashboardTourActive
 
     // Dismissing or discarding the hero with DPAD_CENTER removes the focused node from
     // composition and focus evaporates — the next key press would restart from the default.
@@ -491,9 +491,9 @@ internal fun DashboardScreen(
                 onUpgrade = onUpgrade,
                 onDismissHero = onDismissHero,
                 onToolClick = onToolClick,
-                onRestoreHero = onRestoreHero,
+                onExpandHero = onExpandHero,
                 onDiscardResults = onDiscardResults,
-                isHeroDismissed = isHeroDismissed,
+                canExpandHero = !dashboardTourActive,
                 mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
                 settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
             )

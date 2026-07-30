@@ -389,12 +389,12 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
                     LocalTourTargetRegistry provides TourTargetRegistry(),
                     LocalGuidedTourController provides controller,
                 ) {
-                    var dismissed by remember { mutableStateOf(false) }
+                    var expanded by remember { mutableStateOf(true) }
                     DashboardScreen(
                         listState = DashboardViewModel.ListState(items = defaultItems()),
                         bottomBarState = bottomBarState(heroSummary = heroSummary()),
-                        isHeroDismissed = dismissed,
-                        onDismissHero = { dismissed = true },
+                        isHeroExpanded = expanded,
+                        onDismissHero = { expanded = false },
                     )
                 }
             }
@@ -459,6 +459,9 @@ private fun ComposeContentTestRule.setDashboardContent(
                 DashboardScreen(
                     listState = listState,
                     bottomBarState = bottomBarState,
+                    // These tests are about focus travel through a *shown* hero; expand whenever the
+                    // state carries one, since the hero is collapsed by default now.
+                    isHeroExpanded = bottomBarState.heroSummary != null,
                 )
             }
         }

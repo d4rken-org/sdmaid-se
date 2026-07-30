@@ -6,9 +6,11 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.intervalFlow
@@ -34,19 +36,30 @@ import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerOneClickTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.retryWhen
+import kotlinx.coroutines.flow.shareIn
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
 import java.time.Instant
+import java.util.concurrent.atomic.AtomicInteger
 import kotlin.time.Duration.Companion.minutes
 
 /**
@@ -72,10 +85,16 @@ class DashboardMainActionEngine(
     private val submitTask: suspend (SDMTool.Task) -> SDMTool.Task.Result,
     /** Invoked when a non-Pro user triggers a Pro-gated cleanup; the VM navigates to upgrade. */
     private val onUpgradeRequired: () -> Unit,
+    /**
+     * Invoked when a state flow this engine owns fails and falls back. The VM routes it to
+     * `errorEvents` — without this the user would silently get fallback state (e.g. default
+     * one-click toggles) with no indication that their settings couldn't be read.
+     */
+    private val onStateError: (Throwable) -> Unit,
 ) {
 
-    /** Cold per-setting combine; the VM turns this into the shared [OneClickOptionsState] StateFlow. */
-    val oneClickOptions: Flow<OneClickOptionsState> = combine(
+    /** Cold per-setting combine; [oneClickOptionsState] is the single shared collection of it. */
+    private val oneClickOptions: Flow<OneClickOptionsState> = combine(
         generalSettings.oneClickCorpseFinderEnabled.flow,
         generalSettings.oneClickSystemCleanerEnabled.flow,
         generalSettings.oneClickAppCleanerEnabled.flow,
@@ -89,6 +108,20 @@ class DashboardMainActionEngine(
         )
     }
 
+    /**
+     * The one-click toggles, shared: both [heroState] and the VM's options dialog read this single
+     * collection instead of subscribing to the four settings flows twice. Upstream failures fall
+     * back to the defaults rather than freezing the dashboard.
+     */
+    val oneClickOptionsState: StateFlow<OneClickOptionsState> = oneClickOptions
+        .catch { e ->
+            if (e is CancellationException) throw e
+            log(TAG, ERROR) { "oneClickOptions failed: ${e.asLog()}" }
+            onStateError(e)
+            emit(OneClickOptionsState())
+        }
+        .stateIn(scope, SharingStarted.Eagerly, OneClickOptionsState())
+
     /** Aggregated "freed" result of the most recent main-action deletion/one-click; null otherwise. */
     private val freedResult = MutableStateFlow<HeroSummary?>(null)
 
@@ -100,8 +133,40 @@ class DashboardMainActionEngine(
     var freedResultSince: Instant = Instant.EPOCH
         private set
 
-    /** In-flight main-action cleanup branches; the freed hero stays hidden until this reaches 0. */
-    private val pendingMainCleanup = MutableStateFlow(0)
+    /**
+     * Branch bookkeeping for the current main action, deliberately NOT observed by anything. Its
+     * only job is to tell the last returning branch that it *is* the last one, while it still has
+     * results to write; [batchState] is published afterwards. See [launchMainBranch].
+     */
+    private val branchesInFlight = AtomicInteger(0)
+
+    /**
+     * The current main-action batch, published as one atomic value: a settle edge must never become
+     * visible apart from the [id] and the arm it belongs to.
+     *
+     * [id] identifies the run. A resolution derived from batch A can still be in flight when batch B
+     * starts, and both arms are the same indistinguishable `true` — the id is what stops A's late
+     * resolution from consuming B's arm.
+     */
+    internal data class BatchState(
+        val id: Long = 0L,
+        /** In-flight branches; gates the freed hero and the settle edge [heroState] carries. */
+        val pending: Int = 0,
+        /** A one-tap main action is running and its hero, if it produces one, should auto-expand. */
+        val autoExpandArmed: Boolean = false,
+    )
+
+    /** What the settle collector does with one hero snapshot; see [resolveAutoExpand]. */
+    internal enum class AutoExpandDecision {
+        IGNORE,
+        DISARM,
+        EXPAND_AND_DISARM,
+    }
+
+    private val batchState = MutableStateFlow(BatchState())
+
+    /** The part of [BatchState] the hero derivation keys on; see [heroState]. */
+    private data class BatchPhase(val id: Long, val isSettled: Boolean)
 
     /**
      * Whether the current cleanup actually submitted a deletion task, regardless of how much it
@@ -122,16 +187,156 @@ class DashboardMainActionEngine(
 
     private val nowTicks: Flow<Instant> = intervalFlow(1.minutes).map { Instant.now() }
 
-    private val heroDismissed = MutableStateFlow(false)
+    private val heroExpanded = MutableStateFlow(false)
 
-    /** Whether the user dismissed the hero for the current results. In-memory; resets on a fresh scan. */
-    val isHeroDismissed: StateFlow<Boolean> = heroDismissed
+    /**
+     * Whether the hero card is expanded. It only ever becomes true as the outcome of a one-tap main
+     * action that produced something to show, or because the user expanded it from the bar's compact
+     * chip — an operation started anywhere else (a tool card, an in-tool screen, the scheduler)
+     * leaves it collapsed. Dismissing or discarding collapses it again. In-memory, resets with the VM.
+     */
+    val isHeroExpanded: StateFlow<Boolean> = heroExpanded
+
+    /**
+     * One consistent snapshot of everything the hero/main action derives from; null once the
+     * derivation has failed and fallen back. Shared eagerly because the auto-expand resolution has
+     * to observe it too, and both consumers must judge the *same* snapshot.
+     */
+    private data class HeroState(
+        val actionState: BottomBarState.Action,
+        val activeTasks: Int,
+        val queuedTasks: Int,
+        val heroSummary: HeroSummary?,
+        val upgradeInfo: UpgradeRepo.Info?,
+        /** The batch this snapshot was derived under; see [BatchState.id]. */
+        val batchId: Long,
+        /** All branches of that batch have folded in their results. */
+        val isSettled: Boolean,
+    )
+
+    /** Consecutive failures of the [heroState] derivation; 0 while it is healthy. */
+    private var heroStateFailures = 0L
+
+    /**
+     * The batch phase is applied by *re-deriving* rather than as another combine input: a branch
+     * writes its tool state before it decrements, but the two reach a combine through independent
+     * per-source collectors, so a plain combine can pair the settled counter with a tool state it
+     * hasn't picked up yet — and the auto-expand resolution would judge that stale pairing. Keying
+     * the restart on the phase makes every source re-read at (re)subscription, after the decrement.
+     *
+     * Keyed on [BatchPhase], NOT on the raw counter: the intermediate 4→3→2→1 decrements are not
+     * phase changes, so a run costs two re-subscriptions (start and settle) instead of five.
+     *
+     * ACCEPTED RESIDUAL — do not "fix" this without asking: re-subscribing does not *force* the
+     * tools to recompute. Each tool's `state` is a `replayingShare` projection, so a re-read returns
+     * its replay cache; if a tool's own projection hasn't published the scan it just finished by the
+     * time the settle edge arrives, the run resolves against data that doesn't include it and
+     * disarms without expanding. Effect is benign and rare: the hero doesn't auto-open, the bar
+     * still shows the compact summary chip, and one tap opens it. Closing it would mean exposing
+     * each tool's internal data as a new public StateFlow across the four app-tool-* modules; that
+     * API cost was weighed against this miss and deliberately declined.
+     */
+    private val heroState: Flow<HeroState?> = batchState
+        .map { BatchPhase(id = it.id, isSettled = it.pending == 0) }
+        .distinctUntilChanged()
+        .flatMapLatest<BatchPhase, HeroState?> { phase ->
+            eu.darken.sdmse.common.flow.combine(
+                upgradeInfo,
+                taskManager.state,
+                corpseFinder.state,
+                systemCleaner.state,
+                appCleaner.state,
+                deduplicator.state,
+                generalSettings.enableDashboardOneClick.flow,
+                oneClickOptionsState,
+                freedResult,
+                discarding,
+            ) { upgradeInfo,
+                taskState,
+                corpseState,
+                filterState,
+                junkState,
+                dedupeState,
+                oneClickMode,
+                oneClickOptions,
+                freed,
+                isDiscarding ->
+
+                val actionState = resolveMainAction(
+                    taskState = taskState,
+                    corpse = corpseState.data,
+                    system = filterState.data,
+                    app = junkState.data,
+                    dedupe = dedupeState.data,
+                    oneClick = oneClickOptions,
+                    isPro = upgradeInfo?.isPro == true,
+                    oneClickMode = oneClickMode,
+                )
+                // Post-scan "will be freed" takes priority; otherwise, once the action has settled,
+                // show the "freed" result of the last main-action deletion/one-click. While working,
+                // both stay hidden and the bar carries progress. The settle edge gates this too, not
+                // just [settled]: the task manager reports idle again before the branches fold in
+                // their results, and without the gate the identical "can be freed" card flashes in
+                // that window.
+                val freeable = if (actionState == BottomBarState.Action.DELETE && phase.isSettled) {
+                    buildHeroSummary(
+                        corpse = corpseState.data,
+                        system = filterState.data,
+                        app = junkState.data,
+                        dedupe = dedupeState.data,
+                        oneClick = oneClickOptions,
+                        isPro = upgradeInfo?.isPro == true,
+                        scanTimes = taskState.latestScanTimes(),
+                    )
+                } else {
+                    null
+                }
+                val settled = freed?.takeIf { taskState.isIdle && phase.isSettled }
+                // A cleanup that freed nothing outranks [freeable]: the data survived, so FREEABLE
+                // rebuilds identically and would bury the fact that the deletion ran at all.
+                val heroSummary =
+                    (settled?.takeIf { it.mode == HeroSummary.Mode.NOTHING_FREED } ?: freeable ?: settled)
+                        .takeIf { !isDiscarding }
+                HeroState(
+                    actionState = actionState,
+                    activeTasks = taskState.tasks.filter { it.isActive }.size,
+                    queuedTasks = taskState.tasks.filter { it.isQueued }.size,
+                    heroSummary = heroSummary,
+                    upgradeInfo = upgradeInfo,
+                    batchId = phase.id,
+                    isSettled = phase.isSettled,
+                )
+            }
+        }
+        // Upstream of the retry on purpose: only a real snapshot ends an outage. The fallback the
+        // retry emits below goes straight downstream and must not clear the counter.
+        .onEach { heroStateFailures = 0L }
+        // The share below is eager and permanently subscribed, so there is no later subscription
+        // cycle to restart this on — a terminating operator (`catch`, or a bounded retry) would cost
+        // the dashboard its whole bottom bar for the ViewModel's lifetime over one DataStore blip.
+        // Retry without a bound instead, emitting the null fallback (the bar's "not ready" state)
+        // so the outage is visible, reporting it once per outage rather than per attempt, and
+        // backing off so a permanently broken source can't hot-loop.
+        .retryWhen { error, _ ->
+            if (error is CancellationException) return@retryWhen false
+            if (heroStateFailures == 0L) {
+                log(TAG, ERROR) { "heroState failed: ${error.asLog()}" }
+                onStateError(error)
+            }
+            emit(null)
+            val doublings = heroStateFailures.coerceAtMost(HERO_STATE_RETRY_MAX_DOUBLINGS).toInt()
+            val backoff = minOf(HERO_STATE_RETRY_MAX_MS, HERO_STATE_RETRY_BASE_MS shl doublings)
+            heroStateFailures++
+            delay(backoff)
+            true
+        }
+        .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 
     init {
-        // A freshly completed *scan* clears any stale "freed" result and revives a dismissed hero.
-        // We must only react to a *strictly newer* scan time: TaskManager keeps one task per tool,
-        // so a delete prunes that tool's scan result and would otherwise make this "change" to an
-        // older/absent scan time and wrongly clear the freed hero we just produced.
+        // A freshly completed *scan* clears any stale "freed" result. We must only react to a
+        // *strictly newer* scan time: TaskManager keeps one task per tool, so a delete prunes that
+        // tool's scan result and would otherwise make this "change" to an older/absent scan time
+        // and wrongly clear the freed hero we just produced.
         scope.launch {
             var latestSeenScan: Instant? = null
             taskManager.state
@@ -141,110 +346,67 @@ class DashboardMainActionEngine(
                     if (prev == null || scanCompletedAt.isAfter(prev)) {
                         latestSeenScan = scanCompletedAt
                         freedResult.value = null
-                        heroDismissed.value = false
                     }
                 }
         }
-        // A freshly produced "freed" result also revives a dismissed hero so the outcome is shown.
+        // Auto-expand is a one-shot armed by a one-tap main action and resolved when that action's
+        // branches have all settled: expand if it produced something to show, otherwise just disarm.
+        // Resolving either way is the point — an arm left set by a fruitless scan would be inherited
+        // by the next card-triggered scan and auto-expand it, which is the defect this closes.
         scope.launch {
-            freedResult
-                .map { it != null }
-                .distinctUntilChanged()
-                .collect { hasFreed -> if (hasFreed) heroDismissed.value = false }
+            heroState.filterNotNull().collect { hero ->
+                val decision = resolveAutoExpand(
+                    snapshotBatchId = hero.batchId,
+                    isSettled = hero.isSettled,
+                    hasSummary = hero.heroSummary != null,
+                    batch = batchState.value,
+                )
+                when (decision) {
+                    AutoExpandDecision.IGNORE -> return@collect
+                    AutoExpandDecision.DISARM -> Unit
+                    AutoExpandDecision.EXPAND_AND_DISARM -> heroExpanded.value = true
+                }
+                batchState.update { if (it.id == hero.batchId) it.copy(autoExpandArmed = false) else it }
+            }
         }
     }
 
     /**
-     * Cold bottom bar state assembly. [listIsReady] and [oneClickOptionsState] are the VM's shared
-     * flows (list readiness derives from its listState; the options StateFlow is built from
-     * [oneClickOptions]) so their upstreams aren't collected twice.
+     * Cold bottom bar state assembly on top of the shared [heroState]; null while the hero
+     * derivation has no (or no longer a) usable snapshot. [listIsReady] is the VM's shared flow
+     * (derived from its listState) so its upstream isn't collected twice.
      */
     fun bottomBarState(
         listIsReady: Flow<Boolean>,
-        oneClickOptionsState: Flow<OneClickOptionsState>,
-    ): Flow<BottomBarState> = eu.darken.sdmse.common.flow.combine(
-        upgradeInfo,
-        taskManager.state,
-        corpseFinder.state,
-        systemCleaner.state,
-        appCleaner.state,
-        deduplicator.state,
-        generalSettings.enableDashboardOneClick.flow,
-        oneClickOptionsState,
-        freedResult,
-        pendingMainCleanup,
+    ): Flow<BottomBarState?> = combine(
+        heroState,
         listIsReady,
-        discarding,
         nowTicks,
-    ) { upgradeInfo,
-        taskState,
-        corpseState,
-        filterState,
-        junkState,
-        dedupeState,
-        oneClickMode,
-        oneClickOptions,
-        freed,
-        pendingCleanup,
-        listReady,
-        isDiscarding,
-        now ->
-
-        val actionState = resolveMainAction(
-            taskState = taskState,
-            corpse = corpseState.data,
-            system = filterState.data,
-            app = junkState.data,
-            dedupe = dedupeState.data,
-            oneClick = oneClickOptions,
-            isPro = upgradeInfo?.isPro == true,
-            oneClickMode = oneClickMode,
-        )
-        val activeTasks = taskState.tasks.filter { it.isActive }.size
-        val queuedTasks = taskState.tasks.filter { it.isQueued }.size
-        // Post-scan "will be freed" takes priority; otherwise, once the action has settled, show the
-        // "freed" result of the last main-action deletion/one-click. While working, both stay hidden
-        // and the bar carries progress. [pendingCleanup] gates this too, not just [settled]: the
-        // task manager reports idle again before the branches fold in their results, and without
-        // the gate the identical "can be freed" card flashes in that window.
-        val freeable = if (actionState == BottomBarState.Action.DELETE && pendingCleanup == 0) {
-            buildHeroSummary(
-                corpse = corpseState.data,
-                system = filterState.data,
-                app = junkState.data,
-                dedupe = dedupeState.data,
-                oneClick = oneClickOptions,
-                isPro = upgradeInfo?.isPro == true,
-                scanTimes = taskState.latestScanTimes(),
+    ) { hero, listReady, now ->
+        hero?.let {
+            BottomBarState(
+                isReady = listReady,
+                actionState = it.actionState,
+                activeTasks = it.activeTasks,
+                queuedTasks = it.queuedTasks,
+                heroSummary = it.heroSummary,
+                upgradeInfo = it.upgradeInfo,
+                now = now,
             )
-        } else {
-            null
         }
-        val settled = freed?.takeIf { taskState.isIdle && pendingCleanup == 0 }
-        // A cleanup that freed nothing outranks [freeable]: the data survived, so FREEABLE rebuilds
-        // identically and would bury the fact that the deletion ran at all.
-        val heroSummary = (settled?.takeIf { it.mode == HeroSummary.Mode.NOTHING_FREED } ?: freeable ?: settled)
-            .takeIf { !isDiscarding }
-        BottomBarState(
-            isReady = listReady,
-            actionState = actionState,
-            activeTasks = activeTasks,
-            queuedTasks = queuedTasks,
-            heroSummary = heroSummary,
-            upgradeInfo = upgradeInfo,
-            now = now,
-        )
     }
 
     fun dismissHero() {
         log(TAG) { "dismissHero()" }
-        heroDismissed.value = true
+        heroExpanded.value = false
+        // An action still in flight must not re-open what the user just closed.
+        batchState.update { it.copy(autoExpandArmed = false) }
     }
 
-    /** Re-shows a hero the user dismissed (via the compact summary chip in the bar). */
-    fun restoreHero() {
-        log(TAG) { "restoreHero()" }
-        heroDismissed.value = false
+    /** Expands a collapsed hero (via the compact summary chip in the bar). */
+    fun expandHero() {
+        log(TAG) { "expandHero()" }
+        heroExpanded.value = true
     }
 
     /**
@@ -273,7 +435,10 @@ class DashboardMainActionEngine(
             taskManager.forgetCompleted(SDMTool.Type.SYSTEMCLEANER)
             taskManager.forgetCompleted(SDMTool.Type.APPCLEANER)
             taskManager.forgetCompleted(SDMTool.Type.DEDUPLICATOR)
-            heroDismissed.value = false
+            // Discard returns the dashboard to its pristine state; the next card-triggered scan
+            // must not inherit this run's auto-expand and pop the hero open by itself.
+            heroExpanded.value = false
+            batchState.update { it.copy(autoExpandArmed = false) }
         } finally {
             discarding.value = false
         }
@@ -295,9 +460,12 @@ class DashboardMainActionEngine(
         generalSettings.oneClickDeduplicatorEnabled.value(enabled)
     }
 
-    // Runs one main-action tool branch and, for cleanups, decrements the pending counter when it
-    // settles — so the freed hero only appears once *all* branches are done (no partial flash).
-    private fun launchMainBranch(isCleanup: Boolean, block: suspend () -> Unit) = scope.launch {
+    /**
+     * Runs one main-action tool branch. A branch of a run that opened a batch ([isTracked]) also
+     * closes its share of it, so the freed hero only appears — and auto-expand only resolves — once
+     * *all* branches are done. Cancel taps don't open a batch and must not decrement someone else's.
+     */
+    private fun launchMainBranch(isTracked: Boolean, isCleanup: Boolean, block: suspend () -> Unit) = scope.launch {
         var failed = false
         try {
             block()
@@ -306,13 +474,19 @@ class DashboardMainActionEngine(
             failed = true
             throw e
         } finally {
-            if (isCleanup) {
-                if (failed) cleanupFailed.value = true
-                val remaining = pendingMainCleanup.updateAndGet { (it - 1).coerceAtLeast(0) }
+            if (isTracked) {
+                if (isCleanup && failed) cleanupFailed.value = true
+                // Two counters on purpose, do NOT merge them back into one: the observed
+                // [batchState] is published *last*, after this branch wrote everything it produces.
+                // Its pending == 0 is the settle edge [heroState] snapshots and auto-expand acts on,
+                // so a result written after that edge would arrive too late to be part of that
+                // snapshot. [branchesInFlight] is the unobserved bookkeeping that tells us we are
+                // the last branch while there is still time to write.
+                val remaining = branchesInFlight.updateAndGet { (it - 1).coerceAtLeast(0) }
                 // Last branch home. A cleanup that ran but freed nothing leaves the tools' data
                 // untouched, so the identical "can be freed" card would just re-render and the
                 // whole thing reads as "the button did nothing". Say so instead.
-                if (remaining == 0 && cleanupRan.value && !cleanupFailed.value) {
+                if (isCleanup && remaining == 0 && cleanupRan.value && !cleanupFailed.value) {
                     val nothingFreed = HeroSummary(
                         mode = HeroSummary.Mode.NOTHING_FREED,
                         totalSize = 0L,
@@ -326,6 +500,9 @@ class DashboardMainActionEngine(
                     val applied = freedResult.updateAndGet { current -> current ?: nothingFreed }
                     if (applied === nothingFreed) log(TAG, INFO) { "Cleanup finished without freeing anything." }
                 }
+                // Every branch publishes its own decrement, so this reaches 0 only after the last
+                // one has been through the block above — no matter which got there first.
+                batchState.update { it.copy(pending = (it.pending - 1).coerceAtLeast(0)) }
             }
         }
     }
@@ -343,19 +520,36 @@ class DashboardMainActionEngine(
         return corpse || system
     }
 
+    /**
+     * Runs the one-tap main action. Only the dashboard FAB (and the DELETE confirmation dialog it
+     * opens) may call this — that FAB-only origin is what makes arming the auto-expand here correct.
+     * Scans and deletions started from a tool card, an in-tool screen or the scheduler must not.
+     */
     fun mainAction(actionState: BottomBarState.Action) {
         log(TAG) { "mainAction(actionState=$actionState)" }
         // Start a fresh "freed" tally for this deletion/one-click. The hero stays hidden until every
-        // branch has settled (pendingMainCleanup == 0) so a partial per-tool result can't flash.
+        // branch has settled (batch pending == 0) so a partial per-tool result can't flash.
         val isCleanup = actionState == BottomBarState.Action.DELETE || actionState == BottomBarState.Action.ONECLICK
-        // Single-flight: a second cleanup would reset the batch tally under the branches still
-        // running on it, mixing their results and settling the hero early. It would also gain
-        // nothing — every task queues on its tool's resource lock, so it would just run again
-        // against tools the first pass already emptied. Safe without a lock: this is not a suspend
-        // function and only the main thread calls it, so taps serialize.
-        if (isCleanup && pendingMainCleanup.value > 0) {
-            log(TAG, WARN) { "mainAction($actionState): a cleanup is already in flight, ignoring." }
+        // WORKING/WORKING_CANCELABLE are the cancel tap, not a new run: they neither open a batch
+        // nor arm anything.
+        val startsRun = isCleanup || actionState == BottomBarState.Action.SCAN
+        // Single-flight across *every* run, scans included: a second batch would reset the tally
+        // under the branches still running on the first, so both counters would hit 0 after any
+        // four of the eight branches returned — settling the hero while tasks are still going and
+        // attributing results to the wrong batch. Reachable by double-tapping SCAN before the task
+        // manager reports non-idle, which is the window in which the FAB still offers SCAN. A
+        // second run would also gain nothing: every task queues on its tool's resource lock. Safe
+        // without a lock — this is not a suspend function and only the main thread calls it, so
+        // taps serialize.
+        if (startsRun && batchState.value.pending > 0) {
+            log(TAG, WARN) { "mainAction($actionState): a main action is already in flight, ignoring." }
             return
+        }
+        if (startsRun) {
+            // One atomic publish: a settle edge must never be visible without the id and arm it
+            // belongs to. Counters before the cleanup bookkeeping below.
+            branchesInFlight.set(4) // CorpseFinder + SystemCleaner + AppCleaner + Deduplicator
+            batchState.update { BatchState(id = it.id + 1, pending = 4, autoExpandArmed = true) }
         }
         if (isCleanup) {
             freedResult.value = null
@@ -363,9 +557,8 @@ class DashboardMainActionEngine(
             cleanupFailed.value = false
             // Stamp before any branch runs so it's <= every resulting report's end_at.
             freedResultSince = Instant.now()
-            pendingMainCleanup.value = 4 // CorpseFinder + SystemCleaner + AppCleaner + Deduplicator
         }
-        launchMainBranch(isCleanup) {
+        launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickCorpseFinderEnabled.value()) {
                 log(VERBOSE) { "CorpseFinder is disabled one-click mode." }
                 return@launchMainBranch
@@ -385,7 +578,7 @@ class DashboardMainActionEngine(
                 )
             }
         }
-        launchMainBranch(isCleanup) {
+        launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickSystemCleanerEnabled.value()) {
                 log(VERBOSE) { "SystemCleaner is disabled one-click mode." }
                 return@launchMainBranch
@@ -405,7 +598,7 @@ class DashboardMainActionEngine(
                 )
             }
         }
-        launchMainBranch(isCleanup) {
+        launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickAppCleanerEnabled.value()) {
                 log(VERBOSE) { "AppCleaner is disabled one-click mode." }
                 return@launchMainBranch
@@ -432,7 +625,7 @@ class DashboardMainActionEngine(
                 }
             }
         }
-        launchMainBranch(isCleanup) {
+        launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickDeduplicatorEnabled.value()) {
                 log(VERBOSE) { "Deduplicator is disabled one-click mode." }
                 return@launchMainBranch
@@ -480,6 +673,34 @@ class DashboardMainActionEngine(
 
     companion object {
         private val TAG = logTag("Dashboard", "MainActionEngine")
+
+        /** Hero-derivation retry backoff: 1s, doubling per consecutive failure, capped at a minute. */
+        private const val HERO_STATE_RETRY_BASE_MS = 1_000L
+        private const val HERO_STATE_RETRY_MAX_MS = 60_000L
+        private const val HERO_STATE_RETRY_MAX_DOUBLINGS = 6L
+
+        /**
+         * What to do with one hero snapshot the settle collector sees. Pure so the whole table can
+         * be tested — in particular the id-mismatch row, whose timing (a resolution derived from an
+         * earlier run arriving after the next run armed, the two arms being indistinguishable
+         * booleans) only occurs across threads and cannot be staged on a test dispatcher.
+         *
+         * A settled snapshot of the armed batch always consumes the arm, whether or not it had
+         * anything to show: an arm left behind by a fruitless run would be inherited by the next
+         * card-triggered scan and auto-expand it.
+         */
+        internal fun resolveAutoExpand(
+            snapshotBatchId: Long,
+            isSettled: Boolean,
+            hasSummary: Boolean,
+            batch: BatchState,
+        ): AutoExpandDecision = when {
+            !isSettled -> AutoExpandDecision.IGNORE
+            !batch.autoExpandArmed -> AutoExpandDecision.IGNORE
+            batch.id != snapshotBatchId -> AutoExpandDecision.IGNORE
+            hasSummary -> AutoExpandDecision.EXPAND_AND_DISARM
+            else -> AutoExpandDecision.DISARM
+        }
 
         /**
          * Resolves what the main dashboard button does. Every tool arms DELETE only when it is

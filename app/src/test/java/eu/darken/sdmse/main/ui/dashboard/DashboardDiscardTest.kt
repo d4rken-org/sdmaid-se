@@ -149,16 +149,17 @@ internal class DashboardDiscardTest : BaseTest() {
     }
 
     @Test
-    fun `discardResults revives a previously dismissed hero state`() = runTest2 {
+    fun `discardResults collapses the hero`() = runTest2 {
         val h = harness()
-        h.vm.dismissHero()
-        h.vm.isHeroDismissed.value shouldBe true
+        h.vm.expandHero()
+        h.vm.isHeroExpanded.value shouldBe true
 
         h.vm.discardResults()
         advanceUntilIdle()
 
-        // Clean slate for the next scan cycle: no leftover dismissal (and thus no restore chip).
-        h.vm.isHeroDismissed.value shouldBe false
+        // Clean slate for the next scan cycle: discarding is a full reset, so the card goes away
+        // and a later card-triggered scan doesn't inherit an expanded hero.
+        h.vm.isHeroExpanded.value shouldBe false
     }
 
     @Test
