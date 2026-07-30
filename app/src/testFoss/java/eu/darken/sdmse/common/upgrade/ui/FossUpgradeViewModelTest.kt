@@ -11,6 +11,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -61,6 +62,7 @@ class FossUpgradeViewModelTest : BaseTest() {
         info: MutableStateFlow<UpgradeRepoFoss.Info> = MutableStateFlow(UpgradeRepoFoss.Info()),
     ): UpgradeRepoFoss = mockk<UpgradeRepoFoss>(relaxed = true).apply {
         every { upgradeInfo } returns info
+        every { openGithubSponsorsPage() } returns true
     }
 
     private fun buildVm(
@@ -282,5 +284,98 @@ class FossUpgradeViewModelTest : BaseTest() {
         coVerify(exactly = 1) { repo.persistUpgrade() }
         // Consumed: a later resume must not re-run the unlock.
         recreatedVm.hasPendingSponsorLaunch() shouldBe false
+    }
+
+    @Test
+    fun `a long sponsor visit by an already upgraded user does not re-persist the upgrade`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // Persisting again would rewrite upgradedAt and visibly reset the "supporter since" date the
+        // status screen shows — and the thanks toast belongs to the unlock, which already happened.
+        val repo = mockRepo(MutableStateFlow(upgradedInfo()))
+        val vm = buildVm(repo = repo)
+
+        val nudges = mutableListOf<Int>()
+        val thanks = mutableListOf<Int>()
+        val snackbarCollector = launch(start = CoroutineStart.UNDISPATCHED) {
+            vm.snackbarEvents.collect { nudges.add(it) }
+        }
+        val toastCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.toastEvents.collect { thanks.add(it) } }
+
+        vm.goGithubSponsors()
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.persistUpgrade() }
+        nudges.shouldBeEmpty()
+        thanks.shouldBeEmpty()
+        snackbarCollector.cancel()
+        toastCollector.cancel()
+    }
+
+    @Test
+    fun `a sponsor page that never opened arms nothing and a later retry still works`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // A silently failed launch must not leave the heuristic armed: an unrelated later
+        // background round-trip would otherwise hand out supporter status for free.
+        val repo = mockRepo()
+        every { repo.openGithubSponsorsPage() } returns false
+        val vm = buildVm(repo = repo)
+
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+
+        vm.hasPendingSponsorLaunch() shouldBe false
+
+        // And the failure must not brick the button either — the next working attempt arms as usual.
+        every { repo.openGithubSponsorsPage() } returns true
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+
+        vm.hasPendingSponsorLaunch() shouldBe true
+    }
+
+    @Test
+    fun `a second sponsor tap while a launch is pending opens the page only once`() = runTest2(
+        context = testDispatcher,
+    ) {
+        val repo = mockRepo()
+        val vm = buildVm(repo = repo)
+
+        vm.goGithubSponsors()
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+
+        verify(exactly = 1) { repo.openGithubSponsorsPage() }
+    }
+
+    @Test
+    fun `a long donate visit from the status view does not re-persist the upgrade`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // The status view's donate button is unarmed on purpose: a supporter browsing the sponsors
+        // page for a while must not run the unlock heuristic again and rewrite their upgrade date.
+        val repo = mockRepo(MutableStateFlow(upgradedInfo()))
+        val vm = buildVm(repo = repo)
+
+        val state = async { vm.state.first { it.view != null } }
+        vm.bindRoute(UpgradeRoute(manage = true))
+        advanceUntilIdle()
+        state.await().supporterSince shouldBe Instant.EPOCH
+
+        vm.openSponsors()
+        advanceUntilIdle()
+
+        verify(exactly = 1) { repo.openGithubSponsorsPage() }
+        vm.hasPendingSponsorLaunch() shouldBe false
+
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { repo.persistUpgrade() }
+        vm.state.value.supporterSince shouldBe Instant.EPOCH
     }
 }

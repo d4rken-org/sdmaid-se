@@ -13,7 +13,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.shareIn
-import kotlinx.coroutines.launch
 import java.time.Instant
 import java.util.UUID
 import javax.inject.Inject
@@ -49,9 +48,11 @@ class UpgradeRepoFoss @Inject constructor(
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .shareIn(appScope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
-    fun openGithubSponsorsPage() = appScope.launch {
+    // Synchronous so the caller learns whether the page actually opened: the FOSS unlock heuristic
+    // only arms on a successful launch, and a fire-and-forget coroutine can't report that back.
+    fun openGithubSponsorsPage(): Boolean {
         log(TAG) { "openGithubSponsorsPage()" }
-        webpageTool.open(upgradeSite)
+        return webpageTool.open(upgradeSite)
     }
 
     internal suspend fun persistUpgrade() {

@@ -95,6 +95,7 @@ fun UpgradeScreenHost(
         supporterSince = state.supporterSince,
         snackbarHostState = snackbarHostState,
         onGithubSponsors = vm::goGithubSponsors,
+        onOpenSponsors = vm::openSponsors,
         onShowUpgradeOptions = vm::onShowUpgradeOptions,
         onNavigateUp = vm::navUp,
     )
@@ -106,6 +107,7 @@ internal fun UpgradeScreen(
     supporterSince: Instant? = null,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onGithubSponsors: () -> Unit = {},
+    onOpenSponsors: () -> Unit = {},
     onShowUpgradeOptions: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
@@ -135,7 +137,7 @@ internal fun UpgradeScreen(
             FossUpgradeView.STATUS_UPGRADED -> UpgradeStatusUpgradedContent(
                 paddingValues = paddingValues,
                 supporterSince = supporterSince,
-                onGithubSponsors = onGithubSponsors,
+                onOpenSponsors = onOpenSponsors,
             )
         }
     }
@@ -229,7 +231,7 @@ private fun UpgradeStatusFreeContent(
 private fun UpgradeStatusUpgradedContent(
     paddingValues: PaddingValues,
     supporterSince: Instant? = null,
-    onGithubSponsors: () -> Unit,
+    onOpenSponsors: () -> Unit,
 ) {
     UpgradeScreenContent(
         paddingValues = paddingValues,
@@ -268,7 +270,7 @@ private fun UpgradeStatusUpgradedContent(
         ) {
             UpgradeSectionBody(text = stringResource(R.string.upgrade_screen_recurring_body))
             OutlinedButton(
-                onClick = onGithubSponsors,
+                onClick = onOpenSponsors,
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag(UpgradeScreenTags.FOSS_DONATE),
