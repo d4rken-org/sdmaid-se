@@ -27,7 +27,10 @@ import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
 import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.NonCancellable
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filter
@@ -37,6 +40,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.attribute.BasicFileAttributes
@@ -60,6 +64,10 @@ class RecorderModule @Inject constructor(
     private val upgradeDiagnostics: UpgradeDiagnostics,
     private val recorderProvider: Provider<Recorder>,
 ) {
+
+    // Test seam: the header reads below are bounded on real dispatchers, a virtual-time test cannot
+    // advance the production bound. Same pattern as BillingCache.cacheTimeoutMs.
+    internal var headerReadTimeoutMs: Long = HEADER_READ_TIMEOUT_MS
 
     private val triggerFile by lazy {
         try {
@@ -263,20 +271,59 @@ class RecorderModule @Inject constructor(
         val locales = Resources.getSystem().configuration.locales
         log(TAG, INFO) { "App locales: $locales" }
 
-        val state = dataAreaManager.latestState.firstOrNull()
-        log(TAG, INFO) { "Data areas: (${state?.areas?.size})" }
-        state?.areas?.forEachIndexed { index, dataArea -> log(TAG, INFO) { "#$index $dataArea" } }
+        // The three remaining sources all talk to storage or the billing stack, and any of them can
+        // wedge. Debug recording is what a user reaches for when the app is ALREADY misbehaving, so
+        // they run concurrently under ONE shared deadline: a stuck or broken source degrades to
+        // "unavailable" and the recording still starts.
+        coroutineScope {
+            val deadline = System.nanoTime() + headerReadTimeoutMs * 1_000_000L
+            val areasRead = async { readHeader("Data areas") { dataAreaManager.latestState.firstOrNull() } }
+            val historyRead = async { readHeader("Update history") { curriculumVitae.history.firstOrNull() } }
+            val diagnosticsRead = async { readHeader("Upgrade diagnostics") { upgradeDiagnostics.debugInfo() } }
 
-        log(TAG, INFO) { "Update history: ${curriculumVitae.history.firstOrNull()}" }
+            areasRead.awaitHeader(deadline, "Data areas")?.let { areas ->
+                log(TAG, INFO) { "Data areas: (${areas.value?.areas?.size})" }
+                areas.value?.areas?.forEachIndexed { index, dataArea -> log(TAG, INFO) { "#$index $dataArea" } }
+            }
 
-        try {
-            // Diagnostics only — a broken read must not stop the recorder from starting.
-            upgradeDiagnostics.debugInfo()?.let { log(TAG, INFO) { "Upgrade diagnostics: $it" } }
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Upgrade diagnostics unavailable: ${e.asLog()}" }
+            historyRead.awaitHeader(deadline, "Update history")?.let {
+                log(TAG, INFO) { "Update history: ${it.value}" }
+            }
+
+            diagnosticsRead.awaitHeader(deadline, "Upgrade diagnostics")?.value
+                ?.let { log(TAG, INFO) { "Upgrade diagnostics: $it" } }
         }
+    }
+
+    /**
+     * Completion marker for a header read: tells a source that legitimately has nothing to report
+     * (no data areas known yet, no diagnostics on FOSS) apart from one that failed or never answered.
+     */
+    private class HeaderRead<T>(val value: T)
+
+    private suspend fun <T> readHeader(source: String, read: suspend () -> T): HeaderRead<T>? = try {
+        HeaderRead(read())
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "$source unavailable: ${e.asLog()}" }
+        null
+    }
+
+    private suspend fun <T> Deferred<HeaderRead<T>?>.awaitHeader(
+        deadlineNanos: Long,
+        source: String,
+    ): HeaderRead<T>? {
+        if (isCompleted) return await()
+        val remainingMs = (deadlineNanos - System.nanoTime()) / 1_000_000L
+        val result = if (remainingMs > 0) withTimeoutOrNull(remainingMs) { await() } else null
+        if (result == null && !isCompleted) {
+            // Cancelled, not abandoned: the surrounding scope would wait for it anyway, which is
+            // exactly the hang the deadline exists to prevent.
+            cancel()
+            log(TAG, WARN) { "$source unavailable, read did not finish within ${headerReadTimeoutMs}ms" }
+        }
+        return result
     }
 
     sealed class StopResult {
@@ -299,5 +346,8 @@ class RecorderModule @Inject constructor(
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "force_debug_run"
         private const val MIN_RECORDING_MS = 5_000L
+
+        // Shared budget for ALL header reads, not per source: they run concurrently.
+        private const val HEADER_READ_TIMEOUT_MS = 5_000L
     }
 }
