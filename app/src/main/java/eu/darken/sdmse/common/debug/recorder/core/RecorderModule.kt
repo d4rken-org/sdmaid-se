@@ -345,7 +345,15 @@ class RecorderModule @Inject constructor(
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "force_debug_run"
-        private const val MIN_RECORDING_MS = 5_000L
+        /**
+         * Duration heuristic for "did you forget to reproduce the issue?". A recording stopped
+         * this quickly usually contains nothing but the recorder starting and stopping, which
+         * costs a support round-trip to re-request.
+         *
+         * It stays a prompt because short recordings can be perfectly valid: a crash is logged
+         * and flushed immediately, so the reproduction is already on disk. "Stop anyway" works.
+         */
+        private const val MIN_RECORDING_MS = 10_000L
 
         // Shared budget for ALL header reads, not per source: they run concurrently.
         private const val HEADER_READ_TIMEOUT_MS = 5_000L
