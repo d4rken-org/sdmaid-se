@@ -8,7 +8,6 @@ import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
-import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.ModeUnavailableException
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -51,7 +50,6 @@ import eu.darken.sdmse.common.pkgs.current
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPrivateDataDirs
-import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOpsException
@@ -515,17 +513,14 @@ class AppScanner @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        // If we skip detection if ACS is disable, users might not be aware of the ACS option's capabilities?
-        settings.useAccessibilityService.value()
-        val isSamsungRom = BuildWrap.MANUFACTOR == "Samsung"
         val currentUser = userManager.currentUser()
 
+        // Detection deliberately runs even when ACS is off, otherwise users would never see what
+        // the ACS option could do for them. It is also backend-neutral: ROM specific limitations
+        // (e.g. One UI can't open the settings page of disabled apps) only affect ACS automation
+        // and are handled by NoSettingsDetector during deletion. Root/ADB clean those just fine.
         val targets = pkgs
             .filter { it.userHandle == currentUser.handle }
-            .filter { pkg ->
-                // On Samsung ROMs, we can't open the settings page for disabled apps
-                !isSamsungRom || pkg.isEnabled
-            }
             .filterIsInstance<NormalPkg>()
 
         updateProgressCount(Progress.Count.Percent(pkgs.size))
