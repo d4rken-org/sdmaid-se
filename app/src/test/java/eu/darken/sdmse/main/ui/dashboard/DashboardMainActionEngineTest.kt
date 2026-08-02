@@ -6,8 +6,10 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
@@ -101,6 +103,28 @@ internal class DashboardMainActionEngineTest : BaseTest() {
                 task = mockk(relaxed = true),
                 completedAt = at,
                 result = CorpseFinderScanTask.Success(itemCount = 1, recoverableSpace = 1L),
+            ),
+        ),
+    )
+
+    /**
+     * A completed *delete* on record for [toolType]. [task] is the instance the task manager hands back;
+     * pass one the engine submitted to represent its own work, or leave it a fresh mock to represent a
+     * cleanup run somewhere else.
+     */
+    private fun completedDeleteState(
+        toolType: SDMTool.Type = SDMTool.Type.CORPSEFINDER,
+        // A real instance, not a mock: CorpseFinderDeleteTask is a data class, so this is `==` to the
+        // one a cleanup submits and only differs by identity. That is what pins the `===` check.
+        task: SDMTool.Task = CorpseFinderDeleteTask(),
+    ): TaskSubmitter.State = TaskSubmitter.State(
+        tasks = listOf(
+            TaskSubmitter.ManagedTask(
+                id = "delete-${System.identityHashCode(task)}",
+                toolType = toolType,
+                task = task,
+                completedAt = Instant.now(),
+                result = CorpseFinderDeleteTask.Success(affectedSpace = 1L, affectedPaths = emptySet()),
             ),
         ),
     )
@@ -590,6 +614,122 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     }
 
     @Test
+    fun `a cleanup run outside the main action clears the stale freed summary`() {
+        // The hero's freed outcome used to survive any number of deletes made from a tool's own
+        // screen, the scheduler, or the one-tap shortcut, because none of those submit a scan and
+        // only a scan invalidated it. It would then report an older run's total over data that had
+        // changed underneath it.
+        val h = harness(corpseData = corpseData())
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+
+            // A delete this engine never submitted is now the CorpseFinder result on record.
+            h.taskState.value = completedDeleteState()
+
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.FREEABLE
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a cleanups own task on record keeps its freed summary`() {
+        // The counterpart to the test above, and the reason the check is by identity rather than by
+        // time or by task type: the task classes are data classes, so an external CorpseFinderDeleteTask
+        // is `==` to the one this cleanup submitted. Only the instance tells them apart.
+        val h = harness(corpseData = corpseData())
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+            val ourTask = h.submittedTasks.single { it is CorpseFinderDeleteTask }
+
+            h.taskState.value = completedDeleteState(task = ourTask)
+
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a cleanup that leaves data behind reports it alongside what it freed`() {
+        // The freed total alone reads as "job done" when it isn't. corpseData() survives the relaxed
+        // delete here, which is exactly the shape of junk that resisted removal.
+        val h = harness(corpseData = corpseData(count = 3))
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.residueCount shouldBe 3
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `residue ignores tools the cleanup never submitted to`() {
+        // AppCleaner is switched off for this run, so its leftovers were neither freed nor failed to
+        // free. Counting them would make an otherwise complete run look like it fell short.
+        val h = harness(
+            corpseData = corpseData(count = 2),
+            appData = AppCleaner.Data(
+                junks = listOf(mockk(relaxed = true) { every { size } returns 999L; every { itemCount } returns 7 }),
+            ),
+            appCleanerOneClick = false,
+        )
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.residueCount shouldBe 2
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a cleanup on a tool this run never touched still clears the freed summary`() {
+        // The batch only submits to CorpseFinder here. An in-tool AppCleaner deletion afterwards
+        // changes storage just as much, so scoping the check to the tools the batch happened to
+        // touch would let the old total sit there unchallenged.
+        val h = harness(corpseData = corpseData())
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+
+            h.taskState.value = completedDeleteState(toolType = SDMTool.Type.APPCLEANER)
+
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.FREEABLE
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a task from a tool the cleanup did not touch leaves the freed summary alone`() {
+        // The task manager carries every tool's work, including read-only jobs like the Analyzer's
+        // storage scan. Counting those would discard a valid cleanup outcome the moment the user
+        // opened the storage overview — an everyday action right after cleaning.
+        val h = harness(corpseData = corpseData())
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+
+            h.taskState.value = completedDeleteState(toolType = SDMTool.Type.ANALYZER)
+
+            h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
     fun `a newer scan still clears a stale freed summary`() {
         val h = harness(corpseData = corpseData())
 
@@ -617,10 +757,23 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         h.engine.isHeroExpanded.value shouldBe false
     }
 
-    @Test
-    fun `freed hero includes the deduplicator removable-file count`() {
-        // Regression for the post-delete path: a deduplicator-only cleanup must report the deleted
-        // file count, not 0. The FREED itemCount used to exclude the deduplicator entirely.
+    /**
+     * Deduplicator-only post-delete setup. Bespoke rather than [harness] because this path needs both
+     * deduplicator data and a real delete result, neither of which [harness] models.
+     */
+    private class DedupeDeleteSetup(
+        val engine: DashboardMainActionEngine,
+        val engineScope: CoroutineScope,
+        val dedupState: MutableStateFlow<Deduplicator.State>,
+    ) {
+        fun hero(): HeroSummary = runBlocking {
+            engine.bottomBarState(listIsReady = MutableStateFlow(true))
+                .first { it?.heroSummary != null }!!
+                .heroSummary!!
+        }
+    }
+
+    private fun dedupeDeleteSetup(): DedupeDeleteSetup {
         val proInfo = mockk<UpgradeRepo.Info>(relaxed = true) {
             every { isPro } returns true
             every { isSettled } returns true
@@ -640,7 +793,19 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         val appCleaner = mockk<AppCleaner>(relaxed = true) {
             every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns null })
         }
-        val dedupData = mockk<Deduplicator.Data>(relaxed = true)
+        // Real Data with a populated cluster, NOT a relaxed mock: `hasData` reads `clusters.isNotEmpty()`,
+        // and a relaxed mock answers that with an empty set — which makes the main action resolve to SCAN
+        // and no FREEABLE hero gets built at all, so a residue test against a mock would pass vacuously.
+        val dedupData = Deduplicator.Data(
+            clusters = setOf(
+                mockk<Duplicate.Cluster>(relaxed = true) {
+                    // Deliberately different from DEDUPE_FREED_SPACE so a headline sourced from the
+                    // residue instead of the cleanup is distinguishable, not just a mode mismatch.
+                    every { redundantSize } returns DEDUPE_RESIDUE_SPACE
+                    every { redundantCount } returns 1
+                },
+            ),
+        )
         val dedupState = MutableStateFlow(Deduplicator.State(data = dedupData, progress = null))
         val deduplicator = mockk<Deduplicator>(relaxed = true) {
             every { state } returns dedupState
@@ -653,7 +818,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             every { enableDashboardOneClick } returns mockBool(false)
         }
         val deleteResult = DeduplicatorDeleteTask.Success(
-            affectedSpace = 51L * 1024 * 1024,
+            affectedSpace = DEDUPE_FREED_SPACE,
             affectedPaths = setOf(mockk<APath>(relaxed = true), mockk<APath>(relaxed = true)),
         )
 
@@ -672,25 +837,57 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             onUpgradeRequired = {},
             onStateError = {},
         )
+        return DedupeDeleteSetup(engine = engine, engineScope = engineScope, dedupState = dedupState)
+    }
+
+    @Test
+    fun `freed hero includes the deduplicator removable-file count`() {
+        // Regression for the post-delete path: a deduplicator-only cleanup must report the deleted
+        // file count, not 0. The FREED itemCount used to exclude the deduplicator entirely.
+        val setup = dedupeDeleteSetup()
 
         try {
-            engine.mainAction(BottomBarState.Action.DELETE)
-            // The real delete prunes the now-empty data; mirror that so the FREED hero surfaces
-            // instead of a fresh FREEABLE one.
-            dedupState.value = Deduplicator.State(data = null, progress = null)
+            setup.engine.mainAction(BottomBarState.Action.DELETE)
+            // A delete that clears everything prunes the now-empty data.
+            setup.dedupState.value = Deduplicator.State(data = null, progress = null)
 
-            val hero = runBlocking {
-                engine.bottomBarState(listIsReady = MutableStateFlow(true))
-                    .first { it?.heroSummary != null }!!
-                    .heroSummary!!
-            }
+            val hero = setup.hero()
 
             hero.mode shouldBe HeroSummary.Mode.FREED
-            hero.totalSize shouldBe 51L * 1024 * 1024
+            hero.totalSize shouldBe DEDUPE_FREED_SPACE
             hero.itemCount shouldBe 2
             hero.tools.single { it.type == SDMTool.Type.DEDUPLICATOR }.count shouldBe 2
         } finally {
-            engineScope.cancel()
+            setup.engineScope.cancel()
         }
+    }
+
+    @Test
+    fun `a cleanup that freed something still reports it when residue survives`() {
+        // Regression for "the one-click freed 1 GB but the card said 5.8 MB can be freed": some junk
+        // can never be cleared — a locked system app's cache fails on every run — so a successful
+        // cleanup routinely leaves data behind. That residue must not rebuild into a FREEABLE hero
+        // that outranks the FREED one and makes the run read as if it found almost nothing.
+        val setup = dedupeDeleteSetup()
+
+        try {
+            setup.engine.mainAction(BottomBarState.Action.DELETE)
+            // Deliberately no pruning: the data survives the delete, as it does whenever anything was
+            // un-clearable. The main action therefore still resolves to DELETE and a FREEABLE hero is
+            // built from the leftovers — it just must not outrank the FREED one.
+
+            val hero = setup.hero()
+
+            hero.mode shouldBe HeroSummary.Mode.FREED
+            // The cleanup's total, not the surviving cluster's DEDUPE_RESIDUE_SPACE.
+            hero.totalSize shouldBe DEDUPE_FREED_SPACE
+        } finally {
+            setup.engineScope.cancel()
+        }
+    }
+
+    companion object {
+        private const val DEDUPE_FREED_SPACE = 51L * 1024 * 1024
+        private const val DEDUPE_RESIDUE_SPACE = 5L * 1024 * 1024
     }
 }

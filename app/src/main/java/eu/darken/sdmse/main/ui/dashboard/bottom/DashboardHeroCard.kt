@@ -177,6 +177,20 @@ private fun HeroBody(
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,
                 )
+                // What the run left behind, when it left anything. Muted and under the caption: it
+                // qualifies the freed total rather than competing with it.
+                if (summary.residueSize > 0L) {
+                    Text(
+                        text = stringResource(
+                            R.string.dashboard_hero_freed_residue,
+                            ByteFormatter.formatSize(context, summary.residueSize).first,
+                        ),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = LocalContentColor.current.copy(alpha = MUTED_ALPHA),
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
             }
             IconButton(
                 onClick = onDismiss,

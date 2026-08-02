@@ -38,6 +38,18 @@ data class HeroSummary(
     val tools: List<ToolSlice>,
     /** When the displayed data came to be: latest scan of the included tools (FREEABLE) or deletion end (FREED). */
     val timestamp: Instant? = null,
+    /**
+     * What the cleanup left behind, across the tools it actually submitted to. 0 unless [mode] is
+     * [Mode.FREED].
+     *
+     * Deliberately reported as "left", not "couldn't be freed": leftovers usually *are* junk that
+     * resisted deletion (a locked system app's cache fails on every run), but the tools don't record
+     * which items were attempted and failed versus never attempted at all — AppCleaner skips
+     * inaccessible caches outright when that option is off. Naming a cause would assert something
+     * only AppCleaner can currently substantiate.
+     */
+    val residueSize: Long = 0L,
+    val residueCount: Int = 0,
 ) {
     /**
      * FREEABLE = "X will be freed" (post-scan); FREED = "X freed" (post-delete/one-click);

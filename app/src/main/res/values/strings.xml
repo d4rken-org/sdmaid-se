@@ -15,6 +15,10 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Tap the button to free space, or a chip to check first.</string>
     <string name="dashboard_hero_freed_hint">Tap a chip for details.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s left</string>
     <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nothing was freed</string>
     <string name="dashboard_hero_nothing_freed_caption">The cleanup finished, but none of the found data could be removed.</string>
