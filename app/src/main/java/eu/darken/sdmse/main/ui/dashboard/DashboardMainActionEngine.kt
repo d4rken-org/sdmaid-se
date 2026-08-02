@@ -140,6 +140,36 @@ class DashboardMainActionEngine(
      */
     private val branchesInFlight = AtomicInteger(0)
 
+    /** The task instance each branch of the current run submitted, accumulated as they go. */
+    private val submittedTasks = MutableStateFlow(emptyMap<SDMTool.Type, SDMTool.Task>())
+
+    /** Latest completed task instance on record per cleanup tool; the baseline a settle snapshots. */
+    @Volatile
+    private var tasksOnRecord: Map<SDMTool.Type, SDMTool.Task> = emptyMap()
+
+    /**
+     * Which task executions produced [freedResult], published once by the last branch of a cleanup.
+     *
+     * The task manager keeps exactly one completed entry per tool and hands back the very [SDMTool.Task]
+     * instance it was given, so referential identity answers "is the result currently on record for this
+     * tool still mine?" without a shared clock, an id plumbed through the task manager's API, or a
+     * snapshot taken at a moment that may not have settled. That matters because every timestamp-based
+     * answer to this question is wrong somewhere: wall clocks move, the tools' `replayingShare` states
+     * may not have published by the settle edge, and the task manager runs work this engine never
+     * submitted (a tool's own delete screen, the scheduler, the one-tap shortcut).
+     *
+     * Null whenever no cleanup outcome is being vouched for, which makes the check fail closed: an
+     * unvouched freed result is simply not shown, and the hero falls back to live data.
+     *
+     * Per cleanup tool this holds the instances that may legitimately be on record afterwards: the one
+     * the cleanup submitted, and the one already there when it settled. The latter covers two cases at
+     * once — a tool the cleanup never touched (its record must stay put, so an in-tool delete there is
+     * still caught) and a tool whose own result has not been published yet (the previous record is
+     * still acceptable, so a cleanup is never briefly judged stale on its own work).
+     */
+    @Volatile
+    private var freedProvenance: Map<SDMTool.Type, List<SDMTool.Task>>? = null
+
     /**
      * The current main-action batch, published as one atomic value: a settle edge must never become
      * visible apart from the [id] and the arm it belongs to.
@@ -291,12 +321,16 @@ class DashboardMainActionEngine(
                 } else {
                     null
                 }
-                val settled = freed?.takeIf { taskState.isIdle && phase.isSettled }
-                // A cleanup that freed nothing outranks [freeable]: the data survived, so FREEABLE
-                // rebuilds identically and would bury the fact that the deletion ran at all.
-                val heroSummary =
-                    (settled?.takeIf { it.mode == HeroSummary.Mode.NOTHING_FREED } ?: freeable ?: settled)
-                        .takeIf { !isDiscarding }
+                val settled = freed
+                    ?.takeIf { taskState.isIdle && phase.isSettled }
+                    ?.takeIf { taskState.vouchedFor(freedProvenance) }
+                // A settled cleanup outranks [freeable] whatever it freed: whatever data survived it
+                // rebuilds into a FREEABLE card that buries the fact the deletion ran at all. That is
+                // obvious when it freed nothing, but it also holds when it freed plenty and left a
+                // remainder — some junk can never be cleared (a locked system app's cache), so a
+                // cleanup routinely leaves one behind, and reporting only that remainder reads as if
+                // the run found almost nothing.
+                val heroSummary = (settled ?: freeable).takeIf { !isDiscarding }
                 HeroState(
                     actionState = actionState,
                     activeTasks = taskState.tasks.filter { it.isActive }.size,
@@ -333,6 +367,16 @@ class DashboardMainActionEngine(
         .shareIn(scope, SharingStarted.Eagerly, replay = 1)
 
     init {
+        // Baseline for the provenance a settle snapshots: which task execution is currently on record
+        // for each cleanup tool. Tracked continuously because the branch that settles cannot read the
+        // task manager's state flow synchronously.
+        scope.launch {
+            taskManager.state.collect { state ->
+                tasksOnRecord = state.tasks
+                    .filter { it.isComplete && it.toolType in CLEANUP_TOOLS }
+                    .associate { it.toolType to it.task }
+            }
+        }
         // A freshly completed *scan* clears any stale "freed" result. We must only react to a
         // *strictly newer* scan time: TaskManager keeps one task per tool, so a delete prunes that
         // tool's scan result and would otherwise make this "change" to an older/absent scan time
@@ -500,6 +544,16 @@ class DashboardMainActionEngine(
                     val applied = freedResult.updateAndGet { current -> current ?: nothingFreed }
                     if (applied === nothingFreed) log(TAG, INFO) { "Cleanup finished without freeing anything." }
                 }
+                // Published by the last branch, so it covers every task this cleanup submitted. Set
+                // after the fold above and before [batchState] settles, i.e. the outcome is never
+                // visible without the provenance that vouches for it.
+                if (isCleanup && remaining == 0) {
+                    val submitted = submittedTasks.value
+                    val baseline = tasksOnRecord
+                    freedProvenance = CLEANUP_TOOLS.associateWith { type ->
+                        listOfNotNull(baseline[type], submitted[type])
+                    }
+                }
                 // Every branch publishes its own decrement, so this reaches 0 only after the last
                 // one has been through the block above — no matter which got there first.
                 batchState.update { it.copy(pending = (it.pending - 1).coerceAtLeast(0)) }
@@ -550,6 +604,11 @@ class DashboardMainActionEngine(
             // belongs to. Counters before the cleanup bookkeeping below.
             branchesInFlight.set(4) // CorpseFinder + SystemCleaner + AppCleaner + Deduplicator
             batchState.update { BatchState(id = it.id + 1, pending = 4, autoExpandArmed = true) }
+            submittedTasks.value = emptyMap()
+            // Dropped for scans too, not just cleanups: a scan that is cancelled or submits nothing
+            // never completes, so the successful-scan collector below would not clear [freedResult]
+            // and an un-vouched outcome would otherwise linger unchallenged.
+            freedProvenance = null
         }
         if (isCleanup) {
             freedResult.value = null
@@ -569,13 +628,10 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.CORPSEFINDER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (corpseFinder.state.first().data != null) {
-                    accumulateFreed(SDMTool.Type.CORPSEFINDER, submitTask(CorpseFinderDeleteTask()))
+                    runCleanup(SDMTool.Type.CORPSEFINDER, CorpseFinderDeleteTask())
                 }
 
-                BottomBarState.Action.ONECLICK -> accumulateFreed(
-                    SDMTool.Type.CORPSEFINDER,
-                    submitTask(CorpseFinderOneClickTask()),
-                )
+                BottomBarState.Action.ONECLICK -> runCleanup(SDMTool.Type.CORPSEFINDER, CorpseFinderOneClickTask())
             }
         }
         launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
@@ -589,13 +645,10 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.SYSTEMCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (systemCleaner.state.first().data != null) {
-                    accumulateFreed(SDMTool.Type.SYSTEMCLEANER, submitTask(SystemCleanerProcessingTask()))
+                    runCleanup(SDMTool.Type.SYSTEMCLEANER, SystemCleanerProcessingTask())
                 }
 
-                BottomBarState.Action.ONECLICK -> accumulateFreed(
-                    SDMTool.Type.SYSTEMCLEANER,
-                    submitTask(SystemCleanerOneClickTask()),
-                )
+                BottomBarState.Action.ONECLICK -> runCleanup(SDMTool.Type.SYSTEMCLEANER, SystemCleanerOneClickTask())
             }
         }
         launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
@@ -610,7 +663,7 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
                     if (appCleaner.state.first().data != null && upgradeRepo.isProForUi()) {
-                        accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerProcessingTask()))
+                        runCleanup(SDMTool.Type.APPCLEANER, AppCleanerProcessingTask())
                     } else if (appCleaner.state.first().data.hasData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
@@ -618,7 +671,7 @@ class DashboardMainActionEngine(
 
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isProForUi()) {
-                        accumulateFreed(SDMTool.Type.APPCLEANER, submitTask(AppCleanerOneClickTask()))
+                        runCleanup(SDMTool.Type.APPCLEANER, AppCleanerOneClickTask())
                     } else if (appCleaner.state.first().data.hasData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
@@ -636,18 +689,27 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.DEDUPLICATOR)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> if (deduplicator.state.first().data != null && upgradeRepo.isProForUi()) {
-                    accumulateFreed(SDMTool.Type.DEDUPLICATOR, submitTask(DeduplicatorDeleteTask()))
+                    runCleanup(SDMTool.Type.DEDUPLICATOR, DeduplicatorDeleteTask())
                 }
 
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isProForUi()) {
-                        accumulateFreed(SDMTool.Type.DEDUPLICATOR, submitTask(DeduplicatorOneClickTask()))
+                        runCleanup(SDMTool.Type.DEDUPLICATOR, DeduplicatorOneClickTask())
                     } else if (deduplicator.state.first().data.hasData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
                 }
             }
         }
+    }
+
+    /**
+     * Submits one branch's cleanup task and folds its result in. Records the task instance first so
+     * [freedProvenance] can later tell this run's results apart from anyone else's.
+     */
+    private suspend fun runCleanup(type: SDMTool.Type, task: SDMTool.Task) {
+        submittedTasks.update { it + (type to task) }
+        accumulateFreed(type, submitTask(task))
     }
 
     /** Folds a deletion/one-click result into [freedResult] so the hero can show what was freed. */
@@ -673,6 +735,14 @@ class DashboardMainActionEngine(
 
     companion object {
         private val TAG = logTag("Dashboard", "MainActionEngine")
+
+        /** The tools the main action cleans, i.e. the ones whose data the freed hero summarises. */
+        private val CLEANUP_TOOLS = setOf(
+            SDMTool.Type.CORPSEFINDER,
+            SDMTool.Type.SYSTEMCLEANER,
+            SDMTool.Type.APPCLEANER,
+            SDMTool.Type.DEDUPLICATOR,
+        )
 
         /** Hero-derivation retry backoff: 1s, doubling per consecutive failure, capped at a minute. */
         private const val HERO_STATE_RETRY_BASE_MS = 1_000L
@@ -780,6 +850,33 @@ class DashboardMainActionEngine(
  * Single source of truth for "what counts as a dashboard scan" — used both to revive a dismissed
  * hero on fresh scans and to stamp [HeroSummary.timestamp].
  */
+/**
+ * Whether a freed hero backed by [provenance] still describes the current state.
+ *
+ * The task manager keeps one completed entry per tool, so for every tool the cleanup touched, that
+ * entry should still be the execution the cleanup submitted. If it is not, something else has since
+ * cleaned that tool — its own delete screen, the scheduler, the one-tap shortcut — and the freed
+ * total no longer matches what is on disk.
+ *
+ * Identity, not equality: the task types are data classes, so an externally submitted
+ * `CorpseFinderDeleteTask()` is `==` to ours and would otherwise vouch for a run it had nothing to
+ * do with. Tools whose entry has not landed yet are skipped rather than treated as foreign, so a
+ * cleanup is never briefly judged stale on its own results.
+ *
+ * A null [provenance] means nothing is vouching for the outcome, and the caller falls back to live
+ * data — the check fails closed.
+ */
+internal fun TaskSubmitter.State.vouchedFor(provenance: Map<SDMTool.Type, List<SDMTool.Task>>?): Boolean {
+    if (provenance == null) return false
+    return provenance.all { (type, acceptable) ->
+        val onRecord = tasks.filter { it.isComplete && it.toolType == type }
+        // `all`, not `any`: completion publishes the new entry before the task manager prunes the old
+        // one, so for a moment both are on record. Requiring every entry to be acceptable means that
+        // window cannot vouch for a foreign result just because the batch's own is still sitting there.
+        onRecord.isEmpty() || onRecord.all { entry -> acceptable.any { it === entry.task } }
+    }
+}
+
 internal fun TaskSubmitter.State.latestScanTimes(): Map<SDMTool.Type, Instant> = tasks
     .filter { task ->
         task.isComplete && when (task.result) {
