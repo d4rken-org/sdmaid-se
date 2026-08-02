@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
+import eu.darken.sdmse.automation.core.errors.DisabledAppException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.adb.AdbManager
@@ -151,17 +152,25 @@ class InaccessibleDeleter @Inject constructor(
             updateProgressSecondary(CaString.EMPTY)
             updateProgressCount(Progress.Count.Indeterminate())
 
-            // Pre-flight: packages we know have no settings page can never be cleared via ACS.
-            // Mark them as failed upfront so we don't waste ~4-10s per package discovering this
-            // reactively inside the automation flow.
-            val (preFailedNoSettings, automationCandidates) = remainingTargets.partition { junk ->
-                noSettingsDetector.hasNoSettings(junk.pkg)
-            }
-            preFailedNoSettings.forEach { junk ->
-                log(TAG, INFO) { "Pre-flight: no settings page, marking failed: ${junk.identifier}" }
-                failedTargets[junk.identifier] = NoSettingsWindowException(
-                    "${junk.identifier.pkgId.name} has no settings window (pre-flight)."
-                )
+            // Pre-flight: packages whose settings page we know we can't reach can never be cleared
+            // via ACS. Mark them as failed upfront so we don't waste ~4-10s per package discovering
+            // this reactively inside the automation flow.
+            val automationCandidates = remainingTargets.filter { junk ->
+                val reason = noSettingsDetector.getUnreachableReason(junk.pkg)
+                if (reason != null) {
+                    log(TAG, INFO) { "Pre-flight: unreachable ($reason), marking failed: ${junk.identifier}" }
+                    val pkgName = junk.identifier.pkgId.name
+                    failedTargets[junk.identifier] = when (reason) {
+                        NoSettingsDetector.Reason.NO_SETTINGS_PAGE -> NoSettingsWindowException(
+                            "$pkgName has no settings window (pre-flight)."
+                        )
+
+                        NoSettingsDetector.Reason.DISABLED_APP -> DisabledAppException(
+                            "$pkgName is disabled, its settings window can't be opened (pre-flight)."
+                        )
+                    }
+                }
+                reason == null
             }
 
             log(TAG) { "Processing ${automationCandidates.size} remaining inaccessible caches" }

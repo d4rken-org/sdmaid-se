@@ -76,7 +76,7 @@ class InaccessibleDeleterTest : BaseTest() {
         coEvery { userManager.currentUser() } returns testUser
         every { adbManager.useAdb } returns flowOf(false)
         // Default: no package is flagged as having no settings. Individual tests override as needed.
-        every { noSettingsDetector.hasNoSettings(any()) } returns false
+        coEvery { noSettingsDetector.getUnreachableReason(any()) } returns null
 
         deleter = InaccessibleDeleter(
             dispatcherProvider = dispatcherProvider,
@@ -172,6 +172,36 @@ class InaccessibleDeleterTest : BaseTest() {
 
         // Not marked as success (useAutomation=false so no automation ran either)
         result.succesful shouldNotContain junk.identifier
+    }
+
+    @Test
+    fun `ADB runs before reachability is considered, so unreachable targets still get cleaned`() = runTest {
+        val junk = createAppJunk("com.example.disabled", cacheSize = 50000)
+        val snapshot = createSnapshot(junk)
+
+        every { adbManager.useAdb } returns flowOf(true)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        // ADB cleared it: the re-query reports a smaller cache than the scan did
+        coEvery { inaccessibleCacheProvider.determineCache(any()) } returns InaccessibleCache(
+            identifier = junk.identifier,
+            isSystemApp = false,
+            itemCount = 0,
+            totalSize = 0L,
+            publicSize = 0L,
+            theoreticalPaths = emptySet(),
+        )
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.succesful shouldContain junk.identifier
+        // The ACS-only reachability check must never gate the ADB backend
+        coVerify(exactly = 0) { noSettingsDetector.getUnreachableReason(any()) }
+        coVerify(exactly = 0) { automationManager.submit(any()) }
     }
 
     @Test
@@ -290,7 +320,7 @@ class InaccessibleDeleterTest : BaseTest() {
         val snapshot = createSnapshot(junk)
 
         coEvery { inaccessibleCacheProvider.determineCache(any()) } returns nonZeroCache(junk)
-        every { noSettingsDetector.hasNoSettings(junk.pkg) } returns true
+        coEvery { noSettingsDetector.getUnreachableReason(junk.pkg) } returns NoSettingsDetector.Reason.NO_SETTINGS_PAGE
         every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
 
         val result = deleter.deleteInaccessible(
@@ -313,7 +343,7 @@ class InaccessibleDeleterTest : BaseTest() {
         val snapshot = createSnapshot(junk)
 
         coEvery { inaccessibleCacheProvider.determineCache(any()) } returns nonZeroCache(junk)
-        every { noSettingsDetector.hasNoSettings(junk.pkg) } returns true
+        coEvery { noSettingsDetector.getUnreachableReason(junk.pkg) } returns NoSettingsDetector.Reason.NO_SETTINGS_PAGE
 
         val result = deleter.deleteInaccessible(
             snapshot = snapshot,
@@ -337,8 +367,8 @@ class InaccessibleDeleterTest : BaseTest() {
 
         coEvery { inaccessibleCacheProvider.determineCache(junkNoSettings.pkg) } returns nonZeroCache(junkNoSettings)
         coEvery { inaccessibleCacheProvider.determineCache(junkNormal.pkg) } returns nonZeroCache(junkNormal)
-        every { noSettingsDetector.hasNoSettings(junkNoSettings.pkg) } returns true
-        every { noSettingsDetector.hasNoSettings(junkNormal.pkg) } returns false
+        coEvery { noSettingsDetector.getUnreachableReason(junkNoSettings.pkg) } returns NoSettingsDetector.Reason.NO_SETTINGS_PAGE
+        coEvery { noSettingsDetector.getUnreachableReason(junkNormal.pkg) } returns null
         every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
 
         val capturedTask = slot<ClearCacheTask>()
@@ -372,7 +402,7 @@ class InaccessibleDeleterTest : BaseTest() {
 
         coEvery { inaccessibleCacheProvider.determineCache(junk1.pkg) } returns nonZeroCache(junk1)
         coEvery { inaccessibleCacheProvider.determineCache(junk2.pkg) } returns nonZeroCache(junk2)
-        every { noSettingsDetector.hasNoSettings(any()) } returns true
+        coEvery { noSettingsDetector.getUnreachableReason(any()) } returns NoSettingsDetector.Reason.NO_SETTINGS_PAGE
         every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
 
         val result = deleter.deleteInaccessible(
