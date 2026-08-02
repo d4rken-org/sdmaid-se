@@ -10,21 +10,24 @@ import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
+private val Context.fossCacheDataStore by preferencesDataStore(name = "settings_foss")
+
 @Singleton
-class FossCache @Inject constructor(
-    @ApplicationContext private val context: Context,
+class FossCache internal constructor(
+    // Test seam: the store is handed in so a test can supply its own DataStore instead of the
+    // Context-bound production delegate. Same pattern as BillingCache.
+    private val dataStore: DataStore<Preferences>,
     json: Json,
 ) {
 
-    private val Context.dataStore by preferencesDataStore(name = "settings_foss")
-
-    private val dataStore: DataStore<Preferences>
-        get() = context.dataStore
+    @Inject constructor(
+        @ApplicationContext context: Context,
+        json: Json,
+    ) : this(context.fossCacheDataStore, json)
 
     val upgrade = dataStore.createValue<FossUpgrade?>(
         key = "foss.upgrade",
         json = json,
         defaultValue = null,
     )
-
 }

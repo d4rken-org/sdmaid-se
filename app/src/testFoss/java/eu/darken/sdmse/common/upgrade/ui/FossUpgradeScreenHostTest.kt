@@ -41,7 +41,7 @@ class FossUpgradeScreenHostTest : BaseTest() {
     private fun mockRepo(): UpgradeRepoFoss = mockk<UpgradeRepoFoss>(relaxed = true).apply {
         every { upgradeInfo } returns MutableStateFlow(UpgradeRepoFoss.Info())
         every { openGithubSponsorsPage() } returns true
-        coEvery { persistUpgrade() } answers { persisted++ }
+        coEvery { persistUpgrade() } answers { persisted++; true }
     }
 
     private fun buildVm(

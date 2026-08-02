@@ -139,8 +139,9 @@ class UpgradeViewModel @Inject constructor(
         val pressedAt = handle.remove<Long>(KEY_SPONSOR_PRESSED_AT) ?: return@launch
 
         // Evaluated before the duration: an already upgraded supporter (recurring donation button)
-        // has nothing left to unlock, and persisting again would rewrite their upgradedAt — visibly
-        // resetting the "supporter since" date the status screen shows them.
+        // has nothing left to unlock, so this fast path exists for the UX — return quietly, no
+        // redundant write attempt and no thanks toast for an unlock that already happened. Data
+        // integrity is not this guard's job: the repo's create-only transaction owns that.
         if (upgradeRepo.upgradeInfo.first().isPro) {
             log(TAG) { "checkSponsorReturn(): Already upgraded, staying quiet" }
             return@launch
@@ -154,8 +155,20 @@ class UpgradeViewModel @Inject constructor(
             snackbarEvents.tryEmit(R.string.upgrade_screen_sponsor_return_too_quick)
         } else {
             log(TAG) { "checkSponsorReturn(): Delay passed, persisting upgrade" }
-            upgradeRepo.persistUpgrade()
-            toastEvents.tryEmit(R.string.upgrade_screen_thanks_toast)
+            val created = try {
+                upgradeRepo.persistUpgrade()
+            } catch (e: Exception) {
+                // The marker was consumed above; a failed write must not eat the user's valid
+                // sponsor visit — restore it so the next return/resume can retry the unlock.
+                handle[KEY_SPONSOR_PRESSED_AT] = pressedAt
+                throw e
+            }
+            if (created) {
+                toastEvents.tryEmit(R.string.upgrade_screen_thanks_toast)
+            } else {
+                // The isPro fast-path read a stale emission; the transaction kept the existing record.
+                log(TAG) { "checkSponsorReturn(): Record already existed, staying quiet" }
+            }
         }
     }
 

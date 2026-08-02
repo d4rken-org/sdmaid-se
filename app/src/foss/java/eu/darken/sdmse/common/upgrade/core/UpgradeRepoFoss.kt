@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.upgrade.core
 
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
@@ -55,14 +55,30 @@ class UpgradeRepoFoss @Inject constructor(
         return webpageTool.open(upgradeSite)
     }
 
-    internal suspend fun persistUpgrade() {
+    /**
+     * Create-only-if-absent inside the store transaction: an existing record (and its upgradedAt —
+     * the user-visible "supporter since" date) is never replaced. The VM-level isPro guard alone is
+     * not race-free: it reads a shareIn replay that can be stale. Note the kept record is still
+     * re-encoded through the current schema — decoded fields are preserved exactly.
+     *
+     * @return true if a new record was created, false if an existing record was kept.
+     */
+    internal suspend fun persistUpgrade(): Boolean {
         log(TAG) { "persistUpgrade()" }
-        fossCache.upgrade.value(
-            FossUpgrade(
+        val updated = fossCache.upgrade.update { existing ->
+            existing ?: FossUpgrade(
                 upgradedAt = Instant.now(),
                 upgradeType = FossUpgrade.Type.GITHUB_SPONSORS,
             )
-        )
+        }
+        // Local binding: Updated.old is a public property from another module, so it can't smart cast.
+        val previous = updated.old
+        return if (previous == null) {
+            true
+        } else {
+            log(TAG, WARN) { "persistUpgrade(): Record already exists (upgradedAt=${previous.upgradedAt}), keeping it" }
+            false
+        }
     }
 
     override suspend fun refresh() {
