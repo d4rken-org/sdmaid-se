@@ -18,6 +18,7 @@ import eu.darken.sdmse.main.core.CurriculumVitae
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -25,6 +26,7 @@ import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.mockkStatic
 import io.mockk.slot
+import io.mockk.unmockkStatic
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
@@ -37,6 +39,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
@@ -50,6 +53,12 @@ import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
 import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.attribute.BasicFileAttributes
+import java.nio.file.attribute.FileTime
+import java.time.Duration
+import java.time.Instant
 import java.util.concurrent.CopyOnWriteArrayList
 import javax.inject.Provider
 import kotlin.system.measureTimeMillis
@@ -117,7 +126,7 @@ class RecorderModuleTest : BaseTest() {
         every { context.getPackageInfo() } returns mockk(relaxed = true)
 
         mockkStatic(SystemClock::class)
-        every { SystemClock.elapsedRealtime() } returns 12345L
+        every { SystemClock.elapsedRealtime() } returns RECORDING_START
     }
 
     private fun createModule(scope: kotlinx.coroutines.CoroutineScope, dispatcher: CoroutineDispatcher) =
@@ -175,7 +184,7 @@ class RecorderModuleTest : BaseTest() {
             advanceUntilIdle()
 
             val state = module.state.first { it.isRecording }
-            state.recordingStartedAt shouldBe 12345L
+            state.recordingStartedAt shouldBe RECORDING_START
             val pathSlot = slot<(String?) -> String?>()
             coVerify { recorderPath.update(capture(pathSlot)) }
             pathSlot.captured("ignored") shouldNotBe null
@@ -289,6 +298,115 @@ class RecorderModuleTest : BaseTest() {
             val clearSlot = slot<(String?) -> String?>()
             coVerify(atLeast = 1) { recorderPath.update(capture(clearSlot)) }
             clearSlot.captured("ignored") shouldBe null
+        }
+    }
+
+    @Nested
+    inner class MinimumDuration {
+
+        private suspend fun TestScope.startFreshRecording(): RecorderModule {
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            val module = createModule(backgroundScope, dispatcher)
+            advanceUntilIdle()
+
+            module.state.first { it.isRecording }.recordingStartedAt shouldBe RECORDING_START
+            return module
+        }
+
+        private suspend fun TestScope.startResumedRecording(): RecorderModule {
+            val existingDir = File(externalDir, "debug/logs/existing_session").apply { mkdirs() }
+            coEvery { recorderPath.value() } returns existingDir.path
+
+            val dispatcher = StandardTestDispatcher(testScheduler)
+            val module = createModule(backgroundScope, dispatcher)
+            advanceUntilIdle()
+
+            // No elapsedRealtime baseline survives a restart, so the fallback is used instead
+            module.state.first { it.isRecording }.recordingStartedAt shouldBe 0L
+            return module
+        }
+
+        /**
+         * A leaked [Files] mock breaks JUnit's own @TempDir handling in every later test,
+         * and there is no shared unmockkAll hook between tests here.
+         */
+        @AfterEach
+        fun releaseFilesMock() {
+            unmockkStatic(Files::class)
+        }
+
+        /** Makes the resumed-session fallback see a log dir created [age] ago. */
+        private fun stubLogDirAge(age: Duration) {
+            mockkStatic(Files::class)
+            every { Files.readAttributes(any<Path>(), BasicFileAttributes::class.java) } returns
+                    mockk<BasicFileAttributes>().apply {
+                        every { creationTime() } returns FileTime.from(Instant.now().minus(age))
+                    }
+        }
+
+        @Test
+        fun `an 8 second recording is caught`() = runTest {
+            val module = startFreshRecording()
+            every { SystemClock.elapsedRealtime() } returns RECORDING_START + 8_000L
+
+            module.requestStopRecorder() shouldBe RecorderModule.StopResult.TooShort
+        }
+
+        @Test
+        fun `a recording just below the threshold is caught`() = runTest {
+            val module = startFreshRecording()
+            every { SystemClock.elapsedRealtime() } returns RECORDING_START + 9_999L
+
+            module.requestStopRecorder() shouldBe RecorderModule.StopResult.TooShort
+        }
+
+        @Test
+        fun `a recording at the threshold stops without prompting`() = runTest {
+            val module = startFreshRecording()
+            every { SystemClock.elapsedRealtime() } returns RECORDING_START + 10_000L
+
+            module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
+        }
+
+        @Test
+        fun `being caught keeps recording, it must not half-stop the recorder`() = runTest {
+            val module = startFreshRecording()
+            every { SystemClock.elapsedRealtime() } returns RECORDING_START + 8_000L
+
+            module.requestStopRecorder() shouldBe RecorderModule.StopResult.TooShort
+
+            module.state.first().isRecording shouldBe true
+            coVerify(exactly = 0) { mockRecorder.stop() }
+        }
+
+        @Test
+        fun `a resumed session younger than the threshold is caught`() = runTest {
+            val module = startResumedRecording()
+            stubLogDirAge(Duration.ofSeconds(3))
+
+            module.requestStopRecorder() shouldBe RecorderModule.StopResult.TooShort
+        }
+
+        @Test
+        fun `a resumed session older than the threshold stops without prompting`() = runTest {
+            val module = startResumedRecording()
+            stubLogDirAge(Duration.ofMinutes(5))
+
+            module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
+        }
+
+        @Test
+        fun `an unreadable log dir fails open rather than trapping the user`() = runTest {
+            val module = startResumedRecording()
+            mockkStatic(Files::class)
+            every {
+                Files.readAttributes(any<Path>(), BasicFileAttributes::class.java)
+            } throws IOException("no attributes for you")
+
+            module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
         }
     }
 
@@ -418,5 +536,10 @@ class RecorderModuleTest : BaseTest() {
                 logLines.any { it.startsWith("Upgrade diagnostics") } shouldBe false
             }
         }
+    }
+
+    companion object {
+        /** Arbitrary fixed [SystemClock.elapsedRealtime] value that recordings start at. */
+        private const val RECORDING_START = 12345L
     }
 }
