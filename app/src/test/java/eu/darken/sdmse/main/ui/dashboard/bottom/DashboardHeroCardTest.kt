@@ -2,9 +2,13 @@ package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import android.content.Context
 import android.text.format.DateUtils
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.unit.Density
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasClickAction
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
@@ -75,9 +79,13 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("can be removed", substring = true).assertExists()
     }
 
-    private fun renderHero(hero: HeroSummary) {
+    private fun renderHero(hero: HeroSummary, fontScale: Float = 1f) {
         composeRule.setContent {
-            PreviewWrapper {
+            val base = LocalDensity.current
+            CompositionLocalProvider(
+                LocalDensity provides Density(density = base.density, fontScale = fontScale),
+            ) {
+                PreviewWrapper {
                 BottomBar(
                     state = deleteState(hero),
                     isVisible = true,
@@ -87,7 +95,8 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
                     onSettings = {},
                     onUpgrade = {},
                     onDismissHero = {},
-                )
+                    )
+                }
             }
         }
     }
@@ -185,6 +194,32 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         )
         renderHero(freed)
         composeRule.onNodeWithText("left", substring = true).assertExists()
+    }
+
+    @Test
+    fun `the leftover line survives the worst case the card is sized for`() {
+        // The card body is a fixed height that only scales with the font scale, so every line
+        // competes for the same budget. Worst case: all four tools charted (chips wrap to a second
+        // row), a leftover line, and Android's largest accessibility font scale. If the budget is
+        // too tight, the last things laid out drop off the bottom — so assert the leftover line and
+        // the hint below it are actually on screen, not merely composed.
+        val freed = HeroSummary(
+            mode = HeroSummary.Mode.FREED,
+            totalSize = 2L * 1024 * 1024 * 1024,
+            itemCount = 8147,
+            tools = listOf(
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 129L * 1024, 12),
+                HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 852L * 1024 * 1024, 51),
+                HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 87L * 1024 * 1024, 498),
+                HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 32L * 1024 * 1024, 60),
+            ),
+            residueSize = 5L * 1024 * 1024,
+            residueCount = 2,
+        )
+        renderHero(freed, fontScale = 2f)
+
+        composeRule.onNodeWithText("left", substring = true).assertIsDisplayed()
+        composeRule.onNodeWithText(context.getString(R.string.dashboard_hero_freed_hint)).assertIsDisplayed()
     }
 
     @Test
