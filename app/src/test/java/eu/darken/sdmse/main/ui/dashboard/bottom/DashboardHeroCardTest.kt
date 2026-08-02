@@ -172,6 +172,37 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `freed-mode hero renders what the cleanup left behind`() {
+        val freed = HeroSummary(
+            mode = HeroSummary.Mode.FREED,
+            totalSize = 1L * 1024 * 1024 * 1024,
+            itemCount = 12,
+            tools = listOf(
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+            ),
+            residueSize = 5L * 1024 * 1024,
+            residueCount = 2,
+        )
+        renderHero(freed)
+        composeRule.onNodeWithText("left", substring = true).assertExists()
+    }
+
+    @Test
+    fun `freed-mode hero omits the leftover line when nothing was left`() {
+        // The common outcome is a clean sweep; a "0 B left" line would be noise on every one of them.
+        val freed = HeroSummary(
+            mode = HeroSummary.Mode.FREED,
+            totalSize = 1L * 1024 * 1024 * 1024,
+            itemCount = 12,
+            tools = listOf(
+                HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 1L * 1024 * 1024 * 1024, 12),
+            ),
+        )
+        renderHero(freed)
+        composeRule.onNodeWithText("left", substring = true).assertDoesNotExist()
+    }
+
+    @Test
     fun `nothing-freed hero states the outcome without printing a zero size`() {
         val nothingFreed = HeroSummary(
             mode = HeroSummary.Mode.NOTHING_FREED,

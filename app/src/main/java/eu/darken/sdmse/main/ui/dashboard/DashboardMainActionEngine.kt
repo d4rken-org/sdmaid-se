@@ -168,7 +168,17 @@ class DashboardMainActionEngine(
      * still acceptable, so a cleanup is never briefly judged stale on its own work).
      */
     @Volatile
-    private var freedProvenance: Map<SDMTool.Type, List<SDMTool.Task>>? = null
+    private var freedProvenance: FreedProvenance? = null
+
+    /**
+     * [acceptable] spans every cleanup tool, including ones this run never touched — their record
+     * must stay put too, or an in-tool delete there would go unnoticed. [submitted] is the narrower
+     * set the run actually ran, which is what leftovers are counted against.
+     */
+    internal data class FreedProvenance(
+        val acceptable: Map<SDMTool.Type, List<SDMTool.Task>>,
+        val submitted: Set<SDMTool.Type>,
+    )
 
     /**
      * The current main-action batch, published as one atomic value: a settle edge must never become
@@ -321,9 +331,25 @@ class DashboardMainActionEngine(
                 } else {
                     null
                 }
+                val provenance = freedProvenance
                 val settled = freed
                     ?.takeIf { taskState.isIdle && phase.isSettled }
-                    ?.takeIf { taskState.vouchedFor(freedProvenance) }
+                    ?.takeIf { taskState.vouchedFor(provenance) }
+                    ?.let { outcome ->
+                        // What the run left behind, across the tools it submitted to. Recomputed per
+                        // emission from live data, so it tracks later exclusions and per-tool deletes.
+                        val residue = residueOf(
+                            corpse = corpseState.data,
+                            system = filterState.data,
+                            app = junkState.data,
+                            dedupe = dedupeState.data,
+                            tools = provenance?.submitted.orEmpty(),
+                        )
+                        outcome.copy(
+                            residueSize = residue?.size ?: 0L,
+                            residueCount = residue?.count ?: 0,
+                        )
+                    }
                 // A settled cleanup outranks [freeable] whatever it freed: whatever data survived it
                 // rebuilds into a FREEABLE card that buries the fact the deletion ran at all. That is
                 // obvious when it freed nothing, but it also holds when it freed plenty and left a
@@ -550,9 +576,12 @@ class DashboardMainActionEngine(
                 if (isCleanup && remaining == 0) {
                     val submitted = submittedTasks.value
                     val baseline = tasksOnRecord
-                    freedProvenance = CLEANUP_TOOLS.associateWith { type ->
-                        listOfNotNull(baseline[type], submitted[type])
-                    }
+                    freedProvenance = FreedProvenance(
+                        acceptable = CLEANUP_TOOLS.associateWith { type ->
+                            listOfNotNull(baseline[type], submitted[type])
+                        },
+                        submitted = submitted.keys,
+                    )
                 }
                 // Every branch publishes its own decrement, so this reaches 0 only after the last
                 // one has been through the block above — no matter which got there first.
@@ -842,14 +871,47 @@ class DashboardMainActionEngine(
                 timestamp = tools.mapNotNull { scanTimes[it.type] }.maxOrNull(),
             )
         }
+
+        /**
+         * What is still on the books for [tools], i.e. the tools a settled cleanup submitted to.
+         *
+         * Scoped to those rather than to everything with data: a tool the run never touched — one
+         * switched off in the one-click options — has leftovers that this cleanup neither freed nor
+         * failed to free, and counting them would make an otherwise complete run look partial.
+         *
+         * Read live rather than snapshotted at the settle edge on purpose. This only feeds a
+         * displayed number, so a tool state that has not published its post-delete data yet simply
+         * corrects itself on the next emission. (A snapshot would be wrong here for the same reason
+         * it is unusable as a staleness signal — see [vouchedFor].)
+         */
+        internal data class Residue(val size: Long, val count: Int)
+
+        internal fun residueOf(
+            corpse: CorpseFinder.Data?,
+            system: SystemCleaner.Data?,
+            app: AppCleaner.Data?,
+            dedupe: Deduplicator.Data?,
+            tools: Set<SDMTool.Type>,
+        ): Residue? {
+            val slices = buildList {
+                corpse?.takeIf { SDMTool.Type.CORPSEFINDER in tools && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, it.totalSize, it.totalCount))
+                }
+                system?.takeIf { SDMTool.Type.SYSTEMCLEANER in tools && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, it.totalSize, it.totalCount))
+                }
+                app?.takeIf { SDMTool.Type.APPCLEANER in tools && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
+                }
+                dedupe?.takeIf { SDMTool.Type.DEDUPLICATOR in tools && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.redundantCount))
+                }
+            }
+            return Residue(size = slices.sumOf { it.size }, count = slices.sumOf { it.count })
+        }
     }
 }
 
-/**
- * Latest successful scan completion per tool, considering only the hero/main-action scan results.
- * Single source of truth for "what counts as a dashboard scan" — used both to revive a dismissed
- * hero on fresh scans and to stamp [HeroSummary.timestamp].
- */
 /**
  * Whether a freed hero backed by [provenance] still describes the current state.
  *
@@ -866,9 +928,9 @@ class DashboardMainActionEngine(
  * A null [provenance] means nothing is vouching for the outcome, and the caller falls back to live
  * data — the check fails closed.
  */
-internal fun TaskSubmitter.State.vouchedFor(provenance: Map<SDMTool.Type, List<SDMTool.Task>>?): Boolean {
+internal fun TaskSubmitter.State.vouchedFor(provenance: DashboardMainActionEngine.FreedProvenance?): Boolean {
     if (provenance == null) return false
-    return provenance.all { (type, acceptable) ->
+    return provenance.acceptable.all { (type, acceptable) ->
         val onRecord = tasks.filter { it.isComplete && it.toolType == type }
         // `all`, not `any`: completion publishes the new entry before the task manager prunes the old
         // one, so for a moment both are on record. Requiring every entry to be acceptable means that
@@ -877,6 +939,11 @@ internal fun TaskSubmitter.State.vouchedFor(provenance: Map<SDMTool.Type, List<S
     }
 }
 
+/**
+ * Latest successful scan completion per tool, considering only the hero/main-action scan results.
+ * Single source of truth for "what counts as a dashboard scan" — used both to revive a dismissed
+ * hero on fresh scans and to stamp [HeroSummary.timestamp].
+ */
 internal fun TaskSubmitter.State.latestScanTimes(): Map<SDMTool.Type, Instant> = tasks
     .filter { task ->
         task.isComplete && when (task.result) {

@@ -654,6 +654,44 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     }
 
     @Test
+    fun `a cleanup that leaves data behind reports it alongside what it freed`() {
+        // The freed total alone reads as "job done" when it isn't. corpseData() survives the relaxed
+        // delete here, which is exactly the shape of junk that resisted removal.
+        val h = harness(corpseData = corpseData(count = 3))
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.residueCount shouldBe 3
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `residue ignores tools the cleanup never submitted to`() {
+        // AppCleaner is switched off for this run, so its leftovers were neither freed nor failed to
+        // free. Counting them would make an otherwise complete run look like it fell short.
+        val h = harness(
+            corpseData = corpseData(count = 2),
+            appData = AppCleaner.Data(
+                junks = listOf(mockk(relaxed = true) { every { size } returns 999L; every { itemCount } returns 7 }),
+            ),
+            appCleanerOneClick = false,
+        )
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.residueCount shouldBe 2
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
     fun `a cleanup on a tool this run never touched still clears the freed summary`() {
         // The batch only submits to CorpseFinder here. An in-tool AppCleaner deletion afterwards
         // changes storage just as much, so scoping the check to the tools the batch happened to
