@@ -113,7 +113,8 @@ internal fun DashboardViewModel.buildTitleCardItem(): Flow<TitleDashboardCardIte
  * live data (applying exclusions, the uninstall watcher pruning corpses) left the card advertising a
  * stale freeable size while the hero summary, which reads live data, disagreed. This prefers a summary
  * rebuilt from live tool [data] whenever a scan is on screen, while preserving frozen "freed X"
- * outcomes from a completed delete/one-click (those are not scan results).
+ * outcomes from a completed delete/one-click (those are not scan results) — including when that
+ * cleanup left residue behind, which is the common case rather than the exception.
  */
 internal inline fun <D : Any> resolveScanCardResult(
     isInitializing: Boolean,
@@ -126,14 +127,20 @@ internal inline fun <D : Any> resolveScanCardResult(
 ): SDMTool.Task.Result? = when {
     // Tool state not resolved yet, or a task is running (the card shows progress): keep the frozen result.
     isInitializing || isWorking -> lastResult
+    // A completed delete/one-click: keep its "freed X" outcome even when residual data survives it. Some
+    // junk can never be cleared — a locked system app's cache (com.google.android.gms is the usual one)
+    // fails with LockedAppCacheException on every run — so a successful cleanup routinely leaves a small
+    // remainder. Rebuilding from that remainder would advertise it as a fresh "can be freed" scan and hide
+    // what the cleanup actually did: a run that freed 1 GB and left 5 MB behind reported "5 MB can be freed".
+    lastResult != null && !lastResultIsScan -> lastResult
     // Live scan data was invalidated without a new task (e.g. Deduplicator arbiter-config change): drop a
     // now-stale scan result so the card falls back to its description instead of advertising vanished space.
-    data == null -> lastResult.takeUnless { lastResultIsScan }
+    data == null -> null
     // A scan is on screen — data present, or the last result is a scan even if data is now empty after
     // excluding everything: rebuild the freeable summary from live data (empty data yields Success(0, 0)).
     hasData || lastResultIsScan -> reconstruct(data)
-    // Empty data with a non-scan result (a completed delete's "freed X"): keep that outcome.
-    else -> lastResult
+    // No result recorded and nothing in live data: fall back to the tool's description.
+    else -> null
 }
 
 internal fun DashboardViewModel.buildCorpseFinderItem(): Flow<ToolDashboardCardItem> =

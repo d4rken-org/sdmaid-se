@@ -136,6 +136,14 @@ class DashboardCardResultTest : BaseTest() {
     }
 
     @Test
+    fun `surviving live data with a non-scan result still keeps the freed outcome`() {
+        // Regression for "the cleanup freed 1 GB but the card said 5.8 MB can be freed": a delete that
+        // leaves residue behind (a locked system app's cache can never be cleared, so this is the norm)
+        // must not have that residue rebuilt into a fresh freeable summary over its own "freed X".
+        resolve(hasData = true, lastResultIsScan = false) shouldBe frozen
+    }
+
+    @Test
     fun `invalidated null data drops a stale scan result`() {
         resolve(data = null, hasData = false, lastResultIsScan = true) shouldBe null
     }
