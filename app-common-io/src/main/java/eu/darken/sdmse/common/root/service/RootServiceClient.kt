@@ -56,10 +56,14 @@ class RootServiceClient @Inject constructor(
         log(TAG) { "Instantiating Root launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
 
+        // Mirror App.kt: trace and dry-run only apply while debug mode is on. Without this the host
+        // keeps dry-running after debug mode is switched off, while the toggle that turns it off is
+        // hidden with the debug card.
+        val isDebugInitial = debugSettings.isDebugMode.value()
         val initialOptions = RootHostOptions(
-            isDebug = debugSettings.isDebugMode.value(),
-            isTrace = debugSettings.isTraceMode.value(),
-            isDryRun = debugSettings.isDryRunMode.value(),
+            isDebug = isDebugInitial,
+            isTrace = isDebugInitial && debugSettings.isTraceMode.value(),
+            isDryRun = isDebugInitial && debugSettings.isDryRunMode.value(),
             recorderPath = debugSettings.recorderPath.value(),
         )
 
@@ -81,8 +85,8 @@ class RootServiceClient @Inject constructor(
         ) { isDebug, isTrace, isDryRun, recorderPath, lastConnection ->
             val dynamicOptions = RootHostOptions(
                 isDebug = isDebug,
-                isTrace = isTrace,
-                isDryRun = isDryRun,
+                isTrace = isDebug && isTrace,
+                isDryRun = isDebug && isDryRun,
                 recorderPath = recorderPath,
             )
             log(TAG) { "Updating debug settings: $dynamicOptions" }

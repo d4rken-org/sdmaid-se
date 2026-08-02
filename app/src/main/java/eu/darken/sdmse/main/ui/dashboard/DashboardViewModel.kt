@@ -79,6 +79,7 @@ import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.AnniversaryDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.AppControlDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.DebugDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.DryRunWarningDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ErrorDataAreaDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.MotdDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ReviewDashboardCardItem
@@ -387,6 +388,14 @@ class DashboardViewModel @Inject constructor(
         updateInfo?.let { items.add(it) }
         setupItem?.let { items.add(it) }
         dataAreaError?.let { items.add(it) }
+
+        // Dry-run makes every cleanup a no-op while still reporting freed space. The toggle lives at the
+        // bottom of the dashboard, so warn up top for as long as it's on. debugItem is null unless debug
+        // mode is on, which matches how App.kt gates Bugs.isDryRun.
+        debugItem
+            ?.takeIf { it.isDryRunEnabled }
+            ?.let { debug -> items.add(DryRunWarningDashboardCardItem(onDisable = { debug.onDryRunEnabled(false) })) }
+
         anniversaryItem?.let { items.add(it) }
 
         // Add tool cards based on user configuration

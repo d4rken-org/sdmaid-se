@@ -253,6 +253,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku link is ready.</string>
     <string name="setup_shizuku_state_waiting_label">Waiting for link with Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">The Shizuku app is not installed.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Try to use Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Don\'t use Shizuku</string>
 
@@ -316,6 +317,10 @@
     <string name="debug_card_pkgs_reload_action">Reload apps</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Dry-run mode is active</string>
+    <string name="dashboard_dryrun_warning_body">Cleanup is being simulated. Files are scanned and reported, but nothing is actually deleted.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Turn off</string>
 
     <string name="data_area_public_app_data_official_label">Default public app data</string>
     <string name="data_area_public_app_assets_official_label">Default public app assets</string>

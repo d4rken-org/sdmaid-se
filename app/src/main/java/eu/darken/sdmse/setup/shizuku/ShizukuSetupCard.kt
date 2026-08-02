@@ -56,12 +56,15 @@ internal fun ShizukuSetupCard(
                 .padding(horizontal = 16.dp),
         )
 
-        if (item.state.useShizuku == true && item.state.isInstalled) {
-            val ready = item.state.ourService
+        if (item.state.useShizuku == true) {
+            val ready = item.state.isInstalled && item.state.ourService
             Text(
                 text = stringResource(
-                    if (ready) R.string.setup_shizuku_state_ready_label
-                    else R.string.setup_shizuku_state_waiting_label,
+                    when {
+                        !item.state.isInstalled -> R.string.setup_shizuku_state_not_installed_label
+                        ready -> R.string.setup_shizuku_state_ready_label
+                        else -> R.string.setup_shizuku_state_waiting_label
+                    },
                 ),
                 style = MaterialTheme.typography.labelMedium,
                 color = if (ready) {
@@ -129,6 +132,29 @@ private fun ShizukuSetupCardPreview() {
                     isCompatible = true,
                     isInstalled = true,
                     basicService = true,
+                    ourService = false,
+                    alsoHasRoot = false,
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardNotInstalledPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = false,
+                    basicService = false,
                     ourService = false,
                     alsoHasRoot = false,
                 ),

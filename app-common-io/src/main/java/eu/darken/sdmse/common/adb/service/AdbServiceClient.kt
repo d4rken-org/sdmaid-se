@@ -59,10 +59,14 @@ class AdbServiceClient @Inject constructor(
 
         if (adbSettings.useAdb.value() != true) throw AdbUnavailableException("ADB is not enabled")
 
+        // Mirror App.kt: trace and dry-run only apply while debug mode is on. Without this the host
+        // keeps dry-running after debug mode is switched off, while the toggle that turns it off is
+        // hidden with the debug card.
+        val isDebugInitial = debugSettings.isDebugMode.value()
         val optionsInitial = AdbHostOptions(
-            isDebug = debugSettings.isDebugMode.value(),
-            isTrace = debugSettings.isTraceMode.value(),
-            isDryRun = debugSettings.isDryRunMode.value(),
+            isDebug = isDebugInitial,
+            isTrace = isDebugInitial && debugSettings.isTraceMode.value(),
+            isDryRun = isDebugInitial && debugSettings.isDryRunMode.value(),
             recorderPath = debugSettings.recorderPath.value(),
         )
 
@@ -84,8 +88,8 @@ class AdbServiceClient @Inject constructor(
         ) { isDebug, isTrace, isDryRun, recorderPath, lastConnection ->
             val optionsDynamic = AdbHostOptions(
                 isDebug = isDebug,
-                isTrace = isTrace,
-                isDryRun = isDryRun,
+                isTrace = isDebug && isTrace,
+                isDryRun = isDebug && isDryRun,
                 recorderPath = recorderPath,
             )
             log(TAG) { "Updating debug settings: $optionsDynamic" }
