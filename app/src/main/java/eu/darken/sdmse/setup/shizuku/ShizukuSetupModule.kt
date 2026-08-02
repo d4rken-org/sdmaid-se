@@ -165,8 +165,11 @@ class ShizukuSetupModule @Inject constructor(
 
         override val type: SetupModule.Type = SetupModule.Type.SHIZUKU
 
+        // "Wants Shizuku but it isn't installed" is NOT complete. Treating it as complete hid the card
+        // and rendered the whole setup screen as done, so users believed Shizuku was working while we
+        // silently fell back to the accessibility service.
         override val isComplete: Boolean =
-            useShizuku == false || !isCompatible || (useShizuku == true && (!isInstalled || ourService))
+            useShizuku == false || !isCompatible || (useShizuku == true && isInstalled && ourService)
     }
 
     @Module @InstallIn(SingletonComponent::class)

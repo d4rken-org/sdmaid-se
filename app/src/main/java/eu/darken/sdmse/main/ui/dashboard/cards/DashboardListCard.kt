@@ -30,6 +30,7 @@ internal fun DashboardListCard(
         is StatsDashboardCardItem -> StatsDashboardCard(item)
         is SwiperDashboardCardItem -> SwiperDashboardCard(modifier = modifier, item = item)
         is DebugDashboardCardItem -> DebugDashboardCard(item)
+        is DryRunWarningDashboardCardItem -> DryRunWarningDashboardCard(item)
         is ErrorDataAreaDashboardCardItem -> ErrorDataAreaDashboardCard(item)
     }
 }
