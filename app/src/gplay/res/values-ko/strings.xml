@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Google Play에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.</string>
     <string name="upgrades_gplay_already_owned_error_title">이미 구매함</string>
     <string name="upgrades_gplay_already_owned_error_description">\"구매 복원\" 옵션을 사용하여 구매를 복원하세요. 문제가 계속되면 Google Play 캐시를 지우고 기기를 재시작해 보세요.</string>
-    <string name="upgrade_screen_title">SD Maid SE 프로 구매</string>
     <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 유저 데이터를 팔지 않습니다. 여러분의 지원으로 개발됩니다. ❤️</string>
     <string name="upgrade_screen_benefits_title">업그레이드 혜택</string>
     <string name="upgrade_screen_benefits_body">• 앱 캐시 및 정크 파일 정리\n• 중복 파일 제거\n• 사진 및 동영상 압축\n• 스와이프로 오래된 파일 정리\n• 위젯을 통한 한 번의 탭 정리\n• 정리 예약\n• 사용자 정의 필터 및 규칙\n• 저장소 트렌드 및 히스토리\n• 앱 전체의 더 많은 기능 및 제어\n• 지속적인 개발 지원</string>

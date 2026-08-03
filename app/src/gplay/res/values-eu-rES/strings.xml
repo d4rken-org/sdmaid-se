@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Ezin da Google Play-ra konektatu. Mesedez, egiaztatu zure Interneteko konexioa eta saiatu berriro.</string>
     <string name="upgrades_gplay_already_owned_error_title">Dagoeneko erosita</string>
     <string name="upgrades_gplay_already_owned_error_description">Erabili \"Berreskuratu erosketa\" aukera zure erosketa berreskuratzeko. Arazoak jarraitzen badu, saiatu Google Play katxea garbitzen eta zure gailua berrabiarazten.</string>
-    <string name="upgrade_screen_title">SD Maid Pro lortu</string>
     <string name="upgrade_screen_preamble">SD Maidek ez du iragarkirik eta ez du erabiltzailearen daturik saltzen. Nire lana zuk finantzatzen duzu ❤️.</string>
     <string name="upgrade_screen_benefits_title">Hobekuntza onurak</string>
     <string name="upgrade_screen_benefits_body">• Aplikazioaren cache eta zaborraren garbitze\n• Fitxategi bikoitzen ezabaketa\n• Argazki eta bideoen konpresioa\n• Zaharkitutako fitxategiak xuxatuz garbitze\n• Widget bidezko toka bakarreko garbitze\n• Garbitzeen agendatze\n• Pertsonalizatutako filtroak eta arauak\n• Biltegiaren joera eta historia\n• Funtzio eta kontrol gehiago aplikazio osoan\n• Garapenari laguntza</string>

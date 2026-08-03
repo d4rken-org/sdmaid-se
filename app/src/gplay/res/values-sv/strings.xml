@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Det gick inte att ansluta till Google Play. Kontrollera din internetanslutning och försök igen.</string>
     <string name="upgrades_gplay_already_owned_error_title">Redan köpt</string>
     <string name="upgrades_gplay_already_owned_error_description">Använd alternativet \"Återställ köp\" för att återställa ditt köp. Om problemet kvarstår, försök rensa Google Play-cachen och starta om enheten.</string>
-    <string name="upgrade_screen_title">Skaffa SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid har inga annonser och säljer inte användardata. Mitt arbete finansieras av dig ❤️.</string>
     <string name="upgrade_screen_benefits_title">Uppgraderingsfördelar</string>
     <string name="upgrade_screen_benefits_body">• Rengöring av app-cache och skräp\n• Radering av duplicerade filer\n• Komprimering av foton och videor\n• Svep för att rensa gamla filer\n• Enklicksrengöring via widget\n• Schemalagd rengöring\n• Anpassade filter och regler\n• Lagringstrender och historik\n• Fler funktioner och kontroller i appen\n• Stöd för fortsatt utveckling</string>

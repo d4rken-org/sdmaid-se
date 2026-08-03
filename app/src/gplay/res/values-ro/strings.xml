@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Nu se poate conecta la Google Play. Vă rugăm să verificați conexiunea la internet și să încercați din nou.</string>
     <string name="upgrades_gplay_already_owned_error_title">Deja achiziționat</string>
     <string name="upgrades_gplay_already_owned_error_description">Folosiți opțiunea \"Restabiliți achiziția\" pentru a vă restabili achiziția. Dacă problema persistă, încercați să ștergeți memoria cache Google Play și să reporniți dispozitivul.</string>
-    <string name="upgrade_screen_title">Obține SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>
     <string name="upgrade_screen_benefits_title">Beneficii upgrade</string>
     <string name="upgrade_screen_benefits_body">• Curățarea cache-ului și a deșeurilor aplicațiilor\n• Eliminarea fișierelor duplicate\n• Compresarea fotografiilor și videoclipurilor\n• Ștergerea fișierelor vechi cu glisare\n• Curățare cu o atingere prin widget\n• Programarea curățării\n• Filtre și reguli personalizate\n• Tendințe și istoric de stocare\n• Mai multe funcții și controale în întreaga aplicație\n• Sprijinul continuării dezvoltării</string>

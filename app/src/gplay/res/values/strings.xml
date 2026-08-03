@@ -23,7 +23,8 @@
     <string name="upgrades_gplay_already_owned_error_title">Already purchased</string>
     <string name="upgrades_gplay_already_owned_error_description">Use the \"Restore purchase\" option to restore your purchase. If the issue persists, try clearing Google Play cache and restarting your device.</string>
 
-    <string name="upgrade_screen_title">Get SD Maid SE Pro</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Get %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid has no ads and doesn\'t sell user data. My work is financed by you ❤️.</string>
     <string name="upgrade_screen_benefits_title">Upgrade benefits</string>
     <string name="upgrade_screen_benefits_body">• App cache and junk cleaning\n• Duplicate file removal\n• Photo and video compression\n• Swipe-to-declutter old files\n• One-tap cleaning via widget\n• Cleanup scheduling\n• Custom filters and rules\n• Storage trends and history\n• More features and controls across the app\n• Support continued development</string>

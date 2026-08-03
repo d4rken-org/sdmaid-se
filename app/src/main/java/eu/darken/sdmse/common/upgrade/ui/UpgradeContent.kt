@@ -103,6 +103,30 @@ internal fun upgradeScreenTitle(upgraded: Boolean): AnnotatedString = buildAnnot
     if (upgraded) pop()
 }
 
+// Marker char for brand-title splicing: formatted into the translated pattern via the normal
+// Android format path (so %1$s vs %s, argument reordering, and %% all behave), then replaced
+// with the styled brand. U+FFFC (object replacement) cannot occur in a real translation.
+internal const val BRAND_TITLE_MARKER = "￼"
+
+internal fun spliceBrandTitle(formatted: String, brand: AnnotatedString): AnnotatedString = buildAnnotatedString {
+    var rest = formatted
+    var found = false
+    while (true) {
+        val idx = rest.indexOf(BRAND_TITLE_MARKER)
+        if (idx < 0) break
+        found = true
+        append(rest.substring(0, idx))
+        append(brand)
+        rest = rest.substring(idx + BRAND_TITLE_MARKER.length)
+    }
+    append(rest)
+    if (!found) {
+        // Defensive: a translation that lost its placeholder still shows the brand.
+        append(" ")
+        append(brand)
+    }
+}
+
 @Preview2
 @Composable
 private fun UpgradeScreenTitlePreview() {
@@ -130,18 +154,18 @@ internal fun UpgradeScreenScaffold(
     content = content,
 )
 
-// The string-resource overload renders the flavor's own title, so this preview differs between
-// FOSS ("Support SD Maid") and GPLAY ("Get SD Maid SE Pro").
+// Exercises the string-resource overload itself. It uses a shared resource on purpose: the flavors
+// title this screen from their own keys, which do not both exist in either merged R.
 @Preview2
 @Composable
 private fun UpgradeScreenScaffoldTitleResPreview() {
     PreviewWrapper {
         UpgradeScreenScaffold(
-            titleRes = R.string.upgrade_screen_title,
+            titleRes = CommonR.string.app_name,
             onNavigateUp = {},
         ) { paddingValues ->
             UpgradeScreenContent(paddingValues = paddingValues) {
-                UpgradeSectionBody(text = "Title comes from the flavor's string resource.")
+                UpgradeSectionBody(text = "Title comes from a string resource.")
             }
         }
     }
