@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.upgrade.ui
 
+import android.os.SystemClock
 import androidx.lifecycle.SavedStateHandle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.navigation.NavEvent
@@ -14,11 +15,15 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -375,6 +380,103 @@ class FossUpgradeViewModelTest : BaseTest() {
         errors.single().shouldBeInstanceOf<IOException>()
 
         toastCollector.cancel()
+        errorCollector.cancel()
+    }
+
+    @Test
+    fun `a thrown entitlement read restores the pending sponsor launch`() = runTest2(context = testDispatcher) {
+        // The guard's entitlement read happens after the marker was consumed, so it can eat the
+        // sponsor visit just as a failed write can. Installed after arming: the ViewModel's own init
+        // collectors already hold the working flow, so the only failing read is the guard's.
+        val repo = mockRepo()
+        val vm = buildVm(repo = repo)
+
+        val thanks = mutableListOf<Int>()
+        val errors = mutableListOf<Throwable>()
+        val toastCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.toastEvents.collect { thanks.add(it) } }
+        val errorCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.errorEvents.collect { errors.add(it) } }
+
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+        every { repo.upgradeInfo } returns flow { throw IOException("read failed") }
+
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+
+        vm.hasPendingSponsorLaunch() shouldBe true
+        thanks.shouldBeEmpty()
+        coVerify(exactly = 0) { repo.persistUpgrade() }
+        errors.single().shouldBeInstanceOf<IOException>()
+
+        toastCollector.cancel()
+        errorCollector.cancel()
+    }
+
+    @Test
+    fun `a hung entitlement read releases the visit when the screen dies`() = runTest2(context = testDispatcher) {
+        // A read that never answers holds the check open with the marker already consumed. When the
+        // screen goes away the coroutine is cancelled — the catch's cancellation path has to hand
+        // the sponsor visit back, otherwise it is lost with nothing to retry from.
+        val repo = mockRepo()
+        val vm = buildVm(repo = repo)
+
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+        every { repo.upgradeInfo } returns flow { awaitCancellation() }
+
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+        // Suspended inside the guard's read, marker already consumed.
+        vm.hasPendingSponsorLaunch() shouldBe false
+
+        // The ViewModel going away: vmScope shares viewModelScope's job, so this is the cleared VM.
+        vm.vmScope.cancel()
+        advanceUntilIdle()
+
+        vm.hasPendingSponsorLaunch() shouldBe true
+        coVerify(exactly = 0) { repo.persistUpgrade() }
+    }
+
+    @Test
+    fun `a newer sponsor launch survives a failed older attempt`() = runTest2(context = testDispatcher) {
+        // The restore must not clobber a launch armed while the old attempt was still suspended:
+        // the newer visit is the one the user is actually waiting on.
+        val repo = mockRepo()
+        val gate = CompletableDeferred<Unit>()
+        coEvery { repo.persistUpgrade() } coAnswers {
+            gate.await()
+            throw IOException("write failed")
+        }
+        val handle = SavedStateHandle()
+        val vm = buildVm(repo = repo, handle = handle)
+
+        val errors = mutableListOf<Throwable>()
+        val errorCollector = launch(start = CoroutineStart.UNDISPATCHED) { vm.errorEvents.collect { errors.add(it) } }
+
+        vm.goGithubSponsors()
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(6))
+        vm.checkSponsorReturn()
+        advanceUntilIdle()
+        // Consumed and parked in the write.
+        vm.hasPendingSponsorLaunch() shouldBe false
+
+        // A second sponsor visit while the first attempt is still hanging.
+        ShadowSystemClock.advanceBy(Duration.ofSeconds(30))
+        val newerPressedAt = SystemClock.elapsedRealtime()
+        vm.goGithubSponsors()
+        advanceUntilIdle()
+
+        gate.complete(Unit)
+        advanceUntilIdle()
+
+        vm.hasPendingSponsorLaunch() shouldBe true
+        // Mirrors the ViewModel's private KEY_SPONSOR_PRESSED_AT: the newer timestamp must still be
+        // the one stored, the failed older attempt must not have written its own back over it.
+        handle.get<Long>("sponsor_pressed_at") shouldBe newerPressedAt
+        errors.single().shouldBeInstanceOf<IOException>()
+
         errorCollector.cancel()
     }
 
