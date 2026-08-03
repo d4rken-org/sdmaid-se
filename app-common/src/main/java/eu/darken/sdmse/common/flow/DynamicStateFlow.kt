@@ -5,7 +5,10 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.async
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
@@ -129,17 +132,27 @@ class DynamicStateFlow<T>(
      *
      * Any errors that occurred during [action] will be rethrown by this method.
      */
-    suspend fun updateBlocking(action: suspend T.() -> T): T {
+    suspend fun updateBlocking(action: suspend T.() -> T): T = coroutineScope {
         val update: Update<T> = Update(onModify = action)
+
+        // Subscribe BEFORE emitting: UNDISPATCHED runs the awaiter synchronously up to its first
+        // suspension inside first's collect, so the collector is registered on the shared flow
+        // before the update can be processed. Emitting first is a lost wakeup: a fast producer
+        // plus a reactive collector (RecorderModule reacts to every state with its own update)
+        // can process our update AND a successor before we subscribe, displacing our State from
+        // the replay-1 cache — the await then never completes.
+        val awaiter = async(start = CoroutineStart.UNDISPATCHED) {
+            internalFlow.first { it.updatedBy == update }
+        }
         updateActions.emit(update)
 
         lTag?.let { log(it, VERBOSE) { "Waiting for update." } }
-        val ourUpdate = internalFlow.first { it.updatedBy == update }
-        lTag?.let { log(it, VERBOSE) { "Finished waiting, got ${ourUpdate.value}" } }
+        val ourUpdate = awaiter.await()
+        lTag?.let { log(it, VERBOSE) { "Finished waiting, got $ourUpdate" } }
 
         ourUpdate.error?.let { throw it }
 
-        return ourUpdate.value
+        ourUpdate.value
     }
 
     private data class Update<T>(
