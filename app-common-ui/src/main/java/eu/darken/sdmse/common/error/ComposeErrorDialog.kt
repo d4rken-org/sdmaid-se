@@ -82,7 +82,7 @@ fun ComposeErrorDialog(
                 },
                 negative = if (hasFix) {
                     SdmDialogAction(
-                        label = stringResource(R.string.general_cancel_action),
+                        label = stringResource(R.string.general_dismiss_action),
                         onClick = onDismiss,
                     )
                 } else {
