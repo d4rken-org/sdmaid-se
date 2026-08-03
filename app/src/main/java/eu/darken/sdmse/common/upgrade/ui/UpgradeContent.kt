@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.upgrade.ui
 
 import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -24,6 +25,7 @@ import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.CheckCircle
 import androidx.compose.material.icons.twotone.WarningAmber
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -804,7 +806,44 @@ private fun UpgradeInlineStateCardPreview() {
                 body = "Google Play did not answer. This is usually temporary.",
                 icon = Icons.TwoTone.WarningAmber,
             ) {
-                OutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+                OutlinedButton(
+                    onClick = {},
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                        disabledContentColor = MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.38f),
+                    ),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.onErrorContainer),
+                ) {
+                    Text("Retry")
+                }
+            }
+        }
+    }
+}
+
+// The latched state the card shows after the retry was tapped: the contrast of a DISABLED button on
+// errorContainer is the part the default theming gets wrong, so it needs its own preview.
+@Preview2
+@Composable
+private fun UpgradeInlineStateCardDisabledActionPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeInlineStateCard(
+                title = "Offers unavailable",
+                body = "Google Play did not answer. This is usually temporary.",
+                icon = Icons.TwoTone.WarningAmber,
+            ) {
+                OutlinedButton(
+                    onClick = {},
+                    enabled = false,
+                    modifier = Modifier.fillMaxWidth(),
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                        disabledContentColor = MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.38f),
+                    ),
+                    border = BorderStroke(1.dp, MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.1f)),
+                ) {
                     Text("Retry")
                 }
             }
