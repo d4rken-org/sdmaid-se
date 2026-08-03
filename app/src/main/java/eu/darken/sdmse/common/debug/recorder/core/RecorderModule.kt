@@ -69,6 +69,9 @@ class RecorderModule @Inject constructor(
     // advance the production bound. Same pattern as BillingCache.cacheTimeoutMs.
     internal var headerReadTimeoutMs: Long = HEADER_READ_TIMEOUT_MS
 
+    // Test seam: the resume fallback measures against the wall clock, which a test cannot move.
+    internal var wallClock: () -> Instant = { Instant.now() }
+
     private val triggerFile by lazy {
         try {
             File(context.getExternalFilesDir(null), FORCE_FILE)
@@ -128,7 +131,7 @@ class RecorderModule @Inject constructor(
                         copy(
                             recorder = newRecorder,
                             currentLogDir = logDir,
-                            recordingStartedAt = if (isResuming) 0L else SystemClock.elapsedRealtime(),
+                            recordingStartedAt = if (isResuming) null else SystemClock.elapsedRealtime(),
                         )
                     } else if (!shouldRecord && isRecording) {
                         log(TAG) { "Stopping log recorder for: $currentLogDir" }
@@ -142,7 +145,7 @@ class RecorderModule @Inject constructor(
                         copy(
                             recorder = null,
                             currentLogDir = null,
-                            recordingStartedAt = 0L,
+                            recordingStartedAt = null,
                         )
                     } else {
                         this
@@ -205,15 +208,28 @@ class RecorderModule @Inject constructor(
 
         val logDir = currentState.currentLogDir
         if (logDir != null) {
-            val elapsedMs = if (currentState.recordingStartedAt > 0) {
-                SystemClock.elapsedRealtime() - currentState.recordingStartedAt
+            // null discriminates a resumed session from a fresh one: elapsedRealtime() is a monotonic
+            // uptime that can legitimately BE 0 right after a boot, and a sentinel that a real
+            // timestamp can equal sends a fresh recording down the resume fallback.
+            val startedAt = currentState.recordingStartedAt
+            val elapsedMs = if (startedAt != null) {
+                SystemClock.elapsedRealtime() - startedAt
             } else {
                 // Fallback for resumed sessions — use file creation time
                 try {
                     val attrs = withContext(dispatcherProvider.IO) {
                         Files.readAttributes(logDir.toPath(), BasicFileAttributes::class.java)
                     }
-                    Duration.between(attrs.creationTime().toInstant(), Instant.now()).toMillis()
+                    val duration = Duration.between(attrs.creationTime().toInstant(), wallClock())
+                    if (duration.isNegative) {
+                        // The wall clock rolled back across the resume (NTP correction, manual change),
+                        // so the fallback can't measure this recording. Fail open like the read failure
+                        // below: a bogus "too short" prompt on a long recording is the worse outcome.
+                        log(TAG, WARN) { "Log dir creation time is in the future: ${attrs.creationTime()}" }
+                        Long.MAX_VALUE
+                    } else {
+                        duration.toMillis()
+                    }
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to read log dir creation time: ${e.asLog()}" }
                     Long.MAX_VALUE // Don't block stop on fallback failure
@@ -336,7 +352,7 @@ class RecorderModule @Inject constructor(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
-        val recordingStartedAt: Long = 0L,
+        internal val recordingStartedAt: Long? = null,
     ) {
         val isRecording: Boolean
             get() = recorder != null
