@@ -5,11 +5,13 @@ import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.WarningAmber
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -389,6 +391,7 @@ private fun UpgradeOffersBox(
                 // the user re-run the offer queries instead of leaving a dead screen.
                 // No reset needed: this composable unmounts the moment the state leaves Unavailable.
                 var retryTapped by remember { mutableStateOf(false) }
+                val retryEnabled = !retryTapped
                 OutlinedButton(
                     // Guard inside the callback, not just via `enabled`: `enabled` only takes effect
                     // after recomposition, so two taps in the same frame would both fire.
@@ -398,10 +401,20 @@ private fun UpgradeOffersBox(
                             onRetry()
                         }
                     },
-                    enabled = !retryTapped,
+                    enabled = retryEnabled,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(UpgradeScreenTags.GPLAY_RETRY),
+                    // The button sits on the errorContainer card, so the default primary-on-surface
+                    // outlined colors read as a foreign element with poor contrast.
+                    colors = ButtonDefaults.outlinedButtonColors(
+                        contentColor = MaterialTheme.colorScheme.onErrorContainer,
+                        disabledContentColor = MaterialTheme.colorScheme.onErrorContainer.copy(alpha = 0.38f),
+                    ),
+                    border = BorderStroke(
+                        1.dp,
+                        MaterialTheme.colorScheme.onErrorContainer.copy(alpha = if (retryEnabled) 1f else 0.1f),
+                    ),
                 ) {
                     Text(stringResource(CommonR.string.general_retry_action))
                 }
