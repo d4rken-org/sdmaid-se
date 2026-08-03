@@ -73,7 +73,7 @@ class UpgradeRepoFossTest : BaseTest() {
         ).isPro shouldBe true
     }
 
-    @Test fun `a failing cache read surfaces as a settled error Info instead of hanging`() = runBlocking {
+    @Test fun `a failing cache read surfaces as a settled error Info instead of hanging`(): Unit = runBlocking {
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
         try {
             val repo = createRepo(scope, createUpgradeValue(flow { throw IOException("cache broken") }))
@@ -92,7 +92,7 @@ class UpgradeRepoFossTest : BaseTest() {
         }
     }
 
-    @Test fun `a late cache failure keeps the last known entitlement`() = runBlocking {
+    @Test fun `a late cache failure keeps the last known entitlement`(): Unit = runBlocking {
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
         try {
             val repo = createRepo(scope, createUpgradeValue(flow {
@@ -119,7 +119,7 @@ class UpgradeRepoFossTest : BaseTest() {
         }
     }
 
-    @Test fun `a successful persist revives an error-stuck upgradeInfo`() = runBlocking {
+    @Test fun `a successful persist revives an error-stuck upgradeInfo`(): Unit = runBlocking {
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
         try {
             // First subscription fails, later ones read fine: the store recovered, but the shared
