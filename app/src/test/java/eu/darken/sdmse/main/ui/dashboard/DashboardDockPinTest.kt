@@ -2,6 +2,8 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.Context
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.State
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.hasScrollToIndexAction
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -13,6 +15,8 @@ import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalTourTargetRegistry
 import eu.darken.sdmse.common.compose.tour.TourTargetRegistry
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.ui.dashboard.cards.AppControlDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.setup.SetupManager
@@ -39,7 +43,7 @@ class DashboardDockPinTest : BaseComposeRobolectricTest() {
 
     // Tool cards only exist for the four cleaning tools; the setup card on top guarantees the
     // grid overflows the test viewport, so "scrolling hides the dock" can't pass vacuously.
-    private val cardItems = listOf(
+    private val cardItems: List<DashboardItem> = listOf(
         SetupDashboardCardItem(
             setupState = SetupManager.State(
                 moduleStates = emptyList(),
@@ -68,12 +72,14 @@ class DashboardDockPinTest : BaseComposeRobolectricTest() {
         onCancel = {},
     )
 
-    private fun setDashboard(isTv: Boolean) {
+    private fun setDashboard(
+        isTv: Boolean,
+        items: State<List<DashboardItem>> = mutableStateOf(cardItems),
+    ) {
         val controller = mockk<GuidedTourController>(relaxed = true).also {
             coEvery { it.shouldStart(any()) } returns false
             every { it.session } returns MutableStateFlow(null)
         }
-        val listState = DashboardViewModel.ListState(items = cardItems)
         val bottomBarState = BottomBarState(
             isReady = true,
             actionState = BottomBarState.Action.SCAN,
@@ -89,7 +95,7 @@ class DashboardDockPinTest : BaseComposeRobolectricTest() {
                     LocalGuidedTourController provides controller,
                 ) {
                     DashboardScreen(
-                        listState = listState,
+                        listState = DashboardViewModel.ListState(items = items.value),
                         bottomBarState = bottomBarState,
                         isTv = isTv,
                     )
@@ -130,6 +136,39 @@ class DashboardDockPinTest : BaseComposeRobolectricTest() {
         settingsNode().assertExists()
 
         scrollDown()
+
+        settingsNode().assertExists()
+    }
+
+    @Test
+    fun `a card appearing above the anchor does not hide the dock`() {
+        val items = mutableStateOf(cardItems)
+        setDashboard(isTv = false, items = items)
+
+        // Park the grid mid-list and come back up one card: the dock is showing again, but the
+        // anchor index is > 0, so the "scrolled to the very top -> always visible" branch can't
+        // mask the defect below.
+        val grid = composeRule.onNode(hasScrollToIndexAction())
+        grid.performScrollToIndex(cardItems.size / 2)
+        composeRule.waitForIdle()
+        grid.performScrollToIndex(1)
+        composeRule.waitForIdle()
+        settingsNode().assertExists()
+
+        // An async card (MOTD, update, review, debug warning...) arrives above the anchor while the
+        // user is idle. Cards carry stable keys, so the anchor keeps its position and its INDEX
+        // shifts — which the hide heuristic used to read as a 10_000px downward scroll.
+        composeRule.runOnUiThread {
+            items.value = listOf(
+                AppControlDashboardCardItem(
+                    data = null,
+                    isInitializing = false,
+                    progress = null,
+                    onViewDetails = {},
+                ),
+            ) + items.value
+        }
+        composeRule.waitForIdle()
 
         settingsNode().assertExists()
     }

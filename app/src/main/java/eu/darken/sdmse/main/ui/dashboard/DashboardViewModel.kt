@@ -486,8 +486,6 @@ class DashboardViewModel @Inject constructor(
         onStateError = { errorEvents.tryEmit(it) },
     )
 
-    val oneClickOptionsState: StateFlow<OneClickOptionsState> = mainActionEngine.oneClickOptionsState
-
     val bottomBarState: StateFlow<BottomBarState?> = mainActionEngine.bottomBarState(
         listIsReady = listState.map { state -> state?.items?.any { it is MainActionItem } == true },
     ).safeStateIn(
@@ -512,14 +510,6 @@ class DashboardViewModel @Inject constructor(
      * no longer threatens deletion. Recoverable by simply rescanning, hence no confirmation step.
      */
     fun discardResults() = mainActionEngine.discardResults()
-
-    fun setCorpseFinderOneClickEnabled(enabled: Boolean) = mainActionEngine.setCorpseFinderOneClickEnabled(enabled)
-
-    fun setSystemCleanerOneClickEnabled(enabled: Boolean) = mainActionEngine.setSystemCleanerOneClickEnabled(enabled)
-
-    fun setAppCleanerOneClickEnabled(enabled: Boolean) = mainActionEngine.setAppCleanerOneClickEnabled(enabled)
-
-    fun setDeduplicatorOneClickEnabled(enabled: Boolean) = mainActionEngine.setDeduplicatorOneClickEnabled(enabled)
 
     fun mainAction(actionState: BottomBarState.Action) = mainActionEngine.mainAction(actionState)
 

@@ -3,7 +3,9 @@ package eu.darken.sdmse.main.ui.dashboard.bottom
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.ReadOnlyComposable
+import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
@@ -24,14 +26,55 @@ internal val DASHBOARD_FAB_SIZE = 56.dp
 internal val DASHBOARD_FAB_CORNER_RADIUS = 16.dp
 
 /**
+ * Touch target of the main-action FAB, deliberately larger than its [DASHBOARD_FAB_SIZE] visual.
+ *
+ * The FAB is clipped to [DASHBOARD_FAB_CORNER_RADIUS], and a clipping layer excludes out-of-outline
+ * points from hit testing — so without slack the four corners are dead and the notch's 5dp clearance
+ * ring belongs to neither the bar nor the hero (both shapes carve it out). Near-misses then fall
+ * straight through to the grid behind, where the cards are clickable and navigate away.
+ *
+ * Capped by the centre spacer the hero's footer reserves (`DASHBOARD_CUTOUT_WIDTH + 16.dp` = 82dp,
+ * see `HeroFooter`), so growing the target can never swallow the footer's Discard button.
+ */
+internal val DASHBOARD_FAB_TOUCH_SIZE = 76.dp
+
+/** Per-side slack between the FAB's visual and its touch target. */
+internal val DASHBOARD_FAB_TOUCH_SLACK = (DASHBOARD_FAB_TOUCH_SIZE - DASHBOARD_FAB_SIZE) / 2
+
+/**
+ * The FAB's visible outline expressed in the coordinates of its [DASHBOARD_FAB_TOUCH_SIZE] box.
+ *
+ * The ripple has to be drawn by a node that shares the *clickable's* origin, or the press hotspot
+ * lands [DASHBOARD_FAB_TOUCH_SLACK] off from the finger; but it must still be clipped to the visible
+ * FAB, or it washes out into the cradle clearance. Hence an inset shape rather than clipping the
+ * smaller surface.
+ */
+internal data object DashboardFabRippleShape : Shape {
+    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
+        val inset = with(density) { DASHBOARD_FAB_TOUCH_SLACK.toPx() }
+        val radius = with(density) { DASHBOARD_FAB_CORNER_RADIUS.toPx() }
+        return Outline.Rounded(
+            RoundRect(
+                rect = Rect(inset, inset, size.width - inset, size.height - inset),
+                cornerRadius = CornerRadius(radius, radius),
+            ),
+        )
+    }
+}
+
+/**
  * Distance from the screen's bottom edge to the FAB's bottom. Chosen so the FAB's centre sits on the
  * mid-line of the bar↔hero gap, making it dip into the bar notch and poke into the hero notch by the
  * same amount (a symmetric cradle): BAR_HEIGHT + GAP/2 - FAB_SIZE/2 = 60 + 6 - 28 = 38.
  */
 internal val DASHBOARD_FAB_BOTTOM_INSET = 38.dp
 
-/** Reserved dock height when no hero is shown; must clear the FAB's top (38 + 56 = 94) + breathing room. */
-internal val DASHBOARD_FAB_SLOT_HEIGHT = 98.dp
+/**
+ * Reserved dock height when no hero is shown; must clear the top of the FAB's *touch* box + breathing
+ * room. The box is [DASHBOARD_FAB_TOUCH_SLACK] lower and taller than the visual, so its top sits at
+ * (38 - 10) + 76 = 104.
+ */
+internal val DASHBOARD_FAB_SLOT_HEIGHT = 108.dp
 
 // The single cutout definition, shared by the bar (top edge) and the hero (bottom edge, mirrored).
 // The notch is a uniform 5dp outward offset of the 56dp FAB outline. For the gap to stay even around

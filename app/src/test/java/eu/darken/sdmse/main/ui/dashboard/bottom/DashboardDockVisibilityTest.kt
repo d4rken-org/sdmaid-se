@@ -48,7 +48,6 @@ class DashboardDockVisibilityTest : BaseComposeRobolectricTest() {
                     isVisible = isVisible,
                     heroVisible = true,
                     onMainAction = {},
-                    onMainActionLongClick = {},
                     onSettings = {},
                     onUpgrade = {},
                     onDismissHero = {},
