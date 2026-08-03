@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Nije moguće povezati se s Google Playom. Provjerite internetsku vezu i pokušajte ponovno.</string>
     <string name="upgrades_gplay_already_owned_error_title">Već kupljeno</string>
     <string name="upgrades_gplay_already_owned_error_description">Koristite opciju \"Obnovi kupnju\" za obnovu vaše kupnje. Ako se problem nastavi, pokušajte očistiti predmemoriju Google Playa i ponovno pokrenuti uređaj.</string>
-    <string name="upgrade_screen_title">Nabavite SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid nema oglasa i ne prodaje korisničke podatke. Moj rad financirate vi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Prednosti nadogradnje</string>
     <string name="upgrade_screen_benefits_body">• Čišćenje predmemorije i smeća aplikacija\n• Uklanjanje duplikata datoteka\n• Sažimanje fotografija i videozapisa\n• Povlačenje za uklanjanje starih datoteka\n• Čišćenje jednim dodirom putem widgeta\n• Raspoređivanje čišćenja\n• Prilagođeni filtri i pravila\n• Trendovi i povijest pohrane\n• Više značajki i kontrola diljem aplikacije\n• Podrška daljnjem razvoju</string>

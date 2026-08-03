@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Kan ikke koble til Google Play. Kontroller internettforbindelsen din og prøv igjen.</string>
     <string name="upgrades_gplay_already_owned_error_title">Allerede kjøpt</string>
     <string name="upgrades_gplay_already_owned_error_description">Bruk alternativet \"Gjenopprett kjøp\" for å gjenopprette kjøpet ditt. Hvis problemet vedvarer, prøv å tømme Google Play-hurtigbufferen og starte enheten på nytt.</string>
-    <string name="upgrade_screen_title">Skaff deg SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid har ingen annonser og selger ikke brukerdata. Arbeidet mitt er finansiert av deg ❤️.</string>
     <string name="upgrade_screen_benefits_title">Oppgraderingsfordeler</string>
     <string name="upgrade_screen_benefits_body">• Rensing av app-hurtigminne og søppel\n• Fjerning av dupliserte filer\n• Komprimering av bilder og videoer\n• Swipe-to-declutter gamle filer\n• Enkel-tap rensing via widget\n• Planlegging av rensing\n• Egendefinerte filtre og regler\n• Lagringstrender og historikk\n• Flere funksjoner og kontroller i hele appen\n• Støtt fortsatt utvikling</string>

@@ -14,7 +14,6 @@
     <string name="upgrades_gplay_network_error_description">Nelze se připojit k Google Play. Zkontrolujte připojení k internetu a zkuste to znovu.</string>
     <string name="upgrades_gplay_already_owned_error_title">Již zakoupeno</string>
     <string name="upgrades_gplay_already_owned_error_description">Použijte možnost \"Obnovit nákup\" k obnovení nákupu. Pokud problém přetrvává, zkuste vyčistit mezipaměť Google Play a restartovat zařízení.</string>
-    <string name="upgrade_screen_title">Získat SD Maid SE Pro</string>
     <string name="upgrade_screen_preamble">SD Maid neobsahuje žádné reklamy a neprodává data uživatelů. Moje práce je financována vámi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Výhody upgradu</string>
     <string name="upgrade_screen_benefits_body">• Čištění mezipaměti aplikací a zbytečných souborů\n• Odebrání duplicitních souborů\n• Komprese fotek a videí\n• Potažením pro vyčištění starých souborů\n• Čištění jedním klepnutím přes widget\n• Plánování čištění\n• Vlastní filtry a pravidla\n• Trendy úložiště a historie\n• Více funkcí a ovládacích prvků v aplikaci\n• Podpora pokračování vývoje</string>

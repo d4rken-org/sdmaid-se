@@ -199,6 +199,15 @@ internal fun RestoreInconclusiveDialog(
     )
 }
 
+// The acquisition pitch inserts the SAME composed brand the status title uses, postfix colored —
+// one brand rendering for both. Word-order-proof: the brand is spliced into the TRANSLATED pattern,
+// so Android's formatter owns placeholder semantics (numbering, reordering, escaping).
+@Composable
+private fun upgradeAcquisitionTitle(): AnnotatedString = spliceBrandTitle(
+    formatted = stringResource(R.string.upgrade_screen_title_template, BRAND_TITLE_MARKER),
+    brand = upgradeScreenTitle(upgraded = true),
+)
+
 @Composable
 internal fun UpgradeScreen(
     uiState: GplayUpgradeUiState = GplayUpgradeUiState.Loading,
@@ -217,13 +226,14 @@ internal fun UpgradeScreen(
     val ownedState = loaded?.takeIf { it.ownership.ownsAnything }
 
     UpgradeScreenScaffold(
-        // Grace users are still Pro: they get the status title too — "Get SD Maid SE Pro" on the
-        // status screen would contradict the rest of the app, which behaves upgraded. The postfix
-        // is highlighted like the dashboard title does it.
+        // Grace users are still Pro: they get the bare status title — "Get SD Maid SE Pro" on the
+        // status screen would contradict the rest of the app, which behaves upgraded. Acquisition
+        // wraps that same brand in the pitch sentence. Either way the postfix is highlighted like
+        // the dashboard title does it.
         title = if (ownedState != null || loaded?.grace != null) {
             upgradeScreenTitle(upgraded = true)
         } else {
-            AnnotatedString(stringResource(R.string.upgrade_screen_title))
+            upgradeAcquisitionTitle()
         },
         onNavigateUp = onNavigateUp,
     ) { paddingValues ->
