@@ -3,15 +3,20 @@ package eu.darken.sdmse.common.upgrade.core
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 import java.time.Instant
 import java.util.UUID
@@ -31,20 +36,39 @@ class UpgradeRepoFoss @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
-    override val upgradeInfo: Flow<UpgradeRepo.Info> = combine(
-        fossCache.upgrade.flow,
-        refreshTrigger
-    ) { data, _ ->
-        if (data == null) {
-            Info()
-        } else {
-            Info(
-                isPro = true,
-                upgradedAt = data.upgradedAt,
-                fossUpgradeType = data.upgradeType,
-            )
+    // Written only from the sharing coroutine (single collector) — no synchronization needed.
+    private var lastKnownInfo: Info? = null
+
+    override val upgradeInfo: Flow<UpgradeRepo.Info> = refreshTrigger
+        .flatMapLatest {
+            fossCache.upgrade.flow
+                .map { data ->
+                    if (data == null) {
+                        Info()
+                    } else {
+                        Info(
+                            isPro = true,
+                            upgradedAt = data.upgradedAt,
+                            fossUpgradeType = data.upgradeType,
+                        )
+                    }
+                }
+                .catch { e ->
+                    // A SharedFlow cannot fail: without this, a thrown cache read dies inside
+                    // shareIn's sharing coroutine and every collector hangs forever (VM state stuck
+                    // on Loading, checkSponsorReturn suspended mid-unlock). The catch sits INSIDE
+                    // flatMapLatest so the error completes only this inner subscription — refresh()
+                    // resubscribes the cache and recovery stays possible. Last-known preservation:
+                    // a late read failure must not revoke an entitlement we already saw; the error
+                    // rides on the previous Info instead. Contrast: gplay keeps a retryWhen loop
+                    // because billing re-settles in-place — the FOSS read is a local one-shot, and
+                    // refresh-driven resubscription IS the retry.
+                    if (e is CancellationException) throw e
+                    log(TAG, WARN) { "upgradeInfo read failed: ${e.asLog()}" }
+                    emit((lastKnownInfo ?: Info()).copy(error = e))
+                }
         }
-    }
+        .onEach { if (it.error == null) lastKnownInfo = it }
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .shareIn(appScope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
@@ -71,6 +95,9 @@ class UpgradeRepoFoss @Inject constructor(
                 upgradeType = FossUpgrade.Type.GITHUB_SPONSORS,
             )
         }
+        // A returned transaction proves the store is readable again: revive a possibly error-stuck
+        // inner flow so the record propagates to collectors still holding the error replay.
+        refresh()
         // Local binding: Updated.old is a public property from another module, so it can't smart cast.
         val previous = updated.old
         return if (previous == null) {
