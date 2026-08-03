@@ -5,6 +5,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.PaddingValues
@@ -19,7 +20,10 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.CheckCircle
+import androidx.compose.material.icons.twotone.WarningAmber
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardColors
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
@@ -27,6 +31,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -40,6 +45,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -49,11 +55,14 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.R as CommonR
 
 internal object UpgradeScreenTags {
     const val LOADING = "upgrade_loading"
@@ -94,6 +103,20 @@ internal fun upgradeScreenTitle(upgraded: Boolean): AnnotatedString = buildAnnot
     if (upgraded) pop()
 }
 
+@Preview2
+@Composable
+private fun UpgradeScreenTitlePreview() {
+    PreviewWrapper {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            Text(text = upgradeScreenTitle(upgraded = false))
+            Text(text = upgradeScreenTitle(upgraded = true))
+        }
+    }
+}
+
 @Composable
 internal fun UpgradeScreenScaffold(
     @StringRes titleRes: Int,
@@ -106,6 +129,23 @@ internal fun UpgradeScreenScaffold(
     snackbarHostState = snackbarHostState,
     content = content,
 )
+
+// The string-resource overload renders the flavor's own title, so this preview differs between
+// FOSS ("Support SD Maid") and GPLAY ("Get SD Maid SE Pro").
+@Preview2
+@Composable
+private fun UpgradeScreenScaffoldTitleResPreview() {
+    PreviewWrapper {
+        UpgradeScreenScaffold(
+            titleRes = R.string.upgrade_screen_title,
+            onNavigateUp = {},
+        ) { paddingValues ->
+            UpgradeScreenContent(paddingValues = paddingValues) {
+                UpgradeSectionBody(text = "Title comes from the flavor's string resource.")
+            }
+        }
+    }
+}
 
 @Composable
 internal fun UpgradeScreenScaffold(
@@ -139,6 +179,21 @@ internal fun UpgradeScreenScaffold(
     )
 }
 
+@Preview2
+@Composable
+private fun UpgradeScreenScaffoldPreview() {
+    PreviewWrapper {
+        UpgradeScreenScaffold(
+            title = AnnotatedString("Support SD Maid"),
+            onNavigateUp = {},
+        ) { paddingValues ->
+            UpgradeScreenContent(paddingValues = paddingValues) {
+                UpgradeSectionBody(text = "Scaffold with the screen's content column inside it.")
+            }
+        }
+    }
+}
+
 @Composable
 internal fun UpgradeScreenContent(
     paddingValues: PaddingValues,
@@ -169,6 +224,19 @@ internal fun UpgradeScreenContent(
     }
 }
 
+@Preview2
+@Composable
+private fun UpgradeScreenContentPreview() {
+    PreviewWrapper {
+        UpgradeScreenContent(paddingValues = PaddingValues(0.dp)) {
+            UpgradeHeroCard(text = "The card the content column leads with.")
+            UpgradeSectionCard(title = "A section", icon = Icons.TwoTone.AutoAwesome) {
+                UpgradeSectionBody(text = "Children are spaced by the column, not by themselves.")
+            }
+        }
+    }
+}
+
 @Composable
 internal fun UpgradeMascot(
     size: Dp,
@@ -182,6 +250,22 @@ internal fun UpgradeMascot(
             .size(size)
             .testTag(if (happy) UpgradeScreenTags.MASCOT_HAPPY else UpgradeScreenTags.MASCOT_GRUMPY),
     )
+}
+
+// Both faces in one preview: they are picked by the same boolean at every call site, so seeing
+// them side by side is what makes an accidental swap obvious.
+@Preview2
+@Composable
+private fun UpgradeMascotPreview() {
+    PreviewWrapper {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            horizontalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            UpgradeMascot(size = 88.dp, happy = true)
+            UpgradeMascot(size = 88.dp, happy = false)
+        }
+    }
 }
 
 @Composable
@@ -207,23 +291,143 @@ internal fun UpgradeHeader(
     }
 }
 
+@Preview2
 @Composable
-internal fun UpgradePreambleCard(
+private fun UpgradeHeaderPreview() {
+    PreviewWrapper {
+        Column(
+            modifier = Modifier.padding(vertical = 16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            UpgradeHeader(mascotSize = 88.dp)
+            UpgradeHeader(mascotSize = 88.dp, happy = false)
+        }
+    }
+}
+
+private val HERO_GAP = 16.dp
+
+// Below this much room for the copy the side-by-side split stops paying for itself: measured on a
+// 320dp screen at 200% font, the row wrapped the preamble over 10 lines (breaking a word mid-way)
+// and came out TALLER than stacking, which needs 6. Scaled by fontScale because the squeeze comes
+// from text size as much as from screen width — at 200% font even a normal-width phone must stack.
+private val HERO_MIN_TEXT_WIDTH = 150.dp
+
+// The screen opener: mascot and preamble in one card instead of a floating icon stacked on a
+// separate text box. Side-by-side keeps the mascot at eye level with the copy it introduces, and
+// buys back the vertical space the standalone header used to spend above the fold — but only while
+// the copy still has room to breathe, hence the stacked fallback.
+@Composable
+internal fun UpgradeHeroCard(
     text: String,
     modifier: Modifier = Modifier,
+    mascotSize: Dp = 88.dp,
+    happy: Boolean = true,
     colors: CardColors = CardDefaults.elevatedCardColors(),
 ) {
     ElevatedCard(
         modifier = modifier.fillMaxWidth(),
         colors = colors,
     ) {
-        Text(
-            text = text,
-            style = MaterialTheme.typography.bodyMedium,
+        BoxWithConstraints(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
-        )
+                .padding(8.dp)
+                .padding(end = 8.dp),
+        ) {
+            val minTextWidth = HERO_MIN_TEXT_WIDTH * LocalDensity.current.fontScale
+            if (maxWidth - mascotSize - HERO_GAP < minTextWidth) {
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(12.dp),
+                ) {
+                    UpgradeMascot(
+                        size = mascotSize,
+                        happy = happy,
+                    )
+                    Text(
+                        text = text,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                }
+            } else {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(HERO_GAP),
+                ) {
+                    UpgradeMascot(
+                        size = mascotSize,
+                        happy = happy,
+                    )
+                    Text(
+                        text = text,
+                        style = MaterialTheme.typography.bodyMedium,
+                        modifier = Modifier.weight(1f),
+                    )
+                }
+            }
+        }
+    }
+}
+
+// Preview copy matches the shipped preamble in length: the mascot/text split only reads correctly
+// if the text wraps like it does in the app.
+private const val PREVIEW_PREAMBLE =
+    "SD Maid has no ads and doesn't sell user data. Continued development is only made possible by you."
+
+@Preview2
+@Composable
+private fun UpgradeHeroCardPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeHeroCard(text = PREVIEW_PREAMBLE)
+        }
+    }
+}
+
+// Preview2 only varies light/dark, so it can never reach the stacked branch. These two pin the
+// thresholds that flip it: a narrow screen, and a normal-width screen at 200% font.
+@Preview(showBackground = true, name = "Compact width", widthDp = 320)
+@Preview(showBackground = true, name = "Huge font", fontScale = 2f)
+@Composable
+private fun UpgradeHeroCardCompactPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeHeroCard(text = PREVIEW_PREAMBLE)
+        }
+    }
+}
+
+// Both flavors tint the hero: FOSS on primaryContainer, GPLAY on secondaryContainer. Neither is
+// the composable's default, so the default-colored preview above would not catch a contrast
+// regression on the colors that actually ship.
+@Preview2
+@Composable
+private fun UpgradeHeroCardTintedPreview() {
+    PreviewWrapper {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(16.dp),
+        ) {
+            UpgradeHeroCard(
+                text = PREVIEW_PREAMBLE,
+                colors = CardDefaults.elevatedCardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                ),
+            )
+            UpgradeHeroCard(
+                text = PREVIEW_PREAMBLE,
+                happy = false,
+                colors = CardDefaults.elevatedCardColors(
+                    containerColor = MaterialTheme.colorScheme.secondaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+                ),
+            )
+        }
     }
 }
 
@@ -262,6 +466,22 @@ internal fun UpgradeSectionCard(
     }
 }
 
+@Preview2
+@Composable
+private fun UpgradeSectionCardPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeSectionCard(
+                title = "Upgrade benefits",
+                icon = Icons.TwoTone.AutoAwesome,
+            ) {
+                UpgradeSectionBody(text = "What a section card looks like with a body and a list.")
+                UpgradeFeatureList(text = "• App cache and junk cleaning\n• Duplicate file removal")
+            }
+        }
+    }
+}
+
 // The icon+title header every section card leads with — also usable standalone so headerless
 // cards (like the offers action card) can join the same visual pattern.
 @Composable
@@ -294,6 +514,25 @@ internal fun UpgradeSectionHeader(
     }
 }
 
+@Preview2
+@Composable
+private fun UpgradeSectionHeaderPreview() {
+    PreviewWrapper {
+        Column(
+            modifier = Modifier.padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            UpgradeSectionHeader(title = "With an icon", icon = Icons.TwoTone.AutoAwesome)
+            // The `leading` slot wins over `icon` — worth seeing, since callers pass both.
+            UpgradeSectionHeader(
+                title = "With a leading slot",
+                icon = Icons.TwoTone.AutoAwesome,
+                leading = { UpgradeMascot(size = 24.dp) },
+            )
+        }
+    }
+}
+
 @Composable
 internal fun UpgradeSectionBody(
     text: String,
@@ -305,6 +544,18 @@ internal fun UpgradeSectionBody(
         color = MaterialTheme.colorScheme.onSurfaceVariant,
         modifier = modifier.fillMaxWidth(),
     )
+}
+
+@Preview2
+@Composable
+private fun UpgradeSectionBodyPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeSectionBody(
+                text = "Body copy for a section card, in the muted variant color the sections use.",
+            )
+        }
+    }
 }
 
 @Composable
@@ -330,6 +581,25 @@ internal fun UpgradeFeatureList(
                     )
                 }
             }
+    }
+}
+
+// Covers both branches of the parser: bullet lines become checkmark rows, everything else stays
+// plain text.
+@Preview2
+@Composable
+private fun UpgradeFeatureListPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeFeatureList(
+                text = """
+                    A plain intro line
+                    • App cache and junk cleaning
+                    • Duplicate file removal
+                    • More features and controls across the app
+                """.trimIndent(),
+            )
+        }
     }
 }
 
@@ -359,6 +629,18 @@ private fun UpgradeFeatureRow(
     }
 }
 
+@Preview2
+@Composable
+private fun UpgradeFeatureRowPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeFeatureRow(text = "A single feature row")
+            // Long enough to wrap: the checkmark must stay top-aligned against the first line.
+            UpgradeFeatureRow(text = "A feature row long enough that it wraps onto a second line")
+        }
+    }
+}
+
 @Composable
 internal fun UpgradeHintText(
     text: String,
@@ -371,6 +653,16 @@ internal fun UpgradeHintText(
         textAlign = TextAlign.Center,
         modifier = modifier.fillMaxWidth(),
     )
+}
+
+@Preview2
+@Composable
+private fun UpgradeHintTextPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeHintText(text = "The alternative are ads, analytics and Google Play 🙁")
+        }
+    }
 }
 
 @Composable
@@ -399,6 +691,26 @@ internal fun UpgradeActionCard(
     }
 }
 
+@Preview2
+@Composable
+private fun UpgradeActionCardPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeActionCard(
+                colors = CardDefaults.elevatedCardColors(
+                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                ),
+            ) {
+                Button(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+                    Text("Sponsor development")
+                }
+                UpgradeHintText(text = "The alternative are ads, analytics and Google Play 🙁")
+            }
+        }
+    }
+}
+
 @Composable
 internal fun UpgradeLoadingBlock(
     modifier: Modifier = Modifier,
@@ -417,6 +729,17 @@ internal fun UpgradeLoadingBlock(
             style = MaterialTheme.typography.bodyMedium,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+    }
+}
+
+// In the app this block only ever appears inside the action card, so that is how it is previewed.
+@Preview2
+@Composable
+private fun UpgradeLoadingBlockPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeActionCard { UpgradeLoadingBlock() }
+        }
     }
 }
 
@@ -444,5 +767,23 @@ internal fun UpgradeInlineStateCard(
             color = MaterialTheme.colorScheme.onErrorContainer,
         )
         content()
+    }
+}
+
+@Preview2
+@Composable
+private fun UpgradeInlineStateCardPreview() {
+    PreviewWrapper {
+        Column(modifier = Modifier.padding(16.dp)) {
+            UpgradeInlineStateCard(
+                title = "Offers unavailable",
+                body = "Google Play did not answer. This is usually temporary.",
+                icon = Icons.TwoTone.WarningAmber,
+            ) {
+                OutlinedButton(onClick = {}, modifier = Modifier.fillMaxWidth()) {
+                    Text("Retry")
+                }
+            }
+        }
     }
 }

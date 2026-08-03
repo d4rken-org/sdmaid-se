@@ -45,6 +45,10 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.ACTIONS).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_benefits_title)).assertCountEquals(1)
+        // Preamble and mascot ship together in the hero card outside grace: exactly one mascot,
+        // so a leftover standalone header next to the hero would fail here.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test
@@ -157,6 +161,8 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
             .assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrades_gplay_unavailable_error_title))
             .assertCountEquals(0)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_GRUMPY).assertCountEquals(0)
     }
 
     @Test
@@ -422,6 +428,10 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertCountEquals(0)
         composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_MANAGE_SUB).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_owned_iap_body)).assertCountEquals(1)
+        // Owners get their mascot from the congrats hero only — the acquisition hero card and its
+        // preamble must stay away entirely.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.MASCOT_HAPPY).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_preamble)).assertCountEquals(0)
         // The hero names the permanent purchase as the unlock, never the subscription variant.
         composeRule.onAllNodesWithText(appNameWithPostfixedHeroBody(R.string.upgrade_screen_owned_hero_iap_body))
             .assertCountEquals(1)
