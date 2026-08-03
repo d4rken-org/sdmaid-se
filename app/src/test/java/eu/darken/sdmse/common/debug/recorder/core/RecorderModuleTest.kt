@@ -170,7 +170,7 @@ class RecorderModuleTest : BaseTest() {
 
             val state = module.state.first { it.isRecording }
             state.currentLogDir shouldBe existingDir
-            state.recordingStartedAt shouldBe 0L
+            state.recordingStartedAt shouldBe null
             coVerify { mockRecorder.start(existingDir) }
         }
 
@@ -274,7 +274,7 @@ class RecorderModuleTest : BaseTest() {
 
             val state = module.state.first { it.isRecording }
             state.currentLogDir shouldBe existingDir
-            state.recordingStartedAt shouldBe 0L
+            state.recordingStartedAt shouldBe null
         }
 
         @Test
@@ -325,7 +325,7 @@ class RecorderModuleTest : BaseTest() {
             advanceUntilIdle()
 
             // No elapsedRealtime baseline survives a restart, so the fallback is used instead
-            module.state.first { it.isRecording }.recordingStartedAt shouldBe 0L
+            module.state.first { it.isRecording }.recordingStartedAt shouldBe null
             return module
         }
 
@@ -405,6 +405,18 @@ class RecorderModuleTest : BaseTest() {
             every {
                 Files.readAttributes(any<Path>(), BasicFileAttributes::class.java)
             } throws IOException("no attributes for you")
+
+            module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
+        }
+
+        @Test
+        fun `a clock rollback across a resume does not flag the recording as too short`() = runTest {
+            // The fallback measures a real log dir against the wall clock, and that clock can move
+            // backwards between the recording starting and the user stopping it (NTP correction,
+            // manual change). The resulting negative age must not be read as "just started" — that
+            // would nag a user who has been recording for hours to keep recording.
+            val module = startResumedRecording()
+            module.wallClock = { Instant.now().minus(Duration.ofHours(1)) }
 
             module.requestStopRecorder().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
         }
