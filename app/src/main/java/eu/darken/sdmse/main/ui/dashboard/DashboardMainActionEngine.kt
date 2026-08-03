@@ -109,11 +109,11 @@ class DashboardMainActionEngine(
     }
 
     /**
-     * The one-click toggles, shared: both [heroState] and the VM's options dialog read this single
-     * collection instead of subscribing to the four settings flows twice. Upstream failures fall
-     * back to the defaults rather than freezing the dashboard.
+     * The one-click toggles, shared: the several [heroState] readers take this single collection
+     * instead of subscribing to the four settings flows each time. Upstream failures fall back to
+     * the defaults rather than freezing the dashboard.
      */
-    val oneClickOptionsState: StateFlow<OneClickOptionsState> = oneClickOptions
+    private val oneClickOptionsState: StateFlow<OneClickOptionsState> = oneClickOptions
         .catch { e ->
             if (e is CancellationException) throw e
             log(TAG, ERROR) { "oneClickOptions failed: ${e.asLog()}" }
@@ -512,22 +512,6 @@ class DashboardMainActionEngine(
         } finally {
             discarding.value = false
         }
-    }
-
-    fun setCorpseFinderOneClickEnabled(enabled: Boolean) = scope.launch {
-        generalSettings.oneClickCorpseFinderEnabled.value(enabled)
-    }
-
-    fun setSystemCleanerOneClickEnabled(enabled: Boolean) = scope.launch {
-        generalSettings.oneClickSystemCleanerEnabled.value(enabled)
-    }
-
-    fun setAppCleanerOneClickEnabled(enabled: Boolean) = scope.launch {
-        generalSettings.oneClickAppCleanerEnabled.value(enabled)
-    }
-
-    fun setDeduplicatorOneClickEnabled(enabled: Boolean) = scope.launch {
-        generalSettings.oneClickDeduplicatorEnabled.value(enabled)
     }
 
     /**

@@ -68,7 +68,6 @@ import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.tour.DashboardTour
 import eu.darken.sdmse.main.ui.navigation.SettingsRoute
-import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import kotlin.math.abs
 
@@ -84,7 +83,6 @@ fun DashboardScreenHost(
 
     val listState by vm.listState.collectAsStateWithLifecycle()
     val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle()
-    val oneClickOptionsState by vm.oneClickOptionsState.collectAsStateWithLifecycle()
     val isHeroExpanded by vm.isHeroExpanded.collectAsStateWithLifecycle()
 
     var dialogState by remember { mutableStateOf<DashboardDialogState?>(null) }
@@ -172,7 +170,6 @@ fun DashboardScreenHost(
         listState = listState,
         bottomBarState = bottomBarState,
         isTv = vm.isTvDevice,
-        oneClickOptionsState = oneClickOptionsState,
         isHeroExpanded = isHeroExpanded,
         snackbarHostState = snackbarHostState,
         onDismissHero = vm::dismissHero,
@@ -190,10 +187,6 @@ fun DashboardScreenHost(
         onDiscardResults = vm::discardResults,
         onSettings = { vm.navTo(SettingsRoute) },
         onUpgrade = { vm.navTo(UpgradeRoute()) },
-        onCorpseFinderOneClickChanged = vm::setCorpseFinderOneClickEnabled,
-        onSystemCleanerOneClickChanged = vm::setSystemCleanerOneClickEnabled,
-        onAppCleanerOneClickChanged = vm::setAppCleanerOneClickEnabled,
-        onDeduplicatorOneClickChanged = vm::setDeduplicatorOneClickEnabled,
     )
 }
 
@@ -202,7 +195,6 @@ internal fun DashboardScreen(
     listState: DashboardViewModel.ListState? = null,
     bottomBarState: BottomBarState? = null,
     isTv: Boolean = false,
-    oneClickOptionsState: OneClickOptionsState = OneClickOptionsState(),
     isHeroExpanded: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
@@ -212,12 +204,7 @@ internal fun DashboardScreen(
     onSettings: () -> Unit = {},
     onUpgrade: () -> Unit = {},
     onDismissHero: () -> Unit = {},
-    onCorpseFinderOneClickChanged: (Boolean) -> Unit = {},
-    onSystemCleanerOneClickChanged: (Boolean) -> Unit = {},
-    onAppCleanerOneClickChanged: (Boolean) -> Unit = {},
-    onDeduplicatorOneClickChanged: (Boolean) -> Unit = {},
 ) {
-    var showOneClickOptions by rememberSaveable { mutableStateOf(false) }
     val gridState = rememberLazyGridState()
     var isBottomBarVisible by rememberSaveable { mutableStateOf(true) }
     var mascotTopBump by remember { mutableIntStateOf(0) }
@@ -317,6 +304,12 @@ internal fun DashboardScreen(
             .collect { currentPos ->
                 when {
                     currentPos <= 0 -> isBottomBarVisible = true
+                    // Dashboard cards appear and disappear on their own (MOTD, update, review, the
+                    // debug-mode warning...). One inserted above the anchor bumps the index, which
+                    // the encoding above turns into a +10_000 jump — read as a large downward scroll
+                    // that hid the whole dock, FAB included, without the user ever touching the list.
+                    // Only a real scroll may flip visibility; item churn leaves it alone.
+                    !gridState.isScrollInProgress -> Unit
                     abs(currentPos - previousPos) > 6 -> isBottomBarVisible = currentPos < previousPos
                 }
                 previousPos = currentPos
@@ -370,20 +363,6 @@ internal fun DashboardScreen(
         if (!tourController.shouldStart(tourDef)) return@LaunchedEffect
         gridState.animateScrollToItem(0)
         tourController.start(tourDef)
-    }
-
-    if (showOneClickOptions) {
-        OneClickOptionsDialog(
-            corpseFinderEnabled = oneClickOptionsState.corpseFinderEnabled,
-            systemCleanerEnabled = oneClickOptionsState.systemCleanerEnabled,
-            appCleanerEnabled = oneClickOptionsState.appCleanerEnabled,
-            deduplicatorEnabled = oneClickOptionsState.deduplicatorEnabled,
-            onCorpseFinderChanged = onCorpseFinderOneClickChanged,
-            onSystemCleanerChanged = onSystemCleanerOneClickChanged,
-            onAppCleanerChanged = onAppCleanerOneClickChanged,
-            onDeduplicatorChanged = onDeduplicatorOneClickChanged,
-            onDismiss = { showOneClickOptions = false },
-        )
     }
 
     // D-pad bridges between the grid and the bottom dock. The grid is a fillMaxSize focus group
@@ -486,7 +465,6 @@ internal fun DashboardScreen(
                 isVisible = dockVisible,
                 heroVisible = heroVisible,
                 onMainAction = onMainAction,
-                onMainActionLongClick = { showOneClickOptions = true },
                 onSettings = onSettings,
                 onUpgrade = onUpgrade,
                 onDismissHero = onDismissHero,

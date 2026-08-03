@@ -7,10 +7,12 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
-import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.draggable
 import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.indication
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
@@ -36,6 +38,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
+import androidx.compose.material3.ripple
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -45,6 +48,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
@@ -92,7 +96,6 @@ internal fun BottomBar(
     isVisible: Boolean,
     heroVisible: Boolean,
     onMainAction: () -> Unit,
-    onMainActionLongClick: () -> Unit,
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
     onDismissHero: () -> Unit,
@@ -158,7 +161,9 @@ internal fun BottomBar(
     )
     // Keep the FAB fixed over its cradle. It bubbles in after the bar starts arriving and shrinks
     // completely before the bar begins its delayed exit, avoiding the old trip through the dock.
-    val fabOffsetY = -(navBottom + fabBottomInset)
+    // The node is the FAB's touch box, which is DASHBOARD_FAB_TOUCH_SLACK taller than the visual on
+    // each side — drop it by that slack so the *visible* FAB still rests at navBottom + inset.
+    val fabOffsetY = -(navBottom + fabBottomInset - DASHBOARD_FAB_TOUCH_SLACK)
     val fabScale by animateFloatAsState(
         targetValue = if (isVisible) 1f else 0f,
         animationSpec = tween(
@@ -301,7 +306,6 @@ internal fun BottomBar(
                 actionState = it.actionState,
                 enabled = isVisible,
                 onClick = onMainAction,
-                onLongClick = onMainActionLongClick,
             )
         }
     }
@@ -404,13 +408,24 @@ private fun BarContent(
     }
 }
 
+/**
+ * The cradled main action.
+ *
+ * The clickable is the outer [DASHBOARD_FAB_TOUCH_SIZE] box, not the visible [DASHBOARD_FAB_SIZE]
+ * surface, so the notch clearance around the FAB is live instead of falling through to the grid.
+ * The ripple can't ride along on that clickable (it would draw an oversized square) nor move onto
+ * the surface (the press hotspot would land [DASHBOARD_FAB_TOUCH_SLACK] off), so it gets its own
+ * same-sized overlay clipped to [DashboardFabRippleShape].
+ *
+ * No long-press: the primary action must fire on any press length. The one-click tool options this
+ * used to open live in Settings > General.
+ */
 @Composable
 private fun MainActionFab(
     modifier: Modifier = Modifier,
     actionState: BottomBarState.Action,
     enabled: Boolean,
     onClick: () -> Unit,
-    onLongClick: () -> Unit,
 ) {
     val (containerColor, contentColor) = when (actionState) {
         BottomBarState.Action.SCAN -> MaterialTheme.colorScheme.primaryContainer to MaterialTheme.colorScheme.onPrimaryContainer
@@ -420,53 +435,72 @@ private fun MainActionFab(
         BottomBarState.Action.WORKING_CANCELABLE -> MaterialTheme.colorScheme.tertiaryContainer to MaterialTheme.colorScheme.onTertiaryContainer
     }
 
-    Surface(
-        modifier = modifier.size(DASHBOARD_FAB_SIZE),
-        color = containerColor,
-        contentColor = contentColor,
-        shape = RoundedCornerShape(DASHBOARD_FAB_CORNER_RADIUS),
-        // Kept low so the FAB's downward shadow doesn't darken the lower cradle and skew the
-        // visual top/bottom symmetry of the notch.
-        shadowElevation = 4.dp,
+    val interactionSource = remember { MutableInteractionSource() }
+
+    Box(
+        modifier = modifier
+            .size(DASHBOARD_FAB_TOUCH_SIZE)
+            .clickable(
+                enabled = enabled && actionState != BottomBarState.Action.WORKING,
+                role = Role.Button,
+                interactionSource = interactionSource,
+                indication = null,
+                onClick = onClick,
+            ),
+        contentAlignment = Alignment.Center,
     ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .combinedClickable(
-                    enabled = enabled && actionState != BottomBarState.Action.WORKING,
-                    role = Role.Button,
-                    onClick = onClick,
-                    onLongClick = onLongClick,
-                ),
-            contentAlignment = Alignment.Center,
+        Surface(
+            modifier = Modifier.size(DASHBOARD_FAB_SIZE),
+            color = containerColor,
+            contentColor = contentColor,
+            shape = RoundedCornerShape(DASHBOARD_FAB_CORNER_RADIUS),
+            // Kept low so the FAB's downward shadow doesn't darken the lower cradle and skew the
+            // visual top/bottom symmetry of the notch.
+            shadowElevation = 4.dp,
         ) {
-            when (actionState) {
-                BottomBarState.Action.SCAN -> Icon(
-                    painter = painterResource(UiR.drawable.ic_layer_search_24),
-                    contentDescription = stringResource(CommonR.string.general_scan_action),
-                )
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center,
+            ) {
+                when (actionState) {
+                    BottomBarState.Action.SCAN -> Icon(
+                        painter = painterResource(UiR.drawable.ic_layer_search_24),
+                        contentDescription = stringResource(CommonR.string.general_scan_action),
+                    )
 
-                BottomBarState.Action.DELETE -> Icon(
-                    painter = painterResource(UiR.drawable.ic_baseline_delete_sweep_24),
-                    contentDescription = stringResource(CommonR.string.general_delete_action),
-                )
+                    BottomBarState.Action.DELETE -> Icon(
+                        painter = painterResource(UiR.drawable.ic_baseline_delete_sweep_24),
+                        contentDescription = stringResource(CommonR.string.general_delete_action),
+                    )
 
-                BottomBarState.Action.ONECLICK -> Icon(
-                    painter = painterResource(UiR.drawable.ic_delete_alert_24),
-                    contentDescription = stringResource(R.string.dashboard_settings_oneclick_tools_title),
-                )
+                    BottomBarState.Action.ONECLICK -> Icon(
+                        painter = painterResource(UiR.drawable.ic_delete_alert_24),
+                        contentDescription = stringResource(R.string.dashboard_settings_oneclick_tools_title),
+                    )
 
-                BottomBarState.Action.WORKING -> {
-                    val workingLabel = stringResource(R.string.widget_home_working)
-                    Box(Modifier.semantics { contentDescription = workingLabel })
+                    BottomBarState.Action.WORKING -> {
+                        val workingLabel = stringResource(R.string.widget_home_working)
+                        Box(Modifier.semantics { contentDescription = workingLabel })
+                    }
+
+                    BottomBarState.Action.WORKING_CANCELABLE -> Icon(
+                        painter = painterResource(UiR.drawable.ic_cancel),
+                        contentDescription = stringResource(CommonR.string.general_cancel_action),
+                    )
                 }
-
-                BottomBarState.Action.WORKING_CANCELABLE -> Icon(
-                    painter = painterResource(UiR.drawable.ic_cancel),
-                    contentDescription = stringResource(CommonR.string.general_cancel_action),
-                )
             }
         }
+
+        // Drawn by a node the same size and origin as the clickable, so the press hotspot lands
+        // under the finger even out in the slack, but clipped to the FAB's own outline so it never
+        // bleeds into the cradle. Colour is passed explicitly — out here LocalContentColor is the
+        // bar's, not the FAB's.
+        Box(
+            modifier = Modifier
+                .matchParentSize()
+                .clip(DashboardFabRippleShape)
+                .indication(interactionSource, ripple(color = contentColor)),
+        )
     }
 }
 
@@ -506,7 +540,6 @@ private fun DashboardBottomBarPreviewHero() {
                 isVisible = true,
                 heroVisible = true,
                 onMainAction = {},
-                onMainActionLongClick = {},
                 onSettings = {},
                 onUpgrade = {},
                 onDismissHero = {},
@@ -529,7 +562,6 @@ private fun DashboardBottomBarPreviewScan() {
                 isVisible = true,
                 heroVisible = false,
                 onMainAction = {},
-                onMainActionLongClick = {},
                 onSettings = {},
                 onUpgrade = {},
                 onDismissHero = {},
