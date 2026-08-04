@@ -29,6 +29,8 @@ import io.mockk.mockkStatic
 import io.mockk.slot
 import io.mockk.unmockkStatic
 import io.mockk.verify
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -606,9 +608,14 @@ class RecorderModuleTest : BaseTest() {
             coVerify { mockRecorder.stop() }
             File(externalDir, "force_debug_run").exists() shouldBe false
             File(externalDir, "debug/logs").listFiles()?.toList() shouldBe emptyList()
-            val clearSlot = slot<(String?) -> String?>()
-            coVerify(atLeast = 1) { recorderPath.update(capture(clearSlot)) }
-            clearSlot.captured("ignored") shouldBe null
+            // A single slot only keeps the LAST matching call, and the order is the point here: the
+            // attempt saves its new dir as the resume marker, the rollback has to clear it again.
+            val pathUpdates = mutableListOf<(String?) -> String?>()
+            coVerify(atLeast = 1) { recorderPath.update(capture(pathUpdates)) }
+            val applied = pathUpdates.map { it("ignored") }
+            applied.size shouldBe 2
+            applied.first() shouldNotBe null
+            applied.last() shouldBe null
         }
 
         @Test
@@ -616,17 +623,105 @@ class RecorderModuleTest : BaseTest() {
             val existingDir = File(externalDir, "debug/logs/existing_session").apply { mkdirs() }
             val triggerFile = File(externalDir, "force_debug_run").apply { createNewFile() }
             coEvery { recorderPath.value() } returns existingDir.path
-            every { context.getPackageInfo() } throws IOException("no package info")
+            // Fail the resume at the recorder itself: it is the one step a resume definitely takes.
+            coEvery { mockRecorder.start(any()) } throws IOException("recorder broken")
 
             val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
             advanceUntilIdle()
 
+            val state = module.state.first()
+            state.startFailure.shouldBeInstanceOf<IOException>()
+            state.isRecording shouldBe false
+
             coVerify { mockRecorder.stop() }
-            module.state.first().isRecording shouldBe false
             // None of this was created by the failed attempt, so the session stays resumable.
             triggerFile.exists() shouldBe true
             existingDir.exists() shouldBe true
             coVerify(exactly = 0) { recorderPath.update(any()) }
+        }
+
+        @Test
+        fun `a failing saved-path read fails the attempt, not the loop`() = runTest {
+            // The read decides whether the attempt is a resume, so it belongs to the attempt: while
+            // it sat outside the guard, a throwing DataStore ended the collector for good.
+            val boom = IOException("datastore unreachable")
+            var reads = 0
+            coEvery { recorderPath.value() } coAnswers {
+                reads++
+                // 1st read is the state initializer, 2nd is the attempt this test fails.
+                if (reads == 2) throw boom
+                null
+            }
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            val error = withTimeout(START_ENVELOPE_MS) {
+                shouldThrow<IOException> { module.startRecorder() }
+            }
+            error shouldBe boom
+            module.state.first().shouldRecord shouldBe false
+
+            withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+            module.state.first().isRecording shouldBe true
+        }
+
+        @Test
+        fun `a foreign cancellation reaches the caller as a start failure`() = runTest {
+            // Not our scope being cancelled (ensureActive covers that one) but a cancellation from
+            // inside the attempt, e.g. a timeout. Rethrown as-is it unwinds the caller as if THEY
+            // had been cancelled, which the ViewModel error handler ignores: nothing is reported.
+            coEvery { recorderPath.value() } returns null
+            val foreign = CancellationException("header read timed out")
+            coEvery { mockRecorder.start(any()) } throws foreign
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            val error = withTimeout(START_ENVELOPE_MS) {
+                shouldThrow<RecorderModule.StartFailedException> { module.startRecorder() }
+            }
+            error.cause shouldBe foreign
+            // The state keeps the original untouched.
+            module.state.first().startFailure shouldBe foreign
+
+            coEvery { mockRecorder.start(any()) } returns Unit
+
+            withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+            module.state.first().isRecording shouldBe true
+        }
+
+        @Test
+        fun `a stop request during an in-flight start waits for it`() = runTest {
+            coEvery { recorderPath.value() } returns null
+            val startGate = CompletableDeferred<Unit>()
+            coEvery { mockRecorder.start(any()) } coAnswers { startGate.await() }
+            // Second read is the stop request's duration check: long enough to actually stop.
+            every { SystemClock.elapsedRealtime() } returnsMany listOf(
+                RECORDING_START,
+                RECORDING_START + 20_000L,
+            )
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            val starting = async { module.startRecorder() }
+            advanceUntilIdle()
+
+            val stopping = async { module.requestStopRecorder() }
+            advanceUntilIdle()
+
+            // Reading the state outside the lock answered "not recording" here, and the start
+            // committed right afterwards - a recording the user had already asked to stop.
+            stopping.isCompleted shouldBe false
+
+            startGate.complete(Unit)
+
+            withTimeout(START_ENVELOPE_MS) {
+                stopping.await().shouldBeInstanceOf<RecorderModule.StopResult.Stopped>()
+                starting.await()
+            }
+            module.state.first().isRecording shouldBe false
         }
 
         @Test
