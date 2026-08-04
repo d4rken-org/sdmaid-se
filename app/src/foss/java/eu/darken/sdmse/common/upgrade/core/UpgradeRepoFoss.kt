@@ -37,6 +37,9 @@ class UpgradeRepoFoss @Inject constructor(
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
     // Written only from the sharing coroutine (single collector) — no synchronization needed.
+    // Recorded INSIDE the flatMapLatest block, upstream of its channel buffer: a downstream onEach
+    // can still be waiting on a buffered emission when the inner flow throws, and the catch below
+    // would then read a stale (null) value and revoke an entitlement we already saw.
     private var lastKnownInfo: Info? = null
 
     override val upgradeInfo: Flow<UpgradeRepo.Info> = refreshTrigger
@@ -53,6 +56,10 @@ class UpgradeRepoFoss @Inject constructor(
                         )
                     }
                 }
+                // Same coroutine as the throw below, so the ordering is guaranteed. Only
+                // successfully mapped elements pass here — catch emissions go straight downstream
+                // and never record themselves as a last known state.
+                .onEach { lastKnownInfo = it }
                 .catch { e ->
                     // A SharedFlow cannot fail: without this, a thrown cache read dies inside
                     // shareIn's sharing coroutine and every collector hangs forever (VM state stuck
@@ -68,7 +75,6 @@ class UpgradeRepoFoss @Inject constructor(
                     emit((lastKnownInfo ?: Info()).copy(error = e))
                 }
         }
-        .onEach { if (it.error == null) lastKnownInfo = it }
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
         .shareIn(appScope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
