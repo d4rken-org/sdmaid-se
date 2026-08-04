@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
 import eu.darken.sdmse.main.core.CurriculumVitae
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -32,6 +33,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.emptyFlow
@@ -44,6 +46,7 @@ import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
@@ -550,8 +553,120 @@ class RecorderModuleTest : BaseTest() {
         }
     }
 
+    /**
+     * A start that fails must not take the reactive loop with it: the loop is the only thing that
+     * ever serves a start or stop request, so killing it wedges every later caller forever.
+     */
+    @Nested
+    inner class StartFailures {
+
+        private fun TestScope.moduleWith(startThrows: Boolean = false): RecorderModule {
+            coEvery { recorderPath.value() } returns null
+            if (startThrows) coEvery { mockRecorder.start(any()) } throws IOException("recorder broken")
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+            return module
+        }
+
+        @Test
+        fun `a failed start surfaces to the caller instead of hanging`() = runTest {
+            val module = moduleWith(startThrows = true)
+
+            // Bounded: before the fix this call never returned at all.
+            val error = withTimeout(START_ENVELOPE_MS) {
+                shouldThrow<IOException> { module.startRecorder() }
+            }
+
+            error.message shouldBe "recorder broken"
+            module.state.first().isRecording shouldBe false
+        }
+
+        @Test
+        fun `a failed start leaves the loop alive for the next request`() = runTest {
+            val module = moduleWith(startThrows = true)
+
+            shouldThrow<IOException> { module.startRecorder() }
+
+            coEvery { mockRecorder.start(any()) } returns Unit
+
+            withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+
+            module.state.first().isRecording shouldBe true
+        }
+
+        @Test
+        fun `a failed start rolls back everything the attempt created`() = runTest {
+            every { context.getPackageInfo() } throws IOException("no package info")
+            val module = moduleWith()
+
+            shouldThrow<IOException> { module.startRecorder() }
+
+            // The recorder was already live: leaving it running orphans it where nothing can reach it.
+            coVerify { mockRecorder.stop() }
+            File(externalDir, "force_debug_run").exists() shouldBe false
+            File(externalDir, "debug/logs").listFiles()?.toList() shouldBe emptyList()
+            val clearSlot = slot<(String?) -> String?>()
+            coVerify(atLeast = 1) { recorderPath.update(capture(clearSlot)) }
+            clearSlot.captured("ignored") shouldBe null
+        }
+
+        @Test
+        fun `a failed resume keeps the markers of the session it was resuming`() = runTest {
+            val existingDir = File(externalDir, "debug/logs/existing_session").apply { mkdirs() }
+            val triggerFile = File(externalDir, "force_debug_run").apply { createNewFile() }
+            coEvery { recorderPath.value() } returns existingDir.path
+            every { context.getPackageInfo() } throws IOException("no package info")
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            coVerify { mockRecorder.stop() }
+            module.state.first().isRecording shouldBe false
+            // None of this was created by the failed attempt, so the session stays resumable.
+            triggerFile.exists() shouldBe true
+            existingDir.exists() shouldBe true
+            coVerify(exactly = 0) { recorderPath.update(any()) }
+        }
+
+        @Test
+        fun `concurrent start requests each get their own failure`() = runTest {
+            val module = moduleWith(startThrows = true)
+
+            withTimeout(START_ENVELOPE_MS) {
+                val first = async { runCatching { module.startRecorder() } }
+                val second = async { runCatching { module.startRecorder() } }
+
+                // Serialized: neither request can clear the failure the other one is waiting for and
+                // leave it hanging on a recording that is never coming.
+                first.await().exceptionOrNull().shouldBeInstanceOf<IOException>()
+                second.await().exceptionOrNull().shouldBeInstanceOf<IOException>()
+            }
+        }
+
+        @Test
+        fun `a throwing recorder stop still completes the stop request`() = runTest {
+            val existingDir = File(externalDir, "debug/logs/existing_session").apply { mkdirs() }
+            coEvery { recorderPath.value() } returns existingDir.path
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+            module.state.first { it.isRecording }
+
+            coEvery { mockRecorder.stop() } throws IOException("cannot close")
+
+            // A leaked recorder is logged, but the transition still commits - otherwise the state
+            // keeps claiming to record and can never be stopped again.
+            withTimeout(START_ENVELOPE_MS) { module.stopRecorder() } shouldBe existingDir
+            module.state.first().isRecording shouldBe false
+        }
+    }
+
     companion object {
         /** Arbitrary fixed [SystemClock.elapsedRealtime] value that recordings start at. */
         private const val RECORDING_START = 12345L
+
+        /** Virtual-time bound: a wedged request would otherwise only fail via the suite timeout. */
+        private const val START_ENVELOPE_MS = 30_000L
     }
 }
