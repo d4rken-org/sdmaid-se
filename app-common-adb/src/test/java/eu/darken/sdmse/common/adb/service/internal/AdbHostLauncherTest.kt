@@ -1,20 +1,27 @@
 package eu.darken.sdmse.common.adb.service.internal
 
 import android.os.IBinder
+import android.os.IInterface
 import eu.darken.sdmse.common.adb.AdbException
 import eu.darken.sdmse.common.adb.service.AdbHostOptions
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainInOrder
+import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotContain
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.mockk
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import kotlin.reflect.KClass
@@ -50,9 +57,13 @@ class AdbHostLauncherTest {
         val service: ShizukuUserService = FakeService(),
         val version: Int = 11,
         val bindError: Throwable? = null,
+        val handshakeError: Throwable? = null,
     ) : ShizukuUserServiceFactory {
         /** Captured so a test can simulate an unexpected onServiceDisconnected. */
         var disconnectCallback: (() -> Unit)? = null
+
+        /** Captured so a test can simulate onServiceConnected. */
+        var connectedCallback: ((IBinder?) -> Unit)? = null
 
         override fun apiVersion(): Int = version
         override fun <Host : AdbConnection> create(
@@ -61,6 +72,7 @@ class AdbHostLauncherTest {
             onConnected: (IBinder?) -> Unit,
             onDisconnected: () -> Unit,
         ): ShizukuUserService {
+            connectedCallback = onConnected
             disconnectCallback = onDisconnected
             return if (bindError != null) {
                 object : ShizukuUserService by service {
@@ -72,6 +84,17 @@ class AdbHostLauncherTest {
             } else {
                 service
             }
+        }
+
+        @Suppress("UNCHECKED_CAST")
+        override fun <Service : IInterface, Host : AdbConnection> handshake(
+            binder: IBinder?,
+            serviceClass: KClass<Service>,
+            options: AdbHostOptions,
+        ): Pair<Service, Host> {
+            events += "handshake"
+            handshakeError?.let { throw it }
+            return mockk<AdbConnection>() as Service to mockk<AdbConnection>() as Host
         }
     }
 
@@ -97,7 +120,9 @@ class AdbHostLauncherTest {
         val l = launcher(FakeFactory(FakeService()))
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle() // reach awaitClose (bound)
+        // runCurrent, not advanceUntilIdle: the fakes never connect, so advancing virtual time would
+        // trip the connect-watchdog instead of testing the cancellation teardown.
+        runCurrent() // reach awaitClose (bound)
         job.cancelAndJoin()
 
         events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
@@ -107,7 +132,7 @@ class AdbHostLauncherTest {
         val l = launcher(FakeFactory(FakeService(onUnbind = { throw IllegalStateException("unbind boom") })))
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle()
+        runCurrent()
         job.cancelAndJoin() // must not throw
 
         events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
@@ -117,7 +142,7 @@ class AdbHostLauncherTest {
         val l = launcher(FakeFactory(FakeService(onAwait = { awaitCancellation() }))) // never disconnects
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle()
+        runCurrent()
         job.cancelAndJoin() // runTest advances virtual time through the bounded await
 
         events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
@@ -135,7 +160,7 @@ class AdbHostLauncherTest {
                 caught.complete(e)
             }
         }
-        advanceUntilIdle() // reach awaitClose (bound)
+        runCurrent() // reach awaitClose (bound)
 
         factory.disconnectCallback!!.invoke() // simulate an unexpected onServiceDisconnected
         advanceUntilIdle()
@@ -152,5 +177,77 @@ class AdbHostLauncherTest {
 
         events shouldBe listOf("bind") // bound never became true -> no unbind
         events shouldNotContain "unbind"
+    }
+
+    @Test fun `a bind that never connects fails with AdbException after the timeout`() = runTest {
+        // Upstream Shizuku defect: bindUserService() returns fine but onServiceConnected never fires.
+        val l = launcher(FakeFactory(FakeService()))
+
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect().collect { }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        advanceUntilIdle() // past the connect deadline
+
+        val error = caught.await()
+        error.shouldBeInstanceOf<AdbException>()
+        error.message!! shouldContain "did not connect"
+        events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect") // teardown still ran
+        job.cancelAndJoin()
+    }
+
+    @Test fun `a failing handshake closes the flow bounded`() = runTest {
+        val factory = FakeFactory(FakeService(), handshakeError = IllegalStateException("handshake boom"))
+        val l = launcher(factory)
+
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect().collect { }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        runCurrent() // without this the callback isn't captured yet and this degrades to a timeout test
+
+        factory.connectedCallback.shouldNotBeNull().invoke(mockk<IBinder>())
+        advanceUntilIdle()
+
+        val error = caught.await()
+        error.shouldBeInstanceOf<AdbException>()
+        error.message!! shouldContain "handshake failed"
+        events shouldContainInOrder listOf("bind", "handshake", "unbind")
+        job.cancelAndJoin()
+    }
+
+    @Test fun `watchdog does not fire after a successful connect`() = runTest {
+        val factory = FakeFactory(FakeService())
+        val l = launcher(factory)
+
+        val emitted = mutableListOf<AdbHostLauncher.ConnectionWrapper<AdbConnection, AdbConnection>>()
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect().collect { emitted += it }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        runCurrent()
+
+        factory.connectedCallback.shouldNotBeNull().invoke(mockk<IBinder>())
+        runCurrent()
+        emitted shouldHaveSize 1
+
+        advanceTimeBy(60 * 1000L) // way past the connect deadline
+        advanceUntilIdle()
+
+        caught.isCompleted shouldBe false // still connected, nothing was torn down
+        emitted shouldHaveSize 1
+        job.cancelAndJoin()
     }
 }

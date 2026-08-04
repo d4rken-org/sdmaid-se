@@ -9,13 +9,14 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.ipc.getInterface
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
@@ -39,38 +40,36 @@ class AdbHostLauncher @Inject constructor(
     ): Flow<ConnectionWrapper<Service, Host>> = callbackFlow {
         if (serviceFactory.apiVersion() < 10) throw IllegalStateException("Shizuku API10+ required")
 
+        // Completed only once a connection was actually handed downstream, this is what the
+        // connect-watchdog below waits for.
+        val ready = CompletableDeferred<Unit>()
+
         val service = serviceFactory.create(
             hostClass = hostClass,
             options = options,
             onConnected = fun(binder: IBinder?) {
                 log(TAG) { "onServiceConnected(binder=$binder)" }
-
-                if (binder?.pingBinder() != true) {
-                    log(TAG) { "onServiceConnected(...) Invalid binder (ping failed)" }
-                    return
+                // Hop off Shizuku's callback thread (main): the handshake below does binder
+                // transactions, a wedged one would ANR and a DeadObjectException would crash the app
+                // uncaught. The producer scope runs on IO (see AdbServiceClient.parentScope).
+                this@callbackFlow.launch {
+                    try {
+                        log(TAG) { "Handshaking with the user service, options=$options" }
+                        val (userConnection, baseConnection) = serviceFactory.handshake<Service, Host>(
+                            binder = binder,
+                            serviceClass = serviceClass,
+                            options = options,
+                        )
+                        log(TAG) { "onServiceConnected(...) -> $userConnection" }
+                        send(ConnectionWrapper(userConnection, baseConnection))
+                        ready.complete(Unit)
+                    } catch (e: CancellationException) {
+                        throw e
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "User service handshake failed: ${e.asLog()}" }
+                        close(AdbException("Shizuku user service handshake failed", e))
+                    }
                 }
-
-                val baseConnection = try {
-                    AdbConnection.Stub.asInterface(binder)!!
-                } catch (e: Exception) {
-                    close(AdbException("Failed to get base connection", e))
-                    return
-                }
-
-                // Initial options, Shizuku has no init arguments through which these can be supplied earlier
-                log(TAG) { "Updating host options to $options" }
-                baseConnection.updateHostOptions(options)
-
-                val userConnection = try {
-                    baseConnection.userConnection.getInterface(serviceClass) as Service
-                } catch (e: Exception) {
-                    close(AdbException("Failed to get user connection (ADB)", e))
-                    return
-                }
-
-                log(TAG) { "onServiceConnected(...) -> $userConnection" }
-                @Suppress("UNCHECKED_CAST")
-                trySendBlocking(ConnectionWrapper(userConnection, baseConnection as Host))
             },
             onDisconnected = {
                 // Fires on an UNEXPECTED disconnect (Shizuku/host died outside our own unbind). Close the
@@ -83,6 +82,19 @@ class AdbHostLauncher @Inject constructor(
                 }
             },
         )
+
+        // Started BEFORE bind(): bindUserService() is itself a synchronous binder transaction that can
+        // wedge, and we can't interrupt that binder thread — but the watchdog still releases everyone
+        // waiting on this flow instead of leaving them hanging forever.
+        launch {
+            if (withTimeoutOrNull(CONNECT_TIMEOUT_MS) { ready.await() } == null) {
+                log(TAG, WARN) { "User service did not connect within ${CONNECT_TIMEOUT_MS}ms, closing" }
+                // Residual epsilon race: a send() completing concurrently with the deadline can tear
+                // down a connection that just came up. CompletableDeferred + withTimeoutOrNull narrows
+                // that window but can't close it; the next acquire re-binds.
+                close(AdbException("Shizuku user service did not connect within ${CONNECT_TIMEOUT_MS}ms"))
+            }
+        }
 
         var bound = false
         try {
@@ -120,5 +132,11 @@ class AdbHostLauncher @Inject constructor(
         // How long to wait for the Shizuku service to actually disconnect after unbinding before
         // giving up — bounded so teardown can't hang.
         private const val DISCONNECT_TIMEOUT_MS = 500L
+
+        // How long to wait for onServiceConnected after binding. Generous: a cold AdbHost start is a
+        // multi-second affair (see AdbServiceClient's keep-alive rationale). AppOpsNext uses 12s for
+        // the same probe against the same upstream Shizuku defect where bindUserService() returns but
+        // the connection callback never fires (MediaTek/HyperOS, Shizuku 13.6.0).
+        private const val CONNECT_TIMEOUT_MS = 15 * 1000L
     }
 }
