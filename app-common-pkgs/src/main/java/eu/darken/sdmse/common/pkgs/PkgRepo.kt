@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -21,6 +22,7 @@ import eu.darken.sdmse.common.sharedresource.closeAll
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -82,7 +84,15 @@ class PkgRepo @Inject constructor(
             .onEach {
                 log(TAG, INFO) { "Refreshing package cache due to event: $it" }
                 Bugs.leaveBreadCrumb("Installed package data has changed")
-                refresh()
+                try {
+                    refresh()
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // The failure is stored in PkgData.error and surfaces on the next pkgs access,
+                    // rethrowing here would crash the app via the handler-less appScope.
+                    log(TAG, WARN) { "Package cache refresh failed: ${e.asLog()}" }
+                }
             }
             .launchIn(appScope)
     }
