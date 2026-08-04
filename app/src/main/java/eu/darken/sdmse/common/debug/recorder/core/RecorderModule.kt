@@ -128,8 +128,6 @@ class RecorderModule @Inject constructor(
      * the collector: it must stay alive, and [startRecorder] needs something to observe.
      */
     private suspend fun State.startAttempt(): State {
-        val savedPath = debugSettings.recorderPath.value()
-        val isResuming = savedPath != null
         // Only what THIS attempt created may be rolled back: a resume marker or log dir from an
         // earlier session belongs to that session and must survive a failed start.
         var createdLogDir: File? = null
@@ -137,6 +135,11 @@ class RecorderModule @Inject constructor(
         var candidate: Recorder? = null
 
         try {
+            // Inside the guard: this read talks to DataStore, so it can throw like every other step
+            // here, and outside the guard that throw would end the collector instead of the attempt.
+            val savedPath = debugSettings.recorderPath.value()
+            val isResuming = savedPath != null
+
             val logDir = savedPath?.let {
                 log(TAG) { "Continuing existing log: $it" }
                 File(it)
@@ -306,13 +309,27 @@ class RecorderModule @Inject constructor(
         // Both outcomes are terminal for this request: waiting on isRecording ALONE is what turned a
         // failed start into a caller that waits forever.
         val state = internalState.flow.filter { it.isRecording || it.startFailure != null }.first()
-        state.startFailure?.let { throw it }
+        state.startFailure?.let { throw it.asCallerFailure() }
         requireNotNull(state.currentLogDir) { "currentLogDir was null despite isRecording" }
     }
 
-    suspend fun requestStopRecorder(): StopResult {
+    /**
+     * A stored failure is never our own scope's cancellation (`ensureActive` rethrows that one), but
+     * it can still BE a [CancellationException] from somewhere inside the attempt. Handing that to
+     * the caller as-is unwinds them as if THEY had been cancelled: the ViewModel's exception handler
+     * ignores it and the user is told nothing at all. The original stays in the state.
+     */
+    private fun Exception.asCallerFailure(): Exception = when (this) {
+        is CancellationException -> StartFailedException(this)
+        else -> this
+    }
+
+    suspend fun requestStopRecorder(): StopResult = requestLock.withLock {
+        // The whole transition is serialized against the start path: checking the state outside the
+        // lock let a stop request answer "not recording" for a start that was already in flight and
+        // committed right after, leaving a recording nobody wanted running.
         val currentState = internalState.value()
-        if (!currentState.isRecording) return StopResult.NotRecording
+        if (!currentState.isRecording) return@withLock StopResult.NotRecording
 
         val logDir = currentState.currentLogDir
         if (logDir != null) {
@@ -345,22 +362,25 @@ class RecorderModule @Inject constructor(
             }
             if (elapsedMs < MIN_RECORDING_MS) {
                 log(TAG) { "Recording too short: ${elapsedMs}ms < ${MIN_RECORDING_MS}ms" }
-                return StopResult.TooShort
+                return@withLock StopResult.TooShort
             }
         }
 
-        val stoppedDir = stopRecorder() ?: return StopResult.NotRecording
-        return StopResult.Stopped(sessionId = SessionId.derive(stoppedDir), logDir = stoppedDir)
+        val stoppedDir = stopRecorderLocked() ?: return@withLock StopResult.NotRecording
+        StopResult.Stopped(sessionId = SessionId.derive(stoppedDir), logDir = stoppedDir)
     }
 
-    suspend fun stopRecorder(): File? = requestLock.withLock {
-        val currentPath = internalState.value().currentLogDir ?: return@withLock null
+    suspend fun stopRecorder(): File? = requestLock.withLock { stopRecorderLocked() }
+
+    /** Callers must already hold [requestLock] — it is not reentrant. */
+    private suspend fun stopRecorderLocked(): File? {
+        val currentPath = internalState.value().currentLogDir ?: return null
         internalState.updateBlocking {
             copy(shouldRecord = false)
         }
         // The stop transition always commits, even on a failing recorder, so this always settles.
         internalState.flow.filter { !it.isRecording }.first()
-        currentPath
+        return currentPath
     }
 
     suspend fun getCurrentLogDir(): File? = internalState.value().currentLogDir
@@ -450,6 +470,12 @@ class RecorderModule @Inject constructor(
         }
         return result
     }
+
+    /** Carries a start failure that is itself a cancellation out to a caller as an ordinary error. */
+    class StartFailedException(cause: CancellationException) : IllegalStateException(
+        "Failed to start the recorder: ${cause.message}",
+        cause,
+    )
 
     sealed class StopResult {
         data object TooShort : StopResult()
