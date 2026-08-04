@@ -8,14 +8,19 @@ import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 
@@ -101,9 +106,10 @@ class RootHostLauncherTest {
         commandFactory: RootLaunchCommandFactory = FakeCommandFactory(),
     ) = RootHostLauncher(sessionFactory, receiverFactory, commandFactory)
 
-    private fun RootHostLauncher.connect() = createConnection(
+    private fun RootHostLauncher.connect(useMountMaster: Boolean = false) = createConnection(
         serviceClass = RootConnection::class,
         hostClass = BaseRootHost::class,
+        useMountMaster = useMountMaster,
         options = RootHostOptions(),
     )
 
@@ -125,7 +131,9 @@ class RootHostLauncherTest {
         val l = launcher(FakeSessionFactory(session), FakeReceiverFactory(), cmds)
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle() // reach the parked execute()
+        // runCurrent, not advanceUntilIdle: the host never binds here, so advancing virtual time
+        // would trip the bind-watchdog instead of testing the cancellation teardown.
+        runCurrent() // reach the parked execute()
         job.cancelAndJoin()
 
         events shouldContainInOrder listOf("connect", "execute", "release", "close")
@@ -141,7 +149,7 @@ class RootHostLauncherTest {
         val l = launcher(FakeSessionFactory(session), FakeReceiverFactory())
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle()
+        runCurrent()
         job.cancelAndJoin()
 
         events shouldContainInOrder listOf("release", "close", "cancel")
@@ -155,7 +163,7 @@ class RootHostLauncherTest {
         val l = launcher(FakeSessionFactory(session), FakeReceiverFactory())
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle()
+        runCurrent()
         job.cancelAndJoin() // runTest advances virtual time through the close timeout
 
         events shouldContainInOrder listOf("release", "close", "cancel")
@@ -173,7 +181,7 @@ class RootHostLauncherTest {
         )
 
         val job = launch { l.connect().collect { } }
-        advanceUntilIdle()
+        runCurrent()
         job.cancelAndJoin() // must not throw despite every cleanup step throwing
 
         events shouldContainInOrder listOf("release", "close", "cancel")
@@ -209,6 +217,80 @@ class RootHostLauncherTest {
 
         cmds.relocations shouldBe listOf(false) // connected -> relocation retry skipped
         emitted shouldHaveSize 1 // factory-routed callback sent the connection into the flow
+    }
+
+    @Test fun `a host that neither binds nor exits is closed by the watchdog`() = runTest {
+        // The host process wedges before it ever reaches the protocol's own self-timeout, so the
+        // exec never returns and no connection is delivered.
+        val session = FakeSession(onExecute = { awaitCancellation() })
+        val l = launcher(FakeSessionFactory(session), FakeReceiverFactory())
+
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect().collect { }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        advanceUntilIdle() // past the bind deadline
+
+        val error = caught.await()
+        error.shouldBeInstanceOf<RootException>()
+        error.message!! shouldContain "did not bind within"
+        events shouldContainInOrder listOf("connect", "execute", "release", "close") // teardown ran
+        job.cancelAndJoin()
+    }
+
+    @Test fun `a hanging mount-master exec is bounded by the watchdog`() = runTest {
+        val session = FakeSession(onExecute = { cmd ->
+            if (cmd.instructions.any { it.contains("--mount-master") }) awaitCancellation() else ok(cmd)
+        })
+        val l = launcher(FakeSessionFactory(session), FakeReceiverFactory())
+
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect(useMountMaster = true).collect { }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        advanceUntilIdle()
+
+        val error = caught.await()
+        error.shouldBeInstanceOf<RootException>()
+        error.message!! shouldContain "did not bind within"
+        events shouldContainInOrder listOf("connect", "execute", "release", "close") // teardown ran
+        job.cancelAndJoin()
+    }
+
+    @Test fun `a slow connect within the protocol window is not killed`() = runTest {
+        // The watchdog is a backstop ABOVE the host protocol's own 30s-per-attempt self-timeout,
+        // a late-but-legitimate bind must survive it.
+        val receiverFactory = FakeReceiverFactory()
+        val connection = mockk<RootConnection> { every { userConnection } returns mockk(relaxed = true) }
+        val session = FakeSession(onExecute = {
+            delay(40 * 1000L)
+            receiverFactory.receiver.deliverConnect?.invoke(connection)
+            ok(it)
+        })
+        val l = launcher(FakeSessionFactory(session), receiverFactory)
+
+        val emitted = mutableListOf<RootHostLauncher.ConnectionWrapper<RootConnection>>()
+        val caught = CompletableDeferred<Throwable>()
+        val job = launch {
+            try {
+                l.connect().collect { emitted += it }
+            } catch (e: Throwable) {
+                caught.complete(e)
+            }
+        }
+        advanceUntilIdle()
+
+        caught.isCompleted shouldBe false
+        emitted shouldHaveSize 1
+        job.cancelAndJoin()
     }
 
     companion object {

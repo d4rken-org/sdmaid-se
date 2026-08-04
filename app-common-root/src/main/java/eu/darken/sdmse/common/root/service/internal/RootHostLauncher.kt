@@ -12,11 +12,13 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ipc.getInterface
 import eu.darken.sdmse.common.root.RootException
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
@@ -53,6 +55,9 @@ class RootHostLauncher @Inject constructor(
 
         val pairingCode = UUID.randomUUID().toString()
         val connected = AtomicBoolean(false)
+        // Completed once the host actually bound, this is what the bind-watchdog below waits for.
+        // `connected` stays as-is, it drives the relocation-retry decision.
+        val ready = CompletableDeferred<Unit>()
 
         val ipcReceiver = receiverFactory.create(
             pairingCode = pairingCode,
@@ -69,6 +74,7 @@ class RootHostLauncher @Inject constructor(
                 log(iTag, INFO) { "onServiceConnected(...) got our interface: $userConnection" }
                 connected.set(true)
                 trySendBlocking(ConnectionWrapper(userConnection, connection))
+                ready.complete(Unit)
             },
             onDisconnect = { connection ->
                 log(iTag, INFO) { "onDisconnect(ipc=$connection), closing channel..." }
@@ -91,6 +97,15 @@ class RootHostLauncher @Inject constructor(
                 throw RootException("Failed to open root session.", e)
             }
 
+            // Started as soon as the su session is open (so a Magisk grant prompt doesn't eat the
+            // budget) and before the --mount-master call, which can park in execute() indefinitely.
+            launch {
+                if (withTimeoutOrNull(CONNECT_TIMEOUT_MS) { ready.await() } == null) {
+                    log(iTag, WARN) { "Root host did not bind within ${CONNECT_TIMEOUT_MS}ms, closing" }
+                    close(RootException("Root host did not bind within ${CONNECT_TIMEOUT_MS}ms"))
+                }
+            }
+
             if (useMountMaster) {
                 try {
                     log(iTag, INFO) { "Using --mount-master" }
@@ -98,6 +113,7 @@ class RootHostLauncher @Inject constructor(
                     log(iTag) { "--mount-master result: $result" }
                     if (!result.isSuccessful) throw IllegalStateException("--mount-master command was unsuccessful")
                 } catch (e: Exception) {
+                    if (e is CancellationException) throw e
                     log(iTag) { "Failed to use --mount-master" }
                 }
             }
@@ -188,5 +204,11 @@ class RootHostLauncher @Inject constructor(
         // How long to wait for a graceful session close (write `exit` + await) before forcefully
         // cancelling/killing the root session shell.
         private const val SESSION_CLOSE_TIMEOUT_MS = 10 * 1000L
+
+        // BACKSTOP above the host protocol's own self-timeouts, not a competing deadline: each exec
+        // attempt's host self-terminates after a 30s client-wait (RootIPC), so the worst legitimate
+        // case (both attempts losing the broadcast) is ~60s plus launch overhead. This only catches
+        // hosts that wedge before ever reaching that protocol wait.
+        private const val CONNECT_TIMEOUT_MS = 90 * 1000L
     }
 }
