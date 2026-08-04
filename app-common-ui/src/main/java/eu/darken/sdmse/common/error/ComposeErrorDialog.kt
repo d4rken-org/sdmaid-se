@@ -15,6 +15,10 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.NavigationController
 import eu.darken.sdmse.common.navigation.NavigationDestination
 
@@ -40,11 +44,19 @@ fun ComposeErrorDialog(
     val hasInfo = localizedError.infoActionRoute != null || localizedError.infoAction != null
 
     fun dispatchAndDismiss(route: NavigationDestination?, action: ((Activity) -> Unit)?) {
-        when {
-            route != null -> navController?.goTo(route)
-            action != null && activity != null -> action(activity)
+        // Error actions are arbitrary third-party code (intent launches, navigation): a throw here
+        // would crash the UI thread from inside a click handler, and skipping onDismiss() would
+        // leave the dialog latched on the current error with no way out.
+        try {
+            when {
+                route != null -> navController?.goTo(route)
+                action != null && activity != null -> action(activity)
+            }
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Error action failed: ${e.asLog()}" }
+        } finally {
+            onDismiss()
         }
-        onDismiss()
     }
 
     SdmAlertDialog(
@@ -101,3 +113,5 @@ fun ComposeErrorDialog(
         },
     )
 }
+
+private val TAG = logTag("Error", "Dialog", "Compose")

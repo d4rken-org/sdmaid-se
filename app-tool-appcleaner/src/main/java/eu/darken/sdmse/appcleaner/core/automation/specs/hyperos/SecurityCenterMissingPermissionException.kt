@@ -6,7 +6,10 @@ import androidx.core.net.toUri
 import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 
@@ -22,7 +25,7 @@ class SecurityCenterMissingPermissionException(
             try {
                 it.startActivity(Intent(Settings.ACTION_USAGE_ACCESS_SETTINGS))
             } catch (e: Exception) {
-                e.asLog()
+                log(TAG, ERROR) { "Failed to open usage access settings: ${e.asLog()}" }
             }
         },
         infoActionLabel = eu.darken.sdmse.common.R.string.general_help_action.toCaString(),
@@ -34,8 +37,12 @@ class SecurityCenterMissingPermissionException(
                 }
                 it.startActivity(intent)
             } catch (e: Exception) {
-                e.asLog()
+                log(TAG, ERROR) { "Failed to open the wiki page: ${e.asLog()}" }
             }
         }
     )
+
+    companion object {
+        private val TAG = logTag("AppCleaner", "Automation", "HyperOS", "SecurityCenter")
+    }
 }
