@@ -7,13 +7,10 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
-import io.mockk.mockkStatic
-import io.mockk.unmockkStatic
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
-import rikka.shizuku.Shizuku
 
 /**
  * Covers [ShizukuWrapper.getManagerPackage] — permission-based Shizuku detection that survives
@@ -78,44 +75,37 @@ class ShizukuWrapperTest {
 
     @Test
     fun `isGranted returns null when the binder is not alive`() = runTest {
-        mockkStatic(Shizuku::class)
-        try {
-            every { Shizuku.pingBinder() } returns false
+        val wrapper = wrapper().apply {
+            pingBinderAction = { false }
             // checkSelfPermission() latches process-wide and would still claim a grant here.
-            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_GRANTED
-
-            wrapper().isGranted() shouldBe null
-        } finally {
-            unmockkStatic(Shizuku::class)
+            checkSelfPermissionAction = { PackageManager.PERMISSION_GRANTED }
         }
+
+        wrapper.isGranted() shouldBe null
     }
 
     @Test
     fun `isGranted returns null when pingBinder throws the null-race NPE`() = runTest {
-        mockkStatic(Shizuku::class)
-        try {
-            every { Shizuku.pingBinder() } throws NullPointerException("binder went away")
-            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_GRANTED
-
-            wrapper().isGranted() shouldBe null
-        } finally {
-            unmockkStatic(Shizuku::class)
+        val wrapper = wrapper().apply {
+            pingBinderAction = { throw NullPointerException("binder went away") }
+            checkSelfPermissionAction = { PackageManager.PERMISSION_GRANTED }
         }
+
+        wrapper.isGranted() shouldBe null
     }
 
     @Test
     fun `isGranted reflects checkSelfPermission when the binder is alive`() = runTest {
-        mockkStatic(Shizuku::class)
-        try {
-            every { Shizuku.pingBinder() } returns true
+        val wrapper = wrapper().apply { pingBinderAction = { true } }
 
-            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_GRANTED
-            wrapper().isGranted() shouldBe true
+        wrapper.checkSelfPermissionAction = { PackageManager.PERMISSION_GRANTED }
+        wrapper.isGranted() shouldBe true
 
-            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_DENIED
-            wrapper().isGranted() shouldBe false
-        } finally {
-            unmockkStatic(Shizuku::class)
-        }
+        wrapper.checkSelfPermissionAction = { PackageManager.PERMISSION_DENIED }
+        wrapper.isGranted() shouldBe false
+
+        // Shizuku itself throws when it has no binder to ask, which also means "cannot know".
+        wrapper.checkSelfPermissionAction = { throw IllegalStateException("binder haven't been received") }
+        wrapper.isGranted() shouldBe null
     }
 }
