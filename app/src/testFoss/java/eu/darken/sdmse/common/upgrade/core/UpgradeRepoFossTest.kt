@@ -10,6 +10,7 @@ import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
@@ -26,6 +27,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import java.io.IOException
 import java.time.Instant
+import java.util.concurrent.Executors
 import java.util.concurrent.atomic.AtomicInteger
 
 class UpgradeRepoFossTest : BaseTest() {
@@ -116,6 +118,36 @@ class UpgradeRepoFossTest : BaseTest() {
             }
         } finally {
             scope.cancel()
+        }
+    }
+
+    @Test fun `the last known entitlement is recorded upstream of the flatMapLatest buffer`(): Unit = runBlocking {
+        // The barrier that holds downstream consumption is the single-threaded pipeline: the
+        // collecting coroutine (and with it anything downstream of flatMapLatest) can only run once
+        // the producing coroutine suspends or completes. The Pro emission is therefore provably
+        // still sitting in the flatMapLatest channel buffer when the inner flow throws - a tracker
+        // placed downstream of that buffer has not seen it yet and the catch reads a null state.
+        val executor = Executors.newSingleThreadExecutor()
+        val scope = CoroutineScope(SupervisorJob() + executor.asCoroutineDispatcher())
+        try {
+            val repo = createRepo(scope, createUpgradeValue(flow {
+                emit(record)
+                // Deliberately no suspension point between emission and throw.
+                throw IOException("cache broken after the buffered emission")
+            }))
+
+            withTimeout(10_000) {
+                val infos = repo.upgradeInfo.take(2).toList()
+
+                infos[0].isPro shouldBe true
+                infos[1].apply {
+                    isPro shouldBe true
+                    error.shouldBeInstanceOf<IOException>()
+                }
+            }
+        } finally {
+            scope.cancel()
+            executor.shutdownNow()
         }
     }
 
