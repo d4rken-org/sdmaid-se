@@ -1,11 +1,13 @@
 package eu.darken.sdmse.common.adb.shizuku
 
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.AdbUnavailableException
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.pkgs.toPkgId
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
@@ -136,6 +138,25 @@ class ShizukuManagerTest : BaseTest() {
         val mgr = manager()
 
         runBlocking { mgr.getManagerId() } shouldBe forkPkg.toPkgId()
+    }
+
+    @Test fun `isOurServiceAvailable is false when isGranted is null`() {
+        // null = "cannot know", e.g. no live Shizuku binder. Probing the service would block on the
+        // host connection instead of failing fast.
+        coEvery { shizukuWrapper.isGranted() } returns null
+        val mgr = manager()
+
+        runBlocking { mgr.isOurServiceAvailable() } shouldBe false
+
+        coVerify(exactly = 0) { serviceClient.get() }
+    }
+
+    @Test fun `isOurServiceAvailable is false when the service client fails`() {
+        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { serviceClient.get() } throws AdbUnavailableException("test")
+        val mgr = manager()
+
+        runBlocking { mgr.isOurServiceAvailable() } shouldBe false
     }
 
     @Test fun `managerIds always includes the reference package plus any detected fork`() {

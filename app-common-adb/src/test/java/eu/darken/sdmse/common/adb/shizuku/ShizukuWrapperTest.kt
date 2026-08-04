@@ -7,14 +7,18 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkStatic
+import io.mockk.unmockkStatic
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import rikka.shizuku.Shizuku
 
 /**
  * Covers [ShizukuWrapper.getManagerPackage] — permission-based Shizuku detection that survives
- * "Hide Shizuku from other apps" mode and forks that rename their package (issue #2405).
+ * "Hide Shizuku from other apps" mode and forks that rename their package (issue #2405) — and
+ * [ShizukuWrapper.isGranted]'s binder-liveness gate.
  */
 class ShizukuWrapperTest {
 
@@ -70,5 +74,48 @@ class ShizukuWrapperTest {
         every { packageManager.getPermissionInfo(any(), any<Int>()) } returns permissionInfo("")
 
         wrapper().getManagerPackage() shouldBe null
+    }
+
+    @Test
+    fun `isGranted returns null when the binder is not alive`() = runTest {
+        mockkStatic(Shizuku::class)
+        try {
+            every { Shizuku.pingBinder() } returns false
+            // checkSelfPermission() latches process-wide and would still claim a grant here.
+            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_GRANTED
+
+            wrapper().isGranted() shouldBe null
+        } finally {
+            unmockkStatic(Shizuku::class)
+        }
+    }
+
+    @Test
+    fun `isGranted returns null when pingBinder throws the null-race NPE`() = runTest {
+        mockkStatic(Shizuku::class)
+        try {
+            every { Shizuku.pingBinder() } throws NullPointerException("binder went away")
+            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_GRANTED
+
+            wrapper().isGranted() shouldBe null
+        } finally {
+            unmockkStatic(Shizuku::class)
+        }
+    }
+
+    @Test
+    fun `isGranted reflects checkSelfPermission when the binder is alive`() = runTest {
+        mockkStatic(Shizuku::class)
+        try {
+            every { Shizuku.pingBinder() } returns true
+
+            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_GRANTED
+            wrapper().isGranted() shouldBe true
+
+            every { Shizuku.checkSelfPermission() } returns PackageManager.PERMISSION_DENIED
+            wrapper().isGranted() shouldBe false
+        } finally {
+            unmockkStatic(Shizuku::class)
+        }
     }
 }

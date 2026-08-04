@@ -118,7 +118,21 @@ class ShizukuWrapper @Inject constructor(
         val grantResult: Int,
     )
 
+    private fun pingBinderSafe(): Boolean = try {
+        Shizuku.pingBinder()
+    } catch (e: NullPointerException) {
+        // Upstream race: the binder can be nulled between Shizuku's null check and the ping.
+        false
+    }
+
     suspend fun isGranted(): Boolean? = withContext(dispatcherProvider.IO) {
+        // Shizuku.checkSelfPermission() latches its granted state process-wide and never clears it on
+        // binder death, so without this gate it reports a stale `true` with no live binder behind it.
+        // null already means "cannot know" (see the ISE catch below), which covers this case too.
+        if (!pingBinderSafe()) {
+            log(TAG) { "isGranted()=null (binder not alive)" }
+            return@withContext null
+        }
         val granted = try {
             Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
         } catch (e: IllegalStateException) {
