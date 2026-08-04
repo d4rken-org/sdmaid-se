@@ -1,0 +1,37 @@
+name: Thumbnail tooling tests
+
+# Guards the Markdown parsing and URL allowlist used by thumbnail-images.yml.
+
+on:
+  push:
+    paths:
+      - '.github/thumbnail/**'
+      - '.github/workflows/thumbnail-tests.yml'
+  pull_request:
+    paths:
+      - '.github/thumbnail/**'
+      - '.github/workflows/thumbnail-tests.yml'
+
+permissions: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/thumbnail
+          sparse-checkout-cone-mode: false
+
+      - name: Install dependencies
+        working-directory: .github/thumbnail
+        run: npm ci --ignore-scripts
+
+      - name: Run tests
+        working-directory: .github/thumbnail
+        run: npm test
