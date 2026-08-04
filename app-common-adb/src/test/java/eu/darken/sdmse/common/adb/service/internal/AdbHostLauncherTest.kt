@@ -94,7 +94,7 @@ class AdbHostLauncherTest {
         ): Pair<Service, Host> {
             events += "handshake"
             handshakeError?.let { throw it }
-            return mockk<AdbConnection>() as Service to mockk<AdbConnection>() as Host
+            return (mockk<AdbConnection>() as Service) to (mockk<AdbConnection>() as Host)
         }
     }
 
