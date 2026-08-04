@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.upgrade.core.billing
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.provider.Settings
 import eu.darken.sdmse.R
@@ -29,6 +30,11 @@ class GplayFixActionTest : BaseTest() {
         override fun startActivity(intent: Intent): Unit = throw SecurityException("Permission Denial")
     }
 
+    /** No app settings screen resolves the intent at all, e.g. a stripped-down ROM. */
+    class UnresolvedLaunchActivity : Activity() {
+        override fun startActivity(intent: Intent): Unit = throw ActivityNotFoundException("No Activity found")
+    }
+
     private val fixAction: (Activity) -> Unit
         get() = GplayServiceUnavailableException(RuntimeException("Play hiccup"))
             .getLocalizedError().fixAction.shouldNotBeNull()
@@ -52,6 +58,16 @@ class GplayFixActionTest : BaseTest() {
     @Test
     fun `a denied launch shows the not-installed toast instead of crashing`() {
         val activity = activityOf(DeniedLaunchActivity::class.java)
+
+        fixAction.invoke(activity)
+
+        ShadowToast.getTextOfLatestToast() shouldBe
+            activity.getString(R.string.upgrades_gplay_not_installed_message)
+    }
+
+    @Test
+    fun `an unresolvable launch shows the not-installed toast instead of crashing`() {
+        val activity = activityOf(UnresolvedLaunchActivity::class.java)
 
         fixAction.invoke(activity)
 
