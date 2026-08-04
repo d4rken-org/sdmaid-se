@@ -624,16 +624,23 @@ class RecorderModuleTest : BaseTest() {
             val triggerFile = File(externalDir, "force_debug_run").apply { createNewFile() }
             coEvery { recorderPath.value() } returns existingDir.path
             // Fail the resume at the recorder itself: it is the one step a resume definitely takes.
-            coEvery { mockRecorder.start(any()) } throws IOException("recorder broken")
+            // Its own mock, stubbed on the exact resume dir -- the shared mockRecorder carries a
+            // permissive start(any()) stub from setup that would otherwise answer this call.
+            val boom = IOException("recorder broken")
+            val resumeRecorder: Recorder = mockk()
+            coEvery { resumeRecorder.start(existingDir) } throws boom
+            coEvery { resumeRecorder.stop() } returns Unit
+            every { recorderProvider.get() } returns resumeRecorder
 
             val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
             advanceUntilIdle()
 
-            val state = module.state.first()
-            state.startFailure.shouldBeInstanceOf<IOException>()
+            // Bounded: a resume that never fails would otherwise hang here instead of failing.
+            val state = withTimeout(START_ENVELOPE_MS) { module.state.first { it.startFailure != null } }
+            state.startFailure shouldBe boom
             state.isRecording shouldBe false
 
-            coVerify { mockRecorder.stop() }
+            coVerify { resumeRecorder.stop() }
             // None of this was created by the failed attempt, so the session stays resumable.
             triggerFile.exists() shouldBe true
             existingDir.exists() shouldBe true
