@@ -648,6 +648,37 @@ class RecorderModuleTest : BaseTest() {
         }
 
         @Test
+        fun `a rollback that gets the start failure handed back to it still completes`() = runTest {
+            // A recorder that rethrows the VERY instance its start() failed with when the rollback
+            // stops it: addSuppressed rejects self-suppression with an IllegalArgumentException, and
+            // that throw escaped the rollback before the failure was ever committed -- ending the
+            // loop, which is the exact wedge this whole guard exists to prevent.
+            File(externalDir, "force_debug_run").createNewFile()
+            coEvery { recorderPath.value() } returns null
+            val boom = IOException("recorder broken")
+            val selfSuppressing: Recorder = mockk()
+            coEvery { selfSuppressing.start(any()) } throws boom
+            coEvery { selfSuppressing.stop() } throws boom
+            every { recorderProvider.get() } returns selfSuppressing
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            // Bounded: without the guard the failure is never committed and this waits forever.
+            val state = withTimeout(START_ENVELOPE_MS) { module.state.first { it.startFailure != null } }
+            state.startFailure shouldBe boom
+            state.shouldRecord shouldBe false
+            state.isRecording shouldBe false
+            coVerify { selfSuppressing.stop() }
+
+            // The loop survived the rollback and still serves the next request.
+            every { recorderProvider.get() } returns mockRecorder
+
+            withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+            module.state.first().isRecording shouldBe true
+        }
+
+        @Test
         fun `a failing saved-path read fails the attempt, not the loop`() = runTest {
             // The read decides whether the attempt is a resume, so it belongs to the attempt: while
             // it sat outside the guard, a throwing DataStore ended the collector for good.

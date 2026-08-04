@@ -198,7 +198,7 @@ class RecorderModule @Inject constructor(
             try {
                 candidate.stop()
             } catch (e: Exception) {
-                cause.addSuppressed(e)
+                cause.recordSuppressed(e)
             }
         }
 
@@ -208,7 +208,7 @@ class RecorderModule @Inject constructor(
                     log(TAG, ERROR) { "Failed to delete trigger file during rollback" }
                 }
             } catch (e: Exception) {
-                cause.addSuppressed(e)
+                cause.recordSuppressed(e)
             }
         }
 
@@ -216,15 +216,30 @@ class RecorderModule @Inject constructor(
             try {
                 debugSettings.recorderPath.value(null)
             } catch (e: Exception) {
-                cause.addSuppressed(e)
+                cause.recordSuppressed(e)
             }
             try {
                 if (!createdLogDir.deleteRecursively()) {
                     log(TAG, WARN) { "Failed to delete $createdLogDir during rollback" }
                 }
             } catch (e: Exception) {
-                cause.addSuppressed(e)
+                cause.recordSuppressed(e)
             }
+        }
+    }
+
+    /**
+     * Attaches a rollback failure to the failure being reported. The very same throwable can come
+     * back out of the rollback — a recorder that fails to start and rethrows on its teardown line —
+     * and [Throwable.addSuppressed] rejects self-suppression with an [IllegalArgumentException],
+     * which would abort the rollback before the failure state is ever committed.
+     */
+    private fun Throwable.recordSuppressed(other: Throwable) {
+        if (other === this) return
+        try {
+            addSuppressed(other)
+        } catch (_: Throwable) {
+            // Bookkeeping only: nothing about the report may replace the failure being reported.
         }
     }
 
