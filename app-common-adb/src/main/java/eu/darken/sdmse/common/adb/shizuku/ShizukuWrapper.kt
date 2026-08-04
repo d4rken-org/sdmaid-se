@@ -118,8 +118,14 @@ class ShizukuWrapper @Inject constructor(
         val grantResult: Int,
     )
 
+    // Seams for the two Shizuku statics behind isGranted(). Mirrors the AdbHostLauncher seam: the
+    // Shizuku statics are untouchable in JVM unit tests, even via mockkStatic, because the class
+    // initializer builds a Handler on the main Looper. Overridden in tests, never in production.
+    internal var pingBinderAction: () -> Boolean = { Shizuku.pingBinder() }
+    internal var checkSelfPermissionAction: () -> Int = { Shizuku.checkSelfPermission() }
+
     private fun pingBinderSafe(): Boolean = try {
-        Shizuku.pingBinder()
+        pingBinderAction()
     } catch (e: NullPointerException) {
         // Upstream race: the binder can be nulled between Shizuku's null check and the ping.
         false
@@ -134,7 +140,7 @@ class ShizukuWrapper @Inject constructor(
             return@withContext null
         }
         val granted = try {
-            Shizuku.checkSelfPermission() == PackageManager.PERMISSION_GRANTED
+            checkSelfPermissionAction() == PackageManager.PERMISSION_GRANTED
         } catch (e: IllegalStateException) {
             log(TAG, WARN) { "isGranted(): $e" }
             null
