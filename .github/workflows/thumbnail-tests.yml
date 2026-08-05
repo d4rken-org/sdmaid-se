@@ -6,10 +6,12 @@ on:
   push:
     paths:
       - '.github/thumbnail/**'
+      - '.github/workflows/thumbnail-images.yml'
       - '.github/workflows/thumbnail-tests.yml'
   pull_request:
     paths:
       - '.github/thumbnail/**'
+      - '.github/workflows/thumbnail-images.yml'
       - '.github/workflows/thumbnail-tests.yml'
 
 permissions: {}

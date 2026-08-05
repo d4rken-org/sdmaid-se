@@ -90,8 +90,14 @@ function codeLineIndices(lines) {
   let prevBlank = true
 
   for (let i = 0; i < lines.length; i++) {
-    // Fences inside a blockquote carry a "> " prefix on both ends.
-    const line = lines[i].replace(/^(?:\s*>)+ ?/, '')
+    // Strip container prefixes so a fence is still recognised inside a
+    // blockquote ("> ```") or a list item ("- ```"). Missing the opener is the
+    // damaging direction: the fenced sample then gets rewritten as if it were
+    // prose, and its closing fence reads as a stray opener that hides real
+    // images further down.
+    const line = lines[i]
+      .replace(/^(?:\s*>)+ ?/, '')
+      .replace(/^ {0,3}(?:[-*+]|\d{1,9}[.)]) +/, '')
     const fenceMatch = /^ {0,3}(`{3,}|~{3,})(.*)$/.exec(line)
 
     if (fence) {
@@ -223,9 +229,11 @@ function thumbnailHtml(url, alt, width) {
 
 /**
  * @param {string} body Markdown body of an issue or comment.
+ * @param {{probe?: (url: string) => Promise<{width: number, height: number}|null>}} [options]
+ *   Seam for tests, so the replacement path can be covered without network access.
  * @returns {Promise<{changed: boolean, body: string}>}
  */
-async function rewrite(body) {
+async function rewrite(body, { probe: probeFn = probeSize } = {}) {
   if (typeof body !== 'string' || body.length === 0) return { changed: false, body: '' }
   if (body.length > MAX_BODY) return { changed: false, body }
   if (body.includes(OPT_OUT)) return { changed: false, body }
@@ -243,6 +251,15 @@ async function rewrite(body) {
     while ((match = IMAGE_RE.exec(lines[i])) !== null) {
       const start = match.index
       if (codeRanges.some(([from, to]) => start >= from && start < to)) continue
+
+      const prev = start > 0 ? lines[i][start - 1] : ''
+      // "\![alt](url)" is an escaped literal, not an image.
+      if (prev === '\\') continue
+      // "[![alt](url)](target)" is a linked image. Rewriting the inner image
+      // would strip the author's link target, and it is already clickable,
+      // which is the whole point of the rewrite.
+      if (prev === '[') continue
+
       const url = allowedUrl(match[2])
       if (!url) continue
 
@@ -257,7 +274,7 @@ async function rewrite(body) {
   const probeTargets = [...new Set(hits.map((hit) => hit.url))].slice(0, MAX_IMAGES)
   const sizes = new Map()
   for (const url of probeTargets) {
-    sizes.set(url, await probeSize(url))
+    sizes.set(url, await probeFn(url))
   }
 
   // Apply right-to-left so earlier offsets stay valid.
