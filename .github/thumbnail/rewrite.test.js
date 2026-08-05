@@ -57,6 +57,16 @@ test('thumbnailWidth only shrinks tall portrait images', () => {
   assert.strictEqual(thumbnailWidth({ width: 100, height: 700 }), null)
 })
 
+test('thumbnailWidth rejects non-numeric dimensions from the parser', () => {
+  // The image bytes are attacker-controlled, so nothing the parser reports is
+  // assumed to be a number. NaN previously slipped through: every comparison
+  // against it is false, so it satisfied both bounds checks.
+  for (const bad of ['1 onerror=alert(1)', {}, null, undefined, NaN, Infinity, -1, 0]) {
+    assert.strictEqual(thumbnailWidth({ width: bad, height: 5000 }), null, `width=${String(bad)}`)
+    assert.strictEqual(thumbnailWidth({ width: 1080, height: bad }), null, `height=${String(bad)}`)
+  }
+})
+
 test('codeLineIndices marks fenced and indented blocks', () => {
   const lines = [
     'before',
