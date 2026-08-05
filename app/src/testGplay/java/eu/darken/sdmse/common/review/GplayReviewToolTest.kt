@@ -1,0 +1,263 @@
+package eu.darken.sdmse.common.review
+
+import android.app.Activity
+import com.google.android.gms.tasks.OnFailureListener
+import com.google.android.gms.tasks.OnSuccessListener
+import com.google.android.gms.tasks.Task
+import com.google.android.gms.tasks.Tasks
+import com.google.android.play.core.review.ReviewInfo
+import com.google.android.play.core.review.ReviewManager
+import eu.darken.sdmse.common.datastore.DataStoreValue
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.shouldBe
+import io.mockk.coVerify
+import io.mockk.every
+import io.mockk.mockk
+import io.mockk.slot
+import io.mockk.verify
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
+import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.withTimeoutOrNull
+import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
+import testhelpers.coroutine.runTest2
+import java.time.Duration
+import java.time.Instant
+
+class GplayReviewToolTest : BaseTest() {
+
+    private val manager = mockk<ReviewManager>()
+    private val settings = mockk<ReviewSettings>()
+    private val upgradeRepo = mockk<UpgradeRepo>()
+    private lateinit var lastDismissedMock: DataStoreValue<Instant?>
+    private lateinit var reviewedAtMock: DataStoreValue<Instant?>
+
+    // Relaxed so the `.value(new)` writes (which go through `update`) succeed and can be verified.
+    private fun <T> rwSetting(initial: T): DataStoreValue<T> = mockk<DataStoreValue<T>>(relaxed = true).apply {
+        every { flow } returns flowOf(initial)
+    }
+
+    // The tool's own scope has to run on the test scheduler, otherwise the probe backoff and the
+    // state throttle would burn real time.
+    private fun TestScope.tool(
+        upgradedAt: Instant? = Instant.now().minus(Duration.ofDays(30)),
+        lastDismissed: Instant? = null,
+        reviewedAt: Instant? = null,
+    ): GplayReviewTool {
+        lastDismissedMock = rwSetting(lastDismissed)
+        reviewedAtMock = rwSetting(reviewedAt)
+        every { settings.lastDismissed } returns lastDismissedMock
+        every { settings.reviewedAt } returns reviewedAtMock
+
+        val upgradeInfo = mockk<UpgradeRepo.Info>()
+        every { upgradeInfo.upgradedAt } returns upgradedAt
+        every { upgradeRepo.upgradeInfo } returns flowOf(upgradeInfo)
+
+        return GplayReviewTool(
+            appScope = backgroundScope,
+            settings = settings,
+            manager = manager,
+            upgradeRepo = upgradeRepo,
+        ).apply { probeRetryDelay = Duration.ofSeconds(1) }
+    }
+
+    private fun reviewInfo(canShow: Boolean = true): ReviewInfo {
+        val info = mockk<ReviewInfo>()
+        // There is no public accessor for the isNoOp flag, the tool sniffs the toString().
+        every { info.toString() } returns when {
+            canShow -> "ReviewInfo{pendingIntent=PendingIntent{1}, isNoOp=false}"
+            else -> "ReviewInfo{pendingIntent=null, isNoOp=true}"
+        }
+        return info
+    }
+
+    private fun activity(finishing: Boolean = false, destroyed: Boolean = false) = mockk<Activity>().apply {
+        every { isFinishing } returns finishing
+        every { isDestroyed } returns destroyed
+    }
+
+    private fun launchOk(): Task<Void?> = Tasks.forResult(null)
+
+    // The `onStart` seed is not a computed state, every assertion has to await the first real one.
+    private suspend fun GplayReviewTool.computedState() = state.drop(1).first()
+
+    @Test fun `an eligible user is asked for a review`() = runTest2 {
+        // Pins the fix: the old release-party gate could never open (nothing writes releasePartyAt
+        // anymore), so this state was unreachable for every post-v1_0 install.
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+
+        tool().computedState().apply {
+            shouldAskForReview shouldBe true
+            hasReviewed shouldBe false
+        }
+    }
+
+    @Test fun `a user who has not paid for pro long enough is never probed`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+
+        tool(upgradedAt = Instant.now().minus(Duration.ofDays(3)))
+            .computedState().shouldAskForReview shouldBe false
+
+        // Eligibility is decided locally first: Play's request quota is only spent on candidates.
+        verify(exactly = 0) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `a recently dismissed card is not shown again`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+
+        tool(lastDismissed = Instant.now().minus(Duration.ofDays(3)))
+            .computedState().shouldAskForReview shouldBe false
+
+        verify(exactly = 0) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `reviewNow launches with a freshly requested ReviewInfo`() = runTest2 {
+        // Pins the fix: ReviewInfo is short lived, the token used for the launch must not be the
+        // one the availability probe obtained (potentially hours) earlier.
+        val probeInfo = reviewInfo()
+        val freshInfo = reviewInfo()
+        every { manager.requestReviewFlow() } returnsMany listOf(
+            Tasks.forResult(probeInfo),
+            Tasks.forResult(freshInfo),
+        )
+        every { manager.launchReviewFlow(any(), any()) } returns launchOk()
+        val tool = tool()
+        val activity = activity()
+
+        tool.computedState().shouldAskForReview shouldBe true
+        tool.reviewNow(activity)
+
+        verify(exactly = 2) { manager.requestReviewFlow() }
+        verify(exactly = 1) { manager.launchReviewFlow(activity, freshInfo) }
+        verify(exactly = 0) { manager.launchReviewFlow(activity, probeInfo) }
+    }
+
+    @Test fun `a failed fresh request keeps the card and persists nothing`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forException(RuntimeException("Play unavailable"))
+        val tool = tool()
+
+        tool.reviewNow(activity())
+
+        verify(exactly = 0) { manager.launchReviewFlow(any(), any()) }
+        // A transient failure is not user intent, the next tap has to be able to retry.
+        coVerify(exactly = 0) { lastDismissedMock.update(any()) }
+        coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `a fresh isNoOp answer snoozes the card`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo(canShow = false))
+        val tool = tool()
+
+        tool.reviewNow(activity())
+
+        verify(exactly = 0) { manager.launchReviewFlow(any(), any()) }
+        // isNoOp is Play's quota verdict, asking again right away would be pointless.
+        coVerify(exactly = 1) { lastDismissedMock.update(any()) }
+        coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `a failed launch persists nothing and does not escape`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+        every { manager.launchReviewFlow(any(), any()) } returns Tasks.forException(RuntimeException("launch failed"))
+        val tool = tool()
+
+        tool.reviewNow(activity())
+
+        coVerify(exactly = 0) { lastDismissedMock.update(any()) }
+        coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `a dead activity aborts the launch without persisting`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+        every { manager.launchReviewFlow(any(), any()) } returns launchOk()
+        val tool = tool()
+
+        // The fresh request is a Play round-trip, the activity can be gone by the time it returns.
+        tool.reviewNow(activity(finishing = true))
+
+        verify(exactly = 0) { manager.launchReviewFlow(any(), any()) }
+        coVerify(exactly = 0) { lastDismissedMock.update(any()) }
+        coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `overlapping reviewNow calls launch the flow only once`() = runTest2 {
+        // Park the first call on an unresolved Play request, so the second genuinely overlaps it.
+        val successListener = slot<OnSuccessListener<in ReviewInfo>>()
+        val pendingRequest = mockk<Task<ReviewInfo>>().apply {
+            every { isComplete } returns false
+            every { addOnSuccessListener(capture(successListener)) } returns this
+            every { addOnFailureListener(any<OnFailureListener>()) } returns this
+        }
+        every { manager.requestReviewFlow() } returnsMany listOf(
+            pendingRequest,
+            // A second request would resolve instantly, so a broken guard shows up as a launch.
+            Tasks.forResult(reviewInfo()),
+        )
+        every { manager.launchReviewFlow(any(), any()) } returns launchOk()
+        val tool = tool()
+        val activity = activity()
+
+        val first = launch { tool.reviewNow(activity) }
+        advanceUntilIdle()
+
+        tool.reviewNow(activity)
+
+        successListener.captured.onSuccess(reviewInfo())
+        first.join()
+
+        // Without the single-flight guard the second tap would run its own request+launch, and
+        // Play's flow would pop up again the moment the user returned from the first one.
+        verify(exactly = 1) { manager.requestReviewFlow() }
+        verify(exactly = 1) { manager.launchReviewFlow(any(), any()) }
+    }
+
+    @Test fun `a probe that fails once still resolves within the retry budget`() = runTest2 {
+        every { manager.requestReviewFlow() } returnsMany listOf(
+            Tasks.forException(RuntimeException("Play unavailable")),
+            Tasks.forResult(reviewInfo()),
+        )
+
+        tool().computedState().shouldAskForReview shouldBe true
+
+        verify(exactly = 2) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `a probe that keeps failing hides the card`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forException(RuntimeException("Play unavailable"))
+
+        tool().computedState().shouldAskForReview shouldBe false
+
+        verify(exactly = 3) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `cancellation during reviewNow is not swallowed`() = runTest2 {
+        every { manager.requestReviewFlow() } throws CancellationException("scope died")
+        val tool = tool()
+
+        shouldThrow<CancellationException> { tool.reviewNow(activity()) }
+
+        // A cancelled coroutine is not a Play failure: no launch, no bookkeeping.
+        verify(exactly = 0) { manager.launchReviewFlow(any(), any()) }
+        coVerify(exactly = 0) { lastDismissedMock.update(any()) }
+        coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `cancellation during the probe is not swallowed into the retry path`() = runTest2 {
+        every { manager.requestReviewFlow() } throws CancellationException("scope died")
+        val tool = tool()
+
+        // Cancellation takes the probe down with its scope, no verdict is ever computed (virtual
+        // time, so the timeout costs nothing).
+        val computed = withTimeoutOrNull(Duration.ofMinutes(1).toMillis()) { tool.computedState() }
+
+        computed shouldBe null
+        // The general failure path would have burned all 3 attempts and settled on "unavailable".
+        verify(exactly = 1) { manager.requestReviewFlow() }
+    }
+}
