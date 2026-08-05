@@ -20,6 +20,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
@@ -45,6 +46,10 @@ class GplayReviewTool @Inject constructor(
     // cannot advance the production bound. Same pattern as UpgradeRepoGplay.launchTimeoutMs.
     internal var probeRetryDelay: Duration = PROBE_RETRY_DELAY
 
+    // Test seam: the launch duration is wall-clock measured, so a virtual-time test cannot reach
+    // the production bound either.
+    internal var reviewMinDuration: Duration = REVIEW_MIN_DURATION
+
     // Local bookkeeping only: decided without talking to Play, so an ineligible user never
     // triggers a Play round-trip.
     private val isLocallyEligible: Flow<Boolean> = combine(
@@ -65,6 +70,13 @@ class GplayReviewTool @Inject constructor(
         hasPaidForPro && !isSnoozed && !hasReviewed
     }
         .distinctUntilChanged()
+        // Upstream of the shares below: an exception there would kill the sharing coroutine on
+        // AppScope (crashing the process) instead of reaching any downstream `catch`.
+        .catch { e ->
+            if (e is CancellationException) throw e
+            log(TAG, ERROR) { "Eligibility failed: ${e.asLog()}" }
+            emit(false)
+        }
 
     // Only probed once the user is eligible: Play counts requests against the app's quota, and an
     // `isNoOp` answer is Play's deliberate verdict, i.e. an answer and not a failure to retry.
@@ -107,6 +119,11 @@ class GplayReviewTool @Inject constructor(
     }
         .throttleLatest(500)
         .onStart { emit(ReviewTool.State()) }
+        .catch { e ->
+            if (e is CancellationException) throw e
+            log(TAG, ERROR) { "State failed: ${e.asLog()}" }
+            emit(ReviewTool.State())
+        }
         .replayingShare(appScope)
 
     // Single-flight: a second tap must not queue up behind the first, or Play's flow would be
@@ -164,7 +181,7 @@ class GplayReviewTool @Inject constructor(
             }
             log(TAG) { "Review completed after ${reviewTime}ms" }
 
-            if (Duration.ofMillis(reviewTime) >= Duration.ofSeconds(2)) {
+            if (Duration.ofMillis(reviewTime) >= reviewMinDuration) {
                 log(TAG, INFO) { "Marking review as completed" }
                 settings.reviewedAt.value(Instant.now())
             } else {
@@ -190,5 +207,6 @@ class GplayReviewTool @Inject constructor(
         private val TAG = logTag("Review", "Tool", "Gplay")
         private const val PROBE_ATTEMPTS = 3
         private val PROBE_RETRY_DELAY = Duration.ofSeconds(30)
+        private val REVIEW_MIN_DURATION = Duration.ofSeconds(2)
     }
 }
