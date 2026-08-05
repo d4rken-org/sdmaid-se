@@ -19,11 +19,15 @@ import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.withTimeoutOrNull
+import kotlinx.serialization.SerializationException
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
@@ -43,15 +47,27 @@ class GplayReviewToolTest : BaseTest() {
         every { flow } returns flowOf(initial)
     }
 
+    // Stored data that can't be decoded: the settings are created without a default fallback, so
+    // reading them throws (see ReviewSettingsTest).
+    private fun <T> unreadableSetting(error: Throwable): DataStoreValue<T> =
+        mockk<DataStoreValue<T>>(relaxed = true).apply {
+            every { flow } returns flow { throw error }
+        }
+
     // The tool's own scope has to run on the test scheduler, otherwise the probe backoff and the
     // state throttle would burn real time.
     private fun TestScope.tool(
         upgradedAt: Instant? = Instant.now().minus(Duration.ofDays(30)),
         lastDismissed: Instant? = null,
         reviewedAt: Instant? = null,
+        reviewedAtError: Throwable? = null,
+        minDuration: Duration? = null,
     ): GplayReviewTool {
         lastDismissedMock = rwSetting(lastDismissed)
-        reviewedAtMock = rwSetting(reviewedAt)
+        reviewedAtMock = when (reviewedAtError) {
+            null -> rwSetting(reviewedAt)
+            else -> unreadableSetting(reviewedAtError)
+        }
         every { settings.lastDismissed } returns lastDismissedMock
         every { settings.reviewedAt } returns reviewedAtMock
 
@@ -64,7 +80,10 @@ class GplayReviewToolTest : BaseTest() {
             settings = settings,
             manager = manager,
             upgradeRepo = upgradeRepo,
-        ).apply { probeRetryDelay = Duration.ofSeconds(1) }
+        ).apply {
+            probeRetryDelay = Duration.ofSeconds(1)
+            minDuration?.let { reviewMinDuration = it }
+        }
     }
 
     private fun reviewInfo(canShow: Boolean = true): ReviewInfo {
@@ -113,6 +132,18 @@ class GplayReviewToolTest : BaseTest() {
 
         tool(lastDismissed = Instant.now().minus(Duration.ofDays(3)))
             .computedState().shouldAskForReview shouldBe false
+
+        verify(exactly = 0) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `a user who already reviewed is never asked or probed again`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+
+        tool(reviewedAt = Instant.now().minus(Duration.ofDays(200))).computedState().apply {
+            shouldAskForReview shouldBe false
+            // The card is gone for good, but the fact stays readable for anything else that asks.
+            hasReviewed shouldBe true
+        }
 
         verify(exactly = 0) { manager.requestReviewFlow() }
     }
@@ -171,6 +202,33 @@ class GplayReviewToolTest : BaseTest() {
 
         coVerify(exactly = 0) { lastDismissedMock.update(any()) }
         coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `a launch the user dismissed instantly counts as a snooze`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+        every { manager.launchReviewFlow(any(), any()) } returns launchOk()
+        val tool = tool()
+
+        tool.reviewNow(activity())
+
+        // Play returns immediately when it decides not to show anything, that is not a review.
+        coVerify(exactly = 1) { lastDismissedMock.update(any()) }
+        coVerify(exactly = 0) { reviewedAtMock.update(any()) }
+    }
+
+    @Test fun `a launch the user stayed in counts as a completed review`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo())
+        // Real sleep on purpose: the heuristic measures wall clock, virtual time cannot reach it.
+        every { manager.launchReviewFlow(any(), any()) } answers {
+            Thread.sleep(150)
+            launchOk()
+        }
+        val tool = tool(minDuration = Duration.ofMillis(50))
+
+        tool.reviewNow(activity())
+
+        coVerify(exactly = 1) { reviewedAtMock.update(any()) }
+        coVerify(exactly = 0) { lastDismissedMock.update(any()) }
     }
 
     @Test fun `a dead activity aborts the launch without persisting`() = runTest2 {
@@ -234,6 +292,25 @@ class GplayReviewToolTest : BaseTest() {
         tool().computedState().shouldAskForReview shouldBe false
 
         verify(exactly = 3) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `an isNoOp probe answer is accepted instead of retried`() = runTest2 {
+        every { manager.requestReviewFlow() } returns Tasks.forResult(reviewInfo(canShow = false))
+
+        tool().computedState().shouldAskForReview shouldBe false
+
+        // isNoOp is an answer, not a failure: burning the retry budget on it would just cost quota.
+        verify(exactly = 1) { manager.requestReviewFlow() }
+    }
+
+    @Test fun `unreadable settings fall back to the default state`() = runTest2 {
+        // `state` is shared on AppScope, which has no exception handler: an error escaping the
+        // pipeline would take the process down instead of reaching any collector, so a collector
+        // side `.catch` can never see it.
+        val tool = tool(reviewedAtError = SerializationException("Stored timestamp is corrupt"))
+
+        // The onStart seed plus the fallback the tool emits in place of the failure.
+        tool.state.take(2).toList() shouldBe listOf(ReviewTool.State(), ReviewTool.State())
     }
 
     @Test fun `cancellation during reviewNow is not swallowed`() = runTest2 {
