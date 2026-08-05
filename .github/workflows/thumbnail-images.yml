@@ -35,6 +35,7 @@ jobs:
     outputs:
       changed: ${{ steps.rewrite.outputs.changed }}
       body_gz_b64: ${{ steps.rewrite.outputs.body_gz_b64 }}
+      original_sha: ${{ steps.rewrite.outputs.original_sha }}
     steps:
       - name: Checkout tooling
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
@@ -72,20 +73,33 @@ jobs:
           # and gzip keeps it under the per-variable size limit for bodies in
           # scripts like Chinese or Japanese.
           BODY_GZ_B64: ${{ needs.analyze.outputs.body_gz_b64 }}
+          ORIGINAL_SHA: ${{ needs.analyze.outputs.original_sha }}
         with:
           script: |
+            const crypto = require('crypto')
             const zlib = require('zlib')
+
+            const isComment = context.eventName === 'issue_comment'
+            const target = isComment
+              ? { comment_id: context.payload.comment.id }
+              : { issue_number: context.payload.issue.number }
+
+            // Compare-and-swap. The body was snapshotted when the webhook
+            // fired; if the author has edited it since, writing our rewrite
+            // would silently revert their edit. Re-read and bail on mismatch.
+            const current = isComment
+              ? (await github.rest.issues.getComment({ ...context.repo, ...target })).data.body
+              : (await github.rest.issues.get({ ...context.repo, ...target })).data.body
+            const currentSha = crypto.createHash('sha256').update(String(current ?? ''), 'utf8').digest('hex')
+
+            if (currentSha !== process.env.ORIGINAL_SHA) {
+              core.info('Body changed since it was analysed; skipping rather than reverting the newer edit.')
+              return
+            }
+
             const body = zlib.gunzipSync(Buffer.from(process.env.BODY_GZ_B64, 'base64')).toString('utf8')
-            if (context.eventName === 'issue_comment') {
-              await github.rest.issues.updateComment({
-                ...context.repo,
-                comment_id: context.payload.comment.id,
-                body,
-              })
+            if (isComment) {
+              await github.rest.issues.updateComment({ ...context.repo, ...target, body })
             } else {
-              await github.rest.issues.update({
-                ...context.repo,
-                issue_number: context.payload.issue.number,
-                body,
-              })
+              await github.rest.issues.update({ ...context.repo, ...target, body })
             }

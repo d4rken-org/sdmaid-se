@@ -9,6 +9,73 @@ const assert = require('node:assert')
 const { rewrite, allowedUrl, thumbnailWidth, codeLineIndices, escapeAttr } = require('./rewrite')
 
 const ATTACHMENT = 'https://github.com/user-attachments/assets/0e3b1f2a-1111-2222-3333-444455556666'
+const ATTACHMENT2 = 'https://github.com/user-attachments/assets/9a9a9a9a-5555-6666-7777-888899990000'
+
+// Stands in for the network probe. 1080x2400 is a typical phone screenshot and
+// yields width=180.
+const tallProbe = { probe: async () => ({ width: 1080, height: 2400 }) }
+
+test('rewrite replaces an eligible image with a clickable thumbnail', async () => {
+  const result = await rewrite(`before\n\n![my "shot" & co](${ATTACHMENT})\n\nafter`, tallProbe)
+  assert.strictEqual(result.changed, true)
+  assert.strictEqual(
+    result.body,
+    'before\n\n' +
+      `<a href="${ATTACHMENT}"><img src="${ATTACHMENT}" alt="my &quot;shot&quot; &amp; co" width="180"></a>` +
+      '\n\nafter',
+  )
+  // Quotes in the alt text must not break out of the attribute.
+  assert.ok(!result.body.includes('alt="my "shot"'))
+  // Height is never emitted: with width it fights GitHub's max-width:100%.
+  assert.ok(!result.body.includes('height='))
+})
+
+test('rewrite handles several images on one line without corrupting offsets', async () => {
+  const result = await rewrite(`![a](${ATTACHMENT}) middle ![b](${ATTACHMENT2})`, tallProbe)
+  assert.strictEqual(result.changed, true)
+  assert.strictEqual(
+    result.body,
+    `<a href="${ATTACHMENT}"><img src="${ATTACHMENT}" alt="a" width="180"></a>` +
+      ' middle ' +
+      `<a href="${ATTACHMENT2}"><img src="${ATTACHMENT2}" alt="b" width="180"></a>`,
+  )
+})
+
+test('rewrite is idempotent: its own output does not rematch', async () => {
+  const once = await rewrite(`![a](${ATTACHMENT})`, tallProbe)
+  assert.strictEqual(once.changed, true)
+  const twice = await rewrite(once.body, tallProbe)
+  assert.strictEqual(twice.changed, false)
+})
+
+test('rewrite leaves escaped and already-linked images alone', async () => {
+  // Escaped: not an image at all.
+  const escaped = `\\![shot](${ATTACHMENT})`
+  assert.deepStrictEqual(await rewrite(escaped, tallProbe), { changed: false, body: escaped })
+
+  // Already a linked image: rewriting would discard the author's link target.
+  const linked = `[![shot](${ATTACHMENT})](https://example.com/details)`
+  assert.deepStrictEqual(await rewrite(linked, tallProbe), { changed: false, body: linked })
+})
+
+test('rewrite ignores images in a fence opened inside a list item', async () => {
+  const body = ['- example:', '  ```md', `  ![shot](${ATTACHMENT})`, '  ```', '', 'prose'].join('\n')
+  assert.deepStrictEqual(await rewrite(body, tallProbe), { changed: false, body })
+})
+
+test('a stray fence in a list does not hide later real images', async () => {
+  const body = ['- ```md', '  sample', '  ```', '', `![real](${ATTACHMENT})`].join('\n')
+  const result = await rewrite(body, tallProbe)
+  assert.strictEqual(result.changed, true)
+  assert.ok(result.body.includes('<img src='), 'image after the list fence should still be rewritten')
+  assert.ok(result.body.includes('  sample'), 'the fenced sample must be untouched')
+})
+
+test('rewrite skips images whose probe fails', async () => {
+  const body = `![shot](${ATTACHMENT})`
+  const failing = { probe: async () => null }
+  assert.deepStrictEqual(await rewrite(body, failing), { changed: false, body })
+})
 
 test('allowedUrl accepts GitHub attachment hosts', () => {
   assert.strictEqual(allowedUrl(ATTACHMENT), ATTACHMENT)
