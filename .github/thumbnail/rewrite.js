@@ -181,7 +181,14 @@ async function probeSize(url) {
       }),
       timeout,
     ])
-    if (!result || !result.width || !result.height) return null
+    if (!result) return null
+    // Trust boundary with the image parser. The bytes behind an attachment URL
+    // are fully attacker-controlled, so only two numbers are allowed out of
+    // here; everything else the parser reports is discarded. Math.round() would
+    // coerce a rogue string to NaN rather than let markup through, but NaN
+    // passes every comparison below, so reject it explicitly.
+    if (!Number.isFinite(result.width) || !Number.isFinite(result.height)) return null
+    if (result.width <= 0 || result.height <= 0) return null
     return { width: result.width, height: result.height }
   } catch {
     // Broken, private, redirected or unsupported images are left untouched.
@@ -195,10 +202,14 @@ async function probeSize(url) {
  * @returns {number|null} the width to render at, or null to leave the image alone.
  */
 function thumbnailWidth(size) {
+  if (!Number.isFinite(size.width) || !Number.isFinite(size.height)) return null
+  if (size.width <= 0 || size.height <= 0) return null
   if (size.height <= size.width) return null
   if (size.height < MIN_HEIGHT) return null
 
   const width = Math.round(TARGET_HEIGHT * (size.width / size.height))
+  // NaN would satisfy neither comparison, so assert the result directly.
+  if (!Number.isFinite(width)) return null
   if (width < MIN_WIDTH || width >= size.width) return null
   return width
 }
