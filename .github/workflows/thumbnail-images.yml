@@ -1,12 +1,13 @@
 name: Thumbnail images
 
-# Rewrites oversized GitHub-hosted screenshots in issues and comments into
-# clickable thumbnails.
+# Shrinks oversized screenshots in issues and comments into clickable
+# thumbnails. The logic lives in d4rken-org/.github so every app repo shares
+# one copy; this stub only supplies the triggers, because workflow_call cannot
+# be triggered by issue_comment directly.
 #
-# Split into two jobs on purpose. `analyze` handles attacker-controlled text and
-# fetches attacker-supplied URLs, and holds no write scopes. `apply` holds the
-# write scope but only decodes a base64 blob and makes one API call, against an
-# ID it reads from the event itself rather than from `analyze`.
+# The shared workflow splits into an unprivileged parsing job and a privileged
+# job that only makes the API call, so issues:write below is the ceiling, not
+# what the parsing half receives.
 #
 # Add <!-- no-thumbnail --> to a body to opt it out.
 
@@ -18,88 +19,8 @@ on:
 
 permissions: {}
 
-concurrency:
-  group: thumbnail-${{ github.event_name }}-${{ github.event.comment.id || github.event.issue.number }}
-  cancel-in-progress: true
-
 jobs:
-  analyze:
-    # Untrusted half: parses user Markdown and probes user-supplied image URLs.
-    # `contents: read` only exists to fetch the pinned lockfile; on a public repo
-    # it grants nothing an anonymous user does not already have.
-    if: github.event.sender.type != 'Bot'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 5
-    permissions:
-      contents: read
-    outputs:
-      changed: ${{ steps.rewrite.outputs.changed }}
-      body_gz_b64: ${{ steps.rewrite.outputs.body_gz_b64 }}
-      original_sha: ${{ steps.rewrite.outputs.original_sha }}
-    steps:
-      - name: Checkout tooling
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
-        with:
-          persist-credentials: false
-          sparse-checkout: .github/thumbnail
-          sparse-checkout-cone-mode: false
-
-      - name: Install probe dependency
-        working-directory: .github/thumbnail
-        # --ignore-scripts blocks package lifecycle hooks; `npm ci` pins every
-        # transitive package to the integrity hashes in the committed lockfile.
-        run: npm ci --ignore-scripts
-
-      - name: Rewrite images
-        id: rewrite
-        working-directory: .github/thumbnail
-        run: node analyze.js
-
-  apply:
-    # Privileged half: no untrusted parsing, no network fetches, no repo code.
-    needs: analyze
-    if: needs.analyze.outputs.changed == 'true'
-    runs-on: ubuntu-22.04
-    timeout-minutes: 5
+  thumbnail:
     permissions:
       issues: write
-      pull-requests: write
-    steps:
-      - name: Update body
-        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
-        env:
-          # Reaches the script as a runtime value, never as substituted source.
-          # Base64 also means no character in it can terminate a string literal,
-          # and gzip keeps it under the per-variable size limit for bodies in
-          # scripts like Chinese or Japanese.
-          BODY_GZ_B64: ${{ needs.analyze.outputs.body_gz_b64 }}
-          ORIGINAL_SHA: ${{ needs.analyze.outputs.original_sha }}
-        with:
-          script: |
-            const crypto = require('crypto')
-            const zlib = require('zlib')
-
-            const isComment = context.eventName === 'issue_comment'
-            const target = isComment
-              ? { comment_id: context.payload.comment.id }
-              : { issue_number: context.payload.issue.number }
-
-            // Compare-and-swap. The body was snapshotted when the webhook
-            // fired; if the author has edited it since, writing our rewrite
-            // would silently revert their edit. Re-read and bail on mismatch.
-            const current = isComment
-              ? (await github.rest.issues.getComment({ ...context.repo, ...target })).data.body
-              : (await github.rest.issues.get({ ...context.repo, ...target })).data.body
-            const currentSha = crypto.createHash('sha256').update(String(current ?? ''), 'utf8').digest('hex')
-
-            if (currentSha !== process.env.ORIGINAL_SHA) {
-              core.info('Body changed since it was analysed; skipping rather than reverting the newer edit.')
-              return
-            }
-
-            const body = zlib.gunzipSync(Buffer.from(process.env.BODY_GZ_B64, 'base64')).toString('utf8')
-            if (isComment) {
-              await github.rest.issues.updateComment({ ...context.repo, ...target, body })
-            } else {
-              await github.rest.issues.update({ ...context.repo, ...target, body })
-            }
+    uses: d4rken-org/.github/.github/workflows/thumbnail-images.yml@3756372c3c844e4817c03d27983691f9991a19f4
