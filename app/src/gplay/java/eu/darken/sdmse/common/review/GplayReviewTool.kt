@@ -1,12 +1,10 @@
 package eu.darken.sdmse.common.review
 
 import android.app.Activity
-import android.content.Context
 import com.google.android.play.core.ktx.launchReview
 import com.google.android.play.core.ktx.requestReview
 import com.google.android.play.core.review.ReviewInfo
-import com.google.android.play.core.review.ReviewManagerFactory
-import dagger.hilt.android.qualifiers.ApplicationContext
+import com.google.android.play.core.review.ReviewManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -18,73 +16,102 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
-import eu.darken.sdmse.main.core.release.ReleaseSettings
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.sync.Mutex
 import java.time.Duration
 import java.time.Instant
-import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 import kotlin.system.measureTimeMillis
 
 @Singleton
 class GplayReviewTool @Inject constructor(
-    @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val settings: ReviewSettings,
-    releaseSettings: ReleaseSettings,
+    private val manager: ReviewManager,
     upgradeRepo: UpgradeRepo,
 ) : ReviewTool {
-    private val manager by lazy { ReviewManagerFactory.create(context) }
-    private val reviewRefresh = MutableStateFlow(UUID.randomUUID())
-    private val gplayReviewState = reviewRefresh
-        .map {
-            try {
-                manager.requestReview().also {
-                    log(TAG) { "requestReview(): ${it.desc()}" }
+
+    // Test seam: the probe backoff runs on AppScope (a real dispatcher), so a virtual-time test
+    // cannot advance the production bound. Same pattern as UpgradeRepoGplay.launchTimeoutMs.
+    internal var probeRetryDelay: Duration = PROBE_RETRY_DELAY
+
+    // Local bookkeeping only: decided without talking to Play, so an ineligible user never
+    // triggers a Play round-trip.
+    private val isLocallyEligible: Flow<Boolean> = combine(
+        settings.lastDismissed.flow,
+        settings.reviewedAt.flow,
+        upgradeRepo.upgradeInfo,
+    ) { lastDismissed, reviewedAt, upgradeInfo ->
+        val now = Instant.now()
+
+        // Free trial is 14 days, only ask for review after the user has paid something
+        val hasPaidForPro = Duration.between(upgradeInfo.upgradedAt ?: now, now) > Duration.ofDays(21)
+        val isSnoozed = Duration.between(lastDismissed ?: Instant.EPOCH, now) < Duration.ofDays(14)
+        val hasReviewed = reviewedAt != null
+
+        log(TAG) { "Eligibility: hasPaidForPro=$hasPaidForPro (${upgradeInfo.upgradedAt})" }
+        log(TAG) { "Eligibility: isSnoozed=$isSnoozed ($lastDismissed), hasReviewed=$hasReviewed ($reviewedAt)" }
+
+        hasPaidForPro && !isSnoozed && !hasReviewed
+    }
+        .distinctUntilChanged()
+
+    // Only probed once the user is eligible: Play counts requests against the app's quota, and an
+    // `isNoOp` answer is Play's deliberate verdict, i.e. an answer and not a failure to retry.
+    private val isReviewAvailable: Flow<Boolean> = isLocallyEligible
+        .flatMapLatest { eligible ->
+            if (!eligible) return@flatMapLatest flowOf(false)
+
+            flow {
+                for (attempt in 1..PROBE_ATTEMPTS) {
+                    val info = try {
+                        manager.requestReview()
+                    } catch (e: CancellationException) {
+                        throw e
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Probe $attempt/$PROBE_ATTEMPTS failed: ${e.asLog()}" }
+                        if (attempt < PROBE_ATTEMPTS) delay(probeRetryDelay.toMillis())
+                        continue
+                    }
+                    log(TAG) { "Probe $attempt/$PROBE_ATTEMPTS returned ${info.desc()}" }
+                    emit(info.canShow)
+                    return@flow
                 }
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to get ReviewInfo: ${e.asLog()}" }
-                null
+                // Re-probed when eligibility changes or on the next process start
+                log(TAG, WARN) { "Probe gave up after $PROBE_ATTEMPTS attempts" }
+                emit(false)
             }
         }
         .replayingShare(appScope)
 
     override val state: Flow<ReviewTool.State> = combine(
-        settings.lastDismissed.flow,
+        isLocallyEligible,
+        isReviewAvailable,
         settings.reviewedAt.flow,
-        gplayReviewState,
-        upgradeRepo.upgradeInfo,
-        releaseSettings.releasePartyAt.flow,
-    ) { lastDismissed, reviewedAt, reviewInfo, upgradeInfo, releasePartyAt ->
-        val now = Instant.now()
-        val isSnoozed = Duration.between(lastDismissed ?: Instant.EPOCH, now) < Duration.ofDays(14)
-        val canShow = reviewInfo?.canShow == true
-        val hasReviewed = reviewedAt != null
-
-        // Free trial is 14 days, only ask for review after the user has paid something
-        val hasPaidForPro = Duration.between(upgradeInfo.upgradedAt ?: now, now) > Duration.ofDays(21)
-
-        // User may still be hangover from party, don't ask for review
-        val hasRecoveredFromParty = Duration.between(releasePartyAt ?: now, now) > Duration.ofDays(5)
-
-        log(TAG) { "State 1: canShow=$canShow, isSnoozed=$isSnoozed ($lastDismissed), reviewedAt=$reviewedAt" }
-        log(TAG) { "State 2: hasRecoveredFromParty=$hasRecoveredFromParty, hasPaidForPro=$hasPaidForPro" }
-
+    ) { eligible, available, reviewedAt ->
+        log(TAG) { "State: eligible=$eligible, available=$available, reviewedAt=$reviewedAt" }
         ReviewTool.State(
-            shouldAskForReview = hasRecoveredFromParty && hasPaidForPro && !isSnoozed && !hasReviewed && canShow,
-            hasReviewed = hasReviewed,
+            shouldAskForReview = eligible && available,
+            hasReviewed = reviewedAt != null,
         )
     }
         .throttleLatest(500)
         .onStart { emit(ReviewTool.State()) }
         .replayingShare(appScope)
+
+    // Single-flight: a second tap must not queue up behind the first, or Play's flow would be
+    // launched again the moment the user returns from it.
+    private val reviewLock = Mutex()
 
     override suspend fun dismiss() {
         log(TAG, INFO) { "dismiss()" }
@@ -92,31 +119,60 @@ class GplayReviewTool @Inject constructor(
     }
 
     override suspend fun reviewNow(activity: Activity) {
-        val reviewInfo = gplayReviewState.first()
-        log(TAG, INFO) { "reviewNow($activity, ${reviewInfo?.desc()})" }
+        log(TAG, INFO) { "reviewNow($activity)" }
 
-        if (reviewInfo == null) {
-            log(TAG, WARN) { "ReviewInfo is unavailable" }
+        if (!reviewLock.tryLock()) {
+            log(TAG, WARN) { "reviewNow(...) is already in progress, skipping" }
             return
         }
 
-        if (!reviewInfo.canShow) {
-            log(TAG, ERROR) { "ReviewInfo says we can't show the prompt, how did we get here?" }
-            return
-        }
+        try {
+            // ReviewInfo is short lived, Google wants it requested shortly before the launch,
+            // a token cached at process start is likely stale by the time the user taps.
+            val reviewInfo = try {
+                manager.requestReview()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                // A transient failure is not user intent: don't snooze the card, the next tap retries
+                log(TAG, ERROR) { "Failed to get a fresh ReviewInfo: ${e.asLog()}" }
+                return
+            }
+            log(TAG) { "reviewNow(...): Fresh ${reviewInfo.desc()}" }
 
-        val reviewTime = measureTimeMillis {
-            manager.launchReview(activity, reviewInfo)
-        }
-        log(TAG) { "Review completed after ${reviewTime}ms" }
-        reviewRefresh.value = UUID.randomUUID()
+            if (!reviewInfo.canShow) {
+                // Play's quota verdict, asking again right away would be pointless
+                log(TAG, WARN) { "Play says we can't show the prompt, snoozing" }
+                settings.lastDismissed.value(Instant.now())
+                return
+            }
 
-        if (Duration.ofMillis(reviewTime) >= Duration.ofSeconds(2)) {
-            log(TAG, INFO) { "Marking review as completed" }
-            settings.reviewedAt.value(Instant.now())
-        } else {
-            log(TAG, INFO) { "Review was too quick, counting as dismiss" }
-            settings.lastDismissed.value(Instant.now())
+            if (activity.isFinishing || activity.isDestroyed) {
+                log(TAG, WARN) { "Activity is gone, aborting: $activity" }
+                return
+            }
+
+            val reviewTime = measureTimeMillis {
+                try {
+                    manager.launchReview(activity, reviewInfo)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to launch review flow: ${e.asLog()}" }
+                    return
+                }
+            }
+            log(TAG) { "Review completed after ${reviewTime}ms" }
+
+            if (Duration.ofMillis(reviewTime) >= Duration.ofSeconds(2)) {
+                log(TAG, INFO) { "Marking review as completed" }
+                settings.reviewedAt.value(Instant.now())
+            } else {
+                log(TAG, INFO) { "Review was too quick, counting as dismiss" }
+                settings.lastDismissed.value(Instant.now())
+            }
+        } finally {
+            reviewLock.unlock()
         }
     }
 
@@ -132,5 +188,7 @@ class GplayReviewTool @Inject constructor(
 
     companion object {
         private val TAG = logTag("Review", "Tool", "Gplay")
+        private const val PROBE_ATTEMPTS = 3
+        private val PROBE_RETRY_DELAY = Duration.ofSeconds(30)
     }
 }
