@@ -43,6 +43,7 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
         private val fixLabel: String? = null,
         private val fixAction: ((Activity) -> Unit)? = null,
         private val fixRoute: NavigationDestination? = null,
+        private val fixErrorMessage: String? = null,
     ) : Exception(ERROR_BODY), HasLocalizedError {
         override fun getLocalizedError() = LocalizedError(
             throwable = this,
@@ -51,6 +52,7 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
             fixActionLabel = fixLabel?.toCaString(),
             fixAction = fixAction,
             fixActionRoute = fixRoute,
+            fixActionErrorMessage = fixErrorMessage?.toCaString(),
         )
     }
 
@@ -137,6 +139,28 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `a throwing fix action with its own message keeps the dialog open and shows it inline`() {
+        // A Toast caps at 2 lines and clipped this kind of message; the dialog body has no cap.
+        show(
+            TestError(
+                fixLabel = FIX_LABEL,
+                fixAction = { throw IllegalStateException("fix action exploded") },
+                fixErrorMessage = FIX_ERROR_MESSAGE,
+            )
+        )
+
+        composeRule.onNodeWithText(FIX_LABEL).performClick()
+        composeRule.waitForIdle()
+
+        composeRule.onNodeWithText(FIX_ERROR_MESSAGE).assertIsDisplayed()
+        dismissals shouldBe 0
+        // Not latched: the way out stays available while the message is shown.
+        composeRule.onNodeWithText(dismissLabel).performClick()
+        composeRule.waitForIdle()
+        dismissals shouldBe 1
+    }
+
+    @Test
     fun `a throwing route navigation still closes the dialog`() {
         val navController = mockk<NavigationController>(relaxed = true).apply {
             every { goTo(any(), any(), any()) } throws IllegalStateException("NavigationController not initialized")
@@ -155,3 +179,4 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
 private const val ERROR_TITLE = "Test error title"
 private const val ERROR_BODY = "Test error description"
 private const val FIX_LABEL = "Fix it"
+private const val FIX_ERROR_MESSAGE = "Fixing it did not work"

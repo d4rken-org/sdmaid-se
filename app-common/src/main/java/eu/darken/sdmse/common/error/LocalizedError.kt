@@ -19,6 +19,8 @@ data class LocalizedError(
     val fixActionLabel: CaString? = null,
     val fixAction: ((Activity) -> Unit)? = null,
     val fixActionRoute: NavigationDestination? = null,
+    /** Shown inline in the error dialog if the fix action fails, instead of a length-capped toast. */
+    val fixActionErrorMessage: CaString? = null,
     val infoActionLabel: CaString? = null,
     val infoAction: ((Activity) -> Unit)? = null,
     val infoActionRoute: NavigationDestination? = null,

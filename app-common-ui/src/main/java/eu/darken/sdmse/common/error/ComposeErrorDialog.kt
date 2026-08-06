@@ -8,11 +8,16 @@ import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -43,6 +48,10 @@ fun ComposeErrorDialog(
     val hasFix = localizedError.fixActionRoute != null || localizedError.fixAction != null
     val hasInfo = localizedError.infoActionRoute != null || localizedError.infoAction != null
 
+    // Keyed on the throwable, not the LocalizedError: the latter is rebuilt (with fresh action
+    // lambdas, so never equal) on every recomposition, which would wipe the message immediately.
+    var actionError by remember(throwable) { mutableStateOf<CaString?>(null) }
+
     fun dispatchAndDismiss(route: NavigationDestination?, action: ((Activity) -> Unit)?) {
         // Error actions are arbitrary third-party code (intent launches, navigation): a throw here
         // would crash the UI thread from inside a click handler, and skipping onDismiss() would
@@ -54,9 +63,14 @@ fun ComposeErrorDialog(
             }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Error action failed: ${e.asLog()}" }
-        } finally {
-            onDismiss()
+            // An error that ships its own failure copy keeps the dialog open and shows it inline
+            // (no length cap, unlike a Toast). Never latched: the dismiss button stays available.
+            localizedError.fixActionErrorMessage?.let {
+                actionError = it
+                return
+            }
         }
+        onDismiss()
     }
 
     SdmAlertDialog(
@@ -75,6 +89,16 @@ fun ComposeErrorDialog(
                         style = MaterialTheme.typography.bodyMedium,
                         modifier = Modifier.padding(vertical = 8.dp),
                     )
+                }
+                actionError?.let {
+                    SelectionContainer {
+                        Text(
+                            text = it.get(context),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.error,
+                            modifier = Modifier.padding(bottom = 8.dp),
+                        )
+                    }
                 }
             }
         },
