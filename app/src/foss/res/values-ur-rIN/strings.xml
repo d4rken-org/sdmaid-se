@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">اپ گریڈ کے اختیارات دیکھیں</string>
     <string name="upgrade_screen_status_upgraded_title">اپ گریڈ فعال ہے</string>
     <string name="upgrade_screen_status_upgraded_body">تمام اضافی خصوصیات غیر مقفل ہیں۔ اوپن سورس ڈیولپمنٹ کی حمایت کے لیے شکریہ ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s سے سپورٹر</string>
     <string name="upgrade_screen_recurring_title">اسے جاری رکھیں</string>
     <string name="upgrade_screen_recurring_body">SD Maid اپ ڈیٹس اور اصلاحات کے ذریعے ترقی کرتا رہتا ہے۔ اگر آپ اسے جاری رکھنا چاہتے ہیں تو GitHub Sponsors کے ذریعے بار بار عطیہ دینے پر غور کریں۔</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors کھولیں</string>

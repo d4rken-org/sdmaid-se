@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">某个计划任务尝试使用无障碍服务，但该服务不可用。如果您不需要此功能，请在计划程序设置中禁用“无障碍服务”选项。</string>
     <string name="automation_error_no_settings_title">设置屏幕不可用</string>
     <string name="automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
+    <string name="automation_error_disabled_app_title">应用已禁用</string>
+    <string name="automation_error_disabled_app_body">您的设备无法打开已禁用应用的设置屏幕，因此无法通过无障碍服务清除缓存。请启用应用或改用 root、Shizuku/ADB。</string>
     <string name="automation_error_interference_title">设置屏幕被阻止</string>
     <string name="automation_error_interference_body">另一个应用 (%1$s) 阻止了系统设置屏幕，SD Maid 无法继续。请禁用该应用对系统设置的应用锁或屏幕保护，然后重试。</string>
     <string name="automation_loading">通过无障碍服务来准备自动化操作</string>

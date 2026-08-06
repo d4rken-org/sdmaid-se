@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Төлөвлөгөөт даалал хандалтын үйлчилгээ ашиглахыг оролдсон боловч үйлчилгээ ажиллахгүй байв. Хэрэв энэ шаардлагагүй бол төлөвлөгчийн тохиргоонд \"Хандалтын үйлчилгээ\" сонгоог идэвхгүй болго.</string>
     <string name="automation_error_no_settings_title">Тохиргооны дэлгэц боломжгүй</string>
     <string name="automation_error_no_settings_body">Энэ системийн апп тохиргооны дэлгэцгүй. Хандалтын үйлчилгээгээр кэш цэвхлэх боломжгүй. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
+    <string name="automation_error_disabled_app_title">Програм идэвхгүй байна</string>
+    <string name="automation_error_disabled_app_body">Таны төхөөрөмж идэвхгүй байсан програмуудын тохиргооны дэлгэцийг нээх боломжгүй тул хадгалалыг сул чадалын үйлчилгээгээр цэвэрлэх боломжгүй. Програмыг идэвхжүүлэх эсвэл root эсвэл Shizuku/ADB ашиглана уу.</string>
     <string name="automation_error_interference_title">Тохиргооны экран хаагдсан</string>
     <string name="automation_error_interference_body">Өөр апп (%1$s) системийн тохиргооны экранг хааж байгаа тул SD Maid үргэлжлүүлэх боломжгүй. Тэр аппын апп-түгжээ эсвэл системийн тохиргооны экраны хамгаалалтыг идэвхгүй болгоод дахин оролдоно уу.</string>
     <string name="automation_loading">Хандалтын үйлчилгээгээр автоматжуулалт бэлтгэж байна</string>

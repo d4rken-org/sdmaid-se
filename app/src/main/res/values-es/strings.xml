@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_hero_freeable_headline">Se pueden liberar %1$s</string>
     <string name="dashboard_hero_freed_headline">%1$s liberados</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d elemento puede ser eliminado</item>
+        <item quantity="other">%d elementos pueden ser eliminados</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d elemento eliminado</item>
+        <item quantity="other">%d elementos eliminados</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Toca el botón para liberar espacio, o un chip para verificar primero.</string>
     <string name="dashboard_hero_freed_hint">Toca un chip para obtener detalles.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s restante</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">No se ha liberado nada</string>
+    <string name="dashboard_hero_nothing_freed_caption">La limpieza terminó, pero ninguno de los datos encontrados pudo ser eliminado.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Algunos datos solo pueden ser eliminados con acceso adicional, como el servicio de accesibilidad o root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s escaneados</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s liberados</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Intentado %1$s</string>
     <string name="dashboard_settings_category">Panel de control</string>
     <string name="dashboard_motd_title">Mensaje del desarrollador</string>
     <string name="dashboard_settings_oneclick_title">Modo de un toque</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku en combinación con el acceso root no permite funciones adicionales, pero mejora la fiabilidad. SD Maid lo utilizará como método alternativo.</string>
     <string name="setup_shizuku_state_ready_label">El enlace a Shizuku está listo.</string>
     <string name="setup_shizuku_state_waiting_label">Esperando el enlace a Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">La aplicación Shizuku no está instalada.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Intenta usar Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No utilizar Shizuku</string>
     <string name="setup_dismiss_hint">Puedes volver a encontrar la pantalla de configuración a través del menú de la configuración.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Recargar las aplicaciones</string>
     <string name="debug_card_root_test_action">Probar el modo root</string>
     <string name="debug_card_shizuku_test_action">Probar con Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">El modo de simulación está activo</string>
+    <string name="dashboard_dryrun_warning_body">La limpieza se está simulando. Los archivos se escanean e informan, pero nada se elimina realmente.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Desactivar</string>
     <string name="data_area_public_app_data_official_label">Datos públicos por defecto de la aplicación</string>
     <string name="data_area_public_app_assets_official_label">Datos de las aplicaciones públicas predeterminadas</string>
     <string name="data_area_public_storage_label">Almacenamiento público</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Dispositivo</string>
     <string name="review_app_review_action">Revisar</string>
     <string name="review_app_dismiss_action">Quizás más tarde</string>
-    <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid?️ ❤️</string>
+    <string name="review_app_body">¿Te gustaría dejar una reseña de SD Maid? ❤️</string>
     <string name="anniversary_card_title">Feliz aniversario de SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Contigo desde %s</string>
     <plurals name="anniversary_card_body">

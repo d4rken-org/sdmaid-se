@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Закажана задача се обиде да ја користи услугата за пристапност, но не беше достапна. Ако не ви е потребно ова, оневозможете ја опцијата \"Услуга за пристапност\" во поставките на распоредувачот.</string>
     <string name="automation_error_no_settings_title">Екранот за поставки е недостапен</string>
     <string name="automation_error_no_settings_body">Оваа системска апликација нема екран за поставки. Бришење кеш преку услуга за пристапност не е можно. Исклучете ја за побрзо бришење на кеш.</string>
+    <string name="automation_error_disabled_app_title">Апликацијата е оневозможена</string>
+    <string name="automation_error_disabled_app_body">Вашиот уред нема да го отвори екранот за поставки на оневозможени апликации, па кешот не може да се избрише преку услугата за пристапност. Овозможете ја апликацијата, или користете root или Shizuku/ADB наместо тоа.</string>
     <string name="automation_error_interference_title">Екранот за поставки е блокиран</string>
     <string name="automation_error_interference_body">Друга апликација (%1$s) го блокира екранот за системски поставки, затоа SD Maid не може да продолжи. Исклучете го заклучувањето на апликацијата или заштитата на екранот за системските поставки, па обидете се повторно.</string>
     <string name="automation_loading">Подготовка на автоматизација преку услуга за пристапност</string>

@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Voleu suprimir els resultats de totes les eines?</string>
     <string name="dashboard_hero_freeable_headline">%1$s es pot alliberar</string>
     <string name="dashboard_hero_freed_headline">%1$s alliberat</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d element pot ser eliminat</item>
+        <item quantity="other">%d elements poden ser eliminats</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">S\'ha eliminat %d element</item>
+        <item quantity="other">S\'han eliminat %d elements</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Toca el botó per alliberar espai, o una fitxa per comprovar primer.</string>
     <string name="dashboard_hero_freed_hint">Toca un xip per a detalls.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">Resten %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">No s\'ha alliberat res</string>
+    <string name="dashboard_hero_nothing_freed_caption">La neteja ha finalitzat, però no s\'ha pogut eliminar cap de les dades trobades.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Algunes dades només es poden eliminar amb accés addicional, com el servei d\'accessibilitat o root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s escanat</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s alliberat</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">S\'ha intentat alliberar %1$s</string>
     <string name="dashboard_settings_category">Tauler</string>
     <string name="dashboard_motd_title">Un missatge del desenvolupador</string>
     <string name="dashboard_settings_oneclick_title">Mode d\'un toc</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">El Shizuku en combinació amb l\'accés «root» no permet funcions addicionals, però millora la fiabilitat. L\'SD Maid l\'utilitzarà com a mètode alternatiu.</string>
     <string name="setup_shizuku_state_ready_label">L\'enllaç Shizuku està llest.</string>
     <string name="setup_shizuku_state_waiting_label">S\'està esperant l\'enllaç amb Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">L\'aplicació Shizuku no està instal·lada.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Intenta utilitzar Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Recarrega les aplicacions</string>
     <string name="debug_card_root_test_action">Prova el «root»</string>
     <string name="debug_card_shizuku_test_action">Prova el Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">El mode de simulació està actiu</string>
+    <string name="dashboard_dryrun_warning_body">La neteja es simula. Els fitxers es mostren però res no s\'elimina realment.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Desactiva</string>
     <string name="data_area_public_app_data_official_label">Dades públiques per defecte de l\'aplicació</string>
     <string name="data_area_public_app_assets_official_label">Recursos d\'aplicacions públiques per defecte</string>
     <string name="data_area_public_storage_label">Emmagatzematge públic</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Dispositiu</string>
     <string name="review_app_review_action">Revisió</string>
     <string name="review_app_dismiss_action">Potser més tard</string>
-    <string name="review_app_body">Voleu deixar una ressenya de l\'SD Maid?️ ❤️</string>
+    <string name="review_app_body">Vols deixar una ressenya de l\'SD Maid? ❤️</string>
     <string name="anniversary_card_title">Feliç aniversari de l\'SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Amb vós des del %s</string>
     <plurals name="anniversary_card_body">

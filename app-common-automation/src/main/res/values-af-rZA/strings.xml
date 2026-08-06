@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">\'n Geskeduleerde taak het probeer om die toeganklikheidsdiens te gebruik, maar dit was nie beskikbaar nie. As jy dit nie nodig het nie, skakel die opsie \"Toeganklikheidsdiens\" in die skeduleringsinstellings af.</string>
     <string name="automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
     <string name="automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
+    <string name="automation_error_disabled_app_title">App is gedeaktiveer</string>
+    <string name="automation_error_disabled_app_body">U toestel sal nie die instellingskerm van gedeaktiveerde toepassings oopmaak nie, dus kan die cache nie via die toeganklikheidsdiens gewis word nie. Aktiveer die toepassing, of gebruik in plaas daarvan root of Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Instellingskerm geblokkeer</string>
     <string name="automation_error_interference_body">Nog \'n app (%1$s) blokkeer die stelselinstellingskerm, dus kan SD Maid nie voortgaan nie. Deaktiveer daardie app se app-slot of skermbeskerming vir die stelselinstellings, en probeer dan weer.</string>
     <string name="automation_loading">Berei outomatisering voor via toeganklikheid diens</string>

@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Došlo je do interne pogreške Google Playa. Pokušajte sljedeće:\n\n• Ponovno pokrenite uređaj\n• Očistite predmemoriju Google Play Storea\n• Pokušajte ponovno kasnije</string>
     <string name="upgrades_gplay_network_error_title">Pogreška veze</string>
     <string name="upgrades_gplay_network_error_description">Nije moguće povezati se s Google Playom. Provjerite internetsku vezu i pokušajte ponovno.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ponuda nedostupna</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play trenutno ne nudi ovu opciju nadogradnje. Pokušajte ponovno kasnije ili provjerite Google Play prodavaonicu.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nije moguće otvoriti Google Play. Možda je onemogućena, nedostaje ili je ograničena na ovom uređaju.</string>
     <string name="upgrades_gplay_already_owned_error_title">Već kupljeno</string>
     <string name="upgrades_gplay_already_owned_error_description">Koristite opciju \"Obnovi kupnju\" za obnovu vaše kupnje. Ako se problem nastavi, pokušajte očistiti predmemoriju Google Playa i ponovno pokrenuti uređaj.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Nabavi %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid nema oglasa i ne prodaje korisničke podatke. Moj rad financirate vi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Prednosti nadogradnje</string>
     <string name="upgrade_screen_benefits_body">• Čišćenje predmemorije i smeća aplikacija\n• Uklanjanje duplikata datoteka\n• Sažimanje fotografija i videozapisa\n• Povlačenje za uklanjanje starih datoteka\n• Čišćenje jednim dodirom putem widgeta\n• Raspoređivanje čišćenja\n• Prilagođeni filtri i pravila\n• Trendovi i povijest pohrane\n• Više značajki i kontrola diljem aplikacije\n• Podrška daljnjem razvoju</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Obnavlja se godišnje. Otkažite u bilo kojem trenutku putem Google Playa.</string>
     <string name="upgrade_screen_iap_offer_title">Kupnja jednom</string>
     <string name="upgrade_screen_iap_offer_body">Jednokratno plaćanje, bez obnavljanja.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Cijene nedostupne</string>
     <string name="upgrade_screen_offers_unavailable_message">Cijene se sada ne mogu učitati. Provjeri Google Play i pokušaj ponovno za trenutak.</string>
     <string name="upgrade_screen_subscription_trial_action">Započnite besplatno probno razdoblje od 14 dana</string>
     <string name="upgrade_screen_subscription_action">Pretplatite se</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Kontaktirajte podršku</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid je upravo provjerio Google Play, ali nije bilo moguće potvrditi Pro kupnju za račun koji Google Play koristi za ovu aplikaciju.</string>
     <string name="upgrade_screen_restore_contact_hint">Još uvijek zapeli? Kontaktirajte podršku s e-mail adrese kojom je kupnja obavljena i navedite broj narudžbe iz Google Playa.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Provjera s Google Playom nije završena na vrijeme, pa je status kupnje još uvijek nepoznat. Ništa se nije promijenilo na vašem računu.</string>
 </resources>

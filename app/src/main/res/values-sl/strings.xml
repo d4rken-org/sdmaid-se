@@ -3,11 +3,35 @@
     <string name="dashboard_delete_all_message">Izbriši rezultate v vseh orodjih?</string>
     <string name="dashboard_hero_freeable_headline">Sprostite lahko %1$s.</string>
     <string name="dashboard_hero_freed_headline">Sproščeno je bilo %1$s.</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d predmet je mogoče odstraniti</item>
+        <item quantity="two">%d predmeta je mogoče odstraniti</item>
+        <item quantity="few">%d predmete je mogoče odstraniti</item>
+        <item quantity="other">%d predmetov je mogoče odstraniti</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d predmet je bil odstranjen</item>
+        <item quantity="two">%d predmeta sta bila odstranjena</item>
+        <item quantity="few">%d predmeti so bili odstranjeni</item>
+        <item quantity="other">%d predmetov je bilo odstranjenih</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Pritisnite gumb, da sprostite prostor, ali oznako za preverjanje najprej.</string>
     <string name="dashboard_hero_freed_hint">Tapnite čip za podrobnosti.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">Preostane %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nič ni bilo osvobojeno</string>
+    <string name="dashboard_hero_nothing_freed_caption">Čiščenje je zaključeno, vendar se nobenih od najdenih podatkov ni dalo odstraniti.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Nekatere podatke je mogoče odstraniti le z dodatnim dostopom, kot sta dostopnostna storitev ali root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Pregledano: %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Sproščeno: %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Poskušano %1$s</string>
     <string name="dashboard_settings_category">Nadzorna plošča</string>
     <string name="dashboard_motd_title">Sporočilo od razvijalca</string>
     <string name="dashboard_settings_oneclick_title">Način enega dotika</string>
@@ -128,7 +152,7 @@
     <string name="ui_theme_style_highcontrast_label">Visok kontrast</string>
     <string name="ui_theme_color_setting_label">Barva teme</string>
     <string name="ui_theme_color_setting_explanation">Paleta barv, ki se uporablja za nastavljanje teme programa.</string>
-    <string name="ui_theme_color_setting_disabled_materialyou">Material You zagotavlja barve iz vaše ozadnje slike.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Barve zagotavlja Material You iz vaše slike ozadja.</string>
     <string name="ui_theme_color_value_system">Sistemske barve</string>
     <string name="ui_previews_title">Predogledi datotek</string>
     <string name="ui_previews_summary">V vseh orodjih prikaži predoglede datotek (npr. sličice slik in videoposnetkov).</string>
@@ -171,11 +195,11 @@
     <string name="support_contact_tool_scheduler_label">Urejevalec urnikov</string>
     <string name="support_contact_tool_general_label">Splošno</string>
     <string name="support_contact_description_label">Opis</string>
-    <string name="support_contact_description_bug_hint">Opiši, kaj se je zgodilo in kako reproducirati težavo. Prosim, bodi natančen (vsaj 20 besed).</string>
-    <string name="support_contact_description_feature_hint">Opiši funkcijo, ki bi jo rad/a videl/a. Prosim, bodi natančen (vsaj 20 besed).</string>
-    <string name="support_contact_description_question_hint">Podrobno opiši svoje vprašanje. Prosim, bodi natančen (vsaj 20 besed).</string>
+    <string name="support_contact_description_bug_hint">Opišite, kaj se je zgodilo in kako poustvariti težavo.  Prosim, bodite natančni (vsaj 20 besed).</string>
+    <string name="support_contact_description_feature_hint">Opišite značilnost, ki bi jo rad/a videl/a. Prosim, bodite natančni (vsaj 20 besed).</string>
+    <string name="support_contact_description_question_hint">Podrobno opišite svoje vprašanje. Prosim, bodite natančni (vsaj 20 besed).</string>
     <string name="support_contact_expected_label">Pričakovano vedenje</string>
-    <string name="support_contact_expected_hint">Opiši, kaj si pričakoval/a (vsaj 10 besed).</string>
+    <string name="support_contact_expected_hint">Opišite, kaj ste pričakovali (vsaj 10 besed).</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d beseda</item>
         <item quantity="two">%1$d / %2$d besedi</item>
@@ -184,8 +208,8 @@
     </plurals>
     <string name="support_contact_debuglog_label">Razhroščevalni dnevnik</string>
     <string name="support_contact_debuglog_zip_error">Stiskanje dnevnika za odpravljanje napak ni uspelo</string>
-    <string name="support_contact_debuglog_picker_hint">Priloži obstoječi dnevnik za odpravljanje napak ali posnemaj novega.</string>
-    <string name="support_contact_debuglog_picker_empty">Ni najdenih dnevnikov za odpravljanje napak. Najprej posnemaj enega.</string>
+    <string name="support_contact_debuglog_picker_hint">Priložite obstoječi dnevnik za odpravljanje napak ali posnemite novega.</string>
+    <string name="support_contact_debuglog_picker_empty">Dnevnikov za odpravljanje napak ni bilo mogoče najti.  Najprej enega posnemite.</string>
     <string name="support_contact_send_action">Odpri e-poštno aplikacijo</string>
     <string name="support_contact_no_email_app">Na tej napravi ni najdene e-poštne aplikacije.</string>
     <string name="changelog_label">Dnevnik sprememb</string>
@@ -226,6 +250,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku v kombinaciji s skrbniškim dostopom ne omogoča dodatnih značilnosti, ampak izboljša zanesljivost.  SD Maid ga bo uporabil kot pomožno orodje.</string>
     <string name="setup_shizuku_state_ready_label">Povezava do Shizukuja je pripravljena.</string>
     <string name="setup_shizuku_state_waiting_label">Čakanje na povezavo s Shizukujem.</string>
+    <string name="setup_shizuku_state_not_installed_label">Aplikacija Shizuku ni nameščena.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Poskusi s Shizukujem</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne uporabi Shizukuja</string>
     <string name="setup_dismiss_hint">Zaslon za nastavitev lahko znova najdete v meniju z nastavitvami.</string>
@@ -280,6 +305,10 @@
     <string name="debug_card_pkgs_reload_action">Ponovno naloži programe</string>
     <string name="debug_card_root_test_action">Preizkusi skrbniški dostop</string>
     <string name="debug_card_shizuku_test_action">Preizkusi Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Način preizkusa je aktiven</string>
+    <string name="dashboard_dryrun_warning_body">Čiščenje se simulira. Datoteke so pregledane in prikazane, vendar se nič dejansko ne izbriše.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Izključi</string>
     <string name="data_area_public_app_data_official_label">Privzeti javni programski podatki</string>
     <string name="data_area_public_app_assets_official_label">Privzeta javna programska sredstva</string>
     <string name="data_area_public_storage_label">Javna shramba</string>
@@ -323,7 +352,7 @@
     <string name="analyzer_storage_trend_delta_in_7d">%s v 7 dneh</string>
     <string name="tour_dashboard_overview_body">To je vaša nadzorna plošča, domača stran SD Maida. Vsako orodje in operacija se nahaja na kartici.</string>
     <string name="tour_dashboard_setup_body">Kartica za nastavitev se pojavi, kadar je treba nekaj konfigurirati. Odprite jo in rešite težave, da bo SD Maid lahko naredil več. Nastavitev lahko dosežete tudi iz nastavitev, če jo zavrnete.</string>
-    <string name="tour_dashboard_tools_body">Odprite kartico orodja za podrobnosti. Dejanja pregledovanja in brisanja so na vsaki kartici, podrobnosti se pojavijo, ko pregled najde nekaj.</string>
+    <string name="tour_dashboard_tools_body">Odprite kartico orodja za podrobnosti. Dejanja pregledovanja in brisanja so na vsaki kartici; podrobnosti se pojavijo, ko pregled najde nekaj.</string>
     <string name="tour_dashboard_main_action_body">Veliki gumb na dnu je dejanje z enim dotikom. En dotik za pregled, en dotik za čiščenje — vsa orodja so samodejna.</string>
     <string name="tour_dashboard_manual_tools_body">Nekatera orodja, kot je Swiper, niso samodejna, temveč ponujajo vodeni potek dela, skozi katerega greste sami.</string>
     <string name="tour_dashboard_settings_body">Privzete nastavitve SD Maida so previdne in varne. Vsaka naprava je nekoliko drugačna, zato prilagodite nastavitve, da iz nje dobite več.</string>
@@ -336,15 +365,15 @@
     <string name="widget_home_storage_external">Zunanja</string>
     <string name="widget_home_freed_label">Doživljenjska: %1$s</string>
     <string name="widget_home_clean_action">Počisti</string>
-    <string name="widget_home_working">Delo v teku…</string>
+    <string name="widget_home_working">Obdelovanje …</string>
     <string name="widget_home_unavailable">Shramba ni dostopna</string>
     <string name="settings_category_widget">Pripomoček</string>
-    <string name="widget_settings_oneclick_summary">Omogočite, da gumb Počisti na pripomočku domačega zaslona skenira in izbriše v enem dotiku, brez vprašanj.</string>
-    <string name="widget_oneclick_consent_title">Omogočiti čiščenje v enem dotiku?</string>
-    <string name="widget_oneclick_consent_message">Gumb Počisti na pripomočku bo skeniral in izbrisal naenkrat, brez vprašanja in brez pregleda tega, kaj se izbriše.</string>
+    <string name="widget_settings_oneclick_summary">Omogočite, da gumb Počisti na pripomočku domačega zaslona pregleda in izbriše z enim dotikom, brez pozivov.</string>
+    <string name="widget_oneclick_consent_title">Omogoči čiščenje z enim dotikom?</string>
+    <string name="widget_oneclick_consent_message">Gumb Počisti na pripomočku bo pregledal in izbrisal, vse obenem, brez pozivov in ne bo ponudil izbire, kaj naj se izbriše.</string>
     <string name="widget_oneclick_consent_enable_action">Omogoči</string>
     <string name="widget_oneclick_consent_decline_action">Ne zdaj</string>
-    <string name="shortcut_onetap_started">Skeniranje in brisanje se je začelo…</string>
+    <string name="shortcut_onetap_started">Pregledovanje in brisanje se je začelo …</string>
     <string name="shortcut_onetap_nothing_enabled">Nobeno orodje za en dotik ni omogočeno</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Varnostna kopija &amp; obnovitev</string>
@@ -352,13 +381,13 @@
     <string name="backup_restore_export_title">Ustvari varnostno kopijo</string>
     <string name="backup_restore_export_desc">Shranite nastavitve, izjeme, urnike in prilagojene filtre v datoteko</string>
     <string name="backup_restore_import_title">Obnovi varnostno kopijo</string>
-    <string name="backup_restore_import_desc">Naloži konfiguracijo iz datoteke varnostne kopije</string>
-    <string name="backup_restore_export_success">Varnostna kopija je bila ustvarjena</string>
-    <string name="backup_restore_export_partial">Varnostna kopija je bila ustvarjena, vendar so ti deli spodleteli: %1$s</string>
-    <string name="backup_restore_restore_success">Varnostna kopija je bila obnovljena</string>
-    <string name="backup_restore_restore_failed">Obnovitev je spodletela (%1$s). Vaša prejšnja konfiguracija je bila shranjena.</string>
+    <string name="backup_restore_import_desc">Naloži nastavitve iz datoteke varnostne kopije</string>
+    <string name="backup_restore_export_success">Varnostna kopija je bila ustvarjena.</string>
+    <string name="backup_restore_export_partial">Varnostna kopija je bila ustvarjena, vendar so ti deli spodleteli: %1$s.</string>
+    <string name="backup_restore_restore_success">Varnostna kopija je bila obnovljena.</string>
+    <string name="backup_restore_restore_failed">Obnovitev je spodletela (%1$s). Vaše prejšnje nastavitve so bile shranjene.</string>
     <string name="backup_restore_recovery_title">Obnovi prejšnjo konfiguracijo</string>
-    <string name="backup_restore_recovery_desc">Na voljo je varnostni posnetek iz nedokončane obnovitve</string>
+    <string name="backup_restore_recovery_desc">Na voljo je varnostni posnetek iz nedokončane obnovitve.</string>
     <string name="backup_restore_confirm_title">Želite obnoviti to varnostno kopijo?</string>
     <string name="backup_restore_confirm_created">Ustvarjeno: %1$s</string>
     <string name="backup_restore_confirm_source">Iz SD Maid %1$s, %2$s (Android %3$s)</string>
@@ -366,8 +395,8 @@
     <string name="backup_restore_mode_merge">Združi</string>
     <string name="backup_restore_mode_merge_desc">Dodajte varnostno kopijo na vrh vaše trenutne konfiguracije</string>
     <string name="backup_restore_mode_replace">Zamenjaj</string>
-    <string name="backup_restore_mode_replace_desc">Ponastavite trenutno konfiguracijo, nato uporabite varnostno kopijo</string>
-    <string name="backup_restore_warn_version_body">Ta varnostna kopija je iz različice SD Maid %1$s, vi pa uporabljate različico %2$s. Obnovitev je uradno podprta le med enakimi različicami.</string>
+    <string name="backup_restore_mode_replace_desc">Ponastavite trenutne nastavitve, nato uporabite varnostno kopijo.</string>
+    <string name="backup_restore_warn_version_body">Ta varnostna kopija je iz različice SD Maid %1$s, vi pa uporabljate različico %2$s.  Obnovitev je uradno podprta le med enakimi različicami.</string>
     <string name="backup_restore_warn_android_body">Ta varnostna kopija je bila narejena na Androidu %1$s, vendar ta naprava poganja Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Ta varnostna kopija je bila narejena na drugi napravi (%1$s proti %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Ta varnostna kopija je iz druge izdaje aplikacije (%1$s v primerjavi s %2$s).</string>

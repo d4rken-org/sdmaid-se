@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">একটি নির্ধারিত কাজ অ্যাক্সেসিবিলিটি সার্ভিস ব্যবহার করার চেষ্টা করেছিল, কিন্তু এটি অনুপলব্ধ ছিল। যদি আপনার এটির প্রয়োজন না হয়, তাহলে শিডিউলার সেটিংসে \"অ্যাক্সেসিবিলিটি সার্ভিস\" বিকল্পটি অক্ষম করুন।</string>
     <string name="automation_error_no_settings_title">সেটিংস স্ক্রিন অনুপলব্ধ</string>
     <string name="automation_error_no_settings_body">এই সিস্টেম অ্যাপটিতে কোনও সেটিংস স্ক্রিন নেই। অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে ক্যাশ সাফ করা সম্ভব নয়। ক্যাশ সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
+    <string name="automation_error_disabled_app_title">অ্যাপ অক্ষম করা হয়েছে</string>
+    <string name="automation_error_disabled_app_body">আপনার ডিভাইস অক্ষম করা অ্যাপের সেটিংস স্ক্রীন খুলবে না, তাই অ্যাক্সেসিবিলিটি সেবার মাধ্যমে ক্যাশ সাফ করা যাবে না। অ্যাপটি সক্ষম করুন, বা রুট বা Shizuku/ADB ব্যবহার করুন।</string>
     <string name="automation_error_interference_title">সেটিংস স্ক্রিন ব্লক করা হয়েছে</string>
     <string name="automation_error_interference_body">অন্য একটি অ্যাপ (%1$s) সিস্টেম সেটিংস স্ক্রিন ব্লক করছে, তাই SD Maid চালিয়ে যেতে পারে না। সেই অ্যাপের অ্যাপ-লক বা সিস্টেম সেটিংসের জন্য স্ক্রিন সুরক্ষা অক্ষম করুন, তারপর আবার চেষ্টা করুন।</string>
     <string name="automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>

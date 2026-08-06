@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Заплановане завдання намагалося використати службу доступності, але вона була недоступна. Якщо вам це не потрібно, вимкніть параметр «Служба доступності» в налаштуваннях планувальника.</string>
     <string name="automation_error_no_settings_title">Екран налаштувань недоступний</string>
     <string name="automation_error_no_settings_body">Цей системний додаток не має екрана налаштувань. Очищення кешу за допомогою служби доступності неможливе. Вимкніть її, щоб пришвидшити очищення кешу.</string>
+    <string name="automation_error_disabled_app_title">Додаток вимкнено</string>
+    <string name="automation_error_disabled_app_body">Ваш пристрій не дозволяє відкривати параметри вимкнених додатків, тому кеш не можна очистити через сервіс доступності. Увімкніть додаток або використовуйте root або Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Екран налаштувань заблоковано</string>
     <string name="automation_error_interference_body">Інша програма (%1$s) блокує екран системних налаштувань, тому SD Maid не може продовжити. Вимкніть блокування програми або захист екрана цієї програми для системних налаштувань, а потім спробуйте знову.</string>
     <string name="automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>

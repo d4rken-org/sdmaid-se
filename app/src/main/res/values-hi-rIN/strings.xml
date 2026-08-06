@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">सभी टूल में परिणाम मिटाएं?</string>
     <string name="dashboard_hero_freeable_headline">%1$s मुक्त किया जा सकता है</string>
     <string name="dashboard_hero_freed_headline">%1$s खाली की गई</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d आइटम हटाया जा सकता है</item>
+        <item quantity="other">%d आइटम हटाए जा सकते हैं</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d आइटम हटाया गया</item>
+        <item quantity="other">%d आइटम हटाए गए</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">स्पेस फ्री करने के लिए बटन दबाएं, या पहले जांचने के लिए एक चिप दबाएं।</string>
     <string name="dashboard_hero_freed_hint">विवरण के लिए एक चिप पर टैप करें।</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s बचा है</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">कुछ भी मुक्त नहीं किया गया</string>
+    <string name="dashboard_hero_nothing_freed_caption">सफाई पूरी हुई, लेकिन कोई भी पाया गया डेटा नहीं हटाया जा सका।</string>
+    <string name="dashboard_hero_nothing_freed_hint">कुछ डेटा को केवल अतिरिक्त एक्सेस के साथ हटाया जा सकता है, जैसे एक्सेसिबिलिटी सेवा या रूट।</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s स्कैन किया गया</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s मुक्त किया गया</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s को आजमाया गया</string>
     <string name="dashboard_settings_category">डैशबोर्ड</string>
     <string name="dashboard_motd_title">बनाने वाले की और से एक संदेश</string>
     <string name="dashboard_settings_oneclick_title">एक टैप मोड</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">रूट एक्सेस के साथ Shizuku अतिरिक्त सुविधाएं सक्षम नहीं करता है, लेकिन यह विश्वसनीयता में सुधार करता है। SD Maid इसे फॉलबैक विधि के रूप में उपयोग करेगा।</string>
     <string name="setup_shizuku_state_ready_label">Shizuku लिंक तैयार है।</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku के साथ लिंक की प्रतीक्षा में।</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku ऐप इंस्टॉल नहीं है।</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku का उपयोग करने का प्रयास करें</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku का उपयोग न करें</string>
     <string name="setup_dismiss_hint">आप सेटिंग मेनू के माध्यम से व्यवस्था स्क्रीन फिर से पा सकते हैं।</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">ऐप्स पुनः लोड करें</string>
     <string name="debug_card_root_test_action">Root परीक्षण</string>
     <string name="debug_card_shizuku_test_action">Shizuku परीक्षण</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ड्राई-रन मोड सक्रिय है</string>
+    <string name="dashboard_dryrun_warning_body">सफाई का अनुकरण किया जा रहा है। फाइलें स्कैन की जाती हैं और रिपोर्ट की जाती हैं, लेकिन कुछ भी वास्तव में हटाया नहीं जाता है।</string>
+    <string name="dashboard_dryrun_warning_disable_action">बंद करें</string>
     <string name="data_area_public_app_data_official_label">डिफ़ॉल्ट सार्वजनिक ऐप डेटा</string>
     <string name="data_area_public_app_assets_official_label">डिफ़ॉल्ट सार्वजनिक ऐप संपत्ति</string>
     <string name="data_area_public_storage_label">सार्वजनिक संग्रहण</string>
@@ -281,7 +306,8 @@
     <string name="translation_encourage_title">SD मेड का अनुवाद करें</string>
     <string name="translation_encourage_body">SD मेड का अनुवाद स्वयंसेवकों द्वारा किया जाता है। अनुवाद, समीक्षा या प्रूफरीडिंग, आपकी सहायता की सराहना की जाती है!</string>
     <string name="translation_translators_title">यह संस्करण इन सभी द्वारा अनुवादित है</string>
-    <string name="translation_translators_people">Yogesh KaushiK\n(KaushikYogesh@yahoo.com)</string>
+    <string name="translation_translators_people">Yogesh KaushiK
+(KaushikYogesh@yahoo.com)</string>
     <string name="motd_setting_enabled_label">डेवलपर संदेश</string>
     <string name="motd_setting_enabled_explanation">डैशबोर्ड पर डेवलपर संदेश दिखाएं।</string>
     <string name="updatecheck_setting_enabled_label">अपडेट जांच</string>

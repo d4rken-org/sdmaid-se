@@ -58,8 +58,8 @@
     <string name="squeezer_skip_compressed_description">Eira SD Maidi juba kokkupakitud failid.</string>
     <string name="squeezer_exif_marker_title">Kirjuta EXIF märkus</string>
     <string name="squeezer_exif_marker_description">Tee märge pildi EXIFi kasutaja kommentaari väljale, et ennetada uuesti kokkupakkimist isegi pärast kokkupakkimise ajaloo tühjenemist.</string>
-    <string name="squeezer_include_lossy_aux_title">Kompresseeri HDR &amp; sügavusfotod</string>
-    <string name="squeezer_include_lossy_aux_description">Vaikimisi väljas: pildid, millel on HDR võimenduse kaart või sügavuse/portree andmed, jäetakse vahele, et neid ei liigitataks. Luba neid vajadusel tihendada — nad kaotavad oma HDR võimenduse kaardi või sügavuse andmed. Mõned mitme pildiga HEIC-fotod jäävad niikuinii kaitstud.</string>
+    <string name="squeezer_include_lossy_aux_title">Tihenda HDR &amp; sügavusfotod</string>
+    <string name="squeezer_include_lossy_aux_description">Tavaliselt keelatud: pildid, millel on HDR võimenduse kaart või sügavuse/portree andmed, jäetakse vahele, et neid ei liigitataks. Luba neid vajadusel tihendada — nad kaotavad oma HDR võimenduse kaardi või sügavuse andmed. Mõned mitme pildiga HEIC-fotod jäävad niikuinii kaitstuks.</string>
     <string name="squeezer_estimated_savings_format">~%s sääst</string>
     <string name="squeezer_no_savings_expected">Piiratud säästud</string>
     <string name="squeezer_current_size_format">Maht: %s</string>
@@ -90,8 +90,8 @@
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
     <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Tihendamiseks puudub meedia — %d HDR/sügavuse foto jäeti vahele. Luba seadistustes \'Tihenda HDR &amp; sügavusefotod\', et see kaasata.</item>
-        <item quantity="other">Tihendamiseks puudub meedia — %d HDR/sügavuse fotot jäeti vahele. Luba seadistustes \'Tihenda HDR &amp; sügavusefotod\', et need kaasata.</item>
+        <item quantity="one">Tihendamiseks puudub meedia — %d HDR/sügavuse foto jäeti vahele. Luba seadistustes „Tihenda HDR &amp; sügavusefotod“, et see kaasata.</item>
+        <item quantity="other">Tihendamiseks puudub meedia — %d HDR/sügavuse fotot jäeti vahele. Luba seadistustes „Tihenda HDR &amp; sügavusefotod“, et need kaasata.</item>
     </plurals>
     <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti jäädavalt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
     <plurals name="squeezer_setup_path_dropped_message">
@@ -115,6 +115,6 @@
     <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
     <string name="squeezer_onboarding_got_it">Selge!</string>
     <!-- Guided tour -->
-    <string name="tour_squeezer_intro_body">Squeezer tihendab teie fotosid ja videoid uuesti, et need võtaksid vähem ruumi. Vahetate veidi kvaliteeti ruumi vastu. Iga ese näitab selle hinnangulist kokkuhoidu, nii et saate otsustada, mis on selle väärt.</string>
+    <string name="tour_squeezer_intro_body">Tihendaja tihendab pildid ja videod uuesti, et need võtaksid vähem ruumi. Vahetate veidi kvaliteeti ruumi vastu. Iga faili juures on näha selle hinnangulist kokkuhoidu, nii et saate otsustada, kas see on väärt tihendamist.</string>
     <string name="tour_squeezer_compress_body">Tihenda kõik korraga siin või puuduta üksikut elementi, et see kahaneks. Pikk vajutus mitme valimiseks. Enne muutusi näed alati eelvaadet.</string>
 </resources>

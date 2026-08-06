@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Terjadi kesalahan internal Google Play. Silakan coba langkah berikut:\n\n• Mulai ulang perangkat Anda\n• Hapus cache Google Play Store\n• Coba lagi nanti</string>
     <string name="upgrades_gplay_network_error_title">Kesalahan koneksi</string>
     <string name="upgrades_gplay_network_error_description">Tidak dapat terhubung ke Google Play. Silakan periksa koneksi internet Anda dan coba lagi.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Penawaran tidak tersedia</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play saat ini tidak menawarkan opsi upgrade ini. Silakan coba lagi nanti atau periksa Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Tidak bisa membuka Google Play. Aplikasi mungkin tidak terpasang, dinonaktifkan, atau dibatasi di perangkat ini.</string>
     <string name="upgrades_gplay_already_owned_error_title">Sudah dibeli</string>
     <string name="upgrades_gplay_already_owned_error_description">Gunakan opsi \"Pulihkan pembelian\" untuk memulihkan pembelian Anda. Jika masalah berlanjut, coba hapus cache Google Play dan mulai ulang perangkat Anda.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Dapatkan %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid tidak menampilkan iklan dan tidak menjual data pengguna. Pekerjaan saya dibiayai oleh Anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Manfaat upgrade</string>
     <string name="upgrade_screen_benefits_body">• Pembersihan cache aplikasi dan file sampah\n• Penghapusan file duplikat\n• Kompresi foto dan video\n• Geser untuk menghilangkan file lama\n• Pembersihan satu ketukan melalui widget\n• Penjadwalan pembersihan\n• Filter dan aturan kustom\n• Tren dan riwayat penyimpanan\n• Lebih banyak fitur dan kontrol di seluruh aplikasi\n• Dukungan pengembangan berkelanjutan</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Diperbarui setiap tahun. Batalkan kapan saja di Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Beli sekali</string>
     <string name="upgrade_screen_iap_offer_body">Satu kali bayar, tanpa perpanjangan.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Harga tidak tersedia</string>
     <string name="upgrade_screen_offers_unavailable_message">Harga tidak dapat dimuat sekarang. Periksa Google Play dan coba lagi dalam beberapa saat.</string>
     <string name="upgrade_screen_subscription_trial_action">Mulai coba gratis 14 hari</string>
     <string name="upgrade_screen_subscription_action">Berlangganan</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Hubungi dukungan</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid baru saja memeriksa Google Play, tetapi tidak ada pembelian Pro yang dapat dikonfirmasi untuk akun yang digunakan Google Play untuk aplikasi ini.</string>
     <string name="upgrade_screen_restore_contact_hint">Masih mengalami kendala? Hubungi dukungan dari email yang digunakan untuk melakukan pembelian dan sertakan nomor pesanan Google Play Anda.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Pemeriksaan dengan Google Play tidak selesai tepat waktu, sehingga status pembelian Anda masih tidak diketahui. Tidak ada yang berubah di akun Anda.</string>
 </resources>

@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Zaplanowane zadanie próbowało użyć usługi ułatwień dostępu, ale była niedostępna. Jeśli jej nie potrzebujesz, wyłącz opcję „Usługa ułatwień dostępu” w ustawieniach harmonogramu.</string>
     <string name="automation_error_no_settings_title">Ekran ustawień niedostępny</string>
     <string name="automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu nie jest możliwa. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
+    <string name="automation_error_disabled_app_title">Aplikacja jest wyłączona</string>
+    <string name="automation_error_disabled_app_body">Twoje urządzenie nie otworzy ekranu ustawień wyłączonych aplikacji, dlatego nie można wyczyścić pamięci podręcznej za pośrednictwem usługi ułatwień dostępu. Włącz aplikację lub zamiast tego użyj dostępu root lub Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Ekran ustawień jest zablokowany</string>
     <string name="automation_error_interference_body">Inna aplikacja (%1$s) blokuje ekran ustawień systemowych, więc SD Maid nie może kontynuować. Wyłącz blokadę aplikacji lub ochronę ekranu dla ustawień systemowych tej aplikacji, a następnie spróbuj ponownie.</string>
     <string name="automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>

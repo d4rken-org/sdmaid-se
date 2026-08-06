@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Ralat dalaman Google Play berlaku. Sila cuba yang berikut:\n\n• Mulakan semula peranti anda\n• Kosongkan cache Google Play Store\n• Cuba lagi kemudian</string>
     <string name="upgrades_gplay_network_error_title">Ralat sambungan</string>
     <string name="upgrades_gplay_network_error_description">Tidak dapat menyambung ke Google Play. Sila semak sambungan internet anda dan cuba lagi.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Penawaran tidak tersedia</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play tidak menawarkan pilihan peningkatan ini pada masa ini. Sila cuba lagi nanti atau periksa Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Tidak dapat membuka Google Play. Ia mungkin hilang, dimatikan atau dibatasi di peranti ini.</string>
     <string name="upgrades_gplay_already_owned_error_title">Sudah dibeli</string>
     <string name="upgrades_gplay_already_owned_error_description">Gunakan pilihan \"Pulihkan pembelian\" untuk memulihkan pembelian anda. Jika masalah berterusan, cuba kosongkan cache Google Play dan mulakan semula peranti anda.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Dapatkan %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Kerja saya dibiayai oleh anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Faedah peningkatan</string>
     <string name="upgrade_screen_benefits_body">• Pembersihan cache aplikasi dan sampah\n• Penghapusan fail pendua\n• Mampatan foto dan video\n• Sapuan untuk mengusuli fail lama\n• Pembersihan sekali sentuh melalui widget\n• Penjadualan pembersihan\n• Penapis dan peraturan tersuai\n• Trend storan dan sejarah\n• Lebih banyak ciri dan kawalan di seluruh aplikasi\n• Sokongan pembangunan berterusan</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Diperbaharui setiap tahun. Batalkan bila-bila masa dalam Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Beli sekali</string>
     <string name="upgrade_screen_iap_offer_body">Satu pembayaran, tiada pembaharuan.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Harga tidak tersedia</string>
     <string name="upgrade_screen_offers_unavailable_message">Harga tidak dapat dimuatkan sekarang. Periksa Google Play dan cuba lagi dalam sesaat.</string>
     <string name="upgrade_screen_subscription_trial_action">Mulakan percubaan 14 hari percuma</string>
     <string name="upgrade_screen_subscription_action">Langgan</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Hubungi sokongan</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid baru sahaja menyemak Google Play, tetapi tiada pembelian Pro yang dapat disahkan untuk akaun yang Google Play gunakan untuk aplikasi ini.</string>
     <string name="upgrade_screen_restore_contact_hint">Masih bermasalah? Hubungi sokongan daripada e-mel yang membuat pembelian dan sertakan nombor pesanan Google Play anda.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Pemeriksaan dengan Google Play tidak selesai tepat pada masanya, jadi status pembelian anda masih tidak diketahui. Tiada perubahan pada akaun anda.</string>
 </resources>

@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Produciuse un erro interno de Google Play. Proba o seguinte:\n\n• Reinicia o teu dispositivo\n• Limpa a caché de Google Play Store\n• Proba de novo máis tarde</string>
     <string name="upgrades_gplay_network_error_title">Erro de conexión</string>
     <string name="upgrades_gplay_network_error_description">Non se puido conectar con Google Play. Comproba a túa conexión a internet e proba de novo.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Oferta non dispoñible</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play actualmente non ofrece esta opción de actualización. Por favor, inténteo máis tarde ou comprobe a Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Non se puido abrir Google Play. É posible que non estea dispoñible, desactivado ou restrinxido neste dispositivo.</string>
     <string name="upgrades_gplay_already_owned_error_title">Xa comprado</string>
     <string name="upgrades_gplay_already_owned_error_description">Usa a opción \"Restaurar compra\" para restaurar a túa compra. Se o problema persiste, proba a limpar a caché de Google Play e reiniciar o teu dispositivo.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Obter %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid non ten anuncios e non vende datos de usuario. O meu traballo está financiado por ti ❤️.</string>
     <string name="upgrade_screen_benefits_title">Beneficios de actualización</string>
     <string name="upgrade_screen_benefits_body">• Limpeza de caché e lixo de aplicacións\n• Eliminación de ficheiros duplicados\n• Compresión de fotos e vídeos\n• Deslizar para limpar ficheiros antigos\n• Limpeza cun só toque mediante widget\n• Programación da limpeza\n• Filtros e regras personalizadas\n• Tendencias e historial do almacenamento\n• Máis funcionalidades e controles na aplicación\n• Apoiar o desenvolvemento continuo</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Renova cada ano. Podes cancelar en calquera momento en Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Compra única</string>
     <string name="upgrade_screen_iap_offer_body">Un único pago, sen renovacións.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prezos non dispoñibles</string>
     <string name="upgrade_screen_offers_unavailable_message">Os prezos non se puideron cargar agora. Comproba Google Play e intenta de novo en pouco tempo.</string>
     <string name="upgrade_screen_subscription_trial_action">Comezar proba gratuíta de 14 días</string>
     <string name="upgrade_screen_subscription_action">Subscribirse</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Contacta co soporte</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid acaba de verificar Google Play, pero non se puido confirmar ningunha compra Pro para a conta que Google Play usa nesta aplicación.</string>
     <string name="upgrade_screen_restore_contact_hint">Segues tendo problemas? Contacta co soporte desde o correo que fixo a compra e inclúe o teu número de pedido de Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">A comprobación con Google Play non rematou a tempo, polo que o seu estado de compra segue sendo descoñecido. Nada mudou na súa conta.</string>
 </resources>

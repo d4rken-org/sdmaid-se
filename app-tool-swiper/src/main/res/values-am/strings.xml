@@ -46,7 +46,7 @@
     <string name="swiper_sensitive_root_warning_message">%1$s ማጠራቄሚያ ሁሉንም ፋይሎች ይጨምራል — ፎቶዎች፣ ሰነዶች፣ ዳውንሎዶች፣ የመተግበሪያ ሚዲያ፣ እና ሌላ ብዙ ነገር። ቀጥል?</string>
     <string name="swiper_sensitive_root_warning_continue_action">ምንም እንካ ቀጥል</string>
     <string name="swiper_session_risky_label">ሙሉ-ማጠራቄሚያ ስካን</string>
-    <string name="swiper_session_risky_info_message">ይህ ክፍሌ-ወቅት በማጠራቄሚያ ሥር ላይ ነው፣ ስለዚህ ሁሉም ፋይሎች በዚያ ማጠራቄሚያ ውስጥ ናቸው — ፎቶዎች፣ ሰነዶች፣ ዳውንሎዶች፣ የመተግበሪያ ሚዲያ፣ እና ሌላ ብዙ ነገር።\n\nሙሉ-ማጠራቄሚያ ስካኖች ብዙ ንጥሎች መመለስ ይችላሉ፣ ለመመቀት የሚፈልጉውት መሳረት መቅዳሚት መቅዳሚት በመካውት ፋይሎችን የቀልቤ ስካንን ለማካነብ የፋይል-አይነት ማጣሪያ ይጠቀሙ።</string>
+    <string name="swiper_session_risky_info_message">ይህ ክፍለ ጊዜ የቦታ ሙሌት ሥር ላይ ያተኮረ ነው ፣ ስለዚህም በዚያ ቦታ ላይ ያሉት ሁሉም ፋይሎች ተካተዋል — ፎቶዎች ፣ ሰነዶች ፣ ዝውውሮች ፣ የመተግበሪያ ሚዲያ ፣ እና ብዙ ተጨማሪ።\n\nሙሉ-ቦታ ምርመራዎች ብዙ ንጥሎችን ሊመልሱ ይችላሉ ፣ ከዚህ በፊት ለመገምገም ያልታሰብክበት ፋይሎችን ጨምሮ። ምርመራውን ለማጠር ፋይል-ዓይነት ማጣሪያ ተጠቀም።</string>
     <string name="swiper_delete_x_action">%1$d ሰርዝ</string>
     <string name="swiper_settings_swap_directions_title">የማንሸራተቻ አቅጣጫዎችን ይቀያይሩ</string>
     <string name="swiper_settings_swap_directions_summary">ለማስቀመጥ ወደ ግራ ያንሸራትቱ፣ ለመሰረዝ ወደ ቀኝ።</string>

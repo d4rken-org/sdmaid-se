@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Ieplānots uzdevums mēģināja izmantot pieejamības pakalpojumu, taču tas nebija pieejams. Ja tas jums nav vajadzīgs, atspējojiet opciju \"Pieejamības pakalpojums\" plānotāja iestatījumos.</string>
     <string name="automation_error_no_settings_title">Iestatījumu ekrāns nav pieejams</string>
     <string name="automation_error_no_settings_body">Šai sistēmas lietotnei nav iestatījumu ekrāna. Kešatmiņas notīrīšana, izmantojot pieejamības pakalpojumu, nav iespējama. Izslēdziet to, lai paātrinātu kešatmiņas notīrīšanu.</string>
+    <string name="automation_error_disabled_app_title">Lietotne ir atspējota</string>
+    <string name="automation_error_disabled_app_body">Jūsu ierīce neatvērs atspējoto lietotņu iestatījumu ekrānu, tāpēc kešatmiņu nevar notīrīt caur piekļuves pakalpojumu. Ieslēdziet lietotni vai izmantojiet root vai Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Iestatījumu ekrāns ir bloķēts</string>
     <string name="automation_error_interference_body">Cita lietotne (%1$s) bloķē sistēmas iestatījumu ekrānu, tāpēc SD Maid nevar turpināt. Atspējojiet šīs lietotnes bloķējumu vai ekrāna aizsardzību sistēmas iestatījumiem, pēc tam mēģiniet vēlreiz.</string>
     <string name="automation_loading">Tiek sagatavota automātizācija, izmantojot pieejamības pakalpojumu</string>

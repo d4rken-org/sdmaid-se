@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">En planlagt oppgave prøvde å bruke tilgjengelighetstjenesten, men den var utilgjengelig. Hvis du ikke trenger dette, deaktiver alternativet \"Tilgjengelighetstjeneste\" i planleggerinnstillingene.</string>
     <string name="automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
     <string name="automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Ekskluder den for raskere tømming av hurtigbufferen.</string>
+    <string name="automation_error_disabled_app_title">Appen er deaktivert</string>
+    <string name="automation_error_disabled_app_body">Enheten din åpner ikke innstillingsskjermen for deaktiverte apper, så hurtigbufferen kan ikke tømmes via tilgjengelighetstjenesten. Aktiver appen, eller bruk root eller Shizuku/ADB i stedet.</string>
     <string name="automation_error_interference_title">Innstillingsskjermen er blokkert</string>
     <string name="automation_error_interference_body">En annen app (%1$s) blokkerer systeminnstillingsskjermen, så SD Maid kan ikke fortsette. Deaktiver app-låsen eller skjermvernbeskyttelsen for systeminnstillingene, og prøv igjen.</string>
     <string name="automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>

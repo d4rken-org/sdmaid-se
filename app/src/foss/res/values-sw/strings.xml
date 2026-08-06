@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Angalia chaguo za kuboresha</string>
     <string name="upgrade_screen_status_upgraded_title">Boresho ni hai</string>
     <string name="upgrade_screen_status_upgraded_body">Vipengele vyote vya ziada vimefunguliwa. Asante kwa kuunga mkono maendeleo ya chanzo wazi ❤️</string>
+    <string name="upgrade_screen_supporter_since">Msaada tangu %s</string>
     <string name="upgrade_screen_recurring_title">Endelea</string>
     <string name="upgrade_screen_recurring_body">SD Maid inaendelea kuboreshwa kupitia masasisho na marekebisho. Ikiwa ungependa kuendeleza hilo, fikiria mchango wa mara kwa mara kupitia GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Fungua GitHub Sponsors</string>

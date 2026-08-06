@@ -12,8 +12,12 @@
     <string name="upgrades_gplay_internal_error_description">Google Play ishki qáteligi júz berdi. Tómendegilerdi háreket etiń:\n\n• Qurılmańızdı qayta júkleń\n• Google Play Store keshin tazalań\n• Keyin qayta háreket etiń</string>
     <string name="upgrades_gplay_network_error_title">Baylanıs qáteligi</string>
     <string name="upgrades_gplay_network_error_description">Google Play ge baylanısıw múmkin emes. Internet baylanısıńızdı tekseriń hám qayta háreket etiń.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Teklifsiz</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play hali bu upgrade variantını bermeydi. Keyinshi mahal qaytalap korin yaki Google Play Store\'in tekserin.</string>
     <string name="upgrades_gplay_already_owned_error_title">Allaqashan satıp alınǵan</string>
     <string name="upgrades_gplay_already_owned_error_description">Satıp alıwdı qálpine keltiriw ushın \"Satıp alıwdı qálpine keltiriw\" variantın paydalanıń. Másele dawam etse, Google Play keshin tazalaw hám qurılmańızdı qayta júklep kórıń.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s al</string>
     <string name="upgrade_screen_preamble">SD Maid de reklama joq hám paydalanıwshı maǵlıwmatların satpaydı. Meniń jumısım siz tárepinen qárejelep turıladı ❤️.</string>
     <string name="upgrade_screen_benefits_title">Jetilistiriw payda</string>
     <string name="upgrade_screen_benefits_body">• App keshі hem qörmesіn ósherip\n• Qoşa faylları ósherip\n• Suret hem video qísartıw\n• Qöne faylları swipe arqalı ósherip\n• Bír-tap widget arqalı ósherip\n• Ósheriw rásgelegimі\n• Shaxsıy filtirler hem qaydalár\n• Saqlawısh trendleri hem taríqhı\n• Kóp öz-tellevu hem baqılawlar\n• Dawamı dámulegíni qolday</string>
@@ -25,6 +29,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Jılda bir rět jaraylańátıldi. Google Play-da hár kásinde saltaw múmkin.</string>
     <string name="upgrade_screen_iap_offer_title">Bir márte satıp alıw</string>
     <string name="upgrade_screen_iap_offer_body">Bír tólem, jaraylańáw joq</string>
+    <string name="upgrade_screen_offers_unavailable_title">Bahalar belgisiz</string>
     <string name="upgrade_screen_offers_unavailable_message">Baǵalar házir júklenip bolmadı. Google Play-di tekserip, biraz waqıttan keyin qayta urınıń.</string>
     <string name="upgrade_screen_subscription_trial_action">Tegin 14 kúnlik sınaqdı baslaw</string>
     <string name="upgrade_screen_subscription_action">Jazılıw</string>
@@ -59,4 +64,5 @@
     <string name="upgrade_screen_contact_support_action">Qoldaw túsiriń</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid Google Play-ny tekserdi, lekin bu qollanba ushín qaralatlagan hésab ushín Pro satıp alıwı rastala almady.</string>
     <string name="upgrade_screen_restore_contact_hint">Hálí tiklenib qaldıńız? Satıp alıwny qílgan email-den qoldaw túsiriń we sızdiń Google Play buyirtıması nómerín qosínız.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play bilən tekshe vaqıta ichinde tamam bolmadi, shunga satıw holati heniz belgisiz. Sizin akkauntında hechne o\'zmeshken yoq.</string>
 </resources>

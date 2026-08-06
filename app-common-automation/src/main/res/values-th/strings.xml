@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">งานที่กำหนดเวลาไว้พยายามใช้บริการการช่วยเหลือการเข้าถึง แต่ไม่พร้อมใช้งาน หากคุณไม่ต้องการสิ่งนี้ ให้ปิดใช้งานตัวเลือก \"บริการการช่วยเหลือการเข้าถึง\" ในการตั้งค่าตัวกำหนดเวลา</string>
     <string name="automation_error_no_settings_title">ไม่มีหน้าจอการตั้งค่า</string>
     <string name="automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
+    <string name="automation_error_disabled_app_title">แอปถูกปิดใช้งาน</string>
+    <string name="automation_error_disabled_app_body">อุปกรณ์ของคุณจะไม่เปิดหน้าจอการตั้งค่าของแอปที่ปิดใช้งาน ดังนั้นจึงไม่สามารถล้างแคชผ่านบริการการเข้าถึงได้ เปิดใช้งานแอป หรือใช้ root หรือ Shizuku/ADB แทน</string>
     <string name="automation_error_interference_title">หน้าจอการตั้งค่าถูกปิดกั้น</string>
     <string name="automation_error_interference_body">แอปอื่น (%1$s) กำลังปิดกั้นหน้าจอการตั้งค่าระบบ ดังนั้น SD Maid จึงไม่สามารถดำเนินการต่อได้ ปิดการล็อกแอปหรือการป้องกันหน้าจอของแอปนั้นสำหรับการตั้งค่าระบบ จากนั้นลองใหม่</string>
     <string name="automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>

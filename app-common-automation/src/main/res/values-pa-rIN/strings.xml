@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">ਇੱਕ ਨਿਰਧਾਰਿਤ ਕੰਮ ਨੇ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਵਰਤਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ। ਜੇ ਤੁਹਾਨੂੰ ਇਸਦੀ ਲੋੜ ਨਹੀਂ, ਤਾਂ ਸ਼ਡਿਊਲਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ\" ਵਿਕਲਪ ਅਯੋਗ ਕਰੋ।</string>
     <string name="automation_error_no_settings_title">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="automation_error_no_settings_body">ਇਸ ਸਿਸਟਮ ਐਪ ਵਿੱਚ ਕੋਈ ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਨਹੀਂ ਹੈ। ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
+    <string name="automation_error_disabled_app_title">ਐਪ ਅਸਮਰੱਥ ਹੈ</string>
+    <string name="automation_error_disabled_app_body">ਤੁਹਾਡਾ ਯੰਤਰ ਅਸਮਰੱਥ ਐਪਾਂ ਦੀ ਸੈਟਿੰਗਾਂ ਨੂੰ ਖੋਲ੍ਹ ਨਹੀਂ ਸਕਦਾ, ਇਸ ਲਈ ਕੈਸ਼ ਨੂੰ ਐਕਸੈਸਬਿਲਿਟੀ ਸਰਵਿਸ ਦੇ ਜ਼ਰੀਈਂ ਸਾਫ਼ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਐਪ ਨੂੰ ਸਮਰੱਥ ਕਰੋ, ਜਾਂ ਇਸ ਦੀ ਬਜਾਏ ਰੂਟ ਜਾਂ Shizuku/ADB ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="automation_error_interference_title">ਸੈਟਿੰਗ ਸਕ੍ਰੀਨ ਬਲਾਕ</string>
     <string name="automation_error_interference_body">ਇੱਕ ਹੋਰ ਐਪ (%1$s) ਸਿਸਟਮ ਸੈਟਿੰਗ ਸਕ੍ਰੀਨ ਨੂੰ ਬਲਾਕ ਕਰ ਰਹੀ ਹੈ, ਇਸਲਈ SD Maid ਜਾਰੀ ਨਹੀਂ ਰੱਖ ਸਕਦਾ। ਉਸ ਐਪ ਦਾ ਐਪ-ਲਾਕ ਜਾਂ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਲਈ ਸਕ੍ਰੀਨ ਸੁਰੱਖਿਆ ਅਸਮਰਥ ਕਰੋ, ਫਿਰ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="automation_loading">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਰਾਹੀਂ ਆਟੋਮੇਸ਼ਨ ਤਿਆਰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>

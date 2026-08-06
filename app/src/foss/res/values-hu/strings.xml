@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Frissítési lehetőségek megtekintése</string>
     <string name="upgrade_screen_status_upgraded_title">Frissítés aktív</string>
     <string name="upgrade_screen_status_upgraded_body">Minden extra funkció fel van oldva. Köszönjük, hogy támogatod a nyílt forráskódú fejlesztést ❤️</string>
+    <string name="upgrade_screen_supporter_since">Támogató %s óta</string>
     <string name="upgrade_screen_recurring_title">Tartsd fenn a lendületet</string>
     <string name="upgrade_screen_recurring_body">Az SD Maid folyamatosan fejlődik a frissítéseknek és javításoknak köszönhetően. Ha szeretnéd ezt fenntartani, fontold meg egy visszatérő adományt a GitHub Sponsorson keresztül.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors megnyitása</string>

@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Vyskytla sa interná chyba Google Play. Skúste nasledovné:\n\n• Reštartujte zariadenie\n• Vymažte vyrovnávaciu pamäť Google Play Store\n• Skúste to znova neskôr</string>
     <string name="upgrades_gplay_network_error_title">Chyba pripojenia</string>
     <string name="upgrades_gplay_network_error_description">Nepodarilo sa pripojiť ku Google Play. Skontrolujte svoje internetové pripojenie a skúste to znova.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ponuka nie je dostupná</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play v súčasnosti nie ponúka túto možnosť upgradu. Skúste neskôr alebo si pozrite obchod Google Play.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nepodarilo sa otvoriť Google Play. Aplikácia chýba, je vypnutá alebo je na tomto zariadení obmedzená.</string>
     <string name="upgrades_gplay_already_owned_error_title">Už zakúpené</string>
     <string name="upgrades_gplay_already_owned_error_description">Použite možnosť \"Obnoviť nákup\" na obnovenie vášho nákupu. Ak problém pretrváva, skúste vymazať vyrovnávaciu pamäť Google Play a reštartovať zariadenie.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Získať %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid nemá žiadne reklamy a nepredáva používateľské údaje. Moja práca je financovaná vami ❤️.</string>
     <string name="upgrade_screen_benefits_title">Výhody upgradu</string>
     <string name="upgrade_screen_benefits_body">• Čistenie cache aplikácií a nepotrebných súborov\n• Odstránenie duplicitných súborov\n• Kompresia fotografií a videí\n• Posúvanie na vyčistenie starých súborov\n• Čistenie jedným kliknutím cez miniaplikáciu\n• Plánovanie čistenia\n• Vlastné filtre a pravidlá\n• Trendy úložiska a história\n• Ďalšie funkcie a ovládacie prvky v celej aplikácii\n• Podpora pokračujúceho vývoja</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Obnovuje sa ročne. Kedykoľvek je možné zrušiť v aplikácii Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Kúpiť raz</string>
     <string name="upgrade_screen_iap_offer_body">Jednorazová platba, bez obnovy.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Ceny nie sú dostupné</string>
     <string name="upgrade_screen_offers_unavailable_message">Ceny sa nedajú načítať práve teraz. Skontrolujte Google Play a skúste o chvíľu znova.</string>
     <string name="upgrade_screen_subscription_trial_action">Spustite bezplatnú 14-dňovú skúšobnú verziu</string>
     <string name="upgrade_screen_subscription_action">Predplatiť</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Kontaktovať podporu</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid práve skontroloval Google Play, ale nemohlo sa potvrdiť Pro nákup pre účet, ktorý Google Play používa pre túto aplikáciu.</string>
     <string name="upgrade_screen_restore_contact_hint">Stále uviaznutý? Kontaktujte podporu z e-mailu, ktorým bol nákup uskutočnený, a zahrňte číslo objednávky Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Kontrola s Google Play sa nestihla dokončiť na čas, takže váš stav nákupu ostáva neznámy. Na vašom účte sa nič nezmenilo.</string>
 </resources>

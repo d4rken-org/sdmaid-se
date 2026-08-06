@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">مشاهده گزینه‌های ارتقاء</string>
     <string name="upgrade_screen_status_upgraded_title">ارتقا فعال</string>
     <string name="upgrade_screen_status_upgraded_body">تمامی ویژگی‌های اضافی باز شده‌اند. از حمایت شما از توسعه متن‌باز سپاس‌گزاریم ❤️</string>
+    <string name="upgrade_screen_supporter_since">حامی از %s</string>
     <string name="upgrade_screen_recurring_title">ادامه بدهید</string>
     <string name="upgrade_screen_recurring_body">SD Maid با به‌روزرسانی‌ها و رفع‌های متعدد به تکامل می‌رسد. اگر می‌خواهید از این کار حمایت کنید، یک کمک‌مالی مکرر از طریق GitHub Sponsors در نظر بگیرید.</string>
     <string name="upgrade_screen_recurring_action">باز کردن GitHub Sponsors</string>

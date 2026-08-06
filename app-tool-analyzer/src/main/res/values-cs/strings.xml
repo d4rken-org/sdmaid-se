@@ -33,7 +33,7 @@
     <string name="analyzer_storage_type_secondary_description">Sekundární úložiště, obvykle vyměnitelná SD karta. Obsahuje mediální soubory a data z aplikací, které jej podporují.</string>
     <string name="analyzer_storage_type_tertiary_title">Přenosné úložiště</string>
     <string name="analyzer_storage_type_tertiary_description">Přenosné úložiště, např. flash disk připojen k USB.</string>
-    <string name="analyzer_storage_identifier_internal">Interní úložiště</string>
+    <string name="analyzer_storage_identifier_internal">Vnitřní úložiště</string>
     <string name="analyzer_storage_content_title">Obsah úložiště</string>
     <string name="analyzer_storage_content_type_app_label">Aplikace</string>
     <string name="analyzer_storage_content_type_app_description">Prostor obsazený instalovanými aplikacemi a jejich daty (např. soubory aplikace, data a mezipaměť).</string>
@@ -58,6 +58,6 @@
     <string name="analyzer_app_details_app_is_archived">Tato aplikace byla archivována.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s za 7 dní</string>
     <!-- Guided tour -->
-    <string name="tour_analyzer_intro_body">Podívejte se, co ve skutečnosti zabírá místo v úložišti. Analyzer mapuje, kam vaše místo odchází. Každá z těchto karet je paměťový čip na vašem zařízení.</string>
+    <string name="tour_analyzer_intro_body">Podívejte se, co ve skutečnosti zabírá místo v úložišti. Analyzátor mapuje, kam vaše místo odchází. Každá z těchto karet je paměťový čip na vašem zařízení.</string>
     <string name="tour_analyzer_storage_body">Otevřete úložiště a rozdělte jej na aplikace, média a soubory, pak pokračujte v hledání největších viníků.</string>
 </resources>

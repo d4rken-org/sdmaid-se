@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Google Play အတွင်းပိုင်း အမှားတစ်ခု ဖြစ်ပေါ်ခဲ့သည်။ အောက်ပါတို့ကို စမ်းကြည့်ပါ:\n\n• သင့်စက်ကို ပြန်လည်စတင်ပါ\n• Google Play Store cache ကို ရှင်းလင်းပါ\n• နောက်မှ ထပ်ကြိုးစားပါ</string>
     <string name="upgrades_gplay_network_error_title">ချိတ်ဆက်မှု အမှား</string>
     <string name="upgrades_gplay_network_error_description">Google Play သို့ ချိတ်ဆက်၍မရပါ။ သင့်အင်တာနက် ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ကမ်းလှမ်းချက်မရှိသည်</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play သည် လက်ခြင်း၌ ဤလျှော်မြှုပ်တင်ဆက်ချက်ကို မကမ်းလှမ်းနေပါ။ ခင်ဗျာ နောက်ပိုင်းတွင် ထပ်မံကြိုးစားပါ သို့မဟုတ် Google Play Store ကိုကြည့်ပါ။</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ကိုဖွင့်လို့မရနိုင်ပါ။ ၎င်းမရှိနိုင်သည်၊ ပိတ်ထားနိုင်သည် သို့မဟုတ် ဤစက်ပစ္စည်းတွင်ကန့်သတ်ခံရနိုင်သည်။</string>
     <string name="upgrades_gplay_already_owned_error_title">ဝယ်ယူပြီးသား</string>
     <string name="upgrades_gplay_already_owned_error_description">သင့်ဝယ်ယူမှုကို ပြန်လည်ရယူရန် \"ဝယ်ယူမှုကို ပြန်လည်ရယူမည်\" ရွေးချယ်စရာကို အသုံးပြုပါ။ ပြဿနာ ဆက်လက်ရှိနေပါက Google Play cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ကိုရယူပါ</string>
     <string name="upgrade_screen_preamble">SD Maid တွင် ကြော်ငြာများမရှိပါ၊ အသုံးပြုသူဒေတာများကိုလည်း မရောင်းချပါ။ ကျွန်ုပ်၏အလုပ်ကို သင်မှ ငွေကြေးထောက်ပံ့ထားပါသည် ❤️။</string>
     <string name="upgrade_screen_benefits_title">အဆင့်မြှင့်တင်မှု အခွင့်အလျှောက်များ</string>
     <string name="upgrade_screen_benefits_body">• အက်ပ်ကက်ရှ် နှင့် စကျေးမုံ ရှင်းလင်းခြင်း\n• အတူတူဖိုင် ဖယ်ထုတ်ခြင်း\n• ပုံ နှင့် ဗီဒီယို ချုံ့ခြင်း\n• စွဲချက်မှတစ်ဆင့် အဟောင်းဖိုင်များ ရှင်းလင်းခြင်း\n• ဆုဒ်ဂျက်မှတစ်ဆင့် တစ်ကြိမ် နှိပ်ခြင်းဖြင့် ရှင်းလင်းခြင်း\n• ရှင်းလင်းခြင်း အချိန်ဆွမ်းကျ\n• စိတ်ကြိုက်လုပ်ခြင်း စစ်ထုတ်မှုများ နှင့် စည်းမျဉ်းများ\n• သိုလှောင်ခန်း အကူးအပြောင်း နှင့် သမိုင်းဝင်\n• အက်ပ်အပြင်ဘက်ရှိ ပိုများသောအင်္ဂါများ နှင့် ထိန်းချုပ်မှုများ\n• ဆက်လက်သောဖွံ့ဖြိုးမှုကို အကူအညီပေးခြင်း</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">နှစ်စဉ်အဆုံးအဖြတ်ပြန်သည်။ Google Play တွင် အချိန်မည်သည့်အခါမျိုး ပယ်ဖျက်နိုင်သည်။</string>
     <string name="upgrade_screen_iap_offer_title">တစ်ကြိမ် ဝယ်ယူခြင်း</string>
     <string name="upgrade_screen_iap_offer_body">တစ်ကြိမ်ငွေချေမှု၊ အဆုံးအဖြတ်မရှိ။</string>
+    <string name="upgrade_screen_offers_unavailable_title">စျေးနှုန်းများမရှိသည်</string>
     <string name="upgrade_screen_offers_unavailable_message">ဈေးနှုန်းများကို ယခုအချိန်တွင် ရယူ မလုပ်နိုင်ပါ။ Google Play ကို ကြည့်ရှုပြီး အနည်းငယ်နောက်ပိုင်းတွင် ထပ်မံကြိုးစားကြည့်ပါ။</string>
     <string name="upgrade_screen_subscription_trial_action">၁၄ ရက် အခမဲ့အစမ်းသုံးခြင်း စတင်မည်</string>
     <string name="upgrade_screen_subscription_action">Subscribe လုပ်မည်</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">အကူအညီအတွက် ဆက်သွယ်ပါ။</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid သည် Google Play ကို ပြန်လည်စစ်ဆေးခဲ့သော်လည်း ဤအက်ပ်အတွက် Google Play မှ အသုံးပြုသည့် အကောင့်တွင် Pro ဝယ်ယူမှုကို အတည်ပြုလို့ မရခဲ့သည်။</string>
     <string name="upgrade_screen_restore_contact_hint">ဆက်လက်အခက်အခဲရှိသလား။ ဝယ်ယူခဲ့သည့် အီးမေးလ်အကောင့်မှတစ်ဆင့် အကူအညီကို ဆက်သွယ်ပါ။ သင်၏ Google Play အမှာစာ နံပါတ်ကိုလည်း ထည့်သွင်းပါ။</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ဖြင့် စစ်ဆေးမှုသည် အချိန်တည့်သည်နှင့် မပြီးဆုံးခဲ့သည်။ သင်၏ ဆိုင်ခြင်းအနေအထားသည် မသိနိုင်သေးသည်။ သင်၏ အကောင့်တွင် အဘယ်အရာမျှ အောင်မြင်သည်မဟုတ်ခဲ့သည်။</string>
 </resources>

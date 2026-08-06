@@ -5,12 +5,12 @@
         <item quantity="other">%s wurden freigegeben.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-        <item quantity="one">%s Element verarbeitet seit Sie SD Maid auf Ihr Gerät geladen haben.</item>
-        <item quantity="other">%s Elemente verarbeitet seit Sie SD Maid auf Ihr Gerät geladen haben.</item>
+        <item quantity="one">%s Element verarbeitet, seit du SD Maid zu deinem Gerät eingeladen hast.</item>
+        <item quantity="other">%s Elemente verarbeitet, seit du SD Maid zu deinem Gerät eingeladen hast.</item>
     </plurals>
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>
-    <string name="stats_settings_desc">Konfigurieren Sie die Statistiken, Berichte und die Datenspeicherung von SD Maid.</string>
+    <string name="stats_settings_desc">Konfiguriere SD Maids Statistiken, Berichte und die Datenaufbewahrung.</string>
     <string name="stats_settings_retention_category">Aufbewahrung</string>
     <string name="stats_settings_retention_reports_label">Allgemeine Berichte</string>
     <string name="stats_settings_retention_reports_desc">Anzahl der Tage vor dem Löschen der grundlegenden SD Maid Operationsberichte.</string>

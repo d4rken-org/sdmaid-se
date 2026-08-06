@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">\'n Interne Google Play-fout het voorgekom. Probeer asseblief die volgende:\n\n• Herbegin jou toestel\n• Maak Google Play Winkel-kas skoon\n• Probeer later weer</string>
     <string name="upgrades_gplay_network_error_title">Verbindingsfout</string>
     <string name="upgrades_gplay_network_error_description">Kan nie aan Google Play koppel nie. Kontroleer asseblief jou internetverbinding en probeer weer.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Aanbod nie beskikbaar nie</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play bied hierdie opgraadopsie tans nie aan. Probeer later weer of kyk in die Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Kon nie Google Play oopmaak nie. Dit mag ontbreek, gedeaktiveer of beperkt wees op hierdie toestel.</string>
     <string name="upgrades_gplay_already_owned_error_title">Reeds gekoop</string>
     <string name="upgrades_gplay_already_owned_error_description">Gebruik die \"Herstel aankoop\"-opsie om jou aankoop te herstel. As die probleem voortduur, probeer om die Google Play-kas skoon te maak en jou toestel te herbegin.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Kry %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid het geen advertensies nie en verkoop nie gebruikersdata nie. My werk word deur jou gefinansier ❤️.</string>
     <string name="upgrade_screen_benefits_title">Upgrade voordele</string>
     <string name="upgrade_screen_benefits_body">• Appkasgeheue en rommelopskoning\n• Duplikaatlêer-verwydering\n• Foto- en videokompressie\n• Veeg om oue lêers op te ruim\n• Eentik-skoonmaak via widget\n• Skoonmaak-skedulering\n• Pasgemaakte filters en reëls\n• Bergingneigings en -geskiedenis\n• Meer funksies en kontroles regdeur die app\n• Ondersteun voortgesette ontwikkeling</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Vernuwe jaarliks. Kanselleer enige tyd in Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Koop eenmalig</string>
     <string name="upgrade_screen_iap_offer_body">Een betaling, geen vernuwings nie.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Pryse nie beskikbaar nie</string>
     <string name="upgrade_screen_offers_unavailable_message">Pryse kon nie nou gelaai word nie. Kontroleer Google Play en probeer oor \'n oomblik weer.</string>
     <string name="upgrade_screen_subscription_trial_action">Begin gratis 14-dag proef</string>
     <string name="upgrade_screen_subscription_action">Teken in</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Kontak ondersteuning</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid het nou Google Play gekontroleer, maar geen Pro-aankoop kon bevestig word vir die rekening wat Google Play vir hierdie app gebruik nie.</string>
     <string name="upgrade_screen_restore_contact_hint">Nog steeds vas? Kontak ondersteuning vanaf die e-pos wat die aankoop gemaak het en sluit jou Google Play-ordernommer in.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Die kontrole met Google Play het nie op tyd voltooi nie, dus is u koopstatus steeds onbekend. Niks het op u rekening verander nie.</string>
 </resources>

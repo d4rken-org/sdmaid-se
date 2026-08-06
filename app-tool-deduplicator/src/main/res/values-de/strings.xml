@@ -21,10 +21,10 @@
     <string name="deduplicator_detection_method_checksum_title">Inhaltsprüfsumme</string>
     <string name="deduplicator_detection_method_checksum_summary">Ermittele Duplikate durch die Berechnung von Prüfsummen für Dateien. Dateien mit übereinstimmenden Prüfsummen haben genau den gleichen Inhalt.</string>
     <string name="deduplicator_detection_method_phash_title">Wahrnehmungshash</string>
-    <string name="deduplicator_detection_method_phash_summary">Finde ähnliche Dateien, indem Inhaltsmerkmale analysiert und wahrnehmungsbezogene Hash-Werte verglichen werden.</string>
+    <string name="deduplicator_detection_method_phash_summary">Ähnliche Dateien durch Analyse von Inhaltsmerkmalen und den Vergleich von Perceptual Hashes finden.</string>
     <string name="deduplicator_detection_method_media_title">Medien-Fingerabdruck</string>
     <string name="deduplicator_detection_method_media_summary">Finde ähnliche Video- und Audiodateien durch die Analyse von Audio-Fingerabdrücken.</string>
-    <string name="deduplicator_detection_method_similarity_caveat">Die ähnlichkeitsbasierte Erkennung kann zu falsch positiven Ergebnissen führen, die eine manuelle Überprüfung erfordern.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Die ähnlichkeitsbasierte Erkennung kann zu Fehlalarmen führen, die eine manuelle Überprüfung erfordern.</string>
     <string name="deduplicator_media_match_audio">Audio-basierte Übereinstimmung</string>
     <string name="deduplicator_media_match_visual">Video-basierte Übereinstimmung</string>
     <string name="deduplicator_media_match_audio_visual">Audio- und videobasierte Übereinstimmung</string>
@@ -57,7 +57,7 @@
     <string name="deduplicator_matches_similar_label">Ähnliche Dateien</string>
     <string name="deduplicator_arbiter_title">Löschstrategie</string>
     <string name="deduplicator_arbiter_summary">Konfiguriere, welche Dateien behalten und welche gelöscht werden.</string>
-    <string name="deduplicator_arbiter_explanation">Beim Löschen von Duplikaten entscheidet SD Maid, welche Datei behalten wird, indem jedes Kriterium der Reihe nach geprüft wird. Das erste Kriterium mit einem klaren Ergebnis bestimmt die Entscheidung. Ziehen zum Neuordnen, tippen zum Ändern des Modus.</string>
+    <string name="deduplicator_arbiter_explanation">Beim Löschen von Duplikaten entscheidet SD Maid, welche Datei behalten wird, indem nacheinander verschiedene Kriterien geprüft werden. Das erste Kriterium, das einen eindeutigen Gewinner liefert, bestimmt das Ergebnis. Zum Neuordnen ziehen, zum Ändern des Modus antippen.</string>
     <string name="deduplicator_arbiter_select_mode_title">Modus auswählen</string>
     <string name="deduplicator_arbiter_configure_paths_action">Pfade konfigurieren…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplikattyp</string>
@@ -88,6 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere Dateien bevorzugen</string>
     <string name="deduplicator_view_mode_groups_label">Gruppen</string>
     <string name="deduplicator_view_mode_directories_label">Ordner</string>
-    <string name="tour_deduplicator_details_cluster_body">Diese Dateien scheinen alle dasselbe Element oder denselben Medieninhalt zu sein – eine Gruppe von Duplikaten.</string>
-    <string name="tour_deduplicator_details_delete_mark_body">Dateien mit diesem Symbol werden gelöscht; die verbleibende Datei in der Gruppe ist die, die SD Maid behält. Sie können in den Einstellungen der Löschstrategie ändern, welche Datei behalten wird.</string>
+    <string name="tour_deduplicator_details_cluster_body">Diese Dateien scheinen alle dasselbe Element bzw. denselben Medieninhalt darzustellen – ein Cluster von Duplikaten.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Dateien mit diesem Symbol werden gelöscht; die verbleibende Datei in der Gruppe ist diejenige, die SD Maid behält. Du kannst in den Einstellungen zur Löschstrategie anpassen, wie die beizubehaltende Datei ausgewählt wird.</string>
 </resources>

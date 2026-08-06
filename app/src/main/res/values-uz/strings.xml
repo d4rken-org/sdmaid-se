@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Barcha vositalardan natijalarni o\'chirish kerakmi?</string>
     <string name="dashboard_hero_freeable_headline">%1$s bo\'shatish mumkin</string>
     <string name="dashboard_hero_freed_headline">%1$s bo\'shatildi</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d narsa olib tashlanishi mumkin</item>
+        <item quantity="other">%d narsa olib tashlanishi mumkin</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d narsa olib tashlandi</item>
+        <item quantity="other">%d narsa olib tashlandi</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Maydonni bo\'shatish uchun tugmani bosing yoki birinchi tekshirish uchun chipni bosing.</string>
     <string name="dashboard_hero_freed_hint">Batafsil uchun chipni bosing.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s qoldi</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Hech narsa bo\'shatilmadi</string>
+    <string name="dashboard_hero_nothing_freed_caption">Tozalash yakunlandi, lekin topilgan ma\'lumotlarning hech qaysisi olib tashlanmadi.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Ba\'zi ma\'lumotlar faqat qo\'shimcha kirish orqali, masalan, kirish xizmati yoki root orqali olib tashlanishi mumkin.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s tekshirildi</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s bo\'shatildi</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s urinildi</string>
     <string name="dashboard_settings_category">Boshqaruv paneli</string>
     <string name="dashboard_motd_title">Ishlab chiqaruvchidan xabar</string>
     <string name="dashboard_settings_oneclick_title">Bir marta bosish rejimi</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku root kirish huquqi bilan birgalikda qo\'shimcha xususiyatlarni yoqmaydi, lekin ishonchlilikni oshiradi. SD Maid uni zaxira usul sifatida ishlatadi.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku aloqasi tayyor.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku bilan aloqani kutmoqda.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku ilovasi o\'rnatilmagan.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku\'dan foydalanishni sinab ko\'ring</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku dan foydalanmang</string>
     <string name="setup_dismiss_hint">Sozlash ekranini sozlamalar menyusi orqali qayta topishingiz mumkin.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Ilovalarni qayta yuklash</string>
     <string name="debug_card_root_test_action">Root ni sinash</string>
     <string name="debug_card_shizuku_test_action">Shizuku ni sinash</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Sinab ko\'rish rejimi faol</string>
+    <string name="dashboard_dryrun_warning_body">Tozalash sinab ko\'rilmoqda. Fayllar skanerlandi va hisobot qilinmoqda, lekin hechnarsa o\'chirilmadi.</string>
+    <string name="dashboard_dryrun_warning_disable_action">O\'chir</string>
     <string name="data_area_public_app_data_official_label">Standart ommaviy ilova ma\'lumotlari</string>
     <string name="data_area_public_app_assets_official_label">Standart ommaviy ilova aktivlari</string>
     <string name="data_area_public_storage_label">Ommaviy xotira</string>

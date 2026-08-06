@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">모든 도구의 결과를 삭제할까요?</string>
     <string name="dashboard_hero_freeable_headline">%1$s를 확보할 수 있습니다</string>
     <string name="dashboard_hero_freed_headline">%1$s 확보됨</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">%d개 항목을 제거할 수 있습니다</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">%d개 항목을 제거하였습니다</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">버튼을 탭하여 공간을 확보하거나 먼저 확인하려면 칩을 탭하세요.</string>
     <string name="dashboard_hero_freed_hint">칩을 눌러 자세한 정보를 확인하세요.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s 남음</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">해제된 것이 없습니다</string>
+    <string name="dashboard_hero_nothing_freed_caption">정리가 완료되었지만 발견된 데이터 중 제거할 수 있는 것이 없습니다.</string>
+    <string name="dashboard_hero_nothing_freed_hint">일부 데이터는 접근성 서비스 또는 루트 권한 같은 추가 접근 권한이 있어야만 제거할 수 있습니다.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s 스캔됨</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s 확보됨</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s 시도됨</string>
     <string name="dashboard_settings_category">대시보드</string>
     <string name="dashboard_motd_title">개발자의 메시지</string>
     <string name="dashboard_settings_oneclick_title">원클릭 모드</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">루팅과 Shizuku를 쓰면 추가적 기능보다는 안정성이 증가합니다. SD Maid는 그것을 보조 방법으로 사용할 것입니다.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku 연결이 준비되었습니다.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku의 연결을 기다리고 있습니다.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku 앱이 설치되어 있지 않습니다.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku 사용 시도</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku 사용하지 않음</string>
     <string name="setup_dismiss_hint">본 초기 설정은 앱 내 설정 메뉴에서 다시 볼 수 있습니다.</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
     <string name="debug_card_root_test_action">루트 테스트</string>
     <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">드라이 런 모드가 활성화되어 있습니다</string>
+    <string name="dashboard_dryrun_warning_body">정리가 시뮬레이션 중입니다. 파일은 검사하고 보고하지만 실제로는 삭제되지 않습니다.</string>
+    <string name="dashboard_dryrun_warning_disable_action">끄기</string>
     <string name="data_area_public_app_data_official_label">기본 공개 앱 데이터</string>
     <string name="data_area_public_app_assets_official_label">기본 공개 앱 자산</string>
     <string name="data_area_public_storage_label">공개 저장소</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">기기</string>
     <string name="review_app_review_action">리뷰</string>
     <string name="review_app_dismiss_action">다음에 해요</string>
-    <string name="review_app_body">SD Maid 리뷰를 남겨주시겠어요?️ ❤️</string>
+    <string name="review_app_body">SD Maid 리뷰를 남겨주시겠어요? ❤️</string>
     <string name="anniversary_card_title">SD Maid 기념일을 축하합니다 ❤️</string>
     <string name="anniversary_card_install_date">%s부터 함께하고 있습니다</string>
     <plurals name="anniversary_card_body">

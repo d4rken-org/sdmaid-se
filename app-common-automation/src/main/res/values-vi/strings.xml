@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Một tác vụ đã lên lịch đã cố sử dụng dịch vụ trợ năng, nhưng nó không khả dụng. Nếu bạn không cần điều này, hãy tắt tùy chọn \"Dịch vụ trợ năng\" trong cài đặt trình lên lịch.</string>
     <string name="automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
     <string name="automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
+    <string name="automation_error_disabled_app_title">Ứng dụng bị vô hiệu hóa</string>
+    <string name="automation_error_disabled_app_body">Thiết bị của bạn không thể mở cài đặt của ứng dụng bị vô hiệu hóa, vì vậy không thể xóa bộ nhớ cache qua dịch vụ trợ năng. Hãy bật ứng dụng hoặc sử dụng root hoặc Shizuku/ADB thay thế.</string>
     <string name="automation_error_interference_title">Màn hình cài đặt bị chặn</string>
     <string name="automation_error_interference_body">Một ứng dụng khác (%1$s) đang chặn màn hình cài đặt hệ thống, vì vậy SD Maid không thể tiếp tục. Tắt khóa ứng dụng hoặc bảo vệ màn hình của ứng dụng đó cho cài đặt hệ thống, rồi thử lại.</string>
     <string name="automation_loading">Preparing automation via accessibility service</string>

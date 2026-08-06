@@ -3,11 +3,39 @@
     <string name="dashboard_delete_all_message">حذف النتائج في كل الأدوات؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s يمكن تحريره</string>
     <string name="dashboard_hero_freed_headline">%1$s محررة</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="zero">لا يمكن إزالة أي عناصر</item>
+        <item quantity="one">يمكن إزالة %d عنصر</item>
+        <item quantity="two">يمكن إزالة %d عنصرين</item>
+        <item quantity="few">يمكن إزالة %d عناصر</item>
+        <item quantity="many">يمكن إزالة %d عنصراً</item>
+        <item quantity="other">يمكن إزالة %d عنصر</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="zero">لم يتم إزالة أي عناصر</item>
+        <item quantity="one">تم إزالة %d عنصر</item>
+        <item quantity="two">تم إزالة %d عنصرين</item>
+        <item quantity="few">تم إزالة %d عناصر</item>
+        <item quantity="many">تم إزالة %d عنصراً</item>
+        <item quantity="other">تم إزالة %d عنصر</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">اضغط على الزر لتحرير مساحة، أو على شريحة للفحص أولاً</string>
     <string name="dashboard_hero_freed_hint">اضغط على شريط للاطلاع على التفاصيل.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">متبقي %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">لم يتم تحرير أي مساحة</string>
+    <string name="dashboard_hero_nothing_freed_caption">انتهى التنظيف، لكن تعذر إزالة أي من البيانات المكتشفة.</string>
+    <string name="dashboard_hero_nothing_freed_hint">يمكن إزالة بعض البيانات فقط بوصول إضافي، مثل خدمة إمكانية الوصول أو الوصول الجذري.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">تم فحص %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">تم تحرير %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">تم محاولة %1$s</string>
     <string name="dashboard_settings_category">الرئيسية</string>
     <string name="dashboard_motd_title">رسالة من المطور</string>
     <string name="dashboard_settings_oneclick_title">وضع النقرة الواحدة</string>
@@ -236,6 +264,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku مع الوصول إلى الجذر لا يتيح ميزات إضافية، ولكنه يحسن الموثوقية. سوف يستخدمه SD Maid كطريقة احتياطية.</string>
     <string name="setup_shizuku_state_ready_label">رابط شيزوكو جاهز.</string>
     <string name="setup_shizuku_state_waiting_label">في انتظار الرابط مع شيزوكو.</string>
+    <string name="setup_shizuku_state_not_installed_label">تطبيق Shizuku غير مثبت.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">حاول استخدام شيزوكو</string>
     <string name="setup_shizuku_disable_shizuku_use_label">لا تستخدم شيزوكو</string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
@@ -290,6 +319,10 @@
     <string name="debug_card_pkgs_reload_action">إعادة تحميل التطبيقات</string>
     <string name="debug_card_root_test_action">اختبار الجذر</string>
     <string name="debug_card_shizuku_test_action">اختبار شيزوكو</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">وضع المحاكاة نشط</string>
+    <string name="dashboard_dryrun_warning_body">يتم محاكاة التنظيف. يتم فحص الملفات والإبلاغ عنها، لكن لا يتم حذف شيء فعلياً.</string>
+    <string name="dashboard_dryrun_warning_disable_action">إيقاف التشغيل</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
     <string name="data_area_public_app_assets_official_label">أصول التطبيق العامة الافتراضية</string>
     <string name="data_area_public_storage_label">التخزين العام</string>
@@ -309,7 +342,7 @@
     <string name="device_settings_category">الجهاز</string>
     <string name="review_app_review_action">مراجعة</string>
     <string name="review_app_dismiss_action">ربما لاحقًا</string>
-    <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Med؟ ❤️</string>
+    <string name="review_app_body">هل ترغب في ترك تعليق لـ SD Maid؟ ❤️</string>
     <string name="anniversary_card_title">ذكرى الذاكرة SD السعيدة ❤️</string>
     <string name="anniversary_card_install_date">معك منذ %s</string>
     <plurals name="anniversary_card_body">

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Ordner schnell aufräumen — durch Dateien wischen, um sie zu behalten, zu löschen oder zu überspringen.</string>
+    <string name="swiper_tool_description">Ordner schnell aufräumen – wische durch Dateien zum Behalten, Löschen oder Überspringen.</string>
     <string name="swiper_dashcard_description">Bestimmte Ordner schneller aufräumen als mit einem Dateimanager — einfach über jede Datei wischen.</string>
-    <string name="swiper_start_action">Wischen starten</string>
+    <string name="swiper_start_action">Los wischen</string>
     <string name="swiper_continue_action">Sitzung fortsetzen</string>
-    <string name="swiper_sessions_description">Dateien in 3 einfachen Schritten durchgehen:\n\n1. Einen Ordner zum Scannen auswählen\n2. Durch Dateien wischen, um sie zu behalten, zu löschen oder zu überspringen\n3. Deine Auswahl überprüfen und bestätigen\n\nNichts wird entfernt, bis du den endgültigen Löschen-Button drückst.</string>
+    <string name="swiper_sessions_description">Überprüfe Dateien in 3 einfachen Schritten:\n\n1. Wähle einen Ordner zum Scannen aus\n2. Wische durch Dateien zum Behalten, Löschen oder Überspringen\n3. Überprüfe deine Auswahl und bestätige\n\nNichts wird entfernt, bis du auf den finalen Löschen-Button tippst.</string>
     <string name="swiper_select_folders_action">Ordner auswählen</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d Element gefunden</item>
@@ -41,12 +41,12 @@
         <item quantity="one">…und %d weiterer Ordner</item>
         <item quantity="other">…und %d weitere Ordner</item>
     </plurals>
-    <string name="swiper_delete_confirmation_checkbox">Mir ist bewusst, dass diese Dateien endgültig gelöscht werden.</string>
+    <string name="swiper_delete_confirmation_checkbox">Mir ist bewusst, dass diese Dateien unwiderruflich gelöscht werden.</string>
     <string name="swiper_sensitive_root_warning_title">Gesamten Speicher scannen?</string>
-    <string name="swiper_sensitive_root_warning_message">Das Scannen von %1$s umfasst jede Datei auf diesem Speicher – Fotos, Dokumente, Downloads, App-Medien und mehr. Fortfahren?</string>
+    <string name="swiper_sensitive_root_warning_message">Das Scannen von %1$s schließt jede Datei auf diesem Speicher ein – Fotos, Dokumente, Downloads, App-Medien und mehr. Fortfahren?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Trotzdem fortfahren</string>
-    <string name="swiper_session_risky_label">Ganzspeicher-Scan</string>
-    <string name="swiper_session_risky_info_message">Diese Sitzung erfasst das gesamte Speichervolumen, daher befinden sich alle Dateien auf diesem Speicher im Geltungsbereich – Fotos, Dokumente, Downloads, App-Medien und mehr.\n\nGanzspeicher-Scans können viele Elemente zurückgeben, einschließlich Dateien, die Sie möglicherweise nicht überprüfen wollten. Wenden Sie einen Dateityp-Filter an, um den Scan einzugrenzen.</string>
+    <string name="swiper_session_risky_label">Gesamtspeicher-Scan</string>
+    <string name="swiper_session_risky_info_message">Diese Sitzung zielt auf das Stammverzeichnis eines Speichers ab, sodass jede Datei auf diesem Speicher einbezogen wird – Fotos, Dokumente, Downloads, App-Medien und mehr.\n\nScans des gesamten Speichers können viele Elemente liefern, einschließlich Dateien, die du vielleicht nicht überprüfen wolltest. Wende einen Dateityp-Filter an, um den Scan einzuschränken.</string>
     <string name="swiper_delete_x_action">%1$d löschen</string>
     <string name="swiper_settings_swap_directions_title">Wischrichtungen tauschen</string>
     <string name="swiper_settings_swap_directions_summary">Nach links wischen zum Behalten, nach rechts zum Löschen.</string>
@@ -72,7 +72,7 @@
     <string name="swiper_session_timestamps">Erstellt %1$s, letzte Aktivität %2$s</string>
     <string name="swiper_session_remove_action">Sitzung entfernen</string>
     <string name="swiper_sessions_empty_hint">Tippe +, um einen Ordner auszuwählen und mit dem Wischen zu beginnen</string>
-    <string name="swiper_sessions_upgrade_body">Upgrade, um diese Grenzen zu entfernen und die Entwicklung zu unterstützen. Die kostenlose Version ist begrenzt auf:</string>
+    <string name="swiper_sessions_upgrade_body">Upgrade durchführen, um diese Limits aufzuheben und die Entwicklung zu unterstützen. Die kostenlose Version ist beschränkt auf:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
         <item quantity="one">%d Datei pro Sitzung</item>
         <item quantity="other">%d Dateien pro Sitzung</item>
@@ -141,7 +141,7 @@
     <string name="swiper_gesture_overlay_up_skip">↑ Überspringen</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Rückgängig</string>
     <string name="swiper_help_title">So funktioniert Swiper</string>
-    <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wisch)\n\nDu kannst auch die Schaltflächen unten verwenden.\n\nWenn du fertig bist, tippe auf \"Überprüfen\", um alle deine Entscheidungen zu sehen. Es wird nichts gelöscht, bis du auf dem Überprüfungsbildschirm bestätigst.</string>
+    <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wischen)\n\nDu kannst auch die Buttons unten verwenden.\n\nWenn du fertig bist, tippe auf „Übersicht“, um alle deine Entscheidungen anzuzeigen. Nichts wird gelöscht, bis du es auf dem Übersichts-Bildschirm bestätigst.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Verstanden</string>
     <string name="swiper_file_type_filter_title">Nur diese Dateitypen anzeigen</string>
     <string name="swiper_file_type_filter_hint">Wähle die Typen aus, die du sehen möchtest. Wenn keine ausgewählt sind, werden alle Dateien angezeigt.</string>
@@ -160,9 +160,9 @@
     <string name="swiper_session_no_matching_files">Keine passenden Dateien gefunden</string>
     <string name="swiper_open_externally_action">In externer App öffnen</string>
     <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Wische eine Datei seitwärts zum Behalten oder Löschen, oben zum Überspringen oder unten zum Rückgängigmachen. Die Schaltflächen unten machen dasselbe – und zeigen, welche Seite welche ist.</string>
+    <string name="tour_swiper_gestures_body">Wische über eine Datei, um über ihr Schicksal zu entscheiden: zur Seite, um sie zu behalten oder zu löschen, nach oben, um sie zu überspringen, nach unten, um sie rückgängig zu machen. Die Buttons unten bewirken dasselbe – und zeigen an, welche Seite wozu gehört.</string>
     <string name="tour_swiper_openin_body">Diese Schaltfläche öffnet die Datei in einer anderen App, praktisch um sie vor der Entscheidung zu überprüfen.</string>
     <string name="tour_swiper_preview_body">Diese Schaltfläche öffnet eine Vollbildvorschau zum genaueren Betrachten.</string>
-    <string name="tour_swiper_actions_body">Mögen Sie das Wischen nicht? Wir haben auch Schaltflächen! Mit „Überspringen“ bleibt die Entscheidung für später offen, und das lange Drücken von „Überspringen“ schließt eine Datei aus zukünftigen Scans aus. „Rückgängig“ macht Ihre letzte Wahl rückgängig.</string>
-    <string name="tour_swiper_review_body">Ihre Beibehaltungs- und Löschentscheidungen sind nur vorgemerkt. Öffnen Sie die Überprüfung, um diese durchzugehen und die Löschungen anzuwenden, wenn Sie bereit sind.</string>
+    <string name="tour_swiper_actions_body">Magst du das Wischen nicht? Wir haben auch Buttons! Mit „Überspringen“ bleibt die Datei vorerst unentschieden, und ein lang gedrückter Klick auf „Überspringen“ schließt eine Datei von zukünftigen Scans aus. „Rückgängig“ macht deine letzte Auswahl rückgängig.</string>
+    <string name="tour_swiper_review_body">Deine Behalten- und Löschen-Auswahl ist nur vorgemerkt. Öffne die Übersicht, um sie zu prüfen und die Löschvorgänge durchzuführen, sobald du bereit bist.</string>
 </resources>

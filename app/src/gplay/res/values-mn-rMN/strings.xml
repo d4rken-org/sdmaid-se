@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Google Play-н дотоод алдаа гарлаа. Дараахийг оролдоно уу:\n\n• Төхөөрөмжөө дахин эхлүүлэх\n• Google Play Store кэшийг цэвэрлэх\n• Дараа дахин оролдох</string>
     <string name="upgrades_gplay_network_error_title">Холболтын алдаа</string>
     <string name="upgrades_gplay_network_error_description">Google Play-тай холбогдож чадсангүй. Интернэт холболтоо шалгаад дахин оролдоно уу.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Санал боломжгүй</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play одоогоор энэ шадаруулах сонголтыг санал болгож байхгүй. Дараа оролдоно уу эсвэл Google Play Store-г шалгана уу.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play-г нээх боломжгүй байлаа. Энэ төхөөрөмжид байхгүй, идэвхгүй эсвэл хязгаарлагдсан байж болно.</string>
     <string name="upgrades_gplay_already_owned_error_title">Аль хэдийн худалдаж авсан</string>
     <string name="upgrades_gplay_already_owned_error_description">Худалдан авалтаа сэргээхийн тулд \"Худалдан авалтыг сэргээх\" сонголтыг ашиглана уу. Асуудал арилахгүй бол Google Play кэшийг цэвэрлэж, төхөөрөмжөө дахин эхлүүлэхийг оролдоно уу.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s авах</string>
     <string name="upgrade_screen_preamble">SD Maid зар сурталчилгаагүй бөгөөд хэрэглэгчийн өгөгдлийг зардаггүй. Миний ажлыг та санхүүжүүлдэг ❤️.</string>
     <string name="upgrade_screen_benefits_title">Шинэчлэлийн ашигууд</string>
     <string name="upgrade_screen_benefits_body">• Аппын сан болон хүхрэлтүүрийн цэвэрлэх\n• Нөлөө файлуудыг устгах\n• Зураг болон видеог шахах\n• Хуучин файлуудыг шүүрдэх-цэвэрлэх\n• Виджет дээрх нэг дарцын цэвэрлэлт\n• Цэвэрлэлтийн хуваарь\n• Өөрийн гэсэн шүүлтүүр болон дүрэм\n• Сан хадгалах чиг хандлага болон түүх\n• Аппын дашаар илүү олон шинж чанар болон хяналт\n• Үргэлжүүлэн хөгжүүлэх дэмжлэг</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Жилдээ шинэчлэгддэг. Google Play-д ямар ч үед цуцлах боломжтой.</string>
     <string name="upgrade_screen_iap_offer_title">Нэг удаа худалдаж авах</string>
     <string name="upgrade_screen_iap_offer_body">Нэг төлөлт, дахин төлөлтгүй.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Үнэ авах боломжгүй</string>
     <string name="upgrade_screen_offers_unavailable_message">Үнэ одоо ачаалж чадаагүй байна. Google Play-г шалгаж дахин оролдоно уу.</string>
     <string name="upgrade_screen_subscription_trial_action">14 хоногийн үнэ төлбөргүй туршилт эхлүүлэх</string>
     <string name="upgrade_screen_subscription_action">Захиалах</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Дэмжлэгтэй холбогдох</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid саяхан Google Play-г шалгасан боловч энэ аппын хувьд Google Play ашиглаж буй бүртгэлийн Pro худалдаа баталгаажуулах чадсангүй.</string>
     <string name="upgrade_screen_restore_contact_hint">Хэвээр асуудалтай байна уу? Худалдаа хийсэн имэйлээс дэмжлэгтэй холбогдж, Google Play захиалганы дугаараа оруулна уу.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-тэй шалгалт цаг дотор дуусчаагүй тул таны худалдан авалтын статус хэвээр тодорхойгүй. Таны бүртгэлийн хэсэгт юу ч өөрчлөгдөөгүй.</string>
 </resources>

@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">በሁሉም መሳሪያዎች ውስጥ ያሉ ውጤቶችን ይሰረዙ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ነፃ ሊሆን ይችላል</string>
     <string name="dashboard_hero_freed_headline">%1$s ተገለለ</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d ንጥል ሊወገድ ይችላል</item>
+        <item quantity="other">%d ንጥሎች ሊወገዱ ይችላሉ</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d ንጥል ተወግዷል</item>
+        <item quantity="other">%d ንጥሎች ተወግደዋል</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">ቦታ ለመክፈት ቁልፍ ይጫኑ ወይም መጀመሪያ ለመመርመር ሪባ ይጫኑ።</string>
     <string name="dashboard_hero_freed_hint">ዝርዝሮች ለማየት ሊባ ታች ያድርጉ።</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s ተወው</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">ምንም ነገር አልተወጠረም</string>
+    <string name="dashboard_hero_nothing_freed_caption">ንጽህናው ተጠናቋል፣ ነገር ግን ምንም ውሂብ ሊወገድ አልቻለም።</string>
+    <string name="dashboard_hero_nothing_freed_hint">አንዳንድ ውሂብ በተጨማሪ መዳረሻ፣ እንደ ተደራሽነት አገልግሎት ወይም ሥር ብቻ ሊወገድ ይችላል።</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ተመርምሯል</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ተገለለ</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">ሞከረ %1$s</string>
     <string name="dashboard_settings_category">ዳሽቦርድ</string>
     <string name="dashboard_motd_title">ከገንቢው የመጣ መልእክት</string>
     <string name="dashboard_settings_oneclick_title">አንድ-ነክ ሁነታ</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">ሺዙኩ ከሩት መዳረሻ ጋር ተጨማሪ ባህሪያትን አያስችልም፤ ግን አስተማማኝነትን ያሻሽላል። ኤስዲ ሜይድ እንደ አማራጭ ዘዴ ይጠቀምበታል።</string>
     <string name="setup_shizuku_state_ready_label">የሺዙኩ ሊንክ ዝግጁ ነው።</string>
     <string name="setup_shizuku_state_waiting_label">ከሺዙኩ ጋር ለመገናኘት እየተጠበቀ ነው።</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku መተግበሪያ ተጭኖ አልተገኘም።</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ሺዙኩን ይሞክሩ</string>
     <string name="setup_shizuku_disable_shizuku_use_label">ሺዙኩን አትጠቀም</string>
     <string name="setup_dismiss_hint">የማዋቀሪያ ስክሪኑን ከቅንብሮች ምናሌ በኩል እንደገና ማግኘት ይችላሉ।</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">መተግበሪያዎችን እንደገና ጫን</string>
     <string name="debug_card_root_test_action">Root ፈትን</string>
     <string name="debug_card_shizuku_test_action">Shizuku ፈትን</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ሞከራ ሁኔታ ንቁ ነው</string>
+    <string name="dashboard_dryrun_warning_body">ንጽህናው ይመስሎ ይሰራል። ፋይሎች ተሰርሰዋል እና ሪፖርት ተደርገዋል፣ ነገር ግን ምንም ነገር በእርግጥ አልተሰረ።</string>
+    <string name="dashboard_dryrun_warning_disable_action">ያጥፉ</string>
     <string name="data_area_public_app_data_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ውሂብ</string>
     <string name="data_area_public_app_assets_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ንብረቶች</string>
     <string name="data_area_public_storage_label">ሕዝባዊ ማጠራቀሚያ</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">መሣሪያ</string>
     <string name="review_app_review_action">ግምገማ</string>
     <string name="review_app_dismiss_action">ምናልባት በኋላ</string>
-    <string name="review_app_body">ለSD Maid ግምገማ ማስቀመጥ ይፈልጋሉ?️ ❤️</string>
+    <string name="review_app_body">ለSD Maid ግምገማ ማስቀመጥ ይፈልጋሉ? ❤️</string>
     <string name="anniversary_card_title">የSD Maid ዓመታዊ መታሰቢያ ❤️</string>
     <string name="anniversary_card_install_date">ከ%s ጀምሮ ከእርስዎ ጋር</string>
     <plurals name="anniversary_card_body">

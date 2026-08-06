@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">ເກີດຂໍ້ຜິດພາດພາຍໃນ Google Play. ກະລຸນາລອງດັ່ງຕໍ່ໄປນີ້:\n\n• ຣີສະຕາດອຸປະກອນຂອງທ່ານ\n• ລ້າງແຄສ Google Play Store\n• ລອງໃໝ່ພາຍຫຼັງ</string>
     <string name="upgrades_gplay_network_error_title">ຂໍ້ຜິດພາດການເຊື່ອມຕໍ່</string>
     <string name="upgrades_gplay_network_error_description">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Google Play ໄດ້. ກະລຸນາກວດສອບການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ ແລະລອງໃໝ່.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ບໍ່ມີການສະເຫນີ</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ໃນປະຈຸບັນບໍ່ສະເຫນີທາງເລືອກການອັບເກຣດນີ້ ກະລຸນາລອງອີກຄັ້ງໃນພາຍຫຼັງ ຫືລກວດສອບ Google Play Store</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">ບໍ່ສາມາດເປີດ Google Play ໄດ້. ມັນອາດຈະບໍ່ມີ, ຖືກປິດໄວ້ ຫຼື ຖືກຈໍາກັດໃນອຸປະກອນນີ້.</string>
     <string name="upgrades_gplay_already_owned_error_title">ຊື້ແລ້ວ</string>
     <string name="upgrades_gplay_already_owned_error_description">ໃຊ້ຕົວເລືອກ \"ກູ້ຄືນການຊື້\" ເພື່ອກູ້ຄືນການຊື້ຂອງທ່ານ. ຖ້າບັນຫາຍັງຄົງຢູ່, ລອງລ້າງແຄສ Google Play ແລະຣີສະຕາດອຸປະກອນຂອງທ່ານ.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">ຮັບ %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ບໍ່ມີໂຄສະນາ ແລະບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້. ວຽກຂອງຂ້ອຍໄດ້ຮັບການສະໜັບສະໜູນທາງການເງິນໂດຍທ່ານ ❤️.</string>
     <string name="upgrade_screen_benefits_title">ປະໂຫຍດຂອງການຍົກລະດັບ</string>
     <string name="upgrade_screen_benefits_body">• ການລຶບລາຍລະບາກ ແລະ ຂໍ້ມູນວຕະ\n• ການລຶບແຟ້ມທີ່ຊໍ້າກັນ\n• ການບີບອັດຮູບ ແລະ ວິດີໂອ\n• ການກວາດເພື່ອລຶບແຟ້ມເກົ່າ\n• ການແຊ້ໜຶ່ງຄັ້ງຜ່ານວິດເຈັດ\n• ການກຳນົດເວລາການແຊ້\n• ຕົວກອງ ແລະ ກົດລະບຽບທີ່ກຳນົດເອງ\n• ແນວໂນ້ມ ແລະ ປະວັດ ການເກັບຮັກສາ\n• ລັກສະນະ ແລະ ການຄວບຄຸມເພີ້ມເຕີມທົ່ວແອັບ\n• ສະໜັບສະໜູນການພັຒນາຢ່າງຕໍ່ເນື່ອງ</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">ອັບເດດໃໝ່ທຸກປີ. ຍົກເລີກໄດ້ຕະຫລອດໃນ Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">ຊື້ຄັ້ງດຽວ</string>
     <string name="upgrade_screen_iap_offer_body">ການຊໍາລະເງິນຄັ້ງດຽວ, ບໍ່ມີການອັບເດດໃໝ່.</string>
+    <string name="upgrade_screen_offers_unavailable_title">ລາຄາບໍ່ສາມາດໃຊ້ໄດ້</string>
     <string name="upgrade_screen_offers_unavailable_message">ລາຄາບໍ່ສາມາດໂຫລດໄດ້ໃນຕອນນີ້. ກວດສອບ Google Play ແລະ ລອງໃໝມ່ອີກຄັ້ງໃນບາດກາວ.</string>
     <string name="upgrade_screen_subscription_trial_action">ເລີ່ມທົດລອງຟຣີ 14 ວັນ</string>
     <string name="upgrade_screen_subscription_action">ສະໝັກສະມາຊິກ</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">ຕິດຕໍ່ສະໝັບສະໝູນ</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid ຫາກໍ່ກວດສອບ Google Play, ແຕ່ບໍ່ສາມາດຍືນຍັນການຊື້ Pro ສຳລັບບັນຊີທີ່ Google Play ໃຊ້ສຳລັບແອັບນີ້ໄດ້.</string>
     <string name="upgrade_screen_restore_contact_hint">ຍັງຄົງມີບັນຫາ? ຕິດຕໍ່ສະໝັບສະໝູນຈາກທີ່ຍູ່ອີເມວທີ່ຮັກສາການຊື້ ແລະ ລຽມເອາເລກທີຄຳສັ່ງ Google Play ຂອງທ່ານ.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">ການກວດສອບກັບ Google Play ບໍ່ໄດ້ສຳອັດໃນເວລາ ດັ່ງນັ້ນສະຖານະການຊື້ຂອງທ່ານຍັງບໍ່ຮູ້ ບໍ່ມີສິ່ງໃດປ່ຍນແປງຍູ່ໃນບັນຊີຂອງທ່ານ</string>
 </resources>

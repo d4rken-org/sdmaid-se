@@ -12,8 +12,13 @@
     <string name="upgrades_gplay_internal_error_description">Google Play-ren barne-errore bat gertatu da. Mesedez, saiatu honako hauek:\n\n• Berrabiarazi zure gailua\n• Garbitu Google Play Store-ren katxea\n• Saiatu berriro geroago</string>
     <string name="upgrades_gplay_network_error_title">Konexio-errorea</string>
     <string name="upgrades_gplay_network_error_description">Ezin da Google Play-ra konektatu. Mesedez, egiaztatu zure Interneteko konexioa eta saiatu berriro.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Eskaintza ez dago erabilgarri</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Ezin da Google Play ireki. Baliteke ez dagoela, desgaituta dagoela edo gailuan murrizturik dagoela.</string>
     <string name="upgrades_gplay_already_owned_error_title">Dagoeneko erosita</string>
     <string name="upgrades_gplay_already_owned_error_description">Erabili \"Berreskuratu erosketa\" aukera zure erosketa berreskuratzeko. Arazoak jarraitzen badu, saiatu Google Play katxea garbitzen eta zure gailua berrabiarazten.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Lortu %1$s</string>
     <string name="upgrade_screen_preamble">SD Maidek ez du iragarkirik eta ez du erabiltzailearen daturik saltzen. Nire lana zuk finantzatzen duzu ❤️.</string>
     <string name="upgrade_screen_benefits_title">Hobekuntza onurak</string>
     <string name="upgrade_screen_benefits_body">• Aplikazioaren cache eta zaborraren garbitze\n• Fitxategi bikoitzen ezabaketa\n• Argazki eta bideoen konpresioa\n• Zaharkitutako fitxategiak xuxatuz garbitze\n• Widget bidezko toka bakarreko garbitze\n• Garbitzeen agendatze\n• Pertsonalizatutako filtroak eta arauak\n• Biltegiaren joera eta historia\n• Funtzio eta kontrol gehiago aplikazio osoan\n• Garapenari laguntza</string>
@@ -25,6 +30,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Urtean behin berritzen da. Google Play-en betean anulatatu dezakezu.</string>
     <string name="upgrade_screen_iap_offer_title">Behin erosi</string>
     <string name="upgrade_screen_iap_offer_body">Ordainketa bakarra, berritzerik ez.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Preziak ez daude erabilgarri</string>
     <string name="upgrade_screen_offers_unavailable_message">Prezioak ezin izan dira kargatu orain. Begiratu Google Play eta beranduago saiatu berriro.</string>
     <string name="upgrade_screen_subscription_trial_action">14 eguneko proba doan hasi</string>
     <string name="upgrade_screen_subscription_action">Harpidetu</string>
@@ -59,4 +65,5 @@
     <string name="upgrade_screen_contact_support_action">Jarri laguntza-taldearekin harremanetan</string>
     <string name="upgrade_screen_restore_checked_message">SD Maidek Google Play-n egiaztatu du, baina ez da Pro erosketarik baieztatu ahal izan app honetarako Google Play erabiltzen duen kontuarentzat.</string>
     <string name="upgrade_screen_restore_contact_hint">Oraindik ere trabarik? Jarri laguntza-taldearekin harremanetan erosketak egin zuen postel-helbidean eta sartu zure Google Play eskaeraren zenbakia.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play-rekin egindako egiaztaketa ez da denboran bukatu, beraz zure erosketaren egoera oraindik ezezaguna da. Ez da ezer aldatu zure kontuan.</string>
 </resources>

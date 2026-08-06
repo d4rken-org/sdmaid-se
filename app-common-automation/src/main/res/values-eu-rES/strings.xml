@@ -29,6 +29,8 @@ Ez da inolako ekintzarik egingo erabiltzailearen aldez aurreko onespenaren gabe.
     <string name="automation_error_scheduler_body">Programatutako zeregin batek irisgarritasun-zerbitzua erabiltzen saiatu da, baina erabilgarri ez zegoen. Ez baduzu hau behar, desgaitu \"Irisgarritasun-zerbitzua\" aukera programatzailearen ezarpenetan.</string>
     <string name="automation_error_no_settings_title">Ezarpen-pantaila erabilgarri ez</string>
     <string name="automation_error_no_settings_body">Sistema-aplikazio honek ez du ezarpen-pantailarik. Cachea garbitzea irisgarritasun-zerbitzuaren bidez ez da posible. Baztertu azkartasuna areagotzeko cachea garbitzerakoan.</string>
+    <string name="automation_error_disabled_app_title">Aplikazioa desgaituta dago</string>
+    <string name="automation_error_disabled_app_body">Zure gailua ez du desgaitutako aplikazioen ezarpenen pantaila irekiko, beraz cachea ezin da irisgarritasun zerbitzuaren bidez garbitu. Gaitu aplikazioa, edo root edo Shizuku/ADB erabili beharrean.</string>
     <string name="automation_error_interference_title">Ezarpenen pantaila blokeatu da</string>
     <string name="automation_error_interference_body">Beste aplikazio bat (%1$s) sistemaren ezarpenen pantaila blokeatu du, beraz SD Maid ezin jarraitu. Desgaitu aplikazio horren aplikazio-blokeoa edo pantaila-babesa sistemaren ezarpenentzat, orduan saiatu berriro.</string>
     <string name="automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>

@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Yangilash variantlarini ko\'ring</string>
     <string name="upgrade_screen_status_upgraded_title">Yangilash faol</string>
     <string name="upgrade_screen_status_upgraded_body">Barcha qo\'shimcha xususiyatlar ochildi. Ochiq manba rivojlantirilishini qo\'llab-quvvatlashingiz uchun rahmat ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s dan beri homiy</string>
     <string name="upgrade_screen_recurring_title">Davom eting</string>
     <string name="upgrade_screen_recurring_body">SD Maid yangilanishlar va tuzatishlari orqali doimiy rivojlanmoqda. Agar buning davomini istasangiz, GitHub Sponsors orqali muntazam xayriya qilishni o\'ylang.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors\'ni ochish</string>

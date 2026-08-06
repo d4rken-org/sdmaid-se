@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Įvyko vidinė Google Play klaida. Pabandykite šiuos veiksmus:\n\n• Paleiskite įrenginį iš naujo\n• Išvalykite Google Play parduotuvės talpyklą\n• Bandykite dar kartą vėliau</string>
     <string name="upgrades_gplay_network_error_title">Ryšio klaida</string>
     <string name="upgrades_gplay_network_error_description">Nepavyksta prisijungti prie Google Play. Patikrinkite interneto ryšį ir bandykite dar kartą.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Pasiūlymas nepasiekiamas</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play šiuo metu nesiūlo šios atnaujinimo parinties. Bandykite vėliau arba patikrinkite Google Play krautuvę.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nepavyko atidaryti „Google Play“. Programa gali būti nepasiekiama, išjungta arba šiame įrenginyje apribota.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jau įsigyta</string>
     <string name="upgrades_gplay_already_owned_error_description">Naudokite parinktį \"Atkurti pirkimą\", kad atkurtumėte savo pirkimą. Jei problema išlieka, pabandykite išvalyti Google Play talpyklą ir paleisti įrenginį iš naujo.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Gauti %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid neturi reklamų ir neparduoda naudotojų duomenų. Mano darbas finansuojamas jūsų ❤️.</string>
     <string name="upgrade_screen_benefits_title">Atnaujinimo privalumai</string>
     <string name="upgrade_screen_benefits_body">• Programos keš ir šiukšlės valymas\n• Pasikartojančių failų šalinimas\n• Nuotraukų ir vaizdo įrašų glaudinimas\n• Tvarkant senas bylas gestais\n• Vienu bakstelėjimu valyti per valdiklį\n• Valymo planavimas\n• Pasirinktiniai filtrai ir taisyklės\n• Saugyklos tendencijos ir istorija\n• Daugiau funkcijų ir valdiklių visoje programoje\n• Paramėkite tęstinį kūrimą</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Atsinaujina kasmet. Atšaukti bet kuriuo metu programoje Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Nusipirkti vieną kartą</string>
     <string name="upgrade_screen_iap_offer_body">Vienas mokėjimas, nėra atnaujinimų.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Kainos nepasiekiamos</string>
     <string name="upgrade_screen_offers_unavailable_message">Šiuo metu nepavyko įkelti kainų. Patikrinkite Google Play ir po kurio laiko bandykite dar kartą.</string>
     <string name="upgrade_screen_subscription_trial_action">Pradėti nemokamą 14 dienų bandomąjį laikotarpį</string>
     <string name="upgrade_screen_subscription_action">Prenumeruoti</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Susisiekite su pagalba</string>
     <string name="upgrade_screen_restore_checked_message">„SD Maid“ ką tik patikrino „Google Play“, tačiau negalėjo patvirtinti jokio „Pro“ pirkimo paskyroje, kurią „Google Play“ naudoja šiai programai.</string>
     <string name="upgrade_screen_restore_contact_hint">Vis dar sustrigote? Susisiekite su pagalba iš el. pašto, kuris atliko pirkimą, ir nurodykite jūsų „Google Play“ užsakymo numerį.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play patikra nespėjo baigti laiku, todėl jūsų pirkimo statusas liekasi nežinomas. Jūsų paskyroje nieko nepasikeitė.</string>
 </resources>

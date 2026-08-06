@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Áætlað verkefni reyndi að nota aðgengisþJónustuna, en hún var ekki tiltæk. Ef þú þarft ekki þetta, slökktu á valkostinum \"ÁðgengisþJónusta\" í stillingum tímasetningarinnar.</string>
     <string name="automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
     <string name="automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Hreinsun skyndiminnis í gegnum aðgengisþjónustu er ekki möguleg. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
+    <string name="automation_error_disabled_app_title">Forritið er óvirkt</string>
+    <string name="automation_error_disabled_app_body">Tækið þitt opnar ekki stillingaskjá óvirkra forrita, svo ekki er hægt að hreinsa skyndiminni með aðgengisþjónustunni. Virkjaðu forritið, eða notaðu root eða Shizuku/ADB í staðinn.</string>
     <string name="automation_error_interference_title">Stillingar lokaðar</string>
     <string name="automation_error_interference_body">Annað forrit (%1$s) er að loka fyrir stillingaskjá kerfisins, þannig að SD Maid getur ekki haldið áfram. Ógiltu appalás eða skjávernd þess forrits fyrir kerfistillingarnar og reyndu aftur.</string>
     <string name="automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>

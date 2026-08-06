@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Бүх хэрэгслийн үр дүнг устгах уу?</string>
     <string name="dashboard_hero_freeable_headline">%1$s-ийг чөлөөлөх боломжтой</string>
     <string name="dashboard_hero_freed_headline">%1$s чөлөөлөгдсөн</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d зүйл хасаж болно</item>
+        <item quantity="other">%d зүйл хасаж болно</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d зүйл хасагдсан</item>
+        <item quantity="other">%d зүйл хасагдсан</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Сансар чөлөөлөхийн тулд товчийг дарах, эсвэл эхлээд шалгахын тулд сонголтыг сонгох.</string>
     <string name="dashboard_hero_freed_hint">Дэлгэрэнгүй үзэхийн тулд цэгийг дараарай.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s үлдсэн</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Юу ч чөлөөлүүлээгүй</string>
+    <string name="dashboard_hero_nothing_freed_caption">Цэвэрлэлт дуусчээ, гэхдээ илэрсэн өгөгдлийг хасаж чадсангүй.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Зарим өгөгдлийг зөвхөн нэмэлт хандалтаар, жишээлбэл сул чадалын үйлчилгээ эсвэл root-ээр арилгаж болно.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s сканнерласан</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s чөлөөлөгдсөн</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Оролдоо: %1$s</string>
     <string name="dashboard_settings_category">Хяналтын самбар</string>
     <string name="dashboard_motd_title">Хөгжүүлэгчийн мессеж</string>
     <string name="dashboard_settings_oneclick_title">Нэг товшилтын горим</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku нь root хандалттай хамт ашиглахад нэмэлт функц нэмэжгүй боловч найдвартай байдлыг сайжруулдаг. SD Maid үүнийг оролцоо арга болгон ашиглана.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku холболт бэлэн байна.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku-тай холбогдохыг хүлээж байна.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku програм суусан байхгүй байна.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku-аар оролдох</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ашиглахгүй</string>
     <string name="setup_dismiss_hint">Та тохиргооны цэснээс тохиргооны дэлгэцийг дахин олох боломжтой.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Аппликешнүүдийг дахин ачаалах</string>
     <string name="debug_card_root_test_action">Root шалгах</string>
     <string name="debug_card_shizuku_test_action">Shizuku шалгах</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Туршилтын горим идэвхтэй</string>
+    <string name="dashboard_dryrun_warning_body">Цэвэрлэлтийг дуурайлаж байна. Файлуудыг сканнердаж, мэдээлж байна, гэхдээ юу ч жинхэнээхээр устгаагдахгүй.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Унтраах</string>
     <string name="data_area_public_app_data_official_label">Өгдөмжийн нийтийн аппын өгөгдөл</string>
     <string name="data_area_public_app_assets_official_label">Үндсэн нийтийн програмын хөрөнгүүд</string>
     <string name="data_area_public_storage_label">Нийтийн хадгалалт</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Төхөөрөмж</string>
     <string name="review_app_review_action">Үнэлгээ</string>
     <string name="review_app_dismiss_action">Дараа болов уу</string>
-    <string name="review_app_body">SD Maid-д үнэлгээ үлдээхийг хүсэж байна уу? ❤️</string>
+    <string name="review_app_body">SD Maid-д үнэлгээ өгөхийг хүсэх үү? ❤️</string>
     <string name="anniversary_card_title">SD Maid-ийн ойн баяр мөндөөна ❤️</string>
     <string name="anniversary_card_install_date">%s-аас эхлэн тантай хамт</string>
     <plurals name="anniversary_card_body">

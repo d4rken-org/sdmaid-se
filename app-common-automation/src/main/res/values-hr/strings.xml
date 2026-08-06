@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Zakazani zadatak pokušao je koristiti uslugu pristupačnosti, ali ona nije bila dostupna. Ako vam to nije potrebno, onemogućite opciju \"Usluga pristupačnosti\" u postavkama raspoređivača.</string>
     <string name="automation_error_no_settings_title">Zaslon postavki nedostupan</string>
     <string name="automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
+    <string name="automation_error_disabled_app_title">Aplikacija je onemogućena</string>
+    <string name="automation_error_disabled_app_body">Vaš uređaj neće otvoriti zaslon postavki onemogućenih aplikacija, pa se privremena memorija ne može obrisati pomoću servisa pristupačnosti. Omogućite aplikaciju ili umjesto toga koristite root ili Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Zaslon postavki je blokiran</string>
     <string name="automation_error_interference_body">Druga aplikacija (%1$s) blokira zaslon s postavkama sustava, pa SD Maid ne može nastaviti. Onemogućite zaštitu aplikacije ili zaštitu zaslona te aplikacije za postavke sustava, zatim pokušajte ponovno.</string>
     <string name="automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>

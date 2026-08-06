@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Παρουσιάστηκε εσωτερικό σφάλμα του Google Play. Δοκιμάστε τα εξής:\n\n• Επανεκκινήστε τη συσκευή σας\n• Καθαρίστε την προσωρινή μνήμη του Google Play Store\n• Δοκιμάστε ξανά αργότερα</string>
     <string name="upgrades_gplay_network_error_title">Σφάλμα σύνδεσης</string>
     <string name="upgrades_gplay_network_error_description">Αδυναμία σύνδεσης με το Google Play. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και δοκιμάστε ξανά.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Η προσφορά δεν είναι διαθέσιμη</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Το Google Play δεν προσφέρει αυτήν την επιλογή αναβάθμισης αυτήν τη στιγμή. Δοκιμάστε ξανά αργότερα ή ελέγξτε το Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Δεν ήταν δυνατό να ανοίξει το Google Play. Ενδέχεται να λείπει, να είναι απενεργοποιημένο ή περιορισμένο σε αυτή τη συσκευή.</string>
     <string name="upgrades_gplay_already_owned_error_title">Ήδη αγορασμένο</string>
     <string name="upgrades_gplay_already_owned_error_description">Χρησιμοποιήστε την επιλογή \"Επαναφορά αγοράς\" για να επαναφέρετε την αγορά σας. Εάν το πρόβλημα παραμένει, δοκιμάστε να καθαρίσετε την προσωρινή μνήμη του Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Λήψη %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid δεν έχει διαφημίσεις και δεν πωλεί τα δεδομένα των χρηστών. Η εργασία μου χρηματοδοτείται από εσάς ❤️.</string>
     <string name="upgrade_screen_benefits_title">Πλεονεκτήματα αναβάθμισης</string>
     <string name="upgrade_screen_benefits_body">• Καθαρισμός cache εφαρμογών και σκουπιδιών\n• Κατάργηση διπλών αρχείων\n• Συμπίεση φωτογραφιών και βίντεο\n• Σάρωση για αποσυσσώρευση παλιών αρχείων\n• Καθαρισμός με ένα άγγιγμα μέσω widget\n• Προγραμματισμός καθαρισμού\n• Προσαρμοσμένα φίλτρα και κανόνες\n• Τάσεις και ιστορικό αποθήκευσης\n• Περισσότερες λειτουργίες και στοιχεία ελέγχου σε όλη την εφαρμογή\n• Υποστήριξη συνεχιζόμενης ανάπτυξης</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Ανανεώνεται κάθε χρόνο. Ακύρωση ανά πάσα στιγμή στο Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Αγοράστε μία φορά</string>
     <string name="upgrade_screen_iap_offer_body">Μία πληρωμή, χωρίς ανανεώσεις.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Οι τιμές δεν είναι διαθέσιμες</string>
     <string name="upgrade_screen_offers_unavailable_message">Οι τιμές δεν μπόρεσαν να φορτωθούν αυτή τη στιγμή. Ελέγξτε το Google Play και προσπαθήστε ξανά σε λίγο.</string>
     <string name="upgrade_screen_subscription_trial_action">Ξεκινήστε δωρεάν δοκιμή 14 ημερών</string>
     <string name="upgrade_screen_subscription_action">Εγγραφή</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Επικοινωνήστε με την υποστήριξη</string>
     <string name="upgrade_screen_restore_checked_message">Το SD Maid μόλις έλεγξε το Google Play, αλλά δεν μπόρεσε να επιβεβαιωθεί καμία αγορά Pro για τον λογαριασμό που χρησιμοποιεί το Google Play για αυτήν την εφαρμογή.</string>
     <string name="upgrade_screen_restore_contact_hint">Ακόμα δυσκολεύεστε; Επικοινωνήστε με την υποστήριξη από το email με το οποίο έγινε η αγορά και συμπεριλάβετε τον αριθμό παραγγελίας Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Ο έλεγχος με το Google Play δεν ολοκληρώθηκε εγκαίρως, επομένως η κατάσταση της αγοράς σας παραμένει άγνωστη. Τίποτα δεν έχει αλλάξει στο λογαριασμό σας.</string>
 </resources>

@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">En schemalagd uppgift försökte använda tillgänglighetstjänsten, men den var inte tillgänglig. Om du inte behöver detta, inaktivera alternativet \"Tillgänglighetstjänst\" i schemaläggarinställningarna.</string>
     <string name="automation_error_no_settings_title">Inställningsskärm otillgänglig</string>
     <string name="automation_error_no_settings_body">Denna systemapp har ingen inställningsskärm. Cache-rensning via tillgänglighetstjänst är inte möjlig. Uteslut den för att påskynda cache-rensning.</string>
+    <string name="automation_error_disabled_app_title">Appen är inaktiverad</string>
+    <string name="automation_error_disabled_app_body">Din enhet öppnar inte inställningsskärmen för inaktiverade appar, så cachen kan inte rensas via accessibility-tjänsten. Aktivera appen eller använd root eller Shizuku/ADB istället.</string>
     <string name="automation_error_interference_title">Inställningsskärmen är blockerad</string>
     <string name="automation_error_interference_body">En annan app (%1$s) blockerar systemets inställningsskärm, så SD Maid kan inte fortsätta. Inaktivera applåset eller skärmskyddet för systemets inställningar och försök sedan igen.</string>
     <string name="automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>

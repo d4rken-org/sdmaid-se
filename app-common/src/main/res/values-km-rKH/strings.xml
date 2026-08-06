@@ -164,8 +164,8 @@
     <string name="general_error_report_bug_action">រាយការណ៍កំហុស</string>
     <string name="general_error_ipc_deadobject_title">ការតភ្ជាប់សេវាកម្មត្រូវបាត់បង់</string>
     <string name="general_error_ipc_deadobject_description">ការតភ្ជាប់ទៅសេវាកម្មដែលមានហានិភ័យ(ឧ. Magisk, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) អាចនឹងត្រូវបានបាត់បង់ដោយស្មានមិនដល់។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានៅតែបន្តកើតមាន សូមពិនិត្យការអាប់ដេត ឬទាក់ទងមកខ្ញុំ ដូច្នេះខ្ញុំអាចជួសជុលវាបាន។</string>
-    <string name="general_error_upgrade_required_title">ទាមទារកំណែ Pro</string>
-    <string name="general_error_upgrade_required_description">នេះគឺជាលក្ខណៈពិសេស Pro។ សូមលើកកម្ពស់ SD Maid SE ដើម្បីប្រើប្រាស់វា។</string>
+    <string name="general_error_upgrade_required_title">ការលក់ផ្នើមកូដចាំបាច់</string>
+    <string name="general_error_upgrade_required_description">មុខងារនេះតម្រូវអ្យការការលក់ផ្នើមកូដ។ សូមលក់ផ្នើមកូដ SD Maid SE ដើម្បីប្រើវា។</string>
     <string name="general_user_label_owner">ម្ចាស់</string>
     <string name="general_user_label_system">ប្រព័ន្ធ</string>
     <string name="setup_title">រៀបចំ</string>

@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Uma tarefa agendada tentou usar o serviço de acessibilidade, mas ele estava indisponível. Se não precisar disso, desative a opção \"Serviço de acessibilidade\" nas configurações do agendador.</string>
     <string name="automation_error_no_settings_title">Tela de configurações indisponível</string>
     <string name="automation_error_no_settings_body">Este aplicativo do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Excluí-lo para acelerar a limpeza de cache.</string>
+    <string name="automation_error_disabled_app_title">App está desabilitado</string>
+    <string name="automation_error_disabled_app_body">Seu dispositivo não abrirá a tela de configurações de apps desabilitados, portanto, o cache não pode ser limpo via serviço de acessibilidade. Ative o app ou use root ou Shizuku/ADB em vez disso.</string>
     <string name="automation_error_interference_title">Tela de configurações bloqueada</string>
     <string name="automation_error_interference_body">Outro aplicativo (%1$s) está bloqueando a tela de configurações do sistema, portanto SD Maid não pode continuar. Desative o bloqueio de aplicativo ou proteção de tela desse aplicativo para as configurações do sistema e tente novamente.</string>
     <string name="automation_loading">Preparando automação via serviço de acessibilidade</string>

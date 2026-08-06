@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Διαγραφή αποτελεσμάτων σε όλα τα εργαλεία;</string>
     <string name="dashboard_hero_freeable_headline">%1$s μπορεί να απελευθερωθεί</string>
     <string name="dashboard_hero_freed_headline">%1$s απελευθερώθηκε</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d στοιχείο μπορεί να αφαιρεθεί</item>
+        <item quantity="other">%d στοιχεία μπορούν να αφαιρεθούν</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d στοιχείο αφαιρέθηκε</item>
+        <item quantity="other">%d στοιχεία αφαιρέθηκαν</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Πατήστε το κουμπί για να ελευθερώσετε χώρο, ή ένα chip για να ελέγξετε πρώτα.</string>
     <string name="dashboard_hero_freed_hint">Πατήστε ένα chip για λεπτομέρειες.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s απομένει</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Δεν ελευθερώθηκε τίποτα</string>
+    <string name="dashboard_hero_nothing_freed_caption">Ο καθαρισμός ολοκληρώθηκε, αλλά κανένα από τα δεδομένα που βρέθηκαν δεν μπορούσε να αφαιρεθεί.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Ορισμένα δεδομένα μπορούν να αφαιρεθούν μόνο με πρόσθετη πρόσβαση, όπως η υπηρεσία προσβασιμότητας ή root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Σαρώθηκε %1$s</string>
-    <string name="dashboard_hero_freed_timestamp_description">Απελευθερώθηκε %1$s</string>
+    <string name="dashboard_hero_freed_timestamp_description">Απελευθερώθηκαν %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Προσπάθεια %1$s</string>
     <string name="dashboard_settings_category">Πίνακας εργαλείων</string>
     <string name="dashboard_motd_title">Ένα μήνυμα από τον προγραμματιστή</string>
     <string name="dashboard_settings_oneclick_title">Λειτουργία με ένα πάτημα</string>
@@ -26,7 +46,7 @@
     <string name="debug_debuglog_screen_subtitle">Εξαγωγή πληροφοριών αποσφαλμάτωσης για αντιμετώπιση προβλημάτων</string>
     <string name="debug_logview_screen_title">Προβολή Καταγραφής</string>
     <string name="debug_logview_pause_action">Παύση</string>
-    <string name="debug_logview_resume_action">Συνέχεια</string>
+    <string name="debug_logview_resume_action">Συνέχιση</string>
     <string name="debug_logview_copy_action">Αντιγραφή καταγραφής</string>
     <string name="debug_logview_collapse_action">Σύμπτυξη</string>
     <string name="debug_logview_close_action">Κλείσιμο πίνακα καταγραφής</string>
@@ -39,8 +59,8 @@
     <string name="debug_logview_jump_to_bottom_action">Μεταπήδηση στο τελευταίο</string>
     <string name="debug_logview_paused_msg">Σταμάτησε — το buffer παγώθηκε</string>
     <string name="debug_logview_paused_dropped_msg">Σε αναμονή — παραλείφθηκαν νέες γραμμές: %1$d</string>
-    <string name="debug_logview_copied_msg">Αρχείο καταγραφής αντιγράφηκε στο πρόχειρο</string>
-    <string name="debug_logview_share_label">Κοινοποίηση αρχείου καταγραφής</string>
+    <string name="debug_logview_copied_msg">Η καταγραφή αντιγράφηκε στο πρόχειρο</string>
+    <string name="debug_logview_share_label">Κοινοποίηση καταγραφής</string>
     <string name="debug_debuglog_screen_title">Αρχείο καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_screen_session_path_label">Διαδρομή Συνεδρίας</string>
     <string name="debug_debuglog_screen_log_files_label">Αρχεία καταγραφής</string>
@@ -59,10 +79,10 @@
     <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Το συμπιεσμένο αρχείο είναι κατεστραμμένο. Δοκιμάστε να εγγράψετε ξανά.</string>
     <string name="debug_debuglog_screen_failed_zip_error_desc">Η συμπίεση απέτυχε. Ελέγξτε τον διαθέσιμο χώρο αποθήκευσης και δοκιμάστε ξανά.</string>
     <string name="debug_debuglog_sessions_zipping_label">Συμπίεση…</string>
-    <string name="debug_debuglog_sessions_failed_empty_log_label">Αποτυχία: κενό αρχείο καταγραφής</string>
-    <string name="debug_debuglog_sessions_failed_missing_log_label">Αποτυχία: αρχείο καταγραφής λείπει</string>
-    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Αποτυχία: κατεστραμμένο αρχείο</string>
-    <string name="debug_debuglog_sessions_failed_zip_error_label">Αποτυχία: σφάλμα συμπίεσης</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Απέτυχε: κενή καταγραφή</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Απέτυχε: η καταγραφή λείπει</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Απέτυχε: κατεστραμμένο αρχείο</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Απέτυχε: σφάλμα συμπίεσης</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Διαγραφή αυτής της συνεδρίας αρχείου καταγραφής αποσφαλμάτωσης;</string>
     <string name="support_contact_post_send_message">Το μήνυμα εστάλη επιτυχώς;</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
@@ -118,7 +138,7 @@
     <string name="ui_theme_style_setting_explanation">Το στυλ χρώματος που χρησιμοποιείται κατά τη θεματοποίηση της εφαρμογής.</string>
     <string name="ui_theme_style_default_label">Προεπιλογή</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
-    <string name="ui_theme_style_mediumcontrast_label">Μεσαία αντίθεση</string>
+    <string name="ui_theme_style_mediumcontrast_label">Μέτρια αντίθεση</string>
     <string name="ui_theme_style_highcontrast_label">Υψηλή αντίθεση</string>
     <string name="ui_theme_color_setting_label">Χρώμα θέματος</string>
     <string name="ui_theme_color_setting_explanation">Η χρωματική παλέτα που χρησιμοποιείται για τη θεματοποίηση της εφαρμογής.</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Το Shizuku σε συνδυασμό με την πρόσβαση root δεν επιτρέπει πρόσθετες λειτουργίες, αλλά βελτιώνει την αξιοπιστία. Το SD Maid θα το χρησιμοποιήσει ως εναλλακτική μέθοδο.</string>
     <string name="setup_shizuku_state_ready_label">Ο σύνδεσμος Shizuku είναι έτοιμος.</string>
     <string name="setup_shizuku_state_waiting_label">Αναμονή για σύνδεση με Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Η εφαρμογή Shizuku δεν είναι εγκατεστημένη.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Δοκιμάστε να χρησιμοποιήσετε το Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Να μη χρησιμοποιηθεί το Shizuku</string>
     <string name="setup_dismiss_hint">Μπορείτε να βρείτε ξανά την οθόνη εγκατάστασης μέσω του μενού ρυθμίσεων.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Επαναφόρτωση εφαρμογών</string>
     <string name="debug_card_root_test_action">Δοκιμή root</string>
     <string name="debug_card_shizuku_test_action">Δοκιμή Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Η λειτουργία δοκιμής είναι ενεργή</string>
+    <string name="dashboard_dryrun_warning_body">Ο καθαρισμός προσομοιώνεται. Τα αρχεία σαρώνονται και αναφέρονται, αλλά τίποτα δεν διαγράφεται στην πραγματικότητα.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Απενεργοποίηση</string>
     <string name="data_area_public_app_data_official_label">Προεπιλεγμένα δημόσια δεδομένα εφαρμογής</string>
     <string name="data_area_public_app_assets_official_label">Προεπιλεγμένα δημόσια στοιχεία εφαρμογών</string>
     <string name="data_area_public_storage_label">Δημόσιος αποθηκευτικός χώρος</string>
@@ -318,10 +343,10 @@
     <string name="general_settings_reset_guided_tours_summary">Εμφάνιση όλων των καθοδηγούμενων περιηγήσεων ξανά την επόμενη φορά που θα επισκεφθείτε την οθόνη τους. Επίσης επανενεργοποιεί όλες τις περιηγήσεις εάν τις απενεργοποιήσατε προηγουμένως.</string>
     <string name="widget_home_title">SD Maid</string>
     <string name="widget_home_description">Χρήση αποθήκευσης και καθαρισμός με ένα πάτημα</string>
-    <string name="widget_home_storage_internal">Εσωτερικό</string>
-    <string name="widget_home_storage_external">Εξωτερικό</string>
+    <string name="widget_home_storage_internal">Εσωτερικός</string>
+    <string name="widget_home_storage_external">Εξωτερικός</string>
     <string name="widget_home_freed_label">Διάρκεια ζωής: %1$s</string>
-    <string name="widget_home_clean_action">Καθαρισμός</string>
+    <string name="widget_home_clean_action">Εκκαθάριση</string>
     <string name="widget_home_working">Σε εξέλιξη…</string>
     <string name="widget_home_unavailable">Ο αποθηκευτικός χώρος δεν είναι διαθέσιμος</string>
     <string name="settings_category_widget">Γραφικό στοιχείο</string>
@@ -339,16 +364,16 @@
     <string name="backup_restore_export_desc">Αποθηκεύστε τις ρυθμίσεις, τις εξαιρέσεις, τα χρονοδιαγράμματα και τα προσαρμοσμένα φίλτρα σε ένα αρχείο</string>
     <string name="backup_restore_import_title">Επαναφορά αντιγράφου ασφαλείας</string>
     <string name="backup_restore_import_desc">Φόρτωση ρυθμίσεων από ένα αρχείο αντιγράφου ασφαλείας</string>
-    <string name="backup_restore_export_success">Αντίγραφο ασφαλείας δημιουργήθηκε</string>
+    <string name="backup_restore_export_success">Το αντίγραφο ασφαλείας δημιουργήθηκε</string>
     <string name="backup_restore_export_partial">Αντίγραφο ασφαλείας δημιουργήθηκε, αλλά αυτά τα μέρη απέτυχαν: %1$s</string>
-    <string name="backup_restore_restore_success">Αντίγραφο ασφαλείας επαναφέρθηκε</string>
+    <string name="backup_restore_restore_success">Το αντίγραφο ασφαλείας επαναφέρθηκε</string>
     <string name="backup_restore_restore_failed">Η επαναφορά απέτυχε (%1$s). Η προηγούμενη ρύθμισή σας αποθηκεύτηκε.</string>
     <string name="backup_restore_recovery_title">Ανάκτηση προηγούμενης ρύθμισης</string>
     <string name="backup_restore_recovery_desc">Ένα στιγμιότυπο ασφαλείας από μια ημιτελή επαναφορά είναι διαθέσιμο</string>
     <string name="backup_restore_confirm_title">Επαναφορά αυτού του αντιγράφου ασφαλείας;</string>
     <string name="backup_restore_confirm_created">Δημιουργήθηκε: %1$s</string>
     <string name="backup_restore_confirm_source">Από SD Maid %1$s στις %2$s (Android %3$s)</string>
-    <string name="backup_restore_mode_label">Λειτουργία ανάκτησης</string>
+    <string name="backup_restore_mode_label">Λειτουργία επαναφοράς</string>
     <string name="backup_restore_mode_merge">Συγχώνευση</string>
     <string name="backup_restore_mode_merge_desc">Προσθέστε το αντίγραφο ασφαλείας πάνω από την τρέχουσα διαμόρφωσή σας</string>
     <string name="backup_restore_mode_replace">Αντικατάσταση</string>

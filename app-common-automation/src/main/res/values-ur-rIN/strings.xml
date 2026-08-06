@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">ایک شیڈول شدہ ٹاسک نے ایکسیسیبلٹی سرویس استعمال کرنے کی کوشش کی، لیکن یہ دستیاب نہیں تھی۔ اگر آپ کو اس کی ضرورت نہیں، تو شیڈولر سیٹنگز میں «ایکسیسیبلٹی سرویس» آپشن کو غیر فعال کریں۔</string>
     <string name="automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
     <string name="automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
+    <string name="automation_error_disabled_app_title">ایپ غیر فعال ہے</string>
+    <string name="automation_error_disabled_app_body">آپ کا ڈیوائس غیر فعال ایپس کی سیٹنگز نہیں کھول سکتا، اس لیے کیش رسائی کی سہولت سے صاف نہیں ہو سکتا۔ ایپ کو فعال کریں، یا روٹ یا Shizuku/ADB استعمال کریں۔</string>
     <string name="automation_error_interference_title">سیٹنگز اسکرین مسدود ہے</string>
     <string name="automation_error_interference_body">ایک اور ایپ (%1$s) سسٹم سیٹنگز کی اسکرین کو روک رہی ہے، اس لیے SD Maid جاری نہیں رہ سکتی۔ اس ایپ کا ایپ لاک یا سسٹم سیٹنگز کی اسکرین حفاظت غیر فعال کریں، پھر دوبارہ کوشش کریں۔</string>
     <string name="automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>

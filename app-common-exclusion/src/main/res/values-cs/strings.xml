@@ -3,7 +3,7 @@
     <string name="exclusion_manager_title">Správce výjimek</string>
     <string name="exclusion_manager_desc">Správa výjimek souborů a aplikací.</string>
     <string name="exclusion_explanation_body1">Vylučte soubory a aplikace, abyste je chránili před nástroji SD Maid, nebo přeskočte nepotřebné položky a zrychlete operace.</string>
-    <string name="exclusion_add_new_hint">Zatím žádné výjimky. Vytvořte si jednu pomocí tlačítka +, nebo vyloučete položky z výsledků libovolného nástroje.</string>
+    <string name="exclusion_add_new_hint">Zatím žádné výjimky. Vytvořte si jednu pomocí tlačítka +, nebo vylučte položky z výsledků libovolného nástroje.</string>
     <string name="exclusion_create_action">Vytvořit výjimku</string>
     <string name="exclusion_edit_action">Upravit výjimku</string>
     <string name="exclusion_type_package">Aplikace ve výjimkách</string>

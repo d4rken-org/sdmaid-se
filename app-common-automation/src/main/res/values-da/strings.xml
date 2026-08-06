@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">En planlagt opgave forsøgte at bruge tilgængelighedstjenesten, men den var ikke tilgængelig. Hvis du ikke har brug for dette, skal du deaktivere indstillingen \"Tilgængelighedstjeneste\" i planlæggerindstillingerne.</string>
     <string name="automation_error_no_settings_title">Indstillingsskærm utilgængelig</string>
     <string name="automation_error_no_settings_body">Denne systemapp har ingen indstillingsskærm. Cache-rydning via tilgængelighedstjenesten er ikke mulig. Ekskluder den for at fremskynde cache-rydning.</string>
+    <string name="automation_error_disabled_app_title">Appen er deaktiveret</string>
+    <string name="automation_error_disabled_app_body">Din enhed åbner ikke indstillingsskærmen for deaktiverede apps, så cachen kan ikke ryddes via tilgængelighedstjenesten. Aktiver appen, eller brug root eller Shizuku/ADB i stedet.</string>
     <string name="automation_error_interference_title">Indstillingsskærm blokeret</string>
     <string name="automation_error_interference_body">En anden app (%1$s) blokerer systemindstillingsskærmen, så SD Maid kan ikke fortsætte. Deaktiver denne apps app-lås eller skærmbeskyttelse for systemindstillingerne, og prøv derefter igen.</string>
     <string name="automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>

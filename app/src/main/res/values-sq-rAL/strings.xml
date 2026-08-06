@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Të fshihen rezultatet në të gjitha mjetet?</string>
     <string name="dashboard_hero_freeable_headline">%1$s mund të lirohet</string>
     <string name="dashboard_hero_freed_headline">%1$s u lirua</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d artikull mund të hiqet</item>
+        <item quantity="other">%d artikuj mund të hiqen</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d artikull u hoq</item>
+        <item quantity="other">%d artikuj u hoqën</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Prekni butonin për të liruar hapësirë, ose një çip për të kontrolluar fillimisht.</string>
     <string name="dashboard_hero_freed_hint">Prek një çip për më shumë detaje.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s i mbetur</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Asgjë nuk u lirua</string>
+    <string name="dashboard_hero_nothing_freed_caption">Pastrimi përfundoi, por asnjë nga të dhënat e gjetura nuk mund të hiqet.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Disa të dhëna mund të hiqen vetëm me akses shtesë, si shërbimi i aksesueshmërisë ose root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">U skanua %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">U lirua %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s u tentua</string>
     <string name="dashboard_settings_category">Paneli</string>
     <string name="dashboard_motd_title">Një mesazh nga krijuesi i aplikacionit</string>
     <string name="dashboard_settings_oneclick_title">Modaliteti me një prekje</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku në kombinim me qasjen rrënjore nuk mundëson veçori shtesë, por përmirëson besueshmërinë. SD Maid do ta përdorë atë si metodë kthimi.</string>
     <string name="setup_shizuku_state_ready_label">Lidhja Shizuku është gati.</string>
     <string name="setup_shizuku_state_waiting_label">Në pritje të lidhjes me Shizukun.</string>
+    <string name="setup_shizuku_state_not_installed_label">Aplikacioni Shizuku nuk është i instaluar.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Provoni të përdorni Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Mos përdorni Shizuku</string>
     <string name="setup_dismiss_hint">Mund ta gjeni sërish ekranin e konfigurimit nëpërmjet menysë së cilësimeve.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Ringarko aplikacionet</string>
     <string name="debug_card_root_test_action">Testo root</string>
     <string name="debug_card_shizuku_test_action">Testo Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Modaliteti i simulimit është aktiv</string>
+    <string name="dashboard_dryrun_warning_body">Pastrimi po simulohet. Skedarët skanojnë dhe raportohen, por asgjë nuk fshihet në të vërtetë.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Shkyç</string>
     <string name="data_area_public_app_data_official_label">Të dhënat e parazgjedhura të aplikacionit publik</string>
     <string name="data_area_public_app_assets_official_label">Asetet e parazgjedhura të aplikacionit publik</string>
     <string name="data_area_public_storage_label">Magazina publike</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Pajisja</string>
     <string name="review_app_review_action">Rishikimi</string>
     <string name="review_app_dismiss_action">Ndoshta më vonë</string>
-    <string name="review_app_body">Dëshironi t\'i lini një koment SD Maid? ❤️</string>
+    <string name="review_app_body">Dëshiron t\'i lish SD Maid një koment? ❤️</string>
     <string name="anniversary_card_title">Gëzuar përvjetorin e SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Me ty që nga %s</string>
     <plurals name="anniversary_card_body">

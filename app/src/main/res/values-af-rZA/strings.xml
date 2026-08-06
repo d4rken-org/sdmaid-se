@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Skrap resultate in alle gereedskap?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan vrygestel word</string>
     <string name="dashboard_hero_freed_headline">%1$s vrygestel</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d item kan verwyder word</item>
+        <item quantity="other">%d items kan verwyder word</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d item is verwyder</item>
+        <item quantity="other">%d items is verwyder</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Tik die knop om plek vry te maak, of \'n knoppie om eers na te gaan.</string>
     <string name="dashboard_hero_freed_hint">Tik \'n chip vir besonderhede.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s oor</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Niks is vrygestel</string>
+    <string name="dashboard_hero_nothing_freed_caption">Die skoonmaak is voltooi, maar geen van die gevinde data kon verwyder word nie.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Sommige data kan slegs verwyder word met ekstra toegang, soos die toeganklikheidsdiens of root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Geskandeer %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Vrygestel %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Gepoog %1$s</string>
     <string name="dashboard_settings_category">Paneelbord</string>
     <string name="dashboard_motd_title">\'n Boodskap van die ontwikkelaar</string>
     <string name="dashboard_settings_oneclick_title">Een-tik modus</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku in kombinasie met root toegang aktiveer nie addisionele kenmerke nie, maar dit verbeter betroubaarheid. SD Maid sal dit as terugval metode gebruik.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku skakel is gereed.</string>
     <string name="setup_shizuku_state_waiting_label">Wag vir skakel met Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Die Shizuku-app is nie geïnstalleer nie.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Probeer Shizuku te gebruik</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Moenie Shizuku gebruik nie</string>
     <string name="setup_dismiss_hint">Jy kan die opstelling skerm weer vind via die instellings menu.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Herlaai toepassings</string>
     <string name="debug_card_root_test_action">Toets root</string>
     <string name="debug_card_shizuku_test_action">Toets Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Proefloping is aktief</string>
+    <string name="dashboard_dryrun_warning_body">Skoonmaak word gesimuleer. Lêers word geskandeer en gerapporteer, maar niks word werklik verwyder nie.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Skakel uit</string>
     <string name="data_area_public_app_data_official_label">Verstek openbare toepassing data</string>
     <string name="data_area_public_app_assets_official_label">Verstek openbare toepassing bates</string>
     <string name="data_area_public_storage_label">Openbare berging</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Toestel</string>
     <string name="review_app_review_action">Hersien</string>
     <string name="review_app_dismiss_action">Miskien later</string>
-    <string name="review_app_body">Wil jy graag vir SD Maid \'n hersiening los?️ ❤️</string>
+    <string name="review_app_body">Wil jy graag vir SD Maid \'n hersiening los? ❤️</string>
     <string name="anniversary_card_title">Gelukkige SD Maid-herdenking ❤️</string>
     <string name="anniversary_card_install_date">By jou sedert %s</string>
     <plurals name="anniversary_card_body">

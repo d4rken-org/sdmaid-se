@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">حدث خطأ داخلي في Google Play. يرجى تجربة ما يلي:\n\n• أعد تشغيل جهازك\n• امسح ذاكرة التخزين المؤقت لمتجر Google Play\n• حاول مرة أخرى لاحقًا</string>
     <string name="upgrades_gplay_network_error_title">خطأ في الاتصال</string>
     <string name="upgrades_gplay_network_error_description">تعذر الاتصال بـ Google Play. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">العرض غير متاح</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play لا يقدم خيار الترقية هذا حالياً. يرجى المحاولة لاحقاً أو التحقق من متجر Google Play.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">تعذّر فتح Google Play. قد يكون التطبيق غير مثبت أو معطّل أو مقيّد على هذا الجهاز.</string>
     <string name="upgrades_gplay_already_owned_error_title">تم الشراء مسبقًا</string>
     <string name="upgrades_gplay_already_owned_error_description">استخدم خيار \"استعادة المُشتَرَى\" لاستعادة عملية الشراء الخاصة بك. إذا استمرت المشكلة، حاول مسح ذاكرة التخزين المؤقت لـ Google Play وإعادة تشغيل جهازك.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">احصل على %1$s</string>
     <string name="upgrade_screen_preamble">لا يعرض SD Maid أية إعلانات ولا يبيع بيانات المستخدم. يتم تمويل عملي من قِبَلكم ❤️.</string>
     <string name="upgrade_screen_benefits_title">فوائد الترقية</string>
     <string name="upgrade_screen_benefits_body">• تنظيف ذاكرة التخزين المؤقت والملفات غير المرغوبة\n• إزالة الملفات المكررة\n• ضغط الصور والفيديوهات\n• مسح الملفات القديمة\n• التنظيف بنقرة واحدة عبر الأداة\n• جدولة التنظيف\n• المرشحات والقواعد المخصصة\n• اتجاهات وسجل التخزين\n• المزيد من المميزات والتحكم في جميع أنحاء التطبيق\n• دعم التطوير المستمر</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">يتم التجديد سنويًا. يمكنك الإلغاء في أي وقت من Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">شراء مرة واحدة</string>
     <string name="upgrade_screen_iap_offer_body">دفعة واحدة، لا تجديدات.</string>
+    <string name="upgrade_screen_offers_unavailable_title">الأسعار غير متاحة</string>
     <string name="upgrade_screen_offers_unavailable_message">لا يمكن تحميل الأسعار الآن. تحقق من Google Play وحاول مرة أخرى بعد قليل.</string>
     <string name="upgrade_screen_subscription_trial_action">بدء التجربة المجانية لمدة 14 يوماً</string>
     <string name="upgrade_screen_subscription_action">اشتراك</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">تواصل مع الدعم</string>
     <string name="upgrade_screen_restore_checked_message">تحقق SD Maid للتو من Google Play، لكن لم يتمكن من تأكيد عملية شراء Pro للحساب الذي تستخدمه Google Play لهذا التطبيق.</string>
     <string name="upgrade_screen_restore_contact_hint">هل أنت عالق حتى الآن؟ تواصل مع الدعم من البريد الإلكتروني الذي قام بالشراء وأضف رقم طلبك من Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">لم ينته التحقق مع Google Play في الوقت المناسب، لذا حالة شرائك لا تزال غير معروفة. لم يتغير شيء في حسابك.</string>
 </resources>

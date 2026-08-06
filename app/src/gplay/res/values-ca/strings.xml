@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">S\'ha produït un error intern del Google Play. Proveu el següent:\n\n• Reinicieu el dispositiu\n• Esborreu la memòria cau del Google Play Store\n• Torneu-ho a provar més tard</string>
     <string name="upgrades_gplay_network_error_title">Error de connexió</string>
     <string name="upgrades_gplay_network_error_description">No es pot connectar al Google Play. Comproveu la connexió a Internet i torneu-ho a provar.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Oferta no disponible</string>
+    <string name="upgrades_gplay_offer_unavailable_description">El Google Play no ofereix actualment aquesta opció de millora. Proveu més tard o consulteu el Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">No s\'ha pogut obrir Google Play. Pot ser que no estigui disponible, estigui desactivat o restringit en aquest dispositiu.</string>
     <string name="upgrades_gplay_already_owned_error_title">Ja comprat</string>
     <string name="upgrades_gplay_already_owned_error_description">Feu servir l\'opció «Restaura la compra» per restaurar la compra. Si el problema persisteix, proveu d\'esborrar la memòria cau del Google Play i reinicieu el dispositiu.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Obtingueu %1$s</string>
     <string name="upgrade_screen_preamble">L\'SD Maid no té anuncis i no ven les dades d\'usuari. El meu treball està finançat per vosaltres.</string>
     <string name="upgrade_screen_benefits_title">Beneficis de l\'actualització</string>
     <string name="upgrade_screen_benefits_body">• Neteja de memòria cau i residus de l\'aplicació\n• Eliminació de fitxers duplicats\n• Compressió de fotos i vídeos\n• Lliscada per netejar fitxers antics\n• Neteja amb un sol toc via widget\n• Programació de la neteja\n• Filtres i regles personalitzats\n• Tendències de l\'emmagatzematge i historial\n• Més funcions i controls a tota l\'aplicació\n• Suport del desenvolupament continu</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Es renova anualment. Cancel·la en qualsevol moment a Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Compra única</string>
     <string name="upgrade_screen_iap_offer_body">Un sol pagament, sense renovacions.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Preus no disponibles</string>
     <string name="upgrade_screen_offers_unavailable_message">Els preus no s\'han pogut carregar en aquest moment. Comprova Google Play i torna a intentar-ho en un moment.</string>
     <string name="upgrade_screen_subscription_trial_action">Comença la prova gratuïta de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Subscripció</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Contacteu amb el suport</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid ha verificat Google Play, però no s\'ha pogut confirmar cap compra de Pro per al compte que Google Play utilitza per a aquesta aplicació.</string>
     <string name="upgrade_screen_restore_contact_hint">Encara esteu bloquejats? Contacteu amb el suport des del correu que va fer la compra i incloeu el vostre número de comanda de Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">La comprovació amb el Google Play no ha finalitzat a temps, de manera que l\'estat de la vostra compra segueix sent desconegut. Res no ha canviat al vostre compte.</string>
 </resources>

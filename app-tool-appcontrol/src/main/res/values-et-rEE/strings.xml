@@ -120,7 +120,7 @@
     <string name="shortcut_appcontrol_short">Rakenduste haldamine</string>
     <string name="shortcut_appcontrol_long">Paigaldatud rakenduste haldamine</string>
     <string name="tour_appcontrol_search_body">Otsige rakendust nime järgi. Kasulik seadmetes, millel on palju paigaldatud rakendusi.</string>
-    <string name="tour_appcontrol_filter_body">Kitsendage nimekirja kasutaja-/süsteemirakenduste, lubamise seisundi, hiljutise tegevuse ja muu järgi. Aktiivsed filtrid kuvatakse siin kiibidena.</string>
-    <string name="tour_appcontrol_sort_body">Sorteeri rakendused nime, installimiskuupäeva, viimase uuenduse, suuruse või ekraaniaja järgi. Sama valikut puudutades muudad järjestuse.</string>
+    <string name="tour_appcontrol_filter_body">Kitsendage nimekirja kasutaja-/süsteemirakenduste, lubamise seisundi, hiljutise tegevuse ja muu järgi. Kasutusel filtrid kuvatakse siin kiipidena.</string>
+    <string name="tour_appcontrol_sort_body">Sorteeri rakendused nime, paigaldamiskuupäeva, viimase uuenduse, suuruse või ekraaniaja järgi. Sama valikut puudutades muudad järjestuse.</string>
     <string name="tour_appcontrol_app_row_body">Puuduta rakendust, et avada selle üksikasjad ja saadaolevad toimingud. Pikk puudutamine alustab valimist ja lubab kasutada hulktoiminguid.</string>
 </resources>

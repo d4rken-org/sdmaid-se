@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Resultaten in alle hulpmiddelen verwijderen?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan worden vrijgemaakt</string>
     <string name="dashboard_hero_freed_headline">%1$s vrijgemaakt</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d item kan verwijderd worden</item>
+        <item quantity="other">%d items kunnen verwijderd worden</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d item is verwijderd</item>
+        <item quantity="other">%d items zijn verwijderd</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Tik op de knop om ruimte vrij te maken, of op een chip om eerst te controleren.</string>
     <string name="dashboard_hero_freed_hint">Raak een chip aan voor details.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s over</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Niets is vrijgemaakt</string>
+    <string name="dashboard_hero_nothing_freed_caption">De opschoning is voltooid, maar geen van de gevonden gegevens kon verwijderd worden.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Sommige gegevens kunnen alleen verwijderd worden met extra toegang, zoals de toegankelijkheidsservice of root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Gescand %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Vrijgemaakt %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Poging tot %1$s</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">Een bericht van de ontwikkelaar</string>
     <string name="dashboard_settings_oneclick_title">Eén-tikmodus</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku in combinatie met root-toegang maakt geen extra functies mogelijk, maar verbetert wel de betrouwbaarheid. SD Maid zal het gebruiken als fallback-methode.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
     <string name="setup_shizuku_state_waiting_label">Wacht op link met Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">De Shizuku-app is niet geïnstalleerd.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Probeer Shizuku te gebruiken</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Apps opnieuw laden</string>
     <string name="debug_card_root_test_action">Root testen</string>
     <string name="debug_card_shizuku_test_action">Shizuku testen</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Simulatiemodus is actief</string>
+    <string name="dashboard_dryrun_warning_body">Opschoning wordt gesimuleerd. Bestanden worden gescand en gerapporteerd, maar er wordt niets werkelijk verwijderd.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Uitschakelen</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app gegevens</string>
     <string name="data_area_public_app_assets_official_label">Standaard openbare app-items</string>
     <string name="data_area_public_storage_label">Openbare opslag</string>
@@ -325,12 +350,12 @@
     <string name="widget_home_working">Bezig…</string>
     <string name="widget_home_unavailable">Opslag niet beschikbaar</string>
     <string name="settings_category_widget">Widget</string>
-    <string name="widget_settings_oneclick_summary">Laat de Clean-knop van de startscherm-widget in één tik scannen en verwijderen, zonder elke keer te vragen.</string>
-    <string name="widget_oneclick_consent_title">Eén-tiks reinigen inschakelen?</string>
-    <string name="widget_oneclick_consent_message">De Clean-knop van de widget zal in één keer scannen en verwijderen, zonder eerst te vragen of u te laten controleren wat wordt verwijderd.</string>
+    <string name="widget_settings_oneclick_summary">Laat de knop \'Opschonen\' van de widget op het startscherm in één tik scannen en verwijderen, zonder dat er elke keer opnieuw om bevestiging wordt gevraagd.</string>
+    <string name="widget_oneclick_consent_title">Reinigen met één tik inschakelen?</string>
+    <string name="widget_oneclick_consent_message">De knop \'Opschonen\' van de widget scant en verwijdert in één keer, zonder eerst te vragen of je de mogelijkheid te geven te controleren wat er wordt verwijderd.</string>
     <string name="widget_oneclick_consent_enable_action">Inschakelen</string>
     <string name="widget_oneclick_consent_decline_action">Nu niet</string>
-    <string name="shortcut_onetap_started">Scan + verwijderen gestart…</string>
+    <string name="shortcut_onetap_started">Scan + Verwijderen gestart…</string>
     <string name="shortcut_onetap_nothing_enabled">Geen one-tap hulpmiddelen ingeschakeld</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Back-up &amp; Herstellen</string>
@@ -357,7 +382,7 @@
     <string name="backup_restore_warn_android_body">Deze back-up is gemaakt op Android %1$s, maar dit apparaat voert Android %2$s uit.</string>
     <string name="backup_restore_warn_device_body">Deze back-up is gemaakt op een ander apparaat (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Deze back-up is van een andere app-editie (%1$s vs %2$s).</string>
-    <string name="backup_restore_warn_history_body">De geschiedenisgegevens van deze back-up (statistieken, compressiegeschiedenis, swipe-sessies) zijn van een verschillende app-versie en kunnen niet worden hersteld. Al het andere wordt wel hersteld.</string>
+    <string name="backup_restore_warn_history_body">De historische gegevens van deze back-up (statistieken, compressiegeschiedenis, swipe-sessies) zijn afkomstig van een andere app-versie en kunnen niet worden hersteld. Alle overige gegevens worden wel hersteld.</string>
     <string name="backup_restore_ack_understand">Ik begrijp het en wil doorgaan</string>
     <string name="backup_restore_action_restore">Herstellen</string>
 </resources>

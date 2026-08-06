@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Slette resultater i alle verktøy?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan frigjøres</string>
     <string name="dashboard_hero_freed_headline">%1$s frigjort</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d element kan fjernes</item>
+        <item quantity="other">%d elementer kan fjernes</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d element fjernet</item>
+        <item quantity="other">%d elementer fjernet</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Trykk på knappen for å frigjøre plass, eller en brikke for å sjekke først.</string>
     <string name="dashboard_hero_freed_hint">Trykk på en brikke for detaljer.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s igjen</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Ingenting ble frigjort</string>
+    <string name="dashboard_hero_nothing_freed_caption">Oppryddingen ble fullført, men ingen av dataene som ble funnet kunne fjernes.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Noen data kan bare fjernes med ekstra tilgang, for eksempel tilgjengelighetstjenesten eller root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannet %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Frigjort %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Forsøkt %1$s</string>
     <string name="dashboard_settings_category">Kontrollpanel</string>
     <string name="dashboard_motd_title">En melding fra utvikleren</string>
     <string name="dashboard_settings_oneclick_title">Ett-trykks modus</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku i kombinasjon med root-tilgang aktiverer ikke flere funksjoner, men det forbedrer stabiliteten. SD Maid vil bruke den som reserveløsning.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-lenken er klar.</string>
     <string name="setup_shizuku_state_waiting_label">Venter på lenken med Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku-appen er ikke installert.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Prøv å bruke Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ikke bruk Shizuku</string>
     <string name="setup_dismiss_hint">Du finner skjermen for oppsett igjen via innstillingsmenyen.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Last inn apper på nytt</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Tørrkjøringsmodus er aktiv</string>
+    <string name="dashboard_dryrun_warning_body">Oppryddingen simuleres. Filene blir skannet og rapportert, men ingenting blir faktisk slettet.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Slå av</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
     <string name="data_area_public_app_assets_official_label">Standard offentlige appressurser</string>
     <string name="data_area_public_storage_label">Offentlig lagring</string>

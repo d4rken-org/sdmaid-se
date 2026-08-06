@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">అన్ని టూల్స్‌లోని ఫలితాలను తొలగించాలా?</string>
     <string name="dashboard_hero_freeable_headline">%1$s విడిపించవచ్చు</string>
     <string name="dashboard_hero_freed_headline">%1$s విడిపించబడింది</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d వస్తువు తీసివేయవచ్చు</item>
+        <item quantity="other">%d వస్తువులు తీసివేయవచ్చు</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d వస్తువు తీసివేయబడింది</item>
+        <item quantity="other">%d వస్తువులు తీసివేయబడ్డాయి</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">స్థలాన్ని విడిపించడానికి బటన్‌ను నొక్కండి లేదా ముందుగా చెక్ చేయడానికి చిప్‌ను నొక్కండి.</string>
     <string name="dashboard_hero_freed_hint">వివరాల కోసం చిప్‌ను నొక్కండి.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s మిగిలి ఉంది</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">ఏదీ విడుదల చేయబడలేదు</string>
+    <string name="dashboard_hero_nothing_freed_caption">క్లీనప్ పూర్తయింది, కానీ కనుగొన్న డేటాలో ఏదీ తీసివేయబడలేదు.</string>
+    <string name="dashboard_hero_nothing_freed_hint">కొన్ని డేటాను యాక్సెసిబిలిటీ సేవ లేదా రూట్ వంటి అదనపు యాక్సెస్‌ద్వారా మాత్రమే తీసివేయవచ్చు.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s స్కాన్ చేయబడింది</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s విడిపించబడింది</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">ప్రయత్నించిన %1$s</string>
     <string name="dashboard_settings_category">డ్యాష్‌బోర్డ్</string>
     <string name="dashboard_motd_title">డెవలపర్ నుండి సందేశం</string>
     <string name="dashboard_settings_oneclick_title">వన్-టాప్ మోడ్</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">రూట్ యాక్సెస్‌తో కలిపి Shizuku అదనపు ఫీచర్లను ప్రారంభించదు, కానీ విశ్వసనీయతను మెరుగుపరుస్తుంది. SD Maid దానిని ఫాల్‌బ్యాక్ పద్ధతిగా ఉపయోగిస్తుంది.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku లింక్ సిద్ధంగా ఉంది.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku తో లింక్ కోసం వేచి ఉంది.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku యాప్ ఇన్‌స్టాల్ చేయబడలేదు.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ఉపయోగించటానికి ప్రయత్నించండి</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ఉపయోగించవద్దు</string>
     <string name="setup_dismiss_hint">మీరు సెట్టింగ్స్ మెనూ ద్వారా సెటప్ స్క్రీన్‌ను మళ్లీ కనుగొనవచ్చు.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
     <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>
     <string name="debug_card_shizuku_test_action">Shizuku పరీక్షించు</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">డ్రై-రన్ మోడ్ క్రియాశీలం</string>
+    <string name="dashboard_dryrun_warning_body">క్లీనప్ నకిలు చేయబడుతోంది. ఫైలులు స్కాన్ చేయబడతాయి మరియు నివేదించబడతాయి, కానీ ఏమీ నిజానికి తీసివేయబడదు.</string>
+    <string name="dashboard_dryrun_warning_disable_action">ఆఫ్ చేయండి</string>
     <string name="data_area_public_app_data_official_label">డిఫాల్ట్ పబ్లిక్ యాప్ డేటా</string>
     <string name="data_area_public_app_assets_official_label">డిఫాల్ట్ పబ్లిక్ యాప్ ఆసెట్‌లు</string>
     <string name="data_area_public_storage_label">పబ్లిక్ స్టోరేజీ</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">పరికరం</string>
     <string name="review_app_review_action">సమీక్ష</string>
     <string name="review_app_dismiss_action">తరువాత ఆగామి</string>
-    <string name="review_app_body">మీరు SD Maid కోసం సమీక్ష వ్రాయాలనుకుంటారా?️ ❤️</string>
+    <string name="review_app_body">మీరు SD Maid కోసం సమీక్ష వ్రాయాలనుకుంటారా? ❤️</string>
     <string name="anniversary_card_title">SD Maid వార్షికోత్సవం శుభాకాంక్షలు ❤️</string>
     <string name="anniversary_card_install_date">%s నుండి మీతో</string>
     <plurals name="anniversary_card_body">

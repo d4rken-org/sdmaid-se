@@ -24,7 +24,7 @@
     <string name="deduplicator_detection_method_phash_summary">Sarnaste failide leidmiseks analüüsige sisu omadusi ja võrrelge tajuräsi väärtusi.</string>
     <string name="deduplicator_detection_method_media_title">Meedia sõrmejälg</string>
     <string name="deduplicator_detection_method_media_summary">Leidke sarnased video- ja helifailid, analüüsides heli sõrmejälgi.</string>
-    <string name="deduplicator_detection_method_similarity_caveat">Sarnasusel põhinev tuvastamine võib sisaldada valepositiivseid tulemusi, mis nõuavad käsitsi kontrollimist.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Sarnasusel põhinev tuvastamine võib sisaldada valesid tulemusi, mis nõuavad käsitsi kontrollimist.</string>
     <string name="deduplicator_media_match_audio">Helipõhine vaste</string>
     <string name="deduplicator_media_match_visual">Videopõhine vaste</string>
     <string name="deduplicator_media_match_audio_visual">Heli- ja videopõhine vaste</string>
@@ -42,15 +42,15 @@
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Kustutada igast valitud paketist kõik failide koopiad, sh originaal? Alles ei jää ühtki faili!</string>
     <string name="deduplicator_delete_all_toggle_msg">Kustuta kõik koopiad. Alles ei jää ühtki faili!</string>
     <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
-        <item quantity="one">Kustutada %1$d duplikaat selles kogumis, vabanedes %2$s? Säilitatud koopia jääb alles.</item>
-        <item quantity="other">Kustutada %1$d duplikaati selles kogumis, vabanedes %2$s? Säilitatud koopia jääb alles.</item>
+        <item quantity="one">Kustutada %1$d koopia selles kogumis, vabastades %2$s? Säilitatud koopia jääb alles.</item>
+        <item quantity="other">Kustutada %1$d koopiat selles kogumis, vabastades %2$s? Säilitatud koopia jääb alles.</item>
     </plurals>
     <string name="deduplicator_list_grid_freeable_x">%1$s vabastatav</string>
-    <string name="deduplicator_action_delete_set">Kustuta duplikaatide kogum</string>
+    <string name="deduplicator_action_delete_set">Kustuta koopiate kogum</string>
     <string name="deduplicator_action_open_preview">Ava eelvaade</string>
     <string name="deduplicator_marked_for_deletion">Märgitud kustutamiseks</string>
-    <string name="deduplicator_cluster_preview_image">Duplikaatide kogumi eelvaade</string>
-    <string name="deduplicator_selection_keep_one_required">Iga duplikaatide kogumi kohta peab jääma vähemalt üks fail. Seadetes lülitage sisse \"Tee \'Kustuta kõik\' võimalikuks\", et alistada.</string>
+    <string name="deduplicator_cluster_preview_image">Koopiate kogumi eelvaade</string>
+    <string name="deduplicator_selection_keep_one_required">Iga koopia kogumi kohta peab jääma vähemalt üks fail. Seadetes lülitage sisse „Luba kustutada kõik“, et alistada.</string>
     <string name="deduplicator_progress_comparing_files">Failide võrdlemine</string>
     <string name="deduplicator_details_cluster_title">Koopiate pakett</string>
     <string name="deduplicator_matches_exact_label">Samad koopiad</string>
@@ -88,6 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Eelista väiksemaid faile</string>
     <string name="deduplicator_view_mode_groups_label">Rühmad</string>
     <string name="deduplicator_view_mode_directories_label">Kaustad</string>
-    <string name="tour_deduplicator_details_cluster_body">Need failid näivad olevat sama element või meediamaterjal – duplikaatide kogum.</string>
-    <string name="tour_deduplicator_details_delete_mark_body">Selle ikooni failid kustutatakse; rühmas jääv fail on see, mida SD Maid hoiab. Saate muuta, kuidas seda faili valitakse kustutamise strateegia seadetes.</string>
+    <string name="tour_deduplicator_details_cluster_body">Need failid näivad olevat sama element või meediamaterjal – koopia kogum.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Selle ikooni failid kustutatakse; rühma jääv fail on see, mida SD Maid hoiab. Saate muuta, kuidas seda faili valitakse kustutamise strateegia seadetes.</string>
 </resources>

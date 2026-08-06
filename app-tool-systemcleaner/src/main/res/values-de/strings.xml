@@ -12,16 +12,16 @@
     <string name="systemcleaner_filter_custom_label">Benutzerdefinierte Filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Benutzerdefinierte Filter verwalten</string>
     <string name="systemcleaner_filter_custom_manage_summary">Erstellen, löschen, importieren und exportieren Deiner benutzerdefinierten Filter.</string>
-    <string name="systemcleaner_filter_logfiles_label">Systemlog Dateien</string>
-    <string name="systemcleaner_filter_logfiles_summary">System- und Systemlogdateien (z.B. *.log) an verschiedenen Standorten.</string>
+    <string name="systemcleaner_filter_logfiles_label">System-Protokolldateien</string>
+    <string name="systemcleaner_filter_logfiles_summary">System- und Systemdienst-Protokolldateien (z. B. *.log) an verschiedenen Orten.</string>
     <string name="systemcleaner_filter_packagecaches_label">Installer-Cache</string>
     <string name="systemcleaner_filter_packagecaches_summary">Zwischengespeicherte Daten zu installierten Apps, die von der Paketverwaltung des Systems verwendet werden.</string>
-    <string name="systemcleaner_filter_advertisements_label">Werbungsdateien</string>
+    <string name="systemcleaner_filter_advertisements_label">Werbedateien</string>
     <string name="systemcleaner_filter_advertisements_summary">Dateien, die für oder von Anzeigen erstellt wurden.</string>
     <string name="systemcleaner_filter_anr_label">ANR Fehler</string>
     <string name="systemcleaner_filter_anr_summary">Überreste von „Anwendung reagiert nicht“-Ereignissen.</string>
     <string name="systemcleaner_filter_emptydirectories_label">Leere Ordner</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Leere Ordner von allen über dem Gerät. Verschachtelte Ordner können mehrere Durchgänge erfordern.</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Leere Ordner auf dem gesamten Gerät. Ineinandergestaffelte Ordner erfordern möglicherweise mehrere Durchläufe.</string>
     <string name="systemcleaner_filter_screenshots_label">Screenshots</string>
     <string name="systemcleaner_filter_screenshots_summary">Screenshots, die älter als %s sind, von mehreren Apps und Standorten.</string>
     <string name="systemcleaner_filter_trashed_label">Gelöschte Dateien</string>
@@ -52,17 +52,17 @@
     <string name="systemcleaner_filter_localtmp_summary">Systembezogene temporäre Dateien (z.B. von Android Studio).</string>
     <string name="systemcleaner_filter_datalogger_label">Systemprotokolldateien</string>
     <string name="systemcleaner_filter_datalogger_summary">Systemdienst-spezifische Protokolldateien.</string>
-    <string name="systemcleaner_filter_logdropbox_label">Log drop box</string>
+    <string name="systemcleaner_filter_logdropbox_label">Protokoll-Ablageordner</string>
     <string name="systemcleaner_filter_logdropbox_summary">Ein Bereich, in dem das System Protokolldateien ablegen kann.</string>
     <string name="systemcleaner_filter_recenttasks_label">Aktuelle Aufgaben</string>
-    <string name="systemcleaner_filter_recenttasks_summary">Daten im Zusammenhang mit dem Aufgabenverlauf im Aufgabenumschalter des Systems.</string>
+    <string name="systemcleaner_filter_recenttasks_summary">Daten zum Task-Verlauf im App-Umschalter des Systems.</string>
     <string name="systemcleaner_filter_tombstones_label">Rückstände eines Systemabsturzes</string>
     <string name="systemcleaner_filter_tombstones_summary">Wenn native Prozesse abstürzen (z.B. Spiele), werden hier Dateien erstellt.</string>
     <string name="systemcleaner_filter_usagestats_label">Nutzungsstatistiken</string>
     <string name="systemcleaner_filter_usagestats_summary">Dateien mit Bezug zu App-Nutzungsstatistiken.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle Filterinhalte löschen?</string>
     <string name="systemcleaner_customfilter_label">Benutzerdefinierter Filter</string>
-    <string name="systemcleaner_customfilter_create_hint">Erstelle einen benutzerdefinierten Filter, um zusätzliche Dateien zu löschen, die einzigartig für dein Gerät und deine Anwendungsfälle sind.</string>
+    <string name="systemcleaner_customfilter_create_hint">Erstelle einen benutzerdefinierten Filter, um zusätzliche Dateien zu löschen, die für dein Gerät und deine Anwendungsfälle spezifisch sind.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Diesen Filter entfernen?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filterbezeichnung</string>
     <string name="systemcleaner_customfilter_editor_warning">Benutzerdefinierte Filter können riskant sein. Überprüfe Deine Suchergebnisse vor dem Löschen!</string>
@@ -73,11 +73,11 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Ordner</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Wenn kein Typ ausgewählt ist, werden alle Typen abgeglichen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Pfadkriterien</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mit mindestens einem Eintrag (z.B. \"Downloads/oldapks/game-\") übereinstimmen. Einträge für mehr Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mindestens einen Eintrag treffen (z. B. „Downloads/oldapks/game-“). Halte Einträge gedrückt, um weitere Optionen anzuzeigen.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Namenskriterien</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter (z.B. \"-Quittung\") enthalten. Einträge für weitere Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter enthalten (z. B. „-receipt“). Halte Einträge gedrückt, um weitere Optionen anzuzeigen.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad mit irgendeinem Eintrag (z.B. \"DCIM\") übereinstimmt. Einträge für weitere Optionen gedrückt halten.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad auf einen Eintrag zutrifft (z. B. „DCIM“). Halte Einträge gedrückt, um weitere Optionen anzuzeigen.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pfadvergleichsmodus</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pfad beginnt mit Schlüsselwort</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pfad enthält Schlüsselwort</string>
@@ -101,6 +101,6 @@
     <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
     <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
     <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner findet Müll mit Filtern, die nicht app-spezifisch sind. Es gibt vordefinierte Regeln für Dinge wie leere Ordner, verwaiste Protokolle und veraltete Miniaturansichten. Besuche die Einstellungen, wenn du deine eigenen erstellen möchtest.</string>
-    <string name="tour_systemcleaner_filter_body">Jede Zeile ist ein Filter und das, was er gefunden hat. Öffnen Sie seine Details, um genau zu sehen, welche Dateien passen, bevor Sie etwas löschen.</string>
+    <string name="tour_systemcleaner_intro_body">SystemCleaner findet Datenmüll mithilfe von Filtern, die nicht app-spezifisch sind. Es gibt bereits vorgefertigte Regeln für Dinge wie leere Ordner, übrig gebliebene Protokolle und veraltete Vorschaubilder. Besuche die Einstellungen, wenn du eigene erstellen möchtest.</string>
+    <string name="tour_systemcleaner_filter_body">Jede Zeile stellt einen Filter und die von ihm gefundenen Elemente dar. Öffne die Details, um genau zu sehen, welche Dateien übereinstimmen, bevor du etwas löschst.</string>
 </resources>

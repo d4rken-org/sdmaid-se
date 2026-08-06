@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Ajoitettu tehtävä yritti käyttää esteettömyyspalvelua, mutta se ei ollut käytettävissä. Jos et tarvitse tätä, poista käytöstä \"Esteettömyyspalvelu\"-vaihtoehto ajastimen asetuksista.</string>
     <string name="automation_error_no_settings_title">Asetuksia ei löytynyt</string>
     <string name="automation_error_no_settings_body">Sovelluksen asetuksia ei löytynyt automaattista siivousta varten.</string>
+    <string name="automation_error_disabled_app_title">Sovellus on poistettu käytöstä</string>
+    <string name="automation_error_disabled_app_body">Laitteesi ei avaa poistettujen käytöstä olevien sovellusten asetuksia, joten välimuistia ei voida tyhjentää esteettömyyspalvelun kautta. Ota sovellus käyttöön tai käytä juurioikeuksia tai Shizukua/ADB:tä.</string>
     <string name="automation_error_interference_title">Asetuksien näyttö on estetty</string>
     <string name="automation_error_interference_body">Toinen sovellus (%1$s) estää järjestelmän asetuksien näytön, joten SD Maid ei voi jatkaa. Poista kyseisen sovelluksen lukitus tai näytön suojaus järjestelmän asetuksille ja yritä uudelleen.</string>
     <string name="automation_loading">Valmistellaan automaatiota saavutettavuuspalvelun kautta</string>

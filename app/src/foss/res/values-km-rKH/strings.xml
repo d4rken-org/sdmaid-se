@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">មើលលម្ាត់ក្រោយ</string>
     <string name="upgrade_screen_status_upgraded_title">ការលក់ផ្នើមកូដដែលសកម្ម</string>
     <string name="upgrade_screen_status_upgraded_body">មុខងារលើកលែងទាំងអស់ត្រូវបានដោះលែង។ សូមគាប់រប្សើរលើការគាំទលើលទ្ធភាបប្រភពចាប់ផ្តើម ❤️</string>
+    <string name="upgrade_screen_supporter_since">អ្នកគាំទុន ចាប់តាំងពី %s</string>
     <string name="upgrade_screen_recurring_title">បន្តរក្សាដែលវា</string>
     <string name="upgrade_screen_recurring_body">SD Maid បន្តៈភានដល់វិវឍ្ផនកម្មដោយរយៈការធ្វើបច្ចុប្បន្នភាពនិងដោះស្រាយបញ្ហា។ ប្រសិនបើអ្នកចង់គាំទវា សូមពិចារណាការផ្តល់មូលនិធថែរតាមរយៈ GitHub Sponsors។</string>
     <string name="upgrade_screen_recurring_action">បើក GitHub Sponsors</string>

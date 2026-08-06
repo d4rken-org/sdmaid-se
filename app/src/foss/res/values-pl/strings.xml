@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Zobacz opcje aktualizacji</string>
     <string name="upgrade_screen_status_upgraded_title">Aktualizacja aktywna</string>
     <string name="upgrade_screen_status_upgraded_body">Wszystkie dodatkowe funkcje są odblokowane. Dziękuję za wsparcie dla projektów otwarto źródłowych ❤️</string>
+    <string name="upgrade_screen_supporter_since">Wspierający od %s</string>
     <string name="upgrade_screen_recurring_title">Wspieraj dalej</string>
     <string name="upgrade_screen_recurring_body">SD Maid stale się rozwija dzięki aktualizacjom i poprawkom. Jeśli chcesz to kontynuować, rozważ cykliczną darowiznę za pośrednictwem GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Otwórz GitHub Sponsors</string>

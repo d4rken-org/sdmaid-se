@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Sien opgraderingsopsies</string>
     <string name="upgrade_screen_status_upgraded_title">Opgradering aktief</string>
     <string name="upgrade_screen_status_upgraded_body">Alle ekstra funksies is ontsluit. Dankie dat jy oopbron-ontwikkeling ondersteun ❤️</string>
+    <string name="upgrade_screen_supporter_since">Ondersteuner sedert %s</string>
     <string name="upgrade_screen_recurring_title">Hou dit aan</string>
     <string name="upgrade_screen_recurring_body">SD Maid bly voortdurend ontwikkel deur opdaterings en regstellings. As jy dit wil volhou, oorweeg \'n herhalende skenking via GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Open GitHub Sponsors</string>

@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">Hapus hasil di semua alat?</string>
     <string name="dashboard_hero_freeable_headline">%1$s dapat dibebaskan</string>
     <string name="dashboard_hero_freed_headline">%1$s dibebaskan</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">%d barang dapat dihapus</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">%d barang telah dihapus</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Ketuk tombol untuk membebaskan ruang, atau chip untuk memeriksa terlebih dahulu.</string>
     <string name="dashboard_hero_freed_hint">Ketuk chip untuk detail.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s tersisa</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Tidak ada yang dibebaskan</string>
+    <string name="dashboard_hero_nothing_freed_caption">Pembersihan selesai, tetapi tidak ada yang dapat dihapus.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Beberapa data hanya dapat dihapus dengan akses tambahan, seperti layanan aksesibilitas atau root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Dipindai %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Dibebaskan %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Mencoba %1$s</string>
     <string name="dashboard_settings_category">Dasbor</string>
     <string name="dashboard_motd_title">Pesan dari pengembang</string>
     <string name="dashboard_settings_oneclick_title">Mode Satu Ketukan</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Kombinasi Shizuku dan akses root tidak membuka fitur baru, melainkan meningkatkan keandalan. SD Maid menggunakannya sebagai metode alternatif.</string>
     <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
     <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Aplikasi Shizuku tidak terpasang.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Coba gunakan Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Kamu dapat menemukan layar penyiapan lagi melalui menu pengaturan.</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">Muat ulang aplikasi</string>
     <string name="debug_card_root_test_action">Uji root</string>
     <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Mode simulasi aktif</string>
+    <string name="dashboard_dryrun_warning_body">Pembersihan sedang disimulasikan. File dipindai dan dilaporkan, tetapi tidak ada yang benar-benar dihapus.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Matikan</string>
     <string name="data_area_public_app_data_official_label">Data aplikasi publik bawaan</string>
     <string name="data_area_public_app_assets_official_label">Aset aplikasi publik bawaan</string>
     <string name="data_area_public_storage_label">Penyimpanan publik</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">Perangkat</string>
     <string name="review_app_review_action">Pratinjau</string>
     <string name="review_app_dismiss_action">Lain kali</string>
-    <string name="review_app_body">Bersediakah Anda menulis ulasan untuk SD Maid? ❤️</string>
+    <string name="review_app_body">Mau meninggalkan ulasan untuk SD Maid? ❤️</string>
     <string name="anniversary_card_title">Selamat Ulang Tahun SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Bersamamu sejak %s</string>
     <plurals name="anniversary_card_body">

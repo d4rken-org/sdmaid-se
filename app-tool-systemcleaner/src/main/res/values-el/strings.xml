@@ -18,7 +18,7 @@
     <string name="systemcleaner_filter_packagecaches_summary">Προσωρινά αποθηκευμένα δεδομένα σχετικά με εγκατεστημένες εφαρμογές που χρησιμοποιούνται από τη διαχείριση πακέτων του συστήματος.</string>
     <string name="systemcleaner_filter_advertisements_label">Αρχεία διαφήμισης</string>
     <string name="systemcleaner_filter_advertisements_summary">Αρχεία που έχουν δημιουργηθεί για ή από διαφημίσεις.</string>
-    <string name="systemcleaner_filter_anr_label">ANR σφάλματα</string>
+    <string name="systemcleaner_filter_anr_label">Σφάλματα ANR</string>
     <string name="systemcleaner_filter_anr_summary">Ίχνη από συμβάντα \"η εφαρμογή δεν ανταποκρίνεται\".</string>
     <string name="systemcleaner_filter_emptydirectories_label">Άδειοι φάκελοι</string>
     <string name="systemcleaner_filter_emptydirectories_summary">Κενοί φάκελοι από όλη τη συσκευή. Οι ένθετοι φάκελοι ενδέχεται να απαιτούν πολλαπλά περάσματα.</string>

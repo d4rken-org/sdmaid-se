@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">هەڵەیەکی ناوخۆیی گوگڵ پلەی ڕوویدا. تکایە ئەمانە بکە:\n\n• ئامێرەکەت ڕیستارت بکەرەوە\n• کاشەی فرۆشگای گوگڵ پلەی بسڕەوە\n• دواتر هەوڵبدەرەوە</string>
     <string name="upgrades_gplay_network_error_title">هەڵەی پەیوەندی</string>
     <string name="upgrades_gplay_network_error_description">ناتوانرێت بە گوگڵ پلەیەوە پەیوەست ببێت. تکایە پەیوەندی ئینتەرنێتەکەت بپشکنە و دووبارە هەوڵبدەرەوە.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">پیشکەش دەستنیە</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play لە ئێستادا ئەم گۆڕینی بەرنامەیە پیشکەش ناکات. تکایە دواتر دووبارە هەوڵ بدە یان Google Play Store بپشکنە.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">نتوانی Google Play بکەیت. ئەو ممکن ە کە نەبێت، ناچالاک بێت یان بە سنوور بەستراوە لە ئەم دەستگەدا.</string>
     <string name="upgrades_gplay_already_owned_error_title">پێشتر کڕدراوە</string>
     <string name="upgrades_gplay_already_owned_error_description">بژاردەی \"گەڕاندنەوەی کڕین\" بەکاربهێنە بۆ گەڕاندنەوەی کڕینەکەت. ئەگەر کێشەکە بەردەوام بوو، هەوڵبدە کاشەی گوگڵ پلەی بسڕیتەوە و ئامێرەکەت ڕیستارت بکەیتەوە.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">بگری %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid هیچ ڕێکلامێکی نییە و زانیاری بەکارهێنەر نافرۆشێت. کارەکانی من لەلایەن ئێوەوە پشتگیری دارایی دەکرێت ❤️.</string>
     <string name="upgrade_screen_benefits_title">سوودەکانی بەرزکردنەوە</string>
     <string name="upgrade_screen_benefits_body">• پاکسازی مێمۆریی بەرنامە و وێچەی نازاوات\n• لابردنی فایلە دووبارە\n• پاکخستنی وێنە و ڤیدیۆ\n• سوایپ بۆ پاکسازی فایلە کۆنەکان\n• پاکسازی یەک کۆتایی ڕێگەی ویجێتەوە\n• بەرنامەکردنی پاکسازی\n• فیلترە تایبەت و یاسایان\n• رووداو و مێژوی جێبەجێکردن\n• زیاتر فیچەرە و کۆنترۆل لە سەرتاسەریی بەرنامەکە\n• پشتگیری بەرهەمهێنانی بەردوام</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">ساڵانە نوێ دەکرێتەوە. بە هەر کاتێک لە گوگڵ پلەیدا بکشێنەوە.</string>
     <string name="upgrade_screen_iap_offer_title">یەک جار کڕین</string>
     <string name="upgrade_screen_iap_offer_body">پێمانی یەکجارەکی، بێ نوێکردنەوە.</string>
+    <string name="upgrade_screen_offers_unavailable_title">نرخەکان دەستنیە</string>
     <string name="upgrade_screen_offers_unavailable_message">نرخەکان نەتوانرا بار ببن ئێستا. Google Play بپشکنە و دواجارێکی تر هەوڵبدە.</string>
     <string name="upgrade_screen_subscription_trial_action">دەستپێکردنی تاقیکردنەوەی خۆڕایی 14 ڕۆژە</string>
     <string name="upgrade_screen_subscription_action">بەشداریکردن</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">پەیوەندی بە پشتگیری</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid تازە گوگڵ پلەی پشکاند، بەڵام هیچ کڕینی Pro ناتوانرا بۆ ئەکاونتی پشتڕاست کە گوگڵ پلەی بۆ ئەم ئاپلیکیشینەی بەکاردێنێت.</string>
     <string name="upgrade_screen_restore_contact_hint">هێشتا گێچ کردیت؟ بە ئیمێلی کە کڕیت لێی کردبوو پاسگەڵاکی پشتگیری پەیوەندی بکە و ژمارەی فرمانی گوگڵ پلەی لەتێبنێ.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">پشکنیشی Google Play بە کاتدا تێنەکرا، جا دۆخی کڕینت هێشتا نەزانراو. هیچ شتێک لە ئاکاونتت گۆڕان نەکراو.</string>
 </resources>

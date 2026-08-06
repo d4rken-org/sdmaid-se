@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">すべてのツールの結果を削除しますか？</string>
     <string name="dashboard_hero_freeable_headline">%1$sを解放できます</string>
     <string name="dashboard_hero_freed_headline">%1$s解放されました</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">%d 項目を削除できます</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">%d 項目が削除されました</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">ボタンをタップしてスペースを解放するか、チップをタップして最初に確認してください。</string>
     <string name="dashboard_hero_freed_hint">詳細を確認するにはチップをタップしてください。</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s が残っています</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">何も削除されませんでした</string>
+    <string name="dashboard_hero_nothing_freed_caption">クリーンアップが完了しましたが、見つかったデータを削除できませんでした。</string>
+    <string name="dashboard_hero_nothing_freed_hint">一部のデータはアクセシビリティサービスやroot などの追加のアクセス権限でのみ削除できます。</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$sをスキャンしました</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s解放されました</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s を試行しました</string>
     <string name="dashboard_settings_category">ダッシュボード</string>
     <string name="dashboard_motd_title">開発者からのメッセージ</string>
     <string name="dashboard_settings_oneclick_title">ワンタップモード</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Root権限に加えてShizukuを使用しても追加機能は提供されませんが、より安定した動作が期待できます。SD MaidはShizukuを代替手段として活用します。</string>
     <string name="setup_shizuku_state_ready_label">Shizukuリンクの準備完了。</string>
     <string name="setup_shizuku_state_waiting_label">Shizukuとのリンクを待機しています。</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku アプリがインストールされていません。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizukuを使用してみる</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizukuを使用しない</string>
     <string name="setup_dismiss_hint">設定メニューから再度設定画面を確認できます。</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
     <string name="debug_card_root_test_action">Rootをテスト</string>
     <string name="debug_card_shizuku_test_action">Shizukuをテスト</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ドライランモードが有効です</string>
+    <string name="dashboard_dryrun_warning_body">クリーンアップはシミュレートされています。ファイルはスキャンされレポートされますが、実際には削除されません。</string>
+    <string name="dashboard_dryrun_warning_disable_action">オフにする</string>
     <string name="data_area_public_app_data_official_label">デフォルトのパブリックアプリデータ</string>
     <string name="data_area_public_app_assets_official_label">デフォルトのパブリックアプリアセット</string>
     <string name="data_area_public_storage_label">パブリックストレージ</string>

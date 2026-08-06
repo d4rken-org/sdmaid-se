@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Upgrade variantlarını korıń</string>
     <string name="upgrade_screen_status_upgraded_title">Jañartıw aktivlı</string>
     <string name="upgrade_screen_status_upgraded_body">Barlyq qosımsha qızıqlılıqlar ashılıp ketdi. Açıq kod işlemesine qollap bergen soñiñiz üşin rahmat ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s belgileşinshi qoşımshı</string>
     <string name="upgrade_screen_recurring_title">Davammen beringiz</string>
     <string name="upgrade_screen_recurring_body">SD Maid jañartıwlar wa tüzetiwler arqalı taraqqiyat etip barmaqta. Eger siz buni qollap beriwni istesañiz, GitHub Sponsors arqalı muntazamli doymak beriwni eslaw.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors-ni ashıw</string>

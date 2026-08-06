@@ -10,15 +10,15 @@
         <item quantity="other">Izbranih je bilo %d poti.</item>
     </plurals>
     <string name="picker_home_action">Podatkovna področja</string>
-    <string name="picker_select_hint">Držite predmet, da ga izberete</string>
+    <string name="picker_select_hint">Pridržite predmet, da ga izberete.</string>
     <string name="tour_action_next">Naprej</string>
     <string name="tour_action_previous">Nazaj</string>
     <string name="tour_action_cancel">Preskoči</string>
-    <string name="tour_confirm_title">Preskočiti turo?</string>
-    <string name="tour_confirm_message">Ture lahko kadar koli ponovno omogočite v nastavitvah.</string>
-    <string name="tour_confirm_continue">Nadaljuj turo</string>
-    <string name="tour_confirm_dont_show_this_tour">Ne prikaži te ture</string>
-    <string name="tour_confirm_disable_all">Onemogoči vse vodene ture</string>
+    <string name="tour_confirm_title">Preskoči predstavitev?</string>
+    <string name="tour_confirm_message">Predstavitve lahko kadarkoli ponovno omogočite v nastavitvah.</string>
+    <string name="tour_confirm_continue">Nadaljuj predstavitev</string>
+    <string name="tour_confirm_dont_show_this_tour">Ne prikaži te predstavitve</string>
+    <string name="tour_confirm_disable_all">Onemogoči vse predstavitve</string>
     <string name="navigation_unknown_destination_title">Zaslon ni na voljo</string>
     <string name="navigation_unknown_destination_message">Tega zaslona ni bilo mogoče odpreti.</string>
 </resources>

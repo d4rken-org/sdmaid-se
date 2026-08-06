@@ -30,7 +30,8 @@
     <string name="corpsefinder_filter_publicdata_label">Viešieji programėlės duomenys</string>
     <string name="corpsefinder_filter_publicdata_summary">Neskelbtini programėlės duomenys, pvz., žemėlapių talpyklos.</string>
     <string name="corpsefinder_filter_sdcard_label">SD kortelė</string>
-    <string name="corpsefinder_filter_sdcard_summary">Bendra viešoji saugykla, vidinė ir išorinė \n(pvz., SD kortelės).</string>
+    <string name="corpsefinder_filter_sdcard_summary">Bendra viešoji saugykla, vidinė ir išorinė 
+(pvz., SD kortelės).</string>
     <string name="corpsefinder_filter_privatedata_label">Privatūs programėlės duomenys</string>
     <string name="corpsefinder_filter_privatedata_summary">Privatūs programėlės duomenys, pvz., įgaliojimai, programėlės nustatymai, taip pat naršyklės talpyklos.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik talpykla</string>

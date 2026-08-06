@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Ein geplanter Aufgabenablauf hat versucht, den Barrierefreiheitsdienst zu nutzen, dieser war jedoch nicht verfügbar. Falls du das nicht benötigst, deaktiviere die Option „Barrierefreiheitsdienst“ in den Einstellungen der Zeitsteuerung.</string>
     <string name="automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
     <string name="automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
+    <string name="automation_error_disabled_app_title">App ist deaktiviert</string>
+    <string name="automation_error_disabled_app_body">Dein Gerät öffnet die Einstellungen von deaktivierten Apps nicht, daher kann der Cache nicht über den Bedienungshilfendienst geleert werden. Aktiviere die App oder nutze stattdessen Root oder Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Einstellungsbildschirm blockiert</string>
     <string name="automation_error_interference_body">Eine andere App (%1$s) blockiert den Einstellungsbildschirm des Systems, weshalb SD Maid nicht fortfahren kann. Deaktiviere die App-Sperre oder den Bildschirmschutz dieser App für die Systemeinstellungen und versuche es erneut.</string>
     <string name="automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>

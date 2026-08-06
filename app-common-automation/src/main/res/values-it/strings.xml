@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Un\'attività pianificata ha tentato di utilizzare il servizio di accessibilità, ma non era disponibile. Se non ne hai bisogno, disabilita l\'opzione \"Servizio di accessibilità\" nelle impostazioni del pianificatore.</string>
     <string name="automation_error_no_settings_title">Schermata impostazioni non disponibile</string>
     <string name="automation_error_no_settings_body">Questa app di sistema non ha una schermata delle impostazioni. La cancellazione della cache tramite servizio di accessibilità non è possibile. Escludila per velocizzare la cancellazione della cache.</string>
+    <string name="automation_error_disabled_app_title">L\'app è disabilitata</string>
+    <string name="automation_error_disabled_app_body">Il dispositivo non aprirà le impostazioni delle app disabilitate, quindi la cache non può essere cancellata tramite il servizio di accessibilità. Abilita l\'app o usa root o Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Schermata Impostazioni bloccata</string>
     <string name="automation_error_interference_body">Un’altra app (%1$s) sta bloccando la schermata delle impostazioni di sistema, quindi SD Maid non può continuare. Disabilita il blocco app o la protezione dello schermo di tale app per le impostazioni di sistema, quindi riprova.</string>
     <string name="automation_loading">Allestendo automazioni con il servizio di accessibilità</string>

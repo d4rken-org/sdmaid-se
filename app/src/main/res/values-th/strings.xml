@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">ลบการรายงานผลทั้งหมดหรือไม่?</string>
     <string name="dashboard_hero_freeable_headline">%1$s สามารถปล่อยออกได้</string>
     <string name="dashboard_hero_freed_headline">%1$s ปล่อยออก</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">สามารถลบ %d รายการได้</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">ลบ %d รายการออกแล้ว</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">แตะปุ่มเพื่อเพิ่มพื้นที่ว่าง หรือแตะชิปเพื่อตรวจสอบก่อน</string>
     <string name="dashboard_hero_freed_hint">แตะชิปเพื่อดูรายละเอียด</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">เหลือ %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">ไม่มีอะไรถูกปลดปล่อย</string>
+    <string name="dashboard_hero_nothing_freed_caption">การทำความสะอาดเสร็จสิ้นแล้ว แต่ไม่สามารถลบข้อมูลที่พบได้</string>
+    <string name="dashboard_hero_nothing_freed_hint">ข้อมูลบางรายการสามารถลบได้เฉพาะเมื่อมีการเข้าถึงพิเศษ เช่น บริการการเข้าถึง หรือ root</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">สแกน %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">ปล่อยออก %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">พยายาม %1$s</string>
     <string name="dashboard_settings_category">แดชบอร์ด</string>
     <string name="dashboard_motd_title">ข้อความจากผู้พัฒนา</string>
     <string name="dashboard_settings_oneclick_title">โหมดแตะครั้งเดียว</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku ร่วมกับการเข้าถึงรูธไม่ได้เพิ่มคุณสมบัติเพิ่มเติม แต่จะช่วยเพิ่มความเสถียร SD Maid จะใช้เป็นวิธีสำรอง</string>
     <string name="setup_shizuku_state_ready_label">ลิงค์ Shizuku พร้อมแล้ว</string>
     <string name="setup_shizuku_state_waiting_label">กำลังรอลิงค์กับ Shizuku อยู่</string>
+    <string name="setup_shizuku_state_not_installed_label">ยังไม่ติดตั้งแอป Shizuku</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ลองใช้ Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">อย่าใช้ Shizuku</string>
     <string name="setup_dismiss_hint">คุณจะหาเมนูตั้งค่าเพื่อเริ่มใช้งานได้โดยไปที่การตั้งค่าของแอพ</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">โหลดแอปใหม่</string>
     <string name="debug_card_root_test_action">ทดสอบ root</string>
     <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">โหมดจำลองเปิดใช้งาน</string>
+    <string name="dashboard_dryrun_warning_body">การทำความสะอาดกำลังถูกจำลอง ไฟล์ถูกสแกนและรายงาน แต่ไม่มีการลบจริง</string>
+    <string name="dashboard_dryrun_warning_disable_action">ปิด</string>
     <string name="data_area_public_app_data_official_label">ข้อมูลแอพสาธารณะเริ่มต้น</string>
     <string name="data_area_public_app_assets_official_label">ทรัพยากรแอพสาธารณะเริ่มต้น</string>
     <string name="data_area_public_storage_label">พื้นที่จัดเก็บสาธารณะ</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">อุปกรณ์</string>
     <string name="review_app_review_action">รีวิว</string>
     <string name="review_app_dismiss_action">อาจในคราวหน้า</string>
-    <string name="review_app_body">คุณต้องการให้คะแนน SD Maid หรือไม่?️ ❤️</string>
+    <string name="review_app_body">คุณต้องการให้คะแนน SD Maid หรือไม่? ❤️</string>
     <string name="anniversary_card_title">สุขสันต์วันครบรอบ SD Maid ❤️</string>
     <string name="anniversary_card_install_date">อยู่กับคุณตั้งแต่ %s</string>
     <plurals name="anniversary_card_body">

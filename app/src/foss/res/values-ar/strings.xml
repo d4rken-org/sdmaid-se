@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">عرض خيارات الترقية</string>
     <string name="upgrade_screen_status_upgraded_title">الترقية نشطة</string>
     <string name="upgrade_screen_status_upgraded_body">تم فتح جميع الميزات الإضافية. شكرًا لدعمك تطوير المصدر المفتوح ❤️</string>
+    <string name="upgrade_screen_supporter_since">داعم منذ %s</string>
     <string name="upgrade_screen_recurring_title">استمر في الدعم</string>
     <string name="upgrade_screen_recurring_body">يستمر تطبيق SD Maid في التطور من خلال التحديثات والإصلاحات. إذا كنت تود دعم هذا المشروع، فكر في التبرع المتكرر عبر GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">فتح GitHub Sponsors</string>

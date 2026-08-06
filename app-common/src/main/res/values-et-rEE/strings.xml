@@ -74,12 +74,12 @@
     <string name="general_sort_size_desc">Suurimad ees</string>
     <string name="general_tag_system">Süsteem</string>
     <string name="general_tag_library">Teek</string>
-    <string name="general_navigate_up_action">Liiguta ülespoole</string>
+    <string name="general_navigate_up_action">Liiguta üles</string>
     <string name="general_filter_action">Filtreeri</string>
     <string name="general_filter_by_tags_label">Filtreeri siltide järgi</string>
     <string name="general_filter_add_action">Lisa filter</string>
     <string name="general_filter_remove_x_action">Eemalda %s filter</string>
-    <string name="general_filter_empty_row_hint">Puuduta + et filtreerida</string>
+    <string name="general_filter_empty_row_hint">Filtreerimiseks puuduta +</string>
     <string name="general_result_success_message">Edukas toiming</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Vabastati %s ruumi.</item>
@@ -177,7 +177,7 @@
     <string name="general_error_ipc_deadobject_title">Ühendus teenusega katkes</string>
     <string name="general_error_ipc_deadobject_description">Ühendus olulise teenusega (nt Magisk, Shizuku või muu süsteemi tasemel oleva teenusega) katkes ootamatult. Taaskäivitage oma seade. Probleemi kordumisel kontrollige uuendusi või suhelge minuga, et saaksin seda parandada.</string>
     <string name="general_error_upgrade_required_title">Uuendamine nõutav</string>
-    <string name="general_error_upgrade_required_description">See funktsioon nõuab uuendamist. Palun uuendage SD Maid SE, et seda kasutada.</string>
+    <string name="general_error_upgrade_required_description">See võimalus nõuab uuendamist. Uuendage SD Maid SE, et seda kasutada.</string>
     <string name="general_user_label_owner">Omanik</string>
     <string name="general_user_label_system">Süsteem</string>
     <string name="setup_title">Seadistamine</string>
@@ -206,19 +206,19 @@
     <string name="ui_theme_color_sunset_label">Loojang</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
-    <string name="access_blocked_root_unavailable">See funktsioon vajab juurkasutaja juurdepääsu, kuid SD Maid ei saanud seda sellel seadmel hankida.</string>
-    <string name="access_blocked_root_declined">See funktsioon vajab juurkasutaja juurdepääsu. Saad selle lubada häälestamise ekraanis.</string>
-    <string name="access_blocked_root_or_shizuku">See funktsioon vajab juurkasutaja juurdepääsu või Shizuku juurdepääsu, mis pole sellel seadmel saadaval.</string>
+    <string name="access_blocked_root_unavailable">See võimalus vajab juurkasutaja juurdepääsu, kuid SD Maid ei saanud seda sellel seadmel hankida.</string>
+    <string name="access_blocked_root_declined">See võimalus vajab juurkasutaja juurdepääsu. Saad selle lubada häälestamise ekraanis.</string>
+    <string name="access_blocked_root_or_shizuku">See võimalus vajab juurkasutaja juurdepääsu või Shizuku juurdepääsu, mis pole sellel seadmel saadaval.</string>
     <!-- Config backup/restore errors -->
     <string name="backup_restore_error_invalid_title">Vigane varukoopia fail</string>
-    <string name="backup_restore_error_invalid_body">See fail ei ole kehtiv SD Maid varukoopia või on see rikutud.</string>
-    <string name="backup_restore_error_version_body">See varukoopia loodi SD Maidi uuema versiooniga. Palun uuendage rakendust ja proovige uuesti.</string>
+    <string name="backup_restore_error_invalid_body">See fail pole kehtiv SD Maid varukoopia või on see rikutud.</string>
+    <string name="backup_restore_error_version_body">See varukoopia loodi SD Maidi uuema versiooniga. Uuendage rakendust ja proovige uuesti.</string>
     <string name="backup_restore_error_restore_failed_title">Taastamine nurjus</string>
-    <string name="backup_restore_error_restore_failed_body">Neid osi ei saanud taastada: %1$s. Teie eelmine konfiguratsioon salvestati ja selle saab tagasi tuua.</string>
+    <string name="backup_restore_error_restore_failed_body">Neid osi ei saanud taastada: %1$s. Teie eelmine seadistus salvestati ja selle saab tagasi tuua.</string>
     <string name="backup_restore_error_safety_title">Taastamist ei alustatud</string>
-    <string name="backup_restore_error_safety_body">SD Maid ei saanud teie praeguse konfiguratsiooni ohutuskoopia salvestada, seega midagi ei muutunud.</string>
+    <string name="backup_restore_error_safety_body">SD Maid ei saanud teie praeguse seadistuse ohutuskoopia salvestada, seega midagi ei muutunud.</string>
     <string name="backup_restore_error_busy_title">Palun oodake</string>
-    <string name="backup_restore_error_busy_body">Puhastamistöö või muu varukoopia operatsioon käib praegu. Proovige uuesti, kui see on lõpetatud.</string>
+    <string name="backup_restore_error_busy_body">Puhastamine või muu varukoopia tegevus on pooleli. Proovige uuesti, kui see on lõpetatud.</string>
     <string name="backup_restore_error_schema_title">Ühildumatu varukoopia</string>
-    <string name="backup_restore_error_schema_body">Varukoopia andmebaasi vorming ei ühildu selle SD Maidi versiooniga. Ajaloo andmete taastamine on toetatud ainult identsete rakenduse versioonide vahel.</string>
+    <string name="backup_restore_error_schema_body">Varukoopia andmebaasi vorming ei ühildu selle SD Maidi versiooniga. Ajaloo andmete taastamine on toetatud ainult samasuguste rakenduse versioonide vahel.</string>
 </resources>
