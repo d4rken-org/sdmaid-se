@@ -13,7 +13,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -48,8 +48,12 @@ internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
     // the review bookkeeping with a snooze) and a review after a dismiss. A repeated review tap is
     // harmless, the tool's single-flight lock absorbs it, and blocking it here would leave a dead
     // card whenever a Play request fails and nothing gets persisted.
-    var dismissLocked by rememberSaveable { mutableStateOf(false) }
-    var fullyLatched by rememberSaveable { mutableStateOf(false) }
+    // Plain remember, not rememberSaveable: the dashboard's lazy list retains saveable state per
+    // item key, so a latched card removed by a priority cycle would come back still latched. The
+    // latch only has to cover the sub-second window until the list drops the card, and disposal on
+    // removal is exactly the reset we want.
+    var dismissLocked by remember { mutableStateOf(false) }
+    var fullyLatched by remember { mutableStateOf(false) }
     val onReview = {
         if (!fullyLatched && activity != null) {
             dismissLocked = true

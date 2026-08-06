@@ -3,7 +3,9 @@ package eu.darken.sdmse.main.ui.dashboard.cards
 import android.app.Activity
 import android.content.Context
 import androidx.activity.compose.LocalActivity
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
@@ -42,6 +44,24 @@ class ReviewDashboardCardTest : BaseComposeRobolectricTest() {
             PreviewWrapper {
                 CompositionLocalProvider(LocalActivity provides activity) {
                     ReviewDashboardCard(item = item)
+                }
+            }
+        }
+    }
+
+    private val cardVisible = mutableStateOf(true)
+
+    // Mirrors the dashboard host: a LazyColumn keyed by the item's stable id, which is constant for
+    // this card.
+    private fun setLazyContent(activity: Activity? = mockk<Activity>(relaxed = true)) {
+        composeRule.setContent {
+            PreviewWrapper {
+                CompositionLocalProvider(LocalActivity provides activity) {
+                    LazyColumn {
+                        if (cardVisible.value) {
+                            item(key = item.stableId) { ReviewDashboardCard(item = item) }
+                        }
+                    }
                 }
             }
         }
@@ -119,6 +139,28 @@ class ReviewDashboardCardTest : BaseComposeRobolectricTest() {
             reviews shouldBe 2
             dismisses shouldBe 0
         }
+    }
+
+    @Test
+    fun `a card that left the list comes back unlatched`() {
+        setLazyContent()
+
+        dismissButton().performClick()
+        composeRule.runOnIdle { dismisses shouldBe 1 }
+
+        // A priority cycle (MOTD, update or setup card taking the slot) removes the item and re-adds
+        // it later. The lazy host retains saveable state per item key, so a latch that survives
+        // disposal comes back with the card and leaves it dead.
+        cardVisible.value = false
+        composeRule.waitForIdle()
+        cardVisible.value = true
+        composeRule.waitForIdle()
+
+        dismissButton().assertIsEnabled()
+        reviewButton().assertIsEnabled()
+
+        cardBody().performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { reviews shouldBe 1 }
     }
 
     @Test
