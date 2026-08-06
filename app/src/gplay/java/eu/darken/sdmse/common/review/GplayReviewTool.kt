@@ -113,6 +113,11 @@ class GplayReviewTool @Inject constructor(
     // the verdict doesn't change while the app runs. Survives eligibility flips, unlike the share.
     @Volatile private var cachedVerdict: Verdict? = null
 
+    // Process-wide on purpose: the eligibility flatMapLatest below restarts this branch on every
+    // input change (a billing flicker flipping upgradedAt is enough), and a restart must not hand
+    // out a fresh round budget.
+    @Volatile private var probeRoundsStarted: Int = 0
+
     // Only probed once the user is eligible: Play counts requests against the app's quota, and an
     // `isNoOp` answer is Play's deliberate verdict, i.e. an answer and not a failure to retry.
     // `null` means no probe ran (not eligible), which is not a Play answer and is never cached.
@@ -127,8 +132,16 @@ class GplayReviewTool @Inject constructor(
                     return@flow
                 }
 
-                for (round in 0..FAILURE_RETRY_ROUNDS) {
-                    if (round > 0) delay(probeFailureCooldown.toMillis())
+                while (true) {
+                    if (probeRoundsStarted == FAILURE_RETRY_ROUNDS + 1) {
+                        log(TAG, WARN) { "Probe failed in all ${FAILURE_RETRY_ROUNDS + 1} rounds, giving up" }
+                        emit(Verdict.TRANSIENT_FAILURE)
+                        return@flow
+                    }
+                    if (probeRoundsStarted > 0) delay(probeFailureCooldown.toMillis())
+
+                    val round = probeRoundsStarted
+                    probeRoundsStarted++
 
                     val verdict = probeRound(round)
                     emit(verdict)
@@ -139,7 +152,6 @@ class GplayReviewTool @Inject constructor(
                         return@flow
                     }
                 }
-                log(TAG, WARN) { "Probe failed in all ${FAILURE_RETRY_ROUNDS + 1} rounds, giving up" }
             }
         }
         // Lazily, not WhileSubscribed: a re-subscription must not spend another Play request on a
