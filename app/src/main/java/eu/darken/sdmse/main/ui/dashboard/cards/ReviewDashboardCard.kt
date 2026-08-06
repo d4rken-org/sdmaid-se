@@ -11,6 +11,10 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -39,9 +43,19 @@ data class ReviewDashboardCardItem(
 @Composable
 internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
     val activity = LocalActivity.current
+    // The card has three tap targets that all remove it, but the removal only arrives with the next
+    // state emission. Until then a second tap would reach a second callback (dismiss after review
+    // overwrites the review bookkeeping with a snooze), so the first action consumes all of them.
+    var actionTaken by rememberSaveable { mutableStateOf(false) }
+    val onReview = {
+        if (!actionTaken && activity != null) {
+            actionTaken = true
+            item.onReview(activity)
+        }
+    }
     DashboardCard(
         containerColor = MaterialTheme.colorScheme.secondaryContainer,
-        onClick = { activity?.let(item.onReview) },
+        onClick = onReview,
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
@@ -63,14 +77,22 @@ internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
         ) {
-            DashboardFlatActionButton(onClick = item.onDismiss) {
+            DashboardFlatActionButton(
+                onClick = {
+                    if (!actionTaken) {
+                        actionTaken = true
+                        item.onDismiss()
+                    }
+                },
+                enabled = !actionTaken,
+            ) {
                 Text(text = stringResource(R.string.review_app_dismiss_action))
             }
             Spacer(modifier = Modifier.width(8.dp))
             DashboardFilledActionButton(
                 modifier = Modifier.weight(1f),
-                onClick = { activity?.let(item.onReview) },
-                enabled = activity != null,
+                onClick = onReview,
+                enabled = !actionTaken && activity != null,
             ) {
                 Icon(
                     imageVector = SdmIcons.GooglePlay,
