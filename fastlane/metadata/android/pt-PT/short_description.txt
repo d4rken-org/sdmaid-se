@@ -1,1 +1,1 @@
-Uma ferramenta para Android e que ajuda a otimizar o sistema.
+Um assistente de confiança para manter o Android limpo e arrumado.
