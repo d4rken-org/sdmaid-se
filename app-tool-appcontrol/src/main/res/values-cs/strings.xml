@@ -140,7 +140,7 @@
     <string name="shortcut_appcontrol_short">Ovládání aplikací</string>
     <string name="shortcut_appcontrol_long">Správa nainstalovaných aplikací</string>
     <string name="tour_appcontrol_search_body">Vyhledejte aplikaci podle názvu. Užitečné na zařízeních s mnoha nainstalovanými aplikacemi.</string>
-    <string name="tour_appcontrol_filter_body">Zúžit seznam podle uživatelských/systémových aplikací, stavu povolení, nedávné aktivity a dalších. Aktivní filtry se zde zobrazují jako čipy.</string>
-    <string name="tour_appcontrol_sort_body">Řadit aplikace podle názvu, data instalace, poslední aktualizace, velikosti nebo času u obrazovky. Klepnutím na stejnou možnost změníte směr.</string>
+    <string name="tour_appcontrol_filter_body">Zúžete seznam podle uživ./systém. aplikací, stavu povolení, nedávné aktivity a dalších. Aktivní filtry se zde zobrazují jako štítky.</string>
+    <string name="tour_appcontrol_sort_body">Řazení aplikací podle názvu, data instalace, poslední aktualizace, velikosti nebo času u obrazovky. Klepnutím na stejnou možnost změníte směr.</string>
     <string name="tour_appcontrol_app_row_body">Klepnutím na aplikaci otevřete její podrobnosti a dostupné akce. Dlouhým stisknutím zahájíte výběr a použijete hromadné akce.</string>
 </resources>

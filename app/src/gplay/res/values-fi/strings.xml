@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Tapahtui sisäinen Google Play -virhe. Kokeile seuraavaa:\n\n• Käynnistä laitteesi uudelleen\n• Tyhjennä Google Play Kaupan välimuisti\n• Yritä myöhemmin uudelleen</string>
     <string name="upgrades_gplay_network_error_title">Yhteysvirhe</string>
     <string name="upgrades_gplay_network_error_description">Google Playhin ei voida yhdistää. Tarkista internetyhteytesi ja yritä uudelleen.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Tarjous ei ole saatavilla</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ei tällä hetkellä tarjoa tätä päivitysvaihtoehtoa. Yritä uudelleen myöhemmin tai tarkista Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Playn avaaminen ei onnistunut. Se saattaa puuttua, olla poistettu käytöstä tai rajoitettu tällä laitteella.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jo ostettu</string>
     <string name="upgrades_gplay_already_owned_error_description">Käytä \"Palauta ostos\" -vaihtoehtoa palauttaaksesi ostoksesi. Jos ongelma jatkuu, kokeile tyhjentää Google Play -välimuisti ja käynnistää laitteesi uudelleen.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Hanki %1$s</string>
     <string name="upgrade_screen_preamble">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja. Työni rahoitetaan sinun toimestasi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Päivityksen edut</string>
     <string name="upgrade_screen_benefits_body">• Sovellusvälimuistin ja roskatiedostojen puhdistus\n• Kaksoiskappaleiden poistaminen\n• Kuvien ja videoiden pakkaaminen\n• Pyyhkäisy vanhoille tiedostoille\n• Yhden painalluksen puhdistus widgetin kautta\n• Puhdistuksen ajoittaminen\n• Mukautetut suodattimet ja säännöt\n• Tallennustilan trendit ja historia\n• Lisää ominaisuuksia ja hallintavaihtoehtoja sovelluksessa\n• Jatketun kehityksen tukeminen</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Uusitaan vuosittain. Voit peruuttaa milloin tahansa Google Playssa.</string>
     <string name="upgrade_screen_iap_offer_title">Osta kerran</string>
     <string name="upgrade_screen_iap_offer_body">Yksi maksu, ei uusintoja.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Hinnat eivät ole saatavilla</string>
     <string name="upgrade_screen_offers_unavailable_message">Hintoja ei voitu ladata juuri nyt. Tarkista Google Play ja yritä uudelleen hetken kuluttua.</string>
     <string name="upgrade_screen_subscription_trial_action">Aloita ilmainen 14 päivän kokeilu</string>
     <string name="upgrade_screen_subscription_action">Tilaa</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Ota yhteyttä tukeen</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid juuri tarkisti Google Playta, mutta Pro-ostoa ei voitu vahvistaa tilille, jota Google Play käyttää tälle sovellukselle.</string>
     <string name="upgrade_screen_restore_contact_hint">Oletko edelleen jumissa? Ota yhteyttä tukeen sähköpostista, joka teki ostoksen, ja liitä mukaan Google Play -tilausnumerosi.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Tarkistus Google Playn kanssa ei valmistunut ajoissa, joten ostostatuksesi on edelleen tuntematon. Tilissäsi ei ole muuttunut mitään.</string>
 </resources>

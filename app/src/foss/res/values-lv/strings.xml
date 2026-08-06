@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Skatīt jaunināšanas iespējas</string>
     <string name="upgrade_screen_status_upgraded_title">Jauninājums aktīvs</string>
     <string name="upgrade_screen_status_upgraded_body">Visas papildu funkcijas ir atbloķētas. Paldies par atbalstu atvērtā koda izstrādei ❤️</string>
+    <string name="upgrade_screen_supporter_since">Atbalstītājs kopš %s</string>
     <string name="upgrade_screen_recurring_title">Turpiniet atbalstu</string>
     <string name="upgrade_screen_recurring_body">SD Maid turpina attīstīties ar jauninājumiem un labojumiem. Ja vēlaties to turpināt atbalstīt, apsveriet regulāru ziedojumu caur GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Atvērt GitHub Sponsors</string>

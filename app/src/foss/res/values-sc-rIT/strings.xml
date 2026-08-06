@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Bide is optzionis de aggiornamentu</string>
     <string name="upgrade_screen_status_upgraded_title">Atzuada ativu</string>
     <string name="upgrade_screen_status_upgraded_body">Totu is features extras sunt desbloccadas. Graccia pro su suportu a su disviluppu open-source ❤️</string>
+    <string name="upgrade_screen_supporter_since">Sostenitore dae %s</string>
     <string name="upgrade_screen_recurring_title">Prosegui</string>
     <string name="upgrade_screen_recurring_body">SD Maid sigui a evoluire cun atzuadas e corretziones. Si cheres a sustènnere custu, consigera una donatzione ricurrente via GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Abri GitHub Sponsors</string>

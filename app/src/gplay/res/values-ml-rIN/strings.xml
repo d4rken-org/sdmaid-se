@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">ഒരു ആന്തരിക Google Play പിശക് സംഭവിച്ചു. ദയവായി ഇനിപ്പറയുന്നവ ശ്രമിക്കുക:\n\n• നിങ്ങളുടെ ഉപകരണം റീസ്റ്റാര്‍ട്ട് ചെയ്യുക\n• Google Play Store കാഷെ മായ്‌ക്കുക\n• പിന്നീട് വീണ്ടും ശ്രമിക്കുക</string>
     <string name="upgrades_gplay_network_error_title">കണക്ഷന്‍ പിശക്</string>
     <string name="upgrades_gplay_network_error_description">Google Play-യിലേക്ക് കണക്റ്റുചെയ്യാന്‍ കഴിയുന്നില്ല. ദയവായി നിങ്ങളുടെ ഇന്റര്‍നെറ്റ് കണക്ഷന്‍ പരിശോധിച്ച് വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ഓഫർ ലഭ്യമല്ല</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play നിലവിൽ ഈ അപ്ഗ്രേഡ് ഓപ്‌ഷൻ നൽകുന്നില്ല. പിന്നീട് വീണ്ടും ശ്രമിക്കുക അല്ലെങ്കിൽ Google Play സ്റ്റോർ പരിശോധിക്കുക.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play തുറക്കാൻ കഴിഞ്ഞില്ല. ഈ ഡിവൈസിൽ ഇത് കാണാതായതോ, നിരോധിതമോ അല്ലെങ്കിൽ നിയന്ത്രിതമോ ആയിരിക്കാം.</string>
     <string name="upgrades_gplay_already_owned_error_title">ഇതിനകം വാങ്ങിയിട്ടുണ്ട്</string>
     <string name="upgrades_gplay_already_owned_error_description">നിങ്ങളുടെ വാങ്ങല്‍ പുനഃസ്ഥാപിക്കാന്‍ \"വാങ്ങല്‍ പുനഃസ്ഥാപിക്കുക\" ഓപ്ഷന്‍ ഉപയോഗിക്കുക. പ്രശ്നം തുടരുകയാണെങ്കില്‍, Google Play കാഷെ മായ്‌ക്കാനും നിങ്ങളുടെ ഉപകരണം റീസ്റ്റാര്‍ട്ട് ചെയ്യാനും ശ്രമിക്കുക.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s നേടുക</string>
     <string name="upgrade_screen_preamble">SD മെയ്ഡിൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നില്ല. എന്റെ ജോലി നിങ്ങൾ ധനസഹായം ചെയ്യുന്നു ❤️.</string>
     <string name="upgrade_screen_benefits_title">അപ്ഗ്രേഡ് നേട്ടങ്ങൾ</string>
     <string name="upgrade_screen_benefits_body">• ആപ്പ് ക്യാഷും ചോരയും ശുചിത്വം\n• ഡ്യുപ്ലിക്കേറ്റ് ഫയൽ നീക്കം\n• ഫോട്ടോയും വീഡിയോയും കംപ്രെഷൻ\n• പഴയ ഫയലുകൾ നീക്കാൻ സ്വൈപ് ചെയ്യുക\n• വിജറ്റ് വഴി ഒരു-തൊടൽ ശുചിത്വം\n• ശുചിത്വ ഷെഡ്യൂൾ\n• കസ്റ്റം ഫിൽട്ടറുകളും നിയമങ്ങളും\n• സംഭരണ പ്രവണതകളും ചരിത്രവും\n• ആപ്പ് ഉടനീളം കൂടുതൽ ഫീച്ചറുകളും നിയന്ത്രണവും\n• തുടരുന്ന വികാസത്തെ പിന്തുണയ്ക്കുക</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">വർഷത്തിൽ ഒരിക്കൽ നവീകരിക്കുന്നു. Google Play-യിൽ ഏത് സമയത്തും റദ്ദാക്കുക.</string>
     <string name="upgrade_screen_iap_offer_title">ഒരിക്കൽ വാങ്ങുക</string>
     <string name="upgrade_screen_iap_offer_body">ഒരു പേയ്‌മെന്റ്, നവീകരണങ്ങൾ ഇല്ല.</string>
+    <string name="upgrade_screen_offers_unavailable_title">വിലകൾ ലഭ്യമല്ല</string>
     <string name="upgrade_screen_offers_unavailable_message">വിലകൾ ഇപ്പോൾ ലോഡ് ചെയ്യാൻ കഴിഞ്ഞില്ല. Google Play പരിശോധിക്കുക, കുറച്ച് കാലത്തിനുശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="upgrade_screen_subscription_trial_action">സൗജന്യ 14-ദിവസ ട്രയൽ ആരംഭിക്കുക</string>
     <string name="upgrade_screen_subscription_action">സബ്‌സ്ക്രൈബ്</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">സപ്പോർട്ടുമായി ബന്ധപ്പെടുക</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid ഇതുവെച്ച് Google Play പരിശോധിച്ചു, പക്ഷേ Google Play ഈ ആപ്പിനായി ഉപയോഗിക്കുന്ന അക്കൗണ്ടിനായി Pro വാങ്ങൽ സ്ഥിരീകരിക്കാനായില്ല.</string>
     <string name="upgrade_screen_restore_contact_hint">ഇപ്പോഴും പ്രശ്നമുണ്ടോ? വാങ്ങിയ ഇമെയിൽ വിലാസത്തിൽ നിന്ന് സപ്പോർട്ടിനെ ബന്ധപ്പെടുക കൂടാതെ നിങ്ങളുടെ Google Play ഓർഡർ നമ്പർ ഉൾപ്പെടുത്തുക.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ഉപയോഗിച്ചുള്ള പരിശോധന സമയത്തിൽ പൂർത്തിയായില്ല, അതിനാൽ നിങ്ങളുടെ ക്രയ സ്ഥിതി ഇപ്പോഴും അജ്ഞാതമാണ്. നിങ്ങളുടെ അക്കൗണ്ടിൽ ഒന്നും മാറിയിട്ടില്ല.</string>
 </resources>

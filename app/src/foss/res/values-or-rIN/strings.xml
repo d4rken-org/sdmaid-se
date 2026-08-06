@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">ଅପଗ୍ରେଡ ବିକଳ୍ପ ଦେଖନ୍ତୁ</string>
     <string name="upgrade_screen_status_upgraded_title">ଅପଗ୍ରେଡ ସକ୍ରିୟ</string>
     <string name="upgrade_screen_status_upgraded_body">ସମସ୍ତ ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟ ଖୋଲା ହୋଇଛି। ଖୋଲା-ଉତ୍ସ ବିକାଶକୁ ସମର୍ଥନ କରିଥିବାରୁ ଧନ୍ୟବାଦ ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s ଠାରୁ ସମର୍ଥକ</string>
     <string name="upgrade_screen_recurring_title">ଏହାକୁ ଚାଲୁ ରଖନ୍ତୁ</string>
     <string name="upgrade_screen_recurring_body">SD Maid ଅପଡେଟ ଏବଂ ସଂଶୋଧନ ମାଧ୍ୟମରେ ବିକଶିତ ହୋଇ ରହିଛି। ଯଦି ଆପଣ ତାହା ଜାରି ରଖିବାକୁ ଚାହାଁନ୍ତି, ତେବେ GitHub Sponsors ମାଧ୍ୟମରେ ଏକ ପୁନରାବୃତ୍ତି ଦାନ ବିବେଚନା କରନ୍ତୁ।</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors ଖୋଲନ୍ତୁ</string>

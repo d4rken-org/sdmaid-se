@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">¿Borrar los resultados en todas las herramientas?</string>
     <string name="dashboard_hero_freeable_headline">Se puede liberar %1$s</string>
     <string name="dashboard_hero_freed_headline">%1$s liberado</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d elemento puede ser quitado</item>
+        <item quantity="other">%d elementos pueden ser quitados</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">Se quitó %d elemento</item>
+        <item quantity="other">Se quitaron %d elementos</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Toca el botón para liberar espacio, o un chip para verificar primero.</string>
     <string name="dashboard_hero_freed_hint">Toca una opción para más detalles.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s restante</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">No se liberó nada</string>
+    <string name="dashboard_hero_nothing_freed_caption">La limpieza finalizó, pero no se pudo quitar ninguno de los datos encontrados.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Algunos datos solo se pueden quitar con acceso adicional, como el servicio de accesibilidad o acceso root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s escaneado</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s liberado</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s intentado</string>
     <string name="dashboard_settings_category">Panel de control</string>
     <string name="dashboard_motd_title">Un mensaje del desarrollador</string>
     <string name="dashboard_settings_oneclick_title">Modo de un toque</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku en combinación con acceso root no habilita funciones adicionales, pero mejora la confiabilidad. SD Maid lo usará como método de respaldo.</string>
     <string name="setup_shizuku_state_ready_label">El enlace Shizuku está listo.</string>
     <string name="setup_shizuku_state_waiting_label">Esperando enlace con Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">La aplicación Shizuku no está instalada.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Usar Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No usar Shizuku</string>
     <string name="setup_dismiss_hint">Puedes encontrar la pantalla de configuración nuevamente vía el menú de configuración.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Recargar aplicaciones</string>
     <string name="debug_card_root_test_action">Probar root</string>
     <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Modo de simulación activo</string>
+    <string name="dashboard_dryrun_warning_body">Se está simulando la limpieza. Se escanean y se reportan los archivos, pero nada se elimina realmente.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Desactivar</string>
     <string name="data_area_public_app_data_official_label">Datos públicos predeterminados de aplicación</string>
     <string name="data_area_public_app_assets_official_label">Recursos públicos predeterminados de aplicación</string>
     <string name="data_area_public_storage_label">Almacenamiento público</string>

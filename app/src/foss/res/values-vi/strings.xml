@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Xem các tùy chọn nâng cấp</string>
     <string name="upgrade_screen_status_upgraded_title">Nâng cấp hoạt động</string>
     <string name="upgrade_screen_status_upgraded_body">Tất cả các tính năng bổ sung đã được mở khóa. Cảm ơn bạn đã hỗ trợ phát triển mã nguồn mở ❤️</string>
+    <string name="upgrade_screen_supporter_since">Người ủng hộ từ %s</string>
     <string name="upgrade_screen_recurring_title">Hãy tiếp tục</string>
     <string name="upgrade_screen_recurring_body">SD Maid tiếp tục phát triển thông qua các bản cập nhật và sửa lỗi. Nếu bạn muốn duy trì điều đó, hãy xem xét quyên góp định kỳ thông qua GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Mở GitHub Sponsors</string>

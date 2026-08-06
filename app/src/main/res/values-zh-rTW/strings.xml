@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">在所有工具中刪除結果？</string>
     <string name="dashboard_hero_freeable_headline">%1$s 可釋出</string>
     <string name="dashboard_hero_freed_headline">%1$s 已釋出</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">%d 個項目可以移除</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">%d 個項目已移除</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">點擊按鈕以釋放空間，或點擊標籤先檢查。</string>
     <string name="dashboard_hero_freed_hint">點擊標籤以取得詳細資訊。</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s 剩餘</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">未釋放任何項目</string>
+    <string name="dashboard_hero_nothing_freed_caption">清理完成，但找到的資料都無法移除。</string>
+    <string name="dashboard_hero_nothing_freed_hint">某些資料只能透過額外的存取權限移除，例如無障礙服務或 root。</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">已掃描 %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">已釋出 %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">嘗試了 %1$s</string>
     <string name="dashboard_settings_category">儀表板</string>
     <string name="dashboard_motd_title">來自開發人員的訊息</string>
     <string name="dashboard_settings_oneclick_title">單鍵模式</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku 與 root 權限結合不會啟用額外功能，但可以提高可靠性。SD Maid 會將其作為後備方法使用。</string>
     <string name="setup_shizuku_state_ready_label">Shizku 連結已就緒。</string>
     <string name="setup_shizuku_state_waiting_label">正在等候 Shizuku 連結。</string>
+    <string name="setup_shizuku_state_not_installed_label">未安裝 Shizuku 應用程式。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">嘗試使用 Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">不要使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以透過設定選單再次找到安裝程式畫面。</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
     <string name="debug_card_root_test_action">測試 Root</string>
     <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">乾執行模式已啟用</string>
+    <string name="dashboard_dryrun_warning_body">清理正在模擬中。檔案已掃描並報告，但未實際刪除任何檔案。</string>
+    <string name="dashboard_dryrun_warning_disable_action">關閉</string>
     <string name="data_area_public_app_data_official_label">預設公用應用程式資料</string>
     <string name="data_area_public_app_assets_official_label">預設公用應用程式資產</string>
     <string name="data_area_public_storage_label">公用儲存空間</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">裝置</string>
     <string name="review_app_review_action">評論</string>
     <string name="review_app_dismiss_action">稍後再說</string>
-    <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
+    <string name="review_app_body">你想為 SD Maid 留下評論嗎？❤️</string>
     <string name="anniversary_card_title">SD Maid 週年快樂❤️</string>
     <string name="anniversary_card_install_date">從 %s 陪伴您至今</string>
     <plurals name="anniversary_card_body">

@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Naganap ang isang internal na error sa Google Play. Pakisubukan ang mga sumusunod:\n\n• I-restart ang iyong aparato\n• I-clear ang cache ng Google Play Store\n• Subukan muli mamaya</string>
     <string name="upgrades_gplay_network_error_title">Error sa koneksyon</string>
     <string name="upgrades_gplay_network_error_description">Hindi makakonekta sa Google Play. Pakisuri ang iyong koneksyon sa internet at subukan muli.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Hindi available ang alok</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Ang Google Play ay hindi kasalukuyang nag-aalok ng upgrade option na ito. Mangyaring subukan muli mamaya o suriin ang Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Hindi mabuksan ang Google Play. Maaaring wala ito, hindi naka-enable, o may paghihigpit sa device na ito.</string>
     <string name="upgrades_gplay_already_owned_error_title">Nabili na</string>
     <string name="upgrades_gplay_already_owned_error_description">Gamitin ang \"I-restore ang pagbili\" na opsyon upang i-restore ang iyong binili. Kung magpapatuloy ang isyu, subukang i-clear ang Google Play cache at i-restart ang iyong aparato.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Kunin ang %1$s</string>
     <string name="upgrade_screen_preamble">Ang SD Maid ay walang mga ad at hindi nagbebenta ng data ng user. Ang aking trabaho ay pinopondohan mo ❤️.</string>
     <string name="upgrade_screen_benefits_title">Mga benepisyo ng pag-upgrade</string>
     <string name="upgrade_screen_benefits_body">• Paglilinis ng app cache at basura\n• Pagtanggal ng duplicate files\n• Compression ng mga larawan at video\n• Swipe-to-declutter ng mga lumang file\n• One-tap cleaning sa pamamagitan ng widget\n• Pag-iskedyul ng cleanup\n• Mga custom na filter at patakaran\n• Mga trend at kasaysayan ng storage\n• Higit pang mga feature at kontrol sa buong app\n• Suporta sa patuloy na pag-unlad</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Nagre-renew taun-taon. Puwedeng ikansela anumang oras sa Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Bumili nang isang beses</string>
     <string name="upgrade_screen_iap_offer_body">Isang beses lang magbabayad, walang renewal.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Hindi available ang mga presyo</string>
     <string name="upgrade_screen_offers_unavailable_message">Ang mga presyo ay hindi maaaring i-load ngayon. Tingnan ang Google Play at subukan ulit sa ilang sandali.</string>
     <string name="upgrade_screen_subscription_trial_action">Simulan ang libreng 14-day trial</string>
     <string name="upgrade_screen_subscription_action">Mag-subscribe</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Kontakin ang suporta</string>
     <string name="upgrade_screen_restore_checked_message">Nagsuri na ang SD Maid sa Google Play, pero hindi mapatunayan ang anumang pagbili ng Pro para sa account na ginagamit ng Google Play para sa app na ito.</string>
     <string name="upgrade_screen_restore_contact_hint">Hirap pa rin? Kontakin ang suporta mula sa email na gumawa ng pagbili at isama ang iyong Google Play order number.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Ang pagsusuri sa Google Play ay hindi natapos sa oras, kaya ang iyong estado ng pagbili ay hindi pa rin kilala. Walang nagbago sa iyong account.</string>
 </resources>

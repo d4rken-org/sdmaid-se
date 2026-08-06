@@ -29,6 +29,8 @@ SD Maid သည် ဤဝန်ဆောင်မှုကို အသုံး�
     <string name="automation_error_scheduler_body">အချိန်ဇယားချထားသော တာဝန်တစ်ခု အဝင်ရောက်ဝန်ဆောင်မှုကို အသုံးပြုရန် ကြိုးစားသော်လည်း ရနိုင်မည်မဟုတ်ခဲ့ပါ။ ဤအချက် မလိုအပ်ပါက scheduler ဆက်တင်မှ \"Accessibility service\" ရွေးချယ်မှုကို ပိတ်ပါ။</string>
     <string name="automation_error_no_settings_title">ဆက်တင်မျက်နှာပြင် ရနိုင်မည်မဟုတ်</string>
     <string name="automation_error_no_settings_body">ဤစနစ်အပ်ပ်တွင် ဆက်တင်မျက်နှာပြင် မရှိပါ။ အဝင်ရောက်ဝန်ဆောင်မှုမှတဆင့် cache ရှင်းလင်းခြင်း မဖြစ်နိုင်ပါ။ cache ရှင်းလင်းမှု မြန်ဆန်စေရန် ဤအပ်ပ်ကို ဖယ်ထုတ်ပါ။</string>
+    <string name="automation_error_disabled_app_title">အက်ပကို အလုပ်မလုပ်ခိုင်းထားသည်</string>
+    <string name="automation_error_disabled_app_body">သင်၏ ကိရိယာမှ အလုပ်မလုပ်ခိုင်းထားသည့် အပ်ပလီကေးရှင်းများ၏ ချိန်ခွင်းမျက်နှာပြင်ကို မဖွင့်နိုင်သည်။ ထို့ကြောင့် အသုံးချခွင့် ဝန်ဆောင်မှုမှ အလယ်အလတ်ကို ရှင်းလင်းနိုင်မည်မဟုတ်ခဲ့သည်။ အပ်ပလီကေးရှင်းကို အလုပ်လုပ်စေပါ သို့မဟုတ် အဆင့်မြှင့်တင်ခြင်း သို့မဟုတ် Shizuku/ADB အသုံးပြုပါ။</string>
     <string name="automation_error_interference_title">ချိန်ညှိမှု တားဆီးခြင်း</string>
     <string name="automation_error_interference_body">အခြား app (%1$s) သည် စနစ် ချိန်ညှိမှု မြေပြင်ကို တားဆီးထားသည့်အတွက် SD Maid သည် ဆက်လက်၍ မပြုလုပ်နိုင်ပါ။ အဆိုပါ app ၏ app-lock သို့မဟုတ် စနစ် ချိန်ညှိမှုအတွက် မြေပြင်ကာကွယ်မှုကို ပိတ်ပေးပြီး၊ ထပ်မံ ကြိုးစားပါ။</string>
     <string name="automation_loading">accessibility ဝန်ဆောင်မှု မှတစ်ဆင့် အလိုအလျောက် လုပ်ငန်း ပြင်ဆင်နေသည်...</string>

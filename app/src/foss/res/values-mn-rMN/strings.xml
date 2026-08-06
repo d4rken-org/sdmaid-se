@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Шилжүүлэх сонголтыг үзэх</string>
     <string name="upgrade_screen_status_upgraded_title">Сайжруулалт идэвхтэй</string>
     <string name="upgrade_screen_status_upgraded_body">Бүх нэмэлт функцууд идэвхжүүлэгдсэн. Нээлттэй эхийн хөгжүүлэлтийг дэмжсэнд баярлалаа ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s-ээс хойш дэмжигч</string>
     <string name="upgrade_screen_recurring_title">Үргэлжлүүлээрэй</string>
     <string name="upgrade_screen_recurring_body">SD Maid нь шинэчлэлт, засвараар дамжин үргэлжлүүлэн хөгжиж байна. Хэрэв та энэ ажлыг дэмжихийг хүсвэл GitHub Sponsors-р давтамтгай хандуулалт хийхээ бодолцоорой.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors-г нээх</string>

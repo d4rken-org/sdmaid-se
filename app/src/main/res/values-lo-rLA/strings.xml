@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">ລຶບຜົນລັບໃນທຸກເຄື່ອງມືບໍ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ສາມາດປົດປ່ອຍໄດ້</string>
     <string name="dashboard_hero_freed_headline">%1$s ຖືກປົດປ່ອຍ</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">ສາມາດເອົາອອກ %d ລາຍການໄດ້</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">ເອົາອອກ %d ລາຍການແລ້ວ</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">ແຕະປຸ່ມເພື່ອເຮັດຄວາມສະອາດ ຫຼືແຕະສະຫຸ່ນເພື່ອກວດສອບກ່ອນ</string>
     <string name="dashboard_hero_freed_hint">ແຕະຊິບສໍາລັບລາຍລະອຽດ.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">ຍັງເຫືອ %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">ບໍ່ມີສິ່ງໃດຖືກປ່ອຍອອກ</string>
+    <string name="dashboard_hero_nothing_freed_caption">ການລາບສະອາດສໍາເລັດແລ້ວ ແຕ່ຂໍ້ມູນທີ່ພົບໄດ້ບໍ່ສາມາດເອົາອອກໄດ້</string>
+    <string name="dashboard_hero_nothing_freed_hint">ຂໍ້ມູນບາງຢ່າງສາມາດເອົາອອກໄດ້ດ້ວຍສິດທິເພີ່ມເຕີມເທົ່ານັ້ນ ເຊັ່ນ ບໍລິການທີ່ເຂົ້າເຖິງໄດ້ ຫຼື root</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ກວດເບິ່ງ %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">ປົດປ່ອຍ %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">ພະຍາຍາມ %1$s</string>
     <string name="dashboard_settings_category">ກະດານຄວບຄຸມ</string>
     <string name="dashboard_motd_title">ຂໍ້ຄວາມຈາກນັກພັດທະນາ</string>
     <string name="dashboard_settings_oneclick_title">ໂໝດແຕະຄັ້ງດຽວ</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku ກັບການເຂົ້າເຖິງ Root ຈະບໍ່ເປີດໃຊ້ຄຸນສົມບັດເພີ່ມເຕີມ, ແຕ່ຈະຊ່ວຍປັບປຸງຄວາມເຊື່ອຖືອໄດ້. SD Maid ຈະໃຊ້ມັນເປັນວິທີສຳຮອງ.</string>
     <string name="setup_shizuku_state_ready_label">ການເຊື່ອມຕໍ່ Shizuku ພ້ອມແລ້ວ.</string>
     <string name="setup_shizuku_state_waiting_label">ກໍາລັງຮອການເຊື່ອມຕໍ່ກັບ Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">ແອັບຯ Shizuku ບໍ່ໄດ້ຖືກຕິດຕັ້ງ</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ລອງໃຊ້ Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">ບໍ່ໃຊ້ Shizuku</string>
     <string name="setup_dismiss_hint">ທ່ານສາມາດຫາໜ້າຈໍຕັ້ງຄ່າໄດ້ອີກຄັ້ງຜ່ານເມນູການຕັ້ງຄ່າ.</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">ໂຫລດ apps ໃໝ່</string>
     <string name="debug_card_root_test_action">ທົດສອບ root</string>
     <string name="debug_card_shizuku_test_action">ທົດສອບ Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ໂໝດທົດລອງກໍາລັງເປີດໃຊ້ງານ</string>
+    <string name="dashboard_dryrun_warning_body">ການລາບສະອາດກໍາລັງໄດ້ຮັບການຈໍາລອງ ຟາຍລ໌ຖືກສະແກນແລະລາຍງານ ແຕ່ບໍ່ມີສິ່ງໃດຖືກລືບຢ່າງແທ້ຈິງ</string>
+    <string name="dashboard_dryrun_warning_disable_action">ປິດ</string>
     <string name="data_area_public_app_data_official_label">ຂໍ້ມູນແອັບຯສາທາລະນະມາດຕະຖານ</string>
     <string name="data_area_public_app_assets_official_label">ຊັບພະຍາກອນແອັບຯລະບົບຕາມຄ່າເລີ່ມຕົ້ນ</string>
     <string name="data_area_public_storage_label">ບ່ອນເກັບຮັກສາສາທາລະນະ</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">ອຸປະກອນ</string>
     <string name="review_app_review_action">ທົບທວນ</string>
     <string name="review_app_dismiss_action">ບາງທີຫລັງຈາກນີ້</string>
-    <string name="review_app_body">ທ່ານຕ້ອງການປ່ອຍຄວາມເຫັນໃຫ້ SD Maid ບໍ່? ❤️</string>
+    <string name="review_app_body">ທ່ານຢາກຂຽນບົດວິຈານ SD Maid ບໍ? ❤️</string>
     <string name="anniversary_card_title">ວັນທີ່ຄົບລາຠ SD Maid ປະສາ ❤️</string>
     <string name="anniversary_card_install_date">ກັນທ່ານນັ້ນຕັ້ງແຕ່ %s</string>
     <plurals name="anniversary_card_body">

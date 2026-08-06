@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">Susa imiphumela kuwo wonke amathuluzi?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ingakhululwa</string>
     <string name="dashboard_hero_freed_headline">%1$s khululiwe</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">Izinto ezingu-%d zingamusulwa</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">Izinto ezingu-%d zisusiwe</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Cisha inkinobho ukuze kukhululeke indawo, noma ichips ukuze uhlole kuqala.</string>
     <string name="dashboard_hero_freed_hint">Thinta ichip ukuthola imininingwane.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">Kusele %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Akukho into ethile eyakhululiswa</string>
+    <string name="dashboard_hero_nothing_freed_caption">Ukunganisa kuqedile, kodwa akukho idatha etholwe engamusulwa.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Idatha ethile ingamusulwa kuphela ngokufinyelela okwengeziwe, njengomsebenzi wokufika noma umuzi.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenwe %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Khululiwe %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Uzame %1$s</string>
     <string name="dashboard_settings_category">Ibhodi lokuphatha</string>
     <string name="dashboard_motd_title">Umlayezo ovela kumthuthukisi</string>
     <string name="dashboard_settings_oneclick_title">Imodi Yokucindezela Kanye</string>
@@ -216,6 +234,7 @@
     <string name="setup_shizuku_card_root_info">I-Shizuku ngokuhlanganisa nokufinyelela kwe-root akuvuli amakhono engeziwe, kodwa kuthuthukisa ukwethembeka. I-SD Maid izokulisebenzisa njengendlela yokuphenduka.</string>
     <string name="setup_shizuku_state_ready_label">Isixhumanisi se-Shizuku sesilungile.</string>
     <string name="setup_shizuku_state_waiting_label">Kulindwa isixhumanisi ne-Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">I-app ye-Shizuku ayihlengwanga.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Zama ukusebenzisa i-Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ungasebenzisi i-Shizuku</string>
     <string name="setup_dismiss_hint">Ungakuthola isikrini sokusetshenziswa futhi ngemenu yezilungiselelo.</string>
@@ -270,6 +289,10 @@
     <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
     <string name="debug_card_root_test_action">Hlola i-root</string>
     <string name="debug_card_shizuku_test_action">Hlola i-Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Isiteshi se-dry-run sisebenzile</string>
+    <string name="dashboard_dryrun_warning_body">Ukunganisa kusenzakalisiwe. Amafayila avolavwa naphakanyiswa, kodwa akukho ethile osuswe.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Vala</string>
     <string name="data_area_public_app_data_official_label">Idatha yohlelo yomphakathi ezenzakalelayo</string>
     <string name="data_area_public_app_assets_official_label">Izinsiza zohlelo zomphakathi ezizenzakalelayo</string>
     <string name="data_area_public_storage_label">Isitoreji somphakathi</string>
@@ -289,7 +312,7 @@
     <string name="device_settings_category">Idivayisi</string>
     <string name="review_app_review_action">Buyekeza</string>
     <string name="review_app_dismiss_action">Mhlawumbe kamuva</string>
-    <string name="review_app_body">Ungathanda ukushiyela i-SD Maid ukubuyekeza?️ ❤️</string>
+    <string name="review_app_body">Ungathanda ukushiyela i-SD Maid ukubuyekeza? ❤️</string>
     <string name="anniversary_card_title">Usuku Olukhulu Lwe-SD Maid Olujabula ❤️</string>
     <string name="anniversary_card_install_date">Nawe kusukela ngo-%s</string>
     <plurals name="anniversary_card_body">

@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">അപ്‌ഗ്രേഡ് ഓപ്‌ഷനുകൾ കാണുക</string>
     <string name="upgrade_screen_status_upgraded_title">അപ്‌ഗ്രേഡ് സജീവം</string>
     <string name="upgrade_screen_status_upgraded_body">എല്ലാ അധിക ഫീച്ചറുകളും അൻലോക്ക് ചെയ്യപ്പെട്ടു. ഓപ്പൺ സോഴ്സ് വികാസത്തെ പിന്തുണയ്ക്കുന്നതിന് നന്ദി ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s മുതൽ സപ്പോർട്ടർ</string>
     <string name="upgrade_screen_recurring_title">അത് തുടരുക</string>
     <string name="upgrade_screen_recurring_body">SD Maid പുതുക്കൽ കൂടാതെ പരിഷ്കരണങ്ങളിലൂടെ വികസിച്ചുകൊണ്ടിരിക്കുന്നു. നിങ്ങൾ അത് ഉണ്ടായിരിക്കാൻ ആഗ്രഹിക്കുന്നുവെങ്കിൽ, GitHub Sponsors വഴി ആവർത്തിച്ചുള്ള ദാനം പരിഗണിക്കുക.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors തുറക്കുക</string>

@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Daxili Google Play xətası baş verdi. Zəhmət olmasa, aşağıdakıları sınayın:\n\n• Cihazınızı yenidən başladın\n• Google Play Store keşini təmizləyin\n• Daha sonra yenidən cəhd edin</string>
     <string name="upgrades_gplay_network_error_title">Bağlantı xətası</string>
     <string name="upgrades_gplay_network_error_description">Google Play-ə qoşulmaq mümkün deyil. Zəhmət olmasa, internet bağlantınızı yoxlayın və yenidən cəhd edin.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Təklif əlçatan deyil</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play hazırda bu yüksəltmə seçənəyini təklif etmir. Daha sonra yenidən cəhd edin və ya Google Play Mağazaşını yoxlayın.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play açıla bilmədi. Ola bilər ki, bu cihazda yoxdur, deaktiv edilmiş və ya məhdudlaşdırılmış.</string>
     <string name="upgrades_gplay_already_owned_error_title">Artıq alınıb</string>
     <string name="upgrades_gplay_already_owned_error_description">Alışınızı bərpa etmək üçün \"Alışı bərpa et\" seçimindən istifadə edin. Problem davam edərsə, Google Play keşini təmizləyin və cihazınızı yenidən başladın.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s al</string>
     <string name="upgrade_screen_preamble">SD Maid-də reklam yoxdur və istifadəçi məlumatları satmır. Mənim işim sizin tərəfinizdən maliyyələşdirilir ❤️.</string>
     <string name="upgrade_screen_benefits_title">Yüksəltmə üstünlükləri</string>
     <string name="upgrade_screen_benefits_body">• Tətbiq keşi və tullantı təmizliyi\n• Dublikat faylların silinməsi\n• Foto və video sıxlaşdırması\n• Eski faylları sürüşdürərək təmizləmə\n• Vidcet vasitəsilə bir toxunuşla təmizləmə\n• Təmizləmənin cədvəlləşdirilməsi\n• Fərdi filtrlər və qaydalar\n• Saxlama meyli və tarixçəsi\n• Tətbiqin bütünündə daha çox xüsusiyyətlər və kontrollər\n• Davamlı inkişafın dəstəklənməsi</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Hər il yenilənir. Google Play-də istənilən vaxt ləğv edin.</string>
     <string name="upgrade_screen_iap_offer_title">Bir dəfə al</string>
     <string name="upgrade_screen_iap_offer_body">Bir dəfə ödəniş, heç bir yenilənmə.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Qiymətlər əlçatan deyil</string>
     <string name="upgrade_screen_offers_unavailable_message">Qiymətlər hazırda yüklənə bilmədi. Google Play-ı yoxlayın və bir az sonra yenidən cəhd edin.</string>
     <string name="upgrade_screen_subscription_trial_action">Pulsuz 14 günlük sınağa başlayın</string>
     <string name="upgrade_screen_subscription_action">Abunə olun</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Dəstəyə müraciət edin</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid Google Play-i yeni yoxladı, lakin tətbiqin istifadə etdiyi Google Play hesabında heç bir Pro alış təsdiq edilə bilmədi.</string>
     <string name="upgrade_screen_restore_contact_hint">Hələ də problem yaşayırsınız? Alışı edən e-poçtdan dəstəyə müraciət edin və Google Play sifariş nömrənizi daxil edin.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ilə yoxlama vaxtında tamamlanmadı, buna görə də satın alma statusunuz hələ də məlum deyil. Hesabınızda heç bir şey dəyişməmişdir.</string>
 </resources>

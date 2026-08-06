@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Google Play ichki xatosi yuz berdi. Quyidagilarni sinab ko\'ring:\n\n• Qurilmangizni qayta ishga tushiring\n• Google Play Store keshini tozalang\n• Keyinroq qayta urinib ko\'ring</string>
     <string name="upgrades_gplay_network_error_title">Ulanish xatosi</string>
     <string name="upgrades_gplay_network_error_description">Google Play-ga ulanib bo\'lmadi. Internet aloqangizni tekshiring va qayta urinib ko\'ring.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Taklif mavjud emas</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play hozir ushbu yangilash variantini taklif qilmayapti. Iltimos, keyinroq qayta urinib ko\'ring yoki Google Play Store\'ni tekshiring.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ni ocha olmadi. U bu qurilmada yo\'q bo\'lmasligi, o\'chirilgan yoki cheklangan bo\'lmasligi mumkin.</string>
     <string name="upgrades_gplay_already_owned_error_title">Allaqachon xarid qilingan</string>
     <string name="upgrades_gplay_already_owned_error_description">Xaridni tiklash uchun \"Xaridni tiklash\" variantidan foydalaning. Muammo davom etsa, Google Play keshini tozalashni va qurilmangizni qayta ishga tushirishni sinab ko\'ring.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s oling</string>
     <string name="upgrade_screen_preamble">SD Maid-da reklama yo\'q va foydalanuvchi ma\'lumotlarini sotmaydi. Mening ishim sizning moliyalashtirishingiz hisobiga amalga oshiriladi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Yangilash imtiyozlari</string>
     <string name="upgrade_screen_benefits_body">• Ilovaning keshi va chiqindilarni tozalash\n• Takroriy fayllarni o\'chirish\n• Rasm va videoni siqish\n• Eski fayllarni kaydirish orqali olib tashlash\n• Vidjet orqali bir bosishda tozalash\n• Tozalashni rejalashtirish\n• Maxsus filterlar va qoidalar\n• Saqlash tendensiyalari va tarixi\n• Ilovada ko\'proq xususiyatlar va boshqaruvlar\n• Taraqqiyotni qo\'llab-quvvatlash</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Har yili yangilanadi. Istalgan vaqtda Google Play-da bekor qiling.</string>
     <string name="upgrade_screen_iap_offer_title">Bir martalik xarid</string>
     <string name="upgrade_screen_iap_offer_body">Bitta to\'lov, yangilanish yo\'q.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Narxlar mavjud emas</string>
     <string name="upgrade_screen_offers_unavailable_message">Narxlarni hozircha yuklab bo\'lmadi. Google Play\'ni tekshiring va birozdan so\'ng qayta urinib ko\'ring.</string>
     <string name="upgrade_screen_subscription_trial_action">Bepul 14 kunlik sinovni boshlang</string>
     <string name="upgrade_screen_subscription_action">Obuna bo\'ling</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Qo\'llab-quvvatlash xizmatiga murojaat qiling</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid Google Play-ni hozirgina tekshirdi, lekin Google Play ushbu ilova uchun ishlatayotgan hisob uchun hech qanday Pro xaridi tasdiqlanmadi.</string>
     <string name="upgrade_screen_restore_contact_hint">Hali ham muammo bormi? Xaridni qilgan email orqali qo\'llab-quvvatlash xizmatiga murojaat qiling va Google Play buyurtma raqamingizni qo\'shib yuboring.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play bilan tekshirish vaqtida yakunlanmadi, shuning uchun sizning xarid holatingiz hali noma\'lum. Sizning hisobingizda hechnarsa o\'zgarishligi yo\'q.</string>
 </resources>

@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Tüm sonuçlar silinsin mi?</string>
     <string name="dashboard_hero_freeable_headline">%1$s serbest bırakılabilir</string>
     <string name="dashboard_hero_freed_headline">%1$s serbest bırakıldı</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d öğe kaldırılabilir</item>
+        <item quantity="other">%d öğe kaldırılabilir</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d öğe kaldırıldı</item>
+        <item quantity="other">%d öğe kaldırıldı</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Alan boşaltmak için düğmeye dokunun veya önce kontrol etmek için bir çipe dokunun.</string>
     <string name="dashboard_hero_freed_hint">Ayrıntılar için bir çipe dokunun.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s kaldı</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Hiçbir şey boşaltılmadı</string>
+    <string name="dashboard_hero_nothing_freed_caption">Temizlik tamamlandı, ancak bulunan veriler kaldırılamadı.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Bazı veriler yalnızca erişilebilirlik hizmeti veya root gibi ek erişimle kaldırılabilir.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s tarandı</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s serbest bırakıldı</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s denendi</string>
     <string name="dashboard_settings_category">Panel</string>
     <string name="dashboard_motd_title">Geliştiriciden bir mesaj</string>
     <string name="dashboard_settings_oneclick_title">Tek-Tık Modu</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Kök erişimi ile birlikte Shizuku herhangi bir ek özellik etkinleştirmez, ancak güvenilirliği artırır. SD Maid bunu yedek yöntem olarak kullanacaktır.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku bağlantısı hazır.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku\'ya bağlanmak için bekleniyor.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku uygulaması yüklü değil.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku\'yu kullanmayı deneyin</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku\'yu kullanma</string>
     <string name="setup_dismiss_hint">Ayarlar menüsünden kurulum ekranına tekrar ulaşabilirsiniz.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Uygulamaları yeniden yükle</string>
     <string name="debug_card_root_test_action">Root\'u test et</string>
     <string name="debug_card_shizuku_test_action">Shizuku\'yu test et</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Kuru çalıştırma modu etkin</string>
+    <string name="dashboard_dryrun_warning_body">Temizlik simüle ediliyor. Dosyalar taranıyor ve rapor ediliyor, ancak hiçbir şey gerçekten silinmez.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Kapat</string>
     <string name="data_area_public_app_data_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_app_assets_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_storage_label">Genel Depolama</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Cihaz</string>
     <string name="review_app_review_action">Değerlendir</string>
     <string name="review_app_dismiss_action">Belki daha sonra</string>
-    <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misiniz? ️ ❤️</string>
+    <string name="review_app_body">SD Maid\'e bir inceleme bırakmak ister misin? ❤️</string>
     <string name="anniversary_card_title">Mutlu SD Maid Yıldönümleri ❤️</string>
     <string name="anniversary_card_install_date">%s\'den beri sizinle birlikte</string>
     <plurals name="anniversary_card_body">

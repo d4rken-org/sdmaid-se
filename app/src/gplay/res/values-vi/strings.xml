@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Đã xảy ra lỗi nội bộ của Google Play. Vui lòng thử những điều sau:\n\n• Khởi động lại thiết bị của bạn\n• Xóa bộ nhớ cache của Google Play Store\n• Thử lại sau</string>
     <string name="upgrades_gplay_network_error_title">Lỗi kết nối</string>
     <string name="upgrades_gplay_network_error_description">Không thể kết nối với Google Play. Vui lòng kiểm tra kết nối internet của bạn và thử lại.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Ưu đãi không có sẵn</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play hiện tại không cung cấp tùy chọn nâng cấp này. Vui lòng thử lại sau hoặc kiểm tra Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Không thể mở Google Play. Google Play có thể bị thiếu, vô hiệu hóa hoặc bị hạn chế trên thiết bị này.</string>
     <string name="upgrades_gplay_already_owned_error_title">Đã mua</string>
     <string name="upgrades_gplay_already_owned_error_description">Sử dụng tùy chọn \"Khôi phục giao dịch mua\" để khôi phục giao dịch mua của bạn. Nếu vấn đề vẫn tiếp diễn, hãy thử xóa bộ nhớ đệm Google Play và khởi động lại thiết bị của bạn.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Nhận %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn ❤️.</string>
     <string name="upgrade_screen_benefits_title">Lợi ích nâng cấp</string>
     <string name="upgrade_screen_benefits_body">• Làm sạch bộ nhớ cache ứng dụng và rác\n• Xóa tệp trùng lặp\n• Nén ảnh và video\n• Xoá tệp cũ bằng cách lướt\n• Làm sạch một chạm qua widget\n• Lên lịch làm sạch\n• Bộ lọc và quy tắc tùy chỉnh\n• Xu hướng và lịch sử lưu trữ\n• Nhiều tính năng và điều khiển hơn trên toàn ứng dụng\n• Hỗ trợ phát triển tiếp tục</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Gia hạn hàng năm. Hủy bất kỳ lúc nào trong Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Mua một lần</string>
     <string name="upgrade_screen_iap_offer_body">Một lần thanh toán, không gia hạn.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Giá không có sẵn</string>
     <string name="upgrade_screen_offers_unavailable_message">Không thể tải giá lúc này. Kiểm tra Google Play và thử lại trong giây lát.</string>
     <string name="upgrade_screen_subscription_trial_action">Bắt đầu dùng thử 14 ngày miễn phí</string>
     <string name="upgrade_screen_subscription_action">Đăng ký</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Liên hệ hỗ trợ</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid vừa kiểm tra Google Play, nhưng không thể xác nhận gói mua Pro nào cho tài khoản mà ứng dụng này sử dụng.</string>
     <string name="upgrade_screen_restore_contact_hint">Vẫn bị mắc kẹt? Liên hệ hỗ trợ từ email đã thực hiện lần mua và cung cấp số đơn hàng Google Play của bạn.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Việc kiểm tra với Google Play không kết thúc đúng lúc, vì vậy trạng thái mua hàng của bạn vẫn không xác định. Không có gì thay đổi trên tài khoản của bạn.</string>
 </resources>

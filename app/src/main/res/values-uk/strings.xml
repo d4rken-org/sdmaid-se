@@ -3,11 +3,35 @@
     <string name="dashboard_delete_all_message">Видалити результати в усіх інструментах?</string>
     <string name="dashboard_hero_freeable_headline">Можна звільнити %1$s</string>
     <string name="dashboard_hero_freed_headline">Звільнено %1$s</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d елемент можна вилучити</item>
+        <item quantity="few">%d елементи можна вилучити</item>
+        <item quantity="many">%d елементів можна вилучити</item>
+        <item quantity="other">%d елементів можна вилучити</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d елемент вилучено</item>
+        <item quantity="few">%d елементи вилучено</item>
+        <item quantity="many">%d елементів вилучено</item>
+        <item quantity="other">%d елементів вилучено</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Натисніть кнопку для звільнення місця або чіп для попередньої перевірки.</string>
     <string name="dashboard_hero_freed_hint">Торкніться чіпа для деталей.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s залишилось</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Нічого не було вилучено</string>
+    <string name="dashboard_hero_nothing_freed_caption">Очищення завершено, але жодні знайдені дані не вдалось вилучити.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Деякі дані можна вилучити лише з додатковим доступом, наприклад через сервіс доступності або root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Відскановано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Звільнено %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Спроба %1$s</string>
     <string name="dashboard_settings_category">Панель інструментів</string>
     <string name="dashboard_motd_title">Повідомлення від розробника</string>
     <string name="dashboard_settings_oneclick_title">Режим одним дотиком</string>
@@ -226,6 +250,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku у поєднанні з root доступом не дає додаткових можливостей, але підвищує надійність. SD Maid використовуватиме його як резервний метод.</string>
     <string name="setup_shizuku_state_ready_label">Посилання на Shizuku готове.</string>
     <string name="setup_shizuku_state_waiting_label">Чекаємо на зв\'язок з Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Додаток Shizuku не встановлено.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Спробувати використати Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не використовувати Shizuku</string>
     <string name="setup_dismiss_hint">Ви можете знову знайти екран налаштувань через меню налаштувань.</string>
@@ -280,6 +305,10 @@
     <string name="debug_card_pkgs_reload_action">Перезавантажити додатки</string>
     <string name="debug_card_root_test_action">Тест root</string>
     <string name="debug_card_shizuku_test_action">Тест Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Режим імітації активний</string>
+    <string name="dashboard_dryrun_warning_body">Очищення імітується. Файли сканюються й звітуються, але насправді нічого не видаляється.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Вимкнути</string>
     <string name="data_area_public_app_data_official_label">Загальнодоступні дані додатка за замовчуванням</string>
     <string name="data_area_public_app_assets_official_label">Загальнодоступні дані додатка за замовчуванням</string>
     <string name="data_area_public_storage_label">Загальне сховище</string>
@@ -299,7 +328,7 @@
     <string name="device_settings_category">Пристрій</string>
     <string name="review_app_review_action">Огляд</string>
     <string name="review_app_dismiss_action">Можливо пізніше</string>
-    <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>
+    <string name="review_app_body">Бажаєш залишити відгук про SD Maid? ❤️</string>
     <string name="anniversary_card_title">З річницею SD Maid ❤️</string>
     <string name="anniversary_card_install_date">З вами з %s</string>
     <plurals name="anniversary_card_body">

@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Slet resultater i alle værktøjer?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan frigøres</string>
     <string name="dashboard_hero_freed_headline">%1$s frigjort</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d element kan fjernes</item>
+        <item quantity="other">%d elementer kan fjernes</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d element fjernet</item>
+        <item quantity="other">%d elementer fjernet</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Tryk på knappen for at frigøre plads, eller tryk på et chip for at kontrollere først.</string>
     <string name="dashboard_hero_freed_hint">Tryk på et chip for detaljer.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s tilbage</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Intet blev frigivet</string>
+    <string name="dashboard_hero_nothing_freed_caption">Oprydningen er afsluttet, men ingen af de fundne data kunne fjernes.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Nogle data kan kun fjernes med ekstra adgang, såsom tilgængelighedstjenesten eller root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scannet %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Frigjort %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Forsøgt %1$s</string>
     <string name="dashboard_settings_category">Kontrolpanel</string>
     <string name="dashboard_motd_title">En besked fra udvikleren</string>
     <string name="dashboard_settings_oneclick_title">Ét-tryks Tilstand</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku kombineret med root-adgang giver ikke flere funktioner, men det forbedrer pålideligheden. SD Maid vil bruge den som reservemetode.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku-link er klar.</string>
     <string name="setup_shizuku_state_waiting_label">Venter på link med Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku-appen er ikke installeret.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Prøv at bruge Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Brug ikke Shizuku</string>
     <string name="setup_dismiss_hint">Du kan finde opsætningsskærmen igen via indstillingsmenuen.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Simuleringstilstand er aktiv</string>
+    <string name="dashboard_dryrun_warning_body">Oprydning bliver simuleret. Filer scannes og rapporteres, men intet bliver faktisk slettet.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Slå fra</string>
     <string name="data_area_public_app_data_official_label">Standard offentlige app-data</string>
     <string name="data_area_public_app_assets_official_label">Standardaktiver til offentlige apps</string>
     <string name="data_area_public_storage_label">Offentligt lager</string>

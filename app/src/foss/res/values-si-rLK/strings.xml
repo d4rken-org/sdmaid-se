@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">උත්නයන විකල්ප බලන්න</string>
     <string name="upgrade_screen_status_upgraded_title">යාවත්කරණ සක්‍රිය</string>
     <string name="upgrade_screen_status_upgraded_body">සියලු අතිරේක විශේෂාංග අගුලු හැරුණු ඇත. විවෘත-ප්‍රභවය සඳහා සහාය දැක්වීම ගැන ස්තුතියි ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s සිටම සහකරු</string>
     <string name="upgrade_screen_recurring_title">එය දිගටම කරගෙන යන්න</string>
     <string name="upgrade_screen_recurring_body">SD Maid යාවත්කරණ සහ නිෂ්පාදනවල මඟින් දිගටම විකශනය වෙමින් පවතී. ඔබ එය පවත්වා ගැනීමට කැමති නම්, GitHub Sponsors හරහා නිතර පරිත්‍යාග සලකා බලන්න.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors විවෘත කරන්න</string>

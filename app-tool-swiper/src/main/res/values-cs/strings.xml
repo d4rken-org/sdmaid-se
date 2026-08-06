@@ -197,6 +197,6 @@
     <string name="tour_swiper_gestures_body">Potáhněte soubor a rozhodněte o jeho osudu: na stranu pro uchování nebo smazání, nahoru pro přeskočení, dolů pro vrácení zpět. Tlačítka níže dělají totéž — a ukazují, která strana je která.</string>
     <string name="tour_swiper_openin_body">Toto tlačítko otevře soubor v jiné aplikaci, praktické pro kontrolu před rozhodnutím.</string>
     <string name="tour_swiper_preview_body">Toto tlačítko otevře náhled na celou obrazovku pro podrobnější pohled.</string>
-    <string name="tour_swiper_actions_body">Nelíbí se vám přejíždění? Máme i tlačítka! Přeskočit ponechá soubor nerozhodnutý na později a dlouhé stisknutí Přeskočit vylučuje soubor z budoucích skenů. Vrátit zpět vrátí vaši poslední volbu.</string>
+    <string name="tour_swiper_actions_body">Nelíbí se vám přejíždění? Máme i tlačítka! Přeskočit ponechá soubor na později a dlouhé stisknutí Přeskočit vylučuje soubor z budoucích skenů. Vrátit zpět vrátí vaši poslední volbu.</string>
     <string name="tour_swiper_review_body">Vaše volby ponechat a smazat jsou pouze připraveny. Otevřete Přehled, abyste je prošli a aplikovali smazání, až budete připraveni.</string>
 </resources>

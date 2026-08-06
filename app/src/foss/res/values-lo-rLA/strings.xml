@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">ເບິ່ງຕົວເລືອກການອັບເກຣດ</string>
     <string name="upgrade_screen_status_upgraded_title">ອັບເກຣດເປິດໃຊ້</string>
     <string name="upgrade_screen_status_upgraded_body">ລັກສະນະພິເສດທັງໝົດໄດ້ເປິດລອກແລ້ວ. ຂອບໃຈທີ່ສະໝັບສະໝູນການພັຒນາໂອເພັນຊອດ ❤️</string>
+    <string name="upgrade_screen_supporter_since">ຜູ້ສະໝນັບສະໝນູນນັບແຕ່ %s</string>
     <string name="upgrade_screen_recurring_title">ສືບຕໍ່ໄປ</string>
     <string name="upgrade_screen_recurring_body">SD Maid ຍັງຄົງພັຒນາຜ່ານການອັບເດດແລະການແກ້ໄຂ. ຖ້າທ່ານຕ້ອງການສະໝັບສະໝູນ, ກະລຸນາພິຈາລະນາການບໍລິຈາກປະຈຳຕົວຜ່ານ GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">ເປິດ GitHub Sponsors</string>

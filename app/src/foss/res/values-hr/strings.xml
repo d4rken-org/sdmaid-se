@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Pogledajte mogućnosti nadogradnje</string>
     <string name="upgrade_screen_status_upgraded_title">Nadogradnja aktivna</string>
     <string name="upgrade_screen_status_upgraded_body">Sve dodatne značajke su otključane. Hvala vam na podršci razvoju otvorenog koda ❤️</string>
+    <string name="upgrade_screen_supporter_since">Podržavač od %s</string>
     <string name="upgrade_screen_recurring_title">Nastavite podržavati</string>
     <string name="upgrade_screen_recurring_body">SD Maid se neprestano razvija kroz ažuriranja i ispravke. Ako biste to željeli podržati, razmislite o redovitoj donaciji putem GitHub Sponsorsa.</string>
     <string name="upgrade_screen_recurring_action">Otvorite GitHub Sponsors</string>

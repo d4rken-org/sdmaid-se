@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Plánovaná úloha se pokusila použít službu usnadnění přístupu, ale ta nebyla k dispozici. Pokud tuto funkci nepotřebujete, deaktivujte možnost \"Služba usnadnění přístupu\" v nastavení plánovače.</string>
     <string name="automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
     <string name="automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
+    <string name="automation_error_disabled_app_title">Aplikace je zakázána</string>
+    <string name="automation_error_disabled_app_body">Vaše zařízení neotevře obrazovku nastavení zakázaných aplikací, proto nelze vymazat mezipaměť prostřednictvím služby usnadnění. Povolte aplikaci nebo místo toho použijte root nebo Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Obrazovka nastavení je blokována</string>
     <string name="automation_error_interference_body">Jiná aplikace (%1$s) blokuje obrazovku systémových nastavení, takže SD Maid nemůže pokračovat. Zakažte zámek aplikace nebo ochranu obrazovky pro systémová nastavení, potom to zkuste znovu.</string>
     <string name="automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>

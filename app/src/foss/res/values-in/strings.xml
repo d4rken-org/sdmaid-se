@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Lihat opsi peningkatan</string>
     <string name="upgrade_screen_status_upgraded_title">Peningkatan aktif</string>
     <string name="upgrade_screen_status_upgraded_body">Semua fitur tambahan telah terbuka. Terima kasih telah mendukung pengembangan sumber terbuka ❤️</string>
+    <string name="upgrade_screen_supporter_since">Pendukung sejak %s</string>
     <string name="upgrade_screen_recurring_title">Terus lanjutkan</string>
     <string name="upgrade_screen_recurring_body">SD Maid terus berkembang melalui pembaruan dan perbaikan. Jika Anda ingin mendukung hal itu, pertimbangkan donasi berkala melalui GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Buka GitHub Sponsors</string>

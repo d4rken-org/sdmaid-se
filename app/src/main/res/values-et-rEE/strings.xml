@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Kustutada kõikide vahendite tulemused?</string>
     <string name="dashboard_hero_freeable_headline">%1$s saab vabastada</string>
     <string name="dashboard_hero_freed_headline">%1$s vabastatud</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d eemaldatav</item>
+        <item quantity="other">%d eemaldatavat</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d eemaldati</item>
+        <item quantity="other">%d eemaldati</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Puuduta nuppu ruumi vabastamiseks, või puuduta kiipi esmalt kontrollimiseks.</string>
-    <string name="dashboard_hero_freed_hint">Vajuta kiibi peale täpsemalt.</string>
+    <string name="dashboard_hero_freed_hint">Andmete kuvamiseks vajuta kiibi peale.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s alles</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Midagi ei vabastatud</string>
+    <string name="dashboard_hero_nothing_freed_caption">Puhastatud, kuid andmeid ei saanud eemaldada.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Mõned andmed saab eemaldada ainult juurdepääsuteenistuse või juurpääsu kaudu.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
-    <string name="dashboard_hero_scanned_timestamp_description">Skaneeritud %1$s</string>
+    <string name="dashboard_hero_scanned_timestamp_description">Skannitud %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Vabanes %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Katsetati %1$s</string>
     <string name="dashboard_settings_category">Esileht</string>
     <string name="dashboard_motd_title">Kiri arendajalt</string>
     <string name="dashboard_settings_oneclick_title">Ühe puudutuse režiim</string>
@@ -21,7 +41,7 @@
     <string name="debug_debuglog_recording_progress">Silumislogi salvestamine</string>
     <string name="debug_debuglog_record_action">Salvesta silumislogi</string>
     <string name="debug_debuglog_stop_action">Peata salvestamine</string>
-    <string name="debug_debuglog_sensitive_information_label">Tundlik teave</string>
+    <string name="debug_debuglog_sensitive_information_label">Salajane teave</string>
     <string name="debug_debuglog_sensitive_information_message">Loodud fail sisaldab isiklikku teavet (nt failinimesid ja paigaldatud rakendusi). Jagage seda vaid usaldusväärsete osapooltega.</string>
     <string name="debug_debuglog_screen_subtitle">Ekspordi silumisteave tõrkeülesleidmiseks</string>
     <string name="debug_logview_screen_title">Logide vaataja</string>
@@ -37,7 +57,7 @@
     <string name="debug_logview_search_prev_action">Eelmine vaste</string>
     <string name="debug_logview_search_next_action">Järgmine vaste</string>
     <string name="debug_logview_jump_to_bottom_action">Hüppa viimasele</string>
-    <string name="debug_logview_paused_msg">Pauseeritud — puhver külmutatud</string>
+    <string name="debug_logview_paused_msg">Pausitud — puhver külmutatud</string>
     <string name="debug_logview_paused_dropped_msg">Peatatud — uued read vahele jäetud: %1$d</string>
     <string name="debug_logview_copied_msg">Logi kopeeritud lõikelauale</string>
     <string name="debug_logview_share_label">Jaga logi</string>
@@ -96,12 +116,12 @@
     <string name="onboarding_setup_title">Seadistamine</string>
     <string name="onboarding_setup_body1">SD Maid otsib kogu juurdepääsetavate andmete seast.</string>
     <string name="onboarding_setup_body2">Juurdepääsetav sisu sõltub seadmest, Androidi versioonist ja antud lubadest.</string>
-    <string name="onboarding_setup_body4">SD Maidi vaikesätted on seadistatud ohutuks ja põhjalikuks ning pakuvad enamikule kasutajatele head tasakaalu.</string>
+    <string name="onboarding_setup_body4">SD Maidi tavasätted on seadistatud ohutuks ja põhjalikuks ning pakuvad enamikule kasutajatele head tasakaalu.</string>
     <string name="onboarding_setup_body5">Põhjalikumate tulemuste saamiseks avage iga tööriista seaded ja kohandage neid oma soovide järgi.</string>
     <string name="onboarding_setup_body3">Alustage SD Maidi kasutamist juurdepääsu häälestamisega.</string>
     <string name="onboarding_setup_continue_action">Seadistage juurdepääs</string>
     <string name="onboarding_setup_tours_enabled_label">Näita juhitud tuure</string>
-    <string name="onboarding_setup_tours_enabled_explanation">Kiire juhitud tuur igast funktsioonist, kui selle avate.</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Kiire juhitud tuur igast võimalusest, kui selle avate.</string>
     <string name="settings_privacy_policy_label">Privaatsusteatis</string>
     <string name="settings_privacy_policy_desc">Andmete vastutustundlik haldamine.</string>
     <string name="settings_category_other_label">Muu</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku koos juurpääsuga ei taga juurdepääsu lisavõimalustele, ent see täiustab toimivust. SD Maid kasutab seda tagavaravariandina.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku link on valmis.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku lingi ootel.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku rakendus pole paigaldatud.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Proovi kasutada Shizukut</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ära kasuta Shizukut</string>
     <string name="setup_dismiss_hint">Seadistamisekraani leiate taas seadete menüüst.</string>
@@ -244,14 +265,14 @@
     <string name="setup_acs_disallow_hint">Enam ei taha? Valiku muutmiseks taaskäivitage seadistamine seadetest.</string>
     <string name="setup_acs_appops_restriction_title">Piiratud seaded</string>
     <string name="setup_acs_appops_restriction_body">SD Maidi juurdepääsetavusteenuse lubamine nurjus? Android 13+ võib piirata Google Play väliseid rakendusi. Eemaldage need SD Maidi piirangud süsteemi seadetes. Vastav valik on üleval paremas nurgas kontekstmenüüs.</string>
-    <string name="setup_acs_advanced_protection_title">Blokeeritud Advanced Protection\'i poolt</string>
-    <string name="setup_acs_advanced_protection_body">Android Advanced Protection blokeerib SD Maidi juurdepääsuteenuse seadmetes Android 17 ja uuemal, nii et seda ei saa lubada, kui Advanced Protection on sisse lülitatud. Puuduta Abi, et teada saada rohkem üksikasju ja alternatiive.</string>
+    <string name="setup_acs_advanced_protection_title">Blokeerinud Advanced Protection</string>
+    <string name="setup_acs_advanced_protection_body">Android Advanced Protection blokeerib SD Maidi juurdepääsuteenuse seadmetes Android 17 ja uuemal, nii et seda ei saa lubada, kui Advanced Protection on sisse lülitatud. Puuduta Abi, et teada saada rohkem andmeid ja asendusi.</string>
     <string name="setup_inventory_card_title">Rakenduse inventuur</string>
     <string name="setup_inventory_card_body">SD Maid peab paigaldatud rakenduste failide kuuluvuse leidmiseks teada teie rakendusi.</string>
     <string name="setup_inventory_card_extra">Otsige luba „Rakenduste loend” või „Küsi kõiki pakette”.</string>
     <string name="setup_inventory_limitation_title">Võimalik seadme piirang</string>
     <string name="setup_inventory_limitation_body">Süsteem tagastas mittetäieliku paigaldatud rakenduste loendi, kuigi vajalikud õigused näivad olevat antud.</string>
-    <string name="setup_inventory_limitation_body2">Mõned seadmed (nt HarmonyOS) ei anna kunagi täielikku rakenduste loendi. Teie andmete kaitsmiseks jäävad rakendustega seotud tööriistad keelatud, kuid saate siiski vaadata salvestusruumi kasutamist vähendatud detailidega.</string>
+    <string name="setup_inventory_limitation_body2">Mõned seadmed (nt HarmonyOS) ei anna kunagi täielikku rakenduste loendi. Teie andmete kaitsmiseks jäävad rakendustega seotud vahendid keelatuks, kuid saate siiski vaadata salvestusruumi kasutamist üldisemalt.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei leidnud skannitavaid andmekogusid. Kas lõpetasite seadistamise?</string>
     <string name="dataarea_warningcard_label">Andmekogud</string>
     <string name="dataarea_warningcard_reload_action">Laadi andmekogud uuesti</string>
@@ -263,13 +284,17 @@
     <string name="debug_card_section_diagnostics">Diagnostika</string>
     <string name="debug_card_section_reload">Laadi uuesti</string>
     <string name="debug_card_trace_mode_title">Jälje logimine</string>
-    <string name="debug_card_trace_mode_desc">Üksikasjalikud sammhaaval logid. Aeglustab rakendust märgatavalt.</string>
-    <string name="debug_card_dryrun_mode_title">Test-režiim</string>
-    <string name="debug_card_dryrun_mode_desc">Simuleerige puhastust — failid skaneeritakse, kuid midagi ei kustutata.</string>
+    <string name="debug_card_trace_mode_desc">Põhjalikud etapphaaval logid. Aeglustab rakendust märgatavalt.</string>
+    <string name="debug_card_dryrun_mode_title">Katserežiim</string>
+    <string name="debug_card_dryrun_mode_desc">Jäljendage puhastust — faile skannitakse, kuid midagi ei kustutata.</string>
     <string name="debug_card_areas_reload_action">Laadi andmed uuesti</string>
     <string name="debug_card_pkgs_reload_action">Laadi rakendused uuesti</string>
     <string name="debug_card_root_test_action">Katseta juurpääsu</string>
     <string name="debug_card_shizuku_test_action">Katseta Shizukut</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Proovimise režiim on kasutusel</string>
+    <string name="dashboard_dryrun_warning_body">Puhastamist jäljendatakse. Faile skannitakse ja kuvatakse, kuid midagi tegelikult ei kustutata.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Lülita välja</string>
     <string name="data_area_public_app_data_official_label">Tavalised avalikud rakenduse andmed</string>
     <string name="data_area_public_app_assets_official_label">Rakenduse avalikud tavaandmed</string>
     <string name="data_area_public_storage_label">Avalik mälu</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Seade</string>
     <string name="review_app_review_action">Arvustus</string>
     <string name="review_app_dismiss_action">Võib-olla hiljem</string>
-    <string name="review_app_body">Tahate kommenteerida SD Maid? ❤️</string>
+    <string name="review_app_body">Tahaksid kommenteerida SD Maid? ❤️</string>
     <string name="anniversary_card_title">Õnnelikku SD Maidi aastapäeva ❤️</string>
     <string name="anniversary_card_install_date">Teiega alates %s</string>
     <plurals name="anniversary_card_body">
@@ -307,15 +332,15 @@
     <string name="shortcuts_onetap_enabled_title">Ühepuuteline otsetee</string>
     <string name="shortcuts_onetap_enabled_summary">Kuva „Skanni ja kustuta\" otseteed, kui hoida kaua all rakenduse ikooni. Kasutab samu vahendeid nagu ühepuuteline töölaud.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 päeva jooksul</string>
-    <string name="tour_dashboard_overview_body">See on teie armatuurlaud, SD Maidi kodulehekülg. Iga tööriist ja operatsioon asub siin kaardil.</string>
-    <string name="tour_dashboard_setup_body">Seadistamise kaart kuvatakse, kui midagi tuleb konfigureerida. Avage see ja lahendage probleemid, et SD Maid saaks rohkem teha. Samuti saate jõuda seadistustesse sätete kaudu, kui te selle ära lükate.</string>
-    <string name="tour_dashboard_tools_body">Avage tööriista kaart üksikasjade jaoks. Skaneerimine ja kustutamise toimingud asuvad igal kaardil, üksikasjad ilmuvad, kui skaneerimine midagi leiab.</string>
-    <string name="tour_dashboard_main_action_body">Suur nupp allosas on ühekordse puudutusega tegevus. Üks puudutus skandeerimiseks, üks puudutus puhastamiseks, kõik automaatsed tööriistad.</string>
-    <string name="tour_dashboard_manual_tools_body">Mõned tööriistad, nagu Swiper, ei ole automaatsed, need pakuvad juhitavat töövoogu, mille kaudu saate ise sammu astuda.</string>
-    <string name="tour_dashboard_settings_body">SD Maidi vaikimisi seaded on konservatiivsed ja turvalised. Iga seade on natuke erinev, seega kohandage seadeid, et saada rohkem kasu.</string>
-    <string name="tour_setup_intro_body">Iga kaart sellel ekraanil on luba, mida SD Maid saab kasutada. Kõik on valikulised, kuid rohkem lubasid tähendab rohkem funktsioone ja põhjalikumaid skanne. Ilma nendeta leiavad enamik tööriistu vähe puhastada.</string>
-    <string name="general_settings_reset_guided_tours_label">Lähtesta juhendatud tuure</string>
-    <string name="general_settings_reset_guided_tours_summary">Näita kõiki juhendatud tuure uuesti järgmisel korral, kui külastad nende ekraani. Samuti taasaktiveerib kõik tuuri, kui oled need varem välja lülitanud.</string>
+    <string name="tour_dashboard_overview_body">See on teie töölaud, SD Maidi kodulehekülg. Iga vahend ja tegevus asub siin kaardil.</string>
+    <string name="tour_dashboard_setup_body">Seadistamise kaart kuvatakse, kui midagi tuleb seadistada. Avage see ja lahendage probleemid, et SD Maid saaks rohkem teha. Samuti saate jõuda seadistustesse sätete kaudu, kui selle ära lükkate.</string>
+    <string name="tour_dashboard_tools_body">Avage vahendi kaart andmete jaoks. Skannimine ja kustutamise toimingud asuvad igal kaardil, andmed ilmuvad, kui skannimine midagi leiab.</string>
+    <string name="tour_dashboard_main_action_body">Suur nupp allosas on ühekordse puudutusega tegevus. Üks puudutus skannimiseks, üks puudutus puhastamiseks, kõik isetoimivad tööriistad.</string>
+    <string name="tour_dashboard_manual_tools_body">Mõned vahendid, nagu Pühkija, pole isetoimivad, need pakuvad juhitavat töövoogu, mille kaudu saate ise sammu astuda.</string>
+    <string name="tour_dashboard_settings_body">SD Maidi tavaseaded on ranged ja turvalised. Iga seade on natuke erinev, seega kohandage seadeid, et saada rohkem kasu.</string>
+    <string name="tour_setup_intro_body">Iga kaart sellel ekraanil on luba, mida SD Maid saab kasutada. Kõik on valikulised, kuid rohkem lubasid tähendab rohkem võimalusi ja põhjalikumaid skanne. Ilma nendeta puhastab enamik vahendeid vähe.</string>
+    <string name="general_settings_reset_guided_tours_label">Lähtesta juhendatud tuurid</string>
+    <string name="general_settings_reset_guided_tours_summary">Näita kõiki juhendatud tuure uuesti järgmisel korral, kui külastad nende ekraani. Samuti taasaktiveerib kõik tuurid, kui oled need varem välja lülitanud.</string>
     <string name="widget_home_title">SD Maid</string>
     <string name="widget_home_description">Salvestusruumi kasutamine ja ühe puudutusega puhastamine</string>
     <string name="widget_home_storage_internal">Sisemine</string>
@@ -324,36 +349,36 @@
     <string name="widget_home_clean_action">Puhasta</string>
     <string name="widget_home_working">Töötamine…</string>
     <string name="widget_home_unavailable">Salvestusruum pole saadaval</string>
-    <string name="settings_category_widget">Widget</string>
-    <string name="widget_settings_oneclick_summary">Lase kodulehe vidina Puhasta nupul skannida ja kustutada ühe puudutusega, ilma iga kord küsimata.</string>
+    <string name="settings_category_widget">Vidin</string>
+    <string name="widget_settings_oneclick_summary">Lase kodulehe vidina puhastamisnupul skannida ja kustutada ühe puudutusega, ilma iga kord küsimata.</string>
     <string name="widget_oneclick_consent_title">Lubada ühe puudutusega puhastamine?</string>
-    <string name="widget_oneclick_consent_message">Vidina Puhasta nupp skannib ja kustutab korraga, ilma küsimata ja ülevaatamise võimaluseta.</string>
+    <string name="widget_oneclick_consent_message">Vidina puhastamisnupp skannib ja kustutab korraga, ilma küsimata ja ülevaatamise võimaluseta.</string>
     <string name="widget_oneclick_consent_enable_action">Luba</string>
     <string name="widget_oneclick_consent_decline_action">Mitte praegu</string>
-    <string name="shortcut_onetap_started">Skaneerimine + Kustutamine alustati…</string>
-    <string name="shortcut_onetap_nothing_enabled">Ühtegi üheklopsutööriista pole lubatud</string>
+    <string name="shortcut_onetap_started">Alustati skannimise ja kustutamisega…</string>
+    <string name="shortcut_onetap_nothing_enabled">Ühtegi ühepuutelist vahendit pole lubatud</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Varukoopia &amp; taastamine</string>
-    <string name="backup_restore_desc">Salvesta oma sätted ja konfiguratsioon failisse või taasta need</string>
+    <string name="backup_restore_desc">Salvesta oma sätted ja seadistus faili või taasta need</string>
     <string name="backup_restore_export_title">Loo varukoopia</string>
     <string name="backup_restore_export_desc">Salvesta sätted, erandid, ajastused ja kohandatud filtrid faili</string>
     <string name="backup_restore_import_title">Taasta varukoopia</string>
-    <string name="backup_restore_import_desc">Laadi konfiguratsiooni varukoopia failist</string>
+    <string name="backup_restore_import_desc">Laadi seadistuse varukoopia failist</string>
     <string name="backup_restore_export_success">Varukoopia loodud</string>
-    <string name="backup_restore_export_partial">Varukoopia loodi, kuid need osad ebaõnnestusid: %1$s</string>
+    <string name="backup_restore_export_partial">Varukoopia loodi, kuid need osad nurjusid: %1$s</string>
     <string name="backup_restore_restore_success">Varukoopia taastati</string>
-    <string name="backup_restore_restore_failed">Taastamine ebaõnnestus (%1$s). Teie eelmine konfiguratsioon salvestati.</string>
-    <string name="backup_restore_recovery_title">Taasta eelmine konfiguratsioon</string>
+    <string name="backup_restore_restore_failed">Taastamine nurjus (%1$s). Eelmine seadistus salvestati.</string>
+    <string name="backup_restore_recovery_title">Taasta eelmine seadistus</string>
     <string name="backup_restore_recovery_desc">Lõpetamata taastamisest on saadaval turvalisuse hetktõmmis</string>
     <string name="backup_restore_confirm_title">Taastada see varukoopia?</string>
     <string name="backup_restore_confirm_created">Loodud: %1$s</string>
     <string name="backup_restore_confirm_source">SD Maidi %1$s kaudu %2$s-l (Android %3$s)</string>
     <string name="backup_restore_mode_label">Taastamise režiim</string>
     <string name="backup_restore_mode_merge">Liitmine</string>
-    <string name="backup_restore_mode_merge_desc">Lisa varukoopia oma praegusele konfiguratsioonile</string>
+    <string name="backup_restore_mode_merge_desc">Lisa varukoopia oma praegusele seadistusele</string>
     <string name="backup_restore_mode_replace">Asenda</string>
     <string name="backup_restore_mode_replace_desc">Lähtestage oma praegune konfiguratsioon ja rakendage varukoopia</string>
-    <string name="backup_restore_warn_version_body">See varukoopia on SD Maidi versioonist %1$s, kuid teie seade kasutab versiooni %2$s. Taastamine on ametlikult toetatud ainult identsete versioonide vahel.</string>
+    <string name="backup_restore_warn_version_body">See varukoopia on SD Maidi versioonist %1$s, kuid teie seade kasutab versiooni %2$s. Taastamine on ametlikult toetatud ainult samasuguste versioonide vahel.</string>
     <string name="backup_restore_warn_android_body">See varukoopia tehti Androidil %1$s, kuid see seade käitab Androidi %2$s.</string>
     <string name="backup_restore_warn_device_body">See varukoopia tehti muul seadmel (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">See varukoopia on rakenduse erinevast väljaandest (%1$s vs %2$s).</string>

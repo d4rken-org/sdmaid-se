@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Nátiyjeler barlıq ásbaplardan óshirilsin be?</string>
     <string name="dashboard_hero_freeable_headline">%1$s bostatıla alması múmkin</string>
     <string name="dashboard_hero_freed_headline">%1$s bostatıldı</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d element o\'shiriladi</item>
+        <item quantity="other">%d element o\'shiriladi</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d element o\'shirıldi</item>
+        <item quantity="other">%d element o\'shirıldi</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Jorlama ushun tugmani basıp qosıń, yaki avval teksheriw ushun chipni basıń.</string>
     <string name="dashboard_hero_freed_hint">Detallar ushın chipti basıń.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s qaldı</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Hechne boşaltılmadi</string>
+    <string name="dashboard_hero_nothing_freed_caption">Tazalaw tamam boldi, lekin tabılğan ma\'lumot o\'shirilmadi.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Birshe ma\'lumot teke qoşımsha kirishe men o\'shiriladi, meselen erişim xizmetı yaki root arqalı.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s tekserildi</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s bostatıldı</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s usınadi</string>
     <string name="dashboard_settings_category">Basqarıw paneli</string>
     <string name="dashboard_motd_title">Islep shıǵıwshıdan xabar</string>
     <string name="dashboard_settings_oneclick_title">Bir ret basıw rejimi</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku root qôl jetkiziwmenen birge qosimsha funkciyalardı qôsetpeydi, biraq ishenshlilikti jaqsartadi. SD Maid onı zaǵıralama usil sıpatında paylana boladi.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku siltemesi tayın.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku menen silteme kútilip atır.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku qollanbası o\'rnatılmağan.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizukudan paydalanuwǵa háreket etiń</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku paydanma</string>
     <string name="setup_dismiss_hint">Ornatlash ekranın sázlemeler menyüsı arqalı qayta tabıw mümkin.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Qollanbalardı qayta ju\'klew</string>
     <string name="debug_card_root_test_action">Root tekseriwi</string>
     <string name="debug_card_shizuku_test_action">Shizuku tekseriwi</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Test rejimi faallashtirildi</string>
+    <string name="dashboard_dryrun_warning_body">Tazalaw juma qılınıp turağan. Fayllar skanerlendi we haber berıldi, bıraq hechne shındı o\'shirilmadi.</string>
+    <string name="dashboard_dryrun_warning_disable_action">O\'shir</string>
     <string name="data_area_public_app_data_official_label">Ádettegi ashıq baǵdarlama maǵlıwmatları</string>
     <string name="data_area_public_app_assets_official_label">Ádettegi ashıq baǵdarlama aktivleri</string>
     <string name="data_area_public_storage_label">Ashıq saqlaw orını</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Qurilma</string>
     <string name="review_app_review_action">Bahalawg̱a</string>
     <string name="review_app_dismiss_action">Keiinrek</string>
-    <string name="review_app_body">SD Maid-qa bahalawı qaldırıwıńızın qálei me?️ ❤️</string>
+    <string name="review_app_body">SD Maid-qa bahalawı qaldırıwıńızın qálei me? ❤️</string>
     <string name="anniversary_card_title">SD Maid jubileyi qutlı bolsın ❤️</string>
     <string name="anniversary_card_install_date">%s dan beri siz benen</string>
     <plurals name="anniversary_card_body">

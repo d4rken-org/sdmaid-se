@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">یک وظیفه برنامه‌ریزی‌شده تلاش کرد از سرویس دسترس‌پذیری استفاده کند، اما در دسترس نبود. اگر به این نیاز ندارید، گزینه «سرویس دسترس‌پذیری» را در تنظیمات زمان‌بند غیرفعال کنید.</string>
     <string name="automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
     <string name="automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیماتی ندارد. پاک کردن کش از طریق سرویس دسترسی امکان‌پذیر نیست. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
+    <string name="automation_error_disabled_app_title">برنامه غیرفعال است</string>
+    <string name="automation_error_disabled_app_body">دستگاه شما صفحه تنظیمات برنامه‌های غیرفعال را باز نمی‌کند، بنابراین سرویس دسترسی‌پذیری نمی‌تواند حافظه پنهان را پاک کند. برنامه را فعال کنید یا از root یا Shizuku/ADB استفاده کنید.</string>
     <string name="automation_error_interference_title">صفحه تنظیمات مسدود است</string>
     <string name="automation_error_interference_body">برنامه دیگری (%1$s) صفحه تنظیمات سیستم را مسدود کرده است، بنابراین SD Maid نمی‌تواند ادامه دهد. قفل برنامه یا محافظت صفحه آن برنامه را برای تنظیمات سیستم غیرفعال کنید، سپس دوباره تلاش کنید.</string>
     <string name="automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>

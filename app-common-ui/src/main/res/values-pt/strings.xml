@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="picker_select_paths_title">Selecionar caminho</string>
+    <string name="picker_select_paths_title">Selecionar caminhos</string>
     <string name="picker_selected_paths_title">Caminhos selecionados</string>
-    <string name="picker_unsaved_confirmation_message">Rejeitar alterações?</string>
+    <string name="picker_unsaved_confirmation_message">Descartar alterações?</string>
     <plurals name="picker_selected_paths_subtitle">
         <item quantity="one">%d caminho selecionado</item>
         <item quantity="other">%d caminhos selecionados</item>
     </plurals>
     <string name="picker_home_action">Áreas de dados</string>
-    <string name="picker_select_hint">Mantenha um item premido para o selecionar</string>
+    <string name="picker_select_hint">Mantenha premido um item para o selecionar</string>
     <string name="tour_action_next">Seguinte</string>
     <string name="tour_action_previous">Anterior</string>
     <string name="tour_action_cancel">Saltar</string>
@@ -18,5 +18,5 @@
     <string name="tour_confirm_dont_show_this_tour">Não mostrar esta visita guiada</string>
     <string name="tour_confirm_disable_all">Desativar todas as visitas guiadas</string>
     <string name="navigation_unknown_destination_title">Ecrã indisponível</string>
-    <string name="navigation_unknown_destination_message">Este ecrã não pôde ser aberto.</string>
+    <string name="navigation_unknown_destination_message">Não foi possível abrir este ecrã.</string>
 </resources>

@@ -10,7 +10,7 @@
         <item quantity="other">Vybráno %d cest</item>
     </plurals>
     <string name="picker_home_action">Oblasti dat</string>
-    <string name="picker_select_hint">Podržte položku, abyste ji vybrali</string>
+    <string name="picker_select_hint">Pro výběr podržte položku</string>
     <string name="tour_action_next">Další</string>
     <string name="tour_action_previous">Předchozí</string>
     <string name="tour_action_cancel">Přeskočit</string>
@@ -20,5 +20,5 @@
     <string name="tour_confirm_dont_show_this_tour">Nezobrazovat tuto prohlídku</string>
     <string name="tour_confirm_disable_all">Zakázat všechny prohlídky</string>
     <string name="navigation_unknown_destination_title">Obrazovka je nedostupná</string>
-    <string name="navigation_unknown_destination_message">Tuto obrazovku se nepodařilo otevřít.</string>
+    <string name="navigation_unknown_destination_message">Tuto obrazovku nelze otevřít.</string>
 </resources>

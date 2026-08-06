@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">എല്ലാ ടൂളുകളിലെ ഫലങ്ങൾ ഇല്ലാതാക്കണോ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s സ്വതന്ത്രമാക്കാം</string>
     <string name="dashboard_hero_freed_headline">%1$s ഫ്രീ ആക്കി</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d ഇനം നീക്കം ചെയ്യാൻ കഴിയും</item>
+        <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്യാൻ കഴിയും</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d ഇനം നീക്കം ചെയ്തു</item>
+        <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്തു</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">സ്ഥലം സ്വതന്ത്ര ചെയ്യാൻ ബട്ടൺ തൊടുക, അല്ലെങ്കിൽ ആദ്യം പരിശോധിക്കാൻ ഒരു ചിപ് തൊടുക.</string>
     <string name="dashboard_hero_freed_hint">വിശദാംശങ്ങൾക്കായി ചിപ്പ് ടാപ്പ് ചെയ്യുക.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s ബാക്കി</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">ഒന്നും മുക്തമാക്കിയില്ല</string>
+    <string name="dashboard_hero_nothing_freed_caption">ക്ലീനുപ് പൂർത്തിയായി, എന്നാൽ കണ്ടെത്തിയ ഡാറ്റയിലെ ഒന്നും നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല.</string>
+    <string name="dashboard_hero_nothing_freed_hint">ചില ഡാറ്റ പ്രവേശനാധികാരത്തിന്റെ സേവനം അല്ലെങ്കിൽ റൂട്ട് പോലുള്ള അധിക പ്രവേശനം ഉപയോഗിച്ച് മാത്രം നീക്കം ചെയ്യാൻ കഴിയും.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">സ്കാൻ ചെയ്ത %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ഫ്രീ ആക്കി</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s ശ്രമിച്ചു</string>
     <string name="dashboard_settings_category">ഡാഷ്‌ബോർഡ്</string>
     <string name="dashboard_motd_title">ഡെവലപ്പറിൽ നിന്നുള്ള സന്ദേശം</string>
     <string name="dashboard_settings_oneclick_title">വൺ-ടാപ്പ് മോഡ്</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">റൂട്ട് ആക്സസുമൊത്ത് Shizuku ഉപയോഗിക്കുന്നത് അധിക ഫീച്ചറുകൾ പ്രാപ്തമാക്കില്ല, പക്ഷേ ഇത് വിശ്വാസ്യത മെച്ചപ്പെടുത്തുന്നു. SD Maid ഇത് ഒരു ഫോൾബാക്ക് രീതിയായി ഉപയോഗിക്കും.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku ലിങ്ക് തയ്യാറാണ്</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku യുമായുള്ള ലിങ്കിനായി കാത്തിരിക്കുന്നു</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku അപ്ലിക്കേഷൻ ഇൻസ്റ്റോൾ ചെയ്തിട്ടില്ല.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ഉപയോഗിക്കാൻ ശ്രമിക്കുക</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ഉപയോഗിക്കരുത്</string>
     <string name="setup_dismiss_hint">സെറ്റിംഗ്സ് മെനു വഴി നിങ്ങൾക്ക് സെറ്റപ്പ് സ്ക്രീൻ വീണ്ടും കണ്ടെത്താനാകും.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">ആപ്പുകൾ വീണ്ടും ലോഡ് ചെയ്യുക</string>
     <string name="debug_card_root_test_action">രൂട് പരീക്ഷിക്കുക</string>
     <string name="debug_card_shizuku_test_action">Shizuku പരീക്ഷിക്കുക</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ഡ്രൈ-റൺ മോഡ് സജീവമാണ്</string>
+    <string name="dashboard_dryrun_warning_body">ക്ലീനുപ് സിമുലേറ്റ് ചെയ്യുന്നു. ഫയലുകൾ സ്കാൻ ചെയ്യുകയും റിപ്പോർട്ട് ചെയ്യുകയും ചെയ്യുന്നു, എന്നാൽ യഥാർത്ഥത്തിൽ ഒന്നും ഇല്ലാതാകുന്നില്ല.</string>
+    <string name="dashboard_dryrun_warning_disable_action">ഓഫ് ചെയ്യുക</string>
     <string name="data_area_public_app_data_official_label">ഡിഫോൾട്ട് പൊതു ആപ്പ് ഡേറ്റ</string>
     <string name="data_area_public_app_assets_official_label">സ്ഥിരസ്ഥിതി പൊതു ആപ്പ് അസറ്റുകൾ</string>
     <string name="data_area_public_storage_label">പൊതു സ്‌റ്റോറേജ്</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">ഉപകരണം</string>
     <string name="review_app_review_action">റിവ്യൂ</string>
     <string name="review_app_dismiss_action">ഒരുപക്ഷേ പിന്നീട്</string>
-    <string name="review_app_body">SD Maid-ന് ഒരു റിവ്യൂ നൽകാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുവോ? ❤️</string>
+    <string name="review_app_body">SD Maid-ന് ഒരു റിവ്യു നൽകാൻ ഇഷ്ടപ്പെടുന്നുണ്ടോ? ❤️</string>
     <string name="anniversary_card_title">സന്തോഷമായ SD Maid വാർഷികഞ്ഞാ്യം ❤️</string>
     <string name="anniversary_card_install_date">%s മുതൽ നിങ്ങളോടൊപ്പം</string>
     <plurals name="anniversary_card_body">

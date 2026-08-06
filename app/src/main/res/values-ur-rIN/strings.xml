@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">تمام ٹولز میں نتائج کو حذف کریں؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s خالی کیا جا سکتا ہے</string>
     <string name="dashboard_hero_freed_headline">%1$s خالی کیا گیا</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d آئٹم ہٹایا جا سکتا ہے</item>
+        <item quantity="other">%d آئٹمز ہٹائے جا سکتے ہیں</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d آئٹم ہٹایا گیا</item>
+        <item quantity="other">%d آئٹمز ہٹائے گئے</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">جگہ خالی کرنے کے لیے بٹن دبائیں یا پہلے چیک کرنے کے لیے ایک چپ دبائیں</string>
     <string name="dashboard_hero_freed_hint">تفصیلات کے لیے ایک چپ کو تھپتھپائیں۔</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s بچا ہوا</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">کوئی جگہ خالی نہیں ہوئی</string>
+    <string name="dashboard_hero_nothing_freed_caption">صفائی مکمل ہو گئی، لیکن کوئی بھی ملنے والا ڈیٹا ہٹایا نہیں جا سکا۔</string>
+    <string name="dashboard_hero_nothing_freed_hint">کچھ ڈیٹا صرف اضافی رسائی سے ہی ہٹایا جا سکتا ہے، جیسے رسائی کی سہولت یا روٹ۔</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s اسکین کیا گیا</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s خالی کیا گیا</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s کی کوشش کی گئی</string>
     <string name="dashboard_settings_category">ڈیش بورڈ</string>
     <string name="dashboard_motd_title">ڈیولپر کی طرف سے پیغام</string>
     <string name="dashboard_settings_oneclick_title">ون ٹیپ موڈ</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">روٹ رسائی کے ساتھ Shizuku کا امتزاج اضافی فیچرز فعال نہیں کرتا، لیکن یہ قابلیت بہتر بناتا ہے۔ SD Maid اسے فال بیک طریقہ کے طور پر استعمال کرے گا۔</string>
     <string name="setup_shizuku_state_ready_label">Shizuku لنک تیار ہے۔</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku کے ساتھ لنک کا انتظار۔</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku ایپ انسٹال نہیں ہے۔</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku استعمال کرنے کی کوشش کریں</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku استعمال نہ کریں</string>
     <string name="setup_dismiss_hint">آپ سیٹنگز مینو کے ذریعے سیٹ اپ سکرین دوبارہ تلاش کر سکتے ہیں۔</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">ایپس دوبارہ لوڈ کریں</string>
     <string name="debug_card_root_test_action">روٹ ٹیسٹ</string>
     <string name="debug_card_shizuku_test_action">Shizuku ٹیسٹ</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ڈرائی رن موڈ فعال ہے</string>
+    <string name="dashboard_dryrun_warning_body">صفائی کی محاکی کی جا رہی ہے۔ فائلیں سکین اور رپورٹ کی جاتی ہیں، لیکن کوئی بھی فائل حقیقی طور پر حذف نہیں ہوتی۔</string>
+    <string name="dashboard_dryrun_warning_disable_action">بند کریں</string>
     <string name="data_area_public_app_data_official_label">ڈیفالٹ پبلک ایپ ڈیٹا</string>
     <string name="data_area_public_app_assets_official_label">ڈیفالٹ پبلک ایپ ایسیٹس</string>
     <string name="data_area_public_storage_label">پبلک اسٹوریج</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">ڈیوائس</string>
     <string name="review_app_review_action">ریویو</string>
     <string name="review_app_dismiss_action">شاید بعد میں</string>
-    <string name="review_app_body">کیا آپ SD Maid کے لیے ریویو چھوڑنا چاہیں گے؟️ ❤️</string>
+    <string name="review_app_body">کیا آپ SD Maid کے لیے ریویو چھوڑنا چاہیں گے؟ ❤️</string>
     <string name="anniversary_card_title">SD Maid کی سالگرہ مبارک ❤️</string>
     <string name="anniversary_card_install_date">%s سے آپ کے ساتھ</string>
     <plurals name="anniversary_card_body">

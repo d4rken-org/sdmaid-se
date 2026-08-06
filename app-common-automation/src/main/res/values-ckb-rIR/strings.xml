@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">کاری خشتەکراو هەوڵیدا خزمەتگوزاری دەستپێگەیشتنەکە بەکاربهێنێت، بەڵام بەردەست نەبوو. ئەگەر پێویستت نییە، بژارەی “خزمەتگوزاری دەستپێگەیشتن” لە ڕێکخستنەکانی خشتەکار ناچالاک بکە.</string>
     <string name="automation_error_no_settings_title">پەڕگەی سەتینگ بەردەست نیە</string>
     <string name="automation_error_no_settings_body">ئەم بەرنامەی سیستمە پەڕگەی سەتینگی نیە. سڕینەوەی هیچ شتێکی تێپەڕاو لە ڕێی خزمەتی دسترسی زیرەک ممکن نیە. لێیدابە تاکو بیسبوو بکاتی سڕینەوە هیچ شتێکی تێپەڕاو.</string>
+    <string name="automation_error_disabled_app_title">بەرنامە ناچالاکە</string>
+    <string name="automation_error_disabled_app_body">دامەزرێنەکەت ستینگی بەرنامە ناچالاکیەکان نیشان نادات، جا پاشکۆی نەتوانرا پاک بکرێت. بەرنامەکە چالاک بکە یان ڕوت/Shizuku/ADB بەکار بێنە.</string>
     <string name="automation_error_interference_title">شیکری رێکخستنەکان بلۆککراو</string>
     <string name="automation_error_interference_body">ئەپلیکێشنێکی دیکە (%1$s) شیکری رێکخستنەکانی سیستەمی بلۆککردووە، بۆیە SD Maid ناتوانێت بەردەوام بێت. کیلیدە app-lock یان پاراستنی شیکر بۆ رێکخستنەکانی سیستەمی ئەو ئەپلیکێشنە ناچالاک بکە، پاشان دووبارە هەوڵ بدە.</string>
     <string name="automation_loading">ئامادەکردنی ئۆتۆماتیزاسیون لە ڕێگەی خزمەتگوزاری دەستپێگەیشتنەوە</string>

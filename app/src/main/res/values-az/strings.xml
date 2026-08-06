@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Bütün alətlərdəki nəticələr silinsin?</string>
     <string name="dashboard_hero_freeable_headline">%1$s azad edilə bilər</string>
     <string name="dashboard_hero_freed_headline">%1$s azad edildi</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d element çıxarıla bilər</item>
+        <item quantity="other">%d element çıxarıla bilər</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d element çıxarıldı</item>
+        <item quantity="other">%d element çıxarıldı</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Yeri azaltmaq üçün düyməyə basın, ya da əvvəl yoxlamaq üçün chip-ə toxunun.</string>
     <string name="dashboard_hero_freed_hint">Detallar üçün çipə toxunun.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s qaldı</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Heç bir şey azad edilmədi</string>
+    <string name="dashboard_hero_nothing_freed_caption">Təmizləmə tamamlandı, lakin tapılan məlumatların heçbiri çıxarıla bilmədi.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Bəzi məlumatlar yalnız əlavə girişlə çıxarıla bilər, məsələn əlçatanlıq xidməti və ya root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s skanlandı</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s azad edildi</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Cəhd edildi: %1$s</string>
     <string name="dashboard_settings_category">İdarəetmə paneli</string>
     <string name="dashboard_motd_title">Tərtibatçıdan bir mesaj</string>
     <string name="dashboard_settings_oneclick_title">Tək toxunuş rejimi</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku-nun kök root girişi ilə birgə istifadəsi əlavə funksiyalar aktivləşdirmir, lakin etibarlılığı artırır. SD Maid ondan ehtiyat üsul kimi istifadə edəcək.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku linki hazırdır</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku linki üçün gözlənilir</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku tətbiqi quraşdırılmamışdır.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku-dan istifadə etməyə çalışın</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku-dan istifadə etməyin</string>
     <string name="setup_dismiss_hint">Parametrlər menyusu vasitəsilə quraşdırma ekranını tapa bilərsiniz.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Tətbiqləri yenidən yüklə</string>
     <string name="debug_card_root_test_action">Root yoxla</string>
     <string name="debug_card_shizuku_test_action">Shizuku yoxla</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Sınaq rejimi aktivdir</string>
+    <string name="dashboard_dryrun_warning_body">Təmizləmə simulyasiya edilir. Fayllar skan edilir və rəport edilir, lakin heç bir şey həqiqətən silinmir.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Söndür</string>
     <string name="data_area_public_app_data_official_label">Standart ictimai tətbiq məlumatları</string>
     <string name="data_area_public_app_assets_official_label">Standart ictimai tətbiq aktivləri</string>
     <string name="data_area_public_storage_label">İctimai yaddaş</string>

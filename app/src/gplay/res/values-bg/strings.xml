@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Възникна вътрешна грешка в Google Play. Моля, опитайте следното:\n\n• Рестартирайте устройството си\n• Изчистете кеша на Google Play Store\n• Опитайте отново по-късно</string>
     <string name="upgrades_gplay_network_error_title">Грешка при свързване</string>
     <string name="upgrades_gplay_network_error_description">Не може да се свърже с Google Play. Моля, проверете интернет връзката си и опитайте отново.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Предложението не е налично</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play в момента не предлага тази опция за надстройка. Моля, опитайте отново по-късно или проверете Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Не можа да отворя Google Play. Може да липсва, да е деактивирано или ограничено на това устройство.</string>
     <string name="upgrades_gplay_already_owned_error_title">Вече закупено</string>
     <string name="upgrades_gplay_already_owned_error_description">Използвайте опцията \"Възстановете покупката\", за да възстановите покупката си. Ако проблемът продължава, опитайте да изчистите кеша на Google Play и да рестартирате устройството си.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Получи %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid няма реклами и не продава потребителски данни. Работата ми се финансира от вас ❤️.</string>
     <string name="upgrade_screen_benefits_title">Предимства на надстройката</string>
     <string name="upgrade_screen_benefits_body">• Почистване на кеш и боклук на приложенията\n• Премахване на дублирани файлове\n• Компресиране на снимки и видеа\n• Плъзгане за премахване на стари файлове\n• Почистване с един допир чрез джаджа\n• График на почистването\n• Персонализирани филтри и правила\n• Тенденции и история на хранилище\n• Повече функции и контроли по цялото приложение\n• Поддръжка на продължаващото развитие</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Подновява се всяка година. Отмяна по всяко време в Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Еднократна покупка</string>
     <string name="upgrade_screen_iap_offer_body">Едно плащане, без подновявания.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Цените не са налични</string>
     <string name="upgrade_screen_offers_unavailable_message">Цените не могат да бъдат заредени в момента. Проверете Google Play и опитайте отново след малко.</string>
     <string name="upgrade_screen_subscription_trial_action">Започнете безплатен 14-дневен пробен период</string>
     <string name="upgrade_screen_subscription_action">Абонирайте се</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Свържете се с поддръжката</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid току-що провери Google Play, но не можа да бъде потвърдена покупка на Pro за акаунта, който Google Play използва за това приложение.</string>
     <string name="upgrade_screen_restore_contact_hint">Проблемът продължава? Свържете се с поддръжката от имейла, с който е направена покупката, и посочете номера на поръчката си от Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Проверката с Google Play не завърши навреме, затова статусът на вашата покупка остава неизвестен. Нищо не се е променило в акаунта ви.</string>
 </resources>

@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Sūlyta užduotis bandė naudoti prieinamumo paslaugą, tačiau ji buvo nepasiekiama. Jei to nereikia, išjunkite parinktį „Prieinamumo paslauga“ planavimo nustatymuose.</string>
     <string name="automation_error_no_settings_title">Nustatymų ekranas nepasiekiamas</string>
     <string name="automation_error_no_settings_body">Ši sistemos programa neturi nustatymų ekrano. Talpyklos valymas per prieinamumo paslaugą negalimas. Pašalinkite ją iš sąrašo, kad paspartintumėte talpyklos valymą.</string>
+    <string name="automation_error_disabled_app_title">Programa išjungta</string>
+    <string name="automation_error_disabled_app_body">Jūsų įrenginys neatidarys išjungtų programų nustatymų ekrano, todėl nepavyks išvalyti podėlio naudojant pritaikymo paslaugą. Įjunkite programą arba naudokite root arba Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Nustatymų ekranas užblokuotas</string>
     <string name="automation_error_interference_body">Kita programa (%1$s) blokuoja sistemos nustatymų ekraną, todėl SD Maid negali tęsti. Išjunkite tos programos programėlės užraktą arba ekrano apsaugą sistemos nustatymuose, tada bandykite dar kartą.</string>
     <string name="automation_loading">Rupošiamas automatizavimas per prieinamumo paslaugą</string>

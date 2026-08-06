@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Eliminare i risultati in tutti gli strumenti?</string>
     <string name="dashboard_hero_freeable_headline">%1$s può essere liberato</string>
     <string name="dashboard_hero_freed_headline">%1$s liberato</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d elemento può essere rimosso</item>
+        <item quantity="other">%d elementi possono essere rimossi</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d elemento è stato rimosso</item>
+        <item quantity="other">%d elementi sono stati rimossi</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Tocca il pulsante per liberare spazio, oppure un chip per controllare prima.</string>
     <string name="dashboard_hero_freed_hint">Tocca una scheda per i dettagli.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s rimasto</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nulla è stato liberato</string>
+    <string name="dashboard_hero_nothing_freed_caption">La pulizia è stata completata, ma nessuno dei dati trovati potrebbe essere rimosso.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Alcuni dati possono essere rimossi solo con accesso aggiuntivo, come il servizio di accessibilità o root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scansionato %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Liberato %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Tentato %1$s</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">Un messaggio dallo sviluppatore</string>
     <string name="dashboard_settings_oneclick_title">Modalità singolo tocco</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku, in combinazione con l\'accesso root, non abilità funzionalità aggiuntive, tuttavia migliora l\'affidabilità. SD Maid lo utilizzerà come metodo di riserva.</string>
     <string name="setup_shizuku_state_ready_label">Il collegamento a Shizuku è pronto.</string>
     <string name="setup_shizuku_state_waiting_label">In attesa del collegamento con Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">L\'app Shizuku non è installata.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Prova a utilizzare Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Non usare Shizuku</string>
     <string name="setup_dismiss_hint">Puoi riconfigurare la schermata iniziale nel menu delle impostazioni.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Ricarica app</string>
     <string name="debug_card_root_test_action">Testa root</string>
     <string name="debug_card_shizuku_test_action">Testa Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">La modalità simulazione è attiva</string>
+    <string name="dashboard_dryrun_warning_body">La pulizia viene simulata. I file vengono scansionati e segnalati, ma nulla viene effettivamente eliminato.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Disattiva</string>
     <string name="data_area_public_app_data_official_label">Dati pubblici predefiniti delle app</string>
     <string name="data_area_public_app_assets_official_label">Dati pubblici predefiniti delle app</string>
     <string name="data_area_public_storage_label">Archivio pubblico</string>

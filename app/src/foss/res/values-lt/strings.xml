@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Peržiūrėkite atnaujinimo variantus</string>
     <string name="upgrade_screen_status_upgraded_title">Atnaujinimas aktyvas</string>
     <string name="upgrade_screen_status_upgraded_body">Visos papildomos funkcijos yra atrakintos. Ačiū už atvirojo kodo tobulinimo palaikymą ❤️</string>
+    <string name="upgrade_screen_supporter_since">Rėmėjas nuo %s</string>
     <string name="upgrade_screen_recurring_title">Tęskite toliau</string>
     <string name="upgrade_screen_recurring_body">SD Maid nuolat tobulėja dėl atnaujinimų ir pataisymų. Jei norite tai palaikyti, apsvarstykite pasikartojančią auką per GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Atidaryti GitHub Sponsors</string>

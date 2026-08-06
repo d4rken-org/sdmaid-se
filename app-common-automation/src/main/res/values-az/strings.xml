@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Planlaşdırılmış tapşırıq əlçatanlıq xidmətindən istifadə etməyə cəhd etdi, lakin o mövcud deyildi. Buna ehtiyacınız yoxdursa, planlayıcı parametrlərindəki \"Əlçatanlıq xidməti\" seçimini deaktiv edin.</string>
     <string name="automation_error_no_settings_title">Parametrlər ekranı əlçatan deyil</string>
     <string name="automation_error_no_settings_body">Bu sistem tətbiqinin heç bir parametrlər ekranı yoxdur. Əlçatanlıq xidməti vasitəsilə keş təmizləmə mümkün deyil. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>
+    <string name="automation_error_disabled_app_title">Tətbiq deaktiv edilmişdir</string>
+    <string name="automation_error_disabled_app_body">Cihazınız deaktiv edilmiş tətbiqlərin ayarlar ekranını açmayacaq, buna görə də keş əlçatanlıq xidməti vasitəsilə silinə bilməz. Tətbiqi aktivləşdirin və ya əvəzində root və ya Shizuku/ADB istifadə edin.</string>
     <string name="automation_error_interference_title">Ayarlar ekranı bloklanmışdır</string>
     <string name="automation_error_interference_body">Başqa bir tətbiq (%1$s) sistem ayarları ekranını bloklamış, buna görə SD Maid davam edə bilmir. Həmin tətbiqin sistem ayarları üçün tətbiq-kilidini və ya ekran qorumasını deaktiv edin, sonra yenidən cəhd edin.</string>
     <string name="automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>

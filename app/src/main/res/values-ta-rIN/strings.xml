@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">அனைத்து கருவிகளிலும் முடிவுகளை நீக்கவா?</string>
     <string name="dashboard_hero_freeable_headline">%1$s விடுவிக்கப்படலாம்</string>
     <string name="dashboard_hero_freed_headline">%1$s விடுவிக்கப்பட்டது</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d பொருள் அகற்றப்படலாம்</item>
+        <item quantity="other">%d பொருட்கள் அகற்றப்படலாம்</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d பொருள் அகற்றப்பட்டது</item>
+        <item quantity="other">%d பொருட்கள் அகற்றப்பட்டன</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">பொத்தானைத் தட்டி இடைவெளியை விடுவிக்க, அல்லது முதலில் சரிபார்க்க ஒரு சிப்பைத் தட்டவும்.</string>
     <string name="dashboard_hero_freed_hint">விவரங்களுக்கு ஒரு சிப்பை தட்டவும்.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s மீதமுள்ளது</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">எதுவும் விடுவிக்கப்படவில்லை</string>
+    <string name="dashboard_hero_nothing_freed_caption">சுத்தம் முடிந்தது, ஆனால் கண்டுபிடிக்கப்பட்ட எந்தத் தரவும் அகற்றப்பட முடியவில்லை.</string>
+    <string name="dashboard_hero_nothing_freed_hint">சில தரவு அணுக வசதி அல்லது வேர் போன்ற கூடுதல் அனுமதி மூலம் மட்டுமே அகற்றப்பட முடியும்.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ஸ்கேன் செய்யப்பட்டது %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">விடுவிக்கப்பட்டது %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s முயற்சி செய்யப்பட்டது</string>
     <string name="dashboard_settings_category">டாஷ்போர்டு</string>
     <string name="dashboard_motd_title">உருவாக்குநரிடமிருந்து ஒரு செய்தி</string>
     <string name="dashboard_settings_oneclick_title">ஒரு-தட்டல் முறை</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">ரூட் அணுகலுடன் இணைந்த Shizuku கூடுதல் அம்சங்களை இயக்காது, ஆனால் அது நம்பகத்தன்மையை மேம்படுத்துகிறது. SD Maid அதை மாற்று முறையாகப் பயன்படுத்தும்.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku உடன் இணைப்பு தயாரம் உள்ளது.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku உடன் இணைப்பிற்காக காத்திருக்கிறது.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku பயன்பாடு நிறுவப்படவில்லை.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ஐப் பயன்படுத்த முயற்சிக்கவும்</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ஐப் பயன்படுத்த வேண்டாம்</string>
     <string name="setup_dismiss_hint">அமைப்புகள் பட்டி வழியாக அமைப்பு திரையை மீண்டும் கண்டுபிடிக்கலாம்.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">செயலிகளை மீளேற்று</string>
     <string name="debug_card_root_test_action">Root சோதனை</string>
     <string name="debug_card_shizuku_test_action">Shizuku சோதனை</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">சோதனை முறை செயலில் உள்ளது</string>
+    <string name="dashboard_dryrun_warning_body">சுத்தம் உருவகப்படுத்தப்படுகிறது. கோப்புகள் ஸ்கேன் செய்யப்பட்டு புகாரளிக்கப்படுகின்றன, ஆனால் உண்மையில் எதுவும் நீக்கப்படவில்லை.</string>
+    <string name="dashboard_dryrun_warning_disable_action">ஆஃப் செய்யுங்கள்</string>
     <string name="data_area_public_app_data_official_label">இயல்பு பொது பயன்பாட்டு தரவு</string>
     <string name="data_area_public_app_assets_official_label">இயல்பு பொது பயன்பாட்டு சொல்வங்கள்</string>
     <string name="data_area_public_storage_label">பொது சேமிப்பு</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">சாதனம்</string>
     <string name="review_app_review_action">மார்வு</string>
     <string name="review_app_dismiss_action">பிறகு வேளையில்</string>
-    <string name="review_app_body">நீங்கள் SD Maid க்கு மார்வை வழங்க விரும்புகிறீர்களா?️ ❤️</string>
+    <string name="review_app_body">நீங்கள் SD Maid க்கு மதிப்பீடு வழங்க விரும்புகிறீர்களா? ❤️</string>
     <string name="anniversary_card_title">SD Maid ஆண்டு நினைவு வாழ்த்துக்கள் ❤️</string>
     <string name="anniversary_card_install_date">%s முதல் உங்களுடன்</string>
     <plurals name="anniversary_card_body">

@@ -3,11 +3,33 @@
     <string name="dashboard_delete_all_message">Избрисати резултате у свим алаткама?</string>
     <string name="dashboard_hero_freeable_headline">%1$s се може ослободити</string>
     <string name="dashboard_hero_freed_headline">%1$s ослобођено</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d ставка може бити уклоњена</item>
+        <item quantity="few">%d ставке могу бити уклоњене</item>
+        <item quantity="other">%d ставки може бити уклоњено</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d ставка је уклоњена</item>
+        <item quantity="few">%d ставке су уклоњене</item>
+        <item quantity="other">%d ставки је уклоњено</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Притисните дугме да ослободите простор, или чип да прво проверите.</string>
     <string name="dashboard_hero_freed_hint">Додирните чип за детаље.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">Остало %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Ништа није ослобођено</string>
+    <string name="dashboard_hero_nothing_freed_caption">Чишћење је завршено, али ниједан од пронађених података није могао бити уклоњен.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Неки подаци могу бити уклоњени само са додатним приступом, као што су услуга приступачности или root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Сканирано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Ослобођено %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Покушано %1$s</string>
     <string name="dashboard_settings_category">Командна табла</string>
     <string name="dashboard_motd_title">Порука од аутора</string>
     <string name="dashboard_settings_oneclick_title">Режим једног клика</string>
@@ -221,6 +243,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku у комбинацији са приступом суперкориснику не омогућава додатне функције, али побољшава поузданост. СД Чистач ће га користити као резервни метод.</string>
     <string name="setup_shizuku_state_ready_label">Линк за Shizuku је спреман.</string>
     <string name="setup_shizuku_state_waiting_label">Чека се линк за Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Апликација Shizuku није инсталирана.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Покушајте да користите Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не користи Shizuku</string>
     <string name="setup_dismiss_hint">Екран за подешавање можете поново пронаћи преко менија подешавања.</string>
@@ -275,6 +298,10 @@
     <string name="debug_card_pkgs_reload_action">Поново учитај апликације</string>
     <string name="debug_card_root_test_action">Тестирај root</string>
     <string name="debug_card_shizuku_test_action">Тестирај Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Режим сувог покретања је активан</string>
+    <string name="dashboard_dryrun_warning_body">Чишћење се симулира. Датотеке се скенирају и пријављују, али ништа се заиста не брише.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Искључи</string>
     <string name="data_area_public_app_data_official_label">Подразумевани јавни подаци апликација</string>
     <string name="data_area_public_app_assets_official_label">Подразумевани јавни ресурси апликација</string>
     <string name="data_area_public_storage_label">Јавно складиште</string>
@@ -294,7 +321,7 @@
     <string name="device_settings_category">Уређај</string>
     <string name="review_app_review_action">Оцени</string>
     <string name="review_app_dismiss_action">Можда касније</string>
-    <string name="review_app_body">Желите ли оставити рецензију за СД Чистач?️ ❤️</string>
+    <string name="review_app_body">Желиш ли оставити рецензију за SD Maid? ❤️</string>
     <string name="anniversary_card_title">Срећан годишњица СД Чистача ❤️</string>
     <string name="anniversary_card_install_date">Са вама од %s</string>
     <plurals name="anniversary_card_body">

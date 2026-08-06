@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">იხილეთ განახლების ვარიანტები</string>
     <string name="upgrade_screen_status_upgraded_title">განახლება აქტიურია</string>
     <string name="upgrade_screen_status_upgraded_body">ყველა დამატებითი ფუნქცია განბლოკილია. მადლობა ღია კოდის განვითარების მხარდასაჭერად ❤️</string>
+    <string name="upgrade_screen_supporter_since">მხარდამჭერი %s-დან</string>
     <string name="upgrade_screen_recurring_title">გააგრძელე</string>
     <string name="upgrade_screen_recurring_body">SD Maid განაგრძობს განვითარებას განახლებებისა და გამოსწორებების საშუალებით. თუ გსურთ ამის მხარდაჭერა, გაითვალისწინეთ განმეორებული დონაცია GitHub Sponsors-ის მეშვეობით.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors-ის გახსნა</string>

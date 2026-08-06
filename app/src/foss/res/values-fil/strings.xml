@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Tingnan ang mga opsyon sa pag-upgrade</string>
     <string name="upgrade_screen_status_upgraded_title">Aktibong Upgrade</string>
     <string name="upgrade_screen_status_upgraded_body">Lahat ng dagdag na feature ay naunlock na. Salamat sa pagsuporta sa open-source development ❤️</string>
+    <string name="upgrade_screen_supporter_since">Tagasuporta simula %s</string>
     <string name="upgrade_screen_recurring_title">Ipagpatuloy</string>
     <string name="upgrade_screen_recurring_body">Patuloy na umuunlad ang SD Maid sa pamamagitan ng mga update at fix. Kung nais mong suportahan ito, isaalang-alang ang regular na donation sa GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Buksan ang GitHub Sponsors</string>

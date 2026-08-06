@@ -3,11 +3,35 @@
     <string name="dashboard_delete_all_message">Odstrániť výsledky vo všetkých nástrojoch?</string>
     <string name="dashboard_hero_freeable_headline">%1$s sa dá uvoľniť</string>
     <string name="dashboard_hero_freed_headline">%1$s uvoľnené</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d položka sa dá odstrániť</item>
+        <item quantity="few">%d položky sa dajú odstrániť</item>
+        <item quantity="many">%d položiek sa dá odstrániť</item>
+        <item quantity="other">%d položiek sa dá odstrániť</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d položka bola odstránená</item>
+        <item quantity="few">%d položky boli odstránené</item>
+        <item quantity="many">%d položiek bolo odstránených</item>
+        <item quantity="other">%d položiek bolo odstránených</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Klepnite na tlačidlo, aby ste uvoľnili miesto, alebo na čip, ak chcete najskôr skontrolovať.</string>
     <string name="dashboard_hero_freed_hint">Klepnite na štítok pre podrobnosti.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">Zostalo %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Neuvoľnilo sa nič</string>
+    <string name="dashboard_hero_nothing_freed_caption">Čistenie sa skončilo, ale žiadne z nájdených údajov sa nepodarilo odstrániť.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Niektoré údaje sa dajú odstrániť len s dodatočným prístupom, ako je služba prístupnosti alebo root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Naskenované %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Uvoľnené %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Pokus o %1$s</string>
     <string name="dashboard_settings_category">Ovládací panel</string>
     <string name="dashboard_motd_title">Správa od vývojára</string>
     <string name="dashboard_settings_oneclick_title">Režim jedným klepnutím</string>
@@ -226,6 +250,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku v kombinácii s prístupom root neumožňuje ďalšie funkcie, ale zvyšuje spoľahlivosť. SD Maid ju použije ako záložnú metódu.</string>
     <string name="setup_shizuku_state_ready_label">Prepojenie na Shizuku je pripravené.</string>
     <string name="setup_shizuku_state_waiting_label">Čaká sa na spojenie so Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Aplikácia Shizuku nie je nainštalovaná.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Skúste použiť Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužiť Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodného nastavenia môžete znova nájsť cez ponuku nastavení.</string>
@@ -280,6 +305,10 @@
     <string name="debug_card_pkgs_reload_action">Znovu načítať aplikácie</string>
     <string name="debug_card_root_test_action">Otestovať root</string>
     <string name="debug_card_shizuku_test_action">Otestovať Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Režim skúšobného behu je aktívny</string>
+    <string name="dashboard_dryrun_warning_body">Čistenie sa simuluje. Súbory sú skúmané a hlásené, ale nič sa v skutočnosti neodstráni.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Vypnúť</string>
     <string name="data_area_public_app_data_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_app_assets_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_storage_label">Verejné úložisko</string>
@@ -299,7 +328,7 @@
     <string name="device_settings_category">Zariadenie</string>
     <string name="review_app_review_action">Ohodnotiť</string>
     <string name="review_app_dismiss_action">Možno pozdejšie</string>
-    <string name="review_app_body">Chceli by ste zanechať recenziu SD Maid?️ ❤️</string>
+    <string name="review_app_body">Chceli by ste zanechať recenziu SD Maid? ❤️</string>
     <string name="anniversary_card_title">Šťastné výročie SD Maid ❤️</string>
     <string name="anniversary_card_install_date">S vami od %s</string>
     <plurals name="anniversary_card_body">

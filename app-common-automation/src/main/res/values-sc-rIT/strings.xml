@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Una tarèa programmada at provadu a usare su servìtziu de accessibilidade, ma non fiat disponi»le. Si non ti bisòngiat custu, disabilita s\'optzione \"Servìtziu de accessibilidade\" in sas impostatziones de su programadore.</string>
     <string name="automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
     <string name="automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
+    <string name="automation_error_disabled_app_title">S\'app est disabilitada</string>
+    <string name="automation_error_disabled_app_body">Su dispositivu tou no abriet sa ischermada de impostatziones de sos apps disabilitados, ita sa cache no podet essere limpida via sa \'rvìsia de accessibilidadi. Abilita s\'app, o imprea root o Shizuku/ADB aballe.</string>
     <string name="automation_error_interference_title">Schermata de impostatziones blocada</string>
     <string name="automation_error_interference_body">Una otra aplicatzione (%1$s) est blocande sa schermata de impostatziones de sistema, duncas SD Maid no podet prosiguire. Disativa su bloccu de s\' aplicatzione o sa proteatzione de schermata pro is impostatziones de sistema, dopo torna a proare.</string>
     <string name="automation_loading">Preparende s\'automatizatzione tràmite su servitziu de atzessibilidade</string>

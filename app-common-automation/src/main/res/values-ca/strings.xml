@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Una tasca programada ha intentat utilitzar el servei d\'accessibilitat, però no estava disponible. Si no ho necessiteu, desactiveu l\'opció «Servei d\'accessibilitat» a la configuració del programador.</string>
     <string name="automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
     <string name="automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
+    <string name="automation_error_disabled_app_title">L\'aplicació està desactivada</string>
+    <string name="automation_error_disabled_app_body">El dispositiu no obrirà la pantalla de configuració de les aplicacions desactivades, de manera que la memòria cau no es pot esborrar mitjançant el servei d\'accessibilitat. Activeu l\'aplicació o feu servir root o Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Pantalla de configuració bloquejada</string>
     <string name="automation_error_interference_body">Una altra app (%1$s) està bloquejant la pantalla de configuració del sistema, així que SD Maid no pot continuar. Desactiva el bloqueig d\'aplicacions o la protecció de pantalla d\'aquesta app per a la configuració del sistema i torna-ho a provar.</string>
     <string name="automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>

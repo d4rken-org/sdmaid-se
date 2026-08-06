@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">លុបលទ្ធផលនៅក្នុងឧបករណ៍ទាំងអស់ឬ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s អាចនៅទំនេរ</string>
     <string name="dashboard_hero_freed_headline">លុបចោល %1$s</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">ធាតុចំនួន %d អាចលុបចេញបាន</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">ធាតុចំនួន %d ត្រូវបានលុប</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">ចុចប៉ោលដើម្បីលាតលំហ ឬចុចឈីបដើម្បីពិនិត្យមើលដំបូង។</string>
     <string name="dashboard_hero_freed_hint">ចុចបន្ទះដើម្បីមើលព័ត៌មានលម្អិត។</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s នៅសល់</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">គ្មានទិន្នន័យត្រូវបានលុប</string>
+    <string name="dashboard_hero_nothing_freed_caption">ការសម្អាតបានបញ្ចប់ ប៉ុន្តែគ្មានទិន្នន័យដែលបានរកឃើញដែលអាចលុបចេញបាន។</string>
+    <string name="dashboard_hero_nothing_freed_hint">ទិន្នន័យមួយចំនួនអាចលុបបានតែដោយលទ្ធិលម្អិត ដូចជាសេវាកម្មលទ្ធិលម្អិត ឬ root ប៉ុណ្ណោះ។</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ស្កេន %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">លុបចោល %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">បានព្យាយាម %1$s</string>
     <string name="dashboard_settings_category">ផ្ទាំងគ្រប់គ្រង</string>
     <string name="dashboard_motd_title">សារពីអ្នកអភិវឌ្ឍន៍</string>
     <string name="dashboard_settings_oneclick_title">របៀបចុចតែម្តង</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku រួមគ្នាជាមួយការចូលប្រើ root មិនបង្កើតមុខងារបន្ថែមទេតេ ប្អែតាមវាក្ស័នព័ក្សមរទ។ SD Maid នឹងប្រើវាជាវិធីសាស្តិ។</string>
     <string name="setup_shizuku_state_ready_label">បញ្ជាប់ Shizuku គឺរួចរាល់ហើយ។</string>
     <string name="setup_shizuku_state_waiting_label">កំពុងរង់ចាំបញ្ជាប់ជាមួយ Shizuku។</string>
+    <string name="setup_shizuku_state_not_installed_label">កម្មវិធី Shizuku មិនបានដំឡើង។</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ព្យាយាមប្រើ Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">កុំប្រើ Shizuku</string>
     <string name="setup_dismiss_hint">អ្នកអាចរៀបចំអេក្រង់ម្ដងទៀតបាន តាមរយៈម៉ឺនុយការកំណត់។</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">ផ្ទុកកម្មវិធីឡើងវិញ</string>
     <string name="debug_card_root_test_action">សាកល្បង ឬស(root)</string>
     <string name="debug_card_shizuku_test_action">សាកល្បង Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">ម៉ូដលេង (Dry-run) សកម្ម</string>
+    <string name="dashboard_dryrun_warning_body">ការសម្អាតកំពុងក្លែងក្លាយ។ ឯកសារត្រូវបានស្កេន និងរាយការណ៍ ប៉ុន្តែគ្មានអ្វីត្រូវបានលុបជាក់ស្តែង។</string>
+    <string name="dashboard_dryrun_warning_disable_action">បិទ</string>
     <string name="data_area_public_app_data_official_label">ទិន្នន័យសាធារណៈកម្មវិធីបុរេជម្រើស</string>
     <string name="data_area_public_app_assets_official_label">ធនធានកម្មវិធីសាធារណៈបុរេជម្រើស</string>
     <string name="data_area_public_storage_label">ឧបករណ៍ផ្ទុកសាធារណៈ</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">ឧបករណ៍</string>
     <string name="review_app_review_action">ការវាយតម្លៃ</string>
     <string name="review_app_dismiss_action">ប្រហែលពេលក្រោយ</string>
-    <string name="review_app_body">តើអ្នកចង់ទុកការវាយតម្លៃឱ្យ SD Maid ដែរឬទេ? ❤️</string>
+    <string name="review_app_body">តើអ្នកចង់ដាក់មតិយោបល់សម្រាប់ SD Maid ដែរទេ? ❤️</string>
     <string name="anniversary_card_title">រីករាយខួបអនុស្សាវរីយ៍ SD Maid ❤️</string>
     <string name="anniversary_card_install_date">ជាមួយអ្នកចាប់ពី %s</string>
     <plurals name="anniversary_card_body">

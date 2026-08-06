@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Unha tarefa programada tentou usar o servizo de accesibilidade, pero non estaba dispoñible. Se non o necesitas, desactiva a opción \"Servizo de accesibilidade\" na configuración do programador.</string>
     <string name="automation_error_no_settings_title">Pantalla de configuración non dispoñible</string>
     <string name="automation_error_no_settings_body">Esta aplicación do sistema non ten pantalla de configuración. Non é posible borrar a caché a través do servizo de accesibilidade. Exclúea para acelerar o borrado de caché.</string>
+    <string name="automation_error_disabled_app_title">A aplicación está desactivada</string>
+    <string name="automation_error_disabled_app_body">O seu dispositivo non abre a pantalla de configuración das aplicacións desactivadas, polo que a memoria caché non se pode limpar a través do servizo de accesibilidade. Active a aplicación ou use root ou Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Pantalla de axustes bloqueada</string>
     <string name="automation_error_interference_body">Outra aplicación (%1$s) está bloqueando a pantalla de axustes do sistema, polo que SD Maid non pode continuar. Desactiva o bloqueo de aplicación ou a protección de pantalla desa aplicación para os axustes do sistema e tenta de novo.</string>
     <string name="automation_loading">Preparando automatización mediante o servizo de accesibilidade</string>

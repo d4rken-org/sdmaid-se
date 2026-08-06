@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">एक निर्धारित कार्य ने एक्सेसिबिलिटी सेवा का उपयोग करने का प्रयास किया, लेकिन यह उपलब्ध नहीं थी। यदि आपको इसकी आवश्यकता नहीं है, तो शेड्यूलर सेटिंग में \"एक्सेसिबिलिटी सेवा\" विकल्प को अक्षम करें।</string>
     <string name="automation_error_no_settings_title">सेटिंग्स स्क्रीन उपलब्ध नहीं</string>
     <string name="automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
+    <string name="automation_error_disabled_app_title">ऐप अक्षम है</string>
+    <string name="automation_error_disabled_app_body">आपका डिवाइस अक्षम ऐप्स की सेटिंग्स स्क्रीन नहीं खोलेगा, इसलिए एक्सेसिबिलिटी सेवा के माध्यम से कैश को साफ नहीं किया जा सकता है। ऐप को सक्षम करें, या इसके बजाय रूट या Shizuku/ADB का उपयोग करें।</string>
     <string name="automation_error_interference_title">सेटिंग्स स्क्रीन ब्लॉक की गई है</string>
     <string name="automation_error_interference_body">एक अन्य ऐप (%1$s) सिस्टम सेटिंग्स स्क्रीन को ब्लॉक कर रहा है, इसलिए SD Maid जारी नहीं रख सकता। सिस्टम सेटिंग्स के लिए उस ऐप के ऐप-लॉक या स्क्रीन सुरक्षा को अक्षम करें, फिर फिर से प्रयास करें।</string>
     <string name="automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>

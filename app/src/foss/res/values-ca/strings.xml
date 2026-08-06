@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Vegeu les opcions de millora</string>
     <string name="upgrade_screen_status_upgraded_title">Actualització activa</string>
     <string name="upgrade_screen_status_upgraded_body">Totes les funcionalitats addicionals estan desbloquejades. Gràcies per recolzar el desenvolupament de codi obert ❤️</string>
+    <string name="upgrade_screen_supporter_since">Col·laborador des de %s</string>
     <string name="upgrade_screen_recurring_title">Manteniu-ho en marxa</string>
     <string name="upgrade_screen_recurring_body">SD Maid continua evolucionant a través d\'actualitzacions i correccions. Si voleu mantenir això, considereu una donació recurrent via GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Obriu GitHub Sponsors</string>

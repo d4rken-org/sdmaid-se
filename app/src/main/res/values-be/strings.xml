@@ -3,11 +3,35 @@
     <string name="dashboard_delete_all_message">Выдаліць рэзультаты ва ўсіх інструментах?</string>
     <string name="dashboard_hero_freeable_headline">%1$s можна вызваліць</string>
     <string name="dashboard_hero_freed_headline">Вызвалена %1$s</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d элемент можа быць выдалены</item>
+        <item quantity="few">%d элементы могуць быць выдалены</item>
+        <item quantity="many">%d элементаў могуць быць выдалены</item>
+        <item quantity="other">%d элементаў могуць быць выдалены</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d элемент выдалены</item>
+        <item quantity="few">%d элементы выдалены</item>
+        <item quantity="many">%d элементаў выдалены</item>
+        <item quantity="other">%d элементаў выдалены</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Дакніце на кнопку, каб вызваліць месца, або на чып для праверкі спачатку.</string>
     <string name="dashboard_hero_freed_hint">Кацніце чып для дэталяў.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s засталось</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Нічога не было вызволена</string>
+    <string name="dashboard_hero_nothing_freed_caption">Чышчэнне завершана, але ніякія знойдзеныя даныя не ўдалося выдаліць.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Некаторыя дадзеныя могуць быць выдалены толькі з дадатковым доступам, такім як служба даступнасці ці root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Адскадавана %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Вызвалена %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Спробавана %1$s</string>
     <string name="dashboard_settings_category">Панэль кіравання</string>
     <string name="dashboard_motd_title">Паведамленне ад распрацоўшчыка</string>
     <string name="dashboard_settings_oneclick_title">Хуткі рэжым</string>
@@ -226,6 +250,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku у спалучэнні з каранёвым доступам не дае дадатковых функцый, але павышае надзейнасць. SD Maid будзе выкарыстоўваць гэту праграму як запасны метад.</string>
     <string name="setup_shizuku_state_ready_label">Сувязь з Shizuku наладжана.</string>
     <string name="setup_shizuku_state_waiting_label">Чаканне сувязі з Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Прыкладанне Shizuku не ўстаноўлена.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Паспрабаваць выкарыстоўваць Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не выкарыстоўваць Shizuku</string>
     <string name="setup_dismiss_hint">Вы можаце зноў знайсці экран наладжвання ў меню налад.</string>
@@ -280,6 +305,10 @@
     <string name="debug_card_pkgs_reload_action">Перазагрузіць праграмы</string>
     <string name="debug_card_root_test_action">Праверыць каранёвы доступ</string>
     <string name="debug_card_shizuku_test_action">Праверыць Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Рэжым пробы ўключаны</string>
+    <string name="dashboard_dryrun_warning_body">Чышчэнне мадэлюецца. Файлы сканіруюцца і паведамляюцца, але нічога насамрэч не выдаляецца.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Выключыць</string>
     <string name="data_area_public_app_data_official_label">Стандартныя публічныя даныя праграмы</string>
     <string name="data_area_public_app_assets_official_label">Стандартныя публічныя рэсурсы праграмы</string>
     <string name="data_area_public_storage_label">Агульная памяць</string>
@@ -299,7 +328,7 @@
     <string name="device_settings_category">Прылада</string>
     <string name="review_app_review_action">Водгук</string>
     <string name="review_app_dismiss_action">Магчыма пазней</string>
-    <string name="review_app_body">Ці вы хочаце пакінуць водгук на SD Maid?️ ❤️</string>
+    <string name="review_app_body">Ці ты хочаш пакінуць водгук на SD Maid? ❤️</string>
     <string name="anniversary_card_title">З гадавінай, SD Maid ❤️</string>
     <string name="anniversary_card_install_date">З вамі з %s</string>
     <plurals name="anniversary_card_body">

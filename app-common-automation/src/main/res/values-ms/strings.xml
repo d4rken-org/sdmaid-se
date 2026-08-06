@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Tugas berjadual cuba menggunakan perkhidmatan kebolehcapaian, tetapi ia tidak tersedia. Jika anda tidak memerlukannya, lumpuhkan pilihan \"Perkhidmatan kebolehcapaian\" dalam tetapan penjadual.</string>
     <string name="automation_error_no_settings_title">Skrin tetapan tidak tersedia</string>
     <string name="automation_error_no_settings_body">Aplikasi sistem ini tidak mempunyai skrin tetapan. Pembersihan cache melalui perkhidmatan kebolehcapaian tidak mungkin. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
+    <string name="automation_error_disabled_app_title">Aplikasi dilumpuhkan</string>
+    <string name="automation_error_disabled_app_body">Peranti anda tidak dapat membuka skrin tetapan aplikasi yang dilumpuhkan, jadi cache tidak dapat dihapus melalui perkhidmatan kebolehaksesan. Dayakan aplikasi atau gunakan root atau Shizuku/ADB sebaliknya.</string>
     <string name="automation_error_interference_title">Skrin tetapan dihalang</string>
     <string name="automation_error_interference_body">Aplikasi lain (%1$s) menghalang skrin tetapan sistem, jadi SD Maid tidak dapat meneruskan. Nyahaktifkan kunci aplikasi atau perlindungan skrin aplikasi tersebut untuk tetapan sistem, kemudian cuba lagi.</string>
     <string name="automation_loading">Memuatkan...</string>

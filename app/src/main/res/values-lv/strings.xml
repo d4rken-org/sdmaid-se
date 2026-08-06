@@ -3,11 +3,33 @@
     <string name="dashboard_delete_all_message">Dzēst rezultātus visos rīkos?</string>
     <string name="dashboard_hero_freeable_headline">%1$s var tikt atbrīvots</string>
     <string name="dashboard_hero_freed_headline">%1$s atbrīvots</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="zero">%d vienumi var tikt noņemti</item>
+        <item quantity="one">%d vienums var tikt noņemts</item>
+        <item quantity="other">%d vienumi var tikt noņemti</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="zero">%d vienumi tika noņemti</item>
+        <item quantity="one">%d vienums tika noņemts</item>
+        <item quantity="other">%d vienumi tika noņemti</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Nospiediet pogu, lai atbrīvotu vietu, vai čipu, lai vispirms pārbaudītu.</string>
     <string name="dashboard_hero_freed_hint">Nospiediet žetonu sīkumiem.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">Atliek %1$s</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nekas netika atbrīvots</string>
+    <string name="dashboard_hero_nothing_freed_caption">Tīrīšana pabeigta, taču nevienu no atrastajiem datiem nevarēja noņemt.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Dažus datus var noņemt tikai ar papildu piekļuvi, piemēram, piekļuves pakalpojumu vai root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenēts %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Atbrīvots %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Mēģināts %1$s</string>
     <string name="dashboard_settings_category">Informācijas panelis</string>
     <string name="dashboard_motd_title">Ziņojums no izstrādātāja</string>
     <string name="dashboard_settings_oneclick_title">Viena pieskāriena režīms</string>
@@ -221,6 +243,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku kombinācijā ar root piekļuvi neiespējo papildu funkcijas, bet uzlabo uzticamību. SD Maid izmantos to kā rezerves metodi.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku savienojums ir gatavs.</string>
     <string name="setup_shizuku_state_waiting_label">Gaida savienojumu ar Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku lietotne nav instalēta.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Mēģiniet izmantot Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Neizmantot Shizuku</string>
     <string name="setup_dismiss_hint">Iestatīšanas ekrānu var atrast atkal iestatījumu izvēlnē.</string>
@@ -275,6 +298,10 @@
     <string name="debug_card_pkgs_reload_action">Pārlādēt lietotnes</string>
     <string name="debug_card_root_test_action">Testēt root</string>
     <string name="debug_card_shizuku_test_action">Testēt Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Sausās palaišanas režīms ir aktīvs</string>
+    <string name="dashboard_dryrun_warning_body">Tīrīšana tiek simulēta. Faili tiek skenēti un ziņoti, taču nekas netiek patiesībā dzēsts.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Izslēgt</string>
     <string name="data_area_public_app_data_official_label">Noklusējuma publiskie lietotņu dati</string>
     <string name="data_area_public_app_assets_official_label">Noklusējuma publiskie lietotņu aktīvi</string>
     <string name="data_area_public_storage_label">Publiskā krātuve</string>
@@ -294,7 +321,7 @@
     <string name="device_settings_category">Ierīce</string>
     <string name="review_app_review_action">Recenzēt</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
-    <string name="review_app_body">Vai vēlaties atstāt SD Maid recenziju? ❤️</string>
+    <string name="review_app_body">Vai jums patiktu atstāt SD Maid atsauksmi? ❤️</string>
     <string name="anniversary_card_title">Priecīgs SD Maid gadadienas svētki ❤️</string>
     <string name="anniversary_card_install_date">Ar jums kopš %s</string>
     <plurals name="anniversary_card_body">

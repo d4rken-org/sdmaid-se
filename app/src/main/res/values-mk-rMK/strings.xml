@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Избриши ги резултатите од сите алатки?</string>
     <string name="dashboard_hero_freeable_headline">%1$s може да се ослободи</string>
     <string name="dashboard_hero_freed_headline">%1$s слободно</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d ставка може да се отстрани</item>
+        <item quantity="other">%d ставки можат да се отстранат</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d ставка е отстранета</item>
+        <item quantity="other">%d ставки беа отстранети</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Допрете го копчето за да ослободите простор, или фишка за прво проверка.</string>
     <string name="dashboard_hero_freed_hint">Притиснете чип за детали.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s останало</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Ништо не беше ослободено</string>
+    <string name="dashboard_hero_nothing_freed_caption">Чистењето заврши, но ниту еден дел од пронајдените податоци не можеше да се отстрани.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Некои податоци можат да се отстранат само со дополнителен пристап, како што е услугата за пристапност или root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Скенирано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Ослободено %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Обидено %1$s</string>
     <string name="dashboard_settings_category">Контролна табла</string>
     <string name="dashboard_motd_title">Порака од развивачот</string>
     <string name="dashboard_settings_oneclick_title">Режим со едно допирање</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku во комбинација со root пристап не овозможува дополнителни функции, но ја подобрува сигурноста. SD Maid ќе го користи како резервен метод.</string>
     <string name="setup_shizuku_state_ready_label">Врската со Shizuku е подготвена.</string>
     <string name="setup_shizuku_state_waiting_label">Чекање на врска со Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Апликацијата Shizuku не е инсталирана.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Обидете се да користите Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не користи Shizuku</string>
     <string name="setup_dismiss_hint">Можете повторно да го најдете екранот за поставување преку менито за поставки.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Повторно вчитај апликации</string>
     <string name="debug_card_root_test_action">Тестирај root</string>
     <string name="debug_card_shizuku_test_action">Тестирај Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Режимот на симулација е активен</string>
+    <string name="dashboard_dryrun_warning_body">Чистењето се симулира. Датотеките се скенираат и пријавуваат, но ништо не е избришано.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Исклучи</string>
     <string name="data_area_public_app_data_official_label">Стандардни јавни податоци на апликации</string>
     <string name="data_area_public_app_assets_official_label">Стандардни јавни ресурси на апликации</string>
     <string name="data_area_public_storage_label">Јавно складирање</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Уред</string>
     <string name="review_app_review_action">Оценете</string>
     <string name="review_app_dismiss_action">Можеби подоцна</string>
-    <string name="review_app_body">Дали би сакале да оставите оценка за SD Maid? ❤️</string>
+    <string name="review_app_body">Сакаш ли да оставиш преглед на SD Maid? ❤️</string>
     <string name="anniversary_card_title">Среќна годишнина со SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Со вас од %s</string>
     <plurals name="anniversary_card_body">

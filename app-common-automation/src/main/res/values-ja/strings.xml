@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">スケジュールされたタスクがアクセシビリティサービスを使用しようとしましたが、利用できませんでした。これが不要な場合は、スケジューラー設定の「アクセシビリティサービス」オプションを無効にしてください。</string>
     <string name="automation_error_no_settings_title">設定画面が利用できません</string>
     <string name="automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
+    <string name="automation_error_disabled_app_title">アプリが無効です</string>
+    <string name="automation_error_disabled_app_body">デバイスが無効なアプリの設定画面を開かないため、アクセシビリティサービスではキャッシュをクリアできません。アプリを有効にするか、root または Shizuku/ADB を代わりに使用してください。</string>
     <string name="automation_error_interference_title">設定画面がブロックされています</string>
     <string name="automation_error_interference_body">別のアプリ(%1$s)がシステム設定画面をブロックしているため、SD Maidは続行できません。そのアプリのアプリロックまたはシステム設定のスクリーン保護を無効にして、もう一度試してください。</string>
     <string name="automation_loading">ユーザー補助サービスによる自動化の準備</string>

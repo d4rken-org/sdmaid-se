@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Belső Google Play hiba történt. Kérjük, próbáld meg a következőket:\n\n• Indítsd újra a készüléked\n• Töröld a Google Play Áruház gyorsítótárát\n• Próbáld újra később</string>
     <string name="upgrades_gplay_network_error_title">Kapcsolódási hiba</string>
     <string name="upgrades_gplay_network_error_description">Nem sikerült csatlakozni a Google Playhez. Kérjük, ellenőrizd az internetkapcsolatod, és próbáld újra.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Az ajánlat nem elérhető</string>
+    <string name="upgrades_gplay_offer_unavailable_description">A Google Play jelenleg nem kínálja ezt a frissítési lehetőséget. Próbálkozzon később, vagy ellenőrizze a Google Play Áruházat.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Nem sikerült megnyitni a Google Play-t. Lehetséges, hogy hiányzik, letiltott vagy korlátozott erre az eszközön.</string>
     <string name="upgrades_gplay_already_owned_error_title">Már megvásárolva</string>
     <string name="upgrades_gplay_already_owned_error_description">Használd a \"Vásárlás visszaállítása\" lehetőséget a vásárlás visszaállításához. Ha a probléma továbbra is fennáll, próbáld meg törölni a Google Play gyorsítótárát és újraindítani a készüléked.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s letöltése</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>
     <string name="upgrade_screen_benefits_title">Frissítés előnyei</string>
     <string name="upgrade_screen_benefits_body">• Alkalmazás gyorsítótár és szemét tisztítása\n• Duplikált fájlok eltávolítása\n• Fénykép- és videótömörítés\n• Régi fájlok rendszerezése húzással\n• Egykoppintásos tisztítás widgeten keresztül\n• Tisztítás ütemezése\n• Egyéni szűrők és szabályok\n• Tárhelytrendek és előzmények\n• További funkciók és vezérlők az egész alkalmazásban\n• A folyamatos fejlesztés támogatása</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Évente megújul. Bármikor lemondható a Google Playen.</string>
     <string name="upgrade_screen_iap_offer_title">Egyszeri vásárlás</string>
     <string name="upgrade_screen_iap_offer_body">Egyszeri fizetés, nincs megújítás.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Az árak nem érhetők el</string>
     <string name="upgrade_screen_offers_unavailable_message">Az árak jelenleg nem tölthetők be. Ellenőrizze a Google Play oldalt, és próbálja újra egy pillanat múlva.</string>
     <string name="upgrade_screen_subscription_trial_action">Ingyenes 14 napos próbaidőszak indítása</string>
     <string name="upgrade_screen_subscription_action">Iratkozz fel</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Ügyfélszolgálat elérése</string>
     <string name="upgrade_screen_restore_checked_message">Az SD Maid most ellenőrizte a Google Playt, de nem sikerült megerősíteni Pro-vásárlást ahhoz a fiókhoz, amelyet a Google Play ehhez az alkalmazáshoz használ.</string>
     <string name="upgrade_screen_restore_contact_hint">Még mindig elakadtál? Vedd fel a kapcsolatot az ügyfélszolgálattal arról az e-mail-címről, amellyel a vásárlás történt, és add meg a Google Play rendelési számodat.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">A Google Play-vel végzett ellenőrzés nem fejeződött be időben, így a vásárlási státusza továbbra is ismeretlen. Fiókján semmi nem módosult.</string>
 </resources>

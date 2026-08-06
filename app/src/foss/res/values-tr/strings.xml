@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Yükseltme seçeneklerini gör</string>
     <string name="upgrade_screen_status_upgraded_title">Yükseltme etkin</string>
     <string name="upgrade_screen_status_upgraded_body">Tüm ek özellikler açıldı. Açık kaynak geliştirmeyi desteklediğiniz için teşekkür ederiz ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s\'den beri destekçi</string>
     <string name="upgrade_screen_recurring_title">Sürdürün</string>
     <string name="upgrade_screen_recurring_body">SD Maid, güncellemeler ve düzeltmeler aracılığıyla gelişmeye devam ediyor. Bunu sürdürmek istiyorsanız, GitHub Sponsors aracılığıyla düzenli bir bağış yapmayı düşünün.</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors\'ı aç</string>

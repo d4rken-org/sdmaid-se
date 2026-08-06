@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">ਅਪਗ੍ਰੇਡ ਦੇ ਵਿਕਲਪ ਦੇਖੋ</string>
     <string name="upgrade_screen_status_upgraded_title">ਅਪਗ੍ਰੇਡ ਸਰਗਰਮ</string>
     <string name="upgrade_screen_status_upgraded_body">ਸਾਰੀਆਂ ਵਾਧੂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਨਲਾਕ ਹਨ। ਓਪਨ-ਸੋਰਸ ਵਿਕਾਸ ਨੂੰ ਸਮਰਥਨ ਕਰਨ ਲਈ ਧੰਨਵਾਦ ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s ਤੋਂ ਸਮਰਥਕ</string>
     <string name="upgrade_screen_recurring_title">ਇਸ ਨੂੰ ਜਾਰੀ ਰੱਖੋ</string>
     <string name="upgrade_screen_recurring_body">SD Maid ਅਪਡੇਟਾਂ ਅਤੇ ਠੀਕ ਕਰਨ ਦੁਆਰਾ ਵਿਕਸਿਤ ਹੋ ਰਿਹਾ ਹੈ। ਜੇ ਤੁਸੀਂ ਇਸ ਨੂੰ ਬਣਾਈ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਤਾਂ GitHub Sponsors ਰਾਹੀਂ ਦੁਹਰਾਏ ਜਾਣ ਵਾਲੇ ਦਾਨ \'ਤੇ ਵਿਚਾਰ ਕਰੋ।</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors ਖੋਲ੍ਹੋ</string>

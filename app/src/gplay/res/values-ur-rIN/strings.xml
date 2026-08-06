@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Google Play کی اندرونی خرابی واقع ہوئی۔ براہ کرم درج ذیل آزمائیں:\n\n• اپنا آلہ دوبارہ شروع کریں\n• Google Play Store کیش صاف کریں\n• بعد میں دوبارہ کوشش کریں</string>
     <string name="upgrades_gplay_network_error_title">کنکشن کی خرابی</string>
     <string name="upgrades_gplay_network_error_description">Google Play سے منسلک ہونے سے قاصر۔ براہ کرم اپنا انٹرنیٹ کنکشن چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="upgrades_gplay_offer_unavailable_title">آفر دستیاب نہیں ہے</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play فی الوقت یہ اپ گریڈ آپشن پیش نہیں کر رہا۔ براہ کرم بعد میں دوبارہ کوشش کریں یا Google Play Store کو چیک کریں۔</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">گوگل پلے نہیں کھولا جا سکا۔ یہ اس ڈیوائس پر موجود نہیں، غیر فعال یا محدود ہو سکتا ہے۔</string>
     <string name="upgrades_gplay_already_owned_error_title">پہلے سے خریدا ہوا</string>
     <string name="upgrades_gplay_already_owned_error_description">اپنی خریداری بحال کرنے کے لیے \"خریداری بحال کریں\" کا اختیار استعمال کریں۔ اگر مسئلہ برقرار رہے تو Google Play کیش صاف کرنے اور اپنا آلہ دوبارہ شروع کرنے کی کوشش کریں۔</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s حاصل کریں</string>
     <string name="upgrade_screen_preamble">SD Maid میں کوئی اشتہارات نہیں ہیں اور صارف کا ڈیٹا نہیں بیچتا۔ میرا کام آپ کی طرف سے مالی اعانت فراہم کیا جاتا ہے ❤️۔</string>
     <string name="upgrade_screen_benefits_title">اپ گریڈ کے فوائد</string>
     <string name="upgrade_screen_benefits_body">• ایپ کیش اور فالتو فائلوں کی صفائی\n• ڈپلیکیٹ فائلوں کو ہٹانا\n• فوٹو اور ویڈیو کمپریشن\n• پرانی فائلوں کو صاف کرنے کے لیے سوائپ کریں\n• ویجٹ کے ذریعے ایک ٹیپ سے صفائی\n• صفائی کی شیڈولنگ\n• اپنی مرضی کے فلٹرز اور قوانین\n• سٹوریج کے رجحانات اور ہسٹری\n• ایپ میں مزید خصوصیات اور کنٹرولز\n• مسلسل ترقی کی معاونت</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">سالانہ تجدید ہوتی ہے۔ Google Play میں کسی بھی وقت منسوخ کریں۔</string>
     <string name="upgrade_screen_iap_offer_title">ایک بار خریدیں</string>
     <string name="upgrade_screen_iap_offer_body">ایک بار ادائیگی، کوئی تجدید نہیں۔</string>
+    <string name="upgrade_screen_offers_unavailable_title">قیمتیں دستیاب نہیں ہیں</string>
     <string name="upgrade_screen_offers_unavailable_message">قیمتیں فی الوقت لوڈ نہیں ہو سکیں۔ Google Play کو چیک کریں اور کچھ دیر میں دوبارہ کوشش کریں۔</string>
     <string name="upgrade_screen_subscription_trial_action">14 دن کی مفت آزمائش شروع کریں</string>
     <string name="upgrade_screen_subscription_action">سبسکرائب کریں</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">سپورٹ سے رابطہ کریں</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid نے ابھی Google Play کو چیک کیا، لیکن اس اکاؤنٹ کے لیے Pro خریداری تصدیق نہیں ہو سکی جو Google Play اس ایپ کے لیے استعمال کر رہا ہے۔</string>
     <string name="upgrade_screen_restore_contact_hint">ابھی بھی پھنسے ہوئے ہیں؟ اس ای میل سے سپورٹ سے رابطہ کریں جس نے خریداری کی تھی اور اپنا Google Play آرڈر نمبر شامل کریں۔</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play کے ساتھ چیک وقت پر مکمل نہیں ہوا، اس لیے آپ کی خریداری کی حالت ابھی غیر معلوم ہے۔ آپ کے اکاؤنٹ میں کوئی تبدیلی نہیں ہوئی۔</string>
 </resources>

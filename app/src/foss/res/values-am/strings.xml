@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">ማሻሻያ ምርጫ ይመልከቱ</string>
     <string name="upgrade_screen_status_upgraded_title">ማሻሻያ ንቁ</string>
     <string name="upgrade_screen_status_upgraded_body">ሁሉም ተጨማሪ ባህሪዎች ተከፈሉ ። ክፍት-ምንጭ እድገት ድጋፍ ለሰጡ ምስጋና ❤️</string>
+    <string name="upgrade_screen_supporter_since">ታማኝ ከ%s ጀምሮ</string>
     <string name="upgrade_screen_recurring_title">ይቀጥሉት</string>
     <string name="upgrade_screen_recurring_body">SD Maid በ ማሻሻያ እና ስሌት ውስጥ ሰሪ ይሞላ ። ይህን ቋሚ ለምታሰቡት ፣ GitHub Sponsors በ ተደጋጋሚ መስጫ ያስቡ ።</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors ይክፈቱ</string>

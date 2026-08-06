@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">ကိရိယာအားလုံးရှိ ရလဒ်များကို ဖျက်မလား?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ကို လွတ်လပ်စေနိုင်ပါသည်</string>
     <string name="dashboard_hero_freed_headline">%1$s လွတ်လပ်စေပြီးပါပြီ</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">%d ခုကို ဖယ်ရှားနိုင်သည်</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">%d ခုကို ဖယ်ရှားပြီးပါပြီ</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">ခလုတ်ကို နှိပ်ပြီး နေရာ လွတ်ရန် သို့မဟုတ် ဦးစွာ စစ်ဆေးရန် အညွှန်းကို နှိပ်ပါ။</string>
     <string name="dashboard_hero_freed_hint">အချက်အလက်အတွက် အညွှန်းကို နှိပ်ပါ။</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s ကျန်ရှိသည်</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">သည်းတစ်ခုမျှ မလွှတ်မပေးခဲ့ပါ</string>
+    <string name="dashboard_hero_nothing_freed_caption">ရှင်းအောင်းခြင်း ပြီးစီးခဲ့သည်၊ သို့သော် ရှာဖွေတွေ့ရှိခဲ့သည့် အချက်အလက်များ အားလုံးကို ဖယ်ရှားနိုင်မည်မဟုတ်ခဲ့သည်။</string>
+    <string name="dashboard_hero_nothing_freed_hint">အချို့သော အချက်အလက်များကို အသုံးချခွင့် ဝန်ဆောင်မှု သို့မဟုတ် အဆင့်မြှင့်တင်ခြင်းကဲ့သို့ အပိုသုံးခွင့်နှင့်သာ ဖယ်ရှားနိုင်သည်။</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s စကင်းပြီးပါပြီ</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ကို လွတ်လပ်စေပြီးပါပြီ</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s ကို ကြိုးစားခဲ့သည်</string>
     <string name="dashboard_settings_category">ဒက်ရှ်ဘုတ်</string>
     <string name="dashboard_motd_title">တီထွင်သူမှ သတင်းစကား</string>
     <string name="dashboard_settings_oneclick_title">တစ်ခါနှိပ် မုဒ်</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku ကို root ဝင်ရောက်ခွင့်နှင့် ပေါင်းစပ်ခြင်းသည် နောက်ထပ်အင်္ဂါရပ်များကို ဖွင့်မပေးပါ၊ သို့သော် ယုံကြည်စိတ်ချရမှုကို မြှင့်တင်ပေးသည်။ SD Maid သည် ၎င်းကို အရန်နည်းလမ်းအဖြစ် အသုံးပြုမည်။</string>
     <string name="setup_shizuku_state_ready_label">Shizuku ချိတ်ဆက်မှု အဆင်သင့်ဖြစ်နေပါသည်။</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku နှင့် ချိတ်ဆက်မှုအတွက် စောင့်နေပါသည်။</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku အက်ပကို တည်ဆောက်မထားခဲ့ပါ။</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ကို ကြိုးစားပါ။</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ကို မသုံးရန်</string>
     <string name="setup_dismiss_hint">သင်သည် ဆက်တင်မီနူးမှတစ်ဆင့် တပ်ဆင်မှုစာမျက်နှာကို ပြန်ရှာတွေ့နိုင်သည်။</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">အပ်ပလီကေးရှင်းများကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
     <string name="debug_card_root_test_action">ရုံးနှင့်စမ်းသည်</string>
     <string name="debug_card_shizuku_test_action">Shizuku စမ်းသည်</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">စမ်းသပ်ခြင်း မုံက အလုပ်လုပ်နေသည်။</string>
+    <string name="dashboard_dryrun_warning_body">သန့်ရှင်းမှုကို စမ်းသပ်မျှ လုပ်ဆောင်နေသည်။ ဖိုင်များကို စုံစမ်း၏အစီရင်ခံသည်သော် လုံးဝ ဖျက်သိမ်းခြင်း မပြူလုပ်ပါ။</string>
+    <string name="dashboard_dryrun_warning_disable_action">ပိတ်ထားပါ</string>
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
     <string name="data_area_public_app_assets_official_label">မူလ အများပြည်သူ အက်ပ် ပစ္စည်းများ</string>
     <string name="data_area_public_storage_label">အများပြည်သူ သိုလှောင်မှု</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">စက်ပစ္စည်း</string>
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
-    <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>
+    <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။ ❤️</string>
     <string name="anniversary_card_title">SD Maid အထုံးအဝါစည်ပွဲ ၎င်းဖြစ်ပါသည် ❤️</string>
     <string name="anniversary_card_install_date">သင်ထံ %s မှစ၍ အတူရှိသည်</string>
     <plurals name="anniversary_card_body">

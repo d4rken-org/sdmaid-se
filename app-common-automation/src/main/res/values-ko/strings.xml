@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">예약된 작업이 접근성 서비스를 사용하려 했으나 사용할 수 없었습니다. 필요하지 않으면 스케줄러 설정에서 \"접근성 서비스\" 옵션을 비활성화하세요.</string>
     <string name="automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
     <string name="automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="automation_error_disabled_app_title">앱이 비활성화되었습니다</string>
+    <string name="automation_error_disabled_app_body">기기에서 비활성화된 앱의 설정 화면을 열 수 없으므로 접근성 서비스를 통해 캐시를 지울 수 없습니다. 앱을 활성화하거나 루트 또는 Shizuku/ADB를 사용하세요.</string>
     <string name="automation_error_interference_title">설정 화면이 차단됨</string>
     <string name="automation_error_interference_body">다른 앱(%1$s)이 시스템 설정 화면을 차단하고 있어서 SD Maid가 계속할 수 없습니다. 해당 앱의 앱 잠금 또는 시스템 설정에 대한 화면 보호를 비활성화한 후 다시 시도하세요.</string>
     <string name="automation_loading">자동화 준비 중</string>

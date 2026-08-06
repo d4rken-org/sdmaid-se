@@ -29,6 +29,8 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     <string name="automation_error_scheduler_body">Sinubukan ng isang naka-iskedyul na gawain na gamitin ang accessibility service, ngunit hindi ito available. Kung hindi mo ito kailangan, i-disable ang opsyong \"Accessibility service\" sa mga setting ng scheduler.</string>
     <string name="automation_error_no_settings_title">Hindi available ang Settings screen</string>
     <string name="automation_error_no_settings_body">Ang system app na ito ay walang settings screen. Ang cache clearing sa pamamagitan ng accessibility service ay hindi posible. I-exclude ito para mapabilis ang cache clearing.</string>
+    <string name="automation_error_disabled_app_title">Ang app ay hindi pinagana</string>
+    <string name="automation_error_disabled_app_body">Ang iyong device ay hindi magbubukas ng settings screen ng mga hindi pinagana na app, kaya ang cache ay hindi malinisan sa pamamagitan ng accessibility service. Paganahin ang app, o gumamit ng root o Shizuku/ADB sa halip.</string>
     <string name="automation_error_interference_title">Ang Settings screen ay naka-block</string>
     <string name="automation_error_interference_body">Ang ibang app (%1$s) ay naghahadlang sa system settings screen, kaya hindi maaaring magpatuloy ang SD Maid. I-disable ang app-lock o screen protection ng app na iyon para sa system settings, pagkatapos subukan ulit.</string>
     <string name="automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>

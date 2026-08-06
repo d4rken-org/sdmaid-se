@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Kazi iliyopangwa ilijaribu kutumia huduma ya ufikiaji, lakini haikupatikana. Ikiwa huhitaji hii, zima chaguo la \"Huduma ya ufikiaji\" katika mipangilio ya kipanga ratiba.</string>
     <string name="automation_error_no_settings_title">Skrini ya mipangilio haipatikani</string>
     <string name="automation_error_no_settings_body">Programu hii ya mfumo haina skrini ya mipangilio. Kufuta akiba kupitia huduma ya ufikiaji haiwezekani. Itenga ili kuharakisha ufutaji wa akiba.</string>
+    <string name="automation_error_disabled_app_title">Programu imezimwa</string>
+    <string name="automation_error_disabled_app_body">Kifaa chako hakitafungua mipangilio ya programu zilizozimwa, kwa hiyo kache haiwezi kuachiliwa kupitia huduma ya ufikiaji. Wezesha programu au tumia root/Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Skrini ya mipangilio imezuiwa</string>
     <string name="automation_error_interference_body">Programu nyingine (%1$s) inazuia skrini ya mipangilio ya mfumo, hivyo SD Maid haiwezi kuendelea. Zima kifungo cha programu au ulinzi wa skrini wa programu hiyo kwa mipangilio ya mfumo, kisha ujaribu tena.</string>
     <string name="automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>

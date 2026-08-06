@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Заказани задатак је покушао да користи сервис приступачности, али није био доступан. Ако вам ово није потребно, онемогућите опцију „Сервис приступачности“ у подешавањима планера.</string>
     <string name="automation_error_no_settings_title">Екран подешавања недоступан</string>
     <string name="automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
+    <string name="automation_error_disabled_app_title">Апликација је онемогућена</string>
+    <string name="automation_error_disabled_app_body">Ваш уређај неће отворити екран подешавања онемогућених апликација, па кеш не може бити очишћен кроз услугу приступачности. Омогућите апликацију или користите root или Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Екран подешавања је блокиран</string>
     <string name="automation_error_interference_body">Друга апликација (%1$s) блокира екран системских подешавања, па SD Maid не може да настави. Онемогућите блокаду апликације или заштиту екрана те апликације за системска подешавања, затим покушајте поново.</string>
     <string name="automation_loading">Припремање аутоматизације преко сервиса приступачности</string>

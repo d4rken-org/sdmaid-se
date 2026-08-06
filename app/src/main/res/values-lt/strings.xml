@@ -3,11 +3,35 @@
     <string name="dashboard_delete_all_message">Ištrinti visų įrankių rezultatus?</string>
     <string name="dashboard_hero_freeable_headline">%1$s gali būti atlaisvinta</string>
     <string name="dashboard_hero_freed_headline">%1$s atlaisvinta</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d elementas gali būti pašalintas</item>
+        <item quantity="few">%d elementai gali būti pašalinti</item>
+        <item quantity="many">%d elementų gali būti pašalinta</item>
+        <item quantity="other">%d elementų gali būti pašalinta</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">Pašalintas %d elementas</item>
+        <item quantity="few">Pašalinti %d elementai</item>
+        <item quantity="many">Pašalinta %d elementų</item>
+        <item quantity="other">Pašalinta %d elementų</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Paspauskite mygtuką laisvai atlaisvinti, arba žetoną norėdami iš pradžios patikrinti.</string>
     <string name="dashboard_hero_freed_hint">Palieskite lustą, kad sužinotumėte daugiau.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s liko</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nieko neatpalaiduota</string>
+    <string name="dashboard_hero_nothing_freed_caption">Valymas baigtas, tačiau nepavyko pašalinti rastų duomenų.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Kai kurie duomenys gali būti pašalinti tik naudojant papildomą prieigą, pavyzdžiui, pritaikymo paslaugą arba root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Nuskaityta %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Atlaisvinta %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Bandyta %1$s</string>
     <string name="dashboard_settings_category">Prietaisų skydelis</string>
     <string name="dashboard_motd_title">Kūrėjo pranešimas</string>
     <string name="dashboard_settings_oneclick_title">Vieno bakstelėjimo režimas</string>
@@ -226,6 +250,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku naudojimas kartu su root prieiga neteikia papildomų funkcijų, tačiau pagerina patikimumą. SD Maid naudos jį kaip atsarginį metodą.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku ryšys paruoštas.</string>
     <string name="setup_shizuku_state_waiting_label">Laukiame ryšio su Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku programa nėra įdiegta.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Pabandykite naudoti Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nenaudokite Shizuku</string>
     <string name="setup_dismiss_hint">Sąrankos ekraną vėl rasite nustatymų meniu.</string>
@@ -280,6 +305,10 @@
     <string name="debug_card_pkgs_reload_action">Iš naujo įkelti programas</string>
     <string name="debug_card_root_test_action">Patikrinti root</string>
     <string name="debug_card_shizuku_test_action">Patikrinti Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Bandomasis režimas yra aktyvus</string>
+    <string name="dashboard_dryrun_warning_body">Valymas bandomas. Failai skaitomi ir pranešami, tačiau jie nėra ištrinami.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Išjungti</string>
     <string name="data_area_public_app_data_official_label">Numatytieji viešieji programų duomenys</string>
     <string name="data_area_public_app_assets_official_label">Numatytieji viešieji programos ištekliai</string>
     <string name="data_area_public_storage_label">Viešoji saugykla</string>
@@ -299,7 +328,7 @@
     <string name="device_settings_category">Įrenginys</string>
     <string name="review_app_review_action">Atsiliepimas</string>
     <string name="review_app_dismiss_action">Gal vėliau</string>
-    <string name="review_app_body">Ar norėtumėte palikti SD Maid atsiliepimu?️ ❤️</string>
+    <string name="review_app_body">Ar norėtum palikti SD Maid recenziją? ❤️</string>
     <string name="anniversary_card_title">Laimingas SD Maid jubiliejus ❤️</string>
     <string name="anniversary_card_install_date">Su jumis nuo %s</string>
     <plurals name="anniversary_card_body">

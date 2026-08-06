@@ -12,11 +12,17 @@
     <string name="upgrades_gplay_internal_error_description">የGoogle Play ውስጣዊ ስህተት ተከስቷል። እባክዎ የሚከተለውን ይሞክሩ:\n\n• መሳሪያዎን እንደገና ያስጀምሩ\n• የGoogle Play Store መሸጎጫ ያጥሩ\n• ቆይተው እንደገና ይሞክሩ</string>
     <string name="upgrades_gplay_network_error_title">የግንኙነት ስህተት</string>
     <string name="upgrades_gplay_network_error_description">ከGoogle Play ጋር መገናኘት አልተቻለም። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ሐሳብ አልተገኘም</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play በአሁኑ ሰዓት ይህ የስሪት አማራጭ አልሰጠም። እባክዎ ቀጣይ ሰዓት ሞክሩ ወይም Google Play ክምችት ያረጋግጡ።</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ን ክፈት አልተቻለም። በዚህ መሳሪያ ላይ ጠፍቷል፣ ታግዷል ወይም ተገድቧል።</string>
     <string name="upgrades_gplay_already_owned_error_title">አስቀድሞ ተገዝቷል</string>
     <string name="upgrades_gplay_already_owned_error_description">ግዢዎን ለመመለስ \"ግዢን ወደነበረበት መልስ\" አማራጩን ይጠቀሙ። ችግሩ ከቀጠለ፣ የGoogle Play መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">ያግኙ %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
     <string name="upgrade_screen_benefits_title">የአሻሪ ጥቅማጥቅሞች</string>
-    <string name="upgrade_screen_benefits_body">• አፓ ምግብ እና ቆሻሻ ውጣር\n• ድርብ ፋይል ማስወገድ\n• ፎቶ እና ቪዲዮ ምግብ\n• ወግ-ሰርቅ ጥንታዊ ፋይሎች\n• አንድ-መታ ውጣር ዊጄት ቁልፍ\n• ውጣር መርሐግብር\n• ሙሉ ሦስት እና ህግ\n• ክምችት አተገባበር እና ታሪክ\n• ብዙ ባህሪ እና ቁጥጥር በሙሉ አፓ ውስጥ\n• ቀጥሎ ጥራት ድጋፍ</string>
+    <string name="upgrade_screen_benefits_body">• ትግበራ ካሽ እና ብናዳ ሰርዝ\n• ተከራካሪ ፋይል ማስወገጃ\n• ፎቶ እና ቪዲዮ መጭነቅ\n• ሸቀጣ-ሰርዝ አሮጅ ፋይሎች\n• አንድ-ታፕ ሰርዝ ዊጀት በኩል\n• ሰርዝ ትይዋት\n• ብጁ ማጣሪያዎች እና ህጎች\n• ቦታ አዝማሚያዎች እና ታሪክ\n• ተጨማሪ ባህሪያት እና ቁጥጥር\n• ቀጣይ ልማት ድጋፍ</string>
     <string name="upgrade_screen_offers_title">ማሻሻል አማራጮች</string>
     <string name="upgrade_screen_offers_body">ተመሳሳይ ባህሪያት፣ ነገር ግን የተለያዩ የዋጋ ሞዴሎች።</string>
     <string name="upgrade_screen_offers_or">ወይም</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">በዓመት ይታደሳል። በGoogle Play ማንኛውም ጊዜ ይሰርዙ።</string>
     <string name="upgrade_screen_iap_offer_title">አንድ ጊዜ ይገዙ</string>
     <string name="upgrade_screen_iap_offer_body">አንድ ጊዜ ክፍያ፣ ምንም ታደስ የለም።</string>
+    <string name="upgrade_screen_offers_unavailable_title">ዋጋዎች አልተገኙም</string>
     <string name="upgrade_screen_offers_unavailable_message">ዋጋዎች አሁን ሊጫኑ አልቻሉም። Google Play ይመልከቱ እና ከአጭር ጊዜ በኋላ እንደገና ሞክሩ።</string>
     <string name="upgrade_screen_subscription_trial_action">ነፃ የ14 ቀን ሙከራ ይጀምሩ</string>
     <string name="upgrade_screen_subscription_action">ይመዝገቡ</string>
@@ -47,7 +54,7 @@
     <string name="upgrade_screen_manage_subscription_action">ደንበኝነትን ቆጣጣር</string>
     <string name="upgrade_screen_owned_iap_purchase_note">ይህ ተለያይተ ግዢ ነው: ደንበኝነትዎን አትሰርዘውም ወይም አትመልስም። ለሁለቱ ተመሳሳይ Google ሂሳብ ተጠቀሙ።</string>
     <string name="upgrade_screen_sub_still_renewing_title">ደንበኝነት ገና ንቁ ነው</string>
-    <string name="upgrade_screen_sub_still_renewing_message">Google Play ደንበኝነትዎ ወደ ገና ታዛዥ እንደሆነ ሪፖርት ሰጠ። አንድ ጊዜ ማሳሻ ለመገዛት በGoogle Play ውስጥ ደንበኝነትን አሁን ሰርዝ ከዚያ ወደ ሃሳብ ተመለስ።\n\nአሁን ጠርጠርሃል? Google Play ለአንድ ጊዜ ስጥ እና እንደገና ሞክር። ተመሳሳይ Google ሂሳብ እየተጠቀምክ ነው ያረጋግጥ።</string>
+    <string name="upgrade_screen_sub_still_renewing_message">Google Play ደህና ዋስትናዎ አሁንም ራሱ ለመታደስ ተቀናብሮ እንደሆነ ይነግርዎታል። አንድ-ጊዜ ማሻሻያ ለመግዛት ፣ በመጀመሪያ Google Play ውስጥ ደህና ዋስትናውን ይሰርዙ ፣ ከዚያ ወደ እዚህ ይመለሱ።\n\nአሁን ሰርዘውታል? Google Play ትንሽ ጊዜ ሙታታ ሰጥተው እንደገና ሞክሩ። እንዲሁም ተመሳሳይ Google ሂሳብ ሲጠቀሙ ምልክት ያርጉ።</string>
     <string name="upgrade_screen_sub_check_failed_message">Google Play ደንበኝነት ሁኔታ ሪምር አልቻለም። እባክህ ከአሁን በሪ ጊዜ ሞክር።</string>
     <string name="upgrade_screen_restore_success_message">ግዢ ተመልስ፣ የፕሮ ማሳሻ ንቁ ነው።</string>
     <string name="upgrade_screen_grace_title">ግዢ ከሚያረጋገጥ</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">ድጋፍ ያነጋግሩ</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid ከ Google Play ጋር ወደቅ ሞክሯል ነገር ግን ምንም Pro ክንውን ለዚህ ትግበራ ከሚጠቀምበት Google Play ሂሳብ ማረጋገጥ አልቻለ።</string>
     <string name="upgrade_screen_restore_contact_hint">ገና ችግር ውስጥ ናት? ይህን ክንውን ከሞከርካ ኢሜይል አድራሻ በ ድጋፍ ያነጋግሩ እና Google Play ትዕዛዝ ቁጥር አካትት።</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ጋር ያለው ሙከራ በሚገባ ጊዜ ውስጥ አልተጠናቀቀም፣ ስለዚህ የእርስዎ የመግዛት ሁኔታ ገና አይታወቅም። በእርስዎ ሂሳብ ላይ ምንም ነገር አልተቀየረም።</string>
 </resources>

@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">የቀጠሮ ተግባር ተደራሽነት አገልግሎቱን ለመጠቀም ሞከረ፣ ነገር ግን አልተገኘም። ይህ ካላስፈለገዎ፣ የቀጠሮ ቅንብሮች ውስጥ \"ተደራሽነት አገልግሎት\" አማራጩን ያሰናክሉ።</string>
     <string name="automation_error_no_settings_title">የቅንብሮች ማያ አልተገኘም</string>
     <string name="automation_error_no_settings_body">ይህ የሲስተም መተግበሪያ ምንም የቅንብሮች ማያ የለውም። በተደራሽነት አገልግሎት መሸፈኛ ማጽዳት አይችልም። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
+    <string name="automation_error_disabled_app_title">መተግበሪያ ተሰናክሏል</string>
+    <string name="automation_error_disabled_app_body">መሳሪያዎ ቆሞ የሚቀር ትግበራ ቅንጅት ስክሪን ሊከፍተው አይችልም ፣ ስለዚህም ካሽ በ accessibility ሰርቪስ ሊጠጣ አይችልም። ትግበራውን ያስገቡ ፣ ወይም ሥር ወይም Shizuku/ADB ይጠቀሙ።</string>
     <string name="automation_error_interference_title">ቅንቅ ማያ ታግዷል</string>
     <string name="automation_error_interference_body">ሌላ መተግበሪያ (%1$s) የስርዓት ቅንቅን ማያ እያገደ ነው፣ ስለዚህ SD Maid መቀጠል አይችልም። የዚያ መተግበሪያ app-lock ወይም የማያ ጥበቃን ለስርዓት ቅንቅ ያሳጥሩ፣ ከዚያ እንደገና ይሞክሩ።</string>
     <string name="automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>

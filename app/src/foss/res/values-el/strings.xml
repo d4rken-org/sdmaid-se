@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Δείτε τις επιλογές αναβάθμισης</string>
     <string name="upgrade_screen_status_upgraded_title">Αναβάθμιση ενεργή</string>
     <string name="upgrade_screen_status_upgraded_body">Όλες οι επιπλέον δυνατότητες είναι ξεκλείδωτες. Ευχαριστούμε που υποστηρίζετε την ανάπτυξη ανοιχτού κώδικα ❤️</string>
+    <string name="upgrade_screen_supporter_since">Υποστηρικτής από %s</string>
     <string name="upgrade_screen_recurring_title">Συνεχίστε</string>
     <string name="upgrade_screen_recurring_body">Το SD Maid συνεχίζει να εξελίσσεται μέσω ενημερώσεων και διορθώσεων. Αν θέλετε να το διατηρήσετε, σκεφτείτε μια επαναλαμβανόμενη δωρεά μέσω GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Άνοιγμα GitHub Sponsors</string>

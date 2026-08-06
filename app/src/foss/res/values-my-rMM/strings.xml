@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">အဆင့်မြှင့်တင်မှု ရွေးချယ်စရာများ ကြည့်ရှုပါ။</string>
     <string name="upgrade_screen_status_upgraded_title">အဆင့်မြှင့်တင်မှု အကျုံးဝင်</string>
     <string name="upgrade_screen_status_upgraded_body">အပိုဆောင်းအင်္ဂါများ အားလုံး ဖွင့်ထားပြီးပါပြီ။ အခမဲ့ရင်းမြစ်ကုဒ် တည်ဆောက်မှု ကူညီပေးထားသည့်အတွက် ကျေးဇူးတင်ပါသည်။ ❤️</string>
+    <string name="upgrade_screen_supporter_since">%s မှစ၍ ကူညီထောက်ခံသူ</string>
     <string name="upgrade_screen_recurring_title">ဆက်လက်ကြိုးစားပါ။</string>
     <string name="upgrade_screen_recurring_body">SD Maid သည် အဆင့်မြှင့်တင်မှုများ နှင့် အဆင်းလုပ်ခြင်းများမှတစ်ဆင့် ဆက်တိုက်တည်ဆောက်နေသည်။ ကူညီမှုဆက်လက်ချင်ပါက GitHub Sponsors မှတစ်ဆင့် ထပ်ခါတလဲလဲ လူမှုကူညီမှုများ စဉ်းစားပါ။</string>
     <string name="upgrade_screen_recurring_action">GitHub Sponsors ကိုဖွင့်ပါ။</string>

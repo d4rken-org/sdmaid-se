@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">排程任務嘗試使用無障礙服務，但該服務不可用。如果您不需要此功能，請在排程設定中停用「無障礙服務」選項。</string>
     <string name="automation_error_no_settings_title">設定畫面不可用</string>
     <string name="automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
+    <string name="automation_error_disabled_app_title">應用程式已停用</string>
+    <string name="automation_error_disabled_app_body">您的裝置無法開啟已停用應用程式的設定畫面，因此無法透過無障礙服務清除快取。啟用應用程式，或改用 root 或 Shizuku/ADB。</string>
     <string name="automation_error_interference_title">設定畫面已被封鎖</string>
     <string name="automation_error_interference_body">另一個應用程式（%1$s）正在封鎖系統設定畫面，所以 SD Maid 無法繼續。請停用該應用程式的應用鎖定或系統設定的螢幕保護，然後重試。</string>
     <string name="automation_loading">透過輔助功能服務準備自動化</string>

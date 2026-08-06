@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">Kwenzeke iphutha langaphakathi le-Google Play. Sicela uzame okulandelayo:\n\n• Phinda uqalise idivayisi yakho\n• Sula i-cache ye-Google Play Store\n• Zama futhi kamuva</string>
     <string name="upgrades_gplay_network_error_title">Iphutha lokuxhuma</string>
     <string name="upgrades_gplay_network_error_description">Ayikwazi ukuxhuma ku-Google Play. Sicela uhlole ukuxhumeka kwe-inthanethi yakho bese uzama futhi.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Inkinobho ayitholakali</string>
+    <string name="upgrades_gplay_offer_unavailable_description">I-Google Play ayinikazi oku-upgrade ngaleli sikhathi. Sicela zama kamuva noma ikhekhe i-Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Ayikwazanga kuvula i-Google Play. Ingenzeka ukuthi ilahlekile, ishiywe, noma inqunikizwe ku-divayisi yako.</string>
     <string name="upgrades_gplay_already_owned_error_title">Sekuthengwe kakade</string>
     <string name="upgrades_gplay_already_owned_error_description">Sebenzisa inketho ethi \"Buyisela ukuthenga\" ukuze ubuyisele ukuthenga kwakho. Uma inkinga iqhubeka, zama ukusula i-cache ye-Google Play uphinde uqalise idivayisi yakho.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Thola %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ayinayo izikhangiso futhi ayithengisi idatha yabasebenzisi. Umsebenzi wami uxhaswa nguwe ❤️.</string>
     <string name="upgrade_screen_benefits_title">Izinzuzo zokuthuthuka</string>
     <string name="upgrade_screen_benefits_body">• Uhlanzelo lwemimoya yohlelo nokususa izinto\n• Ukususa amafayili aphindwe\n• Ukucindezeleka kwezithombe nezividio\n• Ukuswayipa ukususa izinto ezindala\n• Uhlanzelo ngokunye ngewidget\n• Ukuhlela uhlanzelo\n• Izihlungi yokuthile kanye nokumika\n• Izintombazane zokugcinwa nomlando\n• Izici ezengeziwe kanye nokuphepha\n• Okusekela ukubhala kokuqhubeka</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Kubuya ebushe ngonyaka. Yekela nangaliphi ilanga ku-Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Thenga okukodwa</string>
     <string name="upgrade_screen_iap_offer_body">Isipho sinye, ayikho ukubuya ebushe.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Amaphriso asitholakali</string>
     <string name="upgrade_screen_offers_unavailable_message">Izintengo zazikwazanga ukuloadwa manje. Hlola i-Google Play futhi zama futhi emethela.</string>
     <string name="upgrade_screen_subscription_trial_action">Qala ukuhlola kwamahhala kwezinsuku eziyi-14</string>
     <string name="upgrade_screen_subscription_action">Bhalisela</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">Xhumana nokundlela</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid kunesikhashane kuhlolwe i-Google Play, kodwa noma iyiphi okuthengwa ye-Pro ayikwazanga ukukhethwa nge-akhawunti esebenzisa i-Google Play kulolu hlelo.</string>
     <string name="upgrade_screen_restore_contact_hint">Nasikhathi kusendlulele? Xhumana nokundlela kusuka ku-imeyile eyenzile okuthengwa kwaye faka inombolo yakho ye-oda ye-Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Ikhekhu le-Google Play aliphelange ngaleso sikhathi, ngakho isimo sokuthengiselwe kwakho kusasabalala. Akukho into ethile eyitshintshile e-akhawunti yakho.</string>
 </resources>

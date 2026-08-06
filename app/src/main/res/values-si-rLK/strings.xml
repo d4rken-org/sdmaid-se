@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">සියලුම මෙවලම්වල ප්‍රතිඵල මකා දමන්නද?</string>
     <string name="dashboard_hero_freeable_headline">%1$s නිදහස් කළ හැක</string>
     <string name="dashboard_hero_freed_headline">%1$s නිදහස් කරගෙන ඇත</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d අයිතමක් ඉවත් කළ හැකිය</item>
+        <item quantity="other">අයිතම %d ක් ඉවත් කළ හැකිය</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d අයිතමක් ඉවත් කරන ලදී</item>
+        <item quantity="other">අයිතම %d ක් ඉවත් කරන ලදී</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">ඉතිරි පිටපතක් ගිණීමට බොත්තම තට්ටු කරන්න, හෝ පළමුව පරීක්ෂා කිරීමට ඡිපය තට්ටු කරන්න.</string>
     <string name="dashboard_hero_freed_hint">විස්තර සඳහා චිප ටැප් කරන්න.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s ඉතිරි</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">කිසිවක් නිදහස් කරගත නොහැකි විය</string>
+    <string name="dashboard_hero_nothing_freed_caption">පිරිසිදු කිරීම අවසන් වුණත්, සොයාගත් දත්ත ඉවත් කරගත නොහැකි විය</string>
+    <string name="dashboard_hero_nothing_freed_hint">සමහර දත්ත ප්‍රවේශ්‍යතා සේවාව හෝ root වැනි අතිරේක පිවිසුම් සහිතව පමණක් ඉවත් කළ හැකිය</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ස්කෑන් කරගෙන ඇත</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s නිදහස් කරගෙන ඇත</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">උත්සාහ කරන ලදී %1$s</string>
     <string name="dashboard_settings_category">උපකරණ පුවරුව</string>
     <string name="dashboard_motd_title">සංවර්ධකයෙන් පණිවිඩයක්</string>
     <string name="dashboard_settings_oneclick_title">එක්-ස්පර්ශ ආකාරය</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">මූල ප්‍රවේශය සහ මිළෙන් වු Shizuku අමතර විශේෂාංග සක්‍රිය නොකරනවා නමුත් නිර්බරතාවය වැඩිදියුදු කරයි. SD Maid එය පසුක් රිටි පද්ධතියක් ලෙස භාවිතා කළ ඉම.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku සම්බන්ධය සිද්ධයි.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku සහ සම්බන්ධවීම සඳහා සිටින්නේ.</string>
+    <string name="setup_shizuku_state_not_installed_label">Shizuku යෙදුම ස්ථාපිත නොවිණි</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku භාවිතා කිරීමට උත්සාහ කරන්න</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku භාවිතා නොකරන්න</string>
     <string name="setup_dismiss_hint">සම්සා රන්ග මෙනුව අරහා ඔබට පිහිටුවීම් තිරය නැවත සොයා ගැනීමට හැකියි.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">යෙදුම් නැවත පූරණය කරන්න</string>
     <string name="debug_card_root_test_action">Root පරීක්‍ෂාව</string>
     <string name="debug_card_shizuku_test_action">Shizuku පරීක්‍ෂාව</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Dry-run ප්‍රකාරය සක්‍රිය ය</string>
+    <string name="dashboard_dryrun_warning_body">පිරිසිදු කිරීම අනුකරණය කරනු ලබයි. ගොනු ස්කෑන් කරනු ලබයි සහ වාර්තා කරනු ලබයි, නමුත් කිසිවක් නිසැකවම මකනු නොලබයි</string>
+    <string name="dashboard_dryrun_warning_disable_action">අක්‍රිය කරන්න</string>
     <string name="data_area_public_app_data_official_label">පෙරනිමි පොදු යෙදුම් දත්ත</string>
     <string name="data_area_public_app_assets_official_label">පෙරනිමි පොදු යෙදුම් සම්පත්</string>
     <string name="data_area_public_storage_label">පොදු ආචයනය</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">උපකරණය</string>
     <string name="review_app_review_action">සමාලෝචනය</string>
     <string name="review_app_dismiss_action">පසුව සමහර විට</string>
-    <string name="review_app_body">ඔබ SD Maid සඳහා සමාලෝචනයක් ලිවීමට කැමතිද?️ ❤️</string>
+    <string name="review_app_body">ඔබ SD Maid සඳහා සමාලෝචනයක් ලිවීමට කැමතිද? ❤️</string>
     <string name="anniversary_card_title">SD Maid සංවත්සරය සුභ වේවා ❤️</string>
     <string name="anniversary_card_install_date">%s සිට ඔබ සමඟ</string>
     <plurals name="anniversary_card_body">

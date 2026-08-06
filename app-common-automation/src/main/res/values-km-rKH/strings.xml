@@ -24,6 +24,8 @@
     <string name="automation_error_scheduler_body">ការដែលឯប​តាម​កំណត់​ប្រើ​ប្រើ​សើវាកម្ម​ត្រូវហើត ប៉ុន្តែ​វា​មិន​អាច​រក​បាន។ ប័តា​អ្នក​មិន​ផ្តល់​ត្រូវការ​នេះ​សូម​បិត​ជម្រើស​∠1780ារ​សើវាកម្ម​ត្រូវហើត∡​នៅ​ក្នុង​ការដែលឯប។</string>
     <string name="automation_error_no_settings_title">ប័តា​តាម​ការ​កំណត់​មិន​អាច​ព័ត័​បានទេ</string>
     <string name="automation_error_no_settings_body">កម្មវិធី​ព័ត័​នេះ​មិន​មាន​ប័តា​ការ​កំណត់។ ការលុបកែវិល្ត​តាម​រយៈពេល​សើវាកម្ម​ត្រូវហើត​មិន​អាច​កើតឡើង​បានទេ។ ដកចេញ​ដែល​ដើម្បី​ឡើន​ការលុប​កែវិល្ត​បន្លើន។</string>
+    <string name="automation_error_disabled_app_title">កម្មវិធីត្រូវបានបិទ</string>
+    <string name="automation_error_disabled_app_body">ឧបករណ៍របស់អ្នកនឹងមិនបើកអេក្រង់ការកំណត់របស់កម្មវិធីដែលបានបិទទេ ដូច្នេះក្រោយហេតុមិនអាចលុបបានតាមរយៈសេវាកម្មលទ្ធិលម្អិត។ ដំណើរការកម្មវិធី ឬប្រើ root ឬ Shizuku/ADB ជំនួស។</string>
     <string name="automation_error_interference_title">កំណត់ត្រូវបានរារាំង</string>
     <string name="automation_error_interference_body">កម្មវិធីផ្សេងទៀត (%1$s) រារាំងឆាក់បង្ហាញការកំណត់ប្រព័ន្ធ ដូច្នេះ SD Maid មិនអាចបន្តបានទេ។ បិទមុខងារម៉ាក់កម្មវិធីឬការការពារឆាក់បង្ហាញរបស់កម្មវិធីនោះសម្រាប់ការកំណត់ប្រព័ន្ធ រួចព្យាយាមម្តងទៀត។</string>
     <string name="automation_loading">កំពុង​ប្រើការ​អុត្តោម៉ុន​តាមរយៈពេល​សើវាកម្ម​ត្រូវហើត</string>

@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">ଏକ ଆଭ୍ୟନ୍ତରୀଣ Google Play ତ୍ରୁଟି ଘଟିଲା। ଦୟାକରି ନିମ୍ନଲିଖିତ ଚେଷ୍ଟା କରନ୍ତୁ:\n\n• ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରନ୍ତୁ\n• Google Play Store କ୍ୟାଶ୍ ସଫା କରନ୍ତୁ\n• ପରେ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="upgrades_gplay_network_error_title">ସଂଯୋଗ ତ୍ରୁଟି</string>
     <string name="upgrades_gplay_network_error_description">Google Play ସହିତ ସଂଯୋଗ କରିବାରେ ଅସମର୍ଥ। ଦୟାକରି ଆପଣଙ୍କ ଇଣ୍ଟରନେଟ୍ ସଂଯୋଗ ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ଅଫର ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ବର୍ତ୍ତମାନ ଏହି ଅପଗ୍ରେଡ୍ ବିକଲ୍ପ ପ୍ରଦାନ କରୁ ନାହିଁ। ଦୟାକରି ପରେ ପୁନରାୟ ଚେଷ୍ଟା କରନ୍ତୁ ବା Google Play Store ଯାଞ୍ଚ କରନ୍ତୁ।</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Google Play ଖୋଲାଯାଇ ପାରିଲା ନାହିଁ। ଏହା ଏହି ଡିଭାଇସରେ ନଥାଇ ପାରେ, ଅକ୍ଷମ ଥାଇ ପାରେ କିମ୍ବା ସୀମିତ ଥାଇ ପାରେ।</string>
     <string name="upgrades_gplay_already_owned_error_title">ପୂର୍ବରୁ କ୍ରୟ ହୋଇସାରିଛି</string>
     <string name="upgrades_gplay_already_owned_error_description">ଆପଣଙ୍କ କ୍ରୟ ପୁନଃସ୍ଥାପନ କରିବାକୁ \"କ୍ରୟ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ\" ବିକଳ୍ପ ବ୍ୟବହାର କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଜାରି ରହେ, Google Play କ୍ୟାଶ୍ ସଫା କରିବାକୁ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପୁନଃ ଆରମ୍ଭ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">%1$s ପାଇନ୍ତୁ</string>
     <string name="upgrade_screen_preamble">SD Maid ରେ କୌଣସି ବିଜ୍ଞାପନ ନାହିଁ ଏବଂ ବ୍ୟବହାରକାରୀ ତଥ୍ୟ ବିକ୍ରୟ କରେନାହିଁ। ମୋର କାର୍ଯ୍ୟ ଆପଣଙ୍କ ଦ୍ୱାରା ଅର୍ଥାୟନ ହୋଇଥାଏ ❤️।</string>
     <string name="upgrade_screen_benefits_title">ଅପଗ୍ରେଡ ସୁବିଧା</string>
     <string name="upgrade_screen_benefits_body">• ଆପ୍ କ୍ୟାଶେ ଏବଂ ଜଙ୍କ ସଫା\n• ନକଲ ଫାଇଲ ଅପସାରଣ\n• ଫଟୋ ଏବଂ ଭିଡିଓ ସଙ୍କୋଚନ\n• ପୁରୁଣା ଫାଇଲ ସ୍ୱାଇପ୍ ସଫା\n• ୱିଜେଟ ମାଧ୍ୟମରେ ଏକ-ଟ୍ୟାପ ସଫା\n• ସଫା ନିର୍ଧାରଣ\n• କଷ୍ଟମ୍ ଫିଲ୍ଟର ଏବଂ ନିୟମ\n• ସଞ୍ଚୟସ୍ଥାନ ପ୍ରବଣତା ଏବଂ ଇତିହାସ\n• ଆପ୍ ଜୁଡ଼ା ଅଧିକ ବୈଶିଷ୍ଟ୍ୟ ଏବଂ ନିୟନ୍ତ୍ରଣ\n• ଜାରି ବିକାଶକୁ ସମର୍ଥନ</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">ବାର୍ଷିକ ନବୀକରଣ ହୁଏ। ଯେକୌଣସି ସମୟରେ Google Play ରେ ବାତିଲ କରନ୍ତୁ।</string>
     <string name="upgrade_screen_iap_offer_title">ଏକ ଥର କିଣନ୍ତୁ</string>
     <string name="upgrade_screen_iap_offer_body">ଗୋଟିଏ ପେମେଣ୍ଟ, କୌଣସି ନବୀକରଣ ନାହିଁ।</string>
+    <string name="upgrade_screen_offers_unavailable_title">ମୂଲ୍ୟ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="upgrade_screen_offers_unavailable_message">ମୂଲ୍ୟ ଏଠାରେ ଲୋଡ୍ ହୋଇ ପାରିଲା ନାହିଁ। Google Play ଚେକ କରନ୍ତୁ ଏବଂ ଏକ ମୁହୂର୍ତ୍ତରେ ପୁନଃ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="upgrade_screen_subscription_trial_action">୧୪-ଦିନିଆ ମାଗଣା ପରୀକ୍ଷଣ ଆରମ୍ଭ କରିଦେଖନ୍ତୁ</string>
     <string name="upgrade_screen_subscription_action">ସଦସ୍ୟତା</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">ସହାୟତାର ସହ ଯୋଗାଯୋଗ କରନ୍ତୁ</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid ବର୍ତ୍ତମାନ Google Play ଯାଞ୍ଚ କଲା, କିନ୍ତୁ ଏହି ଆପ୍ଲିକେଶନ ପାଇଁ Google Play ଯେ ଖାତା ବ୍ୟବହାର କରେ ତାହା ପାଇଁ କୌଣସି Pro କ୍ରୟ ନିଶ୍ଚିତ କରାଯାଇ ନାହିଁ।</string>
     <string name="upgrade_screen_restore_contact_hint">ଏବେ ମଧ୍ୟ ସମସ୍ୟା ଅଛି? ଯେଉଁ ଇମେଲରୁ କ୍ରୟ କରାଯାଇଥିଲା ସେଠାରୁ ସହାୟତା ଯୋଗାଯୋଗ କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କ Google Play ଅର୍ଡର ସଂଖ୍ୟା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play ସାଥେ ଯାଞ୍ଚ ସମୟସୀମା ମଧ୍ୟରେ ସମାପ୍ତ ହେଲା ନାହିଁ, ତେଣୁ ଆପଣଙ୍କ କ୍ରୟ ସ୍ଥିତି ଅଜ୍ଞାତ ରହିଛି। ଆପଣଙ୍କ ଖାତାରେ କୌଣସି ପରିବର୍ତନ ହୋଇ ନାହିଁ।</string>
 </resources>

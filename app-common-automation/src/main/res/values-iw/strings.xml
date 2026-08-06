@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">משימה מתוזמנת ניסתה להשתמש בשירות הנגישות, אך הוא לא היה זמין. אם אינך זקוק לכך, השבת את האפשרות \"שירות נגישות\" בהגדרות המתזמן.</string>
     <string name="automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
     <string name="automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
+    <string name="automation_error_disabled_app_title">האפליקציה מנוטרלת</string>
+    <string name="automation_error_disabled_app_body">המכשיר שלך לא יפתח את מסך ההגדרות של אפליקציות מנוטרלות, כך שלא ניתן לנקות את הזיכרון המטמון דרך שירות נגישות. הפעל את האפליקציה או השתמש ב-root או Shizuku/ADB במקום זאת.</string>
     <string name="automation_error_interference_title">מסך ההגדרות חסום</string>
     <string name="automation_error_interference_body">אפליקציה אחרת (%1$s) חוסמת את מסך הגדרות המערכת, כך ש-SD Maid לא יכול להמשיך. בטל את נעילת האפליקציה או הגנת המסך של אפליקציה זו עבור הגדרות המערכת, ואז נסה שוב.</string>
     <string name="automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>

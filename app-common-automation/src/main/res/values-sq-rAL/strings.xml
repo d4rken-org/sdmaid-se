@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">Një detyrë e planifikuar u përpoq të përdorte shërbimin e aksesueshmërisë, por nuk ishte i disponueshëm. Nëse nuk keni nevojë për këtë, çaktivizoni opsionin \"Shërbimi i aksesueshmërisë\" në cilësimet e planifikuesit.</string>
     <string name="automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
     <string name="automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
+    <string name="automation_error_disabled_app_title">Aplikacioni është i çaktivizuar</string>
+    <string name="automation_error_disabled_app_body">Pajisja juaj nuk do të hapë ekranin e përcaktimeve të aplikacioneve të çaktivizuara, kështu që cache nuk mund të fshihet përmes shërbimit të aksesueshmërisë. Aktivizoni aplikacionin, ose përdorni root ose Shizuku/ADB në vend të kësaj.</string>
     <string name="automation_error_interference_title">Ekrani i cilësimeve është bllokuar</string>
     <string name="automation_error_interference_body">Një aplikacion tjetër (%1$s) po bllokon ekranin e cilësimeve të sistemit, kështu SD Maid nuk mund të vazhdojë. Çaktivizoni bllokimin e aplikacionit ose mbrojtjen e ekranit të atij aplikacioni në cilësimet e sistemit, pastaj përpiquni përsëri.</string>
     <string name="automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>

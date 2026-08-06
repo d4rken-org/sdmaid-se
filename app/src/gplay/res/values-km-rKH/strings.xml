@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">កំហុសខាងក្នុង Google Play បានកើតឡើង។ សូមសាកល្បងធ្វើដូចខាងក្រោម៖\n\n• ចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ\n• សម្អាតឃ្លាំងសម្ងាត់ Google Play Store\n• សាកល្បងម្តងទៀតនៅពេលក្រោយ</string>
     <string name="upgrades_gplay_network_error_title">កំហុសការតភ្ជាប់</string>
     <string name="upgrades_gplay_network_error_description">មិនអាចភ្ជាប់ទៅ Google Play បានទេ។ សូមពិនិត្យការតភ្ជាប់អ៊ីនធឺណិតរបស់អ្នក ហើយសាកល្បងម្តងទៀត។</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ការផ្តល់ជូនមិនមាន</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play មិនផ្តល់ជូនជម្រើសឡើងកំរិតនេះឥឡូវនេះទេ។ សូមព្យាយាមម្តងទៀតក្រោយមក ឬពិនិត្យ Google Play Store។</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">មិនអាចបើក Google Play បានទេ។ វាប្រហែលជាបាត់បង់ បានបិទ ឬត្រូវបានរឹតបន្តឹង នៅលើឧបករណ៍នេះ។</string>
     <string name="upgrades_gplay_already_owned_error_title">បានទិញរួចហើយ</string>
     <string name="upgrades_gplay_already_owned_error_description">ប្រើជម្រើស \"ស្តារការជាវមកវិញ\" ដើម្បីស្តារការទិញរបស់អ្នក។ ប្រសិនបើបញ្ហានៅបន្ត សាកល្បងសម្អាតឃ្លាំងសម្ងាត់ Google Play និងចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">ទទួលបាន %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid មិនមានការផ្សាយពាណិជ្ជកម្ម និងមិនលក់ទិន្នន័យអ្នកប្រើប្រាស់ទេ។ ការងាររបស់ខ្ញុំត្រូវបានផ្តល់មូលនិធិដោយអ្នក ❤️។</string>
     <string name="upgrade_screen_benefits_title">អត្ថប្រយោជន៍នៃការលើក</string>
     <string name="upgrade_screen_benefits_body">• ការសម្អាតឃ្លាំងកម្មវិធី និងសម្រម\n• ការលុបឯកសារដែលស្ដាប់ដដែល\n• ការបង្ហាប់រូបភាព និងវីដេអូ\n• លុបឯកសារចាស់ដោយការលូច\n• ការសម្អាតក្នុងចុចមួយតាមរយៈក្រាប\n• កាលវិភាគសម្អាត\n• តម្រង និងច្បាប់ផ្ទាល់ខ្លួន\n• ទិន្នន័យផ្នែកទឹកទាប់ និងប្រវត្តិ\n• លក្ខណៈពិសេស និងការគ្រប់គ្រងលម្អិត\n• គាំទលម្អើងការអភិវឌ្ឍ</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">ធានាក្នុងរយៈពេលមួយឆ្នាំ។ បោះបង់គ្រប់ពេលក្នុង Google Play។</string>
     <string name="upgrade_screen_iap_offer_title">ទិញម្តង</string>
     <string name="upgrade_screen_iap_offer_body">ការសង់ប្រាក់ម្តង គ្មានការធានាឡើងវិញទេ។</string>
+    <string name="upgrade_screen_offers_unavailable_title">តម្លើងមិនមាន</string>
     <string name="upgrade_screen_offers_unavailable_message">តម្លៃមិនអាចផ្ទុកបានក្នុងពេលនេះទេ។ ពិនិត្យ Google Play ហើយព្យាយាមម្តងទៀតក្នុងរយៈពេលខ្លីក្រោយ។</string>
     <string name="upgrade_screen_subscription_trial_action">ចាប់ផ្តើមការសាកល្បង 14 ថ្ងៃដោយឥតគិតថ្លៃ</string>
     <string name="upgrade_screen_subscription_action">ជាវ</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">ទាក់ទង​ការគាំទ</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid ទើបតែពិនិត្យមើល Google Play ប៉ុន្តែ​មិនមាន​ការទិញ Pro ដែលអាច​បញ្ជាក់​សម្រាប់​គណនី​ដែល Google Play កំពុងប្រើប្រាស់​សម្រាប់​កម្មវិធីនេះ។</string>
     <string name="upgrade_screen_restore_contact_hint">នៅតែ​មានបញ្ហា? ទាក់ទង​ការគាំទ ដោយប្រើ​អ៊ីមែល​ដែល​បាន​ធ្វើ​ការ​ទិញ ហើយ​រួមបញ្ចូល​លេខលម្ាត់​របស់ Google Play របស់​អ្នក។</string>
+    <string name="upgrade_screen_restore_inconclusive_message">ការត្រួតពិនិត្យជាមួយ Google Play មិនបានបញ្ចប់ក្នុងពេលវេលា ដូច្នេះស្ថានភាពការទិញរបស់អ្នកនៅមិនច្បាស់លាស់ទេ។ គ្មានអ្វីបានផ្លាស់ប្តូរលើគណនីរបស់អ្នក។</string>
 </resources>

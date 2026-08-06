@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">Buka amanela e-upgrade</string>
     <string name="upgrade_screen_status_upgraded_title">I-upgrade iyasebenza</string>
     <string name="upgrade_screen_status_upgraded_body">Zonke izici zokwengeziwe zivuliwe. Ngiyabonga ekusekeni ukuthuthukiswa kwe-open-source ❤️</string>
+    <string name="upgrade_screen_supporter_since">Umsekeli kusukela %s</string>
     <string name="upgrade_screen_recurring_title">Qhubeleka nalo</string>
     <string name="upgrade_screen_recurring_body">SD Maid izongezeleke nge-updates ne-fixes. Uma uthanda ukubulela lokho, cabanga nge-donasioni emuva-muva nge-GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">Vula i-GitHub Sponsors</string>

@@ -18,6 +18,7 @@
     <string name="upgrade_screen_status_free_action">بژاردە بارگەریەکان ببینە</string>
     <string name="upgrade_screen_status_upgraded_title">بارگەری چالاکە</string>
     <string name="upgrade_screen_status_upgraded_body">هەموو تایبەتمەندیە زیاترەکان کراوەن. سپاس بۆ پشتگیری کردنی بەرهەمهێنانی سەرچاوەی کراوە ❤️</string>
+    <string name="upgrade_screen_supporter_since">پاڵپشتیوان لە %s</string>
     <string name="upgrade_screen_recurring_title">بەردەوام بە پێشیەوەبر</string>
     <string name="upgrade_screen_recurring_body">SD Maid بەردەوام پێش دەچێت لە ڕێگەی نوێکردنەوە و چاکسازیەکان. ئەگەر دەتەوێت بەردەوامی بکەیەوە، بیری لە بەخشینی دووبارەی هەمیشەیی لە ڕێگەی GitHub Sponsors.</string>
     <string name="upgrade_screen_recurring_action">کردنەوەی GitHub Sponsors</string>

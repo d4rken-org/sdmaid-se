@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">เกิดข้อผิดพลาดภายในของ Google Play โปรดลองทำสิ่งต่อไปนี้:\n\n• รีสตาร์ทอุปกรณ์ของคุณ\n• ล้างแคช Google Play Store\n• ลองอีกครั้งในภายหลัง</string>
     <string name="upgrades_gplay_network_error_title">ข้อผิดพลาดการเชื่อมต่อ</string>
     <string name="upgrades_gplay_network_error_description">ไม่สามารถเชื่อมต่อกับ Google Play ได้ โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณแล้วลองอีกครั้ง</string>
+    <string name="upgrades_gplay_offer_unavailable_title">ข้อเสนอไม่พร้อมใช้งาน</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play ไม่เสนอตัวเลือกการอัปเกรดนี้ในขณะนี้ โปรดลองอีกครั้งในภายหลังหรือตรวจสอบ Google Play Store</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">ไม่สามารถเปิด Google Play ได้ อาจเป็นเพราะแอปหายไป ปิดการใช้งาน หรือถูกจำกัดบนอุปกรณ์นี้</string>
     <string name="upgrades_gplay_already_owned_error_title">ซื้อแล้ว</string>
     <string name="upgrades_gplay_already_owned_error_description">ใช้ตัวเลือก \"กู้คืนการซื้อ\" เพื่อกู้คืนการซื้อของคุณ หากปัญหายังคงอยู่ ให้ลองล้างแคช Google Play และรีสตาร์ทอุปกรณ์ของคุณ</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">รับ %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลผู้ใช้ งานของฉันได้รับการสนับสนุนทางการเงินจากคุณ ❤️</string>
     <string name="upgrade_screen_benefits_title">ประโยชน์ของการอัปเกรด</string>
     <string name="upgrade_screen_benefits_body">• การทำความสะอาดแคชแอปและขยะ\n• การลบไฟล์ที่ซ้ำกัน\n• การบีบอัดรูปภาพและวิดีโอ\n• ปัดจากไฟล์เก่าเพื่อลดความยุ่งวุ่นวาย\n• การทำความสะอาดแบบกดเดียวผ่านวิดเจ็ต\n• การจัดตารางการทำความสะอาด\n• ตัวกรองและกฎที่กำหนดเอง\n• แนวโน้มและประวัติการจัดเก็บ\n• คุณสมบัติเพิ่มเติมและการควบคุมทั่วแอป\n• สนับสนุนการพัฒนาต่อเนื่อง</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">ต่ออายุประจำปี สามารถยกเลิกได้ตลอดเวลาใน Google Play</string>
     <string name="upgrade_screen_iap_offer_title">ซื้อครั้งเดียว</string>
     <string name="upgrade_screen_iap_offer_body">ชำระเงินครั้งเดียว ไม่มีการต่ออายุ</string>
+    <string name="upgrade_screen_offers_unavailable_title">ราคาไม่พร้อมใช้งาน</string>
     <string name="upgrade_screen_offers_unavailable_message">ไม่สามารถโหลดราคาได้ในขณะนี้ ตรวจสอบ Google Play และลองใหม่อีกครั้งในอีกสักครู่</string>
     <string name="upgrade_screen_subscription_trial_action">เริ่มทดลองใช้ฟรี 14 วัน</string>
     <string name="upgrade_screen_subscription_action">สมัครสมาชิก</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">ติดต่อฝ่ายสนับสนุน</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid เพิ่งตรวจสอบ Google Play แต่ไม่สามารถยืนยันการซื้อ Pro สำหรับบัญชีที่ Google Play ใช้สำหรับแอปนี้</string>
     <string name="upgrade_screen_restore_contact_hint">ยังติดขัด? ติดต่อฝ่ายสนับสนุนจากที่อยู่อีเมลที่ทำการซื้อและรวมหมายเลขคำสั่งซื้อ Google Play ของคุณ</string>
+    <string name="upgrade_screen_restore_inconclusive_message">การตรวจสอบกับ Google Play ไม่เสร็จทันเวลา ดังนั้นสถานะการซื้อของคุณยังไม่ชัดเจน ไม่มีการเปลี่ยนแปลงบนบัญชีของคุณ</string>
 </resources>

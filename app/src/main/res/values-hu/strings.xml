@@ -3,11 +3,31 @@
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_hero_freeable_headline">%1$s felszabadítható</string>
     <string name="dashboard_hero_freed_headline">%1$s felszabadult</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d elem eltávolítható</item>
+        <item quantity="other">%d elem eltávolítható</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d elem eltávolított</item>
+        <item quantity="other">%d elem eltávolított</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Nyomd meg a gombot a hely felszabadításához, vagy egy gombot az ellenőrzéshez.</string>
     <string name="dashboard_hero_freed_hint">Koppints egy chipre a részletekért.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s maradt</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nem szabadult fel semmi</string>
+    <string name="dashboard_hero_nothing_freed_caption">A tisztítás befejeződött, de semmi nem távolítható el.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Néhány adat csak kiterjesztett hozzáféréssel távolítható el, például az akadálymentesítési szolgáltatás vagy root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Beolvasva: %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Felszabadítva: %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Megpróbálva: %1$s</string>
     <string name="dashboard_settings_category">Vezérlőpult</string>
     <string name="dashboard_motd_title">Üzenet a fejlesztőtől</string>
     <string name="dashboard_settings_oneclick_title">Egyéríntéses Mód</string>
@@ -216,6 +236,7 @@
     <string name="setup_shizuku_card_root_info">A Shizuku root hozzáféréssel kombinálva nem tesz lehetővé további funkciókat, de javítja a megbízhatóságot. Az SD Maid tartalékmódszerként fogja használni.</string>
     <string name="setup_shizuku_state_ready_label">A Shizuku link készen áll.</string>
     <string name="setup_shizuku_state_waiting_label">Várakozás a Shizuku-val való kapcsolatfelvételre.</string>
+    <string name="setup_shizuku_state_not_installed_label">A Shizuku alkalmazás nincs telepítve.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Próbálja meg használni a Shizuku-t</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne használjon Shizuku-t</string>
     <string name="setup_dismiss_hint">A beállítási képernyőt ismét megtalálhatja a beállítások menüben.</string>
@@ -270,6 +291,10 @@
     <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
     <string name="debug_card_root_test_action">Root tesztelése</string>
     <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">A próbamód aktív</string>
+    <string name="dashboard_dryrun_warning_body">A tisztítás szimulálva van. A fájlok letapogatva vannak, de semmi nem törlődik ténylegesen.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Kikapcsolás</string>
     <string name="data_area_public_app_data_official_label">Alapértelmezett nyilvános alkalmazásadatok</string>
     <string name="data_area_public_app_assets_official_label">Alapértelmezett nyilvános alkalmazáseszközök</string>
     <string name="data_area_public_storage_label">Nyilvános tároló</string>
@@ -289,7 +314,7 @@
     <string name="device_settings_category">Eszköz</string>
     <string name="review_app_review_action">Áttekintés</string>
     <string name="review_app_dismiss_action">Talán később</string>
-    <string name="review_app_body">Szeretnél véleményt hagyni az SD Maidről?️ ❤️</string>
+    <string name="review_app_body">Szeretnél véleményt hagyni az SD Maidről? ❤️</string>
     <string name="anniversary_card_title">Boldog SD Maid évfordulót ❤️</string>
     <string name="anniversary_card_install_date">Veled %s óta</string>
     <plurals name="anniversary_card_body">

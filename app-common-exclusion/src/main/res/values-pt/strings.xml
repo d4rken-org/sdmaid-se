@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="exclusion_manager_title">Gestor de Exclusões</string>
-    <string name="exclusion_manager_desc">Gerir arquivos e exclusões de aplicativos.</string>
+    <string name="exclusion_manager_title">Gestor de exclusões</string>
+    <string name="exclusion_manager_desc">Gerir exclusões de ficheiros e aplicações.</string>
     <string name="exclusion_explanation_body1">Exclua ficheiros e aplicações para protegê-los das ferramentas do SD Maid, ou para ignorar itens irrelevantes e acelerar as operações.</string>
     <string name="exclusion_add_new_hint">Sem exclusões até ao momento. Utilize o botão + para criar uma, ou exclua itens dos resultados de qualquer ferramenta.</string>
     <string name="exclusion_create_action">Criar exclusão</string>
     <string name="exclusion_edit_action">Editar exclusão</string>
-    <string name="exclusion_type_package">Exclusão de apps</string>
+    <string name="exclusion_type_package">Exclusão de aplicação</string>
     <string name="exclusion_type_path">Exclusão de caminho</string>
     <string name="exclusion_type_segment">Exclusão de segmento</string>
     <string name="exclusion_tags_alltools">Todas as ferramentas</string>
@@ -15,17 +15,17 @@
     <string name="exclusion_option_allow_partial">Permitir correspondências parciais</string>
     <string name="exclusion_option_ignore_casing">Ignorar maiúsculas/minúsculas</string>
     <string name="exclusion_editor_affected_tools_label">Ferramentas afetadas</string>
-    <string name="exclusion_editor_path_explanation">Uma exclusão dum caminho impede que o SD Maid processe ainda mais quaisquer caminhos correspondentes. Isto aplica-se a arquivos, pastas e subpastas.</string>
-    <string name="exclusion_editor_pkg_explanation">Uma aplicação impede o SD Maid de processar pacotes correspondentes.</string>
+    <string name="exclusion_editor_path_explanation">Uma exclusão de caminho impede que o SD Maid continue a processar os caminhos correspondentes. Aplica-se a ficheiros, pastas e subpastas.</string>
+    <string name="exclusion_editor_pkg_explanation">Uma exclusão de aplicação impede que o SD Maid processe os pacotes correspondentes.</string>
     <string name="exclusion_editor_segment_explanation">Uma exclusão baseada em segmento é semelhante a uma exclusão de caminho, mas permite correspondências parciais. Exemplo: \"DCIM/Camera\" exclui \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Remover esta exclusão?</string>
-    <string name="exclusion_reset_default_exclusions">Restaurar exclusões padrão</string>
+    <string name="exclusion_reset_default_exclusions">Restaurar exclusões predefinidas</string>
     <string name="exclusion_import_action">Importar exclusões</string>
     <string name="exclusion_export_action">Exportar exclusões</string>
-    <string name="exclusion_create_pkg_hint">Use a ferramenta AppControl para criar exclusões de aplicativos.</string>
+    <string name="exclusion_create_pkg_hint">Use a ferramenta AppControl para criar exclusões de aplicações.</string>
     <string name="exclusion_create_path_hint">Use a ferramenta StorageAnalyzer para criar exclusões de caminho.</string>
     <string name="exclusion_create_segment_hint">Fazer corresponder a um segmento de nome, como \"DCIM/Camera\".</string>
-    <string name="exclusion_show_defaults_action">Mostrar valores por defeito</string>
+    <string name="exclusion_show_defaults_action">Mostrar predefinições</string>
     <plurals name="exclusion_import_success_x_items">
         <item quantity="one">%d exclusão importada</item>
         <item quantity="other">%d exclusões importadas</item>

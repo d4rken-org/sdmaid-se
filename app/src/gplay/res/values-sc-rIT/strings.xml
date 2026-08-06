@@ -12,6 +12,7 @@
     <string name="upgrades_gplay_internal_error_description">S\'est verificadu un\'errore interna de Google Play. Proa custas cosas:\n\n• Torra a allùghere su dispositivu tuo\n• Limpia sa cache de Google Play Store\n• Proa torra prus a tardu</string>
     <string name="upgrades_gplay_network_error_title">Errore de connessione</string>
     <string name="upgrades_gplay_network_error_description">Impossìbile si connètere a Google Play. Controlla sa connessione internet tua e proa torra.</string>
+    <string name="upgrades_gplay_offer_unavailable_title">Oferta non disponìbile</string>
     <string name="upgrades_gplay_already_owned_error_title">Giai cumperadu</string>
     <string name="upgrades_gplay_already_owned_error_description">Imprea s\'optzione \"Recùpera su cùmperu\" pro recuperare su cùmperu tuo. Si su problema sighit, proa a limpiare sa cache de Google Play e a torrare a allùghere su dispositivu tuo.</string>
     <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>
@@ -25,6 +26,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">Si renovit ogni annu. Puedit cancelara in cale momentu in Google Play.</string>
     <string name="upgrade_screen_iap_offer_title">Cumpra una volta</string>
     <string name="upgrade_screen_iap_offer_body">Un pagamentu solu, sena renovatzionis.</string>
+    <string name="upgrade_screen_offers_unavailable_title">Prezos non disponìbiles</string>
     <string name="upgrade_screen_offers_unavailable_message">Sos prezos non sunt stados carrigados in custu momentu. Controlla Google Play e torrapa in un momentu.</string>
     <string name="upgrade_screen_subscription_trial_action">Cumintza sa proa de badas de 14 dies</string>
     <string name="upgrade_screen_subscription_action">Abbòna·ti</string>
@@ -59,4 +61,5 @@
     <string name="upgrade_screen_contact_support_action">Kuntatza sa sostegnu</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid issu nau at controrau Google Play, ma ninga compra Pro no ddeu poderia essi cunfirmada pro s\'acontu chi Google Play leverai pro custa appliche.</string>
     <string name="upgrade_screen_restore_contact_hint">Sempre bloadu? Kuntatza sa sostegnu dae s\'indirizu de posta chi at fatu sa compra e includi su numeru de ordine de Google Play.</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Sa verifiche cun Google Play no est finida in tempu, ita sos datos de sa compra sunt ancora incognitos. Nada no est cambiau in su contu tou.</string>
 </resources>

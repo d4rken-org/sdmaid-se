@@ -3,11 +3,35 @@
     <string name="dashboard_delete_all_message">Smazat výsledky ve všech nástrojích?</string>
     <string name="dashboard_hero_freeable_headline">Je možné uvolnit %1$s</string>
     <string name="dashboard_hero_freed_headline">Uvolněno %1$s</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">%d položka lze odstranit</item>
+        <item quantity="few">%d položky lze odstranit</item>
+        <item quantity="many">%d položek lze odstranit</item>
+        <item quantity="other">%d položek lze odstranit</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">%d položka odstraněna</item>
+        <item quantity="few">%d položky odstraněny</item>
+        <item quantity="many">%d položek odstraněno</item>
+        <item quantity="other">%d položek odstraněno</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Klepnutím na tlačítko uvolněte místo, nebo klepnutím na prvek nejdříve zkontrolujte.</string>
     <string name="dashboard_hero_freed_hint">Klepnutím na prvek zobrazíte podrobnosti.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s zbývá</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Nic nebylo uvolněno</string>
+    <string name="dashboard_hero_nothing_freed_caption">Čištění skončilo, ale žádná nalezená data se nepodařila odstranit.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Některá data lze odstranit pouze s dodatečným přístupem, například prostřednictvím služby usnadnění nebo root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Naskenováno %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Uvolněno %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Pokus o %1$s</string>
     <string name="dashboard_settings_category">Panel nástrojů</string>
     <string name="dashboard_motd_title">Zpráva od vývojáře</string>
     <string name="dashboard_settings_oneclick_title">Režim jedním klepnutím</string>
@@ -38,7 +62,7 @@
     <string name="debug_logview_search_next_action">Další shoda</string>
     <string name="debug_logview_jump_to_bottom_action">Přejít na poslední</string>
     <string name="debug_logview_paused_msg">Pozastaveno — mezipaměť zmrazena</string>
-    <string name="debug_logview_paused_dropped_msg">Pozastaveno — nové řádky přeskočeny: %1$d</string>
+    <string name="debug_logview_paused_dropped_msg">Pozastaveno — přeskočeno nových řádků: %1$d</string>
     <string name="debug_logview_copied_msg">Protokol zkopírován do schránky</string>
     <string name="debug_logview_share_label">Sdílet protokol</string>
     <string name="debug_debuglog_screen_title">Protokol ladění</string>
@@ -226,6 +250,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku v kombinaci s root přístupem nepovoluje další funkce, ale vylepšuje spolehlivost. SD Maid jej použije jako záložní metodu.</string>
     <string name="setup_shizuku_state_ready_label">Propojení se Shizuku je připraveno.</string>
     <string name="setup_shizuku_state_waiting_label">Čekání na propojení se Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Aplikace Shizuku není nainstalována.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Zkusit použít Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužít Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodního nastavení najdete opět v nabídce nastavení.</string>
@@ -280,6 +305,10 @@
     <string name="debug_card_pkgs_reload_action">Znovu načíst aplikace</string>
     <string name="debug_card_root_test_action">Otestovat root</string>
     <string name="debug_card_shizuku_test_action">Otestovat Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Režim simulace je aktivní</string>
+    <string name="dashboard_dryrun_warning_body">Probíhá simulace čištění. Soubory jsou skenovány a hlášeny, ale nic se ve skutečnosti neodstraňuje.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Vypnout</string>
     <string name="data_area_public_app_data_official_label">Výchozí veřejná data aplikace</string>
     <string name="data_area_public_app_assets_official_label">Výchozí veřejné prostředky aplikace</string>
     <string name="data_area_public_storage_label">Veřejné úložiště</string>
@@ -299,7 +328,7 @@
     <string name="device_settings_category">Zařízení</string>
     <string name="review_app_review_action">Posoudit</string>
     <string name="review_app_dismiss_action">Možná později</string>
-    <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
+    <string name="review_app_body">Chceš ohodnotit SD Maid? ❤️</string>
     <string name="anniversary_card_title">Šťastné výročí s aplikací SD Maid ❤️</string>
     <string name="anniversary_card_install_date">S vámi od %s</string>
     <plurals name="anniversary_card_body">
@@ -334,21 +363,21 @@
     <string name="widget_home_description">Využití úložného prostoru a vyčištění jedním klepnutím</string>
     <string name="widget_home_storage_internal">Interní</string>
     <string name="widget_home_storage_external">Externí</string>
-    <string name="widget_home_freed_label">Doba života: %1$s</string>
+    <string name="widget_home_freed_label">Životnost: %1$s</string>
     <string name="widget_home_clean_action">Vyčistit</string>
     <string name="widget_home_working">Pracuji…</string>
     <string name="widget_home_unavailable">Úložiště není dostupné</string>
     <string name="settings_category_widget">Widget</string>
-    <string name="widget_settings_oneclick_summary">Nechte tlačítko Vyčistit domovní obrazovky skenovat a mazat jedním klepnutím, aniž byste se pokaždé ptali.</string>
+    <string name="widget_settings_oneclick_summary">Nechte tlačítko Vyčistit u domovské obrazovky skenovat a mazat jedním klepnutím, bez dalších dotazů.</string>
     <string name="widget_oneclick_consent_title">Povolit čištění jedním klepnutím?</string>
-    <string name="widget_oneclick_consent_message">Tlačítko Vyčistit na widgetu bude skenovat a mazat najednou, aniž by se nejdříve ptalo nebo vám umožnilo zkontrolovat, co bude odebráno.</string>
+    <string name="widget_oneclick_consent_message">Tlačítko Vyčistit na widgetu bude najednou skenovat a mazat, aniž by se nejdříve ptalo nebo vám umožnilo zkontrolovat, co bude odebráno.</string>
     <string name="widget_oneclick_consent_enable_action">Povolit</string>
     <string name="widget_oneclick_consent_decline_action">Teď ne</string>
     <string name="shortcut_onetap_started">Skenování a mazání zahájeno…</string>
     <string name="shortcut_onetap_nothing_enabled">Nejsou povoleny žádné nástroje s jedním klepnutím</string>
     <!-- Config backup & restore -->
     <string name="backup_restore_title">Záloha a obnovení</string>
-    <string name="backup_restore_desc">Uložit nastavení a konfiguraci do souboru nebo je obnovit</string>
+    <string name="backup_restore_desc">Uložit nastavení a konfiguraci do souboru, nebo je obnovit</string>
     <string name="backup_restore_export_title">Vytvořit zálohu</string>
     <string name="backup_restore_export_desc">Uložit nastavení, vyloučení, plány a vlastní filtry do souboru</string>
     <string name="backup_restore_import_title">Obnovit zálohu</string>
@@ -367,7 +396,7 @@
     <string name="backup_restore_mode_merge_desc">Přidat zálohu k vaší aktuální konfiguraci</string>
     <string name="backup_restore_mode_replace">Nahradit</string>
     <string name="backup_restore_mode_replace_desc">Resetovat aktuální konfiguraci a pak aplikovat zálohu</string>
-    <string name="backup_restore_warn_version_body">Tato záloha je ze SD Maidu %1$s, ale vy používáte %2$s. Obnovení je oficielně podporováno pouze mezi shodnými verzemi.</string>
+    <string name="backup_restore_warn_version_body">Tato záloha je z SD Maid %1$s, ale vy používáte %2$s. Obnovení je oficiálně podporováno pouze mezi shodnými verzemi.</string>
     <string name="backup_restore_warn_android_body">Tato záloha byla vytvořena v Androidu %1$s, ale toto zařízení běží v Androidu %2$s.</string>
     <string name="backup_restore_warn_device_body">Tato záloha byla vytvořena na jiném zařízení (%1$s vs %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Tato záloha je z jiné edice aplikace (%1$s vs %2$s).</string>

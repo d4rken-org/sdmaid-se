@@ -3,11 +3,29 @@
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả công cụ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s có thể được giải phóng</string>
     <string name="dashboard_hero_freed_headline">Đã giải phóng %1$s</string>
+    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
+         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
+         <string> can only ever offer the translator one. -->
+    <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="other">%d mục có thể được xóa</item>
+    </plurals>
+    <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="other">%d mục đã bị xóa</item>
+    </plurals>
     <string name="dashboard_hero_freeable_hint">Nhấn nút để giải phóng dung lượng, hoặc nhấn một chip để kiểm tra trước.</string>
     <string name="dashboard_hero_freed_hint">Nhấn một chip để xem chi tiết.</string>
+    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
+         "couldn't be freed": the tools don't record whether an item was attempted and failed or
+         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s còn lại</string>
+    <!-- Shown when a cleanup ran to completion but could not free any space -->
+    <string name="dashboard_hero_nothing_freed_headline">Không có gì được giải phóng</string>
+    <string name="dashboard_hero_nothing_freed_caption">Quá trình dọn dẹp đã hoàn tất, nhưng không thể xóa bất kỳ dữ liệu nào được tìm thấy.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Một số dữ liệu chỉ có thể xóa bằng quyền truy cập thêm, chẳng hạn như dịch vụ trợ năng hoặc root.</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Đã quét %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Đã giải phóng %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Đã cố gắng %1$s</string>
     <string name="dashboard_settings_category">Bảng điều khiển</string>
     <string name="dashboard_motd_title">Tin nhắn từ nhà phát triển</string>
     <string name="dashboard_settings_oneclick_title">Chế độ một chạm</string>
@@ -211,6 +229,7 @@
     <string name="setup_shizuku_card_root_info">Shizuku kết hợp với truy cập root không cho phép các tính năng bổ sung, nhưng nó cải thiện độ tin cậy. SD Maid sẽ sử dụng nó như một phương pháp dự phòng.</string>
     <string name="setup_shizuku_state_ready_label">Liên kết Shizuku đã sẵn sàng.</string>
     <string name="setup_shizuku_state_waiting_label">Chờ liên kết với Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_label">Ứng dụng Shizuku chưa được cài đặt.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Hãy thử sử dụng Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Không sử dụng Shizuku</string>
     <string name="setup_dismiss_hint">Bạn có thể tìm lại màn hình thiết lập thông qua menu cài đặt.</string>
@@ -265,6 +284,10 @@
     <string name="debug_card_pkgs_reload_action">Tải lại các ứng dụng</string>
     <string name="debug_card_root_test_action">Kiểm tra root</string>
     <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
+    <!-- Dry-run warning card (dashboard) -->
+    <string name="dashboard_dryrun_warning_title">Chế độ mô phỏng đang hoạt động</string>
+    <string name="dashboard_dryrun_warning_body">Quá trình dọn dẹp đang được mô phỏng. Các tệp được quét và báo cáo, nhưng không có gì thực sự bị xóa.</string>
+    <string name="dashboard_dryrun_warning_disable_action">Tắt</string>
     <string name="data_area_public_app_data_official_label">Dữ liệu ứng dụng công khai mặc định</string>
     <string name="data_area_public_app_assets_official_label">Nội dung ứng dụng công khai mặc định</string>
     <string name="data_area_public_storage_label">Lưu trữ công khai</string>
@@ -284,7 +307,7 @@
     <string name="device_settings_category">Thiết bị</string>
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
-    <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
+    <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không? ❤️</string>
     <string name="anniversary_card_title">Mừng kỷ niệm SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Với bạn từ %s</string>
     <plurals name="anniversary_card_body">

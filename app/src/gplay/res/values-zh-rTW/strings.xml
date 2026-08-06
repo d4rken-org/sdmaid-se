@@ -12,8 +12,14 @@
     <string name="upgrades_gplay_internal_error_description">發生 Google Play 內部錯誤。請嘗試以下步驟：\n\n• 重新啟動您的裝置\n• 清除 Google Play 商店快取\n• 稍後再試</string>
     <string name="upgrades_gplay_network_error_title">連線錯誤</string>
     <string name="upgrades_gplay_network_error_description">無法連線至 Google Play。請檢查您的網路連線，然後再試一次。</string>
+    <string name="upgrades_gplay_offer_unavailable_title">優惠無法使用</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play 目前未提供此升級選項。請稍後重試或查看 Google Play 商店。</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">無法開啟 Google Play。此應用可能在此裝置上遺失、已停用或受限。</string>
     <string name="upgrades_gplay_already_owned_error_title">已購買</string>
     <string name="upgrades_gplay_already_owned_error_description">使用「還原購買」選項來還原您的購買。如果問題持續，請嘗試清除 Google Play 快取並重新啟動您的裝置。</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">取得 %1$s</string>
     <string name="upgrade_screen_preamble">SD 女僕沒有廣告，也不會出售使用者資料。我的工作由你們資助❤️。</string>
     <string name="upgrade_screen_benefits_title">升級優點</string>
     <string name="upgrade_screen_benefits_body">• 應用程式快取和垃圾清理\n• 重複檔案移除\n• 照片和影片壓縮\n• 滑動清除舊檔案\n• 透過小工具一鍵清理\n• 清理排程\n• 自訂篩選器和規則\n• 儲存空間趨勢和歷史\n• 應用程式各處的更多功能和控制項\n• 支援持續開發</string>
@@ -25,6 +31,7 @@
     <string name="upgrade_screen_subscription_offer_body_no_trial">每年續訂。可隨時在 Google Play 中取消。</string>
     <string name="upgrade_screen_iap_offer_title">購買一次</string>
     <string name="upgrade_screen_iap_offer_body">一次性付款，無需續訂。</string>
+    <string name="upgrade_screen_offers_unavailable_title">價格無法使用</string>
     <string name="upgrade_screen_offers_unavailable_message">目前無法載入價格。請檢查 Google Play，稍後再試。</string>
     <string name="upgrade_screen_subscription_trial_action">開始 14 天免費試用</string>
     <string name="upgrade_screen_subscription_action">訂閱</string>
@@ -59,4 +66,5 @@
     <string name="upgrade_screen_contact_support_action">聯絡支援</string>
     <string name="upgrade_screen_restore_checked_message">SD Maid 剛剛檢查了 Google Play，但無法為此應用程式所使用的 Google Play 帳號確認 Pro 購買項目。</string>
     <string name="upgrade_screen_restore_contact_hint">仍然有問題？請透過進行購買的電子郵件聯絡支援，並附上您的 Google Play 訂單編號。</string>
+    <string name="upgrade_screen_restore_inconclusive_message">Google Play 的檢查未按時完成，因此您的購買狀態仍未知。您的帳戶未發生任何變更。</string>
 </resources>

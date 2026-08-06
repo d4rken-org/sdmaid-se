@@ -2,8 +2,8 @@
 <resources>
     <string name="exclusion_manager_title">Ausschluss-Manager</string>
     <string name="exclusion_manager_desc">Datei- und App-Ausschlüsse verwalten.</string>
-    <string name="exclusion_explanation_body1">Schließen Sie Dateien und Apps aus, um sie vor SD Maids Tools zu schützen, oder überspringen Sie irrelevante Elemente und beschleunigen Sie Vorgänge.</string>
-    <string name="exclusion_add_new_hint">Noch keine Ausschlüsse. Verwenden Sie die Schaltfläche +, um einen zu erstellen, oder schließen Sie Elemente aus den Ergebnissen eines beliebigen Tools aus.</string>
+    <string name="exclusion_explanation_body1">Schließe Dateien und Apps aus, um sie vor den Tools von SD Maid zu schützen oder irrelevante Elemente zu überspringen und Vorgänge zu beschleunigen.</string>
+    <string name="exclusion_add_new_hint">Noch keine Ausschlüsse. Verwende die Plus-Schaltfläche, um einen zu erstellen, oder schließe Elemente direkt aus den Ergebnissen eines beliebigen Tools aus.</string>
     <string name="exclusion_create_action">Ausschluss erstellen</string>
     <string name="exclusion_edit_action">Ausschluss bearbeiten</string>
     <string name="exclusion_type_package">App-Ausschluss</string>
@@ -15,15 +15,15 @@
     <string name="exclusion_option_allow_partial">Teilübereinstimmungen zulassen</string>
     <string name="exclusion_option_ignore_casing">Groß-/Kleinschreibung ignorieren</string>
     <string name="exclusion_editor_affected_tools_label">Betroffene Tools</string>
-    <string name="exclusion_editor_path_explanation">Ein Pfadausschluss verhindert, dass SD Maid alle übereinstimmenden Pfade weiter verarbeitet. Dies gilt für Dateien, Verzeichnisse und Unterverzeichnisse.</string>
+    <string name="exclusion_editor_path_explanation">Ein Pfadausschluss verhindert, dass SD Maid übereinstimmende Pfade weiter verarbeitet. Dies gilt für Dateien, Ordner und Unterordner.</string>
     <string name="exclusion_editor_pkg_explanation">Ein App-Ausschluss verhindert, dass SD Maid passende Pakete verarbeitet.</string>
-    <string name="exclusion_editor_segment_explanation">Ein segmentbasierter Ausschluss ähnelt einem Pfadausschluss, ermöglicht jedoch teilweise Übereinstimmungen. Beispiel: „DCIM/Camera“ schließt „/sdcard/DCIM/Camera/photo.png“ aus.</string>
+    <string name="exclusion_editor_segment_explanation">Ein segmentbasierter Ausschluss ähnelt einem Pfadausschluss, ermöglicht jedoch partielle Übereinstimmungen. Beispiel: „DCIM/Camera“ schließt „/sdcard/DCIM/Camera/photo.png“ aus.</string>
     <string name="exclusion_editor_remove_confirmation_message">Diesen Ausschluss entfernen?</string>
     <string name="exclusion_reset_default_exclusions">Wiederherstellung der standardmäßigen Ausschlüsse</string>
     <string name="exclusion_import_action">Ausschlüsse importieren</string>
     <string name="exclusion_export_action">Ausschlüsse exportieren</string>
     <string name="exclusion_create_pkg_hint">Verwende das App-Kontrolle-Tool, um App-Ausnahmen zu erstellen.</string>
-    <string name="exclusion_create_path_hint">Verwende das Speicheranalyse-Tool, um Pfadausschlüsse zu erstellen.</string>
+    <string name="exclusion_create_path_hint">Das Speicheranalyse-Tool verwenden, um Pfadausschlüsse zu erstellen.</string>
     <string name="exclusion_create_segment_hint">Stimmt mit einem Namenssegment überein, wie „DCIM/Camera“.</string>
     <string name="exclusion_show_defaults_action">Standardwerte anzeigen</string>
     <plurals name="exclusion_import_success_x_items">

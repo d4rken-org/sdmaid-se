@@ -23,6 +23,8 @@
     <string name="automation_error_scheduler_body">एउटा तैयारी गरिएको कार्यले प्रवेशयोग्यता सेवा प्रयोग गर्न खोज्यो, तर उपलब्ध थिएन। यदि तपाईंलाई यो चाहिनन, ते स्केड्युलर सेटिङमा \"प्रवेशयोग्यता सेवा\" विकल्प अक्षम गर्नुहोस्।</string>
     <string name="automation_error_no_settings_title">सेटिङ स्क्रिन उपलब्ध छैन</string>
     <string name="automation_error_no_settings_body">यस सिस्टम app मा कुनै सेटिङ स्क्रिन छैन। Accessibility service मार्फत cache सफा गर्न सम्भव छैन। Cache सफा गर्ने काम छिटो बनाउन यसलाई बहिष्कार गर्नुहोस्।</string>
+    <string name="automation_error_disabled_app_title">अनुप्रयोग अक्षम छ</string>
+    <string name="automation_error_disabled_app_body">तपाईंको उपकरणले अक्षम अनुप्रयोगहरूको सेटिङ्स स्क्रिन खोल्ने छैन, त्यसैले क्यास पहुँचयोग्यता सेवामार्फत साफ गर्न सकिँदैन। अनुप्रयोग सक्षम गर्नुहोस्, वा रुट वा Shizuku/ADB को प्रयोग गर्नुहोस्।</string>
     <string name="automation_error_interference_title">सेटिङ्स स्क्रिन अवरुद्ध गरिएको छ</string>
     <string name="automation_error_interference_body">अन्य अनुप्रयोग (%1$s) प्रणाली सेटिङ्स स्क्रिन अवरुद्ध गरिरहेको छ, त्यसकारण SD Maid जारी राख्न सक्दैन। त्यस अनुप्रयोगको अनुप्रयोग-लक वा प्रणाली सेटिङ्सको लागि स्क्रिन सुरक्षा असक्षम गर्नुहोस्, त्यसपछि पुनः प्रयास गर्नुहोस्।</string>
     <string name="automation_loading">Accessibility service मार्फत स्वचालन तयार गर्दै</string>
