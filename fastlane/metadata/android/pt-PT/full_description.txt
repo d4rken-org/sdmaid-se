@@ -1,55 +1,55 @@
-<i>SD Maid SE</i> é o seu assistente para sistemas Android, para os manter limpos e arrumados.
+<i>SD Maid 2/SE</i> é o assistente de confiança do seu Android para o manter limpo e arrumado.
 
 Ninguém é perfeito e o Android também não.
 
-* As aplicações removidas deixam sempre vestígios.
-* Os registos, relatórios de erros e outros ficheiros desnecessários estão, constantemente, a serem criados.
-* O seu armazenamento acumula ficheiros e pastas que você não reconhece.
-* Duplicar fotos na sua galeria.
+* As aplicações que já removeu deixam dados para trás.
+* Os registos, relatórios de falhas e outros ficheiros desnecessários estão constantemente a ser criados.
+* O seu armazenamento acumula ficheiros e pastas que não reconhece.
+* Fotografias duplicadas na galeria.
 
-Não vá por aí… SD Maid SE está aqui para ajudar!
+E podíamos continuar… Deixe o SD Maid 2/SE ajudar!
 
-O SD Maid 2/SE é uma aplicação e gestor de ficheiros que sabe quais aplicações criaram ficheiros no seu dispositivo. Compara ficheiros com aplicações instaladas para ajudá-lo a libertar espaço de armazenamento em segurança.
+O SD Maid 2/SE é um gestor de aplicações e ficheiros que sabe quais as aplicações que criaram os ficheiros no dispositivo. Compara os ficheiros com as aplicações instaladas para o ajudar a libertar espaço de armazenamento em segurança.
 
 ✨ Limpar após desinstalar aplicações
 
-Se aplicações criam arquivos fora dos seus diretórios designados, então os arquivos poderão continuar mesmo depois de desinstalar as aplicações. A ferramenta "Encontrar restos" decobre a aplicação a que pertenceu os arquivos, e ajuda a excluí-los.
+Se as aplicações criarem ficheiros fora das pastas que lhes estão atribuídas, esses ficheiros podem permanecer mesmo depois de as aplicações serem desinstaladas. A ferramenta "CorpseFinder" encontra resíduos de aplicações, indica a que aplicação pertenciam e ajuda a eliminá-los.
 
 🔍 Pesquise o seu dispositivo de maneira inteligente
 
-Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. Você pode mesmo criar os seus próprios critérios de pesquisa. A ferramenta "SystemCleaner" procura e elimina automaticamente ficheiros com base em vários critérios.
+Filtre pastas vazias, ficheiros temporários, aplicações já instaladas e muito mais. Pode mesmo criar os seus próprios critérios de pesquisa. A ferramenta "SystemCleaner" procura e elimina automaticamente ficheiros com base em vários critérios.
 
-🧹 Apague arquivos dispensáveis e caches ocultas
+🧹 Elimine ficheiros dispensáveis e caches ocultas
 
-Miniaturas, caixotes do lixo, caches offline e muito mais: Se as aplicações não se limparem a si mesmas, então esta aplicação irá fazê-lo. A ferramenta "AppCleaner" encontra aplicações com arquivos dispensáveis.
+Miniaturas, pastas do lixo, caches offline e muito mais: se as aplicações não fizerem a própria limpeza, esta aplicação trata disso. A ferramenta "AppCleaner" encontra aplicações com ficheiros dispensáveis.
 
-📦 Faça gestão de todas as suas aplicações
+📦 Gerir todas as suas aplicações
 
-Obtenha uma lista completa de todas as aplicações instalados no seu dispositivo. Ativada, desativada, aplicação do sistema ou do utilizador: nenhuma aplicação pode se esconder de si. A ferramenta "AppControl" é um gestor de aplicações que lhe permite pesquisar, ordenar e controlar as suas aplicações.
+Obtenha uma lista completa de todas as aplicações instaladas no seu dispositivo. Ativada, desativada, do utilizador ou do sistema: nenhuma aplicação se consegue esconder. A ferramenta "AppControl" é um gestor de aplicações que lhe permite pesquisar, ordenar e controlar as suas aplicações.
 
-📊 O que está a usar todo o seu espaço
+📊 O que está a ocupar todo o espaço
 
-A gestão de armazenamento pode ser complexa com aplicações, multimédia, sistema e outros ficheiros no armazenamento do dispositivo, cartões SD e dispositivos USB. "StorageAnalyzer" é um gestor de arquivos que exibe como o espaço é usado no seu dispositivo, simplificando a sua gestão de armazenamento.
+A gestão do armazenamento pode ser complexa, com aplicações, conteúdos multimédia, ficheiros do sistema e outros ficheiros distribuídos pelo armazenamento do dispositivo, cartões SD e dispositivos USB. O "StorageAnalyzer" é um gestor de ficheiros que mostra como o espaço é utilizado no dispositivo, simplificando a gestão do armazenamento.
 
 📷 Encontrar dados duplicados
 
-Downloads duplicados, fotos enviadas através das redes sociais ou apenas imagens semelhantes do mesmo cenário: com o tempo, as cópias podem acumular. A ferramenta "Desduplicator" encontra arquivos que são exatamente iguais ou semelhantes e ajuda a excluir cópias extras.
+Transferências duplicadas, fotografias enviadas através das redes sociais ou simplesmente imagens semelhantes da mesma cena: as cópias podem acumular-se ao longo do tempo. A ferramenta "Deduplicator" encontra ficheiros exatamente iguais ou semelhantes e ajuda a eliminar cópias adicionais.
 
-👆 Organize com um deslize
+👆 Organize com um gesto
 
-Escolha uma pasta e percorra os ficheiros um a um com deslizes simples para manter, apagar ou ignorar. A ferramenta "Swiper" permite-lhe rever todas as decisões antes de qualquer coisa ser apagada, e pode guardar uma sessão para continuar mais tarde.
+Escolha uma pasta e percorra os ficheiros um a um com deslizes simples para manter, eliminar ou ignorar. A ferramenta "Swiper" permite-lhe rever todas as decisões antes de qualquer coisa ser eliminada, e pode guardar uma sessão para continuar mais tarde.
 
-🗄️ Poupe espaço sem apagar fotos
+🗜️ Poupe espaço sem eliminar fotografias
 
-As fotos podem ocupar muito espaço de armazenamento, mas nem sempre se quer removê-las. A ferramenta "Media Squeeze" comprime as suas imagens com definições de qualidade ajustáveis para libertar espaço mantendo as suas fotos.
+As fotografias podem ocupar muito espaço de armazenamento, mas nem sempre pretende eliminá-las. A ferramenta "Media Squeeze" comprime as imagens com definições de qualidade ajustáveis para libertar espaço, mantendo as fotografias.
 
-Esta aplicação não tem publicidade. Algumas funcionalidades requerem uma versão paga.
+Esta aplicação não tem publicidade. Algumas funcionalidades requerem uma atualização paga.
 
-SD Maid 2 SE é o sucessor do SD Maid 1/Legacy.
+O SD Maid 2/SE é o sucessor do SD Maid 1/Legacy.
 Otimizado para versões mais recentes do Android e focado na limpeza.
 
-SD Maid possui recursos opcionais que utilizam a API AccessibilityService para automatizar ações chatas.
-Usando a API AccessibilityService, o SD Maid pode clicar em botões para realizar operações em várias aplicações, por exemplo. a apagar caches.
-SD Maid não usa a API AccessibilityService para recolher informações.
+O SD Maid inclui funcionalidades opcionais que usam a API AccessibilityService para automatizar ações repetitivas.
+Através da API AccessibilityService, o SD Maid pode tocar em botões por si para efetuar operações em várias aplicações, por exemplo: eliminar caches.
+O SD Maid não utiliza a API AccessibilityService para recolher informações.
 
-O SD Maid 2/SE é um Gesor de Arquivos e Aplicativo Cleaner.
+O SD Maid 2/SE é uma aplicação de gestão e limpeza de ficheiros.
