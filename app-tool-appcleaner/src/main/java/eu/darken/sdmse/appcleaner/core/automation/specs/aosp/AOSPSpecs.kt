@@ -340,7 +340,7 @@ class AOSPSpecs @Inject constructor(
             }
         }
 
-        for (cycle in 1..maxCycles) {
+        cycleLoop@ for (cycle in 1..maxCycles) {
             val bootstrapped = bootstrapAnchor("cycle-$cycle")
             if (!bootstrapped) {
                 delay(120)
@@ -385,7 +385,10 @@ class AOSPSpecs @Inject constructor(
                 if (!moved) {
                     log(tag, WARN) { "DPAD_RIGHT cycle=$cycle step=$stepIdx failed" }
                     logFocus("cycle-$cycle failed RIGHT")
-                    return false
+                    // Retrying cycles cannot help - if focus won't move right it won't move right
+                    // next cycle either. Fall through to the blind sweep, which doesn't depend on
+                    // focus reporting, rather than giving up on the remaining strategies.
+                    break@cycleLoop
                 }
                 totalRightSteps++
                 delay(stepDelayMs)

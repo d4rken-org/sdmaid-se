@@ -299,6 +299,38 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
+    fun `blind sweep still runs when DPAD_RIGHT is refused outright`() = runTest {
+        // Regression guard: a refused DPAD_RIGHT used to return from the whole navigation, which
+        // skipped the remaining cycles AND the blind sweep. The blind sweep does not depend on
+        // focus moving, so it has to stay reachable when the platform won't move focus at all.
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            firstArg<Int>() != android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT
+        }
+
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+            """.trimIndent()
+        )
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe false
+        // Quick-try skips its CENTER because RIGHT never moved, so the 3 CENTERs are the blind
+        // sweep at positions 2-4. Before the fix this was 0 - the sweep was never reached.
+        verify(exactly = 3) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
     fun `clear cache DPAD validation fails when root package changes after click`() = runTest {
         setupTestScope(this)
         mockkStatic(::hasApiLevel)
