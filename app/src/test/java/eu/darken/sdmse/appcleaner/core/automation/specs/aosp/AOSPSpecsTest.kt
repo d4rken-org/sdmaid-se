@@ -299,10 +299,12 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
-    fun `blind sweep still runs when DPAD_RIGHT is refused outright`() = runTest {
-        // Regression guard: a refused DPAD_RIGHT used to return from the whole navigation, which
-        // skipped the remaining cycles AND the blind sweep. The blind sweep does not depend on
-        // focus moving, so it has to stay reachable when the platform won't move focus at all.
+    fun `a refused DPAD_RIGHT still clicks and still reaches the blind sweep`() = runTest {
+        // Regression guard for the Android 17 report. DOWN from the header lands directly on the
+        // clear-cache button (verified on a Pixel 7a and a Pixel 8), so the following RIGHT has
+        // nowhere to go. Some builds return true for it regardless, others report the refusal
+        // honestly - and we used to treat that honest answer as fatal, skipping the click while
+        // focus was sitting on the button, then abandoning the remaining strategies too.
         setupTestScope(this)
         mockkStatic(::hasApiLevel)
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
@@ -325,9 +327,10 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val result = captureAndRunClearCacheAction()
 
         result shouldBe false
-        // Quick-try skips its CENTER because RIGHT never moved, so the 3 CENTERs are the blind
-        // sweep at positions 2-4. Before the fix this was 0 - the sweep was never reached.
-        verify(exactly = 3) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        // 1 quick-try + 3 blind-sweep (positions 2-4) = 4 CENTER, matching the all-actions-succeed
+        // case above. A refused RIGHT must not change how many clicks we attempt. Before the fix
+        // this was 0: quick-try skipped its click and the sweep was never reached.
+        verify(exactly = 4) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
     @Test
