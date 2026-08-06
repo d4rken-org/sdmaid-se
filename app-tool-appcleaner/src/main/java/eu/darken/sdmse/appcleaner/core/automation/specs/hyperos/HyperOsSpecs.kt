@@ -222,7 +222,10 @@ class HyperOsSpecs @Inject constructor(
                 if (clearDataTarget == null) {
                     findNode { it.isTextView() && it.textMatchesAny(clearCacheLabels) }?.let {
                         useAlternativeStep = true
-                        throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                        throw StepAbortException(
+                            message = "Got 'Clear cache' instead of 'Clear data' skip the action dialog step.",
+                            treatAsSuccess = true,
+                        )
                     }
 
                     findNode { it.isTextView() && it.textMatchesAny(manageSpaceLabels) }?.let {

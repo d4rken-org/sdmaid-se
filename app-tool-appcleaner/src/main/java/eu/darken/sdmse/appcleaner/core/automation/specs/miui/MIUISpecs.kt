@@ -217,7 +217,10 @@ class MIUISpecs @Inject constructor(
                 val altNode = findNodeByLabel(clearCacheLabels)
                 if (altNode != null) {
                     useAlternativeStep = true
-                    throw StepAbortException("Got 'Clear cache' instead of 'Clear data' skip the action dialog step.")
+                    throw StepAbortException(
+                        message = "Got 'Clear cache' instead of 'Clear data' skip the action dialog step.",
+                        treatAsSuccess = true,
+                    )
                 }
 
                 var target = findNodeByLabel(clearDataLabels) ?: return@action false

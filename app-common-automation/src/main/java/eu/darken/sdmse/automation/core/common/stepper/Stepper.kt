@@ -93,6 +93,8 @@ class Stepper @Inject constructor(
                     } catch (e: StepAbortException) {
                         log(tag, WARN) { "ABORT Step due to ${e.asLog()}" }
                         logFailureNodes(tag, context)
+                        // Only a deliberate skip may continue the plan, a failure has to propagate
+                        if (!e.treatAsSuccess) throw e
                         break
                     } catch (e: Exception) {
                         log(tag, WARN) { "crawl(): Attempt $stepAttempts failed on $step:\n${e.asLog()}" }
