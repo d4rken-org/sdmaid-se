@@ -43,13 +43,16 @@ data class ReviewDashboardCardItem(
 @Composable
 internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
     val activity = LocalActivity.current
-    // The card has three tap targets that all remove it, but the removal only arrives with the next
-    // state emission. Until then a second tap would reach a second callback (dismiss after review
-    // overwrites the review bookkeeping with a snooze), so the first action consumes all of them.
-    var actionTaken by rememberSaveable { mutableStateOf(false) }
+    // The card only disappears with the next state emission, so the tap targets need a latch. It is
+    // asymmetric on purpose: the harmful orderings are a dismiss after a review (which overwrites
+    // the review bookkeeping with a snooze) and a review after a dismiss. A repeated review tap is
+    // harmless, the tool's single-flight lock absorbs it, and blocking it here would leave a dead
+    // card whenever a Play request fails and nothing gets persisted.
+    var dismissLocked by rememberSaveable { mutableStateOf(false) }
+    var fullyLatched by rememberSaveable { mutableStateOf(false) }
     val onReview = {
-        if (!actionTaken && activity != null) {
-            actionTaken = true
+        if (!fullyLatched && activity != null) {
+            dismissLocked = true
             item.onReview(activity)
         }
     }
@@ -79,12 +82,13 @@ internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
         ) {
             DashboardFlatActionButton(
                 onClick = {
-                    if (!actionTaken) {
-                        actionTaken = true
+                    if (!fullyLatched && !dismissLocked) {
+                        dismissLocked = true
+                        fullyLatched = true
                         item.onDismiss()
                     }
                 },
-                enabled = !actionTaken,
+                enabled = !fullyLatched && !dismissLocked,
             ) {
                 Text(text = stringResource(R.string.review_app_dismiss_action))
             }
@@ -92,7 +96,7 @@ internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
             DashboardFilledActionButton(
                 modifier = Modifier.weight(1f),
                 onClick = onReview,
-                enabled = !actionTaken && activity != null,
+                enabled = !fullyLatched && activity != null,
             ) {
                 Icon(
                     imageVector = SdmIcons.GooglePlay,
