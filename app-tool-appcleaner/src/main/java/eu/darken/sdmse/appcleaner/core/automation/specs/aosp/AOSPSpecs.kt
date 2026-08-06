@@ -299,8 +299,11 @@ class AOSPSpecs @Inject constructor(
             return bootstrapInputFocusResult || bootstrapA11yFocusResult || alreadyInputFocused || alreadyA11yFocused
         }
 
-        // Where focus actually sits after a movement. Without this a failed DPAD_RIGHT is ambiguous:
-        // the preceding DOWN may have gone nowhere, landed on the button row, or overshot it.
+        // Best-effort reading of where focus sits after a movement. Treat it as a hint, not proof:
+        // the framework often does not report focus after a DPAD action, so this can show the
+        // pre-movement node even when the movement worked. Observed on a Pixel 8 that clears the
+        // cache successfully - DPAD_DOWN returns true and focus still reads as the anchor. Only a
+        // reading that differs from the anchor says anything; an unchanged one is inconclusive.
         suspend fun logFocus(step: String) {
             val focus = findFocusedNode()
             log(tag) {
