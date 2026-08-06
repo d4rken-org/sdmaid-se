@@ -52,7 +52,14 @@ fun ComposeErrorDialog(
     // lambdas, so never equal) on every recomposition, which would wipe the message immediately.
     var actionError by remember(throwable) { mutableStateOf<CaString?>(null) }
 
-    fun dispatchAndDismiss(route: NavigationDestination?, action: ((Activity) -> Unit)?) {
+    // errorMessage is per-dispatch, NOT read from localizedError: this function serves both the fix
+    // and the info button, and fixActionErrorMessage describes only the fix action's failure. Each
+    // call site passes its own copy (or none), so no button can ever surface another one's message.
+    fun dispatchAndDismiss(
+        route: NavigationDestination?,
+        action: ((Activity) -> Unit)?,
+        errorMessage: CaString? = null,
+    ) {
         // Error actions are arbitrary third-party code (intent launches, navigation): a throw here
         // would crash the UI thread from inside a click handler, and skipping onDismiss() would
         // leave the dialog latched on the current error with no way out.
@@ -63,9 +70,9 @@ fun ComposeErrorDialog(
             }
         } catch (e: Exception) {
             log(TAG, ERROR) { "Error action failed: ${e.asLog()}" }
-            // An error that ships its own failure copy keeps the dialog open and shows it inline
+            // A dispatch that ships its own failure copy keeps the dialog open and shows it inline
             // (no length cap, unlike a Toast). Never latched: the dismiss button stays available.
-            localizedError.fixActionErrorMessage?.let {
+            errorMessage?.let {
                 actionError = it
                 return
             }
@@ -108,7 +115,13 @@ fun ComposeErrorDialog(
                     SdmDialogAction(
                         label = localizedError.fixActionLabel?.get(context)
                             ?: stringResource(android.R.string.ok),
-                        onClick = { dispatchAndDismiss(localizedError.fixActionRoute, localizedError.fixAction) },
+                        onClick = {
+                            dispatchAndDismiss(
+                                route = localizedError.fixActionRoute,
+                                action = localizedError.fixAction,
+                                errorMessage = localizedError.fixActionErrorMessage,
+                            )
+                        },
                     )
                 } else {
                     SdmDialogAction(
@@ -128,7 +141,14 @@ fun ComposeErrorDialog(
                     SdmDialogAction(
                         label = localizedError.infoActionLabel?.get(context)
                             ?: stringResource(R.string.general_show_details_action),
-                        onClick = { dispatchAndDismiss(localizedError.infoActionRoute, localizedError.infoAction) },
+                        // No errorMessage: the info action has no failure copy of its own, and it
+                        // must never borrow the fix action's.
+                        onClick = {
+                            dispatchAndDismiss(
+                                route = localizedError.infoActionRoute,
+                                action = localizedError.infoAction,
+                            )
+                        },
                     )
                 } else {
                     null
