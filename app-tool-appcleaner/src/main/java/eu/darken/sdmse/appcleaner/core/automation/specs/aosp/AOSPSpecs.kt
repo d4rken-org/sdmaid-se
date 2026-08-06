@@ -299,12 +299,27 @@ class AOSPSpecs @Inject constructor(
             return bootstrapInputFocusResult || bootstrapA11yFocusResult || alreadyInputFocused || alreadyA11yFocused
         }
 
+        // Where focus actually sits after a movement. Without this a failed DPAD_RIGHT is ambiguous:
+        // the preceding DOWN may have gone nowhere, landed on the button row, or overshot it.
+        suspend fun logFocus(step: String) {
+            val focus = findFocusedNode()
+            log(tag) {
+                "DPAD focus after $step: input=${focus.inputFocused}, a11y=${focus.accessibilityFocused}"
+            }
+        }
+
         run {
             val fastBootstrapped = bootstrapAnchor("quick-try")
             if (fastBootstrapped) {
-                dpadDown()
+                val steppedDown = dpadDown()
+                log(tag, INFO) { "DPAD_DOWN result=$steppedDown (source=quick-try)" }
+                logFocus("quick-try DOWN")
                 delay(stepDelayMs)
                 val moved = dpadRight()
+                if (!moved) {
+                    log(tag, WARN) { "DPAD_RIGHT failed (source=quick-try)" }
+                    logFocus("quick-try failed RIGHT")
+                }
                 if (moved) {
                     delay(stepDelayMs)
                     val clicked = if (Bugs.isDryRun) true else dpadCenter()
@@ -357,7 +372,9 @@ class AOSPSpecs @Inject constructor(
                 log(tag, INFO) { "Focus not on anchor in cycle $cycle, attempting DPAD traversal anyway" }
             }
 
-            dpadDown()
+            val steppedDown = dpadDown()
+            log(tag, INFO) { "DPAD_DOWN result=$steppedDown (cycle=$cycle)" }
+            logFocus("cycle-$cycle DOWN")
             delay(stepDelayMs)
 
             var stalledSteps = 0
@@ -367,6 +384,7 @@ class AOSPSpecs @Inject constructor(
                 val moved = dpadRight()
                 if (!moved) {
                     log(tag, WARN) { "DPAD_RIGHT cycle=$cycle step=$stepIdx failed" }
+                    logFocus("cycle-$cycle failed RIGHT")
                     return false
                 }
                 totalRightSteps++
@@ -429,12 +447,15 @@ class AOSPSpecs @Inject constructor(
                     return false
                 }
 
-                dpadDown()
+                val steppedDown = dpadDown()
+                log(tag, INFO) { "DPAD_DOWN result=$steppedDown (source=blind-sweep-$rightSteps)" }
                 delay(stepDelayMs)
-                repeat(rightSteps) {
-                    dpadRight()
+                repeat(rightSteps) { step ->
+                    val moved = dpadRight()
+                    if (!moved) log(tag, WARN) { "DPAD_RIGHT blind-sweep-$rightSteps step=${step + 1} failed" }
                     delay(stepDelayMs)
                 }
+                logFocus("blind-sweep-$rightSteps")
 
                 val clicked = if (Bugs.isDryRun) true else dpadCenter()
                 log(tag, INFO) { "DPAD_CENTER result=$clicked (source=blind-sweep-$rightSteps)" }
