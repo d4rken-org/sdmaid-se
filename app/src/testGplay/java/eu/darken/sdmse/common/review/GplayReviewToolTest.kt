@@ -544,7 +544,7 @@ class GplayReviewToolTest : BaseTest() {
 
     @Test fun `the probe retry rounds are bounded`() = runTest2 {
         every { manager.requestReviewFlow() } returns Tasks.forException(RuntimeException("Play unavailable"))
-        val tool = tool()
+        val tool = tool(hotSettings = true)
         val states = collectStates(tool)
 
         advanceBy(PROBE_FAILURE_COOLDOWN.multipliedBy(4))
@@ -554,6 +554,15 @@ class GplayReviewToolTest : BaseTest() {
         states.last().shouldAskForReview shouldBe false
 
         advanceBy(PROBE_FAILURE_COOLDOWN.multipliedBy(20))
+
+        verify(exactly = 12) { manager.requestReviewFlow() }
+
+        // The budget is spent for the process: an eligibility flicker restarts the probe branch,
+        // but it must not hand out a fresh set of rounds.
+        lastDismissedFlow.value = Instant.now()
+        advanceBy(Duration.ofSeconds(1))
+        lastDismissedFlow.value = null
+        advanceBy(PROBE_FAILURE_COOLDOWN.multipliedBy(10))
 
         verify(exactly = 12) { manager.requestReviewFlow() }
     }
