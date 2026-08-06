@@ -44,6 +44,8 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
         private val fixAction: ((Activity) -> Unit)? = null,
         private val fixRoute: NavigationDestination? = null,
         private val fixErrorMessage: String? = null,
+        private val infoLabel: String? = null,
+        private val infoAction: ((Activity) -> Unit)? = null,
     ) : Exception(ERROR_BODY), HasLocalizedError {
         override fun getLocalizedError() = LocalizedError(
             throwable = this,
@@ -53,6 +55,8 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
             fixAction = fixAction,
             fixActionRoute = fixRoute,
             fixActionErrorMessage = fixErrorMessage?.toCaString(),
+            infoActionLabel = infoLabel?.toCaString(),
+            infoAction = infoAction,
         )
     }
 
@@ -161,6 +165,27 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `a throwing info action never borrows the fix action's failure message`() {
+        // The failure copy belongs to the fix action's dispatch, not to the error: the info button
+        // dispatches without one and must keep the plain log-then-dismiss behaviour.
+        show(
+            TestError(
+                fixLabel = FIX_LABEL,
+                fixAction = {},
+                fixErrorMessage = FIX_ERROR_MESSAGE,
+                infoLabel = INFO_LABEL,
+                infoAction = { throw IllegalStateException("info action exploded") },
+            )
+        )
+
+        composeRule.onNodeWithText(INFO_LABEL).performClick()
+        composeRule.waitForIdle()
+
+        dismissals shouldBe 1
+        composeRule.onAllNodesWithText(FIX_ERROR_MESSAGE).assertCountEquals(0)
+    }
+
+    @Test
     fun `a throwing route navigation still closes the dialog`() {
         val navController = mockk<NavigationController>(relaxed = true).apply {
             every { goTo(any(), any(), any()) } throws IllegalStateException("NavigationController not initialized")
@@ -180,3 +205,4 @@ private const val ERROR_TITLE = "Test error title"
 private const val ERROR_BODY = "Test error description"
 private const val FIX_LABEL = "Fix it"
 private const val FIX_ERROR_MESSAGE = "Fixing it did not work"
+private const val INFO_LABEL = "Tell me more"
