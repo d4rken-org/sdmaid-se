@@ -20,9 +20,10 @@ import testhelpers.compose.BaseComposeRobolectricTest
 
 /**
  * The card only disappears once the next state emission arrives, so its three tap targets (card
- * body, dismiss, review) have to be one-shot: whichever the user hits first wins and the others
- * become no-ops. Otherwise a dismiss landing after a review overwrites the completed-review
- * bookkeeping with a snooze.
+ * body, dismiss, review) need a latch: a dismiss after a review would overwrite the
+ * completed-review bookkeeping with a snooze, a review after a dismiss would re-open what the user
+ * just closed. The latch is asymmetric — repeated review taps stay allowed, because a Play request
+ * can fail without persisting anything, which leaves the card on screen and in need of a retry.
  */
 class ReviewDashboardCardTest : BaseComposeRobolectricTest() {
 
@@ -93,7 +94,7 @@ class ReviewDashboardCardTest : BaseComposeRobolectricTest() {
         cardBody().performSemanticsAction(SemanticsActions.OnClick)
         composeRule.runOnIdle { reviews shouldBe 1 }
 
-        cardBody().performSemanticsAction(SemanticsActions.OnClick)
+        dismissButton().assertIsNotEnabled()
         dismissButton().performClick()
 
         composeRule.runOnIdle {
@@ -103,7 +104,25 @@ class ReviewDashboardCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `a review tap without an activity does not consume the gate`() {
+    fun `repeated review taps are not absorbed by the card`() {
+        setContent()
+
+        reviewButton().performClick()
+        composeRule.runOnIdle { reviews shouldBe 1 }
+
+        // A failed Play request persists nothing and leaves the card up, so the retry has to work.
+        // Duplicates are the tool's problem, it holds a single-flight lock for exactly this.
+        reviewButton().assertIsEnabled()
+        reviewButton().performClick()
+
+        composeRule.runOnIdle {
+            reviews shouldBe 2
+            dismisses shouldBe 0
+        }
+    }
+
+    @Test
+    fun `a review tap without an activity consumes neither latch`() {
         setContent(activity = null)
 
         reviewButton().assertIsNotEnabled()
