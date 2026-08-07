@@ -38,17 +38,13 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.WebpageTool
@@ -56,6 +52,7 @@ import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.common.upgrade.ui.brandTitle
 
 @StringRes
 private fun getRngSlogan() = when ((0..8).random()) {
@@ -88,19 +85,8 @@ internal fun TitleDashboardCard(
 ) {
     val slogan = remember { getRngSlogan() }
     val sloganText = stringResource(slogan)
-    val titleText = if (item.upgradeInfo?.isPro == true) {
-        buildAnnotatedString {
-            append(stringResource(CommonR.string.app_name))
-            append(" ")
-            pushStyle(SpanStyle(color = colorResource(R.color.colorUpgraded)))
-            append(stringResource(R.string.app_name_upgrade_postfix))
-            pop()
-        }
-    } else {
-        buildAnnotatedString {
-            append(stringResource(CommonR.string.app_name))
-        }
-    }
+    val isPro = item.upgradeInfo?.isPro == true
+    val titleText = brandTitle(includeQualifier = isPro, highlightQualifier = isPro)
 
     val mascotRotation = remember { Animatable(0f) }
     val mascotImpact = remember { Animatable(0f) }
