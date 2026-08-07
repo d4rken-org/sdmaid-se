@@ -8,6 +8,7 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasClickAction
+import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertHasNoClickAction
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -22,8 +23,11 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.ui.dashboard.BottomBarState
 import eu.darken.sdmse.main.ui.dashboard.HeroSummary
+import eu.darken.sdmse.main.ui.dashboard.showsUpgradeBlock
 import eu.darken.sdmse.main.core.SDMTool
+import io.kotest.matchers.shouldBe
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertTrue
 import org.junit.Test
 import org.robolectric.annotation.Config
 import testhelpers.compose.BaseComposeRobolectricTest
@@ -78,7 +82,13 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("can be removed", substring = true).assertExists()
     }
 
-    private fun renderHero(hero: HeroSummary, fontScale: Float = 1f) {
+    private fun renderHero(
+        hero: HeroSummary,
+        fontScale: Float = 1f,
+        now: Instant = Instant.EPOCH,
+        onUpgrade: () -> Unit = {},
+        onLockedToolClick: (SDMTool.Type) -> Unit = {},
+    ) {
         composeRule.setContent {
             val base = LocalDensity.current
             CompositionLocalProvider(
@@ -86,13 +96,14 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             ) {
                 PreviewWrapper {
                 BottomBar(
-                    state = deleteState(hero),
+                    state = deleteState(hero, now = now),
                     isVisible = true,
                     heroVisible = true,
                     onMainAction = {},
                     onSettings = {},
-                    onUpgrade = {},
+                    onUpgrade = onUpgrade,
                     onDismissHero = {},
+                    onLockedToolClick = onLockedToolClick,
                     )
                 }
             }
@@ -199,6 +210,15 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         // row), a leftover line, and Android's largest accessibility font scale. If the budget is
         // too tight, the last things laid out drop off the bottom — so assert the leftover line and
         // the hint below it are actually on screen, not merely composed.
+        //
+        // Font scale 2.0 ONLY — do NOT add a 1.0 sibling. One was written and removed after being
+        // measured: this harness has stub font metrics, so it cannot answer that question. A
+        // bodyMedium line measures 36.0dp here against a real line height of 20dp, and text width is
+        // a flat 1.0dp-per-character stub that ignores the font scale entirely (the headline
+        // "2.00 GB freed" measures 13.0dp wide), so nothing ever wraps. At 1.0 those inflated line
+        // heights push the hint off the card in the harness while it renders fine on a device — the
+        // test would fail for a reason that does not exist. At 2.0 the fixed-dp parts of the body
+        // are proportionally small enough that the distortion no longer decides the outcome.
         val freed = HeroSummary(
             mode = HeroSummary.Mode.FREED,
             totalSize = 2L * 1024 * 1024 * 1024,
@@ -536,6 +556,313 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
             }
         }
         composeRule.onNodeWithText("ago", substring = true).assertDoesNotExist()
+    }
+
+    private val appCleanerName get() = context.getString(CommonR.string.appcleaner_tool_name)
+    private val deduplicatorName get() = context.getString(CommonR.string.deduplicator_tool_name)
+
+    private fun lockedOnly(lockedSize: Long = 512L * 1024 * 1024, lockedCount: Int = 9) = HeroSummary(
+        mode = HeroSummary.Mode.LOCKED_ONLY,
+        totalSize = 0L,
+        itemCount = 0,
+        tools = emptyList(),
+        lockedTools = listOf(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, lockedSize, lockedCount)),
+    )
+
+    @Test
+    fun `locked findings render as a chip identified by the tool name`() {
+        val locked = lockedOnly()
+        renderHero(locked)
+
+        composeRule.onNodeWithContentDescription(appCleanerName).assertIsDisplayed()
+        composeRule.onNodeWithText(ByteFormatter.formatSize(context, locked.lockedSize).first).assertExists()
+    }
+
+    @Test
+    fun `a locked chip routes through onLockedToolClick, not the mode-routed tool click`() {
+        // A locked tool has no report to open — it was never cleaned — so it must not share the
+        // chip callback that routes FREED chips to reports.
+        var lockedClicks = 0
+        var clickedType: SDMTool.Type? = null
+        renderHero(lockedOnly(), onLockedToolClick = { lockedClicks++; clickedType = it })
+
+        composeRule.onNodeWithContentDescription(appCleanerName)
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle {
+            assertEquals(1, lockedClicks)
+            assertEquals(SDMTool.Type.APPCLEANER, clickedType)
+        }
+    }
+
+    @Test
+    fun `the locked-only hero headlines the locked size and shows no freeable chips`() {
+        val locked = lockedOnly()
+        renderHero(locked)
+
+        // The headline splices in the *locked* size — totalSize is 0 in this mode by design, and
+        // the size-interpolating path would otherwise print "0 B".
+        composeRule.onNodeWithText(
+            context.getString(
+                R.string.dashboard_hero_locked_headline,
+                ByteFormatter.formatSize(context, locked.lockedSize).first,
+            ),
+        ).assertExists()
+        composeRule.onNodeWithContentDescription(
+            context.getString(CommonR.string.corpsefinder_tool_name),
+        ).assertDoesNotExist()
+    }
+
+    @Test
+    fun `tapping the upsell line opens the upgrade screen`() {
+        var upgrades = 0
+        renderHero(lockedOnly(), onUpgrade = { upgrades++ })
+
+        composeRule.onNodeWithText(context.getString(R.string.dashboard_hero_locked_hint))
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { assertEquals(1, upgrades) }
+    }
+
+    @Test
+    fun `a nothing-freed hero keeps its own hint while still showing locked chips`() {
+        // That hint diagnoses why the cleanup came up empty; an unlock line must not displace it.
+        // With no free chips there is nothing for a nested block to be additional to, so the locked
+        // chips stay flat in the main row and the card keeps its base height.
+        val nothingFreed = HeroSummary(
+            mode = HeroSummary.Mode.NOTHING_FREED,
+            totalSize = 0L,
+            itemCount = 0,
+            tools = emptyList(),
+            lockedTools = listOf(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 512L * 1024 * 1024, 9)),
+        )
+        nothingFreed.showsUpgradeBlock shouldBe false
+        renderHero(nothingFreed)
+
+        composeRule.onNodeWithText(context.getString(R.string.dashboard_hero_nothing_freed_hint)).assertExists()
+        composeRule.onNodeWithContentDescription(appCleanerName).assertIsDisplayed()
+        composeRule.onNodeWithText(blockCaption).assertDoesNotExist()
+    }
+
+    @Test
+    fun `a locked-only hero renders flat, without the nested block`() {
+        val locked = lockedOnly()
+        locked.showsUpgradeBlock shouldBe false
+        renderHero(locked)
+
+        composeRule.onNodeWithContentDescription(appCleanerName).assertIsDisplayed()
+        composeRule.onNodeWithText(blockCaption).assertDoesNotExist()
+    }
+
+    @Test
+    fun `the collapsed bar chip shows the locked size instead of zero`() {
+        val locked = lockedOnly()
+        composeRule.setContent {
+            PreviewWrapper {
+                BottomBar(
+                    state = deleteState(locked),
+                    isVisible = true,
+                    heroVisible = false,
+                    canExpandHero = true,
+                    onMainAction = {},
+                    onSettings = {},
+                    onUpgrade = {},
+                    onDismissHero = {},
+                )
+            }
+        }
+        composeRule.onNodeWithText(ByteFormatter.formatSize(context, locked.lockedSize).first).assertExists()
+        composeRule.onNodeWithText(ByteFormatter.formatSize(context, 0L).first).assertDoesNotExist()
+        // The star is not decorative here: without this the chip announces a bare size with no
+        // indication that the space is out of reach.
+        composeRule.onNodeWithContentDescription(
+            context.getString(R.string.dashboard_hero_locked_chip_description),
+            substring = true,
+        ).assertExists()
+    }
+
+    private val blockCaption get() = context.getString(R.string.dashboard_hero_locked_block_caption)
+
+    private val freedAt = Instant.parse("2026-06-10T12:00:00Z")
+
+    private fun freedWithLocked() = HeroSummary(
+        mode = HeroSummary.Mode.FREED,
+        totalSize = 2L * 1024 * 1024 * 1024,
+        itemCount = 8147,
+        tools = listOf(
+            HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 129L * 1024, 12),
+            HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 852L * 1024 * 1024, 51),
+        ),
+        timestamp = freedAt,
+        residueSize = 5L * 1024 * 1024,
+        residueCount = 2,
+        lockedTools = listOf(
+            HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 87L * 1024 * 1024, 498),
+            HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 32L * 1024 * 1024, 60),
+        ),
+    )
+
+    @Test
+    fun `the nested upgrade block and everything under it survive the largest font scale`() {
+        // The fullest the card ever gets: a freed result with a leftover line and its own chip row,
+        // plus the nested block with two more chips, at Android's largest accessibility font scale.
+        // The block is what the taller base height exists for, so assert its caption, its chips, the
+        // leftover line above it and the footer below it are all on screen rather than merely
+        // composed. Font scale 2.0 only — see the note on the sibling test above.
+        val hero = freedWithLocked()
+        val now = freedAt.plusSeconds(5 * 60)
+        hero.showsUpgradeBlock shouldBe true
+        renderHero(hero, fontScale = 2f, now = now)
+
+        composeRule.onNodeWithText(blockCaption).assertIsDisplayed()
+        composeRule.onNodeWithContentDescription(appCleanerName).assertIsDisplayed()
+        composeRule.onNodeWithContentDescription(
+            context.getString(CommonR.string.deduplicator_tool_name),
+        ).assertIsDisplayed()
+        composeRule.onNodeWithText("left", substring = true).assertIsDisplayed()
+        // The footer sits below everything; if the block overran the budget this is what it buries.
+        val relativeTime = DateUtils.getRelativeTimeSpanString(
+            freedAt.toEpochMilli(),
+            now.toEpochMilli(),
+            DateUtils.MINUTE_IN_MILLIS,
+        ).toString()
+        composeRule.onNodeWithText(relativeTime).assertIsDisplayed()
+    }
+
+    /**
+     * A FREED summary carrying three free chips beside the block. Reachable despite the two-chip
+     * ceiling that holds for FREEABLE: FREED summaries are not built by `buildHeroSummary` at all —
+     * `accumulateFreed` assembles their tools from whichever tools ran, with no entitlement filter,
+     * and `lockedTools` is recomputed from live inputs on every emission, filtered only against the
+     * tools the run submitted to.
+     *
+     * One reachable path: a Pro user cleans CorpseFinder, SystemCleaner and AppCleaner while
+     * Deduplicator is disabled in one-tap; afterward the entitlement lapses and Deduplicator is
+     * enabled while its findings remain. The three cleaned slices stay in `tools`, while the
+     * never-submitted Deduplicator enters `lockedTools`.
+     *
+     * Every clause of that is load-bearing. `lockedSlices` returns nothing at all while `isPro`, so
+     * the lapse alone is not enough; and had Deduplicator been enabled with findings during the
+     * cleanup, the DELETE branch would have submitted it, after which the settled path's filter
+     * against the run's submitted set drops it from `lockedTools` again.
+     *
+     * The fail-open `isProForUi()` read reaches the same shape, but only when the dashboard's own
+     * upgrade flow reports non-Pro AND Deduplicator independently satisfies `lockedSlices`: enabled,
+     * with findings, never submitted.
+     */
+    private fun freedWithThreeFreeAndLocked(): HeroSummary {
+        val tools = listOf(
+            HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 129L * 1024, 12),
+            HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, 852L * 1024 * 1024, 51),
+            HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, 512L * 1024 * 1024, 87),
+        )
+        return HeroSummary(
+            mode = HeroSummary.Mode.FREED,
+            totalSize = tools.sumOf { it.size },
+            itemCount = tools.sumOf { it.count },
+            tools = tools,
+            timestamp = freedAt,
+            residueSize = 5L * 1024 * 1024,
+            residueCount = 2,
+            lockedTools = listOf(
+                HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, 32L * 1024 * 1024, 60),
+            ),
+        )
+    }
+
+    @Test
+    fun `three free chips beside the block still fit at the largest font scale`() {
+        // The free chip row is capped at two chips only for FREEABLE summaries; a FREED one can carry
+        // three and still show the block, which is more content than the taller height was first
+        // rendered against. Same assertions as the sibling above: the block, the leftover line above
+        // it and the footer below it must all be on screen, not merely composed.
+        val hero = freedWithThreeFreeAndLocked()
+        val now = freedAt.plusSeconds(5 * 60)
+        hero.showsUpgradeBlock shouldBe true
+        renderHero(hero, fontScale = 2f, now = now)
+
+        composeRule.onNodeWithText(blockCaption).assertIsDisplayed()
+        composeRule.onNodeWithContentDescription(
+            context.getString(CommonR.string.deduplicator_tool_name),
+        ).assertIsDisplayed()
+        composeRule.onNodeWithText("left", substring = true).assertIsDisplayed()
+        val relativeTime = DateUtils.getRelativeTimeSpanString(
+            freedAt.toEpochMilli(),
+            now.toEpochMilli(),
+            DateUtils.MINUTE_IN_MILLIS,
+        ).toString()
+        composeRule.onNodeWithText(relativeTime).assertIsDisplayed()
+    }
+
+    @Test
+    @Config(qualifiers = "w350dp-h900dp")
+    fun `the block clears the footer on a narrow display at the largest font scale`() {
+        // The header's geometry has to live on the header Row: padding on the dismiss button comes
+        // out of the text column's weight(1f) share, and on a narrow display at a large font scale
+        // that is enough to wrap the caption onto an extra line and push the block into the footer.
+        //
+        // Compared by bounds rather than assertIsDisplayed(): that assertion passes on any sliver of
+        // visibility, so it would happily accept the block's last row sitting half under the footer.
+        val hero = freedWithThreeFreeAndLocked()
+        val now = freedAt.plusSeconds(5 * 60)
+        renderHero(hero, fontScale = 2f, now = now)
+
+        val relativeTime = DateUtils.getRelativeTimeSpanString(
+            freedAt.toEpochMilli(),
+            now.toEpochMilli(),
+            DateUtils.MINUTE_IN_MILLIS,
+        ).toString()
+        val chipBottom = composeRule.onNodeWithContentDescription(deduplicatorName)
+            .getUnclippedBoundsInRoot().bottom
+        val footerTop = composeRule.onNodeWithText(relativeTime).getUnclippedBoundsInRoot().top
+        assertTrue(
+            "locked chip bottom=$chipBottom must sit strictly above footer top=$footerTop",
+            chipBottom < footerTop,
+        )
+    }
+
+    @Test
+    fun `a chip inside the block opens its tool and does not trigger the upgrade`() {
+        var upgrades = 0
+        var clickedType: SDMTool.Type? = null
+        renderHero(
+            freedWithLocked(),
+            fontScale = 2f,
+            onUpgrade = { upgrades++ },
+            onLockedToolClick = { clickedType = it },
+        )
+
+        composeRule.onNodeWithContentDescription(appCleanerName)
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle {
+            assertEquals(SDMTool.Type.APPCLEANER, clickedType)
+            // The chip consumes its own tap; the block's upgrade action must not fire as well.
+            assertEquals(0, upgrades)
+        }
+    }
+
+    @Test
+    fun `tapping the block outside a chip opens the upgrade screen`() {
+        var upgrades = 0
+        var lockedClicks = 0
+        val hero = freedWithLocked()
+        renderHero(
+            hero,
+            fontScale = 2f,
+            onUpgrade = { upgrades++ },
+            onLockedToolClick = { lockedClicks++ },
+        )
+
+        // The caption belongs to the block's own (merging) clickable node, so activating it is the
+        // "tapped the block, not a chip" case.
+        composeRule.onNodeWithText(blockCaption)
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle {
+            assertEquals(1, upgrades)
+            assertEquals(0, lockedClicks)
+        }
     }
 
     @Test

@@ -6,6 +6,7 @@ import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
+import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -161,16 +162,125 @@ class DashboardHeroSummaryTest : BaseTest() {
     }
 
     @Test
-    fun `returns null when nothing is one-tap-actionable for this user`() {
-        // AppCleaner has data but the user is not Pro, and it is the only tool with data.
+    fun `returns null when no tool has any data`() {
         DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = null,
+            dedupe = null,
+            oneClick = oneClick(),
+            isPro = false,
+        ).shouldBeNull()
+    }
+
+    @Test
+    fun `a non-Pro user's only findings become a LOCKED_ONLY summary`() {
+        // AppCleaner has data but the user is not Pro, and it is the only tool with data. The
+        // findings used to vanish entirely — no card at all.
+        val result = DashboardMainActionEngine.buildHeroSummary(
             corpse = null,
             system = null,
             app = app(300, 7),
             dedupe = null,
             oneClick = oneClick(),
             isPro = false,
+        )!!
+
+        result.mode shouldBe HeroSummary.Mode.LOCKED_ONLY
+        result.tools.shouldBeEmpty()
+        // The amounts mean "what the main action will free", and it will free none of this.
+        result.totalSize shouldBe 0L
+        result.itemCount shouldBe 0
+        result.lockedSize shouldBe 300L
+        result.lockedCount shouldBe 7
+        result.lockedTools.map { it.type } shouldBe listOf(SDMTool.Type.APPCLEANER)
+    }
+
+    @Test
+    fun `a locked Deduplicator contributes its redundant size and file count`() {
+        val result = DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = null,
+            dedupe = dedupe(redundant = 500, removableCount = 8),
+            oneClick = oneClick(dedupe = true),
+            isPro = false,
+        )!!
+
+        result.mode shouldBe HeroSummary.Mode.LOCKED_ONLY
+        result.lockedTools.single { it.type == SDMTool.Type.DEDUPLICATOR }.size shouldBe 500L
+        result.lockedTools.single { it.type == SDMTool.Type.DEDUPLICATOR }.count shouldBe 8
+    }
+
+    @Test
+    fun `freeable and locked findings coexist in one summary`() {
+        val result = DashboardMainActionEngine.buildHeroSummary(
+            corpse = corpse(100, 3),
+            system = null,
+            app = app(300, 7),
+            dedupe = dedupe(redundant = 500, removableCount = 8),
+            oneClick = oneClick(dedupe = true),
+            isPro = false,
+        )!!
+
+        result.mode shouldBe HeroSummary.Mode.FREEABLE
+        // The headline amounts stay exactly what the main action delivers.
+        result.totalSize shouldBe 100L
+        result.itemCount shouldBe 3
+        result.tools.map { it.type } shouldBe listOf(SDMTool.Type.CORPSEFINDER)
+        result.lockedTools.map { it.type } shouldBe listOf(
+            SDMTool.Type.APPCLEANER,
+            SDMTool.Type.DEDUPLICATOR,
+        )
+        result.lockedSize shouldBe 800L
+    }
+
+    @Test
+    fun `a Pro user has nothing locked`() {
+        val result = DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = app(300, 7),
+            dedupe = dedupe(redundant = 500, removableCount = 8),
+            oneClick = oneClick(dedupe = true),
+            isPro = true,
+        )!!
+
+        result.mode shouldBe HeroSummary.Mode.FREEABLE
+        result.lockedTools.shouldBeEmpty()
+    }
+
+    @Test
+    fun `a Pro-gated tool with its one-click toggle off is opted out, not locked`() {
+        // Claiming Pro would unlock it would be false: the main action skips it either way.
+        DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = app(300, 7),
+            dedupe = dedupe(redundant = 500, removableCount = 8),
+            oneClick = oneClick(app = false, dedupe = false),
+            isPro = false,
         ).shouldBeNull()
+    }
+
+    @Test
+    fun `a LOCKED_ONLY timestamp comes from the locked tools' scans`() {
+        val older = Instant.parse("2026-06-10T10:00:00Z")
+        val newer = Instant.parse("2026-06-10T11:00:00Z")
+        val result = DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = app(300, 7),
+            dedupe = dedupe(redundant = 500, removableCount = 8),
+            oneClick = oneClick(dedupe = true),
+            isPro = false,
+            scanTimes = mapOf(
+                SDMTool.Type.APPCLEANER to older,
+                SDMTool.Type.DEDUPLICATOR to newer,
+            ),
+        )!!
+
+        result.timestamp shouldBe newer
     }
 
     @Test

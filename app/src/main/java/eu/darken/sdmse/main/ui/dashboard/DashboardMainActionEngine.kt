@@ -315,10 +315,19 @@ class DashboardMainActionEngine(
                 // Post-scan "will be freed" takes priority; otherwise, once the action has settled,
                 // show the "freed" result of the last main-action deletion/one-click. While working,
                 // both stay hidden and the bar carries progress. The settle edge gates this too, not
-                // just [settled]: the task manager reports idle again before the branches fold in
-                // their results, and without the gate the identical "can be freed" card flashes in
-                // that window.
-                val freeable = if (actionState == BottomBarState.Action.DELETE && phase.isSettled) {
+                // just the idle task manager: the latter reports idle again before the branches fold
+                // in their results, and without the gate the identical "can be freed" card flashes
+                // in that window.
+                //
+                // Deliberately NOT gated on DELETE: a non-Pro user whose only findings are locked
+                // resolves to SCAN/ONECLICK, and that is exactly the state the LOCKED_ONLY card
+                // exists for. Nothing else slips through — [resolveMainAction]'s DELETE conditions
+                // are [buildHeroSummary]'s inclusion conditions, so the builder is already the
+                // filter and returns null wherever the DELETE check used to.
+                val freeable = if (phase.isSettled &&
+                    actionState != BottomBarState.Action.WORKING &&
+                    actionState != BottomBarState.Action.WORKING_CANCELABLE
+                ) {
                     buildHeroSummary(
                         corpse = corpseState.data,
                         system = filterState.data,
@@ -345,9 +354,22 @@ class DashboardMainActionEngine(
                             dedupe = dedupeState.data,
                             tools = provenance?.submitted.orEmpty(),
                         )
+                        // Pro-gated findings that survived alongside the outcome, minus anything the
+                        // run submitted to. That filter is not cosmetic: isProForUi() fails open, so
+                        // a cleanup can submit a Pro-gated tool while this combine's [upgradeInfo]
+                        // still reports non-Pro — that tool's leftovers would then be counted by
+                        // [residueOf] *and* returned here, and the card would report the same bytes
+                        // twice under contradictory framing ("5 MB left" and "unlock 5 MB more").
+                        val locked = lockedSlices(
+                            app = junkState.data,
+                            dedupe = dedupeState.data,
+                            oneClick = oneClickOptions,
+                            isPro = upgradeInfo?.isPro == true,
+                        ).filterNot { it.type in provenance?.submitted.orEmpty() }
                         outcome.copy(
                             residueSize = residue?.size ?: 0L,
                             residueCount = residue?.count ?: 0,
+                            lockedTools = locked,
                         )
                     }
                 // A settled cleanup outranks [freeable] whatever it freed: whatever data survived it
@@ -814,10 +836,37 @@ class DashboardMainActionEngine(
         }
 
         /**
-         * Builds the action-truthful hero summary: only tools the main DELETE action will actually
-         * free (one-click toggle on, has data, AppCleaner and Deduplicator additionally require
-         * Pro). Returns null when nothing is one-tap-actionable for this user/config, even if raw
-         * scan data exists.
+         * The Pro-gated findings this user cannot act on: AppCleaner and Deduplicator, when they
+         * have data and are opted into one-click. Empty for a Pro user, whose findings are simply
+         * freeable.
+         *
+         * The one-click condition mirrors [buildHeroSummary]/[resolveMainAction] on purpose: a tool
+         * the user switched off is not locked, it is opted out, and claiming Pro would unlock it
+         * would be false.
+         */
+        internal fun lockedSlices(
+            app: AppCleaner.Data?,
+            dedupe: Deduplicator.Data?,
+            oneClick: OneClickOptionsState,
+            isPro: Boolean,
+        ): List<HeroSummary.ToolSlice> {
+            if (isPro) return emptyList()
+            return buildList {
+                app?.takeIf { oneClick.appCleanerEnabled && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
+                }
+                dedupe?.takeIf { oneClick.deduplicatorEnabled && it.hasData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.redundantCount))
+                }
+            }
+        }
+
+        /**
+         * Builds the action-truthful hero summary: [HeroSummary.tools] holds only tools the main
+         * DELETE action will actually free (one-click toggle on, has data, AppCleaner and
+         * Deduplicator additionally require Pro), while Pro-gated findings this user cannot act on
+         * go to [HeroSummary.lockedTools] as an upsell. Returns null only when there is nothing at
+         * all to say — neither freeable nor locked.
          */
         internal fun buildHeroSummary(
             corpse: CorpseFinder.Data?,
@@ -842,7 +891,20 @@ class DashboardMainActionEngine(
                     add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.redundantCount))
                 }
             }
-            if (tools.isEmpty()) return null
+            val locked = lockedSlices(app = app, dedupe = dedupe, oneClick = oneClick, isPro = isPro)
+            if (tools.isEmpty()) {
+                if (locked.isEmpty()) return null
+                // Nothing this user can free, but Pro-gated findings are sitting there. The amounts
+                // stay 0 — they are what the main action delivers, and it delivers nothing here.
+                return HeroSummary(
+                    mode = HeroSummary.Mode.LOCKED_ONLY,
+                    totalSize = 0L,
+                    itemCount = 0,
+                    tools = emptyList(),
+                    timestamp = locked.mapNotNull { scanTimes[it.type] }.maxOrNull(),
+                    lockedTools = locked,
+                )
+            }
             return HeroSummary(
                 mode = HeroSummary.Mode.FREEABLE,
                 totalSize = tools.sumOf { it.size },
@@ -853,6 +915,7 @@ class DashboardMainActionEngine(
                 // Only the *included* tools' scans: a newer scan of an absent tool must not make
                 // this summary's data look fresher than it is.
                 timestamp = tools.mapNotNull { scanTimes[it.type] }.maxOrNull(),
+                lockedTools = locked,
             )
         }
 

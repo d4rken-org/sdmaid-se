@@ -183,6 +183,8 @@ fun DashboardScreenHost(
             }
         },
         onToolClick = vm::onHeroToolClick,
+        // A non-Pro user may browse a Pro tool's findings list; only deletion is gated.
+        onLockedToolClick = vm::showTool,
         onExpandHero = vm::expandHero,
         onDiscardResults = vm::discardResults,
         onSettings = { vm.navTo(SettingsRoute) },
@@ -199,6 +201,7 @@ internal fun DashboardScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
+    onLockedToolClick: (SDMTool.Type) -> Unit = {},
     onExpandHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     onSettings: () -> Unit = {},
@@ -394,6 +397,20 @@ internal fun DashboardScreen(
     // Suppress the hero while a tour is active so it can't cover or fight tour targets.
     val heroVisible = bottomBarState?.heroSummary != null && isHeroExpanded && !dashboardTourActive
 
+    // A LOCKED_ONLY card states that the one-tap action frees nothing for this user, so its button
+    // routes to the upgrade screen instead of the delete-confirmation dialog.
+    //
+    // Decided here, from the rendered state, rather than by handing the tap back to the engine: the
+    // LOCKED_ONLY verdict comes from the dashboard's upgradeInfo flow, while the engine's branches
+    // re-check isProForUi(), which fails open to `true` on any exception. Re-entering the engine
+    // could therefore reach runCleanup() and delete for real on a screen that deliberately skipped
+    // the confirmation. Navigating is the only outcome the UI's own decision can justify.
+    val mainAction: () -> Unit = {
+        val lockedDelete = bottomBarState?.actionState == BottomBarState.Action.DELETE &&
+            bottomBarState?.heroSummary?.mode == HeroSummary.Mode.LOCKED_ONLY
+        if (lockedDelete) onUpgrade() else onMainAction()
+    }
+
     // Dismissing or discarding the hero with DPAD_CENTER removes the focused node from
     // composition and focus evaporates — the next key press would restart from the default.
     // Tracked at the screen root because the hero's own focus-event node leaves composition
@@ -464,11 +481,12 @@ internal fun DashboardScreen(
                 state = bottomBarState,
                 isVisible = dockVisible,
                 heroVisible = heroVisible,
-                onMainAction = onMainAction,
+                onMainAction = mainAction,
                 onSettings = onSettings,
                 onUpgrade = onUpgrade,
                 onDismissHero = onDismissHero,
                 onToolClick = onToolClick,
+                onLockedToolClick = onLockedToolClick,
                 onExpandHero = onExpandHero,
                 onDiscardResults = onDiscardResults,
                 canExpandHero = !dashboardTourActive,

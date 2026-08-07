@@ -565,6 +565,8 @@ class DashboardViewModel @Inject constructor(
             HeroSummary.Mode.FREEABLE -> showTool(type)
             // Renders no chips, so there is nothing here to tap.
             HeroSummary.Mode.NOTHING_FREED -> {}
+            // Renders no *free* chips; its locked chips route through onLockedToolClick instead.
+            HeroSummary.Mode.LOCKED_ONLY -> {}
         }
     }
 

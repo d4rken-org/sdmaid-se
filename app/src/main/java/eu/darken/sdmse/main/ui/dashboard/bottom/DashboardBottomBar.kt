@@ -51,6 +51,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
@@ -74,6 +75,7 @@ import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.ui.dashboard.BottomBarState
 import eu.darken.sdmse.main.ui.dashboard.HeroSummary
+import eu.darken.sdmse.main.ui.dashboard.showsUpgradeBlock
 import eu.darken.sdmse.main.core.SDMTool
 import java.time.Instant
 
@@ -100,6 +102,7 @@ internal fun BottomBar(
     onUpgrade: () -> Unit,
     onDismissHero: () -> Unit,
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
+    onLockedToolClick: (SDMTool.Type) -> Unit = {},
     onExpandHero: () -> Unit = {},
     onDiscardResults: () -> Unit = {},
     canExpandHero: Boolean = false,
@@ -137,8 +140,11 @@ internal fun BottomBar(
     // Hero card + dock reservation grow with the font scale so large text doesn't clip the card's
     // caption/hint. One read each, reused below for the card height, the dock reservation, the
     // hidden-offset slide distance, and the swipe-to-dismiss threshold — they must stay in lockstep.
-    val heroCardHeight = dashboardHeroCardHeight
-    val dockHeightWithHero = dashboardDockHeightWithHero
+    // Read from the same predicate the card renders by, or the reservation and the layout disagree
+    // and the card either clips or leaves dead space behind it.
+    val heroShowsUpgradeBlock = heroSummary?.showsUpgradeBlock == true
+    val heroCardHeight = dashboardHeroCardHeight(heroShowsUpgradeBlock)
+    val dockHeightWithHero = dashboardDockHeightWithHero(heroShowsUpgradeBlock)
 
     // Reserved layout height drives the Scaffold's content padding. Elements are bottom-anchored, so
     // growing this only reflows the list above — it never moves the bar/FAB.
@@ -287,6 +293,8 @@ internal fun BottomBar(
                 onDiscard = onDiscardResults
                     .takeIf { heroSummary.mode == HeroSummary.Mode.FREEABLE },
                 onToolClick = onToolClick,
+                onLockedToolClick = onLockedToolClick,
+                onUpgrade = onUpgrade,
                 entryFocusRequester = heroEntryFocusRequester,
             )
         }
@@ -355,14 +363,28 @@ private fun BarContent(
             }
 
             compactSummary != null -> {
+                // A locked-only summary carries its amount in the locked slices — reading totalSize
+                // here would advertise "0 B". The star marks it as gated, and it has to be spelled
+                // out for TalkBack: the chip's icon is decorative unless described, so otherwise the
+                // announcement is a bare size with no hint that the space is out of reach.
+                val isLocked = compactSummary.mode == HeroSummary.Mode.LOCKED_ONLY
                 SdmInfoChip(
                     modifier = Modifier
                         .align(Alignment.CenterStart)
                         .padding(start = 12.dp),
-                    icon = painterResource(UiR.drawable.ic_baseline_delete_sweep_24),
-                    label = ByteFormatter.formatSize(context, compactSummary.totalSize).first,
+                    icon = if (isLocked) {
+                        rememberVectorPainter(Icons.TwoTone.Stars)
+                    } else {
+                        painterResource(UiR.drawable.ic_baseline_delete_sweep_24)
+                    },
+                    label = ByteFormatter.formatSize(
+                        context,
+                        if (isLocked) compactSummary.lockedSize else compactSummary.totalSize,
+                    ).first,
                     containerColor = MaterialTheme.colorScheme.primaryContainer,
                     contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                    iconContentDescription = stringResource(R.string.dashboard_hero_locked_chip_description)
+                        .takeIf { isLocked },
                     // Tapping it expands the collapsed hero (null during a tour → passive chip).
                     onClick = onExpandHero,
                 )
