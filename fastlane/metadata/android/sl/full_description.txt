@@ -41,7 +41,7 @@ Izberi mapo in pregleduj datoteke eno za drugo s preprostimi drsnimi potezami �
 
 🗄️ Prihrani prostor brez brisanja fotografij
 
-Fotografije lahko zasedejo veliko prostora za shranjevanje, vendar jih ne želiš vedno odstraniti. Orodje »Media Squeeze« stisne tvoje slike z nastavljivo kakovostjo, da sprosti prostor, ne da bi izgubil fotografije.
+Fotografije lahko zasedejo veliko prostora za shranjevanje, vendar jih ne želiš vedno odstraniti. Orodje »Stiskalnik predstavnosti« stisne vaše slike z nastavljivo kakovostjo, da sprosti prostor, ne da bi izgubil fotografije.
 
 Ta program je brez oglasov.  Nekatere značilnosti zahtevajo plačljivo nadgradnjo.
 
