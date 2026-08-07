@@ -51,6 +51,7 @@ import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.upgrade.ui.brandTitleText
 import eu.darken.sdmse.appcleaner.ui.AppCleanerSettingsRoute
 import eu.darken.sdmse.appcontrol.ui.AppControlSettingsRoute
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsRoute
@@ -287,9 +288,10 @@ internal fun SettingsScreen(
             item {
                 SettingsPreferenceItem(
                     icon = Icons.TwoTone.Stars,
-                    // Composed like the dashboard title card: the postfix string carries the
-                    // flavor-correct upgrade branding ("Pro" on GPLAY, "FOSS" on FOSS).
-                    title = "${stringResource(CommonR.string.app_name)} ${stringResource(R.string.app_name_upgrade_postfix)}",
+                    // Composed like the dashboard title card: the flavor's title template carries
+                    // the upgrade branding ("Pro" on GPLAY, "FOSS" on FOSS). Plain String because
+                    // that is what the settings item takes.
+                    title = brandTitleText(includeQualifier = true),
                     subtitle = stringResource(R.string.settings_upgrade_description),
                     onClick = onProClick,
                 )
