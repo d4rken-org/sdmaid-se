@@ -299,41 +299,6 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
-    fun `a refused DPAD_RIGHT still clicks and still reaches the blind sweep`() = runTest {
-        // Regression guard for the Android 17 report. DOWN from the header lands directly on the
-        // clear-cache button (verified on a Pixel 7a and a Pixel 8), so the following RIGHT has
-        // nowhere to go. Some builds return true for it regardless, others report the refusal
-        // honestly - and we used to treat that honest answer as fatal, skipping the click while
-        // focus was sitting on the button, then abandoning the remaining strategies too.
-        setupTestScope(this)
-        mockkStatic(::hasApiLevel)
-        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
-        mockkObject(BuildWrap)
-        every { BuildWrap.MANUFACTOR } returns "Google"
-        every { BuildWrap.PRODUCT } returns "lynx_beta"
-
-        coEvery { inputInjector.canInject() } returns false
-        every { testHost.service.performGlobalAction(any()) } answers {
-            firstArg<Int>() != android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT
-        }
-
-        testRoot = buildTestTree(
-            """
-            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
-            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
-            """.trimIndent()
-        )
-
-        val result = captureAndRunClearCacheAction()
-
-        result shouldBe false
-        // 1 quick-try + 3 blind-sweep (positions 2-4) = 4 CENTER, matching the all-actions-succeed
-        // case above. A refused RIGHT must not change how many clicks we attempt. Before the fix
-        // this was 0: quick-try skipped its click and the sweep was never reached.
-        verify(exactly = 4) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
-    }
-
-    @Test
     fun `clear cache DPAD validation fails when root package changes after click`() = runTest {
         setupTestScope(this)
         mockkStatic(::hasApiLevel)

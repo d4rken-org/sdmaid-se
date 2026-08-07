@@ -318,24 +318,17 @@ class AOSPSpecs @Inject constructor(
                 log(tag, INFO) { "DPAD_DOWN result=$steppedDown (source=quick-try)" }
                 logFocus("quick-try DOWN")
                 delay(stepDelayMs)
-                // A refused RIGHT does not mean navigation broke, it usually means focus is already
-                // at the rightmost element of the action row - which is the clear-cache button on
-                // both Android 16 and 17. DOWN from the header lands there directly (verified on a
-                // Pixel 7a and a Pixel 8), so the RIGHT is a no-op we do not depend on. Some builds
-                // return true for it anyway, others report the refusal honestly - pressing CENTER
-                // either way is what makes this work on both.
-                // We cannot confirm this by reading focus: the buttons are hidden from the
-                // accessibility service (NAF on 16, absent from our tree on 17), so the click has
-                // to be unconditional.
                 val moved = dpadRight()
                 if (!moved) {
-                    log(tag, WARN) { "DPAD_RIGHT refused (source=quick-try), assuming focus is already at the row end" }
-                    logFocus("quick-try refused RIGHT")
+                    log(tag, WARN) { "DPAD_RIGHT failed (source=quick-try)" }
+                    logFocus("quick-try failed RIGHT")
                 }
-                delay(stepDelayMs)
-                val clicked = if (Bugs.isDryRun) true else dpadCenter()
-                log(tag, INFO) { "DPAD_CENTER result=$clicked (source=quick-try, rightMoved=$moved)" }
-                if (clicked && validateWithDelta("quick-try", preSnapshot, sizeParser, timeoutMs = 800)) return true
+                if (moved) {
+                    delay(stepDelayMs)
+                    val clicked = if (Bugs.isDryRun) true else dpadCenter()
+                    log(tag, INFO) { "DPAD_CENTER result=$clicked (source=quick-try)" }
+                    if (clicked && validateWithDelta("quick-try", preSnapshot, sizeParser, timeoutMs = 800)) return true
+                }
                 // Check if anchor is still present before falling through to cycle loop.
                 // If anchor is gone, the click likely had an effect (UI changed) — don't double-click.
                 val anchorStillPresent = host.windowRoot()?.crawl()?.map { it.node }
@@ -350,7 +343,7 @@ class AOSPSpecs @Inject constructor(
             }
         }
 
-        cycleLoop@ for (cycle in 1..maxCycles) {
+        for (cycle in 1..maxCycles) {
             val bootstrapped = bootstrapAnchor("cycle-$cycle")
             if (!bootstrapped) {
                 delay(120)
@@ -395,10 +388,7 @@ class AOSPSpecs @Inject constructor(
                 if (!moved) {
                     log(tag, WARN) { "DPAD_RIGHT cycle=$cycle step=$stepIdx failed" }
                     logFocus("cycle-$cycle failed RIGHT")
-                    // Retrying cycles cannot help - if focus won't move right it won't move right
-                    // next cycle either. Fall through to the blind sweep, which doesn't depend on
-                    // focus reporting, rather than giving up on the remaining strategies.
-                    break@cycleLoop
+                    return false
                 }
                 totalRightSteps++
                 delay(stepDelayMs)
