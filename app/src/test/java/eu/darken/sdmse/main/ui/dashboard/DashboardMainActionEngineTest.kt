@@ -134,9 +134,16 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         corpseFinderOneClick: Boolean = true,
         otherToolsOneClick: Boolean = false,
         appCleanerOneClick: Boolean = otherToolsOneClick,
+        deduplicatorOneClick: Boolean = otherToolsOneClick,
         corpseData: CorpseFinder.Data? = null,
         appData: AppCleaner.Data? = null,
+        dedupeData: Deduplicator.Data? = null,
         isPro: Boolean = false,
+        /**
+         * What `isProForUi()` sees, which the branches consult instead of the combine's upgrade
+         * flow. Defaults to [isPro]; set it apart to stage the fail-open mismatch between the two.
+         */
+        repoIsPro: Boolean = isPro,
         failingTaskType: Class<out SDMTool.Task>? = null,
         onUpgradeRequired: () -> Unit = {},
         gate: CompletableDeferred<Unit>? = null,
@@ -160,13 +167,13 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns appData })
         }
         val deduplicator = mockk<Deduplicator>(relaxed = true).apply {
-            every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns null })
+            every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns dedupeData })
         }
         val generalSettings = mockk<GeneralSettings>(relaxed = true).apply {
             every { oneClickCorpseFinderEnabled } returns mockBool(corpseFinderOneClick)
             every { oneClickSystemCleanerEnabled } returns mockBool(otherToolsOneClick)
             every { oneClickAppCleanerEnabled } returns mockBool(appCleanerOneClick)
-            every { oneClickDeduplicatorEnabled } returns mockBool(otherToolsOneClick)
+            every { oneClickDeduplicatorEnabled } returns mockBool(deduplicatorOneClick)
             every { enableDashboardOneClick } returns mockBool(false)
         }
         val submittedTasks = mutableListOf<SDMTool.Task>()
@@ -190,7 +197,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             upgradeRepo = mockk<UpgradeRepo>(relaxed = true) {
                 // isProForUi() reads isPro and isSettled off the same Info; an unsettled mock would
                 // make it wait out its timeout and then fail open to Pro.
-                every { upgradeInfo } returns flowOf(upgradeInfoMock(isPro))
+                every { upgradeInfo } returns flowOf(upgradeInfoMock(repoIsPro))
             },
             upgradeInfo = flowOf(upgradeInfoMock(isPro)),
             submitTask = { task ->
@@ -741,6 +748,93 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             h.taskState.value = completedScanState(Instant.now())
 
             h.barState().heroSummary?.mode shouldBe HeroSummary.Mode.FREEABLE
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a non-Pro Deduplicator-only scan produces a locked-only hero`() {
+        // The case the old DELETE-only hero gate swallowed: without Pro the Deduplicator never arms
+        // DELETE, so the main action resolves to SCAN and buildHeroSummary was never reached — the
+        // findings were invisible with no card at all. A builder unit test cannot catch that.
+        val lockedSpace = 42L * 1024 * 1024
+        val dedupeData = Deduplicator.Data(
+            clusters = setOf(
+                mockk<Duplicate.Cluster>(relaxed = true) {
+                    every { redundantSize } returns lockedSpace
+                    every { redundantCount } returns 4
+                },
+            ),
+        )
+        val h = harness(
+            corpseFinderOneClick = false,
+            deduplicatorOneClick = true,
+            dedupeData = dedupeData,
+            isPro = false,
+        )
+
+        try {
+            val bar = h.barState()
+
+            bar.actionState shouldBe BottomBarState.Action.SCAN
+            val hero = bar.heroSummary!!
+            hero.mode shouldBe HeroSummary.Mode.LOCKED_ONLY
+            hero.totalSize shouldBe 0L
+            hero.lockedSize shouldBe lockedSpace
+            hero.lockedTools.map { it.type } shouldBe listOf(SDMTool.Type.DEDUPLICATOR)
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a zero-result cleanup still reports what stayed locked`() {
+        // The cleanup ran on the free tool and freed nothing, while AppCleaner's findings sat there
+        // unclaimed behind Pro — exactly the moment worth surfacing the upsell.
+        val h = harness(
+            corpseData = corpseData(),
+            appData = AppCleaner.Data(
+                junks = listOf(mockk(relaxed = true) { every { size } returns 999L; every { itemCount } returns 7 }),
+            ),
+            appCleanerOneClick = true,
+            isPro = false,
+        )
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.mode shouldBe HeroSummary.Mode.NOTHING_FREED
+            hero.lockedTools.map { it.type } shouldBe listOf(SDMTool.Type.APPCLEANER)
+            hero.lockedSize shouldBe 999L
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a tool the cleanup did submit to is residue, never also locked`() {
+        // isProForUi() fails open to true, so a cleanup can submit a Pro-gated tool while the
+        // combine's upgrade flow still reports non-Pro. Without the submitted-set filter the same
+        // bytes would be counted twice under contradictory framing: "999 B left" next to
+        // "unlock 999 B more with Pro".
+        val h = harness(
+            corpseFinderOneClick = false,
+            appData = AppCleaner.Data(
+                junks = listOf(mockk(relaxed = true) { every { size } returns 999L; every { itemCount } returns 7 }),
+            ),
+            appCleanerOneClick = true,
+            isPro = false,
+            repoIsPro = true,
+        )
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.residueCount shouldBe 7
+            hero.lockedTools.shouldBeEmpty()
         } finally {
             h.engineScope.cancel()
         }
