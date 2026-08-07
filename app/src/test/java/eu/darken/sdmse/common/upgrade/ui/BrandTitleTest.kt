@@ -31,7 +31,7 @@ class BrandTitleTest : BaseComposeRobolectricTest() {
         get() = context.getString(R.string.app_name_upgrade_postfix)
 
     private val composed: String
-        get() = context.getString(R.string.app_name_upgraded_template, name, qualifier)
+        get() = context.getString(CommonR.string.app_name_upgraded_template, name, qualifier)
 
     private fun capture(block: @androidx.compose.runtime.Composable () -> AnnotatedString): AnnotatedString {
         lateinit var captured: AnnotatedString

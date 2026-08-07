@@ -113,7 +113,7 @@ internal fun brandTitle(includeQualifier: Boolean, highlightQualifier: Boolean):
     }
     return spliceTitleTemplate(
         formatted = stringResource(
-            R.string.app_name_upgraded_template,
+            CommonR.string.app_name_upgraded_template,
             BRAND_TITLE_MARKER,
             BRAND_QUALIFIER_MARKER,
         ),
