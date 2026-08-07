@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD മെയ്ഡ് SE</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">നിങ്ങളുടെ സേവനത്തിൽ.</string>
     <string name="slogan_message_1">വൃത്തിയും വെടിപ്പും.</string>
     <string name="slogan_message_2">അരാജകത്വം തടയുന്നു.</string>

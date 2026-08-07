@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">এসডি মেইড এসই</string>
+    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
+    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">আপনার সেবায় নিয়োজিত।</string>
     <string name="slogan_message_1">পরিষ্কার ও পরিপাটি.</string>
     <string name="slogan_message_2">বিশৃঙ্খলা প্রতিরোধ।</string>
