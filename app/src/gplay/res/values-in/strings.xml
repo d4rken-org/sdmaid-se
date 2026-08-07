@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name_upgrade_postfix">Pro</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
-    <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="upgrades_dashcard_title">Tingkatkan SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro menawarkan hasil yang lebih baik, lebih banyak fitur dan opsi untuk pengguna tingkat lanjut.</string>
     <string name="upgrades_dashcard_upgrade_action">Tingkatkan</string>
