@@ -5,14 +5,18 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.asPaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
 import androidx.compose.material.icons.twotone.Save
+import androidx.compose.material3.BottomSheetDefaults
 import androidx.compose.material3.BottomSheetScaffold
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
@@ -31,6 +35,8 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onSizeChanged
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -55,6 +61,29 @@ internal sealed interface EditorPendingDialog {
     data object Remove : EditorPendingDialog
     data object UnsavedChanges : EditorPendingDialog
 }
+
+/** First-frame guess for the live-search summary row, replaced by the measured height. */
+private val LIVESEARCH_SUMMARY_FALLBACK = 56.dp
+
+/**
+ * Strictly less than [LiveSearchRow]'s 36dp single-line height (20dp icon + 2x8dp padding), so the
+ * hinted match row is always visibly clipped. A fully visible row would read as "that's all of
+ * them" instead of "there is more, drag up".
+ */
+private val LIVESEARCH_MATCH_ROW_PEEK = 24.dp
+
+/**
+ * [BottomSheetScaffold] measures the peek band from the physical window bottom and applies no
+ * window insets, so the navigation bar inset has to be part of the peek height, as does the drag
+ * handle that is rendered above the sheet content.
+ */
+internal fun liveSearchPeekHeight(
+    dragHandleHeight: Dp,
+    summaryHeight: Dp,
+    hasMatches: Boolean,
+    navigationBarBottom: Dp,
+    matchRowPeek: Dp = LIVESEARCH_MATCH_ROW_PEEK,
+): Dp = dragHandleHeight + summaryHeight + (if (hasMatches) matchRowPeek else 0.dp) + navigationBarBottom
 
 @Composable
 fun CustomFilterEditorScreenHost(
@@ -172,14 +201,19 @@ internal fun CustomFilterEditorScreen(
     )
     val scaffoldState = rememberBottomSheetScaffoldState(bottomSheetState = sheetState)
 
-    val peekHeight: Dp = remember(liveSearch) {
-        when {
-            liveSearch.firstInit -> 64.dp
-            liveSearch.progress != null -> 96.dp
-            liveSearch.matches.isNotEmpty() -> 128.dp
-            else -> 64.dp
-        }
+    val density = LocalDensity.current
+    val navigationBarBottom = WindowInsets.navigationBars.asPaddingValues().calculateBottomPadding()
+    var dragHandleHeight by remember { mutableStateOf(48.dp) }
+    var summaryHeight by remember(density.fontScale) {
+        mutableStateOf(LIVESEARCH_SUMMARY_FALLBACK * density.fontScale)
     }
+
+    val peekHeight: Dp = liveSearchPeekHeight(
+        dragHandleHeight = dragHandleHeight,
+        summaryHeight = summaryHeight,
+        hasMatches = liveSearch.matches.isNotEmpty(),
+        navigationBarBottom = navigationBarBottom,
+    )
 
     val isExpanded by remember { derivedStateOf { sheetState.currentValue == SheetValue.Expanded } }
 
@@ -194,11 +228,22 @@ internal fun CustomFilterEditorScreen(
         scaffoldState = scaffoldState,
         sheetPeekHeight = peekHeight,
         sheetSwipeEnabled = !liveSearch.firstInit,
+        sheetDragHandle = {
+            Box(
+                modifier = Modifier.onSizeChanged { size ->
+                    val measured = with(density) { size.height.toDp() }
+                    if (measured != dragHandleHeight) dragHandleHeight = measured
+                },
+            ) {
+                BottomSheetDefaults.DragHandle()
+            }
+        },
         sheetContent = {
             BoxWithConstraints(modifier = Modifier.fillMaxWidth()) {
                 LiveSearchSheetContent(
                     state = liveSearch,
                     modifier = Modifier.heightIn(max = maxHeight * 0.7f),
+                    onSummaryHeightChanged = { summaryHeight = it },
                 )
             }
         },
@@ -256,7 +301,7 @@ internal fun CustomFilterEditorScreen(
             } else {
                 CustomFilterEditorBody(
                     config = current,
-                    contentBottomPadding = peekHeight + 16.dp,
+                    contentBottomPadding = 16.dp,
                     onLabelChange = onLabelChange,
                     onAddPath = onAddPath,
                     onRemovePath = onRemovePath,
