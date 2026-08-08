@@ -2,11 +2,15 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onRoot
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.unit.height
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
@@ -143,6 +147,37 @@ class CustomFilterEditorScreenTest : BaseComposeRobolectricTest() {
         // The label appears as the toolbar subtitle.
         composeRule.onAllNodesWithText("Typed name").fetchSemanticsNodes().size.let {
             if (it == 0) throw AssertionError("Expected typed label visible as subtitle for new filter")
+        }
+    }
+
+    @Test
+    fun `collapsed sheet peek exposes the whole live-search summary`() {
+        val state = CustomFilterEditorViewModel.State(
+            original = null,
+            current = CustomFilterConfig(identifier = "abc", label = "Test"),
+        )
+        composeRule.setEditorContent {
+            CustomFilterEditorScreen(
+                stateSource = MutableStateFlow(state),
+                liveSearchSource = MutableStateFlow(
+                    CustomFilterEditorViewModel.LiveSearchState(firstInit = true),
+                ),
+            )
+        }
+
+        val root = composeRule.onRoot().getUnclippedBoundsInRoot()
+        // firstInit renders "Live search" over "Ready"; "Ready" is the lowest element of the summary row.
+        val summary = composeRule.onNodeWithText("Ready").getUnclippedBoundsInRoot()
+
+        // The peek must cover drag handle + summary. Under the old 64dp peek the summary's bottom sat
+        // ~36dp below the window edge; 1dp of tolerance separates that from the exact-fit success case.
+        // Window insets are zero under Robolectric, so this covers the drag-handle/summary half of
+        // the peek calculation only.
+        if (summary.bottom.value >= root.height.value + 1f) {
+            throw AssertionError(
+                "Live search summary is clipped by the collapsed sheet peek: " +
+                    "summary bottom=${summary.bottom}, window height=${root.height}",
+            )
         }
     }
 }
