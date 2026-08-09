@@ -15,6 +15,7 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelDebugger
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.androidtv.AndroidTVSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
+import eu.darken.sdmse.appcontrol.core.automation.specs.coloros.ColorOSSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
@@ -92,7 +93,7 @@ class AppControlAutomation @AssistedInject constructor(
 //                is RealmeSpecs -> 150
 //                is HuaweiSpecs -> 140
 //                is LGESpecs -> 130
-//                is ColorOSSpecs -> 110
+                is ColorOSSpecs -> 110
 //                is FlymeSpecs -> 100
                 is OriginOSSpecs -> 80
                 is AndroidTVSpecs -> 70
