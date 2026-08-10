@@ -151,6 +151,11 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             every { enableDashboardOneClick } returns mockk(relaxed = true) {
                 every { flow } returns MutableStateFlow(false)
             }
+            // A hero-derivation combine input: a relaxed mock's flow never emits, which would keep
+            // the bottom bar null forever.
+            every { dashboardHeroAutoShow } returns mockk(relaxed = true) {
+                every { flow } returns MutableStateFlow(true)
+            }
         }
         val spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
             every { getAllHistory(any()) } returns history

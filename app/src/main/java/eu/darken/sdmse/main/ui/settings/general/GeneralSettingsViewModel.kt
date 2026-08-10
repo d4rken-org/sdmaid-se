@@ -57,8 +57,10 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.oneClickAppCleanerEnabled.flow,
         generalSettings.oneClickDeduplicatorEnabled.flow,
         generalSettings.widgetOneClickEnabled.flow,
+        generalSettings.dashboardHeroAutoShow.flow,
     ) { isPro, isUpdateCheckSupported, oneClick, shortcut, theme, previews, romType, updateCheck, motd, debug, locales,
-        oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator, widgetOneClick ->
+        oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator, widgetOneClick,
+        summaryAutoShow ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
@@ -79,6 +81,7 @@ class GeneralSettingsViewModel @Inject constructor(
             oneClickAppCleanerEnabled = oneClickAppCleaner,
             oneClickDeduplicatorEnabled = oneClickDeduplicator,
             widgetOneClickEnabled = widgetOneClick,
+            dashboardSummaryAutoShow = summaryAutoShow,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -91,6 +94,10 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun toggleShortcutOneClick(enabled: Boolean) = launch {
         generalSettings.shortcutOneClickEnabled.value(enabled)
+    }
+
+    fun toggleDashboardSummaryAutoShow(enabled: Boolean) = launch {
+        generalSettings.dashboardHeroAutoShow.value(enabled)
     }
 
     fun toggleWidgetOneClick(enabled: Boolean) = launch {
@@ -182,6 +189,7 @@ class GeneralSettingsViewModel @Inject constructor(
         val oneClickAppCleanerEnabled: Boolean = true,
         val oneClickDeduplicatorEnabled: Boolean = false,
         val widgetOneClickEnabled: Boolean = false,
+        val dashboardSummaryAutoShow: Boolean = true,
     )
 
     companion object {

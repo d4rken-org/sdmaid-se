@@ -67,6 +67,11 @@ class GeneralSettings @Inject constructor(
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
     val shortcutOneClickEnabled = dataStore.createValue("shortcut.oneclick.enabled", false)
 
+    // Whether the dashboard summary (hero) card may open by itself as the outcome of a one-tap main
+    // action. When off the card never auto-opens; the bar's compact size chip stays the indicator and
+    // one tap on it still opens the card.
+    val dashboardHeroAutoShow = dataStore.createValue("dashboard.hero.autoshow.enabled", true)
+
     // Home-screen widget "Clean" one-tap consent. The widget's Clean button never scan+deletes
     // without opt-in: [widgetOneClickEnabled] must be on. [widgetOneClickConsentAsked] records
     // that the one-time in-app consent prompt has been shown (so it never reappears), regardless
