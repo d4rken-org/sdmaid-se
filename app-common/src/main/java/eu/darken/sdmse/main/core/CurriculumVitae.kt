@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -38,8 +37,6 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.json.Json
 import java.time.Instant
 import java.time.LocalDate
-import java.time.Period
-import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -240,36 +237,13 @@ class CurriculumVitae @Inject constructor(
 
     internal enum class ProTransition { GRACE_ENGAGED, PRO_LOST }
 
-    fun isAnniversary(): Boolean {
-        val installedAt = _installedFirst.valueBlocking ?: return false
-        val now = LocalDate.now()
-        val installDate = LocalDate.ofInstant(installedAt, ZoneId.systemDefault())
-
-        // Check if it's been at least one year
-        val yearsSinceInstall = Period.between(installDate, now).years
-        if (yearsSinceInstall < 1) return false
-
-        // Calculate this year's anniversary date
-        val thisYearAnniversary = installDate.withYear(now.year)
-        val lastYearAnniversary = installDate.withYear(now.year - 1)
-
-        // Check if we're near an anniversary (within 14 days after)
-        val daysFromThisYear = ChronoUnit.DAYS.between(thisYearAnniversary, now)
-        val daysFromLastYear = ChronoUnit.DAYS.between(lastYearAnniversary, now)
-
-        // Show if:
-        // - 0 to 14 days after this year's anniversary
-        // - OR 0 to 14 days after last year's anniversary (for early January)
-        return (daysFromThisYear >= 0 && daysFromThisYear <= 14) ||
-                (daysFromLastYear >= 0 && daysFromLastYear <= 14)
-    }
-
-    fun getYearsSinceInstall(): Int {
-        val installedAt = _installedFirst.valueBlocking ?: return 0
-        val installDate = LocalDate.ofInstant(installedAt, ZoneId.systemDefault())
-        val now = LocalDate.now()
-        return Period.between(installDate, now).years
-    }
+    // A single anniversary celebration window: which anniversary it is ([ordinal], 1 = first),
+    // the calendar year that window is anchored in ([nominalYear]) and the date it started on.
+    data class AnniversaryOccurrence(
+        val ordinal: Int,
+        val nominalYear: Int,
+        val date: LocalDate,
+    )
 
     companion object {
         internal val TAG = logTag("Debug", "CurriculumVitae")
@@ -288,6 +262,27 @@ class CurriculumVitae @Inject constructor(
                 ProTransition.PRO_LOST
 
             else -> null
+        }
+
+        // The anniversary celebration window is the nominal anniversary date plus the following 14
+        // days, so an install date that falls on a day the user doesn't open the app isn't missed.
+        // Anchored on the NOMINAL date, not the calendar year: a late-December anniversary keeps the
+        // same occurrence into early January. Feb-29 installs celebrate on Feb 28 in non-leap years
+        // (withYear resolves the date that way) and on Feb 29 in leap years.
+        fun anniversaryOccurrenceOf(installDate: LocalDate, today: LocalDate): AnniversaryOccurrence? {
+            for (candidateYear in listOf(today.year, today.year - 1)) {
+                val nominalDate = installDate.withYear(candidateYear)
+                val days = ChronoUnit.DAYS.between(nominalDate, today)
+                val ordinal = candidateYear - installDate.year
+                if (days in 0..14 && ordinal >= 1) {
+                    return AnniversaryOccurrence(
+                        ordinal = ordinal,
+                        nominalYear = candidateYear,
+                        date = nominalDate,
+                    )
+                }
+            }
+            return null
         }
     }
 }

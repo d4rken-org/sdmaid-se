@@ -83,7 +83,7 @@ class GeneralSettings @Inject constructor(
 
     val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, json)
 
-    val anniversaryDismissedYear = dataStore.createValue<Int?>("core.anniversary.dismissed.year", null, json)
+    val anniversaryDismissedOrdinal = dataStore.createValue<Int?>(KEY_ANNIVERSARY_DISMISSED_ORDINAL, null)
 
     val dashboardCardConfig = dataStore.createValue(
         key = "dashboard.cards.config",
@@ -113,6 +113,8 @@ class GeneralSettings @Inject constructor(
 
     companion object {
         internal val TAG = logTag("Core", "Settings")
+
+        const val KEY_ANNIVERSARY_DISMISSED_ORDINAL = "core.anniversary.dismissed.ordinal"
     }
 }
 
