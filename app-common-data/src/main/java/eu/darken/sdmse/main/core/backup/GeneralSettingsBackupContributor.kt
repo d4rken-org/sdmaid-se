@@ -21,6 +21,12 @@ class GeneralSettingsBackupContributor @Inject constructor(
     override val excludedKeys = setOf(
         "core.appops.restrictions.passed",
         "core.appops.restrictions.triggered",
+        // The dismissal ordinal is anchored to THIS install's install date, which lives in the
+        // curriculum_vitae store and does not travel in config backups. Restoring it onto a
+        // different install would suppress that install's own anniversary. The legacy year key is
+        // orphaned junk from the pre-ordinal dismissal and must not be re-imported either.
+        GeneralSettings.KEY_ANNIVERSARY_DISMISSED_ORDINAL,
+        "core.anniversary.dismissed.year",
     )
 }
 

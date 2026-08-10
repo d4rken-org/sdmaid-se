@@ -20,7 +20,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import javax.inject.Inject
 
 class AnniversaryProvider @Inject constructor(
@@ -33,31 +35,39 @@ class AnniversaryProvider @Inject constructor(
 ) {
 
     val item: Flow<AnniversaryDashboardCardItem?> = combine(
-        generalSettings.anniversaryDismissedYear.flow,
+        generalSettings.anniversaryDismissedOrdinal.flow,
         curriculumVitae.installedAt,
         upgradeRepo.upgradeInfo,
-    ) { dismissedYear, installedAt, upgradeInfo ->
+    ) { dismissedOrdinal, installedAt, upgradeInfo ->
+        buildItem(dismissedOrdinal, installedAt, upgradeInfo)
+    }
+
+    internal suspend fun buildItem(
+        dismissedOrdinal: Int?,
+        installedAt: Instant,
+        upgradeInfo: UpgradeRepo.Info,
+        zone: ZoneId = ZoneId.systemDefault(),
+        today: LocalDate = LocalDate.now(zone),
+    ): AnniversaryDashboardCardItem? {
         if (!upgradeInfo.isPro) {
-            log(TAG, VERBOSE) { "User is not PRO, skipping anniverary check." }
-            return@combine null
+            log(TAG, VERBOSE) { "User is not PRO, skipping anniversary check." }
+            return null
         }
 
-        val currentYear = LocalDate.now().year
-        if (dismissedYear == currentYear) {
-            log(TAG, VERBOSE) { "Anniveray check already dismissed for this year." }
-            return@combine null
+        val installDate = LocalDate.ofInstant(installedAt, zone)
+        val occurrence = CurriculumVitae.anniversaryOccurrenceOf(installDate, today) ?: return null
+
+        if (dismissedOrdinal == occurrence.ordinal) {
+            log(TAG, VERBOSE) { "Anniversary already dismissed for this occurrence." }
+            return null
         }
 
-        if (!curriculumVitae.isAnniversary()) return@combine null
-
-        val years = curriculumVitae.getYearsSinceInstall()
-
-        log(TAG) { "Anniversary detected! Years: $years" }
+        log(TAG) { "Anniversary detected! $occurrence" }
 
         val spaceFreed = Formatter.formatShortFileSize(context, statsRepo.state.first().totalSpaceFreed)
 
-        AnniversaryDashboardCardItem(
-            years = years,
+        return AnniversaryDashboardCardItem(
+            years = occurrence.ordinal,
             installDate = installedAt,
             spaceFreed = spaceFreed,
             onShare = { yearsCount ->
@@ -79,8 +89,8 @@ class AnniversaryProvider @Inject constructor(
                 }
             },
             onDismiss = {
-                appScope.launch { generalSettings.anniversaryDismissedYear.value(currentYear) }
-            }
+                appScope.launch { generalSettings.anniversaryDismissedOrdinal.value(occurrence.ordinal) }
+            },
         )
     }
 
