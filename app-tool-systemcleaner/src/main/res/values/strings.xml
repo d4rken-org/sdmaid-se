@@ -74,11 +74,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Folders</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">If no type is selected, then all types will be matched.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Path criteria</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">The target path needs to match at least one entry (e.g. \"Downloads/oldapks/game-\"). Long press entries for more options.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">The target path needs to match at least one entry (e.g. \"Downloads/oldapks/game-\"). Tap an entry to edit it, or its icon to change how it is matched.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Name criteria</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">The target name must contain at least one of the keywords (e.g. \"-receipt\"). Long press entries for more options.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">The target name must contain at least one of the keywords (e.g. \"-receipt\"). Tap an entry to edit it, or its icon to change how it is matched.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">The result will be excluded if the path matches any entry (e.g. \"DCIM\"). Long press entries for more options.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">The result will be excluded if the path matches any entry (e.g. \"DCIM\"). Tap an entry to edit it, or its icon to change how it is matched.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Add path entry</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Add name entry</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Add exclusion entry</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">New entry</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Keyword</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">This entry already exists.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d space</item>
+        <item quantity="other">%d spaces</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Already used by another entry</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Change match mode for %1$s, currently: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Path comparison mode</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Path starts with keyword</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Path contains keyword</string>

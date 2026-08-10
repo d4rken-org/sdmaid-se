@@ -34,6 +34,9 @@ private val VerticalSpacing = 2.dp
  * wins (first in positive/negative/neutral order), otherwise the negative (cancel) when present,
  * else the positive. Without this the framework picks spatially, i.e. whatever button happens to
  * sit leftmost — for destructive confirms the safe default must be the cancel action.
+ *
+ * Dialogs whose content owns focus (anything with a text field) must pass [autoFocus] = false,
+ * otherwise the bar takes the focus the field just requested and typing goes nowhere.
  */
 @Composable
 fun SdmDialogButtonBar(
@@ -41,6 +44,7 @@ fun SdmDialogButtonBar(
     positive: SdmDialogAction,
     negative: SdmDialogAction? = null,
     neutral: SdmDialogAction? = null,
+    autoFocus: Boolean = true,
 ) {
     val focusTarget = listOfNotNull(positive, negative, neutral).firstOrNull { it.initialFocus }
         ?: negative
@@ -50,9 +54,15 @@ fun SdmDialogButtonBar(
     // and would re-yank focus from wherever the user moved it. In touch mode the request fails
     // silently (buttons aren't touch-focusable); the first remote/keyboard key flips the mode
     // and re-runs this to claim focus properly.
+    //
+    // That re-claim is also why [autoFocus] exists: a dialog with a text field flips the mode on
+    // every keystroke typed on a hardware keyboard, so the re-claim would fire per letter and
+    // drag focus off the field mid-word. Those dialogs opt out rather than the bar guessing.
     val inputModeManager = LocalInputModeManager.current
-    LaunchedEffect(inputModeManager.inputMode) {
-        runCatching { focusRequester.requestFocus() }
+    if (autoFocus) {
+        LaunchedEffect(inputModeManager.inputMode) {
+            runCatching { focusRequester.requestFocus() }
+        }
     }
     Layout(
         modifier = modifier.fillMaxWidth(),

@@ -1,10 +1,20 @@
 package eu.darken.sdmse.common.compose.dialog
 
+import androidx.compose.foundation.focusable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.InputMode
+import androidx.compose.ui.input.InputModeManager
+import androidx.compose.ui.platform.LocalInputModeManager
 import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsEnabled
@@ -12,8 +22,10 @@ import androidx.compose.ui.test.assertIsFocused
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.assertIsNotFocused
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.requestFocus
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -34,6 +46,7 @@ class SdmDialogButtonBarTest : BaseComposeRobolectricTest() {
         positive: SdmDialogAction = SdmDialogAction(label = positiveLabel, onClick = {}),
         negative: SdmDialogAction? = SdmDialogAction(label = negativeLabel, onClick = {}),
         neutral: SdmDialogAction? = SdmDialogAction(label = neutralLabel, onClick = {}),
+        autoFocus: Boolean = true,
     ) {
         composeRule.setContent {
             PreviewWrapper {
@@ -44,6 +57,7 @@ class SdmDialogButtonBarTest : BaseComposeRobolectricTest() {
                             positive = positive,
                             negative = negative,
                             neutral = neutral,
+                            autoFocus = autoFocus,
                         )
                     }
                 }
@@ -227,5 +241,81 @@ class SdmDialogButtonBarTest : BaseComposeRobolectricTest() {
         setBar(containerWidth = 120)
 
         composeRule.onNodeWithText(negativeLabel).assertIsFocused()
+    }
+
+    @Test
+    fun `autoFocus false leaves focus untouched for dialogs whose content owns it`() {
+        setBar(containerWidth = 400, autoFocus = false)
+
+        composeRule.onNodeWithText(negativeLabel).assertIsNotFocused()
+        composeRule.onNodeWithText(positiveLabel).assertIsNotFocused()
+        composeRule.onNodeWithText(neutralLabel).assertIsNotFocused()
+    }
+
+    @Test
+    fun `a touch to keyboard transition re-claims focus for the safe default`() {
+        val inputModes = FakeInputModeManager(InputMode.Touch)
+        setBarWithInputMode(inputModes, autoFocus = true)
+
+        // Focus sitting on other content, as it would after the user reached it by touch.
+        composeRule.onNodeWithTag(outsideTag).requestFocus()
+        composeRule.onNodeWithTag(outsideTag).assertIsFocused()
+
+        // Picking up a remote or keyboard has to pull focus back onto the safe default action,
+        // otherwise the first D-pad press acts on whatever the framework picks spatially.
+        composeRule.runOnIdle { inputModes.inputMode = InputMode.Keyboard }
+
+        composeRule.onNodeWithText(negativeLabel).assertIsFocused()
+    }
+
+    @Test
+    fun `autoFocus false ignores a touch to keyboard transition`() {
+        val inputModes = FakeInputModeManager(InputMode.Touch)
+        setBarWithInputMode(inputModes, autoFocus = false)
+
+        composeRule.onNodeWithTag(outsideTag).requestFocus()
+
+        // A dialog with a text field flips the mode on every hardware-keyboard keystroke; re-claiming
+        // here would drag focus off the field after every letter.
+        composeRule.runOnIdle { inputModes.inputMode = InputMode.Keyboard }
+
+        composeRule.onNodeWithTag(outsideTag).assertIsFocused()
+        composeRule.onNodeWithText(negativeLabel).assertIsNotFocused()
+    }
+
+    private val outsideTag = "outside.focusable"
+
+    /** Lets a test drive the input mode that [SdmDialogButtonBar] reads, independent of the host. */
+    private class FakeInputModeManager(initial: InputMode) : InputModeManager {
+        override var inputMode: InputMode by mutableStateOf(initial)
+
+        override fun requestInputMode(inputMode: InputMode): Boolean {
+            this.inputMode = inputMode
+            return true
+        }
+    }
+
+    private fun setBarWithInputMode(inputModes: FakeInputModeManager, autoFocus: Boolean) {
+        composeRule.setContent {
+            PreviewWrapper {
+                CompositionLocalProvider(LocalInputModeManager provides inputModes) {
+                    Column {
+                        Box(
+                            modifier = Modifier
+                                .size(10.dp)
+                                .focusable()
+                                .testTag(outsideTag),
+                        )
+                        Box(modifier = Modifier.width(400.dp)) {
+                            SdmDialogButtonBar(
+                                positive = SdmDialogAction(label = positiveLabel, onClick = {}),
+                                negative = SdmDialogAction(label = negativeLabel, onClick = {}),
+                                autoFocus = autoFocus,
+                            )
+                        }
+                    }
+                }
+            }
+        }
     }
 }
