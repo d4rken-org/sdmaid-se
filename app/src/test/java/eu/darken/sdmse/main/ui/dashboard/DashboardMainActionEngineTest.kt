@@ -33,6 +33,7 @@ import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
@@ -43,7 +44,9 @@ import kotlinx.coroutines.test.runCurrent
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import java.io.IOException
 import java.time.Instant
+import java.util.concurrent.atomic.AtomicBoolean
 import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.atomic.AtomicReference
 
@@ -65,6 +68,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         val systemCleaner: SystemCleaner,
         val appCleaner: AppCleaner,
         val deduplicator: Deduplicator,
+        /** The auto-show setting, live: flip it to stage a user toggling it while the engine runs. */
+        val heroAutoShow: MutableStateFlow<Boolean>,
         val submittedTasks: MutableList<SDMTool.Task>,
         /** Branch failures the scope's handler caught — in production these reach `errorEvents`. */
         val branchErrors: List<Throwable>,
@@ -78,6 +83,11 @@ internal class DashboardMainActionEngineTest : BaseTest() {
 
     private fun mockBool(value: Boolean): DataStoreValue<Boolean> = mockk(relaxed = true) {
         every { flow } returns MutableStateFlow(value)
+    }
+
+    /** Backed by the caller's flow so a test can change the setting after the engine was built. */
+    private fun mockBool(source: Flow<Boolean>): DataStoreValue<Boolean> = mockk(relaxed = true) {
+        every { flow } returns source
     }
 
     private fun upgradeInfoMock(isPro: Boolean): UpgradeRepo.Info = mockk(relaxed = true) {
@@ -139,6 +149,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         appData: AppCleaner.Data? = null,
         dedupeData: Deduplicator.Data? = null,
         isPro: Boolean = false,
+        /** Initial value of the "show summary automatically" setting; see [Harness.heroAutoShow]. */
+        heroAutoShow: Boolean = true,
         /**
          * What `isProForUi()` sees, which the branches consult instead of the combine's upgrade
          * flow. Defaults to [isPro]; set it apart to stage the fail-open mismatch between the two.
@@ -149,6 +161,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         gate: CompletableDeferred<Unit>? = null,
         /** Replaces CorpseFinder's state flow; for tests that need a non-StateFlow source. */
         corpseStateSource: Flow<CorpseFinder.State>? = null,
+        /** Replaces the auto-show setting's flow; for tests that need a failing source. */
+        heroAutoShowSource: Flow<Boolean>? = null,
         /** Replaces the engine scope; for tests that need virtual time instead of eager execution. */
         scope: CoroutineScope? = null,
     ): Harness {
@@ -169,12 +183,14 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         val deduplicator = mockk<Deduplicator>(relaxed = true).apply {
             every { state } returns MutableStateFlow(mockk(relaxed = true) { every { data } returns dedupeData })
         }
+        val heroAutoShowFlow = MutableStateFlow(heroAutoShow)
         val generalSettings = mockk<GeneralSettings>(relaxed = true).apply {
             every { oneClickCorpseFinderEnabled } returns mockBool(corpseFinderOneClick)
             every { oneClickSystemCleanerEnabled } returns mockBool(otherToolsOneClick)
             every { oneClickAppCleanerEnabled } returns mockBool(appCleanerOneClick)
             every { oneClickDeduplicatorEnabled } returns mockBool(deduplicatorOneClick)
             every { enableDashboardOneClick } returns mockBool(false)
+            every { dashboardHeroAutoShow } returns mockBool(heroAutoShowSource ?: heroAutoShowFlow)
         }
         val submittedTasks = mutableListOf<SDMTool.Task>()
         val branchErrors = mutableListOf<Throwable>()
@@ -221,6 +237,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             systemCleaner,
             appCleaner,
             deduplicator,
+            heroAutoShowFlow,
             submittedTasks,
             branchErrors,
             stateErrors,
@@ -517,6 +534,53 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     }
 
     @Test
+    fun `a transient auto-show settings failure still collapses the hero after recovery`() = runTest2 {
+        // Without a retry the collapse-on-disable collector dies on the first failed settings read and
+        // disabling auto-show would never close an open card again for the ViewModel's lifetime.
+        // The outage covers every subscription while [outage] is set, so this does not depend on which
+        // consumer of the setting subscribes first (the hero derivation reads the same flow).
+        val outage = AtomicBoolean(true)
+        val autoShow = MutableStateFlow(true)
+        val h = harness(
+            scope = CoroutineScope(SupervisorJob() + StandardTestDispatcher(testScheduler)),
+            heroAutoShowSource = flow {
+                if (outage.get()) throw IOException("auto-show blip")
+                emitAll(autoShow)
+            },
+        )
+
+        try {
+            runCurrent()
+
+            // Both consumers of the setting reported their own outage; nothing else yet.
+            h.stateErrors.map { it.message } shouldBe listOf("auto-show blip", "auto-show blip")
+
+            // A second failed attempt one backoff later must not report again — once per outage,
+            // not once per attempt.
+            advanceTimeBy(1_500L)
+            runCurrent()
+            h.stateErrors.size shouldBe 2
+
+            // Past the second backoff the collector resubscribes; DataStoreValue.flow re-emits the
+            // current value on resubscription, so the collector is live again.
+            outage.set(false)
+            advanceTimeBy(3_000L)
+            runCurrent()
+
+            h.engine.expandHero()
+            h.engine.isHeroExpanded.value shouldBe true
+
+            autoShow.value = false
+            runCurrent()
+
+            h.engine.isHeroExpanded.value shouldBe false
+            h.stateErrors.size shouldBe 2
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
     fun `a one-tap scan that finds nothing does not expand the hero`() {
         val h = harness()
 
@@ -545,6 +609,117 @@ internal class DashboardMainActionEngineTest : BaseTest() {
 
             h.barState().heroSummary.shouldNotBeNull()
             h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a one-tap scan does not expand the hero when auto-show is off`() {
+        // The setting only takes the auto-opening away: the run still produces a summary and the bar
+        // still carries it, so the compact size chip stays the indicator and one tap opens the card.
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(gate = gate, heroAutoShow = false)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+
+            h.corpseState.value = corpseToolState(corpseData())
+            gate.complete(Unit)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+
+            // The arm was consumed (DISARM, not IGNORE): switching the setting back on must not let
+            // a later card-triggered scan inherit the arm and pop the hero open by itself.
+            h.heroAutoShow.value = true
+            h.corpseState.value = corpseToolState(corpseData(count = 2))
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `the chip still expands the hero when auto-show is off`() {
+        // On-demand expansion is untouched by the setting; only the automatic path is gated.
+        val h = harness(corpseData = corpseData(), heroAutoShow = false)
+
+        try {
+            h.barState().heroSummary.shouldNotBeNull()
+
+            h.engine.expandHero()
+
+            h.engine.isHeroExpanded.value shouldBe true
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a manually opened hero survives a one-tap cleanup with auto-show off`() {
+        // Sticky expand: a card the user opened themselves may re-render with the outcome of an
+        // action they started. The setting suppresses opening, it does not force closing.
+        val h = harness(corpseData = corpseData(), heroAutoShow = false)
+
+        try {
+            h.engine.expandHero()
+
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe true
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `disabling auto-show collapses an open hero and clears the arm`() {
+        // The user should not come back from settings to the exact card they just disabled.
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(gate = gate)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.engine.expandHero()
+            h.engine.isHeroExpanded.value shouldBe true
+
+            h.heroAutoShow.value = false
+
+            h.engine.isHeroExpanded.value shouldBe false
+
+            // The arm went with it: re-enabling and letting the in-flight run settle must not
+            // re-open the card the disable just closed.
+            h.heroAutoShow.value = true
+            h.corpseState.value = corpseToolState(corpseData())
+            gate.complete(Unit)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe false
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `the settling snapshot decides, not the setting value at arm time`() {
+        // The setting is a combine input, so the resolution judges the value the snapshot it is
+        // looking at carries — here the user switched auto-show back on while the scan was running.
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(gate = gate, heroAutoShow = false)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+
+            h.heroAutoShow.value = true
+            h.corpseState.value = corpseToolState(corpseData())
+            gate.complete(Unit)
+
+            h.barState().heroSummary.shouldNotBeNull()
+            h.engine.isHeroExpanded.value shouldBe true
         } finally {
             h.engineScope.cancel()
         }
@@ -867,7 +1042,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
         }
     }
 
-    private fun dedupeDeleteSetup(): DedupeDeleteSetup {
+    private fun dedupeDeleteSetup(heroAutoShow: Boolean = true): DedupeDeleteSetup {
         val proInfo = mockk<UpgradeRepo.Info>(relaxed = true) {
             every { isPro } returns true
             every { isSettled } returns true
@@ -910,6 +1085,7 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             every { oneClickAppCleanerEnabled } returns mockBool(false)
             every { oneClickDeduplicatorEnabled } returns mockBool(true)
             every { enableDashboardOneClick } returns mockBool(false)
+            every { dashboardHeroAutoShow } returns mockBool(heroAutoShow)
         }
         val deleteResult = DeduplicatorDeleteTask.Success(
             affectedSpace = DEDUPE_FREED_SPACE,
@@ -975,6 +1151,23 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             hero.mode shouldBe HeroSummary.Mode.FREED
             // The cleanup's total, not the surviving cluster's DEDUPE_RESIDUE_SPACE.
             hero.totalSize shouldBe DEDUPE_FREED_SPACE
+        } finally {
+            setup.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a cleanup that freed data stays collapsed when auto-show is off`() {
+        // The ordinary post-scan cleanup path: the FREED outcome is still built and still reaches the
+        // bar's compact chip, it just does not throw the card open.
+        val setup = dedupeDeleteSetup(heroAutoShow = false)
+
+        try {
+            setup.engine.mainAction(BottomBarState.Action.DELETE)
+            setup.dedupState.value = Deduplicator.State(data = null, progress = null)
+
+            setup.hero().mode shouldBe HeroSummary.Mode.FREED
+            setup.engine.isHeroExpanded.value shouldBe false
         } finally {
             setup.engineScope.cancel()
         }

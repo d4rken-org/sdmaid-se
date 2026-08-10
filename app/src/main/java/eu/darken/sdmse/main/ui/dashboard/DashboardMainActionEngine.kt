@@ -46,6 +46,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -58,6 +59,8 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.flow.updateAndGet
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import java.time.Instant
 import java.util.concurrent.atomic.AtomicInteger
 import kotlin.time.Duration.Companion.minutes
@@ -230,10 +233,20 @@ class DashboardMainActionEngine(
     private val heroExpanded = MutableStateFlow(false)
 
     /**
+     * Orders the auto-expand resolution against collapse-on-disable, so a disable landing between
+     * the decision and the expand write cannot be overwritten by a stale expand.
+     */
+    private val expansionLock = Mutex()
+
+    /**
      * Whether the hero card is expanded. It only ever becomes true as the outcome of a one-tap main
      * action that produced something to show, or because the user expanded it from the bar's compact
      * chip — an operation started anywhere else (a tool card, an in-tool screen, the scheduler)
      * leaves it collapsed. Dismissing or discarding collapses it again. In-memory, resets with the VM.
+     *
+     * The auto-expansion half is additionally gated by [GeneralSettings.dashboardHeroAutoShow]: with
+     * the setting off no action opens the card by itself, the chip-expand path is unaffected, and
+     * turning the setting off collapses a card that is currently open.
      */
     val isHeroExpanded: StateFlow<Boolean> = heroExpanded
 
@@ -252,6 +265,8 @@ class DashboardMainActionEngine(
         val batchId: Long,
         /** All branches of that batch have folded in their results. */
         val isSettled: Boolean,
+        /** [GeneralSettings.dashboardHeroAutoShow] as of this snapshot; see [resolveAutoExpand]. */
+        val autoShowEnabled: Boolean,
     )
 
     /** Consecutive failures of the [heroState] derivation; 0 while it is healthy. */
@@ -291,6 +306,7 @@ class DashboardMainActionEngine(
                 oneClickOptionsState,
                 freedResult,
                 discarding,
+                generalSettings.dashboardHeroAutoShow.flow,
             ) { upgradeInfo,
                 taskState,
                 corpseState,
@@ -300,7 +316,8 @@ class DashboardMainActionEngine(
                 oneClickMode,
                 oneClickOptions,
                 freed,
-                isDiscarding ->
+                isDiscarding,
+                autoShowEnabled ->
 
                 val actionState = resolveMainAction(
                     taskState = taskState,
@@ -387,6 +404,7 @@ class DashboardMainActionEngine(
                     upgradeInfo = upgradeInfo,
                     batchId = phase.id,
                     isSettled = phase.isSettled,
+                    autoShowEnabled = autoShowEnabled,
                 )
             }
         }
@@ -447,19 +465,63 @@ class DashboardMainActionEngine(
         // by the next card-triggered scan and auto-expand it, which is the defect this closes.
         scope.launch {
             heroState.filterNotNull().collect { hero ->
-                val decision = resolveAutoExpand(
-                    snapshotBatchId = hero.batchId,
-                    isSettled = hero.isSettled,
-                    hasSummary = hero.heroSummary != null,
-                    batch = batchState.value,
-                )
-                when (decision) {
-                    AutoExpandDecision.IGNORE -> return@collect
-                    AutoExpandDecision.DISARM -> Unit
-                    AutoExpandDecision.EXPAND_AND_DISARM -> heroExpanded.value = true
+                // Under the lock as one unit — the batch read, the decision and the expand write:
+                // a disable arriving in between must not lose to a decision taken before it.
+                expansionLock.withLock {
+                    val decision = resolveAutoExpand(
+                        snapshotBatchId = hero.batchId,
+                        isSettled = hero.isSettled,
+                        hasSummary = hero.heroSummary != null,
+                        // From the same snapshot being judged, never read separately: the setting is a
+                        // combine input so it is causally consistent with the rest of the snapshot.
+                        autoShowEnabled = hero.autoShowEnabled,
+                        batch = batchState.value,
+                    )
+                    when (decision) {
+                        AutoExpandDecision.IGNORE -> return@withLock
+                        AutoExpandDecision.DISARM -> Unit
+                        AutoExpandDecision.EXPAND_AND_DISARM -> heroExpanded.value = true
+                    }
+                    batchState.update { if (it.id == hero.batchId) it.copy(autoExpandArmed = false) else it }
                 }
-                batchState.update { if (it.id == hero.batchId) it.copy(autoExpandArmed = false) else it }
             }
+        }
+        // Disabling auto-show collapses an open hero so the user does not return from settings to the
+        // exact card they just disabled. DataStoreValue.flow is distinctUntilChanged, so only real
+        // value changes arrive; the initial emission is a no-op (heroExpanded starts false).
+        scope.launch {
+            // Consecutive failures of this collector; 0 while it is healthy.
+            var failures = 0L
+            generalSettings.dashboardHeroAutoShow.flow
+                // Upstream of the retry: only a genuine emission ends an outage.
+                .onEach { failures = 0L }
+                // Same treatment as heroState: a settings read that blips must not silently take
+                // the collapse-on-disable behaviour away for the ViewModel's lifetime. Retrying
+                // resubscribes DataStoreValue.flow, which re-emits the current value on
+                // resubscription, so a disable that happened during the outage is delivered on
+                // recovery. Reported once per outage rather than per attempt, with backoff so a
+                // permanently broken source can't hot-loop.
+                .retryWhen { error, _ ->
+                    if (error is CancellationException) return@retryWhen false
+                    if (failures == 0L) {
+                        log(TAG, ERROR) { "dashboardHeroAutoShow collector failed: ${error.asLog()}" }
+                        onStateError(error)
+                    }
+                    val doublings = failures.coerceAtMost(HERO_STATE_RETRY_MAX_DOUBLINGS).toInt()
+                    val backoff = minOf(HERO_STATE_RETRY_MAX_MS, HERO_STATE_RETRY_BASE_MS shl doublings)
+                    failures++
+                    delay(backoff)
+                    true
+                }
+                .filter { !it }
+                .collect {
+                    expansionLock.withLock {
+                        heroExpanded.value = false
+                        // Mirrors dismissHero(): closes the small race where a snapshot derived before
+                        // the disable-write settles after it and re-opens the card.
+                        batchState.update { it.copy(autoExpandArmed = false) }
+                    }
+                }
         }
     }
 
@@ -793,16 +855,24 @@ class DashboardMainActionEngine(
          * A settled snapshot of the armed batch always consumes the arm, whether or not it had
          * anything to show: an arm left behind by a fruitless run would be inherited by the next
          * card-triggered scan and auto-expand it.
+         *
+         * [autoShowEnabled] is [GeneralSettings.dashboardHeroAutoShow], taken from the very snapshot
+         * being judged. With it off nothing auto-expands — but the row DISARMs rather than IGNOREs,
+         * because the arm still has to be consumed or a later card-triggered scan would inherit it.
+         * It deliberately sits *after* the settle check: an unsettled snapshot must stay IGNORE, or
+         * the setting would consume the arm before the run it belongs to has finished.
          */
         internal fun resolveAutoExpand(
             snapshotBatchId: Long,
             isSettled: Boolean,
             hasSummary: Boolean,
+            autoShowEnabled: Boolean,
             batch: BatchState,
         ): AutoExpandDecision = when {
             !isSettled -> AutoExpandDecision.IGNORE
             !batch.autoExpandArmed -> AutoExpandDecision.IGNORE
             batch.id != snapshotBatchId -> AutoExpandDecision.IGNORE
+            !autoShowEnabled -> AutoExpandDecision.DISARM
             hasSummary -> AutoExpandDecision.EXPAND_AND_DISARM
             else -> AutoExpandDecision.DISARM
         }

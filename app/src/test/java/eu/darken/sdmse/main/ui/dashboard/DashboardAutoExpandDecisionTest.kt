@@ -20,11 +20,13 @@ internal class DashboardAutoExpandDecisionTest : BaseTest() {
         snapshotBatchId: Long = armed.id,
         isSettled: Boolean = true,
         hasSummary: Boolean = true,
+        autoShowEnabled: Boolean = true,
         batch: BatchState = armed,
     ) = DashboardMainActionEngine.resolveAutoExpand(
         snapshotBatchId = snapshotBatchId,
         isSettled = isSettled,
         hasSummary = hasSummary,
+        autoShowEnabled = autoShowEnabled,
         batch = batch,
     )
 
@@ -62,5 +64,26 @@ internal class DashboardAutoExpandDecisionTest : BaseTest() {
     @Test
     fun `a settled snapshot of the armed batch with a hero expands and disarms`() {
         decide() shouldBe AutoExpandDecision.EXPAND_AND_DISARM
+    }
+
+    @Test
+    fun `auto-show turned off disarms instead of expanding`() {
+        // The user opted out of the card opening by itself. DISARM rather than IGNORE: the arm still
+        // has to be consumed, or the next card-triggered scan would inherit it and — should the user
+        // re-enable the setting in between — pop the hero open by itself.
+        decide(autoShowEnabled = false) shouldBe AutoExpandDecision.DISARM
+    }
+
+    @Test
+    fun `auto-show turned off leaves the nothing-to-show outcome unchanged`() {
+        decide(autoShowEnabled = false, hasSummary = false) shouldBe AutoExpandDecision.DISARM
+    }
+
+    @Test
+    fun `auto-show turned off does not consume the arm before the run settles`() {
+        // The setting row sits after the settle check on purpose: consuming the arm early would drop
+        // it for the run it belongs to, which matters the moment the user re-enables auto-show while
+        // that run is still in flight.
+        decide(autoShowEnabled = false, isSettled = false) shouldBe AutoExpandDecision.IGNORE
     }
 }

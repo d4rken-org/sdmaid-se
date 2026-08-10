@@ -16,6 +16,7 @@ import androidx.compose.material.icons.twotone.Language
 import androidx.compose.material.icons.automirrored.twotone.Message
 import androidx.compose.material.icons.twotone.Palette
 import androidx.compose.material.icons.twotone.PhoneAndroid
+import androidx.compose.material.icons.twotone.Summarize
 import androidx.compose.material.icons.twotone.SystemUpdate
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.Widgets
@@ -68,6 +69,7 @@ fun GeneralSettingsScreenHost(
         onThemeColorChanged = vm::setThemeColor,
         onOneClickChanged = vm::toggleOneClick,
         onShortcutOneClickChanged = vm::toggleShortcutOneClick,
+        onDashboardSummaryAutoShowChanged = vm::toggleDashboardSummaryAutoShow,
         onWidgetOneClickChanged = vm::toggleWidgetOneClick,
         onPreviewsChanged = vm::togglePreviews,
         onUpdateCheckChanged = vm::toggleUpdateCheck,
@@ -94,6 +96,7 @@ internal fun GeneralSettingsScreen(
     onThemeColorChanged: (ThemeColor) -> Unit = {},
     onOneClickChanged: (Boolean) -> Unit = {},
     onShortcutOneClickChanged: (Boolean) -> Unit = {},
+    onDashboardSummaryAutoShowChanged: (Boolean) -> Unit = {},
     onWidgetOneClickChanged: (Boolean) -> Unit = {},
     onPreviewsChanged: (Boolean) -> Unit = {},
     onUpdateCheckChanged: (Boolean) -> Unit = {},
@@ -206,6 +209,15 @@ internal fun GeneralSettingsScreen(
                     title = stringResource(R.string.dashboard_settings_oneclick_tools_title),
                     subtitle = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
                     onClick = { showOneClickTools = true },
+                )
+            }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.Summarize,
+                    title = stringResource(R.string.dashboard_settings_summary_autoshow_title),
+                    subtitle = stringResource(R.string.dashboard_settings_summary_autoshow_summary),
+                    checked = state.dashboardSummaryAutoShow,
+                    onCheckedChange = onDashboardSummaryAutoShowChanged,
                 )
             }
             item {
