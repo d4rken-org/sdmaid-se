@@ -72,7 +72,6 @@ internal fun CustomFilterEditorBody(
     onUpdateSizeMax: (Long?) -> Unit,
     onUpdateAgeMin: (Duration?) -> Unit,
     onUpdateAgeMax: (Duration?) -> Unit,
-    onTaggedFieldFocused: () -> Unit,
 ) {
     val context = LocalContext.current
 
@@ -101,12 +100,12 @@ internal fun CustomFilterEditorBody(
             taggedField = {
                 TaggedInputField(
                     type = TagType.SEGMENTS,
+                    section = CriteriaSection.PATH,
                     hint = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_path_label),
                     tags = (config.pathCriteria ?: emptySet()).toList(),
                     onAdd = { onAddPath(it as SegmentCriterium) },
                     onRemove = { onRemovePath(it as SegmentCriterium) },
-                    onModeChange = onSwapPath,
-                    onFocusChange = { hasFocus -> if (hasFocus) onTaggedFieldFocused() },
+                    onSwap = onSwapPath,
                 )
             },
             explanation = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_path_explanation),
@@ -116,12 +115,12 @@ internal fun CustomFilterEditorBody(
             taggedField = {
                 TaggedInputField(
                     type = TagType.NAME,
+                    section = CriteriaSection.NAME,
                     hint = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_name_label),
                     tags = (config.nameCriteria ?: emptySet()).toList(),
                     onAdd = { onAddName(it as NameCriterium) },
                     onRemove = { onRemoveName(it as NameCriterium) },
-                    onModeChange = onSwapName,
-                    onFocusChange = { hasFocus -> if (hasFocus) onTaggedFieldFocused() },
+                    onSwap = onSwapName,
                 )
             },
             explanation = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_name_explanation),
@@ -131,12 +130,12 @@ internal fun CustomFilterEditorBody(
             taggedField = {
                 TaggedInputField(
                     type = TagType.SEGMENTS,
+                    section = CriteriaSection.EXCLUSION,
                     hint = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_exclusions_label),
                     tags = (config.exclusionCriteria ?: emptySet()).toList(),
                     onAdd = { onAddExclusion(it as SegmentCriterium) },
                     onRemove = { onRemoveExclusion(it as SegmentCriterium) },
-                    onModeChange = onSwapExclusion,
-                    onFocusChange = { hasFocus -> if (hasFocus) onTaggedFieldFocused() },
+                    onSwap = onSwapExclusion,
                 )
             },
             explanation = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_exclusions_explanation),

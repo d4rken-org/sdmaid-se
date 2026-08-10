@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.dialog.SdmDialogButtonBar
+import eu.darken.sdmse.common.compose.focus.dpadVerticalFieldEscape
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.getQuantityString2
@@ -93,7 +94,11 @@ fun AgeInputDialog(
                     isError = error != null,
                     supportingText = { error?.let { Text(it) } },
                     singleLine = true,
-                    modifier = Modifier.fillMaxWidth(),
+                    // Without this the field swallows D-pad UP/DOWN and a TV remote can never
+                    // reach the buttons below.
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .dpadVerticalFieldEscape(),
                 )
                 Spacer(Modifier.height(8.dp))
                 Slider(
@@ -112,6 +117,8 @@ fun AgeInputDialog(
         },
         confirmButton = {
             SdmDialogButtonBar(
+                // The text field owns the focus here; a button claiming it swallows the typing.
+                autoFocus = false,
                 positive = SdmDialogAction(
                     label = stringResource(R.string.general_save_action),
                     enabled = saveEnabled,

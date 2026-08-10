@@ -318,11 +318,6 @@ internal fun CustomFilterEditorScreen(
                     onUpdateSizeMax = onUpdateSizeMax,
                     onUpdateAgeMin = onUpdateAgeMin,
                     onUpdateAgeMax = onUpdateAgeMax,
-                    onTaggedFieldFocused = {
-                        if (sheetState.currentValue == SheetValue.Expanded) {
-                            scope.launch { sheetState.partialExpand() }
-                        }
-                    },
                 )
             }
         }
