@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -17,17 +18,15 @@ import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
@@ -69,7 +68,7 @@ class TaskManager @Inject constructor(
         val job: Job? = null,
         val resourceLock: KeepAlive? = null,
         val result: SDMTool.Task.Result? = null,
-        val error: Exception? = null,
+        val error: Throwable? = null,
         val notifyOnFinish: Boolean = true,
     ) {
         val toolType: SDMTool.Type
@@ -223,18 +222,25 @@ class TaskManager @Inject constructor(
         log(TAG, INFO) { "submit(): $task (notifyOnFinish=$notifyOnFinish)" }
         val taskId = rngString
 
+        // The task's outcome is signalled through this deferred, NOT through the task map: a failing
+        // bookkeeping step must not be able to strand a submit() caller waiting for a completion
+        // state that is never published.
+        val outcome = CompletableDeferred<Result<SDMTool.Task.Result>>()
+
         val job = appScope.launch(
             context = dispatcherProvider.IO,
             start = CoroutineStart.LAZY,
         ) {
             var result: SDMTool.Task.Result? = null
-            var error: Exception? = null
+            var error: Throwable? = null
             try {
                 stage(taskId)
                 result = execute(taskId)
 
                 log(TAG) { "Result for ${task.type}-$taskId is $result" }
-            } catch (e: Exception) {
+            } catch (e: Throwable) {
+                // Throwable, not Exception: AppScope has no CoroutineExceptionHandler, so an Error
+                // escaping a tool would take the process down with it.
                 if (e is CancellationException) {
                     log(TAG, INFO) { "execute(): Task was cancelled (${task.type}-$taskId): $task" }
                 } else {
@@ -242,20 +248,53 @@ class TaskManager @Inject constructor(
                 }
                 error = e
             } finally {
-                updateTasks {
-                    this[taskId]!!.tool.updateProgress { null }
-                    log(TAG) { "Releasing resource lock for ${task.type}-$taskId" }
-                    this[taskId]!!.resourceLock!!.close()
-                    this[taskId] = this[taskId]!!.copy(
-                        completedAt = Instant.now(),
-                        error = error,
-                        result = result,
-                    )
+                try {
+                    updateTasks {
+                        // Throwable, not Exception: an Error from a tool's progress reset must not
+                        // skip the resource lock release or the completion publish below.
+                        try {
+                            this[taskId]!!.tool.updateProgress { null }
+                        } catch (e: Throwable) {
+                            runCatching {
+                                log(TAG, WARN) { "Failed to reset progress for ${task.type}-$taskId: ${e.asLog()}" }
+                            }
+                        }
+                        runCatching { log(TAG) { "Releasing resource lock for ${task.type}-$taskId" } }
+                        try {
+                            this[taskId]!!.resourceLock!!.close()
+                        } catch (e: Throwable) {
+                            runCatching {
+                                log(TAG, WARN) { "Failed to release resource lock for ${task.type}-$taskId: ${e.asLog()}" }
+                            }
+                        }
+                        this[taskId] = this[taskId]!!.copy(
+                            completedAt = Instant.now(),
+                            error = error,
+                            result = result,
+                        )
+                    }
+                } catch (e: Throwable) {
+                    log(TAG, ERROR) { "Bookkeeping failed for ${task.type}-$taskId: ${e.asLog()}" }
                 }
+
+                outcome.complete(
+                    when {
+                        error != null -> Result.failure(error)
+                        result != null -> Result.success(result)
+                        else -> Result.failure(IllegalStateException("Task produced neither result nor error"))
+                    }
+                )
             }
         }
 
         job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${taskEntries.value[taskId]}" } }
+        // Safety net for a LAZY job that is cancelled before its body (and with it the finally above)
+        // ever ran — nothing else would ever complete the deferred.
+        job.invokeOnCompletion { cause ->
+            if (!outcome.isCompleted) {
+                outcome.complete(Result.failure(cause ?: IllegalStateException("Task job completed without outcome")))
+            }
+        }
 
         withContext(NonCancellable) {
             // Any task causes the taskmanager to stay "alive" and with it any depending resources
@@ -283,12 +322,11 @@ class TaskManager @Inject constructor(
 
         job.join()
 
-        val endTask = taskEntries
-            .mapNotNull { it[taskId] }
-            .filter { it.isComplete }
-            .first()
-
-        return endTask.result ?: throw endTask.error!!
+        return outcome.await().getOrElse { error ->
+            // Callers expect an Exception: a CancellationException passes through raw, anything else
+            // that isn't an Exception (i.e. an Error) arrives wrapped with its cause preserved.
+            throw (error as? Exception ?: TaskFatalErrorException(error))
+        }
     }
 
     /** Drops completed task entries for [type], removing their results from [state]. */

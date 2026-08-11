@@ -28,7 +28,7 @@ interface TaskSubmitter {
         val cancelledAt: Instant? = null,
         val completedAt: Instant? = null,
         val result: SDMTool.Task.Result? = null,
-        val error: Exception? = null,
+        val error: Throwable? = null,
         val notifyOnFinish: Boolean = true,
     ) {
         val isComplete: Boolean = completedAt != null

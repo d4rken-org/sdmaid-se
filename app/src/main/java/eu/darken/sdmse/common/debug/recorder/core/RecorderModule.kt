@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
+import eu.darken.sdmse.common.debug.exit.ExitInfoLogger
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -66,6 +67,7 @@ class RecorderModule @Inject constructor(
     private val debugSettings: DebugSettings,
     private val curriculumVitae: CurriculumVitae,
     private val upgradeDiagnostics: UpgradeDiagnostics,
+    private val exitInfoLogger: ExitInfoLogger,
     private val recorderProvider: Provider<Recorder>,
 ) {
 
@@ -153,6 +155,9 @@ class RecorderModule @Inject constructor(
             // else can reach, so the rollback has to know about the candidate already.
             val newRecorder = recorderProvider.get().also { candidate = it }
             newRecorder.start(logDir)
+            // The file logger is installed now: re-emit the previous process exit reasons so they
+            // land in THIS recording too, including one started long after app launch.
+            exitInfoLogger.logPreviousExits()
 
             if (!triggerFile.exists() && triggerFile.createNewFile()) createdTriggerFile = true
 

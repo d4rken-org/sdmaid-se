@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
+import eu.darken.sdmse.common.debug.exit.ExitInfoLogger
 import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.common.upgrade.UpgradeDiagnostics
@@ -81,6 +82,7 @@ class RecorderModuleTest : BaseTest() {
     private val dataAreaManager: DataAreaManager = mockk()
     private val curriculumVitae: CurriculumVitae = mockk()
     private val upgradeDiagnostics: UpgradeDiagnostics = mockk()
+    private val exitInfoLogger: ExitInfoLogger = mockk(relaxed = true)
     private val recorderProvider: Provider<Recorder> = mockk()
     private val mockRecorder: Recorder = mockk()
 
@@ -144,6 +146,7 @@ class RecorderModuleTest : BaseTest() {
             debugSettings = debugSettings,
             curriculumVitae = curriculumVitae,
             upgradeDiagnostics = upgradeDiagnostics,
+            exitInfoLogger = exitInfoLogger,
             recorderProvider = recorderProvider,
         )
 
