@@ -56,43 +56,8 @@ Closes #1827
 ## Pull Request Titles
 
 PR titles use the same module prefixes as commits. Title rules (ELI5, user-facing language) are enforced by the devtools
-PR skill.
-
-## Pull Request Description Format
-
-### What changed
-
-User-friendly explanation of what this PR does. Describe the problem that was fixed or the feature that was added from
-the user's perspective. No internal class or method names.
-
-For non-user-facing PRs (refactors, tests, CI, dependency bumps): write "No user-facing behavior change" followed by a
-brief internal description.
-
-### Technical Context
-
-Explain what's hard to extract from the diff alone. Focus on:
-
-- **Why** this approach was chosen (and alternatives considered/rejected)
-- **Root cause** for bug fixes (the diff shows the fix, not what caused it)
-- **Non-obvious side effects** or behavioral changes not apparent from reading the code
-- **Review guidance** — what's tricky or deserves close attention
-
-Keep it scannable with bullet points. Don't restate what's visible in the diff (file names, class renames, line-level
-changes).
-
-### Example
-
-```markdown
-## What changed
-
-Fixed a crash that could happen when browsing files on devices without root or ADB access.
-
-## Technical Context
-
-- Root cause: `viewModelScope` lacks a CoroutineExceptionHandler, so unhandled exceptions in DynamicStateFlow crash the app instead of routing to errorEvents
-- Chose `vmScope` (existing project convention) over adding a custom supervisor scope to stay consistent with other ViewModels
-- Narrowing `catch(Exception)` to `catch(IOException)` changes behavior: `CancellationException` is no longer silently swallowed, which is correct but may surface previously-hidden cancellation bugs
-```
+PR skill. The PR body format ("What changed" + "Technical Context", no Validation section) is defined in the global
+instructions, not here.
 
 ## Pull Request Labels
 
