@@ -1,3 +1,4 @@
 .gradle/
 build/
 .kotlin/sessions
+.kotlin/errors

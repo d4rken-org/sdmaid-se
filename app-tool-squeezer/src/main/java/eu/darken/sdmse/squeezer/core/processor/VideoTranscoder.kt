@@ -54,6 +54,7 @@ class VideoTranscoder @Inject constructor(
         // Capture the source mvhd timestamps so we can inject them into the muxer output
         // (#2388). Best-effort: a failure here just disables date preservation, gallery sort
         // then falls back to filesystem mtime which FileTransaction already preserves.
+        log(TAG) { "transcode(): Extracting timestamps from ${inputFile.path}" }
         val sourceTimestamps: VideoTimestampPreserver.TimestampData? = try {
             videoTimestampPreserver.extract(inputFile)
         } catch (e: Exception) {
@@ -77,9 +78,36 @@ class VideoTranscoder @Inject constructor(
                 // before starting the export so it can bail early instead of writing to a
                 // file that will immediately be deleted.
                 val cancellationRequested = AtomicBoolean(false)
+                // Every callback below runs on a thread we don't own (handler thread, muxer thread).
+                // An escaping Throwable there would kill the process, so all of them funnel into
+                // settle(), which is total: it never throws and resumes the continuation exactly once.
+                val settled = AtomicBoolean(false)
+                val firstProgress = AtomicBoolean(true)
 
                 fun deleteOutput() {
                     if (outputFile.exists()) outputFile.delete()
+                }
+
+                fun settle(outcome: Result<Unit>) {
+                    if (!settled.compareAndSet(false, true)) return
+
+                    runCatching { pollerRef?.let { handler.removeCallbacks(it) } }
+                        .onFailure { log(TAG, WARN) { "settle(): Removing poller failed: ${it.message}" } }
+
+                    if (outcome.isFailure) {
+                        runCatching { transformerRef?.cancel() }
+                            .onFailure { log(TAG, WARN) { "settle(): transformer.cancel() failed: ${it.message}" } }
+                        runCatching { deleteOutput() }
+                            .onFailure { log(TAG, WARN) { "settle(): deleteOutput() failed: ${it.message}" } }
+                    }
+
+                    // Last act: no cleanup failure above may prevent the coroutine from settling.
+                    if (cont.isActive) {
+                        outcome.fold(
+                            onSuccess = { cont.resume(Unit) },
+                            onFailure = { cont.resumeWithException(it) },
+                        )
+                    }
                 }
 
                 handler.post {
@@ -101,16 +129,22 @@ class VideoTranscoder @Inject constructor(
                         // MetadataProvider runs at muxer close() time on the muxer thread.
                         // Strip the default Mp4TimestampData (Media3 seeds it with "now") and
                         // replace it with the source's mvhd values so gallery DATE_TAKEN sort
-                        // is preserved (#2388).
+                        // is preserved (#2388). A throw here would escape into a thread we don't
+                        // own: date preservation is best-effort, it must neither fail nor settle
+                        // the transcode.
                         val muxerFactory = InAppMp4Muxer.Factory { entries ->
-                            sourceTimestamps?.let { ts ->
-                                entries.removeAll { it is Mp4TimestampData }
-                                entries.add(
-                                    Mp4TimestampData(
-                                        ts.creationTimeMp4Seconds,
-                                        ts.modificationTimeMp4Seconds,
+                            try {
+                                sourceTimestamps?.let { ts ->
+                                    entries.removeAll { it is Mp4TimestampData }
+                                    entries.add(
+                                        Mp4TimestampData(
+                                            ts.creationTimeMp4Seconds,
+                                            ts.modificationTimeMp4Seconds,
+                                        )
                                     )
-                                )
+                                }
+                            } catch (e: Throwable) {
+                                log(TAG, WARN) { "Mp4 timestamp injection failed: ${e.asLog()}" }
                             }
                         }
 
@@ -127,14 +161,23 @@ class VideoTranscoder @Inject constructor(
                             .setLooper(handlerThread.looper)
                             .build()
                         transformerRef = transformer
+                        log(TAG) { "Transformer built for ${inputFile.path}" }
 
                         lateinit var poller: Runnable
                         poller = Runnable {
-                            val state = transformer.getProgress(progressHolder)
-                            if (state == Transformer.PROGRESS_STATE_AVAILABLE) {
-                                progressListener?.onProgress(progressHolder.progress)
+                            try {
+                                val state = transformer.getProgress(progressHolder)
+                                if (state == Transformer.PROGRESS_STATE_AVAILABLE) {
+                                    if (firstProgress.compareAndSet(true, false)) {
+                                        log(TAG) { "First progress poll: ${progressHolder.progress}%" }
+                                    }
+                                    progressListener?.onProgress(progressHolder.progress)
+                                }
+                                if (!settled.get()) handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
+                            } catch (e: Throwable) {
+                                log(TAG, ERROR) { "Progress poller threw: ${e.asLog()}" }
+                                settle(Result.failure(e))
                             }
-                            handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
                         }
                         pollerRef = poller
 
@@ -143,8 +186,11 @@ class VideoTranscoder @Inject constructor(
                                 composition: Composition,
                                 exportResult: ExportResult,
                             ) {
-                                handler.removeCallbacks(poller)
-                                if (cont.isActive) cont.resume(Unit)
+                                try {
+                                    settle(Result.success(Unit))
+                                } catch (e: Throwable) {
+                                    log(TAG, ERROR) { "onCompleted() threw: ${e.asLog()}" }
+                                }
                             }
 
                             override fun onError(
@@ -152,8 +198,14 @@ class VideoTranscoder @Inject constructor(
                                 exportResult: ExportResult,
                                 exportException: ExportException,
                             ) {
-                                handler.removeCallbacks(poller)
-                                if (cont.isActive) cont.resumeWithException(mapExportException(exportException))
+                                try {
+                                    val mapped = runCatching { mapExportException(exportException) }
+                                        .getOrElse { exportException }
+                                    settle(Result.failure(mapped))
+                                } catch (e: Throwable) {
+                                    log(TAG, ERROR) { "onError() threw: ${e.asLog()}" }
+                                    settle(Result.failure(exportException))
+                                }
                             }
                         })
 
@@ -174,7 +226,9 @@ class VideoTranscoder @Inject constructor(
                             .setTransmuxAudio(true)
                             .build()
 
+                        log(TAG) { "Starting transformer for ${inputFile.path} -> ${outputFile.path}" }
                         transformer.start(composition, outputFile.absolutePath)
+                        log(TAG) { "Transformer started for ${inputFile.path}" }
 
                         if (cancellationRequested.get()) {
                             // Cancellation may have fired while start() was executing. The
@@ -187,7 +241,7 @@ class VideoTranscoder @Inject constructor(
                         handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
                     } catch (e: Throwable) {
                         log(TAG, ERROR) { "Transformer setup/start threw synchronously: ${e.asLog()}" }
-                        if (cont.isActive) cont.resumeWithException(e)
+                        settle(Result.failure(e))
                     }
                 }
 

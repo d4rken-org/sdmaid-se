@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.installErrorDialogCustomizer
+import eu.darken.sdmse.common.debug.exit.ExitInfoLogger
 import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.storage.StorageRescue
@@ -57,6 +58,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var theming: Theming
     @Inject lateinit var coilTempFiles: CoilTempFiles
     @Inject lateinit var memoryMonitor: MemoryMonitor
+    @Inject lateinit var exitInfoLogger: ExitInfoLogger
     @Inject lateinit var shortcutManager: ShortcutManager
     @Inject lateinit var spaceMonitorControl: SpaceMonitorControl
     @Inject lateinit var taskStatsCoordinator: TaskStatsCoordinator
@@ -108,6 +110,7 @@ open class App : Application(), Configuration.Provider {
         installErrorDialogCustomizer()
 
         memoryMonitor.register()
+        exitInfoLogger.logPreviousExits()
 
         appScope.launch { coilTempFiles.cleanUp() }
         appScope.launch { storageRescue.restoreIfPossible() }
