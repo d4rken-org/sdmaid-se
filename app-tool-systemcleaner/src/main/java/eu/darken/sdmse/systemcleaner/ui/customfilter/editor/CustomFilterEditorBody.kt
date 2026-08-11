@@ -10,16 +10,24 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Warning
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.FilterChip
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalMinimumInteractiveComponentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -27,10 +35,16 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalViewConfiguration
+import androidx.compose.ui.platform.ViewConfiguration
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.dialogs.AgeInputDialog
 import eu.darken.sdmse.common.compose.settings.dialogs.SizeInputDialog
 import eu.darken.sdmse.common.files.FileType
@@ -148,17 +162,38 @@ internal fun CustomFilterEditorBody(
                 style = MaterialTheme.typography.labelLarge,
             )
             Spacer(Modifier.height(8.dp))
-            FlowRow(
-                horizontalArrangement = Arrangement.spacedBy(8.dp),
-                verticalArrangement = Arrangement.spacedBy(4.dp),
+            // The chips paint 32dp but Material's minimumInteractiveComponentSize inflates their
+            // measured height to the 48dp floor, leaving dead space between the rows. 32dp replaces
+            // that floor here. Both locals are needed: LocalMinimumInteractiveComponentSize is the
+            // layout floor, while pointer hit-testing separately expands each node to
+            // LocalViewConfiguration.minimumTouchTargetSize - without the second the pills would
+            // still claim 48dp of touch. Scope is exactly these area chips. The delegate is
+            // remembered because LocalViewConfiguration is a static composition local: Compose
+            // re-executes the whole provided subtree whenever the provided value is unequal to the
+            // previous one, and an anonymous object declares no equals - so every fresh instance
+            // counts as a change and would recompose all six chips on each keystroke in the label field.
+            val baseViewConfiguration = LocalViewConfiguration.current
+            val compactViewConfiguration = remember(baseViewConfiguration) {
+                object : ViewConfiguration by baseViewConfiguration {
+                    override val minimumTouchTargetSize: DpSize = DpSize(32.dp, 32.dp)
+                }
+            }
+            CompositionLocalProvider(
+                LocalMinimumInteractiveComponentSize provides 32.dp,
+                LocalViewConfiguration provides compactViewConfiguration,
             ) {
-                AREA_TYPES.forEach { type ->
-                    val selected = config.areas?.contains(type) == true
-                    FilterChip(
-                        selected = selected,
-                        onClick = { onToggleArea(type, !selected) },
-                        label = { Text(type.raw) },
-                    )
+                FlowRow(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    AREA_TYPES.forEach { type ->
+                        val selected = config.areas?.contains(type) == true
+                        FilterChip(
+                            selected = selected,
+                            onClick = { onToggleArea(type, !selected) },
+                            label = { Text(type.raw) },
+                        )
+                    }
                 }
             }
             Spacer(Modifier.height(8.dp))
@@ -243,10 +278,8 @@ internal fun CustomFilterEditorBody(
             )
         }
 
-        Text(
-            text = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_warning),
-            style = MaterialTheme.typography.bodyMedium,
-            modifier = Modifier.padding(32.dp),
+        EditorWarningCard(
+            modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 8.dp, bottom = 32.dp),
         )
     }
 
@@ -344,11 +377,50 @@ private fun CheckboxRow(label: String, checked: Boolean, onClick: () -> Unit) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
+            .toggleable(value = checked, onValueChange = { onClick() }, role = Role.Checkbox)
             .padding(vertical = 4.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
-        Checkbox(checked = checked, onCheckedChange = { onClick() })
+        // onCheckedChange = null hands the gesture to the row, so the merged semantics stay a single
+        // Role.Checkbox node. It also drops the Checkbox's own 48dp minimum size, hence the Spacer.
+        Checkbox(checked = checked, onCheckedChange = null)
+        Spacer(Modifier.width(8.dp))
         Text(label)
+    }
+}
+
+@Composable
+private fun EditorWarningCard(modifier: Modifier = Modifier) {
+    Card(
+        modifier = modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+            contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+        ),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.TwoTone.Warning,
+                contentDescription = null,
+                modifier = Modifier.size(24.dp),
+            )
+            Spacer(Modifier.width(12.dp))
+            Text(
+                text = stringResource(SystemCleanerR.string.systemcleaner_customfilter_editor_warning),
+                style = MaterialTheme.typography.bodyMedium,
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun EditorWarningCardPreview() {
+    PreviewWrapper {
+        EditorWarningCard()
     }
 }
 
