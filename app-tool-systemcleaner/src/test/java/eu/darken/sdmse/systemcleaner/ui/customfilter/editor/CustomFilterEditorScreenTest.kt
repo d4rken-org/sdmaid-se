@@ -245,12 +245,12 @@ class CustomFilterEditorScreenTest : BaseComposeRobolectricTest() {
         }
 
         val pitch = rowTops.zipWithNext { upper, lower -> lower - upper }.min()
-        // With the 48dp interactive floor in place each chip measures >= 48dp, so the pitch is >= 56dp.
-        // Without it the pitch is the chip's own height plus the 8dp spacing - measured at 44dp here,
-        // since the chip content is a little taller than the 32dp FilterChip container token. Anything
-        // >= 48dp means the floor is back; the gap to 44dp absorbs text-metric drift.
-        if (pitch >= 48.dp) {
-            throw AssertionError("Area chip rows are still $pitch apart, expected less than 48.dp")
+        // With the default 48dp interactive floor each chip measures >= 48dp, so the pitch would be
+        // >= 50dp. With the 40dp floor the chip measures max(content, 40dp) = 40dp, so the pitch is
+        // the 40dp chip plus the 2dp spacing - measured at 42dp here. 46dp is the midpoint: anything
+        // >= 46dp means the default floor is back, and the gap to 42dp absorbs text-metric drift.
+        if (pitch >= 46.dp) {
+            throw AssertionError("Area chip rows are still $pitch apart, expected less than 46.dp")
         }
     }
 }

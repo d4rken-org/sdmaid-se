@@ -35,11 +35,8 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalViewConfiguration
-import androidx.compose.ui.platform.ViewConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.areas.DataArea
@@ -162,29 +159,14 @@ internal fun CustomFilterEditorBody(
                 style = MaterialTheme.typography.labelLarge,
             )
             Spacer(Modifier.height(8.dp))
-            // The chips paint 32dp but Material's minimumInteractiveComponentSize inflates their
-            // measured height to the 48dp floor, leaving dead space between the rows. 32dp replaces
-            // that floor here. Both locals are needed: LocalMinimumInteractiveComponentSize is the
-            // layout floor, while pointer hit-testing separately expands each node to
-            // LocalViewConfiguration.minimumTouchTargetSize - without the second the pills would
-            // still claim 48dp of touch. Scope is exactly these area chips. The delegate is
-            // remembered because LocalViewConfiguration is a static composition local: Compose
-            // re-executes the whole provided subtree whenever the provided value is unequal to the
-            // previous one, and an anonymous object declares no equals - so every fresh instance
-            // counts as a change and would recompose all six chips on each keystroke in the label field.
-            val baseViewConfiguration = LocalViewConfiguration.current
-            val compactViewConfiguration = remember(baseViewConfiguration) {
-                object : ViewConfiguration by baseViewConfiguration {
-                    override val minimumTouchTargetSize: DpSize = DpSize(32.dp, 32.dp)
-                }
-            }
-            CompositionLocalProvider(
-                LocalMinimumInteractiveComponentSize provides 32.dp,
-                LocalViewConfiguration provides compactViewConfiguration,
-            ) {
+            // Surface applies minimumInteractiveComponentSize(), so a 32dp chip occupies 48dp of
+            // layout and the rows drift far apart. 40dp replaces that floor, matching the criteria
+            // chips in TaggedInputField. Touch targets stay at the default 48dp on purpose - only
+            // the layout floor is lowered, and the scope is exactly these area chips.
+            CompositionLocalProvider(LocalMinimumInteractiveComponentSize provides 40.dp) {
                 FlowRow(
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalArrangement = Arrangement.spacedBy(8.dp),
+                    horizontalArrangement = Arrangement.spacedBy(2.dp),
+                    verticalArrangement = Arrangement.spacedBy(2.dp),
                 ) {
                     AREA_TYPES.forEach { type ->
                         val selected = config.areas?.contains(type) == true
