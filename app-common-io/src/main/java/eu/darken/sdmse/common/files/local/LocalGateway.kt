@@ -41,6 +41,9 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
@@ -387,6 +390,68 @@ class LocalGateway @Inject constructor(
             }
         } catch (e: IOException) {
             log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+            throw ReadException(path = path, cause = e)
+        }
+    }
+
+    override suspend fun lookupFilesFlow(path: LocalPath): Flow<LocalPathLookup> = lookupFilesFlow(path, Mode.AUTO)
+
+    suspend fun lookupFilesFlow(path: LocalPath, mode: Mode = Mode.AUTO): Flow<LocalPathLookup> = runIO {
+        try {
+            val javaFile = path.asFile()
+            val nonRootList = try {
+                when (mode) {
+                    Mode.ROOT -> null
+                    Mode.ADB -> null
+                    else -> if (javaFile.canRead()) javaFile.listFiles2() else null
+                }
+            } catch (e: Exception) {
+                null
+            }
+
+            when {
+                mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "lookupFilesFlow($mode->NORMAL): $path" }
+                    if (nonRootList == null) throw ReadException(path = path)
+                    flow {
+                        nonRootList.forEach { child ->
+                            val lookup = try {
+                                child.toLocalPath().performLookup()
+                            } catch (e: IOException) {
+                                log(TAG, WARN) { "lookupFilesFlow($path): Failed to lookup child $child: ${e.asLog()}" }
+                                null
+                            }
+                            lookup?.let { emit(it) }
+                        }
+                    }
+                }
+
+                hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupFilesFlow($mode->ROOT): $path" }
+                    // Lease + IPC stream are only created at collection time and the lease spans
+                    // the whole consumption; a built-but-never-collected flow must not hold either.
+                    flow<LocalPathLookup> { rootOps { emitAll(it.lookupFilesFlow(path)) } }
+                }
+
+                hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupFilesFlow($mode->ADB): $path" }
+                    // Lease + IPC stream are only created at collection time and the lease spans
+                    // the whole consumption; a built-but-never-collected flow must not hold either.
+                    flow<LocalPathLookup> { adbOps { emitAll(it.lookupFilesFlow(path)) } }
+                }
+
+                else -> throw IOException("No matching mode available.")
+            }.catch { e ->
+                log(TAG, WARN) { "lookupFilesFlow(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+                when (e) {
+                    is CancellationException -> throw e
+                    is ReadException -> throw e
+                    is IOException -> throw ReadException(path = path, cause = e)
+                    else -> throw e
+                }
+            }
+        } catch (e: IOException) {
+            log(TAG, WARN) { "lookupFilesFlow(path=$path, mode=$mode) failed:\n${e.asLog()}" }
             throw ReadException(path = path, cause = e)
         }
     }

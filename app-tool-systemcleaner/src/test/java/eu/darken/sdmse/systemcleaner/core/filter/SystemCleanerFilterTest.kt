@@ -37,6 +37,7 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -319,6 +320,11 @@ abstract class SystemCleanerFilterTest : BaseTest() {
         coEvery { gatewaySwitch.canRead(any()) } returns false
         coEvery { gatewaySwitch.lookupFiles(any()) } answers {
             throw ReadException(path = arg<APath>(0))
+        }
+        // Mirrors the real gateway: children stream lazily, errors surface at collection time
+        coEvery { gatewaySwitch.lookupFilesFlow(any()) } coAnswers {
+            val path = arg<APath>(0)
+            flow { gatewaySwitch.lookupFiles(path).forEach { emit(it) } }
         }
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 

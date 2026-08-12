@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.lookupFiles
+import eu.darken.sdmse.common.files.lookupFilesFlow
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.sieve.SegmentCriterium
@@ -31,6 +31,7 @@ import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import kotlinx.coroutines.flow.firstOrNull
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -125,12 +126,22 @@ class EmptyDirectoryFilter @Inject constructor(
             return null
         }
 
-        // Check for nested empty directories
-        val content = item.lookupFiles(gatewaySwitch)
+        // Check for nested empty directories. Stream the children and stop at the first file:
+        // huge directories (e.g. 30k+ files in AnkiDroid's collection.media) would otherwise be
+        // fully listed over IPC just to determine "not empty".
+        val subDirs = mutableListOf<APathLookup<*>>()
+        val blockingChild = item.lookupFilesFlow(gatewaySwitch).firstOrNull { child ->
+            if (child.fileType == FileType.DIRECTORY) {
+                subDirs.add(child)
+                false
+            } else {
+                true
+            }
+        }
         return when {
-            content.isEmpty() -> SystemCleanerFilter.Match.Deletion(item)
-            content.any { it.fileType != FileType.DIRECTORY } -> null
-            else -> if (content.all { match(it) != null }) SystemCleanerFilter.Match.Deletion(item) else null
+            blockingChild != null -> null
+            subDirs.all { match(it) != null } -> SystemCleanerFilter.Match.Deletion(item)
+            else -> null
         }
     }
 

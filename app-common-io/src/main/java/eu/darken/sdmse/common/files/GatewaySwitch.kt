@@ -135,6 +135,10 @@ class GatewaySwitch @Inject constructor(
         }
     }
 
+    override suspend fun lookupFilesFlow(path: APath): Flow<APathLookup<APath>> {
+        return useGateway(path) { lookupFilesFlow(path) }
+    }
+
     override suspend fun lookupFilesExtended(path: APath): Collection<APathLookupExtended<APath>> {
         return lookupFilesExtended(path, Type.CURRENT)
     }
