@@ -15,16 +15,27 @@ import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.mockk
 import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.Test
+import testhelpers.coroutine.TestDispatcherProvider
+import java.util.concurrent.CountDownLatch
 import kotlin.reflect.KClass
+import kotlin.time.Duration.Companion.seconds
 
 /**
  * Unit coverage for [AdbHostLauncher.createConnection]'s teardown/orchestration. Shizuku is replaced
@@ -98,14 +109,21 @@ class AdbHostLauncherTest {
         }
     }
 
-    private fun launcher(factory: ShizukuUserServiceFactory) = AdbHostLauncher(factory)
+    private fun TestScope.launcher(factory: ShizukuUserServiceFactory) = AdbHostLauncher(
+        serviceFactory = factory,
+        appScope = backgroundScope,
+        dispatcherProvider = TestDispatcherProvider(),
+    )
 
-    private fun AdbHostLauncher.connect() = createConnection(
+    private fun AdbHostLauncher.connect(
+        connectTimeoutMs: Long = AdbHostLauncher.CONNECT_TIMEOUT_MS,
+    ) = createConnection(
         serviceClass = AdbConnection::class,
         hostClass = AdbConnection::class,
         // Explicit values: AdbHostOptions()'s default isDebug=BuildConfigWrap.DEBUG triggers
         // BuildConfigWrap's static init, which isn't available on a plain JVM.
         options = AdbHostOptions(isDebug = false, isTrace = false, isDryRun = false, recorderPath = null),
+        connectTimeoutMs = connectTimeoutMs,
     )
 
     @Test fun `unsupported shizuku version fails before binding`() = runTest {
@@ -222,6 +240,67 @@ class AdbHostLauncherTest {
         error.message!! shouldContain "handshake failed"
         events shouldContainInOrder listOf("bind", "handshake", "unbind")
         job.cancelAndJoin()
+    }
+
+    @Test fun `a bind wedged in its binder transaction still releases collectors after the timeout`() = runTest(
+        timeout = 10.seconds,
+    ) {
+        // Upstream Shizuku defect, second variant: bindUserService() itself never returns (wedged
+        // synchronous binder transaction). The blocked thread can't be interrupted, but the
+        // watchdog's close() must still release everyone waiting on this flow.
+        val bindEntered = CompletableDeferred<Unit>()
+        val bindWedge = CountDownLatch(1)
+        val unboundLate = CompletableDeferred<Unit>()
+        val service = object : ShizukuUserService {
+            override fun bind() {
+                bindEntered.complete(Unit)
+                bindWedge.await() // blocks the calling thread, unaffected by coroutine cancellation
+            }
+
+            override fun unbind() {
+                unboundLate.complete(Unit)
+            }
+
+            override suspend fun awaitDisconnect() {}
+        }
+        // Real scope + real IO dispatcher: the wedge blocks an actual thread, virtual time and
+        // Unconfined execution can't model it (Unconfined would block the producer's own thread).
+        val realScope = CoroutineScope(SupervisorJob())
+        val l = AdbHostLauncher(
+            serviceFactory = FakeFactory(service),
+            appScope = realScope,
+            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
+        )
+
+        try {
+            // Collection runs in its own scope: on a regression the collector blocks forever, and
+            // it must do so in a coroutine the test only awaits WITH a timeout - a blocked child
+            // of the test coroutine itself would defeat runTest's timeout (non-cooperative
+            // cancellation) and hang the JVM.
+            val collectResult = realScope.async(Dispatchers.Default) {
+                runCatching { l.connect(connectTimeoutMs = 250L).collect { } }
+            }
+
+            withContext(Dispatchers.Default) {
+                // Only measure once the wedge is real: bind() has been entered and is blocked.
+                withTimeout(5_000L) { bindEntered.await() }
+
+                val error = withTimeout(5_000L) { collectResult.await() }.exceptionOrNull()
+                error.shouldBeInstanceOf<AdbException>()
+                error.message!! shouldContain "did not connect"
+
+                // While bind() is still wedged there is nothing to unbind yet.
+                unboundLate.isCompleted shouldBe false
+
+                // When the wedged transaction finally returns, the binding must not leak:
+                // teardown already gave up, so the late unbind is the only cleanup left.
+                bindWedge.countDown()
+                withTimeout(5_000L) { unboundLate.await() }
+            }
+        } finally {
+            bindWedge.countDown()
+            realScope.cancel()
+        }
     }
 
     @Test fun `watchdog does not fire after a successful connect`() = runTest {
