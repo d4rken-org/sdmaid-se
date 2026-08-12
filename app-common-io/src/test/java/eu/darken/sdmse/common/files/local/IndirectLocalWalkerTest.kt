@@ -1,10 +1,17 @@
 package eu.darken.sdmse.common.files.local
 
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.ReadException
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainAll
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
@@ -34,11 +41,11 @@ class IndirectLocalWalkerTest : BaseTest() {
         val mode = LocalGateway.Mode.ROOT
         val start = LocalPath.build("root")
         coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
-        coEvery { gateway.lookupFiles(LocalPath.build("root"), mode) } returns listOf(
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flowOf(
             lookup("root/sub", FileType.DIRECTORY),
             lookup("root/file.txt", FileType.FILE),
         )
-        coEvery { gateway.lookupFiles(LocalPath.build("root/sub"), mode) } returns listOf(
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root/sub"), mode) } returns flowOf(
             lookup("root/sub/nested.txt", FileType.FILE),
         )
 
@@ -55,7 +62,7 @@ class IndirectLocalWalkerTest : BaseTest() {
         val mode = LocalGateway.Mode.ROOT
         val start = LocalPath.build("root")
         coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
-        coEvery { gateway.lookupFiles(LocalPath.build("root"), mode) } returns listOf(
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flowOf(
             lookup("root/link", FileType.SYMBOLIC_LINK, target = LocalPath.build("elsewhere")),
         )
 
@@ -68,6 +75,118 @@ class IndirectLocalWalkerTest : BaseTest() {
 
         items.names() shouldContainAll setOf("link")
         // The symlink target must never be listed through the gateway (no descent).
-        coVerify(exactly = 0) { gateway.lookupFiles(LocalPath.build("root/link"), mode) }
+        coVerify(exactly = 0) { gateway.lookupFilesFlow(LocalPath.build("root/link"), mode) }
+    }
+
+    @Test
+    fun `downstream abort is not treated as a read error`() = runTest {
+        val mode = LocalGateway.Mode.ROOT
+        val start = LocalPath.build("root")
+        coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flowOf(
+            lookup("root/file1.txt", FileType.FILE),
+            lookup("root/file2.txt", FileType.FILE),
+        )
+
+        var onErrorCalled = false
+        val firstItem = IndirectLocalWalker(
+            gateway = gateway,
+            mode = mode,
+            start = start,
+            onError = { _, _ -> onErrorCalled = true; true },
+        ).first()
+
+        firstItem.lookedUp.name shouldBe "file1.txt"
+        onErrorCalled shouldBe false
+    }
+
+    @Test
+    fun `mid-stream error keeps prior children and consults onError`() = runTest {
+        val mode = LocalGateway.Mode.ROOT
+        val start = LocalPath.build("root")
+        coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flow {
+            emit(lookup("root/early.txt", FileType.FILE))
+            emit(lookup("root/earlydir", FileType.DIRECTORY))
+            throw ReadException(path = LocalPath.build("root"))
+        }
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root/earlydir"), mode) } returns flowOf(
+            lookup("root/earlydir/nested.txt", FileType.FILE),
+        )
+
+        val consulted = mutableListOf<LocalPathLookup>()
+        val items = IndirectLocalWalker(
+            gateway = gateway,
+            mode = mode,
+            start = start,
+            onError = { lookup, _ -> consulted.add(lookup); true },
+        ).toList()
+
+        // Children streamed before the error are kept, and directories among them are still walked
+        items.names() shouldContainAll setOf("early.txt", "earlydir", "nested.txt")
+        consulted.map { it.lookedUp.name } shouldBe listOf("root")
+    }
+
+    @Test
+    fun `an onFilter exception propagates and is not consulted as read error`() = runTest {
+        val mode = LocalGateway.Mode.ROOT
+        val start = LocalPath.build("root")
+        coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flowOf(
+            lookup("root/file.txt", FileType.FILE),
+        )
+
+        var onErrorCalled = false
+        shouldThrow<IllegalStateException> {
+            IndirectLocalWalker(
+                gateway = gateway,
+                mode = mode,
+                start = start,
+                onFilter = { throw IllegalStateException("filter boom") },
+                onError = { _, _ -> onErrorCalled = true; true },
+            ).toList()
+        }
+        onErrorCalled shouldBe false
+    }
+
+    @Test
+    fun `a downstream collector exception propagates and is not consulted as read error`() = runTest {
+        val mode = LocalGateway.Mode.ROOT
+        val start = LocalPath.build("root")
+        coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flowOf(
+            lookup("root/file.txt", FileType.FILE),
+        )
+
+        var onErrorCalled = false
+        shouldThrow<IllegalStateException> {
+            IndirectLocalWalker(
+                gateway = gateway,
+                mode = mode,
+                start = start,
+                onError = { _, _ -> onErrorCalled = true; true },
+            ).collect { throw IllegalStateException("collector boom") }
+        }
+        onErrorCalled shouldBe false
+    }
+
+    @Test
+    fun `mid-stream error aborts the walk when onError returns false`() = runTest {
+        val mode = LocalGateway.Mode.ROOT
+        val start = LocalPath.build("root")
+        coEvery { gateway.lookup(start, mode) } returns lookup("root", FileType.DIRECTORY)
+        coEvery { gateway.lookupFilesFlow(LocalPath.build("root"), mode) } returns flow {
+            emit(lookup("root/early.txt", FileType.FILE))
+            throw ReadException(path = LocalPath.build("root"))
+        }
+
+        shouldThrow<ReadException> {
+            IndirectLocalWalker(
+                gateway = gateway,
+                mode = mode,
+                start = start,
+                onError = { _, _ -> false },
+            ).toList()
+        }
     }
 }
