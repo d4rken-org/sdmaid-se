@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import okio.FileHandle
 import java.time.Instant
 
@@ -22,6 +23,12 @@ interface APathGateway<
     suspend fun lookupExtended(path: P): PLUE
 
     suspend fun lookupFiles(path: P): Collection<PLU>
+
+    /**
+     * Like [lookupFiles], but children are emitted as they are enumerated, so consumers can
+     * abort early without paying for the complete listing of a huge directory.
+     */
+    suspend fun lookupFilesFlow(path: P): Flow<PLU> = flow { lookupFiles(path).forEach { emit(it) } }
 
     suspend fun lookupFilesExtended(path: P): Collection<PLUE>
 

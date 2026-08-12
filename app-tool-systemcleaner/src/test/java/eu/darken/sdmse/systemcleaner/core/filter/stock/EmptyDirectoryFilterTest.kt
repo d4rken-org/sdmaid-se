@@ -3,8 +3,13 @@ package eu.darken.sdmse.systemcleaner.core.filter.stock
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.isChildOf
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import io.mockk.coEvery
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -103,6 +108,29 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
         pos(SDCARD, "1", Flag.Dir, Flag.Size(262144))
         pos(SDCARD, "2", Flag.Dir, Flag.Size(524288))
         pos(SDCARD, "3", Flag.Dir, Flag.Size(1048576))
+
+        confirm(create())
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    @Test fun `huge directories - listing is aborted at the first blocking child`() = runTest {
+        val dirs = doMock(SDCARD, "huge", null, Flag.Dir)
+        negatives.addAll(dirs)
+        val blockers = doMock(SDCARD, "huge/blocker", null, Flag.File)
+        negatives.addAll(blockers)
+
+        dirs.forEach { dir ->
+            val blocker = blockers.single { it.lookedUp.isChildOf(dir.lookedUp) }
+            coEvery { gatewaySwitch.lookupFilesFlow(dir.lookedUp) } returns flow {
+                emit(blocker as APathLookup<APath>)
+                throw AssertionError("Should not enumerate past the first blocking child: ${dir.path}")
+            }
+            coEvery { gatewaySwitch.lookupFiles(dir.lookedUp) } answers {
+                throw AssertionError("Should stream via lookupFilesFlow, not materialize via lookupFiles: ${dir.path}")
+            }
+        }
+
+        pos(SDCARD, "empty", Flag.Dir)
 
         confirm(create())
     }

@@ -16,6 +16,8 @@ import eu.darken.sdmse.common.files.local.LocalPathLookupExtended
 import eu.darken.sdmse.common.ipc.IpcClientModule
 import eu.darken.sdmse.common.ipc.fileHandle
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.runBlocking
 import okio.FileHandle
@@ -65,6 +67,20 @@ class FileOpsClient @AssistedInject constructor(
         }
     } catch (e: Exception) {
         throw e.refineException()
+    }
+
+    /**
+     * Streams lookups as the host enumerates the directory. Consumers may cancel collection
+     * early and only pay for the chunks streamed so far, instead of the complete listing.
+     * The IPC stream is only opened once the flow is collected.
+     */
+    fun lookupFilesFlow(path: LocalPath): Flow<LocalPathLookup> = flow {
+        val output = try {
+            fileOpsConnection.lookupFilesStream(path)
+        } catch (e: Exception) {
+            throw e.refineException()
+        }
+        emitAll(output.toLocalPathLookupFlow())
     }
 
     /**

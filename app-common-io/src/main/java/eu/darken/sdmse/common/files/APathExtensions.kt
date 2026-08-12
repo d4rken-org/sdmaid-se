@@ -192,6 +192,10 @@ suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.loo
     return gateway.lookupFiles(this)
 }
 
+suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFilesFlow(gateway: APathGateway<P, PL, PLE>): Flow<PL> {
+    return gateway.lookupFilesFlow(this)
+}
+
 suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PL, PLE>): Collection<PL>? {
     return if (exists(gateway)) gateway.lookupFiles(this) else null
 }

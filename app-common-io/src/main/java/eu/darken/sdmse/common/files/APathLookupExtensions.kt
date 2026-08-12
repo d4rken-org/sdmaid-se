@@ -59,6 +59,10 @@ suspend fun <P : APath, PL : APathLookup<P>> PL.lookupFiles(
     gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
 ): Collection<APathLookup<*>> = lookedUp.lookupFiles(gateway)
 
+suspend fun <P : APath, PL : APathLookup<P>> PL.lookupFilesFlow(
+    gateway: APathGateway<P, out APathLookup<P>, out APathLookupExtended<P>>
+): Flow<APathLookup<*>> = lookedUp.lookupFilesFlow(gateway)
+
 fun APathLookup<*>.matches(other: APath): Boolean = lookedUp.matches(other)
 fun APath.matches(other: APathLookup<*>): Boolean = matches(other.lookedUp)
 fun APathLookup<*>.matches(other: APathLookup<*>): Boolean = lookedUp.matches(other.lookedUp)
