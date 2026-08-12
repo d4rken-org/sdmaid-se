@@ -26,13 +26,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathGateway
-import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
-import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.lookupFiles
@@ -67,7 +64,9 @@ import eu.darken.sdmse.exclusion.core.pkgExclusions
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emptyFlow
 import java.time.Instant
 import javax.inject.Inject
 
@@ -433,62 +432,71 @@ class AppScanner @Inject constructor(
             val searchPath = target.key
             val possibleOwners = target.value
 
-            val searchPathContents = try {
-                searchPath.file
-                    .walk(
-                        gatewaySwitch,
-                        options = APathGateway.WalkOptions(
-                            pathDoesNotContain = setOf(
-                                "/org.winehq.wine/files/prefix",
-                                "/.wine/",
-                            )
-                        )
-                    )
-                    .toList()
-            } catch (e: ReadException) {
-                log(TAG, WARN) { "Failed to read ${searchPath.file}: ${e.asLog()}" }
-                emptyList()
-            }
-
-            val pathsOfInterest: List<Pair<APathLookup<APath>, Segments>> = searchPathContents
-                .filter { minCacheAgeMs == 0L || it.modifiedAt < cutOffAge }
-                .filter {
-                    // Safety check so no random files got linked in here when walking the tree
-                    it.segments.startsWith(searchPath.file.segments)
-                }
-                .map {
-                    // Filters expect a prefix free path, so we have to remove the data area prefix
-                    it to it.removePrefix(searchPath.prefix, overlap = 0)
-                }
-                .onEach { (path, pfpSegs) ->
-                    if (Bugs.isTrace) {
-                        log(TAG, VERBOSE) {
-                            "Paths of interest for ${target.key.file.path} (${target.value}}: \n ${path.path}|$pfpSegs"
-                        }
-                    }
-                }
-
             val ownersOfInterest = possibleOwners
                 .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
                 .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "Owners of interest for $target: \n${it.pkgId}" } }
 
-            pathsOfInterest.forEach { (path, pfpSegs) ->
-                for (installId in ownersOfInterest) {
-                    val match = enabledFilters.firstNotNullOfOrNull { filter ->
-                        filter.match(
-                            pkgId = installId.pkgId,
-                            target = path,
-                            areaType = searchPath.type,
-                            pfpSegs = pfpSegs,
+            val walkFlow = try {
+                searchPath.file.walk(
+                    gatewaySwitch,
+                    options = APathGateway.WalkOptions(
+                        pathDoesNotContain = setOf(
+                            "/org.winehq.wine/files/prefix",
+                            "/.wine/",
                         )
-
-                    } ?: continue
-
-                    log(TAG, INFO) { "${match.identifier.simpleName} matched ${searchPath.type}:$pfpSegs" }
-                    results[installId] = (results[installId] ?: emptySet()).plus(match)
-                    break
-                }
+                    )
+                )
+            } catch (e: ReadException) {
+                log(TAG, WARN) { "Failed to read ${searchPath.file}: ${e.asLog()}" }
+                emptyFlow()
             }
+
+            walkFlow
+                // Producer-only error handling: a read error ends this search path gracefully,
+                // while matcher exceptions below surface at collect and fail the scan, as they
+                // did before streaming.
+                .catch { e ->
+                    if (e !is ReadException) throw e
+                    log(TAG, WARN) { "Failed to read ${searchPath.file}: ${e.asLog()}" }
+                }
+                // Decouples matching from the walker: a matcher exception must fail the scan,
+                // not unwind inside the walker's emit where EscalatingWalker would catch it,
+                // retry in other modes and silently skip the remaining siblings.
+                .buffer(1024)
+                .collect { item ->
+                    // Per-item progress: a single huge folder otherwise pins the display
+                    // on the search path for minutes, looking like a hang
+                    updateProgressSecondary(item.userReadablePath)
+
+                    if (minCacheAgeMs != 0L && item.modifiedAt >= cutOffAge) return@collect
+
+                    // Safety check so no random files got linked in here when walking the tree
+                    if (!item.segments.startsWith(searchPath.file.segments)) return@collect
+
+                    // Filters expect a prefix free path, so we have to remove the data area prefix
+                    val pfpSegs = item.removePrefix(searchPath.prefix, overlap = 0)
+                    if (Bugs.isTrace) {
+                        log(TAG, VERBOSE) {
+                            "Path of interest for ${target.key.file.path} (${target.value}}: \n ${item.path}|$pfpSegs"
+                        }
+                    }
+
+                    for (installId in ownersOfInterest) {
+                        val match = enabledFilters.firstNotNullOfOrNull { filter ->
+                            filter.match(
+                                pkgId = installId.pkgId,
+                                target = item,
+                                areaType = searchPath.type,
+                                pfpSegs = pfpSegs,
+                            )
+
+                        } ?: continue
+
+                        log(TAG, INFO) { "${match.identifier.simpleName} matched ${searchPath.type}:$pfpSegs" }
+                        results[installId] = (results[installId] ?: emptySet()).plus(match)
+                        break
+                    }
+                }
 
             increaseProgress()
         }
