@@ -36,6 +36,14 @@ object SdmSeColorsGreen {
         inverseSurface = Color(0xFF2C322C),
         inverseOnSurface = Color(0xFFECF2EA),
         inversePrimary = Color(0xFF7CDA9A),
+        surfaceTint = Color(0xFF006D36),
+        surfaceBright = Color(0xFFF5FBF2),
+        surfaceContainer = Color(0xFFEAF0E7),
+        surfaceContainerHigh = Color(0xFFE4EAE1),
+        surfaceContainerHighest = Color(0xFFDEE4DC),
+        surfaceContainerLow = Color(0xFFEFF5ED),
+        surfaceContainerLowest = Color(0xFFFFFFFF),
+        surfaceDim = Color(0xFFD6DCD3),
     )
 
     val DarkDefault = darkColorScheme(
@@ -67,6 +75,14 @@ object SdmSeColorsGreen {
         inverseSurface = Color(0xFFDEE4DC),
         inverseOnSurface = Color(0xFF2C322C),
         inversePrimary = Color(0xFF006D36),
+        surfaceTint = Color(0xFF7CDA9A),
+        surfaceBright = Color(0xFF353B35),
+        surfaceContainer = Color(0xFF1B211C),
+        surfaceContainerHigh = Color(0xFF252B26),
+        surfaceContainerHighest = Color(0xFF303631),
+        surfaceContainerLow = Color(0xFF171D18),
+        surfaceContainerLowest = Color(0xFF0A100B),
+        surfaceDim = Color(0xFF0F1510),
     )
 
     val LightMediumContrast = lightColorScheme(
@@ -98,6 +114,14 @@ object SdmSeColorsGreen {
         inverseSurface = Color(0xFF2C322C),
         inverseOnSurface = Color(0xFFECF2EA),
         inversePrimary = Color(0xFF7CDA9A),
+        surfaceTint = Color(0xFF004E25),
+        surfaceBright = Color(0xFFF5FBF2),
+        surfaceContainer = Color(0xFFEAF0E7),
+        surfaceContainerHigh = Color(0xFFE4EAE1),
+        surfaceContainerHighest = Color(0xFFDEE4DC),
+        surfaceContainerLow = Color(0xFFEFF5ED),
+        surfaceContainerLowest = Color(0xFFFFFFFF),
+        surfaceDim = Color(0xFFD6DCD3),
     )
 
     val DarkMediumContrast = darkColorScheme(
@@ -129,6 +153,14 @@ object SdmSeColorsGreen {
         inverseSurface = Color(0xFFDEE4DC),
         inverseOnSurface = Color(0xFF262B26),
         inversePrimary = Color(0xFF005028),
+        surfaceTint = Color(0xFF92F1AF),
+        surfaceBright = Color(0xFF353B35),
+        surfaceContainer = Color(0xFF1B211C),
+        surfaceContainerHigh = Color(0xFF252B26),
+        surfaceContainerHighest = Color(0xFF303631),
+        surfaceContainerLow = Color(0xFF171D18),
+        surfaceContainerLowest = Color(0xFF0A100B),
+        surfaceDim = Color(0xFF0F1510),
     )
 
     val LightHighContrast = lightColorScheme(
@@ -160,6 +192,14 @@ object SdmSeColorsGreen {
         inverseSurface = Color(0xFF2C322C),
         inverseOnSurface = Color(0xFFFFFFFF),
         inversePrimary = Color(0xFF7CDA9A),
+        surfaceTint = Color(0xFF00421E),
+        surfaceBright = Color(0xFFF5FBF2),
+        surfaceContainer = Color(0xFFEAF0E7),
+        surfaceContainerHigh = Color(0xFFE4EAE1),
+        surfaceContainerHighest = Color(0xFFDEE4DC),
+        surfaceContainerLow = Color(0xFFEFF5ED),
+        surfaceContainerLowest = Color(0xFFFFFFFF),
+        surfaceDim = Color(0xFFD6DCD3),
     )
 
     val DarkHighContrast = darkColorScheme(
@@ -191,6 +231,14 @@ object SdmSeColorsGreen {
         inverseSurface = Color(0xFFDEE4DC),
         inverseOnSurface = Color(0xFF000000),
         inversePrimary = Color(0xFF005028),
+        surfaceTint = Color(0xFFB0FFCA),
+        surfaceBright = Color(0xFF353B35),
+        surfaceContainer = Color(0xFF1B211C),
+        surfaceContainerHigh = Color(0xFF252B26),
+        surfaceContainerHighest = Color(0xFF303631),
+        surfaceContainerLow = Color(0xFF171D18),
+        surfaceContainerLowest = Color(0xFF0A100B),
+        surfaceDim = Color(0xFF0F1510),
     )
 
     fun lightScheme(style: ThemeStyle): ColorScheme = when (style) {
