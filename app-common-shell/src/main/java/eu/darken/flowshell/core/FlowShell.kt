@@ -18,8 +18,8 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
-import kotlinx.coroutines.stream.consumeAsFlow
 import kotlinx.coroutines.withContext
+import java.io.IOException
 import java.io.InputStream
 import java.io.OutputStreamWriter
 import java.nio.charset.StandardCharsets
@@ -67,10 +67,23 @@ class FlowShell(
 
         private fun InputStream.lineHarvester(tag: String) = flow {
             if (isDebug) log(_tag, VERBOSE) { "Harverster($tag) is active" }
-            bufferedReader().use { reader ->
-                reader.lines().consumeAsFlow().collect {
-                    if (isDebug) log(_tag, VERBOSE) { "Harverster($tag) -> $it" }
-                    emit(it)
+            val reader = bufferedReader()
+            try {
+                while (true) {
+                    val line = try {
+                        reader.readLine() ?: break
+                    } catch (e: IOException) {
+                        if (isDebug) log(_tag, WARN) { "Harvester($tag) stream ended: $e" }
+                        break
+                    }
+                    if (isDebug) log(_tag, VERBOSE) { "Harvester($tag) -> $line" }
+                    emit(line)
+                }
+            } finally {
+                try {
+                    reader.close()
+                } catch (e: IOException) {
+                    if (isDebug) log(_tag, WARN) { "Harvester($tag) close failed: $e" }
                 }
             }
             if (isDebug) log(_tag, VERBOSE) { "Harverster($tag) is finished" }

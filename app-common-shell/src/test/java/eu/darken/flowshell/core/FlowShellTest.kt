@@ -4,24 +4,37 @@ package eu.darken.flowshell.core
 import eu.darken.flowshell.core.process.FlowProcess
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.flow.replayingShare
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import io.mockk.every
+import io.mockk.mockk
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.takeWhile
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import java.io.ByteArrayInputStream
+import java.io.ByteArrayOutputStream
+import java.io.IOException
+import java.io.InputStream
+import java.io.InterruptedIOException
 import java.util.Base64
 import java.util.UUID
 
@@ -151,6 +164,83 @@ class FlowShellTest : BaseTest() {
             decode(outputData.toString()).size shouldBe expectedSize
             decode(errorData.toString()).size shouldBe expectedSize
             outputData shouldNotBe errorData
+        }
+    }
+
+    @Test fun `harvester treats stream teardown as end of stream`() = runTest {
+        val session = fakeSession(TornDownInputStream("line1\nline2\n"))
+
+        session.output.toList() shouldBe listOf("line1", "line2")
+    }
+
+    @Test fun `killing session while output is collected does not throw`() = runTest2(autoCancel = true) {
+        val sharedSession = FlowShell().session.replayingShare(this)
+        sharedSession.launchIn(this + Dispatchers.IO)
+
+        val session = sharedSession.first()
+        val lineArrived = CompletableDeferred<Unit>()
+
+        val outputJob = session.output
+            .onEach { if (it == "marker") lineArrived.complete(Unit) }
+            .launchIn(this + Dispatchers.IO)
+        val errorJob = session.error.launchIn(this + Dispatchers.IO)
+
+        session.write("echo marker")
+        lineArrived.await()
+
+        session.cancel()
+
+        withContext(Dispatchers.IO) {
+            withTimeout(10_000) { listOf(outputJob, errorJob).joinAll() }
+        }
+    }
+
+    @Test fun `collector exceptions propagate through the harvester`() = runTest {
+        val session = fakeSession(EndlessInputStream("line"))
+
+        shouldThrow<IllegalStateException> {
+            session.output.collect { throw IllegalStateException("collector boom") }
+        }.message shouldBe "collector boom"
+    }
+
+    private fun fakeSession(output: InputStream): FlowShell.Session {
+        val process = mockk<Process>().apply {
+            every { outputStream } returns ByteArrayOutputStream()
+            every { inputStream } returns output
+            every { errorStream } returns ByteArrayInputStream(ByteArray(0))
+        }
+        return FlowShell.Session(
+            session = FlowProcess.Session(
+                id = "test",
+                process = process,
+                exitCode = MutableStateFlow<FlowProcess.ExitCode?>(null),
+                onKill = {},
+            ),
+        )
+    }
+
+    private class TornDownInputStream(payload: String) : InputStream() {
+        private val data = payload.toByteArray()
+        private var pos = 0
+
+        override fun read(): Int {
+            if (pos == data.size) throw InterruptedIOException("read interrupted by close() on another thread")
+            return data[pos++].toInt() and 0xFF
+        }
+
+        override fun close() {
+            throw IOException("close() failed")
+        }
+    }
+
+    private class EndlessInputStream(line: String) : InputStream() {
+        private val data = (line + "\n").toByteArray()
+        private var pos = 0
+
+        override fun read(): Int {
+            val byte = data[pos]
+            pos = (pos + 1) % data.size
+            return byte.toInt() and 0xFF
         }
     }
 }
