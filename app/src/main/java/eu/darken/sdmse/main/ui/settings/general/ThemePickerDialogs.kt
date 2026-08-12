@@ -56,8 +56,7 @@ fun ThemeModePickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onModeSelected(mode) }
-                            .padding(vertical = 8.dp),
+                            .clickable { onModeSelected(mode) },
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
@@ -101,8 +100,7 @@ fun ThemeStylePickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onStyleSelected(style) }
-                            .padding(vertical = 8.dp),
+                            .clickable { onStyleSelected(style) },
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
@@ -148,8 +146,7 @@ fun RomTypePickerDialog(
                             .clickable {
                                 onRomTypeSelected(rom)
                                 onDismiss()
-                            }
-                            .padding(vertical = 8.dp),
+                            },
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
@@ -195,8 +192,7 @@ fun ThemeColorPickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onColorSelected(color) }
-                            .padding(vertical = 8.dp),
+                            .clickable { onColorSelected(color) },
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
