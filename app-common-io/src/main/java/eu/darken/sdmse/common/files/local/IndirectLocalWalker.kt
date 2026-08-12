@@ -8,8 +8,12 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 import java.util.LinkedList
 
 class IndirectLocalWalker(
@@ -45,26 +49,23 @@ class IndirectLocalWalker(
         while (!queue.isEmpty()) {
             val lookUp = queue.removeFirst()
 
-            val newBatch = try {
-                gateway.lookupFiles(lookUp.lookedUp, mode)
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to read $lookUp: $e" }
-                if (onError(lookUp, e)) {
-                    emptyList()
-                } else {
-                    throw e
+            // Children are consumed as they stream in over the gateway, a huge directory no
+            // longer stalls the whole walk until its complete listing has materialized.
+            // The read-error handling is attached to the upstream flow only: exceptions from
+            // onFilter, downstream operators or collectors, and cancellation (e.g. Flow.first)
+            // must all propagate instead of being swallowed as read errors by onError.
+            flow { emitAll(gateway.lookupFilesFlow(lookUp.lookedUp, mode)) }
+                .catch { e ->
+                    if (e !is Exception || e is CancellationException) throw e
+                    log(TAG, ERROR) { "Failed to read $lookUp: $e" }
+                    if (!onError(lookUp, e)) throw e
                 }
-            }
-
-            newBatch
-                .filter {
-                    val allowed = onFilter(it)
-                    if (Bugs.isTrace) {
-                        if (!allowed) log(tag, VERBOSE) { "Skipping (filter): $it" }
+                .collect { child ->
+                    val allowed = onFilter(child)
+                    if (!allowed) {
+                        if (Bugs.isTrace) log(tag, VERBOSE) { "Skipping (filter): $child" }
+                        return@collect
                     }
-                    allowed
-                }
-                .forEach { child ->
                     if (child.isDirectory) {
                         if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
                         queue.addFirst(child)
