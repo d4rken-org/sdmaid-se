@@ -571,6 +571,26 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `iap purchase is blocked by a renewing subscription with an unknown product`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // The gate reads the RAW purchases, never the mapped upgrades: a subscription whose product
+        // ID this build doesn't know (legacy SKU, renamed product) still renews and still bills, so
+        // letting the one-time purchase through here charges the user for Pro twice.
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } returns
+            proInfo(mockPurchase("some.unknown.subscription", autoRenewing = true))
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.SubscriptionStillRenewing
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
     fun `iap purchase proceeds when the subscription is not set to renew`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
         coEvery { repo.verifyPurchaseStateNow() } returns

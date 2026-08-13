@@ -363,8 +363,11 @@ class UpgradeViewModel @Inject constructor(
                 val gate = runPurchaseGate()
                 if (gate !is PurchaseGate.Clear) return@launch
                 // Hard gate against double-billing, against the FRESH result — the replayed
-                // upgradeInfo can be stale or built from partial results.
-                if (gate.info.upgrades.any { it.sku == OurSku.Sub.PRO_UPGRADE && it.purchase.isAutoRenewing }) {
+                // upgradeInfo can be stale or built from partial results. Asked of the RAW
+                // purchases (see Info.hasAutoRenewingSubscription), never of the mapped upgrades:
+                // a renewing subscription with an unknown or legacy product ID must block the
+                // one-time purchase too, or the user pays for Pro twice.
+                if (gate.info.hasAutoRenewingSubscription) {
                     log(TAG, INFO) { "IAP purchase blocked: subscription is still set to renew" }
                     events.tryEmit(UpgradeEvents.SubscriptionStillRenewing)
                     return@launch

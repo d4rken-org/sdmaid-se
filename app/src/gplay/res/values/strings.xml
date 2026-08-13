@@ -66,7 +66,7 @@
     <string name="upgrade_screen_sub_still_renewing_message">Google Play reports that your subscription is still set to renew. To buy the one-time upgrade, cancel the subscription in Google Play first, then come back here.\n\nJust cancelled it? Give Google Play a moment and try again. Also make sure you are using the same Google account.</string>
     <string name="upgrade_screen_purchase_check_failed_message">Couldn\'t check your purchases with Google Play. Please try again in a moment.</string>
     <string name="upgrade_screen_pending_card_title">Payment pending</string>
-    <string name="upgrade_screen_pending_card_body">Google Play is still processing your payment. Pro unlocks automatically once the payment goes through. Some payment methods take a while, there is nothing else to do.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play is still processing your payment. Pro unlocks automatically once the payment goes through. Some payment methods can take a while. There is nothing else you need to do.</string>
     <string name="upgrade_screen_pending_dialog_message">Google Play found a purchase with a pending payment and is still processing it. Pro unlocks automatically once the payment goes through.</string>
     <string name="upgrade_screen_restore_success_message">Purchase restored, your Pro upgrade is active.</string>
     <string name="upgrade_screen_grace_title">Confirming your purchase</string>

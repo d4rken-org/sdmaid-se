@@ -591,6 +591,17 @@ class UpgradeRepoGplay @Inject constructor(
             ?.flatten()
             ?: emptySet()
 
+        // Any owned purchase Play still bills on a schedule. Deliberately computed from the RAW
+        // PURCHASED purchases instead of [upgrades]: the mapping drops products this app doesn't
+        // know, and the pre-purchase gate must keep blocking on a renewing subscription with an
+        // unknown or legacy product ID — being wrong there means billing the user twice for Pro.
+        // Both product types are scanned; a one-time purchase reports isAutoRenewing = false, so
+        // the broader input cannot produce a false positive.
+        // Computed on access, not in the initializer: an Info is built for every mapping pass, and
+        // only the purchase gate needs this.
+        val hasAutoRenewingSubscription: Boolean
+            get() = billingData?.purchases?.any { it.isAutoRenewing } == true
+
         override val isPro: Boolean = upgrades.isNotEmpty() || gracePeriod
 
         override val upgradedAt: Instant? = upgrades
