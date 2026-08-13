@@ -86,6 +86,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">The system has disabled the "Clear cache" button for this app. Exclude it to speed up cache clearing.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">System app misconfigured</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security app (com.miui.securitycenter) is missing the Usage Stats permission (GET_USAGE_STATS). This breaks features like "Clear Data" in app details and cache clearing via accessibility. Grant the permission to restore full functionality.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">This can also happen after force-stopping many apps in one run. That can make Android block SD Maid\'s automated input until you restart the device. If you have \"Force-stop before clearing\" turned on, try rebooting, or turn that option off.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop before clearing</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. It can help clear some apps\' caches, but may cause apps to misbehave and require manual restart.</string>
     <string name="appcleaner_progress_force_stopping">Force-stopping apps…</string>
