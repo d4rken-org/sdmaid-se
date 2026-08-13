@@ -9,6 +9,21 @@ internal val BillingResult.isSuccess: Boolean
     get() = responseCode == BillingClient.BillingResponseCode.OK
 
 /**
+ * Owned right now. The ONLY state that may grant an entitlement, stamp the Pro grace cache or be
+ * acknowledged — a PENDING purchase is a payment Play is still processing, and acknowledging one is
+ * rejected permanently.
+ */
+internal val Purchase.isPurchased: Boolean
+    get() = purchaseState == Purchase.PurchaseState.PURCHASED
+
+/**
+ * Worth carrying in our state at all: owned, or a payment in progress the user should see. Anything
+ * else (UNSPECIFIED_STATE) is dropped at ingestion — it is neither.
+ */
+internal val Purchase.isRelevant: Boolean
+    get() = isPurchased || purchaseState == Purchase.PurchaseState.PENDING
+
+/**
  * Log-safe rendering of a [Purchase].
  *
  * `Purchase.toString()` dumps the original response JSON, which carries the purchase token and the
