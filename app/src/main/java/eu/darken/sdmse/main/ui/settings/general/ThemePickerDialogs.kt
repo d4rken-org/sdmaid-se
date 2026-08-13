@@ -2,7 +2,7 @@ package eu.darken.sdmse.main.ui.settings.general
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
@@ -27,6 +27,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.device.RomType
@@ -56,12 +57,17 @@ fun ThemeModePickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onModeSelected(mode) },
+                            .selectable(
+                                selected = mode == currentMode,
+                                role = Role.RadioButton,
+                                onClick = { onModeSelected(mode) },
+                            )
+                            .heightIn(min = 48.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
                             selected = mode == currentMode,
-                            onClick = { onModeSelected(mode) },
+                            onClick = null,
                         )
                         Text(
                             text = label,
@@ -100,12 +106,17 @@ fun ThemeStylePickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onStyleSelected(style) },
+                            .selectable(
+                                selected = style == currentStyle,
+                                role = Role.RadioButton,
+                                onClick = { onStyleSelected(style) },
+                            )
+                            .heightIn(min = 48.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
                             selected = style == currentStyle,
-                            onClick = { onStyleSelected(style) },
+                            onClick = null,
                         )
                         Text(
                             text = label,
@@ -143,18 +154,20 @@ fun RomTypePickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable {
-                                onRomTypeSelected(rom)
-                                onDismiss()
-                            },
+                            .selectable(
+                                selected = rom == currentRomType,
+                                role = Role.RadioButton,
+                                onClick = {
+                                    onRomTypeSelected(rom)
+                                    onDismiss()
+                                },
+                            )
+                            .heightIn(min = 48.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
                             selected = rom == currentRomType,
-                            onClick = {
-                                onRomTypeSelected(rom)
-                                onDismiss()
-                            },
+                            onClick = null,
                         )
                         Text(
                             text = rom.label.get(context),
@@ -192,12 +205,17 @@ fun ThemeColorPickerDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onColorSelected(color) },
+                            .selectable(
+                                selected = color == currentColor,
+                                role = Role.RadioButton,
+                                onClick = { onColorSelected(color) },
+                            )
+                            .heightIn(min = 48.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
                             selected = color == currentColor,
-                            onClick = { onColorSelected(color) },
+                            onClick = null,
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         ColorSwatch(color)

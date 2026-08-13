@@ -19,13 +19,15 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -198,15 +200,22 @@ private fun ModeSelectionDialog(
                     Row(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .clickable { onSelected(mode) }
-                            .padding(vertical = 12.dp),
+                            .selectable(
+                                selected = mode == currentMode,
+                                role = Role.RadioButton,
+                                onClick = { onSelected(mode) },
+                            )
+                            .heightIn(min = 48.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(
                             selected = mode == currentMode,
-                            onClick = { onSelected(mode) },
+                            onClick = null,
                         )
-                        Text(text = stringResource(mode.labelRes))
+                        Text(
+                            text = stringResource(mode.labelRes),
+                            modifier = Modifier.padding(start = 8.dp),
+                        )
                     }
                 }
             }

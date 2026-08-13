@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Slider
@@ -101,7 +100,6 @@ fun SizeInputDialog(
                         saveEnabled = true
                     },
                     valueRange = minKb.toFloat()..maxKb.toFloat(),
-                    modifier = Modifier.padding(horizontal = 8.dp),
                 )
             }
         },
