@@ -424,7 +424,9 @@ class StorageScanner @Inject constructor(
         val request = AppStorageScanner.Request.Reprocessing(
             pkgStat = app
         )
-        val rescanned = appScanner.process(request)
+        // Per-item progress: deep scans of apps with huge folders otherwise sit on a static
+        // "Searching" for minutes, looking like a hang (the progress host throttles updates)
+        val rescanned = appScanner.process(request) { updateProgressSecondary(it.userReadablePath) }
 
         log(TAG) { "Rescanned ${app.id}: $rescanned" }
 
