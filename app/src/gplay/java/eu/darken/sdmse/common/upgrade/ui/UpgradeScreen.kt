@@ -65,6 +65,7 @@ fun UpgradeScreenHost(
     var showRestoreInconclusive by rememberSaveable { mutableStateOf(false) }
     var showStillRenewing by rememberSaveable { mutableStateOf(false) }
     var showCheckFailed by rememberSaveable { mutableStateOf(false) }
+    var showPurchasePending by rememberSaveable { mutableStateOf(false) }
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
@@ -78,7 +79,8 @@ fun UpgradeScreenHost(
                 UpgradeEvents.RestoreFailed -> showRestoreFailed = true
                 UpgradeEvents.RestoreInconclusive -> showRestoreInconclusive = true
                 UpgradeEvents.SubscriptionStillRenewing -> showStillRenewing = true
-                UpgradeEvents.SubscriptionCheckFailed -> showCheckFailed = true
+                UpgradeEvents.PurchaseCheckFailed -> showCheckFailed = true
+                UpgradeEvents.PurchasePending -> showPurchasePending = true
             }
         }
     }
@@ -124,13 +126,17 @@ fun UpgradeScreenHost(
 
     if (showCheckFailed) {
         SdmConfirmDialog(
-            message = stringResource(R.string.upgrade_screen_sub_check_failed_message),
+            message = stringResource(R.string.upgrade_screen_purchase_check_failed_message),
             onDismissRequest = { showCheckFailed = false },
             positive = SdmDialogAction(
                 label = stringResource(CommonR.string.general_dismiss_action),
                 onClick = { showCheckFailed = false },
             ),
         )
+    }
+
+    if (showPurchasePending) {
+        PurchasePendingDialog(onDismiss = { showPurchasePending = false })
     }
 
     val uiState by vm.state.collectAsStateWithLifecycle()
@@ -173,6 +179,33 @@ internal fun RestoreFailedDialog(
             onClick = onDismiss,
         ),
     )
+}
+
+/**
+ * Shown when Play is still processing a payment. Purely informational: there is nothing to fix, no
+ * purchase to restore and no support case — the entitlement arrives on its own once the payment
+ * clears, so the dialog offers only a dismiss.
+ */
+@Composable
+internal fun PurchasePendingDialog(
+    onDismiss: () -> Unit = {},
+) {
+    SdmConfirmDialog(
+        message = stringResource(R.string.upgrade_screen_pending_dialog_message),
+        onDismissRequest = onDismiss,
+        positive = SdmDialogAction(
+            label = stringResource(CommonR.string.general_dismiss_action),
+            onClick = onDismiss,
+        ),
+    )
+}
+
+@Preview2
+@Composable
+private fun PurchasePendingDialogPreview() {
+    PreviewWrapper {
+        PurchasePendingDialog()
+    }
 }
 
 /**
@@ -266,6 +299,12 @@ internal fun UpgradeScreen(
                     )
                 }
             }
+
+            // Above the ownership/acquisition split, because a pending payment cuts across it: the
+            // buyer waiting for their first Pro purchase, the owner switching products and the
+            // grace user (whose offers box is hidden entirely) all need it, and it is the reason
+            // their purchase buttons are locked.
+            if (loaded?.hasPendingPurchase == true) PendingPurchaseCard()
 
             if (ownedState != null) {
                 UpgradeOwnershipContent(
@@ -467,6 +506,24 @@ private fun UpgradeScreenReturningBuyerPreview() {
                 iapEnabled = true,
                 iapPrice = "$24.99",
                 wasPreviouslyPro = true,
+            ),
+        )
+    }
+}
+
+// The acquisition variant of the pending state: card above the offers, both buy buttons locked.
+@Preview2
+@Composable
+private fun UpgradeScreenPendingPreview() {
+    PreviewWrapper {
+        UpgradeScreen(
+            uiState = GplayUpgradeUiState.Loaded(
+                subscriptionAction = SubscriptionAction.STANDARD,
+                subscriptionEnabled = false,
+                subscriptionPrice = "$12.99",
+                iapEnabled = false,
+                iapPrice = "$24.99",
+                hasPendingPurchase = true,
             ),
         )
     }

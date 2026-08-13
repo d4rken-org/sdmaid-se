@@ -89,4 +89,38 @@ class GplayUpgradeOwnershipTest : BaseTest() {
 
         ownership.ownsAnything shouldBe false
     }
+
+    private fun pendingInfo(vararg pending: Purchase) = UpgradeRepoGplay.Info(
+        false,
+        BillingData(purchases = emptyList(), pendingPurchases = pending.toList()),
+        null,
+    )
+
+    @Test
+    fun `a pending payment sets the pending flag`() {
+        pendingInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro")).toPendingFlag().shouldBeTrue()
+        pendingInfo(mockPurchase("upgrade.pro")).toPendingFlag().shouldBeTrue()
+    }
+
+    @Test
+    fun `no pending payment leaves the flag off`() {
+        info(mockPurchase("eu.darken.sdmse.iap.upgrade.pro")).toPendingFlag().shouldBeFalse()
+        pendingInfo().toPendingFlag().shouldBeFalse()
+    }
+
+    @Test
+    fun `an unknown pending product does not set the flag`() {
+        // Nothing to explain and nothing to lock: a product this app doesn't sell isn't the Pro
+        // upgrade the user is waiting for.
+        pendingInfo(mockPurchase("some.unknown.sku")).toPendingFlag().shouldBeFalse()
+    }
+
+    @Test
+    fun `a pending payment is not ownership`() {
+        val ownership = pendingInfo(mockPurchase("eu.darken.sdmse.iap.upgrade.pro")).toOwnership()
+
+        ownership.hasIap.shouldBeFalse()
+        ownership.subscription.shouldBeNull()
+        ownership.ownsAnything.shouldBeFalse()
+    }
 }

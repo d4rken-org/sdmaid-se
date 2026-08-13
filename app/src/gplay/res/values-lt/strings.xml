@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Tai atskiras pirkinys: tai neatsauks jūsų prenumeratos ir nesugražins pinigų. Naudokite tą pačią „Google“ paskyrą abiem.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Prenumerata vis dar aktyvi</string>
     <string name="upgrade_screen_sub_still_renewing_message">„Google Play“ praneša, kad jūsų prenumerata vis dar nustatyta atsinaujinti. Norėdami įsigyti vienkartinį atnaujinimą, pirmiausia atšaukite prenumeratą programoje „Google Play“, tada grįžkite čia.\n\nJau atšaukėte? Leiskite „Google Play“ momentui ir bandykite dar kartą. Taip pat įsitikinkite, kad naudojate tą pačią „Google“ paskyrą.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Nepavyko patikrinti jūsų prenumeratos būsenos naudojant „Google Play“. Prašome bandyti dar kartą šiek tiek vėliau.</string>
     <string name="upgrade_screen_restore_success_message">Pirkinys atkurtas, jūsų „Pro“ atnaujinimas yra aktyvus.</string>
     <string name="upgrade_screen_grace_title">Patvirtinamas jūsų pirkinys</string>
     <string name="upgrade_screen_grace_body_short">„Pro“ vis dar aktyvus. Laukiame, kol „Google Play“ patvirtins jūsų pirkinį. Tuo tarpu visos „Pro“ funkcijos lieka atblokuotos.</string>

@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Esta é uma compra separada: não cancela nem reembolsa sua assinatura. Use a mesma conta do Google para ambas.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Assinatura ainda ativa</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play informa que sua assinatura ainda está configurada para renovar. Para comprar a atualização única, cancele a assinatura no Google Play primeiro e depois volte aqui.\n\nAcabou de cancelar? Dê ao Google Play um momento e tente novamente. Certifique-se também de que está usando a mesma conta do Google.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Não foi possível verificar o status da sua assinatura no Google Play. Tente novamente em um momento.</string>
     <string name="upgrade_screen_restore_success_message">Compra restaurada, sua atualização Pro está ativa.</string>
     <string name="upgrade_screen_grace_title">Confirmando sua compra</string>
     <string name="upgrade_screen_grace_body_short">Pro ainda está ativo. Aguardando que o Google Play confirme novamente sua compra, todos os recursos Pro permanecem desbloqueados neste meio tempo.</string>

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Autorenew
+import androidx.compose.material.icons.twotone.HourglassTop
 import androidx.compose.material.icons.twotone.Verified
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
@@ -101,8 +102,10 @@ internal fun UpgradeOwnershipContent(
                 Button(
                     onClick = onIap,
                     // Not gated on iapEnabled: prices may have failed to load while the purchase
-                    // itself would work (the billing flow re-queries details on launch).
-                    enabled = switchUnlocked && uiState.busy == null,
+                    // itself would work (the billing flow re-queries details on launch). A pending
+                    // payment does lock it — Play would reject the purchase, and the pending card
+                    // above carries the explanation.
+                    enabled = switchUnlocked && uiState.busy == null && !uiState.hasPendingPurchase,
                     modifier = Modifier
                         .fillMaxWidth()
                         .testTag(UpgradeScreenTags.GPLAY_IAP),
@@ -235,6 +238,38 @@ internal fun UpgradeGraceCard(
                 Text(stringResource(R.string.upgrade_screen_restore_purchase_action))
             }
         }
+    }
+}
+
+// Shown to EVERY audience while Google Play is still processing a payment: an acquisition user who
+// just bought, an owner buying the other product, and a grace user whose Pro is running out — all
+// three have purchase actions locked and need the same explanation. Calm reassurance styling like
+// the grace card: nothing is wrong, the payment just isn't done.
+@Composable
+internal fun PendingPurchaseCard(
+    modifier: Modifier = Modifier,
+) {
+    UpgradeSectionCard(
+        title = stringResource(R.string.upgrade_screen_pending_card_title),
+        icon = Icons.TwoTone.HourglassTop,
+        modifier = modifier.testTag(UpgradeScreenTags.GPLAY_PENDING),
+        colors = CardDefaults.elevatedCardColors(
+            containerColor = MaterialTheme.colorScheme.secondaryContainer,
+            contentColor = MaterialTheme.colorScheme.onSecondaryContainer,
+        ),
+    ) {
+        Text(
+            text = stringResource(R.string.upgrade_screen_pending_card_body),
+            style = MaterialTheme.typography.bodyMedium,
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun PendingPurchaseCardPreview() {
+    PreviewWrapper {
+        PendingPurchaseCard()
     }
 }
 

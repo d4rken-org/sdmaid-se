@@ -23,6 +23,9 @@ internal sealed interface GplayUpgradeUiState {
         val ownership: Ownership = Ownership(),
         val grace: GraceHint? = null,
         val wasPreviouslyPro: Boolean = false,
+        // A payment Google Play is still processing. SKU-agnostic on purpose: the card explains the
+        // wait and both purchase actions lock, regardless of which product is pending.
+        val hasPendingPurchase: Boolean = false,
         val busy: BusyOp? = null,
     ) : GplayUpgradeUiState
 }
@@ -73,12 +76,18 @@ internal fun UpgradeRepoGplay.Info.toOwnership() = Ownership(
         ?.let { subs -> SubscriptionOwnership(isAutoRenewing = subs.any { it.purchase.isAutoRenewing }) },
 )
 
+// Any Pro payment Play is still processing. No per-product flag: the one-time purchase and the
+// subscription are alternatives, so a pending payment for either one must lock both — completing
+// both would charge the user twice for the same thing.
+internal fun UpgradeRepoGplay.Info.toPendingFlag(): Boolean = pendingSkus.isNotEmpty()
+
 internal fun toLoadedState(
     iap: SkuDetails?,
     sub: SkuDetails?,
     ownership: Ownership,
     grace: GraceHint? = null,
     wasPreviouslyPro: Boolean = false,
+    hasPendingPurchase: Boolean = false,
     busy: BusyOp? = null,
 ): GplayUpgradeUiState.Loaded {
     val iapOffer = iap?.details?.oneTimePurchaseOfferDetails
@@ -97,15 +106,18 @@ internal fun toLoadedState(
         },
         // Any running entitlement operation (restore, manual or the invisible already-owned
         // recovery, and purchases) pauses the buy actions too — starting a purchase while an
-        // entitlement is being reconciled just races Play into ITEM_ALREADY_OWNED.
+        // entitlement is being reconciled just races Play into ITEM_ALREADY_OWNED. A pending
+        // payment locks BOTH offers for the same reason the card explains: Play refuses the
+        // re-purchase, and the alternative product would double-charge for the same features.
         subscriptionEnabled = (subOffer != null || subOfferTrial != null) &&
-            ownership.subscription == null && busy == null,
+            ownership.subscription == null && busy == null && !hasPendingPurchase,
         subscriptionPrice = subOffer?.pricingPhases?.pricingPhaseList?.lastOrNull()?.formattedPrice,
-        iapEnabled = iapOffer != null && !ownership.hasIap && busy == null,
+        iapEnabled = iapOffer != null && !ownership.hasIap && busy == null && !hasPendingPurchase,
         iapPrice = iapOffer?.formattedPrice,
         ownership = ownership,
         grace = grace,
         wasPreviouslyPro = wasPreviouslyPro,
+        hasPendingPurchase = hasPendingPurchase,
         busy = busy,
     )
 }

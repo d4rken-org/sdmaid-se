@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ini adalah pembelian yang berasingan: ia tidak membatalkan atau memulangkan bayaran langganan anda. Gunakan akaun Google yang sama untuk kedua-duanya.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Langganan masih aktif</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play melaporkan bahawa langganan anda masih ditetapkan untuk diperbaharui. Untuk membeli peningkatan sekali sahaja, batalkan langganan di Google Play terlebih dahulu, kemudian kembali ke sini.\n\nBaru saja membatalkannya? Tunggu sebentar lagi dan cuba lagi. Pastikan juga bahawa anda menggunakan akaun Google yang sama.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Tidak dapat memeriksa status langganan anda dengan Google Play. Sila cuba lagi sebentar lagi.</string>
     <string name="upgrade_screen_restore_success_message">Pembelian dipulihkan, peningkatan Pro anda aktif.</string>
     <string name="upgrade_screen_grace_title">Mengesahkan pembelian anda</string>
     <string name="upgrade_screen_grace_body_short">Pro masih aktif. Menunggu Google Play mengesahkan semula pembelian anda, semua ciri Pro kekal dibuka buat sementara waktu.</string>

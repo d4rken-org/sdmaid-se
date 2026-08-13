@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dette er et separat køb: det annullerer eller refunderer ikke dit abonnement. Brug den samme Google-konto til begge.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement stadig aktivt</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play rapporterer, at dit abonnement stadig er indstillet til at forny sig. For at købe engangskøbet skal du først annullere abonnementet i Google Play og derefter vende tilbage her.\n\nNetop annulleret det? Giv Google Play et øjeblik og prøv igen. Sørg også for at du bruger den samme Google-konto.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Kunne ikke kontrollere dit abonnementstatus hos Google Play. Prøv venligst igen om et øjeblik.</string>
     <string name="upgrade_screen_restore_success_message">Køb gendannet, din Pro-opgradering er aktiv.</string>
     <string name="upgrade_screen_grace_title">Bekræfter dit køb</string>
     <string name="upgrade_screen_grace_body_short">Pro er stadig aktiv. Venter på, at Google Play bekræfter dit køb igen, alle Pro-funktioner forbliver låst op i mellemtiden.</string>

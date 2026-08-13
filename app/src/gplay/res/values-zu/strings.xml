@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Loku kuthenga kuhlukahlukene: akukhanseleli noma akubuyi imali ye-subscription yakho. Sebenzisa i-akhawunti eyodwa ye-Google kubo bobabili.</string>
     <string name="upgrade_screen_sub_still_renewing_title">I-subscription isasebenza</string>
     <string name="upgrade_screen_sub_still_renewing_message">I-Google Play ikhaba ukuthi i-subscription yakho isahleliwe ukubuya. Ukuze kuthenga i-upgrade kube kanye, khansela i-subscription ku-Google Play okokuqala, ngemuva kwalokho buya lapha.\n\nUsanda uyakhansela? Nikeza i-Google Play isikhashana uzame futhi. Futhi qiniseka ukuthi usebenzisa i-akhawunti eyodwa ye-Google.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Ayikwazanga ukuhlola isimo se-subscription yakho ku-Google Play. Ngiyakucela uzame futhi esikhashana.</string>
     <string name="upgrade_screen_restore_success_message">Ukuthenga buyiselwe, i-Pro upgrade yakho isebenza.</string>
     <string name="upgrade_screen_grace_title">Iyacungula ukuthenga kwakho</string>
     <string name="upgrade_screen_grace_body_short">I-Pro isasebenza. Intandeka i-Google Play ukuze iphinde icungule ukuthenga kwakho. Zonke izilungiselelo ze-Pro zihlala zibukhishwe okwamanje.</string>

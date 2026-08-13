@@ -50,7 +50,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Custu est una iscanta separada: no at cancellare o restitùere sa sottoscritzione tua. Imprea s\'istessu contu Google pro ambos.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Sottoscritzione ancora attivu</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play nuntiat chi sa sottoscritzione tua est ancora impostada pro renovare. Pro cumparare s\'atibalzu ùnicu, cantzella prima sa sottoscritzione in Google Play, dopo torna chie.\n\nL\'as cantzellada oe? Astat un\'intziada a Google Play e tenta ancora. Asserta chi stais imprendu s\'istessu contu Google.</string>
-    <string name="upgrade_screen_sub_check_failed_message">No at podiddu contrallare s\'istadu de sa sottoscritzione tua in Google Play. Tenta ancora, perbai.</string>
     <string name="upgrade_screen_restore_success_message">Iscanta ripristinada, s\'atibalzu Pro tuu est attivu.</string>
     <string name="upgrade_screen_grace_title">Cunfirmande s\'iscanta tua</string>
     <string name="upgrade_screen_grace_body_short">Pro est ancora attivu. Ant\'aspettende chi Google Play cunfirmet de nou s\'iscanta tua, totu sas caraterìsticas Pro ant\'a restare desbloadas.</string>

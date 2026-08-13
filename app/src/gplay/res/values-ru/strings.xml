@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Это отдельная покупка: она не отменяет и не возвращает средства за Вашу подписку. Используйте один и тот же аккаунт Google для обеих.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Подписка всё ещё активна</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play сообщает, что Ваша подписка по-прежнему установлена на автоматическое продление. Чтобы совершить единовременную покупку, сначала отмените подписку в Google Play, а затем вернитесь сюда.\n\nТолько что отменили? Дайте Google Play немного времени и попробуйте снова. Также убедитесь, что Вы используете один и тот же аккаунт Google.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Не удалось проверить статус подписки в Google Play. Пожалуйста, попробуйте ещё раз через некоторое время.</string>
     <string name="upgrade_screen_restore_success_message">Покупка восстановлена, Ваше обновление Pro активно.</string>
     <string name="upgrade_screen_grace_title">Подтверждение покупки</string>
     <string name="upgrade_screen_grace_body_short">Pro по-прежнему активен. Ожидаем повторного подтверждения покупки в Google Play, все функции Pro остаются разблокированы.</string>
