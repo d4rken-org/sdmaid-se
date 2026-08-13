@@ -39,7 +39,7 @@ fun OneClickOptionsDialog(
             onClick = onDismiss,
         ),
     ) {
-        Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+        Column {
             Text(
                 text = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
                 style = MaterialTheme.typography.bodyMedium,

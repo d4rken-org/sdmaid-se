@@ -3,6 +3,7 @@ package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.MaterialTheme
@@ -60,7 +61,8 @@ internal fun ChipModeSwitcherDialog(
                                 role = Role.RadioButton,
                                 onClick = { onModeSelected(mode) },
                             )
-                            .padding(vertical = 4.dp),
+                            // RadioButton has onClick = null, so no 48dp minimum applies implicitly.
+                            .heightIn(min = 48.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         RadioButton(

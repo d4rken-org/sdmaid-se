@@ -94,7 +94,7 @@ fun ComposeErrorDialog(
                     Text(
                         text = localizedError.description.get(context),
                         style = MaterialTheme.typography.bodyMedium,
-                        modifier = Modifier.padding(vertical = 8.dp),
+                        modifier = Modifier.padding(top = 8.dp),
                     )
                 }
                 actionError?.let {
