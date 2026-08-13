@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.du
 import eu.darken.sdmse.common.files.walk
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import java.util.LinkedList
@@ -99,6 +100,7 @@ suspend fun APath.walkContentItem(
     gatewaySwitch: GatewaySwitch,
     maxItems: Int = Int.MAX_VALUE,
     followSymlinks: Boolean = false,
+    onItem: (suspend (APathLookup<APath>) -> Unit)? = null,
 ): ContentItem {
     log(TAG, VERBOSE) { "Walking content items for $this" }
 
@@ -111,6 +113,7 @@ suspend fun APath.walkContentItem(
         val options = APathGateway.WalkOptions<APath, APathLookup<APath>>(followSymlinks = followSymlinks)
         val children = try {
             lookup.walk(gatewaySwitch, options)
+                .onEach { onItem?.invoke(it) }
                 .map { ContentItem.fromLookup(it) }
                 .let { flow -> if (maxItems < Int.MAX_VALUE) flow.take(maxItems + 1) else flow }
                 .toList()

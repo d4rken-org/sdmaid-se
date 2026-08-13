@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.core.local.File
@@ -104,6 +105,7 @@ class AppStorageScanner @AssistedInject constructor(
 
     suspend fun process(
         request: Request,
+        onItem: (suspend (APathLookup<APath>) -> Unit)? = null,
     ): Result {
         val appStorStats = try {
             statsManager.queryStatsForPkg(storage.id, request.pkg)
@@ -127,7 +129,7 @@ class AppStorageScanner @AssistedInject constructor(
                 ?.let { codeDir ->
                     if (!request.shallow && useRoot) {
                         try {
-                            return@let codeDir.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
+                            return@let codeDir.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, onItem = onItem)
                         } catch (e: ReadException) {
                             log(TAG, ERROR) { "Failed to read $codeDir despire root access? ${e.asLog()}" }
                         }
@@ -162,7 +164,7 @@ class AppStorageScanner @AssistedInject constructor(
                     }
 
                     gatewaySwitch.exists(pubData, type = GatewaySwitch.Type.AUTO) -> try {
-                        pubData.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
+                        pubData.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, onItem = onItem)
                     } catch (_: ReadException) {
                         ContentItem.fromInaccessible(pubData)
                     }
@@ -180,7 +182,7 @@ class AppStorageScanner @AssistedInject constructor(
                     return@run request.pkg
                         .getPrivateDataDirs(dataAreas)
                         .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
-                        .map { it.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS) }
+                        .map { it.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, onItem = onItem) }
                 } catch (e: ReadException) {
                     log(TAG, ERROR) { "Failed to read private data dirs for $request.pkg: ${e.asLog()}" }
                 }
@@ -215,7 +217,7 @@ class AppStorageScanner @AssistedInject constructor(
                     if (request.shallow) {
                         path.sizeContentItem(gatewaySwitch)
                     } else {
-                        path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
+                        path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, onItem = onItem)
                     }
                 } catch (_: ReadException) {
                     null
@@ -236,7 +238,7 @@ class AppStorageScanner @AssistedInject constructor(
                     if (request.shallow) {
                         path.sizeContentItem(gatewaySwitch)
                     } else {
-                        path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
+                        path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS, onItem = onItem)
                     }
                 } catch (_: ReadException) {
                     null
