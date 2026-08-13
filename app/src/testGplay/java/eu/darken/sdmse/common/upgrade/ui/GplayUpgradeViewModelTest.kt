@@ -24,6 +24,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
@@ -683,14 +684,19 @@ class GplayUpgradeViewModelTest : BaseTest() {
     fun `a pending-payment launch failure surfaces as the pending dialog`() = runTest2(context = testDispatcher) {
         // Play can only report this at launch time (the gate saw a clean state moments earlier):
         // the already-owned error dialog with its restore tips would be the wrong advice.
+        // The callback is captured and invoked from the test body rather than from inside the
+        // answer: on a suspend function the argument list carries the continuation, so grabbing the
+        // callback positionally there is a coin flip — and a wrong cast would surface as a hang.
         val repo = mockRepo()
-        coEvery { repo.launchBillingFlowNow(any(), any(), any(), any()) } coAnswers {
-            lastArg<(Throwable) -> Unit>().invoke(PendingPurchaseBillingException())
-        }
+        val onError = slot<(Throwable) -> Unit>()
+        coEvery { repo.launchBillingFlowNow(any(), any(), any(), capture(onError)) } returns Unit
         val vm = buildVm(repo)
 
         val event = async { vm.events.first() }
         vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        onError.captured(PendingPurchaseBillingException())
         advanceUntilIdle()
 
         event.await() shouldBe UpgradeEvents.PurchasePending

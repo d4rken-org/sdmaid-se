@@ -586,6 +586,10 @@ class BillingManagerTest : BaseTest() {
 
     // Drains the manager's connectionFailures (occurrence timestamps) into a list. Launched on
     // backgroundScope so it lives for the whole test.
+    //
+    // Drive it with runCurrent() (or a suspension of the test body), NEVER with advanceUntilIdle():
+    // that one stops as soon as no FOREGROUND event is left and never runs backgroundScope work, so
+    // a signal sent from the test body would sit unconsumed and the list would read empty.
     private fun TestScope.collectFailures(manager: BillingManager): List<Long> = mutableListOf<Long>().also { out ->
         backgroundScope.launch { manager.connectionFailures.collect { out.add(it) } }
     }
@@ -721,7 +725,7 @@ class BillingManagerTest : BaseTest() {
         runCurrent() // connection established
 
         shouldThrow<Exception> { manager.refreshStrict() }
-        advanceUntilIdle()
+        runCurrent()
 
         failures shouldBe emptyList()
     }
@@ -758,7 +762,7 @@ class BillingManagerTest : BaseTest() {
         runCurrent()
 
         manager.refresh()
-        advanceUntilIdle()
+        runCurrent() // the collector lives on backgroundScope, which advanceUntilIdle would skip
 
         failures shouldBe listOf(7_777L)
     }
@@ -776,7 +780,7 @@ class BillingManagerTest : BaseTest() {
         runCurrent()
 
         manager.refresh()
-        advanceUntilIdle()
+        runCurrent()
 
         // Pro WAS confirmed by this round-trip; the failed sibling type proves nothing against it.
         failures shouldBe emptyList()
@@ -809,11 +813,16 @@ class BillingManagerTest : BaseTest() {
             }
         }
         val manager = manager(provider)
+        runCurrent() // connection 1 established; its partial refresh signals the invalidation
 
+        // The next action is fresh demand: it skips the reconnect backoff and lands on connection 2.
+        // await() is what drives the connect loop here — it runs on backgroundScope, which
+        // advanceUntilIdle() alone would never touch.
+        val refreshed = async { manager.refresh() }
         advanceUntilIdle()
 
+        refreshed.await() shouldBe BillingData(listOf(owned))
         attempts shouldBe 2
-        manager.billingData.first() shouldBe BillingData(emptyList())
     }
 
     // endregion
