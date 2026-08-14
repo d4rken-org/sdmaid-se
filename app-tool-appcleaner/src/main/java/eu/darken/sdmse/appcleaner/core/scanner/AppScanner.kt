@@ -410,7 +410,8 @@ class AppScanner @Inject constructor(
         return areaDataMap
     }
 
-    private suspend fun readAppDirs(
+    // internal: exercised directly by AppScannerTest, the public scan() needs the full pkg/area setup
+    internal suspend fun readAppDirs(
         searchPathsOfInterest: Map<AreaInfo, Collection<InstallId>>
     ): Map<InstallId, Collection<ExpendablesFilter.Match>> {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
