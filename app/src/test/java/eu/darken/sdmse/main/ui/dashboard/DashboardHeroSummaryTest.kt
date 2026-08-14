@@ -34,9 +34,15 @@ class DashboardHeroSummaryTest : BaseTest() {
     }
 
     private fun app(size: Long, count: Int) = mockk<AppCleaner.Data> {
-        every { junks } returns setOf(mockk())
+        every { junks } returns setOf(mockk { every { isUnclearable } returns false })
         every { totalSize } returns size
         every { totalCount } returns count
+        every { actionableSize } returns size
+        every { actionableCount } returns count
+    }
+
+    private fun unclearableApp() = mockk<AppCleaner.Data> {
+        every { junks } returns setOf(mockk { every { isUnclearable } returns true })
     }
 
     private fun dedupe(redundant: Long, removableCount: Int) = mockk<Deduplicator.Data> {
@@ -159,6 +165,30 @@ class DashboardHeroSummaryTest : BaseTest() {
 
         result.totalSize shouldBe 100L
         result.tools.map { it.type } shouldBe listOf(SDMTool.Type.CORPSEFINDER)
+    }
+
+    @Test
+    fun `unclearable-only AppCleaner data is neither freeable nor locked`() {
+        // Residue whose clearing permanently failed must not be advertised: not as freeable
+        // (a delete would report "0 deleted"), and not as a Pro upsell either (Pro would not
+        // unlock it). It stays visible in the tool itself.
+        DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = unclearableApp(),
+            dedupe = null,
+            oneClick = oneClick(),
+            isPro = true,
+        ).shouldBeNull()
+
+        DashboardMainActionEngine.buildHeroSummary(
+            corpse = null,
+            system = null,
+            app = unclearableApp(),
+            dedupe = null,
+            oneClick = oneClick(),
+            isPro = false,
+        ).shouldBeNull()
     }
 
     @Test

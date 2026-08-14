@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.hasActionableData
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
@@ -759,9 +760,9 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.WORKING_CANCELABLE -> taskManager.cancel(SDMTool.Type.APPCLEANER)
                 BottomBarState.Action.WORKING -> {}
                 BottomBarState.Action.DELETE -> {
-                    if (appCleaner.state.first().data != null && upgradeRepo.isProForUi()) {
+                    if (appCleaner.state.first().data.hasActionableData && upgradeRepo.isProForUi()) {
                         runCleanup(SDMTool.Type.APPCLEANER, AppCleanerProcessingTask())
-                    } else if (appCleaner.state.first().data.hasData && !freeToolsWillRun()) {
+                    } else if (appCleaner.state.first().data.hasActionableData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
                 }
@@ -769,7 +770,7 @@ class DashboardMainActionEngine(
                 BottomBarState.Action.ONECLICK -> {
                     if (upgradeRepo.isProForUi()) {
                         runCleanup(SDMTool.Type.APPCLEANER, AppCleanerOneClickTask())
-                    } else if (appCleaner.state.first().data.hasData && !freeToolsWillRun()) {
+                    } else if (appCleaner.state.first().data.hasActionableData && !freeToolsWillRun()) {
                         onUpgradeRequired()
                     }
                 }
@@ -899,7 +900,7 @@ class DashboardMainActionEngine(
             !taskState.isIdle -> BottomBarState.Action.WORKING
             corpse.hasData && oneClick.corpseFinderEnabled -> BottomBarState.Action.DELETE
             system.hasData && oneClick.systemCleanerEnabled -> BottomBarState.Action.DELETE
-            app.hasData && oneClick.appCleanerEnabled -> BottomBarState.Action.DELETE
+            app.hasActionableData && oneClick.appCleanerEnabled -> BottomBarState.Action.DELETE
             dedupe.hasData && oneClick.deduplicatorEnabled && isPro -> BottomBarState.Action.DELETE
             oneClickMode -> BottomBarState.Action.ONECLICK
             else -> BottomBarState.Action.SCAN
@@ -922,8 +923,8 @@ class DashboardMainActionEngine(
         ): List<HeroSummary.ToolSlice> {
             if (isPro) return emptyList()
             return buildList {
-                app?.takeIf { oneClick.appCleanerEnabled && it.hasData }?.let {
-                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
+                app?.takeIf { oneClick.appCleanerEnabled && it.hasActionableData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.actionableSize, it.actionableCount))
                 }
                 dedupe?.takeIf { oneClick.deduplicatorEnabled && it.hasData }?.let {
                     add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.redundantCount))
@@ -954,8 +955,8 @@ class DashboardMainActionEngine(
                 system?.takeIf { oneClick.systemCleanerEnabled && it.hasData }?.let {
                     add(HeroSummary.ToolSlice(SDMTool.Type.SYSTEMCLEANER, it.totalSize, it.totalCount))
                 }
-                app?.takeIf { oneClick.appCleanerEnabled && isPro && it.hasData }?.let {
-                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.totalSize, it.totalCount))
+                app?.takeIf { oneClick.appCleanerEnabled && isPro && it.hasActionableData }?.let {
+                    add(HeroSummary.ToolSlice(SDMTool.Type.APPCLEANER, it.actionableSize, it.actionableCount))
                 }
                 dedupe?.takeIf { oneClick.deduplicatorEnabled && isPro && it.hasData }?.let {
                     add(HeroSummary.ToolSlice(SDMTool.Type.DEDUPLICATOR, it.redundantSize, it.redundantCount))

@@ -1,6 +1,8 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -442,6 +444,48 @@ internal class DashboardMainActionEngineTest : BaseTest() {
 
             upgradeRequired shouldBe 1
             h.submittedTasks.shouldBeEmpty()
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a DELETE armed by another tool skips AppCleaner when its data is unclearable-only`() {
+        // Residue whose clearing permanently failed must not be retried by DELETE: it would add
+        // a guaranteed "0 deleted" AppCleaner run to every cleanup another tool armed.
+        val appData = mockk<AppCleaner.Data>(relaxed = true) {
+            every { junks } returns setOf(mockk(relaxed = true) { every { isUnclearable } returns true })
+        }
+        val h = harness(
+            corpseData = corpseData(),
+            appData = appData,
+            appCleanerOneClick = true,
+            isPro = true,
+        )
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            h.submittedTasks.filterIsInstance<AppCleanerProcessingTask>().shouldBeEmpty()
+            h.submittedTasks.filterIsInstance<CorpseFinderDeleteTask>().size shouldBe 1
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `one-tap still rescans AppCleaner despite unclearable-only data`() {
+        // Deliberate: ONECLICK means "scan and clean now". Stale unclearable residue must not
+        // suppress discovery of junk that accumulated since; the fresh scan resets it either way.
+        val appData = mockk<AppCleaner.Data>(relaxed = true) {
+            every { junks } returns setOf(mockk(relaxed = true) { every { isUnclearable } returns true })
+        }
+        val h = harness(appData = appData, appCleanerOneClick = true, isPro = true)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.ONECLICK)
+
+            h.submittedTasks.filterIsInstance<AppCleanerOneClickTask>().size shouldBe 1
         } finally {
             h.engineScope.cancel()
         }

@@ -1,9 +1,12 @@
 package eu.darken.sdmse.appcleaner.core
 
+import eu.darken.sdmse.appcleaner.core.automation.errors.LockedAppCacheException
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
+import eu.darken.sdmse.automation.core.errors.DisabledAppException
+import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -60,6 +63,17 @@ data class AppJunk(
         } ?: 0L
         knownFiles + inaccessibleSize
     }
+
+    /**
+     * Retrying frees nothing here with the currently available backends: all that remains is the
+     * inaccessible cache, and the last clearing attempt failed for a reason that won't go away on
+     * its own (no settings page, disabled app, cache locked by the system). Transient failures
+     * (timeouts, interference) don't count. A rescan builds fresh junks and resets this.
+     */
+    val isUnclearable: Boolean
+        get() = (expendables.isNullOrEmpty() || expendables.values.all { it.isEmpty() }) &&
+            inaccessibleCache != null &&
+            (acsError is NoSettingsWindowException || acsError is DisabledAppException || acsError is LockedAppCacheException)
 
     fun isEmpty() =
         (expendables.isNullOrEmpty() || expendables.values.all { it.isEmpty() }) && inaccessibleCache == null
