@@ -192,6 +192,35 @@ class FossUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `forced route lands on the upgraded status when the sponsor flow completes`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // Forced routes (Pro-locked settings entry) deliberately don't auto-close, so the screen is
+        // still up when the unlock lands — it must flip to the supporter status instead of keeping
+        // the sales pitch, which reads as "sponsoring didn't work".
+        val info = MutableStateFlow(UpgradeRepoFoss.Info())
+        val vm = buildVm(repo = mockRepo(info))
+
+        val navEvents = mutableListOf<NavEvent>()
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.navEvents.collect { navEvents.add(it) } }
+
+        val pitchView = async { vm.state.first { it.view != null } }
+        vm.bindRoute(UpgradeRoute(forced = true))
+        advanceUntilIdle()
+        pitchView.await().view shouldBe FossUpgradeView.PITCH
+
+        val upgradedView = async { vm.state.first { it.view == FossUpgradeView.STATUS_UPGRADED } }
+        info.value = upgradedInfo()
+        advanceUntilIdle()
+
+        upgradedView.await().view shouldBe FossUpgradeView.STATUS_UPGRADED
+        // The don't-auto-close semantics of forced routes are unchanged — status, not navigation,
+        // is what acknowledges the upgrade here.
+        navEvents.shouldBeEmpty()
+        collector.cancel()
+    }
+
+    @Test
     fun `default route bounces an upgraded user out of the screen`() = runTest2(context = testDispatcher) {
         val vm = buildVm(repo = mockRepo(MutableStateFlow(upgradedInfo())))
 
