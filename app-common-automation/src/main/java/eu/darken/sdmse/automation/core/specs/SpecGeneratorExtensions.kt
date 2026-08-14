@@ -7,6 +7,7 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.content.res.Configuration
 import android.content.res.Resources
+import android.view.accessibility.AccessibilityEvent
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.AutomationEvent
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -31,12 +32,16 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.withTimeoutOrNull
 
 fun SpecGenerator.windowLauncherDefaultSettings(
     pkgInfo: Installed
@@ -228,46 +233,88 @@ private const val BUSY_NODE_MAX_LENGTH = 30
 fun SpecGenerator.defaultNodeRecovery(
     pkg: Installed,
     extraBusyLabels: Collection<String> = emptySet(),
-): suspend StepContext.(ACSNodeInfo) -> Boolean = recovery@{ root ->
-    log(tag) { "Performing node recovery for ${pkg.id}" }
+): suspend StepContext.(ACSNodeInfo) -> Boolean {
+    // One state holder per call: tracks scrolling across the stepper's inner retry loop.
+    // A new step attempt relaunches the target window and resets its scroll position.
+    var lastAttempt = -1
+    var lastScrolledForward = false
+    return recovery@{ root ->
+        log(tag) { "Performing node recovery for ${pkg.id}" }
 
-    // Check for busy/loading indicators: "...", "…", or any text containing them (e.g. "Computing…")
-    val busyNode = root.crawl().firstOrNull { crawled ->
-        val text = crawled.node.text?.toString() ?: return@firstOrNull false
-        if (text.length > BUSY_NODE_MAX_LENGTH) return@firstOrNull false
-        crawled.node.textContainsAny(listOf("...", "…")) ||
-                (extraBusyLabels.isNotEmpty() && crawled.node.textMatchesAny(extraBusyLabels))
-    }
-    if (busyNode != null) {
-        log(tag, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
-        delay(1000)
-        root.refresh()
-        return@recovery true
-    }
-
-    // Try scrolling forward first
-    var scrolled = false
-    val scrollableNodes = root.crawl().filter { it.node.isScrollable }.toList()
-
-    for (crawled in scrollableNodes) {
-        val success = crawled.node.scrollNode()
-        if (success) {
-            scrolled = true
-            crawled.node.refresh()
+        if (stepAttempts != lastAttempt) {
+            lastAttempt = stepAttempts
+            lastScrolledForward = false
         }
-    }
 
-    // If forward scroll failed (already at bottom), try scrolling backward
-    if (!scrolled) {
-        log(tag, VERBOSE) { "Forward scroll failed, trying backward scroll" }
-        for (crawled in scrollableNodes) {
-            val success = crawled.node.scrollNodeBackward()
-            if (success) {
-                scrolled = true
-                crawled.node.refresh()
+        // Check for busy/loading indicators: "...", "…", or any text containing them (e.g. "Computing…")
+        val busyNode = root.crawl().firstOrNull { crawled ->
+            val text = crawled.node.text?.toString() ?: return@firstOrNull false
+            if (text.length > BUSY_NODE_MAX_LENGTH) return@firstOrNull false
+            crawled.node.textContainsAny(listOf("...", "…")) ||
+                    (extraBusyLabels.isNotEmpty() && crawled.node.textMatchesAny(extraBusyLabels))
+        }
+        if (busyNode != null) {
+            log(tag, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
+            delay(1000)
+            root.refresh()
+            return@recovery true
+        }
+
+        var scrolled = false
+        var scrolledForward = false
+        val scrollableNodes = root.crawl().filter { it.node.isScrollable }.toList()
+
+        coroutineScope {
+            // A successful scroll action returns before the node tree reflects it (e.g. OneUI serves
+            // stale nodes for another ~50-250ms). Arm the settle watcher before scrolling, the event
+            // stream has no replay and the content change may arrive before we'd get to subscribe.
+            val settleWatcher = async(start = CoroutineStart.UNDISPATCHED) {
+                host.events.first {
+                    (it.eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED ||
+                            it.eventType == AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED) &&
+                            it.pkgId == root.pkgId
+                }
             }
-        }
-    }
 
-    scrolled
+            // Try scrolling forward first
+            for (crawled in scrollableNodes) {
+                val success = crawled.node.scrollNode()
+                if (success) {
+                    scrolled = true
+                    scrolledForward = true
+                    crawled.node.refresh()
+                }
+            }
+
+            if (!scrolled) {
+                if (lastScrolledForward) {
+                    // We just scrolled to the end of the list ourselves, the target should be on screen
+                    // and the previous look may have hit a stale tree. Scrolling backward now would undo
+                    // our own scrolling, so give the finder one more look first.
+                    log(tag, VERBOSE) { "Forward scroll failed right after a successful one, we are at the list end" }
+                } else {
+                    // The screen may have opened already scrolled past the target
+                    log(tag, VERBOSE) { "Forward scroll failed, trying backward scroll" }
+                    for (crawled in scrollableNodes) {
+                        val success = crawled.node.scrollNodeBackward()
+                        if (success) {
+                            scrolled = true
+                            crawled.node.refresh()
+                        }
+                    }
+                }
+            }
+
+            if (scrolled) {
+                val settleEvent = withTimeoutOrNull(1000) { settleWatcher.await() }
+                log(tag, VERBOSE) { "Scrolled, settled after event: $settleEvent" }
+            }
+            // Timing out the await() does not cancel the watcher itself
+            settleWatcher.cancel()
+        }
+
+        lastScrolledForward = scrolledForward
+
+        scrolled
+    }
 }

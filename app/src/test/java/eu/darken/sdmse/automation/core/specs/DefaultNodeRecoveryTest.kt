@@ -1,5 +1,6 @@
 package eu.darken.sdmse.automation.core.specs
 
+import android.view.accessibility.AccessibilityEvent
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -8,11 +9,15 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldNotContain
+import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.currentTime
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -209,6 +214,85 @@ class DefaultNodeRecoveryTest : BaseTest() {
         result shouldBe true
         scrollable.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_FORWARD
         scrollable.performedActions shouldNotContain ACSNodeInfo.ACTION_SCROLL_BACKWARD
+    }
+
+    @Test
+    fun `skips backward scroll only once right after a successful forward scroll`() = runTest {
+        val recovery = testSpec.defaultNodeRecovery(testPkg)
+
+        val scrollable = TestACSNodeInfo(isScrollable = true)
+        recovery.invoke(stepContext, TestACSNodeInfo().addChild(scrollable)) shouldBe true
+        scrollable.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_FORWARD
+
+        // We reached the end of the list ourselves and the previous look may have hit a stale tree.
+        // Scrolling backward would undo our own scrolling, the finder gets another look first.
+        val atEnd1 = TestACSNodeInfo(isScrollable = true, performActionResult = false)
+        recovery.invoke(stepContext, TestACSNodeInfo().addChild(atEnd1)) shouldBe false
+        atEnd1.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_FORWARD
+        atEnd1.performedActions shouldNotContain ACSNodeInfo.ACTION_SCROLL_BACKWARD
+
+        // Target still not found on a fresh look: backward paging is legitimate again
+        val atEnd2 = TestACSNodeInfo(isScrollable = true, performActionResult = false)
+        recovery.invoke(stepContext, TestACSNodeInfo().addChild(atEnd2)) shouldBe false
+        atEnd2.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_BACKWARD
+    }
+
+    @Test
+    fun `backward scroll is available again on a new step attempt`() = runTest {
+        val recovery = testSpec.defaultNodeRecovery(testPkg)
+
+        val scrollable = TestACSNodeInfo(isScrollable = true)
+        recovery.invoke(stepContext, TestACSNodeInfo().addChild(scrollable)) shouldBe true
+
+        // A new step attempt relaunches the window, resetting its scroll position
+        val retryContext = stepContext.copy(stepAttempts = 1)
+        val scrollableAtEnd = TestACSNodeInfo(isScrollable = true, performActionResult = false)
+        recovery.invoke(retryContext, TestACSNodeInfo().addChild(scrollableAtEnd))
+
+        scrollableAtEnd.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_FORWARD
+        scrollableAtEnd.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_BACKWARD
+    }
+
+    // ============================================================
+    // Post-scroll settling on window events
+    // ============================================================
+
+    @Test
+    fun `scroll settle completes on content change event from the scrolled window`() = runTest {
+        val scrollable = TestACSNodeInfo(isScrollable = true)
+        val root = TestACSNodeInfo(packageName = "com.android.settings").addChild(scrollable)
+
+        val recovery = testSpec.defaultNodeRecovery(testPkg)
+        val job = launch { recovery.invoke(stepContext, root) shouldBe true }
+        runCurrent()
+
+        testHost.emitEvent(
+            pkgId = "com.android.settings",
+            eventType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED,
+        )
+        job.join()
+
+        // Settled via the event, not by running into the timeout
+        currentTime shouldBeLessThan 1000L
+    }
+
+    @Test
+    fun `scroll settle ignores events from other windows`() = runTest {
+        val scrollable = TestACSNodeInfo(isScrollable = true)
+        val root = TestACSNodeInfo(packageName = "com.android.settings").addChild(scrollable)
+
+        val recovery = testSpec.defaultNodeRecovery(testPkg)
+        val job = launch { recovery.invoke(stepContext, root) shouldBe true }
+        runCurrent()
+
+        testHost.emitEvent(
+            pkgId = "some.other.app",
+            eventType = AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED,
+        )
+        job.join()
+
+        // Foreign event does not count as settled, the timeout has to expire
+        currentTime shouldBe 1000L
     }
 
     @Test
