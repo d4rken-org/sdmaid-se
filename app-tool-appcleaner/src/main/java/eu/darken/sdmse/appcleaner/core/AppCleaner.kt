@@ -367,7 +367,14 @@ class AppCleaner @Inject constructor(
                 appJunk.copy(
                     expendables = updatedExpendables,
                     inaccessibleCache = updatedInaccessible,
-                    acsError = acsResult?.failed?.get(appJunk.identifier),
+                    acsError = when {
+                        acsResult == null -> appJunk.acsError
+                        acsResult.failed.containsKey(appJunk.identifier) -> acsResult.failed[appJunk.identifier]
+                        acsResult.succesful.contains(appJunk.identifier) -> null
+                        // Not attempted this run (e.g. a targeted delete of other apps): a fresh
+                        // null must not erase what the last actual attempt learned.
+                        else -> appJunk.acsError
+                    },
                 )
             }.filter { !it.isEmpty() }
         )
@@ -481,6 +488,14 @@ class AppCleaner @Inject constructor(
     ) {
         val totalSize: Long get() = junks.sumOf { it.size }
         val totalCount: Int get() = junks.sumOf { it.itemCount }
+
+        /**
+         * Like [totalSize]/[totalCount], but without junks that are [AppJunk.isUnclearable] —
+         * what a delete action can actually free. Unclearable junks stay visible in the tool
+         * itself (with the failure reason), they just must not be advertised as freeable.
+         */
+        val actionableSize: Long get() = junks.filterNot { it.isUnclearable }.sumOf { it.size }
+        val actionableCount: Int get() = junks.filterNot { it.isUnclearable }.sumOf { it.itemCount }
 
         /** Live scan summary. Single source of truth shared with [performScan] and the dashboard card. */
         fun toScanSuccess() = AppCleanerScanTask.Success(

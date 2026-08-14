@@ -6,6 +6,8 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
+import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
+import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.appcleaner.ui.preview.previewExpendables
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
 import eu.darken.sdmse.common.adb.AdbManager
@@ -643,6 +645,99 @@ class AppCleanerTest : BaseTest() {
         result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
         result.affectedCount shouldBe 0
         result.affectedPaths shouldBe emptySet()
+    }
+
+    @Test
+    fun `a junk untouched by a later targeted run keeps its acsError`() = runTest2 {
+        val stuck = installId("com.example.stuck")
+        val other = installId("com.example.other")
+        val setup = setupCleaner(
+            scanResults = listOf(
+                inaccJunk("com.example.stuck", itemCount = 2, theoreticalPaths = emptySet()),
+                inaccJunk("com.example.other", itemCount = 2, theoreticalPaths = emptySet()),
+            ),
+        )
+        val deleter = mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery { deleteInaccessible(any(), any(), any(), any()) } returnsMany listOf(
+                // First run: "stuck" fails permanently, "other" is left over.
+                InaccessibleDeleter.InaccDelResult(
+                    succesful = emptySet(),
+                    failed = mapOf(stuck to NoSettingsWindowException("no settings window")),
+                ),
+                // Second run targets only "other" and succeeds; "stuck" is not attempted.
+                InaccessibleDeleter.InaccDelResult(succesful = setOf(other), failed = emptyMap()),
+            )
+        }
+        val rebuilt = rebuildWithDeleter(setup, deleter)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+        rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true, targetPkgs = setOf(other)))
+
+        // The untargeted run must not wipe what the first attempt learned about "stuck".
+        val junk = rebuilt.cleaner.state.first().data!!.junks.single()
+        junk.identifier shouldBe stuck
+        junk.acsError.shouldBeInstanceOf<NoSettingsWindowException>()
+        junk.isUnclearable shouldBe true
+    }
+
+    @Test
+    fun `a new attempt's failure replaces the stored acsError`() = runTest2 {
+        val stuck = installId("com.example.stuck")
+        val setup = setupCleaner(
+            scanResults = listOf(inaccJunk("com.example.stuck", itemCount = 2, theoreticalPaths = emptySet())),
+        )
+        val deleter = mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery { deleteInaccessible(any(), any(), any(), any()) } returnsMany listOf(
+                InaccessibleDeleter.InaccDelResult(
+                    succesful = emptySet(),
+                    failed = mapOf(stuck to NoSettingsWindowException("no settings window")),
+                ),
+                InaccessibleDeleter.InaccDelResult(
+                    succesful = emptySet(),
+                    failed = mapOf(stuck to InvalidSystemStateException("screen was off")),
+                ),
+            )
+        }
+        val rebuilt = rebuildWithDeleter(setup, deleter)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+        rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+
+        // The latest attempt speaks for the junk: a transient failure lifts the unclearable mark.
+        val junk = rebuilt.cleaner.state.first().data!!.junks.single()
+        junk.acsError.shouldBeInstanceOf<InvalidSystemStateException>()
+        junk.isUnclearable shouldBe false
+    }
+
+    @Test
+    fun `a run without inaccessible deletion preserves the stored acsError`() = runTest2 {
+        val stuck = installId("com.example.stuck")
+        val setup = setupCleaner(
+            scanResults = listOf(inaccJunk("com.example.stuck", itemCount = 2, theoreticalPaths = emptySet())),
+        )
+        val deleter = mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery { deleteInaccessible(any(), any(), any(), any()) } returns InaccessibleDeleter.InaccDelResult(
+                succesful = emptySet(),
+                failed = mapOf(stuck to NoSettingsWindowException("no settings window")),
+            )
+        }
+        val rebuilt = rebuildWithDeleter(setup, deleter)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+        rebuilt.cleaner.submit(AppCleanerProcessingTask(includeInaccessible = false))
+
+        val junk = rebuilt.cleaner.state.first().data!!.junks.single()
+        junk.acsError.shouldBeInstanceOf<NoSettingsWindowException>()
+        junk.isUnclearable shouldBe true
     }
 
     @Test

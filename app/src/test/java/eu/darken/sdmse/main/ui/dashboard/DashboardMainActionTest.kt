@@ -30,8 +30,8 @@ class DashboardMainActionTest : BaseTest() {
         every { filterContents } returns setOf(mockk())
     }
 
-    private fun app() = mockk<AppCleaner.Data> {
-        every { junks } returns setOf(mockk())
+    private fun app(unclearable: Boolean = false) = mockk<AppCleaner.Data> {
+        every { junks } returns setOf(mockk { every { isUnclearable } returns unclearable })
     }
 
     private fun dedupe() = mockk<Deduplicator.Data> {
@@ -114,6 +114,17 @@ class DashboardMainActionTest : BaseTest() {
             app = app(),
             isPro = false,
         ) shouldBe BottomBarState.Action.DELETE
+    }
+
+    @Test
+    fun `unclearable-only AppCleaner data does not arm DELETE`() {
+        // Junks whose clearing permanently failed (no settings page, locked app) would make
+        // DELETE report "0 deleted" forever — the button falls back to SCAN/ONECLICK instead.
+        resolve(app = app(unclearable = true)) shouldBe BottomBarState.Action.SCAN
+        resolve(
+            app = app(unclearable = true),
+            oneClickMode = true,
+        ) shouldBe BottomBarState.Action.ONECLICK
     }
 
     @Test
