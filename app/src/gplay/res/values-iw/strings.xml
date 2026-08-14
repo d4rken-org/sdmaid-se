@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">זו רכישה נפרדת: היא לא מבטלת או מחזירה כספים על המנוי שלך. השתמש באותו חשבון Google לשניהם.</string>
     <string name="upgrade_screen_sub_still_renewing_title">המנוי עדיין פעיל</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play מדווח שהמנוי שלך עדיין מוגדר להתחדש. כדי לקנות את השדרוג החד-פעמי, בטל תחילה את המנוי ב-Google Play, ואז חזור לכאן.\n\nבטלת זה עתה? תן ל-Google Play רגע ונסה שוב. ודא גם שאתה משתמש באותו חשבון Google.</string>
-    <string name="upgrade_screen_sub_check_failed_message">לא היה אפשר לבדוק את סטטוס המנוי שלך ב-Google Play. בבקשה נסה שוב בעוד רגע.</string>
     <string name="upgrade_screen_restore_success_message">הרכישה שוחזרה, השדרוג Pro שלך פעיל.</string>
     <string name="upgrade_screen_grace_title">מאשר את הרכישה שלך</string>
     <string name="upgrade_screen_grace_body_short">Pro עדיין פעיל. ממתין ל-Google Play לאישור חוזר של הרכישה שלך, כל התכונות של Pro נשארות פתוחות בינתיים.</string>

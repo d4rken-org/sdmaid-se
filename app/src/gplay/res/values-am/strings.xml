@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ይህ ተለያይተ ግዢ ነው: ደንበኝነትዎን አትሰርዘውም ወይም አትመልስም። ለሁለቱ ተመሳሳይ Google ሂሳብ ተጠቀሙ።</string>
     <string name="upgrade_screen_sub_still_renewing_title">ደንበኝነት ገና ንቁ ነው</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play ደህና ዋስትናዎ አሁንም ራሱ ለመታደስ ተቀናብሮ እንደሆነ ይነግርዎታል። አንድ-ጊዜ ማሻሻያ ለመግዛት ፣ በመጀመሪያ Google Play ውስጥ ደህና ዋስትናውን ይሰርዙ ፣ ከዚያ ወደ እዚህ ይመለሱ።\n\nአሁን ሰርዘውታል? Google Play ትንሽ ጊዜ ሙታታ ሰጥተው እንደገና ሞክሩ። እንዲሁም ተመሳሳይ Google ሂሳብ ሲጠቀሙ ምልክት ያርጉ።</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play ደንበኝነት ሁኔታ ሪምር አልቻለም። እባክህ ከአሁን በሪ ጊዜ ሞክር።</string>
     <string name="upgrade_screen_restore_success_message">ግዢ ተመልስ፣ የፕሮ ማሳሻ ንቁ ነው።</string>
     <string name="upgrade_screen_grace_title">ግዢ ከሚያረጋገጥ</string>
     <string name="upgrade_screen_grace_body_short">ፕሮ ገና ንቁ ነው። ግዢህን ለመክተር Google Play ን ጠብቅ፣ ሁሉም ፕሮ ባህሪ በጊዜው ይታጠቁ ይቀራሉ።</string>

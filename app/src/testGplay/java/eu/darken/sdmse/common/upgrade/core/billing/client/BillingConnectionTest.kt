@@ -25,7 +25,6 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.unmockkStatic
-import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
@@ -69,13 +68,20 @@ class BillingConnectionTest : BaseTest() {
         token: String = "token-$time",
         products: List<String> = listOf(OurSku.Iap.PRO_UPGRADE.id),
         acknowledged: Boolean = false,
+        state: Int = PurchaseState.PURCHASED,
     ) = mockk<Purchase>().apply {
         every { purchaseTime } returns time
         every { purchaseToken } returns token
         every { this@apply.products } returns products
-        every { purchaseState } returns PurchaseState.PURCHASED
+        every { purchaseState } returns state
         every { isAcknowledged } returns acknowledged
     }
+
+    private fun pendingPurchase(
+        time: Long,
+        token: String = "pending-$time",
+        products: List<String> = listOf(OurSku.Iap.PRO_UPGRADE.id),
+    ) = purchase(time = time, token = token, products = products, state = PurchaseState.PENDING)
 
     private fun result(code: Int): BillingResult = BillingResult.newBuilder().setResponseCode(code).build()
 
@@ -121,6 +127,42 @@ class BillingConnectionTest : BaseTest() {
                 sub = Result.failure(RuntimeException("SUBS query failed")),
             )
         }
+    }
+
+    @Test fun `a known pending purchase suppresses the couldn't-verify error`() {
+        // The user's payment is being processed: that IS a usable answer about this account, so a
+        // failing sibling query must not turn the screen into "can't reach Play".
+        val pending = pendingPurchase(1_000)
+
+        BillingConnection.combinePurchaseResults(
+            iap = Result.success(listOf(pending)),
+            sub = Result.failure(RuntimeException("SUBS query failed")),
+            typeOf = typeOf,
+        ) shouldBe listOf(pending)
+    }
+
+    @Test fun `an unknown pending purchase does not suppress the couldn't-verify error`() {
+        // A pending payment for a product this app doesn't sell says nothing about the type whose
+        // query failed — counting it as a find would swallow a real "couldn't verify".
+        shouldThrow<RuntimeException> {
+            BillingConnection.combinePurchaseResults(
+                iap = Result.success(listOf(pendingPurchase(1_000, products = listOf("some.unknown.product")))),
+                sub = Result.failure(RuntimeException("SUBS query failed")),
+                typeOf = typeOf,
+            )
+        }
+    }
+
+    @Test fun `an unknown PURCHASED product still suppresses the error`() {
+        // Ownership of anything is authoritative: every product this app sells is a Pro SKU, so an
+        // unrecognized owned product means our own SKU list is stale, not that Play failed.
+        val owned = purchase(1_000, products = listOf("some.unknown.product"))
+
+        BillingConnection.combinePurchaseResults(
+            iap = Result.success(listOf(owned)),
+            sub = Result.failure(RuntimeException("SUBS query failed")),
+            typeOf = typeOf,
+        ) shouldBe listOf(owned)
     }
 
     // endregion
@@ -423,13 +465,8 @@ class BillingConnectionTest : BaseTest() {
         connection.purchaseFailures.first().responseCode shouldBe BillingResponseCode.USER_CANCELED
     }
 
-    @Test fun `a pending purchase never surfaces as owned or as fresh data`() = runTest2 {
-        val pending = mockk<Purchase>().apply {
-            every { purchaseState } returns PurchaseState.PENDING
-            every { purchaseTime } returns 1_000L
-            every { purchaseToken } returns "pending"
-            every { this@apply.products } returns listOf(OurSku.Iap.PRO_UPGRADE.id)
-        }
+    @Test fun `a pending purchase event enters the state but never the fresh stream`() = runTest2 {
+        val pending = pendingPurchase(1_000, token = "pending")
         val connection = BillingConnection(
             client = clientReturning(
                 result(BillingResponseCode.OK) to emptyList(),
@@ -437,14 +474,169 @@ class BillingConnectionTest : BaseTest() {
             ),
         )
 
-        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(pending))
-        connection.refreshPurchases()
+        val freshUpdates = mutableListOf<BillingConnection.FreshUpdate>()
+        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) {
+            connection.freshUpdates.collect { freshUpdates.add(it) }
+        }
+        connection.refreshPurchases() // settles the state; predates the event
 
-        connection.purchases.first() shouldBe emptyList()
-        // Only the refresh's own emission — the PENDING event never produced one.
+        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(pending))
+        runCurrent()
+
+        // Visible as state (the UI must be able to show a payment in progress)...
+        connection.purchases.first().map { it.purchaseToken } shouldBe listOf("pending")
+        // ...but the fresh stream feeds the entitlement and grace bookkeeping, so only the
+        // refresh's own emission is on it — a pending payment confirms nothing.
+        freshUpdates.size shouldBe 1
+        freshUpdates.single().purchases shouldBe emptyList()
+    }
+
+    @Test fun `a pending query result enters the state but never the fresh stream`() = runTest2 {
+        val pending = pendingPurchase(1_000, token = "pending")
+        val connection = BillingConnection(
+            client = clientReturning(
+                result(BillingResponseCode.OK) to listOf(pending),
+                result(BillingResponseCode.OK) to emptyList(),
+            ),
+        )
+
+        val refresh = connection.refreshPurchases()
+
+        refresh.purchases.map { it.purchaseToken } shouldBe listOf("pending")
+        refresh.confirmed shouldBe emptyList()
+        refresh.hasConfirmedProPurchase shouldBe false
+        connection.purchases.first().map { it.purchaseToken } shouldBe listOf("pending")
         val update = connection.freshUpdates.first()
         update.purchases shouldBe emptyList()
         update.isFullSnapshot shouldBe true
+    }
+
+    @Test fun `a completing payment supersedes its own pending entry`() = runTest2 {
+        // Play delivers the same purchaseToken again once the payment cleared: the dedup must let
+        // the PURCHASED instance win instead of leaving the user with two records.
+        val pending = pendingPurchase(1_000, token = "same")
+        val purchased = purchase(1_000, token = "same")
+        val connection = BillingConnection(
+            client = clientReturning(
+                result(BillingResponseCode.OK) to emptyList(),
+                result(BillingResponseCode.OK) to emptyList(),
+            ),
+        )
+
+        connection.refreshPurchases() // settles the state; predates both events
+        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(pending))
+        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(purchased))
+
+        val merged = connection.purchases.first()
+        merged.size shouldBe 1
+        merged.single().purchaseState shouldBe PurchaseState.PURCHASED
+        // The completion is fresh Play data: it must reach the grace bookkeeping, unlike the
+        // pending event before it.
+        val updates = connection.freshUpdates.take(2).toList()
+        updates[0].purchases shouldBe emptyList()
+        updates[1].purchases shouldBe listOf(purchased)
+    }
+
+    @Test fun `an unspecified-state purchase is dropped everywhere`() = runTest2 {
+        val unspecified = purchase(1_000, token = "unspecified", state = PurchaseState.UNSPECIFIED_STATE)
+        val connection = BillingConnection(
+            client = clientReturning(
+                result(BillingResponseCode.OK) to listOf(unspecified),
+                result(BillingResponseCode.OK) to emptyList(),
+            ),
+        )
+        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(unspecified))
+
+        val refresh = connection.refreshPurchases()
+
+        // Neither owned nor a payment in progress: it must not reach state, refresh or UI.
+        refresh.purchases shouldBe emptyList()
+        connection.purchases.first() shouldBe emptyList()
+    }
+
+    @Test fun `a pending-only overlay survivor does not suppress absence bookkeeping`() = runTest2 {
+        // A pending payment arrives while a refresh is in flight: the queries verified empty, and
+        // the surviving PENDING overlay proves no ownership — the snapshot still proves absence,
+        // unlike the PURCHASED case (which must not start a false unconfirmed-grace episode).
+        val pendingListeners = mutableListOf<PurchasesResponseListener>()
+        val client = mockk<BillingClient>().apply {
+            every { queryPurchasesAsync(any<QueryPurchasesParams>(), any()) } answers {
+                pendingListeners.add(secondArg())
+            }
+        }
+        val connection = BillingConnection(client = client)
+
+        val refresh = async(start = CoroutineStart.UNDISPATCHED) { connection.refreshPurchases() }
+        runCurrent()
+        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(pendingPurchase(1_000)))
+        pendingListeners.forEach { it.onQueryPurchasesResponse(result(BillingResponseCode.OK), mutableListOf()) }
+        runCurrent()
+        refresh.await()
+
+        val update = connection.freshUpdates.first()
+        update.purchases shouldBe emptyList()
+        update.isFullSnapshot shouldBe true
+    }
+
+    @Test fun `a refresh reports only what its own queries confirmed`() = runTest2 {
+        val iapOwned = purchase(1_000, token = "iap")
+        val connection = BillingConnection(
+            client = clientReturning(
+                // Refresh 1: both succeed, IAP owned.
+                result(BillingResponseCode.OK) to listOf(iapOwned),
+                result(BillingResponseCode.OK) to emptyList(),
+                // Refresh 2: IAP fails (stale snapshot retained), SUB confirms a pending payment.
+                result(BillingResponseCode.ERROR) to emptyList(),
+                result(BillingResponseCode.OK) to listOf(
+                    pendingPurchase(2_000, token = "pending-sub", products = listOf(OurSku.Sub.PRO_UPGRADE.id))
+                ),
+            ),
+        )
+        connection.refreshPurchases()
+
+        val second = connection.refreshPurchases()
+
+        // The retained IAP purchase is in the committed view, but it is NOT something these
+        // queries confirmed — reporting it as confirmed Pro would keep the grace clock frozen
+        // through an indefinite outage.
+        second.purchases.map { it.purchaseToken } shouldContainExactly listOf("pending-sub", "iap")
+        second.confirmed shouldBe emptyList()
+        second.hasConfirmedProPurchase shouldBe false
+        second.isComplete shouldBe false
+        second.partialError.shouldNotBeNull()
+    }
+
+    @Test fun `a confirmed known purchase is reported as confirmed pro`() = runTest2 {
+        val connection = BillingConnection(
+            client = clientReturning(
+                result(BillingResponseCode.OK) to listOf(purchase(1_000, token = "iap")),
+                result(BillingResponseCode.ERROR) to emptyList(),
+            ),
+        )
+
+        val refresh = connection.refreshPurchases()
+
+        refresh.confirmed.map { it.purchaseToken } shouldBe listOf("iap")
+        refresh.hasConfirmedProPurchase shouldBe true
+        refresh.isComplete shouldBe false
+    }
+
+    @Test fun `a refresh is stamped with its commit time`() = runTest2 {
+        val before = System.currentTimeMillis()
+        val connection = BillingConnection(
+            client = clientReturning(
+                result(BillingResponseCode.OK) to emptyList(),
+                result(BillingResponseCode.OK) to emptyList(),
+            ),
+        )
+
+        val refresh = connection.refreshPurchases()
+        val after = System.currentTimeMillis()
+
+        (refresh.occurredAt in before..after) shouldBe true
+        // The same instant travels on the fresh update, so a confirmation and a later failure
+        // signal can be ordered against each other.
+        refresh.occurredAt shouldBe connection.freshUpdates.first().occurredAt
     }
 
     @Test fun `fresh updates arrive in commit order`() = runTest2 {
@@ -803,146 +995,6 @@ class BillingConnectionTest : BaseTest() {
         shouldThrow<BillingClientException> {
             connection.launchBillingFlow(mockk(), OurSku.Iap.PRO_UPGRADE, null)
         }
-    }
-
-    // endregion
-
-    // region querySubscriptions (pre-purchase gate)
-
-    @Test fun `querySubscriptions returns fresh subs and keeps the iap snapshot intact`() = runTest2 {
-        val iapOwned = purchase(1_000, token = "iap")
-        val subOwned = purchase(2_000, token = "sub", products = listOf(OurSku.Sub.PRO_UPGRADE.id))
-        val client = clientReturning(
-            // Refresh: IAP owned, no subs yet.
-            result(BillingResponseCode.OK) to listOf(iapOwned),
-            result(BillingResponseCode.OK) to emptyList(),
-            // SUBS-only gate query: sub found.
-            result(BillingResponseCode.OK) to listOf(subOwned),
-        )
-        val connection = BillingConnection(client = client)
-        connection.refreshPurchases()
-
-        val gateView = connection.querySubscriptions()
-
-        gateView shouldBe listOf(subOwned)
-        // The gate must have queried SUBS, not INAPP (clientReturning ignores the params, so this
-        // would otherwise go unnoticed). zza() is the params' only product-type accessor — a
-        // billing library upgrade renaming it breaks this line loudly at compile time.
-        verify(exactly = 2) {
-            client.queryPurchasesAsync(match<QueryPurchasesParams> { it.zza() == BillingClient.ProductType.SUBS }, any())
-        }
-        // The SUBS-only commit updates the reactive view WITHOUT disturbing the IAP snapshot —
-        // wiping it would briefly un-Pro a one-time-purchase owner.
-        connection.purchases.first().map { it.purchaseToken } shouldContainExactly listOf("sub", "iap")
-        val updates = connection.freshUpdates.take(2).toList()
-        // Partial by definition: it proves what the SUBS query found, never absence of the rest.
-        updates[1].purchases shouldBe listOf(subOwned)
-        updates[1].isFullSnapshot shouldBe false
-    }
-
-    @Test fun `a failed querySubscriptions propagates and commits nothing`() = runTest2 {
-        val iapOwned = purchase(1_000, token = "iap")
-        val subOwned = purchase(2_000, token = "sub", products = listOf(OurSku.Sub.PRO_UPGRADE.id))
-        val connection = BillingConnection(
-            client = clientReturning(
-                result(BillingResponseCode.OK) to listOf(iapOwned),
-                result(BillingResponseCode.OK) to listOf(subOwned),
-                result(BillingResponseCode.ERROR) to emptyList(),
-            ),
-        )
-        val freshUpdates = mutableListOf<BillingConnection.FreshUpdate>()
-        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) {
-            connection.freshUpdates.collect { freshUpdates.add(it) }
-        }
-        connection.refreshPurchases()
-
-        // Fail-closed contract: the gate must see the error, not an empty "no subscriptions".
-        shouldThrow<BillingClientException> { connection.querySubscriptions() }
-        runCurrent()
-
-        // No commit and no fresh emission from the failed query — only the refresh's own. Both
-        // snapshots survive, including the SUB one the failed query was about.
-        connection.purchases.first().map { it.purchaseToken } shouldContainExactly listOf("sub", "iap")
-        freshUpdates.size shouldBe 1
-    }
-
-    @Test fun `querySubscriptions clears an older sub overlay it could have seen`() = runTest2 {
-        // The sub arrived via purchase event, then the user refunded/cancelled it away: the gate
-        // query verifies empty and must supersede the stale event — otherwise the ghost sub keeps
-        // blocking the one-time purchase.
-        val subEvent = purchase(1_000, token = "sub-event", products = listOf(OurSku.Sub.PRO_UPGRADE.id))
-        val connection = BillingConnection(
-            client = clientReturning(result(BillingResponseCode.OK) to emptyList()),
-        )
-        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(subEvent))
-
-        connection.querySubscriptions() shouldBe emptyList()
-        connection.purchases.first() shouldBe emptyList()
-    }
-
-    @Test fun `querySubscriptions prefers a racing event's renewal state for the same token`() = runTest2 {
-        // The stale query result says the sub no longer renews, but a purchase event that landed
-        // while the query was in flight says it does (user just re-subscribed): the gate must see
-        // the overlay version, or the fail-closed double-billing check lets the buy through.
-        val queried = purchase(1_000, token = "same", products = listOf(OurSku.Sub.PRO_UPGRADE.id)).apply {
-            every { isAutoRenewing } returns false
-        }
-        val raced = purchase(1_000, token = "same", products = listOf(OurSku.Sub.PRO_UPGRADE.id)).apply {
-            every { isAutoRenewing } returns true
-        }
-        val pendingListeners = mutableListOf<PurchasesResponseListener>()
-        val client = mockk<BillingClient>().apply {
-            every { queryPurchasesAsync(any<QueryPurchasesParams>(), any()) } answers {
-                pendingListeners.add(secondArg())
-            }
-        }
-        val connection = BillingConnection(client = client)
-
-        val gate = async(start = CoroutineStart.UNDISPATCHED) { connection.querySubscriptions() }
-        runCurrent()
-        pendingListeners.size shouldBe 1
-
-        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(raced))
-        pendingListeners.single().onQueryPurchasesResponse(result(BillingResponseCode.OK), mutableListOf(queried))
-        runCurrent()
-
-        val gateView = gate.await()
-        gateView.single().isAutoRenewing shouldBe true
-    }
-
-    @Test fun `querySubscriptions excludes iap overlay entries but keeps untyped ones`() = runTest2 {
-        val iapEvent = purchase(1_000, token = "iap-event")
-        val unknownEvent = purchase(2_000, token = "unknown", products = listOf("some.unknown.product"))
-        val connection = BillingConnection(
-            client = clientReturning(result(BillingResponseCode.OK) to emptyList()),
-        )
-        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(iapEvent))
-        connection.onPurchasesUpdated(result(BillingResponseCode.OK), listOf(unknownEvent))
-
-        val gateView = connection.querySubscriptions()
-
-        // An IAP can't be the blocking subscription; an unknown product might be, so it stays in
-        // on the safe side.
-        gateView.map { it.purchaseToken } shouldBe listOf("unknown")
-        // Excluded from the gate view only — the reducer still owns both entries.
-        connection.purchases.first().map { it.purchaseToken } shouldContainExactly listOf("unknown", "iap-event")
-    }
-
-    @Test fun `querySubscriptions filters pending subscription results`() = runTest2 {
-        val pendingSub = mockk<Purchase>().apply {
-            every { purchaseState } returns PurchaseState.PENDING
-            every { purchaseTime } returns 1_000L
-            every { purchaseToken } returns "pending-sub"
-            every { this@apply.products } returns listOf(OurSku.Sub.PRO_UPGRADE.id)
-        }
-        val connection = BillingConnection(
-            client = clientReturning(result(BillingResponseCode.OK) to listOf(pendingSub)),
-        )
-
-        // A PENDING subscription is not an active one — it must neither block the gate nor
-        // surface as owned.
-        connection.querySubscriptions() shouldBe emptyList()
-        connection.purchases.first() shouldBe emptyList()
     }
 
     // endregion

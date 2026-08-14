@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Энэ нь тусдаа худалдан авалт юм: энэ нь таны подпискийг цуцлахгүй, мөн буцаан авалт өгөхгүй. Хоёулангийн хувьд ижил Google акаунт ашиглаарай.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Подписк хэвээр идэвхтэй</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play-с таны подписк сунгахаар тохиргуулагдсан гэж мэдээлэлтэй байна. Нэг удаагийн худалдан авалтыг худалдахын тулд эхлээд Google Play-д подпискийг цуцлаад энд буцж ирээрэй.\n\nДөнгөж цуцласан уу? Google Play-д бага хугацаа өгөөд дахин оролдоно уу. Мөн та ижил Google акаунт ашиглаж байгаа эсэхийг шалгаарай.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play-д таны подпискийн статусыг шалгаж чадсангүй. Та бага хугацаа хүлээгээд дахин оролдоно уу.</string>
     <string name="upgrade_screen_restore_success_message">Худалдан авалт сэргээгдсэн, таны Pro идэвхтэй байна.</string>
     <string name="upgrade_screen_grace_title">Таны худалдан авалтыг баталж байна</string>
     <string name="upgrade_screen_grace_body_short">Pro хэвээр идэвхтэй байна. Google Play таны худалдан авалтыг дахин баталахыг хүлээж байна, энэ хооронд Pro-ийн бүх функцууд нээлттэй хэвээр байна.</string>

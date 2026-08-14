@@ -71,6 +71,15 @@ class BillingManagerTest : BaseTest() {
         every { isAcknowledged } returns true
     }
 
+    // A payment Play is still processing: carried by the state, but never owned and never ackable.
+    private fun pendingPurchase(token: String = "pending-token") = mockk<Purchase>().apply {
+        every { purchaseState } returns PurchaseState.PENDING
+        every { purchaseTime } returns 2_000L
+        every { purchaseToken } returns token
+        every { isAcknowledged } returns false
+        every { products } returns listOf(OurSku.Iap.PRO_UPGRADE.id)
+    }
+
     // An unacknowledged purchase with its own token: the ack bookkeeping (log level, permanent
     // failure reports) is keyed per token, so tests need distinguishable ones.
     private fun unackedPurchase(
@@ -89,16 +98,53 @@ class BillingManagerTest : BaseTest() {
     private fun connection(
         refreshResults: List<Collection<Purchase>> = listOf(emptyList()),
         refreshComplete: Boolean = true,
+        // Full refresh outcomes for the tests that care about provenance (confirmed set, commit
+        // time, partial error); overrides the plain refreshResults shorthand.
+        refreshes: List<BillingConnection.PurchaseRefresh>? = null,
         purchasesFlow: Flow<Collection<Purchase>> = flowOf(emptyList()),
         freshUpdatesFlow: Flow<BillingConnection.FreshUpdate> = emptyFlow(),
         failures: Flow<BillingResult> = emptyFlow(),
     ) = mockk<BillingConnection>().apply {
-        coEvery { refreshPurchases() } returnsMany
-            refreshResults.map { BillingConnection.PurchaseRefresh(it, isComplete = refreshComplete) }
+        coEvery { refreshPurchases() } returnsMany (
+            refreshes ?: refreshResults.map {
+                BillingConnection.PurchaseRefresh(
+                    purchases = it,
+                    confirmed = it,
+                    hasConfirmedProPurchase = it.isNotEmpty(),
+                    isComplete = refreshComplete,
+                )
+            }
+            )
         every { purchases } returns purchasesFlow
         every { freshUpdates } returns freshUpdatesFlow
         every { purchaseFailures } returns failures
     }
+
+    // An incomplete reconciliation: it committed what it found, but one product type couldn't be
+    // checked. The default cause is NON-invalidating — the dead-binder codes are opted into.
+    private fun partialRefresh(
+        purchases: Collection<Purchase> = emptyList(),
+        confirmed: Collection<Purchase> = emptyList(),
+        hasConfirmedPro: Boolean = false,
+        occurredAt: Long = 4242L,
+        error: Throwable = GplayServiceUnavailableException(
+            BillingClientException(result(BillingResponseCode.ERROR))
+        ),
+    ) = BillingConnection.PurchaseRefresh(
+        purchases = purchases,
+        confirmed = confirmed,
+        hasConfirmedProPurchase = hasConfirmedPro,
+        isComplete = false,
+        occurredAt = occurredAt,
+        partialError = error,
+    )
+
+    private fun completeRefresh(purchases: Collection<Purchase> = emptyList()) = BillingConnection.PurchaseRefresh(
+        purchases = purchases,
+        confirmed = purchases,
+        hasConfirmedProPurchase = purchases.isNotEmpty(),
+        isComplete = true,
+    )
 
     // The real provider flow emits one connection and stays open for its lifetime -- flowOf() would
     // complete immediately, which the connect loop rightly treats as a connection failure.
@@ -540,6 +586,10 @@ class BillingManagerTest : BaseTest() {
 
     // Drains the manager's connectionFailures (occurrence timestamps) into a list. Launched on
     // backgroundScope so it lives for the whole test.
+    //
+    // Drive it with runCurrent() (or a suspension of the test body), NEVER with advanceUntilIdle():
+    // that one stops as soon as no FOREGROUND event is left and never runs backgroundScope work, so
+    // a signal sent from the test body would sit unconsumed and the list would read empty.
     private fun TestScope.collectFailures(manager: BillingManager): List<Long> = mutableListOf<Long>().also { out ->
         backgroundScope.launch { manager.connectionFailures.collect { out.add(it) } }
     }
@@ -665,20 +715,199 @@ class BillingManagerTest : BaseTest() {
         failures.isNotEmpty() shouldBe true
     }
 
-    @Test fun `a non-invalidating action error does not emit`() = runTest2 {
-        // A strict querySubscriptions failure whose code is NOT invalidating leaves the connection
-        // installed, so no connect-loop iteration fails and nothing feeds the episode clock.
-        val conn = connection().apply {
-            coEvery { querySubscriptions() } throws BillingClientException(result(BillingResponseCode.ERROR))
-        }
+    @Test fun `a strict gate failure does not feed the episode clock`() = runTest2 {
+        // The gate surfaces its own failure to the user (fail-closed) and leaves the connection
+        // installed. The episode clock is fed by the connect loop and by refresh() — a gate that
+        // the user aborted mid-purchase is not a reconciliation outcome.
+        val conn = connection(refreshes = listOf(completeRefresh(), partialRefresh()))
         val manager = manager(conn)
         val failures = collectFailures(manager)
         runCurrent() // connection established
 
-        shouldThrow<Exception> { manager.querySubscriptions() }
-        advanceUntilIdle()
+        shouldThrow<Exception> { manager.refreshStrict() }
+        runCurrent()
 
         failures shouldBe emptyList()
+    }
+
+    @Test fun `a partial reconciliation without a confirmed pro purchase signals its commit time`() = runTest2 {
+        // The pending-only cold start: Play answered for one type with a payment in progress, the
+        // other failed. Nothing confirms Pro, so the grace episode clock must advance — stamped
+        // with the refresh's COMMIT time, so a confirmation landing in between stays newer.
+        val pending = pendingPurchase()
+        val conn = connection(
+            refreshes = listOf(partialRefresh(purchases = listOf(pending), occurredAt = 4242L)),
+            purchasesFlow = flowOf(listOf(pending)),
+        )
+        val manager = manager(conn)
+        val failures = collectFailures(manager)
+
+        runCurrent()
+
+        // Still published: a partial refresh is a usable connection, and starving billingData would
+        // leave the screen at Loading forever.
+        manager.billingData.first() shouldBe BillingData(
+            purchases = emptyList(),
+            pendingPurchases = listOf(pending),
+        )
+        failures shouldBe listOf(4242L)
+    }
+
+    @Test fun `a partial manual refresh signals too`() = runTest2 {
+        // Manual Restore runs the same reconciliation as the connect loop — before this it was the
+        // only path whose partial outcome silently vanished.
+        val conn = connection(refreshes = listOf(completeRefresh(), partialRefresh(occurredAt = 7_777L)))
+        val manager = manager(conn)
+        val failures = collectFailures(manager)
+        runCurrent()
+
+        manager.refresh()
+        runCurrent() // the collector lives on backgroundScope, which advanceUntilIdle would skip
+
+        failures shouldBe listOf(7_777L)
+    }
+
+    @Test fun `a partial refresh that confirmed pro does not signal`() = runTest2 {
+        val owned = purchase()
+        val conn = connection(
+            refreshes = listOf(
+                completeRefresh(),
+                partialRefresh(purchases = listOf(owned), confirmed = listOf(owned), hasConfirmedPro = true),
+            ),
+        )
+        val manager = manager(conn)
+        val failures = collectFailures(manager)
+        runCurrent()
+
+        manager.refresh()
+        runCurrent()
+
+        // Pro WAS confirmed by this round-trip; the failed sibling type proves nothing against it.
+        failures shouldBe emptyList()
+    }
+
+    @Test fun `an invalidating partial refresh tears the connection down`() = runTest2 {
+        // The dead-binder teardown used to ride refreshPurchases' throw path through useConnection.
+        // A partial refresh returns instead of throwing, so without the explicit invalidation the
+        // dead connection would stay installed for every later caller.
+        val owned = purchase()
+        val dead = connection(
+            refreshes = listOf(
+                partialRefresh(
+                    purchases = listOf(owned),
+                    confirmed = listOf(owned),
+                    hasConfirmedPro = true,
+                    error = GplayServiceUnavailableException(
+                        BillingClientException(result(BillingResponseCode.SERVICE_DISCONNECTED))
+                    ),
+                ),
+            ),
+        )
+        val good = connection(refreshResults = listOf(emptyList(), listOf(owned)))
+        var attempts = 0
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow {
+                attempts++
+                emit(if (attempts == 1) dead else good)
+                awaitCancellation()
+            }
+        }
+        val manager = manager(provider)
+        runCurrent() // connection 1 established; its partial refresh signals the invalidation
+
+        // The next action is fresh demand: it skips the reconnect backoff and lands on connection 2.
+        // await() is what drives the connect loop here — it runs on backgroundScope, which
+        // advanceUntilIdle() alone would never touch.
+        val refreshed = async { manager.refresh() }
+        advanceUntilIdle()
+
+        refreshed.await() shouldBe BillingData(listOf(owned))
+        attempts shouldBe 2
+    }
+
+    // endregion
+
+    // region pending purchases
+
+    @Test fun `billing data splits owned purchases from pending payments`() = runTest2 {
+        val owned = purchase()
+        val pending = pendingPurchase()
+        val manager = manager(connection(purchasesFlow = flowOf(listOf(owned, pending))))
+
+        // The split is what keeps a payment in progress out of every entitlement decision while
+        // still letting the UI show it.
+        manager.billingData.first() shouldBe BillingData(
+            purchases = listOf(owned),
+            pendingPurchases = listOf(pending),
+        )
+    }
+
+    @Test fun `a pending purchase is never acknowledged`() = runTest2 {
+        val pending = pendingPurchase()
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> result(BillingResponseCode.OK) }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(pending))
+        advanceTimeBy(400_000)
+        runCurrent()
+
+        // Play rejects acking a pending purchase permanently: an unfiltered pass would fire a bug
+        // report on every pass, forever, for a purchase that has nothing to acknowledge yet.
+        acks shouldBe emptyList()
+        verify(exactly = 0) { Bugs.report(any()) }
+    }
+
+    @Test fun `a follow-up refresh after a partial publish recovers the full state`() = runTest2 {
+        val pending = pendingPurchase()
+        val owned = purchase()
+        val purchases = purchasesFlow()
+        val conn = connection(
+            refreshes = listOf(
+                partialRefresh(purchases = listOf(pending)),
+                completeRefresh(listOf(owned)),
+            ),
+            purchasesFlow = purchases,
+        )
+        val manager = manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(pending))
+        manager.billingData.first().pendingPurchases shouldBe listOf(pending)
+
+        // The payment completed: the next reconciliation returns the owned purchase, no reconnect
+        // needed (the partial one left a working connection installed).
+        manager.refresh() shouldBe BillingData(listOf(owned))
+    }
+
+    @Test fun `refreshStrict fails closed on an incomplete refresh`() = runTest2 {
+        val conn = connection(
+            refreshes = listOf(
+                completeRefresh(),
+                partialRefresh(purchases = listOf(purchase()), confirmed = listOf(purchase())),
+            ),
+        )
+        val manager = manager(conn)
+        runCurrent()
+
+        // A gate must not treat "one product type couldn't be checked" as "nothing else is owned":
+        // that is exactly how a double purchase gets through.
+        shouldThrow<GplayServiceUnavailableException> { manager.refreshStrict() }
+    }
+
+    @Test fun `refreshStrict returns the split data on a complete refresh`() = runTest2 {
+        val owned = purchase()
+        val pending = pendingPurchase()
+        val conn = connection(refreshes = listOf(completeRefresh(), completeRefresh(listOf(owned, pending))))
+        val manager = manager(conn)
+        runCurrent()
+
+        manager.refreshStrict() shouldBe BillingData(
+            purchases = listOf(owned),
+            pendingPurchases = listOf(pending),
+        )
     }
 
     // endregion

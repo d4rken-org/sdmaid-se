@@ -53,7 +53,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bul alohida satın alma: u sızding abonementıńızni bekor qilmaydu va pul qaytırma olmaydu. Ekilesin ushın bir xıl Google akkaunt paylanıńız.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonement heniz faoliy</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play xabar bergénde, sızding abonementıńız heniz yangilanshalı o\'rnatılgan. Bir marti upgrade satın almak ushın, birinche Google Play-da abonementıńızni bekor qilin, soñ bu yerge qaytıńız.\n\nBekor qildıńız ba? Google Play-ga bir az vaqıt berıńiz va qayta surınız. Sız bir xıl Google akkaunt paylanıp atingız.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Sızding abonement holatını Google Play bilen tekshiribe bolalmadi. Iltimas, bir az vaqıttan soñ qayta surınız.</string>
     <string name="upgrade_screen_restore_success_message">Satın alma tiklandi, sızding Pro upgrade faoliy.</string>
     <string name="upgrade_screen_grace_title">Sızding satın almashıńızni tastıqlaw</string>
     <string name="upgrade_screen_grace_body_short">Pro heniz faoliy. Google Play sızding satın almashıńızni qayta tastıqlaw kʼtilmoqde, bul vaqıtda barlıq Pro xususiyetleri oyıq qaladi.</string>

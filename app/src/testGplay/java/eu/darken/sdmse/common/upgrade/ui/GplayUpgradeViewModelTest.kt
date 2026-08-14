@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
 import eu.darken.sdmse.common.upgrade.core.billing.OfferUnavailableBillingException
+import eu.darken.sdmse.common.upgrade.core.billing.PendingPurchaseBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.main.ui.navigation.SupportFormRoute
 import io.kotest.matchers.booleans.shouldBeTrue
@@ -23,6 +24,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
@@ -298,6 +300,9 @@ class GplayUpgradeViewModelTest : BaseTest() {
         // Relaxed mocks return a no-op Flow that never emits -- the state combine would starve.
         every { autoRestoreBusy } returns MutableStateFlow(false)
         every { purchaseLaunchSku } returns MutableStateFlow<Sku?>(null)
+        // Both purchase paths run the pre-purchase gate: the default is a clean account (nothing
+        // owned, nothing pending), so tests only stub it when the gate IS the subject.
+        coEvery { verifyPurchaseStateNow() } returns UpgradeRepoGplay.Info(false, null, null, isSettled = true)
     }
 
     private fun buildVm(
@@ -321,6 +326,15 @@ class GplayUpgradeViewModelTest : BaseTest() {
         BillingData(purchases = purchases.toList()),
         null,
         // Ownership data implies a committed reconciliation -> always settled.
+        isSettled = true,
+    )
+
+    // Play is still processing a payment: nothing owned, nothing granted, but the purchase paths
+    // must treat it as a blocking answer.
+    private fun pendingInfo(skuId: String = OurSku.Iap.PRO_UPGRADE.id) = UpgradeRepoGplay.Info(
+        false,
+        BillingData(purchases = emptyList(), pendingPurchases = listOf(mockPurchase(skuId))),
+        null,
         isSettled = true,
     )
 
@@ -373,6 +387,22 @@ class GplayUpgradeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         event.await() shouldBe UpgradeEvents.RestoreFailed
+    }
+
+    @Test
+    fun `restore that finds a pending payment emits PurchasePending`() = runTest2(context = testDispatcher) {
+        // Play answered and DID find the purchase — it just isn't paid for yet. RestoreFailed would
+        // send this user through account troubleshooting and support for something that resolves
+        // itself.
+        val repo = mockRepo()
+        coEvery { repo.restorePurchaseNow() } returns checked(pendingInfo())
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.restorePurchase()
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.PurchasePending
     }
 
     @Test
@@ -528,7 +558,28 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `iap purchase is blocked while the subscription is still set to renew`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.queryCurrentSubscriptions() } returns listOf(mockPurchase("upgrade.pro", autoRenewing = true))
+        coEvery { repo.verifyPurchaseStateNow() } returns
+            proInfo(mockPurchase(OurSku.Sub.PRO_UPGRADE.id, autoRenewing = true))
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.SubscriptionStillRenewing
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `iap purchase is blocked by a renewing subscription with an unknown product`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // The gate reads the RAW purchases, never the mapped upgrades: a subscription whose product
+        // ID this build doesn't know (legacy SKU, renamed product) still renews and still bills, so
+        // letting the one-time purchase through here charges the user for Pro twice.
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } returns
+            proInfo(mockPurchase("some.unknown.subscription", autoRenewing = true))
         val vm = buildVm(repo)
 
         val event = async { vm.events.first() }
@@ -542,7 +593,8 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `iap purchase proceeds when the subscription is not set to renew`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.queryCurrentSubscriptions() } returns listOf(mockPurchase("upgrade.pro", autoRenewing = false))
+        coEvery { repo.verifyPurchaseStateNow() } returns
+            proInfo(mockPurchase(OurSku.Sub.PRO_UPGRADE.id, autoRenewing = false))
         val vm = buildVm(repo)
 
         vm.onGoIap(mockk<Activity>(relaxed = true))
@@ -554,7 +606,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
     @Test
     fun `iap purchase proceeds without any subscription`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.queryCurrentSubscriptions() } returns emptyList()
+        coEvery { repo.verifyPurchaseStateNow() } returns UpgradeRepoGplay.Info(false, null, null, isSettled = true)
         val vm = buildVm(repo)
 
         vm.onGoIap(mockk<Activity>(relaxed = true))
@@ -564,12 +616,12 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `failing subscription verification blocks the purchase and forwards the error`() = runTest2(
+    fun `failing purchase verification blocks the purchase and forwards the error`() = runTest2(
         context = testDispatcher,
     ) {
         val repo = mockRepo()
         val boom = IllegalStateException("Play unavailable")
-        coEvery { repo.queryCurrentSubscriptions() } throws boom
+        coEvery { repo.verifyPurchaseStateNow() } throws boom
         val vm = buildVm(repo)
 
         val forwardedError = async { vm.errorEvents.first() }
@@ -581,13 +633,13 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
-    fun `subscription verification timeout blocks the purchase with a check-failed event`() = runTest2(
+    fun `purchase verification timeout blocks the purchase with a check-failed event`() = runTest2(
         context = testDispatcher,
     ) {
         val repo = mockRepo()
-        coEvery { repo.queryCurrentSubscriptions() } coAnswers {
+        coEvery { repo.verifyPurchaseStateNow() } coAnswers {
             delay(30_000) // longer than the 10s verification timeout
-            emptyList()
+            UpgradeRepoGplay.Info(false, null, null, isSettled = true)
         }
         val vm = buildVm(repo)
 
@@ -595,16 +647,87 @@ class GplayUpgradeViewModelTest : BaseTest() {
         vm.onGoIap(mockk<Activity>(relaxed = true))
         advanceUntilIdle()
 
-        event.await() shouldBe UpgradeEvents.SubscriptionCheckFailed
+        event.await() shouldBe UpgradeEvents.PurchaseCheckFailed
         coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `a subscription gate timeout blocks that purchase too`() = runTest2(context = testDispatcher) {
+        // The subscription path used to launch unverified: a slow Play means we don't know whether
+        // a payment is already pending, so it must fail closed like the one-time path.
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } coAnswers {
+            delay(30_000)
+            UpgradeRepoGplay.Info(false, null, null, isSettled = true)
+        }
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.PurchaseCheckFailed
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `a pending payment blocks the one-time purchase`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } returns pendingInfo()
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.PurchasePending
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `a pending payment blocks the subscription purchase`() = runTest2(context = testDispatcher) {
+        // SKU-agnostic on purpose: the two products are alternatives, so a pending payment for
+        // either one must block both — completing both charges the user twice.
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } returns pendingInfo()
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoSubscriptionTrial(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.PurchasePending
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `a pending-payment launch failure surfaces as the pending dialog`() = runTest2(context = testDispatcher) {
+        // Play can only report this at launch time (the gate saw a clean state moments earlier):
+        // the already-owned error dialog with its restore tips would be the wrong advice.
+        // The callback is captured and invoked from the test body rather than from inside the
+        // answer: on a suspend function the argument list carries the continuation, so grabbing the
+        // callback positionally there is a coin flip — and a wrong cast would surface as a hang.
+        val repo = mockRepo()
+        val onError = slot<(Throwable) -> Unit>()
+        coEvery { repo.launchBillingFlowNow(any(), any(), any(), capture(onError)) } returns Unit
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoIap(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        onError.captured(PendingPurchaseBillingException())
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.PurchasePending
     }
 
     @Test
     fun `iap taps are single-flight while a verification is running`() = runTest2(context = testDispatcher) {
         val repo = mockRepo()
-        coEvery { repo.queryCurrentSubscriptions() } coAnswers {
+        coEvery { repo.verifyPurchaseStateNow() } coAnswers {
             delay(5_000)
-            emptyList()
+            UpgradeRepoGplay.Info(false, null, null, isSettled = true)
         }
         val vm = buildVm(repo)
 
@@ -613,7 +736,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
         vm.onGoIap(mockk<Activity>(relaxed = true))
         advanceUntilIdle()
 
-        coVerify(exactly = 1) { repo.queryCurrentSubscriptions() }
+        coVerify(exactly = 1) { repo.verifyPurchaseStateNow() }
         coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), eq(OurSku.Iap.PRO_UPGRADE), isNull(), any()) }
     }
 
@@ -650,8 +773,9 @@ class GplayUpgradeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         // One arbiter for all three: the purchase and the restore would otherwise run concurrent
-        // Play operations against the same account state.
-        coVerify(exactly = 0) { repo.queryCurrentSubscriptions() }
+        // Play operations against the same account state. Exactly one gate ran — the subscription's
+        // own; the blocked IAP tap never got to verify anything.
+        coVerify(exactly = 1) { repo.verifyPurchaseStateNow() }
         coVerify(exactly = 0) { repo.restorePurchaseNow() }
         coVerify(exactly = 1) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
     }
@@ -674,7 +798,7 @@ class GplayUpgradeViewModelTest : BaseTest() {
 
         coVerify(exactly = 1) { repo.restorePurchaseNow() }
         coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
-        coVerify(exactly = 0) { repo.queryCurrentSubscriptions() }
+        coVerify(exactly = 0) { repo.verifyPurchaseStateNow() }
     }
 
     @Test
@@ -970,6 +1094,43 @@ class GplayUpgradeViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         event.await() shouldBe UpgradeEvents.RestoreFailed
+    }
+
+    @Test
+    fun `a pending payment renders while the price queries are still running`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // Price-independent like owners and grace users: the pending card is this user's answer and
+        // both offers are locked anyway, so waiting on prices would hide it behind Loading.
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(pendingInfo())
+        coEvery { repo.querySkus(any()) } coAnswers {
+            delay(60_000) // effectively never within this test
+            emptyList()
+        }
+        val vm = buildVm(repo)
+
+        val collector = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+        testScheduler.advanceTimeBy(1_000)
+
+        val loaded = vm.state.value.shouldBeInstanceOf<GplayUpgradeUiState.Loaded>()
+        loaded.hasPendingPurchase shouldBe true
+        collector.cancel()
+    }
+
+    @Test
+    fun `a pending payment keeps its card when both price queries fail`() = runTest2(context = testDispatcher) {
+        val repo = mockRepo()
+        every { repo.upgradeInfo } returns MutableStateFlow(pendingInfo())
+        coEvery { repo.querySkus(any()) } throws IllegalStateException("Play unavailable")
+        val vm = buildVm(repo)
+
+        val loaded = async { awaitLoaded(vm) }
+        advanceUntilIdle()
+
+        // Not the acquisition-style Unavailable card: the pending explanation must survive a price
+        // outage, exactly like the grace card does.
+        loaded.await().hasPendingPurchase shouldBe true
     }
 
     @Test

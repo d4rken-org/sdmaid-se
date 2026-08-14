@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
+import eu.darken.sdmse.common.upgrade.core.billing.client.isPurchased
 import eu.darken.sdmse.common.upgrade.core.billing.client.redacted
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -73,13 +74,13 @@ class BillingManager @Inject constructor(
     private val failedOnce = MutableStateFlow(false)
     val isFailureSettled: Flow<Boolean> = failedOnce
 
-    // Fires once per failed connect-loop iteration: connection setup failure, the mandatory initial
-    // refreshPurchases erroring or timing out, an established connection dropping, an action-level
-    // invalidation (SERVICE_DISCONNECTED/SERVICE_TIMEOUT from any useConnection call), or an
-    // unexpected provider completion. Every one is a fresh reconciliation that couldn't confirm Pro.
-    // The connect loop retries these internally and downstream flows just go quiet, so without this
-    // explicit signal the grace episode clock (UpgradeRepoGplay.proUnconfirmedSince) would only
-    // advance on an explicit ON_RESUME refresh().
+    // Fires once per reconciliation that couldn't confirm Pro: a failed connect-loop iteration
+    // (connection setup failure, the mandatory initial refreshPurchases erroring or timing out, an
+    // established connection dropping, an action-level invalidation, an unexpected provider
+    // completion) — and, via processReconciliation, a refresh that COMPLETED but only partially,
+    // without a confirmed Pro purchase. The connect loop retries its failures internally and
+    // downstream flows just go quiet, so without this explicit signal the grace episode clock
+    // (UpgradeRepoGplay.proUnconfirmedSince) would only advance on an explicit ON_RESUME refresh().
     //
     // Each value is the failure's OCCURRENCE time (epoch millis). It has to be, not a bare Unit: the
     // channel buffers, and this feed and freshBillingData are separate flows with no cross-stream
@@ -121,13 +122,18 @@ class BillingManager @Inject constructor(
                                 // isFailureSettled forever with no retry. withTimeoutOrNull, NOT
                                 // withTimeout: TimeoutCancellationException is a
                                 // CancellationException and would kill this loop.
-                                withTimeoutOrNull(INITIAL_REFRESH_TIMEOUT_MS) {
+                                val initialRefresh = withTimeoutOrNull(INITIAL_REFRESH_TIMEOUT_MS) {
                                     connection.refreshPurchases()
                                 } ?: throw BillingException("Initial purchase refresh timed out")
 
                                 failStreak = 0
                                 connectionHolder.value = connection
                                 log(TAG, INFO) { "Billing connection established" }
+                                // AFTER publishing: a partial refresh is still a usable connection
+                                // (a pending-only cold start must not starve billingData), but its
+                                // bookkeeping — episode clock, dead-binder teardown — has to run,
+                                // and an invalidation may only tear down an INSTALLED connection.
+                                processReconciliation(initialRefresh)
                             }
                             // The provider flow stays open for the connection's lifetime; a normal
                             // completion means the connection is gone without an error — treat it
@@ -214,7 +220,7 @@ class BillingManager @Inject constructor(
         .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
 
     val billingData: Flow<BillingData> = purchases
-        .map { BillingData(purchases = it) }
+        .map { BillingData.from(it) }
         .shareIn(scope, WhileSubscribed(3000L, 0L), replay = 1)
 
     val purchaseFailures: Flow<BillingResult> = connectionHolder
@@ -235,7 +241,10 @@ class BillingManager @Inject constructor(
                 // every emission here is a real Play round-trip the grace bookkeeping needs.
                 .resubscribeOnFailure("freshBillingData")
         }
-        .map { FreshData(data = BillingData(purchases = it.purchases), isFullSnapshot = it.isFullSnapshot, occurredAt = it.occurredAt) }
+        // Through from() like every other exit, although the connection only ever puts PURCHASED
+        // purchases on this stream: if that invariant ever broke, splitting keeps the grace
+        // bookkeeping from stamping a pending payment as a confirmation.
+        .map { FreshData(data = BillingData.from(it.purchases), isFullSnapshot = it.isFullSnapshot, occurredAt = it.occurredAt) }
         .setupCommonEventHandlers(TAG) { "freshBillingData" }
         // Same belt as `purchases`: an Eagerly shared flow that dies stays dead, and this one feeds
         // both the grace bookkeeping and the ack collector's re-drive signal.
@@ -292,6 +301,14 @@ class BillingManager @Inject constructor(
     // -data signals.
     private suspend fun runAckPass(purchases: Collection<Purchase>) {
         val needAck = purchases.filter {
+            // The canonical list carries pending payments too. Play rejects acknowledging one
+            // PERMANENTLY, so an unfiltered pass would fire a bug report for every pending purchase,
+            // every pass — and there is nothing to acknowledge until the payment completes anyway.
+            if (!it.isPurchased) {
+                log(TAG) { "Not acknowledgeable yet: ${it.redacted()}" }
+                return@filter false
+            }
+
             val needsAck = !it.isAcknowledged
 
             if (needsAck) log(TAG) { "Needs ACK: ${it.redacted()}" }
@@ -401,6 +418,35 @@ class BillingManager @Inject constructor(
         }
     }
 
+    // Everything a COMPLETED refresh owes the rest of the app, in one place: both the connect loop's
+    // initial refresh and manual refresh() calls run through it, so a Restore tap during an outage
+    // feeds the same bookkeeping the connect loop does. Only reached when refreshPurchases returned
+    // (it still throws when it found nothing AND a query failed — that path is the connect loop's /
+    // useConnection's).
+    private fun processReconciliation(refresh: BillingConnection.PurchaseRefresh) {
+        // A partial refresh no longer reaches useConnection's dead-binder detection (it returns
+        // instead of throwing), so the teardown that used to ride the throw path happens here.
+        // Cause chain, not the exception itself: the failure arrives user-friendly-mapped.
+        // Deliberately no holder CAS: the failing connection may already have been replaced, and
+        // the accepted cost of that rare race is one extra failed action while the loop reconnects.
+        val clientError = refresh.partialError?.let {
+            (it as? BillingClientException) ?: (it.cause as? BillingClientException)
+        }
+        if (clientError != null && clientError.result.responseCode in INVALIDATING_CODES) {
+            log(TAG, WARN) { "Refresh reported the connection dead (${clientError.result.responseCode}), invalidating." }
+            invalidations.trySend(Unit)
+        }
+
+        if (!refresh.isComplete && !refresh.hasConfirmedProPurchase) {
+            // A reconciliation that couldn't confirm Pro. Stamped with the refresh's COMMIT time,
+            // never now-at-send: a confirmation that committed between this refresh and the send
+            // (e.g. a pending payment completing) must stay NEWER than this failure, or the grace
+            // episode it closed would be reopened.
+            log(TAG, WARN) { "Partial refresh without a confirmed Pro purchase at ${refresh.occurredAt}" }
+            connectionFailuresChannel.trySend(refresh.occurredAt)
+        }
+    }
+
     private suspend fun <T> useConnection(action: suspend BillingConnection.() -> T): T {
         // Every caller here is active demand (opening the upgrade screen, restore/buy taps,
         // purchase acks) — cut a pending reconnect backoff short. A no-op while healthy.
@@ -479,18 +525,24 @@ class BillingManager @Inject constructor(
         // shared upgradeInfo replay cache. The freshBillingData emission happens inside the
         // reducer's commit, in commit order — not here.
         val fresh = useConnection { refreshPurchases() }
-        return BillingData(purchases = fresh.purchases)
+        processReconciliation(fresh)
+        return BillingData.from(fresh.purchases)
     }
 
-    // Strict SUBS-only query for the pre-purchase subscription gate: unlike refresh(), a failure
-    // here propagates (user-friendly-mapped) instead of being masked by the other product type.
-    suspend fun querySubscriptions(): Collection<Purchase> = try {
-        useConnection { querySubscriptions() }
-    } catch (e: CancellationException) {
-        throw e
-    } catch (e: Exception) {
-        log(TAG, WARN) { "querySubscriptions() failed: ${e.asLog()}" }
-        throw e.tryMapUserFriendly()
+    // Strict variant for the pre-purchase gates: unlike refresh(), anything short of a COMPLETE
+    // reconciliation throws (user-friendly-mapped) instead of returning what it happened to find —
+    // a gate must be able to tell "not owned" apart from "couldn't verify" and fail closed.
+    suspend fun refreshStrict(): BillingData {
+        log(TAG) { "refreshStrict()" }
+        val fresh = useConnection { refreshPurchases() }
+        if (!fresh.isComplete) {
+            // partialError is set for every incomplete refresh; the fallback only exists so a
+            // future incompleteness without a captured cause still fails closed instead of passing.
+            val error = fresh.partialError ?: BillingException("Purchase refresh was incomplete")
+            log(TAG, WARN) { "refreshStrict() incomplete: ${error.asLog()}" }
+            throw error.tryMapUserFriendly()
+        }
+        return BillingData.from(fresh.purchases)
     }
 
     companion object {

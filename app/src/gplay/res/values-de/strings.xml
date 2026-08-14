@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dies ist ein separater Kauf: Er kündigt weder dein Abo noch erstattet er die Kosten. Verwende für beides dasselbe Google-Konto.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abo noch aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Laut Google Play verlängert sich dein Abo weiterhin. Um das einmalige Upgrade zu kaufen, kündige das Abo zuerst in Google Play und kehre dann hierher zurück.\n\nDu hast es gerade gekündigt? Gib Google Play einen Moment Zeit und versuche es erneut. Stelle außerdem sicher, dass du dasselbe Google-Konto verwendest.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Abo-Status konnte nicht bei Google Play überprüft werden. Bitte versuche es gleich noch einmal.</string>
     <string name="upgrade_screen_restore_success_message">Kauf wiederhergestellt, Dein Pro Upgrade ist aktiv.</string>
     <string name="upgrade_screen_grace_title">Dein Kauf wird bestätigt</string>
     <string name="upgrade_screen_grace_body_short">Pro ist weiterhin aktiv. Es wird darauf gewartet, dass Google Play deinen Kauf erneut bestätigt. Alle Pro-Funktionen bleiben in der Zwischenzeit freigeschaltet.</string>

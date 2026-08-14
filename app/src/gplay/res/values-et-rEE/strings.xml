@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">See on eraldiseisev ost: see ei tühista ega tagasta teie tellimust. Kasutage mõlema jaoks sama Google\'i kontot.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Tellimus on endiselt kasutatav</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play teatab, et teie tellimus on endiselt seadistatud uuenema. Ühekordse ostu tegemiseks tühistage esmalt Google Plays tellimus ja seejärel naaske siia.\n\nJust tühistasite? Andke Google Playle hetk aega ja proovige uuesti. Samuti veenduge, et kasutate sama Google\'i kontot.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Ei saanud teie tellimuse olekut Google Playga kontrollida. Proovige hetke pärast uuesti.</string>
     <string name="upgrade_screen_restore_success_message">Ost taastatud, teie Pro-versioon on kasutusel.</string>
     <string name="upgrade_screen_grace_title">Teie ostu kinnitamine</string>
     <string name="upgrade_screen_grace_body_short">Pro on endiselt kasutusel. Oodatakse, et Google Play kinnitaks teie ostu uuesti, senikaua jäävad kõik Pro võimalused avatuks.</string>

@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">這是單獨的購買：不會取消或退款您的訂閱。請為兩者使用相同的 Google 帳戶。</string>
     <string name="upgrade_screen_sub_still_renewing_title">訂閱仍然有效</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play 報告您的訂閱仍設定為續期。要購買一次性升級，請先在 Google Play 中取消訂閱，然後回到此處。\n\n剛取消？給 Google Play 一些時間，然後重試。還要確保您使用相同的 Google 帳戶。</string>
-    <string name="upgrade_screen_sub_check_failed_message">無法透過 Google Play 檢查您的訂閱狀態。請稍後重試。</string>
     <string name="upgrade_screen_restore_success_message">購買已還原，您的 Pro 升級已啟動。</string>
     <string name="upgrade_screen_grace_title">確認您的購買</string>
     <string name="upgrade_screen_grace_body_short">Pro 仍然有效。等待 Google Play 重新確認您的購買，同時所有 Pro 功能保持解鎖狀態。</string>

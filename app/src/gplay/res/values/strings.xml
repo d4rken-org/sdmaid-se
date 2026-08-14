@@ -64,7 +64,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">This is a separate purchase: it does not cancel or refund your subscription. Use the same Google account for both.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Subscription still active</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play reports that your subscription is still set to renew. To buy the one-time upgrade, cancel the subscription in Google Play first, then come back here.\n\nJust cancelled it? Give Google Play a moment and try again. Also make sure you are using the same Google account.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Couldn\'t check your subscription status with Google Play. Please try again in a moment.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Couldn\'t check your purchases with Google Play. Please try again in a moment.</string>
+    <string name="upgrade_screen_pending_card_title">Payment pending</string>
+    <string name="upgrade_screen_pending_card_body">Google Play is still processing your payment. Pro unlocks automatically once the payment goes through. Some payment methods can take a while. There is nothing else you need to do.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play found a purchase with a pending payment and is still processing it. Pro unlocks automatically once the payment goes through.</string>
     <string name="upgrade_screen_restore_success_message">Purchase restored, your Pro upgrade is active.</string>
     <string name="upgrade_screen_grace_title">Confirming your purchase</string>
     <string name="upgrade_screen_grace_body_short">Pro is still active. Waiting for Google Play to re-confirm your purchase, all Pro features stay unlocked in the meantime.</string>

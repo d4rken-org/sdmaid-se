@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingData
 import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
 import eu.darken.sdmse.common.upgrade.core.billing.ItemAlreadyOwnedBillingException
+import eu.darken.sdmse.common.upgrade.core.billing.PendingPurchaseBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import eu.darken.sdmse.main.core.CurriculumVitae
@@ -118,6 +119,13 @@ class UpgradeRepoGplayTest : BaseTest() {
         every { purchaseTime } returns Instant.parse("2024-01-01T00:00:00Z").toEpochMilli()
     }
 
+    // A payment Play is still processing. Lands in BillingData.pendingPurchases, never in
+    // purchases — the split happens at the billing layer, this is what the repo receives.
+    private fun pendingPurchase(productId: String = OurSku.Iap.PRO_UPGRADE.id) = mockk<Purchase>().apply {
+        every { products } returns listOf(productId)
+        every { purchaseTime } returns 1_000L
+    }
+
     @Test fun `test upgrade info pro status mapping`() {
         UpgradeRepoGplay.Info(
             gracePeriod = false,
@@ -147,6 +155,108 @@ class UpgradeRepoGplayTest : BaseTest() {
         info.upgradedAt shouldBe Instant.parse("2023-12-10T00:00:00Z")
         info.type
     }
+
+    // region pending payments
+
+    @Test fun `a pending payment is mapped but grants nothing`() {
+        val info = UpgradeRepoGplay.Info(
+            gracePeriod = false,
+            billingData = BillingData(purchases = emptySet(), pendingPurchases = setOf(pendingPurchase())),
+        )
+
+        info.pendingSkus shouldBe listOf(OurSku.Iap.PRO_UPGRADE)
+        // The whole point of the split: visible, never an entitlement.
+        info.upgrades shouldBe emptyList()
+        info.isPro shouldBe false
+        info.upgradedAt shouldBe null
+    }
+
+    @Test fun `a pending payment for an unknown product is dropped`() {
+        UpgradeRepoGplay.Info(
+            gracePeriod = false,
+            billingData = BillingData(
+                purchases = emptySet(),
+                pendingPurchases = setOf(pendingPurchase("some.unknown.product")),
+            ),
+        ).pendingSkus shouldBe emptyList()
+    }
+
+    @Test fun `the grace-substituted info keeps the pending payment visible`() = runTest2 {
+        // The audience that needs the explanation most: Pro is running on grace while Play is still
+        // processing the payment that will renew it. Dropping the data here (as the grace branch
+        // used to) left them with a silent screen.
+        coEvery { billingManager.refresh() } returns BillingData(emptySet(), setOf(pendingPurchase()))
+
+        val outcome = repo(lastProAt = System.currentTimeMillis() - 1_000).restorePurchaseNow()
+
+        outcome.info.isPro shouldBe true
+        outcome.info.pendingSkus shouldBe listOf(OurSku.Iap.PRO_UPGRADE)
+    }
+
+    @Test fun `a restore that only finds a pending payment reports it without pro`() = runTest2 {
+        coEvery { billingManager.refresh() } returns BillingData(emptySet(), setOf(pendingPurchase()))
+
+        val outcome = repo(lastProAt = 0L).restorePurchaseNow()
+
+        outcome.shouldBeInstanceOf<UpgradeRepoGplay.RestoreOutcome.Checked>()
+        outcome.info.isPro shouldBe false
+        outcome.info.pendingSkus shouldBe listOf(OurSku.Iap.PRO_UPGRADE)
+    }
+
+    @Test fun `a manual restore over a partial refresh still advances the unconfirmed episode`() = runTest2 {
+        // The restore itself succeeds (a pending payment IS an answer), so nothing on this path
+        // throws — the episode clock is fed by the manager's reconciliation signal instead, which
+        // carries the refresh's commit time.
+        val failures = MutableSharedFlow<Long>(extraBufferCapacity = 1)
+        val confirmedAt = System.currentTimeMillis() - 1_000
+        coEvery { billingManager.refresh() } returns BillingData(emptySet(), setOf(pendingPurchase()))
+        val repo = repo(lastProAt = confirmedAt, connectionFailures = failures)
+
+        repo.restorePurchaseNow().info.isPro shouldBe true
+        failures.emit(confirmedAt + 500)
+        advanceUntilIdle()
+
+        coVerify { proUnconfirmedMock.update(any()) }
+    }
+
+    @Test fun `verifyPurchaseStateNow fails closed instead of substituting grace`() = runTest2 {
+        val boom = GplayServiceUnavailableException(RuntimeException("one product type failed"))
+        coEvery { billingManager.refreshStrict() } throws boom
+
+        // Even a recent owner gets the error: a gate that can't verify must not let a purchase
+        // through on the strength of a grace window.
+        shouldThrow<GplayServiceUnavailableException> {
+            repo(lastProAt = System.currentTimeMillis() - 1_000).verifyPurchaseStateNow()
+        }
+    }
+
+    @Test fun `verifyPurchaseStateNow reports the fresh split state`() = runTest2 {
+        coEvery { billingManager.refreshStrict() } returns BillingData(
+            purchases = setOf(proPurchase()),
+            pendingPurchases = setOf(pendingPurchase(OurSku.Sub.PRO_UPGRADE.id)),
+        )
+
+        val info = repo(lastProAt = 0L).verifyPurchaseStateNow()
+
+        info.upgrades.map { it.sku } shouldBe OurSku.PRO_SKUS.toList()
+        info.pendingSkus shouldBe listOf(OurSku.Sub.PRO_UPGRADE)
+        info.isSettled shouldBe true
+    }
+
+    @Test fun `already-owned recovery reports a pending payment instead of restore tips`() = runTest2 {
+        // Play refuses to re-sell a product whose payment it is still processing. The already-owned
+        // dialog would tell the user to restore, which cannot help.
+        coEvery { billingManager.startIapFlow(any(), any(), null) } throws
+            ItemAlreadyOwnedBillingException(RuntimeException("launch result"))
+        coEvery { billingManager.refresh() } returns BillingData(emptySet(), setOf(pendingPurchase()))
+
+        val errors = mutableListOf<Throwable>()
+        repo(lastProAt = 0L).startLaunch { errors.add(it) }
+
+        errors.single().shouldBeInstanceOf<PendingPurchaseBillingException>()
+    }
+
+    // endregion
 
     @Test fun `grace period is 7 days`() {
         // Guards against the unit error where 7 * 24 * 60 * 1000 (2.8h) was used instead of 7 days,

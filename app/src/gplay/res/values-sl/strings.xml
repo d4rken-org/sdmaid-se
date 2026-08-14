@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">To je ločen nakup: ne prekliče ali ne vrne vaše naročnine. Uporabite isti Google račun za oba.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Naročnina je še vedno aktivna</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play poroča, da je vaša naročnina še vedno nastavljena na obnovitev. Če želite kupiti enkratno nadgradnjo, najprej prekličite naročnino v Google Play, nato se vrnite sem.\n\nAli ste jo pravkar prekličali? Dajte Google Play trenutek in poskusite ponovno. Prepričajte se tudi, da uporabljate isti Google račun.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Ni mogoče preveriti stanja vaše naročnine pri Google Play. Prosimo, poskusite ponovno čez trenutek.</string>
     <string name="upgrade_screen_restore_success_message">Nakup je obnovljen, vaša Pro nadgradnja je aktivna.</string>
     <string name="upgrade_screen_grace_title">Potrditev vašega nakupa</string>
     <string name="upgrade_screen_grace_body_short">Pro je še vedno aktiven. Čakamo, da Google Play ponovno potrdi vaš nakup, v tem času pa so vse Pro funkcije dostopne.</string>

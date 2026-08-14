@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.semantics.SemanticsProperties
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
@@ -353,6 +354,88 @@ class GplayUpgradeScreenTest : BaseComposeRobolectricTest() {
         )
         check(idle.iapEnabled) { "IAP buy should be enabled when idle" }
         check(idle.subscriptionEnabled) { "Subscription buy should be enabled when idle" }
+
+        // A pending payment locks BOTH, whichever product it belongs to: Play rejects a second
+        // purchase of the pending product, and the alternative would charge twice for Pro.
+        val pending = toLoadedState(
+            iap = SkuDetails(OurSku.Iap.PRO_UPGRADE, iapDetails),
+            sub = SkuDetails(OurSku.Sub.PRO_UPGRADE, subDetails),
+            ownership = Ownership(),
+            hasPendingPurchase = true,
+        )
+        check(!pending.iapEnabled) { "IAP buy must be disabled while a payment is pending" }
+        check(!pending.subscriptionEnabled) { "Subscription buy must be disabled while a payment is pending" }
+    }
+
+    @Test
+    fun `a pending payment shows the card and locks the offers for acquisition`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = GplayUpgradeUiState.Loaded(
+                    subscriptionAction = SubscriptionAction.STANDARD,
+                    subscriptionEnabled = false,
+                    subscriptionPrice = "$12.99",
+                    iapEnabled = false,
+                    iapPrice = "$24.99",
+                    hasPendingPurchase = true,
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_PENDING).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_pending_card_body))
+            .assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_SUBSCRIPTION).assertIsNotEnabled()
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
+        // Restore stays available: re-checking with Play is exactly the right move for someone who
+        // believes the payment already went through.
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_RESTORE).assertIsEnabled()
+    }
+
+    @Test
+    fun `a pending payment shows the card on the ownership screen and locks the switch`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(
+                uiState = ownedState(Ownership(subscription = SubscriptionOwnership(isAutoRenewing = false)))
+                    .copy(hasPendingPurchase = true),
+            )
+        }
+
+        // The subscriber switching to the one-time purchase: the switch offer is unlocked by the
+        // non-renewing subscription, but a payment in progress must still hold it.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_PENDING).assertCountEquals(1)
+        composeRule.onNodeWithTag(UpgradeScreenTags.GPLAY_IAP).assertIsNotEnabled()
+    }
+
+    @Test
+    fun `a pending payment shows the card during a young grace episode`() {
+        composeRule.setUpgradeContent {
+            UpgradeScreen(uiState = graceState(showDiagnostics = false).copy(hasPendingPurchase = true))
+        }
+
+        // The young grace stage hides the offers box entirely, so a card rendered inside it would
+        // never reach this audience — which is precisely the one waiting for a renewal payment.
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_PENDING).assertCountEquals(1)
+        composeRule.onAllNodesWithTag(UpgradeScreenTags.GPLAY_GRACE).assertCountEquals(1)
+    }
+
+    @Test
+    fun `the pending dialog is informational only`() {
+        var dismissals = 0
+        composeRule.setUpgradeContent { PurchasePendingDialog(onDismiss = { dismissals++ }) }
+
+        composeRule.onNodeWithText(
+            context.getString(R.string.upgrade_screen_pending_dialog_message),
+            substring = true,
+        ).assertExists()
+        // No support escalation and no restore tips: there is nothing for the user to do.
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_contact_support_action))
+            .assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.upgrade_screen_restore_multiaccount_hint))
+            .assertCountEquals(0)
+
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_dismiss_action)).performClick()
+        composeRule.runOnIdle { dismissals shouldBe 1 }
     }
 
     @Test

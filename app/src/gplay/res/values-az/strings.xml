@@ -55,7 +55,6 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bu ayrı bir satınalmadır: abonəliyinizi ləğv etmir və ya geri qaytırmır. Hər ikisi üçün eyni Google hesabını istifadə edin.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonəlik hələ də aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play hesabat verir ki, abonəliyiniz hələ də yenilənməyə ayarlanmışdır. Bir dəfəlik yüksəltməni almaq üçün əvvəlcə Google Play-də abonəliyi ləğv edin, sonra buraya qayıdın.\n\nTəzə ləğv etdinizmi? Google Play-yə bir az vaxt verin və yenidən cəhd edin. Həmçinin eyni Google hesabını istifadə etdiyinizə əmin olun.</string>
-    <string name="upgrade_screen_sub_check_failed_message">Google Play ilə abonəlik vəziyyətiniz yoxlanılmadı. Zəhmət olmasa bir az sonra yenidən cəhd edin.</string>
     <string name="upgrade_screen_restore_success_message">Satınalma bərpa edildi, Pro yüksəltməniz aktivdir.</string>
     <string name="upgrade_screen_grace_title">Satınalmanız təsdiqlənir</string>
     <string name="upgrade_screen_grace_body_short">Pro hələ də aktivdir. Google Play satınalmanızı yenidən təsdiq etməsini gözləyir, bu müddət ərzində bütün Pro xüsusiyyətləri açıq qalır.</string>
