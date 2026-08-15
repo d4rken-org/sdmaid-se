@@ -342,7 +342,7 @@ class AppControl @Inject constructor(
         forceStopper.useRes {
             forceStopper.withProgress(this) {
                 val mappedTargets = task.targets.map { id -> snapshot.apps.single { it.installId == id } }
-                val result = forceStop(mappedTargets)
+                val result = forceStop(mappedTargets, allowOffLimits = task.allowOffLimits)
                 successful.addAll(result.success)
                 failed.addAll(result.failed)
             }

@@ -59,15 +59,18 @@ class ForceStopper @Inject constructor(
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
-    suspend fun forceStop(apps: List<AppInfo>): Result {
-        log(TAG, INFO) { "forceStop(${apps.size})" }
+    suspend fun forceStop(apps: List<AppInfo>, allowOffLimits: Boolean = false): Result {
+        log(TAG, INFO) { "forceStop(${apps.size}, allowOffLimits=$allowOffLimits)" }
         adoptChildResource(pkgOps)
 
 
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
 
-        val (offLimits, targets) = apps.partition { ForceStopAutomationTask.OFF_LIMIT_PKGS.contains(it.installId.pkgId) }
+        val (offLimits, targets) = when {
+            allowOffLimits -> emptyList<AppInfo>() to apps
+            else -> apps.partition { ForceStopAutomationTask.OFF_LIMIT_PKGS.contains(it.installId.pkgId) }
+        }
         offLimits.forEach {
             log(TAG, WARN) { "Skipping ${it.installId}: force-stopping it would break accessibility automation" }
             failed.add(it.installId)
@@ -97,7 +100,7 @@ class ForceStopper @Inject constructor(
             }
         } else if (automationSetupModule.isComplete()) {
             log(TAG) { "Using Automation..." }
-            val task = ForceStopAutomationTask(targets.map { it.installId }.toList())
+            val task = ForceStopAutomationTask(targets.map { it.installId }.toList(), allowOffLimits = allowOffLimits)
             val result = automation.submit(task) as ForceStopAutomationTask.Result
             successful.addAll(result.successful)
             failed.addAll(result.failed)

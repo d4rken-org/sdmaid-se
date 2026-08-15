@@ -226,7 +226,7 @@ class AppActionViewModel @Inject constructor(
 
     private suspend fun submitForceStop() {
         val appInfo = currentAppInfoOrNull() ?: return
-        val task = ForceStopTask(setOf(appInfo.installId))
+        val task = ForceStopTask(setOf(appInfo.installId), allowOffLimits = true)
         val result = taskManager.submit(task) as ForceStopTask.Result
         events.emit(Event.ShowResult(result))
     }
