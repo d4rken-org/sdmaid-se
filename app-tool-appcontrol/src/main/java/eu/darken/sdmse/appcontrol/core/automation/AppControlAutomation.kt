@@ -165,6 +165,12 @@ class AppControlAutomation @AssistedInject constructor(
                     throw UnsupportedOperationException("ACS based force-stop is not support for other users ($target)")
                 }
 
+                if (ForceStopAutomationTask.OFF_LIMIT_PKGS.contains(target.pkgId)) {
+                    log(TAG, WARN) { "Skipping $target: force-stopping it would break accessibility automation" }
+                    failed.add(target)
+                    continue
+                }
+
                 val installed = pkgRepo.get(target.pkgId, target.userHandle)
 
                 if (installed == null) {

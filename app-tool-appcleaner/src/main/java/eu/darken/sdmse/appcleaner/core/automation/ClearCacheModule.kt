@@ -11,7 +11,6 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.R
-import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.LabelDebugger
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
@@ -45,7 +44,6 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.OpsCounter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -85,7 +83,6 @@ class ClearCacheModule @AssistedInject constructor(
     private val deviceDetective: DeviceDetective,
     private val romTypeProvider: RomTypeProvider,
     private val automationReturnHelper: AutomationReturnHelper,
-    private val settings: AppCleanerSettings,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
@@ -157,11 +154,7 @@ class ClearCacheModule @AssistedInject constructor(
         if (timeoutCount >= TIMEOUT_LIMIT && result.successful.isEmpty()) {
             log(TAG, ERROR) { "Continued timeout errors, no successes so far, possible compatbility issue?" }
             throw AutomationCompatibilityException(
-                additionalHint = if (settings.forceStopBeforeClearing.value()) {
-                    R.string.appcleaner_automation_compat_forcestop_hint.toCaString()
-                } else {
-                    null
-                },
+                additionalHint = R.string.appcleaner_automation_compat_forcestop_hint.toCaString(),
             )
         }
 
