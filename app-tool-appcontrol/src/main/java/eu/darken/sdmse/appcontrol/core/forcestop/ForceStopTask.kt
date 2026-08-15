@@ -14,6 +14,9 @@ import kotlinx.parcelize.Parcelize
 @Parcelize
 data class ForceStopTask(
     val targets: Set<InstallId> = emptySet(),
+    // An explicit user decision for a specific app may target packages that automated
+    // (multi-app) force-stops must skip, e.g. System UI.
+    val allowOffLimits: Boolean = false,
 ) : AppControlTask, Reportable {
 
     @Parcelize

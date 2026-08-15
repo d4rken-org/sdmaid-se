@@ -337,7 +337,7 @@ class AppActionViewModelTest : BaseTest() {
         h.vm.onActionTapped(AppActionItem.Action.ForceStop(installId))
         advanceUntilIdle()
 
-        val expectedTask = ForceStopTask(setOf(installId))
+        val expectedTask = ForceStopTask(setOf(installId), allowOffLimits = true)
         coVerify(exactly = 1) { h.taskSubmitter.submit(expectedTask) }
     }
 

@@ -7,6 +7,9 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 
 class ForceStopAutomationTask(
     val targets: List<InstallId>,
+    // An explicit user decision for a specific app may target packages that automated
+    // (multi-app) force-stops must skip, e.g. System UI.
+    val allowOffLimits: Boolean = false,
 ) : AutomationTask {
 
     data class Result(
