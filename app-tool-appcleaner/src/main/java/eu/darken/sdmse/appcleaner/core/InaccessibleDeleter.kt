@@ -231,7 +231,16 @@ class InaccessibleDeleter @Inject constructor(
         )
     }
 
-    private suspend fun forceStopApps(targets: List<InstallId>) {
+    private suspend fun forceStopApps(rawTargets: List<InstallId>) {
+        val targets = rawTargets.filter { target ->
+            val offLimits = ForceStopAutomationTask.OFF_LIMIT_PKGS.contains(target.pkgId)
+            if (offLimits) log(TAG, WARN) { "Skipping $target: force-stopping it would break accessibility automation" }
+            !offLimits
+        }
+        if (targets.isEmpty()) {
+            log(TAG) { "No force-stoppable apps in ${rawTargets.size} targets" }
+            return
+        }
         log(TAG, INFO) { "Force-stopping ${targets.size} apps before clearing cache" }
 
         updateProgressPrimary(eu.darken.sdmse.appcleaner.R.string.appcleaner_progress_force_stopping)

@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -66,10 +67,19 @@ class ForceStopper @Inject constructor(
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
 
+        val (offLimits, targets) = apps.partition { ForceStopAutomationTask.OFF_LIMIT_PKGS.contains(it.installId.pkgId) }
+        offLimits.forEach {
+            log(TAG, WARN) { "Skipping ${it.installId}: force-stopping it would break accessibility automation" }
+            failed.add(it.installId)
+        }
+        if (targets.isEmpty()) {
+            return Result(success = successful, failed = failed)
+        }
+
         if (rootManager.canUseRootNow() || adbManager.canUseAdbNow()) {
             log(TAG) { "Using ROOT/ADB..." }
-            updateProgressCount(Progress.Count.Percent(apps.size))
-            apps.forEach {
+            updateProgressCount(Progress.Count.Percent(targets.size))
+            targets.forEach {
                 log(TAG) { "Force stopping ${it.installId} " }
                 updateProgressPrimary { ctx ->
                     ctx.getString(R.string.general_progress_processing_x, it.label.get(ctx))
@@ -87,7 +97,7 @@ class ForceStopper @Inject constructor(
             }
         } else if (automationSetupModule.isComplete()) {
             log(TAG) { "Using Automation..." }
-            val task = ForceStopAutomationTask(apps.map { it.installId }.toList())
+            val task = ForceStopAutomationTask(targets.map { it.installId }.toList())
             val result = automation.submit(task) as ForceStopAutomationTask.Result
             successful.addAll(result.successful)
             failed.addAll(result.failed)
