@@ -403,13 +403,18 @@ internal fun DashboardViewModel.buildMotdItem(): Flow<MotdDashboardCardItem?> = 
         )
     }
 
-internal fun DashboardViewModel.buildStatsItem(): Flow<StatsDashboardCardItem?> = combine(
+internal fun DashboardViewModel.buildStatsItem(): Flow<StatsDashboardCardItem?> = eu.darken.sdmse.common.flow.combine(
     statsRepo.state,
     upgradeInfo.map { it?.isPro ?: false },
     statsSettings.retentionReports.flow,
     statsSettings.retentionPaths.flow,
     statsSettings.retentionSnapshots.flow,
-) { state, isPro, retentionReports, retentionPaths, retentionSnapshots ->
+    // CurriculumVitae.installedAt is filterNotNull() and stays silent until updateAppLaunch()
+    // has written the install date, which on a first-ever launch waits on upgrade state (5s
+    // timeout). As a bare combine source that would hide the whole Stats card for that window,
+    // so prime it with null and treat null as "no caption yet".
+    (curriculumVitae.installedAt as Flow<Instant?>).onStart { emit(null) },
+) { state, isPro, retentionReports, retentionPaths, retentionSnapshots, installedAt ->
     // Hide card if all retention settings are disabled
     if (retentionReports == Duration.ZERO && retentionPaths == Duration.ZERO && retentionSnapshots == Duration.ZERO) {
         return@combine null
@@ -419,6 +424,7 @@ internal fun DashboardViewModel.buildStatsItem(): Flow<StatsDashboardCardItem?> 
     StatsDashboardCardItem(
         state = state,
         showProRequirement = !isPro,
+        installedAt = installedAt,
         onViewAction = {
             if (isPro) {
                 navTo(ReportsRoute)

@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.DashboardCardConfig
 import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -29,6 +30,7 @@ import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SchedulerDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.StatsDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
@@ -85,6 +87,9 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         appCleanerState: Flow<AppCleaner.State>? = null,
         corpseFinderState: Flow<CorpseFinder.State>? = null,
         taskManagerState: Flow<TaskSubmitter.State>? = null,
+        statsState: Flow<StatsRepo.State> = emptyFlow(),
+        statsRetention: java.time.Duration = java.time.Duration.ZERO,
+        installedAt: Flow<Instant> = emptyFlow(),
     ): DashboardViewModel {
         fun <T> srcOr(name: String, default: Flow<T>): Flow<T> = if (stall == name) stalled() else default
 
@@ -127,7 +132,10 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         val motdRepo = mockk<MotdRepo>(relaxed = true).apply { every { motd } returns srcOr("motd", emptyFlow()) }
         val reviewTool = mockk<ReviewTool>(relaxed = true).apply { every { state } returns srcOr("review", emptyFlow()) }
         val anniversaryProvider = mockk<AnniversaryProvider>(relaxed = true).apply { every { item } returns srcOr("anniversary", emptyFlow()) }
-        val statsRepo = mockk<StatsRepo>(relaxed = true).apply { every { state } returns srcOr("stats", emptyFlow()) }
+        val statsRepo = mockk<StatsRepo>(relaxed = true).apply { every { state } returns srcOr("stats", statsState) }
+        val curriculumVitae = mockk<CurriculumVitae>(relaxed = true).also {
+            every { it.installedAt } returns installedAt
+        }
         val swiper = mockk<Swiper>(relaxed = true).apply {
             every { getSessionsWithStats() } returns srcOr("swiper", emptyFlow())
             every { progress } returns emptyFlow()
@@ -140,9 +148,9 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             every { create(any(), any(), any(), any()) } returns srcOr("debug", emptyFlow())
         }
         val statsSettings = mockk<StatsSettings>(relaxed = true).apply {
-            every { retentionReports } returns mockDuration()
-            every { retentionPaths } returns mockDuration()
-            every { retentionSnapshots } returns mockDuration()
+            every { retentionReports } returns mockDuration(statsRetention)
+            every { retentionPaths } returns mockDuration(statsRetention)
+            every { retentionSnapshots } returns mockDuration(statsRetention)
         }
         val generalSettings = mockk<GeneralSettings>(relaxed = true).apply {
             every { dashboardCardConfig } returns mockk(relaxed = true) {
@@ -188,6 +196,7 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             anniversaryProvider = anniversaryProvider,
             statsRepo = statsRepo,
             statsSettings = statsSettings,
+            curriculumVitae = curriculumVitae,
             spaceHistoryRepo = spaceHistoryRepo,
             deviceDetective = mockk(relaxed = true),
         )
@@ -197,9 +206,10 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         return vm
     }
 
-    private fun mockDuration(): DataStoreValue<java.time.Duration> = mockk(relaxed = true) {
-        every { flow } returns MutableStateFlow(java.time.Duration.ZERO)
-    }
+    private fun mockDuration(value: java.time.Duration = java.time.Duration.ZERO): DataStoreValue<java.time.Duration> =
+        mockk(relaxed = true) {
+            every { flow } returns MutableStateFlow(value)
+        }
 
     @Test
     fun `listState emits when all sources behave`() = runTest2 {
@@ -311,6 +321,31 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
                 list?.items?.filterIsInstance<ToolDashboardCardItem>()?.firstOrNull { it.toolType == SDMTool.Type.CORPSEFINDER }
             }
             .first { it.result == CorpseFinderScanTask.Success(itemCount = 0, recoverableSpace = 0L) }
+    }
+
+    @Test
+    fun `stats card still renders when the install date never arrives`() = runTest2 {
+        // CurriculumVitae.installedAt only emits after the install date has been written, which on a
+        // first-ever launch waits on upgrade state. The card must render captionless meanwhile.
+        val vm = harness(
+            statsState = MutableStateFlow(
+                StatsRepo.State(
+                    reportsCount = 3,
+                    snapshotsCount = 2,
+                    totalSpaceFreed = 1024L,
+                    itemsProcessed = 12,
+                    databaseSize = 4096L,
+                )
+            ),
+            statsRetention = java.time.Duration.ofDays(30),
+            installedAt = emptyFlow(),
+        )
+
+        val card = vm.listState
+            .mapNotNull { it?.items?.filterIsInstance<StatsDashboardCardItem>()?.singleOrNull() }
+            .first()
+
+        card.installedAt shouldBe null
     }
 
     @Test

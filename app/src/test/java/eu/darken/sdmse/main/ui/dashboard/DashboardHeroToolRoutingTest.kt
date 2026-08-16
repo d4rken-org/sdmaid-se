@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderListRoute
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
@@ -110,6 +111,9 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         val spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
             every { getAllHistory(any()) } returns emptyFlow()
         }
+        val curriculumVitae = mockk<CurriculumVitae>(relaxed = true).apply {
+            every { installedAt } returns emptyFlow()
+        }
 
         return DashboardViewModel(
             context = mockk(relaxed = true),
@@ -138,6 +142,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
             anniversaryProvider = anniversaryProvider,
             statsRepo = statsRepo,
             statsSettings = statsSettings,
+            curriculumVitae = curriculumVitae,
             spaceHistoryRepo = spaceHistoryRepo,
             deviceDetective = mockk(relaxed = true),
         )

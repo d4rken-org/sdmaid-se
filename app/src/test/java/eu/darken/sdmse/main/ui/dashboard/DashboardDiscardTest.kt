@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.motd.MotdRepo
@@ -110,6 +111,7 @@ internal class DashboardDiscardTest : BaseTest() {
             anniversaryProvider = mockk<AnniversaryProvider>(relaxed = true).apply { every { item } returns emptyFlow() },
             statsRepo = mockk<StatsRepo>(relaxed = true).apply { every { state } returns emptyFlow() },
             statsSettings = statsSettings,
+            curriculumVitae = mockk<CurriculumVitae>(relaxed = true).apply { every { installedAt } returns emptyFlow() },
             spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
                 every { getAllHistory(any()) } returns emptyFlow()
             },
