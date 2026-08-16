@@ -701,6 +701,45 @@ class GplayUpgradeViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `a subscription purchase is blocked when the fresh check finds an owned upgrade`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // The screen can be stale (the one-time purchase was made on another device) and Play sells
+        // the subscription right next to an owned IAP — launching here charges the user for Pro a
+        // second time.
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } returns proInfo(mockPurchase(OurSku.Iap.PRO_UPGRADE.id))
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.RestoreSucceeded
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
+    fun `a subscription purchase is blocked when an unknown renewing subscription exists`() = runTest2(
+        context = testDispatcher,
+    ) {
+        // Unknown product ID => zero mapped upgrades, so the ownership block above lets it through.
+        // It still renews and still bills, and a second subscription for the same features is the
+        // same double charge.
+        val repo = mockRepo()
+        coEvery { repo.verifyPurchaseStateNow() } returns
+            proInfo(mockPurchase("some.unknown.subscription", autoRenewing = true))
+        val vm = buildVm(repo)
+
+        val event = async { vm.events.first() }
+        vm.onGoSubscription(mockk<Activity>(relaxed = true))
+        advanceUntilIdle()
+
+        event.await() shouldBe UpgradeEvents.SubscriptionStillRenewing
+        coVerify(exactly = 0) { repo.launchBillingFlowNow(any(), any(), any(), any()) }
+    }
+
+    @Test
     fun `a pending-payment launch failure surfaces as the pending dialog`() = runTest2(context = testDispatcher) {
         // Play can only report this at launch time (the gate saw a clean state moments earlier):
         // the already-owned error dialog with its restore tips would be the wrong advice.
