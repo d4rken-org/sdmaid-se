@@ -33,7 +33,6 @@ import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -91,6 +90,10 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
     private val automationProcessor: AutomationProcessor by lazy { automationProcessorFactory.create(this) }
 
     @Inject lateinit var generalSettings: GeneralSettings
+
+    /** `by lazy` because `generalSettings` is field-injected, i.e. not available at construction time. */
+    private val acsConsent by lazy { AcsConsent(generalSettings.hasAcsConsent.flow, serviceScope) }
+
     @Inject lateinit var automationManager: AutomationManager
     @Inject @SetupBinding(SetupModule.Type.AUTOMATION) lateinit var automationSetupModule: SetupModule
     @Inject lateinit var screenState: ScreenState
@@ -171,12 +174,15 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
             return
         }
 
-        if (mightBeRestrictedDueToSideload() && !generalSettings.hasPassedAppOpsRestrictions.valueBlocking) {
-            log(TAG, INFO) { "We are not restricted by app ops." }
-            generalSettings.hasPassedAppOpsRestrictions.valueBlocking = true
-        }
+        log(TAG) { "Consent cache primed: ${acsConsent.current}" }
 
         serviceScope.launch {
+            if (withContext(dispatcher.IO) { mightBeRestrictedDueToSideload() }
+                && !generalSettings.hasPassedAppOpsRestrictions.value()
+            ) {
+                log(TAG, INFO) { "We are not restricted by app ops." }
+                generalSettings.hasPassedAppOpsRestrictions.value(true)
+            }
             delay(2000)
             automationSetupModule.refresh()
         }
@@ -244,11 +250,12 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         automationManager.setCurrentService(this)
         windowManager = getSystemService(WINDOW_SERVICE) as WindowManager
 
-        if (generalSettings.hasAcsConsent.valueBlocking != true) {
-            log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
-            // disableSelf() does not work if called within `onCreate()`
-            disableSelf()
-            return
+        serviceScope.launch {
+            if (acsConsent.await() != true) {
+                log(TAG, WARN) { "Missing consent for accessibility service, stopping service." }
+                // disableSelf() does not work if called within `onCreate()`
+                withContext(dispatcher.Main) { disableSelf() }
+            }
         }
     }
 
@@ -273,7 +280,7 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
     }
 
     override fun onAccessibilityEvent(event: AccessibilityEvent) {
-        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+        if (acsConsent.current != true) {
             log(TAG, WARN) { "Missing consent for accessibility service, skipping event." }
             return
         }
@@ -389,7 +396,7 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         val id = task.hashCode()
         log(TAG, INFO) { "submit($id): $task" }
 
-        if (generalSettings.hasAcsConsent.valueBlocking != true) {
+        if (acsConsent.await() != true) {
             log(TAG, WARN) { "submit($id): Missing consent for accessibility service, skipping task." }
             throw AutomationNoConsentException()
         }
