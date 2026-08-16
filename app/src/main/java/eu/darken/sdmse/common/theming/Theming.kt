@@ -32,6 +32,9 @@ class Theming @Inject constructor(
             .setupCommonEventHandlers(TAG) { "setup" }
             .launchIn(appScope)
 
+        // Deliberately blocking: the night mode has to be set before the first frame, otherwise the app
+        // flashes the wrong theme and AppCompat recreates the activity to correct it. This cold read also
+        // warms the shared `settings_core` DataStore for the main-thread reads that follow it.
         generalSettings.themeMode.valueBlocking.let {
             log(TAG) { "Applying initial themeMode setting: $it" }
             it.applyMode()
