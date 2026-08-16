@@ -52,6 +52,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.timeout
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.seconds
 
@@ -353,18 +354,62 @@ class InaccessibleDeleter @Inject constructor(
                 }
             }
 
-            // Re-check system apps — trimCaches may have cleared their caches too
+            // Re-check system apps — trimCaches may have cleared their caches too.
+            // StorageStatsManager doesn't update instantly after a trim: a single immediate read
+            // can still report the pre-trim size, which would send an app whose cache is already
+            // empty into the automation fallback, where the "clear cache" button is disabled and
+            // every attempt burns the full step timeout. So wait for the numbers to settle.
             val systemTargets = targets.filter { it.pkg.isSystemApp }
             if (systemTargets.isNotEmpty()) {
                 log(TAG) { "Re-checking ${systemTargets.size} system app targets after trimCaches" }
-                for (junk in systemTargets) {
+                // Rounds rather than one coroutine per target: every target is sampled in every
+                // round, so none can be starved of polling by targets that never settle, and
+                // withTimeoutOrNull is a true wall-clock budget for the whole re-check.
+                val observed = mutableMapOf<InstallId, InaccessibleCache?>()
+                withTimeoutOrNull(SYSTEM_RECHECK_TIMEOUT) {
+                    val pending = systemTargets.toMutableList()
+                    while (pending.isNotEmpty()) {
+                        val settled = pending.filter { junk ->
+                            val beforeInfo = junk.inaccessibleCache!!
+                            val newInfo = inaccessibleCacheProvider.determineCache(junk.pkg)
+                            observed[junk.identifier] = newInfo
+                            // A failed query won't get better by asking again in a tight loop.
+                            // Zero is the end state we wait for, and a target that was already
+                            // zero would never satisfy the decrease check on its own.
+                            newInfo == null || newInfo.totalSize == 0L || newInfo.totalSize < beforeInfo.totalSize
+                        }
+                        pending.removeAll(settled)
+                        if (pending.isEmpty()) break
+                        log(TAG, VERBOSE) { "Waiting on ${pending.size} system app cache sizes to settle" }
+                        delay(500)
+                    }
+                } ?: log(TAG, WARN) { "System app re-check timed out after $SYSTEM_RECHECK_TIMEOUT" }
+
+                systemTargets.forEach { junk ->
                     val beforeInfo = junk.inaccessibleCache!!
-                    val newInfo = inaccessibleCacheProvider.determineCache(junk.pkg)
-                    if (newInfo != null && newInfo.totalSize < beforeInfo.totalSize) {
-                        log(TAG) { "System app cache decreased after trimCaches: ${junk.identifier}" }
-                        successTargets.add(junk.identifier)
-                    } else {
-                        log(TAG, VERBOSE) { "System app cache unchanged: ${junk.identifier}" }
+                    val identifier = junk.identifier
+                    if (!observed.containsKey(identifier)) {
+                        log(TAG, WARN) { "System app cache never sampled (re-check timed out): $identifier" }
+                        return@forEach
+                    }
+                    when (val newInfo = observed[identifier]) {
+                        null -> log(TAG, WARN) { "System app cache unknown (query failed): $identifier" }
+
+                        // An app whose cache is already empty has nothing left for automation to
+                        // clear, so accept it regardless of whether we observed a decrease.
+                        else -> when {
+                            newInfo.totalSize == 0L -> {
+                                log(TAG) { "System app cache is empty: $identifier" }
+                                successTargets.add(identifier)
+                            }
+
+                            newInfo.totalSize < beforeInfo.totalSize -> {
+                                log(TAG) { "System app cache decreased after trimCaches: $identifier" }
+                                successTargets.add(identifier)
+                            }
+
+                            else -> log(TAG, VERBOSE) { "System app cache unchanged: $identifier" }
+                        }
                     }
                 }
             }
@@ -388,5 +433,8 @@ class InaccessibleDeleter @Inject constructor(
 
     companion object {
         private val TAG = logTag("AppCleaner", "Deleter", "Inaccessible")
+
+        /** Wall-clock budget for waiting on StorageStatsManager to catch up after a trim. */
+        private val SYSTEM_RECHECK_TIMEOUT = 10.seconds
     }
 }
