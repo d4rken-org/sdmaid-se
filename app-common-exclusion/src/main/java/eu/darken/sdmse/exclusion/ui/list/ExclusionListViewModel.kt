@@ -265,6 +265,12 @@ class ExclusionListViewModel @Inject constructor(
         events.emit(Event.ExportEvent(intent))
     }
 
+    fun onExportAborted(error: Throwable? = null) = launch {
+        log(TAG) { "onExportAborted(error=$error)" }
+        stagedExportIds = null
+        error?.let { errorEvents.emit(it) }
+    }
+
     fun performExport(directoryUri: Uri?) = launch {
         if (directoryUri == null) {
             log(TAG, WARN) { "Export failed, no path picked" }

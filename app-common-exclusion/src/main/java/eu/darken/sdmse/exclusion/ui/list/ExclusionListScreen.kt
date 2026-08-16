@@ -1,6 +1,7 @@
 package eu.darken.sdmse.exclusion.ui.list
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import android.net.Uri
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
@@ -63,6 +64,9 @@ import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.selection.rememberSelectionState
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -73,6 +77,8 @@ import eu.darken.sdmse.exclusion.ui.list.items.SegmentExclusionRow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+
+private val TAG = logTag("Exclusions", "List", "Screen")
 
 @Composable
 fun ExclusionListScreenHost(
@@ -101,7 +107,10 @@ fun ExclusionListScreenHost(
     val exportLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
     ) { result ->
-        if (result.resultCode != Activity.RESULT_OK) return@rememberLauncherForActivityResult
+        if (result.resultCode != Activity.RESULT_OK) {
+            vm.onExportAborted()
+            return@rememberLauncherForActivityResult
+        }
         result.data?.data?.let { vm.performExport(it) }
     }
 
@@ -110,8 +119,19 @@ fun ExclusionListScreenHost(
     LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
-                is ExclusionListViewModel.Event.ImportEvent -> importLauncher.launch(event.intent)
-                is ExclusionListViewModel.Event.ExportEvent -> exportLauncher.launch(event.intent)
+                is ExclusionListViewModel.Event.ImportEvent -> try {
+                    importLauncher.launch(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    log(TAG, WARN) { "Import picker unavailable: $e" }
+                    vm.errorEvents.emit(e)
+                }
+
+                is ExclusionListViewModel.Event.ExportEvent -> try {
+                    exportLauncher.launch(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    vm.onExportAborted(e)
+                }
+
                 is ExclusionListViewModel.Event.UndoRemove -> scope.launch {
                     val count = event.exclusions.size
                     val result = snackbarHostState.showSnackbar(

@@ -56,6 +56,9 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.selection.rememberSelectionState
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.systemcleaner.R
@@ -65,6 +68,8 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import java.time.Instant
+
+private val TAG = logTag("SystemCleaner", "CustomFilter", "List", "Screen")
 
 @Composable
 fun CustomFilterListScreenHost(
@@ -95,15 +100,29 @@ fun CustomFilterListScreenHost(
     val exportLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
     ) { result ->
-        if (result.resultCode != Activity.RESULT_OK) return@rememberLauncherForActivityResult
+        if (result.resultCode != Activity.RESULT_OK) {
+            vm.onExportAborted()
+            return@rememberLauncherForActivityResult
+        }
         result.data?.data?.let { vm.performExport(it) }
     }
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
-                is CustomFilterListViewModel.Event.LaunchImport -> importLauncher.launch(event.intent)
-                is CustomFilterListViewModel.Event.LaunchExport -> exportLauncher.launch(event.intent)
+                is CustomFilterListViewModel.Event.LaunchImport -> try {
+                    importLauncher.launch(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    log(TAG, WARN) { "Import picker unavailable: $e" }
+                    vm.errorEvents.emit(e)
+                }
+
+                is CustomFilterListViewModel.Event.LaunchExport -> try {
+                    exportLauncher.launch(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    vm.onExportAborted(e)
+                }
+
                 is CustomFilterListViewModel.Event.UndoRemove -> snackScope.launch {
                     val result = snackbarHostState.showSnackbar(
                         message = context.resources.getQuantityString(
