@@ -418,17 +418,12 @@ class BillingManager @Inject constructor(
         }
     }
 
-    // Everything a COMPLETED refresh owes the rest of the app, in one place: both the connect loop's
-    // initial refresh and manual refresh() calls run through it, so a Restore tap during an outage
-    // feeds the same bookkeeping the connect loop does. Only reached when refreshPurchases returned
-    // (it still throws when it found nothing AND a query failed — that path is the connect loop's /
-    // useConnection's).
-    private fun processReconciliation(refresh: BillingConnection.PurchaseRefresh) {
-        // A partial refresh no longer reaches useConnection's dead-binder detection (it returns
-        // instead of throwing), so the teardown that used to ride the throw path happens here.
-        // Cause chain, not the exception itself: the failure arrives user-friendly-mapped.
-        // Deliberately no holder CAS: the failing connection may already have been replaced, and
-        // the accepted cost of that rare race is one extra failed action while the loop reconnects.
+    // A partial refresh no longer reaches useConnection's dead-binder detection (it returns instead
+    // of throwing), so the teardown that used to ride the throw path happens here. Cause chain, not
+    // the exception itself: the failure arrives user-friendly-mapped. Deliberately no holder CAS:
+    // the failing connection may already have been replaced, and the accepted cost of that rare
+    // race is one extra failed action while the loop reconnects.
+    private fun invalidateOnDeadConnection(refresh: BillingConnection.PurchaseRefresh) {
         val clientError = refresh.partialError?.let {
             (it as? BillingClientException) ?: (it.cause as? BillingClientException)
         }
@@ -436,6 +431,15 @@ class BillingManager @Inject constructor(
             log(TAG, WARN) { "Refresh reported the connection dead (${clientError.result.responseCode}), invalidating." }
             invalidations.trySend(Unit)
         }
+    }
+
+    // Everything a COMPLETED refresh owes the rest of the app, in one place: both the connect loop's
+    // initial refresh and manual refresh() calls run through it, so a Restore tap during an outage
+    // feeds the same bookkeeping the connect loop does. Only reached when refreshPurchases returned
+    // (it still throws when it found nothing AND a query failed — that path is the connect loop's /
+    // useConnection's).
+    private fun processReconciliation(refresh: BillingConnection.PurchaseRefresh) {
+        invalidateOnDeadConnection(refresh)
 
         if (!refresh.isComplete && !refresh.hasConfirmedProPurchase) {
             // A reconciliation that couldn't confirm Pro. Stamped with the refresh's COMMIT time,
@@ -535,6 +539,11 @@ class BillingManager @Inject constructor(
     suspend fun refreshStrict(): BillingData {
         log(TAG) { "refreshStrict()" }
         val fresh = useConnection { refreshPurchases() }
+        // A gate that hit a dying connection must still trigger the reconnect (the throw below
+        // bypasses useConnection's detection, which already returned), or every later purchase
+        // check keeps reusing the corpse. No-op on a complete refresh. The episode clock stays out
+        // of this path: an aborted gate is not a reconciliation outcome.
+        invalidateOnDeadConnection(fresh)
         if (!fresh.isComplete) {
             // partialError is set for every incomplete refresh; the fallback only exists so a
             // future incompleteness without a captured cause still fails closed instead of passing.
