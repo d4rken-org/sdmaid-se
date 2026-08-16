@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
 @Reusable
@@ -64,7 +65,7 @@ class PrivateDataModule @Inject constructor(
      * and /data/user and /data/user_de will only show the current user/owner
      */
     private suspend fun getMirrored(gateway: LocalGateway): Collection<DataArea> {
-        val dataMirrorContent = gateway.listFiles(mirrorArea, mode = LocalGateway.Mode.ROOT)
+        val dataMirrorContent = gateway.listFiles(mirrorArea, mode = LocalGateway.Mode.ROOT).toList()
         log(TAG, VERBOSE) { "Items in mirror: $dataMirrorContent" }
 
         val users = userManager2.allUsers()

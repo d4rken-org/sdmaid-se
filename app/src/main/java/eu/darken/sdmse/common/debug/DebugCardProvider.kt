@@ -36,6 +36,7 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
@@ -214,7 +215,7 @@ class DebugCardProvider @Inject constructor(
 
                 for (area in areas) {
                     val depth1Dirs = try {
-                        gatewaySwitch.lookupFiles(area.path).filter { it.isDirectory }
+                        gatewaySwitch.lookupFiles(area.path).toList().filter { it.isDirectory }
                     } catch (e: CancellationException) {
                         throw e
                     } catch (e: Exception) {
@@ -233,7 +234,7 @@ class DebugCardProvider @Inject constructor(
 
                         // Get depth-2 children
                         val depth2Dirs = try {
-                            gatewaySwitch.lookupFiles(dir.lookedUp).filter { it.isDirectory }
+                            gatewaySwitch.lookupFiles(dir.lookedUp).toList().filter { it.isDirectory }
                         } catch (e: CancellationException) {
                             throw e
                         } catch (e: Exception) {

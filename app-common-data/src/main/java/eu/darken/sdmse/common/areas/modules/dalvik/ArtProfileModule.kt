@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.flow.toList
 import javax.inject.Inject
 
 @Reusable
@@ -48,7 +49,7 @@ class ArtProfileModule @Inject constructor(
     }
 
     private suspend fun getMirror(gateway: LocalGateway): Collection<DataArea> {
-        val dataMirrorContent = gateway.listFiles(mirrorArea, mode = LocalGateway.Mode.ROOT)
+        val dataMirrorContent = gateway.listFiles(mirrorArea, mode = LocalGateway.Mode.ROOT).toList()
         log(TAG, VERBOSE) { "Items in data_mirror: $dataMirrorContent" }
 
         val users = userManager2.allUsers()
