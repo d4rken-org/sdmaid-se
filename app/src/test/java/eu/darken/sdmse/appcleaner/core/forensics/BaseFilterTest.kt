@@ -29,6 +29,8 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -270,11 +272,12 @@ abstract class BaseFilterTest : BaseTest() {
             )
         )
 
-        coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
+        coEvery { gatewaySwitch.listFiles(any()) } returns emptyFlow()
         coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { gatewaySwitch.canRead(any()) } returns false
-        coEvery { gatewaySwitch.lookupFiles(any()) } answers {
-            throw ReadException(path = arg<APath>(0))
+        coEvery { gatewaySwitch.lookupFiles(any()) } coAnswers {
+            val path = arg<APath>(0)
+            flow { throw ReadException(path = path) }
         }
         storageEnvironment.apply {
             every { dataDir } returns LocalPath.build("/data")

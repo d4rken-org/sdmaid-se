@@ -25,6 +25,7 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.AfterEach
@@ -51,7 +52,7 @@ abstract class BaseCSITest : BaseTest() {
             MockKAnnotations.init(this)
         }
         coEvery { clutterRepo.match(any(), any()) } returns emptySet()
-        coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
+        coEvery { gatewaySwitch.listFiles(any()) } returns emptyFlow()
         coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { userManager2.currentUser() } returns UserProfile2(UserHandle2(0))
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")

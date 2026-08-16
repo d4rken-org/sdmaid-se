@@ -20,6 +20,7 @@ import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -228,7 +229,7 @@ class SystemStorageScannerTest : BaseTest() {
                     coEvery { target } returns null
                 } as APathLookup<APath>
             }
-            coEvery { listFiles(any()) } returns listOf(LocalPath.build("data", "some_app"))
+            coEvery { listFiles(any()) } returns flowOf(LocalPath.build("data", "some_app"))
             coEvery { walk(any(), capture(capturedOptions)) } returns emptyFlow()
         }
 

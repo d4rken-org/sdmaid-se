@@ -37,8 +37,11 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.toList
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import testhelpers.BaseTest
@@ -315,16 +318,13 @@ abstract class SystemCleanerFilterTest : BaseTest() {
             )
         )
 
-        coEvery { gatewaySwitch.listFiles(any()) } returns emptyList()
+        coEvery { gatewaySwitch.listFiles(any()) } returns emptyFlow()
         coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { gatewaySwitch.canRead(any()) } returns false
-        coEvery { gatewaySwitch.lookupFiles(any()) } answers {
-            throw ReadException(path = arg<APath>(0))
-        }
         // Mirrors the real gateway: children stream lazily, errors surface at collection time
-        coEvery { gatewaySwitch.lookupFilesFlow(any()) } coAnswers {
+        coEvery { gatewaySwitch.lookupFiles(any()) } coAnswers {
             val path = arg<APath>(0)
-            flow { gatewaySwitch.lookupFiles(path).forEach { emit(it) } }
+            flow { throw ReadException(path = path) }
         }
         every { storageEnvironment.dataDir } returns LocalPath.build("/data")
 
@@ -350,7 +350,7 @@ abstract class SystemCleanerFilterTest : BaseTest() {
             val treeKey = TreeKey(area.path.segments, mockedLockup.fileType)
             pathTree[treeKey] = mockedLockup
             val pathCopy = area.path.child()
-            coEvery { gatewaySwitch.lookupFiles(pathCopy) } returns emptyList()
+            coEvery { gatewaySwitch.lookupFiles(pathCopy) } returns emptyFlow()
         }
     }
 
@@ -534,15 +534,15 @@ abstract class SystemCleanerFilterTest : BaseTest() {
                 coEvery { gatewaySwitch.canRead(mockPath) } returns true
 
                 if (flagsCollection.contains(Flag.Dir)) {
-                    coEvery { gatewaySwitch.lookupFiles(mockPath) } returns emptyList()
+                    coEvery { gatewaySwitch.lookupFiles(mockPath) } returns emptyFlow()
                 }
 
                 val treeKey = TreeKey(mockPath.segments, mockLookup.fileType)
                 val treeKeyParent = TreeKey(mockPath.segments.dropLast(1), FileType.DIRECTORY)
 
                 pathTree[treeKeyParent]?.let { parent ->
-                    val parentsChildren = gatewaySwitch.lookupFiles(parent.lookedUp)
-                    coEvery { gatewaySwitch.lookupFiles(parent.lookedUp) } returns parentsChildren + mockLookup
+                    val parentsChildren = gatewaySwitch.lookupFiles(parent.lookedUp).toList()
+                    coEvery { gatewaySwitch.lookupFiles(parent.lookedUp) } returns (parentsChildren + mockLookup).asFlow()
                 } ?: throw IllegalArgumentException("$mockPath has no mocked parent")
 
                 pathTree[treeKey]?.let {
