@@ -234,6 +234,22 @@ class FlowCmdShellTest : BaseTest() {
         }
     }
 
+    @Test fun `a stream-dead session is unusable while its exit code still reports alive`(): Unit = runBlocking {
+        LoopbackShell(closeStdoutAtStart = true, closeStderrAtStart = true).use { shell ->
+            val session = shell.cmdSession()
+
+            withTimeout(5_000) {
+                shouldThrowExactly<IllegalStateException> { session.execute(FlowCmd("echo hi")) }
+            }
+
+            // The exit code is published by a separate monitor, so it can still say "running" long
+            // after the streams ended. Anything deciding whether to hand this session to another
+            // caller (SharedShell's reuse check) has to ask isUsable(), not isAlive().
+            session.isAlive() shouldBe true
+            session.isUsable() shouldBe false
+        }
+    }
+
     @Test fun `second execute after stream death is rejected before writing`(): Unit = runBlocking {
         LoopbackShell(closeStdoutAtStart = true, closeStderrAtStart = true).use { shell ->
             val session = shell.cmdSession()
