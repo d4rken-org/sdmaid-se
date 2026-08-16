@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.pkgs.NoSettingsDetector
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -95,18 +96,24 @@ class InaccessibleDeleterTest : BaseTest() {
     private fun createAppJunk(
         pkgName: String,
         cacheSize: Long,
+        isSystemApp: Boolean = false,
     ): AppJunk {
         val installId = InstallId(Pkg.Id(pkgName), testHandle)
-        val pkg = mockk<Installed> {
-            every { id } returns Pkg.Id(pkgName)
-            every { userHandle } returns testHandle
-            every { this@mockk.installId } returns installId
-            every { packageName } returns pkgName
-            every { label } returns null
+        // Pkg.isSystemApp is an extension: `(this is InstallDetails) && this.isSystemApp`.
+        // A plain Installed mock isn't an InstallDetails, so it already reads as a user app.
+        val pkg = when {
+            isSystemApp -> mockk<Installed>(moreInterfaces = arrayOf(InstallDetails::class))
+            else -> mockk<Installed>()
         }
+        every { pkg.id } returns Pkg.Id(pkgName)
+        every { pkg.userHandle } returns testHandle
+        every { pkg.installId } returns installId
+        every { pkg.packageName } returns pkgName
+        every { pkg.label } returns null
+        if (isSystemApp) every { (pkg as InstallDetails).isSystemApp } returns true
         val cache = InaccessibleCache(
             identifier = installId,
-            isSystemApp = false,
+            isSystemApp = isSystemApp,
             itemCount = 1,
             totalSize = cacheSize,
             publicSize = 0L,
@@ -171,6 +178,165 @@ class InaccessibleDeleterTest : BaseTest() {
         )
 
         // Not marked as success (useAutomation=false so no automation ran either)
+        result.succesful shouldNotContain junk.identifier
+    }
+
+    @Test
+    fun `system app cache is polled, a stale size does not send it to automation`() = runTest {
+        // Regression: StorageStatsManager keeps reporting the pre-trim size for a moment after
+        // trimCaches. A single immediate read made an already-cleared system app look untouched,
+        // which handed it to automation, where the "clear cache" button is disabled and every
+        // attempt burned the full step timeout.
+        val junk = createAppJunk("com.example.system", cacheSize = 581632, isSystemApp = true)
+        val snapshot = createSnapshot(junk)
+
+        every { adbManager.useAdb } returns flowOf(true)
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        // Stubbed so that a regression fails on the coVerify below rather than on an unstubbed call.
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } returns ClearCacheTask.Result(
+            successful = emptySet(),
+            failed = emptyMap(),
+        )
+
+        // The first two reads are stale, the cache is actually already empty.
+        var reads = 0
+        coEvery { inaccessibleCacheProvider.determineCache(any()) } answers {
+            reads++
+            InaccessibleCache(
+                identifier = junk.identifier,
+                isSystemApp = true,
+                itemCount = if (reads <= 2) 1 else 0,
+                totalSize = if (reads <= 2) 581632L else 0L,
+                publicSize = 0L,
+                theoreticalPaths = emptySet(),
+            )
+        }
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.succesful shouldContain junk.identifier
+        result.failed.shouldBeEmpty()
+        coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    @Test
+    fun `every system app is polled, not just the first batch`() = runTest {
+        // A per-target coroutine fan-out with a default concurrency limit would starve targets
+        // past the limit: they'd never be polled and would fall back to a single stale read.
+        val junks = (1..40).map { createAppJunk("com.example.system$it", cacheSize = 581632, isSystemApp = true) }
+        val snapshot = createSnapshot(*junks.toTypedArray())
+
+        every { adbManager.useAdb } returns flowOf(true)
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } returns ClearCacheTask.Result(
+            successful = emptySet(),
+            failed = emptyMap(),
+        )
+
+        // Each target reads stale twice, then settles at a smaller but NON-zero size. Non-zero
+        // matters: the caller's zero-only guard can't rescue a target that was never polled here.
+        val reads = mutableMapOf<String, Int>()
+        coEvery { inaccessibleCacheProvider.determineCache(any()) } answers {
+            val pkg = firstArg<Installed>()
+            val seen = reads.merge(pkg.packageName, 1, Int::plus)!!
+            InaccessibleCache(
+                identifier = InstallId(pkg.id, testHandle),
+                isSystemApp = true,
+                itemCount = 1,
+                totalSize = if (seen <= 2) 581632L else 1024L,
+                publicSize = 0L,
+                theoreticalPaths = emptySet(),
+            )
+        }
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        junks.forEach { result.succesful shouldContain it.identifier }
+        coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    @Test
+    fun `system app whose cache decreased is successful`() = runTest {
+        val junk = createAppJunk("com.example.system", cacheSize = 581632, isSystemApp = true)
+        val snapshot = createSnapshot(junk)
+
+        every { adbManager.useAdb } returns flowOf(true)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        coEvery { inaccessibleCacheProvider.determineCache(any()) } returns InaccessibleCache(
+            identifier = junk.identifier,
+            isSystemApp = true,
+            itemCount = 1,
+            totalSize = 1024L,
+            publicSize = 0L,
+            theoreticalPaths = emptySet(),
+        )
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = false,
+            isBackground = false,
+        )
+
+        result.succesful shouldContain junk.identifier
+    }
+
+    @Test
+    fun `system app with unchanged non-zero cache is not successful`() = runTest {
+        val junk = createAppJunk("com.example.system", cacheSize = 581632, isSystemApp = true)
+        val snapshot = createSnapshot(junk)
+
+        every { adbManager.useAdb } returns flowOf(true)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        // Still the same non-zero size: trimCaches genuinely did not clear this one.
+        coEvery { inaccessibleCacheProvider.determineCache(any()) } returns InaccessibleCache(
+            identifier = junk.identifier,
+            isSystemApp = true,
+            itemCount = 1,
+            totalSize = 581632,
+            publicSize = 0L,
+            theoreticalPaths = emptySet(),
+        )
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = false,
+            isBackground = false,
+        )
+
+        result.succesful shouldNotContain junk.identifier
+    }
+
+    @Test
+    fun `system app with a failing cache query is not successful`() = runTest {
+        val junk = createAppJunk("com.example.system", cacheSize = 581632, isSystemApp = true)
+        val snapshot = createSnapshot(junk)
+
+        every { adbManager.useAdb } returns flowOf(true)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        // A failed query must not be mistaken for an empty cache.
+        coEvery { inaccessibleCacheProvider.determineCache(any()) } returns null
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = false,
+            isBackground = false,
+        )
+
         result.succesful shouldNotContain junk.identifier
     }
 
