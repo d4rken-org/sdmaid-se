@@ -402,7 +402,30 @@ class UpgradeViewModel @Inject constructor(
             try {
                 // Same fresh check as the one-time path: a pending payment (for either product)
                 // must block this launch too — Play would reject it, or bill it on top.
-                if (runPurchaseGate() !is PurchaseGate.Clear) return@launch
+                val gate = runPurchaseGate()
+                if (gate !is PurchaseGate.Clear) return@launch
+                // The reactive UI can be stale (the purchase was made on another device), and Play
+                // happily sells the subscription alongside an owned one-time purchase — the user
+                // would pay for Pro twice. The strict refresh already committed into the shared
+                // billing data, so the screen re-renders to the ownership state, and the
+                // restore-success toast explains why nothing launched. Deliberately the MAPPED
+                // upgrades, not isPro: grace users (mapped upgrades empty) may legitimately
+                // re-purchase.
+                if (gate.info.upgrades.isNotEmpty()) {
+                    log(TAG, INFO) { "Subscription purchase blocked: fresh check found an owned upgrade" }
+                    events.tryEmit(UpgradeEvents.RestoreSucceeded)
+                    return@launch
+                }
+                // Same breadth as the one-time path's renewal guard: an auto-renewing subscription
+                // with an unknown or legacy product ID (which maps to zero upgrades, so the block
+                // above passed) must still block a new subscription — two renewing subscriptions
+                // for the same features is the same double-billing. Reuses the existing
+                // manage-subscription dialog.
+                if (gate.info.hasAutoRenewingSubscription) {
+                    log(TAG, INFO) { "Subscription purchase blocked: another subscription is still set to renew" }
+                    events.tryEmit(UpgradeEvents.SubscriptionStillRenewing)
+                    return@launch
+                }
                 // launchBillingFlowNow suspends until the launch resolved, so the guard covers the
                 // whole tap-to-sheet window. The flow itself still runs on AppScope, so closing the
                 // screen mid-launch doesn't abort the purchase.
