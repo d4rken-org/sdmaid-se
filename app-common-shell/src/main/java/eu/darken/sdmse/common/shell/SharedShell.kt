@@ -67,9 +67,11 @@ class SharedShell(
         tag = aTag,
         parentScope = scope,
         source = source,
-        // A shell whose process has died must never be handed to a reuse: SharedResource caches the
-        // session and its async teardown can lag, so validate liveness and re-acquire a fresh shell.
-        isReusable = { it.isAlive() },
+        // A shell that can no longer run commands must never be handed to a reuse: SharedResource
+        // caches the session and its async teardown can lag, so validate usability and re-acquire a
+        // fresh shell. isUsable() rather than isAlive() so the check matches the condition execute()
+        // itself rejects on, instead of the exit code that is published a moment later.
+        isReusable = { it.isUsable() },
     )
 
     override val sharedResource: SharedResource<FlowCmdShell.Session> = session

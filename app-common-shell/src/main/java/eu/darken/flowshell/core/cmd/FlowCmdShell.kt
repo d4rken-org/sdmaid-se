@@ -88,6 +88,18 @@ class FlowCmdShell(
 
         suspend fun isAlive() = session.isAlive()
 
+        // Whether execute() would still accept a command. The process exit code is published by a
+        // separate exit-monitor coroutine, so it lags behind the stream EOF that already made
+        // execute() reject everything: isAlive() alone can say "alive" for a session that throws on
+        // its very next command. Only ever a snapshot — EOF can always land right after the answer
+        // is given — but it must not be stale by construction, hence the re-read across the
+        // suspending liveness check.
+        suspend fun isUsable(): Boolean {
+            if (streamEnded) return false
+            if (!session.isAlive()) return false
+            return !streamEnded
+        }
+
         suspend fun waitFor() = session.waitFor()
 
         suspend fun cancel() = withContext(Dispatchers.IO) {
