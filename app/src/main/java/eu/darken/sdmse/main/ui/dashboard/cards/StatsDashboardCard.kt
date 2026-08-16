@@ -33,10 +33,14 @@ import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 import eu.darken.sdmse.stats.core.StatsRepo
+import eu.darken.sdmse.stats.ui.InstallElapsed
+import java.time.Duration
+import java.time.Instant
 
 data class StatsDashboardCardItem(
     val state: StatsRepo.State,
     val showProRequirement: Boolean,
+    val installedAt: Instant?,
     val onViewAction: () -> Unit,
 ) : DashboardItem {
     override val stableId: Long = this.javaClass.hashCode().toLong()
@@ -99,6 +103,23 @@ internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
             style = MaterialTheme.typography.bodyMedium,
         )
 
+        // Deliberately not remembered: the result depends on Instant.now() as well as installedAt, so any
+        // remember key that omits the current date would pin a stale caption across midnight. The
+        // computation is a handful of LocalDate ops plus one resource lookup.
+        // Null means either "install date not yet known" or "less than a day old" — no caption either way.
+        val elapsedText = item.installedAt
+            ?.let { InstallElapsed.of(it, Instant.now()) }
+            ?.let { InstallElapsed.format(context, it) }
+
+        if (elapsedText != null) {
+            Spacer(modifier = Modifier.height(2.dp))
+            Text(
+                text = elapsedText,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+
         Spacer(modifier = Modifier.height(4.dp))
 
         Row(
@@ -131,6 +152,7 @@ private fun StatsDashboardCardPreview() {
                     databaseSize = 256L * 1024L,
                 ),
                 showProRequirement = false,
+                installedAt = Instant.now().minus(Duration.ofDays(95)),
                 onViewAction = {},
             ),
         )

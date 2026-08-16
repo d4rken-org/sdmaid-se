@@ -65,6 +65,7 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
+import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.DashboardCardConfig
 import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -165,6 +166,7 @@ class DashboardViewModel @Inject constructor(
     anniversaryProvider: AnniversaryProvider,
     internal val statsRepo: StatsRepo,
     internal val statsSettings: StatsSettings,
+    internal val curriculumVitae: CurriculumVitae,
     internal val spaceHistoryRepo: SpaceHistoryRepo,
     deviceDetective: DeviceDetective,
 ) : ViewModel4(dispatcherProvider, TAG) {
