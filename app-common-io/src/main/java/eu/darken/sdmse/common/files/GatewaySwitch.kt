@@ -210,6 +210,14 @@ class GatewaySwitch @Inject constructor(
     }
 
     override suspend fun createSymlink(linkPath: APath, targetPath: APath): Boolean {
+        // The gateway is picked by the link path, but the target is handed to it unchecked: a
+        // mismatched pair would reach the gateway as the wrong path type and fail there (or worse,
+        // be silently misinterpreted).
+        if (linkPath.pathType != targetPath.pathType) {
+            throw IllegalArgumentException(
+                "Can't create symlink across path types: linkPath is ${linkPath.pathType}, targetPath is ${targetPath.pathType}"
+            )
+        }
         return useGateway(linkPath) { createSymlink(linkPath, targetPath) }
     }
 

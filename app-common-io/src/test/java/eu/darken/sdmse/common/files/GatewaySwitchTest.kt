@@ -257,6 +257,16 @@ class GatewaySwitchTest {
         coVerify { localGateway.createSymlink(otherLink, localPath) }
     }
 
+    @Test fun `createSymlink rejects mixed path types`() = runTest2(autoCancel = true) {
+        val switch = createSwitch()
+
+        shouldThrow<IllegalArgumentException> { switch.createSymlink(localPath, safPath) }
+        shouldThrow<IllegalArgumentException> { switch.createSymlink(safPath, localPath) }
+
+        verify { localGateway wasNot Called }
+        verify { safGateway wasNot Called }
+    }
+
     @Test fun `lookup CURRENT never falls back`() = runTest2(autoCancel = true) {
         val switch = createSwitch()
         coEvery { localGateway.lookup(localPath) } throws ReadException(message = "original", path = localPath)
