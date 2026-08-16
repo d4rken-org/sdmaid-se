@@ -2,7 +2,6 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import okio.FileHandle
 import java.time.Instant
 
@@ -16,21 +15,30 @@ interface APathGateway<
 
     suspend fun createFile(path: P)
 
-    suspend fun listFiles(path: P): Collection<P>
+    /**
+     * See [lookupFiles] for streaming and error semantics.
+     */
+    suspend fun listFiles(path: P): Flow<P>
 
     suspend fun lookup(path: P): PLU
 
     suspend fun lookupExtended(path: P): PLUE
 
-    suspend fun lookupFiles(path: P): Collection<PLU>
+    /**
+     * Children are emitted as they are enumerated, so consumers can abort early without paying
+     * for the complete listing of a huge directory.
+     *
+     * A [ReadException] can surface at call time or at collection time:
+     * - NORMAL mode enumerates the directory eagerly at call time (a snapshot), only the per-child
+     *   lookup work is lazy. Re-collecting replays that call-time snapshot.
+     * - ROOT/ADB mode enumerates fully lazily at collection time, each collection re-enumerates.
+     */
+    suspend fun lookupFiles(path: P): Flow<PLU>
 
     /**
-     * Like [lookupFiles], but children are emitted as they are enumerated, so consumers can
-     * abort early without paying for the complete listing of a huge directory.
+     * See [lookupFiles] for streaming and error semantics.
      */
-    suspend fun lookupFilesFlow(path: P): Flow<PLU> = flow { lookupFiles(path).forEach { emit(it) } }
-
-    suspend fun lookupFilesExtended(path: P): Collection<PLUE>
+    suspend fun lookupFilesExtended(path: P): Flow<PLUE>
 
     suspend fun walk(
         path: P,

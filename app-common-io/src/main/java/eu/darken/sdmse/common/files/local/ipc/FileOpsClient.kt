@@ -18,8 +18,8 @@ import eu.darken.sdmse.common.ipc.fileHandle
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
 import okio.FileHandle
 import java.time.Instant
 
@@ -28,17 +28,17 @@ class FileOpsClient @AssistedInject constructor(
 ) : IpcClientModule {
 
     /**
-     * Doesn't run into IPC buffer overflows on large directories
+     * Doesn't run into IPC buffer overflows on large directories.
+     * The IPC stream is only opened once the flow is collected.
      */
-    fun listFiles(path: LocalPath): Collection<LocalPath> = try {
-        runBlocking {
-            fileOpsConnection.listFilesStream(path).toLocalPathFlow().toList()
-        }.also {
-            if (Bugs.isTrace) log(TAG) { "listFiles($path) finished streaming, ${it.size} items" }
+    fun listFiles(path: LocalPath): Flow<LocalPath> = flow {
+        val output = try {
+            fileOpsConnection.listFilesStream(path)
+        } catch (e: Exception) {
+            throw e.refineException()
         }
-    } catch (e: Exception) {
-        throw e.refineException()
-    }
+        emitAll(output.toLocalPathFlow())
+    }.traceCount("listFiles($path)")
 
     fun lookUp(path: LocalPath): LocalPathLookup = try {
         fileOpsConnection.lookUp(path).also {
@@ -57,46 +57,40 @@ class FileOpsClient @AssistedInject constructor(
     }
 
     /**
-     * Doesn't run into IPC buffer overflows on large directories
-     */
-    fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = try {
-        runBlocking {
-            fileOpsConnection.lookupFilesStream(path).toLocalPathLookupFlow().toList()
-        }.also {
-            if (Bugs.isTrace) log(TAG, VERBOSE) { "lookupFiles($path) finished streaming, ${it.size} items" }
-        }
-    } catch (e: Exception) {
-        throw e.refineException()
-    }
-
-    /**
      * Streams lookups as the host enumerates the directory. Consumers may cancel collection
      * early and only pay for the chunks streamed so far, instead of the complete listing.
      * The IPC stream is only opened once the flow is collected.
      */
-    fun lookupFilesFlow(path: LocalPath): Flow<LocalPathLookup> = flow {
+    fun lookupFiles(path: LocalPath): Flow<LocalPathLookup> = flow {
         val output = try {
             fileOpsConnection.lookupFilesStream(path)
         } catch (e: Exception) {
             throw e.refineException()
         }
         emitAll(output.toLocalPathLookupFlow())
-    }
+    }.traceCount("lookupFiles($path)")
 
     /**
-     * Doesn't run into IPC buffer overflows on large directories
+     * Doesn't run into IPC buffer overflows on large directories.
+     * The IPC stream is only opened once the flow is collected.
      */
-    fun lookupFilesExtendedStream(path: LocalPath): Collection<LocalPathLookupExtended> = try {
-        runBlocking {
-            fileOpsConnection.lookupFilesExtendedStream(path).toLocalPathLookupExtendedFlow().toList()
-        }.also {
-            if (Bugs.isTrace) log(
-                TAG,
-                VERBOSE
-            ) { "lookupFilesExtendedStream($path) finished streaming, ${it.size} items" }
+    fun lookupFilesExtended(path: LocalPath): Flow<LocalPathLookupExtended> = flow {
+        val output = try {
+            fileOpsConnection.lookupFilesExtendedStream(path)
+        } catch (e: Exception) {
+            throw e.refineException()
         }
-    } catch (e: Exception) {
-        throw e.refineException()
+        emitAll(output.toLocalPathLookupExtendedFlow())
+    }.traceCount("lookupFilesExtended($path)")
+
+    private fun <T> Flow<T>.traceCount(label: String): Flow<T> = if (!Bugs.isTrace) this else flow {
+        var count = 0
+        emitAll(
+            onEach { count++ }.onCompletion { cause ->
+                if (cause == null) log(TAG, VERBOSE) { "$label finished streaming, $count items" }
+                else log(TAG, VERBOSE) { "$label stopped after $count items: $cause" }
+            }
+        )
     }
 
     /**
