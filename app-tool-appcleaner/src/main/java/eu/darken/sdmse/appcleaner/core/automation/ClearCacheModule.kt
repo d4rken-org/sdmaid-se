@@ -37,6 +37,7 @@ import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -150,9 +151,9 @@ class ClearCacheModule @AssistedInject constructor(
             result.failed.forEach { (id, e) -> log(TAG, WARN) { "$id failed with $e" } }
         }
 
-        val timeoutCount = result.failed.count { it.value is AutomationTimeoutException }
-        if (timeoutCount >= TIMEOUT_LIMIT && result.successful.isEmpty()) {
-            log(TAG, ERROR) { "Continued timeout errors, no successes so far, possible compatbility issue?" }
+        val unusableCount = result.failed.count { it.value.isAutomationUnusable() }
+        if (unusableCount >= FAILURE_LIMIT && result.successful.isEmpty()) {
+            log(TAG, ERROR) { "Continued automation failures, no successes so far, possible compatbility issue?" }
             throw AutomationCompatibilityException(
                 additionalHint = R.string.appcleaner_automation_compat_forcestop_hint.toCaString(),
             )
@@ -215,12 +216,12 @@ class ClearCacheModule @AssistedInject constructor(
                         throw e
                     }
 
-                    e is AutomationTimeoutException -> {
-                        log(TAG, WARN) { "Timeout while processing $installed" }
+                    e.isAutomationUnusable() -> {
+                        log(TAG, WARN) { "Automation unusable while processing $installed: ${e.asLog()}" }
                         task.onError(target, e)
                         failed[target] = e
-                        val timeouts = failed.count { it.value is AutomationTimeoutException }
-                        if (successful.isEmpty() && timeouts > TIMEOUT_LIMIT) break
+                        val unusable = failed.count { it.value.isAutomationUnusable() }
+                        if (successful.isEmpty() && unusable >= FAILURE_LIMIT) break
                     }
 
                     e is AutomationOverlayException -> {
@@ -314,7 +315,21 @@ class ClearCacheModule @AssistedInject constructor(
     }
 
     companion object {
-        private const val TIMEOUT_LIMIT = 8
+        /** How many targets may fail with an unusable automation path before we stop trying. */
+        private const val FAILURE_LIMIT = 8
+
+        /**
+         * Failures that mean we could not drive the Settings UI at all, as opposed to one app
+         * being uncooperative. A timeout is the slow form, an unretryable step abort the fast one
+         * (e.g. the DPAD fallback finding the clear-cache button unreachable). Both indicate the
+         * automation path itself is broken, so both feed the give-up heuristic.
+         */
+        private fun Throwable.isAutomationUnusable(): Boolean = when (this) {
+            is AutomationTimeoutException -> true
+            is StepAbortException -> !treatAsSuccess
+            else -> false
+        }
+
         val TAG: String = logTag("Automation", "AppCleaner", "ClearCacheModule")
     }
 }
