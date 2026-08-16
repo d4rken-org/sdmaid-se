@@ -83,7 +83,11 @@ class FileOpsClient @AssistedInject constructor(
         emitAll(output.toLocalPathLookupExtendedFlow())
     }.traceCount("lookupFilesExtended($path)")
 
-    private fun <T> Flow<T>.traceCount(label: String): Flow<T> = if (!Bugs.isTrace) this else flow {
+    private fun <T> Flow<T>.traceCount(label: String): Flow<T> = flow {
+        if (!Bugs.isTrace) {
+            emitAll(this@traceCount)
+            return@flow
+        }
         var count = 0
         emitAll(
             onEach { count++ }.onCompletion { cause ->

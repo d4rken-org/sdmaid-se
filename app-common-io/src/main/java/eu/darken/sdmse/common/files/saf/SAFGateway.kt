@@ -287,7 +287,11 @@ class SAFGateway @Inject constructor(
         throw ReadException(path = path, cause = e)
     }
 
-    private fun <T> Flow<T>.trace(label: String): Flow<T> = if (!Bugs.isTrace) this else flow {
+    private fun <T> Flow<T>.trace(label: String): Flow<T> = flow {
+        if (!Bugs.isTrace) {
+            emitAll(this@trace)
+            return@flow
+        }
         var count = 0
         emitAll(
             onEach { item ->
