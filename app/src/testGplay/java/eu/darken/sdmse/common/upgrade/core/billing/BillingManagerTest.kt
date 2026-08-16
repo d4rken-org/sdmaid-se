@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -728,6 +729,54 @@ class BillingManagerTest : BaseTest() {
         runCurrent()
 
         failures shouldBe emptyList()
+    }
+
+    @Test fun `a strict gate failure on a dead connection still tears the connection down`() = runTest2 {
+        // The gate's throw happens after useConnection already returned, so its dead-binder
+        // detection can't fire — without the explicit invalidation connection 1 stays installed and
+        // every later purchase check runs against the corpse. Feeding the episode clock still stays
+        // off this path.
+        val owned = purchase()
+        val dead = connection(
+            refreshes = listOf(
+                completeRefresh(),
+                partialRefresh(
+                    occurredAt = 4242L,
+                    error = GplayServiceUnavailableException(
+                        BillingClientException(result(BillingResponseCode.SERVICE_DISCONNECTED))
+                    ),
+                ),
+            ),
+        )
+        val good = connection(refreshResults = listOf(emptyList(), listOf(owned)))
+        var attempts = 0
+        val provider = mockk<BillingConnectionProvider>().apply {
+            every { this@apply.connection } returns flow {
+                attempts++
+                emit(if (attempts == 1) dead else good)
+                awaitCancellation()
+            }
+        }
+        val manager = manager(provider)
+        val failures = collectFailures(manager)
+        runCurrent() // connection 1 established
+
+        shouldThrow<Exception> { manager.refreshStrict() }
+        // Teardown takes several dispatches and runs on backgroundScope — runCurrent, never
+        // advanceUntilIdle, which would leave the connect loop untouched.
+        runCurrent()
+
+        // The next action is fresh demand: it skips the reconnect backoff and lands on connection 2.
+        val refreshed = async { manager.refresh() }
+        advanceUntilIdle()
+        refreshed.await() shouldBe BillingData(listOf(owned))
+        attempts shouldBe 2
+
+        runCurrent()
+        // The torn-down connection is a failed loop iteration (wall-clock stamped), but the gate's
+        // own partial refresh must never reach the feed with its commit time.
+        failures.isNotEmpty() shouldBe true
+        failures shouldNotContain 4242L
     }
 
     @Test fun `a partial reconciliation without a confirmed pro purchase signals its commit time`() = runTest2 {
