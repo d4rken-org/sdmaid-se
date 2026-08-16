@@ -333,7 +333,6 @@ class LocalGateway @Inject constructor(
 
                 else -> throw IOException("No matching mode available.")
             }
-                .trace("listFiles($path, $mode)")
                 .refineErrors("listFiles", path, mode)
                 .flowOn(dispatcherProvider.IO)
         } catch (e: IOException) {
