@@ -20,6 +20,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
@@ -55,7 +57,7 @@ class PickerViewModelSelectAllTest : BaseTest() {
         val gatewaySwitch = mockk<GatewaySwitch> {
             every { sharedResource } returns SharedResource.createKeepAlive("test:gateway", resourceScope)
             coEvery { lookup(any()) } answers { lookupOf(arg<APath>(0) as LocalPath) }
-            coEvery { lookupFiles(any()) } answers { listings[arg<APath>(0) as LocalPath] ?: emptyList() }
+            coEvery { lookupFiles(any()) } answers { listings[arg<APath>(0) as LocalPath]?.asFlow() ?: emptyFlow() }
         }
         val dataAreaManager = mockk<DataAreaManager> {
             every { state } returns flowOf(DataAreaManager.State(areas = setOf(area)))

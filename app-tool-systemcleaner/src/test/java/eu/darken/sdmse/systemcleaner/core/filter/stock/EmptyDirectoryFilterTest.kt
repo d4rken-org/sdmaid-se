@@ -121,12 +121,10 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
 
         dirs.forEach { dir ->
             val blocker = blockers.single { it.lookedUp.isChildOf(dir.lookedUp) }
-            coEvery { gatewaySwitch.lookupFilesFlow(dir.lookedUp) } returns flow {
+            // Materializing the listing (instead of aborting after the first child) trips the error.
+            coEvery { gatewaySwitch.lookupFiles(dir.lookedUp) } returns flow {
                 emit(blocker as APathLookup<APath>)
                 throw AssertionError("Should not enumerate past the first blocking child: ${dir.path}")
-            }
-            coEvery { gatewaySwitch.lookupFiles(dir.lookedUp) } answers {
-                throw AssertionError("Should stream via lookupFilesFlow, not materialize via lookupFiles: ${dir.path}")
             }
         }
 

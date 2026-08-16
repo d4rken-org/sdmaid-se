@@ -4,11 +4,16 @@ import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.adb.service.runModuleAction
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.WriteException
+import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
+import eu.darken.sdmse.common.files.lookupFiles
+import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -17,7 +22,10 @@ import io.mockk.mockkStatic
 import io.mockk.unmockkAll
 import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.asCoroutineDispatcher
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.withContext
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -29,6 +37,8 @@ import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
 import java.io.File
 import java.nio.file.Files
+import java.util.concurrent.CopyOnWriteArrayList
+import java.util.concurrent.Executors
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [29], application = EmptyApp::class)
@@ -222,5 +232,74 @@ class LocalGatewayTest : BaseTest() {
 
             gateway.hasRoot() shouldBe true // precondition: escalation WAS available
             gateway.lookup(LocalPath.build(link), LocalGateway.Mode.AUTO).fileType shouldBe FileType.SYMBOLIC_LINK
+        }
+
+    @Test
+    fun `NORMAL enumeration of an unreadable directory throws before the flow is collected`() =
+        runTest2(autoCancel = true) {
+            // The directory listing is taken eagerly while the flow is built, so callers still see
+            // the ReadException from the call itself, not only once they start collecting.
+            val missing = LocalPath.build(File(testDir, "not-there"))
+            val gateway = gateway()
+
+            shouldThrow<ReadException> { gateway.listFiles(missing, LocalGateway.Mode.NORMAL) }
+            shouldThrow<ReadException> { gateway.lookupFiles(missing, LocalGateway.Mode.NORMAL) }
+            shouldThrow<ReadException> { gateway.lookupFilesExtended(missing, LocalGateway.Mode.NORMAL) }
+        }
+
+    @Test
+    fun `NORMAL enumeration materialized via the compat extensions yields the directory contents`() =
+        runTest2(autoCancel = true) {
+            val dir = File(testDir, "listing").apply { mkdirs() }
+            File(dir, "a.txt").writeText("a")
+            File(dir, "b.txt").writeText("b")
+            File(dir, "sub").mkdirs()
+            val path = LocalPath.build(dir)
+            val gateway = gateway()
+
+            path.listFiles(gateway).map { it.name } shouldContainExactlyInAnyOrder listOf("a.txt", "b.txt", "sub")
+            path.lookupFiles(gateway).map { it.name } shouldContainExactlyInAnyOrder listOf("a.txt", "b.txt", "sub")
+            gateway.lookupFiles(path, LocalGateway.Mode.NORMAL).toList()
+                .map { it.name } shouldContainExactlyInAnyOrder listOf("a.txt", "b.txt", "sub")
+        }
+
+    @Test
+    fun `NORMAL per-child lookups run on the IO dispatcher, not on the collector`() =
+        runTest2(autoCancel = true) {
+            // runIO only builds the flow; without flowOn the per-child lookups would run wherever
+            // the (possibly main-thread) collector happens to be.
+            val ioExecutor = Executors.newSingleThreadExecutor { Thread(it, "gateway-io") }
+            val collectorExecutor = Executors.newSingleThreadExecutor { Thread(it, "gateway-collector") }
+            try {
+                val lookupThreads = CopyOnWriteArrayList<String>()
+                val gateway = LocalGateway(
+                    ipcFunnel = mockk(),
+                    libcoreTool = mockk<LibcoreTool> {
+                        every { getNameForUid(any()) } answers {
+                            lookupThreads += Thread.currentThread().name
+                            null
+                        }
+                        every { getNameForGid(any()) } returns null
+                    },
+                    appScope = this,
+                    dispatcherProvider = TestDispatcherProvider(ioExecutor.asCoroutineDispatcher()),
+                    storageEnvironment = mockk(),
+                    rootManager = mockk<RootManager> { every { useRoot } returns flowOf(false) },
+                    adbManager = mockk<AdbManager> { every { useAdb } returns flowOf(false) },
+                )
+
+                val dir = File(testDir, "flowon").apply { mkdirs() }
+                File(dir, "child.txt").writeText("x")
+
+                val collected = withContext(collectorExecutor.asCoroutineDispatcher()) {
+                    gateway.lookupFilesExtended(LocalPath.build(dir), LocalGateway.Mode.NORMAL).toList()
+                }
+
+                collected.map { it.name } shouldBe listOf("child.txt")
+                lookupThreads shouldBe listOf("gateway-io")
+            } finally {
+                ioExecutor.shutdownNow()
+                collectorExecutor.shutdownNow()
+            }
         }
 }
