@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.files.saf.isAncestorOf
 import eu.darken.sdmse.common.files.saf.isParentOf
 import eu.darken.sdmse.common.files.saf.startsWith
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.toList
 import okio.FileHandle
 import java.io.File
 import java.io.IOException
@@ -126,7 +127,10 @@ suspend fun <T : APath> T.deleteWalk(
         val lookup = gateway.lookup(this)
 
         if (lookup.isDirectory) {
-            gateway.listFiles(this).forEach {
+            // Materialize before recursing: deleting entries while lazily enumerating the same
+            // directory over a live IPC stream risks skipped entries (readdir semantics) and would
+            // keep a nested stream/lease open for every level of the recursion.
+            gateway.listFiles(this).toList().forEach {
                 it.deleteWalk(gateway, filter) // Recursion enter
             }
         }
@@ -189,19 +193,19 @@ suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.loo
 }
 
 suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFiles(gateway: APathGateway<P, PL, PLE>): Collection<PL> {
-    return gateway.lookupFiles(this)
+    return gateway.lookupFiles(this).toList()
 }
 
 suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFilesFlow(gateway: APathGateway<P, PL, PLE>): Flow<PL> {
-    return gateway.lookupFilesFlow(this)
+    return gateway.lookupFiles(this)
 }
 
 suspend fun <P : APath, PL : APathLookup<P>, PLE : APathLookupExtended<P>> P.lookupFilesOrNull(gateway: APathGateway<P, PL, PLE>): Collection<PL>? {
-    return if (exists(gateway)) gateway.lookupFiles(this) else null
+    return if (exists(gateway)) gateway.lookupFiles(this).toList() else null
 }
 
 suspend fun <T : APath> T.listFiles(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Collection<T> {
-    return gateway.listFiles(this)
+    return gateway.listFiles(this).toList()
 }
 
 suspend fun <T : APath> T.canRead(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): Boolean {

@@ -44,7 +44,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.FileHandle
@@ -298,41 +300,42 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun listFiles(path: LocalPath): Collection<LocalPath> = listFiles(path, Mode.AUTO)
+    override suspend fun listFiles(path: LocalPath): Flow<LocalPath> = listFiles(path, Mode.AUTO)
 
-    suspend fun listFiles(path: LocalPath, mode: Mode = Mode.AUTO): Collection<LocalPath> = runIO {
+    suspend fun listFiles(path: LocalPath, mode: Mode = Mode.AUTO): Flow<LocalPath> = runIO {
         try {
-            val javaFile = path.asFile()
-            val nonRootList: List<File>? = try {
-                when (mode) {
-                    Mode.ROOT -> null
-                    Mode.ADB -> null
-                    else -> if (javaFile.canRead()) javaFile.listFiles2() else null
-                }
-            } catch (e: Exception) {
+            val nonRootList = enumerateNormal(path, mode) { e ->
                 log(TAG) { "listFiles($path, $mode) failed: $e" }
-                null
             }
 
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "listFiles($mode->NORMAL): $path" }
                     if (nonRootList == null) throw ReadException(path = path)
-                    nonRootList.map { LocalPath.build(it) }
+                    flow {
+                        nonRootList.forEach { child -> emit(LocalPath.build(child)) }
+                    }
                 }
 
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "listFiles($mode->ROOT): $path" }
-                    rootOps { it.listFiles(path) }
+                    // Lease + IPC stream are only created at collection time and the lease spans
+                    // the whole consumption; a built-but-never-collected flow must not hold either.
+                    flow<LocalPath> { rootOps { emitAll(it.listFiles(path)) } }
                 }
 
                 hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "listFiles($mode->ADB): $path" }
-                    adbOps { it.listFiles(path) }
+                    // Lease + IPC stream are only created at collection time and the lease spans
+                    // the whole consumption; a built-but-never-collected flow must not hold either.
+                    flow<LocalPath> { adbOps { emitAll(it.listFiles(path)) } }
                 }
 
                 else -> throw IOException("No matching mode available.")
             }
+                .trace("listFiles($path, $mode)")
+                .refineErrors("listFiles", path, mode)
+                .flowOn(dispatcherProvider.IO)
         } catch (e: IOException) {
             throw ReadException(path = path, cause = e).also {
                 log(TAG, WARN) { "listFiles(path=$path, mode=$mode) failed:\n${it.asLog()}" }
@@ -340,85 +343,22 @@ class LocalGateway @Inject constructor(
         }
     }
 
-    override suspend fun lookupFiles(path: LocalPath): Collection<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
+    override suspend fun lookupFiles(path: LocalPath): Flow<LocalPathLookup> = lookupFiles(path, Mode.AUTO)
 
-    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.AUTO): Collection<LocalPathLookup> = runIO {
+    suspend fun lookupFiles(path: LocalPath, mode: Mode = Mode.AUTO): Flow<LocalPathLookup> = runIO {
         try {
-            val javaFile = path.asFile()
-            val nonRootList = try {
-                when (mode) {
-                    Mode.ROOT -> null
-                    Mode.ADB -> null
-                    else -> if (javaFile.canRead()) javaFile.listFiles2() else null
-                }
-            } catch (e: Exception) {
-                null
-            }
+            val nonRootList = enumerateNormal(path, mode)
 
             when {
                 mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
                     log(TAG, VERBOSE) { "lookupFiles($mode->NORMAL): $path" }
-                    if (nonRootList == null) throw ReadException(path = path)
-                    nonRootList
-                        .map { it.toLocalPath() }
-                        .mapNotNull {
-                            try {
-                                it.performLookup()
-                            } catch (e: IOException) {
-                                log(TAG, WARN) { "lookupFiles($path): Failed to lookup child $it: ${e.asLog()}" }
-                                null
-                            }
-                        }
-                }
-
-                hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "lookupFiles($mode->ROOT): $path" }
-                    rootOps { it.lookupFiles(path) }
-                }
-
-                hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "lookupFiles($mode->ADB): $path" }
-                    adbOps { it.lookupFiles(path) }
-                }
-
-                else -> throw IOException("No matching mode available.")
-            }.also {
-                if (Bugs.isTrace) {
-                    log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
-                    it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
-                }
-            }
-        } catch (e: IOException) {
-            log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-            throw ReadException(path = path, cause = e)
-        }
-    }
-
-    override suspend fun lookupFilesFlow(path: LocalPath): Flow<LocalPathLookup> = lookupFilesFlow(path, Mode.AUTO)
-
-    suspend fun lookupFilesFlow(path: LocalPath, mode: Mode = Mode.AUTO): Flow<LocalPathLookup> = runIO {
-        try {
-            val javaFile = path.asFile()
-            val nonRootList = try {
-                when (mode) {
-                    Mode.ROOT -> null
-                    Mode.ADB -> null
-                    else -> if (javaFile.canRead()) javaFile.listFiles2() else null
-                }
-            } catch (e: Exception) {
-                null
-            }
-
-            when {
-                mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
-                    log(TAG, VERBOSE) { "lookupFilesFlow($mode->NORMAL): $path" }
                     if (nonRootList == null) throw ReadException(path = path)
                     flow {
                         nonRootList.forEach { child ->
                             val lookup = try {
                                 child.toLocalPath().performLookup()
                             } catch (e: IOException) {
-                                log(TAG, WARN) { "lookupFilesFlow($path): Failed to lookup child $child: ${e.asLog()}" }
+                                log(TAG, WARN) { "lookupFiles($path): Failed to lookup child $child: ${e.asLog()}" }
                                 null
                             }
                             lookup?.let { emit(it) }
@@ -427,91 +367,124 @@ class LocalGateway @Inject constructor(
                 }
 
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "lookupFilesFlow($mode->ROOT): $path" }
+                    log(TAG, VERBOSE) { "lookupFiles($mode->ROOT): $path" }
                     // Lease + IPC stream are only created at collection time and the lease spans
                     // the whole consumption; a built-but-never-collected flow must not hold either.
-                    flow<LocalPathLookup> { rootOps { emitAll(it.lookupFilesFlow(path)) } }
+                    flow<LocalPathLookup> { rootOps { emitAll(it.lookupFiles(path)) } }
                 }
 
                 hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
-                    log(TAG, VERBOSE) { "lookupFilesFlow($mode->ADB): $path" }
+                    log(TAG, VERBOSE) { "lookupFiles($mode->ADB): $path" }
                     // Lease + IPC stream are only created at collection time and the lease spans
                     // the whole consumption; a built-but-never-collected flow must not hold either.
-                    flow<LocalPathLookup> { adbOps { emitAll(it.lookupFilesFlow(path)) } }
+                    flow<LocalPathLookup> { adbOps { emitAll(it.lookupFiles(path)) } }
                 }
 
                 else -> throw IOException("No matching mode available.")
-            }.catch { e ->
-                log(TAG, WARN) { "lookupFilesFlow(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-                when (e) {
-                    is CancellationException -> throw e
-                    is ReadException -> throw e
-                    is IOException -> throw ReadException(path = path, cause = e)
-                    else -> throw e
-                }
             }
+                .trace("lookupFiles($path, $mode)")
+                .refineErrors("lookupFiles", path, mode)
+                .flowOn(dispatcherProvider.IO)
         } catch (e: IOException) {
-            log(TAG, WARN) { "lookupFilesFlow(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+            log(TAG, WARN) { "lookupFiles(path=$path, mode=$mode) failed:\n${e.asLog()}" }
             throw ReadException(path = path, cause = e)
         }
     }
 
     override suspend fun lookupFilesExtended(
         path: LocalPath
-    ): Collection<LocalPathLookupExtended> = lookupFilesExtended(path, Mode.AUTO)
+    ): Flow<LocalPathLookupExtended> = lookupFilesExtended(path, Mode.AUTO)
 
-    suspend fun lookupFilesExtended(path: LocalPath, mode: Mode = Mode.AUTO): Collection<LocalPathLookupExtended> =
-        runIO {
-            try {
-                val javaFile = path.asFile()
-                val nonRootList = try {
-                    when (mode) {
-                        Mode.ROOT -> null
-                        Mode.ADB -> null
-                        else -> if (javaFile.canRead()) javaFile.listFiles2() else null
-                    }
-                } catch (e: Exception) {
-                    null
-                }
+    suspend fun lookupFilesExtended(path: LocalPath, mode: Mode = Mode.AUTO): Flow<LocalPathLookupExtended> = runIO {
+        try {
+            val nonRootList = enumerateNormal(path, mode)
 
-                when {
-                    mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
-                        log(TAG, VERBOSE) { "lookupFilesExtended($mode->NORMAL): $path" }
-                        if (nonRootList == null) throw ReadException(path = path)
-                        nonRootList
-                            .map { it.toLocalPath() }
-                            .mapNotNull {
-                                try {
-                                    it.performLookupExtended(ipcFunnel, libcoreTool)
-                                } catch (e: IOException) {
-                                    log(TAG, WARN) { "lookupFilesExtended($path): Failed to lookup child $it: ${e.asLog()}" }
-                                    null
+            when {
+                mode == Mode.NORMAL || nonRootList != null && mode == Mode.AUTO -> {
+                    log(TAG, VERBOSE) { "lookupFilesExtended($mode->NORMAL): $path" }
+                    if (nonRootList == null) throw ReadException(path = path)
+                    flow {
+                        nonRootList.forEach { child ->
+                            val lookup = try {
+                                child.toLocalPath().performLookupExtended(ipcFunnel, libcoreTool)
+                            } catch (e: IOException) {
+                                log(TAG, WARN) {
+                                    "lookupFilesExtended($path): Failed to lookup child $child: ${e.asLog()}"
                                 }
+                                null
                             }
-                    }
-
-                    hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
-                        log(TAG, VERBOSE) { "lookupFilesExtended($mode->ROOT): $path" }
-                        rootOps { it.lookupFilesExtendedStream(path) }
-                    }
-
-                    hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
-                        log(TAG, VERBOSE) { "lookupFilesExtended($mode->ADB): $path" }
-                        adbOps { it.lookupFilesExtendedStream(path) }
-                    }
-
-                    else -> throw IOException("No matching mode available.")
-                }.also {
-                    if (Bugs.isTrace) {
-                        log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
-                        it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
+                            lookup?.let { emit(it) }
+                        }
                     }
                 }
-            } catch (e: IOException) {
-                log(TAG, WARN) { "lookupFilesExtended(path=$path, mode=$mode) failed:\n${e.asLog()}" }
-                throw ReadException(path = path, cause = e)
+
+                hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupFilesExtended($mode->ROOT): $path" }
+                    // Lease + IPC stream are only created at collection time and the lease spans
+                    // the whole consumption; a built-but-never-collected flow must not hold either.
+                    flow<LocalPathLookupExtended> { rootOps { emitAll(it.lookupFilesExtended(path)) } }
+                }
+
+                hasAdb() && (mode == Mode.ADB || nonRootList == null && mode == Mode.AUTO) -> {
+                    log(TAG, VERBOSE) { "lookupFilesExtended($mode->ADB): $path" }
+                    // Lease + IPC stream are only created at collection time and the lease spans
+                    // the whole consumption; a built-but-never-collected flow must not hold either.
+                    flow<LocalPathLookupExtended> { adbOps { emitAll(it.lookupFilesExtended(path)) } }
+                }
+
+                else -> throw IOException("No matching mode available.")
             }
+                .trace("lookupFilesExtended($path, $mode)")
+                .refineErrors("lookupFilesExtended", path, mode)
+                .flowOn(dispatcherProvider.IO)
+        } catch (e: IOException) {
+            log(TAG, WARN) { "lookupFilesExtended(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+            throw ReadException(path = path, cause = e)
         }
+    }
+
+    /**
+     * App-side directory enumeration, `null` means "not available, escalate".
+     * This is eager: the listing is a snapshot taken while the enumeration flow is being built.
+     */
+    private fun enumerateNormal(
+        path: LocalPath,
+        mode: Mode,
+        onError: (Exception) -> Unit = {},
+    ): List<File>? = try {
+        val javaFile = path.asFile()
+        when (mode) {
+            Mode.ROOT -> null
+            Mode.ADB -> null
+            else -> if (javaFile.canRead()) javaFile.listFiles2() else null
+        }
+    } catch (e: Exception) {
+        onError(e)
+        null
+    }
+
+    private fun <T> Flow<T>.trace(label: String): Flow<T> = if (!Bugs.isTrace) this else flow {
+        var count = 0
+        emitAll(
+            onEach { item ->
+                count++
+                log(TAG, VERBOSE) { "$label #$count $item" }
+            }.onCompletion { cause ->
+                if (cause == null) log(TAG, VERBOSE) { "$label finished $count items" }
+                else log(TAG, VERBOSE) { "$label aborted after $count items: $cause" }
+            }
+        )
+    }
+
+    private fun <T> Flow<T>.refineErrors(label: String, path: LocalPath, mode: Mode): Flow<T> = catch { e ->
+        log(TAG, WARN) { "$label(path=$path, mode=$mode) failed:\n${e.asLog()}" }
+        when (e) {
+            is CancellationException -> throw e
+            is ReadException -> throw e
+            is IOException -> throw ReadException(path = path, cause = e)
+            else -> throw e
+        }
+    }
 
     override suspend fun walk(
         path: LocalPath,

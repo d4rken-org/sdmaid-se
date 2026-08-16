@@ -22,11 +22,16 @@ import eu.darken.sdmse.common.files.WriteException
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.emitAll
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import okio.FileHandle
@@ -134,18 +139,13 @@ class SAFGateway @Inject constructor(
         return targetDocFile
     }
 
-    override suspend fun listFiles(path: SAFPath): List<SAFPath> = runIO {
-        try {
-            val docFile = findDocFile(path)
-            log(TAG, VERBOSE) { "listFiles(): $path -> $docFile" }
-            docFile.listFiles().map {
-                val name = it.name ?: it.uri.pathSegments.last().split('/').last()
-                path.child(name)
-            }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "listFiles($path) failed." }
-            throw ReadException(path = path, cause = e)
+    override suspend fun listFiles(path: SAFPath): Flow<SAFPath> = runIO {
+        val children = childPaths(path, "listFiles")
+        flow {
+            children.forEach { emit(it) }
         }
+            .refineErrors("listFiles", path)
+            .flowOn(dispatcherProvider.IO)
     }
 
     override suspend fun exists(path: SAFPath): Boolean = runIO {
@@ -171,7 +171,7 @@ class SAFGateway @Inject constructor(
 
             if (lookUp.isDirectory) {
                 val newBatch = try {
-                    lookupFiles(lookUp.lookedUp)
+                    lookupFiles(lookUp.lookedUp).toList()
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to read directory to delete $lookUp: $e" }
                     throw ReadException(path = path, cause = e)
@@ -251,50 +251,61 @@ class SAFGateway @Inject constructor(
         }
     }
 
-    override suspend fun lookupFiles(path: SAFPath): List<SAFPathLookup> = runIO {
-        try {
-            val docFile = findDocFile(path)
-            log(TAG, VERBOSE) { "lookupFiles($path) -> $docFile" }
-
-            docFile.listFiles()
-                .map {
-                    val name = it.name ?: it.uri.pathSegments.last().split('/').last()
-                    path.child(name)
-                }
-                .map { lookup(it) }
-                .also {
-                    if (Bugs.isTrace) {
-                        log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
-                        it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
-                    }
-                }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "lookupFiles($path) failed." }
-            throw ReadException(path = path, cause = e)
+    override suspend fun lookupFiles(path: SAFPath): Flow<SAFPathLookup> = runIO {
+        val children = childPaths(path, "lookupFiles")
+        flow {
+            children.forEach { emit(lookup(it)) }
         }
+            .trace("lookupFiles($path)")
+            .refineErrors("lookupFiles", path)
+            .flowOn(dispatcherProvider.IO)
     }
 
-    override suspend fun lookupFilesExtended(path: SAFPath): List<SAFPathLookupExtended> = runIO {
-        try {
-            val docFile = findDocFile(path)
-            log(TAG, VERBOSE) { "lookupFilesExtended($path) -> $docFile" }
+    override suspend fun lookupFilesExtended(path: SAFPath): Flow<SAFPathLookupExtended> = runIO {
+        val children = childPaths(path, "lookupFilesExtended")
+        flow {
+            children.forEach { emit(SAFPathLookupExtended(lookup(it))) }
+        }
+            .trace("lookupFilesExtended($path)")
+            .refineErrors("lookupFilesExtended", path)
+            .flowOn(dispatcherProvider.IO)
+    }
 
-            docFile.listFiles()
-                .map {
-                    val name = it.name ?: it.uri.pathSegments.last().split('/').last()
-                    path.child(name)
-                }
-                .map { lookup(it) }
-                .map { SAFPathLookupExtended(it) }
-                .also {
-                    if (Bugs.isTrace) {
-                        log(TAG, VERBOSE) { "Looked up ${it.size} items:" }
-                        it.forEachIndexed { index, look -> log(TAG, VERBOSE) { "#$index $look" } }
-                    }
-                }
-        } catch (e: Exception) {
-            log(TAG, WARN) { "lookupFilesExtended($path) failed." }
-            throw ReadException(path = path, cause = e)
+    /**
+     * The ContentResolver cursor enumeration can't be streamed, so the child listing is a snapshot
+     * taken at call time. The per-child lookups on top of it stay lazy.
+     */
+    private fun childPaths(path: SAFPath, label: String): List<SAFPath> = try {
+        val docFile = findDocFile(path)
+        log(TAG, VERBOSE) { "$label($path) -> $docFile" }
+        docFile.listFiles().map {
+            val name = it.name ?: it.uri.pathSegments.last().split('/').last()
+            path.child(name)
+        }
+    } catch (e: Exception) {
+        log(TAG, WARN) { "$label($path) failed." }
+        throw ReadException(path = path, cause = e)
+    }
+
+    private fun <T> Flow<T>.trace(label: String): Flow<T> = if (!Bugs.isTrace) this else flow {
+        var count = 0
+        emitAll(
+            onEach { item ->
+                count++
+                log(TAG, VERBOSE) { "$label #$count $item" }
+            }.onCompletion { cause ->
+                if (cause == null) log(TAG, VERBOSE) { "$label finished $count items" }
+                else log(TAG, VERBOSE) { "$label aborted after $count items: $cause" }
+            }
+        )
+    }
+
+    private fun <T> Flow<T>.refineErrors(label: String, path: SAFPath): Flow<T> = catch { e ->
+        log(TAG, WARN) { "$label($path) failed." }
+        when (e) {
+            is CancellationException -> throw e
+            is ReadException -> throw e
+            else -> throw ReadException(path = path, cause = e)
         }
     }
 
@@ -316,7 +327,7 @@ class SAFGateway @Inject constructor(
             val lookUp = queue.removeFirst()
 
             val newBatch = try {
-                lookupFiles(lookUp.lookedUp)
+                lookupFiles(lookUp.lookedUp).toList()
             } catch (e: IOException) {
                 log(TAG, ERROR) { "Failed to read $lookUp: $e" }
                 if (options.onError?.invoke(lookUp, e) != false) {
@@ -367,7 +378,7 @@ class SAFGateway @Inject constructor(
                 val lookUp = queue.removeFirst()
 
                 val newBatch = try {
-                    lookupFiles(lookUp.lookedUp)
+                    lookupFiles(lookUp.lookedUp).toList()
                 } catch (e: IOException) {
                     log(TAG, ERROR) { "Failed to read $lookUp: $e" }
                     emptyList()

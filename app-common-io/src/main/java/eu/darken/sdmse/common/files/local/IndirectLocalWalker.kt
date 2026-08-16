@@ -54,7 +54,7 @@ class IndirectLocalWalker(
             // The read-error handling is attached to the upstream flow only: exceptions from
             // onFilter, downstream operators or collectors, and cancellation (e.g. Flow.first)
             // must all propagate instead of being swallowed as read errors by onError.
-            flow { emitAll(gateway.lookupFilesFlow(lookUp.lookedUp, mode)) }
+            flow { emitAll(gateway.lookupFiles(lookUp.lookedUp, mode)) }
                 .catch { e ->
                     if (e !is Exception || e is CancellationException) throw e
                     log(TAG, ERROR) { "Failed to read $lookUp: $e" }
