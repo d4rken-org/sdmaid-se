@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.backup
 
 import android.app.Activity
+import android.content.ActivityNotFoundException
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
@@ -56,10 +57,15 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import kotlinx.coroutines.launch
+
+private val TAG = logTag("Backup", "Restore", "Screen")
 
 @Composable
 fun BackupRestoreScreenHost(
@@ -91,8 +97,20 @@ fun BackupRestoreScreenHost(
     LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
-                is BackupRestoreViewModel.Event.PickExportTarget -> exportLauncher.launch(event.intent)
-                is BackupRestoreViewModel.Event.PickImportSource -> importLauncher.launch(event.intent)
+                is BackupRestoreViewModel.Event.PickExportTarget -> try {
+                    exportLauncher.launch(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    log(TAG, WARN) { "Export target picker unavailable: $e" }
+                    vm.errorEvents.emit(e)
+                }
+
+                is BackupRestoreViewModel.Event.PickImportSource -> try {
+                    importLauncher.launch(event.intent)
+                } catch (e: ActivityNotFoundException) {
+                    log(TAG, WARN) { "Import source picker unavailable: $e" }
+                    vm.errorEvents.emit(e)
+                }
+
                 is BackupRestoreViewModel.Event.ConfirmRestore -> restoreConfirm = event.info
                 is BackupRestoreViewModel.Event.ExportDone -> scope.launch {
                     val msg = if (event.failedSections.isEmpty()) {

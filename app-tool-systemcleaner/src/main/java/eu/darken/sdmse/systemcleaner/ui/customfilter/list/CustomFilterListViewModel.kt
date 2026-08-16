@@ -148,6 +148,12 @@ class CustomFilterListViewModel @Inject constructor(
         events.tryEmit(Event.LaunchExport(intent))
     }
 
+    fun onExportAborted(error: Throwable? = null) = launch {
+        log(TAG) { "onExportAborted(error=$error)" }
+        stagedExport = null
+        error?.let { errorEvents.emit(it) }
+    }
+
     fun performExport(directoryUri: Uri?) = launch {
         if (directoryUri == null) {
             log(TAG, WARN) { "Export failed, no path picked" }
