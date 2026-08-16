@@ -8,6 +8,7 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -62,6 +63,7 @@ class AutomationExplorer @AssistedInject constructor(
 
         try {
             withTimeout(spec.executionTimeout.toMillis()) {
+                var abortReplays = 0
                 while (currentCoroutineContext().isActive) {
                     try {
                         plan(context)
@@ -70,6 +72,26 @@ class AutomationExplorer @AssistedInject constructor(
                     } catch (e: PlanAbortException) {
                         log(TAG, WARN) { "ABORT Plan due to ${e.asLog()}" }
                         throw e
+                    } catch (e: StepAbortException) {
+                        // Stepper turns a deliberate skip into a `break`, so this should only ever be
+                        // a genuine failure. Mirror its semantics anyway if one does reach us.
+                        if (e.treatAsSuccess) {
+                            log(TAG, WARN) { "Plan finished early, step skipped: ${e.asLog()}" }
+                            return@withTimeout
+                        }
+                        // The step declared itself unretryable, so replaying the plan re-runs the
+                        // same failing step. Allow a bounded number of replays in case the screen
+                        // was merely in a bad state, but don't keep going until executionTimeout:
+                        // that turns a decided failure into a 30s stall per target.
+                        if (abortReplays >= spec.executionRetryCount) {
+                            log(TAG, WARN) { "Step aborted unretryably, out of replays:\n${e.asLog()}" }
+                            throw e
+                        }
+                        abortReplays++
+                        log(TAG, WARN) {
+                            "Step aborted unretryably, replay $abortReplays/${spec.executionRetryCount}:\n${e.asLog()}"
+                        }
+                        delay(300)
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Plan failed, retrying:\n${e.asLog()}" }
                         delay(300)
