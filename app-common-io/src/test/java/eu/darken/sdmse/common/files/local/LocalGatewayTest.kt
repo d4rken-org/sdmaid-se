@@ -296,7 +296,8 @@ class LocalGatewayTest : BaseTest() {
                 }
 
                 collected.map { it.name } shouldBe listOf("child.txt")
-                lookupThreads shouldBe listOf("gateway-io")
+                // The coroutines debug agent appends " @coroutine#N" to thread names, match the prefix.
+                lookupThreads.map { it.substringBefore(" @coroutine") } shouldBe listOf("gateway-io")
             } finally {
                 ioExecutor.shutdownNow()
                 collectorExecutor.shutdownNow()
