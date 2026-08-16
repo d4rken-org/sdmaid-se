@@ -155,6 +155,15 @@ suspend fun PackageManager.freeStorageAndNotify(
                     object : IPackageDataObserver.Stub() {
                         @Throws(RemoteException::class)
                         override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
+                            // `succeeded` is deliberately logged but NOT propagated. It reports
+                            // whether the requested amount of space was freed, and we ask for
+                            // Long.MAX_VALUE, so it is false even when the trim cleared everything
+                            // it could. Observed on a device where caches provably went to zero
+                            // (including packages we have no filesystem access to) while this
+                            // still reported false. Turning it into a failure would send every
+                            // package to the accessibility fallback, minutes of automation for
+                            // work that already succeeded. Judge the outcome by re-reading the
+                            // cache sizes instead, as InaccessibleDeleter does.
                             log(VERBOSE) { "freeStorageAndNotify() $packageName -> $succeeded" }
                             continuation.resume(true)
                         }
