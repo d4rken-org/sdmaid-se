@@ -226,31 +226,30 @@ class InaccessibleDeleterTest : BaseTest() {
     }
 
     @Test
-    fun `every system app is polled, not just the first batch`() = runTest {
-        // A per-target coroutine fan-out with a default concurrency limit would starve targets
-        // past the limit: they'd never be polled and would fall back to a single stale read.
-        val junks = (1..40).map { createAppJunk("com.example.system$it", cacheSize = 581632, isSystemApp = true) }
-        val snapshot = createSnapshot(*junks.toTypedArray())
+    fun `targets that never settle do not starve the rest of the batch`() = runTest {
+        // A per-target coroutine fan-out (flatMapMerge defaults to concurrency 16) would let the
+        // first 16 hold every slot until the deadline, so the remaining targets would never be
+        // sampled at all. Rounds must sample every pending target every time.
+        val stuck = (1..16).map { createAppJunk("com.example.stuck$it", cacheSize = 581632, isSystemApp = true) }
+        val settling = (1..24).map { createAppJunk("com.example.settling$it", cacheSize = 581632, isSystemApp = true) }
+        val snapshot = createSnapshot(*(stuck + settling).toTypedArray())
 
         every { adbManager.useAdb } returns flowOf(true)
-        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
         coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
-        coEvery { automationManager.submit(match { it is ClearCacheTask }) } returns ClearCacheTask.Result(
-            successful = emptySet(),
-            failed = emptyMap(),
-        )
 
-        // Each target reads stale twice, then settles at a smaller but NON-zero size. Non-zero
-        // matters: the caller's zero-only guard can't rescue a target that was never polled here.
         val reads = mutableMapOf<String, Int>()
         coEvery { inaccessibleCacheProvider.determineCache(any()) } answers {
             val pkg = firstArg<Installed>()
             val seen = reads.merge(pkg.packageName, 1, Int::plus)!!
+            // "stuck" never changes. "settling" drops to a smaller but NON-zero size after a few
+            // reads; non-zero matters because the caller's zero-only guard must not be what
+            // rescues them, otherwise this wouldn't be testing the polling at all.
+            val settled = pkg.packageName.startsWith("com.example.settling") && seen > 2
             InaccessibleCache(
                 identifier = InstallId(pkg.id, testHandle),
                 isSystemApp = true,
                 itemCount = 1,
-                totalSize = if (seen <= 2) 581632L else 1024L,
+                totalSize = if (settled) 1024L else 581632L,
                 publicSize = 0L,
                 theoreticalPaths = emptySet(),
             )
@@ -259,12 +258,12 @@ class InaccessibleDeleterTest : BaseTest() {
         val result = deleter.deleteInaccessible(
             snapshot = snapshot,
             targetPkgs = null,
-            useAutomation = true,
+            useAutomation = false,
             isBackground = false,
         )
 
-        junks.forEach { result.succesful shouldContain it.identifier }
-        coVerify(exactly = 0) { automationManager.submit(any()) }
+        settling.forEach { result.succesful shouldContain it.identifier }
+        stuck.forEach { result.succesful shouldNotContain it.identifier }
     }
 
     @Test

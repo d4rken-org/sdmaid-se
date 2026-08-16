@@ -414,6 +414,9 @@ class InaccessibleDeleter @Inject constructor(
                 }
             }
         } catch (e: Exception) {
+            // Don't swallow cancellation of our own scope (e.g. user cancelled the task).
+            // This block suspends for seconds, so a cancel landing inside it is not unlikely.
+            currentCoroutineContext().ensureActive()
             log(TAG, ERROR) { "Trimming caches failed: ${e.asLog()}" }
             trimCandidates.forEach {
                 failedTargets[it.identifier] = IllegalStateException("trimCache failed, multi:${it.identifier}")

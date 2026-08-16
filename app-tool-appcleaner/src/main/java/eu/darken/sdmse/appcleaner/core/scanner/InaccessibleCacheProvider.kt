@@ -14,6 +14,8 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageStatsManager2
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import javax.inject.Inject
 
 
@@ -39,6 +41,9 @@ class InaccessibleCacheProvider @Inject constructor(
             log(TAG, WARN) { "Don't have permission to query app size for ${pkg.id}: $e" }
             return null
         } catch (e: Exception) {
+            // Don't swallow cancellation of our own scope: callers poll this in a loop under a
+            // deadline, and a null here means "query failed", not "we gave up waiting".
+            currentCoroutineContext().ensureActive()
             log(TAG, ERROR) { "Unexpected error when querying app size for ${pkg.id}: ${e.asLog()}" }
             return null
         }
