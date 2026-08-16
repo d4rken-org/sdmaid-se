@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.storage.StorageId
+import kotlinx.coroutines.flow.toList
 import dagger.Reusable
 import javax.inject.Inject
 
@@ -85,7 +86,7 @@ class SystemStorageScanner @Inject constructor(
         return try {
             val dataPath = LocalPath.build("data")
             val dataLookup = gatewaySwitch.lookup(dataPath, type = GatewaySwitch.Type.AUTO)
-            val dataChildren = gatewaySwitch.listFiles(dataPath)
+            val dataChildren = gatewaySwitch.listFiles(dataPath).toList()
             val filteredChildren = dataChildren.filter { it.name !in excludedDirs }
 
             log(TAG) { "walkData(): children=${dataChildren.map { it.name }}, filtered=${filteredChildren.map { it.name }}" }
