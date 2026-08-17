@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.coroutine.runDetachedWithTimeout
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -39,6 +41,7 @@ import javax.inject.Singleton
 @Singleton
 class ShizukuSetupModule @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
+    private val dispatcherProvider: DispatcherProvider,
     private val adbSettings: AdbSettings,
     private val shizukuManager: ShizukuManager,
     private val dataAreaManager: DataAreaManager,
@@ -46,6 +49,9 @@ class ShizukuSetupModule @Inject constructor(
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
+
+    /** Overridden in tests to keep the wedge case fast, never in production. */
+    internal var pingTimeoutMs: Long = PING_TIMEOUT_MS
 
     // Last known concrete Result, kept so re-subscription (e.g. returning to the dashboard) can emit it
     // immediately instead of regressing to Loading and flickering the setup card while the availability
@@ -85,9 +91,18 @@ class ShizukuSetupModule @Inject constructor(
             shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) },
             shizukuManager.shizukuBinder.onStart { emit(null) },
         ) { _, _, binder ->
+            // pingBinder() is a synchronous PING_TRANSACTION: against a Shizuku server that is alive
+            // but not servicing requests it never returns, and an unbounded wedge here stalls this
+            // combine so the card stays on Loading forever - the exact symptom the ADB-side timeouts
+            // guard against. Detached + bounded, same trade as ShizukuWrapper.isGranted().
+            val basicService = binder?.let { b ->
+                appScope.runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { b.pingBinder() }
+                    ?: false.also { log(TAG) { "pingBinder() did not respond within ${pingTimeoutMs}ms" } }
+            } ?: false
+
             @Suppress("USELESS_CAST")
             baseState.copy(
-                basicService = binder?.pingBinder() ?: false,
+                basicService = basicService,
                 ourService = shizukuManager.isOurServiceAvailable(),
             ) as SetupModule.State
         }
@@ -179,5 +194,9 @@ class ShizukuSetupModule @Inject constructor(
 
     companion object {
         private val TAG = logTag("Setup", "ADB", "Shizuku", "Module")
+
+        // Generous on purpose: a false timeout would report a working Shizuku as unavailable, which is
+        // worse than waiting. This only has to turn "never" into "eventually".
+        internal const val PING_TIMEOUT_MS = 15 * 1000L
     }
 }

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.adb.AdbException
 import eu.darken.sdmse.common.adb.service.AdbHostOptions
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.coroutine.runDetachedWithTimeout
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -44,8 +45,16 @@ class AdbHostLauncher @Inject constructor(
         hostClass: KClass<Host>,
         options: AdbHostOptions,
         connectTimeoutMs: Long = CONNECT_TIMEOUT_MS,
+        apiVersionTimeoutMs: Long = API_VERSION_TIMEOUT_MS,
     ): Flow<ConnectionWrapper<Service, Host>> = callbackFlow {
-        if (serviceFactory.apiVersion() < 10) throw IllegalStateException("Shizuku API10+ required")
+        // Shizuku.getVersion() only returns a cached field once the server has pushed its version via
+        // bindApplication(); until then it is a synchronous binder transaction that wedges against an
+        // unresponsive server. This runs before the connect watchdog below is armed, so it needs its
+        // own bound. Detached: a wedged binder thread leaks rather than pinning every collector.
+        val apiVersion = appScope.runDetachedWithTimeout(dispatcherProvider.IO, apiVersionTimeoutMs) {
+            serviceFactory.apiVersion()
+        } ?: throw AdbException("Shizuku getVersion() did not respond within ${apiVersionTimeoutMs}ms")
+        if (apiVersion < 10) throw IllegalStateException("Shizuku API10+ required")
 
         // Completed only once a connection was actually handed downstream, this is what the
         // connect-watchdog below waits for.
@@ -189,5 +198,10 @@ class AdbHostLauncher @Inject constructor(
         // the same probe against the same upstream Shizuku defect where bindUserService() returns but
         // the connection callback never fires (MediaTek/HyperOS, Shizuku 13.6.0).
         internal const val CONNECT_TIMEOUT_MS = 15 * 1000L
+
+        // Budget for the getVersion() round-trip. Same size as CONNECT_TIMEOUT_MS on purpose: this only
+        // has to turn "never returns" into "eventually fails", and timing out a slow-but-working
+        // Shizuku would break a setup that currently works.
+        internal const val API_VERSION_TIMEOUT_MS = 15 * 1000L
     }
 }
