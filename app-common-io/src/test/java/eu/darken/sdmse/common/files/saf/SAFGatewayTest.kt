@@ -1,26 +1,692 @@
 package eu.darken.sdmse.common.files.saf
 
-import androidx.test.ext.junit.runners.AndroidJUnit4
-import io.mockk.mockk
+import android.provider.DocumentsContract.Document
+import android.system.Os
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.Ownership
+import eu.darken.sdmse.common.files.Permissions
+import eu.darken.sdmse.common.files.ReadException
+import eu.darken.sdmse.common.files.WriteException
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.every
+import io.mockk.just
+import io.mockk.mockkStatic
+import io.mockk.runs
+import io.mockk.unmockkAll
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
+import okio.buffer
+import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
-import testhelper.EmptyApp
-import testhelpers.coroutine.TestDispatcherProvider
+import testhelpers.BaseTest
+import testhelpers.TestApplication
 import testhelpers.coroutine.runTest2
+import java.time.Instant
 
-@RunWith(AndroidJUnit4::class)
-@Config(sdk = [29], application = EmptyApp::class)
-class SAFGatewayTest {
+@RunWith(RobolectricTestRunner::class)
+@Config(sdk = [33], application = TestApplication::class)
+class SAFGatewayTest : BaseTest() {
+
+    @After
+    fun tearDown() {
+        // BaseTest's cleanup is a JUnit5 @AfterAll and doesn't run here.
+        unmockkAll()
+        LegacyQueryShimProvider.unregisterAll()
+    }
+
+    private fun TestScope.harness(
+        provider: FakeDocumentsProvider = FakeDocumentsProvider.tree(),
+        granted: List<String> = emptyList(),
+    ) = SafTestHarness(appScope = this, provider = provider, grantedSegments = granted)
+
+    /** A path on a volume we hold no Uri permission for. */
+    private fun ungrantedPath(vararg segments: String) =
+        SAFPath.build("content://${SafTestHarness.DEFAULT_AUTHORITY}/tree/ungranted%3A", *segments)
+
+    // ------------------------------------------------------------------------------- exists/can*
 
     @Test
-    fun `init`() = runTest2(autoCancel = true) {
-        val dispatcherProvider = TestDispatcherProvider()
-        val safGateway = SAFGateway(
-            mockk(),
-            mockk(),
-            this,
-            dispatcherProvider
+    fun `exists reports presence`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+
+        harness.gateway.exists(harness.safPath("dir", "file.txt")) shouldBe true
+        harness.gateway.exists(harness.safPath("dir")) shouldBe true
+        harness.gateway.exists(harness.safPath("dir", "ghost.txt")) shouldBe false
+    }
+
+    @Test
+    fun `exists throws when we hold no permission`() = runTest2(autoCancel = true) {
+        val harness = harness()
+
+        // Asymmetry worth knowing: canRead/canWrite map a missing grant to false, exists raises.
+        val error = shouldThrow<ReadException> { harness.gateway.exists(ungrantedPath("file.txt")) }
+        error.cause.shouldBeInstanceOf<MissingUriPermissionException>()
+    }
+
+    @Test
+    fun `canRead and canWrite`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("readable.txt", flags = 0)
+                file("writable.txt", flags = Document.FLAG_SUPPORTS_WRITE)
+            }
         )
+
+        harness.gateway.canRead(harness.safPath("readable.txt")) shouldBe true
+        harness.gateway.canRead(harness.safPath("ghost.txt")) shouldBe false
+
+        harness.gateway.canWrite(harness.safPath("writable.txt")) shouldBe true
+        harness.gateway.canWrite(harness.safPath("readable.txt")) shouldBe false
+    }
+
+    @Test
+    fun `canRead and canWrite map a missing permission to false`() = runTest2(autoCancel = true) {
+        val harness = harness()
+
+        harness.gateway.canRead(ungrantedPath("file.txt")) shouldBe false
+        harness.gateway.canWrite(ungrantedPath("file.txt")) shouldBe false
+    }
+
+    // ---------------------------------------------------------------------------------- lookups
+
+    @Test
+    fun `lookup a file and a directory`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                dir("dir", lastModified = 1000L)
+                file("dir/file.txt", size = 512L, lastModified = 2000L)
+            }
+        )
+
+        harness.gateway.lookup(harness.safPath("dir", "file.txt")).apply {
+            lookedUp shouldBe harness.safPath("dir", "file.txt")
+            fileType shouldBe FileType.FILE
+            size shouldBe 512L
+            modifiedAt shouldBe Instant.ofEpochMilli(2000L)
+        }
+
+        harness.gateway.lookup(harness.safPath("dir")).apply {
+            fileType shouldBe FileType.DIRECTORY
+            modifiedAt shouldBe Instant.ofEpochMilli(1000L)
+        }
+    }
+
+    @Test
+    fun `lookup an unreadable document`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+
+        shouldThrow<ReadException> { harness.gateway.lookup(harness.safPath("dir", "ghost.txt")) }
+    }
+
+    @Test
+    fun `lookupExtended wraps the lookup`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt", size = 512L) })
+
+        harness.gateway.lookupExtended(harness.safPath("dir", "file.txt")).apply {
+            lookedUp shouldBe harness.safPath("dir", "file.txt")
+            fileType shouldBe FileType.FILE
+            size shouldBe 512L
+        }
+    }
+
+    @Test
+    fun `listFiles emits the children`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/one.txt")
+                dir("dir/sub")
+                file("other.txt")
+            }
+        )
+
+        harness.gateway.listFiles(harness.safPath("dir")).toList() shouldContainExactly listOf(
+            harness.safPath("dir", "one.txt"),
+            harness.safPath("dir", "sub"),
+        )
+    }
+
+    @Test
+    fun `lookupFiles and lookupFilesExtended emit the children`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/one.txt", size = 1L)
+                dir("dir/sub")
+            }
+        )
+
+        harness.gateway.lookupFiles(harness.safPath("dir")).toList().map { it.lookedUp } shouldContainExactly listOf(
+            harness.safPath("dir", "one.txt"),
+            harness.safPath("dir", "sub"),
+        )
+
+        harness.gateway.lookupFilesExtended(harness.safPath("dir")).toList()
+            .map { it.lookedUp } shouldContainExactly listOf(
+            harness.safPath("dir", "one.txt"),
+            harness.safPath("dir", "sub"),
+        )
+    }
+
+    @Test
+    fun `lookupFiles falls back to the uri when the provider reports no display name`() =
+        runTest2(autoCancel = true) {
+            val harness = harness(FakeDocumentsProvider.tree { file("dir/nameless.txt", nullDisplayName = true) })
+
+            harness.gateway.lookupFiles(harness.safPath("dir")).toList()
+                .map { it.lookedUp } shouldContainExactly listOf(harness.safPath("dir", "nameless.txt"))
+        }
+
+    @Test
+    fun `listing errors are refined to ReadException`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/one.txt") })
+        harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
+
+        shouldThrow<ReadException> { harness.gateway.listFiles(harness.safPath("dir")) }
+        shouldThrow<ReadException> { harness.gateway.lookupFiles(harness.safPath("dir")) }
+        shouldThrow<ReadException> { harness.gateway.lookupFilesExtended(harness.safPath("dir")) }
+    }
+
+    @Test
+    fun `lookupFiles enumerates eagerly`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/one.txt")
+                file("dir/two.txt")
+            }
+        )
+
+        val flow = harness.gateway.lookupFiles(harness.safPath("dir"))
+
+        // The child listing is a snapshot taken at call time, before anything collects.
+        harness.provider.queriedChildren shouldContainExactly listOf("root:dir")
+        flow.toList().size shouldBe 2
+    }
+
+    // ------------------------------------------------------------------------------------- walk
+
+    private fun walkTree() = FakeDocumentsProvider.tree {
+        dir("dirA")
+        file("dirA/fileA1")
+        file("dirA/sub/fileS1")
+        dir("dirB")
+        file("dirB/fileB1")
+        file("fileRoot")
+    }
+
+    @Test
+    fun `walk emits the whole tree`() = runTest2(autoCancel = true) {
+        val harness = harness(walkTree())
+
+        harness.gateway.walk(harness.safPath()).toList().map { it.lookedUp } shouldContainExactly listOf(
+            harness.safPath("dirA"),
+            harness.safPath("dirB"),
+            harness.safPath("fileRoot"),
+            harness.safPath("dirB", "fileB1"),
+            harness.safPath("dirA", "fileA1"),
+            harness.safPath("dirA", "sub"),
+            harness.safPath("dirA", "sub", "fileS1"),
+        )
+    }
+
+    @Test
+    fun `walk on a file emits just that file`() = runTest2(autoCancel = true) {
+        val harness = harness(walkTree())
+
+        harness.gateway.walk(harness.safPath("fileRoot")).toList()
+            .map { it.lookedUp } shouldContainExactly listOf(harness.safPath("fileRoot"))
+    }
+
+    @Test
+    fun `walk skips what onFilter rejects, including its subtree`() = runTest2(autoCancel = true) {
+        val harness = harness(walkTree())
+        val options = APathGateway.WalkOptions<SAFPath, SAFPathLookup>(
+            onFilter = { it.name != "dirA" },
+        )
+
+        harness.gateway.walk(harness.safPath(), options).toList()
+            .map { it.lookedUp } shouldContainExactly listOf(
+            harness.safPath("dirB"),
+            harness.safPath("fileRoot"),
+            harness.safPath("dirB", "fileB1"),
+        )
+    }
+
+    @Test
+    fun `walk continues when onError allows it`() = runTest2(autoCancel = true) {
+        val harness = harness(walkTree())
+        harness.provider.failChildQueryFor["root:dirA"] = RuntimeException("provider is having a bad day")
+        val seenErrors = mutableListOf<SAFPathLookup>()
+        val options = APathGateway.WalkOptions<SAFPath, SAFPathLookup>(
+            onError = { lookup, _ ->
+                seenErrors.add(lookup)
+                true
+            },
+        )
+
+        harness.gateway.walk(harness.safPath(), options).toList()
+            .map { it.lookedUp } shouldContainExactly listOf(
+            harness.safPath("dirA"),
+            harness.safPath("dirB"),
+            harness.safPath("fileRoot"),
+            harness.safPath("dirB", "fileB1"),
+        )
+        seenErrors.map { it.lookedUp } shouldContainExactly listOf(harness.safPath("dirA"))
+    }
+
+    @Test
+    fun `walk aborts when onError rejects`() = runTest2(autoCancel = true) {
+        val harness = harness(walkTree())
+        harness.provider.failChildQueryFor["root:dirA"] = RuntimeException("provider is having a bad day")
+        val options = APathGateway.WalkOptions<SAFPath, SAFPathLookup>(
+            onError = { _, _ -> false },
+        )
+
+        shouldThrow<ReadException> { harness.gateway.walk(harness.safPath(), options).toList() }
+    }
+
+    @Test
+    fun `walk ignores pathDoesNotContain`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D7): SAFGateway.walk reads only onFilter/onError, so the
+        // exclusions AppScanner passes silently do not apply on SAF routed walks. The local gateway
+        // honors them (FileOpsHost.walkStream).
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("keepme/kept.txt")
+                file("skipme/skipped.txt")
+            }
+        )
+        val options = APathGateway.WalkOptions<SAFPath, SAFPathLookup>(
+            pathDoesNotContain = setOf("skipme"),
+        )
+
+        harness.gateway.walk(harness.safPath(), options).toList()
+            .map { it.lookedUp } shouldContainExactly listOf(
+            harness.safPath("keepme"),
+            harness.safPath("skipme"),
+            harness.safPath("skipme", "skipped.txt"),
+            harness.safPath("keepme", "kept.txt"),
+        )
+    }
+
+    @Test
+    fun `walk cancellation is not converted into a ReadException`() = runTest2(autoCancel = true) {
+        val harness = harness(walkTree())
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onChildQuery = { scope.cancel() }
+        var caught: Throwable? = null
+
+        val job = scope.launch {
+            try {
+                harness.gateway.walk(harness.safPath()).toList()
+            } catch (e: Throwable) {
+                caught = e
+            }
+        }
+        job.join()
+
+        caught.shouldBeInstanceOf<CancellationException>()
+    }
+
+    // --------------------------------------------------------------------------------------- du
+
+    @Test
+    fun `du sums the tree`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("a.txt", size = 100L)
+                file("dir/b.txt", size = 200L)
+                file("dir/sub/c.txt", size = 300L)
+            }
+        )
+
+        harness.gateway.du(harness.safPath()) shouldBe 600L
+        harness.gateway.du(harness.safPath("dir")) shouldBe 500L
+        harness.gateway.du(harness.safPath("a.txt")) shouldBe 100L
+    }
+
+    @Test
+    fun `du swallows enumeration errors when abortOnError is false`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("a.txt", size = 100L)
+                file("dir/b.txt", size = 200L)
+            }
+        )
+        harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
+
+        harness.gateway.du(
+            harness.safPath(),
+            APathGateway.DuOptions(abortOnError = false),
+        ) shouldBe 100L
+    }
+
+    @Test
+    fun `du ignores abortOnError`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D8): DuOptions.abortOnError is never read, the enumeration
+        // failure is swallowed either way and du reports a partial total as if it were complete.
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("a.txt", size = 100L)
+                file("dir/b.txt", size = 200L)
+            }
+        )
+        harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
+
+        harness.gateway.du(
+            harness.safPath(),
+            APathGateway.DuOptions(abortOnError = true),
+        ) shouldBe 100L
+    }
+
+    // ------------------------------------------------------------------------------------- file
+
+    @Test
+    fun `file opens a read handle`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "hello-saf") })
+
+        val handle = harness.gateway.file(harness.safPath("file.txt"), readWrite = false)
+        val content = handle.use { it.source().buffer().readUtf8() }
+
+        content shouldBe "hello-saf"
+        harness.provider.openedDocuments shouldContainExactly listOf("root:file.txt" to "r")
+    }
+
+    @Test
+    fun `file refuses readWrite on a non-writable document`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "hello-saf", flags = 0) })
+
+        shouldThrow<ReadException> { harness.gateway.file(harness.safPath("file.txt"), readWrite = true) }
+    }
+
+    // -------------------------------------------------------------------------------- create*
+
+    @Test
+    fun `createFile and createDir with a single segment`() = runTest2(autoCancel = true) {
+        val harness = harness()
+
+        harness.gateway.createFile(harness.safPath("new.bin"))
+        harness.provider.node("new.bin")!!.mimeType shouldBe "application/octet-stream"
+
+        harness.gateway.createDir(harness.safPath("newdir"))
+        harness.provider.node("newdir")!!.mimeType shouldBe Document.MIME_TYPE_DIR
+    }
+
+    @Test
+    fun `createFile and createDir refuse an existing target`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("file.txt")
+                dir("dir")
+            }
+        )
+
+        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("file.txt")) }
+        shouldThrow<WriteException> { harness.gateway.createDir(harness.safPath("dir")) }
+    }
+
+    @Test
+    fun `createFile on the tree root itself`() = runTest2(autoCancel = true) {
+        val harness = harness()
+
+        // The tree root exists, so the "no segments" guard inside createDocumentFile is unreachable here.
+        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath()) }
+    }
+
+    @Test
+    fun `createFile on a tree root the provider does not know`() = runTest2(autoCancel = true) {
+        val harness = harness()
+        harness.provider.removeNode()
+
+        val error = shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath()) }
+        error.cause.shouldBeInstanceOf<IllegalArgumentException>()
+    }
+
+    @Test
+    fun `createFile below an existing directory`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D3): createDocumentFile walks segment *suffixes* instead of
+        // ancestors, so it looks for a top level "new.bin" as the parent of "dir/new.bin" and fails.
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+
+        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("dir", "new.bin")) }
+
+        harness.provider.hasNode("dir", "new.bin") shouldBe false
+    }
+
+    @Test
+    fun `createFile with all ancestors present`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D3): even with every ancestor in place the suffix walk misses.
+        val harness = harness(FakeDocumentsProvider.tree { dir("a/b") })
+
+        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("a", "b", "new.bin")) }
+
+        harness.provider.hasNode("a", "b", "new.bin") shouldBe false
+    }
+
+    @Test
+    fun `createFile with missing ancestors`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D3): the missing ancestors are not created either.
+        val harness = harness()
+
+        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("a", "b", "new.bin")) }
+
+        harness.provider.hasNode("a") shouldBe false
+    }
+
+    @Test
+    fun `createFile with a file blocking an ancestor`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("a") })
+
+        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("a", "b", "new.bin")) }
+
+        harness.provider.hasNode("a", "b") shouldBe false
+    }
+
+    @Test
+    fun `createFile under a grant that is narrower than the volume`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D3): with a grant on Android/data the suffix walk resolves
+        // segments the grant doesn't cover, which raises MissingUriPermissionException.
+        val harness = harness(
+            provider = FakeDocumentsProvider.tree { dir("Android/data") },
+            granted = listOf("Android", "data"),
+        )
+
+        val error = shouldThrow<WriteException> {
+            harness.gateway.createFile(harness.safPath("Android", "data", "pkg", "cache.bin"))
+        }
+
+        error.cause.shouldBeInstanceOf<MissingUriPermissionException>()
+        harness.provider.hasNode("Android", "data", "pkg") shouldBe false
+    }
+
+    // ----------------------------------------------------------------------------------- delete
+
+    @Test
+    fun `delete a single file`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+
+        harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+
+        harness.provider.hasNode("dir", "file.txt") shouldBe false
+        harness.provider.hasNode("dir") shouldBe true
+    }
+
+    @Test
+    fun `delete leaves the directory skeleton behind`() = runTest2(autoCancel = true) {
+        // documents a KNOWN DEFECT (D1) that is deliberately NOT fixed in this change: SAFGateway.delete
+        // only ever calls delete() on non-directories, so deleting a folder empties it and leaves every
+        // directory in place, including the target. The fix is destructive enough that it is being held
+        // back until it can be verified on a device against a real ExternalStorageProvider. Do not read
+        // these assertions as intended behavior.
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/sub/file2.txt")
+            }
+        )
+        harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.CASCADE
+
+        harness.gateway.delete(harness.safPath("dir"), recursive = true)
+
+        harness.provider.hasNode("dir") shouldBe true
+        harness.provider.hasNode("dir", "sub") shouldBe true
+        harness.provider.hasNode("dir", "file1.txt") shouldBe false
+        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe false
+        harness.provider.deletedDocuments shouldContainExactly listOf(
+            "root:dir/file1.txt",
+            "root:dir/sub/file2.txt",
+        )
+    }
+
+    @Test
+    fun `delete recurses even when recursive is false`() = runTest2(autoCancel = true) {
+        // documents a KNOWN DEFECT (D2) that is deliberately NOT fixed in this change: the recursive
+        // parameter is only logged, never read. It is held back together with D1 (see above), because
+        // the guard it would need only makes sense once directories are actually deleted.
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/sub/file2.txt")
+            }
+        )
+
+        harness.gateway.delete(harness.safPath("dir"), recursive = false)
+
+        harness.provider.hasNode("dir", "file1.txt") shouldBe false
+        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe false
+    }
+
+    @Test
+    fun `delete without a permission surfaces as ReadException`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D9): CorpseFinder catches WriteException around its delete calls,
+        // so a ReadException escapes the per corpse handler and aborts the whole run.
+        val harness = harness()
+
+        shouldThrow<ReadException> { harness.gateway.delete(ungrantedPath("file.txt"), recursive = true) }
+    }
+
+    @Test
+    fun `delete of a missing target surfaces as ReadException`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D9): the initial lookup runs outside any write error handling.
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+
+        shouldThrow<ReadException> { harness.gateway.delete(harness.safPath("dir", "ghost.txt"), recursive = true) }
+    }
+
+    @Test
+    fun `delete with a failing child enumeration surfaces as ReadException`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D9).
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
+
+        shouldThrow<ReadException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
+    }
+
+    @Test
+    fun `delete with a child vanishing mid traversal surfaces as ReadException`() = runTest2(autoCancel = true) {
+        // documents suspect behavior (D9).
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/file2.txt")
+            }
+        )
+        harness.provider.onChildQuery = { harness.provider.removeNode("dir", "file2.txt") }
+
+        shouldThrow<ReadException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
+    }
+
+    @Test
+    fun `delete failures surface as WriteException`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        harness.provider.failNextDeleteWith = IllegalStateException("provider is having a bad day")
+
+        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = true) }
+    }
+
+    @Test
+    fun `delete stays cancellable`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/file2.txt")
+            }
+        )
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onChildQuery = { scope.cancel() }
+        var caught: Throwable? = null
+
+        val job = scope.launch {
+            try {
+                harness.gateway.delete(harness.safPath("dir"), recursive = true)
+            } catch (e: Throwable) {
+                caught = e
+            }
+        }
+        job.join()
+
+        caught.shouldBeInstanceOf<CancellationException>()
+    }
+
+    // ------------------------------------------------------------------------------ misc writes
+
+    @Test
+    fun `createSymlink is unsupported`() = runTest2(autoCancel = true) {
+        val harness = harness()
+
+        shouldThrow<UnsupportedOperationException> {
+            harness.gateway.createSymlink(harness.safPath("link"), harness.safPath("target"))
+        }
+    }
+
+    @Test
+    fun `setModifiedAt can not succeed over SAF`() = runTest2(autoCancel = true) {
+        // documents D5: DocumentsProvider.update is final and throws, there is no DocumentsContract
+        // API to set a modification time, so there is nothing to fix here.
+        val harness = harness(FakeDocumentsProvider.tree { file("file.txt", lastModified = 1000L) })
+
+        harness.gateway.setModifiedAt(harness.safPath("file.txt"), Instant.ofEpochMilli(9999L)) shouldBe false
+    }
+
+    @Test
+    fun `setPermissions and setOwnership delegate to the document`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "12345") })
+        mockkStatic(Os::class)
+        every { Os.fchmod(any(), any()) } just runs
+        every { Os.fchown(any(), any(), any()) } just runs
+
+        harness.gateway.setPermissions(harness.safPath("file.txt"), Permissions(0b111000000)) shouldBe true
+        harness.gateway.setOwnership(harness.safPath("file.txt"), Ownership(1000L, 1000L)) shouldBe true
+
+        harness.provider.openedDocuments shouldContainExactly listOf(
+            "root:file.txt" to "w",
+            "root:file.txt" to "w",
+        )
+    }
+
+    @Test
+    fun `write failures are wrapped into WriteException`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+
+        // openPFD sits outside the try in SAFDocFile, so the open failure propagates to the gateway.
+        shouldThrow<WriteException> {
+            harness.gateway.setPermissions(harness.safPath("dir"), Permissions(0b111000000))
+        }
+        shouldThrow<WriteException> {
+            harness.gateway.setOwnership(harness.safPath("dir"), Ownership(1000L, 1000L))
+        }
+        shouldThrow<WriteException> {
+            harness.gateway.setModifiedAt(ungrantedPath("file.txt"), Instant.ofEpochMilli(9999L))
+        }
     }
 }
