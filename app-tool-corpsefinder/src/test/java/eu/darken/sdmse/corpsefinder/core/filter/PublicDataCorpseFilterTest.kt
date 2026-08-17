@@ -9,6 +9,10 @@ class PublicDataCorpseFilterTest : StandardCorpseFilterTest() {
     override val areaType = DataArea.Type.PUBLIC_DATA
     override val filterClass = PublicDataCorpseFilter::class
 
+    // PublicDataCSI falls back to dirname=pkgname, so it always names an owner and never reports an
+    // unknown one. Ownerless public data cannot happen.
+    override val defaultPreset = Preset.StaleOwner()
+
     override fun create() = PublicDataCorpseFilter(
         areaManager = areaManager,
         gatewaySwitch = gatewaySwitch,
@@ -16,6 +20,14 @@ class PublicDataCorpseFilterTest : StandardCorpseFilterTest() {
         corpseFinderSettings = corpseFinderSettings,
         exclusionManager = exclusionManager,
     )
+
+    @Test fun `keeper risk gating`() = runTest2 {
+        assertKeeperGating()
+    }
+
+    @Test fun `common risk gating`() = runTest2 {
+        assertCommonGating()
+    }
 
     @Test fun `scans without root or adb below API 33`() = runTest2 {
         fakeSdk(32)

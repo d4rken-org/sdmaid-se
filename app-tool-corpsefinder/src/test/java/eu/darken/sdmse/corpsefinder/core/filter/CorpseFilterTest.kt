@@ -155,6 +155,13 @@ abstract class CorpseFilterTest : BaseTest() {
     /** The two roots we register for [type], in a stable order. */
     fun areasOf(type: DataArea.Type): List<DataArea> = dataAreas.filter { it.type == type }
 
+    /**
+     * Mirrors the CSIs: every area a corpse filter scans is a blacklist location, except SDCARD
+     * where content has to be whitelisted through the clutter DB (see `SdcardCSI`).
+     */
+    val DataArea.Type.isBlackListLocation: Boolean
+        get() = this != DataArea.Type.SDCARD
+
     private val areaContents = mutableMapOf<APath, MutableList<APath>>()
     private val installedExclusions = mutableListOf<Exclusion>()
     private var fakeSdkLevel: Int = 0
@@ -223,15 +230,21 @@ abstract class CorpseFilterTest : BaseTest() {
         every { exclusionManager.exclusions } returns flowOf(holders)
     }
 
-    /** Ownership fixtures. The resulting [OwnerInfo] predicates are computed, never stubbed. */
+    /**
+     * Ownership fixtures. The resulting [OwnerInfo] predicates are computed, never stubbed.
+     *
+     * Not every shape is reachable in every area - the CSI that owns an area decides whether it can
+     * report no owner at all, an unknown owner, or clutter flags. Pick the preset that the area's
+     * CSI can actually produce.
+     */
     sealed interface Preset {
-        /** Blacklist area, nobody claims it -> corpse. */
+        /** Nobody claims it, not even a stale owner -> corpse in a blacklist area. */
         data object BlacklistOrphan : Preset
 
-        /** Whitelist area with a known but uninstalled owner -> corpse. */
-        data class WhitelistStale(val pkg: String = "com.stale.owner") : Preset
+        /** A known but uninstalled owner -> corpse. */
+        data class StaleOwner(val pkg: String = "com.stale.owner") : Preset
 
-        /** Blacklist area, CSI couldn't attribute it -> not a corpse. */
+        /** CSI knows someone owns it but can't name them -> not a corpse. */
         data object UnknownOwner : Preset
 
         /** Owner is currently installed -> not a corpse. */
@@ -263,7 +276,7 @@ abstract class CorpseFilterTest : BaseTest() {
         fileType: FileType = FileType.DIRECTORY,
         children: List<String> = emptyList(),
         forensicArea: DataArea = area,
-        blacklistArea: Boolean = preset !is Preset.WhitelistStale,
+        blacklistArea: Boolean = forensicArea.type.isBlackListLocation,
     ): Candidate {
         val path = area.path.child(name) as LocalPath
         registerContent(area, path)
@@ -305,7 +318,7 @@ abstract class CorpseFilterTest : BaseTest() {
         path: LocalPath,
         preset: Preset,
         area: DataArea,
-        blacklistArea: Boolean = preset !is Preset.WhitelistStale,
+        blacklistArea: Boolean = area.type.isBlackListLocation,
     ): OwnerInfo {
         val areaInfo = AreaInfo(
             file = path,
@@ -326,7 +339,7 @@ abstract class CorpseFilterTest : BaseTest() {
                 hasUnknownOwner = false,
             )
 
-            is Preset.WhitelistStale -> OwnerInfo(
+            is Preset.StaleOwner -> OwnerInfo(
                 areaInfo = areaInfo,
                 owners = setOf(owner(preset.pkg)),
                 installedOwners = emptySet(),

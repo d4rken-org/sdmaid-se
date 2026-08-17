@@ -9,6 +9,11 @@ class ArtProfilesCorpseFilterTest : StandardCorpseFilterTest() {
     override val areaType = DataArea.Type.ART_PROFILE
     override val filterClass = ArtProfilesCorpseFilter::class
 
+    // ArtProfileCSI runs a single DirNameCheck: an owner exists only when that package is installed.
+    // So the only corpse shape it can produce is "no owners at all" - a stale owner, an unknown
+    // owner and clutter flags (keeper/common) are all unreachable here, hence no such tests below.
+    override val defaultPreset = Preset.BlacklistOrphan
+
     override fun create() = ArtProfilesCorpseFilter(
         areaManager = areaManager,
         gatewaySwitch = gatewaySwitch,

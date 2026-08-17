@@ -9,6 +9,10 @@ class PublicMediaCorpseFilterTest : StandardCorpseFilterTest() {
     override val areaType = DataArea.Type.PUBLIC_MEDIA
     override val filterClass = PublicMediaCorpseFilter::class
 
+    // PublicMediaCSI falls back to dirname=pkgname, so it always names an owner and never reports an
+    // unknown one. Ownerless public media cannot happen.
+    override val defaultPreset = Preset.StaleOwner()
+
     override fun create() = PublicMediaCorpseFilter(
         areaManager = areaManager,
         gatewaySwitch = gatewaySwitch,
@@ -16,6 +20,14 @@ class PublicMediaCorpseFilterTest : StandardCorpseFilterTest() {
         corpseFinderSettings = corpseFinderSettings,
         exclusionManager = exclusionManager,
     )
+
+    @Test fun `keeper risk gating`() = runTest2 {
+        assertKeeperGating()
+    }
+
+    @Test fun `common risk gating`() = runTest2 {
+        assertCommonGating()
+    }
 
     @Test fun `scans without root or adb`() = runTest2 {
         hasRoot(false)
