@@ -6,6 +6,7 @@ import dagger.Reusable
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -27,24 +28,34 @@ class PathMapper @Inject constructor(
 
     suspend fun toSAFPath(localPath: LocalPath): SAFPath? {
         return try {
-            val osStorage = storageManager2.storageVolumes
+            // StorageVolumeX.directory is a live reflection backed getter, a second read can race an unmount
+            val volumes = storageManager2.storageVolumes
                 .onEach { log(TAG, VERBOSE) { "Trying to match volume $it against $localPath" } }
-                .filter { it.directory != null }
-                .firstOrNull { localPath.path.startsWith(it.directory!!.path) }
-                ?.also { log(TAG, VERBOSE) { "Target storageVolumes for $localPath is $it" } }
+                .mapNotNull { volume -> volume.directory?.let { volume to it } }
+
+            // Most specific volume wins. Volumes sharing a directory resolve to the first of them (list order).
+            // A volume directory of "/" isn't covered by the containment check, no storage volume mounts there.
+            val (osStorage, directory) = volumes
+                .filter { (_, dir) ->
+                    localPath.path == dir.path || localPath.path.startsWith("${dir.path}${File.separatorChar}")
+                }
+                .maxByOrNull { (_, dir) -> dir.path.length }
+                ?.also { log(TAG, VERBOSE) { "Target storageVolumes for $localPath is ${it.first}" } }
                 ?: return null
 
-            val prefixFreeFile = if (osStorage.directory!!.path != localPath.path) {
-                localPath.path.replace("${osStorage.directory!!.path}${File.separatorChar}", "")
-            } else {
-                // Permission is equal to path
-                ""
-            }
+            val prefixFreeFile = localPath.path
+                .substring(directory.path.length)
+                .trimStart(File.separatorChar)
 
             val segments = if (prefixFreeFile.isEmpty()) {
                 emptyList()
             } else {
                 prefixFreeFile.split(File.separator)
+            }
+
+            if (segments.hasTraversal()) {
+                log(TAG, WARN) { "Traversal components in $localPath, refusing to map" }
+                return null
             }
 
             SAFPath.build(
@@ -68,12 +79,25 @@ class PathMapper @Inject constructor(
                 ?.also { log(TAG) { "Target storageVolumes for $safPath is $it" } }
                 ?: return null
 
+            if (safPath.segments.hasTraversal()) {
+                log(TAG, WARN) { "Traversal components in $safPath, refusing to map" }
+                return null
+            }
+
             osStorage.directory?.toLocalPath()?.child(*safPath.segments.toTypedArray())
         } catch (e: Exception) {
             log(TAG, ERROR) { "Failed to map $safPath:${e.asLog()}" }
             null
         }
     }
+
+    /**
+     * A single segment can carry embedded separators, java.io.File acts on those, so check the effective components.
+     */
+    private fun List<String>.hasTraversal(): Boolean = this
+        .flatMap { it.split(File.separatorChar) }
+        .filter { it.isNotEmpty() }
+        .any { it == ".." || it == "." }
 
     fun takePermission(uri: Uri) {
         log(TAG, VERBOSE) { "takePermission(path=$uri)" }
