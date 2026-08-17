@@ -255,9 +255,10 @@ data class SAFDocFile(
                 if (crumbs.isNotEmpty() && !this.endsWith(Uri.encode(File.separator))) {
                     append(Uri.encode(File.separator))
                 }
-                crumbs.forEach {
-                    if (it != crumbs.first()) append(Uri.encode(File.separator))
-                    append(Uri.encode(it))
+                crumbs.forEachIndexed { index, crumb ->
+                    // By position, not by value: a later crumb may repeat the first one
+                    if (index != 0) append(Uri.encode(File.separator))
+                    append(Uri.encode(crumb))
                 }
             }
             return uriBuilder.toString().toUri()
