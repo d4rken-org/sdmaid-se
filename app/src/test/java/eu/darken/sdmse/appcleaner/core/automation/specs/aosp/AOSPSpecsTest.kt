@@ -51,6 +51,8 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         every { labels.getComputingSizeDynamic(any()) } returns emptySet()
         every { labels.getClearCacheDynamic(any()) } returns emptySet()
         every { labels.getClearCacheStatic(any()) } returns setOf("Clear cache")
+        every { labels.getCacheSizeLabelDynamic(any()) } returns emptySet()
+        every { labels.getCacheSizeLabelStatic(any()) } returns setOf("Cache")
     }
 
     @BeforeEach
