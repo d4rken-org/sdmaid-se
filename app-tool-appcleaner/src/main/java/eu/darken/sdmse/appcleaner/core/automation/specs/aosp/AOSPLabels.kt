@@ -30,8 +30,9 @@ class AOSPLabels @Inject constructor(
     fun getComputingSizeDynamic(acsContext: AutomationExplorer.Context): Set<String> =
         labels29Plus.getComputingSizeDynamic(acsContext)
 
-    // The storage page renders the cache size on every API level we support, the resource name
-    // has not changed, so there is no pre-29 variant to fall back to.
+    // No pre-29 variant: AOSPLabels14Plus has no cache size accessor to fall back to. Whether
+    // cache_size_label resolves on API 26-28 is untested; if it doesn't, the static default is
+    // used, and if that matches nothing the caller reads it as "unknown" and behaves as before.
     fun getCacheSizeLabelDynamic(acsContext: AutomationExplorer.Context): Set<String> =
         labels29Plus.getCacheSizeLabelDynamic(acsContext)
 
