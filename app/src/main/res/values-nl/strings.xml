@@ -22,18 +22,36 @@
     <string name="dashboard_hero_freed_residue">%1$s over</string>
     <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Niets is vrijgemaakt</string>
-    <string name="dashboard_hero_nothing_freed_caption">De opschoning is voltooid, maar geen van de gevonden gegevens kon verwijderd worden.</string>
-    <string name="dashboard_hero_nothing_freed_hint">Sommige gegevens kunnen alleen verwijderd worden met extra toegang, zoals de toegankelijkheidsservice of root.</string>
+    <string name="dashboard_hero_nothing_freed_caption">De opruimactie is voltooid, maar geen van de gevonden gegevens kon worden verwijderd.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Sommige gegevens kunnen alleen worden verwijderd met extra toegang, zoals via de toegankelijkheidsservice of root-toegang.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s gevonden</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d item vereist SD Maid Pro</item>
+        <item quantity="other">%d items vereisen SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Tik om te ontgrendelen met SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Nog meer kan worden vrijgemaakt met SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Vereist SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Gescand %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Vrijgemaakt %1$s</string>
-    <string name="dashboard_hero_nothing_freed_timestamp_description">Poging tot %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Poging %1$s</string>
     <string name="dashboard_settings_category">Dashboard</string>
     <string name="dashboard_motd_title">Een bericht van de ontwikkelaar</string>
     <string name="dashboard_settings_oneclick_title">Eén-tikmodus</string>
     <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="dashboard_settings_oneclick_tools_title">Hulpmiddelen met één tik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welke hulpmiddelen moeten worden opgenomen in bewerkingen met één tik?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Overzicht automatisch tonen</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Open het overzicht van de resultaten automatisch nadat je de actieknop van het dashboard hebt gebruikt. Als dit is uitgeschakeld, tik je op de grootte-chip in de onderbalk om het te openen.</string>
     <string name="dashboard_card_config_title">Dashboardkaarten</string>
     <string name="dashboard_card_config_desc">Configureer welke kaarten worden weergegeven en hun volgorde</string>
     <string name="dashboard_card_config_header_title">Sleep om te herordenen, schakel om te tonen/verbergen</string>
@@ -293,7 +311,7 @@
     <string name="debug_card_shizuku_test_action">Shizuku testen</string>
     <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Simulatiemodus is actief</string>
-    <string name="dashboard_dryrun_warning_body">Opschoning wordt gesimuleerd. Bestanden worden gescand en gerapporteerd, maar er wordt niets werkelijk verwijderd.</string>
+    <string name="dashboard_dryrun_warning_body">De opruimactie wordt gesimuleerd. Bestanden worden gescand en gerapporteerd, maar er wordt niets daadwerkelijk verwijderd.</string>
     <string name="dashboard_dryrun_warning_disable_action">Uitschakelen</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app gegevens</string>
     <string name="data_area_public_app_assets_official_label">Standaard openbare app-items</string>

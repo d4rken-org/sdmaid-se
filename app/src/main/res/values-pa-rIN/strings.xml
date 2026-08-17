@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">ਕੁਝ ਵੀ ਮੁਕਤ ਨਹੀਂ ਕੀਤਾ ਗਿਆ</string>
     <string name="dashboard_hero_nothing_freed_caption">ਸਫਾਈ ਪੂਰੀ ਹੋ ਗਈ, ਪਰ ਕੋਈ ਵੀ ਮਿਲਿਆ ਡੇਟਾ ਹਟਾਇਆ ਨਹੀਂ ਜਾ ਸਕਿਆ।</string>
     <string name="dashboard_hero_nothing_freed_hint">ਕੁਝ ਡੇਟਾ ਨੂੰ ਸਿਰਫ਼ ਵਾਧੂ ਪਹੁੰਚ ਦੇ ਨਾਲ ਹਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ, ਜਿਵੇਂ ਐਕਸੈਸਬਿਲਿਟੀ ਸਰਵਿਸ ਜਾਂ ਰੂਟ।</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s ਮਿਲਿਆ</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d ਆਈਟਮ ਨੂੰ SD Maid Pro ਦੀ ਲੋੜ ਹੈ</item>
+        <item quantity="other">%d ਆਈਟਮਾਂ ਨੂੰ SD Maid Pro ਦੀ ਲੋੜ ਹੈ</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro ਨਾਲ ਅਨਲੌਕ ਕਰਨ ਲਈ ਟੈਪ ਕਰੋ।</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro ਨਾਲ ਹੋਰ ਖਾਲੀ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro ਦੀ ਲੋੜ ਹੈ</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ਸਕੈਨ ਕੀਤਾ ਗਿਆ</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ਮੁਕਤ ਕੀਤਾ ਗਿਆ</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">ਡੈਸ਼ਬੋਰਡ ਦੇ ਐਕਸ਼ਨ ਬਟਨ \'ਤੇ ਠੁੰਗ ਮਾਰਕੇ ਸਾਰੇ ਸੰਦਾਂ ਲਈ ਸਕੈਨ ਅਤੇ ਮਿਟਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ, ਕੋਈ ਵਾਧੂ ਤਸਦੀਕ ਨਹੀਂ</string>
     <string name="dashboard_settings_oneclick_tools_title">ਇੱਕ-ਠੁੰਗ ਸੰਦ</string>
     <string name="dashboard_settings_oneclick_tools_desc">ਇੱਕ-ਠੁੰਗ ਓਪਰੇਸ਼ਨ ਵਿੱਚ ਕਿਹੜੇ ਸਾਧਨ ਸ਼ਾਮਲ ਕੀਤੇ ਜਾਣੇ ਚਾਹੀਦੇ ਹਨ?</string>
+    <string name="dashboard_settings_summary_autoshow_title">ਸੰਖੇਪ ਆਪਣੇ ਆਪ ਦਿਖਾਓ</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ਡੈਸ਼ਬੋਰਡ ਐਕਸ਼ਨ ਬਟਨ ਦੀ ਵਰਤੋਂ ਕਰਨ ਤੋਂ ਬਾਅਦ ਨਤੀਜਿਆਂ ਦਾ ਸੰਖੇਪ ਆਪਣੇ ਆਪ ਖੋਲ੍ਹੋ। ਬੰਦ ਹੋਣ \'ਤੇ, ਇਸਨੂੰ ਖੋਲ੍ਹਣ ਲਈ ਹੇਠਲੀ ਪੱਟੀ ਵਿੱਚ ਸਾਈਜ਼ ਚਿੱਪ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="dashboard_card_config_title">ਡੈਸ਼ਬੋਰਡ ਕਾਰਡ</string>
     <string name="dashboard_card_config_desc">ਸੰਰਚਿਤ ਕਰੋ ਕਿ ਕਿਹੜੇ ਕਾਰਡ ਦਿਖਾਏ ਜਾਣ ਅਤੇ ਉਹਨਾਂ ਦਾ ਕ੍ਰਮ</string>
     <string name="dashboard_card_config_header_title">ਕ੍ਰਮ ਬਦਲਣ ਲਈ ਘਸੀਟੋ, ਦਿਖਾਉਣ/ਲੁਕਾਉਣ ਲਈ ਟੌਗਲ ਕਰੋ</string>

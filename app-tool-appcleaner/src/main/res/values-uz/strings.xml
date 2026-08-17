@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Tizim ushbu ilova uchun \"Keshni tozalash\" tugmasini o\'chirgan. Kesh tozalashni tezlashtirish uchun uni chiqarib tashlang.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Tizim ilovasi noto\'g\'ri sozlangan</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS ning Xavfsizlik ilovasi (com.miui.securitycenter) da Foydalanish statistikasi ruxsati (GET_USAGE_STATS) etishmayapti. Bu ilova tafsilotlaridagi \"Ma\'lumotlarni tozalash\" va kirish orqali kesh tozalash kabi xususiyatlarni buzadi. To\'liq funksionallikni tiklash uchun ruxsat bering.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Bu, shuningdek, \"System UI\" tizim ilovasi yaqinda majburiy to\'xtatilgan bo\'lsa ham yuz berishi mumkin, masalan ilova tozalash vositasi tomonidan. Shundan so\'ng Android qurilmani qayta ishga tushirmaguningizcha SD Maid\'ning avtomatik tugma bosishlarini bloklaydi.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Tozalashdan oldin majburiy to\'xtatish</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keshni tozalashdan oldin ilovalarni majburiy to\'xtatish. Ba\'zi ilovalar keshini tozalashga yordam beradi, lekin ilovalar noto\'g\'ri ishlashi va qo\'lda qayta ishga tushirishni talab qilishi mumkin.</string>
     <string name="appcleaner_progress_force_stopping">Ilovalar majburiy to\'xtatilmoqda…</string>

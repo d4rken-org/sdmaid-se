@@ -12,6 +12,33 @@
         <item quantity="many">Apdorota %s elementų, nuo tada kai pakvietėte SD Maid į savo įrenginį.</item>
         <item quantity="other">%s elementų apdorota nuo tada, kai pakvieteėte SD Maid į savo įrenginį.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Tavo svečias jau %d dieną.</item>
+        <item quantity="few">Tavo svečias jau %d dienas.</item>
+        <item quantity="many">Tavo svečias jau %d dienos.</item>
+        <item quantity="other">Tavo svečias jau %d dienų.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Tavo svečias jau %d savaitę.</item>
+        <item quantity="few">Tavo svečias jau %d savaites.</item>
+        <item quantity="many">Tavo svečias jau %d savaitės.</item>
+        <item quantity="other">Tavo svečias jau %d savaičių.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Tavo svečias jau %d mėnesį.</item>
+        <item quantity="few">Tavo svečias jau %d mėnesius.</item>
+        <item quantity="many">Tavo svečias jau %d mėnesio.</item>
+        <item quantity="other">Tavo svečias jau %d mėnesių.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Tavo svečias jau %d metus.</item>
+        <item quantity="few">Tavo svečias jau %d metus.</item>
+        <item quantity="many">Tavo svečias jau %d metų.</item>
+        <item quantity="other">Tavo svečias jau %d metų.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Dalinė sėkmė</string>
     <string name="stats_report_status_partial_failure">Klaida</string>
     <string name="stats_settings_desc">Konfigurūkite SD Maid statistiką, ataskaitas ir duomenų saugojimą.</string>

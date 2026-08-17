@@ -10,6 +10,29 @@
         <item quantity="few">%s stavke obrađene otkako ste pozvali SD Maid na svoj uređaj.</item>
         <item quantity="other">%s stavki obrađeno otkako ste pozvali SD Maid na svoj uređaj.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Tvoj gost %d dan.</item>
+        <item quantity="few">Tvoj gost %d dana.</item>
+        <item quantity="other">Tvoj gost %d dana.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Tvoj gost %d tjedan.</item>
+        <item quantity="few">Tvoj gost %d tjedna.</item>
+        <item quantity="other">Tvoj gost %d tjedana.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Tvoj gost %d mjesec.</item>
+        <item quantity="few">Tvoj gost %d mjeseca.</item>
+        <item quantity="other">Tvoj gost %d mjeseci.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Tvoj gost %d godina.</item>
+        <item quantity="few">Tvoj gost %d godine.</item>
+        <item quantity="other">Tvoj gost %d godina.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Djelomični uspjeh</string>
     <string name="stats_report_status_partial_failure">Neuspjeh</string>
     <string name="stats_settings_desc">Konfigurirajte SD Maidove statistike, izvještaje i zadržavanje podataka.</string>

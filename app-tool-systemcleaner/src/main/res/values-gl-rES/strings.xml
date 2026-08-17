@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Cartafoles</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Se non se selecciona ningún tipo, coincidirán todos os tipos.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criterios de ruta</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">A ruta de destino debe coincidir con polo menos unha entrada (p. ex. \"Descargas/apksantigos/xogo-\"). Manteña premidas as entradas para máis opcións.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">A ruta de destino debe coincidir con polo menos unha entrada (p. ex. \"Downloads/oldapks/game-\"). Toca unha entrada para editala, ou a súa icona para cambiar como se compara.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Criterios de nome</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">O nome de destino debe conter polo menos unha das palabras clave (p. ex. \"-recibo\"). Manteña premidas as entradas para máis opcións.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">O nome de destino debe conter polo menos unha das palabras clave (p. ex. \"-receipt\"). Toca unha entrada para editala, ou a súa icona para cambiar como se compara.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusións</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">O resultado excluirase se a ruta coincide con calquera entrada (p. ex. \"DCIM\"). Manteña premidas as entradas para máis opcións.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">O resultado excluírase se a ruta coincide con calquera entrada (p. ex. \"DCIM\"). Toca unha entrada para editala, ou a súa icona para cambiar como se compara.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Engadir entrada de ruta</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Engadir entrada de nome</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Engadir entrada de exclusión</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Nova entrada</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Palabra clave</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Esta entrada xa existe.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d espazo</item>
+        <item quantity="other">%d espazos</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Xa está en uso por outra entrada</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Cambiar o modo de coincidencia de %1$s, actualmente: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modo de comparación de ruta</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">A ruta comeza coa palabra clave</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">A ruta contén a palabra clave</string>

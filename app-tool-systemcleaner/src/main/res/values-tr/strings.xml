@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Klasörler</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Eğer herhangi bir tür seçilmezse, tüm türler eşleştirilecektir.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Yol kriterleri</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Hedef yolun en az bir girişle eşleşmesi gerekir (örneğin \"İndirilenler/eskiapklar/oyun-\"). Daha fazla seçenek için girişlere uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Hedef yol en az bir girişle eşleşmelidir (örn. \"Downloads/oldapks/game-\"). Düzenlemek için bir girişe, eşleştirme şeklini değiştirmek için simgesine dokun.</string>
     <string name="systemcleaner_customfilter_editor_name_label">İsim kriterleri</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Hedef adı anahtar kelimelerden en az birini içermelidir (örneğin \"-makbuz\"). Daha fazla seçenek için girişlere uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Hedef ad, anahtar kelimelerden en az birini içermelidir (örn. \"-receipt\"). Düzenlemek için bir girişe, eşleştirme şeklini değiştirmek için simgesine dokun.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">İstisnalar</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Yol herhangi bir girişle eşleşirse sonuç hariç tutulacaktır (örn. \"DCIM\"). Daha fazla seçenek için girişlere uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Yol herhangi bir girişle eşleşirse sonuç hariç tutulur (örn. \"DCIM\"). Düzenlemek için bir girişe, eşleştirme şeklini değiştirmek için simgesine dokun.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Yol girişi ekle</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Ad girişi ekle</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Hariç tutma girişi ekle</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Yeni giriş</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Anahtar kelime</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Bu giriş zaten mevcut.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d boşluk</item>
+        <item quantity="other">%d boşluk</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Zaten başka bir giriş tarafından kullanılıyor</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s için eşleştirme modunu değiştir, mevcut: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Yol karşılaştırma modu</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Yol anahtar kelime ile başlar</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Yol anahtar sözcük içerir</string>

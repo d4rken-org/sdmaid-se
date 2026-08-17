@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">सिस्टमले यस app का लागि \"Clear cache\" बटन बन्द गरेको छ। Cache सफा गर्ने काम छिटो बनाउन यसलाई बहिष्कार गर्नुहोस्।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">सिस्टम app गलत कन्फिगर भएको</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS को Security app (com.miui.securitycenter) मा Usage Stats अनुमति (GET_USAGE_STATS) छैन। यसले app विवरणमा \"Clear Data\" र accessibility मार्फत cache सफा गर्ने जस्ता सुविधाहरूलाई बिगार्छ। पूर्ण कार्यक्षमता फिर्ता ल्याउन अनुमति दिनुहोस्।</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">यो पनि हुन सक्छ यदि \'System UI\' प्रणाली अनुप्रयोग हालै बन्द गरिएको छ, जस्तै कुनै अनुप्रयोग सफाई उपकरणद्वारा। त्यसपछि Android ले तपाईंले यन्त्र पुनः सुरु नगरेसम्म SD Maid को स्वचालित बटन दबाउ अवरुद्ध गर्छ।</string>
     <string name="appcleaner_forcestop_before_clearing_label">सफा गर्नु अगाडि जबर्जस्ती बन्द गर्नुहोस्</string>
     <string name="appcleaner_forcestop_before_clearing_summary">क्यास साफ गर्नु अघि अनुप्रयोगहरू जबरदस्ती बन्द गर्नुहोस्। यसले केही अनुप्रयोगहरूको क्यास साफ गर्न मदत गर्न सक्छ, तर अनुप्रयोगहरू खराब व्यवहार गर्न र म्यानुअल पुनरारम्भ गर्न आवश्यक हुन सक्छ।</string>
     <string name="appcleaner_progress_force_stopping">अनुप्रयोगहरू जबर्जस्ती बन्द गर्दै…</string>

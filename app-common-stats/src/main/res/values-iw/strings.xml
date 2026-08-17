@@ -12,6 +12,33 @@
         <item quantity="many">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
         <item quantity="other">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">האורח שלך כבר יום אחד.</item>
+        <item quantity="two">האורח שלך כבר יומיים.</item>
+        <item quantity="many">האורח שלך כבר %d ימים.</item>
+        <item quantity="other">האורח שלך כבר %d ימים.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">האורח שלך כבר שבוע אחד.</item>
+        <item quantity="two">האורח שלך כבר שבועיים.</item>
+        <item quantity="many">האורח שלך כבר %d שבועות.</item>
+        <item quantity="other">האורח שלך כבר %d שבועות.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">האורח שלך כבר חודש אחד.</item>
+        <item quantity="two">האורח שלך כבר חודשיים.</item>
+        <item quantity="many">האורח שלך כבר %d חודשים.</item>
+        <item quantity="other">האורח שלך כבר %d חודשים.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">האורח שלך כבר שנה אחת.</item>
+        <item quantity="two">האורח שלך כבר שנתיים.</item>
+        <item quantity="many">האורח שלך כבר %d שנים.</item>
+        <item quantity="other">האורח שלך כבר %d שנים.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">הצלחה חלקית</string>
     <string name="stats_report_status_partial_failure">כישלון</string>
     <string name="stats_settings_desc">הגדר את הנתונים הסטטיסטיים, הדוחות ושמירת הנתונים של SD Maid.</string>

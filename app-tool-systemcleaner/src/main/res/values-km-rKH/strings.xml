@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ថត</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ប័ប័រមិនបានជ្រើសព័ត្រូណាម្ណគន្រើ ព័ត្រូទាំងនឹងត្រូវបានត្រង៴</string>
     <string name="systemcleaner_customfilter_editor_path_label">កត្តគ្រប់គ្រងព័ត្រូ</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ព័ត្រូត្រងកអ្វឺត្រូត្រូវបានត្រងនឹងកត្ត័តយាង៱ (ត័វាង \"Downloads/oldapks/game-\")។ ត្រងចុចរកត្តដែលត្រូវបានជ្រើសសម្រាប់ជម្រើសបញ្ចើម៴</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ផ្លូវគោលដៅត្រូវតែផ្គូផ្គងជាមួយធាតុយ៉ាងហោចណាស់មួយ (ឧទាហរណ៍ \"Downloads/oldapks/game-\")។ ចុចធាតុមួយដើម្បីកែសម្រួលវា ឬចុចរូបតំណាងរបស់វាដើម្បីផ្លាស់ប្តូរវិធីផ្គូផ្គង។</string>
     <string name="systemcleaner_customfilter_editor_name_label">កត្តគ្រប់គ្រងច្បើរ</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ច្បើរត្រងកអ្វឺត្រូត្រងប័ញ្ជាយាង៱ក្នុងពាក្យគន្លឹះ (ត័វាង \"-receipt\")។ ត្រងចុចរកត្តដែលត្រូវបានជ្រើសសម្រាប់ជម្រើសបញ្ចើម៴</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ឈ្មោះគោលដៅត្រូវតែមានពាក្យគន្លឹះយ៉ាងហោចណាស់មួយ (ឧទាហរណ៍ \"-receipt\")។ ចុចធាតុមួយដើម្បីកែសម្រួលវា ឬចុចរូបតំណាងរបស់វាដើម្បីផ្លាស់ប្តូរវិធីផ្គូផ្គង។</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ការលើក់ចោល</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">លត្ធផលនឹងត្រូវបានលើក់ចោលប័ប័រព័ត្រូត្រងនឹងកត្តឍ (ត័វាង \"DCIM\")។ ត្រងចុចរកត្តដែលត្រូវបានជ្រើសសម្រាប់ជម្រើសបញ្ចើម៴</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">លទ្ធផលនឹងត្រូវបានលើកលែងប្រសិនបើផ្លូវផ្គូផ្គងជាមួយធាតុណាមួយ (ឧទាហរណ៍ \"DCIM\")។ ចុចធាតុមួយដើម្បីកែសម្រួលវា ឬចុចរូបតំណាងរបស់វាដើម្បីផ្លាស់ប្តូរវិធីផ្គូផ្គង។</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">បន្ថែមធាតុផ្លូវ</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">បន្ថែមធាតុឈ្មោះ</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">បន្ថែមធាតុលើកលែង</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">ធាតុថ្មី</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">ពាក្យគន្លឹះ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ធាតុនេះមានរួចហើយ។</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d ដកឃ្លា</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">បានប្រើរួចហើយដោយធាតុមួយផ្សេងទៀត</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">ផ្លាស់ប្តូររបៀបផ្គូផ្គងសម្រាប់ %1$s បច្ចុប្បន្ន៖ %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">សម្បីរបស់ពឹក្រិយប័ត្រូ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">ព័ត្រូចាប់តំងពាក្យគន្លឹះ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">ព័ត្រូមានពាក្យគន្លឹះ</string>

@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">系统已禁用此应用的 “清除缓存” 按钮。将它添加到排除列表以加快缓存清除速度。</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">系统应用配置错误</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用使用情况统计权限 (GET_USAGE_STATS) 。这会破坏应用详情中的\"清除数据\"功能以及通过辅助功能清除缓存等功能。授予此权限可恢复完整功能。</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">如果系统应用“System UI”最近被强行停止（例如被某个应用清理工具强行停止），也可能出现此情况。此时 Android 会阻止 SD Maid 自动按键操作，直到你重启设备。</string>
     <string name="appcleaner_forcestop_before_clearing_label">清除前强制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除缓存前先强制停止应用。这有助于清除部分应用的缓存，但可能导致应用异常，需要手动重启。</string>
     <string name="appcleaner_progress_force_stopping">正在强制停止应用…</string>

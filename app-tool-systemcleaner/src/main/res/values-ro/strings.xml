@@ -75,11 +75,24 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Foldere</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Dacă nici un tip nu este selectat, atunci toate tipurile vor fi potrivite.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criterii de cale</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Calea ţintă trebuie să se potrivească cu cel puţin o intrare (de ex. \"Descărcări/oldapks/game-\"). Apăsaţi lung intrările pentru mai multe opţiuni.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Calea țintă trebuie să corespundă cu cel puțin o intrare (de ex. „Downloads/oldapks/game-”). Atinge o intrare pentru a o edita sau pictograma acesteia pentru a schimba modul de potrivire.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Criterii de nume</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Numele țintă trebuie să conțină cel puțin unul dintre cuvintele-cheie (de ex. \"-chitanță\"). Apăsați lung intrările pentru mai multe opțiuni.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Numele țintă trebuie să conțină cel puțin unul dintre cuvintele cheie (de ex. „-receipt”). Atinge o intrare pentru a o edita sau pictograma acesteia pentru a schimba modul de potrivire.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Excluderi</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultatul va fi exclus dacă calea se potrivește cu orice intrare (de ex. \"DCIM\"). Apăsați lung intrările pentru mai multe opțiuni.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultatul va fi exclus dacă calea se potrivește cu oricare intrare (de ex. „DCIM”). Atinge o intrare pentru a o edita sau pictograma acesteia pentru a schimba modul de potrivire.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Adaugă intrare de cale</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Adaugă intrare de nume</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Adaugă intrare de excludere</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Intrare nouă</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Cuvânt cheie</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Această intrare există deja.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d spațiu</item>
+        <item quantity="few">%d spații</item>
+        <item quantity="other">%d de spații</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Deja folosit de o altă intrare</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Schimbă modul de potrivire pentru %1$s, în prezent: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modul de comparare a căilor</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Calea începe cu cuvântul cheie</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Calea conține cuvântul cheie</string>

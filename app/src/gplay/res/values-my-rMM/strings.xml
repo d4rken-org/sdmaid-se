@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ဤသည်သည်သီးခြားဝယ်ယူမှုဖြစ်သည် - ၎င်းသည်သင်၏စာရင်းသွင်းမှုကိုဖျက်သိမ်းခြင်းသို့မဟုတ်အခြေခံငွေလည်ပတ်မှုမပြုလုပ်ပါ။ နှစ်ခုလုံးအတွက်တူညီသော Google အကောင့်ကိုအသုံးပြုပါ။</string>
     <string name="upgrade_screen_sub_still_renewing_title">စာရင်းသွင်းမှုယေဘုယျအားဖြင့်ရှင်သန်နေသည်</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play သည်သင်၏စာရင်းသွင်းမှုသည်အသစ်လည်ပတ်ရန်သတ်မှတ်ထားသည်ဟုအစီရင်ခံပြသည်။ အကြိမ်တစ်ကြိမ်အဆင့်မြှင့်တင်မှုကိုဝယ်ယူရန် Google Play တွင်စာရင်းသွင်းမှုကိုဦးတည်ဖျက်သိမ်းပါ၊ ထို့နောက်ဤနေရာသို့ပြန်လည်သွားရောက်ပါ။\n\nခုခုဖျက်သိမ်းလုပ်နေပါသလား။ Google Play ကိုအခွင့်အလမ်းပေးပြီးထပ်မံကြိုးစားပါ။ သင်သည်တူညီသော Google အကောင့်ကိုအသုံးပြုနေကြောင်းအတည်ပြုပါ။</string>
+    <string name="upgrade_screen_purchase_check_failed_message">သင်၏ ဝယ်ယူမှုများကို Google Play ဖြင့် စစ်ဆေး၍မရပါ။ ခဏနေ ထပ်မံကြိုးစားကြည့်ပါ။</string>
+    <string name="upgrade_screen_pending_card_title">ငွေပေးချေမှု ဆိုင်းငံ့ထားသည်</string>
+    <string name="upgrade_screen_pending_card_body">Google Play သည် သင်၏ငွေပေးချေမှုကို လုပ်ဆောင်နေဆဲဖြစ်သည်။ ငွေပေးချေမှု ပြီးမြောက်သည်နှင့် Pro ကို အလိုအလျောက် ဖွင့်ပေးမည်ဖြစ်သည်။ ငွေပေးချေမှုနည်းလမ်းအချို့သည် အချိန်ကြာနိုင်သည်။ သင် ထပ်မံလုပ်ဆောင်ရန် မလိုအပ်တော့ပါ။</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play သည် ဆိုင်းငံ့ထားသော ငွေပေးချေမှုတစ်ခုပါ ဝယ်ယူမှုကို တွေ့ရှိပြီး လုပ်ဆောင်နေဆဲဖြစ်သည်။ ငွေပေးချေမှု ပြီးမြောက်သည်နှင့် Pro ကို အလိုအလျောက် ဖွင့်ပေးမည်ဖြစ်သည်။</string>
     <string name="upgrade_screen_restore_success_message">ဝယ်ယူမှုပြန်လည်ရယူပြီးသည်။ သင်၏ Pro အဆင့်မြှင့်တင်မှုသည်ရှင်သန်ဖြစ်နေသည်။</string>
     <string name="upgrade_screen_grace_title">သင်၏ဝယ်ယူမှုကိုအတည်ပြုနေသည်</string>
     <string name="upgrade_screen_grace_body_short">Pro သည်ယေဘုယျအားဖြင့်ရှင်သန်နေသည်။ Google Play သည်သင်၏ဝယ်ယူမှုအတည်ပြုခြင်းအတွက်စောင့်ဆိုင်းနေသည်။ ယခုအချိန်တွင် Pro အင်္ဂါရပ်များအားလုံးသည်အခွင့်ပြုပြီးရှိသည်။</string>

@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">Tiada yang dibebaskan</string>
     <string name="dashboard_hero_nothing_freed_caption">Pembersihan selesai, tetapi tiada data yang ditemui dapat dialih keluar.</string>
     <string name="dashboard_hero_nothing_freed_hint">Sesetengah data hanya boleh dialih keluar dengan akses tambahan, seperti perkhidmatan kebolehaksesan atau root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s ditemui</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d item memerlukan SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Ketik untuk membuka kunci dengan SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Lebih banyak ruang boleh dibebaskan dengan SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Memerlukan SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Diimbas %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Dibebaskan %1$s</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu ketikan pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alat satu-ketik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alatan mana yang perlu disertakan dalam operasi satu ketikan?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Tunjukkan ringkasan secara automatik</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Buka ringkasan hasil secara automatik selepas menggunakan butang tindakan papan pemuka. Apabila dilumpuhkan, ketik cip saiz pada bar bawah untuk membukanya.</string>
     <string name="dashboard_card_config_title">Kad papan pemuka</string>
     <string name="dashboard_card_config_desc">Konfigurasi kad yang ditunjukkan dan susunannya</string>
     <string name="dashboard_card_config_header_title">Seret untuk susun semula, togol untuk tunjuk/sembunyi</string>

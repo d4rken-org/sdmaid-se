@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Folda</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ikiwa hakuna aina iliyochaguliwa, basi aina zote zitalinganishwa.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Vigezo vya njia</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Njia lengwa inahitaji kulingana na angalau ingizo moja (k.m. \"Downloads/oldapks/game-\"). Bonyeza kwa muda mrefu kupata chaguo zaidi.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Njia lengwa inahitaji kulingana na angalau kiingilio kimoja (mfano \"Downloads/oldapks/game-\"). Gusa kiingilio ili kukihariri, au aikoni yake ili kubadilisha jinsi kinavyolinganishwa.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Vigezo vya jina</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Jina lengwa lazima liwe na angalau neno kuu moja (k.m. \"-receipt\"). Bonyeza kwa muda mrefu kupata chaguo zaidi.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Jina lengwa lazima liwe na angalau moja ya maneno muhimu (mfano \"-receipt\"). Gusa kiingilio ili kukihariri, au aikoni yake ili kubadilisha jinsi kinavyolinganishwa.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Kutengwa</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Matokeo yatatengwa ikiwa njia inalingana na ingizo lolote (k.m. \"DCIM\"). Bonyeza kwa muda mrefu kupata chaguo zaidi.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Matokeo yataondolewa ikiwa njia inalingana na kiingilio chochote (mfano \"DCIM\"). Gusa kiingilio ili kukihariri, au aikoni yake ili kubadilisha jinsi kinavyolinganishwa.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Ongeza kiingilio cha njia</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Ongeza kiingilio cha jina</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Ongeza kiingilio cha kutengwa</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Kiingilio kipya</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Neno muhimu</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Kiingilio hiki tayari kipo.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">Nafasi %d</item>
+        <item quantity="other">Nafasi %d</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Tayari inatumiwa na kiingilio kingine</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Badilisha hali ya ulinganisho kwa %1$s, kwa sasa: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modi ya kulinganisha njia</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Njia inaanza na neno kuu</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Njia ina neno kuu</string>

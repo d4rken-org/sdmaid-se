@@ -32,6 +32,8 @@
     <string name="general_set_up_action">அமைக்கவும்</string>
     <string name="general_unavailable_label">கிடைக்கவில்லை</string>
     <string name="general_edit_action">திருத்து</string>
+    <string name="general_edit_x_action">%s ஐத் திருத்து</string>
+    <string name="general_add_action">சேர்</string>
     <string name="general_na_label">பொ/இ</string>
     <string name="general_empty_label">காலி</string>
     <string name="general_new_badge_label">புதிய</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d பொருட்கள் நீக்கப்பட்டன.</item>
     </plurals>
     <string name="general_remove_action">அகற்று</string>
+    <string name="general_remove_x_action">%s ஐ அகற்று</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ஒரு பொருள் அகற்றப்பட்டது</item>
         <item quantity="other">%d பொருட்கள் அகற்றப்பட்டன</item>

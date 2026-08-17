@@ -87,6 +87,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem je onemogućio gumb \"Očisti predmemoriju\" za ovu aplikaciju. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistemska aplikacija pogrešno konfigurirana</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikaciji Sigurnost HyperOS-a (com.miui.securitycenter) nedostaje dopuštenje za statistiku korištenja (GET_USAGE_STATS). To prekida rad značajki poput \"Izbriši podatke\" u detaljima aplikacije i brisanja predmemorije putem pristupačnosti. Dajte dopuštenje za vraćanje pune funkcionalnosti.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Ovo se može dogoditi i ako je aplikacija sustava \"System UI\" nedavno prisilno zaustavljena, npr. od strane alata za čišćenje aplikacija. Android tada blokira automatizirane pritiske gumba SD Maida dok ne restartate uređaj.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Prisilno zaustavi prije čišćenja</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Prisilno zaustavi aplikacije prije čišćenja njihove predmemorije. Može pomoći očistiti predmemoriju nekih aplikacija, ali može uzrokovati neispravno ponašanje aplikacija i zahtijevati ručno ponovno pokretanje.</string>
     <string name="appcleaner_progress_force_stopping">Prisilno zaustavljanje aplikacija…</string>

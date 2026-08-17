@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Φάκελοι</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Εάν δεν έχει επιλεγεί τύπος, τότε όλοι οι τύποι θα ταιριάζουν.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Κριτήρια διαδρομής</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Η διαδρομή προορισμού πρέπει να ταιριάζει με τουλάχιστον μία καταχώρηση (π.χ. \"Downloads/oldapks/game-\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Η διαδρομή προορισμού πρέπει να ταιριάζει με τουλάχιστον μία καταχώρηση (π.χ. \"Downloads/oldapks/game-\"). Πατήστε μια καταχώριση για να την επεξεργαστείτε ή το εικονίδιό της για να αλλάξετε τον τρόπο αντιστοίχισης.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Κριτήρια ονόματος</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Το όνομα προορισμού πρέπει να περιέχει τουλάχιστον μία από τις λέξεις-κλειδιά (π.χ. \"- απόδειξη\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Το όνομα προορισμού πρέπει να περιέχει τουλάχιστον μία από τις λέξεις-κλειδιά (π.χ. \"-receipt\"). Πατήστε μια καταχώριση για να την επεξεργαστείτε ή το εικονίδιό της για να αλλάξετε τον τρόπο αντιστοίχισης.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Εξαιρέσεις</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Το αποτέλεσμα θα αποκλειστεί εάν η διαδρομή ταιριάζει με οποιαδήποτε καταχώρηση (π.χ. \"DCIM\"). Πατήστε παρατεταμένα τις καταχωρήσεις για περισσότερες επιλογές.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Το αποτέλεσμα θα εξαιρεθεί αν η διαδρομή ταιριάζει με οποιαδήποτε καταχώριση (π.χ. «DCIM»). Πατήστε μια καταχώριση για να την επεξεργαστείτε ή το εικονίδιό της για να αλλάξετε τον τρόπο αντιστοίχισης.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Προσθήκη καταχώρησης διαδρομής</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Προσθήκη καταχώρησης ονόματος</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Προσθήκη καταχώρησης εξαίρεσης</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Νέα καταχώρηση</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Λέξη-κλειδί</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Αυτή η καταχώρηση υπάρχει ήδη.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d κενό</item>
+        <item quantity="other">%d κενά</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Χρησιμοποιείται ήδη από άλλη καταχώρηση</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Αλλάξτε τον τρόπο αντιστοίχισης για %1$s, τρέχουσα: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Τρόπος σύγκρισης διαδρομών</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Η διαδρομή ξεκινά με λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Η διαδρομή περιέχει λέξη-κλειδί</string>

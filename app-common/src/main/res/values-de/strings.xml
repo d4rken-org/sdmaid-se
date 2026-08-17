@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Einrichtung</string>
     <string name="general_unavailable_label">Nicht verfügbar</string>
     <string name="general_edit_action">Bearbeiten</string>
+    <string name="general_edit_x_action">%s bearbeiten</string>
+    <string name="general_add_action">Hinzufügen</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Leer</string>
     <string name="general_new_badge_label">Neu</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d Elemente wurden gelöscht.</item>
     </plurals>
     <string name="general_remove_action">Entfernen</string>
+    <string name="general_remove_x_action">%s entfernen</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Ein Element wurde entfernt</item>
         <item quantity="other">%d Elemente wurden entfernt</item>

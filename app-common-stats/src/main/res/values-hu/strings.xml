@@ -8,6 +8,25 @@
         <item quantity="one">%s elem feldolgozva, mióta meghívtad az SD Maidet a készülékedre.</item>
         <item quantity="other">%s elem feldolgozva, mióta meghívtad az SD Maidet a készülékedre.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Vendéged %d napja.</item>
+        <item quantity="other">Vendéged %d napja.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Vendéged %d hete.</item>
+        <item quantity="other">Vendéged %d hete.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Vendéged %d hónapja.</item>
+        <item quantity="other">Vendéged %d hónapja.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Vendéged %d éve.</item>
+        <item quantity="other">Vendéged %d éve.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Részleges siker</string>
     <string name="stats_report_status_partial_failure">Hiba</string>
     <string name="stats_settings_desc">Az SD Maid statisztikáinak, jelentéseinek és adatmegőrzésének konfigurálása.</string>

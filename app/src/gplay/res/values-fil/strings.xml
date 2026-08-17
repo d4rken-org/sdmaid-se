@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ito ay isang hiwalay na pagbili: hindi nito ikinakansela o nire-refund ang iyong subscription. Gamitin ang parehong Google account para sa dalawa.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Ang subscription ay aktibo pa rin</string>
     <string name="upgrade_screen_sub_still_renewing_message">Iniulat ng Google Play na naka-set pa rin ang iyong subscription na mag-renew. Upang bumili ng one-time na upgrade, i-cancel muna ang subscription sa Google Play, pagkatapos bumalik dito.\n\nKakakansela mo lang? Bigyan ng sandali ang Google Play at subukan ulit. Tiyakin din na ginagamit mo ang parehong Google account.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Hindi ma-check ang iyong mga binili sa Google Play. Pakisubukang muli sa ilang sandali.</string>
+    <string name="upgrade_screen_pending_card_title">Nakabinbin ang bayad</string>
+    <string name="upgrade_screen_pending_card_body">Pinoproseso pa rin ng Google Play ang iyong bayad. Awtomatikong mai-unlock ang Pro sa sandaling matapos ang pagbabayad. Maaaring tumagal ang ilang paraan ng pagbabayad. Wala ka nang kailangang gawin.</string>
+    <string name="upgrade_screen_pending_dialog_message">May nakita ang Google Play na binili na may nakabinbing bayad at pinoproseso pa ito. Awtomatikong mai-unlock ang Pro sa sandaling matapos ang pagbabayad.</string>
     <string name="upgrade_screen_restore_success_message">Na-restore na ang pagbili, aktibo na ang iyong Pro upgrade.</string>
     <string name="upgrade_screen_grace_title">Kino-confirm ang iyong pagbili</string>
     <string name="upgrade_screen_grace_body_short">Aktibo pa rin ang Pro. Naghihintay sa Google Play na muling kumpirmahin ang iyong pagbili, mananatiling naka-unlock ang lahat ng Pro features sa ngayon.</string>

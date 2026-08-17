@@ -8,6 +8,25 @@
         <item quantity="one">%s آئٹم پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
         <item quantity="other">%s آئٹمز پر کارروائی کی گئی جب سے آپ نے SD Maid کو اپنے ڈیوائس میں دعوت دی۔</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">میں %d دن سے آپ کے ہاں مہمان ہوں</item>
+        <item quantity="other">میں %d دن سے آپ کے ہاں مہمان ہوں</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">میں %d ہفتہ سے آپ کے ہاں مہمان ہوں</item>
+        <item quantity="other">میں %d ہفتے سے آپ کے ہاں مہمان ہوں</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">میں %d ماہ سے آپ کے ہاں مہمان ہوں</item>
+        <item quantity="other">میں %d ماہ سے آپ کے ہاں مہمان ہوں</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">میں %d سال سے آپ کے ہاں مہمان ہوں</item>
+        <item quantity="other">میں %d سال سے آپ کے ہاں مہمان ہوں</item>
+    </plurals>
     <string name="stats_report_status_partial_success">جزوی کامیابی</string>
     <string name="stats_report_status_partial_failure">ناکامی</string>
     <string name="stats_settings_desc">SD Maid کے شماریات، رپورٹس اور ڈیٹا برقراری کا نظم بنائیں۔</string>

@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Impostare</string>
     <string name="general_unavailable_label">Non disponìbile</string>
     <string name="general_edit_action">Modificare</string>
+    <string name="general_edit_x_action">Modìfica %s</string>
+    <string name="general_add_action">Agiunghe</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Bòidu</string>
     <string name="general_new_badge_label">Nou</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Iscancellau %d elementos.</item>
     </plurals>
     <string name="general_remove_action">Bogare</string>
+    <string name="general_remove_x_action">Boga %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un elementu est istàu bogau</item>
         <item quantity="other">%d elementos sunt istaus bogaus</item>

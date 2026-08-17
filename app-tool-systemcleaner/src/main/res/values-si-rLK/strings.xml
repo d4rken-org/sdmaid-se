@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ෆෝල්ඩර</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">එපිටි වර්ගයක් සිරැසූම් අත සියලුම වර්ග සම්බන්ධිත කරන්න.</string>
     <string name="systemcleaner_customfilter_editor_path_label">මාර්ග නිබන්ධන</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ලක්ෂ්ය මාර්ගය අහිම පෙන් ඒක පෑනිවලහි ප්‍රවිශ්ටයට සමාන විය යුතු (උදා. \"Downloads/oldapks/game-\"). වැඩි විකල්ප සඳහා පෑනිවිරි අහිමි දීර සෑහන්.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ඉලක්ක මාර්ගය අවම වශයෙන් එක් ප්‍රවේශයකට හෝ ගැලපිය යුතුය (උදා. \"Downloads/oldapks/game-\"). ප්‍රවේශයක් සංස්කරණය කිරීමට එය තට්ටු කරන්න, නැතහොත් එය ගැලපෙන ආකාරය වෙනස් කිරීමට එහි නිරූපකය තට්ටු කරන්න.</string>
     <string name="systemcleaner_customfilter_editor_name_label">නම නිබන්ධන</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ලක්ෂ්ය නමො අහිම පෙන් මුදල් පදයක් ඇතුල් විය යුතු (උදා. \"-receipt\"). වැඩි විකල්ප සඳහා පෑනිවිරි අහිමි දීර සෑහන්.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ඉලක්ක නාමයේ මූල පද අතරින් අවම වශයෙන් එකක්වත් අඩංගු විය යුතුය (උදා. \"-receipt\"). ප්‍රවේශයක් සංස්කරණය කිරීමට එය තට්ටු කරන්න, නැතහොත් එය ගැලපෙන ආකාරය වෙනස් කිරීමට එහි නිරූපකය තට්ටු කරන්න.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">අපවර්ජන</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">මාර්ගය එපිටි පෑනිවිරියකට සමාන නම් ප්‍රතිඵල අපවර්ජනය කරන්න (උදා. \"DCIM\"). වැඩි විකල්ප සඳහා පෑනිවිරි අහිමි දීර සෑහන්.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">මාර්ගය කිසියම් ප්‍රවේශයකට ගැලපේ නම් ප්‍රතිඵලය බැහැර කරනු ලැබේ (උදා. \"DCIM\"). ප්‍රවේශයක් සංස්කරණය කිරීමට එය තට්ටු කරන්න, නැතහොත් එය ගැලපෙන ආකාරය වෙනස් කිරීමට එහි නිරූපකය තට්ටු කරන්න.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">මාර්ග ප්‍රවේශයක් එකතු කරන්න</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">නාම ප්‍රවේශයක් එකතු කරන්න</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">බැහැර කිරීමේ ප්‍රවේශයක් එකතු කරන්න</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">නව ප්‍රවේශය</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">මූල පදය</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">මෙම ප්‍රවේශය දැනටමත් පවතී.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">හිස්තැන් %d ක්</item>
+        <item quantity="other">හිස්තැන් %d ක්</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">දැනටමත් වෙනත් ප්‍රවේශයක් විසින් භාවිතා කර ඇත</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s සඳහා ගැලපුම් ප්‍රකාරය වෙනස් කරන්න, දැනට: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">මාර්ග සන්දර්භ මොඩය</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">මාර්ගය මුදල් පදයෙන් ආරම්බ වේ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">මාර්ගයො මුදල් පදය ඇතුල් වේ</string>

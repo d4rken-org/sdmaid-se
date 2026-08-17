@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Beállítás</string>
     <string name="general_unavailable_label">Nem elérhető</string>
     <string name="general_edit_action">Szerkesztés</string>
+    <string name="general_edit_x_action">%s szerkesztése</string>
+    <string name="general_add_action">Hozzáadás</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Üres</string>
     <string name="general_new_badge_label">Új</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d elem törölve.</item>
     </plurals>
     <string name="general_remove_action">Eltávolítás</string>
+    <string name="general_remove_x_action">%s eltávolítása</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Egy elemet eltávolítottunk</item>
         <item quantity="other">%d elemet eltávolítottuk</item>

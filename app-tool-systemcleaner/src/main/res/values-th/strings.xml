@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">โฟลเดอร์</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">หากไม่ได้เลือกประเภทใด ประเภททั้งหมดจะถูกจับคู่</string>
     <string name="systemcleaner_customfilter_editor_path_label">เงื่อนไขเส้นทาง</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">เส้นทางเป้าหมายต้องตรงกับรายการอย่างน้อยหนึ่งรายการ (เช่น \"Downloads/oldapks/game-\") กดค้างรายการสำหรับตัวเลือกเพิ่มเติม</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">เส้นทางเป้าหมายต้องตรงกับรายการอย่างน้อยหนึ่งรายการ (เช่น \"Downloads/oldapks/game-\") แตะรายการเพื่อแก้ไข หรือแตะไอคอนเพื่อเปลี่ยนวิธีการจับคู่</string>
     <string name="systemcleaner_customfilter_editor_name_label">เงื่อนไขชื่อ</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ชื่อเป้าหมายต้องมีคำสำคัญอย่างน้อยหนึ่งคำ (เช่น \"-receipt\") กดค้างรายการสำหรับตัวเลือกเพิ่มเติม</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ชื่อเป้าหมายต้องมีคำสำคัญอย่างน้อยหนึ่งคำ (เช่น \"-receipt\") แตะรายการเพื่อแก้ไข หรือแตะไอคอนเพื่อเปลี่ยนวิธีการจับคู่</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">รายการยกเว้น</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ผลลัพธ์จะถูกยกเว้นหากเส้นทางตรงกับรายการใด (เช่น \"DCIM\") กดค้างรายการสำหรับตัวเลือกเพิ่มเติม</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ผลลัพธ์จะถูกยกเว้นหากเส้นทางตรงกับรายการใดรายการหนึ่ง (เช่น \"DCIM\") แตะรายการเพื่อแก้ไข หรือแตะไอคอนเพื่อเปลี่ยนวิธีการจับคู่</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">เพิ่มรายการเส้นทาง</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">เพิ่มรายการชื่อ</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">เพิ่มรายการยกเว้น</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">รายการใหม่</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">คำสำคัญ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">รายการนี้มีอยู่แล้ว</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d ช่องว่าง</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ถูกใช้โดยรายการอื่นแล้ว</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">เปลี่ยนโหมดการจับคู่สำหรับ %1$s ปัจจุบัน: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">โหมดการเปรียบเทียบเส้นทาง</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">เส้นทางขึ้นต้นด้วยคำสำคัญ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">เส้นทางมีคำสำคัญ</string>

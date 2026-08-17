@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Karpetak</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Motarik hautatu ez bada, mota guztiak konparatuko dira.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Bide-irizpideak</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Helburuko bideak sarrera bat gutxienez bat etorri behar du (adib. \"Downloads/oldapks/game-\"). Luze sakatu sarrerak aukera gehiagorako.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Helburuko bide-izenak gutxienez sarrera bat bete behar du (adibidez, \"Downloads/oldapks/game-\"). Sakatu sarrera bat editatzeko, edo bere ikonoa nola parekatzen den aldatzeko.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Izen-irizpideak</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Helburuko izenak gako-hitz bat gutxienez eduki behar du (adib. \"-receipt\"). Luze sakatu sarrerak aukera gehiagorako.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Helburuko izenak gako-hitzetako bat gutxienez eduki behar du (adibidez, \"-receipt\"). Sakatu sarrera bat editatzeko, edo bere ikonoa nola parekatzen den aldatzeko.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Salbuespenak</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Emaitza baztertuko da bidea sarrera batekin bat badator (adib. \"DCIM\"). Luze sakatu sarrerak aukera gehiagorako.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Emaitza baztertu egingo da bide-izenak sarreraren bat betetzen badu (adibidez, \"DCIM\"). Sakatu sarrera bat editatzeko, edo bere ikonoa nola parekatzen den aldatzeko.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Gehitu bide-izenaren sarrera</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Gehitu izenaren sarrera</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Gehitu salbuespen-sarrera</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Sarrera berria</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Gako-hitza</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Sarrera hori badago jadanik.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d zuriune</item>
+        <item quantity="other">%d zuriune</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Beste sarrera batek jadanik erabiltzen du</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Aldatu %1$s(r)en parekatze-modua, oraingoa: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Bide-konparazio modua</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Bidea gako-hitzarekin hasten da</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Bideak gako-hitza dauka</string>

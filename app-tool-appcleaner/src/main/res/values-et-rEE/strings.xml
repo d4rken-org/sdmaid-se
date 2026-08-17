@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Süsteem ei lase vajutada selle rakenduse „Tühjenda vahemälu“ nuppu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Süsteemi rakendus seadistatud valesti</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security rakendusel (com.miui.securitycenter) puudub kasutamisstatistikale juurdepääs (GET_USAGE_STATS). See segab andmete tühjendamist rakenduse seadetest ja vahemälu tühjendamist juurdepääsu teenuse kaudu. Kõikide võimaluste kasutamiseks andke vastav luba.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">See võib juhtuda ka siis, kui süsteemirakendus \"System UI\" on hiljuti sundpeatatud, näiteks mõne rakenduste puhastamise tööriista poolt. Android blokeerib seejärel SD Maidi automaatsed nupuvajutused kuni seadme taaskäivitamiseni.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Sundpeata enne tühjendamist</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sundpeatage rakendused enne nende vahemälu tühjendamist. Nii võib osade rakenduste vahemälu hõlpsamini tühjeneda, ent rakendused võivad toimida veidralt ja vajada taaskäivitamist.</string>
     <string name="appcleaner_progress_force_stopping">Rakenduste sundpeatamine…</string>

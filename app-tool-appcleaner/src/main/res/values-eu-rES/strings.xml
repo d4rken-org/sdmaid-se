@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistemak \"Garbitu cachea\" botoia desgaitu du aplikazio honentzat. Baztertu cachea garbitzea azkartasunez egiteko.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistema-aplikazioa gaizki konfiguratuta</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-en Segurtasun aplikazioak (com.miui.securitycenter) GET_USAGE_STATS (Erabilera-estatistikak) baimena falta du. Honek aplikazioaren xehetasunetan \"Garbitu datuak\" bezalako funtzioak eta irisgarritasun bidezko cachea garbitzea hausten du. Eman baimena funtzionaltasun osoa berreskuratzeko.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Hori ere gerta daiteke \"System UI\" sistema-aplikazioa duela gutxi indarrez gelditu bada, adibidez aplikazioak garbitzeko tresna baten bidez. Orduan, Androidek SD Maid-en botoi-sakatze automatikoak blokeatzen ditu gailua berrabiarazi arte.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Behartu gelditzera garbitu aurretik</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Behartu aplikazioak gelditzera haien cachea garbitu aurretik. Zenbait aplikazioren cacheak garbitzen lagun dezake, baina aplikazioak gaizki funtziona dezakete eta eskuz berrabiarazi behar izatea eragin dezake.</string>
     <string name="appcleaner_progress_force_stopping">Aplikazioak geldiarazten…</string>

@@ -26,6 +26,23 @@
     <string name="dashboard_hero_nothing_freed_headline">Nimic nu a fost eliberat</string>
     <string name="dashboard_hero_nothing_freed_caption">Curățarea s-a terminat, dar niciuna din datele găsite nu a putut fi eliminată.</string>
     <string name="dashboard_hero_nothing_freed_hint">Unele date pot fi eliminate doar cu acces suplimentar, cum ar fi serviciul de accesibilitate sau root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s găsite</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d element necesită SD Maid Pro</item>
+        <item quantity="few">%d elemente necesită SD Maid Pro</item>
+        <item quantity="other">%d de elemente necesită SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Atinge pentru a debloca cu SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Poți elibera mai mult spațiu cu SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Necesită SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scanat %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Eliberat %1$s</string>
@@ -36,6 +53,8 @@
     <string name="dashboard_settings_oneclick_summary">Începe scanarea și ștergerea pentru toate uneltele cu o apăsare pe butonul de acțiune al tabloului de bord, fără confirmări suplimentare.</string>
     <string name="dashboard_settings_oneclick_tools_title">Instrumente cu o singură atingere </string>
     <string name="dashboard_settings_oneclick_tools_desc">Ce instrumente ar trebui incluse în operaţiunile cu o singură atingere?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Afișează rezumatul automat</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Deschide automat rezumatul rezultatelor după ce folosești butonul de acțiune din tabloul de bord. Când este dezactivat, atinge eticheta cu dimensiunea din bara de jos pentru a-l deschide.</string>
     <string name="dashboard_card_config_title">Carduri de bord</string>
     <string name="dashboard_card_config_desc">Configurați ce carduri sunt afișate și ordinea acestora</string>
     <string name="dashboard_card_config_header_title">Trageți pentru a reordona, comutați pentru a arăta/ascunde</string>

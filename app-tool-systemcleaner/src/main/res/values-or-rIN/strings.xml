@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ଫୋଲ୍ଡରଗୁଡ଼ିକ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ଯଦି କୌଣସି ପ୍ରକାର ନିର୍ବାଚିତ ହୋଇନାହିଁ, ତେବେ ସମସ୍ତ ପ୍ରକାରଗୁଡ଼ିକ ମିଳିତ ହେବ।</string>
     <string name="systemcleaner_customfilter_editor_path_label">ପଥ ମାନଦଣ୍ଡ</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ଲକ୍ଷ୍ୟ ପଥ ଅତି କମ୍‌ରେ ଗୋଟିଏ ଏଣ୍ଟ୍ରି ସହିତ ମେଳ ଖାଇବା ଆବଶ୍ୟକ (ଯଥା \"Downloads/oldapks/game-\")। ଅଧିକ ବିକଳ୍ପ ପାଇଁ ଏଣ୍ଟ୍ରିଗୁଡ଼ିକୁ ଦୀର୍ଘ ଦବାନ୍ତୁ।</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ଲକ୍ଷ୍ୟ ପଥ ଅତିକମରେ ଗୋଟିଏ ଏଣ୍ଟ୍ରି ସହିତ ମେଳ ଖାଇବା ଆବଶ୍ୟକ (ଉଦାହରଣ ସ୍ୱରୂପ \"Downloads/oldapks/game-\")। ଏଣ୍ଟ୍ରିକୁ ସମ୍ପାଦନା କରିବାକୁ ତାହା ଉପରେ ଟାପ୍ କରନ୍ତୁ, କିମ୍ବା ଏହା କିପରି ମେଳ କରାଯାଏ ପରିବର୍ତ୍ତନ କରିବାକୁ ଏହାର ଆଇକନ୍ ଉପରେ ଟାପ୍ କରନ୍ତୁ।</string>
     <string name="systemcleaner_customfilter_editor_name_label">ନାମ ମାନଦଣ୍ଡ</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ଲକ୍ଷ୍ୟ ନାମରେ ଅତି କମ୍‌ରେ ଗୋଟିଏ କୀୱାର୍ଡ ରହିବା ଆବଶ୍ୟକ (ଯଥା \"-receipt\")। ଅଧିକ ବିକଳ୍ପ ପାଇଁ ଏଣ୍ଟ୍ରିଗୁଡ଼ିକୁ ଦୀର୍ଘ ଦବାନ୍ତୁ।</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ଲକ୍ଷ୍ୟ ନାମରେ ଅତିକମରେ ଗୋଟିଏ କୀୱାର୍ଡ ରହିବା ଆବଶ୍ୟକ (ଉଦାହରଣ ସ୍ୱରୂପ \"-receipt\")। ଏଣ୍ଟ୍ରିକୁ ସମ୍ପାଦନା କରିବାକୁ ତାହା ଉପରେ ଟାପ୍ କରନ୍ତୁ, କିମ୍ବା ଏହା କିପରି ମେଳ କରାଯାଏ ପରିବର୍ତ୍ତନ କରିବାକୁ ଏହାର ଆଇକନ୍ ଉପରେ ଟାପ୍ କରନ୍ତୁ।</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ବର୍ଜନଗୁଡ଼ିକ</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ଯଦି ପଥ କୌଣସି ଏଣ୍ଟ୍ରି ସହିତ ମେଳ ଖାଏ (ଯଥା \"DCIM\") ତେବେ ଫଳାଫଳ ବର୍ଜିତ ହେବ। ଅଧିକ ବିକଳ୍ପ ପାଇଁ ଏଣ୍ଟ୍ରିଗୁଡ଼ିକୁ ଦୀର୍ଘ ଦବାନ୍ତୁ।</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ଯଦି ପଥ କୌଣସି ଏଣ୍ଟ୍ରି ସହିତ ମେଳ ଖାଏ, ତେବେ ଫଳାଫଳ ବାଦ ଦିଆଯିବ (ଉଦାହରଣ ସ୍ୱରୂପ \"DCIM\")। ଏଣ୍ଟ୍ରିକୁ ସମ୍ପାଦନା କରିବାକୁ ତାହା ଉପରେ ଟାପ୍ କରନ୍ତୁ, କିମ୍ବା ଏହା କିପରି ମେଳ କରାଯାଏ ପରିବର୍ତ୍ତନ କରିବାକୁ ଏହାର ଆଇକନ୍ ଉପରେ ଟାପ୍ କରନ୍ତୁ।</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">ପଥ ଏଣ୍ଟ୍ରି ଯୋଗ କରନ୍ତୁ</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">ନାମ ଏଣ୍ଟ୍ରି ଯୋଗ କରନ୍ତୁ</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">ବାଦ ଦେବା ଏଣ୍ଟ୍ରି ଯୋଗ କରନ୍ତୁ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">ନୂଆ ଏଣ୍ଟ୍ରି</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">କୀୱାର୍ଡ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ଏହି ଏଣ୍ଟ୍ରି ପୂର୍ବରୁ ବିଦ୍ୟମାନ ଅଛି।</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d ଖାଲି ସ୍ଥାନ</item>
+        <item quantity="other">%d ଖାଲି ସ୍ଥାନ</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ପୂର୍ବରୁ ଅନ୍ୟ ଏଣ୍ଟ୍ରି ଦ୍ୱାରା ବ୍ୟବହୃତ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s ପାଇଁ ମେଳ ମୋଡ୍ ପରିବର୍ତ୍ତନ କରନ୍ତୁ, ବର୍ତ୍ତମାନ: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">ପଥ ତୁଳନା ମୋଡ୍</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">ପଥ କୀୱାର୍ଡ ସହିତ ଆରମ୍ଭ ହୁଏ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">ପଥରେ କୀୱାର୍ଡ ଅଛି</string>

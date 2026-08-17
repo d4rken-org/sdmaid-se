@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ఈ యాప్ కోసం సిస్టం \"Clear cache\" బటన్‌ను రద్దు చేసింది. క్యాషే క్లీర్ చేయడానికి వేగాని నేర్పడానికి దీనిని బహిష్కరించండి.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">సిస్టం యాప్ తప్పుగా కాన్ఫిగర్ చేయబడింది</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS కీ సెక్యూరిటీ యాప్ (com.miui.securitycenter) లో వినియోగ గణాంకాల అనుమతి (GET_USAGE_STATS) లేదు. ఇది యాప్ వివరాలలో \"Clear Data\" మరియు accessibility ద్వారా క్యాషె క్లీరింగ్ వంటి ఫీచర్లను భంగపరుస్తుంది. పూర్ణ కార్యాచరణను పునరుద్ధరించడానికి అనుమతిని మంజూరు చేయండి.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ఇది కూడా జరుగుతుంది, \"సిస్టమ్ UI\" సిస్టమ్ యాప్‌ను ఇటీవల బలవంతంగా ఆపివేసినప్పుడు, ఉదా. యాప్ క్లీనింగ్ టూల్ ద్వారా. Android అప్పుడు SD Maid యొక్క ఆటోమేటెడ్ బటన్ నొక్కులను నిరోధిస్తుంది, మీరు పరికరాన్ని పునఃప్రారంభించే వరకు.</string>
     <string name="appcleaner_forcestop_before_clearing_label">క్లియర్ చేయడానికి ముందు ఫోర్స్-స్టాప్ చేయి</string>
     <string name="appcleaner_forcestop_before_clearing_summary">వాటి కాష్‌ను క్లియర్ చేయడానికి ముందు యాప్‌లను ఫోర్స్-స్టాప్ చేయండి. ఇది కొన్ని యాప్‌ల కాష్‌లను క్లియర్ చేయడానికి సహాయపడవచ్చు, కానీ యాప్‌లు తప్పుగా ప్రవర్తించడానికి మరియు మాన్యువల్ రీస్టార్ట్ అవసరపడటానికి కారణం కావచ్చు.</string>
     <string name="appcleaner_progress_force_stopping">యాప్‌లను ఫోర్స్-స్టాప్ చేస్తోంది…</string>

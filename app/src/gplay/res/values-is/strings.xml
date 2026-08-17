@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Þetta er aðskilin kaup: það hættir ekki né endurgreiðir áskriftina þína. Notaðu sama Google reikning fyrir hvort tveggja.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Áskrift ennþá virk</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play tilkynnir að áskriftin þín sé ennþá sett til endurnýjunar. Til að kaupa einskiptis endurbótina, hættu áskriftinni í Google Play fyrst, komdu síðan aftur hingað.\n\nErtu búin að segja henni upp? Gefðu Google Play stund og reyndu aftur. Gakktu líka úr skugga um að þú notir sama Google reikning.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Ekki tókst að athuga kaupin þín hjá Google Play. Reyndu aftur eftir smástund.</string>
+    <string name="upgrade_screen_pending_card_title">Greiðsla í bið</string>
+    <string name="upgrade_screen_pending_card_body">Google Play er enn að vinna úr greiðslunni þinni. Pro opnast sjálfkrafa þegar greiðslan hefur verið samþykkt. Sumar greiðsluleiðir geta tekið nokkurn tíma. Þú þarft ekki að gera neitt frekar.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play fann kaup með greiðslu í bið og er enn að vinna úr henni. Pro opnast sjálfkrafa þegar greiðslan hefur verið samþykkt.</string>
     <string name="upgrade_screen_restore_success_message">Kaup endurheimt, Pro endurbótin þín er virk.</string>
     <string name="upgrade_screen_grace_title">Staðfesting kaupsins</string>
     <string name="upgrade_screen_grace_body_short">Pro er ennþá virk. Bið eftir að Google Play staðfesti kaupin þín aftur, allir Pro eiginleikar halda áfram að vera ólokaðir á meðan.</string>

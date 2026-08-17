@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">No se liberó nada</string>
     <string name="dashboard_hero_nothing_freed_caption">La limpieza finalizó, pero no se pudo quitar ninguno de los datos encontrados.</string>
     <string name="dashboard_hero_nothing_freed_hint">Algunos datos solo se pueden quitar con acceso adicional, como el servicio de accesibilidad o acceso root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s encontrado</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d elemento necesita SD Maid Pro</item>
+        <item quantity="other">%d elementos necesitan SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Toca para desbloquear con SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Puedes liberar más con SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Necesita SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s escaneado</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s liberado</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y eliminación para todas las herramientas con un toque en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
     <string name="dashboard_settings_oneclick_tools_title">Herramientas de un solo toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">¿Qué herramientas deben incluirse en las operaciones de un solo toque?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Mostrar resumen automáticamente</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Abre automáticamente el resumen de resultados después de usar el botón de acción del panel. Si está desactivado, toca el chip de tamaño en la barra inferior para abrirlo.</string>
     <string name="dashboard_card_config_title">Tarjetas del panel</string>
     <string name="dashboard_card_config_desc">Configura qué tarjetas se muestran y su orden</string>
     <string name="dashboard_card_config_header_title">Arrastra para reordenar, activa para mostrar/ocultar</string>

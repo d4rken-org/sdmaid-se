@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">இது ஒரு தனித்தனிய கொள்முதல்: இது உங்கள் சந்தாவை ரத்து செய்யாது அல்லது திரும்ப பெற்றுக்கொடுக்காது. இரண்டுக்கும் ஒரே Google கணக்கைப் பயன்படுத்தவும்.</string>
     <string name="upgrade_screen_sub_still_renewing_title">சந்தா இன்னும் செயல்பட்டுக்கொண்டிருக்கிறது</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play உங்கள் சந்தா இன்னும் புதுப்பிக்க அமைக்கப்பட்டுள்ளது என்று தெரிவிக்கிறது. ஒரு முறை மேம்பாட்டை வாங்குவதற்கு, முதலில் Google Play-ல் சந்தாவை ரத்து செய்து, பின்னர் இங்கே திரும்பவும்.\n\nஇப்போதுதான் ரத்து செய்துவிட்டீர்களா? Google Play க்கு ஒரு தருணம் கொடுங்கள் மற்றும் மீண்டும் முயற்சி செய்யவும். நீங்கள் ஒரே Google கணக்கைப் பயன்படுத்துகிறீர்கள் என்பதையும் உறுதிசெய்து கொள்ளவும்.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play உடன் உங்கள் கொள்முதல்களை சரிபார்க்க முடியவில்லை. சிறிது நேரத்தில் மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="upgrade_screen_pending_card_title">கட்டணம் நிலுவையில் உள்ளது</string>
+    <string name="upgrade_screen_pending_card_body">Google Play இன்னும் உங்கள் கட்டணத்தைச் செயலாக்கி வருகிறது. கட்டணம் முடிந்தவுடன் Pro தானாகவே திறக்கப்படும். சில கட்டண முறைகள் சிறிது நேரம் எடுக்கலாம். நீங்கள் வேறு எதுவும் செய்ய வேண்டியதில்லை.</string>
+    <string name="upgrade_screen_pending_dialog_message">நிலுவையில் உள்ள கட்டணத்துடன் ஒரு கொள்முதலை Google Play கண்டறிந்து, அதை இன்னும் செயலாக்கி வருகிறது. கட்டணம் முடிந்தவுடன் Pro தானாகவே திறக்கப்படும்.</string>
     <string name="upgrade_screen_restore_success_message">கொள்முதல் மீட்டெடுக்கப்பட்டது, உங்கள் Pro மேம்பாடு செயல்பட்டுக்கொண்டிருக்கிறது.</string>
     <string name="upgrade_screen_grace_title">உங்கள் கொள்முதலை உறுதிப்படுத்துகிறது</string>
     <string name="upgrade_screen_grace_body_short">Pro இன்னும் செயல்பட்டுக்கொண்டிருக்கிறது. Google Play உங்கள் கொள்முதலை மீண்டும் உறுதிப்படுத்த பொறுத்திருக்கிறது, இதற்குள் அனைத்து Pro அம்சங்களும் செயல்பட்டுக்கொண்டிருக்கிறது.</string>

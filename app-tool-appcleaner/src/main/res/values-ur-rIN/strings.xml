@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">سسٹم نے اس ایپ کے لیے \"Clear cache\" بٹن کو غیر فعال کر دیا ہے۔ کیش صاف کرنے کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">سسٹم ایپ غلط کنفیگر ہے</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS کی Security ایپ (com.miui.securitycenter) میں Usage Stats permission (GET_USAGE_STATS) غائب ہے۔ یہ ایپ کی تفصیلات میں \"Clear Data\" اور رسائی کے ذریعے کیش صفائی جیسے فیچرز کو خراب کرتا ہے۔ مکمل فعالیت بحال کرنے کے لیے اجازت دیں۔</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">یہ بھی ہو سکتا ہے اگر \"System UI\" سسٹم ایپ حال ہی میں جبری طور پر بند کیے گئے تھے، مثلاً ایک ایپ صفائی کے ذریعے۔ اس کے بعد Android SD Maid کے خودکار بٹن دبانے کو مسدود کر دیتا ہے جب تک آپ ڈیوائس کو دوبارہ شروع نہ کریں۔</string>
     <string name="appcleaner_forcestop_before_clearing_label">صاف کرنے سے پہلے زبردستی بند کریں</string>
     <string name="appcleaner_forcestop_before_clearing_summary">کیش صاف کرنے سے پہلے ایپس کو زبردستی بند کریں۔ یہ بعض ایپس کا کیش صاف کرنے میں مدد کر سکتا ہے، لیکن ایپس غلط برتاؤ کر سکتی ہیں اور دستی ری سٹارٹ کی ضرورت ہو سکتی ہے۔</string>
     <string name="appcleaner_progress_force_stopping">ایپس زبردستی بند ہو رہی ہیں…</string>

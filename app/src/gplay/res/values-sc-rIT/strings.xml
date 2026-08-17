@@ -13,8 +13,13 @@
     <string name="upgrades_gplay_network_error_title">Errore de connessione</string>
     <string name="upgrades_gplay_network_error_description">Impossìbile si connètere a Google Play. Controlla sa connessione internet tua e proa torra.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Oferta non disponìbile</string>
+    <string name="upgrades_gplay_offer_unavailable_description">Google Play in custu momentu no est oferendi cussa optu. Cusse si forza ancora prus tardi o cuntrolla Google Play Store.</string>
+    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
+    <string name="upgrades_gplay_not_installed_message">Non apo pòdidu abèrrere Google Play. Podet serrere mancat, disabilitadu o ristrettu in custu dispositivu.</string>
     <string name="upgrades_gplay_already_owned_error_title">Giai cumperadu</string>
     <string name="upgrades_gplay_already_owned_error_description">Imprea s\'optzione \"Recùpera su cùmperu\" pro recuperare su cùmperu tuo. Si su problema sighit, proa a limpiare sa cache de Google Play e a torrare a allùghere su dispositivu tuo.</string>
+    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
+    <string name="upgrade_screen_title_template">Impide %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>
     <string name="upgrade_screen_benefits_title">Beneficios de s\'aggiornamentu</string>
     <string name="upgrade_screen_benefits_body">• Mundiza de cache e files inutiles de appliche\n• Remotziòne de files dobiados\n• Compressioni de fotos e videos\n• Mundiza de files antigos istrisciende\n• Mundiza cun un solu toque via widget\n• Programatzione de mundizas\n• Filtros e regulas personalizados\n• Tendencias e istoria de immagatzame\n• Pius carateristicas e controlos in tota s\'appliche\n• Suporta al sviluppamentu continuadu</string>
@@ -50,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Custu est una iscanta separada: no at cancellare o restitùere sa sottoscritzione tua. Imprea s\'istessu contu Google pro ambos.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Sottoscritzione ancora attivu</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play nuntiat chi sa sottoscritzione tua est ancora impostada pro renovare. Pro cumparare s\'atibalzu ùnicu, cantzella prima sa sottoscritzione in Google Play, dopo torna chie.\n\nL\'as cantzellada oe? Astat un\'intziada a Google Play e tenta ancora. Asserta chi stais imprendu s\'istessu contu Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">No est istadu possibile controllare is compras tuas cun Google Play. Torra a proare intre pagu tempus.</string>
+    <string name="upgrade_screen_pending_card_title">Pagamentu in atesa</string>
+    <string name="upgrade_screen_pending_card_body">Google Play est ancora protzessende su pagamentu tuo. Pro s\'isbloccat automaticamente cando su pagamentu est cumpletadu. Calicunu metodu de pagamentu podet leare tempus. No tenes nudda àteru de fàghere.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play at agatadu una cumpra cun pagamentu in atesa e l\'est ancora protzessende. Pro s\'isbloccat automaticamente cando su pagamentu est cumpletadu.</string>
     <string name="upgrade_screen_restore_success_message">Iscanta ripristinada, s\'atibalzu Pro tuu est attivu.</string>
     <string name="upgrade_screen_grace_title">Cunfirmande s\'iscanta tua</string>
     <string name="upgrade_screen_grace_body_short">Pro est ancora attivu. Ant\'aspettende chi Google Play cunfirmet de nou s\'iscanta tua, totu sas caraterìsticas Pro ant\'a restare desbloadas.</string>

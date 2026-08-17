@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ସିଷ୍ଟମ ଏହି ଆପ୍‌ ପାଇଁ \"Clear cache\" ବଟନ ଅକ୍ଷମ କରିଦେଇଛି। କ୍ୟାଶ ସଫା କରିବାର ଗତି ବଢ଼ାଇବା ପାଇଁ ଏହାକୁ ବାଦ ଦିଅନ୍ତୁ।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">ସିଷ୍ଟମ ଆପ୍‌ ଭୁଲ ଭାବରେ ବିନ୍ୟସ୍ତ</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security ଆପ୍‌ (com.miui.securitycenter) ରେ Usage Stats ଅନୁମତି (GET_USAGE_STATS) ନାହିଁ। ଏହା ଆପ୍‌ ବିବରଣୀରେ \"Clear Data\" ଏବଂ ଆକ୍ସେସିବିଲିଟି ମାଧ୍ୟମରେ କ୍ୟାଶ ସଫା କରିବା ଭଳି ଫିଚରଗୁଡ଼ିକୁ ଭାଙ୍ଗି ଦିଏ। ସମ୍ପୂର୍ଣ୍ଣ କାର୍ଯ୍ୟକ୍ଷମତା ପୁନଃସ୍ଥାପନା କରିବା ପାଇଁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ଏହା ମଧ୍ୟ ଘଟିପାରେ ଯଦି \"System UI\" ସିଷ୍ଟମ୍ ଆପ୍ ସାମ୍ପ୍ରତିକ ସମୟରେ ବଳପୂର୍ବକ ବନ୍ଦ କରାଯାଇଥିଲା, ଉଦାହରଣ ସ୍ୱରୂପ କୌଣସି ଆପ୍ ସଫା କରିବା ଟୁଲ୍ ଦ୍ୱାରା। ଏହା ପରେ Android, ଆପଣ ଡିଭାଇସ୍ ପୁନଃଆରମ୍ଭ ନକରିବା ପର୍ଯ୍ୟନ୍ତ SD Maid ର ସ୍ୱୟଂଚାଳିତ ବଟନ୍ ଦବାଇବାକୁ ଅବରୋଧ କରେ।</string>
     <string name="appcleaner_forcestop_before_clearing_label">ସଫା କରିବା ପୂର୍ବରୁ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ସେମାନଙ୍କ କ୍ୟାସ୍ ସଫା କରିବା ପୂର୍ବରୁ ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ। ଏହା କିଛି ଆପ୍ସର କ୍ୟାସ୍ ସଫା କରିବାରେ ସାହାଯ୍ୟ କରିପାରେ, କିନ୍ତୁ ଆପ୍ସ ଖରାପ ଆଚରଣ କରିପାରେ ଏବଂ ହାତରେ ପୁନଃଆରମ୍ଭ ଆବଶ୍ୟକ ହୋଇପାରେ।</string>
     <string name="appcleaner_progress_force_stopping">ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରୁଛି…</string>

@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ова е одвоена куповина: таа не ја откажува или враќа вашата претплата. Користете иста Google сметка за обете.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Претплата е сеуште активна</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play пријавува дека вашата претплата е сеуште поставена да се обнови. За да го купите еднократното надградување, прво откажете ја претплатата во Google Play, потоа вратете се тука.\n\nШтотуку ја откажавте? Дајте му момент на Google Play и пробајте повторно. Исто така, проверете дека користите иста Google сметка.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Не можевме да ги провериме твоите купувања со Google Play. Обиди се повторно за момент.</string>
+    <string name="upgrade_screen_pending_card_title">Плаќањето е во тек</string>
+    <string name="upgrade_screen_pending_card_body">Google Play сè уште го обработува твоето плаќање. Pro се отклучува автоматски штом плаќањето биде завршено. Некои начини на плаќање можат да потраат подолго. Нема потреба да преземаш ништо друго.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play пронајде купување со плаќање во тек и сè уште го обработува. Pro се отклучува автоматски штом плаќањето биде завршено.</string>
     <string name="upgrade_screen_restore_success_message">Куповината е повратена, вашето Pro надградување е активно.</string>
     <string name="upgrade_screen_grace_title">Потврдување на вашата куповина</string>
     <string name="upgrade_screen_grace_body_short">Pro е сеуште активен. Чекам Google Play да ја потврди повторно вашата куповина, сите Pro функции остануваат отклучени до тогаш.</string>

@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Setja upp</string>
     <string name="general_unavailable_label">Ótiltækt</string>
     <string name="general_edit_action">Breyta</string>
+    <string name="general_edit_x_action">Breyta %s</string>
+    <string name="general_add_action">Bæta við</string>
     <string name="general_na_label">Á.v.</string>
     <string name="general_empty_label">Tómt</string>
     <string name="general_new_badge_label">Nýtt</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d hlutum eytt.</item>
     </plurals>
     <string name="general_remove_action">Fjarlægja</string>
+    <string name="general_remove_x_action">Fjarlægja %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Einum hlut fjarlægt</item>
         <item quantity="other">%d hlutum fjarlægt</item>

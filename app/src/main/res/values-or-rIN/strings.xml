@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">ସ୍ଥାନ ଖାଲି ହେଲା ନାହିଁ</string>
     <string name="dashboard_hero_nothing_freed_caption">ସଫାଇ ସମାପ୍ତ ହେଲା, କିନ୍ତୁ ମିଳିଥିବା ଡେଟାର କୌଣସି ଅଂଶ ଅପସାରଣ କରାଯାଇ ପାରିଲା ନାହିଁ।</string>
     <string name="dashboard_hero_nothing_freed_hint">କେତେକ ଡେଟା କେବଳ ଅତିରିକ୍ତ ପ୍ରବେଶ ମାଧ୍ୟମେ ଅପସାରଣ କରାଯାଇ ପାରିବ, ଯେପରି ସୁଲଭତା ସେବା ବା ରୁଟ୍।</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s ମିଳିଲା</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d ଆଇଟମକୁ SD Maid Pro ଆବଶ୍ୟକ</item>
+        <item quantity="other">%d ଆଇଟମକୁ SD Maid Pro ଆବଶ୍ୟକ</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro ସହିତ ଅନଲକ୍ କରିବାକୁ ଟାପ୍ କରନ୍ତୁ।</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro ସହିତ ଆହୁରି ମୁକ୍ତ କରାଯାଇପାରିବ</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro ଆବଶ୍ୟକ</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ସ୍କ୍ୟାନ୍ କରାଗଲା</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ମୁକ୍ତ କରାଗଲା</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">ଡ୍ୟାସବୋର୍ଡର କ୍ରିୟା ବଟନ୍‌ରେ ଏକ ଟ୍ୟାପ୍ ସହିତ ସମସ୍ତ ଟୁଲ୍‌ର ଜାଞ୍ଚ ଏବଂ ଡିଲିଟ୍ ଆରମ୍ଭ କରନ୍ତୁ, କୌଣସି ଅତିରିକ୍ତ ନିଶ୍ଚିତକରଣ ନାହିଁ।</string>
     <string name="dashboard_settings_oneclick_tools_title">ଏକ-ଟ୍ୟାପ୍ ଟୁଲ୍ସ</string>
     <string name="dashboard_settings_oneclick_tools_desc">କେଉଁ ଟୁଲ୍‌ଗୁଡିକ ଏକ-ଟ୍ୟାପ୍ ଅପରେସନରେ ଅନ୍ତର୍ଭୁକ୍ତ ହେବା ଉଚିତ?</string>
+    <string name="dashboard_settings_summary_autoshow_title">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସାରାଂଶ ଦେଖାନ୍ତୁ</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ଡ୍ୟାସବୋର୍ଡ ଆକ୍ସନ୍ ବଟନ୍ ବ୍ୟବହାର କରିବା ପରେ ଫଳାଫଳ ସାରାଂଶକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଖୋଲନ୍ତୁ। ଅକ୍ଷମ ଥିଲେ, ଏହାକୁ ଖୋଲିବାକୁ ତଳ ବାର୍ ରେ ଥିବା ସାଇଜ୍ ଚିପ୍ ଉପରେ ଟାପ୍ କରନ୍ତୁ।</string>
     <string name="dashboard_card_config_title">ଡ୍ୟାସବୋର୍ଡ କାର୍ଡଗୁଡିକ</string>
     <string name="dashboard_card_config_desc">କେଉଁ କାର୍ଡ ଦେଖାଯିବ ଏବଂ ସେମାନଙ୍କ କ୍ରମ ବିନ୍ୟାସ କରନ୍ତୁ</string>
     <string name="dashboard_card_config_header_title">ପୁନଃକ୍ରମ ପାଇଁ ଟାଣନ୍ତୁ, ଦେଖାଇବା/ଲୁଚାଇବା ପାଇଁ ଟୋଗଲ୍ କରନ୍ତୁ</string>

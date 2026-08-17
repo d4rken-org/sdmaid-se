@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Configurar</string>
     <string name="general_unavailable_label">Non dispoñible</string>
     <string name="general_edit_action">Editar</string>
+    <string name="general_edit_x_action">Editar %s</string>
+    <string name="general_add_action">Engadir</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Baleiro</string>
     <string name="general_new_badge_label">Novo</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Elimináronse %d elementos.</item>
     </plurals>
     <string name="general_remove_action">Quitar</string>
+    <string name="general_remove_x_action">Eliminar %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Quitouse un elemento</item>
         <item quantity="other">Quitáronse %d elementos</item>

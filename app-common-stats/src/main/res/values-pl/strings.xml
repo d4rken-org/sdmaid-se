@@ -12,6 +12,33 @@
         <item quantity="many">Przetworzono %s elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
         <item quantity="other">Przetworzono %s elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Twój gość przez %d dzień.</item>
+        <item quantity="few">Twój gość przez %d dni.</item>
+        <item quantity="many">Twój gość przez %d dni.</item>
+        <item quantity="other">Twój gość przez %d dni.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Twój gość przez %d tydzień.</item>
+        <item quantity="few">Twój gość przez %d tygodnie.</item>
+        <item quantity="many">Twój gość przez %d tygodni.</item>
+        <item quantity="other">Twój gość przez %d tygodni.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Twój gość przez %d miesiąc.</item>
+        <item quantity="few">Twój gość przez %d miesiące.</item>
+        <item quantity="many">Twój gość przez %d miesięcy.</item>
+        <item quantity="other">Twój gość przez %d miesięcy.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Twój gość przez %d rok.</item>
+        <item quantity="few">Twój gość przez %d lat.</item>
+        <item quantity="many">Twój gość przez %d lata.</item>
+        <item quantity="other">Twój gość przez %d lata.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Częściowy sukces</string>
     <string name="stats_report_status_partial_failure">Niepowodzenie</string>
     <string name="stats_settings_desc">Konfiguracja statystyk, raportów i przechowywania danych SD Maid.</string>

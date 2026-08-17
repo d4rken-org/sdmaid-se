@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">ບໍ່ມີສິ່ງໃດຖືກປ່ອຍອອກ</string>
     <string name="dashboard_hero_nothing_freed_caption">ການລາບສະອາດສໍາເລັດແລ້ວ ແຕ່ຂໍ້ມູນທີ່ພົບໄດ້ບໍ່ສາມາດເອົາອອກໄດ້</string>
     <string name="dashboard_hero_nothing_freed_hint">ຂໍ້ມູນບາງຢ່າງສາມາດເອົາອອກໄດ້ດ້ວຍສິດທິເພີ່ມເຕີມເທົ່ານັ້ນ ເຊັ່ນ ບໍລິການທີ່ເຂົ້າເຖິງໄດ້ ຫຼື root</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">ພົບ %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d ລາຍການຕ້ອງການ SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">ແຕະເພື່ອປົດລັອກດ້ວຍ SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">ສາມາດເປີດພື້ນທີ່ຫຼາຍຂຶ້ນໄດ້ດ້ວຍ SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">ຕ້ອງການ SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ກວດເບິ່ງ %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">ປົດປ່ອຍ %1$s</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">ເລີ່ມການສະແກນ ແລະ ການລຶບສຳລັບທຸກເຄື່ອງມືດ້ວຍການແຕະປຸ່ມດຳເນີນການຂອງກະດານຄວບຄຸມ, ໂດຍບໍ່ມີການຢືນຢັນເພີ່ມເຕີມ.</string>
     <string name="dashboard_settings_oneclick_tools_title">ເຄື່ອງມືແຕະຄັ້ງດຽວ</string>
     <string name="dashboard_settings_oneclick_tools_desc">ເຄື່ອງມືໃດທີ່ຄວນຖືກລວມເຂົ້າໃນການດຳເນີນງານແຕະຄັ້ງດຽວ?</string>
+    <string name="dashboard_settings_summary_autoshow_title">ສະແດງສະຫຼຸບໂດຍອັດຕະໂນມັດ</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ເປີດສະຫຼຸບຜົນລັບໂດຍອັດຕະໂນມັດຫຼັງຈາກໃຊ້ປຸ່ມດຳເນີນການໃນແດຊບອດ. ເມື່ອປິດການໃຊ້ງານ, ໃຫ້ແຕະຊິບຂະໜາດຢູ່ແຖບລຸ່ມສຸດເພື່ອເປີດມັນ.</string>
     <string name="dashboard_card_config_title">ບັດຄະແນນກະດານ</string>
     <string name="dashboard_card_config_desc">ກຳນົດວ່າບັດໃດແມ່ນແສດງ ແລະລຳດັບຂອງພວກມັນ</string>
     <string name="dashboard_card_config_header_title">ລາກເພື່ອຈັດລຳດັບໃໝ່, ສະຫຼັບເພື່ອສະແດງ/ເຊື່ອງ</string>

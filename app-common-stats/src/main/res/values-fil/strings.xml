@@ -8,6 +8,25 @@
         <item quantity="one">%s item na naproseso mula nang imbitahan ninyo ang SD Maid sa inyong device.</item>
         <item quantity="other">%s mga item na naproseso mula nang imbitahan ninyo ang SD Maid sa inyong device.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Panauhin mo na sa loob ng %d araw.</item>
+        <item quantity="other">Panauhin mo na sa loob ng %d araw.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Panauhin mo na sa loob ng %d linggo.</item>
+        <item quantity="other">Panauhin mo na sa loob ng %d linggo.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Panauhin mo na sa loob ng %d buwan.</item>
+        <item quantity="other">Panauhin mo na sa loob ng %d buwan.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Panauhin mo na sa loob ng %d taon.</item>
+        <item quantity="other">Panauhin mo na sa loob ng %d taon.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Bahagyang tagumpay</string>
     <string name="stats_report_status_partial_failure">Nabigo</string>
     <string name="stats_settings_desc">I-configure ang mga statistics, report at data retention ng SD Maid.</string>

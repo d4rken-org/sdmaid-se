@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Cartelle</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Se nessuna estensione viene selezionata, allora tutte le estensioni di file verranno verificate.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criteri di percorso</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Il percorso di destinazione deve corrispondere ad almeno una voce (es. \"Downloads/oldapks/game-\"). Premi a lungo le voci per più opzioni.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Il percorso di destinazione deve corrispondere ad almeno una voce (ad es. \"Downloads/oldapks/game-\"). Tocca una voce per modificarla, o la sua icona per cambiare il modo in cui viene confrontata.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Criteri di denominazione</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Il nome di destinazione deve contenere almeno una delle parole chiavi (ad esempio \"-receipt\"). Premi a lungo le voci per più opzioni.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Il nome di destinazione deve contenere almeno una delle parole chiave (ad es. \"-receipt\"). Tocca una voce per modificarla, o la sua icona per cambiare il modo in cui viene confrontata.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esclusioni</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Il risultato sarà escluso se il percorso corrisponde a qualsiasi voce (ad esempio \"DCIM\"). Tieni premuto sulle voci per ulteriori opzioni.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Il risultato verrà escluso se il percorso corrisponde a una qualsiasi voce (ad es. \"DCIM\"). Tocca una voce per modificarla, o la sua icona per cambiare il modo in cui viene confrontata.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Aggiungi voce percorso</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Aggiungi voce nome</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Aggiungi voce di esclusione</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Nuova voce</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Parola chiave</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Questa voce esiste già.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d spazio</item>
+        <item quantity="other">%d spazi</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Già usato da un’altra voce</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Cambia modalità di corrispondenza per %1$s, attualmente: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modalità confronto percorsi</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Il percorso inizia con la parola chiave</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Il percorso contiene la parola chiave</string>

@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">フォルダ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">タイプが選択されていない場合、すべてのタイプが一致します。</string>
     <string name="systemcleaner_customfilter_editor_path_label">パスの基準</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ターゲットのパスは、少なくとも1つのエントリーと一致する必要があります(例：\"Downloads/oldapks/game-\")。より多くのオプションのためにエントリを長押しします。</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">対象のパスは、少なくとも1つのエントリーに一致する必要があります（例：「Downloads/oldapks/game-」）。エントリーをタップして編集するか、アイコンをタップして一致方法を変更できます。</string>
     <string name="systemcleaner_customfilter_editor_name_label">名前の条件</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ターゲット名には、少なくとも一つのキーワード(例えば、\"-レシート\")が含まれている必要があります。詳細なオプションを表示するには、長押しの項目を長押ししてください。</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">対象の名前には、少なくとも1つのキーワードが含まれている必要があります（例：「-receipt」）。エントリーをタップして編集するか、アイコンをタップして一致方法を変更できます。</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">除外設定</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">パスが任意のエントリ(例:DCIM)に一致する場合、結果は除外されます。</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">パスがいずれかのエントリーに一致する場合、結果は除外されます（例：「DCIM」）。エントリーをタップして編集するか、アイコンをタップして一致方法を変更できます。</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">パスエントリーを追加</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">名前エントリーを追加</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">除外エントリーを追加</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">新しいエントリー</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">キーワード</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">このエントリーは既に存在します。</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">スペース%d個</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">他のエントリーで既に使用されています</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$sの一致モードを変更（現在：%2$s）</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">パス比較モード</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">パスがキーワードで始まる</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">パスにキーワードが含まれる</string>

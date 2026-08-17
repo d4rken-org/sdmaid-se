@@ -32,6 +32,8 @@
     <string name="general_set_up_action">ସେଟ୍ ଅପ୍ କରିବା</string>
     <string name="general_unavailable_label">ଉପଲବ୍ଧ ନଥାଏ</string>
     <string name="general_edit_action">ସମ୍ପାଦନା</string>
+    <string name="general_edit_x_action">%s ସମ୍ପାଦନ କରନ୍ତୁ</string>
+    <string name="general_add_action">ଯୋଗ କରନ୍ତୁ</string>
     <string name="general_na_label">ଅପ୍ରଯୁଜ୍ୟ</string>
     <string name="general_empty_label">ଖାଲି</string>
     <string name="general_new_badge_label">ନୂଆ</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d ଦ୍ରବ୍ୟ ବିଲୋପ କରାଗଲା।</item>
     </plurals>
     <string name="general_remove_action">ଅପସାରଣ କରିବା</string>
+    <string name="general_remove_x_action">%s ହଟାନ୍ତୁ</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ଗୋଟିଏ ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା</item>
         <item quantity="other">%dଟି ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା</item>

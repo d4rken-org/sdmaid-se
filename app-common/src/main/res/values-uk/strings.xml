@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Налаштування</string>
     <string name="general_unavailable_label">Недоступно</string>
     <string name="general_edit_action">Редагувати</string>
+    <string name="general_edit_x_action">Редагувати %s</string>
+    <string name="general_add_action">Додати</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Порожньо</string>
     <string name="general_new_badge_label">Нове</string>
@@ -116,6 +118,7 @@
         <item quantity="other">Видалено %d елементів.</item>
     </plurals>
     <string name="general_remove_action">Видалити</string>
+    <string name="general_remove_x_action">Видалити %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Один елемент було вилучено</item>
         <item quantity="few">%d елементів було вилучено</item>

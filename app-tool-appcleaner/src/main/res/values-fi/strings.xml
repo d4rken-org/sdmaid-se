@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sovelluksen välimuisti on lukittu. Automaattinen siivous ei ole käytettävissä.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Käyttöoikeus vaaditaan</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Tietoturvakeskuksen käyttöoikeus vaaditaan automaattiseen siivoukseen.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Tämä voi tapahtua myös, jos \"System UI\" -järjestelmäsovellus on äskettäin pysäytetty väkisin, esimerkiksi sovellusten siivoustyökalulla. Android estää tämän jälkeen SD Maidin automaattiset painallukset, kunnes käynnistät laitteen uudelleen.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Pysäytä pakotetusti ennen tyhjennystä</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Pysäytä sovellukset pakotetusti ennen välimuistin tyhjennystä. Voi auttaa joidenkin sovellusten välimuistin tyhjentämisessä, mutta saattaa aiheuttaa sovellusten virhetoimintaa ja vaatia manuaalista uudelleenkäynnistystä.</string>
     <string name="appcleaner_progress_force_stopping">Pysäytetään sovelluksia pakotetusti…</string>

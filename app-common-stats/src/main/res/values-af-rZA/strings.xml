@@ -8,6 +8,25 @@
         <item quantity="one">%s item verwerk sedert jy SD Maid na jou toestel genooi het.</item>
         <item quantity="other">%s items verwerk sedert jy SD Maid na jou toestel genooi het.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Jou gas vir %d dag.</item>
+        <item quantity="other">Jou gas vir %d dae.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Jou gas vir %d week.</item>
+        <item quantity="other">Jou gas vir %d weke.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Jou gas vir %d maand.</item>
+        <item quantity="other">Jou gas vir %d maande.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Jou gas vir %d jaar.</item>
+        <item quantity="other">Jou gas vir %d jare.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Gedeeltelike sukses</string>
     <string name="stats_report_status_partial_failure">Mislukking</string>
     <string name="stats_settings_desc">Stel SD Maid se statistieke, verslae en data retensie op.</string>

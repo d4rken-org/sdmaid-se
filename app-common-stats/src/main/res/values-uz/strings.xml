@@ -8,6 +8,25 @@
         <item quantity="one">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
         <item quantity="other">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">%d kun.</item>
+        <item quantity="other">%d kun.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">%d hafta.</item>
+        <item quantity="other">%d hafta.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">%d oy.</item>
+        <item quantity="other">%d oy.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">%d yil.</item>
+        <item quantity="other">%d yil.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Qisman muvaffaqiyat</string>
     <string name="stats_report_status_partial_failure">Muvaffaqiyatsizlik</string>
     <string name="stats_settings_desc">SD Maid ning statistikalar, hisobotlar va ma\'lumotlarni saqlashni sozlash.</string>

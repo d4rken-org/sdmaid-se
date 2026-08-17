@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Thư mục</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nếu không có loại nào được chọn, thì tất cả các loại sẽ được khớp.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Tiêu chí đường dẫn</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Đường dẫn đích cần khớp với ít nhất một mục (ví dụ: \"Download/oldapks/game-\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Đường dẫn mục tiêu cần khớp với ít nhất một mục (ví dụ: \"Downloads/oldapks/game-\"). Nhấn một mục để chỉnh sửa nó, hoặc biểu tượng của nó để thay đổi cách nó được so khớp.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Tiêu chí tên</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Tên mục tiêu phải chứa ít nhất một trong các từ khóa (ví dụ: \"-receipt\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Tên mục tiêu phải chứa ít nhất một từ khóa (ví dụ: \"-receipt\"). Nhấn một mục để chỉnh sửa nó, hoặc biểu tượng của nó để thay đổi cách nó được so khớp.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Loại trừ</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Kết quả sẽ bị loại trừ nếu đường dẫn khớp với bất kỳ mục nhập nào (ví dụ: \"DCIM\"). Nhấn và giữ các mục để có thêm tùy chọn.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Kết quả sẽ bị loại trừ nếu đường dẫn khớp với bất kỳ mục nào (ví dụ: \"DCIM\"). Nhấn một mục để chỉnh sửa nó, hoặc biểu tượng của nó để thay đổi cách nó được so khớp.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Thêm mục đường dẫn</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Thêm mục tên</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Thêm mục loại trừ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Mục mới</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Từ khóa</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Mục này đã tồn tại.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d khoảng trắng</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Đã được sử dụng bởi một mục khác</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Thay đổi chế độ so khớp cho %1$s, hiện tại: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Chế độ so sánh đường dẫn</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Đường dẫn bắt đầu bằng từ khóa</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Đường dẫn chứa từ khóa</string>

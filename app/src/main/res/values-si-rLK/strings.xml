@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">කිසිවක් නිදහස් කරගත නොහැකි විය</string>
     <string name="dashboard_hero_nothing_freed_caption">පිරිසිදු කිරීම අවසන් වුණත්, සොයාගත් දත්ත ඉවත් කරගත නොහැකි විය</string>
     <string name="dashboard_hero_nothing_freed_hint">සමහර දත්ත ප්‍රවේශ්‍යතා සේවාව හෝ root වැනි අතිරේක පිවිසුම් සහිතව පමණක් ඉවත් කළ හැකිය</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s හමුවිය</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">අයිතම %d කට SD Maid Pro අවශ්‍යයි</item>
+        <item quantity="other">අයිතම %d කට SD Maid Pro අවශ්‍යයි</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro සමඟ අගුළු හැරීමට තට්ටු කරන්න.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro සමඟ තවත් ඉඩක් නිදහස් කළ හැකිය</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro අවශ්‍යයි</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s ස්කෑන් කරගෙන ඇත</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s නිදහස් කරගෙන ඇත</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">උපකරණ පුවරුවේ ක්‍රියා බොත්තමේ ස්පර්ශයකින් සියලුම මෙවලම් සඳහා ස්කෑන් කිරීම සහ මකාදැමීම ආරම්භ කරන්න, අමතර තහවුරු කිරීම් නැත.</string>
     <string name="dashboard_settings_oneclick_tools_title">එක්-ස්පර්ශ මෙවලම්</string>
     <string name="dashboard_settings_oneclick_tools_desc">එක්-ස්පර්ශ මෙහෙයුම්වලට කුමන මෙවලම් ඇතුළත් කළ යුතුද?</string>
+    <string name="dashboard_settings_summary_autoshow_title">සාරාංශය ස්වයංක්‍රීයව පෙන්වන්න</string>
+    <string name="dashboard_settings_summary_autoshow_summary">උපකරණ පුවරු ක්‍රියා බොත්තම භාවිතා කිරීමෙන් පසු ප්‍රතිඵල සාරාංශය ස්වයංක්‍රීයව විවෘත කරයි. අක්‍රිය කළ විට, එය විවෘත කිරීමට පහළ තීරුවේ ප්‍රමාණ චිප් එක තට්ටු කරන්න.</string>
     <string name="dashboard_card_config_title">උපකරණ පුවරු කාඩ්පත්</string>
     <string name="dashboard_card_config_desc">පෙන්වන කාඩ්පත් සහ ඒවායේ පිළිවෙල වින්‍යාස කරන්න</string>
     <string name="dashboard_card_config_header_title">නැවත පිළිවෙලට සකස් කිරීමට ඇදගෙන යන්න, පෙන්වීමට/සැඟවීමට ටොගල් කරන්න</string>

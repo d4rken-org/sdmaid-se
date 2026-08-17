@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Systemet har deaktiveret knappen \"Ryd cache\" for denne app. Ekskluder den for at fremskynde cache-rydning.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systemapp konfigureret forkert</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\' sikkerhedsapp (com.miui.securitycenter) mangler tilladelsen til brugsstatistik (GET_USAGE_STATS). Dette forhindrer funktioner som \"Ryd data\" i appdetaljer og cache-rydning via tilgængelighed. Giv tilladelsen for at gendanne fuld funktionalitet.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Dette kan også ske, hvis systemappen \"System UI\" for nylig er blevet tvangsstoppet, f.eks. af et app-rengøringsværktøj. Android blokerer derefter SD Maids automatiske tryk på knapper, indtil du genstarter enheden.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Tvangsstop før rydning</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tvangsstop apps før rydning af deres cache. Det kan hjælpe med at rydde nogle apps\' caches, men kan medføre at apps opfører sig forkert og kræver manuel genstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvangsstopper apps…</string>

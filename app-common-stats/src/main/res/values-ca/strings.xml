@@ -8,6 +8,25 @@
         <item quantity="one">S\'ha processat %s element des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
         <item quantity="other">S\'han processat %s elements des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">El vostre convidat durant %d dia.</item>
+        <item quantity="other">El vostre convidat durant %d dies.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">El teu convidat durant %d setmana.</item>
+        <item quantity="other">El teu convidat durant %d setmanes.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">El teu convidat durant %d mes.</item>
+        <item quantity="other">El teu convidat durant %d mesos.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">El teu convidat durant %d any.</item>
+        <item quantity="other">El teu convidat durant %d anys.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Èxit parcial</string>
     <string name="stats_report_status_partial_failure">Error</string>
     <string name="stats_settings_desc">Configureu les estadístiques, els informes i la retenció de dades de l\'SD Maid.</string>

@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Системата е деактивирала бутона \"Изчистване на кеш\" за това приложение. Изключете го, за да ускорите изчистването на кеш.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системното приложение е неправилно конфигурирано</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Приложението Security на HyperOS (com.miui.securitycenter) липсва разрешението за статистики за използване (GET_USAGE_STATS). Това нарушава функции като \"Изчистване на данни\" в подробности за приложения и изчистване на кеш чрез достъпност. Предоставете разрешението за възстановяване на пълната функционалност.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Това може да се случи и ако системното приложение «System UI» е било принудително спряно наскоро, напр. от инструмент за почистване на приложения. Android след това блокира автоматичното натискане на бутони на SD Maid, докато не рестартираш устройството.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Принудително спиране преди изчистване</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудително спиране на приложенията преди изчистване на кеша им. Може да помогне за изчистване на кеша на някои приложения, но може да причини неправилно поведение и да изисква ръчно рестартиране.</string>
     <string name="appcleaner_progress_force_stopping">Принудително спиране на приложения…</string>

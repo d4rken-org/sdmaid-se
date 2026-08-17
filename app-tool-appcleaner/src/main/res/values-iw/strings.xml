@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">המערכת השביתה את כפתור \"ניקוי מטמון\" עבור אפליקציה זו. מומלץ לא לכלול אותו כדי להאיץ את ניקוי המטמון.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">אפליקציית המערכת מוגדרת בצורה שגויה</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">באפליקציית האבטחה (com.miui.securitycenter) של HyperOS חסרה הרשאת נתוני השימוש (GET_USAGE_STATS). זה משבית תכונות כמו \"נקה נתונים\" בפרטי אפליקציה וניקוי מטמון באמצעות נגישות. הענק את ההרשאה כדי לאפשר פונקציונליות מלאה.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">זה יכול לקרות גם אם אפליקציית המערכת \"System UI\" נעצרה בכפייה לאחרונה, למשל על ידי כלי לניקוי אפליקציות. במקרה כזה Android חוסם את לחיצות הכפתורים האוטומטיות של SD Maid עד שתפעיל מחדש את המכשיר.</string>
     <string name="appcleaner_forcestop_before_clearing_label">עצירה מאולצת לפני ניקוי</string>
     <string name="appcleaner_forcestop_before_clearing_summary">עצור אפליקציות בכוח לפני ניקוי המטמון. יכול לעזור לנקות את המטמון של חלק מהאפליקציות, אך עלול לגרום לתקלות ולדרוש הפעלה מחדש ידנית.</string>
     <string name="appcleaner_progress_force_stopping">עוצר אפליקציות בכוח…</string>

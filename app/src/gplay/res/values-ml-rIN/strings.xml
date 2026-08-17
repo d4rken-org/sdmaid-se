@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ഇത് വേറിട്ടുള്ള ഒരു വാങ്ങൽ ആണ്: ഇത് നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കുകയോ കാശ് തിരികെ നൽകുകയോ ചെയ്യുന്നില്ല. രണ്ടിനുമായി ഒറെ Google അക്കൗണ്ട് ഉപയോഗിക്കുക.</string>
     <string name="upgrade_screen_sub_still_renewing_title">സബ്സ്ക്രിപ്ഷൻ ഇപ്പോഴും സജീവമാണ്</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play റിപ്പോർട്ട് ചെയ്യുന്നത് നിങ്ങളുടെ സബ്സ്ക്രിപ്ഷൻ നവീകരിക്കാനായി സജ്ജീകരിച്ചിരിക്കുന്നുവെന്നാണ്. ഒറ്റത്തവണ അപ്‌ഗ്രേഡ് വാങ്ങാൻ, ആദ്യം Google Play-ൽ സബ്സ്ക്രിപ്ഷൻ റദ്ദാക്കുക, തുടർന്ന് ഇവിടെ തിരിച്ചുവരിക.\n\nഇതുവെച്ച് റദ്ദാക്കി? Google Play-യ്ക് കുറച്ച് സമയം കൊടുക്കുക കൂടാതെ വീണ്ടും ശ്രമിക്കുക. ഒറെ Google അക്കൗണ്ട് ഉപയോഗിക്കുന്നുവെന്ന് ഉറപ്പാക്കുക.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play ഉപയോഗിച്ച് നിങ്ങളുടെ ക്രയങ്ങൾ പരിശോധിക്കാൻ കഴിഞ്ഞില്ല. ദയവായി കുറച്ച് നേരത്തിന് ശേഷം വീണ്ടും ശ്രമിക്കുക.</string>
+    <string name="upgrade_screen_pending_card_title">പേയ്‌മെന്റ് കാത്തിരിക്കുന്നു</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ഇപ്പോഴും നിങ്ങളുടെ പേയ്‌മെന്റ് പ്രോസസ്സ് ചെയ്യുകയാണ്. പേയ്‌മെന്റ് നടപ്പിലാകുമ്പോൾ Pro സ്വയമായി അൺലോക്ക് ചെയ്യുന്നു. ചില പേയ്‌മെന്റ് രീതികൾ കുറച്ച് സമയം എടുക്കും. നിങ്ങൾ ചെയ്യേണ്ട മറ്റ് എന്തും ഇല്ല.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ഒരു പെൻഡിംഗ് പേയ്‌മെന്റ് ഉള്ള ഒരു ക്രയം കണ്ടെത്തി കൂടാതെ ഇപ്പോഴും ഇത് പ്രോസസ്സ് ചെയ്യുകയാണ്. പേയ്‌മെന്റ് നടപ്പിലാകുമ്പോൾ Pro സ്വയമായി അൺലോക്ക് ചെയ്യുന്നു.</string>
     <string name="upgrade_screen_restore_success_message">വാങ്ങൽ പുനൃസ്ഥാപിതമായി, നിങ്ങളുടെ Pro അപ്‌ഗ്രേഡ് സജീവമാണ്.</string>
     <string name="upgrade_screen_grace_title">നിങ്ങളുടെ വാങ്ങൽ സ്ഥിരീകരിക്കുന്നു</string>
     <string name="upgrade_screen_grace_body_short">Pro ഇപ്പോഴും സജീവമാണ്. Google Play നിങ്ങളുടെ വാങ്ങൽ വീണ്ടും സ്ഥിരീകരിക്കാനായി കാത്തിരിക്കുന്നു, അതിനിടയ്ക്ക് എല്ലാ Pro ഫീച്ചറുകളും അൻലോക്ക് ആയതായി തുടരുന്നു.</string>

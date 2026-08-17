@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ਇਹ ਇੱਕ ਵੱਖ ਖਰੀਦ ਹੈ: ਇਹ ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨੂੰ ਰੱਦ ਨਹੀਂ ਕਰਦੀ ਜਾਂ ਰਿਫੰਡ ਨਹੀਂ ਕਰਦੀ। ਦੋਵਾਂ ਲਈ ਉਸੇ Google ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="upgrade_screen_sub_still_renewing_title">ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਅਜੇ ਸਰਗਰਮ ਹੈ</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play ਦੱਸਦਾ ਹੈ ਕਿ ਤੁਹਾਡੀ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਅਜੇ ਵੀ ਨਵਿਆਉਣ ਲਈ ਸੈਟ ਹੈ। ਇਕ-ਵਾਰ ਅਪਗ੍ਰੇਡ ਖਰੀਦਣ ਲਈ, ਪਹਿਲਾਂ Google Play ਵਿੱਚ ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਨੂੰ ਰੱਦ ਕਰੋ, ਫਿਰ ਇਥੇ ਵਾਪਸ ਆਓ।\n\nਹੁਣੇ ਹੀ ਰੱਦ ਕੀਤਾ ਹੈ? Google Play ਨੂੰ ਇੱਕ ਪਲ ਦਿਓ ਅਤੇ ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ। ਇਹ ਵੀ ਯਕੀਨੀ ਬਣਾਓ ਕਿ ਤੁਸੀਂ ਉਸੇ Google ਖਾਤੇ ਦੀ ਵਰਤੋਂ ਕਰ ਰਹੇ ਹੋ।</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play ਨਾਲ ਤੁਹਾਡੀਆਂ ਖਰੀਦਾਂ ਦੀ ਜਾਂਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ। ਕਿਰਪਾ ਕਰਕੇ ਥੋੜ੍ਹੀ ਦੇਰ ਬਾਅਦ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="upgrade_screen_pending_card_title">ਭੁਗਤਾਨ ਬਕਾਇਆ</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ਅਜੇ ਵੀ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ। ਭੁਗਤਾਨ ਪੂਰਾ ਹੁੰਦੇ ਹੀ Pro ਆਪਣੇ ਆਪ ਅਨਲੌਕ ਹੋ ਜਾਵੇਗਾ। ਕੁਝ ਭੁਗਤਾਨ ਢੰਗਾਂ ਨੂੰ ਥੋੜ੍ਹਾ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ। ਤੁਹਾਨੂੰ ਹੋਰ ਕੁਝ ਕਰਨ ਦੀ ਲੋੜ ਨਹੀਂ ਹੈ।</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ਨੂੰ ਬਕਾਇਆ ਭੁਗਤਾਨ ਵਾਲੀ ਇੱਕ ਖਰੀਦ ਮਿਲੀ ਹੈ ਅਤੇ ਇਹ ਅਜੇ ਵੀ ਇਸਦੀ ਪ੍ਰਕਿਰਿਆ ਕਰ ਰਿਹਾ ਹੈ। ਭੁਗਤਾਨ ਪੂਰਾ ਹੁੰਦੇ ਹੀ Pro ਆਪਣੇ ਆਪ ਅਨਲੌਕ ਹੋ ਜਾਵੇਗਾ।</string>
     <string name="upgrade_screen_restore_success_message">ਖਰੀਦ ਬਹਾਲ ਕੀਤੀ, ਤੁਹਾਡਾ Pro ਅਪਗ੍ਰੇਡ ਸਰਗਰਮ ਹੈ।</string>
     <string name="upgrade_screen_grace_title">ਤੁਹਾਡੀ ਖਰੀਦ ਦੀ ਪੁ਷ਟੀ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="upgrade_screen_grace_body_short">Pro ਅਜੇ ਵੀ ਸਰਗਰਮ ਹੈ। Google Play ਦੀ ਉਡੀਕ ਕਰ ਰਹੇ ਹਾਂ ਤੁਹਾਡੀ ਖਰੀਦ ਨੂੰ ਦੁਬਾਰਾ ਪੁ਷ਟੀ ਕਰਨ ਲਈ, ਇਸ ਦੌਰਾਨ ਸਾਰੀਆਂ Pro ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਅਣਬੰਦ ਰਹਿੰਦੀਆਂ ਹਨ।</string>

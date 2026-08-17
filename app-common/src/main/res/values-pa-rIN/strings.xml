@@ -32,6 +32,8 @@
     <string name="general_set_up_action">ਸਥਾਪਿਤ ਕਰੋ</string>
     <string name="general_unavailable_label">ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="general_edit_action">ਸੋਧੋ</string>
+    <string name="general_edit_x_action">%s ਸੋਧੋ</string>
+    <string name="general_add_action">ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="general_na_label">ਲਾਗੂ ਨਹੀਂ ਹੋ ਸਕਦਾ</string>
     <string name="general_empty_label">ਖ਼ਾਲੀ</string>
     <string name="general_new_badge_label">ਨਵਾਂ</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d ਆਈਟਮ ਮਿਟਾਏ ਗਏ।</item>
     </plurals>
     <string name="general_remove_action">ਹਟਾਓ</string>
+    <string name="general_remove_x_action">%s ਹਟਾਓ</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ਇੱਕ ਆਈਟਮ ਹਟਾਇਆ ਗਿਆ</item>
         <item quantity="other">%d ਆਈਟਮ ਹਟਾਏ ਗਏ</item>

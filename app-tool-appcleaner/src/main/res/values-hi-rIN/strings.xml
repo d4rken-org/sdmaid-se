@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">सिस्टम ने इस ऐप के लिए \"कैश साफ़ करें\" बटन को अक्षम कर दिया है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">सिस्टम ऐप गलत कॉन्फ़िगर किया गया</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS की सुरक्षा ऐप (com.miui.securitycenter) में उपयोग आंकड़े अनुमति (GET_USAGE_STATS) गुम है। यह ऐप विवरण में \"डेटा साफ़ करें\" और पहुंच के माध्यम से कैश साफ़ करने जैसी सुविधाओं को तोड़ता है। पूर्ण कार्यक्षमता बहाल करने के लिए अनुमति दें।</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">यह तब भी हो सकता है जब हाल ही में \"System UI\" सिस्टम एप को फौर्स-स्टॉप किया गया हो, जैसे किसी एप क्लीनिंग टूल द्वारा। इसके बाद Android, डिवाइस को रीस्टार्ट करने तक SD Maid के स्वचालित बटन दबाव को रोक देता है।</string>
     <string name="appcleaner_forcestop_before_clearing_label">साफ़ करने से पहले बलपूर्वक रोकें</string>
     <string name="appcleaner_forcestop_before_clearing_summary">कैश साफ़ करने से पहले ऐप्स को बलपूर्वक रोकें। यह कुछ ऐप्स का कैश साफ़ करने में मदद कर सकता है, लेकिन ऐप्स में समस्या हो सकती है और मैन्युअल पुनः आरंभ की आवश्यकता हो सकती है।</string>
     <string name="appcleaner_progress_force_stopping">ऐप्स बलपूर्वक रोके जा रहे हैं…</string>

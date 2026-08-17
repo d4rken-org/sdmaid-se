@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bu ayrı bir satın almadır: aboneliğinizi iptal etmez veya geri ödeme yapmaz. Her ikisi için de aynı Google hesabını kullanın.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonelik hâlâ etkin</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play, aboneliğinizin hâlâ yenilenmek üzere ayarlı olduğunu bildiriyor. Tek seferlik yükseltmeyi satın almak için önce Google Play\'de aboneliği iptal edin, sonra buraya geri dönün.\n\nAz önce mi iptal ettiniz? Google Play\'e biraz zaman verin ve tekrar deneyin. Ayrıca aynı Google hesabını kullandığınızdan emin olun.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Satın alımların Google Play ile kontrol edilemedi. Lütfen birazdan tekrar dene.</string>
+    <string name="upgrade_screen_pending_card_title">Ödeme bekleniyor</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ödemeni hâlâ işliyor. Ödeme tamamlandığında Pro otomatik olarak açılır. Bazı ödeme yöntemleri biraz zaman alabilir. Başka bir şey yapmana gerek yok.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play, ödemesi bekleyen bir satın alma buldu ve hâlâ işliyor. Ödeme tamamlandığında Pro otomatik olarak açılır.</string>
     <string name="upgrade_screen_restore_success_message">Satın alma geri yüklendi, Pro yükseltmeniz etkin.</string>
     <string name="upgrade_screen_grace_title">Satın alımınız onaylanıyor</string>
     <string name="upgrade_screen_grace_body_short">Pro hâlâ etkin. Google Play\'in satın alımınızı yeniden onaylaması bekleniyor, bu arada tüm Pro özellikleri açık kalmaya devam ediyor.</string>

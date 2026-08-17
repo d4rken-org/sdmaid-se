@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mappák</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ha nincs típus kiválasztva, akkor az összes típus megfelel.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Útvonali kiszabások</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">A cél elérési útvonalnak legalább egy bejegyzéssel meg kell egyeznie (pl. \" Downloads/oldapks/game-\"). További lehetőségekért nyomd meg hosszan a bejegyzéseket.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">A célútvonalnak legalább egy bejegyzéssel egyeznie kell (pl. „Downloads/oldapks/game-”). Koppints egy bejegyzésre a szerkesztéséhez, vagy az ikonjára az egyezés módjának megváltoztatásához.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Név kiszabások</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">A cél nevének tartalmaznia kell legalább egy kulcsszót (pl. \"-receipt\"). További lehetőségekért nyomd meg hosszan a bejegyzéseket.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">A célnévnek tartalmaznia kell legalább az egyik kulcsszót (pl. „-receipt”). Koppints egy bejegyzésre a szerkesztéséhez, vagy az ikonjára az egyezés módjának megváltoztatásához.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Kizárások</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Az eredmény kizárásra kerül, ha az elérési út megegyezik bármely bejegyzéssel (pl. \"DCIM\"). További lehetőségekért nyomd meg hosszan a bejegyzéseket.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Az eredmény ki lesz zárva, ha az útvonal egyezik bármelyik bejegyzéssel (pl. „DCIM”). Koppints egy bejegyzésre a szerkesztéséhez, vagy az ikonjára az egyezés módjának megváltoztatásához.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Útvonal-bejegyzés hozzáadása</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Név-bejegyzés hozzáadása</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Kizárás-bejegyzés hozzáadása</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Új bejegyzés</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Kulcsszó</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Ez a bejegyzés már létezik.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d szóköz</item>
+        <item quantity="other">%d szóköz</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Már használja egy másik bejegyzés</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Egyezési mód módosítása ehhez: %1$s, jelenleg: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Útvonal-összehasonlító üzemmód</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Az útvonal kulcsszóval kezdődik</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Az útvonal kulcsszót tartalmaz</string>

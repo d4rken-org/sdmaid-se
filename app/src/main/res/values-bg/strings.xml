@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Нищо не беше освободено</string>
     <string name="dashboard_hero_nothing_freed_caption">Почистването завърши, но никакви от намерените данни не можаха да бъдат премахнати.</string>
     <string name="dashboard_hero_nothing_freed_hint">Някои данни могат да бъдат премахнати само с допълнителен достъп, например услугата за достъпност или root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s намерено</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d елемент се нуждае от SD Maid Pro</item>
+        <item quantity="other">%d елемента се нуждаят от SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Докосни за отключване със SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Може да се освободи повече място със SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Изисква SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Сканирано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Освободено %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Започнете сканиране и изтриване за всички инструменти с докосване на бутона за действие на таблото, без допълнителни потвърждения.</string>
     <string name="dashboard_settings_oneclick_tools_title">Инструменти с едно докосване</string>
     <string name="dashboard_settings_oneclick_tools_desc">Кои инструменти трябва да бъдат включени в операциите с едно докосване?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Автоматично показване на резюме</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Автоматично отваряне на резюме на резултатите след използване на бутона за действие на табулото. Когато е деактивирано, докосни чипа със размера в долната лента, за да го отвориш.</string>
     <string name="dashboard_card_config_title">Карти на таблото</string>
     <string name="dashboard_card_config_desc">Настройте кои карти се показват и реда им</string>
     <string name="dashboard_card_config_header_title">Плъзнете за пренареждане, превключете за показване/скриване</string>

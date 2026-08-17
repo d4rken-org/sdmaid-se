@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ນີ້ແມ່ນການຊື້ແຍກຕ່າງຫາກ: ມັນບໍ່ໄດ້ຍົກເລີກ ຫຼືຄືນເງິນທີ່ສະບັບຂອງທ່ານ. ໃຊ້ບັນຊີ Google ດຽວກັນສໍາລັບທັງສອງ.</string>
     <string name="upgrade_screen_sub_still_renewing_title">ການສະໝັກສະບັບຍັງຄົງໃຊ້ວຽກ</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play ລາຍງານວ່າການສະໝັກສະບັບຂອງທ່ານຍັງຄົງຕັ້ງໄວ້ເພື່ອຕໍ່ອາຍຸ. ເພື່ອຊື້ຕົວອັບເກຣດຄັ້ງດຽວ ໃຫ້ຍົກເລີກການສະໝັກສະບັບໃນ Google Play ກ່ອນ ແລ້ວກັບມາທີ່ນີ້.\n\nຫາກເພິ່ງຍົກເລີກ? ລໍ່ Google Play ສັກຈັກນາທີ ແລ້ວລອງອີກຄັ້ງ. ນອກຈາກນັ້ນໃຫ້ແນ່ໃຈວ່າທ່ານໃຊ້ບັນຊີ Google ດຽວກັນ.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">ບໍ່ສາມາດກວດສອບການຊື້ຂອງທ່ານກັບ Google Play ໄດ້. ກະລຸນາລອງໃໝ່ໃນອີກສັກຄູ່.</string>
+    <string name="upgrade_screen_pending_card_title">ການຊຳລະເງິນກຳລັງລໍຖ້າ</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ຍັງກຳລັງດຳເນີນການຊຳລະເງິນຂອງທ່ານ. Pro ຈະຖືກປົດລັອກໂດຍອັດຕະໂນມັດເມື່ອການຊຳລະເງິນສຳເລັດ. ບາງວິທີການຊຳລະເງິນອາດໃຊ້ເວລາໜ້ອຍໜຶ່ງ. ທ່ານບໍ່ຈຳເປັນຕ້ອງເຮັດຫຍັງເພີ່ມເຕີມ.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ພົບການຊື້ທີ່ມີການຊຳລະເງິນຄ້າງຢູ່ ແລະ ຍັງກຳລັງດຳເນີນການຢູ່. Pro ຈະຖືກປົດລັອກໂດຍອັດຕະໂນມັດເມື່ອການຊຳລະເງິນສຳເລັດ.</string>
     <string name="upgrade_screen_restore_success_message">ການຊື້ໄດ້ຮັບຟື້ນຟູ ການອັບເກຣດ Pro ຂອງທ່ານໄດ້ເປີດໃຊ້ງານ.</string>
     <string name="upgrade_screen_grace_title">ກໍາລັງຢືນຢັນການຊື້ຂອງທ່ານ</string>
     <string name="upgrade_screen_grace_body_short">Pro ຍັງຄົງໃຊ້ວຽກ. ກໍາລັງລໍ່ຕໍ່ Google Play ໃຫ້ຢືນຢັນການຊື້ຂອງທ່ານຄືນ, ທຸກລັກສະນະ Pro ຍັງຄົງປົດລັອກໃນລະຫວ່າງນີ້.</string>

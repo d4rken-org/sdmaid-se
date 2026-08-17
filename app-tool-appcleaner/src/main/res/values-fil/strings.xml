@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Na-disable ng system ang \"Clear cache\" button para sa app na ito. I-exclude ito para mapabilis ang cache clearing.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Hindi tama ang configuration ng system app</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Ang Security app ng HyperOS (com.miui.securitycenter) ay kulang ng Usage Stats permission (GET_USAGE_STATS). Nakakasirang ito ng mga feature tulad ng \"Clear Data\" sa app details at cache clearing sa pamamagitan ng accessibility. Bigyan ng permission para ma-restore ang buong functionality.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Maaari rin itong mangyari kung kamakailan lang na-force-stop ang system app na \"System UI\", halimbawa ng isang app cleaning tool. Bina-block ng Android ang mga awtomatikong pag-press ng button ng SD Maid hanggang sa i-restart mo ang device.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop bago i-clear</string>
     <string name="appcleaner_forcestop_before_clearing_summary">I-force-stop ang mga app bago i-clear ang kanilang cache. Maaari itong makatulong sa pag-clear ng cache ng ilang app, ngunit maaaring magdulot ng maling pagkilos ng mga app at mangailangan ng manu-manong pag-restart.</string>
     <string name="appcleaner_progress_force_stopping">Finoforce-stop ang mga app…</string>

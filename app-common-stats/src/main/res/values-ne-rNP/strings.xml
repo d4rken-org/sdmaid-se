@@ -8,6 +8,25 @@
         <item quantity="one">तपाईंले SD Maid लाई आफ्नो डिभाइसमा आमन्त्रण गरेकोदेखि %s वस्तु प्रक्रिया गरिएको छ।</item>
         <item quantity="other">तपाईंले SD Maid लाई आफ्नो डिभाइसमा आमन्त्रण गरेकोदेखि %s वस्तुहरू प्रक्रिया गरिएका छन्।</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">तपाईंको अतिथि %d दिनको लागि।</item>
+        <item quantity="other">तपाईंको अतिथि %d दिनको लागि।</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">तपाईंको अतिथि %d हप्ताको लागि।</item>
+        <item quantity="other">तपाईंको अतिथि %d हप्ताको लागि।</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">तपाईंको अतिथि %d महिनाको लागि।</item>
+        <item quantity="other">तपाईंको अतिथि %d महिनाको लागि।</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">तपाईंको अतिथि %d वर्षको लागि।</item>
+        <item quantity="other">तपाईंको अतिथि %d वर्षको लागि।</item>
+    </plurals>
     <string name="stats_report_status_partial_success">आंशिक सफलता</string>
     <string name="stats_report_status_partial_failure">असफलता</string>
     <string name="stats_settings_desc">SD Maid को तथ्याङ्क, प्रतिवेदनहरू र डेटा प्रतिधारण कन्फिगर गर्नुहोस्।</string>

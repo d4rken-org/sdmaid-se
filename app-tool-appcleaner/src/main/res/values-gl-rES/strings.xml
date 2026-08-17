@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">O sistema desactivou o botón \"Borrar caché\" para esta aplicación. Exclúea para acelerar o borrado de caché.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicación do sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">A aplicación de seguranza de HyperOS (com.miui.securitycenter) carece do permiso de estatísticas de uso (GET_USAGE_STATS). Isto rompe funcións como \"Borrar datos\" nos detalles da aplicación e o borrado de caché a través da accesibilidade. Concede o permiso para restaurar a funcionalidade completa.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Isto tamén pode ocorrer se a aplicación do sistema \"System UI\" foi forzada a deterse recentemente, por exemplo por unha ferramenta de limpeza de apps. Android bloquea entón as pulsacións automáticas de botóns de SD Maid ata que reinicies o dispositivo.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forzar a detención das aplicacións antes de limpar a súa caché. Pode axudar a limpar as cachés dalgunhas aplicacións, pero pode causar mal funcionamento e requirir reinicio manual.</string>
     <string name="appcleaner_progress_force_stopping">Forzando detención de aplicacións…</string>

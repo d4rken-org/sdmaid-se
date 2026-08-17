@@ -8,6 +8,25 @@
         <item quantity="one">SD Maidን ወደ መሣሪያዎ ከጋበዙ ጀምሮ %s ንጥል ተሠርቷል።</item>
         <item quantity="other">SD Maidን ወደ መሣሪያዎ ከጋበዙ ጀምሮ %s ንጥሎች ተሠርተዋል።</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">ለ%d ቀን እንግዳዎ ነኝ።</item>
+        <item quantity="other">ለ%d ቀናት እንግዳዎ ነኝ።</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">ለ%d ሳምንት እንግዳዎ ነኝ።</item>
+        <item quantity="other">ለ%d ሳምንታት እንግዳዎ ነኝ።</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">ለ%d ወር እንግዳዎ ነኝ።</item>
+        <item quantity="other">ለ%d ወራት እንግዳዎ ነኝ።</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">ለ%d ዓመት እንግዳዎ ነኝ።</item>
+        <item quantity="other">ለ%d ዓመታት እንግዳዎ ነኝ።</item>
+    </plurals>
     <string name="stats_report_status_partial_success">ከፊል ተሳክቷል</string>
     <string name="stats_report_status_partial_failure">አልተሳካም</string>
     <string name="stats_settings_desc">የSD Maid ስታቲስቲክ፣ ሪፖርቶችና የውሂብ ማቆያ ያዋቅሩ።</string>

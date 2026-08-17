@@ -10,34 +10,54 @@
         <item quantity="one">%d predmet je mogoče odstraniti</item>
         <item quantity="two">%d predmeta je mogoče odstraniti</item>
         <item quantity="few">%d predmete je mogoče odstraniti</item>
-        <item quantity="other">%d predmetov je mogoče odstraniti</item>
+        <item quantity="other">%d predmetov je mogoče odstraniti.</item>
     </plurals>
     <plurals name="dashboard_hero_freed_x_items">
         <item quantity="one">%d predmet je bil odstranjen</item>
         <item quantity="two">%d predmeta sta bila odstranjena</item>
         <item quantity="few">%d predmeti so bili odstranjeni</item>
-        <item quantity="other">%d predmetov je bilo odstranjenih</item>
+        <item quantity="other">%d predmetov je bilo odstranjenih.</item>
     </plurals>
     <string name="dashboard_hero_freeable_hint">Pritisnite gumb, da sprostite prostor, ali oznako za preverjanje najprej.</string>
-    <string name="dashboard_hero_freed_hint">Tapnite čip za podrobnosti.</string>
+    <string name="dashboard_hero_freed_hint">Za podrobnosti se dotaknite čipa.</string>
     <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
          "couldn't be freed": the tools don't record whether an item was attempted and failed or
          skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">Preostane %1$s</string>
     <!-- Shown when a cleanup ran to completion but could not free any space -->
-    <string name="dashboard_hero_nothing_freed_headline">Nič ni bilo osvobojeno</string>
+    <string name="dashboard_hero_nothing_freed_headline">Ničesar ni bilo sproščenega.</string>
     <string name="dashboard_hero_nothing_freed_caption">Čiščenje je zaključeno, vendar se nobenih od najdenih podatkov ni dalo odstraniti.</string>
-    <string name="dashboard_hero_nothing_freed_hint">Nekatere podatke je mogoče odstraniti le z dodatnim dostopom, kot sta dostopnostna storitev ali root.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Nekatere podatke je mogoče odstraniti le z dodatnim dostopom, kot sta storitev dostopnosti ali korenski dostop.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Najdeno: %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d predmet potrebuje SD Maid Pro</item>
+        <item quantity="two">%d predmeta potrebujeta SD Maid Pro</item>
+        <item quantity="few">%d predmeti potrebujejo SD Maid Pro</item>
+        <item quantity="other">%d predmetov potrebuje SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Tapni, da odkleneš s SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">S SD Maid Pro lahko sprostiš več prostora</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Potrebuje SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Pregledano: %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Sproščeno: %1$s</string>
-    <string name="dashboard_hero_nothing_freed_timestamp_description">Poskušano %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Poizkušano: %1$s</string>
     <string name="dashboard_settings_category">Nadzorna plošča</string>
     <string name="dashboard_motd_title">Sporočilo od razvijalca</string>
     <string name="dashboard_settings_oneclick_title">Način enega dotika</string>
     <string name="dashboard_settings_oneclick_summary">Z dotikom gumba dejanj na nadzorni plošči zaženi pregled in izbris za vsa orodja – brez dodatnih potrjevanj.</string>
     <string name="dashboard_settings_oneclick_tools_title">Orodja za en dotik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Katera orodja želite vključiti med opravila z enim dotikom?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Samodejno prikaži povzetek</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Po uporabi gumba za dejanje na nadzorni plošči samodejno odpri povzetek rezultatov. Če je možnost onemogočena, za odpiranje tapni čip z velikostjo v spodnji vrstici.</string>
     <string name="dashboard_card_config_title">Kartice nadzorne plošče</string>
     <string name="dashboard_card_config_desc">Nastavite, katere kartice so prikazane in njihov vrstni red</string>
     <string name="dashboard_card_config_header_title">Povlecite za prerazporeditev, preklopite za prikaz/skritje</string>
@@ -47,7 +67,7 @@
     <string name="debug_debuglog_stop_action">Ustavi snemanje</string>
     <string name="debug_debuglog_sensitive_information_label">Občutljivi podatki</string>
     <string name="debug_debuglog_sensitive_information_message">Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki jim zaupate.</string>
-    <string name="debug_debuglog_screen_subtitle">Izvezite informacije za razhroščevanje</string>
+    <string name="debug_debuglog_screen_subtitle">Izvozite podatke za odpravljanje težav</string>
     <string name="debug_logview_screen_title">Pregledovalnik dnevnika</string>
     <string name="debug_logview_pause_action">Premor (zmrzni medpomnilnik)</string>
     <string name="debug_logview_resume_action">Nadaljuj</string>
@@ -69,16 +89,16 @@
     <string name="debug_debuglog_screen_session_path_label">Pot seje</string>
     <string name="debug_debuglog_screen_log_files_label">Dnevniške datoteke</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">Datoteka je pripravljena (%2$s).</item>
-        <item quantity="two">Datoteki sta pripravljeni (%2$s).</item>
-        <item quantity="few">%1$d datoteke so pripravljene (%2$s).</item>
-        <item quantity="other">%1$d datotek je pripravljenih (%2$s).</item>
+        <item quantity="one">Datoteka je pripravljena (%2$s) · %3$s</item>
+        <item quantity="two">Datoteki sta pripravljeni (%2$s) · %3$s</item>
+        <item quantity="few">%1$d datoteke so pripravljene (%2$s) · %3$s</item>
+        <item quantity="other">%1$d datotek je pripravljenih (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ta značilnost si v datoteko zabeleži vse, kar počne program.  Ustvarjena datoteka vsebuje občutljive podatke (npr. imena datotek in nameščene programe).  Posredujte jo samo osebam, ki  jim zaupate (npr. razvijalcu, ki poskuša rešiti težavo).</string>
     <string name="debug_debuglog_short_recording_title">Zelo kratko snemanje</string>
     <string name="debug_debuglog_short_recording_desc">Snemanje je bilo zelo kratko. Dnevniki odpravljanja napak so posnetki, ne posnetki stanja — reproducirajte težavo med aktivnim snemanjem, da bo dnevnik koristen.</string>
     <string name="debug_debuglog_short_recording_continue_action">Nadaljuj snemanje</string>
-    <string name="debug_debuglog_short_recording_stop_action">Ustavi vseeno</string>
+    <string name="debug_debuglog_short_recording_stop_action">Vseeno ustavi</string>
     <string name="debug_debuglog_screen_failed_title">Seja ni uspela</string>
     <string name="debug_debuglog_screen_failed_empty_log_desc">Datoteka z dnevnikom odpravljanja napak je bila prazna. Poskusite znova snemati in reproducirajte težavo med snemanjem.</string>
     <string name="debug_debuglog_screen_failed_missing_log_desc">Datoteka z dnevnikom odpravljanja napak manjka. Snemanje je morda bilo prekinjeno.</string>
@@ -126,12 +146,12 @@
     <string name="onboarding_setup_title">Nastavitve</string>
     <string name="onboarding_setup_body1">SD Maid bo iskal po vseh dostopnih podatkovnih področjih.</string>
     <string name="onboarding_setup_body2">Področja dostopnosti so odvisna od naprave, različice Androida in odobrenih dovoljenj.</string>
-    <string name="onboarding_setup_body4">Privzete nastavitve SD Maida so nastavljene na varno in temeljito, kar ponuja dober kompromis za večino uporabnikov.</string>
+    <string name="onboarding_setup_body4">Privzete nastavitve SD Maida so zasnovane za varnost in temeljitost, kar ponuja dober kompromis za večino uporabnikov.</string>
     <string name="onboarding_setup_body5">Za bolj temeljite rezultate obiščite nastavitve vsakega orodja in jih prilagodite po svojih željah.</string>
     <string name="onboarding_setup_body3">Začnite uporabljati SD Maid z nastavitvijo dostopa.</string>
     <string name="onboarding_setup_continue_action">Nastavi dostop</string>
-    <string name="onboarding_setup_tours_enabled_label">Prikaži vodene ture</string>
-    <string name="onboarding_setup_tours_enabled_explanation">Hitra vodena tura vsake funkcije, ko jo odprete.</string>
+    <string name="onboarding_setup_tours_enabled_label">Prikaži vodene predstavitve</string>
+    <string name="onboarding_setup_tours_enabled_explanation">Hitra vodena predstavitev vsake značilnosti, ko jo odprete.</string>
     <string name="settings_privacy_policy_label">Pravilnik o zasebnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno ravnanje s podatki.</string>
     <string name="settings_category_other_label">Drugo</string>
@@ -350,15 +370,15 @@
     <string name="shortcuts_onetap_enabled_title">Bližnjica z enim dotikom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaži bližnjico \"Preglej + Izbriši\" ob dolgem pritisku na ikono programa.  Uporablja ista orodja, kot nadzorna plošča dejanj z enim dotikom.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s v 7 dneh</string>
-    <string name="tour_dashboard_overview_body">To je vaša nadzorna plošča, domača stran SD Maida. Vsako orodje in operacija se nahaja na kartici.</string>
+    <string name="tour_dashboard_overview_body">To je vaša nadzorna plošča, domača stran SD Maida.  Vsako orodje in opravilo se nahaja na kartici.</string>
     <string name="tour_dashboard_setup_body">Kartica za nastavitev se pojavi, kadar je treba nekaj konfigurirati. Odprite jo in rešite težave, da bo SD Maid lahko naredil več. Nastavitev lahko dosežete tudi iz nastavitev, če jo zavrnete.</string>
-    <string name="tour_dashboard_tools_body">Odprite kartico orodja za podrobnosti. Dejanja pregledovanja in brisanja so na vsaki kartici; podrobnosti se pojavijo, ko pregled najde nekaj.</string>
+    <string name="tour_dashboard_tools_body">Za podrobnosti odprite kartico orodja.  Dejanja pregledovanja in brisanja so na vsaki kartici; podrobnosti se pojavijo, ko pregled nekaj najde.</string>
     <string name="tour_dashboard_main_action_body">Veliki gumb na dnu je dejanje z enim dotikom. En dotik za pregled, en dotik za čiščenje — vsa orodja so samodejna.</string>
-    <string name="tour_dashboard_manual_tools_body">Nekatera orodja, kot je Swiper, niso samodejna, temveč ponujajo vodeni potek dela, skozi katerega greste sami.</string>
-    <string name="tour_dashboard_settings_body">Privzete nastavitve SD Maida so previdne in varne. Vsaka naprava je nekoliko drugačna, zato prilagodite nastavitve, da iz nje dobite več.</string>
+    <string name="tour_dashboard_manual_tools_body">Nekatera orodja, kot je Drsnik, niso samodejna, temveč ponujajo vodeni potek dela, skozi katerega greste sami.</string>
+    <string name="tour_dashboard_settings_body">Privzete nastavitve SD Maida so zasnovane za previdnost in varnost.  Vsaka naprava je nekoliko drugačna, zato prilagodite nastavitve, da iz nje dobite več.</string>
     <string name="tour_setup_intro_body">Vsaka kartica na tem zaslonu predstavlja dovoljenje, ki ga lahko uporabi SD Maid. Vsa so izbirna, vendar več dovoljenj pomeni več funkcij in temeljitejše preglede. Brez njih bo večina orodij našla le malo za počistiti.</string>
     <string name="general_settings_reset_guided_tours_label">Ponastavi vodene ture</string>
-    <string name="general_settings_reset_guided_tours_summary">Ob naslednjem obisku njihovega zaslona ponovno prikaže vse vodene ture. Prav tako ponovno omogoči vse ture, če ste jih prej izklopili.</string>
+    <string name="general_settings_reset_guided_tours_summary">Ob naslednjem obisku njihovega zaslona ponovno prikaži vse vodene predstavitve.  To jih tudi ponovno omogoči, če so bile prej izklopljene.</string>
     <string name="widget_home_title">SD Maid</string>
     <string name="widget_home_description">Poraba shrambe in čiščenje z enim dotikom</string>
     <string name="widget_home_storage_internal">Notranja</string>

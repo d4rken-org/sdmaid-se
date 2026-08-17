@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Huu ni ununuzi tofauti: hauughairi wala kurudisha pesa za usajili wako. Tumia akaunti sawa ya Google kwa vyote viwili.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Usajili bado ni hai</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play inaripoti kwamba usajili wako bado umewekwa kurejeshwa. Ili kununua boresho la mara moja, ghairi usajili katika Google Play kwanza, kisha rudi hapa.\n\nUmeghairi hivi punde? Mpe Google Play muda kidogo kisha jaribu tena. Pia hakikisha unatumia akaunti sawa ya Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Imeshindwa kuangalia manunuzi yako kwenye Google Play. Tafadhali jaribu tena baada ya muda.</string>
+    <string name="upgrade_screen_pending_card_title">Malipo yanasubiriwa</string>
+    <string name="upgrade_screen_pending_card_body">Google Play bado inashughulikia malipo yako. Pro itafunguliwa kiotomatiki mara malipo yatakapokamilika. Baadhi ya njia za malipo zinaweza kuchukua muda. Hakuna kingine unachohitaji kufanya.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play imepata ununuzi wenye malipo yanayosubiri na bado inayashughulikia. Pro itafunguliwa kiotomatiki mara malipo yatakapokamilika.</string>
     <string name="upgrade_screen_restore_success_message">Ununuzi umerejeshwa, boresho lako la Pro ni hai.</string>
     <string name="upgrade_screen_grace_title">Inathibitisha ununuzi wako</string>
     <string name="upgrade_screen_grace_body_short">Pro bado ni hai. Inasubiri Google Play kuthibitisha tena ununuzi wako, vipengele vyote vya Pro vinabaki vimefunguliwa wakati huo huo.</string>

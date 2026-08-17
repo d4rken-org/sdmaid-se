@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ez egy külön vásárlás: nem mondja le és nem térít vissza az előfizetésedet. Használd ugyanazt a Google-fiókot mindkettőhöz.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Az előfizetés még mindig aktív</string>
     <string name="upgrade_screen_sub_still_renewing_message">A Google Play szerint az előfizetésed még mindig meg fog újulni. Az egyszeri frissítés megvásárlásához először mondd le az előfizetést a Google Playen, majd térj vissza ide.\n\nMost mondtad le? Adj egy kis időt a Google Playnek, és próbáld újra. Győződj meg róla, hogy ugyanazt a Google-fiókot használod.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Nem sikerült ellenőrizni a vásárlásaidat a Google Play-nél. Kérlek, próbáld újra egy kicsit később.</string>
+    <string name="upgrade_screen_pending_card_title">Fizetés folyamatban</string>
+    <string name="upgrade_screen_pending_card_body">A Google Play még feldolgozza a fizetésedet. A Pro automatikusan feloldódik, amint a fizetés sikeresen megtörténik. Egyes fizetési módoknál ez eltarthat egy ideig. Neked nincs más teendőd.</string>
+    <string name="upgrade_screen_pending_dialog_message">A Google Play talált egy vásárlást függőben lévő fizetéssel, és még feldolgozza azt. A Pro automatikusan feloldódik, amint a fizetés sikeresen megtörténik.</string>
     <string name="upgrade_screen_restore_success_message">A vásárlás visszaállítva, a Pro frissítésed aktív.</string>
     <string name="upgrade_screen_grace_title">Vásárlás megerősítése</string>
     <string name="upgrade_screen_grace_body_short">A Pro továbbra is aktív. A Google Play megerősítésére várunk, addig is minden Pro funkció feloldva marad.</string>

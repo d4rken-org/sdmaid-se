@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Questo è un acquisto separato: non annulla né rimborsa il tuo abbonamento. Usa lo stesso account Google per entrambi.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abbonamento ancora attivo</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play segnala che il tuo abbonamento è ancora impostato per il rinnovo. Per acquistare l’aggiornamento una tantum, annulla prima l’abbonamento su Google Play, poi torna qui.\n\nL’hai appena annullato? Dai un momento a Google Play e riprova. Assicurati anche di usare lo stesso account Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Non è stato possibile verificare i tuoi acquisti con Google Play. Riprova tra poco.</string>
+    <string name="upgrade_screen_pending_card_title">Pagamento in sospeso</string>
+    <string name="upgrade_screen_pending_card_body">Google Play sta ancora elaborando il tuo pagamento. Pro si sblocca automaticamente una volta completato il pagamento. Alcuni metodi di pagamento possono richiedere del tempo. Non devi fare altro.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ha trovato un acquisto con un pagamento in sospeso e lo sta ancora elaborando. Pro si sblocca automaticamente una volta completato il pagamento.</string>
     <string name="upgrade_screen_restore_success_message">Acquisto ripristinato, il tuo aggiornamento Pro è attivo.</string>
     <string name="upgrade_screen_grace_title">Conferma del tuo acquisto in corso</string>
     <string name="upgrade_screen_grace_body_short">Pro è ancora attivo. In attesa che Google Play riconfermi il tuo acquisto, tutte le funzionalità Pro restano sbloccate nel frattempo.</string>

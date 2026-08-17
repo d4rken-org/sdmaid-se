@@ -75,11 +75,24 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Фасцикле</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ако није изабран тип, онда ће сви типови бити поклопљени.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Критеријуми путање</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Циљна путања треба да одговара бар једном уносу (нпр. \"Downloads/oldapks/game-\"). Дуго притисните уносе за више опција.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Циљна путања мора да одговара бар једном уносу (нпр. „Downloads/oldapks/game-”). Додирни унос да га уредиш, или његову икону да промениш начин поклапања.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Критеријуми имена</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Циљно име мора садржавати бар једну од кључних речи (нпр. \"-receipt\"). Дуго притисните уносе за више опција.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Циљни назив мора да садржи бар једну од кључних речи (нпр. „-receipt”). Додирни унос да га уредиш, или његову икону да промениш начин поклапања.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Искључења</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Резултат ће бити искључен ако путања одговара било којем уносу (нпр. \"DCIM\"). Дуго притисните уносе за више опција.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Резултат ће бити изузет ако путања одговара било ком уносу (нпр. „DCIM”). Додирни унос да га уредиш, или његову икону да промениш начин поклапања.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Додај унос путање</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Додај унос назива</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Додај унос изузетка</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Нови унос</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Кључна реч</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Овај унос већ постоји.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d размак</item>
+        <item quantity="few">%d размака</item>
+        <item quantity="other">%d размака</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Већ се користи за други унос</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Промени начин поклапања за %1$s, тренутно: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Мод поређења путања</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Путања почиње кључном речју</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Путања садржи кључну реч</string>

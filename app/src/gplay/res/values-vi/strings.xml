@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Đây là một lần mua hàng riêng biệt: nó không hủy hoặc hoàn lại đăng ký của bạn. Sử dụng cùng một tài khoản Google cho cả hai.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Đăng ký vẫn hoạt động</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play báo cáo rằng đăng ký của bạn vẫn được đặt để tự động gia hạn. Để mua bản nâng cấp thanh toán một lần, trước tiên hãy hủy đăng ký trong Google Play, sau đó quay lại đây.\n\nVừa hủy nó? Cho Google Play một chút thời gian và thử lại. Đồng thời đảm bảo rằng bạn đang sử dụng cùng một tài khoản Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Không thể kiểm tra các gói mua của bạn với Google Play. Vui lòng thử lại sau một chút.</string>
+    <string name="upgrade_screen_pending_card_title">Thanh toán đang chờ xử lý</string>
+    <string name="upgrade_screen_pending_card_body">Google Play vẫn đang xử lý thanh toán của bạn. Pro sẽ mở khóa tự động khi thanh toán được thực hiện. Một số phương thức thanh toán có thể mất thời gian. Bạn không cần phải làm gì cả.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play tìm thấy một gói mua có thanh toán đang chờ xử lý và vẫn đang xử lý nó. Pro sẽ mở khóa tự động khi thanh toán được thực hiện.</string>
     <string name="upgrade_screen_restore_success_message">Lần mua hàng đã được khôi phục, nâng cấp Pro của bạn đang hoạt động.</string>
     <string name="upgrade_screen_grace_title">Đang xác nhận lần mua hàng của bạn</string>
     <string name="upgrade_screen_grace_body_short">Pro vẫn hoạt động. Đang chờ Google Play xác nhận lại lần mua hàng của bạn, tất cả các tính năng Pro vẫn mở khóa trong khoảng thời gian này.</string>

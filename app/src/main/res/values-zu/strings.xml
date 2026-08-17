@@ -7,9 +7,11 @@
          with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
          <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">Into eyodwa ingamusulwa</item>
         <item quantity="other">Izinto ezingu-%d zingamusulwa</item>
     </plurals>
     <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">Into eyodwa isusiwe</item>
         <item quantity="other">Izinto ezingu-%d zisusiwe</item>
     </plurals>
     <string name="dashboard_hero_freeable_hint">Cisha inkinobho ukuze kukhululeke indawo, noma ichips ukuze uhlole kuqala.</string>
@@ -22,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Akukho into ethile eyakhululiswa</string>
     <string name="dashboard_hero_nothing_freed_caption">Ukunganisa kuqedile, kodwa akukho idatha etholwe engamusulwa.</string>
     <string name="dashboard_hero_nothing_freed_hint">Idatha ethile ingamusulwa kuphela ngokufinyelela okwengeziwe, njengomsebenzi wokufika noma umuzi.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s okutholiwe</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">Into engu-%d idinga i-SD Maid Pro</item>
+        <item quantity="other">Izinto ezingu-%d zidinga i-SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Thepha ukuze uvule nge-SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Okuningi kungakhululwa nge-SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Kudinga i-SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenwe %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Khululiwe %1$s</string>
@@ -32,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Qala ukuskena nokususa kuwo wonke amathuluzi ngokucindezela inkinobho yesenzo yebhodi lokuphatha, ngaphandle kokuqinisekisa okwengeziwe.</string>
     <string name="dashboard_settings_oneclick_tools_title">Amathuluzi Okucindezela Kanye</string>
     <string name="dashboard_settings_oneclick_tools_desc">Yimaphi amathuluzi okufanele afakwe emisebenzini yokucindezela kanye?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Bonisa isifinyezo ngokuzenzakalelayo</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Vula isifinyezo semiphumela ngokuzenzakalelayo ngemva kokusebenzisa inkinobho yesenzo yebhodi lokulawula. Uma kukhutshaziwe, thepha ishibhu yosayizi kubha engezansi ukuze uyivule.</string>
     <string name="dashboard_card_config_title">Amakhadi ebhodi lokuphatha</string>
     <string name="dashboard_card_config_desc">Lungisa ukuthi yimaphi amakhadi aboniswa nokuhlela kwawo</string>
     <string name="dashboard_card_config_header_title">Hudula ukuhlela kabusha, guqula ukubonisa/ukufihla</string>

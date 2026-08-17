@@ -8,6 +8,25 @@
         <item quantity="one">%s elementu prozesatu da SD Maid zure gailura gonbidatu zinuenetik.</item>
         <item quantity="other">%s elementu prozesatu dira SD Maid zure gailura gonbidatu zinuenetik.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Zure gonbidatua %d egunez.</item>
+        <item quantity="other">Zure gonbidatua %d egunez.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Zure gonbidatua %d astez.</item>
+        <item quantity="other">Zure gonbidatua %d astez.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Zure gonbidatua %d hilabetez.</item>
+        <item quantity="other">Zure gonbidatua %d hilabetez.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Zure gonbidatua %d urtez.</item>
+        <item quantity="other">Zure gonbidatua %d urtez.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Arrakasta partziala</string>
     <string name="stats_report_status_partial_failure">Hutsegitea</string>
     <string name="stats_settings_desc">Konfiguratu SD Maid-en estatistikak, txostenak eta datuen atxikipena.</string>

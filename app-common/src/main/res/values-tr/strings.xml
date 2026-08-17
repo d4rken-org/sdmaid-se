@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Kur</string>
     <string name="general_unavailable_label">Kullanılamaz</string>
     <string name="general_edit_action">Düzenle</string>
+    <string name="general_edit_x_action">%s öğesini düzenle</string>
+    <string name="general_add_action">Ekle</string>
     <string name="general_na_label">Yok</string>
     <string name="general_empty_label">Boş</string>
     <string name="general_new_badge_label">Yeni</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d öğe silindi.</item>
     </plurals>
     <string name="general_remove_action">Kaldır</string>
+    <string name="general_remove_x_action">%s öğesini kaldır</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Bir öğe kaldırıldı</item>
         <item quantity="other">%d öğe kaldırıldı</item>

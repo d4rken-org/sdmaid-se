@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Ekkert var losað</string>
     <string name="dashboard_hero_nothing_freed_caption">Hreinsunarferlið lauk, en engin gögn sem fannst gátu verið fjarlægð.</string>
     <string name="dashboard_hero_nothing_freed_hint">Sum gögn er aðeins hægt að fjarlægja með aukaréttindum, svo sem aðgengisþjónustunni eða root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s fundust</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d atriði þarf SD Maid Pro</item>
+        <item quantity="other">%d atriði þurfa SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Ýttu til að opna með SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Hægt er að losa meira pláss með SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Þarfnast SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannað %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Losað %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Byrja skönnun og eyðingu fyrir öll tæki með því að snerta aðgerðahnapp stjórnborðsins, án viðbótar staðfestinga.</string>
     <string name="dashboard_settings_oneclick_tools_title">Einn-snerting tæki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvaða tæki ætti að vera með í einn-snerting aðgerðum?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Sýna samantekt sjálfkrafa</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Opnar samantekt niðurstaðna sjálfkrafa eftir að þú notar aðgerðahnappinn á mælaborðinu. Þegar þetta er óvirkt skaltu ýta á stærðarmerkið neðst á skjánum til að opna hana.</string>
     <string name="dashboard_card_config_title">Stjórnborðsspjöld</string>
     <string name="dashboard_card_config_desc">Stilla hvaða spjöld eru sýnd og röð þeirra</string>
     <string name="dashboard_card_config_header_title">Dragðu til að endurraða, smelltu til að sýna/fela</string>

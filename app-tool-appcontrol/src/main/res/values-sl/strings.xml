@@ -139,8 +139,8 @@
     <string name="appcontrol_item_installedat_x_label">Nameščeno dne: %s</string>
     <string name="shortcut_appcontrol_short">Nadzor programov</string>
     <string name="shortcut_appcontrol_long">Upravljaj z nameščenimi programi</string>
-    <string name="tour_appcontrol_search_body">Poiščite aplikacijo po imenu. Uporabno na napravah z veliko nameščenimi aplikacijami.</string>
-    <string name="tour_appcontrol_filter_body">Zožite seznam po uporabniških/sistemskih aplikacijah, stanju omogočenosti, nedavni aktivnosti in več. Aktivni filtri se tukaj prikažejo kot oznake.</string>
-    <string name="tour_appcontrol_sort_body">Razvrstite aplikacije po imenu, datumu namestitve, zadnji posodobitvi, velikosti ali času uporabe zaslona. Pritisnite isto možnost, da spremenite smer.</string>
+    <string name="tour_appcontrol_search_body">Poiščite programe po imenu.  Uporabno na napravah z veliko nameščenimi programi.</string>
+    <string name="tour_appcontrol_filter_body">Filtrirajte seznam po uporabniških/sistemskih programih, stanju omogočenosti, nedavni dejavnosti in več.  Dejavni filtri se tukaj prikažejo kot oznake.</string>
+    <string name="tour_appcontrol_sort_body">Razvrstite programe po imenu, datumu namestitve, zadnji posodobitvi, velikosti ali času prikaza na zaslonu.  Dotaknite se iste možnosti, da spremenite smer.</string>
     <string name="tour_appcontrol_app_row_body">Pritisnite aplikacijo, da odprete njene podrobnosti in razpoložljiva dejanja. Dolgo pritisnite, da začnete izbiro in uporabite množična dejanja.</string>
 </resources>

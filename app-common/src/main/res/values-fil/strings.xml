@@ -32,6 +32,8 @@
     <string name="general_set_up_action">I-set up</string>
     <string name="general_unavailable_label">Hindi Available</string>
     <string name="general_edit_action">Baguhin</string>
+    <string name="general_edit_x_action">I-edit ang %s</string>
+    <string name="general_add_action">Idagdag</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Walang laman</string>
     <string name="general_new_badge_label">Bago</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Nabura ang %d na item.</item>
     </plurals>
     <string name="general_remove_action">Tanggalin</string>
+    <string name="general_remove_x_action">Alisin ang %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Natanggal ang isang item</item>
         <item quantity="other">Natanggal ang %d na item</item>

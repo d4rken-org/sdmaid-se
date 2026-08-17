@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ໂຟນເດີ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ຖ້າບໍ່ມີປະເພດຖືກເລືອກ, ທຸກປະເພດຈະຖືກຈັບຄູ່.</string>
     <string name="systemcleaner_customfilter_editor_path_label">ເກຎກັນທາງ</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ທາງເປ້າຫມາຍຕ້ອງຕຼງກັບເກຎອງນ້ອຍຫນຶ່ງ (ເຊັ່ນ: \"Downloads/oldapks/game-\"). ກດຄ້າງໃນຣາຍການເພື່ອຕັວເລືອກເພິ່ມເຕີມ.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ເສັ້ນທາງເປົ້າໝາຍຕ້ອງກົງກັບຢ່າງໜ້ອຍໜຶ່ງລາຍການ (ຕົວຢ່າງ \"Downloads/oldapks/game-\"). ແຕະລາຍການເພື່ອແກ້ໄຂ, ຫຼືແຕະໄອຄອນຂອງມັນເພື່ອປ່ຽນວິທີການຈັບຄູ່.</string>
     <string name="systemcleaner_customfilter_editor_name_label">ເກຎຊື່ອ</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ຊື່ອເປ້າຫມາຍຕ້ອງມີຄຳສັບອຍ່າງນ້ອຍຫນຶ່ງ (ເຊັ່ນ: \"-receipt\"). ກດຄ້າງໃນຣາຍການເພື່ອຕັວເລືອກເພິ່ມເຕີມ.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ຊື່ເປົ້າໝາຍຕ້ອງມີຄຳສຳຄັນຢ່າງໜ້ອຍໜຶ່ງຄຳ (ຕົວຢ່າງ \"-receipt\"). ແຕະລາຍການເພື່ອແກ້ໄຂ, ຫຼືແຕະໄອຄອນຂອງມັນເພື່ອປ່ຽນວິທີການຈັບຄູ່.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ການທ່ອນຂ້າມ</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ຜລລັບຈະຖືກທ່ອນຂ້າມຖ້າທາງຕຼງກັບເກຎອງນ້ອຍ (ເຊັ່ນ: \"DCIM\"). ກດຄ້າງໃນຣາຍການເພື່ອຕັວເລືອກເພິ່ມເຕີມ.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ຜົນລັບຈະຖືກຍົກເວັ້ນຖ້າເສັ້ນທາງກົງກັບລາຍການໃດໜຶ່ງ (ຕົວຢ່າງ \"DCIM\"). ແຕະລາຍການເພື່ອແກ້ໄຂ, ຫຼືແຕະໄອຄອນຂອງມັນເພື່ອປ່ຽນວິທີການຈັບຄູ່.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">ເພີ່ມລາຍການເສັ້ນທາງ</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">ເພີ່ມລາຍການຊື່</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">ເພີ່ມລາຍການຍົກເວັ້ນ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">ລາຍການໃໝ່</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">ຄຳສຳຄັນ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ລາຍການນີ້ມີຢູ່ແລ້ວ.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d ຊ່ອງຫວ່າງ</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ຖືກໃຊ້ໂດຍລາຍການອື່ນແລ້ວ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">ປ່ຽນຮູບແບບການຈັບຄູ່ສຳລັບ %1$s, ປັດຈຸບັນ: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">ຮູບແບບການເປຣີຍບເທີຍບທາງ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">ທາງເລີ່ມດ້ວຍຄຳສັບ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">ທາງມີຄຳສັບ</string>

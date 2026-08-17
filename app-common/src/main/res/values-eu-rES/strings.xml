@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Konfiguratu</string>
     <string name="general_unavailable_label">Ez-eskuragarria</string>
     <string name="general_edit_action">Editatu</string>
+    <string name="general_edit_x_action">Editatu %s</string>
+    <string name="general_add_action">Gehitu</string>
     <string name="general_na_label">E/E</string>
     <string name="general_empty_label">Hutsik</string>
     <string name="general_new_badge_label">Berria</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d elementu ezabatu dira.</item>
     </plurals>
     <string name="general_remove_action">Kendu</string>
+    <string name="general_remove_x_action">Kendu %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Elementu bat kendu da</item>
         <item quantity="other">%d elementu kendu dira</item>

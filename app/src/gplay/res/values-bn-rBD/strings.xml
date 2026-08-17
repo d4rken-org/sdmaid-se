@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">এটি একটি আলাদা ক্রয়: এটি আপনার সাবস্ক্রিপশন বাতিল বা রিফান্ড করে না। উভয়ের জন্য একই Google অ্যাকাউন্ট ব্যবহার করুন।</string>
     <string name="upgrade_screen_sub_still_renewing_title">সাবস্ক্রিপশন এখনো সক্রিয়</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play জানায় যে আপনার সাবস্ক্রিপশন এখনো পুনর্নবীকরণের জন্য সেট আছে। এককালীন আপগ্রেড কিনতে, প্রথমে Google Play-তে সাবস্ক্রিপশন বাতিল করুন, তারপর এখানে ফিরে আসুন।\n\nশুধু এটি বাতিল করলেন? Google Play-কে একটু সময় দিন এবং আবার চেষ্টা করুন। এছাড়াও নিশ্চিত করুন যে আপনি একই Google অ্যাকাউন্ট ব্যবহার করছেন।</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play-এর মাধ্যমে আপনার ক্রয় যাচাই করা যায়নি। একটু পরে আবার চেষ্টা করুন।</string>
+    <string name="upgrade_screen_pending_card_title">পেমেন্ট মুলতুবি রয়েছে</string>
+    <string name="upgrade_screen_pending_card_body">Google Play এখনও আপনার পেমেন্ট প্রক্রিয়া করছে। পেমেন্ট সম্পন্ন হওয়ার সাথে সাথে Pro স্বয়ংক্রিয়ভাবে আনলক হয়ে যাবে। কিছু পেমেন্ট পদ্ধতিতে কিছুটা সময় লাগতে পারে। আপনাকে আর কিছু করতে হবে না।</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play একটি মুলতুবি পেমেন্টসহ ক্রয় খুঁজে পেয়েছে এবং এখনও তা প্রক্রিয়া করছে। পেমেন্ট সম্পন্ন হওয়ার সাথে সাথে Pro স্বয়ংক্রিয়ভাবে আনলক হয়ে যাবে।</string>
     <string name="upgrade_screen_restore_success_message">ক্রয় পুনরুদ্ধার করা হয়েছে, আপনার Pro আপগ্রেড সক্রিয় আছে।</string>
     <string name="upgrade_screen_grace_title">আপনার ক্রয় নিশ্চিত করা হচ্ছে</string>
     <string name="upgrade_screen_grace_body_short">Pro এখনো সক্রিয় আছে। Google Play-তে আপনার ক্রয় পুনরায় নিশ্চিত করার জন্য অপেক্ষা করছে, এই সময়ে সমস্ত Pro ফিচার আনলক থাকে।</string>

@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">डायरेक्टरी</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">फ़ाइल प्रकार प्रतिबंध केवल उस प्रकार के लिए मैचिंग को सीमित करते हैं। यदि कोई चयन नहीं किया गया है, तो दोनों प्रकार मैच करेंगे।</string>
     <string name="systemcleaner_customfilter_editor_path_label">पथ मानदंड</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">लक्ष्य पथ को कम से कम एक प्रविष्टि से मेल खाना चाहिए (जैसे \"Downloads/oldapks/game-\")। अधिक विकल्पों के लिए प्रविष्टियों को लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">टारगेट पाथ को कम से कम एक एंट्री से मेल खाना चाहिए (जैसे \"Downloads/oldapks/game-\")। किसी एंट्री को संपादित करने के लिए उस पर टैप करें, या यह बदलने के लिए कि उसका मिलान कैसे किया जाता है, उसके आइकॉन पर टैप करें।</string>
     <string name="systemcleaner_customfilter_editor_name_label">नाम मानदंड</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">लक्ष्य नाम में कम से कम एक कीवर्ड होना चाहिए (जैसे \"-receipt\")। अधिक विकल्पों के लिए प्रविष्टियों को लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">टारगेट नाम में कम से कम एक कीवर्ड होना चाहिए (जैसे \"-receipt\")। किसी एंट्री को संपादित करने के लिए उस पर टैप करें, या यह बदलने के लिए कि उसका मिलान कैसे किया जाता है, उसके आइकॉन पर टैप करें।</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">बहिष्करण</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">यदि पथ किसी प्रविष्टि से मेल खाता है तो परिणाम को बाहर कर दिया जाएगा (जैसे \"DCIM\")। अधिक विकल्पों के लिए प्रविष्टियों को लंबे समय तक दबाएं।</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">यदि पाथ किसी एंट्री से मेल खाता है, तो परिणाम को बाहर रखा जाएगा (जैसे \"DCIM\")। किसी एंट्री को संपादित करने के लिए उस पर टैप करें, या यह बदलने के लिए कि उसका मिलान कैसे किया जाता है, उसके आइकॉन पर टैप करें।</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">पाथ एंट्री जोड़ें</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">नाम एंट्री जोड़ें</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">बहिष्करण एंट्री जोड़ें</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">नई एंट्री</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">कीवर्ड</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">यह एंट्री पहले से मौजूद है।</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d स्पेस</item>
+        <item quantity="other">%d स्पेस</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">पहले से किसी और एंट्री द्वारा उपयोग किया जा रहा है</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s के लिए मैच मोड बदलें, फिलहाल: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">पथ तुलना मोड</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">पथ कीवर्ड से शुरू होता है</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">पथ में कीवर्ड शामिल है</string>

@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Opsæt</string>
     <string name="general_unavailable_label">Ikke tilgængelig</string>
     <string name="general_edit_action">Rediger</string>
+    <string name="general_edit_x_action">Rediger %s</string>
+    <string name="general_add_action">Tilføj</string>
     <string name="general_na_label">Ikke tilgængeligt</string>
     <string name="general_empty_label">Tom</string>
     <string name="general_new_badge_label">Ny</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Slettede %d elementer.</item>
     </plurals>
     <string name="general_remove_action">Fjern</string>
+    <string name="general_remove_x_action">Fjern %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Ét element blev fjernet</item>
         <item quantity="other">%d elementer blev fjernet</item>

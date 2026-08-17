@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">სისტემამ გათიშა ამ აპისთვის \"ქეშის გასუფთავების\" ღილაკი. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">სისტემური აპი არასწორად კონფიგურირებულია</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-ის უსაფრთხოების აპს (com.miui.securitycenter) აკლია გამოყენების სტატისტიკის ნებართვა (GET_USAGE_STATS). ეს არღვევს ისეთ ფუნქციებს როგორიცაა \"მონაცემების გასუფთავება\" აპის დეტალებში და ქეშის გასუფთავება ხელმისაწვდომობის მეშვეობით. მიეცით ნებართვა სრული ფუნქციონალობის აღსადგენად.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ეს ასევე შეიძლება მოხდეს, თუ სისტემური აპლიკაცია „System UI“ ცოტა ხნის წინ იძულებით გაჩერდა, მაგალითად, აპების გამწმენდი ხელსაწყოს მიერ. ამის შემდეგ Android ბლოკავს SD Maid-ის ავტომატურ ღილაკზე დაჭერებს მოწყობილობის გადატვირთვამდე.</string>
     <string name="appcleaner_forcestop_before_clearing_label">გასუფთავებამდე იძულებითი გაჩერება</string>
     <string name="appcleaner_forcestop_before_clearing_summary">აპების იძულებითი გაჩერება მათი ქეშის გასუფთავებამდე. ეს დაგეხმარებათ ზოგიერთი აპის ქეშის გასუფთავებაში, მაგრამ აპებმა შეიძლება არასწორად იმუშაონ და ხელით გადატვირთვა დაგჭირდეთ.</string>
     <string name="appcleaner_progress_force_stopping">აპების იძულებითი გაჩერება…</string>

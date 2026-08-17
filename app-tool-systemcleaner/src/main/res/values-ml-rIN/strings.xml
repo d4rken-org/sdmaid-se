@@ -73,11 +73,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ഫോൾഡർുകൾ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ഒരു തരം തിരഞ്ഞെടുക്കാതിരുന്നാൽ, എല്ലാ തരങ്ങൺം പൊരുത്തിക്കപ്പെടും.</string>
     <string name="systemcleaner_customfilter_editor_path_label">പാത് മാനദണ്ഡങ്ങൾ</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ലക്ഷ്യ പാത് കുറഞ്ഞത് ഒരു എൻട്രിയുമായി പൊരുത്തപ്പെടണം (ഉദ്ദേ. \"Downloads/oldapks/game-\"). കൂടുതൽ ഓപ്ഷൻസ്ക്കായി എൻട്രികൾ ലോംഗ് പ്രെസ് ചെയ്യുക.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ടാർഗെറ്റ് പാത്ത് കുറഞ്ഞത് ഒരു എൻട്രി മാച്ച് ചെയ്യണം (ഉദാ \"Downloads/oldapks/game-\"). ഇത് എഡിറ്റ് ചെയ്യാൻ ഒരു എൻട്രി ടാപ്പ് ചെയ്യുക, അല്ലെങ്കിൽ ഇത് എങ്ങനെ മാച്ച് ചെയ്യാം എന്ന് മാറ്റാൻ അതിന്റെ ഐക്കൺ ടാപ്പ് ചെയ്യുക.</string>
     <string name="systemcleaner_customfilter_editor_name_label">പേര് മാനദണ്ഡങ്ങൾ</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ലക്ഷ്യ പേരിൽ കുറഞ്ഞത് ഒരു കീവർഡ് അടങ്ങിരിക്കണം (ഉദ്ദേ. \"-receipt\"). കൂടുതൽ ഓപ്ഷൻസ്ക്കായി എൻട്രികൾ ലോംഗ് പ്രെസ് ചെയ്യുക.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ടാർഗെറ്റ് പേര് കുറഞ്ഞത് ഒരു കീവേഡ് ഉണ്ടായിരിക്കണം (ഉദാ \"-receipt\"). ഇത് എഡിറ്റ് ചെയ്യാൻ ഒരു എൻട്രി ടാപ്പ് ചെയ്യുക, അല്ലെങ്കിൽ ഇത് എങ്ങനെ മാച്ച് ചെയ്യാം എന്ന് മാറ്റാൻ അതിന്റെ ഐക്കൺ ടാപ്പ് ചെയ്യുക.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ഒഴിവാക്കലുകൾ</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">ഏതെങ്കിലും എൻട്രിമായി പാത് പൊരുത്തപ്പെടുന്നം ഫലം ഒഴിവാക്കപ്പെടും (ഉദ്ദേ. \"DCIM\"). കൂടുതൽ ഓപ്ഷൻസ്ക്കായി എൻട്രികൾ ലോംഗ് പ്രെസ് ചെയ്യുക.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">പാത്ത് എൻട്രി ചേർക്കുക</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">പേര് എൻട്രി ചേർക്കുക</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">പുതിയ എൻട്രി</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">കീവേഡ്</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ഈ എൻട്രി ഇതിനകം നിലവിലുണ്ട്.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d സ്പേസ്</item>
+        <item quantity="other">%d സ്പേസ്</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ഇതിനകം മറ്റൊരു എൻട്രി ഉപയോഗിക്കുന്നു</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s കുറിച്ച് മാച്ച് മോഡ് മാറ്റുക, നിലവിലെ: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">പാത് തുലനാ രീതി</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">പാത് കീവർഡ് കൊണ്ട് തുടങ്ങുന്നു</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">പാത് കീവർഡ് അടങ്ങുന്നു</string>

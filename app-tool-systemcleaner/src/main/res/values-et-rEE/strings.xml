@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Kaustad</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Kui ei valita ühtegi tüüpi, näidatakse kõiki tüüpe.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Asukoha reegel</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Sihtasukoht peab kattuma vähemalt ühe kandega (nt „Downloads/oldapks/game-”). Rohkem valikuteks hoidke sõrme kaua kannete peal.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Sihtrada peab vastama vähemalt ühele kirjele (nt \"Downloads/oldapks/game-\"). Puuduta kirjet selle muutmiseks või selle ikooni, et muuta vastavuse viisi.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Nime reegel</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Sihtkoha nimi peab sisaldama vähemalt üht märksõna (nt „-receipt”). Rohkemateks valikuteks hoidke sõrme kaua valikute peal.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Sihtnimi peab sisaldama vähemalt üht võtmesõna (nt \"-receipt\"). Puuduta kirjet selle muutmiseks või selle ikooni, et muuta vastavuse viisi.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Erandid</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Tulemust eiratakse, kui asukoht kattub vähemalt ühe kandega (nt „DCIM”). Rohkemateks valikuteks hoidke sõrme kaua kannete peal.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Tulemus jäetakse välja, kui rada vastab mõnele kirjele (nt \"DCIM\"). Puuduta kirjet selle muutmiseks või selle ikooni, et muuta vastavuse viisi.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Lisa raja kirje</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Lisa nime kirje</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Lisa erandi kirje</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Uus kirje</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Võtmesõna</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">See kirje on juba olemas.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d tühik</item>
+        <item quantity="other">%d tühikut</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Juba kasutusel teise kirje poolt</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Muuda vastavusrežiimi %1$s jaoks, praegu: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Asukoha võrdlemise režiim</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Asukoht algab märksõnaga</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Asukoht sisaldab märksõna</string>

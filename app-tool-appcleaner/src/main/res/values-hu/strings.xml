@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">A rendszer letiltotta a \"Gyorsítótár törlése\" gombot ehhez az alkalmazáshoz. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Rendszeralkalmazás rosszul konfigurált</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">A HyperOS biztonsági alkalmazása (com.miui.securitycenter) hiányzik a használati statisztikák engedélye (GET_USAGE_STATS). Ez megsérti az olyan funkciókat, mint az \"Adatok törlése\" az alkalmazás részleteiben és a gyorsítótár törlése az akadálymentesítésen keresztül. Adjon engedélyt a teljes funkcionalitás visszaállításához.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Ez akkor is előfordulhat, ha a „System UI” rendszeralkalmazást nem rég kényszerítve leállították, például egy alkalmazástisztító eszközzel. Ilyenkor az Android blokkolja az SD Maid automatikus gombnyomásait, amíg újra nem indítod az eszközt.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Kényszerleállítás törlés előtt</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Alkalmazások kényszerleállítása a gyorsítótár törlése előtt. Segíthet egyes alkalmazások gyorsítótárának törlésében, de az alkalmazások hibásan működhetnek és kézi újraindítást igényelhetnek.</string>
     <string name="appcleaner_progress_force_stopping">Alkalmazások kényszerleállítása…</string>

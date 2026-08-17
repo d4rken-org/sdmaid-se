@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Ky është një blerje e veçantë: nuk anulon ose nuk kthen paratë për abonimin tuaj. Përdorni të njëjtën llogari Google për të dyja.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonimi ende aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play raporton se abonimi juaj është ende i caktuar për të rinovuar. Për të blerë përmirësimin një herë, anuloni abonimin në Google Play fillimisht, pastaj kthehuni këtu.\n\nSapo e anuluat atë? Jepini Google Play një çast dhe provoni përsëri. Gjithashtu sigurohuni që përdorni të njëjtën llogari Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">S\'mund të kontrolloheshin blerjet tuaja me Google Play. Ju lutemi provoni përsëri pas pak kohash.</string>
+    <string name="upgrade_screen_pending_card_title">Pagesë në pritje</string>
+    <string name="upgrade_screen_pending_card_body">Google Play po përpunon pagesën tuaj. Pro hapet automatikisht sapo pagesa të përfundojë. Disa metoda pagese mund të zgjatin. Nuk ka asgjë tjetër që duhet të bëni.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play gjeti një blerje me pagesë në pritje dhe po e përpunon aktualisht. Pro hapet automatikisht sapo pagesa të përfundojë.</string>
     <string name="upgrade_screen_restore_success_message">Blerja u rikthye, përmirësimi juaj Pro është aktiv.</string>
     <string name="upgrade_screen_grace_title">Po konfirmohet blerja juaj</string>
     <string name="upgrade_screen_grace_body_short">Pro është ende aktiv. Duke pritur që Google Play të ri-konfirmojë blerjen tuaj, të gjitha veçoritë e Pro mbeten të disponueshëme në ndërkohë.</string>

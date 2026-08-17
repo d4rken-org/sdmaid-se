@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Ordner</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Wenn kein Typ ausgewählt ist, werden alle Typen abgeglichen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Pfadkriterien</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mindestens einen Eintrag treffen (z. B. „Downloads/oldapks/game-“). Halte Einträge gedrückt, um weitere Optionen anzuzeigen.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mit mindestens einem Eintrag übereinstimmen (z. B. „Downloads/oldapks/game-“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf sein Symbol, um die Art des Abgleichs zu ändern.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Namenskriterien</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter enthalten (z. B. „-receipt“). Halte Einträge gedrückt, um weitere Optionen anzuzeigen.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter enthalten (z. B. „-receipt“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf sein Symbol, um die Art des Abgleichs zu ändern.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad auf einen Eintrag zutrifft (z. B. „DCIM“). Halte Einträge gedrückt, um weitere Optionen anzuzeigen.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad mit einem der Einträge übereinstimmt (z. B. „DCIM“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf sein Symbol, um die Art des Abgleichs zu ändern.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Pfadeintrag hinzufügen</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Nameneintrag hinzufügen</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Ausschlusseintrag hinzufügen</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Neuer Eintrag</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Schlüsselwort</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Dieser Eintrag existiert bereits.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d Leerzeichen</item>
+        <item quantity="other">%d Leerzeichen</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Bereits von einem anderen Eintrag verwendet</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Abgleichsmodus für %1$s ändern, aktuell: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pfadvergleichsmodus</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pfad beginnt mit Schlüsselwort</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pfad enthält Schlüsselwort</string>

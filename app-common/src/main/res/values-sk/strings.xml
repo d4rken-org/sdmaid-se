@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Nastaviť</string>
     <string name="general_unavailable_label">Nedostupné</string>
     <string name="general_edit_action">Upraviť</string>
+    <string name="general_edit_x_action">Upraviť %s</string>
+    <string name="general_add_action">Pridať</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prázdne</string>
     <string name="general_new_badge_label">Nové</string>
@@ -116,6 +118,7 @@
         <item quantity="other">Zmazaných %d položiek.</item>
     </plurals>
     <string name="general_remove_action">Odstrániť</string>
+    <string name="general_remove_x_action">Odstrániť %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Jedna položka bola odstránená</item>
         <item quantity="few">%d položky boli odstránené</item>

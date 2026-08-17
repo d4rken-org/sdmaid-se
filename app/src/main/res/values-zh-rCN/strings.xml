@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">未释放任何空间</string>
     <string name="dashboard_hero_nothing_freed_caption">清理已完成，但找到的数据都无法移除。</string>
     <string name="dashboard_hero_nothing_freed_hint">某些数据只能通过额外的访问权限（如无障碍服务或 root 权限）才能移除。</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">已发现 %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d 个项目需要 SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">点按以使用 SD Maid Pro 解锁。</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">使用 SD Maid Pro 可释放更多空间</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">需要 SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">已扫描 %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">已释放 %1$s 空间</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">通过主界面下方的小按钮轻松开始所有扫描和删除步骤，无需二次确认。</string>
     <string name="dashboard_settings_oneclick_tools_title">一键模式执行的操作</string>
     <string name="dashboard_settings_oneclick_tools_desc">要将哪些步骤添加至一键模式执行？</string>
+    <string name="dashboard_settings_summary_autoshow_title">自动显示摘要</string>
+    <string name="dashboard_settings_summary_autoshow_summary">使用仪表盘操作按钮后自动打开结果摘要。禁用后，可点按底部栏中的大小标签将其打开。</string>
     <string name="dashboard_card_config_title">控制面板卡片</string>
     <string name="dashboard_card_config_desc">配置显示哪些卡片及其顺序</string>
     <string name="dashboard_card_config_header_title">拖动以重新排序，切换以显示/隐藏</string>

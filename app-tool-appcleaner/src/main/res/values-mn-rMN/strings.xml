@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Систем энэ аппын \"Kэш цэвхлэх\" товчийг идэвхгүй болгосон. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системийн апп буруу тохируулагдсан</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-ийн Аюлгуулалт апп (com.miui.securitycenter) дэ Хэрэглэгчийн статистикийн зөвшөөрөл (GET_USAGE_STATS) алгасн. Энэ нь аппын дэлгэцтэйг \"Datа цэвхлэх\" болон хандалтын үйлчилгээгээр кэш цэвхлэх зэрэг ажиллахгүй болгодог. Бүрэн функционалийг сэргээхийн тулд зөвшөөрлийг олго.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Энэ нь \"System UI\" системийн програм саяхан албадан зогсоосон үед (жишээ нь програм цэвэрлэх хэрэгслээр) болж болно. Android дараа нь төхөөрөмжийг сэргээх хүртэл SD Maid-ийн автоматизацийн товчны дарцдуудыг хаадаг.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Цэвхлэхийн өмнө хүчээр зогсоох</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Кэш цэвхлэхийн өмнө аппуудыг хүчээр зогсоох. Деэр зарим аппуудын кэшийг цэвхлэхд туслах боловч аппууд буруу ажиллах болон гар дахин эхлүүлэх шаардлагатай.</string>
     <string name="appcleaner_progress_force_stopping">Аппуудыг хүчээр зогсоож байна…</string>

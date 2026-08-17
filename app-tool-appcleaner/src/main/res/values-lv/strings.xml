@@ -87,6 +87,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistēma ir atspējojusi pogu \"Notīrīt kešatmiņu\" šai lietotnei. Izslēdziet to, lai paātrinātu kešatmiņas notīrīšanu.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistēmas lietotne nav pareizi konfigūrēta</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS drošības lietotnei (com.miui.securitycenter) trūkst atļaujas Lietojuma statistika (GET_USAGE_STATS). Tas bojā taisnlīnijās iestatījumos esošas funkcijas, piemēram, \"Notīrīt datus\" un kešatmiņas notīrīšanu ar pieejamības pakalpojumu. Piešķiriet atļauju, lai atjaunotu pilnu funkcionalitāti.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Tas var notikt arī tad, ja sistēmas lietotne \"System UI\" nesen ir piespiedu kārtā apturēta, piemēram, ar lietotņu tīrīšanas rīku. Tad Android bloķē SD Maid automātiskos pogu nospiedumus, līdz tu restartē ierīci.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Pārtraukt piemērotu apturēšanu pirms notīrīšanas</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Piemēroti apturēt lietotnes pirms kešatmiņas notīrīšanas. Tas var palīdzēt iztīrīt dažu lietotnes kešatmiņu, taču var izraisīt neparastu uzvedību un nepieciesamibu lietotni restartot manuāli.</string>
     <string name="appcleaner_progress_force_stopping">Piemērota lietotnes apturēšana…</string>

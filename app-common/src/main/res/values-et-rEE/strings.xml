@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Seadista</string>
     <string name="general_unavailable_label">Pole saadaval</string>
     <string name="general_edit_action">Muuda</string>
+    <string name="general_edit_x_action">Muuda %s</string>
+    <string name="general_add_action">Lisa</string>
     <string name="general_na_label">Puudub</string>
     <string name="general_empty_label">Tühi</string>
     <string name="general_new_badge_label">Uus</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Kustutati %d faili.</item>
     </plurals>
     <string name="general_remove_action">Eemalda</string>
+    <string name="general_remove_x_action">Eemalda %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Üks eemaldati</item>
         <item quantity="other">%d eemaldati</item>

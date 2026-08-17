@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Bu alohida sotib olish: u sizning obunangizni bekor qilmaydi va qaytarish puli bermaydi. Ikkalasi uchun bir xil Google akkauntni ishlating.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Obuna hali aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play sizning obunangiz hali ham yangilanishga o\'rnatilganligini xabar beradi. Bir martalik yangilash sotib olish uchun, avval Google Play-da obunani bekor qiling, keyin bu yerga qaytavering.\n\nHozirgina bekor qildingizmi? Google Play-ga biroz vaqt bering va qayta urinib ko\'ring. Shuningdek, bir xil Google akkauntdan foydalanayotganingizni tekshiring.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play orqali xaridlaringizni tekshirib bo\'lmadi. Iltimos, birozdan so\'ng qayta urinib ko\'ring.</string>
+    <string name="upgrade_screen_pending_card_title">To\'lov kutilmoqda</string>
+    <string name="upgrade_screen_pending_card_body">Google Play hali ham to\'lovingizni qayta ishlamoqda. To\'lov amalga oshgach, Pro avtomatik ravishda ochiladi. Ba\'zi to\'lov usullari biroz vaqt olishi mumkin. Sizga boshqa hech narsa qilish shart emas.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play kutilayotgan to\'lovli xaridni topdi va uni hali ham qayta ishlamoqda. To\'lov amalga oshgach, Pro avtomatik ravishda ochiladi.</string>
     <string name="upgrade_screen_restore_success_message">Sotib olish tiklandi, sizning Pro yangilash aktiv.</string>
     <string name="upgrade_screen_grace_title">Sotib olishingizni tasdiqlash</string>
     <string name="upgrade_screen_grace_body_short">Pro hali aktiv. Google Play sizning sotib olishingizni qayta tasdiqlashini kutmoqda, shu vaqtda barcha Pro xususiyatlari qulfsiz qoladi.</string>

@@ -16,6 +16,41 @@
         <item quantity="many">تم معالجة %s عنصراً منذ دعوة SD Maid إلى جهازك.</item>
         <item quantity="other">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="zero">ضيفك لمدة %d يوم.</item>
+        <item quantity="one">ضيفك لمدة %d يوم.</item>
+        <item quantity="two">ضيفك لمدة %d يومين.</item>
+        <item quantity="few">ضيفك لمدة %d أيام.</item>
+        <item quantity="many">ضيفك لمدة %d يوم.</item>
+        <item quantity="other">ضيفك لمدة %d يوم.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="zero">ضيفك لمدة %d أسبوع.</item>
+        <item quantity="one">ضيفك لمدة %d أسبوع.</item>
+        <item quantity="two">ضيفك لمدة %d أسبوعين.</item>
+        <item quantity="few">ضيفك لمدة %d أسابيع.</item>
+        <item quantity="many">ضيفك لمدة %d أسبوع.</item>
+        <item quantity="other">ضيفك لمدة %d أسبوع.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="zero">ضيفك لمدة %d شهر.</item>
+        <item quantity="one">ضيفك لمدة %d شهر.</item>
+        <item quantity="two">ضيفك لمدة %d شهرين.</item>
+        <item quantity="few">ضيفك لمدة %d أشهر.</item>
+        <item quantity="many">ضيفك لمدة %d شهر.</item>
+        <item quantity="other">ضيفك لمدة %d شهر.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="zero">ضيفك لمدة %d سنة.</item>
+        <item quantity="one">ضيفك لمدة %d سنة.</item>
+        <item quantity="two">ضيفك لمدة %d سنتين.</item>
+        <item quantity="few">ضيفك لمدة %d سنوات.</item>
+        <item quantity="many">ضيفك لمدة %d سنة.</item>
+        <item quantity="other">ضيفك لمدة %d سنة.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>
     <string name="stats_report_status_partial_failure">فشل</string>
     <string name="stats_settings_desc">تكوين إحصائيات SD Maid والتقارير والاحتفاظ بالبيانات.</string>

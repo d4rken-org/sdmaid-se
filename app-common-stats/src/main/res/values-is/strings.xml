@@ -8,6 +8,25 @@
         <item quantity="one">%s hlutur unninn síðan þú bauðst SD Maid á tækið þitt.</item>
         <item quantity="other">%s hlutir unnir síðan þú bauðst SD Maid á tækið þitt.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Gestur þinn í %d dag.</item>
+        <item quantity="other">Gestur þinn í %d daga.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Gestur þinn í %d viku.</item>
+        <item quantity="other">Gestur þinn í %d vikur.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Gestur þinn í %d mánuð.</item>
+        <item quantity="other">Gestur þinn í %d mánuði.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Gestur þinn í %d ár.</item>
+        <item quantity="other">Gestur þinn í %d ár.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Tókst að hluta</string>
     <string name="stats_report_status_partial_failure">Mistök</string>
     <string name="stats_settings_desc">Stilltu tölfræði SD Maid, skýrslur og gagnageymslu.</string>

@@ -32,6 +32,8 @@
     <string name="general_set_up_action">설정하기</string>
     <string name="general_unavailable_label">사용 불가</string>
     <string name="general_edit_action">수정</string>
+    <string name="general_edit_x_action">%s 편집</string>
+    <string name="general_add_action">추가</string>
     <string name="general_na_label">해당 없음</string>
     <string name="general_empty_label">비어 있음</string>
     <string name="general_new_badge_label">새로운</string>
@@ -107,6 +109,7 @@
         <item quantity="other">%d개 항목을 삭제했습니다.</item>
     </plurals>
     <string name="general_remove_action">제거</string>
+    <string name="general_remove_x_action">%s 제거</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d개 항목을 제거하였습니다</item>
     </plurals>

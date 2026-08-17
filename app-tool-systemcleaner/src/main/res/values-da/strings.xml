@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mapper</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Hvis ingen type er valgt, matches alle typer.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Stikriterier</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Målstien skal matche mindst én post (f.eks. \"Downloads/oldapks/game-\"). Hold nede for at se flere muligheder.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Målstien skal matche mindst én post (f.eks. \"Downloads/oldapks/game-\"). Tryk på en post for at redigere den, eller på dens ikon for at ændre, hvordan den matches.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Navnekriterier</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Målnavnet skal indeholde mindst ét af søgeordene (f.eks. \"-receipt\"). Hold nede for at se flere muligheder.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Målnavnet skal indeholde mindst ét af nøgleordene (f.eks. \"-receipt\"). Tryk på en post for at redigere den, eller på dens ikon for at ændre, hvordan den matches.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Eksklusioner</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet ekskluderes, hvis stien matcher en anden post (f.eks. \"DCIM\"). Hold nede på posterne for at se flere muligheder.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet udelukkes, hvis stien matcher en af posterne (f.eks. \"DCIM\"). Tryk på en post for at redigere den, eller på dens ikon for at ændre, hvordan den matches.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Tilføj sti-post</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Tilføj navne-post</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Tilføj eksklusionspost</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Ny post</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Nøgleord</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Denne post findes allerede.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d mellemrum</item>
+        <item quantity="other">%d mellemrum</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Allerede brugt af en anden post</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Skift matchtilstand for %1$s, nuværende: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Sammenligning af stier</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Sti starter med søgeord</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Sti indeholder søgeord</string>

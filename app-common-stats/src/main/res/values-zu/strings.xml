@@ -8,6 +8,25 @@
         <item quantity="one">Into engu-%s icutshungulwe selokhu wamema i-SD Maid kudivayisi yakho.</item>
         <item quantity="other">Izinto ezingu-%s zicutshungulwe selokhu wamema i-SD Maid kudivayisi yakho.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Kuyisivakashi sakho usuku olungu-%d.</item>
+        <item quantity="other">Kuyisivakashi sakho izinsuku ezingu-%d.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Kuyisivakashi sakho iviki elingu-%d.</item>
+        <item quantity="other">Kuyisivakashi sakho amaviki angu-%d.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Kuyisivakashi sakho inyanga engu-%d.</item>
+        <item quantity="other">Kuyisivakashi sakho izinyanga ezingu-%d.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Kuyisivakashi sakho unyaka ongu-%d.</item>
+        <item quantity="other">Kuyisivakashi sakho iminyaka engu-%d.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Impumelelo engaphelele</string>
     <string name="stats_report_status_partial_failure">Ukwehluleka</string>
     <string name="stats_settings_desc">Lungiselela izibalo ze-SD Maid, imibiko nokugcinwa kwedatha.</string>

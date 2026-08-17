@@ -32,6 +32,8 @@
     <string name="general_set_up_action">الإعداد</string>
     <string name="general_unavailable_label">غير متاح</string>
     <string name="general_edit_action">تعديل</string>
+    <string name="general_edit_x_action">تعديل %s</string>
+    <string name="general_add_action">إضافة</string>
     <string name="general_na_label">غير متاح</string>
     <string name="general_empty_label">فارغ</string>
     <string name="general_new_badge_label">جديد</string>
@@ -122,6 +124,7 @@
         <item quantity="other">تم حذف عناصر %d.</item>
     </plurals>
     <string name="general_remove_action">حذف</string>
+    <string name="general_remove_x_action">إزالة %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="zero">تم إزالة عنصر</item>
         <item quantity="one">تم إزالة عنصر واحد</item>

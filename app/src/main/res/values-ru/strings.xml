@@ -28,6 +28,24 @@
     <string name="dashboard_hero_nothing_freed_headline">Ничего не было очищено</string>
     <string name="dashboard_hero_nothing_freed_caption">Очистка завершена, но найденные данные не удалось удалить.</string>
     <string name="dashboard_hero_nothing_freed_hint">Некоторые данные можно удалить только с дополнительными правами доступа, такими как служба специальных возможностей или root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s найдено</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d элемент требует SD Maid Pro</item>
+        <item quantity="few">%d элемента требуют SD Maid Pro</item>
+        <item quantity="many">%d элементов требуют SD Maid Pro</item>
+        <item quantity="other">%d элемента требуют SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Нажми, чтобы разблокировать с помощью SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">С SD Maid Pro можно освободить больше места</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Требуется SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Просканировано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Освобождено %1$s</string>
@@ -38,6 +56,8 @@
     <string name="dashboard_settings_oneclick_summary">Запуск сканирования и очистки в одно нажатие с панели управления без дополнительных подтверждений.</string>
     <string name="dashboard_settings_oneclick_tools_title">Инструменты в одно нажатие</string>
     <string name="dashboard_settings_oneclick_tools_desc">Какие инструменты следует включить в операции одного нажатия?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Показывать сводку автоматически</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Автоматически открывать сводку результатов после нажатия кнопки действия на панели управления. Если отключено, нажми на чип с размером в нижней панели, чтобы открыть её.</string>
     <string name="dashboard_card_config_title">Карты инструментов</string>
     <string name="dashboard_card_config_desc">Настройка отображения карт и их порядка</string>
     <string name="dashboard_card_config_header_title">Перетащите для изменения порядка, переключите, чтобы показать/скрыть</string>
@@ -328,7 +348,7 @@
     <string name="device_settings_category">Устройство</string>
     <string name="review_app_review_action">Отзыв</string>
     <string name="review_app_dismiss_action">Возможно, позже</string>
-    <string name="review_app_body">Хочешь оставить отзыв для SD Maid? ❤️</string>
+    <string name="review_app_body">Хотите оставить отзыв на SD Maid? ❤️</string>
     <string name="anniversary_card_title">С годовщиной SD Maid ❤️</string>
     <string name="anniversary_card_install_date">С Вами с %s</string>
     <plurals name="anniversary_card_body">

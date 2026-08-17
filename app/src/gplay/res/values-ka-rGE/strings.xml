@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ეს არის ცალკე ყიდვა: იგი არ გაუქმებს და არ დაბრუნებს თქვენს გამოწერას. გამოიყენეთ იგივე Google ანგარიში ორივესთვის.</string>
     <string name="upgrade_screen_sub_still_renewing_title">გამოწერა კვლავ აქტიური</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play იტყობინება, რომ თქვენი გამოწერა კვლავ დაყენებულია განახლებისთვის. ერთჯერადი განახლება რომ ვიყიდოთ, ჯერ გაუქმოთ გამოწერა Google Play-ში, შემდეგ დაბრუნდით აქ.\n\nახლახან გაუქმეთ? მოცემეთ Google Play-ს დრო და სცადეთ ხელახლა. ასევე დარწმუნდით, რომ იყენებთ იგივე Google ანგარიშს.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">ვერ მოხერხდა შენაძენების შემოწმება Google Play-სთან. სცადე ცოტა ხანში ისევ.</string>
+    <string name="upgrade_screen_pending_card_title">გადახდა მოლოდინშია</string>
+    <string name="upgrade_screen_pending_card_body">Google Play კვლავ ამუშავებს შენს გადახდას. Pro ავტომატურად გაიხსნება გადახდის დასრულების შემდეგ. ზოგიერთ გადახდის მეთოდს შეიძლება დრო დასჭირდეს. შენგან სხვა არაფერია საჭირო.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play-მ იპოვა შენაძენი მოლოდინში მყოფი გადახდით და კვლავ ამუშავებს მას. Pro ავტომატურად გაიხსნება გადახდის დასრულების შემდეგ.</string>
     <string name="upgrade_screen_restore_success_message">ყიდვა აღდგა, თქვენი Pro განახლება აქტიური.</string>
     <string name="upgrade_screen_grace_title">თქვენი ყიდვის დადასტურება</string>
     <string name="upgrade_screen_grace_body_short">Pro კვლავ აქტიური. ველოდებთ, რომ Google Play ხელახლა დაადასტუროს თქვენი ყიდვა, ყველა Pro ფუნქცია განბლოკირებული რჩება ამ დროს.</string>

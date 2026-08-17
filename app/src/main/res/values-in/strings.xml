@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">Tidak ada yang dibebaskan</string>
     <string name="dashboard_hero_nothing_freed_caption">Pembersihan selesai, tetapi tidak ada yang dapat dihapus.</string>
     <string name="dashboard_hero_nothing_freed_hint">Beberapa data hanya dapat dihapus dengan akses tambahan, seperti layanan aksesibilitas atau root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s ditemukan</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d item memerlukan SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Ketuk untuk membuka kunci dengan SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Lebih banyak ruang bisa dibebaskan dengan SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Memerlukan SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Dipindai %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Dibebaskan %1$s</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">Mulai scan dan hapus semua alat dengan satu klik pada tombol tindakan dasbor, tanpa konfirmasi tambahan.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alat Sekali Ketuk</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alat apa saja yang harus disertakan dalam operasi satu ketukan?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Tampilkan ringkasan secara otomatis</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Buka ringkasan hasil secara otomatis setelah menggunakan tombol aksi dasbor. Jika dinonaktifkan, ketuk chip ukuran di bilah bawah untuk membukanya.</string>
     <string name="dashboard_card_config_title">Kartu dasbor</string>
     <string name="dashboard_card_config_desc">Sesuaikan kartu mana yang ditampilkan dan urutannya</string>
     <string name="dashboard_card_config_header_title">Seret untuk mengurutkan, alihkan untuk menampilkan/menyembunyikan</string>

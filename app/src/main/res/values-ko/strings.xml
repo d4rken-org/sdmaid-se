@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">해제된 것이 없습니다</string>
     <string name="dashboard_hero_nothing_freed_caption">정리가 완료되었지만 발견된 데이터 중 제거할 수 있는 것이 없습니다.</string>
     <string name="dashboard_hero_nothing_freed_hint">일부 데이터는 접근성 서비스 또는 루트 권한 같은 추가 접근 권한이 있어야만 제거할 수 있습니다.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s 발견</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d개 항목에 SD Maid Pro가 필요해요</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro로 잠금 해제하려면 탭하세요.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro로 더 많은 공간을 확보할 수 있어요</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro 필요</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s 스캔됨</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s 확보됨</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">대시보드의 버튼을 눌러 스캔과 삭제를 모두 진행할 수 있습니다. 추가로 확인이 필요하지 않습니다.</string>
     <string name="dashboard_settings_oneclick_tools_title">원터치 툴</string>
     <string name="dashboard_settings_oneclick_tools_desc">원터치 작업에 어떤 도구가 포함되어야 하나요?</string>
+    <string name="dashboard_settings_summary_autoshow_title">요약 자동으로 표시</string>
+    <string name="dashboard_settings_summary_autoshow_summary">대시보드 작업 버튼을 사용하면 결과 요약이 자동으로 열려요. 이 옵션을 끄면 하단 바의 용량 칩을 탭해서 열 수 있어요.</string>
     <string name="dashboard_card_config_title">대시보드 카드</string>
     <string name="dashboard_card_config_desc">표시할 카드와 순서를 구성합니다</string>
     <string name="dashboard_card_config_header_title">드래그하여 재정렬, 토글하여 표시/숨기기</string>

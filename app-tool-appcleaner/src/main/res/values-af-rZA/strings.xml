@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Die stelsel het die \"Maak kas skoon\" knoppie vir hierdie toepassing gedeaktiveer. Sluit dit uit om kas skoonmaak te versnel.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Stelsel toepassing verkeerd opgestel</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS se Sekuriteit toepassing (com.miui.securitycenter) ontbreek die Gebruik Stats toestemming (GET_USAGE_STATS). Dit breek kenmerke soos \"Maak Data Skoon\" in toepassing besonderhede en kas skoonmaak via toeganklikheid. Verleen die toestemming om volle funksionaliteit te herstel.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Dit kan ook gebeur as die \"System UI\"-stelselapp onlangs gedwing gestop is, bv. deur \'n app-skoonmaakhulpmiddel. Android blokkeer dan SD Maid se outomatiese knoppiedrukke totdat jy die toestel herbegin.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Geforseerd stop voor uitvee</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Stop toepassings geforseerd voor die uitvee van hul kas. Dit kan help om sommige toepassings se kas uit te vee, maar kan veroorsaak dat toepassings wanfunksioneer en handmatige herbegin vereis.</string>
     <string name="appcleaner_progress_force_stopping">Stop toepassings geforseerd…</string>

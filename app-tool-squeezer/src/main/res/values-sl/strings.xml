@@ -74,8 +74,8 @@
     <string name="squeezer_skip_compressed_description">Preskoči datoteke, ki jih je SD Maid že stisnil.</string>
     <string name="squeezer_exif_marker_title">Zapiši oznako EXIF</string>
     <string name="squeezer_exif_marker_description">Dodaj oznako v polje uporabniškega komentarja oznak EXIF, da se prepreči ponovno stiskanje, tudi če je bila zgodovina stiskanja izbrisana.</string>
-    <string name="squeezer_include_lossy_aux_title">Stisni HDR &amp; fotografije z globino</string>
-    <string name="squeezer_include_lossy_aux_description">Privzeto izklopljeno: fotografije s karto ojačitve HDR ali podatki o globini/portretu so preskočene, da ne pride do njihove sploščitve. Omogočite, če jih želite stisniti, kjer je mogoče — izgubile bodo karto ojačitve HDR ali podatke o globini. Nekatere HEIC fotografije z več slikami ostanejo zaščitene ne glede na nastavitev.</string>
+    <string name="squeezer_include_lossy_aux_title">Stisni fotografije s HDR-om in globino</string>
+    <string name="squeezer_include_lossy_aux_description">Privzeto izklopljeno: fotografije s podatki o ojačitvi HDR ali podatki o globini/portretu se preskočijo, da ne pride do njihove sploščitve.  Omogočite, če jih želite stisniti, kjer je mogoče — izgubile bodo podatke o ojačitvi HDR ali podatke o globini.  Nekatere fotografije HEIC z več slikami ostanejo zaščitene ne glede na nastavitev.</string>
     <string name="squeezer_estimated_savings_format">~%s prihranka</string>
     <string name="squeezer_no_savings_expected">Omejen prihranek</string>
     <string name="squeezer_current_size_format">Velikost: %s</string>
@@ -106,12 +106,12 @@
     <string name="squeezer_onboarding_quality_label">Kakovost: %d%%</string>
     <string name="squeezer_compare_action">Pokaži primerjavo</string>
     <string name="squeezer_no_example_found">Na izbranih poteh ni bilo mogoče najti slik.</string>
-    <string name="squeezer_result_empty_message">Ni stisljive medijske vsebine.</string>
+    <string name="squeezer_result_empty_message">Ni stisljive predstavnostne vsebine.</string>
     <plurals name="squeezer_result_empty_lossy_aux">
         <item quantity="one">Ni medija za stiskanje — %d fotografija z HDR/globino je bila preskočena. Omogočite »Stisni HDR &amp; fotografije z globino« v nastavitvah, da jo vključite.</item>
         <item quantity="two">Ni medija za stiskanje — %d fotografiji z HDR/globino sta bili preskočeni. Omogočite »Stisni HDR &amp; fotografije z globino« v nastavitvah, da ju vključite.</item>
         <item quantity="few">Ni medija za stiskanje — %d fotografije z HDR/globino so bile preskočene. Omogočite »Stisni HDR &amp; fotografije z globino« v nastavitvah, da jih vključite.</item>
-        <item quantity="other">Ni medija za stiskanje — %d fotografij z HDR/globino je bilo preskočenih. Omogočite »Stisni HDR &amp; fotografije z globino« v nastavitvah, da jih vključite.</item>
+        <item quantity="other">Ni predstavnosti za stiskanje — %d fotografij s HDR-om/globino je bilo preskočenih. Omogočite »Stisni HDR &amp; fotografije z globino« v nastavitvah, da jih vključite.</item>
     </plurals>
     <string name="squeezer_setup_warning">Stiskanje trajno zmanjša kakovost za prihranek prostora. Tega ni mogoče razveljaviti. Pred začetkom skrbno preglejte nastavitve.</string>
     <plurals name="squeezer_setup_path_dropped_message">
@@ -120,7 +120,7 @@
         <item quantity="few">%d lokacije ni mogoče uporabiti za stiskanje in so bile odstranjene. Stiskanje zahteva neposreden dostop do notranjega pomnilnika.</item>
         <item quantity="other">%d lokacij ni mogoče uporabiti za stiskanje in so bile odstranjene. Stiskanje zahteva neposreden dostop do notranjega pomnilnika.</item>
     </plurals>
-    <string name="squeezer_setup_explanation">Media Squeeze zmanjša velikost datotek slik in videoposnetkov, da sprosti prostor. To trajno zmanjša kakovost in tega ni mogoče razveljaviti. Pred začetkom skrbno preglejte nastavitve.</string>
+    <string name="squeezer_setup_explanation">Stiskalnik predstavnosti zmanjša velikost datotek slik in videoposnetkov, da sprosti prostor.  To trajno zmanjša kakovost in tega ni mogoče razveljaviti. Pred začetkom skrbno preglejte nastavitve.</string>
     <string name="squeezer_setup_paths_title">Mesta iskanja</string>
     <string name="squeezer_setup_paths_default">Izberite mape za iskanje</string>
     <string name="squeezer_setup_quality_title">Kakovost stiskanja</string>

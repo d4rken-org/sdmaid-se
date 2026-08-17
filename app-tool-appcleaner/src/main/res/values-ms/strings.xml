@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem telah melumpuhkan butang \"Kosongkan cache\" untuk aplikasi ini. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikasi sistem tidak dikonfigurasi dengan betul</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikasi Keselamatan HyperOS (com.miui.securitycenter) kehilangan kebenaran Usage Stats (GET_USAGE_STATS). Ini memecahkan ciri seperti \"Kosongkan Data\" dalam butiran aplikasi dan pembersihan cache melalui kebolehcapaian. Berikan kebenaran untuk memulihkan fungsi penuh.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Ini juga boleh berlaku jika aplikasi sistem \"System UI\" baru-baru ini dipaksa henti, contohnya oleh alat pembersihan aplikasi. Android kemudian menyekat tekanan butang automatik SD Maid sehingga peranti dimulakan semula.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersih</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cachenya. Ia boleh membantu membersihkan cache sesetengah aplikasi, tetapi mungkin menyebabkan aplikasi tidak berfungsi dengan betul dan memerlukan mula semula secara manual.</string>
     <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>

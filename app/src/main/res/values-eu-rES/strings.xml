@@ -19,10 +19,27 @@
     <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
          "couldn't be freed": the tools don't record whether an item was attempted and failed or
          skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
+    <string name="dashboard_hero_freed_residue">%1$s libre</string>
     <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Ez da ezer libratzen</string>
     <string name="dashboard_hero_nothing_freed_caption">Garbiketa amaitu da, baina aurkitutako datuak ezin izan dira kendu.</string>
     <string name="dashboard_hero_nothing_freed_hint">Zenbait data bakarrik ken daitezke sarbide gehiagorekin, hala nola irisgarritasun zerbitzua edo root bidez.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s aurkituta</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d elementuk SD Maid Pro behar du</item>
+        <item quantity="other">%d elementuk SD Maid Pro behar dute</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Sakatu SD Maid Prorekin desblokeatzeko.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Prorekin gehiago libera daiteke</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro behar du</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s eskaneatuta</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s askatuta</string>
@@ -33,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Has zaitez tresna guztiak eskaneatzen eta ezabatzen paneleko ekintza-botoian ukitu bat emanez, baieztapen gehigarririk gabe.</string>
     <string name="dashboard_settings_oneclick_tools_title">Tap-bakarreko erramintak</string>
     <string name="dashboard_settings_oneclick_tools_desc">Zer tresna sartu beharko lirateke Tap-bakarreko eragiketetan?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Erakutsi laburpena automatikoki</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Ireki emaitzen laburpena automatikoki panelaren ekintza-botoia erabili ondoren. Desgaituta dagoenean, sakatu tamainaren txipa beheko barran irekitzeko.</string>
     <string name="dashboard_card_config_title">Paneleko txartelak</string>
     <string name="dashboard_card_config_desc">Konfiguratu zein txartel agertzen diren eta haien ordena</string>
     <string name="dashboard_card_config_header_title">Arrastatu berrordenatzeko, txandakatu erakusteko/ezkutatzeko</string>

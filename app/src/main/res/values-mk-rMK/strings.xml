@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Ништо не беше ослободено</string>
     <string name="dashboard_hero_nothing_freed_caption">Чистењето заврши, но ниту еден дел од пронајдените податоци не можеше да се отстрани.</string>
     <string name="dashboard_hero_nothing_freed_hint">Некои податоци можат да се отстранат само со дополнителен пристап, како што е услугата за пристапност или root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Пронајдени %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d ставка бара SD Maid Pro</item>
+        <item quantity="other">%d ставки бараат SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Допри за да отклучиш со SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Со SD Maid Pro може да се ослободи повеќе простор</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Бара SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Скенирано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Ослободено %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Започнете скенирање и бришење за сите алатки со допирање на копчето за акција на контролната табла, без дополнителни потврди.</string>
     <string name="dashboard_settings_oneclick_tools_title">Алатки за едно допирање</string>
     <string name="dashboard_settings_oneclick_tools_desc">Кои алатки треба да бидат вклучени во операциите со едно допирање?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Автоматски прикажи резиме</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Автоматски го отвора резимето на резултатите по користење на копчето за акција на таблата. Кога е исклучено, допри на ознаката со големина во долната лента за да го отвориш.</string>
     <string name="dashboard_card_config_title">Картички на контролната табла</string>
     <string name="dashboard_card_config_desc">Конфигурирајте кои картички се прикажани и нивниот редослед</string>
     <string name="dashboard_card_config_header_title">Повлечете за преуредување, вклучете/исклучете за прикажување/скривање</string>

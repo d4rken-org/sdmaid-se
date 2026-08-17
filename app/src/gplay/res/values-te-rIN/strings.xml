@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ఇది ప్రత్యేక కొనుగోలు: ఇది మీ సబ్‌స్క్రిప్షన్‌ను రద్దు చేయదు లేదా ద్రవ్యం తిరిగి ఇవ్వదు. రెండింటికీ ఒకే Google ఖాతాను ఉపయోగించండి.</string>
     <string name="upgrade_screen_sub_still_renewing_title">సబ్‌స్క్రిప్షన్ ఇప్పటికీ సక్రియమైనది</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play మీ సబ్‌స్క్రిప్షన్ ఇప్పటికూ పునరావృత్తం కోసం సెట్ చేయబడ్డ ఉందని నివేదిస్తుంది. ఒకసారి అప్‌గ్రేడ్‌ను కొనడానికి, ముందుగా Google Play లో సబ్‌స్క్రిప్షన్‌ను రద్దు చేసి, ఆ తర్వాత ఇక్కడికి తిరిగి రండి.\n\nఇప్పుడే రద్దు చేసారా? Google Play కు ఒక క్షణం ఇవ్వండి మరియు మళ్ళీ ప్రయత్నించండి. మీరు ఒకే Google ఖాతాను ఉపయోగిస్తున్నారని కూడా నిర్ధారించుకోండి.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play తో మీ ఖరీదులను తనిఖీ చేయలేకపోయాం. దయచేసి కొద్దిసేపటికి మళ్లీ ప్రయత్నించండి.</string>
+    <string name="upgrade_screen_pending_card_title">చెల్లింపు పెండింగ్</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ఇప్పటికీ మీ చెల్లింపును ప్రాసెస్ చేస్తోంది. చెల్లింపు పూర్తవైన తర్వాత Pro ఆటోమేటిక్‌గా అన్‌లాక్ అవుతుంది. కొన్ని చెల్లింపు పద్ధతులు కొంత సమయం తీసుకోవచ్చు. మీరు ఏదీ చేయాల్సిన అవసరం లేదు.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play పెండింగ్ చెల్లింపుతో ఖరీదిని కనుగొన్నది మరియు దానిని ఇప్పటికీ ప్రాసెస్ చేస్తోంది. చెల్లింపు పూర్తవైన తర్వాత Pro ఆటోమేటిక్‌గా అన్‌లాక్ అవుతుంది.</string>
     <string name="upgrade_screen_restore_success_message">కొనుగోలు పునరుద్ధరించబడింది, మీ Pro అప్‌గ్రేడ్ సక్రియమైనది.</string>
     <string name="upgrade_screen_grace_title">మీ కొనుగోలును నిర్ధారిస్తోంది</string>
     <string name="upgrade_screen_grace_body_short">Pro ఇప్పటికీ సక్రియమైనది. Google Play మీ కొనుగోలును తిరిగి నిర్ధారించటరానికి ఎదురుచూస్తోంది, ఈ సమయంలో అన్ని Pro లక్షణాలు అన్‌లాక్‌చేయబడినవిగా ఉంటాయి.</string>

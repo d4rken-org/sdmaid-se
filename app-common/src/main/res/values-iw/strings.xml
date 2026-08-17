@@ -32,6 +32,8 @@
     <string name="general_set_up_action">הגדרה</string>
     <string name="general_unavailable_label">לא זמין</string>
     <string name="general_edit_action">עריכה</string>
+    <string name="general_edit_x_action">עריכת %s</string>
+    <string name="general_add_action">הוספה</string>
     <string name="general_na_label">לא זמין</string>
     <string name="general_empty_label">ריק</string>
     <string name="general_new_badge_label">חדש</string>
@@ -116,6 +118,7 @@
         <item quantity="other">נמחקו %d פריטים.</item>
     </plurals>
     <string name="general_remove_action">הסרה</string>
+    <string name="general_remove_x_action">הסרת %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">פריט אחד הוסר</item>
         <item quantity="two">%d פריטים הוסרו</item>

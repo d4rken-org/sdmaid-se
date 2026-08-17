@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu tətbiq üçün \"Keşi təmizlə\" düyməsini deaktiv edib. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistem tətbiqi düzgün konfiqurasiya edilməyib</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-un Təhlükəsizlik tətbiqi (com.miui.securitycenter) İstifadə Statistikası icazəsindən (GET_USAGE_STATS) məhrumdur. Bu, tətbiq təfərrüatlarında \"Məlumatları Təmizlə\" və əlçatanlılıq vasitəsilə keş təmizləmə kimi funksiyaları poza. Tam funksionallığı bərpa etmək üçün icazə verin.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Bu, həmçinin \"System UI\" sistem tətbiqi yaxınlarda məcburi dayandırılıbsa (məsələn, tətbiq təmizləmə vasitəsi ilə) baş verə bilər. Bu zaman Android, cihazı yenidən başladana qədər SD Maid-in avtomatlaşdırılmış düymə basmalarını bloklayır.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Təmizləmədən öncə məcburi dayandır</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keşi təmizləmədən əvvəl tətbiqləri məcburi dayandırın. Bu bəzi tətbiqlərin keşini təmizləməyə kömək edə bilər, lakin tətbiqlərin düzgün işləməməsinə səbəb ola bilər və əl ilə yenidən başlatma tələb edə bilər.</string>
     <string name="appcleaner_progress_force_stopping">Tətbiqlər məcburi dayandırılır…</string>

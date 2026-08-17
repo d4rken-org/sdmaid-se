@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacja systemowa nieprawidłowo skonfigurowana</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Panel sterowania systemu HyperOS (com.miui.securitycenter) nie posiada uprawnień do statystyki użytkowania (GET_USAGE_STATS). Funkcja \"Wyczyść dane\" w szczegółach aplikacji oraz czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu jest niedostępna Udziel uprawnień do przywrócenia pełnej funkcjonalności.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Może się to również zdarzyć, jeśli aplikacja systemowa System UI została niedawno wymuszona, np. przez narzędzie do czyszczenia aplikacji. Android blokuje wówczas automatyczne naciśnięcia przycisków przez SD Maid do czasu restartu urządzenia.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Wymuś zatrzymanie przed wyczyszczeniem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Wymuś zatrzymanie aplikacji przed wyczyszczeniem ich pamięci podręcznej. Może to pomóc w wyczyszczeniu pamięci podręcznej niektórych aplikacji, ale może powodować błędne zachowanie aplikacji i wymagać ręcznego restartu.</string>
     <string name="appcleaner_progress_force_stopping">Wymuszanie zatrzymania…</string>

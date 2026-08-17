@@ -32,6 +32,8 @@
     <string name="general_set_up_action">सेट अप करें</string>
     <string name="general_unavailable_label">अनुपलब्ध</string>
     <string name="general_edit_action">संपादन करें</string>
+    <string name="general_edit_x_action">%s संपादित करें</string>
+    <string name="general_add_action">जोड़ें</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">खाली है</string>
     <string name="general_new_badge_label">नया</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d आइटम डिलीट किए।</item>
     </plurals>
     <string name="general_remove_action">हटाएं</string>
+    <string name="general_remove_x_action">%s हटाएं</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">एक आइटम हटाया गया</item>
         <item quantity="other">%d आइटम हटाए गए</item>

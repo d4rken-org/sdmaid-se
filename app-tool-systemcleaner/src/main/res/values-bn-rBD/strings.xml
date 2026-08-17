@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ফোল্ডার</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">যদি কোন টাইপ নির্বাচন না করা হয়, তাহলে সব ধরনের মিল হবে।</string>
     <string name="systemcleaner_customfilter_editor_path_label">পথের মানদণ্ড</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">অভীষ্ট পথটি কমপক্ষে একটি এন্ট্রির সাথে মেলে (যেমন \"Downloads/oldapks/game-\")। আরো বিকল্প দেখতে লং প্রেস করুন।</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">টার্গেট পাথ অবশ্যই অন্তত একটি এন্ট্রির সাথে মিলতে হবে (যেমন \"Downloads/oldapks/game-\")। কোনো এন্ট্রি সম্পাদনা করতে সেটিতে ট্যাপ করুন, অথবা কীভাবে মেলানো হবে তা পরিবর্তন করতে এর আইকনে ট্যাপ করুন।</string>
     <string name="systemcleaner_customfilter_editor_name_label">নামের মানদণ্ড</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">অভীষ্ট নামটিতে কমপক্ষে একটি কীওয়ার্ড থাকতে হবে (যেমন \"-receipt\")। আরো বিকল্প দেখতে লং প্রেস করুন।</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">টার্গেট নামে অবশ্যই কীওয়ার্ডগুলোর মধ্যে অন্তত একটি থাকতে হবে (যেমন \"-receipt\")। কোনো এন্ট্রি সম্পাদনা করতে সেটিতে ট্যাপ করুন, অথবা কীভাবে মেলানো হবে তা পরিবর্তন করতে এর আইকনে ট্যাপ করুন।</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">বর্জন</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">যদি পাথ কোনো এন্ট্রির সাথে মেলে (যেমন \"DCIM\") তাহলে ফলাফলটি বাদ দেওয়া হবে। লং প্রেস করুন আরো অপশন এর জন্য।</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">পাথটি কোনো এন্ট্রির সাথে মিললে ফলাফলটি বাদ দেওয়া হবে (যেমন \"DCIM\")। কোনো এন্ট্রি সম্পাদনা করতে সেটিতে ট্যাপ করুন, অথবা কীভাবে মেলানো হবে তা পরিবর্তন করতে এর আইকনে ট্যাপ করুন।</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">পাথ এন্ট্রি যোগ করুন</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">নাম এন্ট্রি যোগ করুন</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">বর্জন এন্ট্রি যোগ করুন</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">নতুন এন্ট্রি</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">কীওয়ার্ড</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">এই এন্ট্রিটি ইতিমধ্যে বিদ্যমান।</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d স্পেস</item>
+        <item quantity="other">%d স্পেস</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ইতিমধ্যে অন্য একটি এন্ট্রি দ্বারা ব্যবহৃত</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s-এর জন্য ম্যাচ মোড পরিবর্তন করুন, বর্তমানে: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">পাথ তুলনা মোড</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">পাথ কীওয়ার্ড দিয়ে শুরু হয়</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">পাথে কীওয়ার্ড থাকে</string>

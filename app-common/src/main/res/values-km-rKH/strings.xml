@@ -32,6 +32,8 @@
     <string name="general_set_up_action">រៀបចំ</string>
     <string name="general_unavailable_label">មិនមាន</string>
     <string name="general_edit_action">កែសម្រួល</string>
+    <string name="general_edit_x_action">កែសម្រួល %s</string>
+    <string name="general_add_action">បន្ថែម</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">ទទេ</string>
     <string name="general_new_badge_label">ថ្មី</string>
@@ -107,6 +109,7 @@
         <item quantity="other">បានលុបធាតុចំនួន %d។</item>
     </plurals>
     <string name="general_remove_action">លុបចេញ</string>
+    <string name="general_remove_x_action">លុប %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">ធាតុចំនួន %d ត្រូវបានលុបចេញ</item>
     </plurals>

@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Toto je samostatný nákup: nezruší ani nevráti vaše predplatné. Používajte rovnaký účet Google pre oba.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Predplatné je stále aktívne</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play hlási, že vaše predplatné je stále nastavené na obnovenie. Ak chcete kúpiť jednorazový upgrade, najskôr zrušte predplatné v Google Play a potom sa vráťte sem.\n\nPráve ste ho zrušili? Počkajte chvíľu a skúste znova. Tiež sa uistite, že používate rovnaký účet Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Nepodarilo sa skontrolovať tvoje nákupy v službe Google Play. Skús to, prosím, o chvíľu znova.</string>
+    <string name="upgrade_screen_pending_card_title">Čakajúca platba</string>
+    <string name="upgrade_screen_pending_card_body">Google Play stále spracováva tvoju platbu. Pro sa odomkne automaticky, keď bude platba dokončená. Pri niektorých spôsoboch platby to môže chvíľu trvať. Nemusíš robiť nič ďalšie.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play našiel nákup s čakajúcou platbou a stále ho spracováva. Pro sa odomkne automaticky, keď bude platba dokončená.</string>
     <string name="upgrade_screen_restore_success_message">Nákup obnovený, váš Pro upgrade je aktívny.</string>
     <string name="upgrade_screen_grace_title">Potvrdzovanie vášho nákupu</string>
     <string name="upgrade_screen_grace_body_short">Pro je stále aktívny. Čakáme na opätovné potvrdenie vášho nákupu od Google Play, všetky funkcie Pro zostávajú odomknuté.</string>

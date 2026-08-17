@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Folder</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Jika tidak ada tipe yang dipilih, maka semua tipe akan dicocokkan.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteria jalur</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Jalur target harus cocok dengan setidaknya satu entri (misalkan \"Downloads/oldapks/game-\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Jalur target harus cocok dengan setidaknya satu entri (misalnya \"Downloads/oldapks/game-\"). Ketuk entri untuk mengeditnya, atau ikonnya untuk mengubah cara pencocokannya.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Kriteria nama</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Nama target harus mengandung setidaknya satu kata kunci (seperti \"-resep\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Nama target harus mengandung setidaknya satu kata kunci (misalnya \"-receipt\"). Ketuk entri untuk mengeditnya, atau ikonnya untuk mengubah cara pencocokannya.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Pengecualian</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalur file cocok dengan suatu entri (seperti \"DCIM\"). Tekan lama entri untuk melihat lebih banyak pilihan.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika jalurnya cocok dengan entri mana pun (misalnya \"DCIM\"). Ketuk entri untuk mengeditnya, atau ikonnya untuk mengubah cara pencocokannya.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Tambah entri jalur</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Tambah entri nama</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Tambah entri pengecualian</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Entri baru</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Kata kunci</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Entri ini sudah ada.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d spasi</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Sudah digunakan oleh entri lain</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Ubah mode pencocokan untuk %1$s, saat ini: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode perbandingan jalur</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Jalur dimulai dengan kata kunci</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Jalur mengandung kata kunci</string>

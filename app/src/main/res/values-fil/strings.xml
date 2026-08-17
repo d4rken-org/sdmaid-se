@@ -7,9 +7,11 @@
          with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
          <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">Maaaring alisin ang isang item</item>
         <item quantity="other">Maaaring alisin ang %d na item</item>
     </plurals>
     <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">Natanggal ang isang item</item>
         <item quantity="other">Natanggal ang %d na item</item>
     </plurals>
     <string name="dashboard_hero_freeable_hint">I-tap ang button upang magbigay ng espasyo, o ang chip upang munang suriin.</string>
@@ -22,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Walang napalaya</string>
     <string name="dashboard_hero_nothing_freed_caption">Ang paglilinis ay natapos, ngunit walang nahanap na data na maaaring alisin.</string>
     <string name="dashboard_hero_nothing_freed_hint">Ang ilang data ay maaaring alisin lamang gamit ang dagdag na access, tulad ng accessibility service o root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Nakita ang %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">Nangangailangan ng SD Maid Pro ang %d item</item>
+        <item quantity="other">Nangangailangan ng SD Maid Pro ang %d item</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">I-tap upang i-unlock gamit ang SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Mas maraming espasyo ang mapapalaya gamit ang SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Kailangan ng SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Nag-scan ng %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Napakawalan ang %1$s</string>
@@ -32,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Simulan ang pag-scan at pagbura para sa lahat ng mga kagamitan sa pamamagitan ng pag-pindut ng aksyon buton ng dashboard, walang karagdagang kumpirmasyon.</string>
     <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Anong mga kagamitan ang dapat kasama sa one-tap operasyon?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Awtomatikong ipakita ang buod</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Awtomatikong buksan ang buod ng resulta pagkatapos gamitin ang action button ng dashboard. Kapag naka-disable, i-tap ang size chip sa ibabang bar para buksan ito.</string>
     <string name="dashboard_card_config_title">Mga card ng dashboard</string>
     <string name="dashboard_card_config_desc">I-configure kung aling mga card ang ipinapakita at ang pagkakasunod-sunod nila</string>
     <string name="dashboard_card_config_header_title">I-drag upang i-reorder, toggle upang ipakita/itago</string>

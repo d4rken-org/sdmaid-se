@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistema bul qosımsha ushın \"Keşti tazalaw\" tugmesin öshirgen. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistema qosımshası nadurıs sazlanǵan</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS Qáwipsizlik qosımshasında (com.miui.securitycenter) Paydalanıw statistikası ruqsatı (GET_USAGE_STATS) joq. Bul qosımsha detalllarındaǵı \"Maǵlıwmatlardı tazalaw\" hám jetimlilik arqalı keş tazalaw sıyaqlı funksiyalardı buzadı. Tolıq funksionallıqtı qálpine keltiriw ushın ruqsat beriń.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">\"System UI\" жүйе қосымшасы жақында күштеп тоқтатылса, бұл да болуы мүмкін (мысалы, қосымша тазалау құралы арқалы). Сонда Android SD Maid тың автоматты түймесі басымдарын сіз құрылмасын қайта іске қосқанша блокқалайды.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Tazalawdan aldın ma\'jbu\'riy toqtatıw</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keshti tazalawdan aldın qollanbalardı ma\'jbu\'riy toqtatıw. Ayırım qollanbalardıń keshin tazalawǵa ja\'rdem beriwi mu\'mkin, biraq qollanbalardıń nadurıs islewine alıp kelwi ha\'m qoldan qayta baslatıwdı talap etiwi mu\'mkin.</string>
     <string name="appcleaner_progress_force_stopping">Qollanbalardı ma\'jbu\'riy toqtatıw…</string>

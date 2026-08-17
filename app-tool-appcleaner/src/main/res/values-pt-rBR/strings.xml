@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">O sistema desativou o botão \"Limpar cache\" para este aplicativo. Exclua-o para acelerar a limpeza de cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">App do sistema mal configurado</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">O app Segurança do HyperOS (com.miui.securitycenter) está faltando a permissão de estatísticas de uso (GET_USAGE_STATS). Isso quebra recursos como \"Limpar dados\" nos detalhes do aplicativo e limpar o cache através de acessibilidade. Conceda permissão para restaurar todas as funcionalidades.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Isso também pode acontecer se o app do sistema \"System UI\" tiver sido forçado a parar recentemente, por exemplo, por uma ferramenta de limpeza de apps. Nesse caso, o Android bloqueia os toques automáticos do SD Maid até você reiniciar o dispositivo.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Forçar parada antes da limpeza</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forçar parada dos aplicativos antes de limpar o cache. Pode ajudar a limpar o cache de alguns aplicativos, mas pode causar mau funcionamento e exigir reinicialização manual.</string>
     <string name="appcleaner_progress_force_stopping">Forçando parada dos aplicativos…</string>

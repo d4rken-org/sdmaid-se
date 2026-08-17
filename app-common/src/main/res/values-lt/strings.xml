@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Nustatyti</string>
     <string name="general_unavailable_label">Nepasiekiama</string>
     <string name="general_edit_action">Redaguoti</string>
+    <string name="general_edit_x_action">Redaguoti %s</string>
+    <string name="general_add_action">Pridėti</string>
     <string name="general_na_label">Nėra</string>
     <string name="general_empty_label">Tuščia</string>
     <string name="general_new_badge_label">Nauja</string>
@@ -116,6 +118,7 @@
         <item quantity="other">Ištrinta %d elementų.</item>
     </plurals>
     <string name="general_remove_action">Pašalinti</string>
+    <string name="general_remove_x_action">Pašalinti %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Pašalintas vienas elementas</item>
         <item quantity="few">Pašalinti %d elementai</item>

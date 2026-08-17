@@ -15,7 +15,7 @@
     <string name="upgrades_gplay_offer_unavailable_title">Aanbieding niet beschikbaar</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play biedt deze upgrade-optie momenteel niet aan. Probeer het later opnieuw of raadpleeg de Google Play Store.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
-    <string name="upgrades_gplay_not_installed_message">Kon Google Play niet openen. Het kan ontbreken, uitgeschakeld of beperkt zijn op dit apparaat.</string>
+    <string name="upgrades_gplay_not_installed_message">Google Play kon niet worden geopend. Het is mogelijk dat de app ontbreekt, is uitgeschakeld of beperkingen heeft op dit apparaat.</string>
     <string name="upgrades_gplay_already_owned_error_title">Reeds gekocht</string>
     <string name="upgrades_gplay_already_owned_error_description">Gebruik de optie \'Aankoop herstellen\' om uw aankoop te herstellen. Als het probleem aanhoudt, probeer dan de cache van Google Play te wissen en uw apparaat opnieuw op te starten.</string>
     <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dit is een aparte aankoop: je abonnement wordt hiermee niet geannuleerd en het aankoopbedrag wordt niet terugbetaald. Gebruik voor beide aankopen hetzelfde Google-account.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement nog steeds actief</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play meldt dat je abonnement nog steeds automatisch verlengd moet worden. Om de eenmalige upgrade te kopen, moet je eerst je abonnement in Google Play annuleren en daarna hier terugkomen.\n\nNet geannuleerd? Geef Google Play even de tijd en probeer het opnieuw. Zorg er ook voor dat je hetzelfde Google-account gebruikt.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Kon je aankopen niet controleren met Google Play. Probeer het zo meteen opnieuw.</string>
+    <string name="upgrade_screen_pending_card_title">Betaling in behandeling</string>
+    <string name="upgrade_screen_pending_card_body">Google Play verwerkt je betaling nog. Pro wordt automatisch ontgrendeld zodra de betaling is voltooid. Sommige betaalmethoden kunnen even duren. Je hoeft verder niets te doen.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play heeft een aankoop gevonden met een betaling in behandeling en verwerkt deze nog. Pro wordt automatisch ontgrendeld zodra de betaling is voltooid.</string>
     <string name="upgrade_screen_restore_success_message">Aankoop hersteld, je Pro-upgrade is actief.</string>
     <string name="upgrade_screen_grace_title">Je aankoop bevestigen</string>
     <string name="upgrade_screen_grace_body_short">Pro is nog steeds actief. Wachten tot Google Play je aankoop opnieuw bevestigt; alle Pro-functies blijven ondertussen ontgrendeld.</string>

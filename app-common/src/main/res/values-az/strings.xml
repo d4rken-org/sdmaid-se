@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Quraşdır</string>
     <string name="general_unavailable_label">Əlçatmaz</string>
     <string name="general_edit_action">Redaktə et</string>
+    <string name="general_edit_x_action">%s redaktə et</string>
+    <string name="general_add_action">Əlavə et</string>
     <string name="general_na_label">Y/A</string>
     <string name="general_empty_label">Boş</string>
     <string name="general_new_badge_label">Yeni</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d element silindi.</item>
     </plurals>
     <string name="general_remove_action">Çıxar</string>
+    <string name="general_remove_x_action">%s sil</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Bir element çıxarıldı</item>
         <item quantity="other">%d element çıxarıldı</item>

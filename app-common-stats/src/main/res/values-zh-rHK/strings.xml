@@ -6,6 +6,21 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">自您邀請 SD 女僕到您的裝置以來，已處理 %s 個項目。</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="other">你已使用 %d 天。</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="other">你已使用 %d 週。</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="other">你已使用 %d 個月。</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="other">你已使用 %d 年。</item>
+    </plurals>
     <string name="stats_report_status_partial_success">部分成功</string>
     <string name="stats_report_status_partial_failure">部分失敗</string>
     <string name="stats_settings_desc">配置 SD 女僕的統計、報告和數據保留。</string>

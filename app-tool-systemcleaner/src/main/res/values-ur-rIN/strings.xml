@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">فولڈرز</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">اگر کوئی قسم منتخب نہیں ہے، تو تمام قسمیں میچ ہوں گی۔</string>
     <string name="systemcleaner_customfilter_editor_path_label">پاتھ کے معیار</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ہدف پاتھ کو کم از کم ایک انٹری سے میل کھانا ضروری ہے (مثل \"Downloads/oldapks/game-\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ہدف کا راستہ کم از کم ایک داخلے سے ملنا چاہیے (مثال کے طور پر \"Downloads/oldapks/game-\")۔ اسے ترمیم کرنے کے لیے کسی داخلے کو ٹیپ کریں، یا اسے کیسے ملتا ہے تبدیل کرنے کے لیے اس کے آئیکن کو ٹیپ کریں۔</string>
     <string name="systemcleaner_customfilter_editor_name_label">نام کے معیار</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ہدف کے نام میں کم از کم ایک کلیدی لفظ ہونا ضروری ہے (مثل \"-receipt\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ہدف کا نام کم از کم ایک لازمی لفظ میں سے ایک پر مشتمل ہونا چاہیے (مثال کے طور پر \"-receipt\")۔ اسے ترمیم کرنے کے لیے کسی داخلے کو ٹیپ کریں، یا اسے کیسے ملتا ہے تبدیل کرنے کے لیے اس کے آئیکن کو ٹیپ کریں۔</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">استثنائات</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">اگر پاتھ کسی انٹری سے میل کھاتا ہے تو نتیجہ خارج کر دیا جائے گا (مثل \"DCIM\")۔ مزید آپشنز کے لیے انٹریز کو لمبا دبائیں۔</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">نتیجہ کو خارج کر دیا جائے گا اگر راستہ کسی بھی داخلے سے ملتا ہے (مثال کے طور پر \"DCIM\")۔ اسے ترمیم کرنے کے لیے کسی داخلے کو ٹیپ کریں، یا اسے کیسے ملتا ہے تبدیل کرنے کے لیے اس کے آئیکن کو ٹیپ کریں۔</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">راستہ کی داخلہ شامل کریں</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">نام کی داخلہ شامل کریں</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">خارج کرنے کی داخلہ شامل کریں</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">نئی داخلہ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">لازمی لفظ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">یہ داخلہ پہلے سے موجود ہے۔</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d جگہ</item>
+        <item quantity="other">%d جگہیں</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">پہلے سے کسی اور داخلے کے ذریعے استعمال کیا جا رہا ہے</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s کے لیے ملانے کا طریقہ تبدیل کریں، موجودہ: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">پاتھ موازنہ موڈ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">پاتھ کلیدی لفظ سے شروع ہوتا ہے</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">پاتھ میں کلیدی لفظ شامل ہے</string>

@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ਫੋਲਡਰ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ਜੇਕਰ ਕੋਈ ਟਾਈਪ ਨਹੀਂ ਚੁਣੀ ਗਈ ਹੈ, ਤਾਂ ਸਾਰੀਆਂ ਟਾਈਪਾਂ ਨੂੰ ਮਿਲਾਇਆ ਜਾਵੇਗਾ।</string>
     <string name="systemcleaner_customfilter_editor_path_label">ਪਾਥ ਮਾਪਦੰਡ</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ਟਾਰਗੇਟ ਪਾਥ ਨੂੰ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਐਂਟਰੀ ਨਾਲ ਮੇਲ ਖਾਣਾ ਚਾਹੀਦਾ ਹੈ (ਜਿਵੇਂ \"Downloads/oldapks/game-\")। ਹੋਰ ਵਿਕਲਪਾਂ ਲਈ ਐਂਟਰੀਆਂ ਨੂੰ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਦਬਾਓ।</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ਟਾਰਗੇਟ ਪਾਥ ਨੂੰ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਐਂਟਰੀ ਨਾਲ ਮੇਲ ਖਾਣਾ ਚਾਹੀਦਾ ਹੈ (ਜਿਵੇਂ ਕਿ \"Downloads/oldapks/game-\")। ਕਿਸੇ ਐਂਟਰੀ ਨੂੰ ਸੋਧਣ ਲਈ ਉਸ \'ਤੇ ਟੈਪ ਕਰੋ, ਜਾਂ ਇਸਦੇ ਮੇਲ ਖਾਣ ਦੇ ਤਰੀਕੇ ਨੂੰ ਬਦਲਣ ਲਈ ਇਸਦੇ ਆਈਕਨ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="systemcleaner_customfilter_editor_name_label">ਨਾਮ ਮਾਪਦੰਡ</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ਟਾਰਗੇਟ ਨਾਮ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਕੀਵਰਡ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ (ਜਿਵੇਂ \"-receipt\")। ਹੋਰ ਵਿਕਲਪਾਂ ਲਈ ਐਂਟਰੀਆਂ ਨੂੰ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਦਬਾਓ।</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ਟਾਰਗੇਟ ਨਾਮ ਵਿੱਚ ਘੱਟੋ-ਘੱਟ ਇੱਕ ਕੀਵਰਡ ਹੋਣਾ ਚਾਹੀਦਾ ਹੈ (ਜਿਵੇਂ ਕਿ \"-receipt\")। ਕਿਸੇ ਐਂਟਰੀ ਨੂੰ ਸੋਧਣ ਲਈ ਉਸ \'ਤੇ ਟੈਪ ਕਰੋ, ਜਾਂ ਇਸਦੇ ਮੇਲ ਖਾਣ ਦੇ ਤਰੀਕੇ ਨੂੰ ਬਦਲਣ ਲਈ ਇਸਦੇ ਆਈਕਨ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ਬਾਹਰ ਰੱਖਣੇ</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ਜੇ ਪਾਥ ਕਿਸੇ ਵੀ ਐਂਟਰੀ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਹੈ ਤਾਂ ਨਤੀਜਾ ਬਾਹਰ ਕੱਢਿਆ ਜਾਵੇਗਾ (ਜਿਵੇਂ \"DCIM\")। ਹੋਰ ਵਿਕਲਪਾਂ ਲਈ ਐਂਟਰੀਆਂ ਨੂੰ ਲੰਬੇ ਸਮੇਂ ਤੱਕ ਦਬਾਓ।</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ਜੇ ਪਾਥ ਕਿਸੇ ਐਂਟਰੀ ਨਾਲ ਮੇਲ ਖਾਂਦਾ ਹੈ ਤਾਂ ਨਤੀਜਾ ਬਾਹਰ ਰੱਖਿਆ ਜਾਵੇਗਾ (ਜਿਵੇਂ ਕਿ \"DCIM\")। ਕਿਸੇ ਐਂਟਰੀ ਨੂੰ ਸੋਧਣ ਲਈ ਉਸ \'ਤੇ ਟੈਪ ਕਰੋ, ਜਾਂ ਇਸਦੇ ਮੇਲ ਖਾਣ ਦੇ ਤਰੀਕੇ ਨੂੰ ਬਦਲਣ ਲਈ ਇਸਦੇ ਆਈਕਨ \'ਤੇ ਟੈਪ ਕਰੋ।</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">ਪਾਥ ਐਂਟਰੀ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">ਨਾਮ ਐਂਟਰੀ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">ਬਾਹਰ ਰੱਖਣ ਵਾਲੀ ਐਂਟਰੀ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">ਨਵੀਂ ਐਂਟਰੀ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">ਕੀਵਰਡ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ਇਹ ਐਂਟਰੀ ਪਹਿਲਾਂ ਹੀ ਮੌਜੂਦ ਹੈ।</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d ਸਪੇਸ</item>
+        <item quantity="other">%d ਸਪੇਸਾਂ</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ਪਹਿਲਾਂ ਹੀ ਕਿਸੇ ਹੋਰ ਐਂਟਰੀ ਦੁਆਰਾ ਵਰਤੀ ਜਾ ਰਹੀ ਹੈ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s ਲਈ ਮੇਲ ਮੋਡ ਬਦਲੋ, ਵਰਤਮਾਨ ਵਿੱਚ: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">ਪਾਥ ਤੁਲਨਾ ਮੋਡ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">ਪਾਥ ਕੀਵਰਡ ਨਾਲ ਸ਼ੁਰੂ ਹੁੰਦਾ ਹੈ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">ਪਾਥ ਵਿੱਚ ਕੀਵਰਡ ਸ਼ਾਮਲ ਹੈ</string>

@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ဖိုင်တွဲများ</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">မည်သည့် အမျိုးအစားကိုမျှ မရွေးချယ်ပါက၊ အမျိုးအစား အားလုံး တိုက်ဆိုင်မည်။</string>
     <string name="systemcleaner_customfilter_editor_path_label">လမ်းကြောင်း စံသတ်မှတ်ချက်</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ပစ်မှတ် လမ်းကြောင်းသည် အနည်းဆုံး ရေးသွင်းချက် တစ်ခုနှင့် ကိုက်ညီရမည် (ဥပမာ - \"Downloads/oldapks/game-\")။ နောက်ထပ် ရွေးချယ်စရာများအတွက် ရေးသွင်းချက်များကို ကြာရှည်စွာ နှိပ်ပါ။</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ပစ်မှတ် လမ်းကြောင်းသည် အနည်းဆုံးအချက်တစ်ခုနှင့် ကိုက်ညီရန် လိုအပ်သည် (ဥပမာ \"Downloads/oldapks/game-\")။ အချက်တစ်ခုကို တည်းဖြတ်ရန် တို့ပါ၊ သို့မဟုတ် ၎င်း၏ကိုက်ညီမှုပုံစံပြောင်းရန် သင်္ကေတကို တို့ပါ။</string>
     <string name="systemcleaner_customfilter_editor_name_label">အမည် စံသတ်မှတ်ချက်</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ပစ်မှတ် အမည်တွင် အဓိကစကားလုံးများထဲမှ အနည်းဆုံး တစ်ခု ပါဝင်ရမည် (ဥပမာ - \"-receipt\")။ နောက်ထပ် ရွေးချယ်စရာများအတွက် ရေးသွင်းချက်များကို ကြာရှည်စွာ နှိပ်ပါ။</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ပစ်မှတ် အမည်တွင် အဓိကစကားလုံးများထဲမှ အနည်းဆုံးတစ်ခု ပါဝင်ရမည် (ဥပမာ \"-receipt\")။ အချက်တစ်ခုကို တည်းဖြတ်ရန် တို့ပါ၊ သို့မဟုတ် ၎င်း၏ကိုက်ညီမှုပုံစံပြောင်းရန် သင်္ကေတကို တို့ပါ။</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ဖယ်ထုတ်မှုများ</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">လမ်းကြောင်းသည် မည်သည့် ရေးသွင်းချက်နှင့်မဆို ကိုက်ညီပါက ရလဒ်ကို ဖယ်ထုတ်မည် (ဥပမာ - \"DCIM\")။ နောက်ထပ် ရွေးချယ်စရာများအတွက် ရေးသွင်းချက်များကို ကြာရှည်စွာ နှိပ်ပါ။</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">လမ်းကြောင်းသည် အချက်တစ်ခုခုနှင့် ကိုက်ညီပါက ရလဒ်ကို ချန်လှပ်ထားမည် (ဥပမာ \"DCIM\")။ အချက်တစ်ခုကို တည်းဖြတ်ရန် တို့ပါ၊ သို့မဟုတ် ၎င်း၏ကိုက်ညီမှုပုံစံပြောင်းရန် သင်္ကေတကို တို့ပါ။</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">လမ်းကြောင်းအချက် ထည့်ပါ</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">အမည်အချက် ထည့်ပါ</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">ချန်လှပ်ရန်အချက် ထည့်ပါ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">အချက်အသစ်</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">အဓိကစကားလုံး</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ဤအချက်ရှိပြီးသားဖြစ်သည်။</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d ကွက်လပ်</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">အခြားအချက်တစ်ခုက အသုံးပြုပြီးသားဖြစ်သည်</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s အတွက် ကိုက်ညီမှုပုံစံ ပြောင်းပါ၊ လက်ရှိ- %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">လမ်းကြောင်း နှိုင်းယှဉ်မှု မုဒ်</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">လမ်းကြောင်းသည် အဓိကစကားလုံးဖြင့် စတင်သည်</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">လမ်းကြောင်းတွင် အဓိကစကားလုံး ပါဝင်သည်</string>

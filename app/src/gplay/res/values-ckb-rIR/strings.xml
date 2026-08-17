@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ئەمە کڕینی جیاواز: بەشدارییەت ناچڵۆنێتەوە و پێشکەش نابات. ئەکاونتی گوگڵی یەکسانی بۆ هەردووک بەکاربێنە.</string>
     <string name="upgrade_screen_sub_still_renewing_title">بەشدارییە هێشتا چالاکە</string>
     <string name="upgrade_screen_sub_still_renewing_message">گوگڵ پلەی دەسگێڕێتەوە کە بەشدارییەت هێشتا ڕێکخستراوە بۆ نوێکاری. بۆ کڕینی نوێکاری یەک جار، لە سەرەتایی بەشدارییە لە گوگڵ پلەی ئەنجام بدە، پاشان وەکو نیگاری بگەڕێ.\n\nتازە ئەنجامدا؟ گوگڵ پلەی جەنجام بدە و دیسان هەوڵ بدە. هەروەها دڵنیا بکە کە ئەکاونتی گوگڵی یەکسانی بەکاردەهێنیت.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">نەتوانرا کڕینەکانت لەگەڵ Google Play بپشکنرێت. تکایە دووبارە هەوڵ بدەوە.</string>
+    <string name="upgrade_screen_pending_card_title">پارەدان چاوەڕوانە</string>
+    <string name="upgrade_screen_pending_card_body">Google Play هێشتا پارەدانەکەت پرۆسێس دەکات. کاتێک پارەدانەکە تەواو بوو، Pro بە شێوەیەکی ئۆتۆماتیکی دەکرێتەوە. هەندێک شێوازی پارەدان کاتێکی زۆر دەخایەنێت. پێویست ناکات هیچی تر بکەیت.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play کڕینێکی دۆزیوەتەوە کە پارەدانەکەی چاوەڕوانە و هێشتا پرۆسێسی دەکات. کاتێک پارەدانەکە تەواو بوو، Pro بە شێوەیەکی ئۆتۆماتیکی دەکرێتەوە.</string>
     <string name="upgrade_screen_restore_success_message">کڕین گێڕدرایەوە، نوێکاری Pro تەکەت چالاکە.</string>
     <string name="upgrade_screen_grace_title">پشتڕاستکردنی کڕینی تۆ</string>
     <string name="upgrade_screen_grace_body_short">Pro هێشتا چالاکە. چاوچاوی گوگڵ پلەی بۆ دیسا پشتڕاستکردنی کڕینی تۆ، هەموو تایبەتمەندیەکانی Pro لە ئێستادا بێ قفڵ ماونەتەوە.</string>

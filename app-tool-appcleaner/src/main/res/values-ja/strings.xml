@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">システムがこのアプリの「キャッシュを削除」ボタンを無効にしました。キャッシュクリアの高速化のため除外してください。</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">システムアプリの設定が間違っています</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOSのセキュリティアプリ（com.miui.securitycenter）に使用統計権限（GET_USAGE_STATS）がありません。これによりアプリ詳細の「データを削除」やアクセシビリティによるキャッシュクリアなどの機能が破損します。完全な機能を復元するため権限を許可してください。</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">これは、「システムUI」というシステムアプリが最近強制停止された場合（例えばアプリクリーナーツールによって）にも発生することがあります。この場合、端末を再起動するまでAndroidがSD Maidによる自動ボタン操作をブロックします。</string>
     <string name="appcleaner_forcestop_before_clearing_label">クリア前に強制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">キャッシュをクリアする前にアプリを強制停止します。一部のアプリのキャッシュクリアに役立ちますが、アプリが正常に動作しなくなり手動再起動が必要になる場合があります。</string>
     <string name="appcleaner_progress_force_stopping">アプリを強制停止中…</string>

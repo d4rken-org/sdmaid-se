@@ -32,6 +32,8 @@
     <string name="general_set_up_action">設定</string>
     <string name="general_unavailable_label">利用不可</string>
     <string name="general_edit_action">編集</string>
+    <string name="general_edit_x_action">%sを編集</string>
+    <string name="general_add_action">追加</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空</string>
     <string name="general_new_badge_label">新規</string>
@@ -107,6 +109,7 @@
         <item quantity="other">%d項目を削除しました。</item>
     </plurals>
     <string name="general_remove_action">削除</string>
+    <string name="general_remove_x_action">%sを削除</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d 項目が削除されました</item>
     </plurals>

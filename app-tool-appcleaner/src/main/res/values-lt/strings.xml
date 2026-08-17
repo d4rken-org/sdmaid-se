@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistema išjungė mygtuką „Išvalyti talpyklą“ šiai programai. Pašalinkite ją iš sąrašo, kad paspartintumėte talpyklos valymą.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistemos programa netinkamai sukonfigūruota</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS saugos programai (com.miui.securitycenter) trūksta leidimo Naudojimo statistika (GET_USAGE_STATS). Dėl to neveikia funkcijos kaip „Išvalyti duomenis“ programos informacijoje ir talpyklos valymas per prieinamumo paslaugą. Suteikite leidimą, kad atkūrustumėte visas funkcijas.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Tai taip pat gali nutikti, jei sistemos programa „System UI“ neseniai buvo priverstinai sustabdyta, pvz., naudojant programų valymo įrankį. Tokiu atveju „Android“ blokuoja automatinius SD Maid mygtukų paspaudimus, kol iš naujo nepaleidi įrenginio.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Priverstinai sustabdyti prieš valant</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Priverstinai sustabdykite programas prieš valydami jų talpyklą. Tai gali padėti išvalyti kai kurių programų talpyklas, tačiau gali sukelti programų sutrikimų ir reikalautį rankinio paleidimo iš naujo.</string>
     <string name="appcleaner_progress_force_stopping">Priverstinai sustabdomos programos…</string>

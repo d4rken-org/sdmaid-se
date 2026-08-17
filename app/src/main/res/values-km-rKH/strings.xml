@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">គ្មានទិន្នន័យត្រូវបានលុប</string>
     <string name="dashboard_hero_nothing_freed_caption">ការសម្អាតបានបញ្ចប់ ប៉ុន្តែគ្មានទិន្នន័យដែលបានរកឃើញដែលអាចលុបចេញបាន។</string>
     <string name="dashboard_hero_nothing_freed_hint">ទិន្នន័យមួយចំនួនអាចលុបបានតែដោយលទ្ធិលម្អិត ដូចជាសេវាកម្មលទ្ធិលម្អិត ឬ root ប៉ុណ្ណោះ។</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">រកឃើញ %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d ធាតុត្រូវការ SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">ចុចដើម្បីដោះសោជាមួយ SD Maid Pro។</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">អាចរំដោះទំហំបន្ថែមទៀតជាមួយ SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">ត្រូវការ SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ស្កេន %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">លុបចោល %1$s</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">ចាប់ផ្ដើមស្គែននិងការលុបសម្រាប់ឧបករណ៍ទាំងអស់ ដោយចុចលើប៊ូតុងសកម្មភាពរបស់ផ្ទាំងគ្រប់គ្រង ដោយគ្មានការបញ្ជាក់បន្ថែមឡើយ។</string>
     <string name="dashboard_settings_oneclick_tools_title">ឧបករណ៍ចុចតែម្តង</string>
     <string name="dashboard_settings_oneclick_tools_desc">ឧបករណ៍ណាខ្លះគួរតែត្រូវបានរួមបញ្ចូលក្នុងប្រតិបត្តិការចុចម្តង?</string>
+    <string name="dashboard_settings_summary_autoshow_title">បង្ហាញសេចក្តីសង្ខេបដោយស្វ័យប្រវត្តិ</string>
+    <string name="dashboard_settings_summary_autoshow_summary">បើកសេចក្តីសង្ខេបលទ្ធផលដោយស្វ័យប្រវត្តិ បន្ទាប់ពីប្រើប៊ូតុងសកម្មភាពនៅផ្ទាំងគ្រប់គ្រង។ ពេលបិទ សូមចុចស្លាកទំហំនៅរបារខាងក្រោមដើម្បីបើកវា។</string>
     <string name="dashboard_card_config_title">កាតផ្ទាំងគ្រប់គ្រង</string>
     <string name="dashboard_card_config_desc">កំណត់រចនាសម្ព័ន្ធកាតណាដែលត្រូវបានបង្ហាញ និងលំដាប់របស់វា</string>
     <string name="dashboard_card_config_header_title">អូសដើម្បីរៀបលំដាប់ឡើងវិញ បិទបើកដើម្បីបង្ហាញ/លាក់</string>

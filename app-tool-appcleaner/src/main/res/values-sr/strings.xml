@@ -87,6 +87,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Систем је онемогућио дугме \"Обриши кеш\" за ову апликацију. Искључите је да убрзате брисање кеша.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системска апликација неправилно подешена</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS Security апликацији (com.miui.securitycenter) недостаје дозвола за статистике коришћења (GET_USAGE_STATS). Ово ломи функције попут \"Обриши податке\" у детаљима апликације и брисање кеша преко приступачности. Дајте дозволу да вратите пуну функционалност.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Ово се такође може десити ако је системска апликација „System UI” недавно принудно заустављена, нпр. алатом за чишћење апликација. Android тада блокира SD Maid-ове аутоматске притиске на дугмад док не рестартујеш уређај.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Принудно заустави пре чишћења</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудно заустави апликације пре чишћења њиховог кеша. Може помоћи у чишћењу кеша неких апликација, али може проузроковати неисправно понашање апликација које захтевају ручно покретање.</string>
     <string name="appcleaner_progress_force_stopping">Принудно заустављање апликација…</string>

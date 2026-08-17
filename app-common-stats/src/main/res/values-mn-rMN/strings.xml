@@ -8,6 +8,25 @@
         <item quantity="one">Тань SD Maid-ыг төхөөртөө уриссанаас %s зүйл боловсон</item>
         <item quantity="other">Тань SD Maid-ыг төхөөртөө уриссанаас %s зүйл боловсон</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Та %d өдрийн хүнээлэл авсан.</item>
+        <item quantity="other">Та %d өдрийн хүнээлэл авсан.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Та %d долоо хоног хүнээлэл авсан.</item>
+        <item quantity="other">Та %d долоо хоног хүнээлэл авсан.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Та %d сарын хүнээлэл авсан.</item>
+        <item quantity="other">Та %d сарын хүнээлэл авсан.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Та %d жилийн хүнээлэл авсан.</item>
+        <item quantity="other">Та %d жилийн хүнээлэл авсан.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Хэсэгчлэн амжилттай</string>
     <string name="stats_report_status_partial_failure">Амжилтгүй</string>
     <string name="stats_settings_desc">SD Maid-ийн статистик, тайлан болон өгөгдөл хадгалах хугацааг тохируулах.</string>

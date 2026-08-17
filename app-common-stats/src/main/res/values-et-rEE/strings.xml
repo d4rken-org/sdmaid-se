@@ -8,6 +8,25 @@
         <item quantity="one">%s fail töödeldud alates SD Maidi seadmesse paigaldamisest.</item>
         <item quantity="other">%s faili töödeldud alates SD Maidi seadmesse paigaldamisest.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Sinu külaline %d päev.</item>
+        <item quantity="other">Sinu külaline %d päeva.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Sinu külaline %d nädal.</item>
+        <item quantity="other">Sinu külaline %d nädalat.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Sinu külaline %d kuu.</item>
+        <item quantity="other">Sinu külaline %d kuud.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Sinu külaline %d aasta.</item>
+        <item quantity="other">Sinu külaline %d aastat.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Õnnestus enam-vähem</string>
     <string name="stats_report_status_partial_failure">Tõrge</string>
     <string name="stats_settings_desc">Seadista SD Maidi statistikat, aruandeid ja andmete hoiustamist.</string>

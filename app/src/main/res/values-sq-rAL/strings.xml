@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Asgjë nuk u lirua</string>
     <string name="dashboard_hero_nothing_freed_caption">Pastrimi përfundoi, por asnjë nga të dhënat e gjetura nuk mund të hiqet.</string>
     <string name="dashboard_hero_nothing_freed_hint">Disa të dhëna mund të hiqen vetëm me akses shtesë, si shërbimi i aksesueshmërisë ose root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s u gjetën</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d artikull i duhet SD Maid Pro</item>
+        <item quantity="other">%d artikuj i duhen SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Prek për të hapur me SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Më shumë mund të çlirohet me SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Kërkon SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">U skanua %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">U lirua %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Filloni skanimin dhe fshirjen për të gjitha mjetet me një prekje në butonin e veprimit të pultit, pa konfirmime shtesë.</string>
     <string name="dashboard_settings_oneclick_tools_title">Veglat me një prekje</string>
     <string name="dashboard_settings_oneclick_tools_desc">Cilat mjete duhet të përfshihen në operacionet me një prekje?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Shfaq përmbledhjen automatikisht</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Hape automatikisht përmbledhjen e rezultateve pas përdorimit të butonit të veprimeve. Kur të çaktivizohet, prek çipin e madhësisë në shiritin në fund për ta hapur atë.</string>
     <string name="dashboard_card_config_title">Kartat e panelit</string>
     <string name="dashboard_card_config_desc">Konfiguroni cilat karta shfaqen dhe renditja e tyre</string>
     <string name="dashboard_card_config_header_title">Zvarritni për të rirenditur, ndërroni për të shfaqur/fshehur</string>

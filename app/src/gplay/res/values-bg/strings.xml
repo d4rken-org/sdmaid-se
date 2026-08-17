@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Това е отделна покупка: тя не отменя, нито възстановява вашия абонамент. Използвайте един и същи Google акаунт и за двете.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Абонаментът е все още активен</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play съобщава, че вашият абонамент все още е настроен да се подновява. За да закупите еднократното обновление, първо отменете абонамента в Google Play, след което се върнете тук.\n\nНаскоро го отменихте ли? Дайте на Google Play момент и опитайте отново. Също така проверете дали използвате един и същ Google акаунт.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Не можех да проверя твоите покупки с Google Play. Моля, опитай отново след миг.</string>
+    <string name="upgrade_screen_pending_card_title">Плащането е в ожидание</string>
+    <string name="upgrade_screen_pending_card_body">Google Play все още обработва твоето плащане. Pro се отключва автоматично, след като плащането премине. Някои методи на плащане могат да отнемат време. Няма нищо друго, което трябва да направиш.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play намери покупка с плащане в ожидание и все още я обработва. Pro се отключва автоматично, след като плащането премине.</string>
     <string name="upgrade_screen_restore_success_message">Покупката е възстановена, вашето Pro обновление е активно.</string>
     <string name="upgrade_screen_grace_title">Потвърждаване на вашата покупка</string>
     <string name="upgrade_screen_grace_body_short">Pro е все още активен. Изчаква се Google Play да потвърди повторно покупката ви, всички функции на Pro остават отключени междувременно.</string>

@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Kerfið hefur gert \"Hreinsa skyndiminni\" hnappinn óvirkan fyrir þetta forrit. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Kerfisforrit rangt stillt</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Öryggisforrit HyperOS (com.miui.securitycenter) vantar leyfi fyrir notkunartölfræði (GET_USAGE_STATS). Þetta brýtur eiginleika eins og \"Hreinsa gögn\" og hreinsun skyndiminnis í gegnum aðgengisþjónustu. Veittu leyfið til að endurheimta fulla virkni.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Þetta getur líka gerst ef kerfisforritið „System UI“ var nýlega þvingað til að stöðva, t.d. af forriti sem hreinsar önnur forrit. Þá lokar Android á sjálfvirkar hnappaýtingar SD Maid þar til þú endurræsir tækið.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Þvinga stopp fyrir hreinsun</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Þvinga stopp á forritum áður en skyndiminni þeirra er hreinsað. Það gæti hjálpað við hreinsun sumra forrita, en gæti valdið truflunum og krafist handvirkrar endurræsingar.</string>
     <string name="appcleaner_progress_force_stopping">Þvinga stopp á forritum…</string>

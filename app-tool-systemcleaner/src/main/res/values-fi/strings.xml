@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Kansiot</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Jos tyyppiä ei ole valittu, kaikki tyypit sovitetaan.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Polkukriteerit</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Kohdepolun täytyy vastata vähintään yhtä merkintää (esim. \"Downloads/oldapks/game-\"). Paina pitkään merkintöjä lisävaihtoehtojen saamiseksi.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Kohdepolun täytyy vastata vähintään yhtä merkintää (esim. \"Downloads/oldapks/game-\"). Napauta merkintää muokataksesi sitä tai sen kuvaketta muuttaaksesi vastaavuustapaa.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Nimikriteerit</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Kohteen nimen täytyy sisältää vähintään yksi avainsanoista (esim. \"-kuitti\"). Paina pitkään merkintöjä lisävaihtoehtojen saamiseksi.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Kohdenimen täytyy sisältää vähintään yksi avainsanoista (esim. \"-receipt\"). Napauta merkintää muokataksesi sitä tai sen kuvaketta muuttaaksesi vastaavuustapaa.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Poikkeukset</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Tulos suljetaan pois, jos polku vastaa mitä tahansa merkintää (esim. \"DCIM\"). Paina pitkään merkintöjä lisävaihtoehtojen saamiseksi.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Tulos jätetään pois, jos polku vastaa mitä tahansa merkintää (esim. \"DCIM\"). Napauta merkintää muokataksesi sitä tai sen kuvaketta muuttaaksesi vastaavuustapaa.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Lisää polkumerkintä</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Lisää nimimerkintä</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Lisää poissulkumerkintä</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Uusi merkintä</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Avainsana</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Tämä merkintä on jo olemassa.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d välilyönti</item>
+        <item quantity="other">%d välilyöntiä</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Toinen merkintä käyttää jo tätä</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Vaihda vastaavuustapaa kohteelle %1$s, nykyinen: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Polun vertailutila</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Polku alkaa avainsanalla</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Polku sisältää avainsanan</string>

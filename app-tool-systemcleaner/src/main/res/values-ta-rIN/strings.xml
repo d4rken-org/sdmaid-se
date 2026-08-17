@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">அடைவுகள்</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">எந்த வகையும் தேர்ந்தெடுக்கப்படவில்லை என்றால், அனைத்து வகைகளும் பொருத்தப்படும்.</string>
     <string name="systemcleaner_customfilter_editor_path_label">பாதை நிபந்தனைகள்</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">இலக்கு பாதை குறைந்தது ஒரு உள்ளீட்டுடன் பொருந்த வேண்டும் (எ.கா. \"Downloads/oldapks/game-\"). மேலும் விருப்பங்களுக்கு உள்ளீடுகளை நீள அழுத்தவும்.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">இலக்குப் பாதை குறைந்தது ஒரு உள்ளீட்டுடன் பொருந்த வேண்டும் (எ.கா., \"Downloads/oldapks/game-\"). ஒரு உள்ளீட்டைத் திருத்த அதைத் தட்டவும், அல்லது அது எவ்வாறு பொருத்தப்படுகிறது என்பதை மாற்ற அதன் ஐகானைத் தட்டவும்.</string>
     <string name="systemcleaner_customfilter_editor_name_label">பெயர் நிபந்தனைகள்</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">இலக்கு பெயர் குறைந்தது ஒரு முக்கிய சொற்களை கொண்டிருக்க வேண்டும் (எ.கா. \"-receipt\"). மேலும் விருப்பங்களுக்கு உள்ளீடுகளை நீள அழுத்தவும்.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">இலக்குப் பெயரில் குறைந்தது ஒரு முக்கிய வார்த்தையாவது இருக்க வேண்டும் (எ.கா., \"-receipt\"). ஒரு உள்ளீட்டைத் திருத்த அதைத் தட்டவும், அல்லது அது எவ்வாறு பொருத்தப்படுகிறது என்பதை மாற்ற அதன் ஐகானைத் தட்டவும்.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">விலக்குகள்</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">பாதை ஏதேனும் உள்ளீட்டுடன் பொருந்தினால் முடிவு விலக்கப்படும் (எ.கா. \"DCIM\"). மேலும் விருப்பங்களுக்கு உள்ளீடுகளை நீள அழுத்தவும்.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">பாதை எந்த உள்ளீட்டுடனாவது பொருந்தினால் முடிவு விலக்கப்படும் (எ.கா., \"DCIM\"). ஒரு உள்ளீட்டைத் திருத்த அதைத் தட்டவும், அல்லது அது எவ்வாறு பொருத்தப்படுகிறது என்பதை மாற்ற அதன் ஐகானைத் தட்டவும்.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">பாதை உள்ளீட்டைச் சேர்</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">பெயர் உள்ளீட்டைச் சேர்</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">விலக்கு உள்ளீட்டைச் சேர்</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">புதிய உள்ளீடு</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">முக்கிய வார்த்தை</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">இந்த உள்ளீடு ஏற்கனவே உள்ளது.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d இடைவெளி</item>
+        <item quantity="other">%d இடைவெளிகள்</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">மற்றொரு உள்ளீட்டால் ஏற்கனவே பயன்படுத்தப்பட்டது</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s இன் பொருத்த முறையை மாற்று, தற்போது: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">பாதை ஒப்பீட்டு முறை</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">பாதை முக்கிய சொல்லுடன் தொடங்குகிறது</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">பாதை முக்கிய சொல்லைக் கொண்டுள்ளது</string>

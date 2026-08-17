@@ -75,11 +75,24 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mapes</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ja nav atlasīts neviens tips, tiks atķemti visi tipi.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Ceļa kritēriji</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Mērķa ceļam jāatbilst vismaz vienam ierakstam (piem., \"Downloads/oldapks/game-\"). Ilgi nospiediet ierakstus, lai iegūtu vairāk opciju.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Mērķa ceļam jāatbilst vismaz vienam ierakstam (piem., \"Downloads/oldapks/game-\"). Pieskaries ierakstam, lai to rediģētu, vai tā ikonai, lai mainītu atbilstības veidu.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Nosaukuma kritēriji</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Mērķa nosaukumam jāsatur vismaz viena no atslēgvārdiem (piem., \"-receipt\"). Ilgi nospiediet ierakstus, lai iegūtu vairāk opciju.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Mērķa nosaukumam jāsatur vismaz viens no atslēgvārdiem (piem., \"-receipt\"). Pieskaries ierakstam, lai to rediģētu, vai tā ikonai, lai mainītu atbilstības veidu.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Izslēgumi</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezults tiks izslēgts, ja ceļš atbilst jebkuram ierakstam (piem., \"DCIM\"). Ilgi nospiediet ierakstus, lai iegūtu vairāk opciju.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultāts tiks izslēgts, ja ceļš atbildīs jebkuram ierakstam (piem., \"DCIM\"). Pieskaries ierakstam, lai to rediģētu, vai tā ikonai, lai mainītu atbilstības veidu.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Pievienot ceļa ierakstu</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Pievienot nosaukuma ierakstu</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Pievienot izņēmuma ierakstu</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Jauns ieraksts</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Atslēgvārds</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Šis ieraksts jau pastāv.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="zero">%d atstarpju</item>
+        <item quantity="one">%d atstarpe</item>
+        <item quantity="other">%d atstarpes</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Jau izmantots citā ierakstā</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Mainīt %1$s atbilstības režīmu, pašlaik: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Ceļa salīdzīnāšanas režīms</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Ceļš sākas ar atslēgvārdu</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Ceļš satur atslēgvārdu</string>

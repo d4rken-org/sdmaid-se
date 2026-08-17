@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dosjet</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nëse nuk zgjidhet asnjë lloj, atëherë të gjitha llojet do të përputhen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteriumi i rrugës</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Ruga e synuar duhet të përputhet me të paktën një hyrje (p.sh. \"Shkarkime/oldapks/lojë-\"). Shtypni gjatë shënimet për më shumë opsione.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Rruga e synuar duhet të përputhet me të paktën një hyrje (p.sh. \"Downloads/oldapks/game-\"). Prek një hyrje për ta redaktuar atë, ose ikonën e saj për të ndryshuar mënyrën se si përputhet.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Kriteret e emrit</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Emri në fjalë duhet të përmbajë të paktën një nga fjalët kyçe (p.sh. \"-receipt\"). Shtypni gjatë shënimet për më shumë opsione.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Emri i synimit duhet të përmbajë të paktën një nga fjalëkyçet (p.sh. \"-receipt\"). Prek një hyrje për ta redaktuar atë, ose ikonën e tij për ta ndryshuar se si përputhet.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Përjashtimet</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultati do të përjashtohet nëse ruga përputhet me ndonjë hyrje (p.sh. \"DCIM\"). Shtypni gjatë shënimet për më shumë opsione.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultati do të përjashtohet nëse rruga përputhet me ndonjë hyrje (p.sh. \"DCIM\"). Prek një hyrje për ta redaktuar atë, ose ikonën e saj për të ndryshuar mënyrën se si përputhet.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Shto hyrje rruge</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Shto hyrje emri</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Shto hyrje përjashtimi</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Hyrje e re</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Fjalëkyç</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Kjo hyrje ekziston tashmë.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d hapësirë</item>
+        <item quantity="other">%d hapësira</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Përdorur tashmë nga një hyrje tjetër</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Ndryshoni mënyrën e përputhjes për %1$s, aktualisht: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Ruga modus krahasor (Mënyra e krahasimit të rrugës)</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Shtegu fillon me fjalën kyçe</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Shtegu përmban fjalën kyçe</string>

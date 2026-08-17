@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Система вимкнула кнопку «Очистити кеш» для цього додатка. Вимкніть її, щоб пришвидшити очищення кешу.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системний додаток неправильно налаштовано</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">У додатку безпеки HyperOS (com.miui.securitycenter) відсутній дозвіл «Статистика використання» (GET_USAGE_STATS). Це порушує такі функції, як «Очистити дані» у деталях додатку та очищення кешу через доступ. Надайте дозвіл, щоб відновити повну функціональність.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Це також може статися, якщо системний застосунок \"System UI\" нещодавно було примусово зупинено, наприклад, за допомогою інструменту очищення застосунків. Після цього Android блокує автоматичні натискання кнопок SD Maid, доки ви не перезапустите пристрій.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Примусове зупинення перед очищенням</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Примусово зупиніть додатки перед очищенням їх кешу. Це може допомогти очистити кеш деяких додатків, але може призвести до неправильної роботи додатків і вимагати ручного перезапуску.</string>
     <string name="appcleaner_progress_force_stopping">Примусове зупинення додатків…</string>

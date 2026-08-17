@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Хавтасууд</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Төрлөг сонгогдогүй бол, бүх төрлөгүүд таарагдана.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Шляхын шалгуур</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Зорилсон шлях дор харааганы нэг оролцын таарах шаардлагатай (\"Downloads/oldapks/game-\" гэх мэт). Түрүү арулгад дараагр даруулана үж.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Зорилтот зам нь дор хаяж нэг оруулгатай тохирох хэрэгтэй (жишээ нь \"Downloads/oldapks/game-\"). Оруулгыг засахын тулд дарних, эсвэл түүний дүрсэлгээг өөрчлөхийн тулд дүрсий дарна уу.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Нэрийн шалгуур</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Зорилсон нэр дор түлхүүрийн олон үг үеиг агуулах шаардлагатай (\"-receipt\" гэх мэт). Түрүү арулгад дараагр даруулана үж.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Зорилтот нэр нь дор хаяж нэг түлхүүр үгсийг агуулсан байх ёстой (жишээ нь \"-receipt\"). Оруулгыг засахын тулд дарних, эсвэл түүний дүрсэлгээг өөрчлөхийн тулд дүрсий дарна уу.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Үлэдслүүд</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Шлях дь олон оролцтой таарчлах бол үр дүн үлдслэгдэнэ (\"DCIM\" гэх мэт). Түрүү арулгад дараагр даруулана үж.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Зам нь аль нэг оруулгатай тохирвол үр дүн хасагдана (жишээ нь \"DCIM\"). Оруулгыг засахын тулд дарних, эсвэл түүний дүрсэлгээг өөрчлөхийн тулд дүрсий дарна уу.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Замын оруулга нэмэх</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Нэрийн оруулга нэмэх</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Хасалтын оруулга нэмэх</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Шинэ оруулга</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Түлхүүр үг</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Энэ оруулга аль хэдийн байна.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d зай</item>
+        <item quantity="other">%d зай</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Өөр оруулгаар аль хэдийн ашигласан</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s-ийн тохирох горимыг өөрчилнэ, одоо: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Шляхын харьцуулах хэлбэр</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Шлях түлхүүрийн үгээр эхлэдэнэ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Шлях түлхүүрийг агуулагдсан</string>

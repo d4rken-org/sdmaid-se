@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Ornatıw</string>
     <string name="general_unavailable_label">Jetimsiz</string>
     <string name="general_edit_action">Ózgeris kiritiw</string>
+    <string name="general_edit_x_action">%s өңдеу</string>
+    <string name="general_add_action">Қосу</string>
     <string name="general_na_label">Joq</string>
     <string name="general_empty_label">Bos</string>
     <string name="general_new_badge_label">Taza</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d element óshirildi.</item>
     </plurals>
     <string name="general_remove_action">Alıp taslaw</string>
+    <string name="general_remove_x_action">%s өшіру</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Bir element alıp taslaldı</item>
         <item quantity="other">%d element alıp taslaldı</item>

@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">केही पनि मुक्त गरिएन</string>
     <string name="dashboard_hero_nothing_freed_caption">सफाइ पूरा भयो, तर पाइएको कुनै पनि डेटा हटाइन सकेन।</string>
     <string name="dashboard_hero_nothing_freed_hint">केही डेटा केवल अतिरिक्त पहुँचको साथ हटाइन सक्छ, जस्तै पहुँचयोग्यता सेवा वा रुट।</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s भेट्टाइयो</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d वस्तुलाई SD Maid Pro चाहिन्छ</item>
+        <item quantity="other">%d वस्तुहरूलाई SD Maid Pro चाहिन्छ</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro सँग अनलक गर्न ट्याप गर्नुहोस्।</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro सँग अझै धेरै खाली गर्न सकिन्छ</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro चाहिन्छ</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s स्क्यान गरिएको छ</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s खाली गरिएको छ</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">ड्यासबोर्डको कार्य बटनमा ट्याप गरेर सबै उपकरणहरूको लागि स्क्यान र मेटाउने सुरु गर्नुहोस्, कुनै अतिरिक्त पुष्टिकरण बिना।</string>
     <string name="dashboard_settings_oneclick_tools_title">एक-ट्याप उपकरणहरू</string>
     <string name="dashboard_settings_oneclick_tools_desc">कुन उपकरणहरू एक-ट्याप सञ्चालनमा समावेश गर्नुपर्छ?</string>
+    <string name="dashboard_settings_summary_autoshow_title">सारांश स्वचालित रूपमा देखाउनुहोस्</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ड्यासबोर्ड कार्य बटन प्रयोग गरेपछी नतिजा सारांश स्वचालित रूपमा खोल्नुहोस्। अक्षम गरेमा, तलको पट्टीमा आकार चिप ट्याप गरेर यो खोल्नुहोस्।</string>
     <string name="dashboard_card_config_title">ड्यासबोर्ड कार्डहरू</string>
     <string name="dashboard_card_config_desc">कुन कार्डहरू देखाइन्छन् र तिनीहरूको क्रम कन्फिगर गर्नुहोस्</string>
     <string name="dashboard_card_config_header_title">पुनः क्रमबद्ध गर्न ड्र्याग गर्नुहोस्, देखाउन/लुकाउन टगल गर्नुहोस्</string>

@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Esta é unha compra independente: non cancela nin reembolsa a túa subscrición. Usa a mesma conta de Google para as dúas.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Subscrición aínda activa</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play indica que a túa subscrición aínda está configurada para renovarse. Para comprar a actualización dun só pagamento, cancela a subscrición en Google Play primeiro, logo volta aquí.\n\nAcabas de cancelala? Dálle un momento a Google Play e tenta de novo. Asegúrate tamén de que estás usando a mesma conta de Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Non foi posible comprobar as túas compras con Google Play. Téntao de novo nun momento.</string>
+    <string name="upgrade_screen_pending_card_title">Pagamento pendente</string>
+    <string name="upgrade_screen_pending_card_body">Google Play aínda está a procesar o teu pagamento. Pro desbloquéase automaticamente en canto se complete o pagamento. Algúns métodos de pagamento poden tardar un anaco. Non tes que facer nada máis.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play atopou unha compra con pagamento pendente e aínda a está a procesar. Pro desbloquéase automaticamente en canto se complete o pagamento.</string>
     <string name="upgrade_screen_restore_success_message">Compra restaurada, a túa actualización Pro está activa.</string>
     <string name="upgrade_screen_grace_title">Confirmando a túa compra</string>
     <string name="upgrade_screen_grace_body_short">Pro aínda está activo. Agardando a que Google Play confirme de novo a túa compra, todas as características de Pro seguen desbloqueadas de momento.</string>

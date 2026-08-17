@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">資料夾</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">如果類型未被選取，所有類型都將被相符。</string>
     <string name="systemcleaner_customfilter_editor_path_label">路徑準則</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">目標路徑需要至少與其中一個項目相符 (例如「Downloads/oldapks/game-」)，長按項目以取得更多選項。</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">目標路徑需要至少符合一個條目（例如「Downloads/oldapks/game-」）。點擊條目以進行編輯，或點擊其圖標以變更匹配方式。</string>
     <string name="systemcleaner_customfilter_editor_name_label">名稱準則</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">目標名稱必須至少包含其中一個關鍵字 (例如「-receipt」)，長按項目以取得更多選項。</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">目標名稱必須包含至少一個關鍵字（例如「-receipt」）。點擊條目以進行編輯，或點擊其圖標以變更匹配方式。</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">排除</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路徑符合任何項目 (例如「DCIM」)，結果將被排除，長按項目以取得更多選項。</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">如果路徑符合任何條目，結果將被排除（例如「DCIM」）。點擊條目以進行編輯，或點擊其圖標以變更匹配方式。</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">新增路徑條目</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">新增名稱條目</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">新增排除條目</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">新條目</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">關鍵字</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">此條目已存在。</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d 個空格</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">已被另一個條目使用</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">變更 %1$s 的匹配模式，目前為：%2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">路徑比較模式</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">路徑以關鍵字開始</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">路徑包含關鍵字</string>

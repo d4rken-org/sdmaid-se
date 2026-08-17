@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Cartellas</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si perunu tipu est seletzionadu, tando totu is tipus ant a èssere currispontes.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Critèrios de caminu</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Su caminu de destinatzione depet currispondire a a su mancu una entrada (pro es. \"Downloads/oldapks/game-\"). Tintiga a longu is entradas pro prus optziones.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Su caminu de destinatzione depet cointzìdere cun a su mancu una boghe (p.es. \"Downloads/oldapks/game-\"). Toca una boghe pro la modificare, o s\'icona sua pro cambiare su modu de cunfrontu.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Critèrios de nòmene</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Su nòmene de destinatzione depet cuntenner a su mancu una de is faeddas crae (pro es. \"-receipt\"). Tintiga a longu is entradas pro prus optziones.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Su nòmine de destinatzione depet cuntènnere a su mancu una de is paràulas crae (p.es. \"-receipt\"). Toca una boghe pro la modificare, o s\'icona sua pro cambiare su modu de cunfrontu.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esclussiones</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Su risultadu at a èssere esclusu si su caminu currispondet a cale si siat entrada (pro es. \"DCIM\"). Tintiga a longu is entradas pro prus optziones.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Su resultadu at a èssere esclùdidu si su caminu cointzìdet cun cale si siat boghe (p.es. \"DCIM\"). Toca una boghe pro la modificare, o s\'icona sua pro cambiare su modu de cunfrontu.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Agiunghe boghe de caminu</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Agiunghe boghe de nòmine</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Agiunghe boghe de esclusione</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Boghe noa</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Paràula crae</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Custa boghe esistit giai.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d ispàtziu</item>
+        <item quantity="other">%d ispàtzios</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Giai impreadu dae un\'àtera boghe</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Cambia su modu de cunfrontu pro %1$s, immoe: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modalidade de cumparatzione de caminu</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Su caminu cumintzat cun faedda crae</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Su caminu cuntenet faedda crae</string>
