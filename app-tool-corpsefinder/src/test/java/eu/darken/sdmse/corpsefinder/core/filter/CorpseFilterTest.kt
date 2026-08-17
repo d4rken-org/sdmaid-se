@@ -263,6 +263,7 @@ abstract class CorpseFilterTest : BaseTest() {
         fileType: FileType = FileType.DIRECTORY,
         children: List<String> = emptyList(),
         forensicArea: DataArea = area,
+        blacklistArea: Boolean = preset !is Preset.WhitelistStale,
     ): Candidate {
         val path = area.path.child(name) as LocalPath
         registerContent(area, path)
@@ -275,7 +276,7 @@ abstract class CorpseFilterTest : BaseTest() {
             coEvery { gatewaySwitch.walk(path, any()) } returns childLookups.asFlow()
         }
 
-        coEvery { fileForensics.findOwners(path) } returns ownerInfo(path, preset, forensicArea)
+        coEvery { fileForensics.findOwners(path) } returns ownerInfo(path, preset, forensicArea, blacklistArea)
 
         return Candidate(path = path, lookup = lookup, children = childLookups)
     }
@@ -300,12 +301,17 @@ abstract class CorpseFilterTest : BaseTest() {
         target = null,
     )
 
-    fun ownerInfo(path: LocalPath, preset: Preset, area: DataArea): OwnerInfo {
+    fun ownerInfo(
+        path: LocalPath,
+        preset: Preset,
+        area: DataArea,
+        blacklistArea: Boolean = preset !is Preset.WhitelistStale,
+    ): OwnerInfo {
         val areaInfo = AreaInfo(
             file = path,
             prefix = area.path,
             dataArea = area,
-            isBlackListLocation = preset !is Preset.WhitelistStale,
+            isBlackListLocation = blacklistArea,
         )
         fun owner(pkg: String, vararg flags: Marker.Flag) = Owner(
             pkgId = Pkg.Id(name = pkg),
