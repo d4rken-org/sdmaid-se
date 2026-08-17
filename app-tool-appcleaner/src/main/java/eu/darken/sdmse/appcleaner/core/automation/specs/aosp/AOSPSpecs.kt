@@ -10,11 +10,11 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcleaner.R
+import eu.darken.sdmse.appcleaner.core.automation.errors.LockedAppCacheException
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
-import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.common.contentDescMatches
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.isClickyButton
@@ -29,6 +29,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findNodeByContentDesc
 import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.stepper.waitForLayoutStability
 import eu.darken.sdmse.automation.core.common.textMatches
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -48,6 +49,7 @@ import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.ui.SizeParser
@@ -128,6 +130,34 @@ class AOSPSpecs @Inject constructor(
         }
 
         return null
+    }
+
+    /**
+     * Reads the cache size Settings itself shows on the app's storage page.
+     *
+     * Returns null when the row can't be located or its value can't be parsed, which includes the
+     * "still calculating" state, so callers must treat null as "don't know" and never as "not zero".
+     */
+    private suspend fun StepContext.readCacheRowSize(
+        cacheSizeLabels: Collection<String>,
+        sizeParser: SizeParser?,
+    ): Long? {
+        if (sizeParser == null) {
+            log(tag, WARN) { "readCacheRowSize(): SizeParser unavailable" }
+            return null
+        }
+        val title = findNodeByLabel(cacheSizeLabels) { it.viewIdResourceName == ROW_TITLE_ID }
+        if (title == null) {
+            log(tag, VERBOSE) { "readCacheRowSize(): no cache row title" }
+            return null
+        }
+        val raw = title.findRowSummaryText()
+        if (raw == null) {
+            log(tag, VERBOSE) { "readCacheRowSize(): cache row has no summary" }
+            return null
+        }
+        return runCatching { sizeParser.parse(raw) }.getOrNull()
+            .also { log(tag, INFO) { "readCacheRowSize(): '$raw' -> $it" } }
     }
 
     private suspend fun StepContext.validateClickEffect(
@@ -514,6 +544,10 @@ class AOSPSpecs @Inject constructor(
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
+            val cacheSizeLabels =
+                aospLabels.getCacheSizeLabelDynamic(this) + aospLabels.getCacheSizeLabelStatic(this)
+            log(TAG) { "cacheSizeLabels=${cacheSizeLabels.toVisualStrings()}" }
+
             val canInjectInput = inputInjector.canInject()
             log(TAG, INFO) { "InputInjector available? (canInjectInput=$canInjectInput)" }
 
@@ -530,6 +564,8 @@ class AOSPSpecs @Inject constructor(
 
             var nodeActionAttempts = 0
             var dpadExhausted = false
+            var sizeParser: SizeParser? = null
+            val verdictConfirmer = VerdictConfirmer()
             val nodeAction: suspend StepContext.() -> Boolean = action@{
                 val attempt = nodeActionAttempts++
                 val candidate = findClearCacheCandidate(clearCacheButtonLabels)
@@ -541,6 +577,41 @@ class AOSPSpecs @Inject constructor(
                         return@action clickClearCache(isDryRun = Bugs.isDryRun, pkg = pkg, node = target)
                     }
                     log(tag, WARN) { "Could not resolve clickable target from: $candidate" }
+                }
+
+                // No clickable "Clear cache" anywhere. Settings renders the cache size on this very
+                // screen though, so read it instead of polling for a button that may not exist:
+                // an already empty cache leaves the button greyed out, or - as on Hello UI /
+                // Android 17 - collapsed to zero height with no text and no content-desc, in which
+                // case findClearCacheCandidate can never match it and we would just run out the
+                // step timeout. Unlike the DPAD fallback below this only reads the screen, never
+                // blind-clicks, so it is safe on every ROM.
+                // Both crawls are expensive and this loop runs ~10x/s, so don't do it every pass.
+                // A terminal verdict needs two of these in a row, so it lands after ~1.2s.
+                if (attempt >= CACHE_SIZE_CHECK_MIN_ATTEMPTS &&
+                    (attempt - CACHE_SIZE_CHECK_MIN_ATTEMPTS) % CACHE_SIZE_CHECK_INTERVAL == 0
+                ) {
+                    if (sizeParser == null) sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
+                    val cacheSize = readCacheRowSize(cacheSizeLabels, sizeParser)
+                    val verdict = noButtonVerdict(cacheSize, pkg.isSystemApp, useDpadFallback)
+                    when (verdictConfirmer.confirm(verdict)) {
+                        NoButtonVerdict.KEEP_TRYING -> {
+                            log(tag, VERBOSE) { "$verdict, cacheSize=$cacheSize (attempt=$attempt)" }
+                        }
+
+                        NoButtonVerdict.ALREADY_EMPTY -> {
+                            log(tag, INFO) { "Settings reports an empty cache, nothing left to clear" }
+                            throw StepAbortException(
+                                "Cache is already empty for ${pkg.installId}",
+                                treatAsSuccess = true,
+                            )
+                        }
+
+                        NoButtonVerdict.NO_BUTTON -> {
+                            log(tag, WARN) { "No clear cache button, but $cacheSize bytes of cache" }
+                            throw LockedAppCacheException("No clear cache button: ${pkg.installId}")
+                        }
+                    }
                 }
 
                 // DPAD fallback: try text search a few times first for AOSP ROMs with accessible buttons,
@@ -579,6 +650,13 @@ class AOSPSpecs @Inject constructor(
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
+
+        // Give the button a couple of passes to show up before we start reading sizes, and then
+        // only read about once per second: nodeAction is retried every 100ms and each check
+        // crawls the whole window.
+        private const val CACHE_SIZE_CHECK_MIN_ATTEMPTS = 2
+        private const val CACHE_SIZE_CHECK_INTERVAL = 10
+
         private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
     }
 
