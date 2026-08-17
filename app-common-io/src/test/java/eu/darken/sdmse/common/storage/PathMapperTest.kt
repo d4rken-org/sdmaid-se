@@ -309,26 +309,105 @@ class PathMapperTest : BaseTest() {
         mapper.hasPermission(sdcardTreeUri) shouldBe false
     }
 
-    @Test fun `hasPermission ignores how strong the persisted grant is`() {
+    @Test fun `hasPermission requires a read-write grant`() {
         val mapper = PathMapper(contentResolver, storageManager2)
 
-        // documents suspect behavior: only the uri is compared, the grant's read/write flags are
-        // never looked at. A read-only (or write-only) grant therefore reports as "have permission",
-        // and takePermission() consequently skips upgrading it to the read-write grant the app
-        // needs. Correct behavior would be to require both flags before reporting true.
         every { contentResolver.persistedUriPermissions } returns listOf(
             permission(primaryTreeUri, read = true, write = false),
         )
-        mapper.hasPermission(primaryTreeUri) shouldBe true
+        mapper.hasPermission(primaryTreeUri) shouldBe false
 
         every { contentResolver.persistedUriPermissions } returns listOf(
             permission(primaryTreeUri, read = false, write = true),
         )
-        mapper.hasPermission(primaryTreeUri) shouldBe true
+        mapper.hasPermission(primaryTreeUri) shouldBe false
 
         every { contentResolver.persistedUriPermissions } returns listOf(
             permission(primaryTreeUri, read = true, write = true),
         )
         mapper.hasPermission(primaryTreeUri) shouldBe true
+    }
+
+    @Test fun `takePermission upgrades a read-only grant`() {
+        every { contentResolver.persistedUriPermissions } returns listOf(
+            permission(primaryTreeUri, read = true, write = false),
+        )
+        every { contentResolver.takePersistableUriPermission(any(), any()) } just runs
+        val mapper = PathMapper(contentResolver, storageManager2)
+
+        mapper.takePermission(primaryTreeUri)
+
+        verify {
+            contentResolver.takePersistableUriPermission(
+                primaryTreeUri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
+            )
+        }
+    }
+
+    @Test fun `takePermission upgrades a write-only grant`() {
+        every { contentResolver.persistedUriPermissions } returns listOf(
+            permission(primaryTreeUri, read = false, write = true),
+        )
+        every { contentResolver.takePersistableUriPermission(any(), any()) } just runs
+        val mapper = PathMapper(contentResolver, storageManager2)
+
+        mapper.takePermission(primaryTreeUri)
+
+        verify {
+            contentResolver.takePersistableUriPermission(
+                primaryTreeUri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
+            )
+        }
+    }
+
+    @Test fun `a failed upgrade keeps the grant we already had`() {
+        every { contentResolver.persistedUriPermissions } returns listOf(
+            permission(primaryTreeUri, read = true, write = false),
+        )
+        every { contentResolver.takePersistableUriPermission(any(), any()) } throws SecurityException("nope")
+        every { contentResolver.releasePersistableUriPermission(any(), any()) } just runs
+        val mapper = PathMapper(contentResolver, storageManager2)
+
+        shouldThrow<SecurityException> { mapper.takePermission(primaryTreeUri) }
+
+        // Only the mode the failed take could have added is released, the pre-existing read survives.
+        verify {
+            contentResolver.releasePersistableUriPermission(
+                primaryTreeUri,
+                Intent.FLAG_GRANT_WRITE_URI_PERMISSION,
+            )
+        }
+        verify(exactly = 0) {
+            contentResolver.releasePersistableUriPermission(
+                primaryTreeUri,
+                match { it and Intent.FLAG_GRANT_READ_URI_PERMISSION != 0 },
+            )
+        }
+    }
+
+    @Test fun `a failed upgrade of a write-only grant only releases the read mode`() {
+        every { contentResolver.persistedUriPermissions } returns listOf(
+            permission(primaryTreeUri, read = false, write = true),
+        )
+        every { contentResolver.takePersistableUriPermission(any(), any()) } throws SecurityException("nope")
+        every { contentResolver.releasePersistableUriPermission(any(), any()) } just runs
+        val mapper = PathMapper(contentResolver, storageManager2)
+
+        shouldThrow<SecurityException> { mapper.takePermission(primaryTreeUri) }
+
+        verify {
+            contentResolver.releasePersistableUriPermission(
+                primaryTreeUri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION,
+            )
+        }
+        verify(exactly = 0) {
+            contentResolver.releasePersistableUriPermission(
+                primaryTreeUri,
+                match { it and Intent.FLAG_GRANT_WRITE_URI_PERMISSION != 0 },
+            )
+        }
     }
 }
