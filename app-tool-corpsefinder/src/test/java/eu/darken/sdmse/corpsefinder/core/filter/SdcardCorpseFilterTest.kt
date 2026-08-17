@@ -134,7 +134,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
         val target = candidate(
             sdcard1,
             "OrphanApp",
-            preset = Preset.WhitelistStale("com.orphan.app"),
+            preset = Preset.StaleOwner("com.orphan.app"),
             children = listOf("data.db"),
         )
 
@@ -142,14 +142,14 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `top level item with an installed owner is not a corpse`() = runTest2 {
-        candidate(sdcard1, "AliveApp", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "AliveApp", preset = Preset.InstalledOwner())
 
         create().scan() shouldBe emptyList()
     }
 
     @Test fun `top level items from both sdcard roots are aggregated`() = runTest2 {
-        val first = candidate(sdcard1, "OrphanOne", preset = Preset.WhitelistStale("com.orphan.one"))
-        val second = candidate(sdcard2, "OrphanTwo", preset = Preset.WhitelistStale("com.orphan.two"))
+        val first = candidate(sdcard1, "OrphanOne", preset = Preset.StaleOwner("com.orphan.one"))
+        val second = candidate(sdcard2, "OrphanTwo", preset = Preset.StaleOwner("com.orphan.two"))
 
         create().scan().paths() shouldContainExactlyInAnyOrder listOf(first.path, second.path)
     }
@@ -158,7 +158,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
         val target = candidate(
             sdcard1,
             "orphan.txt",
-            preset = Preset.WhitelistStale("com.orphan.app"),
+            preset = Preset.StaleOwner("com.orphan.app"),
             fileType = FileType.FILE,
         )
 
@@ -172,7 +172,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     // ─────────────────────────── clutter marker resolution ───────────────────────────
 
     @Test fun `a nested clutter marker with an uninstalled owner is a corpse`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android", "orphandata"))
         val target = markerTarget(sdcard1, listOf("Android", "orphandata"), children = listOf("blob"))
 
@@ -183,7 +183,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `a nested clutter marker with an installed owner is not a corpse`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.alive.app", segments = listOf("Android", "alivedata"))
         markerTarget(sdcard1, listOf("Android", "alivedata"))
         installed("com.alive.app")
@@ -192,7 +192,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `top level markers are not resolved again`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android"))
         val target = markerTarget(sdcard1, listOf("Android"))
 
@@ -203,7 +203,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `regex markers are not resolved`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android", "orphandata"), isDirectMatch = false)
         val target = markerTarget(sdcard1, listOf("Android", "orphandata"))
 
@@ -214,7 +214,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `markers whose top level parent is missing are not resolved`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Missing", "orphandata"))
         val target = markerTarget(sdcard1, listOf("Missing", "orphandata"))
 
@@ -224,7 +224,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `markers pointing at a non existing path yield no corpse`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android", "orphandata"))
         markerTarget(sdcard1, listOf("Android", "orphandata"), exists = false)
 
@@ -232,7 +232,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `markers pointing at an unreadable path yield no corpse`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android", "orphandata"))
         markerTarget(sdcard1, listOf("Android", "orphandata"), canRead = false)
 
@@ -243,7 +243,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
         // Real directory tree: the marker says "MiBand", the sdcard holds "miband".
         File(tempDir, "Games/miband").mkdirs()
 
-        candidate(sdcard1, "Games", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Games", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.mi.band", segments = listOf("Games", "MiBand"))
         // The marker spelling exists as far as the (case-insensitive) gateway is concerned...
         coEvery { gatewaySwitch.exists(sdcard1.path.child("Games", "MiBand")) } returns true
@@ -256,7 +256,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     // ─────────────────────────── ancestor / coverage passes ───────────────────────────
 
     @Test fun `a dead parent is dropped when it contains a living item`() = runTest2 {
-        candidate(sdcard1, "Shared", preset = Preset.WhitelistStale("com.orphan.app"), blacklistArea = false)
+        candidate(sdcard1, "Shared", preset = Preset.StaleOwner("com.orphan.app"))
         clutterMarker(pkg = "com.alive.app", segments = listOf("Shared", "alivedata"))
         markerTarget(sdcard1, listOf("Shared", "alivedata"))
         installed("com.alive.app")
@@ -265,7 +265,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `a dead nested item survives a living parent`() = runTest2 {
-        candidate(sdcard1, "Shared", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Shared", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Shared", "orphandata"))
         val target = markerTarget(sdcard1, listOf("Shared", "orphandata"))
 
@@ -273,7 +273,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `a dead nested item covered by a dead parent is dropped`() = runTest2 {
-        val parent = candidate(sdcard1, "Shared", preset = Preset.WhitelistStale("com.orphan.app"), blacklistArea = false)
+        val parent = candidate(sdcard1, "Shared", preset = Preset.StaleOwner("com.orphan.app"))
         clutterMarker(pkg = "com.orphan.nested", segments = listOf("Shared", "orphandata"))
         markerTarget(sdcard1, listOf("Shared", "orphandata"))
 
@@ -284,35 +284,35 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
 
     @Test fun `keepers are treated as alive when keepers are excluded`() = runTest2 {
         riskFlags(keeper = false)
-        candidate(sdcard1, "KeeperDir", preset = Preset.Keeper(), blacklistArea = false)
+        candidate(sdcard1, "KeeperDir", preset = Preset.Keeper())
 
         create().scan() shouldBe emptyList()
     }
 
     @Test fun `keepers are KEEPER corpses when keepers are included`() = runTest2 {
         riskFlags(keeper = true)
-        val target = candidate(sdcard1, "KeeperDir", preset = Preset.Keeper(), blacklistArea = false)
+        val target = candidate(sdcard1, "KeeperDir", preset = Preset.Keeper())
 
         create().scan().single().shouldMatch(target, SdcardCorpseFilter::class, RiskLevel.KEEPER)
     }
 
     @Test fun `common items are treated as alive when common items are excluded`() = runTest2 {
         riskFlags(common = false)
-        candidate(sdcard1, "CommonDir", preset = Preset.Common(), blacklistArea = false)
+        candidate(sdcard1, "CommonDir", preset = Preset.Common())
 
         create().scan() shouldBe emptyList()
     }
 
     @Test fun `common items are COMMON corpses when common items are included`() = runTest2 {
         riskFlags(common = true)
-        val target = candidate(sdcard1, "CommonDir", preset = Preset.Common(), blacklistArea = false)
+        val target = candidate(sdcard1, "CommonDir", preset = Preset.Common())
 
         create().scan().single().shouldMatch(target, SdcardCorpseFilter::class, RiskLevel.COMMON)
     }
 
     @Test fun `an excluded keeper does not block corpses below it`() = runTest2 {
         riskFlags(keeper = false)
-        candidate(sdcard1, "KeeperDir", preset = Preset.Keeper(), blacklistArea = false)
+        candidate(sdcard1, "KeeperDir", preset = Preset.Keeper())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("KeeperDir", "orphandata"))
         markerTarget(sdcard1, listOf("KeeperDir", "orphandata"))
 
@@ -323,7 +323,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     // ─────────────────────────── characterization probes ───────────────────────────
 
     @Test fun `isWriteProtected is true when the path is writable`() = runTest2 {
-        val target = candidate(sdcard1, "OrphanApp", preset = Preset.WhitelistStale("com.orphan.app"))
+        val target = candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
         coEvery { gatewaySwitch.canWrite(target.path) } returns true
 
         // documents suspect behavior: SdcardCorpseFilter assigns `isWriteProtected = canWrite(...)`.
@@ -332,7 +332,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `isWriteProtected is false when the path is not writable`() = runTest2 {
-        val target = candidate(sdcard1, "OrphanApp", preset = Preset.WhitelistStale("com.orphan.app"))
+        val target = candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
         coEvery { gatewaySwitch.canWrite(target.path) } returns false
 
         // documents suspect behavior: see above, correct behavior would report `true` here because
@@ -342,7 +342,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
 
     @Test fun `an unidentified top level item aborts the whole scan`() = runTest2 {
         unidentifiedCandidate(sdcard1, "Unidentified")
-        candidate(sdcard1, "OrphanApp", preset = Preset.WhitelistStale("com.orphan.app"))
+        candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
 
         // documents suspect behavior: the top level pass uses `findOwners(it)!!`, so one
         // unidentifiable entry kills the entire sdcard scan. The template filters use mapNotNull
@@ -353,7 +353,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     // ─────────────────────────── marker cache lifecycle ───────────────────────────
 
     @Test fun `a second scan reflects a marker target that disappeared`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android", "orphandata"))
         val target = markerTarget(sdcard1, listOf("Android", "orphandata"))
 
@@ -366,7 +366,7 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
     }
 
     @Test fun `a filter instance recovers from a failed scan`() = runTest2 {
-        candidate(sdcard1, "Android", preset = Preset.InstalledOwner(), blacklistArea = false)
+        candidate(sdcard1, "Android", preset = Preset.InstalledOwner())
         clutterMarker(pkg = "com.orphan.app", segments = listOf("Android", "orphandata"))
         val target = markerTarget(sdcard1, listOf("Android", "orphandata"))
         // Blows up AFTER the marker cache was populated.

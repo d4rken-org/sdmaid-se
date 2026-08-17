@@ -188,13 +188,13 @@ class DalvikCorpseFilterTest : CorpseFilterTest() {
         val libOwned = candidate(
             dalvikDex1,
             "com.example.sharedlib",
-            preset = Preset.WhitelistStale("com.example.sharedlib"),
+            preset = Preset.StaleOwner("com.example.sharedlib"),
             fileType = FileType.FILE,
         )
         val unrelated = candidate(
             dalvikDex1,
             "com.example.app",
-            preset = Preset.WhitelistStale("com.example.app"),
+            preset = Preset.StaleOwner("com.example.app"),
             fileType = FileType.FILE,
         )
         every { packageManager.getSharedLibraries(0) } returns mutableListOf(sharedLibrary("com.example.sharedlib"))
@@ -209,7 +209,7 @@ class DalvikCorpseFilterTest : CorpseFilterTest() {
         val profileCorpse = candidate(
             dalvikProfile1,
             "com.example.app",
-            preset = Preset.WhitelistStale("com.example.app"),
+            preset = Preset.StaleOwner("com.example.app"),
             fileType = FileType.FILE,
         )
         every { packageManager.getSharedLibraries(0) } returns mutableListOf(sharedLibrary("com.other.library"))

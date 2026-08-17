@@ -9,6 +9,9 @@ class PublicObbCorpseFilterTest : StandardCorpseFilterTest() {
     override val areaType = DataArea.Type.PUBLIC_OBB
     override val filterClass = PublicObbCorpseFilter::class
 
+    // PublicObbCSI has no dirname fallback: an obb dir nobody claims stays ownerless.
+    override val defaultPreset = Preset.BlacklistOrphan
+
     override fun create() = PublicObbCorpseFilter(
         areaManager = areaManager,
         gatewaySwitch = gatewaySwitch,
@@ -16,6 +19,24 @@ class PublicObbCorpseFilterTest : StandardCorpseFilterTest() {
         corpseFinderSettings = corpseFinderSettings,
         exclusionManager = exclusionManager,
     )
+
+    @Test fun `an item with a stale clutter owner is a corpse`() = runTest2 {
+        // PublicObbCSI resolves owners from the clutter DB without verifying they are installed.
+        assertStaleOwnerIsCorpse()
+    }
+
+    @Test fun `an item with an unknown owner is not a corpse`() = runTest2 {
+        // PublicObbCSI reports an unknown owner when the obb is currently mounted.
+        assertUnknownOwnerIsNotCorpse()
+    }
+
+    @Test fun `keeper risk gating`() = runTest2 {
+        assertKeeperGating()
+    }
+
+    @Test fun `common risk gating`() = runTest2 {
+        assertCommonGating()
+    }
 
     @Test fun `scans without root below API 33`() = runTest2 {
         fakeSdk(32)
