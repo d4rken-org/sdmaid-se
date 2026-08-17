@@ -28,6 +28,24 @@
     <string name="dashboard_hero_nothing_freed_headline">שום דבר לא שוחרר</string>
     <string name="dashboard_hero_nothing_freed_caption">ניקוי הסתיים, אך לא ניתן היה להסיר אף אחד מהנתונים שנמצאו.</string>
     <string name="dashboard_hero_nothing_freed_hint">ניתן להסיר נתונים מסוימים רק בגישה נוספת, כגון שירות נגישות או root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">נמצאו %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">פריט אחד דורש את SD Maid Pro</item>
+        <item quantity="two">שני פריטים דורשים את SD Maid Pro</item>
+        <item quantity="many">%d פריטים דורשים את SD Maid Pro</item>
+        <item quantity="other">%d פריטים דורשים את SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">הקש כדי לבטל את הנעילה באמצעות SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">ניתן לפנות עוד יותר מקום עם SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">דורש את SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">נסרק %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">שוחרר %1$s</string>
@@ -38,6 +56,8 @@
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בלוח הבקרה, ללא אישורים נוספים.</string>
     <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה-אחת</string>
     <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה-אחת?</string>
+    <string name="dashboard_settings_summary_autoshow_title">הצג סיכום באופן אוטומטי</string>
+    <string name="dashboard_settings_summary_autoshow_summary">פתח את סיכום התוצאות באופן אוטומטי לאחר השימוש בכפתור הפעולה בלוח הבקרה. כאשר האפשרות מושבתת, הקש על תגית הגודל בסרגל התחתון כדי לפתוח אותו.</string>
     <string name="dashboard_card_config_title">כרטיסי לוח מחוונים</string>
     <string name="dashboard_card_config_desc">הגדר אילו כרטיסים מוצגים ואת הסדר שלהם</string>
     <string name="dashboard_card_config_header_title">גרור לשינוי סדר, החלף להצגה/הסתרה</string>
@@ -247,7 +267,8 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">אפשר ל-SD Maid להשתמש ב- Shizuku במידת האפשר כדי לשפר תוצאות ולאפשר תכונות.</string>
     <string name="setup_shizuku_card_body2">להגדרה זו אין השפעה אם אפליקציית Shizuku אינה מוגדרת במכשיר שלך.</string>
-    <string name="setup_shizuku_card_root_info">Shizuku בשילוב עם הרשאות גישת root לא מאפשרים פונקציונליות נוספת, אבל משפרים האמינות.\nSD Maid ישתמש בו כאלטרנטיבה.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku בשילוב עם הרשאות גישת root לא מאפשרים פונקציונליות נוספת, אבל משפרים האמינות.
+SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_shizuku_state_ready_label">קישור Shizuku מוכן.</string>
     <string name="setup_shizuku_state_waiting_label">מחכה לקישור עם Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">אפליקציית Shizuku לא מותקנת.</string>

@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">To oddzielny zakup: nie anuluje on ani nie zwraca twojej subskrypcji. Użyj tego samego konta Google do obu zakupów.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Subskrypcja nadal aktywna</string>
     <string name="upgrade_screen_sub_still_renewing_message">Sklep Google Play informuje, że twoja subskrypcja nadal jest ustawiona na odnowienie. Aby kupić jednorazową aktualizację, najpierw anuluj subskrypcję w Sklepie Google Play, a następnie wróć tutaj.\n\nWłaśnie ją anulowałeś? Daj Sklepowi Google Play chwilę i spróbuj ponownie. Upewnij się również, że używasz tego samego konta Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Nie udało się sprawdzić twoich zakupów w Sklepie Google Play. Spróbuj ponownie za chwilę.</string>
+    <string name="upgrade_screen_pending_card_title">Oczekiwanie na płatność</string>
+    <string name="upgrade_screen_pending_card_body">Sklep Google Play nadal przetwarza twoją płatność. Wersja Pro odblokuje się automatycznie po zaksięgowaniu płatności. Niektóre metody płatności mogą wymagać trochę czasu. Nie musisz nic więcej robić.</string>
+    <string name="upgrade_screen_pending_dialog_message">Sklep Google Play znalazł zakup z oczekującą płatnością i nadal go przetwarza. Wersja Pro odblokowuje się automatycznie po zaksięgowaniu płatności.</string>
     <string name="upgrade_screen_restore_success_message">Zakup został przywrócony, aktualizacja Pro jest aktywna.</string>
     <string name="upgrade_screen_grace_title">Potwierdzanie twojego zakupu</string>
     <string name="upgrade_screen_grace_body_short">Wersja Pro jest nadal aktywna. Czekamy na ponowne potwierdzenie zakupu przez Sklep Google Play, a wszystkie funkcje wersji Pro pozostają odblokowane.</string>

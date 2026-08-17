@@ -87,6 +87,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistemul a dezactivat butonul \"Curățare cache\" pentru această aplicație. Excludeți-o pentru a accelera curățarea cache-ului.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicație de sistem configurată greșit</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplicația de securitate HyperOS (com.miui.securitycenter) nu are permisiunea de utilizare a statisticilor (GET_USAGE_STATS). Acest lucru rupe caracteristici precum \"Curățare Date\" în detaliile aplicației și ștergerea cache-ului prin accesibilitate. Acordați permisiunea de a restabili funcționalitatea completă.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Acest lucru se poate întâmpla și dacă aplicația de sistem „System UI” a fost oprită forțat recent, de exemplu de un instrument de curățare a aplicațiilor. Android blochează apoi apăsările automate de butoane ale SD Maid până când repornești dispozitivul.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Oprire forțată înainte de curățare</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Aplicații de oprire forțată înainte de a șterge memoria cache. Aceasta poate ajuta la ștergerea cache-urilor unor aplicații, dar poate determina aplicații să se comporte greșit și să necesite repornirea manuală a acestora.</string>
     <string name="appcleaner_progress_force_stopping">Aplicații oprite forțat…</string>

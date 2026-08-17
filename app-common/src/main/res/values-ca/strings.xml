@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Configura</string>
     <string name="general_unavailable_label">No disponible</string>
     <string name="general_edit_action">Edita</string>
+    <string name="general_edit_x_action">Edita %s</string>
+    <string name="general_add_action">Afegeix</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Buit</string>
     <string name="general_new_badge_label">Nou</string>
@@ -110,6 +112,7 @@
         <item quantity="other">S\'han suprimit %d elements.</item>
     </plurals>
     <string name="general_remove_action">Elimina</string>
+    <string name="general_remove_x_action">Elimina %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">S\'ha eliminat un element</item>
         <item quantity="other">S\'han eliminat %d elements</item>

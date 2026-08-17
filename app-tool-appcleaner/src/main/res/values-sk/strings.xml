@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Systém zakázal tlačidlo „Vymazať vyrovnávaciu pamäť\" pre túto aplikáciu. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systémová aplikácia je nesprávne nakonfigurovaná</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Bezpečnostnej aplikácii HyperOS (com.miui.securitycenter) chýba povolenie Štatistiky používania (GET_USAGE_STATS). Toto narúša funkcie ako „Vymazať údaje\" v podrobnostiach aplikácie a vymazávanie vyrovnávacej pamäte cez prístupnosť. Udeľte povolenie na obnovenie plnej funkčnosti.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Toto sa môže stať aj vtedy, ak bola nedávno vynútene zastavená systémová aplikácia „System UI“, napríklad nástrojom na čistenie aplikácií. Android potom blokuje automatické stláčanie tlačidiel SD Maid, kým zariadenie nereštartuješ.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Vynútiť zastavenie pred vyčistením</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynútiť zastavenie aplikácií pred vyčistením ich vyrovnávacej pamäte. Môže to pomôcť vyčistiť vyrovnávaciu pamäť niektorých aplikácií, ale môže spôsobiť ich nesprávne správanie a vyžadovať manuálny reštart.</string>
     <string name="appcleaner_progress_force_stopping">Vynútené zastavovanie aplikácií…</string>

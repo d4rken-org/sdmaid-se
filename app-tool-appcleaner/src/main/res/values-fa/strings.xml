@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">سیستم دکمه \"پاک کردن کش\" را برای این برنامه غیرفعال کرده است. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">برنامه سیستمی اشتباه پیکربندی شده</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">برنامه امنیتی HyperOS (com.miui.securitycenter) فاقد مجوز آمار استفاده (GET_USAGE_STATS) است. این امر ویژگی‌هایی مانند \"پاک کردن داده\" در جزئیات برنامه و پاک کردن کش از طریق دسترسی را می‌شکند. مجوز را اعطا کنید تا عملکرد کامل بازیابی شود.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">این وضعیت همچنین ممکن است زمانی رخ دهد که برنامهٔ سیستمی « System UI» اخیراً به‌اجبار متوقف شده باشد، مثلاً توسط یک ابزار پاک‌سازی برنامه. در این حالت اندروید فشار دادن خودکار دکمه‌ها توسط SD Maid را تا زمان راه‌اندازی مجدد دستگاه مسدود می‌کند.</string>
     <string name="appcleaner_forcestop_before_clearing_label">توقف اجباری قبل از پاکسازی</string>
     <string name="appcleaner_forcestop_before_clearing_summary">قبل از پاکسازی حافظه نهان، برنامه‌ها را به اجبار متوقف کنید. این می‌تواند به پاکسازی حافظه نهان برخی برنامه‌ها کمک کند، اما ممکن است باعث اختلال در برنامه‌ها شود و نیاز به راه‌اندازی مجدد دستی داشته باشد.</string>
     <string name="appcleaner_progress_force_stopping">در حال توقف اجباری برنامه‌ها…</string>

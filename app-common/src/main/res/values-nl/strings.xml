@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Instellen</string>
     <string name="general_unavailable_label">Niet beschikbaar</string>
     <string name="general_edit_action">Bewerken</string>
+    <string name="general_edit_x_action">%s bewerken</string>
+    <string name="general_add_action">Toevoegen</string>
     <string name="general_na_label">NVT</string>
     <string name="general_empty_label">Leeg</string>
     <string name="general_new_badge_label">Nieuw</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d items verwijderd.</item>
     </plurals>
     <string name="general_remove_action">Verwijderen</string>
+    <string name="general_remove_x_action">%s verwijderen</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Eén item is verwijderd</item>
         <item quantity="other">%d items zijn verwijderd</item>

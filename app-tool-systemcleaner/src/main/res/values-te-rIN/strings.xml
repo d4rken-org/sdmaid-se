@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ఫోల్డర్లు</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ఎవరు రకం ఎంచుకోబడకుంటే, అప్పుడు అన్ని రకాలు మిలాన అవుతాయి.</string>
     <string name="systemcleaner_customfilter_editor_path_label">పాత్ మాపదండాలు</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">లక్ష్య పాత్ కనీసరి ఒక ఎంట్రీతో మిలాన అవవాలి (ఉదా. \"Downloads/oldapks/game-\"). కూడా ఆప్షన్ల కోసం ఎంట్రీలను వేడు నొక్కండి.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">లక్ష్య మార్గం కనీసం ఒక ఎంట్రీని సరిపోలాలి (ఉదా \"Downloads/oldapks/game-\"). ఎంట్రీని సవరించడానికి ట్యాప్ చేయండి, లేదా దానిని ఎలా సరిపోలిస్తుందో మార్చడానికి దీని చిహ్నాన్ని ట్యాప్ చేయండి.</string>
     <string name="systemcleaner_customfilter_editor_name_label">పేరు మాపదండాలు</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">లక్ష్య పేరు కనీసరి ఒక కీవర్డ్‌ను కలిగి ఉండాలి (ఉదా. \"-receipt\"). కూడా ఆప్షన్ల కోసం ఎంట్రీలను వేడు నొక్కండి.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">లక్ష్య నామం కనీసం ఒక కీవర్డ్‌ను కలిగి ఉండాలి (ఉదా \"-receipt\"). ఎంట్రీని సవరించడానికి ట్యాప్ చేయండి, లేదా దానిని ఎలా సరిపోలిస్తుందో మార్చడానికి దీని చిహ్నాన్ని ట్యాప్ చేయండి.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">మినహాయింపులు</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">పాత్ ఎవరైనా ఎంట్రీతో మిలాన అయ్యే ఫలితం మినహాయింపులో ఉంటుంది (ఉదా. \"DCIM\"). కూడా ఆప్షన్ల కోసం ఎంట్రీలను వేడు నొక్కండి.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">మార్గం ఏదైనా ఎంట్రీని సరిపోలిస్తే ఫలితం మినహా చేయబడుతుంది (ఉదా \"DCIM\"). ఎంట్రీని సవరించడానికి ట్యాప్ చేయండి, లేదా దానిని ఎలా సరిపోలిస్తుందో మార్చడానికి దీని చిహ్నాన్ని ట్యాప్ చేయండి.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">మార్గ ఎంట్రీని జోడించండి</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">నామ ఎంట్రీని జోడించండి</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">మినహా ఎంట్రీని జోడించండి</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">కొత్త ఎంట్రీ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">కీవర్డ్</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ఈ ఎంట్రీ ఇప్పటికే ఉంది.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d ఖాళీ</item>
+        <item quantity="other">%d ఖాళీలు</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">ఇప్పటికే మరొక ఎంట్రీ ఉపయోగిస్తోంది</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s కోసం సరిపోల మోడ్‌ను మార్చండి, ప్రస్తుతం: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">పాత్ పరిశీలన మోడ్</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">పాత్ కీవర్డ్‌తో ప్రారంభం అవుతుంది</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">పాత్ కీవర్డ్‌ను కలిగి ఉంది</string>

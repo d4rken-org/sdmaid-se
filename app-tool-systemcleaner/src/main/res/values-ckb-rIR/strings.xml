@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">بوخچەکان</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ئەگەر هیچ جۆرێک هەڵنەبژێردرێت، ئەوا هەموو جۆرەکان دەگونجێن.</string>
     <string name="systemcleaner_customfilter_editor_path_label">ڕێگا criteria</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">The target path needs to match at least one entry (e.g. \"داگرتنs/oldapks/game-\"). Long press entries for more options.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">ڕێڕەوی ئامانج پێویستە لەگەڵ لانیکەم یەک تۆمار یەکبگرێتەوە (بۆ نموونە \"Downloads/oldapks/game-\"). کرتە لەسەر تۆمارێک بکە بۆ دەستکاریکردنی، یان ئایکۆنەکەی بۆ گۆڕینی شێوازی یەکگرتنەوەکە.</string>
     <string name="systemcleaner_customfilter_editor_name_label">ناو criteria</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ناوی ئامانجەکە دەبێت لانی کەم یەکێک لە کلیلە وشەکان تێدا بێت (بۆ نموونە \"-پسوولە\"). داگرتنی درێژ بکە بۆ زیاتر بژاردەکان.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ناوی ئامانج پێویستە لانیکەم یەکێک لە وشە سەرەکییەکان لەخۆبگرێت (بۆ نموونە \"-receipt\"). کرتە لەسەر تۆمارێک بکە بۆ دەستکاریکردنی، یان ئایکۆنەکەی بۆ گۆڕینی شێوازی یەکگرتنەوەکە.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">دەرخستنەکان</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ئەنجامەکە دەردەکرێت ئەگەر ڕێگاکە لەگەڵ هیچ تۆمارێک بگونجێت (بۆ نموونە \"DCIM\"). داگرتنی درێژ بکە بۆ زیاتر بژاردەکان.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ئەنجامەکە دەردەخرێت ئەگەر ڕێڕەوەکە لەگەڵ هەر تۆمارێک یەک بگرێتەوە (بۆ نموونە \"DCIM\"). کرتە لەسەر تۆمارێک بکە بۆ دەستکاریکردنی، یان ئایکۆنەکەی بۆ گۆڕینی شێوازی یەکگرتنەوەکە.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">زیادکردنی تۆماری ڕێڕەو</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">زیادکردنی تۆماری ناو</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">زیادکردنی تۆماری دەرخستن</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">تۆماری نوێ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">وشەی سەرەکی</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ئەم تۆمارە پێشتر بوونی هەیە.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d بۆشایی</item>
+        <item quantity="other">%d بۆشایی</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">پێشتر بەکارهاتووە لەلایەن تۆمارێکی تر</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">گۆڕینی شێوازی یەکگرتنەوە بۆ %1$s، ئێستا: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">ڕێگا comparison mode</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">ڕێگا starts with keyword</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">ڕێگا contains keyword</string>

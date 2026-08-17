@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Юу ч чөлөөлүүлээгүй</string>
     <string name="dashboard_hero_nothing_freed_caption">Цэвэрлэлт дуусчээ, гэхдээ илэрсэн өгөгдлийг хасаж чадсангүй.</string>
     <string name="dashboard_hero_nothing_freed_hint">Зарим өгөгдлийг зөвхөн нэмэлт хандалтаар, жишээлбэл сул чадалын үйлчилгээ эсвэл root-ээр арилгаж болно.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s олдсон</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d зүйл SD Maid Pro шаардлагатай</item>
+        <item quantity="other">%d зүйл SD Maid Pro шаардлагатай</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro-ээр түргэлүүлэхийн тулд дарна уу.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro-ээр илүү санах ойг чөлөөлөх боломжтой</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro шаардлагатай</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s сканнерласан</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s чөлөөлөгдсөн</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Хяналтын самбарын үйлдлийн товчийг дарснаар бүх хэрэгслийн сканнинг болон устгалтыг эхлүүлэх, нэмэлт баталгаа шаарддаггүй.</string>
     <string name="dashboard_settings_oneclick_tools_title">Нэг товшилтын хэрэгслүүд</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ямар хэрэгслүүдийг нэг товшилтын үйлдэлд оруулах вэ?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Хураангуйг автоматаар харуулах</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Хавтангийн үйл ажиллагааны товчлуур ашигласны дараа үр дүнгийн хураангуйг автоматаар нээнэ. Идэвхгүй байхад доод баарны хэмжээний чипийг дарж нээнэ.</string>
     <string name="dashboard_card_config_title">Хяналтын самбарын картууд</string>
     <string name="dashboard_card_config_desc">Ямар картууд харагдах, тэдгээрийн дарааллыг тохируулна</string>
     <string name="dashboard_card_config_header_title">Дарааллыг өөрчлөхийн тулд чирнэ үү, харуулах/нуухын тулд сэлгэнэ үү</string>

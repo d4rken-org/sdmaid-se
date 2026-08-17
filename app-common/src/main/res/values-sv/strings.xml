@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Konfigurera</string>
     <string name="general_unavailable_label">Otillgänglig</string>
     <string name="general_edit_action">Redigera</string>
+    <string name="general_edit_x_action">Redigera %s</string>
+    <string name="general_add_action">Lägg till</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Tömma</string>
     <string name="general_new_badge_label">Ny</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Raderade %d objekt.</item>
     </plurals>
     <string name="general_remove_action">Avlägsna</string>
+    <string name="general_remove_x_action">Ta bort %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Ett föremål togs bort</item>
         <item quantity="other">%d objekt togs bort</item>

@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ഈ ആപ്പിനായി സിസ്റം \"Clear cache\" ബട്ടൻ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു. ക്യാഷ് മായ്ക്കൽ വേഗത്തിലാക്കാൻ ഇത് ഒഴിവാക്കുക.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">സിസ്റം ആപ്പ് തെറ്റായി ക്രമീകരിച്ചിരിക്കുന്നു</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-ന്റെ Security ആപ്പ് (com.miui.securitycenter)-ല് ഉസേജ് സ്റ്റാറ്സ് അനുമതി (GET_USAGE_STATS) ഇല്ല. ഇത് ആപ്പ് വിശദാംശങ്ങളിലെ \"Clear Data\" പോലുള്ള ഫീച്ചറുകളും ആക്‍സസിബിലിറ്റി വഴി ക്യാഷ് മായ്ക്കലും തകരാറിലാക്കുന്നു. പൂർണ്ണ പ്രവർത്തനം പുനഃസ്ഥാപിക്കാൻ അനുമതി നൽകുക.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">\"സിസ്റ്റം UI\" സിസ്റ്റം ആപ്പ് അടുത്തിയ കാലത്ത് നിർബ്ബന്ധിത സ്റ്റോപ്പ് ചെയ്യപ്പെട്ടാൽ (ഉദാഹരണത്തിന്, ഒരു ആപ്പ് ക്ലീനിംഗ് ടൂൾ വഴി), ഇത് സംഭവിക്കാം. Android പിന്നീട് നിങ്ങൾ ഡിവൈസ് പുനരാരംഭിക്കുന്നതുവരെ SD Maid ന്റെ സ്വയമായ ബട്ടൺ പ്രെസ്സ് ബ്ലോക്ക് ചെയ്യുന്നു.</string>
     <string name="appcleaner_forcestop_before_clearing_label">മായ്ക്കുന്നതിന് മുൻപ് ബലമായി നിർത്തുക</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ആപ്പുകളുടെ ക്യാഷ് മായ്ക്കുന്നതിന് മുൻപ് അവ ബലമായി നിർത്തുക. ചില ആപ്പുകളുടെ ക്യാഷ് മായ്ക്കാൻ ഇത് സഹായിക്കും, എന്നാൽ ആപ്പുകൾ ശരിയായി പ്രവർത്തിക്കാതിരിക്കുകയും മാനുവൽ പുനരാരംഭം ആവശ്യമാകുകയും ചെയ്തേക്കാം.</string>
     <string name="appcleaner_progress_force_stopping">ആപ്പുകൾ ബലമായി നിർത്തുന്നു…</string>

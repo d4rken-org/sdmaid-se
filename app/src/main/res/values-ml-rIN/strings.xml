@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">ഒന്നും മുക്തമാക്കിയില്ല</string>
     <string name="dashboard_hero_nothing_freed_caption">ക്ലീനുപ് പൂർത്തിയായി, എന്നാൽ കണ്ടെത്തിയ ഡാറ്റയിലെ ഒന്നും നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല.</string>
     <string name="dashboard_hero_nothing_freed_hint">ചില ഡാറ്റ പ്രവേശനാധികാരത്തിന്റെ സേവനം അല്ലെങ്കിൽ റൂട്ട് പോലുള്ള അധിക പ്രവേശനം ഉപയോഗിച്ച് മാത്രം നീക്കം ചെയ്യാൻ കഴിയും.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s കണ്ടെത്തി</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d ഐറ്റം SD Maid Pro ആവശ്യമാണ്</item>
+        <item quantity="other">%d ഐറ്റങ്ങൾ SD Maid Pro ആവശ്യമാണ്</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro ഉപയോഗിച്ച് കൂടുതൽ സ്ഥലം വിടുവിക്കാൻ കഴിയും</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro ആവശ്യമാണ്</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">സ്കാൻ ചെയ്ത %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ഫ്രീ ആക്കി</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">ഡാഷ്‌ബോർഡിന്റെ ആക്ഷൻ ബട്ടണിൽ ഒരു ടാപ്പിലൂടെ എല്ലാ ടൂളുകൾക്കും സ്കാൻ, ഡിലീഷൻ ആരംഭിക്കുക, അധിക സ്ഥിരീകരണങ്ങളൊന്നുമില്ല.</string>
     <string name="dashboard_settings_oneclick_tools_title">വൺ-ടാപ്പ് ടൂളുകൾ</string>
     <string name="dashboard_settings_oneclick_tools_desc">വൺ-ടാപ്പ് പ്രവർത്തനങ്ങളിൽ ഏതെല്ലാം ടൂളുകൾ ഉൾപ്പെടുത്തണം?</string>
+    <string name="dashboard_settings_summary_autoshow_title">സംഗ്രഹം സ്വയമായി കാണിക്കുക</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ഡാഷ്ബോർഡ് ആക്ഷൻ ബട്ടൺ ഉപയോഗിച്ച് ശേഷം ഫലങ്ങളുടെ സംഗ്രഹം സ്വയമായി തുറക്കുക. പ്രവർത്തനരഹിതമാകുമ്പോൾ, താഴെയുള്ള ബാറിലെ വലിപ്പ ചിപ്പ് ടാപ്പ് ചെയ്യുക.</string>
     <string name="dashboard_card_config_title">ഡാഷ്ബോർഡ് കാർഡുകൾ</string>
     <string name="dashboard_card_config_desc">ഏത് കാർഡുകൾ കാണിക്കണമെന്നും അവയുടെ ക്രമവും കൊൺഫിഗർ ചെയ്യുക</string>
     <string name="dashboard_card_config_header_title">പുനർക്രമീകരിക്കാൻ വലിച്ചിടുക, കാണിക്കാൻ/മറയ്ക്കാൻ ടോഗ്ഗൽ ചെയ്യുക</string>

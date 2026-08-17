@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Sediakan</string>
     <string name="general_unavailable_label">Tidak tersedia</string>
     <string name="general_edit_action">Edit</string>
+    <string name="general_edit_x_action">Sunting %s</string>
+    <string name="general_add_action">Tambah</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
     <string name="general_new_badge_label">Baharu</string>
@@ -107,6 +109,7 @@
         <item quantity="other">Memadam %d item.</item>
     </plurals>
     <string name="general_remove_action">Alih keluar</string>
+    <string name="general_remove_x_action">Alih keluar %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d item telah dialih keluar</item>
     </plurals>

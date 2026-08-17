@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Ingenting frigördes</string>
     <string name="dashboard_hero_nothing_freed_caption">Rengöringen avslutades, men ingen av den hittade datan kunde tas bort.</string>
     <string name="dashboard_hero_nothing_freed_hint">Vissa data kan endast tas bort med extra åtkomst, till exempel accessibility-tjänsten eller root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s hittat</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d objekt behöver SD Maid Pro</item>
+        <item quantity="other">%d objekt behöver SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Tryck för att låsa upp med SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Mer kan frigöras med SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Behöver SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannade %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Frigjord %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Starta skanning och borttagning av alla verktyg med ett tryck på instrumentpanelens åtgärdsknapp, inga extra bekräftelser.</string>
     <string name="dashboard_settings_oneclick_tools_title">One-Tap verktyg</string>
     <string name="dashboard_settings_oneclick_tools_desc">Vilka verktyg ska inkluderas i en knapptryckning?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Visa sammanfattning automatiskt</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Öppna resultatsammanfattningen automatiskt efter att du använder åtgärdsknapppen på instrumentpanelen. När detta är inaktiverat kan du trycka på storlekselementet i den nedersta raden för att öppna den.</string>
     <string name="dashboard_card_config_title">Instrumentpanelkort</string>
     <string name="dashboard_card_config_desc">Konfigurera vilka kort som visas och deras ordning</string>
     <string name="dashboard_card_config_header_title">Dra för att ändra ordning, växla för att visa/dölja</string>

@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Sanidi</string>
     <string name="general_unavailable_label">Haipatikani</string>
     <string name="general_edit_action">Hariri</string>
+    <string name="general_edit_x_action">Hariri %s</string>
+    <string name="general_add_action">Ongeza</string>
     <string name="general_na_label">H/P</string>
     <string name="general_empty_label">Tupu</string>
     <string name="general_new_badge_label">Mpya</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Kimefuta vitu %d.</item>
     </plurals>
     <string name="general_remove_action">Ondoa</string>
+    <string name="general_remove_x_action">Ondoa %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Kitu kimoja kimeondolewa</item>
         <item quantity="other">Vitu %d vimeondolewa</item>

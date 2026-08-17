@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Amafolda</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Uma kungekho hlobo olukhethiwe, khona-ke zonke izinhlobo zizofaniswa.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Imigangatho yendlela</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Indlela eqondiwe kufanele ifane nokuncono isingu (isib. \"Downloads/oldapks/game-\"). Cindezelela isikhathi eside okufakiwe ukuze uthole izinketho eziningi.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Indlela eqondiwe kudingeka ihambisane okungenani nokungeniswe okukodwa (isb. \"Downloads/oldapks/game-\"). Thepha okungeniswe ukuze ukuhlele, noma iayikhoni yakho ukuze ushintshe indlela okuhambiswana ngayo.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Imigangatho yegama</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Igama eliqondiwe kufanele liqukethe okungenani elinye lamagatsha angukhiye (isib. \"-receipt\"). Cindezelela isikhathi eside okufakiwe ukuze uthole izinketho eziningi.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Igama eliqondiwe kufanele liqukathe okungenani igama elilodwa lezinsika (isb. \"-receipt\"). Thepha okungeniswe ukuze ukuhlele, noma iayikhoni yakho ukuze ushintshe indlela okuhambiswana ngayo.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Okukhishiwe</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Umphumela uzokhonjiswa uma indlela ifana nanoma yisiphi isingu (isib. \"DCIM\"). Cindezelela isikhathi eside okufakiwe ukuze uthole izinketho eziningi.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Umphumela uzokhishwa uma indlela ihambisana nanoma yikuphi okungeniswe (isb. \"DCIM\"). Thepha okungeniswe ukuze ukuhlele, noma iayikhoni yakho ukuze ushintshe indlela okuhambiswana ngayo.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Engeza okungeniswe kwendlela</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Engeza okungeniswe kwegama</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Engeza okungeniswe kokukhishwa</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Okungeniswe okusha</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Igama elibalulekile</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Lokhu okungeniswe sekukhona kakade.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d isikhala</item>
+        <item quantity="other">%d izikhala</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Sekusetshenziswa okunye okungeniswe</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Shintsha imodi yokuhambisana ka-%1$s, njengamanje: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Imodi yokuqhathanisa indlela</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Indlela iqala ngegatsha angukhiye</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Indlela iquku l\'gatsha angukhiye</string>

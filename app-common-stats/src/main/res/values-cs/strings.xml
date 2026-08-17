@@ -12,6 +12,33 @@
         <item quantity="many">%s položek zpracováno od doby, kdy jste nainstalovali SD Maid do svého zařízení.</item>
         <item quantity="other">%s položek zpracováno od doby, kdy jste nainstalovali SD Maid do svého zařízení.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Váš host už %d den.</item>
+        <item quantity="few">Váš host už %d dny.</item>
+        <item quantity="many">Váš host už %d dne.</item>
+        <item quantity="other">Váš host už %d dní.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Váš host už %d týden.</item>
+        <item quantity="few">Váš host už %d týdny.</item>
+        <item quantity="many">Váš host už %d týdne.</item>
+        <item quantity="other">Váš host už %d týdnů.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Váš host už %d měsíc.</item>
+        <item quantity="few">Váš host už %d měsíce.</item>
+        <item quantity="many">Váš host už %d měsíce.</item>
+        <item quantity="other">Váš host už %d měsíců.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Váš host už %d rok.</item>
+        <item quantity="few">Váš host už %d roky.</item>
+        <item quantity="many">Váš host už %d roku.</item>
+        <item quantity="other">Váš host už %d let.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Částečný úspěch</string>
     <string name="stats_report_status_partial_failure">Neúspěch</string>
     <string name="stats_settings_desc">Nastavte statistiky, zprávy a uchování dat aplikace SD Maid.</string>

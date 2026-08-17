@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistemi ka çaktivizuar butonin \"Pastro cache-in\" për këtë aplikacion. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacioni i sistemit është konfiguruar gabimisht</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikacionit të Sigurisë së HyperOS (com.miui.securitycenter) i mungon leja e Statistikave të Përdorimit (GET_USAGE_STATS). Kjo dëmton funksione si \"Pastro të Dhënat\" në detajet e aplikacionit dhe pastrimin e cache-it përmes aksesueshmërisë. Jepni lejen për të rivendosur funksionalitetin e plotë.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Kjo mund të ndodhë edhe nëse aplikacioni sistem \"System UI\" u ndalsh kohët e fundit me forcë, p.sh. nga një mjet pastrimi aplikacionesh. Android atëherë bllokon shtypimet e butonave automatike të SD Maid derisa të risisni pajisjen.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Ndalim me forcë para pastrimit</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Ndaloni me forcë aplikacionet para se të pastroni memorien e fshehur. Kjo mund të ndihmojë në pastrimin e memorive të fshehura të disa aplikacioneve, por mund të shkaktojë keqfunksionim të aplikacioneve dhe të kërkojë rinisje manuale.</string>
     <string name="appcleaner_progress_force_stopping">Po ndalohen me forcë aplikacionet…</string>

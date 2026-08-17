@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Det här är ett separat köp: det avbryter eller återbetalar inte din prenumeration. Använd samma Google-konto för båda.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Prenumeration fortfarande aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play rapporterar att din prenumeration fortfarande är inställd för att förnyas. För att köpa engångsuppgraderingen måste du först avbryta prenumerationen i Google Play och sedan komma tillbaka här.\n\nJust avbröt den? Ge Google Play ett ögonblick och försök igen. Se också till att du använder samma Google-konto.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Kunde inte kontrollera dina köp med Google Play. Försök igen om en stund.</string>
+    <string name="upgrade_screen_pending_card_title">Betalning väntar</string>
+    <string name="upgrade_screen_pending_card_body">Google Play behandlar fortfarande din betalning. Pro låses upp automatiskt när betalningen är genomförd. Vissa betalningsmetoder kan ta ett tag. Du behöver inte göra något mer.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play hittade ett köp med väntande betalning och behandlar det fortfarande. Pro låses upp automatiskt när betalningen är genomförd.</string>
     <string name="upgrade_screen_restore_success_message">Köp återställt, din Pro-uppgradering är aktiv.</string>
     <string name="upgrade_screen_grace_title">Bekräftar ditt köp</string>
     <string name="upgrade_screen_grace_body_short">Pro är fortfarande aktiv. Väntar på att Google Play ska bekräfta ditt köp igen, alla Pro-funktioner förblir olåsta under tiden.</string>

@@ -12,6 +12,33 @@
         <item quantity="few">Od kar ste SD Maid povabili v svojo napravo, so bili obdelani %s-je predmeti.</item>
         <item quantity="other">Od kar ste SD Maid povabili v svojo napravo, je bilo obdelanih %s predmetov.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Tvoj gost že %d dan.</item>
+        <item quantity="two">Tvoj gost že %d dneva.</item>
+        <item quantity="few">Tvoj gost že %d dni.</item>
+        <item quantity="other">Tvoj gost že %d dni.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Tvoj gost že %d teden.</item>
+        <item quantity="two">Tvoj gost že %d tedna.</item>
+        <item quantity="few">Tvoj gost že %d tedne.</item>
+        <item quantity="other">Tvoj gost že %d tednov.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Tvoj gost že %d mesec.</item>
+        <item quantity="two">Tvoj gost že %d meseca.</item>
+        <item quantity="few">Tvoj gost že %d mesece.</item>
+        <item quantity="other">Tvoj gost že %d mesecev.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Tvoj gost že %d leto.</item>
+        <item quantity="two">Tvoj gost že %d leti.</item>
+        <item quantity="few">Tvoj gost že %d leta.</item>
+        <item quantity="other">Tvoj gost že %d let.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Delno uspešno</string>
     <string name="stats_report_status_partial_failure">Spodletelo</string>
     <string name="stats_settings_desc">Nastavite statistiko, poročila in shranjevanje podatkov za SD Maid.</string>

@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Mitään ei vapautunut</string>
     <string name="dashboard_hero_nothing_freed_caption">Siivous valmistui, mutta mitään löydetystä datasta ei voitu poistaa.</string>
     <string name="dashboard_hero_nothing_freed_hint">Osa datasta voidaan poistaa vain erityisen käyttöoikeuden avulla, kuten esteettömyyspalvelun tai root-oikeuksien kautta.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s löytyi</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d kohde vaatii SD Maid Pron</item>
+        <item quantity="other">%d kohdetta vaatii SD Maid Pron</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Napauta avataksesi SD Maid Prolla.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Prolla voit vapauttaa lisää tilaa</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Vaatii SD Maid Pron</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skannattu %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Vapautettu %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Aloita skannaus ja poisto kaikille työkaluille kojelaudan toimintopainikkeella, ei lisävahvistuksia.</string>
     <string name="dashboard_settings_oneclick_tools_title">Yhden napautuksen työkalut</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mitkä työkalut tulisi sisällyttää yhden napautuksen toimintoihin?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Näytä yhteenveto automaattisesti</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Avaa tulosten yhteenveto automaattisesti kojelaudan toimintopainikkeen käytön jälkeen. Kun asetus on pois päältä, avaa yhteenveto napauttamalla kokomerkintää alapalkissa.</string>
     <string name="dashboard_card_config_title">Kojelaudan kortit</string>
     <string name="dashboard_card_config_desc">Määritä näytettävät kortit ja niiden järjestys</string>
     <string name="dashboard_card_config_header_title">Vedä järjestääksesi, vaihda näyttääksesi/piilottaaksesi</string>

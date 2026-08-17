@@ -96,6 +96,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">قامت النظام بتعطيل زر \"مسح ذاكرة التخزين المؤقت\" لهذا التطبيق. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">تطبيق النظام مكون بشكل خاطئ</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">تطبيق الأمان في HyperOS (com.miui.securitycenter) يفتقد إذن إحصائيات الاستخدام (GET_USAGE_STATS). هذا يكسر ميزات مثل \"مسح البيانات\" في تفاصيل التطبيق ومسح ذاكرة التخزين المؤقت عبر إمكانية الوصول. امنح الإذن لاستعادة الوظائف الكاملة.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">قد يحدث هذا أيضًا إذا تم إيقاف تطبيق \"واجهة المستخدم النظامية\" النظامي قسراً مؤخرًا، على سبيل المثال بواسطة أداة تنظيف التطبيقات. بعد ذلك، يحظر Android عمليات الضغط على الزر الآلي من SD Maid حتى تعيد تشغيل الجهاز.</string>
     <string name="appcleaner_forcestop_before_clearing_label">إيقاف إجباري قبل التنظيف</string>
     <string name="appcleaner_forcestop_before_clearing_summary">إيقاف التطبيقات إجباريًا قبل مسح ذاكرة التخزين المؤقت. قد يساعد في مسح بعض ذاكرات التخزين المؤقت، لكنه قد يتسبب في سلوك غير طبيعي للتطبيقات ويتطلب إعادة تشغيل يدوية.</string>
     <string name="appcleaner_progress_force_stopping">جارٍ الإيقاف الإجباري للتطبيقات…</string>

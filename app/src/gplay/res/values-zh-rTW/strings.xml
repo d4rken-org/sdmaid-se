@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">這是單獨的購買：不會取消或退款您的訂閱。請使用相同的 Google 帳戶進行兩次購買。</string>
     <string name="upgrade_screen_sub_still_renewing_title">訂閱仍作用中</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play 報告您的訂閱仍設定為自動續約。若要購買一次性升級，請先在 Google Play 中取消訂閱，然後回到此處。\n\n剛取消？請給 Google Play 一些時間，然後再試一次。同時確保您使用的是相同的 Google 帳戶。</string>
+    <string name="upgrade_screen_purchase_check_failed_message">無法檢查您的 Google Play 購買。請稍後重試。</string>
+    <string name="upgrade_screen_pending_card_title">付款待處理</string>
+    <string name="upgrade_screen_pending_card_body">Google Play 仍在處理您的付款。付款完成後，Pro 會自動解鎖。某些付款方式可能需要一些時間。您無需執行任何其他操作。</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play 找到了待處理付款的購買並仍在處理中。付款完成後，Pro 會自動解鎖。</string>
     <string name="upgrade_screen_restore_success_message">購買已復原，您的 Pro 升級已作用中。</string>
     <string name="upgrade_screen_grace_title">正在確認您的購買</string>
     <string name="upgrade_screen_grace_body_short">Pro 仍作用中。等待 Google Play 重新確認您的購買，在此期間所有 Pro 功能保持解鎖。</string>

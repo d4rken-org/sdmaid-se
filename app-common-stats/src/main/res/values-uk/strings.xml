@@ -12,6 +12,33 @@
         <item quantity="many">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
         <item quantity="other">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Ваш гість %d день.</item>
+        <item quantity="few">Ваш гість %d дні.</item>
+        <item quantity="many">Ваш гість %d днів.</item>
+        <item quantity="other">Ваш гість %d дня.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Ваш гість %d тиждень.</item>
+        <item quantity="few">Ваш гість %d тижні.</item>
+        <item quantity="many">Ваш гість %d тижнів.</item>
+        <item quantity="other">Ваш гість %d тижня.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Ваш гість %d місяць.</item>
+        <item quantity="few">Ваш гість %d місяці.</item>
+        <item quantity="many">Ваш гість %d місяців.</item>
+        <item quantity="other">Ваш гість %d місяця.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Ваш гість %d рік.</item>
+        <item quantity="few">Ваш гість %d роки.</item>
+        <item quantity="many">Ваш гість %d років.</item>
+        <item quantity="other">Ваш гість %d року.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Частковий успіх</string>
     <string name="stats_report_status_partial_failure">Невдача</string>
     <string name="stats_settings_desc">Налаштуйте статистику, звіти та збереження даних у SD Maid.</string>

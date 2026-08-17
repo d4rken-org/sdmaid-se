@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu uygulama için \"Önbelleği temizle\" düğmesini devre dışı bıraktı. Önbelleği temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistem uygulaması yanlış yapılandırılmış</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'un Güvenlik uygulamasında (com.miui.securitycenter) Kullanım İstatistikleri izni (GET_USAGE_STATS) eksik. Bu, uygulama ayrıntılarındaki \"Verileri Temizle\" ve erişilebilirlik yoluyla önbellek temizleme gibi özellikleri bozar. Tam işlevselliği geri yükleme iznini verin.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Bu durum, \"System UI\" sistem uygulamasının yakın zamanda örneğin bir uygulama temizleme aracı tarafından zorla durdurulmuş olması hâlinde de yaşanabilir. Bu durumda Android, cihazı yeniden başlatana kadar SD Maid\'in otomatik düğme basmalarını engeller.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Temizlemeden önce zorla durdur</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Önbelleklerini temizlemeden önce uygulamaları zorla durdurun. Bazı uygulamaların önbelleğini temizlemeye yardımcı olabilir, ancak uygulamaların hatalı çalışmasına ve manuel yeniden başlatma gerektirmesine neden olabilir.</string>
     <string name="appcleaner_progress_force_stopping">Uygulamalar zorla durduruluyor…</string>

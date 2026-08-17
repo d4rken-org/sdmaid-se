@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">这是单独购买：它不会取消或退款您的订阅。两者请使用同一个 Google 账户。</string>
     <string name="upgrade_screen_sub_still_renewing_title">订阅仍处于活动状态</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play 报告您的订阅仍设置为续订。要购买一次性升级，请先在 Google Play 中取消订阅，然后返回此处。\n\n刚取消？请给 Google Play 一点时间，然后重试。另外请确保您使用的是同一个 Google 账户。</string>
+    <string name="upgrade_screen_purchase_check_failed_message">无法通过 Google Play 检查你的购买记录。请稍后重试。</string>
+    <string name="upgrade_screen_pending_card_title">付款处理中</string>
+    <string name="upgrade_screen_pending_card_body">Google Play 仍在处理你的付款。付款完成后，Pro 会自动解锁。部分付款方式可能需要一些时间。你无需进行其他操作。</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play 发现一笔付款处理中的购买，目前仍在处理。付款完成后，Pro 会自动解锁。</string>
     <string name="upgrade_screen_restore_success_message">购买已恢复，您的 Pro 升级已激活。</string>
     <string name="upgrade_screen_grace_title">正在确认您的购买</string>
     <string name="upgrade_screen_grace_body_short">Pro 仍处于活动状态。等待 Google Play 重新确认您的购买，在此期间所有 Pro 功能保持解锁。</string>

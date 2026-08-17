@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">কিছুই মুক্ত করা হয়নি</string>
     <string name="dashboard_hero_nothing_freed_caption">ক্লিনআপ সম্পন্ন হয়েছে, কিন্তু পাওয়া ডেটার কোনোটাই সরানো যায়নি।</string>
     <string name="dashboard_hero_nothing_freed_hint">কিছু ডেটা শুধুমাত্র অতিরিক্ত অ্যাক্সেসের সাথে সরানো যায়, যেমন অ্যাক্সেসিবিলিটি সেবা বা রুট।</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s পাওয়া গেছে</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d আইটেমের জন্য SD Maid Pro প্রয়োজন</item>
+        <item quantity="other">%d আইটেমের জন্য SD Maid Pro প্রয়োজন</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro দিয়ে আনলক করতে ট্যাপ করুন।</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro দিয়ে আরও জায়গা খালি করা যাবে</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro প্রয়োজন</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s স্ক্যান করা হয়েছে</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s খালি করা হয়েছে</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">ড্যাশবোর্ডের অ্যাকশন বোতামে একটি আলতো চাপ দিয়ে সমস্ত টুলের স্ক্যান এবং মুছে ফেলা শুরু করুন, কোনও অতিরিক্ত নিশ্চিতকরণের প্রয়োজন নেই।</string>
     <string name="dashboard_settings_oneclick_tools_title">এক-ট্যাপ টুলস</string>
     <string name="dashboard_settings_oneclick_tools_desc">এক-ট্যাপ অপারেশনে কোন সরঞ্জামগুলি অন্তর্ভুক্ত করা উচিত?</string>
+    <string name="dashboard_settings_summary_autoshow_title">স্বয়ংক্রিয়ভাবে সারাংশ দেখান</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ড্যাশবোর্ড অ্যাকশন বাটন ব্যবহারের পর স্বয়ংক্রিয়ভাবে ফলাফলের সারাংশ খুলুন। বন্ধ থাকলে, নিচের বারে সাইজ চিপে ট্যাপ করে এটি খুলুন।</string>
     <string name="dashboard_card_config_title">ড্যাশবোর্ড কার্ড</string>
     <string name="dashboard_card_config_desc">কোন কার্ডগুলি দেখানো হবে এবং তাদের ক্রম কনফিগার করুন</string>
     <string name="dashboard_card_config_header_title">পুনঃক্রম করতে টেনে আনুন, দেখান/লুকাতে টগল করুন</string>

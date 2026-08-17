@@ -8,6 +8,25 @@
         <item quantity="one">%s element behandlet siden du bragte SD Maid til din enhed.</item>
         <item quantity="other">%s elementer behandlet siden du bragte SD Maid til din enhed.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Din gæst i %d dag.</item>
+        <item quantity="other">Din gæst i %d dage.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Din gæst i %d uge.</item>
+        <item quantity="other">Din gæst i %d uger.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Din gæst i %d måned.</item>
+        <item quantity="other">Din gæst i %d måneder.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Din gæst i %d år.</item>
+        <item quantity="other">Din gæst i %d år.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Delvis succes</string>
     <string name="stats_report_status_partial_failure">Fejl</string>
     <string name="stats_settings_desc">Konfigurer SD Maid\'s statistikker, rapporter og dataopbevaring.</string>

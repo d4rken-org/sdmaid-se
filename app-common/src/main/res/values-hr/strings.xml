@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Postavi</string>
     <string name="general_unavailable_label">Nije dostupno</string>
     <string name="general_edit_action">Uredi</string>
+    <string name="general_edit_x_action">Uredi %s</string>
+    <string name="general_add_action">Dodaj</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Prazno</string>
     <string name="general_new_badge_label">Novo</string>
@@ -113,6 +115,7 @@
         <item quantity="other">Izbrisano %d stavki.</item>
     </plurals>
     <string name="general_remove_action">Ukloni</string>
+    <string name="general_remove_x_action">Ukloni %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Jedna stavka je uklonjena</item>
         <item quantity="few">%d stavke su uklonjene</item>

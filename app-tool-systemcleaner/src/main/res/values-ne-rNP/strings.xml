@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">फोल्डरहरू</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">यदि कुनै प्रकार चयन नगरिएको छ भने, सबै प्रकारहरू मिलान गरिनेछ।</string>
     <string name="systemcleaner_customfilter_editor_path_label">पथ मापदण्डहरू</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">लक्षित पथले कम्तिमा एक प्रविष्टिसँग मेल खानुपर्छ (जस्तै \"Downloads/oldapks/game-\")। थप विकल्पहरूका लागि प्रविष्टिहरूलाई लामो समयसम्म दबाउनुहोस्।</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">लक्ष्य पथ कम्तिमा एक प्रविष्टिसँग मेल खानु पर्छ (उदा. \'Downloads/oldapks/game-\')। प्रविष्टि सम्पादन गर्न ट्याप गर्नुहोस्, वा यसको आइकन ट्याप गरेर कसरी मेल खाएर छ भनेर परिवर्तन गर्नुहोस्।</string>
     <string name="systemcleaner_customfilter_editor_name_label">नाम मापदण्डहरू</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">लक्षित नाममा कम्तिमा एक मुख्य शब्द हुनुपर्छ (जस्तै \"-receipt\")। थप विकल्पहरूका लागि प्रविष्टिहरूलाई लामो समयसम्म दबाउनुहोस्।</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">लक्ष्य नाम कम्तिमा एक कीवर्डसँग समावेश हुनु पर्छ (उदा. \'-receipt\')। प्रविष्टि सम्पादन गर्न ट्याप गर्नुहोस्, वा यसको आइकन ट्याप गरेर कसरी मेल खाएर छ भनेर परिवर्तन गर्नुहोस्।</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">अपवर्जनहरू</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">यदि पथ कुनै प्रविष्टिसँग मेल खान्छ भने परिणाम अपवर्जित हुनेछ (जस्तै \"DCIM\")। थप विकल्पहरूका लागि प्रविष्टिहरूलाई लामो समयसम्म दबाउनुहोस्।</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">नतिजा अलग गरिनेछन यदि पथ कुनै प्रविष्टिसँग मेल खायो (उदा. \'DCIM\')। प्रविष्टि सम्पादन गर्न ट्याप गर्नुहोस्, वा यसको आइकन ट्याप गरेर कसरी मेल खाएर छ भनेर परिवर्तन गर्नुहोस्।</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">पथ प्रविष्टि थप्नुहोस्</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">नाम प्रविष्टि थप्नुहोस्</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">अलग प्रविष्टि थप्नुहोस्</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">नयाँ प्रविष्टि</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">कीवर्ड</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">यो प्रविष्टि पहिले देखि अवस्थित छ।</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d खाली स्थान</item>
+        <item quantity="other">%d खाली स्थानहरू</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">अन्य प्रविष्टिद्वारा पहिले देखि प्रयोग गरिएको</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s को लागि मेल खाने मोड परिवर्तन गर्नुहोस्, हाल: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">पथ तुलना मोड</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">पथ मुख्य शब्दसँग सुरु हुन्छ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">पथमा मुख्य शब्द समावेश छ</string>

@@ -6,6 +6,21 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">%s ຣາຍການຖືກປະລົງຜລນັບເທົ່າທີ່ທ່ານ຺້ວ SD Maid ມາທີ່ອຸປະກອນຂອງທ່ານ.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="other">ທ່ານເປັນແຂກມາເປັນເວລາ %d ວັນແລ້ວ.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="other">ທ່ານເປັນແຂກມາເປັນເວລາ %d ອາທິດແລ້ວ.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="other">ທ່ານເປັນແຂກມາເປັນເວລາ %d ເດືອນແລ້ວ.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="other">ທ່ານເປັນແຂກມາເປັນເວລາ %d ປີແລ້ວ.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">ສຳເລີດບາງສ່ວນ</string>
     <string name="stats_report_status_partial_failure">ລ້ວເຫລວ</string>
     <string name="stats_settings_desc">ການຕັ້ງຄ່າສຖິຕິ ຣາຍງານ ແວການເກັບຂໍ້ມູນຂອງ SD Maid.</string>

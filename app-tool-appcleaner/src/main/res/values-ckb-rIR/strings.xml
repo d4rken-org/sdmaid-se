@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">The system has disabled the \"پاککردنەوە cache\" button for this app. Exclude it to speed up cache clearing.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">سیستەم app misconfigured</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s ئاسایش app (com.miui.securitycenter) is missing the بەکارهێنان Stats permission (GET_USAGE_STATS). This breaks features like \"پاککردنەوە داتا\" in app details and cache clearing via accessibility. Grant the permission to restore full functionality.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ئەمە دەکرێت ڕووبدات ئەگەر ئەپی سیستەمی \"System UI\" بەم دواییە بە زۆر ڕاوەستێنرابێت، بۆ نموونە لەلایەن ئامرازێکی پاککردنەوەی ئەپ. دوای ئەوە ئەندرۆید ڕێگری لە دوگمە خۆکاریەکانی SD Maid دەکات تا کاتێک ئامێرەکە دووبارە دەست پێبکەیتەوە.</string>
     <string name="appcleaner_forcestop_before_clearing_label">بەهێزبوونی وەستانی پێش سڕینەوە</string>
     <string name="appcleaner_forcestop_before_clearing_summary">بەهێز ئەپەکان بوەستێنە پێش سڕینەوەی کاشەیان. دەتوانێت هاری سڕینەوەی کاشەکانی هەندێ ئەپ بکات، بەڵام لەوانەیە ئەپەکان خراپ بخاتە کارەوە و پێویستی بە دەستی دووبارەکردنەوە هەبێت.</string>
     <string name="appcleaner_progress_force_stopping">بەهێزبوونی وەستانی ئەپەکان…</string>

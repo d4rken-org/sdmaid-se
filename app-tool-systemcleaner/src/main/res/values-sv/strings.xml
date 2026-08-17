@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mappar</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Om ingen typ är vald kommer alla typer att matchas.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Sökvägskreiterier</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Målsökvägen behöver matcha minst en post (t.ex. \"Downloads/oldapks/game-\"). Långtryck poster för fler alternativ.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Målsökvägen måste matcha minst en post (t.ex. \"Downloads/oldapks/game-\"). Tryck på en post för att redigera den, eller på dess ikon för att ändra hur den matchas.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Namnkriterier</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Målnamnet måste innehålla minst ett av nyckelorden (t.ex. \"-kvitto\"). Långtryck poster för fler alternativ.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Målnamnet måste innehålla minst ett av nyckelorden (t.ex. \"-receipt\"). Tryck på en post för att redigera den, eller på dess ikon för att ändra hur det matchas.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Uteslutningar</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet kommer att uteslutas om sökvägen matchar någon post (t.ex. \"DCIM\"). Långtryck poster för fler alternativ.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet kommer att uteslutas om sökvägen matchar någon post (t.ex. \"DCIM\"). Tryck på en post för att redigera den, eller på dess ikon för att ändra hur den matchas.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Lägg till sökvägpost</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Lägg till namnpost</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Lägg till uteslutningspost</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Ny post</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Nyckelord</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Den här posten finns redan.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d mellanslag</item>
+        <item quantity="other">%d mellanslag</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Redan använd av en annan post</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Ändra matchningsläge för %1$s, för närvarande: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Sökvägsjämförelseläge</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Sökvägen börjar med nyckelord</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Sökvägen innehåller nyckelord</string>

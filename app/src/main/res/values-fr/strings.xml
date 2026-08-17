@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Rien n\'a été libéré</string>
     <string name="dashboard_hero_nothing_freed_caption">Le nettoyage s\'est terminé, mais aucune des données trouvées n\'a pu être supprimée.</string>
     <string name="dashboard_hero_nothing_freed_hint">Certaines données ne peuvent être supprimées que par accès supplémentaire, comme le service d\'accessibilité ou root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s trouvés</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d élément nécessite SD Maid Pro</item>
+        <item quantity="other">%d éléments nécessitent SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Appuie pour débloquer avec SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Il est possible de libérer encore plus avec SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Nécessite SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Analysé %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s libérés</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Lancer l’analyse et la suppression pour tous les outils en touchant le bouton d’action du tableau de bord, sans confirmation.</string>
     <string name="dashboard_settings_oneclick_tools_title">Outils à accès direct</string>
     <string name="dashboard_settings_oneclick_tools_desc">Outils qui devraient faire partie des opérations à accès direct.</string>
+    <string name="dashboard_settings_summary_autoshow_title">Afficher le résumé automatiquement</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Ouvre automatiquement le résumé des résultats après avoir utilisé le bouton d\'action du tableau de bord. Si désactivé, appuie sur la puce de taille dans la barre inférieure pour l\'ouvrir.</string>
     <string name="dashboard_card_config_title">Cartes du tableau de bord</string>
     <string name="dashboard_card_config_desc">Configurer les cartes affichées et leur ordre d’affichage</string>
     <string name="dashboard_card_config_header_title">Faites-les glisser pour les réorganiser. Affichez ou cachez-les</string>

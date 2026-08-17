@@ -8,6 +8,25 @@
         <item quantity="one">SD Maid qurilmanızda bolgıannan beri %s element óńdeldi.</item>
         <item quantity="other">SD Maid qurilmanızda bolgıannan beri %s element óńdeldi.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Сіздің қонағыңыз %d күннен бері.</item>
+        <item quantity="other">Сіздің қонағыңыз %d күннен бері.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Сіздің қонағыңыз %d аптадан бері.</item>
+        <item quantity="other">Сіздің қонағыңыз %d аптадан бері.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Сіздің қонағыңыз %d айдан бері.</item>
+        <item quantity="other">Сіздің қонағыңыз %d айдан бері.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Сіздің қонағыңыз %d жылдан бері.</item>
+        <item quantity="other">Сіздің қонағыңыз %d жылдан бері.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Ishinen tabıs</string>
     <string name="stats_report_status_partial_failure">Sátsizlik</string>
     <string name="stats_settings_desc">SD Maid-tıŋ statistikası, esabatları hám maǵlıwmatlar saqlaw waqıtın konfiguraciyalaw.</string>

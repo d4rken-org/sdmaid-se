@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Le système a désactivé le bouton « Vider le cache » pour cette appli. L’exclure accélère le vidage du cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Une appli système est mal configurée</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">L’autorisation d’accès aux statistiques d’utilisation (GET_USAGE_STATS) manque pour l’appli de sécurité d’HyperOS (com.miui.securitycenter). Par conséquent, « Effacer les données » des détails des applis et vider le cache grâce au service d’accessibilité ne fonctionneront pas. Pour rétablir la fonctionnalité, accordez l’autorisation.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Cela peut aussi se produire si l\'appli système « System UI » a été récemment forcée à s\'arrêter, par exemple par un outil de nettoyage d\'applis. Android bloque alors les appuis automatiques de SD Maid sur les boutons jusqu\'à ce que tu redémarres l\'appareil.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Forcer l’arrêt avant de vider</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forcer l’arrêt des applis avant de vider leur cache. Cela peut aider à vider le cache de certaines applis, mais peut entraîner leur dysfonctionnement et demander un redémarrage manuel.</string>
     <string name="appcleaner_progress_force_stopping">Arrêt forcer des applis…</string>

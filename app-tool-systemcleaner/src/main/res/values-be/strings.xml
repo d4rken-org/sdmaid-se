@@ -79,9 +79,22 @@
     <string name="systemcleaner_customfilter_editor_path_label">Крытэрый шляху</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">Мэтавы шлях павінен адпавядаць прынамсі аднаму запісу (напр., \"Downloads/oldapks/game-\"). Доўгае націсканне на запісы адкрые дадатковыя опцыі.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Крытэрый назвы</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Мэтавая назва павінна змяшчаць хаця б адно з ключавых слоў (напр., \"-receipt\"). Доўгае націсканне на запісы адкрые дадатковыя опцыі.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Целявое імя павіна ўтрымліваць хаця б адзін з ключавых слоў (напр., «-receipt»). Нажміце запіс, каб яго рэдагаваць, або значок, каб змяніць спосаб супадзення.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Выключэнні</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Рэзультат будзе выключаны, калі шлях змяшчае любы з запісаў (напр., \"DCIM\"). Доўгае націсканне на запісы адкрые дадатковыя опцыі.</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Дабаўіць запіс імя</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Дабаўіць запіс выключэння</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Новая запіс</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Ключавое слова</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Гэта запіс ужо існуе.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d прабел</item>
+        <item quantity="few">%d прабелы</item>
+        <item quantity="many">%d прабелаў</item>
+        <item quantity="other">%d прабелаў</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Ужо выкарыстана</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Змяніць спосаб супадзення для %1$s, зараз: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Рэжым параўнання шляхоў</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Шлях пачынаецца з ключавога слова</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Шлях змяшчае ключавое слова</string>

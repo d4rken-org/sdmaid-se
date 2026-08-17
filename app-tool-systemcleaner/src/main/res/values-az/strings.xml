@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Qovluqlar</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Heç bir növ seçilməzsə, onda bütün növlər uyğunlaşdırılacaq.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Yol meyarları</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Hədəf yolu ən azı bir girişlə uyğunlaşmalıdır (məs. \"Downloads/oldapks/game-\"). Daha çox seçim üçün girişləri uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Hədəf yol ən azı bir qeydə uyğun gəlməlidir (məs. \"Downloads/oldapks/game-\"). Onu redaktə etmək üçün qeydə, uyğunluq üsulunu dəyişmək üçün isə onun ikonuna toxun.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Ad meyarları</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Hədəf adı ən azı bir açar sözü əhatə etməlidir (məs. \"-receipt\"). Daha çox seçim üçün girişləri uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Hədəf ad açar sözlərdən ən azı birini ehtiva etməlidir (məs. \"-receipt\"). Onu redaktə etmək üçün qeydə, uyğunluq üsulunu dəyişmək üçün isə onun ikonuna toxun.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">İstisnalar</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Yol hər hansı bir girişlə uyğunlaşarsa nəticə istisna ediləcək (məs. \"DCIM\"). Daha çox seçim üçün girişləri uzun basın.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Yol hər hansı bir qeydə uyğun gələrsə, nəticə istisna ediləcək (məs. \"DCIM\"). Onu redaktə etmək üçün qeydə, uyğunluq üsulunu dəyişmək üçün isə onun ikonuna toxun.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Yol qeydi əlavə et</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Ad qeydi əlavə et</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">İstisna qeydi əlavə et</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Yeni qeyd</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Açar söz</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Bu qeyd artıq mövcuddur.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d boşluq</item>
+        <item quantity="other">%d boşluq</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Artıq başqa qeyd tərəfindən istifadə olunur</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s üçün uyğunluq rejimini dəyiş, hazırda: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Yol müqayisə rejimi</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Yol açar sözlə başlayır</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Yol açar sözü ehtiva edir</string>

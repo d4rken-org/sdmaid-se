@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">ፎልደሮች</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">ምንም ዓይነት ካልተመረጠ፣ ሁሉም ዓይነቶች ይመሳሰላሉ።</string>
     <string name="systemcleaner_customfilter_editor_path_label">የመንገድ መመዘኛዎች</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">ዒላማው መንገድ ቢያንስ አንድ ግቤት ማየት አለበት (ለምሳሌ \"Downloads/oldapks/game-\")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">የታለመው መንገድ ቢያንስ ከአንድ ግቤት ጋር መዛመድ አለበት (ለምሳሌ \"Downloads/oldapks/game-\")። ግቤት ለማርትዕ ይንኩት፣ ወይም እንዴት እንደሚዛመድ ለመቀየር አዶውን ይንኩ።</string>
     <string name="systemcleaner_customfilter_editor_name_label">የስም መመዘኛዎች</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">ዒላማው ስም ቢያንስ አንድ ቁልፍ ቃል ይዘት አለገት (ለምሳሌ \"-receipt\")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">የታለመው ስም ቢያንስ ከቁልፍ ቃላቱ አንዱን መያዝ አለበት (ለምሳሌ \"-receipt\")። ግቤት ለማርትዕ ይንኩት፣ ወይም እንዴት እንደሚዛመድ ለመቀየር አዶውን ይንኩ።</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">ማስወገጃዎች</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">መንገዱ ማንኛውንም ግቤት ሲያመለክት ውጤቱ ይወገዳል (ለምሳሌ \"DCIM\")። ለተጨማሪ አማራጮች ግቤቶች ረጅም ተጭነዋል።</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">መንገዱ ከማንኛውም ግቤት ጋር ከተዛመደ ውጤቱ አይካተትም (ለምሳሌ \"DCIM\")። ግቤት ለማርትዕ ይንኩት፣ ወይም እንዴት እንደሚዛመድ ለመቀየር አዶውን ይንኩ።</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">የመንገድ ግቤት ጨምር</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">የስም ግቤት ጨምር</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">የማግለያ ግቤት ጨምር</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">አዲስ ግቤት</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">ቁልፍ ቃል</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ይህ ግቤት አስቀድሞ አለ።</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d ክፍተት</item>
+        <item quantity="other">%d ክፍተቶች</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">በሌላ ግቤት አስቀድሞ ጥቅም ላይ ውሏል</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">ለ%1$s የማዛመድ ሁነታን ቀይር፣ አሁን ያለው፡ %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">የመንገድ ማወዳደሪያ ሁነታ</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">መንገድ በቁልፍ ቃሉ ይጀምራል</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">መንገድ ቁልፍ ቃሉን ይዟል</string>

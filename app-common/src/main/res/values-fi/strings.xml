@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Aseta</string>
     <string name="general_unavailable_label">Ei saatavilla</string>
     <string name="general_edit_action">Muokkaa</string>
+    <string name="general_edit_x_action">Muokkaa: %s</string>
+    <string name="general_add_action">Lisää</string>
     <string name="general_na_label">Ei saatavilla</string>
     <string name="general_empty_label">Tyhjä</string>
     <string name="general_new_badge_label">Uusi</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Poistettiin %d kohdetta.</item>
     </plurals>
     <string name="general_remove_action">Poista</string>
+    <string name="general_remove_x_action">Poista: %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Yksi kohde poistettiin</item>
         <item quantity="other">%d kohdetta poistettiin</item>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Voleu suprimir els resultats de totes les eines?</string>
-    <string name="dashboard_hero_freeable_headline">%1$s es pot alliberar</string>
-    <string name="dashboard_hero_freed_headline">%1$s alliberat</string>
+    <string name="dashboard_hero_freeable_headline">Es pot alliberar %1$s</string>
+    <string name="dashboard_hero_freed_headline">S\'ha alliberat %1$s</string>
     <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
          with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
          <string> can only ever offer the translator one. -->
@@ -14,8 +14,8 @@
         <item quantity="one">S\'ha eliminat %d element</item>
         <item quantity="other">S\'han eliminat %d elements</item>
     </plurals>
-    <string name="dashboard_hero_freeable_hint">Toca el botó per alliberar espai, o una fitxa per comprovar primer.</string>
-    <string name="dashboard_hero_freed_hint">Toca un xip per a detalls.</string>
+    <string name="dashboard_hero_freeable_hint">Toqueu el botó per alliberar espai o un xip per comprovar-ho primer.</string>
+    <string name="dashboard_hero_freed_hint">Toca un xip per obtenir més informació.</string>
     <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
          "couldn't be freed": the tools don't record whether an item was attempted and failed or
          skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
@@ -24,9 +24,25 @@
     <string name="dashboard_hero_nothing_freed_headline">No s\'ha alliberat res</string>
     <string name="dashboard_hero_nothing_freed_caption">La neteja ha finalitzat, però no s\'ha pogut eliminar cap de les dades trobades.</string>
     <string name="dashboard_hero_nothing_freed_hint">Algunes dades només es poden eliminar amb accés addicional, com el servei d\'accessibilitat o root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">S\'ha trobat %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d element necessita l\'SD Maid Pro</item>
+        <item quantity="other">%d elements necessiten l\'SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Toqueu per desbloquejar amb l\'SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Es pot alliberar més amb l\'SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Cal l\'SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
-    <string name="dashboard_hero_scanned_timestamp_description">%1$s escanat</string>
-    <string name="dashboard_hero_freed_timestamp_description">%1$s alliberat</string>
+    <string name="dashboard_hero_scanned_timestamp_description">S\'ha escanejat %1$s</string>
+    <string name="dashboard_hero_freed_timestamp_description">S\'ha alliberat %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">S\'ha intentat alliberar %1$s</string>
     <string name="dashboard_settings_category">Tauler</string>
     <string name="dashboard_motd_title">Un missatge del desenvolupador</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Inicia l\'escaneig i la supressió de totes les eines amb un toc al botó d\'acció del tauler, sense confirmacions addicionals.</string>
     <string name="dashboard_settings_oneclick_tools_title">Eines d\'un toc</string>
     <string name="dashboard_settings_oneclick_tools_desc">Quines eines s\'han d\'incloure en les operacions d\'un toc?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Mostra el resum automàticament</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Obre automàticament el resum de resultats després d\'utilitzar el botó d\'acció del tauler. Quan estigui desactivat, toqueu el xip de mida a la barra inferior per obrir-lo.</string>
     <string name="dashboard_card_config_title">Targetes del tauler</string>
     <string name="dashboard_card_config_desc">Configureu quines targetes es mostren i el seu ordre</string>
     <string name="dashboard_card_config_header_title">Arrossegueu per reordenar, commuteu per mostrar/amagar</string>
@@ -314,7 +332,7 @@
     <string name="device_settings_category">Dispositiu</string>
     <string name="review_app_review_action">Revisió</string>
     <string name="review_app_dismiss_action">Potser més tard</string>
-    <string name="review_app_body">Vols deixar una ressenya de l\'SD Maid? ❤️</string>
+    <string name="review_app_body">Voleu deixar una ressenya de l\'SD Maid? ❤️</string>
     <string name="anniversary_card_title">Feliç aniversari de l\'SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Amb vós des del %s</string>
     <plurals name="anniversary_card_body">
@@ -332,12 +350,12 @@
     <string name="shortcuts_onetap_enabled_title">Drecera d\'un toc</string>
     <string name="shortcuts_onetap_enabled_summary">Mostra la drecera «Escaneja + Suprimeix» quan es manté premuda la icona de l\'aplicació. Utilitza les mateixes eines que el tauler de control d\'un toc.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s en 7 dies</string>
-    <string name="tour_dashboard_overview_body">Aquest és el teu tauler, la pantalla d\'inici de SD Maid. Cada eina i operació té una targeta aquí.</string>
-    <string name="tour_dashboard_setup_body">La targeta de configuració apareix quan cal configurar alguna cosa. Obre-la i resol els problemes perquè SD Maid pugui fer més. També pots accedir a la configuració des dels paràmetres, si l\'ocultes.</string>
-    <string name="tour_dashboard_tools_body">Obre la targeta d\'una eina per veure els detalls. Les accions d\'escanejament i eliminació es troben en cada targeta, els detalls apareixen un cop l\'escanejament troba alguna cosa.</string>
-    <string name="tour_dashboard_main_action_body">El botó gran a la part inferior és l\'acció d\'un toc. Un toc per escanejar, un toc per netejar, totes les eines automàtiques.</string>
-    <string name="tour_dashboard_manual_tools_body">Algunes eines, com Swiper, no són automàtiques; t\'ofereixen un flux de treball guiat que recorres pas a pas tu mateix.</string>
-    <string name="tour_dashboard_settings_body">Les opcions per defecte de SD Maid són conservadores i segures. Cada dispositiu és una mica diferent, així que ajusta els paràmetres per extreure\'n més.</string>
+    <string name="tour_dashboard_overview_body">Aquest és el vostre tauler, la pantalla d\'inici de l\'SD Maid. Cada eina i operació es troben en una targeta.</string>
+    <string name="tour_dashboard_setup_body">La targeta de configuració apareix quan cal configurar alguna cosa. Obriu-la i resoleu els problemes perquè l\'SD Maid pugui fer més. També podeu accedir a la configuració des dels paràmetres, si l\'oculteu.</string>
+    <string name="tour_dashboard_tools_body">Obriu la targeta d\'una eina per obtenir més informació. Les accions d\'escaneig i supressió es mostren directament a cada targeta; els detalls apareixen un cop l\'escaneig troba alguna cosa.</string>
+    <string name="tour_dashboard_main_action_body">El botó gran a la part inferior és l\'acció d\'un sol toc. Un toc per escanejar, un toc per netejar, totes les eines són automàtiques.</string>
+    <string name="tour_dashboard_manual_tools_body">Algunes eines, com l\'Escombrador, no són automàtiques; us ofereixen un flux de treball guiat que podeu seguir vosaltres mateixos.</string>
+    <string name="tour_dashboard_settings_body">Els paràmetres per defecte de l\'SD Maid són conservadors i segurs. Cada dispositiu és una mica diferent, així doncs, ajusteu la configuració per treure\'n el màxim profit.</string>
     <string name="tour_setup_intro_body">Cada targeta en aquesta pantalla és un permís que SD Maid pot utilitzar. Tots són opcionals, però més permisos signifiquen més funcions i escanejaments més complets. Sense cap, la majoria d\'eines trobarà poca cosa per netejar.</string>
     <string name="general_settings_reset_guided_tours_label">Restableix les visites guiades</string>
     <string name="general_settings_reset_guided_tours_summary">Les visites guiades es tornaran a mostrar la propera vegada que visitis la seva pantalla. També es tornen a habilitar totes si abans les havies desactivat.</string>

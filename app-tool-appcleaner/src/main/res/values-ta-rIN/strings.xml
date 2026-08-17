@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ஈ பயன்பாடுக்கான \"துளையகத்தை அழிக்கும்\" பட்டனை கணிநி முடக்கியுள்ளது. துளையக அழிப்பை வேகப்படுத்த இதை விலக்கி வைக்கவும்.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">கணினி பயன்பாடு தவறாக அமைக்கப்பட்டுள்ளது</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS இன் பாதுகாப்பு பயன்பாட்டில் (com.miui.securitycenter) பயன்பாட்டு புள்ளிவிவர அனுமதி (GET_USAGE_STATS) இல்லை. இது பயன்பாட்டு விவரங்களில் \"தரவை அழி\" மற்றும் அணுகல் வழியாக கேச் அழிப்பு போன்ற அம்சங்களை உடைக்கிறது. முழு செயல்பாட்டை மீட்டமைக்க அனுமதியை வழங்கவும்.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">சமீபத்தில் \"System UI\" எனும் கணினி பயன்பாடு ஒரு ஆப் சுத்திகரிப்பு கருவி போன்றவற்றால் கட்டாயமாக நிறுத்தப்பட்டிருந்தாலும் இது நிகழலாம். அப்போது, சாதனத்தை மறுதொடக்கம் செய்யும் வரை Android, SD Maid இன் தானியங்கி பொத்தான் அழுத்தங்களைத் தடுக்கும்.</string>
     <string name="appcleaner_forcestop_before_clearing_label">அழிக்கும் முன் கட்டாய நிறுத்தம்</string>
     <string name="appcleaner_forcestop_before_clearing_summary">தற்காலிக சேமிப்பை அழிக்கும் முன் செயலிகளை கட்டாயமாக நிறுத்து. சில செயலிகளின் தற்காலிக சேமிப்பை அழிக்க உதவலாம், ஆனால் செயலிகள் தவறாக செயல்படலாம் மற்றும் கைமுறையாக மறுதொடக்கம் தேவைப்படலாம்.</string>
     <string name="appcleaner_progress_force_stopping">செயலிகளை கட்டாயமாக நிறுத்துகிறது…</string>

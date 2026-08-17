@@ -32,6 +32,8 @@
     <string name="general_set_up_action">سیٹ اپ کریں</string>
     <string name="general_unavailable_label">دستیاب نہیں</string>
     <string name="general_edit_action">تبدیلی کریں</string>
+    <string name="general_edit_x_action">%s میں ترمیم کریں</string>
+    <string name="general_add_action">شامل کریں</string>
     <string name="general_na_label">دستیاب نہیں</string>
     <string name="general_empty_label">خالی</string>
     <string name="general_new_badge_label">نیا</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d آئٹمز حذف کیے گئے۔</item>
     </plurals>
     <string name="general_remove_action">ہٹائیں</string>
+    <string name="general_remove_x_action">%s کو ہٹائیں</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ایک آئٹم ہٹایا گیا</item>
         <item quantity="other">%d آئٹمز ہٹاے گئے</item>

@@ -32,6 +32,8 @@
     <string name="general_set_up_action">সেট আপ করুন</string>
     <string name="general_unavailable_label">অনুপলব্ধ</string>
     <string name="general_edit_action">সম্পাদনা করুন</string>
+    <string name="general_edit_x_action">%s সম্পাদনা করুন</string>
+    <string name="general_add_action">যোগ করুন</string>
     <string name="general_na_label">অপ্রযোজ্য</string>
     <string name="general_empty_label">খালি</string>
     <string name="general_new_badge_label">নতুন</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%dটি আইটেম মুছে ফেলা হয়েছে।</item>
     </plurals>
     <string name="general_remove_action">অপসারণ করুন</string>
+    <string name="general_remove_x_action">%s সরান</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">একটি আইটেম সরানো হয়েছে</item>
         <item quantity="other">%d টি আইটেম সরানো হয়েছে</item>

@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">कुछ भी मुक्त नहीं किया गया</string>
     <string name="dashboard_hero_nothing_freed_caption">सफाई पूरी हुई, लेकिन कोई भी पाया गया डेटा नहीं हटाया जा सका।</string>
     <string name="dashboard_hero_nothing_freed_hint">कुछ डेटा को केवल अतिरिक्त एक्सेस के साथ हटाया जा सकता है, जैसे एक्सेसिबिलिटी सेवा या रूट।</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s मिले</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d आइटम को SD Maid Pro चाहिए</item>
+        <item quantity="other">%d आइटम को SD Maid Pro चाहिए</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro से अनलॉक करने के लिए टैप करें।</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro से और खाली किया जा सकता है</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro चाहिए</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s स्कैन किया गया</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s मुक्त किया गया</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">डैशबोर्ड क्रिया बटन पर एक क्लिक के साथ सभी सुविधाओ के लिए स्कैन और मिटाने का कार्य प्रारंभ करें, कोई अतिरिक्त पुष्टिकरण नहीं।</string>
     <string name="dashboard_settings_oneclick_tools_title">वन-टैप टूल्स</string>
     <string name="dashboard_settings_oneclick_tools_desc">वन-टैप उपकरण: वन-टैप ऑपरेशन में कौन से उपकरण शामिल होने चाहिए?</string>
+    <string name="dashboard_settings_summary_autoshow_title">सारांश अपने आप दिखाएं</string>
+    <string name="dashboard_settings_summary_autoshow_summary">डैशबोर्ड एक्शन बटन का उपयोग करने के बाद परिणामों का सारांश अपने आप खोलें। बंद होने पर, इसे खोलने के लिए नीचे की बार में साइज़ चिप पर टैप करें।</string>
     <string name="dashboard_card_config_title">डैशबोर्ड कार्ड</string>
     <string name="dashboard_card_config_desc">कॉन्फ़िगर करें कि कौन से कार्ड दिखाए जाएं और उनका क्रम</string>
     <string name="dashboard_card_config_header_title">पुनर्व्यवस्थित करने के लिए खींचें, दिखाने/छिपाने के लिए टॉगल करें</string>

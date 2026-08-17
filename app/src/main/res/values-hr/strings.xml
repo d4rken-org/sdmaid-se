@@ -26,6 +26,23 @@
     <string name="dashboard_hero_nothing_freed_headline">Ništa nije oslobođeno</string>
     <string name="dashboard_hero_nothing_freed_caption">Čišćenje je završeno, ali nije bilo moguće ukloniti pronađene podatke.</string>
     <string name="dashboard_hero_nothing_freed_hint">Neki podaci mogu biti uklonjeni samo s dodatnim pristupom, kao što je servis pristupačnosti ili root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s pronađeno</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d stavka treba SD Maid Pro</item>
+        <item quantity="few">%d stavke trebaju SD Maid Pro</item>
+        <item quantity="other">%d stavki treba SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Dodirni za otključavanje sa SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Više se može osloboditi sa SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Trebam SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenirano %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Oslobođeno %1$s</string>
@@ -36,6 +53,8 @@
     <string name="dashboard_settings_oneclick_summary">Započnite skeniranje i brisanje za sve alate dodirom akcijskog gumba na nadzornoj ploči, bez dodatnih potvrda.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alati u načinu rada jednim dodirom</string>
     <string name="dashboard_settings_oneclick_tools_desc">Koji bi alati trebali biti uključeni u operacije jednog dodira?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Prikaži sažetak automatski</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Automatski otvara sažetak rezultata nakon korištenja gumba za akciju na nadzornoj ploči. Ako je onemogućeno, dodirnite veličinu čipa u donjoj traci da ga otvorite.</string>
     <string name="dashboard_card_config_title">Kartice nadzorne ploče</string>
     <string name="dashboard_card_config_desc">Konfigurirajte koje će se kartice prikazivati ​​i njihov redoslijed</string>
     <string name="dashboard_card_config_header_title">Povucite za promjenu redoslijeda, prebacite za prikaz/skrivanje</string>

@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dette er et eget kjøp som verken kansellerer eller refunderer abonnementet ditt. Bruk samme Google-konto for begge.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement fortsatt aktivt</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play rapporterer at abonnementet ditt fortsatt er satt til å fornyes. For å kjøpe den permanente oppgraderingen må du først kansellere abonnementet i Google Play, deretter komme tilbake hit.\n\nAkkurat kansellert det? Gi Google Play et øyeblikk og prøv igjen. Pass også på at du bruker samme Google-konto.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Kunne ikke sjekke kjøpene dine med Google Play. Prøv igjen om litt.</string>
+    <string name="upgrade_screen_pending_card_title">Betaling under behandling</string>
+    <string name="upgrade_screen_pending_card_body">Google Play behandler fortsatt betalingen din. Pro låses opp automatisk når betalingen er godkjent. Noen betalingsmåter kan ta litt tid. Du trenger ikke å gjøre noe mer.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play fant et kjøp med en betaling som venter, og behandler det fortsatt. Pro låses opp automatisk når betalingen er godkjent.</string>
     <string name="upgrade_screen_restore_success_message">Kjøp gjenopprettet, Pro-oppgraderingen din er aktiv.</string>
     <string name="upgrade_screen_grace_title">Bekrefter kjøpet ditt</string>
     <string name="upgrade_screen_grace_body_short">Pro er fortsatt aktivt. Venter på at Google Play skal bekrefte kjøpet ditt på nytt. I mellomtiden forblir alle Pro-funksjoner tilgjengelige.</string>

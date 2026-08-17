@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">این یک خرید جداگانه است: این‌کار اشتراک شما را لغو یا بازپرداخت نمی‌کند. از همان حساب Google برای هر دو استفاده کنید.</string>
     <string name="upgrade_screen_sub_still_renewing_title">اشتراک هنوز فعال است</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play گزارش می‌دهد که اشتراک شما هنوز برای تمدید تنظیم شده است. برای خرید ارتقاء یک‌بار، ابتدا اشتراک را در Google Play لغو کنید و سپس به اینجا بازگردید.\n\nتازه لغو کردید؟ به Google Play کمی زمان دهید و دوباره تلاش کنید. همچنین مطمئن شوید که از همان حساب Google استفاده می‌کنید.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">بررسی خریدهای شما با Google Play ممکن نشد. لطفاً کمی بعد دوباره امتحان کنید.</string>
+    <string name="upgrade_screen_pending_card_title">در انتظار پرداخت</string>
+    <string name="upgrade_screen_pending_card_body">Google Play هنوز در حال پردازش پرداخت شماست. نسخهٔ Pro به‌محض تکمیل پرداخت به‌طور خودکار باز می‌شود. برخی روش‌های پرداخت ممکن است زمان‌بر باشند. کار دیگری لازم نیست انجام دهید.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play یک خرید با پرداخت در حال انتظار پیدا کرده و هنوز در حال پردازش آن است. نسخهٔ Pro به‌محض تکمیل پرداخت به‌طور خودکار باز می‌شود.</string>
     <string name="upgrade_screen_restore_success_message">خرید بازیابی شد، ارتقاء Pro شما فعال است.</string>
     <string name="upgrade_screen_grace_title">تأیید خرید شما</string>
     <string name="upgrade_screen_grace_body_short">Pro هنوز فعال است. در انتظار Google Play برای تأیید مجدد خرید شما، تمام ویژگی‌های Pro در این میان باقی می‌ماند.</string>

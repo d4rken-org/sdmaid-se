@@ -32,6 +32,8 @@
     <string name="general_set_up_action">ຕິດຕັ້ງ</string>
     <string name="general_unavailable_label">ບໍ່ສາມາດໃຊ້ໄດ້</string>
     <string name="general_edit_action">ແກ້ໄຂ</string>
+    <string name="general_edit_x_action">ແກ້ໄຂ %s</string>
+    <string name="general_add_action">ເພີ່ມ</string>
     <string name="general_na_label">ບ/ມ</string>
     <string name="general_empty_label">ຫວ່າງເປົ່າ</string>
     <string name="general_new_badge_label">ໃໝ່</string>
@@ -107,6 +109,7 @@
         <item quantity="other">ລຶບ %d ລາຍການແລ້ວ.</item>
     </plurals>
     <string name="general_remove_action">ເອົາອອກ</string>
+    <string name="general_remove_x_action">ລຶບ %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">ເອົາອອກ %d ລາຍການແລ້ວ</item>
     </plurals>

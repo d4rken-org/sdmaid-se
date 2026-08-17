@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">පද්ධතිය මෙම යෙදුම සඳහා \"කැශ් ඉවත් කරන්න\" බොත්තම අබල කර ඇත. කැශ් ඉවත් කිරීම වේගවත් කිරීම සඳහා එය බැහැර කරන්න.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">පද්ධති යෙදුම වැරදි ව සැකසා ඇත</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS හි ආරක්ෂණ යෙදුමේ (com.miui.securitycenter) භාවිත සංඛ්‍යාලේඛන අවසරය (GET_USAGE_STATS) නොමැත. මේය යෙදුම් විස්තරවල \"දත්ත ඉවත් කරන්න\" සහ ප්‍රවේශ්‍යතාව හරහා කැශ් ඉවත් කිරීම වැනි විශේෂාංග කඩා ගනී. සම්පූර්ණ ක්‍රියාකාරිත්වය ප්‍රතිසාධනය කිරීම සඳහා අවසරය ලබා දෙන්න.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">මෑතකදී යම් යෙදුම් පිරිසිදු කිරීමේ මෙවලමක් වැනි යමක් මගින් \"System UI\" පද්ධති යෙදුම බලෙන් නවත්වා ඇත්නම් ද මෙය සිදු විය හැක. එවිට ඔබ උපාංගය නැවත ආරම්භ කරන තෙක් Android මගින් SD Maid හි ස්වයංක්‍රීය බොත්තම් තට්ටු කිරීම් අවහිර කරයි.</string>
     <string name="appcleaner_forcestop_before_clearing_label">මැකීමට පෙර බලහත්කාරයෙන් නවතන්න</string>
     <string name="appcleaner_forcestop_before_clearing_summary">හැඹිලිය මැකීමට පෙර යෙදුම් බලහත්කාරයෙන් නවතන්න. සමහර යෙදුම්වල හැඹිලිය මැකීමට උපකාර විය හැකි නමුත්, යෙදුම් අක්‍රමණික ලෙස ක්‍රියා කළ හැකි අතර අතින් නැවත ආරම්භ කිරීම අවශ්‍ය විය හැක.</string>
     <string name="appcleaner_progress_force_stopping">යෙදුම් බලහත්කාරයෙන් නවතමින්…</string>

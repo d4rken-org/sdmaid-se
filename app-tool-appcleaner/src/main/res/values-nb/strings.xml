@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Systemet har deaktivert knappen «Tøm hurtigbuffer» for denne appen. Ekskluder den for raskere tømming av hurtigbufferen.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systemapp feilkonfigurert</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS sin sikkerhetsapp (com.miui.securitycenter) mangler tillatelsen for bruksstatistikk (GET_USAGE_STATS). Dette forhindrer funksjoner som «Slett data» i appdetaljer og sletting av hurtigbuffer via tilgjengelighet. Gi tillatelsen for å gjenopprette full funksjonalitet.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Dette kan også skje hvis systemappen \"System UI\" nylig ble tvangsstoppet, for eksempel av et apprengjøringsverktøy. Android blokkerer da SD Maids automatiserte knappetrykk helt til du starter enheten på nytt.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Tving avslutning før tømming</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tving avslutning av apper før tømming av hurtigbufferen. Det kan hjelpe med å tømme noen appers hurtigbuffere, men kan forårsake at apper oppfører seg feil og krever manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvinger avslutning av apper…</string>

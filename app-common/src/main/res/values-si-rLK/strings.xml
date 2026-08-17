@@ -32,6 +32,8 @@
     <string name="general_set_up_action">සකසන්න</string>
     <string name="general_unavailable_label">ලබා ගත නොහැකි</string>
     <string name="general_edit_action">සංස්කරණය කරන්න</string>
+    <string name="general_edit_x_action">%s සංස්කරණය කරන්න</string>
+    <string name="general_add_action">එකතු කරන්න</string>
     <string name="general_na_label">නැත</string>
     <string name="general_empty_label">හිස්</string>
     <string name="general_new_badge_label">අලුත්</string>
@@ -110,6 +112,7 @@
         <item quantity="other">අයිතම %d ක් මකා දමන ලදී.</item>
     </plurals>
     <string name="general_remove_action">ඉවත් කරන්න</string>
+    <string name="general_remove_x_action">%s ඉවත් කරන්න</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">එක් අයිතමක් ඉවත් කරන ලදී</item>
         <item quantity="other">අයිතම %d ක් ඉවත් කරන ලදී</item>

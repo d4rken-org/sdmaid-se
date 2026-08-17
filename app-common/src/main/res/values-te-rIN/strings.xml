@@ -32,6 +32,8 @@
     <string name="general_set_up_action">సెటప్ చేయండి</string>
     <string name="general_unavailable_label">అందుబాటులో లేదు</string>
     <string name="general_edit_action">సవరించండి</string>
+    <string name="general_edit_x_action">%s సవరించండి</string>
+    <string name="general_add_action">జోడించండి</string>
     <string name="general_na_label">అ/లే</string>
     <string name="general_empty_label">ఖాళీ</string>
     <string name="general_new_badge_label">కొత్త</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d వస్తువులు తొలగించబడ్డాయి.</item>
     </plurals>
     <string name="general_remove_action">తీసివేయండి</string>
+    <string name="general_remove_x_action">%s ను తీసివేయండి</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ఒక వస్తువు తీసివేయబడింది</item>
         <item quantity="other">%d వస్తువులు తీసివేయబడ్డాయి</item>

@@ -8,6 +8,25 @@
         <item quantity="one">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
         <item quantity="other">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">بۆ %d ڕۆژە میوانیت.</item>
+        <item quantity="other">بۆ %d ڕۆژە میوانیت.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">بۆ %d هەفتەیە میوانیت.</item>
+        <item quantity="other">بۆ %d هەفتەیە میوانیت.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">بۆ %d مانگە میوانیت.</item>
+        <item quantity="other">بۆ %d مانگە میوانیت.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">بۆ %d ساڵە میوانیت.</item>
+        <item quantity="other">بۆ %d ساڵە میوانیت.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">بەشیکیی کەمتری</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_settings_desc">ئامارەکان، ڕاپۆرتەکان و پاراستنی داتای SD Maid ڕێکبخە.</string>

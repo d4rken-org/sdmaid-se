@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Сістэма адключыла кнопку «Ачысціць кэш» для гэтай праграмы. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Сістэмная праграма настроена няправільна</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">У праграме бяспекі HyperOS (com.miui.securitycenter) адсутнічае дазвол на статыстыку выкарыстання (GET_USAGE_STATS). Гэта парушае такія функцыі, як «Ачысціць даныя» ў наладах праграмы і ачыстка кэшу праз службу спецыяльных магчымасцей. Дайце дазвол на аднаўленне поўнай функцыянальнасці.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Гэта таксама можа адбыцца, калі сістэмнае прыладанне «System UI» нядаўна была прымусова спынена, напр., прыладаю для чыскі. Android тады блакіруе аўтаматычныя націскі кнопак SD Maid, пакуль ты не перазагружыш прыладу.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Прымусовае спыненне перад ачысткай</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Прымусовае спыненне праграм перад ачысткай іх кэша. Гэта можа дапамагчы ачысціць кэш некаторых праграм, але можа прывесці да іх няправільнай працы і патрабавання ручнога перазапуску.</string>
     <string name="appcleaner_progress_force_stopping">Прымусовае спыненне праграм…</string>

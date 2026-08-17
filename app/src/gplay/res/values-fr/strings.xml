@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">C’est un achat séparé : il n’annule ni ne rembourse votre abonnement. Utilisez le même compte Google pour les deux.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement toujours actif</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play signale que votre abonnement est toujours configuré pour se renouveler. Pour acheter la mise à niveau unique, annulez d’abord l’abonnement sur Google Play, puis revenez ici.\n\nVous venez de l’annuler ? Donnez un moment à Google Play et réessayez. Assurez-vous également que vous utilisez le même compte Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Impossible de vérifier tes achats avec Google Play. Réessaie dans un instant.</string>
+    <string name="upgrade_screen_pending_card_title">Paiement en attente</string>
+    <string name="upgrade_screen_pending_card_body">Google Play est encore en train de traiter ton paiement. La version Pro se débloque automatiquement une fois le paiement effectué. Certains moyens de paiement peuvent prendre du temps. Tu n\'as rien d\'autre à faire.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play a trouvé un achat avec un paiement en attente et est encore en train de le traiter. La version Pro se débloque automatiquement une fois le paiement effectué.</string>
     <string name="upgrade_screen_restore_success_message">Achat restauré, votre mise à niveau Pro est active.</string>
     <string name="upgrade_screen_grace_title">Confirmation de votre achat</string>
     <string name="upgrade_screen_grace_body_short">Pro est toujours actif. En attendant que Google Play reconfirme votre achat, toutes les fonctionnalités Pro restent déverrouillées.</string>

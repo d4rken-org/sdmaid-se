@@ -6,6 +6,21 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">SD Maidをデバイスに招待してから%s個のアイテムが処理されました。</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="other">%d日間、あなたのゲストです。</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="other">%d週間、あなたのゲストです。</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="other">%dか月間、あなたのゲストです。</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="other">%d年間、あなたのゲストです。</item>
+    </plurals>
     <string name="stats_report_status_partial_success">一部成功</string>
     <string name="stats_report_status_partial_failure">失敗</string>
     <string name="stats_settings_desc">SD Maidの統計、レポート、データ保持に関する設定を行います。</string>

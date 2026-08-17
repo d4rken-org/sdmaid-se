@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Hiçbir şey boşaltılmadı</string>
     <string name="dashboard_hero_nothing_freed_caption">Temizlik tamamlandı, ancak bulunan veriler kaldırılamadı.</string>
     <string name="dashboard_hero_nothing_freed_hint">Bazı veriler yalnızca erişilebilirlik hizmeti veya root gibi ek erişimle kaldırılabilir.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s bulundu</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d öğe SD Maid Pro gerektiriyor</item>
+        <item quantity="other">%d öğe SD Maid Pro gerektiriyor</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro ile kilidini açmak için dokun.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro ile daha fazla alan boşaltılabilir</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro gerektiriyor</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s tarandı</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s serbest bırakıldı</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Paneldeki eylem butonuna tek bir dokunuşla, ek onay olmaksızın, bütün araçları kullanarak tek seferde tarayın ve silin.</string>
     <string name="dashboard_settings_oneclick_tools_title">Tek-Tık Araçlar</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hangi araçlar tek-tık işlemlerine eklenilsin?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Özeti otomatik olarak göster</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Kontrol paneli eylem düğmesini kullandıktan sonra sonuç özetini otomatik olarak aç. Devre dışı bırakıldığında, açmak için alt çubuktaki boyut etiketine dokun.</string>
     <string name="dashboard_card_config_title">Panel kartları</string>
     <string name="dashboard_card_config_desc">Hangi kartların gösterileceğini ve sıralarını yapılandırın</string>
     <string name="dashboard_card_config_header_title">Sıralamak için sürükleyin, göstermek/gizlemek için değiştirin</string>

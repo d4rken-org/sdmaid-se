@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Papkalar</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Agar hech qanday tur tanlanmagan bo\'lsa, barcha turlar mos keladi.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Yo\'l mezonlari</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Maqsadli yo\'l kamida bitta yozuvga mos kelishi kerak (masalan, \"Downloads/oldapks/game-\"). Ko\'proq variantlar uchun yozuvlarni uzoq bosing.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Manzil kamida bitta yozuvga mos kelishi kerak (masalan, \"Downloads/oldapks/game-\"). Uni tahrirlash uchun yozuvni, moslashtirish usulini o\'zgartirish uchun uning belgisini bosing.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Nom mezonlari</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Maqsadli nom kamida bitta kalit so\'zni o\'z ichiga olishi kerak (masalan, \"-receipt\"). Ko\'proq variantlar uchun yozuvlarni uzoq bosing.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Nom kamida bitta kalit so\'zni o\'z ichiga olishi kerak (masalan, \"-receipt\"). Uni tahrirlash uchun yozuvni, moslashtirish usulini o\'zgartirish uchun uning belgisini bosing.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Istisnolar</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Agar yo\'l biror yozuvga mos kelsa, natija istisno qilinadi (masalan, \"DCIM\"). Ko\'proq variantlar uchun yozuvlarni uzoq bosing.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Agar manzil biror yozuvga mos kelsa, natija chiqarib tashlanadi (masalan, \"DCIM\"). Uni tahrirlash uchun yozuvni, moslashtirish usulini o\'zgartirish uchun uning belgisini bosing.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Manzil yozuvini qo\'shish</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Nom yozuvini qo\'shish</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Istisno yozuvini qo\'shish</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Yangi yozuv</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Kalit so\'z</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Bu yozuv allaqachon mavjud.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d bo\'sh joy</item>
+        <item quantity="other">%d bo\'sh joy</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Boshqa yozuv tomonidan allaqachon ishlatilgan</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s uchun moslashtirish rejimini o\'zgartirish, hozirgi: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Yo\'l taqqoslash rejimi</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Yo\'l kalit so\'z bilan boshlanadi</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Yo\'l kalit so\'zni o\'z ichiga oladi</string>

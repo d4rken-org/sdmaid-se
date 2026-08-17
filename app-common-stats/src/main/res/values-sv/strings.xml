@@ -8,6 +8,25 @@
         <item quantity="one">%s objekt bearbetat sedan du bjöd in SD Maid till din enhet.</item>
         <item quantity="other">%s objekt bearbetade sedan du bjöd in SD Maid till din enhet.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Din gäst i %d dag.</item>
+        <item quantity="other">Din gäst i %d dagar.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Din gäst i %d vecka.</item>
+        <item quantity="other">Din gäst i %d veckor.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Din gäst i %d månad.</item>
+        <item quantity="other">Din gäst i %d månader.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Din gäst i %d år.</item>
+        <item quantity="other">Din gäst i %d år.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Delvis framgång</string>
     <string name="stats_report_status_partial_failure">Misslyckande</string>
     <string name="stats_settings_desc">Konfigurera SD Maids statistik, rapporter och datalagring.</string>

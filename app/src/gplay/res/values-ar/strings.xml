@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">هذا شراء منفصل: إنه لا يلغي أو يسترجع اشتراكك. استخدم نفس حساب Google لكليهما.</string>
     <string name="upgrade_screen_sub_still_renewing_title">الاشتراك لا يزال نشطًا</string>
     <string name="upgrade_screen_sub_still_renewing_message">يُخبر Google Play أن اشتراكك لا يزال مضبوطًا للتجديد التلقائي. لشراء الترقية لمرة واحدة، ألغِ الاشتراك في Google Play أولاً، ثم عُد هنا.\n\nهل ألغيته للتو؟ أعطِ Google Play لحظة وحاول مرة أخرى. تأكد أيضًا من أنك تستخدم نفس حساب Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">تعذر التحقق من عمليات الشراء الخاصة بك من Google Play. يرجى المحاولة مرة أخرى في لحظة.</string>
+    <string name="upgrade_screen_pending_card_title">الدفع قيد الانتظار</string>
+    <string name="upgrade_screen_pending_card_body">لا تزال Google Play تعالج دفعتك. يتم فتح Pro تلقائيًا بعد معالجة الدفع. قد تستغرق بعض طرق الدفع وقتًا طويلاً. لا توجد أي خطوات أخرى تحتاج إلى القيام بها.</string>
+    <string name="upgrade_screen_pending_dialog_message">وجدت Google Play عملية شراء بدفع قيد الانتظار وتقوم بمعالجتها. يتم فتح Pro تلقائيًا بعد معالجة الدفع.</string>
     <string name="upgrade_screen_restore_success_message">تمت استعادة عملية الشراء، ترقيتك Pro نشطة الآن.</string>
     <string name="upgrade_screen_grace_title">جارٍ تأكيد عملية الشراء</string>
     <string name="upgrade_screen_grace_body_short">Pro لا يزال نشطًا. ننتظر Google Play لإعادة تأكيد عملية الشراء، جميع ميزات Pro تظل مفتوحة في غضون ذلك.</string>

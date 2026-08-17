@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem telah menonaktifkan tombol \"Hapus cache\" untuk aplikasi ini. Kecualikan untuk mempercepat penghapusan cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikasi sistem salah dikonfigurasi</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikasi Keamanan HyperOS (com.miui.securitycenter) kehilangan izin Statistik Penggunaan (GET_USAGE_STATS). Ini merusak fitur seperti \"Hapus Data\" di detail aplikasi dan penghapusan cache melalui aksesibilitas. Berikan izin untuk memulihkan fungsionalitas penuh.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Ini juga bisa terjadi jika aplikasi sistem \"System UI\" baru saja dihentikan paksa, misalnya oleh alat pembersih aplikasi. Android kemudian memblokir penekanan tombol otomatis SD Maid hingga kamu memulai ulang perangkat.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersihkan</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cache-nya. Ini dapat membantu membersihkan cache beberapa aplikasi, tetapi dapat menyebabkan aplikasi bermasalah dan memerlukan mulai ulang secara manual.</string>
     <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>

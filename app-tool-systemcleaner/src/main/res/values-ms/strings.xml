@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Direktori</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Jenis fail yang akan dipadankan oleh penapis ini.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Laluan</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Fail yang akan dipadankan berdasarkan laluan lengkapnya.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Laluan sasaran perlu sepadan dengan sekurang-kurangnya satu entri (contohnya \"Downloads/oldapks/game-\"). Ketik entri untuk menyuntingnya, atau ikonnya untuk menukar cara ia dipadankan.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Nama</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Fail yang akan dipadankan berdasarkan nama failnya.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Nama sasaran mesti mengandungi sekurang-kurangnya satu daripada kata kunci (contohnya \"-receipt\"). Ketik entri untuk menyuntingnya, atau ikonnya untuk menukar cara ia dipadankan.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Pengecualian</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Laluan yang akan dikecualikan dari penapis ini.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Hasil akan dikecualikan jika laluan sepadan dengan mana-mana entri (contohnya \"DCIM\"). Ketik entri untuk menyuntingnya, atau ikonnya untuk menukar cara ia dipadankan.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Tambah entri laluan</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Tambah entri nama</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Tambah entri pengecualian</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Entri baharu</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Kata kunci</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Entri ini sudah wujud.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">%d ruang</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Sudah digunakan oleh entri lain</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Tukar mod padanan untuk %1$s, sekarang: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mod padanan</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Bermula dengan</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Mengandungi</string>

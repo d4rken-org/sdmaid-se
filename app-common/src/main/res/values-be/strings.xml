@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Наладжванне</string>
     <string name="general_unavailable_label">Недаступна</string>
     <string name="general_edit_action">Рэдагаваць</string>
+    <string name="general_edit_x_action">Рэдагаваць %s</string>
+    <string name="general_add_action">Дабаўіць</string>
     <string name="general_na_label">Н/Д</string>
     <string name="general_empty_label">Пуста</string>
     <string name="general_new_badge_label">Новы</string>
@@ -116,6 +118,7 @@
         <item quantity="other">Выдалены %d элементаў.</item>
     </plurals>
     <string name="general_remove_action">Выдаліць</string>
+    <string name="general_remove_x_action">Выдаліць %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Быў выдалены адзін элемент</item>
         <item quantity="few">Было выдалена %d элементы</item>

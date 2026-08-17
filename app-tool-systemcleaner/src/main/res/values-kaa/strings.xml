@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Kataloglar</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Eger eşbır tür tańdalmasa, onda bári türler salstırılıp atır.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Jol kriteriyları</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Maqşat joly keminde bir jazıwımen salstırılwı kerek (mäs., \"Downloads/oldapks/game-\"). Qöbirek opsiyalar ushın jazıwlardı uzaq basyp túrıń.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Мақсат жолы кемінде бір жазбаға сәйкес келуі керек (мысалы, \"Downloads/oldapks/game-\"). Оны өңдеу үшін жазбаны басыў немесе оның белгісін басыў ол қалай сәйкес келетінін өзгерту.</string>
     <string name="systemcleaner_customfilter_editor_name_label">At kriteriyları</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Maqşat atı keminde bir kilt sözti ıchke alıwı kerek (mäs., \"-receipt\"). Qöbirek opsiyalar ushın jazıwlardı uzaq basyp túrıń.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Мақсат аты кемінде бір кілтсөзді қамтуы керек (мысалы, \"-receipt\"). Оны өңдеу үшін жазбаны басыў немесе оның белгісін басыў ол қалай сәйкес келетінін өзгерту.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Esaptan tısqarılar</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Natije chiqarılıp qalıp atır eger jol qálem bir jazıwmen salstırsa (mäs., \"DCIM\"). Qöbirek opsiyalar ushın jazıwlardı uzaq basyp túrıń.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Егер жол кез-келген жазбаға сәйкес келсе, нәтижа алып салынады (мысалы, \"DCIM\"). Оны өңдеу үшін жазбаны басыў немесе оның белгісін басыў ол қалай сәйкес келетінін өзгерту.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Жол жазбасын қосу</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Ат жазбасын қосу</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Алып салу жазбасын қосу</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Жаңа жазба</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Кілтсөз</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Бұл жазба бар болып қойды.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d орын</item>
+        <item quantity="other">%d орын</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Басқа жазба арқалы пайдаланылды</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s үшін сәйкес режімін өзгерту, ағымда: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Jol salstırıw tärtipі</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Jol kilt sözben baslanadı</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Jol ıchke kilt söz alıp tur</string>

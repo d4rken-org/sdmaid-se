@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ລະບົມໄດ້ປິດໃຊ້ງານປຸ່ມ \"ລ້າງ cache\" ສຳຫລັບແອັບນີ້. ຍົກເວັ້ນມັນເພື່ອເລ່ງການລ້າງ cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">ແອັບລະບົມຕັ້ງຄ່າຜິດ</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">ແອັບ Security ຂອງ HyperOS (com.miui.securitycenter) ຂາດສິດ Usage Stats (GET_USAGE_STATS). ນີ້ທຳລາຍຟີຈາ ເຊ່ນ: \"ລ້າງຂໍ້ມູລ\" ໃນລາຍລະອຽດແອັບ ແລະການລ້າງ cache ຜ່ານການເຂ້າຫາ. ໃຫ້ສິດນີ້ເພື່ອຟື້ນຟູຟັງຊັນສົມບູນ.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ສິ່ງນີ້ອາດເກີດຂຶ້ນໄດ້ຖ້າແອັບລະບົບ \"System UI\" ຖືກບັງຄັບປິດເມື່ອບໍ່ດົນມານີ້, ຕົວຢ່າງເຊັ່ນໂດຍເຄື່ອງມືທຳຄວາມສະອາດແອັບ. ຫຼັງຈາກນັ້ນ Android ຈະບລັອກການກົດປຸ່ມອັດຕະໂນມັດຂອງ SD Maid ຈົນກວ່າທ່ານຈະຣີສະຕາດອຸປະກອນ.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop ກ່ອນລ້າງ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop ແອັບກ່ອນລ້າງ cache. ມັນສາມາຖຊ່ວຍລ້າງ cache ຂອງບາງແອັບ, ແຕ່ອາດເຮັດໃຫ້ແອັບເຮັດວຽກຜິດປົກກະຕິ ແລະຕ້ອງການ restart ດ້ວຍຕົນເອງ.</string>
     <string name="appcleaner_progress_force_stopping">ກຳລັງ Force-stop ແອັບ…</string>

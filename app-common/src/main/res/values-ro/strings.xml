@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Configurare</string>
     <string name="general_unavailable_label">Indisponibil</string>
     <string name="general_edit_action">Editează</string>
+    <string name="general_edit_x_action">Editează %s</string>
+    <string name="general_add_action">Adaugă</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Gol</string>
     <string name="general_new_badge_label">Nou</string>
@@ -113,6 +115,7 @@
         <item quantity="other">Au fost șterse %d articole.</item>
     </plurals>
     <string name="general_remove_action">Elimină</string>
+    <string name="general_remove_x_action">Elimină %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Un element a fost eliminat</item>
         <item quantity="few">%d elemente au fost eliminate</item>

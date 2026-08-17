@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ሲስተሙ ለዚህ መተግበሪያ \"መሸፈኛ አጽዳ\" ቁልፍን አሰናክሏል። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">የሲስተም መተግበሪያ በተሳሳተ መንገድ ተዋቅሯል</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">የHyperOS ደህንነት መተግበሪያ (com.miui.securitycenter) የአጠቃቀም ስታቲስቲክ ፈቃድ (GET_USAGE_STATS) ላይደርስበት ነው። ይህ በመተግበሪያ ዝርዝሮች ውስጥ \"ውሂብ አጽዳ\" እንደሚሳሳት ባህሪዎችን ይሰብራል እንዲሁም በተደራሽነት መሸፈኛ ማጽዳት። ሙሉ ተግባርን መልሶ ለማስጀመር ፈቃዱን ይስጡ።</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ይህ የ\"System UI\" ስርዓት መተግበሪያ በቅርቡ በኃይል ከተቆመ ለምሳሌ በመተግበሪያ ማጽጃ መሳሪያ ምክንያት ሊከሰት ይችላል። Android ከዚያ በኋላ መሳሪያውን እንደገና እስኪያስጀምሩ ድረስ የSD Maid ራስ-ሰር የቁልፍ ጫናዎችን ያግዳል።</string>
     <string name="appcleaner_forcestop_before_clearing_label">ከማጽዳት በፊት በግዳጅ አቁም</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ማኅደራቸውን ከማጽዳት በፊት መተግበሪያዎችን በግዳጅ ያቁሙ። የአንዳንድ መተግበሪያዎችን ማኅደር ለማጽዳት ሊረዳ ይችላል፣ ግን መተግበሪያዎች በትክክል እንዳይሰሩ ሊያደርግና በእጅ እንደገና ማስጀመር ሊያስፈልግ ይችላል።</string>
     <string name="appcleaner_progress_force_stopping">መተግበሪያዎችን በግዳጅ ማቆም…</string>

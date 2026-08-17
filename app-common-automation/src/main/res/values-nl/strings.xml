@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Instellingenscherm niet beschikbaar</string>
     <string name="automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
     <string name="automation_error_disabled_app_title">App is uitgeschakeld</string>
-    <string name="automation_error_disabled_app_body">Uw apparaat opent het instellingenscherm van uitgeschakelde apps niet, dus de cache kan niet via de toegankelijkheidsservice worden gewist. Schakel de app in of gebruik root of Shizuku/ADB.</string>
+    <string name="automation_error_disabled_app_body">Je apparaat opent het instellingenscherm van uitgeschakelde apps niet, waardoor de cache niet via de toegankelijkheidsservice kan worden gewist. Schakel de app in, of gebruik roottoegang of Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Instellingenscherm geblokkeerd</string>
     <string name="automation_error_interference_body">Een andere app (%1$s) blokkeert het instellingenscherm van het systeem, dus SD Maid kan niet doorgaan. Schakel de app-lock of schermbeveiliging van die app uit voor de systeeminstellingen en probeer het opnieuw.</string>
     <string name="automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>

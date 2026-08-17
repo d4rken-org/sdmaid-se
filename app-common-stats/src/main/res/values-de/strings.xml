@@ -8,6 +8,25 @@
         <item quantity="one">%s Element verarbeitet, seit du SD Maid zu deinem Gerät eingeladen hast.</item>
         <item quantity="other">%s Elemente verarbeitet, seit du SD Maid zu deinem Gerät eingeladen hast.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Dein Gast seit %d Tag.</item>
+        <item quantity="other">Dein Gast seit %d Tagen.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Dein Gast seit %d Woche.</item>
+        <item quantity="other">Dein Gast seit %d Wochen.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Dein Gast seit %d Monat.</item>
+        <item quantity="other">Dein Gast seit %d Monaten.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Dein Gast seit %d Jahr.</item>
+        <item quantity="other">Dein Gast seit %d Jahren.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Teilerfolg</string>
     <string name="stats_report_status_partial_failure">Fehlgeschlagen</string>
     <string name="stats_settings_desc">Konfiguriere SD Maids Statistiken, Berichte und die Datenaufbewahrung.</string>

@@ -71,11 +71,22 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">폴더</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">유형을 선택하지 않으면 모든 유형이 매칭됩니다.</string>
     <string name="systemcleaner_customfilter_editor_path_label">경로 조건</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">대상 경로는 적어도 하나의 항목과 일치해야 합니다 (예: \"Downloads/oldapks/game-\"). 더 많은 옵션을 보려면 항목을 길게 누르세요.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">대상 경로는 최소 하나의 항목과 일치해야 해요(예: \"Downloads/oldapks/game-\"). 항목을 탭해 편집하거나, 아이콘을 탭해 일치 방식을 변경하세요.</string>
     <string name="systemcleaner_customfilter_editor_name_label">이룸 조건</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">대상 이름에는 키워드 중 하나 이상이 포함되어야 합니다 (예: \"-영수증\"). 더 많은 옵션을 보려면 항목을 길게 누르세요.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">대상 이름에는 키워드 중 하나 이상이 포함되어야 해요(예: \"-receipt\"). 항목을 탭해 편집하거나, 아이콘을 탭해 일치 방식을 변경하세요.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">제외 항목</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">경로가 어떤 항목 (예: \"DCIM\")과 일치하는 경우 결과는 제외됩니다. 더 많은 옵션을 보려면 항목을 길게 누르세요.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">경로가 어떤 항목과라도 일치하면 결과에서 제외돼요(예: \"DCIM\"). 항목을 탭해 편집하거나, 아이콘을 탭해 일치 방식을 변경하세요.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">경로 항목 추가</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">이름 항목 추가</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">제외 항목 추가</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">새 항목</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">키워드</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">이미 존재하는 항목이에요.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="other">공백 %d개</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">다른 항목에서 이미 사용 중</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">%1$s의 일치 방식 변경(현재: %2$s)</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">경로 비교 모드</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">경로가 키워드로 시작</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">경로에 키워드 포함</string>

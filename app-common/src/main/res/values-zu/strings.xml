@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Setha</string>
     <string name="general_unavailable_label">Akutholakali</string>
     <string name="general_edit_action">Hlela</string>
+    <string name="general_edit_x_action">Hlela %s</string>
+    <string name="general_add_action">Engeza</string>
     <string name="general_na_label">Akutholakali</string>
     <string name="general_empty_label">Akunalutho</string>
     <string name="general_new_badge_label">Okusha</string>
@@ -110,6 +112,7 @@
         <item quantity="other">Kususiwe izinto ezingu-%d.</item>
     </plurals>
     <string name="general_remove_action">Susa</string>
+    <string name="general_remove_x_action">Susa %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Into eyodwa isusiwe</item>
         <item quantity="other">Izinto ezingu-%d zisusiwe</item>

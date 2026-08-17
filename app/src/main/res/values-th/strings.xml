@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">ไม่มีอะไรถูกปลดปล่อย</string>
     <string name="dashboard_hero_nothing_freed_caption">การทำความสะอาดเสร็จสิ้นแล้ว แต่ไม่สามารถลบข้อมูลที่พบได้</string>
     <string name="dashboard_hero_nothing_freed_hint">ข้อมูลบางรายการสามารถลบได้เฉพาะเมื่อมีการเข้าถึงพิเศษ เช่น บริการการเข้าถึง หรือ root</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">พบ %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d รายการต้องการ SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">แตะเพื่อปลดล็อกด้วย SD Maid Pro</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">สามารถเพิ่มพื้นที่ว่างได้อีกด้วย SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">ต้องใช้ SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">สแกน %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">ปล่อยออก %1$s</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
     <string name="dashboard_settings_oneclick_tools_title">เครื่องมือแตะครั้งเดียว</string>
     <string name="dashboard_settings_oneclick_tools_desc">เครื่องมือใดที่ควรรวมอยู่ในการดำเนินการแตะครั้งเดียว?</string>
+    <string name="dashboard_settings_summary_autoshow_title">แสดงสรุปโดยอัตโนมัติ</string>
+    <string name="dashboard_settings_summary_autoshow_summary">เปิดสรุปผลลัพธ์โดยอัตโนมัติหลังจากใช้ปุ่มดำเนินการบนแดชบอร์ด เมื่อปิดใช้งาน ให้แตะที่ชิปขนาดในแถบด้านล่างเพื่อเปิด</string>
     <string name="dashboard_card_config_title">การ์ดแดชบอร์ด</string>
     <string name="dashboard_card_config_desc">กำหนดค่าการ์ดที่จะแสดงและลำดับ</string>
     <string name="dashboard_card_config_header_title">ลากเพื่อเรียงลำดับ, สลับเพื่อแสดง/ซ่อน</string>

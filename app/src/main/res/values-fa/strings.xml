@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">هیچ‌چیزی آزاد نشد</string>
     <string name="dashboard_hero_nothing_freed_caption">تمیزکاری پایان یافت، اما هیچ‌کدام از داده‌های یافت‌شده نتوانست حذف شود.</string>
     <string name="dashboard_hero_nothing_freed_hint">برخی داده‌ها تنها با دسترسی اضافی، مثل سرویس دسترسی‌پذیری یا root، قابل حذف‌اند.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s پیدا شد</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d مورد به SD Maid Pro نیاز دارد</item>
+        <item quantity="other">%d مورد به SD Maid Pro نیاز دارد</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">برای باز کردن قفل با SD Maid Pro ضربه بزن.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">با SD Maid Pro می‌توان فضای بیشتری آزاد کرد</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">به SD Maid Pro نیاز دارد</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s اسکن شده</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s آزادسازی شده</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Start scan and deletion for all tools with a tap on the dashboard\'s action button, no extra confirmations.</string>
     <string name="dashboard_settings_oneclick_tools_title">ابزارهای حالت تک ضربه ای</string>
     <string name="dashboard_settings_oneclick_tools_desc">کدام ابزارها باید در حالت تک ضربه ای گنجانده شوند؟</string>
+    <string name="dashboard_settings_summary_autoshow_title">نمایش خودکار خلاصه</string>
+    <string name="dashboard_settings_summary_autoshow_summary">خلاصهٔ نتایج به‌طور خودکار پس از استفاده از دکمهٔ عملکرد داشبورد باز می‌شود. در صورت غیرفعال بودن، برای باز کردن آن روی برچسب حجم در نوار پایین ضربه بزن.</string>
     <string name="dashboard_card_config_title">کارت‌های داشبورد</string>
     <string name="dashboard_card_config_desc">پیکربندی کنید که کدام کارت‌ها نمایش داده شوند و ترتیب آنها چگونه باشد</string>
     <string name="dashboard_card_config_header_title">برای مرتب‌سازی بکشید، برای نمایش/پنهان کردن، کلید را تغییر دهید</string>

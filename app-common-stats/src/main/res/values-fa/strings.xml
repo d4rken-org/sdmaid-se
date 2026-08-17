@@ -8,6 +8,25 @@
         <item quantity="one">مقدار %s مورد پردازش شده از زمانی که SD Maid را به دستگاه خود دعوت کرده‌اید.</item>
         <item quantity="other">مقدار %s مورد پردازش شده از زمانی که SD Maid را به دستگاه خود دعوت کرده‌اید.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">میهمانِ تو به مدت %d روز است.</item>
+        <item quantity="other">میهمانِ تو به مدت %d روز است.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">میهمانِ تو به مدت %d هفته است.</item>
+        <item quantity="other">میهمانِ تو به مدت %d هفته است.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">میهمانِ تو به مدت %d ماه است.</item>
+        <item quantity="other">میهمانِ تو به مدت %d ماه است.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">میهمانِ تو به مدت %d سال است.</item>
+        <item quantity="other">میهمانِ تو به مدت %d سال است.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">موفقیت جزئی</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_settings_desc">پیکربندی آمار، گزارش‌ها و نگهداری داده‌های SD Maid</string>

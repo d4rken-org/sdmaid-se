@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">یہ ایک الگ خریداری ہے: یہ آپ کی رکنیت کو منسوخ یا واپس نہیں کرتی۔ دونوں کے لیے ایک ہی Google اکاؤنٹ استعمال کریں۔</string>
     <string name="upgrade_screen_sub_still_renewing_title">رکنیت ابھی فعال ہے</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play رپورٹ کرتا ہے کہ آپ کی رکنیت ابھی تجدید کے لیے سیٹ ہے۔ ایک بار کی اپ گریڈ خریدنے کے لیے، پہلے Google Play میں رکنیت منسوخ کریں، پھر یہاں واپس آئیں۔\n\nابھی منسوخ کیا؟ Google Play کو ایک لمحہ دیں اور دوبارہ کوشش کریں۔ یہ بھی یقینی بنائیں کہ آپ ایک ہی Google اکاؤنٹ استعمال کر رہے ہیں۔</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play کے ساتھ آپ کی خریداریوں کو چیک نہیں کر سکے۔ براہ کرم ایک لمحے میں دوبارہ کوشش کریں۔</string>
+    <string name="upgrade_screen_pending_card_title">ادائیگی زیر التوا</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ابھی آپ کی ادائیگی پر کارعمل کر رہا ہے۔ ادائیگی کے بعد Pro خودکار طور پر ان لاک ہو جاتا ہے۔ کچھ ادائیگی کے طریقے کو وقت لگ سکتا ہے۔ آپ کو کچھ اور کرنے کی ضرورت نہیں ہے۔</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play نے ایک خریداری زیر التوا ادائیگی کے ساتھ ڈھونڈی ہے اور اب بھی اس پر کارعمل کر رہا ہے۔ ادائیگی کے بعد Pro خودکار طور پر ان لاک ہو جاتا ہے۔</string>
     <string name="upgrade_screen_restore_success_message">خریداری بحال کی گئی، آپ کی Pro اپ گریڈ فعال ہے۔</string>
     <string name="upgrade_screen_grace_title">آپ کی خریداری کی تصدیق کر رہے ہیں</string>
     <string name="upgrade_screen_grace_body_short">Pro ابھی فعال ہے۔ Google Play کے ذریعے آپ کی خریداری کی دوبارہ تصدیق کا انتظار کر رہے ہیں، تمام Pro خصوصیات اس دوران کھلی رہتی ہیں۔</string>

@@ -8,6 +8,25 @@
         <item quantity="one">%s στοιχείο έχει επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
         <item quantity="other">%s στοιχεία έχουν επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Ο επισκέπτης σου για %d ημέρα.</item>
+        <item quantity="other">Ο επισκέπτης σου για %d ημέρες.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Ο επισκέπτης σου για %d εβδομάδα.</item>
+        <item quantity="other">Ο επισκέπτης σου για %d εβδομάδες.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Ο επισκέπτης σου για %d μήνα.</item>
+        <item quantity="other">Ο επισκέπτης σου για %d μήνες.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Ο επισκέπτης σου για %d χρόνο.</item>
+        <item quantity="other">Ο επισκέπτης σου για %d χρόνια.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Μερική επιτυχία</string>
     <string name="stats_report_status_partial_failure">Αποτυχία</string>
     <string name="stats_settings_desc">Διαμορφώστε τα στατιστικά στοιχεία, τις αναφορές και τη διατήρηση δεδομένων του SD Maid.</string>

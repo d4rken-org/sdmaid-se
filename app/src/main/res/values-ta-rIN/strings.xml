@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">எதுவும் விடுவிக்கப்படவில்லை</string>
     <string name="dashboard_hero_nothing_freed_caption">சுத்தம் முடிந்தது, ஆனால் கண்டுபிடிக்கப்பட்ட எந்தத் தரவும் அகற்றப்பட முடியவில்லை.</string>
     <string name="dashboard_hero_nothing_freed_hint">சில தரவு அணுக வசதி அல்லது வேர் போன்ற கூடுதல் அனுமதி மூலம் மட்டுமே அகற்றப்பட முடியும்.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s கண்டறியப்பட்டது</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d உருப்படிக்கு SD Maid Pro தேவை</item>
+        <item quantity="other">%d உருப்படிகளுக்கு SD Maid Pro தேவை</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro மூலம் திறக்க தட்டவும்.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro மூலம் இன்னும் அதிகம் காலி செய்யலாம்</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro தேவை</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">ஸ்கேன் செய்யப்பட்டது %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">விடுவிக்கப்பட்டது %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">டாஷ்போர்டின் செயல் பொத்தானை ஒரு முறை தட்டி அனைத்து கருவிகளுக்கும் ஸ்கேன் மற்றும் நீக்குதலை தொடங்கவும், கூடுதல் உறுதிப்படுத்தல்கள் தேவையில்லை.</string>
     <string name="dashboard_settings_oneclick_tools_title">ஒரு-தட்டல் கருவிகள்</string>
     <string name="dashboard_settings_oneclick_tools_desc">ஒரு-தட்டல் செயல்பாடுகளில் எந்த கருவிகள் சேர்க்கப்பட வேண்டும்?</string>
+    <string name="dashboard_settings_summary_autoshow_title">சுருக்கத்தை தானாகக் காட்டு</string>
+    <string name="dashboard_settings_summary_autoshow_summary">டாஷ்போர்டு செயல் பொத்தானைப் பயன்படுத்திய பிறகு முடிவுகளின் சுருக்கத்தை தானாகத் திற. முடக்கப்பட்டால், அதைத் திறக்க கீழ்ப் பட்டியில் உள்ள அளவு சிப்பைத் தட்டவும்.</string>
     <string name="dashboard_card_config_title">டாஷ்போர்டு கார்டுகள்</string>
     <string name="dashboard_card_config_desc">எந்த கார்டுகள் காட்டப்படும் மற்றும் அவற்றின் வரிசையை அமைக்கவும்</string>
     <string name="dashboard_card_config_header_title">மறுவரிசைப்படுத்த இழுக்கவும், காட்ட/மறைக்க மாற்றவும்</string>

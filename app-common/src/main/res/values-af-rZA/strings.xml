@@ -32,6 +32,8 @@
     <string name="general_set_up_action">Stel op</string>
     <string name="general_unavailable_label">Onbeskikbaar</string>
     <string name="general_edit_action">Redigeer</string>
+    <string name="general_edit_x_action">Wysig %s</string>
+    <string name="general_add_action">Voeg by</string>
     <string name="general_na_label">N/B</string>
     <string name="general_empty_label">Leeg</string>
     <string name="general_new_badge_label">Nuut</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d items geskrap.</item>
     </plurals>
     <string name="general_remove_action">Verwyder</string>
+    <string name="general_remove_x_action">Verwyder %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Een item is verwyder</item>
         <item quantity="other">%d items is verwyder</item>

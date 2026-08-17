@@ -26,6 +26,23 @@
     <string name="dashboard_hero_nothing_freed_headline">Nekas netika atbrīvots</string>
     <string name="dashboard_hero_nothing_freed_caption">Tīrīšana pabeigta, taču nevienu no atrastajiem datiem nevarēja noņemt.</string>
     <string name="dashboard_hero_nothing_freed_hint">Dažus datus var noņemt tikai ar papildu piekļuvi, piemēram, piekļuves pakalpojumu vai root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Atrasts %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="zero">%d vienumiem nepieciešams SD Maid Pro</item>
+        <item quantity="one">%d vienumam nepieciešams SD Maid Pro</item>
+        <item quantity="other">%d vienumiem nepieciešams SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Pieskaries, lai atbloķētu ar SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Ar SD Maid Pro var atbrīvot vairāk vietas</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Nepieciešams SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenēts %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Atbrīvots %1$s</string>
@@ -36,6 +53,8 @@
     <string name="dashboard_settings_oneclick_summary">Sākt skenēšanu un dzēšanu visiem rīkiem, pieskaroties informācijas paneļa darbības pogai, bez papildu apstiprinājumiem.</string>
     <string name="dashboard_settings_oneclick_tools_title">Viena pieskāriena rīki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kurus rīkus iekļaut viena pieskāriena darbībās?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Rādīt kopsavilkumu automātiski</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Automātiski atvērt rezultātu kopsavilkumu pēc informācijas paneļa darbības pogas izmantošanas. Ja izslēgts, pieskaries izmēra žetonam apakšējā joslā, lai to atvērtu.</string>
     <string name="dashboard_card_config_title">Informācijas paneļa kartes</string>
     <string name="dashboard_card_config_desc">Konfigurēt, kuras kartes tiek rādītas un to kārtību</string>
     <string name="dashboard_card_config_header_title">Velciet, lai pārkārtotu, pārslēdziet, lai rādītu/slēptu</string>

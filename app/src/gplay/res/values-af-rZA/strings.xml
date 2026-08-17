@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dit is \'n aparte aankoop: dit kanselleer of gee nie terugbetaling vir jou inskrywing nie. Gebruik dieselfde Google-rekening vir beide.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Inskrywing nog aktief</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play rapporteer dat jou inskrywing nog steeds ingestel is om te vernuwe. Om die eenmalige opgradering te koop, kanselleer eers die inskrywing in Google Play, kom dan hierheen terug.\n\nNet gekanselleer? Gee Google Play \'n oomblik en probeer weer. Maak ook seker dat jy dieselfde Google-rekening gebruik.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Kon nie jou aankope by Google Play nagaan nie. Probeer asseblief weer oor \'n oomblik.</string>
+    <string name="upgrade_screen_pending_card_title">Betaling hangend</string>
+    <string name="upgrade_screen_pending_card_body">Google Play verwerk steeds jou betaling. Pro ontsluit outomaties sodra die betaling deurgaan. Sommige betaalmetodes kan \'n rukkie neem. Jy hoef niks anders te doen nie.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play het \'n aankoop met \'n hangende betaling gevind en verwerk dit steeds. Pro ontsluit outomaties sodra die betaling deurgaan.</string>
     <string name="upgrade_screen_restore_success_message">Aankoop herstel, jou Pro-opgradering is aktief.</string>
     <string name="upgrade_screen_grace_title">Bevestig jou aankoop</string>
     <string name="upgrade_screen_grace_body_short">Pro is nog aktief. Wag vir Google Play om jou aankoop te herbevestig, alle Pro-funksies bly ondertussen ontsluit.</string>

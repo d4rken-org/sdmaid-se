@@ -32,6 +32,8 @@
     <string name="general_set_up_action">კონფიგურაცია</string>
     <string name="general_unavailable_label">მიუწვდომელი</string>
     <string name="general_edit_action">რედაქტირება</string>
+    <string name="general_edit_x_action">%s-ის რედაქტირება</string>
+    <string name="general_add_action">დამატება</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">ცარიელი</string>
     <string name="general_new_badge_label">ახალი</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d ელემენტი წაიშალა.</item>
     </plurals>
     <string name="general_remove_action">ამოშლა</string>
+    <string name="general_remove_x_action">%s-ის მოცილება</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ერთი ელემენტი მოიშორა</item>
         <item quantity="other">%d ელემენტი მოიშორა</item>

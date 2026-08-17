@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dossiers</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si aucun type n’est choisi, tous les types seront comparés.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Critères du chemin</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Le chemin de la cible doit correspondre à au moins une entrée (p. ex. « Downloads/oldapks/game- »). Touchez et maintenez les entrées pour obtenir plus d’options.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Le chemin cible doit correspondre à au moins une entrée (par ex. « Downloads/oldapks/game- »). Appuie sur une entrée pour la modifier, ou sur son icône pour changer la manière dont elle est comparée.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Critères du nom</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Le nom de la cible doit comprendre au moins un des mots-clés (p. ex. « -receipt »). Touchez et maintenez les entrées pour obtenir plus d’options.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Le nom cible doit contenir au moins un des mots-clés (par ex. « -receipt »). Appuie sur une entrée pour la modifier, ou sur son icône pour changer la manière dont elle est comparée.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Le résultat sera exclu si le chemin correspond à une entrée (p. ex. « DCIM »). Touchez et maintenez les entrées pour obtenir plus d’options.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Le résultat sera exclu si le chemin correspond à une entrée (par ex. « DCIM »). Appuie sur une entrée pour la modifier, ou sur son icône pour changer la manière dont elle est comparée.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Ajouter une entrée de chemin</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Ajouter une entrée de nom</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Ajouter une entrée d\'exclusion</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Nouvelle entrée</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Mot-clé</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Cette entrée existe déjà.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d espace</item>
+        <item quantity="other">%d espaces</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Déjà utilisé par une autre entrée</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Changer le mode de correspondance pour %1$s, actuellement : %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode de comparaison du chemin</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Le chemin commence par un mot-clé</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Le chemin comprend un mot-clé</string>

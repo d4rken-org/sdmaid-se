@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">នេះគឺជាការទិញដាច់ដោយឡែក៖ វាមិនលុបចោល ឬប្តូរប្រាក់ឱ្យលក់ឡើងវិញរបស់អ្នកទេ។ ប្រើគណនី Google ដូចគ្នាសម្រាប់ទាំងពីរ។</string>
     <string name="upgrade_screen_sub_still_renewing_title">ការលក់ឡើងវិញនៅតែសកម្ម</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play រាយការណ៍ថាការលក់ឡើងវិញរបស់អ្នកនៅតែកំណត់ដើម្បីឱ្យប្តូរ។ ដើម្បីទិញការលើកប្រទឹងម្តង សូមលុបចោលការលក់ឡើងវិញក្នុង Google Play ជាមុនសិន ហើយបន្ទាប់មកត្រឡប់មកទីនេះវិញ។\n\nទើសលុបចោលវាដែរ? ឱ្យពេលវេលាដល់ Google Play ហើយព្យាយាមម្តងទៀត។ ក៏ប្រាកដថាអ្នកកំពុងប្រើប្រាស់គណនី Google ដូចគ្នា។</string>
+    <string name="upgrade_screen_purchase_check_failed_message">មិនអាចពិនិត្យមើលការទិញរបស់អ្នកជាមួយ Google Play បានទេ។ សូមព្យាយាមម្តងទៀតក្នុងពេលបន្តិចទៀត។</string>
+    <string name="upgrade_screen_pending_card_title">ការទូទាត់កំពុងរង់ចាំ</string>
+    <string name="upgrade_screen_pending_card_body">Google Play កំពុងដំណើរការការទូទាត់របស់អ្នក។ កំណែ Pro នឹងបើកដោយស្វ័យប្រវត្តិនៅពេលការទូទាត់បញ្ចប់។ វិធីទូទាត់មួយចំនួនអាចចំណាយពេលបន្តិច។ អ្នកមិនចាំបាច់ធ្វើអ្វីផ្សេងទៀតទេ។</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play បានរកឃើញការទិញដែលមានការទូទាត់កំពុងរង់ចាំ ហើយកំពុងដំណើរការវានៅឡើយ។ កំណែ Pro នឹងបើកដោយស្វ័យប្រវត្តិនៅពេលការទូទាត់បញ្ចប់។</string>
     <string name="upgrade_screen_restore_success_message">ការទិញត្រូវបានស្ដារ ការលើកប្រទឹង Pro របស់អ្នកកំពុងដំណើរការ។</string>
     <string name="upgrade_screen_grace_title">ការបញ្ជាក់ការទិញរបស់អ្នក</string>
     <string name="upgrade_screen_grace_body_short">Pro នៅតែសកម្ម។ រង់ចាំដល់ Google Play ដើម្បីបញ្ជាក់ឡើងវិងក្នុងការទិញរបស់អ្នក មុខងារ Pro ទាំងអស់នៅតែដំណើរការ ក្នុងរយៈពេលនេះ។</string>

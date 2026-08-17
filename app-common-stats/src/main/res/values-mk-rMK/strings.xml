@@ -8,6 +8,25 @@
         <item quantity="one">%s ставка обработена откако го поканивте SD Maid на вашиот уред.</item>
         <item quantity="other">%s ставки обработени откако го поканивте SD Maid на вашиот уред.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Твој гостин за %d ден.</item>
+        <item quantity="other">Твој гостин за %d денови.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Твој гостин за %d недела.</item>
+        <item quantity="other">Твој гостин за %d недели.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Твој гостин за %d месец.</item>
+        <item quantity="other">Твој гостин за %d месеци.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Твој гостин за %d година.</item>
+        <item quantity="other">Твој гостин за %d години.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Делумен успех</string>
     <string name="stats_report_status_partial_failure">Неуспех</string>
     <string name="stats_settings_desc">Конфигурирајте ги статистиките, извештаите и задржувањето на податоци на SD Maid.</string>

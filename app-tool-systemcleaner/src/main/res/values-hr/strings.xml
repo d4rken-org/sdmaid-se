@@ -75,11 +75,24 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mape</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ako nije odabrana nijedna vrsta, sve će se vrste upariti.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteriji putanje</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Ciljana putanja mora odgovarati barem jednom unosu (npr. \"Downloads/oldapks/game-\"). Dugo pritisnite unose za više opcija.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Ciljana putanja mora odgovarati najmanje jednoj stavci (npr. \"Downloads/oldapks/game-\"). Dodirnite stavku da je uredite ili njezinu ikonu da promijenite kako se podudara.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Kriteriji naziva</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Ciljani naziv mora sadržavati barem jednu od ključnih riječi (npr. \"-potvrda\"). Dugo pritisnite unose za više opcija.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Ciljano ime mora sadržavati barem jednu od ključnih riječi (npr. \"-receipt\"). Dodirnite stavku da je uredite ili njezinu ikonu da promijenite kako se podudara.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Iznimke</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultat će biti izuzet ako putanja odgovara bilo kojem unosu (npr. \"DCIM\"). Dugo pritisnite unose za više opcija.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Rezultat će biti isključen ako putanja odgovara bilo kojoj stavci (npr. \"DCIM\"). Dodirnite stavku da je uredite ili njezinu ikonu da promijenite kako se podudara.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Dodaj stavku putanje</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Dodaj stavku imena</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Dodaj stavku isključenja</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Nova stavka</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Ključna riječ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Ova stavka već postoji.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d razmak</item>
+        <item quantity="few">%d razmaka</item>
+        <item quantity="other">%d razmaka</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Već se koristi od strane druge stavke</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Promijeni način podudaranja za %1$s, trenutno: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Način usporedbe putanji</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Putanja započinje s ključnom riječi</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Putanja sadrži ključnu riječ</string>

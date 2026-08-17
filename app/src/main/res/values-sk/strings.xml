@@ -28,6 +28,24 @@
     <string name="dashboard_hero_nothing_freed_headline">Neuvoľnilo sa nič</string>
     <string name="dashboard_hero_nothing_freed_caption">Čistenie sa skončilo, ale žiadne z nájdených údajov sa nepodarilo odstrániť.</string>
     <string name="dashboard_hero_nothing_freed_hint">Niektoré údaje sa dajú odstrániť len s dodatočným prístupom, ako je služba prístupnosti alebo root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Nájdené: %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d položka potrebuje SD Maid Pro</item>
+        <item quantity="few">%d položky potrebujú SD Maid Pro</item>
+        <item quantity="many">%d položky potrebuje SD Maid Pro</item>
+        <item quantity="other">%d položiek potrebuje SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Klepnutím odomkni pomocou SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">S SD Maid Pro môžeš uvoľniť viac</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Vyžaduje SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Naskenované %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Uvoľnené %1$s</string>
@@ -38,6 +56,8 @@
     <string name="dashboard_settings_oneclick_summary">Spustite skenovanie a odstraňovanie všetkých nástrojov klepnutím na tlačidlo akcie na ovládacom paneli, žiadne ďalšie potvrdenia.</string>
     <string name="dashboard_settings_oneclick_tools_title">Nástroje na jedno klepnutie</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ktoré nástroje by mali byť zahrnuté do operácií jedným klepnutím?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Zobraziť súhrn automaticky</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Po použití akčného tlačidla na paneli sa automaticky otvorí súhrn výsledkov. Keď je táto možnosť vypnutá, otvor ho klepnutím na štítok veľkosti v spodnej lište.</string>
     <string name="dashboard_card_config_title">Karty ovládacieho panela</string>
     <string name="dashboard_card_config_desc">Nakonfigurujte, ktoré karty sa zobrazujú a ich poradie</string>
     <string name="dashboard_card_config_header_title">Ťahaním zmeníte poradie, prepínačom zobrazíte/skryjete</string>

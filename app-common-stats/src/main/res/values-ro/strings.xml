@@ -10,6 +10,29 @@
         <item quantity="few">%s articole procesate de când ați invitat SD Maid pe dispozitiv.</item>
         <item quantity="other">%s articole procesate de când ați invitat SD Maid pe dispozitiv.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Oaspetele tău de %d zi.</item>
+        <item quantity="few">Oaspetele tău de %d zile.</item>
+        <item quantity="other">Oaspetele tău de %d de zile.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Oaspetele tău de %d săptămână.</item>
+        <item quantity="few">Oaspetele tău de %d săptămâni.</item>
+        <item quantity="other">Oaspetele tău de %d de săptămâni.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Oaspetele tău de %d lună.</item>
+        <item quantity="few">Oaspetele tău de %d luni.</item>
+        <item quantity="other">Oaspetele tău de %d de luni.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Oaspetele tău de %d an.</item>
+        <item quantity="few">Oaspetele tău de %d ani.</item>
+        <item quantity="other">Oaspetele tău de %d de ani.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Succes parțial</string>
     <string name="stats_report_status_partial_failure">Eșec</string>
     <string name="stats_settings_desc">Configurați statisticile, rapoartele și păstrarea datelor SD Maid.</string>

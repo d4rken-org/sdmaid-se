@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">کوئی جگہ خالی نہیں ہوئی</string>
     <string name="dashboard_hero_nothing_freed_caption">صفائی مکمل ہو گئی، لیکن کوئی بھی ملنے والا ڈیٹا ہٹایا نہیں جا سکا۔</string>
     <string name="dashboard_hero_nothing_freed_hint">کچھ ڈیٹا صرف اضافی رسائی سے ہی ہٹایا جا سکتا ہے، جیسے رسائی کی سہولت یا روٹ۔</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s ملا ہوا</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d چیز کو SD Maid Pro کی ضرورت ہے</item>
+        <item quantity="other">%d چیزوں کو SD Maid Pro کی ضرورت ہے</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro سے ان لاک کرنے کے لیے ٹیپ کریں۔</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro کے ساتھ مزید خالی جگہ بن سکتی ہے</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro کی ضرورت ہے</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s اسکین کیا گیا</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s خالی کیا گیا</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">ڈیش بورڈ کے ایکشن بٹن پر ایک ٹیپ سے تمام ٹولز کے لیے اسکین اور ڈیلیٹ شروع کریں، کوئی اضافی تصدیق نہیں۔</string>
     <string name="dashboard_settings_oneclick_tools_title">ون ٹیپ ٹولز</string>
     <string name="dashboard_settings_oneclick_tools_desc">ون ٹیپ آپریشنز میں کون سے ٹولز شامل ہونے چاہیے؟</string>
+    <string name="dashboard_settings_summary_autoshow_title">خلاصہ خودکار طور پر دکھائیں</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ڈیش بورڈ کے ایکشن بٹن کو استعمال کرنے کے بعد نتائج کا خلاصہ خودکار طور پر کھولیں۔ جب غیر فعال ہو، تو اسے کھولنے کے لیے نچلی بار میں سائز کی چپ کو ٹیپ کریں۔</string>
     <string name="dashboard_card_config_title">ڈیش بورڈ کارڈز</string>
     <string name="dashboard_card_config_desc">دکھائے جانے والے کارڈز اور ان کی ترتیب مقرر کریں</string>
     <string name="dashboard_card_config_header_title">ترتیب بدلنے کے لیے گھسیٹیں، دکھانے/چھپانے کے لیے ٹوگل کریں</string>

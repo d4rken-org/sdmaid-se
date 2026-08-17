@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Aquesta és una compra separada: no cancel·la ni reemborsa la vostra subscripció. Utilitzeu el mateix compte de Google per a ambdues.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Subscripció encara activa</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play informa que la vostra subscripció segueix configurada per renovar-se. Per comprar la millora d\'una sola vegada, cancel·leu primer la subscripció a Google Play i després torneu aquí.\n\nL\'acabeu de cancel·lar? Doneu a Google Play un moment i torneu a intentar-ho. Assegureu-vos també que utilitzeu el mateix compte de Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">No s\'ha pogut comprovar les teves compres a Google Play. Prova de nou en un moment.</string>
+    <string name="upgrade_screen_pending_card_title">Pagament pendent</string>
+    <string name="upgrade_screen_pending_card_body">Google Play està processant el teu pagament. Pro es desbloquejarà automàticament una vegada el pagament es dugui a terme. Alguns mètodes de pagament poden trigar més temps. No cal fer res més.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ha trobat una compra amb un pagament pendent i l\'està processant. Pro es desbloquejarà automàticament una vegada el pagament es dugui a terme.</string>
     <string name="upgrade_screen_restore_success_message">Compra restaurada, la vostra millora Pro està activa.</string>
     <string name="upgrade_screen_grace_title">Confirmació de la vostra compra</string>
     <string name="upgrade_screen_grace_body_short">Pro segueix actiu. S\'està esperant que Google Play torni a confirmar la vostra compra, totes les funcions Pro romanen desbloquejades mentrestant.</string>

@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">මෙය වෙනම ක්‍රයක්යයි: එය ඔබගේ දායකත්වය අවලංඝනය හෝ ප්‍රතිසිය නොකරයි. දෙකටම එකම Google ගිණුම භාවිතා කරන්න.</string>
     <string name="upgrade_screen_sub_still_renewing_title">දායකත්වය තවමත් ක්‍රියාකාරී ය</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play වාර්තා ගනුවේ ඔබගේ දායකත්වය තවමත් පුනරුත්ථාපනයට සකසා ඇති බවයි. එකවරක් උසස්කරණය ගැනීමට, පළමුව Google Play හිදී දායකත්වය අවලංඝනය කරන්න, ඉන්පසු මෙතැනට ආපසු පැමිණෙන්න.\n\nදැන් අවලංඝනය කර ඇතිද? Google Play ට ටිකක් බලා ගන්න සහ නැවතත් උත්සාහ කරන්න. එසේම ඔබ එකම Google ගිණුම භාවිතා කරන්නේ ඇතැයි තහවුරු කරන්න.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play සමඟ ඔබගේ මිලදී ගැනීම් පරීක්ෂා කළ නොහැකි විය. කරුණාකර මොහොතකින් නැවත උත්සාහ කරන්න.</string>
+    <string name="upgrade_screen_pending_card_title">ගෙවීම බලාපොරොත්තුවෙන්</string>
+    <string name="upgrade_screen_pending_card_body">Google Play තවමත් ඔබගේ ගෙවීම සකසමින් සිටී. ගෙවීම සම්පූර්ණ වූ පසු Pro ස්වයංක්‍රීයව අගුළු හැරේ. සමහර ගෙවීම් ක්‍රම සඳහා යම් කාලයක් ගත විය හැක. ඔබ කළ යුතු වෙනත් කිසිවක් නැත.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play බලාපොරොත්තු ගෙවීමක් සහිත මිලදී ගැනීමක් සොයාගෙන එය තවමත් සකසමින් සිටී. ගෙවීම සම්පූර්ණ වූ පසු Pro ස්වයංක්‍රීයව අගුළු හැරේ.</string>
     <string name="upgrade_screen_restore_success_message">ක්‍රයක් ප්‍රතිස්ථාපනය වුණි, ඔබගේ Pro උසස්කරණය සක්‍රිය ය.</string>
     <string name="upgrade_screen_grace_title">ඔබගේ ක්‍රයක් තහවුරු කරමින්</string>
     <string name="upgrade_screen_grace_body_short">Pro තවමත් ක්‍රියාකාරී ය. ඔබගේ ක්‍රයක් නැවතත් තහවුරු කිරීමට Google Play බලා ගනිමින්, සියලුම Pro ලක්ෂණ මධ්‍ය කාලයේ අගුලුවිරුද්ධ ඉතිරිව ඇත.</string>

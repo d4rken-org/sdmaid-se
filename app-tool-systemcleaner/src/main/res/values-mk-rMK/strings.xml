@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Папки</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Ако не е избран тип, тогаш сите типови ќе совпаднат.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Критериуми за патека</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Целната патека мора да совпадне со барем еден запис (пр. \"Downloads/oldapks/game-\"). Долго притиснете записи за повеќе опции.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Целната патека треба да одговара на најмалку еден запис (на пр. „Downloads/oldapks/game-“). Допри запис за да го уредиш, или неговата икона за да го промениш начинот на совпаѓање.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Критериуми за име</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Целното име мора да содржи барем еден од клучните зборови (пр. \"- receipt\"). Долго притиснете записи за повеќе опции.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Целното име мора да содржи барем еден од клучните зборови (на пр. „-receipt“). Допри запис за да го уредиш, или неговата икона за да го промениш начинот на совпаѓање.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Исклучоци</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Резултатот ќе биде исклучен ако патеката совпадне со било кој запис (пр. \"DCIM\"). Долго притиснете записи за повеќе опции.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Резултатот ќе биде исклучен ако патеката одговара на кој било запис (на пр. „DCIM“). Допри запис за да го уредиш, или неговата икона за да го промениш начинот на совпаѓање.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Додади запис за патека</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Додади запис за име</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Додади запис за исклучување</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Нов запис</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Клучен збор</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Овој запис веќе постои.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d празно место</item>
+        <item quantity="other">%d празни места</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Веќе се користи од друг запис</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Промени начин на совпаѓање за %1$s, тековно: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Режим на споредување на патека</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Патеката почнува со клучен збор</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Патеката содржи клучен збор</string>

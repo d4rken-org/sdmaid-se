@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">সিস্টেমটি এই অ্যাপের জন্য \"ক্যাশ সাফ করুন\" বোতামটি অক্ষম করেছে। ক্যাশে সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">সিস্টেম অ্যাপটি ভুলভাবে কনফিগার করা হয়েছে</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS এর নিরাপত্তা অ্যাপ (com.miui.securitycenter) তে ব্যবহারের পরিসংখ্যান অনুমতি (GET_USAGE_STATS) অনুপস্থিত। এটি অ্যাপের বিবরণে \"ডেটা সাফ করুন\" এবং অ্যাক্সেসিবিলিটির মাধ্যমে ক্যাশ সাফ করার মতো বৈশিষ্ট্যগুলিকে ভেঙে দেয়। সম্পূর্ণ কার্যকারিতা পুনরুদ্ধার করার অনুমতি দিন।</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">\"সিস্টেম UI\" সিস্টেম অ্যাপটি সম্প্রতি জোরপূর্বক বন্ধ করা হলেও এটি ঘটতে পারে, যেমন কোনো অ্যাপ ক্লিনিং টুল দ্বারা। এরপর Android আপনার ডিভাইস পুনরায় চালু না করা পর্যন্ত SD Maid-এর স্বয়ংক্রিয় বাটন চাপা ব্লক করে দেয়।</string>
     <string name="appcleaner_forcestop_before_clearing_label">সাফ করার আগে জোর করে বন্ধ করুন</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ক্যাশ সাফ করার আগে অ্যাপগুলি জোর করে বন্ধ করুন। এটি কিছু অ্যাপের ক্যাশ সাফ করতে সাহায্য করতে পারে, তবে অ্যাপগুলি ভুলভাবে কাজ করতে পারে এবং ম্যানুয়ালি পুনরায় চালু করতে হতে পারে।</string>
     <string name="appcleaner_progress_force_stopping">অ্যাপগুলি জোর করে বন্ধ করা হচ্ছে…</string>

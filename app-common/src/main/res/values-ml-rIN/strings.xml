@@ -32,6 +32,8 @@
     <string name="general_set_up_action">സജ്ജീകരിക്കുക</string>
     <string name="general_unavailable_label">ലഭ്യമല്ല</string>
     <string name="general_edit_action">തിരുത്തുക</string>
+    <string name="general_edit_x_action">%s എഡിറ്റ് ചെയ്യുക</string>
+    <string name="general_add_action">ചേർക്കുക</string>
     <string name="general_na_label">ലഭ്യമല്ല</string>
     <string name="general_empty_label">ശൂന്യം</string>
     <string name="general_new_badge_label">പുതിയത്</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d ഇനങ്ങൾ ഇല്ലാതാക്കി.</item>
     </plurals>
     <string name="general_remove_action">നീക്കം ചെയ്യുക</string>
+    <string name="general_remove_x_action">%s നീക്കം ചെയ്യുക</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">ഒരു ഇനം നീക്കം ചെയ്തു</item>
         <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്തു</item>

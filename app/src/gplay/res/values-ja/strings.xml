@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">これは別個の購入です。サブスクリプションの解約や返金は行われません。両方に同じGoogleアカウントを使用してください。</string>
     <string name="upgrade_screen_sub_still_renewing_title">サブスクリプションはまだ有効です</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Playによると、サブスクリプションはまだ更新するように設定されています。一度限りのアップグレードを購入するには、まず Google Play でサブスクリプションを解約してから、ここに戻ってきてください。\n\n解約したばかりですか? しばらく待ってからもう一度お試しください。また、同じGoogleアカウントを使用していることをご確認ください。</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Playで購入情報を確認できませんでした。しばらくしてからもう一度お試しください。</string>
+    <string name="upgrade_screen_pending_card_title">支払い処理中</string>
+    <string name="upgrade_screen_pending_card_body">Google Playが支払いを処理しています。支払いが完了すると、Proが自動的にアンロックされます。支払い方法によっては時間がかかる場合があります。それ以外に行うことはありません。</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Playが処理中の支払いを含む購入を検出しました。支払いが完了すると、Proが自動的にアンロックされます。</string>
     <string name="upgrade_screen_restore_success_message">購入が復元され、Proアップグレードが有効になりました。</string>
     <string name="upgrade_screen_grace_title">購入を確認しています</string>
     <string name="upgrade_screen_grace_body_short">Proはまだ有効です。Google Playが購入を再確認するのを待っている間も、Proの全機能のロックは解除されたままです。</string>

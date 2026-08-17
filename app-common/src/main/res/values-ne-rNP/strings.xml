@@ -32,6 +32,8 @@
     <string name="general_set_up_action">सेटअप गर्नुहोस्</string>
     <string name="general_unavailable_label">उपलब्ध छैन</string>
     <string name="general_edit_action">सम्पादन गर्नुहोस्</string>
+    <string name="general_edit_x_action">%s सम्पादन गर्नुहोस्</string>
+    <string name="general_add_action">थप्नुहोस्</string>
     <string name="general_na_label">उपलब्ध छैन</string>
     <string name="general_empty_label">खाली</string>
     <string name="general_new_badge_label">नयाँ</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d वस्तुहरू मेटाइए।</item>
     </plurals>
     <string name="general_remove_action">हटाउनुहोस्</string>
+    <string name="general_remove_x_action">%s हटाउनुहोस्</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">एक वस्तु हटाइयो</item>
         <item quantity="other">%d वस्तुहरू हटाइए</item>

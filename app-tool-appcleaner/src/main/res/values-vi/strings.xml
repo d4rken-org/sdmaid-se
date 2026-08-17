@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã tắt nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Ứng dụng hệ thống bị cấu hình sai</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Ứng dụng Bảo mật của HyperOS (com.miui.securitycenter) thiếu quyền Thống kê Sử dụng (GET_USAGE_STATS). Điều này làm hỏng các tính năng như \"Xóa Dữ liệu\" trong chi tiết ứng dụng và xóa bộ nhớ cache qua dịch vụ trợ năng. Cấp quyền để khôi phục đầy đủ chức năng.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Điều này cũng có thể xảy ra nếu ứng dụng hệ thống \"System UI\" bị buộc dừng gần đây, ví dụ: bởi một công cụ làm sạch ứng dụng. Sau đó, Android sẽ chặn các nhấn nút tự động của SD Maid cho đến khi bạn khởi động lại thiết bị.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Buộc dừng trước khi xóa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Buộc dừng ứng dụng trước khi xóa bộ nhớ đệm của chúng. Thao tác này có thể giúp xóa bộ nhớ đệm của một số ứng dụng, nhưng có thể khiến ứng dụng hoạt động không đúng cách và cần phải khởi động lại thủ công.</string>
     <string name="appcleaner_progress_force_stopping">Đang buộc dừng ứng dụng…</string>

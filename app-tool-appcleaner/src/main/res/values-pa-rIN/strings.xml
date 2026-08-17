@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ਸਿਸਟਮ ਨੇ ਇਸ ਐਪ ਲਈ \"ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਨੂੰ ਅਯੋਗ ਕਰ ਦਿੱਤਾ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">ਸਿਸਟਮ ਐਪ ਗਲਤ ਢੰਗ ਨਾਲ ਸੰਰਚਿਤ</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS ਦੀ ਸੁਰੱਖਿਆ ਐਪ (com.miui.securitycenter) ਵਿੱਚ ਵਰਤੋਂ ਅੰਕੜਿਆਂ ਦੀ ਅਨੁਮਤੀ (GET_USAGE_STATS) ਗੁੰਮ ਹੈ। ਇਹ ਐਪ ਵੇਰਵਿਆਂ ਵਿੱਚ \"ਡੇਟਾ ਸਾਫ਼ ਕਰੋ\" ਅਤੇ ਐਕਸੈਸਿਬਿਲਿਟੀ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਵਰਗੀਆਂ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਨੂੰ ਤੋੜਦਾ ਹੈ। ਪੂਰੀ ਕਾਰਜਕੁਸ਼ਲਤਾ ਨੂੰ ਬਹਾਲ ਕਰਨ ਲਈ ਅਨੁਮਤੀ ਦਿਓ।</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ਇਹ ਉਦੋਂ ਵੀ ਹੋ ਸਕਦਾ ਹੈ ਜੇ \"System UI\" ਸਿਸਟਮ ਐਪ ਹਾਲ ਹੀ ਵਿੱਚ ਫੋਰਸ-ਸਟਾਪ ਕੀਤਾ ਗਿਆ ਹੋਵੇ, ਜਿਵੇਂ ਕਿ ਕਿਸੇ ਐਪ ਕਲੀਨਿੰਗ ਟੂਲ ਦੁਆਰਾ। ਫਿਰ Android, ਡਿਵਾਈਸ ਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰਨ ਤੱਕ SD Maid ਦੇ ਆਟੋਮੇਟਿਡ ਬਟਨ ਪ੍ਰੈਸਾਂ ਨੂੰ ਬਲੌਕ ਕਰ ਦਿੰਦਾ ਹੈ।</string>
     <string name="appcleaner_forcestop_before_clearing_label">ਸਾਫ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਪਾਂ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ। ਇਹ ਕੁਝ ਐਪਾਂ ਦਾ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ, ਪਰ ਐਪਾਂ ਗਲਤ ਵਿਹਾਰ ਕਰ ਸਕਦੀਆਂ ਹਨ ਅਤੇ ਹੱਥੀਂ ਮੁੜ ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।</string>
     <string name="appcleaner_progress_force_stopping">ਐਪਾਂ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…</string>

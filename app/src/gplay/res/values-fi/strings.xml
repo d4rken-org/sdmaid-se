@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Tämä on erillinen osto: se ei peruuta tai palauta tilaustasi. Käytä samaa Google-tiliä molempiin.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Tilaus on edelleen aktiivinen</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play ilmoittaa, että tilauksesi on edelleen asetettu uusiutumaan. Osta kertaluonteinen päivitys peruuttamalla ensin tilaus Google Playssa ja palaa sitten tähän.\n\nJuuri peruuttanut? Anna Google Playlle hetki aikaa ja yritä uudelleen. Varmista myös, että käytät samaa Google-tiliä.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Ostoksiasi ei voitu tarkistaa Google Playsta. Yritä hetken kuluttua uudelleen.</string>
+    <string name="upgrade_screen_pending_card_title">Maksu käsittelyssä</string>
+    <string name="upgrade_screen_pending_card_body">Google Play käsittelee maksuasi vielä. Pro-versio avautuu automaattisesti, kun maksu on suoritettu. Joidenkin maksutapojen käsittely voi kestää hetken. Sinun ei tarvitse tehdä muuta.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play löysi oston, jonka maksu on käsittelyssä. Pro-versio avautuu automaattisesti, kun maksu on suoritettu.</string>
     <string name="upgrade_screen_restore_success_message">Osto palautettu, Pro-päivitys on aktiivinen.</string>
     <string name="upgrade_screen_grace_title">Vahvistetaan ostoasi</string>
     <string name="upgrade_screen_grace_body_short">Pro on edelleen aktiivinen. Odotetaan Google Playn vahvistusta ostokselle, kaikki Pro-ominaisuudet pysyvät käytettävissä sillä välin.</string>

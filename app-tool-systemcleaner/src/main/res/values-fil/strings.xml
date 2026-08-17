@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mga folder</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Kung walang napilingi na uri, lahat ng uri ay i-match.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Mga criteria ng path</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Ang target path ay kailangan tumugma sa kahit isang entry (hal. \"Downloads/oldapks/game-\"). Long press ang mga entry para sa higit pang opsyon.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Kailangang tumugma ang target path sa kahit isang entry (hal. \"Downloads/oldapks/game-\"). I-tap ang isang entry para i-edit ito, o ang icon nito para baguhin kung paano ito itutugma.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Mga criteria ng pangalan</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Ang target name ay dapat maglaman ng kahit isa sa mga keyword (hal. \"-receipt\"). Long press ang mga entry para sa higit pang opsyon.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Dapat naglalaman ang target na pangalan ng kahit isa sa mga keyword (hal. \"-receipt\"). I-tap ang isang entry para i-edit ito, o ang icon nito para baguhin kung paano ito itutugma.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Mga exclusion</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Ang resulta ay hindi isasama kung tumugma ang path sa anumang entry (hal. \"DCIM\"). Long press ang mga entry para sa higit pang opsyon.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Ibubukod ang resulta kung tumugma ang path sa kahit anong entry (hal. \"DCIM\"). I-tap ang isang entry para i-edit ito, o ang icon nito para baguhin kung paano ito itutugma.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Magdagdag ng path entry</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Magdagdag ng name entry</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Magdagdag ng exclusion entry</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Bagong entry</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Keyword</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Umiiral na ang entry na ito.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d na space</item>
+        <item quantity="other">%d na space</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Ginagamit na ng ibang entry</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Baguhin ang match mode para sa %1$s, kasalukuyan: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mode ng paghahambing ng path</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Path ay nagsisimula sa keyword</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Path ay naglalaman ng keyword</string>

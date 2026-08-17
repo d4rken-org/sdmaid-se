@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">သည်းတစ်ခုမျှ မလွှတ်မပေးခဲ့ပါ</string>
     <string name="dashboard_hero_nothing_freed_caption">ရှင်းအောင်းခြင်း ပြီးစီးခဲ့သည်၊ သို့သော် ရှာဖွေတွေ့ရှိခဲ့သည့် အချက်အလက်များ အားလုံးကို ဖယ်ရှားနိုင်မည်မဟုတ်ခဲ့သည်။</string>
     <string name="dashboard_hero_nothing_freed_hint">အချို့သော အချက်အလက်များကို အသုံးချခွင့် ဝန်ဆောင်မှု သို့မဟုတ် အဆင့်မြှင့်တင်ခြင်းကဲ့သို့ အပိုသုံးခွင့်နှင့်သာ ဖယ်ရှားနိုင်သည်။</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s တွေ့ရှိသည်</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">SD Maid Pro လိုအပ်သည့် အရာ %d ခု</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">SD Maid Pro ဖြင့် ဖွင့်ရန် တို့ပါ။</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Pro ဖြင့် နေရာလွတ် ပိုမိုရရှိနိုင်သည်</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Pro လိုအပ်သည်</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s စကင်းပြီးပါပြီ</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ကို လွတ်လပ်စေပြီးပါပြီ</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">ဒက်ရှ်ဘုတ်၏ လုပ်ဆောင်ချက်ခလုတ်ကို နှိပ်ခြင်းဖြင့် ကိရိယာအားလုံးအတွက် စကင်န်ဖတ်ခြင်းနှင့် ဖျက်ခြင်းတို့ကို စတင်ပါ၊ အပိုအတည်ပြုချက်မရှိပါ။</string>
     <string name="dashboard_settings_oneclick_tools_title">တစ်ခါနှိပ် ကိရိယာများ</string>
     <string name="dashboard_settings_oneclick_tools_desc">တစ်ခါနှိပ် လုပ်ဆောင်မှုများတွင် မည်သည့်ကိရိယာများကို ထည့်သွင်းရမည်နည်း?</string>
+    <string name="dashboard_settings_summary_autoshow_title">အကျဉ်းချုပ်ကို အလိုအလျောက်ပြပါ</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ဒက်ရှ်ဘုတ် လုပ်ဆောင်ချက်ခလုတ်ကို အသုံးပြုပြီးနောက် ရလဒ်အကျဉ်းချုပ်ကို အလိုအလျောက် ဖွင့်ပေးသည်။ ပိတ်ထားပါက အောက်ခြေဘားရှိ အရွယ်အစားချစ်ကို တို့၍ ဖွင့်နိုင်သည်။</string>
     <string name="dashboard_card_config_title">Dashboard ကဒ်များ</string>
     <string name="dashboard_card_config_desc">ညည့်ကဒ်များ နှင့် ၎င်းတို့ အစီအစဥ်ကို ရွေးချယ်ခြင်း။</string>
     <string name="dashboard_card_config_header_title">ခေါ်ဆောင်ခြင်းဖြင့် အစီအစဥ်ပြုလုပ်ခြင်း၊ အဖွင့်အပိတ်ကို ပြသခြင်း/ဝှက်ခြင်း</string>

@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">စနစ်က ဤအပ်ပ်အတွက် “cache ရှင်းလင်း” ခလုတ်ကို ပိတ်ထားသည်။ cache ရှင်းလင်းမှု မြန်ဆန်စေရန် ဤအပ်ပ်ကို ဖယ်ထုတ်ပါ။</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">စနစ်အပ်ပ် ဖွဲးစညးပုံမှားနေသည်</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS တာ် Security အပ်ပ် (com.miui.securitycenter) တွင် Usage Stats ခွင့်ပြုချက် (GET_USAGE_STATS) မရှိပါ။ ဤအချက်ကြောင့် အပ်ပ်အသေားစားမှ \"ဒေတာ ရှင်းလင်း\" ကဲ့သော လုပ်ဆောင်မှုများနှင့် accessibility မှတဆင့် cache ရှင်းလင်းခြင်းများ ပျက်ကွက်ဆောင်သည်။ ပြည့်ဝောသောလုပ်ဆောင်မှု ပြန်ရရှိရန် ခွင့်ပြုချက် ပေးပါ။</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">ဤသို့ဖြစ်ရခြင်းမှာ \"System UI\" စနစ်အက်ပ်ကို အက်ပ်သန့်ရှင်းရေးကိရိယာတစ်ခုခုက အနီးကပ် အတင်းရပ်တန့်ခဲ့ခြင်းကြောင့်လည်း ဖြစ်နိုင်သည်။ ထိုအခါ Android သည် စက်ပစ္စည်းကို ပြန်လည်စတင်သည်အထိ SD Maid ၏ အလိုအလျောက် ခလုတ်နှိပ်မှုများကို ပိတ်ဆို့ထားလိမ့်မည်။</string>
     <string name="appcleaner_forcestop_before_clearing_label">ရှင်းလင်းမတိုင်မီး အတင်းရပ်ခြင်း</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Cache ရှင်းလင်းမတိုင်မီး အပ်ပ်များကို အတင်းရပ်ပါ။ အချိစမ်း အပ်ပ်များတာ်အစာ် cache ရှင်းလင်းရာတွင် ကူညီနိုင်သော်လည်း သို့မဟုတ် အပ်ပ်များ ဆိုးသောဆိုးဆောင်ရွက်ပြီး လက်ဖြင့် ပြန်ဖွင့်ကျာနိုင်သည်။</string>
     <string name="appcleaner_progress_force_stopping">အပ်ပ်များကို အတင်းရပ်နေသည်…</string>

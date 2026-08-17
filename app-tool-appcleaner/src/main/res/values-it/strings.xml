@@ -85,6 +85,7 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcleaner_automation_error_locked_appcache_body">Il sistema ha disabilitato il pulsante \"Cancella cache\" per questa app. Escludila per velocizzare la cancellazione della cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">App di sistema mal configurata</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">L\'app Sicurezza di HyperOS (com.miui.securitycenter) manca del permesso Statistiche Utilizzo (GET_USAGE_STATS). Questo compromette funzioni come \"Cancella Dati\" nei dettagli dell\'app e cancellazione cache tramite accessibilità. Concedi il permesso per ripristinare la funzionalità completa.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Questo può accadere anche se l’app di sistema \"System UI\" è stata forzatamente arrestata di recente, ad esempio da uno strumento di pulizia app. Android blocca quindi le pressioni automatiche dei pulsanti di SD Maid finché non riavvii il dispositivo.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Arresto forzato prima della pulizia</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Arresta forzatamente le app prima di cancellare la cache. Può aiutare a cancellare la cache di alcune app, ma potrebbe causare malfunzionamenti e richiedere il riavvio manuale.</string>
     <string name="appcleaner_progress_force_stopping">Arresto forzato delle app…</string>

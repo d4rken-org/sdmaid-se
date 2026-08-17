@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Gidse</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">As geen tipe gekies is nie, dan sal alle tipes ooreengekom word.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Pad kriteria</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Die teiken pad moet ten minste een inskrywing ooreenkoms (bv. \"Downloads/oldapks/game-\"). Lang druk inskrywings vir meer opsies.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Die teikenpad moet met minstens een inskrywing ooreenstem (bv. \"Downloads/oldapks/game-\"). Tik op \'n inskrywing om dit te wysig, of op die ikoon daarvan om te verander hoe dit vergelyk word.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Naam kriteria</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Die teiken naam moet ten minste een van die sleutelwoorde bevat (bv. \"-receipt\"). Lang druk inskrywings vir meer opsies.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Die teikennaam moet minstens een van die sleutelwoorde bevat (bv. \"-receipt\"). Tik op \'n inskrywing om dit te wysig, of op die ikoon daarvan om te verander hoe dit vergelyk word.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Uitsluitings</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Die resultaat sal uitgesluit word as die pad enige inskrywing ooreenkoms (bv. \"DCIM\"). Lang druk inskrywings vir meer opsies.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Die resultaat sal uitgesluit word as die pad met enige inskrywing ooreenstem (bv. \"DCIM\"). Tik op \'n inskrywing om dit te wysig, of op die ikoon daarvan om te verander hoe dit vergelyk word.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Voeg padinskrywing by</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Voeg naaminskrywing by</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Voeg uitsluitinginskrywing by</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Nuwe inskrywing</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Sleutelwoord</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Hierdie inskrywing bestaan reeds.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d spasie</item>
+        <item quantity="other">%d spasies</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Al deur \'n ander item gebruik</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Wysig ooreenstemmingsmodus vir %1$s, tans: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Pad vergelyking modus</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Pad begin met sleutelwoord</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Pad bevat sleutelwoord</string>

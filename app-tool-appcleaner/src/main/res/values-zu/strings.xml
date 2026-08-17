@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Isistimu sikhubazile inkinobho ethi \"Sula i-cache\" yale nhlelo. Yikhiphe ukuze usheshise ukusula i-cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Uhlelo lwesistimu alulungisiwe kahle</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Uhlelo lwezokuphepha lwe-HyperOS (com.miui.securitycenter) luswele imvume Yezibalo Zokusetshenziswa (GET_USAGE_STATS). Lokhu kwehlisa izici ezifana no-\"Sula Idatha\" emininingwaneni yohlelo nokususa i-cache ngokufinyelela. Nikeza imvume ukubuyisela ukusebenza okuphelele.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Lokhu kungenzeka futhi uma i-app yesistimu ethi \"System UI\" isanda kuqiniswa ukuma (force-stop), isibonelo yithuluzi lokuhlanza ama-app. I-Android ibe seyivimba ukucindezela kwezinkinobho okuzenzakalelayo kwe-SD Maid kuze kube uqala kabusha idivayisi.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Misa ngamandla ngaphambi kokusula</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Misa ngamandla izinhlelo zokusebenza ngaphambi kokusula i-cache yazo. Kungasiza ukusula i-cache yezinye izinhlelo, kodwa kungabangela ukuthi izinhlelo zingasebenzi kahle futhi zidinge ukuqalwa kabusha ngezandla.</string>
     <string name="appcleaner_progress_force_stopping">Kumisa ngamandla izinhlelo zokusebenza…</string>

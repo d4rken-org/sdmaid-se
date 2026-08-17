@@ -8,6 +8,25 @@
         <item quantity="one">%s item verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</item>
         <item quantity="other">%s items verwerkt sinds je SD Maid op je apparaat hebt uitgenodigd.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Al %d dag je gast.</item>
+        <item quantity="other">Al %d dagen je gast.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Al %d week je gast.</item>
+        <item quantity="other">Al %d weken je gast.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Al %d maand je gast.</item>
+        <item quantity="other">Al %d maanden je gast.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Al %d jaar je gast.</item>
+        <item quantity="other">Al %d jaar je gast.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
     <string name="stats_report_status_partial_failure">Mislukt</string>
     <string name="stats_settings_desc">Configureer de statistieken, rapporten en gegevensretentie van SD Maid.</string>

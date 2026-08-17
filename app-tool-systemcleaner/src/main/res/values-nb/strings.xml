@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Mapper</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Dersom ingen type er valgt, vil alle typer sammenlignes.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriterier for bane</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Målbanen må samsvare med minst én oppføring (f.eks. \"Download/oldapks/spill-\"). Hold inne på oppføringer for flere alternativer.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Målstien må passe til minst en oppføring (f.eks. \"Nedlastinger/gamleapker/spill-\"). Trykk på en oppføring for å redigere den, eller på ikonet for å endre hvordan den sammenlignes.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Kriterier for navn</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Målnavnet må inneholde minst ett av søkeordene (f.eks. \"-kvittering\"). Hold inne på oppføringer for flere alternativer.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Målnavnet må inneholde minst ett av nøkkelordene (f.eks. \"-kvittering\"). Trykk på en oppføring for å redigere den, eller på ikonet for å endre hvordan den sammenlignes.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ekskludering</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet vil bli ekskludert hvis banen samsvarer med en oppføring (f.eks. \"DCIM\"). Hold inne på oppføringer for flere alternativer.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Resultatet vil bli utelukket hvis stien samsvarer med noen oppføring (f.eks. \"DCIM\"). Trykk på en oppføring for å redigere den, eller på ikonet for å endre hvordan den sammenlignes.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Legg til stioppføring</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Legg til navneoppføring</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Legg til eksklusjonsoppføring</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">Ny oppføring</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">Nøkkelord</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Denne oppføringen finnes allerede.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d mellomrom</item>
+        <item quantity="other">%d mellomrom</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Allerede brukt av en annen oppføring</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Endre sammeligingsmodus for %1$s, nåværende: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modus for banesammenligning</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Banen starter med nøkkelord</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Banen inneholder nøkkelord</string>

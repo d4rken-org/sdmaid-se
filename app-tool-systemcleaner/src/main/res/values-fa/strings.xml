@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">پوشه‌ها</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">اگر هیچ نوعی انتخاب نشود، همه نوع‌ها تطبیق داده می‌شوند.</string>
     <string name="systemcleaner_customfilter_editor_path_label">معیار مسیر</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">مسیر هدف باید حداقل با یک ورودی مطابقت داشته باشد (به عنوان مثال، \"Downloads/oldapks/game-\"). برای گزینه‌های بیشتر، ورودی‌ها را طولانی فشار دهید.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">مسیر هدف باید با حداقل یکی از موارد مطابقت داشته باشد (مثلاً «Downloads/oldapks/game-»). برای ویرایش یک مورد روی آن ضربه بزن، یا برای تغییر نحوهٔ تطبیق آن روی نمادش ضربه بزن.</string>
     <string name="systemcleaner_customfilter_editor_name_label">معیار اسم</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">نام هدف باید حداقل یکی از کلمات کلیدی را شامل شود (به عنوان مثال، \"-receipt\"). برای گزینه‌های بیشتر، ورودی‌ها را طولانی فشار دهید.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">نام هدف باید حداقل شامل یکی از کلیدواژه‌ها باشد (مثلاً «-receipt»). برای ویرایش یک مورد روی آن ضربه بزن، یا برای تغییر نحوهٔ تطبیق آن روی نمادش ضربه بزن.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">استثنائات</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">نتیجه مستثناء خواهد شد اگر مسیر با هر یک از ورودی‌ها مطابقت داشته باشد (مثلاً \"DCIM\"). برای گزینه‌های بیشتر، ورودی‌ها را طولانی فشار دهید.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">اگر مسیر با هریک از موارد مطابقت داشته باشد، نتیجه مستثنی خواهد شد (مثلاً «DCIM»). برای ویرایش یک مورد روی آن ضربه بزن، یا برای تغییر نحوهٔ تطبیق آن روی نمادش ضربه بزن.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">افزودن مورد مسیر</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">افزودن مورد نام</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">افزودن مورد استثنا</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">مورد جدید</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">کلیدواژه</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">این مورد از قبل وجود دارد.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d فاصله</item>
+        <item quantity="other">%d فاصله</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">قبلاً توسط مورد دیگری استفاده شده است</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">تغییر حالت تطبیق برای %1$s، در حال حاضر: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">حالت مقایسه مسیر</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">مسیر با کلید‌واژه شروع می‌شود</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">مسیر شامل کلید‌واژه</string>

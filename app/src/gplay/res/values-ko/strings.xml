@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">이것은 별도의 구매입니다: 구독을 취소하거나 환불하지 않습니다. 두 경우 모두 동일한 Google 계정을 사용하세요.</string>
     <string name="upgrade_screen_sub_still_renewing_title">구독이 여전히 활성 상태입니다</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play에서 귀하의 구독이 여전히 자동 갱신으로 설정되어 있다고 보고합니다. 일회 업그레이드를 구매하려면 먼저 Google Play에서 구독을 취소한 후 여기로 돌아오세요.\n\n방금 취소했습니까? Google Play가 처리될 때까지 잠시 기다렸다가 다시 시도하세요. 동일한 Google 계정을 사용하고 있는지도 확인하세요.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play에서 구매 내역을 확인할 수 없었어요. 잠시 후 다시 시도해 주세요.</string>
+    <string name="upgrade_screen_pending_card_title">결제 대기 중</string>
+    <string name="upgrade_screen_pending_card_body">Google Play에서 결제를 처리하는 중이에요. 결제가 완료되면 Pro가 자동으로 잠금 해제돼요. 일부 결제 수단은 시간이 걸릴 수 있어요. 따로 하실 일은 없어요.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play에서 결제 대기 중인 구매 내역을 발견했고, 아직 처리 중이에요. 결제가 완료되면 Pro가 자동으로 잠금 해제돼요.</string>
     <string name="upgrade_screen_restore_success_message">구매가 복구되었으며, Pro 업그레이드가 활성화되었습니다.</string>
     <string name="upgrade_screen_grace_title">구매 확인 중</string>
     <string name="upgrade_screen_grace_body_short">Pro가 여전히 활성입니다. Google Play가 구매를 다시 확인할 때까지 기다리는 중이며, 그동안 모든 Pro 기능은 잠금 해제 상태로 유지됩니다.</string>

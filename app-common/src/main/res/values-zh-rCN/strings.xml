@@ -32,6 +32,8 @@
     <string name="general_set_up_action">设置</string>
     <string name="general_unavailable_label">不可用</string>
     <string name="general_edit_action">编辑</string>
+    <string name="general_edit_x_action">编辑%s</string>
+    <string name="general_add_action">添加</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">空的</string>
     <string name="general_new_badge_label">新</string>
@@ -107,6 +109,7 @@
         <item quantity="other">已删除 %d 项</item>
     </plurals>
     <string name="general_remove_action">删除</string>
+    <string name="general_remove_x_action">移除%s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">已移除 %d 个项目</item>
     </plurals>

@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">هیچ شتێک ئازاد نەکرا</string>
     <string name="dashboard_hero_nothing_freed_caption">پاکخان تێکرا، بەڵام هیچ داتای دیاری کراو نەتوانرا لابرێت.</string>
     <string name="dashboard_hero_nothing_freed_hint">بەشێک لە داتا تەنها بە دەسترسی زیاتر دەتوانرێت لابرێت، وەک خزمەتی کاریگەری یان root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s دۆزرایەوە</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d بابەت پێویستی بە SD Maid Pro هەیە</item>
+        <item quantity="other">%d بابەت پێویستیان بە SD Maid Pro هەیە</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">بۆ کردنەوە بە SD Maid Pro کرتە بکە.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">زیاتر دەتوانرێت بە SD Maid Pro ئازاد بکرێت</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">پێویستی بە SD Maid Pro هەیە</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s بووە سکێن</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s خالی کرا</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">پشکنین و سڕینەوە بۆ هەموو ئامرازەکان بە کرتەکردن لەسەر دوگمەی کردار لە دیمەنی سەرەکیدا دەست پێ بکە، بەبێ پشتڕاستکردنەوەی زیادە.</string>
     <string name="dashboard_settings_oneclick_tools_title">ئامرازەکانی یەک-کرتە</string>
     <string name="dashboard_settings_oneclick_tools_desc">کام ئامرازەکان دەبێت لە کردارەکانی یەک-کرتەدا بگیرێنە بەر؟</string>
+    <string name="dashboard_settings_summary_autoshow_title">کورتە بە شێوەیەکی ئۆتۆماتیکی نیشان بدە</string>
+    <string name="dashboard_settings_summary_autoshow_summary">دوای بەکارهێنانی دوگمەی کردار لە داشبۆرد، کورتەی ئەنجامەکان بە شێوەیەکی ئۆتۆماتیکی بکەرەوە. کاتێک ناچالاک بێت، بۆ کردنەوەی کرتە لەسەر چیپی قەبارە لە شریتی خوارەوە بکە.</string>
     <string name="dashboard_card_config_title">کارتەکانی داشبۆرد</string>
     <string name="dashboard_card_config_desc">سازکارکردنی کام کارتەکان نیشان دەدرێن و ڕێزبەندییان</string>
     <string name="dashboard_card_config_header_title">بەڕبهێنان بۆ ڕێزکردنەوە، تۆگڵ بکە بۆ نیشاندان/شاردنەوە</string>

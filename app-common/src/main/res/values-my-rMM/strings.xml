@@ -32,6 +32,8 @@
     <string name="general_set_up_action">စနစ်ထည့်သွင်းပါ</string>
     <string name="general_unavailable_label">မရှိနိုင်သည်</string>
     <string name="general_edit_action">တည်းဖြတ်ပါ</string>
+    <string name="general_edit_x_action">%s ကို တည်းဖြတ်ပါ</string>
+    <string name="general_add_action">ထည့်ပါ</string>
     <string name="general_na_label">မရှိပါ</string>
     <string name="general_empty_label">ဗလာ</string>
     <string name="general_new_badge_label">အသစ်</string>
@@ -107,6 +109,7 @@
         <item quantity="other">%d ခုကို ဖျက်ပြီးပါပြီ။</item>
     </plurals>
     <string name="general_remove_action">ဖယ်ရှားပါ</string>
+    <string name="general_remove_x_action">%s ကို ဖယ်ရှားပါ</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="other">%d ခုကို ဖယ်ရှားပြီးပါပြီ</item>
     </plurals>

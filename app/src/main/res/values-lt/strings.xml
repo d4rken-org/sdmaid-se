@@ -28,6 +28,24 @@
     <string name="dashboard_hero_nothing_freed_headline">Nieko neatpalaiduota</string>
     <string name="dashboard_hero_nothing_freed_caption">Valymas baigtas, tačiau nepavyko pašalinti rastų duomenų.</string>
     <string name="dashboard_hero_nothing_freed_hint">Kai kurie duomenys gali būti pašalinti tik naudojant papildomą prieigą, pavyzdžiui, pritaikymo paslaugą arba root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Rasta %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d elementui reikia SD Maid Pro</item>
+        <item quantity="few">%d elementams reikia SD Maid Pro</item>
+        <item quantity="many">%d elemento reikia SD Maid Pro</item>
+        <item quantity="other">%d elementams reikia SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Palieski, kad atrakintum su SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Su SD Maid Pro galima atlaisvinti daugiau vietos</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Reikia SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Nuskaityta %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Atlaisvinta %1$s</string>
@@ -38,6 +56,8 @@
     <string name="dashboard_settings_oneclick_summary">Pradėkite visų įrankių nuskaitymą ir ištrynimą bakstelėdami prietaisų skydelio veiksmo mygtuką, jokių papildomų patvirtinimų.</string>
     <string name="dashboard_settings_oneclick_tools_title">Vieno bakstelėjimo įrankiai</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kurie įrankiai turėtų būti įtraukti į vieno bakstelėjimo operaciją?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Automatiškai rodyti suvestinę</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Automatiškai atverti rezultatų suvestinę paspaudus valdymo skydelio veiksmo mygtuką. Kai išjungta, suvestinę gali atverti palietęs dydžio žymą apatinėje juostoje.</string>
     <string name="dashboard_card_config_title">Prietaisų skydelio kortelės</string>
     <string name="dashboard_card_config_desc">Konfigūruokite, kurios kortelės rodomos ir jų tvarka</string>
     <string name="dashboard_card_config_header_title">Vilkite, jei norite keisti tvarką, nustatykite, jei norite rodyti/slėpti</string>

@@ -10,6 +10,29 @@
         <item quantity="one">%s vienums apstrādāts, kopš ielūdzat SD Maid savā ierīcē.</item>
         <item quantity="other">%s vienumi apstrādāti, kopš ielūdzat SD Maid savā ierīcē.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="zero">Tavs viesis %d dienas.</item>
+        <item quantity="one">Tavs viesis %d dienu.</item>
+        <item quantity="other">Tavs viesis %d dienas.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="zero">Tavs viesis %d nedēļas.</item>
+        <item quantity="one">Tavs viesis %d nedēļu.</item>
+        <item quantity="other">Tavs viesis %d nedēļas.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="zero">Tavs viesis %d mēnešus.</item>
+        <item quantity="one">Tavs viesis %d mēnesi.</item>
+        <item quantity="other">Tavs viesis %d mēnešus.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="zero">Tavs viesis %d gadus.</item>
+        <item quantity="one">Tavs viesis %d gadu.</item>
+        <item quantity="other">Tavs viesis %d gadus.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Daļēji veiksmīgi</string>
     <string name="stats_report_status_partial_failure">Neveiksmīgi</string>
     <string name="stats_settings_desc">Konfigurējiet SD Maid statistiku, atskaites un datu saglabāšanu.</string>

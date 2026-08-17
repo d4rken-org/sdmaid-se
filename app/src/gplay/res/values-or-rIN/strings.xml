@@ -55,6 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">ଏଟି ଏକ ଭିନ୍ନ କ୍ରୟ: ଏହା ଆପଣଙ୍କ ସବସ୍କ୍ରିପ୍ସନକୁ ବାତିଲ କିମ୍ବା ରିଫଣ୍ଡ କରେ ନାହିଁ। ଉଭୟ ପାଇଁ ସମାନ Google ଖାତା ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="upgrade_screen_sub_still_renewing_title">ସବସ୍କ୍ରିପ୍ସନ ଅବିରତ ସକ୍ରିୟ</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play ରିପୋର୍ଟ କରେ ଯେ ଆପଣଙ୍କ ସବସ୍କ୍ରିପ୍ସନ ଅବିରତ ନବୀକରଣ ପାଇଁ ସେଟ ଅଛି। ଏକଥର ଅପଗ୍ରେଡ କିଣିବାକୁ, ପ୍ରଥମେ Google Play ରେ ସବସ୍କ୍ରିପ୍ସନ ବାତିଲ କରନ୍ତୁ, ତାପରେ ଏଠାକୁ ଫେରି ଆସନ୍ତୁ।\n\nଏହା ବର୍ତ୍ତମାନ ବାତିଲ କଲେ? Google Play କୁ ଏକ ମୁହୂର୍ତ୍ତ ଦିଅନ୍ତୁ ଓ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ। ଆଶ୍ୱାସ ଦିଅନ୍ତୁ ଯେ ଆପଣ ସମାନ Google ଖାତା ବ୍ୟବହାର କରୁଛନ୍ତି।</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Google Play ସହିତ ଆପଣଙ୍କ କ୍ରୟଗୁଡ଼ିକ ଯାଞ୍ଚ କରିହେଲା ନାହିଁ। ଦୟାକରି କିଛି ସମୟ ପରେ ପୁଣି ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="upgrade_screen_pending_card_title">ଦେୟ ବକେୟା</string>
+    <string name="upgrade_screen_pending_card_body">Google Play ଏବେ ମଧ୍ୟ ଆପଣଙ୍କ ଦେୟ ପ୍ରକ୍ରିୟାକରଣ କରୁଛି। ଦେୟ ସଫଳ ହେଲେ Pro ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅନଲକ୍ ହେବ। କିଛି ଦେୟ ପଦ୍ଧତିରେ ସମୟ ଲାଗିପାରେ। ଆପଣଙ୍କୁ ଆଉ କିଛି କରିବାର ଆବଶ୍ୟକତା ନାହିଁ।</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play ଏକ ବକେୟା ଦେୟ ସହିତ କ୍ରୟ ପାଇଛି ଏବଂ ଏବେ ମଧ୍ୟ ଏହାକୁ ପ୍ରକ୍ରିୟାକରଣ କରୁଛି। ଦେୟ ସଫଳ ହେଲେ Pro ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅନଲକ୍ ହେବ।</string>
     <string name="upgrade_screen_restore_success_message">କ୍ରୟ ପୁନରୁଦ୍ଧାର ହୋଇଛି, ଆପଣଙ୍କ Pro ଅପଗ୍ରେଡ ସକ୍ରିୟ।</string>
     <string name="upgrade_screen_grace_title">ଆପଣଙ୍କ କ୍ରୟ ନିଶ୍ଚିତ କରାଯାଉଛି</string>
     <string name="upgrade_screen_grace_body_short">Pro ଅବିରତ ସକ୍ରିୟ। Google Play ଆପଣଙ୍କ କ୍ରୟ ପୁନର୍ନିଶ୍ଚିତ କରିବାକୁ ଅପେକ୍ଷା କରୁଛି, ସମସ୍ତ Pro ବୈଶିଷ୍ଟ୍ୟ ଏହି ସମୟରେ ଅନଲକ୍ଡ ରହେ।</string>

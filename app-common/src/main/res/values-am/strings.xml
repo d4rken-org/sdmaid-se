@@ -32,6 +32,8 @@
     <string name="general_set_up_action">አዋቅር</string>
     <string name="general_unavailable_label">ተግቢ ያልሆነ</string>
     <string name="general_edit_action">አርትዕ</string>
+    <string name="general_edit_x_action">%s አርትዕ</string>
+    <string name="general_add_action">ጨምር</string>
     <string name="general_na_label">የለም</string>
     <string name="general_empty_label">ባዶ</string>
     <string name="general_new_badge_label">አዲስ</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d ንጥሎች ተሰርዘዋል።</item>
     </plurals>
     <string name="general_remove_action">አስወግድ</string>
+    <string name="general_remove_x_action">%s አስወግድ</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">አንድ ንጥል ተወግዷል</item>
         <item quantity="other">%d ንጥሎች ተወግደዋል</item>

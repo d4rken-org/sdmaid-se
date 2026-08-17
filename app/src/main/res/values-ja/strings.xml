@@ -22,6 +22,21 @@
     <string name="dashboard_hero_nothing_freed_headline">何も削除されませんでした</string>
     <string name="dashboard_hero_nothing_freed_caption">クリーンアップが完了しましたが、見つかったデータを削除できませんでした。</string>
     <string name="dashboard_hero_nothing_freed_hint">一部のデータはアクセシビリティサービスやroot などの追加のアクセス権限でのみ削除できます。</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$sが見つかりました</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="other">%d件のアイテムにSD Maid Proが必要です</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">タップしてSD Maid Proでロックを解除。</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">SD Maid Proでさらに空き容量を増やせます</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">SD Maid Proが必要</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$sをスキャンしました</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s解放されました</string>
@@ -32,6 +47,8 @@
     <string name="dashboard_settings_oneclick_summary">ダッシュボードのアクションボタンをタップすると、追加の確認を行わずにすべてのツールのスキャンと削除を開始します。</string>
     <string name="dashboard_settings_oneclick_tools_title">ワンタップツール</string>
     <string name="dashboard_settings_oneclick_tools_desc">どのツールをワンタップ操作に含める必要がありますか?</string>
+    <string name="dashboard_settings_summary_autoshow_title">概要を自動的に表示</string>
+    <string name="dashboard_settings_summary_autoshow_summary">ダッシュボードのアクションボタンを使用した後、結果の概要を自動的に開きます。無効にすると、下部バーのサイズチップをタップして開けます。</string>
     <string name="dashboard_card_config_title">ダッシュボードカード</string>
     <string name="dashboard_card_config_desc">表示するカードとその順序を設定</string>
     <string name="dashboard_card_config_header_title">ドラッグで並べ替え、トグルで表示/非表示</string>

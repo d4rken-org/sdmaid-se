@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">시스템이 이 앱의 \"캐시 지우기\" 버튼을 비활성화했습니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">시스템 앱이 잘못 구성됨</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS의 보안 앱(com.miui.securitycenter)에 사용 통계 권한(GET_USAGE_STATS)이 없습니다. 이로 인해 앱 세부정보의 \"데이터 지우기\"와 접근성을 통한 캐시 지우기 등의 기능이 손상됩니다. 전체 기능을 복원하려면 권한을 부여하세요.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">이 문제는 \"System UI\" 시스템 앱이 앱 정리 도구 등에 의해 최근 강제 종료된 경우에도 발생할 수 있어요. 이 경우 기기를 재시작할 때까지 Android가 SD Maid의 자동 버튼 누르기를 차단해요.</string>
     <string name="appcleaner_forcestop_before_clearing_label">삭제 전 강제 종료</string>
     <string name="appcleaner_forcestop_before_clearing_summary">캐시를 삭제하기 전에 앱을 강제 종료합니다. 일부 앱의 캐시를 삭제하는 데 도움이 될 수 있지만, 앱이 오작동하거나 수동 재시작이 필요할 수 있습니다.</string>
     <string name="appcleaner_progress_force_stopping">앱 강제 종료 중…</string>

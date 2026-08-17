@@ -84,6 +84,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Systemet har inaktiverat knappen \"Rensa cache\" för denna app. Uteslut den för att påskynda cache-rensning.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systemapp felkonfigurerad</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS:s säkerhetsapp (com.miui.securitycenter) saknar behörighet för användningsstatistik (GET_USAGE_STATS). Detta förstör funktioner som \"Rensa data\" i appdetaljer och cache-rensning via tillgänglighet. Bevilja behörigheten för att återställa full funktionalitet.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Detta kan också inträffa om systemappen \"System UI\" tvångsstoppades nyligen, till exempel av ett apprenseringsverktyg. Android blockerar sedan SD Maids automatiska knapptryckningar tills du startar om enheten.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Tvångsstoppa före rensning</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tvångsstoppa appar innan du rensar deras cache. Det kan hjälpa till att rensa vissa appars cache, men kan göra att appar inte fungerar korrekt och kräver manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvångsstoppar appar…</string>

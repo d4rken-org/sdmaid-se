@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Δεν ελευθερώθηκε τίποτα</string>
     <string name="dashboard_hero_nothing_freed_caption">Ο καθαρισμός ολοκληρώθηκε, αλλά κανένα από τα δεδομένα που βρέθηκαν δεν μπορούσε να αφαιρεθεί.</string>
     <string name="dashboard_hero_nothing_freed_hint">Ορισμένα δεδομένα μπορούν να αφαιρεθούν μόνο με πρόσθετη πρόσβαση, όπως η υπηρεσία προσβασιμότητας ή root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">Βρέθηκαν %1$s</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">Το %d στοιχείο χρειάζεται το SD Maid Pro</item>
+        <item quantity="other">Τα %d στοιχεία χρειάζεται το SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Πατήστε για ξεκλείδωμα με το SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Μπορούν να ελευθερωθούν περισσότερα με το SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Χρειάζεται SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Σαρώθηκε %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Απελευθερώθηκαν %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Ξεκινήστε σάρωση και διαγραφή για όλα τα εργαλεία με ένα κλικ στο κουμπί δράσης του πίνακα εργαλείων, χωρίς επιπλέον επιβεβαιώσεις.</string>
     <string name="dashboard_settings_oneclick_tools_title">Εργαλεία με Ένα-Πάτημα</string>
     <string name="dashboard_settings_oneclick_tools_desc">Ποια εργαλεία πρέπει να περιλαμβάνονται στις λειτουργίες με ένα πάτημα;</string>
+    <string name="dashboard_settings_summary_autoshow_title">Αυτόματη εμφάνιση σύνοψης</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Αυτόματη εμφάνιση της σύνοψης αποτελεσμάτων μετά τη χρήση του κουμπιού ενέργειας στον πίνακα ελέγχου. Όταν είναι απενεργοποιημένη, πατήστε την ένδειξη μεγέθους στην κάτω γραμμή για να την ανοίξετε.</string>
     <string name="dashboard_card_config_title">Κάρτες πίνακα εργαλείων</string>
     <string name="dashboard_card_config_desc">Ρύθμιση των καρτών που εμφανίζονται και της σειράς τους</string>
     <string name="dashboard_card_config_header_title">Σύρετε για αναδιάταξη, εναλλαγή για εμφάνιση/απόκρυψη</string>
@@ -314,7 +332,7 @@
     <string name="device_settings_category">Συσκευή</string>
     <string name="review_app_review_action">Αξιολόγηση</string>
     <string name="review_app_dismiss_action">Ίσως αργότερα</string>
-    <string name="review_app_body">Θα θέλατε να αφήσετε μια αξιολόγηση για το SD Maid;️ ❤️</string>
+    <string name="review_app_body">Θα θέλες να αφήσεις μια αξιολόγηση για το SD Maid? ❤️</string>
     <string name="anniversary_card_title">Χαρούμενη Επέτειος SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Μαζί σας από %s</string>
     <plurals name="anniversary_card_body">

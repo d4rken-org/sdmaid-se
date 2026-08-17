@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Intet blev frigivet</string>
     <string name="dashboard_hero_nothing_freed_caption">Oprydningen er afsluttet, men ingen af de fundne data kunne fjernes.</string>
     <string name="dashboard_hero_nothing_freed_hint">Nogle data kan kun fjernes med ekstra adgang, såsom tilgængelighedstjenesten eller root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s fundet</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d element kræver SD Maid Pro</item>
+        <item quantity="other">%d elementer kræver SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Tryk for at låse op med SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Mere kan frigøres med SD Maid Pro</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">Kræver SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scannet %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Frigjort %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Start scanning og sletning for alle værktøjer med et tryk på kontrolpanelets handlingsknap uden ekstra bekræftelser.</string>
     <string name="dashboard_settings_oneclick_tools_title">Enkeltkliksværktøjer</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvilke værktøjer skal inkluderes i enkeltklik-operationer?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Vis oversigt automatisk</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Åbn automatisk resultatoversigten, efter du har brugt handlingsknappen på dashboardet. Når dette er slået fra, kan du trykke på størrelsesmærkaten i bundlinjen for at åbne den.</string>
     <string name="dashboard_card_config_title">Kontrolpanelkort</string>
     <string name="dashboard_card_config_desc">Konfigurer hvilke kort der vises og deres rækkefølge</string>
     <string name="dashboard_card_config_header_title">Træk for at ændre rækkefølge, slå til/fra for at vise/skjule</string>

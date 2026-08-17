@@ -90,6 +90,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Systém zakázal tlačítko \"Vyčistit mezipaměť\" pro tuto aplikaci. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Chybně nakonfigurovaná systémová aplikace</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Bezpečností aplikaci v HyperOS (com.miui.securitycenter) schází oprávnění Statistika využití (GET_USAGE_STATS). Toto zamezí funkcím jako \"Vymazat data\" v detailech aplikace a vyčištění mezipaměti pomocí služby přístupnosti. Udělte oprávnění pro obnovení plné funkčnosti.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">To se může stát i tehdy, pokud byla nedávno vynuceně ukončena systémová aplikace „System UI“, například nástrojem na čištění aplikací. Android pak blokuje automatizované klepání SD Maid na tlačítka, dokud zařízení nerestartujete.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Vynutit ukončení před čištěním</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynutit ukončení aplikací před čištěním jejich mezipaměti. Může pomoci vyčistit některé mezipaměti aplikací, ale i způsobit špatné chování aplikace a vyžadovat její manuální restart.</string>
     <string name="appcleaner_progress_force_stopping">Vynucuji ukončení aplikací…</string>

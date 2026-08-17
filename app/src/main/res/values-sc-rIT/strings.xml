@@ -24,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">Nada no est istàu liberau</string>
     <string name="dashboard_hero_nothing_freed_caption">Sa nettighedda est finida, ma nessunu de sos datos attos no podet essere bogau.</string>
     <string name="dashboard_hero_nothing_freed_hint">Parte de sos datos podent essere bogaus solamente cun seberzu extras, comente sa \'rvìsia de accessibilidadi o root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s agatados</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d elementu at bisonzu de SD Maid Pro</item>
+        <item quantity="other">%d elementos an bisonzu de SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">Toca pro isbloccare cun SD Maid Pro.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">Cun SD Maid Pro si podet liberare prus</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">At bisonzu de SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Escanadu %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Isberadu %1$s</string>
@@ -34,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">Cumintzare sa iscansione e sa cantzelladura pro totu is ainas cun unu tinticu in su butone de atzione de su pannellu de controllu, chene confirmatziones additzionales.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ainas Unu-Tinticu</string>
     <string name="dashboard_settings_oneclick_tools_desc">Cales ainas depent èssere incluidas in is operatziones unu-tinticu?</string>
+    <string name="dashboard_settings_summary_autoshow_title">Ammustra su resumu automaticamente</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Aberi automaticamente su resumu de is resultados apustis de aer impreadu su butone de atzione de su dashboard. Si est disativadu, toca su chip de mesura in sa barra in bassu pro l\'aberi.</string>
     <string name="dashboard_card_config_title">Cartas de su pannellu</string>
     <string name="dashboard_card_config_desc">Cunfigura cales cartas si mustrant e s\'òrdine insoro</string>
     <string name="dashboard_card_config_header_title">Traga pro torrare a ordinare, cumuda pro mustrare/cuare</string>

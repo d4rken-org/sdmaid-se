@@ -81,6 +81,7 @@
     <string name="appcleaner_automation_error_locked_appcache_body">ព័ត័​បាន​បិត​បុត្តាន់​ ∠លុបកែវិល្ត∡​សម្រួល​កម្មវិធី​នេះ។ ដកចេញ​ដែល​ដើម្បី​ឡើន​ការ​លុបកែវិល្ត​បន្លើន។</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">កម្មវិធី​ព័ត័​ត័ម់​វិញ្ញ​មិន​ត្រួវ។</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">កម្មវិធី​សន្តិសឹក្ឝន HyperOS (com.miui.securitycenter) ​កន្តល​អនុញ្ញាត​សថិតិទិក​ការ​ប្រើ​ប្រាស់​ (GET_USAGE_STATS)។ នេះ​ទឮក់​មុខងារ​ដែល​ ∠1785្រើត់ជម្រើស∡​នៅ​ការ​លេត័ប់​កម្មវិធី នឹង​ការ​លុបកែវិល្ត​តាមរយៈពេល​ហើភ​ហើជ​ត្រូវហើត។ អនុញ្ញាត​នៃ​ដែល​ស័ក់​ចូល​នៃ​មុខងារ​នើ។</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">នេះក៏អាចកើតឡើងផងដែរ ប្រសិនបើកម្មវិធីប្រព័ន្ធ \"System UI\" ត្រូវបានបង្ខំបញ្ឈប់ថ្មីៗនេះ ឧទាហរណ៍ដោយឧបករណ៍សម្អាតកម្មវិធីមួយ។ បន្ទាប់មក Android នឹងទប់ស្កាត់ការចុចប៊ូតុងស្វ័យប្រវត្តិរបស់ SD Maid រហូតដល់អ្នកចាប់ផ្តើមឧបករណ៍ឡើងវិញ។</string>
     <string name="appcleaner_forcestop_before_clearing_label">បញ្ជប់​កម្មវិធី​មួន​លុប</string>
     <string name="appcleaner_forcestop_before_clearing_summary">បញ្ជប់​កម្មវិធី​មួន​លុបកែវិល្ត។ នេះ​អាច​ជួយ​លុបកែវិល្ត​កម្មវិធី​ខ័ំ​ឤឲត ប៉ុន្តែ​អាច​កើតការ​ដែលកម្មវិធី​ហើជ​នឹង​ត្រូវការ​បន្លើន​ដោយ​​ដែលឯប។</string>
     <string name="appcleaner_progress_force_stopping">កំពុង​បញ្ជប់​កម្មវិធី…</string>

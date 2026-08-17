@@ -32,6 +32,8 @@
     <string name="general_set_up_action">دامەزراندن</string>
     <string name="general_unavailable_label">بەردەست نیە</string>
     <string name="general_edit_action">دەستکاریکردن</string>
+    <string name="general_edit_x_action">دەستکاریکردنی %s</string>
+    <string name="general_add_action">زیادکردن</string>
     <string name="general_na_label">بەردەست نییە</string>
     <string name="general_empty_label">بەتاڵ</string>
     <string name="general_new_badge_label">نوێ</string>
@@ -110,6 +112,7 @@
         <item quantity="other">%d بابەت سڕایەوە.</item>
     </plurals>
     <string name="general_remove_action">لابردن</string>
+    <string name="general_remove_x_action">لابردنی %s</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">یەک بابەت لادرا</item>
         <item quantity="other">%d بابەت لادرا</item>

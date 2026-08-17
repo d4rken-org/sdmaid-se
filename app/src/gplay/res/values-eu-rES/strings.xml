@@ -54,6 +54,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Hau erosketa bereizta da: ez du zure harpidetza etetzen, ezta itzulera ematen. Erabili Google kontu bera bientzat.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Harpidetza oraindik aktiboa</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play-k zure harpidetza oraindik berrituko dela adierazten du. Aldiz bateko eguneraketa erosi ahal izateko, Google Play-n utzi harpidetza aurrenekoz, eta bueltatu hemen.\n\nBertan utzi duzu? Une bat itxaron eta saia zaitez berriro. Egiaztatu Google kontu bera erabiltzen ari zarela.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Ezin izan dira zure erosketak egiaztatu Google Playrekin. Saiatu berriro pixka bat geroago.</string>
+    <string name="upgrade_screen_pending_card_title">Ordainketa zain</string>
+    <string name="upgrade_screen_pending_card_body">Google Play zure ordainketa prozesatzen ari da oraindik. Pro automatikoki desblokeatzen da ordainketa burutu bezain laster. Ordainketa-metodo batzuek denbora har dezakete. Ez duzu ezer gehiago egin behar.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Playk ordainketa zain duen erosketa bat aurkitu du eta oraindik prozesatzen ari da. Pro automatikoki desblokeatzen da ordainketa burutu bezain laster.</string>
     <string name="upgrade_screen_restore_success_message">Erosketak berreskuratu, zure Pro eguneraketa aktiboa da.</string>
     <string name="upgrade_screen_grace_title">Zure erosketak berrestea</string>
     <string name="upgrade_screen_grace_body_short">Pro oraindik aktiboa da. Google Play-k zure erosketak berrestea itxaroten, Pro ezaugarri guztiak oraindik desblokezatuta daude.</string>

@@ -6,6 +6,21 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">%s item diproses sejak Anda memasang SD Maid di perangkat Anda.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="other">Tamumu selama %d hari.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="other">Tamumu selama %d minggu.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="other">Tamumu selama %d bulan.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="other">Tamumu selama %d tahun.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Berhasil sebagian</string>
     <string name="stats_report_status_partial_failure">Kegagalan</string>
     <string name="stats_settings_desc">Konfigurasikan statistik, laporan, dan retensi data SD Maid.</string>
