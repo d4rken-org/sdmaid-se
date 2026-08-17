@@ -33,7 +33,7 @@ class ArtProfilesCorpseFilter @Inject constructor(
     defaultProgressLabel = R.string.corpsefinder_filter_dalvik_label,
     scanProgressLabel = R.string.corpsefinder_filter_artprofiles_label,
     capabilityPolicy = CapabilityPolicy.AlwaysRoot,
-    apiBailAt = 37,
+    untestedFromApi = 37,
     indeterminateWhileListing = true,
     onOwnerFound = { log(TAG) { "$it" } },
     areaManager = areaManager,

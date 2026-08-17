@@ -33,7 +33,7 @@ class AppSourceCorpseFilter @Inject constructor(
     scanProgressLabel = R.string.corpsefinder_filter_appsource_label,
     capabilityPolicy = CapabilityPolicy.AlwaysRoot,
     // TODO needs to be checked on more rooted ROMs
-    apiBailAt = 37,
+    untestedFromApi = 37,
     areaManager = areaManager,
     gatewaySwitch = gatewaySwitch,
     fileForensics = fileForensics,

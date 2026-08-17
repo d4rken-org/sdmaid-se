@@ -39,7 +39,10 @@ abstract class StandardCorpseFilter(
     @param:StringRes private val defaultProgressLabel: Int,
     @param:StringRes private val scanProgressLabel: Int,
     private val capabilityPolicy: CapabilityPolicy,
+    /** Skip the scan entirely from this API level on, for areas that no longer exist. */
     private val apiBailAt: Int? = null,
+    /** Scan but withhold the findings from this API level on, see [CorpseFilter.untestedApiCeiling]. */
+    untestedFromApi: Int? = null,
     private val indeterminateWhileListing: Boolean = false,
     private val excludedNames: Set<String> = emptySet(),
     private val onOwnerFound: ((OwnerInfo) -> Unit)? = null,
@@ -49,6 +52,8 @@ abstract class StandardCorpseFilter(
     private val corpseFinderSettings: CorpseFinderSettings,
     private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(filterTag, Progress.Data(primary = defaultProgressLabel.toCaString())) {
+
+    final override val untestedApiCeiling: Int? = untestedFromApi
 
     /** What the [LocalGateway] has to offer before a scan makes sense. */
     sealed interface CapabilityPolicy {
@@ -68,7 +73,7 @@ abstract class StandardCorpseFilter(
         if (!hasRequiredCapabilities()) return emptySet()
 
         if (apiBailAt != null && hasApiLevel(apiBailAt)) {
-            log(filterTag, WARN) { "Untested API level ($apiBailAt) skipping for safety." }
+            log(filterTag, WARN) { "Area is no longer used from API $apiBailAt on, skipping." }
             return emptySet()
         }
 
