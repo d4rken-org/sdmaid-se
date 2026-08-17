@@ -136,6 +136,17 @@ class AOSPLabels29Plus @Inject constructor(
         acsContext: AutomationExplorer.Context,
     ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("computing_size"))
 
+    // Title of the "Cache" row on an app's storage page, i.e. the label next to the cache size.
+    // Not a button, we only read it to locate the size value.
+    fun getCacheSizeLabelDynamic(
+        acsContext: AutomationExplorer.Context,
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("cache_size_label"))
+
+    // Deliberately just the AOSP default: this only ever narrows down which row to read, and a
+    // label that matches nothing falls back to the existing behaviour. A speculative translation
+    // that matched the wrong row would instead make us read the wrong size.
+    fun getCacheSizeLabelStatic(acsContext: AutomationExplorer.Context): Set<String> = setOf("Cache")
+
     fun getClearCacheDynamic(acsContext: AutomationExplorer.Context): Set<String> =
         aospLabels14Plus.getClearCacheDynamic(acsContext)
 
