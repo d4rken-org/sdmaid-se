@@ -460,6 +460,13 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
             } finally {
                 withContext(NonCancellable) {
                     updateProgress { null }
+                    // Mirror of the reset before the task: modules widen the accessibility config
+                    // (e.g. ClearCacheModule uses TYPES_ALL_MASK) and without this the service stays
+                    // subscribed to every event on the device for the rest of the process lifetime,
+                    // even though onAccessibilityEvent() drops them all while no task is active.
+                    // Before removing the controlView, so the overlay is hidden while still attached.
+                    runCatching { changeOptions { AutomationHost.Options() } }
+                        .onFailure { log(TAG, WARN) { "submit($id): Failed to restore options: ${it.asLog()}" } }
                     optionsLock.withLock {
                         val viewToRemove = controlView!!
                         val lifecycleToDispose = overlayLifecycle
