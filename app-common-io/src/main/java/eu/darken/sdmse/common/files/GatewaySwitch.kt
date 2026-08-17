@@ -60,6 +60,34 @@ class GatewaySwitch @Inject constructor(
         return resolveGatewayType(type)
     }
 
+    /**
+     * Runs [operation] on the type-mapped path, on [Type.AUTO] a [ReadException] retries it on the alternative path.
+     * The original failure is what callers see, the fallback failure (including an unmappable alternative) is
+     * attached as a suppressed exception.
+     */
+    private suspend fun <R> withFallback(
+        path: APath,
+        type: Type,
+        label: String,
+        operation: suspend (APath) -> R,
+    ): R {
+        val mapped = path.toTargetType(type)
+        return try {
+            operation(mapped)
+        } catch (oge: ReadException) {
+            if (type != Type.AUTO) throw oge
+            log(TAG, WARN) { "$label(...): Original access failed, try alternative: ${oge.asLog()}" }
+
+            try {
+                operation(path.toAlternative())
+            } catch (e: ReadException) {
+                log(TAG, WARN) { "$label(...): Alternative access failed either: ${e.asLog()}" }
+                if (e !== oge) oge.addSuppressed(e)
+                throw oge
+            }
+        }
+    }
+
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)
 
     override suspend fun createDir(path: APath) {
@@ -74,89 +102,36 @@ class GatewaySwitch @Inject constructor(
         return lookup(path, Type.CURRENT)
     }
 
-    suspend fun lookup(path: APath, type: Type): APathLookup<APath> {
-        val mapped = path.toTargetType(type)
-        return try {
-            useGateway(mapped) { lookup(mapped) }
-        } catch (oge: ReadException) {
-            if (type != Type.AUTO) throw oge
-            log(TAG, WARN) { "lookup(...): Original lookup failed, try alternative: ${oge.asLog()}" }
-
-            val fallback = path.toAlternative()
-            try {
-                useGateway(fallback) { lookup(fallback) }
-            } catch (e: ReadException) {
-                log(TAG, WARN) { "lookup(...): Alternative lookup failed either: ${e.asLog()}" }
-                throw oge
-            }
-        }
+    suspend fun lookup(path: APath, type: Type): APathLookup<APath> = withFallback(path, type, "lookup") { target ->
+        useGateway(target) { lookup(target) }
     }
 
     override suspend fun lookupExtended(path: APath): APathLookupExtended<APath> {
         return lookupExtended(path, Type.CURRENT)
     }
 
-    suspend fun lookupExtended(path: APath, type: Type): APathLookupExtended<APath> {
-        val mapped = path.toTargetType(type)
-        return try {
-            useGateway(mapped) { lookupExtended(mapped) }
-        } catch (oge: ReadException) {
-            if (type != Type.AUTO) throw oge
-            log(TAG, WARN) { "lookupExtended(...): Original lookup failed, try alternative: ${oge.asLog()}" }
-
-            val fallback = path.toAlternative()
-            try {
-                useGateway(fallback) { lookupExtended(fallback) }
-            } catch (e: ReadException) {
-                log(TAG, WARN) { "lookupExtended(...): Alternative lookup failed either: ${e.asLog()}" }
-                throw oge
-            }
+    suspend fun lookupExtended(path: APath, type: Type): APathLookupExtended<APath> =
+        withFallback(path, type, "lookupExtended") { target ->
+            useGateway(target) { lookupExtended(target) }
         }
-    }
 
     override suspend fun lookupFiles(path: APath): Flow<APathLookup<APath>> {
         return useGateway(path) { lookupFiles(path) }
     }
 
-    suspend fun lookupFiles(path: APath, type: Type): Collection<APathLookup<APath>> {
-        val mapped = path.toTargetType(type)
-        return try {
-            useGateway(mapped) { lookupFiles(mapped) }.toList()
-        } catch (oge: ReadException) {
-            if (type != Type.AUTO) throw oge
-            log(TAG, WARN) { "lookupFiles(...): Original lookup failed, try alternative: ${oge.asLog()}" }
-
-            val fallback = path.toAlternative()
-            try {
-                useGateway(fallback) { lookupFiles(fallback) }.toList()
-            } catch (e: ReadException) {
-                log(TAG, WARN) { "lookupFiles(...): Alternative lookup failed either: ${e.asLog()}" }
-                throw oge
-            }
+    suspend fun lookupFiles(path: APath, type: Type): Collection<APathLookup<APath>> =
+        withFallback(path, type, "lookupFiles") { target ->
+            useGateway(target) { lookupFiles(target) }.toList()
         }
-    }
 
     override suspend fun lookupFilesExtended(path: APath): Flow<APathLookupExtended<APath>> {
         return useGateway(path) { lookupFilesExtended(path) }
     }
 
-    suspend fun lookupFilesExtended(path: APath, type: Type): Collection<APathLookupExtended<APath>> {
-        val mapped = path.toTargetType(type)
-        return try {
-            useGateway(mapped) { lookupFilesExtended(mapped) }.toList()
-        } catch (oge: ReadException) {
-            if (type != Type.AUTO) throw oge
-            log(TAG, WARN) { "lookupFilesExtended(...): Original lookup failed, try alternative: ${oge.asLog()}" }
-
-            val fallback = path.toAlternative()
-            try {
-                useGateway(fallback) { lookupFilesExtended(fallback) }.toList()
-            } catch (e: ReadException) {
-                log(TAG, WARN) { "lookupFilesExtended(...): Alternative lookup failed either: ${e.asLog()}" }
-                throw oge
-            }
+    suspend fun lookupFilesExtended(path: APath, type: Type): Collection<APathLookupExtended<APath>> =
+        withFallback(path, type, "lookupFilesExtended") { target ->
+            useGateway(target) { lookupFilesExtended(target) }.toList()
         }
-    }
 
     override suspend fun walk(
         path: APath,
@@ -181,16 +156,8 @@ class GatewaySwitch @Inject constructor(
         return exists(path, Type.CURRENT)
     }
 
-    suspend fun exists(path: APath, type: Type): Boolean {
-        val mapped = path.toTargetType(type)
-        return try {
-            useGateway(mapped) { exists(mapped) }
-        } catch (e: ReadException) {
-            if (type != Type.AUTO) throw e
-
-            val fallback = path.toAlternative()
-            useGateway(fallback) { exists(fallback) }
-        }
+    suspend fun exists(path: APath, type: Type): Boolean = withFallback(path, type, "exists") { target ->
+        useGateway(target) { exists(target) }
     }
 
     override suspend fun canWrite(path: APath): Boolean {

@@ -15,7 +15,7 @@ import eu.darken.sdmse.common.storage.PathMapper
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
-import io.kotest.matchers.types.shouldNotBeSameInstanceAs
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.Called
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -294,26 +294,59 @@ class GatewaySwitchTest {
             coEvery { mapper.toSAFPath(localPath) } returns safPath
             coEvery { safGateway.lookup(safPath) } throws ReadException(message = "alternative")
 
-            shouldThrow<ReadException> {
-                switch.lookup(localPath, GatewaySwitch.Type.AUTO)
-            } shouldBe original
+            val thrown = shouldThrow<ReadException> { switch.lookup(localPath, GatewaySwitch.Type.AUTO) }
+            thrown shouldBeSameInstanceAs original
+            thrown.suppressed.single().message shouldBe "alternative"
         }
 
-    @Test fun `lookup AUTO surfaces the mapping error when there is no alternative path`() =
+    @Test fun `lookup AUTO rethrows the original error when there is no alternative path`() =
         runTest2(autoCancel = true) {
             val switch = createSwitch()
             val original = ReadException(message = "original", path = localPath)
             coEvery { localGateway.lookup(localPath) } throws original
             coEvery { mapper.toSAFPath(localPath) } returns null
 
-            // documents suspect behavior: toAlternative() builds its own ReadException outside the
-            // inner try (GatewaySwitch.kt:84-90), so an unmappable path replaces the original
-            // failure with "Can't map to SAF" and the actual reason the lookup failed is lost.
-            // Correct behavior would be to rethrow the original error like the failing-alternative
-            // case does.
+            // An unmappable alternative must not mask why the primary access failed.
             val thrown = shouldThrow<ReadException> { switch.lookup(localPath, GatewaySwitch.Type.AUTO) }
-            thrown shouldNotBeSameInstanceAs original
-            thrown.message shouldBe "Can't map to SAF <-> ${localPath.path}"
+            thrown shouldBeSameInstanceAs original
+            thrown.suppressed.single().message shouldBe "Can't map to SAF <-> ${localPath.path}"
+            coVerify(exactly = 0) { safGateway.lookup(any()) }
+        }
+
+    @Test fun `lookup AUTO falls back from SAF to the local gateway`() = runTest2(autoCancel = true) {
+        val switch = createSwitch()
+        val localResult = mockk<LocalPathLookup>()
+        coEvery { safGateway.lookup(safPath) } throws ReadException(path = safPath)
+        coEvery { mapper.toLocalPath(safPath) } returns localPath
+        coEvery { localGateway.lookup(localPath) } returns localResult
+
+        switch.lookup(safPath, GatewaySwitch.Type.AUTO) shouldBe localResult
+    }
+
+    @Test fun `lookup AUTO rethrows the original SAF error when there is no local path`() =
+        runTest2(autoCancel = true) {
+            val switch = createSwitch()
+            val original = ReadException(message = "original", path = safPath)
+            coEvery { safGateway.lookup(safPath) } throws original
+            coEvery { mapper.toLocalPath(safPath) } returns null
+
+            val thrown = shouldThrow<ReadException> { switch.lookup(safPath, GatewaySwitch.Type.AUTO) }
+            thrown shouldBeSameInstanceAs original
+            thrown.suppressed.single().message shouldBe "Can't map to LOCAL <-> ${safPath.path}"
+            coVerify(exactly = 0) { localGateway.lookup(any()) }
+        }
+
+    @Test fun `lookupExtended AUTO rethrows the original error when there is no alternative path`() =
+        runTest2(autoCancel = true) {
+            val switch = createSwitch()
+            val original = ReadException(message = "original", path = localPath)
+            coEvery { localGateway.lookupExtended(localPath) } throws original
+            coEvery { mapper.toSAFPath(localPath) } returns null
+
+            shouldThrow<ReadException> {
+                switch.lookupExtended(localPath, GatewaySwitch.Type.AUTO)
+            } shouldBeSameInstanceAs original
+            coVerify(exactly = 0) { safGateway.lookupExtended(any()) }
         }
 
     @Test fun `lookupFiles AUTO falls back and discards partial emissions`() = runTest2(autoCancel = true) {
@@ -348,6 +381,19 @@ class GatewaySwitchTest {
             } shouldBe original
         }
 
+    @Test fun `lookupFiles AUTO rethrows the original error when there is no alternative path`() =
+        runTest2(autoCancel = true) {
+            val switch = createSwitch()
+            val original = ReadException(message = "original", path = localPath)
+            coEvery { localGateway.lookupFiles(localPath) } returns flow { throw original }
+            coEvery { mapper.toSAFPath(localPath) } returns null
+
+            shouldThrow<ReadException> {
+                switch.lookupFiles(localPath, GatewaySwitch.Type.AUTO)
+            } shouldBeSameInstanceAs original
+            coVerify(exactly = 0) { safGateway.lookupFiles(any()) }
+        }
+
     @Test fun `lookupFilesExtended AUTO falls back on a collection-time failure`() = runTest2(autoCancel = true) {
         val switch = createSwitch()
         val safResult = mockk<SAFPathLookupExtended>()
@@ -376,6 +422,19 @@ class GatewaySwitchTest {
             } shouldBe original
         }
 
+    @Test fun `lookupFilesExtended AUTO rethrows the original error when there is no alternative path`() =
+        runTest2(autoCancel = true) {
+            val switch = createSwitch()
+            val original = ReadException(message = "original", path = localPath)
+            coEvery { localGateway.lookupFilesExtended(localPath) } returns flow { throw original }
+            coEvery { mapper.toSAFPath(localPath) } returns null
+
+            shouldThrow<ReadException> {
+                switch.lookupFilesExtended(localPath, GatewaySwitch.Type.AUTO)
+            } shouldBeSameInstanceAs original
+            coVerify(exactly = 0) { safGateway.lookupFilesExtended(any()) }
+        }
+
     @Test fun `exists AUTO falls back to the alternative gateway`() = runTest2(autoCancel = true) {
         val switch = createSwitch()
         coEvery { localGateway.exists(localPath) } throws ReadException(path = localPath)
@@ -385,7 +444,7 @@ class GatewaySwitchTest {
         switch.exists(localPath, GatewaySwitch.Type.AUTO) shouldBe true
     }
 
-    @Test fun `exists AUTO propagates the alternative error instead of the original`() =
+    @Test fun `exists AUTO rethrows the original error when the alternative fails too`() =
         runTest2(autoCancel = true) {
             val switch = createSwitch()
             val original = ReadException(message = "original", path = localPath)
@@ -393,11 +452,22 @@ class GatewaySwitchTest {
             coEvery { mapper.toSAFPath(localPath) } returns safPath
             coEvery { safGateway.exists(safPath) } throws ReadException(message = "alternative")
 
-            // documents suspect behavior: exists() has no inner try (GatewaySwitch.kt:184-194), so
-            // unlike lookup/lookupFiles/lookupFilesExtended it surfaces the alternative's error
-            // rather than the original one. Callers see the SAF failure for a LOCAL path.
             val thrown = shouldThrow<ReadException> { switch.exists(localPath, GatewaySwitch.Type.AUTO) }
-            thrown.message shouldBe "alternative"
+            thrown shouldBeSameInstanceAs original
+            thrown.suppressed.single().message shouldBe "alternative"
+        }
+
+    @Test fun `exists AUTO rethrows the original error when there is no alternative path`() =
+        runTest2(autoCancel = true) {
+            val switch = createSwitch()
+            val original = ReadException(message = "original", path = localPath)
+            coEvery { localGateway.exists(localPath) } throws original
+            coEvery { mapper.toSAFPath(localPath) } returns null
+
+            shouldThrow<ReadException> {
+                switch.exists(localPath, GatewaySwitch.Type.AUTO)
+            } shouldBeSameInstanceAs original
+            coVerify(exactly = 0) { safGateway.exists(any()) }
         }
 
     @Test fun `FORCED_LOCAL maps a SAF path through the mapper`() = runTest2(autoCancel = true) {
