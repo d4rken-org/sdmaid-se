@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.storage
 
 import android.content.ContentResolver
+import android.content.Intent
 import android.net.Uri
 import dagger.Reusable
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -109,14 +110,21 @@ class PathMapper @Inject constructor(
 
         log(TAG, INFO) { "Taking uri permission for $uri" }
 
+        // A partial grant (read-only or write-only) can already exist here, we are upgrading it.
+        // Cleanup after a failed upgrade must only drop what the failed take could have added.
+        val heldFlags = heldFlags(uri)
+
         try {
             contentResolver.takePersistableUriPermission(uri, SAFGateway.RW_FLAGSINT)
         } catch (e: SecurityException) {
             log(TAG, ERROR) { "Failed to take permission ${e.asLog()}" }
-            try {
-                contentResolver.releasePersistableUriPermission(uri, SAFGateway.RW_FLAGSINT)
-            } catch (e2: SecurityException) {
-                log(TAG, ERROR) { "Error while releasing during error... ${e2.asLog()}" }
+            val releaseFlags = SAFGateway.RW_FLAGSINT and heldFlags.inv()
+            if (releaseFlags != 0) {
+                try {
+                    contentResolver.releasePersistableUriPermission(uri, releaseFlags)
+                } catch (e2: SecurityException) {
+                    log(TAG, ERROR) { "Error while releasing during error... ${e2.asLog()}" }
+                }
             }
             throw e
         }
@@ -143,9 +151,19 @@ class PathMapper @Inject constructor(
         return contentResolver.persistedUriPermissions.map { SAFPath.build(it.uri) }
     }
 
-    fun hasPermission(uri: Uri): Boolean {
-        return getPermissions().any { it.pathUri == uri }
-    }
+    /**
+     * The app needs read AND write, a partial grant is not good enough and has to be upgraded.
+     */
+    fun hasPermission(uri: Uri): Boolean = heldFlags(uri) == SAFGateway.RW_FLAGSINT
+
+    private fun heldFlags(uri: Uri): Int = contentResolver.persistedUriPermissions
+        .filter { it.uri == uri }
+        .fold(0) { flags, permission ->
+            var updated = flags
+            if (permission.isReadPermission) updated = updated or Intent.FLAG_GRANT_READ_URI_PERMISSION
+            if (permission.isWritePermission) updated = updated or Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            updated
+        }
 
     companion object {
         val TAG: String = logTag("SAF", "Mapper")
