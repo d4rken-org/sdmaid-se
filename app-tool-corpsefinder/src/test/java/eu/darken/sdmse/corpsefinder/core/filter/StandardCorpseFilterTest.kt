@@ -124,6 +124,18 @@ abstract class StandardCorpseFilterTest : CorpseFilterTest() {
         create().scan().single().shouldMatch(target, filterClass)
     }
 
+    /**
+     * Asserts the filter scans the area but keeps its findings to itself, which is what an untested
+     * API level does. Distinct from [assertSkipsScan], where the area is never even listed.
+     */
+    suspend fun assertWithholdsScan() {
+        candidate(area1, "com.orphan.pkg", preset = defaultPreset)
+
+        create().scan() shouldBe emptySet()
+
+        coVerify(atLeast = 1) { gatewaySwitch.listFiles(area1.path) }
+    }
+
     /** Asserts [name] is filtered out by name, before forensics are consulted. */
     suspend fun assertNameExcluded(name: String) {
         val excluded = candidate(area1, name, preset = defaultPreset)

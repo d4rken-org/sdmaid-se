@@ -47,10 +47,10 @@ class PrivateDataCorpseFilterTest : StandardCorpseFilterTest() {
         assertScans()
     }
 
-    @Test fun `bails on API 37`() = runTest2 {
+    @Test fun `scans but withholds on API 37`() = runTest2 {
         fakeSdk(37)
 
-        assertSkipsScan()
+        assertWithholdsScan()
     }
 
     @Test fun `hosts is excluded by name`() = runTest2 {

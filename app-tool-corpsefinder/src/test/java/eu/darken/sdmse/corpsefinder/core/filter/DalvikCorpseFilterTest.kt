@@ -172,13 +172,14 @@ class DalvikCorpseFilterTest : CorpseFilterTest() {
         create().scan().single().shouldMatch(target, DalvikCorpseFilter::class)
     }
 
-    @Test fun `bails on API 37`() = runTest2 {
+    @Test fun `scans but withholds on API 37`() = runTest2 {
         fakeSdk(37)
         candidate(dalvikDex1, "com.orphan.dex", fileType = FileType.FILE)
 
         create().scan() shouldBe emptySet()
 
-        coVerify(exactly = 0) { gatewaySwitch.listFiles(any()) }
+        // Unlike the no-root case above, the area is listed: only the findings are held back
+        coVerify(atLeast = 1) { gatewaySwitch.listFiles(dalvikDex1.path) }
     }
 
     // ─────────────────────────── shared library filtering ───────────────────────────

@@ -15,7 +15,6 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -23,7 +22,6 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -47,6 +45,10 @@ class DalvikCorpseFilter @Inject constructor(
     private val exclusionManager: ExclusionManager,
 ) : CorpseFilter(TAG, Progress.Data(primary = R.string.corpsefinder_filter_dalvik_label.toCaString())) {
 
+    // https://github.com/d4rken-org/sdmaid-se/issues/1612
+    // https://github.com/d4rken-org/sdmaid-se/issues/1896
+    override val untestedApiCeiling: Int = 37
+
     override suspend fun doScan(): Collection<Corpse> {
         log(TAG) { "Scanning..." }
 
@@ -54,13 +56,6 @@ class DalvikCorpseFilter @Inject constructor(
 
         if (!gateway.hasRoot()) {
             log(TAG) { "LocalGateway has no root, skipping." }
-            return emptySet()
-        }
-
-        // https://github.com/d4rken-org/sdmaid-se/issues/1612
-        // https://github.com/d4rken-org/sdmaid-se/issues/1896
-        if (hasApiLevel(37)) {
-            log(TAG, WARN) { "Untested API level (37) skipping for safety." }
             return emptySet()
         }
 
