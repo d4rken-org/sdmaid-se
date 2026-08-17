@@ -532,7 +532,9 @@ class AppScanner @Inject constructor(
             .filter { it.userHandle == currentUser.handle }
             .filterIsInstance<NormalPkg>()
 
-        updateProgressCount(Progress.Count.Percent(pkgs.size))
+        // targets, not pkgs: the loop below increments once per target, so sizing the bar by the
+        // unfiltered package count leaves it short of 100% before it disappears.
+        updateProgressCount(Progress.Count.Percent(targets.size))
 
         return targets
             .mapNotNull {
