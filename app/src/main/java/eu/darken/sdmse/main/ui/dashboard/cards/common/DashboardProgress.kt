@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -100,6 +101,7 @@ internal fun DashboardProgress(progress: Progress.Data) {
             is Progress.Count.Size -> {
                 Spacer(modifier = Modifier.width(12.dp))
                 val isDeterminate = count.current > 0L && count.max > 0L
+                val context = LocalContext.current
                 Box(modifier = Modifier.size(32.dp)) {
                     if (isDeterminate) {
                         val fraction = (count.current.toFloat() / count.max.toFloat()).coerceIn(0f, 1f)
@@ -108,8 +110,15 @@ internal fun DashboardProgress(progress: Progress.Data) {
                             modifier = Modifier.matchParentSize(),
                             strokeWidth = 2.5.dp,
                         )
+                        // Percent renders itself, so the card agrees with the tool screen and the
+                        // automation overlay instead of flooring where they round up. Counter and
+                        // Size display as "3/10" and "1.2 MB/5 MB", which doesn't fit inside the
+                        // ring, so they keep showing a percentage of their own.
                         Text(
-                            text = "${(count.current * 100 / count.max).toInt()}%",
+                            text = when (count) {
+                                is Progress.Count.Percent -> count.displayValue(context)
+                                else -> "${(count.current * 100 / count.max).toInt()}%"
+                            },
                             style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp),
                             modifier = Modifier.align(Alignment.Center),
                         )
