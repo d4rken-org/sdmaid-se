@@ -69,6 +69,9 @@ class AdbHostLauncherTest {
         val version: Int = 11,
         val bindError: Throwable? = null,
         val handshakeError: Throwable? = null,
+        /** Blocks apiVersion() to model a wedged Shizuku.getVersion() binder transaction. */
+        val versionWedge: CountDownLatch? = null,
+        val versionEntered: CompletableDeferred<Unit>? = null,
     ) : ShizukuUserServiceFactory {
         /** Captured so a test can simulate an unexpected onServiceDisconnected. */
         var disconnectCallback: (() -> Unit)? = null
@@ -76,7 +79,12 @@ class AdbHostLauncherTest {
         /** Captured so a test can simulate onServiceConnected. */
         var connectedCallback: ((IBinder?) -> Unit)? = null
 
-        override fun apiVersion(): Int = version
+        override fun apiVersion(): Int {
+            versionEntered?.complete(Unit)
+            versionWedge?.await() // blocks the calling thread, like a wedged binder transaction
+            return version
+        }
+
         override fun <Host : AdbConnection> create(
             hostClass: KClass<Host>,
             options: AdbHostOptions,
@@ -117,7 +125,9 @@ class AdbHostLauncherTest {
 
     private fun AdbHostLauncher.connect(
         connectTimeoutMs: Long = AdbHostLauncher.CONNECT_TIMEOUT_MS,
+        apiVersionTimeoutMs: Long = AdbHostLauncher.API_VERSION_TIMEOUT_MS,
     ) = createConnection(
+        apiVersionTimeoutMs = apiVersionTimeoutMs,
         serviceClass = AdbConnection::class,
         hostClass = AdbConnection::class,
         // Explicit values: AdbHostOptions()'s default isDebug=BuildConfigWrap.DEBUG triggers
@@ -299,6 +309,46 @@ class AdbHostLauncherTest {
             }
         } finally {
             bindWedge.countDown()
+            realScope.cancel()
+        }
+    }
+
+    @Test fun `a getVersion wedged in its binder transaction fails instead of hanging`() = runTest(
+        timeout = 10.seconds,
+    ) {
+        // Shizuku.getVersion() only returns a cached field once the server has pushed its version via
+        // bindApplication(); until then it is a synchronous binder transaction. It runs before the
+        // connect watchdog is armed, so without its own bound a wedge here hangs every collector -
+        // the same eternal setup spinner, just one step earlier than the bind wedge above.
+        val versionEntered = CompletableDeferred<Unit>()
+        val versionWedge = CountDownLatch(1)
+        // Real scope + real IO dispatcher: the wedge blocks an actual thread, virtual time and
+        // Unconfined execution can't model it (Unconfined would block the producer's own thread).
+        val realScope = CoroutineScope(SupervisorJob())
+        val l = AdbHostLauncher(
+            serviceFactory = FakeFactory(versionWedge = versionWedge, versionEntered = versionEntered),
+            appScope = realScope,
+            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
+        )
+
+        try {
+            val collectResult = realScope.async(Dispatchers.Default) {
+                runCatching { l.connect(apiVersionTimeoutMs = 250L).collect { } }
+            }
+
+            withContext(Dispatchers.Default) {
+                // Only measure once the wedge is real: apiVersion() has been entered and is blocked.
+                withTimeout(5_000L) { versionEntered.await() }
+
+                val error = withTimeout(5_000L) { collectResult.await() }.exceptionOrNull()
+                error.shouldBeInstanceOf<AdbException>()
+                error.message!! shouldContain "getVersion"
+
+                // Bailed out before binding, so there is nothing to unbind.
+                events.shouldBeEmpty()
+            }
+        } finally {
+            versionWedge.countDown()
             realScope.cancel()
         }
     }

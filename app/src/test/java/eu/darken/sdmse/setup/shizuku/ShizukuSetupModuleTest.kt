@@ -3,6 +3,8 @@ package eu.darken.sdmse.setup.shizuku
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
@@ -26,7 +28,9 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.flow.test
+import java.util.concurrent.CountDownLatch
 
 class ShizukuSetupModuleTest : BaseTest() {
 
@@ -65,7 +69,10 @@ class ShizukuSetupModuleTest : BaseTest() {
         scope.cancel()
     }
 
-    private fun module() = ShizukuSetupModule(scope, adbSettings, shizukuManager, dataAreaManager, rootManager)
+    private fun module(
+        moduleScope: CoroutineScope = scope,
+        dispatchers: DispatcherProvider = TestDispatcherProvider(),
+    ) = ShizukuSetupModule(moduleScope, dispatchers, adbSettings, shizukuManager, dataAreaManager, rootManager)
 
     @Test fun `first subscription emits Loading then Result`() {
         val mod = module()
@@ -148,5 +155,33 @@ class ShizukuSetupModuleTest : BaseTest() {
         probeCount shouldBeGreaterThan before
 
         runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `a wedged pingBinder still produces a Result`() {
+        // pingBinder() is a synchronous PING_TRANSACTION. Against a Shizuku server that is alive but
+        // not servicing requests it never returns, and unbounded it would stall this module's combine
+        // so the setup card sits on Loading forever.
+        val wedge = CountDownLatch(1)
+        val binder = mockk<ShizukuBaseServiceBinder>()
+        every { binder.pingBinder() } answers { wedge.await(); true }
+        every { shizukuManager.shizukuBinder } returns flowOf(binder)
+
+        // Real scope + real IO dispatcher: the wedge blocks an actual thread, Unconfined would run it
+        // inline and block the collector before any timeout could apply.
+        val realScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
+        try {
+            val mod = module(realScope, TestDispatcherProvider(Dispatchers.IO)).apply { pingTimeoutMs = 250L }
+
+            val collector = mod.state.test(tag = "wedge", scope = realScope)
+            collector.await { values, _ -> values.any { it is ShizukuSetupModule.Result } }
+
+            val result = collector.latestValues.filterIsInstance<ShizukuSetupModule.Result>().last()
+            result.basicService shouldBe false
+
+            runBlocking { collector.cancelAndJoin() }
+        } finally {
+            wedge.countDown()
+            realScope.cancel()
+        }
     }
 }
