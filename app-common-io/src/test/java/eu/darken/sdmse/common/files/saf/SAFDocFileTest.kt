@@ -99,18 +99,16 @@ class SAFDocFileTest : BaseTest() {
 
     @Test
     fun `test tree uri with repeated first crumb`() {
-        // documents suspect behavior (D4): the separator is placed by comparing each crumb to
-        // crumbs.first() instead of by position, so a later crumb equal to the first is glued to
-        // its predecessor.
+        // Separators are placed by position: a later crumb repeating the first one used to lose its
+        // separator and get glued to its predecessor.
         SAFDocFile.buildTreeUri(
             Uri.parse("content://auth.ority/tree/primary%3A"),
             listOf("files", "cache", "files")
-        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A%2Ffiles%2Fcachefiles"
+        ).toString() shouldBe "content://auth.ority/tree/primary%3A/document/primary%3A%2Ffiles%2Fcache%2Ffiles"
     }
 
     @Test
     fun `test tree uri with repeated non-first crumb`() {
-        // Bounds D4: only crumbs equal to the *first* one lose their separator.
         SAFDocFile.buildTreeUri(
             Uri.parse("content://auth.ority/tree/primary%3A"),
             listOf("files", "cache", "cache")

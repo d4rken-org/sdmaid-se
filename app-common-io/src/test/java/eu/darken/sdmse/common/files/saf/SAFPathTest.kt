@@ -117,11 +117,10 @@ class SAFPathTest : BaseTest() {
 
     @Test
     fun `path uri with a segment repeating the last one`() {
-        // documents suspect behavior (D6): the separator is placed by comparing each segment to
-        // segments.last() instead of by position, so an earlier segment equal to the last one is
-        // glued to its successor. pathUri feeds findPermission, so this misroutes permission matching.
+        // Separators are placed by position: an earlier segment repeating the last one used to lose
+        // its separator and get glued to its successor, which misroutes findPermission.
         SAFPath.build(testUri, "files", "cache", "files").pathUri
-            .toString() shouldBe "$testUri%3Afilescache%2Ffiles"
+            .toString() shouldBe "$testUri%3Afiles%2Fcache%2Ffiles"
     }
 
     @Test

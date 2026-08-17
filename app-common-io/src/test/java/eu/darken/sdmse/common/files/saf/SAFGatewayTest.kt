@@ -296,10 +296,9 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
-    fun `walk ignores pathDoesNotContain`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D7): SAFGateway.walk reads only onFilter/onError, so the
-        // exclusions AppScanner passes silently do not apply on SAF routed walks. The local gateway
-        // honors them (FileOpsHost.walkStream).
+    fun `walk applies pathDoesNotContain`() = runTest2(autoCancel = true) {
+        // Same semantic as the local gateway (FileOpsHost.walkStream): a child whose path contains
+        // any of the strings is skipped, and a skipped directory is not descended into.
         val harness = harness(
             FakeDocumentsProvider.tree {
                 file("keepme/kept.txt")
@@ -313,8 +312,6 @@ class SAFGatewayTest : BaseTest() {
         harness.gateway.walk(harness.safPath(), options).toList()
             .map { it.lookedUp } shouldContainExactly listOf(
             harness.safPath("keepme"),
-            harness.safPath("skipme"),
-            harness.safPath("skipme", "skipped.txt"),
             harness.safPath("keepme", "kept.txt"),
         )
     }
@@ -372,9 +369,8 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
-    fun `du ignores abortOnError`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D8): DuOptions.abortOnError is never read, the enumeration
-        // failure is swallowed either way and du reports a partial total as if it were complete.
+    fun `du propagates enumeration errors when abortOnError is true`() = runTest2(autoCancel = true) {
+        // Without this, du reports a partial total as if it were complete.
         val harness = harness(
             FakeDocumentsProvider.tree {
                 file("a.txt", size = 100L)
@@ -383,10 +379,12 @@ class SAFGatewayTest : BaseTest() {
         )
         harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
 
-        harness.gateway.du(
-            harness.safPath(),
-            APathGateway.DuOptions(abortOnError = true),
-        ) shouldBe 100L
+        shouldThrow<ReadException> {
+            harness.gateway.du(
+                harness.safPath(),
+                APathGateway.DuOptions(abortOnError = true),
+            )
+        }
     }
 
     // ------------------------------------------------------------------------------------- file
@@ -454,33 +452,46 @@ class SAFGatewayTest : BaseTest() {
 
     @Test
     fun `createFile below an existing directory`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D3): createDocumentFile walks segment *suffixes* instead of
-        // ancestors, so it looks for a top level "new.bin" as the parent of "dir/new.bin" and fails.
         val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
 
-        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("dir", "new.bin")) }
+        harness.gateway.createFile(harness.safPath("dir", "new.bin"))
 
-        harness.provider.hasNode("dir", "new.bin") shouldBe false
+        harness.provider.node("dir", "new.bin")!!.mimeType shouldBe "application/octet-stream"
     }
 
     @Test
     fun `createFile with all ancestors present`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D3): even with every ancestor in place the suffix walk misses.
         val harness = harness(FakeDocumentsProvider.tree { dir("a/b") })
 
-        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("a", "b", "new.bin")) }
+        harness.gateway.createFile(harness.safPath("a", "b", "new.bin"))
 
-        harness.provider.hasNode("a", "b", "new.bin") shouldBe false
+        harness.provider.hasNode("a", "b", "new.bin") shouldBe true
+        harness.provider.createdDocuments shouldContainExactly listOf("root:a/b" to "new.bin")
     }
 
     @Test
-    fun `createFile with missing ancestors`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D3): the missing ancestors are not created either.
+    fun `createFile creates the missing ancestors`() = runTest2(autoCancel = true) {
         val harness = harness()
 
-        shouldThrow<WriteException> { harness.gateway.createFile(harness.safPath("a", "b", "new.bin")) }
+        harness.gateway.createFile(harness.safPath("a", "b", "new.bin"))
 
-        harness.provider.hasNode("a") shouldBe false
+        harness.provider.node("a")!!.mimeType shouldBe Document.MIME_TYPE_DIR
+        harness.provider.node("a", "b")!!.mimeType shouldBe Document.MIME_TYPE_DIR
+        harness.provider.hasNode("a", "b", "new.bin") shouldBe true
+        harness.provider.createdDocuments shouldContainExactly listOf(
+            "root:" to "a",
+            "root:a" to "b",
+            "root:a/b" to "new.bin",
+        )
+    }
+
+    @Test
+    fun `createDir creates the missing ancestors`() = runTest2(autoCancel = true) {
+        val harness = harness()
+
+        harness.gateway.createDir(harness.safPath("a", "b", "newdir"))
+
+        harness.provider.node("a", "b", "newdir")!!.mimeType shouldBe Document.MIME_TYPE_DIR
     }
 
     @Test
@@ -494,19 +505,30 @@ class SAFGatewayTest : BaseTest() {
 
     @Test
     fun `createFile under a grant that is narrower than the volume`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D3): with a grant on Android/data the suffix walk resolves
-        // segments the grant doesn't cover, which raises MissingUriPermissionException.
+        // Ancestors are resolved from the granted document, not from the volume root: looking up the
+        // volume root raises MissingUriPermissionException whenever the grant is narrower than it.
         val harness = harness(
             provider = FakeDocumentsProvider.tree { dir("Android/data") },
             granted = listOf("Android", "data"),
         )
 
-        val error = shouldThrow<WriteException> {
-            harness.gateway.createFile(harness.safPath("Android", "data", "pkg", "cache.bin"))
-        }
+        harness.gateway.createFile(harness.safPath("Android", "data", "pkg", "cache.bin"))
 
-        error.cause.shouldBeInstanceOf<MissingUriPermissionException>()
-        harness.provider.hasNode("Android", "data", "pkg") shouldBe false
+        harness.provider.node("Android", "data", "pkg")!!.mimeType shouldBe Document.MIME_TYPE_DIR
+        harness.provider.hasNode("Android", "data", "pkg", "cache.bin") shouldBe true
+    }
+
+    @Test
+    fun `createDir on the granted tree root itself`() = runTest2(autoCancel = true) {
+        // The grant's own document has no addressable parent, so there is nothing to create it in.
+        val harness = harness(
+            provider = FakeDocumentsProvider.tree { dir("Android") },
+            granted = listOf("Android", "data"),
+        )
+
+        shouldThrow<WriteException> { harness.gateway.createDir(harness.safPath("Android", "data")) }
+
+        harness.provider.hasNode("Android", "data") shouldBe false
     }
 
     // ----------------------------------------------------------------------------------- delete
@@ -567,34 +589,32 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
-    fun `delete without a permission surfaces as ReadException`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D9): CorpseFinder catches WriteException around its delete calls,
-        // so a ReadException escapes the per corpse handler and aborts the whole run.
+    fun `delete without a permission surfaces as WriteException`() = runTest2(autoCancel = true) {
+        // CorpseFinder only catches WriteException around its delete calls, a ReadException escaping
+        // from here would abort the whole run instead of just this corpse.
         val harness = harness()
 
-        shouldThrow<ReadException> { harness.gateway.delete(ungrantedPath("file.txt"), recursive = true) }
+        shouldThrow<WriteException> { harness.gateway.delete(ungrantedPath("file.txt"), recursive = true) }
     }
 
     @Test
-    fun `delete of a missing target surfaces as ReadException`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D9): the initial lookup runs outside any write error handling.
+    fun `delete of a missing target surfaces as WriteException`() = runTest2(autoCancel = true) {
+        // The initial lookup is part of the delete, not a separate read.
         val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
 
-        shouldThrow<ReadException> { harness.gateway.delete(harness.safPath("dir", "ghost.txt"), recursive = true) }
+        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir", "ghost.txt"), recursive = true) }
     }
 
     @Test
-    fun `delete with a failing child enumeration surfaces as ReadException`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D9).
+    fun `delete with a failing child enumeration surfaces as WriteException`() = runTest2(autoCancel = true) {
         val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
         harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
 
-        shouldThrow<ReadException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
+        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
     }
 
     @Test
-    fun `delete with a child vanishing mid traversal surfaces as ReadException`() = runTest2(autoCancel = true) {
-        // documents suspect behavior (D9).
+    fun `delete with a child vanishing mid traversal surfaces as WriteException`() = runTest2(autoCancel = true) {
         val harness = harness(
             FakeDocumentsProvider.tree {
                 file("dir/file1.txt")
@@ -603,7 +623,7 @@ class SAFGatewayTest : BaseTest() {
         )
         harness.provider.onChildQuery = { harness.provider.removeNode("dir", "file2.txt") }
 
-        shouldThrow<ReadException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
+        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
     }
 
     @Test

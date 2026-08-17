@@ -63,11 +63,12 @@ data class SAFPath(
 
             val uriString = StringBuilder(treeRoot).apply {
                 append("%3A") // Uri.encode(":")
-                segments.forEach {
-                    append(Uri.encode(it))
-                    if (it != segments.last()) {
+                segments.forEachIndexed { index, segment ->
+                    // By position, not by value: an earlier segment may repeat the last one
+                    if (index != 0) {
                         append("%2F") // Uri.encode(File.separator)
                     }
+                    append(Uri.encode(segment))
                 }
             }
             return uriString.toString().toUri()
