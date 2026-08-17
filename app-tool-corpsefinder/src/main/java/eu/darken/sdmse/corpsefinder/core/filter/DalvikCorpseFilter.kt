@@ -20,31 +20,20 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalGateway
-import eu.darken.sdmse.common.files.lookup
-import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.getSharedLibraries2
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
-import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.main.core.SDMTool
-import kotlinx.coroutines.flow.asFlow
-import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
-import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.flow.toSet
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -155,40 +144,17 @@ class DalvikCorpseFilter @Inject constructor(
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
         log(TAG) { "doFilterDalvikProfiles(${profileItems.size}, keeper=$includeRiskKeeper, common=$includeRiskCommon)" }
-        updateProgressCount(Progress.Count.Percent(profileItems.size))
-
-        return profileItems
-            .asFlow()
-            .mapNotNull {
-                log(TAG) { "Checking $it" }
-                increaseProgress()
-                fileForensics.findOwners(it)
-            }
-            .filter { ownerInfo ->
-                (ownerInfo.areaInfo.type == DataArea.Type.DALVIK_PROFILE).also {
-                    if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
-                }
-            }
-            .filter { it.isCorpse }
-            .filter { !it.isKeeper || includeRiskKeeper }
-            .filter { !it.isCommon || includeRiskCommon }
-            .map { ownerInfo ->
-                val lookup = ownerInfo.item.lookup(gatewaySwitch)
-                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
-                Corpse(
-                    filterType = this::class,
-                    ownerInfo = ownerInfo,
-                    lookup = lookup,
-                    content = content,
-                    isWriteProtected = false,
-                    riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.KEEPER
-                        ownerInfo.isCommon -> RiskLevel.COMMON
-                        else -> RiskLevel.NORMAL
-                    }
-                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
-            }
-            .toList()
+        return filterCandidates(
+            candidates = profileItems,
+            areaType = DataArea.Type.DALVIK_PROFILE,
+            filterType = this::class,
+            includeRiskKeeper = includeRiskKeeper,
+            includeRiskCommon = includeRiskCommon,
+            tag = TAG,
+            progress = this,
+            gatewaySwitch = gatewaySwitch,
+            fileForensics = fileForensics,
+        )
     }
 
     private suspend fun doFilterOdex(
@@ -197,40 +163,17 @@ class DalvikCorpseFilter @Inject constructor(
         includeRiskCommon: Boolean,
     ): Collection<Corpse> {
         log(TAG) { "doFilterOdex(${dalvikItems.size}, keeper=$includeRiskKeeper, common=$includeRiskCommon)" }
-        updateProgressCount(Progress.Count.Percent(dalvikItems.size))
-
-        return dalvikItems
-            .asFlow()
-            .mapNotNull {
-                log(TAG) { "Checking $it" }
-                increaseProgress()
-                fileForensics.findOwners(it)
-            }
-            .filter { ownerInfo ->
-                (ownerInfo.areaInfo.type == DataArea.Type.DALVIK_DEX).also {
-                    if (!it) log(TAG, WARN) { "Wrong area: $ownerInfo" }
-                }
-            }
-            .filter { it.isCorpse }
-            .filter { !it.isKeeper || includeRiskKeeper }
-            .filter { !it.isCommon || includeRiskCommon }
-            .map { ownerInfo ->
-                val lookup = ownerInfo.item.lookup(gatewaySwitch)
-                val content = if (lookup.isDirectory) ownerInfo.item.walk(gatewaySwitch).toSet() else emptyList()
-                Corpse(
-                    filterType = this::class,
-                    ownerInfo = ownerInfo,
-                    lookup = lookup,
-                    content = content,
-                    isWriteProtected = false,
-                    riskLevel = when {
-                        ownerInfo.isKeeper -> RiskLevel.KEEPER
-                        ownerInfo.isCommon -> RiskLevel.COMMON
-                        else -> RiskLevel.NORMAL
-                    }
-                ).also { log(TAG, INFO) { "Found Corpse: $it" } }
-            }
-            .toList()
+        return filterCandidates(
+            candidates = dalvikItems,
+            areaType = DataArea.Type.DALVIK_DEX,
+            filterType = this::class,
+            includeRiskKeeper = includeRiskKeeper,
+            includeRiskCommon = includeRiskCommon,
+            tag = TAG,
+            progress = this,
+            gatewaySwitch = gatewaySwitch,
+            fileForensics = fileForensics,
+        )
     }
 
     @Reusable
