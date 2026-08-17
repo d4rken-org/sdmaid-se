@@ -3,6 +3,7 @@ package eu.darken.sdmse.corpsefinder.core.filter
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.Marker
+import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -166,11 +167,23 @@ abstract class CorpseFilterTest : BaseTest() {
     private val installedExclusions = mutableListOf<Exclusion>()
     private var fakeSdkLevel: Int = 0
 
+    /** The setting mocks [riskFlags] installed, so tests can verify how often a filter reads them. */
+    lateinit var keeperSetting: DataStoreValue<Boolean>
+    lateinit var commonSetting: DataStoreValue<Boolean>
+
+    /** Called when a filter lists an area, for observing filter state mid-scan. */
+    var onListFiles: ((APath) -> Unit)? = null
+
+    /** Called when a filter consults forensics for a candidate, for observing filter state mid-scan. */
+    var onFindOwners: ((APath) -> Unit)? = null
+
     @BeforeEach
     open fun setup() {
         MockKAnnotations.init(this)
         areaContents.clear()
         installedExclusions.clear()
+        onListFiles = null
+        onFindOwners = null
 
         localGateway = mockk()
         coEvery { gatewaySwitch.getGateway(APath.PathType.LOCAL) } returns localGateway
@@ -180,7 +193,9 @@ abstract class CorpseFilterTest : BaseTest() {
         every { areaManager.state } returns flowOf(DataAreaManager.State(areas = dataAreas))
 
         coEvery { gatewaySwitch.listFiles(any()) } answers {
-            areaContents[arg<APath>(0)]?.asFlow() ?: emptyFlow()
+            val path = arg<APath>(0)
+            onListFiles?.invoke(path)
+            areaContents[path]?.asFlow() ?: emptyFlow()
         }
         coEvery { gatewaySwitch.exists(any()) } returns false
         coEvery { gatewaySwitch.canRead(any()) } returns false
@@ -216,8 +231,10 @@ abstract class CorpseFilterTest : BaseTest() {
     }
 
     fun riskFlags(keeper: Boolean = false, common: Boolean = false) {
-        every { corpseFinderSettings.includeRiskKeeper } returns mockDataStoreValue(keeper)
-        every { corpseFinderSettings.includeRiskCommon } returns mockDataStoreValue(common)
+        keeperSetting = mockDataStoreValue(keeper)
+        commonSetting = mockDataStoreValue(common)
+        every { corpseFinderSettings.includeRiskKeeper } returns keeperSetting
+        every { corpseFinderSettings.includeRiskCommon } returns commonSetting
     }
 
     fun excludePath(path: APath) {
@@ -289,7 +306,11 @@ abstract class CorpseFilterTest : BaseTest() {
             coEvery { gatewaySwitch.walk(path, any()) } returns childLookups.asFlow()
         }
 
-        coEvery { fileForensics.findOwners(path) } returns ownerInfo(path, preset, forensicArea, blacklistArea)
+        val owners = ownerInfo(path, preset, forensicArea, blacklistArea)
+        coEvery { fileForensics.findOwners(path) } answers {
+            onFindOwners?.invoke(path)
+            owners
+        }
 
         return Candidate(path = path, lookup = lookup, children = childLookups)
     }
@@ -298,7 +319,10 @@ abstract class CorpseFilterTest : BaseTest() {
     fun unidentifiedCandidate(area: DataArea, name: String): LocalPath {
         val path = area.path.child(name) as LocalPath
         registerContent(area, path)
-        coEvery { fileForensics.findOwners(path) } returns null
+        coEvery { fileForensics.findOwners(path) } answers {
+            onFindOwners?.invoke(path)
+            null
+        }
         return path
     }
 
