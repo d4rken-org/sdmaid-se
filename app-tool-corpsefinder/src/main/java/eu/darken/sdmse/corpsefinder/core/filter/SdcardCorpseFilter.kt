@@ -111,10 +111,11 @@ class SdcardCorpseFilter @Inject constructor(
             val content = area.path.listFiles(gatewaySwitch)
 
             updateProgressCount(Progress.Count.Percent(content.size))
-            content.map {
-                fileForensics.findOwners(it)!!.also {
-                    increaseProgress()
-                }
+            content.mapNotNull { item ->
+                val ownerInfo = fileForensics.findOwners(item)
+                if (ownerInfo == null) log(TAG, WARN) { "Failed to identify $item, skipping" }
+                increaseProgress()
+                ownerInfo
             }
         }
 
@@ -321,7 +322,7 @@ class SdcardCorpseFilter @Inject constructor(
                 ownerInfo = ownerInfo,
                 lookup = lookup,
                 content = content,
-                isWriteProtected = ownerInfo.item.canWrite(gatewaySwitch),
+                isWriteProtected = !ownerInfo.item.canWrite(gatewaySwitch),
                 riskLevel = when {
                     ownerInfo.isKeeper -> RiskLevel.KEEPER
                     ownerInfo.isCommon -> RiskLevel.COMMON

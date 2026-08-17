@@ -320,34 +320,29 @@ class SdcardCorpseFilterTest : CorpseFilterTest() {
         create().scan().paths() shouldBe setOf(sdcard1.path.child("KeeperDir", "orphandata"))
     }
 
-    // ─────────────────────────── characterization probes ───────────────────────────
+    // ─────────────────────────── write protection ───────────────────────────
 
-    @Test fun `isWriteProtected is true when the path is writable`() = runTest2 {
+    @Test fun `isWriteProtected is false when the path is writable`() = runTest2 {
         val target = candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
         coEvery { gatewaySwitch.canWrite(target.path) } returns true
 
-        // documents suspect behavior: SdcardCorpseFilter assigns `isWriteProtected = canWrite(...)`.
-        // Correct behavior would be the negation - a writable corpse is NOT write protected.
-        create().scan().single().isWriteProtected shouldBe true
-    }
-
-    @Test fun `isWriteProtected is false when the path is not writable`() = runTest2 {
-        val target = candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
-        coEvery { gatewaySwitch.canWrite(target.path) } returns false
-
-        // documents suspect behavior: see above, correct behavior would report `true` here because
-        // an unwritable corpse is exactly the write protected case.
         create().scan().single().isWriteProtected shouldBe false
     }
 
-    @Test fun `an unidentified top level item aborts the whole scan`() = runTest2 {
-        unidentifiedCandidate(sdcard1, "Unidentified")
-        candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
+    @Test fun `isWriteProtected is true when the path is not writable`() = runTest2 {
+        val target = candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
+        coEvery { gatewaySwitch.canWrite(target.path) } returns false
 
-        // documents suspect behavior: the top level pass uses `findOwners(it)!!`, so one
-        // unidentifiable entry kills the entire sdcard scan. The template filters use mapNotNull
-        // and would just skip it, still reporting "OrphanApp".
-        shouldThrow<NullPointerException> { create().scan() }
+        create().scan().single().isWriteProtected shouldBe true
+    }
+
+    @Test fun `an unidentified top level item is skipped and the scan continues`() = runTest2 {
+        unidentifiedCandidate(sdcard1, "Unidentified")
+        val target = candidate(sdcard1, "OrphanApp", preset = Preset.StaleOwner("com.orphan.app"))
+
+        // Same contract as the template filters: an entry the CSI can't identify is logged and
+        // skipped, it does not take the rest of the scan down with it.
+        create().scan().single().shouldMatch(target, SdcardCorpseFilter::class)
     }
 
     // ─────────────────────────── marker cache lifecycle ───────────────────────────
