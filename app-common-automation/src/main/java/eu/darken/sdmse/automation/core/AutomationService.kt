@@ -4,6 +4,8 @@ import android.accessibilityservice.AccessibilityService
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.PixelFormat
+import android.os.Handler
+import android.os.Looper
 import android.view.Gravity
 import android.view.View
 import android.view.WindowManager
@@ -48,6 +50,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.automation.mightBeRestrictedDueToSideload
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
@@ -56,6 +59,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.BufferOverflow
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -67,12 +71,14 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.withTimeoutOrNull
 import java.util.UUID
 import javax.inject.Inject
 import eu.darken.sdmse.setup.SetupBinding
@@ -355,6 +361,103 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         }
     }
 
+    /**
+     * Overlay ownership for a single [submit] call. The shared [controlView]/[overlayLifecycle] fields
+     * are assigned only after the setup dispatch returns, so a cancellation observed in between would
+     * leave an attached window that nothing points at. This handle tracks it from `addView()` onwards.
+     */
+    private class OverlayHandle {
+        var view: ComposeView? = null
+        var lifecycle: OverlayLifecycleOwner? = null
+        var attached: Boolean = false
+        var cleanedUp: Boolean = false
+    }
+
+    /** Idempotent, used by both the setup guard and the regular teardown. */
+    private suspend fun cleanUpOverlay(id: Int, handle: OverlayHandle) = optionsLock.withLock {
+        if (handle.cleanedUp) {
+            log(TAG, VERBOSE) { "cleanUpOverlay($id): Already cleaned up" }
+            return@withLock
+        }
+        handle.cleanedUp = true
+
+        val view = handle.view
+        try {
+            if (view != null && handle.attached) {
+                handle.attached = false
+                removeOverlayView(id, view)
+            } else {
+                log(TAG) { "cleanUpOverlay($id): No attached controlView to remove (view=$view)" }
+            }
+        } finally {
+            val lifecycle = handle.lifecycle
+            // LifecycleRegistry.handleLifecycleEvent() throws unless it runs on the main thread, and
+            // this teardown runs on the service's Default dispatcher. Posted rather than dispatched via
+            // `withContext(dispatcher.Main)`, which would block here, holding optionsLock, for as long as
+            // the main thread is wedged. Nothing needs to wait for it: the dispose has no ordering
+            // requirement against the rest of the teardown, the handle's fields are nulled right after,
+            // and the ComposeView disposes its composition on detach regardless.
+            val posted = Handler(Looper.getMainLooper()).post {
+                runCatching { lifecycle?.onDestroy() }
+                    .onFailure { log(TAG, WARN) { "cleanUpOverlay($id): Failed to dispose lifecycle: ${it.asLog()}" } }
+            }
+            if (!posted) log(TAG, ERROR) { "cleanUpOverlay($id): Main looper rejected the lifecycle dispose" }
+            controlView = null
+            overlayLifecycle = null
+            handle.view = null
+            handle.lifecycle = null
+        }
+    }
+
+    private suspend fun removeOverlayView(id: Int, view: ComposeView) {
+        val isDetached = CompletableDeferred<Unit>()
+        val listener = object : View.OnAttachStateChangeListener {
+            override fun onViewDetachedFromWindow(v: View) {
+                v.removeOnAttachStateChangeListener(this)
+                log(TAG) { "removeOverlayView($id): controlView removed: $v" }
+                isDetached.complete(Unit)
+            }
+
+            override fun onViewAttachedToWindow(v: View) {}
+        }
+        val mainHandler = Handler(Looper.getMainLooper())
+        // Watchdog, not a budget: this should never fire, but a wedged main thread or a detach callback
+        // that never arrives must not pin taskLock forever. The removal is posted instead of dispatched
+        // via `withContext(dispatcher.Main)`, because a structured dispatch can't be abandoned while the
+        // main thread is stuck, which is the exact scenario this timeout exists for.
+        val removed = withTimeoutOrNull(OVERLAY_REMOVAL_TIMEOUT_MS) {
+            val posted = mainHandler.post {
+                try {
+                    view.addOnAttachStateChangeListener(listener)
+                    log(TAG) { "removeOverlayView($id): Removing controlView: $view" }
+                    windowManager.removeView(view)
+                } catch (e: Exception) {
+                    view.removeOnAttachStateChangeListener(listener)
+                    log(TAG, ERROR) { "removeOverlayView($id): Failed to remove controlView: ${e.asLog()}" }
+                    isDetached.completeExceptionally(e)
+                }
+            }
+            if (!posted) {
+                log(TAG, ERROR) { "removeOverlayView($id): Main looper rejected the removal: $view" }
+                isDetached.completeExceptionally(IllegalStateException("Main looper is not accepting messages"))
+            }
+            isDetached.await()
+        }
+        if (removed == null) {
+            log(TAG, WARN) {
+                "removeOverlayView($id): Timeout after ${OVERLAY_REMOVAL_TIMEOUT_MS}ms, overlay may be orphaned: $view"
+            }
+            // Not awaited: the main thread is unresponsive, this only reports back if it recovers.
+            val posted = mainHandler.post {
+                view.removeOnAttachStateChangeListener(listener)
+                log(TAG, WARN) {
+                    "removeOverlayView($id): Post-timeout state, isAttachedToWindow=${view.isAttachedToWindow}: $view"
+                }
+            }
+            if (!posted) log(TAG, ERROR) { "removeOverlayView($id): Main looper rejected the orphan check: $view" }
+        }
+    }
+
     override suspend fun changeOptions(
         action: (AutomationHost.Options) -> AutomationHost.Options
     ) = optionsLock.withLock {
@@ -407,48 +510,68 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
             // Include the user's chosen palette — omitting it pinned the overlay to the GREEN default.
             color = generalSettings.themeColor.value(),
         )
-        controlView = withContext(dispatcher.Main) {
-            val themedContext = ContextThemeWrapper(
-                this@AutomationService,
-                eu.darken.sdmse.common.ui.R.style.AppTheme,
-            )
-            val lifecycle = OverlayLifecycleOwner().apply { onCreate() }
-            try {
-                val composeView = ComposeView(themedContext).apply {
-                    setViewTreeLifecycleOwner(lifecycle)
-                    setViewTreeViewModelStoreOwner(lifecycle)
-                    setViewTreeSavedStateRegistryOwner(lifecycle)
-                    setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnDetachedFromWindow)
-                    alpha = 0f
-                    setContent {
-                        SdmSeTheme(state = themeStateSnapshot) {
-                            val s by overlayState.collectAsState()
-                            AutomationOverlay(
-                                state = s,
-                                isTv = isTvDevice,
-                                showHomeCancelHint = isTvDevice && homePackages.isNotEmpty(),
-                                onCancel = { userCancelCurrentTask() },
-                            )
+        val overlay = OverlayHandle()
+
+        try {
+            withContext(dispatcher.Main) {
+                val themedContext = ContextThemeWrapper(
+                    this@AutomationService,
+                    eu.darken.sdmse.common.ui.R.style.AppTheme,
+                )
+                val lifecycle = OverlayLifecycleOwner().apply { onCreate() }
+                overlay.lifecycle = lifecycle
+                try {
+                    val composeView = ComposeView(themedContext).apply {
+                        setViewTreeLifecycleOwner(lifecycle)
+                        setViewTreeViewModelStoreOwner(lifecycle)
+                        setViewTreeSavedStateRegistryOwner(lifecycle)
+                        setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnDetachedFromWindow)
+                        alpha = 0f
+                        setContent {
+                            SdmSeTheme(state = themeStateSnapshot) {
+                                val s by overlayState.collectAsState()
+                                AutomationOverlay(
+                                    state = s,
+                                    isTv = isTvDevice,
+                                    showHomeCancelHint = isTvDevice && homePackages.isNotEmpty(),
+                                    onCancel = { userCancelCurrentTask() },
+                                )
+                            }
                         }
                     }
+                    overlay.view = composeView
+                    log(TAG) { "submit($id): Adding controlView" }
+                    windowManager.addView(composeView, overlayParams)
+                    // Marked attached right here: a cancellation observed while this dispatch returns
+                    // would leave the window attached while the shared fields are still unassigned.
+                    overlay.attached = true
+                    controlView = composeView
+                    overlayLifecycle = lifecycle
+                } catch (e: WindowManager.BadTokenException) {
+                    log(TAG, ERROR) { "submit($id): Failed to add controlView: ${e.asLog()}" }
+                    throw AutomationOverlayException(e)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "submit($id): Failed to set up controlView: ${e.asLog()}" }
+                    throw e
                 }
-                log(TAG) { "submit($id): Adding controlView" }
-                windowManager.addView(composeView, overlayParams)
-                overlayLifecycle = lifecycle
-                composeView
-            } catch (e: WindowManager.BadTokenException) {
-                log(TAG, ERROR) { "submit($id): Failed to add controlView: ${e.asLog()}" }
-                runCatching { lifecycle.onDestroy() }
-                throw AutomationOverlayException(e)
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "submit($id): Failed to set up controlView: ${e.asLog()}" }
-                runCatching { lifecycle.onDestroy() }
-                throw e
             }
-        }
 
-        changeOptions { AutomationHost.Options() }
-        updateProgress { Progress.Data() }
+            changeOptions { AutomationHost.Options() }
+            updateProgress { Progress.Data() }
+        } catch (e: Throwable) {
+            // Includes cancellation: the cleanup has to finish before taskLock is released, otherwise
+            // the next task starts on top of an orphaned overlay.
+            if (e is CancellationException) {
+                log(TAG, INFO) { "submit($id): Setup was cancelled, cleaning up overlay" }
+            } else {
+                log(TAG, ERROR) { "submit($id): Setup failed, cleaning up overlay: ${e.asLog()}" }
+            }
+            withContext(NonCancellable) {
+                runCatching { cleanUpOverlay(id, overlay) }
+                    .onFailure { log(TAG, ERROR) { "submit($id): Overlay cleanup failed: ${it.asLog()}" } }
+            }
+            throw e
+        }
 
         val deferred = serviceScope.async {
             try {
@@ -459,44 +582,25 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
                 throw e
             } finally {
                 withContext(NonCancellable) {
-                    updateProgress { null }
-                    // Mirror of the reset before the task: modules widen the accessibility config
-                    // (e.g. ClearCacheModule uses TYPES_ALL_MASK) and without this the service stays
-                    // subscribed to every event on the device for the rest of the process lifetime,
-                    // even though onAccessibilityEvent() drops them all while no task is active.
-                    // Before removing the controlView, so the overlay is hidden while still attached.
-                    runCatching { changeOptions { AutomationHost.Options() } }
-                        .onFailure { log(TAG, WARN) { "submit($id): Failed to restore options: ${it.asLog()}" } }
-                    optionsLock.withLock {
-                        val viewToRemove = controlView!!
-                        val lifecycleToDispose = overlayLifecycle
-                        try {
-                            val isDetached = CompletableDeferred<Unit>()
-                            val listener = object : View.OnAttachStateChangeListener {
-                                override fun onViewDetachedFromWindow(v: View) {
-                                    v.removeOnAttachStateChangeListener(this)
-                                    log(TAG) { "submit($id): controlView removed: $v" }
-                                    isDetached.complete(Unit)
-                                }
-
-                                override fun onViewAttachedToWindow(v: View) {}
-                            }
-                            withContext(dispatcher.Main) {
-                                viewToRemove.addOnAttachStateChangeListener(listener)
-                            }
-                            log(TAG) { "submit($id): Removing controlView: $viewToRemove" }
-                            withContext(dispatcher.Main) {
-                                windowManager.removeView(viewToRemove)
-                            }
-                            isDetached.await()
-                        } finally {
-                            controlView = null
-                            runCatching { lifecycleToDispose?.onDestroy() }
-                            overlayLifecycle = null
-                        }
+                    try {
+                        updateProgress { null }
+                        // Mirror of the reset before the task: modules widen the accessibility config
+                        // (e.g. ClearCacheModule uses TYPES_ALL_MASK) and without this the service stays
+                        // subscribed to every event on the device for the rest of the process lifetime,
+                        // even though onAccessibilityEvent() drops them all while no task is active.
+                        // Before removing the controlView, so the overlay is hidden while still attached.
+                        runCatching { changeOptions { AutomationHost.Options() } }
+                            .onFailure { log(TAG, WARN) { "submit($id): Failed to restore options: ${it.asLog()}" } }
+                        cleanUpOverlay(id, overlay)
+                    } catch (e: Exception) {
+                        // Not rethrown: submit() only join()s this task when its caller was cancelled,
+                        // so a teardown failure would have nowhere to surface anyway.
+                        log(TAG, ERROR) { "submit($id): Teardown failed: ${e.asLog()}" }
+                    } finally {
+                        currentTask.value = null
+                        automationManager.setCurrentTask(null)
+                        log(TAG) { "submit($id): ...task complete" }
                     }
-                    currentTask.value = null
-                    log(TAG) { "submit($id): ...task complete" }
                 }
             }
         }
@@ -531,13 +635,46 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         }
 
         log(TAG) { "submit($id): ...waiting for result" }
-        deferred.await().also { log(TAG) { "submit($id): Result available: $it" } }
+        try {
+            deferred.await().also { log(TAG) { "submit($id): Result available: $it" } }
+        } catch (e: CancellationException) {
+            if (currentCoroutineContext().isActive) {
+                // The task itself was cancelled (overlay Cancel, cancelTask(), service destruction),
+                // await() only returned after its teardown finished.
+                log(TAG, INFO) { "submit($id): Task was cancelled: $e" }
+            } else {
+                // The task is not a child of this caller. Without cancelling and joining it here,
+                // taskLock would be released while the task is still running, so a second automation
+                // could overlap with it.
+                log(TAG, INFO) { "submit($id): Caller was cancelled, cancelling task and awaiting teardown" }
+                deferred.cancel(CancellationException("submit($id): Caller was cancelled").apply { initCause(e) })
+                withContext(NonCancellable) { deferred.join() }
+                log(TAG) { "submit($id): Task teardown finished" }
+            }
+            throw e
+        }
     }
 
     /** Hide the overlay and cancel the running task as if the user pressed Cancel (overlay button / TV Home). */
     private fun userCancelCurrentTask() {
-        serviceScope.launch { changeOptions { it.copy(showOverlay = false) } }
-        currentTask.value?.second?.cancel(cause = UserCancelledAutomationException())
+        val (_, job) = currentTask.value ?: run {
+            log(TAG, WARN) { "userCancelCurrentTask(): No task to cancel" }
+            return
+        }
+        serviceScope.launch {
+            changeOptions { options ->
+                // This isn't joined by anyone, so it can run after the next task has started. Only act
+                // while the submission it was issued for is still the current one. Compared by job, the
+                // same AutomationTask instance may legally be submitted more than once.
+                if (currentTask.value?.second !== job) {
+                    log(TAG, WARN) { "userCancelCurrentTask(): Task is no longer current, not hiding overlay" }
+                    options
+                } else {
+                    options.copy(showOverlay = false)
+                }
+            }
+        }
+        job.cancel(cause = UserCancelledAutomationException())
     }
 
     override fun cancelTask(): Boolean {
@@ -554,5 +691,8 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
 
         /** How long the home screen must stay foreground before a TV "leave" counts as a cancel. */
         private const val LEAVE_CANCEL_GRACE_MS = 1000L
+
+        /** Watchdog for detaching the overlay window, should never be reached in normal operation. */
+        private const val OVERLAY_REMOVAL_TIMEOUT_MS = 5_000L
     }
 }
