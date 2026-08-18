@@ -196,30 +196,76 @@ class SAFGateway @Inject constructor(
         // Callers like CorpseFinder only handle WriteException, a ReadException escaping from here
         // would abort their whole run instead of just this target.
         try {
-            val queue = LinkedList(listOf(lookup(path)))
+            val target = lookup(path)
 
-            while (!queue.isEmpty()) {
-                val lookUp = queue.removeFirst()
+            when {
+                !target.isDirectory -> deleteDocument(target.docFile, path)
 
-                if (lookUp.isDirectory) {
-                    queue.addAll(lookupFiles(lookUp.lookedUp).toList())
-                } else {
-                    var success = lookUp.docFile.delete()
+                recursive -> deleteTreeCascading(target)
 
-                    if (!success) {
-                        success = !lookUp.docFile.exists
-                        if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
-                    }
+                // Best-effort refusal, see the APathGateway.delete contract: a child that appears
+                // after this check can still be taken by a provider that cascades.
+                target.docFile.hasChildren() -> throw WriteException("Directory not empty", path)
 
-                    if (!success) throw IOException("Document delete() call returned false")
-                }
+                else -> deleteDocument(target.docFile, path)
             }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
             log(TAG, ERROR) { "delete($path) failed: ${e.asLog()}" }
-            throw WriteException(path = path, cause = e)
+            throw if (e is WriteException) e else WriteException(path = path, cause = e)
         }
+    }
+
+    /**
+     * Deletes a directory and everything below it.
+     *
+     * The fast path is a single delete on the directory itself: AOSP's `FileSystemProvider` removes
+     * the whole subtree, and the platform allows (but does not promise) that. A provider that
+     * refuses, fails or only gets part way through falls back to a post-order walk, where every
+     * directory is already empty by the time it is deleted.
+     */
+    private suspend fun deleteTreeCascading(target: SAFPathLookup) {
+        val cascaded = try {
+            target.docFile.delete()
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Cascading delete of ${target.lookedUp} failed: ${e.asLog()}" }
+            false
+        }
+
+        // Under a dry-run SAFDocFile.delete deletes nothing and reports the document as still there,
+        // which counts as a cascade here, so the fallback and its real deletions never run.
+        if (cascaded) return
+
+        if (!target.docFile.existsStrict()) {
+            log(TAG, WARN) { "Tried to delete directory, but it's already gone: ${target.lookedUp}" }
+            return
+        }
+
+        log(TAG, WARN) { "Provider didn't cascade ${target.lookedUp}, deleting children individually" }
+        deleteTreePostOrder(target)
+    }
+
+    private suspend fun deleteTreePostOrder(target: SAFPathLookup) {
+        if (target.isDirectory) {
+            lookupFiles(target.lookedUp).toList().forEach { deleteTreePostOrder(it) }
+        }
+        deleteDocument(target.docFile, target.lookedUp)
+    }
+
+    private fun deleteDocument(docFile: SAFDocFile, path: SAFPath) {
+        if (docFile.delete()) return
+
+        // Providers report a failure for a document that is already gone, but only a query that
+        // actually answers may turn that into a success.
+        if (!docFile.existsStrict()) {
+            log(TAG, WARN) { "Tried to delete, but it's already gone: $path" }
+            return
+        }
+
+        throw IOException("Document delete() call returned false")
     }
 
     override suspend fun canWrite(path: SAFPath): Boolean = runIO {
@@ -259,6 +305,8 @@ class SAFGateway @Inject constructor(
             ).also {
                 if (Bugs.isTrace) log(TAG, VERBOSE) { "Looked up: $it" }
             }
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             log(TAG, WARN) { "lookup($path) failed." }
             throw ReadException(path = path, cause = e)
@@ -305,6 +353,8 @@ class SAFGateway @Inject constructor(
             val name = it.name ?: it.uri.pathSegments.last().split('/').last()
             path.child(name)
         }
+    } catch (e: CancellationException) {
+        throw e
     } catch (e: Exception) {
         log(TAG, WARN) { "$label($path) failed." }
         throw ReadException(path = path, cause = e)
