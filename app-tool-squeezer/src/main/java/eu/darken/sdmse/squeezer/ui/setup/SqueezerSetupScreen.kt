@@ -18,6 +18,7 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
+import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.Edit
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.FolderOpen
@@ -56,6 +57,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.asComposable
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -67,6 +69,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.ui.comparison.SqueezerComparisonDialog
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -167,6 +170,14 @@ internal fun SqueezerSetupScreen(
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     var showAgeDialog by remember { mutableStateOf(false) }
+    // Hoisted (and not just inlined below) so a fresh process result can scroll itself into view:
+    // rememberScrollState is rememberSaveable, and a popped-and-restored entry comes back at its
+    // old offset, which can be far below the result card.
+    val scrollState = rememberScrollState()
+
+    LaunchedEffect(state.processResult) {
+        if (state.processResult != null) scrollState.animateScrollTo(0)
+    }
 
     SdmScaffold(
         topBar = {
@@ -195,9 +206,13 @@ internal fun SqueezerSetupScreen(
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .verticalScroll(rememberScrollState())
+                        .verticalScroll(scrollState)
                         .padding(16.dp),
                 ) {
+                    state.processResult?.let { result ->
+                        ProcessResultCard(result = result)
+                        Spacer(Modifier.height(16.dp))
+                    }
                     ExplanationCard()
                     Spacer(Modifier.height(16.dp))
                     PathsCard(
@@ -251,6 +266,42 @@ internal fun SqueezerSetupScreen(
             },
             onDismiss = { showAgeDialog = false },
         )
+    }
+}
+
+@Composable
+private fun ProcessResultCard(result: SqueezerProcessTask.Result) {
+    val secondary = result.secondaryInfo.asComposable()
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                imageVector = Icons.TwoTone.Compress,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Spacer(Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = result.primaryInfo.asComposable(),
+                    style = MaterialTheme.typography.titleMedium,
+                    color = MaterialTheme.colorScheme.onSecondaryContainer,
+                )
+                if (secondary.isNotBlank()) {
+                    Spacer(Modifier.height(4.dp))
+                    Text(
+                        text = secondary,
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSecondaryContainer,
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -486,6 +537,24 @@ private fun SqueezerSetupScreenEmptyPreview() {
     PreviewWrapper {
         SqueezerSetupScreen(
             stateSource = MutableStateFlow(SqueezerSetupViewModel.State()),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SqueezerSetupScreenResultPreview() {
+    PreviewWrapper {
+        SqueezerSetupScreen(
+            stateSource = MutableStateFlow(
+                SqueezerSetupViewModel.State(
+                    processResult = SqueezerProcessTask.Success(
+                        affectedSpace = 34 * 1024 * 1024L,
+                        affectedPaths = emptySet(),
+                        processedCount = 2,
+                    ),
+                ),
+            ),
         )
     }
 }
