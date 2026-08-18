@@ -24,6 +24,8 @@ import eu.darken.sdmse.common.compose.asComposable
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.determinateFraction
+import kotlin.math.ceil
 
 @Composable
 internal fun ProgressContainer(
@@ -61,6 +63,28 @@ internal fun ProgressContainer(
             }
         }
     }
+}
+
+/**
+ * The card's 32dp ring is too small to nest a second ring, so per-item progress is blended into the
+ * single arc instead.
+ *
+ * Unlike the tool overlay's shared helper this keeps [Progress.Count.Size] determinate: the card has
+ * always rendered a real arc for it (Analyzer, CorpseFinder deletion), and dropping it would make
+ * those cards spin forever.
+ */
+internal fun dashboardFraction(count: Progress.Count, subCount: Progress.Count?): Float? {
+    val base: Float? = when (count) {
+        is Progress.Count.Counter,
+        is Progress.Count.Percent,
+        is Progress.Count.Size,
+        -> if (count.max > 0L) (count.current.toFloat() / count.max.toFloat()).coerceIn(0f, 1f) else null
+
+        else -> null
+    }
+    val subFraction = subCount.determinateFraction() ?: return base
+    if (count.max <= 0L) return base
+    return ((count.current + subFraction) / count.max).coerceIn(0f, 1f)
 }
 
 @Composable
@@ -101,23 +125,29 @@ internal fun DashboardProgress(progress: Progress.Data) {
             is Progress.Count.Counter,
             is Progress.Count.Size -> {
                 Spacer(modifier = Modifier.width(12.dp))
-                val isDeterminate = count.current > 0L && count.max > 0L
+                val subCount = progress.subCount
+                val fraction = dashboardFraction(count, subCount)
+                // With no sub-count this is exactly the old `count.current > 0 && count.max > 0`.
+                val isDeterminate = count.max > 0L && (fraction ?: 0f) > 0f
                 val context = LocalContext.current
                 Box(modifier = Modifier.size(32.dp)) {
                     if (isDeterminate) {
-                        val fraction = (count.current.toFloat() / count.max.toFloat()).coerceIn(0f, 1f)
+                        val ringFraction = fraction ?: 0f
                         CircularProgressIndicator(
-                            progress = { fraction },
+                            progress = { ringFraction },
                             modifier = Modifier.matchParentSize(),
                             strokeWidth = 2.5.dp,
                         )
                         // Percent renders itself, so the card agrees with the tool screen and the
                         // automation overlay instead of flooring where they round up. Counter and
                         // Size display as "3/10" and "1.2 MB/5 MB", which doesn't fit inside the
-                        // ring, so they keep showing a percentage of their own.
+                        // ring, so they keep showing a percentage of their own. Only a blended
+                        // fraction (sub-count present) is derived from the float, rounded up to
+                        // match Percent.
                         Text(
-                            text = when (count) {
-                                is Progress.Count.Percent -> count.displayValue(context)
+                            text = when {
+                                subCount != null -> "${ceil(ringFraction * 100f).toInt()}%"
+                                count is Progress.Count.Percent -> count.displayValue(context)
                                 else -> "${(count.current * 100 / count.max).toInt()}%"
                             },
                             style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp),
