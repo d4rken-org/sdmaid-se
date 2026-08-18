@@ -41,6 +41,7 @@ import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.UpdateDashboardCardItem
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.squeezer.core.Squeezer
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.stats.ui.ReportsRoute
@@ -300,6 +301,10 @@ internal fun DashboardViewModel.buildSqueezerItem(): Flow<SqueezerDashboardCardI
                 isInitializing = state == null,
                 data = state?.data,
                 progress = state?.progress,
+                // Process results only: performProcess prunes the data before submit() stores its
+                // result, so an unfiltered lastResult would show the preceding scan summary where
+                // a compression receipt belongs.
+                result = state?.lastResult as? SqueezerProcessTask.Result,
                 onViewDetails = {
                     navTo(SqueezerSetupRoute)
                 },
