@@ -16,7 +16,9 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
+import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -97,6 +99,7 @@ class SqueezerSetupViewModelTest : BaseTest() {
         minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,
         squeezerData: Squeezer.Data? = null,
         squeezerProgress: Progress.Data? = null,
+        squeezerLastResult: SqueezerTask.Result? = null,
     ): Harness {
         val scanPathsValue = rwDataStoreValue(SqueezerSettings.ScanPaths(paths = scanPaths))
         val qualityValue = rwDataStoreValue(compressionQuality)
@@ -110,7 +113,13 @@ class SqueezerSetupViewModelTest : BaseTest() {
             every { this@apply.minSizeBytes } returns minSizeValue
         }
 
-        val squeezerStateFlow = MutableStateFlow(Squeezer.State(data = squeezerData, progress = squeezerProgress))
+        val squeezerStateFlow = MutableStateFlow(
+            Squeezer.State(
+                data = squeezerData,
+                progress = squeezerProgress,
+                lastResult = squeezerLastResult,
+            ),
+        )
         val squeezerProgressFlow = MutableStateFlow(squeezerProgress)
         val squeezer = mockk<Squeezer>(relaxed = true).apply {
             every { state } returns squeezerStateFlow
@@ -217,6 +226,47 @@ class SqueezerSetupViewModelTest : BaseTest() {
         val h = harness(scanPaths = setOf(LocalPath.build("/dcim")), compressionQuality = 100)
 
         h.vm.state.first().estimatedSavingsPercent shouldBe 0
+    }
+
+    // ─────────────────────────── processResult ───────────────────────────
+
+    @Test
+    fun `state processResult is null when the last result was a scan`() = runTest2 {
+        // performProcess prunes the media data before submit() stores the process result, so
+        // there's a window where the list has drained while lastResult is still the preceding
+        // scan success. Showing it would flash "x items found" where a compression receipt
+        // belongs.
+        val h = harness(
+            squeezerLastResult = SqueezerScanTask.Success(
+                itemCount = 2,
+                totalSize = 2048L,
+                estimatedSavings = 1024L,
+            ),
+        )
+
+        h.vm.state.first().processResult shouldBe null
+    }
+
+    @Test
+    fun `state processResult carries the last process result`() = runTest2 {
+        val processResult = SqueezerProcessTask.Success(
+            affectedSpace = 1024L,
+            affectedPaths = setOf(LocalPath.build("/dcim/a.jpg")),
+            processedCount = 2,
+        )
+        val h = harness(squeezerLastResult = processResult)
+
+        h.vm.state.first().processResult shouldBe processResult
+    }
+
+    @Test
+    fun `state progress comes from the squeezer state`() = runTest2 {
+        // The VM reads progress off Squeezer.state (not squeezer.progress) so progress and the
+        // process result can't disagree within a frame.
+        val progress = Progress.Data()
+        val h = harness(squeezerProgress = progress)
+
+        h.vm.state.first().progress shouldBe progress
     }
 
     // ─────────────────────────── updateQuality / updateMinAge ───────────────────────────
