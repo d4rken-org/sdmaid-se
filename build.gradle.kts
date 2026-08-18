@@ -45,6 +45,15 @@ dependencies {
     "kover"(project(":app-common-io"))
     "kover"(project(":app-common-root"))
     "kover"(project(":app-common-adb"))
+    "kover"(project(":app-tool-corpsefinder"))
+    "kover"(project(":app-tool-systemcleaner"))
+    "kover"(project(":app-tool-appcleaner"))
+    "kover"(project(":app-tool-deduplicator"))
+    "kover"(project(":app-tool-squeezer"))
+    "kover"(project(":app-tool-analyzer"))
+    "kover"(project(":app-tool-swiper"))
+    "kover"(project(":app-tool-appcontrol"))
+    "kover"(project(":app-tool-scheduler"))
 }
 
 configure<KoverProjectExtension> {
