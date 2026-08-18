@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -78,7 +79,9 @@ class Squeezer @Inject constructor(
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as SqueezerTask
         log(TAG, INFO) { "submit($task) starting..." }
-        updateProgress { Progress.Data() }
+        updateProgress {
+            Progress.Data(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
+        }
 
         try {
             val result = keepResourceHoldersAlive(gatewaySwitch) {
@@ -166,14 +169,32 @@ class Squeezer @Inject constructor(
         val imageTargets = targets.filterIsInstance<CompressibleImage>().toSet()
         val videoTargets = targets.filterIsInstance<CompressibleVideo>().toSet()
 
+        // Both processors count their own batch, so without a shared offset/total a 1 image + 1
+        // video run reads "0/1 -> 1/1" twice and never "2 of 2".
+        val totalItems = imageTargets.size + videoTargets.size
+
         val imageResult = if (imageTargets.isNotEmpty()) {
-            imageProcessor.get().withProgress(this) { process(imageTargets, quality) }
+            imageProcessor.get().withProgress(
+                client = this,
+                // withProgress' default onCompletion is Progress.Data(), whose primary is
+                // "Loading" - that's what flashes at every phase boundary. Publishing the phase's
+                // completed count instead also makes the terminal count deterministic, which
+                // throttleLatest() alone can't guarantee.
+                onCompletion = { itemsCompleted(it, imageTargets.size, totalItems) },
+            ) {
+                process(imageTargets, quality, itemOffset = 0, itemTotal = totalItems)
+            }
         } else {
             ImageProcessor.Result(success = emptySet(), failed = emptyMap(), savedSpace = 0L)
         }
 
         val videoResult = if (videoTargets.isNotEmpty()) {
-            videoProcessor.get().withProgress(this) { process(videoTargets, quality) }
+            videoProcessor.get().withProgress(
+                client = this,
+                onCompletion = { itemsCompleted(it, totalItems, totalItems) },
+            ) {
+                process(videoTargets, quality, itemOffset = imageTargets.size, itemTotal = totalItems)
+            }
         } else {
             VideoProcessor.Result(success = emptySet(), failed = emptyMap(), savedSpace = 0L)
         }
@@ -187,7 +208,7 @@ class Squeezer @Inject constructor(
             .groupingBy { it }
             .eachCount()
 
-        updateProgress { Progress.Data() }
+        updateProgress { itemsCompleted(it, totalItems, totalItems) }
 
         // Consume both compressed items and HDR/depth-preserved (guard-skipped) ones from the list,
         // but only compressed items count toward processedCount / affectedPaths below.
@@ -203,6 +224,16 @@ class Squeezer @Inject constructor(
             guardSkippedCount = imageResult.skippedGuarded.size,
         )
     }
+
+    /**
+     * Keeps the current message but reports [completed] of [total] items done, with no per-item
+     * progress. Returning null here would blank the overlay mid-run.
+     */
+    private fun itemsCompleted(current: Progress.Data?, completed: Int, total: Int): Progress.Data =
+        (current ?: Progress.Data()).copy(
+            count = Progress.Count.Counter(completed, total),
+            subCount = null,
+        )
 
     suspend fun exclude(
         identifiers: Collection<CompressibleMedia.Id>
