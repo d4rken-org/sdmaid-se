@@ -52,6 +52,13 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
 
         /** Deleting a non-empty directory fails, modelling a stricter provider. */
         REJECT_NONEMPTY,
+
+        /**
+         * The first directory delete removes the childless documents below the target and then fails,
+         * modelling a cascade that gives up part way through. Afterwards the provider behaves like
+         * [REJECT_NONEMPTY], so whatever cleans up the remains has to work bottom up.
+         */
+        CASCADE_PARTIAL_FAILURE,
     }
 
     data class Node(
@@ -86,8 +93,14 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
     /** Fails every child listing for these (normalized) document ids. */
     val failChildQueryFor = mutableMapOf<String, Exception>()
 
-    /** Fails the next [deleteDocument], then clears itself. */
+    /** Fails the next [deleteDocument] before it deletes anything, then clears itself. */
     var failNextDeleteWith: Exception? = null
+
+    /**
+     * Fails the next [deleteDocument] *after* it deleted, then clears itself. Models a provider that
+     * reports a failure for a deletion that actually went through.
+     */
+    var failNextDeleteAfterwardsWith: Exception? = null
 
     /**
      * Creates the next document under this display name instead of the requested one, then clears
@@ -101,8 +114,17 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
      */
     var onChildQuery: ((String) -> Unit)? = null
 
+    /** Invoked with the document id *after* a document cursor has been built, see [onChildQuery]. */
+    var onDocumentQuery: ((String) -> Unit)? = null
+
+    /** Invoked with the document id at the start of [deleteDocument], before any failure hook fires. */
+    var onDelete: ((String) -> Unit)? = null
+
     val queriedDocuments = mutableListOf<String>()
     val queriedChildren = mutableListOf<String>()
+
+    /** Every [deleteDocument] call, including the ones that end up failing. */
+    val deleteCalls = mutableListOf<String>()
 
     /** Parent document id and *requested* display name, per [createDocument] call. */
     val createdDocuments = mutableListOf<Pair<String, String>>()
@@ -156,6 +178,7 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
         queriedChildren.clear()
         createdDocuments.clear()
         createdDocumentIds.clear()
+        deleteCalls.clear()
         deletedDocuments.clear()
         openedDocuments.clear()
     }
@@ -178,7 +201,9 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
         queriedDocuments.add(id)
         failDocQueryFor[id]?.let { throw it }
         val node = nodes[id] ?: throw FileNotFoundException("No such document: $id")
-        return cursorFor(projection, listOf(node))
+        val cursor = cursorFor(projection, listOf(node))
+        onDocumentQuery?.invoke(id)
+        return cursor
     }
 
     override fun queryChildDocuments(
@@ -228,25 +253,41 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
     }
 
     override fun deleteDocument(documentId: String) {
+        val id = normalize(documentId)
+        deleteCalls.add(id)
+        onDelete?.invoke(id)
+
         failNextDeleteWith?.let {
             failNextDeleteWith = null
             throw it
         }
-        val id = normalize(documentId)
+
         val node = nodes[id] ?: throw FileNotFoundException("No such document: $id")
 
         if (node.isDirectory) {
             val descendants = descendantsOf(id)
             when (dirDeleteMode) {
                 DirDeleteMode.CASCADE -> descendants.forEach { drop(it) }
+
                 DirDeleteMode.REJECT_NONEMPTY -> if (descendants.isNotEmpty()) {
                     throw IllegalStateException("Directory not empty: $id")
+                }
+
+                DirDeleteMode.CASCADE_PARTIAL_FAILURE -> {
+                    dirDeleteMode = DirDeleteMode.REJECT_NONEMPTY
+                    descendants.filter { childrenOf(it).isEmpty() }.forEach { drop(it) }
+                    throw IllegalStateException("Gave up while deleting $id")
                 }
             }
         }
 
         drop(id)
         deletedDocuments.add(id)
+
+        failNextDeleteAfterwardsWith?.let {
+            failNextDeleteAfterwardsWith = null
+            throw it
+        }
     }
 
     override fun openDocument(documentId: String, mode: String, signal: CancellationSignal?): ParcelFileDescriptor {
