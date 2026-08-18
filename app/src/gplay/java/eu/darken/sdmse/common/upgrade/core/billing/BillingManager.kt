@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
 import eu.darken.sdmse.common.upgrade.core.billing.client.isPurchased
 import eu.darken.sdmse.common.upgrade.core.billing.client.redacted
+import eu.darken.sdmse.common.upgrade.core.billing.work.PurchaseAckScheduler
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.Channel
@@ -25,6 +26,8 @@ import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.flow.SharingStarted.Companion.WhileSubscribed
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -33,6 +36,7 @@ import javax.inject.Singleton
 class BillingManager @Inject constructor(
     @AppScope private val scope: CoroutineScope,
     connectionProvider: BillingConnectionProvider,
+    private val ackScheduler: PurchaseAckScheduler,
 ) {
 
     // Fresh Play data plus its provenance: a query result covers owned products of the queried
@@ -174,6 +178,11 @@ class BillingManager @Inject constructor(
         }
     }
 
+    // Serializes acknowledgement work between the reactive ack collector and explicit
+    // ensureAllAcknowledged() sweeps (PurchaseAckWorker): both paths mutate the token bookkeeping
+    // sets and both must never double-drive the same purchase's inline retry sequence.
+    private val ackMutex = Mutex()
+
     // Re-drives the ack pass WITHOUT a new purchases emission: `purchases` is distinctUntilChanged,
     // so a refresh returning a byte-identical (still unacknowledged) list is deduped and could never
     // retry a failed ack -- the pipeline starved until Play sent something different. Declared ahead
@@ -256,13 +265,13 @@ class BillingManager @Inject constructor(
     // below. The immutable Purchase snapshot keeps reporting isAcknowledged=false until a fresh Play
     // query supersedes it, so the ack re-fires every emission until then; re-acking is a documented
     // no-op on Play's side, whereas skipping a needed ack gets the purchase auto-refunded after 3
-    // days -- so the ack stays unconditional and this set only quiets the log spam. Single
-    // sequential collector (the ack pass below), no locking needed.
+    // days -- so the ack stays unconditional and this set only quiets the log spam. Confined by
+    // ackMutex (the collector's pass and explicit sweeps both run under it).
     private val loggedAckTokens = mutableSetOf<String>()
 
     // Tokens whose PERMANENT ack failure was already reported. Play will keep rejecting these
     // (developer error, item not owned, unsupported feature), so the bug report fires once per token
-    // instead of once per pass. Same single-collector confinement as loggedAckTokens.
+    // instead of once per pass. Same ackMutex confinement as loggedAckTokens.
     private val reportedAckFailures = mutableSetOf<String>()
 
     // At most one reschedule timer in flight: repeated failures must not stack timers.
@@ -296,10 +305,13 @@ class BillingManager @Inject constructor(
     // .isAcknowledged, whose immutable snapshot stays false until a fresh Play query.
     private enum class AckOutcome { SUCCESS, TRANSIENT, PERMANENT }
 
+    // Aggregate outcome of one ack pass; ensureAllAcknowledged() maps it to a sweep result.
+    data class AckPassOutcome(val transient: Int, val permanent: Int)
+
     // One acknowledgement pass over the canonical purchase list. Never throws except cancellation:
     // transient failures schedule a re-drive, permanent ones are reported and left to organic fresh
     // -data signals.
-    private suspend fun runAckPass(purchases: Collection<Purchase>) {
+    private suspend fun runAckPass(purchases: Collection<Purchase>): AckPassOutcome = ackMutex.withLock {
         val needAck = purchases.filter {
             // The canonical list carries pending payments too. Play rejects acknowledging one
             // PERMANENTLY, so an unfiltered pass would fire a bug report for every pending purchase,
@@ -317,7 +329,23 @@ class BillingManager @Inject constructor(
             needsAck
         }
 
+        if (needAck.isNotEmpty()) {
+            // Arm the persistent safety net BEFORE attempting anything, and AWAIT the enqueue (the
+            // scheduler bounds it): the inline retries below can span minutes, and a process death
+            // inside them must not strand the purchase until Play's 3-day auto-refund. A deferred
+            // signal (channel + collector) would reintroduce exactly that window. Fail-open: the
+            // net is an extra layer, never a reason to skip the acks themselves.
+            try {
+                ackScheduler.armForUnackedPurchases(needAck.maxOf { it.purchaseTime } + ACK_SAFETY_NET_DEADLINE_MS)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to arm ack safety net: ${e.asLog()}" }
+            }
+        }
+
         var transientFailures = 0
+        var permanentFailures = 0
 
         for (purchase in needAck) {
             // First ack of a token is INFO; idempotent repeats drop to DEBUG. This never gates the
@@ -381,6 +409,7 @@ class BillingManager @Inject constructor(
             }
 
             if (outcome == AckOutcome.TRANSIENT) transientFailures++
+            if (outcome == AckOutcome.PERMANENT) permanentFailures++
             if (abortPass) break
         }
 
@@ -390,6 +419,41 @@ class BillingManager @Inject constructor(
                 "$transientFailures purchase(s) left unacknowledged, re-driving in ${ACK_RESCHEDULE_MS}ms"
             }
             scheduleAckRetry()
+        }
+
+        AckPassOutcome(transient = transientFailures, permanent = permanentFailures)
+    }
+
+    // Outcome of an explicit safety-net sweep, see ensureAllAcknowledged().
+    enum class AckSweepResult { COMPLETE, RETRY, PERMANENT_FAILURE }
+
+    /**
+     * One self-contained acknowledgement sweep for the persistent safety net (PurchaseAckWorker):
+     * refresh from Play, then acknowledge everything unacknowledged IN THIS COROUTINE. The reactive
+     * ack collector consumes purchase state asynchronously, so a caller that needs proof the acks
+     * actually happened before it reports success (a worker deciding success vs retry) cannot rely
+     * on it. Never throws except cancellation.
+     */
+    suspend fun ensureAllAcknowledged(): AckSweepResult {
+        log(TAG) { "ensureAllAcknowledged()" }
+        val fresh = try {
+            useConnection { refreshPurchases() }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "ensureAllAcknowledged(): refresh failed: ${e.asLog()}" }
+            return AckSweepResult.RETRY
+        }
+        // Same bookkeeping every other refresh exit owes: grace episode clock + dead-binder teardown.
+        processReconciliation(fresh)
+        val outcome = runAckPass(fresh.purchases)
+        return when {
+            // An incomplete refresh may be hiding an unacknowledged purchase of the failed type,
+            // and a transient ack failure is retriable by definition.
+            outcome.transient > 0 || !fresh.isComplete -> AckSweepResult.RETRY
+            // Play will keep rejecting these no matter how often the worker comes back.
+            outcome.permanent > 0 -> AckSweepResult.PERMANENT_FAILURE
+            else -> AckSweepResult.COMPLETE
         }
     }
 
@@ -585,6 +649,10 @@ class BillingManager @Inject constructor(
             BillingResponseCode.FEATURE_NOT_SUPPORTED,
             BillingResponseCode.ITEM_NOT_OWNED,
         )
+
+        // Play auto-refunds purchases not acknowledged within 3 days; every safety-net deadline
+        // derives from this.
+        const val ACK_SAFETY_NET_DEADLINE_MS = 3 * 24 * 60 * 60 * 1000L
 
         private const val INITIAL_REFRESH_TIMEOUT_MS = 30_000L
         private const val MAX_BACKOFF_MS = 300_000L

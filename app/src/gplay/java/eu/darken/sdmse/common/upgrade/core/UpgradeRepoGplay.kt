@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
 import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import eu.darken.sdmse.common.upgrade.core.billing.client.redacted
+import eu.darken.sdmse.common.upgrade.core.billing.work.PurchaseAckScheduler
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Deferred
@@ -58,6 +59,7 @@ class UpgradeRepoGplay @Inject constructor(
     private val billingManager: BillingManager,
     private val billingCache: BillingCache,
     private val curriculumVitae: CurriculumVitae,
+    private val ackScheduler: PurchaseAckScheduler,
 ) : UpgradeRepo {
 
     override val storeSite: String = STORE_SITE
@@ -137,6 +139,7 @@ class UpgradeRepoGplay @Inject constructor(
             .onEach { failedAt -> recordProUnconfirmed(failedAt) }
             .setupCommonEventHandlers(TAG) { "connectionFailureRecorder" }
             .launchIn(scope)
+
     }
 
     // Settledness travels WITH the ownership data (Info.isSettled), never on a parallel flow —
@@ -255,6 +258,18 @@ class UpgradeRepoGplay @Inject constructor(
             return
         }
         try {
+            // Persistent ack safety net, launch trigger: armed and AWAITED before the Play sheet
+            // can open, so the WorkManager DB transaction lands even if the process dies around
+            // the sheet — the exact window behind Play's unacknowledged-purchase auto-refunds.
+            // Failure to arm never blocks the purchase; the foreground ack path still exists.
+            try {
+                ackScheduler.armForBillingFlowLaunch()
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to arm ack safety net for launch: ${e.asLog()}" }
+            }
+
             // Bounded, like every other Play path (refresh, restore, SKU query, ack). useConnection
             // waits for a healthy connection indefinitely, so a Play outage between rendering the
             // offers and this tap would park the launch forever — with launchBusySku still held,
