@@ -53,6 +53,19 @@ fun <T : Progress.Client> T.updateProgressCount(count: Progress.Count) {
     updateProgress { (it ?: Progress.Data()).copy(count = count) }
 }
 
+fun <T : Progress.Client> T.updateProgressSubCount(subCount: Progress.Count?) {
+    updateProgress { (it ?: Progress.Data()).copy(subCount = subCount) }
+}
+
+/** Fraction for a determinate ring, or null when the ring should spin. */
+fun Progress.Count?.determinateFraction(): Float? = when (this) {
+    is Progress.Count.Counter,
+    is Progress.Count.Percent,
+    -> if (max > 0L) (current.toFloat() / max.toFloat()).coerceIn(0f, 1f) else null
+
+    else -> null
+}
+
 fun <T : Progress.Client> T.increaseProgress(value: Int = 1) {
     updateProgress {
         when (it?.count) {
