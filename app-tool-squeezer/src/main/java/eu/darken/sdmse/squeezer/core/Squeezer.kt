@@ -176,6 +176,18 @@ class Squeezer @Inject constructor(
         val imageResult = if (imageTargets.isNotEmpty()) {
             imageProcessor.get().withProgress(
                 client = this,
+                // A processor's replayed initial state still carries Progress.Data's default
+                // Indeterminate count, which would make the outer ring spin until the pre-loop
+                // Counter gets past throttleLatest(). Neither processor publishes an indeterminate
+                // count intentionally (they publish Counter pre-loop and per item, Indeterminate
+                // only ever as a subCount), so this only ever rewrites that initial state.
+                onUpdate = { _, new ->
+                    if (new != null && new.count is Progress.Count.Indeterminate && new.subCount == null) {
+                        new.copy(count = Progress.Count.Counter(0, totalItems))
+                    } else {
+                        new
+                    }
+                },
                 // withProgress' default onCompletion is Progress.Data(), whose primary is
                 // "Loading" - that's what flashes at every phase boundary. Publishing the phase's
                 // completed count instead also makes the terminal count deterministic, which
@@ -191,6 +203,14 @@ class Squeezer @Inject constructor(
         val videoResult = if (videoTargets.isNotEmpty()) {
             videoProcessor.get().withProgress(
                 client = this,
+                // Same replayed-initial-state rewrite as the image phase above.
+                onUpdate = { _, new ->
+                    if (new != null && new.count is Progress.Count.Indeterminate && new.subCount == null) {
+                        new.copy(count = Progress.Count.Counter(imageTargets.size, totalItems))
+                    } else {
+                        new
+                    }
+                },
                 onCompletion = { itemsCompleted(it, totalItems, totalItems) },
             ) {
                 process(videoTargets, quality, itemOffset = imageTargets.size, itemTotal = totalItems)
