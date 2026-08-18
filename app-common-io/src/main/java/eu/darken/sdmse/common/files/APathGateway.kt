@@ -76,6 +76,14 @@ interface APathGateway<
 
     suspend fun file(path: P, readWrite: Boolean): FileHandle
 
+    /**
+     * Deletes [path]. With [recursive] the whole subtree goes, without it a directory that still has
+     * children should be refused with a [WriteException], deleting nothing.
+     *
+     * That refusal is best-effort, not a guarantee. No backend can check emptiness and delete as one
+     * atomic step, so a child that appears in between can still be taken along (a SAF provider
+     * cascades a directory delete). [recursive] = false states intent, it is not a safety interlock.
+     */
     suspend fun delete(path: P, recursive: Boolean)
 
     suspend fun createSymlink(linkPath: P, targetPath: P): Boolean
