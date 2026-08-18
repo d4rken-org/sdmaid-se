@@ -258,6 +258,20 @@ class VideoProcessorTest : BaseTest() {
     }
 
     @Test
+    fun `process - the state published before the first item keeps the batch counter`() = runTest {
+        // No targets, so the pre-loop publish is the only state: the run's starting position inside
+        // the batch. An Indeterminate here would drop the card's ring from "1 of 3" to spinning.
+        subject.process(emptySet(), quality = 80, itemOffset = 1, itemTotal = 3)
+
+        subject.currentProgress()!!.let {
+            it.count.current shouldBe 1L
+            it.count.max shouldBe 3L
+            it.subCount shouldBe null
+            it.primary.get(RuntimeEnvironment.getApplication()) shouldBe "Preparing"
+        }
+    }
+
+    @Test
     fun `process - the item counter reaches the last item`() = runTest {
         val first = createVideo()
         val secondPath = java.io.File(tempFolder.root, "second.mp4").apply {

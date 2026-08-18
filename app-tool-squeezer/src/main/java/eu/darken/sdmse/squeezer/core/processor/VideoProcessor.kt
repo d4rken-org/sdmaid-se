@@ -37,7 +37,12 @@ class VideoProcessor @Inject constructor(
     private val fileTransaction: FileTransaction,
 ) : Progress.Host, Progress.Client {
 
-    private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
+    // Progress.Data()'s default primary is "Loading". withProgress() starts forwarding before it
+    // calls action() and a StateFlow replays its current value to a new collector, so a bare
+    // default would flash "Loading" before the pre-loop publish below lands.
+    private val progressPub = MutableStateFlow<Progress.Data?>(
+        Progress.Data(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
+    )
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
 
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
@@ -66,7 +71,9 @@ class VideoProcessor @Inject constructor(
             (it ?: Progress.Data()).copy(
                 primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString(),
                 secondary = CaString.EMPTY,
-                count = Progress.Count.Indeterminate(),
+                // Keeps the item counter the caller already published for the previous phase,
+                // otherwise the outer ring drops from "1 of 2" to spinning and then jumps back.
+                count = Progress.Count.Counter(itemOffset, itemTotal),
                 subCount = null,
             )
         }
