@@ -271,7 +271,7 @@ internal fun SqueezerSetupScreen(
 
 @Composable
 private fun ProcessResultCard(result: SqueezerProcessTask.Result) {
-    val secondary = result.secondaryInfo.asComposable()
+    val secondary = result.secondaryInfo?.asComposable()
     Card(
         modifier = Modifier.fillMaxWidth(),
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
@@ -292,7 +292,7 @@ private fun ProcessResultCard(result: SqueezerProcessTask.Result) {
                     style = MaterialTheme.typography.titleMedium,
                     color = MaterialTheme.colorScheme.onSecondaryContainer,
                 )
-                if (secondary.isNotBlank()) {
+                if (!secondary.isNullOrBlank()) {
                     Spacer(Modifier.height(4.dp))
                     Text(
                         text = secondary,
