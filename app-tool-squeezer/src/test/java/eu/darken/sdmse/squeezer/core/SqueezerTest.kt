@@ -1,5 +1,6 @@
 package eu.darken.sdmse.squeezer.core
 
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.File
@@ -18,6 +19,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -27,7 +29,7 @@ import io.mockk.slot
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -571,8 +573,14 @@ class SqueezerTest : BaseTest() {
 
         // A progress flow that never completes. With emptyFlow() the forwarding job's onCompletion
         // fires right away on a background dispatcher, racing the phase it is meant to close.
-        every { s.imageProcessor.progress } returns MutableSharedFlow<Progress.Data?>()
-        every { s.videoProcessor.progress } returns MutableSharedFlow<Progress.Data?>()
+        // Like the real processors, each replays an initial state that still carries Progress.Data's
+        // default Indeterminate count - that replay is what used to reset the tool's ring.
+        val imagePhasePrimary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString()
+        val videoPhasePrimary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString()
+        every { s.imageProcessor.progress } returns
+            MutableStateFlow<Progress.Data?>(Progress.Data(primary = imagePhasePrimary))
+        every { s.videoProcessor.progress } returns
+            MutableStateFlow<Progress.Data?>(Progress.Data(primary = videoPhasePrimary))
 
         val published = mutableListOf<Progress.Data?>()
         backgroundScope.launch(Dispatchers.Unconfined) { s.squeezer.progress.toList(published) }
@@ -589,6 +597,10 @@ class SqueezerTest : BaseTest() {
         coEvery {
             s.videoProcessor.process(any(), any(), capture(videoOffset), capture(videoTotal))
         } coAnswers {
+            // The forwarding collector runs on its own dispatcher, so wait until the video phase's
+            // replayed initial state has actually reached the tool - otherwise the mock could
+            // return before it ever ran and the phase-start assertions below would prove nothing.
+            s.squeezer.progress.first { it?.primary === videoPhasePrimary }
             videoPhaseStart = s.squeezer.currentProgress()?.count
             VideoProcessor.Result(success = setOf(vid), failed = emptyMap(), savedSpace = 200L)
         }
@@ -610,6 +622,17 @@ class SqueezerTest : BaseTest() {
         terminal.count.current shouldBe 2L
         terminal.count.max shouldBe 2L
         terminal.subCount shouldBe null
+
+        // The video phase's replayed initial state must not knock the ring back to spinning:
+        // from the image phase's close onwards, every published count stays determinate.
+        val imagePhaseEnd = published.indexOfFirst {
+            val count = it?.count
+            count is Progress.Count.Counter && count.current == 1L && count.max == 2L
+        }
+        imagePhaseEnd shouldNotBe -1
+        published.drop(imagePhaseEnd)
+            .mapNotNull { it?.count }
+            .filterIsInstance<Progress.Count.Indeterminate>() shouldBe emptyList()
     }
 
     @Test
