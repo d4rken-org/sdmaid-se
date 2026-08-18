@@ -8,6 +8,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.ParcelFileDescriptor
+import android.os.RemoteException
 import android.provider.DocumentsContract
 import android.system.Os
 import android.system.StructStat
@@ -45,11 +46,28 @@ data class SAFDocFile(
      *
      * Only for verifying a mutation: a delete that returned false must not be reported as success
      * just because the query that was supposed to prove it never got an answer.
+     *
+     * [ContentResolver.query] can't carry that distinction: it hands back a null cursor both for a
+     * document the provider says is gone and for a provider it never reached. So the provider is
+     * addressed through a client instead - no client means nobody to ask, and only a null cursor
+     * from a live one counts as "missing" (`DocumentsProvider.query` returns null after catching
+     * the [FileNotFoundException] from `queryDocument`).
      */
     @SuppressLint("Recycle")
-    fun existsStrict(): Boolean = resolver
-        .query(uri, arrayOf(DocumentsContract.Document.COLUMN_DOCUMENT_ID), null, null, null)
-        .useQuietly { c -> c != null && c.moveToFirst() && !c.isNull(0) }
+    fun existsStrict(): Boolean {
+        val client = resolver.acquireUnstableContentProviderClient(uri)
+            ?: throw IOException("provider unavailable for $uri")
+
+        return try {
+            client
+                .query(uri, arrayOf(DocumentsContract.Document.COLUMN_DOCUMENT_ID), null, null, null)
+                .useQuietly { c -> c != null && c.moveToFirst() && !c.isNull(0) }
+        } catch (e: RemoteException) {
+            throw IOException("existsStrict() failed for $uri", e)
+        } finally {
+            client.close()
+        }
+    }
 
     private val mimeType: String? by lazy { queryForString(DocumentsContract.Document.COLUMN_MIME_TYPE) }
 
