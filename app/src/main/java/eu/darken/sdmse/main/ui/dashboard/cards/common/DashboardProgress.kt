@@ -79,7 +79,8 @@ internal fun DashboardProgress(progress: Progress.Data) {
                     text = secondary,
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
+                    // Secondary is usually a path, where the tail (file name) matters more than the middle
+                    overflow = TextOverflow.MiddleEllipsis,
                 )
             }
         }
