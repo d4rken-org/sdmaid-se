@@ -14,14 +14,33 @@ import java.io.FileNotFoundException
  * An in-memory [DocumentsProvider] that behaves like a real SAF provider for the operations
  * [SAFGateway] and [SAFDocFile] use.
  *
- * Document ids are path based, mirroring `ExternalStorageProvider`: [ROOT_ID] is `root:` and a
- * document below it is `root:<segment>/<segment>`. Ids are normalized on the way in, so a caller
- * that builds `root:/a/b` (which [SAFDocFile.buildTreeUri] does for a grant on the volume root)
- * resolves to the same node as `root:a/b`.
+ * The tree is held as nodes with an explicit parent link, so child enumeration never depends on the
+ * shape of a document id. Which ids are handed out is [IdMode]'s job.
  *
  * Register it through [SafTestHarness], which wires it behind [LegacyQueryShimProvider].
  */
-class FakeDocumentsProvider : DocumentsProvider() {
+class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : DocumentsProvider() {
+
+    /**
+     * How ids for newly created documents are minted. Real providers differ, and a caller must not
+     * be able to reconstruct an id instead of using the one the provider handed back.
+     */
+    enum class IdMode {
+        /**
+         * Path based like `ExternalStorageProvider`: [ROOT_ID] is `root:` and a document below it is
+         * `root:<segment>/<segment>`. Ids are normalized on the way in, so a caller that builds
+         * `root:/a/b` (which [SAFDocFile.buildTreeUri] does for a grant on the volume root) resolves
+         * to the same node as `root:a/b`.
+         */
+        PATH_DERIVED,
+
+        /**
+         * Created documents get ids like `doc-1` that carry no path information at all. Fixture nodes
+         * declared through [Builder] keep their path based ids, because that is what the granted tree
+         * uri addresses.
+         */
+        OPAQUE,
+    }
 
     /**
      * What deleting a directory does. Real providers differ, so every test states which one it runs
@@ -37,9 +56,12 @@ class FakeDocumentsProvider : DocumentsProvider() {
 
     data class Node(
         val documentId: String,
+        /** The document this node hangs beneath, null only for the tree root. */
+        val parentId: String?,
         val displayName: String?,
         val mimeType: String,
-        val size: Long = 0L,
+        /** Explicit `COLUMN_SIZE` override, otherwise the backing file's length is reported. */
+        val size: Long? = null,
         val lastModified: Long = 0L,
         val flags: Int = 0,
         val file: File? = null,
@@ -50,6 +72,8 @@ class FakeDocumentsProvider : DocumentsProvider() {
 
     /** Insertion ordered, so child enumeration order is deterministic. */
     private val nodes = LinkedHashMap<String, Node>()
+
+    private var opaqueIdCounter = 0
 
     var dirDeleteMode: DirDeleteMode = DirDeleteMode.CASCADE
 
@@ -66,6 +90,12 @@ class FakeDocumentsProvider : DocumentsProvider() {
     var failNextDeleteWith: Exception? = null
 
     /**
+     * Creates the next document under this display name instead of the requested one, then clears
+     * itself. Models a provider that sanitizes or uniquifies names, like `ExternalStorageProvider`.
+     */
+    var renameNextCreatedTo: String? = null
+
+    /**
      * Invoked with the parent document id *after* a child listing cursor has been built, so a test
      * can mutate the tree behind a consumer that already holds the listing.
      */
@@ -73,13 +103,19 @@ class FakeDocumentsProvider : DocumentsProvider() {
 
     val queriedDocuments = mutableListOf<String>()
     val queriedChildren = mutableListOf<String>()
+
+    /** Parent document id and *requested* display name, per [createDocument] call. */
     val createdDocuments = mutableListOf<Pair<String, String>>()
+
+    /** The ids handed back by [createDocument], in the same order as [createdDocuments]. */
+    val createdDocumentIds = mutableListOf<String>()
     val deletedDocuments = mutableListOf<String>()
     val openedDocuments = mutableListOf<Pair<String, String>>()
 
     init {
         nodes[ROOT_ID] = Node(
             documentId = ROOT_ID,
+            parentId = null,
             displayName = "root",
             mimeType = Document.MIME_TYPE_DIR,
             flags = DEFAULT_DIR_FLAGS,
@@ -90,9 +126,19 @@ class FakeDocumentsProvider : DocumentsProvider() {
 
     // ---------------------------------------------------------------- tree access for assertions
 
+    /** Path based lookup, i.e. only meaningful for [IdMode.PATH_DERIVED] and for fixture nodes. */
     fun node(vararg segments: String): Node? = nodes[docIdOf(segments.toList())]
 
     fun hasNode(vararg segments: String): Boolean = node(*segments) != null
+
+    fun nodeById(documentId: String): Node? = nodes[normalize(documentId)]
+
+    /** Follows the explicit parent links by display name, so it works in either [IdMode]. */
+    fun resolve(vararg segments: String): Node? = segments.fold(nodes[ROOT_ID]) { parent, name ->
+        parent?.let { p -> childrenOf(p.documentId).firstOrNull { it.displayName == name } }
+    }
+
+    fun children(documentId: String): List<Node> = childrenOf(normalize(documentId))
 
     /** All document ids currently in the tree, root first. */
     fun documentIds(): List<String> = nodes.keys.toList()
@@ -109,6 +155,7 @@ class FakeDocumentsProvider : DocumentsProvider() {
         queriedDocuments.clear()
         queriedChildren.clear()
         createdDocuments.clear()
+        createdDocumentIds.clear()
         deletedDocuments.clear()
         openedDocuments.clear()
     }
@@ -156,17 +203,27 @@ class FakeDocumentsProvider : DocumentsProvider() {
         val parent = nodes[parentId] ?: throw FileNotFoundException("No such document: $parentId")
         if (!parent.isDirectory) throw FileNotFoundException("Not a directory: $parentId")
 
-        val childId = childIdOf(parentId, displayName)
+        val effectiveName = renameNextCreatedTo?.also { renameNextCreatedTo = null } ?: displayName
+        if (childrenOf(parentId).any { it.displayName == effectiveName }) {
+            throw FileNotFoundException("Already exists: $effectiveName below $parentId")
+        }
+
+        val childId = when (idMode) {
+            IdMode.PATH_DERIVED -> childIdOf(parentId, effectiveName)
+            IdMode.OPAQUE -> "$OPAQUE_ID_PREFIX${++opaqueIdCounter}"
+        }
         if (nodes.containsKey(childId)) throw FileNotFoundException("Already exists: $childId")
 
         val isDir = mimeType == Document.MIME_TYPE_DIR
         nodes[childId] = Node(
             documentId = childId,
-            displayName = displayName,
+            parentId = parentId,
+            displayName = effectiveName,
             mimeType = mimeType,
             flags = if (isDir) DEFAULT_DIR_FLAGS else DEFAULT_FILE_FLAGS,
             file = if (isDir) null else newBackingFile(""),
         )
+        createdDocumentIds.add(childId)
         return childId
     }
 
@@ -179,7 +236,7 @@ class FakeDocumentsProvider : DocumentsProvider() {
         val node = nodes[id] ?: throw FileNotFoundException("No such document: $id")
 
         if (node.isDirectory) {
-            val descendants = nodes.keys.filter { isDescendant(id, it) }
+            val descendants = descendantsOf(id)
             when (dirDeleteMode) {
                 DirDeleteMode.CASCADE -> descendants.forEach { drop(it) }
                 DirDeleteMode.REJECT_NONEMPTY -> if (descendants.isNotEmpty()) {
@@ -201,8 +258,14 @@ class FakeDocumentsProvider : DocumentsProvider() {
     }
 
     override fun isChildDocument(parentDocumentId: String, documentId: String): Boolean {
-        // Path based like ExternalStorageProvider, so it also answers for documents that don't exist.
-        return isDescendant(normalize(parentDocumentId), normalize(documentId))
+        val parentId = normalize(parentDocumentId)
+        val childId = normalize(documentId)
+        return when (idMode) {
+            // Path based like ExternalStorageProvider, so it also answers for documents that don't exist.
+            IdMode.PATH_DERIVED -> isDescendant(parentId, childId)
+            // Opaque ids say nothing about ancestry, only the links of existing nodes can answer.
+            IdMode.OPAQUE -> ancestorsOf(childId).any { it == parentId }
+        }
     }
 
     // -------------------------------------------------------------------------------- internals
@@ -218,13 +281,14 @@ class FakeDocumentsProvider : DocumentsProvider() {
         nodes.remove(documentId)?.file?.delete()
     }
 
-    private fun childrenOf(parentId: String): List<Node> {
-        val parentSegments = segmentsOf(parentId)
-        return nodes.values.filter {
-            val segments = segmentsOf(it.documentId)
-            segments.size == parentSegments.size + 1 && segments.dropLast(1) == parentSegments
-        }
-    }
+    private fun childrenOf(parentId: String): List<Node> = nodes.values.filter { it.parentId == parentId }
+
+    private fun ancestorsOf(documentId: String): Sequence<String> =
+        generateSequence(nodes[documentId]?.parentId) { nodes[it]?.parentId }
+
+    private fun descendantsOf(parentId: String): List<String> = nodes.values
+        .filter { it.documentId != parentId && ancestorsOf(it.documentId).any { id -> id == parentId } }
+        .map { it.documentId }
 
     private fun cursorFor(projection: Array<out String>?, rows: List<Node>): MatrixCursor {
         val columns = projection ?: DOCUMENT_PROJECTION
@@ -240,7 +304,7 @@ class FakeDocumentsProvider : DocumentsProvider() {
         Document.COLUMN_DOCUMENT_ID -> node.documentId
         Document.COLUMN_DISPLAY_NAME -> node.displayName
         Document.COLUMN_MIME_TYPE -> node.mimeType
-        Document.COLUMN_SIZE -> node.file?.length() ?: node.size
+        Document.COLUMN_SIZE -> node.size ?: node.file?.length() ?: 0L
         Document.COLUMN_LAST_MODIFIED -> node.lastModified
         Document.COLUMN_FLAGS -> node.flags
         else -> null
@@ -258,37 +322,49 @@ class FakeDocumentsProvider : DocumentsProvider() {
             mimeType = Document.MIME_TYPE_DIR,
             flags = flags,
             lastModified = lastModified,
-            size = 0L,
+            size = null,
             content = null,
             nullDisplayName = false,
+            openable = false,
         )
 
+        /**
+         * A file document. It gets a backing temp file unless [openable] says otherwise, so it can be
+         * opened like any real non-virtual document. [size] overrides what `COLUMN_SIZE` reports,
+         * which is the backing file's length by default.
+         */
         fun file(
             path: String,
             content: String? = null,
-            size: Long = 0L,
+            size: Long? = null,
             mimeType: String = "application/octet-stream",
             flags: Int = DEFAULT_FILE_FLAGS,
             lastModified: Long = 0L,
             nullDisplayName: Boolean = false,
-        ): Node = put(
-            segments = pathSegments(path),
-            mimeType = mimeType,
-            flags = flags,
-            lastModified = lastModified,
-            size = size,
-            content = content,
-            nullDisplayName = nullDisplayName,
-        )
+            openable: Boolean = true,
+        ): Node {
+            require(openable || content == null) { "An unopenable document can't hold content" }
+            return put(
+                segments = pathSegments(path),
+                mimeType = mimeType,
+                flags = flags,
+                lastModified = lastModified,
+                size = size,
+                content = content,
+                nullDisplayName = nullDisplayName,
+                openable = openable,
+            )
+        }
 
         private fun put(
             segments: List<String>,
             mimeType: String,
             flags: Int,
             lastModified: Long,
-            size: Long,
+            size: Long?,
             content: String?,
             nullDisplayName: Boolean,
+            openable: Boolean,
         ): Node {
             require(segments.isNotEmpty()) { "Can't replace the root node" }
             segments.dropLast(1).indices.forEach { index ->
@@ -297,6 +373,7 @@ class FakeDocumentsProvider : DocumentsProvider() {
                 if (!nodes.containsKey(ancestorId)) {
                     nodes[ancestorId] = Node(
                         documentId = ancestorId,
+                        parentId = docIdOf(ancestor.dropLast(1)),
                         displayName = ancestor.last(),
                         mimeType = Document.MIME_TYPE_DIR,
                         flags = DEFAULT_DIR_FLAGS,
@@ -306,12 +383,13 @@ class FakeDocumentsProvider : DocumentsProvider() {
             val documentId = docIdOf(segments)
             val node = Node(
                 documentId = documentId,
+                parentId = docIdOf(segments.dropLast(1)),
                 displayName = if (nullDisplayName) null else segments.last(),
                 mimeType = mimeType,
                 size = size,
                 lastModified = lastModified,
                 flags = flags,
-                file = content?.let { newBackingFile(it) },
+                file = if (openable) newBackingFile(content.orEmpty()) else null,
             )
             nodes[documentId] = node
             return node
@@ -320,6 +398,8 @@ class FakeDocumentsProvider : DocumentsProvider() {
 
     companion object {
         const val ROOT_ID = "root:"
+
+        private const val OPAQUE_ID_PREFIX = "doc-"
 
         const val DEFAULT_DIR_FLAGS = Document.FLAG_DIR_SUPPORTS_CREATE or Document.FLAG_SUPPORTS_DELETE
         const val DEFAULT_FILE_FLAGS = Document.FLAG_SUPPORTS_WRITE or Document.FLAG_SUPPORTS_DELETE
@@ -333,8 +413,10 @@ class FakeDocumentsProvider : DocumentsProvider() {
             Document.COLUMN_FLAGS,
         )
 
-        fun tree(block: FakeDocumentsProvider.Builder.() -> Unit = {}): FakeDocumentsProvider =
-            FakeDocumentsProvider().also { it.Builder().block() }
+        fun tree(
+            idMode: IdMode = IdMode.PATH_DERIVED,
+            block: FakeDocumentsProvider.Builder.() -> Unit = {},
+        ): FakeDocumentsProvider = FakeDocumentsProvider(idMode).also { it.Builder().block() }
 
         fun pathSegments(path: String): List<String> = path.split('/').filter { it.isNotEmpty() }
 
@@ -343,7 +425,9 @@ class FakeDocumentsProvider : DocumentsProvider() {
 
         fun docIdOf(segments: List<String>): String = ROOT_ID + segments.joinToString("/")
 
-        fun normalize(documentId: String): String = docIdOf(segmentsOf(documentId))
+        /** Opaque ids are handed out verbatim, only path based ids have a canonical form. */
+        fun normalize(documentId: String): String =
+            if (documentId.startsWith(OPAQUE_ID_PREFIX)) documentId else docIdOf(segmentsOf(documentId))
 
         private fun childIdOf(parentId: String, name: String): String = docIdOf(segmentsOf(parentId) + name)
 
