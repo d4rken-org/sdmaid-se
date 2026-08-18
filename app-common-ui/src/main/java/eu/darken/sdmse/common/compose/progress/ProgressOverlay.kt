@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -27,6 +28,8 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -37,6 +40,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.determinateFraction
 
 private const val ENTRANCE_DURATION_MS = 180
 
@@ -45,6 +49,20 @@ private val RING_MIN = 240.dp
 private val RING_MAX = 300.dp
 private const val RING_STROKE_FACTOR = 0.032f // stroke width as a fraction of the ring diameter (~9.6dp @ 300dp)
 private const val RING_INNER_WIDTH_FACTOR = 0.64f // text column max width as a fraction of the ring diameter
+
+// Nested sub-progress ring: the current item's own progress, drawn inside the item ring.
+// At the 300dp maximum that's a 258dp diameter with a ~6.2dp stroke, so its inside edge (~245dp)
+// clears the 192dp text column.
+private const val RING_SUB_SIZE_FACTOR = 0.86f
+private const val RING_SUB_STROKE_FACTOR = 0.024f
+
+// Used when the theme's hero line height isn't expressed in sp (Density.toDp() throws for
+// TextUnit.Unspecified and for em values).
+private val HERO_HEIGHT_FALLBACK = 52.dp
+
+/** Which count supplies the hero number: sub-progress when it is determinate, else the overall count. */
+internal fun heroCount(count: Progress.Count, subCount: Progress.Count?): Progress.Count =
+    if (subCount.determinateFraction() != null) subCount!! else count
 
 /**
  * When [data] is non-null:
@@ -101,17 +119,13 @@ private fun ProgressOverlayPanel(
     val secondary = data.secondary.get(context)
 
     val count = data.count
+    val subCount = data.subCount
     val showRing = count !is Progress.Count.None
     // Only Counter/Percent with a known total drive a determinate arc + an inner number.
     // Indeterminate / Size / unknown-total fall back to a spinning ring with no number (legacy behavior).
-    val fraction: Float? = when (count) {
-        is Progress.Count.Counter,
-        is Progress.Count.Percent,
-        -> if (count.max > 0L) (count.current.toFloat() / count.max.toFloat()).coerceIn(0f, 1f) else null
-
-        else -> null
-    }
-    val countText = if (fraction != null) count.displayValue(context) else null
+    val fraction: Float? = count.determinateFraction()
+    val hero = heroCount(count, subCount)
+    val countText = if (hero.determinateFraction() != null) hero.displayValue(context) else null
 
     Box(
         modifier = modifier
@@ -128,6 +142,17 @@ private fun ProgressOverlayPanel(
             if (showRing) {
                 ProgressRing(size = ringSize, progress = fraction)
             }
+            if (subCount != null && subCount !is Progress.Count.None) {
+                // A second CircularProgressIndicator publishes a second progress semantics node,
+                // so TalkBack would announce two indistinguishable progress bars. The outer ring
+                // stays the announced one.
+                ProgressRing(
+                    size = ringSize * RING_SUB_SIZE_FACTOR,
+                    progress = subCount.determinateFraction(),
+                    strokeFactor = RING_SUB_STROKE_FACTOR,
+                    modifier = Modifier.clearAndSetSemantics {},
+                )
+            }
 
             Column(
                 modifier = Modifier.widthIn(max = ringSize * RING_INNER_WIDTH_FACTOR),
@@ -135,19 +160,32 @@ private fun ProgressOverlayPanel(
                 verticalArrangement = Arrangement.Center,
             ) {
                 if (!countText.isNullOrEmpty()) {
-                    Text(
-                        text = countText,
-                        // Percent is short → make it the dramatic focal point. Counters ("147/2000") can be
-                        // long, so they get a smaller hero style that still fits within the inner circle.
-                        style = if (count is Progress.Count.Percent) {
-                            MaterialTheme.typography.displayMedium
-                        } else {
-                            MaterialTheme.typography.headlineMedium
-                        },
-                        fontWeight = FontWeight.Bold,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
+                    // Reserve the taller of the two hero styles. The style keys off the hero count,
+                    // which flips (e.g. Indeterminate → Percent) mid-run the moment per-item progress
+                    // becomes available — and because this column is vertically centered, a height
+                    // change re-centers it and visibly jumps.
+                    val heroLineHeight = MaterialTheme.typography.displayMedium.lineHeight
+                    val heroHeight = with(LocalDensity.current) {
+                        if (heroLineHeight.isSp) heroLineHeight.toDp() else HERO_HEIGHT_FALLBACK
+                    }
+                    Box(
+                        modifier = Modifier.height(heroHeight),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = countText,
+                            // Percent is short → make it the dramatic focal point. Counters ("147/2000") can be
+                            // long, so they get a smaller hero style that still fits within the inner circle.
+                            style = if (hero is Progress.Count.Percent) {
+                                MaterialTheme.typography.displayMedium
+                            } else {
+                                MaterialTheme.typography.headlineMedium
+                            },
+                            fontWeight = FontWeight.Bold,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
                 }
                 // Reserve fixed line counts (minLines == maxLines) and render both slots unconditionally so
                 // the inner block stays a constant height. Otherwise a secondary path going 1↔2 lines — or a
@@ -183,8 +221,9 @@ private fun ProgressRing(
     size: Dp,
     progress: Float?,
     modifier: Modifier = Modifier,
+    strokeFactor: Float = RING_STROKE_FACTOR,
 ) {
-    val stroke = (size.value * RING_STROKE_FACTOR).dp
+    val stroke = (size.value * strokeFactor).dp
     if (progress != null) {
         // Sweep the arc smoothly instead of snapping when the fraction jumps.
         val animated by animateFloatAsState(
