@@ -44,7 +44,6 @@ dependencies {
     implementation(project(":app-common-shell"))
 
     addAndroidCore()
-    implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
     addDI()
     addCoroutines()
