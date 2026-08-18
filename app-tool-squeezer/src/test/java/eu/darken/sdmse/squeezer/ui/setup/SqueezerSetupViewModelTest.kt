@@ -269,6 +269,24 @@ class SqueezerSetupViewModelTest : BaseTest() {
         h.vm.state.first().progress shouldBe progress
     }
 
+    @Test
+    fun `state tracks the squeezer while nothing is collecting it`() = runTest2 {
+        // The setup entry stays in the back stack while the list screen runs a compression on top
+        // of it, so nothing collects this state meanwhile. With the default WhileSubscribed(5000)
+        // the VM would serve its stale pre-navigation value on back navigation and the screen
+        // would flash the configuration before the progress overlay returned. Eager sharing means
+        // a progress change made without a live collector is already in state.value afterwards.
+        val h = harness(squeezerProgress = null)
+        advanceUntilIdle()
+        h.vm.state.value.progress shouldBe null
+
+        val progress = Progress.Data(count = Progress.Count.Percent(current = 3, max = 10))
+        h.squeezerState.value = Squeezer.State(data = null, progress = progress)
+        advanceUntilIdle()
+
+        h.vm.state.value.progress shouldBe progress
+    }
+
     // ─────────────────────────── updateQuality / updateMinAge ───────────────────────────
 
     @Test

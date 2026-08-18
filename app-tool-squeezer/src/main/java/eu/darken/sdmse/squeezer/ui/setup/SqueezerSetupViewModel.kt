@@ -36,6 +36,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
@@ -96,6 +97,11 @@ class SqueezerSetupViewModel @Inject constructor(
             canStartScan = scanPaths.paths.isNotEmpty(),
         )
     }.safeStateIn(
+        // The setup entry stays in the back stack while the list screen runs a compression on top
+        // of it. With the default `WhileSubscribed(5000)` this ViewModel would stop collecting
+        // while it is covered and, on back navigation, resume from its stale pre-navigation value
+        // (progress == null) — flashing the configuration before the progress overlay returns.
+        started = SharingStarted.Eagerly,
         initialValue = State(),
         onError = { State() },
     )
