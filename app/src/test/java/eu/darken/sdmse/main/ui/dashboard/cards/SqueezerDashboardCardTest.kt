@@ -4,12 +4,15 @@ import android.content.Context
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.test.core.app.ApplicationProvider
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.R as SqueezerR
+import io.kotest.matchers.shouldBe
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -21,6 +24,8 @@ import testhelpers.compose.BaseComposeRobolectricTest
 class SqueezerDashboardCardTest : BaseComposeRobolectricTest() {
 
     private val context: Context get() = ApplicationProvider.getApplicationContext()
+
+    private var cancels = 0
 
     private val result = SqueezerProcessTask.Success(
         affectedSpace = 34 * 1024 * 1024L,
@@ -47,6 +52,7 @@ class SqueezerDashboardCardTest : BaseComposeRobolectricTest() {
                         progress = progress,
                         result = result,
                         onViewDetails = {},
+                        onCancel = { cancels++ },
                     ),
                 )
             }
@@ -58,6 +64,11 @@ class SqueezerDashboardCardTest : BaseComposeRobolectricTest() {
     private val resultPrimary get() = result.primaryInfo.get(context)
 
     private val resultSecondary get() = result.secondaryInfo.get(context)
+
+    private fun cancelButton() = composeRule.onNodeWithText(context.getString(CommonR.string.general_cancel_action))
+
+    private fun configureButton() =
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_configure_action))
 
     @Test
     fun `without progress or result the card shows its description`() {
@@ -87,6 +98,7 @@ class SqueezerDashboardCardTest : BaseComposeRobolectricTest() {
                         progress = liveProgress.value,
                         result = result,
                         onViewDetails = {},
+                        onCancel = { cancels++ },
                     ),
                 )
             }
@@ -108,5 +120,30 @@ class SqueezerDashboardCardTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("Compressing images").assertIsDisplayed()
         composeRule.onNodeWithText(resultPrimary).assertDoesNotExist()
         composeRule.onNodeWithText(description).assertDoesNotExist()
+    }
+
+    @Test
+    fun `a running operation swaps configure for cancel`() {
+        setContent(progress = progress)
+
+        cancelButton().assertIsDisplayed()
+        configureButton().assertDoesNotExist()
+    }
+
+    @Test
+    fun `without progress the card offers configure`() {
+        setContent()
+
+        configureButton().assertIsDisplayed()
+        cancelButton().assertDoesNotExist()
+    }
+
+    @Test
+    fun `tapping cancel while in progress cancels the operation`() {
+        setContent(progress = progress)
+
+        cancelButton().performClick()
+
+        composeRule.runOnIdle { cancels shouldBe 1 }
     }
 }

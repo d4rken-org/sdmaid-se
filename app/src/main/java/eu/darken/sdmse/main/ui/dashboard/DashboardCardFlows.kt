@@ -308,6 +308,9 @@ internal fun DashboardViewModel.buildSqueezerItem(): Flow<SqueezerDashboardCardI
                 onViewDetails = {
                     navTo(SqueezerSetupRoute)
                 },
+                onCancel = {
+                    launch { taskManager.cancel(SDMTool.Type.SQUEEZER) }
+                },
             )
         }
 
