@@ -8,6 +8,7 @@ plugins {
 
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
+apply(plugin = "org.jetbrains.kotlinx.kover")
 
 android {
     namespace = "${projectConfig.packageName}.squeezer"
