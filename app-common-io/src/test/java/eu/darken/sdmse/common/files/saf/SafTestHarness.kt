@@ -15,6 +15,7 @@ import kotlinx.coroutines.CoroutineScope
 import org.robolectric.Robolectric
 import org.robolectric.RuntimeEnvironment
 import org.robolectric.Shadows.shadowOf
+import org.robolectric.shadows.ShadowContentResolver
 import testhelpers.coroutine.TestDispatcherProvider
 
 /**
@@ -83,6 +84,15 @@ class SafTestHarness(
 
     fun grant(segments: List<String>) {
         contentResolver.takePersistableUriPermission(treeUriFor(segments), SAFGateway.RW_FLAGSINT)
+    }
+
+    /**
+     * Makes the provider unreachable, i.e. every `acquire*ContentProviderClient` for [authority] hands
+     * back null from here on. That models the provider process being gone, which is a different answer
+     * than any cursor could give.
+     */
+    fun killProviderProcess() {
+        ShadowContentResolver.registerProviderInternal(authority, null)
     }
 
     fun treeUriFor(segments: List<String>): Uri =

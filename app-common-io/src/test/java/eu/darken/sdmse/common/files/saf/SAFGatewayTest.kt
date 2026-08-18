@@ -13,6 +13,7 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldNotStartWith
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.every
 import io.mockk.just
@@ -812,6 +813,54 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
+    fun `delete surfaces an unreachable provider as WriteException`() = runTest2(autoCancel = true) {
+        // "The document is gone" and "nobody answered" arrive as the same null cursor, so the
+        // verification asks the provider directly. Without a provider to ask there is no proof, and a
+        // delete that reported a failure must not be turned into a success.
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        harness.provider.failNextDeleteWith = IllegalArgumentException("java.io.FileNotFoundException: gone")
+        harness.provider.onDelete = { harness.killProviderProcess() }
+
+        shouldThrow<WriteException> {
+            harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+        }
+
+        harness.provider.hasNode("dir", "file.txt") shouldBe true
+    }
+
+    @Test
+    fun `recursive delete walks the ids the provider handed out`() = runTest2(autoCancel = true) {
+        // Document ids are opaque in general and can't be rebuilt from a display name, and a provider
+        // whose ids aren't path derived is exactly the kind that doesn't cascade. So here nothing below
+        // the granted tree root is addressable by a rebuilt id: the fallback walk only works if it uses
+        // the ids the child cursor handed it.
+        val harness = harness(
+            FakeDocumentsProvider.tree(FakeDocumentsProvider.IdMode.OPAQUE, opaqueFixtureIds = true) {
+                file("dir/sub/file1.txt")
+                file("dir/file2.txt")
+            }
+        )
+        harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.REJECT_NONEMPTY
+        val idDir = harness.provider.resolve("dir")!!.documentId
+        val idSub = harness.provider.resolve("dir", "sub")!!.documentId
+        val idFile1 = harness.provider.resolve("dir", "sub", "file1.txt")!!.documentId
+        val idFile2 = harness.provider.resolve("dir", "file2.txt")!!.documentId
+        listOf(idDir, idSub, idFile1, idFile2).forEach { it shouldNotStartWith FakeDocumentsProvider.ROOT_ID }
+
+        harness.gateway.delete(harness.safPath(), recursive = true)
+
+        harness.provider.documentIds().shouldBeEmpty()
+        // Children before their parents, every one of them by its opaque id.
+        harness.provider.deletedDocuments shouldContainExactly listOf(
+            idFile1,
+            idSub,
+            idFile2,
+            idDir,
+            FakeDocumentsProvider.ROOT_ID,
+        )
+    }
+
+    @Test
     fun `delete deletes nothing during a dry run`() = runTest2(autoCancel = true) {
         val harness = harness(
             FakeDocumentsProvider.tree {
@@ -907,6 +956,35 @@ class SAFGatewayTest : BaseTest() {
         cancellableDelete(scope) {
             harness.gateway.delete(harness.safPath("dir"), recursive = false)
         }.shouldBeInstanceOf<CancellationException>()
+
+        // A cancelled delete deletes nothing: the checkpoint sits between the check and the call.
+        harness.provider.deleteCalls.shouldBeEmpty()
+        harness.provider.hasNode("dir") shouldBe true
+    }
+
+    @Test
+    fun `a cancelled fallback walk stops at the current child`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/sub/file1.txt")
+                file("dir/sub/file2.txt")
+                file("dir/file3.txt")
+            }
+        )
+        harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.REJECT_NONEMPTY
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onDelete = { if (it == "root:dir/sub/file1.txt") scope.cancel() }
+
+        cancellableDelete(scope) {
+            harness.gateway.delete(harness.safPath("dir"), recursive = true)
+        }.shouldBeInstanceOf<CancellationException>()
+
+        // The failed cascade attempt and the child that was already in flight, nothing after it.
+        harness.provider.deleteCalls shouldContainExactly listOf("root:dir", "root:dir/sub/file1.txt")
+        harness.provider.hasNode("dir") shouldBe true
+        harness.provider.hasNode("dir", "sub") shouldBe true
+        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe true
+        harness.provider.hasNode("dir", "file3.txt") shouldBe true
     }
 
     @Test
