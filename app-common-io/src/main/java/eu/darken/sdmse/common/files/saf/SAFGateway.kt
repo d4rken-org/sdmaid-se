@@ -24,6 +24,8 @@ import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.emitAll
@@ -203,11 +205,16 @@ class SAFGateway @Inject constructor(
 
                 recursive -> deleteTreeCascading(target)
 
-                // Best-effort refusal, see the APathGateway.delete contract: a child that appears
-                // after this check can still be taken by a provider that cascades.
-                target.docFile.hasChildren() -> throw WriteException("Directory not empty", path)
+                else -> {
+                    // Best-effort refusal, see the APathGateway.delete contract: a child that appears
+                    // after this check can still be taken by a provider that cascades.
+                    val hasChildren = target.docFile.hasChildren()
+                    currentCoroutineContext().ensureActive()
 
-                else -> deleteDocument(target.docFile, path)
+                    if (hasChildren) throw WriteException("Directory not empty", path)
+
+                    deleteDocument(target.docFile, path)
+                }
             }
         } catch (e: CancellationException) {
             throw e
@@ -226,6 +233,8 @@ class SAFGateway @Inject constructor(
      * directory is already empty by the time it is deleted.
      */
     private suspend fun deleteTreeCascading(target: SAFPathLookup) {
+        currentCoroutineContext().ensureActive()
+
         val cascaded = try {
             target.docFile.delete()
         } catch (e: CancellationException) {
@@ -234,6 +243,8 @@ class SAFGateway @Inject constructor(
             log(TAG, WARN) { "Cascading delete of ${target.lookedUp} failed: ${e.asLog()}" }
             false
         }
+
+        currentCoroutineContext().ensureActive()
 
         // Under a dry-run SAFDocFile.delete deletes nothing and reports the document as still there,
         // which counts as a cascade here, so the fallback and its real deletions never run.
@@ -245,17 +256,27 @@ class SAFGateway @Inject constructor(
         }
 
         log(TAG, WARN) { "Provider didn't cascade ${target.lookedUp}, deleting children individually" }
-        deleteTreePostOrder(target)
+        deleteTreePostOrder(target.docFile, target.lookedUp)
     }
 
-    private suspend fun deleteTreePostOrder(target: SAFPathLookup) {
-        if (target.isDirectory) {
-            lookupFiles(target.lookedUp).toList().forEach { deleteTreePostOrder(it) }
+    /**
+     * Deletes [docFile] and everything below it, children before their parents.
+     *
+     * The walk runs on the [SAFDocFile]s the provider itself handed out. Document ids are opaque in
+     * general, they can't be rebuilt from display names, and a provider whose ids aren't path derived
+     * is exactly the kind that doesn't cascade, i.e. the only reason this fallback exists. [root] is
+     * carried along for log and exception context only.
+     */
+    private suspend fun deleteTreePostOrder(docFile: SAFDocFile, root: SAFPath) {
+        if (docFile.isDirectory) {
+            docFile.listFiles().forEach { deleteTreePostOrder(it, root) }
         }
-        deleteDocument(target.docFile, target.lookedUp)
+        deleteDocument(docFile, root)
     }
 
-    private fun deleteDocument(docFile: SAFDocFile, path: SAFPath) {
+    private suspend fun deleteDocument(docFile: SAFDocFile, path: SAFPath) {
+        currentCoroutineContext().ensureActive()
+
         if (docFile.delete()) return
 
         // Providers report a failure for a document that is already gone, but only a query that
