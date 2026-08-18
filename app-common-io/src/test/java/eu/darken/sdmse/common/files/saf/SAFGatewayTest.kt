@@ -17,6 +17,7 @@ import io.mockk.just
 import io.mockk.mockkStatic
 import io.mockk.runs
 import io.mockk.unmockkAll
+import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -495,6 +496,21 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
+    fun `createDir aborts when the provider renames a missing ancestor`() = runTest2(autoCancel = true) {
+        // ExternalStorageProvider sanitizes and uniquifies display names. Continuing below the folder
+        // it actually created would write the target somewhere nobody asked for.
+        val harness = harness()
+        harness.provider.renameNextCreatedTo = "a (1)"
+
+        shouldThrow<WriteException> { harness.gateway.createDir(harness.safPath("a", "b", "newdir")) }
+
+        harness.provider.createdDocuments shouldContainExactly listOf("root:" to "a")
+        // The renamed directory is removed again, and neither "b" nor the target exist anywhere.
+        harness.provider.deletedDocuments shouldContainExactly listOf("root:a (1)")
+        harness.provider.documentIds() shouldContainExactly listOf(FakeDocumentsProvider.ROOT_ID)
+    }
+
+    @Test
     fun `createFile with a file blocking an ancestor`() = runTest2(autoCancel = true) {
         val harness = harness(FakeDocumentsProvider.tree { file("a") })
 
@@ -529,6 +545,95 @@ class SAFGatewayTest : BaseTest() {
         shouldThrow<WriteException> { harness.gateway.createDir(harness.safPath("Android", "data")) }
 
         harness.provider.hasNode("Android", "data") shouldBe false
+    }
+
+    // The same create paths against a provider that hands out ids carrying no path information (like
+    // most non-ExternalStorageProvider providers do). They only pass if every step addresses the
+    // document the provider handed back, instead of rebuilding an id from the wanted path.
+
+    @Test
+    fun `createFile creates the missing ancestors with opaque document ids`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree(FakeDocumentsProvider.IdMode.OPAQUE))
+
+        harness.gateway.createFile(harness.safPath("a", "b", "new.bin"))
+
+        val (idA, idB, idTarget) = harness.provider.createdDocumentIds
+        harness.provider.createdDocuments shouldContainExactly listOf(
+            FakeDocumentsProvider.ROOT_ID to "a",
+            idA to "b",
+            idB to "new.bin",
+        )
+        harness.provider.nodeById(idTarget)!!.apply {
+            displayName shouldBe "new.bin"
+            mimeType shouldBe "application/octet-stream"
+            parentId shouldBe idB
+        }
+        harness.provider.resolve("a", "b", "new.bin")!!.documentId shouldBe idTarget
+    }
+
+    @Test
+    fun `createDir creates the missing ancestors with opaque document ids`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree(FakeDocumentsProvider.IdMode.OPAQUE))
+
+        harness.gateway.createDir(harness.safPath("a", "b", "newdir"))
+
+        val (idA, idB, idTarget) = harness.provider.createdDocumentIds
+        harness.provider.createdDocuments shouldContainExactly listOf(
+            FakeDocumentsProvider.ROOT_ID to "a",
+            idA to "b",
+            idB to "newdir",
+        )
+        harness.provider.nodeById(idTarget)!!.apply {
+            displayName shouldBe "newdir"
+            mimeType shouldBe Document.MIME_TYPE_DIR
+            parentId shouldBe idB
+        }
+        harness.provider.resolve("a", "b", "newdir")!!.documentId shouldBe idTarget
+    }
+
+    @Test
+    fun `createFile under a narrow grant with opaque document ids`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            provider = FakeDocumentsProvider.tree(FakeDocumentsProvider.IdMode.OPAQUE) { dir("Android/data") },
+            granted = listOf("Android", "data"),
+        )
+
+        harness.gateway.createFile(harness.safPath("Android", "data", "pkg", "cache.bin"))
+
+        val (idPkg, idTarget) = harness.provider.createdDocumentIds
+        harness.provider.createdDocuments shouldContainExactly listOf(
+            "root:Android/data" to "pkg",
+            idPkg to "cache.bin",
+        )
+        harness.provider.nodeById(idPkg)!!.parentId shouldBe "root:Android/data"
+        harness.provider.nodeById(idTarget)!!.apply {
+            displayName shouldBe "cache.bin"
+            parentId shouldBe idPkg
+        }
+        harness.provider.resolve("Android", "data", "pkg", "cache.bin")!!.documentId shouldBe idTarget
+    }
+
+    @Test
+    fun `createDir under a narrow grant with opaque document ids`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            provider = FakeDocumentsProvider.tree(FakeDocumentsProvider.IdMode.OPAQUE) { dir("Android/data") },
+            granted = listOf("Android", "data"),
+        )
+
+        harness.gateway.createDir(harness.safPath("Android", "data", "pkg", "cache"))
+
+        val (idPkg, idTarget) = harness.provider.createdDocumentIds
+        harness.provider.createdDocuments shouldContainExactly listOf(
+            "root:Android/data" to "pkg",
+            idPkg to "cache",
+        )
+        harness.provider.nodeById(idPkg)!!.parentId shouldBe "root:Android/data"
+        harness.provider.nodeById(idTarget)!!.apply {
+            displayName shouldBe "cache"
+            mimeType shouldBe Document.MIME_TYPE_DIR
+            parentId shouldBe idPkg
+        }
+        harness.provider.resolve("Android", "data", "pkg", "cache")!!.documentId shouldBe idTarget
     }
 
     // ----------------------------------------------------------------------------------- delete
@@ -681,13 +786,17 @@ class SAFGatewayTest : BaseTest() {
     @Test
     fun `setPermissions and setOwnership delegate to the document`() = runTest2(autoCancel = true) {
         val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "12345") })
+        val permissions = Permissions(0b111000000)
+        val ownership = Ownership(1000L, 1000L)
         mockkStatic(Os::class)
-        every { Os.fchmod(any(), any()) } just runs
-        every { Os.fchown(any(), any(), any()) } just runs
+        every { Os.fchmod(any(), permissions.mode) } just runs
+        every { Os.fchown(any(), ownership.userId.toInt(), ownership.groupId.toInt()) } just runs
 
-        harness.gateway.setPermissions(harness.safPath("file.txt"), Permissions(0b111000000)) shouldBe true
-        harness.gateway.setOwnership(harness.safPath("file.txt"), Ownership(1000L, 1000L)) shouldBe true
+        harness.gateway.setPermissions(harness.safPath("file.txt"), permissions) shouldBe true
+        harness.gateway.setOwnership(harness.safPath("file.txt"), ownership) shouldBe true
 
+        verify { Os.fchmod(any(), permissions.mode) }
+        verify { Os.fchown(any(), ownership.userId.toInt(), ownership.groupId.toInt()) }
         harness.provider.openedDocuments shouldContainExactly listOf(
             "root:file.txt" to "w",
             "root:file.txt" to "w",

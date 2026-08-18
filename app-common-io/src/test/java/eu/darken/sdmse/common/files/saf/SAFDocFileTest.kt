@@ -19,6 +19,7 @@ import io.mockk.just
 import io.mockk.mockkStatic
 import io.mockk.runs
 import io.mockk.unmockkAll
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import org.junit.After
@@ -354,60 +355,96 @@ class SAFDocFileTest : BaseTest() {
     @Test
     fun `setPermissions propagates a failure to open the descriptor`() {
         // openPFD sits outside the try in SAFDocFile.setPermissions, so this does not return false.
-        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                dir("dir")
+                file("unopenable.txt", openable = false)
+            }
+        )
 
         shouldThrow<FileNotFoundException> { harness.docFile("dir").setPermissions(Permissions(0b111000000)) }
+        shouldThrow<FileNotFoundException> {
+            harness.docFile("unopenable.txt").setPermissions(Permissions(0b111000000))
+        }
     }
 
     @Test
     fun `setPermissions returns false when fchmod fails`() {
         val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "12345") })
+        val permissions = Permissions(0b111000000)
         mockkStatic(Os::class)
-        every { Os.fchmod(any(), any()) } throws ErrnoException("fchmod", OsConstants.EPERM)
+        every { Os.fchmod(any(), permissions.mode) } throws ErrnoException("fchmod", OsConstants.EPERM)
 
-        harness.docFile("file.txt").setPermissions(Permissions(0b111000000)) shouldBe false
+        harness.docFile("file.txt").setPermissions(permissions) shouldBe false
+
+        verify { Os.fchmod(any(), permissions.mode) }
     }
 
     @Test
     fun `setPermissions returns true when fchmod succeeds`() {
         val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "12345") })
+        val permissions = Permissions(0b111000000)
         mockkStatic(Os::class)
-        every { Os.fchmod(any(), any()) } just runs
+        every { Os.fchmod(any(), permissions.mode) } just runs
 
-        harness.docFile("file.txt").setPermissions(Permissions(0b111000000)) shouldBe true
+        harness.docFile("file.txt").setPermissions(permissions) shouldBe true
+
+        verify { Os.fchmod(any(), permissions.mode) }
     }
 
     @Test
     fun `setOwnership propagates a failure to open the descriptor`() {
         // openPFD sits outside the try in SAFDocFile.setOwnership too.
-        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                dir("dir")
+                file("unopenable.txt", openable = false)
+            }
+        )
 
         shouldThrow<FileNotFoundException> { harness.docFile("dir").setOwnership(Ownership(1000L, 1000L)) }
+        shouldThrow<FileNotFoundException> {
+            harness.docFile("unopenable.txt").setOwnership(Ownership(1000L, 1000L))
+        }
     }
 
     @Test
     fun `setOwnership returns false when fchown fails`() {
         val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "12345") })
+        val ownership = Ownership(1000L, 1000L)
         mockkStatic(Os::class)
-        every { Os.fchown(any(), any(), any()) } throws ErrnoException("fchown", OsConstants.EPERM)
+        every {
+            Os.fchown(any(), ownership.userId.toInt(), ownership.groupId.toInt())
+        } throws ErrnoException("fchown", OsConstants.EPERM)
 
-        harness.docFile("file.txt").setOwnership(Ownership(1000L, 1000L)) shouldBe false
+        harness.docFile("file.txt").setOwnership(ownership) shouldBe false
+
+        verify { Os.fchown(any(), ownership.userId.toInt(), ownership.groupId.toInt()) }
     }
 
     @Test
     fun `setOwnership returns true when fchown succeeds`() {
         val harness = harness(FakeDocumentsProvider.tree { file("file.txt", content = "12345") })
+        val ownership = Ownership(1000L, 1000L)
         mockkStatic(Os::class)
-        every { Os.fchown(any(), any(), any()) } just runs
+        every { Os.fchown(any(), ownership.userId.toInt(), ownership.groupId.toInt()) } just runs
 
-        harness.docFile("file.txt").setOwnership(Ownership(1000L, 1000L)) shouldBe true
+        harness.docFile("file.txt").setOwnership(ownership) shouldBe true
+
+        verify { Os.fchown(any(), ownership.userId.toInt(), ownership.groupId.toInt()) }
     }
 
     @Test
     fun `fstat returns null when the descriptor can not be opened`() {
-        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                dir("dir")
+                file("unopenable.txt", openable = false)
+            }
+        )
 
         harness.docFile("dir").fstat().shouldBeNull()
+        harness.docFile("unopenable.txt").fstat().shouldBeNull()
     }
 
     @Test
