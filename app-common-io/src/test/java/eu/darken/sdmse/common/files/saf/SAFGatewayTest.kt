@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.files.saf
 
 import android.provider.DocumentsContract.Document
 import android.system.Os
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.Ownership
@@ -9,6 +10,7 @@ import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.WriteException
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -45,6 +47,8 @@ class SAFGatewayTest : BaseTest() {
         // BaseTest's cleanup is a JUnit5 @AfterAll and doesn't run here.
         unmockkAll()
         LegacyQueryShimProvider.unregisterAll()
+        // A global flag, a leak from a failing dry-run test would silently disarm every other one.
+        Bugs.isDryRun = false
     }
 
     private fun TestScope.harness(
@@ -649,12 +653,8 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
-    fun `delete leaves the directory skeleton behind`() = runTest2(autoCancel = true) {
-        // documents a KNOWN DEFECT (D1) that is deliberately NOT fixed in this change: SAFGateway.delete
-        // only ever calls delete() on non-directories, so deleting a folder empties it and leaves every
-        // directory in place, including the target. The fix is destructive enough that it is being held
-        // back until it can be verified on a device against a real ExternalStorageProvider. Do not read
-        // these assertions as intended behavior.
+    fun `recursive delete removes the directory itself`() = runTest2(autoCancel = true) {
+        // A cascading provider takes the whole subtree from a single call on the target.
         val harness = harness(
             FakeDocumentsProvider.tree {
                 file("dir/file1.txt")
@@ -665,21 +665,60 @@ class SAFGatewayTest : BaseTest() {
 
         harness.gateway.delete(harness.safPath("dir"), recursive = true)
 
-        harness.provider.hasNode("dir") shouldBe true
-        harness.provider.hasNode("dir", "sub") shouldBe true
+        harness.provider.hasNode("dir") shouldBe false
+        harness.provider.hasNode("dir", "sub") shouldBe false
         harness.provider.hasNode("dir", "file1.txt") shouldBe false
         harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe false
+        harness.provider.deleteCalls shouldContainExactly listOf("root:dir")
+    }
+
+    @Test
+    fun `recursive delete falls back to a post order walk when the provider does not cascade`() =
+        runTest2(autoCancel = true) {
+            val harness = harness(
+                FakeDocumentsProvider.tree {
+                    file("dir/file1.txt")
+                    file("dir/sub/file2.txt")
+                }
+            )
+            harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.REJECT_NONEMPTY
+
+            harness.gateway.delete(harness.safPath("dir"), recursive = true)
+
+            harness.provider.hasNode("dir") shouldBe false
+            harness.provider.hasNode("dir", "sub") shouldBe false
+            // Children before their parents, otherwise a provider that refuses a non-empty directory
+            // could never be satisfied.
+            harness.provider.deletedDocuments shouldContainExactly listOf(
+                "root:dir/file1.txt",
+                "root:dir/sub/file2.txt",
+                "root:dir/sub",
+                "root:dir",
+            )
+        }
+
+    @Test
+    fun `recursive delete resumes when the provider cascade fails part way`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/sub/file2.txt")
+            }
+        )
+        harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.CASCADE_PARTIAL_FAILURE
+
+        harness.gateway.delete(harness.safPath("dir"), recursive = true)
+
+        harness.provider.hasNode("dir") shouldBe false
+        // The cascade took the files before it gave up, the walk finished what was left.
         harness.provider.deletedDocuments shouldContainExactly listOf(
-            "root:dir/file1.txt",
-            "root:dir/sub/file2.txt",
+            "root:dir/sub",
+            "root:dir",
         )
     }
 
     @Test
-    fun `delete recurses even when recursive is false`() = runTest2(autoCancel = true) {
-        // documents a KNOWN DEFECT (D2) that is deliberately NOT fixed in this change: the recursive
-        // parameter is only logged, never read. It is held back together with D1 (see above), because
-        // the guard it would need only makes sense once directories are actually deleted.
+    fun `delete refuses a populated directory when recursive is false`() = runTest2(autoCancel = true) {
         val harness = harness(
             FakeDocumentsProvider.tree {
                 file("dir/file1.txt")
@@ -687,10 +726,112 @@ class SAFGatewayTest : BaseTest() {
             }
         )
 
+        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir"), recursive = false) }
+
+        harness.provider.hasNode("dir") shouldBe true
+        harness.provider.hasNode("dir", "sub") shouldBe true
+        harness.provider.hasNode("dir", "file1.txt") shouldBe true
+        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe true
+        harness.provider.deleteCalls.shouldBeEmpty()
+    }
+
+    @Test
+    fun `delete removes an empty directory when recursive is false`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+
         harness.gateway.delete(harness.safPath("dir"), recursive = false)
 
-        harness.provider.hasNode("dir", "file1.txt") shouldBe false
-        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe false
+        harness.provider.hasNode("dir") shouldBe false
+        harness.provider.deletedDocuments shouldContainExactly listOf("root:dir")
+    }
+
+    @Test
+    fun `a child appearing after the emptiness check is taken along`() = runTest2(autoCancel = true) {
+        // The refusal in the recursive=false path is best-effort, exactly as the APathGateway.delete
+        // contract states: emptiness check and delete can't be one atomic step, so a child that shows
+        // up in between is cascaded away by the provider.
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
+        harness.provider.onChildQuery = {
+            harness.provider.onChildQuery = null
+            harness.provider.addNode(
+                FakeDocumentsProvider.Node(
+                    documentId = "root:dir/sneaky.txt",
+                    parentId = "root:dir",
+                    displayName = "sneaky.txt",
+                    mimeType = "application/octet-stream",
+                    flags = FakeDocumentsProvider.DEFAULT_FILE_FLAGS,
+                )
+            )
+        }
+
+        harness.gateway.delete(harness.safPath("dir"), recursive = false)
+
+        harness.provider.hasNode("dir") shouldBe false
+        harness.provider.hasNode("dir", "sneaky.txt") shouldBe false
+    }
+
+    @Test
+    fun `delete counts a false return as success when the document is really gone`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        // Deleted, but reported as failed.
+        harness.provider.failNextDeleteAfterwardsWith = IllegalArgumentException("java.io.FileNotFoundException: gone")
+
+        harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+
+        harness.provider.hasNode("dir", "file.txt") shouldBe false
+    }
+
+    @Test
+    fun `delete surfaces a false return as WriteException when the document survives`() =
+        runTest2(autoCancel = true) {
+            val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+            harness.provider.failNextDeleteWith = IllegalArgumentException("java.io.FileNotFoundException: gone")
+
+            shouldThrow<WriteException> {
+                harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+            }
+
+            harness.provider.hasNode("dir", "file.txt") shouldBe true
+        }
+
+    @Test
+    fun `delete surfaces a failing verification query as WriteException`() = runTest2(autoCancel = true) {
+        // The lenient SAFDocFile.exists reads a failing query as "gone" and would report success for a
+        // document that is still there, which is why the verification uses existsStrict.
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        harness.provider.failNextDeleteWith = IllegalArgumentException("java.io.FileNotFoundException: gone")
+        harness.provider.onDelete = { id ->
+            harness.provider.failDocQueryFor[id] = RuntimeException("provider is having a bad day")
+        }
+
+        shouldThrow<WriteException> {
+            harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+        }
+
+        harness.provider.hasNode("dir", "file.txt") shouldBe true
+    }
+
+    @Test
+    fun `delete deletes nothing during a dry run`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/sub/file2.txt")
+            }
+        )
+
+        Bugs.isDryRun = true
+        try {
+            harness.gateway.delete(harness.safPath("dir"), recursive = true)
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        harness.provider.hasNode("dir") shouldBe true
+        harness.provider.hasNode("dir", "sub") shouldBe true
+        harness.provider.hasNode("dir", "file1.txt") shouldBe true
+        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe true
+        harness.provider.deleteCalls.shouldBeEmpty()
     }
 
     @Test
@@ -711,24 +852,31 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
-    fun `delete with a failing child enumeration surfaces as WriteException`() = runTest2(autoCancel = true) {
+    fun `delete with a failing emptiness check surfaces as WriteException`() = runTest2(autoCancel = true) {
+        // The emptiness check is the only enumeration left in delete, and an unanswerable one must not
+        // read as "empty" and take the directory with it.
         val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
         harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
 
-        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
+        shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir"), recursive = false) }
+
+        harness.provider.hasNode("dir") shouldBe true
     }
 
     @Test
-    fun `delete with a child vanishing mid traversal surfaces as WriteException`() = runTest2(autoCancel = true) {
+    fun `a failing fallback walk surfaces as WriteException`() = runTest2(autoCancel = true) {
         val harness = harness(
             FakeDocumentsProvider.tree {
                 file("dir/file1.txt")
-                file("dir/file2.txt")
+                file("dir/sub/file2.txt")
             }
         )
-        harness.provider.onChildQuery = { harness.provider.removeNode("dir", "file2.txt") }
+        harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.REJECT_NONEMPTY
+        harness.provider.failChildQueryFor["root:dir/sub"] = RuntimeException("provider is having a bad day")
 
         shouldThrow<WriteException> { harness.gateway.delete(harness.safPath("dir"), recursive = true) }
+
+        harness.provider.hasNode("dir") shouldBe true
     }
 
     @Test
@@ -740,27 +888,49 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
-    fun `delete stays cancellable`() = runTest2(autoCancel = true) {
-        val harness = harness(
-            FakeDocumentsProvider.tree {
-                file("dir/file1.txt")
-                file("dir/file2.txt")
-            }
-        )
+    fun `delete stays cancellable during the initial lookup`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onDocumentQuery = { scope.cancel() }
+
+        cancellableDelete(scope) {
+            harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+        }.shouldBeInstanceOf<CancellationException>()
+    }
+
+    @Test
+    fun `delete stays cancellable during the emptiness check`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { dir("dir") })
         val scope = CoroutineScope(Dispatchers.Unconfined)
         harness.provider.onChildQuery = { scope.cancel() }
-        var caught: Throwable? = null
 
-        val job = scope.launch {
+        cancellableDelete(scope) {
+            harness.gateway.delete(harness.safPath("dir"), recursive = false)
+        }.shouldBeInstanceOf<CancellationException>()
+    }
+
+    @Test
+    fun `delete stays cancellable during the document deletion`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onDelete = { scope.cancel() }
+
+        cancellableDelete(scope) {
+            harness.gateway.delete(harness.safPath("dir", "file.txt"), recursive = false)
+        }.shouldBeInstanceOf<CancellationException>()
+    }
+
+    /** Runs [block] on [scope] and returns whatever it threw, so the cancellation shape can be asserted. */
+    private suspend fun cancellableDelete(scope: CoroutineScope, block: suspend () -> Unit): Throwable? {
+        var caught: Throwable? = null
+        scope.launch {
             try {
-                harness.gateway.delete(harness.safPath("dir"), recursive = true)
+                block()
             } catch (e: Throwable) {
                 caught = e
             }
-        }
-        job.join()
-
-        caught.shouldBeInstanceOf<CancellationException>()
+        }.join()
+        return caught
     }
 
     // ------------------------------------------------------------------------------ misc writes

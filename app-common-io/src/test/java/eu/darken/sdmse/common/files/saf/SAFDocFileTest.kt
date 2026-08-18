@@ -197,6 +197,50 @@ class SAFDocFileTest : BaseTest() {
     }
 
     @Test
+    fun `hasChildren answers from the child cursor alone`() {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("populated/file.txt")
+                dir("empty")
+            }
+        )
+
+        harness.docFile("populated").hasChildren() shouldBe true
+        harness.docFile("empty").hasChildren() shouldBe false
+    }
+
+    @Test
+    fun `hasChildren does not query the children themselves`() {
+        // A directory whose children can't be looked up individually is still non-empty. Answering
+        // this with lookupFiles() would turn a vanishing or broken child into an unrelated failure.
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        harness.provider.failDocQueryFor["root:dir/file.txt"] = RuntimeException("provider is having a bad day")
+
+        harness.docFile("dir").hasChildren() shouldBe true
+    }
+
+    @Test
+    fun `hasChildren propagates a failing query`() {
+        // "We couldn't ask" must not read as "the directory is empty".
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        harness.provider.failChildQueryFor["root:dir"] = RuntimeException("provider is having a bad day")
+
+        shouldThrow<RuntimeException> { harness.docFile("dir").hasChildren() }
+    }
+
+    @Test
+    fun `existsStrict propagates what exists swallows`() {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        val docFile = harness.docFile("dir", "file.txt")
+
+        docFile.existsStrict() shouldBe true
+        harness.docFile("dir", "ghost.txt").existsStrict() shouldBe false
+
+        harness.provider.failNextQueryWith = RuntimeException("provider is having a bad day")
+        shouldThrow<RuntimeException> { docFile.existsStrict() }
+    }
+
+    @Test
     fun `findFile matches by display name`() {
         val harness = harness(
             FakeDocumentsProvider.tree {
