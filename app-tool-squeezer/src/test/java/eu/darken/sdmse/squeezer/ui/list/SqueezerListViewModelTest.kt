@@ -471,6 +471,62 @@ class SqueezerListViewModelTest : BaseTest() {
     }
 
     @Test
+    fun `compressing a subset keeps the screen so the result snackbar can render`() = runTest2 {
+        // A partial compression prunes only the handled items, so the list keeps data and the
+        // drain observer stays quiet. That's what lets ToolListEventHandler show the result
+        // snackbar — a full compression drains the list and pops the screen instead.
+        val a = image("a.jpg")
+        val b = image("b.jpg")
+        val h = harness(data = Squeezer.Data(media = setOf(a, b)), isPro = true)
+        h.vm.state.first()  // prime state.value so compress() can read current media
+        val collected = collectEvents(h.vm)
+        val collectedNav = collectNavEvents(h.vm)
+
+        val processSuccess = SqueezerProcessTask.Success(
+            affectedSpace = 512L,
+            affectedPaths = setOf(a.path),
+            processedCount = 1,
+        )
+        coEvery { h.taskSubmitter.submit(any()) } answers {
+            h.stateFlow.value = squeezerState(data = Squeezer.Data(media = setOf(b)))
+            processSuccess
+        }
+
+        h.vm.compress(setOf(a.identifier), confirmed = true)
+        advanceUntilIdle()
+
+        val event = collected.list.single()
+        event.shouldBeInstanceOf<SqueezerListViewModel.Event.TaskResult>()
+        event.result shouldBe processSuccess
+        collectedNav.list shouldBe emptyList()
+        collected.cancel()
+        collectedNav.cancel()
+    }
+
+    @Test
+    fun `compressing everything drains the data and navigates up`() = runTest2 {
+        val a = image("a.jpg")
+        val h = harness(data = Squeezer.Data(media = setOf(a)), isPro = true)
+        h.vm.state.first()  // prime
+        val collectedNav = collectNavEvents(h.vm)
+
+        coEvery { h.taskSubmitter.submit(any()) } answers {
+            h.stateFlow.value = squeezerState(data = Squeezer.Data(media = emptySet()))
+            SqueezerProcessTask.Success(
+                affectedSpace = 512L,
+                affectedPaths = setOf(a.path),
+                processedCount = 1,
+            )
+        }
+
+        h.vm.compress(setOf(a.identifier), confirmed = true)
+        advanceUntilIdle()
+
+        collectedNav.list shouldBe listOf(NavEvent.Up)
+        collectedNav.cancel()
+    }
+
+    @Test
     fun `init does not navigate up when Data transitions from non-empty to null - loading state`() = runTest2 {
         // Regression: data going to `null` indicates a fresh scan started (Squeezer sets
         // internalData = null at the top of performScan). That's a loading state, not an
