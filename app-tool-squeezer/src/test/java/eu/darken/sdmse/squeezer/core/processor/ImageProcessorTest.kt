@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.ContentId
 import eu.darken.sdmse.squeezer.core.ContentIdentifier
@@ -190,5 +191,62 @@ class ImageProcessorTest : BaseTest() {
         result.success shouldBe emptySet()
         result.failed shouldBe emptyMap()
         result.savedSpace shouldBe 0L
+    }
+
+    /**
+     * The published progress. [ImageProcessor.progress] is throttled, so collecting it drops exactly
+     * the intermediate states these tests are about; [Progress.Client.updateProgress] reads the same
+     * state synchronously and without side effects.
+     */
+    private fun ImageProcessor.currentProgress(): Progress.Data? {
+        var snapshot: Progress.Data? = null
+        updateProgress { snapshot = it; it }
+        return snapshot
+    }
+
+    @Test
+    fun `process - the item counter reaches the last item`() = runTest {
+        val first = createImage()
+        val secondPath = java.io.File(tempFolder.root, "second.jpg").apply {
+            writeBytes(ByteArray(5_000_000))
+        }.absolutePath
+        val second = createImage(path = secondPath)
+
+        // Sampled while an item is in flight.
+        var inFlight: Progress.Data? = null
+        coEvery { fileTransaction.replace(any(), any(), any()) } coAnswers {
+            inFlight = subject.currentProgress()
+            FileTransaction.Outcome(
+                originalSize = 5_000_000L,
+                replacementSize = 2_000_000L,
+                savedBytes = 3_000_000L,
+                replaced = true,
+            )
+        }
+        coEvery { imageContentHasher.computeHash(any()) } returns ContentIdentifier.ImageHash(ContentId("img"))
+
+        subject.process(setOf(first, second), quality = 80)
+
+        // There is no per-image progress, so the inner ring spins for the duration of each item.
+        inFlight!!.subCount shouldBe Progress.Count.Indeterminate()
+
+        subject.currentProgress()!!.let {
+            it.count.current shouldBe 2L
+            it.count.max shouldBe 2L
+        }
+    }
+
+    @Test
+    fun `process - a preserved HDR-depth photo still advances the counter`() = runTest {
+        val image = createImage()
+        every { settings.includeLossyAuxImages } returns mockDataStoreValue(false)
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
+
+        subject.process(setOf(image), quality = 80)
+
+        subject.currentProgress()!!.let {
+            it.count.current shouldBe 1L
+            it.count.max shouldBe 1L
+        }
     }
 }

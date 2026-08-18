@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.core.local.File
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
@@ -26,9 +27,12 @@ import io.mockk.slot
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
@@ -296,6 +300,16 @@ class SqueezerTest : BaseTest() {
         return Setup(squeezer, scanner, imageProcessor, videoProcessor, exclusionManager, settings)
     }
 
+    /**
+     * The published progress, read synchronously - [Squeezer.progress] is conflated, so collecting
+     * it drops exactly the intermediate states these tests are about.
+     */
+    private fun Squeezer.currentProgress(): Progress.Data? {
+        var snapshot: Progress.Data? = null
+        updateProgress { snapshot = it; it }
+        return snapshot
+    }
+
     private suspend fun Squeezer.dataFromState(): Squeezer.Data? = state.map { it.data }.first()
     private suspend fun Squeezer.lastResultFromState(): eu.darken.sdmse.squeezer.core.tasks.SqueezerTask.Result? =
         state.map { it.lastResult }.first()
@@ -477,7 +491,7 @@ class SqueezerTest : BaseTest() {
         s.squeezer.submit(SqueezerScanTask())
 
         val capturedTargets = slot<Set<CompressibleImage>>()
-        coEvery { s.imageProcessor.process(capture(capturedTargets), any()) } returns
+        coEvery { s.imageProcessor.process(capture(capturedTargets), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(a, b), failed = emptyMap(), savedSpace = 400L)
 
         s.squeezer.submit(SqueezerProcessTask(mode = SqueezerProcessTask.TargetMode.All()))
@@ -494,7 +508,7 @@ class SqueezerTest : BaseTest() {
         s.squeezer.submit(SqueezerScanTask())
 
         val capturedTargets = slot<Set<CompressibleImage>>()
-        coEvery { s.imageProcessor.process(capture(capturedTargets), any()) } returns
+        coEvery { s.imageProcessor.process(capture(capturedTargets), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(keep), failed = emptyMap(), savedSpace = 100L)
 
         s.squeezer.submit(
@@ -516,7 +530,7 @@ class SqueezerTest : BaseTest() {
         s.squeezer.submit(SqueezerScanTask())
 
         val capturedTargets = slot<Set<CompressibleImage>>()
-        coEvery { s.imageProcessor.process(capture(capturedTargets), any()) } returns
+        coEvery { s.imageProcessor.process(capture(capturedTargets), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(real), failed = emptyMap(), savedSpace = 0L)
 
         s.squeezer.submit(
@@ -536,15 +550,66 @@ class SqueezerTest : BaseTest() {
         coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(img, vid))
         s.squeezer.submit(SqueezerScanTask())
 
-        coEvery { s.imageProcessor.process(any(), any()) } returns
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(img), failed = emptyMap(), savedSpace = 100L)
-        coEvery { s.videoProcessor.process(any(), any()) } returns
+        coEvery { s.videoProcessor.process(any(), any(), any(), any()) } returns
             VideoProcessor.Result(success = setOf(vid), failed = emptyMap(), savedSpace = 200L)
 
         s.squeezer.submit(SqueezerProcessTask())
 
-        coVerify(exactly = 1) { s.imageProcessor.process(setOf(img), any()) }
-        coVerify(exactly = 1) { s.videoProcessor.process(setOf(vid), any()) }
+        coVerify(exactly = 1) { s.imageProcessor.process(setOf(img), any(), any(), any()) }
+        coVerify(exactly = 1) { s.videoProcessor.process(setOf(vid), any(), any(), any()) }
+    }
+
+    @Test
+    fun `submit ProcessTask numbers items globally across both phases`() = runTest2 {
+        val img = createImage("a.jpg")
+        val vid = createVideo("b.mp4")
+        val s = setup()
+        coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(img, vid))
+        s.squeezer.submit(SqueezerScanTask())
+
+        // A progress flow that never completes. With emptyFlow() the forwarding job's onCompletion
+        // fires right away on a background dispatcher, racing the phase it is meant to close.
+        every { s.imageProcessor.progress } returns MutableSharedFlow<Progress.Data?>()
+        every { s.videoProcessor.progress } returns MutableSharedFlow<Progress.Data?>()
+
+        val published = mutableListOf<Progress.Data?>()
+        backgroundScope.launch(Dispatchers.Unconfined) { s.squeezer.progress.toList(published) }
+
+        val imageOffset = slot<Int>()
+        val imageTotal = slot<Int>()
+        coEvery {
+            s.imageProcessor.process(any(), any(), capture(imageOffset), capture(imageTotal))
+        } returns ImageProcessor.Result(success = setOf(img), failed = emptyMap(), savedSpace = 100L)
+
+        val videoOffset = slot<Int>()
+        val videoTotal = slot<Int>()
+        var videoPhaseStart: Progress.Count? = null
+        coEvery {
+            s.videoProcessor.process(any(), any(), capture(videoOffset), capture(videoTotal))
+        } coAnswers {
+            videoPhaseStart = s.squeezer.currentProgress()?.count
+            VideoProcessor.Result(success = setOf(vid), failed = emptyMap(), savedSpace = 200L)
+        }
+
+        s.squeezer.submit(SqueezerProcessTask())
+
+        // Each processor is told where its batch sits in the run, instead of counting its own.
+        imageOffset.captured shouldBe 0
+        imageTotal.captured shouldBe 2
+        videoOffset.captured shouldBe 1
+        videoTotal.captured shouldBe 2
+
+        // The image phase closes at "1 of 2", so the video phase starts there, not at "0 of 1".
+        videoPhaseStart!!.current shouldBe 1L
+        videoPhaseStart!!.max shouldBe 2L
+
+        // ... and the run finishes at "2 of 2" instead of a second "1 of 1".
+        val terminal = published.last { it != null }!!
+        terminal.count.current shouldBe 2L
+        terminal.count.max shouldBe 2L
+        terminal.subCount shouldBe null
     }
 
     @Test
@@ -554,7 +619,7 @@ class SqueezerTest : BaseTest() {
         coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(vid))
         s.squeezer.submit(SqueezerScanTask())
 
-        coEvery { s.videoProcessor.process(any(), any()) } returns
+        coEvery { s.videoProcessor.process(any(), any(), any(), any()) } returns
             VideoProcessor.Result(success = setOf(vid), failed = emptyMap(), savedSpace = 200L)
 
         s.squeezer.submit(SqueezerProcessTask())
@@ -562,7 +627,7 @@ class SqueezerTest : BaseTest() {
         // No image targets → image processor must not be invoked. Pin the short-circuit (line
         // 162 in Squeezer.kt) — a regression that always called process(emptySet()) would still
         // be technically correct but burns the withProgress() scaffolding for nothing.
-        coVerify(exactly = 0) { s.imageProcessor.process(any(), any()) }
+        coVerify(exactly = 0) { s.imageProcessor.process(any(), any(), any(), any()) }
     }
 
     @Test
@@ -572,12 +637,12 @@ class SqueezerTest : BaseTest() {
         coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(img))
         s.squeezer.submit(SqueezerScanTask())
 
-        coEvery { s.imageProcessor.process(any(), any()) } returns
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(img), failed = emptyMap(), savedSpace = 100L)
 
         s.squeezer.submit(SqueezerProcessTask())
 
-        coVerify(exactly = 0) { s.videoProcessor.process(any(), any()) }
+        coVerify(exactly = 0) { s.videoProcessor.process(any(), any(), any(), any()) }
     }
 
     @Test
@@ -588,7 +653,7 @@ class SqueezerTest : BaseTest() {
         coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(processed, keep))
         s.squeezer.submit(SqueezerScanTask())
 
-        coEvery { s.imageProcessor.process(any(), any()) } returns
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(processed), failed = emptyMap(), savedSpace = 100L)
 
         s.squeezer.submit(
@@ -608,7 +673,7 @@ class SqueezerTest : BaseTest() {
         coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(failed))
         s.squeezer.submit(SqueezerScanTask())
 
-        coEvery { s.imageProcessor.process(any(), any()) } returns ImageProcessor.Result(
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns ImageProcessor.Result(
             success = emptySet(),
             failed = mapOf(failed to IllegalStateException("nope")),
             savedSpace = 0L,
@@ -629,9 +694,9 @@ class SqueezerTest : BaseTest() {
         coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(img, vid))
         s.squeezer.submit(SqueezerScanTask())
 
-        coEvery { s.imageProcessor.process(any(), any()) } returns
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns
             ImageProcessor.Result(success = setOf(img), failed = emptyMap(), savedSpace = 100L)
-        coEvery { s.videoProcessor.process(any(), any()) } returns
+        coEvery { s.videoProcessor.process(any(), any(), any(), any()) } returns
             VideoProcessor.Result(success = setOf(vid), failed = emptyMap(), savedSpace = 200L)
 
         val result = s.squeezer.submit(SqueezerProcessTask()) as SqueezerProcessTask.Success
@@ -654,7 +719,7 @@ class SqueezerTest : BaseTest() {
 
         // Two IOExceptions → one FailureReason bucket; one UnsupportedFormatException → another.
         // Catches a regression that grouped by Throwable identity instead of via toFailureReason().
-        coEvery { s.imageProcessor.process(any(), any()) } returns ImageProcessor.Result(
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns ImageProcessor.Result(
             success = emptySet(),
             failed = mapOf(
                 a to java.io.IOException("io a"),
@@ -679,7 +744,7 @@ class SqueezerTest : BaseTest() {
         s.squeezer.submit(SqueezerScanTask())
 
         val capturedQuality = slot<Int>()
-        coEvery { s.imageProcessor.process(any(), capture(capturedQuality)) } returns
+        coEvery { s.imageProcessor.process(any(), capture(capturedQuality), any(), any()) } returns
             ImageProcessor.Result(success = setOf(img), failed = emptyMap(), savedSpace = 100L)
 
         s.squeezer.submit(SqueezerProcessTask(qualityOverride = 50))
@@ -695,7 +760,7 @@ class SqueezerTest : BaseTest() {
         s.squeezer.submit(SqueezerScanTask())
 
         val capturedQuality = slot<Int>()
-        coEvery { s.imageProcessor.process(any(), capture(capturedQuality)) } returns
+        coEvery { s.imageProcessor.process(any(), capture(capturedQuality), any(), any()) } returns
             ImageProcessor.Result(success = setOf(img), failed = emptyMap(), savedSpace = 100L)
 
         s.squeezer.submit(SqueezerProcessTask(qualityOverride = null))
