@@ -14,6 +14,8 @@ interface Progress {
         val primary: CaString = eu.darken.sdmse.common.R.string.general_progress_loading.toCaString(),
         val secondary: CaString = easterEggProgressMsg.toCaString(),
         val count: Count = Count.Indeterminate(),
+        /** Progress *within* the item [count] is currently on. Null when the producer has no per-item concept. */
+        val subCount: Count? = null,
         val extra: Any? = null
     )
 
