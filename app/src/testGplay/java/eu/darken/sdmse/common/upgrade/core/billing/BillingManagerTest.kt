@@ -13,8 +13,10 @@ import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingClientException
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnection
 import eu.darken.sdmse.common.upgrade.core.billing.client.BillingConnectionProvider
+import eu.darken.sdmse.common.upgrade.core.billing.work.PurchaseAckScheduler
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldNotContain
+import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -51,6 +53,10 @@ import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
 
 class BillingManagerTest : BaseTest() {
+
+    // Relaxed: the safety net is fail-open plumbing around the ack pass — only the dedicated
+    // tests below assert on it.
+    private val ackScheduler = mockk<PurchaseAckScheduler>(relaxed = true)
 
     @BeforeEach
     fun setup() {
@@ -158,10 +164,10 @@ class BillingManagerTest : BaseTest() {
         }
 
     private fun TestScope.manager(connection: BillingConnection): BillingManager =
-        BillingManager(backgroundScope, providerOf(connection))
+        BillingManager(backgroundScope, providerOf(connection), ackScheduler)
 
     private fun TestScope.manager(provider: BillingConnectionProvider): BillingManager =
-        BillingManager(backgroundScope, provider)
+        BillingManager(backgroundScope, provider, ackScheduler)
 
     // region launch failure mapping
 
@@ -1249,7 +1255,7 @@ class BillingManagerTest : BaseTest() {
         val conn = connection(purchasesFlow = purchases)
         val acks = conn.scriptAck { _, _ -> awaitCancellation() }
         val ackScope = CoroutineScope(StandardTestDispatcher(testScheduler))
-        BillingManager(ackScope, providerOf(conn))
+        BillingManager(ackScope, providerOf(conn), ackScheduler)
         runCurrent()
 
         purchases.tryEmit(listOf(unacked))
@@ -1357,6 +1363,108 @@ class BillingManagerTest : BaseTest() {
         fun ackLogs(priority: Logging.Priority): Int = synchronized(lines) {
             lines.count { it.first == priority && it.second.startsWith("Acknowledging purchase:") }
         }
+    }
+
+    // endregion
+
+    // region ack safety net sweep (ensureAllAcknowledged)
+
+    @Test fun `sweep acknowledges what its refresh returned and reports COMPLETE`() = runTest2 {
+        val unacked = unackedPurchase("token-sweep")
+        val conn = connection(refreshes = listOf(completeRefresh(), completeRefresh(listOf(unacked))))
+        val acks = conn.scriptAck { _, _ -> result(BillingResponseCode.OK) }
+        val manager = manager(conn)
+        runCurrent()
+
+        // The ack happens IN this call, not via the async collector: the worker needs the
+        // happens-before to report success.
+        manager.ensureAllAcknowledged() shouldBe BillingManager.AckSweepResult.COMPLETE
+        acks.map { it.purchaseToken } shouldBe listOf("token-sweep")
+    }
+
+    @Test fun `sweep with nothing to acknowledge reports COMPLETE`() = runTest2 {
+        val conn = connection(refreshes = listOf(completeRefresh(), completeRefresh(listOf(purchase()))))
+        val manager = manager(conn)
+        runCurrent()
+
+        manager.ensureAllAcknowledged() shouldBe BillingManager.AckSweepResult.COMPLETE
+    }
+
+    @Test fun `sweep reports RETRY when acks keep failing transiently`() = runTest2 {
+        val unacked = unackedPurchase("token-sweep")
+        val conn = connection(refreshes = listOf(completeRefresh(), completeRefresh(listOf(unacked))))
+        conn.scriptAck { _, _ -> transientAckFailure() }
+        val manager = manager(conn)
+        runCurrent()
+
+        manager.ensureAllAcknowledged() shouldBe BillingManager.AckSweepResult.RETRY
+    }
+
+    @Test fun `sweep reports PERMANENT_FAILURE on a permanently rejected ack`() = runTest2 {
+        val unacked = unackedPurchase("token-sweep")
+        val conn = connection(refreshes = listOf(completeRefresh(), completeRefresh(listOf(unacked))))
+        conn.scriptAck { _, _ -> throw BillingClientException(result(BillingResponseCode.DEVELOPER_ERROR)) }
+        val manager = manager(conn)
+        runCurrent()
+
+        manager.ensureAllAcknowledged() shouldBe BillingManager.AckSweepResult.PERMANENT_FAILURE
+    }
+
+    @Test fun `sweep reports RETRY on an incomplete refresh even with nothing to ack`() = runTest2 {
+        val conn = connection(refreshes = listOf(completeRefresh(), partialRefresh()))
+        val manager = manager(conn)
+        runCurrent()
+
+        // A failed product-type query may be hiding an unacknowledged purchase of that type: the
+        // worker must come back instead of reporting the net complete.
+        manager.ensureAllAcknowledged() shouldBe BillingManager.AckSweepResult.RETRY
+    }
+
+    @Test fun `sweep reports RETRY when the refresh itself fails`() = runTest2 {
+        val conn = connection(refreshes = listOf(completeRefresh()))
+        val manager = manager(conn)
+        runCurrent()
+        coEvery { conn.refreshPurchases() } throws BillingException("Play down")
+
+        manager.ensureAllAcknowledged() shouldBe BillingManager.AckSweepResult.RETRY
+    }
+
+    @Test fun `an ack pass arms the safety net before attempting, with the newest refund deadline`() = runTest2 {
+        val order = mutableListOf<String>()
+        coEvery { ackScheduler.armForUnackedPurchases(any()) } coAnswers { order.add("arm:${firstArg<Long>()}") }
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        conn.scriptAck { _, _ ->
+            order.add("ack")
+            transientAckFailure()
+        }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unackedPurchase("token-1", time = 5_000L), unackedPurchase("token-2", time = 9_000L)))
+        // runCurrent, NOT advanceUntilIdle: the scripted ack keeps failing, so idle-advancing would
+        // spin through the 5-minute re-drive cycles forever. The first attempt runs undelayed.
+        runCurrent()
+
+        // Armed (and awaited) BEFORE the first attempt: a process death during the inline retries
+        // must still leave the persistent net in place. Deadline derives from the NEWEST purchase.
+        order.first() shouldBe "arm:${9_000L + BillingManager.ACK_SAFETY_NET_DEADLINE_MS}"
+        order.count { it == "ack" } shouldBeGreaterThan 0
+    }
+
+    @Test fun `a failing safety net arm never blocks the ack pass`() = runTest2 {
+        coEvery { ackScheduler.armForUnackedPurchases(any()) } throws RuntimeException("workmanager broken")
+        val purchases = purchasesFlow()
+        val conn = connection(purchasesFlow = purchases)
+        val acks = conn.scriptAck { _, _ -> result(BillingResponseCode.OK) }
+        manager(conn)
+        runCurrent()
+
+        purchases.tryEmit(listOf(unackedPurchase("token-1")))
+        runCurrent()
+
+        // The net is an extra layer: WorkManager being broken must never stop the ack itself.
+        acks.map { it.purchaseToken } shouldBe listOf("token-1")
     }
 
     // endregion
