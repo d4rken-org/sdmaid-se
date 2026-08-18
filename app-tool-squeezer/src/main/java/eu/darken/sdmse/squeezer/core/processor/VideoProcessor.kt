@@ -3,7 +3,8 @@ package eu.darken.sdmse.squeezer.core.processor
 import android.content.Context
 import android.media.MediaScannerConnection
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.ca.caString
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -13,9 +14,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.updateProgressCount
-import eu.darken.sdmse.common.progress.updateProgressPrimary
-import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.common.progress.updateProgressSubCount
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.InsufficientStorageException
 import eu.darken.sdmse.squeezer.core.SqueezerEligibility
@@ -51,26 +50,49 @@ class VideoProcessor @Inject constructor(
         val savedSpace: Long,
     )
 
+    /**
+     * [itemOffset] / [itemTotal] carry the position of this batch inside a run that also processes
+     * images, so the published counter is "file 2 of 10" across both passes instead of restarting.
+     */
     suspend fun process(
         targets: Set<CompressibleVideo>,
         quality: Int,
+        itemOffset: Int = 0,
+        itemTotal: Int = targets.size,
     ): Result = withContext(dispatcherProvider.IO) {
-        log(TAG) { "process(${targets.size} videos, quality=$quality)" }
+        log(TAG) { "process(${targets.size} videos, quality=$quality, offset=$itemOffset, total=$itemTotal)" }
 
-        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
-        updateProgressSecondary()
-        updateProgressCount(Progress.Count.Indeterminate())
+        updateProgress {
+            (it ?: Progress.Data()).copy(
+                primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString(),
+                secondary = CaString.EMPTY,
+                count = Progress.Count.Indeterminate(),
+                subCount = null,
+            )
+        }
 
         val successful = mutableSetOf<CompressibleVideo>()
         val failed = mutableMapOf<CompressibleVideo, Throwable>()
         var totalSaved = 0L
 
         targets.forEachIndexed { index, video ->
-            updateProgressCount(Progress.Count.Percent(index, targets.size))
-            updateProgressSecondary(video.lookup.userReadablePath)
+            // One publish, not four: progress is exposed through throttleLatest(250), which
+            // conflates. Separate mutations let a fast item show up with the new file name next to
+            // the previous path and counter for up to a throttle window.
+            updateProgress {
+                (it ?: Progress.Data()).copy(
+                    primary = eu.darken.sdmse.common.R.string.general_progress_processing_x
+                        .toCaString(video.path.name),
+                    secondary = video.lookup.userReadablePath,
+                    count = Progress.Count.Counter(itemOffset + index, itemTotal),
+                    subCount = Progress.Count.Indeterminate(),
+                )
+            }
 
             try {
-                val outcome = processVideo(video, quality)
+                val outcome = processVideo(video, quality) { pct ->
+                    updateProgressSubCount(Progress.Count.Percent(pct, 100))
+                }
                 successful.add(video)
 
                 if (outcome.replaced) {
@@ -103,6 +125,15 @@ class VideoProcessor @Inject constructor(
                 log(TAG, ERROR) { "Failed to compress ${video.path}: ${e.asLog()}" }
                 failed[video] = e
             }
+
+            // Every exit path (compressed, skipped, failed) advances the item counter here, so the
+            // ring doesn't stall through FileTransaction's rename/verify and the history write.
+            updateProgress {
+                (it ?: Progress.Data()).copy(
+                    count = Progress.Count.Counter(itemOffset + index + 1, itemTotal),
+                    subCount = Progress.Count.Indeterminate(),
+                )
+            }
         }
 
         log(TAG, INFO) {
@@ -119,6 +150,7 @@ class VideoProcessor @Inject constructor(
     private suspend fun processVideo(
         video: CompressibleVideo,
         quality: Int,
+        onTranscodeProgress: (Int) -> Unit,
     ): FileTransaction.Outcome {
         val originalSize = video.size
 
@@ -163,11 +195,8 @@ class VideoProcessor @Inject constructor(
                 inputFile = originalFile,
                 outputFile = tempFile,
                 targetBitrateBps = targetBitrate,
-                progressListener = { pct ->
-                    updateProgressSecondary(
-                        caString { "${video.lookup.userReadablePath.get(this)} ($pct%)" }
-                    )
-                },
+                // The transcoder reports -1 while Media3 has no progress to give yet.
+                progressListener = { pct -> if (pct >= 0) onTranscodeProgress(pct) },
             )
         }
 
