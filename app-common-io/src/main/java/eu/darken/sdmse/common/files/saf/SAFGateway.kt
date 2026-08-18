@@ -126,7 +126,23 @@ class SAFGateway @Inject constructor(
             targetParentDocFile = when {
                 existing == null -> {
                     log(TAG) { "Creating missing parent folder $segment for $targetSafPath" }
-                    targetParentDocFile.createDirectory(segment)
+                    val created = targetParentDocFile.createDirectory(segment)
+                    val createdName = created.name
+                    if (createdName != segment) {
+                        // Providers may sanitize or uniquify a name (ExternalStorageProvider does both),
+                        // which would put the target below a folder we didn't ask for.
+                        log(TAG, WARN) { "Parent folder $segment was created as $createdName, removing it again" }
+                        try {
+                            created.delete()
+                        } catch (e: Exception) {
+                            log(TAG, WARN) { "Failed to remove renamed parent folder $created: ${e.asLog()}" }
+                        }
+                        throw WriteException(
+                            "Unexpected name change: Wanted parent folder $segment, but got $createdName",
+                            targetSafPath,
+                        )
+                    }
+                    created
                 }
 
                 existing.isDirectory -> existing
