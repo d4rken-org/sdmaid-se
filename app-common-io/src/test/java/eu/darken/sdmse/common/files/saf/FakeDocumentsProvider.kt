@@ -19,7 +19,15 @@ import java.io.FileNotFoundException
  *
  * Register it through [SafTestHarness], which wires it behind [LegacyQueryShimProvider].
  */
-class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : DocumentsProvider() {
+class FakeDocumentsProvider(
+    val idMode: IdMode = IdMode.PATH_DERIVED,
+    /**
+     * Mints opaque ids for [Builder] fixture nodes too, so that nothing below the tree root can be
+     * addressed by a rebuilt id. Only the root document keeps [ROOT_ID], which is what the granted
+     * tree uri points at. Requires [IdMode.OPAQUE].
+     */
+    val opaqueFixtureIds: Boolean = false,
+) : DocumentsProvider() {
 
     /**
      * How ids for newly created documents are minted. Real providers differ, and a caller must not
@@ -37,7 +45,7 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
         /**
          * Created documents get ids like `doc-1` that carry no path information at all. Fixture nodes
          * declared through [Builder] keep their path based ids, because that is what the granted tree
-         * uri addresses.
+         * uri addresses, unless [opaqueFixtureIds] says otherwise.
          */
         OPAQUE,
     }
@@ -79,6 +87,9 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
 
     /** Insertion ordered, so child enumeration order is deterministic. */
     private val nodes = LinkedHashMap<String, Node>()
+
+    /** Path based id -> the id the fixture node actually got, only used under [opaqueFixtureIds]. */
+    private val fixtureIds = mutableMapOf<String, String>()
 
     private var opaqueIdCounter = 0
 
@@ -135,6 +146,9 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
     val openedDocuments = mutableListOf<Pair<String, String>>()
 
     init {
+        require(!opaqueFixtureIds || idMode == IdMode.OPAQUE) {
+            "opaqueFixtureIds only makes sense together with IdMode.OPAQUE"
+        }
         nodes[ROOT_ID] = Node(
             documentId = ROOT_ID,
             parentId = null,
@@ -148,7 +162,10 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
 
     // ---------------------------------------------------------------- tree access for assertions
 
-    /** Path based lookup, i.e. only meaningful for [IdMode.PATH_DERIVED] and for fixture nodes. */
+    /**
+     * Path based lookup, i.e. only meaningful for [IdMode.PATH_DERIVED] and for fixture nodes that
+     * kept a path based id. Use [resolve] under [opaqueFixtureIds].
+     */
     fun node(vararg segments: String): Node? = nodes[docIdOf(segments.toList())]
 
     fun hasNode(vararg segments: String): Boolean = node(*segments) != null
@@ -311,6 +328,13 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
 
     // -------------------------------------------------------------------------------- internals
 
+    /** The id a fixture node gets, minted once per path so parent links stay consistent. */
+    private fun fixtureId(segments: List<String>): String {
+        val pathId = docIdOf(segments)
+        if (!opaqueFixtureIds || segments.isEmpty()) return pathId
+        return fixtureIds.getOrPut(pathId) { "$OPAQUE_ID_PREFIX${++opaqueIdCounter}" }
+    }
+
     private fun consumeQueryFailure() {
         failNextQueryWith?.let {
             failNextQueryWith = null
@@ -410,21 +434,21 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
             require(segments.isNotEmpty()) { "Can't replace the root node" }
             segments.dropLast(1).indices.forEach { index ->
                 val ancestor = segments.take(index + 1)
-                val ancestorId = docIdOf(ancestor)
+                val ancestorId = fixtureId(ancestor)
                 if (!nodes.containsKey(ancestorId)) {
                     nodes[ancestorId] = Node(
                         documentId = ancestorId,
-                        parentId = docIdOf(ancestor.dropLast(1)),
+                        parentId = fixtureId(ancestor.dropLast(1)),
                         displayName = ancestor.last(),
                         mimeType = Document.MIME_TYPE_DIR,
                         flags = DEFAULT_DIR_FLAGS,
                     )
                 }
             }
-            val documentId = docIdOf(segments)
+            val documentId = fixtureId(segments)
             val node = Node(
                 documentId = documentId,
-                parentId = docIdOf(segments.dropLast(1)),
+                parentId = fixtureId(segments.dropLast(1)),
                 displayName = if (nullDisplayName) null else segments.last(),
                 mimeType = mimeType,
                 size = size,
@@ -456,8 +480,9 @@ class FakeDocumentsProvider(val idMode: IdMode = IdMode.PATH_DERIVED) : Document
 
         fun tree(
             idMode: IdMode = IdMode.PATH_DERIVED,
+            opaqueFixtureIds: Boolean = false,
             block: FakeDocumentsProvider.Builder.() -> Unit = {},
-        ): FakeDocumentsProvider = FakeDocumentsProvider(idMode).also { it.Builder().block() }
+        ): FakeDocumentsProvider = FakeDocumentsProvider(idMode, opaqueFixtureIds).also { it.Builder().block() }
 
         fun pathSegments(path: String): List<String> = path.split('/').filter { it.isNotEmpty() }
 
