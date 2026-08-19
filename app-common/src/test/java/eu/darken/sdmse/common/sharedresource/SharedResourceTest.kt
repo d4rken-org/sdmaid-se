@@ -1112,4 +1112,63 @@ class SharedResourceTest : BaseTest() {
             Logging.remove(capture)
         }
     }
+
+    @Test
+    fun `a non-retryable startup failure is shared with the reusing caller instead of retried`(): Unit = runBlocking {
+        val attempts = AtomicInteger(0)
+        val firstStarted = CompletableDeferred<Unit>()
+        val failFirst = CompletableDeferred<Unit>()
+
+        // Same shape as the retry test above, but the source declares its startup failure hopeless.
+        // Retrying would make the reuser pay the whole doomed attempt a second time, which is what
+        // a spent timeout budget (e.g. the Shizuku connect watchdog) costs in practice.
+        val reuserLatched = CompletableDeferred<Unit>()
+        val capture = object : Logging.Logger {
+            override fun log(
+                priority: Logging.Priority,
+                tag: String,
+                message: String,
+                metaData: Map<String, Any>?
+            ) {
+                if (tag == "no-retry:SR" && message.contains("Source job already exists")) {
+                    reuserLatched.complete(Unit)
+                }
+            }
+        }
+        Logging.install(capture)
+        try {
+            val sr = SharedResource<Int>(
+                tag = "no-retry",
+                parentScope = this + Dispatchers.IO,
+                stopTimeout = Duration.ZERO,
+                isRetryableStartupFailure = { false },
+                source = flow {
+                    if (attempts.incrementAndGet() == 1) {
+                        firstStarted.complete(Unit)
+                        failFirst.await()
+                        throw IOException("source died before producing a value")
+                    }
+                    emit(attempts.get())
+                    awaitCancellation()
+                },
+            )
+
+            val creator = async(Dispatchers.IO) { runCatching { sr.get() } }
+            firstStarted.await()
+            val reuser = async(Dispatchers.IO) { runCatching { sr.get() } }
+            reuserLatched.await()
+            failFirst.complete(Unit)
+
+            // Both callers waited on the same doomed attempt, so both get its real error...
+            (creator.await().exceptionOrNull() is IOException) shouldBe true
+            (reuser.await().exceptionOrNull() is IOException) shouldBe true
+            // ...and nobody silently started a second one.
+            attempts.get() shouldBe 1
+
+            sr.close()
+        } finally {
+            Logging.remove(capture)
+        }
+    }
+
 }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.adb.service
 
+import eu.darken.sdmse.common.adb.AdbConnectTimeoutException
 import eu.darken.sdmse.common.adb.AdbServiceConnection
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.AdbUnavailableException
@@ -13,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.causes
 import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.ipc.IpcClientModule
@@ -54,6 +56,17 @@ class AdbServiceClient @Inject constructor(
     parentScope = coroutineScope + dispatcherProvider.IO,
     stopTimeout = ADB_HOST_KEEPALIVE,
     verboseLifecycle = true,
+    // A connect timeout means the Shizuku handshake burned its entire budget without an answer, so
+    // the default "the starter owns this failure, retry fresh" is a bad trade here: each retry is
+    // another full budget. On a device where Shizuku's user service never comes up (the MediaTek/
+    // HyperOS defect) that turned one 15s stall into up to five for every concurrent probe. The
+    // caller that started the generation always got the real error; this gives it to the others too.
+    // take(): `causes` walks until cause == null without tracking identity, so a cyclic chain would
+    // spin forever - and this predicate runs on the path whose whole job is to stop hangs.
+    isRetryableStartupFailure = { error ->
+        error !is AdbConnectTimeoutException &&
+                error.causes.take(MAX_CAUSE_DEPTH).none { it is AdbConnectTimeoutException }
+    },
     source = callbackFlow {
         log(TAG) { "Instantiating ADB launcher..." }
 
@@ -128,6 +141,9 @@ class AdbServiceClient @Inject constructor(
         // purpose: a uid-2000 host should not linger in the background for long. Teardown still happens
         // (and is prompt/safe); this only delays its start.
         private val ADB_HOST_KEEPALIVE: Duration = Duration.ofSeconds(30)
+
+        /** Depth bound for the cause walk in [isRetryableStartupFailure]; our chains are 2 deep. */
+        private const val MAX_CAUSE_DEPTH = 16
 
         fun AdbHostLauncher.createServiceHostConnection(
             options: AdbHostOptions,
