@@ -288,7 +288,7 @@ class MainActivity : ComponentActivity() {
         when (intent?.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION)) {
             // An unknown/absent tool resolves to null, i.e. the app just opens the dashboard.
             ShortcutActivity.ACTION_OPEN_TOOL ->
-                resolveShortcutTool(intent.getStringExtra(ShortcutActivity.EXTRA_TOOL))?.shortcutRoute
+                resolveShortcutTool(intent?.getStringExtra(ShortcutActivity.EXTRA_TOOL))?.shortcutRoute
 
             ShortcutActivity.ACTION_OPEN_APPCONTROL -> AppControlListRoute
             ShortcutActivity.ACTION_OPEN_ANALYZER -> DeviceStorageRoute

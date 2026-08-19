@@ -64,7 +64,7 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.dashboardCardConfig.flow,
     ) { isPro, isUpdateCheckSupported, oneClick, shortcut, theme, previews, romType, updateCheck, motd, debug, locales,
         oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator, widgetOneClick,
-        summaryAutoShow, shortcutTools, cardConfig ->
+        summaryAutoShow, shortcutConfig, cardConfig ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
@@ -88,7 +88,7 @@ class GeneralSettingsViewModel @Inject constructor(
             dashboardSummaryAutoShow = summaryAutoShow,
             // Publish order, so the picker rows show the order the launcher menu will use.
             shortcutTools = normalizeCardOrder(cardConfig.cards.map { it.type }),
-            shortcutToolsEnabled = shortcutTools.tools.toSet(),
+            shortcutToolsEnabled = shortcutConfig.tools.toSet(),
         )
     }.safeStateIn(
         initialValue = State(),

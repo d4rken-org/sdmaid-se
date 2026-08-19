@@ -40,7 +40,7 @@ fun buildShortcuts(
     enabled: Collection<DashboardCardType>,
     cardOrder: List<DashboardCardType>,
     maxCount: Int,
-): List<AppShortcut> = buildList {
+): List<AppShortcut> = buildList<AppShortcut> {
     if (oneTapEnabled) add(AppShortcut.MainAction.OneTap)
     orderedTools(enabled, cardOrder).forEach { add(AppShortcut.Tool(it)) }
 }.take(maxCount.coerceAtLeast(0))
