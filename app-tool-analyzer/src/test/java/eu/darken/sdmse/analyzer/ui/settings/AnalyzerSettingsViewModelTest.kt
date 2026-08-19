@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.settings
 
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.common.datastore.DataStoreValue
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.stats.core.LowStorage
 import eu.darken.sdmse.stats.core.SpaceTracker
 import io.kotest.matchers.shouldBe
@@ -10,9 +11,12 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -32,29 +36,44 @@ class AnalyzerSettingsViewModelTest : BaseTest() {
     private class Harness(
         val vm: AnalyzerSettingsViewModel,
         val threshold: DataStoreValue<Long?>,
+        val notificationEnabled: DataStoreValue<Boolean>,
     )
 
-    private fun harness(
+    private fun TestScope.harness(
         customThresholdBytes: Long? = null,
         primaryStorage: SpaceTracker.StorageSnapshot? = SpaceTracker.StorageSnapshot(
             storageId = "primary",
             spaceFree = 50_000_000_000L,
             spaceCapacity = 128_000_000_000L,
         ),
+        notificationEnabled: Boolean = false,
+        isPro: Boolean = false,
     ): Harness {
         val threshold = rwDataStoreValue(customThresholdBytes)
+        val notification = rwDataStoreValue(notificationEnabled)
         val settings = mockk<AnalyzerSettings>().apply {
             every { lowStorageThresholdBytes } returns threshold
+            every { lowSpaceNotificationEnabled } returns notification
         }
         val spaceTracker = mockk<SpaceTracker>(relaxed = true).apply {
             coEvery { readPrimaryStorage() } returns primaryStorage
+        }
+        val info = mockk<UpgradeRepo.Info>().apply {
+            every { this@apply.isPro } returns isPro
+        }
+        val upgradeRepo = mockk<UpgradeRepo>().apply {
+            every { upgradeInfo } returns flowOf(info)
         }
         val vm = AnalyzerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
             spaceTracker = spaceTracker,
+            upgradeRepo = upgradeRepo,
         )
-        return Harness(vm, threshold)
+        // safeStateIn is WhileSubscribed: without a live subscriber `state.value` stays at the
+        // initial State() and the Pro guard in setNotificationEnabled would never see isPro.
+        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+        return Harness(vm, threshold, notification)
     }
 
     // ─────────────────────────── state ───────────────────────────
@@ -129,5 +148,52 @@ class AnalyzerSettingsViewModelTest : BaseTest() {
         val captured = slot<(Long?) -> Long?>()
         coVerify(exactly = 1) { h.threshold.update(capture(captured)) }
         captured.captured(10_000_000_000L) shouldBe null
+    }
+
+    // ─────────────────────────── low space warning ───────────────────────────
+
+    @Test
+    fun `the stored toggle and the Pro state surface`() = runTest2 {
+        val h = harness(notificationEnabled = true, isPro = true)
+        advanceUntilIdle()
+
+        val state = h.vm.state.first()
+        state.notificationEnabled shouldBe true
+        state.isPro shouldBe true
+    }
+
+    @Test
+    fun `a non-Pro user sees the stored value but the row renders unchecked`() = runTest2 {
+        // The screen renders `isPro && notificationEnabled`, so the stored value stays intact.
+        val h = harness(notificationEnabled = true, isPro = false)
+        advanceUntilIdle()
+
+        val state = h.vm.state.first()
+        state.notificationEnabled shouldBe true
+        state.isPro shouldBe false
+    }
+
+    @Test
+    fun `a Pro user can enable the warning`() = runTest2 {
+        val h = harness(notificationEnabled = false, isPro = true)
+        advanceUntilIdle()
+
+        h.vm.setNotificationEnabled(true)
+        advanceUntilIdle()
+
+        val captured = slot<(Boolean) -> Boolean?>()
+        coVerify(exactly = 1) { h.notificationEnabled.update(capture(captured)) }
+        captured.captured(false) shouldBe true
+    }
+
+    @Test
+    fun `a non-Pro user cannot enable the warning`() = runTest2 {
+        val h = harness(notificationEnabled = false, isPro = false)
+        advanceUntilIdle()
+
+        h.vm.setNotificationEnabled(true)
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.notificationEnabled.update(any()) }
     }
 }
