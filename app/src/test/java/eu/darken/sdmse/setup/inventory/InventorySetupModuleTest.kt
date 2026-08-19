@@ -15,13 +15,13 @@ import io.mockk.coVerify
 import io.mockk.mockk
 import io.mockk.unmockkAll
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.filterIsInstance
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.toList
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -32,12 +32,14 @@ import org.robolectric.Shadows
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
+import testhelpers.flow.test
 
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
 class InventorySetupModuleTest : BaseTest() {
 
     private lateinit var pkgOps: PkgOps
+    private lateinit var scope: CoroutineScope
 
     private val context: Context
         get() = ApplicationProvider.getApplicationContext()
@@ -45,6 +47,7 @@ class InventorySetupModuleTest : BaseTest() {
     @Before
     fun setup() {
         pkgOps = mockk(relaxed = true)
+        scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
         // GET_INSTALLED_APPS is a non-AOSP permission and reports itself as granted where it does not
         // exist, granting it too keeps this independent of whether Robolectric knows the permission.
         Shadows.shadowOf(ApplicationProvider.getApplicationContext<Application>()).grantPermissions(
@@ -55,6 +58,7 @@ class InventorySetupModuleTest : BaseTest() {
 
     @After
     fun teardown() {
+        scope.cancel()
         unmockkAll()
     }
 
@@ -127,57 +131,64 @@ class InventorySetupModuleTest : BaseTest() {
     }
 
     @Test
-    fun `a refresh after a failed probe recovers`() = runTest {
+    fun `a refresh after a failed probe recovers`() {
         coEvery { pkgOps.queryPkgs(any(), any(), any()) } throws IllegalStateException("Nope")
-        val module = newModule(backgroundScope)
-        val seen = mutableListOf<SetupModule.State>()
-        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { module.state.toList(seen) }
-        advanceUntilIdle()
+        val module = newModule(scope)
 
-        seen.results().last().access shouldBe InventoryAccess.ProbeFailed
+        val collector = module.state.test(tag = "recovery", scope = scope)
+        collector.await { values, _ -> values.results().isNotEmpty() }
+
+        collector.latestValues.results().last().access shouldBe InventoryAccess.ProbeFailed
 
         coEvery { pkgOps.queryPkgs(any(), any(), any()) } returns pkgs(context.packageName, "android")
-        module.refresh()
-        advanceUntilIdle()
+        runBlocking { module.refresh() }
+        collector.await { values, _ -> values.results().size >= 2 }
 
-        val recovered = seen.results().last()
+        val recovered = collector.latestValues.results().last()
         recovered.access shouldBe InventoryAccess.Valid
         recovered.isComplete shouldBe true
+
+        runBlocking { collector.cancelAndJoin() }
     }
 
     @Test
-    fun `every trigger emits loading before the settled result`() = runTest {
+    fun `every trigger emits loading before the settled result`() {
         coEvery { pkgOps.queryPkgs(any(), any(), any()) } returns pkgs(context.packageName, "android")
-        val module = newModule(backgroundScope)
-        val seen = mutableListOf<SetupModule.State>()
-        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { module.state.toList(seen) }
-        advanceUntilIdle()
+        val module = newModule(scope)
 
-        module.refresh()
-        advanceUntilIdle()
+        val collector = module.state.test(tag = "triggers", scope = scope)
+        collector.await { values, _ -> values.results().isNotEmpty() }
 
-        seen.map { it::class } shouldBe listOf(
+        runBlocking { module.refresh() }
+        collector.await { values, _ -> values.results().size >= 2 }
+
+        collector.latestValues.map { it::class } shouldBe listOf(
             InventorySetupModule.Loading::class,
             InventorySetupModule.Result::class,
             InventorySetupModule.Loading::class,
             InventorySetupModule.Result::class,
         )
+
+        runBlocking { collector.cancelAndJoin() }
     }
 
     @Test
-    fun `a probe cancelled by a refresh does not surface as a failure`() = runTest {
+    fun `a probe cancelled by a refresh does not surface as a failure`() {
         coEvery { pkgOps.queryPkgs(any(), any(), any()) } coAnswers { awaitCancellation() }
-        val module = newModule(backgroundScope)
-        val seen = mutableListOf<SetupModule.State>()
-        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { module.state.toList(seen) }
-        advanceUntilIdle()
+        val module = newModule(scope)
+
+        val collector = module.state.test(tag = "cancellation", scope = scope)
+        // The first probe hangs, so the module is stuck on Loading when the refresh cancels it.
+        collector.await { values, _ -> values.any { it is InventorySetupModule.Loading } }
 
         coEvery { pkgOps.queryPkgs(any(), any(), any()) } returns pkgs(context.packageName, "android")
-        module.refresh()
-        advanceUntilIdle()
+        runBlocking { module.refresh() }
+        collector.await { values, _ -> values.results().isNotEmpty() }
 
-        seen.results().none { it.access is InventoryAccess.ProbeFailed } shouldBe true
-        seen.results().last().access shouldBe InventoryAccess.Valid
+        collector.latestValues.results().none { it.access is InventoryAccess.ProbeFailed } shouldBe true
+        collector.latestValues.results().last().access shouldBe InventoryAccess.Valid
+
+        runBlocking { collector.cancelAndJoin() }
     }
 
     private fun newModule(appScope: CoroutineScope) = InventorySetupModule(
