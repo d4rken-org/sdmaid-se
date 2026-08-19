@@ -165,6 +165,24 @@ class StorageForecasterTest : BaseTest() {
     }
 
     @Test
+    fun `large swings around a zero median are erratic, not stable`() {
+        // Rates of [3000M, -3000M, 3000M, -3000M]: the median is 0, but the spread is gigabytes a
+        // day, so the rate gate alone would report a wildly moving device as stable.
+        val swinging = listOf(
+            10_000_000_000L,
+            13_000_000_000L,
+            10_000_000_000L,
+            13_000_000_000L,
+            10_000_000_000L,
+        ).mapIndexed { index, used -> snap(day = index.toLong(), used = used) }
+
+        StorageForecaster.forecast(
+            history = swinging,
+            current = current(free = 20_000_000_000L),
+        ) shouldBe StorageForecast.Erratic
+    }
+
+    @Test
     fun `a flat history is stable`() {
         StorageForecaster.forecast(
             history = history(ratePerDay = 0L),

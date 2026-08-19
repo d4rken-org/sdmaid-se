@@ -40,10 +40,13 @@ object StorageForecaster {
         if (trend.maxGapDays > MAX_GAP_DAYS) return StorageForecast.InsufficientData
 
         val bytesPerDay = trend.bytesPerDay
-        // The spread gate is relative to the rate, so it only means anything once the rate itself
-        // is meaningful: near a zero median any jitter would look erratic.
-        if (bytesPerDay <= 0L || bytesPerDay < capacity / MIN_RATE_DIVISOR) return StorageForecast.Stable
-        if (trend.spreadBytes > MAX_SPREAD_RATIO * bytesPerDay.absoluteValue) return StorageForecast.Erratic
+        // The spread test is relative to the rate, so near a zero median it would flag single-byte
+        // jitter. The noise floor gives it an absolute minimum, which keeps a device that swings
+        // gigabytes a day around a zero median erratic instead of stable.
+        val noiseFloor = capacity / MIN_RATE_DIVISOR
+        val spreadThreshold = maxOf(MAX_SPREAD_RATIO * bytesPerDay.absoluteValue, noiseFloor)
+        if (trend.spreadBytes > spreadThreshold) return StorageForecast.Erratic
+        if (bytesPerDay <= 0L || bytesPerDay < noiseFloor) return StorageForecast.Stable
 
         val headroom = current.spaceFree - floor
         // Ceiling division: floor division reports "About 0 days" whenever the headroom is under a
