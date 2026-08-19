@@ -12,8 +12,11 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
@@ -77,6 +80,8 @@ class LowSpaceMonitorTest : BaseTest() {
         enabled: Boolean = true,
         isPro: Boolean = true,
         armed: Boolean = true,
+        /** Virtual-time suspension inside the reading, so two checks can genuinely overlap. */
+        readDelayMs: Long = 0L,
         primary: SpaceTracker.StorageSnapshot? = SpaceTracker.StorageSnapshot(
             storageId = primaryId,
             spaceFree = floor + 2_500_000_000L,
@@ -95,7 +100,10 @@ class LowSpaceMonitorTest : BaseTest() {
             every { lowStorageThresholdBytes } returns statefulValue<Long?>(null)
         }
         val spaceTracker = mockk<SpaceTracker>().apply {
-            coEvery { readPrimaryStorage() } returns primary
+            coEvery { readPrimaryStorage() } coAnswers {
+                if (readDelayMs > 0L) delay(readDelayMs)
+                primary
+            }
         }
         val historyIds = mutableListOf<String>()
         val spaceHistoryRepo = mockk<SpaceHistoryRepo>().apply {
@@ -174,6 +182,20 @@ class LowSpaceMonitorTest : BaseTest() {
         h.monitor.check()
 
         verify(exactly = 1) { h.notifications.notifyLowSpace(StorageForecast.BelowFloor, floor - 1) }
+        h.armed.value() shouldBe false
+    }
+
+    @Test
+    fun `two concurrent checks notify exactly once`() = runTest2 {
+        // The six-hourly worker can overlap the observer. Both would read armed=true and post
+        // unless the read-decide-post-write transaction is serialized.
+        val h = harness(primary = reading(), readDelayMs = 1_000L)
+
+        launch { h.monitor.check() }
+        launch { h.monitor.check() }
+        advanceUntilIdle()
+
+        verify(exactly = 1) { h.notifications.notifyLowSpace(any(), any()) }
         h.armed.value() shouldBe false
     }
 
