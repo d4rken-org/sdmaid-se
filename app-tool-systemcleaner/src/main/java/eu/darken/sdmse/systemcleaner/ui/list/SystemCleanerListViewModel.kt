@@ -42,22 +42,29 @@ class SystemCleanerListViewModel @Inject constructor(
     init {
         // Start an initial scan if SystemCleaner has no data yet. The Dashboard only navigates here
         // after scanning, but the launcher shortcut opens this screen cold — without this it would
-        // sit on the loading placeholder forever. A scan that is already in flight nulls the data
-        // while it runs, so without the in-flight guard the no-data check would queue a second,
-        // equally expensive scan whose start wipes the first one's result back to loading.
+        // sit on the loading placeholder forever.
+        //
+        // Wait out any in-flight task before deciding: performScan nulls the data while it runs, so
+        // checking immediately would duplicate an expensive scan. We wait instead of bailing out
+        // because an incomplete task is no promise that data is coming — the uninstall watcher never
+        // assigns any, and a cancelled or failed scan completes without assigning either. Bailing
+        // out on those would strand this screen on the loading placeholder for good.
         launch {
-            val alreadyRunning = taskSubmitter.state.first().tasks.any {
-                it.toolType == SDMTool.Type.SYSTEMCLEANER && !it.isComplete
+            taskSubmitter.state.first { st ->
+                st.tasks.none { it.toolType == SDMTool.Type.SYSTEMCLEANER && !it.isComplete }
             }
-            if (alreadyRunning) return@launch
             val initState = systemCleaner.state.first()
             if (initState.data != null) return@launch
             taskSubmitter.submit(SystemCleanerScanTask())
         }
         // mapNotNull { it.data } skips the null transitions performScan publishes at the start of a
         // refresh, so navUp fires only on a real drain-to-empty, not during loading. (was BUG-FIXME-9)
+        // distinctUntilChanged() drops the repeats: the tool's state combines data with progress,
+        // so the same Data re-emits on every progress tick and a cold empty scan would otherwise
+        // get past drop(1) on its second identical emission.
         systemCleaner.state
             .mapNotNull { it.data }
+            .distinctUntilChanged()
             .map { it.hasData }
             .drop(1)
             .filter { !it }

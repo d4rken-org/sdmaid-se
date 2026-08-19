@@ -52,14 +52,17 @@ class AppCleanerListViewModel @Inject constructor(
     init {
         // Start an initial scan if AppCleaner has no data yet. The Dashboard only navigates here
         // after scanning, but the launcher shortcut opens this screen cold — without this it would
-        // sit on the loading placeholder forever. A scan that is already in flight nulls the data
-        // while it runs, so without the in-flight guard the no-data check would queue a second,
-        // equally expensive scan whose start wipes the first one's result back to loading.
+        // sit on the loading placeholder forever.
+        //
+        // Wait out any in-flight task before deciding: performScan nulls the data while it runs, so
+        // checking immediately would duplicate an expensive scan. We wait instead of bailing out
+        // because an incomplete task is no promise that data is coming — the uninstall watcher never
+        // assigns any, and a cancelled or failed scan completes without assigning either. Bailing
+        // out on those would strand this screen on the loading placeholder for good.
         launch {
-            val alreadyRunning = taskSubmitter.state.first().tasks.any {
-                it.toolType == SDMTool.Type.APPCLEANER && !it.isComplete
+            taskSubmitter.state.first { st ->
+                st.tasks.none { it.toolType == SDMTool.Type.APPCLEANER && !it.isComplete }
             }
-            if (alreadyRunning) return@launch
             val initState = appCleaner.state.first()
             if (initState.data != null) return@launch
             taskSubmitter.submit(AppCleanerScanTask())
@@ -67,8 +70,12 @@ class AppCleanerListViewModel @Inject constructor(
         // mapNotNull { it.data } skips the null loading state performScan publishes while running,
         // so drop(1) consumes the first REAL result. Without it a cold scan that finds nothing
         // would navUp instead of showing the empty list; navUp is meant for a later drain-to-empty.
+        // distinctUntilChanged() drops the repeats: the tool's state combines data with progress,
+        // so the same Data re-emits on every progress tick and a cold empty scan would otherwise
+        // get past drop(1) on its second identical emission.
         appCleaner.state
             .mapNotNull { it.data }
+            .distinctUntilChanged()
             .drop(1)
             .filter { it.junks.isEmpty() }
             .take(1)
