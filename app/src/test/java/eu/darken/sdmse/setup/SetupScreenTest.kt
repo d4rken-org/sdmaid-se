@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
@@ -409,7 +410,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                                 isCompatible = true,
                                 isInstalled = true,
                                 basicService = true,
-                                ourService = false,
+                                serviceState = ShizukuServiceState.NotChecked,
                                 alsoHasRoot = true,
                             ),
                             onToggleUseShizuku = {},
@@ -444,7 +445,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                                 isCompatible = true,
                                 isInstalled = true,
                                 basicService = true,
-                                ourService = true,
+                                serviceState = ShizukuServiceState.Available,
                                 alsoHasRoot = false,
                             ),
                             onToggleUseShizuku = {},

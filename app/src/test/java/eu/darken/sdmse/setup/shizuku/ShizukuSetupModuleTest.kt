@@ -2,6 +2,7 @@ package eu.darken.sdmse.setup.shizuku
 
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
+import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -59,7 +60,7 @@ class ShizukuSetupModuleTest : BaseTest() {
         coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
         coEvery { shizukuManager.isCompatible() } returns true
         coEvery { shizukuManager.isGranted() } returns true
-        coEvery { shizukuManager.isOurServiceAvailable() } coAnswers { probeCount++; true }
+        coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; ShizukuServiceState.Available }
 
         every { rootManager.useRoot } returns flowOf(false)
     }
@@ -184,4 +185,91 @@ class ShizukuSetupModuleTest : BaseTest() {
             realScope.cancel()
         }
     }
+
+    // --- service state -------------------------------------------------------------------------
+
+    @Test fun `the probe announces itself before it settles`() {
+        // A cold bind can take the whole ADB connect budget. Without an in-flight state the card
+        // keeps offering a retry button that silently does nothing for those seconds.
+        val mod = module()
+
+        val collector = mod.state.test(tag = "checking", scope = scope)
+        collector.await { values, _ -> values.any { it is ShizukuSetupModule.Result && !it.isChecking } }
+
+        val results = collector.latestValues.filterIsInstance<ShizukuSetupModule.Result>()
+        results.first().isChecking shouldBe true
+        results.last().isChecking shouldBe false
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `only Available counts as our service being up`() {
+        fun resultWith(state: ShizukuServiceState) = ShizukuSetupModule.Result(
+            pkg = "moe.shizuku.privileged.api".toPkgId(),
+            useShizuku = true,
+            serviceState = state,
+        )
+
+        resultWith(ShizukuServiceState.Available).ourService shouldBe true
+        resultWith(ShizukuServiceState.NotChecked).ourService shouldBe false
+        resultWith(ShizukuServiceState.PermissionDenied).ourService shouldBe false
+        resultWith(ShizukuServiceState.Unknown).ourService shouldBe false
+        resultWith(ShizukuServiceState.TimedOut).ourService shouldBe false
+        resultWith(ShizukuServiceState.Failed).ourService shouldBe false
+    }
+
+    @Test fun `isComplete truth table across every service outcome`() {
+        fun complete(
+            useShizuku: Boolean?,
+            isCompatible: Boolean = true,
+            isInstalled: Boolean = true,
+            state: ShizukuServiceState = ShizukuServiceState.NotChecked,
+        ) = ShizukuSetupModule.Result(
+            pkg = "moe.shizuku.privileged.api".toPkgId(),
+            useShizuku = useShizuku,
+            isCompatible = isCompatible,
+            isInstalled = isInstalled,
+            serviceState = state,
+        ).isComplete
+
+        // Opted in and working is the only complete "on" state.
+        complete(true, state = ShizukuServiceState.Available) shouldBe true
+        complete(true, state = ShizukuServiceState.TimedOut) shouldBe false
+        complete(true, state = ShizukuServiceState.Failed) shouldBe false
+        complete(true, state = ShizukuServiceState.PermissionDenied) shouldBe false
+        complete(true, state = ShizukuServiceState.Unknown) shouldBe false
+        complete(true, state = ShizukuServiceState.NotChecked) shouldBe false
+
+        // Wants Shizuku but it isn't installed stays incomplete, even when nothing failed.
+        complete(true, isInstalled = false, state = ShizukuServiceState.Available) shouldBe false
+
+        // Opted out, or Shizuku too old to use, are both settled states.
+        complete(false, state = ShizukuServiceState.TimedOut) shouldBe true
+        complete(true, isCompatible = false, state = ShizukuServiceState.TimedOut) shouldBe true
+        complete(null, isCompatible = false) shouldBe true
+    }
+
+
+    @Test fun `a probe that throws settles as Failed instead of stranding the checking state`() {
+        // Regression guard: emitting isChecking=true and THEN throwing kills the sharing coroutine
+        // with that state stuck in replayingShare's replay slot. No refresh can replace it, so every
+        // later subscriber inherits a permanently disabled retry button. pingBinder() is a binder
+        // call and runDetachedWithTimeout propagates whatever its block throws, so this is reachable.
+        val binder: ShizukuBaseServiceBinder = mockk()
+        every { binder.pingBinder() } throws RuntimeException("binder died")
+        every { shizukuManager.shizukuBinder } returns flowOf(binder)
+        val mod = module()
+
+        val collector = mod.state.test(tag = "throwing", scope = scope)
+        collector.await { values, _ -> values.any { it is ShizukuSetupModule.Result && !it.isChecking } }
+
+        val settled = collector.latestValues
+            .filterIsInstance<ShizukuSetupModule.Result>()
+            .last { !it.isChecking }
+        settled.serviceState shouldBe ShizukuServiceState.Failed
+        settled.isChecking shouldBe false
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
 }
