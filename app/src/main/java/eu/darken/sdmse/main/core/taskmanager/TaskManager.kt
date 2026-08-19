@@ -310,13 +310,26 @@ class TaskManager @Inject constructor(
                         runCatching {
                             log(TAG, WARN) { "Completing entry whose body never ran: ${task.type}-$taskId" }
                         }
-                        // Throwable, not Exception: an Error from a tool's progress reset must not
-                        // skip the resource lock release or the completion publish below.
-                        try {
-                            entry.tool.updateProgress { null }
-                        } catch (e: Throwable) {
-                            runCatching {
-                                log(TAG, WARN) { "Failed to reset progress for ${task.type}-$taskId: ${e.asLog()}" }
+                        // Progress is tool-wide, not per-task, and this cleanup runs asynchronously
+                        // (updateTasks is suspend), so a newer task for the same tool may have taken
+                        // over the progress in the meantime — clearing it would drop the dashboard's
+                        // running state and Cancel action for work that is still going. Registration
+                        // takes managerLock too, so any such task is visible here. The rest of the
+                        // cleanup below is entry-specific and always safe to run.
+                        val hasOtherIncompleteTask = values.any {
+                            it.id != taskId &&
+                                    it.toolType == entry.toolType &&
+                                    !it.isComplete
+                        }
+                        if (!hasOtherIncompleteTask) {
+                            // Throwable, not Exception: an Error from a tool's progress reset must
+                            // not skip the resource lock release or the completion publish below.
+                            try {
+                                entry.tool.updateProgress { null }
+                            } catch (e: Throwable) {
+                                runCatching {
+                                    log(TAG, WARN) { "Failed to reset progress for ${task.type}-$taskId: ${e.asLog()}" }
+                                }
                             }
                         }
                         try {
