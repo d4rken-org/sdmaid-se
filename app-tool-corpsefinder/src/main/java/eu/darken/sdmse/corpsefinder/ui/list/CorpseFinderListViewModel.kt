@@ -55,17 +55,18 @@ class CorpseFinderListViewModel @Inject constructor(
             if (initState.data != null) return@launch
             taskSubmitter.submit(CorpseFinderScanTask())
         }
-        // mapNotNull { it.data } skips the null loading state performScan publishes while running,
-        // so drop(1) consumes the first REAL result. Without it a cold scan that finds nothing
-        // would navUp instead of showing the empty list; navUp is meant for a later drain-to-empty.
-        // distinctUntilChanged() drops the repeats: the tool's state combines data with progress,
-        // so the same Data re-emits on every progress tick and a cold empty scan would otherwise
-        // get past drop(1) on its second identical emission.
+        // navUp only on a real drain-to-empty. mapNotNull skips the null loading state performScan
+        // publishes while running, so drop(1) consumes the first REAL result, and the dedupe drops
+        // the repeats the tool's data/progress combine produces on every progress tick.
+        //
+        // The dedupe key is the corpse collection, not the whole Data: Data also carries lastResult,
+        // which a cold scan writes twice with different values, so two Data with identical corpses
+        // compare unequal and an empty cold scan would slip past drop(1) and navigate away.
         corpseFinder.state
-            .mapNotNull { it.data }
+            .mapNotNull { it.data?.corpses }
             .distinctUntilChanged()
             .drop(1)
-            .filter { it.corpses.isEmpty() }
+            .filter { it.isEmpty() }
             .take(1)
             .onEach { navUp() }
             .launchIn(vmScope)
