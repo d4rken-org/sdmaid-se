@@ -87,6 +87,9 @@ class RootManager @Inject constructor(
         refreshTrigger.update { it + 1 }
     }
 
+    /** Exists so tests can assert that concurrent refreshes do not lose increments. */
+    internal val currentGeneration: Int get() = refreshTrigger.value
+
     /**
      * Did the user consent to SD Maid using root and is root available?
      */
