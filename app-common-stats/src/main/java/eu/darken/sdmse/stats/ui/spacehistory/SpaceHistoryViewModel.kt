@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
+import eu.darken.sdmse.stats.core.forecast.StorageTrendCalculator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -124,11 +125,7 @@ class SpaceHistoryViewModel @Inject constructor(
             currentUsed = snapshots.lastOrNull()?.let { it.spaceCapacity - it.spaceFree },
             minUsed = snapshots.minOfOrNull { it.spaceCapacity - it.spaceFree },
             maxUsed = snapshots.maxOfOrNull { it.spaceCapacity - it.spaceFree },
-            deltaUsed = if (snapshots.size >= 2) {
-                val lastUsed = snapshots.last().let { it.spaceCapacity - it.spaceFree }
-                val firstUsed = snapshots.first().let { it.spaceCapacity - it.spaceFree }
-                lastUsed - firstUsed
-            } else null,
+            deltaUsed = StorageTrendCalculator.windowTotal(snapshots),
         )
     }.safeStateIn(
         initialValue = State(),

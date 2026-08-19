@@ -37,6 +37,7 @@ import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
+import eu.darken.sdmse.stats.core.forecast.StorageTrendCalculator
 import java.time.Duration
 import java.time.Instant
 import kotlin.math.absoluteValue
@@ -204,9 +205,11 @@ private fun TrendDeltaText(
     snapshots: List<SpaceSnapshotEntity>,
 ) {
     val context = LocalContext.current
-    val oldest = snapshots.first().let { it.spaceCapacity - it.spaceFree }
-    val newest = snapshots.last().let { it.spaceCapacity - it.spaceFree }
-    val delta = newest - oldest
+    val delta = StorageTrendCalculator.windowTotal(snapshots)
+    if (delta == null) {
+        Spacer(modifier = modifier)
+        return
+    }
     val absDelta = Formatter.formatShortFileSize(context, delta.absoluteValue)
     val signed = when {
         delta > 0 -> "+$absDelta"

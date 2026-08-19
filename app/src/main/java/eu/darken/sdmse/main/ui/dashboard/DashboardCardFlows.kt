@@ -44,6 +44,7 @@ import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
+import eu.darken.sdmse.stats.core.forecast.StorageTrendCalculator
 import eu.darken.sdmse.stats.ui.ReportsRoute
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
@@ -349,17 +350,12 @@ internal fun DashboardViewModel.buildAnalyzerItem(): Flow<AnalyzerDashboardCardI
 }
 
 internal fun calculateCombinedDelta(snapshots: List<SpaceSnapshotEntity>): Long? {
-    val trendGroups = snapshots
+    val totals = snapshots
         .groupBy { it.storageId }
         .values
-        .filter { it.size >= 2 }
-    if (trendGroups.isEmpty()) return null
-    return trendGroups.sumOf { group ->
-        val sorted = group.sortedBy { it.recordedAt }
-        val firstUsed = sorted.first().let { it.spaceCapacity - it.spaceFree }
-        val lastUsed = sorted.last().let { it.spaceCapacity - it.spaceFree }
-        lastUsed - firstUsed
-    }
+        .mapNotNull { StorageTrendCalculator.windowTotal(it) }
+    if (totals.isEmpty()) return null
+    return totals.sum()
 }
 
 internal fun DashboardViewModel.buildSetupCardItem(): Flow<SetupDashboardCardItem?> = setupManager.state

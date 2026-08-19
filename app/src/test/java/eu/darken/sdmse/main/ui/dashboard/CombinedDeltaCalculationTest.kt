@@ -5,6 +5,7 @@ import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import java.time.Duration
 import java.time.Instant
 
 internal class CombinedDeltaCalculationTest : BaseTest() {
@@ -92,5 +93,21 @@ internal class CombinedDeltaCalculationTest : BaseTest() {
                 snapshot("a", t1, used = 700),
             )
         ) shouldBe 200L
+    }
+
+    @Test
+    fun `a cleanup inside the window cannot report a filling device as emptying`() {
+        // A task forces a snapshot, so a window that ends right after a cleanup shows sharply more
+        // free space. First-to-last read that as -50, i.e. "usage shrinking", on a device that had
+        // gained 100 per day all week.
+        val filling = (0L..6L).map { day ->
+            snapshot(
+                storageId = "a",
+                recordedAt = t0.plus(Duration.ofDays(day)),
+                used = if (day == 6L) 19_950L else 20_000L + 100L * day,
+                capacity = 100_000L,
+            )
+        }
+        calculateCombinedDelta(filling) shouldBe 600L
     }
 }
