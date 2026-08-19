@@ -46,4 +46,11 @@
     <color name="md_theme_surfaceContainer">#EBEFE8</color>
     <color name="md_theme_surfaceContainerHigh">#E5EAE2</color>
     <color name="md_theme_surfaceContainerHighest">#DFE4DC</color>
+
+    <!-- "Storage is running out" amber. Not part of the generated Material palette: it must read as
+         a warning in both themes and stay legible on the widget's background, so it is defined once
+         here and consumed by the app, the widget bars/labels and the hand-drawn storage ring. -->
+    <color name="md_theme_storageLow_day">#8A5100</color>
+    <color name="md_theme_storageLow_night">#FFB95C</color>
+    <color name="md_theme_storageLow">@color/md_theme_storageLow_day</color>
 </resources>
