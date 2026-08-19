@@ -18,6 +18,8 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.joinAll
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.runCurrent
@@ -145,32 +147,19 @@ class RootManagerTest : BaseTest() {
         appScope.cancel()
     }
 
-    @Test fun `two concurrent refreshes each advance the generation`() = runTest2 {
+    @Test fun `concurrent refreshes never lose a generation`() {
         // A SetupManager.refresh() and a Retry tap can land on the manager at the same moment. If the
-        // generation counter lost one of the two increments, the second caller would be served the
-        // first caller's cached answer and its retry would silently do nothing.
-        val testDispatcher = StandardTestDispatcher(testScheduler)
-        val appScope = CoroutineScope(SupervisorJob() + testDispatcher)
-        val mgr = manager(appScope, testDispatcher)
+        // generation counter lost an increment, the second caller would be served the first caller's
+        // cached answer and its retry would silently do nothing. This needs real parallelism: refresh()
+        // does not suspend, so a single-threaded test dispatcher can never interleave its
+        // read-modify-write and would pass even against a racy `value += 1`.
+        val mgr = manager()
 
-        val barrier = CompletableDeferred<Unit>()
-        val refreshers = (1..2).map {
-            appScope.async {
-                barrier.await()
-                mgr.refresh()
-                mgr.isRooted()
-            }
+        runBlocking(Dispatchers.Default) {
+            (1..1000).map { launch { mgr.refresh() } }.joinAll()
         }
-        runCurrent()
-        probeCount shouldBe 0
 
-        barrier.complete(Unit)
-        refreshers.forEach { it.await() shouldBe true }
-
-        // Two generations, so the second probe could not be answered from the first one's cache entry.
-        probeCount shouldBe 2
-
-        appScope.cancel()
+        mgr.currentGeneration shouldBe 1000
     }
 
     @Test fun `a probe that throws is cached as not-rooted and re-runs after refresh`() {
