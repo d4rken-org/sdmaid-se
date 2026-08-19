@@ -32,6 +32,19 @@ class AnalyzerSettings @Inject constructor(
      */
     val lowStorageThresholdBytes = dataStore.createValue<Long?>("storage.low.threshold.bytes", null)
 
+    /** Pro-gated: warn before the device runs out of space. */
+    val lowSpaceNotificationEnabled = dataStore.createValue("storage.low.notification.enabled", false)
+
+    /**
+     * Transition latch: `true` means "a crossing into the warning band may notify".
+     *
+     * Runtime state, not a preference, and therefore excluded from backup
+     * (see [eu.darken.sdmse.analyzer.core.backup.AnalyzerSettingsBackupContributor]).
+     */
+    val lowSpaceNotificationArmed = dataStore.createValue("storage.low.notification.armed", true)
+
+    val hintLowSpaceDismissed = dataStore.createValue("hint.lowspace.dismissed", false)
+
     companion object {
         internal val TAG = logTag("Analyzer", "Settings")
 
