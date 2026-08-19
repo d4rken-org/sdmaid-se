@@ -32,6 +32,7 @@ import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.plus
+import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -51,6 +52,7 @@ class RootServiceClient @Inject constructor(
     // slow host-disconnect IPC during teardown would otherwise starve Dispatchers.Default — the same
     // pool the UI's vmScope uses — wedging the dashboard. Mirrors ShellOps/PkgOps.
     parentScope = coroutineScope + dispatcherProvider.IO,
+    stopTimeout = ROOT_HOST_KEEPALIVE,
     verboseLifecycle = true,
     source = callbackFlow {
         log(TAG) { "Instantiating Root launcher..." }
@@ -118,6 +120,14 @@ class RootServiceClient @Inject constructor(
     )
 
     companion object {
+
+        // Keep the su host bound briefly after the last lease is released so back-to-back privileged
+        // operations and dashboard-to-tool navigation reuse the warm host instead of paying the su
+        // cold start again. Bounded on purpose: a root host should not linger in the background for
+        // long. Teardown still happens (and is prompt/safe); this only delays its start. It also
+        // replaces the incidental warm window that the removed RootManager.binder lease used to
+        // provide for as long as the dashboard was subscribed.
+        private val ROOT_HOST_KEEPALIVE: Duration = Duration.ofSeconds(30)
 
         fun RootHostLauncher.createHostConnection(
             /**

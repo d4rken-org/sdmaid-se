@@ -54,7 +54,6 @@ internal fun RootSetupCard(
                 .padding(horizontal = 16.dp),
         )
         if (item.state.useRoot == true) {
-            val ready = item.state.ourService
             // SD Maid asked for root and didn't get it, which is worth explaining and retrying.
             // Whether a known root manager is installed only picks the wording: hidden or built-in
             // root shows up as no manager at all.
@@ -64,22 +63,13 @@ internal fun RootSetupCard(
             val failed = item.state.useRoot == true && !item.state.ourService
 
             if (!failed) {
-                // The probe has settled by the time we render a Result (Loading shows a spinner card
-                // instead), so ourService == false is a definitive "not available" — not "waiting".
-                // We never claim the device isn't rooted: root detection is unreliable, so we only
-                // report our own probe outcome.
-                val stateText = stringResource(
-                    if (ready) R.string.setup_root_state_ready_label
-                    else R.string.setup_root_state_waiting_label,
-                )
+                // Reaching this branch means ourService is true, so root is ready. The probe has
+                // settled by the time we render a Result (Loading shows a spinner card instead),
+                // so there is no third "still waiting" state to report here.
                 Text(
-                    text = stateText,
+                    text = stringResource(R.string.setup_root_state_ready_label),
                     style = MaterialTheme.typography.labelMedium,
-                    color = if (ready) {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    } else {
-                        MaterialTheme.colorScheme.error
-                    },
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
