@@ -19,6 +19,11 @@ class DeviceConfigBuilder {
     var product: String? = null
     var versionIncremental: String = ""
     var sdkInt: Int = 33
+
+    /** Null models a device below API31, where the SoC properties do not exist. */
+    var socManufacturer: String? = null
+    var socModel: String? = null
+    var hardware: String? = null
     var installedPackages: Set<String> = emptySet()
     var isAndroidTV: Boolean = false
     var uiModeType: Int = Configuration.UI_MODE_TYPE_NORMAL
@@ -48,6 +53,9 @@ fun mockDevice(context: Context = mockk(relaxed = true), block: DeviceConfigBuil
     every { BuildWrap.BRAND } returns config.brand
     every { BuildWrap.DISPLAY } returns config.display
     every { BuildWrap.PRODUCT } returns config.product
+    every { BuildWrap.SOC_MANUFACTURER } returns config.socManufacturer
+    every { BuildWrap.SOC_MODEL } returns config.socModel
+    every { BuildWrap.HARDWARE } returns config.hardware
 
     every { BuildWrap.VERSION.SDK_INT } returns config.sdkInt
     every { BuildWrap.VERSION.INCREMENTAL } returns config.versionIncremental

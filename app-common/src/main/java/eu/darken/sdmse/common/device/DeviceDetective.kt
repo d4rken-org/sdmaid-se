@@ -39,6 +39,30 @@ class DeviceDetective @Inject constructor(
         return pm.hasSystemFeature(PackageManager.FEATURE_LEANBACK)
     }
 
+    /**
+     * Does this device run a MediaTek SoC?
+     *
+     * The signals are a hierarchy, not an OR. [BuildWrap.SOC_MANUFACTURER] is authoritative when
+     * present, because the weaker signals below would otherwise let an odd board name override a
+     * device that has already told us it is Qualcomm. Matching is case-insensitive and never by
+     * equality: affected devices ship "Mediatek" as well as "MediaTek", so an exact-match check
+     * would miss exactly the hardware this exists for.
+     */
+    fun isMediatekSoc(): Boolean {
+        BuildWrap.SOC_MANUFACTURER?.lowercase()?.let { socVendor ->
+            return socVendor.contains("mediatek") || socVendor == "mtk"
+        }
+        // No vendor, but a model: MediaTek parts are "MT<number>", e.g. "MT8781V/NA".
+        BuildWrap.SOC_MODEL?.lowercase()?.let { socModel ->
+            return socModel.startsWith("mt")
+        }
+        // API<31 only, where neither SoC property exists. On MediaTek this is the chipset
+        // ("mt6789"), but other vendors put a device codename here, so a codename that happens to
+        // start with "mt" is a false positive. Acceptable: this only ever refines the wording of a
+        // hint that is already gated on an observed connection failure.
+        return BuildWrap.HARDWARE?.lowercase()?.startsWith("mt") == true
+    }
+
     private fun manufactor(name: String): Boolean {
         return BuildWrap.MANUFACTOR.equals(name, ignoreCase = true)
     }

@@ -21,6 +21,23 @@ object BuildWrap {
     val PRODUCT: String?
         get() = Build.PRODUCT
 
+    val HARDWARE: String?
+        get() = Build.HARDWARE.normalizeBuildValue()
+
+    /**
+     * SoC vendor, e.g. "Google", "Qualcomm", "QTI", "Mediatek". Null below API31, where the
+     * property does not exist.
+     *
+     * Free-form vendor-written text, NOT an enum: Qualcomm ships as both "Qualcomm" and "QTI",
+     * and MediaTek as both "MediaTek" and "Mediatek". Compare case-insensitively, never by equality.
+     */
+    val SOC_MANUFACTURER: String?
+        get() = ifApiLevel(31) { Build.SOC_MANUFACTURER }.normalizeBuildValue()
+
+    /** SoC model, e.g. "Tensor G3", "SM6375", "MT8781V/NA". Null below API31. */
+    val SOC_MODEL: String?
+        get() = ifApiLevel(31) { Build.SOC_MODEL }.normalizeBuildValue()
+
     val VERSION = VersionWrap
 
     object VersionWrap {
@@ -35,6 +52,14 @@ object BuildWrap {
     }
 }
 
+/**
+ * [Build.UNKNOWN] is the documented sentinel for "the vendor did not set this", and some vendors
+ * leave the property blank instead. Neither is a usable value, so both read as absent.
+ */
+internal fun String?.normalizeBuildValue(): String? = this
+    ?.trim()
+    ?.takeUnless { it.isEmpty() || it.equals(Build.UNKNOWN, ignoreCase = true) }
+
 @ChecksSdkIntAtLeast(parameter = 0)
 fun hasApiLevel(level: Int): Boolean = when {
     BuildWrap.VERSION.SDK_INT >= level -> true
@@ -47,5 +72,8 @@ fun hasApiLevel(level: Int): Boolean = when {
 
 const val UNTESTED_API = 37
 
+// lambda = 1: without it lint only knows hasApiLevel() gates something, not that THIS lambda is the
+// gated code, and flags API-restricted calls inside it as NewApi.
+@ChecksSdkIntAtLeast(parameter = 0, lambda = 1)
 inline fun <reified R> ifApiLevel(level: Int, block: () -> R): R? = if (hasApiLevel(level)) block() else null
 
