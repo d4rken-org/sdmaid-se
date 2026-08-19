@@ -1,8 +1,11 @@
 package eu.darken.sdmse.setup
 
 import android.content.Context
+import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import androidx.test.core.app.ApplicationProvider
+import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
+import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -36,6 +39,7 @@ class SetupViewModelTest : BaseTest() {
     private val testDispatcher = StandardTestDispatcher()
     private val setupManager: SetupManager = mockk(relaxed = true)
     private val rootSetupModule: RootSetupModule = mockk(relaxed = true)
+    private val inventorySetupModule: InventorySetupModule = mockk(relaxed = true)
 
     @Before
     fun setup() {
@@ -68,6 +72,7 @@ class SetupViewModelTest : BaseTest() {
         webpageTool = mockk(relaxed = true),
         rootSetupModule = rootSetupModule,
         shizukuSetupModule = mockk(relaxed = true),
+        inventorySetupModule = inventorySetupModule,
         deviceDetective = mockk(relaxed = true),
     )
 
@@ -93,5 +98,29 @@ class SetupViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 1) { rootSetupModule.refresh() }
+    }
+
+    @Test
+    fun `inventory card retry refreshes the inventory setup module`() = runTest2(context = testDispatcher) {
+        setupState(
+            InventorySetupModule.Result(
+                missingPermission = emptySet(),
+                access = InventorySetupModule.InventoryAccess.ProbeFailed,
+                settingsIntent = Intent(),
+            ),
+        )
+        val vm = buildVm()
+
+        // Keep the render state subscribed, otherwise WhileSubscribed never runs the upstream.
+        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.uiState.collect() }
+        advanceUntilIdle()
+
+        val cards = vm.uiState.value.shouldBeInstanceOf<SetupUiState.Cards>()
+        val inventoryCard = cards.items.filterIsInstance<InventorySetupCardItem>().single()
+
+        inventoryCard.onRetry()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { inventorySetupModule.refresh() }
     }
 }

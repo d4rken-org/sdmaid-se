@@ -34,6 +34,7 @@ data class InventorySetupCardItem(
     override val state: InventorySetupModule.Result,
     val onGrantAction: () -> Unit,
     val onHelp: () -> Unit,
+    val onRetry: () -> Unit,
 ) : SetupCardItem
 
 @Composable
@@ -101,6 +102,28 @@ internal fun InventorySetupCard(
             }
         }
 
+        if (item.state.access is InventoryAccess.ProbeFailed) {
+            // No "Open system settings" here: the permissions are granted, the request itself failed,
+            // so there is nothing for the user to change in the settings page.
+            SetupLimitationBox(
+                title = stringResource(R.string.setup_inventory_probe_failed_title),
+                body = stringResource(R.string.setup_inventory_probe_failed_body),
+            ) {
+                Button(
+                    onClick = item.onRetry,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(CommonR.string.general_retry_action))
+                }
+                OutlinedButton(
+                    onClick = item.onHelp,
+                    modifier = Modifier.fillMaxWidth(),
+                ) {
+                    Text(stringResource(CommonR.string.general_help_action))
+                }
+            }
+        }
+
         if (item.state.missingPermission.isNotEmpty()) {
             Button(
                 onClick = item.onGrantAction,
@@ -137,6 +160,26 @@ private fun InventorySetupCardInvalidPreview() {
                 ),
                 onGrantAction = {},
                 onHelp = {},
+                onRetry = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun InventorySetupCardProbeFailedPreview() {
+    PreviewWrapper {
+        InventorySetupCard(
+            item = InventorySetupCardItem(
+                state = InventorySetupModule.Result(
+                    missingPermission = emptySet(),
+                    access = InventorySetupModule.InventoryAccess.ProbeFailed,
+                    settingsIntent = Intent(),
+                ),
+                onGrantAction = {},
+                onHelp = {},
+                onRetry = {},
             ),
         )
     }
@@ -155,6 +198,7 @@ private fun InventorySetupCardMissingPermissionPreview() {
                 ),
                 onGrantAction = {},
                 onHelp = {},
+                onRetry = {},
             ),
         )
     }
