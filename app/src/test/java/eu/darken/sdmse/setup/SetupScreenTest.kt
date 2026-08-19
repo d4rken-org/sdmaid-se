@@ -116,7 +116,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `inventory card with fake access shows error label, limitation box and open settings button`() {
+    fun `inventory card with fake access shows limitation box and open settings button`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -134,7 +134,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                 ),
             )
         }
-        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_invalid_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_title)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_body)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_body2)).assertCountEquals(1)
@@ -194,7 +194,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         }
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_title)).assertCountEquals(0)
-        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_invalid_label)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(0)
     }
 
     @Test
