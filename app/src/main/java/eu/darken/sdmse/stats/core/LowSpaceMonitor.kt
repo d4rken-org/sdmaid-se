@@ -20,6 +20,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
 import java.time.Duration
 import java.time.Instant
 import java.util.concurrent.atomic.AtomicBoolean
@@ -43,6 +45,16 @@ class LowSpaceMonitor @Inject constructor(
 ) {
 
     private val started = AtomicBoolean(false)
+
+    /**
+     * Serializes the read-decide-post-write transaction.
+     *
+     * The worker run, the observer and a toggle-off can all land at once. Without this, two checks
+     * could both read `armed = true` and post twice, and a [cancelAndRearm] could finish before an
+     * in-flight check posts, leaving a warning on screen with the latch disarmed after the feature
+     * was switched off or Pro lapsed.
+     */
+    private val mutex = Mutex()
 
     /**
      * Reacts to the toggle and to Pro state without waiting for the next worker run.
@@ -81,7 +93,7 @@ class LowSpaceMonitor @Inject constructor(
      */
     suspend fun check() {
         try {
-            checkInternal()
+            mutex.withLock { checkInternal() }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -150,8 +162,10 @@ class LowSpaceMonitor @Inject constructor(
 
     private suspend fun cancelAndRearm() {
         try {
-            notifications.cancel()
-            setArmed(true)
+            mutex.withLock {
+                notifications.cancel()
+                setArmed(true)
+            }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
