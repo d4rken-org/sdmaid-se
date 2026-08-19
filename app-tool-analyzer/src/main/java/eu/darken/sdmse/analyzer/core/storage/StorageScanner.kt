@@ -152,20 +152,14 @@ class StorageScanner @Inject constructor(
         log(TAG) { "Other users on $storage: $otherUsers" }
     }
 
-    /**
-     * Neither source alone is enough: [UserManager2.allUsers] falls back to `UserManager.userProfiles`
-     * without root/ADB and misses full secondary users, while the hidden `getVolumes()` lists every
-     * user's emulated volume even without any permission but carries no names.
-     */
     private suspend fun resolveOtherUsers(storage: DeviceStorage): Set<UserProfile2> {
-        val handles = otherUserHandles(storage.type, storageManager2.volumes, currentUser)
-        if (handles.isEmpty()) return emptySet()
-
-        val named = userManager2.otherUsers()
-            .filter { it.handle != currentUser }
-            .associateBy { it.handle }
-
-        return handles.map { named[it] ?: UserProfile2(handle = it) }.toSet()
+        if (storage.type != DeviceStorage.Type.PRIMARY) return emptySet()
+        return mergeOtherUsers(
+            storageType = storage.type,
+            volumes = storageManager2.volumes,
+            named = userManager2.otherUsers(),
+            currentUser = currentUser,
+        )
     }
 
     suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
@@ -526,11 +520,40 @@ class StorageScanner @Inject constructor(
             .filter { it.userHandle == currentUser }
 
         /**
+         * Other users on this storage, from both sources combined.
+         *
+         * Neither source alone is enough: [UserManager2.allUsers] falls back to
+         * `UserManager.userProfiles` without root/ADB and misses full secondary users, while the
+         * hidden `getVolumes()` lists every user's emulated volume even without any permission but
+         * carries no names. Older devices (e.g. API 27/28) expose a single `emulated` volume with
+         * `mountUserId=-1`, so there the named list is the only source that finds anything.
+         *
+         * Negative handle ids are dropped from either source, they are sentinels
+         * (`-1` unknown, `-10000` private volume), not users.
+         */
+        fun mergeOtherUsers(
+            storageType: DeviceStorage.Type,
+            volumes: List<VolumeInfoX>?,
+            named: Collection<UserProfile2>,
+            currentUser: UserHandle2,
+        ): Set<UserProfile2> {
+            if (storageType != DeviceStorage.Type.PRIMARY) return emptySet()
+            val namedByHandle = named.associateBy { it.handle }
+            return namedByHandle.keys
+                .plus(otherUserHandles(storageType, volumes, currentUser))
+                .filter { it != currentUser }
+                .filter { it.handleId >= 0 }
+                .map { namedByHandle[it] ?: UserProfile2(handle = it) }
+                .toSet()
+        }
+
+        /**
          * Emulated storage roots of other users, from the hidden volume list.
          *
-         * Only mounted, emulated, primary volumes count. The private volume reports
-         * `mountUserId=-10000`, so an unfiltered scan would invent a user. Secondary/portable
-         * storage has no `/data/media/<id>` model, so the whole category doesn't apply there.
+         * Only emulated, primary volumes count. The private volume reports `mountUserId=-10000`, so
+         * an unfiltered scan would invent a user. Secondary/portable storage has no
+         * `/data/media/<id>` model, so the whole category doesn't apply there. Mount state is not a
+         * filter: a stopped user still occupies storage.
          */
         fun otherUserHandles(
             storageType: DeviceStorage.Type,
@@ -539,7 +562,6 @@ class StorageScanner @Inject constructor(
         ): Set<UserHandle2> {
             if (storageType != DeviceStorage.Type.PRIMARY) return emptySet()
             return volumes
-                ?.filter { it.isMounted }
                 ?.filter { it.isEmulated }
                 ?.filter { it.isPrimary == true }
                 ?.mapNotNull { it.mountUserId }
