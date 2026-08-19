@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.adb.service.internal
 import android.os.IBinder
 import android.os.IInterface
 import dagger.Reusable
+import eu.darken.sdmse.common.adb.AdbConnectTimeoutException
 import eu.darken.sdmse.common.adb.AdbException
 import eu.darken.sdmse.common.adb.service.AdbHostOptions
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -46,6 +47,7 @@ class AdbHostLauncher @Inject constructor(
         options: AdbHostOptions,
         connectTimeoutMs: Long = CONNECT_TIMEOUT_MS,
         apiVersionTimeoutMs: Long = API_VERSION_TIMEOUT_MS,
+        unbindTimeoutMs: Long = UNBIND_TIMEOUT_MS,
     ): Flow<ConnectionWrapper<Service, Host>> = callbackFlow {
         // Shizuku.getVersion() only returns a cached field once the server has pushed its version via
         // bindApplication(); until then it is a synchronous binder transaction that wedges against an
@@ -53,7 +55,7 @@ class AdbHostLauncher @Inject constructor(
         // own bound. Detached: a wedged binder thread leaks rather than pinning every collector.
         val apiVersion = appScope.runDetachedWithTimeout(dispatcherProvider.IO, apiVersionTimeoutMs) {
             serviceFactory.apiVersion()
-        } ?: throw AdbException("Shizuku getVersion() did not respond within ${apiVersionTimeoutMs}ms")
+        } ?: throw AdbConnectTimeoutException("Shizuku getVersion() did not respond within ${apiVersionTimeoutMs}ms")
         if (apiVersion < 10) throw IllegalStateException("Shizuku API10+ required")
 
         // Completed only once a connection was actually handed downstream, this is what the
@@ -108,7 +110,7 @@ class AdbHostLauncher @Inject constructor(
                 // Residual epsilon race: a send() completing concurrently with the deadline can tear
                 // down a connection that just came up. CompletableDeferred + withTimeoutOrNull narrows
                 // that window but can't close it; the next acquire re-binds.
-                close(AdbException("Shizuku user service did not connect within ${connectTimeoutMs}ms"))
+                close(AdbConnectTimeoutException("Shizuku user service did not connect within ${connectTimeoutMs}ms"))
             }
         }
 
@@ -155,12 +157,44 @@ class AdbHostLauncher @Inject constructor(
                     // above owns the eventual cleanup.
                 } else if (bindState.get() == BindState.BOUND) {
                     log(TAG) { "Unbinding Shizuku user service…" }
-                    runCatching { service.unbind() }
-                        .onFailure { log(TAG, WARN) { "unbindUserService() failed: ${it.asLog()}" } }
+                    // unbindUserService() is a synchronous binder transaction against the same server
+                    // that may already be wedged, and runCatching bounds nothing - it only catches a
+                    // throw. Collection of a callbackFlow awaits its producer, so an unbounded wedge
+                    // in this finally pins every collector even though the watchdog above already
+                    // close()d the channel: the eternal setup spinner, moved into teardown. Detached
+                    // + bounded, the same trade bind() makes above.
+                    //
+                    // That trade is not free, and not merely "the unbind finishes later": once we stop
+                    // waiting, an outstanding unbind can outlive this generation, and Shizuku keys its
+                    // remove=true unbind on the service args rather than on our callback - so a late
+                    // one can remove a service a NEWER generation just bound. The late-unbind path
+                    // above already carries that race; a teardown that never returns is worse. The
+                    // detached call may also never run at all, if it was still queued when we gave up.
+                    runCatching {
+                        val unbound = appScope.runDetachedWithTimeout(dispatcherProvider.IO, unbindTimeoutMs) {
+                            runCatching { service.unbind() }
+                                .onFailure { log(TAG, WARN) { "unbindUserService() failed: ${it.asLog()}" } }
+                            Unit
+                        }
+                        if (unbound == null) {
+                            log(TAG, WARN) { "unbindUserService() did not return within ${unbindTimeoutMs}ms" }
+                        }
+                    }.onFailure {
+                        // Mainly @AppScope already cancelled (shutdown): await() then throws a
+                        // CancellationException that withTimeoutOrNull does not convert. It would not
+                        // corrupt what collectors see (the watchdog's close() already latched the
+                        // cause), but it would abandon the rest of this teardown - the disconnect wait
+                        // below - and surface as an unhandled producer failure. Teardown is
+                        // best-effort, and not being able to start the unbind is no reason to skip
+                        // the rest of it.
+                        log(TAG, WARN) { "Detached unbind could not run: ${it.asLog()}" }
+                    }
                     // Bounded wait for the actual disconnect; without it, quick flow restarts can
-                    // cause DeadObjectExceptions from our Shizuku service binder.
+                    // cause DeadObjectExceptions from our Shizuku service binder. Still worth doing
+                    // after a timed-out unbind: the server may have processed the removal while the
+                    // synchronous transaction was still waiting on its reply.
                     withTimeoutOrNull(DISCONNECT_TIMEOUT_MS) { service.awaitDisconnect() }
-                    log(TAG) { "Shizuku user service unbound." }
+                    log(TAG) { "Shizuku user service unbind teardown finished." }
                 }
             }
         }
@@ -198,6 +232,20 @@ class AdbHostLauncher @Inject constructor(
         // the same probe against the same upstream Shizuku defect where bindUserService() returns but
         // the connection callback never fires (MediaTek/HyperOS, Shizuku 13.6.0).
         internal const val CONNECT_TIMEOUT_MS = 15 * 1000L
+
+        // How long teardown waits for unbindUserService() before moving on without it. Short, unlike
+        // the probe timeouts around it, because it answers a different question: a probe that gives up
+        // too early reports a working Shizuku as broken, while this one only decides how long a
+        // failing teardown may hold the flow open.
+        //
+        // Measured against a healthy Shizuku, idle, 4 cold teardowns each: Pixel 7a (2023) 4.1-6.1ms,
+        // Pixel 2 (2017) 6.5-10.8ms. So this leaves ~185x headroom over the slowest sample across a
+        // six-year hardware gap. Deliberately not tightened towards those numbers: the measurements
+        // are from idle devices, while the wedge this guards against shows up on low-end hardware
+        // under memory pressure, where a dispatcher hop plus binder round-trip is far slower. Giving
+        // up early is not free either - it is what exposes the cross-generation race described at the
+        // call site - so the headroom is the point.
+        internal const val UNBIND_TIMEOUT_MS = 2 * 1000L
 
         // Budget for the getVersion() round-trip. Same size as CONNECT_TIMEOUT_MS on purpose: this only
         // has to turn "never returns" into "eventually fails", and timing out a slow-but-working
