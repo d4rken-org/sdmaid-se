@@ -6,6 +6,7 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
@@ -32,6 +33,7 @@ import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.current
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -41,8 +43,11 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageVolumeX
+import eu.darken.sdmse.common.storage.VolumeInfoX
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.common.user.UserProfile2
+import eu.darken.sdmse.setup.SetupHelper
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.SetupBinding
@@ -63,6 +68,8 @@ class StorageScanner @Inject constructor(
     private val dataAreaManager: DataAreaManager,
     private val appScannerFactory: AppStorageScanner.Factory,
     private val systemStorageScanner: SystemStorageScanner,
+    private val otherUserStorageScanner: OtherUserStorageScanner,
+    private val setupHelper: SetupHelper,
     @SetupBinding(SetupModule.Type.INVENTORY) private val inventorySetupModule: SetupModule,
     @SetupBinding(SetupModule.Type.USAGE_STATS) private val usageStatsSetupModule: SetupModule,
 ) : Progress.Host, Progress.Client {
@@ -83,6 +90,7 @@ class StorageScanner @Inject constructor(
     private var useAdb = false
     private var dataAreas = mutableSetOf<DataArea>()
     private var volume: StorageVolumeX? = null
+    private var otherUsers = emptySet<UserProfile2>()
     private lateinit var currentUser: UserHandle2
 
     suspend fun init(storage: DeviceStorage) {
@@ -90,6 +98,21 @@ class StorageScanner @Inject constructor(
         useRoot = rootManager.canUseRootNow()
         useAdb = adbManager.canUseAdbNow()
         currentUser = userManager2.currentUser().handle
+
+        // Cross-user access is only grantable via root/ADB. Without it we stay on the no-stats tier
+        // for other users, which is a degraded result, not a failure.
+        if (useRoot || useAdb) {
+            try {
+                if (!setupHelper.hasCrossUserAccess()) {
+                    val granted = setupHelper.setCrossUserAccess(true)
+                    log(TAG, INFO) { "init(): setCrossUserAccess(true)=$granted" }
+                }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "init(): Failed to gain cross-user access: ${e.asLog()}" }
+            }
+        }
 
         val availableVolumes = storageManager2.storageVolumes
         log(TAG) { "Available volumes:\n${availableVolumes.joinToString("\n")}" }
@@ -124,6 +147,25 @@ class StorageScanner @Inject constructor(
                 dataAreas.clear()
                 dataAreas.addAll(it)
             }
+
+        otherUsers = resolveOtherUsers(storage)
+        log(TAG) { "Other users on $storage: $otherUsers" }
+    }
+
+    /**
+     * Neither source alone is enough: [UserManager2.allUsers] falls back to `UserManager.userProfiles`
+     * without root/ADB and misses full secondary users, while the hidden `getVolumes()` lists every
+     * user's emulated volume even without any permission but carries no names.
+     */
+    private suspend fun resolveOtherUsers(storage: DeviceStorage): Set<UserProfile2> {
+        val handles = otherUserHandles(storage.type, storageManager2.volumes, currentUser)
+        if (handles.isEmpty()) return emptySet()
+
+        val named = userManager2.otherUsers()
+            .filter { it.handle != currentUser }
+            .associateBy { it.handle }
+
+        return handles.map { named[it] ?: UserProfile2(handle = it) }.toSet()
     }
 
     suspend fun scan(storage: DeviceStorage): Collection<ContentCategory> {
@@ -183,14 +225,17 @@ class StorageScanner @Inject constructor(
                     ?.let { scanForMedia(storage, it, storageChildren, ownersResolved) }
                     ?: MediaCategory(storage.id, emptySet())
 
+                val otherUsersCategory = scanForOtherUsers(storage)
+
                 updateProgressSecondary("Scanning system data")
-                val system = scanForSystem(storage, apps, media)
+                val system = scanForSystem(storage, apps, media, otherUsersCategory)
 
                 log(TAG) { "Apps: ${apps?.spaceUsed}" }
                 log(TAG) { "Media: ${media.spaceUsed}" }
+                log(TAG) { "Other users: ${otherUsersCategory?.spaceUsed}" }
                 log(TAG) { "System: ${system?.spaceUsed}" }
 
-                setOfNotNull(apps, media, system)
+                setOfNotNull(apps, media, otherUsersCategory, system)
             }
         }
     }
@@ -231,9 +276,7 @@ class StorageScanner @Inject constructor(
         // Same failure mode as the top-level owner forensics: setup can report complete while the pkg repo holds a
         // stale error. Degrade to "setup incomplete" instead of aborting the whole storage scan.
         val targetPkgs = try {
-            pkgRepo.current()
-                .filter { it.packageName != "android" }
-                .filter { it.applicationInfo != null }
+            scanTargets(pkgRepo.current(), currentUser)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -363,10 +406,29 @@ class StorageScanner @Inject constructor(
         )
     }
 
+    private suspend fun scanForOtherUsers(storage: DeviceStorage): OtherUsersCategory? {
+        log(TAG) { "scanForOtherUsers($storage)" }
+        if (otherUsers.isEmpty()) return null
+
+        updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_otherusers_label)
+        updateProgressSecondary(Progress.Data().secondary)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        return otherUserStorageScanner.scan(
+            storage = storage,
+            users = otherUsers,
+            dataAreas = dataAreas,
+            useRoot = useRoot,
+        ) { user ->
+            updateProgressSecondary(user.getHumanLabel())
+        }
+    }
+
     private suspend fun scanForSystem(
         storage: DeviceStorage,
         appCategory: AppCategory?,
-        mediaCategory: MediaCategory
+        mediaCategory: MediaCategory,
+        otherUsersCategory: OtherUsersCategory?,
     ): SystemCategory? {
         log(TAG) { "scanForSystem($storage)" }
         updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_system)
@@ -378,10 +440,12 @@ class StorageScanner @Inject constructor(
             return null
         }
 
-        // In the degraded scan media folders are du-sized (no owner forensics), which can overcount and push this
-        // below zero. Clamp so the system category never reports a negative size.
-        val unaccountedFor = (storage.spaceUsed - (appCategory?.spaceUsed ?: 0L) - mediaCategory.spaceUsed)
-            .coerceAtLeast(0L)
+        val unaccountedFor = computeResidual(
+            spaceUsed = storage.spaceUsed,
+            apps = appCategory?.spaceUsed ?: 0L,
+            media = mediaCategory.spaceUsed,
+            otherUsers = otherUsersCategory?.spaceUsed ?: 0L,
+        )
 
         val contentItems = setOf(
             ContentItem.fromInaccessible(LocalPath.build("system")),
@@ -449,5 +513,59 @@ class StorageScanner @Inject constructor(
 
     companion object {
         private val TAG = logTag("Analyzer", "Storage", "Scanner")
+
+        /**
+         * Packages this scan may attribute: real installs of the current user.
+         *
+         * Other users' packages belong to [OtherUsersCategory]; listing them here would duplicate
+         * every app row and count their bytes twice.
+         */
+        fun scanTargets(pkgs: Collection<Installed>, currentUser: UserHandle2): Collection<Installed> = pkgs
+            .filter { it.packageName != "android" }
+            .filter { it.applicationInfo != null }
+            .filter { it.userHandle == currentUser }
+
+        /**
+         * Emulated storage roots of other users, from the hidden volume list.
+         *
+         * Only mounted, emulated, primary volumes count. The private volume reports
+         * `mountUserId=-10000`, so an unfiltered scan would invent a user. Secondary/portable
+         * storage has no `/data/media/<id>` model, so the whole category doesn't apply there.
+         */
+        fun otherUserHandles(
+            storageType: DeviceStorage.Type,
+            volumes: List<VolumeInfoX>?,
+            currentUser: UserHandle2,
+        ): Set<UserHandle2> {
+            if (storageType != DeviceStorage.Type.PRIMARY) return emptySet()
+            return volumes
+                ?.filter { it.isMounted }
+                ?.filter { it.isEmulated }
+                ?.filter { it.isPrimary == true }
+                ?.mapNotNull { it.mountUserId }
+                ?.filter { it >= 0 }
+                ?.map { UserHandle2(handleId = it) }
+                ?.filter { it != currentUser }
+                ?.toSet()
+                ?: emptySet()
+        }
+
+        /**
+         * Storage not attributed to apps, media or other users.
+         *
+         * In the degraded scan media folders are du-sized (no owner forensics), which can overcount
+         * and push this below zero. Clamp so the system category never reports a negative size, and
+         * name the components when the inputs don't add up.
+         */
+        fun computeResidual(spaceUsed: Long, apps: Long, media: Long, otherUsers: Long): Long {
+            val accounted = apps + media + otherUsers
+            if (accounted > spaceUsed) {
+                log(TAG, WARN) {
+                    "Over-accounted storage: apps=$apps + media=$media + otherUsers=$otherUsers " +
+                        "= $accounted > spaceUsed=$spaceUsed"
+                }
+            }
+            return (spaceUsed - accounted).coerceAtLeast(0L)
+        }
     }
 }
