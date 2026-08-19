@@ -710,4 +710,71 @@ class DeviceDetectiveTest : BaseTest() {
 
         detective.getROMType() shouldBe RomType.HYPEROS
     }
+
+    // --- isMediatekSoc -------------------------------------------------------------------------
+    // Every value below is observed, not invented: the negatives were read off five attached
+    // devices, the positives off real device trees for the chipsets in RikkaApps/Shizuku#1198.
+
+    private fun detectiveFor(
+        soc: String? = null,
+        model: String? = null,
+        hw: String? = null,
+    ): DeviceDetective = DeviceDetective(
+        mockDevice {
+            manufacturer = "Generic"
+            socManufacturer = soc
+            socModel = model
+            hardware = hw
+        }
+    )
+
+    @Test
+    fun `isMediatekSoc matches the vendor string case-insensitively`() {
+        // "Mediatek" (lowercase t) is what an affected Xiaomi MT6789 tree actually ships, so an
+        // exact-match check would miss the exact hardware this exists for.
+        detectiveFor(soc = "Mediatek").isMediatekSoc() shouldBe true
+        detectiveFor(soc = "MediaTek").isMediatekSoc() shouldBe true
+        detectiveFor(soc = "MEDIATEK").isMediatekSoc() shouldBe true
+        detectiveFor(soc = "MTK").isMediatekSoc() shouldBe true
+    }
+
+    @Test
+    fun `isMediatekSoc rejects other vendors`() {
+        // Qualcomm ships under two different strings on two devices; both must read as not-MediaTek.
+        detectiveFor(soc = "Qualcomm").isMediatekSoc() shouldBe false
+        detectiveFor(soc = "QTI").isMediatekSoc() shouldBe false
+        detectiveFor(soc = "Google").isMediatekSoc() shouldBe false
+    }
+
+    @Test
+    fun `isMediatekSoc trusts a known vendor over the weaker signals`() {
+        // The whole point of the hierarchy: an odd board name must not override a device that has
+        // already told us who made its SoC.
+        detectiveFor(soc = "Qualcomm", model = "MT8781V/NA", hw = "mt6789").isMediatekSoc() shouldBe false
+        detectiveFor(soc = "Mediatek", model = "SM6375", hw = "sargo").isMediatekSoc() shouldBe true
+    }
+
+    @Test
+    fun `isMediatekSoc falls back to the model when no vendor is set`() {
+        detectiveFor(model = "MT8781V/NA").isMediatekSoc() shouldBe true
+        detectiveFor(model = "SM6375").isMediatekSoc() shouldBe false
+        detectiveFor(model = "GS201").isMediatekSoc() shouldBe false
+        detectiveFor(model = "Tensor G3").isMediatekSoc() shouldBe false
+    }
+
+    @Test
+    fun `isMediatekSoc falls back to hardware below API31`() {
+        // Pre-API31 both SoC properties are absent, confirmed on a Pixel 2 (API28).
+        detectiveFor(hw = "mt6789").isMediatekSoc() shouldBe true
+        detectiveFor(hw = "walleye").isMediatekSoc() shouldBe false
+        detectiveFor(hw = "lynx").isMediatekSoc() shouldBe false
+        detectiveFor(hw = "sargo").isMediatekSoc() shouldBe false
+        detectiveFor(hw = "qcom").isMediatekSoc() shouldBe false
+    }
+
+    @Test
+    fun `isMediatekSoc is false when nothing is known`() {
+        detectiveFor().isMediatekSoc() shouldBe false
+    }
+
 }
