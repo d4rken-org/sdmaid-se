@@ -24,6 +24,7 @@ import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.swiper.core.Swiper
@@ -115,6 +116,7 @@ internal class DashboardDiscardTest : BaseTest() {
             spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
                 every { getAllHistory(any()) } returns emptyFlow()
             },
+            spaceTracker = mockk<SpaceTracker>(relaxed = true),
             deviceDetective = mockk(relaxed = true),
         )
         return Harness(vm, taskManager, corpseFinder, systemCleaner, appCleaner, deduplicator)
