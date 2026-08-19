@@ -108,11 +108,14 @@ class DeviceStorageViewModelTest : BaseTest() {
     fun `the hint's upgrade button navigates to the upgrade screen`() = runTest2 {
         val h = harness()
         val events = mutableListOf<NavEvent>()
-        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { h.vm.navEvents.collect { events += it } }
+        // Foreground scope on purpose: advanceUntilIdle() stops as soon as no FOREGROUND event is
+        // queued, so a collector in backgroundScope would never be resumed to receive the emission.
+        val job = launch(start = CoroutineStart.UNDISPATCHED) { h.vm.navEvents.collect { events += it } }
 
         h.vm.openUpgrade()
         advanceUntilIdle()
 
         (events.single() as NavEvent.GoTo).destination shouldBe UpgradeRoute()
+        job.cancel()
     }
 }
