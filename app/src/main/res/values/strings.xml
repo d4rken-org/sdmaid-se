@@ -452,6 +452,7 @@
     <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Storage warnings</string>
     <string name="stats_lowspace_notification_title">Storage is filling up</string>
+    <string name="stats_lowspace_notification_low_title">Storage is almost full</string>
     <string name="stats_lowspace_notification_low_body">%1$s free. Storage is running out.</string>
     <plurals name="stats_lowspace_notification_forecast_body">
         <item quantity="one">About %1$d day of space left at this rate. %2$s free.</item>
