@@ -63,6 +63,12 @@
     <string name="analyzer_settings_lowstorage_value_auto">Automatic (currently %1$s)</string>
     <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatic</string>
     <string name="analyzer_settings_lowstorage_automatic_action">Automatic</string>
+    <string name="analyzer_settings_lowspace_notification_title">Low space warning</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Get a notification before your storage runs out.</string>
+
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Never get caught out of space</string>
+    <string name="analyzer_lowspace_hint_body">Upgrade to get a warning before your storage runs out, so you can clean up while there is still room to work with.</string>
 
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">See what\'s actually filling up your storage. The Analyzer maps out where your space goes. Each of these cards is a storage chip on your device.</string>
