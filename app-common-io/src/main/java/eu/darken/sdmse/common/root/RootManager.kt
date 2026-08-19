@@ -26,6 +26,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
@@ -80,7 +81,10 @@ class RootManager @Inject constructor(
         // Not suspending and deliberately not taking cacheLock: an in-flight probe holds that lock
         // across the su bind, and a retry must neither block behind it nor discard its result. The
         // running probe stores under the old key and is simply never read again.
-        refreshTrigger.value += 1
+        // update {} and not `value += 1`: a SetupManager.refresh() racing a Retry tap can otherwise
+        // have both callers read the same generation and write the same successor, dropping one
+        // refresh — the retry would then reuse the cached answer and silently do nothing.
+        refreshTrigger.update { it + 1 }
     }
 
     /**

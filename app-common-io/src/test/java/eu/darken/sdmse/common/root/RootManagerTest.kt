@@ -17,7 +17,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.StandardTestDispatcher
@@ -146,6 +145,34 @@ class RootManagerTest : BaseTest() {
         appScope.cancel()
     }
 
+    @Test fun `two concurrent refreshes each advance the generation`() = runTest2 {
+        // A SetupManager.refresh() and a Retry tap can land on the manager at the same moment. If the
+        // generation counter lost one of the two increments, the second caller would be served the
+        // first caller's cached answer and its retry would silently do nothing.
+        val testDispatcher = StandardTestDispatcher(testScheduler)
+        val appScope = CoroutineScope(SupervisorJob() + testDispatcher)
+        val mgr = manager(appScope, testDispatcher)
+
+        val barrier = CompletableDeferred<Unit>()
+        val refreshers = (1..2).map {
+            appScope.async {
+                barrier.await()
+                mgr.refresh()
+                mgr.isRooted()
+            }
+        }
+        runCurrent()
+        probeCount shouldBe 0
+
+        barrier.complete(Unit)
+        refreshers.forEach { it.await() shouldBe true }
+
+        // Two generations, so the second probe could not be answered from the first one's cache entry.
+        probeCount shouldBe 2
+
+        appScope.cancel()
+    }
+
     @Test fun `a probe that throws is cached as not-rooted and re-runs after refresh`() {
         failingProbe()
         val mgr = manager()
@@ -178,6 +205,39 @@ class RootManagerTest : BaseTest() {
         runBlocking { collector.cancelAndJoin() }
     }
 
+    @Test fun `accessState walks from Unavailable to Active when a retry is granted`() {
+        // The journey this branch exists for: the root manager denied (or timed out) the first
+        // request, the user grants it and taps Retry. No test device is rooted, so this stands in
+        // for the on-device check.
+        failingProbe()
+        val mgr = manager()
+
+        val collector = mgr.accessState.test(tag = "accessState", scope = scope)
+        collector.await { values, _ -> values.contains(AccessState.Unavailable) }
+        collector.latestValues shouldBe listOf(
+            AccessState.Checking,
+            AccessState.Unavailable,
+        )
+
+        // Root works now, the user answered the manager's prompt on the second attempt.
+        coEvery { serviceClient.get() } answers {
+            probeCount++
+            Resource(connection, mockk(relaxed = true))
+        }
+        mgr.refresh()
+        collector.await { values, _ -> values.contains(AccessState.Active) }
+
+        collector.latestValues shouldBe listOf(
+            AccessState.Checking,
+            AccessState.Unavailable,
+            AccessState.Checking,
+            AccessState.Active,
+        )
+        probeCount shouldBe 2
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
     @Test fun `refresh makes useRoot re-emit when the probe outcome changes`() {
         failingProbe()
         val mgr = manager()
@@ -204,15 +264,20 @@ class RootManagerTest : BaseTest() {
         val mgr = manager()
 
         val collector = mgr.useRoot.test(tag = "useRoot", scope = scope)
+        // accessState shares the probe input and re-emits unconditionally, so its second Active is
+        // the signal that the retry's probe finished — no wall-clock wait to prove useRoot stayed quiet.
+        val access = mgr.accessState.test(tag = "accessState", scope = scope)
         collector.await { values, _ -> values.isNotEmpty() }
+        access.await { values, _ -> values.contains(AccessState.Active) }
 
         mgr.refresh()
-        runBlocking { delay(50) }
+        access.await { values, _ -> values.count { it == AccessState.Active } == 2 }
 
         collector.latestValues shouldBe listOf(true)
         probeCount shouldBe 2
 
         runBlocking { collector.cancelAndJoin() }
+        runBlocking { access.cancelAndJoin() }
     }
 
     @Test fun `resubscribing after the last subscriber left re-runs upstream instead of replaying`() {
@@ -221,10 +286,14 @@ class RootManagerTest : BaseTest() {
         val first = mgr.accessState.test(tag = "first", scope = scope)
         first.await { values, _ -> values.contains(AccessState.Active) }
         runBlocking { first.cancelAndJoin() }
-        runBlocking { delay(50) }
 
+        // No wall-clock wait for the share to wind down: WhileSubscribed(replayExpiration=ZERO) drops
+        // the replay cache as the last subscriber leaves, so the await below is what waits — for the
+        // re-run's own Checking+Active rather than for a stopwatch.
         val second = mgr.accessState.test(tag = "second", scope = scope)
-        second.await { values, _ -> values.contains(AccessState.Active) }
+        second.await { values, _ ->
+            values == listOf(AccessState.Checking, AccessState.Active)
+        }
 
         // Not a replayed Active: the upstream ran again, starting at Checking.
         second.latestValues shouldBe listOf(AccessState.Checking, AccessState.Active)
