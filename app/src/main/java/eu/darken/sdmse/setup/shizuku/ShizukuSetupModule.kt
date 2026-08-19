@@ -6,12 +6,16 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
+import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.coroutine.runDetachedWithTimeout
 import eu.darken.sdmse.common.datastore.value
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
@@ -19,6 +23,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.setup.SetupModule
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
@@ -33,6 +38,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.transformLatest
 import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Instant
 import javax.inject.Inject
@@ -53,9 +59,9 @@ class ShizukuSetupModule @Inject constructor(
     /** Overridden in tests to keep the wedge case fast, never in production. */
     internal var pingTimeoutMs: Long = PING_TIMEOUT_MS
 
-    // Last known concrete Result, kept so re-subscription (e.g. returning to the dashboard) can emit it
+    // Last SETTLED Result, kept so re-subscription (e.g. returning to the dashboard) can emit it
     // immediately instead of regressing to Loading and flickering the setup card while the availability
-    // probe re-runs (a cold AdbHost bind can take ~10s). Only ever holds a real Result, never Loading.
+    // probe re-runs (a cold AdbHost bind can take ~10s). Never holds Loading or a mid-probe state.
     @Volatile
     private var lastResult: Result? = null
 
@@ -83,32 +89,61 @@ class ShizukuSetupModule @Inject constructor(
             alsoHasRoot = useRoot,
         )
 
-        if (useShizuku != true) return@combine flowOf(baseState)
+        if (useShizuku != true) return@combine flowOf<SetupModule.State>(baseState)
 
         combine(
             // Just tie the lifecycle of the requester to the state's subscribers
             permissionRequester,
             shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) },
             shizukuManager.shizukuBinder.onStart { emit(null) },
-        ) { _, _, binder ->
-            // pingBinder() is a synchronous PING_TRANSACTION: against a Shizuku server that is alive
-            // but not servicing requests it never returns, and an unbounded wedge here stalls this
-            // combine so the card stays on Loading forever - the exact symptom the ADB-side timeouts
-            // guard against. Detached + bounded, same trade as ShizukuWrapper.isGranted().
-            val basicService = binder?.let { b ->
-                appScope.runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { b.pingBinder() }
-                    ?: false.also { log(TAG) { "pingBinder() did not respond within ${pingTimeoutMs}ms" } }
-            } ?: false
+        ) { _, _, binder -> binder }
+            // transformLatest, not map: the probe below has to announce itself BEFORE it runs. A cold
+            // bind can take the full ADB connect budget, and without a state saying so the card kept
+            // offering a retry button that silently did nothing for those seconds.
+            .transformLatest<ShizukuBaseServiceBinder?, SetupModule.State> { binder ->
+                emit(
+                    baseState.copy(
+                        // Keep showing what we last knew rather than regressing to NotChecked, so a
+                        // retry doesn't blank out the failure message it was triggered from.
+                        serviceState = lastResult?.serviceState ?: ShizukuServiceState.NotChecked,
+                        isChecking = true,
+                    )
+                )
 
-            @Suppress("USELESS_CAST")
-            baseState.copy(
-                basicService = basicService,
-                ourService = shizukuManager.isOurServiceAvailable(),
-            ) as SetupModule.State
-        }
+                val settled = try {
+                    // pingBinder() is a synchronous PING_TRANSACTION: against a Shizuku server that is
+                    // alive but not servicing requests it never returns, and an unbounded wedge here
+                    // stalls this flow so the card stays on Loading forever - the exact symptom the
+                    // ADB-side timeouts guard against. Detached + bounded, same trade as isGranted().
+                    val basicService = binder?.let { b ->
+                        appScope.runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { b.pingBinder() }
+                            ?: false.also { log(TAG) { "pingBinder() did not respond within ${pingTimeoutMs}ms" } }
+                    } ?: false
+
+                    baseState.copy(
+                        basicService = basicService,
+                        serviceState = shizukuManager.getServiceState(),
+                    )
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    // Must settle rather than propagate. Anything thrown after the checking state
+                    // above kills the sharing coroutine with that state left in replayingShare's
+                    // replay slot, and since the coroutine is dead no refresh can ever replace it:
+                    // every later subscriber would see a permanently disabled retry button.
+                    // runDetachedWithTimeout propagates whatever its block throws, and pingBinder()
+                    // is a binder call, so this is reachable (e.g. DeadObjectException).
+                    log(TAG, WARN) { "Shizuku probe failed: ${e.asLog()}" }
+                    baseState.copy(serviceState = ShizukuServiceState.Failed)
+                }
+
+                emit(settled)
+            }
     }
         .flatMapLatest { it }
-        .onEach { if (it is Result) lastResult = it }
+        // Only settled results: caching a mid-probe state would let onStart replay isChecking=true
+        // with no probe behind it, leaving the retry button disabled forever.
+        .onEach { if (it is Result && !it.isChecking) lastResult = it }
         .onStart {
             // Don't regress to Loading if we already know the result: emit the last known state so the
             // dashboard setup card doesn't flicker while the probe re-runs in the background. Guard
@@ -174,9 +209,15 @@ class ShizukuSetupModule @Inject constructor(
         val isCompatible: Boolean = false,
         val isInstalled: Boolean = false,
         val basicService: Boolean = false,
-        val ourService: Boolean = false,
+        val serviceState: ShizukuServiceState = ShizukuServiceState.NotChecked,
+        /** A probe is running right now. Only gates the retry affordance, never the message. */
+        val isChecking: Boolean = false,
         val alsoHasRoot: Boolean = false,
     ) : SetupModule.State.Current {
+
+        /** Derived, not stored: one source of truth, so it can't disagree with [serviceState]. */
+        val ourService: Boolean
+            get() = serviceState is ShizukuServiceState.Available
 
         override val type: SetupModule.Type = SetupModule.Type.SHIZUKU
 

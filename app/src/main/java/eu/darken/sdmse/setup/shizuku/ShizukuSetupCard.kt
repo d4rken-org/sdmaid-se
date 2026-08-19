@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -18,6 +19,7 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Shizuku
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
@@ -28,6 +30,14 @@ data class ShizukuSetupCardItem(
     val onToggleUseShizuku: (Boolean?) -> Unit,
     val onOpen: () -> Unit,
     val onHelp: () -> Unit,
+    val onRetry: () -> Unit = {},
+    /**
+     * Does this device match the hardware/ROM combination with the known upstream Shizuku problem?
+     *
+     * Resolved by the ViewModel, not here: the checks behind it hit the package manager, which must
+     * not happen during recomposition.
+     */
+    val showKnownIssueHint: Boolean = false,
 ) : SetupCardItem
 
 @Composable
@@ -58,11 +68,15 @@ internal fun ShizukuSetupCard(
 
         if (item.state.useShizuku == true) {
             val ready = item.state.isInstalled && item.state.ourService
+            // A settled "no", as opposed to "we haven't finished looking". Only this offers a retry:
+            // showing one while a probe is still running is what made the card feel dead.
+            val failed = item.state.isInstalled && item.state.serviceState.isTerminalFailure
             Text(
                 text = stringResource(
                     when {
                         !item.state.isInstalled -> R.string.setup_shizuku_state_not_installed_label
                         ready -> R.string.setup_shizuku_state_ready_label
+                        failed -> R.string.setup_shizuku_state_failed_label
                         else -> R.string.setup_shizuku_state_waiting_label
                     },
                 ),
@@ -77,6 +91,36 @@ internal fun ShizukuSetupCard(
                     .padding(horizontal = 16.dp),
                 textAlign = TextAlign.Center,
             )
+
+            if (failed && item.showKnownIssueHint) {
+                Text(
+                    text = stringResource(R.string.setup_shizuku_state_known_issue_hint),
+                    style = MaterialTheme.typography.labelMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    textAlign = TextAlign.Center,
+                )
+                TextButton(
+                    onClick = item.onHelp,
+                    modifier = Modifier.align(Alignment.CenterHorizontally),
+                ) {
+                    Text(stringResource(eu.darken.sdmse.common.R.string.general_help_action))
+                }
+            }
+
+            if (failed) {
+                OutlinedButton(
+                    onClick = item.onRetry,
+                    enabled = !item.state.isChecking,
+                    modifier = Modifier
+                        .align(Alignment.CenterHorizontally)
+                        .padding(horizontal = 16.dp),
+                ) {
+                    Text(stringResource(eu.darken.sdmse.common.R.string.general_retry_action))
+                }
+            }
         }
 
         if (item.state.isInstalled && item.state.useShizuku == true && !item.state.isComplete) {
@@ -132,7 +176,7 @@ private fun ShizukuSetupCardPreview() {
                     isCompatible = true,
                     isInstalled = true,
                     basicService = true,
-                    ourService = false,
+                    serviceState = ShizukuServiceState.NotChecked,
                     alsoHasRoot = false,
                 ),
                 onToggleUseShizuku = {},
@@ -155,12 +199,86 @@ private fun ShizukuSetupCardNotInstalledPreview() {
                     isCompatible = true,
                     isInstalled = false,
                     basicService = false,
-                    ourService = false,
+                    serviceState = ShizukuServiceState.NotChecked,
                     alsoHasRoot = false,
                 ),
                 onToggleUseShizuku = {},
                 onOpen = {},
                 onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardFailedPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = true,
+                    basicService = true,
+                    serviceState = ShizukuServiceState.TimedOut,
+                    alsoHasRoot = false,
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+                onRetry = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardKnownIssuePreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = true,
+                    basicService = true,
+                    serviceState = ShizukuServiceState.Failed,
+                    alsoHasRoot = false,
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+                onRetry = {},
+                showKnownIssueHint = true,
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardRetryingPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = true,
+                    basicService = true,
+                    serviceState = ShizukuServiceState.TimedOut,
+                    isChecking = true,
+                    alsoHasRoot = false,
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+                onRetry = {},
             ),
         )
     }
