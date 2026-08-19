@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.du
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.storage.StorageStatsManager2
@@ -181,21 +180,30 @@ class OtherUserStorageScanner @Inject constructor(
 
     /**
      * Walk that reports failure instead of degrading into an apparently-successful, tiny directory.
+     *
+     * `onError` returns false so a failure anywhere below the root aborts the walk instead of
+     * finishing with a partial tree: the default (`true`, keep going) lets a listing error deep in
+     * the tree pass as a complete result, which marks an under-counted user as fully known.
      */
     private suspend fun walkOrNull(path: APath): ContentItem? = try {
         val lookup = gatewaySwitch.lookup(path, type = GatewaySwitch.Type.AUTO)
         when {
             lookup.fileType != FileType.DIRECTORY -> ContentItem.fromLookup(lookup)
             else -> {
-                val options = APathGateway.WalkOptions<APath, APathLookup<APath>>(followSymlinks = false)
+                val options = APathGateway.WalkOptions<APath, APathLookup<APath>>(
+                    followSymlinks = false,
+                    onError = { _, _ -> false },
+                )
                 val children = lookup.walk(gatewaySwitch, options)
                     .map { ContentItem.fromLookup(it) }
                     .take(WALK_MAX_ITEMS + 1)
                     .toList()
 
                 if (children.size > WALK_MAX_ITEMS) {
-                    log(TAG, WARN) { "Walk item limit exceeded for $path, sizing it instead" }
-                    ContentItem.fromInaccessible(path, lookup.size + lookup.du(gatewaySwitch))
+                    // `du` is not atomic either, so a truncated walk counts as a failed walk: let
+                    // the stats-only tier size this user instead of passing off a partial tree.
+                    log(TAG, WARN) { "Walk item limit exceeded for $path" }
+                    null
                 } else {
                     children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
                 }
