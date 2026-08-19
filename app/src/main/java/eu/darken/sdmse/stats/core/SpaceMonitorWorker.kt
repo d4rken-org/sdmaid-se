@@ -17,6 +17,7 @@ class SpaceMonitorWorker @AssistedInject constructor(
     @Assisted private val params: WorkerParameters,
     private val spaceTracker: SpaceTracker,
     private val widgetUpdater: WidgetUpdater,
+    private val lowSpaceMonitor: LowSpaceMonitor,
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
@@ -24,6 +25,8 @@ class SpaceMonitorWorker @AssistedInject constructor(
         spaceTracker.recordSnapshot()
         // Backstop refresh for placed home-screen widgets (free space may drift between cleans).
         widgetUpdater.updateAll()
+        // Never throws: a notification failure must not break snapshot recording or the widget.
+        lowSpaceMonitor.check()
         log(TAG, VERBOSE) { "doWork(): Done" }
         return Result.success()
     }
