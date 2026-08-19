@@ -104,6 +104,7 @@ import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
@@ -168,6 +169,7 @@ class DashboardViewModel @Inject constructor(
     internal val statsSettings: StatsSettings,
     internal val curriculumVitae: CurriculumVitae,
     internal val spaceHistoryRepo: SpaceHistoryRepo,
+    internal val spaceTracker: SpaceTracker,
     deviceDetective: DeviceDetective,
 ) : ViewModel4(dispatcherProvider, TAG) {
 

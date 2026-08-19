@@ -43,7 +43,9 @@ import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
+import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
+import eu.darken.sdmse.stats.core.forecast.StorageForecaster
 import eu.darken.sdmse.stats.core.forecast.StorageTrendCalculator
 import eu.darken.sdmse.stats.ui.ReportsRoute
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
@@ -335,19 +337,40 @@ internal fun DashboardViewModel.buildAnalyzerItem(): Flow<AnalyzerDashboardCardI
     (analyzer.data as Flow<Analyzer.Data?>).onStart { emit(null) },
     analyzer.progress.onStart { emit(null) },
     intervalFlow(1.hours)
-        .flatMapLatest { spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7)) }
-        .onStart<List<SpaceSnapshotEntity>?> { emit(null) },
-) { data, progress, snapshots ->
+        .flatMapLatest { _ ->
+            // The forecast needs a LIVE reading: sampling is six-hourly, so the newest persisted
+            // row can be hours stale and a download that already crossed the floor would still
+            // read as filling. One read per tick, carried alongside the history.
+            val primary = spaceTracker.readPrimaryStorage()
+            spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
+                .map { AnalyzerTrendInput(snapshots = it, primaryStorage = primary) }
+        }
+        .onStart<AnalyzerTrendInput?> { emit(null) },
+) { data, progress, trend ->
+    val primary = trend?.primaryStorage
     AnalyzerDashboardCardItem(
         data = data,
         progress = progress,
-        combinedDelta = snapshots?.let { calculateCombinedDelta(it) },
-        isLoadingTrend = snapshots == null,
+        combinedDelta = trend?.let { calculateCombinedDelta(it.snapshots) },
+        forecast = if (trend != null && primary != null) {
+            StorageForecaster.forecast(
+                history = trend.snapshots.filter { it.storageId == primary.storageId },
+                current = primary,
+            )
+        } else {
+            null
+        },
+        isLoadingTrend = trend == null,
         onViewDetails = {
             navTo(DeviceStorageRoute)
         },
     )
 }
+
+internal data class AnalyzerTrendInput(
+    val snapshots: List<SpaceSnapshotEntity>,
+    val primaryStorage: SpaceTracker.StorageSnapshot?,
+)
 
 internal fun calculateCombinedDelta(snapshots: List<SpaceSnapshotEntity>): Long? {
     val totals = snapshots

@@ -34,6 +34,7 @@ import eu.darken.sdmse.main.ui.dashboard.cards.StatsDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
@@ -198,6 +199,7 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
             statsSettings = statsSettings,
             curriculumVitae = curriculumVitae,
             spaceHistoryRepo = spaceHistoryRepo,
+            spaceTracker = mockk<SpaceTracker>(relaxed = true),
             deviceDetective = mockk(relaxed = true),
         )
 

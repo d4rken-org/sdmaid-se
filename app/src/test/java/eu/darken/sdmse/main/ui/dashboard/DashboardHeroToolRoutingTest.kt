@@ -27,6 +27,7 @@ import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
@@ -144,6 +145,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
             statsSettings = statsSettings,
             curriculumVitae = curriculumVitae,
             spaceHistoryRepo = spaceHistoryRepo,
+            spaceTracker = mockk<SpaceTracker>(relaxed = true),
             deviceDetective = mockk(relaxed = true),
         )
     }
