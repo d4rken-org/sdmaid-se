@@ -15,7 +15,6 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
-import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
@@ -69,19 +68,34 @@ class LowSpaceMonitor @Inject constructor(
 
         combine(
             analyzerSettings.lowSpaceNotificationEnabled.flow,
-            // Only settled emissions: the pre-billing seed reports non-Pro even for paying users,
-            // and acting on it would cancel and re-arm on every process start, re-notifying a user
-            // who already dismissed the warning.
-            upgradeRepo.upgradeInfo.filter { it.isSettled }.map { it.isPro },
-        ) { enabled, isPro -> enabled && isPro }
+            // `null` means "not known yet", not "not Pro": the pre-billing seed reports non-Pro even
+            // for paying users, and acting on it would cancel and re-arm on every process start,
+            // re-notifying a user who already dismissed the warning. Mapping (instead of filtering
+            // the unsettled emissions away) keeps the toggle-off branch below reachable while
+            // billing is still settling.
+            upgradeRepo.upgradeInfo.map { if (it.isSettled) it.isPro else null },
+        ) { enabled, isPro -> enabled to isPro }
             .distinctUntilChanged()
-            .onEach { active ->
-                if (active) {
-                    log(TAG) { "Low space warning became active, checking now" }
-                    check()
-                } else {
-                    log(TAG) { "Low space warning is inactive, cancelling" }
-                    cancelAndRearm()
+            .onEach { (enabled, isPro) ->
+                when {
+                    // Switched off wins over an unknown entitlement: a warning left over from a
+                    // previous process must go away now, not once billing settles.
+                    !enabled -> {
+                        log(TAG) { "Low space warning is disabled, cancelling" }
+                        cancelAndRearm()
+                    }
+
+                    isPro == true -> {
+                        log(TAG) { "Low space warning became active, checking now" }
+                        check()
+                    }
+
+                    isPro == false -> {
+                        log(TAG) { "Low space warning is not available without Pro, cancelling" }
+                        cancelAndRearm()
+                    }
+
+                    else -> log(TAG, VERBOSE) { "Entitlement is unsettled, waiting" }
                 }
             }
             .launchIn(scope)
