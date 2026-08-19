@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.Help
 import androidx.compose.material.icons.twotone.AccessibilityNew
+import androidx.compose.material.icons.twotone.Apps
 import androidx.compose.material.icons.twotone.BugReport
 import androidx.compose.material.icons.twotone.ColorLens
 import androidx.compose.material.icons.twotone.DarkMode
@@ -49,6 +50,7 @@ import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.ThemeColor
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
+import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.ui.navigation.DashboardCardConfigRoute
 import androidx.compose.ui.platform.LocalContext
 import eu.darken.sdmse.common.R as CommonR
@@ -83,6 +85,7 @@ fun GeneralSettingsScreenHost(
         onOneClickSystemCleanerChanged = vm::setOneClickSystemCleaner,
         onOneClickAppCleanerChanged = vm::setOneClickAppCleaner,
         onOneClickDeduplicatorChanged = vm::setOneClickDeduplicator,
+        onShortcutToolChanged = vm::setShortcutTool,
         onResetGuidedTours = vm::resetGuidedTours,
     )
 }
@@ -110,6 +113,7 @@ internal fun GeneralSettingsScreen(
     onOneClickSystemCleanerChanged: (Boolean) -> Unit = {},
     onOneClickAppCleanerChanged: (Boolean) -> Unit = {},
     onOneClickDeduplicatorChanged: (Boolean) -> Unit = {},
+    onShortcutToolChanged: (DashboardCardType, Boolean) -> Unit = { _, _ -> },
     onResetGuidedTours: () -> Unit = {},
 ) {
     var showThemeModeDialog by remember { mutableStateOf(false) }
@@ -117,6 +121,7 @@ internal fun GeneralSettingsScreen(
     var showThemeColorDialog by remember { mutableStateOf(false) }
     var showRomTypeDialog by remember { mutableStateOf(false) }
     var showOneClickTools by remember { mutableStateOf(false) }
+    var showShortcutTools by remember { mutableStateOf(false) }
 
     if (showThemeModeDialog) {
         ThemeModePickerDialog(
@@ -170,6 +175,15 @@ internal fun GeneralSettingsScreen(
             onAppCleanerChanged = onOneClickAppCleanerChanged,
             onDeduplicatorChanged = onOneClickDeduplicatorChanged,
             onDismiss = { showOneClickTools = false },
+        )
+    }
+
+    if (showShortcutTools) {
+        ShortcutToolsDialog(
+            tools = state.shortcutTools,
+            enabledTools = state.shortcutToolsEnabled,
+            onToolChanged = onShortcutToolChanged,
+            onDismiss = { showShortcutTools = false },
         )
     }
 
@@ -239,6 +253,14 @@ internal fun GeneralSettingsScreen(
                     subtitle = stringResource(R.string.shortcuts_onetap_enabled_summary),
                     checked = state.shortcutOneClickEnabled,
                     onCheckedChange = onShortcutOneClickChanged,
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.Apps,
+                    title = stringResource(R.string.shortcuts_tools_title),
+                    subtitle = stringResource(R.string.shortcuts_tools_desc),
+                    onClick = { showShortcutTools = true },
                 )
             }
 

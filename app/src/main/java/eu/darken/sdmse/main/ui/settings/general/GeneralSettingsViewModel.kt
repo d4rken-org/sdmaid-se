@@ -19,8 +19,10 @@ import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import eu.darken.sdmse.main.core.shortcuts.normalizeCardOrder
 import eu.darken.sdmse.main.core.themeState
 import eu.darken.sdmse.common.compose.tour.GuidedTourController
 import kotlinx.coroutines.flow.StateFlow
@@ -58,9 +60,11 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.oneClickDeduplicatorEnabled.flow,
         generalSettings.widgetOneClickEnabled.flow,
         generalSettings.dashboardHeroAutoShow.flow,
+        generalSettings.shortcutToolConfig.flow,
+        generalSettings.dashboardCardConfig.flow,
     ) { isPro, isUpdateCheckSupported, oneClick, shortcut, theme, previews, romType, updateCheck, motd, debug, locales,
         oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator, widgetOneClick,
-        summaryAutoShow ->
+        summaryAutoShow, shortcutTools, cardConfig ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
@@ -82,6 +86,9 @@ class GeneralSettingsViewModel @Inject constructor(
             oneClickDeduplicatorEnabled = oneClickDeduplicator,
             widgetOneClickEnabled = widgetOneClick,
             dashboardSummaryAutoShow = summaryAutoShow,
+            // Publish order, so the picker rows show the order the launcher menu will use.
+            shortcutTools = normalizeCardOrder(cardConfig.cards.map { it.type }),
+            shortcutToolsEnabled = shortcutTools.tools.toSet(),
         )
     }.safeStateIn(
         initialValue = State(),
@@ -94,6 +101,17 @@ class GeneralSettingsViewModel @Inject constructor(
 
     fun toggleShortcutOneClick(enabled: Boolean) = launch {
         generalSettings.shortcutOneClickEnabled.value(enabled)
+    }
+
+    /**
+     * Atomic on purpose: VM operations run concurrently on the Default dispatcher, so a read-then-
+     * write would let two quick toggles read the same list and the second write drop the first.
+     */
+    fun setShortcutTool(type: DashboardCardType, enabled: Boolean) = launch {
+        generalSettings.shortcutToolConfig.update { config ->
+            val without = config.tools.filter { it != type }
+            config.copy(tools = if (enabled) without + type else without)
+        }
     }
 
     fun toggleDashboardSummaryAutoShow(enabled: Boolean) = launch {
@@ -190,6 +208,8 @@ class GeneralSettingsViewModel @Inject constructor(
         val oneClickDeduplicatorEnabled: Boolean = false,
         val widgetOneClickEnabled: Boolean = false,
         val dashboardSummaryAutoShow: Boolean = true,
+        val shortcutTools: List<DashboardCardType> = DashboardCardType.entries,
+        val shortcutToolsEnabled: Set<DashboardCardType> = emptySet(),
     )
 
     companion object {
