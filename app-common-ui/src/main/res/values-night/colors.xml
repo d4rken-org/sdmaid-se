@@ -45,4 +45,6 @@
     <color name="md_theme_surfaceContainer">#1C211C</color>
     <color name="md_theme_surfaceContainerHigh">#262B26</color>
     <color name="md_theme_surfaceContainerHighest">#313631</color>
+
+    <color name="md_theme_storageLow">@color/md_theme_storageLow_night</color>
 </resources>
