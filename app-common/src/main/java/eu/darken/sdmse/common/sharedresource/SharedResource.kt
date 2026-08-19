@@ -56,6 +56,16 @@ open class SharedResource<T : Any>(
      * yet, so a reuse would otherwise be handed a dead resource. Null (default) disables validation.
      */
     private val isReusable: (suspend (T) -> Boolean)? = null,
+    /**
+     * Decides whether a caller that latched onto an already-running generation should silently retry
+     * when that generation dies before producing its first value. Default: retry, because such a
+     * failure belongs to the caller that STARTED the generation (see [StaleReuseAcquireException]).
+     *
+     * Return false for failures an immediate second attempt cannot fix. The retry is only worth its
+     * cost when a fresh attempt might fail differently; for a source whose failure is a spent timeout
+     * budget it just makes every waiter pay that budget again, once per [reuseValidationAttempts].
+     */
+    private val isRetryableStartupFailure: (Throwable) -> Boolean = { true },
 ) : KeepAlive {
     private val iTag = "$tag:SR"
     override val resourceId: String = iTag
@@ -298,7 +308,7 @@ open class SharedResource<T : Any>(
             generation.ready.await()
         } catch (e: Throwable) {
             if (Bugs.isTrace) log(iTag, DEBUG) { "[${generation.id}|$lId]-get() await failed (${e.javaClass.simpleName}), releasing provisional lease" }
-            if (reused && e !is CancellationException) {
+            if (reused && e !is CancellationException && isRetryableStartupFailure(e)) {
                 // We latched onto an already-running generation that then died before producing a value.
                 // Its startup error belongs to the caller that STARTED it, not to us — force-detach the
                 // corpse (async onCompletion teardown may not have run yet) and signal get() to retry fresh.
