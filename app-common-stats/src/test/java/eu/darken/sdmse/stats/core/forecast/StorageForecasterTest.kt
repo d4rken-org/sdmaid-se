@@ -45,6 +45,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = 1_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.BelowFloor
     }
 
@@ -53,6 +54,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = floor),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.BelowFloor
     }
 
@@ -61,6 +63,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = 20_000_000_000L, capacity = 0L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.InsufficientData
     }
 
@@ -73,6 +76,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = sameDay,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.InsufficientData
     }
 
@@ -81,6 +85,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate, days = StorageForecaster.MIN_OBSERVED_DAYS - 1),
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.InsufficientData
     }
 
@@ -89,6 +94,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate, days = StorageForecaster.MIN_OBSERVED_DAYS),
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 72, bytesPerDay = minRate, isUrgent = false)
     }
 
@@ -98,6 +104,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = gapped,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.InsufficientData
     }
 
@@ -107,6 +114,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = gapped,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 72, bytesPerDay = minRate, isUrgent = false)
     }
 
@@ -125,6 +133,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = alternating,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.InsufficientData
     }
 
@@ -143,6 +152,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = erratic,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Erratic
     }
 
@@ -161,6 +171,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = jittery,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Stable
     }
 
@@ -179,6 +190,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = swinging,
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Erratic
     }
 
@@ -187,6 +199,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = 0L),
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Stable
     }
 
@@ -195,6 +208,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = -minRate, startUsed = 50_000_000_000L),
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Stable
     }
 
@@ -203,6 +217,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate - 1),
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Stable
     }
 
@@ -211,6 +226,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = 20_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 72, bytesPerDay = minRate, isUrgent = false)
     }
 
@@ -219,6 +235,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = 1_000_000_000L),
             current = current(free = floor + 1),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 1, bytesPerDay = 1_000_000_000L, isUrgent = true)
     }
 
@@ -227,6 +244,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = 1_000_000_000L),
             current = current(free = floor + 2_500_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 3, bytesPerDay = 1_000_000_000L, isUrgent = true)
     }
 
@@ -235,6 +253,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = 1_000_000_000L),
             current = current(free = floor + 3_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 3, bytesPerDay = 1_000_000_000L, isUrgent = true)
     }
 
@@ -243,6 +262,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = floor + minRate * StorageForecaster.DISPLAY_HORIZON_DAYS),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(
             daysUntilFloor = StorageForecaster.DISPLAY_HORIZON_DAYS,
             bytesPerDay = minRate,
@@ -255,6 +275,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = floor + minRate * StorageForecaster.DISPLAY_HORIZON_DAYS + 1),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Stable
     }
 
@@ -263,6 +284,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = floor + minRate * StorageForecaster.URGENT_DAYS),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(
             daysUntilFloor = StorageForecaster.URGENT_DAYS,
             bytesPerDay = minRate,
@@ -275,6 +297,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = floor + minRate * StorageForecaster.URGENT_DAYS + 1),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(
             daysUntilFloor = StorageForecaster.URGENT_DAYS + 1,
             bytesPerDay = minRate,
@@ -289,6 +312,7 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = 5_000_000_000L),
             current = current(free = 25_000_000_000L),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.Filling(daysUntilFloor = 5, bytesPerDay = 5_000_000_000L, isUrgent = false)
     }
 
@@ -299,6 +323,29 @@ class StorageForecasterTest : BaseTest() {
         StorageForecaster.forecast(
             history = history(ratePerDay = minRate),
             current = current(free = floor - 1),
+            lowStorageThresholdBytes = floor,
         ) shouldBe StorageForecast.BelowFloor
+    }
+
+    @Test
+    fun `a custom threshold above the automatic one moves the floor earlier`() {
+        // 5 GB configured on a device with 4 GB free: the automatic 2 GiB floor would still be
+        // days away, but the user asked to be told sooner than that.
+        StorageForecaster.forecast(
+            history = history(ratePerDay = minRate),
+            current = current(free = 4_000_000_000L),
+            lowStorageThresholdBytes = 5_000_000_000L,
+        ) shouldBe StorageForecast.BelowFloor
+    }
+
+    @Test
+    fun `a custom threshold below the automatic one moves the floor later`() {
+        // 1 GB configured with 1.5 GB free: the automatic 2 GiB floor would already report
+        // BelowFloor, the custom one still forecasts.
+        StorageForecaster.forecast(
+            history = history(ratePerDay = 500_000_000L),
+            current = current(free = 1_500_000_000L),
+            lowStorageThresholdBytes = 1_000_000_000L,
+        ) shouldBe StorageForecast.Filling(daysUntilFloor = 1, bytesPerDay = 500_000_000L, isUrgent = true)
     }
 }

@@ -26,7 +26,16 @@ class AnalyzerSettings @Inject constructor(
 
     val contentLayoutMode = dataStore.createValue("ui.content.layoutmode", LayoutMode.LINEAR, json)
 
+    /**
+     * When free space drops to or below this, storage counts as running out.
+     * `null` means automatic, see [eu.darken.sdmse.stats.core.LowStorage.resolveThreshold].
+     */
+    val lowStorageThresholdBytes = dataStore.createValue<Long?>("storage.low.threshold.bytes", null)
+
     companion object {
         internal val TAG = logTag("Analyzer", "Settings")
+
+        const val LOW_STORAGE_THRESHOLD_MIN = 100L * 1024 * 1024
+        const val LOW_STORAGE_THRESHOLD_MAX = 32L * 1024 * 1024 * 1024
     }
 }
