@@ -244,6 +244,55 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `root card with installed root manager and failed service shows limitation box`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        RootSetupCardItem(
+                            state = RootSetupModule.Result(
+                                useRoot = true,
+                                isInstalled = true,
+                                ourService = false,
+                            ),
+                            onToggleUseRoot = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_failed_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_failed_body)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_waiting_label)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `root card with working root service shows ready label and no limitation box`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        RootSetupCardItem(
+                            state = RootSetupModule.Result(
+                                useRoot = true,
+                                isInstalled = true,
+                                ourService = true,
+                            ),
+                            onToggleUseRoot = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_ready_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_failed_title)).assertCountEquals(0)
+    }
+
+    @Test
     fun `automation card with full consent shows enabled + running states and disallow action`() {
         composeRule.setSetupContent {
             SetupScreen(

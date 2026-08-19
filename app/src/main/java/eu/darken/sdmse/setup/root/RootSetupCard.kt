@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
+import eu.darken.sdmse.setup.SetupLimitationBox
 
 data class RootSetupCardItem(
     override val state: RootSetupModule.Result,
@@ -51,27 +52,42 @@ internal fun RootSetupCard(
         )
         if (item.state.useRoot == true) {
             val ready = item.state.ourService
-            // The probe has settled by the time we render a Result (Loading shows a spinner card
-            // instead), so ourService == false is a definitive "not available" — not "waiting".
-            // We never claim the device isn't rooted: root detection is unreliable, so we only
-            // report our own probe outcome.
-            val stateText = stringResource(
-                if (ready) R.string.setup_root_state_ready_label
-                else R.string.setup_root_state_waiting_label,
-            )
-            Text(
-                text = stateText,
-                style = MaterialTheme.typography.labelMedium,
-                color = if (ready) {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                } else {
-                    MaterialTheme.colorScheme.error
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                textAlign = TextAlign.Center,
-            )
+            // A known root manager is installed but our service never came up: SD Maid asked for root
+            // and didn't get it, which is worth explaining. Without a root manager (isInstalled == false)
+            // there is nothing the user can act on here, so that case keeps the plain one-liner.
+            val failed = item.state.isInstalled && !item.state.ourService
+
+            if (!failed) {
+                // The probe has settled by the time we render a Result (Loading shows a spinner card
+                // instead), so ourService == false is a definitive "not available" — not "waiting".
+                // We never claim the device isn't rooted: root detection is unreliable, so we only
+                // report our own probe outcome.
+                val stateText = stringResource(
+                    if (ready) R.string.setup_root_state_ready_label
+                    else R.string.setup_root_state_waiting_label,
+                )
+                Text(
+                    text = stateText,
+                    style = MaterialTheme.typography.labelMedium,
+                    color = if (ready) {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    } else {
+                        MaterialTheme.colorScheme.error
+                    },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    textAlign = TextAlign.Center,
+                )
+            } else {
+                // Start aligned, multi-line explanation instead of the centred one-liner, matching how
+                // the Shizuku card presents its settled failure. No actions: retrying is the root
+                // manager's job, and the card header already carries the help icon.
+                SetupLimitationBox(
+                    title = stringResource(R.string.setup_root_state_failed_title),
+                    body = stringResource(R.string.setup_root_state_failed_body),
+                )
+            }
         }
         Column(
             modifier = Modifier
@@ -139,6 +155,24 @@ private fun RootSetupCardPreview() {
                     useRoot = true,
                     isInstalled = true,
                     ourService = true,
+                ),
+                onToggleUseRoot = {},
+                onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun RootSetupCardFailedPreview() {
+    PreviewWrapper {
+        RootSetupCard(
+            item = RootSetupCardItem(
+                state = RootSetupModule.Result(
+                    useRoot = true,
+                    isInstalled = true,
+                    ourService = false,
                 ),
                 onToggleUseRoot = {},
                 onHelp = {},
