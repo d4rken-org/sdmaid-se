@@ -14,6 +14,8 @@ import androidx.compose.foundation.gestures.rememberDraggableState
 import androidx.compose.foundation.indication
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
@@ -29,8 +31,10 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.union
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Stars
@@ -58,11 +62,14 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import kotlin.math.floor
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
@@ -334,11 +341,26 @@ private fun BarContent(
     val context = LocalContext.current
     // The surface extends behind the nav inset; keep the controls in the visible bar band by
     // padding the bottom up by that inset.
-    Box(
+    BoxWithConstraints(
         modifier = modifier
             .fillMaxSize()
             .padding(top = 8.dp, bottom = 8.dp + contentBottomPadding),
     ) {
+        // Everything left of the cradled FAB, measured off the FAB's actual touch box rather than a
+        // fixed fraction of the bar: the text below is long in several locales, and the fraction was
+        // leaving usable dp unused right next to it.
+        val infoSlot = Modifier
+            .align(Alignment.CenterStart)
+            .padding(start = BAR_INFO_START_PADDING)
+            .width(
+                ((maxWidth - DASHBOARD_FAB_TOUCH_SIZE) / 2 - BAR_INFO_START_PADDING - BAR_INFO_FAB_GAP)
+                    .coerceAtLeast(0.dp)
+            )
+        // Half the visible bar band, floored to a whole pixel: a line box is rounded *up* to the
+        // pixel grid, so splitting an odd band evenly would round the pair one pixel past the band
+        // and clip the second counter again.
+        val infoLineSlot = with(LocalDensity.current) { floor(maxHeight.toPx() / 2f).toDp() }
+
         when {
             state != null && (state.activeTasks > 0 || state.queuedTasks > 0) -> {
                 val active = pluralStringResource(
@@ -351,15 +373,12 @@ private fun BarContent(
                     state.queuedTasks,
                     state.queuedTasks,
                 )
-                Text(
-                    text = "$active\n$queued",
-                    style = MaterialTheme.typography.bodySmall,
-                    maxLines = 2,
-                    modifier = Modifier
-                        .fillMaxWidth(0.4f)
-                        .align(Alignment.CenterStart)
-                        .padding(horizontal = 16.dp),
-                )
+                // One TalkBack stop, as when this was a single two-line Text — the split is a
+                // layout concern and shouldn't cost the user an extra swipe.
+                Column(modifier = infoSlot.semantics(mergeDescendants = true) { }) {
+                    BarInfoLine(text = active, lineSlot = infoLineSlot)
+                    BarInfoLine(text = queued, lineSlot = infoLineSlot)
+                }
             }
 
             compactSummary != null -> {
@@ -395,10 +414,9 @@ private fun BarContent(
                     text = stringResource(easterEggProgressMsg),
                     style = MaterialTheme.typography.bodySmall,
                     maxLines = 2,
-                    modifier = Modifier
-                        .fillMaxWidth(0.4f)
-                        .align(Alignment.CenterStart)
-                        .padding(horizontal = 16.dp),
+                    // Clip would drop an overlong message's tail with nothing to show for it.
+                    overflow = TextOverflow.Ellipsis,
+                    modifier = infoSlot,
                 )
             }
         }
@@ -428,6 +446,76 @@ private fun BarContent(
             )
         }
     }
+}
+
+/** Inset of the bar's info slot from the start edge. */
+private val BAR_INFO_START_PADDING = 16.dp
+
+/** Breathing room between the info slot and the cradled FAB's touch box. */
+private val BAR_INFO_FAB_GAP = 8.dp
+
+/** Floor for [BarInfoLine]'s auto-sizing. Below this the counts stop being readable at a glance. */
+private val BAR_INFO_MIN_FONT_SIZE = 9.sp
+
+/** Used only if the theme's `bodySmall` ever loses its explicit size/line height. */
+private val BAR_INFO_FALLBACK_FONT_SIZE = 12.sp
+private const val BAR_INFO_FALLBACK_LINE_RATIO = 4f / 3f
+
+/**
+ * One line of the bar's info slot, sized to fit [lineSlot] tall and its slot wide.
+ *
+ * Each count gets its own single-line [Text]. Rendering both as one `"$a\n$b"` string capped at two
+ * lines meant a wrap in the first line consumed the second line's budget and the queued count
+ * vanished outright (issue #2698).
+ *
+ * The line shrinks rather than wraps, and only ellipsizes in the *middle* once it hits
+ * [BAR_INFO_MIN_FONT_SIZE]: several locales put the number last ("Задач в очереди: %d"), so a tail
+ * truncation would cut exactly the count the line exists to show.
+ *
+ * Auto-size alone can't keep the pair inside the bar: with an ellipsizing overflow its fit test is
+ * "was this line ellipsized", which is a width question, and the bar band is a fixed dp height that
+ * a 200% font scale overruns. Hence the explicit ceiling — the largest font whose line box still
+ * fits [lineSlot].
+ */
+@Composable
+private fun BarInfoLine(
+    text: String,
+    lineSlot: Dp,
+    modifier: Modifier = Modifier,
+) {
+    val style = MaterialTheme.typography.bodySmall
+    val baseSize = if (style.fontSize.isSp) style.fontSize else BAR_INFO_FALLBACK_FONT_SIZE
+    val density = LocalDensity.current
+
+    // All of this is computed in dp, not sp. Android's font scaling is non-linear above 100%, so
+    // an sp ratio is not the rendered ratio (at 200%, 12sp and 16sp do not render 3:4) and doing the
+    // arithmetic in sp shrinks the text further than it has to.
+    val baseSizeDp = with(density) { baseSize.toDp() }
+    val baseLineDp = when {
+        style.lineHeight.isSp -> with(density) { style.lineHeight.toDp() }
+        else -> baseSizeDp * BAR_INFO_FALLBACK_LINE_RATIO
+    }
+    val lineRatio = if (baseSizeDp.value > 0f) baseLineDp / baseSizeDp else BAR_INFO_FALLBACK_LINE_RATIO
+
+    // The style's line height is absolute, so shrinking the font on its own leaves the line *box* as
+    // tall as ever and the second counter keeps hanging out of the bar. Cap the box at the slot
+    // (never above the theme's own value, so ordinary text scales look untouched), then cap the font
+    // at what fits that box.
+    val lineCapDp = minOf(baseLineDp, lineSlot)
+    val ceiling = with(density) { (lineCapDp / lineRatio).toSp() }.value.coerceIn(1f, baseSize.value)
+
+    Text(
+        modifier = modifier,
+        text = text,
+        style = style.copy(lineHeight = with(density) { lineCapDp.toSp() }),
+        autoSize = TextAutoSize.StepBased(
+            minFontSize = BAR_INFO_MIN_FONT_SIZE.value.coerceAtMost(ceiling).sp,
+            maxFontSize = ceiling.sp,
+            stepSize = 0.5.sp,
+        ),
+        maxLines = 1,
+        overflow = TextOverflow.MiddleEllipsis,
+    )
 }
 
 /**
