@@ -54,8 +54,14 @@ class DeduplicatorListViewModel @Inject constructor(
     init {
         // Start an initial scan if Deduplicator has no data yet. The Dashboard only navigates here
         // after scanning, but the launcher shortcut opens this screen cold — without this it would
-        // sit on the loading placeholder forever.
+        // sit on the loading placeholder forever. A scan that is already in flight nulls the data
+        // while it runs, so without the in-flight guard the no-data check would queue a second,
+        // equally expensive scan whose start wipes the first one's result back to loading.
         launch {
+            val alreadyRunning = taskSubmitter.state.first().tasks.any {
+                it.toolType == SDMTool.Type.DEDUPLICATOR && !it.isComplete
+            }
+            if (alreadyRunning) return@launch
             val initState = deduplicator.state.first()
             if (initState.data != null) return@launch
             taskSubmitter.submit(DeduplicatorScanTask())

@@ -15,6 +15,7 @@ import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -24,6 +25,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -38,18 +40,25 @@ class CorpseFinderListViewModel @Inject constructor(
     init {
         // Start an initial scan if CorpseFinder has no data yet. The Dashboard only navigates here
         // after scanning, but the launcher shortcut opens this screen cold — without this it would
-        // sit on the loading placeholder forever.
+        // sit on the loading placeholder forever. A scan that is already in flight nulls the data
+        // while it runs, so without the in-flight guard the no-data check would queue a second,
+        // equally expensive scan whose start wipes the first one's result back to loading.
         launch {
+            val alreadyRunning = taskSubmitter.state.first().tasks.any {
+                it.toolType == SDMTool.Type.CORPSEFINDER && !it.isComplete
+            }
+            if (alreadyRunning) return@launch
             val initState = corpseFinder.state.first()
             if (initState.data != null) return@launch
             taskSubmitter.submit(CorpseFinderScanTask())
         }
-        // navUp only when a non-null Data drains to empty corpses — null is the loading state
-        // (set during performScan before results land) and must not trigger navigation.
+        // mapNotNull { it.data } skips the null loading state performScan publishes while running,
+        // so drop(1) consumes the first REAL result. Without it a cold scan that finds nothing
+        // would navUp instead of showing the empty list; navUp is meant for a later drain-to-empty.
         corpseFinder.state
-            .map { it.data }
+            .mapNotNull { it.data }
             .drop(1)
-            .filter { it?.corpses?.isEmpty() == true }
+            .filter { it.corpses.isEmpty() }
             .take(1)
             .onEach { navUp() }
             .launchIn(vmScope)

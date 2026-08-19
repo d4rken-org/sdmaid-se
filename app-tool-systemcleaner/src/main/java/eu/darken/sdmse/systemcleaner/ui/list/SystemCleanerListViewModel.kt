@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
@@ -41,8 +42,14 @@ class SystemCleanerListViewModel @Inject constructor(
     init {
         // Start an initial scan if SystemCleaner has no data yet. The Dashboard only navigates here
         // after scanning, but the launcher shortcut opens this screen cold — without this it would
-        // sit on the loading placeholder forever.
+        // sit on the loading placeholder forever. A scan that is already in flight nulls the data
+        // while it runs, so without the in-flight guard the no-data check would queue a second,
+        // equally expensive scan whose start wipes the first one's result back to loading.
         launch {
+            val alreadyRunning = taskSubmitter.state.first().tasks.any {
+                it.toolType == SDMTool.Type.SYSTEMCLEANER && !it.isComplete
+            }
+            if (alreadyRunning) return@launch
             val initState = systemCleaner.state.first()
             if (initState.data != null) return@launch
             taskSubmitter.submit(SystemCleanerScanTask())
