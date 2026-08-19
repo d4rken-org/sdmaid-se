@@ -1,5 +1,6 @@
 package eu.darken.sdmse.widget
 
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.shortcuts.OneTapRunGuard
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -26,6 +27,7 @@ class WidgetDataProviderTest : BaseTest() {
 
     private val spaceTracker = mockk<SpaceTracker>()
     private val statsSettings = mockk<StatsSettings>()
+    private val analyzerSettings = mockk<AnalyzerSettings>()
     private val taskSubmitter = mockk<TaskSubmitter>()
     private val oneTapRunGuard = OneTapRunGuard()
 
@@ -34,7 +36,7 @@ class WidgetDataProviderTest : BaseTest() {
     // constructing the provider uses runTest2(autoCancel = true): the sharing coroutine never
     // completes on its own.
     private fun TestScope.provider() =
-        WidgetDataProvider(this, spaceTracker, statsSettings, taskSubmitter, oneTapRunGuard)
+        WidgetDataProvider(this, spaceTracker, statsSettings, analyzerSettings, taskSubmitter, oneTapRunGuard)
 
     private fun snapshot(free: Long, capacity: Long) = SpaceTracker.StorageSnapshot(
         storageId = "s",
@@ -70,10 +72,14 @@ class WidgetDataProviderTest : BaseTest() {
         secondary: List<SpaceTracker.StorageSnapshot> = emptyList(),
         freed: Long = 0L,
         taskState: TaskSubmitter.State = TaskSubmitter.State(),
+        lowThreshold: Long? = null,
     ) {
         coEvery { spaceTracker.readPrimaryStorage() } returns primary
         coEvery { spaceTracker.readSecondaryStorages() } returns secondary
         every { statsSettings.totalSpaceFreed } returns mockDataStoreValue(freed)
+        // Must actually emit: a relaxed mock hands back a Flow that never does, which stalls the
+        // renderState combine forever.
+        every { analyzerSettings.lowStorageThresholdBytes } returns mockDataStoreValue(lowThreshold)
         every { taskSubmitter.state } returns MutableStateFlow(taskState)
     }
 
@@ -157,6 +163,75 @@ class WidgetDataProviderTest : BaseTest() {
     }
 
     @Test
+    fun `automatic threshold - free above 5 percent is not low`() = runTest2(autoCancel = true) {
+        // capacity 500 → automatic threshold is 5% = 25 (the 2 GiB cap doesn't bite here).
+        stub(primary = snapshot(free = 26, capacity = 500), lowThreshold = null)
+
+        val state = provider().snapshot()
+
+        state.shouldBeInstanceOf<WidgetRenderState.Data>()
+        state.storages.single().isLow shouldBe false
+    }
+
+    @Test
+    fun `automatic threshold - free exactly at the threshold is low`() = runTest2(autoCancel = true) {
+        stub(primary = snapshot(free = 25, capacity = 500), lowThreshold = null)
+
+        val state = provider().snapshot()
+
+        state.shouldBeInstanceOf<WidgetRenderState.Data>()
+        state.storages.single().isLow shouldBe true
+    }
+
+    @Test
+    fun `automatic threshold - free below the threshold is low`() = runTest2(autoCancel = true) {
+        stub(primary = snapshot(free = 1, capacity = 500), lowThreshold = null)
+
+        val state = provider().snapshot()
+
+        state.shouldBeInstanceOf<WidgetRenderState.Data>()
+        state.storages.single().isLow shouldBe true
+    }
+
+    @Test
+    fun `a custom threshold overrides the automatic one`() = runTest2(autoCancel = true) {
+        // free = 100 is far above the automatic 25, but below the configured 200.
+        stub(primary = snapshot(free = 100, capacity = 500), lowThreshold = 200L)
+
+        val state = provider().snapshot()
+
+        state.shouldBeInstanceOf<WidgetRenderState.Data>()
+        state.storages.single().isLow shouldBe true
+    }
+
+    @Test
+    fun `a custom threshold below the automatic one keeps a volume normal`() = runTest2(autoCancel = true) {
+        // free = 20 would be low automatically (threshold 25), but the user configured 10.
+        stub(primary = snapshot(free = 20, capacity = 500), lowThreshold = 10L)
+
+        val state = provider().snapshot()
+
+        state.shouldBeInstanceOf<WidgetRenderState.Data>()
+        state.storages.single().isLow shouldBe false
+    }
+
+    @Test
+    fun `isLow is per volume - a low SD card does not flag the primary`() = runTest2(autoCancel = true) {
+        // Automatic thresholds: primary 5% of 500 = 25, secondary 5% of 200 = 10.
+        stub(
+            primary = snapshot(free = 400, capacity = 500),
+            secondary = listOf(snapshot(free = 5, capacity = 200)),
+            lowThreshold = null,
+        )
+
+        val state = provider().snapshot()
+
+        state.shouldBeInstanceOf<WidgetRenderState.Data>()
+        state.storages[0].isLow shouldBe false
+        state.storages[1].isLow shouldBe true
+    }
+
+    @Test
     fun `usedRatio is a clamped fraction`() {
         WidgetRenderState.Data.StorageEntry(Kind.INTERNAL, usedBytes = 250, totalBytes = 1000).usedRatio shouldBe 0.25f
         WidgetRenderState.Data.StorageEntry(Kind.INTERNAL, usedBytes = 0, totalBytes = 0).usedRatio shouldBe 0f
@@ -216,6 +291,7 @@ class WidgetDataProviderTest : BaseTest() {
         coEvery { spaceTracker.readPrimaryStorage() } returns snapshot(free = 100, capacity = 500)
         coEvery { spaceTracker.readSecondaryStorages() } returns emptyList()
         every { statsSettings.totalSpaceFreed } returns mockk { every { flow } returns freedFlow }
+        every { analyzerSettings.lowStorageThresholdBytes } returns mockDataStoreValue(null)
         every { taskSubmitter.state } returns taskFlow
 
         val provider = provider()

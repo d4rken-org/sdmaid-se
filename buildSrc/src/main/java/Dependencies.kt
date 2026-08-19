@@ -205,6 +205,11 @@ fun DependencyHandlerScope.addGlance() {
     // @Preview annotation (kept on the main classpath); renderer stays debug-only.
     implementation("androidx.glance:glance-preview:${Versions.AndroidX.Glance.core}")
     debugImplementation("androidx.glance:glance-appwidget-preview:${Versions.AndroidX.Glance.core}")
+
+    // runGlanceAppWidgetUnitTest: composes Glance content on the JVM and asserts on the emitted
+    // node tree. Glance content can't be driven by the normal Compose test rule (own Applier), so
+    // this is the only way to unit-test what a widget layout actually emits.
+    testImplementation("androidx.glance:glance-appwidget-testing:${Versions.AndroidX.Glance.core}")
 }
 
 fun DependencyHandlerScope.addNavigation3() {
