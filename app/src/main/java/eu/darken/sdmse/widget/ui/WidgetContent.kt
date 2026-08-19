@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.text.format.Formatter
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -37,10 +38,12 @@ import androidx.glance.layout.width
 import androidx.glance.text.FontWeight
 import androidx.glance.text.Text
 import androidx.glance.text.TextStyle
+import androidx.glance.unit.ColorProvider
 import eu.darken.sdmse.R
 import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import eu.darken.sdmse.widget.WidgetRenderState
+import androidx.glance.color.ColorProvider as dayNightColorProvider
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.ui.R as CommonUiR
 
@@ -173,9 +176,13 @@ private fun WidgetChrome(content: @Composable () -> Unit) {
     }
 }
 
-/** Tall (2+ rows): branding + storage (tap → app) at the top, Clean button pinned to the bottom. */
+/**
+ * Tall (2+ rows): branding + storage (tap → app) at the top, Clean button pinned to the bottom.
+ *
+ * Internal (not private) so WidgetContentLowStateTest can compose it in isolation.
+ */
 @Composable
-private fun StackedLayout(data: WidgetRenderState.Data) {
+internal fun StackedLayout(data: WidgetRenderState.Data) {
     Column(modifier = GlanceModifier.fillMaxSize()) {
         BrandingHeader(data.freedBytes, GlanceModifier.fillMaxWidth().clickable(openApp()))
         Spacer(GlanceModifier.height(12.dp))
@@ -194,9 +201,11 @@ private fun StackedLayout(data: WidgetRenderState.Data) {
 /**
  * 1 row, medium/wide: mascot + primary storage (tap → app) + Clean button. The button label only
  * shows at the widest sizes; at ~3 columns it's icon-only so the value isn't truncated.
+ *
+ * Internal (not private) so WidgetContentLowStateTest can compose it in isolation.
  */
 @Composable
-private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolean, showFreedText: Boolean) {
+internal fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolean, showFreedText: Boolean) {
     val context = LocalContext.current
     Row(
         modifier = GlanceModifier.fillMaxSize(),
@@ -208,11 +217,15 @@ private fun ValueRowLayout(data: WidgetRenderState.Data, showButtonLabel: Boolea
             data.storages.firstOrNull()?.let { entry ->
                 Text(
                     text = usedOfTotal(context, entry),
-                    style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 14.sp, fontWeight = FontWeight.Bold),
+                    style = TextStyle(
+                        color = storageValueColor(entry.isLow),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                    ),
                     maxLines = 1,
                 )
                 Spacer(GlanceModifier.height(3.dp))
-                StorageBar(entry.usedRatio)
+                StorageBar(entry.usedRatio, entry.isLow)
                 if (showFreedText) {
                     Spacer(GlanceModifier.height(3.dp))
                     Text(
@@ -241,7 +254,7 @@ private fun RingRowLayout(data: WidgetRenderState.Data) {
         Mascot(NARROW_ELEMENT_SIZE, GlanceModifier.clickable(openApp()))
         Spacer(GlanceModifier.defaultWeight())
         Box(modifier = GlanceModifier.size(NARROW_ELEMENT_SIZE).clickable(openAnalyzer())) {
-            data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE) }
+            data.storages.firstOrNull()?.let { StorageRing(it.usedRatio, NARROW_ELEMENT_SIZE, it.isLow) }
         }
         Spacer(GlanceModifier.defaultWeight())
         CleanCircle(NARROW_ELEMENT_SIZE, mode = data.cleanMode)
@@ -279,6 +292,29 @@ private fun Mascot(size: Dp, modifier: GlanceModifier = GlanceModifier) {
     )
 }
 
+/**
+ * The shared "storage is running out" amber, resolved from the day/night colour resources so the
+ * widget bars, the widget labels and the ring bitmap can't drift apart.
+ *
+ * Internal so WidgetContentLowStateTest can assert against the exact same value.
+ */
+internal fun lowStorageColorProvider(context: Context): ColorProvider = dayNightColorProvider(
+    day = Color(context.getColor(CommonUiR.color.md_theme_storageLow_day)),
+    night = Color(context.getColor(CommonUiR.color.md_theme_storageLow_night)),
+)
+
+/**
+ * Colour for the "used / total" storage figure. Amber when that volume is low.
+ *
+ * This label is NOT decoration: see the note on [StorageBar] — below API 31 it is the ONLY
+ * low-storage signal the widget can render.
+ */
+@Composable
+private fun storageValueColor(isLow: Boolean): ColorProvider = when {
+    isLow -> lowStorageColorProvider(LocalContext.current)
+    else -> GlanceTheme.colors.onBackground
+}
+
 @Composable
 private fun StorageRow(entry: WidgetRenderState.Data.StorageEntry) {
     val context = LocalContext.current
@@ -297,21 +333,32 @@ private fun StorageRow(entry: WidgetRenderState.Data.StorageEntry) {
             Spacer(GlanceModifier.defaultWeight())
             Text(
                 text = usedOfTotal(context, entry),
-                style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 13.sp, fontWeight = FontWeight.Bold),
+                style = TextStyle(
+                    color = storageValueColor(entry.isLow),
+                    fontSize = 13.sp,
+                    fontWeight = FontWeight.Bold,
+                ),
                 maxLines = 1,
             )
         }
         Spacer(GlanceModifier.height(5.dp))
-        StorageBar(entry.usedRatio)
+        StorageBar(entry.usedRatio, entry.isLow)
     }
 }
 
 @Composable
-private fun StorageBar(ratio: Float) {
+private fun StorageBar(ratio: Float, isLow: Boolean = false) {
+    val context = LocalContext.current
     LinearProgressIndicator(
         progress = ratio,
         modifier = GlanceModifier.fillMaxWidth().height(8.dp).cornerRadius(4.dp),
-        color = GlanceTheme.colors.primary,
+        // IMPORTANT: Glance (1.2.0-rc01) only applies a custom LinearProgressIndicator tint on
+        // API 31+ — below that this argument compiles and is then silently ignored, so the bar stays
+        // the default colour. minSdk is 26, which means on Android 8-11 the amber BAR never renders
+        // and the amber storage TEXT LABEL (storageValueColor) is the only low-storage signal there.
+        // That label colouring is therefore NOT redundant with this one; deleting it blinds those
+        // versions entirely. WidgetContentLowStateTest guards it.
+        color = if (isLow) lowStorageColorProvider(context) else GlanceTheme.colors.primary,
         backgroundColor = GlanceTheme.colors.secondaryContainer,
     )
 }
@@ -427,7 +474,7 @@ private fun UnavailableContent() {
     }
 }
 
-private fun usedOfTotal(context: Context, entry: WidgetRenderState.Data.StorageEntry): String =
+internal fun usedOfTotal(context: Context, entry: WidgetRenderState.Data.StorageEntry): String =
     "${formatSize(context, entry.usedBytes)} / ${formatSize(context, entry.totalBytes)}"
 
 private fun storageLabelRes(kind: WidgetRenderState.Data.StorageEntry.Kind): Int = when (kind) {

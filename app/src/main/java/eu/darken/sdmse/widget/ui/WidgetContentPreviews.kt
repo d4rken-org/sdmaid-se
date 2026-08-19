@@ -19,6 +19,12 @@ private fun internal(usedGb: Long, totalGb: Long) =
 private fun external(usedGb: Long, totalGb: Long) =
     StorageEntry(StorageEntry.Kind.EXTERNAL, usedGb * GB, totalGb * GB)
 
+private fun internalLow(usedGb: Long, totalGb: Long) =
+    StorageEntry(StorageEntry.Kind.INTERNAL, usedGb * GB, totalGb * GB, isLow = true)
+
+private fun externalLow(usedGb: Long, totalGb: Long) =
+    StorageEntry(StorageEntry.Kind.EXTERNAL, usedGb * GB, totalGb * GB, isLow = true)
+
 @Preview(widthDp = 200, heightDp = 140)
 @Composable
 private fun WidgetContentNormalPreview() {
@@ -117,6 +123,41 @@ private fun WidgetContentLargePreview() {
     WidgetContent(
         WidgetRenderState.Data(
             storages = listOf(internal(45, 128), external(20, 64)),
+            freedBytes = 12 * GB,
+        )
+    )
+}
+
+// --- Low storage ---------------------------------------------------------------------------------
+// Free space at or below the configured threshold. All three layouts must signal it: bar + label in
+// the stacked and value-row layouts, ring arc in the narrow one. Note the amber bar only renders on
+// API 31+ (Glance limitation), which is why the label is coloured too — check both here.
+
+@Preview(widthDp = 200, heightDp = 140)
+@Composable
+private fun WidgetContentLowStackedPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internalLow(126, 128)), freedBytes = 3 * GB))
+}
+
+@Preview(widthDp = 300, heightDp = 80)
+@Composable
+private fun WidgetContentLowValueRowPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internalLow(126, 128)), freedBytes = 3 * GB))
+}
+
+@Preview(widthDp = 150, heightDp = 80)
+@Composable
+private fun WidgetContentLowRingPreview() {
+    WidgetContent(WidgetRenderState.Data(listOf(internalLow(126, 128)), freedBytes = 3 * GB))
+}
+
+// Per-volume: the SD card is low while the primary is fine, so only the second row goes amber.
+@Preview(widthDp = 220, heightDp = 170)
+@Composable
+private fun WidgetContentLowSecondaryOnlyPreview() {
+    WidgetContent(
+        WidgetRenderState.Data(
+            storages = listOf(internal(45, 128), externalLow(63, 64)),
             freedBytes = 12 * GB,
         )
     )
