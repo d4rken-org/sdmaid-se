@@ -1,5 +1,6 @@
 package eu.darken.sdmse.widget
 
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -8,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.main.core.shortcuts.OneTapRunGuard
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.stats.core.LowStorage
 import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.StatsSettings
 import kotlinx.coroutines.CoroutineScope
@@ -27,13 +29,15 @@ import javax.inject.Singleton
  * Reads the live primary + secondary (SD card / USB) storage figures, the lifetime "space freed"
  * total and the working/cancellable task state, clamps them, and maps them to an immutable
  * [WidgetRenderState]. Freed bytes come from the [StatsSettings] DataStore value (the source of
- * truth) rather than the throttled `StatsRepo.state`.
+ * truth) rather than the throttled `StatsRepo.state`. Each volume is also flagged against the
+ * configured low-storage threshold ([AnalyzerSettings.lowStorageThresholdBytes]).
  */
 @Singleton
 class WidgetDataProvider @Inject constructor(
     @AppScope appScope: CoroutineScope,
     private val spaceTracker: SpaceTracker,
     private val statsSettings: StatsSettings,
+    private val analyzerSettings: AnalyzerSettings,
     private val taskSubmitter: TaskSubmitter,
     private val oneTapRunGuard: OneTapRunGuard,
 ) {
@@ -54,11 +58,13 @@ class WidgetDataProvider @Inject constructor(
         oneTapRunGuard.running,
         taskSubmitter.state.map { !it.isIdle to it.hasCancellable }.distinctUntilChanged(),
         statsSettings.totalSpaceFreed.flow,
-    ) { guardRunning, (busy, cancellable), freed ->
+        analyzerSettings.lowStorageThresholdBytes.flow,
+    ) { guardRunning, (busy, cancellable), freed, lowThreshold ->
         Signals(
             working = guardRunning || busy,
             cancellable = guardRunning || cancellable,
             freed = freed,
+            lowThreshold = lowThreshold,
         )
     }
         // Hold the displayed lifetime total steady while a run is in progress: the counter is
@@ -71,7 +77,14 @@ class WidgetDataProvider @Inject constructor(
         }
         .filterNotNull()
         .distinctUntilChanged()
-        .map { buildState(working = it.working, cancellable = it.cancellable, freedBytes = it.freed) }
+        .map {
+            buildState(
+                working = it.working,
+                cancellable = it.cancellable,
+                freedBytes = it.freed,
+                lowThreshold = it.lowThreshold,
+            )
+        }
         .distinctUntilChanged()
         .map { it.also { log(TAG, VERBOSE) { "renderState: $it" } } }
         // Shared so the latch lives ONCE in this singleton: a cold per-collector chain would let a
@@ -81,7 +94,13 @@ class WidgetDataProvider @Inject constructor(
         // across collectors (coordinator + one per widget session).
         .shareLatest(appScope)
 
-    private data class Signals(val working: Boolean, val cancellable: Boolean, val freed: Long)
+    private data class Signals(
+        val working: Boolean,
+        val cancellable: Boolean,
+        val freed: Long,
+        /** Custom low-storage threshold, `null` = automatic (see [LowStorage.resolveThreshold]). */
+        val lowThreshold: Long?,
+    )
 
     suspend fun snapshot(): WidgetRenderState = renderState.first()
 
@@ -89,13 +108,14 @@ class WidgetDataProvider @Inject constructor(
         working: Boolean,
         cancellable: Boolean,
         freedBytes: Long,
+        lowThreshold: Long?,
     ): WidgetRenderState {
         val entries = buildList {
             spaceTracker.readPrimaryStorage()
-                ?.let { entry(WidgetRenderState.Data.StorageEntry.Kind.INTERNAL, it) }
+                ?.let { entry(WidgetRenderState.Data.StorageEntry.Kind.INTERNAL, it, lowThreshold) }
                 ?.let { add(it) }
             spaceTracker.readSecondaryStorages()
-                .mapNotNull { entry(WidgetRenderState.Data.StorageEntry.Kind.EXTERNAL, it) }
+                .mapNotNull { entry(WidgetRenderState.Data.StorageEntry.Kind.EXTERNAL, it, lowThreshold) }
                 .let { addAll(it) }
         }.take(MAX_STORAGES)
 
@@ -115,6 +135,7 @@ class WidgetDataProvider @Inject constructor(
     private fun entry(
         kind: WidgetRenderState.Data.StorageEntry.Kind,
         snapshot: SpaceTracker.StorageSnapshot,
+        lowThreshold: Long?,
     ): WidgetRenderState.Data.StorageEntry? {
         val total = snapshot.spaceCapacity
         if (total <= 0L) return null
@@ -123,6 +144,12 @@ class WidgetDataProvider @Inject constructor(
             kind = kind,
             usedBytes = (total - free).coerceIn(0L, total),
             totalBytes = total,
+            // Per volume, against that volume's own capacity: a nearly full SD card must be able to
+            // flag while the primary is fine (and vice versa).
+            isLow = LowStorage.isLow(
+                spaceFreeBytes = free,
+                thresholdBytes = LowStorage.resolveThreshold(total, lowThreshold),
+            ),
         )
     }
 

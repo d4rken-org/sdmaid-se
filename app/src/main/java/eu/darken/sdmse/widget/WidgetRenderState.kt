@@ -21,6 +21,11 @@ sealed interface WidgetRenderState {
             val kind: Kind,
             val usedBytes: Long,
             val totalBytes: Long,
+            /**
+             * Free space is at or below the configured low-storage threshold. Computed per entry, so
+             * a nearly full SD card flags while the primary volume stays normal.
+             */
+            val isLow: Boolean = false,
         ) {
             val usedRatio: Float
                 get() = if (totalBytes > 0L) {
