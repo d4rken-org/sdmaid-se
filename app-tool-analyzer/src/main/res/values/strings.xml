@@ -37,7 +37,7 @@
     <string name="analyzer_storage_content_type_media_description">Captured pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
     <string name="analyzer_storage_content_type_system_label">System data</string>
     <string name="analyzer_storage_content_type_system_description">System apps and system data. Apps and data from other users, if several user accounts are set on this device.</string>
-    <string name="analyzer_storage_content_type_system_otherusers_hint">Storage of other users that can\'t be measured is included here.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Other users couldn\'t be fully measured, so this total may include some of their storage.</string>
     <string name="analyzer_storage_content_type_system_other_label">Other</string>
     <string name="analyzer_storage_content_type_system_info">Files that don\'t fit the Apps or User files categories. Browse only — deletion is not supported. Some areas may be incomplete due to access restrictions.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Files can\'t be matched to the apps that own them right now. Sizes are shown for reference only — deletion, filters and Swiper are disabled.</string>
