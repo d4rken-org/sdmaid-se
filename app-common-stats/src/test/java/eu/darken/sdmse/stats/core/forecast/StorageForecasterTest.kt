@@ -111,19 +111,57 @@ class StorageForecasterTest : BaseTest() {
     }
 
     @Test
+    fun `enough day buckets but too few usable rates is insufficient data`() {
+        // Capacity readings alternating between the StorageStatsManager and the File fallback fill
+        // every day bucket while leaving a single usable pair, which is not a trend.
+        val alternating = listOf(0L, 1L, 2L, 3L, 4L).map {
+            snap(
+                day = it,
+                used = 10_000_000_000L + 1_000_000_000L * it,
+                // Days 0-4 read as A,B,A,B,B, so only the final pair yields a rate.
+                capacity = if (it == 0L || it == 2L) capacity else capacity - 1_000_000_000L,
+            )
+        }
+        StorageForecaster.forecast(
+            history = alternating,
+            current = current(free = 20_000_000_000L),
+        ) shouldBe StorageForecast.InsufficientData
+    }
+
+    @Test
     fun `a series that swings both ways is erratic`() {
+        // Rates of [300M, 400M, 3000M, -2000M]: the median is a solid 350M/day, but the spread
+        // around it is far wider than the rate itself.
         val erratic = listOf(
             10_000_000_000L,
-            10_100_000_000L,
-            9_800_000_000L,
             10_300_000_000L,
-            10_100_000_000L,
+            10_700_000_000L,
+            13_700_000_000L,
+            11_700_000_000L,
         ).mapIndexed { index, used -> snap(day = index.toLong(), used = used) }
 
         StorageForecaster.forecast(
             history = erratic,
             current = current(free = 20_000_000_000L),
         ) shouldBe StorageForecast.Erratic
+    }
+
+    @Test
+    fun `jitter around a zero median is stable, not erratic`() {
+        // Rates of [1, -1, 2, -2]: the median is 0 and the spread is 1, so a purely relative
+        // spread gate would call a device that is not moving at all erratic.
+        val jittery = listOf(
+            10_000_000_000L,
+            10_000_000_001L,
+            10_000_000_000L,
+            10_000_000_002L,
+            10_000_000_000L,
+        ).mapIndexed { index, used -> snap(day = index.toLong(), used = used) }
+
+        StorageForecaster.forecast(
+            history = jittery,
+            current = current(free = 20_000_000_000L),
+        ) shouldBe StorageForecast.Stable
     }
 
     @Test

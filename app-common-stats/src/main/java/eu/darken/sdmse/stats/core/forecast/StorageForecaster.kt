@@ -36,11 +36,14 @@ object StorageForecaster {
 
         val trend = StorageTrendCalculator.dailyTrend(history) ?: return StorageForecast.InsufficientData
         if (trend.observedDays < MIN_OBSERVED_DAYS) return StorageForecast.InsufficientData
+        if (trend.usableRateCount < MIN_OBSERVED_DAYS - 1) return StorageForecast.InsufficientData
         if (trend.maxGapDays > MAX_GAP_DAYS) return StorageForecast.InsufficientData
 
         val bytesPerDay = trend.bytesPerDay
-        if (trend.spreadBytes > MAX_SPREAD_RATIO * bytesPerDay.absoluteValue) return StorageForecast.Erratic
+        // The spread gate is relative to the rate, so it only means anything once the rate itself
+        // is meaningful: near a zero median any jitter would look erratic.
         if (bytesPerDay <= 0L || bytesPerDay < capacity / MIN_RATE_DIVISOR) return StorageForecast.Stable
+        if (trend.spreadBytes > MAX_SPREAD_RATIO * bytesPerDay.absoluteValue) return StorageForecast.Erratic
 
         val headroom = current.spaceFree - floor
         // Ceiling division: floor division reports "About 0 days" whenever the headroom is under a

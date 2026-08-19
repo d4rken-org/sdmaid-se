@@ -51,6 +51,7 @@ object StorageTrendCalculator {
         return DailyTrend(
             bytesPerDay = bytesPerDay,
             observedDays = buckets.size,
+            usableRateCount = rates.size,
             elapsedDays = ChronoUnit.DAYS.between(buckets.first().day, buckets.last().day),
             maxGapDays = maxGapDays,
             spreadBytes = median(rates.map { (it - bytesPerDay).absoluteValue }),

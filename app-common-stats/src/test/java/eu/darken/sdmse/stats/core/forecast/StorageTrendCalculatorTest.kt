@@ -158,6 +158,24 @@ class StorageTrendCalculatorTest : BaseTest() {
     }
 
     @Test
+    fun `alternating capacities leave only the surviving pairs as usable rates`() {
+        // A ROM whose capacity flips between the StorageStatsManager and the File fallback still
+        // fills every day bucket, but almost every pair is unusable.
+        val snapshots = listOf(
+            snap(day = 0, used = 100, capacity = 1000),
+            snap(day = 1, used = 1100, capacity = 2000),
+            snap(day = 2, used = 200, capacity = 1000),
+            snap(day = 3, used = 1200, capacity = 2000),
+            snap(day = 4, used = 1300, capacity = 2000),
+        )
+        val trend = StorageTrendCalculator.dailyTrend(snapshots).shouldNotBeNull()
+        trend.observedDays shouldBe 5
+        trend.usableRateCount shouldBe 1
+        trend.bytesPerDay shouldBe 100L
+        trend.spreadBytes shouldBe 0L
+    }
+
+    @Test
     fun `a capacity change on every pair leaves no rate at all`() {
         val snapshots = listOf(
             snap(day = 0, used = 100, capacity = 1000),
