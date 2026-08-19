@@ -38,6 +38,15 @@ class AnalyzerRoutesSerializationTest : BaseTest() {
     }
 
     @Test
+    fun `AnalyzerSettingsRoute serialization round-trip`() {
+        val serialized = json.encodeToString(AnalyzerSettingsRoute.serializer(), AnalyzerSettingsRoute)
+        serialized.toComparableKotlinxJson() shouldBe "{}".toComparableKotlinxJson()
+
+        val deserialized = json.decodeFromString(AnalyzerSettingsRoute.serializer(), serialized)
+        deserialized shouldBe AnalyzerSettingsRoute
+    }
+
+    @Test
     fun `StorageContentRoute serialization round-trip`() {
         val original = StorageContentRoute(storageId = testStorageId)
 
