@@ -171,6 +171,7 @@ class SetupViewModel @Inject constructor(
                                 onHelp = {
                                     webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#root-access")
                                 },
+                                onRetry = { launch { rootSetupModule.refresh() } },
                             )
 
                             is SetupModule.State.Loading -> SetupLoadingCardItem(state)

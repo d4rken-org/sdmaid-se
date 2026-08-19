@@ -208,6 +208,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             state = RootSetupModule.Result(useRoot = null),
                             onToggleUseRoot = { selection = it },
                             onHelp = {},
+                            onRetry = {},
                         ),
                     ),
                 ),
@@ -218,7 +219,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `root card shows definitive not-available label when root probe failed`() {
+    fun `root card shows the failure box when no root manager is detected`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -231,16 +232,43 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             ),
                             onToggleUseRoot = {},
                             onHelp = {},
+                            onRetry = {},
                         ),
                     ),
                 ),
             )
         }
 
-        // The settled probe-failure state is definitive — no "?" guesswork is appended.
-        val notAvailableText = context.getString(R.string.setup_root_state_waiting_label)
-        composeRule.onAllNodesWithText(notAvailableText).assertCountEquals(1)
-        composeRule.onAllNodesWithText("$notAvailableText ?").assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_failed_title)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_failed_body_nomanager))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_root_state_waiting_label)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `root card retry button invokes onRetry`() {
+        var retryClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        RootSetupCardItem(
+                            state = RootSetupModule.Result(
+                                useRoot = true,
+                                isInstalled = true,
+                                ourService = false,
+                            ),
+                            onToggleUseRoot = {},
+                            onHelp = {},
+                            onRetry = { retryClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_retry_action)).performClick()
+        composeRule.runOnIdle { assertTrue(retryClicks == 1) }
     }
 
     @Test
@@ -257,6 +285,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             ),
                             onToggleUseRoot = {},
                             onHelp = {},
+                            onRetry = {},
                         ),
                     ),
                 ),
@@ -282,6 +311,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             ),
                             onToggleUseRoot = {},
                             onHelp = {},
+                            onRetry = {},
                         ),
                     ),
                 ),
