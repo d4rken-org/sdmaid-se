@@ -276,6 +276,7 @@
     <string name="setup_shizuku_state_ready_label">Shizuku link is ready.</string>
     <string name="setup_shizuku_state_waiting_label">Waiting for link with Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">The Shizuku app is not installed.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku link failed</string>
     <string name="setup_shizuku_state_failed_label">Shizuku is running, but it never connected SD Maid to its helper service.</string>
     <string name="setup_shizuku_state_known_issue_hint">Some devices are affected by a known Shizuku problem that stops the helper service from starting. This may be one of them.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Try to use Shizuku</string>
