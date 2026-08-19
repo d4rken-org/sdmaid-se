@@ -7,6 +7,9 @@ import eu.darken.sdmse.common.storage.StorageId
 import kotlinx.serialization.Serializable
 
 @Serializable
+data object AnalyzerSettingsRoute : NavigationDestination
+
+@Serializable
 data class StorageContentRoute(
     val storageId: StorageId,
 ) : NavigationDestination

@@ -63,6 +63,14 @@
         <item quantity="other">About %d days of space left at this rate</item>
     </plurals>
 
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Storage</string>
+    <string name="analyzer_settings_lowstorage_title">Low storage threshold</string>
+    <string name="analyzer_settings_lowstorage_desc">When free space drops below this, SD Maid treats the storage as running out.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatic (currently %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatic</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatic</string>
+
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">See what\'s actually filling up your storage. The Analyzer maps out where your space goes. Each of these cards is a storage chip on your device.</string>
     <string name="tour_analyzer_storage_body">Open a storage to break it down into apps, media and files, then keep tapping to track down the biggest culprits.</string>
