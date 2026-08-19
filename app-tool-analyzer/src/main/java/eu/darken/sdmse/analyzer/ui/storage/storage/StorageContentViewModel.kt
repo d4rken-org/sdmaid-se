@@ -83,7 +83,16 @@ class StorageContentViewModel @Inject constructor(
                 if (storage == null) {
                     State.NotFound
                 } else {
-                    val rows: List<Row>? = data.categories[targetStorageId]
+                    val categories = data.categories[targetStorageId]
+                    // Other users are only fully measured with root. Whatever we couldn't measure
+                    // stays inside the system residual, so the system card has to say so.
+                    val hidesOtherUsers = categories
+                        ?.filterIsInstance<OtherUsersCategory>()
+                        ?.any { category ->
+                            category.users.any { !it.appDataKnown || !it.sharedMediaKnown }
+                        }
+                        ?: false
+                    val rows: List<Row>? = categories
                         ?.sortedBy {
                             when (it) {
                                 is AppCategory -> 1
@@ -96,7 +105,11 @@ class StorageContentViewModel @Inject constructor(
                             when (content) {
                                 is AppCategory -> Row.Apps(storage = storage, category = content)
                                 is MediaCategory -> Row.Media(storage = storage, category = content)
-                                is SystemCategory -> Row.System(storage = storage, category = content)
+                                is SystemCategory -> Row.System(
+                                    storage = storage,
+                                    category = content,
+                                    hidesOtherUsers = hidesOtherUsers,
+                                )
                                 is OtherUsersCategory -> Row.OtherUsers(storage = storage, category = content)
                             }
                         }
@@ -191,7 +204,15 @@ class StorageContentViewModel @Inject constructor(
         val storage: DeviceStorage
         data class Apps(override val storage: DeviceStorage, val category: AppCategory) : Row
         data class Media(override val storage: DeviceStorage, val category: MediaCategory) : Row
-        data class System(override val storage: DeviceStorage, val category: SystemCategory) : Row
+        /**
+         * [hidesOtherUsers] is true when another user's storage on this device could not be fully
+         * measured. Their unmeasured bytes end up in the system residual, so the card says so.
+         */
+        data class System(
+            override val storage: DeviceStorage,
+            val category: SystemCategory,
+            val hidesOtherUsers: Boolean = false,
+        ) : Row
         data class OtherUsers(override val storage: DeviceStorage, val category: OtherUsersCategory) : Row
     }
 

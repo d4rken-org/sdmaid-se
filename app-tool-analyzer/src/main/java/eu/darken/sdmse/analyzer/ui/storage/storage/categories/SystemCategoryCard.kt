@@ -68,6 +68,14 @@ internal fun SystemCategoryCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier.padding(top = 4.dp),
             )
+            if (row.hidesOtherUsers) {
+                Text(
+                    text = stringResource(R.string.analyzer_storage_content_type_system_otherusers_hint),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier.padding(top = 4.dp),
+                )
+            }
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -120,6 +128,26 @@ private fun SystemCategoryCardPreview() {
                     groups = listOf(previewContentGroup(label = "System")),
                     isBrowsable = true,
                 ),
+            ),
+            onClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SystemCategoryCardHidesOtherUsersPreview() {
+    val storage = previewDeviceStorage()
+    PreviewWrapper {
+        SystemCategoryCard(
+            row = StorageContentViewModel.Row.System(
+                storage = storage,
+                category = SystemCategory(
+                    storageId = storage.id,
+                    groups = listOf(previewContentGroup(label = "System")),
+                    isBrowsable = true,
+                ),
+                hidesOtherUsers = true,
             ),
             onClick = {},
         )
