@@ -67,6 +67,15 @@ class GeneralSettings @Inject constructor(
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
     val shortcutOneClickEnabled = dataStore.createValue("shortcut.oneclick.enabled", false)
 
+    // Which tools get a launcher shortcut. Defaults to AppControl, matching the shortcut that used
+    // to be published unconditionally.
+    val shortcutToolConfig = dataStore.createValue(
+        key = "shortcut.tools.config",
+        defaultValue = ShortcutConfig(),
+        json = json,
+        fallbackToDefault = true,
+    )
+
     // Whether the dashboard summary (hero) card may open by itself as the outcome of a one-tap main
     // action. When off the card never auto-opens; the bar's compact size chip stays the indicator and
     // one tap on it still opens the card.
