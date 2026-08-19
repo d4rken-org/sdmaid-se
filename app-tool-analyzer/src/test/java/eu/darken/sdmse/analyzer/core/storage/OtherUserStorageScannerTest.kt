@@ -4,6 +4,9 @@ import android.app.usage.StorageStats
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
@@ -87,6 +90,33 @@ class OtherUserStorageScannerTest : BaseTest() {
     private fun stubWalkFailure(path: LocalPath) {
         coEvery { gatewaySwitch.lookup(path, type = any()) } returns dirLookup(path)
         coEvery { gatewaySwitch.walk(path, any()) } returns flow { throw ReadException(path = path) }
+    }
+
+    /**
+     * A walk that emits part of the tree and then fails on a descendant, like the real walkers do:
+     * the error goes to [APathGateway.WalkOptions.onError] and is only rethrown when the handler
+     * declines to continue. With the default handler (keep going) the walk completes on a partial
+     * tree.
+     */
+    private fun stubWalkDescendantFailure(path: LocalPath, childSize: Long) {
+        coEvery { gatewaySwitch.lookup(path, type = any()) } returns dirLookup(path)
+        coEvery { gatewaySwitch.walk(path, any()) } answers {
+            val options = secondArg<APathGateway.WalkOptions<APath, APathLookup<APath>>>()
+            flow {
+                emit(fileLookup(path.child("payload.bin"), childSize))
+                val subDir = dirLookup(path.child("subdir"))
+                val error = ReadException(path = subDir.lookedUp)
+                if (options.onError?.invoke(subDir, error) == false) throw error
+            }
+        }
+    }
+
+    private fun stubWalkOverItemLimit(path: LocalPath) {
+        coEvery { gatewaySwitch.lookup(path, type = any()) } returns dirLookup(path)
+        coEvery { gatewaySwitch.walk(path, any()) } returns flow {
+            // One past the scanner's 100_000 item ceiling.
+            repeat(100_001) { emit(fileLookup(path.child("payload-$it.bin"), 1L)) }
+        }
     }
 
     private fun stubStats(dataBytes: Long, cacheBytes: Long) {
@@ -191,6 +221,41 @@ class OtherUserStorageScannerTest : BaseTest() {
         entry.appDataKnown shouldBe true
         entry.sharedMediaKnown shouldBe false
         entry.isBrowsable shouldBe false
+    }
+
+    @Test
+    fun `a descendant failure mid-walk falls back to stats, not a partial tree`() = runTest {
+        // An app writing or deleting inside a directory while it is being walked. Continuing past
+        // the error would finish with a partial tree and report the user as fully known.
+        stubWalk(ceArea.path as LocalPath, childSize = 1_000L)
+        stubWalk(deArea.path as LocalPath, childSize = 2_000L)
+        stubWalkDescendantFailure(mediaPath, childSize = 3_000L)
+        stubStats(dataBytes = 500_000L, cacheBytes = 10_000L)
+
+        val category = scan(useRoot = true, dataAreas = setOf(ceArea, deArea)).shouldNotBeNull()
+
+        category.spaceUsed shouldBe 500_000L
+        category.groups.single().contents.single().path shouldBe LocalPath.build("data", "user", "10")
+        val entry = category.users.single()
+        entry.appDataKnown shouldBe true
+        entry.sharedMediaKnown shouldBe false
+        entry.isBrowsable shouldBe false
+    }
+
+    @Test
+    fun `exceeding the walk item limit falls back to stats instead of sizing`() = runTest {
+        stubWalk(ceArea.path as LocalPath, childSize = 1_000L)
+        stubWalk(deArea.path as LocalPath, childSize = 2_000L)
+        stubWalkOverItemLimit(mediaPath)
+        stubStats(dataBytes = 500_000L, cacheBytes = 10_000L)
+
+        val category = scan(useRoot = true, dataAreas = setOf(ceArea, deArea)).shouldNotBeNull()
+
+        category.spaceUsed shouldBe 500_000L
+        category.groups.single().contents.single().path shouldBe LocalPath.build("data", "user", "10")
+        category.users.single().sharedMediaKnown shouldBe false
+        // `du` isn't atomic either, a truncated walk must not be papered over with a size.
+        coVerify(exactly = 0) { gatewaySwitch.du(any(), any()) }
     }
 
     @Test
