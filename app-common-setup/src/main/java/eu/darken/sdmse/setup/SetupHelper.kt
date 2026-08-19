@@ -1,6 +1,8 @@
 package eu.darken.sdmse.setup
 
+import android.content.Context
 import dagger.Reusable
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.SystemSettingsProvider
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
@@ -19,6 +21,7 @@ import javax.inject.Inject
 
 @Reusable
 class SetupHelper @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val adbManager: AdbManager,
     private val rootManager: RootManager,
     private val settingsProvider: SystemSettingsProvider,
@@ -68,6 +71,38 @@ class SetupHelper @Inject constructor(
             log(TAG, INFO) { "setSecureSettings(granted=$granted): We achieved desired access state :)" }
         } else {
             log(TAG, ERROR) { "setSecureSettings(granted=$granted): Failed to achieve desired access state :(" }
+        }
+
+        return true
+    }
+
+    suspend fun hasCrossUserAccess(): Boolean = Permission.INTERACT_ACROSS_USERS.isGranted(context).also {
+        log(TAG, VERBOSE) { "hasCrossUserAccess(): $it" }
+    }
+
+    suspend fun setCrossUserAccess(granted: Boolean): Boolean {
+        log(TAG) { "setCrossUserAccess(granted=$granted)" }
+
+        if (granted == hasCrossUserAccess()) {
+            log(TAG, VERBOSE) { "setCrossUserAccess(granted=$granted): We already have desired access state" }
+            return true
+        }
+
+        if (!checkGrantPermissions()) {
+            log(TAG) { "setCrossUserAccess(granted=$granted): Can't gain grant permissions" }
+            return false
+        }
+
+        if (granted) {
+            pkgOps.grantPermission(userManager2.ourInstall(), Permission.INTERACT_ACROSS_USERS)
+        } else {
+            pkgOps.revokePermission(userManager2.ourInstall(), Permission.INTERACT_ACROSS_USERS)
+        }
+
+        if (granted == hasCrossUserAccess()) {
+            log(TAG, INFO) { "setCrossUserAccess(granted=$granted): We achieved desired access state :)" }
+        } else {
+            log(TAG, ERROR) { "setCrossUserAccess(granted=$granted): Failed to achieve desired access state :(" }
         }
 
         return true

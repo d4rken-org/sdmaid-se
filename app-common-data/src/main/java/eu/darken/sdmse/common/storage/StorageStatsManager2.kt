@@ -6,6 +6,7 @@ import dagger.Reusable
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.user.UserHandle2
 import javax.inject.Inject
 
 @Reusable
@@ -22,6 +23,16 @@ class StorageStatsManager2 @Inject constructor(
 
     suspend fun queryStatsForPkg(storageId: StorageId, pkg: Installed): StorageStats = ipcFunnel.use {
         osStatManager.queryStatsForPackage(storageId.externalId, pkg.packageName, pkg.userHandle.asUserHandle())
+    }
+
+    /**
+     * Storage stats for a whole user/profile.
+     *
+     * Beyond usage-stats access this needs [eu.darken.sdmse.common.permissions.Permission.INTERACT_ACROSS_USERS]
+     * for any user other than the current one.
+     */
+    suspend fun queryStatsForUser(storageId: StorageId, userHandle: UserHandle2): StorageStats = ipcFunnel.use {
+        osStatManager.queryStatsForUser(storageId.externalId, userHandle.asUserHandle())
     }
 
     @Throws(IllegalStateException::class)

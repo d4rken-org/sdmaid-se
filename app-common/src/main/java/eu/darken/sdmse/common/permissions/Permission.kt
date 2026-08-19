@@ -110,6 +110,11 @@ sealed class Permission(
     data object QUERY_ALL_PACKAGES
         : Permission("android.permission.QUERY_ALL_PACKAGES")
 
+    // Signature|privileged permission, only obtainable via ADB/root grant.
+    // Required to query storage stats and walk data of users other than the current one.
+    data object INTERACT_ACROSS_USERS
+        : Permission("android.permission.INTERACT_ACROSS_USERS")
+
     // Non-AOSP permission from Chinese TAF standard (TTAF 108-2022).
     // Required by Chinese ROMs (HyperOS, ColorOS, OriginOS, HarmonyOS) to access the full app list.
     // Does not exist on AOSP/Pixel/Samsung — isGranted() returns true when absent.
@@ -147,6 +152,7 @@ sealed class Permission(
                 PACKAGE_USAGE_STATS,
                 WRITE_SECURE_SETTINGS,
                 QUERY_ALL_PACKAGES,
+                INTERACT_ACROSS_USERS,
                 GET_INSTALLED_APPS,
             )
         }
