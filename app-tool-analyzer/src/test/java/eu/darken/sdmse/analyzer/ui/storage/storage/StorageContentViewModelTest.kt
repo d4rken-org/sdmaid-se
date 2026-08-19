@@ -18,6 +18,7 @@ import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
@@ -83,10 +84,20 @@ class StorageContentViewModelTest : BaseTest() {
         return vm
     }
 
-    private fun CoroutineScope.collectNavEvents(vm: StorageContentViewModel): MutableList<NavEvent> {
+    private class CollectedNavEvents(val list: MutableList<NavEvent>, private val job: Job) {
+        fun cancel() = job.cancel()
+    }
+
+    /**
+     * Must be called on the test scope itself, NOT on [TestScope.backgroundScope]: advanceUntilIdle()
+     * stops as soon as only background work is left, so a collector living in backgroundScope never
+     * gets resumed and every assertion would read an empty list — including the "no navigation"
+     * ones, which would then pass vacuously.
+     */
+    private fun CoroutineScope.collectNavEvents(vm: StorageContentViewModel): CollectedNavEvents {
         val list = mutableListOf<NavEvent>()
-        launch(start = CoroutineStart.UNDISPATCHED) { vm.navEvents.collect { list.add(it) } }
-        return list
+        val job = launch(start = CoroutineStart.UNDISPATCHED) { vm.navEvents.collect { list.add(it) } }
+        return CollectedNavEvents(list, job)
     }
 
     private fun category(vararg users: Pair<Int, Boolean>): OtherUsersCategory {
@@ -105,41 +116,44 @@ class StorageContentViewModelTest : BaseTest() {
         // One group per user, so the route must carry that user's group, not the first one.
         val category = category(10 to true, 11 to true)
         val vm = harness(category)
-        val events = backgroundScope.collectNavEvents(vm)
+        val events = collectNavEvents(vm)
         advanceUntilIdle()
 
         val second = category.users.last()
         vm.onUserClick(second)
         advanceUntilIdle()
 
-        events.single() shouldBe NavEvent.GoTo(
+        events.list.single() shouldBe NavEvent.GoTo(
             destination = ContentRoute(storageId = storageId, groupId = second.groupId, installId = null),
         )
+        events.cancel()
     }
 
     @Test
     fun `a non-browsable user does not navigate`() = runTest2 {
         val category = category(10 to false)
         val vm = harness(category)
-        val events = backgroundScope.collectNavEvents(vm)
+        val events = collectNavEvents(vm)
         advanceUntilIdle()
 
         vm.onUserClick(category.users.single())
         advanceUntilIdle()
 
-        events.shouldBeEmpty()
+        events.list.shouldBeEmpty()
+        events.cancel()
     }
 
     @Test
     fun `clicking the card itself does not navigate`() = runTest2 {
         val category = category(10 to true)
         val vm = harness(category)
-        val events = backgroundScope.collectNavEvents(vm)
+        val events = collectNavEvents(vm)
         advanceUntilIdle()
 
         vm.onCategoryClick(StorageContentViewModel.Row.OtherUsers(storage = storage(), category = category))
         advanceUntilIdle()
 
-        events.shouldBeEmpty()
+        events.list.shouldBeEmpty()
+        events.cancel()
     }
 }
