@@ -16,6 +16,10 @@ class AnalyzerSettingsBackupContributor @Inject constructor(
     settings: AnalyzerSettings,
 ) : DataStoreSettingsBackupContributor(settings.dataStore) {
     override val key = "analyzer"
+
+    // The armed latch is runtime state, not a preference: restoring `armed = false` onto a fresh
+    // install would suppress that device's first low-space warning indefinitely.
+    override val excludedKeys = setOf("storage.low.notification.armed")
 }
 
 @Module
