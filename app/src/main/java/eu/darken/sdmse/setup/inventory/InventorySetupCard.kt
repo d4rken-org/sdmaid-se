@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
 import eu.darken.sdmse.setup.SetupLimitationBox
+import eu.darken.sdmse.setup.inventory.InventorySetupModule.InventoryAccess
 import eu.darken.sdmse.common.R as CommonR
 
 data class InventorySetupCardItem(
@@ -54,10 +55,10 @@ internal fun InventorySetupCard(
                 .padding(horizontal = 16.dp),
         )
 
-        // Faked access is left to the limitation box below: it already carries a warning icon, its own
-        // title and a body that explains the state, so this row was a second error header with strictly
-        // less information.
-        if (item.state.missingPermission.isEmpty() && !item.state.isAccessFaked) {
+        // An incomplete list or a failed probe is left to the limitation boxes below: they already carry
+        // a warning icon, their own title and a body that explains the state, so this row was a second
+        // error header with strictly less information.
+        if (item.state.missingPermission.isEmpty() && item.state.access is InventoryAccess.Valid) {
             Row(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
@@ -79,7 +80,7 @@ internal fun InventorySetupCard(
             }
         }
 
-        if (item.state.missingPermission.isEmpty() && item.state.isAccessFaked) {
+        if (item.state.access is InventoryAccess.Incomplete) {
             SetupLimitationBox(
                 title = stringResource(R.string.setup_inventory_limitation_title),
                 body = stringResource(R.string.setup_inventory_limitation_body),
@@ -131,7 +132,7 @@ private fun InventorySetupCardInvalidPreview() {
             item = InventorySetupCardItem(
                 state = InventorySetupModule.Result(
                     missingPermission = emptySet(),
-                    isAccessFaked = true,
+                    access = InventorySetupModule.InventoryAccess.Incomplete,
                     settingsIntent = Intent(),
                 ),
                 onGrantAction = {},
@@ -149,7 +150,7 @@ private fun InventorySetupCardMissingPermissionPreview() {
             item = InventorySetupCardItem(
                 state = InventorySetupModule.Result(
                     missingPermission = setOf(Permission.GET_INSTALLED_APPS),
-                    isAccessFaked = false,
+                    access = InventorySetupModule.InventoryAccess.NotChecked,
                     settingsIntent = Intent(),
                 ),
                 onGrantAction = {},

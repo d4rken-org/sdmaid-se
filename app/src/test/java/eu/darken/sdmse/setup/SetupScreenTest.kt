@@ -116,7 +116,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `inventory card with fake access shows limitation box and open settings button`() {
+    fun `inventory card with an incomplete list shows limitation box and open settings button`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -124,7 +124,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                         InventorySetupCardItem(
                             state = InventorySetupModule.Result(
                                 missingPermission = emptySet(),
-                                isAccessFaked = true,
+                                access = InventorySetupModule.InventoryAccess.Incomplete,
                                 settingsIntent = Intent(),
                             ),
                             onGrantAction = {},
@@ -154,7 +154,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                         InventorySetupCardItem(
                             state = InventorySetupModule.Result(
                                 missingPermission = emptySet(),
-                                isAccessFaked = true,
+                                access = InventorySetupModule.InventoryAccess.Incomplete,
                                 settingsIntent = Intent(),
                             ),
                             onGrantAction = { settingsClicks++ },
@@ -182,7 +182,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                         InventorySetupCardItem(
                             state = InventorySetupModule.Result(
                                 missingPermission = setOf(Permission.GET_INSTALLED_APPS),
-                                isAccessFaked = false,
+                                access = InventorySetupModule.InventoryAccess.NotChecked,
                                 settingsIntent = Intent(),
                             ),
                             onGrantAction = {},
