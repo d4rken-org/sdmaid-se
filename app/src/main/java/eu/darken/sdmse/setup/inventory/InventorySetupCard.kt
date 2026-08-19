@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Apps
 import androidx.compose.material.icons.twotone.CheckCircle
-import androidx.compose.material.icons.twotone.ErrorOutline
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -55,8 +54,10 @@ internal fun InventorySetupCard(
                 .padding(horizontal = 16.dp),
         )
 
-        if (item.state.missingPermission.isEmpty()) {
-            val isError = item.state.isAccessFaked
+        // Faked access is left to the limitation box below: it already carries a warning icon, its own
+        // title and a body that explains the state, so this row was a second error header with strictly
+        // less information.
+        if (item.state.missingPermission.isEmpty() && !item.state.isAccessFaked) {
             Row(
                 modifier = Modifier
                     .align(Alignment.CenterHorizontally)
@@ -65,18 +66,15 @@ internal fun InventorySetupCard(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
             ) {
                 Icon(
-                    imageVector = if (isError) Icons.TwoTone.ErrorOutline else Icons.TwoTone.CheckCircle,
+                    imageVector = Icons.TwoTone.CheckCircle,
                     contentDescription = null,
-                    tint = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(20.dp),
                 )
                 Text(
-                    text = stringResource(
-                        if (isError) R.string.setup_inventory_invalid_label
-                        else R.string.setup_permission_granted_label,
-                    ),
+                    text = stringResource(R.string.setup_permission_granted_label),
                     style = MaterialTheme.typography.labelLarge,
-                    color = if (isError) MaterialTheme.colorScheme.error else MaterialTheme.colorScheme.primary,
+                    color = MaterialTheme.colorScheme.primary,
                 )
             }
         }
