@@ -43,6 +43,7 @@ import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
+import eu.darken.sdmse.stats.core.LowStorage
 import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.stats.core.forecast.StorageForecaster
@@ -346,7 +347,8 @@ internal fun DashboardViewModel.buildAnalyzerItem(): Flow<AnalyzerDashboardCardI
                 .mapLatest { AnalyzerTrendInput(snapshots = it, primaryStorage = spaceTracker.readPrimaryStorage()) }
         }
         .onStart<AnalyzerTrendInput?> { emit(null) },
-) { data, progress, trend ->
+    analyzerSettings.lowStorageThresholdBytes.flow,
+) { data, progress, trend, customThreshold ->
     val primary = trend?.primaryStorage
     AnalyzerDashboardCardItem(
         data = data,
@@ -356,6 +358,7 @@ internal fun DashboardViewModel.buildAnalyzerItem(): Flow<AnalyzerDashboardCardI
             StorageForecaster.forecast(
                 history = trend.snapshots.filter { it.storageId == primary.storageId },
                 current = primary,
+                lowStorageThresholdBytes = LowStorage.resolveThreshold(primary.spaceCapacity, customThreshold),
             )
         } else {
             null

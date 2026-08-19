@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
@@ -151,6 +152,7 @@ class DashboardViewModel @Inject constructor(
     internal val appCleaner: AppCleaner,
     internal val appControl: AppControl,
     internal val analyzer: Analyzer,
+    internal val analyzerSettings: AnalyzerSettings,
     debugCardProvider: DebugCardProvider,
     internal val deduplicator: Deduplicator,
     internal val squeezer: Squeezer,
