@@ -21,6 +21,7 @@ import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.deduplicator.core.tasks.isSingleDuplicateDelete
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
@@ -51,6 +52,14 @@ class DeduplicatorListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     init {
+        // Start an initial scan if Deduplicator has no data yet. The Dashboard only navigates here
+        // after scanning, but the launcher shortcut opens this screen cold — without this it would
+        // sit on the loading placeholder forever.
+        launch {
+            val initState = deduplicator.state.first()
+            if (initState.data != null) return@launch
+            taskSubmitter.submit(DeduplicatorScanTask())
+        }
         deduplicator.state
             .mapNotNull { it.data }
             .drop(1)

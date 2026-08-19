@@ -13,6 +13,7 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.StateFlow
@@ -35,6 +36,14 @@ class CorpseFinderListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // Start an initial scan if CorpseFinder has no data yet. The Dashboard only navigates here
+        // after scanning, but the launcher shortcut opens this screen cold — without this it would
+        // sit on the loading placeholder forever.
+        launch {
+            val initState = corpseFinder.state.first()
+            if (initState.data != null) return@launch
+            taskSubmitter.submit(CorpseFinderScanTask())
+        }
         // navUp only when a non-null Data drains to empty corpses — null is the loading state
         // (set during performScan before results land) and must not trigger navigation.
         corpseFinder.state

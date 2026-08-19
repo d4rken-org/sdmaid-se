@@ -7,6 +7,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
@@ -47,6 +48,14 @@ class AppCleanerListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // Start an initial scan if AppCleaner has no data yet. The Dashboard only navigates here
+        // after scanning, but the launcher shortcut opens this screen cold — without this it would
+        // sit on the loading placeholder forever.
+        launch {
+            val initState = appCleaner.state.first()
+            if (initState.data != null) return@launch
+            taskSubmitter.submit(AppCleanerScanTask())
+        }
         // navUp only when a non-null Data drains to empty junks — null is the loading state
         // (set during performScan before results land) and must not trigger navigation.
         appCleaner.state

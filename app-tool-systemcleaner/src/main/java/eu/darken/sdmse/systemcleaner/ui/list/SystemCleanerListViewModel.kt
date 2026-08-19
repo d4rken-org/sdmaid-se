@@ -16,6 +16,7 @@ import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -38,6 +39,14 @@ class SystemCleanerListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // Start an initial scan if SystemCleaner has no data yet. The Dashboard only navigates here
+        // after scanning, but the launcher shortcut opens this screen cold — without this it would
+        // sit on the loading placeholder forever.
+        launch {
+            val initState = systemCleaner.state.first()
+            if (initState.data != null) return@launch
+            taskSubmitter.submit(SystemCleanerScanTask())
+        }
         // mapNotNull { it.data } skips the null transitions performScan publishes at the start of a
         // refresh, so navUp fires only on a real drain-to-empty, not during loading. (was BUG-FIXME-9)
         systemCleaner.state
