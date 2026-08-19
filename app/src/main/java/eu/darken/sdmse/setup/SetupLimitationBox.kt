@@ -26,7 +26,8 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 /**
  * Highlighted hint for setup states the user can't (fully) fix themselves, e.g. OS restrictions or device
  * limitations. Actions stack vertically; long button labels must not wrap. Callers with several short-labeled
- * actions can place their own Row inside the slot.
+ * actions can place their own Row inside the slot. The action slot is optional: pass no actions for states
+ * that only need explaining.
  */
 @Composable
 internal fun SetupLimitationBox(
@@ -34,7 +35,7 @@ internal fun SetupLimitationBox(
     body: String,
     modifier: Modifier = Modifier,
     body2: String? = null,
-    actions: @Composable ColumnScope.() -> Unit,
+    actions: (@Composable ColumnScope.() -> Unit)? = null,
 ) {
     Column(
         modifier = modifier
@@ -71,13 +72,17 @@ internal fun SetupLimitationBox(
                 color = Color.Unspecified,
             )
         }
-        Column(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 8.dp),
-            verticalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            actions()
+        // Skipped entirely when there are no actions: the Column's top padding would otherwise
+        // leave a gap below the body.
+        actions?.let {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp),
+            ) {
+                it()
+            }
         }
     }
 }
