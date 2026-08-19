@@ -9,6 +9,7 @@ import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AdminPanelSettings
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
@@ -25,11 +26,13 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
 import eu.darken.sdmse.setup.SetupLimitationBox
+import eu.darken.sdmse.common.R as CommonR
 
 data class RootSetupCardItem(
     override val state: RootSetupModule.Result,
     val onToggleUseRoot: (Boolean?) -> Unit,
     val onHelp: () -> Unit,
+    val onRetry: () -> Unit,
 ) : SetupCardItem
 
 @Composable
@@ -52,10 +55,13 @@ internal fun RootSetupCard(
         )
         if (item.state.useRoot == true) {
             val ready = item.state.ourService
-            // A known root manager is installed but our service never came up: SD Maid asked for root
-            // and didn't get it, which is worth explaining. Without a root manager (isInstalled == false)
-            // there is nothing the user can act on here, so that case keeps the plain one-liner.
-            val failed = item.state.isInstalled && !item.state.ourService
+            // SD Maid asked for root and didn't get it, which is worth explaining and retrying.
+            // Whether a known root manager is installed only picks the wording: hidden or built-in
+            // root shows up as no manager at all.
+            // Result.isComplete deliberately stays as it is: treating "opted into root that does not
+            // work" as incomplete would strand every user who picks "Try to use root access" on an
+            // ordinary unrooted phone, so this box can render on a module that reports itself complete.
+            val failed = item.state.useRoot == true && !item.state.ourService
 
             if (!failed) {
                 // The probe has settled by the time we render a Result (Loading shows a spinner card
@@ -81,12 +87,25 @@ internal fun RootSetupCard(
                 )
             } else {
                 // Start aligned, multi-line explanation instead of the centred one-liner, matching how
-                // the Shizuku card presents its settled failure. No actions: retrying is the root
-                // manager's job, and the card header already carries the help icon.
+                // the Shizuku card presents its settled failure. No help button of its own: the card
+                // header already carries a help icon pointing at the same wiki page.
                 SetupLimitationBox(
                     title = stringResource(R.string.setup_root_state_failed_title),
-                    body = stringResource(R.string.setup_root_state_failed_body),
-                )
+                    body = stringResource(
+                        if (item.state.isInstalled) R.string.setup_root_state_failed_body
+                        else R.string.setup_root_state_failed_body_nomanager,
+                    ),
+                ) {
+                    // No enabled guard: a refresh drives accessState to Checking, the module maps
+                    // that to Loading, and the whole card is replaced by a loading card while the
+                    // probe runs.
+                    Button(
+                        onClick = item.onRetry,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Text(stringResource(CommonR.string.general_retry_action))
+                    }
+                }
             }
         }
         Column(
@@ -158,6 +177,7 @@ private fun RootSetupCardPreview() {
                 ),
                 onToggleUseRoot = {},
                 onHelp = {},
+                onRetry = {},
             ),
         )
     }
@@ -176,6 +196,26 @@ private fun RootSetupCardFailedPreview() {
                 ),
                 onToggleUseRoot = {},
                 onHelp = {},
+                onRetry = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun RootSetupCardFailedNoManagerPreview() {
+    PreviewWrapper {
+        RootSetupCard(
+            item = RootSetupCardItem(
+                state = RootSetupModule.Result(
+                    useRoot = true,
+                    isInstalled = false,
+                    ourService = false,
+                ),
+                onToggleUseRoot = {},
+                onHelp = {},
+                onRetry = {},
             ),
         )
     }
