@@ -11,6 +11,8 @@ data class DailyTrend(
     val bytesPerDay: Long,
     /** Number of distinct calendar day buckets that contributed a reading. */
     val observedDays: Int,
+    /** Number of consecutive bucket pairs that actually yielded a rate, i.e. the sample size. */
+    val usableRateCount: Int,
     /** Calendar days between the first and the last bucket. */
     val elapsedDays: Long,
     /** Largest hole between two consecutive buckets, in days. */
