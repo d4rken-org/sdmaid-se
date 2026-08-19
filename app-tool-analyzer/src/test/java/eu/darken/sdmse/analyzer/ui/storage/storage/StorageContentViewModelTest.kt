@@ -3,7 +3,9 @@ package eu.darken.sdmse.analyzer.ui.storage.storage
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
+import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.common.ca.toCaString
@@ -46,25 +48,31 @@ class StorageContentViewModelTest : BaseTest() {
         setupIncomplete = false,
     )
 
-    private fun userEntry(
-        handleId: Int,
-        groupId: ContentGroup.Id,
-        isBrowsable: Boolean,
-    ) = OtherUsersCategory.UserEntry(
-        handle = UserHandle2(handleId),
-        label = "User-$handleId".toCaString(),
-        groupId = groupId,
-        appDataKnown = true,
-        sharedMediaKnown = isBrowsable,
-        isBrowsable = isBrowsable,
+    private data class UserSpec(
+        val handleId: Int,
+        val isBrowsable: Boolean = true,
+        val appDataKnown: Boolean = true,
+        val sharedMediaKnown: Boolean = true,
     )
 
-    private fun TestScope.harness(category: OtherUsersCategory): StorageContentViewModel {
+    private fun userEntry(
+        spec: UserSpec,
+        groupId: ContentGroup.Id,
+    ) = OtherUsersCategory.UserEntry(
+        handle = UserHandle2(spec.handleId),
+        label = "User-${spec.handleId}".toCaString(),
+        groupId = groupId,
+        appDataKnown = spec.appDataKnown,
+        sharedMediaKnown = spec.sharedMediaKnown,
+        isBrowsable = spec.isBrowsable,
+    )
+
+    private fun TestScope.harness(vararg categories: ContentCategory): StorageContentViewModel {
         val dataFlow = MutableStateFlow(
             Analyzer.Data(
                 storages = setOf(storage()),
-                categories = mapOf(storageId to listOf(category)),
-                groups = category.groups.associateBy { it.id },
+                categories = mapOf(storageId to categories.toList()),
+                groups = categories.flatMap { it.groups }.associateBy { it.id },
             ),
         )
         val analyzer = mockk<Analyzer>(relaxed = true).apply {
@@ -100,15 +108,31 @@ class StorageContentViewModelTest : BaseTest() {
         return CollectedNavEvents(list, job)
     }
 
-    private fun category(vararg users: Pair<Int, Boolean>): OtherUsersCategory {
-        val groups = users.map { (handleId, _) -> handleId to ContentGroup(label = "User-$handleId".toCaString()) }
+    private fun category(vararg users: Pair<Int, Boolean>): OtherUsersCategory = categoryOf(
+        *users
+            .map { (handleId, browsable) ->
+                UserSpec(handleId = handleId, isBrowsable = browsable, sharedMediaKnown = browsable)
+            }
+            .toTypedArray(),
+    )
+
+    private fun categoryOf(vararg specs: UserSpec): OtherUsersCategory {
+        val groups = specs.map { ContentGroup(label = "User-${it.handleId}".toCaString()) }
         return OtherUsersCategory(
             storageId = storageId,
-            groups = groups.map { it.second },
-            users = users.mapIndexed { index, (handleId, browsable) ->
-                userEntry(handleId, groups[index].second.id, browsable)
-            },
+            groups = groups,
+            users = specs.mapIndexed { index, spec -> userEntry(spec, groups[index].id) },
         )
+    }
+
+    private fun systemCategory() = SystemCategory(
+        storageId = storageId,
+        groups = listOf(ContentGroup(label = "System".toCaString())),
+    )
+
+    private fun StorageContentViewModel.systemRow(): StorageContentViewModel.Row.System {
+        val ready = state.value as StorageContentViewModel.State.Ready
+        return ready.rows!!.filterIsInstance<StorageContentViewModel.Row.System>().single()
     }
 
     @Test
@@ -155,5 +179,45 @@ class StorageContentViewModelTest : BaseTest() {
 
         events.list.shouldBeEmpty()
         events.cancel()
+    }
+
+    @Test
+    fun `system row admits other users when shared media is unmeasured`() = runTest2 {
+        // Stats tier: app data is exact, shared media isn't measured at all.
+        val others = categoryOf(UserSpec(handleId = 10, sharedMediaKnown = false))
+        val vm = harness(systemCategory(), others)
+        advanceUntilIdle()
+
+        vm.systemRow().hidesOtherUsers shouldBe true
+    }
+
+    @Test
+    fun `system row admits other users when app data is unmeasured`() = runTest2 {
+        val others = categoryOf(
+            UserSpec(handleId = 10),
+            UserSpec(handleId = 11, isBrowsable = false, appDataKnown = false, sharedMediaKnown = false),
+        )
+        val vm = harness(systemCategory(), others)
+        advanceUntilIdle()
+
+        vm.systemRow().hidesOtherUsers shouldBe true
+    }
+
+    @Test
+    fun `system row stays quiet when every other user is fully measured`() = runTest2 {
+        // Root tier: both flags are true for every user, so there is nothing hidden to admit.
+        val others = categoryOf(UserSpec(handleId = 10), UserSpec(handleId = 11))
+        val vm = harness(systemCategory(), others)
+        advanceUntilIdle()
+
+        vm.systemRow().hidesOtherUsers shouldBe false
+    }
+
+    @Test
+    fun `system row stays quiet without other users`() = runTest2 {
+        val vm = harness(systemCategory())
+        advanceUntilIdle()
+
+        vm.systemRow().hidesOtherUsers shouldBe false
     }
 }
