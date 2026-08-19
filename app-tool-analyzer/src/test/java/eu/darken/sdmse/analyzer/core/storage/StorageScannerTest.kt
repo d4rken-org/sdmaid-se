@@ -5,6 +5,7 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.VolumeInfoX
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserProfile2
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -58,17 +59,25 @@ class StorageScannerTest : BaseTest() {
     }
 
     @Test
-    fun `unmounted, non-emulated and non-primary volumes are ignored`() {
+    fun `non-emulated and non-primary volumes are ignored`() {
         StorageScanner.otherUserHandles(
             storageType = DeviceStorage.Type.PRIMARY,
             volumes = listOf(
-                volume(mountUserId = 10, isMounted = false),
                 volume(mountUserId = 11, isEmulated = false),
                 volume(mountUserId = 12, isPrimary = false),
                 volume(mountUserId = 13, isPrimary = null),
             ),
             currentUser = currentUser,
         ).shouldBeEmpty()
+    }
+
+    @Test
+    fun `an unmounted volume still counts, a stopped user still occupies storage`() {
+        StorageScanner.otherUserHandles(
+            storageType = DeviceStorage.Type.PRIMARY,
+            volumes = listOf(volume(mountUserId = 10, isMounted = false)),
+            currentUser = currentUser,
+        ) shouldBe setOf(UserHandle2(10))
     }
 
     @Test
@@ -86,6 +95,70 @@ class StorageScannerTest : BaseTest() {
         val volumes = listOf(volume(mountUserId = 10))
         StorageScanner.otherUserHandles(DeviceStorage.Type.SECONDARY, volumes, currentUser).shouldBeEmpty()
         StorageScanner.otherUserHandles(DeviceStorage.Type.PORTABLE, volumes, currentUser).shouldBeEmpty()
+    }
+
+    @Test
+    fun `a user known only to the volume list is included`() {
+        StorageScanner.mergeOtherUsers(
+            storageType = DeviceStorage.Type.PRIMARY,
+            volumes = listOf(volume(mountUserId = 10)),
+            named = emptySet(),
+            currentUser = currentUser,
+        ) shouldBe setOf(UserProfile2(handle = UserHandle2(10)))
+    }
+
+    @Test
+    fun `a user known only to the user list is included`() {
+        // API 27/28 expose a single `emulated` volume with mountUserId=-1, gating on the volume
+        // list alone hides every secondary user there.
+        StorageScanner.mergeOtherUsers(
+            storageType = DeviceStorage.Type.PRIMARY,
+            volumes = listOf(volume(mountUserId = -1)),
+            named = setOf(UserProfile2(handle = UserHandle2(10), label = "Second user")),
+            currentUser = currentUser,
+        ) shouldBe setOf(UserProfile2(handle = UserHandle2(10), label = "Second user"))
+    }
+
+    @Test
+    fun `both sources are unioned and names win over bare handles`() {
+        StorageScanner.mergeOtherUsers(
+            storageType = DeviceStorage.Type.PRIMARY,
+            volumes = listOf(volume(mountUserId = 10), volume(mountUserId = 11)),
+            named = setOf(UserProfile2(handle = UserHandle2(10), label = "Second user")),
+            currentUser = currentUser,
+        ) shouldBe setOf(
+            UserProfile2(handle = UserHandle2(10), label = "Second user"),
+            UserProfile2(handle = UserHandle2(11)),
+        )
+    }
+
+    @Test
+    fun `the current user is not an other user, from either source`() {
+        StorageScanner.mergeOtherUsers(
+            storageType = DeviceStorage.Type.PRIMARY,
+            volumes = listOf(volume(mountUserId = 0)),
+            named = setOf(UserProfile2(handle = currentUser, label = "Owner")),
+            currentUser = currentUser,
+        ).shouldBeEmpty()
+    }
+
+    @Test
+    fun `negative handles from either source are not users`() {
+        // -1 is the "unknown" sentinel of the pre-API29 emulated volume, -10000 the private volume.
+        StorageScanner.mergeOtherUsers(
+            storageType = DeviceStorage.Type.PRIMARY,
+            volumes = listOf(volume(mountUserId = -10000)),
+            named = setOf(UserProfile2(handle = UserHandle2(-1), label = "System")),
+            currentUser = currentUser,
+        ).shouldBeEmpty()
+    }
+
+    @Test
+    fun `secondary and portable storage have no other users at all`() {
+        val volumes = listOf(volume(mountUserId = 10))
+        val named = setOf(UserProfile2(handle = UserHandle2(11)))
+        StorageScanner.mergeOtherUsers(DeviceStorage.Type.SECONDARY, volumes, named, currentUser).shouldBeEmpty()
+        StorageScanner.mergeOtherUsers(DeviceStorage.Type.PORTABLE, volumes, named, currentUser).shouldBeEmpty()
     }
 
     @Test
