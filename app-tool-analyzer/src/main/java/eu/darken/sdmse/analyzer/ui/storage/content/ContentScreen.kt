@@ -325,14 +325,16 @@ internal fun ContentScreen(
                                         onClick = { pendingDelete = selectedItems },
                                     )
                                 }
-                                SdmTooltipIconButton(
-                                    icon = SdmIcons.ShieldAdd,
-                                    label = stringResource(CommonR.string.general_exclude_action),
-                                    onClick = {
-                                        onExcludeSelected(selectedItems)
-                                        selection.clear()
-                                    },
-                                )
+                                if (!s.isReadOnly) {
+                                    SdmTooltipIconButton(
+                                        icon = SdmIcons.ShieldAdd,
+                                        label = stringResource(CommonR.string.general_exclude_action),
+                                        onClick = {
+                                            onExcludeSelected(selectedItems)
+                                            selection.clear()
+                                        },
+                                    )
+                                }
                                 if (!s.isReadOnly && noneInaccessible) {
                                     SdmTooltipIconButton(
                                         icon = Icons.TwoTone.Filter,
