@@ -32,6 +32,7 @@ import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.core.taskmanager.TaskResultNotifier
+import eu.darken.sdmse.stats.core.LowSpaceMonitor
 import eu.darken.sdmse.stats.core.SpaceMonitorControl
 import eu.darken.sdmse.stats.core.TaskStatsCoordinator
 import eu.darken.sdmse.widget.WidgetRefreshCoordinator
@@ -61,6 +62,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var exitInfoLogger: ExitInfoLogger
     @Inject lateinit var shortcutManager: ShortcutManager
     @Inject lateinit var spaceMonitorControl: SpaceMonitorControl
+    @Inject lateinit var lowSpaceMonitor: LowSpaceMonitor
     @Inject lateinit var taskStatsCoordinator: TaskStatsCoordinator
     @Inject lateinit var taskResultNotifier: TaskResultNotifier
     @Inject lateinit var storageRescue: StorageRescue
@@ -122,6 +124,7 @@ open class App : Application(), Configuration.Provider {
         taskStatsCoordinator.start()
         taskResultNotifier.start()
         spaceMonitorControl.start()
+        lowSpaceMonitor.start(appScope)
         widgetRefreshCoordinator.start()
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
