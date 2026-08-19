@@ -43,6 +43,10 @@ class LowSpaceNotificationsTest : BaseTest() {
         .shadowOf(notificationManager)
         .getNotification(LowSpaceNotifications.NOTIFICATION_ID)
 
+    private fun Notification.title(): String = extras.getCharSequence(Notification.EXTRA_TITLE).toString()
+
+    private fun Notification.body(): String = extras.getCharSequence(Notification.EXTRA_TEXT).toString()
+
     @Test
     fun `the content intent does not collapse into the task manager PendingIntents`() {
         // filterEquals ignores extras, and TaskWorkerNotifications / TaskResultNotifications both
@@ -63,23 +67,28 @@ class LowSpaceNotificationsTest : BaseTest() {
     }
 
     @Test
-    fun `the predictive body renders the day count`() {
+    fun `the predictive variant warns about filling up and renders the day count`() {
         notifications().notifyLowSpace(
             forecast = StorageForecast.Filling(daysUntilFloor = 3, bytesPerDay = 1_000_000_000L, isUrgent = true),
             freeBytes = 3_000_000_000L,
         ) shouldBe LowSpaceNotifications.PostResult.POSTED
 
-        lastPosted().extras.getCharSequence(Notification.EXTRA_TEXT).toString() shouldContain "3 days"
+        val posted = lastPosted()
+        posted.title() shouldBe "Storage is filling up"
+        posted.body() shouldContain "3 days"
     }
 
     @Test
-    fun `the below-floor body says the storage is running out`() {
+    fun `the below-floor variant warns that storage is almost full and says it is running out`() {
+        // A trend title ("filling up") over a "running out" body understates the emergency.
         notifications().notifyLowSpace(
             forecast = StorageForecast.BelowFloor,
             freeBytes = 1_000_000_000L,
         ) shouldBe LowSpaceNotifications.PostResult.POSTED
 
-        lastPosted().extras.getCharSequence(Notification.EXTRA_TEXT).toString() shouldContain "running out"
+        val posted = lastPosted()
+        posted.title() shouldBe "Storage is almost full"
+        posted.body() shouldContain "running out"
     }
 
     @Test

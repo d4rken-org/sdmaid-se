@@ -78,18 +78,24 @@ class LowSpaceNotifications @Inject constructor(
         }
 
         val freeText = Formatter.formatShortFileSize(context, freeBytes)
-        val body = when (forecast) {
+        // Title and body are picked together: a trend title over an "out of space" body understates
+        // the situation the body describes.
+        val (title, body) = when (forecast) {
             is StorageForecast.Filling -> {
                 val days = forecast.daysUntilFloor.coerceIn(0L, Int.MAX_VALUE.toLong()).toInt()
-                context.getQuantityString2(
+                val bodyText = context.getQuantityString2(
                     R.plurals.stats_lowspace_notification_forecast_body,
                     days,
                     days,
                     freeText,
                 )
+                context.getString(R.string.stats_lowspace_notification_title) to bodyText
             }
 
-            else -> context.getString(R.string.stats_lowspace_notification_low_body, freeText)
+            else -> {
+                val bodyText = context.getString(R.string.stats_lowspace_notification_low_body, freeText)
+                context.getString(R.string.stats_lowspace_notification_low_title) to bodyText
+            }
         }
 
         // Fresh builder per call: a shared builder would leak style/field state between posts.
@@ -99,7 +105,7 @@ class LowSpaceNotifications @Inject constructor(
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setSmallIcon(UiR.drawable.ic_notification_mascot_24)
             .setAutoCancel(true)
-            .setContentTitle(context.getString(R.string.stats_lowspace_notification_title))
+            .setContentTitle(title)
             .setContentText(body)
             .setStyle(BigTextStyle().bigText(body))
             .build()
