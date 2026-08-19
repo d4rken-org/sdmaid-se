@@ -71,17 +71,25 @@ class ShortcutManager @Inject constructor(
     }
 
     /**
-     * Emits once on collection, then on every configuration change. Registered against the
-     * application context rather than listening for ACTION_LOCALE_CHANGED: the app's own per-app
-     * language picker never broadcasts that, but it does deliver a configuration change.
+     * Emits once on collection, then on every LOCALE change. We listen for configuration changes
+     * rather than ACTION_LOCALE_CHANGED because the app's own per-app language picker never
+     * broadcasts that, but it does deliver a configuration change.
+     *
+     * Configuration changes that leave the locales alone (rotation, dark mode, font scale) are
+     * dropped: only the locales can alter what we publish, since the labels are resolved through
+     * getString and the icons are resource ids the launcher resolves itself. Republishing on those
+     * would rebuild every ShortcutInfo for a binder call that changes nothing.
      */
     private fun configurationGenerations(): Flow<Int> = callbackFlow {
         var generation = 0
+        var lastLocales = context.resources.configuration.locales
         send(generation)
         val callbacks = object : ComponentCallbacks {
             override fun onConfigurationChanged(newConfig: Configuration) {
+                if (newConfig.locales == lastLocales) return
+                lastLocales = newConfig.locales
                 generation++
-                log(TAG) { "onConfigurationChanged(): generation=$generation" }
+                log(TAG) { "onConfigurationChanged(): locales=$lastLocales, generation=$generation" }
                 trySend(generation)
             }
 
