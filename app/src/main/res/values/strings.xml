@@ -448,4 +448,13 @@
     <string name="backup_restore_warn_history_body">This backup\'s history data (statistics, compression history, swipe sessions) is from a different app version and can\'t be restored. Everything else will be restored.</string>
     <string name="backup_restore_ack_understand">I understand and want to continue</string>
     <string name="backup_restore_action_restore">Restore</string>
+
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Storage warnings</string>
+    <string name="stats_lowspace_notification_title">Storage is filling up</string>
+    <string name="stats_lowspace_notification_low_body">%1$s free. Storage is running out.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">About %1$d day of space left at this rate. %2$s free.</item>
+        <item quantity="other">About %1$d days of space left at this rate. %2$s free.</item>
+    </plurals>
 </resources>
