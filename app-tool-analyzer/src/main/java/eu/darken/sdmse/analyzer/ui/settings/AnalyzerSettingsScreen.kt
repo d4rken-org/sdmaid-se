@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.twotone.NotificationImportant
 import androidx.compose.material.icons.twotone.Storage
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -26,6 +27,7 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
+import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
 import eu.darken.sdmse.common.compose.settings.dialogs.SizeInputDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -44,6 +46,8 @@ fun AnalyzerSettingsScreenHost(
         state = state,
         onNavigateUp = vm::navUp,
         onThresholdChanged = vm::setThreshold,
+        onNotificationChanged = vm::setNotificationEnabled,
+        onUpgradeClick = vm::onUpgradeClick,
     )
 }
 
@@ -52,6 +56,8 @@ internal fun AnalyzerSettingsScreen(
     state: AnalyzerSettingsViewModel.State = AnalyzerSettingsViewModel.State(),
     onNavigateUp: () -> Unit = {},
     onThresholdChanged: (Long?) -> Unit = {},
+    onNotificationChanged: (Boolean) -> Unit = {},
+    onUpgradeClick: () -> Unit = {},
 ) {
     var showThresholdDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
@@ -117,6 +123,18 @@ internal fun AnalyzerSettingsScreen(
                     onClick = { showThresholdDialog = true },
                 )
             }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.NotificationImportant,
+                    title = stringResource(R.string.analyzer_settings_lowspace_notification_title),
+                    subtitle = stringResource(R.string.analyzer_settings_lowspace_notification_desc),
+                    // Unchecked while not Pro regardless of the stored value.
+                    checked = state.isPro && state.notificationEnabled,
+                    onCheckedChange = onNotificationChanged,
+                    requiresUpgrade = !state.isPro,
+                    onUpgrade = onUpgradeClick,
+                )
+            }
         }
     }
 }
@@ -144,6 +162,22 @@ private fun AnalyzerSettingsScreenCustomPreview() {
                 customThresholdBytes = 10L * 1000 * 1000 * 1000,
                 primaryCapacityBytes = 128L * 1000 * 1000 * 1000,
                 effectiveThresholdBytes = 10L * 1000 * 1000 * 1000,
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AnalyzerSettingsScreenProPreview() {
+    PreviewWrapper {
+        AnalyzerSettingsScreen(
+            state = AnalyzerSettingsViewModel.State(
+                customThresholdBytes = null,
+                primaryCapacityBytes = 128L * 1000 * 1000 * 1000,
+                effectiveThresholdBytes = LowStorage.AUTO_MAX_BYTES,
+                notificationEnabled = true,
+                isPro = true,
             ),
         )
     }
