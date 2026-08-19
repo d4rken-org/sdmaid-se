@@ -549,6 +549,7 @@ private fun ContentScreenInfoBannerListPreview() {
                     progress = null,
                     isReadOnly = true,
                     infoBanner = R.string.analyzer_storage_content_type_otherusers_info.toCaString(),
+                    externalFolder = null,
                 ),
             ),
         )
