@@ -7,6 +7,7 @@ import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.FileType
@@ -113,3 +114,64 @@ internal fun previewPkgStat(
     appMedia = appMedia,
     extraData = extraData,
 )
+
+/**
+ * Covers all three per-user completeness states at once: fully measured and browsable, app data
+ * known but shared files missing, and name only.
+ */
+internal fun previewOtherUsersCategory(
+    storageId: StorageId = previewStorageId(),
+): OtherUsersCategory {
+    val measured = previewContentGroup(
+        label = "Second user",
+        contents = listOf(
+            previewContentItem(
+                segments = arrayOf("data", "media", "10", "DCIM", "vacation.mp4"),
+                size = 3L * 1024 * 1024 * 1024,
+            ),
+        ),
+    )
+    val statsOnly = previewContentGroup(
+        label = "Work profile",
+        contents = listOf(
+            previewContentItem(
+                segments = arrayOf("data", "user", "11"),
+                type = FileType.DIRECTORY,
+                size = 800L * 1024 * 1024,
+                inaccessible = true,
+                withLookup = false,
+            ),
+        ),
+    )
+    val unknown = previewContentGroup(label = "Guest", contents = emptyList())
+    return OtherUsersCategory(
+        storageId = storageId,
+        groups = listOf(measured, statsOnly, unknown),
+        users = listOf(
+            OtherUsersCategory.UserEntry(
+                handle = UserHandle2(handleId = 10),
+                label = "Second user".toCaString(),
+                groupId = measured.id,
+                appDataKnown = true,
+                sharedMediaKnown = true,
+                isBrowsable = true,
+            ),
+            OtherUsersCategory.UserEntry(
+                handle = UserHandle2(handleId = 11),
+                label = "Work profile".toCaString(),
+                groupId = statsOnly.id,
+                appDataKnown = true,
+                sharedMediaKnown = false,
+                isBrowsable = false,
+            ),
+            OtherUsersCategory.UserEntry(
+                handle = UserHandle2(handleId = 12),
+                label = "Guest".toCaString(),
+                groupId = unknown.id,
+                appDataKnown = false,
+                sharedMediaKnown = false,
+                isBrowsable = false,
+            ),
+        ),
+    )
+}

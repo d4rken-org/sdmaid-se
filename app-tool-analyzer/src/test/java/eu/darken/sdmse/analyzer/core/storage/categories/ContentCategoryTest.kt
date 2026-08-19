@@ -3,6 +3,7 @@ package eu.darken.sdmse.analyzer.core.storage.categories
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.storage.StorageId
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -36,6 +37,31 @@ class ContentCategoryTest : BaseTest() {
         val category = MediaCategory(storageId = storageId, groups = setOf(group))
         category.isReadOnly shouldBe false
         category.isContentReadOnly shouldBe false
+    }
+
+    @Test
+    fun `other users content is always read-only`() {
+        OtherUsersCategory(
+            storageId = storageId,
+            groups = setOf(group),
+            users = listOf(
+                OtherUsersCategory.UserEntry(
+                    handle = UserHandle2(10),
+                    label = "Second user".toCaString(),
+                    groupId = group.id,
+                    appDataKnown = true,
+                    sharedMediaKnown = true,
+                    isBrowsable = true,
+                ),
+            ),
+        ).isContentReadOnly shouldBe true
+    }
+
+    @Test
+    fun `other users space falls back to the group sizes without an override`() {
+        val category = OtherUsersCategory(storageId = storageId, groups = setOf(group), users = emptyList())
+        category.spaceUsed shouldBe group.groupSize
+        category.copy(spaceUsedOverride = 1234L).spaceUsed shouldBe 1234L
     }
 
     @Test

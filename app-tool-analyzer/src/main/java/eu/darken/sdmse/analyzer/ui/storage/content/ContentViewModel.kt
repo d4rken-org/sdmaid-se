@@ -10,6 +10,7 @@ import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
 import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
@@ -102,6 +103,12 @@ class ContentViewModel @Inject constructor(
             ?: false
     }
 
+    private fun Analyzer.Data.isOtherUserGroup(route: ContentRoute): Boolean {
+        return categories[route.storageId]
+            ?.any { it is OtherUsersCategory && it.ownsGroup(route.groupId) }
+            ?: false
+    }
+
     private fun Analyzer.Data.isReadOnlyGroup(route: ContentRoute): Boolean {
         return categories[route.storageId]
             ?.any { it.ownsGroup(route.groupId) && it.isContentReadOnly }
@@ -127,6 +134,7 @@ class ContentViewModel @Inject constructor(
                 }
                 val isReadOnly = data.isReadOnlyGroup(route)
                 val isSystemGroup = data.isSystemGroup(route)
+                val isOtherUserGroup = data.isOtherUserGroup(route)
                 val pkgStat = route.installId?.let { installId ->
                     data.categories[route.storageId]
                         ?.filterIsInstance<AppCategory>()?.singleOrNull()
@@ -143,6 +151,9 @@ class ContentViewModel @Inject constructor(
                     // System content: top-level banner only, mirroring the system category presentation.
                     isSystemGroup -> R.string.analyzer_storage_content_type_system_info.toCaString()
                         .takeIf { currentLevel == null }
+                    // Another user's storage: read-only for a different reason than degraded media,
+                    // so it must not inherit the media wording below.
+                    isOtherUserGroup -> R.string.analyzer_storage_content_type_otherusers_info.toCaString()
                     // Degraded read-only media: keep the banner visible while browsing too, since the group is a
                     // single storage-root item the user must open before seeing any folders.
                     isReadOnly -> R.string.analyzer_storage_content_type_media_readonly_info.toCaString()
