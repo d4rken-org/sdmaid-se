@@ -1,6 +1,7 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.Context
+import android.content.Intent
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
@@ -12,6 +13,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
@@ -26,11 +28,13 @@ import eu.darken.sdmse.common.ui.LayoutMode
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
@@ -63,11 +67,11 @@ class ContentViewModelTest : BaseTest() {
         setupIncomplete = false,
     )
 
-    private fun dirItem(name: String) = ContentItem(
+    private fun dirItem(name: String, type: FileType = FileType.DIRECTORY) = ContentItem(
         path = LocalPath.build("storage", "emulated", "0", name),
         lookup = null,
         itemSize = 0L,
-        type = FileType.DIRECTORY,
+        type = type,
         children = emptySet(),
         inaccessible = false,
     )
@@ -77,6 +81,7 @@ class ContentViewModelTest : BaseTest() {
         val analyzer: Analyzer,
         val swiperSessionCreator: eu.darken.sdmse.common.files.SwiperSessionCreator,
         val filterEditorOptionsCreator: eu.darken.sdmse.common.files.FilterEditorOptionsCreator,
+        val viewIntentTool: ViewIntentTool,
     )
 
     private fun TestScope.harness(
@@ -100,12 +105,13 @@ class ContentViewModelTest : BaseTest() {
         val swiperSessionCreator = mockk<eu.darken.sdmse.common.files.SwiperSessionCreator>(relaxed = true)
         val filterEditorOptionsCreator =
             mockk<eu.darken.sdmse.common.files.FilterEditorOptionsCreator>(relaxed = true)
+        val viewIntentTool = mockk<ViewIntentTool>(relaxed = true)
 
         val vm = ContentViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             analyzer = analyzer,
             analyzerSettings = settings,
-            viewIntentTool = mockk(relaxed = true),
+            viewIntentTool = viewIntentTool,
             exclusionManager = mockk(relaxed = true),
             filterEditorOptionsCreator = filterEditorOptionsCreator,
             upgradeRepo = mockk(relaxed = true),
@@ -116,7 +122,7 @@ class ContentViewModelTest : BaseTest() {
         // safeStateIn uses WhileSubscribed(5000) — keep a subscriber alive for the test scope's lifetime.
         backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
 
-        return Harness(vm, analyzer, swiperSessionCreator, filterEditorOptionsCreator)
+        return Harness(vm, analyzer, swiperSessionCreator, filterEditorOptionsCreator, viewIntentTool)
     }
 
     private fun ContentViewModel.readyState(): ContentViewModel.State.Ready {
@@ -241,5 +247,103 @@ class ContentViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 0) { h.swiperSessionCreator.createSession(any()) }
+    }
+
+    @Test
+    fun `there is no external folder at the group root`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.viewIntentTool.canOpenFolder(any()) } returns true
+        advanceUntilIdle()
+
+        h.vm.readyState().externalFolder.shouldBeNull()
+    }
+
+    @Test
+    fun `the browsed folder is offered when it can be opened externally`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.viewIntentTool.canOpenFolder(child.path) } returns true
+        advanceUntilIdle()
+
+        h.vm.onItemClick(ContentViewModel.Item(parent = null, content = child, sizeRatio = null))
+        advanceUntilIdle()
+
+        h.vm.readyState().externalFolder shouldBe child.path
+    }
+
+    @Test
+    fun `the browsed folder is not offered when it can not be opened externally`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.viewIntentTool.canOpenFolder(child.path) } returns false
+        advanceUntilIdle()
+
+        h.vm.onItemClick(ContentViewModel.Item(parent = null, content = child, sizeRatio = null))
+        advanceUntilIdle()
+
+        h.vm.readyState().externalFolder.shouldBeNull()
+    }
+
+    @Test
+    fun `symbolic links are never offered as external folders`() = runTest2 {
+        val child = dirItem("link", type = FileType.SYMBOLIC_LINK)
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.viewIntentTool.canOpenFolder(any()) } returns true
+        advanceUntilIdle()
+
+        h.vm.onItemClick(ContentViewModel.Item(parent = null, content = child, sizeRatio = null))
+        advanceUntilIdle()
+
+        h.vm.readyState().externalFolder.shouldBeNull()
+    }
+
+    @Test
+    fun `unknown item types are never offered as external folders`() = runTest2 {
+        val child = dirItem("mystery", type = FileType.UNKNOWN)
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.viewIntentTool.canOpenFolder(any()) } returns true
+        advanceUntilIdle()
+
+        h.vm.onItemClick(ContentViewModel.Item(parent = null, content = child, sizeRatio = null))
+        advanceUntilIdle()
+
+        h.vm.readyState().externalFolder.shouldBeNull()
+    }
+
+    @Test
+    fun `opening externally emits the intent from the view intent tool`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        val intent = mockk<Intent>()
+        coEvery { h.viewIntentTool.createForFolder(child.path) } returns intent
+        advanceUntilIdle()
+
+        h.vm.onOpenExternally(child.path)
+        advanceUntilIdle()
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<ContentViewModel.Event.OpenContent>()
+        event.intent shouldBe intent
+    }
+
+    @Test
+    fun `opening externally reports when no app can handle the folder`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.viewIntentTool.createForFolder(child.path) } returns null
+        advanceUntilIdle()
+
+        h.vm.onOpenExternally(child.path)
+        advanceUntilIdle()
+
+        h.vm.events.first() shouldBe ContentViewModel.Event.NoExternalAppFound
     }
 }

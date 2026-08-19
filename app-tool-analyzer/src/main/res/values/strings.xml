@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">No direct access available</string>
     <string name="analyzer_content_create_swiper_session_action">Create Swiper session</string>
+    <string name="analyzer_content_open_externally_action">Open in file manager</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper session created with %d item</item>
         <item quantity="other">Swiper session created with %d items</item>
