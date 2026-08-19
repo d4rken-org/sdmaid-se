@@ -70,7 +70,10 @@ class ViewIntentToolTest : BaseTest() {
             val expected = "content://$STORAGE_AUTHORITY/document/primary%3ADCIM%2FCamera".toUri()
             context.registerFolderHandler(expected)
 
-            val target = subject.createForFolder(localPath).shouldNotBeNull().targetIntent()
+            val chooser = subject.createForFolder(localPath).shouldNotBeNull()
+            chooser.getStringExtra(Intent.EXTRA_TITLE) shouldBe "/storage/emulated/0/DCIM/Camera"
+
+            val target = chooser.targetIntent()
             target.action shouldBe Intent.ACTION_VIEW
             target.data shouldBe expected
             target.type shouldBe DocumentsContract.Document.MIME_TYPE_DIR
@@ -123,8 +126,10 @@ class ViewIntentToolTest : BaseTest() {
             val expected = "content://$STORAGE_AUTHORITY/document/primary%3A".toUri()
             context.registerFolderHandler(expected)
 
-            val target = subject.createForFolder(localPath).shouldNotBeNull().targetIntent()
-            target.data shouldBe expected
+            val chooser = subject.createForFolder(localPath).shouldNotBeNull()
+            chooser.getStringExtra(Intent.EXTRA_TITLE) shouldBe "/storage/emulated/0"
+
+            chooser.targetIntent().data shouldBe expected
 
             subject.canOpenFolder(localPath) shouldBe true
         }
