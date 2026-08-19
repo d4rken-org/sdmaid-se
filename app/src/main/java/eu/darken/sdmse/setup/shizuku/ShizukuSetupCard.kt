@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -23,6 +24,7 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.SetupCardContainer
+import eu.darken.sdmse.setup.SetupLimitationBox
 import eu.darken.sdmse.setup.SetupCardItem
 import eu.darken.sdmse.setup.root.RadioOption
 
@@ -72,34 +74,24 @@ internal fun ShizukuSetupCard(
             // A settled "no", as opposed to "we haven't finished looking". Only this offers a retry:
             // showing one while a probe is still running is what made the card feel dead.
             val failed = item.state.isInstalled && item.state.serviceState.isTerminalFailure
-            Text(
-                text = stringResource(
-                    when {
-                        !item.state.isInstalled -> R.string.setup_shizuku_state_not_installed_label
-                        ready -> R.string.setup_shizuku_state_ready_label
-                        failed -> R.string.setup_shizuku_state_failed_label
-                        else -> R.string.setup_shizuku_state_waiting_label
-                    },
-                ),
-                style = MaterialTheme.typography.labelMedium,
-                color = if (ready) {
-                    MaterialTheme.colorScheme.onSurfaceVariant
-                } else {
-                    MaterialTheme.colorScheme.error
-                },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = 16.dp),
-                textAlign = TextAlign.Center,
-            )
+            val canOpen = item.state.isInstalled && !item.state.isComplete
 
-            if (failed && item.showKnownIssueHint) {
-                // No help button of its own: the card header already carries a help icon pointing at
-                // the same wiki page, and a second affordance for it just crowds the actions below.
+            if (!failed) {
+                // Single short line, so centring reads fine here and matches the other setup cards.
                 Text(
-                    text = stringResource(R.string.setup_shizuku_state_known_issue_hint),
+                    text = stringResource(
+                        when {
+                            !item.state.isInstalled -> R.string.setup_shizuku_state_not_installed_label
+                            ready -> R.string.setup_shizuku_state_ready_label
+                            else -> R.string.setup_shizuku_state_waiting_label
+                        },
+                    ),
                     style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = if (ready) {
+                        MaterialTheme.colorScheme.onSurfaceVariant
+                    } else {
+                        MaterialTheme.colorScheme.error
+                    },
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
@@ -107,28 +99,52 @@ internal fun ShizukuSetupCard(
                 )
             }
 
-            // Retry and "open Shizuku" sit side by side rather than stacked: they are alternatives at
-            // the same level, and stacking read as a queue of steps to work through.
-            val canOpen = item.state.isInstalled && !item.state.isComplete
-            if (failed || canOpen) {
+            if (failed) {
+                // SetupLimitationBox, same as the Automation and Inventory cards use for their own
+                // "this won't work, here is what you can do" states. The explanation and its actions
+                // read as one unit, and the text is start aligned: unlike the one-line states above,
+                // this wraps to several lines, and centring those leaves both edges ragged.
+                SetupLimitationBox(
+                    title = stringResource(R.string.setup_shizuku_state_failed_title),
+                    body = stringResource(R.string.setup_shizuku_state_failed_label),
+                    // No help button of its own: the card header already carries a help icon
+                    // pointing at the same wiki page.
+                    body2 = if (item.showKnownIssueHint) {
+                        stringResource(R.string.setup_shizuku_state_known_issue_hint)
+                    } else {
+                        null
+                    },
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        OutlinedButton(
+                            onClick = item.onOpen,
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Text(stringResource(R.string.setup_shizuku_card_title))
+                        }
+                        Button(
+                            onClick = item.onRetry,
+                            enabled = !item.state.isChecking,
+                            modifier = Modifier.weight(1f),
+                        ) {
+                            Text(stringResource(eu.darken.sdmse.common.R.string.general_retry_action))
+                        }
+                    }
+                }
+            } else if (canOpen) {
+                // Not a failure, so there is nothing to explain and nothing to retry: just the way
+                // over to Shizuku, centred as it has always been.
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                 ) {
-                    if (failed) {
-                        OutlinedButton(
-                            onClick = item.onRetry,
-                            enabled = !item.state.isChecking,
-                        ) {
-                            Text(stringResource(eu.darken.sdmse.common.R.string.general_retry_action))
-                        }
-                    }
-                    if (canOpen) {
-                        OutlinedButton(onClick = item.onOpen) {
-                            Text(stringResource(R.string.setup_shizuku_card_title))
-                        }
+                    OutlinedButton(onClick = item.onOpen) {
+                        Text(stringResource(R.string.setup_shizuku_card_title))
                     }
                 }
             }
