@@ -14,12 +14,16 @@ class AnalyzerSettingsScreenTest : BaseComposeRobolectricTest() {
     private fun ComposeContentTestRule.setSettingsScreen(
         state: AnalyzerSettingsViewModel.State,
         onThresholdChanged: (Long?) -> Unit = {},
+        onNotificationChanged: (Boolean) -> Unit = {},
+        onUpgradeClick: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
                 AnalyzerSettingsScreen(
                     state = state,
                     onThresholdChanged = onThresholdChanged,
+                    onNotificationChanged = onNotificationChanged,
+                    onUpgradeClick = onUpgradeClick,
                 )
             }
         }
@@ -127,6 +131,45 @@ class AnalyzerSettingsScreenTest : BaseComposeRobolectricTest() {
 
         calls shouldBe 0
         composeRule.onNodeWithText("Save").assertDoesNotExist()
+    }
+
+    @Test
+    fun `the low space warning row is visible`() {
+        composeRule.setSettingsScreen(AnalyzerSettingsViewModel.State())
+
+        composeRule.onNodeWithText("Low space warning").assertExists()
+    }
+
+    @Test
+    fun `a non-Pro tap opens the upgrade flow instead of toggling`() {
+        var toggles = 0
+        var upgrades = 0
+        composeRule.setSettingsScreen(
+            state = AnalyzerSettingsViewModel.State(isPro = false, notificationEnabled = false),
+            onNotificationChanged = { toggles++ },
+            onUpgradeClick = { upgrades++ },
+        )
+
+        composeRule.onNodeWithText("Low space warning").performClick()
+
+        toggles shouldBe 0
+        upgrades shouldBe 1
+    }
+
+    @Test
+    fun `a Pro tap toggles the warning`() {
+        var captured: Boolean? = null
+        var upgrades = 0
+        composeRule.setSettingsScreen(
+            state = AnalyzerSettingsViewModel.State(isPro = true, notificationEnabled = false),
+            onNotificationChanged = { captured = it },
+            onUpgradeClick = { upgrades++ },
+        )
+
+        composeRule.onNodeWithText("Low space warning").performClick()
+
+        captured shouldBe true
+        upgrades shouldBe 0
     }
 
     private infix fun <T> T.shouldBe(expected: T) {
