@@ -17,6 +17,7 @@ import eu.darken.sdmse.analyzer.core.storage.StorageScanner
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.isContentReadOnly
 import eu.darken.sdmse.analyzer.core.storage.categories.ownsGroup
@@ -239,7 +240,11 @@ class Analyzer @Inject constructor(
         val oldGroup = oldCategory.groups.single { it.id == task.groupId }
 
         if (oldCategory.isContentReadOnly) {
-            val what = if (oldCategory is SystemCategory) "system content" else "read-only media content"
+            val what = when (oldCategory) {
+                is SystemCategory -> "system content"
+                is OtherUsersCategory -> "another user's content"
+                else -> "read-only media content"
+            }
             log(TAG, WARN) { "deleteContent(): Blocked — $what is read-only" }
             throw UnsupportedOperationException("Deletion is not supported for $what")
         }
@@ -305,6 +310,10 @@ class Analyzer @Inject constructor(
 
             is SystemCategory -> {
                 throw UnsupportedOperationException("Deletion is not supported for system content")
+            }
+
+            is OtherUsersCategory -> {
+                throw UnsupportedOperationException("Deletion is not supported for other users' content")
             }
         }
 

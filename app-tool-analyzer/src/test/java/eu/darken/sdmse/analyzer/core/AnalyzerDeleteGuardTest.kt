@@ -5,6 +5,7 @@ import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
@@ -113,6 +114,33 @@ class AnalyzerDeleteGuardTest : BaseTest() {
     @Test
     fun `system content deletion is blocked before any filesystem access`() = runTest2 {
         val analyzer = buildAnalyzer(setOf(SystemCategory(storageId, setOf(group))))
+
+        shouldThrow<UnsupportedOperationException> { analyzer.submit(deleteTask()) }
+
+        coVerify(exactly = 0) { gatewaySwitch.delete(any(), any()) }
+        coVerify(exactly = 0) { mediaStoreTool.notifyDeleted(any()) }
+    }
+
+    @Test
+    fun `other users content deletion is blocked before any filesystem access`() = runTest2 {
+        val analyzer = buildAnalyzer(
+            setOf(
+                OtherUsersCategory(
+                    storageId = storageId,
+                    groups = setOf(group),
+                    users = listOf(
+                        OtherUsersCategory.UserEntry(
+                            handle = UserHandle2(10),
+                            label = "Second user".toCaString(),
+                            groupId = group.id,
+                            appDataKnown = true,
+                            sharedMediaKnown = true,
+                            isBrowsable = true,
+                        ),
+                    ),
+                ),
+            ),
+        )
 
         shouldThrow<UnsupportedOperationException> { analyzer.submit(deleteTask()) }
 

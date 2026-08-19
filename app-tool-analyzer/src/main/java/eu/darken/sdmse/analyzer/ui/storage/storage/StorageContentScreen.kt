@@ -29,9 +29,11 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.analyzer.R
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryCard
+import eu.darken.sdmse.analyzer.ui.storage.storage.categories.OtherUsersCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryCard
 import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
@@ -59,6 +61,7 @@ fun StorageContentScreenHost(
     StorageContentScreen(
         stateSource = vm.state,
         onCategoryClick = vm::onCategoryClick,
+        onUserClick = vm::onUserClick,
         onNavigateBack = vm::onNavigateBack,
         onExitNotFound = vm::exitOnNotFound,
         onRefresh = vm::refresh,
@@ -69,6 +72,7 @@ fun StorageContentScreenHost(
 internal fun StorageContentScreen(
     stateSource: Flow<StorageContentViewModel.State> = MutableStateFlow(StorageContentViewModel.State.Loading),
     onCategoryClick: (StorageContentViewModel.Row) -> Unit = {},
+    onUserClick: (OtherUsersCategory.UserEntry) -> Unit = {},
     onNavigateBack: () -> Unit = {},
     onExitNotFound: () -> Unit = {},
     onRefresh: () -> Unit = {},
@@ -183,6 +187,10 @@ internal fun StorageContentScreen(
                                 is StorageContentViewModel.Row.System -> SystemCategoryCard(
                                     row = row,
                                     onClick = { onCategoryClick(row) },
+                                )
+                                is StorageContentViewModel.Row.OtherUsers -> OtherUsersCategoryCard(
+                                    row = row,
+                                    onUserClick = onUserClick,
                                 )
                             }
                         }

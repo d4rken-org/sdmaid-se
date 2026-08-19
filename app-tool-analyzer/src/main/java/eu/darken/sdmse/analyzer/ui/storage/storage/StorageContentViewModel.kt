@@ -7,6 +7,7 @@ import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.SystemDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.OtherUsersCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.ui.AppsRoute
 import eu.darken.sdmse.analyzer.ui.ContentRoute
@@ -88,6 +89,7 @@ class StorageContentViewModel @Inject constructor(
                                 is AppCategory -> 1
                                 is MediaCategory -> 2
                                 is SystemCategory -> 3
+                                is OtherUsersCategory -> 4
                             }
                         }
                         ?.map { content ->
@@ -95,6 +97,7 @@ class StorageContentViewModel @Inject constructor(
                                 is AppCategory -> Row.Apps(storage = storage, category = content)
                                 is MediaCategory -> Row.Media(storage = storage, category = content)
                                 is SystemCategory -> Row.System(storage = storage, category = content)
+                                is OtherUsersCategory -> Row.OtherUsers(storage = storage, category = content)
                             }
                         }
                     State.Ready(
@@ -168,7 +171,20 @@ class StorageContentViewModel @Inject constructor(
                     launch { taskSubmitter.submit(SystemDeepScanTask(storageId)) }
                 }
             }
+            // The card holds one group per user, so a whole-card click can't pick one.
+            // Navigation happens per user row, see onUserClick.
+            is Row.OtherUsers -> Unit
         }
+    }
+
+    fun onUserClick(user: OtherUsersCategory.UserEntry) = launch {
+        log(TAG) { "onUserClick(${user.handle})" }
+        val storageId = routeFlow.value?.storageId ?: return@launch
+        if (!user.isBrowsable) {
+            log(TAG) { "User ${user.handle} is not browsable, ignoring click" }
+            return@launch
+        }
+        navTo(ContentRoute(storageId = storageId, groupId = user.groupId, installId = null))
     }
 
     sealed interface Row {
@@ -176,6 +192,7 @@ class StorageContentViewModel @Inject constructor(
         data class Apps(override val storage: DeviceStorage, val category: AppCategory) : Row
         data class Media(override val storage: DeviceStorage, val category: MediaCategory) : Row
         data class System(override val storage: DeviceStorage, val category: SystemCategory) : Row
+        data class OtherUsers(override val storage: DeviceStorage, val category: OtherUsersCategory) : Row
     }
 
     sealed interface State {
