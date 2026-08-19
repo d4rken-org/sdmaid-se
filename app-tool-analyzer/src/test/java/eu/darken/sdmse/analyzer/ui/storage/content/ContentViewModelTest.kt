@@ -24,6 +24,8 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.common.ui.LayoutMode
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
@@ -82,6 +84,7 @@ class ContentViewModelTest : BaseTest() {
         val swiperSessionCreator: eu.darken.sdmse.common.files.SwiperSessionCreator,
         val filterEditorOptionsCreator: eu.darken.sdmse.common.files.FilterEditorOptionsCreator,
         val viewIntentTool: ViewIntentTool,
+        val exclusionManager: ExclusionManager,
     )
 
     private fun TestScope.harness(
@@ -106,13 +109,14 @@ class ContentViewModelTest : BaseTest() {
         val filterEditorOptionsCreator =
             mockk<eu.darken.sdmse.common.files.FilterEditorOptionsCreator>(relaxed = true)
         val viewIntentTool = mockk<ViewIntentTool>(relaxed = true)
+        val exclusionManager = mockk<ExclusionManager>(relaxed = true)
 
         val vm = ContentViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             analyzer = analyzer,
             analyzerSettings = settings,
             viewIntentTool = viewIntentTool,
-            exclusionManager = mockk(relaxed = true),
+            exclusionManager = exclusionManager,
             filterEditorOptionsCreator = filterEditorOptionsCreator,
             upgradeRepo = mockk(relaxed = true),
             swiperSessionCreator = swiperSessionCreator,
@@ -122,7 +126,14 @@ class ContentViewModelTest : BaseTest() {
         // safeStateIn uses WhileSubscribed(5000) — keep a subscriber alive for the test scope's lifetime.
         backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
 
-        return Harness(vm, analyzer, swiperSessionCreator, filterEditorOptionsCreator, viewIntentTool)
+        return Harness(
+            vm,
+            analyzer,
+            swiperSessionCreator,
+            filterEditorOptionsCreator,
+            viewIntentTool,
+            exclusionManager,
+        )
     }
 
     private fun ContentViewModel.readyState(): ContentViewModel.State.Ready {
@@ -345,5 +356,31 @@ class ContentViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.events.first() shouldBe ContentViewModel.Event.NoExternalAppFound
+    }
+
+    @Test
+    fun `exclusion is blocked on read-only content`() = runTest2 {
+        // The UI hides the exclude action for read-only content, but the handler must refuse too:
+        // excluding paths the user can neither delete nor filter only creates dead exclusions.
+        val group = ContentGroup(label = "System".toCaString())
+        val h = harness(SystemCategory(storageId, setOf(group)), group)
+        advanceUntilIdle()
+
+        h.vm.onExcludeSelected(setOf(dirItem("data")))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.exclusionManager.save(any<Set<Exclusion>>()) }
+    }
+
+    @Test
+    fun `exclusion is allowed on writable content`() = runTest2 {
+        val group = ContentGroup(label = "Media".toCaString())
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        advanceUntilIdle()
+
+        h.vm.onExcludeSelected(setOf(dirItem("DCIM")))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.exclusionManager.save(any<Set<Exclusion>>()) }
     }
 }

@@ -272,7 +272,12 @@ class ContentViewModel @Inject constructor(
     }
 
     fun onExcludeSelected(items: Set<ContentItem>) = launch {
+        val route = routeFlow.value ?: return@launch
         log(TAG) { "onExcludeSelected(): ${items.size}" }
+        if (analyzer.data.first().isReadOnlyGroup(route)) {
+            log(TAG, WARN) { "exclude(): Blocked — content is read-only" }
+            return@launch
+        }
         val newExclusions = items.map { PathExclusion(path = it.path) }.toSet()
         if (newExclusions.isEmpty()) return@launch
         exclusionManager.save(newExclusions)
