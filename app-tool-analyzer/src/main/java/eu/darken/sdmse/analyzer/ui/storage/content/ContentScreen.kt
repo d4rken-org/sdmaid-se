@@ -47,8 +47,11 @@ import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.storage.SystemStorageScanner
 import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewContentItem
+import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
@@ -415,7 +418,7 @@ internal fun ContentScreen(
                                 s.infoBanner?.let { banner ->
                                     item(key = "info-banner") {
                                         ContentInfoBanner(
-                                            modifier = Modifier.padding(horizontal = 16.dp),
+                                            modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 8.dp),
                                             text = banner,
                                         )
                                     }
@@ -524,5 +527,30 @@ private fun LazyGridScope.contentTiles(
 private fun ContentScreenLoadingPreview() {
     PreviewWrapper {
         ContentScreen()
+    }
+}
+
+@Preview2
+@Composable
+private fun ContentScreenInfoBannerListPreview() {
+    val items = listOf(
+        previewContentItem(segments = arrayOf("data", "media", "10", "DCIM", "vacation.mp4"), size = 3L * 1024 * 1024 * 1024),
+        previewContentItem(segments = arrayOf("data", "media", "10", "Music", "playlist.mp3"), size = 8L * 1024 * 1024),
+    )
+    PreviewWrapper {
+        ContentScreen(
+            stateSource = MutableStateFlow(
+                ContentViewModel.State.Ready(
+                    title = "Second user".toCaString(),
+                    subtitle = "/data/media/10".toCaString(),
+                    storage = previewDeviceStorage(),
+                    items = items.map { ContentViewModel.Item(parent = null, content = it, sizeRatio = null) },
+                    layoutMode = LayoutMode.LINEAR,
+                    progress = null,
+                    isReadOnly = true,
+                    infoBanner = R.string.analyzer_storage_content_type_otherusers_info.toCaString(),
+                ),
+            ),
+        )
     }
 }
