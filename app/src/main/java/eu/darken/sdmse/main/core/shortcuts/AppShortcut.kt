@@ -7,7 +7,9 @@ import android.graphics.drawable.Icon
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcontrol.R as AppControlR
+import eu.darken.sdmse.main.core.DashboardCardType
+import eu.darken.sdmse.main.core.labelRes
+import eu.darken.sdmse.main.core.shortcutIconRes
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 
 sealed class AppShortcut(
@@ -27,14 +29,22 @@ sealed class AppShortcut(
             .build()
     }
 
-    data object AppControl : AppShortcut(
-        id = "appcontrol",
-        shortLabel = AppControlR.string.shortcut_appcontrol_short,
-        longLabel = AppControlR.string.shortcut_appcontrol_long,
-        iconRes = R.drawable.ic_shortcut_apps
+    /**
+     * A navigation shortcut for one of the dashboard's tools.
+     *
+     * The id is the lowercased enum name, which keeps AppControl's id byte-identical to the
+     * previously hardcoded `"appcontrol"` shortcut, so an upgrade updates that entry in place
+     * instead of orphaning pinned copies of it.
+     */
+    data class Tool(val type: DashboardCardType) : AppShortcut(
+        id = type.name.lowercase(),
+        shortLabel = type.labelRes,
+        longLabel = type.labelRes,
+        iconRes = type.shortcutIconRes,
     ) {
         override fun createIntent(context: Context): Intent = Intent(context, ShortcutActivity::class.java).apply {
-            action = ShortcutActivity.ACTION_OPEN_APPCONTROL
+            action = ShortcutActivity.ACTION_OPEN_TOOL
+            putExtra(ShortcutActivity.EXTRA_TOOL, type.name)
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
     }

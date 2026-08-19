@@ -63,7 +63,9 @@ import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.main.core.CurriculumVitae
+import eu.darken.sdmse.main.core.shortcutRoute
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
+import eu.darken.sdmse.main.core.shortcuts.resolveShortcutTool
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import eu.darken.sdmse.common.compose.tour.GuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
@@ -284,6 +286,10 @@ class MainActivity : ComponentActivity() {
     // onNewIntent deliveries).
     private fun shortcutRoute(intent: Intent?): NavigationDestination? =
         when (intent?.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION)) {
+            // An unknown/absent tool resolves to null, i.e. the app just opens the dashboard.
+            ShortcutActivity.ACTION_OPEN_TOOL ->
+                resolveShortcutTool(intent.getStringExtra(ShortcutActivity.EXTRA_TOOL))?.shortcutRoute
+
             ShortcutActivity.ACTION_OPEN_APPCONTROL -> AppControlListRoute
             ShortcutActivity.ACTION_OPEN_ANALYZER -> DeviceStorageRoute
             ShortcutActivity.ACTION_UPGRADE -> UpgradeRoute()

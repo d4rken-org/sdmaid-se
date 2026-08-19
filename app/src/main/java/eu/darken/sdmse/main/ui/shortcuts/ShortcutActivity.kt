@@ -37,6 +37,11 @@ class ShortcutActivity : ComponentActivity() {
         log(TAG, INFO) { "Shortcut action received: $action" }
 
         when (action) {
+            ACTION_OPEN_TOOL -> {
+                startActivity(mainActivityIntent(ACTION_OPEN_TOOL, intent?.getStringExtra(EXTRA_TOOL)))
+            }
+
+            // Kept for stale pinned shortcuts and external callers, superseded by ACTION_OPEN_TOOL.
             ACTION_OPEN_APPCONTROL -> {
                 startActivity(mainActivityIntent(ACTION_OPEN_APPCONTROL))
             }
@@ -151,14 +156,18 @@ class ShortcutActivity : ComponentActivity() {
         startActivity(mainActivityIntent(shortcutAction))
     }
 
-    private fun mainActivityIntent(shortcutAction: String?): Intent =
+    private fun mainActivityIntent(shortcutAction: String?, tool: String? = null): Intent =
         Intent(this, MainActivity::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             shortcutAction?.let { putExtra(EXTRA_SHORTCUT_ACTION, it) }
+            tool?.let { putExtra(EXTRA_TOOL, it) }
         }
 
     companion object {
         private val TAG = logTag("Shortcut", "Activity")
+
+        /** Per-tool navigation shortcut. The target tool travels in [EXTRA_TOOL]. */
+        const val ACTION_OPEN_TOOL = "eu.darken.sdmse.ACTION_OPEN_TOOL"
 
         const val ACTION_OPEN_APPCONTROL = "eu.darken.sdmse.ACTION_OPEN_APPCONTROL"
         const val ACTION_OPEN_ANALYZER = "eu.darken.sdmse.ACTION_OPEN_ANALYZER"
@@ -174,5 +183,8 @@ class ShortcutActivity : ComponentActivity() {
         const val ACTION_WIDGET_SCAN = "eu.darken.sdmse.ACTION_WIDGET_SCAN"
 
         const val EXTRA_SHORTCUT_ACTION = "shortcut_action"
+
+        /** [eu.darken.sdmse.main.core.DashboardCardType] name carried by [ACTION_OPEN_TOOL]. */
+        const val EXTRA_TOOL = "shortcut_tool"
     }
 }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.main.core
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ViewList
@@ -12,8 +13,20 @@ import androidx.compose.material.icons.twotone.DataUsage
 import androidx.compose.material.icons.twotone.Recycling
 import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.ui.graphics.vector.ImageVector
+import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.ui.AppCleanerListRoute
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Ghost
+import eu.darken.sdmse.common.navigation.NavigationDestination
+import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
+import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
+import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
+import eu.darken.sdmse.corpsefinder.ui.CorpseFinderListRoute
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorListRoute
+import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
+import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
+import eu.darken.sdmse.stats.ui.ReportsRoute
+import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
 import eu.darken.sdmse.common.R as CommonR
 
 @get:StringRes
@@ -43,4 +56,36 @@ val DashboardCardType.icon: ImageVector
         DashboardCardType.ANALYZER -> Icons.TwoTone.DataUsage
         DashboardCardType.SCHEDULER -> Icons.TwoTone.Alarm
         DashboardCardType.STATS -> Icons.TwoTone.BarChart
+    }
+
+/** Launcher-shortcut icon. Same glyph as [icon], but as a resource the framework can load. */
+@get:DrawableRes
+val DashboardCardType.shortcutIconRes: Int
+    get() = when (this) {
+        DashboardCardType.CORPSEFINDER -> R.drawable.ic_shortcut_corpsefinder
+        DashboardCardType.SYSTEMCLEANER -> R.drawable.ic_shortcut_systemcleaner
+        DashboardCardType.APPCLEANER -> R.drawable.ic_shortcut_appcleaner
+        DashboardCardType.DEDUPLICATOR -> R.drawable.ic_shortcut_deduplicator
+        DashboardCardType.APPCONTROL -> R.drawable.ic_shortcut_apps
+        DashboardCardType.SWIPER -> R.drawable.ic_shortcut_swiper
+        DashboardCardType.SQUEEZER -> R.drawable.ic_shortcut_squeezer
+        DashboardCardType.ANALYZER -> R.drawable.ic_shortcut_analyzer
+        DashboardCardType.SCHEDULER -> R.drawable.ic_shortcut_scheduler
+        DashboardCardType.STATS -> R.drawable.ic_shortcut_stats
+    }
+
+/** Where a launcher shortcut for this tool takes the user. */
+val DashboardCardType.shortcutRoute: NavigationDestination
+    get() = when (this) {
+        DashboardCardType.CORPSEFINDER -> CorpseFinderListRoute
+        DashboardCardType.SYSTEMCLEANER -> SystemCleanerListRoute
+        DashboardCardType.APPCLEANER -> AppCleanerListRoute
+        DashboardCardType.DEDUPLICATOR -> DeduplicatorListRoute
+        DashboardCardType.APPCONTROL -> AppControlListRoute
+        DashboardCardType.SWIPER -> SwiperSessionsRoute
+        // The dashboard's own Squeezer entry, which handles the setup gate.
+        DashboardCardType.SQUEEZER -> SqueezerSetupRoute
+        DashboardCardType.ANALYZER -> DeviceStorageRoute
+        DashboardCardType.SCHEDULER -> SchedulerManagerRoute
+        DashboardCardType.STATS -> ReportsRoute
     }
