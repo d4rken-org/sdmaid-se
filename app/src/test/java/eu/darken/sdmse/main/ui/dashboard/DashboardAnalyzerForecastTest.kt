@@ -38,6 +38,8 @@ import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.first
@@ -110,6 +112,11 @@ internal class DashboardAnalyzerForecastTest : BaseTest() {
     private fun TestScope.harness(
         history: List<SpaceSnapshotEntity>,
         primary: SpaceTracker.StorageSnapshot?,
+    ): DashboardViewModel = harness(historySource = flowOf(history), primarySource = { primary })
+
+    private fun TestScope.harness(
+        historySource: Flow<List<SpaceSnapshotEntity>>,
+        primarySource: suspend () -> SpaceTracker.StorageSnapshot?,
     ): DashboardViewModel {
         val statsSettings = mockk<StatsSettings>(relaxed = true).apply {
             every { retentionReports } returns mockDuration()
@@ -167,10 +174,10 @@ internal class DashboardAnalyzerForecastTest : BaseTest() {
             statsSettings = statsSettings,
             curriculumVitae = mockk<CurriculumVitae>(relaxed = true).apply { every { installedAt } returns emptyFlow() },
             spaceHistoryRepo = mockk<SpaceHistoryRepo>(relaxed = true).apply {
-                every { getAllHistory(any()) } returns flowOf(history)
+                every { getAllHistory(any()) } returns historySource
             },
             spaceTracker = mockk<SpaceTracker>(relaxed = true).apply {
-                coEvery { readPrimaryStorage() } returns primary
+                coEvery { readPrimaryStorage() } coAnswers { primarySource() }
             },
             deviceDetective = mockk(relaxed = true),
         )
@@ -183,9 +190,11 @@ internal class DashboardAnalyzerForecastTest : BaseTest() {
         every { flow } returns MutableStateFlow(Duration.ZERO)
     }
 
-    private suspend fun DashboardViewModel.analyzerCard(): AnalyzerDashboardCardItem = listState
+    private suspend fun DashboardViewModel.analyzerCard(
+        predicate: (AnalyzerDashboardCardItem) -> Boolean = { true },
+    ): AnalyzerDashboardCardItem = listState
         .mapNotNull { it?.items?.filterIsInstance<AnalyzerDashboardCardItem>()?.singleOrNull() }
-        .first { !it.isLoadingTrend }
+        .first { !it.isLoadingTrend && predicate(it) }
 
     @Test
     fun `the forecast comes from the primary volume alone`() = runTest2 {
@@ -225,6 +234,32 @@ internal class DashboardAnalyzerForecastTest : BaseTest() {
         val card = vm.analyzerCard()
         card.forecast.shouldBeNull()
         card.combinedDelta shouldBe 6_000_000_000L
+    }
+
+    @Test
+    fun `every history emission is forecast against a fresh live reading`() = runTest2 {
+        // A cleanup forces a snapshot, so the history re-emits within the hourly refresh window.
+        // Reusing the reading taken at the last tick would keep an obsolete forecast on screen.
+        val historySource = MutableSharedFlow<List<SpaceSnapshotEntity>>(replay = 1)
+        var reading = primaryReading(free = 20_000_000_000L)
+        val vm = harness(historySource = historySource, primarySource = { reading })
+
+        historySource.emit(mixedHistory(ratePerDay = 1_000_000_000L))
+        val stale = vm.analyzerCard().forecast
+        stale shouldBe StorageForecast.Filling(
+            daysUntilFloor = 18,
+            bytesPerDay = 1_000_000_000L,
+            isUrgent = false,
+        )
+
+        reading = primaryReading(free = 50_000_000_000L)
+        historySource.emit(mixedHistory(ratePerDay = 1_000_000_000L))
+
+        vm.analyzerCard { it.forecast != stale }.forecast shouldBe StorageForecast.Filling(
+            daysUntilFloor = 48,
+            bytesPerDay = 1_000_000_000L,
+            isUrgent = false,
+        )
     }
 
     @Test
