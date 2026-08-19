@@ -339,6 +339,7 @@ class SetupViewModel @Inject constructor(
                 Permission.POST_NOTIFICATIONS -> {}
                 Permission.WRITE_SECURE_SETTINGS -> {}
                 Permission.QUERY_ALL_PACKAGES -> {}
+                Permission.INTERACT_ACROSS_USERS -> {}
                 Permission.GET_INSTALLED_APPS -> {}
                 null -> {}
             }
