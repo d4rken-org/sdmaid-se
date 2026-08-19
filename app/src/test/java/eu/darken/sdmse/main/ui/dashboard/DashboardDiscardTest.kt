@@ -1,6 +1,7 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.WebpageTool
@@ -72,6 +73,12 @@ internal class DashboardDiscardTest : BaseTest() {
             every { data } returns emptyFlow()
             every { progress } returns emptyFlow()
         }
+        // A relaxed mock's flow never emits, which would stall the Analyzer card's combine.
+        val analyzerSettings = mockk<AnalyzerSettings>(relaxed = true).apply {
+            every { lowStorageThresholdBytes } returns mockk(relaxed = true) {
+                every { flow } returns flowOf<Long?>(null)
+            }
+        }
         val statsSettings = mockk<StatsSettings>(relaxed = true).apply {
             every { retentionReports } returns mockDuration()
             every { retentionPaths } returns mockDuration()
@@ -89,6 +96,7 @@ internal class DashboardDiscardTest : BaseTest() {
             appCleaner = appCleaner,
             appControl = appControl,
             analyzer = analyzer,
+            analyzerSettings = analyzerSettings,
             debugCardProvider = mockk<DebugCardProvider>(relaxed = true).apply {
                 every { create(any(), any(), any(), any()) } returns emptyFlow()
             },

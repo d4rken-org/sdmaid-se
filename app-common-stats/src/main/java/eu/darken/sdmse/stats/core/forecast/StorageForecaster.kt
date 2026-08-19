@@ -1,5 +1,6 @@
 package eu.darken.sdmse.stats.core.forecast
 
+import eu.darken.sdmse.stats.core.LowStorage
 import eu.darken.sdmse.stats.core.SpaceTracker
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import kotlin.math.absoluteValue
@@ -13,8 +14,6 @@ import kotlin.math.absoluteValue
  */
 object StorageForecaster {
 
-    const val FLOOR_PERCENT = 5
-    const val FLOOR_MAX_BYTES = 2L * 1024 * 1024 * 1024
     const val MIN_OBSERVED_DAYS = 5
     const val MAX_GAP_DAYS = 2L
     const val MIN_RATE_DIVISOR = 400
@@ -24,15 +23,21 @@ object StorageForecaster {
     const val URGENT_FREE_PERCENT = 20
     const val URGENT_FREE_MAX_BYTES = 25L * 1024 * 1024 * 1024
 
+    /**
+     * [lowStorageThresholdBytes] is the resolved low-storage floor, see [LowStorage.resolveThreshold].
+     * Deliberately without a default: the user can configure this, so every call site has to state
+     * which value it is forecasting against.
+     */
     fun forecast(
         history: List<SpaceSnapshotEntity>,
         current: SpaceTracker.StorageSnapshot,
+        lowStorageThresholdBytes: Long,
     ): StorageForecast {
         val capacity = current.spaceCapacity
         if (capacity <= 0L) return StorageForecast.InsufficientData
 
-        val floor = minOf(capacity * FLOOR_PERCENT / 100, FLOOR_MAX_BYTES)
-        if (current.spaceFree <= floor) return StorageForecast.BelowFloor
+        val floor = lowStorageThresholdBytes
+        if (LowStorage.isLow(current.spaceFree, floor)) return StorageForecast.BelowFloor
 
         val trend = StorageTrendCalculator.dailyTrend(history) ?: return StorageForecast.InsufficientData
         if (trend.observedDays < MIN_OBSERVED_DAYS) return StorageForecast.InsufficientData
