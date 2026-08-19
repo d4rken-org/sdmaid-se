@@ -2,11 +2,13 @@ package eu.darken.sdmse.analyzer.ui.storage.device
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
@@ -33,6 +35,7 @@ import kotlin.time.Duration.Companion.hours
 class DeviceStorageViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val analyzer: Analyzer,
+    private val analyzerSettings: AnalyzerSettings,
     spaceHistoryRepo: SpaceHistoryRepo,
     upgradeRepo: UpgradeRepo,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
@@ -54,7 +57,8 @@ class DeviceStorageViewModel @Inject constructor(
             spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
         },
         upgradeRepo.upgradeInfo.map { it.isPro },
-    ) { data, snapshots, isPro ->
+        analyzerSettings.hintLowSpaceDismissed.flow,
+    ) { data, snapshots, isPro, hintDismissed ->
         val snapshotsByStorage = snapshots.groupBy { it.storageId }
         State(
             storages = data.storages.map { storage ->
@@ -66,6 +70,7 @@ class DeviceStorageViewModel @Inject constructor(
                     isPro = isPro,
                 )
             },
+            showLowSpaceHint = !isPro && !hintDismissed,
         )
     }
 
@@ -105,9 +110,22 @@ class DeviceStorageViewModel @Inject constructor(
         val isPro: Boolean = false,
     )
 
+    // No re-arm: unlike the scheduler's battery hint there is no condition that can clear and
+    // legitimately raise this pitch again.
+    fun dismissLowSpaceHint() = launch {
+        log(TAG) { "dismissLowSpaceHint()" }
+        analyzerSettings.hintLowSpaceDismissed.value(true)
+    }
+
+    fun openUpgrade() {
+        log(TAG) { "openUpgrade()" }
+        navTo(UpgradeRoute())
+    }
+
     data class State(
         val storages: List<Row> = emptyList(),
         val progress: Progress.Data? = null,
+        val showLowSpaceHint: Boolean = false,
     )
 
     companion object {
