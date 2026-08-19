@@ -340,10 +340,10 @@ internal fun DashboardViewModel.buildAnalyzerItem(): Flow<AnalyzerDashboardCardI
         .flatMapLatest { _ ->
             // The forecast needs a LIVE reading: sampling is six-hourly, so the newest persisted
             // row can be hours stale and a download that already crossed the floor would still
-            // read as filling. One read per tick, carried alongside the history.
-            val primary = spaceTracker.readPrimaryStorage()
+            // read as filling. Re-read per history emission, otherwise a cleanup (which forces a
+            // snapshot, and so a re-emission) would be forecast against pre-cleanup free space.
             spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
-                .map { AnalyzerTrendInput(snapshots = it, primaryStorage = primary) }
+                .mapLatest { AnalyzerTrendInput(snapshots = it, primaryStorage = spaceTracker.readPrimaryStorage()) }
         }
         .onStart<AnalyzerTrendInput?> { emit(null) },
 ) { data, progress, trend ->
