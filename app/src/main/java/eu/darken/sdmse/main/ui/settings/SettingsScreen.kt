@@ -8,6 +8,7 @@ import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material.icons.twotone.Apps
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.ContentCopy
+import androidx.compose.material.icons.twotone.DataUsage
 import androidx.compose.material.icons.twotone.Recycling
 import androidx.compose.material.icons.twotone.Swipe
 import androidx.compose.material.icons.automirrored.twotone.ContactSupport
@@ -52,6 +53,7 @@ import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.upgrade.ui.brandTitleText
+import eu.darken.sdmse.analyzer.ui.AnalyzerSettingsRoute
 import eu.darken.sdmse.appcleaner.ui.AppCleanerSettingsRoute
 import eu.darken.sdmse.appcontrol.ui.AppControlSettingsRoute
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsRoute
@@ -119,6 +121,7 @@ fun SettingsScreenHost(
                 "AppControl" -> AppControlSettingsRoute
                 "Squeezer" -> SqueezerSettingsRoute
                 "Swiper" -> SwiperSettingsRoute
+                "Analyzer" -> AnalyzerSettingsRoute
                 else -> return@SettingsScreen
             }
             vm.navTo(route)
@@ -225,6 +228,14 @@ internal fun SettingsScreen(
                     title = stringResource(CommonR.string.swiper_tool_name),
                     subtitle = stringResource(eu.darken.sdmse.swiper.R.string.swiper_tool_description),
                     onClick = { onToolSettingsClick("Swiper") },
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.DataUsage,
+                    title = stringResource(CommonR.string.analyzer_tool_name),
+                    subtitle = stringResource(eu.darken.sdmse.analyzer.R.string.analyzer_explanation_short),
+                    onClick = { onToolSettingsClick("Analyzer") },
                 )
             }
 

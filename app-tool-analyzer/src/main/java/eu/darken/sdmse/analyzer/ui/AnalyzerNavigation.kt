@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui
 
 import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
+import eu.darken.sdmse.analyzer.ui.settings.AnalyzerSettingsScreenHost
 import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsScreenHost
 import eu.darken.sdmse.analyzer.ui.storage.apps.AppsScreenHost
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentScreenHost
@@ -14,6 +15,7 @@ import javax.inject.Inject
 class AnalyzerNavigation @Inject constructor() : NavigationEntry {
 
     override fun EntryProviderScope<NavKey>.setup() {
+        entry<AnalyzerSettingsRoute> { AnalyzerSettingsScreenHost() }
         entry<DeviceStorageRoute> { DeviceStorageScreenHost() }
         entry<StorageContentRoute> { route -> StorageContentScreenHost(route = route) }
         entry<AppsRoute> { route -> AppsScreenHost(route = route) }

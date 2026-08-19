@@ -38,14 +38,19 @@ fun SizeInputDialog(
     onDismiss: () -> Unit,
     minimumSize: Long = 0,
     maximumSize: Long = 100L * 1000L * 1024L,
+    @StringRes resetLabelRes: Int = R.string.general_reset_action,
 ) {
     val context = LocalContext.current
     val sizeParser = remember(context) { SizeParser(context) }
 
-    val minKb = minimumSize / KB_MULTIPLIER
-    val maxKb = maximumSize / KB_MULTIPLIER
+    // An inverted range would throw out of coerceIn() and out of the slider's valueRange. Every
+    // current caller passes max > min, so this only guards future ones.
+    val effectiveMax = maxOf(maximumSize, minimumSize)
 
-    val initialValue = currentSize.coerceIn(minimumSize, maximumSize)
+    val minKb = minimumSize / KB_MULTIPLIER
+    val maxKb = effectiveMax / KB_MULTIPLIER
+
+    val initialValue = currentSize.coerceIn(minimumSize, effectiveMax)
 
     var sliderKb by remember { mutableStateOf(initialValue.toFloat() / KB_MULTIPLIER) }
     var textValue by remember { mutableStateOf(Formatter.formatShortFileSize(context, initialValue)) }
@@ -63,14 +68,14 @@ fun SizeInputDialog(
                         textValue = raw
                         val parsed = sizeParser.parse(raw)
                         when {
-                            parsed != null && parsed in minimumSize..maximumSize -> {
+                            parsed != null && parsed in minimumSize..effectiveMax -> {
                                 error = null
                                 sliderKb = parsed.toFloat() / KB_MULTIPLIER
                                 saveEnabled = true
                             }
                             parsed != null -> {
                                 val minLabel = Formatter.formatShortFileSize(context, minimumSize)
-                                val maxLabel = Formatter.formatShortFileSize(context, maximumSize)
+                                val maxLabel = Formatter.formatShortFileSize(context, effectiveMax)
                                 error = "$minLabel <= X <= $maxLabel"
                                 saveEnabled = false
                             }
@@ -117,7 +122,7 @@ fun SizeInputDialog(
                     onClick = onDismiss,
                 ),
                 neutral = SdmDialogAction(
-                    label = stringResource(R.string.general_reset_action),
+                    label = stringResource(resetLabelRes),
                     onClick = onReset,
                 ),
             )
