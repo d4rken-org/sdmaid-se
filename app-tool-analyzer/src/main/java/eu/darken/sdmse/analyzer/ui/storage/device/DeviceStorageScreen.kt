@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
@@ -61,6 +62,8 @@ fun DeviceStorageScreenHost(
         onStorageClick = vm::onStorageClick,
         onTrendClick = vm::onTrendClick,
         onRefresh = vm::refresh,
+        onLowSpaceHintDismiss = vm::dismissLowSpaceHint,
+        onLowSpaceHintUpgrade = vm::openUpgrade,
     )
 }
 
@@ -71,6 +74,8 @@ internal fun DeviceStorageScreen(
     onStorageClick: (DeviceStorageViewModel.Row) -> Unit = {},
     onTrendClick: (DeviceStorageViewModel.Row) -> Unit = {},
     onRefresh: () -> Unit = {},
+    onLowSpaceHintDismiss: () -> Unit = {},
+    onLowSpaceHintUpgrade: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -138,6 +143,14 @@ internal fun DeviceStorageScreen(
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp),
             ) {
+                if (state.showLowSpaceHint) {
+                    item(key = "lowspace-hint", span = { GridItemSpan(maxLineSpan) }) {
+                        LowSpaceHintCard(
+                            onDismiss = onLowSpaceHintDismiss,
+                            onUpgrade = onLowSpaceHintUpgrade,
+                        )
+                    }
+                }
                 itemsIndexed(state.storages, key = { _, it -> it.storage.id.hashCode() }) { index, row ->
                     DeviceStorageItemCard(
                         modifier = if (index == 0) {
@@ -160,5 +173,15 @@ internal fun DeviceStorageScreen(
 private fun DeviceStorageScreenEmptyPreview() {
     PreviewWrapper {
         DeviceStorageScreen()
+    }
+}
+
+@Preview2
+@Composable
+private fun DeviceStorageScreenLowSpaceHintPreview() {
+    PreviewWrapper {
+        DeviceStorageScreen(
+            stateSource = MutableStateFlow(DeviceStorageViewModel.State(showLowSpaceHint = true)),
+        )
     }
 }
