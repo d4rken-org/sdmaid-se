@@ -129,6 +129,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             ),
                             onGrantAction = {},
                             onHelp = {},
+                            onRetry = {},
                         ),
                     ),
                 ),
@@ -159,6 +160,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             ),
                             onGrantAction = { settingsClicks++ },
                             onHelp = { helpClicks++ },
+                            onRetry = {},
                         ),
                     ),
                 ),
@@ -187,6 +189,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             ),
                             onGrantAction = {},
                             onHelp = {},
+                            onRetry = {},
                         ),
                     ),
                 ),
@@ -195,6 +198,93 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_title)).assertCountEquals(0)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `inventory card with a failed probe shows the retry box and no settings button`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        InventorySetupCardItem(
+                            state = InventorySetupModule.Result(
+                                missingPermission = emptySet(),
+                                access = InventorySetupModule.InventoryAccess.ProbeFailed,
+                                settingsIntent = Intent(),
+                            ),
+                            onGrantAction = {},
+                            onHelp = {},
+                            onRetry = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_probe_failed_title))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_probe_failed_body))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_retry_action)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_help_action)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_open_system_settings_action))
+            .assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_inventory_limitation_title)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `inventory card retry button invokes onRetry`() {
+        var retryClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        InventorySetupCardItem(
+                            state = InventorySetupModule.Result(
+                                missingPermission = emptySet(),
+                                access = InventorySetupModule.InventoryAccess.ProbeFailed,
+                                settingsIntent = Intent(),
+                            ),
+                            onGrantAction = {},
+                            onHelp = {},
+                            onRetry = { retryClicks++ },
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_retry_action)).performClick()
+        composeRule.runOnIdle {
+            assertTrue(retryClicks == 1)
+        }
+    }
+
+    @Test
+    fun `inventory card probe-failed help button invokes onHelp`() {
+        var helpClicks = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        InventorySetupCardItem(
+                            state = InventorySetupModule.Result(
+                                missingPermission = emptySet(),
+                                access = InventorySetupModule.InventoryAccess.ProbeFailed,
+                                settingsIntent = Intent(),
+                            ),
+                            onGrantAction = {},
+                            onHelp = { helpClicks++ },
+                            onRetry = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_help_action)).performClick()
+        composeRule.runOnIdle {
+            // The container help icon has no text label, so the click unambiguously hit the box button.
+            assertTrue(helpClicks == 1)
+        }
     }
 
     @Test

@@ -63,6 +63,7 @@ class SetupViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
     private val rootSetupModule: RootSetupModule,
     private val shizukuSetupModule: ShizukuSetupModule,
+    private val inventorySetupModule: InventorySetupModule,
     private val deviceDetective: DeviceDetective,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
@@ -283,7 +284,8 @@ class SetupViewModel @Inject constructor(
                                 },
                                 onHelp = {
                                     webpageTool.open(InventorySetupModule.INFO_URL)
-                                }
+                                },
+                                onRetry = { launch { inventorySetupModule.refresh() } },
                             )
 
                             is SetupModule.State.Loading -> SetupLoadingCardItem(state)

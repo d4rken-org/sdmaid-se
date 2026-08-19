@@ -327,6 +327,9 @@
     <string name="setup_inventory_limitation_body">The system returned an incomplete list of installed apps, even though the required permissions appear to be granted.</string>
     <string name="setup_inventory_limitation_body2">Some devices (e.g. HarmonyOS) never provide a complete app list. To protect your data, app-related tools stay disabled, but you can still view storage usage with reduced detail.</string>
 
+    <string name="setup_inventory_probe_failed_title">Couldn\'t read the app list</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid asked Android for the list of installed apps and the request failed. App-related tools stay disabled until it works. Trying again may help.</string>
+
     <string name="dataarea_warningcard_empty_message">SD Maid didn\'t find any data areas that can be scanned. Did you complete the setup?</string>
     <string name="dataarea_warningcard_label">Data areas</string>
     <string name="dataarea_warningcard_reload_action">Reload data areas</string>
