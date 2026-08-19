@@ -1,6 +1,5 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
-import android.content.ActivityNotFoundException
 import androidx.activity.compose.BackHandler
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -15,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.LazyGridScope
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.OpenInNew
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material.icons.twotone.Delete
@@ -137,15 +137,18 @@ fun ContentScreenHost(
                 }
                 is ContentViewModel.Event.OpenContent -> {
                     runCatching { context.startActivity(event.intent) }
-                        .onFailure { error ->
-                            if (error is ActivityNotFoundException) {
-                                snackScope.launch {
-                                    snackbarHostState.showSnackbar(
-                                        message = context.getString(CommonR.string.general_error_no_compatible_app_found_msg),
-                                    )
-                                }
+                        .onFailure {
+                            snackScope.launch {
+                                snackbarHostState.showSnackbar(
+                                    message = context.getString(CommonR.string.general_error_no_compatible_app_found_msg),
+                                )
                             }
                         }
+                }
+                is ContentViewModel.Event.NoExternalAppFound -> snackScope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = context.getString(CommonR.string.general_error_no_compatible_app_found_msg),
+                    )
                 }
                 is ContentViewModel.Event.SwiperSessionCreated -> snackScope.launch {
                     val msg = context.resources.getQuantityString(
@@ -174,6 +177,7 @@ fun ContentScreenHost(
         onCreateFilter = vm::onCreateFilter,
         onCreateSwiperSession = vm::onCreateSwiperSession,
         onLayoutModeToggle = vm::onLayoutModeToggle,
+        onOpenExternally = vm::onOpenExternally,
         onNavigateBack = vm::onNavigateBack,
     )
 
@@ -200,6 +204,7 @@ internal fun ContentScreen(
     onCreateFilter: (Set<ContentItem>) -> Unit = {},
     onCreateSwiperSession: (Set<ContentItem>) -> Unit = {},
     onLayoutModeToggle: () -> Unit = {},
+    onOpenExternally: (APath) -> Unit = {},
     onNavigateBack: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle(initialValue = ContentViewModel.State.Loading)
@@ -371,6 +376,13 @@ internal fun ContentScreen(
                                 )
                             },
                             actions = {
+                                s.externalFolder?.let { target ->
+                                    SdmTooltipIconButton(
+                                        icon = Icons.AutoMirrored.TwoTone.OpenInNew,
+                                        label = stringResource(R.string.analyzer_content_open_externally_action),
+                                        onClick = { onOpenExternally(target) },
+                                    )
+                                }
                                 SdmTooltipIconButton(
                                     icon = when (s.layoutMode) {
                                         LayoutMode.LINEAR -> Icons.TwoTone.GridView
