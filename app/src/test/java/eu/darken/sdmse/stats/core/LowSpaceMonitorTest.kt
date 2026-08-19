@@ -12,10 +12,14 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
 import io.mockk.verify
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.StandardTestDispatcher
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -68,7 +72,14 @@ class LowSpaceMonitorTest : BaseTest() {
         val notifications: LowSpaceNotifications,
         val armed: DataStoreValue<Boolean>,
         val historyIds: MutableList<String>,
+        val upgradeInfo: MutableStateFlow<UpgradeRepo.Info>,
     )
+
+    private fun upgradeInfo(isPro: Boolean, isSettled: Boolean) = mockk<UpgradeRepo.Info>().apply {
+        every { this@apply.isPro } returns isPro
+        every { this@apply.isSettled } returns isSettled
+        every { error } returns null
+    }
 
     private fun reading(free: Long = floor - 1) = SpaceTracker.StorageSnapshot(
         storageId = primaryId,
@@ -79,6 +90,7 @@ class LowSpaceMonitorTest : BaseTest() {
     private fun harness(
         enabled: Boolean = true,
         isPro: Boolean = true,
+        isSettled: Boolean = true,
         armed: Boolean = true,
         /** Virtual-time suspension inside the reading, so two checks can genuinely overlap. */
         readDelayMs: Long = 0L,
@@ -113,15 +125,11 @@ class LowSpaceMonitorTest : BaseTest() {
                 flowOf(history[id].orEmpty())
             }
         }
-        val info = mockk<UpgradeRepo.Info>().apply {
-            every { this@apply.isPro } returns isPro
-            every { isSettled } returns true
-            every { error } returns null
-        }
+        // A StateFlow (which never completes) so a non-Pro isProSettled() takes its documented
+        // timeout path instead of throwing on an exhausted flow.
+        val infoFlow = MutableStateFlow(upgradeInfo(isPro = isPro, isSettled = isSettled))
         val upgradeRepo = mockk<UpgradeRepo>(relaxed = true).apply {
-            // A StateFlow (which never completes) so a non-Pro isProSettled() takes its documented
-            // timeout path instead of throwing on an exhausted flow.
-            every { upgradeInfo } returns MutableStateFlow(info)
+            every { upgradeInfo } returns infoFlow
         }
         val notifications = mockk<LowSpaceNotifications>(relaxed = true).apply {
             every { notifyLowSpace(any(), any()) } returns postResult
@@ -138,6 +146,7 @@ class LowSpaceMonitorTest : BaseTest() {
             notifications = notifications,
             armed = armedValue,
             historyIds = historyIds,
+            upgradeInfo = infoFlow,
         )
     }
 
@@ -261,6 +270,46 @@ class LowSpaceMonitorTest : BaseTest() {
         verify(exactly = 0) { h.notifications.notifyLowSpace(any(), any()) }
         verify(exactly = 1) { h.notifications.cancel() }
         h.armed.value() shouldBe true
+    }
+
+    // ─────────────────────────── the observer ───────────────────────────
+
+    @Test
+    fun `an unsettled entitlement is not treated as non-Pro, and acts once it settles`() = runTest2 {
+        // The GPlay pre-billing seed reports non-Pro even for paying users, so cancelling on it
+        // would re-arm and re-notify on every process start.
+        val h = harness(primary = reading(), isPro = false, isSettled = false)
+        val scope = CoroutineScope(SupervisorJob() + StandardTestDispatcher(testScheduler))
+
+        h.monitor.start(scope)
+        advanceUntilIdle()
+
+        verify(exactly = 0) { h.notifications.cancel() }
+        verify(exactly = 0) { h.notifications.notifyLowSpace(any(), any()) }
+
+        h.upgradeInfo.value = upgradeInfo(isPro = true, isSettled = true)
+        advanceUntilIdle()
+
+        verify(exactly = 1) { h.notifications.notifyLowSpace(any(), any()) }
+
+        scope.cancel()
+    }
+
+    @Test
+    fun `a disabled toggle cancels even while the entitlement is unsettled`() = runTest2 {
+        // A warning surviving from a previous process has to go now, not once billing settles -
+        // the process may exit before that ever happens.
+        val h = harness(enabled = false, armed = false, isPro = false, isSettled = false)
+        val scope = CoroutineScope(SupervisorJob() + StandardTestDispatcher(testScheduler))
+
+        h.monitor.start(scope)
+        advanceUntilIdle()
+
+        verify(exactly = 1) { h.notifications.cancel() }
+        verify(exactly = 0) { h.notifications.notifyLowSpace(any(), any()) }
+        h.armed.value() shouldBe true
+
+        scope.cancel()
     }
 
     // ─────────────────────────── implausible readings ───────────────────────────
