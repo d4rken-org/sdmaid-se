@@ -42,10 +42,14 @@ sealed class AppShortcut(
         longLabel = type.labelRes,
         iconRes = type.shortcutIconRes,
     ) {
-        override fun createIntent(context: Context): Intent = Intent(context, ShortcutActivity::class.java).apply {
-            action = ShortcutActivity.ACTION_OPEN_TOOL
-            putExtra(ShortcutActivity.EXTRA_TOOL, type.name)
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        override fun createIntent(context: Context): Intent {
+            // Read outside the apply block: inside it, `type` binds to Intent's own MIME type.
+            val toolName = type.name
+            return Intent(context, ShortcutActivity::class.java).apply {
+                action = ShortcutActivity.ACTION_OPEN_TOOL
+                putExtra(ShortcutActivity.EXTRA_TOOL, toolName)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
         }
     }
 
