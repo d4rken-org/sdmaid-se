@@ -1,12 +1,13 @@
 package eu.darken.sdmse.setup.shizuku
 
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,11 +16,11 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Shizuku
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupCardItem
@@ -93,6 +94,8 @@ internal fun ShizukuSetupCard(
             )
 
             if (failed && item.showKnownIssueHint) {
+                // No help button of its own: the card header already carries a help icon pointing at
+                // the same wiki page, and a second affordance for it just crowds the actions below.
                 Text(
                     text = stringResource(R.string.setup_shizuku_state_known_issue_hint),
                     style = MaterialTheme.typography.labelMedium,
@@ -102,35 +105,32 @@ internal fun ShizukuSetupCard(
                         .padding(horizontal = 16.dp),
                     textAlign = TextAlign.Center,
                 )
-                TextButton(
-                    onClick = item.onHelp,
-                    modifier = Modifier.align(Alignment.CenterHorizontally),
-                ) {
-                    Text(stringResource(eu.darken.sdmse.common.R.string.general_help_action))
-                }
             }
 
-            if (failed) {
-                OutlinedButton(
-                    onClick = item.onRetry,
-                    enabled = !item.state.isChecking,
+            // Retry and "open Shizuku" sit side by side rather than stacked: they are alternatives at
+            // the same level, and stacking read as a queue of steps to work through.
+            val canOpen = item.state.isInstalled && !item.state.isComplete
+            if (failed || canOpen) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
                     modifier = Modifier
-                        .align(Alignment.CenterHorizontally)
+                        .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                 ) {
-                    Text(stringResource(eu.darken.sdmse.common.R.string.general_retry_action))
+                    if (failed) {
+                        OutlinedButton(
+                            onClick = item.onRetry,
+                            enabled = !item.state.isChecking,
+                        ) {
+                            Text(stringResource(eu.darken.sdmse.common.R.string.general_retry_action))
+                        }
+                    }
+                    if (canOpen) {
+                        OutlinedButton(onClick = item.onOpen) {
+                            Text(stringResource(R.string.setup_shizuku_card_title))
+                        }
+                    }
                 }
-            }
-        }
-
-        if (item.state.isInstalled && item.state.useShizuku == true && !item.state.isComplete) {
-            OutlinedButton(
-                onClick = item.onOpen,
-                modifier = Modifier
-                    .align(Alignment.CenterHorizontally)
-                    .padding(horizontal = 16.dp),
-            ) {
-                Text(stringResource(R.string.setup_shizuku_card_title))
             }
         }
 
