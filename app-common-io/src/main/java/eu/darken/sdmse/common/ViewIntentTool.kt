@@ -59,7 +59,7 @@ class ViewIntentTool @Inject constructor(
             log(TAG, WARN) { "createForFolder(): Can't view $path externally" }
             return null
         }
-        return Intent.createChooser(intent, path.name).apply {
+        return Intent.createChooser(intent, path.userReadablePath.get(context)).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
     }
