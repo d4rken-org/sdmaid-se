@@ -4,6 +4,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
@@ -20,6 +22,10 @@ import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -40,6 +46,9 @@ class SystemCleanerListViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
+    /** Set when the scan this screen started for itself failed, see the entry logic below. */
+    private val entryScanFailed = MutableStateFlow(false)
+
     init {
         // Start an initial scan if SystemCleaner has no data yet. The Dashboard only navigates here
         // after scanning, but the navigation back stack is saved-state backed while the tool's data
@@ -51,21 +60,44 @@ class SystemCleanerListViewModel @Inject constructor(
         // because an incomplete task is no promise that data is coming — a task that completes
         // without producing data would strand this screen on the loading placeholder for good.
         launch {
-            val idleState = taskSubmitter.state.first { st ->
-                st.tasks.none { it.toolType == SDMTool.Type.SYSTEMCLEANER && !it.isComplete }
+            while (true) {
+                val idleState = taskSubmitter.state.first { st ->
+                    st.tasks.none { it.toolType == SDMTool.Type.SYSTEMCLEANER && !it.isComplete }
+                }
+                // A scan the user cancelled must not be restarted behind their back, and a failed one
+                // would most likely just fail again. Scans are started from the Dashboard, so that's
+                // where we send them. No completed entry at all is the process-death case: scan.
+                val latest = idleState.getLatestTask(SDMTool.Type.SYSTEMCLEANER)
+                if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
+                    navUp()
+                    return@launch
+                }
+                if (systemCleaner.state.first().data != null) return@launch
+                // Atomic submit: between the idle check above and here another entry point (a second
+                // screen, the Dashboard) may have registered its own scan.
+                val submitted = try {
+                    taskSubmitter.submitIfToolIdle(SystemCleanerScanTask())
+                } catch (e: CancellationException) {
+                    // Rethrows if the ViewModel itself is going away, so teardown doesn't navigate.
+                    currentCoroutineContext().ensureActive()
+                    log(TAG, INFO) { "Entry scan was cancelled" }
+                    navUp()
+                    return@launch
+                } catch (e: Exception) {
+                    // No navUp here: the error dialog lives in this screen's host, so navigating
+                    // away would dispose it before it renders and the user would see nothing. No
+                    // rethrow either, that would emit the same error a second time through
+                    // launchErrorHandler. The failure flag turns the placeholder into an empty state.
+                    log(TAG, WARN) { "Entry scan failed: ${e.asLog()}" }
+                    entryScanFailed.value = true
+                    errorEvents.emit(e)
+                    return@launch
+                }
+                // Declined: another task for this tool registered in the race window. It may well
+                // complete without producing any data, so wait it out and decide again instead of
+                // leaving the screen loading forever.
+                if (submitted != null) return@launch
             }
-            // A scan the user cancelled must not be restarted behind their back, and a failed one
-            // would most likely just fail again. Scans are started from the Dashboard, so that's
-            // where we send them. No completed entry at all is the process-death case: scan.
-            val latest = idleState.getLatestTask(SDMTool.Type.SYSTEMCLEANER)
-            if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
-                navUp()
-                return@launch
-            }
-            if (systemCleaner.state.first().data != null) return@launch
-            // Atomic submit: between the idle check above and here another entry point (a second
-            // screen, the Dashboard) may have registered its own scan.
-            taskSubmitter.submitIfToolIdle(SystemCleanerScanTask())
         }
         // mapNotNull { it.data } skips the null transitions performScan publishes at the start of a
         // refresh, so navUp fires only on a real drain-to-empty, not during loading. (was BUG-FIXME-9)
@@ -88,15 +120,21 @@ class SystemCleanerListViewModel @Inject constructor(
     // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
     // and re-map the whole filter-content list. Progress is merged in last (below) as a cheap field
     // swap that preserves the rows List instance, letting keyed lazy rows skip recomposition.
-    private val rowsState = systemCleaner.state
-        .map { it.data }
-        .distinctUntilChanged()
-        .map { data ->
-            val rows = data?.filterContents
-                ?.sortedByDescending { it.size }
-                ?.map { Row(content = it) }
-            State(rows = rows)
+    private val rowsState = combine(
+        systemCleaner.state.map { it.data }.distinctUntilChanged(),
+        entryScanFailed,
+    ) { data, scanFailed ->
+        val rows = when {
+            data != null -> data.filterContents
+                .sortedByDescending { it.size }
+                .map { Row(content = it) }
+            // Null rows mean "loading". Without data and without a scan that could still deliver
+            // it, that placeholder would never go away, so show the empty state instead.
+            scanFailed -> emptyList<Row>()
+            else -> null
         }
+        State(rows = rows)
+    }
 
     val state: StateFlow<State> = combine(
         rowsState,

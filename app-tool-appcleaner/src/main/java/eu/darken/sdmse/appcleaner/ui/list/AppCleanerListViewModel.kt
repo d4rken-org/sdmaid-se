@@ -13,6 +13,8 @@ import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
@@ -26,6 +28,9 @@ import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -50,6 +55,9 @@ class AppCleanerListViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
+    /** Set when the scan this screen started for itself failed, see the entry logic below. */
+    private val entryScanFailed = MutableStateFlow(false)
+
     init {
         // Start an initial scan if AppCleaner has no data yet. The Dashboard only navigates here
         // after scanning, but the navigation back stack is saved-state backed while the tool's data
@@ -61,21 +69,45 @@ class AppCleanerListViewModel @Inject constructor(
         // because an incomplete task is no promise that data is coming — a task that completes
         // without producing data would strand this screen on the loading placeholder for good.
         launch {
-            val idleState = taskSubmitter.state.first { st ->
-                st.tasks.none { it.toolType == SDMTool.Type.APPCLEANER && !it.isComplete }
+            while (true) {
+                val idleState = taskSubmitter.state.first { st ->
+                    st.tasks.none { it.toolType == SDMTool.Type.APPCLEANER && !it.isComplete }
+                }
+                // A scan the user cancelled must not be restarted behind their back, and a failed one
+                // would most likely just fail again. Scans are started from the Dashboard, so that's
+                // where we send them. No completed entry at all is the process-death case: scan.
+                val latest = idleState.getLatestTask(SDMTool.Type.APPCLEANER)
+                if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
+                    navUp()
+                    return@launch
+                }
+                if (appCleaner.state.first().data != null) return@launch
+                // Atomic submit: between the idle check above and here another entry point (a second
+                // screen, the Dashboard) may have registered its own scan.
+                val submitted = try {
+                    taskSubmitter.submitIfToolIdle(AppCleanerScanTask())
+                } catch (e: CancellationException) {
+                    // Rethrows if the ViewModel itself is going away, so teardown doesn't navigate.
+                    currentCoroutineContext().ensureActive()
+                    log(TAG, INFO) { "Entry scan was cancelled" }
+                    navUp()
+                    return@launch
+                } catch (e: Exception) {
+                    // No navUp here: the error dialog lives in this screen's host, so navigating
+                    // away would dispose it before it renders and the user would see nothing. No
+                    // rethrow either, that would emit the same error a second time through
+                    // launchErrorHandler. The failure flag turns the placeholder into an empty state.
+                    // A missing inventory setup (IncompleteSetupException) lands here.
+                    log(TAG, WARN) { "Entry scan failed: ${e.asLog()}" }
+                    entryScanFailed.value = true
+                    errorEvents.emit(e)
+                    return@launch
+                }
+                // Declined: another task for this tool registered in the race window. It may well
+                // complete without producing any data, so wait it out and decide again instead of
+                // leaving the screen loading forever.
+                if (submitted != null) return@launch
             }
-            // A scan the user cancelled must not be restarted behind their back, and a failed one
-            // would most likely just fail again. Scans are started from the Dashboard, so that's
-            // where we send them. No completed entry at all is the process-death case: scan.
-            val latest = idleState.getLatestTask(SDMTool.Type.APPCLEANER)
-            if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
-                navUp()
-                return@launch
-            }
-            if (appCleaner.state.first().data != null) return@launch
-            // Atomic submit: between the idle check above and here another entry point (a second
-            // screen, the Dashboard) may have registered its own scan.
-            taskSubmitter.submitIfToolIdle(AppCleanerScanTask())
         }
         // navUp only on a real drain-to-empty. mapNotNull skips the null loading state performScan
         // publishes while running, so drop(1) consumes the first REAL result — without it a cold
@@ -102,8 +134,15 @@ class AppCleanerListViewModel @Inject constructor(
     private val rowsState = combine(
         appCleaner.state.map { it.data }.distinctUntilChanged(),
         searchQuery,
-    ) { data, rawQuery ->
-        val all = data?.junks?.sortedByDescending { it.size }
+        entryScanFailed,
+    ) { data, rawQuery, scanFailed ->
+        val all = when {
+            data != null -> data.junks.sortedByDescending { it.size }
+            // Null rows mean "loading". Without data and without a scan that could still deliver
+            // it, that placeholder would never go away, so show the empty state instead.
+            scanFailed -> emptyList<AppJunk>()
+            else -> null
+        }
         val normalized = AppCleanerSearchMatcher.normalizeQuery(rawQuery)
         val filtered = if (normalized.isEmpty()) {
             all

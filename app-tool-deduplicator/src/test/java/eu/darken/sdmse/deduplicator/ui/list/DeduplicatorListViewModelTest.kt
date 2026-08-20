@@ -26,9 +26,12 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.filterNotNull
@@ -175,6 +178,10 @@ class DeduplicatorListViewModelTest : BaseTest() {
         }
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true).apply {
             every { state } returns taskStateFlow
+            // Explicit "accepted": the entry loop only exits on a non-null result, so leaving this
+            // to the relaxed mock would make the loop's exit condition an implementation detail of
+            // MockK. Tests that need a decline re-stub this.
+            coEvery { submitIfToolIdle(any()) } returns mockk<SDMTool.Task.Result>(relaxed = true)
         }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
@@ -208,8 +215,8 @@ class DeduplicatorListViewModelTest : BaseTest() {
     @Test
     fun `state stays null when Deduplicator data is null`() = runTest2 {
         val h = harness(clusters = null)
-        // combine() requires data != null (filterNotNull). With no data, the StateFlow stays at
-        // its safeStateIn initial value (null).
+        // Null rows publish a null state, which the screen renders as loading. With no data and no
+        // failed entry scan, the StateFlow stays at its safeStateIn initial value (null).
         h.vm.state.first() shouldBe null
     }
 
@@ -587,8 +594,14 @@ class DeduplicatorListViewModelTest : BaseTest() {
         val h = harness(clusters = null)
         val registered = mutableListOf<Any>()
         coEvery { h.taskSubmitter.submitIfToolIdle(any()) } coAnswers {
-            if (registered.isEmpty()) registered.add(firstArg())
-            null
+            if (registered.isEmpty()) {
+                registered.add(firstArg())
+                mockk<SDMTool.Task.Result>(relaxed = true)
+            } else {
+                // Declined, because the winner's task is in flight by the time we get here.
+                h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask()))
+                null
+            }
         }
 
         h.newVm()
@@ -597,6 +610,98 @@ class DeduplicatorListViewModelTest : BaseTest() {
 
         registered.size shouldBe 1
         coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `an entry scan that fails surfaces the error and shows the empty state`() = runTest2 {
+        val h = harness(clusters = null)
+        val boom = IllegalStateException("scan blew up")
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } throws boom
+
+        val vm = h.newVm()
+        val errors = collectErrors(vm)
+        val nav = collectNavEvents(vm)
+        val stateJob = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+        advanceUntilIdle()
+
+        errors.list shouldBe listOf(boom)
+        // navUp would dispose this screen's host before it can render the error dialog, so the
+        // user would land on the Dashboard with no indication that anything went wrong.
+        nav.list shouldBe emptyList()
+        // Nothing is going to deliver data anymore: show the empty state, not a forever placeholder.
+        vm.state.value?.rows shouldBe emptyList()
+
+        stateJob.cancel()
+        errors.cancel()
+        nav.cancel()
+    }
+
+    @Test
+    fun `an entry scan that is cancelled navigates up`() = runTest2 {
+        val h = harness(clusters = null)
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } throws CancellationException("user cancelled")
+
+        val vm = h.newVm()
+        val nav = collectNavEvents(vm)
+        val errors = collectErrors(vm)
+        advanceUntilIdle()
+
+        nav.list shouldBe listOf(NavEvent.Up)
+        errors.list shouldBe emptyList()
+        nav.cancel()
+        errors.cancel()
+    }
+
+    @Test
+    fun `ViewModel teardown during the entry scan does not navigate up`() = runTest2 {
+        val h = harness(clusters = null)
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } coAnswers {
+            // What teardown looks like from inside the submit: our own job is cancelled. That must
+            // rethrow instead of being read as "the user cancelled the scan" and navigating.
+            currentCoroutineContext().cancel()
+            throw CancellationException("ViewModel cleared")
+        }
+
+        val vm = h.newVm()
+        val nav = collectNavEvents(vm)
+        val stateJob = launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
+        advanceUntilIdle()
+
+        nav.list shouldBe emptyList()
+        // Teardown is not a scan failure, so no empty state is faked either.
+        vm.state.value shouldBe null
+
+        stateJob.cancel()
+        nav.cancel()
+    }
+
+    @Test
+    fun `a declined entry submit is retried after the competing task completes without data`() = runTest2 {
+        val h = harness(clusters = null)
+        val submitted = mutableListOf<Any>()
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } coAnswers {
+            submitted.add(firstArg())
+            if (submitted.size == 1) {
+                // Declined: a competing task registered inside the race window and is now in flight.
+                h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(id = "competing")))
+                null
+            } else {
+                mockk<SDMTool.Task.Result>(relaxed = true)
+            }
+        }
+
+        h.newVm()
+        advanceUntilIdle()
+        submitted.size shouldBe 1
+
+        // The competing task completes normally but never assigns data. Treating the decline as
+        // "someone else will deliver" would leave the screen loading forever.
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(id = "competing", complete = true)),
+        )
+        advanceUntilIdle()
+
+        submitted shouldBe listOf(DeduplicatorScanTask(), DeduplicatorScanTask())
     }
 
     @Test
