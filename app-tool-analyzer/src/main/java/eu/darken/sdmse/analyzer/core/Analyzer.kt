@@ -32,6 +32,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.delete
@@ -55,6 +56,7 @@ import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.stats.core.SpaceTracker
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
@@ -66,6 +68,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.minutes
@@ -270,20 +273,53 @@ class Analyzer @Inject constructor(
             )
         }
 
-        task.targets
-            .filterDistinctRoots()
-            .forEach { target ->
-                log(TAG) { "Deleting $target" }
-                updateProgressSecondary(target.userReadablePath)
-                target.delete(gatewaySwitch, recursive = true)
-                (target as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
+        // Track what actually made it to the filesystem: a failure or cancellation part way through must
+        // still publish the removals that already happened, otherwise the UI keeps listing deleted files
+        // with stale sizes until the next manual refresh.
+        val deletedTargets = mutableSetOf<APath>()
+        var freedSpace = 0L
+        try {
+            task.targets
+                .filterDistinctRoots()
+                .forEach { target ->
+                    log(TAG) { "Deleting $target" }
+                    updateProgressSecondary(target.userReadablePath)
+                    target.delete(gatewaySwitch, recursive = true)
+                    deletedTargets.add(target)
+                    (target as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
+                }
+        } finally {
+            // NonCancellable: applyDeletion() suspends on the authoritative free-space re-read, which
+            // would be skipped on the cancellation path. Costs a few binder calls before a cancelled
+            // delete reports completion.
+            if (deletedTargets.isNotEmpty()) withContext(NonCancellable) {
+                freedSpace = applyDeletion(task, oldCategory, oldGroup, oldPkg, deletedTargets)
+                mediaStoreTool.flush()
             }
+        }
 
+        return ContentDeleteTask.Result(
+            affectedSpace = freedSpace,
+            affectedPaths = task.targets,
+        )
+    }
+
+    /**
+     * Publishes the post-delete state for [deletedTargets] as one atomic update: shrunken content group,
+     * refreshed device free space and a recomputed system residual. Returns the freed space that stats reports.
+     */
+    private suspend fun applyDeletion(
+        task: ContentDeleteTask,
+        oldCategory: ContentCategory,
+        oldGroup: ContentGroup,
+        oldPkg: AppCategory.PkgStat?,
+        deletedTargets: Set<APath>,
+    ): Long {
         var freedSpace = 0L
         val newContents = oldGroup.contents
             .toFlatContent()
             .filter { item ->
-                val deleted = task.targets.any { it.isAncestorOf(item.path) || it.matches(item.path) }
+                val deleted = deletedTargets.any { it.isAncestorOf(item.path) || it.matches(item.path) }
                 if (deleted) freedSpace += item.itemSize ?: 0L
                 !deleted
             }
@@ -319,20 +355,67 @@ class Analyzer @Inject constructor(
             }
         }
 
+        // The authoritative number: what the filesystem reports as free now. Called plainly, not through
+        // withProgress(), so it doesn't disturb the delete's own progress.
+        val refreshedFree: Long? = try {
+            deviceScanner.get().scan().firstOrNull { it.id == task.storageId }?.spaceFree
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "applyDeletion(): free-space re-read failed, using accounted delta: ${e.asLog()}" }
+            null
+        }
+
+        // Fallback uses the group-size delta, not the flat `freedSpace` sum, so the storage card moves by
+        // exactly what the category card moved by. The two differ for entries whose ContentItem.size is null
+        // but whose itemSize is not (symlinks and other non-file/dir types).
+        val groupSizeDelta = oldGroup.groupSize - newGroup.groupSize
+
         coreState.update { state ->
+            val newStorage = state.storages.singleOrNull { it.id == task.storageId }?.let { oldStorage ->
+                val newFree = refreshedFree ?: run {
+                    // Clamped against remaining capacity headroom, so the addition can neither overflow
+                    // Long nor push free space beyond the storage's capacity.
+                    val headroom = (oldStorage.spaceCapacity - oldStorage.spaceFree).coerceAtLeast(0L)
+                    oldStorage.spaceFree + groupSizeDelta.coerceIn(0L, headroom)
+                }
+                oldStorage.copy(spaceFree = newFree)
+            }
+
+            val updatedCategories = state.categories[task.storageId]!!.minus(oldCategory).plus(newCategory)
+
+            // SystemCategory.spaceUsedOverride is a scan-time residual (used bytes minus apps/media/other
+            // users), so it goes stale the moment the device's used bytes change.
+            val finalCategories = when {
+                newStorage == null -> updatedCategories
+                else -> updatedCategories.map { category ->
+                    if (category !is SystemCategory || category.spaceUsedOverride == null) return@map category
+                    category.copy(
+                        spaceUsedOverride = StorageScanner.computeResidual(
+                            spaceUsed = newStorage.spaceUsed,
+                            apps = updatedCategories.filterIsInstance<AppCategory>().sumOf { it.spaceUsed },
+                            media = updatedCategories.filterIsInstance<MediaCategory>().sumOf { it.spaceUsed },
+                            otherUsers = updatedCategories
+                                .filterIsInstance<OtherUsersCategory>()
+                                .sumOf { it.spaceUsed },
+                        ),
+                    )
+                }
+            }
+
             state.copy(
+                storages = when {
+                    // A delete never adds or removes storages, it only refreshes the target's free space.
+                    newStorage == null -> state.storages
+                    else -> state.storages.map { if (it.id == newStorage.id) newStorage else it }.toSet()
+                },
                 categories = state.categories.mutate {
-                    this[task.storageId] = this[task.storageId]!!.minus(oldCategory).plus(newCategory)
+                    this[task.storageId] = finalCategories
                 },
             )
         }
 
-        mediaStoreTool.flush()
-
-        return ContentDeleteTask.Result(
-            affectedSpace = freedSpace,
-            affectedPaths = task.targets,
-        )
+        return freedSpace
     }
 
     private suspend fun deepScanApp(task: AppDeepScanTask): AppDeepScanTask.Result {
