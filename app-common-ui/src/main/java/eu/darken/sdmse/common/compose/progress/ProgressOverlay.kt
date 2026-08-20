@@ -214,7 +214,7 @@ private fun ProgressOverlayPanel(
                 )
                 Row(
                     modifier = Modifier.padding(top = 6.dp),
-                    verticalAlignment = Alignment.Top,
+                    verticalAlignment = Alignment.CenterVertically,
                 ) {
                     val extra = data.extra
                     if (extraSlot != null && extra != null) {
