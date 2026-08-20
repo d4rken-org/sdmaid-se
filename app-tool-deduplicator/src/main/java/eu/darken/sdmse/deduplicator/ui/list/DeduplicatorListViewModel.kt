@@ -21,6 +21,7 @@ import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.deduplicator.core.tasks.isSingleDuplicateDelete
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
@@ -51,8 +52,39 @@ class DeduplicatorListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     init {
+        // Start an initial scan if Deduplicator has no data yet. The Dashboard only navigates here
+        // after scanning, but the navigation back stack is saved-state backed while the tool's data
+        // is plain in-memory state: after process death the restored screen comes back with no data
+        // at all and would sit on the loading placeholder forever.
+        //
+        // Wait out any in-flight task before deciding: performScan nulls the data while it runs, so
+        // checking immediately would duplicate an expensive scan. We wait instead of bailing out
+        // because an incomplete task is no promise that data is coming — a task that completes
+        // without producing data would strand this screen on the loading placeholder for good.
+        launch {
+            val idleState = taskSubmitter.state.first { st ->
+                st.tasks.none { it.toolType == SDMTool.Type.DEDUPLICATOR && !it.isComplete }
+            }
+            // A scan the user cancelled must not be restarted behind their back, and a failed one
+            // would most likely just fail again. Scans are started from the Dashboard, so that's
+            // where we send them. No completed entry at all is the process-death case: scan.
+            val latest = idleState.getLatestTask(SDMTool.Type.DEDUPLICATOR)
+            if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
+                navUp()
+                return@launch
+            }
+            if (deduplicator.state.first().data != null) return@launch
+            // Atomic submit: between the idle check above and here another entry point (a second
+            // screen, the Dashboard) may have registered its own scan.
+            taskSubmitter.submitIfToolIdle(DeduplicatorScanTask())
+        }
+        // navUp only on a real drain-to-empty. mapNotNull skips the null loading state, and
+        // distinctUntilChanged() drops the repeats: the tool's state combines data with progress, so
+        // the same Data re-emits on every progress tick and a cold empty scan would otherwise get
+        // past drop(1) on its second identical emission.
         deduplicator.state
             .mapNotNull { it.data }
+            .distinctUntilChanged()
             .drop(1)
             .filter { !it.hasData }
             .take(1)

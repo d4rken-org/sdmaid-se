@@ -13,8 +13,11 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseIdentifier
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -23,6 +26,7 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -35,12 +39,45 @@ class CorpseFinderListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
-        // navUp only when a non-null Data drains to empty corpses — null is the loading state
-        // (set during performScan before results land) and must not trigger navigation.
+        // Start an initial scan if CorpseFinder has no data yet. The Dashboard only navigates here
+        // after scanning, but the navigation back stack is saved-state backed while the tool's data
+        // is plain in-memory state: after process death the restored screen comes back with no data
+        // at all and would sit on the loading placeholder forever.
+        //
+        // Wait out any in-flight task before deciding: performScan nulls the data while it runs, so
+        // checking immediately would duplicate an expensive scan. We wait instead of bailing out
+        // because an incomplete task is no promise that data is coming — the uninstall watcher never
+        // assigns any, and a task that completes without producing data would strand this screen on
+        // the loading placeholder for good.
+        launch {
+            val idleState = taskSubmitter.state.first { st ->
+                st.tasks.none { it.toolType == SDMTool.Type.CORPSEFINDER && !it.isComplete }
+            }
+            // A scan the user cancelled must not be restarted behind their back, and a failed one
+            // would most likely just fail again. Scans are started from the Dashboard, so that's
+            // where we send them. No completed entry at all is the process-death case: scan.
+            val latest = idleState.getLatestTask(SDMTool.Type.CORPSEFINDER)
+            if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
+                navUp()
+                return@launch
+            }
+            if (corpseFinder.state.first().data != null) return@launch
+            // Atomic submit: between the idle check above and here another entry point (a second
+            // screen, the Dashboard) may have registered its own scan.
+            taskSubmitter.submitIfToolIdle(CorpseFinderScanTask())
+        }
+        // navUp only on a real drain-to-empty. mapNotNull skips the null loading state performScan
+        // publishes while running, so drop(1) consumes the first REAL result, and the dedupe drops
+        // the repeats the tool's data/progress combine produces on every progress tick.
+        //
+        // The dedupe key is the corpse collection, not the whole Data: Data also carries lastResult,
+        // which a cold scan writes twice with different values, so two Data with identical corpses
+        // compare unequal and an empty cold scan would slip past drop(1) and navigate away.
         corpseFinder.state
-            .map { it.data }
+            .mapNotNull { it.data?.corpses }
+            .distinctUntilChanged()
             .drop(1)
-            .filter { it?.corpses?.isEmpty() == true }
+            .filter { it.isEmpty() }
             .take(1)
             .onEach { navUp() }
             .launchIn(vmScope)
