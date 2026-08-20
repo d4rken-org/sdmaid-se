@@ -11,6 +11,7 @@ import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
+import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.deduplicator.ui.preview.previewChecksumDuplicate
 import eu.darken.sdmse.deduplicator.ui.preview.previewChecksumGroup
@@ -97,6 +98,25 @@ class DeduplicatorListViewModelTest : BaseTest() {
         val layoutModeFlow: MutableStateFlow<LayoutMode>,
         val allowDeleteAllFlow: MutableStateFlow<Boolean>,
         val values: Values,
+        /** Builds another ViewModel against the same mocks, i.e. a second entry into the screen. */
+        val newVm: () -> DeduplicatorListViewModel,
+    )
+
+    private fun managedTask(
+        id: String = "task-1",
+        complete: Boolean = false,
+        cancelled: Boolean = false,
+        error: Throwable? = null,
+        toolType: SDMTool.Type = SDMTool.Type.DEDUPLICATOR,
+    ): TaskSubmitter.ManagedTask = TaskSubmitter.ManagedTask(
+        id = id,
+        toolType = toolType,
+        task = mockk(relaxed = true),
+        queuedAt = Instant.now(),
+        startedAt = Instant.now(),
+        cancelledAt = if (cancelled) Instant.now() else null,
+        completedAt = if (complete) Instant.now() else null,
+        error = error,
     )
 
     private class CollectedEvents<T>(
@@ -128,11 +148,12 @@ class DeduplicatorListViewModelTest : BaseTest() {
         layoutMode: LayoutMode = LayoutMode.GRID,
         allowDeleteAll: Boolean = false,
         isPro: Boolean = true,
+        tasks: Collection<TaskSubmitter.ManagedTask> = emptySet(),
     ): Harness {
         val data = clusters?.let { Deduplicator.Data(clusters = it) }
         val stateFlow = MutableStateFlow(Deduplicator.State(data = data, progress = progress))
         val progressFlow = MutableStateFlow(progress)
-        val taskStateFlow = MutableStateFlow(TaskSubmitter.State(tasks = emptySet()))
+        val taskStateFlow = MutableStateFlow(TaskSubmitter.State(tasks = tasks))
         val layoutModeFlow = MutableStateFlow(layoutMode)
         val allowDeleteAllFlow = MutableStateFlow(allowDeleteAll)
 
@@ -158,15 +179,17 @@ class DeduplicatorListViewModelTest : BaseTest() {
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
         }
-        val vm = DeduplicatorListViewModel(
-            dispatcherProvider = TestDispatcherProvider(),
-            deduplicator = deduplicator,
-            settings = settings,
-            taskSubmitter = taskSubmitter,
-            upgradeRepo = upgradeRepo,
-        )
+        val newVm = {
+            DeduplicatorListViewModel(
+                dispatcherProvider = TestDispatcherProvider(),
+                deduplicator = deduplicator,
+                settings = settings,
+                taskSubmitter = taskSubmitter,
+                upgradeRepo = upgradeRepo,
+            )
+        }
         return Harness(
-            vm = vm,
+            vm = newVm(),
             deduplicator = deduplicator,
             settings = settings,
             taskSubmitter = taskSubmitter,
@@ -176,6 +199,7 @@ class DeduplicatorListViewModelTest : BaseTest() {
             layoutModeFlow = layoutModeFlow,
             allowDeleteAllFlow = allowDeleteAllFlow,
             values = values,
+            newVm = newVm,
         )
     }
 
@@ -449,6 +473,147 @@ class DeduplicatorListViewModelTest : BaseTest() {
         h.vm.state.filterNotNull().first()
 
         h.stateFlow.value = Deduplicator.State(data = null, progress = Progress.Data())
+        advanceUntilIdle()
+
+        nav.list shouldBe emptyList()
+        nav.cancel()
+    }
+
+    // ──────────────────────────── entry / cold scan ────────────────────────────
+
+    private fun CoroutineScope.collectErrors(
+        vm: DeduplicatorListViewModel,
+    ): CollectedEvents<Throwable> {
+        val list = mutableListOf<Throwable>()
+        val job = launch(start = CoroutineStart.UNDISPATCHED) {
+            vm.errorEvents.collect { list.add(it) }
+        }
+        return CollectedEvents(list, job)
+    }
+
+    @Test
+    fun `constructing the ViewModel does not push an error into errorEvents`() = runTest2 {
+        val h = harness(clusters = null)
+        val errors = collectErrors(h.vm)
+        advanceUntilIdle()
+
+        errors.list shouldBe emptyList()
+        errors.cancel()
+    }
+
+    @Test
+    fun `cold entry without data submits exactly one scan`() = runTest2 {
+        val h = harness(clusters = null)
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(DeduplicatorScanTask()) }
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(any()) }
+        // The entry scan must go through the atomic API, never plain submit().
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `entry with data present does not scan`() = runTest2 {
+        val h = harness(clusters = setOf(cluster("a")))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+    }
+
+    @Test
+    fun `entry during a task that completes with data does not scan`() = runTest2 {
+        val h = harness(clusters = null, tasks = setOf(managedTask()))
+        advanceUntilIdle()
+        // Still waiting on the in-flight task, so nothing submitted yet.
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+
+        h.stateFlow.value = Deduplicator.State(data = Deduplicator.Data(clusters = setOf(cluster("a"))), progress = null)
+        h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(complete = true)))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+    }
+
+    @Test
+    fun `entry during a task that completes without data scans`() = runTest2 {
+        // A task can complete normally without ever assigning data. Bailing out on it would strand
+        // the screen on the loading placeholder.
+        val h = harness(clusters = null, tasks = setOf(managedTask()))
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(complete = true)))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(DeduplicatorScanTask()) }
+    }
+
+    @Test
+    fun `entry during a task that gets cancelled navigates up instead of scanning`() = runTest2 {
+        val h = harness(clusters = null, tasks = setOf(managedTask()))
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(complete = true, cancelled = true)),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+        nav.list shouldBe listOf(NavEvent.Up)
+        nav.cancel()
+    }
+
+    @Test
+    fun `entry during a task that fails navigates up instead of scanning`() = runTest2 {
+        val h = harness(clusters = null, tasks = setOf(managedTask()))
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(complete = true, error = IllegalStateException("nope"))),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+        nav.list shouldBe listOf(NavEvent.Up)
+        nav.cancel()
+    }
+
+    @Test
+    fun `two entries racing the same registration produce exactly one scan`() = runTest2 {
+        // Mirrors TaskManager.submitIfToolIdle: registration only happens while the tool has no
+        // incomplete task, and both callers get here before either registered. A ViewModel that
+        // used plain submit() would produce two full scans, the second wiping the first's results.
+        val h = harness(clusters = null)
+        val registered = mutableListOf<Any>()
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } coAnswers {
+            if (registered.isEmpty()) registered.add(firstArg())
+            null
+        }
+
+        h.newVm()
+        h.newVm()
+        advanceUntilIdle()
+
+        registered.size shouldBe 1
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `a cold scan that finds nothing does not navigate up`() = runTest2 {
+        val h = harness(clusters = null)
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        // The scan lands its (empty) result...
+        h.stateFlow.value = Deduplicator.State(data = Deduplicator.Data(clusters = emptySet()), progress = null)
+        advanceUntilIdle()
+        // ...and a progress tick re-emits the same Data through the tool's combine. Without the
+        // dedupe that second identical emission would get past drop(1) and navigate away.
+        h.stateFlow.value = Deduplicator.State(
+            data = Deduplicator.Data(clusters = emptySet()),
+            progress = Progress.Data(extra = "tick"),
+        )
         advanceUntilIdle()
 
         nav.list shouldBe emptyList()

@@ -4,6 +4,7 @@ import android.content.Context
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
 import eu.darken.sdmse.common.navigation.NavEvent
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -31,6 +33,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.time.Instant
 
 class AppCleanerListViewModelTest : BaseTest() {
 
@@ -68,6 +71,26 @@ class AppCleanerListViewModelTest : BaseTest() {
         val upgradeRepo: UpgradeRepo,
         val stateFlow: MutableStateFlow<AppCleaner.State>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
+        val taskStateFlow: MutableStateFlow<TaskSubmitter.State>,
+        /** Builds another ViewModel against the same mocks, i.e. a second entry into the screen. */
+        val newVm: () -> AppCleanerListViewModel,
+    )
+
+    private fun managedTask(
+        id: String = "task-1",
+        complete: Boolean = false,
+        cancelled: Boolean = false,
+        error: Throwable? = null,
+        toolType: SDMTool.Type = SDMTool.Type.APPCLEANER,
+    ): TaskSubmitter.ManagedTask = TaskSubmitter.ManagedTask(
+        id = id,
+        toolType = toolType,
+        task = mockk(relaxed = true),
+        queuedAt = Instant.now(),
+        startedAt = Instant.now(),
+        cancelledAt = if (cancelled) Instant.now() else null,
+        completedAt = if (complete) Instant.now() else null,
+        error = error,
     )
 
     private class CollectedEvents<T>(
@@ -101,6 +124,7 @@ class AppCleanerListViewModelTest : BaseTest() {
         data: AppCleaner.Data? = null,
         progress: Progress.Data? = null,
         isPro: Boolean = true,
+        tasks: Collection<TaskSubmitter.ManagedTask> = emptySet(),
     ): Harness {
         val stateFlow = MutableStateFlow(appState(data = data, progress = progress))
         val progressFlow = MutableStateFlow(progress)
@@ -108,19 +132,29 @@ class AppCleanerListViewModelTest : BaseTest() {
             every { this@apply.state } returns stateFlow
             every { this@apply.progress } returns progressFlow
         }
-        val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
+        // A real flow, not the relaxed mock's empty one: the entry logic waits on
+        // taskSubmitter.state.first { ... }, which against an empty flow dies with
+        // NoSuchElementException inside vmScope - silently, leaving the whole path untested.
+        val taskStateFlow = MutableStateFlow(TaskSubmitter.State(tasks = tasks))
+        val taskSubmitter = mockk<TaskSubmitter>(relaxed = true).apply {
+            every { this@apply.state } returns taskStateFlow
+        }
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
         }
         val context = mockk<Context>(relaxed = true)
-        val vm = AppCleanerListViewModel(
-            dispatcherProvider = TestDispatcherProvider(),
-            context = context,
-            appCleaner = appCleaner,
-            taskSubmitter = taskSubmitter,
-            upgradeRepo = upgradeRepo,
+        val newVm = {
+            AppCleanerListViewModel(
+                dispatcherProvider = TestDispatcherProvider(),
+                context = context,
+                appCleaner = appCleaner,
+                taskSubmitter = taskSubmitter,
+                upgradeRepo = upgradeRepo,
+            )
+        }
+        return Harness(
+            newVm(), appCleaner, taskSubmitter, upgradeRepo, stateFlow, progressFlow, taskStateFlow, newVm,
         )
-        return Harness(vm, appCleaner, taskSubmitter, upgradeRepo, stateFlow, progressFlow)
     }
 
     @Test
@@ -378,5 +412,148 @@ class AppCleanerListViewModelTest : BaseTest() {
         // transition — no navUp emitted while a refresh is in progress.
         navCollected.list shouldBe emptyList()
         navCollected.cancel()
+    }
+
+    // ──────────────────────────── entry / cold scan ────────────────────────────
+
+    private fun CoroutineScope.collectErrors(
+        vm: AppCleanerListViewModel,
+    ): CollectedEvents<Throwable> {
+        val list = mutableListOf<Throwable>()
+        val job = launch(start = CoroutineStart.UNDISPATCHED) {
+            vm.errorEvents.collect { list.add(it) }
+        }
+        return CollectedEvents(list, job)
+    }
+
+    @Test
+    fun `constructing the ViewModel does not push an error into errorEvents`() = runTest2 {
+        // Guards the harness itself: with a relaxed TaskSubmitter mock the entry logic's
+        // first { ... } dies on an empty flow and every entry test below would pass vacuously.
+        val h = harness(data = null)
+        val errors = collectErrors(h.vm)
+        advanceUntilIdle()
+
+        errors.list shouldBe emptyList()
+        errors.cancel()
+    }
+
+    @Test
+    fun `cold entry without data submits exactly one scan`() = runTest2 {
+        val h = harness(data = null)
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(AppCleanerScanTask()) }
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(any()) }
+        // The entry scan must go through the atomic API, never plain submit().
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `entry with data present does not scan`() = runTest2 {
+        val h = harness(data = AppCleaner.Data(junks = listOf(junk("com.example.a"))))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+    }
+
+    @Test
+    fun `entry during a task that completes with data does not scan`() = runTest2 {
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        advanceUntilIdle()
+        // Still waiting on the in-flight task, so nothing submitted yet.
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+
+        h.stateFlow.value = appState(data = AppCleaner.Data(junks = listOf(junk("com.example.a"))))
+        h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(complete = true)))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+    }
+
+    @Test
+    fun `entry during a task that completes without data scans`() = runTest2 {
+        // A task can complete normally without ever assigning data. Bailing out on it would strand
+        // the screen on the loading placeholder.
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(complete = true)))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(AppCleanerScanTask()) }
+    }
+
+    @Test
+    fun `entry during a task that gets cancelled navigates up instead of scanning`() = runTest2 {
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(complete = true, cancelled = true)),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+        nav.list shouldBe listOf(NavEvent.Up)
+        nav.cancel()
+    }
+
+    @Test
+    fun `entry during a task that fails navigates up instead of scanning`() = runTest2 {
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(complete = true, error = IllegalStateException("nope"))),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+        nav.list shouldBe listOf(NavEvent.Up)
+        nav.cancel()
+    }
+
+    @Test
+    fun `two entries racing the same registration produce exactly one scan`() = runTest2 {
+        // Mirrors TaskManager.submitIfToolIdle: registration only happens while the tool has no
+        // incomplete task, and both callers get here before either registered. A ViewModel that
+        // used plain submit() would produce two full scans, the second wiping the first's results.
+        val h = harness(data = null)
+        val registered = mutableListOf<Any>()
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } coAnswers {
+            if (registered.isEmpty()) registered.add(firstArg())
+            null
+        }
+
+        h.newVm()
+        h.newVm()
+        advanceUntilIdle()
+
+        registered.size shouldBe 1
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `a cold scan that finds nothing does not navigate up`() = runTest2 {
+        val h = harness(data = null)
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        // The scan lands its (empty) result...
+        h.stateFlow.value = appState(data = AppCleaner.Data(junks = emptyList()))
+        advanceUntilIdle()
+        // ...and a progress tick re-emits the same Data through the tool's combine. Without the
+        // dedupe that second identical emission would get past drop(1) and navigate away.
+        h.stateFlow.value = appState(
+            data = AppCleaner.Data(junks = emptyList()),
+            progress = Progress.Data(extra = "tick"),
+        )
+        advanceUntilIdle()
+
+        nav.list shouldBe emptyList()
+        nav.cancel()
     }
 }
