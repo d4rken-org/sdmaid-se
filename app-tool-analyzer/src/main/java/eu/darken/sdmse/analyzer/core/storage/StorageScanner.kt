@@ -297,7 +297,7 @@ class StorageScanner @Inject constructor(
 
         val pkgStats = targetPkgs
             .map { pkg ->
-                updateProgressSecondary(pkg.label ?: pkg.packageName.toCaString())
+                updateProgressSecondary(pkg.label ?: pkg.packageName.toCaString(), extra = pkg)
 
                 // TODO This does not include nested markers, e.g. Android/something or DCIM/something
                 // Supporting this is not trivial:

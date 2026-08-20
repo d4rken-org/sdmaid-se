@@ -41,6 +41,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.ui.AppsRoute
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.AppIconExtraSlot
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.plusBottom
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -160,6 +161,7 @@ internal fun AppsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
+            extraSlot = AppIconExtraSlot,
         ) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(context.getSpanCount(widthDp = 360)),

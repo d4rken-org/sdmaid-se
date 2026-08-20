@@ -31,6 +31,7 @@ import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsGroupRow
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsHeaderCard
+import eu.darken.sdmse.common.coil.AppIconExtraSlot
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.plusBottom
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -151,6 +152,7 @@ internal fun AppDetailsScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(paddingValues),
+                    extraSlot = AppIconExtraSlot,
                 ) {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),

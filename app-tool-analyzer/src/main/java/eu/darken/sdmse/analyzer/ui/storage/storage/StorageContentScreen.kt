@@ -35,6 +35,7 @@ import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.OtherUsersCategoryCard
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryCard
+import eu.darken.sdmse.common.coil.AppIconExtraSlot
 import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
@@ -164,6 +165,7 @@ internal fun StorageContentScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(paddingValues),
+                    extraSlot = AppIconExtraSlot,
                 ) {
                     LazyVerticalGrid(
                         columns = GridCells.Fixed(context.getSpanCount()),
