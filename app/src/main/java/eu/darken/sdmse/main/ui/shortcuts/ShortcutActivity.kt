@@ -14,9 +14,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.shortcuts.CleanShortcutRouter
 import eu.darken.sdmse.main.core.shortcuts.OneTapCleaner
 import eu.darken.sdmse.main.core.shortcuts.OneTapRunGuard
-import eu.darken.sdmse.main.core.shortcuts.resolveCleanShortcutTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.MainActivity
 import kotlinx.coroutines.Dispatchers
@@ -32,6 +32,7 @@ class ShortcutActivity : ComponentActivity() {
     @Inject lateinit var appScope: AppCoroutineScope
     @Inject lateinit var oneTapRunGuard: OneTapRunGuard
     @Inject lateinit var oneTapCleaner: OneTapCleaner
+    @Inject lateinit var cleanShortcutRouter: CleanShortcutRouter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -95,52 +96,19 @@ class ShortcutActivity : ComponentActivity() {
     }
 
     /**
-     * Per-tool "clean" shortcut: runs that one tool's scan + delete. Like [handleScanDeleteShortcut]
-     * the opt-in is re-checked at runtime rather than trusted, because a stale pinned shortcut or an
-     * external caller can reach this exported activity. Unknown or absent tool → just open the app.
+     * Per-tool "clean" shortcut: [CleanShortcutRouter] resolves the tool, re-checks its opt-in and
+     * runs the clean; this only carries the decision out and supplies the "started" toast.
      */
     private fun handleCleanToolShortcut(toolName: String?) = appScope.launch {
-        val type = resolveCleanShortcutTool(toolName)
-        if (type == null) {
-            log(TAG, WARN) { "Unknown clean shortcut tool '$toolName', opening app instead" }
-            openMain(null)
-            return@launch
-        }
-
-        val enabled = when (type) {
-            SDMTool.Type.CORPSEFINDER -> generalSettings.shortcutCleanCorpseFinderEnabled
-            SDMTool.Type.SYSTEMCLEANER -> generalSettings.shortcutCleanSystemCleanerEnabled
-            SDMTool.Type.APPCLEANER -> generalSettings.shortcutCleanAppCleanerEnabled
-            else -> generalSettings.shortcutCleanDeduplicatorEnabled
-        }.value()
-
-        if (!enabled) {
-            log(TAG, INFO) { "Clean shortcut for $type is disabled, opening app instead" }
-            openMain(null)
-            return@launch
-        }
-
-        val outcome = oneTapCleaner.runSingleTool(type = type, shortcutMode = true) {
+        val route = cleanShortcutRouter.route(toolName) {
             // Show "started" up front: the submit suspends until the task finishes, so a toast
             // afterwards would land only once everything is already done.
-            withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    this@ShortcutActivity,
-                    getString(R.string.shortcut_onetap_started),
-                    Toast.LENGTH_SHORT,
-                ).show()
-            }
+            showStartedToast()
         }
-        when (outcome) {
-            OneTapCleaner.Outcome.NotPro -> {
-                log(TAG, INFO) { "Clean shortcut requires Pro, opening upgrade screen" }
-                openMain(ACTION_UPGRADE)
-            }
-
-            // A run is already in progress — open the app so the user can watch progress.
-            OneTapCleaner.Outcome.AlreadyRunning -> openMain(null)
-
-            OneTapCleaner.Outcome.NothingEnabled, OneTapCleaner.Outcome.Ran -> {}
+        when (route) {
+            CleanShortcutRouter.Route.OpenApp -> openMain(null)
+            CleanShortcutRouter.Route.OpenUpgrade -> openMain(ACTION_UPGRADE)
+            CleanShortcutRouter.Route.Nowhere -> {}
         }
     }
 
@@ -175,13 +143,7 @@ class ShortcutActivity : ComponentActivity() {
         val outcome = oneTapCleaner.runOneClick(shortcutMode = true) {
             // Show "started" up front: submit() suspends until each task finishes, so a toast after
             // the submits would land only once everything is already done.
-            withContext(Dispatchers.Main) {
-                Toast.makeText(
-                    this@ShortcutActivity,
-                    getString(R.string.shortcut_onetap_started),
-                    Toast.LENGTH_SHORT,
-                ).show()
-            }
+            showStartedToast()
         }
         when (outcome) {
             OneTapCleaner.Outcome.NotPro -> {
@@ -213,6 +175,15 @@ class ShortcutActivity : ComponentActivity() {
         log(TAG, INFO) { "Cancelling OneTap run + one-click cleaning tasks" }
         oneTapRunGuard.cancelRun()
         OneTapCleaner.ONECLICK_TYPES.forEach { taskManager.cancel(it) }
+    }
+
+    /** These run from app-scope (Default) coroutines, so the toast has to hop to the main thread. */
+    private suspend fun showStartedToast() = withContext(Dispatchers.Main) {
+        Toast.makeText(
+            this@ShortcutActivity,
+            getString(R.string.shortcut_onetap_started),
+            Toast.LENGTH_SHORT,
+        ).show()
     }
 
     /** Launch [MainActivity] on the main thread — these run from the app-scope (Default) coroutines. */
