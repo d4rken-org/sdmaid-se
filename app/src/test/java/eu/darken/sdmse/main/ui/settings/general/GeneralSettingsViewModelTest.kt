@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import io.kotest.assertions.withClue
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -40,7 +41,25 @@ internal class GeneralSettingsViewModelTest : BaseTest() {
     private class Harness(
         val vm: GeneralSettingsViewModel,
         val autoShowSetting: DataStoreValue<Boolean>,
+        val cleanShortcutSettings: Map<CleanTool, DataStoreValue<Boolean>>,
     )
+
+    /** The four tools that can have a per-tool clean shortcut. */
+    private enum class CleanTool { CORPSEFINDER, SYSTEMCLEANER, APPCLEANER, DEDUPLICATOR }
+
+    private fun GeneralSettingsViewModel.State.cleanShortcut(tool: CleanTool): Boolean = when (tool) {
+        CleanTool.CORPSEFINDER -> shortcutCleanCorpseFinderEnabled
+        CleanTool.SYSTEMCLEANER -> shortcutCleanSystemCleanerEnabled
+        CleanTool.APPCLEANER -> shortcutCleanAppCleanerEnabled
+        CleanTool.DEDUPLICATOR -> shortcutCleanDeduplicatorEnabled
+    }
+
+    private fun GeneralSettingsViewModel.setCleanShortcut(tool: CleanTool, enabled: Boolean) = when (tool) {
+        CleanTool.CORPSEFINDER -> setShortcutCleanCorpseFinder(enabled)
+        CleanTool.SYSTEMCLEANER -> setShortcutCleanSystemCleaner(enabled)
+        CleanTool.APPCLEANER -> setShortcutCleanAppCleaner(enabled)
+        CleanTool.DEDUPLICATOR -> setShortcutCleanDeduplicator(enabled)
+    }
 
     /** Relaxed so `.value(x)` (which writes via `update {}`) answers and can be verified. */
     private fun mockBool(value: Boolean): DataStoreValue<Boolean> = mockk(relaxed = true) {
@@ -51,9 +70,17 @@ internal class GeneralSettingsViewModelTest : BaseTest() {
     // vm.state stays at its initialValue and every assertion below would read State() defaults.
     private fun TestScope.harness(
         summaryAutoShow: Boolean = true,
+        cleanShortcutOn: CleanTool? = null,
     ): Harness {
         val autoShowSetting = mockBool(summaryAutoShow)
+        // Only the named tool is on: the state combine is positional, so this is what catches a
+        // value landing in a neighbouring slot.
+        val cleanSettings = CleanTool.entries.associateWith { mockBool(it == cleanShortcutOn) }
         val generalSettings = mockk<GeneralSettings>(relaxed = true).apply {
+            every { shortcutCleanCorpseFinderEnabled } returns cleanSettings.getValue(CleanTool.CORPSEFINDER)
+            every { shortcutCleanSystemCleanerEnabled } returns cleanSettings.getValue(CleanTool.SYSTEMCLEANER)
+            every { shortcutCleanAppCleanerEnabled } returns cleanSettings.getValue(CleanTool.APPCLEANER)
+            every { shortcutCleanDeduplicatorEnabled } returns cleanSettings.getValue(CleanTool.DEDUPLICATOR)
             every { enableDashboardOneClick } returns mockDataStoreValue(true)
             every { shortcutOneClickEnabled } returns mockDataStoreValue(true)
             every { themeMode } returns mockDataStoreValue(ThemeMode.SYSTEM)
@@ -105,7 +132,7 @@ internal class GeneralSettingsViewModelTest : BaseTest() {
             vm.state.collect { /* keep WhileSubscribed alive */ }
         }
 
-        return Harness(vm = vm, autoShowSetting = autoShowSetting)
+        return Harness(vm = vm, autoShowSetting = autoShowSetting, cleanShortcutSettings = cleanSettings)
     }
 
     @Test
@@ -139,5 +166,38 @@ internal class GeneralSettingsViewModelTest : BaseTest() {
 
         // .value(false) is an extension that writes through update {}.
         coVerify(exactly = 1) { h.autoShowSetting.update(any()) }
+    }
+
+    @Test
+    fun `every clean shortcut state field maps from its own settings flow`() = runTest2 {
+        CleanTool.entries.forEach { tool ->
+            val h = harness(cleanShortcutOn = tool)
+            advanceUntilIdle()
+
+            val state = h.vm.state.first()
+            withClue("$tool should be the only enabled clean shortcut") {
+                CleanTool.entries.associateWith { state.cleanShortcut(it) } shouldBe
+                        CleanTool.entries.associateWith { it == tool }
+            }
+            // Neighbouring slots in the positional combine stay where they belong.
+            state.dashboardSummaryAutoShow shouldBe true
+            state.widgetOneClickEnabled shouldBe true
+        }
+    }
+
+    @Test
+    fun `every clean shortcut setter writes only its own setting`() = runTest2 {
+        CleanTool.entries.forEach { tool ->
+            val h = harness()
+
+            h.vm.setCleanShortcut(tool, true)
+            advanceUntilIdle()
+
+            withClue("$tool setter must not write another tool's setting") {
+                h.cleanShortcutSettings.forEach { (candidate, setting) ->
+                    coVerify(exactly = if (candidate == tool) 1 else 0) { setting.update(any()) }
+                }
+            }
+        }
     }
 }
