@@ -6,8 +6,10 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderScanTask
 import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 import eu.darken.sdmse.corpsefinder.ui.preview.previewLocalPathLookup
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -28,6 +30,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
+import java.time.Instant
 
 class CorpseFinderListViewModelTest : BaseTest() {
 
@@ -60,6 +63,26 @@ class CorpseFinderListViewModelTest : BaseTest() {
         val taskSubmitter: TaskSubmitter,
         val dataFlow: MutableStateFlow<CorpseFinder.Data?>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
+        val taskStateFlow: MutableStateFlow<TaskSubmitter.State>,
+        /** Builds another ViewModel against the same mocks, i.e. a second entry into the screen. */
+        val newVm: () -> CorpseFinderListViewModel,
+    )
+
+    private fun managedTask(
+        id: String = "task-1",
+        complete: Boolean = false,
+        cancelled: Boolean = false,
+        error: Throwable? = null,
+        toolType: SDMTool.Type = SDMTool.Type.CORPSEFINDER,
+    ): TaskSubmitter.ManagedTask = TaskSubmitter.ManagedTask(
+        id = id,
+        toolType = toolType,
+        task = mockk(relaxed = true),
+        queuedAt = Instant.now(),
+        startedAt = Instant.now(),
+        cancelledAt = if (cancelled) Instant.now() else null,
+        completedAt = if (complete) Instant.now() else null,
+        error = error,
     )
 
     private class CollectedEvents<T>(
@@ -84,6 +107,7 @@ class CorpseFinderListViewModelTest : BaseTest() {
     private fun harness(
         data: CorpseFinder.Data? = null,
         progress: Progress.Data? = null,
+        tasks: Collection<TaskSubmitter.ManagedTask> = emptySet(),
     ): Harness {
         val dataFlow = MutableStateFlow(data)
         val progressFlow = MutableStateFlow(progress)
@@ -97,13 +121,21 @@ class CorpseFinderListViewModelTest : BaseTest() {
             }
             every { this@apply.progress } returns progressFlow
         }
-        val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
-        val vm = CorpseFinderListViewModel(
-            dispatcherProvider = TestDispatcherProvider(),
-            corpseFinder = corpseFinder,
-            taskSubmitter = taskSubmitter,
-        )
-        return Harness(vm, corpseFinder, taskSubmitter, dataFlow, progressFlow)
+        // A real flow, not the relaxed mock's empty one: the entry logic waits on
+        // taskSubmitter.state.first { ... }, which against an empty flow dies with
+        // NoSuchElementException inside vmScope - silently, leaving the whole path untested.
+        val taskStateFlow = MutableStateFlow(TaskSubmitter.State(tasks = tasks))
+        val taskSubmitter = mockk<TaskSubmitter>(relaxed = true).apply {
+            every { this@apply.state } returns taskStateFlow
+        }
+        val newVm = {
+            CorpseFinderListViewModel(
+                dispatcherProvider = TestDispatcherProvider(),
+                corpseFinder = corpseFinder,
+                taskSubmitter = taskSubmitter,
+            )
+        }
+        return Harness(newVm(), corpseFinder, taskSubmitter, dataFlow, progressFlow, taskStateFlow, newVm)
     }
 
     @Test
@@ -370,5 +402,157 @@ class CorpseFinderListViewModelTest : BaseTest() {
             vm.navEvents.collect { list.add(it) }
         }
         return CollectedEvents(list, job)
+    }
+
+    private fun CoroutineScope.collectErrors(
+        vm: CorpseFinderListViewModel,
+    ): CollectedEvents<Throwable> {
+        val list = mutableListOf<Throwable>()
+        val job = launch(start = CoroutineStart.UNDISPATCHED) {
+            vm.errorEvents.collect { list.add(it) }
+        }
+        return CollectedEvents(list, job)
+    }
+
+    // ──────────────────────────── entry / cold scan ────────────────────────────
+
+    @Test
+    fun `constructing the ViewModel does not push an error into errorEvents`() = runTest2 {
+        // Guards the harness itself: with a relaxed TaskSubmitter mock the entry logic's
+        // first { ... } dies on an empty flow and every entry test below would pass vacuously.
+        val h = harness(data = null)
+        val errors = collectErrors(h.vm)
+        advanceUntilIdle()
+
+        errors.list shouldBe emptyList()
+        errors.cancel()
+    }
+
+    @Test
+    fun `cold entry without data submits exactly one scan`() = runTest2 {
+        val h = harness(data = null)
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(CorpseFinderScanTask()) }
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(any()) }
+        // The entry scan must go through the atomic API, never plain submit().
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `entry with data present does not scan`() = runTest2 {
+        val h = harness(data = CorpseFinder.Data(corpses = listOf(corpse("a", 100))))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+    }
+
+    @Test
+    fun `entry during a task that completes with data does not scan`() = runTest2 {
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        advanceUntilIdle()
+        // Still waiting on the in-flight task, so nothing submitted yet.
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+
+        h.dataFlow.value = CorpseFinder.Data(corpses = listOf(corpse("a", 100)))
+        h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(complete = true)))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+    }
+
+    @Test
+    fun `entry during a task that completes without data scans`() = runTest2 {
+        // The uninstall watcher's task completes normally but never assigns data. Bailing out on it
+        // would strand the screen on the loading placeholder.
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(tasks = setOf(managedTask(complete = true)))
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submitIfToolIdle(CorpseFinderScanTask()) }
+    }
+
+    @Test
+    fun `entry during a task that gets cancelled navigates up instead of scanning`() = runTest2 {
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(complete = true, cancelled = true)),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+        nav.list shouldBe listOf(NavEvent.Up)
+        nav.cancel()
+    }
+
+    @Test
+    fun `entry during a task that fails navigates up instead of scanning`() = runTest2 {
+        val h = harness(data = null, tasks = setOf(managedTask()))
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        h.taskStateFlow.value = TaskSubmitter.State(
+            tasks = setOf(managedTask(complete = true, error = IllegalStateException("nope"))),
+        )
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submitIfToolIdle(any()) }
+        nav.list shouldBe listOf(NavEvent.Up)
+        nav.cancel()
+    }
+
+    @Test
+    fun `two entries racing the same registration produce exactly one scan`() = runTest2 {
+        // Mirrors TaskManager.submitIfToolIdle: registration only happens while the tool has no
+        // incomplete task, and both callers get here before either registered. A ViewModel that
+        // used plain submit() would produce two full scans, the second wiping the first's results.
+        val h = harness(data = null)
+        val registered = mutableListOf<Any>()
+        coEvery { h.taskSubmitter.submitIfToolIdle(any()) } coAnswers {
+            if (registered.isEmpty()) {
+                registered.add(firstArg())
+                null
+            } else {
+                null
+            }
+        }
+
+        h.newVm()
+        h.newVm()
+        advanceUntilIdle()
+
+        registered.size shouldBe 1
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    // ─────────────────────────────── navUp guards ───────────────────────────────
+
+    @Test
+    fun `a cold scan that finds nothing does not navigate up`() = runTest2 {
+        val h = harness(data = null)
+        val nav = collectNavEvents(h.vm)
+        advanceUntilIdle()
+
+        // The scan lands its (empty) result...
+        h.dataFlow.value = CorpseFinder.Data(corpses = emptyList())
+        advanceUntilIdle()
+        // ...a progress tick re-emits the same Data through the tool's combine...
+        h.progressFlow.value = Progress.Data(extra = "tick")
+        advanceUntilIdle()
+        // ...and the scan writes lastResult, which changes Data but not the corpses (E2). Deduping
+        // on Data instead of on the corpse collection would let this slip past drop(1).
+        h.dataFlow.value = CorpseFinder.Data(
+            corpses = emptyList(),
+            lastResult = CorpseFinderDeleteTask.Success(affectedSpace = 0L, affectedPaths = emptySet()),
+        )
+        advanceUntilIdle()
+
+        nav.list shouldBe emptyList()
+        nav.cancel()
     }
 }
