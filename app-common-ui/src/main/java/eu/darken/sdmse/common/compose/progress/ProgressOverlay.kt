@@ -64,9 +64,10 @@ private const val RING_SUB_STROKE_FACTOR = 0.024f
 // TextUnit.Unspecified and for em values).
 private val HERO_HEIGHT_FALLBACK = 52.dp
 
-// Must stay below the height of two bodySmall lines, otherwise the extra slot grows the block that
-// already reserves 2 lines, and the vertically centered column jumps when a payload appears.
-// bodySmall's lineHeight is 16sp, so two lines are ~32dp at fontScale 1.0 and ~27dp at the 0.85 minimum.
+// Must stay below the height of two bodySmall lines, otherwise the extra slot outgrows the two-line
+// reservation it sits in and drives the block height itself, so the vertically centered column jumps
+// when a payload appears. bodySmall's lineHeight is 16sp, so two lines are ~32dp at fontScale 1.0 and
+// ~27dp at the 0.85 minimum.
 private val PROGRESS_EXTRA_ICON_SIZE = 20.dp
 
 /** Which count supplies the hero number: sub-progress when it is determinate, else the overall count. */
@@ -212,29 +213,42 @@ private fun ProgressOverlayPanel(
                     overflow = TextOverflow.Ellipsis,
                     modifier = Modifier.padding(top = if (countText.isNullOrEmpty()) 0.dp else 12.dp),
                 )
-                Row(
+                // Height reservation and content are separated on purpose. The reservation is a glyph-free
+                // two-line Text in the same style, so the block's height is constant (no re-centering jump,
+                // same rationale as the note above) and exact at any density or fontScale without a
+                // hand-computed dp value. The real row is centered inside it, so the icon lines up with the
+                // label whether the label renders on one line or wraps to two.
+                Box(
                     modifier = Modifier.padding(top = 6.dp),
-                    verticalAlignment = Alignment.CenterVertically,
+                    contentAlignment = Alignment.Center,
                 ) {
-                    val extra = data.extra
-                    if (extraSlot != null && extra != null) {
-                        extraSlot(
-                            extra,
-                            Modifier
-                                .padding(end = 6.dp)
-                                .size(PROGRESS_EXTRA_ICON_SIZE),
-                        )
-                    }
                     Text(
-                        text = secondary,
+                        text = "",
                         style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                        textAlign = TextAlign.Center,
                         minLines = 2,
                         maxLines = 2,
-                        overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.weight(1f, fill = false),
+                        modifier = Modifier.clearAndSetSemantics {},
                     )
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        val extra = data.extra
+                        if (extraSlot != null && extra != null) {
+                            extraSlot(
+                                extra,
+                                Modifier
+                                    .padding(end = 6.dp)
+                                    .size(PROGRESS_EXTRA_ICON_SIZE),
+                            )
+                        }
+                        Text(
+                            text = secondary,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            textAlign = TextAlign.Center,
+                            maxLines = 2,
+                            overflow = TextOverflow.Ellipsis,
+                            modifier = Modifier.weight(1f, fill = false),
+                        )
+                    }
                 }
             }
         }
