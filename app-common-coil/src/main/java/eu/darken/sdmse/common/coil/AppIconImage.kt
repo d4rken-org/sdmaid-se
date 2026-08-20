@@ -6,6 +6,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
@@ -28,6 +29,7 @@ fun AppIconImage(
     pkg: Pkg,
     modifier: Modifier = Modifier,
     contentDescription: String? = null,
+    placeholder: Painter? = null,
 ) {
     if (LocalInspectionMode.current) {
         val sample = LocalPreviewImageProvider.current?.appIcon(pkg)
@@ -54,5 +56,7 @@ fun AppIconImage(
         model = remember(pkg) { ImageRequest.Builder(context).data(pkg).build() },
         contentDescription = contentDescription,
         modifier = modifier,
+        placeholder = placeholder,
+        error = placeholder,
     )
 }
