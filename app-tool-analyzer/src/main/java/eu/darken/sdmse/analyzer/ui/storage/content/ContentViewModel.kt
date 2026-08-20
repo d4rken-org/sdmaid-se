@@ -44,6 +44,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
+import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -66,6 +67,7 @@ class ContentViewModel @Inject constructor(
     private val filterEditorOptionsCreator: FilterEditorOptionsCreator,
     private val upgradeRepo: UpgradeRepo,
     private val swiperSessionCreator: SwiperSessionCreator,
+    private val taskSubmitter: TaskSubmitter,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private val routeFlow = MutableStateFlow<ContentRoute?>(null)
@@ -278,7 +280,9 @@ class ContentViewModel @Inject constructor(
             targetPkg = route.installId,
             targets = targets,
         )
-        val result = analyzer.submit(task) as ContentDeleteTask.Result
+        // Routed through the TaskSubmitter, not the Analyzer directly: ContentDeleteTask is Reportable,
+        // and only the task manager reports completed tasks to the stats repo.
+        val result = taskSubmitter.submit(task) as ContentDeleteTask.Result
         events.emit(Event.ContentDeleted(result.affectedCount, result.affectedSpace))
     }
 
