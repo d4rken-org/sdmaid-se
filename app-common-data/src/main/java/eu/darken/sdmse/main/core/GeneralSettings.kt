@@ -67,6 +67,15 @@ class GeneralSettings @Inject constructor(
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
     val shortcutOneClickEnabled = dataStore.createValue("shortcut.oneclick.enabled", false)
 
+    // Per-tool "clean" launcher shortcuts: each runs that tool's scan + delete on its own. Separate
+    // from the oneClick<Tool>Enabled flags above, which only select what the COMBINED one-tap run
+    // does - picking a per-tool shortcut is an explicit choice about that one tool. All off by
+    // default, so existing installs see no new shortcuts.
+    val shortcutCleanCorpseFinderEnabled = dataStore.createValue("shortcut.clean.corpsefinder.enabled", false)
+    val shortcutCleanSystemCleanerEnabled = dataStore.createValue("shortcut.clean.systemcleaner.enabled", false)
+    val shortcutCleanAppCleanerEnabled = dataStore.createValue("shortcut.clean.appcleaner.enabled", false)
+    val shortcutCleanDeduplicatorEnabled = dataStore.createValue("shortcut.clean.deduplicator.enabled", false)
+
     // Whether the dashboard summary (hero) card may open by itself as the outcome of a one-tap main
     // action. When off the card never auto-opens; the bar's compact size chip stays the indicator and
     // one tap on it still opens the card.

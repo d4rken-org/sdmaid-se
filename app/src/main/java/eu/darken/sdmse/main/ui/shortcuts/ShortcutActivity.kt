@@ -9,11 +9,14 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coroutine.AppCoroutineScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.shortcuts.OneTapCleaner
 import eu.darken.sdmse.main.core.shortcuts.OneTapRunGuard
+import eu.darken.sdmse.main.core.shortcuts.resolveCleanShortcutTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.ui.MainActivity
 import kotlinx.coroutines.Dispatchers
@@ -45,6 +48,10 @@ class ShortcutActivity : ComponentActivity() {
                 handleScanDeleteShortcut()
             }
 
+            ACTION_CLEAN_TOOL -> {
+                handleCleanToolShortcut(readToolExtra())
+            }
+
             ACTION_WIDGET_SCAN_DELETE -> {
                 handleWidgetClean()
             }
@@ -73,6 +80,68 @@ class ShortcutActivity : ComponentActivity() {
             return@launch
         }
         runOneTap()
+    }
+
+    /**
+     * Reads [EXTRA_TOOL] without trusting the caller: this activity is exported, so the intent can
+     * carry a malformed Parcel or a wrong-typed extra, and touching the Bundle would throw straight
+     * out of onCreate.
+     */
+    private fun readToolExtra(): String? = try {
+        intent?.getStringExtra(EXTRA_TOOL)
+    } catch (e: Exception) {
+        log(TAG, WARN) { "Failed to read $EXTRA_TOOL: $e" }
+        null
+    }
+
+    /**
+     * Per-tool "clean" shortcut: runs that one tool's scan + delete. Like [handleScanDeleteShortcut]
+     * the opt-in is re-checked at runtime rather than trusted, because a stale pinned shortcut or an
+     * external caller can reach this exported activity. Unknown or absent tool → just open the app.
+     */
+    private fun handleCleanToolShortcut(toolName: String?) = appScope.launch {
+        val type = resolveCleanShortcutTool(toolName)
+        if (type == null) {
+            log(TAG, WARN) { "Unknown clean shortcut tool '$toolName', opening app instead" }
+            openMain(null)
+            return@launch
+        }
+
+        val enabled = when (type) {
+            SDMTool.Type.CORPSEFINDER -> generalSettings.shortcutCleanCorpseFinderEnabled
+            SDMTool.Type.SYSTEMCLEANER -> generalSettings.shortcutCleanSystemCleanerEnabled
+            SDMTool.Type.APPCLEANER -> generalSettings.shortcutCleanAppCleanerEnabled
+            else -> generalSettings.shortcutCleanDeduplicatorEnabled
+        }.value()
+
+        if (!enabled) {
+            log(TAG, INFO) { "Clean shortcut for $type is disabled, opening app instead" }
+            openMain(null)
+            return@launch
+        }
+
+        val outcome = oneTapCleaner.runSingleTool(type = type, shortcutMode = true) {
+            // Show "started" up front: the submit suspends until the task finishes, so a toast
+            // afterwards would land only once everything is already done.
+            withContext(Dispatchers.Main) {
+                Toast.makeText(
+                    this@ShortcutActivity,
+                    getString(R.string.shortcut_onetap_started),
+                    Toast.LENGTH_SHORT,
+                ).show()
+            }
+        }
+        when (outcome) {
+            OneTapCleaner.Outcome.NotPro -> {
+                log(TAG, INFO) { "Clean shortcut requires Pro, opening upgrade screen" }
+                openMain(ACTION_UPGRADE)
+            }
+
+            // A run is already in progress — open the app so the user can watch progress.
+            OneTapCleaner.Outcome.AlreadyRunning -> openMain(null)
+
+            OneTapCleaner.Outcome.NothingEnabled, OneTapCleaner.Outcome.Ran -> {}
+        }
     }
 
     /**
@@ -163,6 +232,16 @@ class ShortcutActivity : ComponentActivity() {
         const val ACTION_OPEN_APPCONTROL = "eu.darken.sdmse.ACTION_OPEN_APPCONTROL"
         const val ACTION_OPEN_ANALYZER = "eu.darken.sdmse.ACTION_OPEN_ANALYZER"
         const val ACTION_SCAN_DELETE = "eu.darken.sdmse.ACTION_SCAN_DELETE"
+
+        /**
+         * Per-tool "clean" shortcut → this activity. Deliberately NOT in the exported intent-filter:
+         * shortcut intents are explicit, so a filter entry would only advertise a destructive action.
+         */
+        const val ACTION_CLEAN_TOOL = "eu.darken.sdmse.ACTION_CLEAN_TOOL"
+
+        /** [SDMTool.Type] name carried by [ACTION_CLEAN_TOOL]. */
+        const val EXTRA_TOOL = "tool"
+
         const val ACTION_CANCEL_ONECLICK = "eu.darken.sdmse.ACTION_CANCEL_ONECLICK"
         const val ACTION_UPGRADE = "eu.darken.sdmse.ACTION_UPGRADE"
 

@@ -8,6 +8,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.R as AppControlR
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 
 sealed class AppShortcut(
@@ -18,12 +19,17 @@ sealed class AppShortcut(
 ) {
     abstract fun createIntent(context: Context): Intent
 
-    fun toShortcutInfo(context: Context): ShortcutInfo {
+    /**
+     * [rank] is set explicitly: launchers only display the first few shortcuts, and list order alone
+     * does not reliably define which ones those are.
+     */
+    fun toShortcutInfo(context: Context, rank: Int = 0): ShortcutInfo {
         return ShortcutInfo.Builder(context, id)
             .setShortLabel(context.getString(shortLabel))
             .setLongLabel(context.getString(longLabel))
             .setIcon(Icon.createWithResource(context, iconRes))
             .setIntent(createIntent(context))
+            .setRank(rank)
             .build()
     }
 
@@ -36,6 +42,31 @@ sealed class AppShortcut(
         override fun createIntent(context: Context): Intent = Intent(context, ShortcutActivity::class.java).apply {
             action = ShortcutActivity.ACTION_OPEN_APPCONTROL
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+    }
+
+    /**
+     * Runs a single tool's scan + delete straight from the launcher. Only the tools in
+     * [OneTapCleaner.ONECLICK_TYPES] have a one-click task, so only those can have one.
+     */
+    data class ToolAction(val type: SDMTool.Type) : AppShortcut(
+        id = "clean_" + type.name.lowercase(),
+        shortLabel = type.cleanShortcutShortLabelRes,
+        longLabel = type.cleanShortcutLongLabelRes,
+        iconRes = type.cleanShortcutIconRes,
+    ) {
+        init {
+            require(OneTapCleaner.ONECLICK_TYPES.contains(type)) { "$type has no clean shortcut" }
+        }
+
+        override fun createIntent(context: Context): Intent {
+            // Read outside the apply block: inside it, `type` binds to Intent's own MIME type.
+            val toolName = type.name
+            return Intent(context, ShortcutActivity::class.java).apply {
+                action = ShortcutActivity.ACTION_CLEAN_TOOL
+                putExtra(ShortcutActivity.EXTRA_TOOL, toolName)
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            }
         }
     }
 
