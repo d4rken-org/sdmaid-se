@@ -323,7 +323,7 @@ class AppCleaner @Inject constructor(
 
         internalData.value = snapshot.copy(
             junks = snapshot.junks.map { appJunk ->
-                updateProgressSecondary(appJunk.label)
+                updateProgressSecondary(appJunk.label, extra = appJunk.pkg)
                 // Remove all files we deleted or children of deleted files
 
                 val deletedInaccessible = mutableSetOf<ExpendablesFilter.Match>()
