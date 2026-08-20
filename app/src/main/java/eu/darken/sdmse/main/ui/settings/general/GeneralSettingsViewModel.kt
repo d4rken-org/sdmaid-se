@@ -58,9 +58,14 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.oneClickDeduplicatorEnabled.flow,
         generalSettings.widgetOneClickEnabled.flow,
         generalSettings.dashboardHeroAutoShow.flow,
+        generalSettings.shortcutCleanCorpseFinderEnabled.flow,
+        generalSettings.shortcutCleanSystemCleanerEnabled.flow,
+        generalSettings.shortcutCleanAppCleanerEnabled.flow,
+        generalSettings.shortcutCleanDeduplicatorEnabled.flow,
     ) { isPro, isUpdateCheckSupported, oneClick, shortcut, theme, previews, romType, updateCheck, motd, debug, locales,
         oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator, widgetOneClick,
-        summaryAutoShow ->
+        summaryAutoShow, shortcutCleanCorpseFinder, shortcutCleanSystemCleaner, shortcutCleanAppCleaner,
+        shortcutCleanDeduplicator ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
@@ -82,6 +87,10 @@ class GeneralSettingsViewModel @Inject constructor(
             oneClickDeduplicatorEnabled = oneClickDeduplicator,
             widgetOneClickEnabled = widgetOneClick,
             dashboardSummaryAutoShow = summaryAutoShow,
+            shortcutCleanCorpseFinderEnabled = shortcutCleanCorpseFinder,
+            shortcutCleanSystemCleanerEnabled = shortcutCleanSystemCleaner,
+            shortcutCleanAppCleanerEnabled = shortcutCleanAppCleaner,
+            shortcutCleanDeduplicatorEnabled = shortcutCleanDeduplicator,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -155,6 +164,22 @@ class GeneralSettingsViewModel @Inject constructor(
         generalSettings.oneClickDeduplicatorEnabled.value(enabled)
     }
 
+    fun setShortcutCleanCorpseFinder(enabled: Boolean) = launch {
+        generalSettings.shortcutCleanCorpseFinderEnabled.value(enabled)
+    }
+
+    fun setShortcutCleanSystemCleaner(enabled: Boolean) = launch {
+        generalSettings.shortcutCleanSystemCleanerEnabled.value(enabled)
+    }
+
+    fun setShortcutCleanAppCleaner(enabled: Boolean) = launch {
+        generalSettings.shortcutCleanAppCleanerEnabled.value(enabled)
+    }
+
+    fun setShortcutCleanDeduplicator(enabled: Boolean) = launch {
+        generalSettings.shortcutCleanDeduplicatorEnabled.value(enabled)
+    }
+
     fun resetGuidedTours() = launch {
         guidedTourController.reset()
     }
@@ -190,6 +215,10 @@ class GeneralSettingsViewModel @Inject constructor(
         val oneClickDeduplicatorEnabled: Boolean = false,
         val widgetOneClickEnabled: Boolean = false,
         val dashboardSummaryAutoShow: Boolean = true,
+        val shortcutCleanCorpseFinderEnabled: Boolean = false,
+        val shortcutCleanSystemCleanerEnabled: Boolean = false,
+        val shortcutCleanAppCleanerEnabled: Boolean = false,
+        val shortcutCleanDeduplicatorEnabled: Boolean = false,
     )
 
     companion object {

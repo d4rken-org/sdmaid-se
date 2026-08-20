@@ -6,12 +6,15 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.R as CommonR
 
+/** Picks which tools get their own scan + delete shortcut in the launcher's app-icon menu. */
 @Composable
-fun OneClickOptionsDialog(
+fun CleanShortcutsDialog(
     corpseFinderEnabled: Boolean,
     systemCleanerEnabled: Boolean,
     appCleanerEnabled: Boolean,
@@ -23,7 +26,7 @@ fun OneClickOptionsDialog(
     onDismiss: () -> Unit,
 ) {
     SdmConfirmDialog(
-        title = stringResource(R.string.dashboard_settings_oneclick_tools_title),
+        title = stringResource(R.string.shortcuts_clean_title),
         onDismissRequest = onDismiss,
         positive = SdmDialogAction(
             label = stringResource(android.R.string.ok),
@@ -32,8 +35,18 @@ fun OneClickOptionsDialog(
     ) {
         Column {
             Text(
-                text = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
+                text = stringResource(R.string.shortcuts_clean_desc),
                 style = MaterialTheme.typography.bodyMedium,
+            )
+            Text(
+                text = stringResource(R.string.shortcuts_clean_action_hint),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+            Text(
+                text = stringResource(R.string.shortcuts_clean_launcher_hint),
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
             SettingsDialogSwitchRow(
                 label = stringResource(CommonR.string.corpsefinder_tool_name),
@@ -56,5 +69,23 @@ fun OneClickOptionsDialog(
                 onCheckedChange = onDeduplicatorChanged,
             )
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun CleanShortcutsDialogPreview() {
+    PreviewWrapper {
+        CleanShortcutsDialog(
+            corpseFinderEnabled = true,
+            systemCleanerEnabled = false,
+            appCleanerEnabled = true,
+            deduplicatorEnabled = false,
+            onCorpseFinderChanged = {},
+            onSystemCleanerChanged = {},
+            onAppCleanerChanged = {},
+            onDeduplicatorChanged = {},
+            onDismiss = {},
+        )
     }
 }

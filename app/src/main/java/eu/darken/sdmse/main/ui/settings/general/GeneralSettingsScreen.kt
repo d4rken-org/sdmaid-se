@@ -8,6 +8,7 @@ import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.Help
 import androidx.compose.material.icons.twotone.AccessibilityNew
 import androidx.compose.material.icons.twotone.BugReport
+import androidx.compose.material.icons.twotone.CleaningServices
 import androidx.compose.material.icons.twotone.ColorLens
 import androidx.compose.material.icons.twotone.DarkMode
 import androidx.compose.material.icons.twotone.GridView
@@ -83,6 +84,10 @@ fun GeneralSettingsScreenHost(
         onOneClickSystemCleanerChanged = vm::setOneClickSystemCleaner,
         onOneClickAppCleanerChanged = vm::setOneClickAppCleaner,
         onOneClickDeduplicatorChanged = vm::setOneClickDeduplicator,
+        onShortcutCleanCorpseFinderChanged = vm::setShortcutCleanCorpseFinder,
+        onShortcutCleanSystemCleanerChanged = vm::setShortcutCleanSystemCleaner,
+        onShortcutCleanAppCleanerChanged = vm::setShortcutCleanAppCleaner,
+        onShortcutCleanDeduplicatorChanged = vm::setShortcutCleanDeduplicator,
         onResetGuidedTours = vm::resetGuidedTours,
     )
 }
@@ -110,6 +115,10 @@ internal fun GeneralSettingsScreen(
     onOneClickSystemCleanerChanged: (Boolean) -> Unit = {},
     onOneClickAppCleanerChanged: (Boolean) -> Unit = {},
     onOneClickDeduplicatorChanged: (Boolean) -> Unit = {},
+    onShortcutCleanCorpseFinderChanged: (Boolean) -> Unit = {},
+    onShortcutCleanSystemCleanerChanged: (Boolean) -> Unit = {},
+    onShortcutCleanAppCleanerChanged: (Boolean) -> Unit = {},
+    onShortcutCleanDeduplicatorChanged: (Boolean) -> Unit = {},
     onResetGuidedTours: () -> Unit = {},
 ) {
     var showThemeModeDialog by remember { mutableStateOf(false) }
@@ -117,6 +126,7 @@ internal fun GeneralSettingsScreen(
     var showThemeColorDialog by remember { mutableStateOf(false) }
     var showRomTypeDialog by remember { mutableStateOf(false) }
     var showOneClickTools by remember { mutableStateOf(false) }
+    var showCleanShortcuts by remember { mutableStateOf(false) }
 
     if (showThemeModeDialog) {
         ThemeModePickerDialog(
@@ -170,6 +180,20 @@ internal fun GeneralSettingsScreen(
             onAppCleanerChanged = onOneClickAppCleanerChanged,
             onDeduplicatorChanged = onOneClickDeduplicatorChanged,
             onDismiss = { showOneClickTools = false },
+        )
+    }
+
+    if (showCleanShortcuts) {
+        CleanShortcutsDialog(
+            corpseFinderEnabled = state.shortcutCleanCorpseFinderEnabled,
+            systemCleanerEnabled = state.shortcutCleanSystemCleanerEnabled,
+            appCleanerEnabled = state.shortcutCleanAppCleanerEnabled,
+            deduplicatorEnabled = state.shortcutCleanDeduplicatorEnabled,
+            onCorpseFinderChanged = onShortcutCleanCorpseFinderChanged,
+            onSystemCleanerChanged = onShortcutCleanSystemCleanerChanged,
+            onAppCleanerChanged = onShortcutCleanAppCleanerChanged,
+            onDeduplicatorChanged = onShortcutCleanDeduplicatorChanged,
+            onDismiss = { showCleanShortcuts = false },
         )
     }
 
@@ -239,6 +263,14 @@ internal fun GeneralSettingsScreen(
                     subtitle = stringResource(R.string.shortcuts_onetap_enabled_summary),
                     checked = state.shortcutOneClickEnabled,
                     onCheckedChange = onShortcutOneClickChanged,
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.CleaningServices,
+                    title = stringResource(R.string.shortcuts_clean_title),
+                    subtitle = stringResource(R.string.shortcuts_clean_desc),
+                    onClick = { showCleanShortcuts = true },
                 )
             }
 
