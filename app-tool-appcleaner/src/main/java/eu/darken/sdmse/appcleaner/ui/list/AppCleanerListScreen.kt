@@ -36,6 +36,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.ui.list.items.AppCleanerListRow
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.AppIconExtraSlot
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.layout.SdmDeleteAction
@@ -267,6 +268,7 @@ internal fun AppCleanerListScreen(
             ProgressOverlay(
                 data = state.progress,
                 modifier = Modifier.fillMaxSize(),
+                extraSlot = AppIconExtraSlot,
             ) {
                 when {
                     rows == null -> SdmLoadingState()

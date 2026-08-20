@@ -218,7 +218,7 @@ class AppScanner @Inject constructor(
         updateProgressCount(Progress.Count.Percent(pkgsToCheck.size))
 
         for (pkg in pkgsToCheck) {
-            updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName)
+            updateProgressSecondary(pkg.label?.get(context) ?: pkg.packageName, extra = pkg)
             log(TAG) { "Generating search paths for ${pkg.installId}" }
 
             val interestingPaths = mutableSetOf<AreaInfo>()
@@ -538,7 +538,7 @@ class AppScanner @Inject constructor(
 
         return targets
             .mapNotNull {
-                updateProgressSecondary(it.label)
+                updateProgressSecondary(it.label, extra = it)
                 inaccessibleCacheProvider.determineCache(it).also { increaseProgress() }
             }
             .filter { !it.isEmpty }
