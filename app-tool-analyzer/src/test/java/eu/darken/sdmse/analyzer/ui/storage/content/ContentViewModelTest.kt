@@ -5,6 +5,7 @@ import android.content.Intent
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
+import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
@@ -27,6 +28,8 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.common.ui.LayoutMode
+import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -34,6 +37,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.slot
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
@@ -85,6 +89,7 @@ class ContentViewModelTest : BaseTest() {
         val filterEditorOptionsCreator: eu.darken.sdmse.common.files.FilterEditorOptionsCreator,
         val viewIntentTool: ViewIntentTool,
         val exclusionManager: ExclusionManager,
+        val taskSubmitter: TaskSubmitter,
     )
 
     private fun TestScope.harness(
@@ -110,6 +115,7 @@ class ContentViewModelTest : BaseTest() {
             mockk<eu.darken.sdmse.common.files.FilterEditorOptionsCreator>(relaxed = true)
         val viewIntentTool = mockk<ViewIntentTool>(relaxed = true)
         val exclusionManager = mockk<ExclusionManager>(relaxed = true)
+        val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
 
         val vm = ContentViewModel(
             dispatcherProvider = TestDispatcherProvider(),
@@ -120,6 +126,7 @@ class ContentViewModelTest : BaseTest() {
             filterEditorOptionsCreator = filterEditorOptionsCreator,
             upgradeRepo = mockk(relaxed = true),
             swiperSessionCreator = swiperSessionCreator,
+            taskSubmitter = taskSubmitter,
         )
         vm.bindRoute(ContentRoute(storageId = storageId, groupId = group.id))
 
@@ -133,6 +140,7 @@ class ContentViewModelTest : BaseTest() {
             filterEditorOptionsCreator,
             viewIntentTool,
             exclusionManager,
+            taskSubmitter,
         )
     }
 
@@ -233,7 +241,35 @@ class ContentViewModelTest : BaseTest() {
         h.vm.onDeleteSelected(setOf(dirItem("DCIM")))
         advanceUntilIdle()
 
-        coVerify(exactly = 0) { h.analyzer.submit(any()) }
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any(), any()) }
+    }
+
+    @Test
+    fun `delete on writable content goes through the task submitter`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        val submitted = slot<SDMTool.Task>()
+        coEvery { h.taskSubmitter.submit(capture(submitted), any()) } returns ContentDeleteTask.Result(
+            affectedSpace = 1024L,
+            affectedPaths = setOf(child.path),
+        )
+        advanceUntilIdle()
+
+        h.vm.onDeleteSelected(setOf(child))
+        advanceUntilIdle()
+
+        // ContentDeleteTask is Reportable, so it has to reach the task manager to be counted by stats.
+        val task = submitted.captured
+        task.shouldBeInstanceOf<ContentDeleteTask>()
+        task.storageId shouldBe storageId
+        task.groupId shouldBe group.id
+        task.targets shouldBe setOf(child.path)
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<ContentViewModel.Event.ContentDeleted>()
+        event.count shouldBe 1
+        event.freedSpace shouldBe 1024L
     }
 
     @Test
