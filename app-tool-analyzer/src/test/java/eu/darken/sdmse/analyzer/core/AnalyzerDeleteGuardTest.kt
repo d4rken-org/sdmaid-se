@@ -72,10 +72,11 @@ class AnalyzerDeleteGuardTest : BaseTest() {
             spaceTracker = mockk(relaxed = true),
         )
 
-        val field = Analyzer::class.java.getDeclaredField("storageCategories").apply { isAccessible = true }
+        val field = Analyzer::class.java.getDeclaredField("coreState").apply { isAccessible = true }
         @Suppress("UNCHECKED_CAST")
-        (field.get(analyzer) as MutableStateFlow<Map<StorageId, Collection<ContentCategory>>>).value =
-            mapOf(storageId to categories)
+        (field.get(analyzer) as MutableStateFlow<Analyzer.CoreState>).value = Analyzer.CoreState(
+            categories = mapOf(storageId to categories),
+        )
 
         return analyzer
     }
