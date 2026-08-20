@@ -52,6 +52,7 @@ import eu.darken.sdmse.analyzer.ui.storage.preview.previewDeviceStorage
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.coil.AppIconExtraSlot
 import eu.darken.sdmse.common.compose.dialog.SdmConfirmDialog
 import eu.darken.sdmse.common.compose.dialog.SdmDialogAction
 import eu.darken.sdmse.common.compose.icons.SdmIcons
@@ -407,6 +408,7 @@ internal fun ContentScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(paddingValues),
+                    extraSlot = AppIconExtraSlot,
                 ) {
                     if (s.progress == null && s.items != null) {
                         when (s.layoutMode) {

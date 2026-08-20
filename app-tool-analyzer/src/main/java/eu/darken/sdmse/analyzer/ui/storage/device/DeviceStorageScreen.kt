@@ -34,6 +34,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.ui.storage.device.tour.AnalyzerStorageTour
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.AppIconExtraSlot
 import eu.darken.sdmse.common.compose.layout.ScrollAwareFab
 import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
@@ -133,6 +134,7 @@ internal fun DeviceStorageScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues),
+            extraSlot = AppIconExtraSlot,
         ) {
             LazyVerticalGrid(
                 columns = GridCells.Fixed(context.getSpanCount(widthDp = 360)),
