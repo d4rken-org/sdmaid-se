@@ -6,6 +6,16 @@ import java.time.Instant
 
 interface TaskSubmitter {
     suspend fun submit(task: SDMTool.Task, notifyOnFinish: Boolean = true): SDMTool.Task.Result
+
+    /**
+     * Like [submit], but atomically declines when the task's tool already has an incomplete task.
+     * The check and the registration happen under the same lock, so concurrent callers can't both
+     * see an idle tool and both queue up work.
+     *
+     * Returns null when the submission was declined.
+     */
+    suspend fun submitIfToolIdle(task: SDMTool.Task, notifyOnFinish: Boolean = true): SDMTool.Task.Result?
+
     fun cancel(type: SDMTool.Type)
     val state: Flow<State>
 

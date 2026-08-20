@@ -220,6 +220,26 @@ class TaskManager @Inject constructor(
 
     override suspend fun submit(task: SDMTool.Task, notifyOnFinish: Boolean): SDMTool.Task.Result {
         log(TAG, INFO) { "submit(): $task (notifyOnFinish=$notifyOnFinish)" }
+        return submitInternal(task, notifyOnFinish, declineIfToolBusy = false)!!
+    }
+
+    override suspend fun submitIfToolIdle(task: SDMTool.Task, notifyOnFinish: Boolean): SDMTool.Task.Result? {
+        log(TAG, INFO) { "submitIfToolIdle(): $task (notifyOnFinish=$notifyOnFinish)" }
+        return submitInternal(task, notifyOnFinish, declineIfToolBusy = true)
+    }
+
+    /**
+     * Shared submit implementation. With [declineIfToolBusy] the "does this tool already have an
+     * incomplete task?" check and the registration happen inside a single [updateTasks] block, i.e.
+     * under [managerLock], so two concurrent callers can't both observe an idle tool and both
+     * register a task. Returns null when the submission was declined, which cannot happen while
+     * [declineIfToolBusy] is false.
+     */
+    private suspend fun submitInternal(
+        task: SDMTool.Task,
+        notifyOnFinish: Boolean,
+        declineIfToolBusy: Boolean,
+    ): SDMTool.Task.Result? {
         val taskId = rngString
 
         // The task's outcome is signalled through this deferred, NOT through the task map: a failing
@@ -352,6 +372,8 @@ class TaskManager @Inject constructor(
             }
         }
 
+        var declined = false
+
         withContext(NonCancellable) {
             // Any task causes the taskmanager to stay "alive" and with it any depending resources
             // Only release all resources once all tasks are finished.
@@ -361,6 +383,12 @@ class TaskManager @Inject constructor(
             sharedResource.addChild(tool.sharedResource)
 
             updateTasks {
+                if (declineIfToolBusy && values.any { it.toolType == task.type && !it.isComplete }) {
+                    declined = true
+                    log(TAG, INFO) { "submit(): Declined, ${task.type} already has an incomplete task" }
+                    return@updateTasks
+                }
+
                 val entry = TaskEntry(
                     id = taskId,
                     task = task,
@@ -374,7 +402,17 @@ class TaskManager @Inject constructor(
 
                 log(TAG) { "submit(): Queued: $entry" }
             }
+
+            if (declined) {
+                // The job is LAZY and was never registered, so nothing would ever start it.
+                // Cancelling it completes the outcome deferred, and the safety net above no-ops on
+                // the missing entry; the keep-alive taken for it has to go back here.
+                job.cancel()
+                runCatching { keepAlive.close() }
+            }
         }
+
+        if (declined) return null
 
         job.join()
 
