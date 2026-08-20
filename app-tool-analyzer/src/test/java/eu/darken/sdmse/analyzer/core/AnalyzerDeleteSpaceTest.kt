@@ -297,6 +297,36 @@ class AnalyzerDeleteSpaceTest : BaseTest() {
     }
 
     @Test
+    fun `a re-read that also moved the capacity is applied as one pair`() = runTest2 {
+        val gb = 1_024L * 1_024L * 1_024L
+        val photo = path("storage", "emulated", "0", "DCIM", "img.jpg")
+        val mediaGroup = ContentGroup(label = "Media".toCaString(), contents = setOf(file(photo, gb)))
+        val systemGroup = ContentGroup(label = "System".toCaString())
+        val analyzer = buildAnalyzer(
+            storages = setOf(storage(capacity = 128 * gb, free = 40 * gb)),
+            categories = mapOf(
+                storageId to setOf(
+                    MediaCategory(storageId, setOf(mediaGroup)),
+                    // Scan-time residual: 88 GB used - 1 GB media.
+                    SystemCategory(storageId, setOf(systemGroup), spaceUsedOverride = 87 * gb),
+                ),
+            ),
+        )
+        // The scanner fell back to a different source (whole disk vs data partition), so the capacity
+        // moved too. Taking only spaceFree from it would leave 128 GB - 45 GB = 83 GB used, i.e. MORE
+        // used space than before the delete.
+        coEvery { deviceScanner.scan() } returns setOf(storage(capacity = 110 * gb, free = 45 * gb))
+
+        analyzer.submit(deleteTask(mediaGroup, setOf(photo)))
+
+        analyzer.currentStorage().spaceCapacity shouldBe 110 * gb
+        analyzer.currentStorage().spaceFree shouldBe 45 * gb
+        analyzer.currentStorage().spaceUsed shouldBe 65 * gb
+        // The residual derives from that same pair, not from the cached capacity.
+        analyzer.currentCategory<SystemCategory>().spaceUsedOverride shouldBe 65 * gb
+    }
+
+    @Test
     fun `a delete that frees nothing leaves the storage entry unchanged`() = runTest2 {
         val unknown = path("storage", "emulated", "0", "DCIM", "unknown")
         val group = ContentGroup(
