@@ -56,7 +56,9 @@ class ShortcutManager @Inject constructor(
                         SDMTool.Type.CORPSEFINDER -> corpseFinder
                         SDMTool.Type.SYSTEMCLEANER -> systemCleaner
                         SDMTool.Type.APPCLEANER -> appCleaner
-                        else -> deduplicator
+                        SDMTool.Type.DEDUPLICATOR -> deduplicator
+                        // A tool without its own opt-in must not inherit another tool's setting.
+                        else -> false
                     }
                 },
                 configGeneration = generation,
