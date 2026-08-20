@@ -355,10 +355,10 @@ class Analyzer @Inject constructor(
             }
         }
 
-        // The authoritative number: what the filesystem reports as free now. Called plainly, not through
-        // withProgress(), so it doesn't disturb the delete's own progress.
-        val refreshedFree: Long? = try {
-            deviceScanner.get().scan().firstOrNull { it.id == task.storageId }?.spaceFree
+        // The authoritative numbers: what the filesystem reports as capacity and free space now. Called
+        // plainly, not through withProgress(), so it doesn't disturb the delete's own progress.
+        val refreshed: DeviceStorage? = try {
+            deviceScanner.get().scan().firstOrNull { it.id == task.storageId }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -373,13 +373,26 @@ class Analyzer @Inject constructor(
 
         coreState.update { state ->
             val newStorage = state.storages.singleOrNull { it.id == task.storageId }?.let { oldStorage ->
-                val newFree = refreshedFree ?: run {
-                    // Clamped against remaining capacity headroom, so the addition can neither overflow
-                    // Long nor push free space beyond the storage's capacity.
-                    val headroom = (oldStorage.spaceCapacity - oldStorage.spaceFree).coerceAtLeast(0L)
-                    oldStorage.spaceFree + groupSizeDelta.coerceIn(0L, headroom)
+                when {
+                    // spaceUsed is capacity minus free, so both have to come from the same measurement.
+                    // DeviceStorageScanner can fall back from StorageStatsManager2 to the File API between
+                    // two scans, and those measure different things (whole disk vs data partition) - pairing
+                    // a refreshed free value with the cached capacity would move used space by gigabytes.
+                    // setupIncomplete stays as cached: it says whether the published categories may be
+                    // permission-limited, and a space re-read doesn't rebuild them. scanStorageDevices()
+                    // owns that transition.
+                    refreshed != null -> oldStorage.copy(
+                        spaceCapacity = refreshed.spaceCapacity,
+                        spaceFree = refreshed.spaceFree,
+                    )
+
+                    else -> {
+                        // Clamped against remaining capacity headroom, so the addition can neither overflow
+                        // Long nor push free space beyond the storage's capacity.
+                        val headroom = (oldStorage.spaceCapacity - oldStorage.spaceFree).coerceAtLeast(0L)
+                        oldStorage.copy(spaceFree = oldStorage.spaceFree + groupSizeDelta.coerceIn(0L, headroom))
+                    }
                 }
-                oldStorage.copy(spaceFree = newFree)
             }
 
             val updatedCategories = state.categories[task.storageId]!!.minus(oldCategory).plus(newCategory)
