@@ -34,19 +34,28 @@ fun <T : Progress.Client> T.updateProgressPrimary(@StringRes primary: Int, varar
 }
 
 fun <T : Progress.Client> T.updateProgressSecondary(secondary: String) {
-    updateProgress { (it ?: Progress.Data()).copy(secondary = secondary.toCaString()) }
+    updateProgress { (it ?: Progress.Data()).copy(secondary = secondary.toCaString(), extra = null) }
 }
 
 fun <T : Progress.Client> T.updateProgressSecondary(resolv: (Context) -> String) {
-    updateProgress { (it ?: Progress.Data()).copy(secondary = caString { resolv(this) }) }
+    updateProgress { (it ?: Progress.Data()).copy(secondary = caString { resolv(this) }, extra = null) }
 }
 
 fun <T : Progress.Client> T.updateProgressSecondary(secondary: CaString = CaString.EMPTY) {
-    updateProgress { (it ?: Progress.Data()).copy(secondary = secondary) }
+    updateProgress { (it ?: Progress.Data()).copy(secondary = secondary, extra = null) }
 }
 
 fun <T : Progress.Client> T.updateProgressSecondary(@StringRes secondary: Int, vararg args: Any) {
-    updateProgress { (it ?: Progress.Data()).copy(secondary = (secondary to args).toCaString()) }
+    updateProgress { (it ?: Progress.Data()).copy(secondary = (secondary to args).toCaString(), extra = null) }
+}
+
+/** Sets the item label and its payload in one update, so the UI can never pair a new label with a stale payload. */
+fun <T : Progress.Client> T.updateProgressSecondary(secondary: CaString, extra: Any?) {
+    updateProgress { (it ?: Progress.Data()).copy(secondary = secondary, extra = extra) }
+}
+
+fun <T : Progress.Client> T.updateProgressSecondary(secondary: String, extra: Any?) {
+    updateProgress { (it ?: Progress.Data()).copy(secondary = secondary.toCaString(), extra = extra) }
 }
 
 fun <T : Progress.Client> T.updateProgressCount(count: Progress.Count) {
