@@ -98,6 +98,51 @@ class OneTapCleaner @Inject constructor(
     }
 
     /**
+     * Runs the guarded one-click scan + delete for a SINGLE [type], for the per-tool launcher
+     * shortcuts. Deliberately does not consult the `oneClick<Tool>Enabled` flags: those select what
+     * the combined run does, while picking a per-tool shortcut is an explicit choice about that one
+     * tool. [Outcome.NothingEnabled] is therefore never returned.
+     *
+     * Shares [runOneClick]'s Pro gate and [OneTapRunGuard] single-flight, so a per-tool run and a
+     * combined one-tap run can't stack. [onStarted] fires once the guard is acquired and before the
+     * (suspending) submit, so a "started" hint lands while the work is still going.
+     */
+    suspend fun runSingleTool(
+        type: SDMTool.Type,
+        shortcutMode: Boolean,
+        onStarted: suspend () -> Unit = {},
+    ): Outcome {
+        log(TAG, INFO) { "runSingleTool($type, shortcutMode=$shortcutMode)" }
+        if (!upgradeRepo.isProForUi()) {
+            log(TAG, INFO) { "runSingleTool(): requires Pro" }
+            return Outcome.NotPro
+        }
+
+        val task = when (type) {
+            SDMTool.Type.CORPSEFINDER -> CorpseFinderOneClickTask()
+            SDMTool.Type.SYSTEMCLEANER -> SystemCleanerOneClickTask()
+            SDMTool.Type.APPCLEANER -> AppCleanerOneClickTask(shortcutMode = shortcutMode)
+            SDMTool.Type.DEDUPLICATOR -> DeduplicatorOneClickTask()
+            // Unreachable through the shortcut path: only [ONECLICK_TYPES] can be selected, and
+            // ShortcutActivity resolves its intent extra against that same set.
+            else -> throw IllegalArgumentException("$type has no one-click task")
+        }
+
+        if (!oneTapRunGuard.tryStart(currentCoroutineContext().job)) {
+            log(TAG, INFO) { "runSingleTool(): already running" }
+            return Outcome.AlreadyRunning
+        }
+
+        try {
+            onStarted()
+            submitOneTapTask(task)
+        } finally {
+            oneTapRunGuard.finish()
+        }
+        return Outcome.Ran
+    }
+
+    /**
      * Submits a plain *scan* (no deletion) for every enabled one-click tool, so the dashboard can
      * present the results for a normal confirmed delete. Best-effort per tool.
      */
