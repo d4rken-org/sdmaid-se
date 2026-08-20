@@ -10,12 +10,15 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import eu.darken.sdmse.systemcleaner.core.FilterContent
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
+import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerScanTask
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -38,10 +41,40 @@ class SystemCleanerListViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
+        // Start an initial scan if SystemCleaner has no data yet. The Dashboard only navigates here
+        // after scanning, but the navigation back stack is saved-state backed while the tool's data
+        // is plain in-memory state: after process death the restored screen comes back with no data
+        // at all and would sit on the loading placeholder forever.
+        //
+        // Wait out any in-flight task before deciding: performScan nulls the data while it runs, so
+        // checking immediately would duplicate an expensive scan. We wait instead of bailing out
+        // because an incomplete task is no promise that data is coming — a task that completes
+        // without producing data would strand this screen on the loading placeholder for good.
+        launch {
+            val idleState = taskSubmitter.state.first { st ->
+                st.tasks.none { it.toolType == SDMTool.Type.SYSTEMCLEANER && !it.isComplete }
+            }
+            // A scan the user cancelled must not be restarted behind their back, and a failed one
+            // would most likely just fail again. Scans are started from the Dashboard, so that's
+            // where we send them. No completed entry at all is the process-death case: scan.
+            val latest = idleState.getLatestTask(SDMTool.Type.SYSTEMCLEANER)
+            if (latest != null && (latest.cancelledAt != null || latest.error != null)) {
+                navUp()
+                return@launch
+            }
+            if (systemCleaner.state.first().data != null) return@launch
+            // Atomic submit: between the idle check above and here another entry point (a second
+            // screen, the Dashboard) may have registered its own scan.
+            taskSubmitter.submitIfToolIdle(SystemCleanerScanTask())
+        }
         // mapNotNull { it.data } skips the null transitions performScan publishes at the start of a
         // refresh, so navUp fires only on a real drain-to-empty, not during loading. (was BUG-FIXME-9)
+        // distinctUntilChanged() drops the repeats: the tool's state combines data with progress, so
+        // the same Data re-emits on every progress tick and a cold empty scan would otherwise get
+        // past drop(1) on its second identical emission.
         systemCleaner.state
             .mapNotNull { it.data }
+            .distinctUntilChanged()
             .map { it.hasData }
             .drop(1)
             .filter { !it }
