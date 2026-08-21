@@ -295,10 +295,11 @@ internal fun BottomBar(
                 summary = heroSummary,
                 now = state?.now ?: Instant.EPOCH,
                 onDismiss = onDismissHero,
-                // Discarding only makes sense while there's still pending data; a FREED summary is
-                // already just an after-the-fact report the X can hide.
-                onDiscard = onDiscardResults
-                    .takeIf { heroSummary.mode == HeroSummary.Mode.FREEABLE },
+                // Offered in every mode. A FREED summary was once treated as an after-the-fact report
+                // the X could hide, but the X only collapses the hero into the bar's size chip, which
+                // has no dismiss of its own — so that state had no way out at all. Discard always has
+                // something to clear here: freedResult for a report, live findings for a scan.
+                onDiscard = onDiscardResults,
                 onToolClick = onToolClick,
                 onLockedToolClick = onLockedToolClick,
                 onUpgrade = onUpgrade,
