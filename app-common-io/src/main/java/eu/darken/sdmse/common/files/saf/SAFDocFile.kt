@@ -69,6 +69,37 @@ data class SAFDocFile(
         }
     }
 
+    /**
+     * Like [name], but a failing query raises instead of reading as "this document has no name".
+     *
+     * Only for checking a name we asked for: a `DocumentsProvider` may hand back a document under a
+     * different display name, and a query nobody answered must not pass as "the provider supplies no
+     * name" - that would let a mangled name through as if it were the one we requested.
+     *
+     * [queryForString] can't carry that distinction, it answers null for every one of those cases.
+     * So the provider is addressed through a client like in [existsStrict] - no client means nobody
+     * to ask - and null is returned only for a row whose `COLUMN_DISPLAY_NAME` really is null.
+     */
+    @SuppressLint("Recycle")
+    fun readDisplayNameStrict(): String? {
+        val client = resolver.acquireUnstableContentProviderClient(uri)
+            ?: throw IOException("provider unavailable for $uri")
+
+        return try {
+            client
+                .query(uri, arrayOf(DocumentsContract.Document.COLUMN_DISPLAY_NAME), null, null, null)
+                .useQuietly { c ->
+                    if (c == null) throw IOException("No cursor for $uri")
+                    if (!c.moveToFirst()) throw IOException("No row for $uri")
+                    if (c.isNull(0)) null else c.getString(0)
+                }
+        } catch (e: RemoteException) {
+            throw IOException("readDisplayNameStrict() failed for $uri", e)
+        } finally {
+            client.close()
+        }
+    }
+
     private val mimeType: String? by lazy { queryForString(DocumentsContract.Document.COLUMN_MIME_TYPE) }
 
     val isFile: Boolean

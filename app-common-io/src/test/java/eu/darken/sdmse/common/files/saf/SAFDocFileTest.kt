@@ -308,6 +308,29 @@ class SAFDocFileTest : BaseTest() {
     }
 
     @Test
+    fun `readDisplayNameStrict propagates what name swallows`() {
+        // "We couldn't ask" must not read as "the provider supplies no display name", otherwise a
+        // caller that verifies the name it asked for accepts whatever it got instead.
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file.txt")
+                file("dir/nameless.txt", nullDisplayName = true)
+            }
+        )
+        val docFile = harness.docFile("dir", "file.txt")
+
+        docFile.readDisplayNameStrict() shouldBe "file.txt"
+        // Only a row that really carries no name answers null.
+        harness.docFile("dir", "nameless.txt").readDisplayNameStrict().shouldBeNull()
+
+        harness.provider.failNextQueryWith = RuntimeException("provider is having a bad day")
+        shouldThrow<RuntimeException> { docFile.readDisplayNameStrict() }
+
+        // A document that isn't there has no name to hand out either, which is not the same as null.
+        shouldThrow<Exception> { harness.docFile("dir", "ghost.txt").readDisplayNameStrict() }
+    }
+
+    @Test
     fun `findFile matches by display name`() {
         val harness = harness(
             FakeDocumentsProvider.tree {
