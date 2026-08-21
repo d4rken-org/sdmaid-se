@@ -156,18 +156,21 @@ internal fun DashboardViewModel.buildCorpseFinderItem(): Flow<ToolDashboardCardI
     // background uninstall watcher overwrite it. Prefer that over TaskManager, whose newest entry for this
     // tool may be a watcher event — which would otherwise surface on the card as the user's last action.
     val lastResult = data?.lastResult
-    val lastResultIsScan = lastResult is CorpseFinderScanTask.Success
+    // The single value the card renders: a frozen cleanup receipt, or a summary rebuilt from live
+    // scan findings. Gating the discard on this rather than on its inputs keeps "there is something on
+    // the card" and "there is something to clear" from ever drifting apart.
+    val cardResult = resolveScanCardResult(
+        isInitializing = state == null,
+        isWorking = state?.progress != null,
+        data = data,
+        hasData = data.hasData,
+        lastResult = lastResult,
+        lastResultIsScan = lastResult is CorpseFinderScanTask.Success,
+    ) { it.toScanSuccess() }
     ToolDashboardCardItem(
         toolType = SDMTool.Type.CORPSEFINDER,
         isInitializing = state == null,
-        result = resolveScanCardResult(
-            isInitializing = state == null,
-            isWorking = state?.progress != null,
-            data = data,
-            hasData = data.hasData,
-            lastResult = lastResult,
-            lastResultIsScan = lastResultIsScan,
-        ) { it.toScanSuccess() },
+        result = cardResult,
         progress = state?.progress,
         showProRequirement = false,
         onScan = {
@@ -198,7 +201,7 @@ internal fun DashboardViewModel.buildCorpseFinderItem(): Flow<ToolDashboardCardI
                 corpseFinder.discardScanData()
                 taskManager.forgetCompleted(SDMTool.Type.CORPSEFINDER)
             }
-        }.takeIf { lastResult != null && !lastResultIsScan },
+        }.takeIf { cardResult != null && state?.progress == null },
     )
 }
 
@@ -207,18 +210,21 @@ internal fun DashboardViewModel.buildSystemCleanerItem(): Flow<ToolDashboardCard
     taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
 ) { state, lastResult ->
     val data = state?.data
-    val lastResultIsScan = lastResult is SystemCleanerScanTask.Success
+    // The single value the card renders: a frozen cleanup receipt, or a summary rebuilt from live
+    // scan findings. Gating the discard on this rather than on its inputs keeps "there is something on
+    // the card" and "there is something to clear" from ever drifting apart.
+    val cardResult = resolveScanCardResult(
+        isInitializing = state == null,
+        isWorking = state?.progress != null,
+        data = data,
+        hasData = data.hasData,
+        lastResult = lastResult,
+        lastResultIsScan = lastResult is SystemCleanerScanTask.Success,
+    ) { it.toScanSuccess() }
     ToolDashboardCardItem(
         toolType = SDMTool.Type.SYSTEMCLEANER,
         isInitializing = state == null,
-        result = resolveScanCardResult(
-            isInitializing = state == null,
-            isWorking = state?.progress != null,
-            data = data,
-            hasData = data.hasData,
-            lastResult = lastResult,
-            lastResultIsScan = lastResultIsScan,
-        ) { it.toScanSuccess() },
+        result = cardResult,
         progress = state?.progress,
         showProRequirement = false,
         onScan = {
@@ -243,7 +249,7 @@ internal fun DashboardViewModel.buildSystemCleanerItem(): Flow<ToolDashboardCard
                 systemCleaner.discardScanData()
                 taskManager.forgetCompleted(SDMTool.Type.SYSTEMCLEANER)
             }
-        }.takeIf { lastResult != null && !lastResultIsScan },
+        }.takeIf { cardResult != null && state?.progress == null },
     )
 }
 
@@ -253,18 +259,21 @@ internal fun DashboardViewModel.buildAppCleanerItem(): Flow<ToolDashboardCardIte
     upgradeInfo.map { it?.isPro ?: false },
 ) { state, lastResult, isPro ->
     val data = state?.data
-    val lastResultIsScan = lastResult is AppCleanerScanTask.Success
+    // The single value the card renders: a frozen cleanup receipt, or a summary rebuilt from live
+    // scan findings. Gating the discard on this rather than on its inputs keeps "there is something on
+    // the card" and "there is something to clear" from ever drifting apart.
+    val cardResult = resolveScanCardResult(
+        isInitializing = state == null,
+        isWorking = state?.progress != null,
+        data = data,
+        hasData = data.hasData,
+        lastResult = lastResult,
+        lastResultIsScan = lastResult is AppCleanerScanTask.Success,
+    ) { it.toScanSuccess() }
     ToolDashboardCardItem(
         toolType = SDMTool.Type.APPCLEANER,
         isInitializing = state == null,
-        result = resolveScanCardResult(
-            isInitializing = state == null,
-            isWorking = state?.progress != null,
-            data = data,
-            hasData = data.hasData,
-            lastResult = lastResult,
-            lastResultIsScan = lastResultIsScan,
-        ) { it.toScanSuccess() },
+        result = cardResult,
         progress = state?.progress,
         showProRequirement = !isPro,
         onScan = {
@@ -289,7 +298,7 @@ internal fun DashboardViewModel.buildAppCleanerItem(): Flow<ToolDashboardCardIte
                 appCleaner.discardScanData()
                 taskManager.forgetCompleted(SDMTool.Type.APPCLEANER)
             }
-        }.takeIf { lastResult != null && !lastResultIsScan },
+        }.takeIf { cardResult != null && state?.progress == null },
     )
 }
 
@@ -299,18 +308,21 @@ internal fun DashboardViewModel.buildDeduplicatorItem(): Flow<ToolDashboardCardI
     upgradeInfo.map { it?.isPro ?: false },
 ) { state, lastResult, isPro ->
     val data = state?.data
-    val lastResultIsScan = lastResult is DeduplicatorScanTask.Success
+    // The single value the card renders: a frozen cleanup receipt, or a summary rebuilt from live
+    // scan findings. Gating the discard on this rather than on its inputs keeps "there is something on
+    // the card" and "there is something to clear" from ever drifting apart.
+    val cardResult = resolveScanCardResult(
+        isInitializing = state == null,
+        isWorking = state?.progress != null,
+        data = data,
+        hasData = data.hasData,
+        lastResult = lastResult,
+        lastResultIsScan = lastResult is DeduplicatorScanTask.Success,
+    ) { it.toScanSuccess() }
     ToolDashboardCardItem(
         toolType = SDMTool.Type.DEDUPLICATOR,
         isInitializing = state == null,
-        result = resolveScanCardResult(
-            isInitializing = state == null,
-            isWorking = state?.progress != null,
-            data = data,
-            hasData = data.hasData,
-            lastResult = lastResult,
-            lastResultIsScan = lastResultIsScan,
-        ) { it.toScanSuccess() },
+        result = cardResult,
         progress = state?.progress,
         showProRequirement = !isPro,
         onScan = {
@@ -340,7 +352,7 @@ internal fun DashboardViewModel.buildDeduplicatorItem(): Flow<ToolDashboardCardI
                 deduplicator.discardScanData()
                 taskManager.forgetCompleted(SDMTool.Type.DEDUPLICATOR)
             }
-        }.takeIf { lastResult != null && !lastResultIsScan },
+        }.takeIf { cardResult != null && state?.progress == null },
     )
 }
 

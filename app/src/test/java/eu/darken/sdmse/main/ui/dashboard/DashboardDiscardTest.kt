@@ -278,9 +278,9 @@ internal class DashboardDiscardTest : BaseTest() {
     }
 
     @Test
-    fun `a scan result offers no dismiss`() = runTest2 {
-        // A scan is live, actionable data, not an after-the-fact report; forgetting it would only
-        // have the card rebuild the same figure from live data on the next emission.
+    fun `a scan result is discardable too, not just a cleanup receipt`() = runTest2 {
+        // Discarding is offered whenever the card is showing something, matching the hero's Discard
+        // button, whose own rationale is that discarding makes sense while there is pending data.
         val h = harness(
             taskState = completedTask(AppCleanerScanTask.Success(itemCount = 3, recoverableSpace = 500L)),
             appCleanerState = appCleanerState(
@@ -288,11 +288,26 @@ internal class DashboardDiscardTest : BaseTest() {
             ),
         )
 
-        h.appCleanerCard().onDismissResult shouldBe null
+        h.appCleanerCard().onDismissResult shouldNotBe null
     }
 
     @Test
-    fun `no recorded result means no dismiss`() = runTest2 {
+    fun `live findings with no recorded task are discardable`() = runTest2 {
+        // Data can outlive its task result (exclusions applied from a details screen submit no task),
+        // so the offer has to follow what the card renders, not whether TaskManager remembers a run.
+        val h = harness(
+            appCleanerState = appCleanerState(
+                junks = listOf(mockk { every { size } returns 500L; every { itemCount } returns 3 }),
+            ),
+        )
+
+        h.appCleanerCard().onDismissResult shouldNotBe null
+    }
+
+    @Test
+    fun `an untouched card offers nothing to discard`() = runTest2 {
+        // No result and no findings: the card is showing its plain description, so there is nothing
+        // for the control to clear and it must not appear.
         val h = harness(appCleanerState = appCleanerState(junks = emptyList()))
 
         h.appCleanerCard().onDismissResult shouldBe null
