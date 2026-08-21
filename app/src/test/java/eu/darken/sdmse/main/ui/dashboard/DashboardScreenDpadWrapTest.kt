@@ -70,6 +70,7 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
         onViewTool = {},
         onViewDetails = {},
         onCancel = {},
+        onDismissResult = null,
     )
 
     private fun bottomBarState(

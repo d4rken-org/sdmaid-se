@@ -46,6 +46,7 @@ class DashboardLockedMainActionTest : BaseComposeRobolectricTest() {
             onViewTool = {},
             onViewDetails = {},
             onCancel = {},
+            onDismissResult = null,
         ),
     )
 

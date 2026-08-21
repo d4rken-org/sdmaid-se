@@ -17,6 +17,14 @@ fun TaskSubmitter.State.getLatestResult(tool: SDMTool.Type): SDMTool.Task.Result
 }
 
 /**
+ * Whether [tool] currently has an unfinished task.
+ *
+ * Deliberately per-tool rather than [TaskSubmitter.State.isIdle]: an action scoped to one tool must not
+ * silently do nothing just because an unrelated tool happens to be running.
+ */
+fun TaskSubmitter.State.isBusy(tool: SDMTool.Type): Boolean = tasks.any { it.toolType == tool && !it.isComplete }
+
+/**
  * Cold flow of completed [R] task results for [toolType], deduplicated by task id and limited to
  * tasks that finished after the flow was assembled (so we don't replay results that fired before
  * the subscribing screen existed).

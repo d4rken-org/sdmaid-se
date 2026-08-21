@@ -8,7 +8,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.Close
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,6 +20,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -25,6 +30,7 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.determinateFraction
+import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 internal fun ProgressContainer(
@@ -32,32 +38,64 @@ internal fun ProgressContainer(
     progress: Progress.Data?,
     resultPrimary: String?,
     resultSecondary: String?,
+    onDismissResult: (() -> Unit)? = null,
 ) {
     Surface(
         modifier = modifier,
         color = MaterialTheme.colorScheme.secondaryContainer,
         shape = RoundedCornerShape(12.dp),
     ) {
-        Column(modifier = Modifier.padding(horizontal = 12.dp, vertical = 10.dp)) {
-            when {
-                progress != null -> DashboardProgress(progress)
-                else -> {
-                    resultPrimary?.takeUnless { it.isBlank() }?.let {
-                        Text(
-                            text = it,
-                            style = MaterialTheme.typography.bodyMedium,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
+        // The dismiss lives inside the tinted result block, not on the card's edge: an X out there
+        // reads as "close the card" (and the hero card's X already means hide-but-keep-state), while
+        // one sitting on the result itself can only mean "clear this result".
+        val dismiss = onDismissResult?.takeIf { progress == null }
+        Row(
+            modifier = Modifier.padding(
+                start = 12.dp,
+                // The icon button carries its own touch-target padding, so keep the block from
+                // growing a second inset on that side.
+                end = if (dismiss != null) 4.dp else 12.dp,
+            ),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            // Vertical padding sits on the text, not the Row: on the Row it would stack on top of the
+            // icon button's 48dp touch target and pad the whole block out to 68dp.
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(vertical = 10.dp),
+            ) {
+                when {
+                    progress != null -> DashboardProgress(progress)
+                    else -> {
+                        resultPrimary?.takeUnless { it.isBlank() }?.let {
+                            Text(
+                                text = it,
+                                style = MaterialTheme.typography.bodyMedium,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        }
+                        resultSecondary?.let {
+                            Text(
+                                text = it,
+                                style = MaterialTheme.typography.bodySmall,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                            )
+                        }
                     }
-                    resultSecondary?.let {
-                        Text(
-                            text = it,
-                            style = MaterialTheme.typography.bodySmall,
-                            maxLines = 1,
-                            overflow = TextOverflow.Ellipsis,
-                        )
-                    }
+                }
+            }
+            if (dismiss != null) {
+                IconButton(onClick = dismiss) {
+                    Icon(
+                        imageVector = Icons.TwoTone.Close,
+                        // "Discard", not "Dismiss": this drops the tool's live scan data along with
+                        // the receipt, so any residue needs a fresh scan afterwards. Same wording as
+                        // the hero card's button, which performs the same two operations.
+                        contentDescription = stringResource(CommonR.string.general_discard_action),
+                    )
                 }
             }
         }
@@ -274,6 +312,20 @@ private fun ProgressContainerResultPreview() {
             progress = null,
             resultPrimary = "Found 12 corpses (2.4 GB)",
             resultSecondary = "Last scan completed 5 minutes ago",
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ProgressContainerResultDismissablePreview() {
+    PreviewWrapper {
+        ProgressContainer(
+            modifier = Modifier.width(280.dp),
+            progress = null,
+            resultPrimary = "1,234 expendable items deleted",
+            resultSecondary = "Freed 2.1 GB",
+            onDismissResult = {},
         )
     }
 }
