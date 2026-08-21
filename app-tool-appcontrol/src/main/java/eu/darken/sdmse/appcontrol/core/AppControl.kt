@@ -309,12 +309,17 @@ class AppControl @Inject constructor(
         val failed = mutableSetOf<InstallId>()
 
         task.targets.forEach { targetId ->
-            val appInfo = snapshot.apps.single { it.installId == targetId }
-            updateProgressPrimary {
-                it.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_exporting_x, appInfo.label.get(it))
-            }
-
             try {
+                // Inside the try: a target that a refresh or an uninstall removed from the snapshot is
+                // one failed export, not a reason to discard the exports that already succeeded.
+                val appInfo = snapshot.apps.single { it.installId == targetId }
+                updateProgressPrimary {
+                    it.getString(
+                        eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_exporting_x,
+                        appInfo.label.get(it),
+                    )
+                }
+
                 val result = exporter.withProgress(
                     client = this,
                     onUpdate = { existing, new -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },

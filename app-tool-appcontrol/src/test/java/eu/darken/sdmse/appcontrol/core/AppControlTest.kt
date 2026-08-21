@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcontrol.core
 
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
+import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
 import eu.darken.sdmse.appcontrol.core.restore.Restorer
@@ -9,6 +10,9 @@ import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallId
+import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
@@ -76,6 +80,7 @@ class AppControlTest : BaseTest() {
     )
 
     private fun setupAppControl(
+        appExporter: AppExporter? = null,
         canInfoActive: Boolean = true,
         canInfoSize: Boolean = true,
         canInfoScreenTime: Boolean = true,
@@ -129,7 +134,9 @@ class AppControlTest : BaseTest() {
         val uninstaller = mockk<Uninstaller>(relaxed = true)
         val archiver = mockk<Archiver>(relaxed = true)
         val restorer = mockk<Restorer>(relaxed = true)
-        val appExporterProvider = mockk<Provider<AppExporter>>(relaxed = true)
+        val appExporterProvider = mockk<Provider<AppExporter>>(relaxed = true).apply {
+            appExporter?.let { every { get() } returns it }
+        }
 
         val appControl = AppControl(
             appScope = keepAliveScope,
@@ -307,6 +314,73 @@ class AppControlTest : BaseTest() {
 
         // canInfoActive=false → AND collapses to false.
         includeActiveSlot.captured shouldBe false
+    }
+
+    // ─────────────────────────── export batch resilience ───────────────────────────
+
+    private fun installedApp(pkgName: String): AppInfo {
+        val pkg = mockk<Installed>(relaxed = true).apply {
+            every { id } returns Pkg.Id(pkgName)
+            every { packageName } returns pkgName
+            every { label } returns null
+            every { userHandle } returns systemUserHandle
+            every { installId } returns InstallId(Pkg.Id(pkgName), systemUserHandle)
+        }
+        return AppInfo(
+            pkg = pkg,
+            isActive = null,
+            sizes = null,
+            usage = null,
+            userProfile = null,
+            canBeToggled = false,
+            canBeStopped = false,
+            canBeExported = true,
+            canBeDeleted = false,
+            canBeArchived = false,
+            canBeRestored = false,
+        )
+    }
+
+    @Test
+    fun `performExportSave records a target that is missing from the snapshot as failed`() = runTest2 {
+        // A refresh or an uninstall between scan and export removes the target from the snapshot. That
+        // lookup used to sit outside the try, so it tore down the batch and discarded finished exports.
+        val first = installedApp("eu.thlab.first")
+        val third = installedApp("eu.thlab.third")
+        val goneId = InstallId(Pkg.Id("eu.thlab.gone"), systemUserHandle)
+
+        lateinit var appControl: AppControl
+        val progressAtSave = mutableListOf<Long>()
+        val exporter = mockk<AppExporter>().apply {
+            every { progress } returns flowOf(null)
+            coEvery { save(any(), any()) } coAnswers {
+                progressAtSave.add(appControl.progress.first()?.count?.current ?: -1L)
+                AppExporter.Result(
+                    installId = firstArg<AppInfo>().installId,
+                    baseApk = null,
+                    extraSources = null,
+                    savePath = mockk(),
+                    exportSize = 1L,
+                )
+            }
+        }
+
+        val setup = setupAppControl(appExporter = exporter, appsReturnedByScan = setOf(first, third))
+        appControl = setup.appControl
+        appControl.submit(buildScanTask())
+
+        val result = appControl.submit(
+            AppExportTask(
+                targets = setOf(first.installId, goneId, third.installId),
+                savePath = mockk(),
+            )
+        )
+
+        val exportResult = result.shouldBeInstanceOf<AppExportTask.Result>()
+        exportResult.failed shouldBe setOf(goneId)
+        exportResult.success.map { it.installId } shouldBe listOf(first.installId, third.installId)
+        // The third export starts at 2, i.e. the missing target advanced the counter like any other.
+        progressAtSave shouldBe listOf(0L, 2L)
     }
 
     // ─────────────────────────── missingSetup derivation ───────────────────────────
