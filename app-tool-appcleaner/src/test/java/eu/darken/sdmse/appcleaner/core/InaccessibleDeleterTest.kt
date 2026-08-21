@@ -5,6 +5,7 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
+import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.adb.AdbManager
@@ -20,7 +21,9 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.maps.shouldBeEmpty
 import io.kotest.matchers.maps.shouldContainKey
@@ -522,6 +525,42 @@ class InaccessibleDeleterTest : BaseTest() {
         result.failed.shouldBeEmpty()
         result.succesful shouldNotContain junk.identifier
         coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    @Test
+    fun `a terminal ACS failure still reports the caches it already cleared`() = runTest {
+        // The service clears one app and then dies on the next. That first cache is genuinely empty
+        // now, so it has to reach the caller even though the call ends in an exception, or the
+        // dashboard will offer to free those bytes again on the next render.
+        val cleared = createAppJunk("com.example.cleared", cacheSize = 100000)
+        val doomed = createAppJunk("com.example.doomed", cacheSize = 200000)
+        val snapshot = createSnapshot(cleared, doomed)
+
+        coEvery { inaccessibleCacheProvider.determineCache(cleared.pkg) } returns nonZeroCache(cleared)
+        coEvery { inaccessibleCacheProvider.determineCache(doomed.pkg) } returns nonZeroCache(doomed)
+        coEvery { noSettingsDetector.getUnreachableReason(any()) } returns null
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
+
+        val boom = AutomationCompatibilityException()
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } answers {
+            firstArg<ClearCacheTask>().onSuccess(cleared.identifier)
+            throw boom
+        }
+
+        var partial: InaccessibleDeleter.InaccDelResult? = null
+        shouldThrow<AutomationCompatibilityException> {
+            deleter.deleteInaccessible(
+                snapshot = snapshot,
+                targetPkgs = null,
+                useAutomation = true,
+                isBackground = false,
+                onPartialResult = { partial = it },
+            )
+        } shouldBe boom
+
+        partial.shouldNotBeNull()
+        partial!!.succesful shouldContain cleared.identifier
+        partial!!.failed shouldNotContainKey cleared.identifier
     }
 
     @Test
