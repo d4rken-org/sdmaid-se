@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">هیچ دسترسی مستقیمی در‌دسترس نیست</string>
     <string name="analyzer_content_create_swiper_session_action">ایجاد جلسه Swiper</string>
+    <string name="analyzer_content_open_externally_action">باز کردن در مدیر فایل</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">جلسه Swiper با %d مورد ایجاد شد</item>
         <item quantity="other">جلسه Swiper با %d مورد ایجاد شد</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">تصاویر گرفته شده، ویدئوهای ضبط شده یا داده‌های دانلود شده. هر داده‌ای که به یک برنامه خاص تعلق ندارد.</string>
     <string name="analyzer_storage_content_type_system_label">داده های سیستم</string>
     <string name="analyzer_storage_content_type_system_description">برنامه های سیستم و داده های سیستم و سایر کاربران، در صورتی که چندین حساب کاربری در این دستگاه تنظیم شده باشد.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">فضای سایر کاربران به‌طور کامل اندازه‌گیری نشد، بنابراین این مجموع ممکن است بخشی از فضای آن‌ها را نیز شامل شود.</string>
     <string name="analyzer_storage_content_type_system_other_label">بقیه</string>
     <string name="analyzer_storage_content_type_system_info">فایل‌هایی که در دسته‌بندی برنامه‌ها یا فایل‌های کاربر جای نمی‌گیرند. فقط مرور — حذف پشتیبانی نمی‌شود. برخی بخش‌ها ممکن است به دلیل محدودیت دسترسی ناقص باشند.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">فایل‌ها را نمی‌توان در حال حاضر با برنامه‌هایی که مالک آنها هستند مطابقت داد. اندازه‌ها فقط برای مرجع نمایش داده می‌شوند — حذف، فیلترها و Swiper غیرفعال هستند.</string>
     <string name="analyzer_storage_content_type_system_other_desc">فایل‌های سیستمی و سایر داده‌هایی که SD Maid قادر به دسترسی یا دسته‌بندی آن‌ها نبود. سیستم‌عامل فهرست‌کردن محتوای برخی بخش‌ها را محدود می‌کند.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">سایر کاربران</string>
+    <string name="analyzer_storage_content_type_otherusers_description">برنامه‌ها و فایل‌هایی که متعلق به سایر کاربران یا نمایه‌های کاری این دستگاه هستند.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">فقط داده‌های برنامه؛ فایل‌های اشتراکی این کاربر شامل نمی‌شوند.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">اندازه در دسترس نیست، فضای ذخیره‌سازی این کاربر قابل خواندن نیست.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">فضای ذخیره‌سازی کاربر دیگری در این دستگاه. فقط مرور، حذف پشتیبانی نمی‌شود.</string>
     <string name="analyzer_storage_content_app_code_label">کد برنامه</string>
     <string name="analyzer_storage_content_app_code_description">فایل‌های برنامه، کتابخانه‌ها و منابع. این فضا را می‌توان با حذف برنامه یا بایگانی آن آزاد کرد (این امکان در نسخه‌های جدیدتر اندروید وجود دارد).</string>
     <string name="analyzer_storage_content_app_data_label">داده برنامه</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">این برنامه %1$s بر روی \"%2$s\" را اشغال کرده.</string>
     <string name="analyzer_app_details_app_is_archived">این برنامه بایگانی شده است.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s در ۷ روز</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">با این روند حدود %d روز فضا باقی مانده است</item>
+        <item quantity="other">با این روند حدود %d روز فضا باقی مانده است</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">فضای ذخیره‌سازی</string>
+    <string name="analyzer_settings_lowstorage_title">آستانه فضای کم</string>
+    <string name="analyzer_settings_lowstorage_desc">وقتی فضای آزاد از این مقدار کمتر شود، SD Maid فضای ذخیره‌سازی را رو به اتمام در نظر می‌گیرد.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">خودکار (در حال حاضر %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">خودکار</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">خودکار</string>
+    <string name="analyzer_settings_lowspace_notification_title">هشدار فضای کم</string>
+    <string name="analyzer_settings_lowspace_notification_desc">پیش از اتمام فضای ذخیره‌سازی، اعلان دریافت کنید.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">هرگز غافلگیر کمبود فضای ذخیره‌سازی نشوید</string>
+    <string name="analyzer_lowspace_hint_body">ارتقا دهید تا پیش از اتمام فضای ذخیره‌سازی هشدار دریافت کنید و بتوانید در حالی که هنوز فضایی برای کار کردن دارید، پاک‌سازی کنید.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ببینید واقعاً چه چیزی حافظه شما را پر می‌کند. Analyzer نشان می‌دهد فضای شما کجا می‌رود. هر کدام از این کارت‌ها یک چیپ حافظه روی دستگاه شما است.</string>
     <string name="tour_analyzer_storage_body">یک حافظه را باز کنید تا آن را به برنامه‌ها، رسانه و فایل‌ها تقسیم کنید، سپس به ضربه زدن ادامه دهید تا بزرگ‌ترین عوامل را پیدا کنید.</string>

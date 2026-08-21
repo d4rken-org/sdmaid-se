@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s en %2$s</string>
     <string name="stats_space_history_upgrade_title">L’historial complet és una funció Pro</string>
     <string name="stats_space_history_upgrade_body">Actualitza per desbloquejar la vista de tendència completa de 90 dies per a cada dispositiu d’emmagatzematge.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Actualitza per desbloquejar la vista completa de tendències de 90 dies per a cada dispositiu d\'emmagatzematge i rep un avís abans que et quedis sense espai.</string>
     <string name="stats_space_history_marker_freed">Alliberat %1$s</string>
     <string name="stats_storage_type_primary">Emmagatzematge primari</string>
     <string name="stats_storage_type_secondary">Emmagatzematge secundari</string>

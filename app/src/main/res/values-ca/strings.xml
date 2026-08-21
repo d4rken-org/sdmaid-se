@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Accés «root»</string>
     <string name="setup_root_card_body">L\'SD Maid hauria d\'utilitzar l\'accés «root» si està disponible? L\'accés «root» es pot utilitzar per comprovar carpetes addicionals del sistema i dades privades d\'aplicacions.</string>
     <string name="setup_root_state_ready_label">L\'accés «root» està llest.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">L\'accés «root» no està disponible.</string>
+    <string name="setup_root_state_failed_title">L\'accés root ha fallat</string>
+    <string name="setup_root_state_failed_body">SD Maid ha sol·licitat accés root i no l\'ha obtingut. Si el teu dispositiu té root, obre el gestor de root (Magisk, KernelSU o similar) i comprova si la sol·licitud de SD Maid s\'ha denegat o encara està pendent.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ha sol·licitat accés root i no l\'ha obtingut, i no s\'ha detectat cap aplicació de gestió de root. Si el teu dispositiu utilitza root ocult o integrat, torna-ho a provar.</string>
     <string name="setup_root_enable_root_use_label">Intenta utilitzar l\'accés «root»</string>
     <string name="setup_root_disable_root_use_label">No he fet «root» al meu dispositiu</string>
     <string name="setup_root_card_body2">Només disponible en dispositius amb «root». Si no heu fet aquesta modificació, el vostre dispositiu no té «root» i aquesta configuració no té cap efecte.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">L\'enllaç Shizuku està llest.</string>
     <string name="setup_shizuku_state_waiting_label">S\'està esperant l\'enllaç amb Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">L\'aplicació Shizuku no està instal·lada.</string>
+    <string name="setup_shizuku_state_failed_title">La connexió amb Shizuku ha fallat</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku s\'està executant, però mai ha connectat SD Maid al seu servei auxiliar.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Alguns dispositius es veuen afectats per un problema conegut de Shizuku que impedeix que el servei auxiliar s\'iniciï. Aquest podria ser-ne un.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Intenta utilitzar Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Limitació possible del dispositiu</string>
     <string name="setup_inventory_limitation_body">El sistema ha retornat una llista incompleta d\'aplicacions instal·lades, tot i que els permisos necessaris semblen estar atorgats.</string>
     <string name="setup_inventory_limitation_body2">Alguns dispositius (p. ex. HarmonyOS) mai no proporcionen una llista completa d\'aplicacions. Per protegir les teves dades, les eines relacionades amb aplicacions es mantenen desactivades, però encara pots veure l\'ús de l\'emmagatzematge amb menys detall.</string>
+    <string name="setup_inventory_probe_failed_title">No s\'ha pogut llegir la llista d\'aplicacions</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ha demanat a Android la llista d\'aplicacions instal·lades i la sol·licitud ha fallat. Les eines relacionades amb aplicacions romanen desactivades fins que funcioni. Tornar-ho a provar pot ajudar.</string>
     <string name="dataarea_warningcard_empty_message">L\'SD Maid no ha trobat cap àrea de dades que es pugui escanejar. Heu completat la configuració?</string>
     <string name="dataarea_warningcard_label">Àrees de dades</string>
     <string name="dataarea_warningcard_reload_action">Recarrega les àrees de dades</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Ús de l\'emmagatzematge i neteja amb un toc</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Durada de vida: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Total alliberat: %1$s</string>
     <string name="widget_home_clean_action">Neteja</string>
     <string name="widget_home_working">Treballant…</string>
     <string name="widget_home_unavailable">Emmagatzematge no disponible</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Les dades de l\'historial d\'aquesta còpia de seguretat (estadístiques, historial de compressió, sessions de lliscada) són d\'una versió diferent de l\'aplicació i no es poden restaurar. Tot la resta es restaurarà.</string>
     <string name="backup_restore_ack_understand">Ho entenc i vull continuar</string>
     <string name="backup_restore_action_restore">Restaura</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Avisos d\'emmagatzematge</string>
+    <string name="stats_lowspace_notification_title">L\'emmagatzematge s\'està omplint</string>
+    <string name="stats_lowspace_notification_low_title">L\'emmagatzematge està gairebé ple</string>
+    <string name="stats_lowspace_notification_low_body">%1$s lliures. L\'emmagatzematge s\'està esgotant.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Queda aproximadament %1$d dia d\'espai a aquest ritme. %2$s lliures.</item>
+        <item quantity="other">Queden aproximadament %1$d dies d\'espai a aquest ritme. %2$s lliures.</item>
+    </plurals>
 </resources>

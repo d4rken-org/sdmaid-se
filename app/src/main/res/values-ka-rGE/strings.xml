@@ -7,9 +7,11 @@
          with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
          <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
+        <item quantity="one">ერთი ელემენტი შეიძლება მოიშორებული იყოს</item>
         <item quantity="other">%d ელემენტი შეიძლება მოიშორებული იყოს</item>
     </plurals>
     <plurals name="dashboard_hero_freed_x_items">
+        <item quantity="one">ერთი ელემენტი მოიშორა</item>
         <item quantity="other">%d ელემენტი მოიშორა</item>
     </plurals>
     <string name="dashboard_hero_freeable_hint">დააჭირეთ ღილაკს ადგილის გასაწყობლად ან ჯერ ჩიპს შეამოწმეთ.</string>
@@ -22,6 +24,22 @@
     <string name="dashboard_hero_nothing_freed_headline">არაფერი არ გაათავისუფლდა</string>
     <string name="dashboard_hero_nothing_freed_caption">დაწმენდა დასრულდა, მაგრამ ნაპოვნი მონაცემებიდან არცერთი ვერ მოიშორა.</string>
     <string name="dashboard_hero_nothing_freed_hint">ზოგიერთი მონაცემი შეიძლება მოიშორებული იყოს მხოლოდ დამატებითი წვდომით, როგორიცაა ხელმისაწვდომობის სერვისი ან root.</string>
+    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
+         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
+    <string name="dashboard_hero_locked_headline">%1$s ნაპოვნია</string>
+    <plurals name="dashboard_hero_locked_x_items">
+        <item quantity="one">%d ერთეულს სჭირდება SD Maid Pro</item>
+        <item quantity="other">%d ერთეულს სჭირდება SD Maid Pro</item>
+    </plurals>
+    <!-- Tappable line on the hero card, routing to the upgrade screen -->
+    <string name="dashboard_hero_locked_hint">შეეხე გასახსნელად SD Maid Pro-ს დახმარებით.</string>
+    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
+         user can already free. "More" is load-bearing: it is on top of what the card's headline
+         already promises. Deliberately carries no size - the block's chips sit directly below it and
+         there is usually only one, so a total here would just print the same figure twice. -->
+    <string name="dashboard_hero_locked_block_caption">მეტის გათავისუფლება შესაძლებელია SD Maid Pro-ს დახმარებით</string>
+    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_chip_description">საჭიროებს SD Maid Pro-ს</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">გამოსკანირებული %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">გათავისუფლდა %1$s</string>
@@ -32,6 +50,8 @@
     <string name="dashboard_settings_oneclick_summary">სკანირებისა და წაშლის დაწყება ყველა ხელსაწყოსთვის დაფის მოქმედების ღილაკზე შეხებით, დამატებითი დადასტურების გარეშე.</string>
     <string name="dashboard_settings_oneclick_tools_title">ერთი შეხების ხელსაწყოები</string>
     <string name="dashboard_settings_oneclick_tools_desc">რომელი ხელსაწყოები უნდა იყოს ჩართული ერთი შეხების ოპერაციებში?</string>
+    <string name="dashboard_settings_summary_autoshow_title">შეჯამების ავტომატურად ჩვენება</string>
+    <string name="dashboard_settings_summary_autoshow_summary">შედეგების შეჯამება ავტომატურად გაიხსნება დაფის მოქმედების ღილაკის გამოყენების შემდეგ. გამორთვის შემთხვევაში, გასახსნელად შეეხე ზომის ჩიპს ქვედა ზოლში.</string>
     <string name="dashboard_card_config_title">დაფის ბარათები</string>
     <string name="dashboard_card_config_desc">მოარგეთ რომელი ბარათები გამოჩნდეს და მათი თანმიმდევრობა</string>
     <string name="dashboard_card_config_header_title">გადაათრიეთ გადასალაგებლად, გადართეთ საჩვენებლად/დასამალად</string>
@@ -224,7 +244,11 @@
     <string name="setup_root_card_title">Root წვდომა</string>
     <string name="setup_root_card_body">უნდა გამოიყენოს SD Maid-მა root წვდომა, თუ ის ხელმისაწვდომია? Root წვდომა შეიძლება გამოყენებულ იქნას დამატებითი სისტემის საქაღალდეების და პირადი აპლიკაციის მონაცემების შესამოწმებლად.</string>
     <string name="setup_root_state_ready_label">Root წვდომა მზადაა.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root წვდომა მიუწვდომელია.</string>
+    <string name="setup_root_state_failed_title">Root წვდომა ვერ მოხერხდა</string>
+    <string name="setup_root_state_failed_body">SD Maid-მა Root წვდომა მოითხოვა, მაგრამ ვერ მიიღო. თუ შენი მოწყობილობა root-გახსნილია, გახსენი შენი root მენეჯერი (Magisk, KernelSU ან სხვა მსგავსი) და შეამოწმე, უარყოფილია თუ ჯერ კიდევ მოლოდინშია SD Maid-ის მოთხოვნა.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid-მა Root წვდომა მოითხოვა, მაგრამ ვერ მიიღო, და root მენეჯერის აპლიკაცია ვერ მოიძებნა. თუ შენი მოწყობილობა იყენებს დამალულ ან ჩაშენებულ root წვდომას, სცადე ხელახლა.</string>
     <string name="setup_root_enable_root_use_label">სცადეთ root წვდომა</string>
     <string name="setup_root_disable_root_use_label">ჩემი მოწყობილობა root-ის გარეშე</string>
     <string name="setup_root_card_body2">ხელმისაწვდომია მხოლოდ root მოწყობილობებზე. თუ თქვენ არ გააკეთეთ ეს მოდიფიკაცია, მაშინ თქვენი მოწყობილობა არ არის დაყენებული და ეს პარამეტრი არ მოქმედებს.</string>
@@ -235,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku კავშირი მზადაა.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku-სთან კავშირის მოლოდინი.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku აპი არ არის დაინსტალირებული.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku-სთან კავშირი ვერ დამყარდა</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku გაშვებულია, მაგრამ მან ვერასდროს დააკავშირა SD Maid თავის დამხმარე სერვისთან.</string>
+    <string name="setup_shizuku_state_known_issue_hint">ზოგიერთ მოწყობილობაზე ვლინდება Shizuku-ს ცნობილი პრობლემა, რომელიც ხელს უშლის დამხმარე სერვისის გაშვებას. შესაძლოა, ეს მათგანია.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">სცადეთ Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">არ გამოიყენოთ Shizuku</string>
     <string name="setup_dismiss_hint">პარამეტრების მენიუს მეშვეობით შეგიძლიათ კვლავ იპოვოთ დაყენების ეკრანი.</string>
@@ -271,6 +298,8 @@
     <string name="setup_inventory_limitation_title">შესაძლო მოწყობილობის შეზღუდვა</string>
     <string name="setup_inventory_limitation_body">სისტემამ დააბრუნა არასრული სია დაინსტალირებული აპლიკაციებისა, მიუხედავად იმისა რომ საჭირო ნებართვები მოგებულია.</string>
     <string name="setup_inventory_limitation_body2">ზოგი მოწყობილობა (მაგალითად HarmonyOS) არასოდეს აწვდის სრულ სიას დაინსტალირებული აპლიკაციებისა. თქვენი მონაცემების დაცვის მიზნით აპლიკაციებთან დაკავშირებული ხელსაწყოები დეაქტივირებული რჩება, მაგრამ თქვენ ჯერ კიდევ შეგიძლიათ ნახოთ სტორეჯის გამოყენება შემცირებული დეტალით.</string>
+    <string name="setup_inventory_probe_failed_title">აპების სიის წაკითხვა ვერ მოხერხდა</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid-მა Android-ს დაინსტალირებული აპების სია მოსთხოვა, მაგრამ მოთხოვნამ ვერ იმუშავა. აპებთან დაკავშირებული ხელსაწყოები გამორთული დარჩება, სანამ ეს არ გამოსწორდება. ხელახლა ცდა შესაძლოა დაეხმაროს.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid-მა ვერ იპოვა მონაცემთა ზონა, რომლის სკანირებაც შესაძლებელია. დაასრულეთ დაყენება?</string>
     <string name="dataarea_warningcard_label">მონაცემთა სფეროები</string>
     <string name="dataarea_warningcard_reload_action">გადატვირთეთ მონაცემთა ზონები</string>
@@ -343,7 +372,11 @@
     <string name="widget_home_description">საცავის გამოყენება და ერთი დაჭერის გაწმენდა</string>
     <string name="widget_home_storage_internal">შიდა</string>
     <string name="widget_home_storage_external">გარე</string>
-    <string name="widget_home_freed_label">სულ დანაზოგი: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">სულ გათავისუფლდა: %1$s</string>
     <string name="widget_home_clean_action">გაწმენდა</string>
     <string name="widget_home_working">მუშაობა…</string>
     <string name="widget_home_unavailable">საცავი მიუწვდომელია</string>
@@ -383,4 +416,13 @@
     <string name="backup_restore_warn_history_body">ამ სარეზერვო ასლის ისტორიის მონაცემები (სტატისტიკა, შეკუმშვის ისტორია, გადაფურცვის სესიები) განსხვავებული აპლიკაციის ვერსიისაა და ვერ აღდგება. დანარჩენი ყველაფერი აღდგება.</string>
     <string name="backup_restore_ack_understand">მესმის და მინდა გავაგრძელო</string>
     <string name="backup_restore_action_restore">აღდგენა</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">მეხსიერების გაფრთხილებები</string>
+    <string name="stats_lowspace_notification_title">მეხსიერება ივსება</string>
+    <string name="stats_lowspace_notification_low_title">მეხსიერება თითქმის სავსეა</string>
+    <string name="stats_lowspace_notification_low_body">%1$s თავისუფალია. მეხსიერება იწურება.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">დაახლოებით %1$d დღის სივრცე დარჩა ამ ტემპით. %2$s თავისუფალია.</item>
+        <item quantity="other">დაახლოებით %1$d დღის სივრცე დარჩა ამ ტემპით. %2$s თავისუფალია.</item>
+    </plurals>
 </resources>

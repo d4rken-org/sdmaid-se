@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">دسترسی روت</string>
     <string name="setup_root_card_body">اگر SD Maid در دسترس باشد باید از دسترسی روت استفاده کند؟ از دسترسی ریشه می‌توان برای بررسی پوشه های اضافی سیستم و داده های برنامه خصوصی استفاده کرد.</string>
     <string name="setup_root_state_ready_label">دسترسی روت آماده است.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">دسترسی روت در دسترس نیست.</string>
+    <string name="setup_root_state_failed_title">دسترسی روت ناموفق بود</string>
+    <string name="setup_root_state_failed_body">SD Maid درخواست دسترسی روت داد اما دریافت نکرد. اگر دستگاه شما روت شده است، مدیر روت خود (Magisk، KernelSU یا مشابه آن) را باز کنید و بررسی کنید که آیا درخواست SD Maid رد شده یا هنوز در انتظار است.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid درخواست دسترسی روت داد اما دریافت نکرد و هیچ برنامه مدیر روتی شناسایی نشد. اگر دستگاه شما از روت مخفی یا داخلی استفاده می‌کند، دوباره امتحان کنید.</string>
     <string name="setup_root_enable_root_use_label">سعی کنید از دسترسی روت استفاده کنید</string>
     <string name="setup_root_disable_root_use_label">من دستگاهم را روت نکردم</string>
     <string name="setup_root_card_body2">این ویژگی تنها در دستگاه‌های روت شده در دسترس است. اگر این تغییر را خودتان انجام نداده‌اید، پس دستگاه شما روت نشده و این تنظیم هیچ تاثیری ندارد.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">پیوند Shizuku آماده است.</string>
     <string name="setup_shizuku_state_waiting_label">منتظر برای پیوند Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">برنامه Shizuku نصب نشده است.</string>
+    <string name="setup_shizuku_state_failed_title">اتصال Shizuku ناموفق بود</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku در حال اجراست، اما هرگز SD Maid را به سرویس کمکی خود متصل نکرد.</string>
+    <string name="setup_shizuku_state_known_issue_hint">برخی دستگاه‌ها دچار یک مشکل شناخته‌شده در Shizuku هستند که مانع از شروع سرویس کمکی می‌شود. ممکن است دستگاه شما هم یکی از آن‌ها باشد.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">سعی کنید از Shizuku استفاده کنید</string>
     <string name="setup_shizuku_disable_shizuku_use_label">عدم استفاده از Shizuku</string>
     <string name="setup_dismiss_hint">می‌توانید صفحه راه‌اندازی را از طریق منوی تنظیمات دوباره پیدا کنید.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">محدودیت احتمالی دستگاه</string>
     <string name="setup_inventory_limitation_body">سیستم فهرست ناقصی از برنامه‌های نصب‌شده را بازگرداند، حتی اگرچه مجوزهای لازم به‌نظر اعطا شده باشند.</string>
     <string name="setup_inventory_limitation_body2">برخی دستگاه‌ها (مثلاً HarmonyOS) هرگز فهرست کاملی از برنامه‌های نصب‌شده ارائه نمی‌دهند. برای محافظت از داده‌های شما، ابزارهای مرتبط با برنامه غیرفعال مانده‌اند، اما همچنان می‌توانید میزان استفاده از حافظه را با جزئیات کاهش‌یافته مشاهده کنید.</string>
+    <string name="setup_inventory_probe_failed_title">فهرست برنامه‌ها خوانده نشد</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid از اندروید فهرست برنامه‌های نصب‌شده را درخواست کرد اما درخواست ناموفق بود. ابزارهای مرتبط با برنامه‌ها تا زمانی که این کار انجام شود غیرفعال می‌مانند. تلاش دوباره ممکن است کمک کند.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid هیچ ناحیه داده‌ای برای اسکن پیدا نکرد. آیا راه‌اندازی را تکمیل کرده‌اید؟</string>
     <string name="dataarea_warningcard_label">حوزه های داده</string>
     <string name="dataarea_warningcard_reload_action">بارگذاری دوباره ناحیه‌های داده</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">استفاده از فضای ذخیره‌سازی و پاکسازی یک‌ضربتی</string>
     <string name="widget_home_storage_internal">داخلی</string>
     <string name="widget_home_storage_external">خارجی</string>
-    <string name="widget_home_freed_label">مدت‌زمان: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">مجموع فضای آزادشده: %1$s</string>
     <string name="widget_home_clean_action">پاکسازی</string>
     <string name="widget_home_working">درحال انجام…</string>
     <string name="widget_home_unavailable">ذخیره‌سازی در دسترس نیست</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">داده‌های تاریخچه این پشتیبان (آمار، تاریخچه فشرده‌سازی، جلسات سوایپ) از نسخه‌ای متفاوت از برنامه است و نمی‌تواند بازیابی شود. بقیه‌ی موارد بازیابی خواهند شد.</string>
     <string name="backup_restore_ack_understand">متوجه شدم و می‌خواهم ادامه دهم</string>
     <string name="backup_restore_action_restore">بازیابی</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">هشدارهای فضای ذخیره‌سازی</string>
+    <string name="stats_lowspace_notification_title">فضای ذخیره‌سازی در حال پر شدن است</string>
+    <string name="stats_lowspace_notification_low_title">فضای ذخیره‌سازی تقریباً پر است</string>
+    <string name="stats_lowspace_notification_low_body">%1$s آزاد. فضای ذخیره‌سازی رو به اتمام است.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">با این روند حدود %1$d روز فضا باقی مانده است. %2$s آزاد.</item>
+        <item quantity="other">با این روند حدود %1$d روز فضا باقی مانده است. %2$s آزاد.</item>
+    </plurals>
 </resources>

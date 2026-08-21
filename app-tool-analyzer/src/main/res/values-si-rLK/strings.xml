@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">සෘජුව ප්‍රවේශය නොමැත</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper සැසියක් සාදන්න</string>
+    <string name="analyzer_content_open_externally_action">ගොනු කළමනාකරුවෙන් විවෘත කරන්න</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">අයිතම %d කින් Swiper සැසිය සාදන ලදී</item>
         <item quantity="other">අයිතම %d කින් Swiper සැසිය සාදන ලදී</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">වින්යාස කු ෆායාකෘට, රේකෝඩ් කු විඩියෝ හෝ ඩೞවන්ලෝඩ් කු දත්ත. විශේෂ යෙදුමකට ආවණික නොවන එනිම දත්ත.</string>
     <string name="analyzer_storage_content_type_system_label">පද්ධති දත්ත</string>
     <string name="analyzer_storage_content_type_system_description">පද්ධති යෙදුම් සහ පද්ධති දත්ත. මෙම පිකරණයම බොහෝ පරිශීලක නියෝජන සැකසා ඇත නම් ඉතර පරිශීලකයන්ගෙ යෙදුම් සහ දත්ත.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">අනෙකුත් පරිශීලකයින් සම්පූර්ණයෙන් මැනිය නොහැකි විය, එබැවින් මෙම එකතුවට ඔවුන්ගේ ගබඩාවෙන් කොටසක් ඇතුළත් විය හැක.</string>
     <string name="analyzer_storage_content_type_system_other_label">වෙනත්</string>
     <string name="analyzer_storage_content_type_system_info">යෙදුම් හෝ පරිශීලක ගොනු ප්‍රවර්ගවලට නොගැළපෙන ගොනු. පිරිසැලසුම් පමණයි — මකාදැමීම සහාය නොදක්වයි. ප්‍රවේශ සීමාවන් හේතුවෙන් සමහර ප්‍රදේශ අසම්පූර්ණ විය හැකිය.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ගොනු දැනට ඒවා හිමි යෙදුම් සමඟ ගැළපිය නොහැක. ප්‍රමාණ යොමුවක් ලෙස පමණක් පෙන්වා ඇත — මකාදැමීම, පෙරහන් සහ Swiper අබල කර ඇත.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid ප්‍රවේශ වීමට හෝ වර්ගීකරණය කිරීමට නොහැකි වූ පද්ධති ගොනු සහ වෙනත් දත්ත. මෙහෙයුම් පද්ධතිය සමහර ප්‍රදේශවල අන්තර්ගතය ලැයිස්තු කිරීම සීමා කරයි.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">අනෙකුත් පරිශීලකයින්</string>
+    <string name="analyzer_storage_content_type_otherusers_description">මෙම උපාංගයේ අනෙකුත් පරිශීලකයින් හෝ කාර්යාල පැතිකඩවලට අයත් යෙදුම් සහ ගොනු.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">යෙදුම් දත්ත පමණි, මෙම පරිශීලකයාගේ බෙදාගත් ගොනු ඇතුළත් නොවේ.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">ප්‍රමාණය ලබා ගත නොහැක, මෙම පරිශීලකයාගේ ගබඩාව කියවිය නොහැක.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">මෙම උපාංගයේ තවත් පරිශීලකයෙකුගේ ගබඩාව. පිරික්සීමට පමණි, මකා දැමීම සඳහා සහාය නොදක්වයි.</string>
     <string name="analyzer_storage_content_app_code_label">යෙදුමේ කෝඩය</string>
     <string name="analyzer_storage_content_app_code_description">යෙදුම් ගොනු, ඵානදාර සහ සම්පත්. යෙදුම ඉවත් කිරීමෙන් හෝ එය ආරකිව කිරීමෙන් (නව Android අනුවාදම නිවාපු) මෙම හීම මුක්ත් කරන්න පුළුවාන්.</string>
     <string name="analyzer_storage_content_app_data_label">යෙදුමේ දත්ත</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">මෙම යෙදුම \"%2$s\" හි %1$s අවවන් න් කරයි.</string>
     <string name="analyzer_app_details_app_is_archived">මෙම යෙදුම ආරකිව කර ඇත.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s දින 7කදී</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">මෙම වේගයෙන් ඉඩ තව දින %d ක් පමණ ඉතිරිව ඇත</item>
+        <item quantity="other">මෙම වේගයෙන් ඉඩ තව දින %d ක් පමණ ඉතිරිව ඇත</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">ගබඩාව</string>
+    <string name="analyzer_settings_lowstorage_title">අඩු ගබඩා සීමාව</string>
+    <string name="analyzer_settings_lowstorage_desc">නිදහස් ඉඩ මින් පහළට වැටෙන විට, SD Maid ගබඩාව අවසන් වෙමින් ඇති බව සලකයි.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ස්වයංක්‍රීය (දැනට %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ස්වයංක්‍රීය</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ස්වයංක්‍රීය</string>
+    <string name="analyzer_settings_lowspace_notification_title">අඩු ඉඩ අනතුරු ඇඟවීම</string>
+    <string name="analyzer_settings_lowspace_notification_desc">ඔබගේ ගබඩාව අවසන් වීමට පෙර දැනුම්දීමක් ලබා ගන්න.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ඉඩකින් තොරව කිසි විටෙක අහුවෙන්න එපා</string>
+    <string name="analyzer_lowspace_hint_body">ඔබගේ ගබඩාව අවසන් වීමට පෙර අනතුරු ඇඟවීමක් ලබා ගැනීමට උත්ශ්‍රේණි කරන්න, එවිට තවමත් වැඩ කිරීමට ඉඩ ඇති අතරතුර ඔබට පිරිසිදු කළ හැක.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ඔබේ ගබඩාව ඇත්තටම පුරවමින් ඇත්තේ කුමක්ද බලන්න. Analyzer ඔබේ ඉඩ යන ස්ථානය සිතියම්ගත කරයි. මෙම කාඩ්පත් වලින් එකක් ඔබේ උපාංගයේ ගබඩා චිපයකි.</string>
     <string name="tour_analyzer_storage_body">යෙදුම්, මාධ්‍ය සහ ගොනු වශයෙන් වෙන් කර බැලීමට ගබඩාවක් විවෘත කරන්න, පසුව විශාලතම හේතු සොයාගැනීමට ටැප් කරමින් සිටින්න.</string>

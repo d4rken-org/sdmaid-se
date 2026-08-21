@@ -37,7 +37,7 @@
          user can already free. "More" is load-bearing: it is on top of what the card's headline
          already promises. Deliberately carries no size - the block's chips sit directly below it and
          there is usually only one, so a total here would just print the same figure twice. -->
-    <string name="dashboard_hero_locked_block_caption">Nog meer kan worden vrijgemaakt met SD Maid Pro</string>
+    <string name="dashboard_hero_locked_block_caption">Met SD Maid Pro kun je meer ruimte vrijmaken</string>
     <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Vereist SD Maid Pro</string>
     <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
@@ -51,7 +51,7 @@
     <string name="dashboard_settings_oneclick_tools_title">Hulpmiddelen met één tik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welke hulpmiddelen moeten worden opgenomen in bewerkingen met één tik?</string>
     <string name="dashboard_settings_summary_autoshow_title">Overzicht automatisch tonen</string>
-    <string name="dashboard_settings_summary_autoshow_summary">Open het overzicht van de resultaten automatisch nadat je de actieknop van het dashboard hebt gebruikt. Als dit is uitgeschakeld, tik je op de grootte-chip in de onderbalk om het te openen.</string>
+    <string name="dashboard_settings_summary_autoshow_summary">De resultatensamenvatting wordt automatisch geopend na gebruik van de actieknop op het dashboard. Indien uitgeschakeld, tikt je op het formaatpictogram in de onderste balk om deze te openen.</string>
     <string name="dashboard_card_config_title">Dashboardkaarten</string>
     <string name="dashboard_card_config_desc">Configureer welke kaarten worden weergegeven en hun volgorde</string>
     <string name="dashboard_card_config_header_title">Sleep om te herordenen, schakel om te tonen/verbergen</string>
@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root toegang</string>
     <string name="setup_root_card_body">Moet SD Maid root-toegang gebruiken als deze beschikbaar is? Root-toegang kan worden gebruikt om aanvullende systeemmappen en privétoepassingsgegevens te controleren.</string>
     <string name="setup_root_state_ready_label">Roottoegang is klaar.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root-toegang is niet beschikbaar.</string>
+    <string name="setup_root_state_failed_title">Root-toegang mislukt</string>
+    <string name="setup_root_state_failed_body">SD Maid heeft om root-toegang gevraagd, maar heeft die niet gekregen. Als je toestel geroot is, open dan je rootbeheerder (Magisk, KernelSU of vergelijkbaar) en controleer of het verzoek van SD Maid is geweigerd of nog in behandeling is.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid heeft om root-toegang gevraagd, maar heeft die niet gekregen, en er is geen rootbeheerder-app gevonden. Als je toestel verborgen of ingebouwde root gebruikt, probeer het dan opnieuw.</string>
     <string name="setup_root_enable_root_use_label">Probeer root toegang te gebruiken</string>
     <string name="setup_root_disable_root_use_label">Mijn apparaat is niet gerootet</string>
     <string name="setup_root_card_body2">Alleen beschikbaar op geroote apparaten. Als je deze wijziging niet hebt aangebracht, is je apparaat niet geroot en heeft deze instelling geen effect.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku-link is klaar.</string>
     <string name="setup_shizuku_state_waiting_label">Wacht op link met Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">De Shizuku-app is niet geïnstalleerd.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku-koppeling mislukt</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku draait, maar heeft SD Maid nooit verbonden met zijn hulpservice.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Sommige toestellen hebben last van een bekend Shizuku-probleem waardoor de hulpservice niet start. Dit kan er een van zijn.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Probeer Shizuku te gebruiken</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Mogelijke apparaatbeperking</string>
     <string name="setup_inventory_limitation_body">Het systeem retourneerde een onvolledige lijst met geïnstalleerde apps, hoewel de vereiste machtigingen zijn verleend.</string>
     <string name="setup_inventory_limitation_body2">Sommige apparaten (bijv. HarmonyOS) bieden nooit een volledige app-lijst. Om uw gegevens te beschermen, blijven app-gerelateerde tools uitgeschakeld, maar u kunt nog steeds opslaggebruik met beperkte details bekijken.</string>
+    <string name="setup_inventory_probe_failed_title">Kon de app-lijst niet lezen</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid heeft Android om de lijst met geïnstalleerde apps gevraagd, maar het verzoek is mislukt. App-gerelateerde tools blijven uitgeschakeld totdat dit werkt. Het nogmaals proberen kan helpen.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid heeft geen gegevensgebieden gevonden die kunnen worden gescand. Heb je de installatie voltooid?</string>
     <string name="dataarea_warningcard_label">Gegevens gebieden</string>
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Opslaggebruik en opschoning met één tik</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Levensduur: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Totaal vrijgemaakt: %1$s</string>
     <string name="widget_home_clean_action">Schoonmaken</string>
     <string name="widget_home_working">Bezig…</string>
     <string name="widget_home_unavailable">Opslag niet beschikbaar</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">De historische gegevens van deze back-up (statistieken, compressiegeschiedenis, swipe-sessies) zijn afkomstig van een andere app-versie en kunnen niet worden hersteld. Alle overige gegevens worden wel hersteld.</string>
     <string name="backup_restore_ack_understand">Ik begrijp het en wil doorgaan</string>
     <string name="backup_restore_action_restore">Herstellen</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Opslagwaarschuwingen</string>
+    <string name="stats_lowspace_notification_title">Opslag raakt vol</string>
+    <string name="stats_lowspace_notification_low_title">Opslag is bijna vol</string>
+    <string name="stats_lowspace_notification_low_body">%1$s vrij. De opslag raakt op.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Nog ongeveer %1$d dag ruimte over bij dit tempo. %2$s vrij.</item>
+        <item quantity="other">Nog ongeveer %1$d dagen ruimte over bij dit tempo. %2$s vrij.</item>
+    </plurals>
 </resources>

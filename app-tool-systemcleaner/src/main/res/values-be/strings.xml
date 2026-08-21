@@ -82,6 +82,7 @@
     <string name="systemcleaner_customfilter_editor_name_explanation">Целявое імя павіна ўтрымліваць хаця б адзін з ключавых слоў (напр., «-receipt»). Нажміце запіс, каб яго рэдагаваць, або значок, каб змяніць спосаб супадзення.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Выключэнні</string>
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">Рэзультат будзе выключаны, калі шлях змяшчае любы з запісаў (напр., \"DCIM\"). Доўгае націсканне на запісы адкрые дадатковыя опцыі.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Дадаць запіс шляху</string>
     <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Дабаўіць запіс імя</string>
     <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Дабаўіць запіс выключэння</string>
     <string name="systemcleaner_customfilter_editor_criterium_create_title">Новая запіс</string>

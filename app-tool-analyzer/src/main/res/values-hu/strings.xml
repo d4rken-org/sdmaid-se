@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Nincs közvetlen hozzáférés</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper munkamenet létrehozása</string>
+    <string name="analyzer_content_open_externally_action">Megnyitás fájlkezelőben</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper munkamenet létrehozva %d elemmel</item>
         <item quantity="other">Swiper munkamenet létrehozva %d elemmel</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
     <string name="analyzer_storage_content_type_system_description">Rendszeralkalmazások és rendszeradatok.  Alkalmazások és adatok más felhasználóktól, ha több felhasználói fiók van beállítva ezen az eszközön.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Más felhasználókat nem lehetett teljesen mérni, ezért az összeg tartalmazhat az ő tárhelyét is.</string>
     <string name="analyzer_storage_content_type_system_other_label">Egyéb</string>
     <string name="analyzer_storage_content_type_system_info">Az Alkalmazások vagy Felhasználói fájlok kategóriákba nem illő fájlok. Csak böngészés — a törlés nem támogatott. Egyes területek hozzáférési korlátok miatt hiányosak lehetnek.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">A fájlokat jelenleg nem lehet az őket tulajdonló alkalmazásokhoz hozzárendelni. A méretek csak referenciaként jelennek meg – a törlés, szűrők és a Swiper le vannak tiltva.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Rendszerfájlok és egyéb adatok, amelyekhez az SD Maid nem fért hozzá, vagy nem tudta kategórizálni. Az operációs rendszer korlátozza egyes területek tartalomának listázását.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Más felhasználók</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Alkalmazások és fájlok, amelyek más felhasználókhoz vagy munkaprofilokhoz tartoznak ezen az eszközön.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Csak alkalmazásadatok, ennek a felhasználónak a megosztott fájljai nem szerepelnek.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">A méret nem elérhető, ezt a felhasználó tárterületét nem lehet olvasni.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Egy másik felhasználó tárterülete ezen az eszközön. Csak böngészés, törlés nem támogatott.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
     <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely felszabadítható az alkalmazás eltávolításával vagy archiválásával (az újabb Android-verziókban elérhető).</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ez az alkalmazás %1$s-t foglal el a \"%2$s\"-on.</string>
     <string name="analyzer_app_details_app_is_archived">Ez az alkalmazás archiválva lett.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 nap alatt</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Körülbelül %d nap szabad hely van ezzel a sebességgel</item>
+        <item quantity="other">Körülbelül %d nap szabad hely van ezzel a sebességgel</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Tárterület</string>
+    <string name="analyzer_settings_lowstorage_title">Alacsony tárterület küszöbértéke</string>
+    <string name="analyzer_settings_lowstorage_desc">Ha a szabad tárterület ez alá csökken, az SD Maid kifogyónak kezeli azt.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatikus (jelenleg %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatikus</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatikus</string>
+    <string name="analyzer_settings_lowspace_notification_title">Alacsony tárterület figyelmeztetés</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Kapj értesítést, mielőtt kifogyóban lenne a tárhely.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Soha ne maradj tárhely nélkül</string>
+    <string name="analyzer_lowspace_hint_body">Frissítsd, hogy figyelmeztetést kapj a tárterület kifogyása előtt, így még tudsz tisztítani, amíg van szabad terület.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Tekintse meg, mi tölti meg valójában a tárolóhelyét. Az Analyzer feltérképezi, hová megy a helye. Ezek a kártyák a készülék tárolási chipjei.</string>
     <string name="tour_analyzer_storage_body">Nyisson meg egy tárolást az alkalmazásokra, médiára és fájlokra való felosztásához, majd folytassa az érintéseket, hogy nyomon kövesse a legnagyobb helyfoglalókat.</string>

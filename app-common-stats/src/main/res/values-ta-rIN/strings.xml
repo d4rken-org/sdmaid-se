@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%2$s இல் %1$s</string>
     <string name="stats_space_history_upgrade_title">முழு வரலாறும் Pro அம்சம்</string>
     <string name="stats_space_history_upgrade_body">ஒவ்வொரு சேமிப்பக சாதனத்திற்கும் முழு 90-நாள் போக்கு காட்சியை திறக்க மேம்படுத்தவும்.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ஒவ்வொரு சேமிப்பக சாதனத்திற்கும் முழு 90-நாள் போக்குக் காட்சியைத் திறக்கவும், இடம் தீர்வதற்கு முன் எச்சரிக்கையும் பெறவும் மேம்படுத்துங்கள்.</string>
     <string name="stats_space_history_marker_freed">%1$s விடுவிக்கப்பட்டது</string>
     <string name="stats_storage_type_primary">முதன்மை சேமிப்பு</string>
     <string name="stats_storage_type_secondary">இரண்டாம் நிலை சேமிப்பு</string>

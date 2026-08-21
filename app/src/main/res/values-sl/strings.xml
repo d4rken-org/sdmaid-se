@@ -260,7 +260,11 @@
     <string name="setup_root_card_title">Skrbniški dostop</string>
     <string name="setup_root_card_body">Ali naj SD Maid uporablja skrbniško dostop, če je na voljo.  Skrbniški dostop se uporablja za pregledovanje dodatnih sistemskih map in zasebnih programskih podatkov.</string>
     <string name="setup_root_state_ready_label">Skrbniški dostop je pripravljen.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Skrbniški dostop ni na voljo.</string>
+    <string name="setup_root_state_failed_title">Dostop kot skrbnik ni uspel</string>
+    <string name="setup_root_state_failed_body">SD Maid je zahtevala dostop kot skrbnik, vendar ga ni prejela. Če je naprava rootirana, odpri upravljavnik skrbnika (Magisk, KernelSU ali podobno) in preveri, ali je zahtevek SD Maid zavrnjen ali še čaka.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid je zahtevala dostop kot skrbnik, vendar ga ni prejela, in ni bila zaznana nobena aplikacija za upravljanje skrbnika. Če naprava uporablja skriti ali vgrajen dostop kot skrbnik, poskusi znova.</string>
     <string name="setup_root_enable_root_use_label">Poskusi s skrbniškim dostopom</string>
     <string name="setup_root_disable_root_use_label">Nisem rootal/-a naprave</string>
     <string name="setup_root_card_body2">Na voljo samo na napravah s skrbniškim dostopom.  Če te spremembe niste naredili, potem naprava nima skrbniškega dostopa in ta nastavitev nima nobenega učinka.</string>
@@ -271,6 +275,9 @@
     <string name="setup_shizuku_state_ready_label">Povezava do Shizukuja je pripravljena.</string>
     <string name="setup_shizuku_state_waiting_label">Čakanje na povezavo s Shizukujem.</string>
     <string name="setup_shizuku_state_not_installed_label">Aplikacija Shizuku ni nameščena.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku povezava ni uspela</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku je delujoča, vendar ni nikoli povezala SD Maid z njeno pomočno storitvijo.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Nekatere naprave so prizadete z znano težavo Shizuku, ki prepreči zagon pomočne storitve. To bi lahko bila ena od njih.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Poskusi s Shizukujem</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne uporabi Shizukuja</string>
     <string name="setup_dismiss_hint">Zaslon za nastavitev lahko znova najdete v meniju z nastavitvami.</string>
@@ -307,6 +314,8 @@
     <string name="setup_inventory_limitation_title">Možna omejitev naprave</string>
     <string name="setup_inventory_limitation_body">Sistem je vrnil nepopoln seznam nameščenih aplikacij, čeprav je videti, da so potrebna dovoljenja odobrena.</string>
     <string name="setup_inventory_limitation_body2">Nekatere naprave (npr. HarmonyOS) nikoli ne zagotovijo popolnega seznama aplikacij. Za zaščito vaših podatkov aplikacijska orodja ostanejo onemogočena, vendar lahko še vedno pregledujete porabo shranjevanja z zmanjšano podrobnostjo.</string>
+    <string name="setup_inventory_probe_failed_title">Ni bilo mogoče prebrati seznama aplikacij</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid je prosila Android za seznam nameščenih aplikacij in zahtevek ni uspel. Orodja, povezana z aplikacijami, ostanejo onemogočena, dokler zahtevek ne uspe. Ponovni poskus bi lahko pomagal.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ni našel podatkovnih področij, ki jih lahko pregleda.  Ali ste dokončali nastavitev?</string>
     <string name="dataarea_warningcard_label">Podatkovna področja</string>
     <string name="dataarea_warningcard_reload_action">Ponovno naloži podatkovna področja</string>
@@ -383,7 +392,11 @@
     <string name="widget_home_description">Poraba shrambe in čiščenje z enim dotikom</string>
     <string name="widget_home_storage_internal">Notranja</string>
     <string name="widget_home_storage_external">Zunanja</string>
-    <string name="widget_home_freed_label">Doživljenjska: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Skupaj osvobojeno: %1$s</string>
     <string name="widget_home_clean_action">Počisti</string>
     <string name="widget_home_working">Obdelovanje …</string>
     <string name="widget_home_unavailable">Shramba ni dostopna</string>
@@ -423,4 +436,15 @@
     <string name="backup_restore_warn_history_body">Podatki zgodovine te varnostne kopije (statistika, zgodovina stiskanja, seje drsenja) so iz druge različice aplikacije in jih ni mogoče obnoviti. Vse ostalo bo obnovljeno.</string>
     <string name="backup_restore_ack_understand">Razumem in želim nadaljevati</string>
     <string name="backup_restore_action_restore">Obnovi</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Opozorila o prostoru</string>
+    <string name="stats_lowspace_notification_title">Prostor se polni</string>
+    <string name="stats_lowspace_notification_low_title">Prostor je skoraj poln</string>
+    <string name="stats_lowspace_notification_low_body">%1$s prosto. Prostor se konča.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Približno %1$d dan prostora pri tej stopnji. %2$s prosto.</item>
+        <item quantity="two">Približno %1$d dni prostora pri tej stopnji. %2$s prosto.</item>
+        <item quantity="few">Približno %1$d dni prostora pri tej stopnji. %2$s prosto.</item>
+        <item quantity="other">Približno %1$d dni prostora pri tej stopnji. %2$s prosto.</item>
+    </plurals>
 </resources>

@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Geen directe toegang beschikbaar</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper-sessie aanmaken</string>
+    <string name="analyzer_content_open_externally_action">Openen in bestandsbeheer</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper-sessie aangemaakt met %d item</item>
         <item quantity="other">Swiper-sessie aangemaakt met %d items</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Gemaakte foto\'s, opgenomen video\'s of gedownloade gegevens. Alle gegevens die niet bij een specifieke app horen.</string>
     <string name="analyzer_storage_content_type_system_label">Systeem gegevens</string>
     <string name="analyzer_storage_content_type_system_description">Systeem-apps en systeemgegevens. Apps en gegevens van andere gebruikers, als er meerdere gebruikersaccounts op dit apparaat zijn ingesteld.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Andere gebruikers konden niet volledig worden gemeten, dus dit totaal kan een deel van hun opslag bevatten.</string>
     <string name="analyzer_storage_content_type_system_other_label">Andere</string>
     <string name="analyzer_storage_content_type_system_info">Bestanden die niet in de categorieën Apps of Gebruikersbestanden passen. Alleen bladeren — verwijderen wordt niet ondersteund. Sommige gebieden zijn mogelijk onvolledig vanwege toegangsbeperkingen.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Bestanden kunnen op dit moment niet worden gekoppeld aan de apps die ze bezitten. Groottes worden alleen ter referentie weergegeven — verwijdering, filters en Swiper zijn uitgeschakeld.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systeembestanden en andere gegevens waartoe SD Maid geen toegang had of die niet gecategoriseerd konden worden. Het besturingssysteem beperkt het weergeven van de inhoud van sommige gebieden.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Andere gebruikers</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Apps en bestanden die bij andere gebruikers of werkprofielen op dit toestel horen.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Alleen app-gegevens, gedeelde bestanden van deze gebruiker zijn niet inbegrepen.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Grootte niet beschikbaar, de opslag van deze gebruiker kan niet worden gelezen.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Opslag van een andere gebruiker op dit toestel. Alleen bladeren, verwijderen wordt niet ondersteund.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Applicatiebestanden, bibliotheken en bronnen. Deze ruimte kan vrijgemaakt worden door de app te verwijderen of te archiveren (beschikbaar op nieuwere Android-versie).</string>
     <string name="analyzer_storage_content_app_data_label">App gegevens</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Deze app neemt %1$s in beslag op \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Deze app is gearchiveerd.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Nog ongeveer %d dag ruimte over bij dit tempo</item>
+        <item quantity="other">Nog ongeveer %d dagen ruimte over bij dit tempo</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Opslag</string>
+    <string name="analyzer_settings_lowstorage_title">Drempel voor lage opslag</string>
+    <string name="analyzer_settings_lowstorage_desc">Wanneer de vrije ruimte hieronder komt, beschouwt SD Maid de opslag als bijna vol.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatisch (momenteel %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatisch</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatisch</string>
+    <string name="analyzer_settings_lowspace_notification_title">Waarschuwing voor weinig ruimte</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Ontvang een melding voordat je opslag opraakt.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Kom nooit meer zonder ruimte te zitten</string>
+    <string name="analyzer_lowspace_hint_body">Upgrade om een waarschuwing te krijgen voordat je opslag opraakt, zodat je kunt opruimen terwijl er nog ruimte over is.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Bekijk wat je opslag werkelijk opvult. De Analyzer geeft een overzicht van waar je ruimte heen gaat. Elk van deze kaarten is een opslagchip op je apparaat.</string>
     <string name="tour_analyzer_storage_body">Open een opslagruimte om deze in apps, media en bestanden in te delen, tik vervolgens herhaaldelijk om de grootste ruimtevreters op te sporen.</string>

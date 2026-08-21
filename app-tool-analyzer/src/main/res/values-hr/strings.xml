@@ -19,6 +19,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Nije dostupan izravan pristup</string>
     <string name="analyzer_content_create_swiper_session_action">Kreiraj Swiper sesiju</string>
+    <string name="analyzer_content_open_externally_action">Otvori u upravitelju datoteka</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper sesija kreirana s %d stavkom</item>
         <item quantity="few">Swiper sesija kreirana s %d stavke</item>
@@ -39,10 +40,16 @@
     <string name="analyzer_storage_content_type_media_description">Snimljene slike, videozapisi ili preuzeti podaci. Svi podaci koji ne pripadaju određenoj aplikaciji.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemski podaci</string>
     <string name="analyzer_storage_content_type_system_description">Aplikacije sustava i sistemski podaci. Aplikacije i podaci drugih korisnika, ako je na ovom uređaju postavljeno više korisničkih računa.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Drugi korisnici nisu mogli biti u potpunosti izmjereni, pa ovaj ukupni iznos može uključivati dio njihove pohrane.</string>
     <string name="analyzer_storage_content_type_system_other_label">Ostalo</string>
     <string name="analyzer_storage_content_type_system_info">Datoteke koje ne odgovaraju kategorijama Aplikacije ili Korisničke datoteke. Samo pregled — brisanje nije podržano. Neka područja mogu biti nepotpuna zbog ograničenja pristupa.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Datoteke se ne mogu povezati s aplikacijama kojima pripadaju. Veličine se prikazuju samo kao referencija — brisanje, filtri i Swiper su onemogućeni.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistemske datoteke i drugi podaci kojima SD Maid nije mogao pristupiti ili ih kategorizirati. Operativni sustav ograničava popis sadržaja nekih područja.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Drugi korisnici</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Aplikacije i datoteke koje pripadaju drugim korisnicima ili radnim profilima na ovom uređaju.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Samo podaci aplikacija, zajedničke datoteke ovog korisnika nisu uključene.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Veličina nije dostupna, pohrana ovog korisnika ne može se očitati.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Pohrana drugog korisnika na ovom uređaju. Samo pregledavanje, brisanje nije podržano.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikacije</string>
     <string name="analyzer_storage_content_app_code_description">Datoteke aplikacije, biblioteke i resursi. Ovaj se prostor može osloboditi deinstaliranjem aplikacije ili njenim arhiviranjem (dostupno u novijim verzijama Androida).</string>
     <string name="analyzer_storage_content_app_data_label">Podaci aplikacije</string>
@@ -54,6 +61,23 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ova aplikacija zauzima %1$s na \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ova je aplikacija arhivirana.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s u 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Uz ovu potrošnju preostao je otprilike %d dan prostora</item>
+        <item quantity="few">Uz ovu potrošnju preostala su otprilike %d dana prostora</item>
+        <item quantity="other">Uz ovu potrošnju preostalo je otprilike %d dana prostora</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Pohrana</string>
+    <string name="analyzer_settings_lowstorage_title">Prag niske razine pohrane</string>
+    <string name="analyzer_settings_lowstorage_desc">Kada slobodan prostor padne ispod ove razine, SD Maid smatra da pohrana ponestaje.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatski (trenutno %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatski</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatski</string>
+    <string name="analyzer_settings_lowspace_notification_title">Upozorenje o niskom prostoru</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Primi obavijest prije nego što pohrana ponestane.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Nikad te ne iznenadi nestanak prostora</string>
+    <string name="analyzer_lowspace_hint_body">Nadogradi kako bi dobio upozorenje prije nego što ti ponestane prostora, tako da možeš počistiti dok još ima prostora za rad.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Pogledajte što zapravo popunjava vašu pohranu. Analyzer mapira kamo ide vaš prostor. Svaka od ovih kartica je čip za pohranu na vašem uređaju.</string>
     <string name="tour_analyzer_storage_body">Otvorite pohranu da je razložite na aplikacije, medije i datoteke, zatim nastavite dodirivati da pronađete najveće krivce.</string>

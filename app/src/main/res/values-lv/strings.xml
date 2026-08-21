@@ -252,7 +252,11 @@
     <string name="setup_root_card_title">Root piekļuve</string>
     <string name="setup_root_card_body">Vai SD Maid vajadzētu izmantot root piekļuvi, ja tā ir pieejama? Root piekļuve ļauj pārbaudīt papildu sistēmas mapes un privātos lietotņu datus.</string>
     <string name="setup_root_state_ready_label">Root piekļuve ir gatava.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Saknes piekļuve nav pieejama.</string>
+    <string name="setup_root_state_failed_title">Root piekļuve neizdevās</string>
+    <string name="setup_root_state_failed_body">SD Maid pieprasīja root piekļuvi, bet to nesaņēma. Ja tavai ierīcei ir root tiesības, atver root pārvaldnieku (Magisk, KernelSU vai līdzīgu) un pārbaudi, vai SD Maid pieprasījums tika noraidīts vai vēl gaida.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid pieprasīja root piekļuvi, bet to nesaņēma, un netika atrasta neviena root pārvaldnieka lietotne. Ja tavā ierīcē tiek izmantots slēpts vai iebūvēts root, mēģini vēlreiz.</string>
     <string name="setup_root_enable_root_use_label">Mēģiniet izmantot saknes piekļuvi</string>
     <string name="setup_root_disable_root_use_label">Mana ierīce nav rootēta</string>
     <string name="setup_root_card_body2">Pieejams tikai ierīcēs ar root piekļuvi. Ja neesat veicis šo modifikāciju, jūsu ierīcei nav root un šim iestatījumam nav efekta.</string>
@@ -263,6 +267,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku savienojums ir gatavs.</string>
     <string name="setup_shizuku_state_waiting_label">Gaida savienojumu ar Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku lietotne nav instalēta.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku savienojums neizdevās</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku darbojas, bet tas nekad nesavienoja SD Maid ar savu palīgpakalpojumu.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Dažas ierīces skar zināma Shizuku problēma, kas neļauj palīgpakalpojumam startēt. Iespējams, šī ir viena no tām.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Mēģiniet izmantot Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Neizmantot Shizuku</string>
     <string name="setup_dismiss_hint">Iestatīšanas ekrānu var atrast atkal iestatījumu izvēlnē.</string>
@@ -299,6 +306,8 @@
     <string name="setup_inventory_limitation_title">Iespējams ierīces ierobežojums</string>
     <string name="setup_inventory_limitation_body">Sistēma atgriezusi nepilnīgu uzstādīto lietotņu sarakstu, lai arī nepieciešamās atļaujas šķiet piešķirtas.</string>
     <string name="setup_inventory_limitation_body2">Dažas ierīces (piemēram, HarmonyOS) nekad nesniedz pilnīgu lietotņu sarakstu. Lai aizsargātu jūsu datus, ar lietotņu saistītie rīki paliek atspējoti, bet jūs joprojām varat aplūkot krātuves izmantošanu ar samazinātu detalizāciju.</string>
+    <string name="setup_inventory_probe_failed_title">Neizdevās nolasīt lietotņu sarakstu</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid pieprasīja Android sniegt instalēto lietotņu sarakstu, taču pieprasījums neizdevās. Ar lietotnēm saistītie rīki paliek atspējoti, kamēr tas nedarbojas. Mēģinot vēlreiz, iespējams, palīdzēs.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid neatrada nevienu skenējamu datu zonu. Vai esat pabeidzis iestatīšanu?</string>
     <string name="dataarea_warningcard_label">Datu zonas</string>
     <string name="dataarea_warningcard_reload_action">Pārlādēt datu zonas</string>
@@ -373,7 +382,11 @@
     <string name="widget_home_description">Krātuves izmantošana un vienas pieskaršanas tīrīšana</string>
     <string name="widget_home_storage_internal">Iekšējā</string>
     <string name="widget_home_storage_external">Ārējā</string>
-    <string name="widget_home_freed_label">Mūžs: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Kopā atbrīvots: %1$s</string>
     <string name="widget_home_clean_action">Tīrīt</string>
     <string name="widget_home_working">Notiek…</string>
     <string name="widget_home_unavailable">Krātuve nav pieejama</string>
@@ -413,4 +426,14 @@
     <string name="backup_restore_warn_history_body">Šīs rezerves kopijas vēstures dati (statistika, saspiešanas vēsture, slīdīšanas sesijas) ir no citas lietotnes versijas un tos nevar atjaunot. Viss pārējais tiks atjaunots.</string>
     <string name="backup_restore_ack_understand">Saprotu un vēlos turpināt</string>
     <string name="backup_restore_action_restore">Atjaunot</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Krātuves brīdinājumi</string>
+    <string name="stats_lowspace_notification_title">Krātuve piepildās</string>
+    <string name="stats_lowspace_notification_low_title">Krātuve gandrīz pilna</string>
+    <string name="stats_lowspace_notification_low_body">Pieejami %1$s. Krātuvei drīz pietrūks vietas.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="zero">Ar pašreizējo patēriņu atlicis vēl apmēram %1$d dienu. Pieejami %2$s.</item>
+        <item quantity="one">Ar pašreizējo patēriņu atlikusi vēl apmēram %1$d diena. Pieejami %2$s.</item>
+        <item quantity="other">Ar pašreizējo patēriņu atlikušas vēl apmēram %1$d dienas. Pieejami %2$s.</item>
+    </plurals>
 </resources>

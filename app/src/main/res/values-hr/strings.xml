@@ -252,7 +252,11 @@
     <string name="setup_root_card_title">Root pristup</string>
     <string name="setup_root_card_body">Treba li SD Maid koristiti root pristup ako je dostupan? Root pristup se može koristiti za provjeru dodatnih mapa sustava i podataka privatnih aplikacija.</string>
     <string name="setup_root_state_ready_label">Root pristup je spreman.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root pristup nije dostupan.</string>
+    <string name="setup_root_state_failed_title">Pristup rootu nije uspio</string>
+    <string name="setup_root_state_failed_body">SD Maid je zatražio root pristup, ali ga nije dobio. Ako je tvoj uređaj rootan, otvori aplikaciju za upravljanje rootom (Magisk, KernelSU ili sličnu) i provjeri je li zahtjev od SD Maida odbijen ili još uvijek čeka.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid je zatražio root pristup, ali ga nije dobio, a nije otkrivena ni aplikacija za upravljanje rootom. Ako tvoj uređaj koristi skriveni ili ugrađeni root, pokušaj ponovno.</string>
     <string name="setup_root_enable_root_use_label">Pokušajte koristiti root pristup</string>
     <string name="setup_root_disable_root_use_label">Nisam rootao svoj uređaj</string>
     <string name="setup_root_card_body2">Dostupno samo na rootanim uređajima. Ako niste izvršili ovu izmjenu, vaš uređaj nije rootan i ova postavka nema učinka.</string>
@@ -263,6 +267,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku veza je spremna.</string>
     <string name="setup_shizuku_state_waiting_label">Čekanje veze sa Shizukuom.</string>
     <string name="setup_shizuku_state_not_installed_label">Aplikacija Shizuku nije instalirana.</string>
+    <string name="setup_shizuku_state_failed_title">Povezivanje sa Shizukuom nije uspjelo</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku je pokrenut, ali nikada nije povezao SD Maid sa svojom pomoćnom uslugom.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Neki uređaji imaju poznati problem sa Shizukuom koji sprječava pokretanje pomoćne usluge. Ovo bi mogao biti jedan od njih.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Pokušajte koristiti Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne koristi Shizuku</string>
     <string name="setup_dismiss_hint">Zaslon za postavljanje možete ponovno pronaći putem izbornika postavki.</string>
@@ -299,6 +306,8 @@
     <string name="setup_inventory_limitation_title">Moguće ograničenje uređaja</string>
     <string name="setup_inventory_limitation_body">Sustav je vratio nepotpun popis instaliranih aplikacija, iako se čini da su potrebne dozvole dodijeljene.</string>
     <string name="setup_inventory_limitation_body2">Neki uređaji (npr. HarmonyOS) nikada ne pružaju potpun popis aplikacija. Kako bismo zaštitili vaše podatke, alati za aplikacije ostaju onemogućeni, ali i dalje možete vidjeti korištenje pohrane s manje detalja.</string>
+    <string name="setup_inventory_probe_failed_title">Nije moguće očitati popis aplikacija</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid je od Androida zatražio popis instaliranih aplikacija, no zahtjev nije uspio. Alati vezani uz aplikacije ostaju onemogućeni dok to ne proradi. Pokušaj ponovno, moglo bi pomoći.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nije pronašao nijedno područje podataka koje je moguće skenirati. Jeste li dovršili postavljanje?</string>
     <string name="dataarea_warningcard_label">Područja podataka</string>
     <string name="dataarea_warningcard_reload_action">Ponovno učitavanje područja podataka</string>
@@ -373,7 +382,11 @@
     <string name="widget_home_description">Korištenje pohrane i čišćenje jednim dodirom</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Vanjsko</string>
-    <string name="widget_home_freed_label">Ukupno: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Ukupno oslobođeno: %1$s</string>
     <string name="widget_home_clean_action">Očisti</string>
     <string name="widget_home_working">Obrada…</string>
     <string name="widget_home_unavailable">Pohrana nije dostupna</string>
@@ -413,4 +426,14 @@
     <string name="backup_restore_warn_history_body">Podaci povijesti ove sigurnosne kopije (statistika, povijest sažimanja, sesije povlačenja) potječu iz druge verzije aplikacije i ne mogu se vratiti. Sve ostalo bit će vraćeno.</string>
     <string name="backup_restore_ack_understand">Razumijem i želim nastaviti</string>
     <string name="backup_restore_action_restore">Obnovi</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Upozorenja o pohrani</string>
+    <string name="stats_lowspace_notification_title">Pohrana se puni</string>
+    <string name="stats_lowspace_notification_low_title">Pohrana je gotovo puna</string>
+    <string name="stats_lowspace_notification_low_body">%1$s slobodno. Pohrana ponestaje.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Uz ovu potrošnju, preostao je otprilike %1$d dan prostora. %2$s slobodno.</item>
+        <item quantity="few">Uz ovu potrošnju, preostala su otprilike %1$d dana prostora. %2$s slobodno.</item>
+        <item quantity="other">Uz ovu potrošnju, preostalo je otprilike %1$d dana prostora. %2$s slobodno.</item>
+    </plurals>
 </resources>

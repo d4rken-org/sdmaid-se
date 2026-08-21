@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Δεν υπάρχει άμεση πρόσβαση</string>
     <string name="analyzer_content_create_swiper_session_action">Δημιουργία συνεδρίας Swiper</string>
+    <string name="analyzer_content_open_externally_action">Άνοιγμα σε διαχειριστή αρχείων</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Δημιουργήθηκε συνεδρία Swiper με %d αντικείμενο</item>
         <item quantity="other">Δημιουργήθηκε συνεδρία Swiper με %d αντικείμενα</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Συλληφθείσες εικόνες, εγγεγραμμένα βίντεο ή ληφθέντα δεδομένα. Οποιαδήποτε δεδομένα που δεν ανήκουν σε μια συγκεκριμένη εφαρμογή.</string>
     <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
     <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Δεν ήταν δυνατή η πλήρης μέτρηση άλλων χρηστών, οπότε αυτό το σύνολο μπορεί να περιλαμβάνει μέρος του χώρου τους.</string>
     <string name="analyzer_storage_content_type_system_other_label">Άλλο</string>
     <string name="analyzer_storage_content_type_system_info">Αρχεία που δεν ανήκουν στις κατηγορίες Εφαρμογές ή Αρχεία χρήστη. Μόνο περιήγηση — η διαγραφή δεν υποστηρίζεται. Ορισμένες περιοχές ενδέχεται να είναι ελλιπείς λόγω περιορισμών πρόσβασης.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Τα αρχεία δεν μπορούν να αντιστοιχιστούν στις εφαρμογές που τα κατέχουν αυτή τη στιγμή. Τα μεγέθη εμφανίζονται μόνο για αναφορά — η διαγραφή, τα φίλτρα και το Swiper είναι απενεργοποιημένα.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Αρχεία συστήματος και άλλα δεδομένα που το SD Maid δεν μπόρεσε να αποκτήσει πρόσβαση ή να κατηγοριοποιήσει. Το λειτουργικό σύστημα περιορίζει την εμφάνιση των περιεχομένων ορισμένων περιοχών.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Άλλοι χρήστες</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Εφαρμογές και αρχεία που ανήκουν σε άλλους χρήστες ή προφίλ εργασίας σε αυτή τη συσκευή.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Μόνο δεδομένα εφαρμογών, δεν περιλαμβάνονται τα κοινόχρηστα αρχεία αυτού του χρήστη.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Το μέγεθος δεν είναι διαθέσιμο, ο αποθηκευτικός χώρος αυτού του χρήστη δεν μπορεί να διαβαστεί.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Αποθηκευτικός χώρος άλλου χρήστη σε αυτή τη συσκευή. Μόνο περιήγηση, η διαγραφή δεν υποστηρίζεται.</string>
     <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
     <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, βιβλιοθήκες και πόροι. Αυτός ο χώρος μπορεί να ελευθερωθεί με την απεγκατάσταση της εφαρμογής ή την αρχειοθέτησή της (διατίθεται σε νεότερη έκδοση Android).</string>
     <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Αυτή η εφαρμογή καταλαμβάνει %1$s στο \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Αυτή η εφαρμογή έχει αρχειοθετηθεί.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s σε 7η</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Απομένει περίπου %d ημέρα χώρου με αυτόν τον ρυθμό</item>
+        <item quantity="other">Απομένουν περίπου %d ημέρες χώρου με αυτόν τον ρυθμό</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Αποθηκευτικός χώρος</string>
+    <string name="analyzer_settings_lowstorage_title">Όριο χαμηλού αποθηκευτικού χώρου</string>
+    <string name="analyzer_settings_lowstorage_desc">Όταν ο ελεύθερος χώρος πέσει κάτω από αυτό το όριο, το SD Maid θεωρεί ότι ο αποθηκευτικός χώρος εξαντλείται.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Αυτόματο (τρέχουσα τιμή %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Αυτόματο</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Αυτόματο</string>
+    <string name="analyzer_settings_lowspace_notification_title">Προειδοποίηση χαμηλού χώρου</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Λάβε ειδοποίηση προτού εξαντληθεί ο αποθηκευτικός σου χώρος.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Μη μείνεις ποτέ ξαφνικά χωρίς χώρο</string>
+    <string name="analyzer_lowspace_hint_body">Αναβάθμισε για να λαμβάνεις προειδοποίηση προτού εξαντληθεί ο αποθηκευτικός σου χώρος, ώστε να μπορείς να κάνεις εκκαθάριση όσο υπάρχει ακόμα περιθώριο.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Δείτε τι γεμίζει πραγματικά τον χώρο αποθήκευσής σας. Ο Αναλυτής χαρτογραφεί το σημείο όπου πηγαίνει ο χώρος σας. Κάθε μια από αυτές τις κάρτες αντιπροσωπεύει μια μονάδα αποθήκευσης στη συσκευή σας.</string>
     <string name="tour_analyzer_storage_body">Ανοίξτε έναν χώρο αποθήκευσης για να τον αναλύσετε σε εφαρμογές, πολυμέσα και αρχεία, στη συνέχεια συνεχίστε να πατάτε για να εντοπίσετε τους μεγαλύτερους υπαίτιους.</string>

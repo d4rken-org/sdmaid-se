@@ -12,6 +12,33 @@
         <item quantity="many">%s элементаў апрацавана з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
         <item quantity="other">%s элементаў апрацавана з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">Ты гаста %d дзень.</item>
+        <item quantity="few">Ты гаста %d дні.</item>
+        <item quantity="many">Ты гаста %d дзён.</item>
+        <item quantity="other">Ты гаста %d дзён.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">Ты гаста %d тыдзень.</item>
+        <item quantity="few">Ты гаста %d тыдні.</item>
+        <item quantity="many">Ты гаста %d тыдзён.</item>
+        <item quantity="other">Ты гаста %d тыдзён.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">Ты гаста %d месяц.</item>
+        <item quantity="few">Ты гаста %d месяцы.</item>
+        <item quantity="many">Ты гаста %d месяцаў.</item>
+        <item quantity="other">Ты гаста %d месяцаў.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">Ты гаста %d год.</item>
+        <item quantity="few">Ты гаста %d гады.</item>
+        <item quantity="many">Ты гаста %d гадоў.</item>
+        <item quantity="other">Ты гаста %d гадоў.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">Частковы поспех</string>
     <string name="stats_report_status_partial_failure">Няўдала</string>
     <string name="stats_settings_desc">Наладжванне статыстыкі, справаздач і захаванне даных SD Maid.</string>
@@ -39,6 +66,9 @@
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Поўная гісторыя — гэта функцыя Pro</string>
     <string name="stats_space_history_upgrade_body">Абновіцеся, каб атрымаць доступ да поўнага 90-дзённага прагляду трэнду для кожнай прылады захоўвання.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Абнавіць, каб разблакіраваць поўны прагляд тэндэнцый за 90 дзён для кожнага ўстройства сховішча, і атрымаць папярэджанне перш, чым месца скончыцца.</string>
     <string name="stats_space_history_marker_freed">Вызвалена %1$s</string>
     <string name="stats_storage_type_primary">Асноўнае сховішча</string>
     <string name="stats_storage_type_secondary">Дадатковае сховішча</string>

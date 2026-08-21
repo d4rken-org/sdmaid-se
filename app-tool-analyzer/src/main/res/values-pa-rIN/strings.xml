@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">ਕੋਈ ਸਿੱਧੀ ਪਹੁੰਚ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper ਸੈਸ਼ਨ ਬਣਾਓ</string>
+    <string name="analyzer_content_open_externally_action">ਫ਼ਾਈਲ ਮੈਨੇਜਰ ਵਿੱਚ ਖੋਲੋ</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d ਆਈਟਮ ਨਾਲ Swiper ਸੈਸ਼ਨ ਬਣਾਇਆ ਗਿਆ</item>
         <item quantity="other">%d ਆਈਟਮਾਂ ਨਾਲ Swiper ਸੈਸ਼ਨ ਬਣਾਇਆ ਗਿਆ</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">ਖਿੱਚੀਆਂ ਗਈਆਂ ਤਸਵੀਰਾਂ, ਰਿਕਾਰਡ ਕੀਤੇ ਵੀਡੀਓ ਜਾਂ ਡਾਊਨਲੋਡ ਕੀਤਾ ਡਾਟਾ। ਕੋਈ ਵੀ ਡਾਟਾ ਜੋ ਕਿਸੇ ਖਾਸ ਐਪ ਨਾਲ ਸਬੰਧਤ ਨਹੀਂ ਹੈ।</string>
     <string name="analyzer_storage_content_type_system_label">ਸਿਸਟਮ ਡਾਟਾ</string>
     <string name="analyzer_storage_content_type_system_description">ਸਿਸਟਮ ਐਪਾਂ ਅਤੇ ਸਿਸਟਮ ਡਾਟਾ। ਜੇ ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਕਈ ਵਰਤੋਂਕਾਰ ਖਾਤੇ ਸੈੱਟ ਹਨ ਤਾਂ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਦੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ।</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਨੂੰ ਪੂਰੀ ਤਰ੍ਹਾਂ ਮਾਪਿਆ ਨਹੀਂ ਜਾ ਸਕਿਆ, ਇਸ ਲਈ ਇਹ ਕੁੱਲ ਉਨ੍ਹਾਂ ਦੀ ਕੁਝ ਸਟੋਰੇਜ ਵੀ ਸ਼ਾਮਲ ਕਰ ਸਕਦਾ ਹੈ।</string>
     <string name="analyzer_storage_content_type_system_other_label">ਹੋਰ</string>
     <string name="analyzer_storage_content_type_system_info">ਉਹ ਫਾਈਲਾਂ ਜੋ ਐਪਸ ਜਾਂ ਯੂਜ਼ਰ ਫਾਈਲਾਂ ਦੀਆਂ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਫਿੱਟ ਨਹੀਂ ਬੈਠਦੀਆਂ। ਸਿਰਫ਼ ਬ੍ਰਾਊਜ਼ ਕਰੋ — ਮਿਟਾਉਣਾ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ। ਪਹੁੰਚ ਪਾਬੰਦੀਆਂ ਕਾਰਨ ਕੁਝ ਖੇਤਰ ਅਧੂਰੇ ਹੋ ਸਕਦੇ ਹਨ।</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ਫਾਈਲਾਂ ਨੂੰ ਇਸ ਸਮੇਂ ਉਹਨਾਂ ਐਪਸ ਨਾਲ ਮਿਲਾਇਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਜੋ ਉਹਨਾਂ ਦੀਆਂ ਮਾਲਕ ਹਨ। ਆਕਾਰ ਸਿਰਫ ਹਵਾਲੇ ਲਈ ਦਿਖਾਏ ਗਏ ਹਨ — ਮਿਟਾਉਣਾ, ਫਿਲਟਰ ਅਤੇ Swiper ਅਸਮਰਥ ਹਨ।</string>
     <string name="analyzer_storage_content_type_system_other_desc">ਸਿਸਟਮ ਫਾਈਲਾਂ ਅਤੇ ਹੋਰ ਡੇਟਾ ਜਿਸ ਤੱਕ SD Maid ਪਹੁੰਚ ਨਹੀਂ ਕਰ ਸਕਿਆ ਜਾਂ ਵਰਗੀਕਰਨ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਕੁਝ ਖੇਤਰਾਂ ਦੀ ਸਮੱਗਰੀ ਦੀ ਸੂਚੀਬੱਧਤਾ ਤੇ ਪਾਬੰਦੀ ਲਗਾਉਂਦਾ ਹੈ।</string>
+    <string name="analyzer_storage_content_type_otherusers_label">ਹੋਰ ਵਰਤੋਂਕਾਰ</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ਐਪਾਂ ਅਤੇ ਫ਼ਾਈਲਾਂ ਜੋ ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਜਾਂ ਕਾਰਜ ਪ੍ਰੋਫ਼ਾਈਲਾਂ ਨਾਲ ਸਬੰਧਤ ਹਨ।</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">ਸਿਰਫ਼ ਐਪ ਡੇਟਾ, ਇਸ ਵਰਤੋਂਕਾਰ ਦੀਆਂ ਸਾਂਝੀਆਂ ਫ਼ਾਈਲਾਂ ਸ਼ਾਮਲ ਨਹੀਂ ਹਨ।</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">ਆਕਾਰ ਉਪਲਬਧ ਨਹੀਂ, ਇਸ ਵਰਤੋਂਕਾਰ ਦੀ ਸਟੋਰੇਜ ਨੂੰ ਪੜ੍ਹ ਨਹੀਂ ਸਕਦੇ।</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ਇਸ ਡਿਵਾਈਸ ਉੱਤੇ ਦੂਸਰੇ ਵਰਤੋਂਕਾਰ ਦੀ ਸਟੋਰੇਜ। ਸਿਰਫ਼ ਬ੍ਰਾਉਜ਼ ਕਰੋ, ਮਿਟਾਉਣਾ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ।</string>
     <string name="analyzer_storage_content_app_code_label">ਐਪ ਕੋਡ</string>
     <string name="analyzer_storage_content_app_code_description">ਐਪਲੀਕੇਸ਼ਨ ਫਾਈਲਾਂ, ਲਾਇਬ੍ਰੇਰੀਆਂ ਅਤੇ ਸਰੋਤ। ਇਹ ਜਗ੍ਹਾ ਐਪ ਨੂੰ ਅਣਸਥਾਪਿਤ ਕਰਕੇ ਜਾਂ ਇਸਨੂੰ ਸੰਗ੍ਰਹਿਤ ਕਰਕੇ (ਨਵੇਂ Android ਵਰਜਨ \'ਤੇ ਉਪਲਬਧ) ਮੁਕਤ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
     <string name="analyzer_storage_content_app_data_label">ਐਪ ਡਾਟਾ</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ਇਹ ਐਪ \"%2$s\" \'ਤੇ %1$s ਦਾ ਸਥਾਨ ਲੈਂਦੀ ਹੈ।</string>
     <string name="analyzer_app_details_app_is_archived">ਇਹ ਐਪ ਸੰਗ੍ਰਹਿਤ ਕੀਤੀ ਗਈ ਹੈ।</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 ਦਿਨਾਂ ਵਿੱਚ</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">ਇਸ ਗਤਿ ਤੇ ਲਗਭਗ %d ਦਿਨ ਦੀ ਥਾਂ ਬਾਕੀ ਹੈ</item>
+        <item quantity="other">ਇਸ ਗਤਿ ਤੇ ਲਗਭਗ %d ਦਿਨਾਂ ਦੀ ਥਾਂ ਬਾਕੀ ਹੈ</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">ਸਟੋਰੇਜ</string>
+    <string name="analyzer_settings_lowstorage_title">ਘੱਟ ਸਟੋਰੇਜ ਥ੍ਰੈਸ਼ਹੋਲਡ</string>
+    <string name="analyzer_settings_lowstorage_desc">ਜਦੋਂ ਖਾਲੀ ਥਾਂ ਇਸ ਤੋਂ ਘੱਟ ਪੁੱਜ ਜਾਵੇ, SD Maid ਸਟੋਰੇਜ ਨੂੰ ਖਤਮ ਹੋ ਰਹੇ ਵਜੋਂ ਸਮਝਦਾ ਹੈ।</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ਸਵੈਚਲਿਤ (ਫ਼ਿਲਹਾਲ %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ਸਵੈਚਲਿਤ</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ਸਵੈਚਲਿਤ</string>
+    <string name="analyzer_settings_lowspace_notification_title">ਘੱਟ ਸਥਾਨ ਚੇਤਾਵਨੀ</string>
+    <string name="analyzer_settings_lowspace_notification_desc">ਆਪਣੀ ਸਟੋਰੇਜ ਖਤਮ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਨੋਟੀਫਿਕੇਸ਼ਨ ਪ੍ਰਾਪਤ ਕਰੋ।</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ਕਦੇ ਵੀ ਸਥਾਨ ਤੋਂ ਬਾਹਰ ਨਾ ਰਹੋ</string>
+    <string name="analyzer_lowspace_hint_body">ਅਪਗ੍ਰੇਡ ਕਰੋ ਤਾਂ ਜੋ ਆਪਣੀ ਸਟੋਰੇਜ ਖਤਮ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਇੱਕ ਚੇਤਾਵਨੀ ਪਾਓ, ਤਾਂ ਜੋ ਤੁਸੀਂ ਕੰਮ ਕਰਨ ਲਈ ਅਜੇ ਥਾਂ ਹੋਣ ਤੇ ਸ਼ਾਫ਼ਾਈ ਕਰ ਸਕੋ।</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ਦੇਖੋ ਕਿ ਤੁਹਾਡੀ ਸਟੋਰੇਜ ਨੂੰ ਅਸਲ ਵਿੱਚ ਕੀ ਭਰ ਰਿਹਾ ਹੈ। Analyzer ਦਿਖਾਉਂਦਾ ਹੈ ਕਿ ਤੁਹਾਡੀ ਥਾਂ ਕਿੱਥੇ ਜਾਂਦੀ ਹੈ। ਇਹਨਾਂ ਵਿੱਚੋਂ ਹਰੇਕ ਕਾਰਡ ਤੁਹਾਡੇ ਡਿਵਾਇਸ ਵਿੱਚ ਇੱਕ ਸਟੋਰੇਜ ਚਿੱਪ ਹੈ।</string>
     <string name="tour_analyzer_storage_body">ਐਪਸ, ਮੀਡੀਆ ਅਤੇ ਫਾਈਲਾਂ ਵਿੱਚ ਵੰਡਣ ਲਈ ਇੱਕ ਸਟੋਰੇਜ ਖੋਲ੍ਹੋ, ਫਿਰ ਸਭ ਤੋਂ ਵੱਡੇ ਦੋਸ਼ੀਆਂ ਦਾ ਪਤਾ ਲਾਉਣ ਲਈ ਟੈਪ ਕਰਦੇ ਰਹੋ।</string>

@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Tiada akses langsung tersedia</string>
     <string name="analyzer_content_create_swiper_session_action">Cipta sesi Swiper</string>
+    <string name="analyzer_content_open_externally_action">Buka dalam pengurus fail</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">Sesi Swiper dicipta dengan %d item</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">Gambar yang ditangkap, video yang dirakam atau data yang dimuat turun. Sebarang data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akaun pengguna ditetapkan pada peranti ini.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Pengguna lain tidak dapat diukur sepenuhnya, jadi jumlah ini mungkin termasuk sebahagian storan mereka.</string>
     <string name="analyzer_storage_content_type_system_other_label">Lain-lain</string>
     <string name="analyzer_storage_content_type_system_info">Fail yang tidak sesuai dalam kategori Aplikasi atau fail Pengguna. Layar sahaja — pemadaman tidak disokong. Sesetengah kawasan mungkin tidak lengkap disebabkan sekatan akses.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Fail tidak dapat dipadankan dengan aplikasi yang memilikinya pada masa ini. Saiz ditunjukkan untuk rujukan sahaja — pemadaman, penapis dan Swiper dilumpuhkan.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Fail sistem dan data lain yang tidak dapat diakses atau dikategorikan oleh SD Maid. Sistem pengendalian menyekat penyenaraian kandungan sesetengah kawasan.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Pengguna lain</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Aplikasi dan fail milik pengguna lain atau profil kerja pada peranti ini.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Hanya data aplikasi, fail kongsi pengguna ini tidak disertakan.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Saiz tidak tersedia, storan pengguna ini tidak dapat dibaca.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Storan pengguna lain pada peranti ini. Hanya untuk melayari, pemadaman tidak disokong.</string>
     <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini boleh dibebaskan dengan menyahpasang aplikasi atau mengarkibkannya (tersedia pada versi Android yang lebih baharu).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menduduki %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarkibkan.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s dalam 7h</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">Kira-kira %d hari ruang tinggal pada kadar ini</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Storan</string>
+    <string name="analyzer_settings_lowstorage_title">Ambang storan rendah</string>
+    <string name="analyzer_settings_lowstorage_desc">Apabila ruang bebas jatuh di bawah ini, SD Maid menganggap storan semakin kehabisan.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatik (kini %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatik</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatik</string>
+    <string name="analyzer_settings_lowspace_notification_title">Amaran ruang rendah</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Dapatkan pemberitahuan sebelum storan kamu kehabisan.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Jangan sampai terkejut kehabisan ruang</string>
+    <string name="analyzer_lowspace_hint_body">Naik taraf untuk mendapat amaran sebelum storan kamu kehabisan, supaya kamu boleh membersihkan semasa masih ada ruang untuk bekerja.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Lihat apa yang benar-benar memenuhi penyimpanan anda. Analyzer memetakan tempat ruang anda pergi. Setiap kad ini ialah cip penyimpanan pada peranti anda.</string>
     <string name="tour_analyzer_storage_body">Buka penyimpanan untuk membahagikannya kepada aplikasi, media dan fail, kemudian terus ketuk untuk mengesan penyebab terbesar.</string>

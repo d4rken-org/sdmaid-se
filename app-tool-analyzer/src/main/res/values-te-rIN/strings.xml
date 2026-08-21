@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">నేరుగా ప్రాప్యత లేదు</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper సెషన్ సృష్టించు</string>
+    <string name="analyzer_content_open_externally_action">ఫైల్ మేనేజర్‌లో తెరవండి</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d అంశంతో Swiper సెషన్ సృష్టించబడింది</item>
         <item quantity="other">%d అంశాలతో Swiper సెషన్ సృష్టించబడింది</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">తీసిన చిత్రాలు, రికార్డ్ చేసిన వీడియోలు లేదా డౌన్‌లోడ్ చేసిన డేటా. నిర్దిష్ట యాప్‌కు సంబంధించని డేటా.</string>
     <string name="analyzer_storage_content_type_system_label">సిస్టం డేటా</string>
     <string name="analyzer_storage_content_type_system_description">సిస్టం యాప్‌లు మరియు సిస్టం డేటా. ఈ పరికరంలో ఎక్కువ వినియోగదారు ఖాతాలు సెట్ చేసి ఉంటే, ఇతర వినియోగదారుల నుంచి యాప్‌లు మరియు డేటా.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">ఇతర వినియోగదారులను పూర్తిగా కొలవలేకపోయాము, కాబట్టి ఈ మొత్తంలో వారి కొంత నిల్వ కూడా చేరి ఉండవచ్చు.</string>
     <string name="analyzer_storage_content_type_system_other_label">ఇతర</string>
     <string name="analyzer_storage_content_type_system_info">Apps లేదా వినియోగదారు ఫైళ్ళ వర్గాలలో సరిపోని ఫైళ్ళు. బ్రౌజ్ మాత్రమే — తొలగింపు మద్దతు లేదు. యాక్సెస్ పరిమితుల కారణంగా కొన్ని ప్రాంతాలు అసంపూర్ణంగా ఉండవచ్చు.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ఫైల్‌లను వాటిని సొంతం చేసుకున్న యాప్‌లకు సరిపోల సాధ్యం కాలేదు. పరిమాణాలు సూచన కోసం మాత్రమే చూపబడ్డాయి — తొలగింపు, ఫిల్టర్‌లు మరియు Swiper నిలిపివేయబడ్డాయి.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid యాక్సెస్ చేయలేకపోయిన లేదా వర్గీకరించలేకపోయిన సిస్టమ్ ఫైళ్ళు మరియు ఇతర డేటా. ఆపరేటింగ్ సిస్టమ్ కొన్ని ప్రాంతాల కంటెంట్‌లను జాబితా చేయడాన్ని నిరోధిస్తుంది.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">ఇతర వినియోగదారులు</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ఈ పరికరంలోని ఇతర వినియోగదారులు లేదా వర్క్ ప్రొఫైల్‌లకు చెందిన యాప్‌లు మరియు ఫైళ్లు.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">యాప్ డేటా మాత్రమే, ఈ వినియోగదారు యొక్క షేర్డ్ ఫైళ్లు చేర్చబడలేదు.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">పరిమాణం అందుబాటులో లేదు, ఈ వినియోగదారు నిల్వను చదవలేము.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ఈ పరికరంలోని మరొక వినియోగదారు నిల్వ. బ్రౌజ్ చేయడానికి మాత్రమే, తొలగించడం మద్దతు లేదు.</string>
     <string name="analyzer_storage_content_app_code_label">యాప్ కోడ్</string>
     <string name="analyzer_storage_content_app_code_description">అప్లికేషన్ ఫైల్‌లు, లైబ్రరీలు మరియు రిసోర్సెస్. యాప్‌ను అనిన్‌స్టాల్ చేయడం లేదా ఆర్కైవ్ చేయడం (కొత్త Android వెర్షన్‌లో అనుపలబ్ధం) ద్వారా ఈ స్థలాన్ని విడుదల చేయవచ్చు.</string>
     <string name="analyzer_storage_content_app_data_label">యాప్ డేటా</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ఈ యాప్ \"%2$s\"లో %1$s ను ఆక్రమించింది.</string>
     <string name="analyzer_app_details_app_is_archived">ఈ యాప్ ఆర్కైవ్ చేయబడింది.</string>
     <string name="analyzer_storage_trend_delta_in_7d">7 రోజుల్లో %s</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">ఈ రేటుతో సుమారు %d రోజు నిల్వ మిగిలి ఉంది</item>
+        <item quantity="other">ఈ రేటుతో సుమారు %d రోజుల నిల్వ మిగిలి ఉంది</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">నిల్వ</string>
+    <string name="analyzer_settings_lowstorage_title">తక్కువ నిల్వ థ్రెషోల్డ్</string>
+    <string name="analyzer_settings_lowstorage_desc">ఖాళీ స్థలం దీని కంటే తగ్గినప్పుడు, SD Maid నిల్వ అయిపోతున్నట్లు పరిగణిస్తుంది.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ఆటోమేటిక్ (ప్రస్తుతం %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ఆటోమేటిక్</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ఆటోమేటిక్</string>
+    <string name="analyzer_settings_lowspace_notification_title">తక్కువ స్థల హెచ్చరిక</string>
+    <string name="analyzer_settings_lowspace_notification_desc">మీ నిల్వ అయిపోయే ముందు నోటిఫికేషన్ పొందండి.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ఎప్పుడూ స్థలం లేకుండా చిక్కుకోకండి</string>
+    <string name="analyzer_lowspace_hint_body">మీ నిల్వ అయిపోయే ముందు హెచ్చరిక పొందడానికి అప్‌గ్రేడ్ చేయండి, తద్వారా ఇంకా పని చేయడానికి స్థలం ఉన్నప్పుడే మీరు క్లీన్ చేసుకోవచ్చు.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">మీ నిల్వ ఏ విధంగా నిండుతున్నదో చూడండి. విశ్లేషకం మీ స్థలం ఎక్కడకు వెళ్లిందో మ్యాప్ చేస్తుంది. ఈ ప్రతిఒక్క కార్డు మీ పరికరంలో ఒక నిల్వ చిప్.</string>
     <string name="tour_analyzer_storage_body">నిల్వను తెరిచి దానిని యాప్‌లు, మీడియా మరియు ఫైల్‌లుగా విభజించండి, ఆపై నిల్వను ఎక్కువగా ఆక్రమించిన వాటిని ట్రాక్ చేయడానికి నొక్కడం కొనసాగించండి.</string>

@@ -260,7 +260,11 @@
     <string name="setup_root_card_title">Dostęp do roota</string>
     <string name="setup_root_card_body">Czy SD Maid ma korzystać z dostępu do roota, jeśli jest dostępny? Dostęp do roota może zostać wykorzystany do sprawdzenia dodatkowych folderów systemowych i prywatnych danych aplikacji.</string>
     <string name="setup_root_state_ready_label">Dostęp do roota jest gotowy.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Dostęp do roota jest niedostępny.</string>
+    <string name="setup_root_state_failed_title">Nie udało się uzyskać dostępu do roota</string>
+    <string name="setup_root_state_failed_body">SD Maid poprosił o dostęp do roota i go nie otrzymał. Jeśli twoje urządzenie jest zrootowane, otwórz menedżera roota (Magisk, KernelSU lub podobny) i sprawdź, czy żądanie SD Maid zostało odrzucone, czy nadal oczekuje na odpowiedź.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid poprosił o dostęp do roota i go nie uzyskał, a aplikacja zarządzająca rootem nie została wykryta. Jeśli twoje urządzenie korzysta z ukrytego lub wbudowanego roota, spróbuj ponownie.</string>
     <string name="setup_root_enable_root_use_label">Spróbuj użyć dostępu do roota</string>
     <string name="setup_root_disable_root_use_label">Nie rootowałem mojego urządzenia</string>
     <string name="setup_root_card_body2">Dostępne tylko na urządzeniach z uprawnieniami roota. Jeśli nie dokonałeś tej modyfikacji, to twoje urządzenie nie ma uprawnień roota i wybór nie ma wpływu na działanie aplikacji.</string>
@@ -271,6 +275,9 @@
     <string name="setup_shizuku_state_ready_label">Połączenie z Shizuku gotowe.</string>
     <string name="setup_shizuku_state_waiting_label">Oczekiwanie na połączenie z Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Aplikacja Shizuku nie jest zainstalowana.</string>
+    <string name="setup_shizuku_state_failed_title">Nie udało się połączyć z Shizuku</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku działa, ale nigdy nie połączyło SD Maid ze swoją usługą pomocniczą.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Niektóre urządzenia są dotknięte znanym problemem Shizuku, który uniemożliwia uruchomienie usługi pomocniczej. To może być jeden z nich.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Spróbuj użyć Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nie korzystaj z Shizuku</string>
     <string name="setup_dismiss_hint">Możesz ponownie otworzyć ekran ustawień poprzez menu ustawień.</string>
@@ -307,6 +314,8 @@
     <string name="setup_inventory_limitation_title">Możliwe ograniczenie urządzenia</string>
     <string name="setup_inventory_limitation_body">System zwrócił niekompletną listę zainstalowanych aplikacji, mimo że wymagane uprawnienia wydają się przyznane.</string>
     <string name="setup_inventory_limitation_body2">Niektóre urządzenia (np. HarmonyOS) nigdy nie dostarczają kompletnej listy aplikacji. Aby chronić twoje dane, narzędzia związane z aplikacjami pozostają wyłączone, ale nadal możesz przeglądać użycie pamięci wewnętrznej ze zmniejszonymi szczegółami.</string>
+    <string name="setup_inventory_probe_failed_title">Nie udało się odczytać listy aplikacji</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid poprosił Androida o listę zainstalowanych aplikacji, ale żądanie się nie powiodło. Narzędzia związane z aplikacjami pozostaną wyłączone do momentu ich uruchomienia. Ponowna próba może pomóc.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
     <string name="dataarea_warningcard_reload_action">Przeładuj obszary danych</string>
@@ -384,7 +393,11 @@ Karol Szastok (K4r0lSz);</string>
     <string name="widget_home_description">Użycie pamięci i jednokrotne czyszczenie</string>
     <string name="widget_home_storage_internal">Wewnętrzny</string>
     <string name="widget_home_storage_external">Zewnętrzny</string>
-    <string name="widget_home_freed_label">Dożywotnio: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Razem zwolniono: %1$s</string>
     <string name="widget_home_clean_action">Wyczyść</string>
     <string name="widget_home_working">Przetwarzanie…</string>
     <string name="widget_home_unavailable">Pamięć niedostępna</string>
@@ -424,4 +437,15 @@ Karol Szastok (K4r0lSz);</string>
     <string name="backup_restore_warn_history_body">Dane historii tej kopii (statystyki, historia kompresji, sesje przeciągania) pochodzą z innej wersji aplikacji i nie można ich przywrócić. Wszystkie pozostałe dane zostaną przywrócone.</string>
     <string name="backup_restore_ack_understand">Rozumiem i chcę kontynuować</string>
     <string name="backup_restore_action_restore">Przywróć</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Ostrzeżenia pamięci wewnętrznej</string>
+    <string name="stats_lowspace_notification_title">Pamięć wewnętrzna się zapełnia</string>
+    <string name="stats_lowspace_notification_low_title">Pamięć wewnętrzna jest prawie pełna</string>
+    <string name="stats_lowspace_notification_low_body">%1$s wolne. Pamięć wewnętrzna się kończy.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Przy tym tempie miejsce wystarczy na około %1$d dzień. Wolne miejsce: %2$s.</item>
+        <item quantity="few">Przy tym tempie miejsce wystarczy na około %1$d dni. Wolne miejsce: %2$s.</item>
+        <item quantity="many">Przy tym tempie miejsce wystarczy na około %1$d dni. Wolne miejsce: %2$s.</item>
+        <item quantity="other">Przy tym tempie miejsce wystarczy na około %1$d dni. Wolne miejsce: %2$s.</item>
+    </plurals>
 </resources>

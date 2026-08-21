@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Шууд хүртэхийн боломж байхгүй</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper сешн үүсгэх</string>
+    <string name="analyzer_content_open_externally_action">Файлын менежерээр нээх</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d зүйлтэйгээр Swiper сеш үүсгэгдсэн</item>
         <item quantity="other">%d зүйлтэйгээр Swiper сеш үүсгэгдсэн</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Бүртгэсэн зураг, бичлэгдсэн видео эсвэл татаж авсан өгөгдөл. Тухайлагдсан аппд харьяагүй огн өгөгдөл.</string>
     <string name="analyzer_storage_content_type_system_label">Системийн өгөгдөл</string>
     <string name="analyzer_storage_content_type_system_description">Системийн аппууд болон өгөгдөл. Энэ төхөөрөмжт олон харилцааны аппууд болон өгөгдөл, энэ төхөөрөмжт олон хэрэглэгчдийн бүлтгүүд хэрэглэгчийн бүртгэс өгөгдөлдэх аппууд болон өгөгдөл.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Бусад хэрэглэгчдийг бүрэн хэмжих боломжгүй байсан тул энэ нийт үзүүлэлтэд тэдгээрийн зарим санах ойг оруулж болно.</string>
     <string name="analyzer_storage_content_type_system_other_label">Бусад</string>
     <string name="analyzer_storage_content_type_system_info">Аппууд эсвэл Хэрэглэгчийн файлуудын ангилалд багтахгүй файлууд. Зөвхөн харах боломжтой — устгах дэмжигдэхгүй. Хандалтын хязгаарлалтаас шалтгаалан зарим хэсэг дутуу байж болно.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Файлуудыг одоо эзэмшдэг апп-тай тохируулж чаддаггүй. Хэмжээ нь зөвхөн лавлагааны хувьд харуулагдаж байна — устгах, шүүлтүүр ба Swiper идэвхгүй байдаг.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid хандаж чадаагүй буюу ангилж чадаагүй системийн файлууд болон бусад өгөгдөл. Үйлдлийн систем зарим хэсгийн агуулгыг жагсаахыг хязгаарладаг.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Бусад хэрэглэгчид</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Энэ төхөөрөмж дэх бусад хэрэглэгч буюу ажлын профильд хамаарах аппликейшн ба файлууд.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Зөвхөн аппликейшны өгөгдөл, энэ хэрэглэгчийн хуваалцсан файлүүд оруулаагүй байна.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Хэмжээ боломжгүй, энэ хэрэглэгчийн санах ойг унших боломжгүй.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Энэ төхөөрөмж дэх өөр хэрэглэгчийн санах ой. Зөвхөн үзэх боломжтой, устгах нь дэмжигдээгүй.</string>
     <string name="analyzer_storage_content_app_code_label">Аппын код</string>
     <string name="analyzer_storage_content_app_code_description">Аппликацийн файл, номдаллагууд болон нөөц. Аппыг устгах эсвэл архивлахад (шинэ Android хувилбарт боломжтой) зайг чөлөөлж болно.</string>
     <string name="analyzer_storage_content_app_data_label">Аппын өгөгдөл</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Энэ апп \"%2$s\" дээр %1$s езлаад байна.</string>
     <string name="analyzer_app_details_app_is_archived">Энэ апп архивлагдсан.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 хоногт</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Энэ хурдаар ойролцоогоор %d өдрийн санах ой үлдсэн</item>
+        <item quantity="other">Энэ хурдаар ойролцоогоор %d өдрийн санах ой үлдсэн</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Санах ой</string>
+    <string name="analyzer_settings_lowstorage_title">Бага санах ойн босго</string>
+    <string name="analyzer_settings_lowstorage_desc">Чөлөө орон доош унах үед SD Maid санах ойг шавхагдаж байна гэж үздэг.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Автоматаар (одоо %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Автоматаар</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Автоматаар</string>
+    <string name="analyzer_settings_lowspace_notification_title">Бага санах ойн анхааруулга</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Таны санах ой шавхагдахаас өмнө мэдэгдэл авна уу.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Санах ойгүй болохоос сэргийлэх</string>
+    <string name="analyzer_lowspace_hint_body">Таны санах ой шавхагдахаас өмнө анхааруулга авахын тулд сайжруулж аваарай, ингээснээр ажиллах орон үлдсэн байхад цэвэрлэх боломж болно.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Танай санг юу дүүргэж байгаагаа үзнэ үү. Analyzer нь танай зай хаана явж байгаагаа харуулдаг. Эдгээр карт тус бүр нь таны төхөөрөмжийн сан юм.</string>
     <string name="tour_analyzer_storage_body">Санг нээж апп, медиа ба файл болгон задалж, дараа нь хамгийн их зай эзэлсэн зүйлүүдийг олохын тулд дахин дахин дарна.</string>

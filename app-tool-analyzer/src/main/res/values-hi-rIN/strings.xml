@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">कोई सीधी पहुँच उपलब्ध नहीं है</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper सत्र बनाएं</string>
+    <string name="analyzer_content_open_externally_action">फ़ाइल मैनेजर में खोलें</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d आइटम के साथ Swiper सत्र बनाया गया</item>
         <item quantity="other">%d आइटम के साथ Swiper सत्र बनाया गया</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">कैप्चर की गई तस्वीरें, रिकॉर्ड किए गए वीडियो या डाउनलोड किए गए डेटा है। कोई भी डेटा जो किसी विशिष्ट ऐप से संबंधित नहीं है।</string>
     <string name="analyzer_storage_content_type_system_label">सिस्टम डेटा</string>
     <string name="analyzer_storage_content_type_system_description">सिस्टम ऐप्स और सिस्टम डेटा। अन्य उपयोगकर्ताओं के ऐप्स और डेटा, यदि इस डिवाइस पर कई उपयोगकर्ता खाते सेट हैं।</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">अन्य उपयोगकर्ताओं को पूरी तरह से मापा नहीं जा सका, इसलिए यह कुल उनके कुछ स्टोरेज को शामिल कर सकता है।</string>
     <string name="analyzer_storage_content_type_system_other_label">अन्य</string>
     <string name="analyzer_storage_content_type_system_info">वे फ़ाइलें जो एप्स या उपयोगकर्ता फ़ाइलें श्रेणियों में फिट नहीं होतीं। केवल ब्राउज़ करें — हटाना समर्थित नहीं है। कुछ क्षेत्र पहुंच प्रतिबंधों के कारण अधूरे हो सकते हैं।</string>
     <string name="analyzer_storage_content_type_media_readonly_info">फ़ाइलों को उन ऐप्स से मेल नहीं खाया जा सकता जो उनके मालिक हैं। आकार केवल संदर्भ के लिए दिए गए हैं — हटाना, फ़िल्टर और Swiper अक्षम हैं।</string>
     <string name="analyzer_storage_content_type_system_other_desc">सिस्टम फ़ाइलें और अन्य डेटा जिन्हें SD Maid एक्सेस या वर्गीकृत नहीं कर सका। ऑपरेटिंग सिस्टम कुछ क्षेत्रों की सामग्री सूचीबद्ध करने पर प्रतिबंध लगाता है।</string>
+    <string name="analyzer_storage_content_type_otherusers_label">अन्य उपयोगकर्ता</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ऐप्स और फ़ाइलें जो अन्य उपयोगकर्ताओं या इस डिवाइस पर कार्य प्रोफ़ाइल से संबंधित हैं।</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">केवल ऐप डेटा, इस उपयोगकर्ता की साझा की गई फ़ाइलें शामिल नहीं हैं।</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">आकार उपलब्ध नहीं है, इस उपयोगकर्ता के स्टोरेज को पढ़ा नहीं जा सकता है।</string>
+    <string name="analyzer_storage_content_type_otherusers_info">इस डिवाइस पर दूसरे उपयोगकर्ता का स्टोरेज। केवल ब्राउज़ करें, हटाना समर्थित नहीं है।</string>
     <string name="analyzer_storage_content_app_code_label">ऐप कोड</string>
     <string name="analyzer_storage_content_app_code_description">एप्लिकेशन फ़ाइलें, लाइब्रेरी और संसाधन। ऐप को अनइंस्टॉल करके या संग्रहीत करके (नए Android संस्करण पर उपलब्ध) इस स्थान को मुक्त किया जा सकता है।</string>
     <string name="analyzer_storage_content_app_data_label">ऐप डेटा</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">यह ऐप \"%2$s\" पर %1$s में रहता है।</string>
     <string name="analyzer_app_details_app_is_archived">यह ऐप संग्रहीत किया गया है।</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 दिनों में</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">इस दर पर लगभग %d दिन की जगह बची है</item>
+        <item quantity="other">इस दर पर लगभग %d दिन की जगह बची है</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">स्टोरेज</string>
+    <string name="analyzer_settings_lowstorage_title">कम स्टोरेज सीमा</string>
+    <string name="analyzer_settings_lowstorage_desc">जब खाली स्थान इससे कम हो जाता है, तो SD Maid स्टोरेज को खत्म मान लेता है।</string>
+    <string name="analyzer_settings_lowstorage_value_auto">स्वचालित (वर्तमान में %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">स्वचालित</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">स्वचालित</string>
+    <string name="analyzer_settings_lowspace_notification_title">कम जगह की चेतावनी</string>
+    <string name="analyzer_settings_lowspace_notification_desc">अपने स्टोरेज के खत्म होने से पहले एक सूचना प्राप्त करें।</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">जगह की कमी से कभी न फंसें</string>
+    <string name="analyzer_lowspace_hint_body">अपग्रेड करें ताकि स्टोरेज खत्म होने से पहले चेतावनी मिले, और आप सफ़ाई कर सकें जबकि अभी काम की जगह बची हो।</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">देखें कि आपके स्टोरेज को वास्तव में क्या भर रहा है। Analyzer दिखाता है कि आपकी जगह कहां जाती है। इनमें से प्रत्येक कार्ड आपके डिवाइस पर एक स्टोरेज चिप है।</string>
     <string name="tour_analyzer_storage_body">इसे ऐप्स, मीडिया और फ़ाइलों में विभाजित करने के लिए किसी स्टोरेज को खोलें, फिर सबसे बड़ी समस्याओं को ढूंढने के लिए लगातार टैप करते रहें।</string>

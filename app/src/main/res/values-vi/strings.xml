@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">Truy cập root</string>
     <string name="setup_root_card_body">SD Maid có nên sử dụng quyền truy cập root nếu có? Quyền truy cập root có thể được sử dụng để kiểm tra các thư mục hệ thống bổ sung và dữ liệu ứng dụng riêng tư.</string>
     <string name="setup_root_state_ready_label">Quyền truy cập root đã sẵn sàng.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Quyền truy cập Root không khả dụng.</string>
+    <string name="setup_root_state_failed_title">Truy cập quyền root không thành công</string>
+    <string name="setup_root_state_failed_body">SD Maid yêu cầu truy cập quyền root nhưng không nhận được. Nếu thiết bị của bạn được root, hãy mở trình quản lý root (Magisk, KernelSU hoặc tương tự) và kiểm tra xem yêu cầu từ SD Maid đã bị từ chối hay vẫn đang chờ.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid yêu cầu truy cập quyền root nhưng không nhận được, và không phát hiện ứng dụng quản lý root. Nếu thiết bị của bạn sử dụng root ẩn hoặc tích hợp, hãy thử lại.</string>
     <string name="setup_root_enable_root_use_label">Hãy thử sử dụng quyền truy cập root</string>
     <string name="setup_root_disable_root_use_label">Tôi không root thiết bị của mình</string>
     <string name="setup_root_card_body2">Chỉ khả dụng trên các thiết bị đã root. Nếu bạn không thực hiện sửa đổi này, thì thiết bị của bạn chưa được root và cài đặt này không có hiệu lực.</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">Liên kết Shizuku đã sẵn sàng.</string>
     <string name="setup_shizuku_state_waiting_label">Chờ liên kết với Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Ứng dụng Shizuku chưa được cài đặt.</string>
+    <string name="setup_shizuku_state_failed_title">Kết nối Shizuku không thành công</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku đang chạy, nhưng nó chưa bao giờ kết nối SD Maid với dịch vụ trợ giúp của nó.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Một số thiết bị bị ảnh hưởng bởi một vấn đề Shizuku đã biết khiến dịch vụ trợ giúp không khởi động. Đây có thể là một trong những thiết bị đó.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Hãy thử sử dụng Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Không sử dụng Shizuku</string>
     <string name="setup_dismiss_hint">Bạn có thể tìm lại màn hình thiết lập thông qua menu cài đặt.</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">Có thể là giới hạn của thiết bị</string>
     <string name="setup_inventory_limitation_body">Hệ thống trả về danh sách ứng dụng đã cài đặt không đầy đủ, mặc dù các quyền cần thiết dường như đã được cấp.</string>
     <string name="setup_inventory_limitation_body2">Một số thiết bị (ví dụ: HarmonyOS) không bao giờ cung cấp danh sách ứng dụng đầy đủ. Để bảo vệ dữ liệu của bạn, các công cụ liên quan đến ứng dụng vẫn bị vô hiệu hóa, nhưng bạn vẫn có thể xem mức sử dụng bộ nhớ với chi tiết giảm.</string>
+    <string name="setup_inventory_probe_failed_title">Không thể đọc danh sách ứng dụng</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid yêu cầu Android cung cấp danh sách ứng dụng đã cài đặt nhưng yêu cầu không thành công. Các công cụ liên quan đến ứng dụng sẽ bị vô hiệu hóa cho đến khi nó hoạt động. Thử lại có thể giúp.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid không tìm thấy bất kỳ vùng dữ liệu nào có thể quét được. Bạn đã hoàn thành thiết lập?</string>
     <string name="dataarea_warningcard_label">Vùng dữ liệu</string>
     <string name="dataarea_warningcard_reload_action">Tải lại vùng dữ liệu</string>
@@ -316,7 +325,9 @@
     <string name="translation_encourage_title">Dịch SD Maid</string>
     <string name="translation_encourage_body">SD Maid được dịch bởi các tình nguyện viên. Bản dịch, đánh giá hoặc hiệu đính, sự giúp đỡ của bạn được đánh giá cao!</string>
     <string name="translation_translators_title">Phiên bản này được dịch bởi</string>
-    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau);\nHai511;\nTheNothingGuy</string>
+    <string name="translation_translators_people">Đỗ Văn Chức(dovanchuc7521);ThePrimalPea(PeaID);Vo Thanh Tung(wst1001_qqfc); PhongInk(PhongInk);Nguyễn Trung Hậu(Nguyen_Trung_Hau);
+Hai511;
+TheNothingGuy</string>
     <string name="motd_setting_enabled_label">Tin nhắn quan trọng</string>
     <string name="motd_setting_enabled_explanation">Cho phép SD Maid kiểm tra các tin nhắn quan trọng từ nhà phát triển.</string>
     <string name="updatecheck_setting_enabled_label">Kiểm tra cập nhật</string>
@@ -353,7 +364,11 @@
     <string name="widget_home_description">Sử dụng bộ nhớ và dọn dẹp bằng một lần nhấn</string>
     <string name="widget_home_storage_internal">Nội bộ</string>
     <string name="widget_home_storage_external">Bên ngoài</string>
-    <string name="widget_home_freed_label">Vòng đời: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Tổng cộng đã giải phóng: %1$s</string>
     <string name="widget_home_clean_action">Làm sạch</string>
     <string name="widget_home_working">Đang xử lý…</string>
     <string name="widget_home_unavailable">Bộ nhớ không khả dụng</string>
@@ -393,4 +408,12 @@
     <string name="backup_restore_warn_history_body">Dữ liệu lịch sử của bản sao lưu này (thống kê, lịch sử nén, phiên quét) từ một phiên bản ứng dụng khác và không thể khôi phục được. Mọi thứ khác sẽ được khôi phục.</string>
     <string name="backup_restore_ack_understand">Tôi hiểu và muốn tiếp tục</string>
     <string name="backup_restore_action_restore">Khôi phục</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Cảnh báo bộ nhớ</string>
+    <string name="stats_lowspace_notification_title">Bộ nhớ đang được lấp đầy</string>
+    <string name="stats_lowspace_notification_low_title">Bộ nhớ gần như đầy</string>
+    <string name="stats_lowspace_notification_low_body">%1$s còn trống. Bộ nhớ sắp hết.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">Khoảng %1$d ngày bộ nhớ còn lại ở tốc độ này. %2$s còn trống.</item>
+    </plurals>
 </resources>

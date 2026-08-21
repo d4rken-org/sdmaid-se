@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Ingen direkte tilgang tilgjengelig</string>
     <string name="analyzer_content_create_swiper_session_action">Opprett Swiper-økt</string>
+    <string name="analyzer_content_open_externally_action">Åpne i filbehandler</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper-økt opprettet med %d element</item>
         <item quantity="other">Swiper-økt opprettet med %d elementer</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Tatt bilder, innspilte videoer eller nedlastet data. Alle data som ikke tilhører en bestemt app.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdata</string>
     <string name="analyzer_storage_content_type_system_description">Systemapper og systemdata. Apper og data fra andre brukere, hvis flere brukerkontoer er angitt på denne enheten.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Andre brukere kunne ikke måles fullstendig, så denne totalen kan inkludere noe av deres lagringsplass.</string>
     <string name="analyzer_storage_content_type_system_other_label">Andre</string>
     <string name="analyzer_storage_content_type_system_info">Filer som ikke passer inn i kategoriene Apper eller Brukerfiler. Bla gjennom bare — sletting støttes ikke. Noen områder kan være ufullstendige på grunn av tilgangsbegrensninger.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Filer kan ikke matches til appene som eier dem akkurat nå. Størrelser vises bare som referanse — sletting, filtre og Swiper er deaktivert.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systemfiler og andre data som SD Maid ikke kunne få tilgang til eller kategorisere. Operativsystemet begrenser opplistingen av innholdet i noen områder.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Andre brukere</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Apper og filer som tilhører andre brukere eller arbeidsprofiler på denne enheten.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Kun appdata, delte filer for denne brukeren er ikke inkludert.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Størrelse utilgjengelig, denne brukerens lagringsplass kan ikke leses.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Lagringsplass til en annen bruker på denne enheten. Kun bla gjennom, sletting støttes ikke.</string>
     <string name="analyzer_storage_content_app_code_label">App-kode</string>
     <string name="analyzer_storage_content_app_code_description">Applikasjonsfiler, biblioteker og ressurser. Denne plassen kan frigjøres ved å avinstallere appen eller arkivere den (tilgjengelig på nyere Android-versjon).</string>
     <string name="analyzer_storage_content_app_data_label">App-data</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Denne appen bruker %1$s på \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Denne appen er arkivert.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s på 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Cirka %d dag med plass igjen i dette tempoet</item>
+        <item quantity="other">Cirka %d dager med plass igjen i dette tempoet</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Lagring</string>
+    <string name="analyzer_settings_lowstorage_title">Terskel for lav lagringsplass</string>
+    <string name="analyzer_settings_lowstorage_desc">Når ledig plass faller under dette, behandler SD Maid lagringsplassen som om den holder på å ta slutt.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatisk (for øyeblikket %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatisk</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatisk</string>
+    <string name="analyzer_settings_lowspace_notification_title">Varsel om lite lagringsplass</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Få et varsel før lagringsplassen din tar slutt.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Bli aldri tatt på senga av lav lagringsplass</string>
+    <string name="analyzer_lowspace_hint_body">Oppgrader for å få et varsel før lagringsplassen tar slutt, slik at du kan rydde opp mens det fortsatt er plass å jobbe med.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Se hva som faktisk fyller opp lagringen din. Analyzer kartlegger hvor plassen din går. Hvert av disse kortene er en lagringsenhet på enheten din.</string>
     <string name="tour_analyzer_storage_body">Åpne en lagringsenhet for å dele den opp i apper, media og filer, og berør gjentatte ganger for å finne de største synderne.</string>

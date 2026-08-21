@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Otsene juurdepääs puudub</string>
     <string name="analyzer_content_create_swiper_session_action">Loo pühkimisseanss</string>
+    <string name="analyzer_content_open_externally_action">Ava failihalduris</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Pühkimisseanss loodud %d kandega</item>
         <item quantity="other">Pühkimisseanss loodud %d kirjega</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Jäädvustatud pildid, salvestatud videod või alla laaditud andmed. Kõik kindlale rakendusele mitte kuuluvad andmed.</string>
     <string name="analyzer_storage_content_type_system_label">Süsteemi andmed</string>
     <string name="analyzer_storage_content_type_system_description">Süsteemi rakendused ja andmed. Muude kasutajate rakendused ja andmed, kui seadmes on seadistatud mitu kasutajakontot.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Teisi kasutajaid ei õnnestunud täielikult mõõta, mistõttu see kogusumma võib sisaldada osa nende hoiustamisruumist.</string>
     <string name="analyzer_storage_content_type_system_other_label">Muu</string>
     <string name="analyzer_storage_content_type_system_info">Failid, mis ei kuulu rakenduste ega kasutajafailide kategooriatesse. Ainult sirvimine — kustutamine pole toetatud. Mõned alad võivad olla mittetäielikud juurdepääsupiirangute tõttu.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Faile ei saa praegu siduda neile kuuluvate rakendustega. Mahud on näidatud ainult viitamiseks — kustutamine, filtrid ja Pühkija on keelatud.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Süsteemifailid ja muud andmed, millele SD Maid ei saanud juurde pääseda ega kategoriseerida. Operatsioonisüsteem piirab mõnede alade sisu loetlemist.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Teised kasutajad</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Rakendused ja failid, mis kuuluvad selle seadme teistele kasutajatele või tööprofiilidele.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Ainult rakenduste andmed, selle kasutaja jagatud failid ei ole kaasatud.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Suurus pole saadaval, selle kasutaja hoiustamisruumi ei õnnestu lugeda.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Selle seadme teise kasutaja hoiustamisruum. Ainult sirvimiseks, kustutamine ei ole toetatud.</string>
     <string name="analyzer_storage_content_app_code_label">Rakenduse kood</string>
     <string name="analyzer_storage_content_app_code_description">Rakenduse failid, teegid ja allikad. Sellle ruumi vabastamiseks eemaldage rakendus või arhiveerige see (saadaval uusimas Androidi versioonis).</string>
     <string name="analyzer_storage_content_app_data_label">Rakenduse andmed</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Sellele rakendusele kuulub kohas \"%2$s\" %1$s.</string>
     <string name="analyzer_app_details_app_is_archived">See rakendus on arhiveeritud.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7p-ga</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Selle kiirusega on jäänud umbes %d päev ruumi</item>
+        <item quantity="other">Selle kiirusega on jäänud umbes %d päeva ruumi</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Hoiustamisruum</string>
+    <string name="analyzer_settings_lowstorage_title">Vähese hoiustamisruumi lävi</string>
+    <string name="analyzer_settings_lowstorage_desc">Kui vaba ruum langeb sellest allapoole, käsitleb SD Maid hoiustamisruumi otsalõppevana.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automaatne (praegu %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automaatne</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automaatne</string>
+    <string name="analyzer_settings_lowspace_notification_title">Vähese ruumi hoiatus</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Saad teate enne, kui hoiustamisruum otsa saab.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Ära lase end kunagi ruumipuudusest üllatada</string>
+    <string name="analyzer_lowspace_hint_body">Uuenda, et saada hoiatus enne hoiustamisruumi otsalõppemist, et saaksid koristada, kuni ruumi veel jätkub.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Vaata, mis tegelikult sinu salvestusruumi täidab. Analüsaator näitab, mis ruumi võtab. Iga see kaart on sinu seadmes olev salvestusseade.</string>
     <string name="tour_analyzer_storage_body">Ava salvestusruum, et jagada see rakendusteks, meediaks ja failideks, seejärel mine üha põhjalikumaks, et leida suurimad süüdlased.</string>

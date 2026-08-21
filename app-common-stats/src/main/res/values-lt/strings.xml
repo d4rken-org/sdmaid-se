@@ -66,6 +66,9 @@
     <string name="stats_space_history_delta_in_x">%1$s per %2$s</string>
     <string name="stats_space_history_upgrade_title">Visa istorija yra Pro funkcija</string>
     <string name="stats_space_history_upgrade_body">Atnaujinkite, kad atrakintumėte visą 90 dienų tendencijų rodinį kiekvienam saugojimo įrenginiui.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Atnaujink, kad atrakintum visą 90 dienų tendencijų peržiūrą kiekvienam saugyklos įrenginiui ir gautum įspėjimą prieš baigiantis vietai.</string>
     <string name="stats_space_history_marker_freed">Atlaisvinta %1$s</string>
     <string name="stats_storage_type_primary">Pagrindinė saugykla</string>
     <string name="stats_storage_type_secondary">Antrinė saugykla</string>

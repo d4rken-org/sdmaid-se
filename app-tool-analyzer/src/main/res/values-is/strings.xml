@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Enginn beinn aðgangur tiltækur</string>
     <string name="analyzer_content_create_swiper_session_action">Búa til Swiper lotu</string>
+    <string name="analyzer_content_open_externally_action">Opna í skráastjóra</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper lota búin til með %d hlut</item>
         <item quantity="other">Swiper lota búin til með %d hlutum</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Teknar myndir, tekin myndbönd eða sótt gögn. Öll gögn sem tilheyra ekki ákveðnu forriti.</string>
     <string name="analyzer_storage_content_type_system_label">Kerfisgögn</string>
     <string name="analyzer_storage_content_type_system_description">Kerfisforrit og kerfisgögn. Forrit og gögn frá öðrum notendum, ef fleiri en einn reikningur er settur upp á þessu tæki.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Ekki tókst að mæla aðra notendur að fullu, þannig að þessi heildartala gæti innihaldið hluta af geymslu þeirra.</string>
     <string name="analyzer_storage_content_type_system_other_label">Annað</string>
     <string name="analyzer_storage_content_type_system_info">Skrár sem passa ekki í flokka Forrita eða Notendaskráa. Aðeins vafra — eyðing er ekki studd. Sumar svæðum getur verið ábótavant vegna aðgangstakmarkana.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Ekki er hægt að stemma skrár af við forritin sem eiga þær núna. Stærðir eru sýndar til viðmiðunar einungis — eyðing, síar og Swiper eru óvirk.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Kerfaskrár og önnur gögn sem SD Maid gat ekki nálgast eða flokkað. Stýrikerfi takmarkar skráningu á innihaldi sumra svæða.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Aðrir notendur</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Forrit og skrár sem tilheyra öðrum notendum eða vinnusniðum á þessu tæki.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Aðeins forritagögn, sameiginlegar skrár þessa notanda eru ekki innifaldar.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Stærð ekki tiltæk, ekki er hægt að lesa geymslu þessa notanda.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Geymsla annars notanda á þessu tæki. Aðeins hægt að skoða, ekki er hægt að eyða.</string>
     <string name="analyzer_storage_content_app_code_label">Kóði forrits</string>
     <string name="analyzer_storage_content_app_code_description">Forritaskrár, söfn og auðlindir. Hægt er að losa um þetta pláss með því að fjarlægja forritið eða safnvista það.</string>
     <string name="analyzer_storage_content_app_data_label">Forritagögn</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Þetta forrit tekur %1$s á \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Þetta forrit hefur verið safnvistað.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s á 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Um það bil %d dagur eftir af plássi á þessum hraða</item>
+        <item quantity="other">Um það bil %d dagar eftir af plássi á þessum hraða</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Geymsla</string>
+    <string name="analyzer_settings_lowstorage_title">Mörk fyrir lítið geymslupláss</string>
+    <string name="analyzer_settings_lowstorage_desc">Þegar laust pláss fer niður fyrir þetta lítur SD Maid svo á að geymslan sé að klárast.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Sjálfvirkt (núna %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Sjálfvirkt</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Sjálfvirkt</string>
+    <string name="analyzer_settings_lowspace_notification_title">Viðvörun um lítið geymslupláss</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Fáðu tilkynningu áður en geymslan þín klárast.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Lendu aldrei óvænt í plássleysi</string>
+    <string name="analyzer_lowspace_hint_body">Uppfærðu til að fá viðvörun áður en geymslan þín klárast, svo þú getir hreinsað til á meðan enn er pláss til að vinna með.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Sjáðu hvað er í raun að fylla geymslu þína. Analyzer kortleggur hvar plássið þitt fer. Hver þessara korta er geymsluflís á tækinu þinu.</string>
     <string name="tour_analyzer_storage_body">Opnaðu geymsluna til að sundurgreina hana í forrit, miðlun og skrár, síðan haltu áfram að ýta til að rekja stærstu sökudólga.</string>

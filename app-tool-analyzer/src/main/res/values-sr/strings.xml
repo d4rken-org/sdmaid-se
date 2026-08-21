@@ -19,6 +19,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Нема директног приступа</string>
     <string name="analyzer_content_create_swiper_session_action">Направи Swiper сесију</string>
+    <string name="analyzer_content_open_externally_action">Отвори у управљачу датотека</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper сесија направљена са %d ставком</item>
         <item quantity="few">Swiper сесија направљена са %d ставке</item>
@@ -39,10 +40,16 @@
     <string name="analyzer_storage_content_type_media_description">Снимљене слике, снимљени видео записи или преузети подаци. Било који подаци који не припадају одређеној апликацији.</string>
     <string name="analyzer_storage_content_type_system_label">Системски подаци</string>
     <string name="analyzer_storage_content_type_system_description">Системске апликације и системски подаци. Апликације и подаци осталих корисника, ако је на овом уређају подешено више корисничких налога.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Други корисници се нису могли потпуно измерити, па ова сума може да укључи делове њиховог простора.</string>
     <string name="analyzer_storage_content_type_system_other_label">Остало</string>
     <string name="analyzer_storage_content_type_system_info">Датотеке које не припадају категоријама Апликације или Кориснички фајлови. Само прегледање — брисање није подржано. Неке области могу бити непотпуне услед ограничења приступа.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Датотеке тренутно не могу бити повезане са апликацијама које их поседују. Величине су приказане само за информацију — брисање, филтери и Swiper су искључени.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Системске датотеке и остали подаци којима SD Maid није могао приступити или их категорисати. Оперативни систем ограничава листање садржаја неких области.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Други корисници</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Апликације и датотеке које припадају другим корисницима или профилима за рад на овом уређају.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Само подаци апликације. Дељене датотеке овог корисника нису укључене.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Величина недоступна, простор овог корисника се не може прочитати.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Простор другог корисника на овом уређају. Само прегледање, брисање није подржано.</string>
     <string name="analyzer_storage_content_app_code_label">Код апликације</string>
     <string name="analyzer_storage_content_app_code_description">Датотеке апликације, библиотеке и ресурси. Овај простор се може ослободити деинсталирањем апликације или архивирањем (доступно на новијим Андроид верзијама).</string>
     <string name="analyzer_storage_content_app_data_label">Подаци апликације</string>
@@ -54,6 +61,23 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ова апликација заузима %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ова апликација је архивирана.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7д</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Отприлике %d дан простора при овој стопи</item>
+        <item quantity="few">Отприлике %d дана простора при овој стопи</item>
+        <item quantity="other">Отприлике %d дана простора при овој стопи</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Простор</string>
+    <string name="analyzer_settings_lowstorage_title">Праг малог простора</string>
+    <string name="analyzer_settings_lowstorage_desc">Када слободан простор падне испод ове вредности, SD Maid третира простор као да се завршава.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Аутоматски (тренутно %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Аутоматски</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Аутоматски</string>
+    <string name="analyzer_settings_lowspace_notification_title">Упозорење о малом простору</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Добићеш обавештење пре него што твој простор стане.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Никад не останеш без простора</string>
+    <string name="analyzer_lowspace_hint_body">Унапреди да добијеш упозорење пре него што твој простор стане, тако да можеш да очистиш док има још простора.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Видите шта заиста заузима ваше складиште. Анализатор показује где одлази ваш простор. Свака од ових картица је чип складишта на вашем уређају.</string>
     <string name="tour_analyzer_storage_body">Отворите складиште да га разложите на апликације, медије и датотеке, затим наставите да додирујете да пронађете највеће узроке.</string>

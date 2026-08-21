@@ -8,6 +8,25 @@
         <item quantity="one">%s ელემენტი დამუშავებულია მას შემდეგ, რაც SD Maid მოიწვიეთ თქვენს მოწყობილობაზე.</item>
         <item quantity="other">%s ელემენტი დამუშავებულია მას შემდეგ, რაც SD Maid მოიწვიეთ თქვენს მოწყობილობაზე.</item>
     </plurals>
+    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
+         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
+         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
+    <plurals name="stats_dash_since_days">
+        <item quantity="one">შენი სტუმარი ვარ უკვე %d დღეა.</item>
+        <item quantity="other">შენი სტუმარი ვარ უკვე %d დღეა.</item>
+    </plurals>
+    <plurals name="stats_dash_since_weeks">
+        <item quantity="one">შენი სტუმარი ვარ უკვე %d კვირაა.</item>
+        <item quantity="other">შენი სტუმარი ვარ უკვე %d კვირაა.</item>
+    </plurals>
+    <plurals name="stats_dash_since_months">
+        <item quantity="one">შენი სტუმარი ვარ უკვე %d თვეა.</item>
+        <item quantity="other">შენი სტუმარი ვარ უკვე %d თვეა.</item>
+    </plurals>
+    <plurals name="stats_dash_since_years">
+        <item quantity="one">შენი სტუმარი ვარ უკვე %d წელია.</item>
+        <item quantity="other">შენი სტუმარი ვარ უკვე %d წელია.</item>
+    </plurals>
     <string name="stats_report_status_partial_success">ნაწილობრივი წარმატება</string>
     <string name="stats_report_status_partial_failure">ვერ შედეგი</string>
     <string name="stats_settings_desc">SD Maid-ის სტატისტიკის, ანგარიშებისა და მონაცემთა შენახვის კონფიგურაცია.</string>
@@ -35,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s %2$s-ში</string>
     <string name="stats_space_history_upgrade_title">სრული ისტორია Pro ფუნქციაა</string>
     <string name="stats_space_history_upgrade_body">განახლდით, რომ განბლოკოთ სრული 90-დღიანი ტენდენციის ხედი თითოეული მეხსიერების მოწყობილობისთვის.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">განახლდი, რომ თითოეული საცავი მოწყობილობისთვის სრული 90-დღიანი ტენდენციის ხედი განბლოკო და მიიღო გაფრთხილება, სანამ სივრცე ამოიწურება.</string>
     <string name="stats_space_history_marker_freed">გათავისუფლდა %1$s</string>
     <string name="stats_storage_type_primary">ძირითადი მეხსიერება</string>
     <string name="stats_storage_type_secondary">მეორადი მეხსიერება</string>

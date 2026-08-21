@@ -48,6 +48,9 @@
     <string name="stats_space_history_delta_in_x">%2$s間の%1$s</string>
     <string name="stats_space_history_upgrade_title">全履歴はプロ機能です</string>
     <string name="stats_space_history_upgrade_body">アップグレードすると、各ストレージデバイスの90日間の全トレンドビューがロック解除されます。</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">アップグレードすると、各ストレージデバイスの90日間の完全な推移表示が利用でき、容量不足になる前に警告を受け取れます。</string>
     <string name="stats_space_history_marker_freed">%1$s解放</string>
     <string name="stats_storage_type_primary">プライマリストレージ</string>
     <string name="stats_storage_type_secondary">セカンダリストレージ</string>

@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Hakuna ufikiaji wa moja kwa moja unapatikana</string>
     <string name="analyzer_content_create_swiper_session_action">Tengeneza kipindi cha Swiper</string>
+    <string name="analyzer_content_open_externally_action">Fungua katika kidhibiti faili</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Kipindi cha Swiper kimetengenezwa na kipengele %d</item>
         <item quantity="other">Kipindi cha Swiper kimetengenezwa na vipengele %d</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Picha zilizochukuliwa, video zilizoandikwa au data zilizopakuliwa. Data yoyote ambayo haimilikiwi na programu maalum.</string>
     <string name="analyzer_storage_content_type_system_label">Data ya mfumo</string>
     <string name="analyzer_storage_content_type_system_description">Programu za mfumo na data ya mfumo. Programu na data kutoka watumiaji wengine, ikiwa akaunti nyingi za watumiaji zimewekwa kwenye kifaa hiki.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Watumiaji wengine hawakuweza kupimwa kikamilifu, hivyo jumla hii inaweza kujumuisha baadhi ya hifadhi yao.</string>
     <string name="analyzer_storage_content_type_system_other_label">Nyingine</string>
     <string name="analyzer_storage_content_type_system_info">Faili ambazo hazifai katika kategoria za Programu au faili za Mtumiaji. Vinjari tu — kufuta hakusaidiwi. Baadhi ya maeneo yanaweza kuwa hayakamiliki kwa sababu ya vikwazo vya ufikiaji.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Faili haziwezi kulinganishwa na programu zinazomiliki kwa sasa. Ukubwa unaonyeshwa kwa marejeleo tu — ufutaji, vichujio na Swiper vimezimwa.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Faili za mfumo na data nyingine ambayo SD Maid haikuweza kufikia au kuainisha. Mfumo wa uendeshaji unazuia kuorodhesha maudhui ya baadhi ya maeneo.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Watumiaji wengine</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Programu na faili zinazomilikiwa na watumiaji wengine au wasifu wa kazi kwenye kifaa hiki.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Data ya programu pekee, faili zinazoshirikiwa za mtumiaji huyu hazijajumuishwa.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Ukubwa haupatikani, hifadhi ya mtumiaji huyu haiwezi kusomwa.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Hifadhi ya mtumiaji mwingine kwenye kifaa hiki. Vinjari tu, ufutaji hauungwi mkono.</string>
     <string name="analyzer_storage_content_app_code_label">Msimbo wa programu</string>
     <string name="analyzer_storage_content_app_code_description">Faili za programu, maktaba na rasilimali. Nafasi hii inaweza kufunguliwa kwa kuondoa programu au kuihifadhi (inapatikana kwenye toleo jipya la Android).</string>
     <string name="analyzer_storage_content_app_data_label">Data ya programu</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Programu hii inatumia %1$s kwenye \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Programu hii imehifadhiwa.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s katika siku 7</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Takriban siku %d ya nafasi iliyosalia kwa kasi hii</item>
+        <item quantity="other">Takriban siku %d za nafasi zilizosalia kwa kasi hii</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Hifadhi</string>
+    <string name="analyzer_settings_lowstorage_title">Kiwango cha chini cha hifadhi</string>
+    <string name="analyzer_settings_lowstorage_desc">Nafasi huru inaposhuka chini ya kiwango hiki, SD Maid huchukulia hifadhi kuwa inaisha.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Otomatiki (kwa sasa %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Otomatiki</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Otomatiki</string>
+    <string name="analyzer_settings_lowspace_notification_title">Onyo la nafasi kidogo</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Pata arifa kabla hifadhi yako haijaisha.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Usishikwe bila nafasi tena</string>
+    <string name="analyzer_lowspace_hint_body">Boresha ili upate onyo kabla hifadhi yako haijaisha, ili uweze kusafisha wakati bado kuna nafasi ya kufanyia kazi.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Tazama kinachojaza hifadhi yako kwa kweli. Analyzer huonyesha mahali nafasi yako inakoenda. Kila kadi hapa ni kipande cha hifadhi kwenye kifaa chako.</string>
     <string name="tour_analyzer_storage_body">Fungua hifadhi ili kuigawanya katika programu, media na faili, kisha endelea kugusa ili kubaini vyanzo vikubwa zaidi.</string>

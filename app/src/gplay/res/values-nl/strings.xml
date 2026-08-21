@@ -55,10 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dit is een aparte aankoop: je abonnement wordt hiermee niet geannuleerd en het aankoopbedrag wordt niet terugbetaald. Gebruik voor beide aankopen hetzelfde Google-account.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abonnement nog steeds actief</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play meldt dat je abonnement nog steeds automatisch verlengd moet worden. Om de eenmalige upgrade te kopen, moet je eerst je abonnement in Google Play annuleren en daarna hier terugkomen.\n\nNet geannuleerd? Geef Google Play even de tijd en probeer het opnieuw. Zorg er ook voor dat je hetzelfde Google-account gebruikt.</string>
-    <string name="upgrade_screen_purchase_check_failed_message">Kon je aankopen niet controleren met Google Play. Probeer het zo meteen opnieuw.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Je aankopen konden niet worden geverifieerd met Google Play. Probeer het over een moment opnieuw.</string>
     <string name="upgrade_screen_pending_card_title">Betaling in behandeling</string>
-    <string name="upgrade_screen_pending_card_body">Google Play verwerkt je betaling nog. Pro wordt automatisch ontgrendeld zodra de betaling is voltooid. Sommige betaalmethoden kunnen even duren. Je hoeft verder niets te doen.</string>
-    <string name="upgrade_screen_pending_dialog_message">Google Play heeft een aankoop gevonden met een betaling in behandeling en verwerkt deze nog. Pro wordt automatisch ontgrendeld zodra de betaling is voltooid.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play verwerkt je betaling nog steeds. Pro wordt automatisch ontgrendeld zodra de betaling is voltooid. Sommige betaalmethoden kunnen even duren. Je hoeft verder niets te doen.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play heeft een aankoop gevonden waarvoor nog een betaling in behandeling is en deze wordt nog verwerkt. Pro wordt automatisch ontgrendeld zodra de betaling is voltooid.</string>
     <string name="upgrade_screen_restore_success_message">Aankoop hersteld, je Pro-upgrade is actief.</string>
     <string name="upgrade_screen_grace_title">Je aankoop bevestigen</string>
     <string name="upgrade_screen_grace_body_short">Pro is nog steeds actief. Wachten tot Google Play je aankoop opnieuw bevestigt; alle Pro-functies blijven ondertussen ontgrendeld.</string>

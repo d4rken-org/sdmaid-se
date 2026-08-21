@@ -21,6 +21,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Priamy prístup nie je k dispozícii</string>
     <string name="analyzer_content_create_swiper_session_action">Vytvoriť reláciu Swiper</string>
+    <string name="analyzer_content_open_externally_action">Otvoriť v správcovi súborov</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Relácia Swiper vytvorená s %d položkou</item>
         <item quantity="few">Relácia Swiper vytvorená s %d položkami</item>
@@ -42,10 +43,16 @@
     <string name="analyzer_storage_content_type_media_description">Nasnímané obrázky, nahrané videá alebo stiahnuté dáta. Akékoľvek údaje, ktoré nepatria do konkrétnej aplikácie.</string>
     <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
     <string name="analyzer_storage_content_type_system_description">Systémové aplikácie a systémové údaje. Aplikácie a údaje od iných používateľov, ak je na tomto zariadení nastavených niekoľko používateľských účtov.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Ostatných používateľov sa nepodarilo úplne zmerať, takže tento súčet môže obsahovať časť ich úložiska.</string>
     <string name="analyzer_storage_content_type_system_other_label">Iné</string>
     <string name="analyzer_storage_content_type_system_info">Súbory, ktoré nepatria do kategórií Aplikácie alebo Používateľské súbory. Len prezeranie — mazanie nie je podporované. Niektoré oblasti môžu byť neúplné z dôvodu obmedzení prístupu.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Súbory sa momentálne nedajú priradiť aplikáciám, ktoré ich vlastnia. Veľkosti sú zobrazené len pre referenciu — zmazávanie, filtre a Swiper sú vypnuté.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systémové súbory a iné dáta, ku ktorým SD Maid nemohol pristupovať ani ich kategorizovať. Operačný systém obmedzuje zobrazenie obsahu niektorých oblastí.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Ostatní používatelia</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Aplikácie a súbory, ktoré patria ostatným používateľom alebo pracovným profílom na tomto zariadení.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Iba údaje aplikácie, zdieľané súbory tohto používateľa nie sú zahrnuté.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Veľkosť nie je dostupná, úložisko tohto používateľa sa nedá prečítať.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Úložisko ďalšieho používateľa na tomto zariadení. Iba prehliadanie, odstránenie nie je podporované.</string>
     <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
     <string name="analyzer_storage_content_app_code_description">Aplikačné súbory, knižnice a zdroje. Tento priestor je možné uvoľniť odinštalovaním aplikácie alebo jej archiváciou (k dispozícii v novšej verzii Androidu).</string>
     <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
@@ -57,6 +64,24 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Táto aplikácia zaberá %1$s na „%2$s“.</string>
     <string name="analyzer_app_details_app_is_archived">Táto aplikácia bola archivovaná.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s za 7 dní</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Približne %d deň voľného miesta za touto rýchlosťou</item>
+        <item quantity="few">Približne %d dni voľného miesta za touto rýchlosťou</item>
+        <item quantity="many">Približne %d dní voľného miesta za touto rýchlosťou</item>
+        <item quantity="other">Približne %d dní voľného miesta za touto rýchlosťou</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Úložisko</string>
+    <string name="analyzer_settings_lowstorage_title">Prah nízkeho úložiska</string>
+    <string name="analyzer_settings_lowstorage_desc">Keď voľné miesto poklesne pod túto hodnotu, SD Maid považuje úložisko za vypĺňajúce sa.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automaticky (momentálne %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automaticky</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automaticky</string>
+    <string name="analyzer_settings_lowspace_notification_title">Upozornenie na nízke úložisko</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Dostať upozornenie skôr, ako ti dôjde úložisko.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Nikdy ti nedôjde miesto</string>
+    <string name="analyzer_lowspace_hint_body">Upgraduj, aby si dostal upozornenie skôr, ako ti dôjde úložisko, aby si mohol upratať, kým je tam ešte miesto na prácu.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Pozrite si, čo naozaj zapĺňa vaše úložisko. Analýzator mapuje, kam ide vaše miesto. Každá z týchto kariet predstavuje úložný prvok na vašom zariadení.</string>
     <string name="tour_analyzer_storage_body">Otvorte úložisko, rozložte ho na aplikácie, médiá a súbory, a poklepávajte ďalej, aby ste našli najväčších vinníkov.</string>

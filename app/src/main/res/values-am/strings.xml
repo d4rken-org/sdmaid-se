@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">የሩት መዳረሻ</string>
     <string name="setup_root_card_body">ኤስዲ ሜይድ ይገኛል ከሆነ የሩት መዳረሻን ይጠቀም? የሩት መዳረሻ ተጨማሪ የሲስተም አቃቂጆች እና ግላዊ የመተግበሪያ ውሂብን ለመፈተሽ ሊያገለግል ይችላል።</string>
     <string name="setup_root_state_ready_label">የሩት መዳረሻ ዝግጁ ነው።</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">የሩት መዳረሻ የለም።</string>
+    <string name="setup_root_state_failed_title">የሩት መዳረሻ አልተሳካም</string>
+    <string name="setup_root_state_failed_body">SD Maid የሩት መዳረሻ ጠይቆ አላገኘም። መሣሪያዎ ሩት ከተደረገ፣ የሩት አስተዳዳሪዎን (Magisk፣ KernelSU ወይም ተመሳሳይ) ይክፈቱ እና ከ SD Maid የቀረበው ጥያቄ ውድቅ እንደተደረገ ወይም አሁንም በመጠባበቅ ላይ እንዳለ ያረጋግጡ።</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid የሩት መዳረሻ ጠይቆ አላገኘም፣ እና ምንም የሩት አስተዳዳሪ መተግበሪያ አልተገኘም። መሣሪያዎ የተደበቀ ወይም አብሮገነብ ሩት የሚጠቀም ከሆነ፣ እንደገና ይሞክሩ።</string>
     <string name="setup_root_enable_root_use_label">የሩት መዳረሻን ይሞክሩ</string>
     <string name="setup_root_disable_root_use_label">መሳሪያዬን አልሩት ነበር</string>
     <string name="setup_root_card_body2">በሩት የተደረጉ መሳሪያዎች ላይ ብቻ ይገኛል። ይህንን ለውጥ ካላደረጉ፤ መሳሪያዎ ሩት አልሆነምና ይህ ቅንብር ተጽዕኖ የለውም።</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">የሺዙኩ ሊንክ ዝግጁ ነው።</string>
     <string name="setup_shizuku_state_waiting_label">ከሺዙኩ ጋር ለመገናኘት እየተጠበቀ ነው።</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku መተግበሪያ ተጭኖ አልተገኘም።</string>
+    <string name="setup_shizuku_state_failed_title">የShizuku ግንኙነት አልተሳካም</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku በመሥራት ላይ ነው፣ ነገር ግን SD Maid ን ከረዳት አገልግሎቱ ጋር በጭራሽ አላገናኘውም።</string>
+    <string name="setup_shizuku_state_known_issue_hint">አንዳንድ መሣሪያዎች የረዳት አገልግሎቱ እንዳይጀምር የሚያደርግ የታወቀ የShizuku ችግር ይነካቸዋል። ይህ ከነሱ አንዱ ሊሆን ይችላል።</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ሺዙኩን ይሞክሩ</string>
     <string name="setup_shizuku_disable_shizuku_use_label">ሺዙኩን አትጠቀም</string>
     <string name="setup_dismiss_hint">የማዋቀሪያ ስክሪኑን ከቅንብሮች ምናሌ በኩል እንደገና ማግኘት ይችላሉ।</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">ሊሆን የሚችል መሳሪያ ገደብ</string>
     <string name="setup_inventory_limitation_body">ስርዓቱ ያልተሟላ የተገጠሙ መተግበሪያዎች ዝርዝር መለሰ፣ ምንም እንኳን ያስፈለጉ ፈቃዶች ተሰጥተዋል ሊመስል ቢችሉም።</string>
     <string name="setup_inventory_limitation_body2">አንዳንድ መሳሪያዎች (ለምሳሌ HarmonyOS) በጭራሽ ሙሉ መተግበሪያ ዝርዝር አይሰጡም። ውሂብንዎትን ለመጠበቅ መተግበሪያ ተያያዥ መሳሪያ ተሰናክሉ ሆኖ ይቀራሉ፣ ነገር ግን ማቀፊያ አጠቃቀም በተቀነሰ ዝርዝር ማየት ይችላሉ።</string>
+    <string name="setup_inventory_probe_failed_title">የመተግበሪያ ዝርዝሩን ማንበብ አልተቻለም</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ከAndroid የተጫኑ መተግበሪያዎችን ዝርዝር ጠይቆ ጥያቄው አልተሳካም። ከመተግበሪያ ጋር የተያያዙ መሣሪያዎች እስኪሠራ ድረስ ተሰናክለው ይቆያሉ። እንደገና መሞከር ሊረዳ ይችላል።</string>
     <string name="dataarea_warningcard_empty_message">ኤስዲ ሜይድ መፈተሽ የሚቻሉ የውሂብ አካባቢዎችን አላገኘም። ማዋቀሩን ጨርሰዋል?</string>
     <string name="dataarea_warningcard_label">የውሂብ አካባቢዎች</string>
     <string name="dataarea_warningcard_reload_action">የውሂብ አካባቢዎችን እንደገና ጫን</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">ስቶሬጅ ሐብት እና ነጠላ-መታ ማጽጃ</string>
     <string name="widget_home_storage_internal">ውስጣዊ</string>
     <string name="widget_home_storage_external">ውጪ</string>
-    <string name="widget_home_freed_label">ሕይወት: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">በአጠቃላይ የተለቀቀ፦ %1$s</string>
     <string name="widget_home_clean_action">ጽህ</string>
     <string name="widget_home_working">በስራ ላይ…</string>
     <string name="widget_home_unavailable">ማከማቻ አልተገኘም</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">ይህ ባክሥ ታሪክ ውሂብ (ስታቲስቲክስ፣ ምግብ ታሪክ፣ ወግ ክፍለ-ጊዜ) ከተለያዩ አፓ ስሪት ሲሆን ተመለሰ አይችልም። ሁሉም ሌሎች ውሂብ ተመለስ ይሆናል።</string>
     <string name="backup_restore_ack_understand">ተረድቻለሁ እና መቀጠል እፈልጋለሁ</string>
     <string name="backup_restore_action_restore">ወደ ቀድሞው ሁኔታ አምጣ</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">የማከማቻ ማስጠንቀቂያዎች</string>
+    <string name="stats_lowspace_notification_title">ማከማቻ እየሞላ ነው</string>
+    <string name="stats_lowspace_notification_low_title">ማከማቻ ሊሞላ ተቃርቧል</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ነፃ አለ። ማከማቻ እያለቀ ነው።</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">በዚህ ፍጥነት %1$d ቀን የሚቆይ ቦታ ቀርቷል። %2$s ነፃ አለ።</item>
+        <item quantity="other">በዚህ ፍጥነት %1$d ቀናት የሚቆይ ቦታ ቀርቷል። %2$s ነፃ አለ።</item>
+    </plurals>
 </resources>

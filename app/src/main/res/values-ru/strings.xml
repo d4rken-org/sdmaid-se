@@ -33,12 +33,12 @@
     <string name="dashboard_hero_locked_headline">%1$s найдено</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d элемент требует SD Maid Pro</item>
-        <item quantity="few">%d элемента требуют SD Maid Pro</item>
-        <item quantity="many">%d элементов требуют SD Maid Pro</item>
-        <item quantity="other">%d элемента требуют SD Maid Pro</item>
+        <item quantity="few">%d элем. требуют SD Maid Pro</item>
+        <item quantity="many">%d элем. требуют SD Maid Pro</item>
+        <item quantity="other">%d элем. требуют SD Maid Pro</item>
     </plurals>
     <!-- Tappable line on the hero card, routing to the upgrade screen -->
-    <string name="dashboard_hero_locked_hint">Нажми, чтобы разблокировать с помощью SD Maid Pro.</string>
+    <string name="dashboard_hero_locked_hint">Нажмите, чтобы разблокировать с помощью SD Maid Pro.</string>
     <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
          user can already free. "More" is load-bearing: it is on top of what the card's headline
          already promises. Deliberately carries no size - the block's chips sit directly below it and
@@ -260,7 +260,11 @@
     <string name="setup_root_card_title">Рут-доступ</string>
     <string name="setup_root_card_body">Следует ли SD Maid использовать рут-доступ, если он имеется? Рут -доступ может быть использован для проверки дополнительных системных папок и приватных данных приложений.</string>
     <string name="setup_root_state_ready_label">Рут-доступ готов.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Рут-доступ отсутствует.</string>
+    <string name="setup_root_state_failed_title">Не удалось получить root-доступ</string>
+    <string name="setup_root_state_failed_body">SD Maid запросило root-доступ, но не получило его. Если на устройстве есть root, откройте менеджер root-доступа (Magisk, KernelSU или аналогичный) и проверьте, отклонён ли запрос от SD Maid, или всё ещё ожидает ответа.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid запросило root-доступ, но не получило его, а приложение для управления root-доступом не обнаружено. Если на устройстве используется скрытый или встроенный root, попробуйте ещё раз.</string>
     <string name="setup_root_enable_root_use_label">Попробовать использовать рут-доступ</string>
     <string name="setup_root_disable_root_use_label">Я не рутировал своё устройство</string>
     <string name="setup_root_card_body2">Доступно только на устройствах с рутом. Если Вы не делали эту модификацию, значит, Ваше устройство не имеет рут-прав и эта настройка не работает.</string>
@@ -271,6 +275,9 @@
     <string name="setup_shizuku_state_ready_label">Связь с Shizuku настроена.</string>
     <string name="setup_shizuku_state_waiting_label">Ожидание связи с Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Приложение Shizuku не установлено.</string>
+    <string name="setup_shizuku_state_failed_title">Не удалось подключиться к Shizuku</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku запущен, но не подключил SD Maid к своей вспомогательной службе.</string>
+    <string name="setup_shizuku_state_known_issue_hint">На некоторых устройствах есть известная проблема Shizuku, из-за которой вспомогательная служба не запускается. Возможно, это Ваш случай.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Попробовать использовать Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не использовать Shizuku</string>
     <string name="setup_dismiss_hint">Вы можете снова перейти к экрану установки через меню настроек.</string>
@@ -307,6 +314,8 @@
     <string name="setup_inventory_limitation_title">Возможное ограничение устройства</string>
     <string name="setup_inventory_limitation_body">Система вернула неполный список установленных приложений, хотя требуемые разрешения выглядят предоставленными.</string>
     <string name="setup_inventory_limitation_body2">Некоторые устройства (например HarmonyOS) никогда не предоставляют полный список приложений. Для защиты Ваших данных инструменты управления приложениями остаются отключены, но Вы все еще можете просматривать использование хранилища с меньшей детализацией.</string>
+    <string name="setup_inventory_probe_failed_title">Не удалось получить список приложений</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid запросило у Android список установленных приложений, но запрос не был выполнен. Инструменты, связанные с приложениями, останутся отключенными, пока это не заработает. Попробуйте ещё раз — это может помочь.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не обнаружило области для сканирования. Закончили ли Вы установку?</string>
     <string name="dataarea_warningcard_label">Области сканирования</string>
     <string name="dataarea_warningcard_reload_action">Обновить области сканирования</string>
@@ -383,7 +392,11 @@
     <string name="widget_home_description">Использование хранилища и очистка одним касанием</string>
     <string name="widget_home_storage_internal">Внутреннее</string>
     <string name="widget_home_storage_external">Внешнее</string>
-    <string name="widget_home_freed_label">Время жизни: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Всего освобождено: %1$s</string>
     <string name="widget_home_clean_action">Очистить</string>
     <string name="widget_home_working">Обработка…</string>
     <string name="widget_home_unavailable">Хранилище недоступно</string>
@@ -423,4 +436,15 @@
     <string name="backup_restore_warn_history_body">Данные истории этой резервной копии (статистика, история сжатия, сеансы свайпа) из другой версии приложения и не могут быть восстановлены. Всё остальное будет восстановлено.</string>
     <string name="backup_restore_ack_understand">Я понимаю и хочу продолжить</string>
     <string name="backup_restore_action_restore">Восстановить</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Предупреждения о хранилище</string>
+    <string name="stats_lowspace_notification_title">Хранилище заполняется</string>
+    <string name="stats_lowspace_notification_low_title">Хранилище почти заполнено</string>
+    <string name="stats_lowspace_notification_low_body">Свободно: %1$s. Место в хранилище заканчивается.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">При таком темпе места хватит примерно на %1$d день. Свободно: %2$s.</item>
+        <item quantity="few">При таком темпе места хватит примерно на %1$d дня. Свободно: %2$s.</item>
+        <item quantity="many">При таком темпе места хватит примерно на %1$d дней. Свободно: %2$s.</item>
+        <item quantity="other">При таком темпе места хватит примерно на %1$d дней. Свободно: %2$s.</item>
+    </plurals>
 </resources>

@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Akukho ukufinyelela okuqondile okutholakalayo</string>
     <string name="analyzer_content_create_swiper_session_action">Dala iseshini ye-Swiper</string>
+    <string name="analyzer_content_open_externally_action">Vula kumphathi wamafayela</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Iseshini ye-Swiper yenziwe nge-%d into</item>
         <item quantity="other">Iseshini ye-Swiper yenziwe nge-%d izinto</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Izithombe ezithathiwe, amavidiyo arekhotiwe noma idatha elandiwe. Noma iyiphi idatha engeyona eyinhlelo lokusebenza elithile.</string>
     <string name="analyzer_storage_content_type_system_label">Idatha yesistimu</string>
     <string name="analyzer_storage_content_type_system_description">Izinhlelo zokusebenza zesistimu nedatha yesistimu. Izinhlelo zokusebenza nedatha kwabanye abasebenzisi, uma ama-akhawunti abasebenzisi ambalwa esetiwe kule divayisi.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Abanye abasebenzisi babenageke ukuba kahle-kuhle, ngakho-ke lokhu kuhlanganya kunokufaka isikholo sabo.</string>
     <string name="analyzer_storage_content_type_system_other_label">Okunye</string>
     <string name="analyzer_storage_content_type_system_info">Amafayela angafaneli izigaba ze-Apps noma izifayela zomsebenzisi. Bhrowza kuphela — ukususa akusekelelwa. Ezinye izindawo zingaba nekhona okuswelekayo ngenxa yemikhawulo yokungena.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Izifayela azikwazi ukuhlanganyela namaaphu anayo ngalesi sikhathi. Isixinda sikhombiswe njengombhalo kuphela — ukususa, izihlungi ne-Swiper azisebenzeli.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Amafayela esikhungo namanye idatha i-SD Maid engakwazi ukungena noma ukuhlukanisa. Uhlelo lwokusebenza luvimba ukubhaliswa kwamazwi ezindaweni ezithile.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Abanye abasebenzisi</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Izinhlelo namafayela anosela abanye abasebenzisi noma izinhlaka zomsebenzi kule divayisi.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Idatha yezinhlelo kuphela, amafayela ashiyelwe ale muntu ayafakwa.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Isayizi ayatholakali, isikholo sale muntu asilafundiwe.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Isikholo somuntu omusha kule divayisi. Kumkhangela kuphela, ukucithwa akukwazi.</string>
     <string name="analyzer_storage_content_app_code_label">Ikhodi yohlelo</string>
     <string name="analyzer_storage_content_app_code_description">Amafayela ohlelo, amathala ezincwadi nezinsiza. Lesi sikhala singakhululwa ngokususa uhlelo noma ngokusibekela (sitholakala kwinguqulo entsha ye-Android).</string>
     <string name="analyzer_storage_content_app_data_label">Idatha yohlelo</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Lolu hlelo luhlala ku-%1$s ku-\"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Lolu hlelo lubekelwe.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ngo-7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Cishe %d usuku lwesikholo olusele ngalesisiko</item>
+        <item quantity="other">Cishe %d izinsuku zesikholo olusele ngalesisiko</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Isikholo</string>
+    <string name="analyzer_settings_lowstorage_title">Umgodi wesikholo esiphansi</string>
+    <string name="analyzer_settings_lowstorage_desc">Lapho isikholo ekhululiwe sewe phansi kwalena, u-SD Maid ubambe isikholo ngokuthi siyophela.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Yazenzawo (manje %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Yazenzawo</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Yazenzawo</string>
+    <string name="analyzer_settings_lowspace_notification_title">Isexwayiso se-isikholo esincane</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Wamukela isaziso ngaphambi kokuba isikholo sakho siyophela.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Ungaphakamelelwa ngesikholo</string>
+    <string name="analyzer_lowspace_hint_body">Thuthukisa ukuze uthole isexwayiso ngaphambi kokuba isikholo sakho siyophela, ukuze unakha ikhanda ngenkathi kunasikholo esisele sokusebenza.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Bona okuzala umhlangano wesitopeji sakho. I-Analyzer ikhombisa lapho indawo sakho iyadlula. Ngulunye lwale makadi yindawo yesitholeyo kumatshini akho.</string>
     <string name="tour_analyzer_storage_body">Vula isitoreji ukuze uhlukanise ibe ama-app, amatheme nemafayela, bese uphakamisele omunye okhuluma kakhulu.</string>

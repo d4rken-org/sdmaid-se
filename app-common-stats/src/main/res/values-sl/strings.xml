@@ -66,6 +66,9 @@
     <string name="stats_space_history_delta_in_x">%1$s v %2$s</string>
     <string name="stats_space_history_upgrade_title">Polna zgodovina je funkcija Pro</string>
     <string name="stats_space_history_upgrade_body">Nadgradite za odklep celotnega 90-dnevnega prikaza trenda za vsako pomnilniško napravo.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Nadgradi se, da odblokiraš polni pogled trendov 90 dni za vsako napravo za shranjevanje in preješ opozorilo, preden ti zmanjka prostora.</string>
     <string name="stats_space_history_marker_freed">Sproščeno %1$s</string>
     <string name="stats_storage_type_primary">Primarna pomnilniška naprava</string>
     <string name="stats_storage_type_secondary">Sekundarna pomnilniška naprava</string>

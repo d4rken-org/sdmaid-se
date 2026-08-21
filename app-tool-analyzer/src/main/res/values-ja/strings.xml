@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">直接アクセス不可</string>
     <string name="analyzer_content_create_swiper_session_action">Swiperセッションを作成</string>
+    <string name="analyzer_content_open_externally_action">ファイルマネージャーで開く</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">%d 個のアイテムでSwiperセッションを作成しました</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">キャプチャされた写真、記録されたビデオ、またはダウンロードしたデータ。特定のアプリに属さないデータ。</string>
     <string name="analyzer_storage_content_type_system_label">システムデータ</string>
     <string name="analyzer_storage_content_type_system_description">システムアプリとシステムデータ。この端末で複数のユーザーアカウントが設定されている場合、他のユーザーからのアプリとデータ。</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">他のユーザーのデータを完全に測定できなかったため、この合計には他のユーザーのストレージの一部が含まれている可能性があります。</string>
     <string name="analyzer_storage_content_type_system_other_label">その他</string>
     <string name="analyzer_storage_content_type_system_info">「アプリ」または「ユーザーファイル」カテゴリに該当しないファイルです。閲覧のみ可能 — 削除はサポートされていません。アクセス制限により一部のエリアが不完全な場合があります。</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ファイルは現在、それらを所有するアプリと照合できません。サイズは参考用のみ表示されます。削除、フィルタ、およびSwiperは無効になっています。</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid がアクセスまたは分類できなかったシステムファイルやその他のデータです。オペレーティングシステムにより、一部のエリアの内容一覧はアクセスが制限されています。</string>
+    <string name="analyzer_storage_content_type_otherusers_label">他のユーザー</string>
+    <string name="analyzer_storage_content_type_otherusers_description">この端末上の他のユーザーや仕事用プロファイルに属するアプリとファイルです。</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">アプリデータのみで、このユーザーの共有ファイルは含まれません。</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">サイズを取得できません。このユーザーのストレージは読み取れません。</string>
+    <string name="analyzer_storage_content_type_otherusers_info">この端末上の他のユーザーのストレージです。閲覧のみ可能で、削除には対応していません。</string>
     <string name="analyzer_storage_content_app_code_label">アプリコード</string>
     <string name="analyzer_storage_content_app_code_description">アプリのファイル、ライブラリ、リソースが含まれます。この領域は、アプリをアンインストールするか、アーカイブ（新しいAndroidバージョンで利用可能）することで解放できます。</string>
     <string name="analyzer_storage_content_app_data_label">アプリのデータ</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">このアプリは%2$sの \"%1$s\" を占めています。</string>
     <string name="analyzer_app_details_app_is_archived">このアプリはアーカイブ済みです。</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s（7日間）</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">このペースだと、空き容量はあと約%d日でなくなります</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">ストレージ</string>
+    <string name="analyzer_settings_lowstorage_title">低ストレージのしきい値</string>
+    <string name="analyzer_settings_lowstorage_desc">空き容量がこの値を下回ると、SD Maidはストレージが不足していると判断します。</string>
+    <string name="analyzer_settings_lowstorage_value_auto">自動（現在は%1$s）</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">自動</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">自動</string>
+    <string name="analyzer_settings_lowspace_notification_title">空き容量不足の警告</string>
+    <string name="analyzer_settings_lowspace_notification_desc">ストレージが不足する前に通知を受け取れます。</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">空き容量不足に慌てないために</string>
+    <string name="analyzer_lowspace_hint_body">アップグレードすると、ストレージが不足する前に警告を受け取れるので、余裕があるうちに整理できます。</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">あなたのストレージを実際に埋めているものを確認しましょう。Analyzerはあなたのスペースがどこに使われているかをマップ化します。これらの各カードはあなたのデバイスのストレージチップです。</string>
     <string name="tour_analyzer_storage_body">ストレージを開いてアプリ、メディア、ファイルに分解し、タップし続けて最大の原因を突き止めます。</string>

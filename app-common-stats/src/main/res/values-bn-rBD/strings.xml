@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%2$s এ %1$s</string>
     <string name="stats_space_history_upgrade_title">সম্পূর্ণ ইতিহাস একটি Pro বৈশিষ্ট্য</string>
     <string name="stats_space_history_upgrade_body">প্রতিটি স্টোরেজ ডিভাইসের জন্য সম্পূর্ণ ৯০-দিনের প্রবণতা দৃশ্য আনলক করতে আপগ্রেড করুন।</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">প্রতিটি স্টোরেজ ডিভাইসের জন্য সম্পূর্ণ ৯০-দিনের ট্রেন্ড ভিউ আনলক করতে এবং স্থান শেষ হওয়ার আগে একটি সতর্কতা পেতে আপগ্রেড করুন।</string>
     <string name="stats_space_history_marker_freed">%1$s মুক্ত করা হয়েছে</string>
     <string name="stats_storage_type_primary">প্রাথমিক স্টোরেজ</string>
     <string name="stats_storage_type_secondary">সেকেন্ডারি স্টোরেজ</string>

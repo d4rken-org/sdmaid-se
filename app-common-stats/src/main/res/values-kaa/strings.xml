@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s ишинде %2$s</string>
     <string name="stats_space_history_upgrade_title">Толық тарийх Pro функциясы болып табылады</string>
     <string name="stats_space_history_upgrade_body">Ҳәр бир сақлау қурылмасы ушын толық 90 күнлик тренд көринисин ашыў ушын жаңартың.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Her saqlaw\'iğı 90-kün kep körüw\'ün açıp, saqlaw tamam bolmastan burın olbertiwge yo\'l altıp, o\'nnama tarifke o\'tüñ.</string>
     <string name="stats_space_history_marker_freed">Босатылды %1$s</string>
     <string name="stats_storage_type_primary">Тийкарғы сақлау орны</string>
     <string name="stats_storage_type_secondary">Қосымша сақлау орны</string>

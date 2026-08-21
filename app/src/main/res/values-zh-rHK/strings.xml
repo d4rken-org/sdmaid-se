@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">Root 存取</string>
     <string name="setup_root_card_body">如果要檢查額外的系統資料夾和私人應用程式資料，SD 女僕需要使用 Root 存取權。</string>
     <string name="setup_root_state_ready_label">Root 訪問已就緒。</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root 存取無法使用。</string>
+    <string name="setup_root_state_failed_title">取得root權限失敗</string>
+    <string name="setup_root_state_failed_body">SD Maid請求root權限但未能取得。如果你的裝置已root，請開啟root管理工具（Magisk、KernelSU或類似工具），查看SD Maid的請求是否被拒絕或仍在等待中。</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid請求root權限但未能取得，而且未偵測到root管理應用程式。如果你的裝置使用隱藏或內建的root，請再試一次。</string>
     <string name="setup_root_enable_root_use_label">嘗試使用 Root 存取</string>
     <string name="setup_root_disable_root_use_label">我的裝置未進行 Root</string>
     <string name="setup_root_card_body2">僅適用於已 Root 的裝置。如果您的裝置並未作此修改，那麼您的裝置並未被 Root，這個設定就不會有任何作用。</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">Shizku 連結已就緒。</string>
     <string name="setup_shizuku_state_waiting_label">正在等候 Shizuku 連結。</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku 應用程式未安裝。</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku連結失敗</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku正在運行，但一直未能將SD Maid連接到其輔助服務。</string>
+    <string name="setup_shizuku_state_known_issue_hint">部分裝置受到一個已知的Shizuku問題影響，導致輔助服務無法啟動。你的裝置可能正是其中之一。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">嘗試使用 Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">不要使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以透過設定選單再次找到安裝程式畫面。</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">可能的裝置限制</string>
     <string name="setup_inventory_limitation_body">系統返回了不完整的已安裝應用程式清單，即使所需的權限似乎已被授予。</string>
     <string name="setup_inventory_limitation_body2">某些裝置（例如 HarmonyOS）永遠不會提供完整的應用程式清單。為保護您的資料，應用程式相關工具保持禁用，但您仍可查看儲存空間使用情況（詳細資訊較少）。</string>
+    <string name="setup_inventory_probe_failed_title">無法讀取應用程式清單</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid向Android查詢已安裝應用程式的清單，但請求失敗。在成功之前，與應用程式相關的工具將保持停用。再試一次可能有助解決問題。</string>
     <string name="dataarea_warningcard_empty_message">SD 女僕找不到任何可以掃描的資料區域，您完成設定了嗎？</string>
     <string name="dataarea_warningcard_label">資料區域</string>
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>
@@ -353,7 +362,11 @@
     <string name="widget_home_description">儲存空間使用量及一鍵清理</string>
     <string name="widget_home_storage_internal">內部</string>
     <string name="widget_home_storage_external">外部</string>
-    <string name="widget_home_freed_label">歷來：%1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">已釋放總計：%1$s</string>
     <string name="widget_home_clean_action">清理</string>
     <string name="widget_home_working">處理中…</string>
     <string name="widget_home_unavailable">儲存空間無法使用</string>
@@ -393,4 +406,12 @@
     <string name="backup_restore_warn_history_body">此備份的歷史數據（統計、壓縮歷史、滑動會話）來自不同的應用版本，無法恢復。其他所有內容將被恢復。</string>
     <string name="backup_restore_ack_understand">我明白，想繼續</string>
     <string name="backup_restore_action_restore">還原</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">儲存空間警告</string>
+    <string name="stats_lowspace_notification_title">儲存空間即將用盡</string>
+    <string name="stats_lowspace_notification_low_title">儲存空間即將爆滿</string>
+    <string name="stats_lowspace_notification_low_body">剩餘%1$s。儲存空間即將耗盡。</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">以目前速度計算，儲存空間大約還可用%1$d天。剩餘%2$s。</item>
+    </plurals>
 </resources>

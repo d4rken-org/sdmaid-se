@@ -55,7 +55,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Гэта асобная купля: яна не скасоўвае і не вяртае грошы за вашу падпіску. Выкарыстоўвайце адзін і той жа ўліковы запіс Google для абодвух.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Падпіска ўсё яшчэ актыўная</string>
     <string name="upgrade_screen_sub_still_renewing_message">Google Play паведамляе, што ваша падпіска ўсё яшчэ наладжана на аднаўленне. Каб купіць адзінаразовы Pro, спачатку скасуйце падпіску ў Google Play, а потым вярніцеся сюды.\n\nТолькі што скасавалі? Дайце Google Play крыху часу і паспрабуйце яшчэ раз. Таксама пераканайцеся, што выкарыстоўваеце той жа ўліковы запіс Google.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Не атрымалася праверыць твае пакупкі ў Google Play. Калі ласка, спробуй яшчэ раз чарэз імгненне.</string>
     <string name="upgrade_screen_pending_card_title">Плата ў чаканні</string>
+    <string name="upgrade_screen_pending_card_body">Google Play яшчэ апрацоўвае твой плацёж. Pro разблакіруецца аўтаматычна, як толькі плацёж пройдзе. Некаторыя спосабы плацежу могуць заняць некалькі часу. Табе нічога больш не трэба рабіць.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play знайшла пакупку з адчаканнем плацежу і яшчэ апрацоўвае яе. Pro разблакіруецца аўтаматычна, як толькі плацёж пройдзе.</string>
     <string name="upgrade_screen_restore_success_message">Купля адноўлена, ваш Pro актыўны.</string>
     <string name="upgrade_screen_grace_title">Пацвярджэнне вашай куплі</string>
     <string name="upgrade_screen_grace_body_short">Pro ўсё яшчэ актыўны. Чакаем, пакуль Google Play паўторна пацвердзіць вашу куплю; усе функцыі Pro тым часам застаюцца разблакіраванымі.</string>

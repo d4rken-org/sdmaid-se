@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Không có quyền truy cập trực tiếp</string>
     <string name="analyzer_content_create_swiper_session_action">Tạo phiên Swiper</string>
+    <string name="analyzer_content_open_externally_action">Mở trong trình quản lý tệp</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">Phiên Swiper được tạo với mục %d</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">Ảnh đã chụp, video đã ghi hoặc dữ liệu đã tải xuống. Bất kỳ dữ liệu nào không thuộc về một ứng dụng cụ thể.</string>
     <string name="analyzer_storage_content_type_system_label">Dữ liệu hệ thống</string>
     <string name="analyzer_storage_content_type_system_description">Ứng dụng hệ thống và dữ liệu hệ thống. Ứng dụng và dữ liệu từ những người dùng khác nếu có nhiều tài khoản người dùng được đặt trên thiết bị này.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Những người dùng khác không thể được đo lường đầy đủ, vì vậy tổng số này có thể bao gồm một phần bộ nhớ của họ.</string>
     <string name="analyzer_storage_content_type_system_other_label">Khác</string>
     <string name="analyzer_storage_content_type_system_info">Các tệp không thuộc danh mục Ứng dụng hoặc Tệp người dùng. Chỉ duyệt — không hỗ trợ xóa. Một số khu vực có thể không đầy đủ do hạn chế truy cập.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Hiện tại không thể ghép các tệp với các ứng dụng sở hữu chúng. Kích thước chỉ được hiển thị để tham khảo — xóa, bộ lọc và Swiper bị tắt.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Tệp hệ thống và dữ liệu khác mà SD Maid không thể truy cập hoặc phân loại. Hệ điều hành hạn chế việc liệt kê nội dung của một số khu vực.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Người dùng khác</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Các ứng dụng và tệp thuộc về những người dùng khác hoặc hồ sơ công việc trên thiết bị này.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Chỉ dữ liệu ứng dụng, các tệp được chia sẻ của người dùng này không được bao gồm.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Kích thước không có sẵn, không thể đọc bộ nhớ của người dùng này.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Bộ nhớ của người dùng khác trên thiết bị này. Chỉ duyệt, xóa không được hỗ trợ.</string>
     <string name="analyzer_storage_content_app_code_label">Mã ứng dụng</string>
     <string name="analyzer_storage_content_app_code_description">Các tập tin ứng dụng, thư viện và tài nguyên. Không gian này có thể được giải phóng bằng cách gỡ cài đặt ứng dụng hoặc lưu trữ nó (có sẵn trên phiên bản Android mới hơn).</string>
     <string name="analyzer_storage_content_app_data_label">Dữ liệu ứng dụng</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ứng dụng này chiếm %1$s trên \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ứng dụng này đã được lưu trữ.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s trong 7 ngày</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">Khoảng %d ngày bộ nhớ còn lại ở tốc độ này</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Bộ nhớ</string>
+    <string name="analyzer_settings_lowstorage_title">Ngưỡng bộ nhớ thấp</string>
+    <string name="analyzer_settings_lowstorage_desc">Khi dung lượng trống giảm dưới mức này, SD Maid coi bộ nhớ đang sắp hết.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Tự động (hiện tại %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Tự động</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Tự động</string>
+    <string name="analyzer_settings_lowspace_notification_title">Cảnh báo bộ nhớ thấp</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Nhận thông báo trước khi bộ nhớ của bạn hết.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Không bao giờ bị bất ngờ hết dung lượng</string>
+    <string name="analyzer_lowspace_hint_body">Nâng cấp để nhận cảnh báo trước khi bộ nhớ của bạn hết, để bạn có thể dọn dẹp trong khi còn chỗ để làm việc.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Xem những gì thực sự chiếm dung lượng bộ nhớ của bạn. Analyzer sẽ lập bản đồ cho bạn biết dung lượng của bạn đi đâu. Mỗi thẻ này là một chip lưu trữ trên thiết bị của bạn.</string>
     <string name="tour_analyzer_storage_body">Mở bộ nhớ để chia nó thành các ứng dụng, phương tiện và tệp, sau đó tiếp tục nhấn để tìm những người chiếm dụng lượng lớn nhất.</string>

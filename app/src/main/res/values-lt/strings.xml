@@ -260,7 +260,11 @@
     <string name="setup_root_card_title">„Root“ prieiga</string>
     <string name="setup_root_card_body">Ar SD Maid turėtų naudoti root prieigą, jei ji yra? Root prieiga gali būti naudojama norint patikrinti papildomus sistemos aplankus ir privačius programų duomenis.</string>
     <string name="setup_root_state_ready_label">Parengta root prieiga.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Šaknies prieiga nepasiekiama.</string>
+    <string name="setup_root_state_failed_title">Nepavyko gauti root prieigos</string>
+    <string name="setup_root_state_failed_body">SD Maid paprašė root prieigos, tačiau jos negavo. Jei tavo įrenginys turi root teises, atidaryk root valdymo programą (Magisk, KernelSU ar panašią) ir patikrink, ar SD Maid užklausa buvo atmesta, ar vis dar laukiama.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid paprašė root prieigos, tačiau jos negavo, o root valdymo programa nerasta. Jei tavo įrenginyje naudojamas paslėptas arba integruotas root, bandyk dar kartą.</string>
     <string name="setup_root_enable_root_use_label">Pabandykite naudoti \"root\" prieigą</string>
     <string name="setup_root_disable_root_use_label">Neturiu root prieigos</string>
     <string name="setup_root_card_body2">Pasiekiama tik suteiktus šaknies prieigą turinčiuose įrenginiuose. Jei jūs neatlikote šio pakeitimo, tai jūsų įrenginys neturi šaknies prieigos ir šis nustatymas neveiks.</string>
@@ -271,6 +275,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku ryšys paruoštas.</string>
     <string name="setup_shizuku_state_waiting_label">Laukiame ryšio su Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku programa nėra įdiegta.</string>
+    <string name="setup_shizuku_state_failed_title">Nepavyko prisijungti prie Shizuku</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku veikia, tačiau ji taip ir nesujungė SD Maid su savo pagalbine tarnyba.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Kai kuriuose įrenginiuose pasitaiko žinoma Shizuku problema, dėl kurios pagalbinė tarnyba nepasileidžia. Galbūt tavo įrenginys yra vienas iš jų.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Pabandykite naudoti Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nenaudokite Shizuku</string>
     <string name="setup_dismiss_hint">Sąrankos ekraną vėl rasite nustatymų meniu.</string>
@@ -307,6 +314,8 @@
     <string name="setup_inventory_limitation_title">Galimas įrenginio apribojimas</string>
     <string name="setup_inventory_limitation_body">Sistema grąžino nepilną suinstaliuotų programų sąrašą, nors reikalingos leidimai buvo suteikti.</string>
     <string name="setup_inventory_limitation_body2">Kai kurie įrenginiai (pvz., HarmonyOS) niekada nepateikia pilno programų sąrašo. Norėdami apsaugoti jūsų duomenis, su programomis susijusios priemonės lieka išjungtos, bet vis tiek galite peržiūrėti saugyklos naudojimą su sumažintomis detalėmis.</string>
+    <string name="setup_inventory_probe_failed_title">Nepavyko nuskaityti programų sąrašo</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid paprašė Android pateikti įdiegtų programų sąrašą, tačiau užklausa nepavyko. Su programomis susiję įrankiai lieka išjungti, kol tai pavyks. Gali padėti bandymas dar kartą.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nerado jokių duomenų sričių, kurias būtų galima nuskaityti. Ar baigėte sąranką?</string>
     <string name="dataarea_warningcard_label">Duomenų sritys</string>
     <string name="dataarea_warningcard_reload_action">Duomenų sričių perkrovimas</string>
@@ -383,7 +392,11 @@
     <string name="widget_home_description">Saugyklos naudojimas ir vieno paspaudimo valymas</string>
     <string name="widget_home_storage_internal">Vidinis</string>
     <string name="widget_home_storage_external">Išorinis</string>
-    <string name="widget_home_freed_label">Visą laiką: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Iš viso atlaisvinta: %1$s</string>
     <string name="widget_home_clean_action">Valyti</string>
     <string name="widget_home_working">Vykdoma…</string>
     <string name="widget_home_unavailable">Saugykla nepasiekiama</string>
@@ -423,4 +436,15 @@
     <string name="backup_restore_warn_history_body">Šios atsarginės kopijos istorijos duomenys (statistika, glaudinimo istorija, gestų seansai) yra iš kitos programos versijos ir negali būti atkurti. Visa kita bus atkurta.</string>
     <string name="backup_restore_ack_understand">Suprantu ir noriu tęsti</string>
     <string name="backup_restore_action_restore">Atkurti</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Įspėjimai apie saugyklą</string>
+    <string name="stats_lowspace_notification_title">Saugykla pildosi</string>
+    <string name="stats_lowspace_notification_low_title">Saugykla beveik pilna</string>
+    <string name="stats_lowspace_notification_low_body">Laisva: %1$s. Saugyklos vietos trūksta.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Tokiu tempu vietos liks maždaug %1$d dieną. Laisva: %2$s.</item>
+        <item quantity="few">Tokiu tempu vietos liks maždaug %1$d dienas. Laisva: %2$s.</item>
+        <item quantity="many">Tokiu tempu vietos liks maždaug %1$d dienos. Laisva: %2$s.</item>
+        <item quantity="other">Tokiu tempu vietos liks maždaug %1$d dienų. Laisva: %2$s.</item>
+    </plurals>
 </resources>

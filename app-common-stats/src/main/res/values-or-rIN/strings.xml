@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s %2$s ମଧ୍ୟରେ</string>
     <string name="stats_space_history_upgrade_title">ସମ୍ପୂର୍ଣ୍ଣ ଇତିହାସ ଏକ Pro ବୈଶିଷ୍ଟ୍ୟ</string>
     <string name="stats_space_history_upgrade_body">ପ୍ରତ୍ୟେକ ଷ୍ଟୋରେଜ ଡିଭାଇସ ପାଇଁ ସମ୍ପୂର୍ଣ୍ଣ ୯୦-ଦିନ ଟ୍ରେଣ୍ଡ ଭ୍ୟୁ ଅନ୍ଲକ କରିବାକୁ ଅପଗ୍ରେଡ କରନ୍ତୁ।</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ପ୍ରତ୍ୟେକ ସଂରକ୍ଷଣ ଡିଭାଇସ୍ ପାଇଁ ସମ୍ପୂର୍ଣ୍ଣ 90-ଦିନର ଟ୍ରେଣ୍ଡ୍ ଦୃଶ୍ୟ ଅନ୍ତର୍ଭୁକ୍ତ କରିବାକୁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ, ଏବଂ ଆପଣ ସ୍ଥାନ ଶେଷ ହେବାର ଆଗରୁ ଏକ ସତର୍କତା ପାଇନ୍ତୁ।</string>
     <string name="stats_space_history_marker_freed">%1$s ମୁକ୍ତ ହୋଇଛି</string>
     <string name="stats_storage_type_primary">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
     <string name="stats_storage_type_secondary">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>

@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Ufikiaji wa mizizi</string>
     <string name="setup_root_card_body">Je, SD Maid itumie ufikiaji wa mizizi ikiwa unapatikana? Ufikiaji wa mizizi unaweza kutumika kukagua folda za ziada za mfumo na data ya kibinafsi ya programu.</string>
     <string name="setup_root_state_ready_label">Ufikiaji wa mizizi uko tayari.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Ufikiaji wa root haupatikani.</string>
+    <string name="setup_root_state_failed_title">Ufikiaji wa root umeshindwa</string>
+    <string name="setup_root_state_failed_body">SD Maid iliomba ufikiaji wa root lakini haukupata. Ikiwa kifaa chako kina root, fungua programu yako ya kudhibiti root (Magisk, KernelSU au inayofanana) na uangalie kama ombi kutoka SD Maid lilikataliwa au bado linasubiri.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid iliomba ufikiaji wa root lakini haukupata, na hakuna programu ya kudhibiti root iliyogunduliwa. Ikiwa kifaa chako kinatumia root iliyofichwa au iliyojengwa ndani, jaribu tena.</string>
     <string name="setup_root_enable_root_use_label">Jaribu kutumia ufikiaji wa root</string>
     <string name="setup_root_disable_root_use_label">Sikufanya root kwenye kifaa changu</string>
     <string name="setup_root_card_body2">Inapatikana tu kwenye vifaa vilivyopata mizizi. Ikiwa hukufanya marekebisho haya, basi kifaa chako hakina mizizi na mpangilio huu hauna athari.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Kiunganishi cha Shizuku kiko tayari.</string>
     <string name="setup_shizuku_state_waiting_label">Inasubiri kiunganishi na Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Programu ya Shizuku haijasaniliwa.</string>
+    <string name="setup_shizuku_state_failed_title">Muunganisho wa Shizuku umeshindwa</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku inaendesha, lakini haikuwahi kuunganisha SD Maid na huduma yake ya usaidizi.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Baadhi ya vifaa vinaathiriwa na tatizo linalojulikana la Shizuku ambalo huzuia huduma ya usaidizi kuanza. Hiki huenda kikawa kimoja wapo.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Jaribu kutumia Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Usitumie Shizuku</string>
     <string name="setup_dismiss_hint">Unaweza kupata skrini ya usanidi tena kupitia menyu ya mipangilio.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Uwezekano wa kizuizi cha kifaa</string>
     <string name="setup_inventory_limitation_body">Mfumo umerudisha orodha isiyo kamili ya programu zilizosakinishwa, ingawa ruhusa zinazohitajika zinaonekana zimekubaliwa.</string>
     <string name="setup_inventory_limitation_body2">Baadhi ya vifaa (mfano HarmonyOS) havitoi kamwe orodha kamili ya programu. Ili kulinda data yako, zana zinazohusiana na programu zinabaki zimezimwa, lakini bado unaweza kuona matumizi ya hifadhi kwa undani mdogo.</string>
+    <string name="setup_inventory_probe_failed_title">Imeshindwa kusoma orodha ya programu</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid iliomba Android orodha ya programu zilizosakinishwa lakini ombi hilo lilishindwa. Zana zinazohusiana na programu zitabaki zimezimwa hadi litakapofanya kazi. Kujaribu tena kunaweza kusaidia.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid haikupata maeneo yoyote ya data yanayoweza kuchunguzwa. Je, umekamilisha usanidi?</string>
     <string name="dataarea_warningcard_label">Maeneo ya data</string>
     <string name="dataarea_warningcard_reload_action">Pakia upya maeneo ya data</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Matumizi ya hifadhi na usafishaji kwa mgusoo mmoja</string>
     <string name="widget_home_storage_internal">Ndani</string>
     <string name="widget_home_storage_external">Nje</string>
-    <string name="widget_home_freed_label">Maisha yote: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Jumla iliyoachiliwa: %1$s</string>
     <string name="widget_home_clean_action">Safisha</string>
     <string name="widget_home_working">Inafanya kazi…</string>
     <string name="widget_home_unavailable">Hifadhi haipatikani</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Data ya historia ya nakala hii rudufu (takwimu, historia ya kubana, vikao vya kuswaipi) inatoka toleo tofauti la programu na haiwezi kurejeshwa. Kila kitu kingine kitarejeshwa.</string>
     <string name="backup_restore_ack_understand">Ninaelewa na nataka kuendelea</string>
     <string name="backup_restore_action_restore">Rejesha</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Maonyo ya hifadhi</string>
+    <string name="stats_lowspace_notification_title">Hifadhi inajaa</string>
+    <string name="stats_lowspace_notification_low_title">Hifadhi karibu imejaa</string>
+    <string name="stats_lowspace_notification_low_body">%1$s zimesalia. Hifadhi inaisha.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Takriban siku %1$d ya nafasi iliyosalia kwa kasi hii. %2$s zimesalia.</item>
+        <item quantity="other">Takriban siku %1$d za nafasi zilizosalia kwa kasi hii. %2$s zimesalia.</item>
+    </plurals>
 </resources>

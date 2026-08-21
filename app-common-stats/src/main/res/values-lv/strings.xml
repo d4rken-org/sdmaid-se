@@ -60,6 +60,9 @@
     <string name="stats_space_history_delta_in_x">%1$s laikā %2$s</string>
     <string name="stats_space_history_upgrade_title">Pilna vēsture ir Pro funkcija</string>
     <string name="stats_space_history_upgrade_body">Jauniniet, lai atbloķētu pilno 90 dienu tendences skatu katrai krātuves ierīcei.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Uzlabo, lai atbloķētu pilnu 90 dienu tendenču skatu katrai krātuves ierīcei un saņemtu brīdinājumu, pirms vieta beidzas.</string>
     <string name="stats_space_history_marker_freed">Atbrīvots %1$s</string>
     <string name="stats_storage_type_primary">Primārā krātuve</string>
     <string name="stats_storage_type_secondary">Sekundārā krātuve</string>

@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">రూట్ యాక్సెస్</string>
     <string name="setup_root_card_body">అందుబాటులో ఉంటే SD Maid రూట్ యాక్సెస్‌ను ఉపయోగించాలా? రూట్ యాక్సెస్ అదనపు సిస్టమ్ ఫోల్డర్లు మరియు ప్రైవేట్ అప్లికేషన్ డేటాను తనిఖీ చేయడానికి ఉపయోగించవచ్చు.</string>
     <string name="setup_root_state_ready_label">రూట్ యాక్సెస్ సిద్ధంగా ఉంది.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">రూట్ యాక్సెస్ అందుబాటులో లేదు.</string>
+    <string name="setup_root_state_failed_title">రూట్ యాక్సెస్ విఫలమైంది</string>
+    <string name="setup_root_state_failed_body">SD Maid రూట్ యాక్సెస్ కోసం అభ్యర్థించింది, కానీ అది లభించలేదు. మీ పరికరం రూట్ చేయబడి ఉంటే, మీ రూట్ మేనేజర్‌ని (Magisk, KernelSU లేదా ఇలాంటివి) తెరిచి SD Maid నుండి వచ్చిన అభ్యర్థన తిరస్కరించబడిందా లేదా ఇంకా వేచి ఉందా అని తనిఖీ చేయండి.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid రూట్ యాక్సెస్ కోసం అభ్యర్థించింది, కానీ అది లభించలేదు, మరియు ఏ రూట్ మేనేజర్ యాప్ కూడా కనుగొనబడలేదు. మీ పరికరం దాచిన లేదా అంతర్నిర్మిత రూట్‌ను ఉపయోగిస్తే, మళ్లీ ప్రయత్నించండి.</string>
     <string name="setup_root_enable_root_use_label">రూట్ యాక్సెస్ను ఉపయోగించటానికి ప్రయత్నించండి</string>
     <string name="setup_root_disable_root_use_label">నేను నా పరికరాన్ని రూట్ చేయలేదు</string>
     <string name="setup_root_card_body2">రూట్ చేయబడిన పరికరాలలో మాత్రమే అందుబాటులో ఉంటుంది. మీరు ఈ మార్పును చేయకుంటే, మీ పరికరం రూట్ చేయబడలేదు మరియు ఈ సెట్టింగ్ ప్రభావం చూపదు.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku లింక్ సిద్ధంగా ఉంది.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku తో లింక్ కోసం వేచి ఉంది.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku యాప్ ఇన్‌స్టాల్ చేయబడలేదు.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku లింక్ విఫలమైంది</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku రన్ అవుతోంది, కానీ అది SD Maidను తన హెల్పర్ సర్వీస్‌కి ఎప్పుడూ కనెక్ట్ చేయలేదు.</string>
+    <string name="setup_shizuku_state_known_issue_hint">కొన్ని పరికరాలు హెల్పర్ సర్వీస్ ప్రారంభం కాకుండా ఆపే తెలిసిన Shizuku సమస్యతో ప్రభావితమవుతాయి. ఇది వాటిలో ఒకటి కావచ్చు.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ఉపయోగించటానికి ప్రయత్నించండి</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ఉపయోగించవద్దు</string>
     <string name="setup_dismiss_hint">మీరు సెట్టింగ్స్ మెనూ ద్వారా సెటప్ స్క్రీన్‌ను మళ్లీ కనుగొనవచ్చు.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">సంభావ్య పరికర పరిమితి</string>
     <string name="setup_inventory_limitation_body">అవసరమైన అనుమతులు ఇవ్వబడినట్టు కనిపించినప్పటికీ, సిస్టమ్ ఇన్స్టాల్ చేసిన యాప్‌ల అసంపూర్ణ జాబితాను తిరిగి ఇచ్చింది.</string>
     <string name="setup_inventory_limitation_body2">కొన్ని పరికరాలు (ఉదా. HarmonyOS) పూర్తి యాప్ జాబితాను ఎప్పుడూ అందించవు. మీ డేటాను రక్షించడానికి, యాప్-సంబంధిత సాధనాలు నిలిపివేయబడతాయి, కానీ మీరు తగ్గించిన వివరాలతో నిల్వ వినియోగాన్ని ఇంకా చూడవచ్చు.</string>
+    <string name="setup_inventory_probe_failed_title">యాప్ జాబితాను చదవలేకపోయాము</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ఇన్‌స్టాల్ చేయబడిన యాప్‌ల జాబితా కోసం Androidను అభ్యర్థించింది, కానీ ఆ అభ్యర్థన విఫలమైంది. ఇది పని చేసే వరకు యాప్‌-సంబంధిత సాధనాలు నిలిపివేయబడి ఉంటాయి. మళ్లీ ప్రయత్నించడం సహాయపడవచ్చు.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid స్కాన్ చేయగల ఎవరి డేటా ఏరియాలను కనుగొనలేదు. మీరు సెటప్‌ను పూర్తి చేశారా?</string>
     <string name="dataarea_warningcard_label">డేటా ఏరియాలు</string>
     <string name="dataarea_warningcard_reload_action">డేటా ఏరియాలను మళ్లీ లోడ్ చేయండి</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">నిల్వ వినియోగం మరియు ఒక-ట్యాప్ శుభ్రీకరణ</string>
     <string name="widget_home_storage_internal">అంతర్గత</string>
     <string name="widget_home_storage_external">బాహ్య</string>
-    <string name="widget_home_freed_label">జీవితకాలం: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">మొత్తం ఖాళీ చేయబడింది: %1$s</string>
     <string name="widget_home_clean_action">శుభ్రపరచు</string>
     <string name="widget_home_working">పని జరుగుతోంది…</string>
     <string name="widget_home_unavailable">నిల్వ అందుబాటులో లేనిది</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">ఈ బ్యాకప్ యొక్క చరిత్ర డేటా (గణాంకాలు, కంప్రెషన్ చరిత్ర, స్వైప్ సెషన్‌లు) భిన్న ఆప్ సంస్కరణ నుండి ఉంది మరియు పునరుద్ధరించబడదు. మిగతావన్నీ పునరుద్ధరించబడుతుంది.</string>
     <string name="backup_restore_ack_understand">నేను అర్థం చేసుకున్నాను మరియు కొనసాగాలనుకుంటున్నాను</string>
     <string name="backup_restore_action_restore">పునరుద్ధరించు</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">నిల్వ హెచ్చరికలు</string>
+    <string name="stats_lowspace_notification_title">నిల్వ నిండుతోంది</string>
+    <string name="stats_lowspace_notification_low_title">నిల్వ దాదాపు నిండింది</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ఖాళీగా ఉంది. నిల్వ అయిపోతోంది.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">ఈ రేటుతో సుమారు %1$d రోజు నిల్వ మిగిలి ఉంది. %2$s ఖాళీగా ఉంది.</item>
+        <item quantity="other">ఈ రేటుతో సుమారు %1$d రోజుల నిల్వ మిగిలి ఉంది. %2$s ఖాళీగా ఉంది.</item>
+    </plurals>
 </resources>

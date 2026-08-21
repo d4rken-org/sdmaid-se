@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Πρόσβαση root</string>
     <string name="setup_root_card_body">Να χρησιμοποιεί το SD Maid πρόσβαση root εάν είναι διαθέσιμο; Η πρόσβαση Root μπορεί να χρησιμοποιηθεί για τον έλεγχο πρόσθετων φακέλων συστήματος και δεδομένων ιδιωτικών εφαρμογών.</string>
     <string name="setup_root_state_ready_label">Η πρόσβαση root είναι έτοιμη.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Η πρόσβαση root δεν είναι διαθέσιμη.</string>
+    <string name="setup_root_state_failed_title">Η πρόσβαση root απέτυχε</string>
+    <string name="setup_root_state_failed_body">Το SD Maid ζήτησε πρόσβαση root και δεν την έλαβε. Αν η συσκευή σου έχει root, άνοιξε τον διαχειριστή root (Magisk, KernelSU ή παρόμοιο) και έλεγξε αν το αίτημα του SD Maid απορρίφθηκε ή αν εξακολουθεί να εκκρεμεί.</string>
+    <string name="setup_root_state_failed_body_nomanager">Το SD Maid ζήτησε πρόσβαση root και δεν την έλαβε, και δεν εντοπίστηκε καμία εφαρμογή διαχείρισης root. Αν η συσκευή σου χρησιμοποιεί κρυφό ή ενσωματωμένο root, δοκίμασε ξανά.</string>
     <string name="setup_root_enable_root_use_label">Δοκιμάστε να χρησιμοποιήσετε πρόσβαση root</string>
     <string name="setup_root_disable_root_use_label">Δεν έκανα root το κινητό μου</string>
     <string name="setup_root_card_body2">Διατίθεται μόνο σε συσκευές με root. Εάν δεν κάνατε αυτήν την τροποποίηση, τότε η συσκευή σας δεν έχει root και αυτή η ρύθμιση δεν έχει αποτέλεσμα.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Ο σύνδεσμος Shizuku είναι έτοιμος.</string>
     <string name="setup_shizuku_state_waiting_label">Αναμονή για σύνδεση με Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Η εφαρμογή Shizuku δεν είναι εγκατεστημένη.</string>
+    <string name="setup_shizuku_state_failed_title">Η σύνδεση Shizuku απέτυχε</string>
+    <string name="setup_shizuku_state_failed_label">Το Shizuku εκτελείται, αλλά δεν συνέδεσε ποτέ το SD Maid με τη βοηθητική του υπηρεσία.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Ορισμένες συσκευές επηρεάζονται από ένα γνωστό πρόβλημα του Shizuku που εμποδίζει την εκκίνηση της βοηθητικής υπηρεσίας. Αυτή μπορεί να είναι μία από αυτές.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Δοκιμάστε να χρησιμοποιήσετε το Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Να μη χρησιμοποιηθεί το Shizuku</string>
     <string name="setup_dismiss_hint">Μπορείτε να βρείτε ξανά την οθόνη εγκατάστασης μέσω του μενού ρυθμίσεων.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Πιθανός περιορισμός συσκευής</string>
     <string name="setup_inventory_limitation_body">Το σύστημα επέστρεψε μια ατελή λίστα εγκατεστημένων εφαρμογών, ακόμη και αν φαίνεται ότι έχουν χορηγηθεί οι απαιτούμενες άδειες.</string>
     <string name="setup_inventory_limitation_body2">Ορισμένες συσκευές (π.χ. HarmonyOS) δεν παρέχουν ποτέ μια πλήρη λίστα εφαρμογών. Για την προστασία των δεδομένων σας, τα εργαλεία που σχετίζονται με εφαρμογές παραμένουν απενεργοποιημένα, αλλά μπορείτε ακόμα να δείτε τη χρήση αποθήκευσης με περιορισμένη λεπτομέρεια.</string>
+    <string name="setup_inventory_probe_failed_title">Δεν ήταν δυνατή η ανάγνωση της λίστας εφαρμογών</string>
+    <string name="setup_inventory_probe_failed_body">Το SD Maid ζήτησε από το Android τη λίστα εγκατεστημένων εφαρμογών και το αίτημα απέτυχε. Τα εργαλεία που σχετίζονται με εφαρμογές παραμένουν απενεργοποιημένα μέχρι να λειτουργήσει. Μια νέα προσπάθεια μπορεί να βοηθήσει.</string>
     <string name="dataarea_warningcard_empty_message">Το SD Maid δε βρήκε περιοχές δεδομένων που μπορούν να σαρωθούν. Ολοκληρώσατε την εγκατάσταση;</string>
     <string name="dataarea_warningcard_label">Περιοχές δεδομένων</string>
     <string name="dataarea_warningcard_reload_action">Επαναφόρτωση περιοχών δεδομένων</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Χρήση αποθήκευσης και καθαρισμός με ένα πάτημα</string>
     <string name="widget_home_storage_internal">Εσωτερικός</string>
     <string name="widget_home_storage_external">Εξωτερικός</string>
-    <string name="widget_home_freed_label">Διάρκεια ζωής: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Σύνολο που ελευθερώθηκε: %1$s</string>
     <string name="widget_home_clean_action">Εκκαθάριση</string>
     <string name="widget_home_working">Σε εξέλιξη…</string>
     <string name="widget_home_unavailable">Ο αποθηκευτικός χώρος δεν είναι διαθέσιμος</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Τα δεδομένα ιστορικού αυτής της δημιουργίας αντιγράφων ασφαλείας (στατιστικά, ιστορικό συμπίεσης, σεάνς σάρωσης) προέρχονται από μια διαφορετική έκδοση της εφαρμογής και δεν μπορούν να επαναφερθούν. Όλα τα άλλα θα επαναφερθούν.</string>
     <string name="backup_restore_ack_understand">Καταλαβαίνω και θέλω να συνεχίσω</string>
     <string name="backup_restore_action_restore">Επαναφορά</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Προειδοποιήσεις αποθηκευτικού χώρου</string>
+    <string name="stats_lowspace_notification_title">Ο αποθηκευτικός χώρος γεμίζει</string>
+    <string name="stats_lowspace_notification_low_title">Ο αποθηκευτικός χώρος είναι σχεδόν γεμάτος</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ελεύθερα. Ο αποθηκευτικός χώρος εξαντλείται.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Απομένει περίπου %1$d ημέρα χώρου με αυτόν τον ρυθμό. %2$s ελεύθερα.</item>
+        <item quantity="other">Απομένουν περίπου %1$d ημέρες χώρου με αυτόν τον ρυθμό. %2$s ελεύθερα.</item>
+    </plurals>
 </resources>

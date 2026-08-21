@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s በ%2$s</string>
     <string name="stats_space_history_upgrade_title">ሙሉ ታሪክ የPro ባህሪ ነው</string>
     <string name="stats_space_history_upgrade_body">ለእያንዳንዱ የማከማቻ መሳሪያ ሙሉ የ90-ቀን አዝማሚያ እይታ ለማግኘት ያሻሽሉ።</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ለእያንዳንዱ የማከማቻ መሣሪያ ሙሉውን የ90 ቀናት አዝማሚያ እይታ ለመክፈት እና ቦታ ከማለቁ በፊት ማስጠንቀቂያ ለማግኘት ያሻሽሉ።</string>
     <string name="stats_space_history_marker_freed">%1$s ነጻ ሆነ</string>
     <string name="stats_storage_type_primary">ዋና ማጠራቀሚያ</string>
     <string name="stats_storage_type_secondary">ሁለተኛ ማጠራቀሚያ</string>

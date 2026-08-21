@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s, %2$s හිදී</string>
     <string name="stats_space_history_upgrade_title">සම්පූර්ණ ඉතිහාසය Pro විශේෂාංගයකි</string>
     <string name="stats_space_history_upgrade_body">සෑම ගබඩා උපාංගයක් සඳහාම සම්පූර්ණ 90-දින ප්‍රවණතා දසුන අගුළු ඇරීමට උත්සාහ කරන්න.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">සෑම ගබඩා උපාංගයක් සඳහාම සම්පූර්ණ දින 90 ප්‍රවණතා දසුන අගුළු හැරීමට සහ ඉඩ අවසන් වීමට පෙර අනතුරු ඇඟවීමක් ලබා ගැනීමට උත්ශ්‍රේණි කරන්න.</string>
     <string name="stats_space_history_marker_freed">නිදහස් කළ %1$s</string>
     <string name="stats_storage_type_primary">මුලික ආචයනය</string>
     <string name="stats_storage_type_secondary">ද්විතීය ආචයනය</string>

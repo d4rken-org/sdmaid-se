@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s, %2$s ərzində</string>
     <string name="stats_space_history_upgrade_title">Tam tarixçə Pro xüsusiyyətidir</string>
     <string name="stats_space_history_upgrade_body">Hər saxlama qurğusu üçün tam 90 günlük trend görünüşünün kilidini açmaq üçün təkmilləşdirin.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Hər yaddaş cihazı üçün tam 90 günlük tendensiya görünüşünü açmaq və yerin bitməzdən əvvəl xəbərdarlıq almaq üçün yüksəlt.</string>
     <string name="stats_space_history_marker_freed">%1$s azaldıldı</string>
     <string name="stats_storage_type_primary">Əsas yaddaş</string>
     <string name="stats_storage_type_secondary">İkinci yaddaş</string>

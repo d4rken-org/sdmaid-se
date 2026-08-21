@@ -48,6 +48,9 @@
     <string name="stats_space_history_delta_in_x">%1$s ใน %2$s</string>
     <string name="stats_space_history_upgrade_title">ประวัติทั้งหมดเป็นฟีเจอร์ Pro</string>
     <string name="stats_space_history_upgrade_body">อัปเกรดเพื่อปลดล็อกมุมมองแนวโน้ม 90 วันแบบเต็มสำหรับแต่ละอุปกรณ์จัดเก็บข้อมูล</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">อัปเกรดเพื่อปลดล็อกมุมมองแนวโน้มแบบเต็ม 90 วันสำหรับอุปกรณ์จัดเก็บแต่ละตัว และรับคำเตือนก่อนพื้นที่จะหมด</string>
     <string name="stats_space_history_marker_freed">เพิ่มพื้นที่ว่าง %1$s</string>
     <string name="stats_storage_type_primary">พื้นที่จัดเก็บหลัก</string>
     <string name="stats_storage_type_secondary">พื้นที่จัดเก็บรอง</string>

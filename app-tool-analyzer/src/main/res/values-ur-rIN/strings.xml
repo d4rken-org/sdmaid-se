@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">کوئی براہ راست رسائی دستیاب نہیں</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper سیشن بنائیں</string>
+    <string name="analyzer_content_open_externally_action">فائل مینیجر میں کھولیں</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d آئٹم کے ساتھ Swiper سیشن بنایا گیا</item>
         <item quantity="other">%d آئٹمز کے ساتھ Swiper سیشن بنایا گیا</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">کیپچر شدہ تصاویر، ریکارڈ شدہ ویڈیوز یا ڈاؤن لوڈ شدہ ڈیٹا۔ کوئی بھی ڈیٹا جو کسی مخصوص ایپ سے تعلق نہیں رکھتا۔</string>
     <string name="analyzer_storage_content_type_system_label">سسٹم ڈیٹا</string>
     <string name="analyzer_storage_content_type_system_description">سسٹم ایپس اور سسٹم ڈیٹا۔ دوسرے صارفین کے ایپس اور ڈیٹا، اگر اس ڈیوائس پر کئی صارف اکاؤنٹس سیٹ ہیں۔</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">دوسرے صارفین کی مکمل پیمائش نہیں ہو سکی، اس لیے اس کل میں ان کے کچھ اسٹوریج شامل ہو سکتے ہیں۔</string>
     <string name="analyzer_storage_content_type_system_other_label">دیگر</string>
     <string name="analyzer_storage_content_type_system_info">وہ فائلیں جو ایپس یا صارف کی فائلوں کے زمروں میں فٹ نہیں ہوتیں۔ صرف براؤز کریں — حذف کرنا سپورٹ نہیں ہے۔ رسائی کی پابندیوں کی وجہ سے کچھ علاقے نامکمل ہو سکتے ہیں۔</string>
     <string name="analyzer_storage_content_type_media_readonly_info">فائلوں کو ابھی ان ایپس سے منسلک نہیں کیا جا سکتا جو ان کے مالک ہیں۔ سائزز صرف حوالہ کے لیے دکھائے جاتے ہیں — حذف کرنا، فلٹرز اور Swiper غیر فعال ہیں۔</string>
     <string name="analyzer_storage_content_type_system_other_desc">سسٹم فائلیں اور دیگر ڈیٹا جن تک SD Maid رسائی یا درجہ بندی نہیں کر سکا۔ آپریٹنگ سسٹم کچھ علاقوں کے مواد کی فہرست کو محدود کرتا ہے۔</string>
+    <string name="analyzer_storage_content_type_otherusers_label">دیگر صارفین</string>
+    <string name="analyzer_storage_content_type_otherusers_description">اس آلے پر دیگر صارفین یا ورک پروفائلز سے تعلق رکھنے والی ایپس اور فائلیں۔</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">صرف ایپ ڈیٹا، اس صارف کی مشترکہ فائلیں شامل نہیں ہیں۔</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">حجم دستیاب نہیں، اس صارف کا اسٹوریج پڑھا نہیں جا سکتا۔</string>
+    <string name="analyzer_storage_content_type_otherusers_info">اس آلے پر کسی دوسرے صارف کا اسٹوریج۔ صرف دیکھنے کے لیے، حذف کرنا معاون نہیں ہے۔</string>
     <string name="analyzer_storage_content_app_code_label">ایپ کوڈ</string>
     <string name="analyzer_storage_content_app_code_description">ایپلیکیشن فائلیں، لائبریریز اور ریسورسز۔ یہ جگہ ایپ کو ان انسٹال کرنے یا آرکائیو کرنے سے آزاد کی جا سکتی ہے (نئے Android ورژن پر دستیاب)۔</string>
     <string name="analyzer_storage_content_app_data_label">ایپ ڈیٹا</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">یہ ایپ \"%2$s\" پر %1$s قبضہ میں لیے ہوئے ہے۔</string>
     <string name="analyzer_app_details_app_is_archived">یہ ایپ آرکائیو کیا گیا ہے۔</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ۷ دنوں میں</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">اس شرح پر تقریباً %d دن کی جگہ باقی ہے</item>
+        <item quantity="other">اس شرح پر تقریباً %d دن کی جگہ باقی ہے</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">اسٹوریج</string>
+    <string name="analyzer_settings_lowstorage_title">کم اسٹوریج کی حد</string>
+    <string name="analyzer_settings_lowstorage_desc">جب خالی جگہ اس سے کم ہو جائے تو SD Maid اسٹوریج کو ختم ہوتا ہوا سمجھتا ہے۔</string>
+    <string name="analyzer_settings_lowstorage_value_auto">خودکار (فی الحال %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">خودکار</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">خودکار</string>
+    <string name="analyzer_settings_lowspace_notification_title">کم جگہ کی وارننگ</string>
+    <string name="analyzer_settings_lowspace_notification_desc">آپ کا اسٹوریج ختم ہونے سے پہلے اطلاع حاصل کریں۔</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">کبھی بھی جگہ ختم ہونے پر حیران نہ ہوں</string>
+    <string name="analyzer_lowspace_hint_body">اپ گریڈ کریں تاکہ اسٹوریج ختم ہونے سے پہلے آپ کو وارننگ ملے، تاکہ جب کچھ جگہ باقی ہو تبھی آپ صفائی کر سکیں۔</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">دیکھیں کہ آپ کی اسٹوریج کو اصل میں کیا بھر رہا ہے۔ Analyzer دکھاتا ہے کہ آپ کی جگہ کہاں جاتی ہے۔ ان میں سے ہر ایک کارڈ آپ کے ڈیوائس پر ایک اسٹوریج چپ ہے۔</string>
     <string name="tour_analyzer_storage_body">اسٹوریج کھولیں تاکہ اسے ایپس، میڈیا اور فائلوں میں تقسیم کریں، پھر سب سے بڑے مسائل کو ڈھونڈنے کے لیے ٹیپ کرتے رہیں۔</string>

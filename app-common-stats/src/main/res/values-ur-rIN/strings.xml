@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s میں %2$s</string>
     <string name="stats_space_history_upgrade_title">مکمل تاریخ ایک پرو فیچر ہے</string>
     <string name="stats_space_history_upgrade_body">ہر اسٹوریج ڈیوائس کے لیے مکمل ۹۰ دن کا ٹرینڈ ویو کھولنے کے لیے اپ گریڈ کریں۔</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ہر اسٹوریج ڈیوائس کے لیے مکمل 90 دن کا رجحان دیکھنے کے لیے اپ گریڈ کریں، اور جگہ ختم ہونے سے پہلے وارننگ حاصل کریں۔</string>
     <string name="stats_space_history_marker_freed">%1$s آزاد کیا گیا</string>
     <string name="stats_storage_type_primary">بنیادی اسٹوریج</string>
     <string name="stats_storage_type_secondary">ثانوی اسٹوریج</string>

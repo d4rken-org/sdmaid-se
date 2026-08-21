@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s %2$s pärast</string>
     <string name="stats_space_history_upgrade_title">Kogu ajalugu on tasuline</string>
     <string name="stats_space_history_upgrade_body">Iga hoiustamisseadme kogu 90 päevase trendi kuvamiseks ostke võimsam pakett.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Uuenda, et avada iga mäluseadme täielik 90 päeva pikkune trendivaade ja saada hoiatus enne ruumi otsalõppemist.</string>
     <string name="stats_space_history_marker_freed">Vabanes %1$s</string>
     <string name="stats_storage_type_primary">Peamine hoiustamisruum</string>
     <string name="stats_storage_type_secondary">Teisejärguline hoiustamisruum</string>

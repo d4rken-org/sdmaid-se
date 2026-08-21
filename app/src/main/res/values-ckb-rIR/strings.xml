@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">دەسیەڵاتی Root</string>
     <string name="setup_root_card_body">ئایا SD Maid دەسیەڵاتی Root بەکاربێنێت ئەگەر بەردەست بێت؟ دەسیەڵاتی Root دەتوانێت بەکاربێت بۆ پشکنینی بوخچەکانی زیاتری سیستەم و دراوەکانی تایبەتی ئەپەکان.</string>
     <string name="setup_root_state_ready_label">دەسیەڵاتی Root ئامادەیە.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">دسترسی ریشی بەردەست نیە</string>
+    <string name="setup_root_state_failed_title">دەستپێگەیشتنی ڕووت سەرنەکەوت</string>
+    <string name="setup_root_state_failed_body">SD Maid داوای دەستپێگەیشتنی ڕووتی کرد بەڵام وەری نەگرت. ئەگەر ئامێرەکەت ڕووت کراوە، بەڕێوەبەری ڕووتەکەت (Magisk، KernelSU یان هاوشێوەیان) بکەرەوە و بزانە ئایا داواکارییەکەی SD Maid ڕەتکراوەتەوە یان هێشتا چاوەڕوانە.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid داوای دەستپێگەیشتنی ڕووتی کرد بەڵام وەری نەگرت، هیچ ئەپی بەڕێوەبەری ڕووتیش نەدۆزرایەوە. ئەگەر ئامێرەکەت ڕووتی شاردراوە یان بنەڕەتی بەکاردەهێنێت، دووبارە هەوڵبدەرەوە.</string>
     <string name="setup_root_enable_root_use_label">ھەوڵی بدە دسترسی ریشی بەکاربێنیت</string>
     <string name="setup_root_disable_root_use_label">من ئامێزەم ریشە نەکردووە</string>
     <string name="setup_root_card_body2">تەنها لەسەر ئامێرە Root کراوەکان بەردەستە. ئەگەر ئەم گۆڕانکاریەت نەکردبێت، وا ئامێرەکەت Root نەکراوە و ئەم ڕێکخستنە هیچ کاریگەریی‌یەکی نیە.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">بەستەری Shizuku ئامادەیە.</string>
     <string name="setup_shizuku_state_waiting_label">چاوەڕوانی بەستەربوون لەگەڵ Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">بەرنامەی Shizuku دەست نیە</string>
+    <string name="setup_shizuku_state_failed_title">پەیوەندی Shizuku سەرنەکەوت</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku کاردەکات، بەڵام هەرگیز SD Maid بە خزمەتگوزاری یارمەتیدەرەکەیەوە پەیوەست نەکرد.</string>
+    <string name="setup_shizuku_state_known_issue_hint">هەندێک ئامێر کاریگەری کێشەیەکی زانراوی Shizuku لەسەرە کە ڕێگری لە دەستپێکردنی خزمەتگوزاری یارمەتیدەر دەکات. لەوانەیە ئەمە یەکێک لەوان بێت.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ھەوڵی بدە Shizuku بەکاربێنیت</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku بەکارنەبە</string>
     <string name="setup_dismiss_hint">دەتوانیت رووپەڕی ڕێکخستن دیسان لە مێنووی ڕێکخستنەکانەوە بدۆزیتەوە.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">سنورداربوونی ئامێزە ئەممکن</string>
     <string name="setup_inventory_limitation_body">سیستەم لیستێکی نەتەواو لە ئەپلیکێشنە دامەزراوەکانەوە گەڕاندەوە، تێیدا کە مافی پێویستکراو دیار دەبێت.</string>
     <string name="setup_inventory_limitation_body2">هەندێ ئامێزە (بۆ نمونە HarmonyOS) هیچکات لیستی تەواو نادەبەخشێنن. بۆ پاراستنی داراوەکانت، ئامرازە ئەپلیکێشنیەکان ناچالاک دەمێننەوە، بەڵام هێشتا دەتوانیت بەکارهێنانی پاشکۆی ببینیت بە درێژی کەمتر.</string>
+    <string name="setup_inventory_probe_failed_title">نەتوانرا لیستی ئەپەکان بخوێنرێتەوە</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid لە ئەندرۆیدی داوای لیستی ئەپە دامەزراوەکانی کرد، بەڵام داواکارییەکە سەرنەکەوت. ئامرازە پەیوەندیدارەکانی ئەپ ناچالاک دەمێننەوە تاکو کارباتکات. دووبارە هەوڵدانەوە لەوانەیە یارمەتیدەر بێت.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid هیچ ناوچەی داتایەکی نەدۆزییەوە کە بگەڕێدرێت. ئایا ڕێکخستنت تەواو کرد؟</string>
     <string name="dataarea_warningcard_label">ناوچەکانی داتا</string>
     <string name="dataarea_warningcard_reload_action">ناوچەکانی داتا دووبارە بارببە</string>
@@ -312,6 +321,7 @@
     <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">مۆدی سیمولیت چالاکە</string>
     <string name="dashboard_dryrun_warning_body">پاکخان سیمولیت دەکرێت. فایلەکان بەتفتیش دەچن و رابۆردە دەکرن، بەڵام هیچ شتێک بە درستی نایە جێ.</string>
+    <string name="dashboard_dryrun_warning_disable_action">ناچالاککردن</string>
     <string name="data_area_public_app_data_official_label">بنەڕەت public app data</string>
     <string name="data_area_public_app_assets_official_label">بنەڕەت public app assets</string>
     <string name="data_area_public_storage_label">گشتی storage</string>
@@ -362,7 +372,11 @@
     <string name="widget_home_description">بەکارهێنانی هیسک و پاکسازی یەک ڕاپۆش</string>
     <string name="widget_home_storage_internal">ناوەندی</string>
     <string name="widget_home_storage_external">دەرەکی</string>
-    <string name="widget_home_freed_label">ئەبەدی: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">کۆی ئازادکراو: %1$s</string>
     <string name="widget_home_clean_action">پاک کردن</string>
     <string name="widget_home_working">کارکردن…</string>
     <string name="widget_home_unavailable">بیرگە بەردەست نیە</string>
@@ -402,4 +416,13 @@
     <string name="backup_restore_warn_history_body">داتای مێژوی ئەم پاشکۆکدنە (ئامار، مێژوی سوڕاندن، دانیشتنی سوایپ) لە وەشانی جیاوازی بەرنامە بووە و ناتوانێت ڕیکخستن. هەمووی تری ڕیکخستن دەبێت.</string>
     <string name="backup_restore_ack_understand">تێدەگەم و دەمەوێت بەردەوام بم</string>
     <string name="backup_restore_action_restore">گێڕانەوە</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">ئاگاداریەکانی بیرگە</string>
+    <string name="stats_lowspace_notification_title">بیرگە پڕ دەبێتەوە</string>
+    <string name="stats_lowspace_notification_low_title">بیرگە خەریکە پڕ دەبێت</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ئازادە. بیرگە خەریکە تەواو دەبێت.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">بە پێی ئەم ڕێژەیە نزیکەی %1$d ڕۆژ بۆشایی ماوە. %2$s ئازادە.</item>
+        <item quantity="other">بە پێی ئەم ڕێژەیە نزیکەی %1$d ڕۆژ بۆشایی ماوە. %2$s ئازادە.</item>
+    </plurals>
 </resources>

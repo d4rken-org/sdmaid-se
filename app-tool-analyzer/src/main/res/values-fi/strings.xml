@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Suora pääsy ei ole käytettävissä</string>
     <string name="analyzer_content_create_swiper_session_action">Luo Swiper-istunto</string>
+    <string name="analyzer_content_open_externally_action">Avaa tiedostonhallinnassa</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper-istunto luotu %d kohteella</item>
         <item quantity="other">Swiper-istunto luotu %d kohteella</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Kuvat, videot, äänet ja muut mediatiedostot.</string>
     <string name="analyzer_storage_content_type_system_label">Järjestelmä</string>
     <string name="analyzer_storage_content_type_system_description">Käyttöjärjestelmä ja järjestelmäsovellukset.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Muita käyttäjiä ei voitu mitata kokonaan, joten tämä kokonaismäärä saattaa sisältää osan heidän tallennustilastaan.</string>
     <string name="analyzer_storage_content_type_system_other_label">Muut</string>
     <string name="analyzer_storage_content_type_system_info">Tiedostot, jotka eivät sovi Sovellukset- tai Käyttäjätiedostot-luokkiin. Vain selaus — poistamista ei tueta. Jotkin alueet saattavat olla puutteellisia käyttörajoitusten vuoksi.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Tiedostoja ei voida tällä hetkellä yhdistää niiden omistajasovelluksiin. Koot näytetään vain viitteeksi — poistaminen, suodattimet ja Swiper ovat poissa käytöstä.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Järjestelmätiedostot ja muut tiedot, joihin SD Maid ei päässyt käsiksi tai joita se ei pystynyt luokittelemaan. Käyttöjärjestelmä rajoittaa joidenkin alueiden sisällön listaamista.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Muut käyttäjät</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Sovellukset ja tiedostot, jotka kuuluvat laitteen muille käyttäjille tai työprofiileille.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Vain sovellustiedot, tämän käyttäjän jaettuja tiedostoja ei ole mukana.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Koko ei ole saatavilla, tämän käyttäjän tallennustilaa ei voida lukea.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Toisen käyttäjän tallennustilaa tällä laitteella. Vain selaus, poistoa ei tueta.</string>
     <string name="analyzer_storage_content_app_code_label">Koodi</string>
     <string name="analyzer_storage_content_app_code_description">Sovelluksen asennustiedostot (APK ja muut välimuistiin tallennetut tiedostot).</string>
     <string name="analyzer_storage_content_app_data_label">Tiedot</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Tämä sovellus vie %1$s tilaa kohteessa \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Tämä sovellus on arkistoitu.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 päivässä</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Tilaa jäljellä noin %d päivä tällä vauhdilla</item>
+        <item quantity="other">Tilaa jäljellä noin %d päivää tällä vauhdilla</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Tallennustila</string>
+    <string name="analyzer_settings_lowstorage_title">Vähäisen tilan kynnysarvo</string>
+    <string name="analyzer_settings_lowstorage_desc">Kun vapaa tila laskee tämän alle, SD Maid katsoo tallennustilan olevan loppumassa.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automaattinen (nyt %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automaattinen</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automaattinen</string>
+    <string name="analyzer_settings_lowspace_notification_title">Vähäisen tilan varoitus</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Saat ilmoituksen ennen kuin tallennustila loppuu.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Älä jää koskaan tilan loppumisen yllättämäksi</string>
+    <string name="analyzer_lowspace_hint_body">Päivitä, niin saat varoituksen ennen kuin tallennustila loppuu, jotta voit siivota vielä silloin, kun tilaa on jäljellä.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Näe, mikä täyttää tallennustilasi. Analyzer näyttää, mihin tallennustilasi kuluu. Jokainen näistä korteista on tallennustilan lohko laitteessasi.</string>
     <string name="tour_analyzer_storage_body">Avaa tallennustila jakaaksesi sen sovelluksiin, mediaan ja tiedostoihin, jatka sitten napauttamalla löytääksesi suurimmat tilankäyttäjät.</string>

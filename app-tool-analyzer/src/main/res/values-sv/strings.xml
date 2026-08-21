@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Ingen direkt åtkomst tillgänglig</string>
     <string name="analyzer_content_create_swiper_session_action">Skapa Swiper-session</string>
+    <string name="analyzer_content_open_externally_action">Öppna i filhanteraren</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper-session skapad med %d objekt</item>
         <item quantity="other">Swiper-session skapad med %d objekt</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Tagna bilder, inspelade videor eller nedladdad data. All data som inte tillhör en specifik app.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdata</string>
     <string name="analyzer_storage_content_type_system_description">Systemappar och systemdata. Appar och data från andra användare, om flera användarkonton är inställda på denna enhet.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Andra användare kunde inte mätas fullständigt, så totalen kan inkludera en del av deras lagring.</string>
     <string name="analyzer_storage_content_type_system_other_label">Övriga</string>
     <string name="analyzer_storage_content_type_system_info">Filer som inte passar in i kategorierna Appar eller Användarfiler. Bläddra endast — borttagning stöds inte. Vissa områden kan vara ofullständiga på grund av åtkomstbegränsningar.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Filer kan inte matchas med de appar som äger dem för närvarande. Storlekar visas endast för referens — radering, filter och Swiper är inaktiverade.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Systemfiler och andra data som SD Maid inte kunde komma åt eller kategorisera. Operativsystemet begränsar listning av innehållet i vissa områden.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Andra användare</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Appar och filer som tillhör andra användare eller jobbprofiler på den här enheten.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Endast appdata, den här användarens delade filer ingår inte.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Storlek ej tillgänglig, den här användarens lagring kan inte läsas.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Lagring för en annan användare på den här enheten. Endast bläddring, radering stöds inte.</string>
     <string name="analyzer_storage_content_app_code_label">Appkod</string>
     <string name="analyzer_storage_content_app_code_description">Applikationsfiler, bibliotek och resurser. Detta utrymme kan frigöras genom att avinstallera appen eller arkivera den (tillgängligt på nyare Android-versioner).</string>
     <string name="analyzer_storage_content_app_data_label">Appdata</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Denna app upptar %1$s på \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Denna app har arkiverats.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s på 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Ungefär %d dag utrymme kvar i den här takten</item>
+        <item quantity="other">Ungefär %d dagar utrymme kvar i den här takten</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Lagring</string>
+    <string name="analyzer_settings_lowstorage_title">Tröskel för lågt lagringsutrymme</string>
+    <string name="analyzer_settings_lowstorage_desc">När ledigt utrymme sjunker under det här värdet betraktar SD Maid lagringen som på väg att ta slut.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatiskt (för närvarande %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatiskt</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatiskt</string>
+    <string name="analyzer_settings_lowspace_notification_title">Varning för lågt utrymme</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Få en avisering innan lagringsutrymmet tar slut.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Bli aldrig överrumplad av platsbrist</string>
+    <string name="analyzer_lowspace_hint_body">Uppgradera för att få en varning innan lagringsutrymmet tar slut, så att du kan städa medan det fortfarande finns utrymme att arbeta med.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Se vad som faktiskt fyller ditt lagringsutrymme. Analyzer kartlägger var ditt utrymme går. Var och en av dessa kort är ett lagringschip på din enhet.</string>
     <string name="tour_analyzer_storage_body">Öppna en lagring för att dela upp den i appar, media och filer, fortsätt sedan att trycka för att spåra de största förbrytarna.</string>

@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root хандалт</string>
     <string name="setup_root_card_body">SD Maid root хандалт байгаа бол ашиглах уу? Root хандалтаар нэмэлт системийн фолдер болон хувийн аппликешний өгөгдлийг шалгах боломжтой.</string>
     <string name="setup_root_state_ready_label">Root хандалт бэлэн байна.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Үндсэн хандалт байхгүй</string>
+    <string name="setup_root_state_failed_title">Үндсэн нэвтэлт амжилтгүй</string>
+    <string name="setup_root_state_failed_body">SD Maid үндсэн нэвтэлт хүссэн боловч авч чадаагүй. Хэрэв таны төхөөрөмж үндсэн нэвтэлттэй бол үндсэн менежерээ нээж (Magisk, KernelSU гэх мэт) SD Maid-ийн хүсэлт татгалзагдсан эсвэл хүлээгдэж байгаа эсэхийг шалгаж үзээрэй.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid үндсэн нэвтэлт хүссэн боловч авч чадаагүй, мөн үндсэн менежер илэрсэнгүй. Хэрэв таны төхөөрөмж далд буюу суулгасан үндсэн нэвтэлт ашигладаг бол дахин оролдоно уу.</string>
     <string name="setup_root_enable_root_use_label">Үндсэн хандалтаар оролдох</string>
     <string name="setup_root_disable_root_use_label">Төхөөромжөө үндсэллээгүй</string>
     <string name="setup_root_card_body2">Зөвхөн root эрхтэй төхөөрөмжид боломжтой. Хэрэв та энэ өөрчлөлтийг хийсэн биш бол таны төхөөрөмж root эрхгүй бөгөөд энэ тохиргоо ямар ч нөлөө үзүүлэхгүй.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku холболт бэлэн байна.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku-тай холбогдохыг хүлээж байна.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku програм суусан байхгүй байна.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku холбогдол амжилтгүй</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku ажиллаж байгаа боловч SD Maid-ийг түүний туслах үйлчилгээтэй холбосонгүй.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Зарим төхөөрөмжүүд туслах үйлчилгээ эхлэхийг зогсоож буй мэдэгдэж байгаа Shizuku асуудлаас нөлөөлсөн. Энэ нь тэдгээрийн нэг байж болно.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku-аар оролдох</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ашиглахгүй</string>
     <string name="setup_dismiss_hint">Та тохиргооны цэснээс тохиргооны дэлгэцийг дахин олох боломжтой.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Боломжит төхөөрөмжийн хязгаарлалт</string>
     <string name="setup_inventory_limitation_body">Шаардлагатай зөвшөөрлүүд олгогдсон мэт харагдж байгаа ч систем суулгасан апп-ийн бүрэн бус жагсаалтыг буцааж өгсөн.</string>
     <string name="setup_inventory_limitation_body2">Зарим төхөөрөмжүүд (жнь HarmonyOS) апп-уудын бүрэн жагсаалтыг үргэлж өгдөггүй. Таны өгөгдлийг хамгаалахын тулд апп-тай холбоотой хэрэгслүүд идэвхгүй хэвээр байна, гэхдээ та сан ашиглалтыг багассан дэлгэрэнгүйгээр үзэх боломжтой.</string>
+    <string name="setup_inventory_probe_failed_title">Аппликейшнуудын жагсаалтыг унших боломжгүй байв</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid Android-аас суулгасан аппликейшнуудын жагсаалтыг хүссэн боловч хүсэлт амжилтгүй болсон. Аппликейшн холбогдолтой хэрэгслүүд энэ ажиллах хүртэл идэвхгүй байна. Дахин оролдох нь туслаж болно.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid сканнердах боломжтой өгөгдлийн бүс олсонгүй. Та тохиргоог дуусгасан уу?</string>
     <string name="dataarea_warningcard_label">Өгөгдлийн бүсүүд</string>
     <string name="dataarea_warningcard_reload_action">Өгөгдлийн бүсүүдийг дахин ачаалах</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Сан ашиглалт болон нэг товшилтын цэвэрлэлт</string>
     <string name="widget_home_storage_internal">Дотоод</string>
     <string name="widget_home_storage_external">Гадаад</string>
-    <string name="widget_home_freed_label">Ашиглалтын хугацаа: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Нийт чөлөөлөгдсөн: %1$s</string>
     <string name="widget_home_clean_action">Цэвэрлэх</string>
     <string name="widget_home_working">Ажиллаж байна…</string>
     <string name="widget_home_unavailable">Сан боломжгүй</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Энэ резервийн түүхийн өгөгдөл (статистик, шахалтын түүх, шүүрдэх сессиүүд) өөр аппын хувилбарын үтээстэй тул сэргээгдэх боломжгүй. Бусад бүх зүйл сэргээгдэх болно.</string>
     <string name="backup_restore_ack_understand">Би ойлгосон бөгөөд үргэлжлүүлэхийг хүсч байна</string>
     <string name="backup_restore_action_restore">Сэргээх</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Санах ойн анхааруулга</string>
+    <string name="stats_lowspace_notification_title">Санах ой дүүрэж байна</string>
+    <string name="stats_lowspace_notification_low_title">Санах ой бараг дүүрэв</string>
+    <string name="stats_lowspace_notification_low_body">%1$s чөлөө. Санах ой шавхагдаж байна.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Энэ хурдаар ойролцоогоор %1$d өдрийн санах ой үлдсэн. %2$s чөлөө.</item>
+        <item quantity="other">Энэ хурдаар ойролцоогоор %1$d өдрийн санах ой үлдсэн. %2$s чөлөө.</item>
+    </plurals>
 </resources>

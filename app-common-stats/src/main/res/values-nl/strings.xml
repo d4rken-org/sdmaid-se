@@ -12,20 +12,20 @@
          personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
          register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
-        <item quantity="one">Al %d dag je gast.</item>
-        <item quantity="other">Al %d dagen je gast.</item>
+        <item quantity="one">Je gast voor %d dag.</item>
+        <item quantity="other">Je gast voor %d dagen.</item>
     </plurals>
     <plurals name="stats_dash_since_weeks">
-        <item quantity="one">Al %d week je gast.</item>
-        <item quantity="other">Al %d weken je gast.</item>
+        <item quantity="one">Je gast voor %d week.</item>
+        <item quantity="other">Je gast voor %d weken.</item>
     </plurals>
     <plurals name="stats_dash_since_months">
-        <item quantity="one">Al %d maand je gast.</item>
-        <item quantity="other">Al %d maanden je gast.</item>
+        <item quantity="one">Je gast voor %d maand.</item>
+        <item quantity="other">Je gast voor %d maanden.</item>
     </plurals>
     <plurals name="stats_dash_since_years">
         <item quantity="one">Al %d jaar je gast.</item>
-        <item quantity="other">Al %d jaar je gast.</item>
+        <item quantity="other">Je gast voor %d jaar.</item>
     </plurals>
     <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
     <string name="stats_report_status_partial_failure">Mislukt</string>
@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
     <string name="stats_space_history_upgrade_title">Volledige geschiedenis is een Pro-functie</string>
     <string name="stats_space_history_upgrade_body">Upgrade om de volledige 90-daagse trendweergave voor elk opslagapparaat te ontgrendelen.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Upgrade om de volledige trendweergave van 90 dagen voor elk opslagapparaat te ontgrendelen en een waarschuwing te krijgen voordat je ruimte opraakt.</string>
     <string name="stats_space_history_marker_freed">%1$s vrijgemaakt</string>
     <string name="stats_storage_type_primary">Primaire opslag</string>
     <string name="stats_storage_type_secondary">Secundaire opslag</string>

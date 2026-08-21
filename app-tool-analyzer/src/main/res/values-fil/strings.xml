@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Walang direktang access na available</string>
     <string name="analyzer_content_create_swiper_session_action">Gumawa ng Swiper session</string>
+    <string name="analyzer_content_open_externally_action">Buksan sa file manager</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Nagawa ang Swiper session na may %d item</item>
         <item quantity="other">Nagawa ang Swiper session na may %d mga item</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Mga nakuhang larawan, naka-record na video o na-download na data. Anumang data na hindi kabilang sa isang tukoy na app.</string>
     <string name="analyzer_storage_content_type_system_label">Data ng sistema</string>
     <string name="analyzer_storage_content_type_system_description">Mga system app at system data. Mga app at data mula sa ibang mga user, kung may mga user account na naka-set sa device na ito.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Ang ibang mga user ay hindi lubos na nasusukat, kaya ang kabuuang ito ay maaaring kasama ang ilang sa kanilang storage.</string>
     <string name="analyzer_storage_content_type_system_other_label">Iba</string>
     <string name="analyzer_storage_content_type_system_info">Mga file na hindi akma sa kategorya ng Apps o User files. Browse lamang — hindi sinusuportahan ang pagtanggal. Maaaring hindi kumpleto ang ilang lugar dahil sa mga paghihigpit sa access.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Ang mga file ay hindi maaaring ma-match sa mga app na nag-own sa kanila ngayon. Ang mga sukat ay ipinapakita lamang para sa referensya — hindi available ang deletion, filters at Swiper.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Mga system file at iba pang data na hindi ma-access o ma-kategorya ng SD Maid. Nililimitahan ng operating system ang paglilista ng mga nilalaman ng ilang lugar.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Ibang mga user</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Mga app at file na kabilang sa ibang mga user o work profile sa device na ito.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">App data lamang, ang mga shared file ng user na ito ay hindi kasama.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Unavailable ang laki, ang storage ng user na ito ay hindi mabasa.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Storage ng ibang user sa device na ito. Maaari lamang tingnan, ang pagtanggal ay hindi sinusuportahan.</string>
     <string name="analyzer_storage_content_app_code_label">Code ng app</string>
     <string name="analyzer_storage_content_app_code_description">Mga application file, library at resource. Ang space na ito ay maaaring ma-free sa pamamagitan ng pag-uninstall ng app o pag-archive nito (available sa mas bagong Android version).</string>
     <string name="analyzer_storage_content_app_data_label">Data ng app</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ang app na ito ay sumusukat ng %1$s sa \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ang app na ito ay naka-archive.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s sa loob ng 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Humigit-kumulang %d araw na puwang sa rate na ito</item>
+        <item quantity="other">Humigit-kumulang %d araw na puwang sa rate na ito</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Storage</string>
+    <string name="analyzer_settings_lowstorage_title">Mababang storage threshold</string>
+    <string name="analyzer_settings_lowstorage_desc">Kapag bumaba ang libreng puwang sa ibaba nito, tinatrato ng SD Maid ang storage na nauubos na.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Awtomatiko (kasalukuyang %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Awtomatiko</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Awtomatiko</string>
+    <string name="analyzer_settings_lowspace_notification_title">Babala ng mababang puwang</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Makatanggap ng notification bago maubos ang iyong storage.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Hindi kailanman matipit nang walang puwang</string>
+    <string name="analyzer_lowspace_hint_body">I-upgrade upang makatanggap ng babala bago maubos ang storage, upang makapaglinis habang mayroon pang puwang.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Makita kung ano ang tunay na kumukuha ng iyong storage. Ang Analyzer ay nagbibigay ng mapa kung saan napupunta ang iyong espasyo. Bawat isa sa mga cardong ito ay kumakatawan sa isang storage chip sa iyong device.</string>
     <string name="tour_analyzer_storage_body">Magbukas ng storage upang i-breakdown ito sa mga apps, media at files, pagkatapos ay magpatuloy na mag-tap upang mahanap ang pinakamalaking item.</string>
