@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.saf
+package testhelpers.saf
 
 import android.content.ContentProvider
 import android.content.ContentResolver
@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.os.CancellationSignal
 import android.os.ParcelFileDescriptor
 import android.provider.DocumentsContract
+import eu.darken.sdmse.common.files.saf.SAFDocFile
 
 /**
  * Restores production-equivalent query dispatch for a [FakeDocumentsProvider] running under Robolectric.

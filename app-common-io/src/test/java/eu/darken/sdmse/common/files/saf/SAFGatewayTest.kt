@@ -37,6 +37,9 @@ import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
 import testhelpers.coroutine.runTest2
+import testhelpers.saf.FakeDocumentsProvider
+import testhelpers.saf.LegacyQueryShimProvider
+import testhelpers.saf.SafTestHarness
 import java.time.Instant
 
 @RunWith(RobolectricTestRunner::class)

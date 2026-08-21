@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.saf
+package testhelpers.saf
 
 import android.Manifest
 import android.content.ComponentName
@@ -11,6 +11,9 @@ import android.content.pm.ProviderInfo
 import android.net.Uri
 import android.provider.DocumentsContract
 import androidx.core.net.toUri
+import eu.darken.sdmse.common.files.saf.SAFDocFile
+import eu.darken.sdmse.common.files.saf.SAFGateway
+import eu.darken.sdmse.common.files.saf.SAFPath
 import kotlinx.coroutines.CoroutineScope
 import org.robolectric.Robolectric
 import org.robolectric.RuntimeEnvironment
