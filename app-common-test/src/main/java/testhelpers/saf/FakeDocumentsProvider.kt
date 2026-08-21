@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.files.saf
+package testhelpers.saf
 
 import android.database.Cursor
 import android.database.MatrixCursor
@@ -7,6 +7,8 @@ import android.os.ParcelFileDescriptor
 import android.provider.DocumentsContract.Document
 import android.provider.DocumentsContract.Root
 import android.provider.DocumentsProvider
+import eu.darken.sdmse.common.files.saf.SAFDocFile
+import eu.darken.sdmse.common.files.saf.SAFGateway
 import java.io.File
 import java.io.FileNotFoundException
 

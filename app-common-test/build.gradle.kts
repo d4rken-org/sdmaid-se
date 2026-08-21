@@ -30,6 +30,8 @@ setupKotlinOptions()
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
     implementation(project(":app-common"))
+    // The SAF test harness (testhelpers/saf) drives the real SAFGateway/SAFDocFile.
+    implementation(project(":app-common-io"))
 
     addAndroidCore()
     addIO()

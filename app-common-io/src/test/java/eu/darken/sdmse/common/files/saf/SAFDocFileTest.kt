@@ -29,6 +29,9 @@ import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
+import testhelpers.saf.FakeDocumentsProvider
+import testhelpers.saf.LegacyQueryShimProvider
+import testhelpers.saf.SafTestHarness
 import java.io.FileNotFoundException
 import java.time.Instant
 
