@@ -21,6 +21,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Neposredni dostop ni na voljo.</string>
     <string name="analyzer_content_create_swiper_session_action">Ustvari sejo Drsnika</string>
+    <string name="analyzer_content_open_externally_action">Odpri v upravljavniku datotek</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Seja Drsnika je bila ustvarjena z %d-im predmetom.</item>
         <item quantity="two">Seja Drsnika je bila ustvarjena z %d-ma predmetoma.</item>
@@ -42,10 +43,16 @@
     <string name="analyzer_storage_content_type_media_description">Posnete slike, videoposnetki in prejeti podatki.  Vsi podatki, ki ne pripadajo nobenemu določenemu programu.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemski podatki</string>
     <string name="analyzer_storage_content_type_system_description">Sistemski programi in podatki.  Programi in podatki drugih uporabnikov, če je na napravi več uporabniških računov.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Drugih uporabnikov ni bilo mogoče v celoti izmeriti, zato ta skupna vrednost lahko vključuje del njihove shrambe.</string>
     <string name="analyzer_storage_content_type_system_other_label">Drugo</string>
     <string name="analyzer_storage_content_type_system_info">Datoteke, ki ne spadajo v kategorijo Programi ali Uporabniške datoteke.  Samo za brskanje — brisanje ni podprto.  Nekatera področja so morda nepopolna zaradi omejitev dostopa.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Datotek trenutno ni mogoče povezati z aplikacijami, ki jim pripadajo. Velikosti so prikazane samo informativno — brisanje, filtri in Swiper so onemogočeni.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistemske datoteke in drugi podatki, do katerih SD Maid ni mogel dostopati ali jih razvrstiti. Operacijski sistem omejuje izpisovanje vsebine nekaterih področij.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Drugi uporabniki</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Aplikacije in datoteke, ki pripadajo drugim uporabnikom ali delovnim profilom na tej napravi.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Samo podatki aplikacij, skupne datoteke tega uporabnika niso vključene.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Velikost ni dostopna, shrambe tega uporabnika ni mogoče prebrati.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Shramba drugega uporabnika na tej napravi. Samo brskanje, brisanje ni podprto.</string>
     <string name="analyzer_storage_content_app_code_label">Programska koda</string>
     <string name="analyzer_storage_content_app_code_description">Programske datoteke, knjižnice in viri.  Ta prostor lahko sprostite z odstranitvijo ali arhiviranjem (na voljo v novejših različicah Androida) programa.</string>
     <string name="analyzer_storage_content_app_data_label">Programski podatki</string>
@@ -57,6 +64,24 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ta program zaseda %1$s na \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ta program je bil arhiviran.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s v 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Približno %d dan prostora pri tej stopnji</item>
+        <item quantity="two">Približno %d dni prostora pri tej stopnji</item>
+        <item quantity="few">Približno %d dni prostora pri tej stopnji</item>
+        <item quantity="other">Približno %d dni prostora pri tej stopnji</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Prostor</string>
+    <string name="analyzer_settings_lowstorage_title">Prag nizke shrambe</string>
+    <string name="analyzer_settings_lowstorage_desc">Če prosti prostor pade pod to vrednost, SD Maid tretira shrambo kot skoraj polno.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Samodejno (trenutno %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Samodejno</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Samodejno</string>
+    <string name="analyzer_settings_lowspace_notification_title">Opozorilo o nizkem prostoru</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Prejmi obvestilo, preden ti zmanjka prostora.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Nikoli ne ostani brez prostora</string>
+    <string name="analyzer_lowspace_hint_body">Nadgradi se, da preješ opozorilo, preden ti zmanjka prostora, in da lahko počistiš, medtem ko je še prostor za delo.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Poglejte, kaj dejansko zapolnjuje vašo shrambo.  Analizator prikaže, kam gre vaš prostor.  Vsaka od teh kartic predstavlja čip shrambe na vaši napravi.</string>
     <string name="tour_analyzer_storage_body">Odprite shrambo, da jo razdelite na programe, predstavnost in datoteke, nato pa nadaljujte z dotikanjem, da najdete največje povzročitelje.</string>

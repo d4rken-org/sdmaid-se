@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Accesso non disponibile</string>
     <string name="analyzer_content_create_swiper_session_action">Crea sessione Swiper</string>
+    <string name="analyzer_content_open_externally_action">Apri nel file manager</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Sessione Swiper creata con %d elemento</item>
         <item quantity="other">Sessione Swiper creata con %d elementi</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Foto e video dalla fotocamera o dati scaricati. Tutti i dati che non appartengono a una specifica app.</string>
     <string name="analyzer_storage_content_type_system_label">Dati di sistema</string>
     <string name="analyzer_storage_content_type_system_description">App di sistema e dati di sistema. Applicazioni e dati di altri utenti, se ci sono più account utente in questo dispositivo.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Non è stato possibile misurare completamente gli altri utenti, quindi questo totale potrebbe includere parte del loro spazio di archiviazione.</string>
     <string name="analyzer_storage_content_type_system_other_label">Altro</string>
     <string name="analyzer_storage_content_type_system_info">File che non rientrano nelle categorie App o File utente. Solo navigazione — l\'eliminazione non è supportata. Alcune aree potrebbero essere incomplete a causa di restrizioni di accesso.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">I file non possono essere abbinati alle app che li possiedono al momento. Le dimensioni sono mostrate solo a scopo informativo — eliminazione, filtri e Swiper sono disabilitati.</string>
     <string name="analyzer_storage_content_type_system_other_desc">File di sistema e altri dati a cui SD Maid non ha potuto accedere o categorizzare. Il sistema operativo limita l\'elenco dei contenuti di alcune aree.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Altri utenti</string>
+    <string name="analyzer_storage_content_type_otherusers_description">App e file che appartengono ad altri utenti o profili di lavoro su questo dispositivo.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Solo i dati dell\'app, i file condivisi di questo utente non sono inclusi.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Dimensione non disponibile, lo spazio di archiviazione di questo utente non può essere letto.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Memoria di un altro utente su questo dispositivo. Solo consultazione, l\'eliminazione non è supportata.</string>
     <string name="analyzer_storage_content_app_code_label">Codice app</string>
     <string name="analyzer_storage_content_app_code_description">File di applicazioni, librerie e risorse. Questo spazio può essere liberato disinstallando l\'app oppure archiviandola (disponibile nella versione di android più recente).</string>
     <string name="analyzer_storage_content_app_data_label">Dati app</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Questa app occupa %1$s di \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">L\'applicazione è stata archiviata.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7g</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Circa %d giorno di spazio rimasto a questo ritmo</item>
+        <item quantity="other">Circa %d giorni di spazio rimasto a questo ritmo</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Archiviazione</string>
+    <string name="analyzer_settings_lowstorage_title">Soglia di spazio di archiviazione basso</string>
+    <string name="analyzer_settings_lowstorage_desc">Quando lo spazio libero scende al di sotto di questo, SD Maid tratta l\'archiviazione come se si stesse esaurendo.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatico (attualmente %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatico</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatico</string>
+    <string name="analyzer_settings_lowspace_notification_title">Avviso di spazio basso</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Ricevi una notifica prima che lo spazio di archiviazione si esaurisca.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Non restare mai senza spazio</string>
+    <string name="analyzer_lowspace_hint_body">Effettua l\'upgrade per ricevere un avviso prima che lo spazio di archiviazione si esaurisca, così puoi ripulire mentre c\'è ancora spazio per lavorare.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Scopri cosa sta effettivamente riempiendo la tua archiviazione. Analyzer mostra dove va il tuo spazio. Ognuna di queste schede è un chip di archiviazione sul tuo dispositivo.</string>
     <string name="tour_analyzer_storage_body">Apri un’archiviazione per suddividerla in app, contenuti multimediali e file, quindi continua a toccare per trovare i responsabili più grandi.</string>

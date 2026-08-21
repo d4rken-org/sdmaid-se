@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Няма наличен директен достъп</string>
     <string name="analyzer_content_create_swiper_session_action">Създаване на Swiper сесия</string>
+    <string name="analyzer_content_open_externally_action">Отвори във файлов мениджър</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper сесия създадена с %d елемент</item>
         <item quantity="other">Swiper сесия създадена с %d елемента</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Заснети снимки, записани видеа или изтеглени данни. Всякакви данни, които не принадлежат на конкретно приложение.</string>
     <string name="analyzer_storage_content_type_system_label">Системни данни</string>
     <string name="analyzer_storage_content_type_system_description">Системни приложения и системни данни. Приложения и данни от други потребители, ако са настроени няколко потребителски акаунта на това устройство.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Другите потребители не можаха да бъдат измерени напълно, така че тази обща стойност може да включва част от тяхното хранилище.</string>
     <string name="analyzer_storage_content_type_system_other_label">Друго</string>
     <string name="analyzer_storage_content_type_system_info">Файлове, които не попадат в категориите Приложения или Потребителски файлове. Само преглеждане — изтриването не се поддържа. Някои области може да са непълни поради ограничения достъп.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Файловете не могат да бъдат съпоставени с приложенията, които ги притежават в момента. Размерите се показват само за справка — изтриването, филтрите и Swiper са деактивирани.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Системни файлове и други данни, до които SD Maid не може да получи достъп или да категоризира. Операционната система ограничава изброяването на съдържанието на някои области.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Други потребители</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Приложения и файлове, принадлежащи на други потребители или работни профили на това устройство.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Само данни на приложения, споделените файлове на този потребител не са включени.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Размерът не е наличен, хранилището на този потребител не може да бъде прочетено.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Хранилище на друг потребител на това устройство. Само разглеждане, изтриването не се поддържа.</string>
     <string name="analyzer_storage_content_app_code_label">Код на приложение</string>
     <string name="analyzer_storage_content_app_code_description">Файлове на приложения, библиотеки и ресурси. Това място може да бъде освободено чрез деинсталиране на приложението или архивирането му (налично в по-нови версии на Android).</string>
     <string name="analyzer_storage_content_app_data_label">Данни на приложение</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Това приложение заема %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Това приложение е архивирано.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дни</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">При това темпо остава около %d ден свободно място</item>
+        <item quantity="other">При това темпо остават около %d дни свободно място</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Хранилище</string>
+    <string name="analyzer_settings_lowstorage_title">Праг за ниско свободно място</string>
+    <string name="analyzer_settings_lowstorage_desc">Когато свободното място падне под тази стойност, SD Maid счита, че хранилището е на изчерпване.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Автоматично (в момента %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Автоматично</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Автоматично</string>
+    <string name="analyzer_settings_lowspace_notification_title">Предупреждение за ниско свободно място</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Получавай известие, преди хранилището ти да се изчерпи.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Никога не бъди изненадан от свършило място</string>
+    <string name="analyzer_lowspace_hint_body">Надгради, за да получаваш предупреждение, преди хранилището ти да се изчерпи, така че да можеш да почистиш, докато все още има място за работа.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Вижте какво действително запълва вашето хранилище. Analyzer показва къде отива вашето място. Всяка от тези карти е чип за съхранение на вашето устройство.</string>
     <string name="tour_analyzer_storage_body">Отворете хранилище, за да го разградите на приложения, медия и файлове, след което продължавайте да докосвате, за да намерите най-големите виновници.</string>

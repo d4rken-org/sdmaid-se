@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s ku-%2$s</string>
     <string name="stats_space_history_upgrade_title">Umlando ophelele iwuchiphile we-Pro</string>
     <string name="stats_space_history_upgrade_body">Thuthukela ukuvula ukubuka ukulandelela okugcwele kwezinsuku eziyi-90 kwaleso naleso sifiso sesitoreji.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Thuthukisa ukuze avule umbukeli we-trend wezinsuku ezingama-90 ozuphelele ubaba yonke idivayisi yesikholo, futhi uthole isexwayiso ngaphambi kokuba isikholo sakho siyophela.</string>
     <string name="stats_space_history_marker_freed">Kukhishiwe %1$s</string>
     <string name="stats_storage_type_primary">Isitoreji esiyinhloko</string>
     <string name="stats_storage_type_secondary">Isitoreji sesibili</string>

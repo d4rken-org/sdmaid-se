@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Permessi di root</string>
     <string name="setup_root_card_body">SD Maid può accedere ai permessi di root se disponibili? I permessi di root vengono usati per controllare cartelle di sistema aggiuntive e dati privati delle applicazioni.</string>
     <string name="setup_root_state_ready_label">I permessi di root sono disponibili.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">L’accesso root non è disponibile.</string>
+    <string name="setup_root_state_failed_title">Accesso root non riuscito</string>
+    <string name="setup_root_state_failed_body">SD Maid ha richiesto l\'accesso root e non l\'ha ottenuto. Se il tuo dispositivo è rooted, apri il tuo gestore root (Magisk, KernelSU o simili) e verifica se la richiesta di SD Maid è stata negata o è ancora in attesa.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ha richiesto l\'accesso root e non l\'ha ottenuto, e non è stata rilevata alcuna app gestore root. Se il tuo dispositivo utilizza root nascosto o integrato, riprova.</string>
     <string name="setup_root_enable_root_use_label">Prova a utilizzare l’accesso root</string>
     <string name="setup_root_disable_root_use_label">Non ho effettuato il root del mio dispositivo</string>
     <string name="setup_root_card_body2">Disponibile solo su dispositivi rootati. Se non hai effettuato questa modifica, il tuo dispositivo non è rootato e questa impostazione non ha alcun effetto.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Il collegamento a Shizuku è pronto.</string>
     <string name="setup_shizuku_state_waiting_label">In attesa del collegamento con Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">L\'app Shizuku non è installata.</string>
+    <string name="setup_shizuku_state_failed_title">Collegamento Shizuku non riuscito</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku è in esecuzione, ma non ha mai connesso SD Maid al suo servizio helper.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Alcuni dispositivi sono interessati da un problema noto di Shizuku che impedisce l\'avvio del servizio helper. Questo potrebbe essere uno di loro.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Prova a utilizzare Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Non usare Shizuku</string>
     <string name="setup_dismiss_hint">Puoi riconfigurare la schermata iniziale nel menu delle impostazioni.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Possibile limitazione del dispositivo</string>
     <string name="setup_inventory_limitation_body">Il sistema ha restituito un elenco incompleto di app installate, nonostante i permessi richiesti sembrino essere concessi.</string>
     <string name="setup_inventory_limitation_body2">Alcuni dispositivi (ad es. HarmonyOS) non forniscono mai un elenco completo di app. Per proteggere i tuoi dati, gli strumenti relativi alle app rimangono disabilitati, ma puoi comunque visualizzare l’utilizzo dello spazio di archiviazione con dettagli ridotti.</string>
+    <string name="setup_inventory_probe_failed_title">Impossibile leggere l\'elenco delle app</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ha chiesto ad Android l\'elenco delle app installate e la richiesta non è riuscita. Gli strumenti relativi alle app rimangono disabilitati finché non funziona. Riprovare potrebbe aiutare.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid non ha trovato nessuna area da scansionare. Hai completato il setup?</string>
     <string name="dataarea_warningcard_label">Aree di dati</string>
     <string name="dataarea_warningcard_reload_action">Ricarica le aree di dati</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Utilizzo dello spazio di archiviazione e pulizia con un tocco</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Esterno</string>
-    <string name="widget_home_freed_label">Durata: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Totale liberato: %1$s</string>
     <string name="widget_home_clean_action">Pulisci</string>
     <string name="widget_home_working">In elaborazione…</string>
     <string name="widget_home_unavailable">Archiviazione non disponibile</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">I dati cronologici di questo backup (statistiche, cronologia della compressione, sessioni di swipe) provengono da una versione diversa dell’app e non possono essere ripristinati. Tutto il resto verrà ripristinato.</string>
     <string name="backup_restore_ack_understand">Ho capito e voglio continuare</string>
     <string name="backup_restore_action_restore">Ripristina</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Avvisi di spazio di archiviazione</string>
+    <string name="stats_lowspace_notification_title">Lo spazio di archiviazione si sta riempiendo</string>
+    <string name="stats_lowspace_notification_low_title">Lo spazio di archiviazione è quasi pieno</string>
+    <string name="stats_lowspace_notification_low_body">%1$s libero. Lo spazio di archiviazione si sta esaurendo.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Circa %1$d giorno di spazio rimasto a questo ritmo. %2$s libero.</item>
+        <item quantity="other">Circa %1$d giorni di spazio rimasto a questo ritmo. %2$s libero.</item>
+    </plurals>
 </resources>

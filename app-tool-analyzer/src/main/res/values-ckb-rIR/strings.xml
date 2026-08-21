@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">دەسترسی ڕاستەوخۆ بەردەست نییە</string>
     <string name="analyzer_content_create_swiper_session_action">دروستکردنی سێشنی Swiper</string>
+    <string name="analyzer_content_open_externally_action">لە بەڕێوەبەری فایلدا بکەرەوە</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">سێشنی Swiper دروستکرا بە %d بابەت</item>
         <item quantity="other">سێشنی Swiper دروستکرا بە %d بابەت</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">وێنەی وێنەگیراو، ڤیدیۆی تۆمارکراو یان داتای داونلۆدکراو. هەر داتاییکە بەلونگی ئەپێکی دیاریکراو نابێت.</string>
     <string name="analyzer_storage_content_type_system_label">داتای سیستەم</string>
     <string name="analyzer_storage_content_type_system_description">بەرنامە و داتاکانی سیستەم. بەرنامە و داتای بەکارهێنەرانی تر، ئەگەر چەندین هەژمار لەسەر ئەم ئامێرە ڕێکخراوبێن.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">بەکارهێنەرانی تر بە تەواوی نەپێوران، بۆیە ئەم کۆیە لەوانەیە بەشێک لە بیرگەی ئەوانیشی لەخۆبگرێت.</string>
     <string name="analyzer_storage_content_type_system_other_label">تر</string>
     <string name="analyzer_storage_content_type_system_info">فایلەکانی کە لە سەردەستەی بەرنامەکان یان فایلەکانی بەکارهێنەر ناگنجنەن. بێنین تەنھا ― سماچکردن پشتیوانیکرینیکەوە نییە. هەندێکێ ناحێگەکانی ھەندێکەکان لە هەگیری دەسترسی ناتەواو دەبێت.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">فایلەکان ناتوانرێن بگونجێندرێن بە ئەپلیکێشنەکانی خاوەنیان ئێستا. قەبارەکان تەنیا بۆ زانیاری نیشاندراون — سڕینەوە، پالاوتنەکان و Swiper ناچالاکن.</string>
     <string name="analyzer_storage_content_type_system_other_desc">فایلەکانی سیستەم و داتای ترەکە SD Maid دەسترسیی پێنێوابوو یان بەخشبەندیكردنییمن. سیستەمەکەی ڤەرمانروایی کۆمساییکێش ناوەكانی هەندێکێ ناحێگەکان بیست.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">بەکارهێنەرانی تر</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ئەپ و فایلەکانی سەر بە بەکارهێنەرانی تر یان پرۆفایلی کاری لەسەر ئەم ئامێرە.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">تەنها داتای ئەپ، فایلە هاوبەشەکانی ئەم بەکارهێنەرە لەخۆناگرێت.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">قەبارە بەردەست نییە، بیرگەی ئەم بەکارهێنەرە ناخوێنرێتەوە.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">بیرگەی بەکارهێنەرێکی تر لەسەر ئەم ئامێرە. تەنها گەڑان، سڕینەوە پشتگیری ناکرێت.</string>
     <string name="analyzer_storage_content_app_code_label">کۆدی بەرنامە</string>
     <string name="analyzer_storage_content_app_code_description">فایلەکانی بەرنامە، کتێبخانەکان و سەرچاوەکان. ئەم شوێنە دەتوانرێت بە لابردنی بەرنامەکە یان ئەرشیفکردنی ئازاد بکرێتەوە (بەردەستە لە وەرزیانی نویتری ئەندرۆید).</string>
     <string name="analyzer_storage_content_app_data_label">داتای بەرنامە</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ئەم ئەپە %1$s لەسەر \"%2$s\" دەیگێرێت.</string>
     <string name="analyzer_app_details_app_is_archived">ئەم ئەپە ئەرشیفکراوە.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s لە ٧ ڕۆژدا</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">بە پێی ئەم ڕێژەیە نزیکەی %d ڕۆژ بۆشایی ماوە</item>
+        <item quantity="other">بە پێی ئەم ڕێژەیە نزیکەی %d ڕۆژ بۆشایی ماوە</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">بیرگە</string>
+    <string name="analyzer_settings_lowstorage_title">سنووری کەمی بیرگە</string>
+    <string name="analyzer_settings_lowstorage_desc">کاتێک بۆشایی ئازاد لەم ئاستە خوارتر بێت، SD Maid بیرگە بە تەواوبوو دادەنێت.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ئۆتۆماتیکی (ئێستا %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ئۆتۆماتیکی</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ئۆتۆماتیکی</string>
+    <string name="analyzer_settings_lowspace_notification_title">ئاگاداری کەمی بۆشایی</string>
+    <string name="analyzer_settings_lowspace_notification_desc">پێش تەواوبوونی بیرگەکەت ئاگادارکردنەوە وەربگرە.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">هەرگیز لەناکاو بێ بۆشایی نەمێنیتەوە</string>
+    <string name="analyzer_lowspace_hint_body">بەرزکردنەوە بکە بۆ وەرگرتنی ئاگاداری پێش تەواوبوونی بیرگەکەت، بۆ ئەوەی بتوانیت پاکی بکەیتەوە کاتێک هێشتا بۆشایی هەیە بۆ کارکردن.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ببینە کە چی بە راستی بیرگەکەت پر دەکات. Analyzer نیشاندەدات کە جێگاکەت بۆ کوێ دەچێت. هەرێک لەم کارتانە تشیپێکی بیرگەیە لەسەر دەستگاکەت.</string>
     <string name="tour_analyzer_storage_body">بیرگەیەک بکەرەوە بۆ جیاکردنەوە بۆ ناو بەرنامە، مێدیا و فایلەکاندا، پاشان بەردەوام داکێشە بۆ دۆزینەوەی گەورەترین هۆکار.</string>

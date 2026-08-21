@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Pääkäyttäjäoikeudet</string>
     <string name="setup_root_card_body">Tulisiko SD Maidin käyttää pääkäyttäjäoikeuksia, jos ne ovat saatavilla? Pääkäyttäjäoikeuksia voidaan käyttää lisäjärjestelmäkansioiden ja yksityisten sovellustietojen tarkistamiseen.</string>
     <string name="setup_root_state_ready_label">Pääkäyttäjäoikeudet ovat valmiina.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root-käyttöoikeus ei ole saatavilla.</string>
+    <string name="setup_root_state_failed_title">Root-oikeuksien saanti epäonnistui</string>
+    <string name="setup_root_state_failed_body">SD Maid pyysi root-oikeuksia, mutta ei saanut niitä. Jos laitteesi on rootattu, avaa root-hallintasovelluksesi (Magisk, KernelSU tai vastaava) ja tarkista, hylättiinkö SD Maidin pyyntö vai odottaako se yhä.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid pyysi root-oikeuksia, mutta ei saanut niitä, eikä root-hallintasovellusta havaittu. Jos laitteesi käyttää piilotettua tai sisäänrakennettua root-oikeutta, yritä uudelleen.</string>
     <string name="setup_root_enable_root_use_label">Yritä käyttää root-käyttöoikeutta</string>
     <string name="setup_root_disable_root_use_label">En ole rootannut laitettani</string>
     <string name="setup_root_card_body2">Saatavilla vain root-laitteissa. Jos et ole tehnyt tätä muutosta, laitteesi ei ole root-laitteessa ja tällä asetuksella ei ole vaikutusta.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku-yhteys on valmis.</string>
     <string name="setup_shizuku_state_waiting_label">Odotetaan yhteyttä Shizukuun.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku-sovellusta ei ole asennettu.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku-yhteys epäonnistui</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku on käynnissä, mutta se ei koskaan yhdistänyt SD Maidia apupalveluunsa.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Joissakin laitteissa esiintyy tunnettu Shizuku-ongelma, joka estää apupalvelun käynnistymisen. Tämä saattaa olla yksi niistä.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Yritä käyttää Shizukua</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Älä käytä Shizukua</string>
     <string name="setup_dismiss_hint">Löydät asennusnäytön uudelleen asetusvalikosta.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Mahdollinen laitteen rajoitus</string>
     <string name="setup_inventory_limitation_body">Järjestelmä palautti epätäydellisen luettelon asennetuista sovelluksista, vaikka vaaditut käyttöoikeudet näyttävät olevan myönnetyt.</string>
     <string name="setup_inventory_limitation_body2">Jotkut laitteet (esim. HarmonyOS) eivät koskaan tarjoa täydellistä sovellusluetteloa. Tietojen suojelemiseksi sovelluksiin liittyvät työkalut pysyvät poissa käytöstä, mutta voit silti tarkastella tallennustilan käyttöä rajoitetussa yksityiskohtaisuudessa.</string>
+    <string name="setup_inventory_probe_failed_title">Sovellusluetteloa ei voitu lukea</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid pyysi Androidilta luetteloa asennetuista sovelluksista, mutta pyyntö epäonnistui. Sovelluksiin liittyvät työkalut pysyvät pois käytöstä, kunnes tämä toimii. Uudelleenyrittäminen saattaa auttaa.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei löytänyt tietoalueita, joita voitaisiin skannata. Suorititko asennuksen loppuun?</string>
     <string name="dataarea_warningcard_label">Tietoalueet</string>
     <string name="dataarea_warningcard_reload_action">Lataa tietoalueet uudelleen</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Tallennustilan käyttö ja yhden napautuksen puhdistus</string>
     <string name="widget_home_storage_internal">Sisäinen</string>
     <string name="widget_home_storage_external">Ulkoinen</string>
-    <string name="widget_home_freed_label">Elinaika: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Vapautettu yhteensä: %1$s</string>
     <string name="widget_home_clean_action">Puhdista</string>
     <string name="widget_home_working">Käynnissä…</string>
     <string name="widget_home_unavailable">Tallennustila ei saavutettavissa</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Tämän varmuuskopion historiatiedot (tilastot, pakkaamishistoria, pyyhkäisyistunnot) ovat eri sovellusversiosta, eikä niitä voida palauttaa. Kaikki muu palautetaan.</string>
     <string name="backup_restore_ack_understand">Ymmärrän ja haluan jatkaa</string>
     <string name="backup_restore_action_restore">Palauta</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Tallennustilan varoitukset</string>
+    <string name="stats_lowspace_notification_title">Tallennustila täyttyy</string>
+    <string name="stats_lowspace_notification_low_title">Tallennustila on lähes täynnä</string>
+    <string name="stats_lowspace_notification_low_body">%1$s vapaana. Tallennustila on loppumassa.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Tilaa jäljellä noin %1$d päivä tällä vauhdilla. %2$s vapaana.</item>
+        <item quantity="other">Tilaa jäljellä noin %1$d päivää tällä vauhdilla. %2$s vapaana.</item>
+    </plurals>
 </resources>

@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">ໄມ່ມີການໃຊ້ງານໂດຍຕຍງ</string>
     <string name="analyzer_content_create_swiper_session_action">ສ້າງເ໊ງະການ Swiper</string>
+    <string name="analyzer_content_open_externally_action">ເປີດໃນຕົວຈັດການໄຟລ໌</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">ສ້າງເງາການ Swiper ດ້ວຍ %d ລາຍການ</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">ພາບຖ່າຍຮູປ, ວິດີໂອທີ່ຊຶກໞ່ ຫຣືອຂ້ອມູນທີ່ດາວນໄອດ້. ຂ້ອມູນໃດໆທີ່ໄມ່ວ່າລະກັບແອບທີ່ເຈາະຈອງ.</string>
     <string name="analyzer_storage_content_type_system_label">ຂ້ອມູນລະບົ</string>
     <string name="analyzer_storage_content_type_system_description">ແອບລະບົ ແລະຂ້ອມູນລະບົ. ແອບ ແລະຂ້ອມູນຈາກຜູ້ໃຊ້ອື່ນ, ຖ້າມີບັນຊີຜູ້ໃຊ້ຫລາຍບັຍຊີຖືກຕັ້ງແຕ່ງໃນອຸປະກອນນີ້.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">ຜູ້ໃຊ້ຄົນອື່ນບໍ່ສາມາດວັດແທກໄດ້ຢ່າງຄົບຖ້ວນ, ດັ່ງນັ້ນຍອດລວມນີ້ອາດປະກອບມີບາງສ່ວນຂອງພື້ນທີ່ຈັດເກັບຂອງພວກເຂົາ.</string>
     <string name="analyzer_storage_content_type_system_other_label">ອື່ນໆ</string>
     <string name="analyzer_storage_content_type_system_info">ໄຟລ໌ທີ່ບໍ່ເໝາະກັບໝວດໝູ່ Apps ຫຼື ໄຟລ໌ຜູ້ໃຊ້. ເລີ່ຍດູເທົ່ານັ້ນ — ການລົບໄຟລ໌ບໍ່ຮອງຮັບ. ບາງພື້ນທີ່ອາດຈະບໍ່ຄົບຖ້ວນ ເນື່ອງຈາກຂໍ້ຈຳກັດການເຂົ້າເຖິງ.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ບໍ່ສາມາດຈັບຄູ່ໄຟລ໌ກັບແອັບທີ່ເປັນເຈົ້າຂອງຂອງມັນໄດ້ໃນປັດຈຸບັນ. ຂະໜາດແມ່ນສະແດງສຳລັບການອ້າງອີງເທົ່ານັ້ນ — ການລຶບ, ຕົວກອງ ແລະ Swiper ຖືກປິດໃຊ້ງານ.</string>
     <string name="analyzer_storage_content_type_system_other_desc">ໄຟລ໌ລະບົບ ແລະ ຂໍ້ມູນອື່ນໆ ທີ່ SD Maid ບໍ່ສາມາດເຂົ້າເຖິງ ຫຼື ຈັດໝວດໝູ່ໄດ້. ລະບົບປະຕິບັດການຈຳກັດການສະແດງລາຍການເນື້ອຫາໃນບາງພື້ນທີ່.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">ຜູ້ໃຊ້ຄົນອື່ນ</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ແອັບ ແລະໄຟລ໌ທີ່ເປັນຂອງຜູ້ໃຊ້ຄົນອື່ນ ຫຼືໂປຣໄຟລ໌ບ່ອນເຮັດວຽກຢູ່ໃນອຸປະກອນນີ້.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">ສະເພາະຂໍ້ມູນແອັບເທົ່ານັ້ນ, ບໍ່ລວມໄຟລ໌ທີ່ແບ່ງປັນຂອງຜູ້ໃຊ້ນີ້.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">ບໍ່ມີຂະໜາດ, ບໍ່ສາມາດອ່ານພື້ນທີ່ຈັດເກັບຂອງຜູ້ໃຊ້ນີ້ໄດ້.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ພື້ນທີ່ຈັດເກັບຂອງຜູ້ໃຊ້ຄົນອື່ນຢູ່ໃນອຸປະກອນນີ້. ເບິ່ງໄດ້ຢ່າງດຽວ, ບໍ່ຮອງຮັບການລຶບ.</string>
     <string name="analyzer_storage_content_app_code_label">ໂຄດໂປໂກລແອບ</string>
     <string name="analyzer_storage_content_app_code_description">ໄຟລ໌ແອບ, ໄລບຣະລີ ແລະທລະພາກອະ. ພື້ນທີ່ນີ່ສາມາຖຖືກຄືນເດຟດ້ວຍການຖອນຕິດຕັ້ງແອບ ຫຣືອເກັບໄວ້ໃນຕຸ (Android ວັນໃໝ່ຮອງຮັບ).</string>
     <string name="analyzer_storage_content_app_data_label">ຂ້ອມູນແອບ</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ແອບນີ້ໃຊ້ພື້ນທີ່ %1$s ທີ່ \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">ແອບນີ້ຖືກເກັບໄວ້ໃນຕຸແລ້ວ.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ໃນ 7 ວັນ</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">ຍັງເຫຼືອພື້ນທີ່ປະມານ %d ມື້ໃນອັດຕານີ້</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">ພື້ນທີ່ຈັດເກັບ</string>
+    <string name="analyzer_settings_lowstorage_title">ຂີດຈຳກັດພື້ນທີ່ຈັດເກັບຕໍ່າ</string>
+    <string name="analyzer_settings_lowstorage_desc">ເມື່ອພື້ນທີ່ວ່າງຫຼຸດລົງຕໍ່າກວ່ານີ້, SD Maid ຈະຖືວ່າພື້ນທີ່ຈັດເກັບກຳລັງໝົດ.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ອັດຕະໂນມັດ (ປັດຈຸບັນ %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ອັດຕະໂນມັດ</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ອັດຕະໂນມັດ</string>
+    <string name="analyzer_settings_lowspace_notification_title">ການແຈ້ງເຕືອນພື້ນທີ່ໜ້ອຍ</string>
+    <string name="analyzer_settings_lowspace_notification_desc">ຮັບການແຈ້ງເຕືອນກ່ອນທີ່ພື້ນທີ່ຈັດເກັບຂອງທ່ານຈະໝົດ.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ຢ່າໃຫ້ພື້ນທີ່ໝົດແບບບໍ່ທັນຮູ້ຕົວ</string>
+    <string name="analyzer_lowspace_hint_body">ອັບເກຣດເພື່ອຮັບການແຈ້ງເຕືອນກ່ອນທີ່ພື້ນທີ່ຈັດເກັບຈະໝົດ, ເພື່ອໃຫ້ທ່ານສາມາດທຳຄວາມສະອາດໄດ້ໃນຂະນະທີ່ຍັງມີພື້ນທີ່ເຫຼືອ.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ເບິ່ງວ່າມີຫຍັງຕື່ມໃສ່ບ່ອນເກັບຂໍ້ມູນຂອງທ່ານ. ຕົວວິເຄາະສະແດງບ່ອນທີ່ພື້ນທີ່ຂອງທ່ານໄປ. ບັດແຕ່ລະໃບເປັນຊິບບ່ອນເກັບຂໍ້ມູນໃນອຸປະກອນຂອງທ່ານ.</string>
     <string name="tour_analyzer_storage_body">ເປີດບ່ອນເກັບຂໍ້ມູນເພື່ອແບ່ງມັນອອກເປັນແອັບ, ສື່ ແລະ ໄຟລ໌, ຈາກນັ້ນສືບຕໍ່ແຕະເພື່ອຫາສາເຫດໃຫຍ່ທີ່ສຸດ.</string>

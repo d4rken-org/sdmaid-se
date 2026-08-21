@@ -25,6 +25,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">لا يوجد وصول مباشر متاح</string>
     <string name="analyzer_content_create_swiper_session_action">إنشاء جلسة Swiper</string>
+    <string name="analyzer_content_open_externally_action">فتح في مدير الملفات</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="zero">تم إنشاء جلسة Swiper مع %d عناصر</item>
         <item quantity="one">تم إنشاء جلسة Swiper مع %d عنصر</item>
@@ -48,10 +49,16 @@
     <string name="analyzer_storage_content_type_media_description">الصور الملتقطة أو مقاطع الفيديو المسجلة أو البيانات التي تم تنزيلها. أي بيانات لا تنتمي إلى تطبيق محدد.</string>
     <string name="analyzer_storage_content_type_system_label">بيانات النظام</string>
     <string name="analyzer_storage_content_type_system_description">تطبيقات النظام وبيانات النظام. التطبيقات والبيانات من المستخدمين الآخرين، إذا تم تعيين عدة حسابات للمستخدمين على هذا الجهاز.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">تعذّر قياس مساحة المستخدمين الآخرين بالكامل، لذا قد يتضمن هذا الإجمالي جزءًا من تخزينهم.</string>
     <string name="analyzer_storage_content_type_system_other_label">أخرى</string>
     <string name="analyzer_storage_content_type_system_info">الملفات التي لا تنتمي إلى فئتَي التطبيقات أو ملفات المستخدم. للاستعراض فقط — الحذف غير مدعوم. قد تكون بعض المناطق غير مكتملة بسبب قيود الوصول.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">لا يمكن مطابقة الملفات مع التطبيقات التي تملكها حالياً. يتم عرض الأحجام للرجوع إليها فقط — الحذف والمرشحات وSwiper معطلة.</string>
     <string name="analyzer_storage_content_type_system_other_desc">ملفات النظام والبيانات الأخرى التي تعذّر على SD Maid الوصول إليها أو تصنيفها. يقيّد نظام التشغيل إمكانية سرد محتويات بعض المناطق.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">مستخدمون آخرون</string>
+    <string name="analyzer_storage_content_type_otherusers_description">التطبيقات والملفات التي تخص مستخدمين آخرين أو ملفات تعريف العمل على هذا الجهاز.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">بيانات التطبيقات فقط، لا تشمل الملفات المشتركة لهذا المستخدم.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">الحجم غير متوفر، لا يمكن قراءة تخزين هذا المستخدم.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">تخزين مستخدم آخر على هذا الجهاز. يمكن التصفح فقط، الحذف غير مدعوم.</string>
     <string name="analyzer_storage_content_app_code_label">كود التطبيق</string>
     <string name="analyzer_storage_content_app_code_description">ملفات التطبيق، المكتبات والموارد. يمكن تحرير هذه المساحة عن طريق إلغاء تثبيت التطبيق أو أرشفته (متاحة على إصدارات أندرويد الأحدث).</string>
     <string name="analyzer_storage_content_app_data_label">بيانات التطبيق</string>
@@ -63,6 +70,26 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">يشغل هذا التطبيق %1$s في \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">تم أرشفة هذا التطبيق.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s في 7 أيام</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="zero">بهذا المعدل، يتبقى %d يوم من المساحة تقريبًا</item>
+        <item quantity="one">بهذا المعدل، يتبقى %d يوم من المساحة تقريبًا</item>
+        <item quantity="two">بهذا المعدل، يتبقى %d يومين من المساحة تقريبًا</item>
+        <item quantity="few">بهذا المعدل، تتبقى %d أيام من المساحة تقريبًا</item>
+        <item quantity="many">بهذا المعدل، يتبقى %d يومًا من المساحة تقريبًا</item>
+        <item quantity="other">بهذا المعدل، يتبقى %d يوم من المساحة تقريبًا</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">التخزين</string>
+    <string name="analyzer_settings_lowstorage_title">حد التخزين المنخفض</string>
+    <string name="analyzer_settings_lowstorage_desc">عندما تنخفض المساحة الحرة عن هذا الحد، يعتبر SD Maid أن التخزين على وشك النفاد.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">تلقائي (حاليًا %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">تلقائي</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">تلقائي</string>
+    <string name="analyzer_settings_lowspace_notification_title">تنبيه انخفاض المساحة</string>
+    <string name="analyzer_settings_lowspace_notification_desc">احصل على إشعار قبل نفاد مساحة التخزين لديك.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">لا تُفاجأ بنفاد المساحة أبدًا</string>
+    <string name="analyzer_lowspace_hint_body">قم بالترقية للحصول على تنبيه قبل نفاد مساحة التخزين، لتتمكن من التنظيف بينما لا تزال هناك مساحة للعمل.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">انظر إلى ما يملأ التخزين فعلياً. يقوم Analyzer برسم خريطة توضح أين تذهب مساحتك. كل بطاقة من هذه البطاقات عبارة عن شريحة تخزين على جهازك.</string>
     <string name="tour_analyzer_storage_body">افتح التخزين لتقسيمه إلى تطبيقات ووسائط وملفات، ثم واصل الضغط لتتبع أكبر المسؤولين.</string>

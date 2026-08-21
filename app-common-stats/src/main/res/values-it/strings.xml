@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
     <string name="stats_space_history_upgrade_title">La cronologia completa è una funzionalità Pro</string>
     <string name="stats_space_history_upgrade_body">Aggiorna per sbloccare la visualizzazione completa delle tendenze a 90 giorni per ogni dispositivo di archiviazione.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Effettua l\'upgrade per sbloccare la visualizzazione completa delle tendenze di 90 giorni per ogni dispositivo di archiviazione e ricevi un avviso prima di esaurire lo spazio.</string>
     <string name="stats_space_history_marker_freed">Liberati %1$s</string>
     <string name="stats_storage_type_primary">Archivio principale</string>
     <string name="stats_storage_type_secondary">Archivio secondario</string>

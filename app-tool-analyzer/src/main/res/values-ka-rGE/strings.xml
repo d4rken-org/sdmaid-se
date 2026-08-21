@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">პირდაპირი წვდომა არ არის ხელმისაწვდომი</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper სესიის შექმნა</string>
+    <string name="analyzer_content_open_externally_action">ფაილების მენეჯერში გახსნა</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper სესია შეიქმნა %d ელემენტით</item>
         <item quantity="other">Swiper სესია შეიქმნა %d ელემენტით</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">გადაღებული სურათები, ჩაწერილი ვიდეოები ან ჩამოტვირთული მონაცემები. ნებისმიერი მონაცემი, რომელიც არ ეკუთვნის კონკრეტულ აპს.</string>
     <string name="analyzer_storage_content_type_system_label">სისტემური მონაცემები</string>
     <string name="analyzer_storage_content_type_system_description">სისტემური აპები და სისტემური მონაცემები. აპები და მონაცემები სხვა მომხმარებლებისგან, თუ ამ მოწყობილობაზე დაყენებულია რამდენიმე მომხმარებლის ანგარიში.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">სხვა მომხმარებლების მონაცემები სრულად ვერ გაიზომა, ამიტომ ეს ჯამი შესაძლოა მათი მეხსიერების ნაწილსაც შეიცავდეს.</string>
     <string name="analyzer_storage_content_type_system_other_label">სხვა</string>
     <string name="analyzer_storage_content_type_system_info">ფაილები, რომლებიც არ შეესაბამება აპლიკაციების ან მომხმარებლის ფაილების კატეგორიებს. მხოლოდ დათვალიერება — წაშლა არ არის მხარდაჭერილი. ზოგიერთი სფერო შეიძლება არასრული იყოს წვდომის შეზღუდვების გამო.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ფაილები ვერ უკავშირდება აპლიკაციებს, რომლებსაც ეკუთვნის ამ მომენტში. ზომები მხოლოდ მითითებისთვის არის ნაჩვენები — წაშლა, ფილტრები და Swiper გამორთულია.</string>
     <string name="analyzer_storage_content_type_system_other_desc">სისტემური ფაილები და სხვა მონაცემები, რომლებზეც SD Maid-ს არ ჰქონდა წვდომა ან ვერ დაახარისეთ. ოპერაციული სისტემა ზღუდავს ზოგიერთი სფეროს შინაარსის ჩამოთვლას.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">სხვა მომხმარებლები</string>
+    <string name="analyzer_storage_content_type_otherusers_description">აპები და ფაილები, რომლებიც ეკუთვნის ამ მოწყობილობის სხვა მომხმარებლებს ან სამუშაო პროფილებს.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">მხოლოდ აპის მონაცემები, ამ მომხმარებლის საზიარო ფაილები არ შედის.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">ზომა მიუწვდომელია, ამ მომხმარებლის მეხსიერების წაკითხვა ვერ ხერხდება.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ამ მოწყობილობის სხვა მომხმარებლის მეხსიერება. მხოლოდ დათვალიერება შესაძლებელია, წაშლა მხარდაჭერილი არაა.</string>
     <string name="analyzer_storage_content_app_code_label">აპის კოდი</string>
     <string name="analyzer_storage_content_app_code_description">აპლიკაციის ფაილები, ბიბლიოთეკები და რესურსები. ეს ადგილი შეიძლება განთავისუფლდეს აპის წაშლით ან დაარქივებით (ხელმისაწვდომია Android-ის ახალ ვერსიებზე).</string>
     <string name="analyzer_storage_content_app_data_label">აპის მონაცემები</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ეს აპი იკავებს %1$s \"%2$s\"-ზე.</string>
     <string name="analyzer_app_details_app_is_archived">ეს აპი დაარქივებულია.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 დღეში</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">დაახლოებით %d დღის სივრცე დარჩა ამ ტემპით</item>
+        <item quantity="other">დაახლოებით %d დღის სივრცე დარჩა ამ ტემპით</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">მეხსიერება</string>
+    <string name="analyzer_settings_lowstorage_title">მეხსიერების დაბალი ზღვარი</string>
+    <string name="analyzer_settings_lowstorage_desc">როცა თავისუფალი სივრცე ამ ზღვარს ჩამოსცდება, SD Maid მეხსიერებას ამოწურულად მიიჩნევს.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ავტომატური (ამჟამად %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ავტომატური</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ავტომატური</string>
+    <string name="analyzer_settings_lowspace_notification_title">დაბალი სივრცის შესახებ გაფრთხილება</string>
+    <string name="analyzer_settings_lowspace_notification_desc">მიიღე შეტყობინება, სანამ შენი მეხსიერება ამოიწურება.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">აღარასდროს დარჩები მეხსიერების გარეშე</string>
+    <string name="analyzer_lowspace_hint_body">განახლდი, რომ მეხსიერების ამოწურვამდე გაფრთხილება მიიღო და დროულად მოასუფთავო, სანამ სამუშაო სივრცე ჯერ კიდევ გაქვს.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ნახეთ, რა ავსებს რეალურად თქვენს მეხსიერებას. Analyzer აჩვენებს, სად იხარჯება თქვენი ადგილი. თითოეული ეს ბარათი არის მეხსიერების ჩიპი თქვენს მოწყობილობაზე.</string>
     <string name="tour_analyzer_storage_body">გახსენით მეხსიერება, რომ დაყოთ იგი აპლიკაციებად, მედიად და ფაილებად, შემდეგ განაგრძეთ შეხება უდიდესი დამნაშავეების საძებნად.</string>

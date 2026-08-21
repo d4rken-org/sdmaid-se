@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">无法直接访问</string>
     <string name="analyzer_content_create_swiper_session_action">创建 Swiper 会话</string>
+    <string name="analyzer_content_open_externally_action">在文件管理器中打开</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">已创建包含 %d 个项目的 Swiper 会话</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">截取的图片、录制的视频或下载的数据，不属于特定应用的任何数据</string>
     <string name="analyzer_storage_content_type_system_label">系统数据</string>
     <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">其他用户的数据无法完全测量，因此该总量可能包含了他们的部分存储空间。</string>
     <string name="analyzer_storage_content_type_system_other_label">其他</string>
     <string name="analyzer_storage_content_type_system_info">不属于应用或用户文件类别的文件。仅供浏览——不支持删除。由于访问限制，某些区域可能不完整。</string>
     <string name="analyzer_storage_content_type_media_readonly_info">目前无法将文件匹配到拥有它们的应用。大小仅供参考——删除、过滤和 Swiper 已禁用。</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid 无法访问或分类的系统文件和其他数据。操作系统限制了对某些区域内容的列出。</string>
+    <string name="analyzer_storage_content_type_otherusers_label">其他用户</string>
+    <string name="analyzer_storage_content_type_otherusers_description">属于该设备上其他用户或工作资料的应用和文件。</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">仅包含应用数据，不包含该用户的共享文件。</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">大小不可用，无法读取该用户的存储空间。</string>
+    <string name="analyzer_storage_content_type_otherusers_info">该设备上另一位用户的存储空间。仅支持浏览，不支持删除。</string>
     <string name="analyzer_storage_content_app_code_label">应用代码</string>
     <string name="analyzer_storage_content_app_code_description">应用程序的文件、依赖库和资源。此空间可以通过卸载应用程序或将其存档（在较新的安卓版本上）从而释放。</string>
     <string name="analyzer_storage_content_app_data_label">应用数据</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">此应用在“%2$s”上占用了 %1$s</string>
     <string name="analyzer_app_details_app_is_archived">此应用已被归档。</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s（7天内）</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">按此速度，空间还能维持约 %d 天</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">存储空间</string>
+    <string name="analyzer_settings_lowstorage_title">低存储阈值</string>
+    <string name="analyzer_settings_lowstorage_desc">当可用空间低于此值时，SD Maid 会将存储空间视为即将耗尽。</string>
+    <string name="analyzer_settings_lowstorage_value_auto">自动（当前为 %1$s）</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">自动</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">自动</string>
+    <string name="analyzer_settings_lowspace_notification_title">低空间警告</string>
+    <string name="analyzer_settings_lowspace_notification_desc">在存储空间耗尽前收到通知。</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">永远不会措手不及</string>
+    <string name="analyzer_lowspace_hint_body">升级以在存储空间耗尽前获得警告，让你能在仍有余地时及时清理。</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">了解实际占用您存储空间的内容。Analyzer 会显示您的存储空间分布情况。这些卡片中的每一个都代表您设备上的一个存储标签。</string>
     <string name="tour_analyzer_storage_body">打开存储位置以将其细分为应用、媒体和文件，然后继续点击以找出最大的占用者。</string>

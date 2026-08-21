@@ -16,28 +16,28 @@
          personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
          register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
-        <item quantity="one">Твой гость уже %d день.</item>
-        <item quantity="few">Твой гость уже %d дня.</item>
-        <item quantity="many">Твой гость уже %d дней.</item>
-        <item quantity="other">Твой гость уже %d дня.</item>
+        <item quantity="one">Ваш гость уже %d день.</item>
+        <item quantity="few">Ваш гость уже %d дня.</item>
+        <item quantity="many">Ваш гость уже %d дней.</item>
+        <item quantity="other">Ваш гость уже %d дней.</item>
     </plurals>
     <plurals name="stats_dash_since_weeks">
-        <item quantity="one">Твой гость уже %d неделю.</item>
-        <item quantity="few">Твой гость уже %d недели.</item>
-        <item quantity="many">Твой гость уже %d недель.</item>
-        <item quantity="other">Твой гость уже %d недели.</item>
+        <item quantity="one">Ваш гость уже %d неделю.</item>
+        <item quantity="few">Ваш гость уже %d недели.</item>
+        <item quantity="many">Ваш гость уже %d недель.</item>
+        <item quantity="other">Ваш гость уже %d недель.</item>
     </plurals>
     <plurals name="stats_dash_since_months">
-        <item quantity="one">Твой гость уже %d месяц.</item>
-        <item quantity="few">Твой гость уже %d месяца.</item>
-        <item quantity="many">Твой гость уже %d месяцев.</item>
-        <item quantity="other">Твой гость уже %d месяца.</item>
+        <item quantity="one">Ваш гость уже %d месяц.</item>
+        <item quantity="few">Ваш гость уже %d месяца.</item>
+        <item quantity="many">Ваш гость уже %d месяцев.</item>
+        <item quantity="other">Ваш гость уже %d месяцев.</item>
     </plurals>
     <plurals name="stats_dash_since_years">
-        <item quantity="one">Твой гость уже %d год.</item>
-        <item quantity="few">Твой гость уже %d года.</item>
-        <item quantity="many">Твой гость уже %d лет.</item>
-        <item quantity="other">Твой гость уже %d года.</item>
+        <item quantity="one">Ваш гость уже %d год.</item>
+        <item quantity="few">Ваш гость уже %d года.</item>
+        <item quantity="many">Ваш гость уже %d лет.</item>
+        <item quantity="other">Ваш гость уже %d лет.</item>
     </plurals>
     <string name="stats_report_status_partial_success">Частичный успех</string>
     <string name="stats_report_status_partial_failure">Ошибка</string>
@@ -66,6 +66,9 @@
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Полная история — функция Pro</string>
     <string name="stats_space_history_upgrade_body">Обновитесь, чтобы разблокировать полный 90-дневный обзор тренда для каждого устройства хранения.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Оформите подписку, чтобы открыть полный график изменений за 90 дней для каждого накопителя и получать предупреждение о нехватке места.</string>
     <string name="stats_space_history_marker_freed">Освобождено %1$s</string>
     <string name="stats_storage_type_primary">Основное хранилище</string>
     <string name="stats_storage_type_secondary">Дополнительное хранилище</string>

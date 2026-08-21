@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%2$s-ൽ %1$s</string>
     <string name="stats_space_history_upgrade_title">പൂർണ്ണ ചരിത്രം ഒരു Pro ഫീച്ചറാണ്</string>
     <string name="stats_space_history_upgrade_body">ഓരോ സ്റ്റോറേജ് ഉപകരണത്തിനും 90-ദിവസ ട്രെൻഡ് വ്യൂ അൺലോക്ക് ചെയ്യാൻ അപ്ഗ്രേഡ് ചെയ്യുക.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ഓരോ സ്റ്റോറേജ് ഉപകരണത്തിനും 90 ദിവസത്തെ പൂർണ്ണ ട്രെൻഡ് കാഴ്ച അൺലോക്ക് ചെയ്യാനും, സ്ഥലം തീരുന്നതിന് മുമ്പ് ഒരു മുന്നറിയിപ്പ് ലഭിക്കാനും അപ്ഗ്രേഡ് ചെയ്യുക.</string>
     <string name="stats_space_history_marker_freed">%1$s മോചിപ്പിച്ചു</string>
     <string name="stats_storage_type_primary">പ്രാഥമിക സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_secondary">ദ്വിതീയ സ്റ്റോറേജ്</string>

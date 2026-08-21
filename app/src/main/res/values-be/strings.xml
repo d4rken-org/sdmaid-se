@@ -57,6 +57,7 @@
     <string name="dashboard_settings_oneclick_tools_title">Інструменты ў хуткім рэжыме</string>
     <string name="dashboard_settings_oneclick_tools_desc">Якія інструменты трэба ўключыць у хуткіх аперацыях?</string>
     <string name="dashboard_settings_summary_autoshow_title">Паказваць вынік аўтаматычна</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Аўтаматычна адкрывай сводку вынікаў пасля выкарыстання кнопкі дзеяння на панэлі. Пры адключенні дакрані на плашку памяру у ніжнім панэлі, каб адкрыць яе.</string>
     <string name="dashboard_card_config_title">Карткі панэлі інструментаў</string>
     <string name="dashboard_card_config_desc">Наладжванне адлюстравання картак і іх парадку</string>
     <string name="dashboard_card_config_header_title">Перацягніце для змянення парадку, пераключыце для адлюстравання/схавання</string>
@@ -259,7 +260,11 @@
     <string name="setup_root_card_title">Каранёвы доступ</string>
     <string name="setup_root_card_body">Ці варта SD Maid выкарыстоўваць каранёвы доступ, калі ён даступны? Каранёвы доступ будзе выкарыстоўвацца для праверкі дадатковых сістэмных папак і прыватных даных праграм.</string>
     <string name="setup_root_state_ready_label">Каранёвы доступ гатовы.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Каранёвы доступ недаступны.</string>
+    <string name="setup_root_state_failed_title">Доступ root не выдаўся</string>
+    <string name="setup_root_state_failed_body">SD Maid запросіла доступ root, але не атрымала яго. Калі твое ўстройства мае root, адкрый менеджар root (Magisk, KernelSU або падобны) і праверь, ці запрос ад SD Maid быў адкінуты ці яшчэ чакаецца.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid запросіла доступ root, але не атрымала яго, і ніякая праграма менеджара root не была выяўлена. Калі твое ўстройства выкарыстоўвае схаваны ці ўбудаваны root, спробуй яшчэ раз.</string>
     <string name="setup_root_enable_root_use_label">Паспрабаваць выкарыстоўваць каранёвы доступ</string>
     <string name="setup_root_disable_root_use_label">Я не рутаваў свой прыстрой</string>
     <string name="setup_root_card_body2">Даступна толькі на прыладах з разблакіраваным каранёвым доступам. Калі вы не ўносілі гэтую мадыфікацыю, значыць, ваша прылада не мае каранёвага доступу, і гэты параметр не на што не паўплывае.</string>
@@ -270,6 +275,9 @@
     <string name="setup_shizuku_state_ready_label">Сувязь з Shizuku наладжана.</string>
     <string name="setup_shizuku_state_waiting_label">Чаканне сувязі з Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Прыкладанне Shizuku не ўстаноўлена.</string>
+    <string name="setup_shizuku_state_failed_title">Сувязь Shizuku не выдалася</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku запусцілася, але яна ніколі не падлучыла SD Maid да сваёй вспомагальнай службы.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Некаторыя ўстройства сутыкаюцца з вядомай праблемай Shizuku, якая спыняе запуск вспомагальнай службы. Гэта можа быць адна з іх.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Паспрабаваць выкарыстоўваць Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не выкарыстоўваць Shizuku</string>
     <string name="setup_dismiss_hint">Вы можаце зноў знайсці экран наладжвання ў меню налад.</string>
@@ -306,6 +314,8 @@
     <string name="setup_inventory_limitation_title">Магчымае абмежаванне прылады</string>
     <string name="setup_inventory_limitation_body">Сістэма вярнула няпоўны спіс усталяваных прыкладанняў, хаця неабходныя дазволы, здаецца, прадастаўлены.</string>
     <string name="setup_inventory_limitation_body2">Некаторыя прылады (напр., HarmonyOS) ніколі не даюць поўны спіс прыкладанняў. Каб абараніць вашы дадзеныя, інструменты, звязаныя з прыкладаннямі, застаюцца адключанымі, але вы ўсё яшчэ можаце праглядаць выкарыстанне сховішча са зменшанай дэталёвасцю.</string>
+    <string name="setup_inventory_probe_failed_title">Не атрымалася прачытаць спіс прыложэнняў</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid запросіла ў Android спіс ўстаноўленых прыложэнняў, і запрос не выдаўся. Інструменты, звязаныя з прыложэннямі, абягаюцца адключанымі, пакуль яно не будзе працаваць. Паўторная спроба можа дапамагчы.</string>
     <string name="dataarea_warningcard_empty_message">Праграма SD Maid не выявіла вобласці даных для сканіравання. Ці завершана наладжванне?</string>
     <string name="dataarea_warningcard_label">Вобласці даных</string>
     <string name="dataarea_warningcard_reload_action">Перазагрузіць вобласці даных</string>
@@ -382,7 +392,11 @@
     <string name="widget_home_description">Выкарыстанне сховішча і ачыстка ў адзін дотык</string>
     <string name="widget_home_storage_internal">Унутраны</string>
     <string name="widget_home_storage_external">Знешны</string>
-    <string name="widget_home_freed_label">Увесь час: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Ўсяго вызвалена: %1$s</string>
     <string name="widget_home_clean_action">Ачысціць</string>
     <string name="widget_home_working">Ідзе праца…</string>
     <string name="widget_home_unavailable">Сховішча недаступна</string>
@@ -422,4 +436,15 @@
     <string name="backup_restore_warn_history_body">Дадзеныя гісторыі гэтай копіі (статыстыка, гісторыя сцісканняў, сеансы перахопу) з іншай версіі праграмы і не могуць быць адноўлены. Усё астатняе будзе адноўлена.</string>
     <string name="backup_restore_ack_understand">Я разумею і хачу працягнуць</string>
     <string name="backup_restore_action_restore">Адновіць</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Папярэджанні аб сховішчы</string>
+    <string name="stats_lowspace_notification_title">Сховішча запаўняецца</string>
+    <string name="stats_lowspace_notification_low_title">Сховішча амаль поўнае</string>
+    <string name="stats_lowspace_notification_low_body">%1$s свабодна. Сховішча заканчваецца.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Каля %1$d дня месца, што засталася, пры такім тэмпе. %2$s свабодна.</item>
+        <item quantity="few">Каля %1$d днёў месца, што засталася, пры такім тэмпе. %2$s свабодна.</item>
+        <item quantity="many">Каля %1$d дзён месца, што засталася, пры такім тэмпе. %2$s свабодна.</item>
+        <item quantity="other">Каля %1$d дзён месца, што засталася, пры такім тэмпе. %2$s свабодна.</item>
+    </plurals>
 </resources>

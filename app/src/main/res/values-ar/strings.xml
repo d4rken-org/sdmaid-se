@@ -276,7 +276,11 @@
     <string name="setup_root_card_title">صلاحيّة الجذر</string>
     <string name="setup_root_card_body">هل يجب أن يستخدم SD Maid استخدام صلاحيات الروت إذا كان متاحاً؟ يمكن استخدام صلاحيات الروت للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاص.</string>
     <string name="setup_root_state_ready_label">صلاحيات Root جاهزة.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">صلاحية الجذر غير متوفرة.</string>
+    <string name="setup_root_state_failed_title">فشل الوصول إلى صلاحيات الروت</string>
+    <string name="setup_root_state_failed_body">طلب SD Maid الوصول إلى صلاحيات الروت ولم يحصل عليها. إذا كان جهازك يتمتع بصلاحيات الروت، فافتح تطبيق إدارة الروت (Magisk أو KernelSU أو ما شابه) وتحقق مما إذا تم رفض طلب SD Maid أو أنه ما زال قيد الانتظار.</string>
+    <string name="setup_root_state_failed_body_nomanager">طلب SD Maid الوصول إلى صلاحيات الروت ولم يحصل عليها، ولم يتم العثور على أي تطبيق لإدارة الروت. إذا كان جهازك يستخدم روت مخفيًا أو مدمجًا، فأعد المحاولة.</string>
     <string name="setup_root_enable_root_use_label">حاول استخدام صلاحية الجذر</string>
     <string name="setup_root_disable_root_use_label">لم أحصل على صلاحية الجذر</string>
     <string name="setup_root_card_body2">متاح فقط على الأجهزة الجذر. إذا لم تقم بإجراء هذا التعديل ، فلن يكون جهازك متجذرًا ولن يكون لهذا الإعداد أي تأثير.</string>
@@ -287,6 +291,9 @@
     <string name="setup_shizuku_state_ready_label">رابط شيزوكو جاهز.</string>
     <string name="setup_shizuku_state_waiting_label">في انتظار الرابط مع شيزوكو.</string>
     <string name="setup_shizuku_state_not_installed_label">تطبيق Shizuku غير مثبت.</string>
+    <string name="setup_shizuku_state_failed_title">فشل الاتصال بـ Shizuku</string>
+    <string name="setup_shizuku_state_failed_label">يعمل Shizuku، لكنه لم يربط SD Maid بخدمته المساعدة.</string>
+    <string name="setup_shizuku_state_known_issue_hint">تتأثر بعض الأجهزة بمشكلة معروفة في Shizuku تمنع بدء تشغيل الخدمة المساعدة. قد يكون جهازك أحدها.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">حاول استخدام شيزوكو</string>
     <string name="setup_shizuku_disable_shizuku_use_label">لا تستخدم شيزوكو</string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
@@ -323,6 +330,8 @@
     <string name="setup_inventory_limitation_title">قيود الجهاز المحتملة</string>
     <string name="setup_inventory_limitation_body">أعاد النظام قائمة غير كاملة من التطبيقات المثبتة، حتى وإن بدت الأذونات المطلوبة ممنوحة.</string>
     <string name="setup_inventory_limitation_body2">بعض الأجهزة (مثل HarmonyOS) لا توفر قائمة تطبيقات كاملة أبداً. لحماية بياناتك، تبقى أدوات التطبيقات معطلة، لكن يمكنك مع ذلك مشاهدة استخدام التخزين بتفاصيل أقل.</string>
+    <string name="setup_inventory_probe_failed_title">تعذّرت قراءة قائمة التطبيقات</string>
+    <string name="setup_inventory_probe_failed_body">طلب SD Maid من نظام أندرويد قائمة التطبيقات المثبتة، وفشل الطلب. تبقى الأدوات المرتبطة بالتطبيقات معطّلة إلى أن ينجح الطلب. قد تساعد إعادة المحاولة.</string>
     <string name="dataarea_warningcard_empty_message">لم تجد SD Maid أي مناطق بيانات يمكن مسحها. هل أكملت الإعداد؟</string>
     <string name="dataarea_warningcard_label">مناطق البيانات</string>
     <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>
@@ -403,7 +412,11 @@
     <string name="widget_home_description">استخدام التخزين والتنظيف بنقرة واحدة</string>
     <string name="widget_home_storage_internal">داخلي</string>
     <string name="widget_home_storage_external">خارجي</string>
-    <string name="widget_home_freed_label">العمر الافتراضي: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">إجمالي المساحة المحررة: %1$s</string>
     <string name="widget_home_clean_action">تنظيف</string>
     <string name="widget_home_working">جاري العمل…</string>
     <string name="widget_home_unavailable">التخزين غير متاح</string>
@@ -443,4 +456,17 @@
     <string name="backup_restore_warn_history_body">بيانات سجل هذه النسخة الاحتياطية (الإحصائيات وسجل الضغط وجلسات الكسح) من نسخة تطبيق مختلفة ولا يمكن استعادتها. سيتم استعادة كل شيء آخر.</string>
     <string name="backup_restore_ack_understand">أنا أفهم وأريد المتابعة</string>
     <string name="backup_restore_action_restore">استعادة</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">تنبيهات التخزين</string>
+    <string name="stats_lowspace_notification_title">التخزين يمتلئ</string>
+    <string name="stats_lowspace_notification_low_title">التخزين على وشك الامتلاء</string>
+    <string name="stats_lowspace_notification_low_body">%1$s متاحة. التخزين على وشك النفاد.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="zero">بهذا المعدل، يتبقى %1$d يوم تقريبًا. %2$s متاحة.</item>
+        <item quantity="one">بهذا المعدل، يتبقى %1$d يوم تقريبًا. %2$s متاحة.</item>
+        <item quantity="two">بهذا المعدل، يتبقى %1$d يومين تقريبًا. %2$s متاحة.</item>
+        <item quantity="few">بهذا المعدل، تتبقى %1$d أيام تقريبًا. %2$s متاحة.</item>
+        <item quantity="many">بهذا المعدل، يتبقى %1$d يومًا تقريبًا. %2$s متاحة.</item>
+        <item quantity="other">بهذا المعدل، يتبقى %1$d يوم تقريبًا. %2$s متاحة.</item>
+    </plurals>
 </resources>

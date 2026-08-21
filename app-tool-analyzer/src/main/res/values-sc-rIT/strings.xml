@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Perunu atzessu deretu a disponimentu</string>
     <string name="analyzer_content_create_swiper_session_action">Crea sessione Swiper</string>
+    <string name="analyzer_content_open_externally_action">Aberi in su gestore de archìvios</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Sessione Swiper creada cun %d elementu</item>
         <item quantity="other">Sessione Swiper creada cun %d elementos</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Imàgines pigadas, vídeos registrados o datos iscarrigados. Cale si siat datu chi no apertenet a una aplicatzione ispetzìfica.</string>
     <string name="analyzer_storage_content_type_system_label">Datos de sistema</string>
     <string name="analyzer_storage_content_type_system_description">Aplicatziones de sistema e datos de sistema. Aplicatziones e datos dae àteros usuàrios, si tàntos contos de usuàriu sunt cunfigurrados in custu dispositivu.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Is àteros utentes no sunt istados mesurados a pientu, duncas custu totale diat pòdere incluire una parte de s\'archiviatzione insoro.</string>
     <string name="analyzer_storage_content_type_system_other_label">Àteru</string>
     <string name="analyzer_storage_content_type_system_info">Archìvios chi no antòniant in is categorias Aplicatziones o Archìvios de s\'utilizadore. Solu navigatzione — sa cancellatzione no est supportada. Calicuna àrea podet essere incumpleta pro via de is limitatziones de accesso.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Is archivios no podent esser abbinados cun is aplicatziones chi sunt de sos immediatamenti. Is dimensiones sunt mostradas pro referentzia sola — sa cantzelladura, is filtros e Swiper sunt disabilitados.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Archìvios de sistema e datos àteros chi SD Maid no at podiù accedere o categorizare. Su sistema operativu restringhet sa lista de is cuntenutos de calicuna àrea.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Àteros utentes</string>
+    <string name="analyzer_storage_content_type_otherusers_description">App e archìvios chi apartenent a àteros utentes o profilos de traballu in custu dispositivu.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Solu datos de is app, is archìvios cumpartzidos de custu utente no sunt inclùidos.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Dimensione non disponìbile, s\'archiviatzione de custu utente non si podet lègere.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Archiviatzione de un\'àteru utente in custu dispositivu. Si podet solu esplorare, sa cantzelladura no est suportada.</string>
     <string name="analyzer_storage_content_app_code_label">Còdighe de aplicatzione</string>
     <string name="analyzer_storage_content_app_code_description">Documentos de aplicatzione, bibliotecas e risursas. Custu ispàtziu podet èssere liberadu disinstalende s\'aplicatzione o archiviende·la (a disponimentu in versiones de Android più noas).</string>
     <string name="analyzer_storage_content_app_data_label">Datos de aplicatzione</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Custa aplicatzione ocupat %1$s in \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Custa aplicatzione est istada archiviada.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s in 7g</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Abarrat prus o mancu %d die de ispàtziu a custu ritmu</item>
+        <item quantity="other">Abarrant prus o mancu %d dies de ispàtziu a custu ritmu</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Archiviatzione</string>
+    <string name="analyzer_settings_lowstorage_title">Sòglia de archiviatzione bassa</string>
+    <string name="analyzer_settings_lowstorage_desc">Cando s\'ispàtziu lìberu falat suta de custu, SD Maid cunsiderat s\'archiviatzione comente si esserat finende.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automàticu (imoi %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automàticu</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automàticu</string>
+    <string name="analyzer_settings_lowspace_notification_title">Avisu de ispàtziu bassu</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Retzi una notìfica prima chi s\'archiviatzione tua finit.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">No ti agàtes mai sena ispàtziu</string>
+    <string name="analyzer_lowspace_hint_body">Agiorna pro retzire un\'avisu prima chi s\'archiviatzione finit, gasi podes limpiare fintzas chi b\'at galu ispàtziu pro traballare.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Vide cali cosa est pienande sa memoria. S\'Analyzer fait sa mapa de ube bàt s\'ispàtziu tuvu. Cadaunu de istos cartos est unu chip di archiviadura in su dispositibu tuvu.</string>
     <string name="tour_analyzer_storage_body">Aberi unu archiviadura pro si dividi in aplicatziones, media e archivios, apai appare a petare pro trovare is prus grandes cosas.</string>

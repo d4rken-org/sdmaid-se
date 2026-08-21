@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">നേരിട്ടുള്ള ആക്സസ് ലഭ്യമല്ല</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper സെഷൻ സൃഷ്ടിക്കുക</string>
+    <string name="analyzer_content_open_externally_action">ഫയൽ മാനേജറിൽ തുറക്കുക</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d ഇനം ഉൾകൊണ്ട് Swiper സെഷൻ സൃഷ്ടിച്ചു</item>
         <item quantity="other">%d ഇനങ്ങളും ഉൾകൊണ്ട് Swiper സെഷൻ സൃഷ്ടിച്ചു</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">ക്യാപ്ചർ ചെയ്ത ചിത്രങ്ങൾ, റെക്കർഡ് ചെയ്ത വീഡിയോകൾ അഥവാ ഡൗൺലോഡ് ചെയ്ത ഡേറ്റ. ഓരോ ഉൾപ്പ് നിർദിഷ്ട ആപ്പിന് സ്വന്തമല്ലാത്ത ഡേറ്റ.</string>
     <string name="analyzer_storage_content_type_system_label">സിസ്റ്റം ഡേറ്റ</string>
     <string name="analyzer_storage_content_type_system_description">സിസ്റ്റം ആപ്പുകൾം സിസ്റ്റം ഡേറ്റയും. ഈ ഉപകരണത്തിൽ പല ഉപയോക്തൃ അക്കൗണ്ടുകൾ സെറ്റ് ചെയ്തിട്ടുണ്ടെങ്കിൽ, മറ്റ ഉപയോക്താകളിൽ നിന്നുള്ള ആപ്പുകൾം ഡേറ്റയും.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">മറ്റ് ഉപയോക്താക്കളെ പൂർണ്ണമായി അളക്കാൻ കഴിഞ്ഞില്ല, അതിനാൽ ഈ ആകെത്തുകയിൽ അവരുടെ കുറച്ച് സ്റ്റോറേജ് ഉൾപ്പെട്ടേക്കാം.</string>
     <string name="analyzer_storage_content_type_system_other_label">മറ്റുള്ളവ</string>
     <string name="analyzer_storage_content_type_system_info">ആപ്പുകൾ അല്ലെങ്കിൽ ഉപയോക്തൃ ഫയൽ വിഭാഗങ്ങളിൽ പെടാത്ത ഫയലുകൾ. ബ്രൗസ് മാത്രം — ഇല്ലാതാക്കൽ പിന്തുണയ്ക്കുന്നില്ല. ആക്സസ് നിയന്ത്രണങ്ങൾ കാരണം ചില മേഖലകൾ അപൂർണ്ണമായിരിക്കാം.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ഫയലുകൾ ഇപ്പോൾ അവയെ ഉടമസ്ഥരായ ആപ്പുകളുമായി പൊരുത്തപ്പെടുത്താൻ കഴിയുന്നില്ല. വലുപ്പം പരാമർശത്തിനായി മാത്രമാണ് കാണിക്കുന്നത് — ഇല്ലാതാക്കൽ, ഫിൽട്ടറുകളും സ്വിപ്പറും പ്രവർത്തനരഹിതമാണ്.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid-ന് ആക്സസ് ചെയ്യാനോ വർഗ്ഗീകരിക്കാനോ കഴിയാത്ത സിസ്റ്റം ഫയലുകളും മറ്റ് ഡേറ്റയും. ചില മേഖലകളുടെ ഉള്ളടക്കങ്ങൾ ലിസ്റ്റ് ചെയ്യുന്നത് ഓപ്പറേറ്റിംഗ് സിസ്റ്റം നിയന്ത്രിക്കുന്നു.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">മറ്റ് ഉപയോക്താക്കൾ</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ഈ ഉപകരണത്തിലെ മറ്റ് ഉപയോക്താക്കൾക്കോ വർക്ക് പ്രൊഫൈലുകൾക്കോ ഉള്ള ആപ്പുകളും ഫയലുകളും.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">ആപ്പ് ഡാറ്റ മാത്രം, ഈ ഉപയോക്താവിന്റെ പങ്കിട്ട ഫയലുകൾ ഉൾപ്പെടുത്തിയിട്ടില്ല.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">വലുപ്പം ലഭ്യമല്ല, ഈ ഉപയോക്താവിന്റെ സ്റ്റോറേജ് വായിക്കാൻ കഴിയില്ല.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ഈ ഉപകരണത്തിലെ മറ്റൊരു ഉപയോക്താവിന്റെ സ്റ്റോറേജ്. ബ്രൗസ് ചെയ്യാൻ മാത്രം, ഇല്ലാതാക്കൽ പിന്തുണയ്ക്കുന്നില്ല.</string>
     <string name="analyzer_storage_content_app_code_label">ആപ്പ് കോഡ്</string>
     <string name="analyzer_storage_content_app_code_description">ആപ്ലിക്കേഷൻ ഫയലുകൾ, ലൈബ്രറികൾ, റിസോർസുകൾ. ആപ്പ് അനിന്സ്റ്റോൾ ചെയ്ത് അഥവാ ആർക്കൈവ് ചെയ്ത് ഈ സ്ഥലം ശൂന്യമാക്കാം (പുതിയ Android പതിപ്പിൽ ലഭ്യം).</string>
     <string name="analyzer_storage_content_app_data_label">ആപ്പ് ഡേറ്റ</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ഈ ആപ്പ് \"%2$s\"-ൽ %1$s ഉപയോഗിക്കുന്നു.</string>
     <string name="analyzer_app_details_app_is_archived">ഈ ആപ്പ് ആർക്കൈവ് ചെയ്തിട്ടുണ്ട്.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 ദിവസത്തിൽ</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">ഈ നിരക്കിൽ ഏകദേശം %d ദിവസത്തെ സ്ഥലം ബാക്കിയുണ്ട്</item>
+        <item quantity="other">ഈ നിരക്കിൽ ഏകദേശം %d ദിവസങ്ങളുടെ സ്ഥലം ബാക്കിയുണ്ട്</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">സ്റ്റോറേജ്</string>
+    <string name="analyzer_settings_lowstorage_title">കുറഞ്ഞ സ്റ്റോറേജ് പരിധി</string>
+    <string name="analyzer_settings_lowstorage_desc">ബാക്കിയുള്ള സ്ഥലം ഇതിനു താഴെയായാൽ, SD Maid സ്റ്റോറേജ് തീരുന്നതായി കണക്കാക്കും.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ഓട്ടോമാറ്റിക് (നിലവിൽ %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ഓട്ടോമാറ്റിക്</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ഓട്ടോമാറ്റിക്</string>
+    <string name="analyzer_settings_lowspace_notification_title">കുറഞ്ഞ സ്ഥലം മുന്നറിയിപ്പ്</string>
+    <string name="analyzer_settings_lowspace_notification_desc">നിങ്ങളുടെ സ്റ്റോറേജ് തീരുന്നതിന് മുമ്പ് ഒരു അറിയിപ്പ് നേടുക.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ഒരിക്കലും സ്ഥലമില്ലാതെ കുടുങ്ങരുത്</string>
+    <string name="analyzer_lowspace_hint_body">നിങ്ങളുടെ സ്റ്റോറേജ് തീരുന്നതിന് മുമ്പ് ഒരു മുന്നറിയിപ്പ് ലഭിക്കാൻ അപ്ഗ്രേഡ് ചെയ്യുക, അതുവഴി ഇനിയും ഇടം ബാക്കിയുള്ളപ്പോൾ തന്നെ ക്ലീൻ ചെയ്യാം.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">നിങ്ങളുടെ സ്റ്റോറേജിൽ ശരിക്കും എന്താണ് നിറയിക്കുന്നതെന്ന് കാണുക. അനലൈസർ നിങ്ങളുടെ സ്ഥലം എങ്ങൊട്ട് പോകുന്നുവെന്ന് ദൃശ്യമാക്കുന്നു. ഈ കാർഡുകളിൽ ഓരോന്നും നിങ്ങളുടെ ഉപകരണത്തിലെ സ്റ്റോറേജ് ചിപ്പാണ്.</string>
     <string name="tour_analyzer_storage_body">സ്റ്റോറേജ് തുറന്ന് ആപ്പുകൾ, മീഡിയ, ഫയലുകൾ എന്നിങ്ങനെ വിഭജിക്കുക, പിന്നെ ഏറ്റവും വലിയ ഇനങ്ങൾ കണ്ടെത്തുന്നതിന് ടാപ് ചെയ്യുന്നത് തുടരുക.</string>

@@ -73,11 +73,23 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">საქაღალდეები</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">თუ არცერთი ტიპი არ არის არჩეული, მაშინ ყველა ტიპი იქნება შედარებული.</string>
     <string name="systemcleaner_customfilter_editor_path_label">გზის კრიტერიუმები</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">სამიზნე გზამ უნდა ემთხვეოდეს მინიმუმ ერთ ჩანაწერს (მაგ. \"Downloads/oldapks/game-\"). ხანგრძლივად დააჭირეთ ჩანაწერებს მეტი ოფციებისთვის.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">სამიზნე ბილიკი უნდა ემთხვეოდეს მინიმუმ ერთ ჩანაწერს (მაგ. „Downloads/oldapks/game-“). შეეხე ჩანაწერს მის სარედაქტირებლად, ან მის ხატულას — შესატყვისობის წესის შესაცვლელად.</string>
     <string name="systemcleaner_customfilter_editor_name_label">სახელის კრიტერიუმები</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">სამიზნე სახელმა უნდა შეიცავდეს მინიმუმ ერთ საკვანძო სიტყვას (მაგ. \"-receipt\"). ხანგრძლივად დააჭირეთ ჩანაწერებს მეტი ოფციებისთვის.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">სამიზნე სახელი უნდა შეიცავდეს მინიმუმ ერთ საკვანძო სიტყვას (მაგ. „-receipt“). შეეხე ჩანაწერს მის სარედაქტირებლად, ან მის ხატულას — შესატყვისობის წესის შესაცვლელად.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">გამონაკლისები</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">შედეგი გამოირიცხება, თუ გზა ემთხვევა ნებისმიერ ჩანაწერს (მაგ. \"DCIM\"). ხანგრძლივად დააჭირეთ ჩანაწერებს მეტი ოფციებისთვის.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">შედეგი გამოირიცხება, თუ ბილიკი ემთხვევა რომელიმე ჩანაწერს (მაგ. „DCIM“). შეეხე ჩანაწერს მის სარედაქტირებლად, ან მის ხატულას — შესატყვისობის წესის შესაცვლელად.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">ბილიკის ჩანაწერის დამატება</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">სახელის ჩანაწერის დამატება</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">გამონაკლისის ჩანაწერის დამატება</string>
+    <string name="systemcleaner_customfilter_editor_criterium_create_title">ახალი ჩანაწერი</string>
+    <string name="systemcleaner_customfilter_editor_criterium_value_label">საკვანძო სიტყვა</string>
+    <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ეს ჩანაწერი უკვე არსებობს.</string>
+    <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
+        <item quantity="one">%d ცარიელი ადგილი</item>
+        <item quantity="other">%d ცარიელი ადგილი</item>
+    </plurals>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">უკვე გამოყენებულია სხვა ჩანაწერის მიერ</string>
+    <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">შესატყვისობის რეჟიმის შეცვლა %1$s-სთვის, ამჟამად: %2$s</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">გზის შედარების რეჟიმი</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">გზა იწყება საკვანძო სიტყვით</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">გზა შეიცავს საკვანძო სიტყვას</string>

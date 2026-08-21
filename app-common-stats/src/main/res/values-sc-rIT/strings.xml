@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
     <string name="stats_space_history_upgrade_title">Sa cronologia cumpleta est una funtzionalidade Pro</string>
     <string name="stats_space_history_upgrade_body">Aggiunna pro isviluppare sa visualizatzione de sa tendèntzia de 90 dies pro ogni dispositiu de memorizamentu.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Agiorna pro isblocare sa visualizatzione cumpleta de is 90 dies pro dispositivu de archiviatzione, e retzi un\'avisu prima de acabbare s\'ispàtziu.</string>
     <string name="stats_space_history_marker_freed">Liberadu %1$s</string>
     <string name="stats_storage_type_primary">Archìviu primàriu</string>
     <string name="stats_storage_type_secondary">Archìviu secundàriu</string>

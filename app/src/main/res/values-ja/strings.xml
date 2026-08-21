@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">Rootアクセス</string>
     <string name="setup_root_card_body">Rootアクセスが利用可能な場合、SDメイドがそれを使用する必要はありますか? Rootアクセスを使用して、追加のシステムフォルダとプライベートアプリケーションデータを確認できます。</string>
     <string name="setup_root_state_ready_label">ルートアクセスの準備ができました。</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Rootアクセスは利用できません。</string>
+    <string name="setup_root_state_failed_title">ルートアクセスに失敗しました</string>
+    <string name="setup_root_state_failed_body">SD Maidはルートアクセスを要求しましたが、許可されませんでした。端末がルート化されている場合は、ルート管理アプリ（Magisk、KernelSUなど）を開き、SD Maidからのリクエストが拒否されたか、まだ保留中かを確認してください。</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maidはルートアクセスを要求しましたが、許可されず、ルート管理アプリも検出されませんでした。端末が隠しルートまたは内蔵ルートを使用している場合は、もう一度お試しください。</string>
     <string name="setup_root_enable_root_use_label">Rootアクセスを使用してみる</string>
     <string name="setup_root_disable_root_use_label">デバイスをルート化していません</string>
     <string name="setup_root_card_body2">Root 化されたデバイスでのみ利用できます。特別なシステムの改変をしていない場合、お使いのデバイスは Root 化されておらず、この設定は効果がありません。</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">Shizukuリンクの準備完了。</string>
     <string name="setup_shizuku_state_waiting_label">Shizukuとのリンクを待機しています。</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku アプリがインストールされていません。</string>
+    <string name="setup_shizuku_state_failed_title">Shizukuとの連携に失敗しました</string>
+    <string name="setup_shizuku_state_failed_label">Shizukuは実行中ですが、SD Maidをヘルパーサービスに接続できませんでした。</string>
+    <string name="setup_shizuku_state_known_issue_hint">一部の端末では、ヘルパーサービスの起動を妨げるShizukuの既知の問題が発生しています。この端末も該当する可能性があります。</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizukuを使用してみる</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizukuを使用しない</string>
     <string name="setup_dismiss_hint">設定メニューから再度設定画面を確認できます。</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">デバイスに制限がある可能性</string>
     <string name="setup_inventory_limitation_body">必要なアクセス権が付与されているように見えるにもかかわらず、システムはインストール済みアプリの不完全なリストを返しました。</string>
     <string name="setup_inventory_limitation_body2">一部のデバイス（例：HarmonyOS）は完全なアプリリストを提供しません。データを保護するため、アプリ関連ツールは無効なままですが、詳細を削減した状態でストレージ使用状況を確認できます。</string>
+    <string name="setup_inventory_probe_failed_title">アプリ一覧を読み取れませんでした</string>
+    <string name="setup_inventory_probe_failed_body">SD MaidはAndroidにインストール済みアプリの一覧を要求しましたが、失敗しました。この問題が解決するまで、アプリ関連のツールは無効のままになります。もう一度お試しください。</string>
     <string name="dataarea_warningcard_empty_message">SD Maidはスキャン可能なデータ領域を発見できませんでした。セットアップは完了しましたか？</string>
     <string name="dataarea_warningcard_label">データエリア</string>
     <string name="dataarea_warningcard_reload_action">データエリアを再読み込み</string>
@@ -353,7 +362,11 @@
     <string name="widget_home_description">ストレージの使用量とワンタップクリーンアップ</string>
     <string name="widget_home_storage_internal">内部</string>
     <string name="widget_home_storage_external">外部</string>
-    <string name="widget_home_freed_label">ライフタイム: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">解放された容量の合計: %1$s</string>
     <string name="widget_home_clean_action">クリーン</string>
     <string name="widget_home_working">処理中…</string>
     <string name="widget_home_unavailable">ストレージが利用できません</string>
@@ -393,4 +406,12 @@
     <string name="backup_restore_warn_history_body">このバックアップの履歴データ（統計、圧縮履歴、スワイプセッション）は別のアプリバージョンのものであるため復元できません。それ以外のデータはすべて復元されます。</string>
     <string name="backup_restore_ack_understand">理解しました。続行します</string>
     <string name="backup_restore_action_restore">復元</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">ストレージの警告</string>
+    <string name="stats_lowspace_notification_title">ストレージの空き容量が減っています</string>
+    <string name="stats_lowspace_notification_low_title">ストレージがほぼ満杯です</string>
+    <string name="stats_lowspace_notification_low_body">空き容量%1$s。ストレージが不足しています。</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">このペースだと、空き容量はあと約%1$d日でなくなります。空き容量%2$s。</item>
+    </plurals>
 </resources>

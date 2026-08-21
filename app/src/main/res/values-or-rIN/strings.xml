@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root ଆକ୍ସେସ</string>
     <string name="setup_root_card_body">ଯଦି ଉପଲବ୍ଧ ଥାଏ ତେବେ SD Maid root ଆକ୍ସେସ ବ୍ୟବହାର କରିବା ଉଚିତ କି? Root ଆକ୍ସେସ ଅତିରିକ୍ତ ସିଷ୍ଟମ ଫୋଲଡର ଏବଂ ବ୍ୟକ୍ତିଗତ ଆପ୍ଲିକେସନ ଡାଟା ଯାଞ୍ଚ କରିବା ପାଇଁ ବ୍ୟବହାର କରାଯାଇପାରିବ।</string>
     <string name="setup_root_state_ready_label">Root ଆକ୍ସେସ ପ୍ରସ୍ତୁତ ଅଛି।</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">ରୁଟ ଅ୍ୟାକ୍ସେସ ଉପଲବ୍ଧ ନୁହେଁ।</string>
+    <string name="setup_root_state_failed_title">ରୁଟ ଅ୍ୟାକସେସ ବିଫଳ</string>
+    <string name="setup_root_state_failed_body">SD Maid ରୁଟ ଅ୍ୟାକସେସ ମାଗିଲା ଏବଂ ତାହା ପାଇ ନାହିଁ। ଯଦି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରୁଟେଡ୍ ଅଛି, ତେବେ ଆପଣଙ୍କ ରୁଟ ମ୍ୟାନେଜର୍ (Magisk, KernelSU ବା ସମାନ) ଖୋଲନ୍ତୁ ଏବଂ ଯାଞ୍ଚ କରନ୍ତୁ ଯେ SD Maid ର ଅନୁରୋଧ ଅସ୍ୱୀକୃତ ଅଛି ବା ଏଥିରେ ଅପେକ୍ଷା ରଖୁଛି।</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ରୁଟ ଅ୍ୟାକସେସ ମାଗିଲା ଏବଂ ତାହା ପାଇ ନାହିଁ, ଏବଂ କୌଣସି ରୁଟ ମ୍ୟାନେଜର୍ ଆପ୍ଲିକେଶନ୍ ଚିହ୍ନିତ ହୋଇନାହିଁ। ଯଦି ଆପଣଙ୍କ ଡିଭାଇସ୍ ଲୁକ୍ଭ କିମ୍ବା ନିର୍ମିତ ରୁଟ୍ ବ୍ୟବହାର କରେ, ତେବେ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="setup_root_enable_root_use_label">ରୁଟ ଅ୍ୟାକ୍ସେସ ବ୍ୟବହାର କରିବାର ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="setup_root_disable_root_use_label">ମୁଁ ମୋ ଡିଭାଇସକୁ ରୁଟ କରିନାହିଁ</string>
     <string name="setup_root_card_body2">କେବଳ rooted ଡିଭାଇସରେ ଉପଲବ୍ଧ। ଯଦି ଆପଣ ଏହି ମୋଡିଫିକେସନ କରିନାହାନ୍ତି, ତେବେ ଆପଣଙ୍କ ଡିଭାଇସ rooted ନୁହେଁ ଏବଂ ଏହି ସେଟିଂର କୌଣସି ପ୍ରଭାବ ନାହିଁ।</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku ଲିଙ୍କ୍ ପ୍ରସ୍ତୁତ ହୋଇଅଛି।</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku ସହିତ ଲିଙ୍କ୍ ପାଇଁ ଅପେକ୍ଷାରତ।</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku ଆପ୍ ସଂସ୍ଥାପିତ ନାହିଁ।</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku ସଂଯୋଗ ବିଫଳ</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku ଚଳିତ ଅଛି, କିନ୍ତୁ ଏହା SD Maid କୁ ଏହାର ସହାୟକ ସେବାକୁ ସଂଯୋଗ ହେଲା ନାହିଁ।</string>
+    <string name="setup_shizuku_state_known_issue_hint">କେତେକ ଡିଭାଇସ୍ ଏକ ଜଣାଥିବା Shizuku ସମସ୍ୟା ଦ୍ୱାରା ପ୍ରଭାବିତ ଯାହା ସହାୟକ ସେବାକୁ ଆରମ୍ଭ ହେବାରୁ ରୋକେ। ଏହା ଏଥିରୁ ଗୋଟିଏ ହୋଇପାରେ।</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ବ୍ୟବହାର କରିବାର ଚେଷ୍ଟା କରନ୍ତୁ</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ବ୍ୟବହାର କରିବାନି</string>
     <string name="setup_dismiss_hint">ଆପଣ ସେଟିଂସ ମେନୁ ମାଧ୍ୟମରେ ପୁଣି ସେଟଅପ ସ୍କ୍ରିନ ଖୋଜିପାରିବେ।</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">ସମ୍ଭାବ୍ୟ ଡିଭାଇସ ସୀମାବଦ୍ଧତା</string>
     <string name="setup_inventory_limitation_body">ସିଷ୍ଟମ୍ ଇନଷ୍ଟଲ ହୋଇଥିବା ଆପ୍ଲିକେଶନ୍ସର ଏକ ଅଧୂରା ତାଲିକା ଫେରସ୍ତ କଲା, ୟଦିଓ ଆବଶ୍ୟକ ଅନୁମତି ଦିଆୟାଇଛି ବୋଲି ମନେ ହୁଏ।</string>
     <string name="setup_inventory_limitation_body2">କେତେକ ଡିଭାଇସ (ୟଥା HarmonyOS) କଦାଚିତ୍ ଏକ ସମ୍ପୂର୍ଣ ଆପ୍ ତାଲିକା ପ୍ରଦାନ କରେ ନାହିଁ। ଆପଣଙ୍କ ତଥ୍ୟ ସୁରକ୍ଷିତ ରଖିବାକୁ, ଆପ୍-ସମ୍ବନ୍ଧୀୟ ଟୁଲସ ଅକ୍ଷମ ରହେ, କିନ୍ତୁ ଆପଣ ତଥାପି ହ୍ରାସ ବିବରଣ ସହିତ ସଂରକ୍ଷଣ ବ୍ୟବହାର ଦେଖିପାରିବେ।</string>
+    <string name="setup_inventory_probe_failed_title">ଆପ୍ଲିକେଶନ୍ ତାଲିକା ପଢ଼ି ପାରିଲା ନାହିଁ</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid Android ଠାରୁ ସଂସ୍ଥାପିତ ଆପ୍ଲିକେଶନ୍‌ଗୁଡ଼ିକର ତାଲିକା ମାଗିଲା ଏବଂ ଅନୁରୋଧଟି ବିଫଳ ହେଲା। ଆପ୍ଲିକେଶନ୍-ସମ୍ବନ୍ଧିତ ସାଧନ ଅକ୍ଷମ ରହିବ ଯେକୌ ତାହା କାର୍ଯ୍ୟ କରେ। ପୁନର୍ବାର ଚେଷ୍ଟା କରିବା ସାହାଯ୍ୟ କରିପାରେ।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ସ୍କାନ୍ କରିବା ପାଇଁ କୌଣସି ଡାଟା କ୍ଷେତ୍ର ପାଇଲା ନାହିଁ। ଆପଣ ସେଟଅପ୍ ସମ୍ପୂର୍ଣ୍ଣ କରିଛନ୍ତି କି?</string>
     <string name="dataarea_warningcard_label">ଡାଟା କ୍ଷେତ୍ରଗୁଡ଼ିକ</string>
     <string name="dataarea_warningcard_reload_action">ଡାଟା କ୍ଷେତ୍ରଗୁଡ଼ିକୁ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">ସଂଗ୍ରହାଗାର ବ୍ୟବହାର ଏବଂ ଏକ-ଟ୍ୟାପ ସଫାଇ</string>
     <string name="widget_home_storage_internal">ଆଭ୍ୟନ୍ତରୀଣ</string>
     <string name="widget_home_storage_external">ବାହ୍ୟ</string>
-    <string name="widget_home_freed_label">ଜୀବନକାଳ: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">ମୋଟ ମୁକ୍ତ: %1$s</string>
     <string name="widget_home_clean_action">ସଫା କର</string>
     <string name="widget_home_working">କାମ ଚାଲିଛି…</string>
     <string name="widget_home_unavailable">ସ୍ଟୋରେଜ ଉପଲବ୍ଧ ନାହିଁ</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">ଏହି ବ୍ୟାକଅପର ଇତିହାସ ତଥ୍ୟ (ପରିସଂଖ୍ୟାନ, ସଙ୍କୋଚନ ଇତିହାସ, ସ୍ୱାଇପ୍ ସେସନ) ଏକ ଭିନ୍ନ ଆପ୍ ସଂସ୍କରଣଠାରୁ ଆସିଛି ଏବଂ ପୁନରସ୍ଥାପନ କରାଯାଇ ପାରିବ ନାହିଁ। ଅନ୍ୟ ସବୁକିଛି ପୁନରସ୍ଥାପନ ହେବ।</string>
     <string name="backup_restore_ack_understand">ମୁଁ ବୁଝିଲି ଏବଂ ଚାଲିବାକୁ ଚାହୁଁ</string>
     <string name="backup_restore_action_restore">ପୁନରୁଦ୍ଧାର</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">ସଂରକ୍ଷଣ ସତର୍କତା</string>
+    <string name="stats_lowspace_notification_title">ସଂରକ୍ଷଣ ଭର୍ତ୍ତି ହୋଇଯାଉଛି</string>
+    <string name="stats_lowspace_notification_low_title">ସଂରକ୍ଷଣ ପ୍ରାୟ ପୂର୍ଣ୍ଣ</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ମୁକ୍ତ। ସଂରକ୍ଷଣ ଶେଷ ହୋଇ ଯାଉଛି।</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">ଏ ହାର ଅନୁଯାୟୀ ପ୍ରାୟ %1$d ଦିନର ସ୍ଥାନ ବାକି ଅଛି। %2$s ମୁକ୍ତ।</item>
+        <item quantity="other">ଏ ହାର ଅନୁଯାୟୀ ପ୍ରାୟ %1$d ଦିନର ସ୍ଥାନ ବାକି ଅଛି। %2$s ମୁକ୍ତ।</item>
+    </plurals>
 </resources>

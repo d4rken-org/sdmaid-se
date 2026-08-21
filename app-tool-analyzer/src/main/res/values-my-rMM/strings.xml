@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">တိုက်ရိုက် ဝင်ရောက်ခွင့် မရှိပါ</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper session ဖန်တီးပါ</string>
+    <string name="analyzer_content_open_externally_action">ဖိုင်မန်နေဂျာတွင် ဖွင့်ပါ</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">%d ခု ပါဝင်သော Swiper session ဖန်တီးပြီးပြီ</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">ရိုကူးထားသော ပုံများ၊ ဗီဒီယာများ သို့မဟုတ် ဒော်င်လုဒ်ဆွဲးထားသော ဒေတာ။ တိကျသောအပ်ပ်တစ်ခုနှင့် မဆက်နွှေသော မည်သည့့်ဒေတာမဆို။</string>
     <string name="analyzer_storage_content_type_system_label">စနစ်ဒေတာ</string>
     <string name="analyzer_storage_content_type_system_description">စနစ်အပ်ပ်များနှင့် စနစ်ဒေတာ။ ဤကိရိယာတွင် အသုံးပြု အကောင်အည်းများစွာ သတ်မှတ်ထားလျှင် အခြားအသုံးပြုသူများမှ အပ်ပ်များနှင့် ဒေတာ။</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">အခြားအသုံးပြုသူများကို အပြည့်အဝ တိုင်းတာ၍မရသဖြင့် ဤစုစုပေါင်းတွင် သူတို့၏ သိုလှောင်ခန်းအချို့ ပါဝင်နေနိုင်ပါသည်။</string>
     <string name="analyzer_storage_content_type_system_other_label">အခြား</string>
     <string name="analyzer_storage_content_type_system_info">Apps သို့မဟုတ် အသုံးပြုသူဖိုင်များ အမျိုးအစားများတွင် မကိုက်ညီသော ဖိုင်များ။ ကြည့်ရှုရန်သာ — ဖျက်ခြင်းကို ပံ့ပိုးမထားပါ။ ဝင်ရောက်ခွင့် ကန့်သတ်ချက်များကြောင့် အချို့နေရာများ မပြည့်စုံနိုင်ပါ။</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ဖိုင်များကိုလက်ရှိတွင်သူတို့ကိုပိုင်ဆိုင်သည့်အက်ပ်များ၏အခြေအနေတွင်ကိုက်ညီအောင်ခွင့်မပြုနိုင်ပါ။ အရွယ်အစားများကိုကိုးကားခြင်းအတွက်သာပြသည်။ ဖျက်ခြင်း၊စစ်ထုတ်များနှင့် Swiper တို့ကိုပိတ်ထားသည်။</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid ဝင်ရောက်၍ မရသော သို့မဟုတ် အမျိုးအစားခွဲ၍ မရသော စနစ်ဖိုင်များနှင့် အခြားဒေတာ။ ကွန်ပျူတာ စစ်ဆင်ရေး စနစ်သည် အချို့နေရာများ၏ အကြောင်းအရာများကို ကြည့်ရှုခွင့် ကန့်သတ်ထားသည်။</string>
+    <string name="analyzer_storage_content_type_otherusers_label">အခြားအသုံးပြုသူများ</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ဤစက်ပေါ်ရှိ အခြားအသုံးပြုသူများ သို့မဟုတ် အလုပ်ပရိုဖိုင်းများပိုင်ဆိုင်သော အက်ပ်များနှင့် ဖိုင်များ။</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">အက်ပ်ဒေတာသာ ပါဝင်ပြီး ဤအသုံးပြုသူ၏ မျှဝေထားသော ဖိုင်များ မပါဝင်ပါ။</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">အရွယ်အစား မသိရှိနိုင်ပါ၊ ဤအသုံးပြုသူ၏ သိုလှောင်ခန်းကို ဖတ်၍မရပါ။</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ဤစက်ပေါ်ရှိ အခြားအသုံးပြုသူတစ်ဦး၏ သိုလှောင်ခန်း။ ကြည့်ရှုရုံသာ ရနိုင်ပြီး ဖျက်ခြင်းကို ပံ့ပိုးမထားပါ။</string>
     <string name="analyzer_storage_content_app_code_label">အပ်ပ် ကုဒ်</string>
     <string name="analyzer_storage_content_app_code_description">Application ဖိုင်များ၊ library များနှင့် အရင်းအမြစ်များ။ ဤနေရာကို အပ်ပ်ကို ဖြုတ်ချပြီး သို့မဟုတ် မြှုပ်သိမ်းခြင်းဖြင့် (Android ဗားရှင်းအသစ်တွင် ရနိုင်သည်) ရှင်းလင်းနိုင်သည်။</string>
     <string name="analyzer_storage_content_app_data_label">အပ်ပ် ဒေတာ</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ဤအက်ပ်သည် \"%2$s\" တွင် %1$s ယူထားသည်။</string>
     <string name="analyzer_app_details_app_is_archived">ဤအက်ပ်ကို မှတ်တမ်းတင်ထားသည်။</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ၇ ရက်အတွင်း</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">ယခုနှုန်းအတိုင်းဆိုလျှင် နေရာလွတ် ခန့်မှန်းရက် %d ရက် ကျန်ရှိပါသည်</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">သိုလှောင်ခန်း</string>
+    <string name="analyzer_settings_lowstorage_title">သိုလှောင်ခန်း နည်းသည့် အကန့်အသတ်</string>
+    <string name="analyzer_settings_lowstorage_desc">နေရာလွတ်သည် ဤအဆင့်အောက် ကျဆင်းသွားပါက SD Maid သည် သိုလှောင်ခန်း ကုန်သွားပြီဟု ယူဆပါမည်။</string>
+    <string name="analyzer_settings_lowstorage_value_auto">အလိုအလျောက် (လက်ရှိ %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">အလိုအလျောက်</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">အလိုအလျောက်</string>
+    <string name="analyzer_settings_lowspace_notification_title">နေရာလွတ်နည်းသော သတိပေးချက်</string>
+    <string name="analyzer_settings_lowspace_notification_desc">သင့်သိုလှောင်ခန်း မကုန်ခင် အကြောင်းကြားချက်ရယူပါ။</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">နေရာလွတ်ကုန်တာကို ရုတ်တရက် မကြုံတွေ့ရတော့ပါ</string>
+    <string name="analyzer_lowspace_hint_body">သင့်သိုလှောင်ခန်း မကုန်ခင် သတိပေးချက်ရယူရန် အဆင့်မြှင့်ပါ၊ သို့မှသာ နေရာလွတ်ရှိသေးစဉ် ရှင်းလင်းနိုင်ပါမည်။</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">သင်၏သိုလှောင်ခန်းအားအမှန်တကယ်ဖြည့်သွင်းစေသည့်အရာများကိုကြည့်ပါ။ Analyzer သည်သင်၏နေရာကြေးခြင်းအားမြေပုံဆွဲသည်။ ဤကဒ်များတစ်ခုစီသည်သင်၏စက်ပစ္စည်းတွင်သိုလှောင်ခန်းခွဲခြင်းတစ်ခုဖြစ်သည်။</string>
     <string name="tour_analyzer_storage_body">သိုလှောင်ခန်းတစ်ခုကိုဖွင့်၍အက်ပ်များ၊ မီဒီယာ နှင့်ဖိုင်များဖြင့်ခွဲခြမ်းစိတ်ဖြာပါ။ ထို့နောက်နေရာအများဆုံးခွဲခြုံစုံလင်သောအရာများရှာဖွေရန်အဆက်အစပ်ထိုးတွန်းပါ။</string>

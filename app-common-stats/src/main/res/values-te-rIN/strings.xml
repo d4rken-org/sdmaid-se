@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%2$sలో %1$s</string>
     <string name="stats_space_history_upgrade_title">పూర్తి చరిత్ర ఒక Pro ఫీచర్</string>
     <string name="stats_space_history_upgrade_body">ప్రతి స్టోరేజ్ పరికరానికి పూర్తి 90-రోజుల ట్రెండ్ వీక్షణను అన్‌లాక్ చేయడానికి అప్‌గ్రేడ్ చేయండి.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ప్రతి నిల్వ పరికరానికి పూర్తి 90-రోజుల ట్రెండ్ వీక్షణను అన్‌లాక్ చేయడానికి మరియు స్థలం అయిపోయే ముందు హెచ్చరిక పొందడానికి అప్‌గ్రేడ్ చేయండి.</string>
     <string name="stats_space_history_marker_freed">%1$s విడుదల చేయబడింది</string>
     <string name="stats_storage_type_primary">ముఖ్య స్టోరేజీ</string>
     <string name="stats_storage_type_secondary">ద్వితీయ స్టోరేజీ</string>

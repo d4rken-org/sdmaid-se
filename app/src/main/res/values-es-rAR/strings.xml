@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Acceso de superusuario (root)</string>
     <string name="setup_root_card_body">¿Debería SD Maid usar acceso root si está disponible? El acceso root se puede usar para comprobar carpetas adicionales del sistema y datos privados de aplicaciones.</string>
     <string name="setup_root_state_ready_label">El acceso root está listo.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">El acceso root no está disponible.</string>
+    <string name="setup_root_state_failed_title">Error al obtener acceso root</string>
+    <string name="setup_root_state_failed_body">SD Maid solicitó acceso root y no lo obtuvo. Si tu dispositivo tiene root, abrí tu administrador de root (Magisk, KernelSU o similar) y comprobá si la solicitud de SD Maid fue denegada o todavía está pendiente.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid solicitó acceso root y no lo obtuvo, y no se detectó ninguna app de administración de root. Si tu dispositivo usa root oculto o integrado, intentá de nuevo.</string>
     <string name="setup_root_enable_root_use_label">Probá a usar acceso root</string>
     <string name="setup_root_disable_root_use_label">No rooteé mi dispositivo</string>
     <string name="setup_root_card_body2">Solo disponible en dispositivos rooteados. Si no realizaste esta modificación, tu dispositivo no está rooteado y esta configuración no tiene ningún efecto.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">La vinculación a Shizuku está lista.</string>
     <string name="setup_shizuku_state_waiting_label">Esperando la vinculación a Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">La aplicación Shizuku no está instalada.</string>
+    <string name="setup_shizuku_state_failed_title">Falló la conexión con Shizuku</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku está en ejecución, pero nunca conectó SD Maid con su servicio auxiliar.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Algunos dispositivos tienen un problema conocido de Shizuku que impide que el servicio auxiliar se inicie. Puede que este sea uno de ellos.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Probá a usar Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No usar Shizuku</string>
     <string name="setup_dismiss_hint">Podés volver a encontrar la pantalla de configuración mediante el menú de la configuración.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Posible limitación del dispositivo</string>
     <string name="setup_inventory_limitation_body">El sistema devolvió una lista incompleta de aplicaciones instaladas, a pesar de que aparentemente se han otorgado los permisos requeridos.</string>
     <string name="setup_inventory_limitation_body2">Algunos dispositivos (p. ej. HarmonyOS) nunca proporcionan una lista completa de aplicaciones. Para proteger tus datos, las herramientas relacionadas con aplicaciones permanecen deshabilitadas, pero aún podés ver el uso del almacenamiento con menos detalles.</string>
+    <string name="setup_inventory_probe_failed_title">No se pudo leer la lista de apps</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid le pidió a Android la lista de apps instaladas y la solicitud falló. Las herramientas relacionadas con apps quedan deshabilitadas hasta que funcione. Intentar de nuevo puede ayudar.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid no encontró ningún dato de áreas que se pueden escanear. ¿Completaste la configuración?</string>
     <string name="dataarea_warningcard_label">Áreas de datos</string>
     <string name="dataarea_warningcard_reload_action">Recargar datos de áreas</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Uso de almacenamiento y limpieza de un toque</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Externo</string>
-    <string name="widget_home_freed_label">Acumulado: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Total liberado: %1$s</string>
     <string name="widget_home_clean_action">Limpiar</string>
     <string name="widget_home_working">Trabajando…</string>
     <string name="widget_home_unavailable">Almacenamiento no disponible</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Los datos de historial de esta copia de seguridad (estadísticas, historial de compresión, sesiones de deslizamiento) provienen de una versión diferente de la aplicación y no pueden restaurarse. Todo lo demás se restaurará.</string>
     <string name="backup_restore_ack_understand">Entiendo y quiero continuar</string>
     <string name="backup_restore_action_restore">Restaurar</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Avisos de almacenamiento</string>
+    <string name="stats_lowspace_notification_title">El almacenamiento se está llenando</string>
+    <string name="stats_lowspace_notification_low_title">El almacenamiento está casi lleno</string>
+    <string name="stats_lowspace_notification_low_body">%1$s libres. El almacenamiento se está agotando.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Queda aproximadamente %1$d día de espacio a este ritmo. %2$s libres.</item>
+        <item quantity="other">Quedan aproximadamente %1$d días de espacio a este ritmo. %2$s libres.</item>
+    </plurals>
 </resources>

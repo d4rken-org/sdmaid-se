@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root അനുമതികൾ</string>
     <string name="setup_root_card_body">ലഭ്യമാകുമ്പോൾ SD Maid root ഉപയോഗിക്കണോ? Root അനുമതികൾ മറഞ്ഞിരിക്കുന്ന ആപ്പ് ഡാറ്റയും അധിക സിസ്റ്റം ഫോൾഡറുകളും പരിശോധിക്കാൻ അനുവദിക്കുന്നു.</string>
     <string name="setup_root_state_ready_label">Root അനുമതികൾ തയ്യാറാണ്.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">റൂട്ട് ആക്സസ് ലഭ്യമല്ല.</string>
+    <string name="setup_root_state_failed_title">റൂട്ട് ആക്‌സസ് പരാജയപ്പെട്ടു</string>
+    <string name="setup_root_state_failed_body">SD Maid റൂട്ട് ആക്‌സസ് ആവശ്യപ്പെട്ടു, പക്ഷേ അത് ലഭിച്ചില്ല. നിങ്ങളുടെ ഉപകരണം റൂട്ട് ചെയ്തിട്ടുണ്ടെങ്കിൽ, നിങ്ങളുടെ റൂട്ട് മാനേജർ (Magisk, KernelSU അല്ലെങ്കിൽ സമാനമായത്) തുറന്ന് SD Maid-ന്റെ അഭ്യർത്ഥന നിരസിക്കപ്പെട്ടോ അതോ ഇപ്പോഴും കാത്തിരിക്കുകയാണോ എന്ന് പരിശോധിക്കുക.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid റൂട്ട് ആക്‌സസ് ആവശ്യപ്പെട്ടു, പക്ഷേ അത് ലഭിച്ചില്ല, കൂടാതെ ഒരു റൂട്ട് മാനേജർ ആപ്പും കണ്ടെത്തിയില്ല. നിങ്ങളുടെ ഉപകരണം മറഞ്ഞിരിക്കുന്നതോ ബിൽറ്റ്-ഇൻ റൂട്ടോ ഉപയോഗിക്കുന്നുണ്ടെങ്കിൽ, വീണ്ടും ശ്രമിക്കുക.</string>
     <string name="setup_root_enable_root_use_label">റൂട്ട് ആക്സസ് ഉപയോഗിക്കാൻ ശ്രമിക്കുക</string>
     <string name="setup_root_disable_root_use_label">എന്റെ ഡിവൈസ് റൂട്ട് ചെയ്തിട്ടില്ല</string>
     <string name="setup_root_card_body2">റൂട്ട് ചെയ്ത ഉപകരണങ്ങളിൽ മാത്രം ലഭ്യമാണ്. നിങ്ങൾ ഈ മാറ്റം വരുത്തിയിട്ടില്ലെങ്കിൽ, നിങ്ങളുടെ ഉപകരണം റൂട്ട് ചെയ്തിട്ടില്ല, ഈ ക്രമീകരണം യാതൊരു ഫലവും ചെയ്യില്ല.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku ലിങ്ക് തയ്യാറാണ്</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku യുമായുള്ള ലിങ്കിനായി കാത്തിരിക്കുന്നു</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku അപ്ലിക്കേഷൻ ഇൻസ്റ്റോൾ ചെയ്തിട്ടില്ല.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku ലിങ്ക് പരാജയപ്പെട്ടു</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku പ്രവർത്തിക്കുന്നുണ്ട്, പക്ഷേ അത് SD Maid-നെ അതിന്റെ സഹായി സേവനവുമായി ഒരിക്കലും ബന്ധിപ്പിച്ചില്ല.</string>
+    <string name="setup_shizuku_state_known_issue_hint">സഹായി സേവനം ആരംഭിക്കുന്നത് തടയുന്ന Shizuku-യുടെ അറിയപ്പെടുന്ന ഒരു പ്രശ്നം ചില ഉപകരണങ്ങളെ ബാധിക്കുന്നു. ഇത് അതിലൊന്നാകാം.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ഉപയോഗിക്കാൻ ശ്രമിക്കുക</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ഉപയോഗിക്കരുത്</string>
     <string name="setup_dismiss_hint">സെറ്റിംഗ്സ് മെനു വഴി നിങ്ങൾക്ക് സെറ്റപ്പ് സ്ക്രീൻ വീണ്ടും കണ്ടെത്താനാകും.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">സാധ്യമായ ഡിവൈസ് പരിമിതി</string>
     <string name="setup_inventory_limitation_body">ആവശ്യമായ അനുമതികൾ അനുവദിച്ചതായി തോന്നിയാലും, സിസ്റം ഇൻസ്റാൾ ചെയ്ത അപ്ലിക്കേഷനുകളുടെ അപൂർണ്ണ പട്ടിക തിരികെ നൽകി.</string>
     <string name="setup_inventory_limitation_body2">ചില ഡിവൈസുകൾ (ഉദാ. HarmonyOS) ഒരിക്കലും സമ്പൂർണ്ണ അപ്ലിക്കേഷൻ പട്ടിക നൽകുന്നില്ല. നിങ്ങളുടെ ഡാറ്റ സുരക്ഷിതമാക്കാൻ, അപ്ലിക്കേഷൻ സംബന്ധമായ ഉപകരണങ്ങൾ പ്രയോഗരഹിതമായി തുടരുന്നു, എന്നാൽ നിങ്ങൾക്ക് ഇപ്പോഴും കുറഞ്ഞ വിശദാംശങ്ങളോടെ സ്റോറേജ് ഉപയോഗം കാണാൻ പറ്റും.</string>
+    <string name="setup_inventory_probe_failed_title">ആപ്പ് ലിസ്റ്റ് വായിക്കാൻ കഴിഞ്ഞില്ല</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകളുടെ ലിസ്റ്റ് Android-നോട് ആവശ്യപ്പെട്ടു, പക്ഷേ അഭ്യർത്ഥന പരാജയപ്പെട്ടു. ഇത് ശരിയാകുന്നതുവരെ ആപ്പ് സംബന്ധിയായ ടൂളുകൾ പ്രവർത്തനരഹിതമായി തുടരും. വീണ്ടും ശ്രമിക്കുന്നത് സഹായിച്ചേക്കാം.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid-ന് സ്കാൻ ചെയ്യാൻ കഴിയുന്ന ഡേറ്റ മേഖലകൾ കണ്ടെത്തിയില്ല. നിങ്ങൾ സെറ്റപ്പ് പൂർത്തിയാക്കിയോ?</string>
     <string name="dataarea_warningcard_label">ഡേറ്റ മേഖലകൾ</string>
     <string name="dataarea_warningcard_reload_action">ഡേറ്റ മേഖലകൾ പുനഃലോഡ് ചെയ്യുക</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">സ്ഥലം ഉപയോഗവും ഒരു-ടാപ്പ് ശുദ്ധീകരണവും</string>
     <string name="widget_home_storage_internal">ആന്തരിക</string>
     <string name="widget_home_storage_external">ബാഹ്യ</string>
-    <string name="widget_home_freed_label">ജീവനകാലം: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">ആകെ ഒഴിവാക്കിയത്: %1$s</string>
     <string name="widget_home_clean_action">ശുദ്ധമാക്കുക</string>
     <string name="widget_home_working">പ്രവർത്തിക്കുന്നു…</string>
     <string name="widget_home_unavailable">സ്റ്റോറേജ് ലഭ്യമല്ല</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">ഈ ബാക്കപ്പിന്റെ ചരിത്ര ഡാറ്റ (സ്ഥിതിവിവരണം, കംപ്രെഷൻ ചരിത്രം, സ്വൈപ്പ് സെഷനുകൾ) വ്യത്യസ്ത ആപ്പ് സംസ്കരണത്തിൽ നിന്നുള്ളതും പുനരുദ്ധരിക്കാൻ കഴിയാത്തതുമാണ്. മറ്റെല്ലാം പുനരുദ്ധരിക്കും.</string>
     <string name="backup_restore_ack_understand">ഞാൻ മനസ്സിലാക്കി തുടരാൻ ആഗ്രഹിക്കുന്നു</string>
     <string name="backup_restore_action_restore">പുനരുദ്ധരിക്കുക</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">സ്റ്റോറേജ് മുന്നറിയിപ്പുകൾ</string>
+    <string name="stats_lowspace_notification_title">സ്റ്റോറേജ് നിറയുന്നു</string>
+    <string name="stats_lowspace_notification_low_title">സ്റ്റോറേജ് ഏതാണ്ട് നിറഞ്ഞു</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ബാക്കിയുണ്ട്. സ്റ്റോറേജ് തീരാൻ പോകുന്നു.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">ഈ നിരക്കിൽ ഏകദേശം %1$d ദിവസത്തെ സ്ഥലം ബാക്കിയുണ്ട്. %2$s ബാക്കിയുണ്ട്.</item>
+        <item quantity="other">ഈ നിരക്കിൽ ഏകദേശം %1$d ദിവസങ്ങളുടെ സ്ഥലം ബാക്കിയുണ്ട്. %2$s ബാക്കിയുണ്ട്.</item>
+    </plurals>
 </resources>

@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Tidak ada akses langsung yang tersedia</string>
     <string name="analyzer_content_create_swiper_session_action">Buat sesi Memilah</string>
+    <string name="analyzer_content_open_externally_action">Buka di pengelola file</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">Sesi memilah dibuat dengan %d item</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atau data yang diunduh. Semua data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Pengguna lain tidak dapat diukur sepenuhnya, sehingga total ini mungkin mencakup sebagian penyimpanan mereka.</string>
     <string name="analyzer_storage_content_type_system_other_label">Lainnya</string>
     <string name="analyzer_storage_content_type_system_info">File yang tidak sesuai dengan kategori Aplikasi atau File Pengguna. Jelajahi saja — penghapusan tidak didukung. Beberapa area mungkin tidak lengkap karena pembatasan akses.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">File tidak dapat dicocokkan dengan aplikasi yang memilikinya saat ini. Ukuran ditampilkan hanya untuk referensi — penghapusan, filter, dan Swiper dinonaktifkan.</string>
     <string name="analyzer_storage_content_type_system_other_desc">File sistem dan data lain yang tidak dapat diakses atau dikategorikan oleh SD Maid. Sistem operasi membatasi pencantuman isi beberapa area.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Pengguna lain</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Aplikasi dan file milik pengguna lain atau profil kerja di perangkat ini.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Hanya data aplikasi, file bersama pengguna ini tidak disertakan.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Ukuran tidak tersedia, penyimpanan pengguna ini tidak dapat dibaca.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Penyimpanan pengguna lain di perangkat ini. Hanya untuk menjelajah, penghapusan tidak didukung.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini dapat dibebaskan dengan mencopot pemasangan aplikasi atau mengarsipkannya (tersedia pada versi Android yang lebih baru).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarsipkan.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s dalam 7h</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">Sekitar %d hari ruang tersisa dengan laju ini</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Penyimpanan</string>
+    <string name="analyzer_settings_lowstorage_title">Ambang batas penyimpanan rendah</string>
+    <string name="analyzer_settings_lowstorage_desc">Jika ruang kosong turun di bawah ini, SD Maid menganggap penyimpanan hampir habis.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Otomatis (saat ini %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Otomatis</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Otomatis</string>
+    <string name="analyzer_settings_lowspace_notification_title">Peringatan ruang rendah</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Dapatkan pemberitahuan sebelum penyimpananmu habis.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Jangan sampai kehabisan ruang</string>
+    <string name="analyzer_lowspace_hint_body">Tingkatkan untuk mendapatkan peringatan sebelum penyimpananmu habis, sehingga kamu bisa membersihkan selagi masih ada ruang untuk bekerja.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Lihat apa yang benar-benar mengisi penyimpanan Anda. Analyzer memetakan ke mana ruang Anda pergi. Setiap kartu ini adalah chip penyimpanan di perangkat Anda.</string>
     <string name="tour_analyzer_storage_body">Buka penyimpanan untuk memecahnya menjadi aplikasi, media, dan file, lalu terus ketuk untuk melacak penyebab terbesar.</string>

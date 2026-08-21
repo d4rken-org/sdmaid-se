@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">អាក់សេសឫស</string>
     <string name="setup_root_card_body">តើ SD Maid គួរប្រើការចូលប្រើរូតប្រសិនបើវាអាចប្រើបានតេ។ ការចូលប្រើរូតអាចត្រូវបានប្រើដើម្បីពិនិត្យថ្នាក់ព័េលបន្ថែមនិងតិន្នន័យស្រន្តាន់សម្រាប់កម្មវិធី។</string>
     <string name="setup_root_state_ready_label">អាក់សេសឫស គឺរួចរាល់ហើយ។</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">អាក់សេសឬស មិនអាចប្រើបានទេ។</string>
+    <string name="setup_root_state_failed_title">ការចូលប្រើសិទ្ធិ root បរាជ័យ</string>
+    <string name="setup_root_state_failed_body">SD Maid បានស្នើសុំសិទ្ធិ root ប៉ុន្តែមិនទទួលបាន។ ប្រសិនបើឧបករណ៍របស់អ្នកមាន root សូមបើកកម្មវិធីគ្រប់គ្រង root (Magisk, KernelSU ឬស្រដៀងគ្នា) ហើយពិនិត្យមើលថាតើសំណើពី SD Maid ត្រូវបានបដិសេធ ឬនៅតែកំពុងរង់ចាំ។</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid បានស្នើសុំសិទ្ធិ root ប៉ុន្តែមិនទទួលបាន ហើយក៏មិនបានរកឃើញកម្មវិធីគ្រប់គ្រង root ដែរ។ ប្រសិនបើឧបករណ៍របស់អ្នកប្រើ root ដែលលាក់ ឬដាក់ជាប់ជាមួយប្រព័ន្ធ សូមព្យាយាមម្ដងទៀត។</string>
     <string name="setup_root_enable_root_use_label">ព្យាយាមប្រើអាក់សេសឬស</string>
     <string name="setup_root_disable_root_use_label">ខ្ញុំមិនបាន root ឧបករណ៍របស់ខ្ញុំទេ</string>
     <string name="setup_root_card_body2">មានតែនៅលើឧបករណ៍ដែលបានដាក់ឫស។ ប្រសិនបើអ្នកមិនបានធ្វើការផ្លាស់ប្តូរនេហទេ នោហឧបករណ៍របស់អ្នកមិនត្រូវបានដាក់ឫស ហើយការកំណត់នេហគ្មានឥទ្ធិពលទេ។</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">បញ្ជាប់ Shizuku គឺរួចរាល់ហើយ។</string>
     <string name="setup_shizuku_state_waiting_label">កំពុងរង់ចាំបញ្ជាប់ជាមួយ Shizuku។</string>
     <string name="setup_shizuku_state_not_installed_label">កម្មវិធី Shizuku មិនបានដំឡើង។</string>
+    <string name="setup_shizuku_state_failed_title">ការភ្ជាប់ Shizuku បរាជ័យ</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku កំពុងដំណើរការ ប៉ុន្តែវាមិនដែលភ្ជាប់ SD Maid ទៅសេវាកម្មជំនួយរបស់វាទេ។</string>
+    <string name="setup_shizuku_state_known_issue_hint">ឧបករណ៍មួយចំនួនរងផលប៉ះពាល់ដោយបញ្ហា Shizuku ដែលគេស្គាល់ ដែលរារាំងសេវាកម្មជំនួយពីការចាប់ផ្តើម។ នេះអាចជាឧបករណ៍ប្រភេទនោះមួយ។</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ព្យាយាមប្រើ Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">កុំប្រើ Shizuku</string>
     <string name="setup_dismiss_hint">អ្នកអាចរៀបចំអេក្រង់ម្ដងទៀតបាន តាមរយៈម៉ឺនុយការកំណត់។</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">ដែនកំណត់ឧបករណ៍ដែលអាចកើតឡើង</string>
     <string name="setup_inventory_limitation_body">ប្រព័ន្ធបានផ្តល់ឱ្យបញ្ជីកម្មវិធីដែលដំឡើងមិនពិតប្រាកដ ទោះបីជាការអនុញ្ញាតដែលត្រូវការហាក់ដូចជាបានផ្តល់ឱ្យក៏ដោយ។</string>
     <string name="setup_inventory_limitation_body2">ឧបករណ៍មួយចំនួន (ឧទាហរណ៍ HarmonyOS) មិនផ្តល់ជូនបញ្ជីកម្មវិធីពិតប្រាកដទេ។ ដើម្បីការពារទិន្នន័យរបស់អ្នក ឧបករណ៍ដែលពាក់ព័ន្ធនឹងកម្មវិធីនៅតែមិនបើក ប៉ុន្តែអ្នកនៅតែអាចមើលការប្រើប្រាស់ផ្ទុកទិន្នន័យលម្អិតដែលបានកាត់បន្ថយ។</string>
+    <string name="setup_inventory_probe_failed_title">មិនអាចអានបញ្ជីកម្មវិធីបានទេ</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid បានស្នើសុំបញ្ជីកម្មវិធីដែលបានដំឡើងពី Android ប៉ុន្តែសំណើនោះបានបរាជ័យ។ ឧបករណ៍ដែលទាក់ទងនឹងកម្មវិធីនឹងនៅតែបិទរហូតដល់វាដំណើរការ។ ការព្យាយាមម្ដងទៀតអាចជួយបាន។</string>
     <string name="dataarea_warningcard_empty_message">SD Maid មិនបានរកឃើញផ្នែកទិន្នន័យណាដែលអាចស្កេនបានទេ។ តើអ្នកបានបញ្ចប់ការដំឡើងទេ?</string>
     <string name="dataarea_warningcard_label">ទីតាំងទិន្នន័យ</string>
     <string name="dataarea_warningcard_reload_action">ផ្ទុកទីតាំងទិន្នន័យសាថ្មី</string>
@@ -353,7 +362,11 @@
     <string name="widget_home_description">ការប្រើប្រាស់ឃ្លាំងផ្ទុក និងការសម្អាតម្តង</string>
     <string name="widget_home_storage_internal">ខាងក្នុង</string>
     <string name="widget_home_storage_external">ខាងក្រៅ</string>
-    <string name="widget_home_freed_label">រយៈពេល: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">សរុបដែលបានដោះលែង៖ %1$s</string>
     <string name="widget_home_clean_action">សម្អាត</string>
     <string name="widget_home_working">កំពុងដំណើរការ…</string>
     <string name="widget_home_unavailable">ឃ្លាំងផ្ទុកមិនមាន</string>
@@ -393,4 +406,12 @@
     <string name="backup_restore_warn_history_body">ទិន្នន័យប្រវត្តិនៃការបម្រុងទុកនេះ (ស្ថិតិ ប្រវត្តិការបង្ហាប់ សម័យកាលលុប) គឺមកពីកំណែកម្មវិធីផ្សេងគ្នា ហើយមិនអាចស្ដារបានទេ។ អ្វីដទៃទៀតនឹងត្រូវបានស្ដារ។</string>
     <string name="backup_restore_ack_understand">ខ្ញុំយល់ដឹង ហើយចង់បន្តទៅ</string>
     <string name="backup_restore_action_restore">ស្ដារ</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">ការជូនដំណឹងអំពីទំហំផ្ទុក</string>
+    <string name="stats_lowspace_notification_title">ទំហំផ្ទុកកំពុងពេញ</string>
+    <string name="stats_lowspace_notification_low_title">ទំហំផ្ទុកជិតពេញ</string>
+    <string name="stats_lowspace_notification_low_body">នៅសល់ %1$s ។ ទំហំផ្ទុកជិតអស់ហើយ។</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">នៅសល់ប្រហែល %1$d ថ្ងៃទៀតដោយអត្រានេះ។ នៅសល់ %2$s ។</item>
+    </plurals>
 </resources>

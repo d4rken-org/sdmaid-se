@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root kirish huquqi</string>
     <string name="setup_root_card_body">Agar mavjud bo\'lsa, SD Maid root kirish huquqidan foydalanishi kerakmi? Root kirish huquqi qo\'shimcha tizim papkalari va shaxsiy ilova ma\'lumotlarini tekshirish uchun ishlatilishi mumkin.</string>
     <string name="setup_root_state_ready_label">Root kirish huquqi tayyor.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root ruxsati mavjud emas.</string>
+    <string name="setup_root_state_failed_title">Root kirish muvaffaqiyatsiz tugadi</string>
+    <string name="setup_root_state_failed_body">SD Maid root huquqini so‘radi, lekin uni ololmadi. Agar qurilmangiz root qilingan bo‘lsa, root menejeringizni (Magisk, KernelSU yoki shunga o‘xshash) oching va SD Maiddan kelgan so‘rov rad etilganmi yoki hali kutilyaptimi, tekshiring.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid root huquqini so‘radi, lekin uni ololmadi, va hech qanday root menejeri ilovasi aniqlanmadi. Agar qurilmangiz yashirin yoki o‘rnatilgan rootdan foydalansa, qayta urinib ko‘ring.</string>
     <string name="setup_root_enable_root_use_label">Root ruxsatidan foydalanishni sinab ko\'ring</string>
     <string name="setup_root_disable_root_use_label">Men o\'z qurilmamni root qilmadim</string>
     <string name="setup_root_card_body2">Faqat root huquqi olingan qurilmalarda mavjud. Agar siz bu o\'zgarishni qilmagan bo\'lsangiz, qurilmangiz root huquqiga ega emas va bu sozlama ta\'sir qilmaydi.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku aloqasi tayyor.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku bilan aloqani kutmoqda.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku ilovasi o\'rnatilmagan.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku ulanishi muvaffaqiyatsiz tugadi</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku ishlamoqda, ammo u SD Maidni hech qachon o‘zining yordamchi xizmatiga ulamadi.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Ba\'zi qurilmalar yordamchi xizmatning ishga tushishiga to‘sqinlik qiluvchi ma\'lum Shizuku muammosidan ta\'sirlangan. Bu ham ulardan biri bo‘lishi mumkin.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku\'dan foydalanishni sinab ko\'ring</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku dan foydalanmang</string>
     <string name="setup_dismiss_hint">Sozlash ekranini sozlamalar menyusi orqali qayta topishingiz mumkin.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Qurilmaning mumkin bo\'lgan cheklovi</string>
     <string name="setup_inventory_limitation_body">Zarur ruxsatlar berilganga o\'xshasa-da, tizim o\'rnatilgan ilovalarning to\'liqsiz ro\'yxatini qaytardi.</string>
     <string name="setup_inventory_limitation_body2">Ba\'zi qurilmalar (masalan, HarmonyOS) hech qachon to\'liq ilova ro\'yxatini bermaydi. Ma\'lumotlaringizni himoya qilish uchun ilovaga oid vositalar o\'chirilgan holatda qoladi, lekin xotira sarfini kamroq tafsilot bilan ko\'rishingiz mumkin.</string>
+    <string name="setup_inventory_probe_failed_title">Ilovalar ro‘yxatini o‘qib bo‘lmadi</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid Androiddan o‘rnatilgan ilovalar ro‘yxatini so‘radi va so‘rov muvaffaqiyatsiz tugadi. Bu ishlamaguncha ilovalarga oid vositalar o‘chirilgan holda qoladi. Qayta urinib ko‘rish yordam berishi mumkin.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid skanerlash mumkin bo\'lgan hech qanday ma\'lumot hududini topmadi. Sozlashni tugatdingizmi?</string>
     <string name="dataarea_warningcard_label">Ma\'lumot hududlari</string>
     <string name="dataarea_warningcard_reload_action">Ma\'lumot hududlarini qayta yuklash</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Xotira sarfi va bir bosishli tozalash</string>
     <string name="widget_home_storage_internal">Ichki</string>
     <string name="widget_home_storage_external">Tashqi</string>
-    <string name="widget_home_freed_label">Umr: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Jami bo‘shatilgan: %1$s</string>
     <string name="widget_home_clean_action">Tozalash</string>
     <string name="widget_home_working">Ishlanmoqda…</string>
     <string name="widget_home_unavailable">Xotira mavjud emas</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Ushbu zaxiralashning tarix ma\'lumotlari (statistika, siqish tarixi, kaydirish seanslar) boshqa ilovaning versiyasidan kelgan va tiklanishi mumkin emas. Boshqa hamma narsalar tiklanadi.</string>
     <string name="backup_restore_ack_understand">Men tushundim va davom etmoqchiman</string>
     <string name="backup_restore_action_restore">Tiklash</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Xotira ogohlantirishlari</string>
+    <string name="stats_lowspace_notification_title">Xotira to‘lib bormoqda</string>
+    <string name="stats_lowspace_notification_low_title">Xotira deyarli to‘ldi</string>
+    <string name="stats_lowspace_notification_low_body">%1$s bo‘sh joy qoldi. Xotira tugab bormoqda.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Bu tezlikda taxminan %1$d kun joy qoladi. %2$s bo‘sh.</item>
+        <item quantity="other">Bu tezlikda taxminan %1$d kun joy qoladi. %2$s bo‘sh.</item>
+    </plurals>
 </resources>

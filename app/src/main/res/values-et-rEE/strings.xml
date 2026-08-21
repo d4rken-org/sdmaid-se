@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Juurkasutaja ligipääs</string>
     <string name="setup_root_card_body">Kas SD Maid võib kasutada võimalusel juurpääsu? Sellega saab kontrollida veel rohkem süsteemikaustu ja isiklikke rakenduse andmeid.</string>
     <string name="setup_root_state_ready_label">Juurkasutaja ligipääs olemas.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Juurpääsu pole saadaval.</string>
+    <string name="setup_root_state_failed_title">Root-õiguste hankimine ebaõnnestus</string>
+    <string name="setup_root_state_failed_body">SD Maid küsis root-õigusi, kuid neid ei antud. Kui sinu seade on rooditud, ava oma root-halduri rakendus (Magisk, KernelSU vms) ja kontrolli, kas SD Maidi taotlus lükati tagasi või ootab see veel.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid küsis root-õigusi, kuid neid ei antud, ja root-halduri rakendust ei tuvastatud. Kui sinu seade kasutab peidetud või sisseehitatud root-õigusi, proovi uuesti.</string>
     <string name="setup_root_enable_root_use_label">Proovige kasutada juurpääsu</string>
     <string name="setup_root_disable_root_use_label">Ma ei rootinud oma seadet</string>
     <string name="setup_root_card_body2">Saadaval vaid juurpääsuga seadmetes. Kui te ei muutnud seda, siis seadmel pole juurpääsu ja sel seadmel pole mingit mõju.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku link on valmis.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku lingi ootel.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku rakendus pole paigaldatud.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku ühendus ebaõnnestus</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku töötab, kuid see ei ühendanud SD Maidi kunagi oma abiteenusega.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Mõnel seadmel esineb teadaolev Shizuku probleem, mis takistab abiteenuse käivitumist. See võib olla üks neist.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Proovi kasutada Shizukut</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ära kasuta Shizukut</string>
     <string name="setup_dismiss_hint">Seadistamisekraani leiate taas seadete menüüst.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Võimalik seadme piirang</string>
     <string name="setup_inventory_limitation_body">Süsteem tagastas mittetäieliku paigaldatud rakenduste loendi, kuigi vajalikud õigused näivad olevat antud.</string>
     <string name="setup_inventory_limitation_body2">Mõned seadmed (nt HarmonyOS) ei anna kunagi täielikku rakenduste loendi. Teie andmete kaitsmiseks jäävad rakendustega seotud vahendid keelatuks, kuid saate siiski vaadata salvestusruumi kasutamist üldisemalt.</string>
+    <string name="setup_inventory_probe_failed_title">Rakenduste loendit ei õnnestunud lugeda</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid küsis Androidilt installitud rakenduste loendit, kuid päring ebaõnnestus. Rakendustega seotud tööriistad jäävad välja lülitatuks, kuni see õnnestub. Uuesti proovimine võib aidata.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ei leidnud skannitavaid andmekogusid. Kas lõpetasite seadistamise?</string>
     <string name="dataarea_warningcard_label">Andmekogud</string>
     <string name="dataarea_warningcard_reload_action">Laadi andmekogud uuesti</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Salvestusruumi kasutamine ja ühe puudutusega puhastamine</string>
     <string name="widget_home_storage_internal">Sisemine</string>
     <string name="widget_home_storage_external">Väline</string>
-    <string name="widget_home_freed_label">Eluiga: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Vabastatud kokku: %1$s</string>
     <string name="widget_home_clean_action">Puhasta</string>
     <string name="widget_home_working">Töötamine…</string>
     <string name="widget_home_unavailable">Salvestusruum pole saadaval</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Selle varukoopiaga seotud ajalooandmed (statistika, pakkimise ajalugu, lohistamise seansid) on teisest rakenduse versioonist ja ei saa taastada. Kõik muu taastatakse.</string>
     <string name="backup_restore_ack_understand">Saan aru ja tahan jätkata</string>
     <string name="backup_restore_action_restore">Taasta</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Hoiustamisruumi hoiatused</string>
+    <string name="stats_lowspace_notification_title">Hoiustamisruum täitub</string>
+    <string name="stats_lowspace_notification_low_title">Hoiustamisruum on peaaegu täis</string>
+    <string name="stats_lowspace_notification_low_body">%1$s vaba. Hoiustamisruum saab otsa.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Selle kiirusega on jäänud umbes %1$d päev ruumi. %2$s vaba.</item>
+        <item quantity="other">Selle kiirusega on jäänud umbes %1$d päeva ruumi. %2$s vaba.</item>
+    </plurals>
 </resources>

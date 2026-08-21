@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root toegang</string>
     <string name="setup_root_card_body">Moet SD Maid root toegang gebruik as dit beskikbaar is? Root toegang kan gebruik word om addisionele stelsel lêers en private toepassing data te kontroleer.</string>
     <string name="setup_root_state_ready_label">Root toegang is gereed.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root toegang is nie beskikbaar nie.</string>
+    <string name="setup_root_state_failed_title">Worteltogang het misluk</string>
+    <string name="setup_root_state_failed_body">SD Maid het om worteltogang gevra en het dit nie ontvang nie. Indien jou toestel geworteld is, maak jou wortelbeheerder oop (Magisk, KernelSU of soortgelyk) en kontroleer of die versoek van SD Maid geweier of nog steeds wag.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid het om worteltogang gevra en het dit nie ontvang nie, en geen wortelbeheerder-app is gevind nie. Indien jou toestel verborge of ingebou wortels gebruik, probeer weer.</string>
     <string name="setup_root_enable_root_use_label">Probeer root toegang te gebruik</string>
     <string name="setup_root_disable_root_use_label">Ek het my toestel nie ge-root nie</string>
     <string name="setup_root_card_body2">Slegs beskikbaar op gewortel toestelle. As jy nie hierdie wysiging gemaak het nie, dan is jou toestel nie gewortel nie en hierdie instelling het geen effek nie.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku skakel is gereed.</string>
     <string name="setup_shizuku_state_waiting_label">Wag vir skakel met Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Die Shizuku-app is nie geïnstalleer nie.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku-skakel het misluk</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku loop, maar dit het SD Maid nooit aan sy hulpdiens gekoppel nie.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Sommige toestelle word beïnvloed deur \'n bekende Shizuku-probleem wat verhinder dat die hulpdiens begin. Dit mag een van hulle wees.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Probeer Shizuku te gebruik</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Moenie Shizuku gebruik nie</string>
     <string name="setup_dismiss_hint">Jy kan die opstelling skerm weer vind via die instellings menu.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Moontlike toestelbeperking</string>
     <string name="setup_inventory_limitation_body">Die stelsel het \'n onvoltooide lys van geïnstalleerde apps teruggegee, alhoewel die vereiste toestemmings blyk te wees toegeken.</string>
     <string name="setup_inventory_limitation_body2">Sommige toestelle (bv. HarmonyOS) verskaf nooit \'n volledige app-lys. Om u data te beskerm, bly app-verwante gereedskap uitgeskakel, maar u kan steeds die opslaggebruik met beperkte besonderhede sien.</string>
+    <string name="setup_inventory_probe_failed_title">Kon nie die app-lys lees nie</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid het Android om die lys van geïnstalleerde apps gevra en die versoek het misluk. App-verwante gereedskap bly afgeskakel totdat dit werk. Probeer weer.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid het geen data areas gevind wat geskandeer kan word nie. Het jy die opstelling voltooi?</string>
     <string name="dataarea_warningcard_label">Data-areas</string>
     <string name="dataarea_warningcard_reload_action">Herlaai data areas</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Opslaggebruik en een-tik skoonmaak</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Ekstern</string>
-    <string name="widget_home_freed_label">Leeftyd: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Totaal bevry: %1$s</string>
     <string name="widget_home_clean_action">Maak skoon</string>
     <string name="widget_home_working">Besig…</string>
     <string name="widget_home_unavailable">Opslag nie beskikbaar nie</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Hierdie rugsteun se geskiedenisdata (statistieke, kompressiegeskiedenis, veeg-sessies) is van \'n ander app-weergawe en kan nie herstel word nie. Alles anders sal herstel word.</string>
     <string name="backup_restore_ack_understand">Ek verstaan en wil voortgaan</string>
     <string name="backup_restore_action_restore">Herstel</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Opslagwaarskuwings</string>
+    <string name="stats_lowspace_notification_title">Berging vul op</string>
+    <string name="stats_lowspace_notification_low_title">Berging is amper vol</string>
+    <string name="stats_lowspace_notification_low_body">%1$s beskikbaar. Berging raak op.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Ongeveer %1$d dag ruimte oor teen hierdie koers. %2$s beskikbaar.</item>
+        <item quantity="other">Ongeveer %1$d dae ruimte oor teen hierdie koers. %2$s beskikbaar.</item>
+    </plurals>
 </resources>

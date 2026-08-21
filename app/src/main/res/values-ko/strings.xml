@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">루트 권한</string>
     <string name="setup_root_card_body">사용할 수 있으면 루트 권한을 사용할까요? 루트 권한이 존재한다면 이를 이용해 추가적인 시스템 폴더나 개인 애플리케이션 데이터 등에 접근할 수 있습니다.</string>
     <string name="setup_root_state_ready_label">루트 권한이 준비되었습니다.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">루트 권한이 없습니다.</string>
+    <string name="setup_root_state_failed_title">루트 접근 실패</string>
+    <string name="setup_root_state_failed_body">SD Maid가 루트 접근을 요청했지만 허용되지 않았어요. 기기가 루트화되어 있다면 루트 관리자 앱(Magisk, KernelSU 등)을 열어 SD Maid 요청이 거부됐는지 아니면 아직 대기 중인지 확인해 보세요.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid가 루트 접근을 요청했지만 허용되지 않았고, 루트 관리자 앱도 감지되지 않았어요. 기기가 숨겨진 루트 또는 내장 루트를 사용한다면 다시 시도해 보세요.</string>
     <string name="setup_root_enable_root_use_label">루트 권한 사용 시도</string>
     <string name="setup_root_disable_root_use_label">기기를 루팅하지 않았습니다.</string>
     <string name="setup_root_card_body2">루팅된 기기에서만 사용할 수 있습니다. 루팅을 진행하지 않았거나 루팅이 무엇인지 모르신다면, 본 설정은 앱에 변화를 주지 않습니다.</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku 연결이 준비되었습니다.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku의 연결을 기다리고 있습니다.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku 앱이 설치되어 있지 않습니다.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku 연결 실패</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku는 실행 중이지만 SD Maid를 도우미 서비스에 연결하지 못했어요.</string>
+    <string name="setup_shizuku_state_known_issue_hint">일부 기기에서는 도우미 서비스가 시작되지 않는 알려진 Shizuku 문제가 발생해요. 이 기기도 그중 하나일 수 있어요.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku 사용 시도</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku 사용하지 않음</string>
     <string name="setup_dismiss_hint">본 초기 설정은 앱 내 설정 메뉴에서 다시 볼 수 있습니다.</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">가능한 기기 제한</string>
     <string name="setup_inventory_limitation_body">필요한 권한이 부여된 것으로 보이지만 시스템이 설치된 앱의 불완전한 목록을 반환했습니다.</string>
     <string name="setup_inventory_limitation_body2">일부 기기(예: HarmonyOS)는 완전한 앱 목록을 제공하지 않습니다. 데이터를 보호하기 위해 앱 관련 도구는 비활성 상태로 유지되지만, 제한된 세부정보로 저장소 사용량을 볼 수 있습니다.</string>
+    <string name="setup_inventory_probe_failed_title">앱 목록을 읽을 수 없음</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid가 Android에 설치된 앱 목록을 요청했지만 실패했어요. 이 문제가 해결될 때까지 앱 관련 도구는 계속 비활성화 상태예요. 다시 시도하면 해결될 수 있어요.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid에서 스캔할 수 있는 저장 공간이 없습니다. 초기 설정을 끝마치셨나요?</string>
     <string name="dataarea_warningcard_label">데이터 영역</string>
     <string name="dataarea_warningcard_reload_action">데이터 영역 새로고침</string>
@@ -353,7 +362,11 @@
     <string name="widget_home_description">저장 공간 사용량 및 한 번 탭 정리</string>
     <string name="widget_home_storage_internal">내부</string>
     <string name="widget_home_storage_external">외부</string>
-    <string name="widget_home_freed_label">수명: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">총 확보 용량: %1$s</string>
     <string name="widget_home_clean_action">정리</string>
     <string name="widget_home_working">작업 중…</string>
     <string name="widget_home_unavailable">저장 공간 이용 불가</string>
@@ -393,4 +406,12 @@
     <string name="backup_restore_warn_history_body">이 백업의 히스토리 데이터(통계, 압축 히스토리, 스와이프 세션)는 다른 앱 버전에서 생성되었으며 복원할 수 없습니다. 나머지는 모두 복원됩니다.</string>
     <string name="backup_restore_ack_understand">알겠고 계속하겠습니다</string>
     <string name="backup_restore_action_restore">복원</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">저장공간 경고</string>
+    <string name="stats_lowspace_notification_title">저장공간이 부족해지고 있어요</string>
+    <string name="stats_lowspace_notification_low_title">저장공간이 거의 가득 찼어요</string>
+    <string name="stats_lowspace_notification_low_body">%1$s 남음. 저장공간이 부족해지고 있어요.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">현재 속도로 약 %1$d일 분의 공간이 남았어요. %2$s 남음.</item>
+    </plurals>
 </resources>

@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Atzessu root</string>
     <string name="setup_root_card_body">Depet SD Maid impreare s\'atzessu root si est disponìbile? S\'atzessu root podet èssere impreadu pro controllare cartellas additzionales de sistema e datos privados de aplicatziones.</string>
     <string name="setup_root_state_ready_label">Atzessu root prontu.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">S\'atzessu root non est disponìbile.</string>
+    <string name="setup_root_state_failed_title">S\'atzessu root est fallidu</string>
+    <string name="setup_root_state_failed_body">SD Maid at pedidu s\'atzessu root e no l\'at otentu. Si su dispositivu tuo tenet su root, aberi su gestore root (Magisk, KernelSU o simile) e controlla si sa pedidura de SD Maid est istada refudada o est galu in atesa.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid at pedidu s\'atzessu root e no l\'at otentu, e no est istadu agatadu perunu\'app de gestione root. Si su dispositivu tuo impreat unu root cuadu o incorporadu, torra a proare.</string>
     <string name="setup_root_enable_root_use_label">Proba a impreare s\'atzessu root</string>
     <string name="setup_root_disable_root_use_label">Non aia rootadu su meu dispositivu</string>
     <string name="setup_root_card_body2">Disponibile petzi in dispositivos cun root. Si no as fatu custa modifica, tando su dispositivu tuo no tenet root e custa impostatzione no tenet efetu.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Sa connesione Shizuku est pronta.</string>
     <string name="setup_shizuku_state_waiting_label">Ispètande sa connesione cun Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">S\'app de Shizuku no est installadu.</string>
+    <string name="setup_shizuku_state_failed_title">Collegamentu Shizuku fallidu</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku est funtzionende, ma no at mai connectidu SD Maid a su servitziu de agiudu suo.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Unos cantu dispositivos sunt afetados dae unu problema connotu de Shizuku chi impedit s\'aviu de su servitziu de agiudu. Custu diat pòdere èssere unu de cussos.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Proba a impreare Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Non impreare Shizuku</string>
     <string name="setup_dismiss_hint">Podes agatare s\'ischermada de cunfiguratzione torra a travessu de su menù de is impostatziones.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Possìbile limitatzione de su dispositivu</string>
     <string name="setup_inventory_limitation_body">Su sistema ant retonadu una lista incumpleta de applicatziones instaladas, a pesar de che sos permissos rrequeridos semeat essiri cunchedidos.</string>
     <string name="setup_inventory_limitation_body2">Alguns dispositivos (p.e. HarmonyOS) no ant mai fornidu una lista cumpreta de applicatziones. Pro teguardare sos tuos datos, sa gestion de applicatziones rimane dishabilitada, pero podetz ancora visualizare s\'usada de memoria cun diminuidas detaes.</string>
+    <string name="setup_inventory_probe_failed_title">Impossìbile lègere sa lista de is app</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid at pedidu a Android sa lista de is app installadas e sa pedidura est fallida. Is aina ligadas a is app abarrant disativadas fintzas a candu funtzionat. Torrare a proare diat pòdere agiudare.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid no at agatadu peruna àrea de datos chi si potzat iscansiare. As cumpletadu sa cunfiguratzione?</string>
     <string name="dataarea_warningcard_label">Àreas de datos</string>
     <string name="dataarea_warningcard_reload_action">Torrare a carrighere is àreas de datos</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Imbiedu de sa memoria e limpiatzu de unu tappitzu</string>
     <string name="widget_home_storage_internal">Interna</string>
     <string name="widget_home_storage_external">Esterna</string>
-    <string name="widget_home_freed_label">Vida: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Totale liberadu: %1$s</string>
     <string name="widget_home_clean_action">Netta</string>
     <string name="widget_home_working">Trabàllande…</string>
     <string name="widget_home_unavailable">Spàtziu non disponìbile</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Sos datos de istoria de custu backup (estatisticas, istoria de compressioni, sessiones de swipe) sunt de una versioni diferenti de appliche e no podent bessere ristoratos. Totu s\'altru besseret ristoradu.</string>
     <string name="backup_restore_ack_understand">Cumprendis e volu continuare</string>
     <string name="backup_restore_action_restore">Ripristina</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Avisos de archiviatzione</string>
+    <string name="stats_lowspace_notification_title">S\'archiviatzione si est prenende</string>
+    <string name="stats_lowspace_notification_low_title">S\'archiviatzione est cuasi prena</string>
+    <string name="stats_lowspace_notification_low_body">%1$s lìberu. S\'archiviatzione est finende.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Abarrat prus o mancu %1$d die de ispàtziu a custu ritmu. %2$s lìberu.</item>
+        <item quantity="other">Abarrant prus o mancu %1$d dies de ispàtziu a custu ritmu. %2$s lìberu.</item>
+    </plurals>
 </resources>

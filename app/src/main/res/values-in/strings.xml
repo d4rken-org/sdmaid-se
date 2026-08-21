@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">Akses root</string>
     <string name="setup_root_card_body">Haruskah SD Maid menggunakan akses root jika tersedia? Akses root dapat digunakan untuk memeriksa folder sistem dan data aplikasi pribadi.</string>
     <string name="setup_root_state_ready_label">Akses root siap.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Akses root tidak tersedia.</string>
+    <string name="setup_root_state_failed_title">Akses root gagal</string>
+    <string name="setup_root_state_failed_body">SD Maid meminta akses root, tetapi tidak mendapatkannya. Jika perangkatmu di-root, buka pengelola root (Magisk, KernelSU, atau serupa) dan periksa apakah permintaan dari SD Maid ditolak atau masih menunggu.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid meminta akses root, tetapi tidak mendapatkannya, dan tidak ada aplikasi pengelola root yang terdeteksi. Jika perangkatmu menggunakan root tersembunyi atau bawaan, coba lagi.</string>
     <string name="setup_root_enable_root_use_label">Coba gunakan akses root</string>
     <string name="setup_root_disable_root_use_label">Saya tidak melakukan root pada perangkat saya</string>
     <string name="setup_root_card_body2">Hanya tersedia pada perangkat yang di-root. Jika Anda belum melakukan pengubahan, maka perangkat Anda belum di-root dan pengaturan ini tidak berpengaruh.</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">Hubungan dengan Shizuku sudah siap.</string>
     <string name="setup_shizuku_state_waiting_label">Menunggu penghubungan dengan Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Aplikasi Shizuku tidak terpasang.</string>
+    <string name="setup_shizuku_state_failed_title">Koneksi Shizuku gagal</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku berjalan, tetapi tidak pernah menghubungkan SD Maid ke layanan bantunya.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Beberapa perangkat terpengaruh masalah Shizuku yang sudah dikenal, yang menghentikan layanan bantu untuk dimulai. Perangkat ini mungkin salah satunya.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Coba gunakan Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Kamu dapat menemukan layar penyiapan lagi melalui menu pengaturan.</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">Kemungkinan keterbatasan perangkat</string>
     <string name="setup_inventory_limitation_body">Sistem mengembalikan daftar aplikasi yang tidak lengkap, meskipun izin yang diperlukan tampak telah diberikan.</string>
     <string name="setup_inventory_limitation_body2">Beberapa perangkat (misalnya HarmonyOS) tidak pernah menyediakan daftar aplikasi lengkap. Untuk melindungi data Anda, alat terkait aplikasi tetap dinonaktifkan, tetapi Anda masih dapat melihat penggunaan penyimpanan dengan detail berkurang.</string>
+    <string name="setup_inventory_probe_failed_title">Tidak dapat membaca daftar aplikasi</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid meminta daftar aplikasi yang terpasang ke Android, tetapi permintaan tersebut gagal. Alat yang terkait aplikasi tetap dinonaktifkan sampai berhasil. Mencoba lagi mungkin membantu.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid tidak menemukan area data yang dapat dipindai. Apakah Anda menyelesaikan penyiapan?</string>
     <string name="dataarea_warningcard_label">Area data</string>
     <string name="dataarea_warningcard_reload_action">Muat ulang area data</string>
@@ -353,7 +362,11 @@
     <string name="widget_home_description">Penggunaan penyimpanan dan pembersihan sekali ketuk</string>
     <string name="widget_home_storage_internal">Internal</string>
     <string name="widget_home_storage_external">Eksternal</string>
-    <string name="widget_home_freed_label">Seumur hidup: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Total dibebaskan: %1$s</string>
     <string name="widget_home_clean_action">Bersihkan</string>
     <string name="widget_home_working">Sedang bekerja…</string>
     <string name="widget_home_unavailable">Penyimpanan tidak tersedia</string>
@@ -393,4 +406,12 @@
     <string name="backup_restore_warn_history_body">Data riwayat cadangan ini (statistik, riwayat kompresi, sesi geser) berasal dari versi aplikasi yang berbeda dan tidak dapat dipulihkan. Semua yang lain akan dipulihkan.</string>
     <string name="backup_restore_ack_understand">Saya mengerti dan ingin melanjutkan</string>
     <string name="backup_restore_action_restore">Pulihkan</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Peringatan penyimpanan</string>
+    <string name="stats_lowspace_notification_title">Penyimpanan mulai penuh</string>
+    <string name="stats_lowspace_notification_low_title">Penyimpanan hampir penuh</string>
+    <string name="stats_lowspace_notification_low_body">%1$s tersisa. Penyimpanan hampir habis.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">Sekitar %1$d hari ruang tersisa dengan laju ini. %2$s tersisa.</item>
+    </plurals>
 </resources>

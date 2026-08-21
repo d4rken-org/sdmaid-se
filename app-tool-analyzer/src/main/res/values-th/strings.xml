@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">ไม่สามารถเข้าถึงโดยตรงได้</string>
     <string name="analyzer_content_create_swiper_session_action">สร้างเซสชัน Swiper</string>
+    <string name="analyzer_content_open_externally_action">เปิดในตัวจัดการไฟล์</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">สร้างเซสชัน Swiper แล้วพร้อม %d รายการ</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">รูปภาพที่ถ่าย, วิดีโอที่บันทึก, หรือข้อมูลที่ดาวน์โหลด ข้อมูลใดๆ ที่ไม่ได้เป็นของแอพใดโดยเฉพาะ</string>
     <string name="analyzer_storage_content_type_system_label">ข้อมูลระบบ</string>
     <string name="analyzer_storage_content_type_system_description">แอพระบบและข้อมูลระบบ แอพและข้อมูลจากผู้ใช้คนอื่น หากมีบัญชีผู้ใช้หลายบัญชีบนอุปกรณ์นี้</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">ผู้ใช้อื่นไม่สามารถวัดค่าได้ครบถ้วน ยอดรวมนี้จึงอาจรวมพื้นที่จัดเก็บของผู้ใช้เหล่านั้นบางส่วน</string>
     <string name="analyzer_storage_content_type_system_other_label">อื่นๆ</string>
     <string name="analyzer_storage_content_type_system_info">ไฟล์ที่ไม่เข้าหมวดหมู่แอปหรือไฟล์ผู้ใช้ เรียกดูเท่านั้น — ไม่รองรับการลบ บางพื้นที่อาจไม่ครบถ้วนเนื่องจากข้อจำกัดในการเข้าถึง</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ไฟล์ไม่สามารถจับคู่กับแอปที่เป็นเจ้าของได้ในขณะนี้ ขนาดจะแสดงเพื่อการอ้างอิงเท่านั้น — การลบ ตัวกรอง และ Swiper ถูกปิดใช้งาน</string>
     <string name="analyzer_storage_content_type_system_other_desc">ไฟล์ระบบและข้อมูลอื่นๆ ที่ SD Maid ไม่สามารถเข้าถึงหรือจัดหมวดหมู่ได้ ระบบปฏิบัติการจำกัดการแสดงรายการเนื้อหาของบางพื้นที่</string>
+    <string name="analyzer_storage_content_type_otherusers_label">ผู้ใช้อื่น</string>
+    <string name="analyzer_storage_content_type_otherusers_description">แอปและไฟล์ที่เป็นของผู้ใช้อื่นหรือโปรไฟล์งานบนอุปกรณ์นี้</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">มีเฉพาะข้อมูลแอป ไม่รวมไฟล์ที่ใช้ร่วมกันของผู้ใช้นี้</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">ไม่มีข้อมูลขนาด อ่านพื้นที่จัดเก็บของผู้ใช้นี้ไม่ได้</string>
+    <string name="analyzer_storage_content_type_otherusers_info">พื้นที่จัดเก็บของผู้ใช้อื่นบนอุปกรณ์นี้ ดูได้เท่านั้น ไม่รองรับการลบ</string>
     <string name="analyzer_storage_content_app_code_label">โค้ดแอพ</string>
     <string name="analyzer_storage_content_app_code_description">ไฟล์แอพพลิเคชัน, ไลบรารี และทรัพยากร สามารถลบพื้นที่นี้ได้โดยถอนการติดตั้งแอพหรือเก็บแอพไว้ (ใช้ได้ใน Android รุ่นใหม่)</string>
     <string name="analyzer_storage_content_app_data_label">ข้อมูลแอพ</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">แอพนี้ใช้พื้นที่ %1$s บน \"%2$s\"</string>
     <string name="analyzer_app_details_app_is_archived">แอพนี้ถูกเก็บไว้แล้ว</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ใน 7 วัน</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">เหลือพื้นที่ใช้งานอีกประมาณ %d วันตามอัตรานี้</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">พื้นที่จัดเก็บ</string>
+    <string name="analyzer_settings_lowstorage_title">เกณฑ์พื้นที่จัดเก็บต่ำ</string>
+    <string name="analyzer_settings_lowstorage_desc">เมื่อพื้นที่ว่างลดลงต่ำกว่านี้ SD Maid จะถือว่าพื้นที่จัดเก็บกำลังจะหมด</string>
+    <string name="analyzer_settings_lowstorage_value_auto">อัตโนมัติ (ปัจจุบัน %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">อัตโนมัติ</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">อัตโนมัติ</string>
+    <string name="analyzer_settings_lowspace_notification_title">คำเตือนพื้นที่ใกล้หมด</string>
+    <string name="analyzer_settings_lowspace_notification_desc">รับการแจ้งเตือนก่อนพื้นที่จัดเก็บของคุณจะหมด</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ไม่ต้องกังวลว่าพื้นที่จะหมดโดยไม่รู้ตัว</string>
+    <string name="analyzer_lowspace_hint_body">อัปเกรดเพื่อรับคำเตือนก่อนพื้นที่จัดเก็บของคุณจะหมด จะได้เคลียร์พื้นที่ได้ทันขณะที่ยังมีพื้นที่ทำงานเหลืออยู่</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ดูว่าอะไรกำลังเติมพื้นที่จัดเก็บของคุณจริงๆ Analyzer แสดงแผนที่ว่าพื้นที่ของคุณหายไปไหน การ์ดแต่ละใบนี้คือชิปการจัดเก็บข้อมูลบนอุปกรณ์ของคุณ</string>
     <string name="tour_analyzer_storage_body">เปิดที่เก็บข้อมูลเพื่อแบ่งออกเป็นแอป สื่อ และไฟล์ จากนั้นแตะต่อไปเรื่อยๆ เพื่อติดตามหาตัวการที่กินพื้นที่มากที่สุด</string>

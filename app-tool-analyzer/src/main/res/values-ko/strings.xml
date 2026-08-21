@@ -15,6 +15,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">직접 접근 권한 없음</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper 세션 만들기</string>
+    <string name="analyzer_content_open_externally_action">파일 관리자에서 열기</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="other">%d개 항목으로 Swiper 세션이 생성되었습니다</item>
     </plurals>
@@ -33,10 +34,16 @@
     <string name="analyzer_storage_content_type_media_description">스크린샷, 녹화한 영상, 다운로드 파일 등의 특정 앱에 속하지 않은 파일이 차지하는 공간입니다.</string>
     <string name="analyzer_storage_content_type_system_label">시스템 데이터</string>
     <string name="analyzer_storage_content_type_system_description">시스템 앱 및 데이터. 여러 유저가 추가되어 있다면 다른 유저의 앱과 데이터를 포함합니다.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">다른 사용자의 저장공간을 완전히 측정할 수 없어서 이 합계에 일부가 포함되었을 수 있어요.</string>
     <string name="analyzer_storage_content_type_system_other_label">기타</string>
     <string name="analyzer_storage_content_type_system_info">앱 또는 사용자 파일 카테고리에 맞지 않는 파일입니다. 탐색만 가능하며 삭제는 지원되지 않습니다. 접근 제한으로 인해 일부 영역이 불완전할 수 있습니다.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">파일을 현재 소유한 앱과 매칭할 수 없습니다. 크기는 참고용으로만 표시됩니다 — 삭제, 필터 및 Swiper는 비활성화됩니다.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid가 접근하거나 분류할 수 없었던 시스템 파일 및 기타 데이터입니다. 운영 체제가 일부 영역의 내용 목록을 제한합니다.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">다른 사용자</string>
+    <string name="analyzer_storage_content_type_otherusers_description">이 기기의 다른 사용자 또는 업무 프로필에 속한 앱과 파일이에요.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">앱 데이터만 해당하며, 이 사용자의 공유 파일은 포함되지 않아요.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">크기를 알 수 없으며, 이 사용자의 저장공간을 읽을 수 없어요.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">이 기기에 있는 다른 사용자의 저장공간이에요. 찾아보기만 가능하고 삭제는 지원되지 않아요.</string>
     <string name="analyzer_storage_content_app_code_label">앱 소스</string>
     <string name="analyzer_storage_content_app_code_description">APK 파일 및 기타 설치 관련 파일</string>
     <string name="analyzer_storage_content_app_data_label">앱 데이터</string>
@@ -48,6 +55,21 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">앱이 \"%2$s\"의 %1$s를 차지하고 있습니다.</string>
     <string name="analyzer_app_details_app_is_archived">보관됨</string>
     <string name="analyzer_storage_trend_delta_in_7d">7일 동안 %s</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="other">현재 속도로 약 %d일 분의 공간이 남았어요</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">저장공간</string>
+    <string name="analyzer_settings_lowstorage_title">저장공간 부족 기준</string>
+    <string name="analyzer_settings_lowstorage_desc">여유 공간이 이 값 아래로 떨어지면 SD Maid는 저장공간이 부족한 것으로 판단해요.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">자동 (현재 %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">자동</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">자동</string>
+    <string name="analyzer_settings_lowspace_notification_title">저장공간 부족 경고</string>
+    <string name="analyzer_settings_lowspace_notification_desc">저장공간이 부족해지기 전에 알림을 받아보세요.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">저장공간 부족을 미리 알아채세요</string>
+    <string name="analyzer_lowspace_hint_body">업그레이드하면 저장공간이 부족해지기 전에 경고를 받아서, 여유가 있을 때 미리 정리할 수 있어요.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">저장소를 실제로 어떻게 채우고 있는지 확인하세요. Analyzer는 공간이 어디로 가는지 매핑합니다. 이러한 각 카드는 기기의 저장소 칩입니다.</string>
     <string name="tour_analyzer_storage_body">저장소를 열어 앱, 미디어 및 파일로 분류한 후 계속 탭하여 가장 많은 공간을 차지하는 항목을 추적합니다.</string>

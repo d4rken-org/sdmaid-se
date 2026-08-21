@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root ਪਹੁੰਚ</string>
     <string name="setup_root_card_body">ਕੀ SD Maid ਨੂੰ root ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ ਜੇ ਇਹ ਉਪਲਬਧ ਹੈ? Root ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਵਾਧੂ ਸਿਸਟਮ ਫੋਲਡਰਾਂ ਅਤੇ ਪ੍ਰਾਈਵੇਟ ਐਪਲਿਕੇਸ਼ਨ ਡੇਟਾ ਦੀ ਜਾਂਚ ਲਈ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
     <string name="setup_root_state_ready_label">Root ਪਹੁੰਚ ਤਿਆਰ ਹੈ।</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">ਰੂਟ ਪਹੁੰਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
+    <string name="setup_root_state_failed_title">ਰੂਟ ਐਕਸੈਸ ਅਸਫਲ</string>
+    <string name="setup_root_state_failed_body">SD Maid ਨੇ ਰੂਟ ਐਕਸੈਸ ਮੰਗੀ ਪਰ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕੀਤੀ। ਜੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਰੂਟ ਹੈ, ਆਪਣਾ ਰੂਟ ਮੈਨੇਜਰ ਖੋਲੋ (Magisk, KernelSU ਜਾਂ ਇਸ ਤਰ੍ਹਾਂ ਦਾ) ਅਤੇ ਚੈਕ ਕਰੋ ਕਿ SD Maid ਤੋਂ ਬੇਨਤੀ ਰੱਦ ਕਰੀ ਗਈ ਸੀ ਜਾਂ ਅਭੀ ਪ੍ਰਤੀਖਿਆ ਵਿੱਚ ਹੈ।</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ਨੇ ਰੂਟ ਐਕਸੈਸ ਮੰਗੀ ਪਰ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕੀਤੀ, ਅਤੇ ਕੋਈ ਰੂਟ ਮੈਨੇਜਰ ਐਪ ਖੋਜ ਨਹੀਂ ਸੀ ਮਿਲਿਆ। ਜੇ ਤੁਹਾਡੀ ਡਿਵਾਈਸ ਲੁਕਵਾਂ ਜਾਂ ਬਿਲਟ-ਇਨ ਰੂਟ ਵਰਤਦੀ ਹੈ, ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="setup_root_enable_root_use_label">ਰੂਟ ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
     <string name="setup_root_disable_root_use_label">ਮੈਂ ਆਪਣੀ ਡਿਵਾਇਸ ਨੂੰ ਰੂਟ ਨਹੀਂ ਕੀਤਾ</string>
     <string name="setup_root_card_body2">ਸਿਰਫ਼ ਰੂਟ ਕੀਤੇ ਡਿਵਾਈਸਾਂ \'ਤੇ ਉਪਲਬਧ ਹੈ। ਜੇਕਰ ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਕੀਤੀ ਹੈ, ਤਾਂ ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਰੂਟ ਨਹੀਂ ਹੈ ਅਤੇ ਇਸ ਸੈਟਿੰਗ ਦਾ ਕੋਈ ਪ੍ਰਭਾਵ ਨਹੀਂ ਹੈ।</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku ਲਿੰਕ ਤਿਆਰ ਹੈ</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku ਨਾਲ ਲਿੰਕ ਦੀ ਉਡੀਕ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku ਐਪ ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ।</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku ਲਿੰਕ ਅਸਫਲ</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku ਚੱਲ ਰਿਹਾ ਹੈ, ਪਰ ਇਸ ਨੇ SD Maid ਨੂੰ ਆਪਣੀ ਮਦਦ ਸੇਵਾ ਨਾਲ ਕਦੇ ਨਹੀਂ ਜੋੜਿਆ।</string>
+    <string name="setup_shizuku_state_known_issue_hint">ਕੁਝ ਡਿਵਾਈਸਾਂ ਇੱਕ ਜਾਣੀ-ਪਛਾਣੀ Shizuku ਸਮੱਸਿਆ ਨਾਲ ਪ੍ਰਭਾਵਿਤ ਹਨ ਜੋ ਮਦਦ ਸੇਵਾ ਨੂੰ ਸ਼ੁਰੂ ਹੋਣ ਤੋਂ ਰੋਕਦੀ ਹੈ। ਇਹ ਇੱਕ ਹੋ ਸਕਦਾ ਹੈ।</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ਦੀ ਵਰਤੋਂ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ</string>
     <string name="setup_dismiss_hint">ਤੁਸੀਂ ਸੈਟਿੰਗਸ ਮੇਨੂ ਰਾਹੀਂ ਸੈਟਅੱਪ ਸਕਰੀਨ ਨੂੰ ਮੁੜ ਲੱਭ ਸਕਦੇ ਹੋ।</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">ਸੰਭਵ ਡਿਵਾਇਸ ਸੀਮਾ</string>
     <string name="setup_inventory_limitation_body">ਸਿਸਟਮ ਨੇ ਸਥਾਪਤ ਐਪਸ ਦੀ ਅਧੂਰੀ ਸੂਚੀ ਵਾਪਸ ਕੀਤੀ, ਭਾਵੇਂ ਲੋੜੀਂਦੀਆਂ ਇਜਾਜ਼ਤਾਂ ਦਿੱਤੀਆਂ ਜਾ ਚੁੱਕੀਆਂ ਜਾਪਦੀਆਂ ਹਨ।</string>
     <string name="setup_inventory_limitation_body2">ਕੁਝ ਡਿਵਾਇਸਿਜ਼ (ਜਿਵੇਂ HarmonyOS) ਕਦੇ ਵੀ ਐਪਸ ਦੀ ਸੰਪੂਰਨ ਸੂਚੀ ਪ੍ਰਦਾਨ ਨਹੀਂ ਕਰਦੇ। ਆਪਣਾ ਡੇਟਾ ਸੁਰੱਖਿਅਤ ਰੱਖਣ ਲਈ, ਐਪ-ਸਬੰਧੀ ਸਾਧਨ ਅਕਿਰਿਆਸ਼ੀਲ ਰਹਿੰਦੇ ਹਨ, ਪਰ ਤੁਸੀਂ ਅਜੇ ਵੀ ਘਟ ਵਿਸਥਾਰ ਦੇ ਨਾਲ ਸਟੋਰੇਜ ਦੀ ਵਰਤੋਂ ਦੇਖ ਸਕਦੇ ਹੋ।</string>
+    <string name="setup_inventory_probe_failed_title">ਐਪ ਲਿਸਟ ਨੂੰ ਪੜ੍ਹ ਨਹੀਂ ਸਕੇ</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ਨੇ Android ਨੂੰ ਸਥਾਪਿਤ ਐਪਾਂ ਦੀ ਲਿਸਟ ਮੰਗੀ ਪਰ ਬੇਨਤੀ ਅਸਫਲ ਹੋ ਗਈ। ਐਪ-ਸੰਬੰਧਿਤ ਸਾਧਨ ਵਿਕਲਾਂਗ ਰਹਿੰਦੇ ਹਨ ਜਦੋਂ ਤਕ ਇਹ ਕੰਮ ਕਰੇ। ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰਨ ਨਾਲ ਮਦਦ ਮਿਲ ਸਕਦੀ ਹੈ।</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ਨੂੰ ਕੋਈ ਵੀ ਡੇਟਾ ਖੇਤਰ ਨਹੀਂ ਮਿਲੇ ਜਿਨ੍ਹਾਂ ਨੂੰ ਸਕੈਨ ਕੀਤਾ ਜਾ ਸਕੇ। ਕੀ ਤੁਸੀਂ ਸੈੱਟਅੱਪ ਪੂਰਾ ਕੀਤਾ ਹੈ?</string>
     <string name="dataarea_warningcard_label">ਡੇਟਾ ਖੇਤਰ</string>
     <string name="dataarea_warningcard_reload_action">ਡੇਟਾ ਖੇਤਰਾਂ ਨੂੰ ਮੁੜ ਲੋਡ ਕਰੋ</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">ਸਟੋਰੇਜ ਵਰਤੋਂ ਅਤੇ ਇੱਕ-ਟੈਪ ਸਫ਼ਾਈ</string>
     <string name="widget_home_storage_internal">ਅੰਦਰੂਨੀ</string>
     <string name="widget_home_storage_external">ਬਾਹਰੀ</string>
-    <string name="widget_home_freed_label">ਜੀਵਨ ਭਰ: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">ਕੁੱਲ ਖਾਲੀ ਕੀਤਾ: %1$s</string>
     <string name="widget_home_clean_action">ਸਾਫ਼ ਕਰੋ</string>
     <string name="widget_home_working">ਕਾਰਜ ਜਾਰੀ…</string>
     <string name="widget_home_unavailable">ਸਟੋਰੇਜ ਉਪਲਬਧ ਨਹੀਂ</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">ਇਸ ਬੈਕਅੱਪ ਦਾ ਇਤਿਹਾਸ ਡੇਟਾ (ਅੰਕੜੇ, ਸੰਕੁਚਨ ਇਤਿਹਾਸ, ਸਵਾਈਪ ਸੈਸ਼ਨ) ਇੱਕ ਵੱਖਰੇ ਐਪ ਸੰਸਕਰਣ ਤੋਂ ਹੈ ਅਤੇ ਬਹਾਲ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਬਾਕੀ ਸਭ ਕੁਝ ਬਹਾਲ ਕੀਤਾ ਜਾਵੇਗਾ।</string>
     <string name="backup_restore_ack_understand">ਮੈਂ ਸਮਝਦਾ ਹਾਂ ਅਤੇ ਜਾਰੀ ਰੱਖਣਾ ਚਾਹੁੰਦਾ ਹਾਂ</string>
     <string name="backup_restore_action_restore">ਬਹਾਲ ਕਰੋ</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">ਸਟੋਰੇਜ ਚੇਤਾਵਨੀਆਂ</string>
+    <string name="stats_lowspace_notification_title">ਸਟੋਰੇਜ ਭਰ ਰਿਹਾ ਹੈ</string>
+    <string name="stats_lowspace_notification_low_title">ਸਟੋਰੇਜ ਲਗਭਗ ਪੂਰੀ ਹੈ</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ਖਾਲੀ। ਸਟੋਰੇਜ ਖਤਮ ਹੋ ਰਿਹਾ ਹੈ।</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">ਇਸ ਗਤਿ ਤੇ ਲਗਭਗ %1$d ਦਿਨ ਦੀ ਥਾਂ ਬਾਕੀ ਹੈ। %2$s ਖਾਲੀ।</item>
+        <item quantity="other">ਇਸ ਗਤਿ ਤੇ ਲਗਭਗ %1$d ਦਿਨਾਂ ਦੀ ਥਾਂ ਬਾਕੀ ਹੈ। %2$s ਖਾਲੀ।</item>
+    </plurals>
 </resources>

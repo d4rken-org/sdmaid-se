@@ -260,7 +260,11 @@
     <string name="setup_root_card_title">הרשאות רוט</string>
     <string name="setup_root_card_body">האם SD Maid צריך להשתמש בגישת רוט אם היא זמינה? ניתן להשתמש בגישת רוט לבדיקת תיקיות מערכת נוספות ונתוני יישומים פרטיים.</string>
     <string name="setup_root_state_ready_label">גישת רוט מוכנה.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">גישת Root אינה זמינה.</string>
+    <string name="setup_root_state_failed_title">גישה לשורש נכשלה</string>
+    <string name="setup_root_state_failed_body">SD Maid ביקשה גישת שורש ולא קיבלה אותה. אם למכשיר שלך יש גישת שורש, פתח את מנהל השורש שלך (Magisk, KernelSU או דומה) ובדוק אם הבקשה מ-SD Maid נדחתה או עדיין בהמתנה.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ביקשה גישת שורש ולא קיבלה אותה, וגם לא התגלתה אפליקציית מנהל שורש. אם המכשיר שלך משתמש בשורש מוסתר או מובנה, נסה שוב.</string>
     <string name="setup_root_enable_root_use_label">נסה להשתמש בגישת Root</string>
     <string name="setup_root_disable_root_use_label">לא ביצעתי root להתקן שלי</string>
     <string name="setup_root_card_body2">זמין רק במכשירים עם רוט. אם לא ביצעת את השינוי הזה, המכשיר שלך אינו רוט ולהגדרה הזו אין השפעה.</string>
@@ -272,6 +276,9 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_shizuku_state_ready_label">קישור Shizuku מוכן.</string>
     <string name="setup_shizuku_state_waiting_label">מחכה לקישור עם Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">אפליקציית Shizuku לא מותקנת.</string>
+    <string name="setup_shizuku_state_failed_title">קישור Shizuku נכשל</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku פועל, אך הוא מעולם לא חיבר את SD Maid לשירות העוזר שלו.</string>
+    <string name="setup_shizuku_state_known_issue_hint">כמה מכשירים מושפעים מבעיה ידועה של Shizuku המונעת את שירות העוזר מהתחלה. זה אולי אחד מהם.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">נסה להשתמש ב-Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">אל תשתמש בShizuku</string>
     <string name="setup_dismiss_hint">תוכל למצוא שוב את מסך ההגדרה דרך תפריט ההגדרות.</string>
@@ -308,6 +315,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_inventory_limitation_title">מגבלה אפשרית בהתקן</string>
     <string name="setup_inventory_limitation_body">המערכת החזירה רשימה חלקית של יישומים מותקנים, למרות שנראה כי ניתנו ההרשאות הדרושות.</string>
     <string name="setup_inventory_limitation_body2">חלק מההתקנים (לדוגמה HarmonyOS) אף פעם לא מספקים רשימה שלמה של יישומים. כדי להגן על הנתונים שלך, כלים הקשורים ליישומים נשארים מושבתים, אך עדיין תוכל/י לצפות בשימוש באחסון עם פחות פרטים.</string>
+    <string name="setup_inventory_probe_failed_title">לא היה אפשר לקרוא את רשימת האפליקציות</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ביקשה מ-Android את רשימת האפליקציות המותקנות וההבקשה נכשלה. כלים הקשורים לאפליקציות נשארים מבוטלים עד שזה עובד. ניסיון חוזר אולי יעזור.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid לא מצאה אזורי נתונים שניתן לסרוק. השלמת את ההגדרה?</string>
     <string name="dataarea_warningcard_label">איזורי מידע</string>
     <string name="dataarea_warningcard_reload_action">טען מחדש אזורי נתונים</string>
@@ -384,7 +393,11 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="widget_home_description">שימוש באחסון וניקוי בהקשה אחת</string>
     <string name="widget_home_storage_internal">פנימי</string>
     <string name="widget_home_storage_external">חיצוני</string>
-    <string name="widget_home_freed_label">תוקף: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">סך הכל שוחרר: %1$s</string>
     <string name="widget_home_clean_action">נקה</string>
     <string name="widget_home_working">בעבודה…</string>
     <string name="widget_home_unavailable">אחסון לא זמין</string>
@@ -424,4 +437,15 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="backup_restore_warn_history_body">נתוני ההיסטוריה של הגיבוי הזה (סטטיסטיקה, היסטוריית דחיסה, הפעלות החלקה) הם מגרסה אחרת של האפליקציה ולא ניתן להחזיר אותם. כל השאר יוחזר.</string>
     <string name="backup_restore_ack_understand">אני מבין ורוצה להמשיך</string>
     <string name="backup_restore_action_restore">שחזר</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">אזהרות אחסון</string>
+    <string name="stats_lowspace_notification_title">האחסון מתמלא</string>
+    <string name="stats_lowspace_notification_low_title">האחסון כמעט מלא</string>
+    <string name="stats_lowspace_notification_low_body">%1$s חופשי. האחסון אוזל.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">בערך יום אחד של מקום נשאר בקצב הזה. %2$s חופשי.</item>
+        <item quantity="two">בערך יומיים של מקום נשאר בקצב הזה. %2$s חופשי.</item>
+        <item quantity="many">בערך %1$d ימים של מקום נשאר בקצב הזה. %2$s חופשי.</item>
+        <item quantity="other">בערך %1$d ימים של מקום נשאר בקצב הזה. %2$s חופשי.</item>
+    </plurals>
 </resources>

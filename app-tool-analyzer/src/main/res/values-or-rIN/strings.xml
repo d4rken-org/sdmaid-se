@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">କୌଣସି ପ୍ରତ୍ୟକ୍ଷ ପ୍ରବେଶ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper ସେସନ୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
+    <string name="analyzer_content_open_externally_action">ଫାଇଲ ମ୍ୟାନେଜରରେ ଖୋଲନ୍ତୁ</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d ଆଇଟମ୍ ସହ Swiper ସେସନ୍ ସୃଷ୍ଟି ହୋଇଛି</item>
         <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ସହ Swiper ସେସନ୍ ସୃଷ୍ଟି ହୋଇଛି</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">କ୍ୟାପଚର୍ ହୋଇଥିବା ଛବି, ରେକର୍ଡ ହୋଇଥିବା ଭିଡିଓ କିମ୍ବା ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଡାଟା। କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍ର ନଥିବା ଯେକୌଣସି ଡାଟା।</string>
     <string name="analyzer_storage_content_type_system_label">ସିଷ୍ଟମ୍ ତଥ୍ୟ</string>
     <string name="analyzer_storage_content_type_system_description">ସିଷ୍ଟମ୍ ଆପ୍ସ ଏବଂ ସିଷ୍ଟମ୍ ଡାଟା। ଅନ୍ୟ ଉପଭୋକ୍ତାମାନଙ୍କ ଆପ୍ସ ଏବଂ ଡାଟା, ଯଦି ଏହି ଉପକରଣରେ ଅନେକ ଉପଭୋକ୍ତା ଆକାଉଣ୍ଟ ସେଟ୍ ହୋଇଛି।</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">ଅନ୍ୟ ବ୍ୟବହାରକାରୀଙ୍କୁ ସଂପୂର୍ଣ୍ଣଭାବେ ମାପ କରାଯାଇ ପାରିନାହିଁ, ତେଣୁ ଏହି ମୋଟ ସେମାନଙ୍କର କିଛି ସଂରକ୍ଷଣ ଅନ୍ତର୍ଭୁକ୍ତ କରିପାରେ।</string>
     <string name="analyzer_storage_content_type_system_other_label">ଅନ୍ୟ</string>
     <string name="analyzer_storage_content_type_system_info">ଯେଉଁ ଫାଇଲଗୁଡ଼ିକ Apps ବା User files ବର୍ଗରେ ପଡ଼େ ନାହିଁ। କେବଳ ଦେଖିହେବ — ବିଲୋପ ସମର୍ଥିତ ନୁହେଁ। ପ୍ରବେଶ ସୀମାବଦ୍ଧତା ହେତୁ କିଛି କ୍ଷେତ୍ର ଅସମ୍ପୂର୍ଣ୍ଣ ହୋଇ ପାରେ।</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ଫାଇଲଗୁଡ଼ିକ ବର୍ତ୍ତମାନ ସେମାନଙ୍କୁ ମାଲିକାନା କରୁଥିବା ଆପ୍ଲିକେଶନଗୁଡ଼ିକ ସହିତ ମିଳିପାରିବେ ନାହିଁ। ଆକାରଗୁଡ଼ିକ କେବଳ ସନ୍ଦର୍ଭ ଭିତ୍ତିରେ ଦେଖାଇ ୟାଇଛି — ଡିଲିଟ, ଫିଲ୍ଟର ଏବଂ Swiper ନିଷ୍କ୍ରିୟ।</string>
     <string name="analyzer_storage_content_type_system_other_desc">ସିଷ୍ଟମ ଫାଇଲ ଓ ଅନ୍ୟ ତଥ୍ୟ ଯାହା SD Maid ଆକ୍ସେସ ବା ବର୍ଗ ନିର୍ଣ୍ଣୟ କରି ପାରି ନାହିଁ। ଅପରେଟିଂ ସିଷ୍ଟମ କିଛି କ୍ଷେତ୍ରର ବିଷୟ ତାଲିକା ଉପରେ ସୀମା ଲଗାଏ।</string>
+    <string name="analyzer_storage_content_type_otherusers_label">ଅନ୍ୟ ବ୍ୟବହାରକାରୀ</string>
+    <string name="analyzer_storage_content_type_otherusers_description">ଅନ୍ୟ ବ୍ୟବହାରକାରୀ କିମ୍ବା ଏହି ଡିଭାଇସ୍‌ରେ କାର୍ଯ୍ୟ ପ୍ରୋଫାଇଲ୍‌ରେ ଥିବା ଆପ୍ଲିକେଶନ୍ ଏବଂ ଫାଇଲ୍।</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">ଆପ୍ଲିକେଶନ୍ ଡାଟା ମାତ୍ର, ଏହି ବ୍ୟବହାରକାରୀଙ୍କ ସାଂଝା ଫାଇଲ୍ ଅନ୍ତର୍ଭୁକ୍ତ ନୁହେଁ।</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">ଆକାର ଉପଲବ୍ଧ ନୁହେଁ, ଏହି ବ୍ୟବହାରକାରୀଙ୍କର ସଂରକ୍ଷଣ ପଢ଼ିହେ ନାହିଁ।</string>
+    <string name="analyzer_storage_content_type_otherusers_info">ଏହି ଡିଭାଇସ୍‌ରେ ଅନ୍ୟ ବ୍ୟବହାରକାରୀଙ୍କ ସଂରକ୍ଷଣ। କେବଳ ବ୍ରାଉଜ୍ କରନ୍ତୁ, ବିଲୋପନ ସମର୍ଥିତ ନୁହେଁ।</string>
     <string name="analyzer_storage_content_app_code_label">ଆପ୍ କୋଡ୍</string>
     <string name="analyzer_storage_content_app_code_description">ଆପ୍ଲିକେସନ୍ ଫାଇଲ, ଲାଇବ୍ରେରୀ ଏବଂ ରିସୋର୍ସ। ଆପ୍କୁ ଅନ୍‌ଇନ୍‌ଷ୍ଟଲ୍ କରି କିମ୍ବା ଆର୍କାଇଭ୍ କରି (ନୂତନ Android ସଂସ୍କରଣରେ ଉପଲବ୍ଧ) ଏହି ସ୍ଥାନ ମୁକ୍ତ କରାଯାଇପାରିବ।</string>
     <string name="analyzer_storage_content_app_data_label">ଆପ୍ ତଥ୍ୟ</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ଏହି ଆପ୍ \"%2$s\"ରେ %1$s ଦଖଲ କରିଛି।</string>
     <string name="analyzer_app_details_app_is_archived">ଏହି ଆପ୍ ଆର୍କାଇଭ୍ ହୋଇଛି।</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ୭ ଦିନ ମଧ୍ୟରେ</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">ଏ ହାର ଅନୁଯାୟୀ ପ୍ରାୟ %d ଦିନର ସ୍ଥାନ ବାକି ଅଛି</item>
+        <item quantity="other">ଏ ହାର ଅନୁଯାୟୀ ପ୍ରାୟ %d ଦିନର ସ୍ଥାନ ବାକି ଅଛି</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">ସଂରକ୍ଷଣ</string>
+    <string name="analyzer_settings_lowstorage_title">ସଂରକ୍ଷଣ ଥ୍ରେସହୋଲ୍ଡ କମ</string>
+    <string name="analyzer_settings_lowstorage_desc">ମୁକ୍ତ ସ୍ଥାନ ଏହା ତଳେ ଖସିଲେ, SD Maid ସଂରକ୍ଷଣକୁ ଶେଷ ବୋଲି ବିବେଚନା କରେ।</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ସ୍ୱୟଂଚାଳିତ (ବର୍ତ୍ତମାନ %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ସ୍ୱୟଂଚାଳିତ</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ସ୍ୱୟଂଚାଳିତ</string>
+    <string name="analyzer_settings_lowspace_notification_title">ସ୍ଥାନ ସତର୍କତା କମ</string>
+    <string name="analyzer_settings_lowspace_notification_desc">ଆପଣଙ୍କ ସଂରକ୍ଷଣ ଶେଷ ହେବାର ଆଗରୁ ଏକ ବିଜ୍ଞପ୍ତି ପାଇନ୍ତୁ।</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ସ୍ଥାନ ଶେଷ ହେବାର ଚିନ୍ତା ନ କରନ୍ତୁ</string>
+    <string name="analyzer_lowspace_hint_body">ଆପଣଙ୍କ ସଂରକ୍ଷଣ ଶେଷ ହେବାର ଆଗରୁ ଏକ ସତର୍କତା ପାଇବାକୁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ, ତେଣୁ ଆପଣ ଏଥିରେ ଯଥେଷ୍ଟ ସ୍ଥାନ ରହିଲାବେଳେ ସଫା କରିପାରିବେ।</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ଆପଣଙ୍କ ସଂଗ୍ରହାଳୟକୁ ବାସ୍ତବିକ କ\'ଣ ପୂର୍ଣ କରୁଛି ତାହା ଦେଖନ୍ତୁ। Analyzer ଦେଖାଏ ଆପଣଙ୍କ ସ୍ଥାନ କେଉଞ୍ଚକୁ ୟାଏ। ଏହି ପ୍ରତ୍ୟେକ କାର୍ଡ ଆପଣଙ୍କ ଡିଭାଇସରେ ଏକ ସଂଗ୍ରହାଳୟ ଚିପ୍।</string>
     <string name="tour_analyzer_storage_body">ଏକ ସଂଗ୍ରହାଳୟ ଖୋଲନ୍ତୁ ଏବଂ ଏହାକୁ ଆପ୍ଲିକେଶନ, ମିଡିଆ ଏବଂ ଫାଇଲରେ ବିଭାଜିତ କରନ୍ତୁ, ତାପରେ ସବୁଠାରୁ ବଡ଼ ଦୋଷୀ ଖୋଜିବାକୁ ଟ୍ୟାପିଂ ଜାରୀ ରଖନ୍ତୁ।</string>

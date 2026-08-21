@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Birbaşa giriş mövcud deyil</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper sessiyası yarat</string>
+    <string name="analyzer_content_open_externally_action">Fayl meneceründə aç</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">%d element ilə Swiper sessiyası yaradıldı</item>
         <item quantity="other">%d element ilə Swiper sessiyası yaradıldı</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Çəkilmiş şəkillər, qeydə alınmış videolar və ya yüklənmiş məlumatlar. Xüsusi tətbiqə aid olmayan istənilən məlumat.</string>
     <string name="analyzer_storage_content_type_system_label">Sistem məlumatları</string>
     <string name="analyzer_storage_content_type_system_description">Sistem tətbiqləri və sistem məlumatları. Bu cihazda bir neçə istifadəçi hesabı qurulubsa, digər istifadəçilərin tətbiqləri və məlumatları.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Digər istifadəçilərin yaddaşı tam ölçülə bilmədi, ona görə bu ümumi məbləğ onların yaddaşının bir hissəsini əhatə edə bilər.</string>
     <string name="analyzer_storage_content_type_system_other_label">Digər</string>
     <string name="analyzer_storage_content_type_system_info">Tətbiqliər və ya İstifadəçi faylları kateqoriyalarına uyğun olmayan fayllar. Yalnız baxış — silinmə dəstəklənmir. Giriş məhdudiyyətləri səbəbindən bəzi sahələr natamam ola bilər.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Faylları onlara sahib olan tətbiqlərlə əlaqələndirmək hazırda mümkün deyil. Ölçülər yalnız istinad üçün göstərilir — silmə, filtrləri və Swiper deaktivdir.</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid-in daxil ola bilmədiyi və ya kateqoriyalaşdıra bilmədiyi sistem faylları və digər məlumatlar. Əməliyyat sistemi bəzi sahələrin məzmununu siyahıya almaqı məhdudlaşdırır.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Digər istifadəçilər</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Bu cihazdakı digər istifadəçilərə və ya iş profillərinə aid tətbiqlər və fayllar.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Yalnız tətbiq məlumatları, bu istifadəçinin paylaşılan faylları daxil edilmir.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Ölçü mövcud deyil, bu istifadəçinin yaddaşı oxuna bilmir.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Bu cihazdakı başqa bir istifadəçinin yaddaşı. Yalnız baxış üçündür, silmə dəstəklənmir.</string>
     <string name="analyzer_storage_content_app_code_label">Tətbiq kodu</string>
     <string name="analyzer_storage_content_app_code_description">Tətbiq faylları, kitabxanalar və resurslar. Bu yer tətbiqi silərek və ya arxivləyərək (yeni Android versiyalarında mövcuddur) azad edilə bilər.</string>
     <string name="analyzer_storage_content_app_data_label">Tətbiq məlumatları</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Bu tətbiq \"%2$s\"da %1$s tutur.</string>
     <string name="analyzer_app_details_app_is_archived">Bu tətbiq arxivlənib.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 gündə</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Bu sürətlə təxminən %d gün yer qalıb</item>
+        <item quantity="other">Bu sürətlə təxminən %d gün yer qalıb</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Yaddaş</string>
+    <string name="analyzer_settings_lowstorage_title">Az yaddaş həddi</string>
+    <string name="analyzer_settings_lowstorage_desc">Boş yer bu həddən aşağı düşəndə, SD Maid yaddaşı tükənmiş sayır.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Avtomatik (hazırda %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Avtomatik</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Avtomatik</string>
+    <string name="analyzer_settings_lowspace_notification_title">Az yer xəbərdarlığı</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Yaddaşın tükənmədən əvvəl bildiriş al.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Heç vaxt yersiz qalma</string>
+    <string name="analyzer_lowspace_hint_body">Yaddaşın tükənmədən əvvəl xəbərdarlıq almaq üçün yüksəlt, beləliklə hələ iş üçün yer varkən təmizləyə bilərsən.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Saxlamanızın nə ilə doldurulmuş olduğunu görün. Analyzer sahənizin harada istifadə olunduğunu göstərir. Bu kartlardan hər biri cihazınızdakı saxlama çipidir.</string>
     <string name="tour_analyzer_storage_body">Bir saxlamayı açın, onu tətbiqlərə, mediaya və fayllara bölün, sonra ən böyük yer işğal edənləri tapmaq üçün toxunmağa davam edin.</string>

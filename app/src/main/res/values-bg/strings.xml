@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root разрешения</string>
     <string name="setup_root_card_body">Трябва ли SD Maid да използва root, когато е достъпен? Root разрешенията позволяват проверка на скрити данни на приложения и допълнителни системни папки.</string>
     <string name="setup_root_state_ready_label">Root разрешенията са готови.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root достъпът не е наличен.</string>
+    <string name="setup_root_state_failed_title">Неуспешен root достъп</string>
+    <string name="setup_root_state_failed_body">SD Maid поиска root достъп, но не го получи. Ако устройството ти има root права, отвори приложението за управление на root (Magisk, KernelSU или подобно) и провери дали заявката от SD Maid е отказана или все още чака.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid поиска root достъп, но не го получи, и не бе открито приложение за управление на root. Ако устройството ти използва скрит или вграден root, опитай отново.</string>
     <string name="setup_root_enable_root_use_label">Пробвайте root</string>
     <string name="setup_root_disable_root_use_label">Устройството ми не е root-ано</string>
     <string name="setup_root_card_body2">Достъпно само на root устройства. Ако не сте направили тази модификация, тогава устройството ви не е root и тази настройка няма ефект.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Връзката с Shizuku е готова</string>
     <string name="setup_shizuku_state_waiting_label">Изчакване за връзка с Shizuku</string>
     <string name="setup_shizuku_state_not_installed_label">Приложението Shizuku не е инсталирано.</string>
+    <string name="setup_shizuku_state_failed_title">Неуспешна връзка с Shizuku</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku работи, но не успя да свърже SD Maid с помощната си услуга.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Някои устройства са засегнати от известен проблем в Shizuku, който пречи на стартирането на помощната услуга. Възможно е това да е такъв случай.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Пробвайте Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не използвайте Shizuku</string>
     <string name="setup_dismiss_hint">Можете да намерите екрана за настройка чрез менюто с настройки.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Възможно ограничение на устройството</string>
     <string name="setup_inventory_limitation_body">Системата върна непълен списък на инсталирани приложения, въпреки че необходимите разрешения изглежда да са дадени.</string>
     <string name="setup_inventory_limitation_body2">Някои устройства (например HarmonyOS) никога не предоставят пълен списък на приложения. За да защитите вашите данни, инструментите за приложения остават деактивирани, но все пак можете да видите употребата на хранилище с намалени детайли.</string>
+    <string name="setup_inventory_probe_failed_title">Списъкът с приложения не можа да бъде прочетен</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid поиска от Android списъка с инсталирани приложения, но заявката бе неуспешна. Инструментите, свързани с приложения, остават изключени, докато това не проработи. Опитай отново, може да помогне.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid не намери никакви области с данни, които могат да бъдат сканирани. Завършихте ли настройката?</string>
     <string name="dataarea_warningcard_label">Области с данни</string>
     <string name="dataarea_warningcard_reload_action">Презареди области с данни</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Използване на хранилище и почистване с едно докосване</string>
     <string name="widget_home_storage_internal">Вътрешна</string>
     <string name="widget_home_storage_external">Външна</string>
-    <string name="widget_home_freed_label">Пожизнено: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Общо освободено: %1$s</string>
     <string name="widget_home_clean_action">Почистване</string>
     <string name="widget_home_working">Обработка…</string>
     <string name="widget_home_unavailable">Хранилището е недостъпно</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Историческите данни на това резервно копие (статистика, история на компресиране, сесии на плъзгане) са от различна версия на приложението и не могат да бъдат възстановени. Всичко останало ще бъде възстановено.</string>
     <string name="backup_restore_ack_understand">Разбирам и желая да продължа</string>
     <string name="backup_restore_action_restore">Възстановяване</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Предупреждения за хранилището</string>
+    <string name="stats_lowspace_notification_title">Хранилището се запълва</string>
+    <string name="stats_lowspace_notification_low_title">Хранилището е почти пълно</string>
+    <string name="stats_lowspace_notification_low_body">%1$s свободни. Мястото в хранилището намалява.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">При това темпо остава около %1$d ден свободно място. %2$s свободни.</item>
+        <item quantity="other">При това темпо остават около %1$d дни свободно място. %2$s свободни.</item>
+    </plurals>
 </resources>

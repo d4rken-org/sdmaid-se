@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root hozzáférés</string>
     <string name="setup_root_card_body">Használja a SD Maid a root hozzáférést, ha elérhető? A root hozzáférés használható további rendszerkönyvtárak és privát alkalmazásadatok ellenőrzéséhez.</string>
     <string name="setup_root_state_ready_label">Root hozzáférés készen áll.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">A root hozzáférés nem érhető el.</string>
+    <string name="setup_root_state_failed_title">A root hozzáférés sikertelen volt</string>
+    <string name="setup_root_state_failed_body">Az SD Maid root hozzáférést kért, de nem kapta meg. Ha az eszközöd rooted, nyisd meg a root kezelődet (Magisk, KernelSU vagy hasonló), és ellenőrizd, hogy az SD Maid kérése megtagadva lett-e vagy még várakozik.</string>
+    <string name="setup_root_state_failed_body_nomanager">Az SD Maid root hozzáférést kért, de nem kapta meg, és nem észleltek root kezelő alkalmazást. Ha az eszközöd rejtett vagy beépített rootot használ, próbáld újra.</string>
     <string name="setup_root_enable_root_use_label">Próbálja meg használni a root hozzáférést</string>
     <string name="setup_root_disable_root_use_label">Nem rootoltam az eszközömet</string>
     <string name="setup_root_card_body2">Csak rootolt eszközökön érhető el. Ha nem te végezted el ezt a módosítást, akkor az eszközöd nincs rootolva, és ennek a beállításnak nincs hatása.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">A Shizuku link készen áll.</string>
     <string name="setup_shizuku_state_waiting_label">Várakozás a Shizuku-val való kapcsolatfelvételre.</string>
     <string name="setup_shizuku_state_not_installed_label">A Shizuku alkalmazás nincs telepítve.</string>
+    <string name="setup_shizuku_state_failed_title">A Shizuku kapcsolat sikertelen volt</string>
+    <string name="setup_shizuku_state_failed_label">A Shizuku fut, de soha nem csatlakoztatta az SD Maid-ot a segítő szolgáltatásához.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Egyes eszközöket érint egy ismert Shizuku probléma, amely megakadályozza a segítő szolgáltatás indítását. Ez lehet az egyik.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Próbálja meg használni a Shizuku-t</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ne használjon Shizuku-t</string>
     <string name="setup_dismiss_hint">A beállítási képernyőt ismét megtalálhatja a beállítások menüben.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Lehetséges eszközkorlátozás</string>
     <string name="setup_inventory_limitation_body">A rendszer hiányos alkalmazáslistát adott vissza, annak ellenére, hogy a szükséges engedélyek megadottaknak tűnnek.</string>
     <string name="setup_inventory_limitation_body2">Egyes eszközök (pl. HarmonyOS) soha nem biztosítanak teljes alkalmazáslistát. Az adatai védelme érdekében az alkalmazáskezelő eszközök letiltva maradnak, de továbbra is megtekintheti a tárolóhasználatot csökkentett részletességgel.</string>
+    <string name="setup_inventory_probe_failed_title">Nem sikerült beolvasni az alkalmazáslista</string>
+    <string name="setup_inventory_probe_failed_body">Az SD Maid megkérdezte az Androidot a telepített alkalmazások listájáról, és a kérés sikertelen volt. Az alkalmazásokkal kapcsolatos eszközök letiltva maradnak, amíg nem működik. Az újrapróbálkozás segíthet.</string>
     <string name="dataarea_warningcard_empty_message">Az SD Maid nem talált beolvasható adatterületet. Befejezted a beállítást?</string>
     <string name="dataarea_warningcard_label">Adatterületek</string>
     <string name="dataarea_warningcard_reload_action">Adatterületek újratöltése</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Tárolóhasználat és egykattintásos tisztítás</string>
     <string name="widget_home_storage_internal">Belső</string>
     <string name="widget_home_storage_external">Külső</string>
-    <string name="widget_home_freed_label">Élettartam: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Összesen felszabadított: %1$s</string>
     <string name="widget_home_clean_action">Tisztítás</string>
     <string name="widget_home_working">Feldolgozás alatt…</string>
     <string name="widget_home_unavailable">A tárterület nem érhető el</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">A biztonsági mentés előzményadatai (statisztikák, tömörítési előzmények, swipe munkamenetek) egy másik alkalmazásverzióból származnak, és nem állíthatók vissza. Minden más vissza lesz állítva.</string>
     <string name="backup_restore_ack_understand">Megértettem, és folytatni szeretnék</string>
     <string name="backup_restore_action_restore">Visszaállítás</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Tárhelyi figyelmeztetések</string>
+    <string name="stats_lowspace_notification_title">A tárterület megtelik</string>
+    <string name="stats_lowspace_notification_low_title">A tárterület majdnem megtelt</string>
+    <string name="stats_lowspace_notification_low_body">%1$s szabad. A tárterület kifogyóban van.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Körülbelül %1$d nap szabad hely van ezzel a sebességgel. %2$s szabad.</item>
+        <item quantity="other">Körülbelül %1$d nap szabad hely van ezzel a sebességgel. %2$s szabad.</item>
+    </plurals>
 </resources>

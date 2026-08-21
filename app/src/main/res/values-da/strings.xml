@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root-adgang</string>
     <string name="setup_root_card_body">Skal SD Maid bruge root-adgang, hvis den er tilgængelig? Root-adgang kan bruges til at gennemgå flere systemmapper og private applikationsdata.</string>
     <string name="setup_root_state_ready_label">Root-adgang er klar.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root-adgang er utilgængelig.</string>
+    <string name="setup_root_state_failed_title">Root-adgang mislykkedes</string>
+    <string name="setup_root_state_failed_body">SD Maid bad om root-adgang, men fik den ikke. Hvis din enhed er rootet, skal du åbne din root-manager (Magisk, KernelSU eller lignende) og tjekke, om anmodningen fra SD Maid blev afvist eller stadig venter.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid bad om root-adgang, men fik den ikke, og der blev ikke fundet nogen root-manager-app. Hvis din enhed bruger skjult eller indbygget root, kan du prøve igen.</string>
     <string name="setup_root_enable_root_use_label">Prøv at bruge root-adgang</string>
     <string name="setup_root_disable_root_use_label">Jeg har ikke rootet min enhed</string>
     <string name="setup_root_card_body2">Kun tilgængelig på rootede enheder. Hvis du ikke har foretaget denne ændring, er din enhed ikke rootet, og denne indstilling har ingen effekt.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku-link er klar.</string>
     <string name="setup_shizuku_state_waiting_label">Venter på link med Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku-appen er ikke installeret.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku-forbindelse mislykkedes</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku kører, men fik aldrig forbundet SD Maid til dens hjælpetjeneste.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Nogle enheder er påvirket af et kendt Shizuku-problem, der forhindrer hjælpetjenesten i at starte. Dette kan være en af dem.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Prøv at bruge Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Brug ikke Shizuku</string>
     <string name="setup_dismiss_hint">Du kan finde opsætningsskærmen igen via indstillingsmenuen.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Mulig enhedsbegrænsning</string>
     <string name="setup_inventory_limitation_body">Systemet returnerede en ufuldstændig liste over installerede apps, selvom de påkrævede tilladelser tilsyneladende er givet.</string>
     <string name="setup_inventory_limitation_body2">Nogle enheder (f.eks. HarmonyOS) giver aldrig en komplet appliste. For at beskytte dine data forbliver app-relaterede værktøjer deaktiveret, men du kan stadig se lagerforbrug med reduceret detalje.</string>
+    <string name="setup_inventory_probe_failed_title">Kunne ikke læse applisten</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid bad Android om listen over installerede apps, og anmodningen mislykkedes. App-relaterede værktøjer forbliver deaktiveret, indtil det virker. Det kan hjælpe at prøve igen.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid fandt ingen dataområder, der kan scannes. Fuldførte du opsætningen?</string>
     <string name="dataarea_warningcard_label">Dataområder</string>
     <string name="dataarea_warningcard_reload_action">Genindlæs dataområder</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Lagerforbrug og rydning med et tryk</string>
     <string name="widget_home_storage_internal">Internt</string>
     <string name="widget_home_storage_external">Eksternt</string>
-    <string name="widget_home_freed_label">Levetid: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Frigjort i alt: %1$s</string>
     <string name="widget_home_clean_action">Rens</string>
     <string name="widget_home_working">Arbejder…</string>
     <string name="widget_home_unavailable">Lagring utilgængelig</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Denne sikkerhedskopis historiedata (statistikker, komprimeringhistorik, swipe-sessioner) er fra en anden appversion og kan ikke gendannes. Alt øvrigt bliver gendannet.</string>
     <string name="backup_restore_ack_understand">Jeg forstår og vil fortsætte</string>
     <string name="backup_restore_action_restore">Gendan</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Lagerplads-advarsler</string>
+    <string name="stats_lowspace_notification_title">Lagerpladsen fyldes op</string>
+    <string name="stats_lowspace_notification_low_title">Lagerpladsen er næsten fuld</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ledig. Lagerpladsen er ved at være opbrugt.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Der er ca. %1$d dag tilbage med den nuværende hastighed. %2$s ledig.</item>
+        <item quantity="other">Der er ca. %1$d dage tilbage med den nuværende hastighed. %2$s ledig.</item>
+    </plurals>
 </resources>

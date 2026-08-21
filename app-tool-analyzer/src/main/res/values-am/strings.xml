@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">ምንም ቀጥታ መዳረሻ አይገኝም</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper ክፍለ ጊዜ ይፍጠሩ</string>
+    <string name="analyzer_content_open_externally_action">በፋይል አቀናባሪ ውስጥ ክፈት</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">ከ%d ንጥል ጋር Swiper ክፍለ ጊዜ ተፈጥሯል</item>
         <item quantity="other">ከ%d ንጥሎች ጋር Swiper ክፍለ ጊዜ ተፈጥሯል</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">የተወሰዱ ምስሎች፣ የተቀዱ ቪዲዮዎች ወይም የተወረዱ ውሂቦች። ለተወሰነ መተግበሪያ የማያመሩ ማንኛቸውም ውሂቦች።</string>
     <string name="analyzer_storage_content_type_system_label">የሲስተም ውሂብ</string>
     <string name="analyzer_storage_content_type_system_description">የሲስተም መተግበሪያዎችና የሲስተም ውሂብ። ብዙ የተጠቃሚ መለያዎች በዚህ መሣሪያ ላይ ከተሰናዱ የሌሎች ተጠቃሚዎች መተግበሪያዎችና ውሂብ።</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">ሌሎች ተጠቃሚዎች ሙሉ በሙሉ ሊለኩ አልቻሉም፣ ስለዚህ ይህ ጠቅላላ ድምር የተወሰነ የነሱን ማከማቻ ሊያካትት ይችላል።</string>
     <string name="analyzer_storage_content_type_system_other_label">ሌላ</string>
     <string name="analyzer_storage_content_type_system_info">ከመተግበሪያዎች ወይም ከተጠቃሚ ፋይሎች ምድቦች ውጭ የሆኑ ፋይሎች። ማሰስ ብቻ — ሰርዛ አይደገፍም። አንዳንድ ቦታዎች ባለው ፍቃድ ገደብ ምክንያት ሙሉ ላይሆኑ ይችላሉ።</string>
     <string name="analyzer_storage_content_type_media_readonly_info">ፋይሎች በአሁኑ ወደ እነሱን ያለቤቱ ሐደግ ሊዛመዱ አይችሉም። መጠኖች ለማጣቀስ ብቻ ሆነው ይታያሉ — መሰረዣ, ማጣሪያዎች እና Swiper ታሩ ናቸው።</string>
     <string name="analyzer_storage_content_type_system_other_desc">SD Maid መድረስ ወይም መመደብ ያልቻለ የስርዓት ፋይሎች እና ሌሎች ውሂቦች። ስርዓተ ክወናው አንዳንድ ቦታዎች ይዘት ዝርዝር መዘርዘርን ይገድባል።</string>
+    <string name="analyzer_storage_content_type_otherusers_label">ሌሎች ተጠቃሚዎች</string>
+    <string name="analyzer_storage_content_type_otherusers_description">በዚህ መሣሪያ ላይ ላሉ ሌሎች ተጠቃሚዎች ወይም የስራ መገለጫዎች የሚገቡ መተግበሪያዎች እና ፋይሎች።</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">የመተግበሪያ ውሂብ ብቻ፣ የዚህ ተጠቃሚ የተጋሩ ፋይሎች አልተካተቱም።</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">መጠን አይገኝም፣ የዚህ ተጠቃሚ ማከማቻ ሊነበብ አይችልም።</string>
+    <string name="analyzer_storage_content_type_otherusers_info">በዚህ መሣሪያ ላይ ያለ የሌላ ተጠቃሚ ማከማቻ። ማሰስ ብቻ ይቻላል፣ መሰረዝ አይደገፍም።</string>
     <string name="analyzer_storage_content_app_code_label">የመተግበሪያ ኮድ</string>
     <string name="analyzer_storage_content_app_code_description">የመተግበሪያ ፋይሎች፣ ቤተ-መጻሕፍትና ሀብቶች። ይህ ቦታ መተግበሪያውን በማጥፋት ወይም በማከማቸት (በአዲሶቹ አንድሮይድ ስሪቶች ላይ ይገኛል) ሊለቀቅ ይችላል።</string>
     <string name="analyzer_storage_content_app_data_label">የመተግበሪያ ውሂብ</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">ይህ መተግበሪያ %1$sን በ\"%2$s\" ላይ ይይዛል።</string>
     <string name="analyzer_app_details_app_is_archived">ይህ መተግበሪያ ተደርሷል።</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s በ7 ቀናት</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">በዚህ ፍጥነት %d ቀን የሚቆይ ቦታ ቀርቷል</item>
+        <item quantity="other">በዚህ ፍጥነት %d ቀናት የሚቆይ ቦታ ቀርቷል</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">ማከማቻ</string>
+    <string name="analyzer_settings_lowstorage_title">ዝቅተኛ ማከማቻ ገደብ</string>
+    <string name="analyzer_settings_lowstorage_desc">ነፃ ቦታ ከዚህ በታች ሲወርድ፣ SD Maid ማከማቻውን እያለቀ እንደሆነ ይቆጥረዋል።</string>
+    <string name="analyzer_settings_lowstorage_value_auto">ራስ-ሰር (በአሁኑ ጊዜ %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">ራስ-ሰር</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">ራስ-ሰር</string>
+    <string name="analyzer_settings_lowspace_notification_title">የዝቅተኛ ቦታ ማስጠንቀቂያ</string>
+    <string name="analyzer_settings_lowspace_notification_desc">ማከማቻዎ ከማለቁ በፊት ማሳወቂያ ይቀበሉ።</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">ቦታ በማጣት በጭራሽ አትያዙ</string>
+    <string name="analyzer_lowspace_hint_body">ማከማቻዎ ከማለቁ በፊት ማስጠንቀቂያ ለማግኘት ያሻሽሉ፣ ስለዚህም ገና የሚሰሩበት ቦታ እያለ ማጽዳት ይችላሉ።</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">የእርሳስዎን ሙሉ ሆኖ ምንኝ ነው ይመልከቱ። Analyzer የእርሳስ ቦታ ወደ ሚሄድበት ይወክሳል። እያንዳንዳቸው ካርዶች በመሳሪያ ላይ ማከመቻ ቦታ ናቸው።</string>
     <string name="tour_analyzer_storage_body">ማከመቻ ይክፈቱ ወደ ሐደግ, ሚዲያ እና ፋይሎች ለመክፈት, ከዚያ ታጠቁ ታላቁ ተጠያቂ ለማግኘት።</string>

@@ -260,7 +260,11 @@
     <string name="setup_root_card_title">Root přístup</string>
     <string name="setup_root_card_body">Má SD Maid použít root přístup, pokud je k dispozici? Root přístup může být použit pro kontrolu dalších systémových složek a soukromých dat aplikací.</string>
     <string name="setup_root_state_ready_label">Root přístup je připraven.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Přístup root není k dispozici.</string>
+    <string name="setup_root_state_failed_title">Přístup root selhal</string>
+    <string name="setup_root_state_failed_body">SD Maid požádala o přístup root, ale nezískala ho. Pokud má tvé zařízení root, otevři svou aplikaci pro správu rootu (Magisk, KernelSU nebo podobnou) a zkontroluj, zda byl požadavek od SD Maid zamítnut, nebo stále čeká na vyřízení.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid požádala o přístup root, ale nezískala ho, a nebyla zjištěna žádná aplikace pro správu rootu. Pokud tvé zařízení používá skrytý nebo vestavěný root, zkus to znovu.</string>
     <string name="setup_root_enable_root_use_label">Zkusit použít root přístup</string>
     <string name="setup_root_disable_root_use_label">Nemám své zařízení rootnuté</string>
     <string name="setup_root_card_body2">K dispozici pouze na zařízeních s root přístupem. Pokud jste tuto úpravu neprovedli, vaše zařízení nemá root přístup a toto nastavení nemá žádný vliv.</string>
@@ -271,6 +275,9 @@
     <string name="setup_shizuku_state_ready_label">Propojení se Shizuku je připraveno.</string>
     <string name="setup_shizuku_state_waiting_label">Čekání na propojení se Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Aplikace Shizuku není nainstalována.</string>
+    <string name="setup_shizuku_state_failed_title">Propojení se Shizuku selhalo</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku běží, ale nikdy nepropojila SD Maid se svou pomocnou službou.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Některá zařízení jsou postižena známým problémem Shizuku, který brání spuštění pomocné služby. Tvé může být jedním z nich.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Zkusit použít Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužít Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodního nastavení najdete opět v nabídce nastavení.</string>
@@ -307,6 +314,8 @@
     <string name="setup_inventory_limitation_title">Možné omezení zařízení</string>
     <string name="setup_inventory_limitation_body">Systém vrátil neúplný seznam nainstalovaných aplikací, přestože se zdá, že jsou udělena požadovaná oprávnění.</string>
     <string name="setup_inventory_limitation_body2">Některá zařízení (např. HarmonyOS) nikdy neposkytují úplný seznam aplikací. Abychom chránili vaše údaje, nástroje související s aplikacemi budou zakázány, ale stále si můžete prohlédnout využití úložiště se sníženou detaily.</string>
+    <string name="setup_inventory_probe_failed_title">Nepodařilo se načíst seznam aplikací</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid požádala Android o seznam nainstalovaných aplikací, ale požadavek selhal. Nástroje týkající se aplikací zůstávají zakázané, dokud se to nepodaří. Zkus to znovu, může to pomoct.</string>
     <string name="dataarea_warningcard_empty_message">Aplikace SD Maid nenašla žádné datové oblasti, které by bylo možné skenovat. Dokončili jste úvodní nastavení?</string>
     <string name="dataarea_warningcard_label">Oblasti dat</string>
     <string name="dataarea_warningcard_reload_action">Znovu načíst oblasti dat</string>
@@ -383,7 +392,11 @@
     <string name="widget_home_description">Využití úložného prostoru a vyčištění jedním klepnutím</string>
     <string name="widget_home_storage_internal">Interní</string>
     <string name="widget_home_storage_external">Externí</string>
-    <string name="widget_home_freed_label">Životnost: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Celkem uvolněno: %1$s</string>
     <string name="widget_home_clean_action">Vyčistit</string>
     <string name="widget_home_working">Pracuji…</string>
     <string name="widget_home_unavailable">Úložiště není dostupné</string>
@@ -423,4 +436,15 @@
     <string name="backup_restore_warn_history_body">Data historie tohoto zálohování (statistiky, historie komprese, relace potažení) pocházejí z jiné verze aplikace a nelze je obnovit. Vše ostatní bude obnoveno.</string>
     <string name="backup_restore_ack_understand">Rozumím a chci pokračovat</string>
     <string name="backup_restore_action_restore">Obnovit</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Upozornění na úložiště</string>
+    <string name="stats_lowspace_notification_title">Úložiště se zaplňuje</string>
+    <string name="stats_lowspace_notification_low_title">Úložiště je téměř plné</string>
+    <string name="stats_lowspace_notification_low_body">%1$s volného místa. Úložiště dochází.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Při tomto tempu zbývá přibližně %1$d den místa. %2$s volného místa.</item>
+        <item quantity="few">Při tomto tempu zbývají přibližně %1$d dny místa. %2$s volného místa.</item>
+        <item quantity="many">Při tomto tempu zbývá přibližně %1$d dne místa. %2$s volného místa.</item>
+        <item quantity="other">Při tomto tempu zbývá přibližně %1$d dní místa. %2$s volného místa.</item>
+    </plurals>
 </resources>

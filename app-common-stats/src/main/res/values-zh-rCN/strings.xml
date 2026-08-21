@@ -48,6 +48,9 @@
     <string name="stats_space_history_delta_in_x">%2$s 内 %1$s</string>
     <string name="stats_space_history_upgrade_title">完整历史记录是专业版功能</string>
     <string name="stats_space_history_upgrade_body">升级以解锁每个存储设备的完整90天趋势视图。</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">升级以解锁每个存储设备的完整 90 天趋势视图，并在空间耗尽前获得警告。</string>
     <string name="stats_space_history_marker_freed">已释放 %1$s</string>
     <string name="stats_storage_type_primary">内部存储</string>
     <string name="stats_storage_type_secondary">外部存储</string>

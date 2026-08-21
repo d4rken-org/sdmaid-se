@@ -21,6 +21,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">אין גישה ישירה זמינה</string>
     <string name="analyzer_content_create_swiper_session_action">צור הפעלת Swiper</string>
+    <string name="analyzer_content_open_externally_action">פתח במנהל הקבצים</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">נוצרה הפעלת Swiper עם פריט %d</item>
         <item quantity="two">נוצרה הפעלת Swiper עם %d פריטים</item>
@@ -42,10 +43,16 @@
     <string name="analyzer_storage_content_type_media_description">תמונות שצולמו, סרטונים מוקלטים או נתונים שהורדו. כל נתונים שאינם שייכים לאפליקציה מסוימת.</string>
     <string name="analyzer_storage_content_type_system_label">נתוני מערכת</string>
     <string name="analyzer_storage_content_type_system_description">אפליקציות מערכת ונתוני מערכת. אפליקציות ונתונים ממשתמשים אחרים, אם מוגדרים מספר חשבונות משתמש במכשיר זה.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">לא היה אפשר למדוד משתמשים אחרים במלואם, כך שהסה\"כ הזה עשוי לכלול חלק מהאחסון שלהם.</string>
     <string name="analyzer_storage_content_type_system_other_label">אחר</string>
     <string name="analyzer_storage_content_type_system_info">קבצים שאינם מתאימים לקטגוריות אפליקציות או קבצי משתמש. עיון בלבד — מחיקה אינה נתמכת. ייתכן שחלק מהאזורים אינם שלמים עקב הגבלות גישה.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">לא ניתן כרגע להתאים קבצים לאפליקציות שבבעלותן. הגדלים מוצגים לצורך התייחסות בלבד — מחיקה, מסננים ו-Swiper מושבתים.</string>
     <string name="analyzer_storage_content_type_system_other_desc">קבצי מערכת ונתונים אחרים ש-SD Maid לא יכלה לגשת אליהם או לסווג. מערכת ההפעלה מגבילה את רישום תכולת חלק מהאזורים.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">משתמשים אחרים</string>
+    <string name="analyzer_storage_content_type_otherusers_description">אפליקציות וקבצים שבבעלות משתמשים אחרים או פרופילי עבודה בהתקן זה.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">רק נתוני אפליקציה, קבצים משותפים של משתמש זה אינם כלולים.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">הגודל אינו זמין, לא ניתן לקרוא את האחסון של משתמש זה.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">אחסון של משתמש אחר בהתקן זה. רק עיון, מחיקה אינה נתמכת.</string>
     <string name="analyzer_storage_content_app_code_label">קוד אפליקציה</string>
     <string name="analyzer_storage_content_app_code_description">קבצי אפליקציות, ספריות ומשאבים. מקום זה יכול להתפנות על ידי הסרת האפליקציה או אירכובה (זמין בגירסאות אנדרואיד חדשות).</string>
     <string name="analyzer_storage_content_app_data_label">נתוני יישום</string>
@@ -57,6 +64,24 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">אפליקציה זו תופסת %1$s ב-\"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">אפליקציה זו הועבר לארכיון.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s ב-7 ימים</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">בערך יום אחד של מקום נשאר בקצב הזה</item>
+        <item quantity="two">בערך יומיים של מקום נשאר בקצב הזה</item>
+        <item quantity="many">בערך %d ימים של מקום נשאר בקצב הזה</item>
+        <item quantity="other">בערך %d ימים של מקום נשאר בקצב הזה</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">אחסון</string>
+    <string name="analyzer_settings_lowstorage_title">סף אחסון נמוך</string>
+    <string name="analyzer_settings_lowstorage_desc">כאשר המקום החופשי יורד מתחת לזה, SD Maid מתייחס לאחסון כאילו הוא אוזל.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">אוטומטי (כרגע %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">אוטומטי</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">אוטומטי</string>
+    <string name="analyzer_settings_lowspace_notification_title">אזהרת מקום נמוך</string>
+    <string name="analyzer_settings_lowspace_notification_desc">קבל הודעה לפני שהאחסון שלך אוזל.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">לעולם אל ייגמר לך המקום</string>
+    <string name="analyzer_lowspace_hint_body">שדרג כדי לקבל אזהרה לפני שהאחסון שלך אוזל, כדי שתוכל לנקות בזמן שעדיין יש מקום לעבוד.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">ראה מה בעצם ממלא את האחסון שלך. Analyzer ממפה היכן המקום שלך הולך. כל אחד מהכרטיסים האלה הוא שבב אחסון בהתקן שלך.</string>
     <string name="tour_analyzer_storage_body">פתח אחסון כדי לפרק אותו ליישומים, מדיה וקבצים, ואז המשך להקש כדי לאתר אחר האשמים הגדולים ביותר.</string>

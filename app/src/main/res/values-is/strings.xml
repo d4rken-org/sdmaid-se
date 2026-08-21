@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root aðgangur</string>
     <string name="setup_root_card_body">Á SD Maid að nota root aðgang ef hann er tiltækur? Root aðgangur gerir kleift að skoða viðbótar kerfismöppur og einkagögn forrita.</string>
     <string name="setup_root_state_ready_label">Root aðgangur er tilbúinn.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root aðgangur er ekki tiltækur.</string>
+    <string name="setup_root_state_failed_title">Rótaraðgangur mistókst</string>
+    <string name="setup_root_state_failed_body">SD Maid bað um rótaraðgang en fékk hann ekki. Ef tækið þitt er með rót skaltu opna rótarstjórann þinn (Magisk, KernelSU eða svipað) og athuga hvort beiðninni frá SD Maid hafi verið hafnað eða hún sé enn í bið.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid bað um rótaraðgang en fékk hann ekki og ekkert rótarstjórnunarforrit fannst. Ef tækið þitt notar falda eða innbyggða rót skaltu reyna aftur.</string>
     <string name="setup_root_enable_root_use_label">Prófaðu að nota root aðgang</string>
     <string name="setup_root_disable_root_use_label">Ég rótaði ekki tækið mitt</string>
     <string name="setup_root_card_body2">Aðeins tiltækt á rooted tækjum. Ef þú gerðir ekki þessa breytingu þá er tækið þitt ekki rooted og þessi stilling hefur engin áhrif.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku tenging er tilbúin.</string>
     <string name="setup_shizuku_state_waiting_label">Bíð eftir tengingu við Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku-forritið er ekki uppsett.</string>
+    <string name="setup_shizuku_state_failed_title">Tenging við Shizuku mistókst</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku er í gangi en tengdi aldrei SD Maid við hjálparþjónustu sína.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Sum tæki verða fyrir þekktu vandamáli í Shizuku sem kemur í veg fyrir að hjálparþjónustan ræsist. Þetta gæti verið eitt af þeim.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Prófaðu að nota Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ekki nota Shizuku</string>
     <string name="setup_dismiss_hint">Þú getur fundið uppsetningarskjáinn aftur í gegnum stillingavalmynd.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Möguleg takmörkun tækis</string>
     <string name="setup_inventory_limitation_body">Kerfið skilaði ófullkominni lista yfir uppsettar forrit, jafnvel þótt nauðsynlegar heimildir virðast vera veittar.</string>
     <string name="setup_inventory_limitation_body2">Sum tæki (t.d. HarmonyOS) veita aldrei heilan app-lista. Til að vernda gögn þin, app-tengd tól eru óvirk, en þú getur ennþá skoðað geymslanotkun með minni smáatriðum.</string>
+    <string name="setup_inventory_probe_failed_title">Ekki tókst að lesa forritalistann</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid bað Android um lista yfir uppsett forrit og beiðnin mistókst. Verkfæri tengd forritum verða óvirk þar til þetta virkar. Að reyna aftur gæti hjálpað.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid fann engin gagnasvæði sem hægt er að skanna. Hefur þú lokið uppsetningunni?</string>
     <string name="dataarea_warningcard_label">Gagnasvæði</string>
     <string name="dataarea_warningcard_reload_action">Endurhlaða gagnasvæði</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Geymslunotkun og hreinsun með einni snertu</string>
     <string name="widget_home_storage_internal">Innri</string>
     <string name="widget_home_storage_external">Ytri</string>
-    <string name="widget_home_freed_label">Ævi: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Samtals losað: %1$s</string>
     <string name="widget_home_clean_action">Hreinsa</string>
     <string name="widget_home_working">Að vinna…</string>
     <string name="widget_home_unavailable">Geymsla ekki tiltæk</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Sögulegir gögn þessa öryggisafrita (tölfræði, þjöppun sögu, stroka lotur) eru frá annarri útgáfu forritsins og ekki er hægt að endurheimta þau. Allt annað verður endurheimt.</string>
     <string name="backup_restore_ack_understand">Ég skil og vil halda áfram</string>
     <string name="backup_restore_action_restore">Endurheimta</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Viðvaranir um geymslupláss</string>
+    <string name="stats_lowspace_notification_title">Geymslupláss er að fyllast</string>
+    <string name="stats_lowspace_notification_low_title">Geymslupláss er nánast fullt</string>
+    <string name="stats_lowspace_notification_low_body">%1$s laust. Geymslupláss er að klárast.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Um það bil %1$d dagur eftir af plássi á þessum hraða. %2$s laust.</item>
+        <item quantity="other">Um það bil %1$d dagar eftir af plássi á þessum hraða. %2$s laust.</item>
+    </plurals>
 </resources>

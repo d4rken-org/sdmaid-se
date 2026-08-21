@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root sarbidea</string>
     <string name="setup_root_card_body">SD Maid-ek root sarbidea erabili behar du eskuragarri badago? Root sarbidea sistema-karpeta gehigarriak eta aplikazio-datu pribatuak egiaztatzeko erabil daiteke.</string>
     <string name="setup_root_state_ready_label">Root sarbidea prest dago.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root sarbidea ez dago eskuragarri.</string>
+    <string name="setup_root_state_failed_title">Root sarbidea huts egin du</string>
+    <string name="setup_root_state_failed_body">SD Maid-k root sarbidea eskatu zuen eta ez zuen lortu. Zure gailua root-ean badago, ireki zure root kudeatzailea (Magisk, KernelSU edo antzekoa) eta egiaztatu SD Maid-ren eskaera ukatua edo oraindik zain dagoen.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid-k root sarbidea eskatu zuen eta ez zuen lortu, eta root kudeatzailearen aplikaziorik ez zen detektatu. Zure gailua ezkutuko edo barne root erabiltzen badu, saiatu berriro.</string>
     <string name="setup_root_enable_root_use_label">Saiatu root sarbidetarekin</string>
     <string name="setup_root_disable_root_use_label">Ez dut nire gailua rootatu</string>
     <string name="setup_root_card_body2">Soilik root duten gailuetan erabilgarri. Aldaketa hau egin ez baduzu, orduan zure gailua ez dago root-etuta eta ezarpen honek ez du eraginik.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku lotura prest dago</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku-rekin loturaren zain</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku aplikazioa ez dago instalatua.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku loturak huts egin du</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku biltzen ari da, baina inoiz ez du SD Maid konektatu bere laguntza zerbitzura.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Shizuku-ren arazo ezagun batek zenbait gailuetan eragina du, laguntza zerbitzua abiatzea geldiarazten duena. Hau horietako bat izan daiteke.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Saiatu Shizukurekin</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ez erabili Shizuku</string>
     <string name="setup_dismiss_hint">Konfigurazio-pantaila berriro aurki dezakezu ezarpenen menua bidez.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Gailuaren posible mugatzea</string>
     <string name="setup_inventory_limitation_body">Sistema-k instalatutako aplikazioen zerrenda osatugabea itzuli du, beharrezko baimenak eman direla iruditzen bada ere.</string>
     <string name="setup_inventory_limitation_body2">Zenbait gailu (adibidez, HarmonyOS) inoiz ez dute aplikazio zerrenda osoa ematen. Zure datua babesteko, aplikazioei lotutako tresnak desgaituta daude, baina oraindik ere galkaren erabilera ikus dezakezu xehetasun gutxiagorekin.</string>
+    <string name="setup_inventory_probe_failed_title">Aplikazioen zerrenda irakurri ez zen ahal izan</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid-k Android-ek instalatutako aplikazioen zerrenda eskatu zuen eta eskaera huts egin zuen. Aplikazioekin lotutako tresnak desgaituta geratzen dira funtzionatu arte. Berriro saiatzeak laguntza dezake.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid-ek ez du eskaneatu daitezkeen datu-arearik aurkitu. Konfigurazioa osatu duzu?</string>
     <string name="dataarea_warningcard_label">Datu-areoak</string>
     <string name="dataarea_warningcard_reload_action">Birkargatu datu-areoak</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Biltegiaren erabilera eta norberaren bidez garbitzea</string>
     <string name="widget_home_storage_internal">Barne</string>
     <string name="widget_home_storage_external">Kanpo</string>
-    <string name="widget_home_freed_label">Bizitza-denbora: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Guztira askea: %1$s</string>
     <string name="widget_home_clean_action">Garbitu</string>
     <string name="widget_home_working">Lantzen…</string>
     <string name="widget_home_unavailable">Biltegia ez dago erabilgarri</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Babeskopia honetako historia-datuak (estatistikak, konpresioen historia, xuxatu sesioak) aplikazioaren beste bertsio batetik datoz eta ezin dira berreskuratu. Beste guztia berreskuratuko da.</string>
     <string name="backup_restore_ack_understand">Ulertzen dut eta jarraitu nahi dut</string>
     <string name="backup_restore_action_restore">Berreskuratu</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Biltegiaren oharrak</string>
+    <string name="stats_lowspace_notification_title">Biltegian betetzen ari da</string>
+    <string name="stats_lowspace_notification_low_title">Biltegian ia beteta dago</string>
+    <string name="stats_lowspace_notification_low_body">%1$s libre. Biltegian agortzen ari da.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Gutxi gorabehera %1$d egunean biltegi libre dago ritmo honetan. %2$s libre.</item>
+        <item quantity="other">Gutxi gorabehera %1$d egunetan biltegi libre dauden ritmo honetan. %2$s libre.</item>
+    </plurals>
 </resources>

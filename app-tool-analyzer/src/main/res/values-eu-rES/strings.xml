@@ -17,6 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Ez dago zuzeneko sarbiderik erabilgarri</string>
     <string name="analyzer_content_create_swiper_session_action">Sortu Swiper saioa</string>
+    <string name="analyzer_content_open_externally_action">Ireki fitxategi kudeatzailean</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Swiper saioa sortu da %d elementurekin</item>
         <item quantity="other">Swiper saioa sortu da %d elementurekin</item>
@@ -36,10 +37,16 @@
     <string name="analyzer_storage_content_type_media_description">Ateratako argazkiak, grabatutako bideoak edo deskargatutako datuak. Aplikazio zehatz bati ez dagokion edozein datu.</string>
     <string name="analyzer_storage_content_type_system_label">Sistema-datuak</string>
     <string name="analyzer_storage_content_type_system_description">Sistema-aplikazioak eta sistema-datuak. Beste erabiltzaileen aplikazioak eta datuak, gailu honetan hainbat erabiltzaile-kontu konfiguratuta badaude.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Beste erabiltzaileak osoki neurtu ez ziren, beraz guztira honek haien biltegiren zati bat izatea ahal du.</string>
     <string name="analyzer_storage_content_type_system_other_label">Bestelakoak</string>
     <string name="analyzer_storage_content_type_system_info">Aplikazio edo Erabiltzaile fitxategien kategorietara egokitzen ez diren fitxategiak. Arakatu soilik — ezabatzea ez da onartzen. Zenbait area ez da osoa sarbide mugapenak direla eta.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Fitxategiak ezin dira aplikazioekin lotzen orain. Neurriak erreferentzia gisa bakarrik agertzen dira — ezabatzea, filtroak eta Swiper desgaituta daude.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistema-fitxategiak eta SD Maid-ek atzitu edo sailkatu ezin dituen beste datu batzuk. Eragiketa-sistemak zenbait arearen edukia zerrendatzea mugatzen du.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Beste erabiltzaileak</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Beste erabiltzaile edo lan profilei dagozkien aplikazioak eta fitxategiak gailu honetan.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Aplikazioaren datuak bakarrik, erabiltzaile honek partekatutako fitxategiak ez daude sartuta.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Tamaina ez dago erabilgarri, erabiltzaile honek biltegian irakurri ezin da.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Beste erabiltzaile baten biltegian gailu honetan. Arakatzea bakarrik, ezabatzea ez da onartzen.</string>
     <string name="analyzer_storage_content_app_code_label">Aplikazioaren kodea</string>
     <string name="analyzer_storage_content_app_code_description">Aplikazio-fitxategiak, liburutegiak eta baliabideak. Leku hau askatu daiteke aplikazioa desinstalatu edo artxibatuz (Android bertsio berrietan erabilgarri).</string>
     <string name="analyzer_storage_content_app_data_label">Aplikazioaren datuak</string>
@@ -51,6 +58,22 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikazio honek %1$s hartzen du \"%2$s\"-n.</string>
     <string name="analyzer_app_details_app_is_archived">Aplikazio hau artxibatuta dago.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 egunetan</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Gutxi gorabehera %d egunean biltegi libre dago ritmo honetan</item>
+        <item quantity="other">Gutxi gorabehera %d egunetan biltegi libre dauden ritmo honetan</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Biltegia</string>
+    <string name="analyzer_settings_lowstorage_title">Biltegi baxuaren ataria</string>
+    <string name="analyzer_settings_lowstorage_desc">Lekua askea honen azpitik jaisten denean, SD Maid biltegian agortzen ari dela ulertzen du.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatikoa (orain %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatikoa</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatikoa</string>
+    <string name="analyzer_settings_lowspace_notification_title">Biltegi baxuaren oharra</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Jaso abisu bat zure biltegian agortzen baino lehen.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Ez geratu inoiz lekurik gabe</string>
+    <string name="analyzer_lowspace_hint_body">Eguneratu zure biltegian agortzen baino lehen abisu bat hartzeko, beraz garbitu dezakezu oraindik biltegi nahikoa dagoen bitartean.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Ikusi zer betetzen ari den zure biltegia benetan. Analyzer zure espazioa nora doan mapatzen du. Txartel bakoitza zure gailuko biltegiaren zatia da.</string>
     <string name="tour_analyzer_storage_body">Ireki biltegia aplikazioetan, medietan eta fitxategietan banatzeko, orduan sakatu etengabe handiena erabiltzen dituena bilatzeko.</string>

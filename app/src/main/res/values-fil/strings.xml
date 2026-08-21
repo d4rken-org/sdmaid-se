@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Access sa root</string>
     <string name="setup_root_card_body">Dapat ba gamitin ng SD Maid ang root access kung available? Maaaring gamitin ang root access para tingnan ang mga karagdagang system folder at private application data.</string>
     <string name="setup_root_state_ready_label">Handa na ang root access.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Hindi available ang Root access.</string>
+    <string name="setup_root_state_failed_title">Nabigo ang pag-access sa root</string>
+    <string name="setup_root_state_failed_body">Hiniling ng SD Maid ang root access ngunit hindi ito nakatanggap. Kung ang iyong device ay may root, buksan ang iyong root manager (tulad ng Magisk, KernelSU, at iba pa) at suriin kung ang kahilingan mula sa SD Maid ay tinanggi o naghihintay pa.</string>
+    <string name="setup_root_state_failed_body_nomanager">Hiniling ng SD Maid ang root access ngunit hindi ito nakatanggap, at walang root manager app na natuklasan. Kung gumagamit ang iyong device ng nakatagong o built-in root, subukan ulit.</string>
     <string name="setup_root_enable_root_use_label">Subukan ang Root access</string>
     <string name="setup_root_disable_root_use_label">Hindi ko na-root ang aking device</string>
     <string name="setup_root_card_body2">Available lamang sa mga rooted na device. Kung hindi ninyo ginawa ang modification na ito, hindi rooted ang inyong device at walang epekto ang setting na ito.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Handa na ang link sa Shizuku.</string>
     <string name="setup_shizuku_state_waiting_label">Naghihintay ng link sa Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Ang Shizuku app ay hindi naka-install.</string>
+    <string name="setup_shizuku_state_failed_title">Nabigo ang Shizuku link</string>
+    <string name="setup_shizuku_state_failed_label">Tumatakbo ang Shizuku, ngunit hindi kailanman nag-connect sa SD Maid sa helper service nito.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Ang ilang device ay apektado ng isang kilalang Shizuku problema na tumitigil sa helper service mula magsimula. Ito ay maaaring isa sa kanila.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Subukan ang Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Huwag gamitin ang Shizuku</string>
     <string name="setup_dismiss_hint">Mahahanap ninyo ulit ang setup screen sa pamamagitan ng settings menu.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Posibleng limitasyon ng device</string>
     <string name="setup_inventory_limitation_body">Ang sistema ay nagbalik ng hindi kumpletong listahan ng mga na-install na apps, kahit na parang na-grant na ang kinakailangang mga pahintulot.</string>
     <string name="setup_inventory_limitation_body2">Ang ilang mga device (e.g. HarmonyOS) ay hindi kailanman nagbibigay ng kumpletong app list. Upang protektahan ang iyong data, ang mga app-related tools ay nananatiling disabled, ngunit maaari pa rin mong tingnan ang storage usage na may nabawasang detalye.</string>
+    <string name="setup_inventory_probe_failed_title">Hindi mabasa ang app list</string>
+    <string name="setup_inventory_probe_failed_body">Hiniling ng SD Maid sa Android ang lista ng mga naka-install na app at nabigo ang kahilingan. Ang mga tool na may kaugnayan sa app ay nanatiling hindi pinagana hanggang ito ay gumagana. Ang pagsisikap ulit ay maaaring makatulong.</string>
     <string name="dataarea_warningcard_empty_message">Walang nahanap na data area na pwedeng i-scan ang SD Maid. Natapos ba ninyo ang setup?</string>
     <string name="dataarea_warningcard_label">Mga data area</string>
     <string name="dataarea_warningcard_reload_action">I-reload ang mga data area</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Paggamit ng imbakan at isang pindot na paglilinis</string>
     <string name="widget_home_storage_internal">Panloob</string>
     <string name="widget_home_storage_external">Panlabas</string>
-    <string name="widget_home_freed_label">Habambuhay: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Kabuuang nalabas: %1$s</string>
     <string name="widget_home_clean_action">Linisin</string>
     <string name="widget_home_working">Tumatrabaho…</string>
     <string name="widget_home_unavailable">Hindi available ang storage</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Ang kasaysayan ng data ng backup na ito (istatistika, kasaysayan ng compression, swipe sessions) ay mula sa ibang bersyon ng app at hindi maaaring ibalik. Maibabalik ang lahat ng iba pa.</string>
     <string name="backup_restore_ack_understand">Nauunawaan ko at nais kong magpatuloy</string>
     <string name="backup_restore_action_restore">I-restore</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Mga babala sa storage</string>
+    <string name="stats_lowspace_notification_title">Napupuno na ang storage</string>
+    <string name="stats_lowspace_notification_low_title">Ang storage ay halos puno na</string>
+    <string name="stats_lowspace_notification_low_body">%1$s ang libre. Nauubos na ang storage.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Humigit-kumulang %1$d araw na puwang sa rate na ito. %2$s ang libre.</item>
+        <item quantity="other">Humigit-kumulang %1$d araw na puwang sa rate na ito. %2$s ang libre.</item>
+    </plurals>
 </resources>

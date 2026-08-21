@@ -21,6 +21,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Tiesioginė prieiga neprieinama</string>
     <string name="analyzer_content_create_swiper_session_action">Sukurti Swiper seansus</string>
+    <string name="analyzer_content_open_externally_action">Atidaryti failų tvarkytuvėje</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Grėbėjo sesija sukurta su %d elementu</item>
         <item quantity="few">Grėbėjo sesija sukurta su %d elementais</item>
@@ -42,10 +43,16 @@
     <string name="analyzer_storage_content_type_media_description">Užfiksuotos nuotraukos, įrašyti vaizdo įrašai ar atsisiųsti duomenys. Visi duomenys, nepriklausantys konkreiai programai.</string>
     <string name="analyzer_storage_content_type_system_label">Sistemos duomenys</string>
     <string name="analyzer_storage_content_type_system_description">Sistemos programos ir sistemos duomenys. Programos ir duomenys iš kitų vartotojų, jei šiame įrenginyje nustatytos kelios vartotojų paskyros.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Nepavyko pilnai išmatuoti kitų naudotojų duomenų, todėl į šią bendrą sumą gali būti įskaičiuota dalis jų saugyklos.</string>
     <string name="analyzer_storage_content_type_system_other_label">Kita</string>
     <string name="analyzer_storage_content_type_system_info">Failai, kurie netinka programų ar vartotojo failų kategorijoms. Tik naršymas — ištrynimas nepalaikomas. Kai kurios sritys gali būti neišsamios dėl prieigos apribojimų.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Šiuo metu failai negali būti susieti su jų savininko programomis. Dydžiai rodomi tik kaip nuoroda – naikinimas, filtrai ir Swiper yra išjungti.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sisteminiai failai ir kiti duomenys, kurių SD Maid negalėjo pasiekti ar suskirstyti į kategorijas. Operatė sistema riboja kai kurių sričių turinio peržiūrą.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Kiti naudotojai</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Programos ir failai, priklausantys kitiems šio įrenginio naudotojams ar darbo profiliams.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Tik programų duomenys, šio naudotojo bendrieji failai neįtraukti.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Dydis nežinomas, šio naudotojo saugyklos nepavyksta nuskaityti.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Kito šio įrenginio naudotojo saugykla. Galima tik naršyti, trynimas nepalaikomas.</string>
     <string name="analyzer_storage_content_app_code_label">Programos kodas</string>
     <string name="analyzer_storage_content_app_code_description">Programos failai, bibliotekos ir ištekliai. Ši vieta gali būti atlaisvinta išdiegiant programą arba ją archyvuojant (galima naujesnose Android versijose).</string>
     <string name="analyzer_storage_content_app_data_label">Programos duomenys</string>
@@ -57,6 +64,24 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Ši programa užima %1$s „%2$s“.</string>
     <string name="analyzer_app_details_app_is_archived">Ši programa yra archyvuota.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s per 7d</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="one">Tokiu tempu vietos liks maždaug %d dieną</item>
+        <item quantity="few">Tokiu tempu vietos liks maždaug %d dienas</item>
+        <item quantity="many">Tokiu tempu vietos liks maždaug %d dienos</item>
+        <item quantity="other">Tokiu tempu vietos liks maždaug %d dienų</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Saugykla</string>
+    <string name="analyzer_settings_lowstorage_title">Mažos laisvos vietos riba</string>
+    <string name="analyzer_settings_lowstorage_desc">Kai laisvos vietos kiekis nukrenta žemiau šios ribos, SD Maid laiko, kad saugyklos vietos trūksta.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automatinis (dabar %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automatinis</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automatinis</string>
+    <string name="analyzer_settings_lowspace_notification_title">Įspėjimas apie mažą laisvą vietą</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Gauk pranešimą prieš baigiantis saugyklos vietai.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Niekada neatsidurk be laisvos vietos</string>
+    <string name="analyzer_lowspace_hint_body">Atnaujink, kad gautum įspėjimą prieš baigiantis saugyklos vietai ir galėtum susitvarkyti, kol dar yra kur pasisukti.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Pažiūrėkite, kas iš tiesų užima jūsų saugyklą. Analyzer nusako, kur eina jūsų vieta. Kiekviena kortelė – jūsų įrenginio saugyklos dalis.</string>
     <string name="tour_analyzer_storage_body">Atidarykite saugyklą, kad ją suskaidytumėte į programas, mediją ir failus, tada toliau bakstelėkite, norėdami rasti didžiausius dydžio šaltinius.</string>

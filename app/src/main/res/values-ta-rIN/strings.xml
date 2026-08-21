@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">ரூட் அணுகல்</string>
     <string name="setup_root_card_body">SD Maid ரூட் அணுகலை கிடைத்தால் பயன்படுத்த வேண்டுமா? கூடுதல் கணினி அடைவுகள் மற்றும் தனியார் பயன்பாட்டு தரவை சரிபார்க்க ரூட் அணுகலைப் பயன்படுத்தலாம்.</string>
     <string name="setup_root_state_ready_label">ரூட் அணுகல் தயாராக உள்ளது.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root அணுகல் கிடைக்கவில்லை.</string>
+    <string name="setup_root_state_failed_title">ரூட் அணுகல் தோல்வியடைந்தது</string>
+    <string name="setup_root_state_failed_body">SD Maid ரூட் அணுகலைக் கோரியது, ஆனால் அது கிடைக்கவில்லை. உங்கள் சாதனம் ரூட் செய்யப்பட்டிருந்தால், உங்கள் ரூட் மேலாளரைத் (Magisk, KernelSU அல்லது அதுபோன்றவை) திறந்து, SD Maid இன் கோரிக்கை நிராகரிக்கப்பட்டதா அல்லது இன்னும் காத்திருக்கிறதா எனச் சரிபார்க்கவும்.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ரூட் அணுகலைக் கோரியது, ஆனால் அது கிடைக்கவில்லை, மேலும் எந்த ரூட் மேலாளர் ஆப்பும் கண்டறியப்படவில்லை. உங்கள் சாதனம் மறைக்கப்பட்ட அல்லது உள்ளமைக்கப்பட்ட ரூட்டைப் பயன்படுத்தினால், மீண்டும் முயற்சிக்கவும்.</string>
     <string name="setup_root_enable_root_use_label">Root அணுகலைப் பயன்படுத்த முயற்சிக்கவும்</string>
     <string name="setup_root_disable_root_use_label">நான் என் சாதனத்தை Root செய்யவில்லை</string>
     <string name="setup_root_card_body2">ரூட் செய்யப்பட்ட சாதனங்களில் மட்டுமே கிடைக்கும். நீங்கள் இந்த மாற்றத்தைச் செய்யவில்லை என்றால், உங்கள் சாதனம் ரூட் செய்யப்படவில்லை மற்றும் இந்த அமைப்பு எந்த விளைவையும் ஏற்படுத்தாது.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku உடன் இணைப்பு தயாரம் உள்ளது.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku உடன் இணைப்பிற்காக காத்திருக்கிறது.</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku பயன்பாடு நிறுவப்படவில்லை.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku இணைப்பு தோல்வியடைந்தது</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku இயங்குகிறது, ஆனால் அது SD Maid ஐ அதன் உதவியாளர் சேவையுடன் இணைக்கவில்லை.</string>
+    <string name="setup_shizuku_state_known_issue_hint">சில சாதனங்கள் Shizuku இன் ஒரு அறியப்பட்ட சிக்கலால் பாதிக்கப்படுகின்றன, இது உதவியாளர் சேவை தொடங்குவதைத் தடுக்கிறது. இதுவும் அவற்றில் ஒன்றாக இருக்கலாம்.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku ஐப் பயன்படுத்த முயற்சிக்கவும்</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ஐப் பயன்படுத்த வேண்டாம்</string>
     <string name="setup_dismiss_hint">அமைப்புகள் பட்டி வழியாக அமைப்பு திரையை மீண்டும் கண்டுபிடிக்கலாம்.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">சாத்தியமான சாதன வரம்பு</string>
     <string name="setup_inventory_limitation_body">தேவையான அனுமதிகள் வழங்கப்பட்டிருப்பதாகத் தோன்றினாலும், நிறுவப்பட்ட பயன்பாடுகளின் முழுமையற்ற பட்டியலைக் கணினி திரும்பக் கொடுத்தது.</string>
     <string name="setup_inventory_limitation_body2">சில சாதனங்கள் (எ.கா. HarmonyOS) ஒருபோதும் முழுமையான பயன்பாட்டு பட்டியலை வழங்குவதில்லை. உங்கள் தரவைப் பாதுகாக்க, பயன்பாட்டு-தொடர்பான கருவிகள் முடக்கப்பட்டுள்ளன, ஆனால் குறைந்த விவரங்களுடன் சேமிப்பக பயன்பாட்டை நீங்கள் இன்னும் பார்க்கலாம்.</string>
+    <string name="setup_inventory_probe_failed_title">ஆப் பட்டியலைப் படிக்க முடியவில்லை</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid நிறுவப்பட்ட ஆப்களின் பட்டியலை Android இடம் கோரியது, ஆனால் அந்தக் கோரிக்கை தோல்வியடைந்தது. இது சரியாகும் வரை ஆப் தொடர்பான கருவிகள் முடக்கப்பட்டே இருக்கும். மீண்டும் முயற்சிப்பது உதவலாம்.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ஸ்கேன் செய்யக்கூடிய எந்த தரவு பகுதிகளையும் கண்டுபிடிக்கவில்லை. நீங்கள் அமைப்பை முடித்துவிட்டீர்களா?</string>
     <string name="dataarea_warningcard_label">தரவு பகுதிகள்</string>
     <string name="dataarea_warningcard_reload_action">தரவு பகுதிகளை மீண்டும் ஏற்று</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">சேமிப்பக பயன்பாடு மற்றும் ஒற்றை-தட்டு சுத்தம்</string>
     <string name="widget_home_storage_internal">உள்ளிலான</string>
     <string name="widget_home_storage_external">வெளிப்புற</string>
-    <string name="widget_home_freed_label">ஆயுட்காலம்: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">மொத்தம் விடுவிக்கப்பட்டது: %1$s</string>
     <string name="widget_home_clean_action">சுத்தப்படுத்து</string>
     <string name="widget_home_working">செயல்படுகிறது…</string>
     <string name="widget_home_unavailable">சேமிப்பக கிடைக்கவில்லை</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">இந்த காப்புப்படி வரலாற்று தரவு (புள்ளிவிவரங்கள், சுருக்கல் வரலாறு, ஸ்வைப் அமர்வுகள்) வேறுபட்ட பயன்பாடு பதிப்பிலிருந்து வந்தது மற்றும் மீட்டெடுக்க முடியாது. மற்றவை மீட்டெடுக்கப்படும்.</string>
     <string name="backup_restore_ack_understand">நான் புரிந்துகொள்கிறேன் மற்றும் தொடர விரும்புகிறேன்</string>
     <string name="backup_restore_action_restore">மீட்டெடுக்கவும்</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">சேமிப்பக எச்சரிக்கைகள்</string>
+    <string name="stats_lowspace_notification_title">சேமிப்பகம் நிரம்பிக்கொண்டிருக்கிறது</string>
+    <string name="stats_lowspace_notification_low_title">சேமிப்பகம் கிட்டத்தட்ட நிரம்பியுள்ளது</string>
+    <string name="stats_lowspace_notification_low_body">%1$s காலியாக உள்ளது. சேமிப்பகம் தீர்ந்துகொண்டிருக்கிறது.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">இந்த வேகத்தில் இன்னும் %1$d நாள் இடம் மீதம் உள்ளது. %2$s காலியாக உள்ளது.</item>
+        <item quantity="other">இந்த வேகத்தில் இன்னும் %1$d நாட்கள் இடம் மீதம் உள்ளது. %2$s காலியாக உள்ளது.</item>
+    </plurals>
 </resources>

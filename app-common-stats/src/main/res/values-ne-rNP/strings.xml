@@ -54,6 +54,9 @@
     <string name="stats_space_history_delta_in_x">%1$s %2$s मा</string>
     <string name="stats_space_history_upgrade_title">पूर्ण इतिहास Pro सुविधा हो</string>
     <string name="stats_space_history_upgrade_body">प्रत्येक भण्डारण उपकरणको पूर्ण ९०-दिने प्रवृत्ति दृश्य अनलक गर्न अपग्रेड गर्नुहोस्।</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">प्रत्येक भण्डारण डिभाइसको लागि पूर्ण ९०-दिनको प्रवृत्ति दृश्य अनलक गर्न अपग्रेड गर्नुहोस्, र तिम्रो ठाउँ समाप्त हुनु अघि एक चेतावनी पाउनुहोस्।</string>
     <string name="stats_space_history_marker_freed">%1$s मुक्त गरियो</string>
     <string name="stats_storage_type_primary">प्राथमिक भण्डारण</string>
     <string name="stats_storage_type_secondary">द्वितीयक भण्डारण</string>

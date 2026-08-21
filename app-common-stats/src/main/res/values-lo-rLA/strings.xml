@@ -48,6 +48,9 @@
     <string name="stats_space_history_delta_in_x">%1$s ໃນ %2$s</string>
     <string name="stats_space_history_upgrade_title">ປະຫວັດທັງໝົດເປັນຄຸນສົມບັດ Pro</string>
     <string name="stats_space_history_upgrade_body">ອັບເກຣດເພື່ອປົດລັອກມຸມມອງແນວໂນ້ມ 90 ວັນເຕັມສຳລັບແຕ່ລະອຸປະກອນເກັບຂໍ້ມູນ.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">ອັບເກຣດເພື່ອປົດລັອກມຸມມອງແນວໂນ້ມເຕັມ 90 ວັນສຳລັບອຸປະກອນຈັດເກັບແຕ່ລະອັນ, ແລະຮັບການແຈ້ງເຕືອນກ່ອນທີ່ພື້ນທີ່ຈະໝົດ.</string>
     <string name="stats_space_history_marker_freed">ປົດປ່ອຍ %1$s</string>
     <string name="stats_storage_type_primary">ບ່ອນເກັບຂໍ້ມູນຫຼັກ</string>
     <string name="stats_storage_type_secondary">ບ່ອນເກັບຂໍ້ມູນສຳຮອງ</string>

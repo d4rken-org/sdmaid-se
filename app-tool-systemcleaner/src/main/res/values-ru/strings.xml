@@ -77,11 +77,11 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Папки</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Если тип не выбран, то все типы будут использованы.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Критерии пути</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Целевой путь должен соответствовать хотя бы одной записи (например, «Downloads/oldapks/game-»). Нажми на запись, чтобы изменить её, или на её значок, чтобы изменить способ сопоставления.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Целевой путь должен соответствовать хотя бы одной записи (например, «Downloads/oldapks/game-»). Нажмите на запись, чтобы изменить её, или на её значок, чтобы изменить способ сопоставления.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Критерии имени</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Целевое имя должно содержать хотя бы одно из ключевых слов (например, «-receipt»). Нажми на запись, чтобы изменить её, или на её значок, чтобы изменить способ сопоставления.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Целевое имя должно содержать хотя бы одно из ключевых слов (например, «-receipt»). Нажмите на запись, чтобы изменить её, или на её значок, чтобы изменить способ сопоставления.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Исключения</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Результат будет исключён, если путь совпадает с любой записью (например, «DCIM»). Нажми на запись, чтобы изменить её, или на её значок, чтобы изменить способ сопоставления.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Результат будет исключён, если путь совпадает с любой записью (например, «DCIM»). Нажмите на запись, чтобы изменить её, или на её значок, чтобы изменить способ сопоставления.</string>
     <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Добавить запись пути</string>
     <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Добавить запись имени</string>
     <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Добавить запись исключения</string>
@@ -92,7 +92,7 @@
         <item quantity="one">%d пробел</item>
         <item quantity="few">%d пробела</item>
         <item quantity="many">%d пробелов</item>
-        <item quantity="other">%d пробела</item>
+        <item quantity="other">%d пробелов</item>
     </plurals>
     <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">Уже используется другой записью</string>
     <string name="systemcleaner_customfilter_editor_criterium_mode_x_action">Изменить режим сопоставления для %1$s, текущий: %2$s</string>

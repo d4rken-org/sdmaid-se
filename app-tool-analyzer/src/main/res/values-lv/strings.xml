@@ -19,6 +19,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
     <string name="analyzer_content_create_swiper_session_action">Izveidot Swiper sesiju</string>
+    <string name="analyzer_content_open_externally_action">Atvērt failu pārvaldniekā</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="zero">Swiper sesija izveidota ar %d vienibām</item>
         <item quantity="one">Swiper sesija izveidota ar %d vienību</item>
@@ -39,10 +40,16 @@
     <string name="analyzer_storage_content_type_media_description">Uzfotografēti attēli, ieņemti video vai lejupielādēti dati. Jebkuri dati, kas nepieder konkrētai lietotnei.</string>
     <string name="analyzer_storage_content_type_system_label">Sistēmas dati</string>
     <string name="analyzer_storage_content_type_system_description">Sistēmas lietotnes un sistēmas dati. Citu lietotāju lietotnes un dati, ja šajā ierīcē ir uzstādīti vairāki lietotāja konti.</string>
+    <string name="analyzer_storage_content_type_system_otherusers_hint">Citu lietotāju krātuvi nevarēja pilnībā izmērīt, tāpēc šajā kopsummā, iespējams, ir iekļauta daļa no viņu krātuves.</string>
     <string name="analyzer_storage_content_type_system_other_label">Cits</string>
     <string name="analyzer_storage_content_type_system_info">Faili, kas neietilpst kategorijās Lietotnes vai Lietotāja faili. Tikai pārlūkošana — dzēšana netiek atbalstīta. Dažas jomas var būt nepilnīgas piekļušanas ierobežojumu dēļ.</string>
     <string name="analyzer_storage_content_type_media_readonly_info">Failus pašlaik nevar saskaņot ar to lietotnēm, kurām tie pieder. Izmēri tiek rādīti tikai informācijai — dzēšana, filtri un Swiper ir atspējoti.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Sistēmas faili un citi dati, kuriem SD Maid nevarēja piekļūt vai tos kategorizēt. Operētājsistēma ierobežo dažu apgabalu satura uzskaitīšanu.</string>
+    <string name="analyzer_storage_content_type_otherusers_label">Citi lietotāji</string>
+    <string name="analyzer_storage_content_type_otherusers_description">Lietotnes un faili, kas pieder citiem šīs ierīces lietotājiem vai darba profiliem.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Tikai lietotņu dati, šī lietotāja koplietotie faili nav iekļauti.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Izmērs nav pieejams, šī lietotāja krātuvi nevar nolasīt.</string>
+    <string name="analyzer_storage_content_type_otherusers_info">Cita šīs ierīces lietotāja krātuve. Iespējama tikai pārlūkošana, dzēšana nav atbalstīta.</string>
     <string name="analyzer_storage_content_app_code_label">Lietotnes kods</string>
     <string name="analyzer_storage_content_app_code_description">Lietotnes faili, bibliotēkas un resursi. Šo vietu var atbrīvot, atinstalējot lietotni vai arhivējot to (pieejams jaunākās Android versijās).</string>
     <string name="analyzer_storage_content_app_data_label">Lietotnes dati</string>
@@ -54,6 +61,23 @@
     <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
     <string name="analyzer_storage_trend_delta_in_7d">%s 7 dienās</string>
+    <plurals name="analyzer_storage_forecast_days">
+        <item quantity="zero">Ar pašreizējo patēriņu atlicis vēl apmēram %d dienu</item>
+        <item quantity="one">Ar pašreizējo patēriņu atlikusi vēl apmēram %d diena</item>
+        <item quantity="other">Ar pašreizējo patēriņu atlikušas vēl apmēram %d dienas</item>
+    </plurals>
+    <!-- Settings -->
+    <string name="analyzer_settings_storage_category_label">Krātuve</string>
+    <string name="analyzer_settings_lowstorage_title">Zema krātuves sliekšņa vērtība</string>
+    <string name="analyzer_settings_lowstorage_desc">Kad brīvā vieta nokrītas zem šīs vērtības, SD Maid uzskata, ka krātuves vieta beidzas.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Automātiski (pašlaik %1$s)</string>
+    <string name="analyzer_settings_lowstorage_value_auto_unknown">Automātiski</string>
+    <string name="analyzer_settings_lowstorage_automatic_action">Automātiski</string>
+    <string name="analyzer_settings_lowspace_notification_title">Brīdinājums par zemu krātuves vietu</string>
+    <string name="analyzer_settings_lowspace_notification_desc">Saņem paziņojumu, pirms krātuves vieta beidzas.</string>
+    <!-- Device storage upgrade hint -->
+    <string name="analyzer_lowspace_hint_title">Nekad netiec pārsteigts bez brīvas vietas</string>
+    <string name="analyzer_lowspace_hint_body">Uzlabo, lai saņemtu brīdinājumu, pirms krātuves vieta beidzas, un varētu sakārtot to, kamēr vēl ir ar ko strādāt.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Apskatiet, kas patiesībā aizņem jūsu krātuvi. Analyzer parāda, kur tiek izmantota jūsu vieta. Katra no šīm kartītēm ir krātuves čips jūsu ierīcē.</string>
     <string name="tour_analyzer_storage_body">Atveriet krātuvi, lai sadalītu to lietotņu, multivides un failu kategorijās, pēc tam turpiniet pieskarties, lai atrastu lielos vietas patērētājus.</string>

@@ -244,7 +244,11 @@
     <string name="setup_root_card_title">Root (kök) icazəsi</string>
     <string name="setup_root_card_body">SD Maid, əlçatan olduqda root-dan istifadə etməlidirmi? Root icazəsi ilə gizli tətbiq məlumatlarını və əlavə sistem qovluqlarını yoxlamaq olar.</string>
     <string name="setup_root_state_ready_label">Root icazəsi hazırdır.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root girişi mövcud deyil.</string>
+    <string name="setup_root_state_failed_title">Root girişi alınmadı</string>
+    <string name="setup_root_state_failed_body">SD Maid root girişi istədi, lakin əldə edə bilmədi. Cihazın root edilibsə, root menecerini (Magisk, KernelSU və ya bənzəri) aç və SD Maid-in sorğusunun rədd edildiyini, yoxsa hələ gözlədiyini yoxla.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid root girişi istədi, lakin əldə edə bilmədi və heç bir root meneceri tətbiqi aşkar edilmədi. Cihazın gizli və ya daxili root istifadə edirsə, yenidən cəhd et.</string>
     <string name="setup_root_enable_root_use_label">Root girişini istifadə etməyə çalışın</string>
     <string name="setup_root_disable_root_use_label">Cihazımı root etmədim</string>
     <string name="setup_root_card_body2">Yalnız köklənmiş rooted cihazlarda əlçatandır. Əgər bu modifikasiyanı etməmisinizsə, cihazınız köklənməyib və bu tənzimləmənin heç bir təsiri yoxdur.</string>
@@ -255,6 +259,9 @@
     <string name="setup_shizuku_state_ready_label">Shizuku linki hazırdır</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku linki üçün gözlənilir</string>
     <string name="setup_shizuku_state_not_installed_label">Shizuku tətbiqi quraşdırılmamışdır.</string>
+    <string name="setup_shizuku_state_failed_title">Shizuku əlaqəsi uğursuz oldu</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku işləyir, lakin SD Maid-i heç vaxt köməkçi xidmətinə qoşmayıb.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Bəzi cihazlar köməkçi xidmətin başlamasının qarşısını alan məlum Shizuku problemindən təsirlənir. Bu, onlardan biri ola bilər.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Shizuku-dan istifadə etməyə çalışın</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku-dan istifadə etməyin</string>
     <string name="setup_dismiss_hint">Parametrlər menyusu vasitəsilə quraşdırma ekranını tapa bilərsiniz.</string>
@@ -291,6 +298,8 @@
     <string name="setup_inventory_limitation_title">Mümkün cihaz məhdudiyyəti</string>
     <string name="setup_inventory_limitation_body">Sistem, tələb olunan icazələr verilmiş görünsə də, quraşdırılmış tətbiqlərin natamam siyahısını qaytardı.</string>
     <string name="setup_inventory_limitation_body2">Bəzi cihazlar (məs. HarmonyOS) heç vaxt tam tətbiq siyahısı təmin etmir. Məlumatlarınızı qorumaq üçün tətbiqlə bağlı alətlər deaktiv qalır, lakin saxlama istifadəsinə azaldılmış detallarla yenə də baxa bilərsiniz.</string>
+    <string name="setup_inventory_probe_failed_title">Tətbiq siyahısı oxuna bilmədi</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid Android-dən quraşdırılmış tətbiqlərin siyahısını istədi və sorğu uğursuz oldu. Tətbiqlə bağlı alətlər işə düşənə qədər deaktiv qalır. Yenidən cəhd etmək kömək edə bilər.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid skan edilə bilən heç bir məlumat sahəsi tapmadı. Quraşdırmanı tamamladınız?</string>
     <string name="dataarea_warningcard_label">Məlumat sahələri</string>
     <string name="dataarea_warningcard_reload_action">Məlumat sahələrini yenidən yüklə</string>
@@ -363,7 +372,11 @@
     <string name="widget_home_description">Saxlama istifadəsi və tək toxunuşla təmizləmə</string>
     <string name="widget_home_storage_internal">Daxili</string>
     <string name="widget_home_storage_external">Xarici</string>
-    <string name="widget_home_freed_label">Ömür: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Cəmi boşaldılan: %1$s</string>
     <string name="widget_home_clean_action">Təmizlə</string>
     <string name="widget_home_working">İşlənir…</string>
     <string name="widget_home_unavailable">Saxlama əlçatan deyil</string>
@@ -403,4 +416,13 @@
     <string name="backup_restore_warn_history_body">Bu ehtiyatın tarix məlumatları (statistika, sıxlaşdırma tarixçəsi, sürüşdürmə sessiyaları) fərqli bir tətbiq versiyasından olduğu üçün bərpa edilə bilməz. Qalan hər şey bərpa ediləcək.</string>
     <string name="backup_restore_ack_understand">Başa düşdüm və davam etmək istəyirəm</string>
     <string name="backup_restore_action_restore">Bərpa et</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Yaddaş xəbərdarlıqları</string>
+    <string name="stats_lowspace_notification_title">Yaddaş dolur</string>
+    <string name="stats_lowspace_notification_low_title">Yaddaş demək olar ki, doludur</string>
+    <string name="stats_lowspace_notification_low_body">%1$s boş yer qalıb. Yaddaş tükənir.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Bu sürətlə təxminən %1$d gün yer qalıb. %2$s boş yer var.</item>
+        <item quantity="other">Bu sürətlə təxminən %1$d gün yer qalıb. %2$s boş yer var.</item>
+    </plurals>
 </resources>

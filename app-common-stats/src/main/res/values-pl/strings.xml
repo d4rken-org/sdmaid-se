@@ -66,6 +66,9 @@
     <string name="stats_space_history_delta_in_x">%1$s w %2$s</string>
     <string name="stats_space_history_upgrade_title">Pełna historia jest funkcją Pro</string>
     <string name="stats_space_history_upgrade_body">Uaktualnij, aby odblokować pełny 90-dniowy widok trendu dla każdego urządzenia pamięci.</string>
+    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
+         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
+    <string name="stats_space_history_upgrade_body_v2">Zaktualizuj, aby odblokować pełny 90-dniowy widok trendów dla każdego urządzenia pamięci masowej i otrzymać ostrzeżenie przed wyczerpaniem miejsca.</string>
     <string name="stats_space_history_marker_freed">Zwolniono %1$s</string>
     <string name="stats_storage_type_primary">Pamięć podstawowa</string>
     <string name="stats_storage_type_secondary">Pamięć dodatkowa</string>

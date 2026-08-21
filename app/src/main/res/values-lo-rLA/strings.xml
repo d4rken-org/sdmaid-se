@@ -236,7 +236,11 @@
     <string name="setup_root_card_title">ການເຂົ້າເຖິງ Root</string>
     <string name="setup_root_card_body">SD Maid ຄວນໃຊ້ການເຂົ້າເຖິງ Root ຖ້າຫາກໄດ້ຮັບຫຼືບໍ່? ການເຂົ້າເຖິງ Root ສາມາດໃຊ້ເພື່ອຕຼວຈສອບໂຟດເດອນ້ລະບົບເພີ່ມເຕີມ ແລະ ຂໍ້ມູນສ່ວນຕົວຂອງແອັບ.</string>
     <string name="setup_root_state_ready_label">ການເຂົ້າເຖິງ Root ພ້ອມແລ້ວ.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">ການເຂົ້າເຖິງ root ບໍ່ມີ</string>
+    <string name="setup_root_state_failed_title">ການເຂົ້າເຖິງ Root ລົ້ມເຫລວ</string>
+    <string name="setup_root_state_failed_body">SD Maid ໄດ້ຮ້ອງຂໍການເຂົ້າເຖິງ Root ແຕ່ບໍ່ໄດ້ຮັບ. ຖ້າອຸປະກອນຂອງທ່ານໄດ້ Root ແລ້ວ, ໃຫ້ເປີດແອັບຈັດການ Root ຂອງທ່ານ (Magisk, KernelSU ຫຼືອື່ນໆທີ່ຄ້າຍກັນ) ແລະກວດເບິ່ງວ່າຄຳຮ້ອງຂໍຈາກ SD Maid ຖືກປະຕິເສດ ຫຼືຍັງລໍຖ້າຢູ່.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid ໄດ້ຮ້ອງຂໍການເຂົ້າເຖິງ Root ແຕ່ບໍ່ໄດ້ຮັບ, ແລະບໍ່ພົບແອັບຈັດການ Root. ຖ້າອຸປະກອນຂອງທ່ານໃຊ້ Root ແບບເຊື່ອງໄວ້ ຫຼືແບບຝັງມາໃນຕົວ, ໃຫ້ລອງໃໝ່ອີກຄັ້ງ.</string>
     <string name="setup_root_enable_root_use_label">ລອງໃຊ້ການເຂົ້າເຖິງ root</string>
     <string name="setup_root_disable_root_use_label">ຂ້ອຍບໍ່ໄດ້ root ອຸປະກອນຂອງຂ້ອຍ</string>
     <string name="setup_root_card_body2">ມີໃຫ້ເຉພາະໃນອຸປະກອນທີ່ຖືກ Root ເທົ່ານັ້ນ. ຖ້າທ່ານບໍ່ໄດ້ສົ່ງແກ້ໄຂນີ້, ອຸປະກອນຂອງທ່ານຍັງບໍ່ໄດ້ຖືກ Root ແລະ ການຕັ້ງຄ່ານີ້ຈະບໍ່ມີຜົນ.</string>
@@ -247,6 +251,9 @@
     <string name="setup_shizuku_state_ready_label">ການເຊື່ອມຕໍ່ Shizuku ພ້ອມແລ້ວ.</string>
     <string name="setup_shizuku_state_waiting_label">ກໍາລັງຮອການເຊື່ອມຕໍ່ກັບ Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">ແອັບຯ Shizuku ບໍ່ໄດ້ຖືກຕິດຕັ້ງ</string>
+    <string name="setup_shizuku_state_failed_title">ການເຊື່ອມຕໍ່ Shizuku ລົ້ມເຫລວ</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku ກຳລັງເຮັດວຽກຢູ່, ແຕ່ບໍ່ເຄີຍເຊື່ອມຕໍ່ SD Maid ກັບບໍລິການຊ່ວຍເຫຼືອຂອງມັນ.</string>
+    <string name="setup_shizuku_state_known_issue_hint">ບາງອຸປະກອນໄດ້ຮັບຜົນກະທົບຈາກບັນຫາທີ່ຮູ້ຈັກຂອງ Shizuku ເຊິ່ງເຮັດໃຫ້ບໍລິການຊ່ວຍເຫຼືອບໍ່ສາມາດເລີ່ມຕົ້ນໄດ້. ອຸປະກອນຂອງທ່ານອາດເປັນໜຶ່ງໃນນັ້ນ.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ລອງໃຊ້ Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">ບໍ່ໃຊ້ Shizuku</string>
     <string name="setup_dismiss_hint">ທ່ານສາມາດຫາໜ້າຈໍຕັ້ງຄ່າໄດ້ອີກຄັ້ງຜ່ານເມນູການຕັ້ງຄ່າ.</string>
@@ -283,6 +290,8 @@
     <string name="setup_inventory_limitation_title">ຂໍ້ຈຳກັດອຸປະກອນທີ່ອາດຈະມີ</string>
     <string name="setup_inventory_limitation_body">ລະບົບໄດ້ສົ່ງກັບມາລາຍການທີ່ບໍ່ສົມບູນຂອງແອັບທີ່ຕິດຕັ້ງ, ເຖິງວ່າສິດອະນຸມັດທີ່ຕ້ອງການເບິ່ງຄືວ່າໄດ້ຮັບອະນຸມັດ.</string>
     <string name="setup_inventory_limitation_body2">ອຸປະກອນບາງອັນ (ເຊັ່ນ HarmonyOS) ບໍ່ເຄີຍໃຫ້ລາຍການແອັບທີ່ສົມບູນ. ເພື່ອປົກປ້ອງຂໍ້ມູນຂອງທ່ານ, ເຄື່ອງມືທີ່ກ່ຽວຂ້ອງກັບແອັບຍັງຄົງປິດຢູ່, ແຕ່ທ່ານຍັງສາມາດເບິ່ງການນຳໃຊ້ຄວາມຈຳໄດ້ດ້ວຍລາຍລະອຽດທີ່ຫຼາຍໜ້ອຍລົງ.</string>
+    <string name="setup_inventory_probe_failed_title">ບໍ່ສາມາດອ່ານລາຍຊື່ແອັບໄດ້</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid ໄດ້ຮ້ອງຂໍລາຍຊື່ແອັບທີ່ຕິດຕັ້ງໄວ້ຈາກ Android ແຕ່ຄຳຮ້ອງຂໍລົ້ມເຫລວ. ເຄື່ອງມືທີ່ກ່ຽວຂ້ອງກັບແອັບຈະຍັງຄົງປິດການໃຊ້ງານໄວ້ຈົນກວ່າຈະໃຊ້ງານໄດ້. ການລອງໃໝ່ອາດຊ່ວຍໄດ້.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ບໍ່ພົບພື້ນທີ່ຂໍ້ມູນໃດທີ່ສາມາດສແກນໄດ້. ທ່ານໄດ້ທໍາການຕັ້ງຄ່າສໍາເລັດແລ້ວຫຼືບໍ່?</string>
     <string name="dataarea_warningcard_label">ພື້ນທີ່ຂໍ້ມູນ</string>
     <string name="dataarea_warningcard_reload_action">ໂຫຼດພື້ນທີ່ຂໍ້ມູນໃໜ່</string>
@@ -353,7 +362,11 @@
     <string name="widget_home_description">ການໃຊ້ໝ່ວຍເກັບ ແລະ ການສະອາດແຕະຄັ້ງດຽວ</string>
     <string name="widget_home_storage_internal">ພາຍໃນ</string>
     <string name="widget_home_storage_external">ພາຍນອກ</string>
-    <string name="widget_home_freed_label">ອາຍຸການໃຊ້ງານ: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">ພື້ນທີ່ທີ່ປົດປ່ອຍທັງໝົດ: %1$s</string>
     <string name="widget_home_clean_action">ທຳຄວາມສະອາດ</string>
     <string name="widget_home_working">ກຳລັງເຮັດວຽກ…</string>
     <string name="widget_home_unavailable">ບໍ່ສາມາດໃຊ້ງານພື້ນທີ່ເກັບຮັກສາ</string>
@@ -393,4 +406,12 @@
     <string name="backup_restore_warn_history_body">ຂໍ້ມູນປະຫວັດຂອງການສຳຮອງນີ້ (ສະຖິຕິ, ປະຫວັດການບີບອັດ, ວາລະການກວາດ) ແມ່ນມາຈາກເວີຊັນແອັບຯທີ່ຕ່າງກັນ ແລະບໍ່ສາມາດຟື້ນຟູໄດ້. ທຸກຢ່າງອື່ນຈະຖືກຟື້ນຟູ.</string>
     <string name="backup_restore_ack_understand">ຂ້ອຍເຂົ້າໃຈ ແລະ ຕ້ອງການສືບຕໍ່</string>
     <string name="backup_restore_action_restore">ກໍາຄືນ</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">ການແຈ້ງເຕືອນພື້ນທີ່ຈັດເກັບ</string>
+    <string name="stats_lowspace_notification_title">ພື້ນທີ່ຈັດເກັບກຳລັງເຕັມ</string>
+    <string name="stats_lowspace_notification_low_title">ພື້ນທີ່ຈັດເກັບເກືອບເຕັມ</string>
+    <string name="stats_lowspace_notification_low_body">ເຫຼືອ %1$s. ພື້ນທີ່ຈັດເກັບກຳລັງໝົດ.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="other">ຍັງເຫຼືອພື້ນທີ່ປະມານ %1$d ມື້ໃນອັດຕານີ້. ເຫຼືອ %2$s ວ່າງ.</item>
+    </plurals>
 </resources>

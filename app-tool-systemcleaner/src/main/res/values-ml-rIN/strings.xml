@@ -80,6 +80,7 @@
     <string name="systemcleaner_customfilter_editor_exclusions_explanation">ഏതെങ്കിലും എൻട്രിമായി പാത് പൊരുത്തപ്പെടുന്നം ഫലം ഒഴിവാക്കപ്പെടും (ഉദ്ദേ. \"DCIM\"). കൂടുതൽ ഓപ്ഷൻസ്ക്കായി എൻട്രികൾ ലോംഗ് പ്രെസ് ചെയ്യുക.</string>
     <string name="systemcleaner_customfilter_editor_path_criterium_add_action">പാത്ത് എൻട്രി ചേർക്കുക</string>
     <string name="systemcleaner_customfilter_editor_name_criterium_add_action">പേര് എൻട്രി ചേർക്കുക</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">ഒഴിവാക്കൽ എൻട്രി ചേർക്കുക</string>
     <string name="systemcleaner_customfilter_editor_criterium_create_title">പുതിയ എൻട്രി</string>
     <string name="systemcleaner_customfilter_editor_criterium_value_label">കീവേഡ്</string>
     <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">ഈ എൻട്രി ഇതിനകം നിലവിലുണ്ട്.</string>

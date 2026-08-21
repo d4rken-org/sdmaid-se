@@ -252,7 +252,11 @@
     <string name="setup_root_card_title">Приступ суперкориснику</string>
     <string name="setup_root_card_body">Да ли СД Чистач треба да користи \"суперкорисник\" приступ ако је доступан? \"Суперкорисник\" приступ се може користити за проверу додатних системских фасцикли и података приватних апликација.</string>
     <string name="setup_root_state_ready_label">Приступ суперкориснику је спреман.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root приступ није доступан.</string>
+    <string name="setup_root_state_failed_title">Администраторски приступ неуспешан</string>
+    <string name="setup_root_state_failed_body">SD Maid је тражио администраторски приступ и није га добио. Ако је твој уређај покорен, отвори управљач администратора (Magisk, KernelSU или сличан) и провери да ли је захтев од SD Maid-а одбијен или чека.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid је тражио администраторски приступ и није га добио, и није откривена апликација за управљање администраторским правима. Ако твој уређај користи скривен или уграђен администраторски приступ, покушај поново.</string>
     <string name="setup_root_enable_root_use_label">Покушајте да користите root приступ</string>
     <string name="setup_root_disable_root_use_label">Нисам укорењивао свој уређај</string>
     <string name="setup_root_card_body2">Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
@@ -263,6 +267,9 @@
     <string name="setup_shizuku_state_ready_label">Линк за Shizuku је спреман.</string>
     <string name="setup_shizuku_state_waiting_label">Чека се линк за Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Апликација Shizuku није инсталирана.</string>
+    <string name="setup_shizuku_state_failed_title">Веза са Shizuku неуспешна</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku је покренут, али никад није повезао SD Maid са својом помоћном услугом.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Неки уређаји су захваћени познатим Shizuku проблемом који спречава покретање помоћне услуге. То би могло бити твој уређај.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Покушајте да користите Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не користи Shizuku</string>
     <string name="setup_dismiss_hint">Екран за подешавање можете поново пронаћи преко менија подешавања.</string>
@@ -299,6 +306,8 @@
     <string name="setup_inventory_limitation_title">Могуће ограничење уређаја</string>
     <string name="setup_inventory_limitation_body">Систем је вратио непотпуну листу инсталираних апликација, иако су дате потребне дозволе.</string>
     <string name="setup_inventory_limitation_body2">Неки уређаји (нпр. HarmonyOS) никада не пружају потпуну листу апликација. Да би заштитили ваше податке, алати везани за апликације остају онеспособљени, али и даље можете видети употребу складишта са мањим детаљима.</string>
+    <string name="setup_inventory_probe_failed_title">Не могу прочитати листу апликација</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid је затражио од Android-а листу инсталираних апликација и захтев је неуспешан. Алати везани за апликације остају онемогућени док то не ради. Ако покушаш поново, то би могло да помогне.</string>
     <string name="dataarea_warningcard_empty_message">СД Чистач није пронашао ниједну област података која се може скенирати. Да ли сте завршили подешавање?</string>
     <string name="dataarea_warningcard_label">Подручја података</string>
     <string name="dataarea_warningcard_reload_action">Поново учитај области података</string>
@@ -373,7 +382,11 @@
     <string name="widget_home_description">Употреба складишта и чишћење једним додиром</string>
     <string name="widget_home_storage_internal">Унутрашњи</string>
     <string name="widget_home_storage_external">Спољашњи</string>
-    <string name="widget_home_freed_label">Животни век: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Укупно ослобођено: %1$s</string>
     <string name="widget_home_clean_action">Очисти</string>
     <string name="widget_home_working">Обрађивање…</string>
     <string name="widget_home_unavailable">Складиште није доступно</string>
@@ -413,4 +426,14 @@
     <string name="backup_restore_warn_history_body">Подаци историје резервне копије (статистика, историја компресије, сесије свајпа) су из другачије верзије апликације и не могу бити враћени. Све остало ће бити враћено.</string>
     <string name="backup_restore_ack_understand">Разумем и желим да наставим</string>
     <string name="backup_restore_action_restore">Врати</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Упозорења о простору</string>
+    <string name="stats_lowspace_notification_title">Простор се попуњава</string>
+    <string name="stats_lowspace_notification_low_title">Простор је скоро пун</string>
+    <string name="stats_lowspace_notification_low_body">%1$s слободно. Простор се завршава.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Отприлике %1$d дан простора ће преостати при овој стопи. %2$s слободно.</item>
+        <item quantity="few">Отприлике %1$d дана простора ће преостати при овој стопи. %2$s слободно.</item>
+        <item quantity="other">Отприлике %1$d дана простора ће преостати при овој стопи. %2$s слободно.</item>
+    </plurals>
 </resources>

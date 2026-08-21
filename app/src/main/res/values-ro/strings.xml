@@ -252,7 +252,11 @@
     <string name="setup_root_card_title">Acces root</string>
     <string name="setup_root_card_body">Ar trebui ca SD Maid să folosească accesul root dacă este disponibil? Accesul root poate fi folosit pentru a verifica folderele de sistem și datele private ale aplicației.</string>
     <string name="setup_root_state_ready_label">Accesul root este gata.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Accesul la root nu este disponibil.</string>
+    <string name="setup_root_state_failed_title">Accesul root a eșuat</string>
+    <string name="setup_root_state_failed_body">SD Maid a solicitat acces root, dar nu l-a obținut. Dacă dispozitivul tău are root, deschide aplicația de gestionare root (Magisk, KernelSU sau similară) și verifică dacă cererea SD Maid a fost refuzată sau este încă în așteptare.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid a solicitat acces root, dar nu l-a obținut, iar nicio aplicație de gestionare root nu a fost detectată. Dacă dispozitivul tău folosește root ascuns sau integrat, încearcă din nou.</string>
     <string name="setup_root_enable_root_use_label">Încearcă să utilizezi accesul root</string>
     <string name="setup_root_disable_root_use_label">Nu am rootat dispozitivul meu</string>
     <string name="setup_root_card_body2">Disponibil numai la dispozitivele rootate. Dacă nu ai făcut această modificare, atunci dispozitivul tău nu este rootat și această setare nu are efect.</string>
@@ -263,6 +267,9 @@
     <string name="setup_shizuku_state_ready_label">Link-ul Shizuku este gata.</string>
     <string name="setup_shizuku_state_waiting_label">Se așteaptă legătura cu Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Aplicația Shizuku nu este instalată.</string>
+    <string name="setup_shizuku_state_failed_title">Conexiunea Shizuku a eșuat</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku rulează, dar nu a conectat niciodată SD Maid la serviciul său ajutător.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Unele dispozitive sunt afectate de o problemă cunoscută a Shizuku care împiedică pornirea serviciului ajutător. Este posibil ca acesta să fie unul dintre ele.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Încearcă să utilizezi Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Nu utiliza Shizuku</string>
     <string name="setup_dismiss_hint">Poți căuta partea de configurare din nou în meniul de setări.</string>
@@ -299,6 +306,8 @@
     <string name="setup_inventory_limitation_title">Posibilă limitare a dispozitivului</string>
     <string name="setup_inventory_limitation_body">Sistemul a returnat o listă incompletă a aplicațiilor instalate, chiar dacă permisiunile necesare par a fi acordate.</string>
     <string name="setup_inventory_limitation_body2">Unele dispozitive (de ex. HarmonyOS) nu furnizează niciodată o listă completă a aplicațiilor. Pentru a-ți proteja datele, instrumentele legate de aplicații rămân dezactivate, dar poți vizualiza în continuare utilizarea stocării cu detalii reduse.</string>
+    <string name="setup_inventory_probe_failed_title">Lista de aplicații nu a putut fi citită</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid a cerut Android sistemului lista aplicațiilor instalate, iar cererea a eșuat. Instrumentele legate de aplicații rămân dezactivate până când aceasta funcționează. O nouă încercare ar putea ajuta.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nu a putut căuta zone de date care pot fi scanate. Ai completat partea de configurare?</string>
     <string name="dataarea_warningcard_label">Zone de date</string>
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>
@@ -373,7 +382,11 @@
     <string name="widget_home_description">Utilizarea spațiului de stocare și curățare cu o singură atingere</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <string name="widget_home_freed_label">Viață: %1$s</string>
+    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
+         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
+         Renders on one line with no wrapping in a narrow widget, so keep the label short;
+         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_freed_label">Total eliberat: %1$s</string>
     <string name="widget_home_clean_action">Curăță</string>
     <string name="widget_home_working">Se lucrează…</string>
     <string name="widget_home_unavailable">Stocare indisponibilă</string>
@@ -413,4 +426,14 @@
     <string name="backup_restore_warn_history_body">Datele istorice ale acestei copii de siguranță (statistici, istoricul compresiei, sesiunile de ștergere) sunt dintr-o versiune diferită a aplicației și nu pot fi restaurate. Restul va fi restaurat.</string>
     <string name="backup_restore_ack_understand">Înțeleg și vreau să continui</string>
     <string name="backup_restore_action_restore">Restaurează</string>
+    <!-- Low space warning -->
+    <string name="stats_lowspace_notification_channel_label">Avertismente privind stocarea</string>
+    <string name="stats_lowspace_notification_title">Spațiul de stocare se umple</string>
+    <string name="stats_lowspace_notification_low_title">Spațiul de stocare este aproape plin</string>
+    <string name="stats_lowspace_notification_low_body">%1$s liber. Spațiul de stocare se epuizează.</string>
+    <plurals name="stats_lowspace_notification_forecast_body">
+        <item quantity="one">Mai ai spațiu pentru aproximativ %1$d zi în acest ritm. %2$s liber.</item>
+        <item quantity="few">Mai ai spațiu pentru aproximativ %1$d zile în acest ritm. %2$s liber.</item>
+        <item quantity="other">Mai ai spațiu pentru aproximativ %1$d de zile în acest ritm. %2$s liber.</item>
+    </plurals>
 </resources>
