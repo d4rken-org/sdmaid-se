@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -154,6 +155,52 @@ class AppExporterTest : BaseTest() {
         harness.provider.deletedDocuments shouldContainExactly listOf(
             FakeDocumentsProvider.docIdOf(listOf("mangled-by-the-provider"))
         )
+        harness.provider.createdName(1) shouldBe "$BASE_NAME.apk"
+        result.savePath shouldBe harness.docUri("$BASE_NAME.apk")
+    }
+
+    @Test
+    fun `a document whose name can't be read back is dropped and the failure raised`() = runTest2 {
+        // A failing query must not pass as "this provider supplies no display name" - accepting the
+        // document then would put the export under whatever name the provider chose.
+        val harness = harness()
+        val createdId = FakeDocumentsProvider.docIdOf(listOf("$BASE_NAME.apk"))
+        harness.provider.failDocQueryFor[createdId] = RuntimeException("provider is having a bad day")
+
+        shouldThrow<RuntimeException> { harness.exporter().save(appInfo(), harness.treeUri) }
+
+        harness.provider.deletedDocuments shouldContainExactly listOf(createdId)
+        harness.provider.hasNode("$BASE_NAME.apk") shouldBe false
+    }
+
+    @Test
+    fun `a document without any display name is accepted`() = runTest2 {
+        // Not every provider reports a display name. That is a genuine "no name", not a failed read,
+        // so the document we just created stays.
+        val harness = harness()
+        harness.provider.createNextWithoutDisplayName = true
+
+        val result = harness.exporter().save(appInfo(), harness.treeUri)
+
+        harness.provider.createdName() shouldBe null
+        harness.provider.deletedDocuments.shouldBeEmpty()
+        result.savePath shouldBe harness.docUri("$BASE_NAME.apk")
+    }
+
+    @Test
+    fun `a mangled document that can't be deleted still moves to the next candidate`() = runTest2 {
+        // SAFDocFile.delete() raises for anything but a missing document, and the cleanup of a name
+        // we can't use must not take the retry with it.
+        val harness = harness()
+        harness.provider.renameNextCreatedTo = "mangled-by-the-provider"
+        harness.provider.failNextDeleteWith = SecurityException("no permission to delete")
+
+        val result = harness.exporter().save(appInfo(), harness.treeUri)
+
+        harness.provider.deleteCalls shouldContainExactly listOf(
+            FakeDocumentsProvider.docIdOf(listOf("mangled-by-the-provider"))
+        )
+        harness.provider.deletedDocuments.shouldBeEmpty()
         harness.provider.createdName(1) shouldBe "$BASE_NAME.apk"
         result.savePath shouldBe harness.docUri("$BASE_NAME.apk")
     }
