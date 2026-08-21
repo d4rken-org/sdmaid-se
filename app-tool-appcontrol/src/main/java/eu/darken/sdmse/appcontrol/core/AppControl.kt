@@ -49,14 +49,11 @@ import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
 import eu.darken.sdmse.setup.isCurrentAndIncomplete
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import java.util.UUID
@@ -308,27 +305,38 @@ class AppControl @Inject constructor(
 
         val exporter = appExporterProvider.get()
 
-        val exportResults = task.targets
-            .asFlow()
-            .map { targetId -> snapshot.apps.single { it.installId == targetId } }
-            .map { appInfo ->
-                updateProgressPrimary {
-                    it.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_exporting_x, appInfo.label.get(it))
-                }
-                exporter.withProgress(
+        val successful = mutableSetOf<AppExporter.Result>()
+        val failed = mutableSetOf<InstallId>()
+
+        task.targets.forEach { targetId ->
+            val appInfo = snapshot.apps.single { it.installId == targetId }
+            updateProgressPrimary {
+                it.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_exporting_x, appInfo.label.get(it))
+            }
+
+            try {
+                val result = exporter.withProgress(
                     client = this,
                     onUpdate = { existing, new -> existing?.copy(secondary = new?.primary ?: CaString.EMPTY) },
                     onCompletion = { current -> current }
                 ) {
                     exporter.save(appInfo, task.savePath)
                 }
+                successful.add(result)
+                log(TAG, INFO) { "Successfully exported $targetId to ${result.savePath}" }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Failed to export $targetId: ${e.asLog()}" }
+                failed.add(targetId)
+            } finally {
+                increaseProgress()
             }
-            .onEach { increaseProgress() }
-            .toList()
+        }
 
         return AppExportTask.Result(
-            success = exportResults.toSet(),
-            failed = emptySet(),
+            success = successful,
+            failed = failed,
         )
     }
 
