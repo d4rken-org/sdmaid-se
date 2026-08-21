@@ -332,14 +332,19 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `UP reaches Dismiss when the FREED hero has no Discard button`() {
+    fun `UP climbs the FREED hero the same way, since it now offers Discard too`() {
+        // Discard used to be gated to FREEABLE, so this mode had one fewer stop on the way up. It is
+        // offered in every mode now, which makes the traversal identical to the FREEABLE case above.
         composeRule.setDashboardContent(
             listState = DashboardViewModel.ListState(items = defaultItems()),
             bottomBarState = bottomBarState(heroSummary = heroSummary(mode = HeroSummary.Mode.FREED)),
         )
-        composeRule.onAllNodesWithText(discardLabel).assertCountEquals(0)
+        composeRule.onAllNodesWithText(discardLabel).assertCountEquals(1)
         composeRule.onNodeWithContentDescription(settingsLabel).requestFocus()
         composeRule.waitForIdle()
+
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasText(discardLabel))
 
         composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
         composeRule.assertFocusedWithin(hasContentDescription(dismissLabel))

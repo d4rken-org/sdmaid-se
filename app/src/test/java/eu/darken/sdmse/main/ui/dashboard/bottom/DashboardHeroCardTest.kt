@@ -485,7 +485,8 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `freed-mode hero has no discard button`() {
+    fun `freed-mode hero offers discard too, since its X only collapses it into the bar chip`() {
+        var discarded = 0
         val freed = HeroSummary(
             mode = HeroSummary.Mode.FREED,
             totalSize = 1L * 1024 * 1024 * 1024,
@@ -504,11 +505,14 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
                     onSettings = {},
                     onUpgrade = {},
                     onDismissHero = {},
-                    onDiscardResults = {},
+                    onDiscardResults = { discarded++ },
                 )
             }
         }
-        composeRule.onNodeWithText(context.getString(CommonR.string.general_discard_action)).assertDoesNotExist()
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_discard_action))
+            .assertHasClickAction()
+            .performSemanticsAction(SemanticsActions.OnClick)
+        composeRule.runOnIdle { assertEquals(1, discarded) }
     }
 
     @Test
