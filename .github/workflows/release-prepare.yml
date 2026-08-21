@@ -44,6 +44,7 @@ jobs:
       new_name: ${{ steps.plan.outputs.new_name }}
       new_code: ${{ steps.plan.outputs.new_code }}
       current_name: ${{ steps.plan.outputs.current_name }}
+      validated_sha: ${{ steps.validated.outputs.sha }}
     env:
       INPUT_BUMP_KIND: ${{ inputs.bump_kind }}
       INPUT_VERSION_TYPE: ${{ inputs.version_type }}
@@ -57,22 +58,37 @@ jobs:
             exit 1
           fi
 
+      - name: Record validated commit
+        id: validated
+        run: |
+          set -euo pipefail
+          echo "sha=${GITHUB_SHA}" >> "$GITHUB_OUTPUT"
+          echo "Validating and releasing commit ${GITHUB_SHA}"
+
       - name: Pre-flight main health check
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLL_ATTEMPTS: "20"
+          POLL_INTERVAL_SECONDS: "30"
         run: |
           set -euo pipefail
           REPO="${GITHUB_REPOSITORY}"
           SHA="${GITHUB_SHA}"
 
-          # Fetch required check contexts from the main branch ruleset.
-          REQUIRED=$(gh api "/repos/${REPO}/rules/branches/main" \
-            --jq '[.[] | select(.type == "required_status_checks") | .parameters.required_status_checks[] | .context] | unique' \
-            2>/dev/null || echo '[]')
+          # Fetch required check contexts from the main branch ruleset. A failure to
+          # read the ruleset is fatal: treating it as "no required checks" would let a
+          # transient API error authorize a release off an unvalidated main.
+          if ! RULES=$(gh api "/repos/${REPO}/rules/branches/main"); then
+            echo "::error::Could not read the branch ruleset for ${REPO}. Refusing to release without a health gate."
+            exit 1
+          fi
+
+          REQUIRED=$(echo "$RULES" \
+            | jq '[.[] | select(.type == "required_status_checks") | .parameters.required_status_checks[] | .context] | unique')
 
           if [[ "$REQUIRED" == "[]" || -z "$REQUIRED" ]]; then
-            echo "::warning::No required status checks found in branch ruleset — skipping pre-flight gate."
-            exit 0
+            echo "::error::The main branch ruleset declares no required status checks. Refusing to release without a health gate."
+            exit 1
           fi
 
           # GitHub check-run names are job names, not workflow names. Ignore this
@@ -87,58 +103,82 @@ jobs:
             'map(select(. as $name | ($ignored | index($name) | not)))')
 
           if [[ "$REQUIRED" == "[]" || -z "$REQUIRED" ]]; then
-            echo "::warning::No external required status checks found after ignoring Release prepare self-checks - skipping pre-flight gate."
-            exit 0
+            echo "::error::Every required check is a Release prepare self-check. Refusing to release without an external health gate."
+            exit 1
           fi
 
           echo "Required checks: $(echo "$REQUIRED" | jq -r 'join(", ")')"
 
-          # Fetch latest check-run per name for this commit (first 100 — enough for CI).
-          RUNS=$(gh api "/repos/${REPO}/commits/${SHA}/check-runs?per_page=100" \
-            --jq '.check_runs | group_by(.name) | map(sort_by(.started_at) | last | {name: .name, status: .status, conclusion: (.conclusion // "pending")})')
+          # Only these conclusions count as "this check is content with the commit".
+          # Anything else - failure, cancelled, timed_out, action_required,
+          # startup_failure, stale - blocks the release.
+          PASSING_CONCLUSIONS='["success","neutral","skipped"]'
 
-          FAILED=()
-          PENDING=()
+          attempt=1
+          while true; do
+            RUNS=$(gh api "/repos/${REPO}/commits/${SHA}/check-runs?per_page=100" \
+              --jq '.check_runs | group_by(.name) | map(sort_by(.started_at) | last | {name: .name, status: .status, conclusion: (.conclusion // "pending")})')
 
-          while IFS= read -r check_name; do
-            result=$(echo "$RUNS" | jq -r --arg name "$check_name" \
-              'map(select(.name == $name)) | if length == 0 then "not_found" else last | "\(.status)|\(.conclusion)" end')
+            FAILED=()
+            PENDING=()
 
-            IFS='|' read -r status conclusion <<< "$result"
+            while IFS= read -r check_name; do
+              result=$(echo "$RUNS" | jq -r --arg name "$check_name" \
+                'map(select(.name == $name)) | if length == 0 then "not_found" else last | "\(.status)|\(.conclusion)" end')
 
-            if [[ "$result" == "not_found" ]]; then
-              PENDING+=("$check_name (not yet started)")
-            elif [[ "$status" != "completed" ]]; then
-              PENDING+=("$check_name ($status)")
-            elif [[ "$conclusion" == "failure" || "$conclusion" == "cancelled" || "$conclusion" == "timed_out" ]]; then
-              FAILED+=("$check_name: $conclusion")
-            fi
-          done < <(echo "$REQUIRED" | jq -r '.[]')
+              if [[ "$result" == "not_found" ]]; then
+                PENDING+=("$check_name (not yet started)")
+                continue
+              fi
 
-          if [[ ${#PENDING[@]} -gt 0 ]]; then
-            {
-              echo "### ⚠️ Pending required checks"
-              echo ""
-              echo "These checks have not yet completed. Release is proceeding — verify their outcomes:"
-              echo ""
-              for item in "${PENDING[@]}"; do
-                echo "- $item"
+              IFS='|' read -r status conclusion <<< "$result"
+
+              if [[ "$status" != "completed" ]]; then
+                PENDING+=("$check_name ($status)")
+              elif ! echo "$PASSING_CONCLUSIONS" | jq -e --arg c "$conclusion" 'index($c)' >/dev/null; then
+                FAILED+=("$check_name: $conclusion")
+              fi
+            done < <(echo "$REQUIRED" | jq -r '.[]')
+
+            # A definitive failure will not improve by waiting.
+            if [[ ${#FAILED[@]} -gt 0 ]]; then
+              for item in "${FAILED[@]}"; do
+                echo "::error::Required check failed on main: $item"
               done
               echo ""
-            } >> "${GITHUB_STEP_SUMMARY}"
-            echo "::warning::${#PENDING[@]} required check(s) still pending. See step summary."
-          fi
+              echo "Fix the failing checks on main before dispatching a release."
+              exit 1
+            fi
 
-          if [[ ${#FAILED[@]} -gt 0 ]]; then
-            for item in "${FAILED[@]}"; do
-              echo "::error::Required check failed on main: $item"
+            if [[ ${#PENDING[@]} -eq 0 ]]; then
+              break
+            fi
+
+            if [[ "$attempt" -ge "$POLL_ATTEMPTS" ]]; then
+              {
+                echo "### Required checks never settled"
+                echo ""
+                for item in "${PENDING[@]}"; do
+                  echo "- $item"
+                done
+              } >> "${GITHUB_STEP_SUMMARY}"
+              for item in "${PENDING[@]}"; do
+                echo "::error::Required check still unfinished after waiting: $item"
+              done
+              echo ""
+              echo "Wait for CI on main to finish, then dispatch the release again."
+              exit 1
+            fi
+
+            echo "Waiting on ${#PENDING[@]} unfinished required check(s), attempt ${attempt}/${POLL_ATTEMPTS}:"
+            for item in "${PENDING[@]}"; do
+              echo "  - $item"
             done
-            echo ""
-            echo "Fix the failing checks on main before dispatching a release."
-            exit 1
-          fi
+            attempt=$((attempt + 1))
+            sleep "${POLL_INTERVAL_SECONDS}"
+          done
 
-          echo "Pre-flight OK: all definitive required checks passed."
+          echo "Pre-flight OK: every required check passed on ${SHA}."
 
       - name: Checkout main
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
@@ -221,6 +261,7 @@ jobs:
       NEW_NAME: ${{ needs.compute-and-validate.outputs.new_name }}
       NEW_CODE: ${{ needs.compute-and-validate.outputs.new_code }}
       CURRENT_NAME_AT_PLAN: ${{ needs.compute-and-validate.outputs.current_name }}
+      VALIDATED_SHA: ${{ needs.compute-and-validate.outputs.validated_sha }}
     steps:
       - name: Mint App token
         id: app-token
@@ -240,13 +281,32 @@ jobs:
           echo "user_name=${APP_SLUG}[bot]" >> "$GITHUB_OUTPUT"
           echo "user_email=${user_id}+${APP_SLUG}[bot]@users.noreply.github.com" >> "$GITHUB_OUTPUT"
 
-      - name: Checkout main with credentials
+      - name: Checkout validated commit with credentials
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
         with:
-          ref: main
+          ref: ${{ needs.compute-and-validate.outputs.validated_sha }}
           fetch-depth: 0
           persist-credentials: true
           token: ${{ steps.app-token.outputs.token }}
+
+      - name: Verify main still points at the validated commit
+        run: |
+          set -euo pipefail
+          if [[ -z "${VALIDATED_SHA}" ]]; then
+            echo "::error::No validated SHA was handed over from the validation job"
+            exit 1
+          fi
+          if [[ "$(git rev-parse HEAD)" != "${VALIDATED_SHA}" ]]; then
+            echo "::error::Checked-out HEAD is not the validated commit ${VALIDATED_SHA}"
+            exit 1
+          fi
+          git fetch --quiet origin main
+          remote_sha=$(git rev-parse refs/remotes/origin/main)
+          if [[ "${remote_sha}" != "${VALIDATED_SHA}" ]]; then
+            echo "::error::main moved from ${VALIDATED_SHA} to ${remote_sha} after validation."
+            echo "The new commit has not been through the pre-flight gate. Re-run the release."
+            exit 1
+          fi
 
       - name: Verify state still matches plan from Job 1
         run: |
