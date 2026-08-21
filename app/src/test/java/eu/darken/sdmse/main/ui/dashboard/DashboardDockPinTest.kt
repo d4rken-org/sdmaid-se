@@ -70,6 +70,7 @@ class DashboardDockPinTest : BaseComposeRobolectricTest() {
         onViewTool = {},
         onViewDetails = {},
         onCancel = {},
+        onDismissResult = null,
     )
 
     private fun setDashboard(

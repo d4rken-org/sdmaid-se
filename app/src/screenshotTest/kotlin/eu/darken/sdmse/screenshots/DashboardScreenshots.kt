@@ -34,6 +34,7 @@ private fun toolCard(
     onViewTool = {},
     onViewDetails = {},
     onCancel = {},
+    onDismissResult = null,
 )
 
 @PreviewTest

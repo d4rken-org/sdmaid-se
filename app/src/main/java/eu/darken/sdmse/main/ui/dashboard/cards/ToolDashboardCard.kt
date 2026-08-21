@@ -28,6 +28,7 @@ import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.icon
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.SDMTool
 
@@ -50,6 +51,8 @@ data class ToolDashboardCardItem(
     val onViewTool: () -> Unit,
     val onViewDetails: () -> Unit,
     val onCancel: () -> Unit,
+    /** Clears a frozen post-cleanup result; null while one is not on screen. See DashboardCardFlows. */
+    val onDismissResult: (() -> Unit)?,
 ) : DashboardItem, MainActionItem {
     override val stableId: Long = toolType.hashCode().toLong()
 }
@@ -105,6 +108,7 @@ internal fun ToolDashboardCard(
                 progress = item.progress,
                 resultPrimary = item.result?.primaryInfo?.asComposable(),
                 resultSecondary = item.result?.secondaryInfo?.asComposable()?.takeUnless { it.isBlank() },
+                onDismissResult = item.onDismissResult,
             )
         }
 
@@ -193,6 +197,32 @@ private fun ToolDashboardCardPreview() {
                 onViewTool = {},
                 onViewDetails = {},
                 onCancel = {},
+                onDismissResult = null,
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ToolDashboardCardDismissableResultPreview() {
+    PreviewWrapper {
+        ToolDashboardCard(
+            item = ToolDashboardCardItem(
+                toolType = SDMTool.Type.CORPSEFINDER,
+                isInitializing = false,
+                result = CorpseFinderDeleteTask.Success(
+                    affectedSpace = 2_100_000_000L,
+                    affectedPaths = emptySet(),
+                ),
+                progress = null,
+                showProRequirement = false,
+                onScan = {},
+                onDelete = null,
+                onViewTool = {},
+                onViewDetails = {},
+                onCancel = {},
+                onDismissResult = {},
             ),
         )
     }

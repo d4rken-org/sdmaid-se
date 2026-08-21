@@ -3,6 +3,9 @@ package eu.darken.sdmse.main.ui.dashboard
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -13,6 +16,7 @@ import eu.darken.sdmse.common.review.ReviewTool
 import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -21,6 +25,7 @@ import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.squeezer.core.Squeezer
@@ -31,12 +36,16 @@ import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.mockk.coVerify
+import io.mockk.coVerifyOrder
 import io.mockk.every
 import io.mockk.mockk
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
@@ -59,13 +68,21 @@ internal class DashboardDiscardTest : BaseTest() {
 
     private fun TestScope.harness(
         taskState: TaskSubmitter.State = TaskSubmitter.State(),
+        appCleanerState: AppCleaner.State? = null,
+        corpseFinderState: CorpseFinder.State? = null,
     ): Harness {
         val taskManager = mockk<TaskManager>(relaxed = true).apply {
             every { state } returns MutableStateFlow(taskState)
         }
-        val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply { every { state } returns emptyFlow() }
+        val corpseFinderFlow: Flow<CorpseFinder.State> =
+            corpseFinderState?.let { flowOf(it) } ?: emptyFlow()
+        val corpseFinder = mockk<CorpseFinder>(relaxed = true).apply { every { state } returns corpseFinderFlow }
         val systemCleaner = mockk<SystemCleaner>(relaxed = true).apply { every { state } returns emptyFlow() }
-        val appCleaner = mockk<AppCleaner>(relaxed = true).apply { every { state } returns emptyFlow() }
+        val appCleanerFlow: Flow<AppCleaner.State> =
+            appCleanerState?.let { flowOf(it) } ?: emptyFlow()
+        val appCleaner = mockk<AppCleaner>(relaxed = true).apply {
+            every { state } returns appCleanerFlow
+        }
         val deduplicator = mockk<Deduplicator>(relaxed = true).apply { every { state } returns emptyFlow() }
         val squeezer = mockk<Squeezer>(relaxed = true).apply { every { state } returns emptyFlow() }
         val appControl = mockk<AppControl>(relaxed = true).apply { every { state } returns emptyFlow() }
@@ -196,5 +213,191 @@ internal class DashboardDiscardTest : BaseTest() {
         coVerify(exactly = 0) { h.appCleaner.discardScanData() }
         coVerify(exactly = 0) { h.deduplicator.discardScanData() }
         coVerify(exactly = 0) { h.taskManager.forgetCompleted(any()) }
+    }
+
+    // --- Per-card result dismiss --------------------------------------------------------------
+
+    private fun completedTask(result: SDMTool.Task.Result) = TaskSubmitter.State(
+        tasks = listOf(
+            TaskSubmitter.ManagedTask(
+                id = "done",
+                toolType = SDMTool.Type.APPCLEANER,
+                task = mockk(),
+                completedAt = Instant.now(),
+                result = result,
+            ),
+        ),
+    )
+
+    private fun appCleanerState(junks: List<AppJunk>) = AppCleaner.State(
+        data = AppCleaner.Data(junks = junks),
+        progress = null,
+        isOtherUsersAvailable = false,
+        isRunningAppsDetectionAvailable = false,
+        isInaccessibleCacheAvailable = false,
+        isAcsRequired = false,
+    )
+
+    // Every card builder opens with onStart { emit(null) } as its loading state. Take the first
+    // resolved emission instead of the first emission, or the assertions read the loading card.
+    private suspend fun Harness.appCleanerCard(): ToolDashboardCardItem =
+        vm.buildAppCleanerItem().first { !it.isInitializing }
+
+    private suspend fun Harness.corpseFinderCard(): ToolDashboardCardItem =
+        vm.buildCorpseFinderItem().first { !it.isInitializing }
+
+    @Test
+    fun `a frozen delete result offers a dismiss even when residue survives it`() = runTest2 {
+        // The common case: a run frees most of it but a locked cache (com.google.android.gms) stays
+        // behind. Gating the dismiss on empty live data would hide it exactly here.
+        val residue = mockk<AppJunk> { every { size } returns 5_000L; every { itemCount } returns 1 }
+        val h = harness(
+            taskState = completedTask(
+                AppCleanerProcessingTask.Success(affectedSpace = 2_100_000_000L, affectedPaths = emptySet()),
+            ),
+            appCleanerState = appCleanerState(junks = listOf(residue)),
+        )
+
+        h.appCleanerCard().onDismissResult shouldNotBe null
+    }
+
+    @Test
+    fun `dismissing a card result drops both the frozen result and the leftover scan data`() = runTest2 {
+        val h = harness(
+            taskState = completedTask(
+                AppCleanerProcessingTask.Success(affectedSpace = 2_100_000_000L, affectedPaths = emptySet()),
+            ),
+            appCleanerState = appCleanerState(junks = emptyList()),
+        )
+
+        h.appCleanerCard().onDismissResult!!.invoke()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskManager.forgetCompleted(SDMTool.Type.APPCLEANER) }
+        coVerify(exactly = 1) { h.appCleaner.discardScanData() }
+    }
+
+    @Test
+    fun `a scan result offers no dismiss`() = runTest2 {
+        // A scan is live, actionable data, not an after-the-fact report; forgetting it would only
+        // have the card rebuild the same figure from live data on the next emission.
+        val h = harness(
+            taskState = completedTask(AppCleanerScanTask.Success(itemCount = 3, recoverableSpace = 500L)),
+            appCleanerState = appCleanerState(
+                junks = listOf(mockk { every { size } returns 500L; every { itemCount } returns 3 }),
+            ),
+        )
+
+        h.appCleanerCard().onDismissResult shouldBe null
+    }
+
+    @Test
+    fun `no recorded result means no dismiss`() = runTest2 {
+        val h = harness(appCleanerState = appCleanerState(junks = emptyList()))
+
+        h.appCleanerCard().onDismissResult shouldBe null
+    }
+
+    @Test
+    fun `dismissing clears live data before the recorded result so no residue figure can surface`() = runTest2 {
+        // Reversing these two lets resolveScanCardResult rebuild from the surviving residue for a
+        // frame, flashing "5 MB can be freed" over a run that actually freed 2.1 GB.
+        val residue = mockk<AppJunk> { every { size } returns 5_000L; every { itemCount } returns 1 }
+        val h = harness(
+            taskState = completedTask(
+                AppCleanerProcessingTask.Success(affectedSpace = 2_100_000_000L, affectedPaths = emptySet()),
+            ),
+            appCleanerState = appCleanerState(junks = listOf(residue)),
+        )
+
+        h.appCleanerCard().onDismissResult!!.invoke()
+        advanceUntilIdle()
+
+        coVerifyOrder {
+            h.appCleaner.discardScanData()
+            h.taskManager.forgetCompleted(SDMTool.Type.APPCLEANER)
+        }
+    }
+
+    @Test
+    fun `dismissing does nothing once a task for that tool is running`() = runTest2 {
+        // The control is hidden while a task runs, but a scheduler or widget can start one between
+        // the composition that rendered it and the click landing.
+        val busy = TaskSubmitter.State(
+            tasks = listOf(
+                TaskSubmitter.ManagedTask(
+                    id = "done",
+                    toolType = SDMTool.Type.APPCLEANER,
+                    task = mockk(),
+                    completedAt = Instant.now(),
+                    result = AppCleanerProcessingTask.Success(
+                        affectedSpace = 2_100_000_000L,
+                        affectedPaths = emptySet(),
+                    ),
+                ),
+                TaskSubmitter.ManagedTask(
+                    id = "running",
+                    toolType = SDMTool.Type.APPCLEANER,
+                    task = mockk(),
+                    startedAt = Instant.now(),
+                ),
+            ),
+        )
+        val h = harness(taskState = busy, appCleanerState = appCleanerState(junks = emptyList()))
+
+        h.appCleanerCard().onDismissResult!!.invoke()
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.appCleaner.discardScanData() }
+        coVerify(exactly = 0) { h.taskManager.forgetCompleted(SDMTool.Type.APPCLEANER) }
+    }
+
+    @Test
+    fun `a running task for another tool does not block this card's dismiss`() = runTest2 {
+        val otherToolBusy = TaskSubmitter.State(
+            tasks = completedTask(
+                AppCleanerProcessingTask.Success(affectedSpace = 2_100_000_000L, affectedPaths = emptySet()),
+            ).tasks + TaskSubmitter.ManagedTask(
+                id = "analyzer",
+                toolType = SDMTool.Type.ANALYZER,
+                task = mockk(),
+                startedAt = Instant.now(),
+            ),
+        )
+        val h = harness(taskState = otherToolBusy, appCleanerState = appCleanerState(junks = emptyList()))
+
+        h.appCleanerCard().onDismissResult!!.invoke()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.appCleaner.discardScanData() }
+    }
+
+    @Test
+    fun `corpsefinder dismisses via its own Data lastResult rather than TaskManager`() = runTest2 {
+        // This card ignores TaskManager entirely, so an empty task state must still offer a dismiss.
+        val h = harness(
+            corpseFinderState = CorpseFinder.State(
+                data = CorpseFinder.Data(
+                    corpses = emptyList(),
+                    lastResult = CorpseFinderDeleteTask.Success(affectedSpace = 500L, affectedPaths = emptySet()),
+                ),
+                progress = null,
+                isFilterPrivateDataAvailable = false,
+                isFilterDalvikCacheAvailable = false,
+                isFilterArtProfilesAvailable = false,
+                isFilterAppLibrariesAvailable = false,
+                isFilterAppSourcesAvailable = false,
+                isFilterPrivateAppSourcesAvailable = false,
+                isFilterEncryptedAppResourcesAvailable = false,
+            ),
+        )
+
+        val card = h.corpseFinderCard()
+        card.onDismissResult shouldNotBe null
+
+        card.onDismissResult!!.invoke()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.corpseFinder.discardScanData() }
     }
 }

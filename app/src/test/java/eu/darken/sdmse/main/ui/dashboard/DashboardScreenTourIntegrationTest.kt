@@ -45,6 +45,7 @@ class DashboardScreenTourIntegrationTest : BaseComposeRobolectricTest() {
         onViewTool = {},
         onViewDetails = {},
         onCancel = {},
+        onDismissResult = null,
     )
 
     @Test

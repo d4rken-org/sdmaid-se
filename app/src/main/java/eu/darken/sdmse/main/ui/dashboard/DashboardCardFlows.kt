@@ -30,6 +30,7 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.getLatestResult
+import eu.darken.sdmse.main.core.taskmanager.isBusy
 import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.AppControlDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.MotdDashboardCardItem
@@ -155,6 +156,7 @@ internal fun DashboardViewModel.buildCorpseFinderItem(): Flow<ToolDashboardCardI
     // background uninstall watcher overwrite it. Prefer that over TaskManager, whose newest entry for this
     // tool may be a watcher event — which would otherwise surface on the card as the user's last action.
     val lastResult = data?.lastResult
+    val lastResultIsScan = lastResult is CorpseFinderScanTask.Success
     ToolDashboardCardItem(
         toolType = SDMTool.Type.CORPSEFINDER,
         isInitializing = state == null,
@@ -164,7 +166,7 @@ internal fun DashboardViewModel.buildCorpseFinderItem(): Flow<ToolDashboardCardI
             data = data,
             hasData = data.hasData,
             lastResult = lastResult,
-            lastResultIsScan = lastResult is CorpseFinderScanTask.Success,
+            lastResultIsScan = lastResultIsScan,
         ) { it.toScanSuccess() },
         progress = state?.progress,
         showProRequirement = false,
@@ -182,6 +184,21 @@ internal fun DashboardViewModel.buildCorpseFinderItem(): Flow<ToolDashboardCardI
         onViewDetails = {
             navTo(CorpseDetailsRoute())
         },
+        onDismissResult = {
+            launch {
+                // A task can start between the composition that rendered this control and the click
+                // landing here (scheduler, widget, the uninstall watcher), and discardScanData()
+                // waits on the same tool lock the task holds — without this we would clear the data
+                // that task just produced.
+                if (taskManager.state.first().isBusy(SDMTool.Type.CORPSEFINDER)) return@launch
+                // Data first, then the recorded result: the reverse order lets the card rebuild from
+                // the surviving residue for a frame and flash a "can be freed" figure. This card reads
+                // Data.lastResult rather than TaskManager (see above), so dropping the tool's data is
+                // what actually clears it.
+                corpseFinder.discardScanData()
+                taskManager.forgetCompleted(SDMTool.Type.CORPSEFINDER)
+            }
+        }.takeIf { lastResult != null && !lastResultIsScan },
     )
 }
 
@@ -190,6 +207,7 @@ internal fun DashboardViewModel.buildSystemCleanerItem(): Flow<ToolDashboardCard
     taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
 ) { state, lastResult ->
     val data = state?.data
+    val lastResultIsScan = lastResult is SystemCleanerScanTask.Success
     ToolDashboardCardItem(
         toolType = SDMTool.Type.SYSTEMCLEANER,
         isInitializing = state == null,
@@ -199,7 +217,7 @@ internal fun DashboardViewModel.buildSystemCleanerItem(): Flow<ToolDashboardCard
             data = data,
             hasData = data.hasData,
             lastResult = lastResult,
-            lastResultIsScan = lastResult is SystemCleanerScanTask.Success,
+            lastResultIsScan = lastResultIsScan,
         ) { it.toScanSuccess() },
         progress = state?.progress,
         showProRequirement = false,
@@ -217,6 +235,15 @@ internal fun DashboardViewModel.buildSystemCleanerItem(): Flow<ToolDashboardCard
         onViewDetails = {
             navTo(FilterContentDetailsRoute())
         },
+        onDismissResult = {
+            launch {
+                // See buildCorpseFinderItem: bail if a task started since composition, and clear the
+                // live data before the recorded result so the card can't flash the leftover figure.
+                if (taskManager.state.first().isBusy(SDMTool.Type.SYSTEMCLEANER)) return@launch
+                systemCleaner.discardScanData()
+                taskManager.forgetCompleted(SDMTool.Type.SYSTEMCLEANER)
+            }
+        }.takeIf { lastResult != null && !lastResultIsScan },
     )
 }
 
@@ -226,6 +253,7 @@ internal fun DashboardViewModel.buildAppCleanerItem(): Flow<ToolDashboardCardIte
     upgradeInfo.map { it?.isPro ?: false },
 ) { state, lastResult, isPro ->
     val data = state?.data
+    val lastResultIsScan = lastResult is AppCleanerScanTask.Success
     ToolDashboardCardItem(
         toolType = SDMTool.Type.APPCLEANER,
         isInitializing = state == null,
@@ -235,7 +263,7 @@ internal fun DashboardViewModel.buildAppCleanerItem(): Flow<ToolDashboardCardIte
             data = data,
             hasData = data.hasData,
             lastResult = lastResult,
-            lastResultIsScan = lastResult is AppCleanerScanTask.Success,
+            lastResultIsScan = lastResultIsScan,
         ) { it.toScanSuccess() },
         progress = state?.progress,
         showProRequirement = !isPro,
@@ -253,6 +281,15 @@ internal fun DashboardViewModel.buildAppCleanerItem(): Flow<ToolDashboardCardIte
         onViewDetails = {
             navTo(AppJunkDetailsRoute())
         },
+        onDismissResult = {
+            launch {
+                // See buildCorpseFinderItem: bail if a task started since composition, and clear the
+                // live data before the recorded result so the card can't flash the leftover figure.
+                if (taskManager.state.first().isBusy(SDMTool.Type.APPCLEANER)) return@launch
+                appCleaner.discardScanData()
+                taskManager.forgetCompleted(SDMTool.Type.APPCLEANER)
+            }
+        }.takeIf { lastResult != null && !lastResultIsScan },
     )
 }
 
@@ -262,6 +299,7 @@ internal fun DashboardViewModel.buildDeduplicatorItem(): Flow<ToolDashboardCardI
     upgradeInfo.map { it?.isPro ?: false },
 ) { state, lastResult, isPro ->
     val data = state?.data
+    val lastResultIsScan = lastResult is DeduplicatorScanTask.Success
     ToolDashboardCardItem(
         toolType = SDMTool.Type.DEDUPLICATOR,
         isInitializing = state == null,
@@ -271,7 +309,7 @@ internal fun DashboardViewModel.buildDeduplicatorItem(): Flow<ToolDashboardCardI
             data = data,
             hasData = data.hasData,
             lastResult = lastResult,
-            lastResultIsScan = lastResult is DeduplicatorScanTask.Success,
+            lastResultIsScan = lastResultIsScan,
         ) { it.toScanSuccess() },
         progress = state?.progress,
         showProRequirement = !isPro,
@@ -294,6 +332,15 @@ internal fun DashboardViewModel.buildDeduplicatorItem(): Flow<ToolDashboardCardI
         onViewDetails = {
             navTo(DeduplicatorDetailsRoute())
         },
+        onDismissResult = {
+            launch {
+                // See buildCorpseFinderItem: bail if a task started since composition, and clear the
+                // live data before the recorded result so the card can't flash the leftover figure.
+                if (taskManager.state.first().isBusy(SDMTool.Type.DEDUPLICATOR)) return@launch
+                deduplicator.discardScanData()
+                taskManager.forgetCompleted(SDMTool.Type.DEDUPLICATOR)
+            }
+        }.takeIf { lastResult != null && !lastResultIsScan },
     )
 }
 
