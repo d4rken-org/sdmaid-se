@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common
 
-import android.content.ContentResolver
 import eu.darken.sdmse.common.files.APathLookup
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -66,9 +65,12 @@ class MimeTypeToolTest : BaseTest() {
 
     @Test
     fun `fromExtension falls back to what the framework assumes`() {
-        // Declaring this for an extension MimeTypeMap doesn't know still pairs name and type, which is
-        // what keeps a collision counter from landing behind the extension.
-        MimeTypes.Unknown.value shouldBe ContentResolver.MIME_TYPE_DEFAULT
-        subject.fromExtension("zzdefinitelynotaformat") shouldBe ContentResolver.MIME_TYPE_DEFAULT
+        // "application/octet-stream" is the value of ContentResolver.MIME_TYPE_DEFAULT, i.e. what the
+        // framework itself assumes for an extension it doesn't know. Declaring that for such an
+        // extension still pairs name and type, which is what keeps a collision counter from landing
+        // behind the extension. The constant isn't resolvable on this compile classpath, so the
+        // literal is pinned instead.
+        MimeTypes.Unknown.value shouldBe "application/octet-stream"
+        subject.fromExtension("zzdefinitelynotaformat") shouldBe "application/octet-stream"
     }
 }
