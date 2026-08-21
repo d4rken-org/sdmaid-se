@@ -28,6 +28,9 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.parcelize.Parcelize
@@ -60,6 +63,9 @@ class AppExporter @Inject constructor(
 
     suspend fun save(target: AppInfo, directoryUri: Uri): Result {
         log(TAG) { "save(target=$target, $directoryUri)" }
+        // The copy loops below are blocking, so cancellation has to be checked by hand, otherwise a
+        // cancelled export keeps writing and leaves the document behind.
+        val callerContext = currentCoroutineContext()
         target.pkg as SourceAvailable
         val baseApk = target.pkg.sourceDir
         log(TAG) { "Base APK is $baseApk" }
@@ -92,9 +98,13 @@ class AppExporter @Inject constructor(
 
         val saveDir = SAFDocFile.fromTreeUri(context, contentResolver, directoryUri)
 
+        callerContext.ensureActive()
+
         val savePath = createExportFile(saveDir, baseName, extension, mimeType)
 
         try {
+            callerContext.ensureActive()
+
             if (!savePath.writable) throw IOException("$savePath is not writable")
 
             val pfd = savePath
@@ -108,7 +118,13 @@ class AppExporter @Inject constructor(
                         updateProgressPrimary(apk.userReadablePath)
                         output.sink().buffer().use { sink ->
                             (apk as LocalPath).file.source().buffer().use { source ->
-                                sink.writeAll(source)
+                                val buffer = ByteArray(Zipper.BUFFER)
+                                while (true) {
+                                    callerContext.ensureActive()
+                                    val read = source.read(buffer, 0, buffer.size)
+                                    if (read == -1) break
+                                    sink.write(buffer, 0, read)
+                                }
                             }
                         }
                     }
@@ -120,7 +136,13 @@ class AppExporter @Inject constructor(
                                 val zipEntry = ZipEntry(file.name)
                                 zipOut.putNextEntry(zipEntry)
                                 BufferedInputStream(FileInputStream(file.asFile()), Zipper.BUFFER).use { input ->
-                                    input.copyTo(zipOut)
+                                    val buffer = ByteArray(Zipper.BUFFER)
+                                    while (true) {
+                                        callerContext.ensureActive()
+                                        val read = input.read(buffer)
+                                        if (read == -1) break
+                                        zipOut.write(buffer, 0, read)
+                                    }
                                 }
                                 zipOut.closeEntry()
                             }
@@ -132,11 +154,7 @@ class AppExporter @Inject constructor(
             }
         } catch (e: Throwable) {
             log(TAG, WARN) { "Export to $savePath failed, removing the incomplete document: ${e.asLog()}" }
-            try {
-                savePath.delete()
-            } catch (de: Exception) {
-                log(TAG, WARN) { "Failed to remove incomplete $savePath: ${de.asLog()}" }
-            }
+            deleteQuietly(savePath)
             throw e
         }
 
@@ -184,10 +202,17 @@ class AppExporter @Inject constructor(
                 continue
             }
 
-            val createdName = created.name
+            val createdName = try {
+                created.readDisplayNameStrict()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Attempt $attempt: can't read back the name of $created: ${e.asLog()}" }
+                deleteQuietly(created)
+                throw e
+            }
+
             if (createdName != null && !createdName.endsWith(suffix)) {
                 log(TAG, WARN) { "Attempt $attempt: provider renamed '$candidate' to '$createdName', retrying" }
-                if (!created.delete()) log(TAG, WARN) { "Failed to delete mangled $created" }
+                deleteQuietly(created)
                 continue
             }
             if (createdName == null) log(TAG, WARN) { "Can't read back the name of $created, assuming '$candidate'" }
@@ -197,6 +222,22 @@ class AppExporter @Inject constructor(
         }
 
         throw IOException("Couldn't create '$baseName$suffix' in ${saveDir.uri} after $CREATE_ATTEMPTS attempts")
+    }
+
+    /**
+     * Removes a document we don't want to keep, without letting that removal decide the outcome.
+     *
+     * [SAFDocFile.delete] answers false and raises for a whole range of provider trouble, and every
+     * caller here is already on a path (retry or error cleanup) that a failed delete must not derail.
+     */
+    private fun deleteQuietly(doc: SAFDocFile) {
+        try {
+            if (!doc.delete()) log(TAG, WARN) { "Failed to delete $doc" }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to delete $doc: ${e.asLog()}" }
+        }
     }
 
     @Parcelize

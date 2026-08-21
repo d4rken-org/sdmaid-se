@@ -122,6 +122,13 @@ class FakeDocumentsProvider(
     var renameNextCreatedTo: String? = null
 
     /**
+     * Creates the next document without a display name, then clears itself. The name is still used
+     * for the collision check and the id, only the reported `COLUMN_DISPLAY_NAME` is null. Models a
+     * provider that doesn't supply display names.
+     */
+    var createNextWithoutDisplayName: Boolean = false
+
+    /**
      * Invoked with the parent document id *after* a child listing cursor has been built, so a test
      * can mutate the tree behind a consumer that already holds the listing.
      */
@@ -248,6 +255,7 @@ class FakeDocumentsProvider(
         if (!parent.isDirectory) throw FileNotFoundException("Not a directory: $parentId")
 
         val effectiveName = renameNextCreatedTo?.also { renameNextCreatedTo = null } ?: displayName
+        val withoutDisplayName = createNextWithoutDisplayName.also { createNextWithoutDisplayName = false }
         if (childrenOf(parentId).any { it.displayName == effectiveName }) {
             throw FileNotFoundException("Already exists: $effectiveName below $parentId")
         }
@@ -262,7 +270,7 @@ class FakeDocumentsProvider(
         nodes[childId] = Node(
             documentId = childId,
             parentId = parentId,
-            displayName = effectiveName,
+            displayName = if (withoutDisplayName) null else effectiveName,
             mimeType = mimeType,
             flags = if (isDir) DEFAULT_DIR_FLAGS else DEFAULT_FILE_FLAGS,
             file = if (isDir) null else newBackingFile(""),
