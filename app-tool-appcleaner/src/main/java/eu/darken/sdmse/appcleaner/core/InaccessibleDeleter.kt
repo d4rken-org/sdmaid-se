@@ -83,6 +83,12 @@ class InaccessibleDeleter @Inject constructor(
         targetPkgs: Collection<InstallId>?,
         useAutomation: Boolean,
         isBackground: Boolean,
+        /**
+         * Invoked with whatever was already cleared when this call is about to fail. Caches cleared
+         * before a terminal automation error are genuinely gone, so the caller still has to fold
+         * them into its state instead of discarding them along with the exception.
+         */
+        onPartialResult: (InaccDelResult) -> Unit = {},
     ): InaccDelResult {
         log(TAG, INFO) { "deleteInaccessible() targetPkgs=${targetPkgs?.size}, $useAutomation" }
 
@@ -113,6 +119,7 @@ class InaccessibleDeleter @Inject constructor(
             isAllApps = targetPkgs == null,
             useAutomation = useAutomation,
             isBackground = isBackground,
+            onPartialResult = onPartialResult,
         )
     }
 
@@ -121,6 +128,7 @@ class InaccessibleDeleter @Inject constructor(
         isAllApps: Boolean,
         useAutomation: Boolean,
         isBackground: Boolean,
+        onPartialResult: (InaccDelResult) -> Unit,
     ): InaccDelResult {
         log(TAG) { "${targets.size} inaccessible caches to delete." }
         if (targets.isEmpty()) return InaccDelResult()
@@ -187,11 +195,7 @@ class InaccessibleDeleter @Inject constructor(
                     } catch (e: UserCancelledAutomationException) {
                         log(TAG, WARN) { "User cancelled during force-stop; skipping cache clear." }
                         // Honor the cancel as a full stop: don't proceed to clear cache.
-                        successTargets.forEach { failedTargets.remove(it) }
-                        return InaccDelResult(
-                            succesful = successTargets.toSet(),
-                            failed = failedTargets,
-                        )
+                        return buildResult(successTargets, failedTargets)
                     }
                 }
 
@@ -207,6 +211,10 @@ class InaccessibleDeleter @Inject constructor(
                 val result = try {
                     automationManager.submit(acsTask) as ClearCacheTask.Result
                 } catch (e: AutomationUnavailableException) {
+                    // Nothing ran, but fold anyway so the partial-result contract holds uniformly.
+                    successTargets.addAll(successLive)
+                    failedTargets.putAll(failedLive)
+                    onPartialResult(buildResult(successTargets, failedTargets))
                     throw InaccessibleDeletionException(e)
                 } catch (e: UserCancelledAutomationException) {
                     log(TAG, WARN) { "User has cancelled ($e), forwarding live progress: $successLive" }
@@ -214,6 +222,16 @@ class InaccessibleDeleter @Inject constructor(
                         successful = successLive,
                         failed = failedLive,
                     )
+                } catch (e: Exception) {
+                    // Any other terminal automation failure: a compatibility give-up, a locked
+                    // screen, an overlay error, or the caller being cancelled. Caches cleared
+                    // before that point are really cleared, so hand them back before the exception
+                    // travels on, otherwise the next scan still lists them as freeable.
+                    log(TAG, WARN) { "ACS clearing failed, forwarding live progress: $successLive" }
+                    successTargets.addAll(successLive)
+                    failedTargets.putAll(failedLive)
+                    onPartialResult(buildResult(successTargets, failedTargets))
+                    throw e
                 }
 
                 successTargets.addAll(result.successful)
@@ -223,12 +241,22 @@ class InaccessibleDeleter @Inject constructor(
             log(TAG, INFO) { "useAutomation=false" }
         }
 
-        // Clean up contradictory bookkeeping: if an app failed earlier but succeeded later, remove from failed
-        successTargets.forEach { failedTargets.remove(it) }
+        return buildResult(successTargets, failedTargets)
+    }
 
+    /**
+     * Snapshots the accumulated per-app outcomes. Also cleans up contradictory bookkeeping: an app
+     * that failed earlier but succeeded later must not stay in [InaccDelResult.failed], or it would
+     * be recorded as a permanent ACS failure and marked unclearable.
+     */
+    private fun buildResult(
+        successTargets: Collection<InstallId>,
+        failedTargets: Map<InstallId, Exception>,
+    ): InaccDelResult {
+        val successful = successTargets.toSet()
         return InaccDelResult(
-            succesful = successTargets.toSet(),
-            failed = failedTargets,
+            succesful = successful,
+            failed = failedTargets.filterKeys { !successful.contains(it) },
         )
     }
 
