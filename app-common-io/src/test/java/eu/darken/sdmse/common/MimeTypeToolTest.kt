@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common
 
+import android.content.ContentResolver
 import eu.darken.sdmse.common.files.APathLookup
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -55,5 +56,19 @@ class MimeTypeToolTest : BaseTest() {
         runBlocking {
             subject.determineMimeType(lookupWithName("data.zzdefinitelynotaformat")) shouldBe MimeTypes.Unknown.value
         }
+    }
+
+    @Test
+    fun `fromExtension resolves a bare extension`() {
+        subject.fromExtension("jpg") shouldBe "image/jpeg"
+        subject.fromExtension("JPG") shouldBe "image/jpeg"
+    }
+
+    @Test
+    fun `fromExtension falls back to what the framework assumes`() {
+        // Declaring this for an extension MimeTypeMap doesn't know still pairs name and type, which is
+        // what keeps a collision counter from landing behind the extension.
+        MimeTypes.Unknown.value shouldBe ContentResolver.MIME_TYPE_DEFAULT
+        subject.fromExtension("zzdefinitelynotaformat") shouldBe ContentResolver.MIME_TYPE_DEFAULT
     }
 }
