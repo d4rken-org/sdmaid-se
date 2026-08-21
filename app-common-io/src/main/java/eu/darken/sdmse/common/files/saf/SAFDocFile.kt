@@ -176,6 +176,33 @@ data class SAFDocFile(
     }
 
     /**
+     * The display names of this document's children, from a single child listing.
+     *
+     * For picking a name that is still free: [findFile] passes a SQL selection that providers like
+     * `ExternalStorageProvider` ignore, so probing N candidates would run N full directory listings,
+     * and a name two children share reads as "not found" there. Rows without a display name are
+     * skipped. Query failures propagate: "we couldn't ask" must not read as "the directory is empty".
+     */
+    @SuppressLint("Recycle")
+    fun listChildDisplayNames(): Set<String> {
+        val childrenUri = DocumentsContract.buildChildDocumentsUriUsingTree(uri, DocumentsContract.getDocumentId(uri))
+
+        val names = resolver.query(
+            childrenUri,
+            arrayOf(DocumentsContract.Document.COLUMN_DISPLAY_NAME),
+            null,
+            null,
+            null
+        )?.useQuietly { cursor ->
+            cursor.asSequence().mapNotNull { it.getString(0) }.toSet()
+        }
+
+        requireNotNull(names) { "Unable to list child names for $uri" }
+
+        return names
+    }
+
+    /**
      * Whether this document has at least one child, answered by the child cursor alone.
      *
      * No per-child metadata is queried, so a child that vanishes while we ask can't turn the answer
