@@ -34,6 +34,7 @@ import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.json.Json
 import okio.IOException
 import okio.buffer
 import okio.sink
@@ -49,6 +50,7 @@ class AppExporter @Inject constructor(
     @ApplicationContext private val context: Context,
     private val contentResolver: ContentResolver,
     private val mimeTypeTool: MimeTypeTool,
+    private val json: Json,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -83,15 +85,32 @@ class AppExporter @Inject constructor(
 
         // Everything that can say "there is nothing to write" has to say it before a document exists,
         // otherwise the failure leaves a zero byte file sitting on the preferred name.
-        val sources: Set<APath> = when (target.exportType) {
-            AppExportType.APK -> setOf(baseApk ?: throw IllegalStateException("APK file unavailable"))
-            AppExportType.BUNDLE -> (setOfNotNull(baseApk) + extraSources.orEmpty()).ifEmpty {
-                throw IllegalStateException("BUNDLE is empty")
+        val plan: ExportPlan = when (target.exportType) {
+            AppExportType.APK -> ExportPlan.Apk(baseApk ?: throw IllegalStateException("APK file unavailable"))
+            AppExportType.BUNDLE -> {
+                val base = baseApk ?: throw IllegalStateException("Base APK is unavailable")
+                // Splits without ids can't be described in the manifest, and an XAPK without a
+                // manifest is not installable, so incomplete metadata ends the export here.
+                val named = target.pkg.splitSourcesNamed
+                    ?: throw IllegalStateException("Split metadata is incomplete: $extraSources")
+                if (named.isEmpty()) throw IllegalStateException("BUNDLE is empty")
+
+                val entries = listOf(BundleEntry(id = XapkManifest.ID_BASE, path = base)) +
+                        named.map { BundleEntry(id = it.id, path = it.path) }
+
+                // Two sources with the same file name would become two entries under one name.
+                val names = listOf(MANIFEST_NAME) + entries.map { it.path.name }
+                val collisions = names.groupBy { it }.filterValues { it.size > 1 }.keys
+                if (collisions.isNotEmpty()) {
+                    throw IllegalStateException("Duplicate archive entry names: $collisions")
+                }
+
+                ExportPlan.Bundle(entries)
             }
 
             AppExportType.NONE -> throw IllegalArgumentException("Can't export $target")
         }
-        log(TAG) { "Sources to write are $sources" }
+        log(TAG) { "Export plan is $plan" }
 
         val baseName = "${target.label.get(context)} (${target.installId.pkgId.name}) - " +
                 "${target.pkg.versionName}[${target.pkg.versionCode}]"
@@ -112,44 +131,50 @@ class AppExporter @Inject constructor(
                 .let { ParcelFileDescriptor.AutoCloseOutputStream(it) }
 
             pfd.use { output ->
-                when (target.exportType) {
-                    AppExportType.APK -> {
-                        val apk = sources.single()
+                when (plan) {
+                    is ExportPlan.Apk -> {
+                        val apk = plan.source
                         updateProgressPrimary(apk.userReadablePath)
                         output.sink().buffer().use { sink ->
                             (apk as LocalPath).file.source().buffer().use { source ->
-                                val buffer = ByteArray(Zipper.BUFFER)
-                                while (true) {
-                                    callerContext.ensureActive()
-                                    val read = source.read(buffer, 0, buffer.size)
-                                    if (read == -1) break
-                                    sink.write(buffer, 0, read)
-                                }
+                                copyChunked(source, sink, callerContext)
                             }
                         }
                     }
 
-                    AppExportType.BUNDLE -> { // Create ZIP
+                    is ExportPlan.Bundle -> { // Create XAPK
                         ZipOutputStream(output.sink().buffer().outputStream()).use { zipOut ->
-                            sources.forEach { file ->
-                                updateProgressPrimary(file.userReadablePath)
-                                val zipEntry = ZipEntry(file.name)
-                                zipOut.putNextEntry(zipEntry)
-                                BufferedInputStream(FileInputStream(file.asFile()), Zipper.BUFFER).use { input ->
-                                    val buffer = ByteArray(Zipper.BUFFER)
-                                    while (true) {
-                                        callerContext.ensureActive()
-                                        val read = input.read(buffer)
-                                        if (read == -1) break
-                                        zipOut.write(buffer, 0, read)
-                                    }
+                            var payloadSize = 0L
+                            val written = mutableListOf<XapkManifest.SplitApk>()
+
+                            plan.entries.forEach { entry ->
+                                updateProgressPrimary(entry.path.userReadablePath)
+                                zipOut.putNextEntry(ZipEntry(entry.path.name))
+                                BufferedInputStream(FileInputStream(entry.path.asFile()), Zipper.BUFFER).use { input ->
+                                    payloadSize += copyChunked(input, zipOut, callerContext)
                                 }
                                 zipOut.closeEntry()
+                                written.add(XapkManifest.SplitApk(file = entry.path.name, id = entry.id))
                             }
+
+                            val manifest = XapkManifest(
+                                packageName = target.installId.pkgId.name,
+                                name = target.label.get(context),
+                                versionCode = target.pkg.versionCode,
+                                versionName = target.pkg.versionName ?: "",
+                                minSdkVersion = target.pkg.applicationInfo?.minSdkVersion ?: 0,
+                                targetSdkVersion = target.pkg.applicationInfo?.targetSdkVersion ?: 0,
+                                totalSize = payloadSize,
+                                splitApks = written,
+                                splitConfigs = written.map { it.id }.filter { it != XapkManifest.ID_BASE },
+                            )
+                            log(TAG) { "Manifest is $manifest" }
+
+                            zipOut.putNextEntry(ZipEntry(MANIFEST_NAME))
+                            zipOut.write(json.encodeToString(XapkManifest.serializer(), manifest).toByteArray())
+                            zipOut.closeEntry()
                         }
                     }
-
-                    AppExportType.NONE -> throw IllegalStateException("Should never get here")
                 }
             }
         } catch (e: Throwable) {
@@ -240,6 +265,19 @@ class AppExporter @Inject constructor(
         }
     }
 
+    /** What the preflight settled on, so the write itself has nothing left to decide. */
+    private sealed interface ExportPlan {
+        data class Apk(val source: APath) : ExportPlan
+
+        data class Bundle(val entries: List<BundleEntry>) : ExportPlan
+    }
+
+    /** A file that goes into the XAPK, together with the split id it is known by. */
+    private data class BundleEntry(
+        val id: String,
+        val path: APath,
+    )
+
     @Parcelize
     data class Result(
         val installId: InstallId,
@@ -252,7 +290,8 @@ class AppExporter @Inject constructor(
     companion object {
         private val TAG = logTag("AppControl", "ExportSaver")
         private const val EXTENSION_APK = "apk"
-        private const val EXTENSION_BUNDLE = "apks"
+        private const val EXTENSION_BUNDLE = "xapk"
+        private const val MANIFEST_NAME = "manifest.json"
         private const val CREATE_ATTEMPTS = 3
         private const val MAX_NAME_COUNTER = 999
     }
