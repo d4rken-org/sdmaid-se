@@ -1,5 +1,7 @@
 package eu.darken.sdmse.appcontrol.core.export
 
+import android.content.pm.ApplicationInfo
+import android.net.Uri
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.MimeTypes
@@ -20,6 +22,9 @@ import io.mockk.mockk
 import io.mockk.unmockkAll
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonPrimitive
+import kotlinx.serialization.json.jsonObject
 import org.junit.After
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -28,6 +33,7 @@ import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
 import testhelpers.coroutine.runTest2
+import testhelpers.json.toComparableKotlinxJson
 import testhelpers.saf.FakeDocumentsProvider
 import testhelpers.saf.LegacyQueryShimProvider
 import testhelpers.saf.SafTestHarness
@@ -39,6 +45,11 @@ import java.util.zip.ZipInputStream
 class AppExporterTest : BaseTest() {
 
     private val mimeTypeTool = MimeTypeTool()
+    private val json = Json {
+        ignoreUnknownKeys = true
+        encodeDefaults = true
+        explicitNulls = false
+    }
     private val sourceDir = File(IO_TEST_BASEDIR, "app-exporter-sources")
 
     @After
@@ -58,17 +69,44 @@ class AppExporterTest : BaseTest() {
         context = context,
         contentResolver = contentResolver,
         mimeTypeTool = mimeTypeTool,
+        json = json,
     )
 
-    private fun localFile(name: String, content: String = "apk-payload"): LocalPath {
+    private fun localFile(name: String, content: String = BASE_PAYLOAD): LocalPath {
         sourceDir.mkdirs()
         return LocalPath.build(File(sourceDir, name).apply { writeText(content) })
+    }
+
+    private fun splitSource(id: String, fileName: String) = SourceAvailable.SplitSource(
+        id = id,
+        path = localFile(fileName, content = SPLIT_PAYLOAD),
+    )
+
+    private fun SafTestHarness.entryNames(uri: Uri): List<String> = buildList {
+        ZipInputStream(contentResolver.openInputStream(uri)!!).use { zip ->
+            while (true) {
+                val entry = zip.nextEntry ?: break
+                add(entry.name)
+            }
+        }
+    }
+
+    private fun SafTestHarness.entryText(uri: Uri, name: String): String? {
+        ZipInputStream(contentResolver.openInputStream(uri)!!).use { zip ->
+            while (true) {
+                val entry = zip.nextEntry ?: break
+                if (entry.name == name) return zip.readBytes().decodeToString()
+            }
+        }
+        return null
     }
 
     /** An [AppInfo] whose export type follows from what the package offers, same as in production. */
     private fun appInfo(
         baseApk: APath? = localFile("base.apk"),
-        splits: Set<APath>? = null,
+        splits: List<SourceAvailable.SplitSource>? = null,
+        splitsNamed: List<SourceAvailable.SplitSource>? = splits,
+        versionName: String? = VERSION_NAME,
     ): AppInfo {
         val pkg = mockk<SourceAvailable>().apply {
             every { id } returns Pkg.Id(PKG_NAME)
@@ -76,10 +114,15 @@ class AppExporterTest : BaseTest() {
             every { label } returns APP_LABEL.toCaString()
             every { userHandle } returns UserHandle2(handleId = 0)
             every { installId } returns InstallId(Pkg.Id(PKG_NAME), UserHandle2(handleId = 0))
-            every { versionName } returns VERSION_NAME
+            every { this@apply.versionName } returns versionName
             every { versionCode } returns VERSION_CODE
             every { sourceDir } returns baseApk
-            every { splitSources } returns splits
+            every { splitSources } returns splits?.map { it.path }?.toSet()
+            every { splitSourcesNamed } returns splitsNamed
+            every { applicationInfo } returns ApplicationInfo().apply {
+                minSdkVersion = MIN_SDK
+                targetSdkVersion = TARGET_SDK
+            }
         }
         return AppInfo(
             pkg = pkg,
@@ -244,25 +287,113 @@ class AppExporterTest : BaseTest() {
     }
 
     @Test
-    fun `a bundle export is declared with the type of its extension`() = runTest2 {
+    fun `a bundle export is an XAPK declared with the type of its extension`() = runTest2 {
         val harness = harness()
-        val target = appInfo(splits = setOf(localFile("split_config.apk", content = "split-payload")))
+        val target = appInfo(splits = listOf(splitSource(SPLIT_ID, SPLIT_FILE)))
 
         val result = harness.exporter().save(target, harness.treeUri)
 
         target.exportType shouldBe AppExportType.BUNDLE
-        // Name and type have to pair up, otherwise the framework appends a counter behind ".apks".
-        harness.provider.createdMimeType() shouldBe mimeTypeTool.fromExtension("apks")
-        harness.provider.createdName() shouldBe "$BASE_NAME.apks"
+        // Name and type have to pair up, otherwise the framework appends a counter behind ".xapk".
+        harness.provider.createdMimeType() shouldBe mimeTypeTool.fromExtension("xapk")
+        harness.provider.createdName() shouldBe "$BASE_NAME.xapk"
 
-        val zipped = mutableListOf<String>()
-        ZipInputStream(harness.contentResolver.openInputStream(result.savePath)!!).use { zip ->
-            while (true) {
-                val entry = zip.nextEntry ?: break
-                zipped.add(entry.name)
+        harness.entryNames(result.savePath) shouldContainExactly listOf(
+            "base.apk",
+            SPLIT_FILE,
+            "manifest.json",
+        )
+    }
+
+    @Test
+    fun `the XAPK manifest describes the archive`() = runTest2 {
+        val harness = harness()
+        val target = appInfo(splits = listOf(splitSource(SPLIT_ID, SPLIT_FILE)))
+
+        val result = harness.exporter().save(target, harness.treeUri)
+
+        // Field names and types are what APKPure reads, a number where a string belongs breaks it.
+        harness.entryText(result.savePath, "manifest.json")!!.toComparableKotlinxJson() shouldBe """
+            {
+                "xapk_version": 2,
+                "package_name": "$PKG_NAME",
+                "name": "$APP_LABEL",
+                "version_code": "$VERSION_CODE",
+                "version_name": "$VERSION_NAME",
+                "min_sdk_version": "$MIN_SDK",
+                "target_sdk_version": "$TARGET_SDK",
+                "total_size": ${BASE_PAYLOAD.length + SPLIT_PAYLOAD.length},
+                "split_apks": [
+                    {
+                        "file": "base.apk",
+                        "id": "base"
+                    },
+                    {
+                        "file": "$SPLIT_FILE",
+                        "id": "$SPLIT_ID"
+                    }
+                ],
+                "split_configs": [
+                    "$SPLIT_ID"
+                ]
             }
-        }
-        zipped shouldContainExactly listOf("base.apk", "split_config.apk")
+        """.toComparableKotlinxJson()
+    }
+
+    @Test
+    fun `an app without a version name gets an empty one, not the word null`() = runTest2 {
+        val harness = harness()
+        val target = appInfo(
+            splits = listOf(splitSource(SPLIT_ID, SPLIT_FILE)),
+            versionName = null,
+        )
+
+        val result = harness.exporter().save(target, harness.treeUri)
+
+        val manifest = Json.parseToJsonElement(harness.entryText(result.savePath, "manifest.json")!!).jsonObject
+        manifest["version_name"] shouldBe JsonPrimitive("")
+    }
+
+    @Test
+    fun `splits without usable ids fail before a document is created`() = runTest2 {
+        // Index pairing that can't be trusted (no split names, or a length mismatch) has to end the
+        // export, a partial XAPK would install as a broken app.
+        val harness = harness()
+        val target = appInfo(
+            splits = listOf(splitSource(SPLIT_ID, SPLIT_FILE)),
+            splitsNamed = null,
+        )
+
+        shouldThrow<IllegalStateException> { harness.exporter().save(target, harness.treeUri) }
+
+        target.exportType shouldBe AppExportType.BUNDLE
+        harness.provider.createdDocuments.shouldBeEmpty()
+    }
+
+    @Test
+    fun `sources that share a file name fail before a document is created`() = runTest2 {
+        // Two entries under one name would make an archive that no installer can take apart.
+        val harness = harness()
+        val nested = File(sourceDir, "nested").apply { mkdirs() }
+        val collidingBase = LocalPath.build(File(nested, "base.apk").apply { writeText(BASE_PAYLOAD) })
+        val target = appInfo(splits = listOf(SourceAvailable.SplitSource(SPLIT_ID, collidingBase)))
+
+        shouldThrow<IllegalStateException> { harness.exporter().save(target, harness.treeUri) }
+
+        harness.provider.createdDocuments.shouldBeEmpty()
+    }
+
+    @Test
+    fun `a bundle without a base APK fails before a document is created`() = runTest2 {
+        val harness = harness()
+        val target = appInfo(
+            baseApk = null,
+            splits = listOf(splitSource(SPLIT_ID, SPLIT_FILE)),
+        )
+
+        shouldThrow<IllegalStateException> { harness.exporter().save(target, harness.treeUri) }
+
+        harness.provider.createdDocuments.shouldBeEmpty()
     }
 
     @Test
@@ -285,6 +416,12 @@ class AppExporterTest : BaseTest() {
         private const val APP_LABEL = "Test App"
         private const val VERSION_NAME = "1.2.3"
         private const val VERSION_CODE = 42L
+        private const val MIN_SDK = 26
+        private const val TARGET_SDK = 34
         private const val BASE_NAME = "$APP_LABEL ($PKG_NAME) - $VERSION_NAME[$VERSION_CODE]"
+        private const val BASE_PAYLOAD = "apk-payload"
+        private const val SPLIT_PAYLOAD = "split-payload"
+        private const val SPLIT_ID = "config.xxhdpi"
+        private const val SPLIT_FILE = "split_config.xxhdpi.apk"
     }
 }
