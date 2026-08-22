@@ -407,10 +407,18 @@ class AppCleaner @Inject constructor(
         // exception, exactly as it did before this salvage existed.
         acsFailure?.let { throw it }
 
+        // `acsResult` is a var (the partial-result callback writes to it), so it won't smart-cast.
+        val acsOutcome = acsResult
+        // Prefer what the deleter actually observed disappearing. The pre-clear size is only a
+        // claim: an app can report a successful cache clear and still hold every byte, which used
+        // to be reported as freed space the user never got back. Apps the deleter could not
+        // measure fall back to the pre-clear size, i.e. the previous behaviour.
         // Force check via !! because we should not have ran automation for any junk without inaccessible data
-        val automationSize = acsResult?.succesful
-            ?.map { inaccessible -> snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!! }
-            ?.sumOf { it.totalSize }
+        val automationSize = acsOutcome?.succesful
+            ?.sumOf { inaccessible ->
+                acsOutcome.freedBytes[inaccessible]
+                    ?: snapshot.junks.single { it.identifier == inaccessible }.inaccessibleCache!!.totalSize
+            }
             ?: 0L
         // Count items the same way the scan reported them ("X expendable items found"): the difference between
         // the pre- and post-deletion scan totals. Deriving it from the snapshot avoids re-deriving the
