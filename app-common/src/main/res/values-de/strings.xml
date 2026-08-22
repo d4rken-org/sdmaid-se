@@ -7,7 +7,7 @@
     <string name="slogan_message_1">Sauber und ordentlich.</string>
     <string name="slogan_message_2">Chaos verhindern.</string>
     <string name="slogan_message_3">Das Notwendige tun.</string>
-    <string name="slogan_message_4">All Deine Schäfchen im Trockenen.</string>
+    <string name="slogan_message_4">All deine Schäfchen im Trockenen.</string>
     <string name="slogan_message_5">Makellos.</string>
     <string name="slogan_message_6">Tschüss, Datenmüll!</string>
     <string name="slogan_message_7">Freier Platz, glücklicher Platz.</string>
@@ -212,7 +212,7 @@
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Diese Funktion benötigt Root-Zugriff, aber SD Maid konnte ihn auf diesem Gerät nicht erlangen.</string>
-    <string name="access_blocked_root_declined">Diese Funktion benötigt Root-Zugriff. Sie können ihn über den Einrichtungsbildschirm aktivieren.</string>
+    <string name="access_blocked_root_declined">Diese Funktion benötigt Root-Zugriff. Du kannst ihn über den Einrichtungsbildschirm aktivieren.</string>
     <string name="access_blocked_root_or_shizuku">Diese Funktion benötigt Root- oder Shizuku-Zugriff, was auf diesem Gerät nicht verfügbar ist.</string>
     <!-- Config backup/restore errors -->
     <string name="backup_restore_error_invalid_title">Ungültige Sicherungsdatei</string>

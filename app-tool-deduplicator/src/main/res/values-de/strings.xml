@@ -10,7 +10,7 @@
         <item quantity="other">%d Duplikatsätze gefunden</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Ermögliche „Alle löschen“</string>
-    <string name="deduplicator_protection_deleteall_allowed_summary">Zeige Optionen an, mit denen Du alle Dateien in einem Duplikatsatz löschen kannst, sodass keine Datei übrig bleibt.</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Zeige Optionen an, mit denen du alle Dateien in einem Duplikatsatz löschen kannst, sodass keine Datei übrig bleibt.</string>
     <string name="deduplicator_search_locations_title">Suchorte</string>
     <string name="deduplicator_search_locations_all_summary">Alle zugänglichen Bereiche</string>
     <string name="deduplicator_skip_minsize_title">Mindestgröße</string>
@@ -50,7 +50,7 @@
     <string name="deduplicator_action_open_preview">Vorschau öffnen</string>
     <string name="deduplicator_marked_for_deletion">Zum Löschen markiert</string>
     <string name="deduplicator_cluster_preview_image">Duplikatgruppen-Vorschau</string>
-    <string name="deduplicator_selection_keep_one_required">Mindestens eine Datei pro Duplikatgruppe muss erhalten bleiben. Aktivieren Sie „Alles löschen ermöglichen“ in den Einstellungen, um diese Einschränkung zu umgehen.</string>
+    <string name="deduplicator_selection_keep_one_required">Mindestens eine Datei pro Duplikatgruppe muss erhalten bleiben. Aktiviere „Alles löschen ermöglichen“ in den Einstellungen, um diese Einschränkung zu umgehen.</string>
     <string name="deduplicator_progress_comparing_files">Dateien vergleichen</string>
     <string name="deduplicator_details_cluster_title">Satz Duplikate</string>
     <string name="deduplicator_matches_exact_label">Exakte Kopien</string>
