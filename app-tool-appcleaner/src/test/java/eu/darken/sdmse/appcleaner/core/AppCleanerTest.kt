@@ -633,13 +633,20 @@ class AppCleanerTest : BaseTest() {
         }
     }
 
-    private fun acsDeleter(succesful: Set<InstallId>): InaccessibleDeleter =
+    private fun acsDeleter(
+        succesful: Set<InstallId>,
+        freedBytes: Map<InstallId, Long> = emptyMap(),
+    ): InaccessibleDeleter =
         mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
             every { progress } returns MutableStateFlow<Progress.Data?>(null)
             every { updateProgress(any()) } just Runs
             coEvery {
                 deleteInaccessible(any(), any(), any(), any(), any())
-            } returns InaccessibleDeleter.InaccDelResult(succesful = succesful, failed = emptyMap())
+            } returns InaccessibleDeleter.InaccDelResult(
+                succesful = succesful,
+                failed = emptyMap(),
+                freedBytes = freedBytes,
+            )
         }
 
     @Test
@@ -657,6 +664,46 @@ class AppCleanerTest : BaseTest() {
         result.affectedCount shouldBe 12
         // …but only the 2 synthetic dir paths are individually recordable.
         result.affectedPaths.size shouldBe 2
+    }
+
+    @Test
+    fun `ProcessingTask reports the bytes the deleter measured, not the pre-clear size`() = runTest2 {
+        // The pre-clear size is only what the cache claimed to hold. An app can report a
+        // successful clear and keep every byte, and reporting that as freed space is how a
+        // 411MB headline ended up with 212MB of it never leaving the device.
+        val junk = inaccJunk("com.example.measured", itemCount = 12, theoreticalPaths = emptySet())
+        val setup = setupCleaner(scanResults = listOf(junk))
+        val rebuilt = rebuildWithDeleter(
+            setup,
+            acsDeleter(
+                succesful = setOf(installId("com.example.measured")),
+                freedBytes = mapOf(installId("com.example.measured") to 1L * 1024 * 1024),
+            ),
+        )
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val result = rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        // 1MB observed out of the 24MB the scan saw.
+        result.affectedSpace shouldBe 1L * 1024 * 1024
+        // Still a full success at scan scale: measuring bytes must not change what was cleared.
+        result.affectedCount shouldBe 12
+    }
+
+    @Test
+    fun `ProcessingTask falls back to the pre-clear size when nothing was measured`() = runTest2 {
+        val junk = inaccJunk("com.example.unmeasured", itemCount = 12, theoreticalPaths = emptySet())
+        val setup = setupCleaner(scanResults = listOf(junk))
+        // No freedBytes entry: the deleter could not measure this one (query failure, cancelled
+        // observation, a backend that never got there). The reported figure stays as it was.
+        val rebuilt = rebuildWithDeleter(setup, acsDeleter(succesful = setOf(installId("com.example.unmeasured"))))
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val result = rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        result.affectedSpace shouldBe 24L * 1024 * 1024
     }
 
     @Test
