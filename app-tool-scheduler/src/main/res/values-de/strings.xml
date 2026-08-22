@@ -34,7 +34,7 @@
     <string name="scheduler_notification_result_channel_label">Zeitplan-Ergebnisse</string>
     <string name="scheduler_notification_result_title">Planer beendet</string>
     <string name="scheduler_notification_result_success_message">Alle geplanten Aufgaben wurden erfolgreich ausgeführt.</string>
-    <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuchen Sie, sie manuell auszuführen.</string>
+    <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuche, sie manuell auszuführen.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Übersprungen, Bildschirm war aus oder gesperrt</string>
     <string name="scheduler_acs_screenlocked_hint_title">App-Reinigung kann übersprungen werden</string>
     <string name="scheduler_acs_screenlocked_hint_body">Die App-Bereinigung verwendet die Bedienungshilfe, wofür das Entsperren des Bildschirms erforderlich ist. Geplante Durchläufe bei gesperrtem Gerät werden übersprungen.\n\nVerwende Shizuku oder Root für die Hintergrundbereinigung oder plane sie für Zeiten ein, in denen du das Gerät verwendest.</string>

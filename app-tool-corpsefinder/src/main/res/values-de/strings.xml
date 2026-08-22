@@ -3,7 +3,7 @@
     <string name="corpsefinder_explanation_short">Daten, die zu bereits entfernten Apps gehören.</string>
     <string name="corpsefinder_settings_summary">Passe Scanfilter und Risikostufen an.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Erwünschte Reste einbeziehen</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">Dateien, die Du vielleicht behalten möchtest, auch wenn die App deinstalliert ist, z.B. Fotos, die Du aufgenommen hast, oder Sicherungskopien, die Du erstellt hast.</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Dateien, die du vielleicht behalten möchtest, auch wenn die App deinstalliert ist, z.B. Fotos, die du aufgenommen hast, oder Sicherungskopien, die du erstellt hast.</string>
     <string name="corpsefinder_settings_risk_common_title">Gebräuchliche Namen einbeziehen</string>
     <string name="corpsefinder_settings_risk_common_summary">Daten mit häufig verwendeten Namen - z.B. ein Ordner \"Notes\" - gehört zu zu vielen unbekannten Apps.</string>
     <string name="corpsefinder_watcher_title">Deinstallations-Beobachter</string>
@@ -52,7 +52,7 @@
     <string name="corpsefinder_delete_all_confirmation_message">Alle App-Reste löschen?</string>
     <string name="corpsefinder_owners_label">Besitzer</string>
     <string name="corpsefinder_owner_unknown">Unbekannter Besitzer</string>
-    <string name="corpsefinder_corpse_hint_keeper">Dieses Element enthält möglicherweise Daten, die Du behalten möchtest, obwohl der Besitzer deinstalliert wurde, z.B. Fotos oder Backups.</string>
+    <string name="corpsefinder_corpse_hint_keeper">Dieses Element enthält möglicherweise Daten, die du behalten möchtest, obwohl der Besitzer deinstalliert wurde, z.B. Fotos oder Backups.</string>
     <string name="corpsefinder_corpse_hint_common">Dieses Element hat einen sehr gebräuchlichen Namen und könnte zu noch installierten Apps gehören, die SD Maid nicht kennt.</string>
     <string name="corpsefinder_risk_keeper_chip">Wünschenswert</string>
     <string name="corpsefinder_risk_common_chip">Häufig</string>
