@@ -31,11 +31,11 @@ class AutomationProcessorTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
-        coEvery { animationTool.restorePendingState() } returns false
+        coEvery { animationTool.restorePendingState() } returns AnimationTool.RestoreResult.NOTHING_PENDING
         coEvery { animationTool.canChangeState() } returns true
+        coEvery { animationTool.captureAndDisable() } returns originalState
         coEvery { animationTool.getState() } returns originalState
         coEvery { animationTool.setState(any()) } returns Unit
-        coEvery { animationTool.persistPendingState(any()) } returns Unit
         coEvery { animationTool.clearPendingState() } returns Unit
 
         coEvery { moduleFactory.isResponsible(any()) } returns true
@@ -60,9 +60,7 @@ class AutomationProcessorTest : BaseTest() {
         coVerifyOrder {
             animationTool.restorePendingState()
             animationTool.canChangeState()
-            animationTool.getState()
-            animationTool.persistPendingState(originalState)
-            animationTool.setState(AnimationState.DISABLED)
+            animationTool.captureAndDisable()
             module.process(task)
             animationTool.setState(originalState)
             animationTool.clearPendingState()
@@ -77,7 +75,7 @@ class AutomationProcessorTest : BaseTest() {
         shouldThrow<RuntimeException> { processor.process(task) }
 
         coVerify {
-            animationTool.setState(AnimationState.DISABLED)
+            animationTool.captureAndDisable()
             animationTool.setState(originalState)
             animationTool.clearPendingState()
         }
@@ -90,8 +88,8 @@ class AutomationProcessorTest : BaseTest() {
         val processor = createProcessor()
         processor.process(task)
 
+        coVerify(exactly = 0) { animationTool.captureAndDisable() }
         coVerify(exactly = 0) { animationTool.setState(any()) }
-        coVerify(exactly = 0) { animationTool.persistPendingState(any()) }
         coVerify(exactly = 0) { animationTool.clearPendingState() }
     }
 
@@ -107,6 +105,30 @@ class AutomationProcessorTest : BaseTest() {
     }
 
     @Test
+    fun `does not capture or disable when the restore failed`() = runTest {
+        coEvery { animationTool.restorePendingState() } returns AnimationTool.RestoreResult.FAILED
+
+        val processor = createProcessor()
+        val result = processor.process(task)
+
+        result shouldBe taskResult
+        coVerify(exactly = 0) { animationTool.captureAndDisable() }
+        coVerify(exactly = 0) { animationTool.setState(any()) }
+        coVerify(exactly = 0) { animationTool.clearPendingState() }
+    }
+
+    @Test
+    fun `RESTORED allows the normal disable path`() = runTest {
+        coEvery { animationTool.restorePendingState() } returns AnimationTool.RestoreResult.RESTORED
+
+        val processor = createProcessor()
+        processor.process(task)
+
+        coVerify { animationTool.captureAndDisable() }
+        coVerify { animationTool.setState(originalState) }
+    }
+
+    @Test
     fun `restorePendingState failure does not block processing`() = runTest {
         coEvery { animationTool.restorePendingState() } throws RuntimeException("DataStore corrupted")
 
@@ -115,6 +137,21 @@ class AutomationProcessorTest : BaseTest() {
 
         result shouldBe taskResult
         coVerify { module.process(task) }
+        coVerify(exactly = 0) { animationTool.captureAndDisable() }
+        coVerify(exactly = 0) { animationTool.setState(any()) }
+    }
+
+    @Test
+    fun `disable failure does not fail the task`() = runTest {
+        // captureAndDisable swallows a failed disable internally and still returns the captured state
+        coEvery { animationTool.captureAndDisable() } returns originalState
+
+        val processor = createProcessor()
+        val result = processor.process(task)
+
+        result shouldBe taskResult
+        coVerify { animationTool.setState(originalState) }
+        coVerify { animationTool.clearPendingState() }
     }
 
     @Test
@@ -133,6 +170,16 @@ class AutomationProcessorTest : BaseTest() {
 
         val processor = createProcessor()
         shouldThrow<RuntimeException> { processor.process(task) }
+
+        processor.hasTask shouldBe false
+    }
+
+    @Test
+    fun `hasTask is reset when module resolution fails`() = runTest {
+        coEvery { moduleFactory.isResponsible(any()) } returns false
+
+        val processor = createProcessor()
+        shouldThrow<IllegalStateException> { processor.process(task) }
 
         processor.hasTask shouldBe false
     }
