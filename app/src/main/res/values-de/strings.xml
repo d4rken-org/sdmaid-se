@@ -23,7 +23,7 @@
     <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nichts wurde freigegeben</string>
     <string name="dashboard_hero_nothing_freed_caption">Die Bereinigung ist abgeschlossen, aber keine der gefundenen Daten konnten entfernt werden.</string>
-    <string name="dashboard_hero_nothing_freed_hint">Einige Daten können nur mit zusätzlichem Zugriff entfernt werden, z. B. über den Barrierefreiheitsdienst oder Root.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Einige Daten können nur mit zusätzlichem Zugriff entfernt werden, z. B. über die Bedienungshilfe oder Root.</string>
     <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
          will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s gefunden</string>
@@ -274,24 +274,24 @@
     <string name="setup_notification_title">Benachrichtigungen</string>
     <string name="setup_notification_body">Erlaube SD Maid, Benachrichtigungen zu senden, um dich über laufende Aktionen oder wichtige Ereignisse zu informieren.</string>
     <string name="setup_notification_hint">Benachrichtigungen werden sparsam eingesetzt 🤞</string>
-    <string name="setup_acs_card_title">Barrierefreiheitsdienst</string>
-    <string name="setup_acs_card_body">Der Barrierefreiheitsdienst ermöglicht es SD Maid, mit Ihrem Bildschirm zu interagieren und mühsame Aktionen zu automatisieren, z. B. das Tippen auf „Cache leeren“ auf mehreren Bildschirmen.</string>
-    <string name="setup_acs_card_body2">SD Maid verwendet den Barrierefreiheitsdienst nicht ohne deine Zustimmung, zeigt immer einen deutlichen (löschbaren) Indikator an, während er aktiv ist, und verwendet ihn nicht, um Informationen zu sammeln.</string>
-    <string name="setup_acs_state_enabled">Der Barrierefreiheitsdienst ist aktiviert</string>
-    <string name="setup_acs_state_disabled">Der Barrierefreiheitsdienst ist deaktiviert</string>
-    <string name="setup_acs_state_running">Der Barrierefreiheitsdienst wird ausgeführt</string>
+    <string name="setup_acs_card_title">Bedienungshilfe</string>
+    <string name="setup_acs_card_body">Die Bedienungshilfe ermöglicht es SD Maid, mit deinem Bildschirm zu interagieren und mühsame Aktionen zu automatisieren, z. B. das Tippen auf „Cache leeren“ auf mehreren Bildschirmen.</string>
+    <string name="setup_acs_card_body2">SD Maid verwendet die Bedienungshilfe nicht ohne deine Zustimmung, zeigt immer einen deutlich sichtbaren (abbrechbaren) Hinweis an, während sie aktiv ist, und nutzt sie nicht, um Informationen zu sammeln.</string>
+    <string name="setup_acs_state_enabled">Die Bedienungshilfe ist aktiviert</string>
+    <string name="setup_acs_state_disabled">Die Bedienungshilfe ist deaktiviert</string>
+    <string name="setup_acs_state_running">Die Bedienungshilfe wird ausgeführt</string>
     <string name="setup_acs_state_ondemand">Der Dienst wird auf Anfrage gestartet</string>
-    <string name="setup_acs_state_stopped">Der Barrierefreiheitsdienst wurde beendet</string>
+    <string name="setup_acs_state_stopped">Die Bedienungshilfe wurde beendet</string>
     <string name="setup_acs_state_stopped_hint">Der Dienst ist aktiviert, wird jedoch nicht ausgeführt. Schalte es aus/ein oder starte das Gerät neu. Stelle sicher, dass SD Maid nicht vom System „optimiert“ wird.</string>
     <string name="setup_acs_state_stopped_hint_miui">Wenn der Dienst nach einiger Zeit immer wieder deaktiviert wird, versuche, die Option „Autostart“ für SD Maid in den Systemeinstellungen zu aktivieren.</string>
     <string name="setup_acs_consent_positive_action">Dienst aktivieren und Zugriff gewähren</string>
-    <string name="setup_acs_consent_negative_action">Verwende keinen Barrierefreiheitsdienst</string>
-    <string name="setup_acs_allow_hint">Die Eingabehilfe-Verknüpfung oder der -Button für SD Maid SE ist aktiviert. Öffne die Eingabehilfen-Einstellungen deines Geräts und deaktiviere die Verknüpfung bzw. die Schaltfläche, um ein ungewolltes Symbol am Bildschirmrand zu verhindern.</string>
+    <string name="setup_acs_consent_negative_action">Bedienungshilfe nicht verwenden</string>
+    <string name="setup_acs_allow_hint">Die Verknüpfung bzw. der Button für Bedienungshilfen ist für SD Maid SE aktiviert. Öffne die Bedienungshilfen-Einstellungen deines Geräts und deaktiviere die Verknüpfung bzw. den Button, um ein ungewolltes Symbol am Bildschirmrand zu verhindern.</string>
     <string name="setup_acs_disallow_hint">Wenn Du Deine Meinung änderst, kannst Du diese Option erneut ändern, indem Du in die Einstellungen gehst und die Einrichtung neu startest.</string>
     <string name="setup_acs_appops_restriction_title">Eingeschränkte Einstellungen</string>
-    <string name="setup_acs_appops_restriction_body">Kannst du den Bedienungshilfen-Dienst von SD Maid nicht aktivieren? Unter Android 13+ gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Hebe diese Einschränkungen auf der Infoseite des Systems für SD Maid auf. Die Option befindet sich im Kontextmenü oben rechts.</string>
+    <string name="setup_acs_appops_restriction_body">Kannst du die Bedienungshilfe von SD Maid nicht aktivieren? Unter Android 13+ gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Hebe diese Einschränkungen auf der Infoseite des Systems für SD Maid auf. Die Option befindet sich im Kontextmenü oben rechts.</string>
     <string name="setup_acs_advanced_protection_title">Durch Erweiterten Schutz blockiert</string>
-    <string name="setup_acs_advanced_protection_body">Der erweiterte Schutz von Android blockiert den Bedienungshilfen-Dienst von SD Maid ab Android 17, sodass er bei aktiviertem Schutz nicht eingeschaltet werden kann. Tippe auf Hilfe für Details und Alternativen.</string>
+    <string name="setup_acs_advanced_protection_body">Der erweiterte Schutz von Android blockiert die Bedienungshilfe von SD Maid ab Android 17, sodass sie bei aktiviertem Schutz nicht eingeschaltet werden kann. Tippe auf Hilfe für Details und Alternativen.</string>
     <string name="setup_inventory_card_title">App-Inventar</string>
     <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps du installiert hast, um Dateien zu finden, die zu keiner installierten App gehören.</string>
     <string name="setup_inventory_card_extra">Suche nach einer Berechtigung namens „App-Liste“ oder „Alle Pakete abfragen“.</string>

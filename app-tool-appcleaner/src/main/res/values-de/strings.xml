@@ -10,13 +10,13 @@
     <string name="appcleaner_include_runningapps_label">Laufende Apps einbeziehen</string>
     <string name="appcleaner_include_runningapps_summary">Derzeit ausgeführte Apps einbeziehen. Kann Störungen verursachen.</string>
     <string name="appcleaner_include_inaccessible_label">Unzugängliche Caches einbeziehen</string>
-    <string name="appcleaner_include_inaccessible_summary">Daten einbeziehen, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht werde können, automatisiert mittels eines Bedienungshilfe-Services. </string>
+    <string name="appcleaner_include_inaccessible_summary">Daten einbeziehen, auf die nicht direkt zugegriffen werden kann, die jedoch über die Systemeinstellungen gelöscht werden können, automatisiert über die Bedienungshilfe. </string>
     <string name="appcleaner_include_minimumsize_label">Mindestgröße</string>
     <string name="appcleaner_include_minimumsize_summary">Apps auslassen, bei denen die Gesamtmenge entbehrlichen Daten unterhalb des Minimums liegt.</string>
     <string name="appcleaner_include_minimumage_label">Mindestalter</string>
     <string name="appcleaner_include_minimumage_summary">Dateien auslassen, die jünger als das Mindestalter sind.</string>
     <string name="appcleaner_automation_romtype_detection_label">Betriebssystemerkennung</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Automatisierung auf der Grundlage von Barrierefreiheit kann fehlschlagen, wenn SD Maid dein Betriebssystem nicht korrekt erkennt. Verwende diese Einstellung, um das erkannte Betriebssystem zu überschreiben.</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatisierung über die Bedienungshilfe kann fehlschlagen, wenn SD Maid dein Betriebssystem nicht korrekt erkennt. Verwende diese Einstellung, um das erkannte Betriebssystem zu überschreiben.</string>
     <string name="appcleaner_filter_codecache_label">Code-Cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM-Code-Cache. In nativen Code kompilierte Bytecode-Blöcke.</string>
     <string name="appcleaner_filter_advertisement_label">Werbedaten</string>
@@ -70,9 +70,9 @@
     <string name="appcleaner_automation_progress_find_clear_data">Suche nach \"Daten löschen\" Button (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Suche nach \"Cache löschen\"-Button (Schlüsselwörter: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
-    <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
-    <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>
-    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert den Barrierefreiheitsdienst von SD Maid, der jedoch nicht verfügbar war. Wenn Du ihn nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
+    <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z. B. über die Bedienungshilfe).</string>
+    <string name="appcleaner_automation_unavailable_title">Bedienungshilfe nicht verfügbar</string>
+    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert die Bedienungshilfe von SD Maid, diese war jedoch nicht verfügbar. Wenn du sie nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
     <string name="appcleaner_delete_confirmation_message_x">Entbehrliche Dateien für %s löschen?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Entbehrliche Dateien für %d ausgewählte App löschen?</item>
@@ -83,7 +83,7 @@
     <string name="appcleaner_automation_error_locked_appcache_title">Cache leeren nicht möglich</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Das System hat den \"Cache löschen\"-Button für diese App deaktiviert. Schließe sie aus, um das Löschen des Caches zu beschleunigen.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">System-App falsch konfiguriert</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Der HyperOS-Sicherheits-App (com.miui.securitycenter) fehlt die Berechtigung zur Nutzung von Statistiken (GET_USAGE_STATS). Dies behindert Funktionen wie \"Daten löschen\" in den App-Details und Cache-Clearing über den Barrierefreiheitsdienst. Gewähre die Berechtigung, um die volle Funktionalität wiederherzustellen.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Der HyperOS-Sicherheits-App (com.miui.securitycenter) fehlt die Berechtigung zur Nutzung von Statistiken (GET_USAGE_STATS). Dies behindert Funktionen wie \"Daten löschen\" in den App-Details und das Leeren des Caches über die Bedienungshilfe. Gewähre die Berechtigung, um die volle Funktionalität wiederherzustellen.</string>
     <string name="appcleaner_automation_compat_forcestop_hint">Dies kann auch passieren, wenn die Systemapp „System UI“ kürzlich erzwungen beendet wurde, z. B. durch ein App-Reinigungstool. Android blockiert dann die automatisierten Tastendrücke von SD Maid, bis du das Gerät neu startest.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Vor dem Leeren zwangsweise beenden</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Beende Apps sofort, bevor ihr Cache geleert wird. Das kann beim Leeren des Caches einiger Apps helfen, führt jedoch möglicherweise dazu, dass Apps nicht mehr ordnungsgemäß funktionieren und manuell neu gestartet werden müssen.</string>
