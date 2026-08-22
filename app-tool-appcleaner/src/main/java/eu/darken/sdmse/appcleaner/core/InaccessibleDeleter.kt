@@ -286,6 +286,9 @@ class InaccessibleDeleter @Inject constructor(
 
         val minObserved = mutableMapOf<InstallId, Long>()
         val lastSample = mutableMapOf<InstallId, Long>()
+        // A read that failed after an earlier one succeeded must not let that earlier value pass as
+        // the final measurement, or a 100MB cache read as 90MB and then unreadable reports 10MB.
+        val failedReads = mutableSetOf<InstallId>()
 
         // Track the MINIMUM, not the first decrease. A 100MB cache sampled as 90MB and then 0MB
         // freed 100MB; stopping at the first decrease would report 10MB, which is exactly the kind
@@ -296,13 +299,18 @@ class InaccessibleDeleter @Inject constructor(
             if (current == null) {
                 // A failed query won't get better by asking again in a tight loop.
                 log(TAG, WARN) { "Freed-byte sample failed for $id" }
+                failedReads.add(id)
                 return true
             }
             val size = current.totalSize
             minObserved[id] = minOf(minObserved[id] ?: Long.MAX_VALUE, size)
             val previous = lastSample.put(id, size)
-            // Zero is the end state. Otherwise the number has to stop moving before we trust it.
-            return size == 0L || previous == size
+            val baseline = baselines[id] ?: junk.inaccessibleCache!!.totalSize
+            // Zero is the end state. Otherwise the number has to move off the pre-clear size AND
+            // stop moving before we trust it: StorageStatsManager lags behind a clear, so two reads
+            // 500ms apart can both still report the stale pre-clear size. A target still sitting at
+            // its baseline keeps polling until the budget runs out.
+            return size == 0L || (previous == size && size < baseline)
         }
 
         // First pass outside the budget: on a large batch a global timeout can expire mid-round and
@@ -328,11 +336,14 @@ class InaccessibleDeleter @Inject constructor(
         return targets.associate { junk ->
             val id = junk.identifier
             val baseline = baselines[id] ?: junk.inaccessibleCache!!.totalSize
-            when (val min = minObserved[id]) {
-                // Never got a single reading. Reporting 0 here would tell a user who really did get
-                // their space back that nothing happened, so fall back to the pre-clear size and
-                // make the failed measurement visible instead of letting it pass as a real one.
-                null -> {
+            val min = minObserved[id]
+            when {
+                // Never got a single reading, or a reading failed part-way through. Reporting 0
+                // here would tell a user who really did get their space back that nothing happened,
+                // and crediting a half-finished walk-down would under-report just as badly, so fall
+                // back to the pre-clear size and make the failed measurement visible instead of
+                // letting it pass as a real one.
+                id in failedReads || min == null -> {
                     log(TAG, WARN) { "Freed-byte read failed, falling back to pre-clear size for $id" }
                     id to baseline
                 }

@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.maps.shouldBeEmpty
@@ -45,6 +46,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
+import kotlinx.coroutines.test.currentTime
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -854,11 +856,43 @@ class InaccessibleDeleterTest : BaseTest() {
     }
 
     @Test
-    fun `a cache that never shrinks settles instead of burning the whole budget`() = runTest {
+    fun `a cache still at its pre-clear size keeps polling until the budget runs out`() = runTest {
+        // Two identical reads are not proof of a settled number while the size still equals what it
+        // was before the clear: StorageStatsManager lags, so both can be the same stale value.
+        // Accepting that would report 0 freed for a cache that did clear.
         val junk = createAppJunk("com.example.unchanged", cacheSize = 100000)
         val snapshot = createSnapshot(junk)
 
         scriptCacheSizes(junk to listOf(100000L))
+        acsClears(junk)
+
+        val logs = collectLogs()
+        val startedAt = currentTime
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        // Virtual time, so this costs no wall-clock: the poll ran for the full settle budget and
+        // then gave up instead of hanging.
+        (currentTime - startedAt) shouldBeGreaterThanOrEqual 10_000L
+        logs.any { it.contains("Freed-byte observation timed out") } shouldBe true
+        result.freedBytes[junk.identifier] shouldBe 0L
+        result.succesful shouldContain junk.identifier
+        result.failed.shouldBeEmpty()
+    }
+
+    @Test
+    fun `a size that only drops after two stale reads still reports the full baseline`() = runTest {
+        // The pre-ACS re-query plus two post-clear reads all return the pre-clear size, then the
+        // number finally catches up. Settling on the repeated stale value would report 0 freed for
+        // a cache that gave up every byte.
+        val junk = createAppJunk("com.example.laggy", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        scriptCacheSizes(junk to listOf(100000L, 100000L, 100000L, 0L))
         acsClears(junk)
 
         val result = deleter.deleteInaccessible(
@@ -868,9 +902,31 @@ class InaccessibleDeleterTest : BaseTest() {
             isBackground = false,
         )
 
-        result.freedBytes[junk.identifier] shouldBe 0L
+        result.freedBytes[junk.identifier] shouldBe 100000L
         result.succesful shouldContain junk.identifier
-        result.failed.shouldBeEmpty()
+    }
+
+    @Test
+    fun `a read that fails after a successful one falls back to the pre-clear size`() = runTest {
+        // 100000 -> 90000 -> unreadable. The 90000 was a number on the way down, not a result, so
+        // crediting it would report 10000 freed for a cache we can no longer measure.
+        val junk = createAppJunk("com.example.halfread", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        scriptCacheSizes(junk to listOf(100000L, 90000L, null))
+        acsClears(junk)
+
+        val logs = collectLogs()
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.freedBytes[junk.identifier] shouldBe 100000L
+        result.succesful shouldContain junk.identifier
+        logs.any { it.contains("Freed-byte read failed, falling back to pre-clear size") } shouldBe true
     }
 
     @Test
