@@ -33,10 +33,11 @@ class AutomationProcessorTest : BaseTest() {
     fun setup() {
         coEvery { animationTool.restorePendingState() } returns AnimationTool.RestoreResult.NOTHING_PENDING
         coEvery { animationTool.canChangeState() } returns true
-        coEvery { animationTool.captureAndDisable() } returns originalState
         coEvery { animationTool.getState() } returns originalState
-        coEvery { animationTool.setState(any()) } returns Unit
-        coEvery { animationTool.clearPendingState() } returns Unit
+        // The real implementation runs the block inside its transaction, the stub has to do the same
+        coEvery { animationTool.withAnimationsDisabled<AutomationTask.Result>(any()) } coAnswers {
+            firstArg<suspend () -> AutomationTask.Result>().invoke()
+        }
 
         coEvery { moduleFactory.isResponsible(any()) } returns true
         coEvery { moduleFactory.create(any(), any()) } returns module
@@ -51,7 +52,7 @@ class AutomationProcessorTest : BaseTest() {
     )
 
     @Test
-    fun `animations are disabled before processing and restored after`() = runTest {
+    fun `the task runs inside the animation transaction`() = runTest {
         val processor = createProcessor()
         val result = processor.process(task)
 
@@ -60,25 +61,19 @@ class AutomationProcessorTest : BaseTest() {
         coVerifyOrder {
             animationTool.restorePendingState()
             animationTool.canChangeState()
-            animationTool.captureAndDisable()
+            animationTool.withAnimationsDisabled<AutomationTask.Result>(any())
             module.process(task)
-            animationTool.setState(originalState)
-            animationTool.clearPendingState()
         }
     }
 
     @Test
-    fun `animations are restored even when task fails`() = runTest {
+    fun `a failing task still goes through the animation transaction`() = runTest {
         coEvery { module.process(any()) } throws RuntimeException("Task failed")
 
         val processor = createProcessor()
         shouldThrow<RuntimeException> { processor.process(task) }
 
-        coVerify {
-            animationTool.captureAndDisable()
-            animationTool.setState(originalState)
-            animationTool.clearPendingState()
-        }
+        coVerify { animationTool.withAnimationsDisabled<AutomationTask.Result>(any()) }
     }
 
     @Test
@@ -86,33 +81,24 @@ class AutomationProcessorTest : BaseTest() {
         coEvery { animationTool.canChangeState() } returns false
 
         val processor = createProcessor()
-        processor.process(task)
+        val result = processor.process(task)
 
-        coVerify(exactly = 0) { animationTool.captureAndDisable() }
+        result shouldBe taskResult
+        coVerify { module.process(task) }
+        coVerify(exactly = 0) { animationTool.withAnimationsDisabled<AutomationTask.Result>(any()) }
         coVerify(exactly = 0) { animationTool.setState(any()) }
         coVerify(exactly = 0) { animationTool.clearPendingState() }
     }
 
     @Test
-    fun `clearPendingState not called when restore fails`() = runTest {
-        coEvery { animationTool.setState(originalState) } throws RuntimeException("Shell lost")
-
-        val processor = createProcessor()
-        processor.process(task)
-
-        coVerify { animationTool.setState(originalState) }
-        coVerify(exactly = 0) { animationTool.clearPendingState() }
-    }
-
-    @Test
-    fun `does not capture or disable when the restore failed`() = runTest {
+    fun `does not disable animations when the restore failed`() = runTest {
         coEvery { animationTool.restorePendingState() } returns AnimationTool.RestoreResult.FAILED
 
         val processor = createProcessor()
         val result = processor.process(task)
 
         result shouldBe taskResult
-        coVerify(exactly = 0) { animationTool.captureAndDisable() }
+        coVerify(exactly = 0) { animationTool.withAnimationsDisabled<AutomationTask.Result>(any()) }
         coVerify(exactly = 0) { animationTool.setState(any()) }
         coVerify(exactly = 0) { animationTool.clearPendingState() }
     }
@@ -124,8 +110,7 @@ class AutomationProcessorTest : BaseTest() {
         val processor = createProcessor()
         processor.process(task)
 
-        coVerify { animationTool.captureAndDisable() }
-        coVerify { animationTool.setState(originalState) }
+        coVerify { animationTool.withAnimationsDisabled<AutomationTask.Result>(any()) }
     }
 
     @Test
@@ -137,21 +122,8 @@ class AutomationProcessorTest : BaseTest() {
 
         result shouldBe taskResult
         coVerify { module.process(task) }
-        coVerify(exactly = 0) { animationTool.captureAndDisable() }
+        coVerify(exactly = 0) { animationTool.withAnimationsDisabled<AutomationTask.Result>(any()) }
         coVerify(exactly = 0) { animationTool.setState(any()) }
-    }
-
-    @Test
-    fun `disable failure does not fail the task`() = runTest {
-        // captureAndDisable swallows a failed disable internally and still returns the captured state
-        coEvery { animationTool.captureAndDisable() } returns originalState
-
-        val processor = createProcessor()
-        val result = processor.process(task)
-
-        result shouldBe taskResult
-        coVerify { animationTool.setState(originalState) }
-        coVerify { animationTool.clearPendingState() }
     }
 
     @Test
