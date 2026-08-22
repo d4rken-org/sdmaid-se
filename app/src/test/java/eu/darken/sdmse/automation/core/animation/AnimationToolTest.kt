@@ -25,6 +25,9 @@ import io.mockk.mockkStatic
 import io.mockk.slot
 import io.mockk.unmockkStatic
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -380,6 +383,32 @@ class AnimationToolTest : BaseTest() {
 
         // Only the initial persist, the pending record has to survive a failed restore
         coVerify(exactly = 1) { pendingRestoreState.update(any()) }
+    }
+
+    @Test
+    fun `withAnimationsDisabled blocks a concurrent restore until the block is done`() = runTest {
+        stubWritableSystem()
+        coEvery { pendingRestoreState.value() } returns testState
+        coEvery { pendingRestoreState.update(any()) } returns DataStoreValue.Updated(null, testState)
+
+        val tool = createTool()
+        val blockGate = CompletableDeferred<Unit>()
+        val txJob = launch { tool.withAnimationsDisabled { blockGate.await() } }
+        runCurrent()
+
+        var restoreResult: AnimationTool.RestoreResult? = null
+        val restoreJob = launch { restoreResult = tool.restorePendingState() }
+        runCurrent()
+
+        // The transaction still holds the lock, so the restore can't re-enable animations or clear the record yet
+        restoreJob.isCompleted shouldBe false
+        restoreResult shouldBe null
+
+        blockGate.complete(Unit)
+        txJob.join()
+        restoreJob.join()
+
+        restoreResult shouldBe AnimationTool.RestoreResult.RESTORED
     }
 
     @Test
