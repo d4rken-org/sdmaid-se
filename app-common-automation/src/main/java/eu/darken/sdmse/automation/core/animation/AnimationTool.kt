@@ -21,8 +21,10 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -68,13 +70,19 @@ class AnimationTool @Inject constructor(
         } else {
             val typedValue = TypedValue()
             resources.getValue(id, typedValue, true)
-            val frameworkValue = typedValue.float
-            if (!frameworkValue.isFinite() || frameworkValue <= 0f) {
-                log(TAG) { "defaultTransitionScale(): Unusable framework value ($frameworkValue), using $DEFAULT_SCALE" }
+            if (typedValue.type != TypedValue.TYPE_FLOAT) {
+                // TypedValue.getFloat() reinterprets the raw data bits, that's only meaningful for TYPE_FLOAT
+                log(TAG) { "defaultTransitionScale(): Not a float (type=${typedValue.type}), using $DEFAULT_SCALE" }
                 DEFAULT_SCALE
             } else {
-                log(TAG) { "defaultTransitionScale(): Using framework value $frameworkValue" }
-                frameworkValue
+                val frameworkValue = typedValue.float
+                if (!frameworkValue.isFinite() || frameworkValue <= 0f) {
+                    log(TAG) { "defaultTransitionScale(): Unusable framework value ($frameworkValue), using $DEFAULT_SCALE" }
+                    DEFAULT_SCALE
+                } else {
+                    log(TAG) { "defaultTransitionScale(): Using framework value $frameworkValue" }
+                    frameworkValue
+                }
             }
         }
     } catch (e: Exception) {
@@ -161,20 +169,47 @@ class AnimationTool @Inject constructor(
     }
 
     /**
-     * Captures the current state, persists it as pending restore state and then disables animations.
-     * Shares [txLock] with [restorePendingState] so a concurrent restore can't clear the record we just wrote.
+     * Captures the current state, persists it as pending restore state, disables animations, runs [block] and
+     * restores the captured state afterwards, no matter how [block] ends.
+     *
+     * [txLock] is held for the whole duration, including [block]. That's what keeps a concurrent
+     * [restorePendingState] from re-enabling animations mid-task or clearing the pending record while we still
+     * need it. Consequently nothing inside [block] may call a [txLock]-guarded method ([restorePendingState],
+     * [withAnimationsDisabled]), a [Mutex] is not reentrant and would deadlock. [getState] is unguarded and safe.
+     *
+     * Failing to disable animations is not fatal, [block] runs regardless. The restore runs [NonCancellable] so a
+     * cancellation, including one hitting the disable write itself, still leaves the device with its original state.
      */
-    suspend fun captureAndDisable(): AnimationState = txLock.withLock {
+    suspend fun <R> withAnimationsDisabled(block: suspend () -> R): R = txLock.withLock {
         val previous = getState()
         persistPendingState(previous)
         try {
-            setState(AnimationState.DISABLED)
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            log(TAG, WARN) { "captureAndDisable(): Failed to disable animations: ${e.asLog()}" }
+            try {
+                setState(AnimationState.DISABLED)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "withAnimationsDisabled(): Failed to disable animations: ${e.asLog()}" }
+            }
+            block()
+        } finally {
+            withContext(NonCancellable) {
+                var restored = false
+                try {
+                    setState(previous)
+                    restored = true
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "withAnimationsDisabled(): Failed to restore animation state: ${e.asLog()}" }
+                }
+                if (restored) {
+                    try {
+                        clearPendingState()
+                    } catch (e: Exception) {
+                        log(TAG, ERROR) { "withAnimationsDisabled(): Failed to clear pending state: ${e.asLog()}" }
+                    }
+                }
+            }
         }
-        previous
     }
 
     companion object {

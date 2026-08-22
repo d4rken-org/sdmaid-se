@@ -3,7 +3,6 @@ package eu.darken.sdmse.automation.core
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -16,7 +15,6 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.sync.Mutex
@@ -60,25 +58,25 @@ class AutomationProcessor @AssistedInject constructor(
                 AnimationTool.RestoreResult.FAILED
             }
 
-            var prevAnimState: AnimationState? = null
+            val runModule: suspend () -> AutomationTask.Result = {
+                log(TAG, INFO) { "process(): Current animation state: ${animationTool.getState()}" }
+                log(TAG, VERBOSE) { "process(): Processing $task via $module" }
+                withContext(dispatcherProvider.IO) { module.process(task) }
+            }
 
             val result = try {
                 when {
-                    restoreResult == AnimationTool.RestoreResult.FAILED -> log(TAG, WARN) {
-                        "process(): Not touching animations, a pending restore is still outstanding"
+                    restoreResult == AnimationTool.RestoreResult.FAILED -> {
+                        log(TAG, WARN) { "process(): Not touching animations, a pending restore is still outstanding" }
+                        runModule()
                     }
 
                     animationTool.canChangeState() -> {
                         log(TAG) { "process(): Disabling animations" }
-                        prevAnimState = animationTool.captureAndDisable()
+                        animationTool.withAnimationsDisabled { runModule() }
                     }
-                }
 
-                log(TAG, INFO) { "process(): Current animation state: ${animationTool.getState()}" }
-
-                log(TAG, VERBOSE) { "process(): Processing $task via $module" }
-                withContext(dispatcherProvider.IO) {
-                    module.process(task)
+                    else -> runModule()
                 }
             } catch (e: CancellationException) {
                 log(TAG, INFO) { "process(): Task cancelled: $task ($e)" }
@@ -86,26 +84,6 @@ class AutomationProcessor @AssistedInject constructor(
             } catch (e: Exception) {
                 log(TAG, ERROR) { "process(): Task failed: $task\n${e.asLog()}" }
                 throw e
-            } finally {
-                if (prevAnimState != null) {
-                    log(TAG) { "process(): Restoring previous animation state" }
-                    withContext(NonCancellable) {
-                        var restored = false
-                        try {
-                            animationTool.setState(prevAnimState)
-                            restored = true
-                        } catch (e: Exception) {
-                            log(TAG, ERROR) { "process(): Failed to restore animation state: ${e.asLog()}" }
-                        }
-                        if (restored) {
-                            try {
-                                animationTool.clearPendingState()
-                            } catch (e: Exception) {
-                                log(TAG, ERROR) { "process(): Failed to clear pending state: ${e.asLog()}" }
-                            }
-                        }
-                    }
-                }
             }
 
             log(TAG) { "process(): Result is $result" }
