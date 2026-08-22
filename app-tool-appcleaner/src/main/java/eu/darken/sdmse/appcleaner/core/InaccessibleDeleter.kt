@@ -135,6 +135,14 @@ class InaccessibleDeleter @Inject constructor(
 
         val successTargets = mutableListOf<InstallId>()
         val failedTargets = mutableMapOf<InstallId, Exception>()
+        // What each target held before we touched it. The scan-time size is the right baseline for
+        // the ADB backend, which runs first. Targets that survive to the ACS stage are re-based on
+        // the pre-ACS re-query below, so ACS is not credited with what ADB already freed.
+        val baselines = targets.associate { it.identifier to it.inaccessibleCache!!.totalSize }.toMutableMap()
+        val freedBytes = mutableMapOf<InstallId, Long>()
+        // Already empty before any backend ran: a success with nothing to measure. Excluded from
+        // the observation so it keeps contributing its scan-time size, exactly as before.
+        val zeroCacheSkips = mutableSetOf<InstallId>()
 
         if (adbManager.canUseAdbNow() && isAllApps) {
             val adbResult = trimCachesWithAdb(targets)
@@ -149,8 +157,12 @@ class InaccessibleDeleter @Inject constructor(
                 if (currentCache != null && currentCache.totalSize == 0L) {
                     log(TAG) { "Cache now zero, skipping automation: ${junk.identifier}" }
                     successTargets.add(junk.identifier)
+                    zeroCacheSkips.add(junk.identifier)
                     false
                 } else {
+                    // Free re-baseline: this query is made anyway, we just stopped throwing the
+                    // value away. A failed query leaves the scan-time baseline in place.
+                    if (currentCache != null) baselines[junk.identifier] = currentCache.totalSize
                     true
                 }
             }
@@ -241,7 +253,97 @@ class InaccessibleDeleter @Inject constructor(
             log(TAG, INFO) { "useAutomation=false" }
         }
 
-        return buildResult(successTargets, failedTargets)
+        val observationTargets = targets.filter {
+            successTargets.contains(it.identifier) && !zeroCacheSkips.contains(it.identifier)
+        }
+        if (observationTargets.isNotEmpty()) {
+            try {
+                freedBytes.putAll(observeFreedBytes(observationTargets, baselines))
+            } catch (e: Exception) {
+                // This suspends for up to ACS_SETTLE_TIMEOUT, so a cancel landing inside it is not
+                // unlikely. Without this the caller would receive no result at all and would keep
+                // advertising caches that are genuinely gone.
+                log(TAG, WARN) { "Freed-byte observation failed, forwarding what was cleared: ${e.asLog()}" }
+                onPartialResult(buildResult(successTargets, failedTargets, freedBytes))
+                throw e
+            }
+        }
+
+        return buildResult(successTargets, failedTargets, freedBytes)
+    }
+
+    /**
+     * Measures how many bytes each cleared target actually gave up. "Cache cleared" is what a
+     * backend reports, not what StorageStatsManager confirms: an app can report a successful clear
+     * and still hold every byte, and a real clear needs a moment for the numbers to catch up. The
+     * outcome is a number only, no target is reclassified based on what is observed here.
+     */
+    private suspend fun observeFreedBytes(
+        targets: Collection<AppJunk>,
+        baselines: Map<InstallId, Long>,
+    ): Map<InstallId, Long> {
+        log(TAG) { "Observing freed bytes for ${targets.size} targets" }
+
+        val minObserved = mutableMapOf<InstallId, Long>()
+        val lastSample = mutableMapOf<InstallId, Long>()
+
+        // Track the MINIMUM, not the first decrease. A 100MB cache sampled as 90MB and then 0MB
+        // freed 100MB; stopping at the first decrease would report 10MB, which is exactly the kind
+        // of wrong number this observation exists to eliminate.
+        suspend fun sample(junk: AppJunk): Boolean {
+            val id = junk.identifier
+            val current = inaccessibleCacheProvider.determineCache(junk.pkg)
+            if (current == null) {
+                // A failed query won't get better by asking again in a tight loop.
+                log(TAG, WARN) { "Freed-byte sample failed for $id" }
+                return true
+            }
+            val size = current.totalSize
+            minObserved[id] = minOf(minObserved[id] ?: Long.MAX_VALUE, size)
+            val previous = lastSample.put(id, size)
+            // Zero is the end state. Otherwise the number has to stop moving before we trust it.
+            return size == 0L || previous == size
+        }
+
+        // First pass outside the budget: on a large batch a global timeout can expire mid-round and
+        // leave late targets unsampled, silently back on the optimistic pre-clear figure. Every
+        // target is sampled at least once, always.
+        val pending = mutableListOf<AppJunk>()
+        targets.forEach { if (!sample(it)) pending.add(it) }
+
+        if (pending.isNotEmpty()) {
+            // Rounds rather than one coroutine per target, like the system app re-check above: no
+            // target can be starved of polling by targets that never settle.
+            withTimeoutOrNull(ACS_SETTLE_TIMEOUT) {
+                while (pending.isNotEmpty()) {
+                    log(TAG, VERBOSE) { "Waiting on ${pending.size} cache sizes to settle" }
+                    delay(500)
+                    pending.removeAll(pending.filter { sample(it) })
+                }
+            } ?: log(TAG, WARN) {
+                "Freed-byte observation timed out after $ACS_SETTLE_TIMEOUT for: ${pending.map { it.identifier }}"
+            }
+        }
+
+        return targets.associate { junk ->
+            val id = junk.identifier
+            val baseline = baselines[id] ?: junk.inaccessibleCache!!.totalSize
+            when (val min = minObserved[id]) {
+                // Never got a single reading. Reporting 0 here would tell a user who really did get
+                // their space back that nothing happened, so fall back to the pre-clear size and
+                // make the failed measurement visible instead of letting it pass as a real one.
+                null -> {
+                    log(TAG, WARN) { "Freed-byte read failed, falling back to pre-clear size for $id" }
+                    id to baseline
+                }
+
+                else -> {
+                    val freed = (baseline - min).coerceAtLeast(0L)
+                    log(TAG) { "Freed $freed of $baseline bytes (smallest observed: $min) for $id" }
+                    id to freed
+                }
+            }
+        }
     }
 
     /**
@@ -252,11 +354,13 @@ class InaccessibleDeleter @Inject constructor(
     private fun buildResult(
         successTargets: Collection<InstallId>,
         failedTargets: Map<InstallId, Exception>,
+        freedBytes: Map<InstallId, Long> = emptyMap(),
     ): InaccDelResult {
         val successful = successTargets.toSet()
         return InaccDelResult(
             succesful = successful,
             failed = failedTargets.filterKeys { !successful.contains(it) },
+            freedBytes = freedBytes.filterKeys { successful.contains(it) },
         )
     }
 
@@ -460,6 +564,12 @@ class InaccessibleDeleter @Inject constructor(
     data class InaccDelResult(
         val succesful: Set<InstallId> = emptySet(),
         val failed: Map<InstallId, Exception> = emptyMap(),
+        /**
+         * Bytes that were observed to actually disappear, per app. A missing entry means the
+         * clear was not measured; the caller then falls back to the pre-clear size, which is
+         * what it reported unconditionally before this existed.
+         */
+        val freedBytes: Map<InstallId, Long> = emptyMap(),
     )
 
     companion object {
@@ -467,5 +577,8 @@ class InaccessibleDeleter @Inject constructor(
 
         /** Wall-clock budget for waiting on StorageStatsManager to catch up after a trim. */
         private val SYSTEM_RECHECK_TIMEOUT = 10.seconds
+
+        /** Wall-clock budget for the whole post-clear settle poll that measures freed bytes. */
+        private val ACS_SETTLE_TIMEOUT = 10.seconds
     }
 }
