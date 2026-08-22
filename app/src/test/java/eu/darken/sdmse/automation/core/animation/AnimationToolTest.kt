@@ -1,7 +1,9 @@
 package eu.darken.sdmse.automation.core.animation
 
 import android.content.Context
+import android.content.res.Resources
 import android.provider.Settings
+import android.util.TypedValue
 import eu.darken.sdmse.automation.core.AutomationSettings
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
@@ -21,6 +23,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.slot
+import io.mockk.unmockkStatic
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.BeforeEach
@@ -80,6 +83,34 @@ class AnimationToolTest : BaseTest() {
             errors = emptyList(),
         )
         return cmdSlot
+    }
+
+    /**
+     * Stubs a system where shell writes actually take effect, so [AnimationTool.setState] readback checks pass.
+     * [onExecute] receives the 1-based shell call count and can throw to simulate a failing write.
+     */
+    private fun stubWritableSystem(onExecute: (Int) -> Unit = {}): MutableList<ShellOpsCmd> {
+        val current = mutableMapOf(
+            WINDOW_ANIMATION_SCALE to 1.0f,
+            TRANSITION_ANIMATION_SCALE to 1.0f,
+            ANIMATOR_DURATION_SCALE to 1.0f,
+        )
+        every { Settings.Global.getFloat(any(), any(), any()) } answers {
+            current[secondArg<String>()] ?: Float.MIN_VALUE
+        }
+
+        val cmds = mutableListOf<ShellOpsCmd>()
+        coEvery { adbManager.canUseAdbNow() } returns true
+        coEvery { rootManager.canUseRootNow() } returns false
+        coEvery { shellOps.execute(capture(cmds), any()) } answers {
+            onExecute(cmds.size)
+            firstArg<ShellOpsCmd>().cmds.forEach { cmd ->
+                val (key, value) = cmd.removePrefix("settings put global ").split(" ")
+                current[key] = value.toFloat()
+            }
+            ShellOpsResult(exitCode = 0, output = emptyList(), errors = emptyList())
+        }
+        return cmds
     }
 
     private fun createTool() = AnimationTool(
@@ -246,26 +277,140 @@ class AnimationToolTest : BaseTest() {
     }
 
     @Test
-    fun `captureAndDisable returns the captured state even when the disable write fails`() = runTest {
-        coEvery { adbManager.canUseAdbNow() } returns true
-        coEvery { rootManager.canUseRootNow() } returns false
-        coEvery { shellOps.execute(any<ShellOpsCmd>(), any()) } throws RuntimeException("Shell failed")
+    fun `withAnimationsDisabled runs the block with animations off and restores afterwards`() = runTest {
+        val cmds = stubWritableSystem()
         coEvery { pendingRestoreState.update(any()) } returns DataStoreValue.Updated(null, testState)
 
         val tool = createTool()
-        tool.captureAndDisable() shouldBe testState
+        var stateDuringBlock: AnimationState? = null
+        val result = tool.withAnimationsDisabled {
+            stateDuringBlock = tool.getState()
+            "block-result"
+        }
 
-        coVerify { pendingRestoreState.update(any()) }
+        result shouldBe "block-result"
+        stateDuringBlock shouldBe AnimationState.DISABLED
+
+        cmds.map { it.cmds } shouldBe listOf(
+            listOf(
+                "settings put global window_animation_scale 0.0",
+                "settings put global transition_animation_scale 0.0",
+                "settings put global animator_duration_scale 0.0",
+            ),
+            listOf(
+                "settings put global window_animation_scale 1.0",
+                "settings put global transition_animation_scale 1.0",
+                "settings put global animator_duration_scale 1.0",
+            ),
+        )
+        // Persisted before disabling, cleared after restoring
+        coVerify(exactly = 2) { pendingRestoreState.update(any()) }
     }
 
     @Test
-    fun `captureAndDisable propagates a persist failure and does not disable`() = runTest {
+    fun `withAnimationsDisabled restores the previous state when the block throws`() = runTest {
+        val cmds = stubWritableSystem()
+        coEvery { pendingRestoreState.update(any()) } returns DataStoreValue.Updated(null, testState)
+
+        val tool = createTool()
+        shouldThrow<IllegalArgumentException> {
+            tool.withAnimationsDisabled<Unit> { throw IllegalArgumentException("Block failed") }
+        }
+
+        cmds.last().cmds shouldBe listOf(
+            "settings put global window_animation_scale 1.0",
+            "settings put global transition_animation_scale 1.0",
+            "settings put global animator_duration_scale 1.0",
+        )
+        coVerify(exactly = 2) { pendingRestoreState.update(any()) }
+    }
+
+    @Test
+    fun `withAnimationsDisabled runs the block even when the disable write fails`() = runTest {
+        stubWritableSystem { callCount -> if (callCount == 1) throw RuntimeException("Shell failed") }
+        coEvery { pendingRestoreState.update(any()) } returns DataStoreValue.Updated(null, testState)
+
+        val tool = createTool()
+        var blockRan = false
+        tool.withAnimationsDisabled { blockRan = true }
+
+        blockRan shouldBe true
+        coVerify(exactly = 2) { pendingRestoreState.update(any()) }
+    }
+
+    @Test
+    fun `withAnimationsDisabled restores the previous state when the disable write is cancelled`() = runTest {
+        val cmds = stubWritableSystem { callCount ->
+            if (callCount == 1) throw CancellationException("Cancelled")
+        }
+        coEvery { pendingRestoreState.update(any()) } returns DataStoreValue.Updated(null, testState)
+
+        val tool = createTool()
+        var blockRan = false
+        shouldThrow<CancellationException> { tool.withAnimationsDisabled { blockRan = true } }
+
+        blockRan shouldBe false
+        cmds.last().cmds shouldBe listOf(
+            "settings put global window_animation_scale 1.0",
+            "settings put global transition_animation_scale 1.0",
+            "settings put global animator_duration_scale 1.0",
+        )
+        coVerify(exactly = 2) { pendingRestoreState.update(any()) }
+    }
+
+    @Test
+    fun `withAnimationsDisabled propagates a persist failure and does not disable`() = runTest {
         coEvery { pendingRestoreState.update(any()) } throws RuntimeException("DataStore failed")
 
         val tool = createTool()
-        shouldThrow<RuntimeException> { tool.captureAndDisable() }
+        var blockRan = false
+        shouldThrow<RuntimeException> { tool.withAnimationsDisabled { blockRan = true } }
 
+        blockRan shouldBe false
         coVerify(exactly = 0) { shellOps.execute(any<ShellOpsCmd>(), any()) }
+    }
+
+    @Test
+    fun `withAnimationsDisabled does not clear the pending state when the restore write fails`() = runTest {
+        stubWritableSystem { callCount -> if (callCount == 2) throw RuntimeException("Shell lost") }
+        coEvery { pendingRestoreState.update(any()) } returns DataStoreValue.Updated(null, testState)
+
+        val tool = createTool()
+        tool.withAnimationsDisabled { }
+
+        // Only the initial persist, the pending record has to survive a failed restore
+        coVerify(exactly = 1) { pendingRestoreState.update(any()) }
+    }
+
+    @Test
+    fun `defaultTransitionScale falls back when the framework resource is not a float`() = runTest {
+        val cmdSlot = stubShell()
+        mockkStatic(Resources::class)
+        val systemResources: Resources = mockk()
+        every { Resources.getSystem() } returns systemResources
+        every { systemResources.getIdentifier(any(), any(), any()) } returns 42
+        every { systemResources.getValue(any<Int>(), any(), any()) } answers {
+            secondArg<TypedValue>().type = TypedValue.TYPE_DIMENSION
+        }
+
+        try {
+            val tool = createTool()
+            tool.setState(
+                AnimationState(
+                    windowAnimationScale = 1.0f,
+                    globalTransitionAnimationScale = null,
+                    globalAnimatorDurationscale = 1.0f,
+                )
+            )
+        } finally {
+            unmockkStatic(Resources::class)
+        }
+
+        cmdSlot.captured.cmds shouldBe listOf(
+            "settings put global window_animation_scale 1.0",
+            "settings put global transition_animation_scale 1.0",
+            "settings put global animator_duration_scale 1.0",
+        )
     }
 
     @Test
