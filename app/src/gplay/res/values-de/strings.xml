@@ -11,7 +11,7 @@
     <string name="upgrades_gplay_internal_error_title">Google Play Fehler</string>
     <string name="upgrades_gplay_internal_error_description">Ein interner Fehler bei Google Play ist aufgetreten. Bitte versuche Folgendes:\n\n• Starte dein Gerät neu\n• Leere den Cache des Google Play Stores\n• Versuche es später erneut</string>
     <string name="upgrades_gplay_network_error_title">Verbindungsfehler</string>
-    <string name="upgrades_gplay_network_error_description">Verbindung zu Google Play nicht möglich. Bitte überprüfe Deine Internetverbindung und versuche es erneut.</string>
+    <string name="upgrades_gplay_network_error_description">Verbindung zu Google Play nicht möglich. Bitte überprüfe deine Internetverbindung und versuche es erneut.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Angebot nicht verfügbar</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play bietet diese Upgrade-Option derzeit nicht an. Bitte versuche es später noch einmal oder überprüfe den Google Play Store.</string>
     <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
@@ -59,7 +59,7 @@
     <string name="upgrade_screen_pending_card_title">Zahlung ausstehend</string>
     <string name="upgrade_screen_pending_card_body">Google Play verarbeitet deine Zahlung noch. Pro wird automatisch freigeschaltet, sobald die Zahlung abgeschlossen ist. Manche Zahlungsmethoden können etwas dauern. Du musst nichts weiter tun.</string>
     <string name="upgrade_screen_pending_dialog_message">Google Play hat einen Kauf mit ausstehender Zahlung gefunden und verarbeitet ihn noch. Pro wird automatisch freigeschaltet, sobald die Zahlung abgeschlossen ist.</string>
-    <string name="upgrade_screen_restore_success_message">Kauf wiederhergestellt, Dein Pro Upgrade ist aktiv.</string>
+    <string name="upgrade_screen_restore_success_message">Kauf wiederhergestellt, dein Pro Upgrade ist aktiv.</string>
     <string name="upgrade_screen_grace_title">Dein Kauf wird bestätigt</string>
     <string name="upgrade_screen_grace_body_short">Pro ist weiterhin aktiv. Es wird darauf gewartet, dass Google Play deinen Kauf erneut bestätigt. Alle Pro-Funktionen bleiben in der Zwischenzeit freigeschaltet.</string>
     <string name="upgrade_screen_grace_body">Pro ist weiterhin aktiv, aber Google Play hat deinen Kauf seit längerem nicht mehr bestätigt. Wenn du Pro gekauft hast, stelle den Kauf wieder her und überprüfe, ob Google Play das Konto verwendet, mit dem es gekauft wurde. Wenn das Abo abgelaufen oder der Kauf erstattet worden ist, schaltet sich Pro von selbst ab, es ist nichts weiter zu tun.</string>

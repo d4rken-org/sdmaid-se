@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="automation_accessibility_service_description">Nutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, um SD Maid das Automatisieren von Aufgaben zu ermöglichen, die andernfalls mühsame manuelle Interaktionen erfordern würden (z. B. das Löschen des Caches).\n\nBeispiel: Wenn du SD Maid anweist, mehrere Apps zu beenden, kann SD Maid diesen Dienst nutzen, um die Einstellungsseite jeder App zu öffnen, die Schaltfläche „Beenden erzwingen“ zu suchen und anzutippen.\n\nSD Maid zeigt immer deutlich an, wenn dieser Dienst verwendet wird, und bietet dem Nutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nEs werden keine Aktionen ohne vorherige Zustimmung des Nutzers ausgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
-    <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interagiert mit deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
     <string name="automation_screenoverlay_explanation_tv">SD Maid interagiert mit deinem Gerät. Die gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte, bis der Vorgang abgeschlossen ist, oder drücke die Home-Taste, um abzubrechen.</string>
     <string name="automation_screenoverlay_explanation_nocancel">SD Maid interagiert mit deinem Gerät. Die gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte, bis der Vorgang abgeschlossen ist.</string>
     <string name="automation_active_title">SD Maid funktioniert</string>
     <string name="automation_error_no_consent_title">Automatisierungsfehler</string>
-    <string name="automation_error_no_consent_body">Der Bedienungshilfe-Service ist nicht eingerichtet. Schließ die Einrichtung ab und bestätige die Verwendung.</string>
+    <string name="automation_error_no_consent_body">Die Bedienungshilfe ist nicht eingerichtet. Schließ die Einrichtung ab und bestätige die Verwendung.</string>
     <string name="automation_error_not_enabled_title">Dienst ist nicht aktiviert</string>
-    <string name="automation_error_not_enabled_body">Der Barrierefreiheitsdienst ist deaktiviert. Schalte Ihn wieder ein.</string>
+    <string name="automation_error_not_enabled_body">Die Bedienungshilfe ist deaktiviert. Schalte sie wieder ein.</string>
     <string name="automation_error_not_running_title">Der Dienst läuft nicht</string>
-    <string name="automation_error_not_running_body">Der Barrierefreiheitsdienst wird nicht ausgeführt. Versuche das Gerät neu zu starten.</string>
+    <string name="automation_error_not_running_body">Die Bedienungshilfe wird nicht ausgeführt. Versuche, das Gerät neu zu starten.</string>
     <string name="automation_error_screen_unavailable_title">Bildschirm nicht verfügbar</string>
     <string name="automation_error_screen_unavailable_body">Der Vorgang wurde abgebrochen, da der Bildschirm nicht mehr verfügbar war (z.B. Bildschirm aus oder Sperrbildschirm).</string>
     <string name="automation_error_compatibility_title">Automatisierungskompatibilität</string>
@@ -20,13 +20,13 @@
     <string name="automation_error_overlay_title">Automatisierungs-Overlay</string>
     <string name="automation_error_overlay_body">SD Maid konnte das Automatisierungs-Overlay nicht anzeigen. Überprüfe die Berechtigungen und versuche dein Gerät neu zu starten.</string>
     <string name="automation_error_scheduler_title">Geplante Automatisierung fehlgeschlagen</string>
-    <string name="automation_error_scheduler_body">Ein geplanter Aufgabenablauf hat versucht, den Barrierefreiheitsdienst zu nutzen, dieser war jedoch nicht verfügbar. Falls du das nicht benötigst, deaktiviere die Option „Barrierefreiheitsdienst“ in den Einstellungen der Zeitsteuerung.</string>
+    <string name="automation_error_scheduler_body">Ein geplanter Aufgabenablauf hat versucht, die Bedienungshilfe zu nutzen, diese war jedoch nicht verfügbar. Falls du das nicht benötigst, deaktiviere die Option „Bedienungshilfe“ in den Einstellungen der Zeitsteuerung.</string>
     <string name="automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
-    <string name="automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
+    <string name="automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über die Bedienungshilfe ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
     <string name="automation_error_disabled_app_title">App ist deaktiviert</string>
-    <string name="automation_error_disabled_app_body">Dein Gerät öffnet die Einstellungen von deaktivierten Apps nicht, daher kann der Cache nicht über den Bedienungshilfendienst geleert werden. Aktiviere die App oder nutze stattdessen Root oder Shizuku/ADB.</string>
+    <string name="automation_error_disabled_app_body">Dein Gerät öffnet die Einstellungen von deaktivierten Apps nicht, daher kann der Cache nicht über die Bedienungshilfe geleert werden. Aktiviere die App oder nutze stattdessen Root oder Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Einstellungsbildschirm blockiert</string>
     <string name="automation_error_interference_body">Eine andere App (%1$s) blockiert den Einstellungsbildschirm des Systems, weshalb SD Maid nicht fortfahren kann. Deaktiviere die App-Sperre oder den Bildschirmschutz dieser App für die Systemeinstellungen und versuche es erneut.</string>
-    <string name="automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
+    <string name="automation_loading">Vorbereitung der Automatisierung über die Bedienungshilfe</string>
     <string name="automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
 </resources>

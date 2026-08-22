@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_explanation_short">Finde heraus, was auf Deinem Gerät Speicherplatz beansprucht.</string>
+    <string name="analyzer_explanation_short">Finde heraus, was auf deinem Gerät Speicherplatz beansprucht.</string>
     <string name="analyzer_progress_scanning_device">Suche nach Speichermedien</string>
     <string name="analyzer_progress_scanning_storage">Scanne Speicher</string>
     <string name="analyzer_progress_scanning_apps">Scanne Apps</string>
@@ -23,11 +23,11 @@
         <item quantity="other">Swiper-Sitzung mit %d Elementen erstellt</item>
     </plurals>
     <string name="analyzer_storage_type_primary_title">Hauptspeicher</string>
-    <string name="analyzer_storage_type_primary_description">Der Hauptspeicher Deines Geräts. Enthält die interne SD-Karte, nicht-öffentlichen Speicher für Apps und Systemdaten.</string>
+    <string name="analyzer_storage_type_primary_description">Der Hauptspeicher deines Geräts. Enthält die interne SD-Karte, nicht-öffentlichen Speicher für Apps und Systemdaten.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundärer Speicher</string>
     <string name="analyzer_storage_type_secondary_description">Ein sekundärer Speicher, normalerweise eine herausnehmbare SD-Karte. Enthält Mediendateien und Daten von Apps, die ihn unterstützen.</string>
     <string name="analyzer_storage_type_tertiary_title">Tragbarer Speicher</string>
-    <string name="analyzer_storage_type_tertiary_description">Ein tragbarer Speicher, z.B. ein Flash-Laufwerk, der an Ihren USB-Port angeschlossen ist.</string>
+    <string name="analyzer_storage_type_tertiary_description">Ein tragbarer Speicher, z.B. ein Flash-Laufwerk, der an deinen USB-Port angeschlossen ist.</string>
     <string name="analyzer_storage_identifier_internal">Interner Speicher</string>
     <string name="analyzer_storage_content_title">Speicherinhalt</string>
     <string name="analyzer_storage_content_type_app_label">Apps</string>

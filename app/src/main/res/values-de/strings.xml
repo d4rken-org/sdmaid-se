@@ -23,7 +23,7 @@
     <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nichts wurde freigegeben</string>
     <string name="dashboard_hero_nothing_freed_caption">Die Bereinigung ist abgeschlossen, aber keine der gefundenen Daten konnten entfernt werden.</string>
-    <string name="dashboard_hero_nothing_freed_hint">Einige Daten können nur mit zusätzlichem Zugriff entfernt werden, z. B. über den Barrierefreiheitsdienst oder Root.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Einige Daten können nur mit zusätzlichem Zugriff entfernt werden, z. B. über die Bedienungshilfe oder Root.</string>
     <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
          will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s gefunden</string>
@@ -160,7 +160,7 @@
     <string name="ui_theme_style_highcontrast_label">Hoher Kontrast</string>
     <string name="ui_theme_color_setting_label">Themenfarbe</string>
     <string name="ui_theme_color_setting_explanation">Die für das Design der App verwendete Farbpalette.</string>
-    <string name="ui_theme_color_setting_disabled_materialyou">Farben werden von Material You aus Ihrem Hintergrundbild bereitgestellt.</string>
+    <string name="ui_theme_color_setting_disabled_materialyou">Farben werden von Material You aus deinem Hintergrundbild bereitgestellt.</string>
     <string name="ui_theme_color_value_system">Systemfarben</string>
     <string name="ui_previews_title">Dateivorschauen</string>
     <string name="ui_previews_summary">Dateivorschauen in allen Tools anzeigen (z. B. Bild- und Video-Thumbnails).</string>
@@ -172,7 +172,7 @@
     <string name="issue_tracker_description">Ein öffentlicher Tracker für Fehlerberichte und Funktionsanfragen.</string>
     <string name="issue_tracker_label">Problem-Tracker</string>
     <string name="support_debuglog_label">Debug-Protokoll</string>
-    <string name="support_debuglog_desc">Zeichne alles, was die App macht, in einer Textdatei auf, die Du teilen kannst.</string>
+    <string name="support_debuglog_desc">Zeichne alles, was die App macht, in einer Textdatei auf, die du teilen kannst.</string>
     <string name="support_debuglog_folder_label">Debug-Protokollordner</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d Datei mit %2$s</item>
@@ -239,7 +239,7 @@
     <string name="setup_saf_error_wrong_path">Du hast den falschen Pfad ausgewählt</string>
     <string name="setup_saf_missing_app_error">Die Documents UI App ist nicht verfügbar. Es ist eine integrierte System-App und sollte auf allen Android-Geräten verfügbar sein.</string>
     <string name="setup_manage_storage_card_title">Speicher verwalten</string>
-    <string name="setup_manage_storage_card_body">Erlaube SD Maid Deinen Speicher zu verwalten.</string>
+    <string name="setup_manage_storage_card_body">Erlaube SD Maid deinen Speicher zu verwalten.</string>
     <string name="setup_manage_storage_card_body2">Grundlegender Zugriff auf öffentlichen Speicher, z.B. „Download/“ und „DCIM/“, aber nicht immer „Android/data“.</string>
     <string name="setup_root_card_title">Root-Zugriff</string>
     <string name="setup_root_card_body">Sollte SD Maid den Root-Zugriff verwenden, wenn er verfügbar ist? Über den Root-Zugriff können zusätzliche Systemordner und private Anwendungsdaten geprüft werden.</string>
@@ -274,24 +274,24 @@
     <string name="setup_notification_title">Benachrichtigungen</string>
     <string name="setup_notification_body">Erlaube SD Maid, Benachrichtigungen zu senden, um dich über laufende Aktionen oder wichtige Ereignisse zu informieren.</string>
     <string name="setup_notification_hint">Benachrichtigungen werden sparsam eingesetzt 🤞</string>
-    <string name="setup_acs_card_title">Barrierefreiheitsdienst</string>
-    <string name="setup_acs_card_body">Der Barrierefreiheitsdienst ermöglicht es SD Maid, mit Ihrem Bildschirm zu interagieren und mühsame Aktionen zu automatisieren, z. B. das Tippen auf „Cache leeren“ auf mehreren Bildschirmen.</string>
-    <string name="setup_acs_card_body2">SD Maid verwendet den Barrierefreiheitsdienst nicht ohne deine Zustimmung, zeigt immer einen deutlichen (löschbaren) Indikator an, während er aktiv ist, und verwendet ihn nicht, um Informationen zu sammeln.</string>
-    <string name="setup_acs_state_enabled">Der Barrierefreiheitsdienst ist aktiviert</string>
-    <string name="setup_acs_state_disabled">Der Barrierefreiheitsdienst ist deaktiviert</string>
-    <string name="setup_acs_state_running">Der Barrierefreiheitsdienst wird ausgeführt</string>
+    <string name="setup_acs_card_title">Bedienungshilfe</string>
+    <string name="setup_acs_card_body">Die Bedienungshilfe ermöglicht es SD Maid, mit deinem Bildschirm zu interagieren und mühsame Aktionen zu automatisieren, z. B. das Tippen auf „Cache leeren“ auf mehreren Bildschirmen.</string>
+    <string name="setup_acs_card_body2">SD Maid verwendet die Bedienungshilfe nicht ohne deine Zustimmung, zeigt immer einen deutlich sichtbaren (abbrechbaren) Hinweis an, während sie aktiv ist, und nutzt sie nicht, um Informationen zu sammeln.</string>
+    <string name="setup_acs_state_enabled">Die Bedienungshilfe ist aktiviert</string>
+    <string name="setup_acs_state_disabled">Die Bedienungshilfe ist deaktiviert</string>
+    <string name="setup_acs_state_running">Die Bedienungshilfe wird ausgeführt</string>
     <string name="setup_acs_state_ondemand">Der Dienst wird auf Anfrage gestartet</string>
-    <string name="setup_acs_state_stopped">Der Barrierefreiheitsdienst wurde beendet</string>
+    <string name="setup_acs_state_stopped">Die Bedienungshilfe wurde beendet</string>
     <string name="setup_acs_state_stopped_hint">Der Dienst ist aktiviert, wird jedoch nicht ausgeführt. Schalte es aus/ein oder starte das Gerät neu. Stelle sicher, dass SD Maid nicht vom System „optimiert“ wird.</string>
     <string name="setup_acs_state_stopped_hint_miui">Wenn der Dienst nach einiger Zeit immer wieder deaktiviert wird, versuche, die Option „Autostart“ für SD Maid in den Systemeinstellungen zu aktivieren.</string>
     <string name="setup_acs_consent_positive_action">Dienst aktivieren und Zugriff gewähren</string>
-    <string name="setup_acs_consent_negative_action">Verwende keinen Barrierefreiheitsdienst</string>
-    <string name="setup_acs_allow_hint">Die Eingabehilfe-Verknüpfung oder der -Button für SD Maid SE ist aktiviert. Öffne die Eingabehilfen-Einstellungen deines Geräts und deaktiviere die Verknüpfung bzw. die Schaltfläche, um ein ungewolltes Symbol am Bildschirmrand zu verhindern.</string>
-    <string name="setup_acs_disallow_hint">Wenn Du Deine Meinung änderst, kannst Du diese Option erneut ändern, indem Du in die Einstellungen gehst und die Einrichtung neu startest.</string>
+    <string name="setup_acs_consent_negative_action">Bedienungshilfe nicht verwenden</string>
+    <string name="setup_acs_allow_hint">Die Verknüpfung bzw. der Button für Bedienungshilfen ist für SD Maid SE aktiviert. Öffne die Bedienungshilfen-Einstellungen deines Geräts und deaktiviere die Verknüpfung bzw. den Button, um ein ungewolltes Symbol am Bildschirmrand zu verhindern.</string>
+    <string name="setup_acs_disallow_hint">Wenn du deine Meinung änderst, kannst du diese Option erneut ändern, indem du in die Einstellungen gehst und die Einrichtung neu startest.</string>
     <string name="setup_acs_appops_restriction_title">Eingeschränkte Einstellungen</string>
-    <string name="setup_acs_appops_restriction_body">Kannst du den Bedienungshilfen-Dienst von SD Maid nicht aktivieren? Unter Android 13+ gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Hebe diese Einschränkungen auf der Infoseite des Systems für SD Maid auf. Die Option befindet sich im Kontextmenü oben rechts.</string>
+    <string name="setup_acs_appops_restriction_body">Kannst du die Bedienungshilfe von SD Maid nicht aktivieren? Unter Android 13+ gelten möglicherweise Einschränkungen für Apps, die nicht über Google Play installiert wurden. Hebe diese Einschränkungen auf der Infoseite des Systems für SD Maid auf. Die Option befindet sich im Kontextmenü oben rechts.</string>
     <string name="setup_acs_advanced_protection_title">Durch Erweiterten Schutz blockiert</string>
-    <string name="setup_acs_advanced_protection_body">Der erweiterte Schutz von Android blockiert den Bedienungshilfen-Dienst von SD Maid ab Android 17, sodass er bei aktiviertem Schutz nicht eingeschaltet werden kann. Tippe auf Hilfe für Details und Alternativen.</string>
+    <string name="setup_acs_advanced_protection_body">Der erweiterte Schutz von Android blockiert die Bedienungshilfe von SD Maid ab Android 17, sodass sie bei aktiviertem Schutz nicht eingeschaltet werden kann. Tippe auf Hilfe für Details und Alternativen.</string>
     <string name="setup_inventory_card_title">App-Inventar</string>
     <string name="setup_inventory_card_body">SD Maid muss wissen, welche Apps du installiert hast, um Dateien zu finden, die zu keiner installierten App gehören.</string>
     <string name="setup_inventory_card_extra">Suche nach einer Berechtigung namens „App-Liste“ oder „Alle Pakete abfragen“.</string>
@@ -300,7 +300,7 @@
     <string name="setup_inventory_limitation_body2">Einige Geräte (z. B. HarmonyOS) stellen niemals eine vollständige App-Liste bereit. Zum Schutz deiner Daten bleiben app-bezogene Werkzeuge deaktiviert, aber du kannst die Speichernutzung weiterhin mit reduzierten Details anzeigen.</string>
     <string name="setup_inventory_probe_failed_title">App-Liste konnte nicht gelesen werden</string>
     <string name="setup_inventory_probe_failed_body">SD Maid hat Android nach der Liste installierter Apps gefragt, und die Anfrage ist fehlgeschlagen. App-bezogene Tools bleiben deaktiviert, bis es funktioniert. Ein erneuter Versuch kann helfen.</string>
-    <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast Du die Einrichtung abgeschlossen?</string>
+    <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast du die Einrichtung abgeschlossen?</string>
     <string name="dataarea_warningcard_label">Datenbereiche</string>
     <string name="dataarea_warningcard_reload_action">Datenbereiche neu laden</string>
     <string name="debug_mode_label">Debug-Modus</string>
@@ -337,7 +337,7 @@
     <string name="motd_setting_enabled_label">Wichtige Meldungen</string>
     <string name="motd_setting_enabled_explanation">Erlaube SD Maid nach wichtigen Mitteilungen des Entwicklers zu suchen.</string>
     <string name="updatecheck_setting_enabled_label">Aktualisierung prüfen</string>
-    <string name="updatecheck_setting_enabled_explanation">Erlaube SD Maid nach Updates zu suchen, um Dich darüber zu informieren, ob eine neuere Version verfügbar ist.</string>
+    <string name="updatecheck_setting_enabled_explanation">Erlaube SD Maid nach Updates zu suchen, um dich darüber zu informieren, ob eine neuere Version verfügbar ist.</string>
     <string name="device_settings_category">Gerät</string>
     <string name="review_app_review_action">Bewerten</string>
     <string name="review_app_dismiss_action">Vielleicht später</string>
@@ -398,7 +398,7 @@
     <string name="backup_restore_export_success">Sicherung erstellt</string>
     <string name="backup_restore_export_partial">Sicherung erstellt, aber diese Teile konnten nicht gesichert werden: %1$s</string>
     <string name="backup_restore_restore_success">Sicherung wiederhergestellt</string>
-    <string name="backup_restore_restore_failed">Wiederherstellung fehlgeschlagen (%1$s). Ihre vorherige Konfiguration wurde gespeichert.</string>
+    <string name="backup_restore_restore_failed">Wiederherstellung fehlgeschlagen (%1$s). Deine vorherige Konfiguration wurde gespeichert.</string>
     <string name="backup_restore_recovery_title">Vorherige Konfiguration wiederherstellen</string>
     <string name="backup_restore_recovery_desc">Eine Sicherheitskopie aus einer unvollendeten Wiederherstellung ist verfügbar</string>
     <string name="backup_restore_confirm_title">Diese Sicherung wiederherstellen?</string>
@@ -406,7 +406,7 @@
     <string name="backup_restore_confirm_source">Von SD Maid %1$s am %2$s (Android %3$s)</string>
     <string name="backup_restore_mode_label">Wiederherstellungsmodus</string>
     <string name="backup_restore_mode_merge">Zusammenführen</string>
-    <string name="backup_restore_mode_merge_desc">Die Sicherung zu Ihrer aktuellen Konfiguration hinzufügen</string>
+    <string name="backup_restore_mode_merge_desc">Die Sicherung zu deiner aktuellen Konfiguration hinzufügen</string>
     <string name="backup_restore_mode_replace">Ersetzen</string>
     <string name="backup_restore_mode_replace_desc">Aktuelle Konfiguration zurücksetzen und dann die Sicherung anwenden</string>
     <string name="backup_restore_warn_version_body">Dieses Backup stammt von SD Maid %1$s, aber du verwendest %2$s. Das Wiederherstellen wird offiziell nur zwischen identischen Versionen unterstützt.</string>

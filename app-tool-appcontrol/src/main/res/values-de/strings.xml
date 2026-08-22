@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcontrol_explanation_short">Auf Deinem Gerät installierte Apps.</string>
+    <string name="appcontrol_explanation_short">Auf deinem Gerät installierte Apps.</string>
     <string name="appcontrol_toggle_app_selection_action">Apps umschalten</string>
     <string name="appcontrol_toggle_app_enable_action">App aktivieren</string>
     <string name="appcontrol_toggle_app_disable_action">App deaktivieren</string>
-    <string name="appcontrol_toggle_app_enable_description">Wenn Du eine App aktivierst, kann sie ausgeführt werden und wird möglicherweise in Deinem Launcher sichtbar, wenn sie eine Aktivität hat.</string>
+    <string name="appcontrol_toggle_app_enable_description">Wenn du eine App aktivierst, kann sie ausgeführt werden und wird möglicherweise in deinem Launcher sichtbar, wenn sie eine Aktivität hat.</string>
     <string name="appcontrol_toggle_app_disable_description">Das Deaktivieren einer App verhindert, dass sie ausgeführt wird, und blendet sie in den Menüs aus. Es gibt keinen Datenverlust.</string>
     <string name="appcontrol_appstore_open_title">Im App Store öffnen</string>
     <string name="appcontrol_appstore_open_description">Öffne diese App in dem App Store, aus dem sie installiert wurde.</string>
-    <string name="appcontrol_systemsettings_open_description">Öffne die Systemeinstellungen Deines Geräts für diese App.</string>
+    <string name="appcontrol_systemsettings_open_description">Öffne die Systemeinstellungen deines Geräts für diese App.</string>
     <string name="appcontrol_app_launch_title">App starten</string>
     <string name="appcontrol_app_launch_description">Starte die primäre Aktivität dieser App.</string>
     <string name="appcontrol_app_forcestop_title">Beenden erzwingen</string>
     <string name="appcontrol_app_forcestop_description">Stoppe die App. Verhindere, dass es selbst startet, bis du es öffnest oder das Gerät neu gestartet ist.</string>
-    <string name="appcontrol_app_uninstall_description">Deinstalliere diese App von Deinem Gerät.</string>
+    <string name="appcontrol_app_uninstall_description">Deinstalliere diese App von deinem Gerät.</string>
     <string name="appcontrol_app_exclude_add_title">App ausschließen</string>
     <string name="appcontrol_app_exclude_add_description">Diese Anwendung von anderen Vorgängen in SD Maid ausschließen.</string>
     <string name="appcontrol_app_exclude_edit_title">Ausnahme bearbeiten</string>

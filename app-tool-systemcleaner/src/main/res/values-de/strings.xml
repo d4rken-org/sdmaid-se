@@ -11,7 +11,7 @@
     </plurals>
     <string name="systemcleaner_filter_custom_label">Benutzerdefinierte Filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Benutzerdefinierte Filter verwalten</string>
-    <string name="systemcleaner_filter_custom_manage_summary">Erstellen, löschen, importieren und exportieren Deiner benutzerdefinierten Filter.</string>
+    <string name="systemcleaner_filter_custom_manage_summary">Erstellen, löschen, importieren und exportieren deiner benutzerdefinierten Filter.</string>
     <string name="systemcleaner_filter_logfiles_label">System-Protokolldateien</string>
     <string name="systemcleaner_filter_logfiles_summary">System- und Systemdienst-Protokolldateien (z. B. *.log) an verschiedenen Orten.</string>
     <string name="systemcleaner_filter_packagecaches_label">Installer-Cache</string>
@@ -65,7 +65,7 @@
     <string name="systemcleaner_customfilter_create_hint">Erstelle einen benutzerdefinierten Filter, um zusätzliche Dateien zu löschen, die für dein Gerät und deine Anwendungsfälle spezifisch sind.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Diesen Filter entfernen?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filterbezeichnung</string>
-    <string name="systemcleaner_customfilter_editor_warning">Benutzerdefinierte Filter können riskant sein. Überprüfe Deine Suchergebnisse vor dem Löschen!</string>
+    <string name="systemcleaner_customfilter_editor_warning">Benutzerdefinierte Filter können riskant sein. Überprüfe deine Suchergebnisse vor dem Löschen!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Datenbereiche</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Wenn kein Bereich ausgewählt ist, werden alle zugänglichen Datenbereiche gescannt und abgeglichen.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Dateityp-Einschränkungen</string>
