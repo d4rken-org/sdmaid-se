@@ -29,7 +29,8 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.sharedresource.useRes
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
+import eu.darken.sdmse.exclusion.core.types.matches
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
@@ -75,6 +76,7 @@ class SystemCrawler @Inject constructor(
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SYSTEMCLEANER)
         log(TAG, INFO) { "Loaded exclusions: $exclusions" }
+        val exclusionIndex = PathExclusionIndex(exclusions)
 
         val currentAreas = areaManager.currentAreas()
         val targetAreas = filters
@@ -115,9 +117,9 @@ class SystemCrawler @Inject constructor(
                             }
                         }
 
-                        exclusions.none { excl ->
-                            excl.match(toCheck).also { if (it) log(TAG, INFO) { "Excluded $toCheck by $excl" } }
-                        }
+                        val isExcluded = exclusionIndex.matches(toCheck)
+                        if (isExcluded) log(TAG, INFO) { "Excluded $toCheck" }
+                        !isExcluded
                     }
                     log(TAG) { "Scanning $targetArea" }
 
