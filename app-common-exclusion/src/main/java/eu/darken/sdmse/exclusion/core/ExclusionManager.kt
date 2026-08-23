@@ -82,8 +82,11 @@ class ExclusionManager @Inject constructor(
                 else newOrUpdated.add(it)
                 !isDupe
             }
+            // Hash the incoming ids once: PathExclusion.id builds a fresh string on every access, so
+            // a nested none{} would be O(existing * new) string concatenations on a bulk exclude.
+            val newIds = newExclusions.mapTo(HashSet()) { it.id }
             this
-                .filter { old -> newExclusions.none { old.id == it.id } }
+                .filter { old -> old.id !in newIds }
                 .plus(newExclusions).toSet()
                 .also { exclusionStorage.save(it) }
         }
