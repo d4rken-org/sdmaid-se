@@ -73,21 +73,26 @@ class PathExclusionIndex(exclusions: Collection<Exclusion.Path>) {
     }
 
     suspend fun matches(candidate: APath): Boolean {
-        if (matchesIndexed(candidate)) {
-            log(TAG, VERBOSE) { "Exclusion match: $candidate" }
+        val key = matchesIndexed(candidate)
+        if (key != null) {
+            log(TAG, VERBOSE) { "Exclusion match: $candidate <- $key" }
             return true
         }
         return others.any { it.match(candidate) }
     }
 
-    private fun matchesIndexed(candidate: APath): Boolean {
+    /**
+     * The key that matched, or `null` if none did. The key is returned instead of a boolean so the
+     * caller can log which exclusion was responsible.
+     */
+    private fun matchesIndexed(candidate: APath): String? {
         val type = candidate.pathType
-        if (exactKeys[type]?.contains(candidate.path) == true) return true
+        if (exactKeys[type]?.contains(candidate.path) == true) return candidate.path
 
-        val keys = ancestorKeys[type] ?: return false
-        var hit = false
+        val keys = ancestorKeys[type] ?: return null
+        var hit: String? = null
         candidate.forEachAncestorKey { key ->
-            if (!hit && keys.contains(key)) hit = true
+            if (hit == null && keys.contains(key)) hit = key
         }
         return hit
     }
