@@ -37,7 +37,8 @@ import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashSleuth
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
+import eu.darken.sdmse.exclusion.core.types.matches
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -103,13 +104,14 @@ class DuplicatesScanner @Inject constructor(
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
         log(TAG) { "Deduplicator exclusions are: $exclusions" }
+        val exclusionIndex = PathExclusionIndex(exclusions)
 
         return targetAreas.asFlow()
             .flatMapMerge(2) { area ->
                 val filter: suspend (APathLookup<*>) -> Boolean = when (area.type) {
                     DataArea.Type.SDCARD -> filter@{ toCheck: APathLookup<*> ->
                         if (sdcardSkips.any { toCheck.segments.endsWith(it) }) return@filter false
-                        exclusions.none { it.match(toCheck) }
+                        !exclusionIndex.matches(toCheck)
                     }
 
                     else -> filter@{ toCheck: APathLookup<*> ->
@@ -117,7 +119,7 @@ class DuplicatesScanner @Inject constructor(
                             log(TAG, WARN) { "Skipping: $toCheck" }
                             return@filter false
                         }
-                        exclusions.none { it.match(toCheck) }
+                        !exclusionIndex.matches(toCheck)
                     }
                 }
                 area.path.walk(
@@ -132,6 +134,7 @@ class DuplicatesScanner @Inject constructor(
     private suspend fun customPathSearchFlow(paths: Set<APath>): Flow<APathLookup<*>> {
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.DEDUPLICATOR)
         log(TAG) { "Deduplicator exclusions are: $exclusions" }
+        val exclusionIndex = PathExclusionIndex(exclusions)
 
         val allowedAreas = setOf(
             DataArea.Type.SDCARD,
@@ -156,7 +159,7 @@ class DuplicatesScanner @Inject constructor(
         return paths.asFlow()
             .flatMapMerge(2) { path ->
                 val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
-                    exclusions.none { it.match(toCheck) }
+                    !exclusionIndex.matches(toCheck)
                 }
                 path.walk(
                     gatewaySwitch,
