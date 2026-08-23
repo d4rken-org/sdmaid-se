@@ -24,6 +24,7 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
 import eu.darken.sdmse.main.core.SDMTool
 
 /**
@@ -79,7 +80,7 @@ abstract class StandardCorpseFilter(
 
         updateProgressPrimary(scanProgressLabel)
 
-        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
+        val exclusionIndex = PathExclusionIndex(exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER))
 
         return areaManager.currentAreas()
             .filter { it.type == areaType }
@@ -93,11 +94,9 @@ abstract class StandardCorpseFilter(
                 val topLevelContents = area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
-                        pathExclusions.none { excl ->
-                            excl.match(path).also {
-                                if (it) log(filterTag, INFO) { "Excluded due to $excl: $path" }
-                            }
-                        }
+                        val isExcluded = exclusionIndex.matches(path)
+                        if (isExcluded) log(filterTag, INFO) { "Excluded due to path exclusion: $path" }
+                        !isExcluded
                     }
 
                 log(filterTag) { "Filtering $area" }
