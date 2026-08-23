@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -58,10 +59,14 @@ class PostProcessorModule @Inject constructor(
         // performs a PackageManager lookup (permission-based Shizuku detection), so calling it inside
         // the per-app checkExclusions loop would issue one binder round-trip per scanned app.
         val adbManagerIds = if (useAdb) adbManager.managerIds() else emptySet()
+        // Same reasoning for the exclusions: a bulk exclude can leave tens of thousands of path
+        // exclusions behind, and checkExclusions runs per app per expendables category. Loading and
+        // indexing them there would rebuild the whole index hundreds of times per scan.
+        val exclusionIndex = PathExclusionIndex(exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER))
 
         val processed = apps
             .map { checkAliasedItems(it) }
-            .mapNotNull { checkExclusions(it, useAdb, adbManagerIds) }
+            .mapNotNull { checkExclusions(it, useAdb, adbManagerIds, exclusionIndex) }
             .map { checkForHiddenModules(it) }
             .filter {
                 val isMinSize = it.size >= minCacheSize
@@ -100,6 +105,7 @@ class PostProcessorModule @Inject constructor(
         before: AppJunk,
         useAdb: Boolean,
         adbManagerIds: Set<Pkg.Id>,
+        exclusionIndex: PathExclusionIndex,
     ): AppJunk? {
         // Empty apps don't generate edge cases (and are omitted).
         if (before.expendables.isNullOrEmpty()) return before
@@ -127,11 +133,9 @@ class PostProcessorModule @Inject constructor(
                 }
         }
 
-        val exclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
-
         var after = before.copy(
             expendables = before.expendables.mapValues { (_, paths) ->
-                exclusions.excludeNestedLookups(paths)
+                exclusionIndex.excludeNestedLookups(paths)
             }
         )
 

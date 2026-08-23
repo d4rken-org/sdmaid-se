@@ -47,6 +47,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
@@ -487,6 +488,12 @@ class AppCleaner @Inject constructor(
         }.toSet()
         exclusionManager.save(exclusions)
 
+        // A bulk exclude can carry tens of thousands of targets. Matching every junk item against
+        // every exclusion would be quadratic (and suspend), so index the exclusions once.
+        val index = PathExclusionIndex(exclusions)
+        var excludedCount = 0
+        var totalCount = 0
+
         val snapshot = internalData.value!!
         internalData.value = snapshot.copy(
             junks = snapshot.junks.map { junk ->
@@ -495,8 +502,9 @@ class AppCleaner @Inject constructor(
                         expendables = junk.expendables?.entries
                             ?.map { entry ->
                                 entry.key to entry.value.filter { match ->
-                                    val hit = exclusions.any { it.match(match.path) }
-                                    if (hit) log(TAG) { "exclude(): Excluded $match" }
+                                    totalCount++
+                                    val hit = index.matches(match.path)
+                                    if (hit) excludedCount++
                                     !hit
                                 }
                             }
@@ -508,6 +516,8 @@ class AppCleaner @Inject constructor(
                 }
             }
         )
+
+        log(TAG) { "exclude(): Excluded $excludedCount of $totalCount matches for $identifier" }
     }
 
     data class State(
