@@ -61,6 +61,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.pkgExclusions
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -332,7 +333,7 @@ class AppScanner @Inject constructor(
      * i.e. public/priv storage and some levels of the root of the sdcard
      */
     private suspend fun createDataAreaMap(currentAreas: Collection<DataArea>): Map<DataArea.Type, Collection<AreaInfo>> {
-        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER)
+        val exclusionIndex = PathExclusionIndex(exclusionManager.pathExclusions(SDMTool.Type.APPCLEANER))
 
         val areaDataMap = mutableMapOf<DataArea.Type, Collection<AreaInfo>>()
 
@@ -351,7 +352,7 @@ class AppScanner @Inject constructor(
             .map { (area, content) ->
                 area.type to content
                     .filter { path ->
-                        val isExcluded = pathExclusions.any { it.match(path) }
+                        val isExcluded = exclusionIndex.matches(path)
                         if (isExcluded) log(TAG, INFO) { "Excluded during PRIVATE_DATA scan: $path" }
                         !isExcluded
                     }
@@ -391,7 +392,7 @@ class AppScanner @Inject constructor(
                         }
                     }
                     .filter { areaInfo ->
-                        val excluded = pathExclusions.any { it.match(areaInfo.file) }
+                        val excluded = exclusionIndex.matches(areaInfo.file)
                         val edgeCase = !useRoot && area.type == DataArea.Type.PUBLIC_DATA
                                 && areaInfo.prefixFreeSegments.size >= 2
                                 && areaInfo.prefixFreeSegments[1] == "cache"

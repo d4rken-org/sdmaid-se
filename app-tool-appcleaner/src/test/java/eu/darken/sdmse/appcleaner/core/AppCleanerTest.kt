@@ -14,8 +14,10 @@ import eu.darken.sdmse.appcleaner.ui.preview.previewExpendables
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -59,6 +61,7 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import java.time.Instant
 import javax.inject.Provider
 
 class AppCleanerTest : BaseTest() {
@@ -84,6 +87,20 @@ class AppCleanerTest : BaseTest() {
         pkg = previewInstalled(pkgName = pkgName, label = pkgName),
         expendables = expendables,
         inaccessibleCache = null,
+    )
+
+    private fun deletionMatch(
+        path: LocalPath,
+        fileType: FileType = FileType.FILE,
+    ): ExpendablesFilter.Match = ExpendablesFilter.Match.Deletion(
+        identifier = DefaultCachesPublicFilter::class,
+        lookup = LocalPathLookup(
+            lookedUp = path,
+            fileType = fileType,
+            size = 1024L,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        ),
     )
 
     private class Setup(
@@ -452,6 +469,64 @@ class AppCleanerTest : BaseTest() {
         val targetAfter = data.junks.single { it.identifier == target.identifier }
         targetAfter.expendables?.values?.flatten()?.map { it.path } shouldBe
             target.expendables!!.values.flatten().drop(1).map { it.path }
+    }
+
+    @Test
+    fun `path-level exclude drops the descendants of an excluded directory`() = runTest2 {
+        // exclude() keeps the PathExclusion semantics: the target itself and everything below it
+        // goes, so excluding a directory must take its children with it.
+        val cacheDir = LocalPath.build("storage", "emulated", "0", "Android", "data", "com.target", "cache")
+        val nested = LocalPath.build(
+            "storage", "emulated", "0", "Android", "data", "com.target", "cache", "inner", "blob.bin",
+        )
+        val sibling = LocalPath.build(
+            "storage", "emulated", "0", "Android", "data", "com.target", "files", "keep.txt",
+        )
+        val target = appJunk(
+            "com.target",
+            expendables = mapOf(
+                DefaultCachesPublicFilter::class to listOf(
+                    deletionMatch(cacheDir, FileType.DIRECTORY),
+                    deletionMatch(nested),
+                    deletionMatch(sibling),
+                ),
+            ),
+        )
+        val setup = setupCleaner(scanResults = listOf(target))
+        setup.cleaner.submit(AppCleanerScanTask())
+
+        setup.cleaner.exclude(target.identifier, setOf(cacheDir))
+
+        val data = setup.cleaner.dataFromState()!!
+        val after = data.junks.single { it.identifier == target.identifier }
+        after.expendables?.values?.flatten()?.map { it.path } shouldBe listOf(sibling)
+    }
+
+    @Test
+    fun `path-level exclude keeps the parent of an excluded path`() = runTest2 {
+        // The opposite direction: ancestors are NOT pruned here (unlike the scan-time
+        // excludeNestedLookups), so a parent entry stays in the junk.
+        val cacheDir = LocalPath.build("storage", "emulated", "0", "Android", "data", "com.target", "cache")
+        val child = LocalPath.build(
+            "storage", "emulated", "0", "Android", "data", "com.target", "cache", "blob.bin",
+        )
+        val target = appJunk(
+            "com.target",
+            expendables = mapOf(
+                DefaultCachesPublicFilter::class to listOf(
+                    deletionMatch(cacheDir, FileType.DIRECTORY),
+                    deletionMatch(child),
+                ),
+            ),
+        )
+        val setup = setupCleaner(scanResults = listOf(target))
+        setup.cleaner.submit(AppCleanerScanTask())
+
+        setup.cleaner.exclude(target.identifier, setOf(child))
+
+        val data = setup.cleaner.dataFromState()!!
+        val after = data.junks.single { it.identifier == target.identifier }
+        after.expendables?.values?.flatten()?.map { it.path } shouldBe listOf(cacheDir)
     }
 
     // ─────────────────────────── chained-task dispatch ───────────────────────────
