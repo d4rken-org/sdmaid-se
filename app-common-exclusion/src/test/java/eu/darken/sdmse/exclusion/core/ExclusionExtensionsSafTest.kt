@@ -46,4 +46,22 @@ class ExclusionExtensionsSafTest : BaseTest() {
             SAFPath.build(treeB, "root", "test", "item"),
         )
     }
+
+    @Test
+    fun `exclude nested - path - saf segment may contain any character`() = runTest {
+        // The exclusion is a single segment that a delimiter-based key encoding would confuse with
+        // the two segments below, which would drop the file and then prune its parent too.
+        val excls = listOf<Exclusion.Path>(
+            PathExclusion(SAFPath.build(treeA, "a\u0000b")),
+        )
+        val paths = setOf(
+            SAFPath.build(treeA, "a"),
+            SAFPath.build(treeA, "a", "b", "file"),
+        )
+
+        excls.excludeNested(paths) shouldBe setOf(
+            SAFPath.build(treeA, "a"),
+            SAFPath.build(treeA, "a", "b", "file"),
+        )
+    }
 }

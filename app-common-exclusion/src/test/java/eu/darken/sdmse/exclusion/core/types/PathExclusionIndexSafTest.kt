@@ -74,6 +74,17 @@ class PathExclusionIndexSafTest : BaseTest() {
     }
 
     @Test
+    fun `saf - a segment may contain any character`() = runTest {
+        // SAF display names come verbatim from the DocumentsProvider cursor, so a single segment can
+        // hold what looks like two segments to a delimiter-based key encoding.
+        assertMatch(
+            PathExclusion(SAFPath.build(treeA, "a\u0000b")),
+            SAFPath.build(treeA, "a", "b", "file"),
+            false,
+        )
+    }
+
+    @Test
     fun `saf - same segments under a different tree`() = runTest {
         assertMatch(
             PathExclusion(SAFPath.build(treeA, "a", "b")),
