@@ -29,9 +29,11 @@ import java.io.File
  *   `/` is not an ancestor of `/a`, because `/a` does not start with `//`.
  * - **SAF**: `matches` is `SAFPath.path` string equality (that string already folds in
  *   `treeRootUri.pathSegments`, so the exact half needs no separate tree check). `isAncestorOf` is
- *   same-tree plus a proper `segments` prefix, so a SAF key is the tree URI plus a segment prefix,
- *   joined by NUL. NUL cannot occur in a URI or in a path segment, which makes that encoding
- *   unambiguous.
+ *   same-tree plus a proper `segments` prefix, so a SAF key is the tree URI plus a segment prefix.
+ *   Those components are length-prefixed instead of joined by a delimiter: segment content is
+ *   arbitrary (`SAFGateway` takes display names verbatim from a DocumentsProvider cursor), so no
+ *   character can be reserved as a separator, while a length-prefixed concatenation is injective
+ *   for any content.
  *
  * Exclusions that are not [PathExclusion]s (today: [SegmentExclusion]) cannot be keyed and stay on
  * the linear path.
@@ -117,17 +119,21 @@ internal class StrictAncestorIndex(paths: Collection<APath>) {
         keys[candidate.pathType]?.contains(candidate.exclusionKey()) == true
 }
 
-internal const val KEY_SEPARATOR = '\u0000'
+/**
+ * Appends one key component as `<UTF-16 length>:<value>`. Length-prefixing keeps the concatenation
+ * injective no matter what the component contains, so the key needs no delimiter character.
+ */
+private fun StringBuilder.appendKeyComponent(component: String): StringBuilder =
+    append(component.length).append(':').append(component)
 
 /**
  * The key a path is indexed under, matching what [forEachAncestorKey] emits for its descendants.
  */
 internal fun APath.exclusionKey(): String = when (pathType) {
     APath.PathType.SAF -> (this as SAFPath).let { safPath ->
-        StringBuilder(safPath.treeRootUri.toString())
-            .append(KEY_SEPARATOR)
-            .append(safPath.segments.joinToString(KEY_SEPARATOR.toString()))
-            .toString()
+        val builder = StringBuilder().appendKeyComponent(safPath.treeRootUri.toString())
+        safPath.segments.forEach { builder.appendKeyComponent(it) }
+        builder.toString()
     }
 
     else -> path
@@ -140,11 +146,10 @@ internal inline fun APath.forEachAncestorKey(action: (String) -> Unit) {
     when (pathType) {
         APath.PathType.SAF -> {
             val safPath = this as SAFPath
-            val builder = StringBuilder(safPath.treeRootUri.toString()).append(KEY_SEPARATOR)
+            val builder = StringBuilder().appendKeyComponent(safPath.treeRootUri.toString())
             action(builder.toString())
             for (i in 0 until safPath.segments.size - 1) {
-                if (i > 0) builder.append(KEY_SEPARATOR)
-                builder.append(safPath.segments[i])
+                builder.appendKeyComponent(safPath.segments[i])
                 action(builder.toString())
             }
         }
