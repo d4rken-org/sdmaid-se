@@ -22,7 +22,8 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
+import eu.darken.sdmse.exclusion.core.types.matches
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
@@ -93,6 +94,7 @@ class MediaScanner @Inject constructor(
     private suspend fun createSearchFlow(paths: Set<APath>): Flow<APathLookup<*>> {
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SQUEEZER)
         log(TAG) { "Squeezer exclusions are: $exclusions" }
+        val exclusionIndex = PathExclusionIndex(exclusions)
         log(TAG) { "Search paths: $paths" }
 
         // Walk in Mode.NORMAL only: Transformer / BitmapFactory can't read files that would
@@ -107,7 +109,7 @@ class MediaScanner @Inject constructor(
                     return@flatMapMerge emptyFlow()
                 }
                 val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
-                    exclusions.none { it.match(toCheck) }
+                    !exclusionIndex.matches(toCheck)
                 }
                 localGateway.walk(
                     path = localPath,
