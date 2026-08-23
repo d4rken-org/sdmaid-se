@@ -53,13 +53,17 @@ class PathExclusionIndexDifferentialTest : BaseTest() {
     companion object {
         private val CORPUS: List<String> = run {
             val alphabet = listOf("/", "a", "b")
-            val all = mutableListOf<String>()
+            val all = mutableListOf("")
             var current = listOf("")
             repeat(5) {
                 current = current.flatMap { prefix -> alphabet.map { prefix + it } }
                 all.addAll(current)
             }
             all
+        }
+
+        init {
+            check("" in CORPUS)
         }
     }
 }
