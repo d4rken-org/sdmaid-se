@@ -19,7 +19,8 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
+import eu.darken.sdmse.exclusion.core.types.matches
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.SessionState
@@ -76,11 +77,12 @@ class SwiperScanner @Inject constructor(
 
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SWIPER)
         log(TAG) { "Swiper exclusions are: $exclusions" }
+        val exclusionIndex = PathExclusionIndex(exclusions)
 
         val searchFlow = options.paths.asFlow()
             .flatMapMerge(2) { path ->
                 val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
-                    exclusions.none { it.match(toCheck) }
+                    !exclusionIndex.matches(toCheck)
                 }
 
                 // A source path can vanish or become unreadable between picking and scanning (more
