@@ -31,6 +31,7 @@ import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
 import eu.darken.sdmse.main.core.SDMTool
 import javax.inject.Inject
 import javax.inject.Provider
@@ -66,7 +67,7 @@ class DalvikCorpseFilter @Inject constructor(
 
         val areas = areaManager.currentAreas()
 
-        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
+        val exclusionIndex = PathExclusionIndex(exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER))
 
         // Android 16 (API36) uses a new structure for Dalvik profiles in /data/misc/profiles (covered by another filter)
         val profileCorpses = areas
@@ -81,11 +82,9 @@ class DalvikCorpseFilter @Inject constructor(
                 area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
-                        pathExclusions.none { excl ->
-                            excl.match(path).also {
-                                if (it) log(TAG, INFO) { "Excluded due to $excl: $path" }
-                            }
-                        }
+                        val isExcluded = exclusionIndex.matches(path)
+                        if (isExcluded) log(TAG, INFO) { "Excluded due to path exclusion: $path" }
+                        !isExcluded
                     }
             }
             .map { profilesToCheck ->
@@ -106,11 +105,9 @@ class DalvikCorpseFilter @Inject constructor(
                 area.path
                     .listFiles(gatewaySwitch)
                     .filter { path ->
-                        pathExclusions.none { excl ->
-                            excl.match(path).also {
-                                if (it) log(TAG, INFO) { "Excluded due to $excl: $path" }
-                            }
-                        }
+                        val isExcluded = exclusionIndex.matches(path)
+                        if (isExcluded) log(TAG, INFO) { "Excluded due to path exclusion: $path" }
+                        !isExcluded
                     }
             }
             .map { dalvikFilesToCheck ->

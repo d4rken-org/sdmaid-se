@@ -46,7 +46,8 @@ import eu.darken.sdmse.exclusion.core.pkgExclusions
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
-import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
+import eu.darken.sdmse.exclusion.core.types.matches
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.SetupHeartbeat
 import eu.darken.sdmse.setup.SetupBinding
@@ -254,7 +255,7 @@ class CorpseFinder @Inject constructor(
             .map { it.create() }
             .onEach { log(TAG) { "Created filter: $it" } }
 
-        val pathExclusions = exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER)
+        val pathExclusionIndex = PathExclusionIndex(exclusionManager.pathExclusions(SDMTool.Type.CORPSEFINDER))
         val pkgExclusions = exclusionManager.pkgExclusions(SDMTool.Type.CORPSEFINDER)
 
         val results = filters
@@ -274,11 +275,9 @@ class CorpseFinder @Inject constructor(
                 }
             }
             .filter { corpse ->
-                pathExclusions.none { excl ->
-                    excl.match(corpse.lookup).also {
-                        if (it) log(TAG, INFO) { "Excluded due to $excl: $corpse" }
-                    }
-                }
+                val isExcluded = pathExclusionIndex.matches(corpse.lookup)
+                if (isExcluded) log(TAG, INFO) { "Excluded due to path exclusion: $corpse" }
+                !isExcluded
             }
             .filter { corpse ->
                 // One extra check for multi-user devices without root
@@ -454,9 +453,13 @@ class CorpseFinder @Inject constructor(
         }.toSet()
         val saved = exclusionManager.save(exclusions)
 
+        // A bulk exclude can carry a large number of targets, so index them once instead of
+        // matching every corpse against every exclusion.
+        val exclusionIndex = PathExclusionIndex(exclusions)
+
         val updated = snapshot.copy(
             corpses = snapshot.corpses.filter { corpse ->
-                exclusions.none { it.match(corpse.lookup) }
+                !exclusionIndex.matches(corpse.lookup)
             }
         )
         internalData.value = updated
