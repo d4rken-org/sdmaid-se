@@ -5,6 +5,7 @@ import eu.darken.sdmse.exclusion.core.types.DefaultExclusion
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -103,5 +104,21 @@ class ExclusionManagerTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 1) { defaults.remove(setOf(defaultId)) }
+    }
+
+    @Test
+    fun `save replaces an exclusion carrying the same id instead of duplicating it`() = runTest2 {
+        val pkg = "com.other.app".toPkgId()
+        val existing = PkgExclusion(pkg, setOf(Exclusion.Tag.GENERAL))
+        val updated = PkgExclusion(pkg, setOf(Exclusion.Tag.APPCLEANER))
+        existing.id shouldBe updated.id
+        val (manager, storage) = create(backgroundScope, setOf(existing), defaults())
+
+        manager.save(setOf(updated))
+        advanceUntilIdle()
+
+        val saved = slot<Set<Exclusion>>()
+        coVerify { storage.save(capture(saved)) }
+        saved.captured shouldContainExactly setOf(updated)
     }
 }
