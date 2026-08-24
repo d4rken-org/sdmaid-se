@@ -36,7 +36,8 @@ Files updated by every release:
 
 - **`check-release-tooling`** in `code-checks.yml`: runs `shellcheck`, `bats`, and a live `--mode=check` on every PR.
 - **`validate-tag`** in `release-tag.yml`: on every tag push, runs `bump.sh --mode=check --expected-tag=<tag>`. Rejects malformed tags and tags that don't match `version.properties`.
-- **Stale-state guard**: Job 2 of `release-prepare.yml` calls `--mode=check --expected-current=<name-from-job-1>` before writing. Fails if `main` advanced between jobs.
+- **Pre-flight health gate**: Job 1 reads the required check contexts from the branch ruleset and fails closed. A release is refused if that read fails, if the ruleset declares no contexts, if a required check ended in anything other than success/neutral/skipped, or if checks have not settled after polling (20 attempts, 30s apart).
+- **Stale-state guard**: Job 2 of `release-prepare.yml` checks out the exact SHA job 1 validated and aborts if `origin/main` has moved off it, so a merge landing mid-run cannot be released unvalidated. It also re-runs `--mode=check --expected-current=<name-from-job-1>` before writing, which catches a version change specifically.
 
 ## Emergency release (Actions unavailable)
 
