@@ -10,10 +10,10 @@ import androidx.core.app.NotificationCompat
 import androidx.work.ForegroundInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
+import eu.darken.sdmse.automation.core.errors.isScreenUnavailable
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.error.causes
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.main.core.SDMTool
@@ -228,8 +228,7 @@ class SchedulerNotifications @Inject constructor(
  * (e.g. an unattended scheduled run). That's a by-design limitation, not a genuine failure, so it's worth surfacing
  * with its own wording instead of the generic error label.
  */
-internal fun Throwable.isScreenUnavailableSkip(): Boolean =
-    this is ScreenUnavailableException || causes.any { it is ScreenUnavailableException }
+internal fun Throwable.isScreenUnavailableSkip(): Boolean = isScreenUnavailable()
 
 internal fun Throwable.toSchedulerErrorLabelRes(): Int = if (isScreenUnavailableSkip()) {
     R.string.scheduler_notification_result_skipped_screen_unavailable
