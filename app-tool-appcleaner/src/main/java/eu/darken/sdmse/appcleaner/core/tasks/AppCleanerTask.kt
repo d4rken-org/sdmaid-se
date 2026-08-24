@@ -8,5 +8,10 @@ sealed interface AppCleanerTask : SDMTool.Task {
     sealed interface Result : SDMTool.Task.Result {
         override val type: SDMTool.Type get() = SDMTool.Type.APPCLEANER
     }
-}
 
+    /** Why a clean stopped before it was through everything it had targeted. */
+    enum class StopReason {
+        SCREEN_UNAVAILABLE,
+        ERROR,
+    }
+}

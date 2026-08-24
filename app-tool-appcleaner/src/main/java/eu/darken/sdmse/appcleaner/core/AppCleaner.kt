@@ -13,6 +13,8 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask.StopReason
+import eu.darken.sdmse.automation.core.errors.isScreenUnavailable
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -49,6 +51,7 @@ import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusionIndex
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
+import eu.darken.sdmse.main.core.PartialResultException
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
@@ -73,6 +76,20 @@ private val AppCleanerTask.requiresPro: Boolean
         is AppCleanerSchedulerTask -> true
         is AppCleanerOneClickTask -> true
     }
+
+private fun AppCleanerProcessingTask.Success.toSchedulerSuccess() = AppCleanerSchedulerTask.Success(
+    affectedSpace = affectedSpace,
+    affectedPaths = affectedPaths,
+    affectedCount = affectedCount,
+    stoppedEarly = stoppedEarly,
+)
+
+private fun AppCleanerProcessingTask.Success.toOneClickSuccess() = AppCleanerOneClickTask.Success(
+    affectedSpace = affectedSpace,
+    affectedPaths = affectedPaths,
+    affectedCount = affectedCount,
+    stoppedEarly = stoppedEarly,
+)
 
 @Singleton
 class AppCleaner @Inject constructor(
@@ -153,31 +170,35 @@ class AppCleaner @Inject constructor(
                     is AppCleanerProcessingTask -> performProcessing(task)
                     is AppCleanerSchedulerTask -> {
                         performScan()
-                        performProcessing(
-                            AppCleanerProcessingTask(
-                                useAutomation = task.useAutomation,
-                                isBackground = true,
-                            )
-                        ).let {
-                            AppCleanerSchedulerTask.Success(
-                                affectedSpace = it.affectedSpace,
-                                affectedPaths = it.affectedPaths,
-                                affectedCount = it.affectedCount,
+                        // A partial result carries the processing task's own Success type; rewrap it
+                        // so what TaskManager records always matches the submitted task.
+                        try {
+                            performProcessing(
+                                AppCleanerProcessingTask(
+                                    useAutomation = task.useAutomation,
+                                    isBackground = true,
+                                )
+                            ).toSchedulerSuccess()
+                        } catch (e: PartialResultException) {
+                            throw PartialResultException(
+                                e.cause,
+                                (e.partialResult as AppCleanerProcessingTask.Success).toSchedulerSuccess(),
                             )
                         }
                     }
 
                     is AppCleanerOneClickTask -> {
                         performScan()
-                        performProcessing(
-                            AppCleanerProcessingTask(
-                                isBackground = task.shortcutMode,
-                            )
-                        ).let {
-                            AppCleanerOneClickTask.Success(
-                                affectedSpace = it.affectedSpace,
-                                affectedPaths = it.affectedPaths,
-                                affectedCount = it.affectedCount,
+                        try {
+                            performProcessing(
+                                AppCleanerProcessingTask(
+                                    isBackground = task.shortcutMode,
+                                )
+                            ).toOneClickSuccess()
+                        } catch (e: PartialResultException) {
+                            throw PartialResultException(
+                                e.cause,
+                                (e.partialResult as AppCleanerProcessingTask.Success).toOneClickSuccess(),
                             )
                         }
                     }
@@ -403,11 +424,6 @@ class AppCleaner @Inject constructor(
             }.filter { !it.isEmpty() }
         )
 
-        // `internalData` now reflects the accessible deletions plus whatever the ACS stage reported
-        // before failing, so the failure can surface. The task still fails with the original
-        // exception, exactly as it did before this salvage existed.
-        acsFailure?.let { throw it }
-
         // `acsResult` is a var (the partial-result callback writes to it), so it won't smart-cast.
         val acsOutcome = acsResult
         // Prefer what the deleter actually observed disappearing. The pre-clear size is only a
@@ -426,11 +442,24 @@ class AppCleaner @Inject constructor(
         // accessible/inaccessible/public-cache counting rules in a second hand-rolled counter, and it counts ACS
         // cache clears at scan scale rather than as the <=2 synthetic paths that land in `affectedPaths`.
         val affectedCount = (snapshot.totalCount - (internalData.value?.totalCount ?: 0)).coerceAtLeast(0)
-        return AppCleanerProcessingTask.Success(
+        val salvaged = AppCleanerProcessingTask.Success(
             affectedSpace = accessibleDeletionMap.values.sumOf { contents -> contents.sumOf { it.expectedGain } } + automationSize,
             affectedPaths = deleted,
             affectedCount = affectedCount,
         )
+
+        // `internalData` now reflects the accessible deletions plus whatever the ACS stage reported
+        // before failing, so the failure can surface. It travels wrapped, carrying what was already
+        // deleted: TaskManager records both, so the run shows up as a partial success instead of
+        // discarding everything, while submit() callers still see the original exception.
+        acsFailure?.let { failure ->
+            if (failure is CancellationException) throw failure
+            if (salvaged.affectedCount == 0 && salvaged.affectedSpace == 0L) throw failure
+            val reason = if (failure.isScreenUnavailable()) StopReason.SCREEN_UNAVAILABLE else StopReason.ERROR
+            throw PartialResultException(failure, salvaged.copy(stoppedEarly = reason))
+        }
+
+        return salvaged
     }
 
     suspend fun exclude(identifiers: Set<InstallId>): ExclusionUndo = toolLock.withLock {
