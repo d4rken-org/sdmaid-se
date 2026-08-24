@@ -23,6 +23,7 @@ import io.kotest.matchers.booleans.shouldBeTrue
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
@@ -159,6 +160,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
          */
         repoIsPro: Boolean = isPro,
         failingTaskType: Class<out SDMTool.Task>? = null,
+        /** Runs on the task a [failingTaskType] submit is about to reject; stages what the task manager recorded. */
+        onFailedSubmit: (SDMTool.Task) -> Unit = {},
         onUpgradeRequired: () -> Unit = {},
         gate: CompletableDeferred<Unit>? = null,
         /** Replaces CorpseFinder's state flow; for tests that need a non-StateFlow source. */
@@ -221,7 +224,10 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             submitTask = { task ->
                 submittedTasks.add(task)
                 // Mirrors TaskManager.submit rethrowing a recorded task error.
-                if (failingTaskType?.isInstance(task) == true) throw IllegalStateException("task failed")
+                if (failingTaskType?.isInstance(task) == true) {
+                    onFailedSubmit(task)
+                    throw IllegalStateException("task failed")
+                }
                 // Stands in for the tool's resource lock, holding a branch in flight.
                 gate?.await()
                 mockk(relaxed = true)
@@ -316,6 +322,72 @@ internal class DashboardMainActionEngineTest : BaseTest() {
             hero.tools.shouldBeEmpty()
             // A NOTHING_FREED card IS a hero, so this one-tap cleanup auto-expands it.
             h.engine.isHeroExpanded.value shouldBe true
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    /**
+     * Stages the task manager entry a tool leaves behind when it fails after freeing something:
+     * both [result] and error on the very task instance the engine submitted.
+     */
+    private fun partiallyFailedState(task: SDMTool.Task, result: SDMTool.Task.Result?): TaskSubmitter.State =
+        TaskSubmitter.State(
+            tasks = listOf(
+                TaskSubmitter.ManagedTask(
+                    id = "delete-partial",
+                    toolType = SDMTool.Type.CORPSEFINDER,
+                    task = task,
+                    completedAt = Instant.now(),
+                    result = result,
+                    error = IOException("screen went off"),
+                ),
+            ),
+        )
+
+    @Test
+    fun `a cleanup that failed after freeing something still credits what it freed`() {
+        val harnessRef = AtomicReference<Harness?>()
+        val h = harness(
+            corpseData = corpseData(),
+            failingTaskType = CorpseFinderDeleteTask::class.java,
+            onFailedSubmit = { task ->
+                harnessRef.get()!!.taskState.value = partiallyFailedState(
+                    task,
+                    CorpseFinderDeleteTask.Success(affectedSpace = 512L, affectedPaths = emptySet()),
+                )
+            },
+        )
+        harnessRef.set(h)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            val hero = h.barState().heroSummary!!
+            hero.mode shouldBe HeroSummary.Mode.FREED
+            hero.totalSize shouldBe 512L
+            // The failure still travels on to the error handling; only the bytes are salvaged.
+            h.branchErrors.size shouldBe 1
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
+    fun `a cleanup that failed with nothing on record credits nothing`() {
+        val harnessRef = AtomicReference<Harness?>()
+        val h = harness(
+            corpseData = corpseData(),
+            failingTaskType = CorpseFinderDeleteTask::class.java,
+            onFailedSubmit = { task -> harnessRef.get()!!.taskState.value = partiallyFailedState(task, result = null) },
+        )
+        harnessRef.set(h)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.DELETE)
+
+            h.barState().heroSummary?.mode shouldNotBe HeroSummary.Mode.FREED
+            h.branchErrors.size shouldBe 1
         } finally {
             h.engineScope.cancel()
         }
