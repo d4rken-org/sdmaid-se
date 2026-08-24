@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.backup.BackupOperationGate
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.main.core.PartialResultException
 import eu.darken.sdmse.main.core.SDMTool
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -168,6 +169,25 @@ class TaskManagerTest : BaseTest() {
 
         shouldThrow<IOException> { manager.submit(task) }.carries(boom) shouldBe true
     }
+
+    @Test fun `a partial result is recorded alongside the failure it came with`() =
+        runTest2(autoCancel = true) {
+            val scope = this + Dispatchers.IO
+            val tool = createTool(scope)
+            val boom = IOException("Screen went off")
+            coEvery { tool.submit(task) } throws PartialResultException(boom, taskResult)
+
+            val manager = createManager(scope, tool)
+
+            // The caller sees the failure, not the transport wrapper: the error dialog must not
+            // change just because the tool salvaged something.
+            shouldThrow<IOException> { manager.submit(task) }.carries(boom) shouldBe true
+
+            manager.state.first().tasks.single().let {
+                it.result shouldBeSameInstanceAs taskResult
+                it.error shouldBeSameInstanceAs boom
+            }
+        }
 
     @Test fun `an error from the tool arrives wrapped instead of killing the process`() =
         runTest2(autoCancel = true) {
