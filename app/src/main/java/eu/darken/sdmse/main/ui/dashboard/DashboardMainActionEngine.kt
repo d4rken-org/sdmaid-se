@@ -31,6 +31,7 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.main.core.taskmanager.getLatestTask
 import eu.darken.sdmse.stats.core.ReportDetails
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
@@ -807,7 +808,18 @@ class DashboardMainActionEngine(
      */
     private suspend fun runCleanup(type: SDMTool.Type, task: SDMTool.Task) {
         submittedTasks.update { it + (type to task) }
-        accumulateFreed(type, submitTask(task))
+        try {
+            accumulateFreed(type, submitTask(task))
+        } catch (e: Throwable) {
+            // A tool that failed after freeing something records both on its completed task. The
+            // failure still propagates to the error dialog, but what it did free belongs in the hero.
+            if (e !is CancellationException) {
+                taskManager.state.first().getLatestTask(type)
+                    ?.takeIf { it.task === task && it.result != null && it.error != null }
+                    ?.result?.let { accumulateFreed(type, it) }
+            }
+            throw e
+        }
     }
 
     /** Folds a deletion/one-click result into [freedResult] so the hero can show what was freed. */
