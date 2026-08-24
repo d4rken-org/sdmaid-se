@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.main.core.PartialResultException
 import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CompletableDeferred
@@ -261,12 +262,18 @@ class TaskManager @Inject constructor(
             } catch (e: Throwable) {
                 // Throwable, not Exception: AppScope has no CoroutineExceptionHandler, so an Error
                 // escaping a tool would take the process down with it.
-                if (e is CancellationException) {
+                // A tool that got part of its work done before failing wraps both in a
+                // PartialResultException. Record each half where it belongs, so the completion is a
+                // partial success while the caller below still sees the failure.
+                val partial = e as? PartialResultException
+                if (partial != null) result = partial.partialResult
+                val unwrapped = partial?.cause ?: e
+                if (unwrapped is CancellationException) {
                     log(TAG, INFO) { "execute(): Task was cancelled (${task.type}-$taskId): $task" }
                 } else {
-                    log(TAG, ERROR) { "execute(): Execution failed (${task.type}-$taskId): $task\n${e.asLog()}" }
+                    log(TAG, ERROR) { "execute(): Execution failed (${task.type}-$taskId): $task\n${unwrapped.asLog()}" }
                 }
-                error = e
+                error = unwrapped
             } finally {
                 try {
                     updateTasks {
