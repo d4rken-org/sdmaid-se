@@ -82,6 +82,8 @@ class StatsRepo @Inject constructor(
             endAt = task.completedAt ?: Instant.now(),
             tool = task.toolType,
             status = when {
+                // A task that failed but still handed back a result got part of its work done.
+                task.error != null && reportDetails != null -> Report.Status.PARTIAL_SUCCESS
                 task.error != null -> Report.Status.FAILURE
                 reportDetails != null -> reportDetails.status
                 else -> Report.Status.SUCCESS

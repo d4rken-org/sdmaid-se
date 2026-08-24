@@ -67,6 +67,11 @@ fun ReportRow(
         Report.Status.PARTIAL_SUCCESS -> row.primaryMessage.orEmpty()
         Report.Status.FAILURE -> row.errorMessage.orEmpty()
     }
+    // A partial success has something to show AND something that went wrong, so it needs both.
+    val tertiaryText: String = when (row.status) {
+        Report.Status.PARTIAL_SUCCESS -> row.errorMessage.orEmpty()
+        else -> ""
+    }
 
     Column(
         modifier = modifier
@@ -129,6 +134,14 @@ fun ReportRow(
                 maxLines = 3,
             )
         }
+        if (tertiaryText.isNotEmpty()) {
+            Text(
+                text = tertiaryText,
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                maxLines = 3,
+            )
+        }
     }
 }
 
@@ -164,7 +177,7 @@ private fun ReportRowPartialPreview() {
                 endAt = Instant.now().minusSeconds(3600),
                 primaryMessage = "Freed 4 MB, 2 items could not be removed",
                 secondaryMessage = null,
-                errorMessage = null,
+                errorMessage = "The screen was turned off or locked",
             ),
             now = Instant.now(),
             onClick = {},
