@@ -48,11 +48,26 @@ data class AppCleanerProcessingTask(
         // accessibility-service "Clear cache" tap contribute just their synthetic dir paths, so the path count
         // would massively undershoot what the scan reported as "found". This carries the scan-scale count instead.
         override val affectedCount: Int = affectedPaths.size,
+        // Set when the clean aborted after deleting this much, e.g. the accessibility stage hit a
+        // locked screen. Null for a run that went through everything it targeted.
+        val stoppedEarly: AppCleanerTask.StopReason? = null,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         override val primaryInfo
             get() = caString {
-                getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount)
+                when (stoppedEarly) {
+                    AppCleanerTask.StopReason.SCREEN_UNAVAILABLE -> getQuantityString2(
+                        R.plurals.appcleaner_result_x_items_deleted_stopped_screen,
+                        affectedCount,
+                    )
+
+                    AppCleanerTask.StopReason.ERROR -> getQuantityString2(
+                        R.plurals.appcleaner_result_x_items_deleted_stopped_error,
+                        affectedCount,
+                    )
+
+                    null -> getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount)
+                }
             }
 
         override val secondaryInfo

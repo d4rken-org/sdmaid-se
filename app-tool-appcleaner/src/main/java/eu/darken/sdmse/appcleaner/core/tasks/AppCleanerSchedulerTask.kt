@@ -22,11 +22,24 @@ data class AppCleanerSchedulerTask(
         override val affectedSpace: Long,
         override val affectedPaths: Set<APath>,
         override val affectedCount: Int = affectedPaths.size,
+        val stoppedEarly: AppCleanerTask.StopReason? = null,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         override val primaryInfo
             get() = caString {
-                getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount)
+                when (stoppedEarly) {
+                    AppCleanerTask.StopReason.SCREEN_UNAVAILABLE -> getQuantityString2(
+                        R.plurals.appcleaner_result_x_items_deleted_stopped_screen,
+                        affectedCount,
+                    )
+
+                    AppCleanerTask.StopReason.ERROR -> getQuantityString2(
+                        R.plurals.appcleaner_result_x_items_deleted_stopped_error,
+                        affectedCount,
+                    )
+
+                    null -> getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount)
+                }
             }
 
         override val secondaryInfo

@@ -60,6 +60,14 @@
         <item quantity="one">%d expendable item deleted</item>
         <item quantity="other">%d expendable items deleted</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d expendable item deleted, stopped because the screen was off or locked</item>
+        <item quantity="other">%d expendable items deleted, stopped because the screen was off or locked</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d expendable item deleted, stopped by an error</item>
+        <item quantity="other">%d expendable items deleted, stopped by an error</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d expendable item found</item>
         <item quantity="other">%d expendable items found</item>

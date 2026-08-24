@@ -4,12 +4,16 @@ import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.appcleaner.ui.preview.previewInaccessibleCache
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
+import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.appcleaner.ui.preview.previewExpendables
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
 import eu.darken.sdmse.common.adb.AdbManager
@@ -33,6 +37,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
+import eu.darken.sdmse.main.core.PartialResultException
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.assertions.throwables.shouldThrow
@@ -819,9 +824,15 @@ class AppCleanerTest : BaseTest() {
         val expendableSize = previewExpendables().values.flatten().sumOf { it.expectedGain }
 
         // The task still fails, with the original exception: the salvage must not mask the failure.
-        shouldThrow<InvalidSystemStateException> {
+        // It rides along on the failure so the run is recorded as a partial success.
+        val thrown = shouldThrow<PartialResultException> {
             rebuilt.cleaner.submit(AppCleanerProcessingTask())
-        } shouldBe boom
+        }
+        thrown.cause shouldBe boom
+        val partial = thrown.partialResult.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        partial.affectedSpace shouldBe expendableSize
+        // InvalidSystemStateException is not a ScreenUnavailableException, so this is a plain error.
+        partial.stoppedEarly shouldBe AppCleanerTask.StopReason.ERROR
 
         val after = rebuilt.cleaner.state.first().data!!.junks.single()
         // Accessible matches were deleted, so they must be gone from the data the dashboard reads.
@@ -890,13 +901,106 @@ class AppCleanerTest : BaseTest() {
         val rebuilt = rebuildWithDeleter(setup, deleter)
 
         rebuilt.cleaner.submit(AppCleanerScanTask())
-        shouldThrow<InvalidSystemStateException> {
+        val thrown = shouldThrow<PartialResultException> {
             rebuilt.cleaner.submit(AppCleanerProcessingTask())
-        } shouldBe boom
+        }
+        thrown.cause shouldBe boom
+        val partial = thrown.partialResult.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        // What the deleter cleared before dying is what the run gets credited with.
+        partial.affectedSpace shouldBe 24L * 1024 * 1024
+        partial.affectedCount shouldBe 4
+        partial.stoppedEarly shouldBe AppCleanerTask.StopReason.ERROR
 
         // The cleared junk is gone entirely; only the app the run never reached is still listed.
         val remaining = rebuilt.cleaner.state.first().data!!.junks
         remaining.map { it.identifier } shouldBe listOf(installId("com.example.later"))
+    }
+
+    /** A cleaner whose accessible stage deletes everything and whose ACS stage dies with [failure]. */
+    private fun salvageSetup(failure: Exception): Setup {
+        val junk = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.example.mixed", label = "com.example.mixed"),
+            expendables = previewExpendables(),
+            inaccessibleCache = previewInaccessibleCache(pkgName = "com.example.mixed"),
+        )
+        val deleter = mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery { deleteInaccessible(any(), any(), any(), any(), any()) } throws failure
+        }
+        return rebuildWithDeleter(
+            setupCleaner(scanResults = listOf(junk)),
+            deleter,
+            filterFactories = setOf(deletingFilterFactory()),
+        )
+    }
+
+    @Test
+    fun `a locked screen aborting the ACS stage is reported as such`() = runTest2 {
+        val boom = ScreenUnavailableException("screen is off")
+        val rebuilt = salvageSetup(boom)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val thrown = shouldThrow<PartialResultException> {
+            rebuilt.cleaner.submit(AppCleanerProcessingTask())
+        }
+
+        thrown.cause shouldBe boom
+        val partial = thrown.partialResult.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        partial.stoppedEarly shouldBe AppCleanerTask.StopReason.SCREEN_UNAVAILABLE
+    }
+
+    @Test
+    fun `an ACS failure with nothing salvaged stays a plain failure`() = runTest2 {
+        // No accessible deletions and no ACS successes: there is no partial result to advertise, so
+        // wrapping the failure would only claim a partial success that freed nothing.
+        val junk = inaccJunk("com.example.nothing", itemCount = 4, theoreticalPaths = emptySet())
+        val boom = InvalidSystemStateException("died before anything was cleared")
+        val deleter = mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery { deleteInaccessible(any(), any(), any(), any(), any()) } throws boom
+        }
+        val rebuilt = rebuildWithDeleter(setupCleaner(scanResults = listOf(junk)), deleter)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        shouldThrow<InvalidSystemStateException> {
+            rebuilt.cleaner.submit(AppCleanerProcessingTask())
+        } shouldBe boom
+    }
+
+    @Test
+    fun `a one-click run salvages its partial result as a one-click success`() = runTest2 {
+        // The task manager records the result against the submitted task, so the salvaged result
+        // has to be the type that task's own callers expect.
+        val boom = InvalidSystemStateException("screen went off mid-run")
+        val rebuilt = salvageSetup(boom)
+        val expendableSize = previewExpendables().values.flatten().sumOf { it.expectedGain }
+
+        val thrown = shouldThrow<PartialResultException> {
+            rebuilt.cleaner.submit(AppCleanerOneClickTask())
+        }
+
+        thrown.cause shouldBe boom
+        val partial = thrown.partialResult.shouldBeInstanceOf<AppCleanerOneClickTask.Success>()
+        partial.affectedSpace shouldBe expendableSize
+        partial.stoppedEarly shouldBe AppCleanerTask.StopReason.ERROR
+    }
+
+    @Test
+    fun `a scheduled run salvages its partial result as a scheduler success`() = runTest2 {
+        val boom = ScreenUnavailableException("screen is off")
+        val rebuilt = salvageSetup(boom)
+        val expendableSize = previewExpendables().values.flatten().sumOf { it.expectedGain }
+
+        val thrown = shouldThrow<PartialResultException> {
+            rebuilt.cleaner.submit(AppCleanerSchedulerTask(scheduleId = "schedule-1", useAutomation = true))
+        }
+
+        thrown.cause shouldBe boom
+        val partial = thrown.partialResult.shouldBeInstanceOf<AppCleanerSchedulerTask.Success>()
+        partial.affectedSpace shouldBe expendableSize
+        partial.stoppedEarly shouldBe AppCleanerTask.StopReason.SCREEN_UNAVAILABLE
     }
 
     @Test
