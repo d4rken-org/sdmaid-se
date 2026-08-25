@@ -246,9 +246,9 @@
     <string name="setup_root_state_ready_label">Root toegang is gereed.</string>
     <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root toegang is nie beskikbaar nie.</string>
-    <string name="setup_root_state_failed_title">Worteltogang het misluk</string>
-    <string name="setup_root_state_failed_body">SD Maid het om worteltogang gevra en het dit nie ontvang nie. Indien jou toestel geworteld is, maak jou wortelbeheerder oop (Magisk, KernelSU of soortgelyk) en kontroleer of die versoek van SD Maid geweier of nog steeds wag.</string>
-    <string name="setup_root_state_failed_body_nomanager">SD Maid het om worteltogang gevra en het dit nie ontvang nie, en geen wortelbeheerder-app is gevind nie. Indien jou toestel verborge of ingebou wortels gebruik, probeer weer.</string>
+    <string name="setup_root_state_failed_title">Worteltoegang het misluk</string>
+    <string name="setup_root_state_failed_body">SD Maid het om worteltoegang gevra en het dit nie ontvang nie. Indien jou toestel geworteld is, maak jou wortelbeheerder oop (Magisk, KernelSU of soortgelyk) en kontroleer of die versoek van SD Maid geweier of nog steeds wag.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid het om worteltoegang gevra en het dit nie ontvang nie, en geen wortelbeheerder-app is gevind nie. Indien jou toestel verborge of ingebou wortels gebruik, probeer weer.</string>
     <string name="setup_root_enable_root_use_label">Probeer root toegang te gebruik</string>
     <string name="setup_root_disable_root_use_label">Ek het my toestel nie ge-root nie</string>
     <string name="setup_root_card_body2">Slegs beskikbaar op gewortel toestelle. As jy nie hierdie wysiging gemaak het nie, dan is jou toestel nie gewortel nie en hierdie instelling het geen effek nie.</string>

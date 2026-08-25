@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="exclusion_manager_title">مدیر اسثناء</string>
-    <string name="exclusion_manager_desc">مدیریت فایل ها و برنامه های مستثناء</string>
+    <string name="exclusion_manager_desc">مدیریت فایل ها و برنامه های مستثناء.</string>
     <string name="exclusion_explanation_body1">فایل‌ها و برنامه‌ها را استثنا کنید تا از ابزارهای SD Maid محفوظ بمانند، یا موارد نامربوط را نادیده بگیرید و عملیات را سریع‌تر کنید.</string>
     <string name="exclusion_add_new_hint">هنوز استثنایی وجود ندارد. از دکمه + استفاده کنید تا یکی ایجاد کنید، یا موارد را از نتایج هر ابزار استثنا کنید.</string>
     <string name="exclusion_create_action">ایجاد استثناء</string>
@@ -16,7 +16,7 @@
     <string name="exclusion_option_ignore_casing">نادیده‌گرفتن پوشش</string>
     <string name="exclusion_editor_affected_tools_label">ابزارهای تأثیرپذیر</string>
     <string name="exclusion_editor_path_explanation">SD Maid را از پردازش بیشتر هر مسیر تطابقی مستثناء جلوگیری می‌کند. این به فایل‌ها، پوشه‌ها و زیرپوشه‌ها اعمال می‌شود.</string>
-    <string name="exclusion_editor_pkg_explanation"> SD Maid را از پردازش هر پکیج تطابقی با برنامه مسثناء جلوگیری می‌کند.</string>
+    <string name="exclusion_editor_pkg_explanation">SD Maid را از پردازش هر پکیج تطابقی با برنامه مسثناء جلوگیری می‌کند.</string>
     <string name="exclusion_editor_segment_explanation">استثناء مبتنی بر بخش مشابه اما اجازه تطابق‌های جزئی را می‌دهد. مثال: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" را مستثنی می‌کند.</string>
     <string name="exclusion_editor_remove_confirmation_message">حذف این استثناء؟</string>
     <string name="exclusion_reset_default_exclusions">بازگرداندن استثناءهای پیش‌فرض</string>
@@ -24,7 +24,7 @@
     <string name="exclusion_export_action">صادرات استثناء</string>
     <string name="exclusion_create_pkg_hint">از ابزار کنترل برنامه برای ایجاد استثناءهای برنامه استفاده کنید.</string>
     <string name="exclusion_create_path_hint">از ابزار آنالیز ذخیره‌سازی برای ایجاد استثناءهای مسیر استفاده کنید.</string>
-    <string name="exclusion_create_segment_hint">مطابقت با قسمتی از نام، مانند «DCIM/Camera»</string>
+    <string name="exclusion_create_segment_hint">مطابقت با قسمتی از نام، مانند «DCIM/Camera».</string>
     <string name="exclusion_show_defaults_action">نمایش پیش‌فرض</string>
     <plurals name="exclusion_import_success_x_items">
         <item quantity="one">%d استثنا وارد شد</item>

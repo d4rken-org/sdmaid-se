@@ -24,7 +24,7 @@
         <item quantity="other">Je gast voor %d maanden.</item>
     </plurals>
     <plurals name="stats_dash_since_years">
-        <item quantity="one">Al %d jaar je gast.</item>
+        <item quantity="one">Je gast voor %d jaar.</item>
         <item quantity="other">Je gast voor %d jaar.</item>
     </plurals>
     <string name="stats_report_status_partial_success">Gedeeltelijk succes</string>
@@ -56,7 +56,7 @@
     <string name="stats_space_history_upgrade_body">Upgrade om de volledige 90-daagse trendweergave voor elk opslagapparaat te ontgrendelen.</string>
     <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
          left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
-    <string name="stats_space_history_upgrade_body_v2">Upgrade om de volledige trendweergave van 90 dagen voor elk opslagapparaat te ontgrendelen en een waarschuwing te krijgen voordat je ruimte opraakt.</string>
+    <string name="stats_space_history_upgrade_body_v2">Upgrade om het volledige trendoverzicht van 90 dagen voor elk opslagapparaat te bekijken en ontvang een waarschuwing voordat uw opslagruimte vol is.</string>
     <string name="stats_space_history_marker_freed">%1$s vrijgemaakt</string>
     <string name="stats_storage_type_primary">Primaire opslag</string>
     <string name="stats_storage_type_secondary">Secundaire opslag</string>
