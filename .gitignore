@@ -23,18 +23,12 @@ build/
 # by fastlane/copy_screenshots.sh, so they are intermediates, not committed artifacts.
 **/src/screenshotTest*/reference/
 
-# Play Store screenshots: only the committed "smoke" locale set is tracked. All other locales are
-# generated on demand for a full run (fastlane/generate_screenshots.sh). Keep the allow-list in sync
-# with the smoke set in fastlane/screenshots/locales.txt.
+# Play Store screenshots: only en-US is tracked. It is the listing every language without its
+# own screenshots falls back to, and PNGs are stored whole in every commit, so tracking the full
+# set costs tens of MB of permanent history per render. All other locales are generated on demand
+# (fastlane/generate_screenshots.sh) and uploaded straight from the working tree.
 fastlane/metadata/android/*/images/phoneScreenshots/*.png
 !fastlane/metadata/android/en-US/images/phoneScreenshots/*.png
-!fastlane/metadata/android/de-DE/images/phoneScreenshots/*.png
-!fastlane/metadata/android/es-ES/images/phoneScreenshots/*.png
-!fastlane/metadata/android/fr-FR/images/phoneScreenshots/*.png
-!fastlane/metadata/android/ja-JP/images/phoneScreenshots/*.png
-!fastlane/metadata/android/zh-CN/images/phoneScreenshots/*.png
-!fastlane/metadata/android/ru-RU/images/phoneScreenshots/*.png
-!fastlane/metadata/android/ar/images/phoneScreenshots/*.png
 
 .codex
 _site/
