@@ -33,6 +33,7 @@ import androidx.compose.foundation.layout.systemBars
 import androidx.compose.foundation.layout.union
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material.icons.Icons
@@ -47,6 +48,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.focus.FocusRequester
@@ -56,6 +58,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.focus.focusProperties
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.semantics.Role
@@ -82,7 +85,6 @@ import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.ui.dashboard.BottomBarState
 import eu.darken.sdmse.main.ui.dashboard.HeroSummary
-import eu.darken.sdmse.main.ui.dashboard.showsUpgradeBlock
 import eu.darken.sdmse.main.core.SDMTool
 import java.time.Instant
 
@@ -144,14 +146,12 @@ internal fun BottomBar(
     val fabBottomInset = DASHBOARD_FAB_BOTTOM_INSET
     val heroBottomInset = DASHBOARD_BAR_HEIGHT + DASHBOARD_HERO_BAR_GAP
 
-    // Hero card + dock reservation grow with the font scale so large text doesn't clip the card's
-    // caption/hint. One read each, reused below for the card height, the dock reservation, the
-    // hidden-offset slide distance, and the swipe-to-dismiss threshold — they must stay in lockstep.
-    // Read from the same predicate the card renders by, or the reservation and the layout disagree
-    // and the card either clips or leaves dead space behind it.
-    val heroShowsUpgradeBlock = heroSummary?.showsUpgradeBlock == true
-    val heroCardHeight = dashboardHeroCardHeight(heroShowsUpgradeBlock)
-    val dockHeightWithHero = dashboardDockHeightWithHero(heroShowsUpgradeBlock)
+    // The hero sizes itself to its content, so its height is measured rather than computed: the
+    // dock reservation, the hidden-offset slide distance and the swipe-to-dismiss threshold all read
+    // it back from the card below. Seeded only for the frame before the first measure arrives, and
+    // kept across a hero swap so a replacing card animates from the outgoing one's height.
+    var heroCardHeight by remember { mutableStateOf(DASHBOARD_HERO_INITIAL_CARD_HEIGHT) }
+    val dockHeightWithHero = dashboardDockHeightWithHero(heroCardHeight)
 
     // Reserved layout height drives the Scaffold's content padding. Elements are bottom-anchored, so
     // growing this only reflows the list above — it never moves the bar/FAB.
@@ -279,8 +279,15 @@ internal fun BottomBar(
                         alpha = heroAlpha * (1f - heroDragPx / heroDismissDistancePx).coerceIn(0f, 1f)
                     }
                     .fillMaxWidth()
-                    .height(heroCardHeight)
+                    // Measured against the dock's *reserved* height, which is itself derived from
+                    // this measurement and lags it by a frame while the reservation animates. Left
+                    // bounded, the card would be squeezed by that stale height and report the
+                    // squeezed value back, so the two would chase each other; unbounded, it always
+                    // measures its true content height and the reservation converges on it. Growth
+                    // overflows upward from the bottom anchor, which is where the free space is.
+                    .wrapContentHeight(align = Alignment.Bottom, unbounded = true)
                     .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN)
+                    .onSizeChanged { heroCardHeight = with(density) { it.height.toDp() } }
                     .draggable(
                         state = heroDragState,
                         orientation = Orientation.Vertical,
