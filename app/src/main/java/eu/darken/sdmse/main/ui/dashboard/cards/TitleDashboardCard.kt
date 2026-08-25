@@ -261,7 +261,7 @@ internal fun TitleDashboardCard(
 }
 
 @Composable
-private fun TitleHeaderLayout(
+internal fun TitleHeaderLayout(
     modifier: Modifier = Modifier,
     mascot: @Composable () -> Unit,
     title: @Composable () -> Unit,
@@ -288,7 +288,7 @@ private fun TitleHeaderLayout(
         // name on one line — it collapses into an ugly 2–3 line stack ("SD" / "Maid" / "SE"). Switch
         // to a clean centered vertical stack instead — mascot on top, the full-width one-line title
         // below it, then the badge — which reads as a deliberate large-text header, not a cramped
-        // row. The compact horizontal row below is kept verbatim for normal/smaller text.
+        // row. Normal/smaller text keeps the compact horizontal row below.
         if (constraints.hasBoundedWidth && fontScale > 1.15f) {
             val w = constraints.maxWidth
             val titlePlaceable = measurables[1].measure(looseConstraints.copy(maxWidth = w))
@@ -311,13 +311,19 @@ private fun TitleHeaderLayout(
             }
         }
 
-        // When a badge is present, cap the title width so the card-centered title leaves room
-        // for the inline badge. A long randomized slogan then ellipsizes instead of pushing the
-        // badge onto a second row. Reserve against the badge width only (not the wider mascot),
-        // keeping the slot wide enough that most slogans still fit on one line.
-        val titleConstraints = if (constraints.hasBoundedWidth && ribbonPlaceable != null) {
+        // Cap the title width so the card-centered title leaves room for what sits beside it: the
+        // mascot on its left, and the build-type badge on its right when one is present. A long
+        // randomized slogan then ellipsizes instead of drawing over the mascot or pushing the badge
+        // onto a second row. The title is centered, so both gaps are equal and the reservation is
+        // symmetric against whichever neighbour is wider.
+        // Two limits: below ~228dp of layout width with no badge present (more when a wider badge
+        // is reserved against) the floor wins and the reservation stops being honoured, and the
+        // mascot's rotation lives in a graphicsLayer, so the tap easter-egg spin reaches past these
+        // measured bounds.
+        val titleConstraints = if (constraints.hasBoundedWidth) {
             val minTitleWidth = 96.dp.roundToPx()
-            val reserved = 2 * (inlineSpacing + ribbonPlaceable.width)
+            val neighbourWidth = maxOf(mascotPlaceable.width, ribbonPlaceable?.width ?: 0)
+            val reserved = 2 * (inlineSpacing + neighbourWidth)
             val maxTitleWidth = (constraints.maxWidth - reserved)
                 .coerceAtLeast(minTitleWidth)
                 .coerceAtMost(constraints.maxWidth)
