@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -104,9 +103,11 @@ internal fun DashboardHeroCard(
         shape = DashboardHeroCardShape,
         shadowElevation = 8.dp,
     ) {
-        Column(modifier = Modifier.fillMaxSize()) {
+        // Body then footer, each at its natural height — the card is whatever they add up to. No
+        // minimum: the body always carries a headline, a caption and a hint, so there is no state
+        // it can collapse out of, and a floor would only pad the sparsest cards back out.
+        Column {
             HeroBody(
-                modifier = Modifier.weight(1f),
                 summary = summary,
                 onDismiss = onDismiss,
                 onToolClick = onToolClick,
@@ -118,6 +119,10 @@ internal fun DashboardHeroCard(
             HeroFooter(
                 modifier = Modifier
                     .fillMaxWidth()
+                    // Order matters: the gap wraps the height, so the node is lead-in + notch with
+                    // the content in the bottom DASHBOARD_CUTOUT_DEPTH — flush with the notch it
+                    // flanks. Reversed, the content would be squeezed into what the gap leaves.
+                    .padding(top = DASHBOARD_HERO_FOOTER_TOP_GAP)
                     .height(DASHBOARD_CUTOUT_DEPTH),
                 summary = summary,
                 now = now,
@@ -155,22 +160,20 @@ private fun HeroBody(
     val showUnlockLine = flatLocked.isNotEmpty() && isLockedOnly
     Column(modifier = modifier) {
         // Header insets are split between the row and the text column so the two can differ without
-        // either costing horizontal room. The dismiss button's inset is the row's (8.dp top, 8.dp
-        // end), keeping it square in the corner; the headline's extra 4.dp is the column's, so it
-        // still starts 12.dp below the card's top edge. Padding the *button* instead would come out
-        // of the text column's weight(1f) share, narrowing the headline and caption on a small
-        // display at a large font scale until the caption wraps onto a line the height has no room
-        // for.
+        // either costing horizontal room. The dismiss button's inset is the row's, keeping it square
+        // in the corner; the headline's extra 2.dp is the column's. Padding the *button* instead
+        // would come out of the text column's weight(1f) share, narrowing the headline and caption
+        // on a small display at a large font scale.
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = 20.dp, top = 8.dp, end = 8.dp),
+                .padding(start = 20.dp, top = 6.dp, end = 8.dp),
             verticalAlignment = Alignment.Top,
         ) {
             Column(
                 modifier = Modifier
                     .weight(1f)
-                    .padding(top = 4.dp),
+                    .padding(top = 2.dp),
             ) {
                 // One sentence with the size inline ("3.7 GB can be freed") — the smaller label
                 // text is spanned around the headline-sized number. Split on the placeholder so
@@ -194,7 +197,7 @@ private fun HeroBody(
                             }
                         }
                     },
-                    style = MaterialTheme.typography.headlineMedium,
+                    style = MaterialTheme.typography.headlineSmall,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
@@ -241,9 +244,7 @@ private fun HeroBody(
             }
         }
 
-        // The body is sized for the worst case (two chip rows + two-line hint); in smaller
-        // configurations the slack collects here so chips + hint stay anchored above the footer.
-        Spacer(modifier = Modifier.height(8.dp))
+        Spacer(modifier = Modifier.height(6.dp))
 
         FlowRow(
             modifier = Modifier
@@ -279,7 +280,7 @@ private fun HeroBody(
         // conditions rather than one if/else only so that each keeps its own side of the block.
         if (!showUnlockLine) {
             Text(
-                modifier = Modifier.padding(top = 2.dp, start = 20.dp, end = 20.dp),
+                modifier = Modifier.padding(top = 4.dp, start = 20.dp, end = 20.dp),
                 text = stringResource(modeRes.hint),
                 style = MaterialTheme.typography.labelSmall,
                 color = LocalContentColor.current.copy(alpha = MUTED_ALPHA),
@@ -579,7 +580,6 @@ private fun HeroCardPreview(
         DashboardHeroCard(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(dashboardHeroCardHeight(summary.showsUpgradeBlock))
                 .padding(horizontal = DASHBOARD_HERO_HORIZONTAL_MARGIN),
             summary = summary,
             onDiscard = onDiscard,
@@ -668,8 +668,7 @@ private fun DashboardHeroCardLockedOnlySingleToolPreview() {
 }
 
 // The nested-block layout at its fullest: a freed result with a leftover line, its own chip row, and
-// the upgrade block below carrying two more chips. This is the case the taller
-// DASHBOARD_HERO_CONTENT_HEIGHT_WITH_BLOCK is sized for.
+// the upgrade block below carrying two more chips.
 @Preview2
 @Composable
 private fun DashboardHeroCardFreedWithLockedPreview() {

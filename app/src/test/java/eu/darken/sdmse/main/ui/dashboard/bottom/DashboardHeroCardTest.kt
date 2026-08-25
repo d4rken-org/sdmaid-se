@@ -2,16 +2,23 @@ package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import android.content.Context
 import android.text.format.DateUtils
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
+import androidx.compose.ui.unit.dp
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.test.assertHasClickAction
 import androidx.compose.ui.test.getUnclippedBoundsInRoot
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertHasNoClickAction
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performSemanticsAction
@@ -204,12 +211,11 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `the leftover line survives the worst case the card is sized for`() {
-        // The card body is a fixed height that only scales with the font scale, so every line
-        // competes for the same budget. Worst case: all four tools charted (chips wrap to a second
-        // row), a leftover line, and Android's largest accessibility font scale. If the budget is
-        // too tight, the last things laid out drop off the bottom — so assert the leftover line and
-        // the hint below it are actually on screen, not merely composed.
+    fun `the leftover line survives the worst case at the largest font scale`() {
+        // The card grows to its content, so the thing that can still go wrong is the dock's
+        // reserved height failing to follow it. Worst case: all four tools charted (chips wrap to a
+        // second row), a leftover line, and Android's largest accessibility font scale. Assert the
+        // leftover line and the hint below it are actually on screen, not merely composed.
         //
         // Font scale 2.0 ONLY — do NOT add a 1.0 sibling. One was written and removed after being
         // measured: this harness has stub font metrics, so it cannot answer that question. A
@@ -632,7 +638,7 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     fun `a nothing-freed hero keeps its own hint while still showing locked chips`() {
         // That hint diagnoses why the cleanup came up empty; an unlock line must not displace it.
         // With no free chips there is nothing for a nested block to be additional to, so the locked
-        // chips stay flat in the main row and the card keeps its base height.
+        // chips stay flat in the main row instead of forming a nested block.
         val nothingFreed = HeroSummary(
             mode = HeroSummary.Mode.NOTHING_FREED,
             totalSize = 0L,
@@ -706,13 +712,137 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
         ),
     )
 
+    /** Same mode, same single chip; [withResidue] adds the one extra "left behind" line. */
+    private fun freedWithoutBlock(withResidue: Boolean) = HeroSummary(
+        mode = HeroSummary.Mode.FREED,
+        totalSize = 1L * 1024 * 1024 * 1024,
+        itemCount = 12,
+        tools = listOf(HeroSummary.ToolSlice(SDMTool.Type.CORPSEFINDER, 700L * 1024 * 1024, 12)),
+        timestamp = freedAt,
+        residueSize = if (withResidue) 5L * 1024 * 1024 else 0L,
+        residueCount = if (withResidue) 2 else 0,
+        // Empty on purpose: showsUpgradeBlock is tools.isNotEmpty() && lockedTools.isNotEmpty(), so
+        // this keeps both cards on the same side of that predicate. See the test below for why.
+        lockedTools = emptyList(),
+    )
+
+    @Test
+    // Two docks stacked, and this harness inflates every line height, so the default window is not
+    // guaranteed to fit both cards.
+    @Config(qualifiers = "w400dp-h1400dp")
+    fun `the card is as tall as its content, not a fixed budget`() {
+        // The two cards differ by exactly one rendered line — the leftover line — and agree on every
+        // input the *replaced* implementation sized by. That is the whole point of the pairing: the
+        // old fixed heights keyed off showsUpgradeBlock alone (one budget for the plain card, a
+        // taller one for the nested-block card), so a lean-vs-block comparison would have passed
+        // against the old code too and proved nothing. Both cards here have showsUpgradeBlock false,
+        // so the old code would have given them the identical budget and this assertion would fail.
+        //
+        // Both render in one composition under identical metrics and the assertion is a strict
+        // inequality, so the harness's stub font metrics distort both spans the same way and cancel.
+        // Absolute heights would mean nothing here (see the note on the font-scale tests above).
+        val lean = freedWithoutBlock(withResidue = false)
+        val fuller = freedWithoutBlock(withResidue = true)
+        lean.showsUpgradeBlock shouldBe false
+        fuller.showsUpgradeBlock shouldBe false
+        val now = freedAt.plusSeconds(5 * 60)
+
+        composeRule.setContent {
+            PreviewWrapper {
+                Column {
+                    listOf(lean, fuller).forEach { hero ->
+                        BottomBar(
+                            state = deleteState(hero, now = now),
+                            isVisible = true,
+                            heroVisible = true,
+                            onMainAction = {},
+                            onSettings = {},
+                            onUpgrade = {},
+                            onDismissHero = {},
+                        )
+                    }
+                }
+            }
+        }
+
+        val relativeTime = DateUtils.getRelativeTimeSpanString(
+            freedAt.toEpochMilli(),
+            now.toEpochMilli(),
+            DateUtils.MINUTE_IN_MILLIS,
+        ).toString()
+        // Measured off the dismiss button and the footer timestamp rather than the headline: both
+        // exist in every mode and neither depends on how ByteFormatter renders a size, so the test
+        // does not break when a formatter or a headline string changes. The lean card renders first,
+        // so within each sorted pair index 0 is its own and index 1 the fuller card's.
+        val dismissTops = composeRule.onAllNodesWithContentDescription("Dismiss")
+            .fetchSemanticsNodes()
+            .map { it.boundsInRoot.top }
+            .sorted()
+        val footerTops = composeRule.onAllNodesWithText(relativeTime)
+            .fetchSemanticsNodes()
+            .map { it.boundsInRoot.top }
+            .sorted()
+        // Fail loudly on a composition that did not render both cards, rather than on an index.
+        assertEquals("expected both hero cards to render a dismiss button", 2, dismissTops.size)
+        assertEquals("expected both hero cards to render a footer timestamp", 2, footerTops.size)
+
+        val leanSpan = footerTops[0] - dismissTops[0]
+        val fullerSpan = footerTops[1] - dismissTops[1]
+        assertTrue(
+            "card carrying the leftover line (span=$fullerSpan) must be taller than the one without" +
+                " it (span=$leanSpan)",
+            fullerSpan > leanSpan,
+        )
+    }
+
+    @Test
+    @Config(qualifiers = "w400dp-h1600dp")
+    fun `the dock reserves the height it measured, not the seed`() {
+        // Covers the measure-and-report wiring the test above cannot see: that one only compares
+        // coordinates *inside* each card, so it would still pass if onSizeChanged were removed and
+        // the reservation stayed pinned at DASHBOARD_HERO_INITIAL_CARD_HEIGHT.
+        //
+        // The spacer's height is the dock's top edge. Every dock element is bottom-anchored and the
+        // card sits a fixed bar+gap above the dock's bottom, so once the reservation matches the
+        // measurement the card's top lands exactly on the dock's top. A reservation stuck at the
+        // seed makes a taller card overflow upwards past it — the card still draws (nothing clips)
+        // but it escapes the space reserved for it, which on the real screen is the grid's padding.
+        val hero = freedWithLocked()
+        hero.showsUpgradeBlock shouldBe true
+        val dockTop = 500.dp
+
+        composeRule.setContent {
+            PreviewWrapper {
+                Column {
+                    Spacer(modifier = Modifier.height(dockTop))
+                    BottomBar(
+                        state = deleteState(hero, now = freedAt.plusSeconds(5 * 60)),
+                        isVisible = true,
+                        heroVisible = true,
+                        onMainAction = {},
+                        onSettings = {},
+                        onUpgrade = {},
+                        onDismissHero = {},
+                    )
+                }
+            }
+        }
+
+        // The dismiss button sits a few dp below the card's top edge, so it clears the dock's top
+        // whenever the card fits inside the reservation, and falls above it when it does not.
+        val dismissTop = composeRule.onNodeWithContentDescription("Dismiss").getUnclippedBoundsInRoot().top
+        assertTrue(
+            "hero must sit inside the reserved dock: dismiss top=$dismissTop, dock top=$dockTop",
+            dismissTop >= dockTop,
+        )
+    }
+
     @Test
     fun `the nested upgrade block and everything under it survive the largest font scale`() {
         // The fullest the card ever gets: a freed result with a leftover line and its own chip row,
         // plus the nested block with two more chips, at Android's largest accessibility font scale.
-        // The block is what the taller base height exists for, so assert its caption, its chips, the
-        // leftover line above it and the footer below it are all on screen rather than merely
-        // composed. Font scale 2.0 only — see the note on the sibling test above.
+        // Assert its caption, its chips, the leftover line above it and the footer below it are all
+        // on screen rather than merely composed. Font scale 2.0 only — see the sibling test above.
         val hero = freedWithLocked()
         val now = freedAt.plusSeconds(5 * 60)
         hero.showsUpgradeBlock shouldBe true
@@ -777,9 +907,8 @@ class DashboardHeroCardTest : BaseComposeRobolectricTest() {
     @Test
     fun `three free chips beside the block still fit at the largest font scale`() {
         // The free chip row is capped at two chips only for FREEABLE summaries; a FREED one can carry
-        // three and still show the block, which is more content than the taller height was first
-        // rendered against. Same assertions as the sibling above: the block, the leftover line above
-        // it and the footer below it must all be on screen, not merely composed.
+        // three and still show the block. Same assertions as the sibling above: the block, the
+        // leftover line above it and the footer below it must all be on screen, not merely composed.
         val hero = freedWithThreeFreeAndLocked()
         val now = freedAt.plusSeconds(5 * 60)
         hero.showsUpgradeBlock shouldBe true

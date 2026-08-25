@@ -1,8 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard.bottom
 
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.geometry.RoundRect
@@ -10,7 +8,6 @@ import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.Shape
-import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.LayoutDirection
@@ -95,62 +92,24 @@ internal val DASHBOARD_CUTOUT_OUTER_RADIUS = 6.dp
 internal val DASHBOARD_HERO_BAR_GAP = 12.dp
 
 /**
- * Body height of the hero card above its bottom cradle notch, at font scale 1.0. Sized for the
- * worst case: headline (size + inline label) + caption + a [FlowRow] of tool chips wrapping to two
- * rows (all four tools) + the tap-hint wrapping to two lines. At larger font scales the card grows
- * via [dashboardHeroCardHeight] so the caption/hint don't clip — see that getter.
+ * Lead-in above the footer strip, separating the card's last content line from the timestamp and
+ * Discard. Sits outside [DASHBOARD_CUTOUT_DEPTH] so the footer's own content stays exactly on the
+ * notch it flanks.
  */
-internal val DASHBOARD_HERO_CONTENT_HEIGHT = 156.dp
+internal val DASHBOARD_HERO_FOOTER_TOP_GAP = 8.dp
 
 /**
- * Body height when the card also carries the nested upgrade block (its caption row + its own chip
- * row + the block's padding), i.e. when free and Pro-gated findings coexist. Only that case gets the
- * taller card: the block is what needs the room, and every other state keeps the original budget.
+ * What the dock reserves for a hero it has not measured yet, for the frame between the card first
+ * composing and its size being reported back. Purely a starting value for that animation — it
+ * constrains no layout, and the card is free to settle anywhere above or below it.
  */
-internal val DASHBOARD_HERO_CONTENT_HEIGHT_WITH_BLOCK = 215.dp
+internal val DASHBOARD_HERO_INITIAL_CARD_HEIGHT = 140.dp
 
-internal val DASHBOARD_HERO_CARD_HEIGHT = DASHBOARD_HERO_CONTENT_HEIGHT + DASHBOARD_CUTOUT_DEPTH
 internal val DASHBOARD_HERO_HORIZONTAL_MARGIN = 12.dp
 
-/** Reserved dock height when the hero is shown: bar + gap + hero card (the FAB cradles between). */
-internal val DASHBOARD_DOCK_HEIGHT_WITH_HERO =
-    DASHBOARD_BAR_HEIGHT + DASHBOARD_HERO_BAR_GAP + DASHBOARD_HERO_CARD_HEIGHT
-
-/**
- * Upper bound on how far font scale stretches the hero card. The body height tracks text size so
- * the caption/hint stay readable; the cap only guards against pathological scales beyond the
- * platform range. 2.0 matches Android's maximum accessibility font size (200%), so the card still
- * fully covers the largest real text — the list above just reflows, the bar/FAB never move.
- */
-private const val HERO_MAX_FONT_SCALE = 2.0f
-
-/**
- * The applicable base height grown for the current font scale. The card's body is text, so its
- * height has to track the user's font size or the caption and the two-line tap-hint clip. Never
- * shrinks below the font-scale-1.0 worst-case height (coerced ≥ 1f).
- *
- * [withUpgradeBlock] must come from `HeroSummary.showsUpgradeBlock` — the single predicate the card
- * also renders by. If the reservation and the render ever disagree, the card clips or the dock
- * reserves dead space.
- */
-@Composable
-@ReadOnlyComposable
-fun dashboardHeroContentHeight(withUpgradeBlock: Boolean): Dp {
-    val base = if (withUpgradeBlock) DASHBOARD_HERO_CONTENT_HEIGHT_WITH_BLOCK else DASHBOARD_HERO_CONTENT_HEIGHT
-    return base * LocalDensity.current.fontScale.coerceIn(1f, HERO_MAX_FONT_SCALE)
-}
-
-/** Font-scale-aware counterpart of [DASHBOARD_HERO_CARD_HEIGHT] (content + fixed cradle notch). */
-@Composable
-@ReadOnlyComposable
-fun dashboardHeroCardHeight(withUpgradeBlock: Boolean): Dp =
-    dashboardHeroContentHeight(withUpgradeBlock) + DASHBOARD_CUTOUT_DEPTH
-
-/** Font-scale-aware counterpart of [DASHBOARD_DOCK_HEIGHT_WITH_HERO]. */
-@Composable
-@ReadOnlyComposable
-fun dashboardDockHeightWithHero(withUpgradeBlock: Boolean): Dp =
-    DASHBOARD_BAR_HEIGHT + DASHBOARD_HERO_BAR_GAP + dashboardHeroCardHeight(withUpgradeBlock)
+/** Reserved dock height for a hero of [cardHeight]: bar + gap + card (the FAB cradles between). */
+internal fun dashboardDockHeightWithHero(cardHeight: Dp): Dp =
+    DASHBOARD_BAR_HEIGHT + DASHBOARD_HERO_BAR_GAP + cardHeight
 
 /**
  * The bar's shape. The FAB only exists once the dashboard is [isReady]; until then the bar must NOT
