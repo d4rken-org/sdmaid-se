@@ -247,8 +247,8 @@
     <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root-toegang is niet beschikbaar.</string>
     <string name="setup_root_state_failed_title">Root-toegang mislukt</string>
-    <string name="setup_root_state_failed_body">SD Maid heeft om root-toegang gevraagd, maar heeft die niet gekregen. Als je toestel geroot is, open dan je rootbeheerder (Magisk, KernelSU of vergelijkbaar) en controleer of het verzoek van SD Maid is geweigerd of nog in behandeling is.</string>
-    <string name="setup_root_state_failed_body_nomanager">SD Maid heeft om root-toegang gevraagd, maar heeft die niet gekregen, en er is geen rootbeheerder-app gevonden. Als je toestel verborgen of ingebouwde root gebruikt, probeer het dan opnieuw.</string>
+    <string name="setup_root_state_failed_body">SD Maid heeft om root-toegang gevraagd, maar deze niet gekregen. Als uw apparaat geroot is, open dan uw root-manager (Magisk, KernelSU of iets dergelijks) en controleer of het verzoek van SD Maid is geweigerd of nog steeds in behandeling is.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid vroeg om roottoegang, maar kreeg die niet, en er werd geen rootbeheer-app gedetecteerd. Als je apparaat gebruikmaakt van verborgen of ingebouwde root, probeer het dan opnieuw.</string>
     <string name="setup_root_enable_root_use_label">Probeer root toegang te gebruiken</string>
     <string name="setup_root_disable_root_use_label">Mijn apparaat is niet gerootet</string>
     <string name="setup_root_card_body2">Alleen beschikbaar op geroote apparaten. Als je deze wijziging niet hebt aangebracht, is je apparaat niet geroot en heeft deze instelling geen effect.</string>
@@ -260,8 +260,8 @@
     <string name="setup_shizuku_state_waiting_label">Wacht op link met Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">De Shizuku-app is niet geïnstalleerd.</string>
     <string name="setup_shizuku_state_failed_title">Shizuku-koppeling mislukt</string>
-    <string name="setup_shizuku_state_failed_label">Shizuku draait, maar heeft SD Maid nooit verbonden met zijn hulpservice.</string>
-    <string name="setup_shizuku_state_known_issue_hint">Sommige toestellen hebben last van een bekend Shizuku-probleem waardoor de hulpservice niet start. Dit kan er een van zijn.</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku is wel actief, maar SD Maid heeft geen verbinding kunnen maken met de bijbehorende hulpservice.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Sommige apparaten worden getroffen door een bekend probleem met Shizuku waardoor de hulpservice niet start. Dit apparaat is daar mogelijk een van.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Probeer Shizuku te gebruiken</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>

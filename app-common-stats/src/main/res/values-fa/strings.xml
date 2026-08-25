@@ -29,7 +29,7 @@
     </plurals>
     <string name="stats_report_status_partial_success">موفقیت جزئی</string>
     <string name="stats_report_status_partial_failure">شکست</string>
-    <string name="stats_settings_desc">پیکربندی آمار، گزارش‌ها و نگهداری داده‌های SD Maid</string>
+    <string name="stats_settings_desc">پیکربندی آمار، گزارش‌ها و نگهداری داده‌های SD Maid.</string>
     <string name="stats_settings_retention_category">حفظ و نگهداری</string>
     <string name="stats_settings_retention_reports_label">گزارش های کلی</string>
     <string name="stats_settings_retention_reports_desc">تعداد روزها قبل از حذف گزارش‌های عملیات پایه SD Maid.</string>

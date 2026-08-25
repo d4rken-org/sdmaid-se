@@ -44,8 +44,8 @@
     <string name="analyzer_storage_content_type_system_other_desc">Fitxers del sistema i altres dades a les quals l\'SD Maid no ha pogut accedir o classificar. El sistema operatiu restringeix la llista del contingut d\'algunes àrees.</string>
     <string name="analyzer_storage_content_type_otherusers_label">Altres usuaris</string>
     <string name="analyzer_storage_content_type_otherusers_description">Aplicacions i fitxers que pertanyen a altres usuaris o perfils de treball d\'aquest dispositiu.</string>
-    <string name="analyzer_storage_content_type_otherusers_user_partial">Només dades d\'aplicacions; els fitxers compartits d\'aquest usuari no s\'hi inclouen.</string>
-    <string name="analyzer_storage_content_type_otherusers_user_unknown">Mida no disponible; no es pot llegir l\'emmagatzematge d\'aquest usuari.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_partial">Només dades d\'aplicacions, els fitxers compartits d\'aquest usuari no s\'hi inclouen.</string>
+    <string name="analyzer_storage_content_type_otherusers_user_unknown">Mida no disponible, no es pot llegir l\'emmagatzematge d\'aquest usuari.</string>
     <string name="analyzer_storage_content_type_otherusers_info">Emmagatzematge d\'un altre usuari d\'aquest dispositiu. Només es pot explorar, no s\'admet la supressió.</string>
     <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
     <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai es pot alliberar desinstal·lant l\'aplicació o arxivant-la (disponible a la versió d\'Android més recent).</string>
@@ -65,15 +65,15 @@
     <!-- Settings -->
     <string name="analyzer_settings_storage_category_label">Emmagatzematge</string>
     <string name="analyzer_settings_lowstorage_title">Llindar d\'emmagatzematge baix</string>
-    <string name="analyzer_settings_lowstorage_desc">Quan l\'espai lliure baixa d\'aquest límit, SD Maid considera que l\'emmagatzematge s\'està esgotant.</string>
+    <string name="analyzer_settings_lowstorage_desc">Quan l\'espai lliure baixa d\'aquest límit, l\'SD Maid considera que l\'emmagatzematge s\'està esgotant.</string>
     <string name="analyzer_settings_lowstorage_value_auto">Automàtic (actualment %1$s)</string>
     <string name="analyzer_settings_lowstorage_value_auto_unknown">Automàtic</string>
     <string name="analyzer_settings_lowstorage_automatic_action">Automàtic</string>
     <string name="analyzer_settings_lowspace_notification_title">Avís d\'espai baix</string>
     <string name="analyzer_settings_lowspace_notification_desc">Rep una notificació abans que se t\'esgoti l\'emmagatzematge.</string>
     <!-- Device storage upgrade hint -->
-    <string name="analyzer_lowspace_hint_title">No et quedis mai sense espai</string>
-    <string name="analyzer_lowspace_hint_body">Actualitza per rebre un avís abans que se t\'esgoti l\'emmagatzematge, així podràs netejar mentre encara tinguis marge de maniobra.</string>
+    <string name="analyzer_lowspace_hint_title">No us quedeu mai sense espai</string>
+    <string name="analyzer_lowspace_hint_body">Milloreu per rebre un avís abans que se us esgoti l\'emmagatzematge, així podreu netejar mentre encara tingueu marge de maniobra.</string>
     <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Descobreix què està omplint realment l\'emmagatzematge. L\'Analitzador mostra on va l\'espai. Cadascuna d\'aquestes targetes és un xip d\'emmagatzematge en el teu dispositiu.</string>
     <string name="tour_analyzer_storage_body">Obre un emmagatzematge per desglossar-lo en aplicacions, contingut multimèdia i fitxers, i continua tocant per localitzar els culpables més grans.</string>

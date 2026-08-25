@@ -16,28 +16,28 @@
          personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
          register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
-        <item quantity="one">Ваш гость уже %d день.</item>
-        <item quantity="few">Ваш гость уже %d дня.</item>
-        <item quantity="many">Ваш гость уже %d дней.</item>
-        <item quantity="other">Ваш гость уже %d дней.</item>
+        <item quantity="one">Твой гость уже %d день.</item>
+        <item quantity="few">Твой гость уже %d дня.</item>
+        <item quantity="many">Твой гость уже %d дней.</item>
+        <item quantity="other">Твой гость уже %d дня.</item>
     </plurals>
     <plurals name="stats_dash_since_weeks">
-        <item quantity="one">Ваш гость уже %d неделю.</item>
-        <item quantity="few">Ваш гость уже %d недели.</item>
-        <item quantity="many">Ваш гость уже %d недель.</item>
-        <item quantity="other">Ваш гость уже %d недель.</item>
+        <item quantity="one">Твой гость уже %d неделю.</item>
+        <item quantity="few">Твой гость уже %d недели.</item>
+        <item quantity="many">Твой гость уже %d недель.</item>
+        <item quantity="other">Твой гость уже %d недели.</item>
     </plurals>
     <plurals name="stats_dash_since_months">
-        <item quantity="one">Ваш гость уже %d месяц.</item>
-        <item quantity="few">Ваш гость уже %d месяца.</item>
-        <item quantity="many">Ваш гость уже %d месяцев.</item>
-        <item quantity="other">Ваш гость уже %d месяцев.</item>
+        <item quantity="one">Твой гость уже %d месяц.</item>
+        <item quantity="few">Твой гость уже %d месяца.</item>
+        <item quantity="many">Твой гость уже %d месяцев.</item>
+        <item quantity="other">Твой гость уже %d месяца.</item>
     </plurals>
     <plurals name="stats_dash_since_years">
-        <item quantity="one">Ваш гость уже %d год.</item>
-        <item quantity="few">Ваш гость уже %d года.</item>
-        <item quantity="many">Ваш гость уже %d лет.</item>
-        <item quantity="other">Ваш гость уже %d лет.</item>
+        <item quantity="one">Твой гость уже %d год.</item>
+        <item quantity="few">Твой гость уже %d года.</item>
+        <item quantity="many">Твой гость уже %d лет.</item>
+        <item quantity="other">Твой гость уже %d года.</item>
     </plurals>
     <string name="stats_report_status_partial_success">Частичный успех</string>
     <string name="stats_report_status_partial_failure">Ошибка</string>

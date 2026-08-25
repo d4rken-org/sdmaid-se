@@ -2,12 +2,12 @@
 <resources>
     <string name="deduplicator_explanation_short">پیدا کردن داده‌های تکراری در دستگاه شما.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d داده تکراری حذف شد.</item>
-        <item quantity="other">%d داده تکراری حذف شد.</item>
+        <item quantity="one">%d داده تکراری حذف شد</item>
+        <item quantity="other">%d داده تکراری حذف شد</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">%d مجموعه تکراری پیدا شد.</item>
-        <item quantity="other">%d مجموعه تکراری پیدا شد.</item>
+        <item quantity="one">%d مجموعه تکراری پیدا شد</item>
+        <item quantity="other">%d مجموعه تکراری پیدا شد</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">امکان \"حذف همه\" را فراهم کنید</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">نمایش گزینه‌هایی که به شما اجازه می‌دهد همه فایل‌ها در یک مجموعه تکراری را حذف کنید به طوری که هیچ فایلی باقی نماند.</string>

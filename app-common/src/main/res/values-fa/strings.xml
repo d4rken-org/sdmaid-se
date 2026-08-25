@@ -29,7 +29,7 @@
     <string name="general_save_action">ذخيره</string>
     <string name="general_gotit_action">فهمیدم</string>
     <string name="general_fix_action">اصلاح</string>
-    <string name="general_set_up_action">راه اندازی</string>
+    <string name="general_set_up_action">راه‌اندازی</string>
     <string name="general_unavailable_label">دسترس‌ناپذیر</string>
     <string name="general_edit_action">ویرایش</string>
     <string name="general_edit_x_action">ویرایش %s</string>
@@ -56,7 +56,7 @@
     <string name="general_progress_loading_egg_2">به زودی™</string>
     <string name="general_progress_loading_egg_3">پردازنده در حال استراحت با قهوه است</string>
     <string name="general_progress_loading_egg_4">در انتظار اطلاعات از پپه سیلویا</string>
-    <string name="general_progress_loading_egg_5">محفظه توربو در حال راه اندازی است</string>
+    <string name="general_progress_loading_egg_5">محفظه توربو در حال راه‌اندازی است</string>
     <string name="general_progress_loading_egg_6">ردکردن کره</string>
     <string name="general_progress_loading_egg_7">خب. چطوری تحملش میکنی؟</string>
     <string name="general_progress_loading_egg_8">بوق بوپ بوپ</string>
@@ -71,7 +71,7 @@
     <string name="general_progress_deleting">درحال حذف</string>
     <string name="general_progress_deleting_x">درحال حذف %s</string>
     <string name="general_sort_by_title">مرتب‌سازی بر اساس</string>
-    <string name="general_sort_reverse_action">حالت مرتب سازی معکوس</string>
+    <string name="general_sort_reverse_action">حالت مرتب‌سازی معکوس</string>
     <string name="general_sort_oldest_first">قدیمی‌ترین اول</string>
     <string name="general_sort_newest_first">جدیدترین اول</string>
     <string name="general_sort_name_asc">نام (الف ← ی)</string>

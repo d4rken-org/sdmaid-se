@@ -2,8 +2,8 @@
 <resources>
     <string name="systemcleaner_explanation_short">داده‌های اضافی که به هیچ برنامه خاصی تعلق ندارند.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d تطابق حذف شد.</item>
-        <item quantity="other">%d تطابق حذف شد.</item>
+        <item quantity="one">%d تطابق حذف شد</item>
+        <item quantity="other">%d تطابق حذف شد</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">%d تطابق با فیلتر</item>
@@ -45,13 +45,13 @@
     <string name="systemcleaner_filter_tempfiles_label">فایل‌های سیستمی موقت</string>
     <string name="systemcleaner_filter_tempfiles_summary">فایل‌های موقت مربوط به سیستم، معمولاً حافظه‌های پنهان کوتاه‌مدت برای عملیات فعال.</string>
     <string name="systemcleaner_filter_analytics_label">فایل‌های تحلیلی</string>
-    <string name="systemcleaner_filter_analytics_summary">داده‌های مرتبط با تحلیل‌ها و ردیابی اشکالات</string>
+    <string name="systemcleaner_filter_analytics_summary">داده‌های مرتبط با تحلیل‌ها و ردیابی اشکالات.</string>
     <string name="systemcleaner_filter_downloadcache_label">حافظه پنهان دانلود</string>
-    <string name="systemcleaner_filter_downloadcache_summary">پوشه حافظه نهان سیستم که برای موارد مختلفی مانند به‌روزرسانی‌های OTA استفاده می‌شود.</string>
+    <string name="systemcleaner_filter_downloadcache_summary">پوشه حافظه نهان سیستم که برای موارد مختلفی (مانند به‌روزرسانی‌های OTA) استفاده می‌شود.</string>
     <string name="systemcleaner_filter_localtmp_label">فایل‌های موقت محلی</string>
     <string name="systemcleaner_filter_localtmp_summary">فایل‌های موقت مربوط به سیستم (مثلاً از Android Studio).</string>
     <string name="systemcleaner_filter_datalogger_label">فایل‌های گزارش سیستم</string>
-    <string name="systemcleaner_filter_datalogger_summary">فایل‌های خاص گزارش سیستم</string>
+    <string name="systemcleaner_filter_datalogger_summary">فایل‌های خاص گزارش سیستم.</string>
     <string name="systemcleaner_filter_logdropbox_label">جعبه گزارش‌ها</string>
     <string name="systemcleaner_filter_logdropbox_summary">یک منطقه در سیستم برای انداختن فایل‌های گزارش در آن.</string>
     <string name="systemcleaner_filter_recenttasks_label">آخرین وظایف</string>

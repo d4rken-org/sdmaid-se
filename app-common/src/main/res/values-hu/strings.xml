@@ -126,12 +126,12 @@
         <item quantity="other">%s elemek</item>
     </plurals>
     <plurals name="result_x_successful">
-        <item quantity="one">%d sikeres \n\n%d sikeres</item>
-        <item quantity="other">%d sikeres\n%d sikeres</item>
+        <item quantity="one">%d sikeres</item>
+        <item quantity="other">%d sikeres</item>
     </plurals>
     <plurals name="result_x_failed">
-        <item quantity="one">%d hibás\n%d hibás</item>
-        <item quantity="other">%d hibás\n%d hibás</item>
+        <item quantity="one">%d hibás</item>
+        <item quantity="other">%d hibás</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="one">%s felszabadítható</item>

@@ -247,8 +247,8 @@
     <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">L\'accés «root» no està disponible.</string>
     <string name="setup_root_state_failed_title">L\'accés root ha fallat</string>
-    <string name="setup_root_state_failed_body">SD Maid ha sol·licitat accés root i no l\'ha obtingut. Si el teu dispositiu té root, obre el gestor de root (Magisk, KernelSU o similar) i comprova si la sol·licitud de SD Maid s\'ha denegat o encara està pendent.</string>
-    <string name="setup_root_state_failed_body_nomanager">SD Maid ha sol·licitat accés root i no l\'ha obtingut, i no s\'ha detectat cap aplicació de gestió de root. Si el teu dispositiu utilitza root ocult o integrat, torna-ho a provar.</string>
+    <string name="setup_root_state_failed_body">L\'SD Maid ha demanat accés de root i no l\'ha obtingut. Si el dispositiu està rootejat, obriu el gestor de root (Magisk, KernelSU o similar) i comproveu si la sol·licitud de l\'SD Maid ha estat denegada o encara està en espera.</string>
+    <string name="setup_root_state_failed_body_nomanager">L\'SD Maid ha demanat accés de root i no l\'ha obtingut, i no s\'ha detectat cap aplicació de gestió de root. Si el dispositiu utilitza root ocult o integrat, torneu-ho a provar.</string>
     <string name="setup_root_enable_root_use_label">Intenta utilitzar l\'accés «root»</string>
     <string name="setup_root_disable_root_use_label">No he fet «root» al meu dispositiu</string>
     <string name="setup_root_card_body2">Només disponible en dispositius amb «root». Si no heu fet aquesta modificació, el vostre dispositiu no té «root» i aquesta configuració no té cap efecte.</string>
@@ -260,8 +260,8 @@
     <string name="setup_shizuku_state_waiting_label">S\'està esperant l\'enllaç amb Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">L\'aplicació Shizuku no està instal·lada.</string>
     <string name="setup_shizuku_state_failed_title">La connexió amb Shizuku ha fallat</string>
-    <string name="setup_shizuku_state_failed_label">Shizuku s\'està executant, però mai ha connectat SD Maid al seu servei auxiliar.</string>
-    <string name="setup_shizuku_state_known_issue_hint">Alguns dispositius es veuen afectats per un problema conegut de Shizuku que impedeix que el servei auxiliar s\'iniciï. Aquest podria ser-ne un.</string>
+    <string name="setup_shizuku_state_failed_label">El Shizuku s\'està executant, però mai ha connectat SD Maid al seu servei auxiliar.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Alguns dispositius es veuen afectats per un problema conegut del Shizuku que impedeix que el servei auxiliar s\'iniciï. Aquest podria ser-ne un.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Intenta utilitzar Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
@@ -299,7 +299,7 @@
     <string name="setup_inventory_limitation_body">El sistema ha retornat una llista incompleta d\'aplicacions instal·lades, tot i que els permisos necessaris semblen estar atorgats.</string>
     <string name="setup_inventory_limitation_body2">Alguns dispositius (p. ex. HarmonyOS) mai no proporcionen una llista completa d\'aplicacions. Per protegir les teves dades, les eines relacionades amb aplicacions es mantenen desactivades, però encara pots veure l\'ús de l\'emmagatzematge amb menys detall.</string>
     <string name="setup_inventory_probe_failed_title">No s\'ha pogut llegir la llista d\'aplicacions</string>
-    <string name="setup_inventory_probe_failed_body">SD Maid ha demanat a Android la llista d\'aplicacions instal·lades i la sol·licitud ha fallat. Les eines relacionades amb aplicacions romanen desactivades fins que funcioni. Tornar-ho a provar pot ajudar.</string>
+    <string name="setup_inventory_probe_failed_body">L\'SD Maid ha demanat a l\'Android la llista d\'aplicacions instal·lades i la sol·licitud ha fallat. Les eines relacionades amb aplicacions romanen desactivades fins que funcioni. Tornar-ho a provar pot ajudar.</string>
     <string name="dataarea_warningcard_empty_message">L\'SD Maid no ha trobat cap àrea de dades que es pugui escanejar. Heu completat la configuració?</string>
     <string name="dataarea_warningcard_label">Àrees de dades</string>
     <string name="dataarea_warningcard_reload_action">Recarrega les àrees de dades</string>
