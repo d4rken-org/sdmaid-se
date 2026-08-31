@@ -8,6 +8,9 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.DebugSettings
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.theming.ThemeColor
@@ -17,8 +20,11 @@ import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
 import eu.darken.sdmse.main.core.tour.TourPreferences
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -124,3 +130,20 @@ val GeneralSettings.themeState: Flow<ThemeState>
         themeStyle.flow,
         themeColor.flow,
     ) { mode, style, color -> ThemeState(mode = mode, style = style, color = color) }
+
+/**
+ * Read once, blocking, for callers that must have a theme before they render anything.
+ * See [themeState] for the reactive form.
+ *
+ * Decoding is allowed to fail here: themeMode and themeStyle have no decode fallback, and this
+ * runs before the first frame, so a restored-backup or older-schema value would crash the launch.
+ */
+val GeneralSettings.themeStateBlocking: ThemeState
+    get() = try {
+        runBlocking { themeState.first() }
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(GeneralSettings.TAG, ERROR) { "Failed to read theme, using defaults: ${e.asLog()}" }
+        ThemeState()
+    }
