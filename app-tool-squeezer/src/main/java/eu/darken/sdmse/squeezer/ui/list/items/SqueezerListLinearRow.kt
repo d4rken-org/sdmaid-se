@@ -18,8 +18,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.HdrOn
 import androidx.compose.material.icons.twotone.History
-import androidx.compose.material.icons.twotone.HistoryToggleOff
 import androidx.compose.material.icons.twotone.PlayArrow
+import androidx.compose.material.icons.twotone.TrendingFlat
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -164,7 +164,7 @@ internal fun CompressedBeforeChip() = SdmInfoChip(
 
 @Composable
 internal fun NoSavingsChip() = SdmInfoChip(
-    icon = Icons.TwoTone.HistoryToggleOff,
+    icon = Icons.TwoTone.TrendingFlat,
     label = stringResource(R.string.squeezer_chip_no_savings),
     containerColor = MaterialTheme.colorScheme.tertiaryContainer,
     contentColor = MaterialTheme.colorScheme.onTertiaryContainer,

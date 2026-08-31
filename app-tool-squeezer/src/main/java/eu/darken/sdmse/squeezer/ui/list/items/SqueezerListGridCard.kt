@@ -17,9 +17,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.HdrOn
 import androidx.compose.material.icons.twotone.History
-import androidx.compose.material.icons.twotone.HistoryToggleOff
 import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material.icons.twotone.Search
+import androidx.compose.material.icons.twotone.TrendingFlat
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilledTonalIconButton
@@ -163,7 +163,7 @@ private fun SqueezeMarkerIcons(
             )
 
             PriorCompression.NO_SAVINGS -> MarkerBadge(
-                icon = Icons.TwoTone.HistoryToggleOff,
+                icon = Icons.TwoTone.TrendingFlat,
                 contentDescription = stringResource(R.string.squeezer_chip_no_savings),
             )
 
