@@ -5,6 +5,7 @@ import androidx.room.Insert
 import androidx.room.Query
 import eu.darken.sdmse.stats.core.ReportId
 import kotlinx.coroutines.flow.Flow
+import java.time.Instant
 
 @Dao
 interface AffectedPathsDao {
@@ -21,6 +22,9 @@ interface AffectedPathsDao {
     @Insert
     fun insert(files: List<AffectedPathEntity>)
 
-    @Query("DELETE FROM affected_paths WHERE report_id IN (:reportIds)")
-    fun delete(reportIds: List<ReportId>)
+    @Query("DELETE FROM affected_paths WHERE report_id IN (SELECT report_id FROM reports WHERE end_at < :cutOff)")
+    fun deleteForReportsOlderThan(cutOff: Instant): Int
+
+    @Query("DELETE FROM affected_paths WHERE report_id NOT IN (SELECT report_id FROM reports)")
+    fun deleteOrphans(): Int
 }

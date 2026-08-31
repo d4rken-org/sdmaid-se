@@ -22,6 +22,7 @@ import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.withContext
+import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -95,7 +96,32 @@ class StatsRepo @Inject constructor(
             affectedSpace = reportDetails?.affectedSpace,
             extra = null,
         )
-        reportsDatabase.addReport(report)
+        val reportsRetention = statsSettings.retentionReports.value()
+        if (reportsRetention <= Duration.ZERO) {
+            log(TAG) { "report(${task.id}): Retention for reports is $reportsRetention, not storing it" }
+        } else {
+            val pathsRetention = statsSettings.retentionPaths.value()
+            reportsDatabase.withTransaction {
+                reportsDatabase.addReport(report)
+
+                (reportDetails as? ReportDetails.AffectedPaths)?.let { pathsReport ->
+                    if (pathsRetention <= Duration.ZERO) {
+                        log(TAG) { "report(${task.id}): Retention for affected files is $pathsRetention, skipping" }
+                    } else {
+                        log(TAG) { "report(${task.id}): Saving details about ${pathsReport.affectedPaths.size} files" }
+                        val affectedPaths = pathsReport.affectedPaths
+                            .map { it.toAffectedPath(report.reportId, pathsReport.action) }
+                        reportsDatabase.addPaths(affectedPaths)
+                    }
+                }
+
+                reportDetails?.affectedPkgs?.let { pkgs ->
+                    log(TAG) { "report(${task.id}): Saving details about affected pkgs: ${pkgs.size}" }
+                    val affectedPkgs = pkgs.toAffectedPkgs(report.reportId)
+                    reportsDatabase.addPkgs(affectedPkgs)
+                }
+            }
+        }
 
         report.affectedSpace?.let { affected ->
             log(TAG) { "report(${task.id}): Saving details about affected space: $affected" }
@@ -106,17 +132,7 @@ class StatsRepo @Inject constructor(
             statsSettings.totalItemsProcessed.update { it + affected }
         }
 
-        (reportDetails as? ReportDetails.AffectedPaths)?.let { pathsReport ->
-            log(TAG) { "report(${task.id}): Saving details about affected ${pathsReport.affectedPaths.size} files " }
-            val affectedPaths = pathsReport.affectedPaths.map { it.toAffectedPath(report.reportId, pathsReport.action) }
-            reportsDatabase.addPaths(affectedPaths)
-        }
-
-        reportDetails?.affectedPkgs?.let { pkgs ->
-            log(TAG) { "report(${task.id}): Saving details about affected pkgs: ${pkgs.size}" }
-            val affectedPkgs = pkgs.toAffectedPkgs(report.reportId)
-            reportsDatabase.addPkgs(affectedPkgs)
-        }
+        reportsDatabase.applyRetention()
     }
 
     suspend fun recordSnapshot(force: Boolean = false) {

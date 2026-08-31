@@ -23,11 +23,8 @@ interface ReportsDao {
     @Insert
     fun insert(entity: ReportEntity)
 
-    @Query("SELECT * FROM reports WHERE end_at < :cutOff")
-    fun getReportsOlderThan(cutOff: Instant): List<ReportEntity>
-
-    @Query("DELETE FROM reports WHERE report_id IN (:ids)")
-    fun delete(ids: List<ReportId>)
+    @Query("DELETE FROM reports WHERE end_at < :cutOff")
+    fun deleteOlderThan(cutOff: Instant): Int
 
     @Query("SELECT * FROM reports WHERE end_at >= :since AND status IN ('SUCCESS', 'PARTIAL_SUCCESS') ORDER BY end_at ASC")
     fun getReportsSince(since: Instant): Flow<List<ReportEntity>>
