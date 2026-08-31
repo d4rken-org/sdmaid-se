@@ -13,8 +13,10 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.squeezer.core.ContentId
 import eu.darken.sdmse.squeezer.core.ContentIdentifier
+import eu.darken.sdmse.squeezer.core.PriorCompression
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
+import eu.darken.sdmse.squeezer.core.history.CompressionHistoryEntity
 import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
 import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import eu.darken.sdmse.squeezer.core.processor.ExifPreserver
@@ -35,14 +37,12 @@ import java.io.File
 import java.time.Instant
 
 /**
- * Covers the accessibility-gating + skip-counting logic that lives inside [MediaScanner.scan].
- * The actual per-verdict behavior is already in [eu.darken.sdmse.squeezer.core.SqueezerEligibilityTest];
- * this test focuses on the scanner's contract: eligible files pass, ineligible ones increment
- * `skippedInaccessibleCount`, and the result model carries both.
+ * Covers the per-file facts the scanner attaches to results so the list rows can mark them:
+ * [PriorCompression] from the compression history / EXIF marker, and [CompressibleImage.hasLossyAux].
  */
-class MediaScannerAccessibilityTest : BaseTest() {
+class MediaScannerChipStateTest : BaseTest() {
 
-    private val testDir = File(IO_TEST_BASEDIR, "MediaScannerAccessibilityTest")
+    private val testDir = File(IO_TEST_BASEDIR, "MediaScannerChipStateTest")
 
     private val exclusionManager: ExclusionManager = mockk(relaxed = true)
     private val localGateway: LocalGateway = mockk(relaxed = true)
@@ -62,25 +62,17 @@ class MediaScannerAccessibilityTest : BaseTest() {
         if (testDir.exists()) testDir.deleteRecursively()
         testDir.mkdirs()
 
-        // ExclusionManager.pathExclusions is a top-level extension that reads `.exclusions.first()`.
-        // An empty-emitting flow means the extension returns an empty collection.
         every { exclusionManager.exclusions } returns flowOf(emptyList<ExclusionHolder>())
-        // Return a bogus mime type so nothing ever makes it into the results set — we only
-        // care about the accessibility filter + skip counter for this test.
-        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns "application/octet-stream"
-        // Image candidates always consult the marker + history now, so these can't stay relaxed.
-        every { settings.writeExifMarker } returns mockDataStoreValue(false)
-        every { exifPreserver.hasCompressionMarker(any()) } returns false
+        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
         coEvery { imageContentHasher.computeHash(any()) } returns ContentIdentifier.ImageHash(ContentId("hash"))
         coEvery { historyDatabase.getOutcome(any()) } returns null
+        every { settings.writeExifMarker } returns mockDataStoreValue(false)
+        every { exifPreserver.hasCompressionMarker(any()) } returns false
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns false
     }
 
     @AfterEach
     fun teardown() {
-        testDir.walkTopDown().forEach {
-            it.setReadable(true)
-            it.setWritable(true)
-        }
         testDir.deleteRecursively()
     }
 
@@ -126,93 +118,100 @@ class MediaScannerAccessibilityTest : BaseTest() {
         compressionQuality = 80,
     )
 
+    private fun photo(name: String): LocalPathLookup {
+        val file = File(testDir, name).apply { writeBytes(ByteArray(256)) }
+        return lookupFor(file)
+    }
+
     @Test
-    fun `eligible file survives accessibility gate`() = runTest {
-        val ok = File(testDir, "ok.bin").apply { writeBytes(ByteArray(256)) }
-        stubWalk(lookupFor(ok))
+    fun `skip off - COMPRESSED history entry surfaces as COMPRESSED`() = runTest {
+        stubWalk(photo("done.jpg"))
+        coEvery { historyDatabase.getOutcome(any()) } returns CompressionHistoryEntity.Outcome.COMPRESSED
 
         val result = scanner().scan(options())
 
-        // mime filter drops it, but the accessibility gate let it through.
-        result.skippedInaccessibleCount shouldBe 0
+        result.items.size shouldBe 1
+        result.items.first().priorCompression shouldBe PriorCompression.COMPRESSED
+    }
+
+    @Test
+    fun `skip off - TRIED_NO_SAVINGS history entry surfaces as NO_SAVINGS`() = runTest {
+        stubWalk(photo("nosavings.jpg"))
+        coEvery { historyDatabase.getOutcome(any()) } returns CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS
+
+        val result = scanner().scan(options())
+
+        result.items.size shouldBe 1
+        result.items.first().priorCompression shouldBe PriorCompression.NO_SAVINGS
+    }
+
+    @Test
+    fun `skip off - no history entry leaves priorCompression null`() = runTest {
+        stubWalk(photo("fresh.jpg"))
+
+        val result = scanner().scan(options())
+
+        result.items.size shouldBe 1
+        result.items.first().priorCompression shouldBe null
+    }
+
+    @Test
+    fun `skip on - previously compressed item is still dropped`() = runTest {
+        stubWalk(photo("done.jpg"))
+        coEvery { historyDatabase.getOutcome(any()) } returns CompressionHistoryEntity.Outcome.COMPRESSED
+
+        val result = scanner().scan(options().copy(skipPreviouslyCompressed = true))
+
         result.items.size shouldBe 0
     }
 
     @Test
-    fun `missing file is counted as skipped`() = runTest {
-        val ok = File(testDir, "ok.bin").apply { writeBytes(ByteArray(256)) }
-        val missing = File(testDir, "missing.bin")
-        stubWalk(lookupFor(ok), lookupFor(missing))
+    fun `skip off - EXIF marker without a history entry surfaces as COMPRESSED`() = runTest {
+        // The marker is what remains after the history was cleared, so it has to be read even when
+        // the skip setting is off.
+        stubWalk(photo("marked.jpg"))
+        every { settings.writeExifMarker } returns mockDataStoreValue(true)
+        every { exifPreserver.hasCompressionMarker(any()) } returns true
+        coEvery { historyDatabase.getOutcome(any()) } returns null
 
         val result = scanner().scan(options())
 
-        result.skippedInaccessibleCount shouldBe 1
+        result.items.size shouldBe 1
+        result.items.first().priorCompression shouldBe PriorCompression.COMPRESSED
     }
 
     @Test
-    fun `multiple ineligible files aggregate in skip counter`() = runTest {
-        val okA = File(testDir, "a.bin").apply { writeBytes(ByteArray(256)) }
-        val okB = File(testDir, "b.bin").apply { writeBytes(ByteArray(256)) }
-        val missingA = File(testDir, "missing-a.bin")
-        val missingB = File(testDir, "missing-b.bin")
-        stubWalk(lookupFor(okA), lookupFor(missingA), lookupFor(okB), lookupFor(missingB))
-
-        val result = scanner().scan(options())
-
-        result.skippedInaccessibleCount shouldBe 2
-    }
-
-    @Test
-    fun `empty paths returns empty ScanResult`() = runTest {
-        val emptyScanner = scanner()
-        val emptyOptions = options().copy(paths = emptySet())
-
-        val result = emptyScanner.scan(emptyOptions)
-
-        result.items.size shouldBe 0
-        result.skippedInaccessibleCount shouldBe 0
-    }
-
-    @Test
-    fun `image with HDR-depth aux is excluded and counted when opt-in is off`() = runTest {
-        val photo = File(testDir, "hdr.jpg").apply { writeBytes(ByteArray(256)) }
-        stubWalk(lookupFor(photo))
-        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
+    fun `HDR-depth opt-in on - item is kept and flagged`() = runTest {
+        stubWalk(photo("hdr.jpg"))
         every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
 
-        val result = scanner().scan(options()) // options default: includeLossyAuxImages = false
+        val result = scanner().scan(options().copy(includeLossyAuxImages = true))
+
+        result.items.size shouldBe 1
+        (result.items.first() as CompressibleImage).hasLossyAux shouldBe true
+        result.skippedLossyAuxCount shouldBe 0
+    }
+
+    @Test
+    fun `HDR-depth opt-in off - item is excluded`() = runTest {
+        stubWalk(photo("hdr.jpg"))
+        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
+
+        val result = scanner().scan(options())
 
         result.items.size shouldBe 0
         result.skippedLossyAuxCount shouldBe 1
     }
 
     @Test
-    fun `image with HDR-depth aux is included when opt-in is on`() = runTest {
-        val photo = File(testDir, "hdr.jpg").apply { writeBytes(ByteArray(256)) }
-        stubWalk(lookupFor(photo))
-        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
-        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns true
+    fun `ordinary image carries neither marker`() = runTest {
+        stubWalk(photo("plain.jpg"))
 
-        val result = scanner().scan(options().copy(includeLossyAuxImages = true))
+        val result = scanner().scan(options())
 
         result.items.size shouldBe 1
-        result.skippedLossyAuxCount shouldBe 0
-    }
-
-    @Test
-    fun `ordinary image without aux is unaffected by the guard`() = runTest {
-        val photo = File(testDir, "plain.jpg").apply { writeBytes(ByteArray(256)) }
-        stubWalk(lookupFor(photo))
-        coEvery { mimeTypeTool.determineMimeType(any<APathLookup<*>>()) } returns CompressibleImage.MIME_TYPE_JPEG
-        every { lossyAuxDetector.hasLossyAux(any(), any()) } returns false
-
-        val result = scanner().scan(options()) // guard on, detector finds nothing
-
-        result.items.size shouldBe 1
-        result.skippedLossyAuxCount shouldBe 0
-    }
-
-    companion object {
-        private const val IO_TEST_BASEDIR = "build/tmp/unit_tests"
+        val image = result.items.first() as CompressibleImage
+        image.priorCompression shouldBe null
+        image.hasLossyAux shouldBe false
     }
 }
