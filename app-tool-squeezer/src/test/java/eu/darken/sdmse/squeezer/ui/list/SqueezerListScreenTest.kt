@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.PriorCompression
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
@@ -28,7 +29,12 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
     // to false, so no tour starts) — these tests stay focused on the list UI.
     private val mockTourController: GuidedTourController = mockk(relaxed = true)
 
-    private fun image(name: String, size: Long = 1024L): CompressibleImage = CompressibleImage(
+    private fun image(
+        name: String,
+        size: Long = 1024L,
+        priorCompression: PriorCompression? = null,
+        hasLossyAux: Boolean = false,
+    ): CompressibleImage = CompressibleImage(
         lookup = LocalPathLookup(
             lookedUp = LocalPath(File("/storage/$name")),
             fileType = FileType.FILE,
@@ -37,6 +43,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             target = null,
         ),
         mimeType = CompressibleImage.MIME_TYPE_JPEG,
+        priorCompression = priorCompression,
+        hasLossyAux = hasLossyAux,
     )
 
     private fun ComposeContentTestRule.setListScreen(state: SqueezerListViewModel.State) {
@@ -161,6 +169,94 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onNodeWithContentDescription("Switch view mode").assertExists()
+    }
+
+    @Test
+    fun `linear row - compressed-before marker renders its chip`() {
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(
+                media = listOf(image("a.jpg", priorCompression = PriorCompression.COMPRESSED)),
+            ),
+        )
+
+        composeRule.onNodeWithText("Compressed before").assertExists()
+        composeRule.onAllNodesWithText("No savings").assertCountEquals(0)
+        composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
+    }
+
+    @Test
+    fun `linear row - no-savings marker renders its chip`() {
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(
+                media = listOf(image("a.jpg", priorCompression = PriorCompression.NO_SAVINGS)),
+            ),
+        )
+
+        composeRule.onNodeWithText("No savings").assertExists()
+        composeRule.onAllNodesWithText("Compressed before").assertCountEquals(0)
+    }
+
+    @Test
+    fun `linear row - HDR-depth marker renders its chip`() {
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(media = listOf(image("a.jpg", hasLossyAux = true))),
+        )
+
+        composeRule.onNodeWithText("HDR/depth").assertExists()
+    }
+
+    @Test
+    fun `linear row - an unmarked item renders no chips`() {
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(media = listOf(image("a.jpg"))),
+        )
+
+        composeRule.onAllNodesWithText("Compressed before").assertCountEquals(0)
+        composeRule.onAllNodesWithText("No savings").assertCountEquals(0)
+        composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
+    }
+
+    @Test
+    fun `grid card - the two history markers keep separate content descriptions`() {
+        // Grid has no room for labels, so the markers are icons; if both history states collapsed
+        // onto one glyph the user could not tell them apart.
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(
+                media = listOf(
+                    image("a.jpg", priorCompression = PriorCompression.COMPRESSED),
+                    image("b.jpg", priorCompression = PriorCompression.NO_SAVINGS),
+                ),
+                layoutMode = eu.darken.sdmse.common.ui.LayoutMode.GRID,
+            ),
+        )
+
+        composeRule.onNodeWithContentDescription("Compressed before").assertExists()
+        composeRule.onNodeWithContentDescription("No savings").assertExists()
+    }
+
+    @Test
+    fun `markers dialog - explains every marker`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                SqueezerMarkersDialog(onDismiss = {})
+            }
+        }
+
+        composeRule.onAllNodesWithText("Compressed before").fetchSemanticsNodes().isNotEmpty() shouldBe true
+        composeRule.onAllNodesWithText("No savings").fetchSemanticsNodes().isNotEmpty() shouldBe true
+        composeRule.onAllNodesWithText("HDR/depth").fetchSemanticsNodes().isNotEmpty() shouldBe true
+
+        composeRule.onNodeWithText(
+            "SD Maid already compressed this file. Compressing it again costs quality and saves little.",
+        ).assertExists()
+        composeRule.onNodeWithText(
+            "A previous run compressed this file and the result wasn't smaller, so the original was kept. " +
+                "Another try will likely end the same way.",
+        ).assertExists()
+        composeRule.onNodeWithText(
+            "This photo has HDR or depth data that compression can't keep. An HDR photo comes back as a " +
+                "normal one, and a portrait photo loses the depth data used for background blur.",
+        ).assertExists()
     }
 
     private infix fun <T> T.shouldBe(expected: T) {
