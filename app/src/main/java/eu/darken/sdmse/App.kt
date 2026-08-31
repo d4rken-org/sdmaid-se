@@ -26,7 +26,6 @@ import eu.darken.sdmse.common.debug.exit.ExitInfoLogger
 import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.storage.StorageRescue
-import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -56,7 +55,6 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var debugSettings: DebugSettings
     @Inject lateinit var curriculumVitae: CurriculumVitae
     @Inject lateinit var updateService: UpdateService
-    @Inject lateinit var theming: Theming
     @Inject lateinit var coilTempFiles: CoilTempFiles
     @Inject lateinit var memoryMonitor: MemoryMonitor
     @Inject lateinit var exitInfoLogger: ExitInfoLogger
@@ -106,8 +104,6 @@ open class App : Application(), Configuration.Provider {
         }.launchIn(appScope)
 
         bugReporter.setup(this)
-
-        theming.setup()
 
         installErrorDialogCustomizer()
 

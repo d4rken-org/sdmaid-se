@@ -15,13 +15,13 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
-import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.shortcuts.OneTapCleaner
 import eu.darken.sdmse.main.core.themeState
+import eu.darken.sdmse.main.core.themeStateBlocking
 import eu.darken.sdmse.main.ui.navigation.OnboardingWelcomeRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -59,8 +59,11 @@ class MainViewModel @Inject constructor(
     val keepScreenOn: Flow<Boolean> = taskManager.state
         .map { !it.isIdle || BuildConfigWrap.DEBUG }
 
+    // Seeded blocking: the first composition reads this StateFlow's current value, so a default here
+    // renders the wrong theme until the DataStore flow emits. Constructing this ViewModel is what
+    // MainActivity.onCreate does right before setContent(), so no frame has been drawn yet.
     val themeState = generalSettings.themeState
-        .stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
+        .stateIn(vmScope, SharingStarted.WhileSubscribed(5000), generalSettings.themeStateBlocking)
 
     fun checkUpgrades() = launch {
         log(TAG) { "checkUpgrades()" }
