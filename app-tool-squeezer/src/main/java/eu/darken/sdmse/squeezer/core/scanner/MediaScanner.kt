@@ -288,7 +288,7 @@ class MediaScanner @Inject constructor(
             lookup = lookup,
             mimeType = mimeType,
             estimatedCompressedSize = estimatedCompressedSize,
-            wasCompressedBefore = false,
+            priorCompression = null,
         ).also {
             log(TAG, VERBOSE) { "Found compressible image: $it" }
         }
@@ -385,7 +385,7 @@ class MediaScanner @Inject constructor(
             lookup = lookup,
             mimeType = mimeType,
             estimatedCompressedSize = estimatedCompressedSize,
-            wasCompressedBefore = false,
+            priorCompression = null,
             durationMs = metadata.durationMs,
             bitrateBps = metadata.bitrateBps,
         ).also {

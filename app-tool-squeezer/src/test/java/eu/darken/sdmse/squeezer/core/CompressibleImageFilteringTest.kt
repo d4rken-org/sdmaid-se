@@ -19,7 +19,7 @@ class CompressibleImageFilteringTest : BaseTest() {
         size: Long = 1024 * 1024L,
         mimeType: String = CompressibleImage.MIME_TYPE_JPEG,
         modifiedAt: Instant = Instant.now(),
-        wasCompressedBefore: Boolean = false,
+        priorCompression: PriorCompression? = null,
     ) = CompressibleImage(
         lookup = LocalPathLookup(
             lookedUp = LocalPath(File(path)),
@@ -29,7 +29,7 @@ class CompressibleImageFilteringTest : BaseTest() {
             target = null,
         ),
         mimeType = mimeType,
-        wasCompressedBefore = wasCompressedBefore,
+        priorCompression = priorCompression,
     )
 
     // === MIME Type Filtering Tests ===
@@ -151,15 +151,15 @@ class CompressibleImageFilteringTest : BaseTest() {
     @Test
     fun `filter excludes previously compressed images`() {
         val images = listOf(
-            createImage("/new.jpg", wasCompressedBefore = false),
-            createImage("/already_done.jpg", wasCompressedBefore = true),
-            createImage("/another_new.jpg", wasCompressedBefore = false),
+            createImage("/new.jpg", priorCompression = null),
+            createImage("/already_done.jpg", priorCompression = PriorCompression.COMPRESSED),
+            createImage("/another_new.jpg", priorCompression = null),
         )
 
-        val filtered = images.filter { !it.wasCompressedBefore }
+        val filtered = images.filter { it.priorCompression == null }
 
         filtered shouldHaveSize 2
-        filtered.all { !it.wasCompressedBefore } shouldBe true
+        filtered.all { it.priorCompression == null } shouldBe true
     }
 
     @Test
@@ -167,12 +167,12 @@ class CompressibleImageFilteringTest : BaseTest() {
         val skipPreviouslyCompressed = false
 
         val images = listOf(
-            createImage("/new.jpg", wasCompressedBefore = false),
-            createImage("/already_done.jpg", wasCompressedBefore = true),
+            createImage("/new.jpg", priorCompression = null),
+            createImage("/already_done.jpg", priorCompression = PriorCompression.COMPRESSED),
         )
 
         val filtered = if (skipPreviouslyCompressed) {
-            images.filter { !it.wasCompressedBefore }
+            images.filter { it.priorCompression == null }
         } else {
             images
         }
@@ -187,16 +187,16 @@ class CompressibleImageFilteringTest : BaseTest() {
         val minSize = 512 * 1024L
 
         val images = listOf(
-            createImage("/good.jpg", size = 1024 * 1024L, mimeType = CompressibleImage.MIME_TYPE_JPEG, wasCompressedBefore = false),
-            createImage("/too_small.jpg", size = 100 * 1024L, mimeType = CompressibleImage.MIME_TYPE_JPEG, wasCompressedBefore = false),
-            createImage("/webp_type.webp", size = 1024 * 1024L, mimeType = CompressibleImage.MIME_TYPE_WEBP, wasCompressedBefore = false),
-            createImage("/already_compressed.jpg", size = 1024 * 1024L, mimeType = CompressibleImage.MIME_TYPE_JPEG, wasCompressedBefore = true),
+            createImage("/good.jpg", size = 1024 * 1024L, mimeType = CompressibleImage.MIME_TYPE_JPEG, priorCompression = null),
+            createImage("/too_small.jpg", size = 100 * 1024L, mimeType = CompressibleImage.MIME_TYPE_JPEG, priorCompression = null),
+            createImage("/webp_type.webp", size = 1024 * 1024L, mimeType = CompressibleImage.MIME_TYPE_WEBP, priorCompression = null),
+            createImage("/already_compressed.jpg", size = 1024 * 1024L, mimeType = CompressibleImage.MIME_TYPE_JPEG, priorCompression = PriorCompression.COMPRESSED),
         )
 
         val filtered = images
             .filter { it.isJpeg }
             .filter { it.size >= minSize }
-            .filter { !it.wasCompressedBefore }
+            .filter { it.priorCompression == null }
 
         filtered shouldHaveSize 1
         filtered.first().path.path shouldBe "/good.jpg"

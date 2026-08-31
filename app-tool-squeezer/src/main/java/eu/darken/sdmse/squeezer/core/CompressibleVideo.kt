@@ -6,7 +6,7 @@ data class CompressibleVideo(
     override val lookup: APathLookup<*>,
     override val mimeType: String,
     override val estimatedCompressedSize: Long? = null,
-    override val wasCompressedBefore: Boolean = false,
+    override val priorCompression: PriorCompression? = null,
     val durationMs: Long,
     val bitrateBps: Long,
 ) : CompressibleMedia {

@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.core.PriorCompression
 import java.time.Instant
 
 internal fun previewLocalPathLookup(
@@ -24,12 +25,14 @@ internal fun previewCompressibleImage(
     lookup: LocalPathLookup = previewLocalPathLookup(),
     mimeType: String = CompressibleImage.MIME_TYPE_JPEG,
     estimatedCompressedSize: Long? = 4L * 1024 * 1024,
-    wasCompressedBefore: Boolean = false,
+    priorCompression: PriorCompression? = null,
+    hasLossyAux: Boolean = false,
 ): CompressibleImage = CompressibleImage(
     lookup = lookup,
     mimeType = mimeType,
     estimatedCompressedSize = estimatedCompressedSize,
-    wasCompressedBefore = wasCompressedBefore,
+    priorCompression = priorCompression,
+    hasLossyAux = hasLossyAux,
 )
 
 internal fun previewCompressibleVideo(
@@ -39,14 +42,14 @@ internal fun previewCompressibleVideo(
     ),
     mimeType: String = CompressibleVideo.MIME_TYPE_MP4,
     estimatedCompressedSize: Long? = 64L * 1024 * 1024,
-    wasCompressedBefore: Boolean = false,
+    priorCompression: PriorCompression? = null,
     durationMs: Long = 42_000L,
     bitrateBps: Long = 18_000_000L,
 ): CompressibleVideo = CompressibleVideo(
     lookup = lookup,
     mimeType = mimeType,
     estimatedCompressedSize = estimatedCompressedSize,
-    wasCompressedBefore = wasCompressedBefore,
+    priorCompression = priorCompression,
     durationMs = durationMs,
     bitrateBps = bitrateBps,
 )
