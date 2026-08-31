@@ -150,6 +150,14 @@ internal fun ScheduleRow(
                 Switch(checked = isEnabled, onCheckedChange = { onToggle() })
             }
 
+            if (isEnabled) {
+                Text(
+                    text = stringResource(R.string.scheduler_schedule_disable_to_edit_hint),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+
             Spacer(modifier = Modifier.padding(vertical = 4.dp))
             ToolToggleRow(
                 label = stringResource(CommonR.string.corpsefinder_tool_name),
