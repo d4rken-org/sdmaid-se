@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core
 
 import eu.darken.sdmse.appcleaner.core.automation.errors.LockedAppCacheException
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
+import eu.darken.sdmse.appcleaner.ui.preview.previewInaccessibleCache
 import eu.darken.sdmse.automation.core.errors.DisabledAppException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
@@ -72,6 +73,49 @@ class AppCleanerExtensionsTest : BaseTest() {
     fun `hasActionableData is false when Data is null`() {
         val data: AppCleaner.Data? = null
         data.hasActionableData shouldBe false
+    }
+
+    private fun limitedJunk(inaccessible: Boolean = true) = previewAppJunk(
+        inaccessibleCache = if (inaccessible) previewInaccessibleCache() else null,
+        isExclusionLimited = true,
+    )
+
+    @Test
+    fun `hasTrimEligibleTargets is true for a normal junk with an inaccessible cache`() {
+        listOf(previewAppJunk()).hasTrimEligibleTargets() shouldBe true
+    }
+
+    @Test
+    fun `hasTrimEligibleTargets ignores exclusion-limited junks`() {
+        listOf(limitedJunk()).hasTrimEligibleTargets() shouldBe false
+    }
+
+    @Test
+    fun `hasTrimEligibleTargets is false without any inaccessible cache`() {
+        listOf(previewAppJunk(inaccessibleCache = null)).hasTrimEligibleTargets() shouldBe false
+    }
+
+    @Test
+    fun `pruneOrphanedExclusionLimited keeps limited junks next to a trim-eligible junk`() {
+        val normal = previewAppJunk()
+        val limited = limitedJunk()
+
+        listOf(normal, limited).pruneOrphanedExclusionLimited() shouldBe listOf(normal, limited)
+    }
+
+    @Test
+    fun `pruneOrphanedExclusionLimited drops limited junks without a trim-eligible junk`() {
+        val normal = previewAppJunk(inaccessibleCache = null)
+        val limited = limitedJunk()
+
+        listOf(normal, limited).pruneOrphanedExclusionLimited() shouldBe listOf(normal)
+    }
+
+    @Test
+    fun `pruneOrphanedExclusionLimited leaves a collection without limited junks alone`() {
+        val junks = listOf(previewAppJunk(inaccessibleCache = null))
+
+        junks.pruneOrphanedExclusionLimited() shouldBe junks
     }
 
     @Test

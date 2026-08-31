@@ -5,10 +5,14 @@ import eu.darken.sdmse.appcleaner.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.limitToTrimBlastRadius
+import eu.darken.sdmse.appcleaner.core.pruneOrphanedExclusionLimited
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.common.ModeUnavailableException
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -87,6 +91,7 @@ class AppScanner @Inject constructor(
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
     private val userManager: UserManager2,
     private val pkgOps: PkgOps,
+    private val adbManager: AdbManager,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -128,6 +133,18 @@ class AppScanner @Inject constructor(
 
         val pkgExclusions = exclusionManager.pkgExclusions(SDMTool.Type.APPCLEANER)
 
+        // Whether a whole-tool clean would issue the device-global ADB cache trim, which carries no
+        // package identity and so reaches excluded apps too. Mirrors the skip conditions of
+        // `determineInaccessibleCaches(...)` plus ADB availability.
+        val trimBlastRadiusPossible = adbManager.canUseAdbNow()
+            && !rootManager.canUseRootNow()
+            && settings.includeInaccessibleEnabled.value()
+            && settings.filterDefaultCachesPublicEnabled.value()
+            && settings.filterDefaultCachesPrivateEnabled.value()
+        log(TAG) { "trimBlastRadiusPossible=$trimBlastRadiusPossible" }
+
+        val exclusionLimited = mutableSetOf<InstallId>()
+
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
         val runningPkgs = try {
@@ -148,7 +165,12 @@ class AppScanner @Inject constructor(
             .filter { pkg ->
                 val isExcluded = pkgExclusions.any { it.match(pkg.id) }
                 if (isExcluded) log(TAG, INFO) { "Excluded package: ${pkg.id}" }
-                !isExcluded
+                if (isExcluded && trimBlastRadiusPossible) {
+                    exclusionLimited.add(pkg.installId)
+                    true
+                } else {
+                    !isExcluded
+                }
             }
             .filter { it.id.name != context.packageName }
 
@@ -157,7 +179,7 @@ class AppScanner @Inject constructor(
         val expendablesFromAppData: Map<InstallId, Collection<ExpendablesFilter.Match>> =
             buildSearchMap(allCurrentPkgs)
                 .onEach { log(TAG) { "Searchmap contains ${it.value.size} pathes for ${it.key}." } }
-                .let { readAppDirs(it) }
+                .let { readAppDirs(it, exclusionLimited) }
 
         val inaccessibleCaches = determineInaccessibleCaches(allCurrentPkgs)
         log(TAG) { "Determined ${inaccessibleCaches.size} in accessible caches" }
@@ -178,12 +200,16 @@ class AppScanner @Inject constructor(
                 log(TAG) { "Guesstimated external cache size as ${inaccessible.publicSize}" }
             }
 
-            AppJunk(
+            val isExclusionLimited = exclusionLimited.contains(pkg.installId)
+            val junk = AppJunk(
                 pkg = pkg,
                 userProfile = if (includeOtherUsers) allUsers.singleOrNull { it.handle == pkg.userHandle } else null,
                 expendables = byFilterType,
                 inaccessibleCache = inaccessible,
+                isExclusionLimited = isExclusionLimited,
             )
+
+            if (isExclusionLimited) junk.limitToTrimBlastRadius() else junk
         }
 
         log(TAG) { "Found ${expendablesFromAppData.size} apps with expendable files" }
@@ -191,7 +217,7 @@ class AppScanner @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_filtering)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val prunedAppJunks = postProcessorModule.postProcess(appJunks)
+        val prunedAppJunks = postProcessorModule.postProcess(appJunks).pruneOrphanedExclusionLimited()
         log(TAG, INFO) { "After purging empties we have ${prunedAppJunks.size} apps." }
 
         prunedAppJunks.forEach { appJunk ->
@@ -413,7 +439,8 @@ class AppScanner @Inject constructor(
 
     // internal: exercised directly by AppScannerTest, the public scan() needs the full pkg/area setup
     internal suspend fun readAppDirs(
-        searchPathsOfInterest: Map<AreaInfo, Collection<InstallId>>
+        searchPathsOfInterest: Map<AreaInfo, Collection<InstallId>>,
+        exclusionLimited: Set<InstallId> = emptySet(),
     ): Map<InstallId, Collection<ExpendablesFilter.Match>> {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary(CaString.EMPTY)
@@ -436,6 +463,9 @@ class AppScanner @Inject constructor(
 
             val ownersOfInterest = possibleOwners
                 .filter { searchPath.userHandle == systemUser.handle || it.userHandle == searchPath.userHandle }
+                // A match goes to the first owner whose filter hits. Limited owners go last so a
+                // co-owned path keeps being attributed to the owner that reports it today.
+                .sortedBy { exclusionLimited.contains(it) }
                 .onEach { if (Bugs.isTrace) log(TAG, VERBOSE) { "Owners of interest for $target: \n${it.pkgId}" } }
 
             val walkFlow = try {

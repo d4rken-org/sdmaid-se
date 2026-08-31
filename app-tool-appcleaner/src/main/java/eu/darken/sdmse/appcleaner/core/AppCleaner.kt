@@ -16,6 +16,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask.StopReason
 import eu.darken.sdmse.automation.core.errors.isScreenUnavailable
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -102,7 +103,7 @@ class AppCleaner @Inject constructor(
     private val pkgOps: PkgOps,
     @SetupBinding(SetupModule.Type.USAGE_STATS) usageStatsSetupModule: SetupModule,
     rootManager: RootManager,
-    adbManager: AdbManager,
+    private val adbManager: AdbManager,
     private val shellOps: ShellOps,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
     @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
@@ -264,6 +265,13 @@ class AppCleaner @Inject constructor(
             val targetJunk = task.targetPkgs
                 ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
                 ?: snapshot.junks
+                    // Exclusion-limited junks are in the snapshot because the ADB cache trim would
+                    // reach them anyway. If this task won't run that trim, nothing justifies
+                    // deleting their files directly.
+                    .let { junks ->
+                        val willTrim = task.includeInaccessible && adbManager.canUseAdbNow()
+                        if (willTrim) junks else junks.filter { !it.isExclusionLimited }
+                    }
 
             updateProgressCount(Progress.Count.Percent(targetJunk.size))
 
@@ -421,7 +429,7 @@ class AppCleaner @Inject constructor(
                         else -> appJunk.acsError
                     },
                 )
-            }.filter { !it.isEmpty() }
+            }.filter { !it.isEmpty() }.pruneOrphanedExclusionLimited()
         )
 
         // `acsResult` is a var (the partial-result callback writes to it), so it won't smart-cast.
@@ -472,13 +480,19 @@ class AppCleaner @Inject constructor(
                 tags = setOf(Exclusion.Tag.APPCLEANER),
             )
         }.toSet()
+
+        // Everything that can suspend or fail is resolved before save(), otherwise a cancel between
+        // a durable exclusion and the state rewrite would leave stale data and no undo handle.
+        val snapshot = internalData.value!!
+        val canUseAdb = adbManager.canUseAdbNow()
+
         val saved = exclusionManager.save(exclusions)
 
-        val snapshot = internalData.value!!
         val updated = snapshot.copy(
-            junks = snapshot.junks.filter { junk ->
-                exclusions.none { it.match(junk.identifier.pkgId) }
-            }
+            junks = snapshot.junks.mapNotNull { junk ->
+                if (exclusions.none { it.match(junk.identifier.pkgId) }) return@mapNotNull junk
+                if (canUseAdb) junk.limitToTrimBlastRadius() else null
+            }.pruneOrphanedExclusionLimited()
         )
         internalData.value = updated
 
@@ -543,7 +557,7 @@ class AppCleaner @Inject constructor(
                 } else {
                     junk
                 }
-            }
+            }.pruneOrphanedExclusionLimited()
         )
 
         log(TAG) { "exclude(): Excluded $excludedCount of $totalCount matches for $identifier" }

@@ -124,12 +124,22 @@ class InaccessibleDeleter @Inject constructor(
     }
 
     private suspend fun deleteInaccessible(
-        targets: Collection<AppJunk>,
+        rawTargets: Collection<AppJunk>,
         isAllApps: Boolean,
         useAutomation: Boolean,
         isBackground: Boolean,
         onPartialResult: (InaccDelResult) -> Unit,
     ): InaccDelResult {
+        // Only a whole-tool clean issues the device-global trim, and only then are exclusion-limited
+        // junks part of the scan results at all. Without the trim there is no reason to touch them.
+        val willTrim = adbManager.canUseAdbNow() && isAllApps
+        val targets = when {
+            !isAllApps -> rawTargets
+            willTrim -> rawTargets
+            // Whole-tool clean without the trim: nothing will reach these anyway.
+            else -> rawTargets.filter { !it.isExclusionLimited }
+        }
+
         log(TAG) { "${targets.size} inaccessible caches to delete." }
         if (targets.isEmpty()) return InaccDelResult()
 
@@ -144,7 +154,7 @@ class InaccessibleDeleter @Inject constructor(
         // the observation so it keeps contributing its scan-time size, exactly as before.
         val zeroCacheSkips = mutableSetOf<InstallId>()
 
-        if (adbManager.canUseAdbNow() && isAllApps) {
+        if (willTrim) {
             val adbResult = trimCachesWithAdb(targets)
             successTargets.addAll(adbResult.succesful)
             failedTargets.putAll(adbResult.failed)
@@ -152,6 +162,11 @@ class InaccessibleDeleter @Inject constructor(
 
         val remainingTargets = targets
             .filter { !successTargets.contains(it.identifier) }
+            // The trim covered these and may have cleared them, but driving their settings page or
+            // force-stopping them are actions the exclusion ruled out. A limited target the trim
+            // did not confirm is left alone rather than reported as a failed attempt. A targeted
+            // clean of such an entry is an explicit user action and keeps the full treatment.
+            .filter { !willTrim || !it.isExclusionLimited }
             .filter { junk ->
                 val currentCache = inaccessibleCacheProvider.determineCache(junk.pkg)
                 if (currentCache != null && currentCache.totalSize == 0L) {

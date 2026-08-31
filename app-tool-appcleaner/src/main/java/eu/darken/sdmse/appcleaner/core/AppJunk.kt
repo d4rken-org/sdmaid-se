@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.core
 import eu.darken.sdmse.appcleaner.core.automation.errors.LockedAppCacheException
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilterIdentifier
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPrivateFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.automation.core.errors.DisabledAppException
@@ -20,6 +21,7 @@ data class AppJunk(
     val expendables: Map<ExpendablesFilterIdentifier, Collection<ExpendablesFilter.Match>>?,
     val inaccessibleCache: InaccessibleCache?,
     val acsError: Exception? = null,
+    val isExclusionLimited: Boolean = false,
 ) {
 
     val identifier: InstallId
@@ -80,4 +82,28 @@ data class AppJunk(
 
     override fun toString(): String =
         "AppJunk(${pkg.packageName}, categories=${expendables?.size}, inaccessible=$inaccessibleCache)"
+}
+
+/** The content a device-global cache trim can reach, i.e. what an app exclusion can't protect. */
+val TRIM_BLAST_RADIUS_FILTERS: Set<ExpendablesFilterIdentifier> = setOf(
+    DefaultCachesPublicFilter::class,
+    DefaultCachesPrivateFilter::class,
+)
+
+/**
+ * Narrows this junk to [TRIM_BLAST_RADIUS_FILTERS] plus its inaccessible cache, or `null` if
+ * neither is left.
+ */
+fun AppJunk.limitToTrimBlastRadius(): AppJunk? {
+    val narrowed = expendables
+        ?.filterKeys { TRIM_BLAST_RADIUS_FILTERS.contains(it) }
+        ?.filterValues { it.isNotEmpty() }
+        ?.takeIf { it.isNotEmpty() }
+
+    if (narrowed == null && inaccessibleCache == null) return null
+
+    return copy(
+        expendables = narrowed,
+        isExclusionLimited = true,
+    )
 }
