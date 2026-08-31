@@ -16,9 +16,6 @@ interface AffectedPathsDao {
     @Query("SELECT * FROM affected_paths")
     fun waterfall(): Flow<List<AffectedPathEntity>>
 
-    @Query("SELECT COUNT(*) FROM affected_paths")
-    fun filesCount(): Flow<Int>
-
     @Insert
     fun insert(files: List<AffectedPathEntity>)
 
