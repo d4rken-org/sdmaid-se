@@ -83,6 +83,7 @@ private fun AppCleanerProcessingTask.Success.toSchedulerSuccess() = AppCleanerSc
     affectedPaths = affectedPaths,
     affectedCount = affectedCount,
     stoppedEarly = stoppedEarly,
+    skippedCount = skippedCount,
 )
 
 private fun AppCleanerProcessingTask.Success.toOneClickSuccess() = AppCleanerOneClickTask.Success(
@@ -90,6 +91,7 @@ private fun AppCleanerProcessingTask.Success.toOneClickSuccess() = AppCleanerOne
     affectedPaths = affectedPaths,
     affectedCount = affectedCount,
     stoppedEarly = stoppedEarly,
+    skippedCount = skippedCount,
 )
 
 @Singleton
@@ -467,7 +469,10 @@ class AppCleaner @Inject constructor(
             if (salvaged.affectedCount == 0 && salvaged.affectedSpace == 0L) {
                 throw InaccessibleDeletionException(AutomationNoConsentException())
             }
-            return salvaged.copy(stoppedEarly = StopReason.AUTOMATION_NO_CONSENT)
+            return salvaged.copy(
+                stoppedEarly = StopReason.AUTOMATION_NO_CONSENT,
+                skippedCount = acsOutcome.skippedNoConsent.size,
+            )
         }
 
         return salvaged

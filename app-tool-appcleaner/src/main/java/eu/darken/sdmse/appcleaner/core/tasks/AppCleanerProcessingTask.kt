@@ -51,6 +51,7 @@ data class AppCleanerProcessingTask(
         // Set when the clean aborted after deleting this much, e.g. the accessibility stage hit a
         // locked screen. Null for a run that went through everything it targeted.
         val stoppedEarly: AppCleanerTask.StopReason? = null,
+        val skippedCount: Int = 0,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         override val primaryInfo
@@ -68,7 +69,9 @@ data class AppCleanerProcessingTask(
 
                     AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT -> getQuantityString2(
                         R.plurals.appcleaner_result_x_items_deleted_stopped_automation,
-                        affectedCount,
+                        skippedCount,
+                        getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount),
+                        skippedCount,
                     )
 
                     null -> getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount)
