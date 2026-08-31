@@ -19,7 +19,6 @@ import androidx.compose.material.icons.twotone.HdrOn
 import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material.icons.twotone.Search
-import androidx.compose.material.icons.twotone.TrendingFlat
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FilledTonalIconButton
@@ -150,24 +149,18 @@ private fun SqueezeMarkerIcons(
     media: CompressibleMedia,
 ) {
     val hasLossyAux = (media as? CompressibleImage)?.hasLossyAux == true
-    if (media.priorCompression == null && !hasLossyAux) return
+    val wasCompressed = media.priorCompression == PriorCompression.COMPRESSED
+    if (!wasCompressed && !hasLossyAux) return
 
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        when (media.priorCompression) {
-            PriorCompression.COMPRESSED -> MarkerBadge(
+        if (wasCompressed) {
+            MarkerBadge(
                 icon = Icons.TwoTone.History,
                 contentDescription = stringResource(R.string.squeezer_chip_compressed_before),
             )
-
-            PriorCompression.NO_SAVINGS -> MarkerBadge(
-                icon = Icons.TwoTone.TrendingFlat,
-                contentDescription = stringResource(R.string.squeezer_chip_no_savings),
-            )
-
-            null -> Unit
         }
         if (hasLossyAux) {
             MarkerBadge(
