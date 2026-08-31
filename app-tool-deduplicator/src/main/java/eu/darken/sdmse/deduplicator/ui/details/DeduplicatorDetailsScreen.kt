@@ -279,6 +279,10 @@ internal fun DeduplicatorDetailsScreen(
         }
     }
 
+    // Card actions act on a whole cluster/directory/group, which is wider than any row selection,
+    // so they are gated screen-wide: adjacent pages stay visible in the pager.
+    val wholeScopeActionsEnabled = !selection.isActive
+
     BackHandler(enabled = selection.isActive) { selection.clear() }
 
     val tourController = LocalGuidedTourController.current
@@ -447,6 +451,7 @@ internal fun DeduplicatorDetailsScreen(
                                 collapsed = collapsedForCluster,
                                 selection = selection,
                                 selectionEnabled = cluster.identifier == currentCluster?.identifier,
+                                wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                                 onSelectionToggle = { id ->
                                     if (cluster.identifier != currentCluster?.identifier) return@ClusterContent
                                     if (selection.contains(id)) {
