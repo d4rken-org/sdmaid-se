@@ -24,6 +24,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ListAlt
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.GridView
+import androidx.compose.material.icons.twotone.Info
 import eu.darken.sdmse.common.compose.dialog.SdmAlertDialog
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.FloatingActionButtonDefaults
@@ -176,6 +177,8 @@ internal fun SqueezerListScreen(
         selection.retainAll(itemIds)
     }
 
+    var showMarkersInfo by remember { mutableStateOf(false) }
+
     val tourController = LocalGuidedTourController.current
     val tourDef = remember { SqueezerListTour.definition() }
     var tourStartAttempted by remember { mutableStateOf(false) }
@@ -230,6 +233,11 @@ internal fun SqueezerListScreen(
                                 onClick = onToggleLayoutMode,
                             )
                         }
+                        SdmTooltipIconButton(
+                            icon = Icons.TwoTone.Info,
+                            label = stringResource(R.string.squeezer_markers_dialog_title),
+                            onClick = { showMarkersInfo = true },
+                        )
                     },
                 )
             } else {
@@ -333,6 +341,10 @@ internal fun SqueezerListScreen(
                 }
             }
         }
+    }
+
+    if (showMarkersInfo) {
+        SqueezerMarkersDialog(onDismiss = { showMarkersInfo = false })
     }
 }
 
