@@ -3,7 +3,6 @@ package eu.darken.sdmse.corpsefinder.ui.details.content
 import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,12 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.DeleteSweep
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -37,9 +31,8 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FileListThumbnail
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
 import eu.darken.sdmse.common.compose.icons.icon
+import eu.darken.sdmse.common.compose.layout.SdmWholeScopeActions
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.selection.SelectionState
@@ -57,7 +50,8 @@ import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 @Composable
 internal fun CorpseContent(
     corpse: Corpse,
-    selection: SelectionState<APath>?,
+    pageSelection: SelectionState<APath>?,
+    wholeScopeActionsEnabled: Boolean,
     onDeleteCorpseRequest: () -> Unit,
     onExcludeRequest: () -> Unit,
     onFileTap: (APathLookup<*>) -> Unit,
@@ -66,7 +60,7 @@ internal fun CorpseContent(
     val sortedContent = remember(corpse.identifier, corpse.content) {
         corpse.content.sortedByDescending { it.size }
     }
-    val selectionActive = selection?.isActive == true
+    val selectionActive = pageSelection?.isActive == true
     LazyColumn(
         modifier = modifier.fillMaxWidth(),
         contentPadding = PaddingValues(vertical = 8.dp),
@@ -74,25 +68,26 @@ internal fun CorpseContent(
         item(key = "header") {
             CorpseHeaderCard(
                 corpse = corpse,
+                wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                 onDeleteAll = onDeleteCorpseRequest,
                 onExclude = onExcludeRequest,
             )
         }
         items(sortedContent, key = { it.lookedUp.toString() }) { lookup ->
-            val isSelected = selection?.isSelected(lookup.lookedUp) == true
+            val isSelected = pageSelection?.isSelected(lookup.lookedUp) == true
             CorpseFileRow(
                 corpse = corpse,
                 lookup = lookup,
                 selected = isSelected,
                 selectionActive = selectionActive,
                 onClick = {
-                    if (selection != null && selection.isActive) {
-                        selection.toggle(lookup.lookedUp)
+                    if (pageSelection != null && pageSelection.isActive) {
+                        pageSelection.toggle(lookup.lookedUp)
                     } else {
                         onFileTap(lookup)
                     }
                 },
-                onLongClick = { selection?.select(lookup.lookedUp) },
+                onLongClick = { pageSelection?.select(lookup.lookedUp) },
             )
         }
     }
@@ -101,6 +96,7 @@ internal fun CorpseContent(
 @Composable
 private fun CorpseHeaderCard(
     corpse: Corpse,
+    wholeScopeActionsEnabled: Boolean,
     onDeleteAll: () -> Unit,
     onExclude: () -> Unit,
 ) {
@@ -199,28 +195,11 @@ private fun CorpseHeaderCard(
             }
 
             Spacer(Modifier.height(16.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilledTonalButton(
-                    onClick = onExclude,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_exclude_action))
-                }
-                Button(
-                    onClick = onDeleteAll,
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.error,
-                        contentColor = MaterialTheme.colorScheme.onError,
-                    ),
-                ) {
-                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            }
+            SdmWholeScopeActions(
+                enabled = wholeScopeActionsEnabled,
+                onExclude = onExclude,
+                onDelete = onDeleteAll,
+            )
         }
     }
 }
@@ -276,7 +255,8 @@ private fun CorpseContentPreview() {
     PreviewWrapper {
         CorpseContent(
             corpse = previewCorpse(),
-            selection = null,
+            pageSelection = null,
+            wholeScopeActionsEnabled = true,
             onDeleteCorpseRequest = {},
             onExcludeRequest = {},
             onFileTap = {},
@@ -290,7 +270,8 @@ private fun CorpseContentKeeperPreview() {
     PreviewWrapper {
         CorpseContent(
             corpse = previewCorpse(riskLevel = RiskLevel.KEEPER),
-            selection = null,
+            pageSelection = null,
+            wholeScopeActionsEnabled = true,
             onDeleteCorpseRequest = {},
             onExcludeRequest = {},
             onFileTap = {},
