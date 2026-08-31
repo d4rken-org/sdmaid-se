@@ -27,6 +27,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -43,6 +44,10 @@ import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.PriorCompression
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleImage
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleVideo
+
+internal object SqueezerListLinearRowTags {
+    const val MARKER_ROW = "squeezer_linear_marker_row"
+}
 
 @Composable
 internal fun SqueezerListLinearRow(
@@ -142,6 +147,7 @@ private fun SqueezeChipRow(media: CompressibleMedia) {
     if (!wasCompressed && !hasLossyAux) return
 
     FlowRow(
+        modifier = Modifier.testTag(SqueezerListLinearRowTags.MARKER_ROW),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {

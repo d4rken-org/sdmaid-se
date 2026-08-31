@@ -31,6 +31,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FilePreviewImage
@@ -43,6 +44,10 @@ import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.PriorCompression
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleImage
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleVideo
+
+internal object SqueezerListGridCardTags {
+    const val MARKER_ROW = "squeezer_grid_marker_row"
+}
 
 @Composable
 internal fun SqueezerListGridCard(
@@ -153,7 +158,7 @@ private fun SqueezeMarkerIcons(
     if (!wasCompressed && !hasLossyAux) return
 
     Row(
-        modifier = modifier,
+        modifier = modifier.testTag(SqueezerListGridCardTags.MARKER_ROW),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
     ) {
         if (wasCompressed) {
