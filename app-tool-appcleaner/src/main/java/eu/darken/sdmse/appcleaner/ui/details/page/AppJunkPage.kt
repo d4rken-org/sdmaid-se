@@ -3,7 +3,6 @@ package eu.darken.sdmse.appcleaner.ui.details.page
 import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -17,13 +16,9 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
-import androidx.compose.material.icons.twotone.DeleteSweep
 import androidx.compose.material.icons.twotone.ExpandLess
 import androidx.compose.material.icons.twotone.ExpandMore
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -31,10 +26,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -54,8 +51,7 @@ import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.compose.SystemAppChip
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmWholeScopeActions
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.selection.SelectionState
@@ -68,12 +64,20 @@ import eu.darken.sdmse.common.pkgs.getSettingsIntent
 
 private val TAG = logTag("AppCleaner", "Details", "Page")
 
+/** Material's disabled-content alpha, applied by hand where explicit colours bypass the theme. */
+private const val DisabledContentAlpha = 0.38f
+
+internal object AppJunkPageTags {
+    const val CATEGORY_COLLAPSE = "appjunk_category_collapse"
+}
+
 @Composable
 internal fun AppJunkPage(
     junk: AppJunk,
     collapsed: Set<ExpendablesFilterIdentifier>,
     selection: SelectionState<APath>,
     isCurrentPage: Boolean,
+    wholeScopeActionsEnabled: Boolean,
     onDeleteJunk: () -> Unit,
     onExcludeJunk: () -> Unit,
     onDeleteInaccessible: () -> Unit,
@@ -95,6 +99,7 @@ internal fun AppJunkPage(
                 AppJunkElement.Header -> item(key = "header", contentType = "header") {
                     AppJunkPageHeaderCard(
                         junk = junk,
+                        wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                         onDeleteJunk = onDeleteJunk,
                         onExcludeJunk = onExcludeJunk,
                     )
@@ -103,6 +108,7 @@ internal fun AppJunkPage(
                 is AppJunkElement.Inaccessible -> item(key = "inaccessible", contentType = "inaccessible") {
                     AppJunkInaccessibleRow(
                         cache = element.cache,
+                        wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                         onClick = onDeleteInaccessible,
                     )
                 }
@@ -113,6 +119,7 @@ internal fun AppJunkPage(
                         matchCount = element.matches.size,
                         totalSize = element.totalSize,
                         isCollapsed = element.isCollapsed,
+                        wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                         onClick = { onDeleteCategory(element.category) },
                         onCollapseToggle = { onToggleCollapse(element.category) },
                     )
@@ -143,6 +150,7 @@ internal fun AppJunkPage(
 @Composable
 private fun AppJunkPageHeaderCard(
     junk: AppJunk,
+    wholeScopeActionsEnabled: Boolean,
     onDeleteJunk: () -> Unit,
     onExcludeJunk: () -> Unit,
 ) {
@@ -240,28 +248,11 @@ private fun AppJunkPageHeaderCard(
             }
 
             Spacer(Modifier.height(16.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilledTonalButton(
-                    onClick = onExcludeJunk,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_exclude_action))
-                }
-                Button(
-                    onClick = onDeleteJunk,
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.error,
-                        contentColor = MaterialTheme.colorScheme.onError,
-                    ),
-                ) {
-                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            }
+            SdmWholeScopeActions(
+                enabled = wholeScopeActionsEnabled,
+                onExclude = onExcludeJunk,
+                onDelete = onDeleteJunk,
+            )
         }
     }
 }
@@ -287,6 +278,7 @@ private fun AppIconWithSettingsLongPress(junk: AppJunk) {
 @Composable
 private fun AppJunkInaccessibleRow(
     cache: InaccessibleCache,
+    wholeScopeActionsEnabled: Boolean,
     onClick: () -> Unit,
 ) {
     val context = LocalContext.current
@@ -295,8 +287,14 @@ private fun AppJunkInaccessibleRow(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp),
+        enabled = wholeScopeActionsEnabled,
     ) {
-        Column(modifier = Modifier.padding(16.dp)) {
+        // The card sets explicit content colours, which Card(enabled = false) cannot dim.
+        Column(
+            modifier = Modifier
+                .padding(16.dp)
+                .alpha(if (wholeScopeActionsEnabled) 1f else DisabledContentAlpha),
+        ) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
                     imageVector = Icons.AutoMirrored.TwoTone.FormatListBulleted,
@@ -332,6 +330,7 @@ private fun AppJunkCategoryCard(
     matchCount: Int,
     totalSize: Long,
     isCollapsed: Boolean,
+    wholeScopeActionsEnabled: Boolean,
     onClick: () -> Unit,
     onCollapseToggle: () -> Unit,
 ) {
@@ -342,11 +341,15 @@ private fun AppJunkCategoryCard(
         matchCount,
     )
     val subtitle = "${Formatter.formatShortFileSize(context, totalSize)} ($itemCountText)"
+    // The card sets explicit content colours, which Card(enabled = false) cannot dim. The collapse
+    // toggle stays outside the dimmed scope so it still reads as usable.
+    val contentAlpha = if (wholeScopeActionsEnabled) 1f else DisabledContentAlpha
     Card(
         onClick = onClick,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 16.dp, vertical = 4.dp),
+        enabled = wholeScopeActionsEnabled,
     ) {
         Column(modifier = Modifier.padding(vertical = 8.dp)) {
             Row(
@@ -357,11 +360,17 @@ private fun AppJunkCategoryCard(
                 Icon(
                     imageVector = category.icon,
                     contentDescription = null,
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier
+                        .size(24.dp)
+                        .alpha(contentAlpha),
                     tint = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
                 Spacer(Modifier.width(16.dp))
-                Column(modifier = Modifier.weight(1f)) {
+                Column(
+                    modifier = Modifier
+                        .weight(1f)
+                        .alpha(contentAlpha),
+                ) {
                     Text(
                         text = stringResource(category.labelRes),
                         style = MaterialTheme.typography.bodyMedium,
@@ -376,7 +385,10 @@ private fun AppJunkCategoryCard(
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
-                IconButton(onClick = onCollapseToggle) {
+                IconButton(
+                    onClick = onCollapseToggle,
+                    modifier = Modifier.testTag(AppJunkPageTags.CATEGORY_COLLAPSE),
+                ) {
                     Icon(
                         imageVector = if (isCollapsed) Icons.TwoTone.ExpandMore else Icons.TwoTone.ExpandLess,
                         contentDescription = null,
@@ -390,7 +402,8 @@ private fun AppJunkCategoryCard(
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(start = 16.dp, end = 16.dp, top = 4.dp),
+                    .padding(start = 16.dp, end = 16.dp, top = 4.dp)
+                    .alpha(contentAlpha),
             )
         }
     }
@@ -447,6 +460,7 @@ private fun AppJunkPagePreview() {
             collapsed = emptySet(),
             selection = remember { SelectionState() },
             isCurrentPage = true,
+            wholeScopeActionsEnabled = true,
             onDeleteJunk = {},
             onExcludeJunk = {},
             onDeleteInaccessible = {},
