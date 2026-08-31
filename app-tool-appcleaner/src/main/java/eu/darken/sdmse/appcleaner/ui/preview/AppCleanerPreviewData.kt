@@ -88,11 +88,13 @@ internal fun previewAppJunk(
     pkg: Installed = previewInstalled(),
     expendables: Map<kotlin.reflect.KClass<out ExpendablesFilter>, Collection<ExpendablesFilter.Match>>? = previewExpendables(),
     inaccessibleCache: InaccessibleCache? = previewInaccessibleCache(),
+    isExclusionLimited: Boolean = false,
 ): AppJunk = AppJunk(
     pkg = pkg,
     userProfile = null,
     expendables = expendables,
     inaccessibleCache = inaccessibleCache,
+    isExclusionLimited = isExclusionLimited,
 )
 
 internal fun previewAppCleanerRow(

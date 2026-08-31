@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.core
 
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.ThumbnailsFilter
 import eu.darken.sdmse.appcleaner.core.scanner.AppScanner
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
@@ -1143,6 +1144,133 @@ class AppCleanerTest : BaseTest() {
         result.shouldBeInstanceOf<eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask.Success>()
         result.affectedCount shouldBe 12
         result.affectedPaths.size shouldBe 2
+    }
+
+    // ─────────────────────────── exclusion-limited junks ───────────────────────────
+
+    private fun pkgExclusionFor(junk: AppJunk) = listOf(
+        PkgExclusion(
+            pkgId = junk.identifier.pkgId,
+            tags = setOf(Exclusion.Tag.APPCLEANER),
+        ),
+    )
+
+    private fun thumbnailMatch(path: LocalPath): ExpendablesFilter.Match = ExpendablesFilter.Match.Deletion(
+        identifier = ThumbnailsFilter::class,
+        lookup = LocalPathLookup(
+            lookedUp = path,
+            fileType = FileType.FILE,
+            size = 1024L,
+            modifiedAt = Instant.EPOCH,
+            target = null,
+        ),
+    )
+
+    private fun inaccessibleOnlyJunk(pkgName: String, isExclusionLimited: Boolean = false) = previewAppJunk(
+        pkg = previewInstalled(pkgName = pkgName, label = pkgName),
+        expendables = null,
+        inaccessibleCache = previewInaccessibleCache(pkgName = pkgName),
+        isExclusionLimited = isExclusionLimited,
+    )
+
+    @Test
+    fun `exclude narrows a junk to the trim blast radius while the trim can still run`() = runTest2 {
+        val target = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.target", label = "com.target"),
+            expendables = previewExpendables() + mapOf(
+                ThumbnailsFilter::class to listOf(thumbnailMatch(LocalPath.build("thumbs", "a.png"))),
+            ),
+            inaccessibleCache = null,
+        )
+        val keep = inaccessibleOnlyJunk("com.keep")
+        val setup = setupCleaner(useAdb = true, scanResults = listOf(target, keep))
+        setup.cleaner.submit(AppCleanerScanTask())
+        coEvery { setup.exclusionManager.save(any()) } returns pkgExclusionFor(target)
+
+        setup.cleaner.exclude(setOf(target.identifier))
+
+        val junks = setup.cleaner.dataFromState()!!.junks.associateBy { it.identifier }
+        junks.keys.toList() shouldContainExactlyInAnyOrder listOf(target.identifier, keep.identifier)
+        val narrowed = junks.getValue(target.identifier)
+        narrowed.isExclusionLimited shouldBe true
+        narrowed.expendables!!.keys shouldBe setOf(DefaultCachesPublicFilter::class)
+    }
+
+    @Test
+    fun `exclude removes the junk outright when ADB is unusable`() = runTest2 {
+        val target = inaccessibleOnlyJunk("com.target")
+        val keep = inaccessibleOnlyJunk("com.keep")
+        val setup = setupCleaner(useAdb = false, scanResults = listOf(target, keep))
+        setup.cleaner.submit(AppCleanerScanTask())
+        coEvery { setup.exclusionManager.save(any()) } returns pkgExclusionFor(target)
+
+        setup.cleaner.exclude(setOf(target.identifier))
+
+        setup.cleaner.dataFromState()!!.junks.map { it.identifier } shouldBe listOf(keep.identifier)
+    }
+
+    @Test
+    fun `a snapshot whose last trim-eligible junk is gone drops its exclusion-limited entries`() = runTest2 {
+        val limited = inaccessibleOnlyJunk("com.limited", isExclusionLimited = true)
+        val target = inaccessibleOnlyJunk("com.target")
+        val setup = setupCleaner(useAdb = true, scanResults = listOf(limited, target))
+        setup.cleaner.submit(AppCleanerScanTask())
+        coEvery { setup.exclusionManager.save(any()) } returns pkgExclusionFor(target)
+
+        // Excluding the only junk that would make the trim run leaves nothing to warn about.
+        setup.cleaner.exclude(setOf(target.identifier))
+
+        setup.cleaner.dataFromState()!!.junks shouldBe emptyList()
+    }
+
+    @Test
+    fun `a targeted clean that consumes the last trim-eligible junk drops the limited entries`() = runTest2 {
+        val normal = inaccJunk("com.normal", itemCount = 3, theoreticalPaths = emptySet())
+        val limited = inaccessibleOnlyJunk("com.limited", isExclusionLimited = true)
+        val setup = setupCleaner(scanResults = listOf(normal, limited))
+        val rebuilt = rebuildWithDeleter(setup, acsDeleter(succesful = setOf(installId("com.normal"))))
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        rebuilt.cleaner.submit(
+            AppCleanerProcessingTask(
+                targetPkgs = setOf(normal.identifier),
+                onlyInaccessible = true,
+            ),
+        )
+
+        rebuilt.cleaner.state.first().data!!.junks shouldBe emptyList()
+    }
+
+    @Test
+    fun `a whole-tool clean without a trim leaves an exclusion-limited junk alone`() = runTest2 {
+        val limitedPath = LocalPath.build("limited", "cache", "a.bin")
+        val limited = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.limited", label = "com.limited"),
+            expendables = mapOf(DefaultCachesPublicFilter::class to listOf(deletionMatch(limitedPath))),
+            inaccessibleCache = null,
+            isExclusionLimited = true,
+        )
+        val normal = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.normal", label = "com.normal"),
+            expendables = previewExpendables(),
+            inaccessibleCache = previewInaccessibleCache(pkgName = "com.normal"),
+        )
+        val setup = setupCleaner(scanResults = listOf(limited, normal))
+        // rebuildWithDeleter wires an AdbManager that reports ADB as unusable, so no trim will run.
+        val rebuilt = rebuildWithDeleter(
+            setup,
+            acsDeleter(succesful = emptySet()),
+            filterFactories = setOf(deletingFilterFactory()),
+        )
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val result = rebuilt.cleaner.submit(AppCleanerProcessingTask())
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        val after = rebuilt.cleaner.state.first().data!!.junks.associateBy { it.identifier }
+        after.getValue(limited.identifier).expendables!!.values.flatten().map { it.path } shouldBe listOf(limitedPath)
+        after.getValue(normal.identifier).expendables.orEmpty().values.flatten() shouldBe emptyList()
+        result.affectedPaths shouldBe normal.expendables!!.values.flatten().map { it.path }.toSet()
     }
 
     // ─────────────────────────── delete-path coverage gap ───────────────────────────
