@@ -6,6 +6,7 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.adb.AdbManager
@@ -21,6 +22,7 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
+import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContain
@@ -67,6 +69,7 @@ class InaccessibleDeleterTest : BaseTest() {
     @MockK lateinit var inaccessibleCacheProvider: InaccessibleCacheProvider
     @MockK lateinit var rootManager: RootManager
     @MockK lateinit var settings: AppCleanerSettings
+    @MockK lateinit var generalSettings: GeneralSettings
     @MockK(name = "automation") lateinit var automationSetupModule: SetupModule
     @MockK lateinit var noSettingsDetector: NoSettingsDetector
 
@@ -89,6 +92,8 @@ class InaccessibleDeleterTest : BaseTest() {
         every { adbManager.useAdb } returns flowOf(false)
         // Default: no package is flagged as having no settings. Individual tests override as needed.
         coEvery { noSettingsDetector.getUnreachableReason(any()) } returns null
+        // Default: consent granted, so useAutomation=true actually reaches the ACS stage.
+        setAcsConsent(true)
 
         deleter = InaccessibleDeleter(
             dispatcherProvider = dispatcherProvider,
@@ -99,9 +104,14 @@ class InaccessibleDeleterTest : BaseTest() {
             inaccessibleCacheProvider = inaccessibleCacheProvider,
             rootManager = rootManager,
             settings = settings,
+            generalSettings = generalSettings,
             automationSetupModule = automationSetupModule,
             noSettingsDetector = noSettingsDetector,
         )
+    }
+
+    private fun setAcsConsent(consent: Boolean?) {
+        every { generalSettings.hasAcsConsent } returns mockDataStoreValue(consent)
     }
 
     private var logCollector: Logging.Logger? = null
@@ -1128,5 +1138,147 @@ class InaccessibleDeleterTest : BaseTest() {
         result.freedBytes shouldNotContainKey junk.identifier
         // Only the pre-ACS re-query, no observation reads on top of it.
         coVerify(exactly = 1) { inaccessibleCacheProvider.determineCache(junk.pkg) }
+    }
+
+    @Test
+    fun `a never-asked ACS consent skips the accessibility stage`() = runTest {
+        val junk = createAppJunk("com.example.consentless", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        setAcsConsent(null)
+        scriptCacheSizes(junk to listOf(100000L))
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.skippedNoConsent shouldBe setOf(junk.identifier)
+        result.succesful shouldBe emptySet()
+        result.failed.shouldBeEmpty()
+        coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    @Test
+    fun `a declined ACS consent skips the accessibility stage`() = runTest {
+        val junk = createAppJunk("com.example.declined", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        setAcsConsent(false)
+        scriptCacheSizes(junk to listOf(100000L))
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.skippedNoConsent shouldBe setOf(junk.identifier)
+        result.succesful shouldBe emptySet()
+        result.failed.shouldBeEmpty()
+        coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    @Test
+    fun `a granted ACS consent still runs the accessibility stage`() = runTest {
+        // Guards against gating on something stricter than consent: a granted consent must keep
+        // reaching the submitter, which is what turns a not-running service into its own error.
+        val junk = createAppJunk("com.example.consented", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        setAcsConsent(true)
+        scriptCacheSizes(junk to listOf(100000L, 0L))
+        acsClears(junk)
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.skippedNoConsent shouldBe emptySet()
+        result.succesful shouldContain junk.identifier
+        coVerify(exactly = 1) { automationManager.submit(match { it is ClearCacheTask }) }
+    }
+
+    @Test
+    fun `consent withdrawn between the check and the submission is still a skip`() = runTest {
+        val junk = createAppJunk("com.example.withdrawn", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        setAcsConsent(true)
+        scriptCacheSizes(junk to listOf(100000L))
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } throws AutomationNoConsentException()
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.skippedNoConsent shouldBe setOf(junk.identifier)
+        result.succesful shouldBe emptySet()
+        result.failed.shouldBeEmpty()
+    }
+
+    @Test
+    fun `skipped targets exclude what ADB already cleared or failed`() = runTest {
+        // An ADB failure is a real per-app error and stays one. Reporting it as skipped as well
+        // would let the run advertise "automation not permitted" for an app that failed elsewhere.
+        val cleared = createAppJunk("com.example.adbcleared", cacheSize = 100000)
+        val adbFailed = createAppJunk("com.example.adbfailed", cacheSize = 100000)
+        val untouched = createAppJunk("com.example.untouched", cacheSize = 100000, isSystemApp = true)
+        val snapshot = createSnapshot(cleared, adbFailed, untouched)
+
+        setAcsConsent(null)
+        every { adbManager.useAdb } returns flowOf(true)
+        coEvery { pkgOps.trimCaches(any(), any(), any()) } returns Unit
+        scriptCacheSizes(
+            cleared to listOf(0L),
+            adbFailed to listOf(null),
+            untouched to listOf(100000L),
+        )
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.succesful shouldContain cleared.identifier
+        result.failed shouldContainKey adbFailed.identifier
+        result.skippedNoConsent shouldBe setOf(untouched.identifier)
+        coVerify(exactly = 0) { automationManager.submit(any()) }
+    }
+
+    @Test
+    fun `a targeted delete without consent is skipped, the ADB trim never runs for it`() = runTest {
+        // targetPkgs makes isAllApps false, so the bulk trim is out and the accessibility stage is
+        // the only mechanism this run had.
+        val junk = createAppJunk("com.example.targeted", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        setAcsConsent(null)
+        every { adbManager.useAdb } returns flowOf(true)
+        scriptCacheSizes(junk to listOf(100000L))
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = setOf(junk.identifier),
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.skippedNoConsent shouldBe setOf(junk.identifier)
+        result.succesful shouldBe emptySet()
+        coVerify(exactly = 0) { pkgOps.trimCaches(any(), any(), any()) }
+        coVerify(exactly = 0) { automationManager.submit(any()) }
     }
 }

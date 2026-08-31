@@ -14,6 +14,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask.StopReason
+import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.isScreenUnavailable
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.ca.CaString
@@ -457,6 +458,16 @@ class AppCleaner @Inject constructor(
             if (salvaged.affectedCount == 0 && salvaged.affectedSpace == 0L) throw failure
             val reason = if (failure.isScreenUnavailable()) StopReason.SCREEN_UNAVAILABLE else StopReason.ERROR
             throw PartialResultException(failure, salvaged.copy(stoppedEarly = reason))
+        }
+
+        if (acsOutcome != null && acsOutcome.skippedNoConsent.isNotEmpty()) {
+            log(TAG, WARN) { "Skipped for lack of ACS consent: ${acsOutcome.skippedNoConsent}" }
+            // Nothing was salvaged, so there is no outcome to report and no other place that offers
+            // the user a way to grant consent. Fail with the dialog that routes to setup.
+            if (salvaged.affectedCount == 0 && salvaged.affectedSpace == 0L) {
+                throw InaccessibleDeletionException(AutomationNoConsentException())
+            }
+            return salvaged.copy(stoppedEarly = StopReason.AUTOMATION_NO_CONSENT)
         }
 
         return salvaged

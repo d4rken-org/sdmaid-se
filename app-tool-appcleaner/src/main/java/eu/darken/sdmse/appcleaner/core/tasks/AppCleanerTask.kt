@@ -13,5 +13,8 @@ sealed interface AppCleanerTask : SDMTool.Task {
     enum class StopReason {
         SCREEN_UNAVAILABLE,
         ERROR,
+
+        /** SD Maid may not use the accessibility service, so the caches only it can reach were left alone. */
+        AUTOMATION_NO_CONSENT,
     }
 }

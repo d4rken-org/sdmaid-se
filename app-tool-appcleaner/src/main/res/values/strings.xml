@@ -68,6 +68,10 @@
         <item quantity="one">%d expendable item deleted, stopped by an error</item>
         <item quantity="other">%d expendable items deleted, stopped by an error</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%d expendable item deleted, accessibility cleaning was not permitted</item>
+        <item quantity="other">%d expendable items deleted, accessibility cleaning was not permitted</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d expendable item found</item>
         <item quantity="other">%d expendable items found</item>

@@ -6,6 +6,7 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
+import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.automation.core.errors.DisabledAppException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
@@ -36,6 +37,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
@@ -65,6 +67,7 @@ class InaccessibleDeleter @Inject constructor(
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
     private val rootManager: RootManager,
     private val settings: AppCleanerSettings,
+    private val generalSettings: GeneralSettings,
     @SetupBinding(SetupModule.Type.AUTOMATION) private val automationSetupModule: SetupModule,
     private val noSettingsDetector: NoSettingsDetector,
 ) : Progress.Host, Progress.Client {
@@ -167,7 +170,13 @@ class InaccessibleDeleter @Inject constructor(
                 }
             }
 
-        if (useAutomation && remainingTargets.isNotEmpty()) {
+        // `null` = never asked, `false` = declined. Neither can be turned into a prompt from here:
+        // the submitter throws instead of asking, so the stage can only fail. Skip it and let the
+        // caller decide how loud that has to be.
+        val hasAcsConsent = generalSettings.hasAcsConsent.value() == true
+        var noConsentSkip = false
+
+        if (useAutomation && remainingTargets.isNotEmpty() && hasAcsConsent) {
             log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
             updateProgressPrimary(eu.darken.sdmse.automation.R.string.automation_loading)
             updateProgressSecondary(CaString.EMPTY)
@@ -222,6 +231,14 @@ class InaccessibleDeleter @Inject constructor(
                 )
                 val result = try {
                     automationManager.submit(acsTask) as ClearCacheTask.Result
+                } catch (e: AutomationNoConsentException) {
+                    // Consent can be withdrawn between the check above and this submission.
+                    log(TAG, WARN) { "No ACS consent, skipping the accessibility stage: $successLive" }
+                    noConsentSkip = true
+                    ClearCacheTask.Result(
+                        successful = successLive,
+                        failed = failedLive,
+                    )
                 } catch (e: AutomationUnavailableException) {
                     // Nothing ran, but fold anyway so the partial-result contract holds uniformly.
                     successTargets.addAll(successLive)
@@ -249,8 +266,20 @@ class InaccessibleDeleter @Inject constructor(
                 successTargets.addAll(result.successful)
                 failedTargets.putAll(result.failed)
             }
+        } else if (useAutomation && remainingTargets.isNotEmpty()) {
+            log(TAG, WARN) { "No ACS consent, skipping the accessibility stage for ${remainingTargets.size} targets" }
+            noConsentSkip = true
         } else if (!useAutomation) {
             log(TAG, INFO) { "useAutomation=false" }
+        }
+
+        val skippedNoConsent = when {
+            noConsentSkip -> remainingTargets
+                .map { it.identifier }
+                .filter { !successTargets.contains(it) && !failedTargets.containsKey(it) }
+                .toSet()
+
+            else -> emptySet()
         }
 
         val observationTargets = targets.filter {
@@ -264,12 +293,12 @@ class InaccessibleDeleter @Inject constructor(
                 // unlikely. Without this the caller would receive no result at all and would keep
                 // advertising caches that are genuinely gone.
                 log(TAG, WARN) { "Freed-byte observation failed, forwarding what was cleared: ${e.asLog()}" }
-                onPartialResult(buildResult(successTargets, failedTargets, freedBytes))
+                onPartialResult(buildResult(successTargets, failedTargets, freedBytes, skippedNoConsent))
                 throw e
             }
         }
 
-        return buildResult(successTargets, failedTargets, freedBytes)
+        return buildResult(successTargets, failedTargets, freedBytes, skippedNoConsent)
     }
 
     /**
@@ -404,12 +433,14 @@ class InaccessibleDeleter @Inject constructor(
         successTargets: Collection<InstallId>,
         failedTargets: Map<InstallId, Exception>,
         freedBytes: Map<InstallId, Long> = emptyMap(),
+        skippedNoConsent: Set<InstallId> = emptySet(),
     ): InaccDelResult {
         val successful = successTargets.toSet()
         return InaccDelResult(
             succesful = successful,
             failed = failedTargets.filterKeys { !successful.contains(it) },
             freedBytes = freedBytes.filterKeys { successful.contains(it) },
+            skippedNoConsent = skippedNoConsent,
         )
     }
 
@@ -619,6 +650,12 @@ class InaccessibleDeleter @Inject constructor(
          * what it reported unconditionally before this existed.
          */
         val freedBytes: Map<InstallId, Long> = emptyMap(),
+        /**
+         * Targets the accessibility stage never touched because SD Maid has no consent to use the
+         * service. Disjoint from [succesful] and [failed]: an app the ADB stage already failed on
+         * has a real per-app error and must keep it.
+         */
+        val skippedNoConsent: Set<InstallId> = emptySet(),
     )
 
     companion object {
