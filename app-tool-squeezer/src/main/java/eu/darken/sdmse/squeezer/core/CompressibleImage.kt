@@ -9,11 +9,17 @@ import eu.darken.sdmse.common.files.APathLookup
 import kotlinx.parcelize.Parcelize
 import java.time.Instant
 
+/** What a previous SD Maid compression run did to this file, if anything. */
+enum class PriorCompression {
+    COMPRESSED,
+    NO_SAVINGS,
+}
+
 sealed interface CompressibleMedia {
     val lookup: APathLookup<*>
     val mimeType: String
     val estimatedCompressedSize: Long?
-    val wasCompressedBefore: Boolean
+    val priorCompression: PriorCompression?
 
     val path: APath
         get() = lookup.lookedUp
@@ -41,7 +47,9 @@ data class CompressibleImage(
     override val lookup: APathLookup<*>,
     override val mimeType: String,
     override val estimatedCompressedSize: Long? = null,
-    override val wasCompressedBefore: Boolean = false,
+    override val priorCompression: PriorCompression? = null,
+    /** Carries an HDR gain map or depth map that compression would destroy. */
+    val hasLossyAux: Boolean = false,
 ) : CompressibleMedia {
 
     val isJpeg: Boolean

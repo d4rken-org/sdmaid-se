@@ -232,7 +232,8 @@ class SqueezerSetupViewModel @Inject constructor(
                         lookup = lookup,
                         mimeType = mimeType,
                         estimatedCompressedSize = estimatedCompressedSize,
-                        wasCompressedBefore = false,
+                        priorCompression = null,
+                        hasLossyAux = false,
                     )
                 }
             } catch (e: Exception) {

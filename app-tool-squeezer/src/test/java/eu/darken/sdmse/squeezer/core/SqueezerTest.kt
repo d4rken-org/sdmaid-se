@@ -53,7 +53,7 @@ class SqueezerTest : BaseTest() {
         path: String,
         size: Long = 1024 * 1024L,
         estimatedCompressedSize: Long? = null,
-        wasCompressedBefore: Boolean = false,
+        priorCompression: PriorCompression? = null,
     ) = CompressibleImage(
         lookup = LocalPathLookup(
             lookedUp = LocalPath(File(path)),
@@ -64,7 +64,7 @@ class SqueezerTest : BaseTest() {
         ),
         mimeType = CompressibleImage.MIME_TYPE_JPEG,
         estimatedCompressedSize = estimatedCompressedSize,
-        wasCompressedBefore = wasCompressedBefore,
+        priorCompression = priorCompression,
     )
 
     private fun createWebp(path: String, size: Long = 1024 * 1024L) = CompressibleImage(
