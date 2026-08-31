@@ -234,6 +234,9 @@ internal fun AppJunkDetailsScreen(
     }
 
     val selectionActive = selection.isActive
+    // Card actions act on a whole app/category, which is wider than any row selection, so they are
+    // gated screen-wide: adjacent pages stay visible in the pager once the span count exceeds one.
+    val wholeScopeActionsEnabled = !selectionActive
     BackHandler(enabled = selectionActive) { selection.clear() }
 
     SdmScaffold(
@@ -322,6 +325,7 @@ internal fun AppJunkDetailsScreen(
                                     collapsed = collapsed,
                                     selection = selection,
                                     isCurrentPage = isCurrentPage,
+                                    wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                                     onDeleteJunk = {
                                         onRequestDelete(
                                             DeleteSpec.WholeJunk(
