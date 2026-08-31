@@ -2005,4 +2005,23 @@ class HiddenFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `grofers video cache`() = runTest {
+        neg("com.grofers.customerapp", PUBLIC_DATA, "com.grofers.customerapp/files/downloads/video_cache")
+        neg("com.grofers.customerapp", PUBLIC_DATA, "com.grofers.customerapp/files/downloads/video_cache/0")
+        pos("com.grofers.customerapp", PUBLIC_DATA, "com.grofers.customerapp/files/downloads/video_cache/0/$rngString.exo")
+
+        neg(
+            "com.grofers.customerapp",
+            PUBLIC_DATA,
+            "com.grofers.customerapp/files/downloads/video_cache/0/cached_content.uid"
+        )
+        neg(testPkg, PUBLIC_DATA, "com.grofers.customerapp/files/downloads/video_cache/0/$rngString.exo")
+        neg("com.grofers.customerapp", PUBLIC_DATA, "com.grofers.customerapp/files/downloads/video_caches/0/$rngString.exo")
+
+        neg("com.grofers.customerapp", PRIVATE_DATA, "com.grofers.customerapp/files/downloads/video_cache/0/$rngString.exo")
+        neg("com.grofers.customerapp", SDCARD, "com.grofers.customerapp/files/downloads/video_cache/0/$rngString.exo")
+
+        confirm(create())
+    }
 }
