@@ -19,8 +19,10 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.AppIconImage
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListViewModel
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppCleanerRow
+import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.compose.SelectableListRowIconBox
@@ -105,6 +107,14 @@ fun AppCleanerListRow(
                 )
                 if (junk.isSystemApp) SystemAppChip()
             }
+            if (junk.isExclusionLimited) {
+                Text(
+                    modifier = Modifier.padding(top = 2.dp),
+                    text = stringResource(R.string.appcleaner_exclusion_limited_row_hint),
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.tertiary,
+                )
+            }
         }
     }
 }
@@ -132,6 +142,21 @@ private fun AppCleanerListRowSelectedPreview() {
             row = previewAppCleanerRow(),
             selected = true,
             selectionActive = true,
+            onClick = {},
+            onLongClick = {},
+            onDetailsClick = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppCleanerListRowExclusionLimitedPreview() {
+    PreviewWrapper {
+        AppCleanerListRow(
+            row = previewAppCleanerRow(junk = previewAppJunk(isExclusionLimited = true)),
+            selected = false,
+            selectionActive = false,
             onClick = {},
             onLongClick = {},
             onDetailsClick = {},

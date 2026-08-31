@@ -28,9 +28,11 @@ class AppJunkElementBuilderTest : BaseTest() {
     private fun mockJunk(
         expendables: Map<ExpendablesFilterIdentifier, Collection<ExpendablesFilter.Match>>?,
         inaccessibleCache: InaccessibleCache? = null,
+        isExclusionLimited: Boolean = false,
     ): AppJunk = mockk {
         every { this@mockk.expendables } returns expendables
         every { this@mockk.inaccessibleCache } returns inaccessibleCache
+        every { this@mockk.isExclusionLimited } returns isExclusionLimited
     }
 
     @Test
@@ -48,6 +50,20 @@ class AppJunkElementBuilderTest : BaseTest() {
         )
         rows shouldBe listOf(
             AppJunkElement.Header,
+            AppJunkElement.Inaccessible(cache),
+        )
+    }
+
+    @Test
+    fun `an exclusion-limited junk gets its notice between Header and Inaccessible`() {
+        val cache = mockk<InaccessibleCache>(relaxed = true)
+        val rows = buildAppJunkElements(
+            mockJunk(expendables = null, inaccessibleCache = cache, isExclusionLimited = true),
+            collapsed = emptySet(),
+        )
+        rows shouldBe listOf(
+            AppJunkElement.Header,
+            AppJunkElement.ExclusionLimited,
             AppJunkElement.Inaccessible(cache),
         )
     }
