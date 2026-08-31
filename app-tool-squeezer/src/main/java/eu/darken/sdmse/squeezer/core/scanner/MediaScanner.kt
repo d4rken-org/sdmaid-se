@@ -29,6 +29,7 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
+import eu.darken.sdmse.squeezer.core.PriorCompression
 import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
@@ -220,55 +221,24 @@ class MediaScanner @Inject constructor(
         options: Options,
         skippedLossyAux: AtomicInteger,
     ): CompressibleImage? {
-        val skipReason = if (options.skipPreviouslyCompressed) {
-            val hasExifMarker = if (settings.writeExifMarker.value()) {
-                try {
-                    val localPath = lookup.lookedUp as? LocalPath
-                    localPath?.let { exifPreserver.hasCompressionMarker(File(it.path)) } ?: false
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to check EXIF marker for $lookup: ${e.message}" }
-                    false
-                }
-            } else {
-                false
-            }
+        val priorCompression = detectImagePriorCompression(lookup)
 
-            if (hasExifMarker) {
-                "compressed (exif marker)"
-            } else {
-                try {
-                    val identifier = imageContentHasher.computeHash(lookup.lookedUp)
-                    when (historyDatabase.getOutcome(identifier.contentId)) {
-                        CompressionHistoryEntity.Outcome.COMPRESSED -> "compressed (history)"
-                        CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS -> "no savings (history)"
-                        null -> null
-                    }
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
-                    null
-                }
-            }
-        } else {
-            null
-        }
-
-        if (skipReason != null) {
-            log(TAG, VERBOSE) { "Skipping image ($skipReason): $lookup" }
+        if (options.skipPreviouslyCompressed && priorCompression != null) {
+            log(TAG, VERBOSE) { "Skipping image ($priorCompression): $lookup" }
             return null
         }
 
-        // Skip photos whose HDR gain map / depth map compression would silently destroy, unless the
-        // user opted in. Runs BEFORE the (HEIC-only) multi-image guard so a HEIF gain-map/depth file
-        // is attributed to "HDR/depth preserved" rather than the multi-image reason. Format-wide
-        // (also catches Ultra HDR JPEG). Plain Live-Photo HEICs carry no gain-map signature, so they
-        // still fall through to the hard multi-image skip below.
-        if (!options.includeLossyAuxImages) {
-            val localFile = (lookup.lookedUp as? LocalPath)?.let { File(it.path) }
-            if (localFile != null && lossyAuxDetector.hasLossyAux(localFile, mimeType)) {
-                skippedLossyAux.incrementAndGet()
-                log(TAG, VERBOSE) { "Skipping image with HDR/depth aux data: $lookup" }
-                return null
-            }
+        // Detects photos whose HDR gain map / depth map compression would silently destroy. Runs
+        // BEFORE the (HEIC-only) multi-image guard so a HEIF gain-map/depth file is attributed to
+        // "HDR/depth preserved" rather than the multi-image reason. Format-wide (also catches Ultra
+        // HDR JPEG). Plain Live-Photo HEICs carry no gain-map signature, so they still fall through
+        // to the hard multi-image skip below.
+        val localFile = (lookup.lookedUp as? LocalPath)?.let { File(it.path) }
+        val hasLossyAux = localFile != null && lossyAuxDetector.hasLossyAux(localFile, mimeType)
+        if (hasLossyAux && !options.includeLossyAuxImages) {
+            skippedLossyAux.incrementAndGet()
+            log(TAG, VERBOSE) { "Skipping image with HDR/depth aux data: $lookup" }
+            return null
         }
 
         // Intentionally NOT bypassed by includeLossyAuxImages: a multi-image HEIC may hold sibling
@@ -288,9 +258,40 @@ class MediaScanner @Inject constructor(
             lookup = lookup,
             mimeType = mimeType,
             estimatedCompressedSize = estimatedCompressedSize,
-            priorCompression = null,
+            priorCompression = priorCompression,
+            hasLossyAux = hasLossyAux,
         ).also {
             log(TAG, VERBOSE) { "Found compressible image: $it" }
+        }
+    }
+
+    /**
+     * Read whether a previous run already compressed this image. Evaluated regardless of
+     * [Options.skipPreviouslyCompressed]: with the setting off the file stays in the results and
+     * the outcome is shown on its row instead.
+     */
+    private suspend fun detectImagePriorCompression(lookup: APathLookup<*>): PriorCompression? {
+        // The EXIF marker survives a cleared history and is only written after a compression that
+        // actually replaced the file, so a positive marker means COMPRESSED and saves the hash.
+        val hasExifMarker = if (settings.writeExifMarker.value()) {
+            try {
+                val localPath = lookup.lookedUp as? LocalPath
+                localPath?.let { exifPreserver.hasCompressionMarker(File(it.path)) } ?: false
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to check EXIF marker for $lookup: ${e.message}" }
+                false
+            }
+        } else {
+            false
+        }
+        if (hasExifMarker) return PriorCompression.COMPRESSED
+
+        return try {
+            val identifier = imageContentHasher.computeHash(lookup.lookedUp)
+            historyDatabase.getOutcome(identifier.contentId).toPriorCompression()
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
+            null
         }
     }
 
@@ -353,24 +354,16 @@ class MediaScanner @Inject constructor(
             return null
         }
 
-        val skipReason = if (options.skipPreviouslyCompressed) {
-            try {
-                val identifier = videoContentHasher.computeHash(lookup.lookedUp)
-                when (historyDatabase.getOutcome(identifier.contentId)) {
-                    CompressionHistoryEntity.Outcome.COMPRESSED -> "compressed (history)"
-                    CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS -> "no savings (history)"
-                    null -> null
-                }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to compute video content hash for $lookup: ${e.message}" }
-                null
-            }
-        } else {
+        val priorCompression = try {
+            val identifier = videoContentHasher.computeHash(lookup.lookedUp)
+            historyDatabase.getOutcome(identifier.contentId).toPriorCompression()
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to compute video content hash for $lookup: ${e.message}" }
             null
         }
 
-        if (skipReason != null) {
-            log(TAG, VERBOSE) { "Skipping video ($skipReason): $lookup" }
+        if (options.skipPreviouslyCompressed && priorCompression != null) {
+            log(TAG, VERBOSE) { "Skipping video ($priorCompression): $lookup" }
             return null
         }
 
@@ -385,7 +378,7 @@ class MediaScanner @Inject constructor(
             lookup = lookup,
             mimeType = mimeType,
             estimatedCompressedSize = estimatedCompressedSize,
-            priorCompression = null,
+            priorCompression = priorCompression,
             durationMs = metadata.durationMs,
             bitrateBps = metadata.bitrateBps,
         ).also {
@@ -440,5 +433,11 @@ class MediaScanner @Inject constructor(
     companion object {
         private const val MAX_BITRATE_BPS = 200_000_000L // 200 Mbps
         private val TAG = logTag("Squeezer", "Scanner")
+
+        private fun CompressionHistoryEntity.Outcome?.toPriorCompression(): PriorCompression? = when (this) {
+            CompressionHistoryEntity.Outcome.COMPRESSED -> PriorCompression.COMPRESSED
+            CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS -> PriorCompression.NO_SAVINGS
+            null -> null
+        }
     }
 }
