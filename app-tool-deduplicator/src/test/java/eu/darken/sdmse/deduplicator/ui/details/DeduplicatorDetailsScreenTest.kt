@@ -1,10 +1,18 @@
 package eu.darken.sdmse.deduplicator.ui.details
 
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.tour.GuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
@@ -57,6 +65,13 @@ class DeduplicatorDetailsScreenTest : BaseComposeRobolectricTest() {
                 }
             }
         }
+    }
+
+    // The screen stacks three scrollables (tab strip, pager, cluster list); only the cluster list
+    // scrolls vertically, so match on that axis to stay unambiguous.
+    private fun ComposeContentTestRule.scrollTo(text: String) {
+        onNode(SemanticsMatcher.keyIsDefined(SemanticsProperties.VerticalScrollAxisRange))
+            .performScrollToNode(hasText(text))
     }
 
     @Test
@@ -117,5 +132,30 @@ class DeduplicatorDetailsScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onNodeWithText("can be freed", substring = true).assertExists()
+    }
+
+    @Test
+    fun `long-pressing a duplicate row gates the cluster card actions`() {
+        // Drives the screen's own `!selection.isActive` computation instead of injecting the flag.
+        val onlyCluster = cluster("gate", dupeNames = listOf("target", "target-copy"))
+        composeRule.setDetailsScreen(
+            DeduplicatorDetailsViewModel.State(
+                items = listOf(onlyCluster),
+                target = onlyCluster.identifier,
+                progress = null,
+            ),
+        )
+
+        // Only the cluster header card renders "Exclude"/"Delete" as text; the group card's delete
+        // is an icon carrying a content description.
+        composeRule.onNodeWithText("Exclude").assertIsEnabled()
+        composeRule.onNodeWithText("Delete").assertIsEnabled()
+
+        composeRule.scrollTo("gate-target.jpg")
+        composeRule.onNodeWithText("gate-target.jpg").performTouchInput { longClick() }
+
+        composeRule.scrollTo("Exclude")
+        composeRule.onNodeWithText("Exclude").assertIsNotEnabled()
+        composeRule.onNodeWithText("Delete").assertIsNotEnabled()
     }
 }
