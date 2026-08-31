@@ -1367,6 +1367,15 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": ["com.grofers.customerapp"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": ["/video_cache/"],
+		  "patterns": ["^com\\.grofers\\.customerapp/.+?/video_cache/.+?\\.exo$"]
+		}
+	  ]
 	}
   ]
 }
