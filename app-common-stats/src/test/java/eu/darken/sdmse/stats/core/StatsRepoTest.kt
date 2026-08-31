@@ -5,6 +5,10 @@ import android.os.Parcel
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.DataStoreValue
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.stats.core.db.ReportsDatabase
@@ -23,7 +27,9 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import testhelpers.mockDataStoreValue
 import java.io.IOException
+import java.time.Duration
 import java.time.Instant
 
 class StatsRepoTest : BaseTest() {
@@ -40,9 +46,16 @@ class StatsRepoTest : BaseTest() {
     private val reportsDatabase: ReportsDatabase = mockk(relaxed = true)
     private val spaceFreed: DataStoreValue<Long> = mockk(relaxed = true)
     private val itemsProcessed: DataStoreValue<Long> = mockk(relaxed = true)
+
+    // Read via answers, so a test can change them before it calls reportOf().
+    private var reportsRetention: Duration = Duration.ofDays(30)
+    private var pathsRetention: Duration = Duration.ofDays(7)
+
     private val statsSettings: StatsSettings = mockk(relaxed = true) {
         every { totalSpaceFreed } returns spaceFreed
         every { totalItemsProcessed } returns itemsProcessed
+        every { retentionReports } answers { mockDataStoreValue(reportsRetention) }
+        every { retentionPaths } answers { mockDataStoreValue(pathsRetention) }
     }
     private val context: Context = mockk(relaxed = true)
 
@@ -66,6 +79,18 @@ class StatsRepoTest : BaseTest() {
         override val status: Report.Status = Report.Status.SUCCESS,
     ) : PlainResult(), ReportDetails.AffectedSpace, ReportDetails.AffectedCount
 
+    /**
+     * Carries both detail kinds, so an `exactly = 0` on addPaths/addPkgs can only pass because
+     * retention gated it — a result missing either interface never reaches those calls at all.
+     */
+    private class PathsAndPkgsResult : PlainResult(), ReportDetails.AffectedPaths, ReportDetails.AffectedPkgs {
+        override val affectedPaths: Set<APath> = setOf(LocalPath.build("/data/cache/thing"))
+        override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action> = mapOf(
+            "eu.thedarken.sdm".toPkgId() to AffectedPkg.Action.DELETED,
+        )
+        override val affectedCount: Int = affectedPaths.size + affectedPkgs.size
+    }
+
     private fun managedTask(
         result: SDMTool.Task.Result?,
         error: Throwable?,
@@ -79,15 +104,23 @@ class StatsRepoTest : BaseTest() {
         error = error,
     )
 
-    /** Reports [task] and returns what was written to the database. */
-    private suspend fun reportOf(task: TaskSubmitter.ManagedTask): Report {
-        val repo = StatsRepo(
+    private fun newRepo(): StatsRepo {
+        // A relaxed mock would swallow the transaction block and nothing would ever be written.
+        coEvery { reportsDatabase.withTransaction<Any?>(any()) } coAnswers {
+            firstArg<suspend () -> Any?>().invoke()
+        }
+        return StatsRepo(
             appScope = repoScope,
             context = context,
             reportsDatabase = reportsDatabase,
             statsSettings = statsSettings,
             spaceTracker = mockk(relaxed = true),
         )
+    }
+
+    /** Reports [task] and returns what was written to the database. */
+    private suspend fun reportOf(task: TaskSubmitter.ManagedTask): Report {
+        val repo = newRepo()
         val captured = slot<Report>()
         coEvery { reportsDatabase.addReport(capture(captured)) } returns Unit
         repo.report(task)
@@ -142,5 +175,59 @@ class StatsRepoTest : BaseTest() {
         val report = reportOf(managedTask(PlainResult(), error = null))
 
         report.status shouldBe Report.Status.SUCCESS
+    }
+
+    @Test
+    fun `zero reports retention stores neither the report nor its details`() = runTest2 {
+        reportsRetention = Duration.ZERO
+
+        newRepo().report(managedTask(PathsAndPkgsResult(), error = null))
+
+        coVerify(exactly = 0) { reportsDatabase.addReport(any()) }
+        coVerify(exactly = 0) { reportsDatabase.addPaths(any()) }
+        coVerify(exactly = 0) { reportsDatabase.addPkgs(any()) }
+
+        // The lifetime odometer keeps running, it is not what retention governs.
+        coVerify { itemsProcessed.update(any()) }
+    }
+
+    @Test
+    fun `a negative reports retention is treated like zero`() = runTest2 {
+        reportsRetention = Duration.ofDays(-1)
+
+        newRepo().report(managedTask(PathsAndPkgsResult(), error = null))
+
+        coVerify(exactly = 0) { reportsDatabase.addReport(any()) }
+    }
+
+    @Test
+    fun `zero paths retention drops only the affected files`() = runTest2 {
+        reportsRetention = Duration.ofDays(30)
+        pathsRetention = Duration.ZERO
+
+        newRepo().report(managedTask(PathsAndPkgsResult(), error = null))
+
+        coVerify(exactly = 1) { reportsDatabase.addReport(any()) }
+        coVerify(exactly = 0) { reportsDatabase.addPaths(any()) }
+        coVerify(exactly = 1) { reportsDatabase.addPkgs(any()) }
+    }
+
+    @Test
+    fun `positive retentions store the report and both detail kinds`() = runTest2 {
+        reportsRetention = Duration.ofDays(30)
+        pathsRetention = Duration.ofDays(7)
+
+        newRepo().report(managedTask(PathsAndPkgsResult(), error = null))
+
+        coVerify(exactly = 1) { reportsDatabase.addReport(any()) }
+        coVerify(exactly = 1) { reportsDatabase.addPaths(any()) }
+        coVerify(exactly = 1) { reportsDatabase.addPkgs(any()) }
+    }
+
+    @Test
+    fun `a stored report sweeps expired history`() = runTest2 {
+        newRepo().report(managedTask(PathsAndPkgsResult(), error = null))
+
+        coVerify { reportsDatabase.applyRetention() }
     }
 }
