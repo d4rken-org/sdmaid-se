@@ -21,6 +21,8 @@ object StorageSpaceReconcile {
 
     private const val GIB = 1L shl 30
     private const val GB = 1_000_000_000L
+    private const val TIB = 1L shl 40
+    private const val TB = 1_000_000_000_000L
 
     data class Result(
         val total: Long,
@@ -41,8 +43,8 @@ object StorageSpaceReconcile {
      * agree — the doubled-total bug leaves free correct, so free agreement is the signal that the
      * two APIs describe the same volume and the total is simply wrong.
      *
-     * The over-inflation check always compares the *raw* framework value, [normalizeStatsTotal]
-     * runs afterwards on whatever total we ended up trusting from StorageStatsManager.
+     * [normalizeStatsTotal] cannot influence that decision: the over-inflation rule reads the raw
+     * [statsTotal]/[statsFree] parameters and never the normalized result.
      */
     fun reconcilePrimary(
         statsTotal: Long,
@@ -76,12 +78,17 @@ object StorageSpaceReconcile {
      * "137 GB". An exact multiple of 2^30 that isn't an exact multiple of 10^9 can only come from
      * such a ROM, and the marketing value is the same mantissa in decimal units.
      *
+     * The mantissa only names its own tier, so each binary unit is paired with its decimal
+     * counterpart: 2^40 with 10^12, 2^30 with 10^9. 2^40 is tested first because every multiple of
+     * it is also a multiple of 2^30, which would turn a 1 TB device's 1 TiB reading into 1024 GB.
+     * The 10^9 exclusion covers both tiers, as every multiple of 10^12 is also a multiple of 10^9.
+     *
      * Two sanity guards keep us from inventing a capacity that contradicts the rest of the reading:
-     * the conversion shrinks the total by ~6.9% while free space is untouched, so a candidate below
+     * the conversion shrinks the total by ~7-9% while free space is untouched, so a candidate below
      * [statsFree] would make derived used space negative, and a candidate below [fileTotal] would
      * claim a retail capacity smaller than the measured filesystem. The latter also catches ROMs
      * that return a real filesystem measurement here: those land near [fileTotal], so their
-     * candidate falls to ~0.93x of it and is rejected.
+     * candidate falls to ~0.91-0.93x of it and is rejected.
      */
     private fun normalizeStatsTotal(
         statsTotal: Long,
@@ -89,9 +96,13 @@ object StorageSpaceReconcile {
         fileTotal: Long,
     ): Result {
         val raw = Result(statsTotal, statsFree, usedFileFallback = false)
-        if (statsTotal <= 0L || statsTotal % GIB != 0L || statsTotal % GB == 0L) return raw
+        if (statsTotal <= 0L || statsTotal % GB == 0L) return raw
 
-        val candidate = (statsTotal / GIB) * GB
+        val candidate = when {
+            statsTotal % TIB == 0L -> (statsTotal / TIB) * TB
+            statsTotal % GIB == 0L -> (statsTotal / GIB) * GB
+            else -> return raw
+        }
         if (candidate < statsFree) return raw
         if (fileTotal > 0L && candidate < fileTotal) return raw
 

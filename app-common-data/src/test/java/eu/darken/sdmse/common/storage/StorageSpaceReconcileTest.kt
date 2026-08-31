@@ -10,6 +10,7 @@ class StorageSpaceReconcileTest : BaseTest() {
     private val TB = 1_000_000_000_000L
     private val GB = 1_000_000_000L
     private val GIB = 1L shl 30
+    private val TIB = 1L shl 40
 
     // --- reconcilePrimary ---
 
@@ -115,6 +116,35 @@ class StorageSpaceReconcileTest : BaseTest() {
         )
         result.total shouldBe 128 * GB
         result.free shouldBe 60 * GB
+        result.usedFileFallback shouldBe false
+        result.normalizedStatsTotal shouldBe true
+    }
+
+    @Test
+    fun `primary binary-rounded terabyte total converts to decimal units`() {
+        // 1 TiB = 1099511627776 on a device sold as 1 TB; the GiB tier would yield 1024 GB.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = TIB,
+            statsFree = 400 * GB,
+            fileTotal = 950 * GB,
+            fileFree = 400 * GB,
+        )
+        result.total shouldBe TB
+        result.free shouldBe 400 * GB
+        result.usedFileFallback shouldBe false
+        result.normalizedStatsTotal shouldBe true
+    }
+
+    @Test
+    fun `primary binary-rounded total below the terabyte tier stays on the GiB tier`() {
+        // 512 GiB is a multiple of 2^30 but not of 2^40, so it must convert to 512 GB.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 512 * GIB,
+            statsFree = 200 * GB,
+            fileTotal = 480 * GB,
+            fileFree = 200 * GB,
+        )
+        result.total shouldBe 512 * GB
         result.usedFileFallback shouldBe false
         result.normalizedStatsTotal shouldBe true
     }
