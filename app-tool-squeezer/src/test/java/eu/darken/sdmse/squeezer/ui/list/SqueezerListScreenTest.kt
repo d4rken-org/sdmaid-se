@@ -180,7 +180,7 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onNodeWithText("Compressed before").assertExists()
+        composeRule.onNodeWithText("Compressed").assertExists()
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
     }
 
@@ -193,7 +193,7 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onAllNodesWithText("Compressed before").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Compressed").assertCountEquals(0)
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
     }
 
@@ -212,7 +212,7 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             SqueezerListViewModel.State(media = listOf(image("a.jpg"))),
         )
 
-        composeRule.onAllNodesWithText("Compressed before").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Compressed").assertCountEquals(0)
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
     }
 
@@ -232,7 +232,7 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onAllNodesWithContentDescription("Compressed before").assertCountEquals(1)
+        composeRule.onAllNodesWithContentDescription("Compressed").assertCountEquals(1)
         composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(1)
     }
 
@@ -245,7 +245,7 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onAllNodesWithContentDescription("Compressed before").assertCountEquals(0)
+        composeRule.onAllNodesWithContentDescription("Compressed").assertCountEquals(0)
         composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(0)
     }
 
@@ -257,7 +257,7 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             }
         }
 
-        composeRule.onAllNodesWithText("Compressed before").fetchSemanticsNodes().isNotEmpty() shouldBe true
+        composeRule.onAllNodesWithText("Compressed").fetchSemanticsNodes().isNotEmpty() shouldBe true
         composeRule.onAllNodesWithText("HDR/depth").fetchSemanticsNodes().isNotEmpty() shouldBe true
 
         composeRule.onNodeWithText(
