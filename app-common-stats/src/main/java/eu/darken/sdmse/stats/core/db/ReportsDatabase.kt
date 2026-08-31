@@ -20,6 +20,7 @@ import eu.darken.sdmse.stats.core.AffectedPkg
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportId
 import eu.darken.sdmse.stats.core.StatsSettings
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -120,6 +121,8 @@ class ReportsDatabase @Inject constructor(
         try {
             pruneReports(statsSettings.retentionReports.value())
             pruneAffectedPaths(statsSettings.retentionPaths.value())
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             log(TAG, ERROR) { "applyRetention() failed: ${e.asLog()}" }
         }
@@ -130,6 +133,8 @@ class ReportsDatabase @Inject constructor(
             .onEach { retention ->
                 try {
                     pruneReports(retention)
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to clean up reports: ${e.asLog()}" }
                 }
@@ -140,6 +145,8 @@ class ReportsDatabase @Inject constructor(
             .onEach { retention ->
                 try {
                     pruneAffectedPaths(retention)
+                } catch (e: CancellationException) {
+                    throw e
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to clean up affected files: ${e.asLog()}" }
                 }
