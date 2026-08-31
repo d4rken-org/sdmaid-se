@@ -47,13 +47,13 @@
     <string name="squeezer_types_category_label">Image settings</string>
     <string name="squeezer_video_settings_category_label">Video settings</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg). Re-encoding uses Android\'s built-in JPEG encoder. Date, location, and other EXIF metadata are kept.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Include WebP images (.webp).</string>
+    <string name="squeezer_type_webp_description">Include WebP images (.webp). Re-encoding uses Android\'s built-in WebP encoder. Date, location, and other EXIF metadata are kept.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Include HEIC/HEIF images (.heic, .heif). Date, location, and other EXIF metadata are kept. HDR gain maps, depth data, and Live/Motion Photo siblings cannot be preserved; multi-image files are skipped.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Include MP4 video files (.mp4).</string>
+    <string name="squeezer_type_video_description">Include MP4 video files (.mp4). The video track is re-encoded at a lower bitrate by the device\'s own video encoder, the audio track is copied over unchanged, and the file stays an MP4.</string>
     <string name="squeezer_skip_compressed_title">Skip previously compressed</string>
     <string name="squeezer_skip_compressed_description">Skip files that have already been compressed by SD Maid.</string>
     <string name="squeezer_exif_marker_title">Write EXIF marker</string>
