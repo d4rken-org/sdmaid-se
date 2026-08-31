@@ -7,6 +7,7 @@ import androidx.room.withTransaction
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -26,12 +27,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -84,54 +84,66 @@ class ReportsDatabase @Inject constructor(
     internal val spaceSnapshotDao: SpaceSnapshotDao
         get() = database.spaceSnapshots()
 
+    private suspend fun pruneReports(retention: Duration) {
+        log(TAG, INFO) { "Retention for reports is $retention" }
+        val cutOff = Instant.now() - retention
+
+        val deleted = database.withTransaction {
+            val paths = pathsDao.deleteForReportsOlderThan(cutOff)
+            val pkgs = pkgsDao.deleteForReportsOlderThan(cutOff)
+            val reports = reportsDao.deleteOlderThan(cutOff)
+            val orphanedPaths = pathsDao.deleteOrphans()
+            val orphanedPkgs = pkgsDao.deleteOrphans()
+            log(TAG) {
+                "Clean up of reports older than $cutOff finished: $reports reports, " +
+                        "$paths paths ($orphanedPaths orphaned), $pkgs pkgs ($orphanedPkgs orphaned)"
+            }
+            reports + paths + pkgs + orphanedPaths + orphanedPkgs
+        }
+
+        if (deleted > 0) databaseSize.value = getDatabaseSize()
+    }
+
+    private suspend fun pruneAffectedPaths(retention: Duration) {
+        log(TAG, INFO) { "Retention for affected files is $retention" }
+        val cutOff = Instant.now() - retention
+
+        val deleted = database.withTransaction { pathsDao.deleteForReportsOlderThan(cutOff) }
+        log(TAG) { "Clean up of stale file infos finished, deleted $deleted" }
+
+        if (deleted > 0) databaseSize.value = getDatabaseSize()
+    }
+
+    /** Sweeps expired data now, instead of waiting for the retention settings to emit again. */
+    suspend fun applyRetention() = withContext(dispatcherProvider.IO) {
+        log(TAG) { "applyRetention()" }
+        try {
+            pruneReports(statsSettings.retentionReports.value())
+            pruneAffectedPaths(statsSettings.retentionPaths.value())
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "applyRetention() failed: ${e.asLog()}" }
+        }
+    }
+
     init {
         statsSettings.retentionReports.flow
-            .mapNotNull { retention ->
-                log(TAG, INFO) { "Retention for reports is $retention" }
-                reportsDao.getReportsOlderThan(Instant.now() - retention).takeIf { it.isNotEmpty() }
-            }
-            .map { reports -> reports.map { it.reportId } }
-            .onEach { oldReportIds ->
-                var updateSize = false
-                run {
-                    val beforeCount = reportsDao.reportCount().first()
-                    log(TAG) { "Deleting old reports (${oldReportIds.size})" }
-                    reportsDao.delete(oldReportIds)
-                    val deleted = beforeCount - reportsDao.reportCount().first()
-                    log(TAG) { "Clean up of reports finished, deleted $deleted" }
-                    if (deleted > 0) updateSize = true
+            .onEach { retention ->
+                try {
+                    pruneReports(retention)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to clean up reports: ${e.asLog()}" }
                 }
-
-                run {
-                    val filesBefore = pathsDao.filesCount().first()
-                    log(TAG) { "Deleting file infos related to old reports (${filesBefore})" }
-                    pathsDao.delete(oldReportIds)
-                    val deleted = filesBefore - pathsDao.filesCount().first()
-                    log(TAG) { "Clean up of file infos finished, deleted $deleted" }
-                    if (deleted > 0) updateSize = true
-                }
-
-                if (updateSize) databaseSize.value = getDatabaseSize()
             }
-            .catch { log(TAG, ERROR) { "Failed to clean up reports: ${it.asLog()}" } }
             .launchIn(appScope + dispatcherProvider.IO)
 
         statsSettings.retentionPaths.flow
-            .mapNotNull { retention ->
-                log(TAG, INFO) { "Retention for affected files is $retention" }
-                reportsDao.getReportsOlderThan(Instant.now() - retention).takeIf { it.isNotEmpty() }
+            .onEach { retention ->
+                try {
+                    pruneAffectedPaths(retention)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to clean up affected files: ${e.asLog()}" }
+                }
             }
-            .map { reports -> reports.map { it.reportId } }
-            .onEach { oldReportIds ->
-                val filesBefore = pathsDao.filesCount().first()
-                log(TAG) { "Deleting stale infos about affected files (${filesBefore})" }
-                pathsDao.delete(oldReportIds)
-                val deleted = filesBefore - pathsDao.filesCount().first()
-                log(TAG) { "Clean up of stale file infos finished, deleted $deleted" }
-
-                if (deleted > 0) databaseSize.value = getDatabaseSize()
-            }
-            .catch { log(TAG, ERROR) { "Failed to clean up affected files: ${it.asLog()}" } }
             .launchIn(appScope + dispatcherProvider.IO)
 
         statsSettings.retentionSnapshots.flow
