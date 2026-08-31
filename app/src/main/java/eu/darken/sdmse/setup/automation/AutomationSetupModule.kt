@@ -93,6 +93,9 @@ class AutomationSetupModule @Inject constructor(
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }
 
+        val romType = deviceDetective.getROMType()
+        log(TAG) { "romType=$romType" }
+
         log(TAG) { "useRoot: $useRoot" }
 
         @Suppress("USELESS_CAST")
@@ -103,12 +106,15 @@ class AutomationSetupModule @Inject constructor(
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
             isShortcutOrButtonEnabled = isShortcutOrButtonEnabled,
-            needsXiaomiAutostart = deviceDetective.getROMType() == RomType.MIUI && !canSelfEnable,
+            needsXiaomiAutostart = needsXiaomiAutostartHint(
+                romType = romType,
+                canSelfEnable = canSelfEnable,
+            ),
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = restrictionHints.showAppOpsRestrictionHint,
             showAdvancedProtectionHint = restrictionHints.showAdvancedProtectionHint,
             isAdvancedProtectionBlocked = aapmBlocksAcs,
-            settingsIntent = when (deviceDetective.getROMType()) {
+            settingsIntent = when (romType) {
                 RomType.ANDROID_TV -> Intent(Settings.ACTION_SETTINGS)
                 else -> Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)
             }
