@@ -92,7 +92,10 @@
 	  "fileFilter": [
 		{
 		  "locations": ["PUBLIC_DATA"],
-		  "startsWith": ["com.oneplus.gallery/files/blob_cache/"]
+		  "startsWith": [
+			"com.oneplus.gallery/files/blob_cache/",
+			"com.oneplus.gallery/files/cloud/thumb/"
+		  ]
 		}
 	  ]
 	}, {
