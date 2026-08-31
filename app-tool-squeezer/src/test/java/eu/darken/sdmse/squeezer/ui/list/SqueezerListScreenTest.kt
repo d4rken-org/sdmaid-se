@@ -4,6 +4,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
+import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
@@ -19,6 +20,8 @@ import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.PriorCompression
+import eu.darken.sdmse.squeezer.ui.list.items.SqueezerListGridCardTags
+import eu.darken.sdmse.squeezer.ui.list.items.SqueezerListLinearRowTags
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
@@ -195,6 +198,12 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithText("Compressed").assertCountEquals(0)
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
+        // The text assertions above still pass if an empty chip container is composed, which the
+        // spaced-by Column would show as a stray gap under the savings line. The clickable row
+        // merges child semantics and drops the tag, so the tag lookup needs the unmerged tree.
+        composeRule
+            .onAllNodesWithTag(SqueezerListLinearRowTags.MARKER_ROW, useUnmergedTree = true)
+            .assertCountEquals(0)
     }
 
     @Test
@@ -220,7 +229,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
     fun `grid card - the remaining markers keep separate content descriptions`() {
         // Grid has no room for labels, so the markers are icons; if the two collapsed onto one
         // glyph the user could not tell them apart. The middle item carries the no-savings state
-        // and must contribute no badge at all, so both counts stay at one.
+        // and must contribute no badge at all, so both counts stay at one and only two of the
+        // three cards compose a marker container.
         composeRule.setListScreen(
             SqueezerListViewModel.State(
                 media = listOf(
@@ -234,6 +244,9 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithContentDescription("Compressed").assertCountEquals(1)
         composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(1)
+        composeRule
+            .onAllNodesWithTag(SqueezerListGridCardTags.MARKER_ROW, useUnmergedTree = true)
+            .assertCountEquals(2)
     }
 
     @Test
@@ -247,6 +260,9 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithContentDescription("Compressed").assertCountEquals(0)
         composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(0)
+        composeRule
+            .onAllNodesWithTag(SqueezerListGridCardTags.MARKER_ROW, useUnmergedTree = true)
+            .assertCountEquals(0)
     }
 
     @Test
