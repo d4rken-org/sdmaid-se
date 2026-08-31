@@ -178,6 +178,10 @@ internal fun CorpseDetailsScreen(
         selection.retainAll(currentIds)
     }
 
+    // Card actions act on the whole corpse, which is wider than any row selection, so they are gated
+    // screen-wide: adjacent pages stay visible in the pager once the span count exceeds one.
+    val wholeScopeActionsEnabled = !selection.isActive
+
     BackHandler(enabled = selection.isActive) { selection.clear() }
 
     SdmScaffold(
@@ -291,7 +295,8 @@ internal fun CorpseDetailsScreen(
                                 val corpse = items.getOrNull(page) ?: return@HorizontalPager
                                 CorpseContent(
                                     corpse = corpse,
-                                    selection = if (corpse.identifier == currentCorpse?.identifier) selection else null,
+                                    pageSelection = if (corpse.identifier == currentCorpse?.identifier) selection else null,
+                                    wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                                     onDeleteCorpseRequest = {
                                         pendingDelete = PendingDelete(
                                             corpseId = corpse.identifier,
