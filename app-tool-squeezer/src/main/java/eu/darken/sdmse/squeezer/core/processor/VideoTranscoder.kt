@@ -188,6 +188,8 @@ class VideoTranscoder @Inject constructor(
                             ) {
                                 // Logging is wrapped separately: a throw in here must not skip
                                 // settle(), which would leave the transcode coroutine suspended.
+                                // There is deliberately no failure branch: it would only run while
+                                // logging is already failing, so a second log call could not report it.
                                 runCatching {
                                     log(TAG, INFO) {
                                         "Export done: encoder=${exportResult.videoEncoderName}, " +
@@ -196,7 +198,7 @@ class VideoTranscoder @Inject constructor(
                                                 "size=${exportResult.fileSizeBytes}, " +
                                                 "process=${exportResult.videoConversionProcess}"
                                     }
-                                }.onFailure { log(TAG, WARN) { "Failed to log export result: ${it.message}" } }
+                                }
 
                                 try {
                                     settle(Result.success(Unit))
