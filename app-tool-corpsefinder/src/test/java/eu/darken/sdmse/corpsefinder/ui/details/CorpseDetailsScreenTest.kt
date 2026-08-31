@@ -1,10 +1,19 @@
 package eu.darken.sdmse.corpsefinder.ui.details
 
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.corpsefinder.ui.preview.previewCorpse
 import eu.darken.sdmse.corpsefinder.ui.preview.previewLocalPathLookup
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -22,6 +31,13 @@ class CorpseDetailsScreenTest : BaseComposeRobolectricTest() {
                 CorpseDetailsScreen(stateSource = MutableStateFlow(state))
             }
         }
+    }
+
+    // The screen stacks three scrollables (tab strip, pager, page list); only the page list scrolls
+    // vertically, so match on that axis to stay unambiguous.
+    private fun ComposeContentTestRule.scrollTo(text: String) {
+        onNode(SemanticsMatcher.keyIsDefined(SemanticsProperties.VerticalScrollAxisRange))
+            .performScrollToNode(hasText(text))
     }
 
     @Test
@@ -79,5 +95,42 @@ class CorpseDetailsScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onNodeWithText("tab-target.dat").assertExists()
+    }
+
+    @Test
+    fun `long-pressing a file row gates the header card actions`() {
+        // Drives the screen's own `!selection.isActive` computation instead of injecting the flag.
+        val corpseRoot = previewLocalPathLookup(
+            pathSegments = arrayOf("storage", "emulated", "0", "Android", "data", "gate.target"),
+        )
+        val onlyCorpse = previewCorpse(
+            lookup = corpseRoot,
+            content = listOf(
+                previewLocalPathLookup(
+                    pathSegments = arrayOf(
+                        "storage", "emulated", "0", "Android", "data", "gate.target", "gated.bin",
+                    ),
+                    fileType = FileType.FILE,
+                    size = 8L * 1024 * 1024,
+                ),
+            ),
+        )
+        composeRule.setDetailsScreen(
+            CorpseDetailsViewModel.State(
+                items = listOf(onlyCorpse),
+                target = onlyCorpse.identifier,
+            ),
+        )
+
+        composeRule.onNodeWithText("Exclude").assertIsEnabled()
+        composeRule.onNodeWithText("Delete").assertIsEnabled()
+
+        composeRule.scrollTo("gated.bin")
+        composeRule.onNodeWithText("gated.bin").performTouchInput { longClick() }
+
+        // The header card fills the viewport, so the file row is only reachable after a scroll.
+        composeRule.scrollTo("Exclude")
+        composeRule.onNodeWithText("Exclude").assertIsNotEnabled()
+        composeRule.onNodeWithText("Delete").assertIsNotEnabled()
     }
 }
