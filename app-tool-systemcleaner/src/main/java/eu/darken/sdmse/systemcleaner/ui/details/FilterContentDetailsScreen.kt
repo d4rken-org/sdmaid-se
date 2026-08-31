@@ -188,6 +188,10 @@ internal fun FilterContentDetailsScreen(
         selection.retainAll(currentPaths)
     }
 
+    // Card actions act on the whole filter, which is wider than any row selection, so they are gated
+    // screen-wide: adjacent pages stay visible in the pager once the span count exceeds one.
+    val wholeScopeActionsEnabled = !selection.isActive
+
     BackHandler(enabled = selection.isActive) { selection.clear() }
 
     SdmScaffold(
@@ -273,6 +277,7 @@ internal fun FilterContentDetailsScreen(
                                     filterContent = filterContent,
                                     selection = selection,
                                     selectionEnabled = filterContent.identifier == currentFilter?.identifier,
+                                    wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                                     onDeleteFilterRequest = {
                                         pendingDelete = PendingFilterDelete(
                                             filterId = filterContent.identifier,
