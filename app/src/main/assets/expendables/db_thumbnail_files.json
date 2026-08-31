@@ -88,6 +88,14 @@
 		}
 	  ]
 	}, {
+	  "packages": ["com.oneplus.gallery"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.oneplus.gallery/files/blob_cache/"]
+		}
+	  ]
+	}, {
 	  "packages": [
 		"com.lenovo.anyshare.gps",
 		"com.lenovo.anyshare",
