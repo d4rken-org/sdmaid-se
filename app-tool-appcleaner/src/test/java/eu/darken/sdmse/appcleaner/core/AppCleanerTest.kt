@@ -1179,6 +1179,7 @@ class AppCleanerTest : BaseTest() {
 
         result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
         result.stoppedEarly shouldBe AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT
+        result.skippedCount shouldBe 1
         result.affectedSpace shouldBe previewExpendables().values.flatten().sumOf { it.expectedGain }
     }
 

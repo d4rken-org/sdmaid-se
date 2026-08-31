@@ -19,11 +19,13 @@ class AppCleanerProcessingResultTextTest : BaseTest() {
     private fun success(
         count: Int,
         stoppedEarly: AppCleanerTask.StopReason?,
+        skipped: Int = 0,
     ) = AppCleanerProcessingTask.Success(
         affectedSpace = 1024L,
         affectedPaths = emptySet(),
         affectedCount = count,
         stoppedEarly = stoppedEarly,
+        skippedCount = skipped,
     ).primaryInfo.get(context)
 
     @Test
@@ -45,5 +47,17 @@ class AppCleanerProcessingResultTextTest : BaseTest() {
             "1 expendable item deleted, stopped by an error"
         success(count = 46, stoppedEarly = AppCleanerTask.StopReason.ERROR) shouldBe
             "46 expendable items deleted, stopped by an error"
+    }
+
+    @Test
+    fun `a run that skipped the accessibility service says how many caches are left`() {
+        success(count = 1, stoppedEarly = AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT, skipped = 1) shouldBe
+            "1 expendable item deleted, 1 cache still needs the accessibility service"
+        success(count = 46, stoppedEarly = AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT, skipped = 1) shouldBe
+            "46 expendable items deleted, 1 cache still needs the accessibility service"
+        success(count = 1, stoppedEarly = AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT, skipped = 3) shouldBe
+            "1 expendable item deleted, 3 caches still need the accessibility service"
+        success(count = 46, stoppedEarly = AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT, skipped = 3) shouldBe
+            "46 expendable items deleted, 3 caches still need the accessibility service"
     }
 }
