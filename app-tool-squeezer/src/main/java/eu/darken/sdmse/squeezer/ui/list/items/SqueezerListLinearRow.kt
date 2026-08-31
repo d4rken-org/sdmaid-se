@@ -3,8 +3,11 @@ package eu.darken.sdmse.squeezer.ui.list.items
 import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -13,6 +16,9 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.HdrOn
+import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.HistoryToggleOff
 import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -26,13 +32,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.coil.FileListThumbnail
+import eu.darken.sdmse.common.compose.SdmInfoChip
 import eu.darken.sdmse.common.compose.SelectableListRow
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.squeezer.R
+import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.core.PriorCompression
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleImage
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleVideo
 
@@ -117,9 +126,58 @@ internal fun SqueezerListLinearRow(
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.primary,
             )
+            SqueezeChipRow(media = media)
         }
     }
 }
+
+/**
+ * Chips mark what is different about this file. An ordinary re-encode has none, and nothing is
+ * composed then so those rows keep their height.
+ */
+@OptIn(ExperimentalLayoutApi::class)
+@Composable
+private fun SqueezeChipRow(media: CompressibleMedia) {
+    val hasLossyAux = (media as? CompressibleImage)?.hasLossyAux == true
+    if (media.priorCompression == null && !hasLossyAux) return
+
+    FlowRow(
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        when (media.priorCompression) {
+            PriorCompression.COMPRESSED -> CompressedBeforeChip()
+            PriorCompression.NO_SAVINGS -> NoSavingsChip()
+            null -> Unit
+        }
+        if (hasLossyAux) HdrDepthChip()
+    }
+}
+
+@Composable
+internal fun CompressedBeforeChip() = SdmInfoChip(
+    icon = Icons.TwoTone.History,
+    label = stringResource(R.string.squeezer_chip_compressed_before),
+    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+)
+
+@Composable
+internal fun NoSavingsChip() = SdmInfoChip(
+    icon = Icons.TwoTone.HistoryToggleOff,
+    label = stringResource(R.string.squeezer_chip_no_savings),
+    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+)
+
+/** Warning styling: this photo loses data compression can't reproduce. */
+@Composable
+internal fun HdrDepthChip() = SdmInfoChip(
+    icon = Icons.TwoTone.HdrOn,
+    label = stringResource(R.string.squeezer_chip_hdr_depth),
+    containerColor = MaterialTheme.colorScheme.errorContainer,
+    contentColor = MaterialTheme.colorScheme.onErrorContainer,
+)
 
 @Preview2
 @Composable
@@ -136,6 +194,32 @@ private fun SqueezerListLinearRowPreview() {
             SqueezerListLinearRow(
                 media = previewCompressibleVideo(),
                 isSelected = true,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun SqueezerListLinearRowMarkedPreview() {
+    PreviewWrapper {
+        Column {
+            SqueezerListLinearRow(
+                media = previewCompressibleImage(
+                    priorCompression = PriorCompression.COMPRESSED,
+                    hasLossyAux = true,
+                ),
+                isSelected = false,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
+            SqueezerListLinearRow(
+                media = previewCompressibleVideo(priorCompression = PriorCompression.NO_SAVINGS),
+                isSelected = false,
                 onTap = {},
                 onLongPress = {},
                 onPreviewTap = {},

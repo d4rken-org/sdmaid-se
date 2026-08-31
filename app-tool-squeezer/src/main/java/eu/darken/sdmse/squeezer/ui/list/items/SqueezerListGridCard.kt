@@ -3,6 +3,7 @@ package eu.darken.sdmse.squeezer.ui.list.items
 import android.text.format.Formatter
 import androidx.compose.foundation.border
 import androidx.compose.foundation.combinedClickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,6 +15,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.HdrOn
+import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.HistoryToggleOff
 import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.Card
@@ -26,6 +30,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -33,8 +38,10 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.squeezer.R
+import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.core.PriorCompression
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleImage
 import eu.darken.sdmse.squeezer.ui.preview.previewCompressibleVideo
 
@@ -91,6 +98,12 @@ internal fun SqueezerListGridCard(
                             .padding(6.dp),
                     )
                 }
+                SqueezeMarkerIcons(
+                    media = media,
+                    modifier = Modifier
+                        .align(Alignment.TopStart)
+                        .padding(4.dp),
+                )
                 FilledTonalIconButton(
                     onClick = onPreviewTap,
                     modifier = Modifier
@@ -127,6 +140,66 @@ internal fun SqueezerListGridCard(
     }
 }
 
+/**
+ * The grid card has no room for chip labels, so the markers are bare icons over the preview and
+ * carry their chip label as content description. Nothing is composed when no marker applies.
+ */
+@Composable
+private fun SqueezeMarkerIcons(
+    modifier: Modifier = Modifier,
+    media: CompressibleMedia,
+) {
+    val hasLossyAux = (media as? CompressibleImage)?.hasLossyAux == true
+    if (media.priorCompression == null && !hasLossyAux) return
+
+    Row(
+        modifier = modifier,
+        horizontalArrangement = Arrangement.spacedBy(4.dp),
+    ) {
+        when (media.priorCompression) {
+            PriorCompression.COMPRESSED -> MarkerBadge(
+                icon = Icons.TwoTone.History,
+                contentDescription = stringResource(R.string.squeezer_chip_compressed_before),
+            )
+
+            PriorCompression.NO_SAVINGS -> MarkerBadge(
+                icon = Icons.TwoTone.HistoryToggleOff,
+                contentDescription = stringResource(R.string.squeezer_chip_no_savings),
+            )
+
+            null -> Unit
+        }
+        if (hasLossyAux) {
+            MarkerBadge(
+                icon = Icons.TwoTone.HdrOn,
+                contentDescription = stringResource(R.string.squeezer_chip_hdr_depth),
+                // Warning styling, matching the linear row's error-colored chip: without it the
+                // badge reads as a neutral "HDR" label rather than "this photo loses its HDR".
+                tint = MaterialTheme.colorScheme.onError,
+                background = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
+            )
+        }
+    }
+}
+
+@Composable
+private fun MarkerBadge(
+    icon: ImageVector,
+    contentDescription: String,
+    tint: Color = MaterialTheme.colorScheme.onPrimary,
+    background: Color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
+) {
+    Icon(
+        imageVector = icon,
+        contentDescription = contentDescription,
+        tint = tint,
+        modifier = Modifier
+            .size(24.dp)
+            .background(color = background, shape = CircleShape)
+            .padding(4.dp),
+    )
+}
+
 @Preview2
 @Composable
 private fun SqueezerListGridCardPreview() {
@@ -144,6 +217,34 @@ private fun SqueezerListGridCardPreview() {
                 modifier = Modifier.weight(1f),
                 media = previewCompressibleVideo(),
                 isSelected = true,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun SqueezerListGridCardMarkedPreview() {
+    PreviewWrapper {
+        Row {
+            SqueezerListGridCard(
+                modifier = Modifier.weight(1f),
+                media = previewCompressibleImage(
+                    priorCompression = PriorCompression.COMPRESSED,
+                    hasLossyAux = true,
+                ),
+                isSelected = false,
+                onTap = {},
+                onLongPress = {},
+                onPreviewTap = {},
+            )
+            SqueezerListGridCard(
+                modifier = Modifier.weight(1f),
+                media = previewCompressibleVideo(priorCompression = PriorCompression.NO_SAVINGS),
+                isSelected = false,
                 onTap = {},
                 onLongPress = {},
                 onPreviewTap = {},
