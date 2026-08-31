@@ -64,11 +64,9 @@
     <string name="squeezer_no_savings_expected">Limited savings</string>
     <string name="squeezer_current_size_format">Size: %s</string>
     <string name="squeezer_chip_compressed_before">Compressed before</string>
-    <string name="squeezer_chip_no_savings">No savings</string>
     <string name="squeezer_chip_hdr_depth">HDR/depth</string>
     <string name="squeezer_markers_dialog_title">About these markers</string>
     <string name="squeezer_markers_compressed_before_description">SD Maid already compressed this file. Compressing it again costs quality and saves little.</string>
-    <string name="squeezer_markers_no_savings_description">A previous run compressed this file and the result wasn\'t smaller, so the original was kept. Another try will likely end the same way.</string>
     <string name="squeezer_markers_hdr_depth_description">This photo has HDR or depth data that compression can\'t keep. An HDR photo comes back as a normal one, and a portrait photo loses the depth data used for background blur.</string>
     <string name="squeezer_compress_action">Compress</string>
     <string name="squeezer_compress_all_action">Compress all</string>

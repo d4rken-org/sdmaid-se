@@ -3,6 +3,7 @@ package eu.darken.sdmse.squeezer.ui.list
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
@@ -180,20 +181,20 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onNodeWithText("Compressed before").assertExists()
-        composeRule.onAllNodesWithText("No savings").assertCountEquals(0)
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
     }
 
     @Test
-    fun `linear row - no-savings marker renders its chip`() {
+    fun `linear row - a no-savings item renders no chip`() {
+        // NO_SAVINGS still gates skip-previously-compressed, it just isn't worth a marker.
         composeRule.setListScreen(
             SqueezerListViewModel.State(
                 media = listOf(image("a.jpg", priorCompression = PriorCompression.NO_SAVINGS)),
             ),
         )
 
-        composeRule.onNodeWithText("No savings").assertExists()
         composeRule.onAllNodesWithText("Compressed before").assertCountEquals(0)
+        composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
     }
 
     @Test
@@ -212,26 +213,40 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onAllNodesWithText("Compressed before").assertCountEquals(0)
-        composeRule.onAllNodesWithText("No savings").assertCountEquals(0)
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
     }
 
     @Test
-    fun `grid card - the two history markers keep separate content descriptions`() {
-        // Grid has no room for labels, so the markers are icons; if both history states collapsed
-        // onto one glyph the user could not tell them apart.
+    fun `grid card - the remaining markers keep separate content descriptions`() {
+        // Grid has no room for labels, so the markers are icons; if the two collapsed onto one
+        // glyph the user could not tell them apart. The middle item carries the no-savings state
+        // and must contribute no badge at all, so both counts stay at one.
         composeRule.setListScreen(
             SqueezerListViewModel.State(
                 media = listOf(
                     image("a.jpg", priorCompression = PriorCompression.COMPRESSED),
                     image("b.jpg", priorCompression = PriorCompression.NO_SAVINGS),
+                    image("c.jpg", hasLossyAux = true),
                 ),
                 layoutMode = eu.darken.sdmse.common.ui.LayoutMode.GRID,
             ),
         )
 
-        composeRule.onNodeWithContentDescription("Compressed before").assertExists()
-        composeRule.onNodeWithContentDescription("No savings").assertExists()
+        composeRule.onAllNodesWithContentDescription("Compressed before").assertCountEquals(1)
+        composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(1)
+    }
+
+    @Test
+    fun `grid card - a no-savings item renders no marker badge`() {
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(
+                media = listOf(image("b.jpg", priorCompression = PriorCompression.NO_SAVINGS)),
+                layoutMode = eu.darken.sdmse.common.ui.LayoutMode.GRID,
+            ),
+        )
+
+        composeRule.onAllNodesWithContentDescription("Compressed before").assertCountEquals(0)
+        composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(0)
     }
 
     @Test
@@ -243,15 +258,10 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onAllNodesWithText("Compressed before").fetchSemanticsNodes().isNotEmpty() shouldBe true
-        composeRule.onAllNodesWithText("No savings").fetchSemanticsNodes().isNotEmpty() shouldBe true
         composeRule.onAllNodesWithText("HDR/depth").fetchSemanticsNodes().isNotEmpty() shouldBe true
 
         composeRule.onNodeWithText(
             "SD Maid already compressed this file. Compressing it again costs quality and saves little.",
-        ).assertExists()
-        composeRule.onNodeWithText(
-            "A previous run compressed this file and the result wasn't smaller, so the original was kept. " +
-                "Another try will likely end the same way.",
         ).assertExists()
         composeRule.onNodeWithText(
             "This photo has HDR or depth data that compression can't keep. An HDR photo comes back as a " +

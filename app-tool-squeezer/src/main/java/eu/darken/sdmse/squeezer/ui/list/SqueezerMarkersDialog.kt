@@ -21,7 +21,6 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.ui.list.items.CompressedBeforeChip
 import eu.darken.sdmse.squeezer.ui.list.items.HdrDepthChip
-import eu.darken.sdmse.squeezer.ui.list.items.NoSavingsChip
 
 @Composable
 internal fun SqueezerMarkersDialog(onDismiss: () -> Unit) {
@@ -38,11 +37,6 @@ internal fun SqueezerMarkersDialog(onDismiss: () -> Unit) {
                 marker = { CompressedBeforeChip() },
                 title = stringResource(R.string.squeezer_chip_compressed_before),
                 description = stringResource(R.string.squeezer_markers_compressed_before_description),
-            )
-            MarkerExplanation(
-                marker = { NoSavingsChip() },
-                title = stringResource(R.string.squeezer_chip_no_savings),
-                description = stringResource(R.string.squeezer_markers_no_savings_description),
             )
             MarkerExplanation(
                 marker = { HdrDepthChip() },

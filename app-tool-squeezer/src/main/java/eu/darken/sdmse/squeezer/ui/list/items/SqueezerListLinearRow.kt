@@ -19,7 +19,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.HdrOn
 import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.PlayArrow
-import androidx.compose.material.icons.twotone.TrendingFlat
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -139,17 +138,14 @@ internal fun SqueezerListLinearRow(
 @Composable
 private fun SqueezeChipRow(media: CompressibleMedia) {
     val hasLossyAux = (media as? CompressibleImage)?.hasLossyAux == true
-    if (media.priorCompression == null && !hasLossyAux) return
+    val wasCompressed = media.priorCompression == PriorCompression.COMPRESSED
+    if (!wasCompressed && !hasLossyAux) return
 
     FlowRow(
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        when (media.priorCompression) {
-            PriorCompression.COMPRESSED -> CompressedBeforeChip()
-            PriorCompression.NO_SAVINGS -> NoSavingsChip()
-            null -> Unit
-        }
+        if (wasCompressed) CompressedBeforeChip()
         if (hasLossyAux) HdrDepthChip()
     }
 }
@@ -158,14 +154,6 @@ private fun SqueezeChipRow(media: CompressibleMedia) {
 internal fun CompressedBeforeChip() = SdmInfoChip(
     icon = Icons.TwoTone.History,
     label = stringResource(R.string.squeezer_chip_compressed_before),
-    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
-    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
-)
-
-@Composable
-internal fun NoSavingsChip() = SdmInfoChip(
-    icon = Icons.TwoTone.TrendingFlat,
-    label = stringResource(R.string.squeezer_chip_no_savings),
     containerColor = MaterialTheme.colorScheme.tertiaryContainer,
     contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
 )
