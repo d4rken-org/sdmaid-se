@@ -80,7 +80,8 @@ internal fun AutomationSetupModule.Result.toUiModel(): AutomationUiModel {
     return AutomationUiModel(
         enabledState = enabledChip,
         // Advanced Protection takes precedence; the MIUI autostart hint would be a false remedy here.
-        showMiuiAutostartHint = !isServiceEnabled && needsXiaomiAutostart && !isAdvancedProtectionBlocked,
+        showMiuiAutostartHint = hasConsent == true && !isServiceEnabled && needsXiaomiAutostart
+                && !isAdvancedProtectionBlocked,
         showAppOpsRestrictionHint = showAppOpsRestrictionHint,
         showAdvancedProtectionHint = showAdvancedProtectionHint,
         runningState = runningChip,

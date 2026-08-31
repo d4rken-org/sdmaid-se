@@ -117,6 +117,23 @@ class AutomationUiModelTest : BaseTest() {
     }
 
     @Test
+    fun `MIUI hint requires consent`() {
+        val undecided = result(
+            hasConsent = null,
+            isServiceEnabled = false,
+            needsXiaomiAutostart = true,
+        ).toUiModel()
+        undecided.showMiuiAutostartHint shouldBe false
+
+        val denied = result(
+            hasConsent = false,
+            isServiceEnabled = false,
+            needsXiaomiAutostart = true,
+        ).toUiModel()
+        denied.showMiuiAutostartHint shouldBe false
+    }
+
+    @Test
     fun `MIUI hint is suppressed while Advanced Protection blocks the service`() {
         val ui = result(
             hasConsent = true,

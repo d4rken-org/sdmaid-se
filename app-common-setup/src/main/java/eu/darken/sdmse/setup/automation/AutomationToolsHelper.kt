@@ -3,6 +3,7 @@ package eu.darken.sdmse.setup.automation
 import android.annotation.SuppressLint
 import android.content.Context
 import android.security.advancedprotection.AdvancedProtectionManager
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.getInstallerInfo
@@ -68,3 +69,13 @@ fun decideAcsRestrictionHints(
     showAdvancedProtectionHint = advancedProtectionBlocksAcs && hasConsent == true && !isServiceRunning,
     showAppOpsRestrictionHint = appOpsRestrictionApplies && !advancedProtectionBlocksAcs,
 )
+
+/**
+ * Decides whether to point the user at the system "Auto Start" toggle, which exists on MIUI and on
+ * its HyperOS successor. A device that can enable the service on its own (root/ADB) has no use for
+ * the hint, it doesn't depend on the toggle to get the service up.
+ */
+fun needsXiaomiAutostartHint(
+    romType: RomType,
+    canSelfEnable: Boolean,
+): Boolean = (romType == RomType.MIUI || romType == RomType.HYPEROS) && !canSelfEnable
