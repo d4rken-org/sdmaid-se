@@ -198,9 +198,10 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithText("Compressed").assertCountEquals(0)
         composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
-        // The text assertions above still pass if an empty chip container is composed, which the
-        // spaced-by Column would show as a stray gap under the savings line. The clickable row
-        // merges child semantics and drops the tag, so the tag lookup needs the unmerged tree.
+        // A text-absence assertion can't see a container that holds no text, so on its own it
+        // also passes if a marker renders under a different label, or if the early-return guard
+        // regresses and an empty container is composed. The clickable row merges child semantics
+        // and drops the tag, so the tag lookup needs the unmerged tree.
         composeRule
             .onAllNodesWithTag(SqueezerListLinearRowTags.MARKER_ROW, useUnmergedTree = true)
             .assertCountEquals(0)
