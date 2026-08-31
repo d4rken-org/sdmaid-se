@@ -283,12 +283,21 @@ class InaccessibleDeleter @Inject constructor(
         baselines: Map<InstallId, Long>,
     ): Map<InstallId, Long> {
         log(TAG) { "Observing freed bytes for ${targets.size} targets" }
+        // The automation stage is over by now and SD Maid is back in the foreground, so leaving the
+        // "preparing automation" label up would describe a step that already finished.
+        updateProgressPrimary(eu.darken.sdmse.appcleaner.R.string.appcleaner_progress_checking_freed_space)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Percent(targets.size))
 
         val minObserved = mutableMapOf<InstallId, Long>()
         val lastSample = mutableMapOf<InstallId, Long>()
         // A read that failed after an earlier one succeeded must not let that earlier value pass as
         // the final measurement, or a 100MB cache read as 90MB and then unreadable reports 10MB.
         val failedReads = mutableSetOf<InstallId>()
+        // Reads that all came back at exactly the pre-clear size, per target. -1 once a target has
+        // read anything else: a number that has moved is on its way somewhere and gets the full
+        // budget, however many times it reads its old size afterwards.
+        val pinnedReads = mutableMapOf<InstallId, Int>()
 
         // Track the MINIMUM, not the first decrease. A 100MB cache sampled as 90MB and then 0MB
         // freed 100MB; stopping at the first decrease would report 10MB, which is exactly the kind
@@ -308,16 +317,34 @@ class InaccessibleDeleter @Inject constructor(
             val baseline = baselines[id] ?: junk.inaccessibleCache!!.totalSize
             // Zero is the end state. Otherwise the number has to move off the pre-clear size AND
             // stop moving before we trust it: StorageStatsManager lags behind a clear, so two reads
-            // 500ms apart can both still report the stale pre-clear size. A target still sitting at
-            // its baseline keeps polling until the budget runs out.
-            return size == 0L || (previous == size && size < baseline)
+            // 500ms apart can both still report the stale pre-clear size.
+            if (size == 0L || (previous == size && size < baseline)) return true
+
+            // A number that has not once moved off the pre-clear size can never satisfy the rule
+            // above, so it would sit in the poll to the end of the budget and be reported as nothing
+            // freed anyway, making every round in between cost one more query for the targets that
+            // are still moving. Giving up on it early buys that back. The price is a cache whose
+            // size only starts falling after [PINNED_READ_LIMIT] reads, which the budget itself
+            // would still have caught.
+            val pinned = pinnedReads[id] ?: 0
+            if (pinned < 0 || size != baseline) {
+                pinnedReads[id] = -1
+                return false
+            }
+            val reads = pinned + 1
+            pinnedReads[id] = reads
+            if (reads >= PINNED_READ_LIMIT) {
+                log(TAG) { "Still at pre-clear size $baseline after $reads reads, giving up on $id" }
+                return true
+            }
+            return false
         }
 
         // First pass outside the budget: on a large batch a global timeout can expire mid-round and
         // leave late targets unsampled, silently back on the optimistic pre-clear figure. Every
         // target is sampled at least once, always.
         val pending = mutableListOf<AppJunk>()
-        targets.forEach { if (!sample(it)) pending.add(it) }
+        targets.forEach { if (sample(it)) increaseProgress() else pending.add(it) }
 
         if (pending.isNotEmpty()) {
             // Rounds rather than one coroutine per target, like the system app re-check above: no
@@ -326,12 +353,23 @@ class InaccessibleDeleter @Inject constructor(
                 while (pending.isNotEmpty()) {
                     log(TAG, VERBOSE) { "Waiting on ${pending.size} cache sizes to settle" }
                     delay(500)
-                    pending.removeAll(pending.filter { sample(it) })
+                    val round = pending.iterator()
+                    while (round.hasNext()) {
+                        // sample() suspends, so the budget can expire inside it. Removing and
+                        // counting per target keeps what this round already established, instead of
+                        // discarding it and naming settled targets in the timeout warning below.
+                        if (sample(round.next())) {
+                            round.remove()
+                            increaseProgress()
+                        }
+                    }
                 }
             } ?: log(TAG, WARN) {
                 "Freed-byte observation timed out after $ACS_SETTLE_TIMEOUT for: ${pending.map { it.identifier }}"
             }
         }
+        // Hand the next phase a spinner rather than our finished ring.
+        updateProgressCount(Progress.Count.Indeterminate())
 
         return targets.associate { junk ->
             val id = junk.identifier
@@ -590,6 +628,13 @@ class InaccessibleDeleter @Inject constructor(
         private val SYSTEM_RECHECK_TIMEOUT = 10.seconds
 
         /** Wall-clock budget for the whole post-clear settle poll that measures freed bytes. */
-        private val ACS_SETTLE_TIMEOUT = 10.seconds
+        private val ACS_SETTLE_TIMEOUT = 4.seconds
+
+        /**
+         * Reads, all at exactly the pre-clear size, after which a target is dropped from the settle
+         * poll. The first pass is read 1 and rounds are 500ms apart, so this is 2.5s of a number
+         * that has never moved, against the 4s of [ACS_SETTLE_TIMEOUT].
+         */
+        private const val PINNED_READ_LIMIT = 6
     }
 }
