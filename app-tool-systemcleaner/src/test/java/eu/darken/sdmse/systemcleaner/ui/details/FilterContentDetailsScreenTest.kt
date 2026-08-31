@@ -1,9 +1,13 @@
 package eu.darken.sdmse.systemcleaner.ui.details
 
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsEnabled
+import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterContent
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -72,5 +76,25 @@ class FilterContentDetailsScreenTest : BaseComposeRobolectricTest() {
         )
 
         composeRule.onNodeWithText("Custom description text in header.").assertExists()
+    }
+
+    @Test
+    fun `long-pressing a file row gates the header card actions`() {
+        // Drives the screen's own `!selection.isActive` computation instead of injecting the flag.
+        val fc = previewFilterContent(identifier = "fc-gate", label = "Gate me")
+        composeRule.setDetailsScreen(
+            FilterContentDetailsViewModel.State(
+                items = listOf(fc),
+                target = fc.identifier,
+            ),
+        )
+
+        composeRule.onNodeWithText("Exclude").assertIsEnabled()
+        composeRule.onNodeWithText("Delete").assertIsEnabled()
+
+        composeRule.onNodeWithText(fc.items.first().path.path).performTouchInput { longClick() }
+
+        composeRule.onNodeWithText("Exclude").assertIsNotEnabled()
+        composeRule.onNodeWithText("Delete").assertIsNotEnabled()
     }
 }
