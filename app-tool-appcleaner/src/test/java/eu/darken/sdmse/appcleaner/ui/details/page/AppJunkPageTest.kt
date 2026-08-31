@@ -4,9 +4,9 @@ import androidx.compose.ui.test.assertIsEnabled
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.hasClickAction
 import androidx.compose.ui.test.hasScrollToNodeAction
-import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
@@ -103,9 +103,7 @@ class AppJunkPageTest : BaseComposeRobolectricTest() {
         setPage(wholeScopeActionsEnabled = false, onToggleCollapse = { toggles++ })
 
         composeRule.scrollTo(categoryLabel)
-        composeRule
-            .onNode(hasTestTag(AppJunkPageTags.CATEGORY_COLLAPSE), useUnmergedTree = true)
-            .performClick()
+        composeRule.onNodeWithTag(AppJunkPageTags.CATEGORY_COLLAPSE).performClick()
 
         composeRule.runOnIdle { assertEquals(1, toggles) }
     }
