@@ -12,12 +12,20 @@ import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performScrollToNode
 import androidx.compose.ui.test.performTouchInput
+import eu.darken.sdmse.appcleaner.core.AppJunk
+import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.DefaultCachesPublicFilter
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
+import org.robolectric.annotation.Config
 import testhelpers.compose.BaseComposeRobolectricTest
+import java.time.Instant
 
 // HorizontalPager + ScrollableTabRow are known to interact poorly with Robolectric for
 // multi-page assertions. Tests here intentionally stay on single-item / empty state and avoid
@@ -38,6 +46,36 @@ class AppJunkDetailsScreenTest : BaseComposeRobolectricTest() {
         onNode(SemanticsMatcher.keyIsDefined(SemanticsProperties.VerticalScrollAxisRange))
             .performScrollToNode(hasText(text))
     }
+
+    // Same axis filter, but every rendered pager page contributes one vertical scrollable, so the
+    // page has to be addressed by index once more than one is on screen.
+    private fun ComposeContentTestRule.scrollPageTo(pageIndex: Int, text: String) {
+        onAllNodes(SemanticsMatcher.keyIsDefined(SemanticsProperties.VerticalScrollAxisRange))[pageIndex]
+            .performScrollToNode(hasText(text))
+    }
+
+    // previewExpendables() hardcodes com.example.app paths, which would collide across pages and
+    // make the file row ambiguous. Each junk needs its own package-scoped cache file.
+    private fun junkWithOwnCacheFile(pkgName: String, label: String): AppJunk = previewAppJunk(
+        pkg = previewInstalled(pkgName = pkgName, label = label),
+        expendables = mapOf(
+            DefaultCachesPublicFilter::class to listOf(
+                ExpendablesFilter.Match.Deletion(
+                    identifier = DefaultCachesPublicFilter::class,
+                    lookup = LocalPathLookup(
+                        lookedUp = LocalPath.build(
+                            "storage", "emulated", "0", "Android", "data", pkgName, "cache", "blob.bin",
+                        ),
+                        fileType = FileType.FILE,
+                        size = 6L * 1024 * 1024,
+                        modifiedAt = Instant.parse("2026-04-01T12:00:00Z"),
+                        target = null,
+                    ),
+                ),
+            ),
+        ),
+        inaccessibleCache = null,
+    )
 
     @Test
     fun `empty state shows the Empty placeholder`() {
@@ -85,6 +123,38 @@ class AppJunkDetailsScreenTest : BaseComposeRobolectricTest() {
         composeRule.scrollTo("Exclude")
         composeRule.onNodeWithText("Exclude").assertIsNotEnabled()
         composeRule.onNodeWithText("Delete").assertIsNotEnabled()
+    }
+
+    @Test
+    @Config(qualifiers = "w720dp-h1024dp")
+    fun `on a wide viewport the gate covers the visible neighbour page too`() {
+        // spanCount is (screenWidthDp / 390 + 0.5).toInt(), so 720dp yields two pages side by side
+        // and the neighbour's header card is on screen while the first page owns the selection.
+        val focused = junkWithOwnCacheFile(pkgName = "com.example.focused", label = "Focused")
+        val neighbour = junkWithOwnCacheFile(pkgName = "com.example.neighbour", label = "Neighbour")
+        composeRule.setDetailsScreen(
+            AppJunkDetailsViewModel.State(
+                items = listOf(focused, neighbour),
+                target = focused.identifier,
+            ),
+        )
+
+        composeRule.onAllNodesWithText("Exclude").assertCountEquals(2)
+        composeRule.onAllNodesWithText("Delete").assertCountEquals(2)
+
+        val filePath = focused.expendables!!.values.first().first().path.path
+        composeRule.scrollPageTo(0, filePath)
+        composeRule.onNodeWithText(filePath).performTouchInput { longClick() }
+        composeRule.scrollPageTo(0, "Exclude")
+
+        // Both header cards must gate, not just the selection owner's: a page-scoped gate would
+        // leave the neighbour's whole-app Delete/Exclude live.
+        composeRule.onAllNodesWithText("Exclude").assertCountEquals(2)
+        composeRule.onAllNodesWithText("Delete").assertCountEquals(2)
+        repeat(2) { index ->
+            composeRule.onAllNodesWithText("Exclude")[index].assertIsNotEnabled()
+            composeRule.onAllNodesWithText("Delete")[index].assertIsNotEnabled()
+        }
     }
 
     // NOTE: Asserting on tab/pager-only content (e.g. junk.label rendered as the tab title) is

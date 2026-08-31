@@ -10,8 +10,10 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterContent
+import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterItems
 import kotlinx.coroutines.flow.MutableStateFlow
 import org.junit.Test
+import org.robolectric.annotation.Config
 import testhelpers.compose.BaseComposeRobolectricTest
 
 // HorizontalPager + ScrollableTabRow are known to interact poorly with Robolectric for
@@ -96,5 +98,38 @@ class FilterContentDetailsScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onNodeWithText("Exclude").assertIsNotEnabled()
         composeRule.onNodeWithText("Delete").assertIsNotEnabled()
+    }
+
+    @Test
+    @Config(qualifiers = "w720dp-h1024dp")
+    fun `on a wide viewport the gate covers the visible neighbour page too`() {
+        // spanCount is (screenWidthDp / 390 + 0.5).toInt(), so 720dp yields two pages side by side
+        // and the neighbour's header card is on screen while the first page owns the selection.
+        val focused = previewFilterContent(identifier = "fc-focused", label = "Focused")
+        val neighbour = previewFilterContent(
+            identifier = "fc-neighbour",
+            label = "Neighbour",
+            items = previewFilterItems(itemCount = 2, totalSize = 4L * 1024 * 1024),
+        )
+        composeRule.setDetailsScreen(
+            FilterContentDetailsViewModel.State(
+                items = listOf(focused, neighbour),
+                target = focused.identifier,
+            ),
+        )
+
+        composeRule.onAllNodesWithText("Exclude").assertCountEquals(2)
+        composeRule.onAllNodesWithText("Delete").assertCountEquals(2)
+
+        composeRule.onNodeWithText(focused.items.first().path.path).performTouchInput { longClick() }
+
+        // Both header cards must gate, not just the selection owner's: a page-scoped gate would
+        // leave the neighbour's whole-filter Delete/Exclude live.
+        composeRule.onAllNodesWithText("Exclude").assertCountEquals(2)
+        composeRule.onAllNodesWithText("Delete").assertCountEquals(2)
+        repeat(2) { index ->
+            composeRule.onAllNodesWithText("Exclude")[index].assertIsNotEnabled()
+            composeRule.onAllNodesWithText("Delete")[index].assertIsNotEnabled()
+        }
     }
 }
