@@ -63,6 +63,9 @@
     <string name="squeezer_estimated_savings_format">~%s savings</string>
     <string name="squeezer_no_savings_expected">Limited savings</string>
     <string name="squeezer_current_size_format">Size: %s</string>
+    <string name="squeezer_chip_compressed_before">Compressed before</string>
+    <string name="squeezer_chip_no_savings">No savings</string>
+    <string name="squeezer_chip_hdr_depth">HDR/depth</string>
     <string name="squeezer_compress_action">Compress</string>
     <string name="squeezer_compress_all_action">Compress all</string>
     <string name="squeezer_preview_dialog_title">Confirm compression</string>
