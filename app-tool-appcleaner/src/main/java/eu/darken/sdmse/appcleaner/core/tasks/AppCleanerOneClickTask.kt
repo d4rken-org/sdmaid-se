@@ -37,6 +37,11 @@ data class AppCleanerOneClickTask(
                         affectedCount,
                     )
 
+                    AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT -> getQuantityString2(
+                        R.plurals.appcleaner_result_x_items_deleted_stopped_automation,
+                        affectedCount,
+                    )
+
                     null -> getQuantityString2(R.plurals.appcleaner_result_x_items_deleted, affectedCount)
                 }
             }

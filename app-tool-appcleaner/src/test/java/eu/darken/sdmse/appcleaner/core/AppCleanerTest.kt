@@ -11,6 +11,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.appcleaner.ui.preview.previewInaccessibleCache
+import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
@@ -716,6 +717,7 @@ class AppCleanerTest : BaseTest() {
     private fun acsDeleter(
         succesful: Set<InstallId>,
         freedBytes: Map<InstallId, Long> = emptyMap(),
+        skippedNoConsent: Set<InstallId> = emptySet(),
     ): InaccessibleDeleter =
         mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
             every { progress } returns MutableStateFlow<Progress.Data?>(null)
@@ -726,6 +728,7 @@ class AppCleanerTest : BaseTest() {
                 succesful = succesful,
                 failed = emptyMap(),
                 freedBytes = freedBytes,
+                skippedNoConsent = skippedNoConsent,
             )
         }
 
@@ -1151,4 +1154,49 @@ class AppCleanerTest : BaseTest() {
     // filter, includeInaccessible defaults, targetPkgs/targetContents contract) are protected by
     // the contract test above and by `AppCleanerTaskFactoryTest`. Leaving the delete-path
     // integration to a follow-up that introduces a shared FakeFilter test helper.
+
+    @Test
+    fun `caches skipped for lack of ACS consent are reported on an otherwise successful run`() = runTest2 {
+        // The accessible files really were deleted, so the run is a success. It just did not get
+        // through the inaccessible caches, and saying so is the only way the user learns why.
+        val junk = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.example.mixed", label = "com.example.mixed"),
+            expendables = previewExpendables(),
+            inaccessibleCache = previewInaccessibleCache(pkgName = "com.example.mixed"),
+        )
+        val deleter = acsDeleter(
+            succesful = emptySet(),
+            skippedNoConsent = setOf(installId("com.example.mixed")),
+        )
+        val rebuilt = rebuildWithDeleter(
+            setupCleaner(scanResults = listOf(junk)),
+            deleter,
+            filterFactories = setOf(deletingFilterFactory()),
+        )
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val result = rebuilt.cleaner.submit(AppCleanerProcessingTask())
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        result.stoppedEarly shouldBe AppCleanerTask.StopReason.AUTOMATION_NO_CONSENT
+        result.affectedSpace shouldBe previewExpendables().values.flatten().sumOf { it.expectedGain }
+    }
+
+    @Test
+    fun `a consent skip that salvaged nothing still fails with the consent error`() = runTest2 {
+        // A targeted inaccessible delete has no other mechanism, so "Success, 0 items" would hide
+        // the one prompt that offers the user a way to grant consent.
+        val junk = inaccJunk("com.example.nothing", itemCount = 4, theoreticalPaths = emptySet())
+        val deleter = acsDeleter(
+            succesful = emptySet(),
+            skippedNoConsent = setOf(installId("com.example.nothing")),
+        )
+        val rebuilt = rebuildWithDeleter(setupCleaner(scanResults = listOf(junk)), deleter)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val thrown = shouldThrow<InaccessibleDeletionException> {
+            rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
+        }
+        thrown.cause.shouldBeInstanceOf<AutomationNoConsentException>()
+    }
 }
