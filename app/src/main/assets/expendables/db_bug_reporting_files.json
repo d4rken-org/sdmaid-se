@@ -484,6 +484,28 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": [
+		"com.heytap.htms",
+		"com.oplus.aiunit",
+		"com.oplus.screenshot",
+		"com.coloros.smartsidebar",
+		"com.oplus.themestore",
+		"com.oplus.games"
+	  ],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "contains": [
+			"/HLog_file/",
+			"/HLog_cache/",
+			"/hlog/",
+			"/app_log/",
+			"/.opos_ad_log/",
+			"/.opos_ad_mmap_cache_log/"
+		  ]
+		}
+	  ]
 	}
   ]
 }

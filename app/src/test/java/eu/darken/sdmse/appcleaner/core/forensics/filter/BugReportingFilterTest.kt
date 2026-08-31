@@ -1089,4 +1089,31 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+    @Test fun `test heytap oppo logging dirs`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.heytap.htms", PUBLIC_DATA, "com.heytap.htms/files/HeyTap/HLog_file")
+        pos("com.heytap.htms", PUBLIC_DATA, "com.heytap.htms/files/HeyTap/HLog_file/HLog_File_$rngString.dog3")
+        neg("com.oplus.aiunit", PUBLIC_DATA, "com.oplus.aiunit/files/x/HLog_cache")
+        pos("com.oplus.aiunit", PUBLIC_DATA, "com.oplus.aiunit/files/x/HLog_cache/y/nlog_cache/nlog.mmap2")
+        neg("com.oplus.screenshot", PUBLIC_DATA, "com.oplus.screenshot/files/hlog")
+        pos("com.oplus.screenshot", PUBLIC_DATA, "com.oplus.screenshot/files/hlog/$rngString.log")
+        neg("com.oplus.games", PUBLIC_DATA, "com.oplus.games/files/app_log")
+        pos("com.oplus.games", PUBLIC_DATA, "com.oplus.games/files/app_log/$rngString.log")
+        neg("com.oplus.themestore", PUBLIC_DATA, "com.oplus.themestore/files/.opos_ad_log")
+        pos("com.oplus.themestore", PUBLIC_DATA, "com.oplus.themestore/files/.opos_ad_log/$rngString.log")
+        neg("com.coloros.smartsidebar", PUBLIC_DATA, "com.coloros.smartsidebar/files/.opos_ad_mmap_cache_log")
+        pos("com.coloros.smartsidebar", PUBLIC_DATA, "com.coloros.smartsidebar/files/.opos_ad_mmap_cache_log/$rngString.log")
+
+        neg("com.heytap.htms", PUBLIC_DATA, "com.heytap.htms/files/HeyTap/HLog_file_backup/$rngString.dog3")
+        neg("com.oplus.games", PUBLIC_DATA, "com.oplus.games/files/app_logs/$rngString.log")
+
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/HeyTap/HLog_file/$rngString.dog3")
+
+        neg("com.heytap.htms", PRIVATE_DATA, "com.heytap.htms/files/HeyTap/HLog_file/$rngString.dog3")
+        neg("com.heytap.htms", SDCARD, "com.heytap.htms/files/HeyTap/HLog_file/$rngString.dog3")
+
+        confirm(create())
+    }
 }
