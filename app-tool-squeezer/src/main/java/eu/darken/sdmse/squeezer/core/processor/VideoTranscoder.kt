@@ -186,6 +186,18 @@ class VideoTranscoder @Inject constructor(
                                 composition: Composition,
                                 exportResult: ExportResult,
                             ) {
+                                // Logging is wrapped separately: a throw in here must not skip
+                                // settle(), which would leave the transcode coroutine suspended.
+                                runCatching {
+                                    log(TAG, INFO) {
+                                        "Export done: encoder=${exportResult.videoEncoderName}, " +
+                                                "mime=${exportResult.videoMimeType}, " +
+                                                "bitrate=${exportResult.averageVideoBitrate}, " +
+                                                "size=${exportResult.fileSizeBytes}, " +
+                                                "process=${exportResult.videoConversionProcess}"
+                                    }
+                                }.onFailure { log(TAG, WARN) { "Failed to log export result: ${it.message}" } }
+
                                 try {
                                     settle(Result.success(Unit))
                                 } catch (e: Throwable) {
