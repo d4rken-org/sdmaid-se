@@ -1,5 +1,6 @@
 package eu.darken.sdmse.squeezer.core.processor
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -35,12 +36,16 @@ class HeifWriterEncoder @Inject constructor() : ImageEncoder {
         exifData: ByteArray?,
         rotationDegreesCw: Int,
     ) {
-        check(Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            "HeifWriterEncoder requires API 28+, was ${Build.VERSION.SDK_INT}"
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+            encodeP(bitmap, quality, outputFile, exifData, rotationDegreesCw)
+        } else {
+            throw IllegalStateException("HeifWriterEncoder requires API 28+, was ${Build.VERSION.SDK_INT}")
         }
-        encodeP(bitmap, quality, outputFile, exifData, rotationDegreesCw)
     }
 
+    // HeifWriter.close() is inherited from the @RestrictTo WriterBase, but closing the writer is
+    // the intended use and there is no unrestricted alternative.
+    @SuppressLint("RestrictedApi")
     @RequiresApi(Build.VERSION_CODES.P)
     private fun encodeP(
         bitmap: Bitmap,
