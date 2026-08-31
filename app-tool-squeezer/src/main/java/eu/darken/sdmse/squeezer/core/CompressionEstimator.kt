@@ -66,8 +66,8 @@ class CompressionEstimator @Inject constructor() {
         quality: Int,
     ): Long? {
         if (durationMs <= 0 || originalBitrateBps <= 0) return null
-        val targetVideoBitrateBps = targetVideoBitrateBps(originalBitrateBps, quality)
-        val videoBytes = (targetVideoBitrateBps * durationMs) / 8_000L
+        val targetBitrateBps = targetVideoBitrateBps(originalBitrateBps, quality)
+        val videoBytes = (targetBitrateBps * durationMs) / 8_000L
         val audioAndMuxingBytes = (AUDIO_BITRATE_BPS * durationMs) / 8_000L
         return (videoBytes + audioAndMuxingBytes).coerceIn(0L, originalSize)
     }
