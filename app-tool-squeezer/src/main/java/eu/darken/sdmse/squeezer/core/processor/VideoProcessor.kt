@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressSubCount
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.squeezer.core.InsufficientStorageException
 import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
@@ -189,8 +190,9 @@ class VideoProcessor @Inject constructor(
         // phone video (AAC audio at 128-256 kbps vs several Mbps video), the difference is
         // negligible. For audio-heavy content this could cause unnecessary no-savings
         // transcodes. Future improvement: extract video-only bitrate via MediaExtractor.
-        val targetBitrate = (video.bitrateBps * quality / 100)
-            .coerceIn(VideoTranscoder.MIN_BITRATE_BPS, Int.MAX_VALUE.toLong())
+        val targetBitrate = CompressionEstimator
+            .targetVideoBitrateBps(video.bitrateBps, quality)
+            .coerceAtMost(Int.MAX_VALUE.toLong())
 
         log(TAG) { "Transcoding ${video.path}: ${video.bitrateBps}bps -> ${targetBitrate}bps" }
 

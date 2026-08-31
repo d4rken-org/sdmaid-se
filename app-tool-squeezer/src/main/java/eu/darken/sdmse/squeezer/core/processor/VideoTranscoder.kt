@@ -273,7 +273,6 @@ class VideoTranscoder @Inject constructor(
     }
 
     companion object {
-        internal const val MIN_BITRATE_BPS = 100_000L
         private const val PROGRESS_POLL_INTERVAL_MS = 500L
         private val TAG = logTag("Squeezer", "Video", "Transcoder")
 

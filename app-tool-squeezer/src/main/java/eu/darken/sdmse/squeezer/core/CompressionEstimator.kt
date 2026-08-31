@@ -66,15 +66,22 @@ class CompressionEstimator @Inject constructor() {
         quality: Int,
     ): Long? {
         if (durationMs <= 0 || originalBitrateBps <= 0) return null
-        val targetVideoBitrateBps = (originalBitrateBps * quality / 100)
-            .coerceAtLeast(MIN_VIDEO_BITRATE_BPS)
+        val targetVideoBitrateBps = targetVideoBitrateBps(originalBitrateBps, quality)
         val videoBytes = (targetVideoBitrateBps * durationMs) / 8_000L
         val audioAndMuxingBytes = (AUDIO_BITRATE_BPS * durationMs) / 8_000L
         return (videoBytes + audioAndMuxingBytes).coerceIn(0L, originalSize)
     }
 
     companion object {
-        private const val MIN_VIDEO_BITRATE_BPS = 100_000L
+        const val MIN_VIDEO_BITRATE_BPS = 100_000L
         private const val AUDIO_BITRATE_BPS = 128_000L
+
+        /**
+         * Target video bitrate for a quality setting, shared by the estimate and the transcode so
+         * the two can't drift apart. Callers feeding an Int-typed encoder API cap the result
+         * themselves.
+         */
+        fun targetVideoBitrateBps(originalBitrateBps: Long, quality: Int): Long =
+            (originalBitrateBps * quality / 100).coerceAtLeast(MIN_VIDEO_BITRATE_BPS)
     }
 }
