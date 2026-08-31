@@ -154,12 +154,11 @@ class SchedulerManagerViewModel @Inject constructor(
         schedulerManager.state,
         showBatteryOptimizationHint,
         acsScreenLockedRisk,
-    ) { schedulerState, showBatteryHint, acsRisk ->
+        rootManager.useRoot,
+        adbManager.useAdb,
+    ) { schedulerState, showBatteryHint, acsRisk, useRoot, useAdb ->
         val sortedSchedules = schedulerState.schedules.sortedBy { it.label.lowercase() }
-        // showCommands re-resolved per-emission via the suspend `combine` block; this only
-        // refreshes when schedulerManager.state re-emits, so root/ADB becoming available mid-screen
-        // won't surface until the next emission. Same trade-off as legacy.
-        val showCommands = rootManager.canUseRootNow() || adbManager.canUseAdbNow()
+        val showCommands = useRoot || useAdb
         val acsScreenLockedRisk = if (sortedSchedules.any { it.isEnabled && it.useAppCleaner }) {
             acsRisk
         } else {
