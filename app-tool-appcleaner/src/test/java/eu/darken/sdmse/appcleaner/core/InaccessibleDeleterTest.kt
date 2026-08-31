@@ -24,7 +24,7 @@ import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContain
-import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
+import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.maps.shouldBeEmpty
@@ -856,10 +856,12 @@ class InaccessibleDeleterTest : BaseTest() {
     }
 
     @Test
-    fun `a cache still at its pre-clear size keeps polling until the budget runs out`() = runTest {
+    fun `a cache still at its pre-clear size is dropped from the poll before the budget expires`() = runTest {
         // Two identical reads are not proof of a settled number while the size still equals what it
         // was before the clear: StorageStatsManager lags, so both can be the same stale value.
-        // Accepting that would report 0 freed for a cache that did clear.
+        // Accepting that would report 0 freed for a cache that did clear. A number that has never
+        // budged off the baseline can't satisfy that rule either, so it would occupy every round to
+        // the end of the budget and be reported as 0 regardless.
         val junk = createAppJunk("com.example.unchanged", cacheSize = 100000)
         val snapshot = createSnapshot(junk)
 
@@ -875,13 +877,66 @@ class InaccessibleDeleterTest : BaseTest() {
             isBackground = false,
         )
 
-        // Virtual time, so this costs no wall-clock: the poll ran for the full settle budget and
-        // then gave up instead of hanging.
-        (currentTime - startedAt) shouldBeGreaterThanOrEqual 10_000L
-        logs.any { it.contains("Freed-byte observation timed out") } shouldBe true
+        // Virtual time, so none of this costs wall-clock. The poll gave up on the target instead of
+        // sitting out the whole budget, and the budget is what bounds the pathological case.
+        (currentTime - startedAt) shouldBeLessThan 4_000L
+        logs.any { it.contains("Still at pre-clear size 100000") } shouldBe true
+        logs.any { it.contains("Freed-byte observation timed out") } shouldBe false
         result.freedBytes[junk.identifier] shouldBe 0L
         result.succesful shouldContain junk.identifier
         result.failed.shouldBeEmpty()
+    }
+
+    @Test
+    fun `giving up on a pinned target does not cost the measurement of one still walking down`() = runTest {
+        // Both are polled in the same rounds. Dropping the one that never moves must not shorten the
+        // budget the other one still needs to walk 100000 -> 90000 -> 40000 -> 0.
+        val pinned = createAppJunk("com.example.pinned", cacheSize = 100000)
+        val walking = createAppJunk("com.example.walking", cacheSize = 100000)
+        val snapshot = createSnapshot(pinned, walking)
+
+        scriptCacheSizes(
+            pinned to listOf(100000L),
+            // Pre-ACS re-query, then a stale read, then the number catches up in stages.
+            walking to listOf(100000L, 100000L, 90000L, 40000L, 0L),
+        )
+        acsClears(pinned, walking)
+
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.freedBytes[pinned.identifier] shouldBe 0L
+        result.freedBytes[walking.identifier] shouldBe 100000L
+        result.failed.shouldBeEmpty()
+    }
+
+    @Test
+    fun `a target that moved once is never dropped early, however often it reads its old size`() = runTest {
+        // 100000 -> 90000 -> back to 100000 for five reads -> 0. The number demonstrably moved, so
+        // it is still settling and must keep the full budget. Dropping it on the second baseline
+        // streak would credit it with 10000 freed instead of the 100000 it actually gave up.
+        val junk = createAppJunk("com.example.bouncy", cacheSize = 100000)
+        val snapshot = createSnapshot(junk)
+
+        scriptCacheSizes(
+            junk to listOf(100000L, 90000L, 100000L, 100000L, 100000L, 100000L, 100000L, 0L),
+        )
+        acsClears(junk)
+
+        val logs = collectLogs()
+        val result = deleter.deleteInaccessible(
+            snapshot = snapshot,
+            targetPkgs = null,
+            useAutomation = true,
+            isBackground = false,
+        )
+
+        result.freedBytes[junk.identifier] shouldBe 100000L
+        logs.any { it.contains("giving up on") } shouldBe false
     }
 
     @Test

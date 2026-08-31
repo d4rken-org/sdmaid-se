@@ -98,4 +98,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop before clearing</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. It can help clear some apps\' caches, but may cause apps to misbehave and require manual restart.</string>
     <string name="appcleaner_progress_force_stopping">Force-stopping apps…</string>
+    <string name="appcleaner_progress_checking_freed_space">Checking freed space…</string>
 </resources>
