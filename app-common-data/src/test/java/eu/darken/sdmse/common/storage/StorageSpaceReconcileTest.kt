@@ -9,6 +9,7 @@ class StorageSpaceReconcileTest : BaseTest() {
     // ~1TB device reported as 2TB, free correct. Reproduces realme/ColorOS A15 report.
     private val TB = 1_000_000_000_000L
     private val GB = 1_000_000_000L
+    private val GIB = 1L shl 30
 
     // --- reconcilePrimary ---
 
@@ -99,6 +100,128 @@ class StorageSpaceReconcileTest : BaseTest() {
         )
         result.total shouldBe 2 * TB
         result.usedFileFallback shouldBe false
+    }
+
+    // --- reconcilePrimary: binary-rounded marketing capacity ---
+
+    @Test
+    fun `primary binary-rounded total converts to decimal units`() {
+        // 128 GiB = 137438953472 on a phone sold as 128 GB.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 128 * GIB,
+            statsFree = 60 * GB,
+            fileTotal = 115 * GB,
+            fileFree = 60 * GB,
+        )
+        result.total shouldBe 128 * GB
+        result.free shouldBe 60 * GB
+        result.usedFileFallback shouldBe false
+        result.normalizedStatsTotal shouldBe true
+    }
+
+    @Test
+    fun `primary AOSP-style decimal total is not converted`() {
+        // Feeding the converted value back in must be a no-op.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 128 * GB,
+            statsFree = 60 * GB,
+            fileTotal = 115 * GB,
+            fileFree = 60 * GB,
+        )
+        result.total shouldBe 128 * GB
+        result.normalizedStatsTotal shouldBe false
+    }
+
+    @Test
+    fun `primary non-round total is not converted`() {
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 137_438_953_000L,
+            statsFree = 60 * GB,
+            fileTotal = 115 * GB,
+            fileFree = 60 * GB,
+        )
+        result.total shouldBe 137_438_953_000L
+        result.normalizedStatsTotal shouldBe false
+    }
+
+    @Test
+    fun `primary File fallback total is not converted`() {
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 2048 * GIB,
+            statsFree = 104 * GB,
+            fileTotal = 1024 * GIB,
+            fileFree = 105 * GB,
+        )
+        result.total shouldBe 1024 * GIB
+        result.usedFileFallback shouldBe true
+        result.normalizedStatsTotal shouldBe false
+    }
+
+    @Test
+    fun `primary over-inflated binary total still prefers File`() {
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 2048 * GIB,
+            statsFree = 104 * GB,
+            fileTotal = 1_010 * GB,
+            fileFree = 105 * GB,
+        )
+        result.total shouldBe 1_010 * GB
+        result.usedFileFallback shouldBe true
+        result.normalizedStatsTotal shouldBe false
+    }
+
+    @Test
+    fun `primary conversion is skipped when it would undercut free space`() {
+        // 128 GB candidate < 130 GB free would make used space negative.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 128 * GIB,
+            statsFree = 130 * GB,
+            fileTotal = 120 * GB,
+            fileFree = 118 * GB,
+        )
+        result.total shouldBe 128 * GIB
+        result.normalizedStatsTotal shouldBe false
+    }
+
+    @Test
+    fun `primary conversion is skipped when it would undercut the filesystem total`() {
+        // A retail capacity below the measured filesystem size can't be right.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 128 * GIB,
+            statsFree = 60 * GB,
+            fileTotal = 130 * GB,
+            fileFree = 60 * GB,
+        )
+        result.total shouldBe 128 * GIB
+        result.normalizedStatsTotal shouldBe false
+    }
+
+    @Test
+    fun `primary binary total converts without a filesystem cross-check`() {
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 128 * GIB,
+            statsFree = 60 * GB,
+            fileTotal = 0L,
+            fileFree = 0L,
+        )
+        result.total shouldBe 128 * GB
+        result.normalizedStatsTotal shouldBe true
+    }
+
+    @Test
+    fun `primary over-inflation is judged on the raw total, not the converted one`() {
+        // Raw 64 GiB is >1.5x the 45 GB filesystem total, the 64 GB candidate would not be.
+        // Converting before the comparison would keep stats instead of falling back.
+        val result = StorageSpaceReconcile.reconcilePrimary(
+            statsTotal = 64 * GIB,
+            statsFree = 20 * GB,
+            fileTotal = 45 * GB,
+            fileFree = 20 * GB,
+        )
+        result.total shouldBe 45 * GB
+        result.free shouldBe 20 * GB
+        result.usedFileFallback shouldBe true
+        result.normalizedStatsTotal shouldBe false
     }
 
     // --- reconcileSecondary (behavior-preserving, #2389) ---
