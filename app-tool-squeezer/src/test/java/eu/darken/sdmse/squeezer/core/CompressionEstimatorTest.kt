@@ -140,4 +140,36 @@ class CompressionEstimatorTest : BaseTest() {
         low shouldBeLessThan mid
         mid shouldBeLessThan high
     }
+
+    // --- Shared target bitrate ---
+
+    @Test
+    fun `targetVideoBitrateBps - scales linearly with quality`() {
+        CompressionEstimator.targetVideoBitrateBps(10_000_000L, 100) shouldBe 10_000_000L
+        CompressionEstimator.targetVideoBitrateBps(10_000_000L, 80) shouldBe 8_000_000L
+        CompressionEstimator.targetVideoBitrateBps(10_000_000L, 50) shouldBe 5_000_000L
+    }
+
+    @Test
+    fun `targetVideoBitrateBps - floors at MIN_VIDEO_BITRATE_BPS`() {
+        // 100 kbps source at quality=1 would be 1 kbps without the floor.
+        CompressionEstimator.targetVideoBitrateBps(100_000L, 1) shouldBe
+            CompressionEstimator.MIN_VIDEO_BITRATE_BPS
+        CompressionEstimator.MIN_VIDEO_BITRATE_BPS shouldBe 100_000L
+    }
+
+    @Test
+    fun `estimateVideoSize - matches the shared target bitrate formula`() {
+        val originalSize = 80_000_000L
+        val durationMs = 60_000L
+        val bitrateBps = 10_000_000L
+        val quality = 80
+
+        val estimate = subject.estimateVideoSize(originalSize, durationMs, bitrateBps, quality)!!
+
+        val expectedVideoBytes =
+            CompressionEstimator.targetVideoBitrateBps(bitrateBps, quality) * durationMs / 8_000L
+        val expectedAudioBytes = 128_000L * durationMs / 8_000L
+        estimate shouldBe (expectedVideoBytes + expectedAudioBytes)
+    }
 }
