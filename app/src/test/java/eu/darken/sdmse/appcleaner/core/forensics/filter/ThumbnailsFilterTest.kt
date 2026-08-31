@@ -5,6 +5,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.neg
 import eu.darken.sdmse.appcleaner.core.forensics.pos
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
@@ -194,6 +195,26 @@ class ThumbnailsFilterTest : BaseFilterTest() {
 
         neg("com.viber.voip", PRIVATE_DATA, "com.viber.voip/cache/User photos/.thumbnails/$rngString")
         neg("com.viber.voip", PRIVATE_DATA, "com.viber.voip/Cache/.thumbnails/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `test oneplus gallery blob cache filter`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/blob_cache")
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/blob_cache_v2/imgcache.0")
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/other/imgcache.0")
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/blob_cache/.nomedia")
+        neg(testPkg, PUBLIC_DATA, "$testPkg/files/blob_cache/imgcache.0")
+
+        neg("com.oneplus.gallery", PRIVATE_DATA, "com.oneplus.gallery/files/blob_cache/imgcache.0")
+        neg("com.oneplus.gallery", SDCARD, "com.oneplus.gallery/files/blob_cache/imgcache.0")
+        neg("com.oneplus.gallery", PUBLIC_MEDIA, "com.oneplus.gallery/files/blob_cache/imgcache.0")
+
+        pos("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/blob_cache/imgcache.0")
+        pos("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/blob_cache/$rngString")
+        pos("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/blob_cache/sub/file")
+
         confirm(create())
     }
 
