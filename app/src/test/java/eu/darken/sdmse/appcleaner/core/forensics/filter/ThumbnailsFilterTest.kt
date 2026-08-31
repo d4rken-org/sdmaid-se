@@ -253,4 +253,22 @@ class ThumbnailsFilterTest : BaseFilterTest() {
         }
         confirm(create())
     }
+
+    @Test fun `test oneplus gallery cloud thumb filter`() = runTest {
+        addDefaultNegatives()
+
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/cloud/thumb")
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/cloud/thumbnails/$rngString")
+        neg("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/cloud/thumb/.nomedia")
+        neg(testPkg, PUBLIC_DATA, "com.oneplus.gallery/files/cloud/thumb/${rngString}_360")
+
+        neg("com.oneplus.gallery", PRIVATE_DATA, "com.oneplus.gallery/files/cloud/thumb/${rngString}_360")
+        neg("com.oneplus.gallery", SDCARD, "com.oneplus.gallery/files/cloud/thumb/${rngString}_360")
+        neg("com.oneplus.gallery", PUBLIC_MEDIA, "com.oneplus.gallery/files/cloud/thumb/${rngString}_360")
+
+        pos("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/cloud/thumb/${rngString}_360")
+        pos("com.oneplus.gallery", PUBLIC_DATA, "com.oneplus.gallery/files/cloud/thumb/${rngString}_1440")
+
+        confirm(create())
+    }
 }
