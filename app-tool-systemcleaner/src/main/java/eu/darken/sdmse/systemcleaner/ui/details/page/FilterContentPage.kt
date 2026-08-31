@@ -3,7 +3,6 @@ package eu.darken.sdmse.systemcleaner.ui.details.page
 import android.text.format.Formatter
 import androidx.compose.foundation.background
 import androidx.compose.foundation.combinedClickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
@@ -16,12 +15,7 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.DeleteSweep
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -39,8 +33,7 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.coil.FileListThumbnail
 import eu.darken.sdmse.common.coil.canAttemptFilePreview
-import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmWholeScopeActions
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.selection.SelectionState
@@ -58,6 +51,7 @@ internal fun FilterContentPage(
     filterContent: FilterContent,
     selection: SelectionState<APath>,
     selectionEnabled: Boolean,
+    wholeScopeActionsEnabled: Boolean,
     onDeleteFilterRequest: () -> Unit,
     onExcludeFilterRequest: () -> Unit,
     onFileTap: (FilterContentElement.FileRow) -> Unit,
@@ -73,6 +67,7 @@ internal fun FilterContentPage(
         item(key = "header") {
             FilterContentHeaderCard(
                 filterContent = filterContent,
+                wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                 onDeleteAll = onDeleteFilterRequest,
                 onExclude = onExcludeFilterRequest,
             )
@@ -104,6 +99,7 @@ internal fun FilterContentPage(
 @Composable
 private fun FilterContentHeaderCard(
     filterContent: FilterContent,
+    wholeScopeActionsEnabled: Boolean,
     onDeleteAll: () -> Unit,
     onExclude: () -> Unit,
 ) {
@@ -166,28 +162,11 @@ private fun FilterContentHeaderCard(
             }
 
             Spacer(Modifier.height(16.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilledTonalButton(
-                    onClick = onExclude,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_exclude_action))
-                }
-                Button(
-                    onClick = onDeleteAll,
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.error,
-                        contentColor = MaterialTheme.colorScheme.onError,
-                    ),
-                ) {
-                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            }
+            SdmWholeScopeActions(
+                enabled = wholeScopeActionsEnabled,
+                onExclude = onExclude,
+                onDelete = onDeleteAll,
+            )
         }
     }
 }
@@ -265,6 +244,7 @@ private fun FilterContentPagePreview() {
             filterContent = previewFilterContent(),
             selection = rememberSelectionState(),
             selectionEnabled = true,
+            wholeScopeActionsEnabled = true,
             onDeleteFilterRequest = {},
             onExcludeFilterRequest = {},
             onFileTap = {},
