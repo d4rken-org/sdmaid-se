@@ -105,6 +105,10 @@ internal fun AppJunkPage(
                     )
                 }
 
+                AppJunkElement.ExclusionLimited -> item(key = "exclusion-limited", contentType = "exclusion-limited") {
+                    AppJunkExclusionLimitedCard()
+                }
+
                 is AppJunkElement.Inaccessible -> item(key = "inaccessible", contentType = "inaccessible") {
                     AppJunkInaccessibleRow(
                         cache = element.cache,
@@ -252,6 +256,29 @@ private fun AppJunkPageHeaderCard(
                 enabled = wholeScopeActionsEnabled,
                 onExclude = onExcludeJunk,
                 onDelete = onDeleteJunk,
+                showExclude = !junk.isExclusionLimited,
+            )
+        }
+    }
+}
+
+@Composable
+private fun AppJunkExclusionLimitedCard() {
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 16.dp, vertical = 8.dp),
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = stringResource(R.string.appcleaner_exclusion_limited_title),
+                style = MaterialTheme.typography.titleSmall,
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                text = stringResource(R.string.appcleaner_exclusion_limited_body),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
         }
     }
@@ -468,5 +495,13 @@ private fun AppJunkPagePreview() {
             onDeleteFile = { _, _ -> },
             onToggleCollapse = {},
         )
+    }
+}
+
+@Preview2
+@Composable
+private fun AppJunkExclusionLimitedCardPreview() {
+    PreviewWrapper {
+        AppJunkExclusionLimitedCard()
     }
 }

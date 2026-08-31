@@ -33,19 +33,22 @@ fun SdmWholeScopeActions(
     enabled: Boolean,
     onExclude: () -> Unit,
     onDelete: () -> Unit,
+    showExclude: Boolean = true,
 ) {
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
-        FilledTonalButton(
-            onClick = onExclude,
-            modifier = Modifier.weight(1f),
-            enabled = enabled,
-        ) {
-            Icon(SdmIcons.ShieldAdd, contentDescription = null)
-            Spacer(Modifier.width(8.dp))
-            Text(stringResource(CommonR.string.general_exclude_action))
+        if (showExclude) {
+            FilledTonalButton(
+                onClick = onExclude,
+                modifier = Modifier.weight(1f),
+                enabled = enabled,
+            ) {
+                Icon(SdmIcons.ShieldAdd, contentDescription = null)
+                Spacer(Modifier.width(8.dp))
+                Text(stringResource(CommonR.string.general_exclude_action))
+            }
         }
         Button(
             onClick = onDelete,
@@ -71,6 +74,19 @@ private fun SdmWholeScopeActionsPreview() {
             enabled = true,
             onExclude = {},
             onDelete = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SdmWholeScopeActionsWithoutExcludePreview() {
+    PreviewWrapper {
+        SdmWholeScopeActions(
+            enabled = true,
+            onExclude = {},
+            onDelete = {},
+            showExclude = false,
         )
     }
 }

@@ -8,6 +8,8 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 internal sealed interface AppJunkElement {
     data object Header : AppJunkElement
 
+    data object ExclusionLimited : AppJunkElement
+
     data class Inaccessible(
         val cache: InaccessibleCache,
     ) : AppJunkElement
@@ -31,6 +33,8 @@ internal fun buildAppJunkElements(
 ): List<AppJunkElement> {
     val out = mutableListOf<AppJunkElement>()
     out.add(AppJunkElement.Header)
+
+    if (junk.isExclusionLimited) out.add(AppJunkElement.ExclusionLimited)
 
     junk.inaccessibleCache?.let { out.add(AppJunkElement.Inaccessible(it)) }
 
