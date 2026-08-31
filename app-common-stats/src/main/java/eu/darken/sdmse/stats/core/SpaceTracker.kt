@@ -135,6 +135,11 @@ class SpaceTracker @Inject constructor(
                         "Primary StorageStats total=$statsTotal implausible vs File=$fileTotal; using File"
                     }
                 }
+                if (reconciled.normalizedStatsTotal) {
+                    log(TAG, WARN) {
+                        "Primary StorageStats total=$statsTotal is binary-rounded; using ${reconciled.total}"
+                    }
+                }
                 reconciled.total to reconciled.free
             } catch (e: Exception) {
                 log(TAG, WARN) { "StorageStatsManager failed for primary storage, using File API: ${e.asLog()}" }
