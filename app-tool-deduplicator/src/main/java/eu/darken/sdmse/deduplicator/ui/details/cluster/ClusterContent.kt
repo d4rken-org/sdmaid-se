@@ -30,11 +30,8 @@ import androidx.compose.material.icons.twotone.ExpandMore
 import androidx.compose.material.icons.twotone.Folder
 import androidx.compose.material.icons.twotone.GraphicEq
 import androidx.compose.material.icons.twotone.Visibility
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.FilledTonalButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -43,9 +40,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -55,7 +54,7 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.SdmIcons
-import eu.darken.sdmse.common.compose.icons.ShieldAdd
+import eu.darken.sdmse.common.compose.layout.SdmWholeScopeActions
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.selection.SelectionState
@@ -74,6 +73,13 @@ import eu.darken.sdmse.deduplicator.ui.preview.previewMediaGroup
 import eu.darken.sdmse.deduplicator.ui.preview.previewPHashGroup
 import kotlin.math.roundToLong
 
+/** Material's disabled-content alpha, applied by hand where explicit colours bypass the theme. */
+private const val DisabledContentAlpha = 0.38f
+
+internal object ClusterContentTags {
+    const val DIRECTORY_COLLAPSE = "cluster_directory_collapse"
+}
+
 @Composable
 internal fun ClusterContent(
     cluster: Duplicate.Cluster,
@@ -81,6 +87,7 @@ internal fun ClusterContent(
     collapsed: Set<DirectoryGroup.Id>,
     selection: SelectionState<Duplicate.Id>,
     selectionEnabled: Boolean,
+    wholeScopeActionsEnabled: Boolean,
     onSelectionToggle: (Duplicate.Id) -> Unit,
     onSelectionLongPress: (Duplicate.Id) -> Unit,
     onCollapseToggle: (DirectoryGroup.Id) -> Unit,
@@ -109,6 +116,7 @@ internal fun ClusterContent(
             when (element) {
                 is ClusterElement.ClusterHeader -> ClusterHeaderRow(
                     cluster = element.cluster,
+                    wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                     onDelete = onClusterDelete,
                     onExclude = onClusterExclude,
                     tourModifier = if (applyClusterHeaderTourTarget) {
@@ -121,6 +129,7 @@ internal fun ClusterContent(
                 is ClusterElement.DirectoryHeader -> DirectoryHeaderRow(
                     group = element.group,
                     isCollapsed = element.isCollapsed,
+                    wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                     onCollapseToggle = { onCollapseToggle(element.group.identifier) },
                     onDeleteAll = { onDirectoryDeleteAll(element.group) },
                 )
@@ -128,6 +137,7 @@ internal fun ClusterContent(
                 is ClusterElement.GroupHeader -> GroupHeaderCard(
                     group = element.group,
                     willBeDeleted = element.willBeDeleted,
+                    wholeScopeActionsEnabled = wholeScopeActionsEnabled,
                     onDelete = { onGroupDelete(element.group.identifier) },
                     onView = { onGroupView(element.group, 0) },
                 )
@@ -197,6 +207,7 @@ internal fun ClusterContent(
 @Composable
 private fun ClusterHeaderRow(
     cluster: Duplicate.Cluster,
+    wholeScopeActionsEnabled: Boolean,
     onDelete: () -> Unit,
     onExclude: () -> Unit,
     tourModifier: Modifier = Modifier,
@@ -262,28 +273,11 @@ private fun ClusterHeaderRow(
                 }
             }
             Spacer(Modifier.height(16.dp))
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                FilledTonalButton(
-                    onClick = onExclude,
-                    modifier = Modifier.weight(1f),
-                ) {
-                    Icon(SdmIcons.ShieldAdd, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_exclude_action))
-                }
-                Button(
-                    onClick = onDelete,
-                    modifier = Modifier.weight(1f),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = MaterialTheme.colorScheme.error,
-                        contentColor = MaterialTheme.colorScheme.onError,
-                    ),
-                ) {
-                    Icon(Icons.TwoTone.DeleteSweep, contentDescription = null)
-                    Spacer(Modifier.width(8.dp))
-                    Text(stringResource(CommonR.string.general_delete_action))
-                }
-            }
+            SdmWholeScopeActions(
+                enabled = wholeScopeActionsEnabled,
+                onExclude = onExclude,
+                onDelete = onDelete,
+            )
         }
     }
 }
@@ -292,15 +286,20 @@ private fun ClusterHeaderRow(
 private fun DirectoryHeaderRow(
     group: DirectoryGroup,
     isCollapsed: Boolean,
+    wholeScopeActionsEnabled: Boolean,
     onCollapseToggle: () -> Unit,
     onDeleteAll: () -> Unit,
 ) {
     val context = LocalContext.current
+    // The row sets a custom container colour and explicit content colours, neither of which
+    // Card(enabled = false) can dim. The collapse toggle stays outside the dimmed scope.
+    val contentAlpha = if (wholeScopeActionsEnabled) 1f else DisabledContentAlpha
     Card(
         onClick = onDeleteAll,
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 8.dp, vertical = 2.dp),
+        enabled = wholeScopeActionsEnabled,
         colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainerHigh),
     ) {
         Row(
@@ -312,11 +311,17 @@ private fun DirectoryHeaderRow(
             Icon(
                 imageVector = Icons.TwoTone.Folder,
                 contentDescription = null,
-                modifier = Modifier.size(24.dp),
+                modifier = Modifier
+                    .size(24.dp)
+                    .alpha(contentAlpha),
                 tint = MaterialTheme.colorScheme.onSurface,
             )
             Spacer(Modifier.width(12.dp))
-            Column(modifier = Modifier.weight(1f)) {
+            Column(
+                modifier = Modifier
+                    .weight(1f)
+                    .alpha(contentAlpha),
+            ) {
                 Text(
                     text = group.parentSegments.joinSegments(),
                     style = MaterialTheme.typography.bodyMedium,
@@ -330,7 +335,10 @@ private fun DirectoryHeaderRow(
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
             }
-            IconButton(onClick = onCollapseToggle) {
+            IconButton(
+                onClick = onCollapseToggle,
+                modifier = Modifier.testTag(ClusterContentTags.DIRECTORY_COLLAPSE),
+            ) {
                 Icon(
                     imageVector = if (isCollapsed) Icons.TwoTone.ExpandMore else Icons.TwoTone.ExpandLess,
                     contentDescription = null,
@@ -344,6 +352,7 @@ private fun DirectoryHeaderRow(
 private fun GroupHeaderCard(
     group: Duplicate.Group,
     willBeDeleted: Boolean,
+    wholeScopeActionsEnabled: Boolean,
     onDelete: () -> Unit,
     onView: () -> Unit,
 ) {
@@ -420,11 +429,20 @@ private fun GroupHeaderCard(
                     )
                     Spacer(Modifier.width(4.dp))
                 }
-                IconButton(onClick = onDelete) {
+                IconButton(
+                    onClick = onDelete,
+                    enabled = wholeScopeActionsEnabled,
+                ) {
                     Icon(
                         imageVector = Icons.TwoTone.Delete,
                         contentDescription = stringResource(CommonR.string.general_delete_action),
-                        tint = MaterialTheme.colorScheme.error,
+                        // An explicit tint bypasses LocalContentColor, the only channel a disabled
+                        // IconButton uses to signal its state.
+                        tint = if (wholeScopeActionsEnabled) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.onSurface.copy(alpha = DisabledContentAlpha)
+                        },
                     )
                 }
             }
@@ -617,6 +635,7 @@ private fun ClusterContentChecksumPreview() {
             collapsed = emptySet(),
             selection = SelectionState(),
             selectionEnabled = true,
+            wholeScopeActionsEnabled = true,
             onSelectionToggle = {},
             onSelectionLongPress = {},
             onCollapseToggle = {},
@@ -641,6 +660,7 @@ private fun ClusterContentImagePreview() {
             collapsed = emptySet(),
             selection = SelectionState(),
             selectionEnabled = true,
+            wholeScopeActionsEnabled = true,
             onSelectionToggle = {},
             onSelectionLongPress = {},
             onCollapseToggle = {},
@@ -665,6 +685,7 @@ private fun ClusterContentDirectoryPreview() {
             collapsed = emptySet(),
             selection = SelectionState(),
             selectionEnabled = true,
+            wholeScopeActionsEnabled = true,
             onSelectionToggle = {},
             onSelectionLongPress = {},
             onCollapseToggle = {},
