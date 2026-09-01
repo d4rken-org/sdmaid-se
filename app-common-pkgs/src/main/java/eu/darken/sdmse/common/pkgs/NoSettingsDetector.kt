@@ -34,6 +34,8 @@ class NoSettingsDetector @Inject constructor(
     }
 
     suspend fun getUnreachableReason(pkg: Installed): Reason? = when {
+        // Not installed for this user: there is no settings page to open, and no way to get one
+        pkg.isHidden -> Reason.NO_SETTINGS_PAGE
         pkg.hasNoSettings -> Reason.NO_SETTINGS_PAGE
         // On One UI (Samsung) the settings page of disabled apps can't be opened
         !pkg.isEnabled && effectiveRomType() == RomType.ONEUI -> Reason.DISABLED_APP
