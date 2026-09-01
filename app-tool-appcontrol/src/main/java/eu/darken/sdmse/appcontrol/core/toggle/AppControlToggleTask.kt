@@ -21,17 +21,35 @@ data class AppControlToggleTask(
         private val enabled: Set<InstallId>,
         private val disabled: Set<InstallId>,
         private val failed: Set<InstallId>,
+        private val skipped: Set<InstallId> = emptySet(),
     ) : AppControlTask.Result, ReportDetails.AffectedPkgs {
 
         override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
             get() = enabled.associate { it.pkgId to AffectedPkg.Action.ENABLED } + disabled.associate { it.pkgId to AffectedPkg.Action.DISABLED }
 
+        // The list screen's snackbar only renders primaryInfo, so every outcome has to be in here
         override val primaryInfo: CaString
             get() = caString {
-                getQuantityString2(
-                    eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_message_x,
-                    enabled.size + disabled.size
+                val toggled = enabled.size + disabled.size
+                val clauses = listOfNotNull(
+                    toggled.takeIf { it > 0 }?.let {
+                        getQuantityString2(eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_message_x, it)
+                    },
+                    failed.size.takeIf { it > 0 }?.let {
+                        getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_failed, it)
+                    },
+                    skipped.size.takeIf { it > 0 }?.let {
+                        getQuantityString2(eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_skipped_x, it)
+                    },
                 )
+                when {
+                    clauses.isEmpty() -> getQuantityString2(
+                        eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_message_x,
+                        toggled,
+                    )
+
+                    else -> clauses.joinToString(", ")
+                }
             }
 
         override val secondaryInfo: CaString?

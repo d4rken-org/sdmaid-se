@@ -189,11 +189,30 @@ class AppControl @Inject constructor(
         val enabled = mutableSetOf<InstallId>()
         val disabled = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
-        updateProgressCount(Progress.Count.Percent(task.targets.size))
+        val skipped = mutableSetOf<InstallId>()
+
+        val (togglable, untogglable) = task.targets
+            .map { it to snapshot.apps.single { app -> app.installId == it } }
+            .partition { (_, target) -> target.canBeToggled }
+
+        untogglable.forEach { (targetId, target) ->
+            log(TAG, INFO) { "Skipping $targetId, it can't be toggled: ${target.pkg}" }
+            skipped.add(targetId)
+        }
+
+        if (togglable.isEmpty()) {
+            log(TAG, INFO) { "Nothing to toggle, ${skipped.size} targets were skipped" }
+            return AppControlToggleTask.Result(enabled, disabled, failed, skipped)
+        }
+
+        updateProgressCount(Progress.Count.Percent(togglable.size))
+
+        // Which state each target was asked to end up in, so the post-refresh data can be checked
+        // against it instead of trusting that `changePackageState` not throwing means it worked.
+        val intendedStates = mutableMapOf<InstallId, Boolean>()
 
         componentToggler.useRes {
-            task.targets.forEach { targetId ->
-                val target = snapshot.apps.single { it.installId == targetId }
+            togglable.forEach { (targetId, target) ->
                 val oldState = target.pkg.isEnabled
                 val newState = !oldState
                 log(TAG) { "Toggeling $targetId enabled state $oldState -> $newState" }
@@ -207,6 +226,7 @@ class AppControl @Inject constructor(
                 try {
                     componentToggler.changePackageState(target.installId, newState)
                     if (newState) enabled.add(targetId) else disabled.add(targetId)
+                    intendedStates[targetId] = newState
                     log(TAG, INFO) { "State successfully changed to $newState" }
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to change state for $targetId: ${e.asLog()}" }
@@ -223,24 +243,47 @@ class AppControl @Inject constructor(
 
         appScan.refresh()
 
+        val affectedPkgs = (enabled.map { it.pkgId } + disabled.map { it.pkgId } + failed.map { it.pkgId }).toSet()
+        val updatedPkgs = affectedPkgs.map {
+            appScan.app(
+                pkgId = it,
+                user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                includeSize = snapshot.hasInfoSize,
+                includeActive = snapshot.hasInfoActive,
+                includeUsage = snapshot.hasInfoScreenTime,
+            )
+        }.flatten()
+
+        intendedStates.forEach { (targetId, intended) ->
+            val fresh = updatedPkgs.firstOrNull { it.installId == targetId }
+            val verified = when {
+                fresh == null -> {
+                    log(TAG, WARN) { "Can't verify $targetId, it's gone from the refreshed data" }
+                    false
+                }
+
+                fresh.pkg.isEnabled != intended -> {
+                    log(TAG, WARN) { "$targetId reports enabled=${fresh.pkg.isEnabled}, expected $intended" }
+                    false
+                }
+
+                else -> true
+            }
+            if (!verified) {
+                enabled.remove(targetId)
+                disabled.remove(targetId)
+                failed.add(targetId)
+            }
+        }
+
         internalData.value = snapshot.copy(
             apps = run {
-                val affectedPkgs = enabled.map { it.pkgId } + disabled.map { it.pkgId } + failed.map { it.pkgId }
                 val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
-                val updatedPkgs = affectedPkgs.map {
-                    appScan.app(
-                        pkgId = it,
-                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
-                        includeSize = snapshot.hasInfoSize,
-                        includeActive = snapshot.hasInfoActive,
-                        includeUsage = snapshot.hasInfoScreenTime,
-                    )
-                }.flatten()
-                cleanedSnapshot + updatedPkgs
+                (cleanedSnapshot + updatedPkgs).distinctBy { it.installId }
             }
         )
 
-        return AppControlToggleTask.Result(enabled, disabled, failed)
+        return AppControlToggleTask.Result(enabled, disabled, failed, skipped)
     }
 
     private suspend fun performUninstall(task: UninstallTask): UninstallTask.Result {

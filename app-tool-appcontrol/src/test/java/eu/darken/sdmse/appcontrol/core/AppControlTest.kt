@@ -1,16 +1,21 @@
 package eu.darken.sdmse.appcontrol.core
 
+import android.content.Context
+import android.content.res.Resources
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
 import eu.darken.sdmse.appcontrol.core.restore.Restorer
+import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.root.RootManager
@@ -19,10 +24,12 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
+import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coJustRun
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
@@ -77,6 +84,7 @@ class AppControlTest : BaseTest() {
     private class Setup(
         val appControl: AppControl,
         val appScan: AppScan,
+        val componentToggler: ComponentToggler,
     )
 
     private fun setupAppControl(
@@ -129,7 +137,10 @@ class AppControlTest : BaseTest() {
             coEvery { currentUser() } returns UserProfile2(handle = systemUserHandle)
         }
 
-        val componentToggler = mockk<ComponentToggler>(relaxed = true)
+        val componentToggler = mockk<ComponentToggler>(relaxed = true).apply {
+            // A relaxed mock would swallow the lambda, and with it the whole toggle loop.
+            coEvery { useRes<Unit>(any()) } coAnswers { firstArg<suspend (Any) -> Unit>().invoke(Unit) }
+        }
         val forceStopper = mockk<ForceStopper>(relaxed = true)
         val uninstaller = mockk<Uninstaller>(relaxed = true)
         val archiver = mockk<Archiver>(relaxed = true)
@@ -156,7 +167,7 @@ class AppControlTest : BaseTest() {
             automationManager = automationSubmitter,
             appScan = appScan,
         )
-        return Setup(appControl = appControl, appScan = appScan)
+        return Setup(appControl = appControl, appScan = appScan, componentToggler = componentToggler)
     }
 
     private fun buildScanTask(
@@ -381,6 +392,222 @@ class AppControlTest : BaseTest() {
         exportResult.success.map { it.installId } shouldBe listOf(first.installId, third.installId)
         // The third export starts at 2, i.e. the missing target advanced the counter like any other.
         progressAtSave shouldBe listOf(0L, 2L)
+    }
+
+    // ─────────────────────────── performToggle ───────────────────────────
+
+    private fun toggleApp(
+        pkgName: String,
+        enabled: Boolean,
+        canBeToggled: Boolean,
+        user: UserHandle2 = systemUserHandle,
+    ): AppInfo {
+        val pkgId = Pkg.Id(pkgName)
+        val pkg = mockk<Installed>(relaxed = true, moreInterfaces = arrayOf(InstallDetails::class)).apply {
+            every { id } returns pkgId
+            every { packageName } returns pkgName
+            every { label } returns null
+            every { userHandle } returns user
+            every { installId } returns InstallId(pkgId, user)
+            every { (this@apply as InstallDetails).isEnabled } returns enabled
+        }
+        return AppInfo(
+            pkg = pkg,
+            isActive = null,
+            sizes = null,
+            usage = null,
+            userProfile = null,
+            canBeToggled = canBeToggled,
+            canBeStopped = false,
+            canBeExported = false,
+            canBeDeleted = false,
+            canBeArchived = false,
+            canBeRestored = false,
+        )
+    }
+
+    /** Answers the post-refresh re-query with whatever [fresh] holds for the requested pkgId. */
+    private fun Setup.stubReQuery(vararg fresh: AppInfo) {
+        coEvery { appScan.app(any(), any(), any(), any(), any()) } answers {
+            fresh.filter { it.id == firstArg<Pkg.Id>() }.toSet()
+        }
+    }
+
+    /**
+     * Resolves a [CaString] without Robolectric by faking the plural lookup that
+     * `Context.getQuantityString2` performs, tagging each clause with its resource.
+     */
+    private fun CaString.resolve(): String {
+        val res = mockk<Resources>().apply {
+            every { getQuantityString(any(), any(), *anyVararg()) } answers {
+                val quantity = secondArg<Int>()
+                val name = when (firstArg<Int>()) {
+                    eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_message_x -> "toggled"
+                    eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_skipped_x -> "skipped"
+                    eu.darken.sdmse.common.R.plurals.result_x_failed -> "failed"
+                    else -> "unknown"
+                }
+                "$quantity $name"
+            }
+        }
+        return get(mockk<Context>().apply { every { resources } returns res })
+    }
+
+    @Test
+    fun `a target that cannot be toggled is skipped instead of dispatched`() = runTest2 {
+        // The reported symptom: a package that is not installed for this user was submitted to
+        // changePackageState anyway and then reported as successfully enabled.
+        val hidden = toggleApp("eu.thlab.hidden", enabled = true, canBeToggled = false)
+        val setup = setupAppControl(appsReturnedByScan = setOf(hidden))
+        setup.appControl.submit(buildScanTask())
+
+        val result = setup.appControl.submit(AppControlToggleTask(targets = setOf(hidden.installId)))
+
+        coVerify(exactly = 0) { setup.componentToggler.changePackageState(any(), any()) }
+        result shouldBe AppControlToggleTask.Result(
+            enabled = emptySet(),
+            disabled = emptySet(),
+            failed = emptySet(),
+            skipped = setOf(hidden.installId),
+        )
+    }
+
+    @Test
+    fun `an all-skipped task returns without refreshing the package cache`() = runTest2 {
+        // Nothing changed, so a full package repository rebuild is wasted work, and a failure
+        // inside it would throw away the skip report.
+        val hidden = toggleApp("eu.thlab.hidden", enabled = true, canBeToggled = false)
+        val setup = setupAppControl(appsReturnedByScan = setOf(hidden))
+        setup.appControl.submit(buildScanTask())
+
+        setup.appControl.submit(AppControlToggleTask(targets = setOf(hidden.installId)))
+
+        coVerify(exactly = 0) { setup.appScan.refresh() }
+    }
+
+    @Test
+    fun `a mixed selection dispatches only the togglable target`() = runTest2 {
+        val hidden = toggleApp("eu.thlab.hidden", enabled = true, canBeToggled = false)
+        val normal = toggleApp("eu.thlab.normal", enabled = true, canBeToggled = true)
+        // Hoisted: reading them inside a verify block would register as calls to verify.
+        val hiddenId = hidden.installId
+        val normalId = normal.installId
+        val setup = setupAppControl(appsReturnedByScan = setOf(hidden, normal))
+        setup.appControl.submit(buildScanTask())
+        setup.stubReQuery(toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true))
+
+        val result = setup.appControl.submit(AppControlToggleTask(targets = setOf(hiddenId, normalId)))
+
+        coVerify(exactly = 1) { setup.componentToggler.changePackageState(normalId, false) }
+        coVerify(exactly = 0) { setup.componentToggler.changePackageState(hiddenId, any()) }
+        result shouldBe AppControlToggleTask.Result(
+            enabled = emptySet(),
+            disabled = setOf(normalId),
+            failed = emptySet(),
+            skipped = setOf(hiddenId),
+        )
+    }
+
+    @Test
+    fun `a toggle the refreshed data confirms is reported as toggled`() = runTest2 {
+        val target = toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true)
+        val setup = setupAppControl(appsReturnedByScan = setOf(target))
+        setup.appControl.submit(buildScanTask())
+        setup.stubReQuery(toggleApp("eu.thlab.normal", enabled = true, canBeToggled = true))
+
+        val result = setup.appControl.submit(AppControlToggleTask(targets = setOf(target.installId)))
+
+        result shouldBe AppControlToggleTask.Result(
+            enabled = setOf(target.installId),
+            disabled = emptySet(),
+            failed = emptySet(),
+            skipped = emptySet(),
+        )
+    }
+
+    @Test
+    fun `a toggle the refreshed data contradicts is demoted to failed`() = runTest2 {
+        // changePackageState not throwing is not evidence that the state actually changed.
+        val target = toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true)
+        val setup = setupAppControl(appsReturnedByScan = setOf(target))
+        setup.appControl.submit(buildScanTask())
+        setup.stubReQuery(toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true))
+
+        val result = setup.appControl.submit(AppControlToggleTask(targets = setOf(target.installId)))
+
+        result shouldBe AppControlToggleTask.Result(
+            enabled = emptySet(),
+            disabled = emptySet(),
+            failed = setOf(target.installId),
+            skipped = emptySet(),
+        )
+    }
+
+    @Test
+    fun `a toggle that cannot be verified at all is failed too`() = runTest2 {
+        val target = toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true)
+        val setup = setupAppControl(appsReturnedByScan = setOf(target))
+        setup.appControl.submit(buildScanTask())
+        setup.stubReQuery()
+
+        val result = setup.appControl.submit(AppControlToggleTask(targets = setOf(target.installId)))
+
+        result shouldBe AppControlToggleTask.Result(
+            enabled = emptySet(),
+            disabled = emptySet(),
+            failed = setOf(target.installId),
+            skipped = emptySet(),
+        )
+    }
+
+    @Test
+    fun `two users of one package do not produce duplicate entries`() = runTest2 {
+        // The re-query is per pkgId and returns every user, so an undeduplicated rebuild lists each
+        // user twice - after which the next toggle's single{} lookup throws.
+        val otherUserHandle = UserHandle2(handleId = 10)
+        val first = toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true)
+        val second = toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true, user = otherUserHandle)
+        val setup = setupAppControl(useRoot = true, appsReturnedByScan = setOf(first, second))
+        setup.appControl.submit(buildScanTask(includeMultiUser = true))
+        setup.stubReQuery(
+            toggleApp("eu.thlab.normal", enabled = true, canBeToggled = true),
+            toggleApp("eu.thlab.normal", enabled = true, canBeToggled = true, user = otherUserHandle),
+        )
+
+        setup.appControl.submit(
+            AppControlToggleTask(targets = setOf(first.installId, second.installId)),
+        )
+
+        val apps = setup.appControl.dataFromState()!!.apps
+        apps.map { it.installId } shouldContainExactlyInAnyOrder listOf(first.installId, second.installId)
+    }
+
+    @Test
+    fun `primaryInfo carries the skipped count`() = runTest2 {
+        val hidden = toggleApp("eu.thlab.hidden", enabled = true, canBeToggled = false)
+        val setup = setupAppControl(appsReturnedByScan = setOf(hidden))
+        setup.appControl.submit(buildScanTask())
+
+        val result = setup.appControl.submit(AppControlToggleTask(targets = setOf(hidden.installId)))
+
+        result.primaryInfo.resolve() shouldBe "1 skipped"
+    }
+
+    @Test
+    fun `primaryInfo carries every outcome of a mixed selection`() = runTest2 {
+        // The list screen's snackbar renders primaryInfo alone, so a skip that only lands in
+        // secondaryInfo is invisible there.
+        val hidden = toggleApp("eu.thlab.hidden", enabled = true, canBeToggled = false)
+        val normal = toggleApp("eu.thlab.normal", enabled = true, canBeToggled = true)
+        val setup = setupAppControl(appsReturnedByScan = setOf(hidden, normal))
+        setup.appControl.submit(buildScanTask())
+        setup.stubReQuery(toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true))
+
+        val result = setup.appControl.submit(
+            AppControlToggleTask(targets = setOf(hidden.installId, normal.installId)),
+        )
+
+        result.primaryInfo.resolve() shouldBe "1 toggled, 1 skipped"
     }
 
     // ─────────────────────────── missingSetup derivation ───────────────────────────
