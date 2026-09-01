@@ -4,6 +4,7 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.SharedLibraryInfo
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
 import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.container.LibraryPkg
@@ -67,8 +68,22 @@ class PkgExtensionsTest : BaseTest() {
         )
     }
 
-    private fun hiddenPkg() = HiddenPkg(
-        packageInfo = packageInfo(packageName = "test.hidden"),
+    private fun hiddenPkg(
+        enabled: Boolean = true,
+        systemFlag: Boolean = false,
+        apkPath: APath? = null,
+    ) = HiddenPkg(
+        packageInfo = packageInfo(
+            packageName = "test.hidden",
+            enabled = enabled,
+            flags = if (systemFlag) ApplicationInfo.FLAG_SYSTEM else 0,
+        ),
+        userHandle = userHandle,
+        apkPath = apkPath,
+    )
+
+    private fun hiddenPkgWithoutAppInfo() = HiddenPkg(
+        packageInfo = PackageInfo().apply { packageName = "test.hidden" },
         userHandle = userHandle,
     )
 
@@ -99,10 +114,42 @@ class PkgExtensionsTest : BaseTest() {
         libraryPkg(enabled = false).isEnabled shouldBe false
     }
 
-    @Test fun `HiddenPkg is not InstallDetails and reports isEnabled=false`() {
-        // HiddenPkg intentionally does not implement InstallDetails, so the
-        // extension short-circuits to false. Preserves the pre-existing behavior.
-        hiddenPkg().isEnabled shouldBe false
+    @Test fun `HiddenPkg reports the per-user enabled state`() {
+        hiddenPkg(enabled = true).isEnabled shouldBe true
+        hiddenPkg(enabled = false).isEnabled shouldBe false
+    }
+
+    @Test fun `HiddenPkg reports isSystemApp from FLAG_SYSTEM`() {
+        hiddenPkg(systemFlag = true).isSystemApp shouldBe true
+        hiddenPkg(systemFlag = false).isSystemApp shouldBe false
+    }
+
+    @Test fun `HiddenPkg falls back to the partition when FLAG_SYSTEM is absent`() {
+        // The archive-parsed construction path has no FLAG_SYSTEM, so the APK location decides.
+        hiddenPkg(
+            systemFlag = false,
+            apkPath = LocalPath.build("/system/priv-app/Test/Test.apk"),
+        ).isSystemApp shouldBe true
+        hiddenPkg(
+            systemFlag = false,
+            apkPath = LocalPath.build("/data/app/test.hidden-1/base.apk"),
+        ).isSystemApp shouldBe false
+    }
+
+    @Test fun `HiddenPkg without applicationInfo keeps the InstallDetails defaults`() {
+        // Not claiming to be disabled and not claiming to be a user app is the safe read here.
+        hiddenPkgWithoutAppInfo().isEnabled shouldBe true
+        hiddenPkgWithoutAppInfo().isSystemApp shouldBe true
+    }
+
+    @Test fun `HiddenPkg reports isHidden=true and isInstalled=false`() {
+        hiddenPkg().isHidden shouldBe true
+        hiddenPkg().isInstalled shouldBe false
+    }
+
+    @Test fun `NormalPkg reports isHidden=false and isInstalled=true`() {
+        normalPkg(enabled = true).isHidden shouldBe false
+        normalPkg(enabled = true).isInstalled shouldBe true
     }
 
     @Test fun `ArchivedPkg hardcodes isEnabled=false`() {

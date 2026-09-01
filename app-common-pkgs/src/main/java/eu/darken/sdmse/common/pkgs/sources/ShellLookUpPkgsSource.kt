@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs.sources
 
+import android.content.pm.PackageManager
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -18,6 +19,7 @@ import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
@@ -97,6 +99,19 @@ class ShellLookUpPkgsSource @Inject constructor(
                     return@mapNotNull null
                 }
 
+                val stateBacked = pkgOps.queryPkg(
+                    pkgName.toPkgId(),
+                    PackageManager.MATCH_UNINSTALLED_PACKAGES.toLong(),
+                    user.handle,
+                )
+                if (stateBacked != null) {
+                    log(TAG, VERBOSE) { "State backed info for $pkgName: $stateBacked" }
+                    return@mapNotNull HiddenPkg(
+                        packageInfo = stateBacked,
+                        userHandle = user.handle,
+                    )
+                }
+
                 val sourcePath = LocalPath.build(rawPath)
                 log(TAG, VERBOSE) { "Reading archive $sourcePath" }
                 val apkInfo = pkgOps.viewArchive(sourcePath)
@@ -114,6 +129,7 @@ class ShellLookUpPkgsSource @Inject constructor(
                 HiddenPkg(
                     packageInfo = apkInfo.packageInfo,
                     userHandle = user.handle,
+                    apkPath = sourcePath,
                 )
             }
     }

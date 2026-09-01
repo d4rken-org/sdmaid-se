@@ -150,6 +150,7 @@ class NotInstalledPkgsSource @Inject constructor(
                 pkgInfo.isHidden(handle) -> HiddenPkg(
                     packageInfo = pkgInfo,
                     userHandle = handle,
+                    installerInfo = installerData[pkgInfo] ?: InstallerInfo(),
                 ).also { log(TAG, VERBOSE) { "HiddenPkg: $it" } }
 
                 else -> null
