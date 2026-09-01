@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.isDebuggable
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.isHidden
 import eu.darken.sdmse.common.pkgs.isLibrary
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUninstalled
@@ -40,12 +41,14 @@ fun AppInfoTagsRow(
     val debug = appInfo.pkg.isDebuggable
     val archived = appInfo.pkg.isArchived
     val uninstalled = appInfo.pkg.isUninstalled
+    val notInstalled = appInfo.pkg.isHidden
     val disabled = !appInfo.pkg.isEnabled
     val apkBase = appInfo.exportType == AppExportType.APK
     val apkBundle = appInfo.exportType == AppExportType.BUNDLE
 
     val anyVisible =
-        active || library || system || debug || archived || uninstalled || disabled || apkBase || apkBundle
+        active || library || system || debug || archived || uninstalled || notInstalled || disabled ||
+                apkBase || apkBundle
     if (!anyVisible) return
 
     FlowRow(
@@ -77,6 +80,13 @@ fun AppInfoTagsRow(
         if (uninstalled) {
             Tag(
                 text = stringResource(R.string.appcontrol_tag_uninstalled),
+                background = MaterialTheme.colorScheme.tertiaryContainer,
+                contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+            )
+        }
+        if (notInstalled) {
+            Tag(
+                text = stringResource(R.string.appcontrol_tag_not_installed),
                 background = MaterialTheme.colorScheme.tertiaryContainer,
                 contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
             )

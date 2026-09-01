@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -71,6 +72,66 @@ class AppInfoTagsRowTest : BaseComposeRobolectricTest() {
             every { (this@apply as InstallDetails).isDebuggable } returns false
             every { (this@apply as InstallDetails).installerInfo } returns InstallerInfo()
         }
+    }
+
+    private fun hiddenPkg(): HiddenPkg = HiddenPkg(
+        packageInfo = PackageInfo().apply {
+            packageName = "com.hidden.app"
+            applicationInfo = ApplicationInfo().apply {
+                packageName = "com.hidden.app"
+                // `pm uninstall -k --user N` clears FLAG_INSTALLED, it does not disable the package
+                enabled = true
+                flags = ApplicationInfo.FLAG_SYSTEM
+            }
+        },
+        userHandle = userHandle,
+    )
+
+    private fun normalPkg(): Installed {
+        val pkgId = Pkg.Id("com.user.app")
+        return mockk<Installed>(relaxed = true, moreInterfaces = arrayOf(InstallDetails::class)).apply {
+            every { id } returns pkgId
+            every { installId } returns InstallId(pkgId, userHandle)
+            every { packageName } returns "com.user.app"
+            every { (this@apply as InstallDetails).isEnabled } returns true
+            every { (this@apply as InstallDetails).isSystemApp } returns false
+            every { (this@apply as InstallDetails).isDebuggable } returns false
+            every { (this@apply as InstallDetails).installerInfo } returns InstallerInfo()
+        }
+    }
+
+    @Test
+    fun `a package that is not installed for this user renders the Not installed tag`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                AppInfoTagsRow(appInfo = appInfo(hiddenPkg()))
+            }
+        }
+
+        composeRule.onNodeWithText("Not installed").assertExists()
+    }
+
+    @Test
+    fun `a package that is not installed but enabled does not render the Disabled tag`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                AppInfoTagsRow(appInfo = appInfo(hiddenPkg()))
+            }
+        }
+
+        composeRule.onAllNodesWithText("Disabled").assertCountEquals(0)
+    }
+
+    @Test
+    fun `a plain enabled user app renders neither the Not installed nor the Disabled tag`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                AppInfoTagsRow(appInfo = appInfo(normalPkg()))
+            }
+        }
+
+        composeRule.onAllNodesWithText("Not installed").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Disabled").assertCountEquals(0)
     }
 
     @Test
