@@ -3,7 +3,6 @@ package eu.darken.sdmse.squeezer.ui.list
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
-import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithTag
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
@@ -227,11 +226,11 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `grid card - the remaining markers keep separate content descriptions`() {
-        // Grid has no room for labels, so the markers are icons; if the two collapsed onto one
-        // glyph the user could not tell them apart. The middle item carries the no-savings state
-        // and must contribute no badge at all, so both counts stay at one and only two of the
-        // three cards compose a marker container.
+    fun `grid card - each marker renders its own labelled chip`() {
+        // The grid lays the linear row's chips over the preview, so each marker is identified by
+        // its label rather than by a glyph. The middle item carries the no-savings state and must
+        // contribute nothing, so both counts stay at one and only two of the three cards compose
+        // a marker container.
         composeRule.setListScreen(
             SqueezerListViewModel.State(
                 media = listOf(
@@ -243,15 +242,15 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onAllNodesWithContentDescription("Compressed").assertCountEquals(1)
-        composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(1)
+        composeRule.onAllNodesWithText("Compressed").assertCountEquals(1)
+        composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(1)
         composeRule
             .onAllNodesWithTag(SqueezerListGridCardTags.MARKER_ROW, useUnmergedTree = true)
             .assertCountEquals(2)
     }
 
     @Test
-    fun `grid card - a no-savings item renders no marker badge`() {
+    fun `grid card - a no-savings item renders no marker chip`() {
         composeRule.setListScreen(
             SqueezerListViewModel.State(
                 media = listOf(image("b.jpg", priorCompression = PriorCompression.NO_SAVINGS)),
@@ -259,8 +258,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-        composeRule.onAllNodesWithContentDescription("Compressed").assertCountEquals(0)
-        composeRule.onAllNodesWithContentDescription("HDR/depth").assertCountEquals(0)
+        composeRule.onAllNodesWithText("Compressed").assertCountEquals(0)
+        composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
         composeRule
             .onAllNodesWithTag(SqueezerListGridCardTags.MARKER_ROW, useUnmergedTree = true)
             .assertCountEquals(0)

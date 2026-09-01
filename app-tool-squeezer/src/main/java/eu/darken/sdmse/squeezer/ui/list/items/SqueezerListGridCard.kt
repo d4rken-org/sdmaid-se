@@ -6,6 +6,8 @@ import androidx.compose.foundation.combinedClickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -15,8 +17,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.background
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.HdrOn
-import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.Card
@@ -29,7 +29,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
@@ -102,7 +101,7 @@ internal fun SqueezerListGridCard(
                             .padding(6.dp),
                     )
                 }
-                SqueezeMarkerIcons(
+                SqueezeMarkerChips(
                     media = media,
                     modifier = Modifier
                         .align(Alignment.TopStart)
@@ -145,11 +144,14 @@ internal fun SqueezerListGridCard(
 }
 
 /**
- * The grid card has no room for chip labels, so the markers are bare icons over the preview and
- * carry their chip label as content description. Nothing is composed when no marker applies.
+ * The same chips the linear row shows, laid over the preview. They carry an opaque container and
+ * their own label, so they stay legible against an arbitrary photo. FlowRow so a pair of long
+ * translated labels wraps to a second line rather than clipping off the card. Nothing is composed
+ * when no marker applies.
  */
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun SqueezeMarkerIcons(
+private fun SqueezeMarkerChips(
     modifier: Modifier = Modifier,
     media: CompressibleMedia,
 ) {
@@ -157,45 +159,14 @@ private fun SqueezeMarkerIcons(
     val wasCompressed = media.priorCompression == PriorCompression.COMPRESSED
     if (!wasCompressed && !hasLossyAux) return
 
-    Row(
+    FlowRow(
         modifier = modifier.testTag(SqueezerListGridCardTags.MARKER_ROW),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
+        verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        if (wasCompressed) {
-            MarkerBadge(
-                icon = Icons.TwoTone.History,
-                contentDescription = stringResource(R.string.squeezer_chip_compressed_before),
-            )
-        }
-        if (hasLossyAux) {
-            MarkerBadge(
-                icon = Icons.TwoTone.HdrOn,
-                contentDescription = stringResource(R.string.squeezer_chip_hdr_depth),
-                // Warning styling, matching the linear row's error-colored chip: without it the
-                // badge reads as a neutral "HDR" label rather than "this photo loses its HDR".
-                tint = MaterialTheme.colorScheme.onError,
-                background = MaterialTheme.colorScheme.error.copy(alpha = 0.7f),
-            )
-        }
+        if (wasCompressed) CompressedBeforeChip()
+        if (hasLossyAux) HdrDepthChip()
     }
-}
-
-@Composable
-private fun MarkerBadge(
-    icon: ImageVector,
-    contentDescription: String,
-    tint: Color = MaterialTheme.colorScheme.onPrimary,
-    background: Color = MaterialTheme.colorScheme.primary.copy(alpha = 0.7f),
-) {
-    Icon(
-        imageVector = icon,
-        contentDescription = contentDescription,
-        tint = tint,
-        modifier = Modifier
-            .size(24.dp)
-            .background(color = background, shape = CircleShape)
-            .padding(4.dp),
-    )
 }
 
 @Preview2
