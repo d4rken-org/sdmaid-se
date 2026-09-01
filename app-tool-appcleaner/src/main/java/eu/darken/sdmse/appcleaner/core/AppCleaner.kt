@@ -266,12 +266,8 @@ class AppCleaner @Inject constructor(
                 ?.map { tp -> snapshot.junks.single { it.identifier == tp } }
                 ?: snapshot.junks
                     // Exclusion-limited junks are in the snapshot because the ADB cache trim would
-                    // reach them anyway. If this task won't run that trim, nothing justifies
-                    // deleting their files directly.
-                    .let { junks ->
-                        val willTrim = task.includeInaccessible && adbManager.canUseAdbNow()
-                        if (willTrim) junks else junks.filter { !it.isExclusionLimited }
-                    }
+                    // reach them anyway. Deleting their files directly is never ours to do.
+                    .filter { !it.isExclusionLimited }
 
             updateProgressCount(Progress.Count.Percent(targetJunk.size))
 
