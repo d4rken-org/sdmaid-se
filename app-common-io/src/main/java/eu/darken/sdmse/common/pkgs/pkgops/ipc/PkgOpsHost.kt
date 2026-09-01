@@ -200,6 +200,9 @@ class PkgOpsHost @Inject constructor(
                 }
             }
             log(TAG, INFO) { "setApplicationEnabledSetting result: $result" }
+            if (result.exitCode != FlowProcess.ExitCode.OK) {
+                throw IllegalStateException("pm $command failed (${result.exitCode}): ${result.errors}")
+            }
         }
 
         log(TAG, VERBOSE) { "setApplicationEnabledSetting($id, $newState, $flags) succesful" }
