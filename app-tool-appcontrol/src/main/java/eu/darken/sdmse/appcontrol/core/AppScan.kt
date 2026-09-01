@@ -74,7 +74,8 @@ class AppScan @Inject constructor(
     }
 
     private suspend fun getSize(id: InstallId): PkgOps.SizeStats? {
-        return sizeCache?.get(id) ?: pkgOps.querySizeStats(id)
+        sizeCache?.let { if (it.containsKey(id)) return it[id] }
+        return pkgOps.querySizeStats(id)
     }
 
     private suspend fun getActive(id: InstallId): Boolean? {
