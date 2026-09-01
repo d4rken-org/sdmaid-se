@@ -27,7 +27,7 @@ data class AppControlToggleTask(
         override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
             get() = enabled.associate { it.pkgId to AffectedPkg.Action.ENABLED } + disabled.associate { it.pkgId to AffectedPkg.Action.DISABLED }
 
-        // The list screen's snackbar only renders primaryInfo, so every outcome has to be in here
+        // Composition is pinned by AppControlTest."primaryInfo carries every outcome of a mixed selection"
         override val primaryInfo: CaString
             get() = caString {
                 val toggled = enabled.size + disabled.size
