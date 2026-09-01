@@ -99,11 +99,16 @@ class ShellLookUpPkgsSource @Inject constructor(
                     return@mapNotNull null
                 }
 
-                val stateBacked = pkgOps.queryPkg(
-                    pkgName.toPkgId(),
-                    PackageManager.MATCH_UNINSTALLED_PACKAGES.toLong(),
-                    user.handle,
-                )
+                val stateBacked = try {
+                    pkgOps.queryPkg(
+                        pkgName.toPkgId(),
+                        PackageManager.MATCH_UNINSTALLED_PACKAGES.toLong(),
+                        user.handle,
+                    )
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "State backed lookup failed for $pkgName: ${e.asLog()}" }
+                    null
+                }
                 if (stateBacked != null) {
                     log(TAG, VERBOSE) { "State backed info for $pkgName: $stateBacked" }
                     return@mapNotNull HiddenPkg(
