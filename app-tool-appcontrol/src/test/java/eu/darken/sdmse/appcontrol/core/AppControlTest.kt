@@ -599,15 +599,21 @@ class AppControlTest : BaseTest() {
         // secondaryInfo is invisible there.
         val hidden = toggleApp("eu.thlab.hidden", enabled = true, canBeToggled = false)
         val normal = toggleApp("eu.thlab.normal", enabled = true, canBeToggled = true)
-        val setup = setupAppControl(appsReturnedByScan = setOf(hidden, normal))
+        val stubborn = toggleApp("eu.thlab.stubborn", enabled = true, canBeToggled = true)
+        val setup = setupAppControl(appsReturnedByScan = setOf(hidden, normal, stubborn))
         setup.appControl.submit(buildScanTask())
-        setup.stubReQuery(toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true))
-
-        val result = setup.appControl.submit(
-            AppControlToggleTask(targets = setOf(hidden.installId, normal.installId)),
+        setup.stubReQuery(
+            // Refreshed to the intended post-toggle state, so it stays toggled.
+            toggleApp("eu.thlab.normal", enabled = false, canBeToggled = true),
+            // Still reporting the pre-toggle state, so the read-back demotes it to failed.
+            toggleApp("eu.thlab.stubborn", enabled = true, canBeToggled = true),
         )
 
-        result.primaryInfo.resolve() shouldBe "1 toggled, 1 skipped"
+        val result = setup.appControl.submit(
+            AppControlToggleTask(targets = setOf(hidden.installId, normal.installId, stubborn.installId)),
+        )
+
+        result.primaryInfo.resolve() shouldBe "1 toggled, 1 failed, 1 skipped"
     }
 
     // ─────────────────────────── missingSetup derivation ───────────────────────────
