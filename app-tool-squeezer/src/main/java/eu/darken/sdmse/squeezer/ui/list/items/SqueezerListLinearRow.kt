@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -49,6 +51,11 @@ internal object SqueezerListLinearRowTags {
     const val MARKER_ROW = "squeezer_linear_marker_row"
 }
 
+// Markers trail three lines of file detail in the row and sit over the preview in the grid, so they
+// run tighter than a standalone SdmInfoChip. Shared by both layouts and the legend dialog.
+private val MARKER_CHIP_PADDING = PaddingValues(horizontal = 6.dp, vertical = 2.dp)
+private val MARKER_CHIP_ICON_SIZE = 12.dp
+
 @Composable
 internal fun SqueezerListLinearRow(
     modifier: Modifier = Modifier,
@@ -65,6 +72,9 @@ internal fun SqueezerListLinearRow(
         selected = isSelected,
         onClick = onTap,
         onLongClick = onLongPress,
+        // The row outgrows the 56dp thumbnail once chips are present; anchoring to the top keeps
+        // the thumbnail level with the filename instead of floating beside the chips.
+        verticalAlignment = Alignment.Top,
     ) {
         Box(
             modifier = Modifier
@@ -110,26 +120,29 @@ internal fun SqueezerListLinearRow(
                 maxLines = 1,
                 overflow = TextOverflow.Ellipsis,
             )
-            Text(
-                text = stringResource(
-                    R.string.squeezer_current_size_format,
-                    Formatter.formatShortFileSize(context, media.size),
-                ),
-                style = MaterialTheme.typography.labelSmall,
-            )
-            val savings = media.estimatedSavings
-            Text(
-                text = if (savings != null && savings > 0) {
-                    stringResource(
-                        R.string.squeezer_estimated_savings_format,
-                        Formatter.formatShortFileSize(context, savings),
-                    )
-                } else {
-                    stringResource(R.string.squeezer_no_savings_expected)
-                },
-                style = MaterialTheme.typography.labelSmall,
-                color = MaterialTheme.colorScheme.primary,
-            )
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Text(
+                    text = stringResource(
+                        R.string.squeezer_current_size_format,
+                        Formatter.formatShortFileSize(context, media.size),
+                    ),
+                    style = MaterialTheme.typography.labelSmall,
+                )
+                Spacer(Modifier.width(8.dp))
+                val savings = media.estimatedSavings
+                Text(
+                    text = if (savings != null && savings > 0) {
+                        stringResource(
+                            R.string.squeezer_estimated_savings_format,
+                            Formatter.formatShortFileSize(context, savings),
+                        )
+                    } else {
+                        stringResource(R.string.squeezer_no_savings_expected)
+                    },
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
             SqueezeChipRow(media = media)
         }
     }
@@ -162,6 +175,8 @@ internal fun CompressedBeforeChip() = SdmInfoChip(
     label = stringResource(R.string.squeezer_chip_compressed_before),
     containerColor = MaterialTheme.colorScheme.tertiaryContainer,
     contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+    iconSize = MARKER_CHIP_ICON_SIZE,
+    contentPadding = MARKER_CHIP_PADDING,
 )
 
 /** Warning styling: this photo loses data compression can't reproduce. */
@@ -171,6 +186,8 @@ internal fun HdrDepthChip() = SdmInfoChip(
     label = stringResource(R.string.squeezer_chip_hdr_depth),
     containerColor = MaterialTheme.colorScheme.errorContainer,
     contentColor = MaterialTheme.colorScheme.onErrorContainer,
+    iconSize = MARKER_CHIP_ICON_SIZE,
+    contentPadding = MARKER_CHIP_PADDING,
 )
 
 @Preview2
