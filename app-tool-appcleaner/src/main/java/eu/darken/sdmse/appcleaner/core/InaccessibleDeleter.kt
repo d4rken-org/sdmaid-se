@@ -154,10 +154,14 @@ class InaccessibleDeleter @Inject constructor(
         // the observation so it keeps contributing its scan-time size, exactly as before.
         val zeroCacheSkips = mutableSetOf<InstallId>()
 
+        // The trim can credit a limited target with a success, but a per-app clear was never
+        // attempted for it, so it must not be able to report a failure either.
+        val limitedIds = targets.filter { it.isExclusionLimited }.map { it.identifier }.toSet()
+
         if (willTrim) {
             val adbResult = trimCachesWithAdb(targets)
             successTargets.addAll(adbResult.succesful)
-            failedTargets.putAll(adbResult.failed)
+            failedTargets.putAll(adbResult.failed.filterKeys { it !in limitedIds })
         }
 
         val remainingTargets = targets
