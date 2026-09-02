@@ -37,6 +37,7 @@ import eu.darken.sdmse.squeezer.core.history.CompressionHistoryEntity
 import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
 import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import eu.darken.sdmse.squeezer.core.processor.ExifPreserver
+import eu.darken.sdmse.squeezer.core.processor.ImageCompressor
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
@@ -64,6 +65,7 @@ class MediaScanner @Inject constructor(
     private val compressionEstimator: CompressionEstimator,
     private val exifPreserver: ExifPreserver,
     private val lossyAuxDetector: LossyAuxDetector,
+    private val dimensionProbe: ImageDimensionProbe,
     private val settings: SqueezerSettings,
 ) : Progress.Host, Progress.Client {
 
@@ -254,12 +256,20 @@ class MediaScanner @Inject constructor(
             lookup.size, mimeType, options.compressionQuality,
         )
 
+        // Marker-only facts, read after the exclusion guards so a dropped file doesn't pay for them.
+        val hasMotionVideo = localFile != null && lossyAuxDetector.hasMotionVideo(localFile, mimeType)
+        val willDownscale = localFile
+            ?.let { dimensionProbe.read(it) }
+            ?.let { ImageCompressor.willDownscale(it.width, it.height) } == true
+
         return CompressibleImage(
             lookup = lookup,
             mimeType = mimeType,
             estimatedCompressedSize = estimatedCompressedSize,
             priorCompression = priorCompression,
             hasLossyAux = hasLossyAux,
+            hasMotionVideo = hasMotionVideo,
+            willDownscale = willDownscale,
         ).also {
             log(TAG, VERBOSE) { "Found compressible image: $it" }
         }

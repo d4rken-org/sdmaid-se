@@ -37,7 +37,6 @@ import eu.darken.sdmse.common.coil.FilePreviewImage
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.squeezer.R
-import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.PriorCompression
@@ -155,17 +154,15 @@ private fun SqueezeMarkerChips(
     modifier: Modifier = Modifier,
     media: CompressibleMedia,
 ) {
-    val hasLossyAux = (media as? CompressibleImage)?.hasLossyAux == true
-    val wasCompressed = media.priorCompression == PriorCompression.COMPRESSED
-    if (!wasCompressed && !hasLossyAux) return
+    val markers = media.squeezeMarkers()
+    if (!markers.any) return
 
     FlowRow(
         modifier = modifier.testTag(SqueezerListGridCardTags.MARKER_ROW),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        if (wasCompressed) CompressedBeforeChip()
-        if (hasLossyAux) HdrDepthChip()
+        SqueezeMarkerChips(markers)
     }
 }
 
@@ -204,6 +201,8 @@ private fun SqueezerListGridCardMarkedPreview() {
                 media = previewCompressibleImage(
                     priorCompression = PriorCompression.COMPRESSED,
                     hasLossyAux = true,
+                    hasMotionVideo = true,
+                    willDownscale = true,
                 ),
                 isSelected = false,
                 onTap = {},

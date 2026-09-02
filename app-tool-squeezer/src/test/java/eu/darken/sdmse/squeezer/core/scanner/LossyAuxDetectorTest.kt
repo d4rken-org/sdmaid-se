@@ -267,4 +267,40 @@ class LossyAuxDetectorTest : BaseTest() {
         )
         detector.hasLossyAux(tmp(brokenApp1 + sefTrailer("DualShot_DepthMap_1"), "jpg"), jpeg) shouldBe true
     }
+
+    @Test
+    fun `jpeg with a Google MotionPhoto flag has motion video`() {
+        detector.hasMotionVideo(tmp(jpeg("<x:xmpmeta xmlns:GCamera=\"http://ns.google.com/photos/1.0/camera/\" GCamera:MotionPhoto=\"1\"/>"), "jpg"), jpeg) shouldBe true
+    }
+
+    @Test
+    fun `jpeg with the older MicroVideo flag has motion video`() {
+        detector.hasMotionVideo(tmp(jpeg("GCamera:MicroVideo=\"1\""), "jpg"), jpeg) shouldBe true
+    }
+
+    @Test
+    fun `jpeg with a Samsung SEF MotionPhoto block has motion video`() {
+        detector.hasMotionVideo(tmp(jpegWithSef("MotionPhoto_Data"), "jpg"), jpeg) shouldBe true
+    }
+
+    @Test
+    fun `bare MotionPhoto word in a caption is not motion video`() {
+        detector.hasMotionVideo(tmp(jpeg("dc:description=\"my MotionPhoto=1 test\""), "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `gain-map jpeg without a motion flag is not motion video`() {
+        detector.hasMotionVideo(tmp(jpeg("xmlns:hdrgm=\"http://ns.adobe.com/hdr-gain-map/1.0/\""), "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `motion flag does not make a jpeg count as lossy aux`() {
+        // Motion photos are marked, not excluded, so they must not trip the HDR/depth skip.
+        detector.hasLossyAux(tmp(jpeg("GCamera:MotionPhoto=\"1\""), "jpg"), jpeg) shouldBe false
+    }
+
+    @Test
+    fun `heic is never scanned for motion video`() {
+        detector.hasMotionVideo(tmp(heif("GCamera:MotionPhoto=\"1\""), "heic"), heic) shouldBe false
+    }
 }

@@ -50,6 +50,10 @@ data class CompressibleImage(
     override val priorCompression: PriorCompression? = null,
     /** Carries an HDR gain map or depth map that compression would destroy. */
     val hasLossyAux: Boolean = false,
+    /** A Motion Photo whose embedded video clip a re-encode drops. */
+    val hasMotionVideo: Boolean = false,
+    /** Over the encoder's size ceiling, so the re-encode also halves the resolution. */
+    val willDownscale: Boolean = false,
 ) : CompressibleMedia {
 
     val isJpeg: Boolean

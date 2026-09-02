@@ -20,6 +20,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.HdrOn
 import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.MotionPhotosOn
+import androidx.compose.material.icons.twotone.PhotoSizeSelectSmall
 import androidx.compose.material.icons.twotone.PlayArrow
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -152,9 +154,8 @@ internal fun SqueezerListLinearRow(
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun SqueezeChipRow(media: CompressibleMedia) {
-    val hasLossyAux = (media as? CompressibleImage)?.hasLossyAux == true
-    val wasCompressed = media.priorCompression == PriorCompression.COMPRESSED
-    if (!wasCompressed && !hasLossyAux) return
+    val markers = media.squeezeMarkers()
+    if (!markers.any) return
 
     FlowRow(
         modifier = Modifier
@@ -163,9 +164,37 @@ private fun SqueezeChipRow(media: CompressibleMedia) {
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
-        if (wasCompressed) CompressedBeforeChip()
-        if (hasLossyAux) HdrDepthChip()
+        SqueezeMarkerChips(markers)
     }
+}
+
+/** Which markers a scan result earns. Shared by the list row and the grid card. */
+internal data class SqueezeMarkers(
+    val compressedBefore: Boolean,
+    val hdrDepth: Boolean,
+    val motionPhoto: Boolean,
+    val downscaled: Boolean,
+) {
+    val any: Boolean get() = compressedBefore || hdrDepth || motionPhoto || downscaled
+}
+
+internal fun CompressibleMedia.squeezeMarkers(): SqueezeMarkers {
+    val image = this as? CompressibleImage
+    return SqueezeMarkers(
+        compressedBefore = priorCompression == PriorCompression.COMPRESSED,
+        hdrDepth = image?.hasLossyAux == true,
+        motionPhoto = image?.hasMotionVideo == true,
+        downscaled = image?.willDownscale == true,
+    )
+}
+
+/** Emits one chip per set marker into the caller's row; the info chip first, the losses after. */
+@Composable
+internal fun SqueezeMarkerChips(markers: SqueezeMarkers) {
+    if (markers.compressedBefore) CompressedBeforeChip()
+    if (markers.hdrDepth) HdrDepthChip()
+    if (markers.motionPhoto) MotionPhotoChip()
+    if (markers.downscaled) DownscaledChip()
 }
 
 @Composable
@@ -183,6 +212,28 @@ internal fun CompressedBeforeChip() = SdmInfoChip(
 internal fun HdrDepthChip() = SdmInfoChip(
     icon = Icons.TwoTone.HdrOn,
     label = stringResource(R.string.squeezer_chip_hdr_depth),
+    containerColor = MaterialTheme.colorScheme.errorContainer,
+    contentColor = MaterialTheme.colorScheme.onErrorContainer,
+    iconSize = MARKER_CHIP_ICON_SIZE,
+    contentPadding = MARKER_CHIP_PADDING,
+)
+
+/** Warning styling: the embedded video clip does not survive a re-encode. */
+@Composable
+internal fun MotionPhotoChip() = SdmInfoChip(
+    icon = Icons.TwoTone.MotionPhotosOn,
+    label = stringResource(R.string.squeezer_chip_motion_photo),
+    containerColor = MaterialTheme.colorScheme.errorContainer,
+    contentColor = MaterialTheme.colorScheme.onErrorContainer,
+    iconSize = MARKER_CHIP_ICON_SIZE,
+    contentPadding = MARKER_CHIP_PADDING,
+)
+
+/** Warning styling: the re-encode also halves this image's resolution. */
+@Composable
+internal fun DownscaledChip() = SdmInfoChip(
+    icon = Icons.TwoTone.PhotoSizeSelectSmall,
+    label = stringResource(R.string.squeezer_chip_downscaled),
     containerColor = MaterialTheme.colorScheme.errorContainer,
     contentColor = MaterialTheme.colorScheme.onErrorContainer,
     iconSize = MARKER_CHIP_ICON_SIZE,
@@ -221,6 +272,8 @@ private fun SqueezerListLinearRowMarkedPreview() {
                 media = previewCompressibleImage(
                     priorCompression = PriorCompression.COMPRESSED,
                     hasLossyAux = true,
+                    hasMotionVideo = true,
+                    willDownscale = true,
                 ),
                 isSelected = false,
                 onTap = {},

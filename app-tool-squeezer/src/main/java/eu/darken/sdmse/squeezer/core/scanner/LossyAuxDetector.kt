@@ -33,6 +33,10 @@ import javax.inject.Inject
  * Known limitation: for HEIC, a positive result is a *scan-time exclusion*; the "compress them
  * anyway" opt-in still can't force compression of a multi-image HEIC (the hard multi-image guard in
  * `MediaScanner` can't tell a gain-map sub-image from Live-Photo siblings).
+ *
+ * [hasMotionVideo] reuses the same JPEG walkers for the embedded video clip of a Motion Photo
+ * (Google XMP flag, or a Samsung SEF `MotionPhoto_Data` block). A Bitmap re-encode keeps only the
+ * still image, so the clip is lost; the scanner marks these rather than excluding them.
  */
 @Reusable
 class LossyAuxDetector @Inject constructor() {
@@ -49,7 +53,22 @@ class LossyAuxDetector @Inject constructor() {
         false
     }
 
-    private fun hasJpegLossyAux(file: File): Boolean {
+    /**
+     * True only when a JPEG positively carries a Motion Photo video clip. HEIC Motion Photos are
+     * multi-image files and already excluded by the scanner's HEIC guard. Never throws.
+     */
+    fun hasMotionVideo(file: File, mimeType: String): Boolean = try {
+        mimeType == CompressibleImage.MIME_TYPE_JPEG &&
+            hasJpegTrait(file, JPEG_MOTION_SIGNATURES, SEF_MOTION_KEY)
+    } catch (e: Exception) {
+        log(TAG, WARN) { "hasMotionVideo failed for ${file.path}; treating as none (fail-open): ${e.message}" }
+        false
+    }
+
+    private fun hasJpegLossyAux(file: File): Boolean = hasJpegTrait(file, JPEG_AUX_SIGNATURES, SEF_DEPTH_KEY)
+
+    /** APP-segment signatures up to SOS, then the SEF trailer for a block whose name contains [sefKey]. */
+    private fun hasJpegTrait(file: File, appSignatures: List<String>, sefKey: String): Boolean {
         RandomAccessFile(file, "r").use { raf ->
             // SOI gate: only trust a JPEG. Also stops a non-JPEG blob that merely ends in a "SEFT"
             // tail from tripping the SEF check below.
@@ -58,8 +77,8 @@ class LossyAuxDetector @Inject constructor() {
             if (raf.read() != 0xFF || raf.read() != 0xD8) return false
 
             // Each sub-check is isolated so a throw in one still lets the other run (fail-open).
-            if (runAux(file) { hasJpegXmpAux(raf) }) return true
-            if (runAux(file) { hasSefDepthTrailer(raf) }) return true
+            if (runAux(file) { hasJpegAppSignature(raf, appSignatures) }) return true
+            if (runAux(file) { hasSefBlock(raf, sefKey) }) return true
         }
         return false
     }
@@ -72,8 +91,8 @@ class LossyAuxDetector @Inject constructor() {
         false
     }
 
-    /** Scans APP1/APP2 segments (up to SOS) for namespaced gain-map/depth XMP signatures. */
-    private fun hasJpegXmpAux(raf: RandomAccessFile): Boolean {
+    /** Scans APP1/APP2 segments (up to SOS) for any of the namespaced XMP [signatures]. */
+    private fun hasJpegAppSignature(raf: RandomAccessFile, signatures: List<String>): Boolean {
         val len = raf.length()
         raf.seek(2) // past the SOI already validated by the caller
         while (raf.filePointer < len) {
@@ -100,8 +119,8 @@ class LossyAuxDetector @Inject constructor() {
                         val buf = ByteArray(toRead)
                         raf.readFully(buf)
                         val text = String(buf, Charsets.ISO_8859_1)
-                        if (JPEG_AUX_SIGNATURES.any { text.contains(it) }) {
-                            log(TAG, VERBOSE) { "JPEG XMP lossy-aux signature found" }
+                        if (signatures.any { text.contains(it) }) {
+                            log(TAG, VERBOSE) { "JPEG APP-segment signature found" }
                             return true
                         }
                     }
@@ -114,19 +133,20 @@ class LossyAuxDetector @Inject constructor() {
     }
 
     /**
-     * Detects a Samsung SEF trailer (appended after the JPEG EOI) carrying a depth block. Parses the
+     * Detects a Samsung SEF trailer (appended after the JPEG EOI) carrying a block whose name
+     * contains [nameKey] (a depth map, a Motion Photo clip). Parses the
      * trailer structure per ExifTool's `Samsung.pm` `ProcessSamsung` (little-endian). Trailer blocks
      * are framed `[payload][len:u32]["TYPE"]` and read backward from EOF: the file ends either with
      * the `"SEFT"` directory block, or — when a `"QDIO"` (Sound&Shot audio) block trails it — with
      * `"QDIOBS"` (a 2-byte `"BS"` suffix). We walk backward, skipping non-`SEFT` blocks, until the
-     * `SEFT` directory is found, then check it for a depth block (see [sefDirectoryHasDepth]).
+     * `SEFT` directory is found, then check it for the block (see [sefDirectoryHasBlock]).
      *
      * Note: the QDIO-trailing case can't be end-to-end verified against a real device file (none is
      * publicly available), but detection is **fail-open** — a mis-parse here only yields a false
-     * negative (missed depth), never a false positive, since a match still requires a positively
-     * named depth block inside a valid `SEFH` directory.
+     * negative (missed block), never a false positive, since a match still requires a positively
+     * named block inside a valid `SEFH` directory.
      */
-    private fun hasSefDepthTrailer(raf: RandomAccessFile): Boolean {
+    private fun hasSefBlock(raf: RandomAccessFile, nameKey: String): Boolean {
         val fileLen = raf.length()
         if (fileLen < MIN_SEF_LEN) return false
 
@@ -150,7 +170,7 @@ class LossyAuxDetector @Inject constructor() {
             val blockStart = blockEnd - 8 - len
             if (blockStart < 0L) return false
             if (framing.asciiAt(4, SEF_TAIL_MAGIC)) {
-                return sefDirectoryHasDepth(raf, blockStart, len)
+                return sefDirectoryHasBlock(raf, blockStart, len, nameKey)
             }
             // Not the directory (e.g. a QDIO block) — skip it and keep walking backward.
             blockEnd = blockStart
@@ -158,8 +178,8 @@ class LossyAuxDetector @Inject constructor() {
         return false
     }
 
-    /** Reads the `SEFH` directory at [dirStart] and returns true if any data block is a depth map. */
-    private fun sefDirectoryHasDepth(raf: RandomAccessFile, dirStart: Long, dirLen: Long): Boolean {
+    /** Reads the `SEFH` directory at [dirStart]; true if any data block's name contains [nameKey]. */
+    private fun sefDirectoryHasBlock(raf: RandomAccessFile, dirStart: Long, dirLen: Long, nameKey: String): Boolean {
         if (dirLen < 12L || dirLen > MAX_SEF_DIR) return false
         val dir = ByteArray(dirLen.toInt())
         raf.seek(dirStart)
@@ -185,8 +205,8 @@ class LossyAuxDetector @Inject constructor() {
             val nameLen = header.u32(4)
             if (nameLen <= 0L || nameLen > minOf(size - 8L, MAX_SEF_NAME)) continue
             val name = String(header, 8, nameLen.toInt(), Charsets.ISO_8859_1)
-            if (name.contains(SEF_DEPTH_KEY)) {
-                log(TAG, VERBOSE) { "Samsung SEF depth block found: $name" }
+            if (name.contains(nameKey)) {
+                log(TAG, VERBOSE) { "Samsung SEF block found: $name" }
                 return true
             }
         }
@@ -382,6 +402,8 @@ class LossyAuxDetector @Inject constructor() {
         // Broad on purpose: matches every depth variant (DualShot_DepthMap_N, the misspelled
         // SingeShot_DepthMap_N, …). A false negative here means lost depth, so we bias toward matching.
         private const val SEF_DEPTH_KEY = "DepthMap"
+        // Samsung Motion Photo clip block ("MotionPhoto_Data").
+        private const val SEF_MOTION_KEY = "MotionPhoto"
 
         /**
          * Namespaced signatures only (never bare words). The HDRGM namespace is present in every
@@ -395,6 +417,16 @@ class LossyAuxDetector @Inject constructor() {
             "http://ns.google.com/photos/1.0/depthmap/", // Google depth-map namespace URI (prefix-agnostic)
             "xmlns:GDepth",                            // Google depth-map namespace declaration
             "GDepth:",                                 // Google depth-map property prefix
+        )
+
+        /**
+         * Google Motion Photo (v1) and its MicroVideo predecessor, as the attribute form GCamera
+         * writes. Matched with the namespace prefix tail so a caption saying "MotionPhoto" can't
+         * trigger it.
+         */
+        private val JPEG_MOTION_SIGNATURES = listOf(
+            "Camera:MotionPhoto=\"1\"", // GCamera:MotionPhoto="1" / Camera:MotionPhoto="1"
+            "Camera:MicroVideo=\"1\"",  // pre-2019 Pixel Motion Photo flag
         )
 
         private val HEIF_AUX_SIGNATURES = listOf(

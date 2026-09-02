@@ -151,4 +151,15 @@ class ImageCompressorTest : BaseTest() {
             decodedHeight = 125,
         ).shouldBeInstanceOf<ImageCompressor.RotationDecision.Skip>()
     }
+
+    @Test
+    fun `willDownscale - sampling starts at twice MAX_DIMENSION, not at MAX_DIMENSION`() {
+        // BitmapFactory power-of-two sampling: a 5000px side decodes at full size, 8192 halves.
+        ImageCompressor.willDownscale(4096, 3072) shouldBe false
+        ImageCompressor.willDownscale(5000, 3750) shouldBe false
+        ImageCompressor.willDownscale(8191, 6143) shouldBe false
+        ImageCompressor.willDownscale(8192, 6144) shouldBe true
+        ImageCompressor.willDownscale(6144, 8192) shouldBe true
+        ImageCompressor.willDownscale(16320, 12240) shouldBe true
+    }
 }

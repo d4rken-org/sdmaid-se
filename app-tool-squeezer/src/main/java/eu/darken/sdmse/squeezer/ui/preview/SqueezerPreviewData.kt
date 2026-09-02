@@ -27,12 +27,16 @@ internal fun previewCompressibleImage(
     estimatedCompressedSize: Long? = 4L * 1024 * 1024,
     priorCompression: PriorCompression? = null,
     hasLossyAux: Boolean = false,
+    hasMotionVideo: Boolean = false,
+    willDownscale: Boolean = false,
 ): CompressibleImage = CompressibleImage(
     lookup = lookup,
     mimeType = mimeType,
     estimatedCompressedSize = estimatedCompressedSize,
     priorCompression = priorCompression,
     hasLossyAux = hasLossyAux,
+    hasMotionVideo = hasMotionVideo,
+    willDownscale = willDownscale,
 )
 
 internal fun previewCompressibleVideo(

@@ -38,7 +38,8 @@ import java.time.Instant
 
 /**
  * Covers the per-file facts the scanner attaches to results so the list rows can mark them:
- * [PriorCompression] from the compression history / EXIF marker, and [CompressibleImage.hasLossyAux].
+ * [PriorCompression] from the compression history / EXIF marker, [CompressibleImage.hasLossyAux],
+ * [CompressibleImage.hasMotionVideo] and [CompressibleImage.willDownscale].
  */
 class MediaScannerChipStateTest : BaseTest() {
 
@@ -53,6 +54,7 @@ class MediaScannerChipStateTest : BaseTest() {
     private val compressionEstimator: CompressionEstimator = mockk(relaxed = true)
     private val exifPreserver: ExifPreserver = mockk(relaxed = true)
     private val lossyAuxDetector: LossyAuxDetector = mockk(relaxed = true)
+    private val dimensionProbe: ImageDimensionProbe = mockk(relaxed = true)
     private val settings: SqueezerSettings = mockk(relaxed = true)
 
     private val dispatcherProvider: DispatcherProvider = TestDispatcherProvider()
@@ -69,6 +71,8 @@ class MediaScannerChipStateTest : BaseTest() {
         every { settings.writeExifMarker } returns mockDataStoreValue(false)
         every { exifPreserver.hasCompressionMarker(any()) } returns false
         every { lossyAuxDetector.hasLossyAux(any(), any()) } returns false
+        every { lossyAuxDetector.hasMotionVideo(any(), any()) } returns false
+        every { dimensionProbe.read(any()) } returns null
     }
 
     @AfterEach
@@ -106,6 +110,7 @@ class MediaScannerChipStateTest : BaseTest() {
         compressionEstimator = compressionEstimator,
         exifPreserver = exifPreserver,
         lossyAuxDetector = lossyAuxDetector,
+        dimensionProbe = dimensionProbe,
         settings = settings,
     )
 
@@ -213,5 +218,46 @@ class MediaScannerChipStateTest : BaseTest() {
         val image = result.items.first() as CompressibleImage
         image.priorCompression shouldBe null
         image.hasLossyAux shouldBe false
+    }
+
+    @Test
+    fun `motion photo - item is kept and flagged, never excluded`() = runTest {
+        stubWalk(photo("motion.jpg"))
+        every { lossyAuxDetector.hasMotionVideo(any(), any()) } returns true
+
+        val result = scanner().scan(options())
+
+        result.items.size shouldBe 1
+        (result.items.first() as CompressibleImage).hasMotionVideo shouldBe true
+    }
+
+    @Test
+    fun `oversized image - flagged as downscaled`() = runTest {
+        stubWalk(photo("huge.jpg"))
+        every { dimensionProbe.read(any()) } returns ImageDimensionProbe.Dimensions(9000, 6000)
+
+        val result = scanner().scan(options())
+
+        (result.items.first() as CompressibleImage).willDownscale shouldBe true
+    }
+
+    @Test
+    fun `ordinary image - not flagged as downscaled`() = runTest {
+        stubWalk(photo("normal.jpg"))
+        every { dimensionProbe.read(any()) } returns ImageDimensionProbe.Dimensions(4080, 3072)
+
+        val result = scanner().scan(options())
+
+        (result.items.first() as CompressibleImage).willDownscale shouldBe false
+    }
+
+    @Test
+    fun `unreadable dimensions - not flagged as downscaled`() = runTest {
+        stubWalk(photo("odd.jpg"))
+        every { dimensionProbe.read(any()) } returns null
+
+        val result = scanner().scan(options())
+
+        (result.items.first() as CompressibleImage).willDownscale shouldBe false
     }
 }
