@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Να μη χρησιμοποιηθεί το Shizuku</string>
     <string name="setup_dismiss_hint">Μπορείτε να βρείτε ξανά την οθόνη εγκατάστασης μέσω του μενού ρυθμίσεων.</string>
     <string name="setup_permission_granted_label">Χορηγήθηκε πρόσβαση</string>
-    <string name="setup_permission_error_label">Σφάλμα δικαιωμάτων</string>
-    <string name="setup_inventory_invalid_label">Μη έγκυρη λίστα εφαρμογών</string>
     <string name="setup_usagestats_title">Στατιστικά χρήσης</string>
     <string name="setup_usagestats_body">Η άδεια στατιστικών χρήσης παρέχει πρόσβαση σε περισσότερες λεπτομέρειες εφαρμογής. Το SD Maid το χρησιμοποιεί για να καθορίσει πρόσθετα μεγέθη κρυφής μνήμης.</string>
     <string name="setup_usagestats_hint">Απαιτείται για διαγραφή προσωρινής μνήμης βάσει υπηρεσίας προσβασιμότητας.</string>

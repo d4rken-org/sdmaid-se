@@ -64,7 +64,6 @@
     <string name="setup_incomplete_card_body">Ji bo encamên çêtir sazkirina SD Maid\'ê temam bikin.</string>
     <string name="setup_incomplete_card_continue_action">Sazkirinê bidomîne</string>
     <string name="setup_permission_granted_label">Destûr hat dayîn</string>
-    <string name="setup_permission_error_label">Xeletiya destûrê</string>
     <string name="setup_notification_title">Agahdarî</string>
     <string name="setup_root_card_title">Gihîştina root</string>
     <string name="setup_root_state_ready_label">Gihîştina root amade ye.</string>

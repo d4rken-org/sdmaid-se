@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s-tan</string>
     <string name="stats_space_history_upgrade_title">Historia osoa Pro ezaugarria da</string>
-    <string name="stats_space_history_upgrade_body">Eguneratu biltegiratze-gailu bakoitzeko 90 eguneko joeraren ikuspegi osoa desblokeatzeko.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Eguneratu biltegi-gailu bakoitzerako 90 eguneko joeraren bista osoa desblokeatzeko, eta jaso abisu bat lekua agortzen baino lehen.</string>
     <string name="stats_space_history_marker_freed">Askatuta %1$s</string>
     <string name="stats_storage_type_primary">Lehen mailako biltegiratzea</string>

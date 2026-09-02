@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Non impreare Shizuku</string>
     <string name="setup_dismiss_hint">Podes agatare s\'ischermada de cunfiguratzione torra a travessu de su menù de is impostatziones.</string>
     <string name="setup_permission_granted_label">Permissu cuncèdidu</string>
-    <string name="setup_permission_error_label">Errore de permissu</string>
-    <string name="setup_inventory_invalid_label">Lista de applicatziones non balida</string>
     <string name="setup_usagestats_title">Istàtcias de impreu</string>
     <string name="setup_usagestats_body">Su permissu de is istàtcias de impreu cunchet s\'atzessu a prus detallios de aplicatziones. SD Maid dd\'impreat pro determinare mannarias additzionales de cache.</string>
     <string name="setup_usagestats_hint">Rieketu pro sa cantzelladura de cache basada in su servitziu de atzessibilidade.</string>

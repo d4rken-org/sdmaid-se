@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ашиглахгүй</string>
     <string name="setup_dismiss_hint">Та тохиргооны цэснээс тохиргооны дэлгэцийг дахин олох боломжтой.</string>
     <string name="setup_permission_granted_label">Зөвшөөрөл олгогдсон</string>
-    <string name="setup_permission_error_label">Зөвшөөрлийн алдаа</string>
-    <string name="setup_inventory_invalid_label">Буруу програмын жагсаалт</string>
     <string name="setup_usagestats_title">Хэрэглээний статистик</string>
     <string name="setup_usagestats_body">Хэрэглээний статистикийн зөвшөөрөл нь аппликешний нэмэлт мэдээлэлд хандах боломж олгодог. SD Maid үүнийг нэмэлт кэшийн хэмжээг тодорхойлоход ашигладаг.</string>
     <string name="setup_usagestats_hint">Хүрэлцээний үйлчилгүүнийг ашигладаг кэш устгахын тулд шаардлагатай.</string>

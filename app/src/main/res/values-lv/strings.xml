@@ -274,8 +274,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Neizmantot Shizuku</string>
     <string name="setup_dismiss_hint">Iestatīšanas ekrānu var atrast atkal iestatījumu izvēlnē.</string>
     <string name="setup_permission_granted_label">Atļauja piešķirta</string>
-    <string name="setup_permission_error_label">Atļaujas kļūda</string>
-    <string name="setup_inventory_invalid_label">Nederīgs lietotņu saraksts</string>
     <string name="setup_usagestats_title">Lietošanas statistika</string>
     <string name="setup_usagestats_body">Lietošanas statistikas atļauja nodrošina piekļuvi detalizētākai informācijai par lietotnēm. SD Maid to izmanto, lai noteiktu papildu kešatmiņas izmērus.</string>
     <string name="setup_usagestats_hint">Nepieciešams kešatmiņas dzēšanai, izmantojot pieejamības pakalpojumu.</string>

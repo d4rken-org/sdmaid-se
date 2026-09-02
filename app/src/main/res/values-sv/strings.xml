@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Använd inte Shizuku</string>
     <string name="setup_dismiss_hint">Du kan hitta inställningsskärmen igen via inställningsmenyn.</string>
     <string name="setup_permission_granted_label">Behörighet beviljad</string>
-    <string name="setup_permission_error_label">Behörighetsfel</string>
-    <string name="setup_inventory_invalid_label">Ogiltig applista</string>
     <string name="setup_usagestats_title">Användningsstatistik</string>
     <string name="setup_usagestats_body">Behörigheten för användningsstatistik ger åtkomst till fler appdetaljer. SD Maid använder den för att bestämma ytterligare cachestorlekar.</string>
     <string name="setup_usagestats_hint">Krävs för tillgänglighetsservice-baserad cache-borttagning.</string>

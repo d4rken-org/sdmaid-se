@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku का उपयोग न करें</string>
     <string name="setup_dismiss_hint">आप सेटिंग मेनू के माध्यम से व्यवस्था स्क्रीन फिर से पा सकते हैं।</string>
     <string name="setup_permission_granted_label">अनुमति प्रदान की गई</string>
-    <string name="setup_permission_error_label">अनुमति त्रुटि</string>
-    <string name="setup_inventory_invalid_label">अमान्य ऐप सूची</string>
     <string name="setup_usagestats_title">उपयोग के आँकड़े</string>
     <string name="setup_usagestats_body">उपयोग आँकड़े अनुमति अधिक ऐप विवरण तक पहुँच प्रदान करती है। SD मेड अतिरिक्त कैश आकार निर्धारित करने के लिए इसका उपयोग करती है।</string>
     <string name="setup_usagestats_hint">पहुंच-योग्यता सेवा आधारित संचय मिटाने के लिए आवश्यक है।</string>

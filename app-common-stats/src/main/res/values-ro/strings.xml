@@ -59,9 +59,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s în %2$s</string>
     <string name="stats_space_history_upgrade_title">Istoricul complet este o funcție Pro</string>
-    <string name="stats_space_history_upgrade_body">Faceți upgrade pentru a debloca vizualizarea completă a tendințelor pe 90 de zile pentru fiecare dispozitiv de stocare.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Fă upgrade pentru a debloca vizualizarea completă a tendinței pe 90 de zile pentru fiecare dispozitiv de stocare și pentru a primi un avertisment înainte să rămâi fără spațiu.</string>
     <string name="stats_space_history_marker_freed">Eliberat %1$s</string>
     <string name="stats_storage_type_primary">Stocare principală</string>

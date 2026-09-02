@@ -288,8 +288,6 @@
 
     <string name="setup_dismiss_hint">You can find the setup screen again via the settings menu.</string>
     <string name="setup_permission_granted_label">Permission granted</string>
-    <string name="setup_permission_error_label">Permission error</string>
-    <string name="setup_inventory_invalid_label">Invalid app list</string>
 
     <string name="setup_usagestats_title">Usage statistics</string>
     <string name="setup_usagestats_body">The usage statistics permission grants access to more app details. SD Maid uses it to determine additional cache sizes.</string>

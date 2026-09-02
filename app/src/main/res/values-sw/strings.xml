@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Usitumie Shizuku</string>
     <string name="setup_dismiss_hint">Unaweza kupata skrini ya usanidi tena kupitia menyu ya mipangilio.</string>
     <string name="setup_permission_granted_label">Ruhusa imetolewa</string>
-    <string name="setup_permission_error_label">Kosa la ruhusa</string>
-    <string name="setup_inventory_invalid_label">Orodha batili ya programu</string>
     <string name="setup_usagestats_title">Takwimu za matumizi</string>
     <string name="setup_usagestats_body">Ruhusa ya takwimu za matumizi inatoa ufikiaji wa maelezo zaidi ya programu. SD Maid inaitumia kuamua ukubwa wa ziada wa akiba.</string>
     <string name="setup_usagestats_hint">Inahitajika kwa ufutaji wa akiba unaotegemea huduma ya ufikiaji.</string>

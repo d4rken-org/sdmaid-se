@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Không sử dụng Shizuku</string>
     <string name="setup_dismiss_hint">Bạn có thể tìm lại màn hình thiết lập thông qua menu cài đặt.</string>
     <string name="setup_permission_granted_label">Đã được cấp quyền</string>
-    <string name="setup_permission_error_label">Lỗi quyền truy cập</string>
-    <string name="setup_inventory_invalid_label">Danh sách ứng dụng không hợp lệ</string>
     <string name="setup_usagestats_title">Thống kê sử dụng</string>
     <string name="setup_usagestats_body">Quyền thống kê sử dụng cấp quyền truy cập vào nhiều chi tiết ứng dụng hơn. SD Maid sử dụng nó để xác định kích thước bộ đệm bổ sung.</string>
     <string name="setup_usagestats_hint">Cần thiết để xóa bộ nhớ cache dựa trên dịch vụ trợ năng.</string>

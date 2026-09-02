@@ -282,8 +282,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Не использовать Shizuku</string>
     <string name="setup_dismiss_hint">Вы можете снова перейти к экрану установки через меню настроек.</string>
     <string name="setup_permission_granted_label">Разрешение предоствлено</string>
-    <string name="setup_permission_error_label">Ошибка доступа</string>
-    <string name="setup_inventory_invalid_label">Недопустимый список приложений</string>
     <string name="setup_usagestats_title">Статистика использования</string>
     <string name="setup_usagestats_body">Разрешение на статистику использования предоставляет доступ к более подробной информации о приложении. SD Maid использует его для определения дополнительных размеров кэша.</string>
     <string name="setup_usagestats_hint">Требуется для удаления кэша с помощью службы специальных возможностей.</string>

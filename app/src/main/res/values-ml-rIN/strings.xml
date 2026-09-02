@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ഉപയോഗിക്കരുത്</string>
     <string name="setup_dismiss_hint">സെറ്റിംഗ്സ് മെനു വഴി നിങ്ങൾക്ക് സെറ്റപ്പ് സ്ക്രീൻ വീണ്ടും കണ്ടെത്താനാകും.</string>
     <string name="setup_permission_granted_label">അനുമതി നൽകി</string>
-    <string name="setup_permission_error_label">അനുമതി പിശക്</string>
-    <string name="setup_inventory_invalid_label">അസാധുവായ അപ്ലിക്കേഷൻ പട്ടിക</string>
     <string name="setup_usagestats_title">ഉപയോഗ സ്ഥിതിവിവരക്കണക്കുകൾ</string>
     <string name="setup_usagestats_body">ഉപയോഗ സ്ഥിതിവിവര അനുമതി കൂടുതൽ ആപ്പ് വിവരങ്ങളിലേക്ക് ആക്‌സസ് നൽകുന്നു. അധിക കാഷെ വലിപ്പങ്ങൾ നിർണ്ണയിക്കാൻ SD Maid ഇത് ഉപയോഗിക്കുന്നു.</string>
     <string name="setup_usagestats_hint">ആക്‌സസിബിലിറ്റി സേവന അടിസ്ഥാനത്തിലുള്ള കാഷെ ഡിലീഷനു ആവശ്യമാണ്.</string>

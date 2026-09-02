@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s, %2$s ichida</string>
     <string name="stats_space_history_upgrade_title">To\'liq tarix Pro funksiyasidir</string>
-    <string name="stats_space_history_upgrade_body">Har bir saqlash qurilmasi uchun to\'liq 90 kunlik trend ko\'rinishini ochish uchun yangilang.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Har bir xotira qurilmasi uchun to‘liq 90 kunlik tendentsiya ko‘rinishini ochish va joy tugashidan oldin ogohlantirish olish uchun yangilang.</string>
     <string name="stats_space_history_marker_freed">%1$s bo\'shatildi</string>
     <string name="stats_storage_type_primary">Asosiy xotira</string>

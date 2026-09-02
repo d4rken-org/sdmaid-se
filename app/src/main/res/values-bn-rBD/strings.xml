@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ব্যবহার করবেন না।</string>
     <string name="setup_dismiss_hint">আপনি সেটিংস মেনুর মাধ্যমে আবার সেটআপ স্ক্রীনটি খুঁজে পেতে পারেন।</string>
     <string name="setup_permission_granted_label">অনুমতি মঞ্জুর করা হয়েছে</string>
-    <string name="setup_permission_error_label">অনুমতি ত্রুটি</string>
-    <string name="setup_inventory_invalid_label">অবৈধ অ্যাপ তালিকা।</string>
     <string name="setup_usagestats_title">ব্যবহারের পরিসংখ্যান</string>
     <string name="setup_usagestats_body">অ্যাপের বিস্তারিত তথ্যের জন্য Statistics permission এর অনুমতি দিন। SD Maid এটি ব্যবহার করবে অবশিষ্ট cache সাইজ নির্ধারণ করতে।</string>
     <string name="setup_usagestats_hint">অ্যাক্সেসিবিলিটি পরিষেবাভিত্তিক cache মোছার জন্য প্রয়োজন৷</string>

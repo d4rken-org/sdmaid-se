@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">ບໍ່ໃຊ້ Shizuku</string>
     <string name="setup_dismiss_hint">ທ່ານສາມາດຫາໜ້າຈໍຕັ້ງຄ່າໄດ້ອີກຄັ້ງຜ່ານເມນູການຕັ້ງຄ່າ.</string>
     <string name="setup_permission_granted_label">ໄດ້ຮັບການອະນຸຍາດ</string>
-    <string name="setup_permission_error_label">ຂໍ້ຜິດພາດການອະນຸຍາດ</string>
-    <string name="setup_inventory_invalid_label">ລາຍການແອັບ ບໍ່ຖືກຕ້ອງ</string>
     <string name="setup_usagestats_title">ສະຖິຕິການໃຊ້ງານ</string>
     <string name="setup_usagestats_body">ການອະນຸຍາດສະຖິຕິການໃຊ້ງານເປີດເຂົ້າເຖິງລາຍລະອຽດຂອງແອັບເພີ່ມເຕີມ. SD Maid ໃຊ້ມັນເພື່ອກໍານົດຂະໜາດການເກັບຮັກສາຊົ່ວຄຣາວເພີ່ມເຕີມ.</string>
     <string name="setup_usagestats_hint">ຈໍາເປັນສໍາຫຼັບການລຶບເກັບຮັກສາຊົ່ວຄຣາວຂອງບໍລິການເຂົ້າເຖິງໄດ້.</string>

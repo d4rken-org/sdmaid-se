@@ -282,8 +282,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužít Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodního nastavení najdete opět v nabídce nastavení.</string>
     <string name="setup_permission_granted_label">Oprávnění uděleno</string>
-    <string name="setup_permission_error_label">Chyba oprávnění</string>
-    <string name="setup_inventory_invalid_label">Neplatný seznam aplikací</string>
     <string name="setup_usagestats_title">Statistiky používání</string>
     <string name="setup_usagestats_body">Oprávnění ke statistikám používání umožňuje přístup k dalším podrobnostem o aplikaci. SD Maid je používá k určení dalších velikostí mezipaměti.</string>
     <string name="setup_usagestats_hint">Vyžadováno pro mazání mezipaměti na základě služby přístupnosti.</string>

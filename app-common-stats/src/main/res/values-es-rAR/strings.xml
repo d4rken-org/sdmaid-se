@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s en %2$s</string>
     <string name="stats_space_history_upgrade_title">El historial completo es una función Pro</string>
-    <string name="stats_space_history_upgrade_body">Actualizá para desbloquear la vista de tendencia completa de 90 días para cada dispositivo de almacenamiento.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Actualizá para desbloquear la vista completa de tendencias de 90 días para cada dispositivo de almacenamiento, y recibí un aviso antes de quedarte sin espacio.</string>
     <string name="stats_space_history_marker_freed">Liberado %1$s</string>
     <string name="stats_storage_type_primary">Almacenamiento Primario</string>

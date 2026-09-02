@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">កុំប្រើ Shizuku</string>
     <string name="setup_dismiss_hint">អ្នកអាចរៀបចំអេក្រង់ម្ដងទៀតបាន តាមរយៈម៉ឺនុយការកំណត់។</string>
     <string name="setup_permission_granted_label">ការអនុញ្ញាតបានផ្តល់ឱ្យ</string>
-    <string name="setup_permission_error_label">កំហុសអនុញ្ញាត</string>
-    <string name="setup_inventory_invalid_label">បញ្ជីកម្មវិធីមិនត្រឹមត្រូវ</string>
     <string name="setup_usagestats_title">ស្ថិតិការប្រើប្រាស់</string>
     <string name="setup_usagestats_body">ការអនុញ្ញាតស្ថិតិការប្រើប្រាស់ផ្តល់ការចូលប្រើប្រាស់លម្អិតបន្ថែមទៀត។ SD Maid ប្រើវាដើម្បីកំណត់ទំហំឃ្លាំងសម្ងាក់បន្ថែម។</string>
     <string name="setup_usagestats_hint">ត្រូវការសម្រាប់ការលុបឃ្លាំងសម្ងាក់ផ្អែកលើសេវាកម្មយល់ដឹង។</string>

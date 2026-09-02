@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">عدم استفاده از Shizuku</string>
     <string name="setup_dismiss_hint">می‌توانید صفحه راه‌اندازی را از طریق منوی تنظیمات دوباره پیدا کنید.</string>
     <string name="setup_permission_granted_label">مجوز اعطا شد</string>
-    <string name="setup_permission_error_label">خطای دسترسی</string>
-    <string name="setup_inventory_invalid_label">فهرست برنامه نامعتبر</string>
     <string name="setup_usagestats_title">آمار استفاده</string>
     <string name="setup_usagestats_body">دسترسی به آمار استفاده، اجازه دسترسی به جزئیات بیشتری از برنامه را فراهم می‌کند. SD Maid از این دسترسی برای تعیین اندازه‌های اضافی حافظه پنهان استفاده می‌کند.</string>
     <string name="setup_usagestats_hint">برای حذف حافظه پنهان بر اساس خدمات دسترسی ضروری است.</string>

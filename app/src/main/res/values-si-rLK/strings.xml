@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku භාවිතා නොකරන්න</string>
     <string name="setup_dismiss_hint">සම්සා රන්ග මෙනුව අරහා ඔබට පිහිටුවීම් තිරය නැවත සොයා ගැනීමට හැකියි.</string>
     <string name="setup_permission_granted_label">අනුමතිය ලබා දී</string>
-    <string name="setup_permission_error_label">අනුමති හොපීම</string>
-    <string name="setup_inventory_invalid_label">වලංගු නොවන app ලැයිස්තුව</string>
     <string name="setup_usagestats_title">භාවිත සංඛ්යාලේැන</string>
     <string name="setup_usagestats_body">භාවිත සංඛ්යාලේැන අනුමතිය වැඩි යෙදුම් විශේෂ වලට ප්‍රවේශය ලබා දේ. SD Maid එය අමතර කැශ් ප්‍රමාණ නිර්ණාරණය කිරීමට භාවිතා කරයි.</string>
     <string name="setup_usagestats_hint">ඇන්ද්‍රිය පරිගැන්න සේවාව මෆින් කැශ් මකාදම් සඳහා අවශ්‍යි.</string>

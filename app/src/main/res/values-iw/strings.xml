@@ -283,8 +283,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_shizuku_disable_shizuku_use_label">אל תשתמש בShizuku</string>
     <string name="setup_dismiss_hint">תוכל למצוא שוב את מסך ההגדרה דרך תפריט ההגדרות.</string>
     <string name="setup_permission_granted_label">ההרשאה ניתנה</string>
-    <string name="setup_permission_error_label">שגיאת הרשאה</string>
-    <string name="setup_inventory_invalid_label">רשימת יישומים לא תקינה</string>
     <string name="setup_usagestats_title">סטטיסטיקות שימוש</string>
     <string name="setup_usagestats_body">הרשאת סטטיסטיקת השימוש מעניקה גישה לפרטי אפליקציה נוספים. SD Maid משתמש בו כדי לקבוע גדלי מטמון נוספים.</string>
     <string name="setup_usagestats_hint">נדרש עבור מחיקת מטמון מבוססת שירות נגישות.</string>

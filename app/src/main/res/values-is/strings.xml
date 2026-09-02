@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ekki nota Shizuku</string>
     <string name="setup_dismiss_hint">Þú getur fundið uppsetningarskjáinn aftur í gegnum stillingavalmynd.</string>
     <string name="setup_permission_granted_label">Leyfi veitt</string>
-    <string name="setup_permission_error_label">Villa í leyfi</string>
-    <string name="setup_inventory_invalid_label">Ógildur app-listi</string>
     <string name="setup_usagestats_title">Notkunartölfræði</string>
     <string name="setup_usagestats_body">Notkunartölfræðileyfið veitir aðgang að nánari upplýsingum um forrit. SD Maid notar það til að ákvarða viðbótar skyndiminnisstærðir.</string>
     <string name="setup_usagestats_hint">Nauðsynlegt fyrir eyðingu skyndiminnis byggt á aðgengisþjónustu.</string>

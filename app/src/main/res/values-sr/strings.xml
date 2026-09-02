@@ -274,8 +274,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Не користи Shizuku</string>
     <string name="setup_dismiss_hint">Екран за подешавање можете поново пронаћи преко менија подешавања.</string>
     <string name="setup_permission_granted_label">Дозвола одобрена</string>
-    <string name="setup_permission_error_label">Грешка дозволе</string>
-    <string name="setup_inventory_invalid_label">Неважећа листа апликација</string>
     <string name="setup_usagestats_title">Статистика коришћења</string>
     <string name="setup_usagestats_body">Дозвола за статистику коришћења даје приступ више детаља о апликацији. СД Чистач је користи за одређивање додатних величина кеша.</string>
     <string name="setup_usagestats_hint">Потребно за приступачност сервиса за брисање кеша.</string>

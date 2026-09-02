@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">不要使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以透過設定選單再次找到安裝程式畫面。</string>
     <string name="setup_permission_granted_label">權限已授予</string>
-    <string name="setup_permission_error_label">權限錯誤</string>
-    <string name="setup_inventory_invalid_label">應用程式清單無效</string>
     <string name="setup_usagestats_title">使用量統計資料</string>
     <string name="setup_usagestats_body">使用量統計資料權限授予更多應用程式的存取權，SD 女僕用它來確定額外快取大小。</string>
     <string name="setup_usagestats_hint">需要基於無障礙服務的快取偵測。</string>

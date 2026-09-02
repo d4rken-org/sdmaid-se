@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku paydanma</string>
     <string name="setup_dismiss_hint">Ornatlash ekranın sázlemeler menyüsı arqalı qayta tabıw mümkin.</string>
     <string name="setup_permission_granted_label">Ruxsat berildi</string>
-    <string name="setup_permission_error_label">Ruqsát qatelik</string>
-    <string name="setup_inventory_invalid_label">Qáte qosımshalar dizimi</string>
     <string name="setup_usagestats_title">Paydalanıw statistikası</string>
     <string name="setup_usagestats_body">Paydlanıw statistikası ruqsátı köbirek programma egélliklerine qôl jetiwdi beredi. SD Maid onı qosimsha kesh ölshemlerdi aniqlaw üşin paydalanadi.</string>
     <string name="setup_usagestats_hint">Arnawlı múmkinshilikler xızmetine tiykarlanǵan keshti óshiriw ushın talap etiledi.</string>

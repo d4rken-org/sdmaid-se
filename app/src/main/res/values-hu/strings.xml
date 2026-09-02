@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ne használjon Shizuku-t</string>
     <string name="setup_dismiss_hint">A beállítási képernyőt ismét megtalálhatja a beállítások menüben.</string>
     <string name="setup_permission_granted_label">Hozzáférés megadva</string>
-    <string name="setup_permission_error_label">Jogosultsági hiba</string>
-    <string name="setup_inventory_invalid_label">Érvénytelen alkalmazáslista</string>
     <string name="setup_usagestats_title">Használati statisztikák</string>
     <string name="setup_usagestats_body">A használati statisztikák engedélye hozzáférést biztosít az alkalmazás további részleteihez. Az SD Maid további gyorsítótárméretek meghatározására használja.</string>
     <string name="setup_usagestats_hint">Szükséges a kisegítő lehetőségek szolgáltatás alapú gyorsítótár törléséhez.</string>

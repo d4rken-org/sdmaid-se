@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ungasebenzisi i-Shizuku</string>
     <string name="setup_dismiss_hint">Ungakuthola isikrini sokusetshenziswa futhi ngemenu yezilungiselelo.</string>
     <string name="setup_permission_granted_label">Imvume inikeziwe</string>
-    <string name="setup_permission_error_label">Iphutha lemvume</string>
-    <string name="setup_inventory_invalid_label">Uhlu lwezinhlelo olungavumelekile</string>
     <string name="setup_usagestats_title">Izibalo zokusetshenziswa</string>
     <string name="setup_usagestats_body">Imvume yezibalo zokusetshenziswa inikeza ukufinyelela emininingwaneni eminingi yohlelo lokusebenza. I-SD Maid iyakusebenzisa ukuze inqume osayizi benqobo-cache engeziwe.</string>
     <string name="setup_usagestats_hint">Kuyadingeka kwinsiza yokufinyelela esekelwe ekususweni kwe-cache.</string>

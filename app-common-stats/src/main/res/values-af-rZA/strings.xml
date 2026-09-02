@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
     <string name="stats_space_history_upgrade_title">Volledige geskiedenis is \'n Pro-funksie</string>
-    <string name="stats_space_history_upgrade_body">Opgradeer om die volledige 90-dag-tendensaansig vir elke bergingstoestel te ontsluit.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Upgrade na premium om die volledige 90-daagse oorsig vir elke bergingstoestel te ontsluit, en kry \'n waarskuwing voordat jy sonder ruimte raak.</string>
     <string name="stats_space_history_marker_freed">Vrygestel %1$s</string>
     <string name="stats_storage_type_primary">Primêre berging</string>

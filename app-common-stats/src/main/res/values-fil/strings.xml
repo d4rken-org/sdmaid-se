@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s sa loob ng %2$s</string>
     <string name="stats_space_history_upgrade_title">Ang buong kasaysayan ay isang Pro na tampok</string>
-    <string name="stats_space_history_upgrade_body">I-upgrade upang ma-unlock ang buong 90-araw na trend view para sa bawat storage device.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">I-upgrade upang i-unlock ang 90-day trend view para sa bawat storage device, at makatanggap ng babala bago maubos ang puwang.</string>
     <string name="stats_space_history_marker_freed">Na-free ang %1$s</string>
     <string name="stats_storage_type_primary">Pangunahing imbakan</string>

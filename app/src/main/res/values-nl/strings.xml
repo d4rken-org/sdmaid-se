@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku niet gebruiken</string>
     <string name="setup_dismiss_hint">Je vindt het instellingenscherm terug via het instellingenmenu.</string>
     <string name="setup_permission_granted_label">Toestemming verleend</string>
-    <string name="setup_permission_error_label">Toestemmingsfout</string>
-    <string name="setup_inventory_invalid_label">Ongeldige app-lijst</string>
     <string name="setup_usagestats_title">Gebruiksstatistieken</string>
     <string name="setup_usagestats_body">De toestemming voor gebruiksstatistieken geeft toegang tot meer app details. SD Maid gebruikt het om extra cachegroottes te bepalen.</string>
     <string name="setup_usagestats_hint">Vereist voor cacheverwijdering op basis van toegankelijkheidsservice.</string>

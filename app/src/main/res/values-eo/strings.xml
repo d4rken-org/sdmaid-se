@@ -98,7 +98,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ne uzi Shizuku</string>
     <string name="setup_dismiss_hint">Vi povas trovi la agordan ekranon denove per la agorda menuo.</string>
     <string name="setup_permission_granted_label">Permeso donita</string>
-    <string name="setup_permission_error_label">Permesa eraro</string>
     <string name="setup_usagestats_title">Uzaj statistikoj</string>
     <string name="setup_usagestats_body">La permeso de uzaj statistikoj donas aliron al pli da aplikaĵaj detaloj. SD Maid uzas ĝin por determini aldonajn kaŝmemorajn grandecojn.</string>
     <string name="setup_usagestats_hint">Bezonata por alirebleca servo bazita kaŝmemora forigo.</string>

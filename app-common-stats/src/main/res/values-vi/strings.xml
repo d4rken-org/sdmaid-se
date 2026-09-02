@@ -47,9 +47,6 @@
     <string name="stats_space_history_delta_label">Biến động</string>
     <string name="stats_space_history_delta_in_x">%1$s trong %2$s</string>
     <string name="stats_space_history_upgrade_title">Lịch sử đầy đủ là tính năng Pro</string>
-    <string name="stats_space_history_upgrade_body">Nâng cấp để mở khóa chế độ xem xu hướng 90 ngày đầy đủ cho mỗi thiết bị lưu trữ.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Nâng cấp để mở khóa chế độ xem xu hướng đầy đủ 90 ngày cho mỗi thiết bị lưu trữ, và nhận cảnh báo trước khi bạn hết chỗ trống.</string>
     <string name="stats_space_history_marker_freed">Đã giải phóng %1$s</string>
     <string name="stats_storage_type_primary">Bộ nhớ chính</string>

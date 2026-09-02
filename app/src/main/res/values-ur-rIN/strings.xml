@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku استعمال نہ کریں</string>
     <string name="setup_dismiss_hint">آپ سیٹنگز مینو کے ذریعے سیٹ اپ سکرین دوبارہ تلاش کر سکتے ہیں۔</string>
     <string name="setup_permission_granted_label">اجازت دی گئی</string>
-    <string name="setup_permission_error_label">اجازت کی خرابی</string>
-    <string name="setup_inventory_invalid_label">غلط ایپ کی فہرست</string>
     <string name="setup_usagestats_title">استعمال کے شماریات</string>
     <string name="setup_usagestats_body">استعمال کے شماریات کی اجازت زیادہ ایپ تفصیلات تک رسائی فراہم کرتی ہے۔ SD Maid اسے اضافی کیش سائز کا تعین کرنے کے لیے استعمال کرتا ہے۔</string>
     <string name="setup_usagestats_hint">رسائی سروس پر مبنی کیش ڈیلیٹ کے لیے ضروری۔</string>

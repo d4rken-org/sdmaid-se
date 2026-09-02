@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s në %2$s</string>
     <string name="stats_space_history_upgrade_title">Historia e plotë është një veçori Pro</string>
-    <string name="stats_space_history_upgrade_body">Përmirso për të zhbllokuar pamjen e plotë të trendit 90-ditor për çdo pajisje magazinimi.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Përmirëso planin për të shkyçur pamjen e plotë të tendencës 90-ditore për çdo pajisje ruajtëse, dhe merr një paralajmërim para se të mbarosësh hapësirën.</string>
     <string name="stats_space_history_marker_freed">U lirua %1$s</string>
     <string name="stats_storage_type_primary">Magazina primare</string>

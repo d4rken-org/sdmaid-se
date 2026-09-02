@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ez erabili Shizuku</string>
     <string name="setup_dismiss_hint">Konfigurazio-pantaila berriro aurki dezakezu ezarpenen menua bidez.</string>
     <string name="setup_permission_granted_label">Baimena emanda</string>
-    <string name="setup_permission_error_label">Baimen-errorea</string>
-    <string name="setup_inventory_invalid_label">Aplikazio zerrenda baliogabea</string>
     <string name="setup_usagestats_title">Erabilera-estatistikak</string>
     <string name="setup_usagestats_body">Erabilera-estatistiken baimenarekin aplikazio-xehetasun gehiago atzitu daitezke. SD Maid-ek cache tamaina gehigarriak zehazteko erabiltzen du.</string>
     <string name="setup_usagestats_hint">Beharrezkoa irisgarritasun-zerbitzuan oinarritutako cache-ezabaketan.</string>

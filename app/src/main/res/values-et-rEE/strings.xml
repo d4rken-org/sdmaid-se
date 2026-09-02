@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ära kasuta Shizukut</string>
     <string name="setup_dismiss_hint">Seadistamisekraani leiate taas seadete menüüst.</string>
     <string name="setup_permission_granted_label">Lubatud</string>
-    <string name="setup_permission_error_label">Lubamise tõrge</string>
-    <string name="setup_inventory_invalid_label">Vigane rakenduste loend</string>
     <string name="setup_usagestats_title">Kasutusstatistika</string>
     <string name="setup_usagestats_body">Kasutusstatistika luba annab juurdepääsetavuse rakenduse täpsematele andmetele. SD Maid tuvastab nendega muidu märkamatuks jäävat vahemälu mahtu.</string>
     <string name="setup_usagestats_hint">Vaja juurdepääsetavusteenusel põhineva vahemälu kustutamiseks.</string>

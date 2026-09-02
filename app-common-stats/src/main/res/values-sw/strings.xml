@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Tofauti</string>
     <string name="stats_space_history_delta_in_x">%1$s katika %2$s</string>
     <string name="stats_space_history_upgrade_title">Historia kamili ni kipengele cha Pro</string>
-    <string name="stats_space_history_upgrade_body">Boresha ili kufungua mwonekano kamili wa mwenendo wa siku 90 kwa kila kifaa cha hifadhi.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Boresha ili ufungue mwonekano kamili wa mwenendo wa siku 90 kwa kila kifaa cha hifadhi, na upate onyo kabla nafasi yako haijaisha.</string>
     <string name="stats_space_history_marker_freed">Iliyoachiliwa %1$s</string>
     <string name="stats_storage_type_primary">Hifadhi ya msingi</string>

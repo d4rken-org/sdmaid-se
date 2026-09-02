@@ -97,7 +97,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ná húsáid Shizuku</string>
     <string name="setup_dismiss_hint">Is féidir leat an scailéan socrú a aiméir arís trí roghchlár na socruithe.</string>
     <string name="setup_permission_granted_label">Cead deonta</string>
-    <string name="setup_permission_error_label">Earráid ceada</string>
     <string name="setup_usagestats_title">Staitisticí úsáide</string>
     <string name="setup_usagestats_body">Tugann cead na staitisticí úsáide rochtain ar thuilleadh sonraí aipe. Úsáideann SD Maid é chun méideanna taisce bhreise a chinneadh.</string>
     <string name="setup_usagestats_hint">Riachtanach le haghaidh scriosadh taisce bunaithe ar sheirbhís inrochtaineachta.</string>

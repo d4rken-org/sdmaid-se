@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Moenie Shizuku gebruik nie</string>
     <string name="setup_dismiss_hint">Jy kan die opstelling skerm weer vind via die instellings menu.</string>
     <string name="setup_permission_granted_label">Toestemming verleen</string>
-    <string name="setup_permission_error_label">Toestemming fout</string>
-    <string name="setup_inventory_invalid_label">Ongeldige app-lys</string>
     <string name="setup_usagestats_title">Gebruik statistieke</string>
     <string name="setup_usagestats_body">Die gebruik statistieke toestemming verleen toegang tot meer toepassing besonderhede. SD Maid gebruik dit om addisionele kas groottes te bepaal.</string>
     <string name="setup_usagestats_hint">Nodig vir toeganklikheid diens gebaseerde kas skrapping.</string>

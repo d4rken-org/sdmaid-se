@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ikke bruk Shizuku</string>
     <string name="setup_dismiss_hint">Du finner skjermen for oppsett igjen via innstillingsmenyen.</string>
     <string name="setup_permission_granted_label">Tillatelse gitt</string>
-    <string name="setup_permission_error_label">Tillatelsesfeil</string>
-    <string name="setup_inventory_invalid_label">Ugyldig appliste</string>
     <string name="setup_usagestats_title">Bruksstatistikk</string>
     <string name="setup_usagestats_body">Tillatelsen for bruksstatistikk gir tilgang til flere appdetaljer. SD Maid bruker den for å fastslå størrelser på flere hurtigbuffere.</string>
     <string name="setup_usagestats_hint">Kreves for tilgjengelighetstjeneste-basert sletting av hurtigbuffere.</string>

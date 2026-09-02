@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Не користи Shizuku</string>
     <string name="setup_dismiss_hint">Можете повторно да го најдете екранот за поставување преку менито за поставки.</string>
     <string name="setup_permission_granted_label">Дозволата е дадена</string>
-    <string name="setup_permission_error_label">Грешка со дозвола</string>
-    <string name="setup_inventory_invalid_label">Невалидна листа на апликации</string>
     <string name="setup_usagestats_title">Статистика на користење</string>
     <string name="setup_usagestats_body">Дозволата за статистика на користење дава пристап до повеќе детали за апликации. SD Maid ја користи за одредување дополнителни големини на кеш.</string>
     <string name="setup_usagestats_hint">Потребна за бришење на кеш базирано на услуга за пристапност.</string>

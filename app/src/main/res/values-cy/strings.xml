@@ -98,7 +98,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Peidio â defnyddio Shizuku</string>
     <string name="setup_dismiss_hint">Gallwch ddod o hyd i\'r sgrin gosod eto drwy\'r ddewislen gosodiadau.</string>
     <string name="setup_permission_granted_label">Caniatâd wedi\'i roi</string>
-    <string name="setup_permission_error_label">Gwall caniatâd</string>
     <string name="setup_usagestats_title">Ystadegau defnydd</string>
     <string name="setup_usagestats_body">Mae\'r caniatâd ystadegau defnydd yn rhoi mynediad i ragor o fanylion apiau. Mae SD Maid yn ei ddefnyddio i bennu meintiau cache ychwanegol.</string>
     <string name="setup_usagestats_hint">Yn ofynnol ar gyfer dileu cache yn seiliedig ar wasanaeth hygyrchedd.</string>

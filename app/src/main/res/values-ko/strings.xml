@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku 사용하지 않음</string>
     <string name="setup_dismiss_hint">본 초기 설정은 앱 내 설정 메뉴에서 다시 볼 수 있습니다.</string>
     <string name="setup_permission_granted_label">권한 부여 완료</string>
-    <string name="setup_permission_error_label">권한 오류</string>
-    <string name="setup_inventory_invalid_label">잘못된 앱 목록</string>
     <string name="setup_usagestats_title">사용 통계</string>
     <string name="setup_usagestats_body">사용 통계 권한을 부여하면 SD Maid가 각 앱의 추가적 세부 정보를 확인할 수 있습니다. SD Maid는 캐시 크기 정보를 사용합니다.</string>
     <string name="setup_usagestats_hint">접근성 서비스를 통한 캐시 삭제 기능을 위해 필요합니다.</string>
