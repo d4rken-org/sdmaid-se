@@ -2,9 +2,12 @@ package eu.darken.sdmse.common.upgrade.core.billing.work
 
 import androidx.work.BackoffPolicy
 import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
 import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.Operation
+import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.await
 import androidx.work.workDataOf
@@ -20,11 +23,13 @@ import javax.inject.Provider
 import javax.inject.Singleton
 
 /**
- * Arms the [PurchaseAckWorker] safety net. Two triggers:
+ * Arms the [PurchaseAckWorker] safety net. Three triggers:
  * - a billing flow is about to launch (armed and awaited BEFORE the Play sheet, so the WorkManager
  *   DB transaction lands even if the process dies around the sheet),
  * - an ack pass discovered unacknowledged purchases (called directly, pre-attempt, from
- *   BillingManager's runAckPass).
+ *   BillingManager's runAckPass),
+ * - every process start arms a periodic sweep that covers purchases made outside the app (Play
+ *   Store resubscribe), which no in-process trigger can see.
  */
 @Singleton
 class PurchaseAckScheduler @Inject constructor(
@@ -60,6 +65,25 @@ class PurchaseAckScheduler @Inject constructor(
         initialDelayMs = DISCOVERY_DELAY_MS,
     )
 
+    // Covers what no in-process trigger can: a purchase made outside the app (Play Store
+    // resubscribe) whose 3-day ack deadline can pass without the user ever opening SD Maid.
+    suspend fun armPeriodicSweep() {
+        val request = PeriodicWorkRequestBuilder<PurchaseAckWorker>(PERIODIC_INTERVAL_HOURS, TimeUnit.HOURS).apply {
+            setConstraints(
+                Constraints.Builder().apply {
+                    setRequiredNetworkType(NetworkType.CONNECTED)
+                }.build()
+            )
+            setBackoffCriteria(BackoffPolicy.EXPONENTIAL, BACKOFF_DELAY_MS, TimeUnit.MILLISECONDS)
+            setInputData(workDataOf(PurchaseAckWorker.KEY_MODE to PurchaseAckWorker.MODE_PERIODIC))
+        }.build()
+
+        val operation = workManager.get()
+            .enqueueUniquePeriodicWork(WORK_NAME_PERIODIC, ExistingPeriodicWorkPolicy.UPDATE, request)
+        operation.awaitBounded()
+        log(TAG) { "armPeriodicSweep(): armed, interval=${PERIODIC_INTERVAL_HOURS}h" }
+    }
+
     private suspend fun arm(
         name: String,
         policy: ExistingWorkPolicy,
@@ -85,15 +109,18 @@ class PurchaseAckScheduler @Inject constructor(
             setInputData(workDataOf(PurchaseAckWorker.KEY_EXPIRES_AT to expiresAt))
         }.build()
 
-        // Await the enqueue: the caller arms this because the process may die at any moment — a
-        // fire-and-forget enqueue could be lost with it. Cancellable and BOUNDED: every caller
-        // needs a durable enqueue without an unbounded stall — a WorkManager that never settles
-        // must become an exception (handled fail-open by every caller) instead of a hang (which on
-        // the launch lane would park the purchase and its busy guard forever).
-        val operation = workManager.get().enqueueUniqueWork(name, policy, request)
-        withTimeoutOrNull(ENQUEUE_TIMEOUT_MS) { operation.await() }
-            ?: throw IllegalStateException("WorkManager enqueue did not settle within ${ENQUEUE_TIMEOUT_MS}ms")
+        workManager.get().enqueueUniqueWork(name, policy, request).awaitBounded()
         log(TAG) { "arm($policy): safety net armed, expiresAt=$expiresAt" }
+    }
+
+    // Await the enqueue: the caller arms this because the process may die at any moment — a
+    // fire-and-forget enqueue could be lost with it. Cancellable and BOUNDED: every caller needs a
+    // durable enqueue without an unbounded stall — a WorkManager that never settles must become an
+    // exception (handled fail-open by every caller) instead of a hang (which on the launch lane
+    // would park the purchase and its busy guard forever).
+    private suspend fun Operation.awaitBounded() {
+        withTimeoutOrNull(ENQUEUE_TIMEOUT_MS) { await() }
+            ?: throw IllegalStateException("WorkManager enqueue did not settle within ${ENQUEUE_TIMEOUT_MS}ms")
     }
 
     companion object {
@@ -104,10 +131,17 @@ class PurchaseAckScheduler @Inject constructor(
         private val WORK_NAME_LAUNCH = "${BuildConfigWrap.APPLICATION_ID}.gplay.purchase-ack.launch.v1"
         private val WORK_NAME_RESCUE = "${BuildConfigWrap.APPLICATION_ID}.gplay.purchase-ack.rescue.v1"
 
+        // No version suffix: this lane is enqueued with UPDATE, which replaces the spec in place
+        // (keeping the next-run time), so it migrates itself. KEEP would be wrong here — periodic
+        // work never completes, so KEEP would ignore every later request under this name and a
+        // changed interval, constraint, input or worker class would silently do nothing.
+        private val WORK_NAME_PERIODIC = "${BuildConfigWrap.APPLICATION_ID}.gplay.purchase-ack.periodic"
+
         private const val LAUNCH_DELAY_MS = 30 * 60 * 1000L
         private const val DISCOVERY_DELAY_MS = 60 * 1000L
         private const val BACKOFF_DELAY_MS = 30 * 60 * 1000L
         private const val ENQUEUE_TIMEOUT_MS = 10 * 1000L
+        private const val PERIODIC_INTERVAL_HOURS = 12L
 
         val TAG: String = logTag("Upgrade", "Gplay", "Billing", "AckScheduler")
     }
