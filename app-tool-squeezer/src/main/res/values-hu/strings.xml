@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
     <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
     <string name="squeezer_result_empty_message">Nem található tömöríthető média.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Nincs tömörítendő média — %d HDR/mélységi fotó maradt ki. Engedélyezze a \"HDR &amp; mélységi fotók tömörítése\" beállítást azok belefoglalásához.</item>
-        <item quantity="other">Nincs tömörítendő média — %d HDR/mélységi fotó maradt ki. Engedélyezze a \"HDR &amp; mélységi fotók tömörítése\" beállítást azok belefoglalásához.</item>
-    </plurals>
     <string name="squeezer_setup_warning">A tömörítés véglegesen csökkenti a minőséget a tárhely felszabadítása érdekében. Ez nem vonható vissza. Gondosan ellenőrizd a beállításokat indítás előtt.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d helyszín nem használható tömörítésre és eltávolítottuk. A tömörítéshez közvetlen hozzáférés szükséges a belső tárhelyre.</item>

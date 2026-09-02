@@ -221,22 +221,22 @@ class MediaScannerChipStateTest : BaseTest() {
     }
 
     @Test
-    fun `motion photo - item is kept and flagged, never excluded`() = runTest {
+    fun `motion photo opt-in on - item is kept and flagged`() = runTest {
         stubWalk(photo("motion.jpg"))
         every { lossyAuxDetector.hasMotionVideo(any(), any()) } returns true
 
-        val result = scanner().scan(options())
+        val result = scanner().scan(options().copy(includeMotionPhotos = true))
 
         result.items.size shouldBe 1
         (result.items.first() as CompressibleImage).hasMotionVideo shouldBe true
     }
 
     @Test
-    fun `oversized image - flagged as downscaled`() = runTest {
+    fun `oversized opt-in on - item is kept and flagged as downscaled`() = runTest {
         stubWalk(photo("huge.jpg"))
         every { dimensionProbe.read(any()) } returns ImageDimensionProbe.Dimensions(9000, 6000)
 
-        val result = scanner().scan(options())
+        val result = scanner().scan(options().copy(includeOversizedImages = true))
 
         (result.items.first() as CompressibleImage).willDownscale shouldBe true
     }
@@ -259,5 +259,41 @@ class MediaScannerChipStateTest : BaseTest() {
         val result = scanner().scan(options())
 
         (result.items.first() as CompressibleImage).willDownscale shouldBe false
+    }
+
+    @Test
+    fun `motion photo opt-in off - item is excluded and counted`() = runTest {
+        stubWalk(photo("motion.jpg"))
+        every { lossyAuxDetector.hasMotionVideo(any(), any()) } returns true
+
+        val result = scanner().scan(options())
+
+        result.items.size shouldBe 0
+        result.skippedMotionPhotoCount shouldBe 1
+        result.skippedLossyAuxCount shouldBe 0
+    }
+
+    @Test
+    fun `oversized opt-in off - item is excluded and counted`() = runTest {
+        stubWalk(photo("huge.jpg"))
+        every { dimensionProbe.read(any()) } returns ImageDimensionProbe.Dimensions(9000, 6000)
+
+        val result = scanner().scan(options())
+
+        result.items.size shouldBe 0
+        result.skippedOversizedCount shouldBe 1
+    }
+
+    @Test
+    fun `motion photo does not trip the HDR-depth skip`() = runTest {
+        // A wrongly routed Motion Photo would land in the HDR count and mislead the result line.
+        stubWalk(photo("motion.jpg"))
+        every { lossyAuxDetector.hasMotionVideo(any(), any()) } returns true
+
+        val result = scanner().scan(options().copy(includeLossyAuxImages = true))
+
+        result.items.size shouldBe 0
+        result.skippedMotionPhotoCount shouldBe 1
+        result.skippedLossyAuxCount shouldBe 0
     }
 }

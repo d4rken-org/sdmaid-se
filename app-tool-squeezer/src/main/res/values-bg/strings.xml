@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Преглед на сравнение</string>
     <string name="squeezer_no_example_found">Не са намерени изображения в избраните пътища.</string>
     <string name="squeezer_result_empty_message">Няма намерени медии за компресиране.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Няма медия за компресиране — %d HDR/дълбочинна снимка е пропусната. Активирайте „Компресиране на HDR &amp; снимки с дълбочина“ в настройките, за да я включите.</item>
-        <item quantity="other">Няма медия за компресиране — %d HDR/дълбочинни снимки са пропуснати. Активирайте „Компресиране на HDR &amp; снимки с дълбочина“ в настройките, за да ги включите.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Компресирането намалява качеството завинаги, за да спести място за съхранение. Това не може да бъде отменено. Прегледайте внимателно настройките си, преди да започнете.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d местоположение не може да се използва за компресиране и беше премахнато. Компресирането изисква директен достъп до вътрешната памет.</item>

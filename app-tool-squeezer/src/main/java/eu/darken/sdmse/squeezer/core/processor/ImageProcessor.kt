@@ -58,8 +58,9 @@ class ImageProcessor @Inject constructor(
         val failed: Map<CompressibleImage, Throwable>,
         val savedSpace: Long,
         /**
-         * Photos left untouched by the HDR/depth preflight guard. Not "compressed" (so excluded
-         * from the processed count and affected paths) but still consumed from the scan list.
+         * Photos left untouched by the protection preflight guard (HDR/depth, Motion Photo,
+         * oversized). Not "compressed" (so excluded from the processed count and affected paths)
+         * but still consumed from the scan list.
          */
         val skippedGuarded: Set<CompressibleImage> = emptySet(),
     )
@@ -109,16 +110,22 @@ class ImageProcessor @Inject constructor(
                 )
             }
 
-            // Authoritative HDR/depth guard. The scan already excludes these when the opt-in is off,
-            // but re-check against the CURRENT setting here so a photo can't be flattened if the user
-            // toggled the setting off after scanning. Mirrors the existing skip paths: counted as
-            // handled, never compressed, no history written.
-            val guardPath = image.path as? LocalPath
-            if (guardPath != null &&
+            // Authoritative protection guard. The scan already excludes these when the opt-in is
+            // off, but re-check against the CURRENT settings here so a photo can't be flattened if
+            // the user toggled a setting off after scanning. Mirrors the existing skip paths:
+            // counted as handled, never compressed, no history written.
+            val guardFile = (image.path as? LocalPath)?.let { File(it.path) }
+            val guardReason = when {
+                guardFile == null -> null
                 !settings.includeLossyAuxImages.value() &&
-                lossyAuxDetector.hasLossyAux(File(guardPath.path), image.mimeType)
-            ) {
-                log(TAG, INFO) { "Skipped ${image.path} (HDR/depth preserved)" }
+                    lossyAuxDetector.hasLossyAux(guardFile, image.mimeType) -> "HDR/depth"
+                !settings.includeMotionPhotos.value() &&
+                    lossyAuxDetector.hasMotionVideo(guardFile, image.mimeType) -> "Motion Photo"
+                !settings.includeOversizedImages.value() && image.willDownscale -> "oversized"
+                else -> null
+            }
+            if (guardReason != null) {
+                log(TAG, INFO) { "Skipped ${image.path} ($guardReason preserved)" }
                 skippedGuarded.add(image)
                 // Skipped photos advance the counter too, otherwise the ring stalls across them.
                 updateProgress {
@@ -177,7 +184,7 @@ class ImageProcessor @Inject constructor(
 
         log(TAG, INFO) {
             "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, " +
-                "${skippedGuarded.size} HDR/depth-preserved, saved $totalSaved bytes"
+                "${skippedGuarded.size} guard-preserved, saved $totalSaved bytes"
         }
 
         Result(

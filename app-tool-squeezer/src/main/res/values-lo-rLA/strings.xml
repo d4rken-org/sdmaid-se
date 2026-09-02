@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">ດູການເປົນເທີຍບ</string>
     <string name="squeezer_no_example_found">ໄມ່ພົບຣູບໃນເສ້ນທາງທີ່ເລືອກ.</string>
     <string name="squeezer_result_empty_message">ບໍ່ພົບສື່ທີ່ສາມາດບີບອັດໄດ້.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">ບໍ່ມີສື່ໃດໃນການບີບ — %d HDR/depth photo ຖືກຂ້າມໄປ. ເປີດໃຊ້ \"Compress HDR &amp; depth photos\" ໃນການຕັ້ງຄ່າເພື່ອລວມມັນ.</item>
-    </plurals>
     <string name="squeezer_setup_warning">ການບີບອັດຫຼຸດຄຸນນະພາບຢ່າງຖາວອນເພື່ອປະຢັດພື້ນທີ່ເກັບຂໍ້ມູນ. ນີ້ບໍ່ສາມາດຍ້ອນກັບໄດ້. ກວດສອບການຕັ້ງຄ່າຂອງທ່ານຢ່າງລະມັດລະວັງກ່ອນເລີ່ມ.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d ສະຖານທີ່ບໍ່ສາມາດໃຊ້ສຳລັບການບີບອັດ ແລະ ຖືກລຶບອອກ. ການບີບອັດຕ້ອງການການເຂົ້າເຖິງໂດຍກົງຕໍ່ບ່ອນເກັບຂໍ້ມູນພາຍໃນ.</item>

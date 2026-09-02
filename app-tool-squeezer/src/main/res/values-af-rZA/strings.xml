@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Bekyk vergelyking</string>
     <string name="squeezer_no_example_found">Geen beelde gevind in gekose paaie nie.</string>
     <string name="squeezer_result_empty_message">Geen komprimeerbare media gevind nie.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Geen media om te komprimeer nie — %d HDR/dieptefoto is oorgeslaan. Aktiveer \"Komprimeer HDR &amp; dieptefoto\'s\" in instellings om dit in te sluit.</item>
-        <item quantity="other">Geen media om te komprimeer nie — %d HDR/dieptefoto\'s is oorgeslaan. Aktiveer \"Komprimeer HDR &amp; dieptefoto\'s\" in instellings om hulle in te sluit.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Kompressie verminder kwaliteit permanent om bergingspasie te bespaar. Dit kan nie ongedaan gemaak word nie. Hersien jou instellings noukeurig voor jy begin.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ligging kan nie vir kompressie gebruik word nie en is verwyder. Kompressie vereis direkte toegang tot interne berging.</item>

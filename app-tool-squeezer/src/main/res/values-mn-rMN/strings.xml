@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Харьцуулга үзэх</string>
     <string name="squeezer_no_example_found">Сонгосон замуудаас зураг олдсонгүй.</string>
     <string name="squeezer_result_empty_message">Шахах боломжтой медиа олдсонгүй.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Шахах юм байхгүй — %d HDR/гүн зураг өнгөрүүлсэн. Үүнийг оруулахын тулд тохиргооны \"HDR &amp; гүн зургуудыг шахах\" сонголтыг идэвхжүүлнэ үү.</item>
-        <item quantity="other">Шахах юм байхгүй — %d HDR/гүн зургуудыг өнгөрүүлсэн. Үүнийг оруулахын тулд тохиргооны \"HDR &amp; гүн зургуудыг шахах\" сонголтыг идэвхжүүлнэ үү.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Шахалт нь санах ойн зайг хэмнэхийн тулд чанарыг байнгын бууруулна. Үүнийг буцаах боломжгүй. Эхлэхийн өмнө тохиргоогоо сайтар хянана уу.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d байршлыг шахахад ашиглах боломжгүй тул устгагдлаа. Шахалт нь дотоод санах ойд шууд хандахыг шаардадаг.</item>

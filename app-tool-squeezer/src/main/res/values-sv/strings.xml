@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Visa jämförelse</string>
     <string name="squeezer_no_example_found">Inga bilder hittades i valda sökvägar.</string>
     <string name="squeezer_result_empty_message">Ingen komprimeringsbar media hittades.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Inget media att komprimera — %d HDR/djupfoto hoppades över. Aktivera \"Komprimera HDR &amp; djupfoton\" i inställningar för att inkludera det.</item>
-        <item quantity="other">Inget media att komprimera — %d HDR/djupfoton hoppades över. Aktivera \"Komprimera HDR &amp; djupfoton\" i inställningar för att inkludera dem.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Komprimering minskar kvaliteten permanent för att spara lagringsutrymme. Detta kan inte ångras. Granska dina inställningar noggrant innan du börjar.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d plats kan inte användas för komprimering och togs bort. Komprimering kräver direkt åtkomst till det interna lagringsutrymmet.</item>

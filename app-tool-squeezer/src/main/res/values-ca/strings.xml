@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Mostra la comparació</string>
     <string name="squeezer_no_example_found">No s\'han trobat imatges a les rutes seleccionades.</string>
     <string name="squeezer_result_empty_message">No s\'han trobat fitxers multimèdia comprimibles.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Cap contingut multimèdia per comprimir — s\'ha omès %d foto HDR/profunditat. Activa «Comprimeix les fotos HDR &amp; de profunditat» a la configuració per incloure-la.</item>
-        <item quantity="other">Cap contingut multimèdia per comprimir — s\'han omès %d fotos HDR/profunditat. Activa «Comprimeix les fotos HDR &amp; de profunditat» a la configuració per incloure-les.</item>
-    </plurals>
     <string name="squeezer_setup_warning">La compressió reduïx permanentment la qualitat per estalviar espai d\'emmagatzematge. Això no es pot desfer. Reviseu la configuració acuradament abans de començar.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ubicació no es pot utilitzar per a la compressió i s\'ha eliminat. La compressió requereix accés directe a l\'emmagatzematge intern.</item>

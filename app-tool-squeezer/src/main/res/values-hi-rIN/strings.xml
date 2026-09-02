@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">तुलना देखें</string>
     <string name="squeezer_no_example_found">चयनित पथों में कोई छवि नहीं मिली।</string>
     <string name="squeezer_result_empty_message">कोई संपीड़न योग्य मीडिया नहीं मिला।</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">संपीड़ित करने के लिए कोई मीडिया नहीं — %d HDR/depth फ़ोटो को छोड़ दिया गया। इसे शामिल करने के लिए सेटिंग्स में \"HDR &amp; depth फ़ोटो को संपीड़ित करें\" सक्षम करें।</item>
-        <item quantity="other">संपीड़ित करने के लिए कोई मीडिया नहीं — %d HDR/depth फ़ोटो को छोड़ दिया गया। उन्हें शामिल करने के लिए सेटिंग्स में \"HDR &amp; depth फ़ोटो को संपीड़ित करें\" सक्षम करें।</item>
-    </plurals>
     <string name="squeezer_setup_warning">संपीड़न स्थायी रूप से स्टोरेज स्पेस बचाने के लिए गुणवत्ता कम करता है। यह पूर्ववत नहीं किया जा सकता। शुरू करने से पहले अपनी सेटिंग ध्यानपूर्वक देखें।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d स्थान संपीड़न के लिए उपयोग नहीं किया जा सकता और हटा दिया गया। संपीड़न के लिए आंतरिक संग्रहण तक सीधी पहुँच आवश्यक है।</item>

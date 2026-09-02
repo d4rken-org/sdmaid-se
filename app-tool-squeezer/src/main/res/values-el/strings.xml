@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Προβολή σύγκρισης</string>
     <string name="squeezer_no_example_found">Δεν βρέθηκαν εικόνες στις επιλεγμένες διαδρομές.</string>
     <string name="squeezer_result_empty_message">Δεν βρέθηκαν συμπιέσιμα αρχεία πολυμέσων.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Χωρίς μέσα προς συμπίεση — %d φωτογραφία HDR/βάθους παραλείφθηκε. Ενεργοποιήστε τη «Συμπίεση φωτογραφιών HDR &amp; βάθους» στις ρυθμίσεις για να την συμπεριλάβετε.</item>
-        <item quantity="other">Χωρίς μέσα προς συμπίεση — %d φωτογραφίες HDR/βάθους παραλείφθηκαν. Ενεργοποιήστε τη «Συμπίεση φωτογραφιών HDR &amp; βάθους» στις ρυθμίσεις για να τις συμπεριλάβετε.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Η συμπίεση μειώνει μόνιμα την ποιότητα για εξοικονόμηση αποθηκευτικού χώρου. Αυτό δεν μπορεί να αναιρεθεί. Ελέγξτε προσεκτικά τις ρυθμίσεις σας πριν ξεκινήσετε.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d τοποθεσία δεν μπορεί να χρησιμοποιηθεί για συμπίεση και αφαιρέθηκε. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>

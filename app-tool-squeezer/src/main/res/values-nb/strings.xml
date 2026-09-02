@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Vis sammenligning</string>
     <string name="squeezer_no_example_found">Ingen bilder funnet i valgte stier.</string>
     <string name="squeezer_result_empty_message">Ingen komprimerbare medier funnet.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Ingen media å komprimere – %d HDR/dybde-bilde ble hoppet over. Aktivér «Komprimer HDR &amp; dybde-bilder» i innstillinger for å inkludere det.</item>
-        <item quantity="other">Ingen media å komprimere – %d HDR/dybde-bilder ble hoppet over. Aktivér «Komprimer HDR &amp; dybde-bilder» i innstillinger for å inkludere dem.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Komprimering reduserer kvaliteten permanent for å spare lagringsplass. Dette kan ikke angres. Gå nøye gjennom innstillingene dine før du starter.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d sted kan ikke brukes til komprimering og ble fjernet. Komprimering krever direkte tilgang til intern lagring.</item>

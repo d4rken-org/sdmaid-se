@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">Lihat perbandingan</string>
     <string name="squeezer_no_example_found">Tidak ada gambar ditemukan di jalur yang dipilih.</string>
     <string name="squeezer_result_empty_message">Tidak ada media yang dapat dikompresi ditemukan.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">Tidak ada media untuk dikompres — %d foto HDR/kedalaman dilewatkan. Aktifkan \"Kompres foto HDR &amp; kedalaman\" di pengaturan untuk memasukkannya.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Kompresi secara permanen mengurangi kualitas untuk menghemat ruang penyimpanan. Ini tidak dapat dibatalkan. Tinjau pengaturan Anda dengan cermat sebelum memulai.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d lokasi tidak dapat digunakan untuk kompresi dan telah dihapus. Kompresi memerlukan akses langsung ke penyimpanan internal.</item>

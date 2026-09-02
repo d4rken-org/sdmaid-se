@@ -98,11 +98,6 @@
     <string name="squeezer_compare_action">Vizualizare comparație</string>
     <string name="squeezer_no_example_found">Nu s-au găsit imagini în căile selectate.</string>
     <string name="squeezer_result_empty_message">Nu s-au găsit fișiere media compresibile.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Nu sunt fișiere media de comprimat — %d fotografie HDR/profunzime a fost omisă. Activează \"Comprimă fotografiile HDR &amp; profunzime\" în setări pentru a o include.</item>
-        <item quantity="few">Nu sunt fișiere media de comprimat — %d fotografii HDR/profunzime au fost omise. Activează \"Comprimă fotografiile HDR &amp; profunzime\" în setări pentru a le include.</item>
-        <item quantity="other">Nu sunt fișiere media de comprimat — %d de fotografii HDR/profunzime au fost omise. Activează \"Comprimă fotografiile HDR &amp; profunzime\" în setări pentru a le include.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Compresia reduce permanent calitatea pentru a economisi spațiu de stocare. Aceasta nu poate fi anulată. Revizuiți setările cu atenție înainte de a începe.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d locație nu poate fi utilizată pentru comprimare și a fost eliminată. Compresia necesită acces direct la memoria internă.</item>

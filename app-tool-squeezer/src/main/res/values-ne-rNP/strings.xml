@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">तुलना हेर्नुहोस्</string>
     <string name="squeezer_no_example_found">चयनित पाथहरूमा कुनै छवि फेला परेन।</string>
     <string name="squeezer_result_empty_message">कुनै सम्पीडन गर्न मिल्ने मिडिया फेला परेन।</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">संपीडन गर्न कुनै मिडिया छैन — %d HDR/गहिराई फोटो छोडिएको थियो। त्यसलाई समावेश गर्न सेटिङ्समा \"HDR &amp; गहिराई फोटोहरू संपीडन गर्नुहोस्\" सक्षम गर्नुहोस्।</item>
-        <item quantity="other">संपीडन गर्न कुनै मिडिया छैन — %d HDR/गहिराई फोटोहरू छोडिएका थिए। तिनीहरूलाई समावेश गर्न सेटिङ्समा \"HDR &amp; गहिराई फोटोहरू संपीडन गर्नुहोस्\" सक्षम गर्नुहोस्।</item>
-    </plurals>
     <string name="squeezer_setup_warning">सम्पीडनले भण्डारण स्थान बचत गर्न गुणस्तर स्थायी रूपमा घटाउँछ। यो पूर्ववत् गर्न सकिँदैन। सुरु गर्नुअघि आफ्नो सेटिङहरू ध्यानपूर्वक समीक्षा गर्नुहोस्।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d स्थान सम्पीडनका लागि प्रयोग गर्न सकिँदैन र हटाइयो। सम्पीडनका लागि आन्तरिक भण्डारणमा प्रत्यक्ष पहुँच आवश्यक छ।</item>

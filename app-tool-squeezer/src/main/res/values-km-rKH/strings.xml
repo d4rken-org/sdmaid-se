@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">មើលការបរន័យប័កគ្នា</string>
     <string name="squeezer_no_example_found">មិនន័ឯកសាររូបនៅផ្លូវដែលបានជ្រើស។</string>
     <string name="squeezer_result_empty_message">រកមិនឃើញមេដីអដែលអាចបង្រួមបាន។</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">គ្មានប្រព័ន្ធផ្សព្វផ្សាយដែលត្រូវបង្ហាប់ទេ — %d រូបភាព HDR/ស៊ីជម្រៅត្រូវបានលោត។ បើក \"បង្ហាប់រូបភាព HDR &amp; ស៊ីជម្រៅ\" ក្នុងការកំណត់ដើម្បីរួមបញ្ចូលវា។</item>
-    </plurals>
     <string name="squeezer_setup_warning">ការបង្រួមកាត់បន្ថយគុណភាពជាអចិន្ត្រ័យ៍ ដើម្បីសន្សំទំហំផ្ទុក។ វាមិនអាចត្រល្បវឹញបានតើ។ ពិនិតការកំណត់របស់អ្នកដោយប្រុងប្រយ័ត្តនមុននឹងចាបផ័តើម។</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d តីតំហងមិនអាចប្រើសសម្រាប់ការបង្រួម ហើយត្រូវបានដកចើញ។ ការបង្រួមតម្រួវអោយចូលដំណើរការផ្តល់ទឹលកន្លងផ្ទុកខាងក្នុង។</item>

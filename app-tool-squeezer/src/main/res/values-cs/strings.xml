@@ -107,12 +107,6 @@
     <string name="squeezer_compare_action">Zobrazit porovnání</string>
     <string name="squeezer_no_example_found">Nenalezeny obrázky ve vybraných cestách.</string>
     <string name="squeezer_result_empty_message">Nebyla nalezena žádná komprimovatelná média.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Žádná média ke kompresi — %d fotografie s HDR/hloubkou byla přeskočena. Povolte „Komprimovat HDR &amp; hloubkové fotografie“ v nastavení, abyste ji mohli zahrnout.</item>
-        <item quantity="few">Žádná média ke kompresi — %d fotografií s HDR/hloubkou bylo přeskočeno. Povolte „Komprimovat HDR &amp; hloubkové fotografie“ v nastavení, abyste je mohli zahrnout.</item>
-        <item quantity="many">Žádná média ke kompresi — %d fotografií s HDR/hloubkou bylo přeskočeno. Povolte „Komprimovat HDR &amp; hloubkové fotografie“ v nastavení, abyste je mohli zahrnout.</item>
-        <item quantity="other">Žádná média ke kompresi — %d fotografií s HDR/hloubkou bylo přeskočeno. Povolte „Komprimovat HDR &amp; hloubkové fotografie“ v nastavení, abyste je mohli zahrnout.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Komprese trvale snižuje kvalitu souboru, aby se ušetřil prostor v úložišti. Tuto akci nelze vrátit zpět. Před spuštěním pečlivě zkontrolujte nastavení.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d umístění nelze použít pro kompresi a bylo odstraněno. Komprese vyžaduje přímý přístup k internímu úložišti.</item>

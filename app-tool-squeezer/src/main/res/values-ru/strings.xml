@@ -107,12 +107,6 @@
     <string name="squeezer_compare_action">Сравнение</string>
     <string name="squeezer_no_example_found">В выбранных путях изображения не найдены.</string>
     <string name="squeezer_result_empty_message">Сжимаемых медиафайлов не найдено.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Нет медиа для сжатия — %d фотография HDR/глубины была пропущена. Включите «Сжать HDR &amp; фотографии глубины» в настройках, чтобы включить её.</item>
-        <item quantity="few">Нет медиа для сжатия — %d фотографии HDR/глубины были пропущены. Включите «Сжать HDR &amp; фотографии глубины» в настройках, чтобы включить их.</item>
-        <item quantity="many">Нет медиа для сжатия — %d фотографий HDR/глубины были пропущены. Включите «Сжать HDR &amp; фотографии глубины» в настройках, чтобы включить их.</item>
-        <item quantity="other">Нет медиа для сжатия — %d фотографий HDR/глубины были пропущены. Включите «Сжать HDR &amp; фотографии глубины» в настройках, чтобы включить их.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Сжатие навсегда снижает качество для экономии места. Это невозможно отменить. Внимательно проверьте настройки перед началом.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d местоположение нельзя использовать для сжатия, оно было удалено. Для сжатия необходим прямой доступ к внутреннему хранилищу.</item>

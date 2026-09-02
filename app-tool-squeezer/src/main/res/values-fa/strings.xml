@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">مشاهده مقایسه</string>
     <string name="squeezer_no_example_found">تصویری در مسیرهای انتخابی یافت نشد.</string>
     <string name="squeezer_result_empty_message">هیچ رسانه‌ای قابل فشرده‌سازی پیدا نشد.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">رسانه‌ای برای فشرده‌سازی موجود نیست — %d عکس HDR/عمق نادیده گرفته شد. برای شامل کردن آن، «فشرده‌سازی عکس‌های HDR &amp; عمق» را در تنظیمات فعال کنید.</item>
-        <item quantity="other">رسانه‌ای برای فشرده‌سازی موجود نیست — %d عکس HDR/عمق نادیده گرفته شدند. برای شامل کردن آنها، «فشرده‌سازی عکس‌های HDR &amp; عمق» را در تنظیمات فعال کنید.</item>
-    </plurals>
     <string name="squeezer_setup_warning">فشرده‌سازی کیفیت را به‌طور دائمی کاهش می‌دهد تا فضای ذخیره‌سازی آزاد شود. این عمل قابل بازگشت نیست. قبل از شروع، تنظیمات خود را با دقت بررسی کنید.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d مکان قابل استفاده برای فشرده‌سازی نیست و حذف شد. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>

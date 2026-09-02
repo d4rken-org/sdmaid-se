@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Tingnan ang paghahambing</string>
     <string name="squeezer_no_example_found">Walang nahanap na larawan sa mga napiling path.</string>
     <string name="squeezer_result_empty_message">Walang nahanap na compressible na media.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Walang media na i-compress — %d HDR/depth na larawan ay nilampas. I-enable ang \"Compress HDR &amp; depth photos\" sa mga setting upang isama ito.</item>
-        <item quantity="other">Walang media na i-compress — %d HDR/depth na mga larawan ay nilampas. I-enable ang \"Compress HDR &amp; depth photos\" sa mga setting upang isama ang mga ito.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Ang compression ay permanenteng nagbabawas ng kalidad upang makatipid ng espasyo sa storage. Hindi ito maaaring i-undo. Suriin nang maingat ang iyong mga setting bago magsimula.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>

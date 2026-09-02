@@ -107,12 +107,6 @@
     <string name="squeezer_compare_action">הצג השוואה</string>
     <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
     <string name="squeezer_result_empty_message">לא נמצאו מדיה ניתנים לדחיסה.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">אין מדיה לדחיסה — %d תמונת HDR/עומק דולגה. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותה.</item>
-        <item quantity="two">אין מדיה לדחיסה — %d תמונות HDR/עומק דולגו. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותן.</item>
-        <item quantity="many">אין מדיה לדחיסה — %d תמונות HDR/עומק דולגו. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותן.</item>
-        <item quantity="other">אין מדיה לדחיסה — %d תמונות HDR/עומק דולגו. הפעל את \"דחוס תמונות HDR &amp; עומק\" בהגדרות כדי לכלול אותן.</item>
-    </plurals>
     <string name="squeezer_setup_warning">הדחיסה מפחיתה את האיכות לצמיתות כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק את ההגדרות בקפידה לפני ההתחלה.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">לא ניתן להשתמש ב-%d מיקום לדחיסה והוא הוסר. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>

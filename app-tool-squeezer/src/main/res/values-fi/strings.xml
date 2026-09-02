@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Näytä vertailu</string>
     <string name="squeezer_no_example_found">Kuvia ei löytynyt valituista poluista.</string>
     <string name="squeezer_result_empty_message">Pakattavaa mediaa ei löydetty.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Ei mediaa pakattavaksi – %d HDR-/syvyyskuva ohitettiin. Ota käyttöön \"Pakkaa HDR- &amp; syvyyskuvat\" asetuksissa, jotta se sisällytetään.</item>
-        <item quantity="other">Ei mediaa pakattavaksi – %d HDR-/syvyyskuvaa ohitettiin. Ota käyttöön \"Pakkaa HDR- &amp; syvyyskuvat\" asetuksissa, jotta ne sisällytetään.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Pakkaus heikentää pysyvästi laatua tallennustilan säästämiseksi. Tätä ei voi kumota. Tarkista asetukset huolellisesti ennen aloittamista.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d sijaintia ei voi käyttää pakkaamiseen ja se poistettiin. Pakkaaminen vaatii suoran pääsyn sisäiseen tallennustilaan.</item>

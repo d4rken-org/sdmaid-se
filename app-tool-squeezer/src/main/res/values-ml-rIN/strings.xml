@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">താരതമ്യം കാണുക</string>
     <string name="squeezer_no_example_found">തിരഞ്ഞെടുത്ത പാതകളിൽ ചിത്രങ്ങൾ കണ്ടെത്തിയില്ല.</string>
     <string name="squeezer_result_empty_message">കംപ്രസ്സ് ചെയ്യാവുന്ന മീഡിയ ഒന്നും കണ്ടെത്തിയില്ല.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">കംപ്രസ് ചെയ്യാൻ മീഡിയ ഇല്ല — %d HDR/ഡെപ്ത് ഫോട്ടോ ഒഴിവാക്കപ്പെട്ടു. അത് ഉൾപ്പെടുത്താൻ ക്രമീകരണങ്ങളിൽ \"HDR &amp; ഡെപ്ത് ഫോട്ടോകൾ കംപ്രസ് ചെയ്യുക\" സജ്ജമാക്കുക.</item>
-        <item quantity="other">കംപ്രസ് ചെയ്യാൻ മീഡിയ ഇല്ല — %d HDR/ഡെപ്ത് ഫോട്ടോകൾ ഒഴിവാക്കപ്പെട്ടു. അവ ഉൾപ്പെടുത്താൻ ക്രമീകരണങ്ങളിൽ \"HDR &amp; ഡെപ്ത് ഫോട്ടോകൾ കംപ്രസ് ചെയ്യുക\" സജ്ജമാക്കുക.</item>
-    </plurals>
     <string name="squeezer_setup_warning">കംപ്രഷൻ സ്ഥിരമായി ഗുണമേൻമ കുറക്കുന്നു, സ്റ്റോറേജ് സ്പേസ് ലാഭിക്കാൻ. ഇത് പഴേ നിലയിലാക്കാൻ കഴിയില്ല. തുടങ്ങുന്നതിന് മുമ്പ് ക്രമീകരണങ്ങൾ ശ്രദ്ധാപൂർവ്വം പരിശോധിക്കുക.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">കംപ്രഷനായി %d സ്ഥാനം ഉപയോഗിക്കാനാകില്ല, അത് നീക്കം ചെയ്തു. കംപ്രഷന് ആന്തരിക സ്റ്റോറേജിലേക്ക് നേരിട്ടുള്ള ആക്സസ് ആവശ്യമാണ്.</item>

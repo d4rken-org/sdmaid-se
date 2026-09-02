@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">موازنہ دیکھیں</string>
     <string name="squeezer_no_example_found">منتخب پاتھز میں کوئی تصاویر نہیں ملیں۔</string>
     <string name="squeezer_result_empty_message">کوئی قابل۔ کمپریس میڈیا نہیں ملا۔</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">کمپریس کرنے کے لیے کوئی میڈیا نہیں — %d HDR/depth photo چھوڑ دی گئی۔ اسے شامل کرنے کے لیے سیٹنگز میں \"Compress HDR &amp; depth photos\" کو فعال کریں۔</item>
-        <item quantity="other">کمپریس کرنے کے لیے کوئی میڈیا نہیں — %d HDR/depth photos چھوڑ دی گئیں۔ انہیں شامل کرنے کے لیے سیٹنگز میں \"Compress HDR &amp; depth photos\" کو فعال کریں۔</item>
-    </plurals>
     <string name="squeezer_setup_warning">کمپریشن مستقل طور پر معیار کو کم کر دیتی ہے تاکہ ذخیرہ کی جگہ بچائی جا سکے۔ یہ واپس نہیں کیا جا سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d مقام کمپریشن کے لیے استعمال نہیں ہو سکتا اور ہٹا دیا گیا۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>

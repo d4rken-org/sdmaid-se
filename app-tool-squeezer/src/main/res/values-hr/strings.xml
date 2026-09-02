@@ -98,11 +98,6 @@
     <string name="squeezer_compare_action">Pogledaj usporedbu</string>
     <string name="squeezer_no_example_found">Nema slika u odabranim putanjama.</string>
     <string name="squeezer_result_empty_message">Nije pronađen medij koji se može komprimirati.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Nema medija za kompresiju — %d HDR/dubinska fotografija je preskočena. Omogući \"Komprimiraj HDR i dubinske fotografije\" u postavkama da je uključiš.</item>
-        <item quantity="few">Nema medija za kompresiju — %d HDR/dubinske fotografije su preskočene. Omogući \"Komprimiraj HDR i dubinske fotografije\" u postavkama da ih uključiš.</item>
-        <item quantity="other">Nema medija za kompresiju — %d HDR/dubinskih fotografija je preskočeno. Omogući \"Komprimiraj HDR i dubinske fotografije\" u postavkama da ih uključiš.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Kompresija trajno smanjuje kvalitetu kako bi uštedjela prostor za pohranu. Ovo se ne može poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokacija ne može se koristiti za kompresiju i uklonjena je. Kompresija zahtijeva izravan pristup internoj pohrani.</item>

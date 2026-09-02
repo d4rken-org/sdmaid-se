@@ -257,6 +257,8 @@ class SqueezerTest : BaseTest() {
         includeWebp: Boolean = true,
         includeVideo: Boolean = true,
         includeLossyAuxImages: Boolean = false,
+        includeMotionPhotos: Boolean = false,
+        includeOversizedImages: Boolean = false,
         minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,
         minAge: Duration = Duration.ofDays(0),
         skipPreviouslyCompressed: Boolean = false,
@@ -287,6 +289,8 @@ class SqueezerTest : BaseTest() {
             every { this@apply.includeWebp } returns mockDataStoreValue(includeWebp)
             every { this@apply.includeVideo } returns mockDataStoreValue(includeVideo)
             every { this@apply.includeLossyAuxImages } returns mockDataStoreValue(includeLossyAuxImages)
+            every { this@apply.includeMotionPhotos } returns mockDataStoreValue(includeMotionPhotos)
+            every { this@apply.includeOversizedImages } returns mockDataStoreValue(includeOversizedImages)
             every { this@apply.skipPreviouslyCompressed } returns mockDataStoreValue(skipPreviouslyCompressed)
         }
 
@@ -433,6 +437,8 @@ class SqueezerTest : BaseTest() {
         captured.captured.skipPreviouslyCompressed shouldBe true
         captured.captured.compressionQuality shouldBe 65
         captured.captured.includeLossyAuxImages shouldBe false
+        captured.captured.includeMotionPhotos shouldBe false
+        captured.captured.includeOversizedImages shouldBe false
     }
 
     @Test

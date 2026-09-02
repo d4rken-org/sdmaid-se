@@ -101,12 +101,23 @@ fun SqueezerSetupScreenHost(
                 }
 
                 is SqueezerSetupViewModel.Event.NoResultsFound -> snackScope.launch {
-                    if (event.skippedLossyAuxCount > 0) {
+                    val res = context.resources
+                    val protected = listOfNotNull(
+                        event.skippedLossyAuxCount.takeIf { it > 0 }?.let {
+                            res.getQuantityString(R.plurals.squeezer_result_empty_x_lossy_aux, it, it)
+                        },
+                        event.skippedMotionPhotoCount.takeIf { it > 0 }?.let {
+                            res.getQuantityString(R.plurals.squeezer_result_empty_x_motion_photo, it, it)
+                        },
+                        event.skippedOversizedCount.takeIf { it > 0 }?.let {
+                            res.getQuantityString(R.plurals.squeezer_result_empty_x_oversized, it, it)
+                        },
+                    )
+                    if (protected.isNotEmpty()) {
                         snackbarHostState.showSnackbar(
-                            message = context.resources.getQuantityString(
-                                R.plurals.squeezer_result_empty_lossy_aux,
-                                event.skippedLossyAuxCount,
-                                event.skippedLossyAuxCount,
+                            message = context.getString(
+                                R.string.squeezer_result_empty_protected,
+                                protected.joinToString(", "),
                             ),
                             duration = SnackbarDuration.Long,
                         )

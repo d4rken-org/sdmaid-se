@@ -125,14 +125,6 @@
     <string name="squeezer_compare_action">عرض المقارنة</string>
     <string name="squeezer_no_example_found">لم يتم العثور على صور في المسارات المحددة.</string>
     <string name="squeezer_result_empty_message">لم يتم العثور على وسائط قابلة للضغط.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="zero">لا توجد وسائط للضغط — تم تخطي %d صورة HDR/عمق. فعّل \"ضغط صور HDR &amp; العمق\" في الإعدادات لتضمينها.</item>
-        <item quantity="one">لا توجد وسائط للضغط — تم تخطي %d صورة HDR/عمق واحدة. فعّل \"ضغط صور HDR &amp; العمق\" في الإعدادات لتضمينها.</item>
-        <item quantity="two">لا توجد وسائط للضغط — تم تخطي %d صورتين HDR/عمق. فعّل \"ضغط صور HDR &amp; العمق\" في الإعدادات لتضمينهما.</item>
-        <item quantity="few">لا توجد وسائط للضغط — تم تخطي %d صور HDR/عمق. فعّل \"ضغط صور HDR &amp; العمق\" في الإعدادات لتضمينها.</item>
-        <item quantity="many">لا توجد وسائط للضغط — تم تخطي %d صورة HDR/عمق. فعّل \"ضغط صور HDR &amp; العمق\" في الإعدادات لتضمينها.</item>
-        <item quantity="other">لا توجد وسائط للضغط — تم تخطي %d صورة HDR/عمق. فعّل \"ضغط صور HDR &amp; العمق\" في الإعدادات لتضمينها.</item>
-    </plurals>
     <string name="squeezer_setup_warning">يُقلّل الضغط من الجودة بشكل دائم لتوفير مساحة التخزين. لا يمكن التراجع عن ذلك. راجع إعداداتك بعناية قبل البدء.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="zero">لا توجد مواقع يمكن استخدامها للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>

@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Salıstırıwdı ko\'riw</string>
     <string name="squeezer_no_example_found">Tańlanǵan jollarda su\'wretler tabılmadı.</string>
     <string name="squeezer_result_empty_message">Sıqıwǵa jaramlı media tabılmadı.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Sıǵıw ushın media joq — %d HDR/tereńlik súwreti ótkerip jiberildi. Olardı qosıw ushın sazlamalarda “HDR hám tereńlik súwretlerin sıǵıw”-di qosıń.</item>
-        <item quantity="other">Sıǵıw ushın media joq — %d HDR/tereńlik súwreti ótkerip jiberildi. Olardı qosıw ushın sazlamalarda “HDR hám tereńlik súwretlerin sıǵıw”-di qosıń.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Sıqıw sapanı birotola azaytadı hám saqlaw orınına tejeydi. Bul ámeldi qaytarıp bolmaydı. Baslamastan burın sazlamalardı dıqqat penen qarap shıǵıń.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d orın sıqıw ushın qollanılmaydı hám óshirildi. Sıqıw ishki saqlaw orınına tikkeley qoljetimdi talap etedi.</item>

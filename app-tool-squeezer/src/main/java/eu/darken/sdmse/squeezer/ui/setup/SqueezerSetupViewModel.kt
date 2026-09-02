@@ -175,7 +175,13 @@ class SqueezerSetupViewModel @Inject constructor(
         if (data.hasData) {
             navTo(SqueezerListRoute)
         } else {
-            events.tryEmit(Event.NoResultsFound(skippedLossyAuxCount = data?.skippedLossyAuxCount ?: 0))
+            events.tryEmit(
+                Event.NoResultsFound(
+                    skippedLossyAuxCount = data?.skippedLossyAuxCount ?: 0,
+                    skippedMotionPhotoCount = data?.skippedMotionPhotoCount ?: 0,
+                    skippedOversizedCount = data?.skippedOversizedCount ?: 0,
+                )
+            )
         }
     }
 
@@ -246,7 +252,11 @@ class SqueezerSetupViewModel @Inject constructor(
     sealed interface Event {
         data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : Event
         data object NoExampleFound : Event
-        data class NoResultsFound(val skippedLossyAuxCount: Int = 0) : Event
+        data class NoResultsFound(
+            val skippedLossyAuxCount: Int = 0,
+            val skippedMotionPhotoCount: Int = 0,
+            val skippedOversizedCount: Int = 0,
+        ) : Event
         data class PathsDropped(val droppedPaths: List<APath>) : Event
     }
 

@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Bide su paragone</string>
     <string name="squeezer_no_example_found">Peruna immàgine agatada in is caminos selecionados.</string>
     <string name="squeezer_result_empty_message">Medios comprimìbiles non sunt istados agatados.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Nudda media pro cumprimiri — %d foto HDR/de profundidade fuit ignorada. Abilita \"Cumprimi fotos HDR e de profundidade\" in preferenzas pro includila.</item>
-        <item quantity="other">Nudda media pro cumprimiri — %d fotos HDR/de profundidade funt ignoradas. Abilita \"Cumprimi fotos HDR e de profundidade\" in preferenzas pro includlas.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Sa compressione reduet in manera permanente sa calidàde pro arrisparmiare ispàtziu de archiviàtzione. Custu non podet èssere annulladu. Revisiona cun cuidadu sas tunadas tuas antes de incomintzare.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d logu non podet èssere utilizadu pro sa compressione ed est istadu eliminadu. Sa compressione rechidet atzessu direttu a s\'archìviu internu.</item>

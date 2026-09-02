@@ -43,9 +43,9 @@ data class SqueezerProcessTask(
         val failedCount: Int = 0,
         val failureReasons: Map<FailureReason, Int> = emptyMap(),
         /**
-         * Photos skipped at process time to preserve their HDR gain map / depth data (the
-         * guard re-checks the setting per item). Without this the items just vanish from the
-         * pending list, counted neither as processed nor failed.
+         * Photos skipped at process time because a protection opt-in (HDR/depth, Motion Photo,
+         * oversized) is off; the guard re-checks the settings per item. Without this the items
+         * just vanish from the pending list, counted neither as processed nor failed.
          */
         val guardSkippedCount: Int = 0,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
@@ -90,7 +90,7 @@ data class SqueezerProcessTask(
                 }
                 if (guardSkippedCount > 0) {
                     fragments += getQuantityString2(
-                        R.plurals.squeezer_result_x_skipped_lossy_aux,
+                        R.plurals.squeezer_result_x_skipped_protected,
                         guardSkippedCount,
                     )
                 }

@@ -27,12 +27,14 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeHeic.flow,
         settings.includeVideo.flow,
         settings.includeLossyAuxImages.flow,
+        settings.includeMotionPhotos.flow,
+        settings.includeOversizedImages.flow,
         settings.skipPreviouslyCompressed.flow,
         settings.writeExifMarker.flow,
         settings.minSizeBytes.flow,
         historyDatabase.count,
         historyDatabase.databaseSize,
-    ) { jpeg, webp, heic, video, lossyAux, skipCompressed, exif, minSize, historyCount, historySize ->
+    ) { jpeg, webp, heic, video, lossyAux, motion, oversized, skipCompressed, exif, minSize, historyCount, historySize ->
         State(
             includeJpeg = jpeg,
             includeWebp = webp,
@@ -40,6 +42,8 @@ class SqueezerSettingsViewModel @Inject constructor(
             isHeicSupported = CompressibleImage.isHeicEncodingSupported(),
             includeVideo = video,
             includeLossyAuxImages = lossyAux,
+            includeMotionPhotos = motion,
+            includeOversizedImages = oversized,
             skipPreviouslyCompressed = skipCompressed,
             writeExifMarker = exif,
             minSizeBytes = minSize,
@@ -71,6 +75,14 @@ class SqueezerSettingsViewModel @Inject constructor(
         settings.includeLossyAuxImages.value(value)
     }
 
+    fun setIncludeMotionPhotos(value: Boolean) = launch {
+        settings.includeMotionPhotos.value(value)
+    }
+
+    fun setIncludeOversizedImages(value: Boolean) = launch {
+        settings.includeOversizedImages.value(value)
+    }
+
     fun setSkipPreviouslyCompressed(value: Boolean) = launch {
         settings.skipPreviouslyCompressed.value(value)
     }
@@ -95,6 +107,8 @@ class SqueezerSettingsViewModel @Inject constructor(
         val isHeicSupported: Boolean = false,
         val includeVideo: Boolean = false,
         val includeLossyAuxImages: Boolean = false,
+        val includeMotionPhotos: Boolean = false,
+        val includeOversizedImages: Boolean = false,
         val skipPreviouslyCompressed: Boolean = true,
         val writeExifMarker: Boolean = false,
         val minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,

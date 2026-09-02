@@ -9,8 +9,10 @@ import androidx.compose.material.icons.automirrored.twotone.RotateRight
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.History
+import androidx.compose.material.icons.twotone.MotionPhotosOn
 import androidx.compose.material.icons.twotone.Movie
 import androidx.compose.material.icons.twotone.NewReleases
+import androidx.compose.material.icons.twotone.PhotoSizeSelectLarge
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -57,6 +59,8 @@ fun SqueezerSettingsScreenHost(
         onIncludeWebpChanged = vm::setIncludeWebp,
         onIncludeHeicChanged = vm::setIncludeHeic,
         onIncludeLossyAuxImagesChanged = vm::setIncludeLossyAuxImages,
+        onIncludeMotionPhotosChanged = vm::setIncludeMotionPhotos,
+        onIncludeOversizedImagesChanged = vm::setIncludeOversizedImages,
         onIncludeVideoChanged = vm::setIncludeVideo,
         onSkipPreviouslyCompressedChanged = vm::setSkipPreviouslyCompressed,
         onWriteExifMarkerChanged = vm::setWriteExifMarker,
@@ -73,6 +77,8 @@ internal fun SqueezerSettingsScreen(
     onIncludeWebpChanged: (Boolean) -> Unit = {},
     onIncludeHeicChanged: (Boolean) -> Unit = {},
     onIncludeLossyAuxImagesChanged: (Boolean) -> Unit = {},
+    onIncludeMotionPhotosChanged: (Boolean) -> Unit = {},
+    onIncludeOversizedImagesChanged: (Boolean) -> Unit = {},
     onIncludeVideoChanged: (Boolean) -> Unit = {},
     onSkipPreviouslyCompressedChanged: (Boolean) -> Unit = {},
     onWriteExifMarkerChanged: (Boolean) -> Unit = {},
@@ -181,6 +187,24 @@ internal fun SqueezerSettingsScreen(
                     subtitle = stringResource(R.string.squeezer_include_lossy_aux_description),
                     checked = state.includeLossyAuxImages,
                     onCheckedChange = onIncludeLossyAuxImagesChanged,
+                )
+            }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.MotionPhotosOn,
+                    title = stringResource(R.string.squeezer_include_motion_photos_title),
+                    subtitle = stringResource(R.string.squeezer_include_motion_photos_description),
+                    checked = state.includeMotionPhotos,
+                    onCheckedChange = onIncludeMotionPhotosChanged,
+                )
+            }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.PhotoSizeSelectLarge,
+                    title = stringResource(R.string.squeezer_include_oversized_title),
+                    subtitle = stringResource(R.string.squeezer_include_oversized_description),
+                    checked = state.includeOversizedImages,
+                    onCheckedChange = onIncludeOversizedImagesChanged,
                 )
             }
             item {
