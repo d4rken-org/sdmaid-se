@@ -16,7 +16,9 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.ui.list.items.CompressedBeforeChip
+import eu.darken.sdmse.squeezer.ui.list.items.DownscaledChip
 import eu.darken.sdmse.squeezer.ui.list.items.HdrDepthChip
+import eu.darken.sdmse.squeezer.ui.list.items.MotionPhotoChip
 
 @Composable
 internal fun SqueezerMarkersDialog(onDismiss: () -> Unit) {
@@ -36,6 +38,14 @@ internal fun SqueezerMarkersDialog(onDismiss: () -> Unit) {
             MarkerExplanation(
                 marker = { HdrDepthChip() },
                 description = stringResource(R.string.squeezer_markers_hdr_depth_description),
+            )
+            MarkerExplanation(
+                marker = { MotionPhotoChip() },
+                description = stringResource(R.string.squeezer_markers_motion_photo_description),
+            )
+            MarkerExplanation(
+                marker = { DownscaledChip() },
+                description = stringResource(R.string.squeezer_markers_downscaled_description),
             )
         }
     }

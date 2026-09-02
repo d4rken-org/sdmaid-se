@@ -37,6 +37,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         size: Long = 1024L,
         priorCompression: PriorCompression? = null,
         hasLossyAux: Boolean = false,
+        hasMotionVideo: Boolean = false,
+        willDownscale: Boolean = false,
     ): CompressibleImage = CompressibleImage(
         lookup = LocalPathLookup(
             lookedUp = LocalPath(File("/storage/$name")),
@@ -48,6 +50,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         mimeType = CompressibleImage.MIME_TYPE_JPEG,
         priorCompression = priorCompression,
         hasLossyAux = hasLossyAux,
+        hasMotionVideo = hasMotionVideo,
+        willDownscale = willDownscale,
     )
 
     private fun ComposeContentTestRule.setListScreen(state: SqueezerListViewModel.State) {
@@ -216,6 +220,20 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `linear row - motion photo and downscale markers render their chips`() {
+        composeRule.setListScreen(
+            SqueezerListViewModel.State(
+                media = listOf(image("a.jpg", hasMotionVideo = true, willDownscale = true)),
+            ),
+        )
+
+        composeRule.onNodeWithText("Motion Photo").assertExists()
+        composeRule.onNodeWithText("Downscaled").assertExists()
+        composeRule.onAllNodesWithText("Compressed").assertCountEquals(0)
+        composeRule.onAllNodesWithText("HDR/depth").assertCountEquals(0)
+    }
+
+    @Test
     fun `linear row - an unmarked item renders no chips`() {
         composeRule.setListScreen(
             SqueezerListViewModel.State(media = listOf(image("a.jpg"))),
@@ -275,6 +293,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
 
         composeRule.onAllNodesWithText("Compressed").fetchSemanticsNodes().isNotEmpty() shouldBe true
         composeRule.onAllNodesWithText("HDR/depth").fetchSemanticsNodes().isNotEmpty() shouldBe true
+        composeRule.onAllNodesWithText("Motion Photo").fetchSemanticsNodes().isNotEmpty() shouldBe true
+        composeRule.onAllNodesWithText("Downscaled").fetchSemanticsNodes().isNotEmpty() shouldBe true
 
         composeRule.onNodeWithText(
             "SD Maid already compressed this file. Compressing it again costs quality and saves little.",
@@ -282,6 +302,13 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText(
             "This photo has HDR or depth data that compression can't keep. An HDR photo comes back as a " +
                 "normal one, and a portrait photo loses the depth data used for background blur.",
+        ).assertExists()
+        composeRule.onNodeWithText(
+            "This photo has a short video clip embedded. Compression keeps only the still image and drops the clip.",
+        ).assertExists()
+        composeRule.onNodeWithText(
+            "This image is over 8192 pixels on its longest side. Compression also halves its resolution to " +
+                "keep memory use in check.",
         ).assertExists()
     }
 

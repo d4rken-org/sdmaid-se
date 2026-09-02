@@ -53,6 +53,7 @@ class MediaScannerAccessibilityTest : BaseTest() {
     private val compressionEstimator: CompressionEstimator = mockk(relaxed = true)
     private val exifPreserver: ExifPreserver = mockk(relaxed = true)
     private val lossyAuxDetector: LossyAuxDetector = mockk(relaxed = true)
+    private val dimensionProbe: ImageDimensionProbe = mockk(relaxed = true)
     private val settings: SqueezerSettings = mockk(relaxed = true)
 
     private val dispatcherProvider: DispatcherProvider = TestDispatcherProvider()
@@ -114,6 +115,7 @@ class MediaScannerAccessibilityTest : BaseTest() {
         compressionEstimator = compressionEstimator,
         exifPreserver = exifPreserver,
         lossyAuxDetector = lossyAuxDetector,
+        dimensionProbe = dimensionProbe,
         settings = settings,
     )
 

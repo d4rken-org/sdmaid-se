@@ -135,18 +135,6 @@ class ImageCompressor @Inject constructor(
         encoderFactory.encoderFor(mimeType).encode(bitmap, mimeType, quality, outputFile, exifData, rotationDegreesCw)
     }
 
-    private fun calculateInSampleSize(width: Int, height: Int, maxDimension: Int): Int {
-        var inSampleSize = 1
-        if (width > maxDimension || height > maxDimension) {
-            val halfWidth = width / 2
-            val halfHeight = height / 2
-            while ((halfWidth / inSampleSize) >= maxDimension || (halfHeight / inSampleSize) >= maxDimension) {
-                inSampleSize *= 2
-            }
-        }
-        return inSampleSize
-    }
-
     internal sealed class RotationDecision {
         data class Propagate(val degreesCw: Int) : RotationDecision()
         data class Skip(val reason: String) : RotationDecision()
@@ -155,6 +143,26 @@ class ImageCompressor @Inject constructor(
     companion object {
         internal const val MAX_DIMENSION = 4096
         private val TAG = logTag("Squeezer", "Image", "Compressor")
+
+        /** True when [decodeSampledBitmap] would decode this image at reduced resolution. */
+        fun willDownscale(width: Int, height: Int): Boolean =
+            calculateInSampleSize(width, height, MAX_DIMENSION) > 1
+
+        /**
+         * BitmapFactory power-of-two sampling. Note the threshold: sampling only kicks in once
+         * a side's *half* still exceeds [maxDimension], i.e. at 2 x maxDimension.
+         */
+        internal fun calculateInSampleSize(width: Int, height: Int, maxDimension: Int): Int {
+            var inSampleSize = 1
+            if (width > maxDimension || height > maxDimension) {
+                val halfWidth = width / 2
+                val halfHeight = height / 2
+                while ((halfWidth / inSampleSize) >= maxDimension || (halfHeight / inSampleSize) >= maxDimension) {
+                    inSampleSize *= 2
+                }
+            }
+            return inSampleSize
+        }
 
         /**
          * Decides how a source HEIC's irot is carried into the re-encoded output.
