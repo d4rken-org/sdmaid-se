@@ -93,7 +93,7 @@ internal fun OnboardingWelcomeScreen(
                     Spacer(modifier = Modifier.height(32.dp))
 
                     SdmMascot(
-                        modifier = Modifier.height(256.dp),
+                        modifier = Modifier.height(116.dp),
                     )
 
                     Text(

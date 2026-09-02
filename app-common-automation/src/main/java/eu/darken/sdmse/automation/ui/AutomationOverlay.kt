@@ -68,7 +68,7 @@ internal fun AutomationOverlay(
 
             SdmMascot(
                 modifier = Modifier
-                    .heightIn(max = 240.dp)
+                    .heightIn(max = 108.dp)
                     .padding(horizontal = 32.dp),
             )
 

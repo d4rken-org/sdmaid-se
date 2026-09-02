@@ -160,7 +160,7 @@ internal fun TitleDashboardCard(
             mascot = {
                 SdmMascot(
                     modifier = Modifier
-                        .height(96.dp)
+                        .height(44.dp)
                         .graphicsLayer {
                             val impact = mascotImpact.value
                             translationY = impact * 3.dp.toPx()
@@ -316,7 +316,7 @@ internal fun TitleHeaderLayout(
         // randomized slogan then ellipsizes instead of drawing over the mascot or pushing the badge
         // onto a second row. The title is centered, so both gaps are equal and the reservation is
         // symmetric against whichever neighbour is wider.
-        // Two limits: below ~228dp of layout width with no badge present (more when a wider badge
+        // Two limits: below ~186dp of layout width with no badge present (more when a wider badge
         // is reserved against) the floor wins and the reservation stops being honoured, and the
         // mascot's rotation lives in a graphicsLayer, so the tap easter-egg spin reaches past these
         // measured bounds.

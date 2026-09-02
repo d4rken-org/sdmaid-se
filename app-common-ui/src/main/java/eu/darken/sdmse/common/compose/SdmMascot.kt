@@ -37,15 +37,16 @@ sealed interface SdmMascotMode {
     data object Party : SdmMascotMode
 }
 
-private const val MASCOT_ASPECT_RATIO = 1080f / 1920f
+private const val MASCOT_ASPECT_RATIO = 640f / 866f
 
+// The Lottie composition is cropped to the character, so a hat's top sits above the box.
 private val NEW_YEAR_HAT = HatConfig(
     drawableRes = R.drawable.mascot_hat_newyears_crop,
     rotation = 30f,
-    widthPercent = 0.3971f,
-    heightPercent = 0.3971f,
-    horizontalBias = 0.769f,
-    verticalBias = 0.18f,
+    widthPercent = 0.6701f,
+    heightPercent = 0.4815f,
+    leftPercent = 0.448f,
+    topPercent = -0.195f,
     horizontalOffset = 2.dp,
     verticalOffset = (-4).dp,
 )
@@ -53,10 +54,10 @@ private val NEW_YEAR_HAT = HatConfig(
 private val CHRISTMAS_HAT = HatConfig(
     drawableRes = R.drawable.mascot_hat_xmas_crop,
     rotation = 31f,
-    widthPercent = 0.38f,
-    heightPercent = 0.38f,
-    horizontalBias = 0.73f,
-    verticalBias = 0.25f,
+    widthPercent = 0.6412f,
+    heightPercent = 0.4739f,
+    leftPercent = 0.4294f,
+    topPercent = -0.1072f,
     horizontalOffset = 2.dp,
     verticalOffset = (-4).dp,
 )
@@ -96,8 +97,8 @@ fun SdmMascot(
                     rotation = hat.rotation,
                     widthPercent = hat.widthPercent,
                     heightPercent = hat.heightPercent,
-                    horizontalBias = hat.horizontalBias,
-                    verticalBias = hat.verticalBias,
+                    leftPercent = hat.leftPercent,
+                    topPercent = hat.topPercent,
                     horizontalOffset = hat.horizontalOffset,
                     verticalOffset = hat.verticalOffset,
                 )
@@ -153,8 +154,8 @@ private data class HatConfig(
     val rotation: Float,
     val widthPercent: Float,
     val heightPercent: Float,
-    val horizontalBias: Float,
-    val verticalBias: Float,
+    val leftPercent: Float,
+    val topPercent: Float,
     val horizontalOffset: Dp = 0.dp,
     val verticalOffset: Dp = 0.dp,
 )
@@ -215,8 +216,8 @@ private fun HatOverlay(
     rotation: Float,
     widthPercent: Float,
     heightPercent: Float,
-    horizontalBias: Float,
-    verticalBias: Float,
+    leftPercent: Float,
+    topPercent: Float,
     horizontalOffset: Dp,
     verticalOffset: Dp,
 ) {
@@ -242,10 +243,8 @@ private fun HatOverlay(
         val placeable = measurables.first().measure(hatConstraints)
 
         layout(constraints.maxWidth, constraints.maxHeight) {
-            val x = ((constraints.maxWidth - placeable.width) * horizontalBias).roundToInt() +
-                horizontalOffset.roundToPx()
-            val y = ((constraints.maxHeight - placeable.height) * verticalBias).roundToInt() +
-                verticalOffset.roundToPx()
+            val x = (constraints.maxWidth * leftPercent).roundToInt() + horizontalOffset.roundToPx()
+            val y = (constraints.maxHeight * topPercent).roundToInt() + verticalOffset.roundToPx()
             placeable.place(x, y)
         }
     }
