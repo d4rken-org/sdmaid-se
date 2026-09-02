@@ -304,11 +304,10 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
                 "normal one, and a portrait photo loses the depth data used for background blur.",
         ).assertExists()
         composeRule.onNodeWithText(
-            "This photo has a short video clip embedded. Compression keeps only the still image and drops the clip.",
+            "This is a Motion Photo. Compression keeps the still image and removes the video clip.",
         ).assertExists()
         composeRule.onNodeWithText(
-            "This image is over 8192 pixels on its longest side. Compression also halves its resolution to " +
-                "keep memory use in check.",
+            "This photo is wider or taller than 8192 pixels. Compression also halves its resolution.",
         ).assertExists()
     }
 
