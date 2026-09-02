@@ -70,12 +70,7 @@
     <string name="squeezer_min_age_title">الحد الأدنى لعمر الملف</string>
     <string name="squeezer_min_age_description">تضمين الملفات الأقدم من هذا العمر فقط.</string>
     <string name="squeezer_compression_settings_label">عام</string>
-    <string name="squeezer_quality_label">الجودة</string>
-    <string name="squeezer_quality_title">جودة الضغط</string>
     <string name="squeezer_quality_description">الجودة المنخفضة تعني حجم ملف أصغر ولكن جودة بصرية أقل.</string>
-    <string name="squeezer_quality_example_format">مثال: صورة %1$s → توفير ~%2$s بجودة %3$d%%</string>
-    <string name="squeezer_quality_warning_low">الجودة المنخفضة قد تسبب تشوهات مرئية.</string>
-    <string name="squeezer_quality_warning_high">الجودة العالية جدًا توفر مساحة قليلة.</string>
     <string name="squeezer_types_category_label">إعدادات الصورة</string>
     <string name="squeezer_video_settings_category_label">إعدادات الفيديو</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -100,8 +95,6 @@
     <string name="squeezer_preview_dialog_title">تأكيد الضغط</string>
     <string name="squeezer_preview_total_size">الحجم الإجمالي</string>
     <string name="squeezer_preview_estimated_savings">التوفير المقدر</string>
-    <string name="squeezer_compress_confirmation_title">ضغط العناصر المحددة؟</string>
-    <string name="squeezer_compress_confirmation_message">سيتم استبدال الملفات الأصلية بنسخ مضغوطة. لا يمكن التراجع عن هذا الإجراء.</string>
     <string name="squeezer_history_title">سجل الضغط</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d عناصر (%2$s)</item>
@@ -114,18 +107,14 @@
     <string name="squeezer_history_empty">لا يوجد سجل ضغط</string>
     <string name="squeezer_history_clear_title">مسح سجل الضغط</string>
     <string name="squeezer_history_clear_message">سيسمح هذا بضغط الملفات المضغوطة سابقًا مرة أخرى. الملفات نفسها لن تتأثر.</string>
-    <string name="squeezer_onboarding_title">حول ضغط الصور</string>
-    <string name="squeezer_onboarding_message">ضغط الصور يقلل حجم الملف عن طريق إزالة التفاصيل المرئية. هذه العملية لا رجعة فيها - لا يمكن استعادة الجودة الأصلية.\n\nإليك معاينة لكيفية ظهور صورك:</string>
     <string name="squeezer_onboarding_original_label">الأصلية</string>
     <string name="squeezer_onboarding_compressed_label">بعد الضغط</string>
     <string name="squeezer_onboarding_video_original_label">إطار الفيديو</string>
     <string name="squeezer_onboarding_video_compressed_label">معاينة (تقريبية)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">قد تختلف جودة الفيديو الفعلية</string>
-    <string name="squeezer_onboarding_quality_label">الجودة: %d%%</string>
     <string name="squeezer_compare_action">عرض المقارنة</string>
     <string name="squeezer_no_example_found">لم يتم العثور على صور في المسارات المحددة.</string>
     <string name="squeezer_result_empty_message">لم يتم العثور على وسائط قابلة للضغط.</string>
-    <string name="squeezer_setup_warning">يُقلّل الضغط من الجودة بشكل دائم لتوفير مساحة التخزين. لا يمكن التراجع عن ذلك. راجع إعداداتك بعناية قبل البدء.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="zero">لا توجد مواقع يمكن استخدامها للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
         <item quantity="one">لا يمكن استخدام موقع واحد للضغط وتمت إزالته. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
@@ -153,7 +142,6 @@
         <item quantity="other">عمرها %d يوم على الأقل</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">توفير مقدر ~%d%% لملفات JPEG</string>
-    <string name="squeezer_onboarding_got_it">عُلم</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">يعيد Squeezer ضغط صورك ومقاطع الفيديو الخاصة بك حتى تشغل مساحة أقل. ستضحي بقليل من الجودة مقابل المساحة التي تحصل عليها. يعرض كل عنصر التوفير المقدر، حتى تتمكني من تحديد أي منها يستحق ذلك.</string>
     <string name="tour_squeezer_compress_body">اضغط كل شيء في نفس الوقت هنا، أو اضغط على عنصر واحد لتقليص حجم هذا العنصر فقط. اضغط لفترة طويلة لاختيار عدة عناصر. سترى دائماً معاينة قبل أي تغيير.</string>

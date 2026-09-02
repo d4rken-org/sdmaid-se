@@ -46,12 +46,7 @@
     <string name="squeezer_min_age_title">Minimālais faila vecums</string>
     <string name="squeezer_min_age_description">Iekļaut tikai failus, kas ir vecāki par šo vecumu.</string>
     <string name="squeezer_compression_settings_label">Vispārīgi</string>
-    <string name="squeezer_quality_label">Kvalitāte</string>
-    <string name="squeezer_quality_title">Kompresijas kvalitāte</string>
     <string name="squeezer_quality_description">Zemāka kvalitāte nozīmē mazāku faila izmēru, bet samazinātu vizuālo kvalitāti.</string>
-    <string name="squeezer_quality_example_format">Piemērs: %1$s attēls → ietaupa ~%2$s pie %3$d%% kvalitātes</string>
-    <string name="squeezer_quality_warning_low">Zemāka kvalitāte var radīt redzamus artefaktus.</string>
-    <string name="squeezer_quality_warning_high">Oti augsta kvalitāte nodrošina minimalu vietas ietaupijumu.</string>
     <string name="squeezer_types_category_label">Attēlu iestatījumi</string>
     <string name="squeezer_video_settings_category_label">Video iestatījumi</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -76,8 +71,6 @@
     <string name="squeezer_preview_dialog_title">Apstiprināt kompresiju</string>
     <string name="squeezer_preview_total_size">Kopējais izmērs</string>
     <string name="squeezer_preview_estimated_savings">Paredzamais ietaupijums</string>
-    <string name="squeezer_compress_confirmation_title">Saspiest atlasītos vienumus?</string>
-    <string name="squeezer_compress_confirmation_message">Tas aizstās oriģinālos failus ar saspiestam versijām. Šo darbību nevar atsaukt.</string>
     <string name="squeezer_history_title">Kompresijas vēsture</string>
     <plurals name="squeezer_history_summary">
         <item quantity="zero">%1$d vienības (%2$s)</item>
@@ -87,18 +80,14 @@
     <string name="squeezer_history_empty">Nav kompresijas vēstures</string>
     <string name="squeezer_history_clear_title">Notīrīt kompresijas vēsturi</string>
     <string name="squeezer_history_clear_message">Tas ļaus iepriekš saspiestus failus saspiest vēlreiz. Paši faili netiek ietekmēti.</string>
-    <string name="squeezer_onboarding_title">Par attēlu kompresiju</string>
-    <string name="squeezer_onboarding_message">Attēlu kompresija samazina faila izmēru, noņemot vizuālas detajas. Šis process ir neatgriezenisks — originālo kvalitāti nav iespējams atjaunot.\n\nLot paskats, kā jūsu attēli izskatiesšies:</string>
     <string name="squeezer_onboarding_original_label">Origināls</string>
     <string name="squeezer_onboarding_compressed_label">Pēc kompresijas</string>
     <string name="squeezer_onboarding_video_original_label">Video rāmis</string>
     <string name="squeezer_onboarding_video_compressed_label">Priekšskatījums (aptuvens)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Faktiskā video kvalitāte var atšķirties</string>
-    <string name="squeezer_onboarding_quality_label">Kvalitāte: %d%%</string>
     <string name="squeezer_compare_action">Skatīt salīdzīnājumu</string>
     <string name="squeezer_no_example_found">Nav atrasts neviens attēls atlasītajās ceļos.</string>
     <string name="squeezer_result_empty_message">Nav atrasts neviens saspiežams multivides fails.</string>
-    <string name="squeezer_setup_warning">Saspiešana neatgriezeniski samazina kvalitāti, lai ietaupītu krātuves vietu. To nevar atsaukt. Pirms sākšanas rūpīgi pārskatiet iestatījumus.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="zero">%d atrašanvietu nevar izmantot saspiešanai un tās tika noņemtas. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
         <item quantity="one">%d atrašanvietu nevar izmantot saspiešanai un tā tika noņemta. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
@@ -120,7 +109,6 @@
         <item quantity="other">Vismaz %d dienas vecs</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Aptuvenais ~%d%% ietaupījums JPEG failiem</string>
-    <string name="squeezer_onboarding_got_it">Sapratu</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer pārkompresē jūsu fotogrāfijas un video, lai tie aizņemtu mazāk vietas. Jūs apmaināt nedaudz kvalitātes pret vietu, ko iegūstat atpakaļ. Katrs vienums rāda savu aprēķināto ietaupījumu, tāpēc varat izlemt, kas ir vērts.</string>
     <string name="tour_squeezer_compress_body">Saspiediet visu uzreiz šeit, vai pieskarieties vienam vienumam, lai samazinātu tikai to. Ilgi nospiediet, lai izvēlētos vairākus. Jūs vienmēr redzēsiet priekšskatījumu pirms jebkādām izmaiņām.</string>

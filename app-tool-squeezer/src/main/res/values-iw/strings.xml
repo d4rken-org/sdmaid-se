@@ -54,12 +54,7 @@
     <string name="squeezer_min_age_title">גיל קובץ מינימלי</string>
     <string name="squeezer_min_age_description">כלול רק קבצים ישנים יותר מגיל זה.</string>
     <string name="squeezer_compression_settings_label">כללי</string>
-    <string name="squeezer_quality_label">איכות</string>
-    <string name="squeezer_quality_title">איכות דחיסה</string>
     <string name="squeezer_quality_description">איכות נמוכה יותר פירושה גודל קובץ קטן יותר אך איכות ויזואלית מופחתת.</string>
-    <string name="squeezer_quality_example_format">דוגמה: תמונת %1$s → חוסך ~%2$s באיכות %3$d%%</string>
-    <string name="squeezer_quality_warning_low">איכות נמוכה עלולה לגרום לעיוותים נראים.</string>
-    <string name="squeezer_quality_warning_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
     <string name="squeezer_types_category_label">הגדרות תמונה</string>
     <string name="squeezer_video_settings_category_label">הגדרות וידאו</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -84,8 +79,6 @@
     <string name="squeezer_preview_dialog_title">אשר דחיסה</string>
     <string name="squeezer_preview_total_size">גודל כולל</string>
     <string name="squeezer_preview_estimated_savings">חיסכון משוער</string>
-    <string name="squeezer_compress_confirmation_title">לדחוס את הפריטים הנבחרים?</string>
-    <string name="squeezer_compress_confirmation_message">פעולה זו תחליף את הקבצים המקוריים בגרסאות דחוסות. לא ניתן לבטל פעולה זו.</string>
     <string name="squeezer_history_title">היסטוריית דחיסה</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">פריט %1$d (%2$s)</item>
@@ -96,18 +89,14 @@
     <string name="squeezer_history_empty">אין היסטוריית דחיסה</string>
     <string name="squeezer_history_clear_title">נקה היסטוריית דחיסה</string>
     <string name="squeezer_history_clear_message">פעולה זו תאפשר לדחוס מחדש קבצים שדוחסו בעבר. הקבצים עצמם אינם מושפעים.</string>
-    <string name="squeezer_onboarding_title">אודות דחיסת תמונות</string>
-    <string name="squeezer_onboarding_message">דחיסת תמונות מקטינה את גודל הקובץ על ידי הסרת פרטים חזותיים. תהליך זה בלתי הפיך - לא ניתן לשחזר את האיכות המקורית.\n\nהנה תצוגה מקדימה של איך התמונות שלך ייראו:</string>
     <string name="squeezer_onboarding_original_label">מקור</string>
     <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
     <string name="squeezer_onboarding_video_original_label">פריים וידאו</string>
     <string name="squeezer_onboarding_video_compressed_label">תצוגה מקדימית (משוערת)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">איכות הווידאו בפועל עשויה להיות שונה</string>
-    <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
     <string name="squeezer_compare_action">הצג השוואה</string>
     <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
     <string name="squeezer_result_empty_message">לא נמצאו מדיה ניתנים לדחיסה.</string>
-    <string name="squeezer_setup_warning">הדחיסה מפחיתה את האיכות לצמיתות כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק את ההגדרות בקפידה לפני ההתחלה.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">לא ניתן להשתמש ב-%d מיקום לדחיסה והוא הוסר. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
         <item quantity="two">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
@@ -131,7 +120,6 @@
         <item quantity="other">לפחות %d ימים</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">חסכון משוער של ~%d%% לקבצי JPEG</string>
-    <string name="squeezer_onboarding_got_it">הבנתי</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer דוחס מחדש את התמונות וסרטוני הווידאו שלך כדי שיתפסו פחות מקום. אתה מוותר על קצת איכות בתמורה למקום שאתה מחזיר. כל פריט מציג את החיסכון המשוער שלו, כך שתוכל להחליט מה שווה זאת.</string>
     <string name="tour_squeezer_compress_body">דחוס הכל בבת אחת כאן, או הקש על פריט יחיד כדי להקטין רק אותו. הקש הקשה ארוכה כדי לבחור כמה פריטים. תמיד תראה תצוגה מקדימה לפני כל שינוי.</string>

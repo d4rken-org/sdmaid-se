@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
     <string name="squeezer_min_age_description">Neem alleen bestanden op die ouder zijn dan deze leeftijd.</string>
     <string name="squeezer_compression_settings_label">Algemeen</string>
-    <string name="squeezer_quality_label">Kwaliteit</string>
-    <string name="squeezer_quality_title">Compressiekwaliteit</string>
     <string name="squeezer_quality_description">Een lagere kwaliteit betekent een kleinere bestandsgrootte, maar een verminderde beeldkwaliteit.</string>
-    <string name="squeezer_quality_example_format">Voorbeeld: %1$s afbeelding → bespaart ~%2$s bij %3$d%% kwaliteit</string>
-    <string name="squeezer_quality_warning_low">Lagere kwaliteiten kunnen zichtbare artefacten veroorzaken.</string>
-    <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
     <string name="squeezer_types_category_label">Afbeeldingsinstellingen</string>
     <string name="squeezer_video_settings_category_label">Video-instellingen</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>
     <string name="squeezer_preview_total_size">Totale grootte</string>
     <string name="squeezer_preview_estimated_savings">Geschatte besparing</string>
-    <string name="squeezer_compress_confirmation_title">Geselecteerde items comprimeren?</string>
-    <string name="squeezer_compress_confirmation_message">Dit vervangt originele bestanden door gecomprimeerde versies. Deze actie kan niet ongedaan worden gemaakt.</string>
     <string name="squeezer_history_title">Compressiegeschiedenis</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Geen compressiegeschiedenis</string>
     <string name="squeezer_history_clear_title">Compressiegeschiedenis wissen</string>
     <string name="squeezer_history_clear_message">Dit maakt het mogelijk om eerder gecomprimeerde bestanden opnieuw te comprimeren. De bestanden zelf worden niet beïnvloed.</string>
-    <string name="squeezer_onboarding_title">Over beeldcompressie</string>
-    <string name="squeezer_onboarding_message">Beeldcompressie verkleint het bestand door visueel detail te verwijderen. Dit proces is onomkeerbaar - de originele kwaliteit kan niet worden hersteld.\n\nHier is een voorbeeld van hoe je afbeeldingen eruit zullen zien:</string>
     <string name="squeezer_onboarding_original_label">Origineel</string>
     <string name="squeezer_onboarding_compressed_label">Na compressie</string>
     <string name="squeezer_onboarding_video_original_label">Videoframe</string>
     <string name="squeezer_onboarding_video_compressed_label">Voorbeeld (bij benadering)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Werkelijke videokwaliteit kan afwijken</string>
-    <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
     <string name="squeezer_compare_action">Bekijk de vergelijking</string>
     <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
     <string name="squeezer_result_empty_message">Geen comprimeerbare media gevonden.</string>
-    <string name="squeezer_setup_warning">Compressie vermindert de kwaliteit permanent om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voor je begint.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d locatie kan niet worden gebruikt voor compressie en is verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
         <item quantity="other">%d locaties kunnen niet worden gebruikt voor compressie en zijn verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Minstens %d dagen oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
-    <string name="squeezer_onboarding_got_it">Begrepen</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer comprimeert je foto\'s en video\'s opnieuw zodat ze minder ruimte innemen. Je ruilt een beetje kwaliteit in voor de ruimte die je terugkrijgt. Elk item toont de geschatte besparing, zodat je kunt beslissen wat het waard is.</string>
     <string name="tour_squeezer_compress_body">Comprimeer hier alles tegelijk, of tik op een enkel item om alleen dat item te verkleinen. Lange druk om meerdere items te selecteren. Je ziet altijd een voorbeeld voordat iets verandert.</string>

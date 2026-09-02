@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">ਘੱਟੋ-ਘੱਟ ਫਾਈਲ ਉਮਰ</string>
     <string name="squeezer_min_age_description">ਸਿਰਫ਼ ਇਸ ਉਮਰ ਤੋਂ ਪੁਰਾਣੀਆਂ ਫਾਈਲਾਂ ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="squeezer_compression_settings_label">ਆਮ</string>
-    <string name="squeezer_quality_label">ਗੁਣਵੱਤਾ</string>
-    <string name="squeezer_quality_title">ਕੰਪ੍ਰੈਸ਼ਨ ਗੁਣਵੱਤਾ</string>
     <string name="squeezer_quality_description">ਘੱਟ ਗੁਣਵੱਤਾ ਦਾ ਮਤਲਬ ਹੈ ਛੋਟਾ ਫਾਈਲ ਆਕਾਰ ਪਰ ਘੱਟ ਵਿਜ਼ੂਅਲ ਗੁਣਵੱਤਾ।</string>
-    <string name="squeezer_quality_example_format">ਉਦਾਹਰਨ: %1$s ਤਸਵੀਰ → %3$d%% ਗੁਣਵੱਤਾ \'ਤੇ ~%2$s ਬਚਤ</string>
-    <string name="squeezer_quality_warning_low">ਘੱਟ ਗੁਣਵੱਤਾ ਦਿਖਾਈ ਦੇਣ ਵਾਲੀਆਂ ਖਾਮੀਆਂ ਪੈਦਾ ਕਰ ਸਕਦੀ ਹੈ।</string>
-    <string name="squeezer_quality_warning_high">ਬਹੁਤ ਉੱਚੀ ਗੁਣਵੱਤਾ ਘੱਟ ਥਾਂ ਬਚਾਉਂਦੀ ਹੈ।</string>
     <string name="squeezer_types_category_label">ਚਿੱਤਰ ਸੈਟਿੰਗਾਂ</string>
     <string name="squeezer_video_settings_category_label">ਵੀਡੀਓ ਸੈਟਿੰਗਾਂ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">ਕੰਪ੍ਰੈਸ਼ਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
     <string name="squeezer_preview_total_size">ਕੁੱਲ ਆਕਾਰ</string>
     <string name="squeezer_preview_estimated_savings">ਅੰਦਾਜ਼ਨ ਬੱਚਤ</string>
-    <string name="squeezer_compress_confirmation_title">ਚੁਣੀਆਂ ਗਈਆਂ ਆਈਟਮਾਂ ਕੰਪ੍ਰੈੱਸ ਕਰੋ?</string>
-    <string name="squeezer_compress_confirmation_message">ਇਹ ਅਸਲੀ ਫਾਈਲਾਂ ਨੂੰ ਕੰਪ੍ਰੈੱਸ ਕੀਤੇ ਸੰਸਕਰਣਾਂ ਨਾਲ ਬਦਲ ਦੇਵੇਗਾ। ਇਹ ਕਿਰਿਆ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>
     <string name="squeezer_history_title">ਕੰਪ੍ਰੈਸ਼ਨ ਇਤਿਹਾਸ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ਆਈਟਮ (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">ਕੋਈ ਕੰਪ੍ਰੈਸ਼ਨ ਇਤਿਹਾਸ ਨਹੀਂ</string>
     <string name="squeezer_history_clear_title">ਕੰਪ੍ਰੈਸ਼ਨ ਇਤਿਹਾਸ ਸਾਫ਼ ਕਰੋ</string>
     <string name="squeezer_history_clear_message">ਇਹ ਪਹਿਲਾਂ ਕੰਪ੍ਰੈੱਸ ਕੀਤੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਦੁਬਾਰਾ ਕੰਪ੍ਰੈੱਸ ਕਰਨ ਦੇਵੇਗਾ। ਫਾਈਲਾਂ ਆਪ ਪ੍ਰਭਾਵਿਤ ਨਹੀਂ ਹੁੰਦੀਆਂ।</string>
-    <string name="squeezer_onboarding_title">ਤਸਵੀਰ ਕੰਪ੍ਰੈਸ਼ਨ ਬਾਰੇ</string>
-    <string name="squeezer_onboarding_message">ਤਸਵੀਰ ਕੰਪ੍ਰੈਸ਼ਨ ਦ੍ਰਿਸ਼ਟੀਗਤ ਵੇਰਵੇ ਹਟਾ ਕੇ ਫਾਈਲ ਦਾ ਆਕਾਰ ਘਟਾਉਂਦੀ ਹੈ। ਇਹ ਪ੍ਰਕਿਰਿਆ ਉਲਟਾਈ ਨਹੀਂ ਜਾ ਸਕਦੀ - ਅਸਲ ਗੁਣਵੱਤਾ ਬਹਾਲ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।\n\nਇੱਥੇ ਝਲਕ ਹੈ ਕਿ ਤੁਹਾਡੀਆਂ ਤਸਵੀਰਾਂ ਕਿਵੇਂ ਦਿਖਣਗੀਆਂ:</string>
     <string name="squeezer_onboarding_original_label">ਅਸਲ</string>
     <string name="squeezer_onboarding_compressed_label">ਕੰਪ੍ਰੈਸ਼ਨ ਤੋਂ ਬਾਅਦ</string>
     <string name="squeezer_onboarding_video_original_label">ਵੀਡੀਓ ਫ੍ਰੇਮ</string>
     <string name="squeezer_onboarding_video_compressed_label">ਝਲਕ (ਅੰਦਾਜ਼ਨ)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">ਅਸਲ ਵੀਡੀਓ ਗੁਣਵੱਤਾ ਵੱਖਰੀ ਹੋ ਸਕਦੀ ਹੈ</string>
-    <string name="squeezer_onboarding_quality_label">ਗੁਣਵੱਤਾ: %d%%</string>
     <string name="squeezer_compare_action">ਤੁਲਨਾ ਦੇਖੋ</string>
     <string name="squeezer_no_example_found">ਚੁਣੇ ਮਾਰਗਾਂ ਵਿੱਚ ਕੋਈ ਤਸਵੀਰਾਂ ਨਹੀਂ ਮਿਲੀਆਂ।</string>
     <string name="squeezer_result_empty_message">ਕੋਈ ਕੰਪ੍ਰੈੱਸ ਕਰਨਯੋਗ ਮੀਡੀਆ ਨਹੀਂ ਮਿਲਿਆ।</string>
-    <string name="squeezer_setup_warning">ਕੰਪ੍ਰੈਸ਼ਨ ਸਟੋਰੇਜ ਸਪੇਸ ਬਚਾਉਣ ਲਈ ਗੁਣਵੱਤਾ ਨੂੰ ਸਥਾਈ ਤੌਰ \'ਤੇ ਘਟਾਉਂਦਾ ਹੈ। ਇਹ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਧਿਆਨ ਨਾਲ ਜਾਂਚੋ।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ਟਿਕਾਣਾ ਕੰਪ੍ਰੈਸ਼ਨ ਲਈ ਵਰਤਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਅਤੇ ਹਟਾ ਦਿੱਤਾ ਗਿਆ। ਕੰਪ੍ਰੈਸ਼ਨ ਲਈ ਅੰਦਰੂਨੀ ਸਟੋਰੇਜ ਤੱਕ ਸਿੱਧੀ ਪਹੁੰਚ ਲੋੜੀਂਦੀ ਹੈ।</item>
         <item quantity="other">%d ਟਿਕਾਣੇ ਕੰਪ੍ਰੈਸ਼ਨ ਲਈ ਵਰਤੇ ਨਹੀਂ ਜਾ ਸਕਦੇ ਅਤੇ ਹਟਾ ਦਿੱਤੇ ਗਏ। ਕੰਪ੍ਰੈਸ਼ਨ ਲਈ ਅੰਦਰੂਨੀ ਸਟੋਰੇਜ ਤੱਕ ਸਿੱਧੀ ਪਹੁੰਚ ਲੋੜੀਂਦੀ ਹੈ।</item>
@@ -109,7 +98,6 @@
         <item quantity="other">ਘੱਟੋ-ਘੱਟ %d ਦਿਨ ਪੁਰਾਣੀ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ਫਾਈਲਾਂ ਲਈ ਅਨੁਮਾਨਿਤ ~%d%% ਬਚਤ</string>
-    <string name="squeezer_onboarding_got_it">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ਤੁਹਾਡੀਆਂ ਤਸਵੀਰਾਂ ਅਤੇ ਵੀਡੀਓਜ਼ ਨੂੰ ਦੁਬਾਰਾ ਕੰਪ੍ਰੈਸ ਕਰਦਾ ਹੈ ਤਾਂ ਕਿ ਉਹ ਘੱਟ ਥਾਂ ਲਵੇ। ਤੁਸੀਂ ਥੋੜ੍ਹੀ ਗੁਣਵੱਤਾ ਦੇ ਬਦਲੇ ਥਾਂ ਲੈਂਦੇ ਹੋ। ਹਰੇਕ ਆਈਟਮ ਇਸ ਦੀ ਅਨੁਮਾਨਿਤ ਬਚਤ ਦਿਖਾਉਂਦੀ ਹੈ, ਇਸ ਲਈ ਤੁਸੀਂ ਫ਼ੈਸਲਾ ਕਰ ਸਕਦੇ ਹੋ ਕਿ ਕੀ ਲਾਭਦਾਇਕ ਹੈ।</string>
     <string name="tour_squeezer_compress_body">ਸਭ ਕੁਝ ਇੱਥੇ ਇੱਕ ਵਾਰ ਸੰਕੁਚਿਤ ਕਰੋ, ਜਾਂ ਕੇਵਲ ਉਸ ਇੱਕ ਨੂੰ ਛੋਟਾ ਕਰਨ ਲਈ ਇੱਕ ਆਈਟਮ ਨੂੰ ਟੈਪ ਕਰੋ। ਕਈਆਂ ਨੂੰ ਚੁਣਨ ਲਈ ਲੰਬੀ ਦਬਾਓ ਕਰੋ। ਤੁਸੀਂ ਹਮੇਸ਼ਾ ਕੋਈ ਬਦਲਾਅ ਤੋਂ ਪਹਿਲਾਂ ਪੂਰਵ-ਨਜ਼ਾਰਾ ਦੇਖੋਗੇ।</string>

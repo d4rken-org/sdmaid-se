@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">Umur file minimum</string>
     <string name="squeezer_min_age_description">Hanya sertakan file yang lebih lama dari usia ini.</string>
     <string name="squeezer_compression_settings_label">Umum</string>
-    <string name="squeezer_quality_label">Kualitas</string>
-    <string name="squeezer_quality_title">Kualitas kompresi</string>
     <string name="squeezer_quality_description">Kualitas lebih rendah berarti ukuran file lebih kecil tetapi kualitas visual berkurang.</string>
-    <string name="squeezer_quality_example_format">Contoh: gambar %1$s → menghemat ~%2$s pada kualitas %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Kualitas yang lebih rendah dapat menyebabkan artefak yang terlihat.</string>
-    <string name="squeezer_quality_warning_high">Kualitas yang sangat tinggi memberikan penghematan ruang yang minimal.</string>
     <string name="squeezer_types_category_label">Pengaturan gambar</string>
     <string name="squeezer_video_settings_category_label">Pengaturan video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Konfirmasi kompresi</string>
     <string name="squeezer_preview_total_size">Ukuran total</string>
     <string name="squeezer_preview_estimated_savings">Perkiraan penghematan</string>
-    <string name="squeezer_compress_confirmation_title">Kompres item yang dipilih?</string>
-    <string name="squeezer_compress_confirmation_message">Ini akan menggantikan file asli dengan versi yang dikompresi. Tindakan ini tidak dapat dibatalkan.</string>
     <string name="squeezer_history_title">Riwayat kompresi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d item (%2$s)</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">Tidak ada riwayat kompresi</string>
     <string name="squeezer_history_clear_title">Hapus riwayat kompresi</string>
     <string name="squeezer_history_clear_message">Ini akan memungkinkan file yang sebelumnya dikompresi untuk dikompresi kembali. File itu sendiri tidak terpengaruh.</string>
-    <string name="squeezer_onboarding_title">Tentang Kompresi Gambar</string>
-    <string name="squeezer_onboarding_message">Kompresi gambar mengurangi ukuran file dengan menghapus detail visual. Proses ini tidak dapat dibalik - kualitas asli tidak dapat dipulihkan.\n\nBerikut pratinjau tampilan gambar Anda:</string>
     <string name="squeezer_onboarding_original_label">Asli</string>
     <string name="squeezer_onboarding_compressed_label">Setelah kompresi</string>
     <string name="squeezer_onboarding_video_original_label">Bingkai video</string>
     <string name="squeezer_onboarding_video_compressed_label">Pratinjau (perkiraan)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Kualitas video aktual mungkin berbeda</string>
-    <string name="squeezer_onboarding_quality_label">Kualitas: %d%%</string>
     <string name="squeezer_compare_action">Lihat perbandingan</string>
     <string name="squeezer_no_example_found">Tidak ada gambar ditemukan di jalur yang dipilih.</string>
     <string name="squeezer_result_empty_message">Tidak ada media yang dapat dikompresi ditemukan.</string>
-    <string name="squeezer_setup_warning">Kompresi secara permanen mengurangi kualitas untuk menghemat ruang penyimpanan. Ini tidak dapat dibatalkan. Tinjau pengaturan Anda dengan cermat sebelum memulai.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d lokasi tidak dapat digunakan untuk kompresi dan telah dihapus. Kompresi memerlukan akses langsung ke penyimpanan internal.</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">Minimal %d hari</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Perkiraan hemat ~%d%% untuk file JPEG</string>
-    <string name="squeezer_onboarding_got_it">Mengerti</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer mengompresi ulang foto dan video Anda sehingga memakan lebih sedikit ruang. Anda mengorbankan sedikit kualitas demi ruang yang didapat kembali. Setiap item menampilkan perkiraan penghematannya, sehingga Anda dapat memutuskan mana yang sepadan.</string>
     <string name="tour_squeezer_compress_body">Kompres semuanya sekaligus di sini, atau ketuk satu item untuk mengecilkan hanya yang itu. Tekan lama untuk memilih beberapa. Anda akan selalu melihat pratinjau sebelum apa pun berubah.</string>

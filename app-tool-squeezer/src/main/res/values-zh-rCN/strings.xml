@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">最小文件年龄</string>
     <string name="squeezer_min_age_description">仅包含早于此时间的文件。</string>
     <string name="squeezer_compression_settings_label">常规</string>
-    <string name="squeezer_quality_label">质量</string>
-    <string name="squeezer_quality_title">压缩质量</string>
     <string name="squeezer_quality_description">质量越低，文件越小，但视觉质量也越低。</string>
-    <string name="squeezer_quality_example_format">示例：%1$s 图片 → 以 %3$d%% 质量节省约 %2$s</string>
-    <string name="squeezer_quality_warning_low">较低的质量可能会导致明显的伪影。</string>
-    <string name="squeezer_quality_warning_high">非常高的质量只能节省极少空间。</string>
     <string name="squeezer_types_category_label">图片设置</string>
     <string name="squeezer_video_settings_category_label">视频设置</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">确认压缩</string>
     <string name="squeezer_preview_total_size">总大小</string>
     <string name="squeezer_preview_estimated_savings">预估节省量</string>
-    <string name="squeezer_compress_confirmation_title">压缩所选项目？</string>
-    <string name="squeezer_compress_confirmation_message">这将用压缩版本替换原始文件。此操作无法撤销。</string>
     <string name="squeezer_history_title">压缩历史</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d 个项目（%2$s）</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">没有压缩历史</string>
     <string name="squeezer_history_clear_title">清除压缩历史</string>
     <string name="squeezer_history_clear_message">这将允许之前压缩的文件再次被压缩。文件本身不受影响。</string>
-    <string name="squeezer_onboarding_title">关于图片压缩</string>
-    <string name="squeezer_onboarding_message">图片压缩通过移除视觉细节来缩小文件大小。此过程不可逆——原始质量无法恢复。\n\n以下是压缩后图片的预览：</string>
     <string name="squeezer_onboarding_original_label">原始</string>
     <string name="squeezer_onboarding_compressed_label">压缩后</string>
     <string name="squeezer_onboarding_video_original_label">视频帧</string>
     <string name="squeezer_onboarding_video_compressed_label">预览（近似）</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">实际视频质量可能有所不同</string>
-    <string name="squeezer_onboarding_quality_label">质量：%d%%</string>
     <string name="squeezer_compare_action">查看对比</string>
     <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
     <string name="squeezer_result_empty_message">未找到可压缩的媒体文件。</string>
-    <string name="squeezer_setup_warning">压缩会永久降低质量以节省存储空间。此操作无法撤销。开始前请仔细检查您的设置。</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d 个位置无法用于压缩，已被移除。压缩需要直接访问内部存储。</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">至少 %d 天前</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 文件预计节省约 %d%%</string>
-    <string name="squeezer_onboarding_got_it">明白</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer 会重新压缩您的照片和视频，使其占用更少的空间。您可以用较少的质量换取更多的空间。每个项目都显示其估计的节省量，因此您可以决定哪些值得压缩。</string>
     <string name="tour_squeezer_compress_body">在此处一次性压缩所有内容，或点击单个项目以仅缩小该项目。长按可选择多个。在进行任何更改之前，您将始终看到预览。</string>

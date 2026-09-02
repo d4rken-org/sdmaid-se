@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Minimum fil alder</string>
     <string name="squeezer_min_age_description">Medtag kun filer, der er ældre end denne alder.</string>
     <string name="squeezer_compression_settings_label">Generelt</string>
-    <string name="squeezer_quality_label">Kvalitet</string>
-    <string name="squeezer_quality_title">Kompressions kvalitet</string>
     <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret visuel kvalitet.</string>
-    <string name="squeezer_quality_example_format">Eksempel: %1$s billede → sparer ~%2$s ved %3$d%% kvalitet</string>
-    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
-    <string name="squeezer_quality_warning_high">Meget høj kvalitet giver minimal pladsbesparelser.</string>
     <string name="squeezer_types_category_label">Billedindstillinger</string>
     <string name="squeezer_video_settings_category_label">Videoindstillinger</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Bekræft komprimering</string>
     <string name="squeezer_preview_total_size">Total størrelse</string>
     <string name="squeezer_preview_estimated_savings">Estimeret besparelse</string>
-    <string name="squeezer_compress_confirmation_title">Komprimer valgte elementer?</string>
-    <string name="squeezer_compress_confirmation_message">Dette vil erstatte de originale filer med komprimerede versioner. Denne handling kan ikke fortrydes.</string>
     <string name="squeezer_history_title">Komprimeringshistorik</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Ingen komprimeringshistorik</string>
     <string name="squeezer_history_clear_title">Ryd komprimeringshistorik</string>
     <string name="squeezer_history_clear_message">Dette vil tillade tidligere komprimerede filer at blive komprimeret igen. Filerne selv påvirkes ikke.</string>
-    <string name="squeezer_onboarding_title">Om Billedkomprimering</string>
-    <string name="squeezer_onboarding_message">Billedkomprimering reducerer filstørrelsen ved at fjerne visuelle detaljer. Denne proces er irreversibel - den originale kvalitet kan ikke genskabes.\n\nHer er en forhåndsvisning af, hvordan dine billeder vil se ud:</string>
     <string name="squeezer_onboarding_original_label">Oprindelig</string>
     <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
     <string name="squeezer_onboarding_video_original_label">Videobillede</string>
     <string name="squeezer_onboarding_video_compressed_label">Forhåndsvisning (omtrentlig)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Den faktiske videokvalitet kan variere</string>
-    <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
     <string name="squeezer_compare_action">Vis sammenligning</string>
     <string name="squeezer_no_example_found">Ingen billeder fundet i valgte stier.</string>
     <string name="squeezer_result_empty_message">Ingen komprimerbart medie fundet.</string>
-    <string name="squeezer_setup_warning">Komprimering reducerer kvaliteten permanent for at spare lagerplads. Dette kan ikke fortrydes. Gennemgå dine indstillinger omhyggeligt, før du starter.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d placering kan ikke bruges til komprimering og blev fjernet. Komprimering kræver direkte adgang til det interne lager.</item>
         <item quantity="other">%d placeringer kan ikke bruges til komprimering og blev fjernet. Komprimering kræver direkte adgang til det interne lager.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Mindst %d dage gammel</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimeret ~%d%% besparelser for JPEG-filer</string>
-    <string name="squeezer_onboarding_got_it">Forstået</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer komprimerer dine fotos og videoer igen, så de fylder mindre. Du bytter lidt kvalitet for den plads, du får tilbage. Hvert element viser sin estimerede besparelse, så du kan beslutte, hvad der er værd det.</string>
     <string name="tour_squeezer_compress_body">Komprimer alt på én gang her, eller tryk på et enkelt element for kun at formindske det. Langt tryk for at vælge flere. Du ser altid en forhåndsvisning, før der sker noget.</string>

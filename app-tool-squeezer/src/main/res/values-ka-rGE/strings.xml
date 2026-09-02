@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">ფაილის მინიმალური ასაკი</string>
     <string name="squeezer_min_age_description">შეიტანე მხოლოდ ამ ასაკზე ძველი ფაილები.</string>
     <string name="squeezer_compression_settings_label">ზოგადი</string>
-    <string name="squeezer_quality_label">ხარისხი</string>
-    <string name="squeezer_quality_title">შეკუმშვის ხარისხი</string>
     <string name="squeezer_quality_description">დაბალი ხარისხი ნიშნავს პატარა ფაილის ზომას, მაგრამ მცირდება ვიზუალური ხარისხი.</string>
-    <string name="squeezer_quality_example_format">მაგალითი: %1$s სურათი → %3$d%% ხარისხით ~%2$s დაზოგვა</string>
-    <string name="squeezer_quality_warning_low">დაბალმა ხარისხმა შეიძლება ხილული არტეფაქტები გამოიწვიოს.</string>
-    <string name="squeezer_quality_warning_high">ძალიან მაღალი ხარისხი მინიმალურ დაზოგვას უზრუნველყოფს.</string>
     <string name="squeezer_types_category_label">სურათის პარამეტრები</string>
     <string name="squeezer_video_settings_category_label">ვიდეოს პარამეტრები</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">შეკუმშვის დადასტურება</string>
     <string name="squeezer_preview_total_size">საერთო ზომა</string>
     <string name="squeezer_preview_estimated_savings">სავარაუდო დაზოგვა</string>
-    <string name="squeezer_compress_confirmation_title">შეკუმშოთ არჩეული ელემენტები?</string>
-    <string name="squeezer_compress_confirmation_message">ეს შეცვლის ორიგინალ ფაილებს შეკუმშული ვერსიებით. ეს მოქმედება ვერ გაუქმდება.</string>
     <string name="squeezer_history_title">შეკუმშვის ისტორია</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ელემენტი (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">შეკუმშვის ისტორია არ არის</string>
     <string name="squeezer_history_clear_title">შეკუმშვის ისტორიის გასუფთავება</string>
     <string name="squeezer_history_clear_message">ეს საშუალებას მისცემს ადრე შეკუმშულ ფაილებს კვლავ შეიკუმშოს. თავად ფაილები არ შეიცვლება.</string>
-    <string name="squeezer_onboarding_title">სურათის შეკუმშვის შესახებ</string>
-    <string name="squeezer_onboarding_message">სურათის შეკუმშვა ამცირებს ფაილის ზომას ვიზუალური დეტალების წაშლით. ეს პროცესი შეუქცევადია - ორიგინალი ხარისხის აღდგენა შეუძლებელია.\n\nაი, როგორ გამოიყურება თქვენი სურათები:</string>
     <string name="squeezer_onboarding_original_label">ორიგინალი</string>
     <string name="squeezer_onboarding_compressed_label">შეკუმშვის შემდეგ</string>
     <string name="squeezer_onboarding_video_original_label">ვიდეო კადრი</string>
     <string name="squeezer_onboarding_video_compressed_label">გადახედვა (სავარაუდო)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">ვიდეოს რეალური ხარისხი შეიძლება განსხვავდებოდეს</string>
-    <string name="squeezer_onboarding_quality_label">ხარისხი: %d%%</string>
     <string name="squeezer_compare_action">შედარების ნახვა</string>
     <string name="squeezer_no_example_found">არჩეულ გზებში სურათები ვერ მოიძებნა.</string>
     <string name="squeezer_result_empty_message">შეკუმშვადი მედია ვერ მოიძებნა.</string>
-    <string name="squeezer_setup_warning">შეკუმშვა მუდმივად ამცირებს ხარისხს საცავის სივრცის დაზოგვის მიზნით. ეს ვერ გაუქმდება. ყურადღებით გადახედე პარამეტრებს დაწყებამდე.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>
         <item quantity="other">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">სულ მცირე %d დღის</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">სავარაუდო ~%d%% დაზოგვა JPEG ფაილებისთვის</string>
-    <string name="squeezer_onboarding_got_it">Გავიგე</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer თავიდან იკუმშავს თქვენს ფოტოებს და ვიდეოებს, რათა ისინი ნაკლებ ადგილს დაკავოს. თქვენ ხარისხის ნაწილს სანაცვლად დაბრუნებული ადგილის მოსაპოვებლად. თითოეული ელემენტი აჭვენებს მის სავარაუდო დაზოგვას, ასე რომ თქვენ შეგიძლიათ გადაწყვიტოთ რა არის ღირებული.</string>
     <string name="tour_squeezer_compress_body">შეკუმშეთ ყველაფერი ერთდროულად აქ, ან დააჭირეთ ერთ ელემენტს მხოლოდ მისი შესამცირებლად. გრძელი დაჭერა რამდენიმეს შესარჩევად. ყოველთვის დაინახავთ წინასწარ ხედს ნებისმიერი ცვლილებამდე.</string>

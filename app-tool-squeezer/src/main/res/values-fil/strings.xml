@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Pinakamababang edad ng file</string>
     <string name="squeezer_min_age_description">Isama lamang ang mga file na mas matanda kaysa sa edad na ito.</string>
     <string name="squeezer_compression_settings_label">Pangkalahatan</string>
-    <string name="squeezer_quality_label">Kalidad</string>
-    <string name="squeezer_quality_title">Kalidad ng compression</string>
     <string name="squeezer_quality_description">Ang mas mababang kalidad ay nangangahulugang mas maliit na laki ng file ngunit nabawasan ang visual na kalidad.</string>
-    <string name="squeezer_quality_example_format">Halimbawa: %1$s na larawan → ~%2$s na matitipid sa %3$d%% na kalidad</string>
-    <string name="squeezer_quality_warning_low">Ang mas mababang kalidad ay maaaring magdulot ng nakikitang artifact.</string>
-    <string name="squeezer_quality_warning_high">Ang napakataas na kalidad ay nagbibigay ng kaunting matitipid na espasyo.</string>
     <string name="squeezer_types_category_label">Mga setting ng larawan</string>
     <string name="squeezer_video_settings_category_label">Mga setting ng video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Kumpirmahin ang compression</string>
     <string name="squeezer_preview_total_size">Kabuuang sukat</string>
     <string name="squeezer_preview_estimated_savings">Tinatayang matitipid</string>
-    <string name="squeezer_compress_confirmation_title">I-compress ang mga napiling item?</string>
-    <string name="squeezer_compress_confirmation_message">Papalitan nito ang mga orihinal na file ng mga compressed na bersyon. Hindi maaaring i-undo ang aksyong ito.</string>
     <string name="squeezer_history_title">History ng compression</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Walang history ng compression</string>
     <string name="squeezer_history_clear_title">I-clear ang history ng compression</string>
     <string name="squeezer_history_clear_message">Papayagan nito na ma-compress muli ang mga dating na-compress na file. Ang mga file mismo ay hindi apektado.</string>
-    <string name="squeezer_onboarding_title">Tungkol sa Image Compression</string>
-    <string name="squeezer_onboarding_message">Binabawasan ng image compression ang sukat ng file sa pamamagitan ng pag-alis ng visual detail. Ang prosesong ito ay hindi na maaaring ibalik - hindi na maibabalik ang orihinal na kalidad.\n\nNarito ang preview kung paano magiging hitsura ng iyong mga larawan:</string>
     <string name="squeezer_onboarding_original_label">Orihinal</string>
     <string name="squeezer_onboarding_compressed_label">Pagkatapos ng compression</string>
     <string name="squeezer_onboarding_video_original_label">Frame ng video</string>
     <string name="squeezer_onboarding_video_compressed_label">Preview (tinatayang)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Maaaring mag-iba ang aktwal na kalidad ng video</string>
-    <string name="squeezer_onboarding_quality_label">Kalidad: %d%%</string>
     <string name="squeezer_compare_action">Tingnan ang paghahambing</string>
     <string name="squeezer_no_example_found">Walang nahanap na larawan sa mga napiling path.</string>
     <string name="squeezer_result_empty_message">Walang nahanap na compressible na media.</string>
-    <string name="squeezer_setup_warning">Ang compression ay permanenteng nagbabawas ng kalidad upang makatipid ng espasyo sa storage. Hindi ito maaaring i-undo. Suriin nang maingat ang iyong mga setting bago magsimula.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>
         <item quantity="other">%d mga lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Hindi bababa sa %d araw na edad</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Inaasahang ~%d%% na matitipid para sa JPEG files</string>
-    <string name="squeezer_onboarding_got_it">Kuha ko</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Ang Squeezer ay muling nag-compress ng iyong mga larawan at video upang mabawasan ang espasyo na ginagamit. Ikaw ay nagsasakripisyo ng kaunting kalidad upang makakuha ng mas maraming espasyo. Bawat item ay nagpapakita ng inaasahang pagtitipid, kaya maaari mong magpasya kung alin ang sulit.</string>
     <string name="tour_squeezer_compress_body">I-compress ang lahat nang sabay-sabay dito, o i-tap ang isang item upang bawasan lamang ang iyon. Mahabang-press upang pumili ng marami. Lagi mong makikita ang preview bago magbago ang kahit ano.</string>

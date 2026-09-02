@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">最小檔案年齡</string>
     <string name="squeezer_min_age_description">僅包含早於此年齡的檔案。</string>
     <string name="squeezer_compression_settings_label">一般</string>
-    <string name="squeezer_quality_label">品質</string>
-    <string name="squeezer_quality_title">壓縮品質</string>
     <string name="squeezer_quality_description">較低畫質意味著較小的檔案大小，但視覺品質降低。</string>
-    <string name="squeezer_quality_example_format">範例：%1$s 圖片 → 以 %3$d%% 品質節省約 %2$s</string>
-    <string name="squeezer_quality_warning_low">較低品質可能導致可見瑕疵。</string>
-    <string name="squeezer_quality_warning_high">非常高的品質只能提供極少的空間節省。</string>
     <string name="squeezer_types_category_label">圖片設定</string>
     <string name="squeezer_video_settings_category_label">影片設定</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">確認壓縮</string>
     <string name="squeezer_preview_total_size">總大小</string>
     <string name="squeezer_preview_estimated_savings">預計節省</string>
-    <string name="squeezer_compress_confirmation_title">壓縮已選項目？</string>
-    <string name="squeezer_compress_confirmation_message">此操作將以壓縮版本取代原始檔案。此操作無法撤銷。</string>
     <string name="squeezer_history_title">壓縮歷史記錄</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d 個項目（%2$s）</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">沒有壓縮歷史記錄</string>
     <string name="squeezer_history_clear_title">清除壓縮歷史記錄</string>
     <string name="squeezer_history_clear_message">此操作將允許對之前已壓縮的檔案再次進行壓縮。檔案本身不會受到影響。</string>
-    <string name="squeezer_onboarding_title">關於圖片壓縮</string>
-    <string name="squeezer_onboarding_message">圖片壓縮透過移除視覺細節來縮小檔案大小。此過程不可逆 - 無法恢復原始品質。\n\n以下是壓縮後的預覽效果：</string>
     <string name="squeezer_onboarding_original_label">原圖</string>
     <string name="squeezer_onboarding_compressed_label">壓縮後</string>
     <string name="squeezer_onboarding_video_original_label">影片畫面</string>
     <string name="squeezer_onboarding_video_compressed_label">預覽（不就是最終效果）</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">實際影片畫質可能有所不同</string>
-    <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
     <string name="squeezer_compare_action">檢視比較</string>
     <string name="squeezer_no_example_found">在所選路徑中找不到圖片。</string>
     <string name="squeezer_result_empty_message">未找到可壓縮的媒體檔案。</string>
-    <string name="squeezer_setup_warning">壓縮會永久降低畫質以節省儲存空間。此操作無法撤銷。開始前請仔細檢查您的設定。</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d 個位置無法用於壓縮且已被移除。壓縮需要直接存取內部儲存空間。</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">至少 %d 天</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">預估 JPEG 檔案可節省 ~%d%%</string>
-    <string name="squeezer_onboarding_got_it">瞭解了</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer 會重新壓縮您的相片和影片以節省空間。您用少量質素換取節省的空間。每個項目都會顯示預計節省量，您可決定是否值得進行。</string>
     <string name="tour_squeezer_compress_body">在此一次壓縮所有內容，或點選單一項目只壓縮該項目。長按以選擇多個。進行任何變更前，您始終會看到預覽。</string>

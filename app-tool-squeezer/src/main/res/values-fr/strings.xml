@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Âge minimal des fichiers</string>
     <string name="squeezer_min_age_description">N\'inclure que les fichiers plus anciens que cet âge.</string>
     <string name="squeezer_compression_settings_label">Général</string>
-    <string name="squeezer_quality_label">Qualité</string>
-    <string name="squeezer_quality_title">Qualité de la compression</string>
     <string name="squeezer_quality_description">Une qualité inférieure implique une taille de fichier plus petite, mais une qualité visuelle moindre.</string>
-    <string name="squeezer_quality_example_format">Exemple : %1$s image → économise ~%2$s avec une qualité de %3$d %%</string>
-    <string name="squeezer_quality_warning_low">Les qualités inférieures peuvent entraîner des distortions visuelles.</string>
-    <string name="squeezer_quality_warning_high">Une qualité très élevée réduit peu la taille du fichier.</string>
     <string name="squeezer_types_category_label">Paramètres d\'image</string>
     <string name="squeezer_video_settings_category_label">Paramètres vidéo</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Confirmer la compression</string>
     <string name="squeezer_preview_total_size">Taille totale</string>
     <string name="squeezer_preview_estimated_savings">Économies probables</string>
-    <string name="squeezer_compress_confirmation_title">Compresser les éléments choisis ?</string>
-    <string name="squeezer_compress_confirmation_message">Les fichiers originaux seront remplacés par les versions compressées. Cette action est irréversible.</string>
     <string name="squeezer_history_title">Historique de compression</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d élément (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Aucun historique de compression</string>
     <string name="squeezer_history_clear_title">Effacer l’historique de compression</string>
     <string name="squeezer_history_clear_message">Les fichiers déjà compressés pourront être compressés de nouveau. Les fichiers eux-mêmes ne sont pas affectés.</string>
-    <string name="squeezer_onboarding_title">À propos de la compression des images</string>
-    <string name="squeezer_onboarding_message">La compression des images réduit la taille des fichiers en supprimant certains détails visuels. Ce processus est irréversible ; la qualité originale ne peut pas être restaurée.\n\nVoici un aperçu du rendu final de vos images :</string>
     <string name="squeezer_onboarding_original_label">Originale</string>
     <string name="squeezer_onboarding_compressed_label">Après compression</string>
     <string name="squeezer_onboarding_video_original_label">Image de la vidéo</string>
     <string name="squeezer_onboarding_video_compressed_label">Aperçu (approximatif)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">La qualité réelle de la vidéo peut différer</string>
-    <string name="squeezer_onboarding_quality_label">Qualité : %d %%</string>
     <string name="squeezer_compare_action">Afficher la comparaison</string>
     <string name="squeezer_no_example_found">Aucune image n’a été trouvée dans les chemins définis.</string>
     <string name="squeezer_result_empty_message">Aucun média compressible n’a été trouvé.</string>
-    <string name="squeezer_setup_warning">La compression réduit irrémédiablement la qualité pour économiser l’espace de stockage. Cette opération est irréversible. Confirmez vos paramètres avant de commencer.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d emplacement ne peut pas être utilisé pour la compression et a été supprimé. La compression nécessite un accès direct à la mémoire interne.</item>
         <item quantity="other">%d emplacements ne peuvent pas être utilisés pour la compression et ont été supprimés. La compression nécessite un accès direct à la mémoire interne.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Au moins %d jours</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Économie probable de %d %% pour les fichiers JPEG</string>
-    <string name="squeezer_onboarding_got_it">J’ai compris</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer re-compresse vos photos et vidéos pour qu’elles prennent moins de place. Vous échangez un peu de qualité contre l’espace que vous gagnez. Chaque élément affiche ses économies estimées, vous pouvez donc décider ce qui en vaut la peine.</string>
     <string name="tour_squeezer_compress_body">Compressez tout d’un coup ici, ou appuyez sur un élément unique pour ne réduire que celui-ci. Appui long pour en sélectionner plusieurs. Vous verrez toujours un aperçu avant que quelque chose change.</string>

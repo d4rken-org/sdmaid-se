@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Minimum fayl yaşı</string>
     <string name="squeezer_min_age_description">Yalnız bu yaşdan köhnə faylları daxil edin.</string>
     <string name="squeezer_compression_settings_label">Ümumi</string>
-    <string name="squeezer_quality_label">Keyfiyyət</string>
-    <string name="squeezer_quality_title">Sıxışdırma keyfiyyəti</string>
     <string name="squeezer_quality_description">Aşağı keyfiyyət daha kiçik fayl ölçüsü deməkdir, lakin vizual keyfiyyəti azaldır.</string>
-    <string name="squeezer_quality_example_format">Nümunə: %1$s şəkil → %3$d%% keyfiyyətdə ~%2$s qənaət</string>
-    <string name="squeezer_quality_warning_low">Aşağı keyfiyyət görünən artefaktlara səbəb ola bilər.</string>
-    <string name="squeezer_quality_warning_high">Çox yüksək keyfiyyət minimum yer qənaəti təmin edir.</string>
     <string name="squeezer_types_category_label">Şəkil parametrləri</string>
     <string name="squeezer_video_settings_category_label">Video parametrləri</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Sıxışdırmanı təsdiqləyin</string>
     <string name="squeezer_preview_total_size">Ümumi ölçü</string>
     <string name="squeezer_preview_estimated_savings">Təxmini qənaət</string>
-    <string name="squeezer_compress_confirmation_title">Seçilmiş elementləri sıxışdırılsın?</string>
-    <string name="squeezer_compress_confirmation_message">Bu, orijinal faylları sıxışdırılmış versiyalarla əvəz edəcək. Bu əməliyyat geri qaytarrla biləməz.</string>
     <string name="squeezer_history_title">Sıxışdırma tarixçəsi</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Sıxışdırma tarixçəsi yoxdur</string>
     <string name="squeezer_history_clear_title">Sıxışdırma tarixçəsini təmizlə</string>
     <string name="squeezer_history_clear_message">Bu, əvvəllər sıxışdırılmış faylların yenidən sıxışdırılmasına icəazə verəcək. Faylların özlərinə təsir edilmir.</string>
-    <string name="squeezer_onboarding_title">Şəkil sıxışdırma haqqında</string>
-    <string name="squeezer_onboarding_message">Şəkil sıxışdırma vizual detalları silməklə fayl ölçüsünü azaldır. Bu proses geri dönməzdir - orijinal keyfiyyət bərpa edilə bilməz.\n\nŞəkillərinizin necə görünəcəyinin ön baxışı:</string>
     <string name="squeezer_onboarding_original_label">Orijinal</string>
     <string name="squeezer_onboarding_compressed_label">Sıxışdırmadan sonra</string>
     <string name="squeezer_onboarding_video_original_label">Video kadrı</string>
     <string name="squeezer_onboarding_video_compressed_label">Önizləmə (təxmini)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Faktiki video keyfiyyəti fərqlənə bilər</string>
-    <string name="squeezer_onboarding_quality_label">Keyfiyyət: %d%%</string>
     <string name="squeezer_compare_action">Müqayisəyə bax</string>
     <string name="squeezer_no_example_found">Seçilmiş yollarda şəkil tapılmadı.</string>
     <string name="squeezer_result_empty_message">Sıxışdırıla bilən media tapılmadı.</string>
-    <string name="squeezer_setup_warning">Sıxışdırma, yaddaş sahəsinə qənaət etmək üçün keyfiyyəti daimi olaraq azaldır. Bu geri qaytarrla biləməz. Başlamadan əvvəl parametrlərinizi diqqətlə nəzardən keçirin.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d yer sıxışdırma üçün istifadə edilə bilməz və silindi. Sıxışdırma daxili yaddaşa birbirə giriş tələb edir.</item>
         <item quantity="other">%d yer sıxışdırma üçün istifadə edilə bilməz və silindi. Sıxışdırma daxili yaddaşa birbirə giriş tələb edir.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Ən azı %d gün köhnə</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG faylları üçün təxminən ~%d%% qənaət</string>
-    <string name="squeezer_onboarding_got_it">Başa düşdüm</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer fotoşəkillərinizi və videolarınızı yenidən sıxlaşdırır ki, daha az yer tutsunlar. Bir az keyfiyyətdən imtina edərək aldığınız yerdən faydalanırsınız. Hər bir element təxmini qənaətini göstərir, buna görə hansının dəyər olduğuna qərar verə bilərsiniz.</string>
     <string name="tour_squeezer_compress_body">Burada hər şeyi bir dəfəyə sıxlaşdırın, və ya sadəcə onu kiçiltmək üçün tək bir elementə toxunun. Bir neçəsini seçmək üçün uzun basın. Hər şey dəyişdirilmədən əvvəl həmişə önizləməni görəcəksiniz.</string>

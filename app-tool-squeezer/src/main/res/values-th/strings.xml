@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">อายุไฟล์ขั้นต่ำ</string>
     <string name="squeezer_min_age_description">รวมเฉพาะไฟล์ที่เก่ากว่าอายุนี้เท่านั้น</string>
     <string name="squeezer_compression_settings_label">ทั่วไป</string>
-    <string name="squeezer_quality_label">คุณภาพ</string>
-    <string name="squeezer_quality_title">คุณภาพการบีบอัด</string>
     <string name="squeezer_quality_description">คุณภาพต่ำกว่าหมายถึงขนาดไฟล์เล็กลงแต่คุณภาพภาพลดลง</string>
-    <string name="squeezer_quality_example_format">ตัวอย่าง: รูปภาพ %1$s → ประหยัด ~%2$s ที่คุณภาพ %3$d%%</string>
-    <string name="squeezer_quality_warning_low">คุณภาพต่ำอาจทำให้เห็นสิ่งแปลกปลอมได้</string>
-    <string name="squeezer_quality_warning_high">คุณภาพสูงมากให้การประหยัดพื้นที่น้อย</string>
     <string name="squeezer_types_category_label">การตั้งค่าภาพ</string>
     <string name="squeezer_video_settings_category_label">การตั้งค่าวิดีโอ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">ยืนยันการบีบอัด</string>
     <string name="squeezer_preview_total_size">ขนาดรวม</string>
     <string name="squeezer_preview_estimated_savings">ประหยัดโดยประมาณ</string>
-    <string name="squeezer_compress_confirmation_title">บีบอัดรายการที่เลือกหรือไม่?</string>
-    <string name="squeezer_compress_confirmation_message">การดำเนินการนี้จะแทนที่ไฟล์ต้นฉบับด้วยเวอร์ชันที่บีบอัดแล้ว ไม่สามารถยกเลิกการดำเนินการนี้ได้</string>
     <string name="squeezer_history_title">ประวัติการบีบอัด</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d รายการ (%2$s)</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">ไม่มีประวัติการบีบอัด</string>
     <string name="squeezer_history_clear_title">ล้างประวัติการบีบอัด</string>
     <string name="squeezer_history_clear_message">การดำเนินการนี้จะอนุญาตให้บีบอัดไฟล์ที่เคยบีบอัดแล้วอีกครั้ง ไฟล์เองจะไม่ได้รับผลกระทบ</string>
-    <string name="squeezer_onboarding_title">เกี่ยวกับการบีบอัดรูปภาพ</string>
-    <string name="squeezer_onboarding_message">การบีบอัดรูปภาพลดขนาดไฟล์โดยการลดรายละเอียดภาพ กระบวนการนี้ไม่สามารถย้อนกลับได้ - คุณภาพต้นฉบับไม่สามารถกู้คืนได้\n\nนี่คือตัวอย่างของรูปภาพของคุณจะมีลักษณะอย่างไร:</string>
     <string name="squeezer_onboarding_original_label">ต้นฉบับ</string>
     <string name="squeezer_onboarding_compressed_label">หลังบีบอัด</string>
     <string name="squeezer_onboarding_video_original_label">เฟรมวิดีโอ</string>
     <string name="squeezer_onboarding_video_compressed_label">ตัวอย่าง (โดยประมาณ)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">คุณภาพวิดีโอจริงอาจแตกต่างกัน</string>
-    <string name="squeezer_onboarding_quality_label">คุณภาพ: %d%%</string>
     <string name="squeezer_compare_action">ดูการเปรียบเทียบ</string>
     <string name="squeezer_no_example_found">ไม่พบรูปภาพในเส้นทางที่เลือก</string>
     <string name="squeezer_result_empty_message">ไม่พบสื่อที่สามารถบีบอัดได้</string>
-    <string name="squeezer_setup_warning">การบีบอัดจะลดคุณภาพอย่างถาวรเพื่อประหยัดพื้นที่จัดเก็บ ไม่สามารถยกเลิกได้ โปรดตรวจสอบการตั้งค่าของคุณอย่างรอบคอบก่อนเริ่ม</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">ไม่สามารถใช้ %d ตำแหน่งสำหรับการบีบอัดและถูกลบออกแล้ว การบีบอัดต้องการการเข้าถึงโดยตรงไปยังพื้นที่จัดเก็บภายใน</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">อย่างน้อย %d วัน</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ประมาณการประหยัดได้ ~%d%% สำหรับไฟล์ JPEG</string>
-    <string name="squeezer_onboarding_got_it">เข้าใจแล้ว</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer จะบีบอัดภาพและวิดีโอของคุณใหม่เพื่อให้ใช้พื้นที่น้อยลง คุณจะแลกเปลี่ยนคุณภาพเล็กน้อยเพื่อให้ได้พื้นที่กลับคืนมา แต่ละรายการจะแสดงการประหยัดโดยประมาณ ดังนั้นคุณจึงสามารถตัดสินใจได้ว่าคุ้มค่าหรือไม่</string>
     <string name="tour_squeezer_compress_body">บีบอัดทั้งหมดพร้อมกันที่นี่ หรือแตะรายการเดียวเพื่อบีบอัดเฉพาะรายการนั้น กดค้างเพื่อเลือกหลายรายการ คุณจะเห็นตัวอย่างเสมอก่อนที่จะมีการเปลี่ยนแปลงใดๆ</string>

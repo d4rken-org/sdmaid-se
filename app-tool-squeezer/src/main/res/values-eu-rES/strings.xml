@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Fitxategiaren gutxieneko adina</string>
     <string name="squeezer_min_age_description">Adina hau baino zaharragoak diren fitxategiak soilik sartu.</string>
     <string name="squeezer_compression_settings_label">Orokorra</string>
-    <string name="squeezer_quality_label">Kalitatea</string>
-    <string name="squeezer_quality_title">Konpresio-kalitatea</string>
     <string name="squeezer_quality_description">Kalitate txikiagoak fitxategi-tamaina txikiagoa esan nahi du, baina ikusmen-kalitatea murrizten du.</string>
-    <string name="squeezer_quality_example_format">Adibidea: %1$s irudia → ~%2$s aurrezten du %3$d%% kalitatean</string>
-    <string name="squeezer_quality_warning_low">Kalitate baxuagoek ikusgai dauden artifaktuak sor ditzakete.</string>
-    <string name="squeezer_quality_warning_high">Kalitate oso altuak leku-aurrezpen minimoa ematen du.</string>
     <string name="squeezer_types_category_label">Irudien ezarpenak</string>
     <string name="squeezer_video_settings_category_label">Bideoen ezarpenak</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Berretsi konpresioa</string>
     <string name="squeezer_preview_total_size">Tamaina osoa</string>
     <string name="squeezer_preview_estimated_savings">Aurreikusitako aurrezpena</string>
-    <string name="squeezer_compress_confirmation_title">Hautatutako elementuak konprimatu?</string>
-    <string name="squeezer_compress_confirmation_message">Honek jatorrizko fitxategiak bertsio konprimatuekin ordezkatuko ditu. Ekintza hau ezin da desegin.</string>
     <string name="squeezer_history_title">Konpresio-historia</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d elementu (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Ez dago konpresio-historiarik</string>
     <string name="squeezer_history_clear_title">Garbitu konpresio-historia</string>
     <string name="squeezer_history_clear_message">Honek aurretik konprimatutako fitxategiak berriro konprimatzea ahalbidetuko du. Fitxategiek beraiek ez dute eraginik jasaten.</string>
-    <string name="squeezer_onboarding_title">Irudi-konpresioa buruz</string>
-    <string name="squeezer_onboarding_message">Irudi-konpresioak fitxategi-tamaina murrizten du xehetasun bisuala kenduz. Prozesu hau itzulezina da - jatorrizko kalitatea ezin da berreskuratu.\n\nHona hemen zure irudiak nola ikusiko diren aurrebista:</string>
     <string name="squeezer_onboarding_original_label">Jatorrizkoa</string>
     <string name="squeezer_onboarding_compressed_label">Konpresio ondoren</string>
     <string name="squeezer_onboarding_video_original_label">Bideo-fotograma</string>
     <string name="squeezer_onboarding_video_compressed_label">Aurrebista (gutxi gorabeherakoa)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Benetako bideo-kalitatea alda daiteke</string>
-    <string name="squeezer_onboarding_quality_label">Kalitatea: %d%%</string>
     <string name="squeezer_compare_action">Ikusi konparazioa</string>
     <string name="squeezer_no_example_found">Ez da irudirik aurkitu hautatutako bideetan.</string>
     <string name="squeezer_result_empty_message">Ez da konprimatu daitekeen multimedia aurkitu.</string>
-    <string name="squeezer_setup_warning">Konprimatzeak kalitatea betirako murrizten du biltegiratze-espazioa aurrezteko. Hau ezin da desegin. Berrikusi zure ezarpenak arretaz hasi aurretik.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d kokapen ezin da konprimatzeko erabili eta ezabatu da. Konprimatzeak barne-biltegiratze zuzeneko sarbidea behar du.</item>
         <item quantity="other">%d kokapen ezin dira konprimatzeko erabili eta ezabatu dira. Konprimatzeak barne-biltegiratze zuzeneko sarbidea behar du.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Gutxienez %d egun zaharrak</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Gutxi gorabehera ~%d%% aurrezkia JPEG fitxategientzat</string>
-    <string name="squeezer_onboarding_got_it">Ulertuta</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer zure argazkiak eta bideoak berriro konprimitzen ditu, gutxiago tokia hartzen dute. Kalitate txiki bat trukatzen duzu bueltatzen dizun espazioarekin. Elementu bakoitzak aurreztia erakusten du, harik eta zuk erabaki dezan zer balio duen.</string>
     <string name="tour_squeezer_compress_body">Konprimitu dena hemen aldi berean, edo kolpatu elementu bakarrean soilik bera txikitzeko. Luze sakatu batzuk aukeratzeko. Aurrebista ikusiko duzu beti, ezer aldatzen den aurretik.</string>
