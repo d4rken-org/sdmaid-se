@@ -32,7 +32,6 @@
         <item quantity="one">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
         <item quantity="other">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
     </plurals>
-    <string name="deduplicator_file_size_label">ফাইলের আকার</string>
     <string name="deduplicator_average_size_label">গড় আকার</string>
     <string name="deduplicator_cluster_x_label">ক্লাস্টার %s</string>
     <string name="deduplicator_delete_confirmation_message">সদৃশ ফাইলের সমস্ত সেটে একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">ডুপ্লিকেট সেট পূর্বরূপ</string>
     <string name="deduplicator_selection_keep_one_required">প্রতিটি ডুপ্লিকেট সেটে কমপক্ষে একটি ফাইল অবশ্যই থাকতে হবে। এটি বাতিল করতে সেটিংসে \"সব মুছে ফেলা সম্ভব করুন\" সক্ষম করুন।</string>
     <string name="deduplicator_progress_comparing_files">ফাইল তুলনা করা হচ্ছে</string>
-    <string name="deduplicator_details_cluster_title">সদৃশ সেট</string>
     <string name="deduplicator_matches_exact_label">হুবহু কপি</string>
     <string name="deduplicator_matches_similar_label">অনুরূপ ফাইল</string>
     <string name="deduplicator_arbiter_title">মুছে ফেলার কৌশল</string>

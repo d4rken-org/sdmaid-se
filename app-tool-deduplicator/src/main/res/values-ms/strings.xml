@@ -29,7 +29,6 @@
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s diduduki oleh pendua</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Saiz fail</string>
     <string name="deduplicator_average_size_label">Saiz purata</string>
     <string name="deduplicator_cluster_x_label">Kelompok %s</string>
     <string name="deduplicator_delete_confirmation_message">Padam semua kecuali satu salinan dalam semua set fail pendua?</string>
@@ -48,7 +47,6 @@
     <string name="deduplicator_cluster_preview_image">Pratonton set pendua</string>
     <string name="deduplicator_selection_keep_one_required">Sekurang-kurangnya satu fail setiap set duplikat mesti dikekalkan. Dayakan \"Buat \'Padam semua\' mungkin\" dalam tetapan untuk mengatasi.</string>
     <string name="deduplicator_progress_comparing_files">Membandingkan fail</string>
-    <string name="deduplicator_details_cluster_title">Butiran kelompok</string>
     <string name="deduplicator_matches_exact_label">Salinan tepat</string>
     <string name="deduplicator_matches_similar_label">Fail serupa</string>
     <string name="deduplicator_arbiter_title">Strategi pemadaman</string>

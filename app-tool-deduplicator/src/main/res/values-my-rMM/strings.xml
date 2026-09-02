@@ -29,7 +29,6 @@
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s ကို ထပ်တူများက လွှမ်းမိုးထေသည်</item>
     </plurals>
-    <string name="deduplicator_file_size_label">ဖိုင်အရွယ်အစား</string>
     <string name="deduplicator_average_size_label">ပျမ်မျှ အရွယ်အစား</string>
     <string name="deduplicator_cluster_x_label">Cluster %s</string>
     <string name="deduplicator_delete_confirmation_message">ထပ်တူဖိုင်များ အစုအဖွဲ့အားလုံးတွင် တစ်ခုမှလွဲး အားလုံး ဖျက်မည်လား?</string>
@@ -48,7 +47,6 @@
     <string name="deduplicator_cluster_preview_image">တူညီအစု အစမ်းကြည့်မှု</string>
     <string name="deduplicator_selection_keep_one_required">ကူးတည့်မှုအစုတစ်ခုလျှင် ဖိုင်အနည်းဆုံးတစ်ခုသည်ကျန်ရှိရမည်။ အဆိုပါအခွင့်အရေးကိုအပြန်အလှန်ပြောင်းလဲရန်ချိန်ညှိချက်များတွင် \"အားလုံးဖျက်ခွင့်ပြုခြင်း\" ကိုဖွင့်ထားပါ။</string>
     <string name="deduplicator_progress_comparing_files">ဖိုင်များ နှိုင်းယှဉ်နေသည်</string>
-    <string name="deduplicator_details_cluster_title">ပွားသော ဖိုင်များ အစု</string>
     <string name="deduplicator_matches_exact_label">တိကျသော မိတ္တူများ</string>
     <string name="deduplicator_matches_similar_label">ဆင်တူသော ဖိုင်များ</string>
     <string name="deduplicator_arbiter_title">ဖျက်သောနည်းလမ်း</string>

@@ -32,7 +32,6 @@
         <item quantity="one">%s በተመሳሳዮች ተይዟል</item>
         <item quantity="other">%s በተመሳሳዮች ተይዘዋል</item>
     </plurals>
-    <string name="deduplicator_file_size_label">የፋይል መጠን</string>
     <string name="deduplicator_average_size_label">አማካይ መጠን</string>
     <string name="deduplicator_cluster_x_label">ክስተር %s</string>
     <string name="deduplicator_delete_confirmation_message">በሁሉም የተመሳሳይ ፋይሎች ስብስቦች ውስጥ ከአንድ ኮፒ በስተቀር ሁሉንም ይሰረዙ?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">ተደጋጋሚ ስብስብ ቅድመ እይታ</string>
     <string name="deduplicator_selection_keep_one_required">ከእያንዳንዱ ተመሳሳይ ስብስብ ቢያንስ አንድ ፋይል ሊቆይ ይገባል። ለመሸነፍ በቅንብሮች ውስጥ ሁሉንም ሰርዝ ይቻላል ያንቁ።</string>
     <string name="deduplicator_progress_comparing_files">ፋይሎችን በማወዳደር ላይ</string>
-    <string name="deduplicator_details_cluster_title">የተመሳሳዮች ስብስብ</string>
     <string name="deduplicator_matches_exact_label">ትክክለኛ ኮፒዎች</string>
     <string name="deduplicator_matches_similar_label">ተመሳሳይ ፋይሎች</string>
     <string name="deduplicator_arbiter_title">የመሰረዝ ስትራቴጂ</string>

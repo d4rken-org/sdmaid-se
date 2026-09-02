@@ -32,7 +32,6 @@
         <item quantity="one">%s est ocupadu dae duplicados</item>
         <item quantity="other">%s sunt ocupados dae duplicados</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Mannària de documentu</string>
     <string name="deduplicator_average_size_label">Mannària média</string>
     <string name="deduplicator_cluster_x_label">Grupu %s</string>
     <string name="deduplicator_delete_confirmation_message">Cantzellare totu manca una còpia in totu is grupos de documentos duplicados?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Prevista de conuntu de duplicados</string>
     <string name="deduplicator_selection_keep_one_required">Almenu unu archiviu pro cadaunu grupu di dupplicados debit rimandere. Abilita \"Faghe \'Cantzellare totu\' possibbile\" in is preferentias pro suberare.</string>
     <string name="deduplicator_progress_comparing_files">Cumparende documentos</string>
-    <string name="deduplicator_details_cluster_title">Grupu de duplicados</string>
     <string name="deduplicator_matches_exact_label">Còpias isatas</string>
     <string name="deduplicator_matches_similar_label">Documentos similares</string>
     <string name="deduplicator_arbiter_title">Estratègia de cantzelladura</string>

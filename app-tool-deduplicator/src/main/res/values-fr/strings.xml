@@ -32,7 +32,6 @@
         <item quantity="one">%s est occupé par des doublons</item>
         <item quantity="other">%s sont occupés par des doublons</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Taille du fichier</string>
     <string name="deduplicator_average_size_label">Taille moyenne</string>
     <string name="deduplicator_cluster_x_label">Grappe %s</string>
     <string name="deduplicator_delete_confirmation_message">Supprimer tous les exemplaires sauf un dans tous les jeux de fichiers dupliqués ?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Aperçu de l’ensemble de doublons</string>
     <string name="deduplicator_selection_keep_one_required">Au moins un fichier par ensemble de doublons doit rester. Activez « Rendre \'Supprimer tout\' possible » dans les paramètres pour contourner.</string>
     <string name="deduplicator_progress_comparing_files">Comparaison des fichiers</string>
-    <string name="deduplicator_details_cluster_title">Jeu de doublons</string>
     <string name="deduplicator_matches_exact_label">Copies identiques</string>
     <string name="deduplicator_matches_similar_label">Fichiers similaires</string>
     <string name="deduplicator_arbiter_title">Stratégie de suppression</string>

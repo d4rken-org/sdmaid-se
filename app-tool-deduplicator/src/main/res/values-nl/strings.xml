@@ -32,7 +32,6 @@
         <item quantity="one">%s wordt ingenomen door duplicaten</item>
         <item quantity="other">%s worden ingenomen door duplicaten</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Bestandsgrootte</string>
     <string name="deduplicator_average_size_label">Gemiddelde grootte</string>
     <string name="deduplicator_cluster_x_label">Groepeer %s</string>
     <string name="deduplicator_delete_confirmation_message">Verwijder alle kopieën in alle sets van dubbele bestanden?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Voorbeeld duplicatenset</string>
     <string name="deduplicator_selection_keep_one_required">Per duplicatenset moet minstens één bestand blijven. Schakel \'Alles verwijderen mogelijk maken\' in de instellingen in om dit te negeren.</string>
     <string name="deduplicator_progress_comparing_files">Bestanden vergelijken</string>
-    <string name="deduplicator_details_cluster_title">Set dubbele exemplaren</string>
     <string name="deduplicator_matches_exact_label">Exacte kopieën</string>
     <string name="deduplicator_matches_similar_label">Gelijkaardige bestanden</string>
     <string name="deduplicator_arbiter_title">Verwijderingsstrategie</string>

@@ -32,7 +32,6 @@
         <item quantity="one">%s er tekið af tvítekningum</item>
         <item quantity="other">%s eru tekin af tvítekningum</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Skráarstærð</string>
     <string name="deduplicator_average_size_label">Meðalstærð</string>
     <string name="deduplicator_cluster_x_label">Þyrping %s</string>
     <string name="deduplicator_delete_confirmation_message">Eyða öllu nema einu eintaki í öllum settum tvítekinna skráa?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Forskoðun á tvíteknu mengi</string>
     <string name="deduplicator_selection_keep_one_required">Að minnsta kosti ein skrá fyrir hvert sett tvítekinna hluta verður að vera eftir. Virkjaðu \"Gera \'Eyða öllu\' mögulegt\" í stillingum til að hnekkja þessu.</string>
     <string name="deduplicator_progress_comparing_files">Beri saman skrár</string>
-    <string name="deduplicator_details_cluster_title">Sett tvítekinna</string>
     <string name="deduplicator_matches_exact_label">Nákvæm eintök</string>
     <string name="deduplicator_matches_similar_label">Svipaðar skrár</string>
     <string name="deduplicator_arbiter_title">Eyðingarstefna</string>
