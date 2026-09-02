@@ -1,9 +1,5 @@
-Salut 👋
-SD Maid 2/SE este dezvoltat activ—adaug mereu lucruri noi!
-Ai idei? Spune-mi 😊
+Reparări de erori și mici îmbunătățiri, ca să recuperezi mai mult spațiu cu mai puțin efort.
 
-🐛 Repararea erorilor, 🚀 îmbunătățiri de performanță, poate chiar ✨ funcții noi.
+Ce s-a schimbat în această versiune: sdmse.darken.eu/changelog
 
-Changelog: https://sdmse.darken.eu/changelog
-
-FYI: Sunt doar eu aici, uneori răspunsurile pot dura puțin. Îmi pare rău pentru asta!
+Ceva s-a stricat sau se comportă ciudat după actualizare? Spune-mi prin Setări > Suport. Este un proiect făcut de o singură persoană, așa că răspunsurile pot dura puțin, dar fiecare raport este citit.

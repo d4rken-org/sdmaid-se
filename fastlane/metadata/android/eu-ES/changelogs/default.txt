@@ -1,9 +1,5 @@
-Kaixo 👋
-SD Maid 2/SE aktiboki garatzen ari da—beti gauza berriak gehitzen ari naiz!
-Ideiarik baduzu? Esan iezadazu 😊
+Akats-konponketak eta hobekuntza txikiak, buruhauste gutxiagorekin leku gehiago berreskuratzeko.
 
-🐛 Errore konponketak, 🚀 errendimendu hobekuntzak, agian ✨ ezaugarri berriak ere.
+Bertsio honetan zer aldatu den: sdmse.darken.eu/changelog
 
-Aldaketen erregistroa: https://sdmse.darken.eu/changelog
-
-Oharra: Ni bakarrik nago hemen, batzuetan erantzunek denbora pixka bat har dezakete. Barkatu horregatik!
+Zerbait hondatu bada edo arraro portatzen bada eguneratu ondoren, esan iezadazu Ezarpenak > Laguntza bidez. Pertsona bakarreko proiektua da, beraz erantzunek denbora har dezakete, baina txosten guztiak irakurtzen dira.

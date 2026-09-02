@@ -1,9 +1,5 @@
-Halló 👋
-SD Maid 2/SE er í virkri þróun—ég er alltaf að bæta við nýjum hlutum!
-Ertu með hugmyndir? Láttu mig vita 😊
+Villuleiðréttingar og smávægilegar úrbætur, svo þú fáir meira pláss til baka með minni fyrirhöfn.
 
-🐛 Villuleiðréttingar, 🚀 afkastabætur, kannski jafnvel ✨ nýja eiginleika.
+Hvað breyttist í þessari útgáfu: sdmse.darken.eu/changelog
 
-Breytingaskrá: https://sdmse.darken.eu/changelog
-
-Athugið: Ég er bara einn hér, stundum geta svör tekið smá tíma. Fyrirgefðu það!
+Er eitthvað bilað eða skrýtið eftir uppfærslu? Láttu mig vita í gegnum Stillingar > Stuðningur. Þetta er einyrkjaverkefni, svo svör geta tekið smá tíma, en öll skilaboð eru lesin.

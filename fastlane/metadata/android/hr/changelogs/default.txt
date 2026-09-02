@@ -1,9 +1,5 @@
-Bok 👋
-SD Maid 2/SE se aktivno razvija—stalno dodajem nove stvari!
-Imaš ideje? Javi mi 😊
+Ispravke grešaka i manja poboljšanja donose više oslobođenog prostora uz manje muke.
 
-🐛 Ispravke grešaka, 🚀 poboljšanja performansi, možda čak i ✨ nove funkcije.
+Što se promijenilo u ovoj verziji: sdmse.darken.eu/changelog
 
-Dnevnik promjena: https://sdmse.darken.eu/changelog
-
-Napomena: Ovdje sam samo ja, ponekad odgovori mogu potrajati malo duže. Izvini zbog toga!
+Nešto ne radi ili se čudno ponaša nakon ažuriranja? Javi mi putem izbornika Postavke > Podrška. Ovo je projekt jedne osobe, pa odgovori mogu malo potrajati, ali svaka prijava se pročita.

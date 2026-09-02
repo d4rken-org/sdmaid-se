@@ -1,9 +1,5 @@
-Szia 👋
-Az SD Maid 2/SE aktívan fejlesztés alatt áll—folyamatosan adok hozzá új dolgokat!
-Van ötleted? Szólj 😊
+Hibajavítások és apró javítások, hogy kevesebb vesződséggel juss több szabad helyhez.
 
-🐛 Hibajavítások, 🚀 teljesítményjavítások, talán még ✨ új funkciók is.
+Mi változott ebben a verzióban: sdmse.darken.eu/changelog
 
-Változásnapló: https://sdmse.darken.eu/changelog
-
-Megjegyzés: Itt csak én vagyok, néha a válaszok eltarthatnak egy kicsit. Elnézést ezért!
+Valami elromlott vagy furán viselkedik a frissítés után? Jelezd a Beállítások > Támogatás menüben. Ez egyszemélyes projekt, ezért a válasz eltarthat egy ideig, de minden visszajelzést elolvasok.

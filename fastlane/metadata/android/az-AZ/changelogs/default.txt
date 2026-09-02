@@ -1,9 +1,5 @@
-Salam 👋
-SD Maid 2/SE aktiv şəkildə inkişaf etdirilir—həmişə yeni şeylər əlavə edirəm!
-İdeyalarınız var? Mənə bildirin 😊
+Xəta düzəlişləri və kiçik təkmilləşdirmələr, daha az əziyyətlə daha çox yer qazanmağınız üçün.
 
-🐛 Xəta düzəlişləri, 🚀 performans təkmilləşdirmələri, bəlkə də ✨ yeni xüsusiyyətlər.
+Bu versiyada nə dəyişdi: sdmse.darken.eu/changelog
 
-Dəyişiklik qeydi: https://sdmse.darken.eu/changelog
-
-Məlumat: Burada tək mənəm, bəzən cavablar bir az vaxt ala bilər. Bunun üçün üzr istəyirəm!
+Yeniləmədən sonra nəsə xarab olub və ya qəribə davranır? Mənə Parametrlər > Yardım vasitəsilə bildirin. Bu tək nəfərlik layihədir, ona görə cavablar bir az vaxt ala bilər, amma hər hesabat oxunur.

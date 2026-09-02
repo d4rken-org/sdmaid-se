@@ -1,9 +1,5 @@
-Halo 👋
-SD Maid 2/SE sedang dikembangkan secara aktif—saya terus menambahkan hal-hal baru!
-Punya ide? Beri tahu saya 😊
+Perbaikan bug dan berbagai peningkatan kecil, agar kamu bisa mendapatkan kembali lebih banyak ruang penyimpanan dengan lebih mudah.
 
-🐛 Perbaikan bug, 🚀 peningkatan performa, mungkin bahkan ✨ fitur baru.
+Apa yang berubah di versi ini: sdmse.darken.eu/changelog
 
-Changelog: https://sdmse.darken.eu/changelog
-
-FYI: Hanya saya di sini, terkadang balasan mungkin agak lama. Maaf ya!
+Ada yang rusak atau berjalan aneh setelah pembaruan? Beri tahu saya lewat Pengaturan > Bantuan. Ini proyek satu orang, jadi balasan bisa agak lama, tapi setiap laporan pasti dibaca.
