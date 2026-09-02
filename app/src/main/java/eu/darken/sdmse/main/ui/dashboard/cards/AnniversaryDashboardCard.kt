@@ -55,7 +55,7 @@ internal fun AnniversaryDashboardCard(item: AnniversaryDashboardCardItem) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             SdmMascot(
                 modifier = Modifier
-                    .height(96.dp)
+                    .height(44.dp)
                     .padding(start = 4.dp),
                 mode = SdmMascotMode.Party,
             )

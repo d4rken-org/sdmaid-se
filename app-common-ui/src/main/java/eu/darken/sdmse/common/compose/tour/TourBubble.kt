@@ -416,7 +416,8 @@ private fun StepContent(
     onRequestExit: () -> Unit,
 ) {
     val context = LocalContext.current
-    val mascotWidth = if (isNarrow) 80.dp else 96.dp
+    val mascotColumnWidth = if (isNarrow) 80.dp else 96.dp
+    val mascotWidth = if (isNarrow) 44.dp else 56.dp
 
     // Pull D-pad/keyboard focus into the bubble whenever the step view (re)appears — this is
     // what arms the focus trap on the surrounding focusGroup. Without it, TV focus stays in
@@ -434,7 +435,7 @@ private fun StepContent(
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(start = mascotWidth, end = 16.dp, top = 16.dp, bottom = 16.dp),
+                .padding(start = mascotColumnWidth, end = 16.dp, top = 16.dp, bottom = 16.dp),
         ) {
             // Body sits above the controls so the step reads top-to-bottom: explanation first,
             // then the actions. Weighted (fill = false) so short copy stays compact against the
@@ -537,6 +538,7 @@ private fun StepContent(
             SdmMascot(
                 modifier = Modifier
                     .align(Alignment.CenterStart)
+                    .padding(start = (mascotColumnWidth - mascotWidth) / 2)
                     .fillMaxHeight()
                     .width(mascotWidth),
             )

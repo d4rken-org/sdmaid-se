@@ -609,7 +609,12 @@ internal fun DashboardScreen(
 
 @Composable
 private fun MascotOverlay() {
-    SdmMascot(modifier = Modifier.fillMaxSize())
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        SdmMascot(modifier = Modifier.fillMaxSize(0.6f))
+    }
 }
 
 private val DASHBOARD_BOTTOM_CONTENT_PADDING = 128.dp

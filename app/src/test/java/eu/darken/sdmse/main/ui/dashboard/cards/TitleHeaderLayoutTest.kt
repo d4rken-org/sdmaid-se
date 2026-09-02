@@ -194,17 +194,17 @@ class TitleHeaderLayoutTest : BaseComposeRobolectricTest() {
         private const val TAG_TITLE = "title"
         private const val TAG_BADGE = "badge"
 
-        // The production mascot measures 96dp tall at a 1080/1920 aspect ratio.
-        private val MASCOT_WIDTH = 54.dp
-        private val MASCOT_HEIGHT = 96.dp
-        private val BADGE_WIDTH = 40.dp
+        // The production mascot measures 44dp tall at a 640/866 aspect ratio.
+        private val MASCOT_WIDTH = 33.dp
+        private val MASCOT_HEIGHT = 44.dp
+        private val BADGE_WIDTH = 24.dp
         private val WIDE_BADGE_WIDTH = 72.dp
         private val BADGE_HEIGHT = 44.dp
         private val TITLE_HEIGHT = 48.dp
         private val OVERSIZED_TITLE_WIDTH = 600.dp
 
         private val CARD_WIDTH = 312.dp
-        private val NARROW_WIDTH = 228.dp
+        private val NARROW_WIDTH = 186.dp
         private val INLINE_SPACING = 12.dp
         private val ROUNDING_SLACK = 1.dp
     }
