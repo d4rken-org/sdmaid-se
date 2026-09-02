@@ -1054,6 +1054,19 @@ class UpgradeRepoGplayTest : BaseTest() {
         coVerify { billingManager.startIapFlow(any(), any(), null) }
     }
 
+    @Test fun `onAppStart arms the periodic ack sweep`() = runTest2 {
+        repo(lastProAt = 0L).onAppStart()
+
+        coVerify(exactly = 1) { ackScheduler.armPeriodicSweep() }
+    }
+
+    @Test fun `onAppStart swallows a scheduler failure`() = runTest2 {
+        coEvery { ackScheduler.armPeriodicSweep() } throws RuntimeException("workmanager broken")
+
+        // Fail-open: process start must never be taken down by a scheduling problem.
+        repo(lastProAt = 0L).onAppStart()
+    }
+
 
     // endregion
 }

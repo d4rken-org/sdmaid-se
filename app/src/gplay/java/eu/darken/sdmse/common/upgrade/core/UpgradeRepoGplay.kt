@@ -387,6 +387,17 @@ class UpgradeRepoGplay @Inject constructor(
         }
     }
 
+    override suspend fun onAppStart() {
+        log(TAG) { "onAppStart()" }
+        try {
+            ackScheduler.armPeriodicSweep()
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to arm periodic ack sweep: ${e.asLog()}" }
+        }
+    }
+
     // Explicit "Restore purchase": query Play now and evaluate Pro from the returned data in the same
     // coroutine (real happens-before), so we never read a stale upgradeInfo replay. Billing errors
     // propagate so the caller can distinguish "not owned" from "Play unavailable".

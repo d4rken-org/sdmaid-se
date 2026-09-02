@@ -119,6 +119,10 @@ class UpgradeRepoFoss @Inject constructor(
         refreshTrigger.value = UUID.randomUUID()
     }
 
+    override suspend fun onAppStart() {
+        log(TAG) { "onAppStart(): nothing to schedule" }
+    }
+
     data class Info(
         override val isPro: Boolean = false,
         override val upgradedAt: Instant? = null,

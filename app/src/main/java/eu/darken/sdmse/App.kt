@@ -27,6 +27,7 @@ import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.storage.StorageRescue
 import eu.darken.sdmse.common.updater.UpdateService
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
@@ -65,6 +66,7 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var taskResultNotifier: TaskResultNotifier
     @Inject lateinit var storageRescue: StorageRescue
     @Inject lateinit var widgetRefreshCoordinator: WidgetRefreshCoordinator
+    @Inject lateinit var upgradeRepo: UpgradeRepo
 
     private val logCatLogger = LogCatLogger()
 
@@ -120,6 +122,7 @@ open class App : Application(), Configuration.Provider {
         taskStatsCoordinator.start()
         taskResultNotifier.start()
         spaceMonitorControl.start()
+        appScope.launch { upgradeRepo.onAppStart() }
         lowSpaceMonitor.start(appScope)
         widgetRefreshCoordinator.start()
 
