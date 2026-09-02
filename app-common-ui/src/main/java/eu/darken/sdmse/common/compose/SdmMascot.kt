@@ -53,12 +53,12 @@ private val NEW_YEAR_HAT = HatConfig(
     rotation = 25f,
     widthPercent = 0.6701f,
     heightPercent = 0.4815f,
-    leftPercent = 0.4405f,
-    topPercent = -0.2074f,
-    visibleLeft = 0.4642f,
-    visibleTop = -0.246f,
-    visibleRight = 1.1464f,
-    visibleBottom = 0.2941f,
+    leftPercent = 0.4705f,
+    topPercent = -0.2374f,
+    visibleLeft = 0.4942f,
+    visibleTop = -0.276f,
+    visibleRight = 1.1764f,
+    visibleBottom = 0.2641f,
 )
 
 private val CHRISTMAS_HAT = HatConfig(
