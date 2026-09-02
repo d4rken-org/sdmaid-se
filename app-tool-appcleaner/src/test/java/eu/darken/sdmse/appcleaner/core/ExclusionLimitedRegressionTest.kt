@@ -31,6 +31,7 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldNotContain
@@ -59,6 +60,7 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import testhelpers.mockDataStoreValue
 import java.time.Instant
 import javax.inject.Provider
 
@@ -242,6 +244,9 @@ class ExclusionLimitedRegressionTest : BaseTest() {
             inaccessibleCacheProvider = cacheProvider,
             rootManager = mockk<RootManager>(relaxed = true),
             settings = mockk<AppCleanerSettings>(relaxed = true),
+            generalSettings = mockk<GeneralSettings>().apply {
+                every { hasAcsConsent } returns mockDataStoreValue(true)
+            },
             automationSetupModule = mockk<SetupModule>(relaxed = true),
             noSettingsDetector = noSettingsDetector,
         )
