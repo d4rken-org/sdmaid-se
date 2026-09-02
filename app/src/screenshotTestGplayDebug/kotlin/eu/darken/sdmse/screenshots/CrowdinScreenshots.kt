@@ -43,7 +43,10 @@ fun GplayUpgradeOwnedSub() {
                 subscriptionAction = SubscriptionAction.STANDARD,
                 subscriptionEnabled = false,
                 subscriptionPrice = "€9.99",
-                iapEnabled = false,
+                // toLoadedState computes this from the offer, not from ownership: a renewing
+                // subscriber still sees an enabled IAP flag. The switch offer is greyed out by
+                // isAutoRenewing further down, which is what this render is here to show.
+                iapEnabled = true,
                 iapPrice = "€12.99",
                 ownership = Ownership(
                     subscription = SubscriptionOwnership(isAutoRenewing = true),
