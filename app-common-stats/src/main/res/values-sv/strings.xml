@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s på %2$s</string>
     <string name="stats_space_history_upgrade_title">Fullständig historik är en Pro-funktion</string>
-    <string name="stats_space_history_upgrade_body">Uppgradera för att låsa upp den fullständiga 90-dagarstrenden för varje lagringsenhet.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Uppgradera för att låsa upp den fullständiga 90-dagars trendvyn för varje lagringsenhet, och få en varning innan utrymmet tar slut.</string>
     <string name="stats_space_history_marker_freed">Frigjorde %1$s</string>
     <string name="stats_storage_type_primary">Primär lagring</string>

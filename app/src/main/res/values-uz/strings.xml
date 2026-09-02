@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku dan foydalanmang</string>
     <string name="setup_dismiss_hint">Sozlash ekranini sozlamalar menyusi orqali qayta topishingiz mumkin.</string>
     <string name="setup_permission_granted_label">Ruxsat berildi</string>
-    <string name="setup_permission_error_label">Ruxsat xatosi</string>
-    <string name="setup_inventory_invalid_label">Noto\'g\'ri ilovalar ro\'yxati</string>
     <string name="setup_usagestats_title">Foydalanish statistikasi</string>
     <string name="setup_usagestats_body">Foydalanish statistikasi ruxsati ko\'proq ilova tafsilotlariga kirish imkonini beradi. SD Maid uni qo\'shimcha kesh hajmlarini aniqlash uchun ishlatadi.</string>
     <string name="setup_usagestats_hint">Kirish xizmati asosida kesh o\'chirish uchun zarur.</string>

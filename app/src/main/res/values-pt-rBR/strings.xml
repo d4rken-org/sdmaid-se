@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Não use Shizuku</string>
     <string name="setup_dismiss_hint">Você pode encontrar a tela de configuração novamente através do menu de configurações.</string>
     <string name="setup_permission_granted_label">Permissão concedida</string>
-    <string name="setup_permission_error_label">Erro de permissão</string>
-    <string name="setup_inventory_invalid_label">Lista de aplicativos inválida</string>
     <string name="setup_usagestats_title">Estatísticas de uso</string>
     <string name="setup_usagestats_body">A permissão de estatísticas de uso concede acesso a mais detalhes do aplicativo. O SD Maid usa-o para determinar tamanhos de cache adicionais.</string>
     <string name="setup_usagestats_hint">Necessário serviço de acessibilidade para a remoção do cache.</string>

@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">ሺዙኩን አትጠቀም</string>
     <string name="setup_dismiss_hint">የማዋቀሪያ ስክሪኑን ከቅንብሮች ምናሌ በኩል እንደገና ማግኘት ይችላሉ।</string>
     <string name="setup_permission_granted_label">ፈቃድ ተሰጥቷል</string>
-    <string name="setup_permission_error_label">የፈቃድ ስህተት</string>
-    <string name="setup_inventory_invalid_label">ልክ ያልሆነ የመተግበሪያ ዝርዝር</string>
     <string name="setup_usagestats_title">የአጠቃቀም ስታቲስቲክስ</string>
     <string name="setup_usagestats_body">የአጠቃቀም ስታቲስቲክስ ፈቃድ ወደ ተጨማሪ የመተግበሪያ ዝርዝሮች መዳረሻን ይሰጣል። ኤስዲ ሜይድ ተጨማሪ የመሸጎጫ መጠኖችን ለመለካት ይጠቀምበታል።</string>
     <string name="setup_usagestats_hint">በተደራሽነት አገልግሎት ላይ ለተመሰረተ የመሸጎጫ ማጥፋት ያስፈልጋል።</string>

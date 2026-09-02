@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ</string>
     <string name="setup_dismiss_hint">ਤੁਸੀਂ ਸੈਟਿੰਗਸ ਮੇਨੂ ਰਾਹੀਂ ਸੈਟਅੱਪ ਸਕਰੀਨ ਨੂੰ ਮੁੜ ਲੱਭ ਸਕਦੇ ਹੋ।</string>
     <string name="setup_permission_granted_label">ਇਜਾਜ਼ਤ ਦਿੱਤੀ ਗਈ</string>
-    <string name="setup_permission_error_label">ਅਨੁਮਤੀ ਤਰੁੱਟੀ</string>
-    <string name="setup_inventory_invalid_label">ਅਵੈਧ ਐਪ ਸੂਚੀ</string>
     <string name="setup_usagestats_title">ਵਰਤੋਂ ਅੰਕੜੇ</string>
     <string name="setup_usagestats_body">ਵਰਤੋਂ ਦੇ ਅੰਕੜਿਆਂ ਦੀ ਅਨੁਮਤੀ ਹੋਰ ਐਪ ਵੇਰਵਿਆਂ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰਦੀ ਹੈ। SD Maid ਇਸਦੀ ਵਰਤੋਂ ਵਾਧੂ ਕੈਸ਼ ਆਕਾਰ ਨਿਰਧਾਰਤ ਕਰਨ ਲਈ ਕਰਦਾ ਹੈ।</string>
     <string name="setup_usagestats_hint">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਆਧਾਰਿਤ ਕੈਸ਼ ਮਿਟਾਉਣ ਲਈ ਲੋੜੀਂਦਾ।</string>

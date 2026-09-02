@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ஐப் பயன்படுத்த வேண்டாம்</string>
     <string name="setup_dismiss_hint">அமைப்புகள் பட்டி வழியாக அமைப்பு திரையை மீண்டும் கண்டுபிடிக்கலாம்.</string>
     <string name="setup_permission_granted_label">அனுமதி வழங்கப்பட்டது</string>
-    <string name="setup_permission_error_label">அனுமதி பிழை</string>
-    <string name="setup_inventory_invalid_label">தவறான பயன்பாட்டு பட்டியல்</string>
     <string name="setup_usagestats_title">பயன்பாட்டு புள்ளிவிவரங்கள்</string>
     <string name="setup_usagestats_body">பயன்பாட்டு புள்ளிவிவர அனுமதி மேலும் பயன்பாட்டு விவரங்களுக்கு அணுகல் வழங்குகிறது. கூடுதல் கேச் அளவுகளை தீர்மானிக்க SD Maid அதைப் பயன்படுத்துகிறது.</string>
     <string name="setup_usagestats_hint">அணுகல் சேவை அடிப்படையிலான கேச் நீக்கத்திற்கு தேவை.</string>

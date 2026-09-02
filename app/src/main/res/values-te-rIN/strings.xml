@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ఉపయోగించవద్దు</string>
     <string name="setup_dismiss_hint">మీరు సెట్టింగ్స్ మెనూ ద్వారా సెటప్ స్క్రీన్‌ను మళ్లీ కనుగొనవచ్చు.</string>
     <string name="setup_permission_granted_label">అనుమతి మంజూరు చేయబడింది</string>
-    <string name="setup_permission_error_label">అనుమతి లోపం</string>
-    <string name="setup_inventory_invalid_label">చెల్లని యాప్ జాబితా</string>
     <string name="setup_usagestats_title">వినియోగ గణాంకాలు</string>
     <string name="setup_usagestats_body">వినియోగ గణాంకాల అనుమతి కూడా యాప్ వివరాలకు ప్రాప్యతను మంజూరు చేస్తుంది. SD Maid అదనపు క్యాషే పరిమాణాలను నిర్ణయించడానికి దానిని ఉపయోగిస్తుంది.</string>
     <string name="setup_usagestats_hint">యక్షస్వాధీనత సెర్విస్ ఆధారయుక్త క్యాషే తొలగింపు కోసం అవసరం.</string>

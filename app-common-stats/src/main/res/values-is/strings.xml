@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Mismunur</string>
     <string name="stats_space_history_delta_in_x">%1$s í %2$s</string>
     <string name="stats_space_history_upgrade_title">Full saga er Pro eiginleiki</string>
-    <string name="stats_space_history_upgrade_body">Uppfærstu til að opna fulla 90 daga þróunarsýð fyrir hverja geymslueiningu.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Uppfærðu til að fá aðgang að fullri 90 daga þróunarsýn fyrir hvert geymslutæki, og fáðu viðvörun áður en plássið klárast.</string>
     <string name="stats_space_history_marker_freed">Frelsadði %1$s</string>
     <string name="stats_storage_type_primary">Aðalgeymsla</string>

@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Muutos</string>
     <string name="stats_space_history_delta_in_x">%1$s kohteessa %2$s</string>
     <string name="stats_space_history_upgrade_title">Täysi historia on Pro-ominaisuus</string>
-    <string name="stats_space_history_upgrade_body">Päivitä avataksesi täyden 90 päivän trendinäkymän kullekin tallennuslaitteelle.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Päivitä, niin saat täyden 90 päivän trendinäkymän jokaiselle tallennuslaitteelle sekä varoituksen ennen kuin tila loppuu.</string>
     <string name="stats_space_history_marker_freed">Vapautettu %1$s</string>
     <string name="stats_storage_type_primary">Sisäinen tallennustila</string>

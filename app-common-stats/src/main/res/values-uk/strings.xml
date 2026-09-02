@@ -65,9 +65,6 @@
     <string name="stats_space_history_delta_label">Дельта</string>
     <string name="stats_space_history_delta_in_x">%1$s у %2$s</string>
     <string name="stats_space_history_upgrade_title">Повна історія — це функція версії Pro</string>
-    <string name="stats_space_history_upgrade_body">Оновіть версію, щоб отримати доступ до повного 90-денного огляду тенденцій для кожного пристрою зберігання даних.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Оновіть, щоб розблокувати повний 90-денний перегляд тренду для кожного сховища, і отримуйте попередження до того, як вам закінчиться місце.</string>
     <string name="stats_space_history_marker_freed">Звільнено %1$s</string>
     <string name="stats_storage_type_primary">Основне сховище</string>

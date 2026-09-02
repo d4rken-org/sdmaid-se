@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ကို မသုံးရန်</string>
     <string name="setup_dismiss_hint">သင်သည် ဆက်တင်မီနူးမှတစ်ဆင့် တပ်ဆင်မှုစာမျက်နှာကို ပြန်ရှာတွေ့နိုင်သည်။</string>
     <string name="setup_permission_granted_label">ခွင့်ပြုချက်ပေးအပ်ပြီး</string>
-    <string name="setup_permission_error_label">ခွင့်ပြုချက်အမှား</string>
-    <string name="setup_inventory_invalid_label">မမှန်သော app စာရင်း</string>
     <string name="setup_usagestats_title">အသုံးပြုမှုစာရင်းအင်း</string>
     <string name="setup_usagestats_body">အသုံးပြုမှုစာရင်းအင်းခွင့်ပြုချက်သည် နောက်ထပ်အက်ပ်အသေးစိတ်များသို့ ဝင်ရောက်ခွင့်ပေးသည်။ SD Maid သည် နောက်ထပ်ကက်ရှ်အရွယ်အစားများကို ဆုံးဖြတ်ရန် ၎င်းကို အသုံးပြုသည်။</string>
     <string name="setup_usagestats_hint">အသုံးပြုရလွယ်ကူမှုဝန်ဆောင်မှု အခြေခံကက်ရှ်ဖျက်ခြင်းအတွက် လိုအပ်သည်။</string>

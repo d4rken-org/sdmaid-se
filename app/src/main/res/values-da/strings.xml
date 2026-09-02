@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Brug ikke Shizuku</string>
     <string name="setup_dismiss_hint">Du kan finde opsætningsskærmen igen via indstillingsmenuen.</string>
     <string name="setup_permission_granted_label">Tilladelse givet</string>
-    <string name="setup_permission_error_label">Tilladelsesfejl</string>
-    <string name="setup_inventory_invalid_label">Ugyldig appliste</string>
     <string name="setup_usagestats_title">Brugsstatistik</string>
     <string name="setup_usagestats_body">Tilladelsen til brugsstatistik giver adgang til flere appdetaljer. SD Maid bruger den til at afgøre flere cachestørrelser.</string>
     <string name="setup_usagestats_hint">Påkrævet for tilgængelighedstjenestebaseret cachesletning.</string>

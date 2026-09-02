@@ -47,9 +47,6 @@
     <string name="stats_space_history_delta_label">差異值</string>
     <string name="stats_space_history_delta_in_x">%1$s 於 %2$s 內</string>
     <string name="stats_space_history_upgrade_title">完整歷史記錄是 Pro 功能</string>
-    <string name="stats_space_history_upgrade_body">升級以解鎖每個儲存裝置的完整 90 天趨勢檢視。</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">升級即可解鎖每個儲存裝置的完整 90 天趨勢檢視，並在儲存空間用盡前收到警告。</string>
     <string name="stats_space_history_marker_freed">已釋放 %1$s</string>
     <string name="stats_storage_type_primary">主要儲存空間</string>

@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Huwag gamitin ang Shizuku</string>
     <string name="setup_dismiss_hint">Mahahanap ninyo ulit ang setup screen sa pamamagitan ng settings menu.</string>
     <string name="setup_permission_granted_label">Nabigyan ng permission</string>
-    <string name="setup_permission_error_label">Error sa permission</string>
-    <string name="setup_inventory_invalid_label">Invalid ang app list</string>
     <string name="setup_usagestats_title">Istatistika sa paggamit</string>
     <string name="setup_usagestats_body">Ang usage statistics permission ay nagbibigay ng access sa mas maraming detalye ng app. Ginagamit ito ng SD Maid para malaman ang mga karagdagang cache size.</string>
     <string name="setup_usagestats_hint">Kailangan para sa accessibility service based cache deletion.</string>

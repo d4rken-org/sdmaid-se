@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku\'yu kullanma</string>
     <string name="setup_dismiss_hint">Ayarlar menüsünden kurulum ekranına tekrar ulaşabilirsiniz.</string>
     <string name="setup_permission_granted_label">İzin verildi</string>
-    <string name="setup_permission_error_label">İzin Hatası</string>
-    <string name="setup_inventory_invalid_label">Geçersiz uygulama listesi</string>
     <string name="setup_usagestats_title">Kullanım istatistikleri</string>
     <string name="setup_usagestats_body">Kullanım istatistikleri izni daha fazla uygulama detayına erişim sağlar. SD Maid bunu ek önbellek boyutlarını belirlemek için kullanır.</string>
     <string name="setup_usagestats_hint">Erişilebilirlik hizmeti tabanlı önbellek silme işlemi için gereklidir.</string>

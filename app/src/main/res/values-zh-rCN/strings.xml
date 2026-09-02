@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">不使用 Shizuku</string>
     <string name="setup_dismiss_hint">您可以在设置菜单中再次找到初始设置页面。</string>
     <string name="setup_permission_granted_label">已授予权限</string>
-    <string name="setup_permission_error_label">权限错误</string>
-    <string name="setup_inventory_invalid_label">应用列表无效</string>
     <string name="setup_usagestats_title">使用情况</string>
     <string name="setup_usagestats_body">通过允许查看使用情况，可以查看应用的更多详细信息。SD Maid 使用此权限计算额外缓存的大小。</string>
     <string name="setup_usagestats_hint">使用无障碍服务的缓存删除操作需要此权限。</string>

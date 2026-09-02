@@ -282,8 +282,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nie korzystaj z Shizuku</string>
     <string name="setup_dismiss_hint">Możesz ponownie otworzyć ekran ustawień poprzez menu ustawień.</string>
     <string name="setup_permission_granted_label">Uprawnienie przyznane</string>
-    <string name="setup_permission_error_label">Błąd uprawnień</string>
-    <string name="setup_inventory_invalid_label">Nieprawidłowa lista aplikacji</string>
     <string name="setup_usagestats_title">Statystyki używania</string>
     <string name="setup_usagestats_body">Uprawnienie do statystyk używania umożliwia uzyskanie dostępu do większej liczby szczegółów dotyczących aplikacji. SD Maid korzysta z niego, aby określić dodatkowe rozmiary pamięci podręcznej.</string>
     <string name="setup_usagestats_hint">Wymagane do usunięcia pamięci podręcznej za pomocą usługi ułatwienia dostępu.</string>

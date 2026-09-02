@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku-dan istifadə etməyin</string>
     <string name="setup_dismiss_hint">Parametrlər menyusu vasitəsilə quraşdırma ekranını tapa bilərsiniz.</string>
     <string name="setup_permission_granted_label">Icazə verildi</string>
-    <string name="setup_permission_error_label">İcazə xətası</string>
-    <string name="setup_inventory_invalid_label">Qeyri-etibarlı tətbiq siyahısı</string>
     <string name="setup_usagestats_title">İstifadə statistikası</string>
     <string name="setup_usagestats_body">İstifadə statistikası icazəsi daha çox tətbiq təfərrüatına giriş imkanı verir. SD Maid bunu əlavə keş ölçülərini müəyyən etmək üçün istifadə edir.</string>
     <string name="setup_usagestats_hint">Əlçatanlılıq xidməti əsasında keş silmə üçün tələb olunur.</string>

@@ -59,9 +59,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s u %2$s</string>
     <string name="stats_space_history_upgrade_title">Potpuna povijest je Pro značajka</string>
-    <string name="stats_space_history_upgrade_body">Nadogradite za otključavanje prikaza trenda od 90 dana za svaki uređaj za pohranu.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Nadogradi za otključavanje potpunog prikaza trenda od 90 dana za svaki uređaj za pohranu, te upozorenje prije nego što ti ponestane prostora.</string>
     <string name="stats_space_history_marker_freed">Oslobođeno %1$s</string>
     <string name="stats_storage_type_primary">Primarna pohrana</string>

@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Jangan gunakan Shizuku</string>
     <string name="setup_dismiss_hint">Anda boleh mencari skrin persediaan sekali lagi melalui menu tetapan.</string>
     <string name="setup_permission_granted_label">Kebenaran diberikan</string>
-    <string name="setup_permission_error_label">Ralat kebenaran</string>
-    <string name="setup_inventory_invalid_label">Senarai aplikasi tidak sah</string>
     <string name="setup_usagestats_title">Statistik penggunaan</string>
     <string name="setup_usagestats_body">Kebenaran statistik penggunaan memberikan akses kepada lebih banyak butiran aplikasi. SD Maid menggunakannya untuk menentukan saiz cache tambahan.</string>
     <string name="setup_usagestats_hint">Diperlukan untuk pemadaman cache berasaskan perkhidmatan aksesibiliti.</string>

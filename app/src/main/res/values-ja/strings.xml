@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizukuを使用しない</string>
     <string name="setup_dismiss_hint">設定メニューから再度設定画面を確認できます。</string>
     <string name="setup_permission_granted_label">権限は許可されています</string>
-    <string name="setup_permission_error_label">権限エラー</string>
-    <string name="setup_inventory_invalid_label">無効なアプリリスト</string>
     <string name="setup_usagestats_title">使用状況の統計</string>
     <string name="setup_usagestats_body">使用統計の許可により、アプリの詳細へのアクセスが許可されます。SD Maid は追加のキャッシュサイズを決定するために使用します。</string>
     <string name="setup_usagestats_hint">ユーザー補助サービスは基本的なキャッシュの削除に必要です。</string>

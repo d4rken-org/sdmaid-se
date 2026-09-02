@@ -282,8 +282,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nepoužiť Shizuku</string>
     <string name="setup_dismiss_hint">Obrazovku úvodného nastavenia môžete znova nájsť cez ponuku nastavení.</string>
     <string name="setup_permission_granted_label">Povolenie udelené</string>
-    <string name="setup_permission_error_label">Chyba oprávnenia</string>
-    <string name="setup_inventory_invalid_label">Neplatný zoznam aplikácií</string>
     <string name="setup_usagestats_title">Štatistiky používania</string>
     <string name="setup_usagestats_body">Povolenie štatistiky používania poskytuje prístup k ďalším podrobnostiam aplikácie. SD Maid ju používa na určenie dodatočných veľkostí vyrovnávacej pamäte.</string>
     <string name="setup_usagestats_hint">Vyžaduje sa na vymazanie vyrovnávacej pamäte na základe služby dostupnosti.</string>

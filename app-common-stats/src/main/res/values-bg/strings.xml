@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Делта</string>
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Пълната история е функция Pro</string>
-    <string name="stats_space_history_upgrade_body">Надградете, за да отключите пълния 90-дневен преглед на тенденциите за всяко устройство за съхранение.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Надгради, за да отключиш пълния 90-дневен изглед на тенденциите за всяко устройство за съхранение и да получаваш предупреждение, преди мястото да свърши.</string>
     <string name="stats_space_history_marker_freed">Освободено %1$s</string>
     <string name="stats_storage_type_primary">Основно хранилище</string>

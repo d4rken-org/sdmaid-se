@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ବ୍ୟବହାର କରିବାନି</string>
     <string name="setup_dismiss_hint">ଆପଣ ସେଟିଂସ ମେନୁ ମାଧ୍ୟମରେ ପୁଣି ସେଟଅପ ସ୍କ୍ରିନ ଖୋଜିପାରିବେ।</string>
     <string name="setup_permission_granted_label">ଅନୁମତି ଦିଆଯାଇଛି</string>
-    <string name="setup_permission_error_label">ଅନୁମତି ତ୍ରୁଟି</string>
-    <string name="setup_inventory_invalid_label">ଅବୈଧ ଆପ୍ ତାଲିକା</string>
     <string name="setup_usagestats_title">ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ</string>
     <string name="setup_usagestats_body">ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ ଅନୁମତି ଅଧିକ ଆପ୍ ବିବରଣୀକୁ ଆକ୍ସେସ ପ୍ରଦାନ କରେ। SD Maid ଅତିରିକ୍ତ କ୍ୟାଶ ଆକାର ନିର୍ଣ୍ଣୟ କରିବା ପାଇଁ ଏହାକୁ ବ୍ୟବହାର କରେ।</string>
     <string name="setup_usagestats_hint">ଆକ୍ସେସିବିଲିଟି ସର୍ଭିସ ଆଧାରିତ କ୍ୟାଶ ଡିଲିଟ ପାଇଁ ଆବଶ୍ୟକ।</string>

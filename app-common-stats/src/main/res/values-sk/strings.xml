@@ -65,9 +65,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s za %2$s</string>
     <string name="stats_space_history_upgrade_title">Plná história je funkcia Pro</string>
-    <string name="stats_space_history_upgrade_body">Inovujte na odomknutie úplého 90-dňového prehľadu trendu pre každé úložné zariadenie.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Upgraduj, aby si odomkol úplný 90-dňový pohľad na trend pre každé úložné zariadenie a dostal upozornenie skôr, ako ti dôjde miesto.</string>
     <string name="stats_space_history_marker_freed">Uvoľnené %1$s</string>
     <string name="stats_storage_type_primary">Primárne úložisko</string>

@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">No utilitzis Shizuku</string>
     <string name="setup_dismiss_hint">Podeu tornar a trobar la pantalla de configuració mitjançant el menú de configuració.</string>
     <string name="setup_permission_granted_label">Permís concedit</string>
-    <string name="setup_permission_error_label">Error de permís</string>
-    <string name="setup_inventory_invalid_label">Llista d\'aplicacions no vàlida</string>
     <string name="setup_usagestats_title">Estadístiques d\'ús</string>
     <string name="setup_usagestats_body">El permís d\'estadístiques d\'ús permet accedir a més detalls de l\'aplicació. L\'SD Maid l\'utilitza per determinar mides de memòria cau addicionals.</string>
     <string name="setup_usagestats_hint">Necessari per a la supressió de la memòria cau basada en el servei d\'accessibilitat.</string>

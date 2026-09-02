@@ -47,9 +47,6 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s dalam %2$s</string>
     <string name="stats_space_history_upgrade_title">Riwayat lengkap adalah fitur Pro</string>
-    <string name="stats_space_history_upgrade_body">Tingkatkan untuk membuka tampilan tren 90 hari penuh untuk setiap perangkat penyimpanan.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Tingkatkan untuk membuka tampilan tren penuh 90 hari untuk setiap perangkat penyimpanan, dan dapatkan peringatan sebelum ruangmu habis.</string>
     <string name="stats_space_history_marker_freed">Dibebaskan %1$s</string>
     <string name="stats_storage_type_primary">Penyimpanan utama</string>

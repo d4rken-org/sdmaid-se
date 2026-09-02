@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">Зөрүү</string>
     <string name="stats_space_history_delta_in_x">%1$s, %2$s хугацаанд</string>
     <string name="stats_space_history_upgrade_title">Бүрэн түүх нь Pro онцлог</string>
-    <string name="stats_space_history_upgrade_body">Хадгалалтын төхөөрөмж бүрийн 90 хоногийн бүрэн чиг хандлагыг харахын тулд шинэчлэх.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">Санах ойн төхөөрөмж болгонд 90 хоногийн бүрэн чиг хандлагаа үзэх, санах ой шавхагдахаас өмнө анхааруулга авахын тулд сайжруулж аваарай.</string>
     <string name="stats_space_history_marker_freed">%1$s чөлөөлсөн</string>
     <string name="stats_storage_type_primary">Үндсэн хадгалалт</string>

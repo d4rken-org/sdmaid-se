@@ -274,8 +274,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Ne koristi Shizuku</string>
     <string name="setup_dismiss_hint">Zaslon za postavljanje možete ponovno pronaći putem izbornika postavki.</string>
     <string name="setup_permission_granted_label">Dopuštenje odobreno</string>
-    <string name="setup_permission_error_label">Pogreška dopuštenja</string>
-    <string name="setup_inventory_invalid_label">Neispravan popis aplikacija</string>
     <string name="setup_usagestats_title">Statistike upotrebe</string>
     <string name="setup_usagestats_body">Dopuštenje za statistike upotrebe omogućuje pristup više pojedinosti o aplikacijama. SD Maid ga koristi za određivanje dodatnih veličina predmemorije.</string>
     <string name="setup_usagestats_hint">Potrebno za brisanje predmemorije na temelju usluge pristupačnosti.</string>

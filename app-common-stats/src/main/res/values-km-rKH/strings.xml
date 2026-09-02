@@ -47,9 +47,6 @@
     <string name="stats_space_history_delta_label">ភាពខុសគ្នា</string>
     <string name="stats_space_history_delta_in_x">%1$s ក្នុង %2$s</string>
     <string name="stats_space_history_upgrade_title">ប្រវត្តិពេញលេញជាមុខងារ Pro</string>
-    <string name="stats_space_history_upgrade_body">លើកកំរិតដើម្បីដោះសោការមើលនិន្នាការ 90 ថ្ងៃពេញលេញសម្រាប់ឧបករណ៍ផ្ទុករាល់ពួក។</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">អាប់ក្រេតដើម្បីដោះសោទិដ្ឋភាពនិន្នាការពេញ 90 ថ្ងៃសម្រាប់ឧបករណ៍ផ្ទុកនីមួយៗ ព្រមទាំងទទួលបានការជូនដំណឹងមុនពេលទំហំផ្ទុករបស់អ្នកអស់។</string>
     <string name="stats_space_history_marker_freed">បានដោះលែង %1$s</string>
     <string name="stats_storage_type_primary">ឧបករណ៍ផ្ទុកចម្បង</string>

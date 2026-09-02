@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">ਡੈਲਟਾ</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s ਵਿੱਚ</string>
     <string name="stats_space_history_upgrade_title">ਪੂਰਾ ਇਤਿਹਾਸ ਇੱਕ Pro ਵਿਸ਼ੇਸ਼ਤਾ ਹੈ</string>
-    <string name="stats_space_history_upgrade_body">ਹਰ ਸਟੋਰੇਜ ਡਿਵਾਈਸ ਲਈ ਪੂਰਾ 90-ਦਿਨ ਰੁਝਾਨ ਦ੍ਰਿਸ਼ ਅਨਲਾਕ ਕਰਨ ਲਈ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">ਅਪਗ੍ਰੇਡ ਕਰੋ ਤਾਂ ਜੋ ਹਰ ਸਟੋਰੇਜ ਲਈ ਪੂਰੀ 90-ਦਿਨਾਂ ਦਾ ਦ੍ਰਿਸ਼ ਦੇਖ ਸਕੋ ਅਤੇ ਸਥਾਨ ਖਤਮ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਚੇਤਾਵਨੀ ਪਾਓ।</string>
     <string name="stats_space_history_marker_freed">%1$s ਮੁਕਤ ਕੀਤਾ</string>
     <string name="stats_storage_type_primary">ਮੁੱਖ ਸਟੋਰੇਜ</string>

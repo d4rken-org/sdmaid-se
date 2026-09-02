@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku प्रयोग नगर्नुहोस्</string>
     <string name="setup_dismiss_hint">तपाईं सेटिङ्ग मेनुमार्फत पुनः सेटअप स्क्रिन फेला पाउन सक्नुहुन्छ।</string>
     <string name="setup_permission_granted_label">अनुमति दिइयो</string>
-    <string name="setup_permission_error_label">अनुमति त्रुटि</string>
-    <string name="setup_inventory_invalid_label">अमान्य एप सूची</string>
     <string name="setup_usagestats_title">उपयोग तथ्याङ्क</string>
     <string name="setup_usagestats_body">उपयोग तथ्याङ्क अनुमतिले थप अनुप्रयोग विवरणहरूमा पहुँच दिन्छ। SD Maid अतिरिक्त क्यास आकारहरू निर्धारण गर्न यसलाई प्रयोग गर्छ।</string>
     <string name="setup_usagestats_hint">पहुँचयोग्यता सेवा आधारित क्यास मेट्नेको लागि आवश्यक।</string>

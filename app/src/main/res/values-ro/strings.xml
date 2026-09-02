@@ -274,8 +274,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Nu utiliza Shizuku</string>
     <string name="setup_dismiss_hint">Poți căuta partea de configurare din nou în meniul de setări.</string>
     <string name="setup_permission_granted_label">Permisiune acordată</string>
-    <string name="setup_permission_error_label">Eroare de permisiune</string>
-    <string name="setup_inventory_invalid_label">Lista de aplicații invalidă</string>
     <string name="setup_usagestats_title">Statici de utilizare</string>
     <string name="setup_usagestats_body">Permisiunea pentru acces la statici de utilizare pentru mai multe detalii despre aplicații. SD Maid va folosi pentru a determina dimensiunile cache suplimentare.</string>
     <string name="setup_usagestats_hint">Necesar pentru serviciul de accesibilitate bazat pe ștergerea memoriei cache.</string>

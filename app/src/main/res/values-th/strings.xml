@@ -258,8 +258,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">อย่าใช้ Shizuku</string>
     <string name="setup_dismiss_hint">คุณจะหาเมนูตั้งค่าเพื่อเริ่มใช้งานได้โดยไปที่การตั้งค่าของแอพ</string>
     <string name="setup_permission_granted_label">สิทธิ์ที่ได้รับอนุญาต</string>
-    <string name="setup_permission_error_label">ข้อผิดพลาดของสิทธิ์</string>
-    <string name="setup_inventory_invalid_label">รายชื่อแอปไม่ถูกต้อง</string>
     <string name="setup_usagestats_title">สถิติการใช้งาน</string>
     <string name="setup_usagestats_body">สิทธิ์เข้าถึงสถิติการใช้งานช่วยให้เข้าถึงรายละเอียดของแอพต่างๆ ได้มากขึ้น SD Maid ใช้สิทธิ์นี้เพื่อคำนวณแคชเพิ่มเติม</string>
     <string name="setup_usagestats_hint">จำเป็นสำหรับการลบแคชที่เกี่ยวข้องกับบริการตัวช่วยการเข้าถึง</string>

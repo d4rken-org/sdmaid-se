@@ -298,8 +298,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">لا تستخدم شيزوكو</string>
     <string name="setup_dismiss_hint">يمكنك العثور على شاشة الإعداد مرة أخرى عبر قائمة الإعدادات.</string>
     <string name="setup_permission_granted_label">تم منح الصَّلاحِيَة</string>
-    <string name="setup_permission_error_label">خطأ في الإذن</string>
-    <string name="setup_inventory_invalid_label">قائمة التطبيقات غير صالحة</string>
     <string name="setup_usagestats_title">بيانات الاستخدام</string>
     <string name="setup_usagestats_body">يمنح إذن إحصائيات الاستخدام إمكانية الوصول إلى مزيد من تفاصيل التطبيق. يستخدم SD Maid لتحديد أحجام ذاكرة التخزين المؤقت الإضافية.</string>
     <string name="setup_usagestats_hint">مطلوب لحذف ذاكرة التخزين المؤقت المستندة إلى خدمة الوصول.</string>

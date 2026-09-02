@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">არ გამოიყენოთ Shizuku</string>
     <string name="setup_dismiss_hint">პარამეტრების მენიუს მეშვეობით შეგიძლიათ კვლავ იპოვოთ დაყენების ეკრანი.</string>
     <string name="setup_permission_granted_label">Ნებართვა აღებულია</string>
-    <string name="setup_permission_error_label">ნებართვის შეცდომა</string>
-    <string name="setup_inventory_invalid_label">არასწორი აპლიკაციების სია</string>
     <string name="setup_usagestats_title">გამოყენების სტატისტიკა</string>
     <string name="setup_usagestats_body">გამოყენების სტატისტიკის ნებართვა ანიჭებს წვდომას აპის სხვა დეტალებზე. SD Maid იყენებს მას დამატებითი ქეშის ზომის დასადგენად.</string>
     <string name="setup_usagestats_hint">საჭიროა ხელმისაწვდომობის სერვისზე დაფუძნებული ქეშის წაშლისთვის.</string>

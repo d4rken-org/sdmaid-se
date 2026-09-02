@@ -266,8 +266,6 @@
     <string name="setup_shizuku_disable_shizuku_use_label">Älä käytä Shizukua</string>
     <string name="setup_dismiss_hint">Löydät asennusnäytön uudelleen asetusvalikosta.</string>
     <string name="setup_permission_granted_label">Lupa myönnetty</string>
-    <string name="setup_permission_error_label">Lupahvirhe</string>
-    <string name="setup_inventory_invalid_label">Virheellinen sovellusluettelo</string>
     <string name="setup_usagestats_title">Käyttötilastot</string>
     <string name="setup_usagestats_body">Käyttötilastolupa antaa pääsyn sovelluksen lisätietoihin. SD Maid käyttää sitä lisävälimuistien kokojen määrittämiseen.</string>
     <string name="setup_usagestats_hint">Vaaditaan esteettömyyspalveluun perustuvaa välimuistin poistoa varten.</string>

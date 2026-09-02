@@ -113,7 +113,6 @@
     <string name="setup_shizuku_enable_shizuku_use_label">Uża Shizuku jekk disponibbli</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Tużax Shizuku</string>
     <string name="setup_permission_granted_label">Permess mogħti</string>
-    <string name="setup_permission_error_label">Żball fil-permess</string>
     <string name="setup_usagestats_title">Statistika tal-użu</string>
     <string name="setup_notification_title">Notifiki</string>
     <string name="setup_acs_card_title">Servizz ta\' aċċessibilità</string>

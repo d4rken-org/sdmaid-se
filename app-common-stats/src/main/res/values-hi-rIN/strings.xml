@@ -53,9 +53,6 @@
     <string name="stats_space_history_delta_label">डेल्टा</string>
     <string name="stats_space_history_delta_in_x">%1$s में %2$s</string>
     <string name="stats_space_history_upgrade_title">पूर्ण इतिहास एक Pro सुविधा है</string>
-    <string name="stats_space_history_upgrade_body">प्रत्येक स्टोरेज डिवाइस के लिए पूर्ण 90-दिन का ट्रेंड व्यू अनलॉक करने के लिए अपग्रेड करें।</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
     <string name="stats_space_history_upgrade_body_v2">प्रत्येक स्टोरेज डिवाइस के लिए संपूर्ण 90-दिन का ट्रेंड दृश्य अनलॉक करने के लिए अपग्रेड करें, और अपनी जगह खत्म होने से पहले एक चेतावनी प्राप्त करें।</string>
     <string name="stats_space_history_marker_freed">%1$s मुक्त किया</string>
     <string name="stats_storage_type_primary">प्रारंभिक संग्रहण</string>
