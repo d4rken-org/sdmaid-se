@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">রাখা বা মোছার সিদ্ধান্তের সময় কম্পন।</string>
     <string name="swiper_discard_session_confirmation_title">সেশন বাতিল করবেন?</string>
     <string name="swiper_discard_session_confirmation_message">সমস্ত সিদ্ধান্ত হারিয়ে যাবে। আপনি কি নিশ্চিত?</string>
-    <string name="swiper_no_preview_available">কোনো প্রিভিউ পাওয়া যায়নি</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d দিন আগের সেশন চালিয়ে যান (%2$d%% সম্পন্ন)</item>
         <item quantity="other">%1$d দিন আগের সেশন চালিয়ে যান (%2$d%% সম্পন্ন)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">ফিরে!</string>
     <string name="swiper_stamp_undo_3">উফ!</string>
     <string name="swiper_stamp_undo_4">দাঁড়ান!</string>
-    <string name="swiper_gesture_overlay_dismiss">শুরু করতে যেকোনো জায়গায় ট্যাপ করুন</string>
-    <string name="swiper_gesture_overlay_left_delete">← মুছুন</string>
-    <string name="swiper_gesture_overlay_right_keep">রাখুন →</string>
-    <string name="swiper_gesture_overlay_left_keep">← রাখুন</string>
-    <string name="swiper_gesture_overlay_right_delete">মুছুন →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ এড়িয়ে যান</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ পূর্বাবস্থা</string>
     <string name="swiper_help_title">Swiper কিভাবে কাজ করে</string>
     <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
-    <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
     <string name="swiper_file_type_filter_title">শুধুমাত্র এই ফাইল ধরনগুলো দেখান</string>
     <string name="swiper_file_type_filter_hint">আপনি যে ধরনগুলো দেখতে চান তা চেক করুন। যদি কোনোটি চেক না করা থাকে, সমস্ত ফাইল দেখানো হবে।</string>
     <string name="swiper_file_type_category_images">ছবি</string>

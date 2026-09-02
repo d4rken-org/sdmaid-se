@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Dridhu kur merrni vendime për mbajtje ose fshirje.</string>
     <string name="swiper_discard_session_confirmation_title">Hidhni sesionin?</string>
     <string name="swiper_discard_session_confirmation_message">Të gjitha vendimet do të humbasin. Jeni të sigurt?</string>
-    <string name="swiper_no_preview_available">Nuk ka pamje paraprake</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Vazhdo sesionin nga %1$d ditë më parë (%2$d%% e përfunduar)</item>
         <item quantity="other">Vazhdo sesionin nga %1$d ditë më parë (%2$d%% e përfunduar)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Prapa!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Prit!</string>
-    <string name="swiper_gesture_overlay_dismiss">Prekni kudo për të filluar</string>
-    <string name="swiper_gesture_overlay_left_delete">← Fshi</string>
-    <string name="swiper_gesture_overlay_right_keep">Mbaj →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Mbaj</string>
-    <string name="swiper_gesture_overlay_right_delete">Fshi →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Kapërce</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Zhbëj</string>
     <string name="swiper_help_title">Si funksionon Swiper</string>
     <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">E kuptova</string>
     <string name="swiper_file_type_filter_title">Shfaq vetëm këto lloje skedarësh</string>
     <string name="swiper_file_type_filter_hint">Kontrolloni llojet që dëshironi të shikoni. Nëse asnjë nuk është zgjedhur, të gjithë skedarët shfaqen.</string>
     <string name="swiper_file_type_category_images">Imazhe</string>

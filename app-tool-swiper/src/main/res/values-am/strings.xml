@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">ማስቀመጥ ወይም መሰረዝ ውሳኔዎችን ሲያደርጉ ይንቀጠቀጡ።</string>
     <string name="swiper_discard_session_confirmation_title">ክፍለ ጊዜ ይጣል?</string>
     <string name="swiper_discard_session_confirmation_message">ሁሉም ውሳኔዎች ይጠፋሉ። እርግጠኛ ነዎት?</string>
-    <string name="swiper_no_preview_available">ቅድመ-ዕይታ የለም</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">ከ%1$d ቀን በፊት ክፍለ ጊዜ ቀጥል (%2$d%% ተጠናቋል)</item>
         <item quantity="other">ከ%1$d ቀናት በፊት ክፍለ ጊዜ ቀጥል (%2$d%% ተጠናቋል)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">ተመለስ!</string>
     <string name="swiper_stamp_undo_3">ወይ!</string>
     <string name="swiper_stamp_undo_4">ቆይ!</string>
-    <string name="swiper_gesture_overlay_dismiss">ለመጀመር የትም ይንኩ</string>
-    <string name="swiper_gesture_overlay_left_delete">← ሰርዝ</string>
-    <string name="swiper_gesture_overlay_right_keep">አስቀምጥ →</string>
-    <string name="swiper_gesture_overlay_left_keep">← አስቀምጥ</string>
-    <string name="swiper_gesture_overlay_right_delete">ሰርዝ →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ዝለል</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ መልስ</string>
     <string name="swiper_help_title">ማንሸራተቻ እንዴት እንደሚሰራ</string>
     <string name="swiper_help_message">ውሳኔ ለማድረግ እያንዳንዱን ፋይል ያንሸራትቱ:\n\n← ወደ ግራ ያንሸራትቱ: %1$s\n→ ወደ ቀኝ ያንሸራትቱ: %2$s\n↑ ወደ ላይ ያንሸራትቱ: ዝለል\n↓ ወደ ታች ያንሸራትቱ: መልስ (ከመጀመሪያው ማንሸራተት በኋላ)\n\nከታች ያሉትን ቁልፎችም መጠቀም ይችላሉ።\n\nሲያልቁ ሁሉንም ውሳኔዎችዎን ለማየት \"ይገምግሙ\" ይንኩ። በግምገማ ስክሪኑ ላይ እስኪያረጋግጡ ድረስ ምንም አይሰረዝም።</string>
-    <string name="swiper_gesture_overlay_dismiss_action">ገባኝ</string>
     <string name="swiper_file_type_filter_title">እነዚህን የፋይል ዓይነቶች ብቻ አሳይ</string>
     <string name="swiper_file_type_filter_hint">ማየት የሚፈልጓቸውን ዓይነቶች ምልክት ያድርጉ። ምንም ምልክት ካልተደረገ ሁሉም ፋይሎች ይታያሉ።</string>
     <string name="swiper_file_type_category_images">ምስሎች</string>

@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">做出保留或刪除決定時震動。</string>
     <string name="swiper_discard_session_confirmation_title">捨棄工作階段？</string>
     <string name="swiper_discard_session_confirmation_message">所有決定將會遺失。確定嗎？</string>
-    <string name="swiper_no_preview_available">無法預覽</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">繼續 %1$d 天前的工作階段（已完成 %2$d%%）</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">返回！</string>
     <string name="swiper_stamp_undo_3">哎呀！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
-    <string name="swiper_gesture_overlay_dismiss">輕觸任何位置開始</string>
-    <string name="swiper_gesture_overlay_left_delete">← 刪除</string>
-    <string name="swiper_gesture_overlay_right_keep">保留 →</string>
-    <string name="swiper_gesture_overlay_left_keep">← 保留</string>
-    <string name="swiper_gesture_overlay_right_delete">刪除 →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ 跳過</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ 復原</string>
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑動每個檔案作出決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（首次滑動後）\n\n你也可以使用底部的按鈕。\n\n完成後，輕觸「檢視」查看所有決定。在確認畫面上確認之前，不會刪除任何內容。</string>
-    <string name="swiper_gesture_overlay_dismiss_action">瞭解了</string>
     <string name="swiper_file_type_filter_title">只顯示這些檔案類型</string>
     <string name="swiper_file_type_filter_hint">勾選您想查看的類型。如果未勾選任何類型，則顯示所有檔案。</string>
     <string name="swiper_file_type_category_images">圖片</string>

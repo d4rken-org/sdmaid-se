@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrera vid behåll- eller ta bort-beslut.</string>
     <string name="swiper_discard_session_confirmation_title">Förkasta session?</string>
     <string name="swiper_discard_session_confirmation_message">Alla beslut kommer gå förlorade. Är du säker?</string>
-    <string name="swiper_no_preview_available">Ingen förhandsvisning tillgänglig</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Fortsätt session från %1$d dag sedan (%2$d%% klart)</item>
         <item quantity="other">Fortsätt session från %1$d dagar sedan (%2$d%% klart)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Tillbaka!</string>
     <string name="swiper_stamp_undo_3">Oj!</string>
     <string name="swiper_stamp_undo_4">Vänta!</string>
-    <string name="swiper_gesture_overlay_dismiss">Tryck var som helst för att börja</string>
-    <string name="swiper_gesture_overlay_left_delete">← Ta bort</string>
-    <string name="swiper_gesture_overlay_right_keep">Behåll →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Behåll</string>
-    <string name="swiper_gesture_overlay_right_delete">Ta bort →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Hoppa över</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Ångra</string>
     <string name="swiper_help_title">Hur Swiper fungerar</string>
     <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Jag fattar</string>
     <string name="swiper_file_type_filter_title">Visa bara dessa filtyper</string>
     <string name="swiper_file_type_filter_hint">Markera de typer du vill se. Om inga är markerade visas alla filer.</string>
     <string name="swiper_file_type_category_images">Bilder</string>

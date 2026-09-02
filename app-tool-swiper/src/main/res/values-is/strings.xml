@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Titra þegar halda eða eyða ákvörðunum er tekið.</string>
     <string name="swiper_discard_session_confirmation_title">Fleygja lotu?</string>
     <string name="swiper_discard_session_confirmation_message">Allar ákvarðanir glatast. Ertu viss?</string>
-    <string name="swiper_no_preview_available">Engin forskoðun tiltæk</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Halda áfram með lotu frá %1$d degi síðan (%2$d%% lokið)</item>
         <item quantity="other">Halda áfram með lotu frá %1$d dögum síðan (%2$d%% lokið)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Til baka!</string>
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Bíddu!</string>
-    <string name="swiper_gesture_overlay_dismiss">Ýttu hvar sem er til að byrja</string>
-    <string name="swiper_gesture_overlay_left_delete">← Eyða</string>
-    <string name="swiper_gesture_overlay_right_keep">Halda →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Halda</string>
-    <string name="swiper_gesture_overlay_right_delete">Eyða →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Sleppa</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Afturkalla</string>
     <string name="swiper_help_title">Hvernig Strjúkari virkar</string>
     <string name="swiper_help_message">Strjúktu hverri skrá til að taka ákvörðun:\n\n← Strjúktu til vinstri: %1$s\n→ Strjúktu til hægri: %2$s\n↑ Strjúktu upp: Sleppa\n↓ Strjúktu niður: Afturkalla (eftir fyrsta strjúk)\n\nÞú getur líka notað hnappana neðst.\n\nÞegar þú ert búin/n, ýttu á \"Yfirfara\" til að sjá allar ákvarðanir þínar. Ekkert er eytt fyrr en þú staðfestir á yfirferðarskjánum.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Ég skil</string>
     <string name="swiper_file_type_filter_title">Sýna aðeins þessar skráargerðir</string>
     <string name="swiper_file_type_filter_hint">Hakaðu við þær gerðir sem þú vilt sjá. Ef engar eru hakað við, birtast allar skrár.</string>
     <string name="swiper_file_type_category_images">Myndir</string>

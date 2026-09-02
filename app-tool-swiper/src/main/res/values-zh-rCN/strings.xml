@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">做出保留或删除决定时振动。</string>
     <string name="swiper_discard_session_confirmation_title">丢弃会话？</string>
     <string name="swiper_discard_session_confirmation_message">所有决定将会丢失。您确定吗？</string>
-    <string name="swiper_no_preview_available">没有可用的预览</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">继续 %1$d 天前的会话（已完成 %2$d%%）</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">返回！</string>
     <string name="swiper_stamp_undo_3">糟糕！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
-    <string name="swiper_gesture_overlay_dismiss">点击任意位置开始</string>
-    <string name="swiper_gesture_overlay_left_delete">← 删除</string>
-    <string name="swiper_gesture_overlay_right_keep">保留 →</string>
-    <string name="swiper_gesture_overlay_left_keep">← 保留</string>
-    <string name="swiper_gesture_overlay_right_delete">删除 →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ 跳过</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ 撤销</string>
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
-    <string name="swiper_gesture_overlay_dismiss_action">明白</string>
     <string name="swiper_file_type_filter_title">仅显示这些文件类型</string>
     <string name="swiper_file_type_filter_hint">勾选您想查看的类型。如果未勾选任何类型，则显示所有文件。</string>
     <string name="swiper_file_type_category_images">图片</string>

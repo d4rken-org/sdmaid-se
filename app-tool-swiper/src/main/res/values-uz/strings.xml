@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Saqlash yoki o\'chirish qarorlari qabul qilinganda tebratish.</string>
     <string name="swiper_discard_session_confirmation_title">Sessiyani rad etish kerakmi?</string>
     <string name="swiper_discard_session_confirmation_message">Barcha qarorlar yo\'qoladi. Ishonchingiz komilmi?</string>
-    <string name="swiper_no_preview_available">Oldindan ko\'rish mavjud emas</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d kun oldingi sessiyani davom ettirish (%2$d%% tugallangan)</item>
         <item quantity="other">%1$d kun oldingi sessiyani davom ettirish (%2$d%% tugallangan)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Orqaga!</string>
     <string name="swiper_stamp_undo_3">Voy!</string>
     <string name="swiper_stamp_undo_4">Kuting!</string>
-    <string name="swiper_gesture_overlay_dismiss">Boshlash uchun istalgan joyga bosing</string>
-    <string name="swiper_gesture_overlay_left_delete">← O\'chirish</string>
-    <string name="swiper_gesture_overlay_right_keep">Saqlash →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Saqlash</string>
-    <string name="swiper_gesture_overlay_right_delete">O\'chirish →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ O\'tkazish</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Qaytarish</string>
     <string name="swiper_help_title">Swiper qanday ishlaydi</string>
     <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Tushundim</string>
     <string name="swiper_file_type_filter_title">Faqat shu fayl turlarini ko\'rsatish</string>
     <string name="swiper_file_type_filter_hint">Ko\'rmoqchi bo\'lgan turlarni belgilang. Hech biri belgilanmagan bo\'lsa, barcha fayllar ko\'rsatiladi.</string>
     <string name="swiper_file_type_category_images">Rasmlar</string>

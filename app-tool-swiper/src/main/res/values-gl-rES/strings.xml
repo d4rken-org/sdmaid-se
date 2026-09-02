@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrar ao tomar decisións de gardar ou eliminar.</string>
     <string name="swiper_discard_session_confirmation_title">Descartar sesión?</string>
     <string name="swiper_discard_session_confirmation_message">Perderanse todas as decisións. Estás seguro?</string>
-    <string name="swiper_no_preview_available">Non hai vista previa dispoñible</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Continuar sesión de hai %1$d día (%2$d%% rematado)</item>
         <item quantity="other">Continuar sesión de hai %1$d días (%2$d%% rematado)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Atrás!</string>
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Agarda!</string>
-    <string name="swiper_gesture_overlay_dismiss">Toca en calquera lugar para comezar</string>
-    <string name="swiper_gesture_overlay_left_delete">← Eliminar</string>
-    <string name="swiper_gesture_overlay_right_keep">Manter →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Manter</string>
-    <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Saltar</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Desfacer</string>
     <string name="swiper_help_title">Como funciona Swiper</string>
     <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
     <string name="swiper_file_type_filter_title">Mostrar só estes tipos de ficheiro</string>
     <string name="swiper_file_type_filter_hint">Marca os tipos que queres ver. Se non se marca ningún, móstranse todos os ficheiros.</string>
     <string name="swiper_file_type_category_images">Imaxes</string>

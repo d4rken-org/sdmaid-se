@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Вибрация при вземане на решения за запазване или изтриване.</string>
     <string name="swiper_discard_session_confirmation_title">Отхвърляне на сесията?</string>
     <string name="swiper_discard_session_confirmation_message">Всички решения ще бъдат загубени. Сигурни ли сте?</string>
-    <string name="swiper_no_preview_available">Няма наличен преглед</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Продължаване на сесия от преди %1$d ден (%2$d%% завършена)</item>
         <item quantity="other">Продължаване на сесия от преди %1$d дни (%2$d%% завършена)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Опа!</string>
     <string name="swiper_stamp_undo_4">Чакай!</string>
-    <string name="swiper_gesture_overlay_dismiss">Докоснете навсякъде за начало</string>
-    <string name="swiper_gesture_overlay_left_delete">← Изтриване</string>
-    <string name="swiper_gesture_overlay_right_keep">Запазване →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Запазване</string>
-    <string name="swiper_gesture_overlay_right_delete">Изтриване →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Пропускане</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Отмяна</string>
     <string name="swiper_help_title">Как работи Swiper</string>
     <string name="swiper_help_message">Плъзнете всеки файл, за да вземете решение:\n\n← Плъзнете наляво: %1$s\n→ Плъзнете надясно: %2$s\n↑ Плъзнете нагоре: Пропускане\n↓ Плъзнете надолу: Отмяна (след първото плъзгане)\n\nМожете също да използвате бутоните в долната част.\n\nКогато приключите, докоснете \"Преглед\", за да видите всичките си решения. Нищо не се изтрива, докато не потвърдите на екрана за преглед.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Разбрах</string>
     <string name="swiper_file_type_filter_title">Показвай само тези типове файлове</string>
     <string name="swiper_file_type_filter_hint">Отметнете типовете, които искате да виждате. Ако нито един не е отметнат, се показват всички файлове.</string>
     <string name="swiper_file_type_category_images">Изображения</string>

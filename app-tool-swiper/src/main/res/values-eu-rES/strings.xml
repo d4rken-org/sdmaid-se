@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Dardara gorde edo ezabatze-erabakiak hartzerakoan.</string>
     <string name="swiper_discard_session_confirmation_title">Baztertu saioa?</string>
     <string name="swiper_discard_session_confirmation_message">Erabaki guztiak galduko dira. Ziur zaude?</string>
-    <string name="swiper_no_preview_available">Ez dago aurreikuspenak erabilgarri</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Jarraitu saioa %1$d egun bueltatik (%2$d%% bukatua)</item>
         <item quantity="other">Jarraitu saioa %1$d egun bueltatik (%2$d%% bukatua)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Atzera!</string>
     <string name="swiper_stamp_undo_3">Aupa!</string>
     <string name="swiper_stamp_undo_4">Itxaron!</string>
-    <string name="swiper_gesture_overlay_dismiss">Sakatu edonon hasteko</string>
-    <string name="swiper_gesture_overlay_left_delete">← Ezabatu</string>
-    <string name="swiper_gesture_overlay_right_keep">Gorde →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Gorde</string>
-    <string name="swiper_gesture_overlay_right_delete">Ezabatu →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Saltatu</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Desegin</string>
     <string name="swiper_help_title">Swiper nola funtzionatzen duen</string>
     <string name="swiper_help_message">Irristatu fitxategi bakoitza erabaki bat hartzeko:\n\n← Irristatu ezkerrera: %1$s\n→ Irristatu eskuinera: %2$s\n↑ Irristatu gora: Saltatu\n↓ Irristatu behera: Desegin (lehen irristadaren ondoren)\n\nBeheko botoiak ere erabil ditzakezu.\n\nBukatutakoan, sakatu \"Berrikusi\" zure erabaki guztiak ikusteko. Ezer ez da ezabatuko berrikusketa pantailan baieztatu arte.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Ulertuta</string>
     <string name="swiper_file_type_filter_title">Erakutsi fitxategi mota hauek soilik</string>
     <string name="swiper_file_type_filter_hint">Hautatu ikusi nahi dituzun motak. Bat ere hautatzen ez bada, fitxategi guztiak erakutsiko dira.</string>
     <string name="swiper_file_type_category_images">Irudiak</string>

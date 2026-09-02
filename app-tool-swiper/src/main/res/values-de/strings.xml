@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrieren bei Behalten- oder Löschen-Entscheidungen.</string>
     <string name="swiper_discard_session_confirmation_title">Sitzung verwerfen?</string>
     <string name="swiper_discard_session_confirmation_message">Alle Entscheidungen gehen verloren. Bist du sicher?</string>
-    <string name="swiper_no_preview_available">Keine Vorschau verfügbar</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Sitzung von vor %1$d Tag fortsetzen (%2$d%% fertig)</item>
         <item quantity="other">Sitzung von vor %1$d Tagen fortsetzen (%2$d%% fertig)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Zurück!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Warte!</string>
-    <string name="swiper_gesture_overlay_dismiss">Tippe irgendwo, um zu starten</string>
-    <string name="swiper_gesture_overlay_left_delete">← Löschen</string>
-    <string name="swiper_gesture_overlay_right_keep">Behalten →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Behalten</string>
-    <string name="swiper_gesture_overlay_right_delete">Löschen →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Überspringen</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Rückgängig</string>
     <string name="swiper_help_title">So funktioniert Swiper</string>
     <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wischen)\n\nDu kannst auch die Buttons unten verwenden.\n\nWenn du fertig bist, tippe auf „Übersicht“, um alle deine Entscheidungen anzuzeigen. Nichts wird gelöscht, bis du es auf dem Übersichts-Bildschirm bestätigst.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Verstanden</string>
     <string name="swiper_file_type_filter_title">Nur diese Dateitypen anzeigen</string>
     <string name="swiper_file_type_filter_hint">Wähle die Typen aus, die du sehen möchtest. Wenn keine ausgewählt sind, werden alle Dateien angezeigt.</string>
     <string name="swiper_file_type_category_images">Bilder</string>

@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">သိုထားလုးများ သိုထားသွား ခြင်းခြင်းသည်လုးကို ခုံးခ်ခုံးချသည်။</string>
     <string name="swiper_discard_session_confirmation_title">သှားရှားကို ဖယ်ချပါလား?</string>
     <string name="swiper_discard_session_confirmation_message">ဆုံးပြေဆုံးများအားထေက်ပျောသွားမည်။ သခြေပါလား?</string>
-    <string name="swiper_no_preview_available">အင်ဂါ ပြသောသောမရှိပါ</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">%1$d ရက်က သှားရှားကို ဆက်ပြန်ပါ (%2$d%% ပြီးသား)</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">နောက်!</string>
     <string name="swiper_stamp_undo_3">ဟင်!</string>
     <string name="swiper_stamp_undo_4">ခဏ!</string>
-    <string name="swiper_gesture_overlay_dismiss">စတင်ရန် မည်သည့်နေရာတွင်မဆို တို့ပါ</string>
-    <string name="swiper_gesture_overlay_left_delete">← ဖျက်မည်</string>
-    <string name="swiper_gesture_overlay_right_keep">သိမ်းမည် →</string>
-    <string name="swiper_gesture_overlay_left_keep">← သိမ်းမည်</string>
-    <string name="swiper_gesture_overlay_right_delete">ဖျက်မည် →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ကျော်မည်</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ ပြန်ယူမည်</string>
     <string name="swiper_help_title">Swiper အလုပ်လုပ်ပုံ</string>
     <string name="swiper_help_message">ဖိုင်တစ်ခုစီကို ပွတ်ဆွဲပြီး ဆုံးဖြတ်ပါ:\n\n← ဘယ်ဘက်သို့ ပွတ်ဆွဲ: %1$s\n→ ညာဘက်သို့ ပွတ်ဆွဲ: %2$s\n↑ အပေါ်သို့ ပွတ်ဆွဲ: ကျော်မည်\n↓ အောက်သို့ ပွတ်ဆွဲ: ပြန်ယူမည် (ပထမ ပွတ်ဆွဲပြီးနောက်)\n\nအောက်ခြေ ခလုတ်များကိုလည်း သုံးနိုင်ပါသည်။\n\nပြီးသွားသောအခါ \"ပြန်စစ်\" ကို တို့ပြီး သင့်ဆုံးဖြတ်ချက်များ အားလုံးကို ကြည့်ပါ။ ပြန်စစ်သည့် မျက်နှာပြင်တွင် အတည်ပြုသည့်အထိ ဘာမျှ မဖျက်ပါ။</string>
-    <string name="swiper_gesture_overlay_dismiss_action">နား လည်ပါပြီ</string>
     <string name="swiper_file_type_filter_title">ဤဖိုင်အမျိုးအစားများကိုသာ ပြပါ</string>
     <string name="swiper_file_type_filter_hint">ကြည့်လိုသောအမျိုးအစားများကို စစ်ဆေးပါ။ မည်သည့်အမျိုးအစားမှ မစစ်ဆေးပါက ဖိုင်အားလုံးကို ပြပါမည်။</string>
     <string name="swiper_file_type_category_images">ပုံများ</string>

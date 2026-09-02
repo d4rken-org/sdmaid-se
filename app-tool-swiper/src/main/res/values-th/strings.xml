@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">สั่นเมื่อตัดสินใจเก็บหรือลบ</string>
     <string name="swiper_discard_session_confirmation_title">ยกเลิกเซสชัน?</string>
     <string name="swiper_discard_session_confirmation_message">การตัดสินใจทั้งหมดจะสูญหาย คุณแน่ใจหรือไม่?</string>
-    <string name="swiper_no_preview_available">ไม่มีตัวอย่าง</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">ดำเนินเซสชันต่อจาก %1$d วันที่แล้ว (เสร็จ %2$d%%)</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">กลับ!</string>
     <string name="swiper_stamp_undo_3">อุ๊ย!</string>
     <string name="swiper_stamp_undo_4">เดี๋ยว!</string>
-    <string name="swiper_gesture_overlay_dismiss">แตะที่ใดก็ได้เพื่อเริ่ม</string>
-    <string name="swiper_gesture_overlay_left_delete">← ลบ</string>
-    <string name="swiper_gesture_overlay_right_keep">เก็บ →</string>
-    <string name="swiper_gesture_overlay_left_keep">← เก็บ</string>
-    <string name="swiper_gesture_overlay_right_delete">ลบ →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ข้าม</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ เลิกทำ</string>
     <string name="swiper_help_title">วิธีใช้ Swiper</string>
     <string name="swiper_help_message">ปัดไฟล์แต่ละรายการเพื่อตัดสินใจ:\n\n← ปัดซ้าย: %1$s\n→ ปัดขวา: %2$s\n↑ ปัดขึ้น: ข้าม\n↓ ปัดลง: เลิกทำ (หลังจากปัดครั้งแรก)\n\nคุณยังสามารถใช้ปุ่มด้านล่างได้\n\nเมื่อเสร็จแล้ว แตะ \"ตรวจสอบ\" เพื่อดูการตัดสินใจทั้งหมดของคุณ จะไม่มีอะไรถูกลบจนกว่าคุณจะยืนยันในหน้าตรวจสอบ</string>
-    <string name="swiper_gesture_overlay_dismiss_action">เข้าใจแล้ว</string>
     <string name="swiper_file_type_filter_title">แสดงเฉพาะประเภทไฟล์เหล่านี้</string>
     <string name="swiper_file_type_filter_hint">เลือกประเภทที่ต้องการดู หากไม่ได้เลือกประเภทใด จะแสดงไฟล์ทั้งหมด</string>
     <string name="swiper_file_type_category_images">รูปภาพ</string>

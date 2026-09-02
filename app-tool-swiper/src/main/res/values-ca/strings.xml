@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibra quan prengueu decisions sobre si voleu conservar o eliminar.</string>
     <string name="swiper_discard_session_confirmation_title">Voleu descartar la sessió?</string>
     <string name="swiper_discard_session_confirmation_message">Totes les decisions es perdran. N\'esteu segur?</string>
-    <string name="swiper_no_preview_available">No hi ha cap previsualització disponible</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Continua la sessió de fa %1$d dia (%2$d%% finalitzada)</item>
         <item quantity="other">Continua la sessió de fa %1$d dies (%2$d%% finalitzada)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Enrere!</string>
     <string name="swiper_stamp_undo_3">Vaja!</string>
     <string name="swiper_stamp_undo_4">Espera!</string>
-    <string name="swiper_gesture_overlay_dismiss">Toqueu qualsevol lloc per començar</string>
-    <string name="swiper_gesture_overlay_left_delete">← Suprimeix</string>
-    <string name="swiper_gesture_overlay_right_keep">Mantén →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Mantén</string>
-    <string name="swiper_gesture_overlay_right_delete">Suprimeix →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Omet</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Desfés</string>
     <string name="swiper_help_title">Com funciona l\'escombrador</string>
     <string name="swiper_help_message">Llisqueu cada fitxer per prendre una decisió:\n\n← Llisca a l\'esquerra: %1$s\n→ Llisca a la dreta: %2$s\n↑ Llisca amunt: Omet\n↓ Llisca avall: Desfés (després del primer lliscament)\n\nTambé podeu usar els botons de la part inferior.\n\nQuan hàgiu acabat, toqueu «Revisa» per veure totes les decisions. No se suprimeix res fins que ho confirmeu a la pantalla de revisió.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Entesos</string>
     <string name="swiper_file_type_filter_title">Mostra només aquests tipus de fitxers</string>
     <string name="swiper_file_type_filter_hint">Marqueu els tipus que voleu veure. Si no n\'hi ha cap de marcat, es mostren tots els fitxers.</string>
     <string name="swiper_file_type_category_images">Imatges</string>

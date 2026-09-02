@@ -68,7 +68,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrovať pri rozhodnutí ponechať alebo odstrániť.</string>
     <string name="swiper_discard_session_confirmation_title">Zahodiť reláciu?</string>
     <string name="swiper_discard_session_confirmation_message">Všetky rozhodnutia budú stratené. Ste si istí?</string>
-    <string name="swiper_no_preview_available">Náhľad nie je k dispozícii</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Pokračovať v relácii spred %1$d dňa (%2$d%% dokončených)</item>
         <item quantity="few">Pokračovať v relácii spred %1$d dní (%2$d%% dokončených)</item>
@@ -167,16 +166,8 @@
     <string name="swiper_stamp_undo_2">Naspäť!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Počkať!</string>
-    <string name="swiper_gesture_overlay_dismiss">Klepnutím kdekoľvek začnite</string>
-    <string name="swiper_gesture_overlay_left_delete">← Odstrániť</string>
-    <string name="swiper_gesture_overlay_right_keep">Ponechať →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Ponechať</string>
-    <string name="swiper_gesture_overlay_right_delete">Odstrániť →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Preskočiť</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Späť</string>
     <string name="swiper_help_title">Ako funguje Swiper</string>
     <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať\" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
     <string name="swiper_file_type_filter_title">Zobraziť iba tieto typy súborov</string>
     <string name="swiper_file_type_filter_hint">Zaškrtnite typy, ktoré chcete vidieť. Ak nie je zaškrtnutý žiadny, zobrazia sa všetky súbory.</string>
     <string name="swiper_file_type_category_images">Obrázky</string>

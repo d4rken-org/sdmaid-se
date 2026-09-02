@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Δόνηση κατά τη λήψη αποφάσεων διατήρησης ή διαγραφής.</string>
     <string name="swiper_discard_session_confirmation_title">Απόρριψη συνεδρίας;</string>
     <string name="swiper_discard_session_confirmation_message">Όλες οι αποφάσεις θα χαθούν. Είστε σίγουροι;</string>
-    <string name="swiper_no_preview_available">Δεν υπάρχει διαθέσιμη προεπισκόπηση</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Συνέχεια συνεδρίας από %1$d ημέρα πριν (%2$d%% ολοκληρωμένο)</item>
         <item quantity="other">Συνέχεια συνεδρίας από %1$d ημέρες πριν (%2$d%% ολοκληρωμένο)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Πίσω!</string>
     <string name="swiper_stamp_undo_3">Ωχ!</string>
     <string name="swiper_stamp_undo_4">Περίμενε!</string>
-    <string name="swiper_gesture_overlay_dismiss">Πατήστε οπουδήποτε για να ξεκινήσετε</string>
-    <string name="swiper_gesture_overlay_left_delete">← Διαγραφή</string>
-    <string name="swiper_gesture_overlay_right_keep">Διατήρηση →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Διατήρηση</string>
-    <string name="swiper_gesture_overlay_right_delete">Διαγραφή →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Παράλειψη</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Αναίρεση</string>
     <string name="swiper_help_title">Πώς λειτουργεί το Swiper</string>
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Το κατάλαβα</string>
     <string name="swiper_file_type_filter_title">Εμφάνιση μόνο αυτών των τύπων αρχείων</string>
     <string name="swiper_file_type_filter_hint">Επιλέξτε τους τύπους που θέλετε να δείτε. Αν δεν επιλεγεί κανένας, εμφανίζονται όλα τα αρχεία.</string>
     <string name="swiper_file_type_category_images">Εικόνες</string>

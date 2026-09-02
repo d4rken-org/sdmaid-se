@@ -22,7 +22,6 @@
     <string name="swiper_status_action_delete_selected">هەڵبژێردراوەکان بسڕەوە</string>
     <string name="swiper_status_action_reset_selected">هەڵبژێردراوەکان ڕیسێت بکەوە</string>
     <string name="swiper_delete_confirmation_title">فایلەکان بسڕیتەوە؟</string>
-    <string name="swiper_no_preview_available">پێشبینینی بەردەست نییە</string>
     <string name="swiper_sessions_header_title">ئامادەیت بۆ ڕێکخستنەوە؟</string>
     <string name="swiper_sessions_suggestions_label">هەوڵ بدە دەست پێ بکەیت بە:</string>
     <string name="swiper_sessions_suggestion_downloads">بوخچەی داگرتنەکان</string>
