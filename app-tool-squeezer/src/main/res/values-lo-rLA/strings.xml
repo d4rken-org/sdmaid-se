@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">ອາຍຸໄຟລ໌ຂັ້ນຕໃ఼່ຕ່ໍາ</string>
     <string name="squeezer_min_age_description">ລວມສະເພາະໄຟລ໌ທີ່ເກົ່າກວ່າອາຍຸນີ້ເທົ່ານັ້ນ.</string>
     <string name="squeezer_compression_settings_label">ທົ່ວໄປ</string>
-    <string name="squeezer_quality_label">ຄຸນນາພ</string>
-    <string name="squeezer_quality_title">ຄຸນນາພການບີບອັດ</string>
     <string name="squeezer_quality_description">ຄຸນນະພາບຕ່ຳໝາຍຄວາມວ່າຂະໜາດໄຟລ໌ນ້ອຍລົງ ແຕ່ຄຸນນະພາບຮູບທີ່ຫຼຸດລົງ.</string>
-    <string name="squeezer_quality_example_format">ຕົວອຍ່າງ: ຣູບ %1$s → ປະຫຍັດ ~%2$s ທີ່ຄຸນນາພ %3$d%%</string>
-    <string name="squeezer_quality_warning_low">ຄຸນນາພຕໃ່າອາດທຳໃຫ້ເຫັນສິ່ງຜິດປົກກະຕິ.</string>
-    <string name="squeezer_quality_warning_high">ຄຸນນາພສູງມາກເກັບພື້ນທີ່ດ້ວຍນ້ອຍນິດ.</string>
     <string name="squeezer_types_category_label">ການຕັ້ງຄ່າຮູບພາບ</string>
     <string name="squeezer_video_settings_category_label">ການຕັ້ງຄ່າວິດີໂອ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">ຍືນຍັນການບີບອັດ</string>
     <string name="squeezer_preview_total_size">ຂນາດທັງຫມດ</string>
     <string name="squeezer_preview_estimated_savings">ການປະຫຍັດທີ່ຄາດເດົາ</string>
-    <string name="squeezer_compress_confirmation_title">ບີບອັດລາຍການທີ່ເລືອກ?</string>
-    <string name="squeezer_compress_confirmation_message">ນີ້ຈະແທນທີ່ໄຟລ໌ຕົ້ນສະບັບດ້ວຍສະບັບທີ່ຖືກບີບອັດ. ການກະທຳນີ້ບໍ່ສາມາດຍ້ອນກັບໄດ້.</string>
     <string name="squeezer_history_title">ປະຫວັດການບີບອັດ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ລາຍການ (%2$s)</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">ໄມ່ມີປະຫວັດການບີບອັດ</string>
     <string name="squeezer_history_clear_title">ລົບປະຫວັດການບີບອັດ</string>
     <string name="squeezer_history_clear_message">ນີ້ຈະອະນຸຍາດໃຫ້ໄຟລ໌ທີ່ຖືກບີບອັດກ່ອນໜ້ານີ້ຖືກບີບອັດອີກຄັ້ງ. ໄຟລ໌ເຫຼົ່ານັ້ນເອງບໍ່ໄດ້ຮັບຜົນກະທົບ.</string>
-    <string name="squeezer_onboarding_title">ກ່ນການບີບອັດຣູບ</string>
-    <string name="squeezer_onboarding_message">ການບີບອັດຣູບລດຂນາດໄຟລ໌ດ້ວຍການລົບລາຍລະເອີຊດ້ານພາບ. ການກະທຳນີ້ໄມ່ສາມາຖກັບຄືນໄດ້ - ຄຸນນາພຕ້ນພົ້ນໄມ່ສາມາຖຖືກຄືນ.\n\nนଵ່ໂປຣຮ້ວຂອງວິຘີທີ່ຣູບຂອງທ່ານຈະປະກົດ:</string>
     <string name="squeezer_onboarding_original_label">ຕ້ນພົ້ນ</string>
     <string name="squeezer_onboarding_compressed_label">ຫລັງການບີບອັດ</string>
     <string name="squeezer_onboarding_video_original_label">ເຟຣມວິດີໂອ</string>
     <string name="squeezer_onboarding_video_compressed_label">ຕົວຢ່າງ (ໂດຍປະມານ)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">ຄຸນນະພາບວິດີໂອທີ່ແທ້ຈິງອາດຕ່າງກັນ</string>
-    <string name="squeezer_onboarding_quality_label">ຄຸນນາພ: %d%%</string>
     <string name="squeezer_compare_action">ດູການເປົນເທີຍບ</string>
     <string name="squeezer_no_example_found">ໄມ່ພົບຣູບໃນເສ້ນທາງທີ່ເລືອກ.</string>
     <string name="squeezer_result_empty_message">ບໍ່ພົບສື່ທີ່ສາມາດບີບອັດໄດ້.</string>
-    <string name="squeezer_setup_warning">ການບີບອັດຫຼຸດຄຸນນະພາບຢ່າງຖາວອນເພື່ອປະຢັດພື້ນທີ່ເກັບຂໍ້ມູນ. ນີ້ບໍ່ສາມາດຍ້ອນກັບໄດ້. ກວດສອບການຕັ້ງຄ່າຂອງທ່ານຢ່າງລະມັດລະວັງກ່ອນເລີ່ມ.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d ສະຖານທີ່ບໍ່ສາມາດໃຊ້ສຳລັບການບີບອັດ ແລະ ຖືກລຶບອອກ. ການບີບອັດຕ້ອງການການເຂົ້າເຖິງໂດຍກົງຕໍ່ບ່ອນເກັບຂໍ້ມູນພາຍໃນ.</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">ອາຍຸອຍ່າງນ້ອຍ %d ວັນ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ປະມານ ~%d%% ປະຍັດສຳລັບໄຟລ໌ JPEG</string>
-    <string name="squeezer_onboarding_got_it">ເຂົ້າໃຈແລ້ວ</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ບີບອັດຄືນຮູບຖ່າຍ ແລະ ວິດີໂອຂອງທ່ານເພື່ອໃຫ້ພວກມັນໃຊ້ພື້ນທີ່ນ້ອຍລົງ. ທ່ານແລກປ່ຈງຄຸນນະພາບເລັກນ້ອຍເພື່ອຕອບແທນກັບພື້ນທີ່ທີ່ທ່ານໄດ້ກັບຄືນ. ແຕ່ລະລາຍການສະແດງບໍລິມາທີ່ປະເມີນໄວ້ ດັ່ງນັ້ນທ່ານສາມາດຕັດສິນໃຈວ່າມັນຄຸ້ມຄ່າຫຼືບໍ່.</string>
     <string name="tour_squeezer_compress_body">ບີບອັດທັງໝົດຍູ່ນີ້ພາຍໃນເວລາດຽວ ຫຼືແຕະໄຟລ໌ໝນຶ່ງເພື່ອໜຸດຂະໝາດພຽງແຕ່ໄຟລ໌ອັນນັ້ນ. ກົດຄ້າງໄວ້ເພື່ອເລືອກຫາຍອັນ. ທ່ານຈະສະເຫມີເໝັນຕົວຍ່າງກໍ່ນທີ່ຈະມີການປຽນແປງໃດໆ.</string>

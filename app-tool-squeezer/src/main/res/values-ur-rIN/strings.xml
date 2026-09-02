@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">کم از کم فائل عمر</string>
     <string name="squeezer_min_age_description">صرف اس عمر سے پرانی فائلیں شامل کریں۔</string>
     <string name="squeezer_compression_settings_label">عام</string>
-    <string name="squeezer_quality_label">معیار</string>
-    <string name="squeezer_quality_title">کمپریشن معیار</string>
     <string name="squeezer_quality_description">کم معیار کا مطلب ہے چھوٹا فائل سائز لیکن کم بصری معیار۔</string>
-    <string name="squeezer_quality_example_format">مثال: %1$s تصویر → %3$d%% معیار پر ~%2$s بچت</string>
-    <string name="squeezer_quality_warning_low">کم معیار میں نظر آنے والی خرابیاں ہو سکتی ہیں۔</string>
-    <string name="squeezer_quality_warning_high">بہت زیادہ معیار کم جگہ بچاتا ہے۔</string>
     <string name="squeezer_types_category_label">تصویر کی ترتیبات</string>
     <string name="squeezer_video_settings_category_label">ویڈیو کی ترتیبات</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">کمپریشن کی تصدیق</string>
     <string name="squeezer_preview_total_size">کل سائز</string>
     <string name="squeezer_preview_estimated_savings">تخمینی بچت</string>
-    <string name="squeezer_compress_confirmation_title">منتخب آئٹمز کمپریس کریں؟</string>
-    <string name="squeezer_compress_confirmation_message">یہ اصل فائلوں کو کمپریس شدہ ورژنز سے تبدیل کر دے گا۔ یہ عمل واپس نہیں کیا جا سکتا۔</string>
     <string name="squeezer_history_title">کمپریشن ہسٹری</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d آئٹم (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">کوئی کمپریشن ہسٹری نہیں</string>
     <string name="squeezer_history_clear_title">کمپریشن ہسٹری صاف کریں</string>
     <string name="squeezer_history_clear_message">یہ پہلے کمپریس شدہ فائلوں کو دوبارہ کمپریس کرنے کی اجازت دے گا۔ فائلیں خود متاثر نہیں ہوں گی۔</string>
-    <string name="squeezer_onboarding_title">تصویر کمپریشن کے بارے میں</string>
-    <string name="squeezer_onboarding_message">تصویر کمپریشن بصری تفصیلات ہٹا کر فائل سائز کم کرتی ہے۔ یہ عمل ناقابل واپسی ہے - اصل معیار بحال نہیں ہو سکتا۔\n\nآپ کی تصاویر کیسی نظر آئیں گی اس کا جائزہ:</string>
     <string name="squeezer_onboarding_original_label">اصل</string>
     <string name="squeezer_onboarding_compressed_label">کمپریشن کے بعد</string>
     <string name="squeezer_onboarding_video_original_label">ویڈیو فریم</string>
     <string name="squeezer_onboarding_video_compressed_label">پیش نظارہ (تقریبی)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">اصل ویڈیو کا معیار مختلف ہو سکتا ہے</string>
-    <string name="squeezer_onboarding_quality_label">معیار: %d%%</string>
     <string name="squeezer_compare_action">موازنہ دیکھیں</string>
     <string name="squeezer_no_example_found">منتخب پاتھز میں کوئی تصاویر نہیں ملیں۔</string>
     <string name="squeezer_result_empty_message">کوئی قابل۔ کمپریس میڈیا نہیں ملا۔</string>
-    <string name="squeezer_setup_warning">کمپریشن مستقل طور پر معیار کو کم کر دیتی ہے تاکہ ذخیرہ کی جگہ بچائی جا سکے۔ یہ واپس نہیں کیا جا سکتا۔ شروع کرنے سے پہلے اپنی ترتیبات کا بغور جائزہ لیں۔</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d مقام کمپریشن کے لیے استعمال نہیں ہو سکتا اور ہٹا دیا گیا۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>
         <item quantity="other">%d مقامات کمپریشن کے لیے استعمال نہیں ہو سکتے اور ہٹا دیے گئے۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>
@@ -109,7 +98,6 @@
         <item quantity="other">کم از کم %d دن پرانی</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG فائلوں کے لیے تخمینی ~%d%% بچت</string>
-    <string name="squeezer_onboarding_got_it">سمجھ گیا</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer آپ کی تصاویر اور ویڈیوز کو دوبارہ کمپریس کرتا ہے تاکہ وہ کم جگہ لیں۔ آپ معمولی کوالٹی سے سمجھوتہ کر کے جگہ حاصل کرتے ہیں۔ ہر چیز اپنی متوقع بچت دکھاتی ہے، تو آپ فیصلہ کر سکتے ہیں کہ یہ قابلِقدر ہے۔</string>
     <string name="tour_squeezer_compress_body">یہاں سب کچھ ایک ساتھ کمپریس کریں، یا صرف ایک چیز کو سکڑانے کے لیے اس پر ٹیپ کریں۔ متعدد کو منتخب کرنے کے لیے طویل دبائیں۔ آپ کو ہمیشہ کچھ بھی تبدیل ہونے سے پہلے پیش نظارہ نظر آئے گا۔</string>

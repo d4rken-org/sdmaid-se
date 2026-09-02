@@ -54,12 +54,7 @@
     <string name="squeezer_min_age_title">Мінімальны час стварэння файла</string>
     <string name="squeezer_min_age_description">Уключаць толькі файлы, старэйшыя за гэты ўзрост.</string>
     <string name="squeezer_compression_settings_label">Агульныя</string>
-    <string name="squeezer_quality_label">Якасць</string>
-    <string name="squeezer_quality_title">Якасць сціскання</string>
     <string name="squeezer_quality_description">Ніжэйшая якасць азначае меншы памер файла, але зніжаную візуальную якасць.</string>
-    <string name="squeezer_quality_example_format">Напрыклад: выява %1$s → сэканоміць ~%2$s з якасцю %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Нізкая якасць можа прывесці да з\'яўлення бачных артэфактаў.</string>
-    <string name="squeezer_quality_warning_high">Вельмі высокая якасць забяспечвае мінімальную эканомію прасторы.</string>
     <string name="squeezer_types_category_label">Налады выяў</string>
     <string name="squeezer_video_settings_category_label">Налады відэа</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -84,8 +79,6 @@
     <string name="squeezer_preview_dialog_title">Пацвердзіць сцісканне</string>
     <string name="squeezer_preview_total_size">Агульны памер</string>
     <string name="squeezer_preview_estimated_savings">Меркаваная эканомія</string>
-    <string name="squeezer_compress_confirmation_title">Сціснуць выбраныя элементы?</string>
-    <string name="squeezer_compress_confirmation_message">Гэта заменіць арыгінальныя файлы сціснутымі версіямі. Гэтае дзеянне немагчыма адмяніць.</string>
     <string name="squeezer_history_title">Гісторыя сцісканняў</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d элемент (%2$s)</item>
@@ -96,18 +89,14 @@
     <string name="squeezer_history_empty">Няма гісторыі сцісканняў</string>
     <string name="squeezer_history_clear_title">Ачысціць гісторыю сцісканняў</string>
     <string name="squeezer_history_clear_message">Гэта дазволіць паўторна сціскаць раней сціснутыя файлы. Самі файлы не зменяцца.</string>
-    <string name="squeezer_onboarding_title">Аб сцісканні выяў</string>
-    <string name="squeezer_onboarding_message">Сцісканне выявы памяншае памер файла, выдаляючы візуальныя дэталі. Гэты працэс незваротны — першапачатковую якасць аднавіць немагчыма.\n\nВось папярэдні прагляд таго, як будуць выглядаць вашы выявы:</string>
     <string name="squeezer_onboarding_original_label">Арыгінал</string>
     <string name="squeezer_onboarding_compressed_label">Пасля сціскання</string>
     <string name="squeezer_onboarding_video_original_label">Кадр відэа</string>
     <string name="squeezer_onboarding_video_compressed_label">Папярэдні прагляд (прыблізна)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Фактычная якасць відэа можа адрознівацца</string>
-    <string name="squeezer_onboarding_quality_label">Якасць: %d%%</string>
     <string name="squeezer_compare_action">Паглядзець параўнанне</string>
     <string name="squeezer_no_example_found">У выбраных шляхах выявы не знойдзены.</string>
     <string name="squeezer_result_empty_message">Не знойдзена носьбіцаў для сціску.</string>
-    <string name="squeezer_setup_warning">Сціск назаўжды зніжае якасць для эканоміі месца на носьбіце. Гэтае дзеянне немагчыма адмяніць. Уважліва праверце налады перад пачаткам.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d месца не можа выкарыстоўвацца для сціску і было выдалена. Сціск патрабуе прамога доступу да ўнутранай памяці.</item>
         <item quantity="few">%d месцы не могуць выкарыстоўвацца для сціску і былі выдалены. Сціск патрабуе прамога доступу да ўнутранай памяці.</item>
@@ -131,7 +120,6 @@
         <item quantity="other">Не менш за %d дзён</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ацэначная эканомія ~%d%% для файлаў JPEG</string>
-    <string name="squeezer_onboarding_got_it">Зразумела</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer паўторна сціскае вашы фота і відэа, каб яны займалі менш месца. Вы ахвяруеце крыху якасцу дзеля вернутага месца. Кожны элемент паказвае прыблізную эканомію, каб вы маглі вырашыць, ці варта гэта.</string>
     <string name="tour_squeezer_compress_body">Сціскайце усё адразу тут або націсніце на асобны элемент, каб сціснуць толькі яго. Доўгае націсканне, каб выбраць некалькі. Вы заўсёды ўбачыце папярэдні прагляд, перш чым што-небудзь зменіцца.</string>

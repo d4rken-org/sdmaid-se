@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Lágmarksaldur skráar</string>
     <string name="squeezer_min_age_description">Taka aðeins með skrár sem eru eldri en þssi aldur.</string>
     <string name="squeezer_compression_settings_label">Almennt</string>
-    <string name="squeezer_quality_label">Gæði</string>
-    <string name="squeezer_quality_title">Þjöppunargæði</string>
     <string name="squeezer_quality_description">Lægri gæði þyðir minni skráarstæð en lakari sjónræn gæði.</string>
-    <string name="squeezer_quality_example_format">Dæmi: %1$s mynd → sparar ~%2$s við %3$d%% gæði</string>
-    <string name="squeezer_quality_warning_low">Lægri gæði gætu valdið sjáanlegum göllum.</string>
-    <string name="squeezer_quality_warning_high">Mjög há gæði veita lágmarks plásssparnað.</string>
     <string name="squeezer_types_category_label">Myndastillingar</string>
     <string name="squeezer_video_settings_category_label">Myndbandasstillingar</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Staðfesta þjöppun</string>
     <string name="squeezer_preview_total_size">Heildarstærð</string>
     <string name="squeezer_preview_estimated_savings">Áætlaður sparnaður</string>
-    <string name="squeezer_compress_confirmation_title">Þjappa völdum atriðum?</string>
-    <string name="squeezer_compress_confirmation_message">Þtta mun skipta upprunalegum skrám út fyrir þjappaðar útgáfur. Ekki er hægt að afturkalla þessa aðgerð.</string>
     <string name="squeezer_history_title">Þjöppunarsaga</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d hlutur (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Engin þjöppunarsaga</string>
     <string name="squeezer_history_clear_title">Hreinsa þjöppunarsögu</string>
     <string name="squeezer_history_clear_message">Þtta mun leyfa skrám sem þgar hafa verið þjappaðar að verða þjappaðar aftur. Skrárnar sjálfar verða ekki fyrir áhrifum.</string>
-    <string name="squeezer_onboarding_title">Um myndaþjöppun</string>
-    <string name="squeezer_onboarding_message">Myndaþjöppun minnkar skráarstærð með því að fjarlægja sjónræn smáatriði. Þetta ferli er óafturkræft - upprunaleg gæði er ekki hægt að endurheimta.\n\nHér er forskoðun á hvernig myndirnar þínar munu líta út:</string>
     <string name="squeezer_onboarding_original_label">Upprunalegt</string>
     <string name="squeezer_onboarding_compressed_label">Eftir þjöppun</string>
     <string name="squeezer_onboarding_video_original_label">Myndbandsrðammi</string>
     <string name="squeezer_onboarding_video_compressed_label">Forskoðun (áætluð)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Raunveruleg myndbandsgaæði geta verið frábruggin</string>
-    <string name="squeezer_onboarding_quality_label">Gæði: %d%%</string>
     <string name="squeezer_compare_action">Skoða samanburð</string>
     <string name="squeezer_no_example_found">Engar myndir fundust á völdum slóðum.</string>
     <string name="squeezer_result_empty_message">Ekkert þjáppanlegt efni fannst.</string>
-    <string name="squeezer_setup_warning">Þjöppun minnkar gæði varanlega til að spara geymslupláss. Ekki er hægt að afturkalla þtta. Farðu vandlega yfir stillingar þinar áður en þú byrjar.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d staðsetning er ekki hægt að nota til þjöppunar og var fjarlægð. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>
         <item quantity="other">%d staðsetningar eru ekki hægt að nota til þjöppunar og voru fjarlægðar. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Um ~%d%% sparnaður fyrir JPEG skrár</string>
-    <string name="squeezer_onboarding_got_it">Ég skil</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer endurþjappar myndir og myndbönd þín svo þau taki minna pláss. Þú gefur eftir gæðum til að fá pláss til baka. Hver atriði sýnir áætlaðan sparnað, svo þú getur ákveðið hvað borgar sig.</string>
     <string name="tour_squeezer_compress_body">Þjappaðu allt í einu hér, eða þttu á einn hlut til að minnka bara hann. Haltu lengi niðri til að velja marga. Þú munt alltaf sjá forskoðun áður en eitthvað breytist.</string>

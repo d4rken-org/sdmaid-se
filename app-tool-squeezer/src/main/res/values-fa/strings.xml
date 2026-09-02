@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">حداقل سن فایل</string>
     <string name="squeezer_min_age_description">فقط فایل‌هایی که قدیمی‌تر از این سن هستند را شامل شوید.</string>
     <string name="squeezer_compression_settings_label">عمومی</string>
-    <string name="squeezer_quality_label">کیفیت</string>
-    <string name="squeezer_quality_title">کیفیت فشرده‌سازی</string>
     <string name="squeezer_quality_description">کیفیت پایین‌تر به معنای حجم فایل کمتر اما کیفیت بصری کاهش‌یافته است.</string>
-    <string name="squeezer_quality_example_format">مثال: تصویر %1$s → صرفه‌جویی ~%2$s در کیفیت %3$d%%</string>
-    <string name="squeezer_quality_warning_low">کیفیت‌های پایین‌تر ممکن است آثار قابل مشاهده‌ای ایجاد کنند.</string>
-    <string name="squeezer_quality_warning_high">کیفیت بسیار بالا صرفه‌جویی حداقلی در فضا ارائه می‌دهد.</string>
     <string name="squeezer_types_category_label">تنظیمات تصویر</string>
     <string name="squeezer_video_settings_category_label">تنظیمات ویدیو</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">تأیید فشرده‌سازی</string>
     <string name="squeezer_preview_total_size">اندازه کل</string>
     <string name="squeezer_preview_estimated_savings">صرفه‌جویی تخمینی</string>
-    <string name="squeezer_compress_confirmation_title">موارد انتخاب‌شده فشرده شوند؟</string>
-    <string name="squeezer_compress_confirmation_message">این کار فایل‌های اصلی را با نسخه‌های فشرده‌شده جایگزین می‌کند. این عمل قابل بازگشت نیست.</string>
     <string name="squeezer_history_title">تاریخچه فشرده‌سازی</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d مورد (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">تاریخچه فشرده‌سازی خالی است</string>
     <string name="squeezer_history_clear_title">پاک کردن تاریخچه فشرده‌سازی</string>
     <string name="squeezer_history_clear_message">این کار اجازه می‌دهد فایل‌هایی که قبلاً فشرده شده‌اند دوباره فشرده شوند. خود فایل‌ها تحت تأثیر قرار نمی‌گیرند.</string>
-    <string name="squeezer_onboarding_title">درباره فشرده‌سازی تصاویر</string>
-    <string name="squeezer_onboarding_message">فشرده‌سازی تصاویر اندازه فایل را با حذف جزئیات بصری کاهش می‌دهد. این فرآیند غیرقابل بازگشت است - کیفیت اصلی قابل بازیابی نیست.\n\nدر اینجا پیش‌نمایشی از ظاهر تصاویر شما آمده است:</string>
     <string name="squeezer_onboarding_original_label">اصلی</string>
     <string name="squeezer_onboarding_compressed_label">پس از فشرده‌سازی</string>
     <string name="squeezer_onboarding_video_original_label">فریم ویدیو</string>
     <string name="squeezer_onboarding_video_compressed_label">پیش‌نمایش (تقریبی)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">کیفیت واقعی ویدیو ممکن است متفاوت باشد</string>
-    <string name="squeezer_onboarding_quality_label">کیفیت: %d%%</string>
     <string name="squeezer_compare_action">مشاهده مقایسه</string>
     <string name="squeezer_no_example_found">تصویری در مسیرهای انتخابی یافت نشد.</string>
     <string name="squeezer_result_empty_message">هیچ رسانه‌ای قابل فشرده‌سازی پیدا نشد.</string>
-    <string name="squeezer_setup_warning">فشرده‌سازی کیفیت را به‌طور دائمی کاهش می‌دهد تا فضای ذخیره‌سازی آزاد شود. این عمل قابل بازگشت نیست. قبل از شروع، تنظیمات خود را با دقت بررسی کنید.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d مکان قابل استفاده برای فشرده‌سازی نیست و حذف شد. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>
         <item quantity="other">%d مکان قابل استفاده برای فشرده‌سازی نیستند و حذف شدند. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">حداقل %d روزه</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">پس‌انداز برآوردی ~%d%% برای فایل‌های JPEG</string>
-    <string name="squeezer_onboarding_got_it">فهمیدم</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer عکس‌ها و ویدیوهای شما را دوباره فشرده می‌کند تا فضای کمتری مصرف کنند. شما کمی از کیفیت را برای فضایی که بدست می‌آورید قربانی می‌کنید. هر مورد صرفه‌جویی تخمینی خود را نشان می‌دهد، بنابراین می‌توانید تصمیم بگیرید کدام‌یک ارزشش را دارد.</string>
     <string name="tour_squeezer_compress_body">همه‌چیز را یکجا اینجا فشرده کنید یا روی یک مورد ضربه بزنید تا فقط همان یکی کوچک شود. برای انتخاب چندین، فشار طولانی بدهید. همیشه قبل از هر تغییری یک پیش‌نمایش خواهید دید.</string>

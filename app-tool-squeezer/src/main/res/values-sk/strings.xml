@@ -54,12 +54,7 @@
     <string name="squeezer_min_age_title">Minimálny vek súboru</string>
     <string name="squeezer_min_age_description">Zahrnúť iba súbory staršie ako tento vek.</string>
     <string name="squeezer_compression_settings_label">Všeobecné</string>
-    <string name="squeezer_quality_label">Kvalita</string>
-    <string name="squeezer_quality_title">Kvalita kompresie</string>
     <string name="squeezer_quality_description">Nižšia kvalita znamená menšiu veľkosť súboru, ale zníſenú vizuálnu kvalitu.</string>
-    <string name="squeezer_quality_example_format">Príklad: %1$s obrázok → úspora ~%2$s pri %3$d%% kvalite</string>
-    <string name="squeezer_quality_warning_low">Nižšie kvality môžu spôsobiť viditeľné artefakty.</string>
-    <string name="squeezer_quality_warning_high">Veľmi vysoká kvalita poskytuje minimálnu úsporu miesta.</string>
     <string name="squeezer_types_category_label">Nastavenia obrázkov</string>
     <string name="squeezer_video_settings_category_label">Nastavenia videa</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -84,8 +79,6 @@
     <string name="squeezer_preview_dialog_title">Potvrdiť kompresiu</string>
     <string name="squeezer_preview_total_size">Celková veľkosť</string>
     <string name="squeezer_preview_estimated_savings">Odhadovaná úspora</string>
-    <string name="squeezer_compress_confirmation_title">Komprimovať vybrané položky?</string>
-    <string name="squeezer_compress_confirmation_message">Tým sa pôvodné súbory nahradia skomprimovanými verziami. Túto akciu nie je možné vrátiť späť.</string>
     <string name="squeezer_history_title">História kompresie</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d položka (%2$s)</item>
@@ -96,18 +89,14 @@
     <string name="squeezer_history_empty">Žiadna história kompresie</string>
     <string name="squeezer_history_clear_title">Vymazať históriu kompresie</string>
     <string name="squeezer_history_clear_message">Tým sa umožní, aby prípadne skomprimované súbory boli skomprimované znova. Samé súbory nie sú ovplyvnené.</string>
-    <string name="squeezer_onboarding_title">O kompresii obrázkov</string>
-    <string name="squeezer_onboarding_message">Kompresia obrázkov zmenšuje veľkosť súboru odstránením vizuálnych detailov. Tento proces je nezvratný — pôvodnú kvalitu nie je možné obnoviť.\n\nTu je ukážka, ako budú vaše obrázky vyzerať:</string>
     <string name="squeezer_onboarding_original_label">Originál</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresii</string>
     <string name="squeezer_onboarding_video_original_label">Snímka videa</string>
     <string name="squeezer_onboarding_video_compressed_label">Náhľad (približný)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Skutočná kvalita videa sa môže líšiť</string>
-    <string name="squeezer_onboarding_quality_label">Kvalita: %d%%</string>
     <string name="squeezer_compare_action">Zobraziť porovnanie</string>
     <string name="squeezer_no_example_found">V zvolených cestách sa nenašli žiadne obrázky.</string>
     <string name="squeezer_result_empty_message">Nebol nájdený žiadny komprimovateľný mediálny obsáh.</string>
-    <string name="squeezer_setup_warning">Kompresia trvalo znižuje kvalitu, aby ušetrila úložný priestor. Túto akciu nie je možné vrátiť späť. Pred spustením si pozorne prezrite nastavenia.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d miesto nemôže byť použité na kompresiu a bolo odstránené. Kompresia vyžaduje priamy prístup k internému úložisku.</item>
         <item quantity="few">%d miesta nemôžu byť použité na kompresiu a boli odstránené. Kompresia vyžaduje priamy prístup k internému úložisku.</item>
@@ -131,7 +120,6 @@
         <item quantity="other">Aspoň %d dní starých</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pre súbory JPEG</string>
-    <string name="squeezer_onboarding_got_it">Rozumiem</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer znovu komprimuje vaše fotografie a videá, aby zaberali menej miesta. Obetujete trochu kvality za miesto, ktoré získate späť. Každá položka zobrazuje odhadované úspory, takže si môžete rozhodnúť, čo sa oplatí.</string>
     <string name="tour_squeezer_compress_body">Tu môžete komprimovať všetko naraz, alebo klepnite na jednu položku, aby ste ju zmenšili. Dlhým stlačením vyberte niekoľko. Vždy uvidíte náhľad pred akokoľvek zmenou.</string>

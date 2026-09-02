@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">Tuổi tối thiểu của tệp</string>
     <string name="squeezer_min_age_description">Chỉ bao gồm các tệp cũ hơn thời gian này.</string>
     <string name="squeezer_compression_settings_label">Chung</string>
-    <string name="squeezer_quality_label">Chất lượng</string>
-    <string name="squeezer_quality_title">Chất lượng nén</string>
     <string name="squeezer_quality_description">Chất lượng thấp hơn có nghĩa là kích thước tệp nhỏ hơn nhưng chất lượng hình ảnh lại giảm.</string>
-    <string name="squeezer_quality_example_format">Ví dụ: %1$s ảnh → lưu ~%2$s với %3$d%% chất lượng</string>
-    <string name="squeezer_quality_warning_low">Chất lượng thấp hơn có thể gây ra hiện tượng nhiễu có thể nhìn thấy được.</string>
-    <string name="squeezer_quality_warning_high">Chất lượng rất cao nhưng lại tiết kiệm không gian tối thiểu.</string>
     <string name="squeezer_types_category_label">Cài đặt hình ảnh</string>
     <string name="squeezer_video_settings_category_label">Cài đặt video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">Xác nhận nén</string>
     <string name="squeezer_preview_total_size">Tổng kích thước</string>
     <string name="squeezer_preview_estimated_savings">Tiết kiệm ước tính</string>
-    <string name="squeezer_compress_confirmation_title">Nén các mục đã chọn?</string>
-    <string name="squeezer_compress_confirmation_message">Thao tác này sẽ thay thế các tệp gốc bằng phiên bản nén. Không thể hoàn tác thao tác này.</string>
     <string name="squeezer_history_title">Lịch sử nén</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d mục (%2$s)</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">Không có lịch sử nén</string>
     <string name="squeezer_history_clear_title">Xóa lịch sử nén</string>
     <string name="squeezer_history_clear_message">Thao tác này sẽ cho phép nén lại các tệp đã được nén trước đó. Bản thân những tệp đó không bị ảnh hưởng.</string>
-    <string name="squeezer_onboarding_title">Về nén ảnh</string>
-    <string name="squeezer_onboarding_message">Nén ảnh làm giảm kích thước tập tin bằng cách loại bỏ các chi tiết hình ảnh. Qúa trình này không thể đảo ngược - chất lượng ban đầu không thể khôi phục được.\n\n Dưới đây là bản xem trước các hình ảnh của bạn sẽ trông như thế nào:</string>
     <string name="squeezer_onboarding_original_label">Bản gốc</string>
     <string name="squeezer_onboarding_compressed_label">Sau khi nén</string>
     <string name="squeezer_onboarding_video_original_label">Khung hình video</string>
     <string name="squeezer_onboarding_video_compressed_label">Xem trước (gần đúng)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Chất lượng video thực tế có thể khác</string>
-    <string name="squeezer_onboarding_quality_label">Chất lượng: %d%%</string>
     <string name="squeezer_compare_action">Xem so sánh</string>
     <string name="squeezer_no_example_found">Không tìm thấy hình ảnh nào trong các đường dẫn đã chọn.</string>
     <string name="squeezer_result_empty_message">Không tìm thấy phương tiện có thể nén.</string>
-    <string name="squeezer_setup_warning">Việc nén sẽ làm giảm vĩnh viễn chất lượng để tiết kiệm dung lượng lưu trữ. Không thể hoàn tác điều này. Hãy kiểm tra kỹ các cài đặt của bạn trước khi bắt đầu.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d vị trí không thể được sử dụng để nén và đã bị xóa. Việc nén yêu cầu quyền truy cập trực tiếp vào bộ nhớ trong.</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">Ít nhất %d ngày tuổi</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm khoảng %d%% cho các tệp JPEG</string>
-    <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer nén lại các ảnh và video của bạn để chúng chiếm ít không gian hơn. Bạn đánh đổi một chút chất lượng để lấy lại không gian. Mỗi mục hiển thị mức tiết kiệm ước tính của nó, vì vậy bạn có thể quyết định những gì đáng giá.</string>
     <string name="tour_squeezer_compress_body">Nén mọi thứ cùng một lúc ở đây, hoặc nhấn một mục duy nhất để chỉ làm nhỏ cái đó. Nhấn và giữ để chọn nhiều mục. Bạn sẽ luôn thấy bản xem trước trước khi có bất kỳ thay đổi nào.</string>

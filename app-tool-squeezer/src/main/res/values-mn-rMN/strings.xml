@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Файлын деэд нас</string>
     <string name="squeezer_min_age_description">Зөвхөн энэ насаас ахмад файлуудыг оруулна.</string>
     <string name="squeezer_compression_settings_label">Ерөнхий</string>
-    <string name="squeezer_quality_label">Чанар</string>
-    <string name="squeezer_quality_title">Шахалтын чанар</string>
     <string name="squeezer_quality_description">Чанар бага байх нь файлын хэмжээ жижиг боловч харагдах чанар буурна.</string>
-    <string name="squeezer_quality_example_format">Жишээ: %1$s зураг → %3$d%% чанарт ойроор ~%2$s хадгалалана</string>
-    <string name="squeezer_quality_warning_low">Дородуу чанар харагдсан алдаа үүсгэх боломжтой.</string>
-    <string name="squeezer_quality_warning_high">Маш өндөр чанар нь зайны олзолт хадгалалт цөөн байна.</string>
     <string name="squeezer_types_category_label">Зургийн тохиргоо</string>
     <string name="squeezer_video_settings_category_label">Видеоны тохиргоо</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Шахалтыг баталгаажуулах</string>
     <string name="squeezer_preview_total_size">Нийт хэмжээ</string>
     <string name="squeezer_preview_estimated_savings">Төсөөлдсөн хадгалалт</string>
-    <string name="squeezer_compress_confirmation_title">Сонгосон зүйлсийг шахах уу?</string>
-    <string name="squeezer_compress_confirmation_message">Энэ нь анхны файлуудыг шахагдсан хувилбараар солих болно. Энэ үйлдлийг буцаах боломжгүй.</string>
     <string name="squeezer_history_title">Шахалтын түүх</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d зүйл (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Шахалтын түүх байхгүй</string>
     <string name="squeezer_history_clear_title">Шахалтын түүхийг арилгах</string>
     <string name="squeezer_history_clear_message">Энэ нь өмнө нь шахагдсан файлуудыг дахин шахах боломжтой болгоно. Файлуудад өөрчлөлт ороогүй.</string>
-    <string name="squeezer_onboarding_title">Зураг шахалтын тухай</string>
-    <string name="squeezer_onboarding_message">Зураг шахалт нь хараахад дэталгыг арилгаснаар файлын хэмжээг багасгана. Энэ ургшийлах боломжгүй явц — эх чанарыг сэргээх боломжгүй.\n\nТаны зурагууд хэрхэн харагдахыг үзүүлэхэд үз:</string>
     <string name="squeezer_onboarding_original_label">Эх</string>
     <string name="squeezer_onboarding_compressed_label">Шахаасны дараа</string>
     <string name="squeezer_onboarding_video_original_label">Видео фрэйм</string>
     <string name="squeezer_onboarding_video_compressed_label">Урьдчилан харах (ойролцоогоор)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Бодит видеоны чанар өөр байж болно</string>
-    <string name="squeezer_onboarding_quality_label">Чанар: %d%%</string>
     <string name="squeezer_compare_action">Харьцуулга үзэх</string>
     <string name="squeezer_no_example_found">Сонгосон замуудаас зураг олдсонгүй.</string>
     <string name="squeezer_result_empty_message">Шахах боломжтой медиа олдсонгүй.</string>
-    <string name="squeezer_setup_warning">Шахалт нь санах ойн зайг хэмнэхийн тулд чанарыг байнгын бууруулна. Үүнийг буцаах боломжгүй. Эхлэхийн өмнө тохиргоогоо сайтар хянана уу.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d байршлыг шахахад ашиглах боломжгүй тул устгагдлаа. Шахалт нь дотоод санах ойд шууд хандахыг шаардадаг.</item>
         <item quantity="other">%d байршлыг шахахад ашиглах боломжгүй тул устгагдлаа. Шахалт нь дотоод санах ойд шууд хандахыг шаардадаг.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Дорроо %d өдөөсийн</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG файлуудын хувьд тооцоолсон ~%d%% хэмнэлт</string>
-    <string name="squeezer_onboarding_got_it">Ойлголоо</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer таны зургууд болон видеоуудыг дахин шахаж, тэдгээр нь бага орон зай эзэлнэ. Та чанарын нэг хэсэгийг буцаан авсан орон зайтай солилцож байна. Зүйл бүр сэргээсэн хэмжээг харуулдаг тул та аль нь үнэтэй гэж шийдэх боломжтой.</string>
     <string name="tour_squeezer_compress_body">Бүгдийг нэг дор энд шахаж, эсвэл нэг зүйлийг дарж зөвхөн түүнийг л жижигрүүлнэ. Олоныг сонгохын тулд удаан дар. Аливаа зүйл өөрчлөгдөхөөс өмнө үргэлж урьдчилсан үзүүлэлтийг харах болно.</string>

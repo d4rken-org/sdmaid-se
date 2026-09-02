@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">ዝቅተኛ የፋይል ዕድሜ</string>
     <string name="squeezer_min_age_description">ከዚህ ዕድሜ በላይ ያሉ ፋይሎችን ብቻ አካትት።</string>
     <string name="squeezer_compression_settings_label">አጠቃላይ</string>
-    <string name="squeezer_quality_label">ጥራት</string>
-    <string name="squeezer_quality_title">የመጨመቅ ጥራት</string>
     <string name="squeezer_quality_description">ዝቅተኛ ጥራት ማለት ትንሽ የፋይል መጠን ነው፣ ነገር ግን የምስሉ ጥራት ይቀንሳል።</string>
-    <string name="squeezer_quality_example_format">ምሳሌ: %1$s ምስል → በ%3$d%% ጥራት ~%2$s ይቆጥባል</string>
-    <string name="squeezer_quality_warning_low">ዝቅ ያሉ ጥራቶች የሚታዩ ጉድለቶች ሊያስከትሉ ይችላሉ።</string>
-    <string name="squeezer_quality_warning_high">በጣም ከፍተኛ ጥራት ዝቅተኛ ቦታ ቁጠባ ይሰጣል።</string>
     <string name="squeezer_types_category_label">የምስል ቅንብሮች</string>
     <string name="squeezer_video_settings_category_label">የቪዲዮ ቅንብሮች</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">መጨመቅ ያረጋግጡ</string>
     <string name="squeezer_preview_total_size">ጠቅላላ መጠን</string>
     <string name="squeezer_preview_estimated_savings">የተገመተ ቁጠባ</string>
-    <string name="squeezer_compress_confirmation_title">የተመረጡ ንጥሎችን ትጨናንቃለህ?</string>
-    <string name="squeezer_compress_confirmation_message">ይህ ዋናዎቹን ፋይሎች በተጨናነቁ ስሪቶች ይተካቸዋል። ይህ እርምጃ ሊቀለበስ አይችልም።</string>
     <string name="squeezer_history_title">የመጨመቅ ታሪክ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ንጥል (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">ምንም የመጨመቅ ታሪክ የለም</string>
     <string name="squeezer_history_clear_title">የመጨመቅ ታሪክ ያጽዱ</string>
     <string name="squeezer_history_clear_message">ይህ ቀደም ሲል የተጨናነቁ ፋይሎች እንደገና እንዲጨናነቁ ያስችላል። ፋይሎቹ ራሳቸው አይጎዳም።</string>
-    <string name="squeezer_onboarding_title">ስለ ምስል መጨመቅ</string>
-    <string name="squeezer_onboarding_message">የምስል መጨመቅ ምስላዊ ዝርዝርን በማስወገድ የፋይል መጠንን ይቀንሳል። ይህ ሂደት ሊቀለበስ አይችልም - ዋናው ጥራት ሊመለስ አይችልም።\n\nምስሎችዎ እንዴት እንደሚታዩ ቅድመ-ዕይታ ይኸውና:</string>
     <string name="squeezer_onboarding_original_label">ዋና</string>
     <string name="squeezer_onboarding_compressed_label">ከመጨመቅ በኋላ</string>
     <string name="squeezer_onboarding_video_original_label">የቪዲዮ ፍሬም</string>
     <string name="squeezer_onboarding_video_compressed_label">ቅድመ እይታ (ግምታዊ)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">ትክክለኛው የቪዲዮ ጥራት ሊለያይ ይችላል</string>
-    <string name="squeezer_onboarding_quality_label">ጥራት: %d%%</string>
     <string name="squeezer_compare_action">ንጽጽር ይመልከቱ</string>
     <string name="squeezer_no_example_found">በተመረጡ ዱካዎች ውስጥ ምንም ምስሎች አልተገኙም።</string>
     <string name="squeezer_result_empty_message">ሊጨናነቅ የሚችል ሚዲያ አልተገኘም።</string>
-    <string name="squeezer_setup_warning">መጨናነቅ የማከማቻ ቦታ ለመቆጠብ ጥራቱን ቋሚ በሆነ ሁኔታ ይቀንሳል። ይህ ሊቀለበስ አይችልም። ከመጀመርዎ በፊት ቅንብሮቻቸውን በጥንቃቄ ይገምግሙ።</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ቦታ ለመጨናነቅ ጥቅም ላይ ሊውል አይችልም እና ተወግዷል። መጨናነቅ ወደ ውስጣዊ ማከማቻ ቀጥተኛ ፍቃድ ያስፈልጋል።</item>
         <item quantity="other">%d ቦታዎች ለመጨናነቅ ጥቅም ላይ ሊውሉ አይችሉም እና ተወግደዋል። መጨናነቅ ወደ ውስጣዊ ማከማቻ ቀጥተኛ ፍቃድ ያስፈልጋል።</item>
@@ -109,7 +98,6 @@
         <item quantity="other">ቢያንስ %d ቀናት የቆየ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ለ JPEG ፋይሎች ግምታውይ ~%d%% ቦታ ቅነሳ</string>
-    <string name="squeezer_onboarding_got_it">ገባኝ</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ፎቶ እና ቪዲዮዎን እንደገና ይጭብርብራል ስለዚህ ቦታ ያኖራል። ትንሽ ጥራትን ለተመለሰው ቦታ ይለዋወጣሉ። እያንዳንዱ ሕዋስ ግምታዊ ቅነሳውን ያሳያል፣ ስለዚህ ምን ዋጋ ያለበት ልትወስኑ ይችላሉ።</string>
     <string name="tour_squeezer_compress_body">ሁሉንም በአንድ ጊዜ ይጨምቁ ወይም አንድ ነገር ይምቱ ትንሽ ለመወገድ። ብዙ ለመምረጥ ክብብ-ይጀኑ። ሁሉ ሊቀያር ቅድሚያ ሁሌ ድምድም ይታያሉ።</string>

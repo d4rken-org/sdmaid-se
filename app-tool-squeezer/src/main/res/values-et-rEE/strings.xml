@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Faili noorim vanus</string>
     <string name="squeezer_min_age_description">Kaasa ainult sellest east vanemad failid.</string>
     <string name="squeezer_compression_settings_label">Üldine</string>
-    <string name="squeezer_quality_label">Kvaliteet</string>
-    <string name="squeezer_quality_title">Kokkupakkimise kvaliteet</string>
     <string name="squeezer_quality_description">Madal kvaliteet tähendab väiksemat faili mahtu, ent kehvemat visuaalset kvaliteeti.</string>
-    <string name="squeezer_quality_example_format">Näiteks: %1$s pilt → säästab ~%2$s %3$d%% kvaliteedi puhul</string>
-    <string name="squeezer_quality_warning_low">Kehvem kvaliteet võib põhjustada nähtavaid segajaid.</string>
-    <string name="squeezer_quality_warning_high">Väga kõrge kvaliteet ei paku eriti mälu säästmist.</string>
     <string name="squeezer_types_category_label">Pildi seaded</string>
     <string name="squeezer_video_settings_category_label">Video seaded</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>
     <string name="squeezer_preview_total_size">Kogumaht</string>
     <string name="squeezer_preview_estimated_savings">Hinnanguline sääst</string>
-    <string name="squeezer_compress_confirmation_title">Pakkida valitud üksused kokku?</string>
-    <string name="squeezer_compress_confirmation_message">See asendab originaalfailid kokkupakitud versioonidega. Seda toimingut ei saa tagasi võtta.</string>
     <string name="squeezer_history_title">Kokkupakkimise ajalugu</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d kirje (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Kokkupakkimise ajalugu puudub</string>
     <string name="squeezer_history_clear_title">Tühjenda kokkupakkimise ajalugu</string>
     <string name="squeezer_history_clear_message">See võimaldab eelnevalt kokkupakitud faile uuesti kokku pakkida. Failid ise ei muutu.</string>
-    <string name="squeezer_onboarding_title">Piltide kokkupakkimisest</string>
-    <string name="squeezer_onboarding_message">Pildi kokkupakkimine vähendab faili mahtu, eemaldades nähtavad osad. Toiming on lõplik ehk algkvaliteeti pole võimalik taastada.\n\nPildid muutuvad sellisteks:</string>
     <string name="squeezer_onboarding_original_label">Algne</string>
     <string name="squeezer_onboarding_compressed_label">Pärast kokkupakkimist</string>
     <string name="squeezer_onboarding_video_original_label">Videokaader</string>
     <string name="squeezer_onboarding_video_compressed_label">Eelvaade (ligikaudne)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Tegelik videokvaliteet võib erineda</string>
-    <string name="squeezer_onboarding_quality_label">Kvaliteet: %d%%</string>
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
-    <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti jäädavalt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
         <item quantity="other">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Vähemalt %d päeva vana</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
-    <string name="squeezer_onboarding_got_it">Selge!</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Tihendaja tihendab pildid ja videod uuesti, et need võtaksid vähem ruumi. Vahetate veidi kvaliteeti ruumi vastu. Iga faili juures on näha selle hinnangulist kokkuhoidu, nii et saate otsustada, kas see on väärt tihendamist.</string>
     <string name="tour_squeezer_compress_body">Tihenda kõik korraga siin või puuduta üksikut elementi, et see kahaneks. Pikk vajutus mitme valimiseks. Enne muutusi näed alati eelvaadet.</string>

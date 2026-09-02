@@ -54,12 +54,7 @@
     <string name="squeezer_min_age_title">Минимальный возраст файла</string>
     <string name="squeezer_min_age_description">Включать только файлы старше этого возраста.</string>
     <string name="squeezer_compression_settings_label">Общее</string>
-    <string name="squeezer_quality_label">Качество</string>
-    <string name="squeezer_quality_title">Качество сжатия</string>
     <string name="squeezer_quality_description">Меньшее качество означает меньший размер файла, но снижение качества изображения.</string>
-    <string name="squeezer_quality_example_format">Пример: %1$s изображение → экономия ~%2$s при качестве %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Низкое качество может вызывать видимые артефакты.</string>
-    <string name="squeezer_quality_warning_high">Очень высокое качество ведет к минимальной экономии места.</string>
     <string name="squeezer_types_category_label">Настройки изображений</string>
     <string name="squeezer_video_settings_category_label">Настройки видео</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -84,8 +79,6 @@
     <string name="squeezer_preview_dialog_title">Подтвердите сжатие</string>
     <string name="squeezer_preview_total_size">Общий размер</string>
     <string name="squeezer_preview_estimated_savings">Предполагаемая экономия</string>
-    <string name="squeezer_compress_confirmation_title">Сжать выбранные элементы?</string>
-    <string name="squeezer_compress_confirmation_message">Оригинальные файлы будут заменены сжатыми версиями. Это действие не может быть отменено.</string>
     <string name="squeezer_history_title">История сжатия</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d элем. (%2$s)</item>
@@ -96,18 +89,14 @@
     <string name="squeezer_history_empty">Нет истории сжатия</string>
     <string name="squeezer_history_clear_title">Очистить историю сжатия</string>
     <string name="squeezer_history_clear_message">Это позволит снова сжимать ранее сжатые файлы. Сами файлы не изменяются.</string>
-    <string name="squeezer_onboarding_title">О сжатии изображений</string>
-    <string name="squeezer_onboarding_message">Сжатие изображений уменьшает размер файла путем удаления деталей. Этот процесс необратим - исходное качество не может быть восстановлено.\n\nВот предпросмотр того, как будут выглядеть Ваши изображения:</string>
     <string name="squeezer_onboarding_original_label">Оригинал</string>
     <string name="squeezer_onboarding_compressed_label">После сжатия</string>
     <string name="squeezer_onboarding_video_original_label">Кадр видео</string>
     <string name="squeezer_onboarding_video_compressed_label">Предпросмотр (приблизительно)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Фактическое качество видео может отличаться</string>
-    <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
     <string name="squeezer_compare_action">Сравнение</string>
     <string name="squeezer_no_example_found">В выбранных путях изображения не найдены.</string>
     <string name="squeezer_result_empty_message">Сжимаемых медиафайлов не найдено.</string>
-    <string name="squeezer_setup_warning">Сжатие навсегда снижает качество для экономии места. Это невозможно отменить. Внимательно проверьте настройки перед началом.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d местоположение нельзя использовать для сжатия, оно было удалено. Для сжатия необходим прямой доступ к внутреннему хранилищу.</item>
         <item quantity="few">%d местополож. нельзя использовать для сжатия, они были удалены. Для сжатия необходим прямой доступ к внутреннему хранилищу.</item>
@@ -131,7 +120,6 @@
         <item quantity="other">По крайней мере %d дн.</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Приблизительно ~%d%% экономия для JPEG-файлов</string>
-    <string name="squeezer_onboarding_got_it">Понятно</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer повторно сжимает Ваши фотографии и видео, чтобы они занимали меньше места. Вы частично жертвуете качеством, чтобы получить освобождённое пространство. Каждый элемент показывает приблизительную экономию, чтобы Вы могли решить, стоит ли это того.</string>
     <string name="tour_squeezer_compress_body">Сожмите всё сразу здесь, или коснитесь одного элемента, чтобы уменьшить только его. Длительное нажатие выбирает несколько. Вы всегда увидите предпросмотр перед тем, как что-либо изменится.</string>

@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">ସର୍ବନିମ୍ନ ଫାଇଲ୍ ବୟସ</string>
     <string name="squeezer_min_age_description">କେବଳ ଏହି ବୟସରୁ ପୁରୁଣା ଫାଇଲ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="squeezer_compression_settings_label">ସାଧାରଣ</string>
-    <string name="squeezer_quality_label">ଗୁଣବତ୍ତା</string>
-    <string name="squeezer_quality_title">ସଙ୍କୋଚନ ଗୁଣବତ୍ତା</string>
     <string name="squeezer_quality_description">କମ ଗୁଣମାନ ମାନେ ଛୋଟ ଫାଇଲ ଆକାର କିନ୍ତୁ ଦୃଶ୍ୟ ଗୁଣମାନ ହ୍ରାସ ପାଏ।</string>
-    <string name="squeezer_quality_example_format">ଉଦାହରଣ: %1$s ଚିତ୍ର → %3$d%% ଗୁଣବତ୍ତାରେ ~%2$s ସଞ୍ଚୟ</string>
-    <string name="squeezer_quality_warning_low">କମ୍ ଗୁଣବତ୍ତା ଦୃଶ୍ୟମାନ ତ୍ରୁଟି ସୃଷ୍ଟି କରିପାରେ।</string>
-    <string name="squeezer_quality_warning_high">ଅତ୍ୟଧିକ ଉଚ୍ଚ ଗୁଣବତ୍ତା ସର୍ବନିମ୍ନ ସ୍ଥାନ ସଞ୍ଚୟ ପ୍ରଦାନ କରେ।</string>
     <string name="squeezer_types_category_label">ଚିତ୍ର ସେଟିଂସ</string>
     <string name="squeezer_video_settings_category_label">ଭିଡ଼ିଓ ସେଟିଂସ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">ସଙ୍କୋଚନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
     <string name="squeezer_preview_total_size">ମୋଟ ଆକାର</string>
     <string name="squeezer_preview_estimated_savings">ଆନୁମାନିକ ସଞ୍ଚୟ</string>
-    <string name="squeezer_compress_confirmation_title">ମନୋନୀତ ଆଇଟମ ସଙ୍କୁଚିତ କରିବେ?</string>
-    <string name="squeezer_compress_confirmation_message">ଏହା ମିଳ ଫାଇଲ ସ୍ଥାନରେ ସଙ୍କୁଚିତ ସଂସ୍କରଣ ରଖିବ। ଏହି କ୍ରିୟା ପୂର୍ବବତ୍ ହୋଇ ପାରିବ ନାହିଁ।</string>
     <string name="squeezer_history_title">ସଙ୍କୋଚନ ଇତିହାସ</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d ଆଇଟମ୍ (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">କୌଣସି ସଙ୍କୋଚନ ଇତିହାସ ନାହିଁ</string>
     <string name="squeezer_history_clear_title">ସଙ୍କୋଚନ ଇତିହାସ ସଫା କରନ୍ତୁ</string>
     <string name="squeezer_history_clear_message">ଏହା ପୂର୍ବରୁ ସଙ୍କୁଚିତ ଫାଇଲ ପୁଣି ସଙ୍କୁଚିତ ହେବାର ସୁୟୋଗ ଦେବ। ଫାଇଲ ନିଜେ ପ୍ରଭାଵିତ ହୁଏ ନାହିଁ।</string>
-    <string name="squeezer_onboarding_title">ଚିତ୍ର ସଙ୍କୋଚନ ବିଷୟରେ</string>
-    <string name="squeezer_onboarding_message">ଚିତ୍ର ସଙ୍କୋଚନ ଦୃଶ୍ୟ ବିବରଣୀ ଅପସାରଣ କରି ଫାଇଲ୍ ଆକାର ହ୍ରାସ କରେ। ଏହି ପ୍ରକ୍ରିୟା ଅପ୍ରତ୍ୟାବର୍ତ୍ତନୀୟ - ମୂଳ ଗୁଣବତ୍ତା ପୁନଃସ୍ଥାପିତ ହୋଇପାରିବ ନାହିଁ।\n\nଆପଣଙ୍କ ଚିତ୍ରଗୁଡିକ କିପରି ଦେଖାଯିବ ତାହାର ଏକ ପୂର୍ବାବଲୋକନ ଏଠାରେ ଅଛି:</string>
     <string name="squeezer_onboarding_original_label">ମୂଳ</string>
     <string name="squeezer_onboarding_compressed_label">ସଙ୍କୋଚନ ପରେ</string>
     <string name="squeezer_onboarding_video_original_label">ଭିଡ଼ିଓ ଫ୍ରେମ</string>
     <string name="squeezer_onboarding_video_compressed_label">ପୂର୍ବାବଲୋକନ (ଆନୁମାନିକ)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">ପ୍ରକୃତ ଭିଡ଼ିଓ ଗୁଣମାନ ଭିନ୍ନ ହୋଇ ପାରେ</string>
-    <string name="squeezer_onboarding_quality_label">ଗୁଣବତ୍ତା: %d%%</string>
     <string name="squeezer_compare_action">ତୁଳନା ଦେଖନ୍ତୁ</string>
     <string name="squeezer_no_example_found">ଚୟନ ହୋଇଥିବା ପଥରେ କୌଣସି ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
     <string name="squeezer_result_empty_message">କୌଣସି ସଙ୍କୁଚିତ ଯୋଗ୍ୟ ମିଡ଼ିଆ ମିଳିଲା ନାହିଁ।</string>
-    <string name="squeezer_setup_warning">ସଙ୍କୋଚନ ଷ୍ଟୋରେଜ ସ୍ଥାନ ସଞ୍ଚୟ କରିବାକୁ ଗୁଣମାନ ସ୍ଥାୟୀଭାବେ ହ୍ରାସ କରେ। ଏହା ପୂର୍ବବତ୍ ହୋଇ ପାରିବ ନାହିଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ୟତ୍ନ ସହ ୟାଞ୍ଚ କରନ୍ତୁ।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>
         <item quantity="other">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>
@@ -109,7 +98,6 @@
         <item quantity="other">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ଫାଇଲଗୁଡ଼ିକ ପାଇଁ ଅନୁମାନିତ ~%d%% ସଞ୍ଚୟ</string>
-    <string name="squeezer_onboarding_got_it">ବୁଝିଗଲି</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ଆପଣଙ୍କର ଫଟୋ ଏବଂ ଭିଡିଓଗୁଡ଼ିକୁ ପୁନଃ-ସଙ୍କୋଚିତ କରେ ଯାହାଫଳରୁ ସେଗୁଡ଼ିକ କମ ସ୍ଥାନ ନିଏ। ଆପଣ ଯେ ସ୍ଥାନ ଫେରି ପାଆନ୍ତି ସେଥିପାଇଁ ଟିକେ ଗୁଣମାନ ବିନିମୟ କରନ୍ତି। ପ୍ରତ୍ୟେକ ବସ୍ତୁ ଏହାର ଅନୁମାନିତ ସଞ୍ଚୟ ଦେଖାଏ, ତେଣୁ ଆପଣ ଚୟନ କରିପାରିବେ ଏଟି ସାର୍ଥକ ଅଥବା ନୁହେଁ।</string>
     <string name="tour_squeezer_compress_body">ଏଠାରେ ସବୁକିଛୁ ଏକ ସାଥେ ସଙ୍କୋଚନ କରନ୍ତୁ, ବା କେବଳ ସେହି ଏକଟିକୁ ସଙ୍କୋଚନ କରିବାକୁ ଏକ ବସ୍ତୁ ଟ୍ୟାପ କରନ୍ତୁ। ଅନେକଟି ବାଛିବାକୁ ଦୀର୍ଘ-ପ୍ରେସ କରନ୍ତୁ। କୌଣସି ପରିବର୍ତନ ହେବାର ଆଗରୁ ଆପଣ ସର୍ବଦା ପୂର୍ବାବଲୋକନ ଦେଖିବେ।</string>

@@ -30,12 +30,7 @@
     <string name="squeezer_min_age_title">អាយុឯកសារតែចិត្ត</string>
     <string name="squeezer_min_age_description">រួមបញ្ចូលតើឯកសារចាសជាងអាយុនេ។</string>
     <string name="squeezer_compression_settings_label">ជាទូទៅ</string>
-    <string name="squeezer_quality_label">គុណភាព</string>
-    <string name="squeezer_quality_title">គុណភាពការចុច</string>
     <string name="squeezer_quality_description">គុណភាពតាបមានន័យថាទំហំឯកសារតូចជាងប៉ុន្តើគុណភាពមើលខើញថយចុ។</string>
-    <string name="squeezer_quality_example_format">ត័វរាង %1$s រូប → សញ្ញ ~%2$s នៅគុណភាព %3$d%%</string>
-    <string name="squeezer_quality_warning_low">គុណភាពតែចិត្តអាចនាឣទាក់ខុស្សនៅរូបបាន។</string>
-    <string name="squeezer_quality_warning_high">គុណភាព័កច្រើនពីក្រោមនិងការសញ្ញតែចិត្តទំហំផ័ឡកតូច។</string>
     <string name="squeezer_types_category_label">ការកំណត់រូបភាព</string>
     <string name="squeezer_video_settings_category_label">ការកំណត់វីដេអូ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -60,8 +55,6 @@
     <string name="squeezer_preview_dialog_title">បញ្ជាក់ការចុច</string>
     <string name="squeezer_preview_total_size">ទំហំសរុប</string>
     <string name="squeezer_preview_estimated_savings">ការសញ្ញដែលប័តិម្ឡួត់</string>
-    <string name="squeezer_compress_confirmation_title">បង្រួមធាតុដែលបានជ្រើររើស?</string>
-    <string name="squeezer_compress_confirmation_message">វានឹងជំនួសឯកសារដើមដោយកំណែដែលបានបង្រួម។ សកម្មភាពនេ័ហមិនអាចត្រល្បវឹញបានតើ។</string>
     <string name="squeezer_history_title">ប្រវត្តការចុច</string>
     <plurals name="squeezer_history_summary">
         <item quantity="other">%1$d ឯកថន្ទ់ (%2$s)</item>
@@ -69,18 +62,14 @@
     <string name="squeezer_history_empty">មិនមានប្រវត្តការចុច</string>
     <string name="squeezer_history_clear_title">លុបប្រវត្តការចុច</string>
     <string name="squeezer_history_clear_message">វានឹងអនុញ្ញាតអោយឯកសារដែលបានបង្រួមមុននេ័ត្រូវបានបង្រួមម្តងតឹត។ ឯកសារខ្លួនឯងមិនរងផលប៉ែពាលើយ។</string>
-    <string name="squeezer_onboarding_title">អានស័ម្ព័ន្ធការចុចរូប</string>
-    <string name="squeezer_onboarding_message">ការចុចរូបកំណត់ទំហំឯកសារដោយការលុបសម្ឆាល់វិសួយ។ ដ្វងនេឣមិនអាចដក្កើតវិញបាន–គុណភាពដើម្បីមិនអាចផ័ត់វិញបាន។\n\nនេឣជាការមើលឹករបស់អ្នកនៅក្រើ៖</string>
     <string name="squeezer_onboarding_original_label">ត់បញ់ដើម</string>
     <string name="squeezer_onboarding_compressed_label">ប័កការចុច</string>
     <string name="squeezer_onboarding_video_original_label">ស្រតាប់វីដេអូ</string>
     <string name="squeezer_onboarding_video_compressed_label">មើលជាមុន (ប្រហាក់ប្រហែល)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">គុណភាពវីដេអូជាក់ស័ត្តែអាចខុសគ្នា</string>
-    <string name="squeezer_onboarding_quality_label">គុណភាព៖ %d%%</string>
     <string name="squeezer_compare_action">មើលការបរន័យប័កគ្នា</string>
     <string name="squeezer_no_example_found">មិនន័ឯកសាររូបនៅផ្លូវដែលបានជ្រើស។</string>
     <string name="squeezer_result_empty_message">រកមិនឃើញមេដីអដែលអាចបង្រួមបាន។</string>
-    <string name="squeezer_setup_warning">ការបង្រួមកាត់បន្ថយគុណភាពជាអចិន្ត្រ័យ៍ ដើម្បីសន្សំទំហំផ្ទុក។ វាមិនអាចត្រល្បវឹញបានតើ។ ពិនិតការកំណត់របស់អ្នកដោយប្រុងប្រយ័ត្តនមុននឹងចាបផ័តើម។</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d តីតំហងមិនអាចប្រើសសម្រាប់ការបង្រួម ហើយត្រូវបានដកចើញ។ ការបង្រួមតម្រួវអោយចូលដំណើរការផ្តល់ទឹលកន្លងផ្ទុកខាងក្នុង។</item>
     </plurals>
@@ -98,7 +87,6 @@
         <item quantity="other">អាយុយឹងតិ %d ថ្ង័ឡក្នៅមក</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ការសន្សំប្រហាក់ប្រហែល ~%d%% សម្រាប់ឯកសារ JPEG</string>
-    <string name="squeezer_onboarding_got_it">យល់ហើយ</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ធ្វើឱ្យលុតសងខ្លឹមសាររូបថត និងវីដេអូរបស់អ្នក ដូច្នេះវាកាន់កាប់ទំហំតូចជាង។ អ្នកផ្លាស់ប្តូរគុណភាពបន្តិចបន្ថែមសម្រាប់ទំហំដែលអ្នកទទួលបាន។ វត្ថុនីមួយៗបង្ហាញការសន្សំប៉ាន់ស្មាននៃវា ដូច្នេះអ្នកអាចសម្រេចចិត្តថាវាមានតម្លៃប៉ុណ្ណា។</string>
     <string name="tour_squeezer_compress_body">បង្ហាប់អ្វីៗក្នុងពេលតែមួយនៅទីនេះ ឬចុចធាតុតែមួយដើម្បីកាត់បន្ថយតែវា។ ចុចរយៈពេលវែងដើម្បីជ្រើសរើសច្រើន។ អ្នកនឹងបានឃើញការមើលមុនជានិច្ចមុននឹងមានការផ្លាស់ប្តូរអ្វី។</string>

@@ -54,12 +54,7 @@
     <string name="squeezer_min_age_title">Najmanjša starost datoteke</string>
     <string name="squeezer_min_age_description">Vključi samo datoteke, starejše od te starosti.</string>
     <string name="squeezer_compression_settings_label">Splošno</string>
-    <string name="squeezer_quality_label">Kakovost</string>
-    <string name="squeezer_quality_title">Kakovost stiskanja</string>
     <string name="squeezer_quality_description">Nižja kakovost pomeni manjšo velikost datoteke, vendar slabšo vizualno kakovost.</string>
-    <string name="squeezer_quality_example_format">Primer: slika %1$s → prihranite ~%2$s pri %3$d%% kakovosti.</string>
-    <string name="squeezer_quality_warning_low">Nižje kakovosti lahko povzročijo vidna popačenja.</string>
-    <string name="squeezer_quality_warning_high">Zelo visoka kakovost omogoča le majhen prihranek prostora.</string>
     <string name="squeezer_types_category_label">Nastavitve slik</string>
     <string name="squeezer_video_settings_category_label">Nastavitve videoposnetkov</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -84,8 +79,6 @@
     <string name="squeezer_preview_dialog_title">Potrdi stiskanje</string>
     <string name="squeezer_preview_total_size">Skupna velikost</string>
     <string name="squeezer_preview_estimated_savings">Predviden prihranek</string>
-    <string name="squeezer_compress_confirmation_title">Stisni izbrane predmete?</string>
-    <string name="squeezer_compress_confirmation_message">To bo nadomestilo izvirne datoteke s stisnjenimi različicami. Tega dejanja ni mogoče razveljaviti.</string>
     <string name="squeezer_history_title">Zgodovina stiskanja</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d predmet (%2$s)</item>
@@ -96,18 +89,14 @@
     <string name="squeezer_history_empty">Ni zgodovine stiskanja.</string>
     <string name="squeezer_history_clear_title">Počisti zgodovino stiskanja</string>
     <string name="squeezer_history_clear_message">To bo omogočilo, da se predhodno stisnjene datoteke stisnejo znova. Same datoteke ne bodo prizadete.</string>
-    <string name="squeezer_onboarding_title">O stiskanju slik</string>
-    <string name="squeezer_onboarding_message">Stiskanje slik zmanjša velikost datoteke z odstranitvijo vizualnih podrobnosti.  Ta postopek je nepovraten – izvirne kakovosti ni mogoče obnoviti.\n\nTu je predogled, kako bodo izgledale vaše slike:</string>
     <string name="squeezer_onboarding_original_label">Izvirnik</string>
     <string name="squeezer_onboarding_compressed_label">Po stiskanju</string>
     <string name="squeezer_onboarding_video_original_label">Sličica videa</string>
     <string name="squeezer_onboarding_video_compressed_label">Predogled (približno)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Dejanska kakovost videa se lahko razlikuje</string>
-    <string name="squeezer_onboarding_quality_label">Kakovost: %d%%</string>
     <string name="squeezer_compare_action">Pokaži primerjavo</string>
     <string name="squeezer_no_example_found">Na izbranih poteh ni bilo mogoče najti slik.</string>
     <string name="squeezer_result_empty_message">Ni stisljive predstavnostne vsebine.</string>
-    <string name="squeezer_setup_warning">Stiskanje trajno zmanjša kakovost za prihranek prostora. Tega ni mogoče razveljaviti. Pred začetkom skrbno preglejte nastavitve.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokacije ni mogoče uporabiti za stiskanje in je bila odstranjena. Stiskanje zahteva neposreden dostop do notranjega pomnilnika.</item>
         <item quantity="two">%d lokaciji ni mogoče uporabiti za stiskanje in sta bili odstranjeni. Stiskanje zahteva neposreden dostop do notranjega pomnilnika.</item>
@@ -131,7 +120,6 @@
         <item quantity="other">Vsaj %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ocenjeno ~%d%% prihrankov za datoteke JPEG</string>
-    <string name="squeezer_onboarding_got_it">Razumem!</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ponovno stisne vaše fotografije in video posnetke, da zavzamejo manj prostora. Malo kakovosti zamenjate za prostor, ki ga pridobite. Vsaka postavka prikazuje ocenjeno varčevanje, da se lahko odločite, kaj se splača.</string>
     <string name="tour_squeezer_compress_body">Stisnite vse naenkrat tukaj ali pritisnite en predmet, da ga zmanjšate. Dolgo pritisnite, da izberete več. Pred kakršnimi koli spremembami vedno vidite predogled.</string>

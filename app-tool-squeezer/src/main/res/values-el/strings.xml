@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Ελάχιστη ηλικία αρχείου</string>
     <string name="squeezer_min_age_description">Συμπερίληψη μόνο αρχείων παλαιότερων από αυτή την ηλικία.</string>
     <string name="squeezer_compression_settings_label">Γενικά</string>
-    <string name="squeezer_quality_label">Ποιότητα</string>
-    <string name="squeezer_quality_title">Ποιότητα συμπίεσης</string>
     <string name="squeezer_quality_description">Χαμηλότερη ποιότητα σημαίνει μικρότερο μέγεθος αρχείου αλλά μειωμένη οπτική ποιότητα.</string>
-    <string name="squeezer_quality_example_format">Παράδειγμα: %1$s εικόνα → εξοικονομεί ~%2$s σε %3$d%% ποιότητα</string>
-    <string name="squeezer_quality_warning_low">Χαμηλότερες ποιότητες μπορεί να προκαλέσουν ορατά τεχνουργήματα.</string>
-    <string name="squeezer_quality_warning_high">Πολύ υψηλή ποιότητα παρέχει ελάχιστη εξοικονόμηση χώρου.</string>
     <string name="squeezer_types_category_label">Ρυθμίσεις εικόνας</string>
     <string name="squeezer_video_settings_category_label">Ρυθμίσεις βίντεο</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Επιβεβαίωση συμπίεσης</string>
     <string name="squeezer_preview_total_size">Συνολικό μέγεθος</string>
     <string name="squeezer_preview_estimated_savings">Εκτιμώμενη εξοικονόμηση</string>
-    <string name="squeezer_compress_confirmation_title">Συμπίεση επιλεγμένων στοιχείων;</string>
-    <string name="squeezer_compress_confirmation_message">Αυτό θα αντικαταστήσει τα αρχικά αρχεία με συμπιεσμένες εκδόσεις. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="squeezer_history_title">Ιστορικό συμπίεσης</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d στοιχείο (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Κανένα ιστορικό συμπίεσης</string>
     <string name="squeezer_history_clear_title">Εκκαθάριση ιστορικού συμπίεσης</string>
     <string name="squeezer_history_clear_message">Αυτό θα επιτρέψει σε αρχεία που έχουν ήδη συμπιεστεί να συμπιεστούν ξανά. Τα ίδια τα αρχεία δεν επηρεάζονται.</string>
-    <string name="squeezer_onboarding_title">Σχετικά με τη Συμπίεση Εικόνων</string>
-    <string name="squeezer_onboarding_message">Η συμπίεση εικόνων μειώνει το μέγεθος αρχείου αφαιρώντας οπτική λεπτομέρεια. Αυτή η διαδικασία είναι μη αναστρέψιμη - η αρχική ποιότητα δεν μπορεί να αποκατασταθεί.\n\nΑκολουθεί μια προεπισκόπηση του πώς θα μοιάζουν οι εικόνες σας:</string>
     <string name="squeezer_onboarding_original_label">Πρωτότυπο</string>
     <string name="squeezer_onboarding_compressed_label">Μετά τη συμπίεση</string>
     <string name="squeezer_onboarding_video_original_label">Καρέ βίντεο</string>
     <string name="squeezer_onboarding_video_compressed_label">Προεπισκόπηση (κατά προσέγγιση)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Η πραγματική ποιότητα βίντεο μπορεί να διαφέρει</string>
-    <string name="squeezer_onboarding_quality_label">Ποιότητα: %d%%</string>
     <string name="squeezer_compare_action">Προβολή σύγκρισης</string>
     <string name="squeezer_no_example_found">Δεν βρέθηκαν εικόνες στις επιλεγμένες διαδρομές.</string>
     <string name="squeezer_result_empty_message">Δεν βρέθηκαν συμπιέσιμα αρχεία πολυμέσων.</string>
-    <string name="squeezer_setup_warning">Η συμπίεση μειώνει μόνιμα την ποιότητα για εξοικονόμηση αποθηκευτικού χώρου. Αυτό δεν μπορεί να αναιρεθεί. Ελέγξτε προσεκτικά τις ρυθμίσεις σας πριν ξεκινήσετε.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d τοποθεσία δεν μπορεί να χρησιμοποιηθεί για συμπίεση και αφαιρέθηκε. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>
         <item quantity="other">%d τοποθεσίες δεν μπορούν να χρησιμοποιηθούν για συμπίεση και αφαιρέθηκαν. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Τουλάχιστον %d ημέρες παλιό</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Εκτιμώμενη ~%d%% εξοικονόμηση για αρχεία JPEG</string>
-    <string name="squeezer_onboarding_got_it">Το κατάλαβα</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Το Squeezer συμπιέζει εκ νέου τις φωτογραφίες και τα βίντεό σας ώστε να καταλαμβάνουν λιγότερο χώρο. Ανταλλάσσετε λίγη ποιότητα με τον χώρο που ανακτάτε. Κάθε στοιχείο εμφανίζει την εκτιμώμενη εξοικονόμησή του, ώστε να μπορείτε να αποφασίσετε τι αξίζει.</string>
     <string name="tour_squeezer_compress_body">Συμπιέστε τα πάντα ταυτόχρονα εδώ ή πατήστε ένα μόνο στοιχείο για να συμπιέσετε μόνο αυτό. Πατήστε παρατεταμένα για να επιλέξετε πολλά. Θα δείτε πάντα μια προεπισκόπηση πριν αλλάξει κάτι.</string>

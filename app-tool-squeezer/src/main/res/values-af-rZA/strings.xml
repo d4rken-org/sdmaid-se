@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">Minimum lêerouderdom</string>
     <string name="squeezer_min_age_description">Sluit slegs lêers in wat ouer is as hierdie ouderdom.</string>
     <string name="squeezer_compression_settings_label">Algemeen</string>
-    <string name="squeezer_quality_label">Kwaliteit</string>
-    <string name="squeezer_quality_title">Kompressiekwaliteit</string>
     <string name="squeezer_quality_description">Laer kwaliteit beteken \'n kleiner lêergrootte maar verminderde visuele kwaliteit.</string>
-    <string name="squeezer_quality_example_format">Voorbeeld: %1$s beeld → bespaar ~%2$s teen %3$d%% kwaliteit</string>
-    <string name="squeezer_quality_warning_low">Laer kwaliteite kan sigbare artefakte veroorsaak.</string>
-    <string name="squeezer_quality_warning_high">Baie hoë kwaliteit bied minimale ruimtebesparings.</string>
     <string name="squeezer_types_category_label">Beeldinstellings</string>
     <string name="squeezer_video_settings_category_label">Video-instellings</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">Bevestig kompressie</string>
     <string name="squeezer_preview_total_size">Totale grootte</string>
     <string name="squeezer_preview_estimated_savings">Beraamde besparing</string>
-    <string name="squeezer_compress_confirmation_title">Gekose items komprimeer?</string>
-    <string name="squeezer_compress_confirmation_message">Dit sal oorspronklike lêers vervang met gekomprimeerde weergawes. Hierdie aksie kan nie ongedaan gemaak word nie.</string>
     <string name="squeezer_history_title">Kompressiegeskiedenis</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">Geen kompressiegeskiedenis nie</string>
     <string name="squeezer_history_clear_title">Vee kompressiegeskiedenis uit</string>
     <string name="squeezer_history_clear_message">Dit sal toelaat dat voorheen gekomprimeerde lêers weer gekomprimeer word. Die lêers self word nie geraak nie.</string>
-    <string name="squeezer_onboarding_title">Oor beeldkompressie</string>
-    <string name="squeezer_onboarding_message">Beeldkompressie verminder lêergrootte deur visuele detail te verwyder. Hierdie proses is onomkeerbaar - die oorspronklike kwaliteit kan nie herstel word nie.\n\nHier is \'n voorskou van hoe jou beelde sal lyk:</string>
     <string name="squeezer_onboarding_original_label">Oorspronklik</string>
     <string name="squeezer_onboarding_compressed_label">Na kompressie</string>
     <string name="squeezer_onboarding_video_original_label">Videoraam</string>
     <string name="squeezer_onboarding_video_compressed_label">Voorskou (benaderd)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">Werklike videokwaliteit kan verskil</string>
-    <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
     <string name="squeezer_compare_action">Bekyk vergelyking</string>
     <string name="squeezer_no_example_found">Geen beelde gevind in gekose paaie nie.</string>
     <string name="squeezer_result_empty_message">Geen komprimeerbare media gevind nie.</string>
-    <string name="squeezer_setup_warning">Kompressie verminder kwaliteit permanent om bergingspasie te bespaar. Dit kan nie ongedaan gemaak word nie. Hersien jou instellings noukeurig voor jy begin.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ligging kan nie vir kompressie gebruik word nie en is verwyder. Kompressie vereis direkte toegang tot interne berging.</item>
         <item quantity="other">%d liggings kan nie vir kompressie gebruik word nie en is verwyder. Kompressie vereis direkte toegang tot interne berging.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">Ten minste %d dae oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Geskatte ~%d%% besparing vir JPEG-lêers</string>
-    <string name="squeezer_onboarding_got_it">Verstaan</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer druk jou foto\'s en video\'s weer saam sodat hulle minder plek inneem. Jy ruil \'n bietjie kwaliteit vir die ruimte wat jy bespaar. Elke item toon sy geraamde besparing, sodat jy kan besluit watter items die moeite werd is.</string>
     <string name="tour_squeezer_compress_body">Komprimeer alles op een keer hier, of tik \'n enkele item om slegs daardie een te verklein. Lank vashou om verskeie te kies. Jy sal altyd \'n voorskou sien voordat enigiets verander.</string>

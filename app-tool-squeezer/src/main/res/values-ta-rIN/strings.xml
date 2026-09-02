@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">குறைந்தபட்ச கோப்பு வயது</string>
     <string name="squeezer_min_age_description">இந்த வயதை விட பழைய கோப்புகளை மட்டும் சேர்க்கவும்.</string>
     <string name="squeezer_compression_settings_label">போது</string>
-    <string name="squeezer_quality_label">தரம்</string>
-    <string name="squeezer_quality_title">சுருக்கத் தரம்</string>
     <string name="squeezer_quality_description">குறைந்த தரம் என்பது சிறிய கோப்பு அளவைக் குறிக்கும், ஆனால் காட்சி தரம் குறையும்.</string>
-    <string name="squeezer_quality_example_format">எடுத்துக்காட்டு: %1$s படம் → %3$d%% தரத்தில் ~%2$s மிச்சம்</string>
-    <string name="squeezer_quality_warning_low">குறைந்த தரங்களில் கண்ணுக்குத் தெரியும் குறைபாடுகள் ஏற்படலாம்.</string>
-    <string name="squeezer_quality_warning_high">மிக உயர் தரம் குறைந்தபட்ச இட மிச்சத்தை வழங்குகிறது.</string>
     <string name="squeezer_types_category_label">படம் அமைப்புகள்</string>
     <string name="squeezer_video_settings_category_label">வீடியோ அமைப்புகள்</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">சுருக்கத்தை உறுதிப்படுத்து</string>
     <string name="squeezer_preview_total_size">மொத்த அளவு</string>
     <string name="squeezer_preview_estimated_savings">மதிப்பிடப்பட்ட மிச்சம்</string>
-    <string name="squeezer_compress_confirmation_title">தேர்ந்தெடுக்கப்பட்ட உருப்படிகளை சுருக்கவா?</string>
-    <string name="squeezer_compress_confirmation_message">இது அசல் கோப்புகளை சுருக்கப்பட்ட பதிப்புகளால் மாற்றும். இந்த செயலை மீட்டெடுக்க முடியாது.</string>
     <string name="squeezer_history_title">சுருக்க வரலாறு</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d உருப்படி (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">சுருக்க வரலாறு இல்லை</string>
     <string name="squeezer_history_clear_title">சுருக்க வரலாற்றை அழி</string>
     <string name="squeezer_history_clear_message">இது முந்பு சுருக்கப்பட்ட கோப்புகளை மீண்டும் சுருக்க அனுமதிக்கும். கோப்புகளே பாதிக்கப்படாது.</string>
-    <string name="squeezer_onboarding_title">பட சுருக்கம் பற்றி</string>
-    <string name="squeezer_onboarding_message">பட சுருக்கம் காட்சி விவரங்களை நீக்குவதன் மூலம் கோப்பு அளவைக் குறைக்கிறது. இந்தச் செயல்முறை மீளமுடியாதது - அசல் தரத்தை மீட்டெடுக்க முடியாது.\n\nஉங்கள் படங்கள் எப்படி இருக்கும் என்பதன் முன்னோட்டம்:</string>
     <string name="squeezer_onboarding_original_label">அசல்</string>
     <string name="squeezer_onboarding_compressed_label">சுருக்கத்திற்குப் பிறகு</string>
     <string name="squeezer_onboarding_video_original_label">வீடியோ சட்டகம்</string>
     <string name="squeezer_onboarding_video_compressed_label">முன்னோட்டம் (தோராயமான)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">உண்மையான வீடியோ தரம் வேறுபடலாம்</string>
-    <string name="squeezer_onboarding_quality_label">தரம்: %d%%</string>
     <string name="squeezer_compare_action">ஒப்பீட்டைக் காண்</string>
     <string name="squeezer_no_example_found">தேர்ந்தெடுக்கப்பட்ட பாதைகளில் படங்கள் காணப்படவில்லை.</string>
     <string name="squeezer_result_empty_message">சுருக்கக்கூடிய ஊடகம் எதுவும் கிடைக்கவில்லை.</string>
-    <string name="squeezer_setup_warning">சுருக்கம் தரத்தை நிரந்தரமாக குறைக்கும், சேமிப்பு இடத்தை மிச்சப்படுத்த. இதை மீட்டெடுக்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக சரிபார்க்கவும்.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d இடத்தை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டது. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>
         <item quantity="other">%d இடங்களை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டன. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>
@@ -109,7 +98,6 @@
         <item quantity="other">குறைந்தது %d நாட்கள் பழமையானது</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG கோப்புகளுக்கு மதிப்பிடப்பட்ட ~%d%% சேமிப்பு</string>
-    <string name="squeezer_onboarding_got_it">புரிந்தது</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer உங்கள் புகைப்படங்கள் மற்றும் வீடியோக்களை மீண்டும் சுருக்குகிறது, அதனால் அவை குறைவான இடம் எடுக்கின்றன. நீங்கள் கொஞ்சம் தரத்தை விட்டுக்கொடுத்து கூடுதல் இடத்தைப் பெறுகிறீர்கள். ஒவ்வொரு உருப்படிக்கும் அதன் மதிப்பிடுக்கப்பட்ட சேமிப்பு காட்டப்படுகிறது, அதனால் நீங்கள் என்ன மதிப்பு உள்ளது என்பதை முடிவு செய்யலாம்.</string>
     <string name="tour_squeezer_compress_body">இங்கு எல்லாவற்றையும் ஒரே முறையில் சுருக்கவும், அல்லது ஒரு பொருளை தட்டி அது மட்டும் சுருக்கவும். பல பொருட்களை தேர்வு செய்ய நீண்ட அழுத்தம் செய்யவும். எந்த மாற்றமும் நிகழ்வதற்கு முன் நீங்கள் எப்போழுமும் ஒரு முன்னோட்டத்தைக் காணலாம்.</string>

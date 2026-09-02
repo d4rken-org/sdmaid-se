@@ -38,12 +38,7 @@
     <string name="squeezer_min_age_title">न्यूनतम फाइल उमेर</string>
     <string name="squeezer_min_age_description">यो उमेरभन्दा पुराना फाइलहरू मात्र समावेश गर्नुहोस्।</string>
     <string name="squeezer_compression_settings_label">सामान्य</string>
-    <string name="squeezer_quality_label">गुणस्तर</string>
-    <string name="squeezer_quality_title">संकुचन गुणस्तर</string>
     <string name="squeezer_quality_description">कम गुणस्तरको अर्थ सानो फाइल आकार तर घटेको दृश्य गुणस्तर हो।</string>
-    <string name="squeezer_quality_example_format">उदाहरण: %1$s छवि → %3$d%% गुणस्तरमा ~%2$s बचत गर्छ</string>
-    <string name="squeezer_quality_warning_low">न्यून गुणस्तरले दृश्यमान कलाकृतिहरू निम्त्याउन सक्छ।</string>
-    <string name="squeezer_quality_warning_high">अत्यधिक उच्च गुणस्तरले न्यूनतम स्थान बचत प्रदान गर्छ।</string>
     <string name="squeezer_types_category_label">छवि सेटिङहरू</string>
     <string name="squeezer_video_settings_category_label">भिडियो सेटिङहरू</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -68,8 +63,6 @@
     <string name="squeezer_preview_dialog_title">संकुचन पुष्टि गर्नुहोस्</string>
     <string name="squeezer_preview_total_size">कुल आकार</string>
     <string name="squeezer_preview_estimated_savings">अनुमानित बचत</string>
-    <string name="squeezer_compress_confirmation_title">चयन गरिएका वस्तुहरू सम्पीडन गर्ने?</string>
-    <string name="squeezer_compress_confirmation_message">यसले मूल फाइलहरूलाई सम्पीडन गरिएका संस्करणहरूले प्रतिस्थापन गर्नेछ। यो कार्य पूर्ववत् गर्न सकिँदैन।</string>
     <string name="squeezer_history_title">संकुचन इतिहास</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">1 वस्तु (%2$s)</item>
@@ -78,18 +71,14 @@
     <string name="squeezer_history_empty">कुनै संकुचन इतिहास छैन</string>
     <string name="squeezer_history_clear_title">संकुचन इतिहास सफा गर्नुहोस्</string>
     <string name="squeezer_history_clear_message">यसले पहिले सम्पीडन गरिएका फाइलहरूलाई फेरि सम्पीडन गर्न अनुमति दिनेछ। फाइलहरू आफैंमा प्रभावित हुँदैनन्।</string>
-    <string name="squeezer_onboarding_title">छवि संकुचन बारे</string>
-    <string name="squeezer_onboarding_message">छवि संकुचनले दृश्य विवरण हटाेर फाइल आकार घटाउँछ। यो प्रक्रिया अपरिवर्तनीय छ - मूल गुणस्तर पुनः स्थापन गर्न सकिँदैन।\n\nतपाईंका छविहरू कस्तो देखिनेछन् भन्ने पूर्वावलोकन:</string>
     <string name="squeezer_onboarding_original_label">मूल</string>
     <string name="squeezer_onboarding_compressed_label">संकुचनपछि</string>
     <string name="squeezer_onboarding_video_original_label">भिडियो फ्रेम</string>
     <string name="squeezer_onboarding_video_compressed_label">पूर्वावलोकन (अनुमानित)</string>
     <string name="squeezer_onboarding_video_quality_disclaimer">वास्तविक भिडियो गुणस्तर फरक हुन सक्छ</string>
-    <string name="squeezer_onboarding_quality_label">गुणस्तर: %d%%</string>
     <string name="squeezer_compare_action">तुलना हेर्नुहोस्</string>
     <string name="squeezer_no_example_found">चयनित पाथहरूमा कुनै छवि फेला परेन।</string>
     <string name="squeezer_result_empty_message">कुनै सम्पीडन गर्न मिल्ने मिडिया फेला परेन।</string>
-    <string name="squeezer_setup_warning">सम्पीडनले भण्डारण स्थान बचत गर्न गुणस्तर स्थायी रूपमा घटाउँछ। यो पूर्ववत् गर्न सकिँदैन। सुरु गर्नुअघि आफ्नो सेटिङहरू ध्यानपूर्वक समीक्षा गर्नुहोस्।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d स्थान सम्पीडनका लागि प्रयोग गर्न सकिँदैन र हटाइयो। सम्पीडनका लागि आन्तरिक भण्डारणमा प्रत्यक्ष पहुँच आवश्यक छ।</item>
         <item quantity="other">%d स्थानहरू सम्पीडनका लागि प्रयोग गर्न सकिँदैन र हटाइए। सम्पीडनका लागि आन्तरिक भण्डारणमा प्रत्यक्ष पहुँच आवश्यक छ।</item>
@@ -109,7 +98,6 @@
         <item quantity="other">कम्तिमा %d दिन पुरानो</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG फाइलहरूको लागि अनुमानित ~%d%% बचत</string>
-    <string name="squeezer_onboarding_got_it">ठिक छ</string>
     <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer तपाईंको फोटो र भिडियोहरूलाई पुनः संकुचित गर्दछ ताकि तिनीहरूले कम स्थान लिनू पर्छ। तपाईंले अलिकति गुणस्तर गुमाएर ठाउँ पाउनु हुन्छ। प्रत्येक वस्तुले यसको अनुमानित बचत देखाउछ, त्यसैले तपाईं निर्णय गर्न सक्नुहुन्छ कि कुन लायक छ।</string>
     <string name="tour_squeezer_compress_body">सबै कुरा एक साथ यहाँ संपीडन गर्नुहोस्, वा एकल वस्तुमा ट्याप गर्नुहोस् केवल त्यसलाई सानो गर्न। बहुविध छनौट गर्न लामो दबाउनुहोस्। तपाईंले सधैं कुनै पनि परिवर्तन हुनु अघि पूर्वावलोकन देख्नुहुनेछ।</string>
