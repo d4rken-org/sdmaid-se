@@ -34,7 +34,10 @@ EXPECTED_PER_LOCALE=${#SLOT[@]}
 CLEAN=0
 [[ "${1:-}" == "--clean" ]] && CLEAN=1
 
-mapfile -t PNGS < <(find . -type d -name reference -path '*screenshotTest*' -prune -exec find {} -name '*.png' \; 2>/dev/null | sort)
+# The gplay variant renders the same Play Store screens as Foss (its reference dir fills up when
+# :app:updateGplayDebugScreenshotTest runs for the Crowdin renders). Both would map to the same
+# slot, so the store set stays Foss-only and gplay is excluded here.
+mapfile -t PNGS < <(find . -type d -name reference -path '*screenshotTest*' -not -path '*screenshotTestGplayDebug*' -prune -exec find {} -name '*.png' \; 2>/dev/null | sort)
 if [[ ${#PNGS[@]} -eq 0 ]]; then
   echo "ERROR: no rendered PNGs found. Run fastlane/generate_screenshots.sh first." >&2
   exit 1
@@ -47,6 +50,10 @@ declare -a JOBS         # "locale<TAB>slot<TAB>src"
 FAIL=0
 
 for src in "${PNGS[@]}"; do
+  # Crowdin translator-context renders (CrowdinScreenshots.kt) live in the same reference dirs but
+  # are not store screens: en-US only, no slot. Skip them before the manifest lookup below, which
+  # treats an unknown function as a hard error.
+  [[ "$src" == */CrowdinScreenshotsKt/* ]] && continue
   base="$(basename "$src" .png)"
   # <Func>_<locale>_<hash>_<idx> — Func has no underscore; locale may contain hyphens.
   func="${base%%_*}"
