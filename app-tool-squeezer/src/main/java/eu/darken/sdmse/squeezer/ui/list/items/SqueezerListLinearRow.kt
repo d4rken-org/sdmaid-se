@@ -72,13 +72,10 @@ internal fun SqueezerListLinearRow(
         selected = isSelected,
         onClick = onTap,
         onLongClick = onLongPress,
-        // The row outgrows the 56dp thumbnail once chips are present; anchoring to the top keeps
-        // the thumbnail level with the filename instead of floating beside the chips.
-        verticalAlignment = Alignment.Top,
     ) {
         Box(
             modifier = Modifier
-                .size(56.dp)
+                .size(64.dp)
                 .clip(RoundedCornerShape(4.dp))
                 .combinedClickable(
                     onClick = onPreviewTap,
@@ -160,7 +157,9 @@ private fun SqueezeChipRow(media: CompressibleMedia) {
     if (!wasCompressed && !hasLossyAux) return
 
     FlowRow(
-        modifier = Modifier.testTag(SqueezerListLinearRowTags.MARKER_ROW),
+        modifier = Modifier
+            .padding(top = 2.dp)
+            .testTag(SqueezerListLinearRowTags.MARKER_ROW),
         horizontalArrangement = Arrangement.spacedBy(4.dp),
         verticalArrangement = Arrangement.spacedBy(4.dp),
     ) {
