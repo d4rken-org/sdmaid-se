@@ -1,9 +1,5 @@
-Xin chào 👋
-SD Maid 2/SE đang được phát triển tích cực—tôi luôn thêm những thứ mới!
-Có ý tưởng gì không? Hãy cho tôi biết 😊
+Sửa lỗi và cải thiện nhỏ, giúp bạn lấy lại nhiều dung lượng hơn mà đỡ phiền hơn.
 
-🐛 Sửa lỗi, 🚀 cải thiện hiệu suất, có thể cả ✨ tính năng mới nữa.
+Những gì đã thay đổi trong phiên bản này: sdmse.darken.eu/changelog
 
-Nhật ký thay đổi: https://sdmse.darken.eu/changelog
-
-Lưu ý: Chỉ có mình tôi ở đây thôi, đôi khi phản hồi có thể mất một chút thời gian. Xin lỗi vì điều đó!
+Có gì đó bị hỏng hoặc hoạt động lạ sau khi cập nhật? Hãy cho tôi biết qua Cài đặt > Hỗ trợ. Đây là dự án một người, nên phản hồi có thể mất một chút thời gian, nhưng mọi báo cáo đều được đọc.

@@ -1,9 +1,5 @@
-Salude 👋
-SD Maid 2/SE est isvilupadu attivamente—sempre so agiunghende cosas noas!
-Tenes ideas? Narami 😊
+Correziones de errores e piticos megioramentos, pro recuperare prus ispàtziu cun mancu fastizu.
 
-🐛 Correziones de errores, 🚀 megioramentos de rendimentu, forsis fintzas ✨ funtzionalidades noas.
+Ite est mudadu in custa versione: sdmse.darken.eu/changelog
 
-Changelog: https://sdmse.darken.eu/changelog
-
-FYI: Deo so su solu inoghe, a botes sas rispostas podent tardare unu pagu. Iscusademi pro custu!
+Calicuna cosa si est ruptu o si cumportat in manera istrana a pustis de s'atualizatzione? Nàrami in Impostatzonis > Suportu. Est unu progetu de una persone ebbia, duncas sas rispostas podent tardare unu pagu, ma dogni informe benit lèghidu.

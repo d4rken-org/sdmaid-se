@@ -1,9 +1,5 @@
-Përshëndetje 👋
-SD Maid 2/SE është në zhvillim aktiv—unë po shtoj gjithmonë gjëra të reja!
-Keni ide? Më tregoni 😊
+Ndreqje gabimesh dhe përmirësime të vogla, që të fitosh më shumë hapësirë me më pak telashe.
 
-🐛 Ndreqje gabimesh, 🚀 përmirësime performance, mbase edhe ✨ veçori të reja.
+Çfarë ndryshoi në këtë version: sdmse.darken.eu/changelog
 
-Changelog: https://sdmse.darken.eu/changelog
-
-FYI: Jam vetëm unë këtu, ndonjëherë përgjigjet mund të marrin pak kohë. Na falni për këtë!
+Diçka u prish ose sillet çuditshëm pas përditësimit? Më trego përmes Cilësimet > Përkrahje. Është një projekt i një personi, kështu që përgjigjet mund të vonojnë pak, por çdo raportim lexohet.

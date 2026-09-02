@@ -1,9 +1,5 @@
-Labas 👋
-SD Maid 2/SE yra aktyviai plėtojamas—nuolat pridedame naujų dalykų!
-Turite idėjų? Pasakykite man 😊
+Klaidų taisymai ir smulkūs patobulinimai, kad atgautum daugiau vietos su mažiau vargo.
 
-🐛 Klaidų ištaisymai, 🚀 našumo pagerinimai, galbūt net ✨ naujos funkcijos.
+Kas pasikeitė šioje versijoje: sdmse.darken.eu/changelog
 
-Pakeitimų žurnalas: https://sdmse.darken.eu/changelog
-
-Pastaba: Čia esu tik aš vienas, kartais atsakymai gali šiek tiek užtrukti. Atsiprašau už tai!
+Kažkas sugedo ar veikia keistai po atnaujinimo? Pranešk man per Nustatymai > Pagalba. Tai vieno žmogaus projektas, todėl atsakymai gali šiek tiek užtrukti, bet kiekvienas pranešimas perskaitomas.

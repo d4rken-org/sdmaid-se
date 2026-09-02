@@ -1,9 +1,5 @@
-Tere 👋
-SD Maid 2/SE arendatakse aktiivselt—ma lisan kogu aeg uusi asju!
-On ideid? Anna mulle teada 😊
+Vigade parandused ja väiksed täiustused, et saaksid vähema vaevaga rohkem ruumi tagasi.
 
-🐛 Vigade parandused, 🚀 jõudluse täiustused, võib-olla isegi ✨ uued funktsioonid.
+Mis selles versioonis muutus: sdmse.darken.eu/changelog
 
-Muudatuste logi: https://sdmse.darken.eu/changelog
-
-Teadmiseks: Siin olen ainult mina, mõnikord võivad vastused natuke aega võtta. Vabandust selle eest!
+Kas midagi läks pärast uuendamist katki või käitub imelikult? Anna mulle teada Seaded > Klienditugi kaudu. See on ühe inimese projekt, seega vastamine võib veidi aega võtta, kuid iga teade saab loetud.

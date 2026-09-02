@@ -1,9 +1,5 @@
-Hej 👋
-SD Maid 2/SE er under aktiv udvikling—jeg tilføjer hele tiden nye ting!
-Har du idéer? Lad mig vide det 😊
+Fejlrettelser og små forbedringer, så du får mere plads tilbage med mindre besvær.
 
-🐛 Fejlrettelser, 🚀 ydeevneforbedringer, måske endda ✨ nye funktioner.
+Hvad der er ændret i denne version: sdmse.darken.eu/changelog
 
-Ændringslog: https://sdmse.darken.eu/changelog
-
-Bemærk: Det er kun mig her, så nogle gange kan svar tage lidt tid. Undskyld for det!
+Er noget gået i stykker, eller opfører appen sig underligt efter opdateringen? Sig til via Indstillinger > Support. Det er et enmandsprojekt, så svar kan tage lidt tid, men alle rapporter bliver læst.
