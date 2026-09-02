@@ -50,15 +50,15 @@ private const val MASCOT_ASPECT_RATIO = 640f / 866f
 
 private val NEW_YEAR_HAT = HatConfig(
     drawableRes = R.drawable.mascot_hat_newyears_crop,
-    rotation = 30f,
+    rotation = 25f,
     widthPercent = 0.6701f,
     heightPercent = 0.4815f,
-    leftPercent = 0.5105f,
-    topPercent = -0.2874f,
-    visibleLeft = 0.5231f,
-    visibleTop = -0.3356f,
-    visibleRight = 1.2155f,
-    visibleBottom = 0.2182f,
+    leftPercent = 0.4405f,
+    topPercent = -0.2074f,
+    visibleLeft = 0.4642f,
+    visibleTop = -0.246f,
+    visibleRight = 1.1464f,
+    visibleBottom = 0.2941f,
 )
 
 private val CHRISTMAS_HAT = HatConfig(
@@ -66,12 +66,12 @@ private val CHRISTMAS_HAT = HatConfig(
     rotation = 31f,
     widthPercent = 0.4396f,
     heightPercent = 0.2596f,
-    leftPercent = 0.6199f,
-    topPercent = -0.0962f,
-    visibleLeft = 0.5624f,
-    visibleTop = -0.1111f,
-    visibleRight = 1.0338f,
-    visibleBottom = 0.1889f,
+    leftPercent = 0.5599f,
+    topPercent = -0.0262f,
+    visibleLeft = 0.5024f,
+    visibleTop = -0.0411f,
+    visibleRight = 0.9738f,
+    visibleBottom = 0.2589f,
 )
 
 @Composable
