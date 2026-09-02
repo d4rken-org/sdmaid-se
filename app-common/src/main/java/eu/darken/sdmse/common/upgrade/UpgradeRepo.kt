@@ -12,6 +12,12 @@ interface UpgradeRepo {
 
     suspend fun refresh()
 
+    /**
+     * Called once per process from `App.onCreate()`, after Hilt injection completed, to let a
+     * flavour schedule its background work. Implementations must not throw for scheduling failures.
+     */
+    suspend fun onAppStart() = Unit
+
     interface Info {
         val type: Type
 
