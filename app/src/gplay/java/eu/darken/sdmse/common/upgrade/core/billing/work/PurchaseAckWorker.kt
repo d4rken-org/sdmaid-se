@@ -81,13 +81,15 @@ class PurchaseAckWorker @AssistedInject constructor(
             if (mode == MODE_PERIODIC) {
                 val result = sweep()
                 log(TAG, INFO) { "doWork(): sweep=$result" }
-                val mapped = mapPeriodicSweep(result, runAttemptCount)
-                if (mapped is Result.Failure && result != BillingManager.AckSweepResult.PERMANENT_FAILURE) {
+                val exhausted = result != BillingManager.AckSweepResult.COMPLETE &&
+                    result != BillingManager.AckSweepResult.PERMANENT_FAILURE &&
+                    runAttemptCount + 1 >= PERIODIC_MAX_ATTEMPTS
+                if (exhausted) {
                     log(TAG, WARN) {
                         "Periodic ack sweep gave up for this period after $PERIODIC_MAX_ATTEMPTS attempts"
                     }
                 }
-                return mapped
+                return mapPeriodicSweep(result, runAttemptCount)
             }
 
             if (!isWorthSweeping(now(), expiresAt)) {
