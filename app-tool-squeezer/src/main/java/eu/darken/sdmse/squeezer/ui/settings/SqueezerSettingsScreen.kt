@@ -180,6 +180,7 @@ internal fun SqueezerSettingsScreen(
                     )
                 }
             }
+            item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_protected_category_label)) }
             item {
                 SettingsSwitchItem(
                     icon = Icons.TwoTone.AutoAwesome,
@@ -205,15 +206,6 @@ internal fun SqueezerSettingsScreen(
                     subtitle = stringResource(R.string.squeezer_include_oversized_description),
                     checked = state.includeOversizedImages,
                     onCheckedChange = onIncludeOversizedImagesChanged,
-                )
-            }
-            item {
-                SettingsSwitchItem(
-                    icon = Icons.TwoTone.NewReleases,
-                    title = stringResource(R.string.squeezer_exif_marker_title),
-                    subtitle = stringResource(R.string.squeezer_exif_marker_description),
-                    checked = state.writeExifMarker,
-                    onCheckedChange = onWriteExifMarkerChanged,
                 )
             }
             item { SettingsCategoryHeader(text = stringResource(R.string.squeezer_video_settings_category_label)) }
@@ -243,6 +235,15 @@ internal fun SqueezerSettingsScreen(
                     subtitle = stringResource(R.string.squeezer_skip_compressed_description),
                     checked = state.skipPreviouslyCompressed,
                     onCheckedChange = onSkipPreviouslyCompressedChanged,
+                )
+            }
+            item {
+                SettingsSwitchItem(
+                    icon = Icons.TwoTone.NewReleases,
+                    title = stringResource(R.string.squeezer_exif_marker_title),
+                    subtitle = stringResource(R.string.squeezer_exif_marker_description),
+                    checked = state.writeExifMarker,
+                    onCheckedChange = onWriteExifMarkerChanged,
                 )
             }
             item {

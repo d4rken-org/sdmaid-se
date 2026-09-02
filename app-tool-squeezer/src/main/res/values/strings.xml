@@ -57,6 +57,7 @@
     <string name="squeezer_quality_warning_low">Lower qualities may cause visible artifacts.</string>
     <string name="squeezer_quality_warning_high">Very high quality provides minimal space savings.</string>
     <string name="squeezer_types_category_label">Image settings</string>
+    <string name="squeezer_protected_category_label">Protected photos</string>
     <string name="squeezer_video_settings_category_label">Video settings</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg). Re-encoding uses Android\'s built-in JPEG encoder. Date, location, and other EXIF metadata are kept.</string>
