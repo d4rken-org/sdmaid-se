@@ -60,7 +60,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Crith agus cinntí coinneála nó scriosaidh á ndéanamh.</string>
     <string name="swiper_discard_session_confirmation_title">Diúscair an seisiún?</string>
     <string name="swiper_discard_session_confirmation_message">Caillfear gach cinneadh. An bhfuil tú cinnte?</string>
-    <string name="swiper_no_preview_available">Níl réamhamharc ar fáil</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
         <item quantity="two">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
@@ -163,13 +162,6 @@
     <string name="swiper_stamp_undo_2">Siar!</string>
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Fan!</string>
-    <string name="swiper_gesture_overlay_dismiss">Tapáil áit ar bith chun tosú</string>
-    <string name="swiper_gesture_overlay_left_delete">← Scrios</string>
-    <string name="swiper_gesture_overlay_right_keep">Coinnigh →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Coinnigh</string>
-    <string name="swiper_gesture_overlay_right_delete">Scrios →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Scipeáil</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Cealaigh</string>
     <string name="swiper_help_title">Conas a oibríonn Swiper</string>
     <string name="swiper_help_message">Svaidhpeáil gach comhad chun cinneadh a dhéanamh:\n\n← Svaidhpeáil ar chlé: %1$s\n→ Svaidhpeáil ar dheis: %2$s\n↑ Svaidhpeáil suas: Scipeáil\n↓ Svaidhpeáil síos: Cealaigh (tar éis an chéad svaidhpeáil)\n\nIs féidir leat na cnaipí ag an mbun a úsáid freisin.\n\nNuair atá tú réidh, tapáil \"Athbhreithniú\" chun do chinntí go léir a fheiceáil. Ní scriostar aon rud go dtí go ndearbhaíonn tú ar an scáileán athbhreithnithe.</string>
 </resources>

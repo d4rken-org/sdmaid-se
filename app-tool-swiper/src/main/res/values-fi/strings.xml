@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Värise tehdessä säilytys- tai poistopäätöksiä.</string>
     <string name="swiper_discard_session_confirmation_title">Hylätäänkö istunto?</string>
     <string name="swiper_discard_session_confirmation_message">Kaikki päätökset menetetään. Oletko varma?</string>
-    <string name="swiper_no_preview_available">Esikatselu ei saatavilla</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
         <item quantity="other">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Takaisin!</string>
     <string name="swiper_stamp_undo_3">Oho!</string>
     <string name="swiper_stamp_undo_4">Odota!</string>
-    <string name="swiper_gesture_overlay_dismiss">Napauta mitä tahansa aloittaaksesi</string>
-    <string name="swiper_gesture_overlay_left_delete">← Poista</string>
-    <string name="swiper_gesture_overlay_right_keep">Säilytä →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Säilytä</string>
-    <string name="swiper_gesture_overlay_right_delete">Poista →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Ohita</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Kumoa</string>
     <string name="swiper_help_title">Miten Pyyhkäisijä toimii</string>
     <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
     <string name="swiper_file_type_filter_title">Näytä vain nämä tiedostotyypit</string>
     <string name="swiper_file_type_filter_hint">Valitse tyypit, jotka haluat nähdä. Jos mitään ei ole valittu, kaikki tiedostot näytetään.</string>
     <string name="swiper_file_type_category_images">Kuvat</string>

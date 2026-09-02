@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Bergetar saat membuat keputusan simpan atau hapus.</string>
     <string name="swiper_discard_session_confirmation_title">Buang sesi?</string>
     <string name="swiper_discard_session_confirmation_message">Semua keputusan akan hilang. Apakah Anda yakin?</string>
-    <string name="swiper_no_preview_available">Pratinjau tidak tersedia</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">Lanjutkan sesi dari %1$d hari yang lalu (%2$d%% selesai)</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">Kembali!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
-    <string name="swiper_gesture_overlay_dismiss">Ketuk di mana saja untuk mulai</string>
-    <string name="swiper_gesture_overlay_left_delete">← Hapus</string>
-    <string name="swiper_gesture_overlay_right_keep">Simpan →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Simpan</string>
-    <string name="swiper_gesture_overlay_right_delete">Hapus →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Lewati</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
     <string name="swiper_help_title">Cara kerja Pemilah</string>
     <string name="swiper_help_message">Geser setiap file untuk membuat keputusan:\n\n← Geser ke kiri: %1$s\n→ Geser ke kanan: %2$s\n↑ Geser ke atas: Lewati\n↓ Geser ke bawah: Batal (setelah geseran pertama)\n\nAnda juga dapat menggunakan tombol di bagian bawah.\n\nSetelah selesai, ketuk \"Tinjau\" untuk melihat semua keputusan Anda. Tidak ada yang dihapus sampai Anda mengonfirmasi di layar tinjauan.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Mengerti</string>
     <string name="swiper_file_type_filter_title">Hanya tampilkan tipe file ini</string>
     <string name="swiper_file_type_filter_hint">Centang tipe yang ingin Anda lihat. Jika tidak ada yang dicentang, semua file ditampilkan.</string>
     <string name="swiper_file_type_category_images">Gambar</string>

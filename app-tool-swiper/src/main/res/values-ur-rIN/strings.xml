@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">رکھنے یا حذف کے فیصلوں پر وائبریٹ کریں۔</string>
     <string name="swiper_discard_session_confirmation_title">سیشن رد کریں؟</string>
     <string name="swiper_discard_session_confirmation_message">تمام فیصلے ضائع ہو جائیں گے۔ کیا آپ کو یقین ہے؟</string>
-    <string name="swiper_no_preview_available">کوئی پیش نظارہ دستیاب نہیں</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d دن پہلے کا سیشن جاری رکھیں (%2$d%% مکمل)</item>
         <item quantity="other">%1$d دن پہلے کا سیشن جاری رکھیں (%2$d%% مکمل)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">پیچھے!</string>
     <string name="swiper_stamp_undo_3">اوہو!</string>
     <string name="swiper_stamp_undo_4">رکیں!</string>
-    <string name="swiper_gesture_overlay_dismiss">شروع کرنے کے لیے کہیں بھی ٹیپ کریں</string>
-    <string name="swiper_gesture_overlay_left_delete">← حذف</string>
-    <string name="swiper_gesture_overlay_right_keep">رکھیں →</string>
-    <string name="swiper_gesture_overlay_left_keep">← رکھیں</string>
-    <string name="swiper_gesture_overlay_right_delete">حذف →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ چھوڑیں</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ واپس</string>
     <string name="swiper_help_title">Swiper کیسے کام کرتا ہے</string>
     <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
-    <string name="swiper_gesture_overlay_dismiss_action">سمجھ گیا</string>
     <string name="swiper_file_type_filter_title">صرف یہ فائل کی اقسام دکھائیں</string>
     <string name="swiper_file_type_filter_hint">وہ اقسام چیک کریں جو آپ دیکھنا چاہتے ہیں۔ اگر کوئی چیک نہیں ہے، تمام فائلیں دکھائی جاتی ہیں۔</string>
     <string name="swiper_file_type_category_images">تصاویر</string>

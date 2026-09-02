@@ -62,7 +62,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrēt, pieņemot lēmumus par saglabāšanu vai dzēšanu.</string>
     <string name="swiper_discard_session_confirmation_title">Atcelt sesiju?</string>
     <string name="swiper_discard_session_confirmation_message">Visi lēmumi tiks zaudeti. Vai esat pārliecināts?</string>
-    <string name="swiper_no_preview_available">Priekšskatījums nav pieejams</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="zero">Turpināt sesiju no %1$d dienām atpakal (%2$d%% pabeigts)</item>
         <item quantity="one">Turpināt sesiju no %1$d dienas atpakal (%2$d%% pabeigts)</item>
@@ -150,16 +149,8 @@
     <string name="swiper_stamp_undo_2">Atpakaļ!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Pagaidi!</string>
-    <string name="swiper_gesture_overlay_dismiss">Pieskarieties jebkur, lai sāktu</string>
-    <string name="swiper_gesture_overlay_left_delete">← Dzēst</string>
-    <string name="swiper_gesture_overlay_right_keep">Paturēt →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Paturēt</string>
-    <string name="swiper_gesture_overlay_right_delete">Dzēst →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Izlaist</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Atsaukt</string>
     <string name="swiper_help_title">Kā darbojas Swiper</string>
     <string name="swiper_help_message">Velciet katru failu, lai pieņemtu lēmumu:\n\n← Velciet pa kreisi: %1$s\n→ Velciet pa labi: %2$s\n↑ Velciet uz augšu: Izlaist\n↓ Velciet uz leju: Atcelt (pēc pirmā vilkšanas)\n\nVarat arī izmantot pogas apakšā.\n\nKad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. Nekas netiks dzēsts, kamēr neapstiprināsiet pārskata ekrānā.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Sapratu</string>
     <string name="swiper_file_type_filter_title">Rādīt tikai šos failu tipus</string>
     <string name="swiper_file_type_filter_hint">Atzīmējiet tipus, kurus vēlaties redzēt. Ja neviens nav atzīmēts, tiek rādīti visi faili.</string>
     <string name="swiper_file_type_category_images">Attēli</string>

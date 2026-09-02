@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Saxlama və ya silmə qərarları verdikdə titrəmə.</string>
     <string name="swiper_discard_session_confirmation_title">Sessiya ləğv edilsin?</string>
     <string name="swiper_discard_session_confirmation_message">Bütün qərarlar itiriləcək. Əminsiniz?</string>
-    <string name="swiper_no_preview_available">Ön baxış mövcud deyil</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d gün əvvəlki sessiyanı davam etdir (%2$d%% tamamlanıb)</item>
         <item quantity="other">%1$d gün əvvəlki sessiyanı davam etdir (%2$d%% tamamlanıb)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Geri!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Dayan!</string>
-    <string name="swiper_gesture_overlay_dismiss">Başlamaq üçün istənilən yerə toxunun</string>
-    <string name="swiper_gesture_overlay_left_delete">← Sil</string>
-    <string name="swiper_gesture_overlay_right_keep">Saxla →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Saxla</string>
-    <string name="swiper_gesture_overlay_right_delete">Sil →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Keç</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
     <string name="swiper_help_title">Swiper necə işləyir</string>
     <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Başa düşdüm</string>
     <string name="swiper_file_type_filter_title">Yalnız bu fayl növlərini göstər</string>
     <string name="swiper_file_type_filter_hint">Görmək istədiyiniz növləri seçin. Heç biri seçilməyibsə, bütün fayllar göstərilir.</string>
     <string name="swiper_file_type_category_images">Şəkillər</string>

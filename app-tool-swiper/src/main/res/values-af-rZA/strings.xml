@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibreer wanneer hou- of verwyder-besluite geneem word.</string>
     <string name="swiper_discard_session_confirmation_title">Verwerp sessie?</string>
     <string name="swiper_discard_session_confirmation_message">Alle besluite sal verlore gaan. Is jy seker?</string>
-    <string name="swiper_no_preview_available">Geen voorskou beskikbaar nie</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Gaan voort met sessie van %1$d dag gelede (%2$d%% voltooi)</item>
         <item quantity="other">Gaan voort met sessie van %1$d dae gelede (%2$d%% voltooi)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Terug!</string>
     <string name="swiper_stamp_undo_3">Oeps!</string>
     <string name="swiper_stamp_undo_4">Wag!</string>
-    <string name="swiper_gesture_overlay_dismiss">Tik enige plek om te begin</string>
-    <string name="swiper_gesture_overlay_left_delete">← Verwyder</string>
-    <string name="swiper_gesture_overlay_right_keep">Hou →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Hou</string>
-    <string name="swiper_gesture_overlay_right_delete">Verwyder →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Slaan oor</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Ontdoen</string>
     <string name="swiper_help_title">Hoe Swiper werk</string>
     <string name="swiper_help_message">Swiep elke lêer om \'n besluit te neem:\n\n← Swiep links: %1$s\n→ Swiep regs: %2$s\n↑ Swiep op: Slaan oor\n↓ Swiep af: Ontdoen (na eerste swiep)\n\nJy kan ook die knoppies onderaan gebruik.\n\nAs jy klaar is, tik \"Hersien\" om al jou besluite te sien. Niks word verwyder totdat jy op die hersieningsskerm bevestig nie.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Verstaan</string>
     <string name="swiper_file_type_filter_title">Wys slegs hierdie lêertipes</string>
     <string name="swiper_file_type_filter_hint">Merk die tipes wat jy wil sien. As geen gemerk is nie, word alle lêers gewys.</string>
     <string name="swiper_file_type_category_images">Beelde</string>

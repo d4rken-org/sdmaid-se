@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Tetema unapofanya maamuzi ya kuhifadhi au kufuta.</string>
     <string name="swiper_discard_session_confirmation_title">Tupa kipindi?</string>
     <string name="swiper_discard_session_confirmation_message">Maamuzi yote yatapotea. Una uhakika?</string>
-    <string name="swiper_no_preview_available">Hakikisho haipatikani</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Endelea na kipindi kutoka siku %1$d iliyopita (%2$d%% imekamilika)</item>
         <item quantity="other">Endelea na kipindi kutoka siku %1$d zilizopita (%2$d%% imekamilika)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Rudi!</string>
     <string name="swiper_stamp_undo_3">Lo!</string>
     <string name="swiper_stamp_undo_4">Ngoja!</string>
-    <string name="swiper_gesture_overlay_dismiss">Gusa popote ili kuanza</string>
-    <string name="swiper_gesture_overlay_left_delete">← Futa</string>
-    <string name="swiper_gesture_overlay_right_keep">Weka →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Weka</string>
-    <string name="swiper_gesture_overlay_right_delete">Futa →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Ruka</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Tendua</string>
     <string name="swiper_help_title">Jinsi Swiper inavyofanya kazi</string>
     <string name="swiper_help_message">Piga swaipu kwa kila faili ili kufanya uamuzi:\n\n← Piga swaipu kushoto: %1$s\n→ Piga swaipu kulia: %2$s\n↑ Piga swaipu juu: Ruka\n↓ Piga swaipu chini: Tendua (baada ya swaipu ya kwanza)\n\nUnaweza pia kutumia vitufe vilivyo chini.\n\nUkimaliza, gusa \"Kagua\" ili kuona maamuzi yako yote. Hakuna kinachofutwa hadi utakapothibitisha kwenye skrini ya ukaguzi.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Nimeelewa</string>
     <string name="swiper_file_type_filter_title">Onyesha aina hizi za faili peke yake</string>
     <string name="swiper_file_type_filter_hint">Angalia aina unazotaka kuona. Ikiwa hakuna iliyochaguliwa, faili zote zinaonyeshwa.</string>
     <string name="swiper_file_type_category_images">Picha</string>

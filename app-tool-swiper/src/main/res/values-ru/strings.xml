@@ -68,7 +68,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Вибрация при принятии или удалении решений.</string>
     <string name="swiper_discard_session_confirmation_title">Отменить сессию?</string>
     <string name="swiper_discard_session_confirmation_message">Все решения будут потеряны. Вы уверены?</string>
-    <string name="swiper_no_preview_available">Предпросмотр недоступен</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Продолжить сессию, начатую %1$d день назад (%2$d%% завершено)</item>
         <item quantity="few">Продолжить сессию, начатую %1$d дн. назад (%2$d%% завершено)</item>
@@ -167,16 +166,8 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Одну минуточку!</string>
-    <string name="swiper_gesture_overlay_dismiss">Коснитесь экрана, чтобы начать</string>
-    <string name="swiper_gesture_overlay_left_delete">← Удалить</string>
-    <string name="swiper_gesture_overlay_right_keep">Сохранить →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Сохранить</string>
-    <string name="swiper_gesture_overlay_right_delete">Удалить →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Пропустить</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Отменить</string>
     <string name="swiper_help_title">Как работает Свайпер</string>
     <string name="swiper_help_message">Проведите по каждому файу, чтобы принять решение:\n\n← Проведите влево: %1$s\n→ Проведите вправо: %2$s\n↑ Проведите вверх: Пропустить\n↓ Проведите вниз: Отменить (после первого свайпа)\n\nТакже Вы можете использовать кнопки внизу.\n\nКогда Вы закончите, нажмите \"Обзор\" чтобы просмотреть все Ваши решения. Ничего не удалится, пока Вы не подтвердите это на экране обзора.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Понятно</string>
     <string name="swiper_file_type_filter_title">Показывать только эти типы файлов</string>
     <string name="swiper_file_type_filter_hint">Отметьте типы, которые хотите видеть. Если ничего не отмечено, отображаются все файлы.</string>
     <string name="swiper_file_type_category_images">Изображения</string>

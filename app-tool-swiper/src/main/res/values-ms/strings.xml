@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Getar apabila membuat keputusan simpan atau padam.</string>
     <string name="swiper_discard_session_confirmation_title">Buang sesi?</string>
     <string name="swiper_discard_session_confirmation_message">Semua keputusan akan hilang. Adakah anda pasti?</string>
-    <string name="swiper_no_preview_available">Tiada pratonton tersedia</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">Teruskan sesi dari %1$d hari lalu (%2$d%% selesai)</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">Balik!</string>
     <string name="swiper_stamp_undo_3">Alamak!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
-    <string name="swiper_gesture_overlay_dismiss">Ketik di mana-mana untuk mula</string>
-    <string name="swiper_gesture_overlay_left_delete">← Padam</string>
-    <string name="swiper_gesture_overlay_right_keep">Simpan →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Simpan</string>
-    <string name="swiper_gesture_overlay_right_delete">Padam →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Langkau</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
     <string name="swiper_help_title">Cara Swiper berfungsi</string>
     <string name="swiper_help_message">Leret setiap fail untuk membuat keputusan:\n\n← Leret ke kiri: %1$s\n→ Leret ke kanan: %2$s\n↑ Leret ke atas: Langkau\n↓ Leret ke bawah: Batal (selepas leretan pertama)\n\nAnda juga boleh menggunakan butang di bahagian bawah.\n\nApabila selesai, ketik \"Semak\" untuk melihat semua keputusan anda. Tiada apa yang dipadam sehingga anda mengesahkan pada skrin semakan.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Faham</string>
     <string name="swiper_file_type_filter_title">Tunjukkan jenis fail ini sahaja</string>
     <string name="swiper_file_type_filter_hint">Tandakan jenis yang ingin anda lihat. Jika tiada yang ditandakan, semua fail ditunjukkan.</string>
     <string name="swiper_file_type_category_images">Imej</string>

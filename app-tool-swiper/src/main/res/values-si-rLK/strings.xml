@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">තබා ගැනීම හෝ මැකීම තීරණ ගන්නා විට කම්පනය.</string>
     <string name="swiper_discard_session_confirmation_title">සැසිය ඉවත ලන්නද?</string>
     <string name="swiper_discard_session_confirmation_message">සියලු තීරණ නැති වනු ඇත. ඔබට විශ්වාසද?</string>
-    <string name="swiper_no_preview_available">පෙරදසුනක් නැත</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">දින %1$d කට පෙර සැසිය දිගටම (%2$d%% අවසන්)</item>
         <item quantity="other">දින %1$d කට පෙර සැසිය දිගටම (%2$d%% අවසන්)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">ආපසු!</string>
     <string name="swiper_stamp_undo_3">අපොයි!</string>
     <string name="swiper_stamp_undo_4">ඉන්න!</string>
-    <string name="swiper_gesture_overlay_dismiss">ආරම්භ කිරීමට ඕනෑම තැනක තට්ටු කරන්න</string>
-    <string name="swiper_gesture_overlay_left_delete">← මකන්න</string>
-    <string name="swiper_gesture_overlay_right_keep">තබාගන්න →</string>
-    <string name="swiper_gesture_overlay_left_keep">← තබාගන්න</string>
-    <string name="swiper_gesture_overlay_right_delete">මකන්න →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ මඟ හරින්න</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ අස් කරන්න</string>
     <string name="swiper_help_title">ස්වයිපර් ක්‍රියා කරන ආකාරය</string>
     <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
     <string name="swiper_file_type_filter_title">මෙම ගොනු වර්ග පමණක් පෙන්වන්න</string>
     <string name="swiper_file_type_filter_hint">ඔබ දැකීමට කැමති වර්ග සලකුණු කරන්න. කිසිවක් සලකුණු නොකළ හොත්, සියළු ගොනු පෙන්වනු ලැබේ.</string>
     <string name="swiper_file_type_category_images">රූප</string>

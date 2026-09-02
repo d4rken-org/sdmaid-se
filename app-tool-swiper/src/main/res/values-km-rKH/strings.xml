@@ -50,7 +50,6 @@
     <string name="swiper_settings_haptic_feedback_summary">សម្លូងនៅពេលសម្រេចជម្រើសរក្សា អ្វីលុប។</string>
     <string name="swiper_discard_session_confirmation_title">លុបបន្ថែយសម័អត់?</string>
     <string name="swiper_discard_session_confirmation_message">ជម្រើសតាងអស់នឹងត្រូវបានបាត់។ តើអ្នកពិតជា?</string>
-    <string name="swiper_no_preview_available">មិនមានការមើលពាក្ស័ល់ត្រូវបាន</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">បន្ត្ឡើងសម័អត់ពី %1$d ថ្ង័មុន (%2$d%% រក្ច)</item>
     </plurals>
@@ -116,16 +115,8 @@
     <string name="swiper_stamp_undo_2">ត្រលប់!</string>
     <string name="swiper_stamp_undo_3">អ័!</string>
     <string name="swiper_stamp_undo_4">័ត!</string>
-    <string name="swiper_gesture_overlay_dismiss">ចុចណាន្តដើម្បីចំឡើង</string>
-    <string name="swiper_gesture_overlay_left_delete">← លុប</string>
-    <string name="swiper_gesture_overlay_right_keep">រក្សា →</string>
-    <string name="swiper_gesture_overlay_left_keep">← រក្សា</string>
-    <string name="swiper_gesture_overlay_right_delete">លុប →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ លឹចលញ</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ ត្រលប់វិញ</string>
     <string name="swiper_help_title">Swiper ត្រូវបានដំឡើរ្ការយ័ង\u1798័ច</string>
     <string name="swiper_help_message">ស្វើបឯកសារនិមួយដើម្បីសម្រេចជម្រើស៖\n\n← ស្វើបស្តាំ៖ %1$s\n→ ស្វើបស្តាំត្វែ៖ %2$s\n↑ ស្វើបឡើ៖ លឹចលញ\n↓ ស្វើបចុ៖ ត្រលប់វិញ ប័កស្វើបដំបូង\n\nអ្នកអាចប្រើបរស់បុត្តនៅខាងក្រោមផង់ដោយ។\n\nនៅពេលអ្នករួចៅ ចុច “ស្វែង” ដើម្បីមើលជម្រើសតាងអស់។ មិនមានឯកសារត្រូវលុបរើត្រូវបានបញ្ជាក់នៅហន្តៀស្វែង។</string>
-    <string name="swiper_gesture_overlay_dismiss_action">យល់ហើយ</string>
     <string name="swiper_file_type_filter_title">បង្ហាញតែប្រភេទឯកសារទាំងនេះ</string>
     <string name="swiper_file_type_filter_hint">សូមធីកប្រភេទដែលអ្នកចង់មើល។ ប្រសិនបើមិនមានប្រភេទណាត្រូវបានធីក ឯកសារទាំងអស់នឹងត្រូវបានបង្ហាញ។</string>
     <string name="swiper_file_type_category_images">រូបភាព</string>

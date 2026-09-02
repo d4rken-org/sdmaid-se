@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">സൂക്ഷിക്കുക അഥവാ ഡിലീറ്റ് തീരുമാനം എടുക്കുമ്പോൾ വൈബ്രേറ്റ് ചെയ്യുക.</string>
     <string name="swiper_discard_session_confirmation_title">സെഷൻ ഉപേക്ഷിക്കണോ?</string>
     <string name="swiper_discard_session_confirmation_message">എല്ലാ തീരുമാനങ്ങളും നഷ്ടപ്പെടും. തീർച്ചയാണോ?</string>
-    <string name="swiper_no_preview_available">പ്രിവ്യൂ ലഭ്യമല്ല</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d ദിവസം മുൻപാക്കുള്ള സെഷൻ തുടരുക (%2$d%% തീർന്നു)</item>
         <item quantity="other">%1$d ദിവസം മുൻപാക്കുള്ള സെഷൻ തുടരുക (%2$d%% തീർന്നു)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">പിർവായി!</string>
     <string name="swiper_stamp_undo_3">ഊപ്സ്!</string>
     <string name="swiper_stamp_undo_4">കാത്തിരിക്കൂ!</string>
-    <string name="swiper_gesture_overlay_dismiss">ആരംഭിക്കാൻ എവിടെയും ടാപ്പ് ചെയ്യുക</string>
-    <string name="swiper_gesture_overlay_left_delete">← ഇല്ലാതാക്കുക</string>
-    <string name="swiper_gesture_overlay_right_keep">സൂക്ഷിക്കുക →</string>
-    <string name="swiper_gesture_overlay_left_keep">← സൂക്ഷിക്കുക</string>
-    <string name="swiper_gesture_overlay_right_delete">ഇല്ലാതാക്കുക →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ഒഴിവാക്കുക</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ പഴയപടിയാക്കുക</string>
     <string name="swiper_help_title">Swiper എങ്ങനെ പ്രവർത്തിക്കുന്നു</string>
     <string name="swiper_help_message">ഓരോ ഫയലും സ്വൈപ്പ് ചെയ്ത് തീരുമാനമെടുക്കുക:\n\n← ഇടത്തേക്ക് സ്വൈപ്പ്: %1$s\n→ വലത്തേക്ക് സ്വൈപ്പ്: %2$s\n↑ മുകളിലേക്ക് സ്വൈപ്പ്: ഒഴിവാക്കുക\n↓ താഴേക്ക് സ്വൈപ്പ്: പഴയപടിയാക്കുക (ആദ്യ സ്വൈപ്പിന് ശേഷം)\n\nതാഴെ ഉള്ള ബട്ടണുകളും ഉപയോഗിക്കാം.\n\nതീർന്നാൽ, നിങ്ങളുടെ എല്ലാ തീരുമാനങ്ങളും കാണാൻ \"അവലോകനം\" ടാപ്പ് ചെയ്യുക. അവലോകന സ്ക്രീനിൽ സ്ഥിരീകരിക്കുന്നത് വരെ ഒന്നും ഇല്ലാതാകില്ല.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">മനസ്സിലായി</string>
     <string name="swiper_file_type_filter_title">ഈ ഫയൽ തരങ്ങൾ മാത്രം കാണിക്കുക</string>
     <string name="swiper_file_type_filter_hint">നിങ്ങൾ കാണാൻ ആഗ്രഹിക്കുന്ന തരങ്ങൾ തിരഞ്ഞെടുക്കുക. ഒന്നും തിരഞ്ഞെടുത്തില്ലെങ്കിൽ, എല്ലാ ഫയലുകളും കാണിക്കും.</string>
     <string name="swiper_file_type_category_images">ചിത്രങ്ങൾ</string>

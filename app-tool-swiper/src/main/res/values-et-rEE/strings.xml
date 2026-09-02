@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Telefon väriseb säilitamisel või kustutamisel.</string>
     <string name="swiper_discard_session_confirmation_title">Kustutada seanss?</string>
     <string name="swiper_discard_session_confirmation_message">Otsused? Mäluauku! Oled kindel?</string>
-    <string name="swiper_no_preview_available">Eelvaade puudub</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Jätka %1$d päeva tagust seanssi (%2$d%% valmis)</item>
         <item quantity="other">Jätka %1$d päeva tagust seanssi (%2$d%% valmis)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Tagasi!</string>
     <string name="swiper_stamp_undo_3">Isver-susver!</string>
     <string name="swiper_stamp_undo_4">Pea hoogu!</string>
-    <string name="swiper_gesture_overlay_dismiss">Alustamiseks puuduta kuhugi</string>
-    <string name="swiper_gesture_overlay_left_delete">← Kustuta</string>
-    <string name="swiper_gesture_overlay_right_keep">Säilita →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Säilita</string>
-    <string name="swiper_gesture_overlay_right_delete">Kustuta →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Jäta vahele</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Võta tagasi</string>
     <string name="swiper_help_title">Kuidas Pühkija töötab</string>
     <string name="swiper_help_message">Otsustamiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: jäta vahele\n↓ Pühi alla: võta tagasi (pärast esimest pühkimist)\n\nVõid kasutada ka alumisi nuppe.\n\nKui oled lõpetanud, puuduta „Vaata üle“, et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitad ülevaatekuval.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Selge!</string>
     <string name="swiper_file_type_filter_title">Kuva ainult neid failitüüpe</string>
     <string name="swiper_file_type_filter_hint">Märgi tüübid, mida soovid näha. Kui ühtegi pole märgitud, kuvatakse kõik failid.</string>
     <string name="swiper_file_type_category_images">Pildid</string>

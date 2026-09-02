@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrar ao tomar decisões de manter ou excluir.</string>
     <string name="swiper_discard_session_confirmation_title">Descartar sessão?</string>
     <string name="swiper_discard_session_confirmation_message">Todas as decisões serão perdidas. Tem certeza?</string>
-    <string name="swiper_no_preview_available">Nenhuma pré-visualização disponível</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Continuar sessão de %1$d dia atrás (%2$d%% concluído)</item>
         <item quantity="other">Continuar sessão de %1$d dias atrás (%2$d%% concluído)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">Voltar!</string>
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Espere!</string>
-    <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para iniciar</string>
-    <string name="swiper_gesture_overlay_left_delete">← Excluir</string>
-    <string name="swiper_gesture_overlay_right_keep">Manter →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Manter</string>
-    <string name="swiper_gesture_overlay_right_delete">Excluir →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Ignorar</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
     <string name="swiper_help_title">Como o deslizar funciona</string>
     <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Ignorar\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada será excluído até que você confirme na tela de revisão.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Entendi</string>
     <string name="swiper_file_type_filter_title">Mostrar apenas estes tipos de arquivo</string>
     <string name="swiper_file_type_filter_hint">Marque os tipos que você deseja ver. Se nenhum estiver marcado, todos os arquivos serão mostrados.</string>
     <string name="swiper_file_type_category_images">Imagens</string>

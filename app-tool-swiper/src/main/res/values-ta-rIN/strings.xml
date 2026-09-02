@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">வைத்திருக்க அல்லது நீக்க முடிவு செய்யும் போது அதிர்வு.</string>
     <string name="swiper_discard_session_confirmation_title">அமர்வை நிராகரிக்கவா?</string>
     <string name="swiper_discard_session_confirmation_message">அனைத்து முடிவுகளும் இழக்கப்படும். உறுதியாக இருக்கிறீர்களா?</string>
-    <string name="swiper_no_preview_available">முன்னோட்டம் கிடைக்கவில்லை</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d நாளுக்கு முன் அமர்வைத் தொடரவும் (%2$d%% முடிந்தது)</item>
         <item quantity="other">%1$d நாட்களுக்கு முன் அமர்வைத் தொடரவும் (%2$d%% முடிந்தது)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">பின்!</string>
     <string name="swiper_stamp_undo_3">அச்சோ!</string>
     <string name="swiper_stamp_undo_4">நில்!</string>
-    <string name="swiper_gesture_overlay_dismiss">தொடங்க எங்கு வேண்டுமானாலும் தட்டவும்</string>
-    <string name="swiper_gesture_overlay_left_delete">← நீக்கு</string>
-    <string name="swiper_gesture_overlay_right_keep">வைத்திரு →</string>
-    <string name="swiper_gesture_overlay_left_keep">← வைத்திரு</string>
-    <string name="swiper_gesture_overlay_right_delete">நீக்கு →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ தவிர்</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ மீட்டமை</string>
     <string name="swiper_help_title">Swiper எவ்வாறு செயல்படுகிறது</string>
     <string name="swiper_help_message">முடிவெடுக்க ஒவ்வொரு கோப்பையும் ஸ்வைப் செய்யவும்:\n\n← இடதுபக்கம் ஸ்வைப்: %1$s\n→ வலதுபக்கம் ஸ்வைப்: %2$s\n↑ மேலே ஸ்வைப்: தவிர்\n↓ கீழே ஸ்வைப்: மீட்டமை (முதல் ஸ்வைப்பிற்குப் பிறகு)\n\nகீழே உள்ள பொத்தான்களையும் பயன்படுத்தலாம்.\n\nமுடிந்ததும், உங்கள் அனைத்து முடிவுகளையும் காண \"மதிப்பாய்வு\" என்பதைத் தட்டவும். மதிப்பாய்வுத் திரையில் உறுதிப்படுத்தும் வரை எதுவும் நீக்கப்படாது.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">புரிந்தது</string>
     <string name="swiper_file_type_filter_title">இந்த கோப்பு வகைகளை மட்டும் காட்டு</string>
     <string name="swiper_file_type_filter_hint">நீங்கள் பார்க்க விரும்பும் வகைகளை தேர்வு செய்யுங்கள். எதுவும் தேர்வு செய்யப்படவில்லை என்றால், அனைத்து கோப்புகளும் காட்டப்படும்.</string>
     <string name="swiper_file_type_category_images">படங்கள்</string>

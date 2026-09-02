@@ -68,7 +68,6 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibruoti priimant sprendimą palikti arba ištrinti.</string>
     <string name="swiper_discard_session_confirmation_title">Atmesti seansus?</string>
     <string name="swiper_discard_session_confirmation_message">Visi sprendimai bus prarasti. Ar tikrai?</string>
-    <string name="swiper_no_preview_available">Peržiūra neprieinama</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Tęsti sesiją iš prieš %1$d dieną (%2$d%% atlikta)</item>
         <item quantity="few">Tęsti sesiją nuo prieš %1$d dienas (%2$d%% baigta)</item>
@@ -167,16 +166,8 @@
     <string name="swiper_stamp_undo_2">Atgal!</string>
     <string name="swiper_stamp_undo_3">Oi!</string>
     <string name="swiper_stamp_undo_4">Palaukti!</string>
-    <string name="swiper_gesture_overlay_dismiss">Palieskite bet kur, kad pradėtumėte</string>
-    <string name="swiper_gesture_overlay_left_delete">← Trinti</string>
-    <string name="swiper_gesture_overlay_right_keep">Palikti →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Palikti</string>
-    <string name="swiper_gesture_overlay_right_delete">Trinti →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Praleisti</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Atšaukti</string>
     <string name="swiper_help_title">Kaip veikia Swiper</string>
     <string name="swiper_help_message">Perbraukite kiekvieną failą, kad priimtumėte sprendimą:\n\n← Braukti kairėn: %1$s\n→ Braukti dešinėn: %2$s\n↑ Braukti aukštyn: Praleisti\n↓ Braukti žemyn: Atcofti (po pirmojo braukimo)\n\nTaip pat galite naudoti mygtukus aplačioje.\n\nKai baigsite, palieskite „Peržiūra“, kad pamatytumėte visus sprendimus. Nieko naičinama, kol nepatvirtinsite peržiūros ekrane.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Supratau</string>
     <string name="swiper_file_type_filter_title">Rodyti tik šiuos failų tipus</string>
     <string name="swiper_file_type_filter_hint">Pažimėkite tipus, kuriuos norite matyti. Jei nieko nepažimėta, rodomi visi failai.</string>
     <string name="swiper_file_type_category_images">Vaizdai</string>

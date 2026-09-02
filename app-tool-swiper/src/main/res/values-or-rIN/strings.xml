@@ -56,7 +56,6 @@
     <string name="swiper_settings_haptic_feedback_summary">ରଖିବା କିମ୍ବା ଡିଲିଟ୍ ନିଷ୍ପତ୍ତି ନେବା ସମୟରେ କମ୍ପନ।</string>
     <string name="swiper_discard_session_confirmation_title">ସେସନ୍ ଖାରଜ କରିବେ?</string>
     <string name="swiper_discard_session_confirmation_message">ସମସ୍ତ ନିଷ୍ପତ୍ତି ହରାଇ ଯିବ। ଆପଣ ନିଶ୍ଚିତ?</string>
-    <string name="swiper_no_preview_available">ପୂର୍ବାବଲୋକନ ଉପಲବ୍ଧ ନାହିଁ</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
         <item quantity="other">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
@@ -133,16 +132,8 @@
     <string name="swiper_stamp_undo_2">ପଛକୁ!</string>
     <string name="swiper_stamp_undo_3">ଓହୋ!</string>
     <string name="swiper_stamp_undo_4">ଅପେକ୍ଷା!</string>
-    <string name="swiper_gesture_overlay_dismiss">ଆରମ୍ଭ କରିବାକୁ ଯେକୌଣସି ସ୍ଥାନରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_left_delete">← ବିଲୋପ</string>
-    <string name="swiper_gesture_overlay_right_keep">ରଖନ୍ତୁ →</string>
-    <string name="swiper_gesture_overlay_left_keep">← ରଖନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_right_delete">ବିଲୋପ →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ଛାଡ଼ନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ ପ୍ରତ୍ୟାବର୍ତ୍ତନ</string>
     <string name="swiper_help_title">Swiper କିପରି କାମ କରେ</string>
     <string name="swiper_help_message">ନିଷ୍ପତ୍ତି ନେବାକୁ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ:\n\n← ବାମକୁ ସ୍ୱାଇପ୍: %1$s\n→ ଡାହାଣକୁ ସ୍ୱାଇପ୍: %2$s\n↑ ଉପରକୁ ସ୍ୱାଇପ୍: ଛାଡ଼ନ୍ତୁ\n↓ ତଳକୁ ସ୍ୱାଇପ୍: ପ୍ରତ୍ୟାବର୍ତ୍ତନ (ପ୍ରଥମ ସ୍ୱାଇପ୍ ପରେ)\n\nଆପଣ ତଳେ ଥିବା ବଟନ୍ ମଧ୍ୟ ବ୍ୟବହାର କରିପାରିବେ।\n\nସମାପ୍ତ ହେଲେ, ଆପଣଙ୍କ ସମସ୍ତ ନିଷ୍ପତ୍ତି ଦେଖିବାକୁ \"ସମୀକ୍ଷା\" ଟ୍ୟାପ୍ କରନ୍ତୁ। ସମୀକ୍ଷା ସ୍କ୍ରିନରେ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
-    <string name="swiper_gesture_overlay_dismiss_action">ବୁଝିଗଲି</string>
     <string name="swiper_file_type_filter_title">କେବଳ ଏହି ଫାଇଲ ପ୍ରକାରଗୁଡ଼ିକ ଦେଖାନ୍ତୁ</string>
     <string name="swiper_file_type_filter_hint">ଆପଣ ଦେଖିବାକୁ ଚାହୁଁଥିବା ପ୍ରକାରଗୁଡ଼ିକ ଚୟନ କରନ୍ତୁ। ଯଦି କୌଣସିଟି ଚୟନ ହୋଇ ନ ଥାଏ, ସମସ୍ତ ଫାଇଲ ଦେଖାଯିବ।</string>
     <string name="swiper_file_type_category_images">ଚିତ୍ରଗୁଡ଼ିକ</string>

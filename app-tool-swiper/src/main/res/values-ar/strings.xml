@@ -80,7 +80,6 @@
     <string name="swiper_settings_haptic_feedback_summary">اهتزاز عند اتخاذ قرارات الاحتفاظ أو الحذف.</string>
     <string name="swiper_discard_session_confirmation_title">تجاهل الجلسة؟</string>
     <string name="swiper_discard_session_confirmation_message">ستضيع جميع القرارات. هل أنت متأكد؟</string>
-    <string name="swiper_no_preview_available">لا تتوفر معاينة</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="zero">متابعة الجلسة من %1$d أيام مضت (%2$d%% مكتملة)</item>
         <item quantity="one">متابعة الجلسة من %1$d يوم مضى (%2$d%% مكتملة)</item>
@@ -201,16 +200,8 @@
     <string name="swiper_stamp_undo_2">عودة!</string>
     <string name="swiper_stamp_undo_3">أوبس!</string>
     <string name="swiper_stamp_undo_4">انتظر!</string>
-    <string name="swiper_gesture_overlay_dismiss">انقر في أي مكان للبدء</string>
-    <string name="swiper_gesture_overlay_left_delete">← حذف</string>
-    <string name="swiper_gesture_overlay_right_keep">احتفظ →</string>
-    <string name="swiper_gesture_overlay_left_keep">← احتفظ</string>
-    <string name="swiper_gesture_overlay_right_delete">حذف →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ تخطَّ</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ تراجع</string>
     <string name="swiper_help_title">كيف يعمل Swiper</string>
     <string name="swiper_help_message">مرر كل ملف لاتخاذ قرار:\n\n← مرر لليسار: %1$s\n→ مرر لليمين: %2$s\n↑ مرر للأعلى: تخطَّ\n↓ مرر للأسفل: تراجع (بعد أول تمريرة)\n\nيمكنك أيضًا استخدام الأزرار في الأسفل.\n\nعند الانتهاء، انقر على \"مراجعة\" لرؤية جميع قراراتك. لن يتم حذف أي شيء حتى تؤكد في شاشة المراجعة.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">عُلم</string>
     <string name="swiper_file_type_filter_title">إظهار أنواع الملفات هذه فقط</string>
     <string name="swiper_file_type_filter_hint">حدد الأنواع التي تريد رؤيتها. إذا لم يتم تحديد أي نوع، سيتم عرض جميع الملفات.</string>
     <string name="swiper_file_type_category_images">الصور</string>
