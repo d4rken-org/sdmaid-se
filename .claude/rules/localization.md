@@ -51,3 +51,9 @@ caString { getString(R.plurals.xxx, count, count) }
 - `app/src/main/res/values-*/strings.xml`: Translated strings for other languages
 - `app/src/foss/res/values-*/strings.xml`: FOSS flavor specific strings
 - `app/src/gplay/res/values-*/strings.xml`: Google Play flavor specific strings
+
+## Translator Context on Crowdin
+
+String context, character limits and file context are managed on Crowdin through the android-translation
+plugin's `crowdin-annotate` skill. XML comments in `values/strings.xml` no longer reach translators once a
+string's context has been written on Crowdin; change it there.
