@@ -37,37 +37,90 @@ class PurchaseAckWorker @AssistedInject constructor(
 
     override suspend fun doWork(): Result {
         val expiresAt = inputData.getLong(KEY_EXPIRES_AT, 0L)
-        log(TAG) { "doWork(): attempt=$runAttemptCount, expiresAt=$expiresAt" }
+        val mode = inputData.getString(KEY_MODE)
+        log(TAG) { "doWork(): attempt=$runAttemptCount, mode=$mode, expiresAt=$expiresAt" }
 
-        if (!isWorthSweeping(System.currentTimeMillis(), expiresAt)) {
-            // Past Play's refund deadline (or malformed input): retrying can't achieve anything.
-            // failure() is deliberate over success() — it is visible in WorkManager diagnostics,
-            // and a completed state lets a later KEEP enqueue insert fresh work.
-            log(TAG, WARN) { "doWork(): deadline passed, giving up" }
-            return Result.failure()
+        return run(
+            mode = mode,
+            expiresAt = expiresAt,
+            runAttemptCount = runAttemptCount,
+            now = System::currentTimeMillis,
+        ) {
+            // Bounded well below WorkManager's 10-minute execution limit, but generous enough for
+            // the connection wait plus the per-purchase inline retries. A sweep that ran out of
+            // time is a transient outcome, not a verdict. External cancellation propagates out of
+            // doWork — it must never be converted into success.
+            withTimeoutOrNull(SWEEP_TIMEOUT_MS) {
+                billingManager.ensureAllAcknowledged()
+            }
         }
-
-        // Bounded well below WorkManager's 10-minute execution limit, but generous enough for the
-        // connection wait plus the per-purchase inline retries. A sweep that ran out of time is a
-        // transient outcome, not a verdict. External cancellation propagates out of doWork — it
-        // must never be converted into success.
-        val sweep = withTimeoutOrNull(SWEEP_TIMEOUT_MS) {
-            billingManager.ensureAllAcknowledged()
-        }
-        log(TAG, INFO) { "doWork(): sweep=$sweep" }
-
-        return mapSweep(sweep, System.currentTimeMillis(), expiresAt)
     }
 
     companion object {
         // Persisted in WorkManager's request data — keep the key stable while old work may exist.
         const val KEY_EXPIRES_AT = "purchase.ack.expiresAt"
 
+        // Also persisted: absent means MODE_DEADLINE, so requests enqueued by older builds keep
+        // their behaviour.
+        const val KEY_MODE = "purchase.ack.mode"
+        const val MODE_DEADLINE = "deadline"
+        const val MODE_PERIODIC = "periodic"
+
         private const val SWEEP_TIMEOUT_MS = 4 * 60 * 1000L
+
+        private const val PERIODIC_MAX_ATTEMPTS = 3
+
+        // Pure so the routing is unit-testable without a WorkerParameters harness.
+        internal suspend fun run(
+            mode: String?,
+            expiresAt: Long,
+            runAttemptCount: Int,
+            now: () -> Long,
+            sweep: suspend () -> BillingManager.AckSweepResult?,
+        ): Result {
+            if (mode == MODE_PERIODIC) {
+                val result = sweep()
+                log(TAG, INFO) { "doWork(): sweep=$result" }
+                val mapped = mapPeriodicSweep(result, runAttemptCount)
+                if (mapped is Result.Failure && result != BillingManager.AckSweepResult.PERMANENT_FAILURE) {
+                    log(TAG, WARN) {
+                        "Periodic ack sweep gave up for this period after $PERIODIC_MAX_ATTEMPTS attempts"
+                    }
+                }
+                return mapped
+            }
+
+            if (!isWorthSweeping(now(), expiresAt)) {
+                // Past Play's refund deadline (or malformed input): retrying can't achieve anything.
+                // failure() is deliberate over success() — it is visible in WorkManager diagnostics,
+                // and a completed state lets a later KEEP enqueue insert fresh work.
+                log(TAG, WARN) { "doWork(): deadline passed, giving up" }
+                return Result.failure()
+            }
+
+            val result = sweep()
+            log(TAG, INFO) { "doWork(): sweep=$result" }
+
+            return mapSweep(result, now(), expiresAt)
+        }
 
         // Pure so the retry/expiry decision is unit-testable without a WorkManager test harness.
         internal fun isWorthSweeping(now: Long, expiresAt: Long): Boolean =
             expiresAt > 0L && now < expiresAt
+
+        // For periodic work WorkManager treats success and failure identically for scheduling: both
+        // reset the request to ENQUEUED for the next period and reset the attempt count (2.11,
+        // WorkerWrapper.handleResult), only its own result log line differs. Retries within a period
+        // are bounded so a Play outage can't chain backoff retries across the whole interval — the
+        // next period is the retry.
+        internal fun mapPeriodicSweep(
+            sweep: BillingManager.AckSweepResult?,
+            runAttemptCount: Int,
+        ): Result = when (sweep) {
+            BillingManager.AckSweepResult.COMPLETE -> Result.success()
+            BillingManager.AckSweepResult.PERMANENT_FAILURE -> Result.failure()
+            else -> if (runAttemptCount + 1 < PERIODIC_MAX_ATTEMPTS) Result.retry() else Result.failure()
+        }
 
         internal fun mapSweep(
             sweep: BillingManager.AckSweepResult?,
