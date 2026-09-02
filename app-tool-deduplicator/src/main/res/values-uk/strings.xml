@@ -38,7 +38,6 @@
         <item quantity="many">%s зайнято дублікатами</item>
         <item quantity="other">%s зайнято дублікатами</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Розмір файлу</string>
     <string name="deduplicator_average_size_label">Середній розмір</string>
     <string name="deduplicator_cluster_x_label">Кластер %s</string>
     <string name="deduplicator_delete_confirmation_message">Видалити всі копії, крім однієї, у всіх наборах дублікатів файлів?</string>
@@ -60,7 +59,6 @@
     <string name="deduplicator_cluster_preview_image">Попередній перегляд набору дублікатів</string>
     <string name="deduplicator_selection_keep_one_required">Щонайменше один файл на набір дублікатів має залишитися. Увімкніть у налаштуваннях «Зробити «Видалити все» можливим», щоб це обійти.</string>
     <string name="deduplicator_progress_comparing_files">Порівняння файлів</string>
-    <string name="deduplicator_details_cluster_title">Набір дублікатів</string>
     <string name="deduplicator_matches_exact_label">Точні копії</string>
     <string name="deduplicator_matches_similar_label">Схожі файли</string>
     <string name="deduplicator_arbiter_title">Стратегія видалення</string>

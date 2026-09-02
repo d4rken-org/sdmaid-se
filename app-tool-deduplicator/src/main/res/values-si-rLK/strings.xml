@@ -32,7 +32,6 @@
         <item quantity="one">%s බහුපත විසින් අවවන් න් වෙ</item>
         <item quantity="other">%s බහුපත විසින් අවවන් න් වෙ</item>
     </plurals>
-    <string name="deduplicator_file_size_label">ගොනු ප්‍රමාණය</string>
     <string name="deduplicator_average_size_label">සමාන ප්‍රමාණය</string>
     <string name="deduplicator_cluster_x_label">සමුහය %s</string>
     <string name="deduplicator_delete_confirmation_message">සියලු බහුපත ගොනු සමුහවල එකක් මඟ එක් ගොනුවක් මකා දමන්නද?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">අනුපිටපත් සමූහ පෙරදසුන</string>
     <string name="deduplicator_selection_keep_one_required">එක් එක් අනුපිටපත් සමූහයට අවම වශයෙන් එක් ගොනුවක්වත් ඉතිරි විය යුතුය. එය මඟහරවා ගැනීමට සැකසීම්වල \"\'සියල්ල මකන්න\' හැකි කරන්න\" සක්‍රීය කරන්න.</string>
     <string name="deduplicator_progress_comparing_files">ගොනු සන්දර්භ කරමින්</string>
-    <string name="deduplicator_details_cluster_title">බහුපත සමුහය</string>
     <string name="deduplicator_matches_exact_label">නිවැරදි පිටපත්</string>
     <string name="deduplicator_matches_similar_label">සමාන ගොනු</string>
     <string name="deduplicator_arbiter_title">මකන උපාය මාර්ගය</string>

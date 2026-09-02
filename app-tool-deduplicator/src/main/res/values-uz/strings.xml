@@ -32,7 +32,6 @@
         <item quantity="one">%s takrorlanganlar tomonidan band qilingan</item>
         <item quantity="other">%s takrorlanganlar tomonidan band qilingan</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Fayl hajmi</string>
     <string name="deduplicator_average_size_label">O\'rtacha hajm</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>
     <string name="deduplicator_delete_confirmation_message">Takrorlangan fayllarning barcha to\'plamlarida bitta nusxadan tashqari hammasini o\'chirish kerakmi?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Nusxalar to\'plamini ko\'rib chiqish</string>
     <string name="deduplicator_selection_keep_one_required">Har bir nusxalar to\'plamidan kamida bitta fayl qolishi kerak. Buni bekor qilish uchun sozlamalarda \"Barchasini o\'chirish\"ni yoqing.</string>
     <string name="deduplicator_progress_comparing_files">Fayllarni solishtirish</string>
-    <string name="deduplicator_details_cluster_title">Takrorlanganlar to\'plami</string>
     <string name="deduplicator_matches_exact_label">Aniq nusxalar</string>
     <string name="deduplicator_matches_similar_label">O\'xshash fayllar</string>
     <string name="deduplicator_arbiter_title">O\'chirish strategiyasi</string>

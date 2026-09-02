@@ -38,7 +38,6 @@
         <item quantity="many">%s je obsadených duplikátmi</item>
         <item quantity="other">%s je obsadených duplikátmi</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Veľkosť súboru</string>
     <string name="deduplicator_average_size_label">Priemerná veľkosť</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>
     <string name="deduplicator_delete_confirmation_message">Chcete odstrániť všetky kópie okrem jednej zo všetkých skupín duplicitných súborov?</string>
@@ -60,7 +59,6 @@
     <string name="deduplicator_cluster_preview_image">Náhľad sady duplikátov</string>
     <string name="deduplicator_selection_keep_one_required">V každej sade duplikátov musí zostať aspoň jeden súbor. V nastaveniach zapnite „Umožniť ‘Zmazať všetko’“, aby ste toto prekonali.</string>
     <string name="deduplicator_progress_comparing_files">Porovnávanie súborov</string>
-    <string name="deduplicator_details_cluster_title">Skupina duplikátov</string>
     <string name="deduplicator_matches_exact_label">Presné kópie</string>
     <string name="deduplicator_matches_similar_label">Podobné súbory</string>
     <string name="deduplicator_arbiter_title">Stratégia odstraňovania</string>

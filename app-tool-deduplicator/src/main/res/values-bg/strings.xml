@@ -32,7 +32,6 @@
         <item quantity="one">%s е заето от дубликати</item>
         <item quantity="other">%s са заети от дубликати</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Размер на файл</string>
     <string name="deduplicator_average_size_label">Средн размер</string>
     <string name="deduplicator_cluster_x_label">Клъстер %s</string>
     <string name="deduplicator_delete_confirmation_message">Изтриване на всички освен едно копие във всички комплекти дублирани файлове?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Преглед на набор дубликати</string>
     <string name="deduplicator_selection_keep_one_required">Поне един файл в набор дубликати трябва да остане. Активирайте „Make \'Delete all\' possible“ в настройките, за да отмените това.</string>
     <string name="deduplicator_progress_comparing_files">Сравняване на файлове</string>
-    <string name="deduplicator_details_cluster_title">Комплект дубликати</string>
     <string name="deduplicator_matches_exact_label">Точни копия</string>
     <string name="deduplicator_matches_similar_label">Подобни файлове</string>
     <string name="deduplicator_arbiter_title">Стратегия за изтриване</string>

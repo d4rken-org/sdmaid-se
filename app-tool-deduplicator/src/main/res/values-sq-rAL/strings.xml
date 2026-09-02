@@ -32,7 +32,6 @@
         <item quantity="one">%s është zënë nga dublikata</item>
         <item quantity="other">%s janë zënë nga dublikata</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Madhësia e skedarit</string>
     <string name="deduplicator_average_size_label">Madhësia mesatare</string>
     <string name="deduplicator_cluster_x_label">Tog %s</string>
     <string name="deduplicator_delete_confirmation_message">Të fshihen të gjitha, përveç një kopje, në të gjitha grupet e skedarëve dublikatë?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Paraparje e bashkësisë së dublikateve</string>
     <string name="deduplicator_selection_keep_one_required">Të paktën një skedar në çdo grup duplikatesh duhet të mbetet. Aktivizoni \"Bëj të mundur fshirjen e të gjithëve\" në cilësimet për ta anashkaluar këtë kufizim.</string>
     <string name="deduplicator_progress_comparing_files">Krahasimi i skedarëve</string>
-    <string name="deduplicator_details_cluster_title">Set duplikatesh</string>
     <string name="deduplicator_matches_exact_label">Kopje ekzakte</string>
     <string name="deduplicator_matches_similar_label">Skedarë të ngjashëm</string>
     <string name="deduplicator_arbiter_title">Strategjia e fshirjes</string>

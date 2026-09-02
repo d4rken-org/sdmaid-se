@@ -32,7 +32,6 @@
         <item quantity="one">%s е зафатено од дупликати</item>
         <item quantity="other">%s се зафатени од дупликати</item>
     </plurals>
-    <string name="deduplicator_file_size_label">Големина на датотека</string>
     <string name="deduplicator_average_size_label">Просечна големина</string>
     <string name="deduplicator_cluster_x_label">Група %s</string>
     <string name="deduplicator_delete_confirmation_message">Избриши ги сите освен една копија во сите групи дупликати?</string>
@@ -52,7 +51,6 @@
     <string name="deduplicator_cluster_preview_image">Преглед на група дупликати</string>
     <string name="deduplicator_selection_keep_one_required">Мора да остане барем една датотека од секој сет дупликати. Вклучете ја опцијата „Овозможи ‘Избриши сè’“ во подесувањата за да го заобиколите ова.</string>
     <string name="deduplicator_progress_comparing_files">Споредување на датотеки</string>
-    <string name="deduplicator_details_cluster_title">Група дупликати</string>
     <string name="deduplicator_matches_exact_label">Точни копии</string>
     <string name="deduplicator_matches_similar_label">Слични датотеки</string>
     <string name="deduplicator_arbiter_title">Стратегија за бришење</string>
