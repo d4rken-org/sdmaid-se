@@ -1,5 +1,8 @@
 package eu.darken.sdmse.common.compose
 
+import android.content.Context
+import android.graphics.BitmapFactory
+import android.util.Base64
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Box
@@ -9,16 +12,20 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.layout.Layout
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import com.airbnb.lottie.LottieComposition
+import com.airbnb.lottie.LottieCompositionFactory
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -36,6 +43,8 @@ sealed interface SdmMascotMode {
     data object NewYear : SdmMascotMode
     data object Party : SdmMascotMode
 }
+
+private val MASCOT_ANIMATION = LottieCompositionSpec.Asset("lottie/mascot_animation_coffee_relaxed.json")
 
 private const val MASCOT_ASPECT_RATIO = 640f / 866f
 
@@ -67,10 +76,27 @@ fun SdmMascot(
     modifier: Modifier = Modifier,
     mode: SdmMascotMode = SdmMascotMode.Animated,
 ) {
-    val composition by rememberLottieComposition(
-        LottieCompositionSpec.Asset("lottie/mascot_animation_coffee_relaxed.json")
-    )
+    val composition = if (LocalInspectionMode.current) {
+        // Previews render a single frame and never see an async load complete.
+        val context = LocalContext.current
+        remember { loadCompositionForPreview(context) }
+    } else {
+        rememberLottieComposition(MASCOT_ANIMATION).value
+    }
 
+    SdmMascotContent(
+        modifier = modifier,
+        composition = composition,
+        mode = mode,
+    )
+}
+
+@Composable
+private fun SdmMascotContent(
+    modifier: Modifier = Modifier,
+    composition: LottieComposition?,
+    mode: SdmMascotMode,
+) {
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center,
@@ -84,7 +110,7 @@ fun SdmMascot(
                 )
             } else {
                 Image(
-                    painter = painterResource(R.drawable.splash_mascot),
+                    painter = painterResource(R.drawable.mascot_coffee_relaxed_still),
                     contentDescription = null,
                     modifier = Modifier.fillMaxSize(),
                 )
@@ -105,6 +131,28 @@ fun SdmMascot(
             }
         }
     }
+}
+
+// Lottie's async loader decodes the embedded base64 images itself; the sync parser leaves them to
+// an asset manager that previews don't have, so decode them here.
+private fun loadCompositionForPreview(context: Context): LottieComposition? {
+    val composition = LottieCompositionFactory.fromAssetSync(context, MASCOT_ANIMATION.assetName).value
+    composition?.images?.values?.forEach { asset ->
+        if (asset.bitmap != null || !asset.fileName.startsWith("data:")) return@forEach
+        val data = asset.fileName.substringAfter("base64,", missingDelimiterValue = "")
+        if (data.isEmpty()) return@forEach
+        val bytes = try {
+            Base64.decode(data, Base64.DEFAULT)
+        } catch (e: IllegalArgumentException) {
+            return@forEach
+        }
+        val options = BitmapFactory.Options().apply {
+            inScaled = false
+            inDensity = 160
+        }
+        asset.bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.size, options)
+    }
+    return composition
 }
 
 @Composable
@@ -196,6 +244,18 @@ private fun SdmMascotNewYearPreview() {
 @Composable
 private fun SdmMascotPartyPreview() {
     SdmMascotPreviewContent(mode = SdmMascotMode.Party)
+}
+
+@Preview2
+@Composable
+private fun SdmMascotFallbackPreview() {
+    PreviewWrapper {
+        SdmMascotContent(
+            modifier = Modifier.size(172.dp),
+            composition = null,
+            mode = SdmMascotMode.Party,
+        )
+    }
 }
 
 @Composable
