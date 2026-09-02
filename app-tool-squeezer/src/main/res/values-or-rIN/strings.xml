@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">ତୁଳନା ଦେଖନ୍ତୁ</string>
     <string name="squeezer_no_example_found">ଚୟନ ହୋଇଥିବା ପଥରେ କୌଣସି ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
     <string name="squeezer_result_empty_message">କୌଣସି ସଙ୍କୁଚିତ ଯୋଗ୍ୟ ମିଡ଼ିଆ ମିଳିଲା ନାହିଁ।</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">ସଙ୍କୋଚନ କରିବାକୁ କୌଣସି ମିଡିଆ ନାହିଁ — %d HDR/ଗଭୀରତା ଫଟୋ ଛାଡ଼ି ଦିଆୟାଇଥିଲା। ଏହାକୁ ଅନ୍ତର୍ଭୁକ୍ତ କରିବାକୁ ସେଟିଂସରେ \"HDR ଓ ଗଭୀରତା ଫଟୋ ସଙ୍କୋଚନ କରନ୍ତୁ\" ସକ୍ଷମ କରନ୍ତୁ।</item>
-        <item quantity="other">ସଙ୍କୋଚନ କରିବାକୁ କୌଣସି ମିଡିଆ ନାହିଁ — %d HDR/ଗଭୀରତା ଫଟୋ ଛାଡ଼ି ଦିଆୟାଇଥିଲା। ସେମାନଙ୍କୁ ଅନ୍ତର୍ଭୁକ୍ତ କରିବାକୁ ସେଟିଂସରେ \"HDR ଓ ଗଭୀରତା ଫଟୋ ସଙ୍କୋଚନ କରନ୍ତୁ\" ସକ୍ଷମ କରନ୍ତୁ।</item>
-    </plurals>
     <string name="squeezer_setup_warning">ସଙ୍କୋଚନ ଷ୍ଟୋରେଜ ସ୍ଥାନ ସଞ୍ଚୟ କରିବାକୁ ଗୁଣମାନ ସ୍ଥାୟୀଭାବେ ହ୍ରାସ କରେ। ଏହା ପୂର୍ବବତ୍ ହୋଇ ପାରିବ ନାହିଁ। ଆରମ୍ଭ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କ ସେଟିଂସ ୟତ୍ନ ସହ ୟାଞ୍ଚ କରନ୍ତୁ।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>

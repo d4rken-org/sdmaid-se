@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Buka ukuqhathanisa</string>
     <string name="squeezer_no_example_found">Azikho izithombe ezitholakele ezindleleni ezikhethiwe.</string>
     <string name="squeezer_result_empty_message">Akukho imidiya engoqwa etholakele.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Awekho imidiya yokushintsha — %d izithombe ye-HDR/depth yaliwe. Vumela \'Cinza izithombe ze-HDR &amp; depth\' ezilungiselelweni ukuze iyingelwe.</item>
-        <item quantity="other">Awekho imidiya yokushintsha — %d izithombe ze-HDR/depth zaliwe. Vumela \'Cinza izithombe ze-HDR &amp; depth\' ezilungiselelweni ukuze ziyingelwe.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Ukugoqwa kwehlisa ikhwalithi ngokunaphakade ukonga indawo yokugcina. Lokhu akunakuguqulwa. Hlola izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">Indawo engu-%d ayikwazi ukusetshenziswa ukugoqwa futhi isuswe. Ukugoqwa kudinga ukufinyelela ngokuqondile kwesitoreji sangaphakathi.</item>

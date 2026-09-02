@@ -29,6 +29,18 @@
         <item quantity="one">%d skipped (HDR/depth preserved)</item>
         <item quantity="other">%d skipped (HDR/depth preserved)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d skipped (Motion Photo preserved)</item>
+        <item quantity="other">%d skipped (Motion Photo preserved)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d skipped (very large, resolution preserved)</item>
+        <item quantity="other">%d skipped (very large, resolution preserved)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d skipped (protected by your settings)</item>
+        <item quantity="other">%d skipped (protected by your settings)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item selected</item>
         <item quantity="other">%d items selected</item>
@@ -60,6 +72,10 @@
     <string name="squeezer_exif_marker_description">Append a marker to the image\'s EXIF user comment field to prevent re-compression even if the compression history is cleared.</string>
     <string name="squeezer_include_lossy_aux_title">Compress HDR &amp; depth photos</string>
     <string name="squeezer_include_lossy_aux_description">Off by default: photos with an HDR gain map or depth/portrait data are skipped so they aren\'t flattened. Enable to compress them where possible — they will lose their HDR gain map or depth data. Some multi-image HEIC photos stay protected regardless.</string>
+    <string name="squeezer_include_motion_photos_title">Compress Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Off by default: photos with an embedded video clip are skipped so the clip isn\'t lost. Enable to compress them; only the still image is kept.</string>
+    <string name="squeezer_include_oversized_title">Compress very large photos</string>
+    <string name="squeezer_include_oversized_description">Off by default: photos over 8192 pixels on their longest side are skipped, because compressing them also halves their resolution. Enable to compress them at half resolution.</string>
     <string name="squeezer_estimated_savings_format">~%s savings</string>
     <string name="squeezer_no_savings_expected">Limited savings</string>
     <string name="squeezer_current_size_format">Size: %s</string>
@@ -98,9 +114,18 @@
     <string name="squeezer_compare_action">View comparison</string>
     <string name="squeezer_no_example_found">No images found in selected paths.</string>
     <string name="squeezer_result_empty_message">No compressible media found.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">No media to compress — %d HDR/depth photo was skipped. Enable \"Compress HDR &amp; depth photos\" in settings to include it.</item>
-        <item quantity="other">No media to compress — %d HDR/depth photos were skipped. Enable \"Compress HDR &amp; depth photos\" in settings to include them.</item>
+    <string name="squeezer_result_empty_protected">No media to compress. Skipped to protect them: %s. Enable the matching option in Media Squeeze settings to include them.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/depth photo</item>
+        <item quantity="other">%d HDR/depth photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d very large photo</item>
+        <item quantity="other">%d very large photos</item>
     </plurals>
     <string name="squeezer_setup_warning">Compression permanently reduces quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
     <plurals name="squeezer_setup_path_dropped_message">

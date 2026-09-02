@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Ikusi konparazioa</string>
     <string name="squeezer_no_example_found">Ez da irudirik aurkitu hautatutako bideetan.</string>
     <string name="squeezer_result_empty_message">Ez da konprimatu daitekeen multimedia aurkitu.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Ez dago konprimitzeko medirik — %d HDR/sakonera argazki baztertu zen. Gaitu \"Konprimitu HDR &amp; sakonera argazkiak\" ezarpenetan sartzeko.</item>
-        <item quantity="other">Ez dago konprimitzeko medirik — %d HDR/sakonera argazki baztertu ziren. Gaitu \"Konprimitu HDR &amp; sakonera argazkiak\" ezarpenetan sartzeko.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Konprimatzeak kalitatea betirako murrizten du biltegiratze-espazioa aurrezteko. Hau ezin da desegin. Berrikusi zure ezarpenak arretaz hasi aurretik.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d kokapen ezin da konprimatzeko erabili eta ezabatu da. Konprimatzeak barne-biltegiratze zuzeneko sarbidea behar du.</item>

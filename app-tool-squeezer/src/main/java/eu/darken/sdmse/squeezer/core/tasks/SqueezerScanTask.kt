@@ -21,6 +21,8 @@ data class SqueezerScanTask(
         private val estimatedSavings: Long,
         private val skippedInaccessibleCount: Int = 0,
         private val skippedLossyAuxCount: Int = 0,
+        private val skippedMotionPhotoCount: Int = 0,
+        private val skippedOversizedCount: Int = 0,
     ) : Result {
         override val primaryInfo
             get() = caString {
@@ -45,6 +47,20 @@ data class SqueezerScanTask(
                         R.plurals.squeezer_result_x_skipped_lossy_aux,
                         skippedLossyAuxCount,
                         skippedLossyAuxCount,
+                    )
+                }
+                if (skippedMotionPhotoCount > 0) {
+                    fragments += getQuantityString2(
+                        R.plurals.squeezer_result_x_skipped_motion_photo,
+                        skippedMotionPhotoCount,
+                        skippedMotionPhotoCount,
+                    )
+                }
+                if (skippedOversizedCount > 0) {
+                    fragments += getQuantityString2(
+                        R.plurals.squeezer_result_x_skipped_oversized,
+                        skippedOversizedCount,
+                        skippedOversizedCount,
                     )
                 }
                 fragments.joinToString(" • ")

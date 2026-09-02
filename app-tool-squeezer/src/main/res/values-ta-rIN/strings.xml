@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">ஒப்பீட்டைக் காண்</string>
     <string name="squeezer_no_example_found">தேர்ந்தெடுக்கப்பட்ட பாதைகளில் படங்கள் காணப்படவில்லை.</string>
     <string name="squeezer_result_empty_message">சுருக்கக்கூடிய ஊடகம் எதுவும் கிடைக்கவில்லை.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">சுருக்க ஊடகம் இல்லை — %d HDR/ஆழ் புகைப்படம் தவிர்க்கப்பட்டது. அதை சேர்க்க அமைப்புகளில் \"HDR &amp; ஆழ் புகைப்படங்களை சுருக்கவும்\" இயக்கவும்.</item>
-        <item quantity="other">சுருக்க ஊடகம் இல்லை — %d HDR/ஆழ் புகைப்படங்கள் தவிர்க்கப்பட்டன. அவற்றை சேர்க்க அமைப்புகளில் \"HDR &amp; ஆழ் புகைப்படங்களை சுருக்கவும்\" இயக்கவும்.</item>
-    </plurals>
     <string name="squeezer_setup_warning">சுருக்கம் தரத்தை நிரந்தரமாக குறைக்கும், சேமிப்பு இடத்தை மிச்சப்படுத்த. இதை மீட்டெடுக்க முடியாது. தொடங்குவதற்கு முன் உங்கள் அமைப்புகளை கவனமாக சரிபார்க்கவும்.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d இடத்தை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டது. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>

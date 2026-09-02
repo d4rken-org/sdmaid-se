@@ -98,11 +98,6 @@
     <string name="squeezer_compare_action">Skatīt salīdzīnājumu</string>
     <string name="squeezer_no_example_found">Nav atrasts neviens attēls atlasītajās ceļos.</string>
     <string name="squeezer_result_empty_message">Nav atrasts neviens saspiežams multivides fails.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="zero">Nav satura, ko saspiest — %d HDR/dziļuma fotogrāfijas tika izlaistas. Iespējojiet \"Saspiest HDR un dziļuma fotogrāfijas\" iestatījumos, lai tās iekļautu.</item>
-        <item quantity="one">Nav satura, ko saspiest — %d HDR/dziļuma fotogrāfija tika izlaista. Iespējojiet \"Saspiest HDR un dziļuma fotogrāfijas\" iestatījumos, lai to iekļautu.</item>
-        <item quantity="other">Nav satura, ko saspiest — %d HDR/dziļuma fotogrāfijas tika izlaistas. Iespējojiet \"Saspiest HDR un dziļuma fotogrāfijas\" iestatījumos, lai tās iekļautu.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Saspiešana neatgriezeniski samazina kvalitāti, lai ietaupītu krātuves vietu. To nevar atsaukt. Pirms sākšanas rūpīgi pārskatiet iestatījumus.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="zero">%d atrašanvietu nevar izmantot saspiešanai un tās tika noņemtas. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>

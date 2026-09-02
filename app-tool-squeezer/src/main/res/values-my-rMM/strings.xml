@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">နှိုင်းယှဉ်ချက် ကြည့်ရန်</string>
     <string name="squeezer_no_example_found">ရွေးချယ်ထားသောလမ်းများတွင် ပုံများ မရှိပါ။</string>
     <string name="squeezer_result_empty_message">ချုံ့နိုင်သောမီဒီယို မတွေ့ရှိပါ။</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">ချုပ်တည်းရန်အတွက် မီဒီယာမရှိ — %d HDR/အနက်ရှိုင်းရုပ်ပုံများ ကျော်လွှားသည်။ ၎င်းတို့ကို ထည့်သွင်းရန်အတွက် ဆက်တင်များတွင် \"HDR &amp; အနက်ရှိုင်းရုပ်ပုံများ ချုပ်တည်းသည်\" ကို ဖွင့်ပါ။</item>
-    </plurals>
     <string name="squeezer_setup_warning">ချုံ့ခြင်းသည် သိုလှောင်မှုနေရာကို သက်သာစေရန် အရည်အသွေးကို ဆက်တိုက်လျှော့ချသည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ကြောင်းပြောင်း၍ မရနိုင်ပါ။ စတင်မတိုင်မအစား သင်သောဆက်တင်များကို သေချားသေးသေးသေခြည့်ပါ။</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d တည်နေရာ(များ)ကို ချုံ့ရန် အသုံးမပြုသောကြောင် ဖယ်ရှားလိုက်သည်။ ချုံ့ခြင်းသည် အတွင်သိုလှောင်သို့ဆိုသို တိုက်ရိုက်ခွင့်ပြု လိုအပ်သည်။</item>

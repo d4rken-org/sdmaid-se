@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Solishtirishni ko\'rish</string>
     <string name="squeezer_no_example_found">Tanlangan yo\'llarda rasmlar topilmadi.</string>
     <string name="squeezer_result_empty_message">Siqilishi mumkin bo\'lgan media topilmadi.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Siqish uchun media yo\'q — %d ta HDR/chuqurlik rasmi o\'tkazib yuborildi. Ularni ham qo\'shish uchun sozlamalarda \"HDR &amp; chuqurlik rasmlarini siqish\"ni yoqing.</item>
-        <item quantity="other">Siqish uchun media yo\'q — %d ta HDR/chuqurlik rasmi o\'tkazib yuborildi. Ularni ham qo\'shish uchun sozlamalarda \"HDR &amp; chuqurlik rasmlarini siqish\"ni yoqing.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Siqish xotirani tejash uchun sifatni doimiy ravishda kamaytiradi. Bu amalni bekor qilib bo\'lmaydi. Boshlashdan oldin sozlamalaringizni diqqat bilan ko\'rib chiqing.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d manzilni siqish uchun ishlatib bo\'lmadi va olib tashlandi. Siqish ichki xotiraga to\'g\'ridan-to\'g\'ri kirish imkonini talab qiladi.</item>

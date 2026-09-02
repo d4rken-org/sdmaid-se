@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Vergleich anzeigen</string>
     <string name="squeezer_no_example_found">Keine Bilder in den ausgewählten Pfaden gefunden.</string>
     <string name="squeezer_result_empty_message">Keine komprimierbaren Medien gefunden.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Keine Medien zum Komprimieren – %d HDR-/Tiefenfoto wurde übersprungen. Aktiviere „HDR- &amp; Tiefenfotos komprimieren“ in den Einstellungen, um es einzubeziehen.</item>
-        <item quantity="other">Keine Medien zum Komprimieren – %d HDR-/Tiefenfotos wurden übersprungen. Aktiviere „HDR- &amp; Tiefenfotos komprimieren“ in den Einstellungen, um sie einzubeziehen.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Die Komprimierung reduziert die Qualität dauerhaft, um Speicherplatz zu sparen. Dies kann nicht rückgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig, bevor du beginnst.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d Speicherort kann nicht für die Komprimierung verwendet werden und wurde entfernt. Die Komprimierung erfordert direkten Zugriff auf den internen Speicher.</item>

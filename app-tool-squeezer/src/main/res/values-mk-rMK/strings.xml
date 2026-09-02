@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Прегледај споредба</string>
     <string name="squeezer_no_example_found">Нема пронајдени слики во избраните патеки.</string>
     <string name="squeezer_result_empty_message">Не е пронајдено компресибилно медиумско содржина.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Нема слики за компресирање — %d HDR/depth слика беше прескочена. Вклучете „Компресирајте HDR и слики со длабочина“ во нагодувањата за да ја вклучите.</item>
-        <item quantity="other">Нема слики за компресирање — %d HDR/depth слики беа прескочени. Вклучете „Компресирајте HDR и слики со длабочина“ во нагодувањата за да ги вклучите.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Компресијата трајно го намалува квалитетот за да заштеди простор за складирање. Ова не може да се врати. Внимателно прегледајте ги вашите поставки пред да започнете.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d локација не може да се користи за компресија и беше отстранета. Компресијата бара директен пристап до внатрешниот склад.</item>

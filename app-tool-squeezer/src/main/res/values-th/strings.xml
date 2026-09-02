@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">ดูการเปรียบเทียบ</string>
     <string name="squeezer_no_example_found">ไม่พบรูปภาพในเส้นทางที่เลือก</string>
     <string name="squeezer_result_empty_message">ไม่พบสื่อที่สามารถบีบอัดได้</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">ไม่มีสื่อที่จะบีบอัด — ข้ามรูปภาพ HDR/ความลึกไป %d ภาพ เปิดใช้งาน \"บีบอัดรูปภาพ HDR &amp; ความลึก\" ในการตั้งค่าเพื่อรวมภาพเหล่านี้</item>
-    </plurals>
     <string name="squeezer_setup_warning">การบีบอัดจะลดคุณภาพอย่างถาวรเพื่อประหยัดพื้นที่จัดเก็บ ไม่สามารถยกเลิกได้ โปรดตรวจสอบการตั้งค่าของคุณอย่างรอบคอบก่อนเริ่ม</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">ไม่สามารถใช้ %d ตำแหน่งสำหรับการบีบอัดและถูกลบออกแล้ว การบีบอัดต้องการการเข้าถึงโดยตรงไปยังพื้นที่จัดเก็บภายใน</item>

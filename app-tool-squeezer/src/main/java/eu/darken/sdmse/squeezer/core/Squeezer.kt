@@ -123,6 +123,8 @@ class Squeezer @Inject constructor(
             skipPreviouslyCompressed = settings.skipPreviouslyCompressed.value(),
             compressionQuality = settings.compressionQuality.value(),
             includeLossyAuxImages = settings.includeLossyAuxImages.value(),
+            includeMotionPhotos = settings.includeMotionPhotos.value(),
+            includeOversizedImages = settings.includeOversizedImages.value(),
         )
 
         val scanResult = scanner.get().withProgress(this) {
@@ -133,12 +135,16 @@ class Squeezer @Inject constructor(
         log(TAG, INFO) {
             "performScan(): ${results.size} media items found, " +
                     "${scanResult.skippedInaccessibleCount} skipped (inaccessible), " +
-                    "${scanResult.skippedLossyAuxCount} skipped (HDR/depth aux)"
+                    "${scanResult.skippedLossyAuxCount} skipped (HDR/depth aux), " +
+                    "${scanResult.skippedMotionPhotoCount} skipped (Motion Photo), " +
+                    "${scanResult.skippedOversizedCount} skipped (oversized)"
         }
 
         internalData.value = Data(
             media = results,
             skippedLossyAuxCount = scanResult.skippedLossyAuxCount,
+            skippedMotionPhotoCount = scanResult.skippedMotionPhotoCount,
+            skippedOversizedCount = scanResult.skippedOversizedCount,
         )
 
         return SqueezerScanTask.Success(
@@ -147,6 +153,8 @@ class Squeezer @Inject constructor(
             estimatedSavings = results.sumOf { it.estimatedSavings ?: 0L },
             skippedInaccessibleCount = scanResult.skippedInaccessibleCount,
             skippedLossyAuxCount = scanResult.skippedLossyAuxCount,
+            skippedMotionPhotoCount = scanResult.skippedMotionPhotoCount,
+            skippedOversizedCount = scanResult.skippedOversizedCount,
         )
     }
 
@@ -230,7 +238,7 @@ class Squeezer @Inject constructor(
 
         updateProgress { itemsCompleted(it, totalItems, totalItems) }
 
-        // Consume both compressed items and HDR/depth-preserved (guard-skipped) ones from the list,
+        // Consume both compressed items and guard-skipped (HDR/depth, Motion Photo, oversized) ones from the list,
         // but only compressed items count toward processedCount / affectedPaths below.
         val handledIds = (allSuccess.map { it.identifier } + imageResult.skippedGuarded.map { it.identifier }).toSet()
         internalData.value = snapshot.prune(handledIds)
@@ -290,6 +298,10 @@ class Squeezer @Inject constructor(
         val media: Set<CompressibleMedia> = emptySet(),
         /** Photos excluded from this scan to preserve their HDR gain map / depth map. */
         val skippedLossyAuxCount: Int = 0,
+        /** Motion Photos excluded from this scan to preserve their clip. */
+        val skippedMotionPhotoCount: Int = 0,
+        /** Images excluded from this scan because compression would halve their resolution. */
+        val skippedOversizedCount: Int = 0,
     ) {
         val images: Set<CompressibleImage> get() = media.filterIsInstance<CompressibleImage>().toSet()
         val videos: Set<CompressibleVideo> get() = media.filterIsInstance<CompressibleVideo>().toSet()

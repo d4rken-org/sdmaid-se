@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Tazama kulinganisha</string>
     <string name="squeezer_no_example_found">Hakuna picha zilizopatikana katika njia zilizochaguliwa.</string>
     <string name="squeezer_result_empty_message">Hakuna midia inayoweza kubanwa iliyopatikana.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Hakuna media ya kubana — picha %d ya HDR/kina ilirukwa. Wezesha \"Bana picha za HDR na kina\" katika mipangilio ili kuijumuisha.</item>
-        <item quantity="other">Hakuna media ya kubana — picha %d za HDR/kina zilirukwa. Wezesha \"Bana picha za HDR na kina\" katika mipangilio ili kuzijumuisha.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Kubana kunapunguza ubora kwa kudumu ili kuokoa nafasi ya hifadhi. Hii haiwezi kutenduliwa. Kagua mipangilio yako kwa makini kabla ya kuanza.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">Mahali %d haliwezi kutumika kwa kubana na limeondolewa. Kubana kunahitaji ufikiaji wa moja kwa moja wa hifadhi ya ndani.</item>

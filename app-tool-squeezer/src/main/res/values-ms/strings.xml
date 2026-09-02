@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">Lihat perbandingan</string>
     <string name="squeezer_no_example_found">Tiada imej dijumpai di laluan yang dipilih.</string>
     <string name="squeezer_result_empty_message">Tiada media yang boleh dimampatkan ditemui.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">Tiada media untuk dimampat — %d foto HDR/kedalaman dilangkau. Dayakan \"Mampat foto HDR &amp; kedalaman\" dalam tetapan untuk menyertakannya.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Pemampatan mengurangkan kualiti secara kekal untuk menjimatkan ruang storan. Ini tidak boleh dibatalkan. Semak tetapan anda dengan teliti sebelum memulakan.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d lokasi tidak boleh digunakan untuk pemampatan dan telah dikeluarkan. Pemampatan memerlukan akses terus ke storan dalaman.</item>

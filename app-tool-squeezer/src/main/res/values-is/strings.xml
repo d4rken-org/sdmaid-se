@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Skoða samanburð</string>
     <string name="squeezer_no_example_found">Engar myndir fundust á völdum slóðum.</string>
     <string name="squeezer_result_empty_message">Ekkert þjáppanlegt efni fannst.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Engin miðlun til að þjappa — %d HDR/dýptarmynd var sleppt. Virkjaðu „Þjaúpa HDR &amp; dýptarmyndum“ í stillingunum til að taka hana með.</item>
-        <item quantity="other">Engin miðlun til að þjappa — %d HDR/dýptarmyndir voru sleppar. Virkjaðu „Þjaúpa HDR &amp; dýptarmyndum“ í stillingunum til að taka þær með.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Þjöppun minnkar gæði varanlega til að spara geymslupláss. Ekki er hægt að afturkalla þtta. Farðu vandlega yfir stillingar þinar áður en þú byrjar.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d staðsetning er ekki hægt að nota til þjöppunar og var fjarlægð. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>

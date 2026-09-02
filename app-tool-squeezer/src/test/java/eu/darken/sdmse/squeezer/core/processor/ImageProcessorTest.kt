@@ -53,6 +53,8 @@ class ImageProcessorTest : BaseTest() {
         every { settings.writeExifMarker } returns mockDataStoreValue(false)
         // Opt-in ON => the HDR/depth preflight is a no-op, so existing compression cases are unaffected.
         every { settings.includeLossyAuxImages } returns mockDataStoreValue(true)
+        every { settings.includeMotionPhotos } returns mockDataStoreValue(true)
+        every { settings.includeOversizedImages } returns mockDataStoreValue(true)
 
         subject = ImageProcessor(
             context = RuntimeEnvironment.getApplication(),
@@ -148,6 +150,30 @@ class ImageProcessorTest : BaseTest() {
         result.success.size shouldBe 0
         result.failed.size shouldBe 0
         result.savedSpace shouldBe 0L
+        coVerify(exactly = 0) { fileTransaction.replace(any(), any(), any()) }
+    }
+
+    @Test
+    fun `process - Motion Photo is preserved (skipped, not compressed) when opt-in is off`() = runTest {
+        val image = createImage()
+        every { settings.includeMotionPhotos } returns mockDataStoreValue(false)
+        every { lossyAuxDetector.hasMotionVideo(any(), any()) } returns true
+
+        val result = subject.process(setOf(image), quality = 80)
+
+        result.skippedGuarded.size shouldBe 1
+        result.success.size shouldBe 0
+        coVerify(exactly = 0) { fileTransaction.replace(any(), any(), any()) }
+    }
+
+    @Test
+    fun `process - oversized image is preserved when opt-in was turned off after the scan`() = runTest {
+        val image = createImage().copy(willDownscale = true)
+        every { settings.includeOversizedImages } returns mockDataStoreValue(false)
+
+        val result = subject.process(setOf(image), quality = 80)
+
+        result.skippedGuarded.size shouldBe 1
         coVerify(exactly = 0) { fileTransaction.replace(any(), any(), any()) }
     }
 

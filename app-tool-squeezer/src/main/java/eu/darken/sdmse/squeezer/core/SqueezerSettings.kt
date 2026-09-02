@@ -45,6 +45,15 @@ class SqueezerSettings @Inject constructor(
      * compress them anyway. Format-wide (JPEG Ultra HDR + HEIC), see [eu.darken.sdmse.squeezer.core.scanner.LossyAuxDetector].
      */
     val includeLossyAuxImages = dataStore.createValue("filter.image.lossyaux.include", false)
+
+    /** When false (default), JPEG Motion Photos are skipped so the re-encode can't drop their clip. */
+    val includeMotionPhotos = dataStore.createValue("filter.image.motionphoto.include", false)
+
+    /**
+     * When false (default), images the encoder would decode at reduced resolution are skipped
+     * (see [eu.darken.sdmse.squeezer.core.processor.ImageCompressor.willDownscale]).
+     */
+    val includeOversizedImages = dataStore.createValue("filter.image.oversized.include", false)
     val skipPreviouslyCompressed = dataStore.createValue("skip.previously.compressed", true)
     val writeExifMarker = dataStore.createValue("compression.exif.marker.enabled", false)
     val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), json)

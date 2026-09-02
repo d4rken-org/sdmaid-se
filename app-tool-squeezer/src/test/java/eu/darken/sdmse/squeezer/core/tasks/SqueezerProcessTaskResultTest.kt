@@ -30,7 +30,7 @@ class SqueezerProcessTaskResultTest : BaseTest() {
 
         val summary = success.secondaryInfo.get(context)
         summary shouldContain "3 skipped"
-        summary shouldContain "HDR"
+        summary shouldContain "protected"
     }
 
     @Test
@@ -41,6 +41,6 @@ class SqueezerProcessTaskResultTest : BaseTest() {
             processedCount = 2,
         )
 
-        success.secondaryInfo.get(context) shouldNotContain "HDR"
+        success.secondaryInfo.get(context) shouldNotContain "protected"
     }
 }

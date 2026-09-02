@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Karşılaştırmayı görüntüle</string>
     <string name="squeezer_no_example_found">Seçilen yollarda resim bulunamadı.</string>
     <string name="squeezer_result_empty_message">Sıkıştırılabilir medya bulunamadı.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Sıkıştırılacak medya yok — %d HDR/derinlik fotoğrafı atlandı. Bunları dahil etmek için ayarlardan \"HDR &amp; derinlik fotoğraflarını sıkıştır\" seçeneğini etkinleştirin.</item>
-        <item quantity="other">Sıkıştırılacak medya yok — %d HDR/derinlik fotoğrafı atlandı. Bunları dahil etmek için ayarlardan \"HDR &amp; derinlik fotoğraflarını sıkıştır\" seçeneğini etkinleştirin.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Sıkıştırma, depolama alanı kazanmak için kaliteyi kalıcı olarak azaltır. Bu geri alınamaz. Başlatmadan önce ayarlarınızı dikkatlice gözden geçirin.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d konum sıkıştırma için kullanılamaz ve kaldırıldı. Sıkıştırma, dahili depolamaya doğrudan erişim gerektirir.</item>

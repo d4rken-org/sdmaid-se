@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Shiko krahasimin</string>
     <string name="squeezer_no_example_found">Nuk u gjetën imazhe në shtegjet e zgjedhura.</string>
     <string name="squeezer_result_empty_message">Nuk u gjet asnjë media e kompresueshme.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Nuk ka media për të kompresuar — %d foto HDR/thellësie u anashkalua. Aktivizoni \"Kompresi fotot HDR &amp; të thellësisë\" në cilësimet për ta përfshirë.</item>
-        <item quantity="other">Nuk ka media për të kompresuar — %d fotot HDR/thellësie u anashkaluan. Aktivizoni \"Kompresi fotot HDR &amp; të thellësisë\" në cilësimet për t\'i përfshirë.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Kompresimi zvogëlon cilësinë përgjithmonë për të kursyer hapësirë ruajtjeje. Kjo nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d vend nuk mund të përdoret për kompresim dhe u hoq. Kompresimi kërkon qasje të drejtëpërdrejtë në memorien e brendshme.</item>

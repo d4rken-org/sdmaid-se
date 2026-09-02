@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">তুলনা দেখুন</string>
     <string name="squeezer_no_example_found">নির্বাচিত পাথে কোনো ছবি পাওয়া যায়নি।</string>
     <string name="squeezer_result_empty_message">কোনো সংকোচনযোগ্য মিডিয়া পাওয়া যায়নি।</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">সংকুচিত করার মতো কোনো মিডিয়া নেই — %d HDR/depth ছবি বাদ দেওয়া হয়েছিল। এটি অন্তর্ভুক্ত করতে সেটিংসে \"HDR &amp; depth ছবি সংকুচিত করুন\" সক্ষম করুন।</item>
-        <item quantity="other">সংকুচিত করার মতো কোনো মিডিয়া নেই — %d HDR/depth ছবি বাদ দেওয়া হয়েছিল। সেগুলি অন্তর্ভুক্ত করতে সেটিংসে \"HDR &amp; depth ছবি সংকুচিত করুন\" সক্ষম করুন।</item>
-    </plurals>
     <string name="squeezer_setup_warning">সংকোচন স্থায়ীভাবে স্টোরেজ স্থান বাঁচাতে মান কমিয়ে দেয়। এটি পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%dটি অবস্থান সংকোচনের জন্য ব্যবহার করা যাবে না এবং সরানো হয়েছে। সংকোচনের জন্য অভ্যন্তরীণ স্টোরেজে সরাসরি অ্যাক্সেস প্রয়োজন।</item>

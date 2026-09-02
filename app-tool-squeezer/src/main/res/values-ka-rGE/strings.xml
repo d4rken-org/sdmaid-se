@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">შედარების ნახვა</string>
     <string name="squeezer_no_example_found">არჩეულ გზებში სურათები ვერ მოიძებნა.</string>
     <string name="squeezer_result_empty_message">შეკუმშვადი მედია ვერ მოიძებნა.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">შესაკუმში მედია არ არის — %d HDR/სიღრმის ფოტო გამოტოვდა. ჩართეთ \"HDR &amp; სიღრმის ფოტოების შეკუმშვა\" პარამეტრებში მისი ჩასართვად.</item>
-        <item quantity="other">შესაკუმში მედია არ არის — %d HDR/სიღრმის ფოტო გამოტოვდა. ჩართეთ \"HDR &amp; სიღრმის ფოტოების შეკუმშვა\" პარამეტრებში მათი ჩასართვად.</item>
-    </plurals>
     <string name="squeezer_setup_warning">შეკუმშვა მუდმივად ამცირებს ხარისხს საცავის სივრცის დაზოგვის მიზნით. ეს ვერ გაუქმდება. ყურადღებით გადახედე პარამეტრებს დაწყებამდე.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>

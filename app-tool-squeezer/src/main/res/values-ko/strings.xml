@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">비교 보기</string>
     <string name="squeezer_no_example_found">선택한 경로에서 이미지를 찾을 수 없습니다.</string>
     <string name="squeezer_result_empty_message">압축 가능한 미디어를 찾을 수 없습니다.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">압축할 미디어가 없음 — HDR/깊이 사진 %d개가 건너뛰었습니다. 설정에서 \"HDR &amp; 깊이 사진 압축\"을 활성화하여 포함하세요.</item>
-    </plurals>
     <string name="squeezer_setup_warning">압축은 저장 공간 절약을 위해 품질을 영구적으로 낙십니다. 이 작업은 취소할 수 없습니다. 시작하기 전에 설정을 주의 깊게 검토하세요.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d개의 위치는 압축에 사용할 수 없어 제거되었습니다. 압축을 위해서는 내부 저장소에 직접 접근이 필요합니다.</item>

@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Tihendamiseks puudub meedia — %d HDR/sügavuse foto jäeti vahele. Luba seadistustes „Tihenda HDR &amp; sügavusefotod“, et see kaasata.</item>
-        <item quantity="other">Tihendamiseks puudub meedia — %d HDR/sügavuse fotot jäeti vahele. Luba seadistustes „Tihenda HDR &amp; sügavusefotod“, et need kaasata.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Tihendamine vähendab kvaliteeti jäädavalt, et säästa salvestusruumi. Seda ei saa tagasi võtta. Vaata seaded enne alustamist hoolikalt üle.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>

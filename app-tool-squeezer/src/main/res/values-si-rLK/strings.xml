@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">සැසඳීම බලන්න</string>
     <string name="squeezer_no_example_found">තෝරාගත් මාර්ගවල රූප හමු නොවීය.</string>
     <string name="squeezer_result_empty_message">සම්පීඩනය කළ හැකි මාධ්‍ය හමු නොවීය.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">සම්පීඩනය කිරීමට මාධ්‍ය නැත — HDR/ගැඹුරු ඡායාරූපය %dක් මඟ හරින ලැබූණේය. එය ඇතුළත් කිරීමට සැකසීම් තුළ \"HDR &amp; ගැඹුරු ඡායාරූප සම්පීඩනය කරන්න\" සක්‍රීය කරන්න.</item>
-        <item quantity="other">සම්පීඩනය කිරීමට මාධ්‍ය නැත — HDR/ගැඹුරු ඡායාරූප %dක් මඟ හරින ලැබූණේය. ඔවා ඇතුළත් කිරීමට සැකසීම් තුළ \"HDR &amp; ගැඹුරු ඡායාරූප සම්පීඩනය කරන්න\" සක්‍රීය කරන්න.</item>
-    </plurals>
     <string name="squeezer_setup_warning">සම්පීඩනය ගබඩා ඉඩ ඉතිරි කිරීමට ගුණාත්මකභාවය ස්ථිරවශයෙන් අඩු කරයි. මෙය නිෂ්ප්‍රභ කළ නොහැක. ආරම්භ කිරීමට පෙර ඔබගේ සැකසීම් ප්‍රවේශමෙන් සමාලෝචනය කරන්න.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ස්ථානයක් සම්පීඩනය සඳහා භාවිතා කළ නොහැකි අතර ඉවත් කරන ලදි. සම්පීඩනයට අභ්‍යන්තර ගබඩාවට සෘජු ප්‍රවේශය අවශ්‍ය වේ.</item>

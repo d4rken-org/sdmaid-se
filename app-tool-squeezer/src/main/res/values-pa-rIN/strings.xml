@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">ਤੁਲਨਾ ਦੇਖੋ</string>
     <string name="squeezer_no_example_found">ਚੁਣੇ ਮਾਰਗਾਂ ਵਿੱਚ ਕੋਈ ਤਸਵੀਰਾਂ ਨਹੀਂ ਮਿਲੀਆਂ।</string>
     <string name="squeezer_result_empty_message">ਕੋਈ ਕੰਪ੍ਰੈੱਸ ਕਰਨਯੋਗ ਮੀਡੀਆ ਨਹੀਂ ਮਿਲਿਆ।</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">ਕੋਈ ਮੀਡੀਆ ਸੰਕੁਚਿਤ ਕਰਨ ਲਈ ਨਹੀਂ — %d HDR/ਡੂੰਘਾਈ ਫੋਟੋ ਛੱਡ ਦਿੱਤੀ ਗਈ। ਇਸ ਨੂੰ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"HDR &amp; ਡੂੰਘਾਈ ਫੋਟੋਆਂ ਨੂੰ ਸੰਕੁਚਿਤ ਕਰੋ\" ਨੂੰ ਸਮਰਥ ਕਰੋ।</item>
-        <item quantity="other">ਕੋਈ ਮੀਡੀਆ ਸੰਕੁਚਿਤ ਕਰਨ ਲਈ ਨਹੀਂ — %d HDR/ਡੂੰਘਾਈ ਫੋਟੋ ਛੱਡੀਆਂ ਗਈਆਂ। ਇਹਨਾਂ ਨੂੰ ਸ਼ਾਮਲ ਕਰਨ ਲਈ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"HDR &amp; ਡੂੰਘਾਈ ਫੋਟੋਆਂ ਨੂੰ ਸੰਕੁਚਿਤ ਕਰੋ\" ਨੂੰ ਸਮਰਥ ਕਰੋ।</item>
-    </plurals>
     <string name="squeezer_setup_warning">ਕੰਪ੍ਰੈਸ਼ਨ ਸਟੋਰੇਜ ਸਪੇਸ ਬਚਾਉਣ ਲਈ ਗੁਣਵੱਤਾ ਨੂੰ ਸਥਾਈ ਤੌਰ \'ਤੇ ਘਟਾਉਂਦਾ ਹੈ। ਇਹ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਧਿਆਨ ਨਾਲ ਜਾਂਚੋ।</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ਟਿਕਾਣਾ ਕੰਪ੍ਰੈਸ਼ਨ ਲਈ ਵਰਤਿਆ ਨਹੀਂ ਜਾ ਸਕਦਾ ਅਤੇ ਹਟਾ ਦਿੱਤਾ ਗਿਆ। ਕੰਪ੍ਰੈਸ਼ਨ ਲਈ ਅੰਦਰੂਨੀ ਸਟੋਰੇਜ ਤੱਕ ਸਿੱਧੀ ਪਹੁੰਚ ਲੋੜੀਂਦੀ ਹੈ।</item>

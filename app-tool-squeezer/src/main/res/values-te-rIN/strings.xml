@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">పోలిక చూడండి</string>
     <string name="squeezer_no_example_found">ఎంచుకున్న పాథ్‌లలో చిత్రాలు కనుగొనబడలేదు.</string>
     <string name="squeezer_result_empty_message">కంప్రెస్ చేయగలిగే మీడియా ఏదీ కనుగొనబడలేదు.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">కుదించడానికి మీడియా లేదు — %d HDR/లోతు చిత్రం దాటవేయబడింది. దానిని చేర్చడానికి సెట్టింగ్‌ల్లో \"HDR &amp; లోతు చిత్రాలను కుదించండి\" ప్రారంభించండి.</item>
-        <item quantity="other">కుదించడానికి మీడియా లేదు — %d HDR/లోతు చిత్రాలు దాటవేయబడ్డాయి. వాటిని చేర్చడానికి సెట్టింగ్‌ల్లో \"HDR &amp; లోతు చిత్రాలను కుదించండి\" ప్రారంభించండి.</item>
-    </plurals>
     <string name="squeezer_setup_warning">కంప్రెషన్ నిల్వ స్థలాన్ని ఆదా చేయడానికి నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది. ఇది రద్దు చేయడం సాధ్యం కాదు. ప్రారంభించే ముందు మీ అమరికలను జాగ్రత్తగా సమీక్షించండి.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d స్థానాన్ని కంప్రెషన్ కోసం ఉపయోగించలేము మరియు తొలగించబడింది. కంప్రెషన్‌కు అంతర్గత నిల్వకు నేరుగా యాక్సెస్ అవసరం.</item>

@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">بەراوردکردن ببینە</string>
     <string name="squeezer_no_example_found">هیچ وێنەیەک لە ڕێگاکانی دیاریکراودا نەدۆزرایەوە.</string>
     <string name="squeezer_result_empty_message">هیچ میدیایەکی بچووک کراوەپەذیر نەدۆزرایەوە.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">هیچ مێدیایەک بۆ کۆپێچکردن نیە — %d وێنەی HDR/قوڵایی تێدا پەڕی. چالاککردنی \"کۆپێچکردنی وێنەکانی HDR &amp; قوڵایی\" لە ڕێکخستندا بۆ تێکەڵکردن.</item>
-        <item quantity="other">هیچ مێدیایەک بۆ کۆپێچکردن نیە — %d وێنەی HDR/قوڵایی تێداپەڕی. چالاککردنی \"کۆپێچکردنی وێنەکانی HDR &amp; قوڵایی\" لە ڕێکخستندا بۆ تێکەڵکردن.</item>
-    </plurals>
     <string name="squeezer_setup_warning">بچووک کردنەوە بەردەوام کوالیتی کەم دەکاتەوە بۆ خەزن کردنی شوێنی ساردەرگە. ئەمە پێچەوانەی نابێت. ڕێکخستنەکانت بە باشی پێش دەستپێکردن بکولێنەوە.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d شوێن ناتوانرێت بۆ بچووک کردنەوە بەکار بهێنرێت و لابرا. بچووک کردنەوە پێویستی بە دەستڕاگەیشتنی ڕاستەوخۆ بە ساردەرگەی ناوەکی هەیە.</item>

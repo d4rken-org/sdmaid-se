@@ -85,6 +85,10 @@ class MediaScanner @Inject constructor(
         val compressionQuality: Int,
         /** When false (default), skip photos with an HDR gain map or depth map. */
         val includeLossyAuxImages: Boolean = false,
+        /** When false (default), skip Motion Photos so the re-encode can't drop their clip. */
+        val includeMotionPhotos: Boolean = false,
+        /** When false (default), skip images the re-encode would decode at reduced resolution. */
+        val includeOversizedImages: Boolean = false,
     )
 
     data class ScanResult(
@@ -92,7 +96,17 @@ class MediaScanner @Inject constructor(
         val skippedInaccessibleCount: Int,
         /** Photos excluded to preserve their HDR gain map / depth map. */
         val skippedLossyAuxCount: Int = 0,
+        /** Motion Photos excluded to preserve their embedded clip. */
+        val skippedMotionPhotoCount: Int = 0,
+        /** Images excluded because compression would halve their resolution. */
+        val skippedOversizedCount: Int = 0,
     )
+
+    private class SkipCounters {
+        val lossyAux = AtomicInteger(0)
+        val motionPhoto = AtomicInteger(0)
+        val oversized = AtomicInteger(0)
+    }
 
     private suspend fun createSearchFlow(paths: Set<APath>): Flow<APathLookup<*>> {
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SQUEEZER)
@@ -135,7 +149,7 @@ class MediaScanner @Inject constructor(
         updateProgressCount(Progress.Count.Indeterminate())
 
         val skippedInaccessible = AtomicInteger(0)
-        val skippedLossyAux = AtomicInteger(0)
+        val skips = SkipCounters()
 
         val searchPaths = options.paths
         val searchFlow = createSearchFlow(searchPaths)
@@ -197,7 +211,7 @@ class MediaScanner @Inject constructor(
             }
 
             if (isImage) {
-                val media = processImageCandidate(lookup, mimeType, options, skippedLossyAux)
+                val media = processImageCandidate(lookup, mimeType, options, skips)
                 if (media != null) results.add(media)
             } else if (isVideo) {
                 val media = processVideoCandidate(lookup, mimeType, options)
@@ -208,12 +222,16 @@ class MediaScanner @Inject constructor(
         log(TAG) {
             "Scan complete: $scannedCount files scanned, ${results.size} compressible media found, " +
                 "${skippedInaccessible.get()} skipped (inaccessible), " +
-                "${skippedLossyAux.get()} skipped (HDR/depth aux)"
+                "${skips.lossyAux.get()} skipped (HDR/depth aux), " +
+                "${skips.motionPhoto.get()} skipped (Motion Photo), " +
+                "${skips.oversized.get()} skipped (oversized)"
         }
         return ScanResult(
             items = results,
             skippedInaccessibleCount = skippedInaccessible.get(),
-            skippedLossyAuxCount = skippedLossyAux.get(),
+            skippedLossyAuxCount = skips.lossyAux.get(),
+            skippedMotionPhotoCount = skips.motionPhoto.get(),
+            skippedOversizedCount = skips.oversized.get(),
         )
     }
 
@@ -221,7 +239,7 @@ class MediaScanner @Inject constructor(
         lookup: APathLookup<*>,
         mimeType: String,
         options: Options,
-        skippedLossyAux: AtomicInteger,
+        skips: SkipCounters,
     ): CompressibleImage? {
         val priorCompression = detectImagePriorCompression(lookup)
 
@@ -238,7 +256,7 @@ class MediaScanner @Inject constructor(
         val localFile = (lookup.lookedUp as? LocalPath)?.let { File(it.path) }
         val hasLossyAux = localFile != null && lossyAuxDetector.hasLossyAux(localFile, mimeType)
         if (hasLossyAux && !options.includeLossyAuxImages) {
-            skippedLossyAux.incrementAndGet()
+            skips.lossyAux.incrementAndGet()
             log(TAG, VERBOSE) { "Skipping image with HDR/depth aux data: $lookup" }
             return null
         }
@@ -252,15 +270,27 @@ class MediaScanner @Inject constructor(
             return null
         }
 
-        val estimatedCompressedSize = compressionEstimator.estimateCompressedSize(
-            lookup.size, mimeType, options.compressionQuality,
-        )
-
-        // Marker-only facts, read after the exclusion guards so a dropped file doesn't pay for them.
+        // Same shape as the HDR/depth guard: opt-in off means the file is excluded and counted,
+        // opt-in on means it stays in the results carrying the marker.
         val hasMotionVideo = localFile != null && lossyAuxDetector.hasMotionVideo(localFile, mimeType)
+        if (hasMotionVideo && !options.includeMotionPhotos) {
+            skips.motionPhoto.incrementAndGet()
+            log(TAG, VERBOSE) { "Skipping Motion Photo: $lookup" }
+            return null
+        }
+
         val willDownscale = localFile
             ?.let { dimensionProbe.read(it) }
             ?.let { ImageCompressor.willDownscale(it.width, it.height) } == true
+        if (willDownscale && !options.includeOversizedImages) {
+            skips.oversized.incrementAndGet()
+            log(TAG, VERBOSE) { "Skipping oversized image: $lookup" }
+            return null
+        }
+
+        val estimatedCompressedSize = compressionEstimator.estimateCompressedSize(
+            lookup.size, mimeType, options.compressionQuality,
+        )
 
         return CompressibleImage(
             lookup = lookup,

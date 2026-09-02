@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">ንጽጽር ይመልከቱ</string>
     <string name="squeezer_no_example_found">በተመረጡ ዱካዎች ውስጥ ምንም ምስሎች አልተገኙም።</string>
     <string name="squeezer_result_empty_message">ሊጨናነቅ የሚችል ሚዲያ አልተገኘም።</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">ምነም ሚዲያ ሊጠብጥ የልም — %d HDR/ጥልቀት ፎቶ ዘለላ። በተቀናካኝ ውስጥ \"HDR &amp; ጥልቀት ፎቶዎች ይጨምቁ\" ያስችሉ።</item>
-        <item quantity="other">ምነም ሚዲያ ሊጠብጥ የልም — %d HDR/ጥልቀት ፎቶዎች ዘለሉ። በተቀናካኝ ውስጥ \"HDR &amp; ጥልቀት ፎቶዎች ይጨምቁ\" ያስችሉ።</item>
-    </plurals>
     <string name="squeezer_setup_warning">መጨናነቅ የማከማቻ ቦታ ለመቆጠብ ጥራቱን ቋሚ በሆነ ሁኔታ ይቀንሳል። ይህ ሊቀለበስ አይችልም። ከመጀመርዎ በፊት ቅንብሮቻቸውን በጥንቃቄ ይገምግሙ።</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ቦታ ለመጨናነቅ ጥቅም ላይ ሊውል አይችልም እና ተወግዷል። መጨናነቅ ወደ ውስጣዊ ማከማቻ ቀጥተኛ ፍቃድ ያስፈልጋል።</item>

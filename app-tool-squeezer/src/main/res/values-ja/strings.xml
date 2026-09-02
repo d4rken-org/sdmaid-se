@@ -80,9 +80,6 @@
     <string name="squeezer_compare_action">比較を表示</string>
     <string name="squeezer_no_example_found">選択したパスに画像が見つかりません。</string>
     <string name="squeezer_result_empty_message">圧縮可能なメディアが見つかりません。</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="other">圧縮するメディアなし — %d個のHDR/深度写真がスキップされました。設定で「HDR &amp; 深度写真を圧縮」を有効にして含めてください。</item>
-    </plurals>
     <string name="squeezer_setup_warning">圧縮すると品質が恒久的に低下してストレージ容量を節約します。この操作は元に戻せません。開始前に設定を慎重に確認してください。</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d件の場所は圧縮に使用できないため削除されました。圧縮には内部ストレージへの直接アクセスが必要です。</item>

@@ -107,12 +107,6 @@
     <string name="squeezer_compare_action">Zobacz porównanie</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
     <string name="squeezer_result_empty_message">Nie znaleziono kompresowalnych multimediów.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Brak plików do kompresji — pominięte %d zdjęcie HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
-        <item quantity="few">Brak plików do kompresji — pominięte %d zdjęcia HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
-        <item quantity="many">Brak plików do kompresji — pominiętych %d zdjęć HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
-        <item quantity="other">Brak plików do kompresji — pominiętych %d zdjęć HDR/głębi. Włącz opcję Kompresuj zdjęcia HDR i głębi w ustawieniach, aby je uwzględnić.</item>
-    </plurals>
     <string name="squeezer_setup_warning">Kompresja trwale obniża jakość, oszczędzając miejsce na dysku. Tej operacji nie można cofnąć. Przed rozpoczęciem dokładnie sprawdź ustawienia.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokalizacja nie może zostać użyta do kompresji i została usunięta. Kompresja wymaga bezpośredniego dostępu do pamięci wewnętrznej.</item>

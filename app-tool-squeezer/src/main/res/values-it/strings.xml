@@ -89,10 +89,6 @@
     <string name="squeezer_compare_action">Visualizza confronto</string>
     <string name="squeezer_no_example_found">Nessuna immagine trovata nei percorsi selezionati.</string>
     <string name="squeezer_result_empty_message">Nessun file multimediale comprimibile trovato.</string>
-    <plurals name="squeezer_result_empty_lossy_aux">
-        <item quantity="one">Nessun elemento da comprimere — %d foto HDR/depth è stata saltata. Abilita “Comprimi foto HDR e di profondità” nelle impostazioni per includerla.</item>
-        <item quantity="other">Nessun elemento da comprimere — %d foto HDR/depth sono state saltate. Abilita “Comprimi foto HDR e di profondità” nelle impostazioni per includerle.</item>
-    </plurals>
     <string name="squeezer_setup_warning">La compressione riduce permanentemente la qualità per risparmiare spazio di archiviazione. Questa operazione non può essere annullata. Rivedi attentamente le impostazioni prima di iniziare.</string>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d posizione non può essere utilizzata per la compressione ed è stata rimossa. La compressione richiede accesso diretto all\'archivio interno.</item>
