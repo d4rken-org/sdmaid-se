@@ -10,6 +10,7 @@ apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
+val signingBasePath = File(System.getProperty("user.home"), ".config/projects/${projectConfig.packageName}")
 
 android {
     if (projectConfig.compileSdkPreview != null) {
@@ -40,18 +41,17 @@ android {
     }
 
     signingConfigs {
-        val basePath = File(System.getProperty("user.home"), ".config/projects/${projectConfig.packageName}")
         val hasEnvCredentials = System.getenv("STORE_PATH")?.let { File(it).exists() } == true
         create("releaseFoss") {
-            if (hasEnvCredentials || basePath.exists()) {
-                setupCredentials(File(basePath, "signing-foss.properties"))
+            if (hasEnvCredentials || signingBasePath.exists()) {
+                setupCredentials(File(signingBasePath, "signing-foss.properties"))
             } else {
                 initWith(signingConfigs["debug"])
             }
         }
         create("releaseGplay") {
-            if (hasEnvCredentials || basePath.exists()) {
-                setupCredentials(File(basePath, "signing-gplay-upload.properties"))
+            if (hasEnvCredentials || signingBasePath.exists()) {
+                setupCredentials(File(signingBasePath, "signing-gplay-upload.properties"))
             } else {
                 initWith(signingConfigs["debug"])
             }
@@ -157,30 +157,27 @@ androidComponents {
         val formattedVariantName = variant.name
             .replace(Regex("([a-z])([A-Z])"), "$1-$2")
             .uppercase()
+        val isGplay = variant.flavorName == "gplay"
+        // The gplay variant APK carries the upload key, not the Play app signing key; mark it
+        // so it can't be confused with the installable re-signed APK produced below.
+        val suffix = if (isGplay) "-UPLOAD" else ""
 
-        val apkFolder = variant.artifacts.get(com.android.build.api.artifact.SingleArtifact.APK)
-        val loader = variant.artifacts.getBuiltArtifactsLoader()
-        val packageName = projectConfig.packageName
+        val apkFileName = "${projectConfig.packageName}" +
+            "-v${projectConfig.version.name}-${projectConfig.version.code}" +
+            "-$formattedVariantName$suffix.apk"
+        variant.outputs.single().outputFileName.set(apkFileName)
 
-        val renameTask = tasks.register("rename${variant.name.replaceFirstChar { it.uppercase() }}Apk") {
-            inputs.files(apkFolder)
-            outputs.upToDateWhen { false }
-
-            doLast {
-                val builtArtifacts = loader.load(apkFolder.get()) ?: return@doLast
-
-                builtArtifacts.elements.forEach { element ->
-                    val apkFile = File(element.outputFile)
-                    val outputFileName = "$packageName-v${element.versionName}-${element.versionCode}-$formattedVariantName.apk"
-                    if (apkFile.exists() && apkFile.name != outputFileName) {
-                        apkFile.copyTo(File(apkFile.parentFile, outputFileName), overwrite = true)
-                    }
-                }
+        // The gplay variant is signed with the upload key so the AAB passes Play's upload check.
+        // For a directly installable Play-signed APK, re-sign the assembled APK with the app
+        // signing key. Local-only: without signing-gplay.properties (e.g. CI) the task no-ops.
+        if (isGplay) {
+            tasks.register<SignGplayApkTask>("signGplay${buildType.replaceFirstChar { it.uppercase() }}Apk") {
+                apkDir.set(variant.artifacts.get(com.android.build.api.artifact.SingleArtifact.APK))
+                apkName.set(apkFileName)
+                signingProps.from(File(signingBasePath, "signing-gplay.properties"))
+                sdkDir.set(sdkComponents.sdkDirectory)
+                outputDir.set(layout.buildDirectory.dir("outputs/apk_gplay_signed/$buildType"))
             }
-        }
-
-        tasks.matching { it.name == "assemble${variant.name.replaceFirstChar { it.uppercase() }}" }.configureEach {
-            finalizedBy(renameTask)
         }
     }
 }
@@ -193,6 +190,12 @@ afterEvaluate {
     }
     tasks.matching { it.name == "bundleGplayRelease" }.configureEach {
         dependsOn("lintVitalGplayRelease")
+    }
+    tasks.matching { it.name == "assembleGplayBeta" }.configureEach {
+        finalizedBy("signGplayBetaApk")
+    }
+    tasks.matching { it.name == "assembleGplayRelease" }.configureEach {
+        finalizedBy("signGplayReleaseApk")
     }
 }
 

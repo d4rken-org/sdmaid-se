@@ -12,6 +12,16 @@ paths:
 Flavors are `Foss` and `Gplay`. Local development uses `assembleFossDebug`, unit tests `testFossDebugUnitTest`,
 CI lint `lintVitalFossRelease` / `lintVitalGplayRelease`.
 
+## Gplay APK outputs
+
+`assembleGplayRelease` / `assembleGplayBeta` produce two APKs:
+
+- `app/build/outputs/apk/gplay/<type>/...-UPLOAD.apk` — upload key, what the Play AAB is signed with. Not installable
+  as an update over a Play install.
+- `app/build/outputs/apk_gplay_signed/<type>/....apk` — Play app signing key, the installable one. Produced by the
+  `signGplay<Type>Apk` finalizer, which no-ops when `~/.config/projects/eu.darken.sdmse/signing-gplay.properties`
+  is absent (CI).
+
 ## Pitfalls
 
 ### Dependency Updates
