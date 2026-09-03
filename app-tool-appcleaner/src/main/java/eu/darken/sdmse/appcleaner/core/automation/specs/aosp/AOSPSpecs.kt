@@ -551,15 +551,16 @@ class AOSPSpecs @Inject constructor(
             val canInjectInput = inputInjector.canInject()
             log(TAG, INFO) { "InputInjector available? (canInjectInput=$canInjectInput)" }
 
-            // On Android 16+ Pixel devices, "Clear cache" and "Clear storage" buttons are marked
-            // as NAF (Not Accessibility Focusable), making them invisible to the accessibility service.
+            // On Android 16+, "Clear cache" and "Clear storage" buttons are marked as NAF
+            // (Not Accessibility Focusable) on some devices, making them invisible to the
+            // accessibility service. Known on Google and Motorola Hello UI.
             // DPAD navigation works around this by using keyboard-style navigation (DOWN, RIGHT, CENTER)
             // from the entity_header_content anchor to blindly click the invisible button.
             // https://github.com/d4rken-org/sdmaid-se/issues/2056
-            val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
-            val useDpadFallback = hasApiLevel(36) && isGoogle
+            val dpadManufacturer = supportsDpadFallback(BuildWrap.MANUFACTOR)
+            val useDpadFallback = hasApiLevel(36) && dpadManufacturer
             log(TAG, INFO) {
-                "isGoogle=$isGoogle, useDpadFallback=$useDpadFallback (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
+                "dpadManufacturer=$dpadManufacturer, useDpadFallback=$useDpadFallback (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
             }
 
             var nodeActionAttempts = 0
