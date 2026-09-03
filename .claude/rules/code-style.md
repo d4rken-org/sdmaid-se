@@ -19,9 +19,6 @@
 
 ## UI Patterns
 
-- Jetpack Compose with Material 3 (`SdmSeTheme`)
-- Edge-to-edge display support
-- Single Activity architecture with Navigation3 (`NavDisplay`)
 - All screens are Compose — the legacy Fragment / XML-layout UI has been fully removed
 
 ### Host/Page Pattern (mandatory for all Compose screens)
@@ -62,19 +59,6 @@ internal fun MyScreen(
 - **Settings toolkit** (`app-common-ui/.../compose/settings/`): `SettingsPreferenceItem`, `SettingsSwitchItem`, `SettingsBaseItem`
 - **`Preview2`/`PreviewWrapper`** (`app-common-ui/.../compose/preview/`): Multi-preview annotation (light+dark) and themed wrapper
 
-## Error Handling
-
-- Use the established error handling patterns with `ErrorEventHandler`
-- Centralized error handling approach
-
-## Data & State
-
-- Reactive programming with Kotlin Flow and StateFlow
-- DataStore-based settings with kotlinx serialization
-- kotlinx.serialization for JSON serialization
-- Room for database operations
-- Coil for image loading
-
 ## Logging
 
 Use `logTag()` to create tags and `log()` with lambda messages:
@@ -93,36 +77,5 @@ log(TAG) { "Processing $item" }           // DEBUG (default)
 log(TAG, INFO) { "Scan complete" }         // INFO
 log(TAG, WARN) { "Unexpected state" }      // WARN
 log(TAG, ERROR) { "Failed: ${e.asLog()}" } // ERROR with stacktrace
-```
-
-## DataStore Settings
-
-Two `createValue()` overloads exist.
-
-**Primitive types** (Boolean/String/Int/Long/Float) — no extra argument:
-
-```kotlin
-val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
-```
-
-**Complex `@Serializable` types** — take a `json: Json` (kotlinx.serialization) parameter:
-
-```kotlin
-val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, json)
-```
-
-Use `fallbackToDefault = true` only when stored JSON may be corrupt or from a legacy schema and should silently fall
-back to the default instead of throwing:
-
-```kotlin
-val arbiterConfig = dataStore.createValue("arbiter.config", ArbiterConfig(), json, fallbackToDefault = true)
-```
-
-Access values with `.value()` (suspend) or `.flow` (reactive):
-
-```kotlin
-val current = settings.themeMode.value()     // suspend read
-settings.themeMode.value(ThemeMode.DARK)     // suspend write
-val reactive = settings.themeMode.flow       // Flow<ThemeMode>
 ```
 

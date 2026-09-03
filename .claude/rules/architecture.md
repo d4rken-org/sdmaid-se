@@ -41,13 +41,6 @@ Layered ViewModel hierarchy (defined in `app-common-ui/.../common/uix/`):
 
 New ViewModels extend **`ViewModel4`** (use it whether or not the screen navigates). Uses `@HiltViewModel` with Hilt injection
 
-## Dependency Injection
-
-- Hilt/Dagger throughout the application
-- `@AndroidEntryPoint` for Activities/Fragments
-- `@HiltViewModel` for ViewModels
-- Modular DI setup across different modules
-
 ## Pitfalls
 
 - Use `APath.segments` for path segment access — do NOT manually split path strings
