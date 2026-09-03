@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Nevar izveidot savienojumu ar Google Play. Lūdzu, pārbaudiet interneta savienojumu un mēģiniet vēlreiz.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Piedāvājums nav pieejams</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play pašlaik nepiedāvā šo jauninājuma iespēju. Lūdzu, mēģiniet vēlāk vai pārbaudiet Google Play veikalu.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Neizdēvās atvērt Google Play. Tas var nebūt instalēts, atspējots vai ierobežots šajā ierīcē.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jau iegādāts</string>
     <string name="upgrades_gplay_already_owned_error_description">Izmantojiet opciju \"Atjaunot pirkumu\", lai atjaunotu pirkumu. Ja problēma saglabājas, mēģiniet notīrīt Google Play kešatmiņu un restartēt ierīci.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Iegūt %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid nav reklāmu un nepārdod lietotāju datus. Mans darbs tiek finansēts no jūsu puses ❤️.</string>
     <string name="upgrade_screen_benefits_title">Jaunināšanas priekšrocības</string>

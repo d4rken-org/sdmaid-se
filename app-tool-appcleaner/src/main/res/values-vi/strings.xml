@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d thành phần có thể sử dụng đã bị xóa</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">Đã xóa %d mục có thể loại bỏ, dừng lại vì màn hình đã tắt hoặc khóa</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">Đã xóa %d mục có thể loại bỏ, dừng lại do gặp lỗi</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s, %2$d bộ nhớ đệm vẫn cần dịch vụ hỗ trợ tiếp cận</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">Đã tìm thấy %d mục có thể sử dụng được</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Đang tìm nút \"Xóa bộ nhớ cache\" (từ khóa: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Bộ nhớ đệm mặc định</string>
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Đã loại trừ, nhưng dọn dẹp tất cả ứng dụng cùng lúc vẫn xóa các bộ nhớ đệm này</string>
+    <string name="appcleaner_exclusion_limited_title">Ứng dụng bị loại trừ</string>
+    <string name="appcleaner_exclusion_limited_body">Bạn đã loại trừ ứng dụng này khỏi AppCleaner. Việc xóa bộ nhớ đệm cho tất cả ứng dụng cùng lúc sử dụng chức năng cắt giảm bộ nhớ đệm toàn hệ thống của Shizuku, chức năng này không thể bỏ qua từng ứng dụng riêng lẻ, nên dữ liệu bộ nhớ đệm của ứng dụng này cũng bị xóa cùng với mọi thứ khác. Chỉ dữ liệu bộ nhớ đệm hiển thị ở đây bị ảnh hưởng, mọi thứ khác thuộc phạm vi loại trừ vẫn được ẩn và giữ nguyên.</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
-    <string name="appcleaner_automation_unavailable_body">Xóa bộ nhớ cache không thể truy cập yêu cầu dịch vụ trợ năng của SD Maid, nhưng dịch vụ này không khả dụng. Nếu bạn không muốn sử dụng nó: Vô hiệu hóa tùy chọn \"Bao gồm bộ đệm không thể truy cập\".</string>
+    <string name="appcleaner_automation_unavailable_body">Việc xóa các bộ nhớ đệm này cần dịch vụ hỗ trợ tiếp cận của SD Maid, nhưng dịch vụ này không khả dụng.</string>
     <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Buộc dừng trước khi xóa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Buộc dừng ứng dụng trước khi xóa bộ nhớ đệm của chúng. Thao tác này có thể giúp xóa bộ nhớ đệm của một số ứng dụng, nhưng có thể khiến ứng dụng hoạt động không đúng cách và cần phải khởi động lại thủ công.</string>
     <string name="appcleaner_progress_force_stopping">Đang buộc dừng ứng dụng…</string>
+    <string name="appcleaner_progress_checking_freed_space">Đang kiểm tra dung lượng đã giải phóng…</string>
 </resources>

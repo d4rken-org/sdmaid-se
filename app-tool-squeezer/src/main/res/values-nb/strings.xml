@@ -29,6 +29,18 @@
         <item quantity="one">%d hoppet over (HDR/dybde bevart)</item>
         <item quantity="other">%d hoppet over (HDR/dybde bevart)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d hoppet over (Motion Photo)</item>
+        <item quantity="other">%d hoppet over (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d hoppet over (veldig stort bilde)</item>
+        <item quantity="other">%d hoppet over (veldig store bilder)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d hoppet over (beskyttet)</item>
+        <item quantity="other">%d hoppet over (beskyttet)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element valgt</item>
         <item quantity="other">%d elementer valgt</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Generelt</string>
     <string name="squeezer_quality_description">Lavere kvalitet betyr mindre filstørrelse, men redusert visuell kvalitet.</string>
     <string name="squeezer_types_category_label">Bildeinnstillinger</string>
+    <string name="squeezer_protected_category_label">Hva som går tapt</string>
     <string name="squeezer_video_settings_category_label">Videoinnstillinger</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Inkluder JPEG-bilder (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Inkluder JPEG-bilder (.jpg, .jpeg). Omkoding bruker Androids innebygde JPEG-enkoder. Dato, plassering og annen EXIF-metadata beholdes.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Inkluder WebP-bilder (.webp).</string>
+    <string name="squeezer_type_webp_description">Inkluder WebP-bilder (.webp). Omkoding bruker Androids innebygde WebP-enkoder. Dato, plassering og annen EXIF-metadata beholdes.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Inkluder HEIC/HEIF-bilder (.heic, .heif). Dato, plassering og annen EXIF-metadata beholdes. HDR-forsterkningsmapper, dybdedata og Live/Motion Photo-søsken kan ikke bevares; flerbilde-filer hoppes over.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Inkluder MP4-videofiler (.mp4).</string>
+    <string name="squeezer_type_video_description">Inkluder MP4-videofiler (.mp4). Videosporen omkodes med lavere bithastighet av enhetens eget videoenkodar, lydsporen kopieres uendret, og filen forblir en MP4.</string>
     <string name="squeezer_skip_compressed_title">Hopp over allerede komprimerte</string>
     <string name="squeezer_skip_compressed_description">Hopp over filer som allerede er komprimert av SD Maid.</string>
     <string name="squeezer_exif_marker_title">Skriv EXIF-markør</string>
     <string name="squeezer_exif_marker_description">Legg til en markør i bildets EXIF-brukerkommentarfelt for å forhindre rekomprimering selv om komprimeringshistorikken slettes.</string>
     <string name="squeezer_include_lossy_aux_title">Komprimer HDR &amp; dybde-bilder</string>
-    <string name="squeezer_include_lossy_aux_description">Av som standard: bilder med en HDR-forsterkningsmapp eller dybde-/portrettdata hoppes over slik at de ikke flates ut. Aktivér for å komprimere dem hvor det er mulig – de vil miste sin HDR-forsterkningsmapp eller dybdedata. Noen flerbilde HEIC-bilder forblir beskyttet uansett.</string>
+    <string name="squeezer_include_lossy_aux_description">Inkluder bilder med HDR- eller dybdedata. Komprimering fjerner det: HDR-bilder blir til vanlige bilder, portrettbilder mister bakgrunnsuskarpheten. HEIC-filer med flere bilder forblir hoppet over.</string>
+    <string name="squeezer_include_motion_photos_title">Komprimer Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Inkluder Motion Photos. Komprimering beholder stillbildet og fjerner videoklippet.</string>
+    <string name="squeezer_include_oversized_title">Komprimer veldig store bilder</string>
+    <string name="squeezer_include_oversized_description">Inkluder bilder bredere eller høyere enn 8192 piksler. Komprimering halverer også oppløsningen deres.</string>
     <string name="squeezer_estimated_savings_format">~%s besparelse</string>
     <string name="squeezer_no_savings_expected">Begrenset besparelse</string>
     <string name="squeezer_current_size_format">Størrelse: %s</string>
+    <string name="squeezer_chip_compressed_before">Komprimert</string>
+    <string name="squeezer_chip_hdr_depth">HDR/dybde</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Nedskalert</string>
+    <string name="squeezer_markers_dialog_title">Om disse markeringene</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid komprimerte allerede denne filen. Komprimering av den igjen koster kvalitet og sparer lite.</string>
+    <string name="squeezer_markers_hdr_depth_description">Dette bildet har HDR- eller dybdedata som komprimering ikke kan beholde. Et HDR-bilde blir til et vanlig bilde, og et portrettbilde mister dybdedataene som brukes til bakgrunnsuskarpheten.</string>
+    <string name="squeezer_markers_motion_photo_description">Dette er et Motion Photo. Komprimering beholder stillbildet og fjerner videoklippet.</string>
+    <string name="squeezer_markers_downscaled_description">Dette bildet er bredere eller høyere enn 8192 piksler. Komprimering halverer også oppløsningen.</string>
     <string name="squeezer_compress_action">Komprimer</string>
     <string name="squeezer_compress_all_action">Komprimer alle</string>
     <string name="squeezer_preview_dialog_title">Bekreft komprimering</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Vis sammenligning</string>
     <string name="squeezer_no_example_found">Ingen bilder funnet i valgte stier.</string>
     <string name="squeezer_result_empty_message">Ingen komprimerbare medier funnet.</string>
+    <string name="squeezer_result_empty_protected">Ingenting å komprimere. Hoppet over: %s. Slå på den tilsvarende innstillingen for å inkludere dem.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/dybde-bilde</item>
+        <item quantity="other">%d HDR/dybde-bilder</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d veldig stort bilde</item>
+        <item quantity="other">%d veldig store bilder</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d sted kan ikke brukes til komprimering og ble fjernet. Komprimering krever direkte tilgang til intern lagring.</item>
         <item quantity="other">%d steder kan ikke brukes til komprimering og ble fjernet. Komprimering krever direkte tilgang til intern lagring.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Minst %d dager gammel</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimert ~%d%% besparelse for JPEG-filer</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer rekomprimerer bildene og videoene dine slik at de tar opp mindre plass. Du bytter litt kvalitet mot plassen du får tilbake. Hvert element viser sin estimerte besparelse, slik at du kan bestemme hva som er verdt det.</string>
     <string name="tour_squeezer_compress_body">Komprimer alt på en gang her, eller trykk på et enkelt element for å krympe bare det. Lang-trykk for å velge flere. Du vil alltid se en forhåndsvisning før noe endres.</string>
 </resources>

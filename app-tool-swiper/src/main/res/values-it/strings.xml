@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtrati: %1$s</string>
     <string name="swiper_session_no_matching_files">Nessun file corrispondente trovato</string>
     <string name="swiper_open_externally_action">Apri nell’app esterna</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Fai swipe su un file per decidere il suo destino: lateralmente per tenerlo o eliminarlo, verso l’alto per saltarlo, verso il basso per annullare. I pulsanti sottostanti fanno lo stesso — e mostrano quale lato corrisponde a cosa.</string>
     <string name="tour_swiper_openin_body">Questo pulsante apre il file in un’altra app, utile per controllarlo prima di decidere.</string>
     <string name="tour_swiper_preview_body">Questo pulsante apre un’anteprima a schermo intero per uno sguardo più ravvicinato.</string>

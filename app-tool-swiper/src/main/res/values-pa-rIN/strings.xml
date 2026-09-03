@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">ਫ਼ਿਲਟਰ ਕੀਤਾ: %1$s</string>
     <string name="swiper_session_no_matching_files">ਕੋਈ ਮੇਲ ਖਾਂਦੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
     <string name="swiper_open_externally_action">ਬਾਹਰੀ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹੋ</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ਫਾਈਲ ਨੂੰ ਸਵਾਈਪ ਕਰਕੇ ਇਸ ਦਾ ਫ਼ੈਸਲਾ ਕਰੋ: ਪਾਸੇ ਵੱਲ ਰੱਖਣ ਜਾਂ ਮਿਟਾਉਣ ਲਈ, ਉੱਪਰ ਛੱਡਣ ਲਈ, ਹੇਠਾਂ ਮੁੜ ਲਿਆਉਣ ਲਈ। ਹੇਠਲੇ ਬਟਨ ਉਹੀ ਕਰਦੇ ਹਨ — ਅਤੇ ਦਿਖਾਉਂਦੇ ਹਨ ਕਿ ਕਿਹੜਾ ਪਾਸਾ ਕਿਹੜਾ ਹੈ।</string>
     <string name="tour_swiper_openin_body">ਇਹ ਬਟਨ ਫਾਈਲ ਨੂੰ ਕਿਸੇ ਹੋਰ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹਦਾ ਹੈ, ਫ਼ੈਸਲਾ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਨੂੰ ਪਰਖਣ ਲਈ ਲਾਭਦਾਇਕ ਹੈ।</string>
     <string name="tour_swiper_preview_body">ਇਹ ਬਟਨ ਨਜ਼ਦੀਕੀ ਤੋਂ ਦੇਖਣ ਲਈ ਪੂਰੀ ਸਕ੍ਰੀਨ ਪ੍ਰੀਵਿਊ ਖੋਲ੍ਹਦਾ ਹੈ।</string>

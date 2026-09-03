@@ -60,6 +60,18 @@
         <item quantity="one">%d óþarfur hlutur eyddur</item>
         <item quantity="other">%d óþarfir hlutir eyddir</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d óþörfu atriði eytt, hætt því skjárinn var slökktur eða læstur</item>
+        <item quantity="other">%d óþörfum atriðum eytt, hætt því skjárinn var slökktur eða læstur</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d óþörfu atriði eytt, hætt vegna villu</item>
+        <item quantity="other">%d óþörfum atriðum eytt, hætt vegna villu</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d skyndiminni þarf enn aðgengisþjónustuna</item>
+        <item quantity="other">%1$s, %2$d skyndiminni þurfa enn aðgengisþjónustuna</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d óþarfur hlutur fannst</item>
         <item quantity="other">%d óþarfir hlutir fundust</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Leita að \"Hreinsa skyndiminni\" hnapp (lykilorð: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Sjálfgefin skyndiminni</string>
     <string name="appcleaner_item_caches_inaccessible_body">Opinber og einka sjálfgefin skyndiminni. Ekki beint aðgengileg, en hægt er að eyða óbeint (t.d. í gegnum aðgengisþjónustu).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Undanskilið, en að hreinsa öll forrit í einu hreinsar samt þessi skyndiminni</string>
+    <string name="appcleaner_exclusion_limited_title">Undanskilið forrit</string>
+    <string name="appcleaner_exclusion_limited_body">Þú undanskildir þetta forrit frá AppCleaner. Að hreinsa skyndiminni allra forrita í einu notar kerfisvíða skyndiminnishreinsun Shizuku, sem getur ekki skilið einstök forrit eftir, þannig að skyndiminnisgögn þessa forrits eru hreinsuð ásamt öllu öðru. Aðeins skyndiminnisgögnin sem sýnd eru hér verða fyrir áhrifum, allt annað sem undanskilningin nær yfir er áfram falið og ósnert.</string>
     <string name="appcleaner_automation_unavailable_title">Aðgengisþjónusta ekki tiltæk</string>
-    <string name="appcleaner_automation_unavailable_body">Hreinsun óaðgengilegra skyndiminnis krefst aðgengisþjónustu SD Maid, en hún var ekki tiltæk. Ef þú vilt ekki nota hana: Slökktu á \"Taka óaðgengileg skyndiminni með\" valkostinum.</string>
+    <string name="appcleaner_automation_unavailable_body">Að hreinsa þessi skyndiminni krefst aðgengisþjónustu SD Maid, en hún var ekki tiltæk.</string>
     <string name="appcleaner_delete_confirmation_message_x">Eyða óþarfa skrám fyrir %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Eyða óþarfa skrám fyrir %d valið forrit?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Þvinga stopp fyrir hreinsun</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Þvinga stopp á forritum áður en skyndiminni þeirra er hreinsað. Það gæti hjálpað við hreinsun sumra forrita, en gæti valdið truflunum og krafist handvirkrar endurræsingar.</string>
     <string name="appcleaner_progress_force_stopping">Þvinga stopp á forritum…</string>
+    <string name="appcleaner_progress_checking_freed_space">Athuga losað pláss…</string>
 </resources>

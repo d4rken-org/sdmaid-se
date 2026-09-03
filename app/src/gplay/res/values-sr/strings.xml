@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Није могуће повезивање са Google Play. Проверите интернет везу и покушајте поново.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Понуда није доступна</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play тренутно не нуди ову опцију надоградње. Покушајте касније или проверите Google Play продавницу.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Не могу отворити Google Play. Могуће је да недостаје, онемогућено или ограничено на овом уређају.</string>
     <string name="upgrades_gplay_already_owned_error_title">Већ купљено</string>
     <string name="upgrades_gplay_already_owned_error_description">Користите опцију \"Врати куповину\" да бисте вратили куповину. Ако проблем и даље постоји, покушајте да обришете Google Play кеш и рестартујете уређај.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Узми %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid нема рекламе и не продаје корисничке податке. Мој рад финансирате ви ❤️.</string>
     <string name="upgrade_screen_benefits_title">Предности надоградње</string>

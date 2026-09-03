@@ -62,7 +62,6 @@
         <item quantity="one">Nog ongeveer %d dag ruimte over bij dit tempo</item>
         <item quantity="other">Nog ongeveer %d dagen ruimte over bij dit tempo</item>
     </plurals>
-    <!-- Settings -->
     <string name="analyzer_settings_storage_category_label">Opslag</string>
     <string name="analyzer_settings_lowstorage_title">Drempel voor lage opslag</string>
     <string name="analyzer_settings_lowstorage_desc">Als de vrije ruimte onder dit niveau zakt, beschouwt SD Maid de opslagruimte als vol.</string>
@@ -71,10 +70,8 @@
     <string name="analyzer_settings_lowstorage_automatic_action">Automatisch</string>
     <string name="analyzer_settings_lowspace_notification_title">Waarschuwing voor weinig ruimte</string>
     <string name="analyzer_settings_lowspace_notification_desc">Ontvang een melding voordat je opslag opraakt.</string>
-    <!-- Device storage upgrade hint -->
     <string name="analyzer_lowspace_hint_title">Kom nooit meer zonder ruimte te zitten</string>
     <string name="analyzer_lowspace_hint_body">Upgrade om een waarschuwing te krijgen voordat je opslag opraakt, zodat je kunt opruimen terwijl er nog ruimte over is.</string>
-    <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Bekijk wat je opslag werkelijk opvult. De Analyzer geeft een overzicht van waar je ruimte heen gaat. Elk van deze kaarten is een opslagchip op je apparaat.</string>
     <string name="tour_analyzer_storage_body">Open een opslagruimte om deze in apps, media en bestanden in te delen, tik vervolgens herhaaldelijk om de grootste ruimtevreters op te sporen.</string>
 </resources>

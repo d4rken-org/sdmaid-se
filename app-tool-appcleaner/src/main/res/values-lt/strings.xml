@@ -62,6 +62,24 @@
         <item quantity="many">%d nereikalingų elementų ištrinta</item>
         <item quantity="other">Ištrinta %d nereikalingų elementų</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d nereikalingas elementas ištrintas, sustabdyta, nes ekranas buvo išjungtas arba užrakintas</item>
+        <item quantity="few">%d nereikalingi elementai ištrinti, sustabdyta, nes ekranas buvo išjungtas arba užrakintas</item>
+        <item quantity="many">%d nereikalingų elementų ištrinta, sustabdyta, nes ekranas buvo išjungtas arba užrakintas</item>
+        <item quantity="other">%d nereikalingų elementų ištrinta, sustabdyta, nes ekranas buvo išjungtas arba užrakintas</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d nereikalingas elementas ištrintas, sustabdyta dėl klaidos</item>
+        <item quantity="few">%d nereikalingi elementai ištrinti, sustabdyta dėl klaidos</item>
+        <item quantity="many">%d nereikalingų elementų ištrinta, sustabdyta dėl klaidos</item>
+        <item quantity="other">%d nereikalingų elementų ištrinta, sustabdyta dėl klaidos</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d talpykla vis dar reikalinga prieinamumo paslaugai</item>
+        <item quantity="few">%1$s, %2$d talpyklos vis dar reikalingos prieinamumo paslaugai</item>
+        <item quantity="many">%1$s, %2$d talpyklų vis dar reikalinga prieinamumo paslaugai</item>
+        <item quantity="other">%1$s, %2$d talpyklų vis dar reikalinga prieinamumo paslaugai</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d nereikalingas elementas rastas</item>
         <item quantity="few">%d nereikalingi elementai rasti</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Ieškoma mygtuko „Išvalyti talpyklą“ (raktiniai žodžiai: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Numatytosios talpyklos</string>
     <string name="appcleaner_item_caches_inaccessible_body">Viešosios ir privatūjū numatytųjū talpyklos. Netiesiogiai pasiekiamos, tačiau galima ištrinti netiesiogiai (pvz. per prieinamumo paslaugą).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Atmesta, tačiau valant visas vienu metu šios talpyklos bus išvalytos</string>
+    <string name="appcleaner_exclusion_limited_title">Atmesta programa</string>
+    <string name="appcleaner_exclusion_limited_body">Atmešai šią programą iš AppCleaner. Atliekant visų programų talpyklų valymą vienu metu naudojama Shizuku sisteminė talpyklos valymo funkcija, kuri negali palikti atskirų programų. Todėl šios programos talpyklos duomenys valomi kartu su visa kita. Tik čia rodomi talpyklos duomenys yra paveikti – visa kita, kurią apima atmestis, lieka paslėpta ir nepaliesta.</string>
     <string name="appcleaner_automation_unavailable_title">Prieinamumo paslauga nepasiekiama</string>
-    <string name="appcleaner_automation_unavailable_body">Nepasiekiamų talpyklų valymas reikalauja SD Maid prieinamumo paslaugos, bet ji buvo nepasiekiama. Jei nenorite jos naudoti: išjunkite parinktį „Įtraukti nepasiekiamas talpyklas“.</string>
+    <string name="appcleaner_automation_unavailable_body">Šių talpyklų valymui reikalinga SD Maid prieinamumo paslauga, tačiau ji nebuvo prieinama.</string>
     <string name="appcleaner_delete_confirmation_message_x">Ištrinti nereikalingus failus %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ištrinti nereikalingus failus iš %d pasirinktos programos?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Priverstinai sustabdyti prieš valant</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Priverstinai sustabdykite programas prieš valydami jų talpyklą. Tai gali padėti išvalyti kai kurių programų talpyklas, tačiau gali sukelti programų sutrikimų ir reikalautį rankinio paleidimo iš naujo.</string>
     <string name="appcleaner_progress_force_stopping">Priverstinai sustabdomos programos…</string>
+    <string name="appcleaner_progress_checking_freed_space">Tikrinamos atlaisvinttos vietos…</string>
 </resources>

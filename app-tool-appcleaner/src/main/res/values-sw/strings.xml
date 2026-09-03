@@ -60,6 +60,18 @@
         <item quantity="one">Kipengee %d kinachoweza kutumika kimefutwa</item>
         <item quantity="other">Vipengee %d vinavyoweza kutumika vimefutwa</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Kitu %d kisicho cha lazima kimefutwa, imesimamishwa kwa sababu skrini ilikuwa imezimwa au imefungwa</item>
+        <item quantity="other">Vitu %d visivyo vya lazima vimefutwa, imesimamishwa kwa sababu skrini ilikuwa imezimwa au imefungwa</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Kitu %d kisicho cha lazima kimefutwa, imesimamishwa na hitilafu</item>
+        <item quantity="other">Vitu %d visivyo vya lazima vimefutwa, imesimamishwa na hitilafu</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, akiba %2$d bado inahitaji huduma ya ufikivu</item>
+        <item quantity="other">%1$s, akiba %2$d bado zinahitaji huduma ya ufikivu</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Kipengee %d kinachoweza kutumika kimepatikana</item>
         <item quantity="other">Vipengee %d vinavyoweza kutumika vimepatikana</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Inatafuta kitufe cha \"Futa akiba\" (maneno muhimu: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Akiba za msingi</string>
     <string name="appcleaner_item_caches_inaccessible_body">Akiba za msingi za umma na kibinafsi. Hazifikiwa moja kwa moja, lakini zinaweza kufutwa kwa njia isiyo ya moja kwa moja (k.m. kupitia huduma ya ufikiaji).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Imetengwa, lakini kusafisha programu zote kwa pamoja bado kunafuta akiba hizi</string>
+    <string name="appcleaner_exclusion_limited_title">Programu iliyotengwa</string>
+    <string name="appcleaner_exclusion_limited_body">Umetenga programu hii kutoka AppCleaner. Kusafisha akiba za programu zote kwa pamoja hutumia usafishaji wa akiba wa mfumo mzima wa Shizuku, ambao hauwezi kuacha programu binafsi nje, hivyo data ya akiba ya programu hii hufutwa pamoja na kila kitu kingine. Ni data ya akiba inayoonyeshwa hapa pekee ndiyo inayoathiriwa, kila kitu kingine kinachohusika na utengaji hukaa kimefichwa na bila kuguswa.</string>
     <string name="appcleaner_automation_unavailable_title">Huduma ya ufikiaji haipatikani</string>
-    <string name="appcleaner_automation_unavailable_body">Kufuta akiba zisizofikiwa kunahitaji huduma ya ufikiaji ya SD Maid, lakini haikupatikana. Ikiwa hutaki kuitumia: Lemaza chaguo la \"Jumuisha akiba zisizofikiwa\".</string>
+    <string name="appcleaner_automation_unavailable_body">Kufuta akiba hizi kunahitaji huduma ya ufikivu ya SD Maid, lakini haikupatikana.</string>
     <string name="appcleaner_delete_confirmation_message_x">Futa faili zinazoweza kutumika za %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Futa faili zinazoweza kutumika za programu %d iliyochaguliwa?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Simamisha kwa nguvu kabla ya kusafisha</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Simamisha programu kwa nguvu kabla ya kusafisha hifadhi yao. Inaweza kusaidia kusafisha hifadhi ya programu fulani, lakini inaweza kusababisha programu kutofanya kazi vizuri na kuhitaji kuanzishwa upya kwa mikono.</string>
     <string name="appcleaner_progress_force_stopping">Kusimamisha programu kwa nguvu…</string>
+    <string name="appcleaner_progress_checking_freed_space">Inakagua nafasi iliyoachiliwa…</string>
 </resources>

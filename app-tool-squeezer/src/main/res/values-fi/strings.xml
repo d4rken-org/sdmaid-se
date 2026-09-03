@@ -29,6 +29,18 @@
         <item quantity="one">%d ohitettiin (HDR/syvyys säilytettiin)</item>
         <item quantity="other">%d ohitettiin (HDR/syvyys säilytettiin)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d ohitettu (Motion Photo -kuva)</item>
+        <item quantity="other">%d ohitettu (Motion Photo -kuvaa)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d ohitettu (erittäin suuri kuva)</item>
+        <item quantity="other">%d ohitettu (erittäin suuria kuvia)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d ohitettu (suojattu)</item>
+        <item quantity="other">%d ohitettu (suojattu)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d kohde valittu</item>
         <item quantity="other">%d kohdetta valittu</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Yleiset</string>
     <string name="squeezer_quality_description">Alempi laatu tarkoittaa pienempiä tiedostokokoja, mutta heikentynytä kuvanlaatua.</string>
     <string name="squeezer_types_category_label">Kuva-asetukset</string>
+    <string name="squeezer_protected_category_label">Mitä menetetään</string>
     <string name="squeezer_video_settings_category_label">Videoasetukset</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Sisällytä JPEG-kuvat (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Sisällytä JPEG-kuvat (.jpg, .jpeg). Uudelleenpakkaus käyttää Androidin sisäänrakennettua JPEG-enkooderia. Päivämäärä, sijainti ja muut EXIF-metatiedot säilytetään.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Sisällytä WebP-kuvat (.webp).</string>
+    <string name="squeezer_type_webp_description">Sisällytä WebP-kuvat (.webp). Uudelleenpakkaus käyttää Androidin sisäänrakennettua WebP-enkooderia. Päivämäärä, sijainti ja muut EXIF-metatiedot säilytetään.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Sisällytä HEIC/HEIF-kuvat (.heic, .heif). Päivämäärä, sijainti ja muut EXIF-metatiedot säilytetään. HDR-vahvistuskarttoja, syvyystietoja ja Live/Motion Photo -sisarkuvia ei voida säilyttää; tiedostot, jotka sisältävät useita kuvia, ohitetaan.</string>
     <string name="squeezer_type_video_title">MP4-video</string>
-    <string name="squeezer_type_video_description">Sisällytä MP4-videotiedostot (.mp4).</string>
+    <string name="squeezer_type_video_description">Sisällytä MP4-videotiedostot (.mp4). Videoraita pakataan uudelleen pienemmällä bittinopeudella laitteen omalla videoenkooderilla, äänirata kopioidaan muuttumattomana ja tiedosto pysyy MP4-muodossa.</string>
     <string name="squeezer_skip_compressed_title">Ohita aiemmin pakatut</string>
     <string name="squeezer_skip_compressed_description">Ohita tiedostot, jotka SD Maid on jo pakannut.</string>
     <string name="squeezer_exif_marker_title">Kirjoita EXIF-merkintä</string>
     <string name="squeezer_exif_marker_description">Lisää merkintä kuvan EXIF-käyttäjäkommenttikenttään estääksesi uudelleenpakkauksen vaikka pakkaushistoria tyhjennettäisiin.</string>
     <string name="squeezer_include_lossy_aux_title">Pakkaa HDR- &amp; syvyyskuvat</string>
-    <string name="squeezer_include_lossy_aux_description">Oletusarvoisesti pois päältä: kuvat, joilla on HDR-vahvistuskartta tai syvyys-/potrettitietoa, ohitetaan, jotta niitä ei yksinkertaisteta. Ota käyttöön pakataksesi ne mahdollisuuksien mukaan – ne menettävät HDR-vahvistuskartansa tai syvyystietonsa. Jotkut monien kuvien HEIC-kuvat jäävät suojatuksi kaikissa tapauksissa.</string>
+    <string name="squeezer_include_lossy_aux_description">Sisällytä kuvat, joissa on HDR- tai syvyystietoa. Pakkaus poistaa sen: HDR-kuvista tulee tavallisia kuvia, ja muotokuvat menettävät taustan sumennukseen käytetyn tiedon. Usean kuvan HEIC-tiedostot ohitetaan edelleen.</string>
+    <string name="squeezer_include_motion_photos_title">Pakkaa Motion Photo -kuvat</string>
+    <string name="squeezer_include_motion_photos_description">Sisällytä Motion Photo -kuvat. Pakkaus säilyttää still-kuvan ja poistaa videopätkän.</string>
+    <string name="squeezer_include_oversized_title">Pakkaa erittäin suuret kuvat</string>
+    <string name="squeezer_include_oversized_description">Sisällytä kuvat, jotka ovat leveämpiä tai korkeampia kuin 8192 pikseliä. Pakkaus myös puolittaa niiden resoluution.</string>
     <string name="squeezer_estimated_savings_format">~%s säästöä</string>
     <string name="squeezer_no_savings_expected">Rajallinen säästö</string>
     <string name="squeezer_current_size_format">Koko: %s</string>
+    <string name="squeezer_chip_compressed_before">Pakattu</string>
+    <string name="squeezer_chip_hdr_depth">HDR/syvyys</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Pienennetty</string>
+    <string name="squeezer_markers_dialog_title">Tietoja näistä merkeistä</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid on jo pakannut tämän tiedoston. Sen pakkaaminen uudelleen heikentää laatua ja säästää vain vähän tilaa.</string>
+    <string name="squeezer_markers_hdr_depth_description">Tässä kuvassa on HDR- tai syvyystietoa, jota pakkaus ei voi säilyttää. HDR-kuvasta tulee tavallinen kuva, ja muotokuva menettää taustan sumennukseen käytetyn syvyystiedon.</string>
+    <string name="squeezer_markers_motion_photo_description">Tämä on Motion Photo -kuva. Pakkaus säilyttää still-kuvan ja poistaa videopätkän.</string>
+    <string name="squeezer_markers_downscaled_description">Tämä kuva on leveämpi tai korkeampi kuin 8192 pikseliä. Pakkaus myös puolittaa sen resoluution.</string>
     <string name="squeezer_compress_action">Pakkaa</string>
     <string name="squeezer_compress_all_action">Pakkaa kaikki</string>
     <string name="squeezer_preview_dialog_title">Vahvista pakkaus</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Näytä vertailu</string>
     <string name="squeezer_no_example_found">Kuvia ei löytynyt valituista poluista.</string>
     <string name="squeezer_result_empty_message">Pakattavaa mediaa ei löydetty.</string>
+    <string name="squeezer_result_empty_protected">Ei mitään pakattavaa. Ohitettu: %s. Ota vastaava asetus käyttöön asetuksissa sisällyttääksesi ne.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/syvyys-kuva</item>
+        <item quantity="other">%d HDR/syvyys-kuvaa</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo -kuva</item>
+        <item quantity="other">%d Motion Photo -kuvaa</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d erittäin suuri kuva</item>
+        <item quantity="other">%d erittäin suurta kuvaa</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d sijaintia ei voi käyttää pakkaamiseen ja se poistettiin. Pakkaaminen vaatii suoran pääsyn sisäiseen tallennustilaan.</item>
         <item quantity="other">%d sijaintia ei voi käyttää pakkaamiseen ja ne poistettiin. Pakkaaminen vaatii suoran pääsyn sisäiseen tallennustilaan.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Vähintään %d päivää vanha</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Arvioidut ~%d%% säästöt JPEG-tiedostoissa</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer pakkaa kuvia ja videoita uudelleen, jotta ne vievät vähemmän tilaa. Vaihdat hieman laatua säästyvään tilaan. Jokainen kohde näyttää arvioidun säästön, joten voit päättää, mikä kannattaa.</string>
     <string name="tour_squeezer_compress_body">Pakkaa kaikki kerralla tässä tai napauta yksittäistä kohdetta pakataksesi vain sitä. Pidä pitkään painettuna valitaksesi useita. Näet aina esikatselun ennen kuin mitään muuttuu.</string>
 </resources>

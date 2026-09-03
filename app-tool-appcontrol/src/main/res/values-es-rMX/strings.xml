@@ -81,6 +81,10 @@
         <item quantity="one">%d aplicación fue alternada</item>
         <item quantity="other">%d aplicaciones fueron alternadas</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app no se puede habilitar ni deshabilitar</item>
+        <item quantity="other">%d apps no se pueden habilitar ni deshabilitar</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determinar tamaños</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtener una estimación aproximada del tamaño de cada aplicación.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar actividad</string>

@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">ลบรายการที่สามารถลบทิ้งได้ %d รายการ</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">ลบไฟล์ที่เหลือไม่จำเป็น %d รายการแล้ว หยุดเนื่องจากหน้าจอปิดหรือล็อกแล้ว</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">ลบไฟล์ที่เหลือไม่จำเป็น %d รายการแล้ว หยุดเนื่องจากข้อผิดพลาด</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s แต่แคช %2$d ยังคงต้องการบริการช่วยเหลือการใช้งาน</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">พบรายการที่สามารถลบทิ้งได้ %d รายการ</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">มองหาปุ่ม \"ล้างแคช\" (คำสำคัญ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">แคชเริ่มต้น</string>
     <string name="appcleaner_item_caches_inaccessible_body">แคชเริ่มต้นสาธารณะและส่วนตัว ไม่สามารถเข้าถึงโดยตรงได้ แต่สามารถลบโดยอ้อมได้ (เช่น ผ่านบริการช่วยเหลือการเข้าถึง)</string>
+    <string name="appcleaner_exclusion_limited_row_hint">ยกเว้นแล้ว แต่การล้างแคชของแอพทั้งหมดจะล้างแคชนี้ด้วย</string>
+    <string name="appcleaner_exclusion_limited_title">แอพที่ยกเว้น</string>
+    <string name="appcleaner_exclusion_limited_body">คุณยกเว้นแอพนี้จาก AppCleaner แล้ว การล้างแคชของแอพทั้งหมดพร้อมกันนั้นใช้การลบแคชของระบบจาก Shizuku ซึ่งไม่สามารถปล่อยให้แอพแต่ละตัวออกได้ ดังนั้นข้อมูลแคชของแอพนี้จึงถูกล้างไปพร้อมกับทั้งหมด เฉพาะข้อมูลแคชที่แสดงที่นี่เท่านั้นที่ได้รับผลกระทบ ส่วนอื่น ๆ ที่การยกเว้นครอบคลุมยังคงซ่อนไว้และไม่ได้รับการแตะต้อง</string>
     <string name="appcleaner_automation_unavailable_title">บริการช่วยเหลือการเข้าถึงไม่พร้อมใช้งาน</string>
-    <string name="appcleaner_automation_unavailable_body">การล้างแคชที่เข้าถึงไม่ได้ต้องใช้บริการช่วยเหลือการเข้าถึงของ SD Maid แต่ไม่พร้อมใช้งาน หากคุณไม่ต้องการใช้: ปิดตัวเลือก \"รวมแคชที่เข้าถึงไม่ได้\"</string>
+    <string name="appcleaner_automation_unavailable_body">การล้างแคชนี้ต้องการบริการช่วยเหลือการใช้งาน SD Maid แต่ไม่พร้อมใช้งาน</string>
     <string name="appcleaner_delete_confirmation_message_x">ลบไฟล์ที่สามารถลบทิ้งได้สำหรับ %s หรือไม่?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ลบไฟล์ที่สามารถลบทิ้งได้สำหรับแอพที่เลือก %d แอพหรือไม่?</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">บังคับหยุดก่อนล้าง</string>
     <string name="appcleaner_forcestop_before_clearing_summary">บังคับหยุดแอปก่อนล้างแคช อาจช่วยล้างแคชบางแอปได้ แต่อาจทำให้แอปทำงานผิดปกติและต้องรีสตาร์ทด้วยตนเอง</string>
     <string name="appcleaner_progress_force_stopping">กำลังบังคับหยุดแอป…</string>
+    <string name="appcleaner_progress_checking_freed_space">ตรวจสอบพื้นที่ว่างที่ได้รับคืน…</string>
 </resources>

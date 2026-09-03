@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Play သို့ ချိတ်ဆက်၍မရပါ။ သင့်အင်တာနက် ချိတ်ဆက်မှုကို စစ်ဆေးပြီး ထပ်ကြိုးစားပါ။</string>
     <string name="upgrades_gplay_offer_unavailable_title">ကမ်းလှမ်းချက်မရှိသည်</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play သည် လက်ခြင်း၌ ဤလျှော်မြှုပ်တင်ဆက်ချက်ကို မကမ်းလှမ်းနေပါ။ ခင်ဗျာ နောက်ပိုင်းတွင် ထပ်မံကြိုးစားပါ သို့မဟုတ် Google Play Store ကိုကြည့်ပါ။</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play ကိုဖွင့်လို့မရနိုင်ပါ။ ၎င်းမရှိနိုင်သည်၊ ပိတ်ထားနိုင်သည် သို့မဟုတ် ဤစက်ပစ္စည်းတွင်ကန့်သတ်ခံရနိုင်သည်။</string>
     <string name="upgrades_gplay_already_owned_error_title">ဝယ်ယူပြီးသား</string>
     <string name="upgrades_gplay_already_owned_error_description">သင့်ဝယ်ယူမှုကို ပြန်လည်ရယူရန် \"ဝယ်ယူမှုကို ပြန်လည်ရယူမည်\" ရွေးချယ်စရာကို အသုံးပြုပါ။ ပြဿနာ ဆက်လက်ရှိနေပါက Google Play cache ကို ရှင်းလင်းပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s ကိုရယူပါ</string>
     <string name="upgrade_screen_preamble">SD Maid တွင် ကြော်ငြာများမရှိပါ၊ အသုံးပြုသူဒေတာများကိုလည်း မရောင်းချပါ။ ကျွန်ုပ်၏အလုပ်ကို သင်မှ ငွေကြေးထောက်ပံ့ထားပါသည် ❤️။</string>
     <string name="upgrade_screen_benefits_title">အဆင့်မြှင့်တင်မှု အခွင့်အလျှောက်များ</string>

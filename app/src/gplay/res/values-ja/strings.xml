@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Playに接続できません。インターネット接続を確認してもう一度お試しください。</string>
     <string name="upgrades_gplay_offer_unavailable_title">オファーが利用できません</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play は現在このアップグレードオプションを提供していません。後でもう一度試すか、Google Play ストアで確認してください。</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Playを開けません。このデバイスではインストールされていないか、無効になっているか、制限されている可能性があります。</string>
     <string name="upgrades_gplay_already_owned_error_title">購入済み</string>
     <string name="upgrades_gplay_already_owned_error_description">\"購入を復元\"オプションを使用して購入を復元してください。問題が解決しない場合は、Google Playのキャッシュをクリアしてデバイスを再起動してみてください。</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s を取得</string>
     <string name="upgrade_screen_preamble">SDメイドは広告がなく、ユーザーデータを販売していません。私の作品はあなたによって賄われています❤️</string>
     <string name="upgrade_screen_benefits_title">アップグレード特典</string>

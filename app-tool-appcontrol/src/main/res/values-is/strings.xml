@@ -81,6 +81,10 @@
         <item quantity="one">%d forriti var skipt</item>
         <item quantity="other">%d forritum var skipt</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">Ekki er hægt að kveikja eða slökkva á %d forriti</item>
+        <item quantity="other">Ekki er hægt að kveikja eða slökkva á %d forritum</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Ákvarða stærðir</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Fá grófan mat á stærð hvers forrits.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Ákvarða virkni</string>

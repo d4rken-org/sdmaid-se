@@ -60,6 +60,18 @@
         <item quantity="one">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ଡିଲିଟ୍ ହୋଇଛି</item>
         <item quantity="other">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ଡିଲିଟ୍ ହୋଇଛି</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ଡିଲିଟ୍ ହୋଇଗଲା, ସ୍କ୍ରିନ୍ ବନ୍ଦ କିମ୍ବା ଲକ୍ ଥିବାରୁ ବନ୍ଦ ହେଲା</item>
+        <item quantity="other">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍‌ଗୁଡ଼ିକ ଡିଲିଟ୍ ହୋଇଗଲା, ସ୍କ୍ରିନ୍ ବନ୍ଦ କିମ୍ବା ଲକ୍ ଥିବାରୁ ବନ୍ଦ ହେଲା</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ଡିଲିଟ୍ ହୋଇଗଲା, ଏକ ତ୍ରୁଟି ଯୋଗୁଁ ବନ୍ଦ ହେଲା</item>
+        <item quantity="other">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍‌ଗୁଡ଼ିକ ଡିଲିଟ୍ ହୋଇଗଲା, ଏକ ତ୍ରୁଟି ଯୋଗୁଁ ବନ୍ଦ ହେଲା</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d କ୍ୟାଶ୍‌କୁ ଏବେ ବି ଅଭିଗମ୍ୟତା ସେବା ଆବଶ୍ୟକ</item>
+        <item quantity="other">%1$s, %2$d କ୍ୟାଶ୍‌ଗୁଡ଼ିକୁ ଏବେ ବି ଅଭିଗମ୍ୟତା ସେବା ଆବଶ୍ୟକ</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ମିଳିଛି</item>
         <item quantity="other">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ମିଳିଛି</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" ବଟନ ଖୋଜୁଛି (କିୱର୍ଡ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ଡିଫଲ୍ଟ ଦ୍ରୁତିକା</string>
     <string name="appcleaner_item_caches_inaccessible_body">ସାର୍ବଜନୀନ ଏବଂ ବ୍ୟକ୍ତିଗତ ଡିଫଲ୍ଟ କ୍ୟାଶ। ସିଧାସଳଖ ଆକ୍ସେସ କରାଯାଇପାରିବ ନାହିଁ, କିନ୍ତୁ ପରୋକ୍ଷରେ ଡିଲିଟ କରାଯାଇପାରିବ (ଯେପରିକି ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ)।</string>
+    <string name="appcleaner_exclusion_limited_row_hint">ବାଦ ଦିଆଯାଇଛି, କିନ୍ତୁ ଏକାସାଙ୍ଗରେ ସମସ୍ତ ଆପ୍ ସଫା କରିବା ଏହି କ୍ୟାଶ୍‌ଗୁଡ଼ିକୁ ମଧ୍ୟ ଖାଲି କରିଦିଏ</string>
+    <string name="appcleaner_exclusion_limited_title">ବାଦ ଦିଆଯାଇଥିବା ଆପ୍</string>
+    <string name="appcleaner_exclusion_limited_body">ଆପଣ ଏହି ଆପ୍‌କୁ AppCleaner ରୁ ବାଦ ଦେଇଛନ୍ତି। ସମସ୍ତ ଆପ୍‌ର କ୍ୟାଶ୍ ଏକାସାଙ୍ଗରେ ଖାଲି କରିବା ପାଇଁ Shizuku ର ସିଷ୍ଟମ-ବ୍ୟାପୀ କ୍ୟାଶ୍ ଟ୍ରିମ୍ ବ୍ୟବହାର ହୁଏ, ଯାହା ଅଲଗା ଅଲଗା ଆପ୍‌କୁ ବାଦ ଦେଇପାରେ ନାହିଁ, ତେଣୁ ଏହି ଆପ୍‌ର କ୍ୟାଶ୍ ହୋଇଥିବା ତଥ୍ୟ ମଧ୍ୟ ବାକି ସବୁ ସହିତ ଖାଲି ହୋଇଯାଏ। ଏଠାରେ ଦେଖାଯାଇଥିବା କ୍ୟାଶ୍ ତଥ୍ୟ ମାତ୍ର ପ୍ରଭାବିତ ହୁଏ, ବାଦ ଦେବା ଯାହା ଯାହା ଆଚ୍ଛାଦନ କରେ ତାହା ବାକି ସବୁ ଲୁକ୍କାୟିତ ଏବଂ ଅସ୍ପୃଷ୍ଟ ରହେ।</string>
     <string name="appcleaner_automation_unavailable_title">ଅଭିଗମ୍ୟତା ସେଵା ଅନୁପଲବ୍ଧ</string>
-    <string name="appcleaner_automation_unavailable_body">ଆକ୍ସେସ କରିହେବ ନଥିବା କ୍ୟାଶ ସଫା କରିବା ପାଇଁ SD Maid\'s ଆକ୍ସେସିବିଲିଟି ସେବା ଆବଶ୍ୟକ, କିନ୍ତୁ ତାହା ଉପଲବ୍ଧ ନଥିଲା। ଯଦି ଆପଣ ଏହାକୁ ବ୍ୟବହାର କରିବାକୁ ଚାହୁଁନାହାଁନ୍ତି: \"Include inaccessible caches\" ବିକଳ୍ପ ଅକ୍ଷମ କରନ୍ତୁ।</string>
+    <string name="appcleaner_automation_unavailable_body">ଏହି କ୍ୟାଶ୍‌ଗୁଡ଼ିକୁ ଖାଲି କରିବା ପାଇଁ SD Maid ର ଅଭିଗମ୍ୟତା ସେବା ଆବଶ୍ୟକ, କିନ୍ତୁ ଏହା ଉପଲବ୍ଧ ନଥିଲା।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s ପାଇଁ ଅନାବଶ୍ୟକ ଫାଇଲଗୁଡ଼ିକ ଡିଲିଟ କରିବେ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d ମନୋନୀତ ଆପ୍ ପାଇଁ ଅନାବଶ୍ୟକ ଫାଇଲ୍ ଡିଲିଟ୍ କରିବେ?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">ସଫା କରିବା ପୂର୍ବରୁ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ସେମାନଙ୍କ କ୍ୟାସ୍ ସଫା କରିବା ପୂର୍ବରୁ ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରନ୍ତୁ। ଏହା କିଛି ଆପ୍ସର କ୍ୟାସ୍ ସଫା କରିବାରେ ସାହାଯ୍ୟ କରିପାରେ, କିନ୍ତୁ ଆପ୍ସ ଖରାପ ଆଚରଣ କରିପାରେ ଏବଂ ହାତରେ ପୁନଃଆରମ୍ଭ ଆବଶ୍ୟକ ହୋଇପାରେ।</string>
     <string name="appcleaner_progress_force_stopping">ଆପ୍ସ ଫୋର୍ସ-ଷ୍ଟପ୍ କରୁଛି…</string>
+    <string name="appcleaner_progress_checking_freed_space">ମୁକ୍ତ ହୋଇଥିବା ସ୍ଥାନ ଯାଞ୍ଚ କରାଯାଉଛି…</string>
 </resources>

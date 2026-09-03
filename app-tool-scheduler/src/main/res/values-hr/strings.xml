@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Naziv rasporeda</string>
     <string name="scheduler_schedule_toggle_enabled">Raspored je omogućen</string>
     <string name="scheduler_schedule_toggle_disabled">Raspored je onemogućen</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Za izmjenu isključi raspored.</string>
     <string name="scheduler_edit_schedule_action">Uredi raspored</string>
     <string name="scheduler_schedule_time_label">Približno vrijeme</string>
     <string name="scheduler_schedule_repeat_label">Interval ponavljanja u danima</string>
@@ -44,7 +45,6 @@
     <string name="scheduler_commands_after_schedule_label">Naredbe nakon rasporeda</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell naredbe koje će se izvršiti na kraju rasporeda.</string>
     <string name="scheduler_battery_optimization_hint">Razmislite o onemogućavanju optimizacije baterije za SD Maid ako imate problema s pozadinskim izvršavanjem.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid može čistiti po rasporedu. Odaberite vrijeme i koje alate pokrenuti, a on će obaviti posao u pozadini, gotovo bez potrebe da otvarate aplikaciju.</string>
     <string name="tour_scheduler_create_body">Dodirnite ovdje da biste kreirali novi raspored, zatim postavite kada će se pokrenuti i koje alate uključiti.</string>
 </resources>

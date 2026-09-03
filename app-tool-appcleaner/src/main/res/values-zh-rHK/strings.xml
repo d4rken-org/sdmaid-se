@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">已刪除 %d 個可捨棄項目</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">已刪除 %d 個可清除項目，因螢幕關閉或鎖定而停止</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">已刪除 %d 個可清除項目，因發生錯誤而停止</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s，仍有 %2$d 個快取需要無障礙功能</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 個無關緊要的項目已找到</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">尋找「清除快取」按鈕（關鍵字：%s）</string>
     <string name="appcleaner_item_caches_inaccessible_title">預設快取</string>
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
+    <string name="appcleaner_exclusion_limited_row_hint">已排除，但一次清理所有應用程式時仍會清除這些快取</string>
+    <string name="appcleaner_exclusion_limited_title">已排除的應用程式</string>
+    <string name="appcleaner_exclusion_limited_body">你已將此應用程式從 AppCleaner 中排除。一次清理所有應用程式的快取時，會使用 Shizuku 的全系統快取清理功能，無法個別排除應用程式，因此這個應用程式的快取資料會連同其他一併清除。只有這裡顯示的快取資料會受影響，排除範圍涵蓋的其他內容仍會保持隱藏及不受影響。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
-    <string name="appcleaner_automation_unavailable_body">清除無法存取的快取需要 SD 女僕的無障礙服務，但它無法使用，如果您不想使用它：請停用「包含無法存取的快取」選項。</string>
+    <string name="appcleaner_automation_unavailable_body">清除這些快取需要 SD Maid 的無障礙功能，但目前無法使用。</string>
     <string name="appcleaner_delete_confirmation_message_x">為 %s 刪除無關緊要的檔案？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">清除前強制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除快取前強制停止應用程式。可能有助於清除某些應用程式的快取，但可能導致應用程式異常並需要手動重新啟動。</string>
     <string name="appcleaner_progress_force_stopping">正在強制停止應用程式…</string>
+    <string name="appcleaner_progress_checking_freed_space">正在檢查釋出的空間…</string>
 </resources>

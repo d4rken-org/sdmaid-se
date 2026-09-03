@@ -88,6 +88,11 @@
         <item quantity="few">%d aplikacije su prebačene</item>
         <item quantity="other">%d aplikacija je prebačeno</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplikacija se ne može omogućiti ili onemogućiti</item>
+        <item quantity="few">%d aplikacije se ne mogu omogućiti ili onemogućiti</item>
+        <item quantity="other">%d aplikacija se ne može omogućiti ili onemogućiti</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Odredi veličine</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Dobijte grubu procjenu veličine svake aplikacije.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Odredi aktivnost</string>

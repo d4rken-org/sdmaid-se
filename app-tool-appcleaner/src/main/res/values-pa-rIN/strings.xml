@@ -60,6 +60,18 @@
         <item quantity="one">%d ਖਰਚੇਯੋਗ ਆਈਟਮ ਮਿਟਾਇਆ ਗਿਆ</item>
         <item quantity="other">%d ਖਰਚੇਯੋਗ ਆਈਟਮਾਂ ਮਿਟਾਈਆਂ ਗਈਆਂ</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d ਉਪਯੋਗੀ ਚੀਜ਼ ਮਿਟਾ ਦਿੱਤੀ ਗਈ, ਰੋਕੀ ਗਈ ਕਿਉਂਕਿ ਸਕ੍ਰੀਨ ਬੰਦ ਸੀ ਜਾਂ ਲਾਕ ਸੀ</item>
+        <item quantity="other">%d ਉਪਯੋਗੀ ਚੀਜ਼ਾਂ ਮਿਟਾ ਦਿੱਤੀਆਂ ਗਈਆਂ, ਰੋਕੀਆਂ ਗਈਆਂ ਕਿਉਂਕਿ ਸਕ੍ਰੀਨ ਬੰਦ ਸੀ ਜਾਂ ਲਾਕ ਸੀ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d ਉਪਯੋਗੀ ਚੀਜ਼ ਮਿਟਾ ਦਿੱਤੀ ਗਈ, ਗਲਤੀ ਨਾਲ ਰੋਕੀ ਗਈ</item>
+        <item quantity="other">%d ਉਪਯੋਗੀ ਚੀਜ਼ਾਂ ਮਿਟਾ ਦਿੱਤੀਆਂ ਗਈਆਂ, ਗਲਤੀ ਨਾਲ ਰੋਕੀਆਂ ਗਈਆਂ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d ਕੈਸ਼ ਨੂੰ ਅਜੇ ਵੀ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ</item>
+        <item quantity="other">%1$s, %2$d ਕੈਸ਼ਾਂ ਨੂੰ ਅਜੇ ਵੀ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ਖਰਚੇਯੋਗ ਆਈਟਮ ਮਿਲਿਆ</item>
         <item quantity="other">%d ਖਰਚੇਯੋਗ ਆਈਟਮਾਂ ਮਿਲੀਆਂ</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ਮੂਲ ਕੈਸ਼</string>
     <string name="appcleaner_item_caches_inaccessible_body">ਜਨਤਕ ਅਤੇ ਨਿੱਜੀ ਮੂਲ ਕੈਸ਼। ਸਿੱਧੇ ਤੌਰ \'ਤੇ ਪਹੁੰਚਯੋਗ ਨਹੀਂ, ਪਰ ਅਸਿੱਧੇ ਤੌਰ \'ਤੇ ਮਿਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ (ਜਿਵੇਂ ਕਿ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ)।</string>
+    <string name="appcleaner_exclusion_limited_row_hint">ਬਾਹਰ ਕੱਢਿਆ ਗਿਆ, ਪਰ ਇੱਕ ਵਾਰ ਵਿੱਚ ਸਾਰੀਆਂ ਐਪਸ ਨੂੰ ਸਾਫ ਕਰਨਾ ਅਜੇ ਵੀ ਇਨ੍ਹਾਂ ਕੈਸ਼ਾਂ ਨੂੰ ਸਾਫ ਕਰ ਦਿੰਦਾ ਹੈ</string>
+    <string name="appcleaner_exclusion_limited_title">ਬਾਹਰ ਕੱਢਿਆ ਗਿਆ ਐਪ</string>
+    <string name="appcleaner_exclusion_limited_body">ਇਸ ਐਪ ਨੂੰ AppCleaner ਤੋਂ ਬਾਹਰ ਕੱਢਿਆ ਗਿਆ ਹੈ। ਇੱਕ ਵਾਰ ਵਿੱਚ ਸਾਰੀਆਂ ਐਪਸ ਦੀ ਕੈਸ਼ ਸਾਫ ਕਰਨਾ Shizuku ਦੀ ਸਿਸਟਮ-ਵਿਆਪੀ ਕੈਸ਼ ਟ੍ਰਿਮ ਵਰਤਦਾ ਹੈ, ਜੋ ਵਿਅਕਤੀਗਤ ਐਪਸ ਨੂੰ ਬਾਹਰ ਨਹੀਂ ਛੱਡ ਸਕਦਾ, ਇਸ ਲਈ ਇਸ ਐਪ ਦਾ ਕੈਸ਼ ਡੇਟਾ ਬਾਕੀ ਸਭ ਨਾਲ ਸਾਫ ਹੋ ਜਾਂਦਾ ਹੈ। ਸਿਰਫ ਇੱਥੇ ਦਿਖਾਇਆ ਗਿਆ ਕੈਸ਼ ਡੇਟਾ ਪ੍ਰਭਾਵਿਤ ਹੁੰਦਾ ਹੈ, ਬਾਕੀ ਸਭ ਕੁਝ ਜੋ ਬਾਹਰਕਢਾਉ ਕਵਰ ਕਰਦਾ ਹੈ ਲੁਕਿਆ ਅਤੇ ਛੂਤ ਨਹੀਂ ਹੁੰਦਾ।</string>
     <string name="appcleaner_automation_unavailable_title">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਉਪਲਬਧ ਨਹੀਂ</string>
-    <string name="appcleaner_automation_unavailable_body">ਅਪਹੁੰਚ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਲਈ SD Maid ਦੀ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ। ਜੇ ਤੁਸੀਂ ਇਸਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕਰਨਾ ਚਾਹੁੰਦੇ: \"ਅਪਹੁੰਚ ਕੈਸ਼ ਸ਼ਾਮਲ ਕਰੋ\" ਵਿਕਲਪ ਨੂੰ ਅਯੋਗ ਕਰੋ।</string>
+    <string name="appcleaner_automation_unavailable_body">ਇਨ੍ਹਾਂ ਕੈਸ਼ਾਂ ਨੂੰ ਸਾਫ ਕਰਨ ਲਈ SD Maid ਦੀ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s ਲਈ ਖਰਚਯੋਗ ਫਾਇਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">ਕੀ %d ਚੁਣੀ ਗਈ ਐਪ ਲਈ ਖਰਚੇਯੋਗ ਫਾਈਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">ਸਾਫ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਐਪਾਂ ਨੂੰ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ। ਇਹ ਕੁਝ ਐਪਾਂ ਦਾ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਵਿੱਚ ਮਦਦ ਕਰ ਸਕਦਾ ਹੈ, ਪਰ ਐਪਾਂ ਗਲਤ ਵਿਹਾਰ ਕਰ ਸਕਦੀਆਂ ਹਨ ਅਤੇ ਹੱਥੀਂ ਮੁੜ ਚਾਲੂ ਕਰਨ ਦੀ ਲੋੜ ਹੋ ਸਕਦੀ ਹੈ।</string>
     <string name="appcleaner_progress_force_stopping">ਐਪਾਂ ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ…</string>
+    <string name="appcleaner_progress_checking_freed_space">ਖਾਲੀ ਕੀਤੀ ਗਈ ਜਗ੍ਹਾ ਦੀ ਜਾਂਚ ਕੀ ਜਾ ਰਹੀ ਹੈ…</string>
 </resources>

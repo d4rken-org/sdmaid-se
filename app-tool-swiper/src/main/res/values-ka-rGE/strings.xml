@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">გაფილტრული: %1$s</string>
     <string name="swiper_session_no_matching_files">შესაბამისი ფაილები ვერ მოიძებნა</string>
     <string name="swiper_open_externally_action">გარე აპლიკაციაში გახსნა</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">გადაფურცლეთ ფაილი მისი ბედის გადასწყვეტად: გვერდით შესანარჭუნებლად ან წასაშლელად, ზემოთ გამოსატოვებლად, ქვემოთ გასაუკეთებლად. ქვემოთ მოცემული ღილაკები იგივეს აკეთებენ — და აჭვენებენ რომელი მხარე რომელია.</string>
     <string name="tour_swiper_openin_body">ეს ღილაკი ფაილს სხვა აპლიკაციაში ხსნის, რაც საშუალებელია მისი შემოწმებისთვის გადაწყვეტამდე.</string>
     <string name="tour_swiper_preview_body">ეს ღილაკი ხსნის სრული ეკრანის გადახედვას უფრო ახლო დათვალიერებისთვის.</string>

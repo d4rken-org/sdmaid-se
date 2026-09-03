@@ -29,6 +29,18 @@
         <item quantity="one">%d გამოტოვებული (HDR/depth შენახული)</item>
         <item quantity="other">%d გამოტოვებული (HDR/depth შენახული)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d გამოტოვებულია (Motion Photo)</item>
+        <item quantity="other">%d გამოტოვებულია (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d გამოტოვებულია (ძალიან დიდი ფოტო)</item>
+        <item quantity="other">%d გამოტოვებულია (ძალიან დიდი ფოტო)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d გამოტოვებულია (დაცული)</item>
+        <item quantity="other">%d გამოტოვებულია (დაცული)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ელემენტი არჩეულია</item>
         <item quantity="other">%d ელემენტი არჩეულია</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">ზოგადი</string>
     <string name="squeezer_quality_description">დაბალი ხარისხი ნიშნავს პატარა ფაილის ზომას, მაგრამ მცირდება ვიზუალური ხარისხი.</string>
     <string name="squeezer_types_category_label">სურათის პარამეტრები</string>
+    <string name="squeezer_protected_category_label">რა იკარგება</string>
     <string name="squeezer_video_settings_category_label">ვიდეოს პარამეტრები</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG სურათების ჩართვა (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">მოიცავს JPEG სურათებს (.jpg, .jpeg). ხელახალი კოდირებისთვის გამოიყენება Android-ის ჩაშენებული JPEG კოდერი. თარიღი, მდებარეობა და სხვა EXIF მეტამონაცემები შენარჩუნებულია.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP სურათების ჩართვა (.webp).</string>
+    <string name="squeezer_type_webp_description">მოიცავს WebP სურათებს (.webp). ხელახალი კოდირებისთვის გამოიყენება Android-ის ჩაშენებული WebP კოდერი. თარიღი, მდებარეობა და სხვა EXIF მეტამონაცემები შენარჩუნებულია.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">მოიცავს HEIC/HEIF სურათებს (.heic, .heif). თარიღი, ადგილმდებარეობა და სხვა EXIF მეტამონაცემი შენარჩუნებულია. HDR gain maps, depth data და Live/Motion Photo ფაილები ვერ შეიძლება შენარჩუნდეს; მრავალ-გამოსახულებიანი ფაილები გამოტოვებულია.</string>
     <string name="squeezer_type_video_title">MP4 ვიდეო</string>
-    <string name="squeezer_type_video_description">შეიტანე MP4 ვიდეო ფაილები (.mp4).</string>
+    <string name="squeezer_type_video_description">მოიცავს MP4 ვიდეო ფაილებს (.mp4). ვიდეო ტრეკი ხელახლა კოდირდება დაბალი ბიტრეიტით მოწყობილობის საკუთარი ვიდეო კოდერის მეშვეობით, აუდიო ტრეკი უცვლელად კოპირდება, ხოლო ფაილი რჩება MP4 ფორმატში.</string>
     <string name="squeezer_skip_compressed_title">ადრე შეკუმშულების გამოტოვება</string>
     <string name="squeezer_skip_compressed_description">გამოტოვე ფაილები, რომლებიც უკვე შეკუმშულია SD Maid-ის მიერ.</string>
     <string name="squeezer_exif_marker_title">EXIF მარკერის ჩაწერა</string>
     <string name="squeezer_exif_marker_description">სურათის EXIF მომხმარებლის კომენტარის ველში მარკერის დამატება ხელახალი შეკუმშვის თავიდან ასაცილებლად, მაშინაც კი, თუ შეკუმშვის ისტორია გასუფთავდა.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; სიღრმის ფოტოების შეკუმშვა</string>
-    <string name="squeezer_include_lossy_aux_description">ნაგულისხმევად გამორთული: HDR gain map-ით ან depth/portrait მეტამონაცემებით სურათები გამოტოვებულია, რათა ისინი დაკეცილი არ იყვნენ. ჩართეთ მათი შეკუმშვისთვის სადაც შესაძლებელია — ისინი დაკარგავენ მათ HDR gain map-ს ან depth მონაცემებს. ზოგიერთი მრავალ-გამოსახულებიანი HEIC ფოტო დაცული რჩება მიუხედავად.</string>
+    <string name="squeezer_include_lossy_aux_description">მოიცავს ფოტოებს HDR ან სიღრმის მონაცემებით. შეკუმშვა შლის მათ: HDR ფოტოები ჩვეულებრივ ფოტოებად იქცევა, ხოლო პორტრეტული ფოტოები კარგავენ ფონის დაბინდვისთვის საჭირო მონაცემებს. მრავალსურათიანი HEIC ფაილები კვლავ გამოტოვებული რჩება.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photo-ების შეკუმშვა</string>
+    <string name="squeezer_include_motion_photos_description">მოიცავს Motion Photo-ებს. შეკუმშვა ინარჩუნებს უძრავ სურათს და შლის ვიდეო კლიპს.</string>
+    <string name="squeezer_include_oversized_title">ძალიან დიდი ფოტოების შეკუმშვა</string>
+    <string name="squeezer_include_oversized_description">მოიცავს ფოტოებს, რომლებიც სიგანით ან სიმაღლით 8192 პიქსელს აღემატება. შეკუმშვა ასევე ორჯერ ამცირებს მათ გარჩევადობას.</string>
     <string name="squeezer_estimated_savings_format">~%s დაზოგვა</string>
     <string name="squeezer_no_savings_expected">შეზღუდული დაზოგვა</string>
     <string name="squeezer_current_size_format">ზომა: %s</string>
+    <string name="squeezer_chip_compressed_before">შეკუმშული</string>
+    <string name="squeezer_chip_hdr_depth">HDR/სიღრმე</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">დაქვეითებული</string>
+    <string name="squeezer_markers_dialog_title">ამ ნიშნების შესახებ</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid-მა უკვე შეკუმშა ეს ფაილი. მისი ხელახლა შეკუმშვა აზარალებს ხარისხს და მცირე ადგილს ათავისუფლებს.</string>
+    <string name="squeezer_markers_hdr_depth_description">ამ ფოტოს აქვს HDR ან სიღრმის მონაცემები, რომლის შენარჩუნებაც შეკუმშვას არ შეუძლია. HDR ფოტო ჩვეულებრივ ფოტოდ იქცევა, ხოლო პორტრეტული ფოტო კარგავს ფონის დაბინდვისთვის საჭირო სიღრმის მონაცემებს.</string>
+    <string name="squeezer_markers_motion_photo_description">ეს არის Motion Photo. შეკუმშვა ინარჩუნებს უძრავ სურათს და შლის ვიდეო კლიპს.</string>
+    <string name="squeezer_markers_downscaled_description">ეს ფოტო სიგანით ან სიმაღლით 8192 პიქსელს აღემატება. შეკუმშვა ასევე ორჯერ ამცირებს მის გარჩევადობას.</string>
     <string name="squeezer_compress_action">შეკუმშვა</string>
     <string name="squeezer_compress_all_action">ყველას შეკუმშვა</string>
     <string name="squeezer_preview_dialog_title">შეკუმშვის დადასტურება</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">შედარების ნახვა</string>
     <string name="squeezer_no_example_found">არჩეულ გზებში სურათები ვერ მოიძებნა.</string>
     <string name="squeezer_result_empty_message">შეკუმშვადი მედია ვერ მოიძებნა.</string>
+    <string name="squeezer_result_empty_protected">შესაკუმშავი არაფერია. გამოტოვებულია: %s. მათ ჩასართავად ჩართე შესაბამისი პარამეტრი პარამეტრებში.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/სიღრმის ფოტო</item>
+        <item quantity="other">%d HDR/სიღრმის ფოტო</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d ძალიან დიდი ფოტო</item>
+        <item quantity="other">%d ძალიან დიდი ფოტო</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>
         <item quantity="other">%d ლოკაცია ვერ გამოიყენება შეკუმშვისთვის და ამოღებულიყო. შეკუმშვა მოითხოვს პირდაპირ წვდომას შიდა საცავზე.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">სულ მცირე %d დღის</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">სავარაუდო ~%d%% დაზოგვა JPEG ფაილებისთვის</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer თავიდან იკუმშავს თქვენს ფოტოებს და ვიდეოებს, რათა ისინი ნაკლებ ადგილს დაკავოს. თქვენ ხარისხის ნაწილს სანაცვლად დაბრუნებული ადგილის მოსაპოვებლად. თითოეული ელემენტი აჭვენებს მის სავარაუდო დაზოგვას, ასე რომ თქვენ შეგიძლიათ გადაწყვიტოთ რა არის ღირებული.</string>
     <string name="tour_squeezer_compress_body">შეკუმშეთ ყველაფერი ერთდროულად აქ, ან დააჭირეთ ერთ ელემენტს მხოლოდ მისი შესამცირებლად. გრძელი დაჭერა რამდენიმეს შესარჩევად. ყოველთვის დაინახავთ წინასწარ ხედს ნებისმიერი ცვლილებამდე.</string>
 </resources>

@@ -29,6 +29,18 @@
         <item quantity="one">%d överhoppad (HDR/depth bevarad)</item>
         <item quantity="other">%d överhoppade (HDR/depth bevarad)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d överhoppat (Motion Photo)</item>
+        <item quantity="other">%d överhoppade (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d överhoppat (mycket stort foto)</item>
+        <item quantity="other">%d överhoppade (mycket stora foton)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d överhoppat (skyddat)</item>
+        <item quantity="other">%d överhoppade (skyddade)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d objekt valt</item>
         <item quantity="other">%d objekt valda</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Allmänt</string>
     <string name="squeezer_quality_description">Lägre kvalitet innebär mindre filstorlek men sämre visuell kvalitet.</string>
     <string name="squeezer_types_category_label">Bildinstillningar</string>
+    <string name="squeezer_protected_category_label">Vad som går förlorat</string>
     <string name="squeezer_video_settings_category_label">Videoinställningar</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Inkludera JPEG-bilder (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Inkludera JPEG-bilder (.jpg, .jpeg). Omkodning använder Androids inbyggda JPEG-kodare. Datum, plats och annan EXIF-metadata behålls.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Inkludera WebP-bilder (.webp).</string>
+    <string name="squeezer_type_webp_description">Inkludera WebP-bilder (.webp). Omkodning använder Androids inbyggda WebP-kodare. Datum, plats och annan EXIF-metadata behålls.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Inkludera HEIC/HEIF-bilder (.heic, .heif). Datum, plats och annan EXIF-metadata behålls. HDR-förstärkningskartor, djupdata och Live/Motion Photo-syskon kan inte bevaras; flerbildsfiler hoppas över.</string>
     <string name="squeezer_type_video_title">MP4-video</string>
-    <string name="squeezer_type_video_description">Inkludera MP4-videofiler (.mp4).</string>
+    <string name="squeezer_type_video_description">Inkludera MP4-videofiler (.mp4). Videospåret omkodas med en lägre bithastighet av enhetens egen videokodare, ljudspåret kopieras oförändrat och filen förblir en MP4.</string>
     <string name="squeezer_skip_compressed_title">Hoppa över tidigare komprimerade</string>
     <string name="squeezer_skip_compressed_description">Hoppa över filer som redan har komprimerats av SD Maid.</string>
     <string name="squeezer_exif_marker_title">Skriv EXIF-markör</string>
     <string name="squeezer_exif_marker_description">Lägg till en markör i bildens EXIF-användarkommentarfält för att förhindra omkomprimering även om komprimeringshistoriken rensas.</string>
     <string name="squeezer_include_lossy_aux_title">Komprimera HDR &amp; djupfoton</string>
-    <string name="squeezer_include_lossy_aux_description">Inaktiverad som standard: foton med en HDR-förstärkningskarta eller djup-/porträttdata hoppas över så de inte utjämnas. Aktivera för att komprimera dem där det är möjligt – de kommer att förlora sin HDR-förstärkningskarta eller djupdata. Vissa flerbilders-HEIC-foton förblir skyddade oavsett.</string>
+    <string name="squeezer_include_lossy_aux_description">Inkludera foton med HDR- eller djupdata. Komprimering tar bort den: HDR-foton blir vanliga foton, porträttfoton förlorar den data som ligger bakom bakgrundssuddigheten. HEIC-filer med flera bilder hoppas fortfarande över.</string>
+    <string name="squeezer_include_motion_photos_title">Komprimera Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Inkludera Motion Photos. Komprimering behåller stillbilden och tar bort videoklippet.</string>
+    <string name="squeezer_include_oversized_title">Komprimera mycket stora foton</string>
+    <string name="squeezer_include_oversized_description">Inkludera foton som är bredare eller högre än 8192 pixlar. Komprimering halverar även deras upplösning.</string>
     <string name="squeezer_estimated_savings_format">~%s besparing</string>
     <string name="squeezer_no_savings_expected">Begränsad besparing</string>
     <string name="squeezer_current_size_format">Storlek: %s</string>
+    <string name="squeezer_chip_compressed_before">Komprimerad</string>
+    <string name="squeezer_chip_hdr_depth">HDR/djup</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Nedskalad</string>
+    <string name="squeezer_markers_dialog_title">Om dessa markeringar</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid har redan komprimerat den här filen. Att komprimera den igen kostar kvalitet och sparar lite.</string>
+    <string name="squeezer_markers_hdr_depth_description">Det här fotot har HDR- eller djupdata som komprimering inte kan behålla. Ett HDR-foto blir ett vanligt foto, och ett porträttfoto förlorar djupdatan som används för bakgrundssuddighet.</string>
+    <string name="squeezer_markers_motion_photo_description">Det här är en Motion Photo. Komprimering behåller stillbilden och tar bort videoklippet.</string>
+    <string name="squeezer_markers_downscaled_description">Det här fotot är bredare eller högre än 8192 pixlar. Komprimering halverar även dess upplösning.</string>
     <string name="squeezer_compress_action">Komprimera</string>
     <string name="squeezer_compress_all_action">Komprimera alla</string>
     <string name="squeezer_preview_dialog_title">Bekräfta komprimering</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Visa jämförelse</string>
     <string name="squeezer_no_example_found">Inga bilder hittades i valda sökvägar.</string>
     <string name="squeezer_result_empty_message">Ingen komprimeringsbar media hittades.</string>
+    <string name="squeezer_result_empty_protected">Inget att komprimera. Överhoppade: %s. Aktivera motsvarande alternativ i inställningarna för att inkludera dem.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR-/djupfoto</item>
+        <item quantity="other">%d HDR-/djupfoton</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d mycket stort foto</item>
+        <item quantity="other">%d mycket stora foton</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d plats kan inte användas för komprimering och togs bort. Komprimering kräver direkt åtkomst till det interna lagringsutrymmet.</item>
         <item quantity="other">%d platser kan inte användas för komprimering och togs bort. Komprimering kräver direkt åtkomst till det interna lagringsutrymmet.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Minst %d dagar gammal</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Uppskattat ~%d%% sparande för JPEG-filer</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer komprimerar dina foton och videor igen så de tar upp mindre utrymme. Du byter lite kvalitet mot det utrymme du får tillbaka. Varje objekt visar dess beräknade besparing, så du kan välja vad som är värt det.</string>
     <string name="tour_squeezer_compress_body">Komprimera allt på en gång här, eller tryck på en enskild post för att förminska bara den. Långtryck för att välja flera. Du kommer alltid att se en förhandsvisning innan något ändras.</string>
 </resources>

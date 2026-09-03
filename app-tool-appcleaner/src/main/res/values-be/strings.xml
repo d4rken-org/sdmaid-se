@@ -62,6 +62,24 @@
         <item quantity="many">Выдалена %d непатрэбных элементаў</item>
         <item quantity="other">Выдалена %d непатрэбных элементаў</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d непатрэбны файл выдалены, зупынена, так як экран быў адключаны або заблакаваны</item>
+        <item quantity="few">%d непатрэбныя файлы выдалены, зупынена, так як экран быў адключаны або заблакаваны</item>
+        <item quantity="many">%d непатрэбных файлаў выдалены, зупынена, так як экран быў адключаны або заблакаваны</item>
+        <item quantity="other">%d непатрэбных файлаў выдалены, зупынена, так як экран быў адключаны або заблакаваны</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d непатрэбны файл выдалены, зупынена з-за памылкі</item>
+        <item quantity="few">%d непатрэбныя файлы выдалены, зупынена з-за памылкі</item>
+        <item quantity="many">%d непатрэбных файлаў выдалены, зупынена з-за памылкі</item>
+        <item quantity="other">%d непатрэбных файлаў выдалены, зупынена з-за памылкі</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d кэш-файл яшчэ патрабуе сэрвіс даступнасці</item>
+        <item quantity="few">%1$s, %2$d кэш-файлы яшчэ патрабуюць сэрвіс даступнасці</item>
+        <item quantity="many">%1$s, %2$d кэш-файлаў яшчэ патрабуюць сэрвіс даступнасці</item>
+        <item quantity="other">%1$s, %2$d кэш-файлаў яшчэ патрабуюць сэрвіс даступнасці</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знойдзены %d непатрэбны элемент</item>
         <item quantity="few">Знойдзена %d непатрэбных элемента</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопкі \"Ачысціць кэш\" (ключавыя словы: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Стандартны кэш</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публічны і прыватны стандартны кэш. Недаступны непасрэдна, але можа быць выдалены ўскосна (напрыклад, праз службу спецыяльных магчымасцей).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Выключана, аднак ачыстка ўсіх праграм адразу ўсё роўна ачышчае гэтыя кэшы</string>
+    <string name="appcleaner_exclusion_limited_title">Выключаная праграма</string>
+    <string name="appcleaner_exclusion_limited_body">Вы выключылі гэтую праграму з AppCleaner. Ачыстка кэшаў усіх праграм адразу выкарыстоўвае агульнасістэмную ачыстку кэша Shizuku, якая не можа пакінуць асобныя праграмы па-за гэтым, таму кэш гэтай праграмы ачышчаецца разам з астатнімі. Закранутыя толькі дадзеныя кэша, паказаныя тут, усё астатняе, што ахоплівае выключэнне, застаецца схаваным і незакранутым.</string>
     <string name="appcleaner_automation_unavailable_title">Служба спецыяльных магчымасцей недаступна</string>
-    <string name="appcleaner_automation_unavailable_body">Для ачысткі недаступнага кэшу SD Maid патрабуецца служба спецыяльных магчымасцей, але доступ да яе абмежаваны. Калі вы не хочаце яе выкарыстоўваць: адключыце опцыю \"Уключаць недаступны кэш\".</string>
+    <string name="appcleaner_automation_unavailable_body">Ачыстка гэтых кэшаў патрабуе сэрвіса даступнасці SD Maid, але ён не быў даступны.</string>
     <string name="appcleaner_delete_confirmation_message_x">Выдаліць непатрэбныя файлы ў %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Выдаліць непатрэбныя файлы ў %d выбранай праграме?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Прымусовае спыненне перад ачысткай</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Прымусовае спыненне праграм перад ачысткай іх кэша. Гэта можа дапамагчы ачысціць кэш некаторых праграм, але можа прывесці да іх няправільнай працы і патрабавання ручнога перазапуску.</string>
     <string name="appcleaner_progress_force_stopping">Прымусовае спыненне праграм…</string>
+    <string name="appcleaner_progress_checking_freed_space">Праверка вызваленага месца…</string>
 </resources>

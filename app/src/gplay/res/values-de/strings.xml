@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Verbindung zu Google Play nicht möglich. Bitte überprüfe deine Internetverbindung und versuche es erneut.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Angebot nicht verfügbar</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play bietet diese Upgrade-Option derzeit nicht an. Bitte versuche es später noch einmal oder überprüfe den Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play konnte nicht geöffnet werden. Möglicherweise ist die App auf diesem Gerät nicht installiert, deaktiviert oder der Zugriff darauf wurde eingeschränkt.</string>
     <string name="upgrades_gplay_already_owned_error_title">Bereits gekauft</string>
     <string name="upgrades_gplay_already_owned_error_description">Verwende die Option \"Auswahl wiederherstellen\", um deinen Kauf wiederherzustellen. Falls das Problem weiterhin besteht, versuche den Google Play Cache zu leeren und dein Gerät neu zu starten.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Hol dir %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ist werbefrei und verkauft keine Nutzerdaten. Meine Arbeit wird von dir finanziert ❤️.</string>
     <string name="upgrade_screen_benefits_title">Vorteile des Upgrades</string>
@@ -55,10 +53,10 @@
     <string name="upgrade_screen_owned_iap_purchase_note">Dies ist ein separater Kauf: Er kündigt weder dein Abo noch erstattet er die Kosten. Verwende für beides dasselbe Google-Konto.</string>
     <string name="upgrade_screen_sub_still_renewing_title">Abo noch aktiv</string>
     <string name="upgrade_screen_sub_still_renewing_message">Laut Google Play verlängert sich dein Abo weiterhin. Um das einmalige Upgrade zu kaufen, kündige das Abo zuerst in Google Play und kehre dann hierher zurück.\n\nDu hast es gerade gekündigt? Gib Google Play einen Moment Zeit und versuche es erneut. Stelle außerdem sicher, dass du dasselbe Google-Konto verwendest.</string>
-    <string name="upgrade_screen_purchase_check_failed_message">Käufe konnten nicht bei Google Play überprüft werden. Bitte versuche es gleich noch einmal.</string>
+    <string name="upgrade_screen_purchase_check_failed_message">Deine Käufe konnten bei Google Play nicht überprüft werden. Bitte versuche es gleich noch einmal.</string>
     <string name="upgrade_screen_pending_card_title">Zahlung ausstehend</string>
-    <string name="upgrade_screen_pending_card_body">Google Play verarbeitet deine Zahlung noch. Pro wird automatisch freigeschaltet, sobald die Zahlung abgeschlossen ist. Manche Zahlungsmethoden können etwas dauern. Du musst nichts weiter tun.</string>
-    <string name="upgrade_screen_pending_dialog_message">Google Play hat einen Kauf mit ausstehender Zahlung gefunden und verarbeitet ihn noch. Pro wird automatisch freigeschaltet, sobald die Zahlung abgeschlossen ist.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play verarbeitet deine Zahlung noch. Pro wird automatisch freigeschaltet, sobald die Zahlung abgeschlossen ist. Bei einigen Zahlungsmethoden kann dies etwas dauern. Du musst nichts weiter tun.</string>
+    <string name="upgrade_screen_pending_dialog_message">Google Play hat einen Kauf mit ausstehender Zahlung gefunden und verarbeitet diese noch. Pro wird automatisch freigeschaltet, sobald die Zahlung abgeschlossen ist.</string>
     <string name="upgrade_screen_restore_success_message">Kauf wiederhergestellt, dein Pro Upgrade ist aktiv.</string>
     <string name="upgrade_screen_grace_title">Dein Kauf wird bestätigt</string>
     <string name="upgrade_screen_grace_body_short">Pro ist weiterhin aktiv. Es wird darauf gewartet, dass Google Play deinen Kauf erneut bestätigt. Alle Pro-Funktionen bleiben in der Zwischenzeit freigeschaltet.</string>

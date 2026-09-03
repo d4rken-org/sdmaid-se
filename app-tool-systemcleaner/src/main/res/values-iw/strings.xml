@@ -4,13 +4,11 @@
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">התאמה %d נמחקה</item>
         <item quantity="two">%d התאמות נמחקו</item>
-        <item quantity="many">%d התאמות נמחקו</item>
         <item quantity="other">%d התאמות נמחקו</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
         <item quantity="one">התאמת מסנן %d</item>
         <item quantity="two">%d התאמות מסנן</item>
-        <item quantity="many">%d התאמות מסנן</item>
         <item quantity="other">%d התאמות מסנן</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">סינון מותאם אישית</string>
@@ -91,7 +89,6 @@
     <plurals name="systemcleaner_customfilter_editor_criterium_whitespace_label">
         <item quantity="one">רווח אחד</item>
         <item quantity="two">שני רווחים</item>
-        <item quantity="many">%d רווחים</item>
         <item quantity="other">%d רווחים</item>
     </plurals>
     <string name="systemcleaner_customfilter_editor_criterium_mode_taken_label">כבר בשימוש על ידי ערך אחר</string>
@@ -118,7 +115,6 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">הגבל התאמות על פי גיל הקובץ (זמן שינוי אחרון). השאר ריק כדי להתאים לכל גיל.</string>
     <string name="systemcleaner_customfilter_import_action">ייבא פילטר חדש</string>
     <string name="systemcleaner_customfilter_export_action">ייצא פילטרים נבחרים</string>
-    <!-- Guided tour -->
     <string name="tour_systemcleaner_intro_body">SystemCleaner מוצא זבל באמצעות מסננים שאינם ספציפיים לאפליקציה. קיימים כללים מוכנים לדברים כמו תיקיות ריקות, רישומים שנותרו ותמונות מיני ישנות. בקר בהגדרות אם ברצונך ליצור שלך.</string>
     <string name="tour_systemcleaner_filter_body">כל שורה היא מסנן ומה שהוא מצא. פתח את הפרטים שלו כדי לראות בדיוק אילו קבצים תואמים לפני שתמחק משהו.</string>
 </resources>

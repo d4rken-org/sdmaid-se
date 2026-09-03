@@ -43,6 +43,24 @@
         <item quantity="many">%d пропалыя (HDR/глыбіня захавана)</item>
         <item quantity="other">%d пропалыя (HDR/глыбіня захавана)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d прапушчаны (Motion Photo)</item>
+        <item quantity="few">%d прапушчаны (Motion Photos)</item>
+        <item quantity="many">%d прапушчаны (Motion Photos)</item>
+        <item quantity="other">%d прапушчаны (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d прапушчаны (вельмі вялікая фота)</item>
+        <item quantity="few">%d прапушчаны (вельмі вялікія фота)</item>
+        <item quantity="many">%d прапушчаны (вельмі вялікіх фота)</item>
+        <item quantity="other">%d прапушчаны (вельмі вялікіх фота)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d прапушчаны (абаронены)</item>
+        <item quantity="few">%d прапушчаны (абаронены)</item>
+        <item quantity="many">%d прапушчаны (абаронены)</item>
+        <item quantity="other">%d прапушчаны (абаронены)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d элемент выбраны</item>
         <item quantity="few">%d элементы выбраны</item>
@@ -56,24 +74,38 @@
     <string name="squeezer_compression_settings_label">Агульныя</string>
     <string name="squeezer_quality_description">Ніжэйшая якасць азначае меншы памер файла, але зніжаную візуальную якасць.</string>
     <string name="squeezer_types_category_label">Налады выяў</string>
+    <string name="squeezer_protected_category_label">Што будзе страчана</string>
     <string name="squeezer_video_settings_category_label">Налады відэа</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Уключыць выявы JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Уключыць відарысы JPEG (.jpg, .jpeg). Перакадзіраванне выкарыстоўвае ўбудаваны кодэр JPEG для Android. Дата, месцазнаходжанне і іншыя метаданыя EXIF захоўваюцца.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Уключыць выявы WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Уключыць відарысы WebP (.webp). Перакадзіраванне выкарыстоўвае ўбудаваны кодэр WebP для Android. Дата, месцазнаходжанне і іншыя метаданыя EXIF захоўваюцца.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
-    <string name="squeezer_type_heic_description">Уключаць выявы HEIC/HEIF (.heic, .heif). Дата, месцазнаходжанне і іншыя метаданыя EXIF захоўваюцца. Карты ўзмацнення HDR, дадзеныя глыбіні і спадарожныя файлы Live/Motion Photo немагчыма захаваць; шматкадравыя файлы прапускаюцца.</string>
+    <string name="squeezer_type_heic_description">Уключаць выявы HEIC/HEIF (.heic, .heif). Дата, месцазнаходжанне і іншыя метаданыя EXIF захоўваюцца. Карты ўзмацнення HDR, даныя глыбіні і спадарожныя файлы Live/Motion Photo немагчыма захаваць; шматкадравыя файлы прапускаюцца.</string>
     <string name="squeezer_type_video_title">MP4 Відэа</string>
-    <string name="squeezer_type_video_description">Уключаць відэафайлы MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Уключыць відэафайлы MP4 (.mp4). Відэадарожка перакадзіруецца з меншай бітавай хуткасцю ўласным відэакодэрам прылады, аўдыёдарожка капіюецца без змен, а файл застаецца MP4.</string>
     <string name="squeezer_skip_compressed_title">Прапускаць раней сціснутыя</string>
     <string name="squeezer_skip_compressed_description">Прапускаць файлы, якія ўжо былі сціснуты SD Maid.</string>
     <string name="squeezer_exif_marker_title">Запісаць маркер EXIF</string>
     <string name="squeezer_exif_marker_description">Дадае маркер у поле EXIF карыстальніцкага каментарыя ​выявы для прадухілення паўторнага сціскання, нават калі гісторыя сціскання ачышчана.</string>
     <string name="squeezer_include_lossy_aux_title">Сціскаць фота з HDR і глыбінёй</string>
-    <string name="squeezer_include_lossy_aux_description">Па змаўчанні выключана: фота з картай ўзмацнення HDR або дадзенымі глыбіні/партрэта прапускаюцца, каб яны не страцілі гэтыя дадзеныя. Уключыце, каб сціскаць іх, дзе гэта магчыма, — яны страцяць карту ўзмацнення HDR або дадзеныя глыбіні. Некаторыя шматкадравыя фота HEIC ў любым выпадку застаюцца абароненымі.</string>
+    <string name="squeezer_include_lossy_aux_description">Уключыць фота з дадзенымі HDR ці глыбіні. Сцісканне выдаляе іх: HDR-фота становіцца звычайным, а партрэтныя фота губляюць дадзеныя, якія выкарыстоўваюцца для размыцця фону. Шматкадравыя файлы HEIC застаюцца прапушчанымі.</string>
+    <string name="squeezer_include_motion_photos_title">Сціснуць Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Уключыць Motion Photos. Сцісканне захоўвае нерухомы відарыс і выдаляе відэаролік.</string>
+    <string name="squeezer_include_oversized_title">Сціснуць вельмі вялікія фота</string>
+    <string name="squeezer_include_oversized_description">Уключыць фота з шырынёй ці вышынёй больш за 8192 пікселі. Сцісканне таксама памяншае іх раздзяляльнасць напалову.</string>
     <string name="squeezer_estimated_savings_format">~%s эканоміі</string>
     <string name="squeezer_no_savings_expected">Абмежаваная эканомія</string>
     <string name="squeezer_current_size_format">Памер: %s</string>
+    <string name="squeezer_chip_compressed_before">Сціснута</string>
+    <string name="squeezer_chip_hdr_depth">HDR/глыбіня</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Паменшана</string>
+    <string name="squeezer_markers_dialog_title">Аб гэтых маркёрах</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ужо сціснуў гэты файл. Паўторнае сцісканне пагаршае якасць і амаль нічога не эканоміць.</string>
+    <string name="squeezer_markers_hdr_depth_description">Гэта фота мае дадзеныя HDR ці глыбіні, якія сцісканне не можа захаваць. HDR-фота становіцца звычайным, а партрэтнае фота губляе дадзеныя глыбіні, якія выкарыстоўваліся для размыцця фону.</string>
+    <string name="squeezer_markers_motion_photo_description">Гэта Motion Photo. Сцісканне захоўвае нерухомы відарыс і выдаляе відэаролік.</string>
+    <string name="squeezer_markers_downscaled_description">Гэта фота шырэйшае ці вышэйшае за 8192 пікселі. Сцісканне таксама памяншае яго раздзяляльнасць напалову.</string>
     <string name="squeezer_compress_action">Сціснуць</string>
     <string name="squeezer_compress_all_action">Сціснуць усё</string>
     <string name="squeezer_preview_dialog_title">Пацвердзіць сцісканне</string>
@@ -97,6 +129,25 @@
     <string name="squeezer_compare_action">Паглядзець параўнанне</string>
     <string name="squeezer_no_example_found">У выбраных шляхах выявы не знойдзены.</string>
     <string name="squeezer_result_empty_message">Не знойдзена носьбіцаў для сціску.</string>
+    <string name="squeezer_result_empty_protected">Няма чаго сціскаць. Прапушчана: %s. Уключыце адпаведны варыянт у наладах, каб уключыць іх.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d фота HDR/глыбіня</item>
+        <item quantity="few">%d фота HDR/глыбіня</item>
+        <item quantity="many">%d фота HDR/глыбіня</item>
+        <item quantity="other">%d фота HDR/глыбіня</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="few">%d Motion Photos</item>
+        <item quantity="many">%d Motion Photos</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d вельмі вялікая фота</item>
+        <item quantity="few">%d вельмі вялікія фота</item>
+        <item quantity="many">%d вельмі вялікіх фота</item>
+        <item quantity="other">%d вельмі вялікіх фота</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d месца не можа выкарыстоўвацца для сціску і было выдалена. Сціск патрабуе прамога доступу да ўнутранай памяці.</item>
         <item quantity="few">%d месцы не могуць выкарыстоўвацца для сціску і былі выдалены. Сціск патрабуе прамога доступу да ўнутранай памяці.</item>
@@ -120,7 +171,6 @@
         <item quantity="other">Не менш за %d дзён</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ацэначная эканомія ~%d%% для файлаў JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer паўторна сціскае вашы фота і відэа, каб яны займалі менш месца. Вы ахвяруеце крыху якасцу дзеля вернутага месца. Кожны элемент паказвае прыблізную эканомію, каб вы маглі вырашыць, ці варта гэта.</string>
     <string name="tour_squeezer_compress_body">Сціскайце усё адразу тут або націсніце на асобны элемент, каб сціснуць толькі яго. Доўгае націсканне, каб выбраць некалькі. Вы заўсёды ўбачыце папярэдні прагляд, перш чым што-небудзь зменіцца.</string>
 </resources>

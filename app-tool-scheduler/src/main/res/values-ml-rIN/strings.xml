@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">ഷെഡ്യൂൾ നാമം</string>
     <string name="scheduler_schedule_toggle_enabled">ഷെഡ്യൂൾ പ്രവർത്തനക്ഷമമാണ്</string>
     <string name="scheduler_schedule_toggle_disabled">ഷെഡ്യൂൾ നിഷ്ക്രിയമാണ്</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">മാറ്റം വരുത്താൻ ഷെഡ്യൂൾ പ്രവർത്തനരഹിതമാക്കുക.</string>
     <string name="scheduler_edit_schedule_action">ഷെഡ്യൂൾ എഡിറ്റ് ചെയ്യുക</string>
     <string name="scheduler_schedule_time_label">ഏകദേശ സമയം</string>
     <string name="scheduler_schedule_repeat_label">ദിവസങ്ങളിൽ ആവർത്തന ഇടവേള</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">ഷെഡ്യൂർ ശേഷം കമാന്ഡുകൾ</string>
     <string name="scheduler_commands_after_schedule_desc">ഷെഡ്യൂർ അവസാനിക്കുമ്പോൾ നടപ്പിലാക്കുന്ന Android ഷെൽ കമാന്ഡുകൾ.</string>
     <string name="scheduler_battery_optimization_hint">പശ്ചാത്തല എക്സിക്യൂഷനിൽ പ്രശ്നങ്ങൾ അനുഭവിക്കുന്നുവെങ്കിൽ SD Maid-ന്റെ ബാറ്ററി ഓപ്ടിമൈസേഷൻ പ്രവർത്തനരഹിതമാക്കുന്നത് പരിഗണിക്കുക.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid ഒരു ഷെഡ്യൂളിനിടെ ശുചീകരണം നടത്താനാകും. ഒരു സമയം തിരഞ്ഞെടുത്ത് ഏതെല്ലാം ടൂളുകൾ പ്രവർത്തിക്കണമെന്നു നിശ്ചയിച്ച്, അത് പശ്ചാത്തലത്തിൽ പ്രവർത്തനം നടത്തും — അപ്ലിക്കേഷൻ തുറക്കേണ്ടതില്ല.</string>
     <string name="tour_scheduler_create_body">ഒരു പുതിയ ഷെഡ്യൂൾ സൃഷ്ടിക്കാൻ ഇവിടെ ടാപ്പ് ചെയ്യുക, പിന്നെ അത് എപ്പോൾ പ്രവർത്തിക്കണമെന്നും എതെല്ലാം ടൂളുകൾ ഉൾപ്പെടുത്താമെന്നും നിശ്ചയിക്കുക.</string>
 </resources>

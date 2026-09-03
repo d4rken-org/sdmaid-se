@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Хуваарийн нэр</string>
     <string name="scheduler_schedule_toggle_enabled">Хуваарь идэвхжсэн</string>
     <string name="scheduler_schedule_toggle_disabled">Хуваарь идэвхгүй</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Үүнийг өөрчлөхийн тул хуваарийг идэвхгүй болгоно уу.</string>
     <string name="scheduler_edit_schedule_action">Хуваарийг засварлах</string>
     <string name="scheduler_schedule_time_label">Ойролцоо цаг</string>
     <string name="scheduler_schedule_repeat_label">Давталтын хугацаа өдрөөр</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">Төлөвлөгчийн дараах командууд</string>
     <string name="scheduler_commands_after_schedule_desc">Хуваарийн төгсгөлд гүйцэтгэгдэх Android бүрх командууд.</string>
     <string name="scheduler_battery_optimization_hint">Хэрэв аръанд ажиллахад асуудал байвал, SD Maid-ийн цэнэгийн оптимчлаллыг унтрахыг анхаарлаж үзүүлээрэй.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid хуваарийн дагуу цэвэрлж чадна. Цагийг болон ажиллах хэрэгслүүдийг сонгоно уу, дараа нь энэ нь фон дээр ажлаа гүйцэтгэнэ, апп-ыг бараг л нээх шаардлагагүй байна.</string>
     <string name="tour_scheduler_create_body">Шинэ хуваарь үүсгэхийн тулд энд дарна уу, дараа нь энэ хэзээ ажиллах цаг болон аль хэрэгслүүдийг оруулахыг тохирно уу.</string>
 </resources>

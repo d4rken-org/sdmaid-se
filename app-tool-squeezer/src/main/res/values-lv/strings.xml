@@ -36,6 +36,21 @@
         <item quantity="one">%d izlaists (HDR/depth saglabāti)</item>
         <item quantity="other">%d izlaisti (HDR/depth saglabāti)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="zero">%d izlaisti (Motion Photos)</item>
+        <item quantity="one">%d izlaists (Motion Photo)</item>
+        <item quantity="other">%d izlaisti (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="zero">%d izlaisti (ļoti lieli foto)</item>
+        <item quantity="one">%d izlaists (ļoti liels foto)</item>
+        <item quantity="other">%d izlaisti (ļoti lieli foto)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="zero">%d izlaisti (aizsargāti)</item>
+        <item quantity="one">%d izlaists (aizsargāts)</item>
+        <item quantity="other">%d izlaisti (aizsargāti)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="zero">%d vienumu atlasīts</item>
         <item quantity="one">%d vienums atlasīts</item>
@@ -48,24 +63,38 @@
     <string name="squeezer_compression_settings_label">Vispārīgi</string>
     <string name="squeezer_quality_description">Zemāka kvalitāte nozīmē mazāku faila izmēru, bet samazinātu vizuālo kvalitāti.</string>
     <string name="squeezer_types_category_label">Attēlu iestatījumi</string>
+    <string name="squeezer_protected_category_label">Kas tiek zaudēts</string>
     <string name="squeezer_video_settings_category_label">Video iestatījumi</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Iekļaut JPEG attēlus (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Iekļaut JPEG attēlus (.jpg, .jpeg). Pārkodēšanai tiek izmantots Android iebūvētais JPEG kodētājs. Datums, atrašanās vieta un citi EXIF metadati tiek saglabāti.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Iekļaut WebP attēlus (.webp).</string>
+    <string name="squeezer_type_webp_description">Iekļaut WebP attēlus (.webp). Pārkodēšanai tiek izmantots Android iebūvētais WebP kodētājs. Datums, atrašanās vieta un citi EXIF metadati tiek saglabāti.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Iekļaut HEIC/HEIF attēlus (.heic, .heif). Datums, atrašanās vieta un citi EXIF metadati tiek saglabāti. HDR pastiprinājuma kartes, dziļuma dati un Live/Motion Photo pāri nevar tikt saglabāti; vairāku attēlu faili tiek izlaisti.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Iekļaut MP4 video failus (.mp4).</string>
+    <string name="squeezer_type_video_description">Iekļaut MP4 video failus (.mp4). Video celiņu ar zemāku bitreitu pārkodē ierīces paša video kodētājs, audio celiņš tiek kopēts nemainīts, un fails paliek MP4 formātā.</string>
     <string name="squeezer_skip_compressed_title">Izlaist jau saspiestus</string>
     <string name="squeezer_skip_compressed_description">Izlaist failus, kas jau ir saspiesti ar SD Maid.</string>
     <string name="squeezer_exif_marker_title">Rakstīt EXIF atzīmi</string>
     <string name="squeezer_exif_marker_description">Pievienot atzīmi attēla EXIF lietotāja komentāra laukam, lai novērstu atkartotu saspiešanu, pat ja kompresijas vēsture ir notīrīta.</string>
     <string name="squeezer_include_lossy_aux_title">Saspiest HDR un dziļuma fotogrāfijas</string>
-    <string name="squeezer_include_lossy_aux_description">Pēc noklusējuma izslēgts: attēli ar HDR pastiprinājuma karti vai dziļuma/portreta datiem tiek izlaisti, lai tos neplakātu. Iespējojiet, lai tos saspiestu, kur iespējams — tie zaudēs savu HDR pastiprinājuma karti vai dziļuma datus. Daži vairāku attēlu HEIC attēli jebkurā gadījumā paliek aizsargāti.</string>
+    <string name="squeezer_include_lossy_aux_description">Iekļaut fotoattēlus ar HDR vai dziļuma datiem. Saspiešana tos noņem: HDR fotoattēli kļūst par parastiem fotoattēliem, bet portreta fotoattēli zaudē datus, kas nepieciešami fona izplūduma efektam. Vairāku attēlu HEIC faili joprojām tiek izlaisti.</string>
+    <string name="squeezer_include_motion_photos_title">Saspiest Motion Photo attēlus</string>
+    <string name="squeezer_include_motion_photos_description">Iekļaut Motion Photo attēlus. Saspiešana saglabā nekustīgo attēlu un noņem video klipu.</string>
+    <string name="squeezer_include_oversized_title">Saspiest ļoti lielus fotoattēlus</string>
+    <string name="squeezer_include_oversized_description">Iekļaut fotoattēlus, kas platāki vai augstāki par 8192 pikseļiem. Saspiešana arī samazina to izšķirtspēju uz pusi.</string>
     <string name="squeezer_estimated_savings_format">~%s ietaupijums</string>
     <string name="squeezer_no_savings_expected">Ierobezots ietaupijums</string>
     <string name="squeezer_current_size_format">Izmērs: %s</string>
+    <string name="squeezer_chip_compressed_before">Saspiests</string>
+    <string name="squeezer_chip_hdr_depth">HDR/dziļums</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Samazināts</string>
+    <string name="squeezer_markers_dialog_title">Par šiem marķieriem</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid jau saspieda šo failu. Saspiežot to atkārtoti, tiek zaudēta kvalitāte, bet ietaupījums ir neliels.</string>
+    <string name="squeezer_markers_hdr_depth_description">Šim fotoattēlam ir HDR vai dziļuma dati, kurus saspiešana nevar saglabāt. HDR fotoattēls kļūst par parastu fotoattēlu, bet portreta fotoattēls zaudē dziļuma datus, kas tiek izmantoti fona izplūduma efektam.</string>
+    <string name="squeezer_markers_motion_photo_description">Šis ir Motion Photo. Saspiešana saglabā nekustīgo attēlu un noņem video klipu.</string>
+    <string name="squeezer_markers_downscaled_description">Šis fotoattēls ir platāks vai augstāks par 8192 pikseļiem. Saspiešana arī samazina tā izšķirtspēju uz pusi.</string>
     <string name="squeezer_compress_action">Saspiest</string>
     <string name="squeezer_compress_all_action">Saspiest visus</string>
     <string name="squeezer_preview_dialog_title">Apstiprināt kompresiju</string>
@@ -88,6 +117,22 @@
     <string name="squeezer_compare_action">Skatīt salīdzīnājumu</string>
     <string name="squeezer_no_example_found">Nav atrasts neviens attēls atlasītajās ceļos.</string>
     <string name="squeezer_result_empty_message">Nav atrasts neviens saspiežams multivides fails.</string>
+    <string name="squeezer_result_empty_protected">Nav ko saspiest. Izlaists: %s. Ieslēdz atbilstošo iestatījumu, lai tos iekļautu.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="zero">%d HDR/dziļuma foto</item>
+        <item quantity="one">%d HDR/dziļuma foto</item>
+        <item quantity="other">%d HDR/dziļuma foto</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="zero">%d Motion Photos</item>
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="zero">%d ļoti lieli foto</item>
+        <item quantity="one">%d ļoti liels foto</item>
+        <item quantity="other">%d ļoti lieli foto</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="zero">%d atrašanvietu nevar izmantot saspiešanai un tās tika noņemtas. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
         <item quantity="one">%d atrašanvietu nevar izmantot saspiešanai un tā tika noņemta. Saspiešanai nepieciešama tieša piekļuve iekšējai krātuvei.</item>
@@ -109,7 +154,6 @@
         <item quantity="other">Vismaz %d dienas vecs</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Aptuvenais ~%d%% ietaupījums JPEG failiem</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer pārkompresē jūsu fotogrāfijas un video, lai tie aizņemtu mazāk vietas. Jūs apmaināt nedaudz kvalitātes pret vietu, ko iegūstat atpakaļ. Katrs vienums rāda savu aprēķināto ietaupījumu, tāpēc varat izlemt, kas ir vērts.</string>
     <string name="tour_squeezer_compress_body">Saspiediet visu uzreiz šeit, vai pieskarieties vienam vienumam, lai samazinātu tikai to. Ilgi nospiediet, lai izvēlētos vairākus. Jūs vienmēr redzēsiet priekšskatījumu pirms jebkādām izmaiņām.</string>
 </resources>

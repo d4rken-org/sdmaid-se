@@ -81,6 +81,10 @@
         <item quantity="one">%d ایپ ٹوگل ہوئی</item>
         <item quantity="other">%d ایپس ٹوگل ہوئے</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d ایپ کو فعال یا غیر فعال نہیں کیا جا سکتا</item>
+        <item quantity="other">%d ایپس کو فعال یا غیر فعال نہیں کیا جا سکتا</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">سائز کا تعین</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ہر ایپ کے سائز کا تخمینی اندازہ لگائیں۔</string>
     <string name="appcontrol_settings_module_activity_enabled_label">سرگرمی کا تعین</string>

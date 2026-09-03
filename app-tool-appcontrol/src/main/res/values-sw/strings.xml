@@ -81,6 +81,10 @@
         <item quantity="one">Programu %d imebadilishwa</item>
         <item quantity="other">Programu %d zimebadilishwa</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">Programu %d haiwezi kuwashwa au kuzimwa</item>
+        <item quantity="other">Programu %d haziwezi kuwashwa au kuzimwa</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bainisha ukubwa</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Pata makadirio ya jumla ya ukubwa wa kila programu.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bainisha shughuli</string>

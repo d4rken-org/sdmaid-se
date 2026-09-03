@@ -62,6 +62,24 @@
         <item quantity="many">%d nepotřebných položek smazáno</item>
         <item quantity="other">%d nepotřebných položek odstraněno</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d zbavitelná položka smazána, zastaveno, protože byla obrazovka vypnutá nebo zamčená</item>
+        <item quantity="few">%d zbavitelné položky smazány, zastaveno, protože byla obrazovka vypnutá nebo zamčená</item>
+        <item quantity="many">%d zbavitelných položek smazáno, zastaveno, protože byla obrazovka vypnutá nebo zamčená</item>
+        <item quantity="other">%d zbavitelných položek smazáno, zastaveno, protože byla obrazovka vypnutá nebo zamčená</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d zbavitelná položka smazána, zastaveno chybou</item>
+        <item quantity="few">%d zbavitelné položky smazány, zastaveno chybou</item>
+        <item quantity="many">%d zbavitelných položek smazáno, zastaveno chybou</item>
+        <item quantity="other">%d zbavitelných položek smazáno, zastaveno chybou</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d mezipaměť ještě potřebuje Usnadnění</item>
+        <item quantity="few">%1$s, %2$d mezipaměti ještě potřebují Usnadnění</item>
+        <item quantity="many">%1$s, %2$d mezipaměti ještě potřebují Usnadnění</item>
+        <item quantity="other">%1$s, %2$d mezipaměti ještě potřebují Usnadnění</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Nalezena %d nepotřebná položka</item>
         <item quantity="few">Nalezeny %d nepotřebné položky</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Hledání tlačítka \"Vyčistit mezipaměť\" (klíčová slova: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Výchozí mezipaměti</string>
     <string name="appcleaner_item_caches_inaccessible_body">Veřejné a soukromé výchozí mezipaměti. Není přímo přístupná, ale může být smazána nepřímo (např. přes službu přístupnosti).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Vyloučeno, ale vyčištění všech aplikací najednou přesto vymaže tyto mezipaměti</string>
+    <string name="appcleaner_exclusion_limited_title">Vyloučená aplikace</string>
+    <string name="appcleaner_exclusion_limited_body">Vyloučili jste tuto aplikaci z AppCleaneru. Vyčištění mezipaměti všech aplikací najednou používá Shizukuovo systémové čištění mezipaměti, které nemůže vyloučit jednotlivé aplikace, takže se mezipaměť této aplikace vymaže spolu se vším ostatním. Ovlivněna jsou pouze data mezipaměti zobrazená zde, vše ostatní pokryté vyloučením zůstane skryté a nedotčené.</string>
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>
-    <string name="appcleaner_automation_unavailable_body">K vyčištění nepřístupných mezipamětí je potřeba služba přístupnosti aplikace SD Maid, která není k dispozici. Pokud ji nechcete použít: vypněte funkci \"Zahrnout nedostupné mezipaměti\".</string>
+    <string name="appcleaner_automation_unavailable_body">Vyčištění těchto mezipaměti vyžaduje Usnadnění SD Maidu, ale nebyl dostupný.</string>
     <string name="appcleaner_delete_confirmation_message_x">Smazat nepotřebné soubory pro %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Smazat nepotřebné soubory pro %d vybranou aplikaci?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vynutit ukončení před čištěním</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynutit ukončení aplikací před čištěním jejich mezipaměti. Může pomoci vyčistit některé mezipaměti aplikací, ale i způsobit špatné chování aplikace a vyžadovat její manuální restart.</string>
     <string name="appcleaner_progress_force_stopping">Vynucuji ukončení aplikací…</string>
+    <string name="appcleaner_progress_checking_freed_space">Kontrola uvolněného místa…</string>
 </resources>

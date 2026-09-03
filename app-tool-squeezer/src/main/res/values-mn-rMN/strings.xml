@@ -29,6 +29,18 @@
         <item quantity="one">%d өнгөрүүлсэн (HDR/гүн хадгалагдсан)</item>
         <item quantity="other">%d өнгөрүүлсэн (HDR/гүн хадгалагдсан)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d алгасав (Motion Photo)</item>
+        <item quantity="other">%d алгасав (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d алгасав (маш том фото)</item>
+        <item quantity="other">%d алгасав (маш том фото)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d алгасав (хамгаалагдсан)</item>
+        <item quantity="other">%d алгасав (хамгаалагдсан)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d зүйл сонгогдлоо</item>
         <item quantity="other">%d зүйл сонгогдлоо</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Ерөнхий</string>
     <string name="squeezer_quality_description">Чанар бага байх нь файлын хэмжээ жижиг боловч харагдах чанар буурна.</string>
     <string name="squeezer_types_category_label">Зургийн тохиргоо</string>
+    <string name="squeezer_protected_category_label">Юу алдагдах вэ</string>
     <string name="squeezer_video_settings_category_label">Видеоны тохиргоо</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG зураг (.jpg, .jpeg) оруулах.</string>
+    <string name="squeezer_type_jpeg_description">JPEG зургууд (.jpg, .jpeg)-ийг оруулна. Дахин кодлохдод Android-ын суурилуулсан JPEG кодлогчийг ашигладаг. Өдөр, байршил болон бусад EXIF мета өгөгдөл хадгалагдана.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP зураг (.webp) оруулах.</string>
+    <string name="squeezer_type_webp_description">WebP зургууд (.webp)-ийг оруулна. Дахин кодлохдод Android-ын суурилуулсан WebP кодлогчийг ашигладаг. Өдөр, байршил болон бусад EXIF мета өгөгдөл хадгалагдана.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF зургийг (.heic, .heif) оруулах. Огноо, байршил болон бусад EXIF мета өгөгдөл хадгалагдана. HDR gain map, гүний өгөгдөл, Live/Motion Photo-г хадгалах боломжгүй; олон зургийн файлуудыг алгасдаг.</string>
     <string name="squeezer_type_video_title">MP4 Видео</string>
-    <string name="squeezer_type_video_description">MP4 видео файлуудыг (.mp4) оруулна.</string>
+    <string name="squeezer_type_video_description">MP4 видео файлууд (.mp4)-ийг оруулна. Видео дүрс төхөөрөмжийн өөрийн видео кодлогчоор доогуур битрэйтээр дахин кодлогдож, аудио дүрс өөрчлөгдөхгүйгээр хуулагдаж, файл MP4 хэвээр үлддэг.</string>
     <string name="squeezer_skip_compressed_title">Өмнө шахаагдсаныг алгасах</string>
     <string name="squeezer_skip_compressed_description">SD Maid-аар аль хэдийн шахагдсан файлуудыг алгасана.</string>
     <string name="squeezer_exif_marker_title">EXIF тэмдэглэл бичих</string>
     <string name="squeezer_exif_marker_description">Шахалтын түүх арилга цэвхлэгдсэн ч дахин шахаахаас сэргийлгэхийн тулд зурагны EXIF хэрэглэгчийн сэтгэлт темдэглэл немэх.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; гүний зургийг шахах</string>
-    <string name="squeezer_include_lossy_aux_description">Анхдагчаар идэвхгүй: HDR gain map эсвэл гүн/портрет өгөгдөлтэй зургийг алгасдаг тул тэдэгээр тэгш болдоггүй. Боломжтой бол тэдээрийг шахахын тулд идэвхжүүлнэ — тэдний HDR gain map эсвэл гүний өгөгдлийг алдана. Зарим олон зургийн HEIC зургууд ямар ч байсан хамгаалагдсаар үлддэнэ.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR эсвэл гүний мэдээлэл бүхий зургууд оруулна. Шахалт үүнийг устгана: HDR зургууд энгийн зурагт хувирч, урлаг зургууд арын фоны бүрхүүлэхийн арын мэдээлэл алддаг. Олон-зураг HEIC файлууд алгасагдаж үлдэнэ.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos-г шахах</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos-г оруулна. Шахалт суулт зургийг хадгалж видео клипийг арилна.</string>
+    <string name="squeezer_include_oversized_title">Маш том зургууд шахах</string>
+    <string name="squeezer_include_oversized_description">8192 пиксел-ээс өргөн эсвэл өндөр зургууд оруулна. Шахалт тэдгээрийн нарийвчлалыг хоёр удаа буулгана.</string>
     <string name="squeezer_estimated_savings_format">~%s хадгалалт</string>
     <string name="squeezer_no_savings_expected">Хязаарлагдсан хадгалалт</string>
     <string name="squeezer_current_size_format">Хэмжээ: %s</string>
+    <string name="squeezer_chip_compressed_before">Шахагдсан</string>
+    <string name="squeezer_chip_hdr_depth">HDR/гүний</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Жижигрүүлсэн</string>
+    <string name="squeezer_markers_dialog_title">Эдгээр тэмдэглэгээний тухай</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid аль хэдийн энэ файлыг шахсан. Дахин шахахад чанар унаж, хэмнэлт бага болно.</string>
+    <string name="squeezer_markers_hdr_depth_description">Энэ фото HDR эсвэл гүний мэдээлэл бүхий бөгөөд шахалт үүнийг хадгалах боломжгүй. HDR фото энгийн фото болж буцана, урлаг фото нь арын фоны бүрхүүлэхэд ашиглдаг гүний мэдээллийг алддаг.</string>
+    <string name="squeezer_markers_motion_photo_description">Энэ нь Motion Photo юм. Шахалт суулт зургийг хадгалж видео клипийг арилна.</string>
+    <string name="squeezer_markers_downscaled_description">Энэ фото 8192 пиксел-ээс өргөн эсвэл өндөр. Шахалт түүний нарийвчлалыг хоёр удаа буулгана.</string>
     <string name="squeezer_compress_action">Шахаах</string>
     <string name="squeezer_compress_all_action">Бүгдийг шахаах</string>
     <string name="squeezer_preview_dialog_title">Шахалтыг баталгаажуулах</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Харьцуулга үзэх</string>
     <string name="squeezer_no_example_found">Сонгосон замуудаас зураг олдсонгүй.</string>
     <string name="squeezer_result_empty_message">Шахах боломжтой медиа олдсонгүй.</string>
+    <string name="squeezer_result_empty_protected">Шахах зүйл байхгүй. Алгасав: %s. Үүнийг оруулахын тул тохиргооны сонголтыг асаана уу.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/гүний фото</item>
+        <item quantity="other">%d HDR/гүний фото</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d маш том фото</item>
+        <item quantity="other">%d маш том фото</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d байршлыг шахахад ашиглах боломжгүй тул устгагдлаа. Шахалт нь дотоод санах ойд шууд хандахыг шаардадаг.</item>
         <item quantity="other">%d байршлыг шахахад ашиглах боломжгүй тул устгагдлаа. Шахалт нь дотоод санах ойд шууд хандахыг шаардадаг.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Дорроо %d өдөөсийн</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG файлуудын хувьд тооцоолсон ~%d%% хэмнэлт</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer таны зургууд болон видеоуудыг дахин шахаж, тэдгээр нь бага орон зай эзэлнэ. Та чанарын нэг хэсэгийг буцаан авсан орон зайтай солилцож байна. Зүйл бүр сэргээсэн хэмжээг харуулдаг тул та аль нь үнэтэй гэж шийдэх боломжтой.</string>
     <string name="tour_squeezer_compress_body">Бүгдийг нэг дор энд шахаж, эсвэл нэг зүйлийг дарж зөвхөн түүнийг л жижигрүүлнэ. Олоныг сонгохын тулд удаан дар. Аливаа зүйл өөрчлөгдөхөөс өмнө үргэлж урьдчилсан үзүүлэлтийг харах болно.</string>
 </resources>

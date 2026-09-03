@@ -60,6 +60,18 @@
         <item quantity="one">%d шаардлагагүй зүйл устгагдсан</item>
         <item quantity="other">%d шаардлагагүй зүйл устгагдсан</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d цэвэрлэх боломжтой зүйл устгасан, дэлгэц унтсан эсвэл түгжсэнээс болж зогсоосон</item>
+        <item quantity="other">%d цэвэрлэх боломжтой зүйл устгасан, дэлгэц унтсан эсвэл түгжсэнээс болж зогсоосон</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d цэвэрлэх боломжтой зүйл устгасан, алдаанаас болж зогсоосон</item>
+        <item quantity="other">%d цэвэрлэх боломжтой зүйл устгасан, алдаанаас болж зогсоосон</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d кэш юм нь Нэвтрэх эрхийн үйлчилгээ шаардаж байна</item>
+        <item quantity="other">%1$s, %2$d кэш юм нь Нэвтрэх эрхийн үйлчилгээ шаардаж байна</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d шаардлагагүй зүйл олдсон</item>
         <item quantity="other">%d шаардлагагүй зүйл олдсон</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Kэш цэвхлэх\" товч хайж байна (үг үеүд: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Үндсэн кэшүүд</string>
     <string name="appcleaner_item_caches_inaccessible_body">Нийтлэг ба хувийн үндсэн кэшүүд. Шууд шуусаар хүргэхгүй боловч шуудгаар устгаж болно (жишээ нь: хандалтын үйлчилгээгээр).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Хассан боловч бүх апп-уудыг цэвэрлэхэд эдгээр кэш-уудыг арилна</string>
+    <string name="appcleaner_exclusion_limited_title">Хассан апп</string>
+    <string name="appcleaner_exclusion_limited_body">Та энэ апп-г AppCleaner-ээс хасачихсан байна. Бүх апп-ын кэш-уудыг нэг дор цэвэрлэх үед Shizuku-ийн систем-дэх кэш цэвэрлэлтийг ашигладаг бөгөөд энэ нь тусдаа апп-уудыг орхих боломжгүй. Иймээс энэ апп-ын кэшлэгдсэн өгөгдөл бусад бүхнийг хамт арилгагна. Зөвхөн энд харуулсан кэшлэгдсэн өгөгдөл нөлөөлөгддөг. Хассан бусад бүхэн нууцлагдаж үлддэг.</string>
     <string name="appcleaner_automation_unavailable_title">Хандалтын үйлчилгээ боломжгүй</string>
-    <string name="appcleaner_automation_unavailable_body">Хүртэх боломжгүй кэш цэвхлэхд SD Maid-ийн хандалтын үйлчилгээ шаардлагатай боловч боломжгүй байв. Ашиглахгүй бол \"Хүртэх боломжгүй кэшүүдийг оруулах\" сонгоог идэвхгүй болго.</string>
+    <string name="appcleaner_automation_unavailable_body">Эдгээр кэш-уудыг цэвэрлэхийн тул SD Maid-ийн Нэвтрэх эрхийн үйлчилгээ шаардлагатай боловч энэ нь боломжгүй байсан.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s-ийн зарцлаж болох файлуудыг устгах уу?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Сонгосон %d аппын зарцлаж болох файлуудыг устгах уу?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Цэвхлэхийн өмнө хүчээр зогсоох</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Кэш цэвхлэхийн өмнө аппуудыг хүчээр зогсоох. Деэр зарим аппуудын кэшийг цэвхлэхд туслах боловч аппууд буруу ажиллах болон гар дахин эхлүүлэх шаардлагатай.</string>
     <string name="appcleaner_progress_force_stopping">Аппуудыг хүчээр зогсоож байна…</string>
+    <string name="appcleaner_progress_checking_freed_space">Сулгасан газрыг шалгаж байна…</string>
 </resources>

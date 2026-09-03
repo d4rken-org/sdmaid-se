@@ -81,6 +81,10 @@
         <item quantity="one">%d ऐप टॉगल किया गया</item>
         <item quantity="other">%d ऐप्स टॉगल किए गए</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d ऐप को सक्षम या अक्षम नहीं किया जा सकता</item>
+        <item quantity="other">%d ऐप्स को सक्षम या अक्षम नहीं किए जा सकते</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">आकार जानकारी</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ऐप आकार की जानकारी दिखाएं।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">गतिविधि जानकारी</string>

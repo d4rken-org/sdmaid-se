@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d ຂ້າມໄປ (HDR/depth ຮັກສາໄວ້)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">%d ຖືກຂ້າມ (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">%d ຖືກຂ້າມ (ຮູບພາບຂະຫນາດໃຫຍ່ຫຼາຍ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">%d ຖືກຂ້າມ (ປົກປ້ອງ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d ລາຍການທີ່ເລືອກ</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">ທົ່ວໄປ</string>
     <string name="squeezer_quality_description">ຄຸນນະພາບຕ່ຳໝາຍຄວາມວ່າຂະໜາດໄຟລ໌ນ້ອຍລົງ ແຕ່ຄຸນນະພາບຮູບທີ່ຫຼຸດລົງ.</string>
     <string name="squeezer_types_category_label">ການຕັ້ງຄ່າຮູບພາບ</string>
+    <string name="squeezer_protected_category_label">ສິ່ງທີ່ສູນເສຍໄປ</string>
     <string name="squeezer_video_settings_category_label">ການຕັ້ງຄ່າວິດີໂອ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">ຮວມຣູບ JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">ລວມຮູບພາບ JPEG (.jpg, .jpeg). ການເຂົ້າລະຫັດໃໝ່ໃຊ້ຕົວເຂົ້າລະຫັດ JPEG ທີ່ສ້າງໃນ Android. ວັນທີ, ສະຖານທີ່, ແລະ metadata EXIF ອື່ນໆຖືກຮັກສາ.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">ຮວມຣູບ WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">ລວມຮູບພາບ WebP (.webp). ການເຂົ້າລະຫັດໃໝ່ໃຊ້ຕົວເຂົ້າລະຫັດ WebP ທີ່ສ້າງໃນ Android. ວັນທີ, ສະຖານທີ່, ແລະ metadata EXIF ອື່ນໆຖືກຮັກສາ.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">ລວມ HEIC/HEIF ຮູບພາບ (.heic, .heif). ວັນທີ, ສະຖານທີ່, ແລະ metadata EXIF ອື່ນໆແມ່ນຮັກສາໄວ້. HDR gain maps, depth data, ແລະ Live/Motion Photo siblings ບໍ່ສາມາດຮັກສາໄວ້ໄດ້; ໄຟລ໌ຫຼາຍຮູບແມ່ນຂ້າມໄປ.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">ລວມໄຟລ໌ວິດີໂອ MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">ລວມເອົາໄຟລ໌ວິດີໂອ MP4 (.mp4). ແທຣັກວິດີໂອຖືກລະຫັດໃຫມ່ໃນອັດຕາບິດທີ່ຕໍ່າກວ່າໂດຍເຄື່ອງລະຫັດວິດີໂອຂອງອຸປະກອນ, ແທຣັກສຽງຖືກຄັດລອກໂດຍບໍ່ມີການປ່ຽນແປງ, ແລະໄຟລ໌ຍັງຄົງເປັນ MP4.</string>
     <string name="squeezer_skip_compressed_title">ຂ້າມຣູບທີ່ບີບອັດແລ້ວ</string>
     <string name="squeezer_skip_compressed_description">ຂ້າມໄຟລ໌ທີ່ຖືກບີບອັດໂດຍ SD Maid ແລ້ວ.</string>
     <string name="squeezer_exif_marker_title">ເຂີຍນໄວ້ແນວ EXIF</string>
     <string name="squeezer_exif_marker_description">ເພີ່ມເຕີມແນວໃນຊ່ອງຄອມເມນຕ໌ຜູ້ໃຊ້ EXIF ຂອງຣູບເພື່ອປ້ອງກັນການບີບອັດ຋້ຳ ແມ່ນແຕ່ຊຶ່ນປະຫວັດການບີບອັດຈະຖືກລົບລ້າງ.</string>
     <string name="squeezer_include_lossy_aux_title">ບີບ HDR &amp; depth photos</string>
-    <string name="squeezer_include_lossy_aux_description">ປິດໂດຍຄ່າເລີ່ມຕົ້ນ: ຮູບພາບທີ່ມີ HDR gain map ຫຼື depth/portrait data ແມ່ນຂ້າມໄປເພື່ອບໍ່ໃຫ້ທໍາລາຍ. ເປີດໃຊ້ເພື່ອບີບມັນໃນທີ່ທີ່ເປັນໄປໄດ້ — ພວກເຂົາຈະສູນເສຍ HDR gain map ຫຼື depth data ຂອງພວກເຂົາ. ບາງຮູບພາບ HEIC ຫຼາຍຮູບຍັງຄົງຖືກປົກປ້ອງ.</string>
+    <string name="squeezer_include_lossy_aux_description">ລວມຮູບພາບທີ່ມີຂໍ້ມູນ HDR ຫຼື depth. ການບີບອັດຈະລົບມັນອອກ: ຮູບພາບ HDR ກາຍເປັນຮູບພາບປົກກະຕິ, ຮູບພາບຕົວຕົນສູນເສຍຂໍ້ມູນເລິກທີ່ໃຊ້ສຳລັບຄວາມບໍ່ຊັດເຈົນຂອງພື້ນຫຼັງ. ໄຟລ໌ HEIC ທີ່ມີຫຼາຍຮູບຈະຍັງຄົງຖືກຂ້າມ.</string>
+    <string name="squeezer_include_motion_photos_title">ບີບອັດ Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">ລວມເອົາ Motion Photos. ການອັດຮັກສາຮູບພາບສະຖິດ ແລະລຶບວິດີ໐ອຄລິບ.</string>
+    <string name="squeezer_include_oversized_title">ບີບອັດຮູບພາບຂະຫນາດໃຫຍ່ຫຼາຍ</string>
+    <string name="squeezer_include_oversized_description">ລວມຮູບພາບທີ່ກວ້າງ ຫຼື ສູງກວ່າ 8192 pixels. ການບີບອັດຍັງຫຼຸດຄວາມລະອີດເຄິ່ງໝຶ່ງ.</string>
     <string name="squeezer_estimated_savings_format">ປະຫຍັດ ~%s</string>
     <string name="squeezer_no_savings_expected">ປະຫຍັດໄດ້ນ້ອຍ</string>
     <string name="squeezer_current_size_format">ຂນາດ: %s</string>
+    <string name="squeezer_chip_compressed_before">ບີບອັດແລ້ວ</string>
+    <string name="squeezer_chip_hdr_depth">HDR/depth</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">ຫຼຸດຂະຫນາດ</string>
+    <string name="squeezer_markers_dialog_title">ກ່ຽວກັບເຄື່ອງໝົຍເຫຼັ່ານີ້</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ໄດ້ບີບອັດໄຟລ໌ນີ້ແລ້ວ. ການບີບອັດມັນອີກຄັ້ງຈະສູນເສຍຄຸນະພາບ ແລະ ຊ໌ຢພື້ນທີ່ບໍ່ຫຼາຍ.</string>
+    <string name="squeezer_markers_hdr_depth_description">ຮູບພາບນີ້ມີຂໍ້ມູນ HDR ຫຼື depth ທີ່ການບີບອັດບໍ່ສາມາດຮັກສາໄວ້ໄດ້. ຮູບພາບ HDR ກາຍໄປເປັນຮູບພາບປົກກະຕິ, ແລະຮູບພາບຕົວຕົນສູນເສຍຂໍ້ມູນເລິກທີ່ໃຊ້ສຳລັບຄວາມບໍ່ຊັດເຈົນຂອງພື້ນຫຼັງ.</string>
+    <string name="squeezer_markers_motion_photo_description">ນີ້ແມ່ນ Motion Photo. ການອັດຮັກສາຮູບພາບສະຖິດ ແລະລຶບວິດີ໐ອຄລິບ.</string>
+    <string name="squeezer_markers_downscaled_description">ຮູບພາບນີ້ກວ້າງ ຫຼື ສູງກວ່າ 8192 pixels. ການບີບອັດຍັງຫຼຸດຄວາມລະອີດເຄິ່ງໝຶ່ງ.</string>
     <string name="squeezer_compress_action">ບີບອັດ</string>
     <string name="squeezer_compress_all_action">ບີບອັດທັງຫມດ</string>
     <string name="squeezer_preview_dialog_title">ຍືນຍັນການບີບອັດ</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">ດູການເປົນເທີຍບ</string>
     <string name="squeezer_no_example_found">ໄມ່ພົບຣູບໃນເສ້ນທາງທີ່ເລືອກ.</string>
     <string name="squeezer_result_empty_message">ບໍ່ພົບສື່ທີ່ສາມາດບີບອັດໄດ້.</string>
+    <string name="squeezer_result_empty_protected">ບໍ່ມີຫຍັງຕ້ອງບີບອັດ. ຖືກຂ້າມ: %s. ເປິດໃຊ້ຕົວເລືອກທີ່ສອດຄ້ອງກັນໃນການຕັ້ງຄ່າເພື່ອລວມເອາມັນ.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">%d ຮູບພາບ HDR/depth</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">%d ຮູບພາບຂະຫນາດໃຫຍ່ຫຼາຍ</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d ສະຖານທີ່ບໍ່ສາມາດໃຊ້ສຳລັບການບີບອັດ ແລະ ຖືກລຶບອອກ. ການບີບອັດຕ້ອງການການເຂົ້າເຖິງໂດຍກົງຕໍ່ບ່ອນເກັບຂໍ້ມູນພາຍໃນ.</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">ອາຍຸອຍ່າງນ້ອຍ %d ວັນ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ປະມານ ~%d%% ປະຍັດສຳລັບໄຟລ໌ JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ບີບອັດຄືນຮູບຖ່າຍ ແລະ ວິດີໂອຂອງທ່ານເພື່ອໃຫ້ພວກມັນໃຊ້ພື້ນທີ່ນ້ອຍລົງ. ທ່ານແລກປ່ຈງຄຸນນະພາບເລັກນ້ອຍເພື່ອຕອບແທນກັບພື້ນທີ່ທີ່ທ່ານໄດ້ກັບຄືນ. ແຕ່ລະລາຍການສະແດງບໍລິມາທີ່ປະເມີນໄວ້ ດັ່ງນັ້ນທ່ານສາມາດຕັດສິນໃຈວ່າມັນຄຸ້ມຄ່າຫຼືບໍ່.</string>
     <string name="tour_squeezer_compress_body">ບີບອັດທັງໝົດຍູ່ນີ້ພາຍໃນເວລາດຽວ ຫຼືແຕະໄຟລ໌ໝນຶ່ງເພື່ອໜຸດຂະໝາດພຽງແຕ່ໄຟລ໌ອັນນັ້ນ. ກົດຄ້າງໄວ້ເພື່ອເລືອກຫາຍອັນ. ທ່ານຈະສະເຫມີເໝັນຕົວຍ່າງກໍ່ນທີ່ຈະມີການປຽນແປງໃດໆ.</string>
 </resources>

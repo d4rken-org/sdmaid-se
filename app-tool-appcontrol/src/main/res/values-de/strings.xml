@@ -81,6 +81,10 @@
         <item quantity="one">%d App wurde umgeschaltet</item>
         <item quantity="other">%d Apps wurden umgeschaltet</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d App kann nicht aktiviert oder deaktiviert werden</item>
+        <item quantity="other">%d Apps können nicht aktiviert oder deaktiviert werden</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Größen bestimmen</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Erhalte eine grobe Schätzung der Größe jeder App.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivität bestimmen</string>

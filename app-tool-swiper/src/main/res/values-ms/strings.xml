@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">Ditapis: %1$s</string>
     <string name="swiper_session_no_matching_files">Tiada fail yang sepadan ditemui</string>
     <string name="swiper_open_externally_action">Buka dalam aplikasi luaran</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Sapu fail untuk memutuskan nasibnya: ke tepi untuk simpan atau padam, ke atas untuk langkau, ke bawah untuk buat asal. Butang di bawah melakukan perkara yang sama — dan menunjukkan pihak mana itu.</string>
     <string name="tour_swiper_openin_body">Butang ini membuka fail dalam aplikasi lain, berguna untuk memeriksa sebelum memutuskan.</string>
     <string name="tour_swiper_preview_body">Butang ini membuka pratonton skrin penuh untuk melihat lebih dekat.</string>

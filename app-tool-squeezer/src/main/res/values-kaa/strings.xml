@@ -29,6 +29,18 @@
         <item quantity="one">%d ótkerip jiberildi (HDR/tereńlik saqlandı)</item>
         <item quantity="other">%d ótkerip jiberildi (HDR/tereńlik saqlandı)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d ótkerip jiberildi (Motion Photo)</item>
+        <item quantity="other">%d ótkerip jiberildi (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d ótkerip jiberildi (júdá úlken súwretler)</item>
+        <item quantity="other">%d ótkerip jiberildi (júdá úlken súwretler)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d ótkerip jiberildi (qorǵalǵan)</item>
+        <item quantity="other">%d ótkerip jiberildi (qorǵalǵan)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element tańlandı</item>
         <item quantity="other">%d element tańlandı</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Ulıwmalıq</string>
     <string name="squeezer_quality_description">Tómen sapa — fayldıń kishi ólshemin bildiredi, biraq kóriw sapasın azaytadı.</string>
     <string name="squeezer_types_category_label">Súwret sazlamaları</string>
+    <string name="squeezer_protected_category_label">Ne joǵaladı</string>
     <string name="squeezer_video_settings_category_label">Video sazlamaları</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG su\'wretlerdi (.jpg, .jpeg) qosıw.</string>
+    <string name="squeezer_type_jpeg_description">JPEG súwretlerin qosıń (.jpg, .jpeg). Qayta kodlaw ushın Android-tıń ishki JPEG kodlawshısı qollanıladı. Sáne, orın hám basqa EXIF metamaǵlıwmatları saqlanadı.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP su\'wretlerdi (.webp) qosıw.</string>
+    <string name="squeezer_type_webp_description">WebP súwretlerin qosıń (.webp). Qayta kodlaw ushın Android-tıń ishki WebP kodlawshısı qollanıladı. Sáne, orın hám basqa EXIF metamaǵlıwmatları saqlanadı.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF súwretlerin (.heic, .heif) qosıw. Sáne, orın hám basqa EXIF maǵlıwmatları saqlanadı. HDR gain kartaları, tereńlik maǵlıwmatı hám Live/Motion Photo juwaptası saqlanbaydı; kóp-súwretli fayllar ótkerip jiberiledi.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 video fayllardı (.mp4) qosiw.</string>
+    <string name="squeezer_type_video_description">MP4 video fayllardı qosıń (.mp4). Video jol qurılmanıń óziniń video kodlawshısı arqalı tómenirek bit dárejesinde qayta kodlanadı, dawıs jolı ózgerissiz kóshiriledi, hám fayl MP4 kúyinde qaladı.</string>
     <string name="squeezer_skip_compressed_title">Aldın sıǵıstırılǵanlardı atlap o\'tiw</string>
     <string name="squeezer_skip_compressed_description">SD Maid tárepinen burın sıqılǵan fayllardy ótkirip jiberiw.</string>
     <string name="squeezer_exif_marker_title">EXIF belgini jazıw</string>
     <string name="squeezer_exif_marker_description">Su\'wrettiń EXIF paydalanıwshı ko\'rsetpesi maydan\'ına belgi qosıw, sıǵıstırıw tariyxı tazalanǵan jaǵdayda da qayta sıǵıstırıwdı aldın alıw ushin.</string>
     <string name="squeezer_include_lossy_aux_title">HDR hám tereńlik súwretlerin sıǵıw</string>
-    <string name="squeezer_include_lossy_aux_description">Ádette óshirilgen: HDR gain kartası yamasa tereńlik/portret maǵlıwmatı bar súwretler tegislenbewi ushın ótkerip jiberiledi. Mümkin bolǵan jerde sıǵıw ushın qosıń — olar HDR gain kartasın yamasa tereńlik maǵlıwmatın joǵaltadı. Bazı kóp-súwretli HEIC súwretleri baribir qorǵalǵan bolıp qaladı.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR yamasa teren maǵlıwmatı bar súwretlerdi qosıń. Sıǵıw bul maǵlıwmattı alıp taslaydı: HDR súwretleri ádettegi súwretlerge aylanadı, portret súwretleri fon xiralatıwı ushın qollanılatuǵın maǵlıwmattan ayırıladı. Kóp súwretli HEIC fayllar ótkerip jiberilgen kúyinde qaladı.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photo súwretlerin sıǵıw</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photo-lardı qosıń. Sıǵıw qozǵalmaytuǵın súwretti saqlap qaladı hám video úzindini alıp taslaydı.</string>
+    <string name="squeezer_include_oversized_title">Júdá úlken súwretlerdi sıǵıw</string>
+    <string name="squeezer_include_oversized_description">Eni yamasa biyikligi 8192 pikselden úlken súwretlerdi qosıń. Sıǵıw sonday-aq olardıń ajıratıw qábiletin eki ese kishireytedi.</string>
     <string name="squeezer_estimated_savings_format">~%s u\'nemlew</string>
     <string name="squeezer_no_savings_expected">Az u\'nemlew</string>
     <string name="squeezer_current_size_format">O\'lshem: %s</string>
+    <string name="squeezer_chip_compressed_before">Sıǵılǵan</string>
+    <string name="squeezer_chip_hdr_depth">HDR/teren</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Kishireytilgen</string>
+    <string name="squeezer_markers_dialog_title">Bul belgiler haqqında</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid bul fayldı aldın ala sıǵdı. Onı qayta sıǵıw sapanı joǵaltadı hám az orın bosatadı.</string>
+    <string name="squeezer_markers_hdr_depth_description">Bul súwrette sıǵıw saqlay almaytuǵın HDR yamasa teren maǵlıwmatı bar. HDR súwreti ádettegi súwretke aylanadı, al portret súwreti fon xiralatıwı ushın qollanılatuǵın teren maǵlıwmattan ayırıladı.</string>
+    <string name="squeezer_markers_motion_photo_description">Bul - Motion Photo. Sıǵıw qozǵalmaytuǵın súwretti saqlap qaladı hám video úzindini alıp taslaydı.</string>
+    <string name="squeezer_markers_downscaled_description">Bul súwrettiń eni yamasa biyikligi 8192 pikselden úlken. Sıǵıw sonday-aq onıń ajıratıw qábiletin eki ese kishireytedi.</string>
     <string name="squeezer_compress_action">Sıǵıstırıw</string>
     <string name="squeezer_compress_all_action">Barlıǵın sıǵıstırıw</string>
     <string name="squeezer_preview_dialog_title">Sıǵıstırıwdı tastıyıqlaw</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Salıstırıwdı ko\'riw</string>
     <string name="squeezer_no_example_found">Tańlanǵan jollarda su\'wretler tabılmadı.</string>
     <string name="squeezer_result_empty_message">Sıqıwǵa jaramlı media tabılmadı.</string>
+    <string name="squeezer_result_empty_protected">Sıǵıw ushın hesh nárse joq. Ótkerip jiberildi: %s. Olardı qosıw ushın sazlamalardaǵı sáykes párametrdi qosıń.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/teren súwret</item>
+        <item quantity="other">%d HDR/teren súwret</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d júdá úlken súwret</item>
+        <item quantity="other">%d júdá úlken súwret</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d orın sıqıw ushın qollanılmaydı hám óshirildi. Sıqıw ishki saqlaw orınına tikkeley qoljetimdi talap etedi.</item>
         <item quantity="other">%d orın sıqıw ushın qollanılmaydı hám óshirildi. Sıqıw ishki saqlaw orınına tikkeley qoljetimdi talap etedi.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Keminde %d ku\'n eski</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG fayllar ushın shama menen ~%d%% tejew kútiledi</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer sizdiń fotolar va videolárıńyzní qayta sıqíp berídí, alar áz joy tutsa bolúdi. Sız ázshe sápat salqín beríp, qaytarilgan joydan fáyde kóreseńíz. Her bir sahada tejemesi kórsetíldí, soño qalájı qímmatı jayinda ekenligín bilip bolasız.</string>
     <string name="tour_squeezer_compress_body">Bunda hámmesin bir waqıtta sıǵıń, yamasa tek sonı kishireytiw ushın bir elementke basıń. Birneshesin tańlaw ushın uzaq basıp turıń. Hesh nárse ózgermesten aldın hámishe aldın kóriwdi kóresiz.</string>
 </resources>

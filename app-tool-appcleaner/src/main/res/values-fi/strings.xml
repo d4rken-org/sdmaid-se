@@ -60,6 +60,18 @@
         <item quantity="one">%d kulutettava kohde poistettu</item>
         <item quantity="other">%d kulutettavaa kohdetta poistettu</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d tarpeeton kohde poistettu, pysäytettiin, koska näyttö oli pois päältä tai lukittu</item>
+        <item quantity="other">%d tarpeetonta kohdetta poistettu, pysäytettiin, koska näyttö oli pois päältä tai lukittu</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d tarpeeton kohde poistettu, pysäytettiin virheen vuoksi</item>
+        <item quantity="other">%d tarpeetonta kohdetta poistettu, pysäytettiin virheen vuoksi</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d välimuisti tarvitsee vielä esteettömyyspalvelua</item>
+        <item quantity="other">%1$s, %2$d välimuistia tarvitsee vielä esteettömyyspalvelua</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d kulutettava kohde löydetty</item>
         <item quantity="other">%d kulutettavaa kohdetta löydetty</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Etsitään välimuistin tyhjennysvalikkoa</string>
     <string name="appcleaner_item_caches_inaccessible_title">Oletusvälimuistit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Julkiset ja yksityiset oletusvälimuistit. Ei suoraan saavutettavissa, mutta voidaan poistaa epäsuorasti (esim. saavutettavuuspalvelun kautta).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Suljettu pois, mutta kaikkien sovellusten siivoaminen kerralla tyhjentää nämä välimuistit silti</string>
+    <string name="appcleaner_exclusion_limited_title">Pois suljettu sovellus</string>
+    <string name="appcleaner_exclusion_limited_body">Suljit tämän sovelluksen pois AppCleanerista. Kaikkien sovellusten välimuistien tyhjentäminen kerralla käyttää Shizukun järjestelmänlaajuista välimuistin tyhjennystä, joka ei voi jättää yksittäisiä sovelluksia ulkopuolelle, joten tämän sovelluksen välimuistitiedot tyhjennetään muiden mukana. Vain tässä näkyviin välimuistitietoihin vaikutetaan, kaikki muu, mitä poissulkeminen kattaa, pysyy piilossa ja koskemattomana.</string>
     <string name="appcleaner_automation_unavailable_title">Automaatio ei käytettävissä</string>
-    <string name="appcleaner_automation_unavailable_body">Automaattinen siivous ei ole käytettävissä tälle sovellukselle.</string>
+    <string name="appcleaner_automation_unavailable_body">Näiden välimuistien tyhjentäminen vaatii SD Maidin esteettömyyspalvelun, mutta se ei ollut käytettävissä.</string>
     <string name="appcleaner_delete_confirmation_message_x">Poista %d tiedostoa?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Poista kulutettavat tiedostot %d valitulta sovellukselta?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Pysäytä pakotetusti ennen tyhjennystä</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Pysäytä sovellukset pakotetusti ennen välimuistin tyhjennystä. Voi auttaa joidenkin sovellusten välimuistin tyhjentämisessä, mutta saattaa aiheuttaa sovellusten virhetoimintaa ja vaatia manuaalista uudelleenkäynnistystä.</string>
     <string name="appcleaner_progress_force_stopping">Pysäytetään sovelluksia pakotetusti…</string>
+    <string name="appcleaner_progress_checking_freed_space">Tarkistetaan vapautettua tilaa…</string>
 </resources>

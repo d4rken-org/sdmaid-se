@@ -81,6 +81,10 @@
         <item quantity="one">%d برنامه تغییر وضعیت کرد</item>
         <item quantity="other">%d برنامه تغییر وضعیت کرد</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d برنامه نمی‌تواند فعال یا غیرفعال شود</item>
+        <item quantity="other">%d برنامه نمی‌تواند فعال یا غیرفعال شوند</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">تعیین اندازه‌ها</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">دریافت یک تخمین تقریبی از اندازه هر برنامه.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">تعیین فعالیت‌ها</string>

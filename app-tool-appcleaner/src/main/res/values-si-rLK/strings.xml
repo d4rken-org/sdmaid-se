@@ -60,6 +60,18 @@
         <item quantity="one">%d වියදම් කළ හැකි අයිතමක් මකා දැමීම</item>
         <item quantity="other">%d වියදම් කළ හැකි අයිතම මකා දැමීම</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">ඉවත දැමිය හැකි අයිතම %d ක් මකා ඇත, තිරය ක්‍රියා විරහිත හෝ අගුළු දමා තිබූ බැවින් නතර විය</item>
+        <item quantity="other">ඉවත දැමිය හැකි අයිතම %d ක් මකා ඇත, තිරය ක්‍රියා විරහිත හෝ අගුළු දමා තිබූ බැවින් නතර විය</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">ඉවත දැමිය හැකි අයිතම %d ක් මකා ඇත, දෝෂයක් නිසා නතර විය</item>
+        <item quantity="other">ඉවත දැමිය හැකි අයිතම %d ක් මකා ඇත, දෝෂයක් නිසා නතර විය</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, කෑෂ් %2$d කට තවමත් ප්‍රවේශ්‍යතා සේවාව අවශ්‍යයි</item>
+        <item quantity="other">%1$s, කෑෂ් %2$d කට තවමත් ප්‍රවේශ්‍යතා සේවාව අවශ්‍යයි</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d වියදම් කළ හැකි අයිතමක් සොයා ගනු ලැබීම</item>
         <item quantity="other">%d වියදම් කළ හැකි අයිතම සොයා ගනු ලැබීම</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"කැශ් ඉවත් කරන්න\" බොත්තම සොයමින් (මූල පද: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">පෙරනිමි කැශ්</string>
     <string name="appcleaner_item_caches_inaccessible_body">පොදු සහ පුද්ගලික පෙරනිමි කැශ්. සෘජුව ප්‍රවේශ විය නොහැකි නමුත් වක්‍රව මකා දැමිය හැක (උදා. ප්‍රවේශ්‍යතා සේවාව හරහා).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">බැහැර කර ඇත, නමුත් සියලුම යෙදුම් එකවර පිරිසිදු කිරීමේදී මෙම කෑෂ් තවමත් හිස් කරයි</string>
+    <string name="appcleaner_exclusion_limited_title">බැහැර කළ යෙදුම</string>
+    <string name="appcleaner_exclusion_limited_body">ඔබ මෙම යෙදුම AppCleaner වෙතින් බැහැර කළා. සියලුම යෙදුම් සඳහා කෑෂ් එකවර හිස් කිරීම Shizuku හි පද්ධතිය පුරා කෑෂ් කප්පාදුව භාවිත කරයි, එයට තනි තනි යෙදුම් හැර දැමිය නොහැක, එබැවින් මෙම යෙදුමේ කෑෂ් කළ දත්ත ද අනෙක් සියල්ල සමඟ හිස් කරයි. මෙහි පෙන්වා ඇති කෑෂ් දත්ත පමණක් මීට බලපායි, බැහැර කිරීම ආවරණය කරන අනෙකුත් සියල්ල සැඟවී නොවෙනස්ව පවතී.</string>
     <string name="appcleaner_automation_unavailable_title">ප්‍රවේශ්‍යතා සේවාව නොමැත</string>
-    <string name="appcleaner_automation_unavailable_body">ප්‍රවේශ විය නොහැකි කැශ් ඉවත් කිරීමට SD Maid ගේ ප්‍රවේශ්‍යතා සේවාව අවශ්‍ය නමුත් එය නොමැත. ඔබ එය භාවිතා කිරීමට අකමැති නම්: \"ප්‍රවේශ විය නොහැකි කැශ් ඇතුළත් කරන්න\" විකල්පය අබල කරන්න.</string>
+    <string name="appcleaner_automation_unavailable_body">මෙම කෑෂ් හිස් කිරීමට SD Maid හි ප්‍රවේශ්‍යතා සේවාව අවශ්‍ය වේ, නමුත් එය ලබා ගත නොහැකි විය.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">තෝරන ලද %d යෙදුම සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">මැකීමට පෙර බලහත්කාරයෙන් නවතන්න</string>
     <string name="appcleaner_forcestop_before_clearing_summary">හැඹිලිය මැකීමට පෙර යෙදුම් බලහත්කාරයෙන් නවතන්න. සමහර යෙදුම්වල හැඹිලිය මැකීමට උපකාර විය හැකි නමුත්, යෙදුම් අක්‍රමණික ලෙස ක්‍රියා කළ හැකි අතර අතින් නැවත ආරම්භ කිරීම අවශ්‍ය විය හැක.</string>
     <string name="appcleaner_progress_force_stopping">යෙදුම් බලහත්කාරයෙන් නවතමින්…</string>
+    <string name="appcleaner_progress_checking_freed_space">නිදහස් කළ ඉඩ පරීක්ෂා කරමින්…</string>
 </resources>

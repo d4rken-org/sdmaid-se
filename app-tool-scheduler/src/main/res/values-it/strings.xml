@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nome pianificazione</string>
     <string name="scheduler_schedule_toggle_enabled">La pianificazione è abilitata</string>
     <string name="scheduler_schedule_toggle_disabled">La pianificazione è disabilitata</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Disattiva la pianificazione per modificarla.</string>
     <string name="scheduler_edit_schedule_action">Modifica pianificazione</string>
     <string name="scheduler_schedule_time_label">Tempo approssimativo</string>
     <string name="scheduler_schedule_repeat_label">Ripeti tra quanti giorni</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Comandi post-pianificazione</string>
     <string name="scheduler_commands_after_schedule_desc">Comandi del terminale di Android che verranno eseguiti alla fine di una pianificazione.</string>
     <string name="scheduler_battery_optimization_hint">Si consiglia di disattivare l\'ottimizzazione batteria per SD Maid se riscontrano problemi con l\'esecuzione in background.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid può pulire secondo una pianificazione. Scegli l’ora e gli strumenti da eseguire, e farà il lavoro in background, (quasi) senza necessità di aprire l’app.</string>
     <string name="tour_scheduler_create_body">Tocca qui per creare una nuova pianificazione, quindi imposta quando eseguirla e quali strumenti includere.</string>
 </resources>

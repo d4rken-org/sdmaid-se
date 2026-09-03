@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtrlangan: %1$s</string>
     <string name="swiper_session_no_matching_files">Mos keladigan fayllar topilmadi</string>
     <string name="swiper_open_externally_action">Tashqi ilovada ochish</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Faylning taqdirini qaror qilish uchun uni suring: yon tomoniga — saqlash yoki o\'chirish, tepaga — o\'tkazib yuborish, pastga — qaytarish. Quyidagi tugmalar ham xuddi shunday ishlaydi va qaysi tomon qaysi ekanligini ko\'rsatadi.</string>
     <string name="tour_swiper_openin_body">Ushbu tugma faylni boshqa ilovada ochadi, qaror qilishdan oldin tekshirish uchun qulay.</string>
     <string name="tour_swiper_preview_body">Bu tugma yaqindan ko\'rish uchun to\'liq ekranli ko\'rib chiqishni ochadi.</string>

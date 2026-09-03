@@ -29,6 +29,18 @@
         <item quantity="one">%d oorgeslaan (HDR/diepte behou)</item>
         <item quantity="other">%d oorgeslaan (HDR/diepte behou)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d oorgeslaan (Motion Foto)</item>
+        <item quantity="other">%d oorgeslaan (Motion Foto\'s)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d oorgeslaan (baie groot foto)</item>
+        <item quantity="other">%d oorgeslaan (baie groot foto\'s)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d oorgeslaan (beskerm)</item>
+        <item quantity="other">%d oorgeslaan (beskerm)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item gekies</item>
         <item quantity="other">%d items gekies</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Algemeen</string>
     <string name="squeezer_quality_description">Laer kwaliteit beteken \'n kleiner lêergrootte maar verminderde visuele kwaliteit.</string>
     <string name="squeezer_types_category_label">Beeldinstellings</string>
+    <string name="squeezer_protected_category_label">Wat gaan verlore</string>
     <string name="squeezer_video_settings_category_label">Video-instellings</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Sluit JPEG-beelde in (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Sluit JPEG-beelde in (.jpg, .jpeg). Herenkodering gebruik Android se ingebou JPEG-enkodeerder. Datum, ligging en ander EXIF-metadata word behou.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Sluit WebP-beelde in (.webp).</string>
+    <string name="squeezer_type_webp_description">Sluit WebP-beelde in (.webp). Herenkodering gebruik Android se ingebou WebP-enkodeerder. Datum, ligging en ander EXIF-metadata word behou.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Sluit HEIC/HEIF-beelde in (.heic, .heif). Datum, ligging, en ander EXIF-metadata word behou. HDR-versterkingskaarte, dieptedata en Live/Motion Photo-broers kan nie bewaar word nie; multi-image-lêers word oorgeslaan.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Sluit MP4-videolêers (.mp4) in.</string>
+    <string name="squeezer_type_video_description">Sluit MP4-videolêers in (.mp4). Die videovolg word deur die toestel se eie videoenkoderder teen \'n laer bitnelheid herenkodeer, die audiosignaal word onveranderd oorgekopieer, en die lêer bly \'n MP4.</string>
     <string name="squeezer_skip_compressed_title">Slaan voorheen gekomprimeerdes oor</string>
     <string name="squeezer_skip_compressed_description">Slaan lêers oor wat reeds deur SD Maid gekomprimeer is.</string>
     <string name="squeezer_exif_marker_title">Skryf EXIF-merker</string>
     <string name="squeezer_exif_marker_description">Voeg \'n merker by die beeld se EXIF-gebruikerkommentaarveld om herkompressie te voorkom selfs as die kompressiegeskiedenis uitgevee word.</string>
     <string name="squeezer_include_lossy_aux_title">Komprimeer HDR &amp; dieptefoto\'s</string>
-    <string name="squeezer_include_lossy_aux_description">Standaard af: foto\'s met \'n HDR-versterkingskaart of diepte/portret-data word oorgeslaan sodat hulle nie platgemaak word nie. Aktiveer om hulle waar moontlik te komprimeer — hulle sal hul HDR-versterkingskaart of dieptedata verloor. Sommige multi-image HEIC-foto\'s bly in elk geval beskerm.</string>
+    <string name="squeezer_include_lossy_aux_description">Sluit foto\'s met HDR- of dieptedata in. Kompressie verwyder dit: HDR-foto\'s word normale foto\'s, portretfoto\'s verloor die data agter hul agtergrondvervaging. Multi-beeld HEIC-lêers bly oorgeslaan.</string>
+    <string name="squeezer_include_motion_photos_title">Komprimeer Motion Foto\'s</string>
+    <string name="squeezer_include_motion_photos_description">Sluit Motion Foto\'s in. Kompressie behou die stilstaande beeld en verwyder die videofragment.</string>
+    <string name="squeezer_include_oversized_title">Komprimeer baie groot foto\'s</string>
+    <string name="squeezer_include_oversized_description">Sluit foto\'s wyer of langer as 8192 pixels in. Kompressie halveer ook hul resolusie.</string>
     <string name="squeezer_estimated_savings_format">~%s besparing</string>
     <string name="squeezer_no_savings_expected">Beperkte besparings</string>
     <string name="squeezer_current_size_format">Grootte: %s</string>
+    <string name="squeezer_chip_compressed_before">Gekomprimeer</string>
+    <string name="squeezer_chip_hdr_depth">HDR/diepte</string>
+    <string name="squeezer_chip_motion_photo">Motion Foto</string>
+    <string name="squeezer_chip_downscaled">Verkleind</string>
+    <string name="squeezer_markers_dialog_title">Oor hierdie merkers</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid het hierdie lêer reeds gekomprimeer. Om dit weer te komprimeer kos kwaliteit en spaar min.</string>
+    <string name="squeezer_markers_hdr_depth_description">Hierdie foto het HDR- of diepte-data wat kompressie nie kan behou nie. \'n HDR-foto kom terug as \'n gewone foto, en \'n portretfoto verloor die diepte-data wat gebruik word om die agtergrond te vervaag.</string>
+    <string name="squeezer_markers_motion_photo_description">Dit is \'n Motion Photo. Kompressie behou die stilbeeld en verwyder die video-clip.</string>
+    <string name="squeezer_markers_downscaled_description">Hierdie foto is breër of hoër as 8192 pieksels. Kompressie halveer ook die resolusie daarvan.</string>
     <string name="squeezer_compress_action">Komprimeer</string>
     <string name="squeezer_compress_all_action">Komprimeer alles</string>
     <string name="squeezer_preview_dialog_title">Bevestig kompressie</string>
@@ -79,6 +105,15 @@
     <string name="squeezer_compare_action">Bekyk vergelyking</string>
     <string name="squeezer_no_example_found">Geen beelde gevind in gekose paaie nie.</string>
     <string name="squeezer_result_empty_message">Geen komprimeerbare media gevind nie.</string>
+    <string name="squeezer_result_empty_protected">Niks om te komprimeer nie. Oorgeslaan: %s. Skakel die ooreenstemmende opsie in die instellings aan om hulle in te sluit.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR-/diepte-foto</item>
+        <item quantity="other">%d HDR-/diepte-foto\'s</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d baie groot foto</item>
+        <item quantity="other">%d baie groot foto\'s</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ligging kan nie vir kompressie gebruik word nie en is verwyder. Kompressie vereis direkte toegang tot interne berging.</item>
         <item quantity="other">%d liggings kan nie vir kompressie gebruik word nie en is verwyder. Kompressie vereis direkte toegang tot interne berging.</item>
@@ -98,7 +133,6 @@
         <item quantity="other">Ten minste %d dae oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Geskatte ~%d%% besparing vir JPEG-lêers</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer druk jou foto\'s en video\'s weer saam sodat hulle minder plek inneem. Jy ruil \'n bietjie kwaliteit vir die ruimte wat jy bespaar. Elke item toon sy geraamde besparing, sodat jy kan besluit watter items die moeite werd is.</string>
     <string name="tour_squeezer_compress_body">Komprimeer alles op een keer hier, of tik \'n enkele item om slegs daardie een te verklein. Lank vashou om verskeie te kies. Jy sal altyd \'n voorskou sien voordat enigiets verander.</string>
 </resources>

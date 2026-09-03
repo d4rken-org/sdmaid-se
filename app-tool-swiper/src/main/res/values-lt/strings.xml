@@ -184,7 +184,6 @@
     <string name="swiper_file_type_filter_summary">Filtruota: %1$s</string>
     <string name="swiper_session_no_matching_files">Atitinkančių failų nerasta</string>
     <string name="swiper_open_externally_action">Atidaryti išorine programa</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Perbraukite failą norėdami nuspręsti jo likimą: į šoną – palikti arba ištrinti, aukštyn – praleisti, žemyn – grąžinti. Toliau esantys mygtukai daro tą patį ir parodo, kuri pusė kam skirta.</string>
     <string name="tour_swiper_openin_body">Šis mygtukas atidaro failą kitoje programoje – naudinga jį patikrinti prieš sprendimą.</string>
     <string name="tour_swiper_preview_body">Šis mygtukas atidaro pilną ekrano peržiūrą, kad geriau pamatytumėte.</string>

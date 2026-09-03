@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
     <string name="swiper_session_no_matching_files">Sin archivos coincidentes</string>
     <string name="swiper_open_externally_action">Abrir en una aplicación externa</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Desliza un archivo para decidir su destino: hacia los lados para mantener o eliminar, hacia arriba para omitir, hacia abajo para deshacer. Los botones de abajo hacen lo mismo y muestran cuál es cada lado.</string>
     <string name="tour_swiper_openin_body">Este botón abre el archivo en otra aplicación, útil para comprobarlo antes de decidir.</string>
     <string name="tour_swiper_preview_body">Este botón abre una vista previa a pantalla completa para verla más de cerca.</string>

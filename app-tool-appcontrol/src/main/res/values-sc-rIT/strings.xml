@@ -81,6 +81,10 @@
         <item quantity="one">%d aplicatzione est istada cambiada</item>
         <item quantity="other">%d aplicatziones sunt istadas cambiadas</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app non potet esse abilida o disabilida</item>
+        <item quantity="other">%d apps non podent esse abilidas o disabilidas</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determinare mannàrias</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Ottenner una istima approssimada de sa mannària de cada aplicatzione.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinare atividade</string>

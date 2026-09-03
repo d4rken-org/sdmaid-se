@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Ištrinti visų įrankių rezultatus?</string>
     <string name="dashboard_hero_freeable_headline">%1$s gali būti atlaisvinta</string>
     <string name="dashboard_hero_freed_headline">%1$s atlaisvinta</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d elementas gali būti pašalintas</item>
         <item quantity="few">%d elementai gali būti pašalinti</item>
@@ -20,16 +17,10 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Paspauskite mygtuką laisvai atlaisvinti, arba žetoną norėdami iš pradžios patikrinti.</string>
     <string name="dashboard_hero_freed_hint">Palieskite lustą, kad sužinotumėte daugiau.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s liko</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nieko neatpalaiduota</string>
     <string name="dashboard_hero_nothing_freed_caption">Valymas baigtas, tačiau nepavyko pašalinti rastų duomenų.</string>
     <string name="dashboard_hero_nothing_freed_hint">Kai kurie duomenys gali būti pašalinti tik naudojant papildomą prieigą, pavyzdžiui, pritaikymo paslaugą arba root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">Rasta %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d elementui reikia SD Maid Pro</item>
@@ -37,16 +28,9 @@
         <item quantity="many">%d elemento reikia SD Maid Pro</item>
         <item quantity="other">%d elementams reikia SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Palieski, kad atrakintum su SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Su SD Maid Pro galima atlaisvinti daugiau vietos</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Reikia SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Nuskaityta %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Atlaisvinta %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Bandyta %1$s</string>
@@ -260,7 +244,6 @@
     <string name="setup_root_card_title">„Root“ prieiga</string>
     <string name="setup_root_card_body">Ar SD Maid turėtų naudoti root prieigą, jei ji yra? Root prieiga gali būti naudojama norint patikrinti papildomus sistemos aplankus ir privačius programų duomenis.</string>
     <string name="setup_root_state_ready_label">Parengta root prieiga.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Šaknies prieiga nepasiekiama.</string>
     <string name="setup_root_state_failed_title">Nepavyko gauti root prieigos</string>
     <string name="setup_root_state_failed_body">SD Maid paprašė root prieigos, tačiau jos negavo. Jei tavo įrenginys turi root teises, atidaryk root valdymo programą (Magisk, KernelSU ar panašią) ir patikrink, ar SD Maid užklausa buvo atmesta, ar vis dar laukiama.</string>
@@ -319,7 +302,6 @@
     <string name="dataarea_warningcard_reload_action">Duomenų sričių perkrovimas</string>
     <string name="debug_mode_label">Derinimo režimas</string>
     <string name="debug_mode_explanation">Įgalinkite testavimo parinktis ir daugiau verbalinės išvesties. Programėlė veiks lėčiau ir veiks kitaip.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Derinimo režimas įjungtas</string>
     <string name="debug_card_description">Programuotojo diagnostika ir vykdymo nepaisymai. Ši kortelė pasirodo tik kai derinimo režimas yra įjungtas.</string>
     <string name="debug_card_section_diagnostics">Diagnostika</string>
@@ -332,7 +314,6 @@
     <string name="debug_card_pkgs_reload_action">Iš naujo įkelti programas</string>
     <string name="debug_card_root_test_action">Patikrinti root</string>
     <string name="debug_card_shizuku_test_action">Patikrinti Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Bandomasis režimas yra aktyvus</string>
     <string name="dashboard_dryrun_warning_body">Valymas bandomas. Failai skaitomi ir pranešami, tačiau jie nėra ištrinami.</string>
     <string name="dashboard_dryrun_warning_disable_action">Išjungti</string>
@@ -390,10 +371,6 @@
     <string name="widget_home_description">Saugyklos naudojimas ir vieno paspaudimo valymas</string>
     <string name="widget_home_storage_internal">Vidinis</string>
     <string name="widget_home_storage_external">Išorinis</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Iš viso atlaisvinta: %1$s</string>
     <string name="widget_home_clean_action">Valyti</string>
     <string name="widget_home_working">Vykdoma…</string>
@@ -406,7 +383,6 @@
     <string name="widget_oneclick_consent_decline_action">Ne dabar</string>
     <string name="shortcut_onetap_started">Nuskaitymas + Šalinimas pradėtas…</string>
     <string name="shortcut_onetap_nothing_enabled">Nėra įjungtų vieno spustelėjimo įrankių</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Atsarginė kopija &amp; atkūrimas</string>
     <string name="backup_restore_desc">Išsaugoti savo nustatymus ir konfigūraciją į failą arba atkurti juos</string>
     <string name="backup_restore_export_title">Sukurti atsarginę kopiją</string>
@@ -434,7 +410,6 @@
     <string name="backup_restore_warn_history_body">Šios atsarginės kopijos istorijos duomenys (statistika, glaudinimo istorija, gestų seansai) yra iš kitos programos versijos ir negali būti atkurti. Visa kita bus atkurta.</string>
     <string name="backup_restore_ack_understand">Suprantu ir noriu tęsti</string>
     <string name="backup_restore_action_restore">Atkurti</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Įspėjimai apie saugyklą</string>
     <string name="stats_lowspace_notification_title">Saugykla pildosi</string>
     <string name="stats_lowspace_notification_low_title">Saugykla beveik pilna</string>

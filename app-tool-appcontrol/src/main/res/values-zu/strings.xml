@@ -81,6 +81,10 @@
         <item quantity="one">Uhlelo olu-%d lugudulwe</item>
         <item quantity="other">Izinhlelo zokusebenza ezingu-%d zigudulwe</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d uhlelo alukwazi ukuvunyelwa noma ukucisha</item>
+        <item quantity="other">%d amaphuroseso alikwazi ukuvunyelwa noma ukucisha</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Nquma osayizi</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Thola isilinganiso esimfushane sosayizi sohlelo ngalunye.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Nquma umsebenzi</string>

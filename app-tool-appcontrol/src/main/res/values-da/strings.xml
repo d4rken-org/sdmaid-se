@@ -81,6 +81,10 @@
         <item quantity="one">%d app blev skiftet</item>
         <item quantity="other">%d apps blev skiftet</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app kan ikke aktiveres eller deaktiveres</item>
+        <item quantity="other">%d apps kan ikke aktiveres eller deaktiveres</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bestem størrelser</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et cirkaestimat af hver apps størrelse.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>

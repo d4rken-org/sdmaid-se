@@ -4,49 +4,56 @@
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d פריט נמצא</item>
         <item quantity="two">%d פריטים נמצאו</item>
-        <item quantity="many">%d פריטים נמצאו</item>
         <item quantity="other">%d פריטים נמצאו</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">ניתן לחסוך ~%s</item>
         <item quantity="two">ניתן לחסוך ~%s</item>
-        <item quantity="many">ניתן לחסוך ~%s</item>
         <item quantity="other">ניתן לחסוך ~%s</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
         <item quantity="one">%d פריט דחוס</item>
         <item quantity="two">%d פריטים דחוסים</item>
-        <item quantity="many">%d פריטים דחוסים</item>
         <item quantity="other">%d פריטים דחוסים</item>
     </plurals>
     <plurals name="squeezer_result_x_items_failed">
         <item quantity="one">%d נכשל</item>
         <item quantity="two">%d נכשלו</item>
-        <item quantity="many">%d נכשלו</item>
         <item quantity="other">%d נכשלו</item>
     </plurals>
     <plurals name="squeezer_result_x_metadata_unpreservable">
         <item quantity="one">%d נשמר ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
         <item quantity="two">%d נשמרו ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
-        <item quantity="many">%d נשמרו ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
         <item quantity="other">%d נשמרו ללא שינוי (לא ניתן היה לשמר מטא-נתונים)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_inaccessible">
         <item quantity="one">%d קובץ דלוג (לא נגיש)</item>
         <item quantity="two">%d קובצים דלוגים (לא נגישים)</item>
-        <item quantity="many">%d קובצים דלוגים (לא נגישים)</item>
         <item quantity="other">%d קובצים דלוגים (לא נגישים)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="one">%d הושמט (HDR/עומק נשמר)</item>
         <item quantity="two">%d הושמטו (HDR/עומק נשמר)</item>
-        <item quantity="many">%d הושמטו (HDR/עומק נשמר)</item>
         <item quantity="other">%d הושמטו (HDR/עומק נשמר)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d דילוג (Motion Photo)</item>
+        <item quantity="two">%d דילוגים (Motion Photos)</item>
+        <item quantity="other">%d דילוגים (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d דילוג (תמונה גדולה מאוד)</item>
+        <item quantity="two">%d דילוגים (תמונות גדולות מאוד)</item>
+        <item quantity="other">%d דילוגים (תמונות גדולות מאוד)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d דילוג (מוגן)</item>
+        <item quantity="two">%d דילוגים (מוגנים)</item>
+        <item quantity="other">%d דילוגים (מוגנים)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d פריט נבחר</item>
         <item quantity="two">%d פריטים נבחרים</item>
-        <item quantity="many">%d פריטים נבחרים</item>
         <item quantity="other">%d פריטים נבחרים</item>
     </plurals>
     <string name="squeezer_min_size_title">גודל קובץ מינימלי</string>
@@ -56,24 +63,38 @@
     <string name="squeezer_compression_settings_label">כללי</string>
     <string name="squeezer_quality_description">איכות נמוכה יותר פירושה גודל קובץ קטן יותר אך איכות ויזואלית מופחתת.</string>
     <string name="squeezer_types_category_label">הגדרות תמונה</string>
+    <string name="squeezer_protected_category_label">מה הולך לאיבוד</string>
     <string name="squeezer_video_settings_category_label">הגדרות וידאו</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">כלול תמונות JPEG ‏(.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">כלול תמונות JPEG (.jpg, .jpeg). קידוד מחדש משתמש במקודד ה-JPEG המובנה של Android. תאריך, מיקום ומידע EXIF נוסף נשמרים.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">כלול תמונות WebP ‏(.webp).</string>
+    <string name="squeezer_type_webp_description">כלול תמונות WebP (.webp). קידוד מחדש משתמש במקודד ה-WebP המובנה של Android. תאריך, מיקום ומידע EXIF נוסף נשמרים.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">כלול תמונות HEIC/HEIF (.heic, .heif). תאריך, מיקום ונתוני EXIF אחרים נשמרים. לא ניתן לשמר מפות HDR, נתוני עומק ותמונות Live/Motion Photo נלוות; קבצים רב-תמונתיים מדולגים.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">כלול קבצי וידאו MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">כלול קובצי וידאו MP4 (.mp4). ערוץ הווידאו מקודד מחדש בקצב סיביות נמוך יותר על ידי מקודד הווידאו של המכשיר, ערוץ השמע מועתק ללא שינוי, והקובץ נשאר MP4.</string>
     <string name="squeezer_skip_compressed_title">דלג על שנדחסו בעבר</string>
     <string name="squeezer_skip_compressed_description">דלג על קבצים שכבר דוחסו על ידי SD Maid.</string>
     <string name="squeezer_exif_marker_title">כתוב סמן EXIF</string>
     <string name="squeezer_exif_marker_description">הוסף סמן לשדה הערת המשתמש EXIF של התמונה כדי למנוע דחיסה חוזרת גם אם היסטוריית הדחיסה נמחקת.</string>
     <string name="squeezer_include_lossy_aux_title">דחוס תמונות HDR &amp; עומק</string>
-    <string name="squeezer_include_lossy_aux_description">כבוי כברירת מחדל: תמונות עם מפת HDR או נתוני עומק/דיוקן מדולגות כדי שלא תשטחנה. הפעל כדי לדחוס אותן כאשר אפשר — הן יאבדו את מפת ה-HDR או נתוני העומק שלהן. חלק מתמונות HEIC רב-תמונתיות נשארות מוגנות בכל מקרה.</string>
+    <string name="squeezer_include_lossy_aux_description">כלול תמונות עם נתוני HDR או עומק. הדחיסה מסירה אותם: תמונות HDR הופכות לתמונות רגילות, ותמונות פורטרט מאבדות את הנתונים שמאחורי טשטוש הרקע שלהן. קובצי HEIC מרובי-תמונה ממשיכים להידלג.</string>
+    <string name="squeezer_include_motion_photos_title">דחיסת Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">כלול Motion Photos. הדחיסה שומרת את התמונה הקבועה ומסירה את קטע הווידאו.</string>
+    <string name="squeezer_include_oversized_title">דחיסת תמונות גדולות מאוד</string>
+    <string name="squeezer_include_oversized_description">כלול תמונות שרוחבן או גובהן עולה על 8192 פיקסלים. הדחיסה גם מקטינה את הרזולוציה שלהן בחצי.</string>
     <string name="squeezer_estimated_savings_format">~%s חיסכון</string>
     <string name="squeezer_no_savings_expected">חיסכון מוגבל</string>
     <string name="squeezer_current_size_format">גודל: %s</string>
+    <string name="squeezer_chip_compressed_before">נדחסה</string>
+    <string name="squeezer_chip_hdr_depth">HDR/עומק</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">הוקטנה</string>
+    <string name="squeezer_markers_dialog_title">על הסימונים האלה</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid כבר דחס את הקובץ הזה. דחיסה חוזרת פוגעת באיכות וחוסכת מעט.</string>
+    <string name="squeezer_markers_hdr_depth_description">לתמונה הזו יש נתוני HDR או עומק שהדחיסה לא יכולה לשמור. תמונת HDR הופכת לתמונה רגילה, ותמונת פורטרט מאבדת את נתוני העומק שמשמשים לטשטוש הרקע.</string>
+    <string name="squeezer_markers_motion_photo_description">זוהי Motion Photo. הדחיסה שומרת את התמונה הקבועה ומסירה את קטע הווידאו.</string>
+    <string name="squeezer_markers_downscaled_description">התמונה הזו רחבה או גבוהה מ-8192 פיקסלים. הדחיסה גם מקטינה את הרזולוציה שלה בחצי.</string>
     <string name="squeezer_compress_action">דחוס</string>
     <string name="squeezer_compress_all_action">דחוס הכל</string>
     <string name="squeezer_preview_dialog_title">אשר דחיסה</string>
@@ -83,7 +104,6 @@
     <plurals name="squeezer_history_summary">
         <item quantity="one">פריט %1$d (%2$s)</item>
         <item quantity="two">%1$d פריטים (%2$s)</item>
-        <item quantity="many">%1$d פריטים (%2$s)</item>
         <item quantity="other">%1$d פריטים (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">אין היסטוריית דחיסה</string>
@@ -97,10 +117,25 @@
     <string name="squeezer_compare_action">הצג השוואה</string>
     <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
     <string name="squeezer_result_empty_message">לא נמצאו מדיה ניתנים לדחיסה.</string>
+    <string name="squeezer_result_empty_protected">אין מה לדחוס. דולגו: %s. הפעל את האפשרות המתאימה בהגדרות כדי לכלול אותם.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d תמונת HDR/depth</item>
+        <item quantity="two">%d תמונות HDR/depth</item>
+        <item quantity="other">%d תמונות HDR/depth</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="two">%d Motion Photos</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d תמונה גדולה מאוד</item>
+        <item quantity="two">%d תמונות גדולות מאוד</item>
+        <item quantity="other">%d תמונות גדולות מאוד</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">לא ניתן להשתמש ב-%d מיקום לדחיסה והוא הוסר. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
         <item quantity="two">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
-        <item quantity="many">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
         <item quantity="other">לא ניתן להשתמש ב-%d מיקומים לדחיסה והם הוסרו. דחיסה דורשת גישה ישירה לאחסון פנימי.</item>
     </plurals>
     <string name="squeezer_setup_explanation">Media Squeeze מפחית את גודל הקבצים של תמונות וסרטונים כדי לפנות שטח אחסון. פעולה זו מפחיתה את האיכות לצמיתות ולא ניתן לבטלה. בדוק את ההגדרות בקפידה לפני ההתחלה.</string>
@@ -116,11 +151,9 @@
     <plurals name="squeezer_min_age_x_days">
         <item quantity="one">לפחות יום %d</item>
         <item quantity="two">לפחות %d ימים</item>
-        <item quantity="many">לפחות %d ימים</item>
         <item quantity="other">לפחות %d ימים</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">חסכון משוער של ~%d%% לקבצי JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer דוחס מחדש את התמונות וסרטוני הווידאו שלך כדי שיתפסו פחות מקום. אתה מוותר על קצת איכות בתמורה למקום שאתה מחזיר. כל פריט מציג את החיסכון המשוער שלו, כך שתוכל להחליט מה שווה זאת.</string>
     <string name="tour_squeezer_compress_body">דחוס הכל בבת אחת כאן, או הקש על פריט יחיד כדי להקטין רק אותו. הקש הקשה ארוכה כדי לבחור כמה פריטים. תמיד תראה תצוגה מקדימה לפני כל שינוי.</string>
 </resources>

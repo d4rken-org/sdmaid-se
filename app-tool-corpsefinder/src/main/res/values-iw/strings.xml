@@ -13,13 +13,11 @@
     <plurals name="corpsefinder_watcher_notification_scan_result">
         <item quantity="one">נמצאה שארית %1$d לאחר הסרת ההתקנה של %2$s.</item>
         <item quantity="two">נמצאו %1$d שרידים לאחר הסרת ההתקנה של %2$s.</item>
-        <item quantity="many">נמצאו %1$d שרידים לאחר הסרת ההתקנה של %2$s.</item>
         <item quantity="other">נמצאו %1$d שרידים לאחר הסרת ההתקנה של %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">הניקוי הצליח (%1$s): שוחרר %2$s והוסר %3$d פריט.</item>
         <item quantity="two">הניקוי הצליח (%1$s): שחרר %2$s והסרת %3$d פריטים.</item>
-        <item quantity="many">הניקוי הצליח (%1$s): שחרר %2$s והסרת %3$d פריטים.</item>
         <item quantity="other">הניקוי הצליח (%1$s): שחרר %2$s והסרת %3$d פריטים.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">מחק שאריות</string>
@@ -48,13 +46,11 @@
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d שארית אפליקציה נמחקה</item>
         <item quantity="two">%d שאריות אפליקציה נמחקו</item>
-        <item quantity="many">%d שאריות אפליקציה נמחקו</item>
         <item quantity="other">%d שאריות אפליקציה נמחקו</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
         <item quantity="one">התגלתה שארית אפליקציה %d</item>
         <item quantity="two">התגלו %d שרידי אפליקציה</item>
-        <item quantity="many">התגלו %d שרידי אפליקציה</item>
         <item quantity="other">התגלו %d שרידי אפליקציה</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">למחוק את כל שאריות האפליקציה?</string>
@@ -67,7 +63,6 @@
     <string name="corpsefinder_markers_dialog_title">על הסמנים הללו</string>
     <string name="corpsefinder_markers_dialog_normal_label">אין סמן</string>
     <string name="corpsefinder_markers_dialog_normal_description">שריד סטנדרטי. בדרך כלל בטוח להסיר — קבצים אלה שייכים לאפליקציות שכבר אינן מותקנות.</string>
-    <!-- Guided tour -->
     <string name="tour_corpsefinder_intro_body">CorpseFinder מוצא נתונים שנותרו מיישומים שכבר הסרתם. זה כבר לא שייך לשום דבר שמותקן, אז הסרתו משחררת מקום. רוב זה בטוח להסרה, אך בדוק את הסימן כשאתה לא בטוח.</string>
     <string name="tour_corpsefinder_row_body">כל פריט הוא נתוני שארית והאפליקציה שממנה הוא הגיע. הסמן מראה כמה SD Maid בטוח שזה בטוח להסיר — הקש על ה-ⓘ בחלק העליון כדי ללמוד מה הסמנים אומרים.</string>
 </resources>

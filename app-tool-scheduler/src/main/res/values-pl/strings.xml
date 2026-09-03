@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nazwa harmonogramu</string>
     <string name="scheduler_schedule_toggle_enabled">Harmonogram jest włączony</string>
     <string name="scheduler_schedule_toggle_disabled">Harmonogram jest wyłączony</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Wyłącz harmonogram, aby go zmienić.</string>
     <string name="scheduler_edit_schedule_action">Edytuj harmonogram</string>
     <string name="scheduler_schedule_time_label">Przybliżony czas</string>
     <string name="scheduler_schedule_repeat_label">Częstotliwość powtarzania w dniach</string>
@@ -45,7 +46,6 @@
     <string name="scheduler_commands_after_schedule_label">Polecenia po harmonogramie</string>
     <string name="scheduler_commands_after_schedule_desc">Polecenia powłoki Androida, które będą wykonywane na końcu harmonogramu.</string>
     <string name="scheduler_battery_optimization_hint">Rozważ wyłączenie optymalizacji baterii dla SD Maid, jeśli wystąpią problemy z działaniem w tle.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid może czyścić według harmonogramu. Wybierz czas i które narzędzia uruchomić, a ona zrobi resztę w tle – (prawie) bez otwierania aplikacji.</string>
     <string name="tour_scheduler_create_body">Naciśnij tutaj, aby utworzyć nowy harmonogram, a następnie ustaw, kiedy ma być uruchamiany i które narzędzia uwzględnić.</string>
 </resources>

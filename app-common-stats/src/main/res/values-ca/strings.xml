@@ -8,24 +8,21 @@
         <item quantity="one">S\'ha processat %s element des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
         <item quantity="other">S\'han processat %s elements des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">El vostre convidat durant %d dia.</item>
         <item quantity="other">El vostre convidat durant %d dies.</item>
     </plurals>
     <plurals name="stats_dash_since_weeks">
-        <item quantity="one">El teu convidat durant %d setmana.</item>
-        <item quantity="other">El teu convidat durant %d setmanes.</item>
+        <item quantity="one">El vostre convidat durant %d setmana.</item>
+        <item quantity="other">El vostre convidat durant %d setmanes.</item>
     </plurals>
     <plurals name="stats_dash_since_months">
-        <item quantity="one">El teu convidat durant %d mes.</item>
-        <item quantity="other">El teu convidat durant %d mesos.</item>
+        <item quantity="one">El vostre convidat durant %d mes.</item>
+        <item quantity="other">El vostre convidat durant %d mesos.</item>
     </plurals>
     <plurals name="stats_dash_since_years">
-        <item quantity="one">El teu convidat durant %d any.</item>
-        <item quantity="other">El teu convidat durant %d anys.</item>
+        <item quantity="one">El vostre convidat durant %d any.</item>
+        <item quantity="other">El vostre convidat durant %d anys.</item>
     </plurals>
     <string name="stats_report_status_partial_success">Èxit parcial</string>
     <string name="stats_report_status_partial_failure">Error</string>
@@ -40,21 +37,21 @@
     <string name="stats_affected_paths_label">Rutes afectades</string>
     <string name="stats_affected_pkgs_label">Aplicacions afectades</string>
     <string name="stats_dash_body_snapshots_only">Seguiment de l’historial d’emmagatzematge.</string>
-    <string name="stats_storage_trend_action">Tendència d’emmagatzematge</string>
-    <string name="stats_space_history_title">Tendència d’emmagatzematge</string>
+    <string name="stats_storage_trend_action">Tendència d\'emmagatzematge</string>
+    <string name="stats_space_history_title">Tendència d\'emmagatzematge</string>
     <string name="stats_space_history_range_title">Interval</string>
     <string name="stats_space_history_range_7d">7 dies</string>
     <string name="stats_space_history_range_30d">30 dies</string>
     <string name="stats_space_history_range_90d">90 dies</string>
     <string name="stats_space_history_storage_title">Emmagatzematge</string>
-    <string name="stats_space_history_current_used_label">En ús actual</string>
-    <string name="stats_space_history_min_label">Mínim en ús</string>
-    <string name="stats_space_history_max_label">Màxim en ús</string>
+    <string name="stats_space_history_current_used_label">Utilització actual</string>
+    <string name="stats_space_history_min_label">Mínim utilitzat</string>
+    <string name="stats_space_history_max_label">Màxim utilitzat</string>
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s en %2$s</string>
     <string name="stats_space_history_upgrade_title">L’historial complet és una funció Pro</string>
     <string name="stats_space_history_upgrade_body_v2">Milloreu per desbloquejar la vista completa de tendències de 90 dies per a cada dispositiu d\'emmagatzematge i rebeu un avís abans que us quedeu sense espai.</string>
-    <string name="stats_space_history_marker_freed">Alliberat %1$s</string>
+    <string name="stats_space_history_marker_freed">S\'ha alliberat %1$s</string>
     <string name="stats_storage_type_primary">Emmagatzematge primari</string>
     <string name="stats_storage_type_secondary">Emmagatzematge secundari</string>
     <string name="stats_storage_type_portable">Emmagatzematge portàtil</string>

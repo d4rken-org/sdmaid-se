@@ -9,11 +9,12 @@
     <string name="scheduler_schedule_name_label">Nom de la programació</string>
     <string name="scheduler_schedule_toggle_enabled">La programació està activada</string>
     <string name="scheduler_schedule_toggle_disabled">La programació està desactivada</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Desactiva la planificació per canviar-la.</string>
     <string name="scheduler_edit_schedule_action">Edita la programació</string>
     <string name="scheduler_schedule_time_label">Temps aproximat</string>
     <string name="scheduler_schedule_repeat_label">Repeteix l\'interval en dies</string>
     <string name="scheduler_schedule_default_name">Programació per defecte</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s al voltant %2$s</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s al voltant de les %2$s</string>
     <string name="scheduler_schedule_next_at_x">Planificat per a %s</string>
     <string name="scheduler_schedule_last_at_x">Última execució a les %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
@@ -37,17 +38,12 @@
     <string name="scheduler_notification_result_failure_message">Algunes tasques programades han fallat o han trobat errors. Proveu d\'executar-les manualment.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Omès, la pantalla estava apagada o bloquejada</string>
     <string name="scheduler_acs_screenlocked_hint_title">És possible que s\'ometi la neteja d\'aplicacions</string>
-    <string name="scheduler_acs_screenlocked_hint_body">La neteja d\'aplicacions utilitza el Servei d\'accessibilitat, que necessita la pantalla desbloquejada. Les execucions programades mentre el dispositiu està bloquejat s\'ometen.
-
-Utilitza Shizuku o «root» per a la neteja en segon pla, o programa-la per a quan estiguis utilitzant el dispositiu.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">La neteja d\'aplicacions utilitza el servei d\'accessibilitat que requereix desbloquejar la pantalla. Les execucions programades s\'ometen quan el dispositiu està bloquejat.\n\nFeu servir el Shizuku o root per a la neteja en segon pla, o programa la neteja per quan estigueu usant el dispositiu.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">És possible que s\'ometin les aplicacions del sistema</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku neteja la majoria de memòries cau en segon pla, però les aplicacions del sistema necessiten el Servei d\'accessibilitat, que necessita la pantalla desbloquejada. Amb «Inclou aplicacions del sistema» activat, s\'ometen quan el dispositiu està bloquejat.
-
-Desactiva «Inclou aplicacions del sistema», o executa la programació mentre estigui desbloquejat.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">El Shizuku neteja la majoria de memòries cau en segon pla, però les aplicacions del sistema necessiten el Servei d\'accessibilitat, que necessita la pantalla desbloquejada. Amb «Inclou aplicacions del sistema» activat, s\'ometen quan el dispositiu està bloquejat.\n\nDesactiveu «Inclou aplicacions del sistema», o executeu la programació mentre estigui desbloquejat.</string>
     <string name="scheduler_commands_after_schedule_label">Ordres posteriors a la programació</string>
     <string name="scheduler_commands_after_schedule_desc">Ordres del shell d\'Android que s\'executaran al final d\'una programació.</string>
     <string name="scheduler_battery_optimization_hint">Considereu desactivar les optimitzacions de la bateria per a l\'SD Maid si teniu problemes amb l\'execució en segon pla.</string>
-    <!-- Guided tour -->
-    <string name="tour_scheduler_intro_body">SD Maid pot netejar seguint una programació. Tria un horari i quines eines s\'executen, i fa la feina en segon pla, (gairebé) sense necessitat d\'obrir l\'app.</string>
-    <string name="tour_scheduler_create_body">Toca aquí per crear una nova programació, després estableix quan s\'executa i quines eines incloure.</string>
+    <string name="tour_scheduler_intro_body">L\'SD Maid pot netejar seguint una programació. Trieu un horari i quines eines s\'executen, i fa la feina en segon pla, (gairebé) sense necessitat d\'obrir l\'aplicació.</string>
+    <string name="tour_scheduler_create_body">Toqueu aquí per crear una nova programació, després establiu quan s\'executa i quines eines incloure.</string>
 </resources>

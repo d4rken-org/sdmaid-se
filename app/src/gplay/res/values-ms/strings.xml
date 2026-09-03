@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Tidak dapat menyambung ke Google Play. Sila semak sambungan internet anda dan cuba lagi.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Penawaran tidak tersedia</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play tidak menawarkan pilihan peningkatan ini pada masa ini. Sila cuba lagi nanti atau periksa Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Tidak dapat membuka Google Play. Ia mungkin hilang, dimatikan atau dibatasi di peranti ini.</string>
     <string name="upgrades_gplay_already_owned_error_title">Sudah dibeli</string>
     <string name="upgrades_gplay_already_owned_error_description">Gunakan pilihan \"Pulihkan pembelian\" untuk memulihkan pembelian anda. Jika masalah berterusan, cuba kosongkan cache Google Play dan mulakan semula peranti anda.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Dapatkan %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid tidak mempunyai iklan dan tidak menjual data pengguna. Kerja saya dibiayai oleh anda ❤️.</string>
     <string name="upgrade_screen_benefits_title">Faedah peningkatan</string>

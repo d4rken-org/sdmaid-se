@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">فلٹر شدہ: %1$s</string>
     <string name="swiper_session_no_matching_files">کوئی مماثل فائلیں نہیں ملیں</string>
     <string name="swiper_open_externally_action">بیرونی ایپ میں کھولیں</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">فائل کو سوائپ کریں اس کے بارے میں فیصلہ کرنے کے لیے: ایک طرف سے رکھیں یا ڈیلیٹ کریں، اوپر سے چھوڑ دیں، نیچے سے واپسی کریں۔ نیچے کے بٹن بھی یہی کام کرتے ہیں — اور دکھاتے ہیں کہ کون سی طرف کیا ہے۔</string>
     <string name="tour_swiper_openin_body">یہ بٹن فائل کو کسی اور ایپ میں کھولتا ہے، فیصلہ کرنے سے پہلے اسے دیکھنے کے لیے آسان۔</string>
     <string name="tour_swiper_preview_body">یہ بٹن قریب سے دیکھنے کے لیے ایک مکمل اسکرین پیش نظارہ کھولتا ہے۔</string>

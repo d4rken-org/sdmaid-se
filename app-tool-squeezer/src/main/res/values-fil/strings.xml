@@ -29,6 +29,18 @@
         <item quantity="one">%d file na na-skip (HDR/depth preserved)</item>
         <item quantity="other">%d files na na-skip (HDR/depth preserved)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d na-skip (Motion Photo)</item>
+        <item quantity="other">%d na-skip (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d na-skip (napakalalaking larawan)</item>
+        <item quantity="other">%d na-skip (napakalalaking mga larawan)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d na-skip (protektado)</item>
+        <item quantity="other">%d na-skip (protektado)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item ang napili</item>
         <item quantity="other">%d mga item ang napili</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Pangkalahatan</string>
     <string name="squeezer_quality_description">Ang mas mababang kalidad ay nangangahulugang mas maliit na laki ng file ngunit nabawasan ang visual na kalidad.</string>
     <string name="squeezer_types_category_label">Mga setting ng larawan</string>
+    <string name="squeezer_protected_category_label">Ano ang mawawala</string>
     <string name="squeezer_video_settings_category_label">Mga setting ng video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Isama ang mga JPEG na larawan (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Kasama ang JPEG images (.jpg, .jpeg). Ang re-encoding ay gumagamit ng built-in JPEG encoder ng Android. Ang petsa, lokasyon, at iba pang EXIF metadata ay napanatili.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Isama ang mga WebP na larawan (.webp).</string>
+    <string name="squeezer_type_webp_description">Kasama ang WebP images (.webp). Ang re-encoding ay gumagamit ng built-in WebP encoder ng Android. Ang petsa, lokasyon, at iba pang EXIF metadata ay napanatili.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Kasama ang HEIC/HEIF na mga larawan (.heic, .heif). Ang petsa, lokasyon, at iba pang EXIF metadata ay napanatili. Ang HDR gain maps, depth data, at Live/Motion Photo siblings ay hindi maaaring panatilihin; ang mga multi-image files ay nilalampas.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Isama ang mga MP4 video file (.mp4).</string>
+    <string name="squeezer_type_video_description">Kasama ang MP4 video files (.mp4). Ang video track ay re-encoded sa mas mababang bitrate ng device\'s own video encoder, ang audio track ay kino-copy nang hindi nagbabago, at ang file ay nananatiling MP4.</string>
     <string name="squeezer_skip_compressed_title">Laktawan ang mga dating na-compress</string>
     <string name="squeezer_skip_compressed_description">Laktawan ang mga file na na-compress na ng SD Maid.</string>
     <string name="squeezer_exif_marker_title">Isulat ang EXIF marker</string>
     <string name="squeezer_exif_marker_description">Magdagdag ng marker sa EXIF user comment field ng larawan upang maiwasan ang muling pag-compress kahit na-clear ang compression history.</string>
     <string name="squeezer_include_lossy_aux_title">I-compress ang HDR &amp; depth na mga larawan</string>
-    <string name="squeezer_include_lossy_aux_description">Naka-off bilang default: ang mga larawan na may HDR gain map o depth/portrait data ay nilalampas upang protektahan ang mga ito. I-enable upang i-compress sila kung posible — mawawalan sila ng kanilang HDR gain map o depth data. Ang ilang multi-image HEIC photos ay nananatiling protektado anuman.</string>
+    <string name="squeezer_include_lossy_aux_description">Kasama ang mga larawan na may HDR o depth data. Ang compression ay nag-aalis nito: ang HDR photos ay nagiging normal na photos, ang portrait photos ay nawawalan ng data na nasa likod ng background blur. Ang multi-image HEIC files ay nananatiling na-skip.</string>
+    <string name="squeezer_include_motion_photos_title">I-compress ang Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Kasama ang Motion Photos. Ang compression ay nagsasayang ng still image at nag-aalis ng video clip.</string>
+    <string name="squeezer_include_oversized_title">I-compress ang napakalalaking mga larawan</string>
+    <string name="squeezer_include_oversized_description">Kasama ang mga larawan na mas malawak o mas mataas kaysa 8192 pixels. Ang compression ay binubawasan din ang kanilang resolution ng kalahati.</string>
     <string name="squeezer_estimated_savings_format">~%s na matitipid</string>
     <string name="squeezer_no_savings_expected">Limitadong matitipid</string>
     <string name="squeezer_current_size_format">Sukat: %s</string>
+    <string name="squeezer_chip_compressed_before">Na-compress</string>
+    <string name="squeezer_chip_hdr_depth">HDR/depth</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Binawasan</string>
+    <string name="squeezer_markers_dialog_title">Tungkol sa mga markang ito</string>
+    <string name="squeezer_markers_compressed_before_description">Ang SD Maid ay na-compress na ang file na ito. Ang pag-compress nito ulit ay nagkakahalaga ng kalidad at nagsasave ng kaunti.</string>
+    <string name="squeezer_markers_hdr_depth_description">Ang larawan na ito ay may HDR o depth data na hindi maaaring panatilihin ng compression. Ang HDR photo ay bumabalik bilang normal na isa, at ang portrait photo ay nawawalan ng depth data na ginagamit para sa background blur.</string>
+    <string name="squeezer_markers_motion_photo_description">Ito ay isang Motion Photo. Ang compression ay nagsasayang ng still image at nag-aalis ng video clip.</string>
+    <string name="squeezer_markers_downscaled_description">Ang larawan na ito ay mas malawak o mas mataas kaysa 8192 pixels. Ang compression ay binubawasan din ang resolution nito ng kalahati.</string>
     <string name="squeezer_compress_action">I-compress</string>
     <string name="squeezer_compress_all_action">I-compress lahat</string>
     <string name="squeezer_preview_dialog_title">Kumpirmahin ang compression</string>
@@ -79,6 +105,11 @@
     <string name="squeezer_compare_action">Tingnan ang paghahambing</string>
     <string name="squeezer_no_example_found">Walang nahanap na larawan sa mga napiling path.</string>
     <string name="squeezer_result_empty_message">Walang nahanap na compressible na media.</string>
+    <string name="squeezer_result_empty_protected">Walang dapat i-compress. Na-skip: %s. Buksan ang matching option sa settings upang isama ang mga ito.</string>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d napakalalaking larawan</item>
+        <item quantity="other">%d napakalalaking mga larawan</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>
         <item quantity="other">%d mga lokasyon ay hindi magagamit para sa compression at inalis. Ang compression ay nangangailangan ng direktang access sa panloob na storage.</item>
@@ -98,7 +129,6 @@
         <item quantity="other">Hindi bababa sa %d araw na edad</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Inaasahang ~%d%% na matitipid para sa JPEG files</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Ang Squeezer ay muling nag-compress ng iyong mga larawan at video upang mabawasan ang espasyo na ginagamit. Ikaw ay nagsasakripisyo ng kaunting kalidad upang makakuha ng mas maraming espasyo. Bawat item ay nagpapakita ng inaasahang pagtitipid, kaya maaari mong magpasya kung alin ang sulit.</string>
     <string name="tour_squeezer_compress_body">I-compress ang lahat nang sabay-sabay dito, o i-tap ang isang item upang bawasan lamang ang iyon. Mahabang-press upang pumili ng marami. Lagi mong makikita ang preview bago magbago ang kahit ano.</string>
 </resources>

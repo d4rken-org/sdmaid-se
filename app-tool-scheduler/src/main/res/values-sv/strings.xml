@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Schemanamn</string>
     <string name="scheduler_schedule_toggle_enabled">Schema är aktiverat</string>
     <string name="scheduler_schedule_toggle_disabled">Schema är inaktiverat</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Inaktivera schemat för att ändra det.</string>
     <string name="scheduler_edit_schedule_action">Redigera schema</string>
     <string name="scheduler_schedule_time_label">Ungefärlig tid</string>
     <string name="scheduler_schedule_repeat_label">Upprepningsintervall i dagar</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Post-schemakommandon</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell-kommandon som kommer att köras i slutet av ett schema.</string>
     <string name="scheduler_battery_optimization_hint">Överväg att inaktivera batterioptimering för SD Maid om du upplever problem med bakgrundskörning.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid kan rengöra enligt ett schema. Välj en tid och vilka verktyg som ska köras, så utför det arbetet i bakgrunden – nästan utan att behöva öppna appen.</string>
     <string name="tour_scheduler_create_body">Tryck här för att skapa ett nytt schema, ange sedan när det ska köras och vilka verktyg som ska ingå.</string>
 </resources>

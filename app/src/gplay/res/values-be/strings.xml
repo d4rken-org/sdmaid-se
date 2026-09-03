@@ -14,15 +14,13 @@
     <string name="upgrades_gplay_network_error_description">Немагчыма падключыцца да Google Play. Праверце падключэнне да Інтэрнэту і паспрабуйце яшчэ раз.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Прапанова недаступная</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play цяпер не прапаноўвае гэтую опцыю абнаўлення. Калі ласка, паспрабуйце пазней ці праверце Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Не ўдалося адкрыць Google Play. Магчыма, ён адсутнічае, адключаны або абмежаваны на гэтай прыладзе.</string>
     <string name="upgrades_gplay_already_owned_error_title">Ужо набыта</string>
     <string name="upgrades_gplay_already_owned_error_description">Каб аднавіць сваю пакупку, выкарыстайце опцыю \"Аднавіць пакупку\". Калі праблема не знікне, паспрабуйце ачысціць кэш Google Play і перазагрузіць прыладу.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Атрымаць %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid не змяшчае рэкламы і не прадае даныя карыстальнікаў. Мая праца фінансуецца вамі ❤️.</string>
     <string name="upgrade_screen_benefits_title">Перавагі абнаўлення</string>
-    <string name="upgrade_screen_benefits_body">• Ачыстка кэша і смецця прыкладанняў\n• Выдаленне дублікатаў файлаў\n• Сцісканне фота і відэа\n• Разбор старых файлаў пры дапамозе жэстаў\n• Ачыстка ў адзін дотык праз віджэт\n• Планаванне ачысткі\n• Уласныя фільтры і правілы\n• Тэндэнцыі і гісторыя сховішча\n• Больш магчымасцей і кіравання ва ўсёй праграме\n• Падтрымка далейшай распрацоўкі</string>
+    <string name="upgrade_screen_benefits_body">• Ачыстка кэша і смецця праграм\n• Выдаленне дублікатаў файлаў\n• Сцісканне фота і відэа\n• Разбор старых файлаў пры дапамозе жэстаў\n• Ачыстка ў адзін дотык праз віджэт\n• Планаванне ачысткі\n• Уласныя фільтры і правілы\n• Тэндэнцыі і гісторыя сховішча\n• Больш магчымасцей і кіравання ва ўсёй праграме\n• Падтрымка далейшай распрацоўкі</string>
     <string name="upgrade_screen_offers_title">Варыянты абнаўлення</string>
     <string name="upgrade_screen_offers_body">Аднолькавыя функцыі, толькі розныя мадэлі коштаў.</string>
     <string name="upgrade_screen_offers_or">або</string>

@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Не удалось подключиться к Google Play. Пожалуйста, проверьте подключение к интернету и повторите попытку.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Предложение недоступно</string>
     <string name="upgrades_gplay_offer_unavailable_description">В настоящее время Google Play не предлагает эту опцию обновления. Пожалуйста, повторите попытку позже или проверьте Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Не удалось открыть Google Play. Возможно, он отсутствует, отключен или недоступен на этом устройстве.</string>
     <string name="upgrades_gplay_already_owned_error_title">Уже приобретено</string>
     <string name="upgrades_gplay_already_owned_error_description">Используйте опцию \"Восстановить покупку\" для восстановления. Если проблема не устранена, попробуйте очистить кэш Google Play и перезагрузить устройство.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Получить %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid не содержит рекламы и не продает данные пользователей. Моя работа финансируется Вами ❤️.</string>
     <string name="upgrade_screen_benefits_title">Преимущества обновления</string>
@@ -57,7 +55,7 @@
     <string name="upgrade_screen_sub_still_renewing_message">Google Play сообщает, что Ваша подписка по-прежнему установлена на автоматическое продление. Чтобы совершить единовременную покупку, сначала отмените подписку в Google Play, а затем вернитесь сюда.\n\nТолько что отменили? Дайте Google Play немного времени и попробуйте снова. Также убедитесь, что Вы используете один и тот же аккаунт Google.</string>
     <string name="upgrade_screen_purchase_check_failed_message">Не удалось проверить Ваши покупки в Google Play. Попробуйте ещё раз через некоторое время.</string>
     <string name="upgrade_screen_pending_card_title">Платёж в обработке</string>
-    <string name="upgrade_screen_pending_card_body">Google Play всё ещё обрабатывает твой платёж. Pro разблокируется автоматически, как только платёж будет проведён. Некоторые способы оплаты могут занимать больше времени. Тебе больше ничего не нужно делать.</string>
+    <string name="upgrade_screen_pending_card_body">Google Play всё ещё обрабатывает Ваш платёж. Pro разблокируется автоматически, как только платёж будет проведён. Некоторые способы оплаты могут занимать больше времени. Больше ничего не нужно делать.</string>
     <string name="upgrade_screen_pending_dialog_message">Google Play обнаружил покупку с ожидающим платёжом и всё ещё обрабатывает её. Pro разблокируется автоматически, как только платёж будет проведён.</string>
     <string name="upgrade_screen_restore_success_message">Покупка восстановлена, Ваше обновление Pro активно.</string>
     <string name="upgrade_screen_grace_title">Подтверждение покупки</string>

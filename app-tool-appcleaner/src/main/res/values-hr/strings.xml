@@ -61,6 +61,21 @@
         <item quantity="few">%d potrošne stavke izbrisane</item>
         <item quantity="other">%d potrošnih stavki izbrisano</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d suvišna stavka izbrisana, zaustavljeno jer je zaslon bio isključen ili zaključan</item>
+        <item quantity="few">%d suvišne stavke izbrisane, zaustavljeno jer je zaslon bio isključen ili zaključan</item>
+        <item quantity="other">%d suvišnih stavki izbrisano, zaustavljeno jer je zaslon bio isključen ili zaključan</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d suvišna stavka izbrisana, zaustavljeno zbog pogreške</item>
+        <item quantity="few">%d suvišne stavke izbrisane, zaustavljeno zbog pogreške</item>
+        <item quantity="other">%d suvišnih stavki izbrisano, zaustavljeno zbog pogreške</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d predmemorija još treba uslugu pristupačnosti</item>
+        <item quantity="few">%1$s, %2$d predmemorije još trebaju uslugu pristupačnosti</item>
+        <item quantity="other">%1$s, %2$d predmemorija još treba uslugu pristupačnosti</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Pronađena %d potrošna stavka</item>
         <item quantity="few">Pronađene %d potrošne stavke</item>
@@ -73,8 +88,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Traženje gumba \"Obriši predmemoriju\" (ključne riječi: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Zadane predmemorije</string>
     <string name="appcleaner_item_caches_inaccessible_body">Javne i privatne zadane predmemorije. Nisu izravno dostupne, ali se mogu neizravno izbrisati (npr. putem usluge pristupačnosti).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Izuzeto, ali čišćenje svih aplikacija odjednom ipak briše ove predmemorije</string>
+    <string name="appcleaner_exclusion_limited_title">Izuzeta aplikacija</string>
+    <string name="appcleaner_exclusion_limited_body">Ova je aplikacija izuzeta iz AppCleanera. Čišćenje predmemorije svih aplikacija odjednom koristi Shizukuovo sustavsko čišćenje predmemorije koje ne može izostaviti pojedinačne aplikacije, pa se predmemorija ove aplikacije briše zajedno sa svime ostalim. Utječe samo na predmemoriju prikazanu ovdje; sve ostalo što izuzeće obuhvaća ostaje skriveno i netaknuto.</string>
     <string name="appcleaner_automation_unavailable_title">Usluga pristupačnosti nije dostupna</string>
-    <string name="appcleaner_automation_unavailable_body">Za brisanje nedostupnih predmemorija potrebna je usluga pristupačnosti SD Maida, ali ona nije bila dostupna. Ako je ne želite koristiti: Isključite opciju \"Uključi nedostupne predmemorije\".</string>
+    <string name="appcleaner_automation_unavailable_body">Brisanje ovih predmemorija zahtijeva SD Maidovu uslugu pristupačnosti, ali ona nije bila dostupna.</string>
     <string name="appcleaner_delete_confirmation_message_x">Izbrisati potrošne datoteke za %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Izbrisati potrošne datoteke za %d odabranu aplikaciju?</item>
@@ -91,4 +109,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Prisilno zaustavi prije čišćenja</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Prisilno zaustavi aplikacije prije čišćenja njihove predmemorije. Može pomoći očistiti predmemoriju nekih aplikacija, ali može uzrokovati neispravno ponašanje aplikacija i zahtijevati ručno ponovno pokretanje.</string>
     <string name="appcleaner_progress_force_stopping">Prisilno zaustavljanje aplikacija…</string>
+    <string name="appcleaner_progress_checking_freed_space">Provjera oslobođenog prostora…</string>
 </resources>

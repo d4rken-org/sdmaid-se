@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">فلتەرکراو: %1$s</string>
     <string name="swiper_session_no_matching_files">هیچ فایلێکی گونجاو نەدۆزرایەوە</string>
     <string name="swiper_open_externally_action">لە ئەپی دەرەکی بکەرەوە</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">فایلێک سوایپ بکە بۆ دەرکردنی چارەنووسی: لا تەنیشتەوە بۆ ماوە یان سڕینەوە، بۆ سەرەوە بۆ پێپەڕاندن، بۆ خوارەوە بۆ گێڕاندنەوە. دۆگمەکانی خوارەوە هەمان کارە دەکەن — و نیشان دەدەن کام لا کامە.</string>
     <string name="tour_swiper_openin_body">ئەم دۆگمەیە فایلەکە لە بەرنامەیەکی تردا دەکاتە کراوە، بەکەلک بۆ پشکنینی پێش بڕیاردان.</string>
     <string name="tour_swiper_preview_body">ئەم دکمە پێشبینینێکی پڕشاشە دەکاتەوە بۆ سەیریکی نزیکتر.</string>

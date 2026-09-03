@@ -29,6 +29,18 @@
         <item quantity="one">%d fil sprunget over (HDR/dybde bevaret)</item>
         <item quantity="other">%d filer sprunget over (HDR/dybde bevaret)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d sprunget over (Motion Photo)</item>
+        <item quantity="other">%d sprunget over (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d sprunget over (meget stort billede)</item>
+        <item quantity="other">%d sprunget over (meget store billeder)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d sprunget over (beskyttet)</item>
+        <item quantity="other">%d sprunget over (beskyttet)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element valgt</item>
         <item quantity="other">%d elementer valgt</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Generelt</string>
     <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret visuel kvalitet.</string>
     <string name="squeezer_types_category_label">Billedindstillinger</string>
+    <string name="squeezer_protected_category_label">Hvad går tabt</string>
     <string name="squeezer_video_settings_category_label">Videoindstillinger</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Inkluder JPEG-billeder (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Inkluder JPEG-billeder (.jpg, .jpeg). Genkodning bruger Androids indbyggede JPEG-encoder. Dato, placering og andre EXIF-metadata bevares.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Inkludér WebP-billeder (.Webp).</string>
+    <string name="squeezer_type_webp_description">Inkluder WebP-billeder (.webp). Genkodning bruger Androids indbyggede WebP-encoder. Dato, placering og andre EXIF-metadata bevares.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Inkluder HEIC/HEIF-billeder (.heic, .heif). Dato, placering og anden EXIF-metadata bevares. HDR-forstærkningskort, dybdedata og Live/Motion Photo-søsken kan ikke bevares; multi-image-filer springes over.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Medtag MP4-videofiler (.mp4).</string>
+    <string name="squeezer_type_video_description">Inkluder MP4-videofiler (.mp4). Videosporet genkodes med en lavere bitrate af enhedens egen videoencoder, lydsporet kopieres uændret over, og filen forbliver en MP4-fil.</string>
     <string name="squeezer_skip_compressed_title">Spring tidligere komprimerede over</string>
     <string name="squeezer_skip_compressed_description">Spring filer over, der allerede er komprimeret af SD Maid.</string>
     <string name="squeezer_exif_marker_title">Skriv EXIF-markør</string>
     <string name="squeezer_exif_marker_description">Tilføj en markør til billedets EXIF-brugerkommentarfelt for at forhindre genkomprimering, selvom komprimeringshistorikken ryddes.</string>
     <string name="squeezer_include_lossy_aux_title">Komprimer HDR- og dybdefoto</string>
-    <string name="squeezer_include_lossy_aux_description">Slået fra som standard: billeder med et HDR-forstærkningskort eller dybde-/portrætdata springes over, så de ikke bliver fladtrykkede. Aktivér for at komprimere dem, hvor det er muligt – de mister deres HDR-forstærkningskort eller dybdedata. Nogle multi-image HEIC-billeder forbliver beskyttet uanset hvad.</string>
+    <string name="squeezer_include_lossy_aux_description">Inkluder billeder med HDR- eller dybdedata. Komprimering fjerner disse: HDR-billeder bliver til normale billeder, og portrætbilleder mister de data, der bruges til baggrundssløring. Multi-billed-HEIC-filer springes fortsat over.</string>
+    <string name="squeezer_include_motion_photos_title">Komprimer Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Inkluder Motion Photos. Komprimering bevarer stillbilledet og fjerner videoklippet.</string>
+    <string name="squeezer_include_oversized_title">Komprimer meget store billeder</string>
+    <string name="squeezer_include_oversized_description">Inkluder billeder, der er bredere eller højere end 8192 pixels. Komprimering halverer også deres opløsning.</string>
     <string name="squeezer_estimated_savings_format">~%s besparelse</string>
     <string name="squeezer_no_savings_expected">Begrænset besparelse</string>
     <string name="squeezer_current_size_format">Størrelse: %s</string>
+    <string name="squeezer_chip_compressed_before">Komprimeret</string>
+    <string name="squeezer_chip_hdr_depth">HDR/dybde</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Nedskaleret</string>
+    <string name="squeezer_markers_dialog_title">Om disse markører</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid har allerede komprimeret denne fil. At komprimere den igen koster kvalitet og sparer kun lidt.</string>
+    <string name="squeezer_markers_hdr_depth_description">Dette billede har HDR- eller dybdedata, som komprimering ikke kan bevare. Et HDR-billede bliver til et normalt billede, og et portrætbillede mister de dybdedata, der bruges til baggrundssløring.</string>
+    <string name="squeezer_markers_motion_photo_description">Dette er et Motion Photo. Komprimering bevarer stillbilledet og fjerner videoklippet.</string>
+    <string name="squeezer_markers_downscaled_description">Dette billede er bredere eller højere end 8192 pixels. Komprimering halverer også dets opløsning.</string>
     <string name="squeezer_compress_action">Komprimér</string>
     <string name="squeezer_compress_all_action">Komprimer alle</string>
     <string name="squeezer_preview_dialog_title">Bekræft komprimering</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Vis sammenligning</string>
     <string name="squeezer_no_example_found">Ingen billeder fundet i valgte stier.</string>
     <string name="squeezer_result_empty_message">Ingen komprimerbart medie fundet.</string>
+    <string name="squeezer_result_empty_protected">Intet at komprimere. Sprunget over: %s. Slå den tilsvarende indstilling til i indstillingerne for at inkludere dem.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/dybde-billede</item>
+        <item quantity="other">%d HDR/dybde-billeder</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d meget stort billede</item>
+        <item quantity="other">%d meget store billeder</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d placering kan ikke bruges til komprimering og blev fjernet. Komprimering kræver direkte adgang til det interne lager.</item>
         <item quantity="other">%d placeringer kan ikke bruges til komprimering og blev fjernet. Komprimering kræver direkte adgang til det interne lager.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Mindst %d dage gammel</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimeret ~%d%% besparelser for JPEG-filer</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer komprimerer dine fotos og videoer igen, så de fylder mindre. Du bytter lidt kvalitet for den plads, du får tilbage. Hvert element viser sin estimerede besparelse, så du kan beslutte, hvad der er værd det.</string>
     <string name="tour_squeezer_compress_body">Komprimer alt på én gang her, eller tryk på et enkelt element for kun at formindske det. Langt tryk for at vælge flere. Du ser altid en forhåndsvisning, før der sker noget.</string>
 </resources>

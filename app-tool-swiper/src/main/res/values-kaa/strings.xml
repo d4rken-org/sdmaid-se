@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Súzginen ótkerilgen: %1$s</string>
     <string name="swiper_session_no_matching_files">Sáykes fayllar tabılmadı</string>
     <string name="swiper_open_externally_action">Sırtqı qosılmada ashıw</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Faildi qaytaraw arqalı taqdírín cheship beriń: kóntseń basíp saqlaw yaki óshíruw, órtínе basíp chetlab cuytuw, astıńa basíp qaytаrıw. Astıńdagí tugmálár da shuńday ishlásár jáne qaysi táreptiñ nemedeni kórsetíptu.</string>
     <string name="tour_swiper_openin_body">Bul tugma failní basqa programmada ashíp berídí, anıqlap bermesińde uni tígerip korap bolasız.</string>
     <string name="tour_swiper_preview_body">Bul dügme jaqınıraq kóriw ushın tolıq ekran aldın kóriwin ashadı.</string>

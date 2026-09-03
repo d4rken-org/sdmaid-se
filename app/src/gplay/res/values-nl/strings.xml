@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Kan geen verbinding maken met Google Play. Controleer je internetverbinding en probeer het opnieuw.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Aanbieding niet beschikbaar</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play biedt deze upgrade-optie momenteel niet aan. Probeer het later opnieuw of raadpleeg de Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play kon niet worden geopend. Het is mogelijk dat de app ontbreekt, is uitgeschakeld of beperkingen heeft op dit apparaat.</string>
     <string name="upgrades_gplay_already_owned_error_title">Reeds gekocht</string>
     <string name="upgrades_gplay_already_owned_error_description">Gebruik de optie \'Aankoop herstellen\' om uw aankoop te herstellen. Als het probleem aanhoudt, probeer dan de cache van Google Play te wissen en uw apparaat opnieuw op te starten.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Verkrijg %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid bevat geen advertenties en verkoopt geen gebruikersgegevens. Mijn werk wordt door jou gefinancierd.</string>
     <string name="upgrade_screen_benefits_title">Voordelen van upgrade</string>

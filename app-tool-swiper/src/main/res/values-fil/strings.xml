@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Nai-filter: %1$s</string>
     <string name="swiper_session_no_matching_files">Walang nahanap na katugmang mga file</string>
     <string name="swiper_open_externally_action">Buksan sa panlabas na app</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">I-swipe ang isang file upang magpasya ng kanyang kapalaran: sa gilid upang panatilihin o tanggalin, pataas upang lumipat, pababa upang ibalik. Ang mga button sa ibaba ay gumagawa ng pareho — at ipapakita kung saan ang bawat aksyon.</string>
     <string name="tour_swiper_openin_body">Ang button na ito ay magbubukas ng file sa ibang app, para madaling tingnan ito bago magpasya.</string>
     <string name="tour_swiper_preview_body">Ang button na ito ay nagbubukas ng full-screen preview para sa mas malapit na pagtingin.</string>

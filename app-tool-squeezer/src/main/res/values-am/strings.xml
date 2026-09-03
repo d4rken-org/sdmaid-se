@@ -29,6 +29,18 @@
         <item quantity="one">%d ተዘሏል (HDR/ጥልቅ ተጠብቋል)</item>
         <item quantity="other">%d ተዘሉ (HDR/ጥልቅ ተጠብቁ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d ታልፏል (የተንቀሳቃሽ ፎቶ)</item>
+        <item quantity="other">%d ታልፈዋል (የተንቀሳቃሽ ፎቶዎች)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d ታልፏል (በጣም ትልቅ ፎቶ)</item>
+        <item quantity="other">%d ታልፈዋል (በጣም ትልቅ ፎቶዎች)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d ታልፏል (የተጠበቀ)</item>
+        <item quantity="other">%d ታልፈዋል (የተጠበቀ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ንጥል ተመርጧል</item>
         <item quantity="other">%d ንጥሎች ተመርጠዋል</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">አጠቃላይ</string>
     <string name="squeezer_quality_description">ዝቅተኛ ጥራት ማለት ትንሽ የፋይል መጠን ነው፣ ነገር ግን የምስሉ ጥራት ይቀንሳል።</string>
     <string name="squeezer_types_category_label">የምስል ቅንብሮች</string>
+    <string name="squeezer_protected_category_label">ምን ይጠፋል</string>
     <string name="squeezer_video_settings_category_label">የቪዲዮ ቅንብሮች</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG ምስሎችን (.jpg, .jpeg) ያካትቱ።</string>
+    <string name="squeezer_type_jpeg_description">የJPEG ምስሎችን ያካትቱ (.jpg, .jpeg)። እንደገና ኢንኮድ ማድረግ የAndroid ውስጣዊ የJPEG ኢንኮደር ይጠቀማል። ቀን፣ አካባቢ እና ሌሎች የEXIF ሜታዳታ ይቆያሉ።</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP ምስሎችን (.webp) ያካትቱ።</string>
+    <string name="squeezer_type_webp_description">የWebP ምስሎችን ያካትቱ (.webp)። እንደገና ኢንኮድ ማድረግ የAndroid ውስጣዊ የWebP ኢንኮደር ይጠቀማል። ቀን፣ አካባቢ እና ሌሎች የEXIF ሜታዳታ ይቆያሉ።</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF ምስሎች (.heic, .heif) ያካትቱ። ቀን፣ ቦታ እና ሌሎች EXIF ሜታዳታ ይቀመጣሉ። HDR gain map፣ ጥልቀት ውሂብ እና Live/Motion Photo ተዛማጅ ምስሎች ሊጠብቁ አይችሉም; ብዙ-ምስል ፋይሎች ይዘለላሉ።</string>
     <string name="squeezer_type_video_title">MP4 ቪዲዮ</string>
-    <string name="squeezer_type_video_description">የ MP4 ቪዲዮ ፋይሎችን (.mp4) አካትት።</string>
+    <string name="squeezer_type_video_description">የMP4 ቪዲዮ ፋይሎችን ያካትቱ (.mp4)። የቪዲዮ ትራኩ በመሳሪያው ራሱ የቪዲዮ ኢንኮደር በዝቅተኛ ቢትሬት እንደገና ይኮደዳል፣ የድምጽ ትራኩ ሳይለወጥ ይገለበጣል፣ እና ፋይሉ MP4 ሆኖ ይቆያል።</string>
     <string name="squeezer_skip_compressed_title">ቀድሞ የተጨመቁትን ይዝለሉ</string>
     <string name="squeezer_skip_compressed_description">በ SD Maid አስቀድሞ የተጨናነቁ ፋይሎችን ዝለል።</string>
     <string name="squeezer_exif_marker_title">EXIF ምልክት ይፃፉ</string>
     <string name="squeezer_exif_marker_description">የመጨመቅ ታሪክ ቢጸዳ እንኳን እንደገና መጨመቅን ለመከላከል በምስሉ EXIF የተጠቃሚ አስተያየት መስክ ውስጥ ምልክት ያክሉ።</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; ጥልቀት ፎቶዎች ይጨምቁ</string>
-    <string name="squeezer_include_lossy_aux_description">በነባሪ አጥንቅ: HDR gain map ወይም ጥልቀት/ምስል ውሂብ ያላቸው ፎቶዎች ይዘለላሉ ሊተቀላጩ ስለማይችሉ። ህጋቸውን ለመጨብጥ ያስችሉ ሊሆን ስለሚችል - HDR gain map ወይም ጥልቀት ውሂብ ይሰርሳሉ። አንዳንድ ብዙ-ምስል HEIC ፎቶዎች በማንኛውም ሁኔታ ይጠበቃሉ።</string>
+    <string name="squeezer_include_lossy_aux_description">HDR ወይም ጥልቀት ውሂብ ያላቸውን ፎቶዎች ያካትቱ። መጭመቅ ውሂቡን ያስወግደዋል፦ የHDR ፎቶዎች መደበኛ ፎቶዎች ይሆናሉ፣ የፎቶግራፍ ፎቶዎች ከጀርባ ብዥታቸው ጀርባ ያለውን ውሂብ ያጣሉ። ብዙ-ምስል HEIC ፋይሎች ሳይካተቱ ይቀራሉ።</string>
+    <string name="squeezer_include_motion_photos_title">የተንቀሳቃሽ ፎቶዎችን ጭመቅ</string>
+    <string name="squeezer_include_motion_photos_description">የተንቀሳቃሽ ፎቶዎችን ያካትቱ። መጭመቅ የቆመውን ምስል ይይዛል እና የቪዲዮ ክሊፑን ያስወግዳል።</string>
+    <string name="squeezer_include_oversized_title">በጣም ትልቅ ፎቶዎችን ጭመቅ</string>
+    <string name="squeezer_include_oversized_description">ከ8192 ፒክሰሎች የሰፉ ወይም የረዘሙ ፎቶዎችን ያካትቱ። መጭመቅ ደግሞ ጥራታቸውን በግማሽ ይቀንሳል።</string>
     <string name="squeezer_estimated_savings_format">~%s ቁጠባ</string>
     <string name="squeezer_no_savings_expected">ውስን ቁጠባ</string>
     <string name="squeezer_current_size_format">መጠን: %s</string>
+    <string name="squeezer_chip_compressed_before">ተጨምቋል</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ጥልቀት</string>
+    <string name="squeezer_chip_motion_photo">የተንቀሳቃሽ ፎቶ</string>
+    <string name="squeezer_chip_downscaled">የተቀነሰ ጥራት</string>
+    <string name="squeezer_markers_dialog_title">ስለ እነዚህ ምልክቶች</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ይህን ፋይል አስቀድሞ ጭምቆታል። እንደገና መጭመቅ ጥራትን ያስከፍላል እና ትንሽ ቦታ ብቻ ይቆጥባል።</string>
+    <string name="squeezer_markers_hdr_depth_description">ይህ ፎቶ መጭመቅ ማቆየት የማይችለው HDR ወይም ጥልቀት ውሂብ አለው። የHDR ፎቶ እንደ መደበኛ ፎቶ ይመለሳል፣ እና የፎቶግራፍ ፎቶ ለጀርባ ብዥታ የሚያገለግለውን የጥልቀት ውሂብ ያጣል።</string>
+    <string name="squeezer_markers_motion_photo_description">ይህ የተንቀሳቃሽ ፎቶ ነው። መጭመቅ የቆመውን ምስል ይይዛል እና የቪዲዮ ክሊፑን ያስወግዳል።</string>
+    <string name="squeezer_markers_downscaled_description">ይህ ፎቶ ከ8192 ፒክሰሎች የሰፋ ወይም የረዘመ ነው። መጭመቅ ደግሞ ጥራቱን በግማሽ ይቀንሳል።</string>
     <string name="squeezer_compress_action">ጨምቅ</string>
     <string name="squeezer_compress_all_action">ሁሉንም ጨምቅ</string>
     <string name="squeezer_preview_dialog_title">መጨመቅ ያረጋግጡ</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">ንጽጽር ይመልከቱ</string>
     <string name="squeezer_no_example_found">በተመረጡ ዱካዎች ውስጥ ምንም ምስሎች አልተገኙም።</string>
     <string name="squeezer_result_empty_message">ሊጨናነቅ የሚችል ሚዲያ አልተገኘም።</string>
+    <string name="squeezer_result_empty_protected">የሚጨመቅ ምንም ነገር የለም። የታለፉ፦ %s። ለማካተት በቅንብሮች ውስጥ ተዛማጅ አማራጭን አብራ።</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/ጥልቀት ፎቶ</item>
+        <item quantity="other">%d HDR/ጥልቀት ፎቶዎች</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d የተንቀሳቃሽ ፎቶ</item>
+        <item quantity="other">%d የተንቀሳቃሽ ፎቶዎች</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d በጣም ትልቅ ፎቶ</item>
+        <item quantity="other">%d በጣም ትልቅ ፎቶዎች</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ቦታ ለመጨናነቅ ጥቅም ላይ ሊውል አይችልም እና ተወግዷል። መጨናነቅ ወደ ውስጣዊ ማከማቻ ቀጥተኛ ፍቃድ ያስፈልጋል።</item>
         <item quantity="other">%d ቦታዎች ለመጨናነቅ ጥቅም ላይ ሊውሉ አይችሉም እና ተወግደዋል። መጨናነቅ ወደ ውስጣዊ ማከማቻ ቀጥተኛ ፍቃድ ያስፈልጋል።</item>
@@ -98,7 +137,6 @@
         <item quantity="other">ቢያንስ %d ቀናት የቆየ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ለ JPEG ፋይሎች ግምታውይ ~%d%% ቦታ ቅነሳ</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ፎቶ እና ቪዲዮዎን እንደገና ይጭብርብራል ስለዚህ ቦታ ያኖራል። ትንሽ ጥራትን ለተመለሰው ቦታ ይለዋወጣሉ። እያንዳንዱ ሕዋስ ግምታዊ ቅነሳውን ያሳያል፣ ስለዚህ ምን ዋጋ ያለበት ልትወስኑ ይችላሉ።</string>
     <string name="tour_squeezer_compress_body">ሁሉንም በአንድ ጊዜ ይጨምቁ ወይም አንድ ነገር ይምቱ ትንሽ ለመወገድ። ብዙ ለመምረጥ ክብብ-ይጀኑ። ሁሉ ሊቀያር ቅድሚያ ሁሌ ድምድም ይታያሉ።</string>
 </resources>

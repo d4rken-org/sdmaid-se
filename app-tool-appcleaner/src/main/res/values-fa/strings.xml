@@ -60,6 +60,18 @@
         <item quantity="one">%d مورد قابل مصرف حذف شد</item>
         <item quantity="other">%d مورد قابل مصرف حذف شد</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d مورد حذف شد، متوقف شد زیرا صفحه خاموش یا قفل بود</item>
+        <item quantity="other">%d مورد حذف شد، متوقف شد زیرا صفحه خاموش یا قفل بود</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d مورد حذف شد، متوقف شد به دلیل خطا</item>
+        <item quantity="other">%d مورد حذف شد، متوقف شد به دلیل خطا</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s، %2$d حافظه پنهان نیاز به سرویس دسترسی دارد</item>
+        <item quantity="other">%1$s، %2$d حافظه پنهان نیاز به سرویس دسترسی دارند</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d مورد قابل مصرف یافت شد</item>
         <item quantity="other">%d مورد قابل مصرف یافت شد</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">در حال جستجو برای دکمه \"Clear cache\" (کلید‌واژه: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">کش های پیش فرض</string>
     <string name="appcleaner_item_caches_inaccessible_body">حافظه‌های نهان پیش‌فرض عمومی و خصوصی. به‌طور مستقیم قابل دسترسی نیستند، اما می‌توان به‌طور غیرمستقیم آنها را حذف کرد (به عنوان مثال، از طریق سرویس دسترسی).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">استثناء شده، اما پاکسازی تمام برنامه‌ها این حافظه‌های پنهان را حذف می‌کند</string>
+    <string name="appcleaner_exclusion_limited_title">برنامهٔ استثناء شده</string>
+    <string name="appcleaner_exclusion_limited_body">شما این برنامه را از AppCleaner استثناء کردید. پاکسازی حافظه‌های پنهان برای تمام برنامه‌ها به یک‌باره از سرویس کاهش حافظه پنهان سرتاسری Shizuku استفاده می‌کند، که نمی‌تواند برنامه‌های فردی را حذف کند، بنابراین داده‌های حافظه پنهان این برنامه به‌همراه هر چیز دیگری پاک می‌شود. تنها داده‌های حافظه پنهان نشان‌داده‌شدهٔ در اینجا تحت تأثیر قرار می‌گیرند، و بقیه موارد شامل در استثناء مخفی و دست‌نخورده می‌مانند.</string>
     <string name="appcleaner_automation_unavailable_title">سرویس دسترسی در دسترس نیست</string>
-    <string name="appcleaner_automation_unavailable_body">پاک کردن حافظه‌های نهان غیرقابل دسترسی نیازمند سرویس دسترسی SD Maid است، اما این سرویس در دسترس نبود. اگر نمی‌خواهید از آن استفاده کنید: گزینه \"شامل حافظه‌های نهان غیرقابل دسترسی\" را غیرفعال کنید.</string>
+    <string name="appcleaner_automation_unavailable_body">پاکسازی این حافظه‌های پنهان نیاز به سرویس دسترسی SD Maid دارد، اما آن در دسترس نبود.</string>
     <string name="appcleaner_delete_confirmation_message_x">آیا فایل‌های قابل حذف برای %s حذف شوند؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">توقف اجباری قبل از پاکسازی</string>
     <string name="appcleaner_forcestop_before_clearing_summary">قبل از پاکسازی حافظه نهان، برنامه‌ها را به اجبار متوقف کنید. این می‌تواند به پاکسازی حافظه نهان برخی برنامه‌ها کمک کند، اما ممکن است باعث اختلال در برنامه‌ها شود و نیاز به راه‌اندازی مجدد دستی داشته باشد.</string>
     <string name="appcleaner_progress_force_stopping">در حال توقف اجباری برنامه‌ها…</string>
+    <string name="appcleaner_progress_checking_freed_space">بررسی فضای آزادشده…</string>
 </resources>

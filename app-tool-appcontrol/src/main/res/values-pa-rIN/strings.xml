@@ -81,6 +81,10 @@
         <item quantity="one">%d ਐਪ ਨੂੰ ਟੌਗਲ ਕੀਤਾ ਗਿਆ</item>
         <item quantity="other">%d ਐਪਾਂ ਨੂੰ ਟੌਗਲ ਕੀਤਾ ਗਿਆ</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d ਐਪ ਨੂੰ ਚਾਲੂ ਜਾਂ ਬੰਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</item>
+        <item quantity="other">%d ਐਪਸ ਨੂੰ ਚਾਲੂ ਜਾਂ ਬੰਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">ਆਕਾਰ ਨਿਰਧਾਰਤ ਕਰੋ</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ਹਰੇਕ ਐਪ ਦੇ ਆਕਾਰ ਦਾ ਮੋਟਾ ਅੰਦਾਜ਼ਾ ਲਗਾਓ।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">ਗਤੀਵਿਧੀ ਨਿਰਧਾਰਤ ਕਰੋ</string>

@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">לא ניתן להתחבר ל-Google Play. אנא בדוק את חיבור האינטרנט שלך ונסה שוב.</string>
     <string name="upgrades_gplay_offer_unavailable_title">ההצעה אינה זמינה</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play כרגע לא מציע אפשרות שדרוג זו. אנא נסה שוב מאוחר יותר או בדוק את Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">לא היתה אפשרות לפתוח את Google Play. ייתכן שהוא חסר, מנוטרל או מוגבל במכשיר זה.</string>
     <string name="upgrades_gplay_already_owned_error_title">כבר נרכש</string>
     <string name="upgrades_gplay_already_owned_error_description">השתמש באפשרות \"שחזור רכישה\" כדי לשחזר את הרכישה שלך. אם הבעיה נמשכת, נסה לנקות את המטמון של Google Play ולהפעיל מחדש את המכשיר שלך.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">קבל %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ללא מודעות ואינה מוכרת נתוני משתמשים. העבודה שלי ממומנת על ידך ❤️.</string>
     <string name="upgrade_screen_benefits_title">יתרונות שדרוג</string>

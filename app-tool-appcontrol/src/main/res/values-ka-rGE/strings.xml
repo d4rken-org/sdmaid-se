@@ -81,6 +81,10 @@
         <item quantity="one">%d აპი გადართულია</item>
         <item quantity="other">%d აპი გადართულია</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d აპის ჩართვა ან გამორთვა შეუძლებელია</item>
+        <item quantity="other">%d აპის ჩართვა ან გამორთვა შეუძლებელია</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">ზომების განსაზღვრა</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">თითოეული აპის ზომის დაახლოებითი შეფასება.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">აქტივობის განსაზღვრა</string>

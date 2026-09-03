@@ -61,6 +61,21 @@
         <item quantity="one">%d izlietojams vienums dzēsts</item>
         <item quantity="other">%d izlietojami vienumi dzēsti</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="zero">Dzēsti %d lieko vienumu, apturēts, jo ekrāns bija izslēgts vai bloķēts</item>
+        <item quantity="one">Dzēsts %d liekais vienums, apturēts, jo ekrāns bija izslēgts vai bloķēts</item>
+        <item quantity="other">Dzēsti %d liekie vienumi, apturēts, jo ekrāns bija izslēgts vai bloķēts</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="zero">Dzēsti %d lieko vienumu, apturēts kļūdas dēļ</item>
+        <item quantity="one">Dzēsts %d liekais vienums, apturēts kļūdas dēļ</item>
+        <item quantity="other">Dzēsti %d liekie vienumi, apturēts kļūdas dēļ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="zero">%1$s, %2$d kešatmiņām joprojām nepieciešams pieejamības pakalpojums</item>
+        <item quantity="one">%1$s, %2$d kešatmiņai joprojām nepieciešams pieejamības pakalpojums</item>
+        <item quantity="other">%1$s, %2$d kešatmiņām joprojām nepieciešams pieejamības pakalpojums</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="zero">%d izlietojamu vienumu atrasts</item>
         <item quantity="one">%d izlietojams vienums atrasts</item>
@@ -73,8 +88,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Tiek meklēta poga \"Notīrīt kešatmiņu\" (atslēgvārdi: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Noklusuma kešatmiņas</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiskie un privātie noklusuma kešatmiņas. Nav tiei pieejas, taču var tikt dzēstas netieši (piem., ar pieejamības pakalpojumu).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Izslēgta no tīrīšanas, taču, tīrīt visas lietotnes uzreiz, šīs kešatmiņas joprojām tiek notīrītas</string>
+    <string name="appcleaner_exclusion_limited_title">Izslēgta lietotne</string>
+    <string name="appcleaner_exclusion_limited_body">Tu izslēdzi šo lietotni no AppCleaner. Visu lietotņu kešatmiņas tīrīšana vienlaicīgi izmanto Shizuku sistēmas mēroga kešatmiņas tīrīšanu, kas nevar atstāt atsevišķas lietotnes ārā, tāpēc šīs lietotnes kešatmiņas dati tiek notīrīti kopā ar visu pārējo. Tas ietekmē tikai šeit redzamos kešatmiņas datus, viss pārējais, uz ko attiecas izslēgšana, paliek paslēpts un neskarts.</string>
     <string name="appcleaner_automation_unavailable_title">Pieejamības pakalpojums nav pieejams</string>
-    <string name="appcleaner_automation_unavailable_body">Nepieejamo kešatmiņu notīrīšanai nepieciešams SD Maid pieejamības pakalpojums, taču tas nebija pieejams. Ja to nevlies izmantot: atspējojiet opciju \"Iekļaut nepieejamās kešatmiņas\".</string>
+    <string name="appcleaner_automation_unavailable_body">Šo kešatmiņu tīrīšanai nepieciešams SD Maid pieejamības pakalpojums, taču tas nebija pieejams.</string>
     <string name="appcleaner_delete_confirmation_message_x">Dzēst iztērējamos failus lietotnei %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="zero">Dzēst iztērējamos failus %d atlasītām lietotnēm?</item>
@@ -91,4 +109,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Pārtraukt piemērotu apturēšanu pirms notīrīšanas</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Piemēroti apturēt lietotnes pirms kešatmiņas notīrīšanas. Tas var palīdzēt iztīrīt dažu lietotnes kešatmiņu, taču var izraisīt neparastu uzvedību un nepieciesamibu lietotni restartot manuāli.</string>
     <string name="appcleaner_progress_force_stopping">Piemērota lietotnes apturēšana…</string>
+    <string name="appcleaner_progress_checking_freed_space">Pārbauda atbrīvoto vietu…</string>
 </resources>

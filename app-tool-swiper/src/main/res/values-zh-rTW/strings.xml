@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">已篩選：%1$s</string>
     <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
     <string name="swiper_open_externally_action">在外部應用程式中開啟</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">滑動檔案以決定其命運：向側邊滑動以保留或刪除、向上滑動以跳過、向下滑動以復原。下方的按鈕作用相同，並顯示每一側的用途。</string>
     <string name="tour_swiper_openin_body">此按鈕可在另一個應用程式中開啟檔案，方便您在決定前進行檢查。</string>
     <string name="tour_swiper_preview_body">此按鈕開啟全螢幕預覽以仔細查看。</string>

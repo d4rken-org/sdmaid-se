@@ -29,6 +29,18 @@
         <item quantity="one">%d നിരസിച്ചത് (HDR/ആഴത്തിലുള്ള സംരക്ഷിച്ചത്)</item>
         <item quantity="other">%d നിരസിച്ചത് (HDR/ആഴത്തിലുള്ള സംരക്ഷിച്ചത്)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d ഒഴിവാക്കി (മോഷൻ ഫോട്ടോ)</item>
+        <item quantity="other">%d ഒഴിവാക്കി (മോഷൻ ഫോട്ടോകൾ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d ഒഴിവാക്കി (വളരെ വലിയ ഫോട്ടോ)</item>
+        <item quantity="other">%d ഒഴിവാക്കി (വളരെ വലിയ ഫോട്ടോകൾ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d ഒഴിവാക്കി (സംരക്ഷിതം)</item>
+        <item quantity="other">%d ഒഴിവാക്കി (സംരക്ഷിതം)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ഇനം തിരഞ്ഞെടുത്തു</item>
         <item quantity="other">%d ഇനങ്ങൾ തിരഞ്ഞെടുത്തു</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">പൊതുവായ</string>
     <string name="squeezer_quality_description">കുറഞ്ഞ ഗുണമേൻമ എന്നാൽ ചെറിയ ഫയൽ വലിപ്പം, പക്ഷേ ദൃശ്യ ഗുണമേൻമ കുറയും.</string>
     <string name="squeezer_types_category_label">ചിത്ര ക്രമീകരണങ്ങൾ</string>
+    <string name="squeezer_protected_category_label">എന്ത് നഷ്ടപ്പെടും</string>
     <string name="squeezer_video_settings_category_label">വീഡിയോ ക്രമീകരണങ്ങൾ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG ചിത്രങ്ങൾ (.jpg, .jpeg) ഉൾപ്പെടുത്തുക.</string>
+    <string name="squeezer_type_jpeg_description">JPEG ചിത്രങ്ങൾ (.jpg, .jpeg) ഉൾപ്പെടുത്തുക. റീ-എൻകോഡിംഗ് Android-ന്റെ ബിൽറ്റ്-ഇൻ JPEG എൻകോഡർ ഉപയോഗിക്കുന്നു. തീയതി, സ്ഥാനം, മറ്റ് EXIF മെറ്റാഡാറ്റ എന്നിവ നിലനിർത്തും.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP ചിത്രങ്ങൾ (.webp) ഉൾപ്പെടുത്തുക.</string>
+    <string name="squeezer_type_webp_description">WebP ചിത്രങ്ങൾ (.webp) ഉൾപ്പെടുത്തുക. റീ-എൻകോഡിംഗ് Android-ന്റെ ബിൽറ്റ്-ഇൻ WebP എൻകോഡർ ഉപയോഗിക്കുന്നു. തീയതി, സ്ഥാനം, മറ്റ് EXIF മെറ്റാഡാറ്റ എന്നിവ നിലനിർത്തും.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF ചിത്രങ്ങൾ ഉൾപ്പെടുത്തുക (.heic, .heif). തീയതി, സ്ഥാനം ഒപ്പം മറ്റ് EXIF മെറ്റാഡാറ്റ സൂക്ഷിക്കുന്നു. HDR ഗെയിൻ മാപ്പുകൾ, ആഴത്തിലുള്ള ഡാറ്റ ഒപ്പം ലൈവ്/മോഷൻ ഫോട്ടോ സഹോദരങ്ങൾ സംരക്ഷിക്കാനാകില്ല; മുൾട്ടി-ചിത്ര ഫയലുകൾ നിരസിക്കുന്നു.</string>
     <string name="squeezer_type_video_title">MP4 വീഡിയോ</string>
-    <string name="squeezer_type_video_description">MP4 വീഡിയോ ഫയലുകൾ (.mp4) ഉൾപ്പെടുത്തുക.</string>
+    <string name="squeezer_type_video_description">MP4 വീഡിയോ ഫയലുകൾ (.mp4) ഉൾപ്പെടുത്തുക. വീഡിയോ ട്രാക്ക് ഡിവൈസിന്റെ സ്വന്തം വീഡിയോ എൻകോഡർ ഉപയോഗിച്ച് കുറഞ്ഞ ബിറ്റ്റേറ്റിൽ റീ-എൻകോഡ് ചെയ്യുന്നു, ഓഡിയോ ട്രാക്ക് മാറ്റമില്ലാതെ പകർത്തുന്നു, ഫയൽ ഒരു MP4 ആയി തുടരും.</string>
     <string name="squeezer_skip_compressed_title">മുൻപൎ കമ്പ്രസ് ചെയ്തവ ഒഴിവാക്കുക</string>
     <string name="squeezer_skip_compressed_description">SD Maid ഇതിനകം കംപ്രസ്സ് ചെയ്ത ഫയലുകൾ ഒഴിവാക്കുക.</string>
     <string name="squeezer_exif_marker_title">EXIF മാർക്കർ എഴുതുക</string>
     <string name="squeezer_exif_marker_description">കമ്പ്രഷൻ ചരിത്രം മാർജിക്കപ്പെട്ടാൽപോലും വീണ്ടും കമ്പ്രഷൻ തടയാൻ, ചിത്രത്തിന്റെ EXIF ഉപയോക്തൃ കമ്മെന്റ് ഫീൽഡിൽ ഒരു മാർക്കർ ചേർക്കുക.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; ആഴത്തിലുള്ള ഫോട്ടോകള്‌ കംപ്രസ് ചെയ്യുക</string>
-    <string name="squeezer_include_lossy_aux_description">ഡിഫോൾട്ടായി നിഷ്‌ക്രിയമാണ്: HDR ഗെയിൻ മാപ് അല്ലെങ്കിൽ ഡെപ്ത്/പോർട്രെയ്റ്റ് ഡാറ്റയുള്ള ഫോട്ടോകൾ ഒഴിവാക്കപ്പെടുന്നു, അതിനാൽ അവ നിരപ്പാക്കപ്പെടില്ല. സാധ്യമായിടത്ത് അവ കംപ്രസ് ചെയ്യാൻ സജ്ജമാക്കുക — അവയുടെ HDR ഗെയിൻ മാപ് അല്ലെങ്കിൽ ഡെപ്ത് ഡാറ്റ നഷ്ടപ്പെടും. ചില മൾട്ടി-ചിത്ര HEIC ഫോട്ടോകൾ എന്തായാലും സംരക്ഷിതമായി തുടരും.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR അല്ലെങ്കിൽ ഡെപ്ത് ഡാറ്റയുള്ള ഫോട്ടോകൾ ഉൾപ്പെടുത്തുക. കംപ്രഷൻ അത് നീക്കം ചെയ്യും: HDR ഫോട്ടോകൾ സാധാരണ ഫോട്ടോകളായി മാറും, പോർട്രെയ്റ്റ് ഫോട്ടോകൾക്ക് പശ്ചാത്തല ബ്ലർക്ക് പിന്നിലെ ഡാറ്റ നഷ്ടപ്പെടും. മൾട്ടി-ഇമേജ് HEIC ഫയലുകൾ ഒഴിവാക്കിത്തന്നെ തുടരും.</string>
+    <string name="squeezer_include_motion_photos_title">മോഷൻ ഫോട്ടോകൾ കംപ്രസ് ചെയ്യുക</string>
+    <string name="squeezer_include_motion_photos_description">മോഷൻ ഫോട്ടോകൾ ഉൾപ്പെടുത്തുക. കംപ്രഷൻ സ്റ്റിൽ ഇമേജ് നിലനിർത്തുകയും വീഡിയോ ക്ലിപ്പ് നീക്കം ചെയ്യുകയും ചെയ്യും.</string>
+    <string name="squeezer_include_oversized_title">വളരെ വലിയ ഫോട്ടോകൾ കംപ്രസ് ചെയ്യുക</string>
+    <string name="squeezer_include_oversized_description">8192 പിക്സലിലും വീതിയോ ഉയരമോ കൂടിയ ഫോട്ടോകൾ ഉൾപ്പെടുത്തുക. കംപ്രഷൻ അവയുടെ റെസല്യൂഷനും പകുതിയാക്കും.</string>
     <string name="squeezer_estimated_savings_format">~%s ലാഭം</string>
     <string name="squeezer_no_savings_expected">പരിമിത ലാഭം</string>
     <string name="squeezer_current_size_format">വലുപ്പം: %s</string>
+    <string name="squeezer_chip_compressed_before">കംപ്രസ് ചെയ്തത്</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ഡെപ്ത്</string>
+    <string name="squeezer_chip_motion_photo">മോഷൻ ഫോട്ടോ</string>
+    <string name="squeezer_chip_downscaled">ചെറുതാക്കിയത്</string>
+    <string name="squeezer_markers_dialog_title">ഈ അടയാളങ്ങളെക്കുറിച്ച്</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ഇതിനകം ഈ ഫയൽ കംപ്രസ് ചെയ്തിട്ടുണ്ട്. വീണ്ടും കംപ്രസ് ചെയ്യുന്നത് ഗുണനിലവാരം കുറയ്ക്കുകയും ചെറിയ അളവിൽ മാത്രം സ്ഥലം ലാഭിക്കുകയും ചെയ്യും.</string>
+    <string name="squeezer_markers_hdr_depth_description">ഈ ഫോട്ടോയിൽ കംപ്രഷന് നിലനിർത്താൻ കഴിയാത്ത HDR അല്ലെങ്കിൽ ഡെപ്ത് ഡാറ്റയുണ്ട്. ഒരു HDR ഫോട്ടോ സാധാരണ ഫോട്ടോയായി മാറും, പോർട്രെയ്റ്റ് ഫോട്ടോയ്ക്ക് പശ്ചാത്തല ബ്ലറിനായി ഉപയോഗിക്കുന്ന ഡെപ്ത് ഡാറ്റ നഷ്ടപ്പെടും.</string>
+    <string name="squeezer_markers_motion_photo_description">ഇതൊരു മോഷൻ ഫോട്ടോയാണ്. കംപ്രഷൻ സ്റ്റിൽ ഇമേജ് നിലനിർത്തുകയും വീഡിയോ ക്ലിപ്പ് നീക്കം ചെയ്യുകയും ചെയ്യും.</string>
+    <string name="squeezer_markers_downscaled_description">ഈ ഫോട്ടോ 8192 പിക്സലിലും വീതിയോ ഉയരമോ കൂടിയതാണ്. കംപ്രഷൻ ഇതിന്റെ റെസല്യൂഷനും പകുതിയാക്കും.</string>
     <string name="squeezer_compress_action">കമ്പ്രസ് ചെയ്യുക</string>
     <string name="squeezer_compress_all_action">എല്ലാം കമ്പ്രസ് ചെയ്യുക</string>
     <string name="squeezer_preview_dialog_title">കമ്പ്രഷൻ സ്ഥിരീകരിക്കുക</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">താരതമ്യം കാണുക</string>
     <string name="squeezer_no_example_found">തിരഞ്ഞെടുത്ത പാതകളിൽ ചിത്രങ്ങൾ കണ്ടെത്തിയില്ല.</string>
     <string name="squeezer_result_empty_message">കംപ്രസ്സ് ചെയ്യാവുന്ന മീഡിയ ഒന്നും കണ്ടെത്തിയില്ല.</string>
+    <string name="squeezer_result_empty_protected">കംപ്രസ് ചെയ്യാൻ ഒന്നുമില്ല. ഒഴിവാക്കിയത്: %s. ഇവ ഉൾപ്പെടുത്താൻ സെറ്റിംഗ്സിലെ അനുബന്ധ ഓപ്ഷൻ ഓണാക്കുക.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/ഡെപ്ത് ഫോട്ടോ</item>
+        <item quantity="other">%d HDR/ഡെപ്ത് ഫോട്ടോകൾ</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d മോഷൻ ഫോട്ടോ</item>
+        <item quantity="other">%d മോഷൻ ഫോട്ടോകൾ</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d വളരെ വലിയ ഫോട്ടോ</item>
+        <item quantity="other">%d വളരെ വലിയ ഫോട്ടോകൾ</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">കംപ്രഷനായി %d സ്ഥാനം ഉപയോഗിക്കാനാകില്ല, അത് നീക്കം ചെയ്തു. കംപ്രഷന് ആന്തരിക സ്റ്റോറേജിലേക്ക് നേരിട്ടുള്ള ആക്സസ് ആവശ്യമാണ്.</item>
         <item quantity="other">കംപ്രഷനായി %d സ്ഥാനങ്ങൾ ഉപയോഗിക്കാനാകില്ല, അവ നീക്കം ചെയ്തു. കംപ്രഷന് ആന്തരിക സ്റ്റോറേജിലേക്ക് നേരിട്ടുള്ള ആക്സസ് ആവശ്യമാണ്.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">കുറഞ്ഞത് %d ദിവസം പഴക്കമുള്ളത്</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ഫയലുകൾക്കായി കണക്കാക്കിയ ~%d%% ലാഭം</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer നിങ്ങളുടെ ഫോട്ടോകളും വീഡിയോകളും വീണ്ടും കംപ്രസ്സ് ചെയ്യുന്നതിനാൽ അവ കുറഞ്ഞ സ്ഥലം ഉപയോഗിക്കുന്നു. നിങ്ങൾക്ക് ലഭിക്കുന്ന സ്ഥലത്തിനായി അൽപ്പ ഗുണനിലവാരം കൈമാറുന്നു. ഓരോ ഇനവും അതിന്റെ കണക്കാക്കിയ ലാഭം കാണിക്കുന്നതിനാൽ, എന്താണ് മൂല്യവത്തെന്ന് നിങ്ങൾക്ക് തീരുമാനിക്കാനാകും.</string>
     <string name="tour_squeezer_compress_body">ഇവിടെ ഒരേസമയം എല്ലാം കംപ്രസ് ചെയ്യുക, അല്ലെങ്കിൽ ഒറ്റ ഇനത്തിൽ ടാപ്പ് ചെയ്ത് അത് മാത്രം ചെറുതാക്കുക. പലതും തിരഞ്ഞെടുക്കാൻ ദീർഘനേരം അമർത്തുക. എന്തെങ്കിലും മാറുന്നതിന് മുൻപ് നിങ്ങൾ എപ്പോഴും ഒരു പ്രിവ്യൂ കാണും.</string>
 </resources>

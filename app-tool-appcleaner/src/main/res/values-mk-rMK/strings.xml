@@ -60,6 +60,18 @@
         <item quantity="one">%d непотребна ставка избришана</item>
         <item quantity="other">%d непотребни ставки избришани</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Избришана е %d непотребна ставка, запрено бидејќи екранот беше исклучен или заклучен</item>
+        <item quantity="other">Избришани се %d непотребни ставки, запрено бидејќи екранот беше исклучен или заклучен</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Избришана е %d непотребна ставка, запрено поради грешка</item>
+        <item quantity="other">Избришани се %d непотребни ставки, запрено поради грешка</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, на %2$d кеш сè уште му е потребна услугата за пристапност</item>
+        <item quantity="other">%1$s, на %2$d кешови сè уште им е потребна услугата за пристапност</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d непотребна ставка пронајдена</item>
         <item quantity="other">%d непотребни ставки пронајдени</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Барање копче \"Избриши кеш\" (клучни зборови: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Стандардни кешови</string>
     <string name="appcleaner_item_caches_inaccessible_body">Јавни и приватни стандардни кешови. Не се директно достапни, но може да се избришат индиректно (пр. преку услуга за пристапност).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Исклучена, но чистењето на сите апликации одеднаш сепак ги брише овие кешови</string>
+    <string name="appcleaner_exclusion_limited_title">Исклучена апликација</string>
+    <string name="appcleaner_exclusion_limited_body">Ја исклучивте оваа апликација од AppCleaner. Чистењето кешови за сите апликации одеднаш го користи системското бришење кешови на Shizuku, кое не може да изостави поединечни апликации, па кешираните податоци на оваа апликација се бришат заедно со сите други. Засегнати се само кешираните податоци прикажани тука, сè друго опфатено со исклучувањето останува скриено и недопрено.</string>
     <string name="appcleaner_automation_unavailable_title">Услугата за пристапност е недостапна</string>
-    <string name="appcleaner_automation_unavailable_body">Бришењето на недостапни кешови бара услуга за пристапност на SD Maid, но не беше достапна. Ако не сакате да ја користите: Исклучете ја опцијата \"Вклучи недостапни кешови\".</string>
+    <string name="appcleaner_automation_unavailable_body">Бришењето на овие кешови бара услугата за пристапност на SD Maid, но таа не беше достапна.</string>
     <string name="appcleaner_delete_confirmation_message_x">Избриши непотребни датотеки за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Избриши непотребни датотеки за %d избрана апликација?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудно запирање пред бришење</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудно запрете апликации пред бришење на нивниот кеш. Може да помогне за бришење на кешот на некои апликации, но може да предизвика проблеми и да бара рачно рестартирање.</string>
     <string name="appcleaner_progress_force_stopping">Принудно запирање апликации…</string>
+    <string name="appcleaner_progress_checking_freed_space">Се проверува ослободениот простор…</string>
 </resources>

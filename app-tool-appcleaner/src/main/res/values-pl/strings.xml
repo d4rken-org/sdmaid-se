@@ -62,6 +62,24 @@
         <item quantity="many">Usunięto %d zbędnych elementów</item>
         <item quantity="other">Usunięto %d zbędnych elementów</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Usunięto %d zbędny element, zatrzymano, ponieważ ekran był wyłączony lub zablokowany</item>
+        <item quantity="few">Usunięto %d zbędne elementy, zatrzymano, ponieważ ekran był wyłączony lub zablokowany</item>
+        <item quantity="many">Usunięto %d zbędnych elementów, zatrzymano, ponieważ ekran był wyłączony lub zablokowany</item>
+        <item quantity="other">Usunięto %d zbędnych elementów, zatrzymano, ponieważ ekran był wyłączony lub zablokowany</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Usunięto %d zbędny element, zatrzymano przez błąd</item>
+        <item quantity="few">Usunięto %d zbędne elementy, zatrzymano przez błąd</item>
+        <item quantity="many">Usunięto %d zbędnych elementów, zatrzymano przez błąd</item>
+        <item quantity="other">Usunięto %d zbędnych elementów, zatrzymano przez błąd</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">Pamięć podręczna %1$s, %2$d nadal wymaga usługi ułatwień dostępu</item>
+        <item quantity="few">Pamięć podręczna %1$s, %2$d nadal wymaga usługi ułatwień dostępu</item>
+        <item quantity="many">Pamięć podręczna %1$s, %2$d nadal wymaga usługi ułatwień dostępu</item>
+        <item quantity="other">Pamięć podręczna %1$s, %2$d nadal wymaga usługi ułatwień dostępu</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Znaleziono %d zbędny element</item>
         <item quantity="few">Znaleziono %d zbędne elementy</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść pamięć podręczną\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień dostępu).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Wykluczone, ale jednoczesne czyszczenie wszystkich aplikacji nadal usuwa tę pamięć podręczną</string>
+    <string name="appcleaner_exclusion_limited_title">Wykluczona aplikacja</string>
+    <string name="appcleaner_exclusion_limited_body">Wykluczyłeś tę aplikację z czyszczenia. Wyczyszczenie pamięci podręcznej wszystkich aplikacji jednocześnie powoduje wyczyszczenie pamięci podręcznej Shizuku w całym systemie, co oznacza, że dane z pamięci podręcznej tej aplikacji są czyszczone razem ze wszystkimi innymi. Dotyczy to tylko danych z pamięci podręcznej widocznych tutaj, wszystkie inne dane objęte wykluczeniem pozostają ukryte i nienaruszone.</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień dostępu niedostępna</string>
-    <string name="appcleaner_automation_unavailable_body">Oczyszczanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dostępu dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
+    <string name="appcleaner_automation_unavailable_body">Wyczyszczenie tych pamięci podręcznych wymaga usługi ułatwień dostępu SD Maid, ale nie była ona dostępna.</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Usunąć zbędne pliki dla %d wybranej aplikacji?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Wymuś zatrzymanie przed wyczyszczeniem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Wymuś zatrzymanie aplikacji przed wyczyszczeniem ich pamięci podręcznej. Może to pomóc w wyczyszczeniu pamięci podręcznej niektórych aplikacji, ale może powodować błędne zachowanie aplikacji i wymagać ręcznego restartu.</string>
     <string name="appcleaner_progress_force_stopping">Wymuszanie zatrzymania…</string>
+    <string name="appcleaner_progress_checking_freed_space">Sprawdzanie wolnego miejsca…</string>
 </resources>

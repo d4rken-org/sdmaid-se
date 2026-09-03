@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nòmene de programmadura</string>
     <string name="scheduler_schedule_toggle_enabled">Programmadura abilitada</string>
     <string name="scheduler_schedule_toggle_disabled">Programmadura disabilitada</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Disabilia sa programmazione pro su mudare.</string>
     <string name="scheduler_edit_schedule_action">Modificare programmadura</string>
     <string name="scheduler_schedule_time_label">Ora approssimada</string>
     <string name="scheduler_schedule_repeat_label">Intervallu de ripetitzide in dies</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Comandos a pustis de sa programmadura</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell de Android chi ant a èssere eseguidos a sa fine de una programmadura.</string>
     <string name="scheduler_battery_optimization_hint">Cunsidera de disabilitare is otìmizatziones de baterìa pro SD Maid si esperimentas problemas cun s\'esecutzione in frundu.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid podet limpiere in sa programma. Sceidi unu tempus e cuales obritas irrint, e fait su traballu in fundus, (quasi) non est necessariu abrixi s\'app.</string>
     <string name="tour_scheduler_create_body">Tocca innoghe para creare una noa programma, alora defini candu irrit e cuales obritas includire.</string>
 </resources>

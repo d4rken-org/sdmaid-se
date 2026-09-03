@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">លុប​ធាតុ​ %d ចំនួនអាច​លុប</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">%d ធាតុមិនចាំបាច់ត្រូវបានលុប ហើយបានឈប់ដំណើរការ ដោយសារអេក្រង់បិទ ឬចាក់សោ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">%d ធាតុមិនចាំបាច់ត្រូវបានលុប ហើយបានឈប់ដំណើរការដោយសារកំហុសមួយ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s, ឃ្លាំងសម្ងាត់ %2$d នៅតែត្រូវការសេវាកម្មភាពងាយស្រួល</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">ព័ត័​ %d ធាតុ​ដែល​លុប​បាន។</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">រក​មើល​បុត្តាន់​ ∠លុបកែវិល្ត∡ (ថ្នាកកព្ចៀ​ៈ %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">កែវិល្ត​ត្រូវ​កំពុង់</string>
     <string name="appcleaner_item_caches_inaccessible_body">កែវិល្ត​ត្រូវ​សាធារណះ​នឹង​ហើភ។ មិន​អាច​ចូល​បាន​ត្រង់​ប័តា​ឤឲត ឤឲត​អាច​លុប​បាន​តាម​ញឹក​ (ឧ. តាមរយៈពេល​សើវាកម្ម​ត្រូវហើត).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">បានលើកលែង ប៉ុន្តែការសម្អាតកម្មវិធីទាំងអស់ក្នុងពេលតែមួយនៅតែជម្រះឃ្លាំងសម្ងាត់ទាំងនេះ</string>
+    <string name="appcleaner_exclusion_limited_title">កម្មវិធីដែលបានលើកលែង</string>
+    <string name="appcleaner_exclusion_limited_body">អ្នកបានលើកលែងកម្មវិធីនេះពី AppCleaner។ ការជម្រះឃ្លាំងសម្ងាត់សម្រាប់កម្មវិធីទាំងអស់ក្នុងពេលតែមួយប្រើមុខងារកាត់បន្ថយឃ្លាំងសម្ងាត់ទូទាំងប្រព័ន្ធរបស់ Shizuku ដែលមិនអាចលើកលែងកម្មវិធីនីមួយៗបានទេ ដូច្នេះទិន្នន័យឃ្លាំងសម្ងាត់របស់កម្មវិធីនេះក៏ត្រូវបានជម្រះជាមួយអ្វីៗផ្សេងទៀតដែរ។ មានតែទិន្នន័យឃ្លាំងសម្ងាត់ដែលបង្ហាញនៅទីនេះប៉ុណ្ណោះដែលរងផលប៉ះពាល់ រីឯអ្វីៗផ្សេងទៀតដែលការលើកលែងគ្របដណ្តប់នៅតែលាក់ និងមិនប៉ះពាល់។</string>
     <string name="appcleaner_automation_unavailable_title">សើវាកម្ម​ត្រូវហើត​មិន​អាច​ប្រើ​ប្រាស់​បានទេ</string>
-    <string name="appcleaner_automation_unavailable_body">ការ​លុបកែវិល្ត​ដែល​មិន​អាច​ចូល​បាន​ត្រួវការ​សើវាកម្ម​ត្រូវហើត​ SD Maid ប៉ុន្តែ​វា​មិន​អាច​រក​បាន។ ប័តា​អ្នក​មិន​ចង់​ប្រើ​សើវាកម្ម​នេះ​ៈ​ បិត​ជម្រើស​∠1794ញ្ចូល​កែវិល្ត​ដែល​មិន​អាច​ចូល​បាន∡។</string>
+    <string name="appcleaner_automation_unavailable_body">ការជម្រះឃ្លាំងសម្ងាត់ទាំងនេះទាមទារសេវាកម្មភាពងាយស្រួលរបស់ SD Maid ប៉ុន្តែវាមិនអាចប្រើប្រាស់បានទេ។</string>
     <string name="appcleaner_delete_confirmation_message_x">លុប​កំពិល័​ដែល​លុប​បាន​សម្រួល​ %s៴</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">លុប​កំពិល័​ដែល​លុប​បាន​សម្រួល​កម្មវិធី​ដែល​បាន​ជ្រើស​ចំនួន​ %d ៴</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">បញ្ជប់​កម្មវិធី​មួន​លុប</string>
     <string name="appcleaner_forcestop_before_clearing_summary">បញ្ជប់​កម្មវិធី​មួន​លុបកែវិល្ត។ នេះ​អាច​ជួយ​លុបកែវិល្ត​កម្មវិធី​ខ័ំ​ឤឲត ប៉ុន្តែ​អាច​កើតការ​ដែលកម្មវិធី​ហើជ​នឹង​ត្រូវការ​បន្លើន​ដោយ​​ដែលឯប។</string>
     <string name="appcleaner_progress_force_stopping">កំពុង​បញ្ជប់​កម្មវិធី…</string>
+    <string name="appcleaner_progress_checking_freed_space">កំពុងពិនិត្យទំហំដែលបានដោះលែង…</string>
 </resources>

@@ -29,6 +29,18 @@
         <item quantity="one">%d தவிர்க்கப்பட்டது (HDR/ஆழம் பாதுகாக்கப்பட்டது)</item>
         <item quantity="other">%d தவிர்க்கப்பட்டன (HDR/ஆழம் பாதுகாக்கப்பட்டன)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d தவிர்க்கப்பட்டது (Motion Photo)</item>
+        <item quantity="other">%d தவிர்க்கப்பட்டன (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d தவிர்க்கப்பட்டது (மிகப் பெரிய புகைப்படம்)</item>
+        <item quantity="other">%d தவிர்க்கப்பட்டன (மிகப் பெரிய புகைப்படங்கள்)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d தவிர்க்கப்பட்டது (பாதுகாக்கப்பட்டது)</item>
+        <item quantity="other">%d தவிர்க்கப்பட்டன (பாதுகாக்கப்பட்டவை)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d உருப்படி தேர்ந்தெடுக்கப்பட்டுள்ளது</item>
         <item quantity="other">%d உருப்படிகள் தேர்ந்தெடுக்கப்பட்டுள்ளன</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">போது</string>
     <string name="squeezer_quality_description">குறைந்த தரம் என்பது சிறிய கோப்பு அளவைக் குறிக்கும், ஆனால் காட்சி தரம் குறையும்.</string>
     <string name="squeezer_types_category_label">படம் அமைப்புகள்</string>
+    <string name="squeezer_protected_category_label">எது இழக்கப்படும்</string>
     <string name="squeezer_video_settings_category_label">வீடியோ அமைப்புகள்</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG படங்களைச் (.jpg, .jpeg) சேர்.</string>
+    <string name="squeezer_type_jpeg_description">JPEG படங்களை (.jpg, .jpeg) சேர். மறு-குறியீட்டாக்கம் Android இன் உள்ளமைக்கப்பட்ட JPEG குறியாக்கியைப் பயன்படுத்துகிறது. தேதி, இடம் மற்றும் பிற EXIF மேலோட்டத் தரவு பாதுகாக்கப்படும்.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP படங்களைச் (.webp) சேர்.</string>
+    <string name="squeezer_type_webp_description">WebP படங்களை (.webp) சேர். மறு-குறியீட்டாக்கம் Android இன் உள்ளமைக்கப்பட்ட WebP குறியாக்கியைப் பயன்படுத்துகிறது. தேதி, இடம் மற்றும் பிற EXIF மேலோட்டத் தரவு பாதுகாக்கப்படும்.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF பிம்பங்களை (.heic, .heif) சேர்க்கவும். தேதி, இடம் மற்றும் பிற EXIF மெட்டாடேட்டா வைத்திருக்கப்படும். HDR gain maps, ஆழ் தரவு, மற்றும் Live/Motion Photo உடன் தொடர்புடைய பிம்பங்கள் பாதுகாக்கப்பட முடியாது; பல-பட கோப்புகள் தவிர்க்கப்படுகின்றன.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 வீடியோ கோப்புகளை (.mp4) சேர்க்கவும்.</string>
+    <string name="squeezer_type_video_description">MP4 வீடியோ கோப்புகளை (.mp4) சேர். வீடியோ தடம் சாதனத்தின் சொந்த வீடியோ குறியாக்கியால் குறைந்த பிட்ரேட்டில் மறு-குறியீடு செய்யப்படும், ஆடியோ தடம் மாற்றமின்றி நகலெடுக்கப்படும், மேலும் கோப்பு MP4 ஆகவே இருக்கும்.</string>
     <string name="squeezer_skip_compressed_title">முன்பு சுருக்கப்பட்டவற்றைத் தவிர்</string>
     <string name="squeezer_skip_compressed_description">SD Maid ஆல் ஏற்கனவே சுருக்கப்பட்ட கோப்புகளை தவிர்க்கவும்.</string>
     <string name="squeezer_exif_marker_title">EXIF குறிப்பான் எழுது</string>
     <string name="squeezer_exif_marker_description">சுருக்க வரலாறு அழிக்கப்பட்டாலும் மீண்டும் சுருக்குவதைத் தடுக்க படத்தின் EXIF பயனர் கருத்து புலத்தில் குறிப்பானை இணை.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; ஆழ் புகைப்படங்களை சுருக்கவும்</string>
-    <string name="squeezer_include_lossy_aux_description">முன்னிருப்பாக முடக்கப்பட்டுள்ளது: HDR gain map அல்லது depth/portrait தரவு கொண்ட புகைப்படங்கள் தவிர்க்கப்படுகின்றன, அதனால் அவை தட்டையாக்கப்படமாட்டா. இயன்றவரை அவைகளை சுருக்க இயக்கவும் — அவை தங்களின் HDR gain map அல்லது ஆழ் தரவை இழப்பார்கள். சில பல-பட HEIC புகைப்படங்கள் எப்படியிருந்தாலும் பாதுகாக்கப்பட்டுள்ளன.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR அல்லது ஆழத் தரவு கொண்ட புகைப்படங்களை சேர். சுருக்கம் அதை அகற்றும்: HDR புகைப்படங்கள் சாதாரண புகைப்படங்களாக மாறும், போர்ட்ரைட் புகைப்படங்கள் அவற்றின் பின்னணி மங்கலுர்ப் பின்னால் உள்ள தரவை இழக்கும். பல-பட HEIC கோப்புகள் தவிர்க்கப்பட்டே இருக்கும்.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos ஐ சுருக்கு</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos ஐ சேர். சுருக்கம் நிலைப் படத்தை வைத்திருக்கும், வீடியோ கிளிப்பை அகற்றும்.</string>
+    <string name="squeezer_include_oversized_title">மிகப் பெரிய புகைப்படங்களை சுருக்கு</string>
+    <string name="squeezer_include_oversized_description">8192 பிக்சல்களை விட அகலமான அல்லது உயரமான புகைப்படங்களை சேர். சுருக்கம் அவற்றின் தெளிவுத்திறனையும் பாதியாக் குறைக்கும்.</string>
     <string name="squeezer_estimated_savings_format">~%s மிச்சம்</string>
     <string name="squeezer_no_savings_expected">வரையறுக்கப்பட்ட மிச்சம்</string>
     <string name="squeezer_current_size_format">அளவு: %s</string>
+    <string name="squeezer_chip_compressed_before">சுருக்கப்பட்டது</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ஆழம்</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">குறைக்கப்பட்டது</string>
+    <string name="squeezer_markers_dialog_title">இந்த குறியீடுகள் பற்றி</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ஏற்கனவே இந்த கோப்பை சுருக்கிவிட்டது. மீண்டும் சுருக்குவது தரத்தை இழக்கச் செய்யும், சிறிதளவே சேமிக்கும்.</string>
+    <string name="squeezer_markers_hdr_depth_description">இந்த புகைப்படத்தில் சுருக்கத்தால் வைத்திருக்க முடியாத HDR அல்லது ஆழத் தரவு உள்ளது. ஒரு HDR புகைப்படம் சாதாரணமாக மாறும், மேலும் ஒரு போர்ட்ரைட் புகைப்படம் பின்னணி மங்கலுர்ப்புக்குப் பயன்படுத்தப்படும் ஆழத் தரவை இழக்கும்.</string>
+    <string name="squeezer_markers_motion_photo_description">இது ஒரு Motion Photo. சுருக்கம் நிலைப் படத்தை வைத்திருக்கும், வீடியோ கிளிப்பை அகற்றும்.</string>
+    <string name="squeezer_markers_downscaled_description">இந்த புகைப்படம் 8192 பிக்சல்களை விட அகலாகவோ உயரமாகவோ உள்ளது. சுருக்கம் அதன் தெளிவுத்திறனையும் பாதியாக் குறைக்கும்.</string>
     <string name="squeezer_compress_action">சுருக்கு</string>
     <string name="squeezer_compress_all_action">அனைத்தையும் சுருக்கு</string>
     <string name="squeezer_preview_dialog_title">சுருக்கத்தை உறுதிப்படுத்து</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">ஒப்பீட்டைக் காண்</string>
     <string name="squeezer_no_example_found">தேர்ந்தெடுக்கப்பட்ட பாதைகளில் படங்கள் காணப்படவில்லை.</string>
     <string name="squeezer_result_empty_message">சுருக்கக்கூடிய ஊடகம் எதுவும் கிடைக்கவில்லை.</string>
+    <string name="squeezer_result_empty_protected">சுருக்க எதுவும் இல்லை. தவிர்க்கப்பட்டவை: %s. அவற்றை சேர்க்க அமைப்புகளில் பொருந்தும் விருப்பத்தை இயக்கவும்.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/ஆழ புகைப்படம்</item>
+        <item quantity="other">%d HDR/ஆழ புகைப்படங்கள்</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d மிகப் பெரிய புகைப்படம்</item>
+        <item quantity="other">%d மிகப் பெரிய புகைப்படங்கள்</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d இடத்தை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டது. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>
         <item quantity="other">%d இடங்களை சுருக்கத்திற்கு பயன்படுத்த முடியாது மற்றும் அகற்றப்பட்டன. சுருக்கம் உள் சேமிப்பகத்திற்கு நேரடி அணுகல் தேவைப்படுகிறது.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">குறைந்தது %d நாட்கள் பழமையானது</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG கோப்புகளுக்கு மதிப்பிடப்பட்ட ~%d%% சேமிப்பு</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer உங்கள் புகைப்படங்கள் மற்றும் வீடியோக்களை மீண்டும் சுருக்குகிறது, அதனால் அவை குறைவான இடம் எடுக்கின்றன. நீங்கள் கொஞ்சம் தரத்தை விட்டுக்கொடுத்து கூடுதல் இடத்தைப் பெறுகிறீர்கள். ஒவ்வொரு உருப்படிக்கும் அதன் மதிப்பிடுக்கப்பட்ட சேமிப்பு காட்டப்படுகிறது, அதனால் நீங்கள் என்ன மதிப்பு உள்ளது என்பதை முடிவு செய்யலாம்.</string>
     <string name="tour_squeezer_compress_body">இங்கு எல்லாவற்றையும் ஒரே முறையில் சுருக்கவும், அல்லது ஒரு பொருளை தட்டி அது மட்டும் சுருக்கவும். பல பொருட்களை தேர்வு செய்ய நீண்ட அழுத்தம் செய்யவும். எந்த மாற்றமும் நிகழ்வதற்கு முன் நீங்கள் எப்போழுமும் ஒரு முன்னோட்டத்தைக் காணலாம்.</string>
 </resources>

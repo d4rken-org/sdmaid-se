@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не са намерени съответстващи файлове</string>
     <string name="swiper_open_externally_action">Отвори във външно приложение</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Плъзнете файл, за да решите съдбата му: встрани, за да запазите или изтриете, нагоре, за да пропуснете, надолу, за да отмените. Бутоните по-долу правят същото — и показват коя страна е коя.</string>
     <string name="tour_swiper_openin_body">Този бутон отваря файла в друго приложение, удобно е да го проверите преди да решите.</string>
     <string name="tour_swiper_preview_body">Този бутон отваря предварителен преглед на цял екран за по-близък поглед.</string>

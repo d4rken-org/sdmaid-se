@@ -95,6 +95,12 @@
         <item quantity="many">Przełączono %d aplikacji</item>
         <item quantity="other">Przełączono %d aplikacji</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplikacja nie może być włączona lub wyłączona</item>
+        <item quantity="few">%d aplikacje nie może być włączone lub wyłączone</item>
+        <item quantity="many">%d aplikacji nie może być włączone lub wyłączone</item>
+        <item quantity="other">%d aplikacji nie może być włączone lub wyłączone</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Określ rozmiary</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Uzyskaj przybliżony szacunkowy rozmiar każdej aplikacji.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Określ aktywność</string>

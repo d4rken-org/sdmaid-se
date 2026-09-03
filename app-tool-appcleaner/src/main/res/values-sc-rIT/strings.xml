@@ -60,6 +60,18 @@
         <item quantity="one">%d elementu ispentzìbile cantzelladu</item>
         <item quantity="other">%d elementos ispentzìbiles cantzellados</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d articulu consumabile scumputtu, parada ca sa schermu fuit spurza o frischa</item>
+        <item quantity="other">%d articulos consumabiles scumputtos, parada ca sa schermu fuit spurza o frischa</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d articulu consumabile scumputtu, parada da un errore</item>
+        <item quantity="other">%d articulos consumabiles scumputtos, parada da un errore</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d caché ancora nescessèsita sa servizu de accesibilidade</item>
+        <item quantity="other">%1$s, %2$d cachés ancora nescessitant sa servizu de accesibilidade</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elementu ispentzìbile agatadu</item>
         <item quantity="other">%d elementos ispentzìbiles agatados</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Chirchende butone \"Limpiai cache\" (faeddas crae: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache predefinidas</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache predefinidas púbblicas e privadas. No diretamente atzessìbiles, ma podent èssere cantzelladas indiretamente (pro es. a travessu de servitziu de atzessibilidade).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Escludida, ma sa limpida de tottu de una borta puru limpiat custu caché</string>
+    <string name="appcleaner_exclusion_limited_title">Aplicatzione escludida</string>
+    <string name="appcleaner_exclusion_limited_body">Tue has escludidu custa aplicatzione dae AppCleaner. Sa limpida de cachés pro totu de una borta impiat Shizuku sa caché-trim de sistema entera, qui no potet lassare fora aplicatziones individuas, ita custu aplicatzione sua so datos en cache sunt limpidos insieme cun tothu sas outras. Isceti sa datos en cache mostrados inoghe sunt afectados, totu sas outras cosas sa esclusionde cubertat manent naschida e non toccada.</string>
     <string name="appcleaner_automation_unavailable_title">Servitziu de atzessibilidade non disponìbile</string>
-    <string name="appcleaner_automation_unavailable_body">Sa limpiadela de cache inatzessìbiles riekeret su servitziu de atzessibilidade de SD Maid, ma non fiat disponìbile. Si no lu cheres impreare: Disabilita s\'optzione \"Inclutìghere cache inatzessìbiles\".</string>
+    <string name="appcleaner_automation_unavailable_body">Sa limpida de custu cachés nescessèsita sa servizu de accesibilidade de SD Maid, ma no fuit disponìbile.</string>
     <string name="appcleaner_delete_confirmation_message_x">Cantzellare documentos ispentzìbiles pro %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Cantzellare documentos ispentzìbiles pro %d aplicatzione seletzionada?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Firma a fortza prima de sa limpesa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Firma a fortza is aplicatziones prima de limpiare sa memòria temporànea insoro. Podet agiudare a limpiare sa memòria de àteras aplicatziones, ma podet càusare cumportamentos anòmalos e netzessitare unu torrada a aviare manuale.</string>
     <string name="appcleaner_progress_force_stopping">Firmende a fortza is aplicatziones…</string>
+    <string name="appcleaner_progress_checking_freed_space">Controlindu ispazzu liberadu…</string>
 </resources>

@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Nu se poate conecta la Google Play. Vă rugăm să verificați conexiunea la internet și să încercați din nou.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Ofertă indisponibilă</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play nu oferă în prezent această opțiune de upgrade. Vă rugăm să încercați din nou mai târziu sau verificați Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Nu s-a putut deschide Google Play. Poate să lipsească, să fie dezactivată sau restricționată pe acest dispozitiv.</string>
     <string name="upgrades_gplay_already_owned_error_title">Deja achiziționat</string>
     <string name="upgrades_gplay_already_owned_error_description">Folosiți opțiunea \"Restabiliți achiziția\" pentru a vă restabili achiziția. Dacă problema persistă, încercați să ștergeți memoria cache Google Play și să reporniți dispozitivul.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Obțineți %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid nu are reclame și nu vinde datele utilizatorului. Munca mea este finanțată de tine.</string>
     <string name="upgrade_screen_benefits_title">Beneficii upgrade</string>

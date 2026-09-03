@@ -60,6 +60,18 @@
         <item quantity="one">S\'ha suprimit %d element fungible</item>
         <item quantity="other">S\'han suprimit %d elements reemplaçables</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d element prescindible eliminat, s\'ha aturat perquè la pantalla estava apagada o bloquejada</item>
+        <item quantity="other">%d elements prescindibles eliminats, s\'ha aturat perquè la pantalla estava apagada o bloquejada</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d element prescindible eliminat, s\'ha aturat per un error</item>
+        <item quantity="other">%d elements prescindibles eliminats, s\'ha aturat per un error</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d memòria cau encara necessita el servei d\'accessibilitat</item>
+        <item quantity="other">%1$s, %2$d memòries cau encara necessiten el servei d\'accessibilitat</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">S\'ha trobat %d element prescindible</item>
         <item quantity="other">S\'han trobat %d articles prescindibles</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">S\'està buscant el botó «Esborra la memòria cau» (paraules clau: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Memòries cau per defecte</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Exclosa, però netejar totes les aplicacions alhora encara neteja aquestes memòries cau</string>
+    <string name="appcleaner_exclusion_limited_title">Aplicació exclosa</string>
+    <string name="appcleaner_exclusion_limited_body">Has exclòs aquesta aplicació de l\'AppCleaner. Netejar les memòries cau de totes les aplicacions alhora utilitza la neteja de memòria cau de tot el sistema de Shizuku, que no pot deixar de banda aplicacions individuals, de manera que les dades en memòria cau d\'aquesta aplicació s\'esborren juntament amb la resta. Només es veuen afectades les dades en memòria cau que es mostren aquí; la resta del que cobreix l\'exclusió es manté ocult i intacte.</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>
-    <string name="appcleaner_automation_unavailable_body">L\'eliminació de les memòries cau inaccessibles requereix el servei d\'accessibilitat de l\'SD Maid, però no estava disponible. Si no el voleu utilitzar: desactiveu l\'opció «Inclou memòries cau inaccessibles».</string>
+    <string name="appcleaner_automation_unavailable_body">Netejar aquestes memòries cau requereix el servei d\'accessibilitat de SD Maid, però no estava disponible.</string>
     <string name="appcleaner_delete_confirmation_message_x">Voleu suprimir els fitxers prescindibles per a %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Voleu suprimir els fitxers prescindibles d\'%d aplicacio selecciona?</item>
@@ -84,8 +99,9 @@
     <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha desactivat el botó «Esborra la memòria cau» per a aquesta aplicació. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicació del sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">L\'aplicació de seguretat d\'HyperOS (com.miui.securitycenter) no té el permís d\'estadístiques d\'ús (GET_USAGE_STATS). Això trenca funcions com ara «Esborrar dades» als detalls de l\'aplicació i l\'esborrat de la memòria cau mitjançant l\'accessibilitat. Concediu el permís per restaurar la funcionalitat completa.</string>
-    <string name="appcleaner_automation_compat_forcestop_hint">Això també pot passar si l\'aplicació del sistema \"System UI\" va ser forçada a aturar-se recentment, per exemple per una eina de neteja d\'aplicacions. Android bloqueja els clics de botó automatitzats de SD Maid fins al reinici del dispositiu.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Això també pot passar si l\'aplicació del sistema «IU del sistema» s\'ha bloquejat recentment, p. ex. mitjançant una eina de neteja d\'aplicacions. L\'Android bloqueja llavors les pulsacions automàtiques dels botons de l\'SD Maid fins que reinicieu el dispositiu.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Força l\'aturada abans de netejar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Força l\'aturada de les aplicacions abans d\'esborrar-ne la memòria cau. Pot ajudar a esborrar la memòria cau d\'algunes aplicacions, però pot fer que les aplicacions es comportin malament i calgui reiniciar-les manualment.</string>
     <string name="appcleaner_progress_force_stopping">S\'està forçant l\'aturada d\'aplicacions…</string>
+    <string name="appcleaner_progress_checking_freed_space">Comprovant l\'espai alliberat…</string>
 </resources>

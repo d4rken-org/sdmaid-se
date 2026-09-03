@@ -167,7 +167,6 @@
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Нису пронађене одговарајуће датотеке</string>
     <string name="swiper_open_externally_action">Отвори у спољашњој апликацији</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Превуците датотеку да одлучите: улево или удесно да задржите или избришете, нагоре да прескочите, надоле да опозовете. Дугмићи испод раде исто — и показују која је страна која.</string>
     <string name="tour_swiper_openin_body">Ово дугме отвара датотеку у другој апликацији, практично за проверу пре него што одлучите.</string>
     <string name="tour_swiper_preview_body">Ово дугме отвара преглед преко целог екрана за детаљнији поглед.</string>

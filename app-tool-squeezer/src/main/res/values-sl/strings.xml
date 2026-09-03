@@ -43,6 +43,24 @@
         <item quantity="few">%d datoteke preskočene (HDR/globina ohranjena)</item>
         <item quantity="other">%d datotek preskočenih (HDR/globina ohranjena)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d preskočen (Motion Photo)</item>
+        <item quantity="two">%d preskočena (Motion Photo)</item>
+        <item quantity="few">%d preskočeni (Motion Photo)</item>
+        <item quantity="other">%d preskočenih (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d preskočen (zelo velika fotografija)</item>
+        <item quantity="two">%d preskočena (zelo veliki fotografiji)</item>
+        <item quantity="few">%d preskočeni (zelo velike fotografije)</item>
+        <item quantity="other">%d preskočenih (zelo velikih fotografij)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d preskočen (zaščiten)</item>
+        <item quantity="two">%d preskočena (zaščitena)</item>
+        <item quantity="few">%d preskočeni (zaščiteni)</item>
+        <item quantity="other">%d preskočenih (zaščitenih)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element izbran</item>
         <item quantity="two">%d elementa izbrana</item>
@@ -56,24 +74,38 @@
     <string name="squeezer_compression_settings_label">Splošno</string>
     <string name="squeezer_quality_description">Nižja kakovost pomeni manjšo velikost datoteke, vendar slabšo vizualno kakovost.</string>
     <string name="squeezer_types_category_label">Nastavitve slik</string>
+    <string name="squeezer_protected_category_label">Kaj se izgubi</string>
     <string name="squeezer_video_settings_category_label">Nastavitve videoposnetkov</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Vključi slike JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Vključi JPEG slike (.jpg, .jpeg). Ponovno kodiranje uporablja Androidov vgrajeni JPEG kodirnik. Datum, lokacija in drugi EXIF metapodatki so ohranjeni.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Vključi slike WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Vključi WebP slike (.webp). Ponovno kodiranje uporablja Androidov vgrajeni WebP kodirnik. Datum, lokacija in drugi EXIF metapodatki so ohranjeni.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Vključi slike HEIC/HEIF (.heic, .heif). Datum, lokacija in drugi metapodatki EXIF se ohranijo. Kart ojačitve HDR, podatkov o globini in povezanih datotek Live/Motion Photo ni mogoče ohraniti; datoteke z več slikami so preskočene.</string>
     <string name="squeezer_type_video_title">Videoposnetki MP4</string>
-    <string name="squeezer_type_video_description">Vključi video datoteke MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Vključi MP4 video datoteke (.mp4). Video sled je ponovno kodirana z nižje bitno hitrostjo z Androidovim video kodirnikom, zvočna sled pa ostane nespremenjena. Datoteka ostane MP4.</string>
     <string name="squeezer_skip_compressed_title">Preskoči že stisnjene</string>
     <string name="squeezer_skip_compressed_description">Preskoči datoteke, ki jih je SD Maid že stisnil.</string>
     <string name="squeezer_exif_marker_title">Zapiši oznako EXIF</string>
     <string name="squeezer_exif_marker_description">Dodaj oznako v polje uporabniškega komentarja oznak EXIF, da se prepreči ponovno stiskanje, tudi če je bila zgodovina stiskanja izbrisana.</string>
     <string name="squeezer_include_lossy_aux_title">Stisni fotografije s HDR-om in globino</string>
-    <string name="squeezer_include_lossy_aux_description">Privzeto izklopljeno: fotografije s podatki o ojačitvi HDR ali podatki o globini/portretu se preskočijo, da ne pride do njihove sploščitve.  Omogočite, če jih želite stisniti, kjer je mogoče — izgubile bodo podatke o ojačitvi HDR ali podatke o globini.  Nekatere fotografije HEIC z več slikami ostanejo zaščitene ne glede na nastavitev.</string>
+    <string name="squeezer_include_lossy_aux_description">Vključi fotografije s HDR ali podatki o globini. Kompresija jih odstrani: HDR fotografije postanejo običajne, portretne fotografije izgubijo podatke o globini. Večslojne HEIC datoteke ostanejo preskočene.</string>
+    <string name="squeezer_include_motion_photos_title">Kompresiraj Motion fotografije</string>
+    <string name="squeezer_include_motion_photos_description">Vključi Motion fotografije. Kompresija ohrani mirno sliko in odstrani video posnetek.</string>
+    <string name="squeezer_include_oversized_title">Kompresiraj zelo velike fotografije</string>
+    <string name="squeezer_include_oversized_description">Vključi fotografije, katerih širina ali višina presega 8192 pikslov. Kompresija tudi prepolovi njihovo ločljivost.</string>
     <string name="squeezer_estimated_savings_format">~%s prihranka</string>
     <string name="squeezer_no_savings_expected">Omejen prihranek</string>
     <string name="squeezer_current_size_format">Velikost: %s</string>
+    <string name="squeezer_chip_compressed_before">Komprimirana</string>
+    <string name="squeezer_chip_hdr_depth">HDR/globina</string>
+    <string name="squeezer_chip_motion_photo">Motion fotografija</string>
+    <string name="squeezer_chip_downscaled">Zmanjšana</string>
+    <string name="squeezer_markers_dialog_title">O teh oznakah</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid je to datoteko že kompriminiral. Ponovno kompriminiranje zmanjša kakovost in malo prihrani.</string>
+    <string name="squeezer_markers_hdr_depth_description">Ta fotografija ima HDR ali podatke o globini, ki jih kompresija ne more ohraniti. HDR fotografija postane običajna, portretna fotografija pa izgubi podatke o globini.</string>
+    <string name="squeezer_markers_motion_photo_description">To je Motion fotografija. Kompresija ohrani mirno sliko in odstrani video posnetek.</string>
+    <string name="squeezer_markers_downscaled_description">Ta fotografija je širša ali višja od 8192 pikslov. Kompresija tudi prepolovi njeno ločljivost.</string>
     <string name="squeezer_compress_action">Stisni</string>
     <string name="squeezer_compress_all_action">Stisni vse</string>
     <string name="squeezer_preview_dialog_title">Potrdi stiskanje</string>
@@ -97,6 +129,25 @@
     <string name="squeezer_compare_action">Pokaži primerjavo</string>
     <string name="squeezer_no_example_found">Na izbranih poteh ni bilo mogoče najti slik.</string>
     <string name="squeezer_result_empty_message">Ni stisljive predstavnostne vsebine.</string>
+    <string name="squeezer_result_empty_protected">Nič za kompriminiranje. Preskočeno: %s. Vključi ustrezno možnost v nastavitvah, da jih vključiš.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/globina fotografija</item>
+        <item quantity="two">%d HDR/globina fotografiji</item>
+        <item quantity="few">%d HDR/globina fotografije</item>
+        <item quantity="other">%d HDR/globina fotografij</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion fotografija</item>
+        <item quantity="two">%d Motion fotografiji</item>
+        <item quantity="few">%d Motion fotografije</item>
+        <item quantity="other">%d Motion fotografij</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d zelo velika fotografija</item>
+        <item quantity="two">%d zelo veliki fotografiji</item>
+        <item quantity="few">%d zelo velike fotografije</item>
+        <item quantity="other">%d zelo velikih fotografij</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d lokacije ni mogoče uporabiti za stiskanje in je bila odstranjena. Stiskanje zahteva neposreden dostop do notranjega pomnilnika.</item>
         <item quantity="two">%d lokaciji ni mogoče uporabiti za stiskanje in sta bili odstranjeni. Stiskanje zahteva neposreden dostop do notranjega pomnilnika.</item>
@@ -120,7 +171,6 @@
         <item quantity="other">Vsaj %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ocenjeno ~%d%% prihrankov za datoteke JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ponovno stisne vaše fotografije in video posnetke, da zavzamejo manj prostora. Malo kakovosti zamenjate za prostor, ki ga pridobite. Vsaka postavka prikazuje ocenjeno varčevanje, da se lahko odločite, kaj se splača.</string>
     <string name="tour_squeezer_compress_body">Stisnite vse naenkrat tukaj ali pritisnite en predmet, da ga zmanjšate. Dolgo pritisnite, da izberete več. Pred kakršnimi koli spremembami vedno vidite predogled.</string>
 </resources>

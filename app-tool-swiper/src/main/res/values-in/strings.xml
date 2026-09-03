@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">Difilter: %1$s</string>
     <string name="swiper_session_no_matching_files">Tidak ada file yang cocok ditemukan</string>
     <string name="swiper_open_externally_action">Buka di aplikasi eksternal</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Geser file untuk memutuskan nasibnya: ke samping untuk menyimpan atau menghapus, ke atas untuk melewati, ke bawah untuk membatalkan. Tombol di bawah melakukan hal yang sama — dan menunjukkan sisi mana yang mana.</string>
     <string name="tour_swiper_openin_body">Tombol ini membuka file di aplikasi lain, berguna untuk memeriksanya sebelum memutuskan.</string>
     <string name="tour_swiper_preview_body">Tombol ini membuka pratinjau layar penuh untuk melihat lebih dekat.</string>

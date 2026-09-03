@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Play से कनेक्ट करने में असमर्थ। कृपया अपना इंटरनेट कनेक्शन जांचें और पुनः प्रयास करें।</string>
     <string name="upgrades_gplay_offer_unavailable_title">ऑफर अनुपलब्ध</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play वर्तमान में यह अपग्रेड विकल्प प्रदान नहीं कर रहा है। कृपया बाद में पुनः प्रयास करें या Google Play Store देखें।</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play को खोल नहीं सके। यह आपके डिवाइस पर गायब, अक्षम या प्रतिबंधित हो सकता है।</string>
     <string name="upgrades_gplay_already_owned_error_title">पहले से खरीदा गया</string>
     <string name="upgrades_gplay_already_owned_error_description">अपनी खरीदारी पुनर्स्थापित करने के लिए \"खरीदारी पुनर्स्थापित करें\" विकल्प का उपयोग करें। यदि समस्या बनी रहती है, तो Google Play कैश साफ़ करने और अपना डिवाइस रीस्टार्ट करने का प्रयास करें।</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s प्राप्त करें</string>
     <string name="upgrade_screen_preamble">SD Maid के पास कोई विज्ञापन नहीं है और वह उपयोगकर्ता डेटा नहीं बेचती है। मेरा काम आपके द्वारा वित्तपोषित है ❤️।</string>
     <string name="upgrade_screen_benefits_title">अपग्रेड लाभ</string>

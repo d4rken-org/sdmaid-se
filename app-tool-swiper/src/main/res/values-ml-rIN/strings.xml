@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">ഫിൽട്ടർ ചെയ്തത്: %1$s</string>
     <string name="swiper_session_no_matching_files">യോജിക്കുന്ന ഫയലുകൾ ഒന്നും കണ്ടെത്തിയില്ല</string>
     <string name="swiper_open_externally_action">ബാഹ്യ ആപ്പിൽ തുറക്കുക</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ഫയലിന്റെ ഭാവി തീരുമാനിക്കാൻ അത് സ്വൈപ്പ് ചെയ്യുക: പാർശ്വവായായി സൂക്ഷിക്കാനോ ഇല്ലാതാക്കാനോ, മുകളിലോട്ട് ഒഴിവാക്കാനോ, താഴോട്ട് തിരികെയാക്കാനോ ചെയ്യുക. താഴെയുള്ള ബട്ടണുകള് ഇതേ കാര്യം ചെയ്യുന്നു — കൂടാതെ എത് വശം എതേന്ന് കാണിക്കുന്നു.</string>
     <string name="tour_swiper_openin_body">ഈ ബട്ടൺ ഫയൽ മറ്റൊരു ആപ്പ് തുറക്കുന്നു, തീരുമാനിക്കുന്നതിനുമുമ്പ് അത് പരിശോധിക്കാനായി സൗകര്യകരമാണ്.</string>
     <string name="tour_swiper_preview_body">ഈ ബട്ടൻ സൂക്ഷ്മമായ നോട്ടത്തിനായി പൂർണ്ണ സ്ക്രീൻ പ്രിവ്യൂ തുറക്കുന്നു.</string>

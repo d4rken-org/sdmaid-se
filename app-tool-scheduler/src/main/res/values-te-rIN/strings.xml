@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">శెడ్యూల్ పేరు</string>
     <string name="scheduler_schedule_toggle_enabled">శెడ్యూల్ ప్రారంభించబడింది</string>
     <string name="scheduler_schedule_toggle_disabled">శెడ్యూల్ రద్దు చేయబడింది</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">దీన్ని మార్చడానికి షెడ్యూల్‌ను డిజేబుల్ చేయండి.</string>
     <string name="scheduler_edit_schedule_action">శెడ్యూల్ ఎడిట్ చేయండి</string>
     <string name="scheduler_schedule_time_label">శ్రేణుల సమయం</string>
     <string name="scheduler_schedule_repeat_label">రోజులలో పునరావృత అంతరాలం</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">శెడ్యూల్ తరువాత కామాండ్లు</string>
     <string name="scheduler_commands_after_schedule_desc">శెడ్యూల్ అవసానాన Android shell కామాండ్లు క్రియాన్వయం చేయబడతాయి.</string>
     <string name="scheduler_battery_optimization_hint">మీకు బ్యాక్‌గ్రౌండ్ క్రియాన్వయనంలో సమస్యలు ఎదురైతే, SD Maid కోసం బ్యాటరీ ఆప్టిమైజేషన్‌లను రద్దు చేయడానికి పరిగణించండి.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid షెడ్యూల్‌పై క్లీన్ చేయవచ్చు. సమయం ఎంచుకోండి మరియు ఏ సాధనాలు నడుస్తాయో ఎంచుకోండి, మరియు ఇది బ్యాక్‌గ్రౌండ్‌లో పని చేస్తుంది, (దాదాపు) యాప్‌ను తెరవడానికి ఎటువంటి అవసరం లేదు.</string>
     <string name="tour_scheduler_create_body">కొత్త షెడ్యూల్‌ను సృష్టించడానికి ఇక్కడ నొక్కండి, ఆపై అది ఎప్పుడు నడుస్తుందో మరియు ఏ సాధనాలను చేర్చాలో సెట్ చేయండి.</string>
 </resources>

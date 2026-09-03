@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Kuhlunyiwe: %1$s</string>
     <string name="swiper_session_no_matching_files">Awekho amafayela afanayo atholakalayo</string>
     <string name="swiper_open_externally_action">Vula kusoftware yangaphandle</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Swayela ifayili ukunquma isizathu sayo: ohlangothini ukugcina noma kususa, phezulu ukuskipa, phansi ukukhipha. Imikhompula engezansi yenzela okufanayo — futhi ikhombise izinhlangothi ezihlukene.</string>
     <string name="tour_swiper_openin_body">Leli sikhompula sibuka ifayili kunye nenye inhluluzo, ibalulekile ukuze ubuke phambi kokuchaza.</string>
     <string name="tour_swiper_preview_body">Leli kinobho livula isithombe sokubona okusheshayo sesikrini esiphelele.</string>

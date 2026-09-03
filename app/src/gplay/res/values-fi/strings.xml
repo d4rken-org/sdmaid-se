@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Playhin ei voida yhdistää. Tarkista internetyhteytesi ja yritä uudelleen.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Tarjous ei ole saatavilla</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play ei tällä hetkellä tarjoa tätä päivitysvaihtoehtoa. Yritä uudelleen myöhemmin tai tarkista Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Playn avaaminen ei onnistunut. Se saattaa puuttua, olla poistettu käytöstä tai rajoitettu tällä laitteella.</string>
     <string name="upgrades_gplay_already_owned_error_title">Jo ostettu</string>
     <string name="upgrades_gplay_already_owned_error_description">Käytä \"Palauta ostos\" -vaihtoehtoa palauttaaksesi ostoksesi. Jos ongelma jatkuu, kokeile tyhjentää Google Play -välimuisti ja käynnistää laitteesi uudelleen.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Hanki %1$s</string>
     <string name="upgrade_screen_preamble">SD Maidissa ei ole mainoksia eikä se myy käyttäjätietoja. Työni rahoitetaan sinun toimestasi ❤️.</string>
     <string name="upgrade_screen_benefits_title">Päivityksen edut</string>

@@ -66,8 +66,7 @@
     <string name="corpsefinder_risk_common_chip">Звычайны</string>
     <string name="corpsefinder_markers_dialog_title">Аб гэтых маркерах</string>
     <string name="corpsefinder_markers_dialog_normal_label">Без маркера</string>
-    <string name="corpsefinder_markers_dialog_normal_description">Стандартны рэшткавы файл. Звычайна бяспечна выдаліць — гэтыя файлы належаць прыкладанням, якія больш не ўсталяваныя.</string>
-    <!-- Guided tour -->
+    <string name="corpsefinder_markers_dialog_normal_description">Стандартны рэшткавы файл. Выдаленне звычайна адбываецца бяспечна — гэтыя файлы належаць праграмам, якія ўжо не ўсталяваныя.</string>
     <string name="tour_corpsefinder_intro_body">CorpseFinder знаходзіць даныя, пакінутыя праграмамі, якія вы ўжо выдалілі. Яны больш не належаць ніводнай усталяванай праграме, таму іх выдаленне вызваляе месца. Большасць з іх бяспечна выдаліць, але праверце маркер, калі не ўпэўнены.</string>
-    <string name="tour_corpsefinder_row_body">Кожны элемент — гэта рэшткавыя дадзеныя і прыкладанне, з якога яны паходзяць. Маркер паказвае, наколькі SD Maid упэўнена, што іх бяспечна выдаліць — націсніце ⓘ уверсе, каб даведацца, што азначаюць маркеры.</string>
+    <string name="tour_corpsefinder_row_body">Кожны элемент — гэта рэшткавыя даныя і праграма, з якой яны паходзяць. Маркер паказвае, наколькі SD Maid упэўнена, што іх бяспечна выдаліць — націсніце ⓘ уверсе, каб даведацца, што азначаюць маркеры.</string>
 </resources>

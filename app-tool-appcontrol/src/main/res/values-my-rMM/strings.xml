@@ -74,6 +74,9 @@
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="other">%d အကြေး ဖွစ်ချ/ပိဤက်ချ ချုံးနေစ်သည်</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="other">%d အပ်ပ်လီကေးရှယ်များကို အသုံးပြုနိုင်ခွင့်သို့မဟုတ်ပိတ်ဆို့ခွင့်မပြုနိုင်ပါ</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">အရွယ်အစားများ သတ်မှတ်ရန်</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">အက်ပ်တစ်ခုချင်းစီ၏ အရွယ်အစား ခန့်မှန်းချက် ရယူပါ။</string>
     <string name="appcontrol_settings_module_activity_enabled_label">လုပ်ဆောင်မှု သတ်မှတ်ရန်</string>

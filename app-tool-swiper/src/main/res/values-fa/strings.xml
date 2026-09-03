@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">فیلتر شده: %1$s</string>
     <string name="swiper_session_no_matching_files">فایل مطابقی یافت نشد</string>
     <string name="swiper_open_externally_action">باز کردن در برنامه خارجی</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">یک فایل را اسلاید کنید تا درباره سرنوشت آن تصمیم بگیرید: به‌طرف کنار برای نگه‌داشتن یا حذف، به‌سمت بالا برای پرش، به‌سمت پایین برای لغو. دکمه‌های زیر کار یکسانی انجام می‌دهند — و نشان می‌دهند کدام سمت کدام است.</string>
     <string name="tour_swiper_openin_body">این دکمه فایل را در برنامه‌ای دیگر باز می‌کند، برای بررسی قبل از تصمیم‌گیری مفید است.</string>
     <string name="tour_swiper_preview_body">این دکمه یک پیش‌نمایش تمام‌صفحه را برای نگاهی نزدیک‌تر باز می‌کند.</string>

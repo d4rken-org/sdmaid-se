@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Име на график</string>
     <string name="scheduler_schedule_toggle_enabled">Графикът е активиран</string>
     <string name="scheduler_schedule_toggle_disabled">Графикът е деактивиран</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Изключи графика, за да го промениш.</string>
     <string name="scheduler_edit_schedule_action">Редактиране на график</string>
     <string name="scheduler_schedule_time_label">Приблизително време</string>
     <string name="scheduler_schedule_repeat_label">Интервал на повторение в дни</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">Команди след график</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell команди, които ще бъдат изпълнени в края на график.</string>
     <string name="scheduler_battery_optimization_hint">Помислете за деактивиране на оптимизациите на батерията за SD Maid, ако срещате проблеми с изпълнението на заден план.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid може да чисти по график. Изберете време и кои инструменти да се използват, и то ще работи в фона, (почти) без да отваряте приложението.</string>
     <string name="tour_scheduler_create_body">Докоснете тук, за да създадете нов график, след това определете кога да се изпълнява и кои инструменти да включите.</string>
 </resources>

@@ -81,6 +81,10 @@
         <item quantity="one">%d alkalmazás át lett kapcsolva</item>
         <item quantity="other">%d alkalmazás át lett kapcsolva</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d alkalmazás nem engedélyezhető vagy tiltható le</item>
+        <item quantity="other">%d alkalmazás nem engedélyezhető vagy tiltható le</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Méretek megállapítása</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Egy körülbelüli méret megállapítása minden egyes appnak.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tevékenység megállapítása</string>

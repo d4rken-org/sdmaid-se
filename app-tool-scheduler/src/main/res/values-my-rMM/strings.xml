@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">ဆုံးဆေးအမည့်</string>
     <string name="scheduler_schedule_toggle_enabled">ဆုံးဆေးကို ဖွစ်ချပြီးသည်</string>
     <string name="scheduler_schedule_toggle_disabled">ဆုံးဆေးကို ပိဤက်ချပြီးသည်</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">ပြောင်းလဲရန် အခြိန်ဇယားကိုပိတ်ဆို့ပါ။</string>
     <string name="scheduler_edit_schedule_action">ဆုံးဆေးကို ပြင်န်ဆွဲရန်</string>
     <string name="scheduler_schedule_time_label">ခန့်မှန်းအချား</string>
     <string name="scheduler_schedule_repeat_label">ရက်တွင် ပြန်ပြန်ဆွဲအချား</string>
@@ -42,7 +43,6 @@
     <string name="scheduler_commands_after_schedule_label">ဆုံးဆေးပြီးသော အမှတ်ချစိုး</string>
     <string name="scheduler_commands_after_schedule_desc">ဆုံးဆေးပြီးသောက် ဆုံးဆေးတွင် အလုပ်ဆောင်ချမည်သော Android shell ခြစ်ချများ။</string>
     <string name="scheduler_battery_optimization_hint">နောက်ချတွင် ပြပြီးသော ပြည့်ဟာများရှိပါက SD Maid အတွက် ဘုးတေရဪ အဆေးခြသည်ကို ပိဤက်ချခြင်းမှပြမေကြချသည်။</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid သည် အချိန်ဇယားအလိုက် သန့်ရှင်းနိုင်သည်။ အချိန်နှင့် မည်သည့်ကိရိယာများ အသုံးပြုမည်ကိုရွေးချယ်ပါ။ ၎င်းသည် နောက်ခံတွင် လုပ်ဆောင်ပြီး app ကို (စုံလင်စွာ) ဖွင့်ရန်မလိုအပ်ပါ။</string>
     <string name="tour_scheduler_create_body">အချိန်ဇယားသစ် ဖန်တီးရန် ဤတွင် နှိပ်ပါ။ ထို့နောက် ၎င်းမည်သည့်အချိန်တွင် ပြုလုပ်မည်နှင့် မည်သည့်ကိရိယာများ ထည့်သွင်းမည်ကို သတ်မှတ်ပါ။</string>
 </resources>

@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Pangalan ng schedule</string>
     <string name="scheduler_schedule_toggle_enabled">Naka-enable ang schedule</string>
     <string name="scheduler_schedule_toggle_disabled">Naka-disable ang schedule</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">I-disable ang schedule upang baguhin ito.</string>
     <string name="scheduler_edit_schedule_action">I-edit ang schedule</string>
     <string name="scheduler_schedule_time_label">Humigit-kumulang na oras</string>
     <string name="scheduler_schedule_repeat_label">Ulit-ulitin ang interval sa mga araw</string>
@@ -47,7 +48,6 @@ I-off ang \"Include system apps\", o patakbuhin ang schedule habang naka-unlock.
     <string name="scheduler_commands_after_schedule_label">Mga utos pagkatapos ng iskedyul</string>
     <string name="scheduler_commands_after_schedule_desc">Mga Android shell command na iae-execute sa dulo ng isang schedule.</string>
     <string name="scheduler_battery_optimization_hint">Isaalang-alang ang pag-disable ng battery optimization para sa SD Maid kung makakatagpo ninyo ng mga problema sa background execution.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">Ang SD Maid ay maaaring mag-clean ayon sa schedule. Pumili ng oras at kung aling tools ang tatakbo, at ginagawa nito ang trabaho sa background, (halos) walang pangangailangan na buksan ang app.</string>
     <string name="tour_scheduler_create_body">I-tap dito upang lumikha ng bagong schedule, pagkatapos ay itakda kung kailan ito tatakbo at kung aling tools ang isasama.</string>
 </resources>

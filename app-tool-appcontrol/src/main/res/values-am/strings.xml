@@ -81,6 +81,10 @@
         <item quantity="one">%d መተግበሪያ ተቀይሯል</item>
         <item quantity="other">%d መተግበሪያዎች ተቀይረዋል</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d መተግበሪያ ማንቃት ወይም ማሰናከል አይቻልም</item>
+        <item quantity="other">%d መተግበሪያዎች ማንቃት ወይም ማሰናከል አይቻልም</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">መጠኖችን ወስን</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">የእያንዳንዱ መተግበሪያ መጠን ግምታዊ ገመታ ያግኙ።</string>
     <string name="appcontrol_settings_module_activity_enabled_label">እንቅስቃሴን ወስን</string>

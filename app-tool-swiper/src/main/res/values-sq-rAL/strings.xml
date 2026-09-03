@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtruar: %1$s</string>
     <string name="swiper_session_no_matching_files">Nuk u gjetën skedarë përputhës</string>
     <string name="swiper_open_externally_action">Hap në aplikacion të jashtëm</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Rrëshqisni një skedar për të vendosur fatin e tij: anash për ta mbajtur ose fshirë, lart për ta kaluar, poshtë për ta zhbërë. Butonat më poshtë bëjnë të njëjtën gjë — dhe tregojnë cilën anë përfaqëson çfarë.</string>
     <string name="tour_swiper_openin_body">Ky buton hap skedarin në një aplikacion tjetër, i dobishëm për ta kontrolluar përpara se të vendosni.</string>
     <string name="tour_swiper_preview_body">Ky buton hap një parafytyrim me ekran të plotë për një pamje më të afërt.</string>

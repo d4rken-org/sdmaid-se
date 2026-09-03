@@ -58,8 +58,7 @@
     <string name="corpsefinder_risk_common_chip">Comú</string>
     <string name="corpsefinder_markers_dialog_title">Sobre aquests marcadors</string>
     <string name="corpsefinder_markers_dialog_normal_label">Cap marcador</string>
-    <string name="corpsefinder_markers_dialog_normal_description">Residu estàndard. Generalment segur d\'eliminar — aquests fitxers pertanyen a aplicacions que ja no estan instal·lades.</string>
-    <!-- Guided tour -->
-    <string name="tour_corpsefinder_intro_body">CorpseFinder troba dades deixades per aplicacions que ja heu desinstal·lat. Ja no pertanyen a cap aplicació instal·lada, així que eliminar-les allibera espai. La majoria és segura d\'eliminar, però comproveu el marcador quan no esteu segurs.</string>
-    <string name="tour_corpsefinder_row_body">Cada element mostra dades residuals i l\'app d\'on provenen. El marcador mostra la confiança que té SD Maid que és segur eliminar-lo — toca la ⓘ a la part superior per saber què signifiquen els marcadors.</string>
+    <string name="corpsefinder_markers_dialog_normal_description">Residu estàndard. Generalment segur d\'eliminar: aquests fitxers pertanyen a aplicacions que ja no estan instal·lades.</string>
+    <string name="tour_corpsefinder_intro_body">El Cercador de brossa troba les dades que deixen les aplicacions que ja heu desinstal·lat. Ja no pertany a res instal·lat, de manera que eliminar-lo allibera espai. La majoria d\'elles són segures d\'eliminar, però activeu el marcador quan no n\'estigueu segurs.</string>
+    <string name="tour_corpsefinder_row_body">Cada element són dades sobrants i l\'aplicació d\'on prové. El marcador mostra el grau de confiança que té l\'SD Maid que es pot eliminar de manera segura; toqueu la icona ⓘ a la part superior per saber què signifiquen els marcadors.</string>
 </resources>

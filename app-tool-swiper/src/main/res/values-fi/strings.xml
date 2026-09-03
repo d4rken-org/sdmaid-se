@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Suodatettu: %1$s</string>
     <string name="swiper_session_no_matching_files">Vastaavia tiedostoja ei löydy</string>
     <string name="swiper_open_externally_action">Avaa ulkoisessa sovelluksessa</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Pyyhkäise tiedostoa sen kohtalon määrittämiseksi: sivulle säilyttääksesi tai poistaaksesi, ylös ohittaaksesi, alas peruttaaksesi. Alla olevat painikkeet tekevät saman – ja näyttävät, kumpi puoli tekee mitä.</string>
     <string name="tour_swiper_openin_body">Tämä painike avaa tiedoston toisessa sovelluksessa – kätevää tarkistaa se ennen päätöksentekoa.</string>
     <string name="tour_swiper_preview_body">Tämä painike avaa koko näytön esikatselun tarkempaa katselua varten.</string>

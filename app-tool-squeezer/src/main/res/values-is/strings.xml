@@ -29,6 +29,18 @@
         <item quantity="one">%d sleppt (HDR/dýpt varðveitt)</item>
         <item quantity="other">%d sleppt (HDR/dýpt varðveitt)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d sleppt (Motion Photo)</item>
+        <item quantity="other">%d sleppt (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d sleppt (mjög stór mynd)</item>
+        <item quantity="other">%d sleppt (mjög stórar myndir)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d sleppt (verndað)</item>
+        <item quantity="other">%d sleppt (verndað)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d atriði valið</item>
         <item quantity="other">%d atriðar valin</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Almennt</string>
     <string name="squeezer_quality_description">Lægri gæði þyðir minni skráarstæð en lakari sjónræn gæði.</string>
     <string name="squeezer_types_category_label">Myndastillingar</string>
+    <string name="squeezer_protected_category_label">Hvað tapast</string>
     <string name="squeezer_video_settings_category_label">Myndbandasstillingar</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Taka JPEG myndir (.jpg, .jpeg) með.</string>
+    <string name="squeezer_type_jpeg_description">Taka með JPEG-myndir (.jpg, .jpeg). Endurkóðun notar innbyggða JPEG-kóðara Android. Dagsetning, staðsetning og önnur EXIF-lýsigögn eru varðveitt.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Taka WebP myndir (.webp) með.</string>
+    <string name="squeezer_type_webp_description">Taka með WebP-myndir (.webp). Endurkóðun notar innbyggða WebP-kóðara Android. Dagsetning, staðsetning og önnur EXIF-lýsigögn eru varðveitt.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Taka með HEIC/HEIF myndum (.heic, .heif). Dagsetning, staðsetning og önnur EXIF gögn eru varðveitt. HDR gain maps, dýptargögn og Live/Motion Photo systkin geta ekki verið varðveitt; skrár með mörgum myndum eru sleppar.</string>
     <string name="squeezer_type_video_title">MP4 myndband</string>
-    <string name="squeezer_type_video_description">Taka með MP4 myndbandsskrár (.mp4).</string>
+    <string name="squeezer_type_video_description">Taka með MP4-myndskeið (.mp4). Myndbandsrásin er endurkóðuð með lægri bitahraða af eigin myndbandskóðara tækisins, hljóðrásin er afrituð óbreytt og skráin er áfram MP4.</string>
     <string name="squeezer_skip_compressed_title">Sleppa áður þjöppuðum</string>
     <string name="squeezer_skip_compressed_description">Sleppa skrám sem þgar hafa verið þjappaðar af SD Maid.</string>
     <string name="squeezer_exif_marker_title">Skrifa EXIF merki</string>
     <string name="squeezer_exif_marker_description">Bæta merki við EXIF athugasemdareit myndarinnar til að koma í veg fyrir endurþjöppun jafnvel þótt þjöppunarsaga sé hreinsuð.</string>
     <string name="squeezer_include_lossy_aux_title">Þjaúpa HDR &amp; dýptarmyndum</string>
-    <string name="squeezer_include_lossy_aux_description">Slökkt sjálfgefið: myndir með HDR gain map eða dýptar-/portrett gögnum eru sleppar svo þær verði ekki einfaldar. Virkjaðu til að þjappa þeim þar sem hægt er — þær munu missa HDR gain map eða dýptargögn. Sumar HEIC myndir með mörgum myndum eru ávallt verndaðar.</string>
+    <string name="squeezer_include_lossy_aux_description">Taka með myndir með HDR- eða dýptargögnum. Þjöppun fjarlægir þau: HDR-myndir verða venjulegar myndir og andlitsmyndir missa gögnin á bak við óskýrleika bakgrunnsins. HEIC-skrám með mörgum myndum er áfram sleppt.</string>
+    <string name="squeezer_include_motion_photos_title">Þjappa Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Taka með Motion Photos. Þjöppun heldur kyrrmyndinni og fjarlægir myndskeiðið.</string>
+    <string name="squeezer_include_oversized_title">Þjappa mjög stórum myndum</string>
+    <string name="squeezer_include_oversized_description">Taka með myndir sem eru breiðari eða hærri en 8192 dílar. Þjöppun helmingar einnig upplausn þeirra.</string>
     <string name="squeezer_estimated_savings_format">~%s sparnaður</string>
     <string name="squeezer_no_savings_expected">Takmarkaður sparnaður</string>
     <string name="squeezer_current_size_format">Stærð: %s</string>
+    <string name="squeezer_chip_compressed_before">Þjappað</string>
+    <string name="squeezer_chip_hdr_depth">HDR/dýpt</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Minnkað</string>
+    <string name="squeezer_markers_dialog_title">Um þessi merki</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid hefur þegar þjappað þessari skrá. Að þjappa henni aftur kostar gæði og sparar lítið.</string>
+    <string name="squeezer_markers_hdr_depth_description">Þessi mynd hefur HDR- eða dýptargögn sem þjöppun getur ekki varðveitt. HDR-mynd verður að venjulegri mynd og andlitsmynd missir dýptargögnin sem notuð eru fyrir óskýrleika bakgrunns.</string>
+    <string name="squeezer_markers_motion_photo_description">Þetta er Motion Photo. Þjöppun heldur kyrrmyndinni og fjarlægir myndskeiðið.</string>
+    <string name="squeezer_markers_downscaled_description">Þessi mynd er breiðari eða hærri en 8192 dílar. Þjöppun helmingar einnig upplausn hennar.</string>
     <string name="squeezer_compress_action">Þjappa</string>
     <string name="squeezer_compress_all_action">Þjappa öllum</string>
     <string name="squeezer_preview_dialog_title">Staðfesta þjöppun</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Skoða samanburð</string>
     <string name="squeezer_no_example_found">Engar myndir fundust á völdum slóðum.</string>
     <string name="squeezer_result_empty_message">Ekkert þjáppanlegt efni fannst.</string>
+    <string name="squeezer_result_empty_protected">Ekkert til að þjappa. Sleppt: %s. Kveiktu á samsvarandi valkosti í stillingunum til að taka þau með.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d mynd með HDR/dýptargögnum</item>
+        <item quantity="other">%d myndir með HDR/dýptargögnum</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d mjög stór mynd</item>
+        <item quantity="other">%d mjög stórar myndir</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d staðsetning er ekki hægt að nota til þjöppunar og var fjarlægð. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>
         <item quantity="other">%d staðsetningar eru ekki hægt að nota til þjöppunar og voru fjarlægðar. Þjöppun krefst beinnar aðgangis að innri geymslu.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Um ~%d%% sparnaður fyrir JPEG skrár</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer endurþjappar myndir og myndbönd þín svo þau taki minna pláss. Þú gefur eftir gæðum til að fá pláss til baka. Hver atriði sýnir áætlaðan sparnað, svo þú getur ákveðið hvað borgar sig.</string>
     <string name="tour_squeezer_compress_body">Þjappaðu allt í einu hér, eða þttu á einn hlut til að minnka bara hann. Haltu lengi niðri til að velja marga. Þú munt alltaf sjá forskoðun áður en eitthvað breytist.</string>
 </resources>

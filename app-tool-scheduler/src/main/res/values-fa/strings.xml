@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">نام زمان‌بندی</string>
     <string name="scheduler_schedule_toggle_enabled">برنامه ریز فعال است</string>
     <string name="scheduler_schedule_toggle_disabled">برنامه ریز غیرفعال است</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">برنامهٔ زمان‌بندی را غیرفعال کنید تا آن را تغییر دهید.</string>
     <string name="scheduler_edit_schedule_action">ویرایش زمان‌بندی</string>
     <string name="scheduler_schedule_time_label">زمان تخمینی</string>
     <string name="scheduler_schedule_repeat_label">فاصله تکرار در روزها</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">دستورات پس از زمان‌بندی</string>
     <string name="scheduler_commands_after_schedule_desc">دستورات Android Shell که در پایان یک زمانبندی اجرا خواهند شد.</string>
     <string name="scheduler_battery_optimization_hint">در صورت بروز مشکلات در اجرای پس‌زمینه، غیرفعال کردن بهینه‌سازی باتری برای SD Maid را در نظر بگیرید.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid می‌تواند بر اساس برنامه‌ای پاک‌سازی کند. یک زمان انتخاب کنید و تعیین کنید کدام ابزارها اجرا شوند، و این کار را در پس‌زمینه انجام می‌دهد، (تقریباً) نیازی نیست برنامه را باز کنید.</string>
     <string name="tour_scheduler_create_body">اینجا را لمس کنید تا یک برنامه جدید ایجاد کنید، سپس تعیین کنید چه زمانی اجرا شود و کدام ابزارها را شامل کند.</string>
 </resources>

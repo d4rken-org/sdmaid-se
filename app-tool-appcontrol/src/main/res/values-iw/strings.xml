@@ -41,7 +41,6 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">אפליקציה %d הוסרה</item>
         <item quantity="two">%d אפליקציות הוסרו</item>
-        <item quantity="many">%d אפליקציות הוסרו</item>
         <item quantity="other">%d אפליקציות הוסרו</item>
     </plurals>
     <string name="appcontrol_archive_action">ארכיון</string>
@@ -52,13 +51,11 @@
     <plurals name="appcontrol_archive_confirmation_x">
         <item quantity="one">להעביר %d אפליקציה לארכיון?</item>
         <item quantity="two">להעביר %d אפליקציות לארכיון?</item>
-        <item quantity="many">להעביר %d אפליקציות לארכיון?</item>
         <item quantity="other">להעביר %d אפליקציות לארכיון?</item>
     </plurals>
     <plurals name="appcontrol_archive_result_x">
         <item quantity="one">%d אפליקציה הועברה לארכיון</item>
         <item quantity="two">%d אפליקציות הועברו לארכיון</item>
-        <item quantity="many">%d אפליקציות הועברו לארכיון</item>
         <item quantity="other">%d אפליקציות הועברו לארכיון</item>
     </plurals>
     <string name="appcontrol_restore_action">שחזור</string>
@@ -69,13 +66,11 @@
     <plurals name="appcontrol_restore_confirmation_x">
         <item quantity="one">לשחזר %d אפליקציה?</item>
         <item quantity="two">לשחזר %d אפליקציות?</item>
-        <item quantity="many">לשחזר %d אפליקציות?</item>
         <item quantity="other">לשחזר %d אפליקציות?</item>
     </plurals>
     <plurals name="appcontrol_restore_result_x">
         <item quantity="one">%d אפליקציה שוחזרה</item>
         <item quantity="two">%d אפליקציות שוחזרו</item>
-        <item quantity="many">%d אפליקציות שוחזרו</item>
         <item quantity="other">%d אפליקציות שוחזרו</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">גודל יישום</string>
@@ -86,14 +81,17 @@
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="one">לשנות מצב מופעל/מושבת של אפליקציה %d?</item>
         <item quantity="two">לשנות מצב מופעל/מושבת עבור %d אפליקציות?</item>
-        <item quantity="many">לשנות מצב מופעל/מושבת עבור %d אפליקציות?</item>
         <item quantity="other">לשנות מצב מופעל/מושבת עבור %d אפליקציות?</item>
     </plurals>
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="one">אפליקציה %d שונתה</item>
         <item quantity="two">%d אפליקציות שונו</item>
-        <item quantity="many">%d אפליקציות שונו</item>
         <item quantity="other">%d אפליקציות שונו</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d אפליקציה לא ניתן להפעיל או להשבית</item>
+        <item quantity="two">%d אפליקציות לא ניתן להפעיל או להשבית</item>
+        <item quantity="other">%d אפליקציות לא ניתן להפעיל או להשבית</item>
     </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">קביעת גדלים</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">קבל הערכה גסה של גודל כל אפליקציה.</string>
@@ -105,7 +103,6 @@
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">אפליקציה %d יוצאה</item>
         <item quantity="two">%d אפליקציות יוצאו</item>
-        <item quantity="many">%d אפליקציות יוצאו</item>
         <item quantity="other">%d אפליקציות יוצאו</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">מייצא %s</string>
@@ -118,13 +115,11 @@
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">לכפות עצירת אפליקציה %d?</item>
         <item quantity="two">לכפות עצירת %d אפליקציות?</item>
-        <item quantity="many">לכפות עצירת %d אפליקציות?</item>
         <item quantity="other">לכפות עצירת %d אפליקציות?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="one">אפליקציה %d הופסקה</item>
         <item quantity="two">%d אפליקציות הופסקו</item>
-        <item quantity="many">%d אפליקציות הופסקו</item>
         <item quantity="other">%d אפליקציות הופסקו</item>
     </plurals>
     <string name="appcontrol_automation_title">אוטומטיות בקרת אפליקציה</string>

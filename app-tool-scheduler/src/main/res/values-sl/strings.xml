@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Ime urnika</string>
     <string name="scheduler_schedule_toggle_enabled">Urnik je omogočen.</string>
     <string name="scheduler_schedule_toggle_disabled">Urnik je onemogočen.</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Onemogočite razpored, da ga spremenite.</string>
     <string name="scheduler_edit_schedule_action">Uredi urnik</string>
     <string name="scheduler_schedule_time_label">Približni čas</string>
     <string name="scheduler_schedule_repeat_label">Razmik ponavljanja v dnevih</string>
@@ -45,7 +46,6 @@
     <string name="scheduler_commands_after_schedule_label">Ukazi, ki se izvedejo po urniku</string>
     <string name="scheduler_commands_after_schedule_desc">Ukazi Androidove lupine, ki bodo izvedeni po koncu urnika.</string>
     <string name="scheduler_battery_optimization_hint">Če opazite težave z izvajanjem v ozadju, lahko za SD Maid onemogočite optimizacijo energije.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid lahko čisti po urniku. Izberite čas in katera orodja se izvajajo, aplikacija pa to opravi v ozadju – (skoraj) ni potrebe po odpiranju aplikacije.</string>
     <string name="tour_scheduler_create_body">Pritisnite tukaj za ustvarjanje novega urnika, nato pa nastavite, kdaj se bo izvajal in katera orodja naj vključuje.</string>
 </resources>

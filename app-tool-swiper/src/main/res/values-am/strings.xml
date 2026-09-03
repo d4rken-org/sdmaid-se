@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">ተጣርቷል: %1$s</string>
     <string name="swiper_session_no_matching_files">የሚዛመዱ ፋይሎች አልተገኙም</string>
     <string name="swiper_open_externally_action">በውጫዊ መተግበሪያ ክፈት</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ፋይል ሰሙት ታዳሚውን ወስኑ: ወገን ወገን ለመቆየት ወይም ለመሰረዝ፣ ወደ ላይ ለዝለል፣ ወደ ታች ለመተግበር። ከታች ቁልፍ ተመሳሳይ ይጠቅማሉ - እና የትኛው ወገን ምን እንደሆነ ያሳያሉ።</string>
     <string name="tour_swiper_openin_body">ይህ ቁልፍ ፋይሉን በሌላ መተግበሪያ ይከፍታል፣ ከመወሰንዎ በፊት ለመለካት ጠቃሚ ነው።</string>
     <string name="tour_swiper_preview_body">ይህ ቁልፍ ሙሉ ስክሪን ቅድመ-ይታ ይክፍታል ለቅርብ እይታ።</string>

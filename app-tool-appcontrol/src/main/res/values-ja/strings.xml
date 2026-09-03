@@ -74,6 +74,9 @@
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="other">%d個のアプリの有効・無効を切り替えました</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="other">%d件のアプリは有効化・無効化できません</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">サイズの決定</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">各アプリのサイズの大まかな推定値を取得します。</string>
     <string name="appcontrol_settings_module_activity_enabled_label">アクティビティの決定</string>

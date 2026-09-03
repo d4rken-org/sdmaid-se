@@ -81,6 +81,10 @@
         <item quantity="one">%d toepassing was geskakel</item>
         <item quantity="other">%d toepassings was geskakel</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app kan nie geaktiveer of gedeaktiveer word nie</item>
+        <item quantity="other">%d apps kan nie geaktiveer of gedeaktiveer word nie</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bepaal groottes</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Kry \'n growwe skatting van elke toepassing se grootte.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bepaal aktiwiteit</string>

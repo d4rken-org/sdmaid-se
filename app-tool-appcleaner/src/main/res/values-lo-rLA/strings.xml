@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d ລາຍການທີ່ສາມາຖຖິ້ມໄດ້ຖືກລຶ້</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">ລົບລ້າງ %d ລາຍການສາມາດລົບລ້າງໄດ້, ່ຍຸດເພາະວ່າໝ້າຈໍປິດ ຫຼື ລັອກ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">ລົບລ້າງ %d ລາຍການສາມາດລົບລ້າງໄດ້, ຍຸດເນື່ອງຈາກຂໍ້ຜິດພົດ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s, %2$d cache ຍັງຕ້ອງການບໍລິການຄວາມສາມາດໃນການເຂົ້າເຖິງ</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d ລາຍການທີ່ສາມາຖຖິ້ມໄດ້ພົບ</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">ຊອກຫາປຸ່ມ \"ລ້າງ cache\" (ຄຳສຳຄັນ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">cache ເລີ່ມຕ້ນ</string>
     <string name="appcleaner_item_caches_inaccessible_body">cache ເລີ່ມຕ້ນສາທາລະນະ ແລະສ່ວນຕົວ. ບໍ່ສາມາຖເຂ້າຫາໄດ້ໂດຍກົງ, ແຕ່ສາມາຖລຶ້ໄດ້ທາງອ້ອມ (ເຊ່ນ: ຜ່ານບໍລິການການເຂ້າຫາ).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">ຖືກຍົກເວັ້ນ, ແຕ່ການລົບລ້າງທຸກແອັບພລິເຄຊັ່ນໃນເວລາດຽວກັນຍັງຄົງລົບລ້າງ cache ເຫຼົ່ານີ້</string>
+    <string name="appcleaner_exclusion_limited_title">ແອັບພລິເຄຊັ່ນທີ່ຖືກຍົກເວັ້ນ</string>
+    <string name="appcleaner_exclusion_limited_body">ທ່ານໄດ້ຍົກເວັ້ນແອັບພລິເຄຊັ່ນນີ້ຈາກ AppCleaner. ການລົບລ້າງ cache ສຳລັບທຸກແອັບພລິເຄຊັ່ນໃນເວລາດຽວກັນໃຊ້ຟັງຊັ່ນທໍາລາຍ cache ທົ່ວລະບົບຂອງ Shizuku, ເຊິ່ງບໍ່ສາມາດອອກແອັບພລິເຄຊັ່ນແຕ່ລະອັນໄດ້, ສະນັ້ນ cache ຂອງແອັບພລິເຄຊັ່ນນີ້ຈະຖືກລົບລ້າງພ້ອມກັບທຸກສິ່ງ. ພຽງແຕ່ cache ທີ່ສະແດງຢູ່ນີ້ຈະໄດ້ຮັບຜົນກະທົບ, ສ່ວນອື່ນໆທີ່ການຍົກເວັ້ນກວມຄຸມຍັງຄົງເກັບກຳ ແລະ ບໍ່ມີການປ່ຽນແປງ.</string>
     <string name="appcleaner_automation_unavailable_title">ບໍລິການການເຂ້າຫາບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
-    <string name="appcleaner_automation_unavailable_body">ການລ້າງ cache ທີ່ເຂ້າຫາບໍ່ໄດ້ຕ້ອງການບໍລິການການເຂ້າຫາຂອງ SD Maid, ແຕ່ມັນບໍ່ສາມາຖໃຊ້ງານໄດ້. ຖ້າທ່ານບໍ່ຕ້ອງການໃຊ້: ປິດໃຊ້ຕົວເລືອກ \"ລວມ cache ທີ່ເຂ້າຫາບໍ່ໄດ້\".</string>
+    <string name="appcleaner_automation_unavailable_body">ການລົບລ້າງ cache ເຫຼົ່ານີ້ຕ້ອງການບໍລິການຄວາມສາມາດໃນການເຂົ້າເຖິງຂອງ SD Maid, ແຕ່ມັນບໍ່ມີໃຫ້ໃຊ້.</string>
     <string name="appcleaner_delete_confirmation_message_x">ລຶ້ໄຟລ໌ທີ່ສາມາຖຖິ້ມໄດ້ສຳຫລັບ %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ລຶ້ໄຟລ໌ທີ່ສາມາຖຖິ້ມໄດ້ສຳຫລັບ %d ແອັບທີ່ເລືອກ?</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop ກ່ອນລ້າງ</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Force-stop ແອັບກ່ອນລ້າງ cache. ມັນສາມາຖຊ່ວຍລ້າງ cache ຂອງບາງແອັບ, ແຕ່ອາດເຮັດໃຫ້ແອັບເຮັດວຽກຜິດປົກກະຕິ ແລະຕ້ອງການ restart ດ້ວຍຕົນເອງ.</string>
     <string name="appcleaner_progress_force_stopping">ກຳລັງ Force-stop ແອັບ…</string>
+    <string name="appcleaner_progress_checking_freed_space">ກໍາລັງກວດສອບພື້ນທີ່ທີ່ຖືກປະຫຍັດອອກ…</string>
 </resources>

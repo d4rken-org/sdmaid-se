@@ -81,6 +81,10 @@
         <item quantity="one">%d uygulamanın durumu değiştirildi</item>
         <item quantity="other">%d uygulamanın durumu değiştirildi</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d uygulama etkinleştirilemez veya devre dışı bırakılamaz</item>
+        <item quantity="other">%d uygulama etkinleştirilemez veya devre dışı bırakılamaz</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Boyutları belirle</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Her uygulamanın boyutu hakkında kabaca bir tahminde bulunun.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Faaliyeti belirleyin</string>

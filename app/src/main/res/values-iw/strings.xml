@@ -3,50 +3,31 @@
     <string name="dashboard_delete_all_message">למחוק תוצאות בכל הכלים?</string>
     <string name="dashboard_hero_freeable_headline">ניתן לפנות %1$s</string>
     <string name="dashboard_hero_freed_headline">%1$s שוחרר</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d פריט יכול להיות מוסר</item>
         <item quantity="two">%d פריטים יכולים להיות מוסרים</item>
-        <item quantity="many">%d פריטים יכולים להיות מוסרים</item>
         <item quantity="other">%d פריטים יכולים להיות מוסרים</item>
     </plurals>
     <plurals name="dashboard_hero_freed_x_items">
         <item quantity="one">%d פריט הוסר</item>
         <item quantity="two">%d פריטים הוסרו</item>
-        <item quantity="many">%d פריטים הוסרו</item>
         <item quantity="other">%d פריטים הוסרו</item>
     </plurals>
     <string name="dashboard_hero_freeable_hint">הקש על הכפתור כדי לשחרר מקום, או על שבב לבדיקה תחילה.</string>
     <string name="dashboard_hero_freed_hint">הקש על שבב לפרטים.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s נותר</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">שום דבר לא שוחרר</string>
     <string name="dashboard_hero_nothing_freed_caption">ניקוי הסתיים, אך לא ניתן היה להסיר אף אחד מהנתונים שנמצאו.</string>
     <string name="dashboard_hero_nothing_freed_hint">ניתן להסיר נתונים מסוימים רק בגישה נוספת, כגון שירות נגישות או root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">נמצאו %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">פריט אחד דורש את SD Maid Pro</item>
         <item quantity="two">שני פריטים דורשים את SD Maid Pro</item>
-        <item quantity="many">%d פריטים דורשים את SD Maid Pro</item>
         <item quantity="other">%d פריטים דורשים את SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">הקש כדי לבטל את הנעילה באמצעות SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">ניתן לפנות עוד יותר מקום עם SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">דורש את SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">נסרק %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">שוחרר %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">ניסיון %1$s</string>
@@ -91,7 +72,6 @@
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="one">קובץ %1$d מוכן (%2$s)</item>
         <item quantity="two">%1$d קבצים מוכנים (%2$s)</item>
-        <item quantity="many">%1$d קבצים מוכנים (%2$s)</item>
         <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">תכונה זו מתעדת את כל מה שהאפליקציה עושה לקובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים מהימנים (למשל מפתח שפותר בעיה).</string>
@@ -116,13 +96,11 @@
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">משימה %d פעילה</item>
         <item quantity="two">%d משימות פעילות</item>
-        <item quantity="many">%d משימות פעילות</item>
         <item quantity="other">%d משימות פעילות</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">משימה %d בתור</item>
         <item quantity="two">%d משימות בתור</item>
-        <item quantity="many">%d משימות בתור</item>
         <item quantity="other">%d משימות בתור</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">תוצאות המשימה</string>
@@ -189,7 +167,6 @@
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">קובץ %1$d משתמש ב-%2$s</item>
         <item quantity="two">%1$d קבצים משתמשים ב-%2$s</item>
-        <item quantity="many">%1$d קבצים משתמשים ב-%2$s</item>
         <item quantity="other">%1$d קבצים משתמשים ב-%2$s</item>
     </plurals>
     <string name="support_debuglog_folder_empty_desc">אין יומני ניפוי שגיאות מאוחסנים</string>
@@ -223,7 +200,6 @@
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d מילה</item>
         <item quantity="two">%1$d / %2$d מילים</item>
-        <item quantity="many">%1$d / %2$d מילים</item>
         <item quantity="other">%1$d / %2$d מילים</item>
     </plurals>
     <string name="support_contact_debuglog_label">יומן באגים</string>
@@ -260,7 +236,6 @@
     <string name="setup_root_card_title">הרשאות רוט</string>
     <string name="setup_root_card_body">האם SD Maid צריך להשתמש בגישת רוט אם היא זמינה? ניתן להשתמש בגישת רוט לבדיקת תיקיות מערכת נוספות ונתוני יישומים פרטיים.</string>
     <string name="setup_root_state_ready_label">גישת רוט מוכנה.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">גישת Root אינה זמינה.</string>
     <string name="setup_root_state_failed_title">גישה לשורש נכשלה</string>
     <string name="setup_root_state_failed_body">SD Maid ביקשה גישת שורש ולא קיבלה אותה. אם למכשיר שלך יש גישת שורש, פתח את מנהל השורש שלך (Magisk, KernelSU או דומה) ובדוק אם הבקשה מ-SD Maid נדחתה או עדיין בהמתנה.</string>
@@ -320,7 +295,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="dataarea_warningcard_reload_action">טען מחדש אזורי נתונים</string>
     <string name="debug_mode_label">מצב דיבאג</string>
     <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
     <string name="debug_card_description">אבחון מפתחים והחלפות זמן ריצה. כרטיס זה מופיע רק כאשר מצב ניפוי השגיאות מופעל.</string>
     <string name="debug_card_section_diagnostics">אבחון</string>
@@ -333,7 +307,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
     <string name="debug_card_root_test_action">בדוק root</string>
     <string name="debug_card_shizuku_test_action">בדוק Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">מצב סימולציה פעיל</string>
     <string name="dashboard_dryrun_warning_body">ניקוי מתבצע בסימולציה. קבצים נסרקים ודווחים, אך לא נמחקים בפועל.</string>
     <string name="dashboard_dryrun_warning_disable_action">כבה</string>
@@ -362,14 +335,12 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <plurals name="anniversary_card_body">
         <item quantity="one">כבר שנה %1$d ביחד. תודה שסמכת על SD Maid לשמור על מכשיר ה-Android שלך נקי ומסודר. מקום שהתפנה: %2$s</item>
         <item quantity="two">כבר %1$d שנים ביחד. המכשיר שלך נשאר נקי ומסודר עם SD Maid. מקום שהתפנה: %2$s</item>
-        <item quantity="many">כבר %1$d שנים ביחד. המכשיר שלך נשאר נקי ומסודר עם SD Maid. מקום שהתפנה: %2$s</item>
         <item quantity="other">כבר %1$d שנים ביחד. המכשיר שלך נשאר נקי ומסודר עם SD Maid. מקום שהתפנה: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">שתף את יום השנה שלך עם SD Maid</string>
     <plurals name="anniversary_share_text">
         <item quantity="one">שנה %1$d עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
         <item quantity="two">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
-        <item quantity="many">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
         <item quantity="other">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">סריקה + מחיקה</string>
@@ -391,10 +362,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="widget_home_description">שימוש באחסון וניקוי בהקשה אחת</string>
     <string name="widget_home_storage_internal">פנימי</string>
     <string name="widget_home_storage_external">חיצוני</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">סך הכל שוחרר: %1$s</string>
     <string name="widget_home_clean_action">נקה</string>
     <string name="widget_home_working">בעבודה…</string>
@@ -407,7 +374,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="widget_oneclick_consent_decline_action">לא עכשיו</string>
     <string name="shortcut_onetap_started">סריקה + מחיקה החלו…</string>
     <string name="shortcut_onetap_nothing_enabled">לא הופעלו כלים של הקשה אחת</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">גיבוי &amp; שחזור</string>
     <string name="backup_restore_desc">שמור את ההגדרות והתצורה שלך לקובץ, או שחזר אותן</string>
     <string name="backup_restore_export_title">צור גיבוי</string>
@@ -435,7 +401,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="backup_restore_warn_history_body">נתוני ההיסטוריה של הגיבוי הזה (סטטיסטיקה, היסטוריית דחיסה, הפעלות החלקה) הם מגרסה אחרת של האפליקציה ולא ניתן להחזיר אותם. כל השאר יוחזר.</string>
     <string name="backup_restore_ack_understand">אני מבין ורוצה להמשיך</string>
     <string name="backup_restore_action_restore">שחזר</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">אזהרות אחסון</string>
     <string name="stats_lowspace_notification_title">האחסון מתמלא</string>
     <string name="stats_lowspace_notification_low_title">האחסון כמעט מלא</string>
@@ -443,7 +408,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <plurals name="stats_lowspace_notification_forecast_body">
         <item quantity="one">בערך יום אחד של מקום נשאר בקצב הזה. %2$s חופשי.</item>
         <item quantity="two">בערך יומיים של מקום נשאר בקצב הזה. %2$s חופשי.</item>
-        <item quantity="many">בערך %1$d ימים של מקום נשאר בקצב הזה. %2$s חופשי.</item>
         <item quantity="other">בערך %1$d ימים של מקום נשאר בקצב הזה. %2$s חופשי.</item>
     </plurals>
 </resources>

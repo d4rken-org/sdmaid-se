@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nom de la programmation</string>
     <string name="scheduler_schedule_toggle_enabled">La programmation est activée</string>
     <string name="scheduler_schedule_toggle_disabled">La programmation est désactivée</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Désactive la planification pour la modifier.</string>
     <string name="scheduler_edit_schedule_action">Modifier la programmation</string>
     <string name="scheduler_schedule_time_label">Temps approximatif</string>
     <string name="scheduler_schedule_repeat_label">Intervalle de répétition en jours</string>
@@ -47,7 +48,6 @@ Désactivez « Inclure les applis système » ou exécutez le planning sans verr
     <string name="scheduler_commands_after_schedule_label">Commandes postprogrammation</string>
     <string name="scheduler_commands_after_schedule_desc">Commandes de l’interpréteur de commandes Android qui seront exécutées en fin de programmation.</string>
     <string name="scheduler_battery_optimization_hint">Envisagez de désactiver les optimisations de la batterie pour SD Maid si vous rencontrez des problèmes d’exécution en arrière-plan.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid peut nettoyer selon un planning. Choisissez une heure et les outils à exécuter, et elle fera le travail en arrière-plan, (presque) pas besoin d’ouvrir l’appli.</string>
     <string name="tour_scheduler_create_body">Appuyez ici pour créer un nouveau planning, puis définissez quand il s’exécute et les outils à inclure.</string>
 </resources>

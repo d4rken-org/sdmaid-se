@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">সময়সূচির নাম</string>
     <string name="scheduler_schedule_toggle_enabled">সময়সূচী সক্রিয় করা হয়েছে</string>
     <string name="scheduler_schedule_toggle_disabled">সময়সূচী নিষ্ক্রিয় করা হয়েছে</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">পরিবর্তন করতে শিডিউলটি বন্ধ করুন।</string>
     <string name="scheduler_edit_schedule_action">সময়সূচি সম্পাদনা করুন</string>
     <string name="scheduler_schedule_time_label">আনুমানিক সময়</string>
     <string name="scheduler_schedule_repeat_label">দিনের মধ্যে বিরতি পুনরাবৃত্তি করুন</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">পোস্ট-শিডিউল কমান্ড</string>
     <string name="scheduler_commands_after_schedule_desc">অ্যান্ড্রয়েড শেল কমান্ড যা একটি সময়সূচীর শেষে কার্যকর করা হবে।</string>
     <string name="scheduler_battery_optimization_hint">আপনি যদি ব্যাকগ্রাউন্ড এক্সিকিউশনে সমস্যা অনুভব করেন তবে SD মেইডের জন্য ব্যাটারি অপ্টিমাইজেশন অক্ষম করার কথা বিবেচনা করুন।</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid একটি সময়সূচী অনুযায়ী পরিষ্কার করতে পারে। একটি সময় বেছে নিন এবং কোন সরঞ্জামগুলি চলবে তা বেছে নিন, এবং এটি পটভূমিতে কাজটি করে, (প্রায়) অ্যাপটি খোলার প্রয়োজন নেই।</string>
     <string name="tour_scheduler_create_body">এখানে ট্যাপ করুন একটি নতুন সময়সূচী তৈরি করতে, তারপর এটি কখন চলবে এবং কোন সরঞ্জামগুলি অন্তর্ভুক্ত করতে তা সেট করুন।</string>
 </resources>

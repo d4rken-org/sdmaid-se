@@ -29,6 +29,18 @@
         <item quantity="one">%d atlandı (HDR/derinlik korundu)</item>
         <item quantity="other">%d atlandı (HDR/derinlik korundu)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d atlandı (Motion Photo)</item>
+        <item quantity="other">%d atlandı (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d atlandı (çok büyük fotoğraf)</item>
+        <item quantity="other">%d atlandı (çok büyük fotoğraf)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d atlandı (korunmuş)</item>
+        <item quantity="other">%d atlandı (korunmuş)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d öğe seçildi</item>
         <item quantity="other">%d öğe seçildi</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Genel</string>
     <string name="squeezer_quality_description">Daha düşük kalite, daha küçük dosya boyutu ancak azaltılmış görsel kalite anlamına gelir.</string>
     <string name="squeezer_types_category_label">Görsel ayarlar</string>
+    <string name="squeezer_protected_category_label">Ne kaybolur</string>
     <string name="squeezer_video_settings_category_label">Video ayarları</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG resimleri dahil et (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">JPEG görüntülerini (.jpg, .jpeg) dahil et. Yeniden kodlama Android\'in yerleşik JPEG kodlayıcısını kullanır. Tarih, konum ve diğer EXIF metaverisi korunur.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP resimleri dahil et (.webp).</string>
+    <string name="squeezer_type_webp_description">WebP görüntülerini (.webp) dahil et. Yeniden kodlama Android\'in yerleşik WebP kodlayıcısını kullanır. Tarih, konum ve diğer EXIF metaverisi korunur.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF görüntülerini (.heic, .heif) ekleyin. Tarih, konum ve diğer EXIF meta verileri korunur. HDR kazanç haritaları, derinlik verileri ve Live/Motion Foto kardeşleri korunamaz; çoklu görüntü dosyaları atlanır.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 video dosyalarını dahil et (.mp4).</string>
+    <string name="squeezer_type_video_description">MP4 video dosyalarını (.mp4) dahil et. Video parçası cihazın kendi video kodlayıcısı tarafından daha düşük bit hızında yeniden kodlanır, ses parçası değişmeden kopyalanır ve dosya bir MP4 kalır.</string>
     <string name="squeezer_skip_compressed_title">Önceden sıkıştırılmışları atla</string>
     <string name="squeezer_skip_compressed_description">SD Maid tarafından zaten sıkıştırılmış dosyaları atla.</string>
     <string name="squeezer_exif_marker_title">EXIF işareti yaz</string>
     <string name="squeezer_exif_marker_description">Sıkıştırma geçmişi temizlense bile yeniden sıkıştırmayı önlemek için resmin EXIF kullanıcı yorum alanına bir işaret ekleyin.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; derinlik fotoğraflarını sıkıştır</string>
-    <string name="squeezer_include_lossy_aux_description">Varsayılan olarak kapalı: HDR kazanç haritası veya derinlik/portre verileri olan fotoğraflar düzleştirilmemeleri için atlanır. Mümkün olduğunca sıkıştırmak için etkinleştirin — HDR kazanç haritalarını veya derinlik verilerini kaybedecekler. Bazı çoklu görüntü HEIC fotoğrafları her halükârda korunur.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR veya derinlik verisine sahip fotoğrafları dahil et. Sıkıştırma bunu kaldırır: HDR fotoğrafları normal fotoğraflara dönüşür, portre fotoğrafları arka plan bulanıklığının arkasındaki veriyi kaybeder. Çok görüntülü HEIC dosyaları atlanmaya devam eder.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos\'u Sıkıştır</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos\'u dahil et. Sıkıştırma sabit görüntüyü saklar ve video klibini kaldırır.</string>
+    <string name="squeezer_include_oversized_title">Çok büyük fotoğrafları sıkıştır</string>
+    <string name="squeezer_include_oversized_description">8192 pikselden daha geniş veya daha yüksek fotoğrafları dahil et. Sıkıştırma ayrıca çözünürlüğünü yarıya indirir.</string>
     <string name="squeezer_estimated_savings_format">~%s tasarruf</string>
     <string name="squeezer_no_savings_expected">Sınırlı tasarruf</string>
     <string name="squeezer_current_size_format">Boyut: %s</string>
+    <string name="squeezer_chip_compressed_before">Sıkıştırıldı</string>
+    <string name="squeezer_chip_hdr_depth">HDR/derinlik</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Küçültüldü</string>
+    <string name="squeezer_markers_dialog_title">Bu işaretler hakkında</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid bu dosyayı zaten sıkıştırdı. Tekrar sıkıştırmak kalite kaybettiriyor ve çok az tasarruf sağlıyor.</string>
+    <string name="squeezer_markers_hdr_depth_description">Bu fotoğrafta sıkıştırmanın saklayamayacağı HDR veya derinlik verisi vardır. Bir HDR fotoğrafı normal bir fotoğraf olarak geri gelir ve portre fotoğrafı arka plan bulanıklığı için kullanılan derinlik verisini kaybeder.</string>
+    <string name="squeezer_markers_motion_photo_description">Bu bir Motion Photo\'dur. Sıkıştırma sabit görüntüyü saklar ve video klibini kaldırır.</string>
+    <string name="squeezer_markers_downscaled_description">Bu fotoğraf 8192 pikselden daha geniş veya daha yüksektir. Sıkıştırma ayrıca çözünürlüğünü yarıya indirir.</string>
     <string name="squeezer_compress_action">Sıkıştır</string>
     <string name="squeezer_compress_all_action">Tümünü sıkıştır</string>
     <string name="squeezer_preview_dialog_title">Sıkıştırmayı onayla</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Karşılaştırmayı görüntüle</string>
     <string name="squeezer_no_example_found">Seçilen yollarda resim bulunamadı.</string>
     <string name="squeezer_result_empty_message">Sıkıştırılabilir medya bulunamadı.</string>
+    <string name="squeezer_result_empty_protected">Sıkıştırılacak bir şey yok. Atlandı: %s. Bunları dahil etmek için ayarlarda ilgili seçeneği açın.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/derinlik fotoğrafı</item>
+        <item quantity="other">%d HDR/derinlik fotoğrafı</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d çok büyük fotoğraf</item>
+        <item quantity="other">%d çok büyük fotoğraf</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d konum sıkıştırma için kullanılamaz ve kaldırıldı. Sıkıştırma, dahili depolamaya doğrudan erişim gerektirir.</item>
         <item quantity="other">%d konum sıkıştırma için kullanılamaz ve kaldırıldı. Sıkıştırma, dahili depolamaya doğrudan erişim gerektirir.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">En az %d gün eski</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG dosyaları için tahmini ~%d%% tasarruf</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer, fotoğraflarınızı ve videolarınızı yeniden sıkıştırarak daha az yer kaplamalarını sağlar. Kazandığınız yer karşılığında biraz kaliteden ödün verirsiniz. Her öğe tahmini tasarrufunu gösterir, böylece neyin buna değdiğine siz karar verirsiniz.</string>
     <string name="tour_squeezer_compress_body">Burada her şeyi bir kerede sıkıştırın veya tek bir öğeyi seçip sadece onu küçültün. Birkaçını seçmek için uzun basın. Her şey değişmeden önce her zaman bir önizleme göreceksiniz.</string>
 </resources>

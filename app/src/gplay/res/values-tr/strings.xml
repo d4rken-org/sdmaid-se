@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Play\'e bağlanılamıyor. Lütfen internet bağlantınızı kontrol edin ve tekrar deneyin.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Teklif kullanılamıyor</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play şu anda bu yükseltme seçeneğini sunmamaktadır. Lütfen daha sonra tekrar deneyin veya Google Play Store\'u kontrol edin.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play açılamadı. Bu cihazda eksik, devre dışı bırakılmış veya kısıtlanmış olabilir.</string>
     <string name="upgrades_gplay_already_owned_error_title">Zaten satın alındı</string>
     <string name="upgrades_gplay_already_owned_error_description">Satın alma işleminizi geri yüklemek için \"Satın almayı geri yükle\" seçeneğini kullanın. Sorun devam ederse, Google Play önbelleğini temizlemeyi ve cihazınızı yeniden başlatmayı deneyin.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s al</string>
     <string name="upgrade_screen_preamble">SD Maid reklam içermez ve kullanıcı verilerini satmaz. Çalışmalarım sizler tarafından finanse edilmektedir ❤️.</string>
     <string name="upgrade_screen_benefits_title">Yükseltme Avantajları</string>

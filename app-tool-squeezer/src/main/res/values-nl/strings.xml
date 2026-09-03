@@ -29,6 +29,18 @@
         <item quantity="one">%d bestand overgeslagen (HDR/diepte behouden)</item>
         <item quantity="other">%d bestanden overgeslagen (HDR/diepte behouden)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d overgeslagen (Motion Photo)</item>
+        <item quantity="other">%d overgeslagen (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d overgeslagen (zeer grote foto)</item>
+        <item quantity="other">%d overgeslagen (zeer grote foto\'s)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d overgeslagen (beschermd)</item>
+        <item quantity="other">%d overgeslagen (beschermd)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item geselecteerd</item>
         <item quantity="other">%d items geselecteerd</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Algemeen</string>
     <string name="squeezer_quality_description">Een lagere kwaliteit betekent een kleinere bestandsgrootte, maar een verminderde beeldkwaliteit.</string>
     <string name="squeezer_types_category_label">Afbeeldingsinstellingen</string>
+    <string name="squeezer_protected_category_label">Wat verloren gaat</string>
     <string name="squeezer_video_settings_category_label">Video-instellingen</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Voeg JPEG-afbeeldingen (.jpg, .jpeg) toe.</string>
+    <string name="squeezer_type_jpeg_description">JPEG-afbeeldingen opnemen (.jpg, .jpeg). Bij het opnieuw coderen wordt Androids ingebouwde JPEG-encoder gebruikt. Datum, locatie en andere EXIF-metadata blijven bewaard.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Voeg WebP-afbeeldingen (.webp) toe.</string>
+    <string name="squeezer_type_webp_description">WebP-afbeeldingen opnemen (.webp). Bij het opnieuw coderen wordt Androids ingebouwde WebP-encoder gebruikt. Datum, locatie en andere EXIF-metadata blijven bewaard.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Neem HEIC/HEIF-afbeeldingen (.heic, .heif) op. Datum, locatie en andere EXIF-metagegevens blijven behouden. HDR gain maps, dieptegegevens en Live/Motion Photo-verwanten kunnen niet worden behouden; bestanden met meerdere afbeeldingen worden overgeslagen.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Inclusief MP4-videobestanden (.mp4).</string>
+    <string name="squeezer_type_video_description">MP4-videobestanden opnemen (.mp4). Het videospoor wordt door de eigen video-encoder van het apparaat opnieuw gecodeerd met een lagere bitrate, het audiospoor wordt ongewijzigd overgenomen en het bestand blijft een MP4.</string>
     <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
     <string name="squeezer_skip_compressed_description">Sla bestanden over die al door SD Maid zijn gecomprimeerd.</string>
     <string name="squeezer_exif_marker_title">EXIF-markering schrijven</string>
     <string name="squeezer_exif_marker_description">Voeg een markering toe aan het EXIF-opmerkingenveld van de afbeelding om hercompressie te voorkomen, zelfs als de compressiegeschiedenis wordt gewist.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; dieptefoto\'s comprimeren</string>
-    <string name="squeezer_include_lossy_aux_description">Standaard uit: foto\'s met HDR-versterkingskaart of diepte-/portretgegevens worden overgeslagen zodat ze niet vereenvoudigd worden. Inschakelen om ze waar mogelijk te comprimeren — ze verliezen dan hun HDR-versterkingskaart of dieptegegevens. Sommige HEIC-foto\'s met meerdere afbeeldingen blijven toch beschermd.</string>
+    <string name="squeezer_include_lossy_aux_description">Foto\'s met HDR- of dieptegegevens opnemen. Compressie verwijdert deze gegevens: HDR-foto\'s worden normale foto\'s en portretfoto\'s verliezen de gegevens achter hun achtergrondvervaging. Multi-image HEIC-bestanden blijven overgeslagen.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos comprimeren</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos opnemen. Compressie behoudt de stilstaande afbeelding en verwijdert het videofragment.</string>
+    <string name="squeezer_include_oversized_title">Zeer grote foto\'s comprimeren</string>
+    <string name="squeezer_include_oversized_description">Foto\'s opnemen die breder of hoger zijn dan 8192 pixels. Compressie halveert ook hun resolutie.</string>
     <string name="squeezer_estimated_savings_format">~%s besparing</string>
     <string name="squeezer_no_savings_expected">Beperkte besparing</string>
     <string name="squeezer_current_size_format">Grootte: %s</string>
+    <string name="squeezer_chip_compressed_before">Gecomprimeerd</string>
+    <string name="squeezer_chip_hdr_depth">HDR/diepte</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Verkleind</string>
+    <string name="squeezer_markers_dialog_title">Over deze markeringen</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid heeft dit bestand al gecomprimeerd. Nogmaals comprimeren kost kwaliteit en levert weinig op.</string>
+    <string name="squeezer_markers_hdr_depth_description">Deze foto heeft HDR- of dieptegegevens die compressie niet kan behouden. Een HDR-foto komt terug als een normale foto, en een portretfoto verliest de dieptegegevens die worden gebruikt voor achtergrondvervaging.</string>
+    <string name="squeezer_markers_motion_photo_description">Dit is een Motion Photo. Compressie behoudt de stilstaande afbeelding en verwijdert het videofragment.</string>
+    <string name="squeezer_markers_downscaled_description">Deze foto is breder of hoger dan 8192 pixels. Compressie halveert ook de resolutie.</string>
     <string name="squeezer_compress_action">Comprimeren</string>
     <string name="squeezer_compress_all_action">Comprimeer alles</string>
     <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Bekijk de vergelijking</string>
     <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
     <string name="squeezer_result_empty_message">Geen comprimeerbare media gevonden.</string>
+    <string name="squeezer_result_empty_protected">Niets om te comprimeren. Overgeslagen: %s. Zet de bijbehorende optie in de instellingen aan om ze op te nemen.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/diepte-foto</item>
+        <item quantity="other">%d HDR/diepte-foto\'s</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d zeer grote foto</item>
+        <item quantity="other">%d zeer grote foto\'s</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d locatie kan niet worden gebruikt voor compressie en is verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
         <item quantity="other">%d locaties kunnen niet worden gebruikt voor compressie en zijn verwijderd. Compressie vereist directe toegang tot de interne opslag.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Minstens %d dagen oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer comprimeert je foto\'s en video\'s opnieuw zodat ze minder ruimte innemen. Je ruilt een beetje kwaliteit in voor de ruimte die je terugkrijgt. Elk item toont de geschatte besparing, zodat je kunt beslissen wat het waard is.</string>
     <string name="tour_squeezer_compress_body">Comprimeer hier alles tegelijk, of tik op een enkel item om alleen dat item te verkleinen. Lange druk om meerdere items te selecteren. Je ziet altijd een voorbeeld voordat iets verandert.</string>
 </resources>
