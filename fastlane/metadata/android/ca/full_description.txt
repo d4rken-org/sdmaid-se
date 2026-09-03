@@ -29,7 +29,7 @@ Obteniu una llista completa de totes les aplicacions instal·lades al vostre dis
 
 📊 Què està utilitzant tot el vostre espai
 
-La gestió de l’emmagatzematge pot ser complexa amb aplicacions, mitjans, sistema i altres fitxers a l’emmagatzematge del dispositiu, targetes SD i dispositius USB. L'«Analitzador d'emmagatzematge» és un gestor de fitxers que mostra com s'utilitza l'espai al dispositiu, simplificant la gestió de l'emmagatzematge.
+La gestió de l’emmagatzematge pot ser complexa amb aplicacions, mitjans, sistema i altres fitxers a l’emmagatzematge de dispositius, targetes SD i dispositius USB. L'«Analitzador d'emmagatzematge» és un gestor de fitxers que mostra com s'utilitza l'espai al dispositiu, simplificant la gestió de l'emmagatzematge.
 
 📷 Cerca dades duplicades
 
