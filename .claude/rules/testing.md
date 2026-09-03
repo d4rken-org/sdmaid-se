@@ -201,13 +201,6 @@ advanceUntilIdle()
 - **JSON Testing**: Use `toComparableJson()` for JSON comparisons
 - **DataStore Testing**: Use `mockDataStoreValue()` helper
 
-## Test Organization
-
-- **Package by feature**: Tests mirror the main source structure
-- **Extend base classes**: Always extend appropriate base test classes
-- **Use test utilities**: Leverage shared test helpers from `app-common-test`
-- **Descriptive names**: Use backtick syntax for readable test names
-
 ## Common Test Utilities
 
 ```kotlin

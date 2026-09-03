@@ -45,13 +45,6 @@ caString { getString(R.plurals.xxx, count, count) }
   - Postfix with `_action` instead of prefixing with `button_`
   - Instead of `module_screen_button_open` it should be `module_screen_open_action`
 
-## Resource Locations
-
-- `app/src/main/res/values/strings.xml`: Base English strings
-- `app/src/main/res/values-*/strings.xml`: Translated strings for other languages
-- `app/src/foss/res/values-*/strings.xml`: FOSS flavor specific strings
-- `app/src/gplay/res/values-*/strings.xml`: Google Play flavor specific strings
-
 ## Translator Context on Crowdin
 
 String context, character limits and file context are managed on Crowdin through the android-translation
