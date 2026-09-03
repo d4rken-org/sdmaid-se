@@ -3,17 +3,22 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.ui.SizeParser
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkConstructor
 import io.mockk.mockkObject
 import io.mockk.mockkStatic
+import io.mockk.unmockkConstructor
 import io.mockk.unmockkObject
 import io.mockk.unmockkStatic
 import io.mockk.verify
@@ -66,6 +71,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     fun cleanup() {
         unmockkStatic(::hasApiLevel)
         unmockkObject(BuildWrap)
+        unmockkConstructor(SizeParser::class)
     }
 
     private fun emitValidationEventAsync(pkgId: String = "com.android.settings") {
@@ -243,6 +249,43 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         result shouldBe true
         verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
         verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `an already empty cache is confirmed before any blind DPAD click`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "leap_g"
+
+        // SizeParser goes through android.text.format.Formatter, an android.jar stub that throws
+        // in this harness, which would make the size unreadable and the verdict inconclusive.
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("0 B") } returns 0L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        // Anchor is there, so DPAD could run, but Settings prints an empty cache row and there is
+        // no clickable clear-cache node at all.
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=row, bounds=Rect(0, 900 - 1080, 1000)
+            ACS-DEBUG: --2: text='Cache', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=rowTitle, bounds=Rect(60, 900 - 500, 1000)
+            ACS-DEBUG: --2: text='0 B', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=rowSummary, bounds=Rect(600, 900 - 1020, 1000)
+            """.trimIndent()
+        )
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(maxAttempts = 15, rethrowAbort = true)
+        }
+
+        abort.treatAsSuccess shouldBe true
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
     @Test
