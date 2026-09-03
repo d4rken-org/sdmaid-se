@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">رکھنے یا حذف کے فیصلوں پر وائبریٹ کریں۔</string>
     <string name="swiper_discard_session_confirmation_title">سیشن رد کریں؟</string>
     <string name="swiper_discard_session_confirmation_message">تمام فیصلے ضائع ہو جائیں گے۔ کیا آپ کو یقین ہے؟</string>
-    <string name="swiper_no_preview_available">کوئی پیش نظارہ دستیاب نہیں</string>
+    <string name="swiper_no_preview_available">کوئی پیش منظر دستیاب نہیں</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d دن پہلے کا سیشن جاری رکھیں (%2$d%% مکمل)</item>
         <item quantity="other">%1$d دن پہلے کا سیشن جاری رکھیں (%2$d%% مکمل)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">پیچھے!</string>
     <string name="swiper_stamp_undo_3">اوہو!</string>
     <string name="swiper_stamp_undo_4">رکیں!</string>
-    <string name="swiper_gesture_overlay_dismiss">شروع کرنے کے لیے کہیں بھی ٹیپ کریں</string>
-    <string name="swiper_gesture_overlay_left_delete">← حذف</string>
+    <string name="swiper_gesture_overlay_dismiss">شروع کرنے کے لیے کہیں بھی تھپتھپائیں</string>
+    <string name="swiper_gesture_overlay_left_delete">← حذف کریں</string>
     <string name="swiper_gesture_overlay_right_keep">رکھیں →</string>
     <string name="swiper_gesture_overlay_left_keep">← رکھیں</string>
-    <string name="swiper_gesture_overlay_right_delete">حذف →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ چھوڑیں</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ واپس</string>
+    <string name="swiper_gesture_overlay_right_delete">حذف کریں →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ نظر انداز کریں</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ کالعدم کریں</string>
     <string name="swiper_help_title">Swiper کیسے کام کرتا ہے</string>
     <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
     <string name="swiper_gesture_overlay_dismiss_action">سمجھ گیا</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">فلٹر شدہ: %1$s</string>
     <string name="swiper_session_no_matching_files">کوئی مماثل فائلیں نہیں ملیں</string>
     <string name="swiper_open_externally_action">بیرونی ایپ میں کھولیں</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">فائل کو سوائپ کریں اس کے بارے میں فیصلہ کرنے کے لیے: ایک طرف سے رکھیں یا ڈیلیٹ کریں، اوپر سے چھوڑ دیں، نیچے سے واپسی کریں۔ نیچے کے بٹن بھی یہی کام کرتے ہیں — اور دکھاتے ہیں کہ کون سی طرف کیا ہے۔</string>
     <string name="tour_swiper_openin_body">یہ بٹن فائل کو کسی اور ایپ میں کھولتا ہے، فیصلہ کرنے سے پہلے اسے دیکھنے کے لیے آسان۔</string>
     <string name="tour_swiper_preview_body">یہ بٹن قریب سے دیکھنے کے لیے ایک مکمل اسکرین پیش نظارہ کھولتا ہے۔</string>

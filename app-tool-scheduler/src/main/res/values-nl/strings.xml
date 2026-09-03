@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Naam planning</string>
     <string name="scheduler_schedule_toggle_enabled">Planning is ingeschakeld</string>
     <string name="scheduler_schedule_toggle_disabled">Planning is uitgeschakeld</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Schakel het schema uit om het te wijzigen.</string>
     <string name="scheduler_edit_schedule_action">Bewerk planning</string>
     <string name="scheduler_schedule_time_label">Geschatte tijd</string>
     <string name="scheduler_schedule_repeat_label">Herhaal interval in dagen</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Opdrachten na het plannen</string>
     <string name="scheduler_commands_after_schedule_desc">Android-shellopdrachten die aan het einde van een planning worden uitgevoerd.</string>
     <string name="scheduler_battery_optimization_hint">Overweeg om batterij-optimalisaties voor SD Maid uit te schakelen als je problemen ondervindt met uitvoering op de achtergrond.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid kan volgens een schema schoonmaken. Kies een moment en welke hulpmiddelen moeten worden uitgevoerd, en het werk gebeurt op de achtergrond — je hoeft de app (bijna) niet te openen.</string>
     <string name="tour_scheduler_create_body">Tik hier om een nieuw schema te maken, stel vervolgens in wanneer het wordt uitgevoerd en welke hulpmiddelen moeten worden opgenomen.</string>
 </resources>

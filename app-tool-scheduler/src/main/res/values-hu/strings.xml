@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Ütemezés neve</string>
     <string name="scheduler_schedule_toggle_enabled">Az ütemezés engedélyezve van</string>
     <string name="scheduler_schedule_toggle_disabled">Az ütemezés le van tiltva</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Kapcsold ki az ütemezést a módosításához.</string>
     <string name="scheduler_edit_schedule_action">Ütemezés szerkesztése</string>
     <string name="scheduler_schedule_time_label">Hozzávetőleges idő</string>
     <string name="scheduler_schedule_repeat_label">Ismétlődési időköz napokban mérve</string>
@@ -47,7 +48,6 @@ Kapcsolja ki a „Rendszeralkalmazások belefoglalása” lehetőséget, vagy fu
     <string name="scheduler_commands_after_schedule_label">Ütemezés utáni parancsok</string>
     <string name="scheduler_commands_after_schedule_desc">Android rendszerhéjparancsok, amelyek az ütemezés végén kerülnek végrehajtásra.</string>
     <string name="scheduler_battery_optimization_hint">Fontold meg az SD Maid akkumulátor-optimalizálás kikapcsolását, ha a háttérben történő végrehajtással kapcsolatos problémákat tapasztalsz.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">Az SD Maid ütemezés szerint megtisztíthat. Válassza ki az időpontot és mely eszközöket futtasson, és az alkalmazás a háttérben végzi el a munkát – (szinte) nincs szükség az alkalmazás megnyitására.</string>
     <string name="tour_scheduler_create_body">Koppintson ide új ütemezés létrehozásához, majd állítsa be, hogy mikor fusson és mely eszközöket futtasson.</string>
 </resources>

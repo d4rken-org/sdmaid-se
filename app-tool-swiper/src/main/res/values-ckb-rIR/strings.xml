@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">لەرزاندن کاتێ بڕیاری پاراستن یان سڕینەوە دەدرێت.</string>
     <string name="swiper_discard_session_confirmation_title">دانیشتن بەتاڵ بکرێت؟</string>
     <string name="swiper_discard_session_confirmation_message">هەموو بڕیارەکان دەچنە دەست. دڵنیایت؟</string>
-    <string name="swiper_no_preview_available">پێشبینی بەردەست نییە</string>
+    <string name="swiper_no_preview_available">پێشبینین بەردەست نییە</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">بەردەوامکردنی دانیشتن لە %1$d ڕۆژ پێش ئێستا (%2$d%% تەواوبووە)</item>
         <item quantity="other">بەردەوامکردنی دانیشتن لە %1$d ڕۆژ پێش ئێستا (%2$d%% تەواوبووە)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">دواوە!</string>
     <string name="swiper_stamp_undo_3">ئۆپس!</string>
     <string name="swiper_stamp_undo_4">وەستە!</string>
-    <string name="swiper_gesture_overlay_dismiss">بۆ دەستپێکردن لە هەر شوێنێک دەست بدە</string>
+    <string name="swiper_gesture_overlay_dismiss">لە هەر شوێنێک دابگرە بۆ دەستپێکردن</string>
     <string name="swiper_gesture_overlay_left_delete">← سڕینەوە</string>
     <string name="swiper_gesture_overlay_right_keep">هێشتنەوە →</string>
     <string name="swiper_gesture_overlay_left_keep">← هێشتنەوە</string>
     <string name="swiper_gesture_overlay_right_delete">سڕینەوە →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ تێپەڕاندن</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ گەڕانەوە</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ پەڕاندن</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ گەڕاندنەوە</string>
     <string name="swiper_help_title">چۆن Swiper کاردەکات</string>
     <string name="swiper_help_message">هەر فایلێک هەڵبسوڕێنە بۆ بڕیاردان:\n\n← هەڵسوڕاندن بۆ چەپ: %1$s\n→ هەڵسوڕاندن بۆ ڕاست: %2$s\n↑ هەڵسوڕاندن بۆ سەرەوە: تێپەڕاندن\n↓ هەڵسوڕاندن بۆ خوارەوە: گەڕانەوە (دوای یەکەم هەڵسوڕاندن)\n\nدەتوانیت دوگمەکانی خوارەوەش بەکاربهێنیت.\n\nکاتێک تەواو بوو، \"پێداچوونەوە\" بکە بۆ بینینی هەموو بڕیارەکانت. هیچ شتێک ناسڕێتەوە تاکو لە ڕوونمای پێداچوونەوەدا پشتڕاست بکەیتەوە.</string>
     <string name="swiper_gesture_overlay_dismiss_action">تێگەیشتم</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">فلتەرکراو: %1$s</string>
     <string name="swiper_session_no_matching_files">هیچ فایلێکی گونجاو نەدۆزرایەوە</string>
     <string name="swiper_open_externally_action">لە ئەپی دەرەکی بکەرەوە</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">فایلێک سوایپ بکە بۆ دەرکردنی چارەنووسی: لا تەنیشتەوە بۆ ماوە یان سڕینەوە، بۆ سەرەوە بۆ پێپەڕاندن، بۆ خوارەوە بۆ گێڕاندنەوە. دۆگمەکانی خوارەوە هەمان کارە دەکەن — و نیشان دەدەن کام لا کامە.</string>
     <string name="tour_swiper_openin_body">ئەم دۆگمەیە فایلەکە لە بەرنامەیەکی تردا دەکاتە کراوە، بەکەلک بۆ پشکنینی پێش بڕیاردان.</string>
     <string name="tour_swiper_preview_body">ئەم دکمە پێشبینینێکی پڕشاشە دەکاتەوە بۆ سەیریکی نزیکتر.</string>

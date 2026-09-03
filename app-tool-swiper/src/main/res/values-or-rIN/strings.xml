@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">ରଖିବା କିମ୍ବା ଡିଲିଟ୍ ନିଷ୍ପତ୍ତି ନେବା ସମୟରେ କମ୍ପନ।</string>
     <string name="swiper_discard_session_confirmation_title">ସେସନ୍ ଖାରଜ କରିବେ?</string>
     <string name="swiper_discard_session_confirmation_message">ସମସ୍ତ ନିଷ୍ପତ୍ତି ହରାଇ ଯିବ। ଆପଣ ନିଶ୍ଚିତ?</string>
-    <string name="swiper_no_preview_available">ପୂର୍ବାବଲୋକନ ଉପಲବ୍ଧ ନାହିଁ</string>
+    <string name="swiper_no_preview_available">ପୂର୍ବଦର୍ଶନ ଉପଲବ୍ଧ ନୁହେଁ</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
         <item quantity="other">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">ପଛକୁ!</string>
     <string name="swiper_stamp_undo_3">ଓହୋ!</string>
     <string name="swiper_stamp_undo_4">ଅପେକ୍ଷା!</string>
-    <string name="swiper_gesture_overlay_dismiss">ଆରମ୍ଭ କରିବାକୁ ଯେକୌଣସି ସ୍ଥାନରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_left_delete">← ବିଲୋପ</string>
-    <string name="swiper_gesture_overlay_right_keep">ରଖନ୍ତୁ →</string>
-    <string name="swiper_gesture_overlay_left_keep">← ରଖନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_right_delete">ବିଲୋପ →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ଛାଡ଼ନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ ପ୍ରତ୍ୟାବର୍ତ୍ତନ</string>
+    <string name="swiper_gesture_overlay_dismiss">ଆରମ୍ଭ କରିବାକୁ ଟ୍ୟାପ କର</string>
+    <string name="swiper_gesture_overlay_left_delete">← ବିଲୋପ କର</string>
+    <string name="swiper_gesture_overlay_right_keep">ରଖ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← ରଖ</string>
+    <string name="swiper_gesture_overlay_right_delete">ବିଲୋପ କର →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ଛାଡ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ଦୁବାରା</string>
     <string name="swiper_help_title">Swiper କିପରି କାମ କରେ</string>
     <string name="swiper_help_message">ନିଷ୍ପତ୍ତି ନେବାକୁ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ:\n\n← ବାମକୁ ସ୍ୱାଇପ୍: %1$s\n→ ଡାହାଣକୁ ସ୍ୱାଇପ୍: %2$s\n↑ ଉପରକୁ ସ୍ୱାଇପ୍: ଛାଡ଼ନ୍ତୁ\n↓ ତଳକୁ ସ୍ୱାଇପ୍: ପ୍ରତ୍ୟାବର୍ତ୍ତନ (ପ୍ରଥମ ସ୍ୱାଇପ୍ ପରେ)\n\nଆପଣ ତଳେ ଥିବା ବଟନ୍ ମଧ୍ୟ ବ୍ୟବହାର କରିପାରିବେ।\n\nସମାପ୍ତ ହେଲେ, ଆପଣଙ୍କ ସମସ୍ତ ନିଷ୍ପତ୍ତି ଦେଖିବାକୁ \"ସମୀକ୍ଷା\" ଟ୍ୟାପ୍ କରନ୍ତୁ। ସମୀକ୍ଷା ସ୍କ୍ରିନରେ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
     <string name="swiper_gesture_overlay_dismiss_action">ବୁଝିଗଲି</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">ଫିଲ୍ଟର୍ ହୋଇଛି: %1$s</string>
     <string name="swiper_session_no_matching_files">କୌଣସି ମିଳୁଥିବା ଫାଇଲ ମିଳିଲା ନାହିଁ</string>
     <string name="swiper_open_externally_action">ବାହ୍ୟ ଆପ୍‌ରେ ଖୋଲନ୍ତୁ</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ଏକ ଫାଇଲ ସ୍ୱାଇପ କରନ୍ତୁ ଏହାର ଭାଗ୍ୟ ନିଷ୍ପତ୍ତି ନେବାକୁ: ପାର୍ଶ୍ୱକୁ ରଖିବା ବା ଡିଲିଟ କରିବାକୁ, ଉପରକୁ ଛାଡ଼ିବାକୁ, ତଳକୁ ପୂର୍ବବସ୍ଥାକୁ ଫେରାଇବାକୁ। ତଳେ ଥିବା ବଟନଗୁଡ଼ିକ ସମାନ କାର୍ଯ୍ୟ କରେ — ଏବଂ ଦେଖାଏ ଯେ ଏକ ପାଖ ଅନ୍ୟଟି।</string>
     <string name="tour_swiper_openin_body">ଏହି ବଟନ ଫାଇଲଟିକୁ ଅନ୍ୟ ଆପ୍ଲିକେସନରେ ଖୋଲେ, ନିଷ୍ପତ୍ତି ନେବା ପୂର୍ବରୁ ଏଟି ଯାଞ୍ଚ କରିବାକୁ ସୁବିଧାଜନକ।</string>
     <string name="tour_swiper_preview_body">ଏହି ବଟନ ଭଲ ଭାବରେ ଦେଖିବା ପାଇଁ ଏକ ସଂପୂର୍ଣ୍ଣ-ସ୍କ୍ରିନ ପୂର୍ବାଦର୍ଶନ ଖୋଲାଏ।</string>

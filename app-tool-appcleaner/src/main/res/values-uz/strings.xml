@@ -60,6 +60,18 @@
         <item quantity="one">%d sarflash mumkin bo\'lgan element o\'chirildi</item>
         <item quantity="other">%d sarflash mumkin bo\'lgan element o\'chirildi</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d element o\'chirildi, ekran o\'chirilgan yoki qulflangan bo\'lgani sababli tozalash to\'xtatildi</item>
+        <item quantity="other">%d elementlar o\'chirildi, ekran o\'chirilgan yoki qulflangan bo\'lgani sababli tozalash to\'xtatildi</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d element o\'chirildi, xato sababli tozalash to\'xtatildi</item>
+        <item quantity="other">%d elementlar o\'chirildi, xato sababli tozalash to\'xtatildi</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d kesh kirish xizmati kerak</item>
+        <item quantity="other">%1$s, %2$d keshlar kirish xizmati kerak</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d sarflash mumkin bo\'lgan element topildi</item>
         <item quantity="other">%d sarflash mumkin bo\'lgan element topildi</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keshni tozalash\" tugmasini qidirish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standart keshlar</string>
     <string name="appcleaner_item_caches_inaccessible_body">Umumiy va shaxsiy standart keshlar. Bevosita kirish mumkin emas, lekin bilvosita o\'chirish mumkin (masalan, kirish xizmati orqali).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Chiqarib tashlangan, lekin barcha ilovalarni bir vaqtda tozalash bu keshlarni o\'chiradi</string>
+    <string name="appcleaner_exclusion_limited_title">Istisno qilingan ilova</string>
+    <string name="appcleaner_exclusion_limited_body">Siz bu ilovani AppCleaner\'dan istisno qildingiz. Barcha ilovalarning keshlarini bir vaqtda o\'chirish Shizuku\'ning tizim bo\'yicha kesh toza qilishidan foydalanadi, bu alohida ilovalarni qoldira olmaydi, shuning uchun bu ilovaning keshlangan ma\'lumotlari boshqa hamma narsa bilan birga o\'chiriladi. Faqat bu yerda ko\'rsatilgan keshlangan ma\'lumotlar ta\'sir qiladi, istisno qo\'llanilgan boshqa hamma narsa yashirin va o\'zgarishsiz qoladi.</string>
     <string name="appcleaner_automation_unavailable_title">Kirish xizmati mavjud emas</string>
-    <string name="appcleaner_automation_unavailable_body">Kirish mumkin bo\'lmagan keshlarni tozalash SD Maid ning kirish xizmatini talab qiladi, lekin u mavjud emas edi. Agar undan foydalanishni istamasangiz: \"Kirish mumkin bo\'lmagan keshlarni qo\'shish\" variantini o\'chiring.</string>
+    <string name="appcleaner_automation_unavailable_body">Bu keshlarni o\'chirish SD Maid\'ning kirish xizmati talab qiladi, lekin u mavjud emas edi.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s uchun sarflash mumkin bo\'lgan fayllarni o\'chirish kerakmi?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d tanlangan ilova uchun sarflash mumkin bo\'lgan fayllarni o\'chirish kerakmi?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tozalashdan oldin majburiy to\'xtatish</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keshni tozalashdan oldin ilovalarni majburiy to\'xtatish. Ba\'zi ilovalar keshini tozalashga yordam beradi, lekin ilovalar noto\'g\'ri ishlashi va qo\'lda qayta ishga tushirishni talab qilishi mumkin.</string>
     <string name="appcleaner_progress_force_stopping">Ilovalar majburiy to\'xtatilmoqda…</string>
+    <string name="appcleaner_progress_checking_freed_space">Bo\'shatilgan joy tekshirilmoqda…</string>
 </resources>

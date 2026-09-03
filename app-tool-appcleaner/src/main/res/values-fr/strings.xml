@@ -60,6 +60,18 @@
         <item quantity="one">%d élément superflu a été supprimée</item>
         <item quantity="other">%d éléments superflus ont été supprimés</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d élément superflu supprimé, arrêt car l\'écran était éteint ou verrouillé</item>
+        <item quantity="other">%d éléments superflus supprimés, arrêt car l\'écran était éteint ou verrouillé</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d élément superflu supprimé, arrêt suite à une erreur</item>
+        <item quantity="other">%d éléments superflus supprimés, arrêt suite à une erreur</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache nécessite encore le service d\'accessibilité</item>
+        <item quantity="other">%1$s, %2$d caches nécessitent encore le service d\'accessibilité</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d élément superflu a été trouvé</item>
         <item quantity="other">%d éléments superflus ont été trouvés</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Recherche du bouton « Vider le cache » (mots clés : %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches par défaut</string>
     <string name="appcleaner_item_caches_inaccessible_body">Caches par défaut publics et privés. Non accessible directement, mais qui peuvent être vidés indirectement (p. ex. avec le service d’accessibilité).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Exclue, mais le nettoyage de toutes les applis en une fois efface quand même ces caches</string>
+    <string name="appcleaner_exclusion_limited_title">Appli exclue</string>
+    <string name="appcleaner_exclusion_limited_body">Tu as exclu cette appli d\'AppCleaner. Le vidage des caches pour toutes les applis en une fois utilise le nettoyage système de Shizuku, qui ne peut pas laisser certaines applis de côté, donc les données en cache de cette appli sont effacées avec le reste. Seules les données en cache affichées ici sont concernées, tout ce que couvre l\'exclusion par ailleurs reste masqué et intact.</string>
     <string name="appcleaner_automation_unavailable_title">Le service d’accessibilité est inaccessible</string>
-    <string name="appcleaner_automation_unavailable_body">Le vidage des caches inaccessibles nécessite le service d’accessibilité de SD Maid, mais il ne pouvait pas être utilisé. Si vous ne voulez pas l’utiliser, désactivez l’option « Inclure les caches inaccessibles ».</string>
+    <string name="appcleaner_automation_unavailable_body">Le vidage de ces caches nécessite le service d\'accessibilité de SD Maid, mais il n\'était pas disponible.</string>
     <string name="appcleaner_delete_confirmation_message_x">Supprimer les fichiers superflus pour %s ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Supprimer les fichiers superflus pour %d appli choisie ?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forcer l’arrêt avant de vider</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forcer l’arrêt des applis avant de vider leur cache. Cela peut aider à vider le cache de certaines applis, mais peut entraîner leur dysfonctionnement et demander un redémarrage manuel.</string>
     <string name="appcleaner_progress_force_stopping">Arrêt forcer des applis…</string>
+    <string name="appcleaner_progress_checking_freed_space">Vérification de l\'espace libéré…</string>
 </resources>

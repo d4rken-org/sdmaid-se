@@ -43,6 +43,24 @@
         <item quantity="many">%d přeskočeno (HDR/hloubka zachována)</item>
         <item quantity="other">%d přeskočeno (HDR/hloubka zachována)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d přeskočeno (Snímek s pohybem)</item>
+        <item quantity="few">%d přeskočeno (Snímky s pohybem)</item>
+        <item quantity="many">%d přeskočeno (Snímky s pohybem)</item>
+        <item quantity="other">%d přeskočeno (Snímky s pohybem)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d přeskočeno (velmi velká fotografie)</item>
+        <item quantity="few">%d přeskočeno (velmi velké fotografie)</item>
+        <item quantity="many">%d přeskočeno (velmi velkých fotografií)</item>
+        <item quantity="other">%d přeskočeno (velmi velkých fotografií)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d přeskočeno (chráněno)</item>
+        <item quantity="few">%d přeskočeno (chráněno)</item>
+        <item quantity="many">%d přeskočeno (chráněno)</item>
+        <item quantity="other">%d přeskočeno (chráněno)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d položka vybrána</item>
         <item quantity="few">%d položky vybrány</item>
@@ -56,24 +74,38 @@
     <string name="squeezer_compression_settings_label">Obecné</string>
     <string name="squeezer_quality_description">Nižší kvalita znamená menší velikost souboru, ale sníženou vizuální kvalitu.</string>
     <string name="squeezer_types_category_label">Nastavení obrázků</string>
+    <string name="squeezer_protected_category_label">Co se ztratí</string>
     <string name="squeezer_video_settings_category_label">Nastavení videa</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Zahrnout JPEG obrázky (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Zahrnout obrázky JPEG (.jpg, .jpeg). Kódování znovu používá vestavěný kodér JPEG Androidu. Datum, umístění a ostatní metadata EXIF jsou zachována.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Zahrnout obrázky WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Zahrnout obrázky WebP (.webp). Kódování znovu používá vestavěný kodér WebP Androidu. Datum, umístění a ostatní metadata EXIF jsou zachována.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Zahrnout HEIC/HEIF obrázky (.heic, .heif). Datum, poloha a další EXIF metadata se zachovávají. Mapy zisků HDR, údaje o hloubce a živé/pohyblivé fotky nelze zachovat; soubory s více obrázky se přeskočí.</string>
     <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Zahrnout videosoubory MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Zahrnout videa MP4 (.mp4). Video je překódováno na nižší datový tok pomocí vlastního kodéru zařízení, zvuk zůstane nezměněn a soubor zůstane v MP4.</string>
     <string name="squeezer_skip_compressed_title">Přeskočit dříve zkomprimované</string>
     <string name="squeezer_skip_compressed_description">Přeskočit soubory, které již byly komprimovány SD Maid.</string>
     <string name="squeezer_exif_marker_title">Vložit EXIF značku</string>
     <string name="squeezer_exif_marker_description">Připojí značku do pole komentáře v EXIF obrázku, aby se zamezilo rekompresi v případě vyčištění historie kompresí.</string>
     <string name="squeezer_include_lossy_aux_title">Komprimovat HDR &amp; hloubkové fotografie</string>
-    <string name="squeezer_include_lossy_aux_description">Ve výchozím stavu vypnuto: fotografie s mapou zisků HDR nebo údaji o hloubce/portrétu se přeskočí, aby nebyly sloučeny. Povolte jejich kompresi, kde je to možné — ztratí svou mapu zisků HDR nebo údaje o hloubce. Některé víceobrazkové HEIC fotografie zůstanou v každém případě chráněny.</string>
+    <string name="squeezer_include_lossy_aux_description">Zahrnout fotografie s HDR nebo informacemi o hloubce. Komprese je odstraní: fotografie HDR se změní na běžné fotografie, portrétní fotografie ztratí data sloužící k rozostření pozadí. Vícesnímkové soubory HEIC jsou nadále přeskočeny.</string>
+    <string name="squeezer_include_motion_photos_title">Komprimovat Snímky s pohybem</string>
+    <string name="squeezer_include_motion_photos_description">Zahrnout Snímky s pohybem. Komprese zachová statický snímek a odebere videoklip.</string>
+    <string name="squeezer_include_oversized_title">Komprimovat velmi velké fotografie</string>
+    <string name="squeezer_include_oversized_description">Zahrnout fotografie širší nebo vyšší než 8192 pixelů. Komprese také rozpůlí jejich rozlišení.</string>
     <string name="squeezer_estimated_savings_format">~%s ušetřeno</string>
     <string name="squeezer_no_savings_expected">Omezené úspory</string>
     <string name="squeezer_current_size_format">Velikost: %s</string>
+    <string name="squeezer_chip_compressed_before">Komprimováno</string>
+    <string name="squeezer_chip_hdr_depth">HDR/Hloubka</string>
+    <string name="squeezer_chip_motion_photo">Snímek s pohybem</string>
+    <string name="squeezer_chip_downscaled">Zmenšeno</string>
+    <string name="squeezer_markers_dialog_title">O těchto značkách</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid již komprimoval tento soubor. Komprimování znovu sníží kvalitu a ušetří málo.</string>
+    <string name="squeezer_markers_hdr_depth_description">Tato fotografie má data HDR nebo hloubky, která komprese nemůže zachovat. Fotografie HDR se vrátí jako běžná, a portrét ztratí data hloubky používaná pro rozostření pozadí.</string>
+    <string name="squeezer_markers_motion_photo_description">Toto je Snímek s pohybem. Komprese zachová statický snímek a odebere videoklip.</string>
+    <string name="squeezer_markers_downscaled_description">Tato fotografie je širší nebo vyšší než 8192 pixelů. Komprese také rozpůlí její rozlišení.</string>
     <string name="squeezer_compress_action">Komprimovat</string>
     <string name="squeezer_compress_all_action">Komprimovat vše</string>
     <string name="squeezer_preview_dialog_title">Potvrdit kompresi</string>
@@ -97,6 +129,25 @@
     <string name="squeezer_compare_action">Zobrazit porovnání</string>
     <string name="squeezer_no_example_found">Nenalezeny obrázky ve vybraných cestách.</string>
     <string name="squeezer_result_empty_message">Nebyla nalezena žádná komprimovatelná média.</string>
+    <string name="squeezer_result_empty_protected">Nic ke komprimování. Přeskočeno: %s. Zapněte v nastavení odpovídající volbu, aby se zahrnula.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d fotografie HDR/hloubka</item>
+        <item quantity="few">%d fotografie HDR/hloubka</item>
+        <item quantity="many">%d fotografií HDR/hloubka</item>
+        <item quantity="other">%d fotografií HDR/hloubka</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Snímek s pohybem</item>
+        <item quantity="few">%d Snímky s pohybem</item>
+        <item quantity="many">%d Snímků s pohybem</item>
+        <item quantity="other">%d Snímků s pohybem</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d velmi velká fotografie</item>
+        <item quantity="few">%d velmi velké fotografie</item>
+        <item quantity="many">%d velmi velkých fotografií</item>
+        <item quantity="other">%d velmi velkých fotografií</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d umístění nelze použít pro kompresi a bylo odstraněno. Komprese vyžaduje přímý přístup k internímu úložišti.</item>
         <item quantity="few">%d umístění nelze použít pro kompresi a byla odstraněna. Komprese vyžaduje přímý přístup k internímu úložišti.</item>
@@ -120,7 +171,6 @@
         <item quantity="other">Alespoň %d dnů staré</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pro JPEG soubory</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Zmáčknutí médií zkomprimuje vaše fotografie a videa, aby zabíraly méně místa. Vyměňujete trochu kvality za prostor, který získáte zpět. Každá položka ukazuje odhadovanou úsporu, takže se můžete rozhodnout, co stojí za to.</string>
     <string name="tour_squeezer_compress_body">Komprimujte zde vše najednou, nebo klepněte na jednu položku pro její zmenšení. Dlouhým stisknutím vyberte více. Vždy se vám zobrazí náhled, než se cokoliv změní.</string>
 </resources>

@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">എല്ലാ ടൂളുകളിലെ ഫലങ്ങൾ ഇല്ലാതാക്കണോ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s സ്വതന്ത്രമാക്കാം</string>
     <string name="dashboard_hero_freed_headline">%1$s ഫ്രീ ആക്കി</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d ഇനം നീക്കം ചെയ്യാൻ കഴിയും</item>
         <item quantity="other">%d ഇനങ്ങൾ നീക്കം ചെയ്യാൻ കഴിയും</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">സ്ഥലം സ്വതന്ത്ര ചെയ്യാൻ ബട്ടൺ തൊടുക, അല്ലെങ്കിൽ ആദ്യം പരിശോധിക്കാൻ ഒരു ചിപ് തൊടുക.</string>
     <string name="dashboard_hero_freed_hint">വിശദാംശങ്ങൾക്കായി ചിപ്പ് ടാപ്പ് ചെയ്യുക.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s ബാക്കി</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">ഒന്നും മുക്തമാക്കിയില്ല</string>
     <string name="dashboard_hero_nothing_freed_caption">ക്ലീനുപ് പൂർത്തിയായി, എന്നാൽ കണ്ടെത്തിയ ഡാറ്റയിലെ ഒന്നും നീക്കം ചെയ്യാൻ കഴിഞ്ഞില്ല.</string>
     <string name="dashboard_hero_nothing_freed_hint">ചില ഡാറ്റ പ്രവേശനാധികാരത്തിന്റെ സേവനം അല്ലെങ്കിൽ റൂട്ട് പോലുള്ള അധിക പ്രവേശനം ഉപയോഗിച്ച് മാത്രം നീക്കം ചെയ്യാൻ കഴിയും.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s കണ്ടെത്തി</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d ഐറ്റം SD Maid Pro ആവശ്യമാണ്</item>
         <item quantity="other">%d ഐറ്റങ്ങൾ SD Maid Pro ആവശ്യമാണ്</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">SD Maid Pro ഉപയോഗിച്ച് അൺലോക്ക് ചെയ്യാൻ ടാപ്പ് ചെയ്യുക.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">SD Maid Pro ഉപയോഗിച്ച് കൂടുതൽ സ്ഥലം വിടുവിക്കാൻ കഴിയും</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Pro ആവശ്യമാണ്</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">സ്കാൻ ചെയ്ത %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ഫ്രീ ആക്കി</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s ശ്രമിച്ചു</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Root അനുമതികൾ</string>
     <string name="setup_root_card_body">ലഭ്യമാകുമ്പോൾ SD Maid root ഉപയോഗിക്കണോ? Root അനുമതികൾ മറഞ്ഞിരിക്കുന്ന ആപ്പ് ഡാറ്റയും അധിക സിസ്റ്റം ഫോൾഡറുകളും പരിശോധിക്കാൻ അനുവദിക്കുന്നു.</string>
     <string name="setup_root_state_ready_label">Root അനുമതികൾ തയ്യാറാണ്.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">റൂട്ട് ആക്സസ് ലഭ്യമല്ല.</string>
     <string name="setup_root_state_failed_title">റൂട്ട് ആക്‌സസ് പരാജയപ്പെട്ടു</string>
     <string name="setup_root_state_failed_body">SD Maid റൂട്ട് ആക്‌സസ് ആവശ്യപ്പെട്ടു, പക്ഷേ അത് ലഭിച്ചില്ല. നിങ്ങളുടെ ഉപകരണം റൂട്ട് ചെയ്തിട്ടുണ്ടെങ്കിൽ, നിങ്ങളുടെ റൂട്ട് മാനേജർ (Magisk, KernelSU അല്ലെങ്കിൽ സമാനമായത്) തുറന്ന് SD Maid-ന്റെ അഭ്യർത്ഥന നിരസിക്കപ്പെട്ടോ അതോ ഇപ്പോഴും കാത്തിരിക്കുകയാണോ എന്ന് പരിശോധിക്കുക.</string>
@@ -305,7 +288,6 @@
     <string name="dataarea_warningcard_reload_action">ഡേറ്റ മേഖലകൾ പുനഃലോഡ് ചെയ്യുക</string>
     <string name="debug_mode_label">ഡീബഗ് മോഡ്</string>
     <string name="debug_mode_explanation">ടെസ്റ്റ് ഓപ്ഷനുകളും കൂടുതൽ വിശദമായ ഔട്ട്പുട്ടും പ്രവർത്തനക്ഷമമാക്കുക. ആപ്പ് മന്ദഗതിയിൽ പ്രവർത്തിക്കുകയും വ്യത്യസ്തമായി പ്രവർത്തിക്കുകയും ചെയ്യും.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ഡീബഗ് മോഡ് പ്രാപ്തമാണ്</string>
     <string name="debug_card_description">ഡെവെലപ്പർ ഡയഗ്നോസ്റിക്സ് കൂടാതെ റണ്‍ടൈം ഓവറൈഡുകൾ. ഡീബഗ് മോഡ് സജ്ജമാണെങ്കിൽ മാത്രം ഈ കാർഡ് പ്രത്യക്ഷപ്പെടുന്നു.</string>
     <string name="debug_card_section_diagnostics">ഡയഗ്നോസ്റിക്സ്</string>
@@ -318,7 +300,6 @@
     <string name="debug_card_pkgs_reload_action">ആപ്പുകൾ വീണ്ടും ലോഡ് ചെയ്യുക</string>
     <string name="debug_card_root_test_action">രൂട് പരീക്ഷിക്കുക</string>
     <string name="debug_card_shizuku_test_action">Shizuku പരീക്ഷിക്കുക</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">ഡ്രൈ-റൺ മോഡ് സജീവമാണ്</string>
     <string name="dashboard_dryrun_warning_body">ക്ലീനുപ് സിമുലേറ്റ് ചെയ്യുന്നു. ഫയലുകൾ സ്കാൻ ചെയ്യുകയും റിപ്പോർട്ട് ചെയ്യുകയും ചെയ്യുന്നു, എന്നാൽ യഥാർത്ഥത്തിൽ ഒന്നും ഇല്ലാതാകുന്നില്ല.</string>
     <string name="dashboard_dryrun_warning_disable_action">ഓഫ് ചെയ്യുക</string>
@@ -372,10 +353,6 @@
     <string name="widget_home_description">സ്ഥലം ഉപയോഗവും ഒരു-ടാപ്പ് ശുദ്ധീകരണവും</string>
     <string name="widget_home_storage_internal">ആന്തരിക</string>
     <string name="widget_home_storage_external">ബാഹ്യ</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">ആകെ ഒഴിവാക്കിയത്: %1$s</string>
     <string name="widget_home_clean_action">ശുദ്ധമാക്കുക</string>
     <string name="widget_home_working">പ്രവർത്തിക്കുന്നു…</string>
@@ -388,7 +365,6 @@
     <string name="widget_oneclick_consent_decline_action">ഇപ്പോൾ അല്ല</string>
     <string name="shortcut_onetap_started">സ്കാൻ + ഇല്ലാതാക്കൽ തുടങ്ങിയിരിക്കുന്നു…</string>
     <string name="shortcut_onetap_nothing_enabled">ഒരു ടാപ്പ് ഉപകരണങ്ങളൊന്നും സജ്ജമാക്കിയിട്ടില്ല</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">ബാക്കപ്പ് &amp; പുനഃസ്ഥാപനം</string>
     <string name="backup_restore_desc">നിങ്ങളുടെ ക്രമീകരണങ്ങളും കോൺഫിഗറേഷനും ഒരു ഫയലിലേക്ക് സംരക്ഷിക്കുക, അല്ലെങ്കിൽ അവ പുനഃസ്ഥാപിക്കുക</string>
     <string name="backup_restore_export_title">ബാക്കപ്പ് സൃഷ്ടിക്കുക</string>
@@ -416,7 +392,6 @@
     <string name="backup_restore_warn_history_body">ഈ ബാക്കപ്പിന്റെ ചരിത്ര ഡാറ്റ (സ്ഥിതിവിവരണം, കംപ്രെഷൻ ചരിത്രം, സ്വൈപ്പ് സെഷനുകൾ) വ്യത്യസ്ത ആപ്പ് സംസ്കരണത്തിൽ നിന്നുള്ളതും പുനരുദ്ധരിക്കാൻ കഴിയാത്തതുമാണ്. മറ്റെല്ലാം പുനരുദ്ധരിക്കും.</string>
     <string name="backup_restore_ack_understand">ഞാൻ മനസ്സിലാക്കി തുടരാൻ ആഗ്രഹിക്കുന്നു</string>
     <string name="backup_restore_action_restore">പുനരുദ്ധരിക്കുക</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">സ്റ്റോറേജ് മുന്നറിയിപ്പുകൾ</string>
     <string name="stats_lowspace_notification_title">സ്റ്റോറേജ് നിറയുന്നു</string>
     <string name="stats_lowspace_notification_low_title">സ്റ്റോറേജ് ഏതാണ്ട് നിറഞ്ഞു</string>

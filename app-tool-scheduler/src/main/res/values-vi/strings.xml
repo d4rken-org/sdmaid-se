@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Tên lịch trình</string>
     <string name="scheduler_schedule_toggle_enabled">Lịch trình đã bật</string>
     <string name="scheduler_schedule_toggle_disabled">Lịch trình đã tắt</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Hãy tắt lịch trình để thay đổi nó.</string>
     <string name="scheduler_edit_schedule_action">Sửa lịch trình</string>
     <string name="scheduler_schedule_time_label">Thời gian xấp xỉ</string>
     <string name="scheduler_schedule_repeat_label">Lặp lại khoảng thời gian trong ngày</string>
@@ -42,7 +43,6 @@
     <string name="scheduler_commands_after_schedule_label">Các lệnh sau lịch trình</string>
     <string name="scheduler_commands_after_schedule_desc">Các lệnh shell của Android sẽ được thực thi khi kết thúc lịch trình.</string>
     <string name="scheduler_battery_optimization_hint">Hãy cân nhắc việc tắt tính năng tối ưu hóa pin cho SD Maid nếu bạn gặp sự cố khi thực thi ở chế độ nền.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid có thể dọn dẹp theo lịch trình. Chọn thời gian và công cụ nào chạy, rồi nó sẽ hoạt động nền, (gần như) không cần mở ứng dụng.</string>
     <string name="tour_scheduler_create_body">Chạm vào đây để tạo lịch trình mới, rồi đặt thời gian chạy và chọn công cụ nào để bao gồm.</string>
 </resources>

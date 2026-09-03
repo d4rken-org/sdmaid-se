@@ -29,6 +29,18 @@
         <item quantity="one">%d ఫైల్ దాటవేసిన (HDR/depth సంరక్షించబడిన)</item>
         <item quantity="other">%d ఫైల్‌లు దాటవేసిన (HDR/depth సంరక్షించబడిన)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d దాటవేయబడింది (మోషన్ ఫోటో)</item>
+        <item quantity="other">%d దాటవేయబడ్డాయి (మోషన్ ఫోటోలు)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d దాటవేయబడింది (చాలా పెద్ద ఫోటో)</item>
+        <item quantity="other">%d దాటవేయబడ్డాయి (చాలా పెద్ద ఫోటోలు)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d దాటవేయబడింది (రక్షించబడింది)</item>
+        <item quantity="other">%d దాటవేయబడ్డాయి (రక్షించబడినవి)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d అంశం ఎంచుకొబడింది</item>
         <item quantity="other">%d అంశాలు ఎంచుకొబడినాయి</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">సాధారణ</string>
     <string name="squeezer_quality_description">తక్కువ నాణ్యత అంటే చిన్న ఫైల్ పరిమాణం కానీ తక్కువ దృశ్య నాణ్యత.</string>
     <string name="squeezer_types_category_label">చిత్రం అమరికలు</string>
+    <string name="squeezer_protected_category_label">ఏమి కోల్పోతాము</string>
     <string name="squeezer_video_settings_category_label">వీడియో అమరికలు</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG చిత్రాలను చేర్చండి (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">JPEG చిత్రాలను (.jpg, .jpeg) చేర్చండి. రీ-ఎన్‌కోడింగ్ Android అంతర్నిర్మిత JPEG ఎన్‌కోడర్‌ను ఉపయోగిస్తుంది. తేదీ, స్థానం మరియు ఇతర EXIF మెటాడేటా ఉంచబడతాయి.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP చిత్రాలను చేర్చండి (.webp).</string>
+    <string name="squeezer_type_webp_description">WebP చిత్రాలను (.webp) చేర్చండి. రీ-ఎన్‌కోడింగ్ Android అంతర్నిర్మిత WebP ఎన్‌కోడర్‌ను ఉపయోగిస్తుంది. తేదీ, స్థానం మరియు ఇతర EXIF మెటాడేటా ఉంచబడతాయి.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF చిత్రాలను చేర్చండి (.heic, .heif). తేదీ, స్థానం మరియు ఇతర EXIF మెటాడేటా సంరక్షించబడతాయి. HDR లాభ మ్యాప్‌లు, లోతు డేటా మరియు లైవ్/మోషన్ ఫోటో సోదరీమణుల్ను సంరక్షించలేము; బహు-చిత్ర ఫైలులు దాటవేయబడతాయి.</string>
     <string name="squeezer_type_video_title">MP4 వీడియో</string>
-    <string name="squeezer_type_video_description">MP4 వీడియో ఫైళ్ళను (.mp4) చేర్చండి.</string>
+    <string name="squeezer_type_video_description">MP4 వీడియో ఫైళ్లను (.mp4) చేర్చండి. వీడియో ట్రాక్ పరికరం యొక్క సొంత వీడియో ఎన్‌కోడర్ ద్వారా తక్కువ బిట్‌రేట్‌లో రీ-ఎన్‌కోడ్ చేయబడుతుంది, ఆడియో ట్రాక్ మార్పు లేకుండా కాపీ చేయబడుతుంది, మరియు ఫైల్ MP4గా ఉంటుంది.</string>
     <string name="squeezer_skip_compressed_title">గతంలో కుదించినవి దాటవేయండి</string>
     <string name="squeezer_skip_compressed_description">SD Maid ద్వారా ఇప్పటికే కంప్రెస్ చేయబడిన ఫైళ్ళను దాటవేయండి.</string>
     <string name="squeezer_exif_marker_title">EXIF మార్కర్ వ్రాయండి</string>
     <string name="squeezer_exif_marker_description">కుదింపు చరిత్ర క్లియర్ చేయబడినా మళ్ళీ కుదింపును నిరోధించడానికి చిత్రం యొక్క EXIF వినియోగదారు వ్యాఖ్య ఫీల్డ్‌కు మార్కర్‌ను జోడించండి.</string>
     <string name="squeezer_include_lossy_aux_title">HDR మరియు లోతు చిత్రాలను కుదించండి</string>
-    <string name="squeezer_include_lossy_aux_description">ఆఫ్ డిఫాల్ట్: HDR లాభ మ్యాప్ లేదా లోతు/పోర్ట్రెట్ డేటా ఉన్న చిత్రాలు దాటవేయబడతాయి కాబట్టి సరళీకరించబడవు. సాధ్యమైన చోట వాటిని కుదించడానికి ఎనేబుల్ చేయండి — అవి వాటి HDR లాభ మ్యాప్ లేదా లోతు డేటాను కోల్పోతాయి. కొన్ని బహు-చిత్ర HEIC చిత్రాలు ఎటువంటి సందర్భంలోనూ సంరక్షిత నిల్వలో ఉంటాయి.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR లేదా డెప్త్ డేటా ఉన్న ఫోటోలను చేర్చండి. కంప్రెషన్ దాన్ని తొలగిస్తుంది: HDR ఫోటోలు సాధారణ ఫోటోలుగా మారతాయి, పోర్ట్రెయిట్ ఫోటోలు వాటి బ్యాక్‌గ్రౌండ్ బ్లర్ వెనుక ఉన్న డేటాను కోల్పోతాయి. మల్టీ-ఇమేజ్ HEIC ఫైళ్లు దాటవేయబడతాయి.</string>
+    <string name="squeezer_include_motion_photos_title">మోషన్ ఫోటోలను కంప్రెస్ చేయండి</string>
+    <string name="squeezer_include_motion_photos_description">మోషన్ ఫోటోలను చేర్చండి. కంప్రెషన్ స్టిల్ చిత్రాన్ని ఉంచి వీడియో క్లిప్‌ను తొలగిస్తుంది.</string>
+    <string name="squeezer_include_oversized_title">చాలా పెద్ద ఫోటోలను కంప్రెస్ చేయండి</string>
+    <string name="squeezer_include_oversized_description">8192 పిక్సెల్‌ల కంటే వెడల్పు లేదా ఎత్తు ఉన్న ఫోటోలను చేర్చండి. కంప్రెషన్ వాటి రిజల్యూషన్‌ను కూడా సగానికి తగ్గిస్తుంది.</string>
     <string name="squeezer_estimated_savings_format">~%s ఆదా</string>
     <string name="squeezer_no_savings_expected">పరిమిత ఆదా</string>
     <string name="squeezer_current_size_format">పరిమాణం: %s</string>
+    <string name="squeezer_chip_compressed_before">కంప్రెస్డ్</string>
+    <string name="squeezer_chip_hdr_depth">HDR/డెప్త్</string>
+    <string name="squeezer_chip_motion_photo">మోషన్ ఫోటో</string>
+    <string name="squeezer_chip_downscaled">డౌన్‌స్కేల్డ్</string>
+    <string name="squeezer_markers_dialog_title">ఈ మార్కర్‌ల గురించి</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ఇప్పటికే ఈ ఫైల్‌ను కంప్రెస్ చేసింది. దాన్ని మళ్లీ కంప్రెస్ చేయడం వల్ల నాణ్యత తగ్గుతుంది మరియు తక్కువ స్థలం ఆదా అవుతుంది.</string>
+    <string name="squeezer_markers_hdr_depth_description">ఈ ఫోటోలో HDR లేదా డెప్త్ డేటా ఉంది, దీన్ని కంప్రెషన్ ఉంచలేదు. ఒక HDR ఫోటో సాధారణ ఫోటోగా మారుతుంది, మరియు పోర్ట్రెయిట్ ఫోటో బ్యాక్‌గ్రౌండ్ బ్లర్ కోసం ఉపయోగించే డెప్త్ డేటాను కోల్పోతుంది.</string>
+    <string name="squeezer_markers_motion_photo_description">ఇది ఒక మోషన్ ఫోటో. కంప్రెషన్ స్టిల్ చిత్రాన్ని ఉంచి వీడియో క్లిప్‌ను తొలగిస్తుంది.</string>
+    <string name="squeezer_markers_downscaled_description">ఈ ఫోటో 8192 పిక్సెల్‌ల కంటే వెడల్పు లేదా ఎత్తు కలిగి ఉంది. కంప్రెషన్ దాని రిజల్యూషన్‌ను కూడా సగానికి తగ్గిస్తుంది.</string>
     <string name="squeezer_compress_action">కుదించు</string>
     <string name="squeezer_compress_all_action">అన్నీ కుదించు</string>
     <string name="squeezer_preview_dialog_title">కుదింపును నిర్ధారించండి</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">పోలిక చూడండి</string>
     <string name="squeezer_no_example_found">ఎంచుకున్న పాథ్‌లలో చిత్రాలు కనుగొనబడలేదు.</string>
     <string name="squeezer_result_empty_message">కంప్రెస్ చేయగలిగే మీడియా ఏదీ కనుగొనబడలేదు.</string>
+    <string name="squeezer_result_empty_protected">కంప్రెస్ చేయడానికి ఏమీ లేదు. దాటవేయబడింది: %s. వాటిని చేర్చడానికి సెట్టింగ్‌లో సంబంధిత ఆప్షన్‌ను ఆన్ చేయండి.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/డెప్త్ ఫోటో</item>
+        <item quantity="other">%d HDR/డెప్త్ ఫోటోలు</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d మోషన్ ఫోటో</item>
+        <item quantity="other">%d మోషన్ ఫోటోలు</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d చాలా పెద్ద ఫోటో</item>
+        <item quantity="other">%d చాలా పెద్ద ఫోటోలు</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d స్థానాన్ని కంప్రెషన్ కోసం ఉపయోగించలేము మరియు తొలగించబడింది. కంప్రెషన్‌కు అంతర్గత నిల్వకు నేరుగా యాక్సెస్ అవసరం.</item>
         <item quantity="other">%d స్థానాలను కంప్రెషన్ కోసం ఉపయోగించలేము మరియు తొలగించబడినాయి. కంప్రెషన్‌కు అంతర్గత నిల్వకు నేరుగా యాక్సెస్ అవసరం.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">కనీసం %d రోజులు పాతవి</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ఫైలుల కోసం అంచనా వేసిన ~%d%% ఆదా</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer మీ ఫోటోలను మరియు వీడియోలను తిరిగి సంపీడించుకుంటుంది, తద్వారా అవి తక్కువ స్థలం ఆక్రమిస్తాయి. మీరు కొంచెం నాణ్యతను ఎక్కువ స్థలం కోసం వర్తకం చేస్తారు. ప్రతిటి అంశం దాని అంచనా చేసిన ఆదా చూపుతుంది, కాబట్టి మీరు ఏది విలువైనదో నిర్ణయించుకోవచ్చు.</string>
     <string name="tour_squeezer_compress_body">ఇక్కడ సమస్తమూ ఒకేసారి కుదించండి, లేదా ఒక ఏకైక అంశాన్ని నొక్కండి కేవలం దానిని చిన్నవిని చేయడానికి. బహుళ అంశాలను ఎంచుకోవడానికి దీర్ఘకాలిక నొక్కండి. ఏదైనా మార్పుకు ముందు మీరు ఎల్లప్పుడు ప్రీవ్యూను చూస్తారు.</string>
 </resources>

@@ -40,7 +40,7 @@
     <string name="analyzer_storage_content_type_system_otherusers_hint">No s\'ha pogut mesurar completament altres usuaris, per la qual cosa aquest total pot incloure part del seu emmagatzematge.</string>
     <string name="analyzer_storage_content_type_system_other_label">Altres</string>
     <string name="analyzer_storage_content_type_system_info">Fitxers que no pertanyen a les categories d\'aplicacions o fitxers d\'usuari. Només es permet la visualització; no s\'admet l\'eliminació. Algunes àrees poden estar incompletes per restriccions d\'accés.</string>
-    <string name="analyzer_storage_content_type_media_readonly_info">Els fitxers no es poden fer coincidir amb les aplicacions que els posseeixen en aquest moment. Les mides es mostren només per a referència — l\'eliminació, els filtres i Swiper estan desactivats.</string>
+    <string name="analyzer_storage_content_type_media_readonly_info">Els fitxers no es poden comparar amb les aplicacions que els posseeixen ara mateix. Les mides només es mostren per a la referència; l\'eliminació, els filtres i l\'Escombrador estan desactivats.</string>
     <string name="analyzer_storage_content_type_system_other_desc">Fitxers del sistema i altres dades a les quals l\'SD Maid no ha pogut accedir o classificar. El sistema operatiu restringeix la llista del contingut d\'algunes àrees.</string>
     <string name="analyzer_storage_content_type_otherusers_label">Altres usuaris</string>
     <string name="analyzer_storage_content_type_otherusers_description">Aplicacions i fitxers que pertanyen a altres usuaris o perfils de treball d\'aquest dispositiu.</string>
@@ -57,12 +57,11 @@
     <string name="analyzer_storage_content_app_extra_description">Dades addicionals que aquesta aplicació ha col·locat fora de les rutes per defecte, p. ex. fotos o baixades.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aquesta aplicació ocupa %1$s a «%2$s».</string>
     <string name="analyzer_app_details_app_is_archived">Aquesta aplicació s\'ha arxivat.</string>
-    <string name="analyzer_storage_trend_delta_in_7d">%s en 7d</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7 dies</string>
     <plurals name="analyzer_storage_forecast_days">
         <item quantity="one">Queda aproximadament %d dia d\'espai a aquest ritme</item>
         <item quantity="other">Queden aproximadament %d dies d\'espai a aquest ritme</item>
     </plurals>
-    <!-- Settings -->
     <string name="analyzer_settings_storage_category_label">Emmagatzematge</string>
     <string name="analyzer_settings_lowstorage_title">Llindar d\'emmagatzematge baix</string>
     <string name="analyzer_settings_lowstorage_desc">Quan l\'espai lliure baixa d\'aquest límit, l\'SD Maid considera que l\'emmagatzematge s\'està esgotant.</string>
@@ -70,11 +69,9 @@
     <string name="analyzer_settings_lowstorage_value_auto_unknown">Automàtic</string>
     <string name="analyzer_settings_lowstorage_automatic_action">Automàtic</string>
     <string name="analyzer_settings_lowspace_notification_title">Avís d\'espai baix</string>
-    <string name="analyzer_settings_lowspace_notification_desc">Rep una notificació abans que se t\'esgoti l\'emmagatzematge.</string>
-    <!-- Device storage upgrade hint -->
+    <string name="analyzer_settings_lowspace_notification_desc">Envia una notificació abans que se us esgoti l\'emmagatzematge.</string>
     <string name="analyzer_lowspace_hint_title">No us quedeu mai sense espai</string>
     <string name="analyzer_lowspace_hint_body">Milloreu per rebre un avís abans que se us esgoti l\'emmagatzematge, així podreu netejar mentre encara tingueu marge de maniobra.</string>
-    <!-- Guided tour -->
-    <string name="tour_analyzer_intro_body">Descobreix què està omplint realment l\'emmagatzematge. L\'Analitzador mostra on va l\'espai. Cadascuna d\'aquestes targetes és un xip d\'emmagatzematge en el teu dispositiu.</string>
-    <string name="tour_analyzer_storage_body">Obre un emmagatzematge per desglossar-lo en aplicacions, contingut multimèdia i fitxers, i continua tocant per localitzar els culpables més grans.</string>
+    <string name="tour_analyzer_intro_body">Descobriu què està omplint realment l\'emmagatzematge. L\'Analitzador us mostra on va el vostre espai. Cadascuna d\'aquestes targetes és un xip d\'emmagatzematge al vostre dispositiu.</string>
+    <string name="tour_analyzer_storage_body">Obriu un emmagatzematge per desglossar-lo en aplicacions, contingut multimèdia i fitxers. Continueu tocant per a rastrejar als principals culpables.</string>
 </resources>

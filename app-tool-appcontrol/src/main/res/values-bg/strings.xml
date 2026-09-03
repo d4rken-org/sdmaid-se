@@ -81,6 +81,10 @@
         <item quantity="one">%d приложение беше превключено</item>
         <item quantity="other">%d приложения бяха превключени</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d приложение не може да бъде активирано или деактивирано</item>
+        <item quantity="other">%d приложения не могат да бъдат активирани или деактивирани</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Определяне на размери</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Получаване на груба оценка на размера на всяко приложение.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определяне на активност</string>

@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Saqlap qalıw yamasa o\'shiriw sheshimlerin bergende terbeniw.</string>
     <string name="swiper_discard_session_confirmation_title">Sessiyanı tashlap?</string>
     <string name="swiper_discard_session_confirmation_message">Barlıq sheshimler joǵaltıladı. Isenimlimsiz?</string>
-    <string name="swiper_no_preview_available">Aldın alıw joq</string>
+    <string name="swiper_no_preview_available">Aldın kóriw múmkin emes</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d ku\'n aldınǵı sessiyanı dawam ettiw (%2$d%% tayar)</item>
         <item quantity="other">%1$d ku\'n aldınǵı sessiyanı dawam ettiw (%2$d%% tayar)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">Artqa!</string>
     <string name="swiper_stamp_undo_3">Oy!</string>
     <string name="swiper_stamp_undo_4">Toqtań!</string>
-    <string name="swiper_gesture_overlay_dismiss">Baslaw ushın islegen jerge basıń</string>
-    <string name="swiper_gesture_overlay_left_delete">← O\'shiriw</string>
-    <string name="swiper_gesture_overlay_right_keep">Saqlap qalıw →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Saqlap qalıw</string>
-    <string name="swiper_gesture_overlay_right_delete">O\'shiriw →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ O\'tiw</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Qaytarıw</string>
+    <string name="swiper_gesture_overlay_dismiss">Baslaw ushın qálegen jerge basıń</string>
+    <string name="swiper_gesture_overlay_left_delete">← Óshiriw</string>
+    <string name="swiper_gesture_overlay_right_keep">Saqlaw →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saqlaw</string>
+    <string name="swiper_gesture_overlay_right_delete">Óshiriw →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ótkeriw</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Biykarlaw</string>
     <string name="swiper_help_title">Swiper qalay islaydi</string>
     <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Túsinikli</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Súzginen ótkerilgen: %1$s</string>
     <string name="swiper_session_no_matching_files">Sáykes fayllar tabılmadı</string>
     <string name="swiper_open_externally_action">Sırtqı qosılmada ashıw</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Faildi qaytaraw arqalı taqdírín cheship beriń: kóntseń basíp saqlaw yaki óshíruw, órtínе basíp chetlab cuytuw, astıńa basíp qaytаrıw. Astıńdagí tugmálár da shuńday ishlásár jáne qaysi táreptiñ nemedeni kórsetíptu.</string>
     <string name="tour_swiper_openin_body">Bul tugma failní basqa programmada ashíp berídí, anıqlap bermesińde uni tígerip korap bolasız.</string>
     <string name="tour_swiper_preview_body">Bul dügme jaqınıraq kóriw ushın tolıq ekran aldın kóriwin ashadı.</string>

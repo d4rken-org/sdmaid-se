@@ -81,6 +81,10 @@
         <item quantity="one">%d ଆପ୍ ଟଗଲ୍ ହୋଇଛି</item>
         <item quantity="other">%d ଆପ୍ ଟଗଲ୍ ହୋଇଛି</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d ଆପ୍‌କୁ ସକ୍ଷମ କିମ୍ବା ଅକ୍ଷମ କରାଯାଇପାରିବ ନାହିଁ</item>
+        <item quantity="other">%d ଆପ୍‌ଗୁଡ଼ିକୁ ସକ୍ଷମ କିମ୍ବା ଅକ୍ଷମ କରାଯାଇପାରିବ ନାହିଁ</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">ଆକାର ନିର୍ଣ୍ଣୟ କରନ୍ତୁ</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ପ୍ରତ୍ୟେକ ଆପ୍ର ଆକାରର ଏକ ଆନୁମାନିକ ପରିମାଣ ପ୍ରାପ୍ତ କରନ୍ତୁ।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">କାର୍ଯ୍ୟକଳାପ ନିର୍ଦ୍ଧାରଣ</string>

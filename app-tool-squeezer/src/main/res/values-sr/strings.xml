@@ -36,6 +36,21 @@
         <item quantity="few">%d прескочене (HDR/дубина сачувана)</item>
         <item quantity="other">%d прескочених (HDR/дубина сачувана)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d прескочена (Motion Photo)</item>
+        <item quantity="few">%d прескочене (Motion Photo)</item>
+        <item quantity="other">%d прескочено (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d прескочена (веома велика фотографија)</item>
+        <item quantity="few">%d прескочене (веома велике фотографије)</item>
+        <item quantity="other">%d прескочено (веома великих фотографија)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d прескочена (заштићена)</item>
+        <item quantity="few">%d прескочене (заштићене)</item>
+        <item quantity="other">%d прескочено (заштићених)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ставка изабрана</item>
         <item quantity="few">%d ставке изабране</item>
@@ -48,24 +63,38 @@
     <string name="squeezer_compression_settings_label">Опште</string>
     <string name="squeezer_quality_description">Нижи квалитет значи мању величину датотеке, али смањен визуелни квалитет.</string>
     <string name="squeezer_types_category_label">Подешавања слике</string>
+    <string name="squeezer_protected_category_label">Шта се губи</string>
     <string name="squeezer_video_settings_category_label">Подешавања видеа</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Укључи JPEG слике (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Укључи JPEG слике (.jpg, .jpeg). Поновно кодирање користи Android-ов уграђени JPEG енкодер. Датум, локација и остали EXIF метаподаци се задржавају.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Укључи WebP слике (.webp).</string>
+    <string name="squeezer_type_webp_description">Укључи WebP слике (.webp). Поновно кодирање користи Android-ов уграђени WebP енкодер. Датум, локација и остали EXIF метаподаци се задржавају.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Укључи HEIC/HEIF слике (.heic, .heif). Датум, локација и други EXIF метаподаци се чувају. HDR карте добитка, подаци о дубини и Live/Motion Photo варијанте не могу бити очувани; датотеке са више слика су прескочене.</string>
     <string name="squeezer_type_video_title">MP4 видео</string>
-    <string name="squeezer_type_video_description">Укључи MP4 видео датотеке (.mp4).</string>
+    <string name="squeezer_type_video_description">Укључи MP4 видео фајлове (.mp4). Видео запис се поново кодира на нижем битском протоку помоћу сопственог видео енкодера уређаја, аудио запис се копира непромењен, а фајл остаје MP4.</string>
     <string name="squeezer_skip_compressed_title">Прескочи претходно компримоване</string>
     <string name="squeezer_skip_compressed_description">Прескочи датотеке које је SD Maid већ компримовао.</string>
     <string name="squeezer_exif_marker_title">Упиши EXIF ознаку</string>
     <string name="squeezer_exif_marker_description">Додај ознаку у EXIF поље коментара корисника слике да спречи поновну компресију чак и ако се историја компресије обрише.</string>
     <string name="squeezer_include_lossy_aux_title">Компресуј HDR и слике са дубином</string>
-    <string name="squeezer_include_lossy_aux_description">Подразумевано искључено: слике са HDR картом добитка или подацима о дубини/портрету су прескочене да не би биле спљоштене. Омогућите компресију тамо где је то могуће — изгубиће своју HDR карту добитка или податке о дубини. Неке HEIC слике са више слика остају заштићене без обзира.</string>
+    <string name="squeezer_include_lossy_aux_description">Укључи фотографије са HDR или дубинским подацима. Компресија их уклања: HDR фотографије постају обичне фотографије, а фотографије у портрет режиму губе податке иза замућења позадине. HEIC фајлови са више слика и даље се прескачу.</string>
+    <string name="squeezer_include_motion_photos_title">Компресуј Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Укључи Motion Photos. Компресија задржава непокретну слику, а уклања видео снимак.</string>
+    <string name="squeezer_include_oversized_title">Компресуј веома велике фотографије</string>
+    <string name="squeezer_include_oversized_description">Укључи фотографије шире или више од 8192 пиксела. Компресија такође преполовљује њихову резолуцију.</string>
     <string name="squeezer_estimated_savings_format">~%s уштеде</string>
     <string name="squeezer_no_savings_expected">Ограничена уштеда</string>
     <string name="squeezer_current_size_format">Величина: %s</string>
+    <string name="squeezer_chip_compressed_before">Компресовано</string>
+    <string name="squeezer_chip_hdr_depth">HDR/дубина</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Смањена резолуција</string>
+    <string name="squeezer_markers_dialog_title">О овим ознакама</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid је већ компресовао овај фајл. Поновна компресија смањује квалитет, а штеди мало простора.</string>
+    <string name="squeezer_markers_hdr_depth_description">Ова фотографија има HDR или дубинске податке које компресија не може да задржи. HDR фотографија постаје обична, а фотографија у портрет режиму губи дубинске податке коришћене за замућење позадине.</string>
+    <string name="squeezer_markers_motion_photo_description">Ово је Motion Photo. Компресија задржава непокретну слику, а уклања видео снимак.</string>
+    <string name="squeezer_markers_downscaled_description">Ова фотографија је шира или виша од 8192 пиксела. Компресија такође преполовљује њену резолуцију.</string>
     <string name="squeezer_compress_action">Компримуј</string>
     <string name="squeezer_compress_all_action">Компримуј све</string>
     <string name="squeezer_preview_dialog_title">Потврди компресију</string>
@@ -88,6 +117,22 @@
     <string name="squeezer_compare_action">Прегледај поређење</string>
     <string name="squeezer_no_example_found">Нису пронађене слике на изабраним путањама.</string>
     <string name="squeezer_result_empty_message">Нема медија погодних за компресију.</string>
+    <string name="squeezer_result_empty_protected">Нема ничега за компресовање. Прескочено: %s. Укључи одговарајућу опцију у подешавањима да их укључиш.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/дубинска фотографија</item>
+        <item quantity="few">%d HDR/дубинске фотографије</item>
+        <item quantity="other">%d HDR/дубинских фотографија</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="few">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d веома велика фотографија</item>
+        <item quantity="few">%d веома велике фотографије</item>
+        <item quantity="other">%d веома великих фотографија</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d локација не може да се користи за компресију и уклоњена је. Компресија захтева директан приступ интерној меморији.</item>
         <item quantity="few">%d локације не могу да се користе за компресију и уклоњене су. Компресија захтева директан приступ интерној меморији.</item>
@@ -109,7 +154,6 @@
         <item quantity="other">Најмање %d дана старо</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Процењена ~%d%% уштеда за JPEG датотеке</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer поново компресује ваше фотографије и видео снимке како би заузимали мање простора. Жртвујете мало квалитета за простор који добијате назад. Свака ставка показује процењену уштеду, тако да можете одлучити шта је вредно.</string>
     <string name="tour_squeezer_compress_body">Компресујте све одједном овде, или додирните једну ставку да смањите само ту. Дугим притиском одаберите више. Увек ћете видети преглед пре него што се нешто промени.</string>
 </resources>

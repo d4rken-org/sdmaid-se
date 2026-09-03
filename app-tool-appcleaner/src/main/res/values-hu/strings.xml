@@ -60,6 +60,18 @@
         <item quantity="one">%d feláldozható elem törölve</item>
         <item quantity="other">%d feláldozható elem törölve</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d felesleges elem törölve, leállítva, mert a képernyő kikapcsolt vagy zárolva volt</item>
+        <item quantity="other">%d felesleges elem törölve, leállítva, mert a képernyő kikapcsolt vagy zárolva volt</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d felesleges elem törölve, leállítva egy hiba miatt</item>
+        <item quantity="other">%d felesleges elem törölve, leállítva egy hiba miatt</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d gyorsítótárhoz még szükség van a kisegítő lehetőségek szolgáltatásra</item>
+        <item quantity="other">%1$s, %2$d gyorsítótárhoz még szükség van a kisegítő lehetőségek szolgáltatásra</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d felhasználható elem található</item>
         <item quantity="other">%d elhasználható elemek találhatók</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">„Gyorsítótár törlése” gomb keresése (kulcsszavak: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Alapértelmezett gyorsítótárak</string>
     <string name="appcleaner_item_caches_inaccessible_body">Nyilvános és privát alapértelmezett gyorsítótárak. Közvetlenül nem elérhető, de közvetve törölhető (pl. akadálymentesítési szolgáltatáson keresztül).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Kizárva, de az összes alkalmazás egyszerre történő tisztítása továbbra is törli ezeket a gyorsítótárakat</string>
+    <string name="appcleaner_exclusion_limited_title">Kizárt alkalmazás</string>
+    <string name="appcleaner_exclusion_limited_body">Kizártad ezt az alkalmazást az AppCleanerből. Az összes alkalmazás gyorsítótárának egyszerre történő törlése a Shizuku rendszerszintű gyorsítótár-tisztítását használja, amely nem tud egyes alkalmazásokat kihagyni, így ennek az alkalmazásnak a gyorsítótárazott adatai is törlődnek a többivel együtt. Csak az itt megjelenő gyorsítótárazott adatok érintettek, minden más, amit a kizárás lefed, rejtve és érintetlenül marad.</string>
     <string name="appcleaner_automation_unavailable_title">A kisegítő lehetőségek szolgáltatása nem érhető el</string>
-    <string name="appcleaner_automation_unavailable_body">Az elérhetetlen gyorsítótárak törléséhez az SD Maid elérhetőségi szolgáltatása szükséges, de az nem volt elérhető. Ha nem szeretné használni: Kapcsolja ki a \"Hozzáférhetetlen gyorsítótárak bevonása\" opciót.</string>
+    <string name="appcleaner_automation_unavailable_body">Ezeknek a gyorsítótáraknak a törléséhez az SD Maid kisegítő lehetőségek szolgáltatására van szükség, de az nem volt elérhető.</string>
     <string name="appcleaner_delete_confirmation_message_x">Felesleges fájlok törlése %s számára?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Felesleges fájlok törlése %d kiválasztott alkalmazáshoz?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Kényszerleállítás törlés előtt</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Alkalmazások kényszerleállítása a gyorsítótár törlése előtt. Segíthet egyes alkalmazások gyorsítótárának törlésében, de az alkalmazások hibásan működhetnek és kézi újraindítást igényelhetnek.</string>
     <string name="appcleaner_progress_force_stopping">Alkalmazások kényszerleállítása…</string>
+    <string name="appcleaner_progress_checking_freed_space">Felszabadított terület ellenőrzése…</string>
 </resources>

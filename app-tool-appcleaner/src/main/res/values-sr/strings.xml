@@ -61,6 +61,21 @@
         <item quantity="few">%d потрошне ставке обрисане</item>
         <item quantity="other">%d потрошних ставки обрисано</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Обрисана је %d непотребна ставка, заустављено јер је екран био искључен или закључан</item>
+        <item quantity="few">Обрисане су %d непотребне ставке, заустављено јер је екран био искључен или закључан</item>
+        <item quantity="other">Обрисано је %d непотребних ставки, заустављено јер је екран био искључен или закључан</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Обрисана је %d непотребна ставка, заустављено грешком</item>
+        <item quantity="few">Обрисане су %d непотребне ставке, заустављено грешком</item>
+        <item quantity="other">Обрисано је %d непотребних ставки, заустављено грешком</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d кеш и даље захтева услугу приступачности</item>
+        <item quantity="few">%1$s, %2$d кеша и даље захтевају услугу приступачности</item>
+        <item quantity="other">%1$s, %2$d кешева и даље захтева услугу приступачности</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d потрошна ставка пронађена</item>
         <item quantity="few">%d потрошне ставке пронађене</item>
@@ -73,8 +88,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Претрага \"Обриши кеш\" дугмета (кључне речи: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Подразумевани кешови</string>
     <string name="appcleaner_item_caches_inaccessible_body">Јавни и приватни подразумевани кешови. Нису непосредно приступачни, али се могу обрисати непосредно (нпр. преко сервиса приступачности).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Искључено, али чишћење свих апликација одједном ипак брише ове кешове</string>
+    <string name="appcleaner_exclusion_limited_title">Искључена апликација</string>
+    <string name="appcleaner_exclusion_limited_body">Искључили сте ову апликацију из AppCleaner-а. Чишћење кеша за све апликације одједном користи Shizuku-ово системско чишћење кеша, које не може да изостави појединачне апликације, па се кеш подаци ове апликације бришу заједно са свим осталим. Утиче само на кеш податке приказане овде, све остало што искључење обухвата остаје скривено и нетакнуто.</string>
     <string name="appcleaner_automation_unavailable_title">Сервис приступачности није доступан</string>
-    <string name="appcleaner_automation_unavailable_body">Брисање неприступачних кешова захтева СД Чистачов сервис приступачности, али није био доступан. Ако не желите да га користите: Онемогућите опцију \"Укључи неприступачне кешове\".</string>
+    <string name="appcleaner_automation_unavailable_body">Брисање ових кешова захтева SD Maid-ову услугу приступачности, али она није била доступна.</string>
     <string name="appcleaner_delete_confirmation_message_x">Обрисати потрошне датотеке за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Обрисати потрошне датотеке за %d изабрану апликацију?</item>
@@ -91,4 +109,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудно заустави пре чишћења</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудно заустави апликације пре чишћења њиховог кеша. Може помоћи у чишћењу кеша неких апликација, али може проузроковати неисправно понашање апликација које захтевају ручно покретање.</string>
     <string name="appcleaner_progress_force_stopping">Принудно заустављање апликација…</string>
+    <string name="appcleaner_progress_checking_freed_space">Проверавање ослобођеног простора…</string>
 </resources>

@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Tetema unapofanya maamuzi ya kuhifadhi au kufuta.</string>
     <string name="swiper_discard_session_confirmation_title">Tupa kipindi?</string>
     <string name="swiper_discard_session_confirmation_message">Maamuzi yote yatapotea. Una uhakika?</string>
-    <string name="swiper_no_preview_available">Hakikisho haipatikani</string>
+    <string name="swiper_no_preview_available">Hakuna hakikisho linalopatikana</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Endelea na kipindi kutoka siku %1$d iliyopita (%2$d%% imekamilika)</item>
         <item quantity="other">Endelea na kipindi kutoka siku %1$d zilizopita (%2$d%% imekamilika)</item>
@@ -133,7 +133,7 @@
     <string name="swiper_stamp_undo_2">Rudi!</string>
     <string name="swiper_stamp_undo_3">Lo!</string>
     <string name="swiper_stamp_undo_4">Ngoja!</string>
-    <string name="swiper_gesture_overlay_dismiss">Gusa popote ili kuanza</string>
+    <string name="swiper_gesture_overlay_dismiss">Gusa mahali popote kuanza</string>
     <string name="swiper_gesture_overlay_left_delete">← Futa</string>
     <string name="swiper_gesture_overlay_right_keep">Weka →</string>
     <string name="swiper_gesture_overlay_left_keep">← Weka</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Zilizochujwa: %1$s</string>
     <string name="swiper_session_no_matching_files">Hakuna faili zinazofanana zilizopatikana</string>
     <string name="swiper_open_externally_action">Fungua katika programu ya nje</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Swaipi faili ili kuamua hatima yake: kando ili kuihifadhi au kuifuta, juu ili kuipita, chini ili kutendua. Vitufe vilivyo chini hufanya vivyo hivyo — na vinaonyesha ni upande gani ni upi.</string>
     <string name="tour_swiper_openin_body">Kitufe hiki kinafungua faili katika programu nyingine, hurahisisha kuikagua kabla ya kuamua.</string>
     <string name="tour_swiper_preview_body">Kitufe hiki kinafungua onyesho la skrini nzima kwa mwonekano wa karibu.</string>

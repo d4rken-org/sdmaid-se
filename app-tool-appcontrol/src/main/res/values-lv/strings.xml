@@ -88,6 +88,11 @@
         <item quantity="one">%d lietotne tika pārslēgta</item>
         <item quantity="other">%d lietotnes tika pārslēgtas</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="zero">%d lietotņu nevar iespējot vai atspējot</item>
+        <item quantity="one">%d lietotni nevar iespējot vai atspējot</item>
+        <item quantity="other">%d lietotnes nevar iespējot vai atspējot</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Noteikt izmērus</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Iegūstiet aptuvenu katras lietotnes lieluma apreksinājumu.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Noteikt aktivitāti</string>

@@ -29,6 +29,18 @@
         <item quantity="one">%d ta o\'tkazib yuborildi (HDR/chuqurlik saqlanib qoldi)</item>
         <item quantity="other">%d ta o\'tkazib yuborildi (HDR/chuqurlik saqlanib qoldi)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d o\'tkazib yuborildi (Motion Photo)</item>
+        <item quantity="other">%d o\'tkazib yuborildi (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d o\'tkazib yuborildi (juda katta rasm)</item>
+        <item quantity="other">%d o\'tkazib yuborildi (juda katta rasmlar)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d o\'tkazib yuborildi (himoyalangan)</item>
+        <item quantity="other">%d o\'tkazib yuborildi (himoyalangan)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element tanlandi</item>
         <item quantity="other">%d element tanlandi</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Umumiy</string>
     <string name="squeezer_quality_description">Past sifat fayl hajmini kichraytiradi, lekin ko\'rinish sifatini pasaytiradi.</string>
     <string name="squeezer_types_category_label">Rasm sozlamalari</string>
+    <string name="squeezer_protected_category_label">Nima o\'chib ketadi</string>
     <string name="squeezer_video_settings_category_label">Video sozlamalari</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG rasmlarni qo\'shish (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">JPEG rasmlarini kiriting (.jpg, .jpeg). Qayta kodlash Android\'ning o\'rnatilgan JPEG kodlagichidan foydalanadi. Sana, joylashuv va boshqa EXIF metama\'lumotlari saqlanib qoladi.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP rasmlarni qo\'shish (.webp).</string>
+    <string name="squeezer_type_webp_description">WebP rasmlarini kiriting (.webp). Qayta kodlash Android\'ning o\'rnatilgan WebP kodlagichidan foydalanadi. Sana, joylashuv va boshqa EXIF metama\'lumotlari saqlanib qoladi.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF rasm fayllarini (.heic, .heif) qo\'shish. Sana, joylashuv va boshqa EXIF metama\'lumotlari saqlanadi. HDR kuchayish xaritalari, chuqurlik ma\'lumotlari va Live/Motion Photo qo\'shimchalarini saqlab qolib bo\'lmaydi; ko\'p rasmli fayllar o\'tkazib yuboriladi.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 video fayllarini qo\'shing (.mp4).</string>
+    <string name="squeezer_type_video_description">MP4 video fayllarini kiriting (.mp4). Video kanali qurilmaning o\'z video kodlagichi tomonidan pastroq bitreytda qayta kodlanadi, audio kanali o\'zgarishsiz nusxa qilinadi va fayl MP4 qoladi.</string>
     <string name="squeezer_skip_compressed_title">Oldin siqilganlarni o\'tkazib yuborish</string>
     <string name="squeezer_skip_compressed_description">SD Maid tomonidan allaqachon siqilgan fayllarni o\'tkazib yuboring.</string>
     <string name="squeezer_exif_marker_title">EXIF belgisini yozish</string>
     <string name="squeezer_exif_marker_description">Siqish tarixi tozalansa ham qayta siqishni oldini olish uchun rasmning EXIF foydalanuvchi izoh maydoniga belgi qo\'shish.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; chuqurlik rasmlarini siqish</string>
-    <string name="squeezer_include_lossy_aux_description">Sukut bo\'yicha o\'chirilgan: HDR kuchayish xaritasi yoki chuqurlik/portret ma\'lumotiga ega rasmlar tekislanmasligi uchun o\'tkazib yuboriladi. Iloji bo\'lgan joyda ularni siqish uchun yoqing — bunda ular HDR kuchayish xaritasi yoki chuqurlik ma\'lumotini yo\'qotadi. Ba\'zi ko\'p rasmli HEIC fayllari baribir himoyalangan bo\'lib qoladi.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR yoki chuqurlik ma\'lumotli rasmlarni qo\'shib kiriting. Siqish buni o\'chiradi: HDR rasmlar oddiy rasmlar bo\'ladi, portret rejimi rasmlar fon bulanishi uchun ishlatilgan chuqurlik ma\'lumotlarini yo\'qotadi. Ko\'p rasmlillik HEIC fayllar o\'tkazib yuborilishda qoladi.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos ni siqish</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos\'ni qo\'shing. Siqish statik rasmni saqlab, video-rolikni olib tashlaydi.</string>
+    <string name="squeezer_include_oversized_title">Juda katta rasmlarni siqish</string>
+    <string name="squeezer_include_oversized_description">Kenglik yoki bo\'yi 8192 pikseldan ko\'p bo\'lgan rasmlarni qo\'shing. Siqish ularning rezolyutsiyasini yarimiga kamaytiradi.</string>
     <string name="squeezer_estimated_savings_format">~%s tejash</string>
     <string name="squeezer_no_savings_expected">Cheklangan tejash</string>
     <string name="squeezer_current_size_format">Hajm: %s</string>
+    <string name="squeezer_chip_compressed_before">Siqilgan</string>
+    <string name="squeezer_chip_hdr_depth">HDR/chuqurlik</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Kichraytirilgan</string>
+    <string name="squeezer_markers_dialog_title">Bu belgilar haqida</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid bu faylni allaqachon siqib qo\'ygan. Uni yana siqish sifatga zarar etadi va juda oz tejashadi.</string>
+    <string name="squeezer_markers_hdr_depth_description">Bu rasmda siqish saqlay olmaydighan HDR yoki chuqurlik ma\'lumotlari bor. HDR rasmi oddiy rasmga aylanadi va portret rasmi fon bulanishi uchun ishlatilgan chuqurlik ma\'lumotlarini yo\'qotadi.</string>
+    <string name="squeezer_markers_motion_photo_description">Bu Motion Photo. Siqish statik rasmni saqlab, video-rolikni olib tashlaydi.</string>
+    <string name="squeezer_markers_downscaled_description">Bu rasmi kenglik yoki bo\'yi 8192 pikseldan ko\'proq. Siqish uning rezolyutsiyasini yarimiga kamaytiradi.</string>
     <string name="squeezer_compress_action">Siqish</string>
     <string name="squeezer_compress_all_action">Barchasini siqish</string>
     <string name="squeezer_preview_dialog_title">Siqishni tasdiqlash</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Solishtirishni ko\'rish</string>
     <string name="squeezer_no_example_found">Tanlangan yo\'llarda rasmlar topilmadi.</string>
     <string name="squeezer_result_empty_message">Siqilishi mumkin bo\'lgan media topilmadi.</string>
+    <string name="squeezer_result_empty_protected">Siqish uchun hech narsa yo\'q. O\'tkazib yuborildi: %s. Ularni qo\'shish uchun sozlamalarida tegishli opsiyani yoqing.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/chuqurlik rasmi</item>
+        <item quantity="other">%d HDR/chuqurlik rasmlari</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d juda katta rasmi</item>
+        <item quantity="other">%d juda katta rasmlari</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d manzilni siqish uchun ishlatib bo\'lmadi va olib tashlandi. Siqish ichki xotiraga to\'g\'ridan-to\'g\'ri kirish imkonini talab qiladi.</item>
         <item quantity="other">%d manzilni siqish uchun ishlatib bo\'lmadi va olib tashlandi. Siqish ichki xotiraga to\'g\'ridan-to\'g\'ri kirish imkonini talab qiladi.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Kamida %d kunlik</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG fayllar uchun taxminan ~%d%% tejash kutilmoqda</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer sizning fotolaringiz va videolaringizni qayta siqadi, shunda ular kamroq joyni egallaydi. Bir oz sifatni qurbon qilib, ko\'proq joyni tejaysiz. Har bir element uning taxminiy tejamkorligini ko\'rsatadi, shuning uchun qaysi narsani qo\'lga kiritish qiymatli ekanligini qaror qila olasiz.</string>
     <string name="tour_squeezer_compress_body">Shu yerda hammasini birdaniga siqing yoki faqat bittasini kichraytirish uchun uni bosing. Bir nechtasini tanlash uchun uzoq bosib turing. Har qanday o\'zgarishdan oldin doim ko\'rib chiqish imkoniyati bo\'ladi.</string>
 </resources>

@@ -10,19 +10,16 @@
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">נמצא פריט %d</item>
         <item quantity="two">נמצאו %d פריטים</item>
-        <item quantity="many">נמצאו %d פריטים</item>
         <item quantity="other">נמצאו %d פריטים</item>
     </plurals>
     <plurals name="swiper_result_x_items_deleted">
         <item quantity="one">פריט %d נמחק</item>
         <item quantity="two">%d פריטים נמחקו</item>
-        <item quantity="many">%d פריטים נמחקו</item>
         <item quantity="other">%d פריטים נמחקו</item>
     </plurals>
     <plurals name="swiper_result_x_items_failed">
         <item quantity="one">פריט %d נכשל</item>
         <item quantity="two">%d פריטים נכשלו</item>
-        <item quantity="many">%d פריטים נכשלו</item>
         <item quantity="other">%d פריטים נכשלו</item>
     </plurals>
     <string name="swiper_item_position">#%1$d מתוך %2$d</string>
@@ -37,20 +34,17 @@
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">פעולה זו תמחק לצמיתות קובץ %1$d (%2$s). לא ניתן לבטל פעולה זו.</item>
         <item quantity="two">פעולה זו תמחק לצמיתות %1$d קבצים (%2$s). לא ניתן לבטל פעולה זו.</item>
-        <item quantity="many">פעולה זו תמחק לצמיתות %1$d קבצים (%2$s). לא ניתן לבטל פעולה זו.</item>
         <item quantity="other">פעולה זו תמחק לצמיתות %1$d קבצים (%2$s). לא ניתן לבטל פעולה זו.</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="one">פריט %d שלא הוחלט לגביו יישאר לסקירה מאוחרת.</item>
         <item quantity="two">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
-        <item quantity="many">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
         <item quantity="other">%d פריטים שלא הוחלט לגביהם יישארו לסקירה מאוחרת.</item>
     </plurals>
     <string name="swiper_delete_confirmation_sensitive_root_warning">הסשן הזה מכוון לנפח אחסון שלם — מחיקה כאן משפיעה על כל התיקיות באותו אחסון.</string>
     <plurals name="swiper_delete_confirmation_more_folders">
         <item quantity="one">…ו-%d תיקייה נוספת</item>
         <item quantity="two">…ו-%d תיקיות נוספות</item>
-        <item quantity="many">…ו-%d תיקיות נוספות</item>
         <item quantity="other">…ו-%d תיקיות נוספות</item>
     </plurals>
     <string name="swiper_delete_confirmation_checkbox">אני מבין שקבצים אלה יימחקו לצמיתות.</string>
@@ -72,19 +66,16 @@
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">המשך הפעלה מלפני יום %1$d (%2$d%% הושלם)</item>
         <item quantity="two">המשך הפעלה מלפני %1$d ימים (%2$d%% הושלם)</item>
-        <item quantity="many">המשך הפעלה מלפני %1$d ימים (%2$d%% הושלם)</item>
         <item quantity="other">המשך הפעלה מלפני %1$d ימים (%2$d%% הושלם)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
         <item quantity="one">הפעלה %d</item>
         <item quantity="two">%d הפעלות</item>
-        <item quantity="many">%d הפעלות</item>
         <item quantity="other">%d הפעלות</item>
     </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
         <item quantity="one">פריט %d שלא הוחלט</item>
         <item quantity="two">%d פריטים שלא הוחלט</item>
-        <item quantity="many">%d פריטים שלא הוחלט</item>
         <item quantity="other">%d פריטים שלא הוחלט</item>
     </plurals>
     <string name="swiper_session_timestamps">נוצר %1$s, פעילות אחרונה %2$s</string>
@@ -94,13 +85,11 @@
     <plurals name="swiper_sessions_upgrade_files_limit">
         <item quantity="one">קובץ %d להפעלה</item>
         <item quantity="two">%d קבצים להפעלה</item>
-        <item quantity="many">%d קבצים להפעלה</item>
         <item quantity="other">%d קבצים להפעלה</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
         <item quantity="one">הפעלה %d</item>
         <item quantity="two">%d הפעלות</item>
-        <item quantity="many">%d הפעלות</item>
         <item quantity="other">%d הפעלות</item>
     </plurals>
     <string name="swiper_session_default_label">הפעלה #%d</string>
@@ -111,38 +100,32 @@
     <plurals name="swiper_session_paths_more">
         <item quantity="one">…ו-%d עוד</item>
         <item quantity="two">…ו-%d עוד</item>
-        <item quantity="many">…ו-%d עוד</item>
         <item quantity="other">…ו-%d עוד</item>
     </plurals>
     <string name="swiper_session_status_label">מצב</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d לשמירה</item>
         <item quantity="two">%d לשמירה</item>
-        <item quantity="many">%d לשמירה</item>
         <item quantity="other">%d לשמירה</item>
     </plurals>
     <plurals name="swiper_session_status_to_delete">
         <item quantity="one">%d למחיקה</item>
         <item quantity="two">%d למחיקה</item>
-        <item quantity="many">%d למחיקה</item>
         <item quantity="other">%d למחיקה</item>
     </plurals>
     <plurals name="swiper_session_status_undecided">
         <item quantity="one">%d לא הוחלט</item>
         <item quantity="two">%d לא הוחלט</item>
-        <item quantity="many">%d לא הוחלט</item>
         <item quantity="other">%d לא הוחלט</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d נשמר</item>
         <item quantity="two">%d נשמרו</item>
-        <item quantity="many">%d נשמרו</item>
         <item quantity="other">%d נשמרו</item>
     </plurals>
     <plurals name="swiper_session_status_deleted">
         <item quantity="one">%d נמחק</item>
         <item quantity="two">%d נמחקו</item>
-        <item quantity="many">%d נמחקו</item>
         <item quantity="other">%d נמחקו</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">להחריג את \"%1$s\" מסריקות Swiper?</string>
@@ -168,12 +151,12 @@
     <string name="swiper_stamp_undo_3">אופס!</string>
     <string name="swiper_stamp_undo_4">רגע!</string>
     <string name="swiper_gesture_overlay_dismiss">הקש בכל מקום כדי להתחיל</string>
-    <string name="swiper_gesture_overlay_left_delete">← מחק</string>
+    <string name="swiper_gesture_overlay_left_delete">← מחיקה</string>
     <string name="swiper_gesture_overlay_right_keep">שמור →</string>
     <string name="swiper_gesture_overlay_left_keep">← שמור</string>
-    <string name="swiper_gesture_overlay_right_delete">מחק →</string>
+    <string name="swiper_gesture_overlay_right_delete">מחיקה →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ דלג</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ בטל</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ביטול</string>
     <string name="swiper_help_title">איך Swiper עובד</string>
     <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
     <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
@@ -193,7 +176,6 @@
     <string name="swiper_file_type_filter_summary">מסונן: %1$s</string>
     <string name="swiper_session_no_matching_files">לא נמצאו קבצים תואמים</string>
     <string name="swiper_open_externally_action">פתח באפליקציה חיצונית</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">החלק קובץ כדי להחליט על גורלו: צדדי כדי לשמור או למחוק, למעלה כדי לדלג, למטה כדי לבטל. הכפתורים למטה עושים את אותו הדבר ומראים איזה צד זה.</string>
     <string name="tour_swiper_openin_body">כפתור זה פותח את הקובץ ביישום אחר, שימושי כדי לבדוק אותו לפני החלטה.</string>
     <string name="tour_swiper_preview_body">כפתור זה פותח תצוגה מקדימה במלוא המסך להסתכלות מקרוב יותר.</string>

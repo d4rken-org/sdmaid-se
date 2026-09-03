@@ -60,6 +60,18 @@
         <item quantity="one">%d разходен елемент изтрит</item>
         <item quantity="other">%d разходни елемента изтрити</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d ненужен елемент изтрит, спряно, защото екранът е изключен или заключен</item>
+        <item quantity="other">%d ненужни елемента изтрити, спряно, защото екранът е изключен или заключен</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d ненужен елемент изтрит, спряно поради грешка</item>
+        <item quantity="other">%d ненужни елемента изтрити, спряно поради грешка</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d кеш все още се нуждае от услугата за достъпност</item>
+        <item quantity="other">%1$s, %2$d кеша все още се нуждаят от услугата за достъпност</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d разходен елемент намерен</item>
         <item quantity="other">%d разходни елемента намерени</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Търсене на бутон \"Изчистване на кеш\" (ключови думи: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кешове по подразбиране</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публични и частни кешове по подразбиране. Не са директно достъпни, но могат да бъдат изтрити косвено (напр. чрез услуга за достъпност).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Изключено, но почистването на всички приложения наведнъж все пак изчиства тези кешове</string>
+    <string name="appcleaner_exclusion_limited_title">Изключено приложение</string>
+    <string name="appcleaner_exclusion_limited_body">Изключи това приложение от AppCleaner. Изчистването на кешовете на всички приложения наведнъж използва системното изчистване на кеша на Shizuku, което не може да изключва отделни приложения, затова кешираните данни на това приложение се изчистват заедно с всичко останало. Засегнати са само кешираните данни, показани тук — всичко останало, обхванато от изключването, остава скрито и недокоснато.</string>
     <string name="appcleaner_automation_unavailable_title">Услугата за достъпност не е налична</string>
-    <string name="appcleaner_automation_unavailable_body">Изчистването на недостъпни кешове изисква услугата за достъпност на SD Maid, но тя не беше налична. Ако не искате да я използвате: Деактивирайте опцията \"Включване на недостъпни кешове\".</string>
+    <string name="appcleaner_automation_unavailable_body">Изчистването на тези кешове изисква услугата за достъпност на SD Maid, но тя не беше налична.</string>
     <string name="appcleaner_delete_confirmation_message_x">Изтриване на разходни файлове за %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Изтриване на разходни файлове за %d избрано приложение?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудително спиране преди изчистване</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудително спиране на приложенията преди изчистване на кеша им. Може да помогне за изчистване на кеша на някои приложения, но може да причини неправилно поведение и да изисква ръчно рестартиране.</string>
     <string name="appcleaner_progress_force_stopping">Принудително спиране на приложения…</string>
+    <string name="appcleaner_progress_checking_freed_space">Проверка на освободеното пространство…</string>
 </resources>

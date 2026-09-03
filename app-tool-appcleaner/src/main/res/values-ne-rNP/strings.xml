@@ -60,6 +60,18 @@
         <item quantity="one">%d खर्चजनक वस्तु मेटाइयो</item>
         <item quantity="other">%d खर्चजनक वस्तुहरू मेटाइए</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d खर्चिलो वस्तु मेटाइएको, स्क्रिन अफ वा लक भएकोले रोकिएको</item>
+        <item quantity="other">%d खर्चिलो वस्तुहरू मेटाइएका, स्क्रिन अफ वा लक भएकोले रोकिएको</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d खर्चिलो वस्तु मेटाइएको, त्रुटिले रोकिएको</item>
+        <item quantity="other">%d खर्चिलो वस्तुहरू मेटाइएका, त्रुटिले रोकिएको</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d क्यास अभी पनि पहुँच सेवा आवश्यक छ</item>
+        <item quantity="other">%1$s, %2$d क्यासहरू अभी पनि पहुँच सेवा आवश्यक छन्</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d खर्चयोग्य वस्तु फेला पर्यो</item>
         <item quantity="other">%d खर्चयोग्य वस्तुहरू फेला परे</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" बटन खोज्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">पूर्वनिर्धारित cache हरू</string>
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक र निजी पूर्वनिर्धारित cache हरू। प्रत्यक्ष रूपमा पहुँचयोग्य छैन, तर अप्रत्यक्ष रूपमा मेटाउन सकिन्छ (जस्तै accessibility service मार्फत)।</string>
+    <string name="appcleaner_exclusion_limited_row_hint">बहिष्कृत, तर सबै अनुप्रयोग एकै पटकमा सफा गर्दा यी क्यासहरू अझै पनि मेटाइन्छ</string>
+    <string name="appcleaner_exclusion_limited_title">बहिष्कृत अनुप्रयोग</string>
+    <string name="appcleaner_exclusion_limited_body">तपाईंले यस अनुप्रयोगलाई AppCleaner बाट बहिष्कार गर्नुभएको छ। सबै अनुप्रयोगको क्यास एकै पटकमा सफा गर्दा Shizuku को प्रणाली-व्यापी क्यास ट्रिम प्रयोग गरिन्छ, जसले अलग-अलग अनुप्रयोग छोड्न सक्दैन, त्यसैले यस अनुप्रयोगको क्यास गरिएको डेटा सबै कुराको साथ मेटाइन्छ। यहाँ देखाइएको क्यास गरिएको डेटा मात्र प्रभावित हुन्छ, बहिष्कारले कभर गरेको अन्य सबै कुरा लुकेको र अस्पृश्य रहन्छ।</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility service उपलब्ध छैन</string>
-    <string name="appcleaner_automation_unavailable_body">पहुँचयोग्य नभएका cache हरू सफा गर्न SD Maid को accessibility service चाहिन्छ, तर यो उपलब्ध छैन। यदि तपाईं यसलाई प्रयोग गर्न चाहनुहुन्न भने: \"पहुँचयोग्य नभएका cache हरू समावेश गर्नुहोस्\" विकल्प बन्द गर्नुहोस्।</string>
+    <string name="appcleaner_automation_unavailable_body">यी क्यासहरू मेटाउनका लागि SD Maid को पहुँच सेवा आवश्यक छ, तर यो उपलब्ध थिएन।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s का लागि अनावश्यक फाइलहरू मेटाउनुहुन्छ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d चयनित अनुप्रयोगका खर्चजनक फाइलहरू हटाउने?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">सफा गर्नु अगाडि जबर्जस्ती बन्द गर्नुहोस्</string>
     <string name="appcleaner_forcestop_before_clearing_summary">क्यास साफ गर्नु अघि अनुप्रयोगहरू जबरदस्ती बन्द गर्नुहोस्। यसले केही अनुप्रयोगहरूको क्यास साफ गर्न मदत गर्न सक्छ, तर अनुप्रयोगहरू खराब व्यवहार गर्न र म्यानुअल पुनरारम्भ गर्न आवश्यक हुन सक्छ।</string>
     <string name="appcleaner_progress_force_stopping">अनुप्रयोगहरू जबर्जस्ती बन्द गर्दै…</string>
+    <string name="appcleaner_progress_checking_freed_space">खाली गरिएको स्थान जाँच गरिँदैछ…</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Al vostre servei.</string>
     <string name="slogan_message_1">Tot ben net i polit.</string>
@@ -81,9 +80,9 @@
     <string name="general_navigate_up_action">Navega cap amunt</string>
     <string name="general_filter_action">Filtra</string>
     <string name="general_filter_by_tags_label">Filtra per etiquetes</string>
-    <string name="general_filter_add_action">Afegeix filtre</string>
+    <string name="general_filter_add_action">Afegeix un filtre</string>
     <string name="general_filter_remove_x_action">Elimina el filtre %s</string>
-    <string name="general_filter_empty_row_hint">Toca + per filtrar</string>
+    <string name="general_filter_empty_row_hint">Toqueu + per filtrar</string>
     <string name="general_result_success_message">Operació realitzada amb èxit</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">S\'ha alliberat %s d\'espai.</item>
@@ -118,7 +117,7 @@
         <item quantity="other">S\'han eliminat %d elements</item>
     </plurals>
     <string name="general_search_action">Cerca</string>
-    <string name="general_search_no_matches">Cap coincidència</string>
+    <string name="general_search_no_matches">Sense coincidències</string>
     <string name="general_open_system_settings_action">Obre la configuració del sistema</string>
     <string name="general_fast_scroller_action">Desplaçador ràpid</string>
     <plurals name="result_x_items">
@@ -180,9 +179,9 @@
     <string name="general_information_for_the_developer">Informació per al desenvolupador</string>
     <string name="general_error_report_bug_action">Informa d\'un error</string>
     <string name="general_error_ipc_deadobject_title">S\'ha perdut la connexió amb el servei</string>
-    <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (per exemple, Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
-    <string name="general_error_upgrade_required_title">Actualització requerida</string>
-    <string name="general_error_upgrade_required_description">Aquesta funcionalitat requereix una actualització. Si us plau, actualitzeu SD Maid SE per a utilitzar-la.</string>
+    <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (p. ex. Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
+    <string name="general_error_upgrade_required_title">Millora necessària</string>
+    <string name="general_error_upgrade_required_description">Aquesta característica requereix una millora. Milloreu l\'SD Maid SE per utilitzar-la.</string>
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuració</string>
@@ -210,20 +209,18 @@
     <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
     <string name="ui_theme_color_sunset_label">Posta de sol</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
-    <string name="access_blocked_root_unavailable">Aquesta funció necessita accés «root», però SD Maid no ha pogut obtenir-lo en aquest dispositiu.</string>
-    <string name="access_blocked_root_declined">Aquesta funció necessita accés «root». Pots habilitar-lo a través de la pantalla de configuració.</string>
-    <string name="access_blocked_root_or_shizuku">Aquesta funció necessita accés «root» o Shizuku, que no està disponible en aquest dispositiu.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_unavailable">Aquesta funció necessita accés root, però l\'SD Maid no ha pogut obtenir-lo en aquest dispositiu.</string>
+    <string name="access_blocked_root_declined">Aquesta funció necessita accés root. Podeu habilitar-lo a través de la pantalla de configuració.</string>
+    <string name="access_blocked_root_or_shizuku">Aquesta funció necessita accés root o Shizuku, que no està disponible en aquest dispositiu.</string>
     <string name="backup_restore_error_invalid_title">Fitxer de còpia de seguretat no vàlid</string>
-    <string name="backup_restore_error_invalid_body">Aquest fitxer no és una còpia de seguretat vàlida de SD Maid o està corrupte.</string>
-    <string name="backup_restore_error_version_body">Aquesta còpia de seguretat es va crear amb una versió més nova de SD Maid. Actualitza l\'aplicació i torna-ho a provar.</string>
+    <string name="backup_restore_error_invalid_body">Aquest fitxer no és una còpia de seguretat vàlida de l\'SD Maid o està corrupte.</string>
+    <string name="backup_restore_error_version_body">Aquesta còpia de seguretat es va crear amb una versió més nova de l\'SD Maid. Milloreu l\'aplicació i torneu-ho a provar.</string>
     <string name="backup_restore_error_restore_failed_title">La restauració ha fallat</string>
-    <string name="backup_restore_error_restore_failed_body">No s\'han pogut restaurar aquestes parts: %1$s. La teva configuració anterior s\'ha desat i es pot recuperar.</string>
-    <string name="backup_restore_error_safety_title">Restauració no iniciada</string>
-    <string name="backup_restore_error_safety_body">SD Maid no ha pogut desar una còpia de seguretat de la teva configuració actual, per tant no s\'ha canviat res.</string>
-    <string name="backup_restore_error_busy_title">Espera, si us plau</string>
-    <string name="backup_restore_error_busy_body">Hi ha una tasca de neteja o una altra operació de còpia de seguretat en execució. Torna-ho a intentar quan hagi finalitzat.</string>
-    <string name="backup_restore_error_schema_title">Còpia de seguretat incompatible</string>
-    <string name="backup_restore_error_schema_body">El format de la base de dades de la còpia de seguretat no coincideix amb aquesta versió de SD Maid. La restauració de dades de l\'historial només és compatible entre versions idèntiques de l\'aplicació.</string>
+    <string name="backup_restore_error_restore_failed_body">No s\'han pogut restaurar aquestes parts: %1$s. S\'ha desat la vostra configuració anterior i es pot recuperar.</string>
+    <string name="backup_restore_error_safety_title">La restauració no s\'ha iniciat</string>
+    <string name="backup_restore_error_safety_body">L\'SD Maid no ha pogut desar una instantània de seguretat de la vostra configuració actual, de manera que no s\'ha canviat res.</string>
+    <string name="backup_restore_error_busy_title">Espereu</string>
+    <string name="backup_restore_error_busy_body">Actualment s\'està executant una tasca de neteja o una altra operació de còpia de seguretat. Torneu-ho a provar quan hagi acabat.</string>
+    <string name="backup_restore_error_schema_title">La còpia de seguretat no és compatible</string>
+    <string name="backup_restore_error_schema_body">El format de la base de dades de la còpia de seguretat no coincideix amb aquesta versió de l\'SD Maid. La restauració de les dades de l\'historial només és compatible amb versions d\'aplicacions idèntiques.</string>
 </resources>

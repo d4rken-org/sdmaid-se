@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Saxlama və ya silmə qərarları verdikdə titrəmə.</string>
     <string name="swiper_discard_session_confirmation_title">Sessiya ləğv edilsin?</string>
     <string name="swiper_discard_session_confirmation_message">Bütün qərarlar itiriləcək. Əminsiniz?</string>
-    <string name="swiper_no_preview_available">Ön baxış mövcud deyil</string>
+    <string name="swiper_no_preview_available">Önizləmə mövcud deyil</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d gün əvvəlki sessiyanı davam etdir (%2$d%% tamamlanıb)</item>
         <item quantity="other">%1$d gün əvvəlki sessiyanı davam etdir (%2$d%% tamamlanıb)</item>
@@ -133,12 +133,12 @@
     <string name="swiper_stamp_undo_2">Geri!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Dayan!</string>
-    <string name="swiper_gesture_overlay_dismiss">Başlamaq üçün istənilən yerə toxunun</string>
+    <string name="swiper_gesture_overlay_dismiss">Başlamaq üçün istənilən yerə toxun</string>
     <string name="swiper_gesture_overlay_left_delete">← Sil</string>
     <string name="swiper_gesture_overlay_right_keep">Saxla →</string>
     <string name="swiper_gesture_overlay_left_keep">← Saxla</string>
     <string name="swiper_gesture_overlay_right_delete">Sil →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Keç</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ötür</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
     <string name="swiper_help_title">Swiper necə işləyir</string>
     <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtrləndi: %1$s</string>
     <string name="swiper_session_no_matching_files">Uyğun fayl tapılmadı</string>
     <string name="swiper_open_externally_action">Xərici tətbibdə aç</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Faylın taləyini qərar vermək üçün onu sürüşdürün: saxlamaq və ya silmək üçün yan, atlamaq üçün yuxarı, geri almaq üçün aşağı. Aşağıdakı düymələr eyni şeyi edir — və hansı tərəfin hansı əməliyyat olduğunu göstərir.</string>
     <string name="tour_swiper_openin_body">Bu düymə faylı başqa tətbiqdə açır, qərar vermədən əvvəl onu yoxlamaq üçün əlverişlidir.</string>
     <string name="tour_swiper_preview_body">Bu düymə daha yaxından baxmaq üçün tam ekran önizləməsi açır.</string>

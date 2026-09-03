@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nafn tímaáætlunar</string>
     <string name="scheduler_schedule_toggle_enabled">Tímaáætlun er virk</string>
     <string name="scheduler_schedule_toggle_disabled">Tímaáætlun er óvirk</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Slökktu á áætluninni til að breyta henni.</string>
     <string name="scheduler_edit_schedule_action">Breyta tímaáætlun</string>
     <string name="scheduler_schedule_time_label">Áætlaður tími</string>
     <string name="scheduler_schedule_repeat_label">Endurtekningarbil í dögum</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Eftir-áætlunar skipanir</string>
     <string name="scheduler_commands_after_schedule_desc">Android skeljar skipanir sem verða keyrðar eftir áætlun.</string>
     <string name="scheduler_battery_optimization_hint">Íhugaðu að slökkva á rafhlöðufínstillingu fyrir SD Maid ef þú átt í vandræðum með bakgrunnskeyrslu.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid getur hreinsað samkvæmt áætlun. Veldu tíma og hvaða tól eiga að keyra, og það gerir vinnuna í bakgrunni — næstum enga þörf á að opna appið.</string>
     <string name="tour_scheduler_create_body">Ýttu hér til að búa til nýja áætlun, stilltu svo hvenær hún keyrir og hvaða tól á að taka með.</string>
 </resources>

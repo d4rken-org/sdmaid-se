@@ -60,6 +60,18 @@
         <item quantity="one">Into engasetshenziswa engu-%d isuliwe</item>
         <item quantity="other">Izinto ezingasetshenziswa ezingu-%d zisuliwe</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d into eyisulwe, yama ngoba isikrini sivalwa noma secininiwe</item>
+        <item quantity="other">%d izinto ezisulwe, zama ngoba isikrini sivalwa noma secininiwe</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d into eyisulwe, yama ngenxa yosazulelo</item>
+        <item quantity="other">%d izinto ezisulwe, zama ngenxa yosazulelo</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache edinga isebenza sentsha</item>
+        <item quantity="other">%1$s, %2$d caches edinga isebenza sentsha</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Into engasetshenziswa engu-%d itholiwe</item>
         <item quantity="other">Izinto ezingasetshenziswa ezingu-%d zitholiwe</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Kubheka inkinobho ethi \"Sula i-cache\" (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Ama-cache azenzakalelayo</string>
     <string name="appcleaner_item_caches_inaccessible_body">Ama-cache azenzakalelayo omphakathi nangasese. Awakwazi ukuwafinyelela ngqo, kodwa angasuswa ngokungangqo (isib. ngensiza yokufinyelela).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Likhiphiwe, kodwa ukulinganisa wonke amaphuroseso nangakusundu kusazilibazela amacache</string>
+    <string name="appcleaner_exclusion_limited_title">Uhlelo olukhiphiwe</string>
+    <string name="appcleaner_exclusion_limited_body">Walikhisha lo hlelo kuSD Maid. Uma ulinganisa amacache awo wonke amaphuroseso ngakusundu, kusetshenziswa isixazululo sika-Shizuku sokubazulula amacache yeshintshi, okungakwazi ukusala amaphuroseso angakodwa; ngakho idatha yesicache yalolhlelo isulwa kanye nalunye. Kuphela idatha yesicache ekhonjisiwe lapha enomthelela; konke okunye omkhakhalweni wakho kuhlala ufihliwe futhi ungasenzwile.</string>
     <string name="appcleaner_automation_unavailable_title">Insiza yokufinyelela ayitholakali</string>
-    <string name="appcleaner_automation_unavailable_body">Ukusula ama-cache angatholakalayo kudinga insiza yokufinyelela ye-SD Maid, kodwa ayitholakalanga. Uma ungafuni ukuyisebenzisa: Khubaza inketho ethi \"Faka ama-cache angatholakalayo\".</string>
+    <string name="appcleaner_automation_unavailable_body">Ukulinganisa amacache edinga isebenza sentsha sika-SD Maid, kodwa ayikuvo.</string>
     <string name="appcleaner_delete_confirmation_message_x">Susa amafayela angasetshenziswa ka-%s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Susa amafayela angasetshenziswa wohlelo olukhethiwe olu-%d?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Misa ngamandla ngaphambi kokusula</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Misa ngamandla izinhlelo zokusebenza ngaphambi kokusula i-cache yazo. Kungasiza ukusula i-cache yezinye izinhlelo, kodwa kungabangela ukuthi izinhlelo zingasebenzi kahle futhi zidinge ukuqalwa kabusha ngezandla.</string>
     <string name="appcleaner_progress_force_stopping">Kumisa ngamandla izinhlelo zokusebenza…</string>
+    <string name="appcleaner_progress_checking_freed_space">Ikhona indawo enkhululwe…</string>
 </resources>

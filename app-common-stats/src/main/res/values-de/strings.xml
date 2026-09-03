@@ -8,9 +8,6 @@
         <item quantity="one">%s Element verarbeitet, seit du SD Maid zu deinem Gerät eingeladen hast.</item>
         <item quantity="other">%s Elemente verarbeitet, seit du SD Maid zu deinem Gerät eingeladen hast.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Dein Gast seit %d Tag.</item>
         <item quantity="other">Dein Gast seit %d Tagen.</item>
@@ -54,9 +51,7 @@
     <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
     <string name="stats_space_history_upgrade_title">Vollständiger Verlauf ist eine Pro-Funktion</string>
     <string name="stats_space_history_upgrade_body">Upgrade durchführen, um die vollständige 90-Tage-Trendansicht für jedes Speichergerät freizuschalten.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
-    <string name="stats_space_history_upgrade_body_v2">Hol dir das Upgrade, um die vollständige 90-Tage-Trendansicht für jedes Speichergerät freizuschalten und eine Warnung zu erhalten, bevor dein Speicher voll ist.</string>
+    <string name="stats_space_history_upgrade_body_v2">Upgrade, um die vollständige 90-Tage-Ansicht der Entwicklung für jedes Speichergerät freizuschalten und eine Warnung zu erhalten, bevor dein Speicherplatz knapp wird.</string>
     <string name="stats_space_history_marker_freed">%1$s freigegeben</string>
     <string name="stats_storage_type_primary">Primärspeicher</string>
     <string name="stats_storage_type_secondary">Sekundärspeicher</string>

@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">ไม่สามารถเชื่อมต่อกับ Google Play ได้ โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณแล้วลองอีกครั้ง</string>
     <string name="upgrades_gplay_offer_unavailable_title">ข้อเสนอไม่พร้อมใช้งาน</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play ไม่เสนอตัวเลือกการอัปเกรดนี้ในขณะนี้ โปรดลองอีกครั้งในภายหลังหรือตรวจสอบ Google Play Store</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">ไม่สามารถเปิด Google Play ได้ อาจเป็นเพราะแอปหายไป ปิดการใช้งาน หรือถูกจำกัดบนอุปกรณ์นี้</string>
     <string name="upgrades_gplay_already_owned_error_title">ซื้อแล้ว</string>
     <string name="upgrades_gplay_already_owned_error_description">ใช้ตัวเลือก \"กู้คืนการซื้อ\" เพื่อกู้คืนการซื้อของคุณ หากปัญหายังคงอยู่ ให้ลองล้างแคช Google Play และรีสตาร์ทอุปกรณ์ของคุณ</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">รับ %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลผู้ใช้ งานของฉันได้รับการสนับสนุนทางการเงินจากคุณ ❤️</string>
     <string name="upgrade_screen_benefits_title">ประโยชน์ของการอัปเกรด</string>

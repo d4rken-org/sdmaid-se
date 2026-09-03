@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Dlidlizela lapho wenza izinqumo zokugcina noma zokususa.</string>
     <string name="swiper_discard_session_confirmation_title">Lahla iseshini?</string>
     <string name="swiper_discard_session_confirmation_message">Zonke izinqumo zizolahleka. Uqinisekile?</string>
-    <string name="swiper_no_preview_available">Akukho imboniso yangaphambili etholakalayo</string>
+    <string name="swiper_no_preview_available">Akukho preview</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Qhubeka neseshini yosuku olungu-%1$d oludlule (%2$d%% kuqediwe)</item>
         <item quantity="other">Qhubeka neseshini yezinsuku ezingu-%1$d ezedlule (%2$d%% kuqediwe)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">Emuva!</string>
     <string name="swiper_stamp_undo_3">Hawu!</string>
     <string name="swiper_stamp_undo_4">Linda!</string>
-    <string name="swiper_gesture_overlay_dismiss">Thepha noma kuphi ukuze uqale</string>
+    <string name="swiper_gesture_overlay_dismiss">Thinta noma ikuphi ukuqala</string>
     <string name="swiper_gesture_overlay_left_delete">← Susa</string>
     <string name="swiper_gesture_overlay_right_keep">Gcina →</string>
     <string name="swiper_gesture_overlay_left_keep">← Gcina</string>
     <string name="swiper_gesture_overlay_right_delete">Susa →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Yeqa</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Hlehlisa</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Lela</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Buyisa</string>
     <string name="swiper_help_title">Indlela i-Swiper esebenza ngayo</string>
     <string name="swiper_help_message">Swayipha ifayela ngalinye ukuze uthathe isinqumo:\n\n← Swayipha kwesokunxele: %1$s\n→ Swayipha kwesokudla: %2$s\n↑ Swayipha phezulu: Yeqa\n↓ Swayipha phansi: Hlehlisa (ngemva kokuswayipha kokuqala)\n\nUngasebenzisa nezinkinobho ezingezansi.\n\nUma uqedile, thepha \"Buyekeza\" ukuze ubone zonke izinqumo zakho. Akukho okususwayo kuze kube uqinisekisa kusikrini sokubuyekeza.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Ngiyaqonda</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Kuhlunyiwe: %1$s</string>
     <string name="swiper_session_no_matching_files">Awekho amafayela afanayo atholakalayo</string>
     <string name="swiper_open_externally_action">Vula kusoftware yangaphandle</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Swayela ifayili ukunquma isizathu sayo: ohlangothini ukugcina noma kususa, phezulu ukuskipa, phansi ukukhipha. Imikhompula engezansi yenzela okufanayo — futhi ikhombise izinhlangothi ezihlukene.</string>
     <string name="tour_swiper_openin_body">Leli sikhompula sibuka ifayili kunye nenye inhluluzo, ibalulekile ukuze ubuke phambi kokuchaza.</string>
     <string name="tour_swiper_preview_body">Leli kinobho livula isithombe sokubona okusheshayo sesikrini esiphelele.</string>

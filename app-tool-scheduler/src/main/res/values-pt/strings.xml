@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nome do agendamento</string>
     <string name="scheduler_schedule_toggle_enabled">Agendamento ativado</string>
     <string name="scheduler_schedule_toggle_disabled">Agendamento desativado</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Desativa o agendamento para o alterar.</string>
     <string name="scheduler_edit_schedule_action">Editar agendamento</string>
     <string name="scheduler_schedule_time_label">Hora aproximada</string>
     <string name="scheduler_schedule_repeat_label">Intervalo de repetição em dias</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Comandos após o agendamento</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell do Android que serão executados no final de uma tarefa agendada.</string>
     <string name="scheduler_battery_optimization_hint">Considere desativar as otimizações de bateria para o SD Maid se tiver problemas com execução em segundo plano.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">O SD Maid pode fazer limpezas agendadas. Escolha a hora e as ferramentas a executar; o trabalho é feito em segundo plano, quase sem precisar de abrir a aplicação.</string>
     <string name="tour_scheduler_create_body">Toque aqui para criar um novo agendamento e defina quando é executado e que ferramentas são incluídas.</string>
 </resources>

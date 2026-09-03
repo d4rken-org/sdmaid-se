@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d បានលោត (HDR/ស៊ីជម្រៅត្រូវបានរក្សា)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">រំលងចោល %d (រូបភាពចលនា)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">រំលងចោល %d (រូបថតធំខ្លាំង)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">រំលងចោល %d (ត្រូវបានការពារ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d ធាតុត្រូវបានជ្រើររើស</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">ជាទូទៅ</string>
     <string name="squeezer_quality_description">គុណភាពតាបមានន័យថាទំហំឯកសារតូចជាងប៉ុន្តើគុណភាពមើលខើញថយចុ។</string>
     <string name="squeezer_types_category_label">ការកំណត់រូបភាព</string>
+    <string name="squeezer_protected_category_label">អ្វីដែលនឹងបាត់បង់</string>
     <string name="squeezer_video_settings_category_label">ការកំណត់វីដេអូ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">រួមរូប JPEG (.jpg, .jpeg)។</string>
+    <string name="squeezer_type_jpeg_description">រួមបញ្ចូលរូបភាព JPEG (.jpg, .jpeg)។ ការអ៊ិនកូដឡើងវិញប្រើកម្មវិធីអ៊ិនកូដ JPEG ដែលមានស្រាប់ក្នុង Android។ កាលបរិច្ឆេទ ទីតាំង និងទិន្នន័យមេតា EXIF ផ្សេងទៀតត្រូវបានរក្សាទុក។</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">រួមរូប WebP (.webp)។</string>
+    <string name="squeezer_type_webp_description">រួមបញ្ចូលរូបភាព WebP (.webp)។ ការអ៊ិនកូដឡើងវិញប្រើកម្មវិធីអ៊ិនកូដ WebP ដែលមានស្រាប់ក្នុង Android។ កាលបរិច្ឆេទ ទីតាំង និងទិន្នន័យមេតា EXIF ផ្សេងទៀតត្រូវបានរក្សាទុក។</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">រួមបញ្ចូលរូបភាព HEIC/HEIF (.heic, .heif)។ កាលបរិច្ឆេទ ទីតាំង និងទិន្នន័យមេតា EXIF ផ្សេងទៀត ត្រូវបានរក្សា។ ផែនទីលាភ HDR ទិន្នន័យស៊ីជម្រៅ និងបងប្អូនរូបភាព Live/Motion មិនអាចរក្សាបានទេ ឯកសាររូបភាពច្រើនត្រូវបានលោត។</string>
     <string name="squeezer_type_video_title">វីដេអូ MP4</string>
-    <string name="squeezer_type_video_description">រួមបញ្ចូលឯកសារវីដេអូ MP4 (.mp4)។</string>
+    <string name="squeezer_type_video_description">រួមបញ្ចូលឯកសារវីដេអូ MP4 (.mp4)។ ផ្លូវវីដេអូត្រូវបានអ៊ិនកូដឡើងវិញដោយអត្រាប៊ីតទាបជាងដោយប្រើកម្មវិធីអ៊ិនកូដវីដេអូផ្ទាល់ខ្លួនរបស់ឧបករណ៍ ចំណែកផ្លូវសំឡេងត្រូវបានចម្លងដដែលដោយមិនផ្លាស់ប្តូរ ហើយឯកសារនៅតែជា MP4។</string>
     <string name="squeezer_skip_compressed_title">លឹចលញដែលត្រូវបានចុចហើយ។។។</string>
     <string name="squeezer_skip_compressed_description">រំលងឯកសារដែលត្រូវបានបង្រួមរួចហើយដោយ SD Maid។</string>
     <string name="squeezer_exif_marker_title">ស្វែងសញ្ញ្ណា EXIF</string>
     <string name="squeezer_exif_marker_description">បន្ថែមសញ្ញ្ណាទៅក្នុងច្ន័លសម្លឹកបច្ចើនិយនិយម់រូប EXIF ដើម្បីទឹក្កានការចុចម្តង ទៀឧប័វប័តប្រវត្តការចុចត្រូវបានលុប។</string>
     <string name="squeezer_include_lossy_aux_title">បង្ហាប់រូបភាព HDR &amp; ស៊ីជម្រៅ</string>
-    <string name="squeezer_include_lossy_aux_description">បិទតាមលំនាំដើម៖ រូបភាពដែលមាន HDR gain map ឬទិន្នន័យស៊ីជម្រៅ/ឈុតបង្ហាញមុខត្រូវបានលោតដើម្បីឱ្យវាមិនរលូនលាប។ បើកដើម្បីបង្ហាប់វាដែលអាច — ពួកវាបាត់បង់ HDR gain map ឬទិន្នន័យស៊ីជម្រៅ។ រូបភាព HEIC ច្រើនរូបនៅតែត្រូវបានការពារដោយមិនគិតពិចារណា។</string>
+    <string name="squeezer_include_lossy_aux_description">រួមបញ្ចូលរូបថតដែលមានទិន្នន័យ HDR ឬជម្រៅ។ ការបង្ហាប់លុបទិន្នន័យនេះចោល៖ រូបថត HDR ក្លាយជារូបថតធម្មតា រូបថតបញ្ឈរបាត់បង់ទិន្នន័យនៅពីក្រោយភាពព្រិលផ្ទៃខាងក្រោយរបស់ពួកវា។ ឯកសារ HEIC ដែលមានរូបភាពច្រើនត្រូវបានរំលងចោលដដែល។</string>
+    <string name="squeezer_include_motion_photos_title">បង្ហាប់រូបភាពចលនា</string>
+    <string name="squeezer_include_motion_photos_description">រួមបញ្ចូលរូបភាពចលនា។ ការបង្ហាប់រក្សាទុករូបភាពស្ថិត និងលុបចោលឈុតវីដេអូ។</string>
+    <string name="squeezer_include_oversized_title">បង្ហាប់រូបថតធំខ្លាំង</string>
+    <string name="squeezer_include_oversized_description">រួមបញ្ចូលរូបថតដែលមានទទឹង ឬកម្ពស់លើសពី 8192 pixel។ ការបង្ហាប់ក៏កាត់បន្ថយគុណភាពបង្ហាញរបស់វាមួយពាក់កណ្តាលដែរ។</string>
     <string name="squeezer_estimated_savings_format">~%s នៅសល់</string>
     <string name="squeezer_no_savings_expected">ការសញ្ញតិត្តចាស់</string>
     <string name="squeezer_current_size_format">ទំហំ៖ %s</string>
+    <string name="squeezer_chip_compressed_before">បានបង្ហាប់</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ជម្រៅ</string>
+    <string name="squeezer_chip_motion_photo">រូបភាពចលនា</string>
+    <string name="squeezer_chip_downscaled">បានបន្ថយទំហំ</string>
+    <string name="squeezer_markers_dialog_title">អំពីសញ្ញាសម្គាល់ទាំងនេះ</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid បានបង្ហាប់ឯកសារនេះរួចហើយ។ ការបង្ហាប់វាម្តងទៀតបន្ថយគុណភាព ហើយសន្សំសំចៃបានតិចតួច។</string>
+    <string name="squeezer_markers_hdr_depth_description">រូបថតនេះមានទិន្នន័យ HDR ឬជម្រៅដែលការបង្ហាប់មិនអាចរក្សាទុកបាន។ រូបថត HDR នឹងក្លាយជារូបថតធម្មតាវិញ ហើយរូបថតបញ្ឈរនឹងបាត់បង់ទិន្នន័យជម្រៅដែលប្រើសម្រាប់ភាពព្រិលផ្ទៃខាងក្រោយ។</string>
+    <string name="squeezer_markers_motion_photo_description">នេះជារូបភាពចលនា។ ការបង្ហាប់រក្សាទុករូបភាពស្ថិត និងលុបចោលឈុតវីដេអូ។</string>
+    <string name="squeezer_markers_downscaled_description">រូបថតនេះមានទទឹង ឬកម្ពស់លើសពី 8192 pixel។ ការបង្ហាប់ក៏កាត់បន្ថយគុណភាពបង្ហាញរបស់វាមួយពាក់កណ្តាលដែរ។</string>
     <string name="squeezer_compress_action">ចុច</string>
     <string name="squeezer_compress_all_action">ចុចតាងអស់</string>
     <string name="squeezer_preview_dialog_title">បញ្ជាក់ការចុច</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">មើលការបរន័យប័កគ្នា</string>
     <string name="squeezer_no_example_found">មិនន័ឯកសាររូបនៅផ្លូវដែលបានជ្រើស។</string>
     <string name="squeezer_result_empty_message">រកមិនឃើញមេដីអដែលអាចបង្រួមបាន។</string>
+    <string name="squeezer_result_empty_protected">គ្មានអ្វីត្រូវបង្ហាប់ទេ។ បានរំលង៖ %s។ បើកជម្រើសដែលត្រូវគ្នានៅក្នុងការកំណត់ ដើម្បីរួមបញ្ចូលពួកវា។</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">រូបថត HDR/ជម្រៅ %d</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">រូបភាពចលនា %d</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">រូបថតធំខ្លាំង %d</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d តីតំហងមិនអាចប្រើសសម្រាប់ការបង្រួម ហើយត្រូវបានដកចើញ។ ការបង្រួមតម្រួវអោយចូលដំណើរការផ្តល់ទឹលកន្លងផ្ទុកខាងក្នុង។</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">អាយុយឹងតិ %d ថ្ង័ឡក្នៅមក</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ការសន្សំប្រហាក់ប្រហែល ~%d%% សម្រាប់ឯកសារ JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ធ្វើឱ្យលុតសងខ្លឹមសាររូបថត និងវីដេអូរបស់អ្នក ដូច្នេះវាកាន់កាប់ទំហំតូចជាង។ អ្នកផ្លាស់ប្តូរគុណភាពបន្តិចបន្ថែមសម្រាប់ទំហំដែលអ្នកទទួលបាន។ វត្ថុនីមួយៗបង្ហាញការសន្សំប៉ាន់ស្មាននៃវា ដូច្នេះអ្នកអាចសម្រេចចិត្តថាវាមានតម្លៃប៉ុណ្ណា។</string>
     <string name="tour_squeezer_compress_body">បង្ហាប់អ្វីៗក្នុងពេលតែមួយនៅទីនេះ ឬចុចធាតុតែមួយដើម្បីកាត់បន្ថយតែវា។ ចុចរយៈពេលវែងដើម្បីជ្រើសរើសច្រើន។ អ្នកនឹងបានឃើញការមើលមុនជានិច្ចមុននឹងមានការផ្លាស់ប្តូរអ្វី។</string>
 </resources>

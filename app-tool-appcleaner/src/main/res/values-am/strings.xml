@@ -60,6 +60,18 @@
         <item quantity="one">%d ወጪ ንጥል ተሰርዟል</item>
         <item quantity="other">%d ወጪ ንጥሎች ተሰርዘዋል</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d አላስፈላጊ ንጥል ተሰርዟል፣ ማያ ገጹ ስለጠፋ ወይም ስለተቆለፈ ቆሟል</item>
+        <item quantity="other">%d አላስፈላጊ ንጥሎች ተሰርዘዋል፣ ማያ ገጹ ስለጠፋ ወይም ስለተቆለፈ ቆሟል</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d አላስፈላጊ ንጥል ተሰርዟል፣ በስህተት ምክንያት ቆሟል</item>
+        <item quantity="other">%d አላስፈላጊ ንጥሎች ተሰርዘዋል፣ በስህተት ምክንያት ቆሟል</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s፣ %2$d መሸጎጫ አሁንም የተደራሽነት አገልግሎት ያስፈልገዋል</item>
+        <item quantity="other">%1$s፣ %2$d መሸጎጫዎች አሁንም የተደራሽነት አገልግሎት ያስፈልጋቸዋል</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ወጪ ንጥል ተገኝቷል</item>
         <item quantity="other">%d ወጪ ንጥሎች ተገኝተዋል</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">ለ\"መሸፈኛ አጽዳ\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ነባሪ መሸፈኛዎች</string>
     <string name="appcleaner_item_caches_inaccessible_body">ሕዝባዊና ግላዊ ነባሪ መሸፈኛዎች። በቀጥታ ሊደረስባቸው አይችሉም፣ ግን በተዘዋዋሪ ሊሰረዙ ይችላሉ (ለምሳሌ በተደራሽነት አገልግሎት)።</string>
+    <string name="appcleaner_exclusion_limited_row_hint">የተገለለ ነው፣ ነገር ግን ሁሉንም መተግበሪያዎች በአንድ ጊዜ ማጽዳት አሁንም እነዚህን መሸጎጫዎች ያጸዳል</string>
+    <string name="appcleaner_exclusion_limited_title">የተገለለ መተግበሪያ</string>
+    <string name="appcleaner_exclusion_limited_body">ይህን መተግበሪያ ከAppCleaner አግልለውታል። ለሁሉም መተግበሪያዎች በአንድ ጊዜ መሸጎጫዎችን ማጽዳት የShizuku የስርዓት አቀፍ መሸጎጫ ማሳጠሪያን ይጠቀማል፣ ይህም የግል መተግበሪያዎችን ለይቶ ማስቀረት አይችልም፣ ስለዚህ የዚህ መተግበሪያ የተሸጎጠ ውሂብ ከሌላው ሁሉ ጋር ይጸዳል። እዚህ የሚታየው የተሸጎጠ ውሂብ ብቻ ይነካል፣ ማግለሉ የሚሸፍነው ሌላው ሁሉ ተደብቆ እና ሳይነካ ይቆያል።</string>
     <string name="appcleaner_automation_unavailable_title">ተደራሽነት አገልግሎት አልተገኘም</string>
-    <string name="appcleaner_automation_unavailable_body">ሊደረስባቸው የማይችሉ መሸፈኛዎችን ማጽዳት የSD Maidን ተደራሽነት አገልግሎት ይፈልጋል፣ ግን አልተገኘም። መጠቀም ካልፈለጉ: \"ሊደረስባቸው የማይችሉ መሸፈኛዎችን አካትት\" አማራጭን ያሰናክሉ።</string>
+    <string name="appcleaner_automation_unavailable_body">እነዚህን መሸጎጫዎች ማጽዳት የSD Maid የተደራሽነት አገልግሎት ይፈልጋል፣ ነገር ግን አልነበረም።</string>
     <string name="appcleaner_delete_confirmation_message_x">ለ%s ወጪ ፋይሎች ይሰረዙ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">ለ%d የተመረጠ መተግበሪያ ወጪ ፋይሎች ይሰረዙ?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">ከማጽዳት በፊት በግዳጅ አቁም</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ማኅደራቸውን ከማጽዳት በፊት መተግበሪያዎችን በግዳጅ ያቁሙ። የአንዳንድ መተግበሪያዎችን ማኅደር ለማጽዳት ሊረዳ ይችላል፣ ግን መተግበሪያዎች በትክክል እንዳይሰሩ ሊያደርግና በእጅ እንደገና ማስጀመር ሊያስፈልግ ይችላል።</string>
     <string name="appcleaner_progress_force_stopping">መተግበሪያዎችን በግዳጅ ማቆም…</string>
+    <string name="appcleaner_progress_checking_freed_space">የተለቀቀውን ቦታ በመፈተሽ ላይ…</string>
 </resources>

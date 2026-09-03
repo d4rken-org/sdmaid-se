@@ -8,9 +8,6 @@
         <item quantity="one">%s fail töödeldud alates SD Maidi seadmesse paigaldamisest.</item>
         <item quantity="other">%s faili töödeldud alates SD Maidi seadmesse paigaldamisest.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Sinu külaline %d päev.</item>
         <item quantity="other">Sinu külaline %d päeva.</item>
@@ -54,9 +51,7 @@
     <string name="stats_space_history_delta_in_x">%1$s %2$s pärast</string>
     <string name="stats_space_history_upgrade_title">Kogu ajalugu on tasuline</string>
     <string name="stats_space_history_upgrade_body">Iga hoiustamisseadme kogu 90 päevase trendi kuvamiseks ostke võimsam pakett.</string>
-    <!-- Replaces stats_space_history_upgrade_body. The old key is translated into 74 locales and is
-         left untouched so those locales don't keep showing the old copy until Crowdin catches up. -->
-    <string name="stats_space_history_upgrade_body_v2">Uuenda, et avada iga mäluseadme täielik 90 päeva pikkune trendivaade ja saada hoiatus enne ruumi otsalõppemist.</string>
+    <string name="stats_space_history_upgrade_body_v2">Uuenda, et avada iga mäluseadme põhjalik 90 päevane suundumus ja saada hoiatus enne ruumi otsalõppemist.</string>
     <string name="stats_space_history_marker_freed">Vabanes %1$s</string>
     <string name="stats_storage_type_primary">Peamine hoiustamisruum</string>
     <string name="stats_storage_type_secondary">Teisejärguline hoiustamisruum</string>

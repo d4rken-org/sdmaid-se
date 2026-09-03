@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Reja nomi</string>
     <string name="scheduler_schedule_toggle_enabled">Reja yoqilgan</string>
     <string name="scheduler_schedule_toggle_disabled">Reja o\'chirilgan</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Uni tahrir qilish uchun jadvalini o\'chiring.</string>
     <string name="scheduler_edit_schedule_action">Rejani tahrirlash</string>
     <string name="scheduler_schedule_time_label">Taxminiy vaqt</string>
     <string name="scheduler_schedule_repeat_label">Kunlardagi takrorlash oralig\'i</string>
@@ -47,7 +48,6 @@ Fonda tozalash uchun Shizuku yoki root\'dan foydalaning yoki uni qurilmadan foyd
     <string name="scheduler_commands_after_schedule_label">Reja-keyingi buyruqlar</string>
     <string name="scheduler_commands_after_schedule_desc">Reja oxirida bajariladigan Android shell buyruqlari.</string>
     <string name="scheduler_battery_optimization_hint">Agar fon bajarilishida muammolarga duch kelsangiz, SD Maid uchun batareya optimallashtirishlarini o\'chirishni ko\'rib chiqing.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid jadval bo\'yicha tozalashi mumkin. Vaqtni va qaysi vositalar ishlashini tanlang, u fonda ishni bajaradi, ilovani (deyarli) ochish shart emas.</string>
     <string name="tour_scheduler_create_body">Yangi jadval yaratish uchun shu yerga bosing, so\'ng uning qachon ishlashini va qaysi vositalarni o\'z ichiga olishini sozlang.</string>
 </resources>

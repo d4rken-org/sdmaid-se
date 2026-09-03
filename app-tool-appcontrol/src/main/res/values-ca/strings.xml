@@ -81,6 +81,10 @@
         <item quantity="one">S\'ha commutat %d aplicació</item>
         <item quantity="other">S\'han commutat %d aplicacions</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplicació no es pot activar ni desactivar</item>
+        <item quantity="other">%d aplicacions no es poden activar ni desactivar</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determina les mides</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obteniu una estimació aproximada de la mida de cada aplicació.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determina l\'activitat</string>
@@ -119,8 +123,8 @@
     <string name="appcontrol_item_installedat_x_label">Instal·lada a: %s</string>
     <string name="shortcut_appcontrol_short">Control d\'aplicacions</string>
     <string name="shortcut_appcontrol_long">Gestioneu les aplicacions instal·lades</string>
-    <string name="tour_appcontrol_search_body">Cerca una aplicació pel nom. Útil en dispositius amb moltes aplicacions instal·lades.</string>
-    <string name="tour_appcontrol_filter_body">Redueix la llista per aplicacions d\'usuari/sistema, estat d\'activació, activitat recent i més. Els filtres actius apareixen com a xips aquí.</string>
-    <string name="tour_appcontrol_sort_body">Ordena les aplicacions per nom, data d\'instal·lació, última actualització, mida o temps de pantalla. Toca la mateixa opció per invertir la direcció.</string>
-    <string name="tour_appcontrol_app_row_body">Toca una aplicació per obrir els seus detalls i les accions disponibles. Prem llargament per iniciar una selecció i utilitzar accions en massa.</string>
+    <string name="tour_appcontrol_search_body">Cerqueu una aplicació pel nom. Útil en dispositius amb moltes aplicacions instal·lades.</string>
+    <string name="tour_appcontrol_filter_body">Reduïu la llista per aplicacions d\'usuari/sistema, estat d\'activació, activitat recent i més. Els filtres actius apareixen com a xips aquí.</string>
+    <string name="tour_appcontrol_sort_body">Ordeneu les aplicacions per nom, data d\'instal·lació, última actualització, mida o temps de pantalla. Toqueu la mateixa opció per invertir la direcció.</string>
+    <string name="tour_appcontrol_app_row_body">Toqueu una aplicació per obrir els seus detalls i les accions disponibles. Premeu perllongadament per iniciar una selecció i utilitzar accions en bloc.</string>
 </resources>

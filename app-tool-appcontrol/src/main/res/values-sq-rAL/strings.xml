@@ -81,6 +81,10 @@
         <item quantity="one">%d aplikacion u ndërrua</item>
         <item quantity="other">%d aplikacione u ndërruan</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplikacion nuk mund të aktivizohet ose çaktivizohet</item>
+        <item quantity="other">%d aplikacione nuk mund të aktivizohen ose çaktivizohen</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Përcakton madhësitë</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Merrni një vlerësim të përafërt të madhësisë së secilit aplikacion.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Përcaktoni aktivitetin</string>

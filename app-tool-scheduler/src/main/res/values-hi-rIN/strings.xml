@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">समयबद्धक सारणी नाम</string>
     <string name="scheduler_schedule_toggle_enabled">समयबद्धक सारणी सक्षम है</string>
     <string name="scheduler_schedule_toggle_disabled">समयबद्धक सारणी अक्षम है</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">इसे बदलने के लिए शेड्यूल को अक्षम करें।</string>
     <string name="scheduler_edit_schedule_action">सारणी को संशोधित करें</string>
     <string name="scheduler_schedule_time_label">लगभग समय</string>
     <string name="scheduler_schedule_repeat_label">अंतराल को इतने दिनों में दोहराएं</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">पोस्ट-शेड्यूल कमांड</string>
     <string name="scheduler_commands_after_schedule_desc">Android शेल कमांड जो एक शेड्यूल के अंत में निष्पादित की जाएंगी।</string>
     <string name="scheduler_battery_optimization_hint">यदि आप बैकग्राउंड निष्पादन के साथ समस्याओं का सामना करते हैं तो SD Maid के लिए बैटरी अनुकूलन अक्षम करने पर विचार करें।</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid एक शेड्यूल पर सफाई कर सकता है। एक समय चुनें और कौन से टूल चलाएं, और यह बैकग्राउंड में काम करता है, ऐप खोलने की लगभग कोई आवश्यकता नहीं है।</string>
     <string name="tour_scheduler_create_body">एक नया शेड्यूल बनाने के लिए यहां टैप करें, फिर सेट करें कि यह कब चलेगा और कौन से टूल शामिल करने हैं।</string>
 </resources>

@@ -60,6 +60,18 @@
         <item quantity="one">%dটি বাদ দেওয়ার উপযোগী আইটেম মুছে ফেলা হয়েছে</item>
         <item quantity="other">%dটি বাদ দেওয়ার উপযোগী আইটেম মুছে ফেলা হয়েছে</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d বাতিলযোগ্য আইটেম মোছা হয়েছে, স্ক্রিন বন্ধ বা লক থাকায় থামানো হয়েছে</item>
+        <item quantity="other">%d বাতিলযোগ্য আইটেম মোছা হয়েছে, স্ক্রিন বন্ধ বা লক থাকায় থামানো হয়েছে</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d বাতিলযোগ্য আইটেম মোছা হয়েছে, একটি ত্রুটির কারণে থামানো হয়েছে</item>
+        <item quantity="other">%d বাতিলযোগ্য আইটেম মোছা হয়েছে, একটি ত্রুটির কারণে থামানো হয়েছে</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d ক্যাশে এখনও অ্যাক্সেসযোগ্যতা পরিষেবার প্রয়োজন</item>
+        <item quantity="other">%1$s, %2$d ক্যাশে এখনও অ্যাক্সেসযোগ্যতা পরিষেবার প্রয়োজন</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%dটি বাদ দেয়ার মতো আইটেম পাওয়া গেছে</item>
         <item quantity="other">%dটি বাদ দেয়ার মতো আইটেম পাওয়া গেছে</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"ক্যাশে সাফ করুন\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ডিফল্ট ক্যাশ</string>
     <string name="appcleaner_item_caches_inaccessible_body">পাবলিক এবং ব্যক্তিগত ডিফল্ট ক্যাশ। সরাসরি অ্যাক্সেসযোগ্য নয়, তবে পরোক্ষভাবে মুছে ফেলা যেতে পারে (যেমন অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে)।</string>
+    <string name="appcleaner_exclusion_limited_row_hint">বাদ দেওয়া হয়েছে, তবে সব অ্যাপ একসাথে পরিষ্কার করলে এই ক্যাশেগুলো তবুও মুছে যায়</string>
+    <string name="appcleaner_exclusion_limited_title">বাদ দেওয়া অ্যাপ</string>
+    <string name="appcleaner_exclusion_limited_body">আপনি এই অ্যাপটিকে AppCleaner থেকে বাদ দিয়েছেন। সব অ্যাপের ক্যাশে একসাথে পরিষ্কার করার জন্য Shizuku-র সিস্টেম-ব্যাপী ক্যাশে ছাঁটাই ব্যবহার করা হয়, যা আলাদা আলাদা অ্যাপ বাদ রাখতে পারে না, তাই এই অ্যাপের ক্যাশে করা তথ্যও বাকি সবকিছুর সাথে মুছে যায়। শুধু এখানে দেখানো ক্যাশে করা তথ্যই প্রভাবিত হয়, বাদ দেওয়ার আওতাধীন বাকি সবকিছু লুকানো ও অক্ষত থাকে।</string>
     <string name="appcleaner_automation_unavailable_title">অ্যাক্সেসিবিলিটি পরিষেবা অনুপলব্ধ৷</string>
-    <string name="appcleaner_automation_unavailable_body">দুর্গম ক্যাশে সাফ করার জন্য SD Maid-এর অ্যাক্সেসিবিলিটি পরিষেবার প্রয়োজন, কিন্তু এটি অনুপলব্ধ ছিল৷ আপনি যদি এটি ব্যবহার করতে না চান: \"অপ্রাপ্য ক্যাশ অন্তর্ভুক্ত করুন\" বিকল্পটি অক্ষম করুন।</string>
+    <string name="appcleaner_automation_unavailable_body">এই ক্যাশেগুলো মোছার জন্য SD Maid-এর অ্যাক্সেসযোগ্যতা পরিষেবা প্রয়োজন, কিন্তু এটি উপলব্ধ ছিল না।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s জন্য ব্যয়যোগ্য ফাইল মুছবেন?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d নির্বাচিত অ্যাপের জন্য ব্যয়যোগ্য ফাইল মুছবেন?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">সাফ করার আগে জোর করে বন্ধ করুন</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ক্যাশ সাফ করার আগে অ্যাপগুলি জোর করে বন্ধ করুন। এটি কিছু অ্যাপের ক্যাশ সাফ করতে সাহায্য করতে পারে, তবে অ্যাপগুলি ভুলভাবে কাজ করতে পারে এবং ম্যানুয়ালি পুনরায় চালু করতে হতে পারে।</string>
     <string name="appcleaner_progress_force_stopping">অ্যাপগুলি জোর করে বন্ধ করা হচ্ছে…</string>
+    <string name="appcleaner_progress_checking_freed_space">খালি হওয়া জায়গা যাচাই করা হচ্ছে…</string>
 </resources>

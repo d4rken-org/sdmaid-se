@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">スケジュール名</string>
     <string name="scheduler_schedule_toggle_enabled">スケジュールは有効です</string>
     <string name="scheduler_schedule_toggle_disabled">スケジュールは無効です</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">変更するにはスケジュールを無効にしてください。</string>
     <string name="scheduler_edit_schedule_action">スケジュールを編集</string>
     <string name="scheduler_schedule_time_label">おおよその時間</string>
     <string name="scheduler_schedule_repeat_label">繰り返し間隔(日)</string>
@@ -46,7 +47,6 @@
     <string name="scheduler_commands_after_schedule_label">ポストスケジュール コマンド</string>
     <string name="scheduler_commands_after_schedule_desc">スケジュールの最後に実行される Android シェルコマンド。</string>
     <string name="scheduler_battery_optimization_hint">SD Maidがバックグラウンドで正常に動作しない場合は、バッテリー最適化をオフにすることをご検討ください。</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maidはスケジュールに基づいてクリーニングできます。実行時間とツールを選択すれば、バックグラウンドで実行され、アプリを開く必要がほぼありません。</string>
     <string name="tour_scheduler_create_body">ここをタップして新しいスケジュールを作成し、実行時間と含めるツールを設定します。</string>
 </resources>

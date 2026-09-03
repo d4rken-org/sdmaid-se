@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Grafika nosaukums</string>
     <string name="scheduler_schedule_toggle_enabled">Grafiks ir iespējots</string>
     <string name="scheduler_schedule_toggle_disabled">Grafiks ir atspējots</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Izslēdz grafiku, lai to mainītu.</string>
     <string name="scheduler_edit_schedule_action">Rediģēt grafiku</string>
     <string name="scheduler_schedule_time_label">Aptuvenais laiks</string>
     <string name="scheduler_schedule_repeat_label">Atkārtošanās intervs dienās</string>
@@ -48,7 +49,6 @@ Izslēdziet „Iekļaut sistēmas lietotnes“ vai palaidiet grafiku, kamēr ier
     <string name="scheduler_commands_after_schedule_label">Komandas pēc grafika izpildes</string>
     <string name="scheduler_commands_after_schedule_desc">Android čaulas komandas, kas tiks izpildītas grafika beigās.</string>
     <string name="scheduler_battery_optimization_hint">Apsvermiet atspējot akumulatora optimizāciju SD Maid, ja radusīs problēmas ar fona izpildi.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid var tīrīt pēc grafika. Izvēlieties laiku un kurus rīkus iekļaut, un tas veiks darbu fonā, gandrīz bez nepieciešamības atvērt lietotni.</string>
     <string name="tour_scheduler_create_body">Pieskarieties šeit, lai izveidotu jaunu grafiku, pēc tam iestatiet, kad tas darbosies un kurus rīkus iekļaut.</string>
 </resources>

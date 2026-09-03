@@ -60,6 +60,18 @@
         <item quantity="one">%d item sem uso deletado</item>
         <item quantity="other">%d itens inúteis excluídos</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d item descartável deletado, interrompido porque a tela estava desligada ou bloqueada</item>
+        <item quantity="other">%d itens descartáveis deletados, interrompidos porque a tela estava desligada ou bloqueada</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d item descartável deletado, interrompido por um erro</item>
+        <item quantity="other">%d itens descartáveis deletados, interrompidos por um erro</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache ainda precisa do serviço de acessibilidade</item>
+        <item quantity="other">%1$s, %2$d caches ainda precisam do serviço de acessibilidade</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d item inútil encontrado</item>
         <item quantity="other">%d itens inúteis encontrados</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Procurando pelo botão \"Limpar cache\" (palavras-chave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão público e privado. Não acessível diretamente, mas pode ser excluído indiretamente (por exemplo, via serviço de acessibilidade).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Excluído, mas limpar todos os aplicativos de uma vez ainda remove esses caches</string>
+    <string name="appcleaner_exclusion_limited_title">Aplicativo excluído</string>
+    <string name="appcleaner_exclusion_limited_body">Este aplicativo foi excluído do AppCleaner. Limpar caches de todos os aplicativos de uma vez usa a limpeza de cache em nível de sistema do Shizuku, que não consegue excluir aplicativos individuais, então os dados em cache deste aplicativo são limpos junto com tudo o mais. Apenas os dados em cache mostrados aqui são afetados; todo o resto que a exclusão cobre permanece oculto e intocado.</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>
-    <string name="appcleaner_automation_unavailable_body">Limpar caches inacessíveis requer o serviço de acessibilidade da SD Maid, mas não estava disponível. Se você não quiser usá-lo: Desative a opção \"Incluir caches inacessíveis\".</string>
+    <string name="appcleaner_automation_unavailable_body">Limpar esses caches requer o serviço de acessibilidade do SD Maid, mas ele não estava disponível.</string>
     <string name="appcleaner_delete_confirmation_message_x">Deletar arquivos desnecessários para %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Deletar arquivos desnecessários para %d aplicativos selecionados?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forçar parada antes da limpeza</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forçar parada dos aplicativos antes de limpar o cache. Pode ajudar a limpar o cache de alguns aplicativos, mas pode causar mau funcionamento e exigir reinicialização manual.</string>
     <string name="appcleaner_progress_force_stopping">Forçando parada dos aplicativos…</string>
+    <string name="appcleaner_progress_checking_freed_space">Verificando espaço liberado…</string>
 </resources>

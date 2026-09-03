@@ -68,7 +68,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibruoti priimant sprendimą palikti arba ištrinti.</string>
     <string name="swiper_discard_session_confirmation_title">Atmesti seansus?</string>
     <string name="swiper_discard_session_confirmation_message">Visi sprendimai bus prarasti. Ar tikrai?</string>
-    <string name="swiper_no_preview_available">Peržiūra neprieinama</string>
+    <string name="swiper_no_preview_available">Peržiūra nepasiekiama</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Tęsti sesiją iš prieš %1$d dieną (%2$d%% atlikta)</item>
         <item quantity="few">Tęsti sesiją nuo prieš %1$d dienas (%2$d%% baigta)</item>
@@ -167,7 +167,7 @@
     <string name="swiper_stamp_undo_2">Atgal!</string>
     <string name="swiper_stamp_undo_3">Oi!</string>
     <string name="swiper_stamp_undo_4">Palaukti!</string>
-    <string name="swiper_gesture_overlay_dismiss">Palieskite bet kur, kad pradėtumėte</string>
+    <string name="swiper_gesture_overlay_dismiss">Bakstelėkite bet kur, kad pradėtumėte</string>
     <string name="swiper_gesture_overlay_left_delete">← Trinti</string>
     <string name="swiper_gesture_overlay_right_keep">Palikti →</string>
     <string name="swiper_gesture_overlay_left_keep">← Palikti</string>
@@ -193,7 +193,6 @@
     <string name="swiper_file_type_filter_summary">Filtruota: %1$s</string>
     <string name="swiper_session_no_matching_files">Atitinkančių failų nerasta</string>
     <string name="swiper_open_externally_action">Atidaryti išorine programa</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Perbraukite failą norėdami nuspręsti jo likimą: į šoną – palikti arba ištrinti, aukštyn – praleisti, žemyn – grąžinti. Toliau esantys mygtukai daro tą patį ir parodo, kuri pusė kam skirta.</string>
     <string name="tour_swiper_openin_body">Šis mygtukas atidaro failą kitoje programoje – naudinga jį patikrinti prieš sprendimą.</string>
     <string name="tour_swiper_preview_body">Šis mygtukas atidaro pilną ekrano peržiūrą, kad geriau pamatytumėte.</string>

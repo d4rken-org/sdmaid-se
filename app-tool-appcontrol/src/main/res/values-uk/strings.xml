@@ -95,6 +95,12 @@
         <item quantity="many">%d додатків було перемкнуто</item>
         <item quantity="other">%d додатків було перемкнуто</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d додаток не можна увімкнути або вимкнути</item>
+        <item quantity="few">%d додатки не можна увімкнути або вимкнути</item>
+        <item quantity="many">%d додатків не можна увімкнути або вимкнути</item>
+        <item quantity="other">%d додатків не можна увімкнути або вимкнути</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Визначення розмірів</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Отримайте приблизну оцінку розміру кожного додатка.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Визначення активності</string>

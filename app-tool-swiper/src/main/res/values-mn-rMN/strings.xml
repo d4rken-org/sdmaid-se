@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Хадгалах эсвэл устгах шийдвэр гаргахад чичирнэ.</string>
     <string name="swiper_discard_session_confirmation_title">Сессийг устгах уу?</string>
     <string name="swiper_discard_session_confirmation_message">Бүх шийдвэр алдагдана. Итгэлтэй байна уу?</string>
-    <string name="swiper_no_preview_available">Урьдчилсан харагдац байхгүй</string>
+    <string name="swiper_no_preview_available">Урьдчилан харах боломжгүй</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d өдрийн өмнөх сессийг үргэлжлүүлэх (%2$d%% дууссан)</item>
         <item quantity="other">%1$d өдрийн өмнөх сессийг үргэлжлүүлэх (%2$d%% дууссан)</item>
@@ -133,7 +133,7 @@
     <string name="swiper_stamp_undo_2">Буцах!</string>
     <string name="swiper_stamp_undo_3">Уучлаарай!</string>
     <string name="swiper_stamp_undo_4">Хүлээ!</string>
-    <string name="swiper_gesture_overlay_dismiss">Эхлэхийн тулд хаана ч товшино уу</string>
+    <string name="swiper_gesture_overlay_dismiss">Эхлэхийн тулд хаана ч хамаагүй товшино уу</string>
     <string name="swiper_gesture_overlay_left_delete">← Устгах</string>
     <string name="swiper_gesture_overlay_right_keep">Хадгалах →</string>
     <string name="swiper_gesture_overlay_left_keep">← Хадгалах</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Шүүсэн: %1$s</string>
     <string name="swiper_session_no_matching_files">Тохирох файл олдсонгүй</string>
     <string name="swiper_open_externally_action">Гадаад аппликейшнд нээх</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Файлыг шүүрдэх нь түүний хувь заяг шийдэх: хөндлөн шүүрдэхээс үлдээх эсвэл арилгах, дээш нь шүүрдэхээс алгасах, доош нь шүүрдэхээс буцаах. Доорх товчнууд ижил үйлдэл хийдэг бөгөөд аль тал нь юу болохыг харуулдаг.</string>
     <string name="tour_swiper_openin_body">Энэ товчиор файлыг өөр програмаар нээж болох бөгөөд шийдэхийнээс өмнө шалгахад хэрэгтэй.</string>
     <string name="tour_swiper_preview_body">Энэ товч нь ойроос харахад бүтэн дэлгэцийн урьдчилсан үзүүлэлтийг нээдэг.</string>

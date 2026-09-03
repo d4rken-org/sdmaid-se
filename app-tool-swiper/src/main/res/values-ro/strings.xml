@@ -62,7 +62,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrați atunci când luați decizii de păstrare sau ștergere.</string>
     <string name="swiper_discard_session_confirmation_title">Renunțați la sesiune?</string>
     <string name="swiper_discard_session_confirmation_message">Toate deciziile vor fi pierdute. Sunteți sigur?</string>
-    <string name="swiper_no_preview_available">Nu există previzualizare disponibilă</string>
+    <string name="swiper_no_preview_available">Nicio previzualizare disponibilă</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Continuați sesiunea de acum %1$d zi (%2$d%% finalizat)</item>
         <item quantity="few">Continuați sesiunea de acum %1$d zile (%2$d%% finalizat)</item>
@@ -150,13 +150,13 @@
     <string name="swiper_stamp_undo_2">Înapoi!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Așteaptă!</string>
-    <string name="swiper_gesture_overlay_dismiss">Atingeți oriunde pentru a începe</string>
+    <string name="swiper_gesture_overlay_dismiss">Atinge oriunde pentru a începe</string>
     <string name="swiper_gesture_overlay_left_delete">← Șterge</string>
     <string name="swiper_gesture_overlay_right_keep">Păstrează →</string>
     <string name="swiper_gesture_overlay_left_keep">← Păstrează</string>
     <string name="swiper_gesture_overlay_right_delete">Șterge →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Sari</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Anulare</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Omite</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Anulează</string>
     <string name="swiper_help_title">Cum funcționează Swiper</string>
     <string name="swiper_help_message">Glisați fiecare fișier pentru a lua o decizie:\n\n← Glisați la stânga: %1$s\n→ Glisați la dreapta: %2$s\n↑ Glisați în sus: Sari\n↓ Glisați în jos: Anulare (după prima glisare)\n\nPuteți utiliza și butoanele de jos.\n\nCând ați terminat, atingeți \"Revizuire\" pentru a vedea toate deciziile. Nimic nu este șters până nu confirmați pe ecranul de revizuire.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Am înțeles</string>
@@ -176,7 +176,6 @@
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">Nu s-au găsit fișiere corespunzătoare</string>
     <string name="swiper_open_externally_action">Deschide în aplicație externă</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Glisați un fișier pentru a-i decide soarta: lateral pentru a păstra sau șterge, sus pentru a omite, jos pentru a anula. Butoanele de mai jos fac același lucru — și arată care parte este care.</string>
     <string name="tour_swiper_openin_body">Acest buton deschide fișierul într-o altă aplicație, util pentru a-l verifica înainte de a decide.</string>
     <string name="tour_swiper_preview_body">Acest buton deschide o previzualizare pe ecran complet pentru o privire mai atentă.</string>

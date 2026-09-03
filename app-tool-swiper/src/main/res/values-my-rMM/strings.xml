@@ -50,7 +50,7 @@
     <string name="swiper_settings_haptic_feedback_summary">သိုထားလုးများ သိုထားသွား ခြင်းခြင်းသည်လုးကို ခုံးခ်ခုံးချသည်။</string>
     <string name="swiper_discard_session_confirmation_title">သှားရှားကို ဖယ်ချပါလား?</string>
     <string name="swiper_discard_session_confirmation_message">ဆုံးပြေဆုံးများအားထေက်ပျောသွားမည်။ သခြေပါလား?</string>
-    <string name="swiper_no_preview_available">အင်ဂါ ပြသောသောမရှိပါ</string>
+    <string name="swiper_no_preview_available">အစမ်းကြည့်ရှုမှု မရရှိနိုင်ပါ</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">%1$d ရက်က သှားရှားကို ဆက်ပြန်ပါ (%2$d%% ပြီးသား)</item>
     </plurals>
@@ -116,16 +116,16 @@
     <string name="swiper_stamp_undo_2">နောက်!</string>
     <string name="swiper_stamp_undo_3">ဟင်!</string>
     <string name="swiper_stamp_undo_4">ခဏ!</string>
-    <string name="swiper_gesture_overlay_dismiss">စတင်ရန် မည်သည့်နေရာတွင်မဆို တို့ပါ</string>
-    <string name="swiper_gesture_overlay_left_delete">← ဖျက်မည်</string>
-    <string name="swiper_gesture_overlay_right_keep">သိမ်းမည် →</string>
-    <string name="swiper_gesture_overlay_left_keep">← သိမ်းမည်</string>
-    <string name="swiper_gesture_overlay_right_delete">ဖျက်မည် →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ကျော်မည်</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ ပြန်ယူမည်</string>
+    <string name="swiper_gesture_overlay_dismiss">စတင်ရန် မည်သည့်နေရာမဆို တို့ပါ</string>
+    <string name="swiper_gesture_overlay_left_delete">← ဖျက်ပါ</string>
+    <string name="swiper_gesture_overlay_right_keep">သိမ်းထားပါ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← သိမ်းထားပါ</string>
+    <string name="swiper_gesture_overlay_right_delete">ဖျက်ပါ →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ကျော်ပါ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ပြန်ဖျက်ပါ</string>
     <string name="swiper_help_title">Swiper အလုပ်လုပ်ပုံ</string>
     <string name="swiper_help_message">ဖိုင်တစ်ခုစီကို ပွတ်ဆွဲပြီး ဆုံးဖြတ်ပါ:\n\n← ဘယ်ဘက်သို့ ပွတ်ဆွဲ: %1$s\n→ ညာဘက်သို့ ပွတ်ဆွဲ: %2$s\n↑ အပေါ်သို့ ပွတ်ဆွဲ: ကျော်မည်\n↓ အောက်သို့ ပွတ်ဆွဲ: ပြန်ယူမည် (ပထမ ပွတ်ဆွဲပြီးနောက်)\n\nအောက်ခြေ ခလုတ်များကိုလည်း သုံးနိုင်ပါသည်။\n\nပြီးသွားသောအခါ \"ပြန်စစ်\" ကို တို့ပြီး သင့်ဆုံးဖြတ်ချက်များ အားလုံးကို ကြည့်ပါ။ ပြန်စစ်သည့် မျက်နှာပြင်တွင် အတည်ပြုသည့်အထိ ဘာမျှ မဖျက်ပါ။</string>
-    <string name="swiper_gesture_overlay_dismiss_action">နား လည်ပါပြီ</string>
+    <string name="swiper_gesture_overlay_dismiss_action">နားလည်ပါပြီ</string>
     <string name="swiper_file_type_filter_title">ဤဖိုင်အမျိုးအစားများကိုသာ ပြပါ</string>
     <string name="swiper_file_type_filter_hint">ကြည့်လိုသောအမျိုးအစားများကို စစ်ဆေးပါ။ မည်သည့်အမျိုးအစားမှ မစစ်ဆေးပါက ဖိုင်အားလုံးကို ပြပါမည်။</string>
     <string name="swiper_file_type_category_images">ပုံများ</string>
@@ -142,7 +142,6 @@
     <string name="swiper_file_type_filter_summary">စစ်ထုတ်ထားသည်- %1$s</string>
     <string name="swiper_session_no_matching_files">ကိုက်ညီသောဖိုင်များ မတွေ့ပါ</string>
     <string name="swiper_open_externally_action">ပြင်ပအပ်ပ်တွင် ဖွင့်မည်</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ဖိုင်တစ်ခုကို ရွှဲယူသည်။ ယင်းကို ကျန်ရစ်သည် သို့မဟုတ် ဖျက်ရန် ဘက်ဘက်သို့ ရွှဲယူပါ။ ကျော်လွှားရန် အထက်သို့ ရွှဲယူပါ။ ပြန်လည်ပြင်ဆင်ရန် အောက်သို့ ရွှဲယူပါ။ အောက်ခြင်း ခလုတ်များသည် အလားတူ လုပ်ဆောင်ပြီး ဘယ်ဘက်က ဘယ်အရာဖြစ်သည်ကို ပြသည်။</string>
     <string name="tour_swiper_openin_body">ဤခလုတ်သည် ဖိုင်ကို အခြား အက်ပ်တစ်ခုတွင် ဖွင့်ပေးသည်။ သုံးသပ်ခွင့်ရမီ စစ်ဆေးရန် အသုံးဝင်သည်။</string>
     <string name="tour_swiper_preview_body">ဤခလုတ်သည် ပိုမိုအနီးကပ်ကြည့်ရှုရန် အကျယ်အဝန်းအစမ်းချက်ကို ဖွင့်သည်။</string>

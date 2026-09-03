@@ -133,11 +133,11 @@
     <string name="swiper_stamp_undo_2">Tillbaka!</string>
     <string name="swiper_stamp_undo_3">Oj!</string>
     <string name="swiper_stamp_undo_4">Vänta!</string>
-    <string name="swiper_gesture_overlay_dismiss">Tryck var som helst för att börja</string>
-    <string name="swiper_gesture_overlay_left_delete">← Ta bort</string>
+    <string name="swiper_gesture_overlay_dismiss">Tryck vart som helst för att börja</string>
+    <string name="swiper_gesture_overlay_left_delete">← Radera</string>
     <string name="swiper_gesture_overlay_right_keep">Behåll →</string>
     <string name="swiper_gesture_overlay_left_keep">← Behåll</string>
-    <string name="swiper_gesture_overlay_right_delete">Ta bort →</string>
+    <string name="swiper_gesture_overlay_right_delete">Radera →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Hoppa över</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Ångra</string>
     <string name="swiper_help_title">Hur Swiper fungerar</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtrerat: %1$s</string>
     <string name="swiper_session_no_matching_files">Inga matchande filer hittades</string>
     <string name="swiper_open_externally_action">Öppna i extern app</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Svep en fil för att bestämma dess öde: sidledes för att behålla eller ta bort, upp för att hoppa över, ned för att ångra. Knapparna nedan gör samma sak — och visar vilken sida som är vilken.</string>
     <string name="tour_swiper_openin_body">Den här knappen öppnar filen i en annan app, praktisk för att kontrollera den innan du bestämmer dig.</string>
     <string name="tour_swiper_preview_body">Den här knappen öppnar en helskärmsförhandsvisning för en närmare titt.</string>

@@ -68,7 +68,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrovať pri rozhodnutí ponechať alebo odstrániť.</string>
     <string name="swiper_discard_session_confirmation_title">Zahodiť reláciu?</string>
     <string name="swiper_discard_session_confirmation_message">Všetky rozhodnutia budú stratené. Ste si istí?</string>
-    <string name="swiper_no_preview_available">Náhľad nie je k dispozícii</string>
+    <string name="swiper_no_preview_available">Náhľad nie je dostupný</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Pokračovať v relácii spred %1$d dňa (%2$d%% dokončených)</item>
         <item quantity="few">Pokračovať v relácii spred %1$d dní (%2$d%% dokončených)</item>
@@ -167,13 +167,13 @@
     <string name="swiper_stamp_undo_2">Naspäť!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Počkať!</string>
-    <string name="swiper_gesture_overlay_dismiss">Klepnutím kdekoľvek začnite</string>
-    <string name="swiper_gesture_overlay_left_delete">← Odstrániť</string>
+    <string name="swiper_gesture_overlay_dismiss">Klepni kdekoľvek na začatie</string>
+    <string name="swiper_gesture_overlay_left_delete">← Vymazať</string>
     <string name="swiper_gesture_overlay_right_keep">Ponechať →</string>
     <string name="swiper_gesture_overlay_left_keep">← Ponechať</string>
-    <string name="swiper_gesture_overlay_right_delete">Odstrániť →</string>
+    <string name="swiper_gesture_overlay_right_delete">Vymazať →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preskočiť</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Späť</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Vrátiť</string>
     <string name="swiper_help_title">Ako funguje Swiper</string>
     <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať\" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
@@ -193,7 +193,6 @@
     <string name="swiper_file_type_filter_summary">Filtrované: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenašli sa žiadne zodpovedajúce súbory</string>
     <string name="swiper_open_externally_action">Otvoriť v externej aplikácii</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Potiahnite súbor, aby ste rozhodli o jeho osude: nabok pre zachovanie alebo vymazanie, hore pre preskočenie, dole pre zrušenie. Tlačidlá nižšie robia to isté — a ukazujú, ktorá strana je ktorá.</string>
     <string name="tour_swiper_openin_body">Toto tlačidlo otvorí súbor v inej aplikácii, užitočné na kontrolu pred rozhodnutím.</string>
     <string name="tour_swiper_preview_body">Toto tlačidlo otvorí náhľad na celú obrazovku na detailnejší pohľad.</string>

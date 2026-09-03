@@ -50,7 +50,7 @@
     <string name="swiper_settings_haptic_feedback_summary">做出保留或刪除決定時震動。</string>
     <string name="swiper_discard_session_confirmation_title">捨棄工作階段？</string>
     <string name="swiper_discard_session_confirmation_message">所有決定將會遺失。確定嗎？</string>
-    <string name="swiper_no_preview_available">無法預覽</string>
+    <string name="swiper_no_preview_available">沒有預覽可用</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">繼續 %1$d 天前的工作階段（已完成 %2$d%%）</item>
     </plurals>
@@ -116,7 +116,7 @@
     <string name="swiper_stamp_undo_2">返回！</string>
     <string name="swiper_stamp_undo_3">哎呀！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
-    <string name="swiper_gesture_overlay_dismiss">輕觸任何位置開始</string>
+    <string name="swiper_gesture_overlay_dismiss">輕按任何位置開始</string>
     <string name="swiper_gesture_overlay_left_delete">← 刪除</string>
     <string name="swiper_gesture_overlay_right_keep">保留 →</string>
     <string name="swiper_gesture_overlay_left_keep">← 保留</string>
@@ -142,7 +142,6 @@
     <string name="swiper_file_type_filter_summary">已篩選：%1$s</string>
     <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
     <string name="swiper_open_externally_action">在外部應用程式中開啟</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">滑動檔案決定去留：左右滑動以保留或刪除、向上滑動以跳過、向下滑動以復原。下方按鈕功能相同，還會顯示各側代表什麼。</string>
     <string name="tour_swiper_openin_body">此按鈕會在另一個應用程式中開啟檔案，方便您在決定前先檢查。</string>
     <string name="tour_swiper_preview_body">此按鈕會開啟全螢幕預覽，以便更仔細地檢視。</string>

@@ -81,6 +81,10 @@
         <item quantity="one">%d ആപ്പ് ടോഗിൾ ചെയ്തു</item>
         <item quantity="other">%d ആപ്പുകൾ ടോഗിൾ ചെയ്തു</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d ആപ്പ് പ്രവർത്തനക്ഷമമാക്കാനോ പ്രവർത്തനരഹിതമാക്കാനോ കഴിയില്ല</item>
+        <item quantity="other">%d ആപ്പുകൾ പ്രവർത്തനക്ഷമമാക്കാനോ പ്രവർത്തനരഹിതമാക്കാനോ കഴിയില്ല</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">വലിപ്പം നിർണ്ണയിക്കുക</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ഓരോ ആപ്പിന്റെയും ഏകദേശ വലിപ്പം ലഭ്യമാക്കുക.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">പ്രവർത്തനം നിർണ്ണയിക്കുക</string>

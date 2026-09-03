@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">ຊື່ອຕາຣາງເວລາ</string>
     <string name="scheduler_schedule_toggle_enabled">ຕາຣາງເວລາເອິດໃຊ້ງານແລ້ວ</string>
     <string name="scheduler_schedule_toggle_disabled">ຕາຣາງເວລາຖືກປິດໃຊ້ງານແລ້ວ</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">ປິດໃຊ້ຕາຕະລາງເພື່ອປ່ຽນແປງມັນ.</string>
     <string name="scheduler_edit_schedule_action">ແກ້ໄຂຕາຣາງເວລາ</string>
     <string name="scheduler_schedule_time_label">ເວລາປະມານ</string>
     <string name="scheduler_schedule_repeat_label">ຊ່ວງເວລາຊ້ຳໃນວັນ</string>
@@ -42,7 +43,6 @@
     <string name="scheduler_commands_after_schedule_label">ຄໍາສັ່ງຫຼັງຕາຣາງເວລາ</string>
     <string name="scheduler_commands_after_schedule_desc">ຄໍາສັ່ງ Android shell ທີ່ຈະຖືກທໍາງານໃນຕອນສິ້ນສຸດຂອງຕາຣາງເວລາ.</string>
     <string name="scheduler_battery_optimization_hint">ຄວຣປິດການອະນຸຖານອອປຕິໃໂຊ່ນແບດເຕອີສຳລັບ SD Maid ຖ້າທ່ານພົບປັຍຫາກັບການທໍາງານໃນພື້ນຫລັງ.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid ສາມາດທຳຄວາມສະອາດໄດ້ຕາມຕາຕະລາງ. ເລືອກເວລາ ແລະເຄື່ອງມືໃດທີ່ຈະແລ່ນ, ແລະມັນຈະທຳວີກໃນພື້ນໝລັງ, (ປານຈະ) ບໍ່ຈຳເປັນຕ້ອງເປີດແອັບ.</string>
     <string name="tour_scheduler_create_body">ແຕະບ່ອນນີ້ເພື່ອສ້າງຕາຕະລາງໃໝ່, ຈາກນັ້ນກຳໝົດວ່າມັນຈະແລ່ນເມື່ອໃດ ແລະເຄື່ອງມືໃດທີ່ຈະລວມ.</string>
 </resources>

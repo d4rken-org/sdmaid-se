@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Play에 연결할 수 없습니다. 인터넷 연결을 확인하고 다시 시도해 주세요.</string>
     <string name="upgrades_gplay_offer_unavailable_title">오퍼를 사용할 수 없음</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play에서 현재 이 업그레이드 옵션을 제공하지 않습니다. 나중에 다시 시도하거나 Google Play 스토어를 확인하세요.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play를 열 수 없어요. Google Play가 없거나, 비활성화되었거나, 이 기기에서 제한될 수 있어요.</string>
     <string name="upgrades_gplay_already_owned_error_title">이미 구매함</string>
     <string name="upgrades_gplay_already_owned_error_description">\"구매 복원\" 옵션을 사용하여 구매를 복원하세요. 문제가 계속되면 Google Play 캐시를 지우고 기기를 재시작해 보세요.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s 얻기</string>
     <string name="upgrade_screen_preamble">SD Maid는 광고가 없고 유저 데이터를 팔지 않습니다. 여러분의 지원으로 개발됩니다. ❤️</string>
     <string name="upgrade_screen_benefits_title">업그레이드 혜택</string>

@@ -20,11 +20,11 @@
     <string name="automation_error_overlay_title">Накладанне аўтаматызацыі</string>
     <string name="automation_error_overlay_body">SD Maid не атрымалася паказаць накладанне аўтаматызацыі. Праверце дазволы і паспрабуйце перазагрузіць прыладу.</string>
     <string name="automation_error_scheduler_title">Запланаваная аўтаматызацыя не ўдалася</string>
-    <string name="automation_error_scheduler_body">Запланаванае заданне паспрабавала выкарыстаць службу даступнасці, але яна была недаступная. Калі вам гэта не патрэбна, адключыце опцыю «Служба даступнасці» ў налядах планавальніка.</string>
+    <string name="automation_error_scheduler_body">Запланаванае заданне паспрабавала выкарыстаць службу спецыяльных магчымасцей, але яна была недаступная. Калі вам гэта не патрэбна, адключыце опцыю \"Служба спецыяльных магчымасцей\" у наладах планіроўшчыка.</string>
     <string name="automation_error_no_settings_title">Экран налад недаступны</string>
     <string name="automation_error_no_settings_body">Гэта сістэмная праграма не мае экрана налад. Ачыстка кэшу праз службу спецыяльных магчымасцей немагчымая. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>
-    <string name="automation_error_disabled_app_title">Прыкладанне адключана</string>
-    <string name="automation_error_disabled_app_body">Ваша прыстасаванне не адкрые экран параметраў адключаных прыкладанняў, таму кэш не можа быць вычышчаны праз службу даступнасці. Уключыце прыкладанне ці выкарыстоўвайце root ці Shizuku/ADB.</string>
+    <string name="automation_error_disabled_app_title">Праграма адключана</string>
+    <string name="automation_error_disabled_app_body">Ваша прылада не дазваляе адкрываць экран налад адключаных праграм, таму кэш не можа быць ачышчаны праз службу даступнасці. Уключыце праграму ці выкарыстоўвайце root або Shizuku/ADB.</string>
     <string name="automation_error_interference_title">Экран налад заблакаваны</string>
     <string name="automation_error_interference_body">Іншая праграма (%1$s) блакуе экран сістэмных налад, таму SD Maid не можа працягваць. Адключыце ў гэтай праграме блакіроўку праграм або абарону экрана для сістэмных налад, потым паспрабуйце яшчэ раз.</string>
     <string name="automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>

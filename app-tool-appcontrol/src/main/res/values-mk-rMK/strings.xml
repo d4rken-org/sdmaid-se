@@ -81,6 +81,10 @@
         <item quantity="one">%d апликација е променета</item>
         <item quantity="other">%d апликации се променети</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d апликација не може да се овозможи или оневозможи</item>
+        <item quantity="other">%d апликации не можат да се овозможат или оневозможат</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Одреди големини</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Добијте груба проценка на големината на секоја апликација.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Одреди активност</string>

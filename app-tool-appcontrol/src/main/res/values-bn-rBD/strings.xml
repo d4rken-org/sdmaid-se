@@ -81,6 +81,10 @@
         <item quantity="one">%d অ্যাপ টগল করা হয়েছে</item>
         <item quantity="other">%d অ্যাপ টগল করা হয়েছে</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d অ্যাপ চালু বা বন্ধ করা যায় না</item>
+        <item quantity="other">%d অ্যাপ চালু বা বন্ধ করা যায় না</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">আকার নির্ধারণ করুন</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">প্রতিটি অ্যাপের আকারের মোটামুটি অনুমান পান।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">কার্যকলাপ নির্ধারণ</string>

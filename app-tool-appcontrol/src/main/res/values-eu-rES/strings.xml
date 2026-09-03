@@ -81,6 +81,10 @@
         <item quantity="one">%d aplikazio aldatu da</item>
         <item quantity="other">%d aplikazio aldatu dira</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplikazio ezin da gaitu edo desgaitu</item>
+        <item quantity="other">%d aplikazio ezin dira gaitu edo desgaitu</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Zehaztu tamainak</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Lortu aplikazio bakoitzaren tamainaren gutxi gorabeherako estimazioa.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Zehaztu jarduera</string>

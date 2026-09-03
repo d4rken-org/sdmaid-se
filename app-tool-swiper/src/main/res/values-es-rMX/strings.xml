@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibrar al tomar decisiones de conservar o eliminar.</string>
     <string name="swiper_discard_session_confirmation_title">¿Descartar sesión?</string>
     <string name="swiper_discard_session_confirmation_message">Todas las decisiones se perderán. ¿Estás seguro?</string>
-    <string name="swiper_no_preview_available">Vista previa no disponible</string>
+    <string name="swiper_no_preview_available">Sin vista previa</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Continuar sesión de hace %1$d día (%2$d%% completado)</item>
         <item quantity="other">Continuar sesión de hace %1$d días (%2$d%% completado)</item>
@@ -133,11 +133,11 @@
     <string name="swiper_stamp_undo_2">¡Atrás!</string>
     <string name="swiper_stamp_undo_3">¡Ups!</string>
     <string name="swiper_stamp_undo_4">¡Espera!</string>
-    <string name="swiper_gesture_overlay_dismiss">Toca en cualquier lugar para comenzar</string>
-    <string name="swiper_gesture_overlay_left_delete">← Eliminar</string>
-    <string name="swiper_gesture_overlay_right_keep">Conservar →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Conservar</string>
-    <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
+    <string name="swiper_gesture_overlay_dismiss">Toca donde sea para empezar</string>
+    <string name="swiper_gesture_overlay_left_delete">← Borrar</string>
+    <string name="swiper_gesture_overlay_right_keep">Guardar →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Guardar</string>
+    <string name="swiper_gesture_overlay_right_delete">Borrar →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Omitir</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
     <string name="swiper_help_title">Cómo funciona Swiper</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
     <string name="swiper_session_no_matching_files">No se encontraron archivos coincidentes</string>
     <string name="swiper_open_externally_action">Abrir en aplicación externa</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Desliza un archivo para decidir su destino: lateralmente para mantener o eliminar, hacia arriba para omitir, hacia abajo para deshacer. Los botones de abajo hacen lo mismo — y muestran qué lado es cuál.</string>
     <string name="tour_swiper_openin_body">Este botón abre el archivo en otra app, útil para verificarlo antes de decidir.</string>
     <string name="tour_swiper_preview_body">Este botón abre una vista previa de pantalla completa para una mirada más cercana.</string>

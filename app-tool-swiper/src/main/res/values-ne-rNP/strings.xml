@@ -133,12 +133,12 @@
     <string name="swiper_stamp_undo_2">पछाडि!</string>
     <string name="swiper_stamp_undo_3">अरे!</string>
     <string name="swiper_stamp_undo_4">पर्खनुहोस्!</string>
-    <string name="swiper_gesture_overlay_dismiss">सुरु गर्न कुनै ठाउँमा ट्याप गर्नुहोस्</string>
+    <string name="swiper_gesture_overlay_dismiss">कहीँ पनि ट्याप गरी सुरु गर्नुहोस्</string>
     <string name="swiper_gesture_overlay_left_delete">← मेटाउनुहोस्</string>
-    <string name="swiper_gesture_overlay_right_keep">राख्नुहोस् →</string>
-    <string name="swiper_gesture_overlay_left_keep">← राख्नुहोस्</string>
+    <string name="swiper_gesture_overlay_right_keep">राखनुहोस् →</string>
+    <string name="swiper_gesture_overlay_left_keep">← राखनुहोस्</string>
     <string name="swiper_gesture_overlay_right_delete">मेटाउनुहोस् →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ छोड्नुहोस्</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ छोडनुहोस्</string>
     <string name="swiper_gesture_overlay_down_undo">↓ पूर्ववत गर्नुहोस्</string>
     <string name="swiper_help_title">Swiper कसरी काम गर्छ</string>
     <string name="swiper_help_message">प्रत्येक फाइल स्वाइप गरेर निर्णय लिनुहोस्:\n\n← बायाँ स्वाइप: %1$s\n→ दायाँ स्वाइप: %2$s\n↑ माथि स्वाइप: छोड्नुहोस्\n↓ तल स्वाइप: पूर्ववत गर्नुहोस् (पहिलो स्वाइपपछि)\n\nतपाइँ तलको बटनहरू पनि प्रयोग गर्न सक्नुहुन्छ।\n\nजब तपाइँ सकिनुहुन्छ, आफ्ना सबै निर्णयहरू हेर्न \"समीक्षा\" ट्याप गर्नुहोस्। समीक्षा स्क्रिनमा तपाइँले पुष्टि नगरेसम्म केही मेटाइँदैन।</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">फिल्टर गरिएको: %1$s</string>
     <string name="swiper_session_no_matching_files">मिल्दो फाइलहरू फेला परेनन्</string>
     <string name="swiper_open_externally_action">बाह्य एपमा खोल्नुहोस्</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">फाइलको भाग्य निर्णय गर्न स्वाइप गर्नुहोस्: बाजु राख्न वा मेटाउन, माथि छोड्न, तल पूर्ववत गर्न। तलका बटनहरूले पनि यही गर्छन — र कुन पक्ष कुन हो भनेर देखाउछन्।</string>
     <string name="tour_swiper_openin_body">यो बटनले फाइललाई अर्को एपमा खोल्छ, निर्णय गर्नु अघि यो जाँच गर्न सुविधाजनक छ।</string>
     <string name="tour_swiper_preview_body">यो बटनले नजिकबाट हेर्न पूर्ण-स्क्रिन पूर्वावलोकन खोल्छ।</string>

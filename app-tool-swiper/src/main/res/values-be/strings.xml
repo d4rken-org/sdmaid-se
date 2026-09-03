@@ -55,10 +55,10 @@
     </plurals>
     <string name="swiper_delete_confirmation_checkbox">Я разумею, што гэтыя файлы будуць выдалены назаўжды.</string>
     <string name="swiper_sensitive_root_warning_title">Сканаваць усё сховішча?</string>
-    <string name="swiper_sensitive_root_warning_message">Сканаванне %1$s ўключае кожны файл на гэтым сховішчы — фота, дакументы, спампаваныя файлы, медыя прыкладанняў і іншае. Працягнуць?</string>
+    <string name="swiper_sensitive_root_warning_message">Сканіраванне %1$s уключае кожны файл у гэтым сховішчы — фота, дакументы, спампаваныя файлы, медыя праграм і іншае. Працягнуць?</string>
     <string name="swiper_sensitive_root_warning_continue_action">Усё роўна працягнуць</string>
     <string name="swiper_session_risky_label">Сканаванне усяго сховішча</string>
-    <string name="swiper_session_risky_info_message">Гэты сеанс закранае корань тома сховішча, таму ў вобласць сканавання трапляе кожны файл на гэтым сховішчы — фота, дакументы, спампаваныя файлы, медыя прыкладанняў і іншае.\n\nСканаванне усяго сховішча можа вернуць шмат элементаў, уключаючы файлы, якія вы, магчыма, не мелі намеру праглядаць. Прымяніце фільтр па тыпе файлаў, каб звузіць сканаванне.</string>
+    <string name="swiper_session_risky_info_message">Гэты сеанс закранае корань тома сховішча, таму ў вобласць сканіравання трапляе кожны файл у гэтым сховішчы — фота, дакументы, спампаваныя файлы, медыя праграм і іншае.\n\nСканіраванне ўсяго сховішча можа вярнуць шмат элементаў, уключаючы файлы, якія вы, магчыма, не мелі намеру праглядаць. Каб звузіць сканіраванне, прымяніце фільтр паводле тыпу файлаў.</string>
     <string name="swiper_delete_x_action">Выдаліць %1$d</string>
     <string name="swiper_settings_swap_directions_title">Змяніць кірунак правядзення пальцам</string>
     <string name="swiper_settings_swap_directions_summary">Праводзіць пальцам налева, каб захаваць, направа - каб выдаліць.</string>
@@ -173,7 +173,7 @@
     <string name="swiper_gesture_overlay_left_keep">← Пакінуць</string>
     <string name="swiper_gesture_overlay_right_delete">Выдаліць →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Прапусціць</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Скасаваць</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Адмяніць</string>
     <string name="swiper_help_title">Як працуе Swiper</string>
     <string name="swiper_help_message">Правядзіце пальцам па кожным файле, каб прыняць рашэнне:\n\n← Правесці ўлева: %1$s\n→ Правесці ўправа: %2$s\n↑ Правесці ўверх: Прапусціць\n↓ Правесці ўніз: Скасаваць (пасля першага правядзення)\n\nВы таксама можаце выкарыстоўваць кнопкі ўнізе.\n\nКалі скончыце, дакраніцеся \"Агляд\", каб убачыць усе вашы рашэнні. Нічога не выдаляецца, пакуль вы не пацвердзіце на экране агляду.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Зразумела</string>
@@ -193,7 +193,6 @@
     <string name="swiper_file_type_filter_summary">Адфільтравана: %1$s</string>
     <string name="swiper_session_no_matching_files">Адпаведных файлаў не знойдзена</string>
     <string name="swiper_open_externally_action">Адкрыць ў знешнім дадатку</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Правядзіце пальцам па файле, каб вырашыць яго лёс: ўбок — каб пакінуць або выдаліць, уверх — каб прапусціць, уніз — каб адмяніць. Кнопкі ніжэй робяць тое ж самае і паказваюць, які бок за што адказвае.</string>
     <string name="tour_swiper_openin_body">Гэтая кнопка адкрывае файл у іншай праграме — зручна, каб праверыць яго перад тым, як вырашыць.</string>
     <string name="tour_swiper_preview_body">Гэтая кнопка адкрывае папярэдні прагляд на ўвесь экран для больш уважлівага агляду.</string>

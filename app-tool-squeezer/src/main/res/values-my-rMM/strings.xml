@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d ခုကိုကျော်လွန်ခဲ့သည်(HDR/depth ထိန်းသိမ်းထားသည်)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">%d ကျော်လွန်ခွင့်ပြုသည် (ရုပ်ရှင်ဓာတ်ပုံများ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">%d ကျော်လွန်ခွင့်ပြုသည် (အလွန်ကြီးမားသောဓာတ်ပုံများ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">%d ကျော်လွန်ခွင့်ပြုသည် (ကာကွယ်ထားသည်)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d ခု ရွေးချယ်ထားသည်</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">ယေဘူယျ</string>
     <string name="squeezer_quality_description">အရည်အသွေး နည်းလေ ဖိုင်အရွယ်အစား သေးလေ သို့သော်လည်း မြင်နိုင်သောအရည်အသွေး ကျဆင်းသွားမည်။</string>
     <string name="squeezer_types_category_label">ပုံဆက်တင်များ</string>
+    <string name="squeezer_protected_category_label">ဆုံးရှုံးသွားသောအရာများ</string>
     <string name="squeezer_video_settings_category_label">ဗီဒီယိုဆက်တင်များ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG ပုံများ (.jpg, .jpeg) ထည့်သွင်းရန်။</string>
+    <string name="squeezer_type_jpeg_description">JPEG ဓာတ်ပုံများ (.jpg, .jpeg) ထည့်သွင်းပါ။ ပြန်လည်ကုဒ်ဆိုခြင်းသည် Android ၏အားထည့်သွင်းထားသည့် JPEG ကုဒ်စကျြ အသုံးပြုသည်။ နေ့စွဲ၊ တည်နေရာ၊ နှင့် အခြား EXIF သတင်းအချက်အလက်များကို ထိန်းသိမ်းထားသည်။</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP ပုံများ (.webp) ထည့်သွင်းရန်။</string>
+    <string name="squeezer_type_webp_description">WebP ဓာတ်ပုံများ (.webp) ထည့်သွင်းပါ။ ပြန်လည်ကုဒ်ဆိုခြင်းသည် Android ၏အားထည့်သွင်းထားသည့် WebP ကုဒ်စကျြ အသုံးပြုသည်။ နေ့စွဲ၊ တည်နေရာ၊ နှင့် အခြား EXIF သတင်းအချက်အလက်များကို ထိန်းသိမ်းထားသည်။</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF ရုပ်ပုံများ (.heic, .heif) ပါဝင်သည်။ နေ့စွဲ၊ တည်နေရာ၊ အခြား EXIF မေတာဒေတာများ သိမ်းဆည်းထားသည်။ HDR gain maps၊ အနက်ရှိုင်းဒေတာ၊ Live/Motion Photo ညီအမများ သိမ်းဆည်းလို့မရနိုင်သည်။ ပုံများစုံပါဝင်သည့် ဖိုင်များ ကျော်လွှားသည်။</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 ဗီဒီယိုဖိုင်များ (.mp4) ထည့်သွင်းပါ။</string>
+    <string name="squeezer_type_video_description">MP4 ဗီဒီယိုဖိုင်များ (.mp4) ထည့်သွင်းပါ။ ဗီဒီယိုအတန်းကို ကိရိယာ၏ကိုယ်ပိုင်ကုဒ်စကျြဖြင့် နိမ့်သည့်ဒေတာအလျင်ဖြင့် ပြန်လည်ကုဒ်ဆိုသည်။ အသံအတန်းကို မပြောင်းလဲခဲ့ပဲကူးယူသည်။ ဖိုင်သည် MP4 ခံရှိသည်။</string>
     <string name="squeezer_skip_compressed_title">ယခင်က ချုံ့ပြီးသားများ ကျော်ရန်</string>
     <string name="squeezer_skip_compressed_description">SD Maid မှ ချုံ့ပြီးသောဖိုင်များကို ကျော်သွားပါ။</string>
     <string name="squeezer_exif_marker_title">EXIF အမှတ်အသား ရေးသားရန်</string>
     <string name="squeezer_exif_marker_description">ချုံ့မှုမှတ်တမ်းကို ရှင်းလင်းလင့်ကစား ထပ်မံချုံ့ခြင်းမှ ကာကွယ်ရန် ပုံ၏ EXIF user comment field တွင် အမှတ်အသားတစ်ခု ထည့်သွင်းသည်။</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; အနက်ရှိုင်းရုပ်ပုံများ ချုပ်တည်းသည်</string>
-    <string name="squeezer_include_lossy_aux_description">မူလအားဖြင့် ပိတ်ထားသည်။ HDR gain map သို့မဟုတ် အနက်ရှိုင်းဒေတာပါသည့် ရုပ်ပုံများကို ကျော်လွှားသည်။ ၎င်းတို့ကို ဖြစ်တင်ပြီး ချုပ်တည်းရန် ဖွင့်ပါ — ၎င်းတို့သည် HDR gain map သို့မဟုတ် အနက်ရှိုင်းဒေတာ ဆုံးရှုံးမည်။ အချို့ ပုံများစုံပါဝင်သည့် HEIC ရုပ်ပုံများ အကာအကွယ်တည်ခြင်းဖြစ်သည်။</string>
+    <string name="squeezer_include_lossy_aux_description">HDR သို့မဟုတ် အနက်အတောက် အချက်အလက်ရှိသော ဓာတ်ပုံများကို ထည့်သွင်းပါ။ ချုံ့ခြင်းသည် အဲဒာများကို ဖယ်ရှားသည်: HDR ဓာတ်ပုံများသည် သာမန်ဓာတ်ပုံများဖြစ်လာသည်၊ အနုစာအိုက်ဓာတ်ပုံများသည် သူတို့ရဲ့ နောက်ခံမွဲးမုံသ၏နောက်ကွယ်ရှိ အချက်အလက်များကို ပျောက်သွားသည်။ ပုံများစွာ HEIC ဖိုင်များသည် ကျော့လွှားရှိနေသည်။</string>
+    <string name="squeezer_include_motion_photos_title">ရုပ်ရှင်ဓာတ်ပုံများ ချုံ့ခြင်း</string>
+    <string name="squeezer_include_motion_photos_description">ရုပ်ရှင်ဓာတ်ပုံများ ထည့်သွင်းပါ။ ချုံ့ခြင်းသည် ရပ်တည်နေသည့်ဓာတ်ပုံကို ထိန်းသိမ်းပြီး ဗီဒီယိုအပိုင်းကို ဖယ်ရှားသည်။</string>
+    <string name="squeezer_include_oversized_title">အလွန်ကြီးမားသောဓာတ်ပုံများ ချုံ့ခြင်း</string>
+    <string name="squeezer_include_oversized_description">အနံ သို့မဟုတ်အမြင့် ၈၁၉၂ ပစ်ခဲလ်ထက်ကျော်သည့်ဓာတ်ပုံများ ထည့်သွင်းပါ။ ချုံ့ခြင်းသည်၎င်းတို့ရ ရေဖျန်စည်းမှုကို ထက်ဝက်ဖြစ်စေသည်။</string>
     <string name="squeezer_estimated_savings_format">~%s သက်သာမှု</string>
     <string name="squeezer_no_savings_expected">သက်သာမှု နည်းပါးသည်</string>
     <string name="squeezer_current_size_format">အရွယ်အစား: %s</string>
+    <string name="squeezer_chip_compressed_before">ချုံ့ထားသည်</string>
+    <string name="squeezer_chip_hdr_depth">HDR/အတွင်းအမှတ်</string>
+    <string name="squeezer_chip_motion_photo">ရုပ်ရှင်ဓာတ်ပုံ</string>
+    <string name="squeezer_chip_downscaled">အရွယ်သေးငယ်</string>
+    <string name="squeezer_markers_dialog_title">ဤအညွှန်းများအကြောင်း</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid သည် ဤဖိုင်ကို အရင်ပြီးသားချုံ့ထားသည်။ ပြန်လည်ချုံ့ခြင်းသည်အရည်အသွေးကိုဆုံးရှုံးစေကာ အနည်းငယ်သာကယ်တင်စေသည်။</string>
+    <string name="squeezer_markers_hdr_depth_description">ဤဓာတ်ပုံတွင် HDR သို့မဟုတ် အနက်အတောက် အချက်အလက်ရှိသည်။ ချုံ့ခြင်းသည် အဲဒာများကို ထိန်းသိမ်းလို့ မရသည်။ HDR ဓာတ်ပုံသည် သာမန်ဓာတ်ပုံအဖြစ် ပြန်လည်ဖြစ်လာသည်။ အနုစာအိုက်ဓာတ်ပုံသည် နောက်ခံမွဲးမုံသ၏နောက်ကွယ်ရှိ အချက်အလက်များကို ပျောက်သွားသည်။</string>
+    <string name="squeezer_markers_motion_photo_description">ဤသည်ရုပ်ရှင်ဓာတ်ပုံ ဖြစ်သည်။ ချုံ့ခြင်းသည် ရပ်တည်နေသည့်ဓာတ်ပုံကို ထိန်းသိမ်းပြီး ဗီဒီယိုအပိုင်းကို ဖယ်ရှားသည်။</string>
+    <string name="squeezer_markers_downscaled_description">ဤဓာတ်ပုံသည် အနံ သို့မဟုတ်အမြင့် ၈၁၉၂ ပစ်ခဲလ်ထက်ကျော်သည်။ ချုံ့ခြင်းသည်၎င်း၏ ရေဖျန်စည်းမှုကို ထက်ဝက်ဖြစ်စေသည်။</string>
     <string name="squeezer_compress_action">ချုံ့ရန်</string>
     <string name="squeezer_compress_all_action">အားလုံး ချုံ့ရန်</string>
     <string name="squeezer_preview_dialog_title">ချုံ့ခြင်း အတည်ပြုရန်</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">နှိုင်းယှဉ်ချက် ကြည့်ရန်</string>
     <string name="squeezer_no_example_found">ရွေးချယ်ထားသောလမ်းများတွင် ပုံများ မရှိပါ။</string>
     <string name="squeezer_result_empty_message">ချုံ့နိုင်သောမီဒီယို မတွေ့ရှိပါ။</string>
+    <string name="squeezer_result_empty_protected">ချုံ့ရန်မည်သည်မျှ မရှိပါ။ ကြော်လွန်ခွင့်ပြုသည်: %s။ ၎င်းတို့ကို ထည့်သွင်းရန်အတွက် အပြင်များထဲတွင် ကိုက်ညီသည့်ရွေးချယ်စရာကို ဖွင့်ပါ။</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">%d HDR/အတွင်းအမှတ်ဓာတ်ပုံများ</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">%d ရုပ်ရှင်ဓာတ်ပုံများ</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">%d အလွန်ကြီးမားသောဓာတ်ပုံများ</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d တည်နေရာ(များ)ကို ချုံ့ရန် အသုံးမပြုသောကြောင် ဖယ်ရှားလိုက်သည်။ ချုံ့ခြင်းသည် အတွင်သိုလှောင်သို့ဆိုသို တိုက်ရိုက်ခွင့်ပြု လိုအပ်သည်။</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">အနည်းဆုံး %d ရက် အနည်းဆုံးသား</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ဖိုင်များအတွက် အကြမ်းဖြင်း ~%d%% လျှော့ချမှု</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer သည် သင်၏ ဓာတ်ပုံများ နှင့် ဗီဒီယိုများကို ပြန်လည်ချုံ့ပေးသည်။ အရည်အသွေးအနည်းငယ်ကို လဲလှယ်ပြီး နေရာများ ရယူသည်။ ပစ္စည်းတစ်ခုစီသည် ခန့်မှန်းအားဖြင့် သိမ်းဆည်းမည့်အရာ ကိုပြသသည်။ သင်သည် တန်ဖိုးကျသောအရာ ကိုသုံးသပ်နိုင်သည်။</string>
     <string name="tour_squeezer_compress_body">ဤနေရာတွင် အားလုံးကို တစ်ကြိမ်တည်းချုပ်တည်းသည်။ သို့မဟုတ် တစ်ခုတည်းလျှော့ချရန် တစ်ခုကို တို့ခြင်း။ အများအပြားရွေးချယ်ရန်အတွက် ကြာပိုက်နှိပ်ခြင်း။ မည်သည့်အရာမျိုးပြောင်းလဲမည့်တိုင် အစီအစဉ်ကို အမြဲမြင်နိုင်သည်။</string>
 </resources>

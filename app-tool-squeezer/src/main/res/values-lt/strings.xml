@@ -43,6 +43,24 @@
         <item quantity="many">%d failų praleista (HDR/gylis išsaugotas)</item>
         <item quantity="other">%d failų praleista (HDR/gylis išsaugotas)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d praleista (judanti nuotrauka)</item>
+        <item quantity="few">%d praleistos (judančios nuotraukos)</item>
+        <item quantity="many">%d praleistų (judančių nuotraukų)</item>
+        <item quantity="other">%d praleistų (judančių nuotraukų)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d praleista (labai didelė nuotrauka)</item>
+        <item quantity="few">%d praleistos (labai didelės nuotraukos)</item>
+        <item quantity="many">%d praleistų (labai didelių nuotraukų)</item>
+        <item quantity="other">%d praleistų (labai didelių nuotraukų)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d praleista (apsaugota)</item>
+        <item quantity="few">%d praleistos (apsaugotos)</item>
+        <item quantity="many">%d praleistų (apsaugotų)</item>
+        <item quantity="other">%d praleistų (apsaugotų)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elementas pasirinktas</item>
         <item quantity="few">%d elementai pasirinkti</item>
@@ -56,24 +74,38 @@
     <string name="squeezer_compression_settings_label">Bendrieji</string>
     <string name="squeezer_quality_description">Mažesnė kokybė reiškia mažesnį failo dydį, tačiau blogesnę vaizdinę kokybę.</string>
     <string name="squeezer_types_category_label">Vaizdo nustatymai</string>
+    <string name="squeezer_protected_category_label">Ko bus prarasta</string>
     <string name="squeezer_video_settings_category_label">Vaizdo įrašų nustatymai</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Įtraukti JPEG vaizdus (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Įtraukti JPEG nuotraukas (.jpg, .jpeg). Iš naujo koduojant naudojamas Android įmontuotas JPEG kodavimas. Data, vieta ir kiti EXIF metaduomenys yra išsaugomi.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Įtraukti WebP vaizdus (.webp).</string>
+    <string name="squeezer_type_webp_description">Įtraukti WebP nuotraukas (.webp). Iš naujo koduojant naudojamas Android įmontuotas WebP kodavimas. Data, vieta ir kiti EXIF metaduomenys yra išsaugomi.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Įtraukti HEIC/HEIF vaizdinius (.heic, .heif). Data, vieta ir kiti EXIF metaduomenys yra išsaugoti. HDR pelno žemėlapiai, gylio duomenys ir „Live“/„Motion Photo“ šeimos negali būti išsaugoti; kelių vaizdinių failai praleisti.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Įtraukti MP4 vaizdo įrašų failus (.mp4).</string>
+    <string name="squeezer_type_video_description">Įtraukti MP4 vaizdo failus (.mp4). Vaizdo takelis iš naujo koduojamas mažesniu bitrate naudojant įrenginio savąjį vaizdo kodavimą, garso takelis kopijuojamas nepakitęs, o failas lieka MP4.</string>
     <string name="squeezer_skip_compressed_title">Praleisti anksčiau suglaudintus</string>
     <string name="squeezer_skip_compressed_description">Praleisti failus, kurie jau buvo suglaudinti SD Maid.</string>
     <string name="squeezer_exif_marker_title">Rašyti EXIF žymė</string>
     <string name="squeezer_exif_marker_description">Prideti žymę prie vaizdo EXIF vartotojo komentaro lauko, kad būtų užkirstas kelias pakartotiniam suglaudinimui net jei suglaudinimo istorija išvaloma.</string>
     <string name="squeezer_include_lossy_aux_title">Suglaudinti HDR ir gylio nuotraukas</string>
-    <string name="squeezer_include_lossy_aux_description">Numatytasis: išjungtas. Nuotraukos su HDR pelno žemėlapiu arba gylio/portreto duomenimis yra praleistos, kad jos nebūtų suglaudintos. Įjunkite, norėdami jas suglaudinti, kur tai įmanoma – jos prarys HDR pelno žemėlapį ar gylio duomenis. Kai kurios kelių vaizdinių HEIC nuotraukos lieka apsaugotos neatsižvelgiant į tai.</string>
+    <string name="squeezer_include_lossy_aux_description">Įtraukti nuotraukas su HDR arba gylio duomenimis. Suspaudimas juos pašalina: HDR nuotraukos tampa paprastomis, portreto nuotraukos praranda gylio duomenis. Iš kelių vaizdų sudaryti HEIC failai lieka praleisti.</string>
+    <string name="squeezer_include_motion_photos_title">Suspausti judančias nuotraukas</string>
+    <string name="squeezer_include_motion_photos_description">Įtraukti judančias nuotraukas. Suspaudimas išlaiko nejudantį vaizdą ir pašalina vaizdo klipą.</string>
+    <string name="squeezer_include_oversized_title">Suspausti labai dideles nuotraukas</string>
+    <string name="squeezer_include_oversized_description">Įtraukti nuotraukas, kurios yra plačesnės arba aukštesnės nei 8192 pikseliai. Suspaudimas taip pat sumažina jų skyrą per pusę.</string>
     <string name="squeezer_estimated_savings_format">~%s sutaupyta</string>
     <string name="squeezer_no_savings_expected">Ribotos sutaupymas</string>
     <string name="squeezer_current_size_format">Dydis: %s</string>
+    <string name="squeezer_chip_compressed_before">Suspausta</string>
+    <string name="squeezer_chip_hdr_depth">HDR/gylis</string>
+    <string name="squeezer_chip_motion_photo">Judanti nuotrauka</string>
+    <string name="squeezer_chip_downscaled">Sumažinta</string>
+    <string name="squeezer_markers_dialog_title">Apie šiuos žymeklius</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid jau suspaudė šį failą. Jį suspaudus dar kartą pablogės kokybė ir sutaupys mažai.</string>
+    <string name="squeezer_markers_hdr_depth_description">Ši nuotrauka turi HDR arba gylio duomenis, kuriuos suspaudimas negali palikti. HDR nuotrauka grąžinama kaip paprastoji, o portreto nuotrauka praranda gylio duomenis, naudotus fonui neryškinti.</string>
+    <string name="squeezer_markers_motion_photo_description">Tai yra judanti nuotrauka. Suspaudimas išlaiko nejudantį vaizdą ir pašalina vaizdo klipą.</string>
+    <string name="squeezer_markers_downscaled_description">Ši nuotrauka yra platesnė arba aukštesnė nei 8192 pikseliai. Suspaudimas taip pat sumažina jos skyrą per pusę.</string>
     <string name="squeezer_compress_action">Suglaudinti</string>
     <string name="squeezer_compress_all_action">Suglaudinti visus</string>
     <string name="squeezer_preview_dialog_title">Patvirtinti suglaudinimą</string>
@@ -97,6 +129,25 @@
     <string name="squeezer_compare_action">Peržiūrėti palyginimą</string>
     <string name="squeezer_no_example_found">Pasirinktuose keliuose vaizdai nerasti.</string>
     <string name="squeezer_result_empty_message">Nesurasta jokių suglaudinamų medijų.</string>
+    <string name="squeezer_result_empty_protected">Nėra ką suspausti. Praleista: %s. Nustatymuose įjunkite atitinkamą parinktį, jei norite jas įtraukti.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/gylio nuotrauka</item>
+        <item quantity="few">%d HDR/gylio nuotraukos</item>
+        <item quantity="many">%d HDR/gylio nuotraukų</item>
+        <item quantity="other">%d HDR/gylio nuotraukų</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d judanti nuotrauka</item>
+        <item quantity="few">%d judančios nuotraukos</item>
+        <item quantity="many">%d judančių nuotraukų</item>
+        <item quantity="other">%d judančių nuotraukų</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d labai didelė nuotrauka</item>
+        <item quantity="few">%d labai didelės nuotraukos</item>
+        <item quantity="many">%d labai didelių nuotraukų</item>
+        <item quantity="other">%d labai didelių nuotraukų</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d vieta negali būti naudojama suglaudinimui ir buvo pašalinta. Suglaudinimui reikalinga tiesioginė prieiga prie vidinės atminties.</item>
         <item quantity="few">%d vietos negali būti naudojamos suglaudinimui ir buvo pašalintos. Suglaudinimui reikalinga tiesioginė prieiga prie vidinės atminties.</item>
@@ -120,7 +171,6 @@
         <item quantity="other">Ne mažiau kaip %d dienų</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Apytiksliai ~%d%% sutaupymų JPEG failams</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer iš naujo suspaudžia jūsų nuotraukas ir vaizdo įrašus, todėl jie užima mažiau vietą. Jūs mainote šiek tiek kokybės į erdvę, kurią atgaunate. Kiekvienas elementas parodo numatytą sutaupymą, todėl galite nuspręsti, ką verta.</string>
     <string name="tour_squeezer_compress_body">Suglaudinkite viską iš karto čia arba palieskite vieną elementą, norėdami sumažinti tik tą. Ilgai spustelėkite, norėdami pasirinkti kelis. Prieš bet kokius pokyčius visada matysite peržiūrą.</string>
 </resources>

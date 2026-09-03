@@ -116,13 +116,13 @@
     <string name="swiper_stamp_undo_2">Balik!</string>
     <string name="swiper_stamp_undo_3">Alamak!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
-    <string name="swiper_gesture_overlay_dismiss">Ketik di mana-mana untuk mula</string>
+    <string name="swiper_gesture_overlay_dismiss">Sentuh di mana-mana untuk memulai</string>
     <string name="swiper_gesture_overlay_left_delete">← Padam</string>
     <string name="swiper_gesture_overlay_right_keep">Simpan →</string>
     <string name="swiper_gesture_overlay_left_keep">← Simpan</string>
     <string name="swiper_gesture_overlay_right_delete">Padam →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Langkau</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Lewati</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Batalkan</string>
     <string name="swiper_help_title">Cara Swiper berfungsi</string>
     <string name="swiper_help_message">Leret setiap fail untuk membuat keputusan:\n\n← Leret ke kiri: %1$s\n→ Leret ke kanan: %2$s\n↑ Leret ke atas: Langkau\n↓ Leret ke bawah: Batal (selepas leretan pertama)\n\nAnda juga boleh menggunakan butang di bahagian bawah.\n\nApabila selesai, ketik \"Semak\" untuk melihat semua keputusan anda. Tiada apa yang dipadam sehingga anda mengesahkan pada skrin semakan.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Faham</string>
@@ -142,7 +142,6 @@
     <string name="swiper_file_type_filter_summary">Ditapis: %1$s</string>
     <string name="swiper_session_no_matching_files">Tiada fail yang sepadan ditemui</string>
     <string name="swiper_open_externally_action">Buka dalam aplikasi luaran</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Sapu fail untuk memutuskan nasibnya: ke tepi untuk simpan atau padam, ke atas untuk langkau, ke bawah untuk buat asal. Butang di bawah melakukan perkara yang sama — dan menunjukkan pihak mana itu.</string>
     <string name="tour_swiper_openin_body">Butang ini membuka fail dalam aplikasi lain, berguna untuk memeriksa sebelum memutuskan.</string>
     <string name="tour_swiper_preview_body">Butang ini membuka pratonton skrin penuh untuk melihat lebih dekat.</string>

@@ -68,7 +68,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibriraj pri odločitvah za ohranitev ali izbris.</string>
     <string name="swiper_discard_session_confirmation_title">Zavrzi sejo?</string>
     <string name="swiper_discard_session_confirmation_message">Vse odločitve bodo izgubljene. Ste prepričani?</string>
-    <string name="swiper_no_preview_available">Predogled ni na voljo</string>
+    <string name="swiper_no_preview_available">Ni predogleda</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Nadaljuj sejo izpred %1$d-ega dneva (%2$d%% končano)</item>
         <item quantity="two">Nadaljuj sejo izpred %1$d-h dni (%2$d%% končano)</item>
@@ -167,16 +167,16 @@
     <string name="swiper_stamp_undo_2">Nazaj!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Počakaj!</string>
-    <string name="swiper_gesture_overlay_dismiss">Tapnite kjerkoli za začetek</string>
+    <string name="swiper_gesture_overlay_dismiss">Dotakni se kjerkoli za začetek</string>
     <string name="swiper_gesture_overlay_left_delete">← Izbriši</string>
-    <string name="swiper_gesture_overlay_right_keep">Obdrži→</string>
+    <string name="swiper_gesture_overlay_right_keep">Obdrži →</string>
     <string name="swiper_gesture_overlay_left_keep">← Obdrži</string>
     <string name="swiper_gesture_overlay_right_delete">Izbriši →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preskoči</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Razveljavi</string>
     <string name="swiper_help_title">Kako deluje Drsnik</string>
     <string name="swiper_help_message">Povlecite vsako datoteko, da sprejmete odločitev:\n\n← Povlek levo: %1$s\n→ Povlek desno: %2$s\n↑ Povlek navzgor: Preskoči\n↓ Povlek navzdol: Razveljavi (po prvem povleku)\n\nUporabite lahko tudi gumbe na dnu.\n\nKo končate, se dotaknite \"Pregled\", da pokažete vse odločitve.  Nič ne bo izbrisano, dokler dejanj ne potrdite na zaslonu za pregled.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Razumem!</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Razumem</string>
     <string name="swiper_file_type_filter_title">Prikaži samo te vrste datotek</string>
     <string name="swiper_file_type_filter_hint">Označite vrste, ki jih želite videti.  Če ni označena nobena, se bodo prikazale vse datoteke.</string>
     <string name="swiper_file_type_category_images">Slike</string>
@@ -193,7 +193,6 @@
     <string name="swiper_file_type_filter_summary">Filtrirano: %1$s</string>
     <string name="swiper_session_no_matching_files">Ni ujemajočih se datotek.</string>
     <string name="swiper_open_externally_action">Odpri v zunanjem programu</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Povlecite datoteko: v stran, da jo obdržite ali izbrišete, navzgor, da preskočite, navzdol, da razveljavite. Spodnji gumbi delujejo enako — in pokažejo, katera stran je katera.</string>
     <string name="tour_swiper_openin_body">Ta gumb odpre datoteko v drugi aplikaciji, kar je priročno za preverjanje pred odločitvijo.</string>
     <string name="tour_swiper_preview_body">Ta gumb odpre celozaslonski predogled za podrobnejši pogled.</string>

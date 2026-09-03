@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">ਰੱਖਣ ਜਾਂ ਮਿਟਾਉਣ ਦੇ ਫੈਸਲੇ ਲੈਂਦੇ ਸਮੇਂ ਵਾਈਬ੍ਰੇਟ ਕਰੋ।</string>
     <string name="swiper_discard_session_confirmation_title">ਸੈਸ਼ਨ ਰੱਦ ਕਰਨਾ ਹੈ?</string>
     <string name="swiper_discard_session_confirmation_message">ਸਾਰੇ ਫੈਸਲੇ ਗੁੰਮ ਹੋ ਜਾਣਗੇ। ਕੀ ਤੁਸੀਂ ਪੱਕੇ ਹੋ?</string>
-    <string name="swiper_no_preview_available">ਪ੍ਰੀਵਿਊ ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="swiper_no_preview_available">ਕੋਈ ਝਲਕ ਉਪਲਬਧ ਨਹੀਂ ਹੈ</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d ਦਿਨ ਪਹਿਲਾਂ ਦੇ ਸੈਸ਼ਨ ਨੂੰ ਜਾਰੀ ਰੱਖੋ (%2$d%% ਮੁਕੰਮਲ)</item>
         <item quantity="other">%1$d ਦਿਨ ਪਹਿਲਾਂ ਦੇ ਸੈਸ਼ਨ ਨੂੰ ਜਾਰੀ ਰੱਖੋ (%2$d%% ਮੁਕੰਮਲ)</item>
@@ -133,16 +133,16 @@
     <string name="swiper_stamp_undo_2">ਪਿੱਛੇ!</string>
     <string name="swiper_stamp_undo_3">ਉਫ਼!</string>
     <string name="swiper_stamp_undo_4">ਰੁਕੋ!</string>
-    <string name="swiper_gesture_overlay_dismiss">ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕਿਤੇ ਵੀ ਟੈਪ ਕਰੋ</string>
+    <string name="swiper_gesture_overlay_dismiss">ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਕਿਧੇ ਵੀ ਟੈਪ ਕਰੋ</string>
     <string name="swiper_gesture_overlay_left_delete">← ਮਿਟਾਓ</string>
     <string name="swiper_gesture_overlay_right_keep">ਰੱਖੋ →</string>
     <string name="swiper_gesture_overlay_left_keep">← ਰੱਖੋ</string>
     <string name="swiper_gesture_overlay_right_delete">ਮਿਟਾਓ →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ ਛੱਡੋ</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ ਵਾਪਸ</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ਛੱਡ ਦਿਓ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ਵਾਪਸ ਕਰੋ</string>
     <string name="swiper_help_title">ਸਵਾਈਪਰ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ</string>
     <string name="swiper_help_message">ਫੈਸਲਾ ਲੈਣ ਲਈ ਹਰ ਫਾਈਲ ਸਵਾਈਪ ਕਰੋ:\n\n← ਖੱਬੇ ਸਵਾਈਪ: %1$s\n→ ਸੱਜੇ ਸਵਾਈਪ: %2$s\n↑ ਉੱਪਰ ਸਵਾਈਪ: ਛੱਡੋ\n↓ ਹੇਠਾਂ ਸਵਾਈਪ: ਵਾਪਸ (ਪਹਿਲੇ ਸਵਾਈਪ ਤੋਂ ਬਾਅਦ)\n\nਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ ਵੀ ਵਰਤ ਸਕਦੇ ਹੋ।\n\nਜਦੋਂ ਤੁਸੀਂ ਮੁਕੰਮਲ ਕਰ ਲਵੋ, ਆਪਣੇ ਸਾਰੇ ਫੈਸਲੇ ਦੇਖਣ ਲਈ \"ਸਮੀਖਿਆ\" \'ਤੇ ਟੈਪ ਕਰੋ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਸਮੀਖਿਆ ਸਕ੍ਰੀਨ \'ਤੇ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰਦੇ ਕੁਝ ਵੀ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾਂਦਾ।</string>
-    <string name="swiper_gesture_overlay_dismiss_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ਸਮਝ ਗਿਆ</string>
     <string name="swiper_file_type_filter_title">ਸਿਰਫ਼ ਇਹ ਫ਼ਾਈਲ ਕਿਸਮਾਂ ਦਿਖਾਓ</string>
     <string name="swiper_file_type_filter_hint">ਉਹ ਕਿਸਮਾਂ ਚੁਣੋ ਜੋ ਤੁਸੀਂ ਦੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ। ਜੇ ਕੋਈ ਨਹੀਂ ਚੁਣੀ, ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਿਖਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।</string>
     <string name="swiper_file_type_category_images">ਤਸਵੀਰਾਂ</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">ਫ਼ਿਲਟਰ ਕੀਤਾ: %1$s</string>
     <string name="swiper_session_no_matching_files">ਕੋਈ ਮੇਲ ਖਾਂਦੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
     <string name="swiper_open_externally_action">ਬਾਹਰੀ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹੋ</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ਫਾਈਲ ਨੂੰ ਸਵਾਈਪ ਕਰਕੇ ਇਸ ਦਾ ਫ਼ੈਸਲਾ ਕਰੋ: ਪਾਸੇ ਵੱਲ ਰੱਖਣ ਜਾਂ ਮਿਟਾਉਣ ਲਈ, ਉੱਪਰ ਛੱਡਣ ਲਈ, ਹੇਠਾਂ ਮੁੜ ਲਿਆਉਣ ਲਈ। ਹੇਠਲੇ ਬਟਨ ਉਹੀ ਕਰਦੇ ਹਨ — ਅਤੇ ਦਿਖਾਉਂਦੇ ਹਨ ਕਿ ਕਿਹੜਾ ਪਾਸਾ ਕਿਹੜਾ ਹੈ।</string>
     <string name="tour_swiper_openin_body">ਇਹ ਬਟਨ ਫਾਈਲ ਨੂੰ ਕਿਸੇ ਹੋਰ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹਦਾ ਹੈ, ਫ਼ੈਸਲਾ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਇਸ ਨੂੰ ਪਰਖਣ ਲਈ ਲਾਭਦਾਇਕ ਹੈ।</string>
     <string name="tour_swiper_preview_body">ਇਹ ਬਟਨ ਨਜ਼ਦੀਕੀ ਤੋਂ ਦੇਖਣ ਲਈ ਪੂਰੀ ਸਕ੍ਰੀਨ ਪ੍ਰੀਵਿਊ ਖੋਲ੍ਹਦਾ ਹੈ।</string>

@@ -73,14 +73,14 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Carpetes</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si no se selecciona cap tipus, tots els tipus coincidiran.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Criteris de ruta</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">La ruta objectiu ha de coincidir amb almenys una entrada (per exemple, \"Downloads/oldapks/game-\"). Toca una entrada per editar-la, o la seva icona per canviar com s\'hi fa la comparació.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">La ruta objectiu ha de coincidir amb almenys una entrada (p. ex. «Downloads/oldapks/game-»). Toqueu una entrada per editar-la, o la seva icona per canviar com s\'hi fa la comparació.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Criteris de nom</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">El nom objectiu ha de contenir almenys una de les paraules clau (per exemple, \"-receipt\"). Toca una entrada per editar-la, o la seva icona per canviar com s\'hi fa la comparació.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">El nom objectiu ha de contenir almenys una de les paraules clau (p. ex. «-rebut»). Toqueu una entrada per editar-la, o la seva icona per canviar com s\'hi fa la comparació.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Exclusions</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">El resultat s\'exclodrà si la ruta coincideix amb qualsevol entrada (per exemple, \"DCIM\"). Toca una entrada per editar-la, o la seva icona per canviar com s\'hi fa la comparació.</string>
-    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Afegir entrada de camí</string>
-    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Afegir entrada de nom</string>
-    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Afegir entrada d\'exclusió</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">El resultat s\'exclodrà si la ruta coincideix amb qualsevol entrada (p. ex. «DCIM»). Toqueu una entrada per editar-la, o la seva icona per canviar com s\'hi fa la comparació.</string>
+    <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Afegeix una entrada de ruta</string>
+    <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Afegeix una entrada de nom</string>
+    <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Afegeix una entrada d\'exclusió</string>
     <string name="systemcleaner_customfilter_editor_criterium_create_title">Nova entrada</string>
     <string name="systemcleaner_customfilter_editor_criterium_value_label">Paraula clau</string>
     <string name="systemcleaner_customfilter_editor_criterium_duplicate_error">Aquesta entrada ja existeix.</string>
@@ -112,7 +112,6 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limita les coincidències segons l\'antiguitat del fitxer (hora de l\'última modificació). Deixeu-ho sense definir per a coincidir amb qualsevol antiguitat.</string>
     <string name="systemcleaner_customfilter_import_action">Importa un filtre nou</string>
     <string name="systemcleaner_customfilter_export_action">Exporta el filtre seleccionat</string>
-    <!-- Guided tour -->
-    <string name="tour_systemcleaner_intro_body">SystemCleaner troba brossa usant filtres que no són específics de l\'aplicació. Hi ha regles predefinides per a coses com carpetes buides, registres deixats enrere i miniatures obsoletes. Visiteu la configuració si voleu crear la vostra pròpia.</string>
-    <string name="tour_systemcleaner_filter_body">Cada fila és un filtre i el que ha trobat. Obre els detalls per veure exactament quins fitxers coincideixen abans de suprimir res.</string>
+    <string name="tour_systemcleaner_intro_body">El Netejador del sistema troba brossa utilitzant filtres que no són específics de l\'aplicació. Hi ha regles preparades per a coses com carpetes buides, registres sobrants i miniatures obsoletes. Visiteu la configuració si voleu crear la vostra pròpia.</string>
+    <string name="tour_systemcleaner_filter_body">Cada fila és un filtre i el que ha trobat. Obriu els detalls per veure exactament quins fitxers coincideixen abans de suprimir res.</string>
 </resources>

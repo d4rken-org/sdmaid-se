@@ -50,7 +50,7 @@
     <string name="swiper_settings_haptic_feedback_summary">做出保留或删除决定时振动。</string>
     <string name="swiper_discard_session_confirmation_title">丢弃会话？</string>
     <string name="swiper_discard_session_confirmation_message">所有决定将会丢失。您确定吗？</string>
-    <string name="swiper_no_preview_available">没有可用的预览</string>
+    <string name="swiper_no_preview_available">暂无预览</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">继续 %1$d 天前的会话（已完成 %2$d%%）</item>
     </plurals>
@@ -142,7 +142,6 @@
     <string name="swiper_file_type_filter_summary">已筛选：%1$s</string>
     <string name="swiper_session_no_matching_files">未找到匹配文件</string>
     <string name="swiper_open_externally_action">在外部应用中打开</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">滑动文件以做出选择：横向滑动保留或删除，向上滑动跳过，向下滑动撤销。下方的按钮功能相同 — 并显示每一侧是什么功能。</string>
     <string name="tour_swiper_openin_body">此按钮在另一个应用中打开文件，便于您在做决定前检查。</string>
     <string name="tour_swiper_preview_body">此按钮打开全屏预览以便更仔细地查看。</string>

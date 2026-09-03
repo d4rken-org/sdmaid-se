@@ -133,12 +133,12 @@
     <string name="swiper_stamp_undo_2">Voltar!</string>
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Espere!</string>
-    <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para iniciar</string>
-    <string name="swiper_gesture_overlay_left_delete">← Excluir</string>
+    <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para começar</string>
+    <string name="swiper_gesture_overlay_left_delete">← Apagar</string>
     <string name="swiper_gesture_overlay_right_keep">Manter →</string>
     <string name="swiper_gesture_overlay_left_keep">← Manter</string>
-    <string name="swiper_gesture_overlay_right_delete">Excluir →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Ignorar</string>
+    <string name="swiper_gesture_overlay_right_delete">Apagar →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Pular</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
     <string name="swiper_help_title">Como o deslizar funciona</string>
     <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Ignorar\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada será excluído até que você confirme na tela de revisão.</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenhum arquivo correspondente encontrado</string>
     <string name="swiper_open_externally_action">Abrir em aplicativo externo</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Deslize em um arquivo para decidir seu destino: para os lados para manter ou deletar, para cima para pular, para baixo para desfazer. Os botões abaixo fazem o mesmo — e mostram qual lado é qual.</string>
     <string name="tour_swiper_openin_body">Este botão abre o arquivo em outro app, útil para verificá-lo antes de decidir.</string>
     <string name="tour_swiper_preview_body">Este botão abre uma visualização em tela inteira para um exame melhor.</string>

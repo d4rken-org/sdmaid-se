@@ -17,7 +17,7 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Δεν υπάρχει άμεση πρόσβαση</string>
     <string name="analyzer_content_create_swiper_session_action">Δημιουργία συνεδρίας Swiper</string>
-    <string name="analyzer_content_open_externally_action">Άνοιγμα σε διαχειριστή αρχείων</string>
+    <string name="analyzer_content_open_externally_action">Άνοιγμα στο διαχειριστή αρχείων</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Δημιουργήθηκε συνεδρία Swiper με %d αντικείμενο</item>
         <item quantity="other">Δημιουργήθηκε συνεδρία Swiper με %d αντικείμενα</item>
@@ -62,7 +62,6 @@
         <item quantity="one">Απομένει περίπου %d ημέρα χώρου με αυτόν τον ρυθμό</item>
         <item quantity="other">Απομένουν περίπου %d ημέρες χώρου με αυτόν τον ρυθμό</item>
     </plurals>
-    <!-- Settings -->
     <string name="analyzer_settings_storage_category_label">Αποθηκευτικός χώρος</string>
     <string name="analyzer_settings_lowstorage_title">Όριο χαμηλού αποθηκευτικού χώρου</string>
     <string name="analyzer_settings_lowstorage_desc">Όταν ο ελεύθερος χώρος πέσει κάτω από αυτό το όριο, το SD Maid θεωρεί ότι ο αποθηκευτικός χώρος εξαντλείται.</string>
@@ -71,10 +70,8 @@
     <string name="analyzer_settings_lowstorage_automatic_action">Αυτόματο</string>
     <string name="analyzer_settings_lowspace_notification_title">Προειδοποίηση χαμηλού χώρου</string>
     <string name="analyzer_settings_lowspace_notification_desc">Λάβε ειδοποίηση προτού εξαντληθεί ο αποθηκευτικός σου χώρος.</string>
-    <!-- Device storage upgrade hint -->
     <string name="analyzer_lowspace_hint_title">Μη μείνεις ποτέ ξαφνικά χωρίς χώρο</string>
     <string name="analyzer_lowspace_hint_body">Αναβάθμισε για να λαμβάνεις προειδοποίηση προτού εξαντληθεί ο αποθηκευτικός σου χώρος, ώστε να μπορείς να κάνεις εκκαθάριση όσο υπάρχει ακόμα περιθώριο.</string>
-    <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Δείτε τι γεμίζει πραγματικά τον χώρο αποθήκευσής σας. Ο Αναλυτής χαρτογραφεί το σημείο όπου πηγαίνει ο χώρος σας. Κάθε μια από αυτές τις κάρτες αντιπροσωπεύει μια μονάδα αποθήκευσης στη συσκευή σας.</string>
     <string name="tour_analyzer_storage_body">Ανοίξτε έναν χώρο αποθήκευσης για να τον αναλύσετε σε εφαρμογές, πολυμέσα και αρχεία, στη συνέχεια συνεχίστε να πατάτε για να εντοπίσετε τους μεγαλύτερους υπαίτιους.</string>
 </resources>

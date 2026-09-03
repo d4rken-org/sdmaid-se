@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">ከGoogle Play ጋር መገናኘት አልተቻለም። እባክዎ የበይነመረብ ግንኙነትዎን ያረጋግጡ እና እንደገና ይሞክሩ።</string>
     <string name="upgrades_gplay_offer_unavailable_title">ሐሳብ አልተገኘም</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play በአሁኑ ሰዓት ይህ የስሪት አማራጭ አልሰጠም። እባክዎ ቀጣይ ሰዓት ሞክሩ ወይም Google Play ክምችት ያረጋግጡ።</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play ን ክፈት አልተቻለም። በዚህ መሳሪያ ላይ ጠፍቷል፣ ታግዷል ወይም ተገድቧል።</string>
     <string name="upgrades_gplay_already_owned_error_title">አስቀድሞ ተገዝቷል</string>
     <string name="upgrades_gplay_already_owned_error_description">ግዢዎን ለመመለስ \"ግዢን ወደነበረበት መልስ\" አማራጩን ይጠቀሙ። ችግሩ ከቀጠለ፣ የGoogle Play መሸጎጫ ማጥራት እና መሳሪያዎን እንደገና ማስጀመር ይሞክሩ።</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">ያግኙ %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ማስታወቂያዎች የሉትም እና የተጠቃሚ መረጃ አይሸጥም። የእኔ ስራ በእርስዎ የሚገለገል ነው ❤️።</string>
     <string name="upgrade_screen_benefits_title">የአሻሪ ጥቅማጥቅሞች</string>

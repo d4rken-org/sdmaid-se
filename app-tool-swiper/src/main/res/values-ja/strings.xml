@@ -50,7 +50,7 @@
     <string name="swiper_settings_haptic_feedback_summary">保持または削除の決定時に振動します。</string>
     <string name="swiper_discard_session_confirmation_title">セッションを破棄しますか？</string>
     <string name="swiper_discard_session_confirmation_message">すべての決定が失われます。よろしいですか？</string>
-    <string name="swiper_no_preview_available">プレビューを利用できません</string>
+    <string name="swiper_no_preview_available">プレビューなし</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">%1$d 日前のセッションを続行（%2$d%% 完了）</item>
     </plurals>
@@ -116,16 +116,16 @@
     <string name="swiper_stamp_undo_2">戻る！</string>
     <string name="swiper_stamp_undo_3">おっと！</string>
     <string name="swiper_stamp_undo_4">待って！</string>
-    <string name="swiper_gesture_overlay_dismiss">どこかをタップして開始</string>
+    <string name="swiper_gesture_overlay_dismiss">どこでもタップして開始</string>
     <string name="swiper_gesture_overlay_left_delete">← 削除</string>
-    <string name="swiper_gesture_overlay_right_keep">保持 →</string>
-    <string name="swiper_gesture_overlay_left_keep">← 保持</string>
+    <string name="swiper_gesture_overlay_right_keep">残す →</string>
+    <string name="swiper_gesture_overlay_left_keep">← 残す</string>
     <string name="swiper_gesture_overlay_right_delete">削除 →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ スキップ</string>
     <string name="swiper_gesture_overlay_down_undo">↓ 元に戻す</string>
     <string name="swiper_help_title">Swiperの使い方</string>
     <string name="swiper_help_message">各ファイルをスワイプして判断してください:\n\n← 左にスワイプ: %1$s\n→ 右にスワイプ: %2$s\n↑ 上にスワイプ: スキップ\n↓ 下にスワイプ: 元に戻す（最初のスワイプ後）\n\n下部のボタンも使用できます。\n\n完了したら、「レビュー」をタップしてすべての判断を確認してください。レビュー画面で確認するまで何も削除されません。</string>
-    <string name="swiper_gesture_overlay_dismiss_action">わかりました。</string>
+    <string name="swiper_gesture_overlay_dismiss_action">わかりました</string>
     <string name="swiper_file_type_filter_title">これらのファイルタイプのみ表示</string>
     <string name="swiper_file_type_filter_hint">表示したいタイプを選択してください。何も選択されていない場合、すべてのファイルが表示されます。</string>
     <string name="swiper_file_type_category_images">画像</string>
@@ -142,7 +142,6 @@
     <string name="swiper_file_type_filter_summary">フィルター済み: %1$s</string>
     <string name="swiper_session_no_matching_files">一致するファイルが見つかりません</string>
     <string name="swiper_open_externally_action">外部アプリで開く</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ファイルをスワイプして、その運命を決めます: 横にスワイプすると保存または削除、上にスワイプするとスキップ、下にスワイプすると元に戻します。下のボタンでも同じことができ、どちらがどちらの操作かも表示されます。</string>
     <string name="tour_swiper_openin_body">このボタンでファイルを別のアプリで開き、判断前に確認できます。</string>
     <string name="tour_swiper_preview_body">このボタンで全画面プレビューを開いて、詳しく確認できます。</string>

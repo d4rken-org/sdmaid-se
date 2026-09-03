@@ -29,6 +29,18 @@
         <item quantity="one">%d ignorado (HDR/profundidade preservados)</item>
         <item quantity="other">%d ignorados (HDR/profundidade preservados)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d ignorada (Motion Photo)</item>
+        <item quantity="other">%d ignoradas (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d ignorada (foto muito grande)</item>
+        <item quantity="other">%d ignoradas (fotos muito grandes)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d ignorada (protegida)</item>
+        <item quantity="other">%d ignoradas (protegidas)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item selecionado</item>
         <item quantity="other">%d itens selecionados</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Geral</string>
     <string name="squeezer_quality_description">Qualidade inferior significa tamanho de ficheiro menor, mas qualidade visual reduzida.</string>
     <string name="squeezer_types_category_label">Definições de imagem</string>
+    <string name="squeezer_protected_category_label">O que se perde</string>
     <string name="squeezer_video_settings_category_label">Definições de vídeo</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Incluir imagens JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Inclui imagens JPEG (.jpg, .jpeg). A recodificação utiliza o codificador JPEG incorporado do Android. A data, localização e outros metadados EXIF são mantidos.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Incluir imagens WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Inclui imagens WebP (.webp). A recodificação utiliza o codificador WebP incorporado do Android. A data, localização e outros metadados EXIF são mantidos.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Incluir imagens HEIC/HEIF (.heic, .heif). A data, a localização e outros metadados EXIF são mantidos. Os mapas de ganho HDR, os dados de profundidade e as fotografias Live/Motion associadas não podem ser preservados; os ficheiros com várias imagens são ignorados.</string>
     <string name="squeezer_type_video_title">Vídeo MP4</string>
-    <string name="squeezer_type_video_description">Incluir ficheiros de vídeo MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Inclui ficheiros de vídeo MP4 (.mp4). A faixa de vídeo é recodificada com uma taxa de bits mais baixa pelo próprio codificador de vídeo do dispositivo, a faixa de áudio é copiada sem alterações e o ficheiro permanece um MP4.</string>
     <string name="squeezer_skip_compressed_title">Ignorar ficheiros já comprimidos</string>
     <string name="squeezer_skip_compressed_description">Ignorar ficheiros que já foram comprimidos pelo SD Maid.</string>
     <string name="squeezer_exif_marker_title">Escrever marcador EXIF</string>
     <string name="squeezer_exif_marker_description">Acrescentar um marcador ao campo de comentário de utilizador EXIF da imagem para evitar a recompressão, mesmo que o histórico de compressão seja eliminado.</string>
     <string name="squeezer_include_lossy_aux_title">Comprimir fotografias HDR e com profundidade</string>
-    <string name="squeezer_include_lossy_aux_description">Desativada por predefinição: as fotografias com um mapa de ganho HDR ou dados de profundidade/retrato são ignoradas para não serem convertidas numa imagem simples. Ative esta opção para as comprimir sempre que possível — perderão o mapa de ganho HDR ou os dados de profundidade. Algumas fotografias HEIC com várias imagens permanecem sempre protegidas.</string>
+    <string name="squeezer_include_lossy_aux_description">Inclui fotos com dados HDR ou de profundidade. A compressão remove-os: as fotos HDR tornam-se fotos normais e as fotos em modo retrato perdem os dados utilizados no desfoque de fundo. Os ficheiros HEIC com várias imagens continuam a ser ignorados.</string>
+    <string name="squeezer_include_motion_photos_title">Comprimir Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Inclui Motion Photos. A compressão mantém a imagem fixa e remove o clip de vídeo.</string>
+    <string name="squeezer_include_oversized_title">Comprimir fotos muito grandes</string>
+    <string name="squeezer_include_oversized_description">Inclui fotos com mais de 8192 pixels de largura ou altura. A compressão também reduz a resolução para metade.</string>
     <string name="squeezer_estimated_savings_format">Poupança de cerca de %s</string>
     <string name="squeezer_no_savings_expected">Poupança limitada</string>
     <string name="squeezer_current_size_format">Tamanho: %s</string>
+    <string name="squeezer_chip_compressed_before">Comprimida</string>
+    <string name="squeezer_chip_hdr_depth">HDR/profundidade</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Reduzida</string>
+    <string name="squeezer_markers_dialog_title">Acerca destes marcadores</string>
+    <string name="squeezer_markers_compressed_before_description">O SD Maid já comprimiu este ficheiro. Comprimi-lo novamente custa qualidade e poupa pouco.</string>
+    <string name="squeezer_markers_hdr_depth_description">Esta foto tem dados HDR ou de profundidade que a compressão não consegue manter. Uma foto HDR volta a ser uma foto normal e uma foto em modo retrato perde os dados de profundidade utilizados no desfoque de fundo.</string>
+    <string name="squeezer_markers_motion_photo_description">Isto é uma Motion Photo. A compressão mantém a imagem fixa e remove o clip de vídeo.</string>
+    <string name="squeezer_markers_downscaled_description">Esta foto tem mais de 8192 pixels de largura ou altura. A compressão também reduz a resolução para metade.</string>
     <string name="squeezer_compress_action">Comprimir</string>
     <string name="squeezer_compress_all_action">Comprimir tudo</string>
     <string name="squeezer_preview_dialog_title">Confirmar compressão</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Ver comparação</string>
     <string name="squeezer_no_example_found">Nenhuma imagem encontrada nos caminhos selecionados.</string>
     <string name="squeezer_result_empty_message">Não foi encontrado conteúdo multimédia que possa ser comprimido.</string>
+    <string name="squeezer_result_empty_protected">Nada para comprimir. Ignoradas: %s. Ativa a opção correspondente nas definições para as incluir.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d foto HDR/profundidade</item>
+        <item quantity="other">%d fotos HDR/profundidade</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d foto muito grande</item>
+        <item quantity="other">%d fotos muito grandes</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d localização não pode ser utilizada para compressão e foi removida. A compressão requer acesso direto ao armazenamento interno.</item>
         <item quantity="other">%d localizações não podem ser utilizadas para compressão e foram removidas. A compressão requer acesso direto ao armazenamento interno.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Pelo menos %d dias de idade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Poupança estimada de ~%d%% para ficheiros JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">O Media Squeeze volta a comprimir as fotografias e os vídeos para ocuparem menos espaço. Perde alguma qualidade em troca do espaço recuperado. Cada item mostra a poupança estimada para poder decidir se vale a pena.</string>
     <string name="tour_squeezer_compress_body">Comprima tudo de uma só vez aqui ou toque num item para comprimir apenas esse. Mantenha premido para selecionar vários. Verá sempre uma pré-visualização antes de qualquer alteração.</string>
 </resources>

@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d ခု သုံးလောက်သောပစ္စညးများ ဖျက်ပြီးပြီ</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">%d အကျိုးမရှိသည့်အရာများ ဖျက်ပြီး၊ ကြည်းပြင်ပိတ်သို့မဟုတ်သော်လှော့ခြင်းကြောင့် ရပ်တန့်ခဲ့သည်</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">%d အကျိုးမရှိသည့်အရာများ ဖျက်ပြီး၊ အမှားအယွင်းကြောင့် ရပ်တန့်ခဲ့သည်</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s၊ %2$d ကြည်းများသည် အသုံးအဆောင်ရန် လိုအပ်နေသေးသည်</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d ခု သုံးလောက်သောပစ္စညးများ တွေ့ရှိပြီ</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Cache ရှင်းလင်း\" ခလုတ်ကို ရှာနေသည် (သော့ချက်စကားများ - %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">မူလ cache များ</string>
     <string name="appcleaner_item_caches_inaccessible_body">အများပြည်သူ နှင့် ကိုယ်ပိုင် မူလ cache များ။ တိုက်ရိုက် ဝင်ရောက်မရသော်လည်း သို့မဟုတ် သွယ်ဝိုက်၍ ဖျက်နိုင်သည် (ဥပမာ - accessibility service မှတဆင့်)။</string>
+    <string name="appcleaner_exclusion_limited_row_hint">ကျော်လွန်ခွင့်ပြုထားသည့်သော်လည်း အပ်ပ်လီကေးရှယ်အားလုံးကို တစ်ခါတည်သန့်စင်သည့်အခါ ဤကြည်းများသည် နေသးရှင်းလင်းခံရသည်</string>
+    <string name="appcleaner_exclusion_limited_title">ကျော်လွန်ခွင့်ပြုထားသည့်အပ်ပ်လီကေးရှယ်</string>
+    <string name="appcleaner_exclusion_limited_body">AppCleaner မှ ဤအပ်ပ်လီကေးရှယ်ကို ကျော်လွန်ခွင့်ပြုထားသည်။ အပ်ပ်လီကေးရှယ်အားလုံးအတွက် ကြည်းများကို တစ်ခါတည်ရှင်းလင်းသည့်အခါ Shizuku သည် စနစ်အဆင့်ကြည်းပုံမှန်စည်းခြင်းများ အသုံးပြုသည်။ ၎င်းသည် သီးခြားအပ်ပ်လီကေးရှယ်များကို ခွင့်ပြုမရနိုင်သည်။ ထို့ကြောင့် ဤအပ်ပ်လီကေးရှယ်ရ ကြည်းဒေတာများသည် အခြား အရာများနှင့်အတူ ရှင်းလင်းခံရသည်။ ဤနေရာတွင်ပြထားသည့်ကြည်းများသည်သာ ရိုက်ခတ်မှုခံရသည်။ ကျော်လွန်ခွင့်ပြုချက်မှ ကာကွယ်ထားသည့် အခြား အရာများ အားလုံးသည် လုံခြုံစွာ ထိန်းသိမ်းသည်။</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility ဝန်ဆောင်မှု ရနိုင်မည်မဟုတ်</string>
-    <string name="appcleaner_automation_unavailable_body">ဝင်ရောက်မရသော cache များ ရှင်းလင်းရန် SD Maid တာ် အဝင်ရောက်ဝန်ဆောင်မှု လိုအပ်ပါသော်လည်း ရနိုင်မည်မဟုတ်ခဲ့ပါ။ အသုံးပြုမပြုလိုပါက - \"ဝင်ရောက်မရသော cache များ ထည့်သွင်းပါ\" ရွေးချယ်ကို ပိတ်ပါ။</string>
+    <string name="appcleaner_automation_unavailable_body">ဤကြည်းများကို ရှင်းလင်းရန် SD Maid ၏ အသုံးအဆောင်ရန် လိုအပ်သည်။ သို့သော် ၎င်းသည် အသုံးပြုနိုင်သည့်အနေအထားမှာ မရှိခဲ့သည်။</string>
     <string name="appcleaner_delete_confirmation_message_x">%s အတွက် သုံးလောက်သောဖိုင်များ ဖျက်မည်လား?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ရွေးချယ်ထားသော %d ခု အပ်ပ်များအတွက် သုံးလောက်သောဖိုင်များ ဖျက်မည်လား?</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">ရှင်းလင်းမတိုင်မီး အတင်းရပ်ခြင်း</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Cache ရှင်းလင်းမတိုင်မီး အပ်ပ်များကို အတင်းရပ်ပါ။ အချိစမ်း အပ်ပ်များတာ်အစာ် cache ရှင်းလင်းရာတွင် ကူညီနိုင်သော်လည်း သို့မဟုတ် အပ်ပ်များ ဆိုးသောဆိုးဆောင်ရွက်ပြီး လက်ဖြင့် ပြန်ဖွင့်ကျာနိုင်သည်။</string>
     <string name="appcleaner_progress_force_stopping">အပ်ပ်များကို အတင်းရပ်နေသည်…</string>
+    <string name="appcleaner_progress_checking_freed_space">ရှင်းလင်းခံရသောနေရာကို စစ်ဆေးနေသည်…</string>
 </resources>

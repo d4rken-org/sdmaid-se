@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Värise tehdessä säilytys- tai poistopäätöksiä.</string>
     <string name="swiper_discard_session_confirmation_title">Hylätäänkö istunto?</string>
     <string name="swiper_discard_session_confirmation_message">Kaikki päätökset menetetään. Oletko varma?</string>
-    <string name="swiper_no_preview_available">Esikatselu ei saatavilla</string>
+    <string name="swiper_no_preview_available">Esikatselua ei saatavilla</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
         <item quantity="other">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
@@ -133,7 +133,7 @@
     <string name="swiper_stamp_undo_2">Takaisin!</string>
     <string name="swiper_stamp_undo_3">Oho!</string>
     <string name="swiper_stamp_undo_4">Odota!</string>
-    <string name="swiper_gesture_overlay_dismiss">Napauta mitä tahansa aloittaaksesi</string>
+    <string name="swiper_gesture_overlay_dismiss">Aloita napauttamalla mitä tahansa</string>
     <string name="swiper_gesture_overlay_left_delete">← Poista</string>
     <string name="swiper_gesture_overlay_right_keep">Säilytä →</string>
     <string name="swiper_gesture_overlay_left_keep">← Säilytä</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Suodatettu: %1$s</string>
     <string name="swiper_session_no_matching_files">Vastaavia tiedostoja ei löydy</string>
     <string name="swiper_open_externally_action">Avaa ulkoisessa sovelluksessa</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Pyyhkäise tiedostoa sen kohtalon määrittämiseksi: sivulle säilyttääksesi tai poistaaksesi, ylös ohittaaksesi, alas peruttaaksesi. Alla olevat painikkeet tekevät saman – ja näyttävät, kumpi puoli tekee mitä.</string>
     <string name="tour_swiper_openin_body">Tämä painike avaa tiedoston toisessa sovelluksessa – kätevää tarkistaa se ennen päätöksentekoa.</string>
     <string name="tour_swiper_preview_body">Tämä painike avaa koko näytön esikatselun tarkempaa katselua varten.</string>

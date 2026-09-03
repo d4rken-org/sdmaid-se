@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">ఉంచు లేదా తొలగించు నిర్ణయాలు తీసుకునేటప్పుడు వైబ్రేట్ చేయి.</string>
     <string name="swiper_discard_session_confirmation_title">సెషన్ విస్మరించాలా?</string>
     <string name="swiper_discard_session_confirmation_message">అన్ని నిర్ణయాలు కోల్పోతాయి. మీరు ఖచ్చితంగా కోరుకుంటున్నారా?</string>
-    <string name="swiper_no_preview_available">ప్రివ్యూ అందుబాటులో లేదు</string>
+    <string name="swiper_no_preview_available">ప్రివ్యూ ఉపలభ్యం లేదు</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d రోజు క్రితం నుండి సెషన్ కొనసాగించు (%2$d%% పూర్తయింది)</item>
         <item quantity="other">%1$d రోజుల క్రితం నుండి సెషన్ కొనసాగించు (%2$d%% పూర్తయింది)</item>
@@ -134,12 +134,12 @@
     <string name="swiper_stamp_undo_3">అయ్యో!</string>
     <string name="swiper_stamp_undo_4">ఆగు!</string>
     <string name="swiper_gesture_overlay_dismiss">ప్రారంభించడానికి ఎక్కడైనా నొక్కండి</string>
-    <string name="swiper_gesture_overlay_left_delete">← తొలగించు</string>
-    <string name="swiper_gesture_overlay_right_keep">ఉంచు →</string>
-    <string name="swiper_gesture_overlay_left_keep">← ఉంచు</string>
-    <string name="swiper_gesture_overlay_right_delete">తొలగించు →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ దాటవేయి</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ రద్దు</string>
+    <string name="swiper_gesture_overlay_left_delete">← తొలగించండి</string>
+    <string name="swiper_gesture_overlay_right_keep">ఉంచండి →</string>
+    <string name="swiper_gesture_overlay_left_keep">← ఉంచండి</string>
+    <string name="swiper_gesture_overlay_right_delete">తొలగించండి →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ దాటవేయండి</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ తిరిగి చేయండి</string>
     <string name="swiper_help_title">Swiper ఎలా పని చేస్తుంది</string>
     <string name="swiper_help_message">నిర్ణయం తీసుకోవడానికి ప్రతి ఫైల్‌ను స్వైప్ చేయండి:\n\n← ఎడమకు స్వైప్: %1$s\n→ కుడికి స్వైప్: %2$s\n↑ పైకి స్వైప్: దాటవేయి\n↓ క్రిందికి స్వైప్: రద్దు (మొదటి స్వైప్ తర్వాత)\n\nమీరు దిగువన ఉన్న బటన్‌లను కూడా ఉపయోగించవచ్చు.\n\nమీరు పూర్తి చేసిన తర్వాత, మీ అన్ని నిర్ణయాలను చూడటానికి \"సమీక్ష\" నొక్కండి. సమీక్ష స్క్రీన్‌లో మీరు నిర్ధారించే వరకు ఏదీ తొలగించబడదు.</string>
     <string name="swiper_gesture_overlay_dismiss_action">అర్థమైంది</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">వడపోయబడినవి: %1$s</string>
     <string name="swiper_session_no_matching_files">సరిపోలే ఫైల్స్ కనుగొనబడలేదు</string>
     <string name="swiper_open_externally_action">బాహ్య యాప్‌లో తెరవండి</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ఫైల్‌ను స్వైప్ చేయండి, ఆ విధిని నిర్ణయించండి: పక్కకు ఉంచడానికి లేదా తొలగించడానికి, పైకి దాటవేయడానికి, క్రిందికి చేసిన పనిని రద్దు చేయడానికి. దిగువ బటన్‌లు సమానంగా చేస్తాయి — మరియు ఏ వైపు ఏది అని చూపుతాయి.</string>
     <string name="tour_swiper_openin_body">ఈ బటన్ ఫైల్‌ను మరొక యాప్‌లో తెరుస్తుంది, నిర్ణయించే ముందు దాన్ని తనిఖీ చేయడానికి సౌకర్యవంతమైనది.</string>
     <string name="tour_swiper_preview_body">ఈ బటన్ పూర్తి-స్క్రీన్ ప్రీవ్యూను తెరుస్తుంది దగ్గరగా చూడటానికి.</string>

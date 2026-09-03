@@ -134,10 +134,10 @@
     <string name="swiper_stamp_undo_3">Oeps!</string>
     <string name="swiper_stamp_undo_4">Wag!</string>
     <string name="swiper_gesture_overlay_dismiss">Tik enige plek om te begin</string>
-    <string name="swiper_gesture_overlay_left_delete">← Verwyder</string>
+    <string name="swiper_gesture_overlay_left_delete">← Skrap</string>
     <string name="swiper_gesture_overlay_right_keep">Hou →</string>
     <string name="swiper_gesture_overlay_left_keep">← Hou</string>
-    <string name="swiper_gesture_overlay_right_delete">Verwyder →</string>
+    <string name="swiper_gesture_overlay_right_delete">Skrap →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Slaan oor</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Ontdoen</string>
     <string name="swiper_help_title">Hoe Swiper werk</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Gefilteer: %1$s</string>
     <string name="swiper_session_no_matching_files">Geen ooreenstemmende lêers gevind nie</string>
     <string name="swiper_open_externally_action">Maak oop in eksterne program</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Veeg \'n lêer om sy lot te bepaal: sywaarts om te hou of te skrap, op om oor te slaan, af om ongedaan te maak. Die knoppies hieronder doen dieselfde — en toon watter sy vir wat is.</string>
     <string name="tour_swiper_openin_body">Hierdie knoppie maak die lêer in \'n ander program oop, gerieflik om dit eers te kontroleer voordat jy besluit.</string>
     <string name="tour_swiper_preview_body">Hierdie knoppie open \'n volskerm-voorskou vir \'n nader blik.</string>

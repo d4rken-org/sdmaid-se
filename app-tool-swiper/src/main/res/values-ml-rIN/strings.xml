@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">പിർവായി!</string>
     <string name="swiper_stamp_undo_3">ഊപ്സ്!</string>
     <string name="swiper_stamp_undo_4">കാത്തിരിക്കൂ!</string>
-    <string name="swiper_gesture_overlay_dismiss">ആരംഭിക്കാൻ എവിടെയും ടാപ്പ് ചെയ്യുക</string>
+    <string name="swiper_gesture_overlay_dismiss">ആരംഭിക്കാൻ എവിടെയെങ്കിലും ടാപ്പ് ചെയ്യുക</string>
     <string name="swiper_gesture_overlay_left_delete">← ഇല്ലാതാക്കുക</string>
     <string name="swiper_gesture_overlay_right_keep">സൂക്ഷിക്കുക →</string>
     <string name="swiper_gesture_overlay_left_keep">← സൂക്ഷിക്കുക</string>
     <string name="swiper_gesture_overlay_right_delete">ഇല്ലാതാക്കുക →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ ഒഴിവാക്കുക</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ പഴയപടിയാക്കുക</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ തിരികെയെടുക്കുക</string>
     <string name="swiper_help_title">Swiper എങ്ങനെ പ്രവർത്തിക്കുന്നു</string>
     <string name="swiper_help_message">ഓരോ ഫയലും സ്വൈപ്പ് ചെയ്ത് തീരുമാനമെടുക്കുക:\n\n← ഇടത്തേക്ക് സ്വൈപ്പ്: %1$s\n→ വലത്തേക്ക് സ്വൈപ്പ്: %2$s\n↑ മുകളിലേക്ക് സ്വൈപ്പ്: ഒഴിവാക്കുക\n↓ താഴേക്ക് സ്വൈപ്പ്: പഴയപടിയാക്കുക (ആദ്യ സ്വൈപ്പിന് ശേഷം)\n\nതാഴെ ഉള്ള ബട്ടണുകളും ഉപയോഗിക്കാം.\n\nതീർന്നാൽ, നിങ്ങളുടെ എല്ലാ തീരുമാനങ്ങളും കാണാൻ \"അവലോകനം\" ടാപ്പ് ചെയ്യുക. അവലോകന സ്ക്രീനിൽ സ്ഥിരീകരിക്കുന്നത് വരെ ഒന്നും ഇല്ലാതാകില്ല.</string>
     <string name="swiper_gesture_overlay_dismiss_action">മനസ്സിലായി</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">ഫിൽട്ടർ ചെയ്തത്: %1$s</string>
     <string name="swiper_session_no_matching_files">യോജിക്കുന്ന ഫയലുകൾ ഒന്നും കണ്ടെത്തിയില്ല</string>
     <string name="swiper_open_externally_action">ബാഹ്യ ആപ്പിൽ തുറക്കുക</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ഫയലിന്റെ ഭാവി തീരുമാനിക്കാൻ അത് സ്വൈപ്പ് ചെയ്യുക: പാർശ്വവായായി സൂക്ഷിക്കാനോ ഇല്ലാതാക്കാനോ, മുകളിലോട്ട് ഒഴിവാക്കാനോ, താഴോട്ട് തിരികെയാക്കാനോ ചെയ്യുക. താഴെയുള്ള ബട്ടണുകള് ഇതേ കാര്യം ചെയ്യുന്നു — കൂടാതെ എത് വശം എതേന്ന് കാണിക്കുന്നു.</string>
     <string name="tour_swiper_openin_body">ഈ ബട്ടൺ ഫയൽ മറ്റൊരു ആപ്പ് തുറക്കുന്നു, തീരുമാനിക്കുന്നതിനുമുമ്പ് അത് പരിശോധിക്കാനായി സൗകര്യകരമാണ്.</string>
     <string name="tour_swiper_preview_body">ഈ ബട്ടൻ സൂക്ഷ്മമായ നോട്ടത്തിനായി പൂർണ്ണ സ്ക്രീൻ പ്രിവ്യൂ തുറക്കുന്നു.</string>

@@ -29,6 +29,18 @@
         <item quantity="one">%d ispitziadu (HDR/depth conservadu)</item>
         <item quantity="other">%d ispitziadus (HDR/depth conservadus)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d saltadu (Foto in Movimentu)</item>
+        <item quantity="other">%d saltados (Fotos in Movimentu)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d saltadu (foto meda grande)</item>
+        <item quantity="other">%d saltados (fotos meda grandes)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d saltadu (protetu)</item>
+        <item quantity="other">%d saltados (protetus)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elementu seletzionadu</item>
         <item quantity="other">%d elementos seletzionados</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Generale</string>
     <string name="squeezer_quality_description">Una calidàde prus bàscia significat unu archìviu prus pitchinu ma una calidàde visuale reduida.</string>
     <string name="squeezer_types_category_label">Cunfiguratziones de imàgines</string>
+    <string name="squeezer_protected_category_label">Cosa si perdet</string>
     <string name="squeezer_video_settings_category_label">Cunfiguratziones de vìdeo</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Inclùe immàgines JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Includi fotos JPEG (.jpg, .jpeg). Sa reconversione impiat sa codificatore JPEG de Android. Data, localizatzione, e sas outras metadatas EXIF sunt conservadas.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Inclùe immàgines WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Includi fotos WebP (.webp). Sa reconversione impiat sa codificatore WebP de Android. Data, localizatzione, e sas outras metadatas EXIF sunt conservadas.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Inclui immagines HEIC/HEIF (.heic, .heif). Data, logu, e altri metadatus EXIF sunt conservados. Is mapas de ganzu HDR, is datos de profundidade, e is immagines relatas de Live/Motion Photo no podan essere preservados; is ficheros multi-immagine sunt ignorados.</string>
     <string name="squeezer_type_video_title">Vìdeo MP4</string>
-    <string name="squeezer_type_video_description">Includi sos archìvios de vìdeo MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Includi archivos de vìdeo MP4 (.mp4). Sa pista de vìdeo est reconvertida a un bitrate inferiore de su codificatore de vìdeo de su dispositivu, sa pista de audio est copiada immodifiada, e s\'archiviu manet una MP4.</string>
     <string name="squeezer_skip_compressed_title">Brinca is cumprimidas in antis</string>
     <string name="squeezer_skip_compressed_description">Salta sos archìvios chi sunt giai istados comprimidos dae SD Maid.</string>
     <string name="squeezer_exif_marker_title">Iscrìe marcadore EXIF</string>
     <string name="squeezer_exif_marker_description">Agiunghe unu marcadore a su campu de comentu EXIF de s\'immàgine pro impedire sa torrada a cumprìmere fintzas si s\'istòria de cumpressione benit limpiada.</string>
     <string name="squeezer_include_lossy_aux_title">Cumprimi fotos HDR e de profundidade</string>
-    <string name="squeezer_include_lossy_aux_description">Disabilitadu pro difettu: fotos cun mapas de ganzu HDR o datos de profundidade/ritratu sunt ignoradas, ita-nde no siant aplianadas. Abilita pro cumprimis inde duve è possibile — si perderan is mapas de ganzu HDR o is datos de profundidade. Calche foto HEIC multi-immagine restand proteta in oghe casu.</string>
+    <string name="squeezer_include_lossy_aux_description">Includi fotos cun datos HDR o de profundidade. Sa comprimidura ti duat: fotos HDR devenant fotos normales, fotos de ritrattu perdent sa datos dietro sa disfocu de funtzu. Archivos HEIC multi-imagines manent saltados.</string>
+    <string name="squeezer_include_motion_photos_title">Cumprimi Fotos in Movimentu</string>
+    <string name="squeezer_include_motion_photos_description">Includi Fotos in Movimentu. Sa comprimidura conservat s\'imagine fissa e tollit sa clip de vìdeo.</string>
+    <string name="squeezer_include_oversized_title">Cumprimi fotos meda grandes</string>
+    <string name="squeezer_include_oversized_description">Includi fotos prus largas o alteras de 8192 pixels. Sa comprimidura puru dimidiat sa resolutzione sua.</string>
     <string name="squeezer_estimated_savings_format">~%s de isparagnu</string>
     <string name="squeezer_no_savings_expected">Isparagnos limitados</string>
     <string name="squeezer_current_size_format">Mannesa: %s</string>
+    <string name="squeezer_chip_compressed_before">Comprimidu</string>
+    <string name="squeezer_chip_hdr_depth">HDR/prof.</string>
+    <string name="squeezer_chip_motion_photo">Foto in Movimentu</string>
+    <string name="squeezer_chip_downscaled">Rimmodidudu</string>
+    <string name="squeezer_markers_dialog_title">A pitzus de custu marcadores</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ha giai comprimidu custu archiviu. Su comprimire un\'atra borta costa calidade e avantat pagu.</string>
+    <string name="squeezer_markers_hdr_depth_description">Custa foto at datos HDR o de profundidade chi sa comprimidura non podet conservare. Una foto HDR diventa una normale, e una foto de ritrattu perde sa datos de profundidade imprada pro sa disfocu de funtzu.</string>
+    <string name="squeezer_markers_motion_photo_description">Custas sunt Fotos in Movimentu. Sa comprimidura conservat s\'imagine fissa e tollit sa clip de vìdeo.</string>
+    <string name="squeezer_markers_downscaled_description">Custa foto est prus larga o altera de 8192 pixels. Sa comprimidura puru dimidiat sa resolutzione sua.</string>
     <string name="squeezer_compress_action">Cumprimi</string>
     <string name="squeezer_compress_all_action">Cumprimi totu</string>
     <string name="squeezer_preview_dialog_title">Cunfirma sa cumpressione</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Bide su paragone</string>
     <string name="squeezer_no_example_found">Peruna immàgine agatada in is caminos selecionados.</string>
     <string name="squeezer_result_empty_message">Medios comprimìbiles non sunt istados agatados.</string>
+    <string name="squeezer_result_empty_protected">Nudda de comprimire. Saltados: %s. Abilia s\'optzione currispondente intra sa configuratzione pro includihos.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d foto HDR/profundidade</item>
+        <item quantity="other">%d fotos HDR/profundidade</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Foto in Movimentu</item>
+        <item quantity="other">%d Fotos in Movimentu</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d foto meda grande</item>
+        <item quantity="other">%d fotos meda grandes</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d logu non podet èssere utilizadu pro sa compressione ed est istadu eliminadu. Sa compressione rechidet atzessu direttu a s\'archìviu internu.</item>
         <item quantity="other">%d logos non podent èssere utilizados pro sa compressione ed ant a èssere eliminados. Sa compressione rechidet atzessu direttu a s\'archìviu internu.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">A su mancu %d dies de edade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Istimadu ~%d%% de risparmiu pro ficheros JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ricomprime tue fotus e bideos pro che prendan pocu logu. Cambias un pagu de qualidade pro s\'espaziu chi ti torrat. Cada elementu mostrat s\'economia estimada, pro che ti podes decider cos\'est meritzevu.</string>
     <string name="tour_squeezer_compress_body">Cumprimi totu a una volta chì, o tunga un ìtemu singulu pro diminuiri desso. Premi a longa pro ischeddiri prus. Semper vides una anteprima prima chi mudes calche cosa.</string>
 </resources>

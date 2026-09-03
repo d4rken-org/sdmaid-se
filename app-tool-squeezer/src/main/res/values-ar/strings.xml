@@ -57,6 +57,30 @@
         <item quantity="many">%d صورة تم تخطيها (HDR/العمق محفوظ)</item>
         <item quantity="other">%d صورة تم تخطيها (HDR/العمق محفوظ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="zero">لم يتم تخطي أي صورة Motion Photo</item>
+        <item quantity="one">تم تخطي صورة Motion Photo واحدة</item>
+        <item quantity="two">تم تخطي صورتي Motion Photo</item>
+        <item quantity="few">تم تخطي %d صور Motion Photo</item>
+        <item quantity="many">تم تخطي %d صورة Motion Photo</item>
+        <item quantity="other">تم تخطي %d صورة Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="zero">لم يتم تخطي أي صورة كبيرة جدًا</item>
+        <item quantity="one">تم تخطي صورة واحدة كبيرة جدًا</item>
+        <item quantity="two">تم تخطي صورتين كبيرتين جدًا</item>
+        <item quantity="few">تم تخطي %d صور كبيرة جدًا</item>
+        <item quantity="many">تم تخطي %d صورة كبيرة جدًا</item>
+        <item quantity="other">تم تخطي %d صورة كبيرة جدًا</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="zero">لم يتم تخطي أي ملف (محمي)</item>
+        <item quantity="one">تم تخطي ملف واحد (محمي)</item>
+        <item quantity="two">تم تخطي ملفين (محميين)</item>
+        <item quantity="few">تم تخطي %d ملفات (محمية)</item>
+        <item quantity="many">تم تخطي %d ملفًا (محميًا)</item>
+        <item quantity="other">تم تخطي %d ملف (محمي)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="zero">لم يتم تحديد أي عنصر</item>
         <item quantity="one">تم تحديد عنصر واحد</item>
@@ -72,24 +96,38 @@
     <string name="squeezer_compression_settings_label">عام</string>
     <string name="squeezer_quality_description">الجودة المنخفضة تعني حجم ملف أصغر ولكن جودة بصرية أقل.</string>
     <string name="squeezer_types_category_label">إعدادات الصورة</string>
+    <string name="squeezer_protected_category_label">ما الذي يُفقد</string>
     <string name="squeezer_video_settings_category_label">إعدادات الفيديو</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">تضمين صور JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">تضمين صور JPEG (.jpg، .jpeg). تُجرى إعادة الترميز باستخدام مُرمّز JPEG المدمج في أندرويد. يتم الاحتفاظ بالتاريخ والموقع وبيانات EXIF الوصفية الأخرى.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">تضمين صور WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">تضمين صور WebP (.webp). تُجرى إعادة الترميز باستخدام مُرمّز WebP المدمج في أندرويد. يتم الاحتفاظ بالتاريخ والموقع وبيانات EXIF الوصفية الأخرى.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">قم بتضمين صور HEIC/HEIF (.heic, .heif). يتم الاحتفاظ بالتاريخ والموقع وبيانات EXIF الأخرى. لا يمكن الحفاظ على خرائط كسب HDR وبيانات العمق والصور الحية/المتحركة المرافقة؛ يتم تخطي الملفات متعددة الصور.</string>
     <string name="squeezer_type_video_title">فيديو MP4</string>
-    <string name="squeezer_type_video_description">تضمين ملفات الفيديو بصيغة MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">تضمين ملفات فيديو MP4 (.mp4). تتم إعادة ترميز مسار الفيديو بمعدل بت أقل باستخدام مُرمّز الفيديو الخاص بالجهاز، بينما يُنسخ مسار الصوت دون تغيير، ويبقى الملف بصيغة MP4.</string>
     <string name="squeezer_skip_compressed_title">تخطي المضغوطة سابقًا</string>
     <string name="squeezer_skip_compressed_description">تخطي الملفات التي سبق ضغطها بواسطة SD Maid.</string>
     <string name="squeezer_exif_marker_title">كتابة علامة EXIF</string>
     <string name="squeezer_exif_marker_description">إضافة علامة إلى حقل تعليق مستخدم EXIF للصورة لمنع إعادة الضغط حتى لو تم مسح سجل الضغط.</string>
     <string name="squeezer_include_lossy_aux_title">ضغط صور HDR &amp; العمق</string>
-    <string name="squeezer_include_lossy_aux_description">معطل بشكل افتراضي: يتم تخطي الصور التي تحتوي على خريطة كسب HDR أو بيانات العمق/الصورة الشخصية حتى لا تصبح مسطحة. قم بالتمكين لضغطها حيثما أمكن — سوف تفقد خريطة كسب HDR أو بيانات العمق الخاصة بها. تبقى بعض صور HEIC متعددة الصور محمية بغض النظر.</string>
+    <string name="squeezer_include_lossy_aux_description">تضمين الصور التي تحتوي على بيانات HDR أو بيانات العمق. يؤدي الضغط إلى إزالتها: تتحول صور HDR إلى صور عادية، وتفقد الصور الشخصية (بورتريه) البيانات المستخدمة في تمويه الخلفية. تظل ملفات HEIC متعددة الصور مستبعدة من الضغط.</string>
+    <string name="squeezer_include_motion_photos_title">ضغط صور Motion Photo</string>
+    <string name="squeezer_include_motion_photos_description">تضمين صور Motion Photo. يحتفظ الضغط بالصورة الثابتة ويزيل مقطع الفيديو.</string>
+    <string name="squeezer_include_oversized_title">ضغط الصور الكبيرة جدًا</string>
+    <string name="squeezer_include_oversized_description">تضمين الصور التي يتجاوز عرضها أو ارتفاعها 8192 بكسل. يقلل الضغط أيضًا من دقتها إلى النصف.</string>
     <string name="squeezer_estimated_savings_format">~%s توفير</string>
     <string name="squeezer_no_savings_expected">توفير محدود</string>
     <string name="squeezer_current_size_format">الحجم: %s</string>
+    <string name="squeezer_chip_compressed_before">مضغوط</string>
+    <string name="squeezer_chip_hdr_depth">HDR/العمق</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">مصغّر</string>
+    <string name="squeezer_markers_dialog_title">عن هذه العلامات</string>
+    <string name="squeezer_markers_compressed_before_description">سبق لتطبيق SD Maid أن ضغط هذا الملف. إعادة ضغطه تُضعف الجودة ولا توفر سوى القليل من المساحة.</string>
+    <string name="squeezer_markers_hdr_depth_description">تحتوي هذه الصورة على بيانات HDR أو بيانات عمق لا يمكن للضغط الاحتفاظ بها. تعود صورة HDR كصورة عادية، وتفقد الصورة الشخصية بيانات العمق المستخدمة في تمويه الخلفية.</string>
+    <string name="squeezer_markers_motion_photo_description">هذه صورة Motion Photo. يحتفظ الضغط بالصورة الثابتة ويزيل مقطع الفيديو.</string>
+    <string name="squeezer_markers_downscaled_description">يتجاوز عرض هذه الصورة أو ارتفاعها 8192 بكسل. يقلل الضغط أيضًا من دقتها إلى النصف.</string>
     <string name="squeezer_compress_action">ضغط</string>
     <string name="squeezer_compress_all_action">ضغط الكل</string>
     <string name="squeezer_preview_dialog_title">تأكيد الضغط</string>
@@ -115,6 +153,31 @@
     <string name="squeezer_compare_action">عرض المقارنة</string>
     <string name="squeezer_no_example_found">لم يتم العثور على صور في المسارات المحددة.</string>
     <string name="squeezer_result_empty_message">لم يتم العثور على وسائط قابلة للضغط.</string>
+    <string name="squeezer_result_empty_protected">لا يوجد شيء لضغطه. تم التخطي: %s. فعّل الخيار المطابق في الإعدادات لتضمينها.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="zero">%d صورة HDR/عمق</item>
+        <item quantity="one">صورة HDR/عمق واحدة</item>
+        <item quantity="two">صورتا HDR/عمق</item>
+        <item quantity="few">%d صور HDR/عمق</item>
+        <item quantity="many">%d صورة HDR/عمق</item>
+        <item quantity="other">%d صورة HDR/عمق</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="zero">%d صورة Motion Photo</item>
+        <item quantity="one">صورة Motion Photo واحدة</item>
+        <item quantity="two">صورتا Motion Photo</item>
+        <item quantity="few">%d صور Motion Photo</item>
+        <item quantity="many">%d صورة Motion Photo</item>
+        <item quantity="other">%d صورة Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="zero">%d صورة كبيرة جدًا</item>
+        <item quantity="one">صورة واحدة كبيرة جدًا</item>
+        <item quantity="two">صورتان كبيرتان جدًا</item>
+        <item quantity="few">%d صور كبيرة جدًا</item>
+        <item quantity="many">%d صورة كبيرة جدًا</item>
+        <item quantity="other">%d صورة كبيرة جدًا</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="zero">لا توجد مواقع يمكن استخدامها للضغط وتمت إزالتها. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
         <item quantity="one">لا يمكن استخدام موقع واحد للضغط وتمت إزالته. يتطلب الضغط وصولاً مباشرًا إلى التخزين الداخلي.</item>
@@ -142,7 +205,6 @@
         <item quantity="other">عمرها %d يوم على الأقل</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">توفير مقدر ~%d%% لملفات JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">يعيد Squeezer ضغط صورك ومقاطع الفيديو الخاصة بك حتى تشغل مساحة أقل. ستضحي بقليل من الجودة مقابل المساحة التي تحصل عليها. يعرض كل عنصر التوفير المقدر، حتى تتمكني من تحديد أي منها يستحق ذلك.</string>
     <string name="tour_squeezer_compress_body">اضغط كل شيء في نفس الوقت هنا، أو اضغط على عنصر واحد لتقليص حجم هذا العنصر فقط. اضغط لفترة طويلة لاختيار عدة عناصر. سترى دائماً معاينة قبل أي تغيير.</string>
 </resources>

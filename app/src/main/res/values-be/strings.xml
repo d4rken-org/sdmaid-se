@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Выдаліць рэзультаты ва ўсіх інструментах?</string>
     <string name="dashboard_hero_freeable_headline">%1$s можна вызваліць</string>
     <string name="dashboard_hero_freed_headline">Вызвалена %1$s</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d элемент можа быць выдалены</item>
         <item quantity="few">%d элементы могуць быць выдалены</item>
@@ -18,38 +15,25 @@
         <item quantity="many">%d элементаў выдалены</item>
         <item quantity="other">%d элементаў выдалены</item>
     </plurals>
-    <string name="dashboard_hero_freeable_hint">Дакніце на кнопку, каб вызваліць месца, або на чып для праверкі спачатку.</string>
-    <string name="dashboard_hero_freed_hint">Кацніце чып для дэталяў.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
-    <string name="dashboard_hero_freed_residue">%1$s засталось</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
-    <string name="dashboard_hero_nothing_freed_headline">Нічога не было вызволена</string>
-    <string name="dashboard_hero_nothing_freed_caption">Чышчэнне завершана, але ніякія знойдзеныя даныя не ўдалося выдаліць.</string>
-    <string name="dashboard_hero_nothing_freed_hint">Некаторыя дадзеныя могуць быць выдалены толькі з дадатковым доступам, такім як служба даступнасці ці root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
-    <string name="dashboard_hero_locked_headline">Знайдзена %1$s</string>
+    <string name="dashboard_hero_freeable_hint">Націсніце кнопку, каб вызваліць месца, або на ярлык для пачатковай праверкі.</string>
+    <string name="dashboard_hero_freed_hint">Націсніце на кнопку для дэталяў.</string>
+    <string name="dashboard_hero_freed_residue">%1$s засталося</string>
+    <string name="dashboard_hero_nothing_freed_headline">Нічога не было вызвалена</string>
+    <string name="dashboard_hero_nothing_freed_caption">Ачыстка завершана, але ніводны запіс са знойдзеных даных выдаліць не ўдалося.</string>
+    <string name="dashboard_hero_nothing_freed_hint">Некаторыя даныя могуць быць выдалены толькі з дадатковым доступам, такім як служба спецыяльных магчымасцей або з каранёвым доступам.</string>
+    <string name="dashboard_hero_locked_headline">Знойдзена %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d элемент патрэбны SD Maid Pro</item>
         <item quantity="few">%d элементы патрэбны SD Maid Pro</item>
         <item quantity="many">%d элементаў патрэбны SD Maid Pro</item>
         <item quantity="other">%d элементаў патрэбны SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
-    <string name="dashboard_hero_locked_hint">Нажмі, каб разблакаваць з SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
-    <string name="dashboard_hero_locked_block_caption">Больш можа быць вызвалена з SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
+    <string name="dashboard_hero_locked_hint">Націсніце, каб разблакіраваць з дапамогай SD Maid Pro.</string>
+    <string name="dashboard_hero_locked_block_caption">Можна вызваліць больш з SD Maid Pro</string>
     <string name="dashboard_hero_locked_chip_description">Патрэбны SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
-    <string name="dashboard_hero_scanned_timestamp_description">Адскадавана %1$s</string>
+    <string name="dashboard_hero_scanned_timestamp_description">Прасканіравана %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Вызвалена %1$s</string>
-    <string name="dashboard_hero_nothing_freed_timestamp_description">Спробавана %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Спроб %1$s</string>
     <string name="dashboard_settings_category">Панэль кіравання</string>
     <string name="dashboard_motd_title">Паведамленне ад распрацоўшчыка</string>
     <string name="dashboard_settings_oneclick_title">Хуткі рэжым</string>
@@ -57,7 +41,7 @@
     <string name="dashboard_settings_oneclick_tools_title">Інструменты ў хуткім рэжыме</string>
     <string name="dashboard_settings_oneclick_tools_desc">Якія інструменты трэба ўключыць у хуткіх аперацыях?</string>
     <string name="dashboard_settings_summary_autoshow_title">Паказваць вынік аўтаматычна</string>
-    <string name="dashboard_settings_summary_autoshow_summary">Аўтаматычна адкрывай сводку вынікаў пасля выкарыстання кнопкі дзеяння на панэлі. Пры адключенні дакрані на плашку памяру у ніжнім панэлі, каб адкрыць яе.</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Аўтаматычна адкрываць зводку вынікаў пасля выкарыстання кнопкі дзеяння на панэлі. Калі опцыя выключана, адкрываць пры націсканні на кнопку ў ніжняй панэлі.</string>
     <string name="dashboard_card_config_title">Карткі панэлі інструментаў</string>
     <string name="dashboard_card_config_desc">Наладжванне адлюстравання картак і іх парадку</string>
     <string name="dashboard_card_config_header_title">Перацягніце для змянення парадку, пераключыце для адлюстравання/схавання</string>
@@ -67,21 +51,21 @@
     <string name="debug_debuglog_stop_action">Спыніць запіс</string>
     <string name="debug_debuglog_sensitive_information_label">Адчувальная інфармацыя</string>
     <string name="debug_debuglog_sensitive_information_message">Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі.</string>
-    <string name="debug_debuglog_screen_subtitle">Экспортаваць інфармацыю адлагодкі для вырашэння праблем</string>
+    <string name="debug_debuglog_screen_subtitle">Экспартаваць адладкавую інфармацыю для вырашэння непаладак</string>
     <string name="debug_logview_screen_title">Прагляд журналаў</string>
-    <string name="debug_logview_pause_action">Паўза (блакаванне буфера)</string>
+    <string name="debug_logview_pause_action">Паўза (блакіраванне буфера)</string>
     <string name="debug_logview_resume_action">Прадоўжыць</string>
     <string name="debug_logview_copy_action">Скапіяваць журнал</string>
     <string name="debug_logview_collapse_action">Згарнуць</string>
-    <string name="debug_logview_close_action">Закрыць панель журнала</string>
+    <string name="debug_logview_close_action">Закрыць панэль журнала</string>
     <string name="debug_logview_resize_action">Змяніць памер</string>
     <string name="debug_logview_more_action">Больш опцый</string>
     <string name="debug_logview_level_action">Узровень журнала</string>
     <string name="debug_logview_clear_action">Ачысціць буфер</string>
     <string name="debug_logview_search_prev_action">Папярэдняе супадзенне</string>
     <string name="debug_logview_search_next_action">Наступнае супадзенне</string>
-    <string name="debug_logview_jump_to_bottom_action">Перайсці да найноўшага</string>
-    <string name="debug_logview_paused_msg">Прыпынена — буфер заблакаваны</string>
+    <string name="debug_logview_jump_to_bottom_action">Перайсці да апошняга</string>
+    <string name="debug_logview_paused_msg">Прыпынена — буфер заблакіраваны</string>
     <string name="debug_logview_paused_dropped_msg">Прыпынена — новыя радкі прапушчаны: %1$d</string>
     <string name="debug_logview_copied_msg">Журнал скапіяваны ў буфер абмену</string>
     <string name="debug_logview_share_label">Падзяліцца журналам</string>
@@ -96,10 +80,10 @@
     </plurals>
     <string name="settings_debuglog_explanation">Гэта функцыя запісвае ўсё, што робіць праграма, у файл, якім можна падзяліцца. Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі (напрыклад, з распрацоўшчыкам для вырашэння вашай праблемы).</string>
     <string name="debug_debuglog_short_recording_title">Вельмі кароткі запіс</string>
-    <string name="debug_debuglog_short_recording_desc">Запіс быў вельмі кароткім. Журналы адладкі — гэта запісы, а не здымкі экрана — прайдзіце праблему падчас актыўнага запісу, каб журнал быў карысным.</string>
+    <string name="debug_debuglog_short_recording_desc">Запіс быў вельмі кароткі. Журналы адладкі — гэта запісы, а не здымкі. Каб запіс быў карысным, паспрабуйце выклікаць праблему падчас запісу.</string>
     <string name="debug_debuglog_short_recording_continue_action">Працягнуць запіс</string>
     <string name="debug_debuglog_short_recording_stop_action">Усё роўна спыніць</string>
-    <string name="debug_debuglog_screen_failed_title">Сеанс завершыўся збоем</string>
+    <string name="debug_debuglog_screen_failed_title">Сесія не ўдалася</string>
     <string name="debug_debuglog_screen_failed_empty_log_desc">Файл адладачнага журнала быў пусты. Паспрабуйце запісаць зноў і ўзнавіце праблему падчас запісу.</string>
     <string name="debug_debuglog_screen_failed_missing_log_desc">Файл адладачнага журнала адсутнічае. Магчыма, запіс быў перарваны.</string>
     <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Сціснуты архіў пашкоджаны. Паспрабуйце запісаць зноў.</string>
@@ -171,7 +155,7 @@
     <string name="ui_theme_style_mediumcontrast_label">Сярэдні кантраст</string>
     <string name="ui_theme_style_highcontrast_label">Высокі кантраст</string>
     <string name="ui_theme_color_setting_label">Колер тэмы</string>
-    <string name="ui_theme_color_setting_explanation">Палітра колераў, якая выкарыстоўваецца для афармлення прыкладання.</string>
+    <string name="ui_theme_color_setting_explanation">Палітра колераў, якая выкарыстоўваецца для афармлення праграмы.</string>
     <string name="ui_theme_color_setting_disabled_materialyou">Колеры прадастаўляюцца Material You з вашых шпалер.</string>
     <string name="ui_theme_color_value_system">Сістэмныя колеры</string>
     <string name="ui_previews_title">Эскізы файлаў</string>
@@ -208,16 +192,16 @@
     <string name="support_contact_tool_label">Звязаны інструмент</string>
     <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
     <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
-    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_systemcleaner_label">Ачыстка сістэмы</string>
     <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
-    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_analyzer_label">Аналізатар</string>
     <string name="support_contact_tool_appcontrol_label">AppControl</string>
-    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_scheduler_label">Планіроўшчык</string>
     <string name="support_contact_tool_general_label">Агульнае</string>
     <string name="support_contact_description_label">Апісанне</string>
-    <string name="support_contact_description_bug_hint">Апішыце, што адбылася і як узнаваць праблему. Калі ласка, будьце дакладнымі (мінімум 20 слоў).</string>
-    <string name="support_contact_description_feature_hint">Апішыце функцыю, якую вы хацелі б бачыць. Калі ласка, будьце дакладнымі (mінімум 20 слоў).</string>
-    <string name="support_contact_description_question_hint">Апішыце ваш пытанне дакладна. Калі ласка, будьце дакладнымі (мінімум 20 слоў).</string>
+    <string name="support_contact_description_bug_hint">Апішыце, што адбылася і як узнавіць праблему. Калі ласка, апішыце праблему дакладна (мінімум 20 слоў).</string>
+    <string name="support_contact_description_feature_hint">Апішыце функцыю, якую вы хацелі б бачыць. Калі ласка, будзьце дакладнымі (мінімум 20 слоў).</string>
+    <string name="support_contact_description_question_hint">Падрабязна апішыце ваш пытанне. Калі ласка, будзьце дакладнымі (мінімум 20 слоў).</string>
     <string name="support_contact_expected_label">Чаканыя паводзіны</string>
     <string name="support_contact_expected_hint">Апішыце, чаго вы ачакалі (мінімум 10 слоў).</string>
     <plurals name="support_contact_word_count">
@@ -229,7 +213,7 @@
     <string name="support_contact_debuglog_label">Журнал адладкі</string>
     <string name="support_contact_debuglog_zip_error">Памылка сціскання журнала адладкі</string>
     <string name="support_contact_debuglog_picker_hint">Дадайце існуючы журнал адладкі або запішыце новы.</string>
-    <string name="support_contact_debuglog_picker_empty">Журналы адладкі не знойдзены. Сначатку запішыце новы.</string>
+    <string name="support_contact_debuglog_picker_empty">Журналы адладкі не знойдзены. Спачатку запішыце новы.</string>
     <string name="support_contact_send_action">Адкрыць праграму электроннай пошты</string>
     <string name="support_contact_no_email_app">На гэтай прыладзе не знойдзена праграма электроннай пошты.</string>
     <string name="changelog_label">Журнал змяненняў</string>
@@ -260,13 +244,12 @@
     <string name="setup_root_card_title">Каранёвы доступ</string>
     <string name="setup_root_card_body">Ці варта SD Maid выкарыстоўваць каранёвы доступ, калі ён даступны? Каранёвы доступ будзе выкарыстоўвацца для праверкі дадатковых сістэмных папак і прыватных даных праграм.</string>
     <string name="setup_root_state_ready_label">Каранёвы доступ гатовы.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Каранёвы доступ недаступны.</string>
-    <string name="setup_root_state_failed_title">Доступ root не выдаўся</string>
-    <string name="setup_root_state_failed_body">SD Maid запросіла доступ root, але не атрымала яго. Калі твое ўстройства мае root, адкрый менеджар root (Magisk, KernelSU або падобны) і праверь, ці запрос ад SD Maid быў адкінуты ці яшчэ чакаецца.</string>
-    <string name="setup_root_state_failed_body_nomanager">SD Maid запросіла доступ root, але не атрымала яго, і ніякая праграма менеджара root не была выяўлена. Калі твое ўстройства выкарыстоўвае схаваны ці ўбудаваны root, спробуй яшчэ раз.</string>
+    <string name="setup_root_state_failed_title">Адсутнічае каранёвы доступ</string>
+    <string name="setup_root_state_failed_body">SD Maid запытаў каранёвы доступ, але не атрымаў яго. Калі ваша прылада мае каранёвы доступ, адкрыйце менеджар каранёвага доступу (Magisk, KernelSU або падобны) і праверце, ці быў запыт ад SD Maid адхілены або знаходзіцца ў чарзе.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid запытаў каранёвы доступ, але не атрымаў яго, і праграма менеджара каранёвага доступу не была выяўлена. Калі ваша прылада выкарыстоўвае схаваны або ўбудаваны каранёвы доступ, паспрабуйце яшчэ раз.</string>
     <string name="setup_root_enable_root_use_label">Паспрабаваць выкарыстоўваць каранёвы доступ</string>
-    <string name="setup_root_disable_root_use_label">Я не рутаваў свой прыстрой</string>
+    <string name="setup_root_disable_root_use_label">Мая прылада не мае каранёвага доступу</string>
     <string name="setup_root_card_body2">Даступна толькі на прыладах з разблакіраваным каранёвым доступам. Калі вы не ўносілі гэтую мадыфікацыю, значыць, ваша прылада не мае каранёвага доступу, і гэты параметр не на што не паўплывае.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дазвольце SD Maid выкарыстоўваць Shizuku, дзе гэта магчыма, каб палепшыць рэзультаты і ўключыць дадатковыя функцыі.</string>
@@ -274,16 +257,16 @@
     <string name="setup_shizuku_card_root_info">Shizuku у спалучэнні з каранёвым доступам не дае дадатковых функцый, але павышае надзейнасць. SD Maid будзе выкарыстоўваць гэту праграму як запасны метад.</string>
     <string name="setup_shizuku_state_ready_label">Сувязь з Shizuku наладжана.</string>
     <string name="setup_shizuku_state_waiting_label">Чаканне сувязі з Shizuku.</string>
-    <string name="setup_shizuku_state_not_installed_label">Прыкладанне Shizuku не ўстаноўлена.</string>
+    <string name="setup_shizuku_state_not_installed_label">Праграма Shizuku не ўстаноўлена.</string>
     <string name="setup_shizuku_state_failed_title">Сувязь Shizuku не выдалася</string>
-    <string name="setup_shizuku_state_failed_label">Shizuku запусцілася, але яна ніколі не падлучыла SD Maid да сваёй вспомагальнай службы.</string>
-    <string name="setup_shizuku_state_known_issue_hint">Некаторыя ўстройства сутыкаюцца з вядомай праблемай Shizuku, якая спыняе запуск вспомагальнай службы. Гэта можа быць адна з іх.</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku працуе, але ён так і не падключыў SD Maid да сваёй дапаможнай службы.</string>
+    <string name="setup_shizuku_state_known_issue_hint">На некаторыя прылады ўплывае вядомая праблема Shizuku, якая перашкаджае запуску службы падтрымкі. Ваша прылада можа быць адной з іх.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Паспрабаваць выкарыстоўваць Shizuku</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Не выкарыстоўваць Shizuku</string>
     <string name="setup_dismiss_hint">Вы можаце зноў знайсці экран наладжвання ў меню налад.</string>
     <string name="setup_permission_granted_label">Дазвол дадзены</string>
     <string name="setup_permission_error_label">Памылка доступу</string>
-    <string name="setup_inventory_invalid_label">Няправільны спіс прыкладанняў</string>
+    <string name="setup_inventory_invalid_label">Няправільны спіс праграм</string>
     <string name="setup_usagestats_title">Статыстыка выкарыстання</string>
     <string name="setup_usagestats_body">Дазвол на аналіз статыстыкі выкарыстання дае доступ да дадатковай інфармацыі пра праграму. SD Maid выкарыстоўвае яго для вызначэння дадатковых памераў кэшу.</string>
     <string name="setup_usagestats_hint">Патрабуецца для выдалення кэшу з дапамогай службы спецыяльных магчымасцей.</string>
@@ -306,37 +289,35 @@
     <string name="setup_acs_disallow_hint">Калі вы перадумаеце, вы можаце зноў змяніць гэты параметр у наладах, выканаўшы паўторнае наладжванне.</string>
     <string name="setup_acs_appops_restriction_title">Абмежаваныя налады</string>
     <string name="setup_acs_appops_restriction_body">Не можаце ўключыць службу спецыяльных магчымасцей для SD Maid? АС Android 13 і навейшыя могуць ужываць абмежаванні да праграм, усталяваных не праз Google Play. Зняць гэтыя абмежаванні можна на старонцы з сістэмнымі наладамі SD Maid. Параметр знаходзіцца ў кантэкстным меню ў правым верхнім вуглу.</string>
-    <string name="setup_acs_advanced_protection_title">Заблакавана функцыяй Advanced Protection</string>
-    <string name="setup_acs_advanced_protection_body">Пашыраная абарона Android блакуе сэрвіс спецыяльных магчымасцей SD Maid на Android 17 і навейшых версіях, таму яго нельга ўключыць, пакуль уключана Пашыраная абарона. Націсніце «Даведка», каб даведацца пра дэталі і альтэрнатывы.</string>
+    <string name="setup_acs_advanced_protection_title">Заблакіравана функцыяй Advanced Protection</string>
+    <string name="setup_acs_advanced_protection_body">Пашыраная абарона Android блакіруе службу спецыяльных магчымасцей SD Maid на Android 17 і навейшых версіях, таму яго нельга ўключыць, пакуль уключана Пашыраная абарона. Націсніце на Даведку, каб убачыць дэталі і альтэрнатывы.</string>
     <string name="setup_inventory_card_title">Інвентар праграмы</string>
     <string name="setup_inventory_card_body">Каб знаходзіць файлы, якія не адносяцца да ўсталяваных праграм SD Maid неабходна ведаць, якія праграмы ў вас ёсць.</string>
     <string name="setup_inventory_card_extra">Знайдзіце дазвол пад назвай «Спіс праграм» або «Запыт усіх пакетаў».</string>
     <string name="setup_inventory_limitation_title">Магчымае абмежаванне прылады</string>
-    <string name="setup_inventory_limitation_body">Сістэма вярнула няпоўны спіс усталяваных прыкладанняў, хаця неабходныя дазволы, здаецца, прадастаўлены.</string>
-    <string name="setup_inventory_limitation_body2">Некаторыя прылады (напр., HarmonyOS) ніколі не даюць поўны спіс прыкладанняў. Каб абараніць вашы дадзеныя, інструменты, звязаныя з прыкладаннямі, застаюцца адключанымі, але вы ўсё яшчэ можаце праглядаць выкарыстанне сховішча са зменшанай дэталёвасцю.</string>
-    <string name="setup_inventory_probe_failed_title">Не атрымалася прачытаць спіс прыложэнняў</string>
-    <string name="setup_inventory_probe_failed_body">SD Maid запросіла ў Android спіс ўстаноўленых прыложэнняў, і запрос не выдаўся. Інструменты, звязаныя з прыложэннямі, абягаюцца адключанымі, пакуль яно не будзе працаваць. Паўторная спроба можа дапамагчы.</string>
+    <string name="setup_inventory_limitation_body">Сістэма вярнула няпоўны спіс усталяваных праграм, хаця неабходныя дазволы, здаецца, прадстаўлены.</string>
+    <string name="setup_inventory_limitation_body2">Некаторыя прылады (напр., HarmonyOS) ніколі не даюць поўны спіс праграм. Каб абараніць вашы даныя, інструменты, звязаныя з праграмамі, застаюцца адключанымі, але вы ўсё яшчэ можаце праглядаць выкарыстанне сховішча са зменшанай дэталізацыяй.</string>
+    <string name="setup_inventory_probe_failed_title">Не атрымалася прачытаць спіс праграм</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid запытала ў Android спіс усталяваных праграм, але падчас выканання адбыўся збой. Інструменты, звязаныя з праграмамі, будуць адключаны, пакуль запыт не верне спіс. Можна паспрабаваць паўтарыць запыт.</string>
     <string name="dataarea_warningcard_empty_message">Праграма SD Maid не выявіла вобласці даных для сканіравання. Ці завершана наладжванне?</string>
     <string name="dataarea_warningcard_label">Вобласці даных</string>
     <string name="dataarea_warningcard_reload_action">Перазагрузіць вобласці даных</string>
     <string name="debug_mode_label">Рэжым адладкі</string>
     <string name="debug_mode_explanation">Уключыць эксперыментальныя параметры і больш падрабязны вывад даных. Праграма будзе працаваць павольней, і яе прадукцыйнасць можа змяніцца.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Уключаны рэжым адладкі</string>
     <string name="debug_card_description">Дыягностыка распрацоўшчыка і перавызначэнні часу выканання. Гэтая картка з\'яўляецца толькі пры ўключаным рэжыме адладкі.</string>
     <string name="debug_card_section_diagnostics">Дыягностыка</string>
     <string name="debug_card_section_reload">Перазагрузіць</string>
-    <string name="debug_card_trace_mode_title">Дэталёвае журналаванне</string>
-    <string name="debug_card_trace_mode_desc">Дэталёвыя пакрокавыя журналы. Заўважна запавольвае прыкладанне.</string>
+    <string name="debug_card_trace_mode_title">Запіс трасіроўкі</string>
+    <string name="debug_card_trace_mode_desc">Дэтальныя пакрокавыя журналы. Заўважана запавольвае праграму.</string>
     <string name="debug_card_dryrun_mode_title">Рэжым сімуляцыі</string>
-    <string name="debug_card_dryrun_mode_desc">Імітацыя ачысткі — файлы скануюцца, але нічога не выдаляецца.</string>
+    <string name="debug_card_dryrun_mode_desc">Імітацыя ачысткі — файлы сканіруюцца, але нічога не выдаляецца.</string>
     <string name="debug_card_areas_reload_action">Перазагрузіць вобласці даных</string>
     <string name="debug_card_pkgs_reload_action">Перазагрузіць праграмы</string>
     <string name="debug_card_root_test_action">Праверыць каранёвы доступ</string>
     <string name="debug_card_shizuku_test_action">Праверыць Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Рэжым пробы ўключаны</string>
-    <string name="dashboard_dryrun_warning_body">Чышчэнне мадэлюецца. Файлы сканіруюцца і паведамляюцца, але нічога насамрэч не выдаляецца.</string>
+    <string name="dashboard_dryrun_warning_body">Імітуецца ачыстка. Файлы сканіруюцца і адлюстроўваюцца ў справаздачах, але насамрэч нічога не выдаляецца.</string>
     <string name="dashboard_dryrun_warning_disable_action">Выключыць</string>
     <string name="data_area_public_app_data_official_label">Стандартныя публічныя даныя праграмы</string>
     <string name="data_area_public_app_assets_official_label">Стандартныя публічныя рэсурсы праграмы</string>
@@ -381,36 +362,31 @@
     <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дзён</string>
     <string name="tour_dashboard_overview_body">Гэта ваша панэль кіравання, галоўны экран SD Maid. Кожны інструмент і аперацыя размяшчаюцца тут на картцы.</string>
     <string name="tour_dashboard_setup_body">Картка налады з\'яўляецца, калі патрэбна нешта наладзіць. Адкрыйце яе і вырашыце праблемы, каб SD Maid мог рабіць больш. Вы таксама можаце перайсці да налады праз параметры, калі закрыеце гэтую картку.</string>
-    <string name="tour_dashboard_tools_body">Адкрыйце картку інструмента для дэталяў. Дзеянні сканавання і выдалення размяшчаюцца на кожнай картцы, дэталі з\'яўляюцца, калі сканаванне нешта знаходзіць.</string>
-    <string name="tour_dashboard_main_action_body">Вялікая кнопка ўнізе — гэта дзеянне ў адзін дотык. Адзін дотык для сканавання, адзін для ачысткі, усе аўтаматычныя інструменты.</string>
-    <string name="tour_dashboard_manual_tools_body">Некаторыя інструменты, такія як Swiper, не аўтаматычныя — яны прапануюць кіраваны працэс, які вы праходзіце самастойна.</string>
+    <string name="tour_dashboard_tools_body">Адкрыйце картку інструмента для дэталяў. Дзеянні сканіравання і выдалення размяшчаюцца на кожнай картцы, дэталі з\'яўляюцца, калі сканіраванне нешта знаходзіць.</string>
+    <string name="tour_dashboard_main_action_body">Вялікая кнопка ўнізе — гэта дзеянне ў адзін дотык. Адзін дотык для сканіравання, адзін для ачысткі са ўсімі аўтаматычнымі інструментамі.</string>
+    <string name="tour_dashboard_manual_tools_body">Некаторыя інструменты, такія як Змахванне, не аўтаматычныя — яны прапануюць кіраваны працэс, які вы праходзіце самастойна.</string>
     <string name="tour_dashboard_settings_body">Налады SD Maid па змаўчанні кансерватыўныя і бяспечныя. Кожная прылада крыху адрозніваецца, таму адрэгулюйце налады, каб атрымаць больш карысці.</string>
-    <string name="tour_setup_intro_body">Кожная картка на гэтым экране — гэта дазвол, які можа выкарыстоўваць SD Maid. Усе яны неабавязковыя, але больш дазволаў азначае больш функцый і больш дэталёвае сканаванне. Без іх большасць інструментаў знойдуць мала чаго для ачысткі.</string>
-    <string name="general_settings_reset_guided_tours_label">Скінуць кіраваныя экскурсіі</string>
-    <string name="general_settings_reset_guided_tours_summary">Зноў паказаць усе кіраваныя экскурсіі пры наступным наведванні іх экрана. Таксама зноў ўключае ўсе экскурсіі, калі вы раней іх адключылі.</string>
+    <string name="tour_setup_intro_body">Кожная картка на гэтым экране — гэта дазвол, які можа выкарыстоўваць SD Maid. Усе яны неабавязковыя, але больш дазволаў азначае больш функцый і больш дэталёвае сканіраванне. Без іх большасць інструментаў будуць працаваць неэфектыўна.</string>
+    <string name="general_settings_reset_guided_tours_label">Скінуць навучальныя туры</string>
+    <string name="general_settings_reset_guided_tours_summary">Зноў паказаць усе навучальныя туры пры наступным наведванні іх экрана. Таксама зноў ўключае ўсе туры, калі вы раней іх адключылі.</string>
     <string name="widget_home_title">SD Maid</string>
     <string name="widget_home_description">Выкарыстанне сховішча і ачыстка ў адзін дотык</string>
     <string name="widget_home_storage_internal">Унутраны</string>
-    <string name="widget_home_storage_external">Знешны</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
+    <string name="widget_home_storage_external">Знешняе</string>
     <string name="widget_home_freed_label">Ўсяго вызвалена: %1$s</string>
     <string name="widget_home_clean_action">Ачысціць</string>
     <string name="widget_home_working">Ідзе праца…</string>
     <string name="widget_home_unavailable">Сховішча недаступна</string>
     <string name="settings_category_widget">Віджэт</string>
-    <string name="widget_settings_oneclick_summary">Дазволіць кнопцы «Ачысціць» на віджэце галоўнага экрана сканаваць і выдаляць адным дотыкам, без пытання кожны раз.</string>
+    <string name="widget_settings_oneclick_summary">Дазволіць кнопцы Ачысціць на віджэце галоўнага экрана сканіраваць і выдаляць адным дотыкам, без паўторных запытаў.</string>
     <string name="widget_oneclick_consent_title">Уключыць ачыстку ў адзін дотык?</string>
-    <string name="widget_oneclick_consent_message">Кнопка «Ачысціць» на віджэце будзе сканаваць і выдаляць за адзін раз, без папярэдняга пытання і магчымасці праверыць, што выдаляецца.</string>
+    <string name="widget_oneclick_consent_message">Кнопка Ачысціць віджэта будзе сканіраваць і выдаляць элементы адразу, без папярэдніх запытаў і не дазволіць вам праглядаць, што выдаляецца.</string>
     <string name="widget_oneclick_consent_enable_action">Уключыць</string>
     <string name="widget_oneclick_consent_decline_action">Не зараз</string>
-    <string name="shortcut_onetap_started">Сканаванне + Выдаленне пачалося…</string>
+    <string name="shortcut_onetap_started">Пачалося Сканіраванне + Выдаленне…</string>
     <string name="shortcut_onetap_nothing_enabled">Не ўключаны ніводны інструмент з адзіным дотыкам</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Рэзервовая копія &amp; Аднаўленне</string>
-    <string name="backup_restore_desc">Захавайце вашыя налады і канфігурацыю ў файл, або аднаўце іх</string>
+    <string name="backup_restore_desc">Захавайце вашы налады і канфігурацыю ў файл, або аднавіце іх</string>
     <string name="backup_restore_export_title">Стварыць рэзервовую копію</string>
     <string name="backup_restore_export_desc">Захавайце налады, выключэнні, графікі і адвольныя фільтры ў файл</string>
     <string name="backup_restore_import_title">Аднавіць з рэзервовай копіі</string>
@@ -433,10 +409,9 @@
     <string name="backup_restore_warn_android_body">Гэта рэзервовая копія была створана на Android %1$s, але гэта прылада працуе на Android %2$s.</string>
     <string name="backup_restore_warn_device_body">Гэта рэзервовая копія была створана на іншай прыладзе (%1$s праці %2$s).</string>
     <string name="backup_restore_warn_flavor_body">Гэта рэзервовая копія з іншага выдання праграмы (%1$s супраць %2$s).</string>
-    <string name="backup_restore_warn_history_body">Дадзеныя гісторыі гэтай копіі (статыстыка, гісторыя сцісканняў, сеансы перахопу) з іншай версіі праграмы і не могуць быць адноўлены. Усё астатняе будзе адноўлена.</string>
+    <string name="backup_restore_warn_history_body">Даныя гісторыі гэтай копіі (статыстыка, гісторыя сціскання, сеансы замахвання) з іншай версіі праграмы і не могуць быць адноўлены. Усё астатняе будзе адноўлена.</string>
     <string name="backup_restore_ack_understand">Я разумею і хачу працягнуць</string>
     <string name="backup_restore_action_restore">Адновіць</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Папярэджанні аб сховішчы</string>
     <string name="stats_lowspace_notification_title">Сховішча запаўняецца</string>
     <string name="stats_lowspace_notification_low_title">Сховішча амаль поўнае</string>

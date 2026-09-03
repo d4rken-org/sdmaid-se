@@ -29,13 +29,11 @@
     <plurals name="exclusion_import_success_x_items">
         <item quantity="one">%d החרגה אחת יובאה</item>
         <item quantity="two">%d החרגות יובאו</item>
-        <item quantity="many">%d החרגות יובאו</item>
         <item quantity="other">%d החרגות יובאו</item>
     </plurals>
     <plurals name="exclusion_export_success_x_items">
         <item quantity="one">%d החרגה אחת יוצאה</item>
         <item quantity="two">%d החרגות יוצאו</item>
-        <item quantity="many">%d החרגות יוצאו</item>
         <item quantity="other">%d החרגות יוצאו</item>
     </plurals>
 </resources>

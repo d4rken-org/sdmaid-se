@@ -60,6 +60,18 @@
         <item quantity="one">%d ühekordne fail kustutatud</item>
         <item quantity="other">%d ühekordset faili kustutatud</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d kasutu aine kustutatud, peatatud, kuna ekraan oli välja lülitatud või lukus</item>
+        <item quantity="other">%d kasutu aineid kustutatud, peatatud, kuna ekraan oli välja lülitatud või lukus</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d kasutu aine kustutatud, peatatud vea tõttu</item>
+        <item quantity="other">%d kasutu aineid kustutatud, peatatud vea tõttu</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d vahemälu vajab endiselt juurdepääsuteenust</item>
+        <item quantity="other">%1$s, %2$d vahemälusid vajavad endiselt juurdepääsuteenust</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Järele jäi %d</item>
         <item quantity="other">Järele jäi %d</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Nupu „Tühjenda vahemälu” otsimine (märksõnad: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Tavavahemälud</string>
     <string name="appcleaner_item_caches_inaccessible_body">Avalikud ja isiklikud tavalised vahemälud. Juurdepääsetavad kaudselt, ent kustutatavad otseselt (nt juurdepääsetavusteenuse kaudu).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Erandatud, kuid kõigi rakenduste korraga puhastamine puhastab neid vahemälusid ikkagi</string>
+    <string name="appcleaner_exclusion_limited_title">Erandatud rakendus</string>
+    <string name="appcleaner_exclusion_limited_body">Olete erandanud selle rakenduse AppCleanerista. Kõigi rakenduste vahemällu puhastamisel korraga kasutatakse Shizuku süsteemilaiast vahemälu kärbimist, mis ei saa üksikuid rakendusi välja jätta, mistõttu selle rakenduse vahemällu salvestatud andmed kustutatakse koos kõigega muuga. Mõjutatakse ainult siin näidatud vahemällu salvestatud andmeid – kõik muu, mida erand hõlmab, jääb peidetud ja puutumata.</string>
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
-    <string name="appcleaner_automation_unavailable_body">Juurdepääsmatute vahemälude tühjendamine vajab SD Maidi juurdepääsetavusteenust, kuid see oli kättesaamatu. Kui te ei taha seda kasutada, keelake valik \"Kaasa juurdepääsmatud vahemälud\".</string>
+    <string name="appcleaner_automation_unavailable_body">Nende vahemällude puhastamine nõuab SD Maidi juurdepääsuteenust, kuid see ei olnud saadaval.</string>
     <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Kustutada %d valitud rakenduse ühekordsed failid?</item>
@@ -84,8 +99,9 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Süsteem ei lase vajutada selle rakenduse „Tühjenda vahemälu“ nuppu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Süsteemi rakendus seadistatud valesti</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security rakendusel (com.miui.securitycenter) puudub kasutamisstatistikale juurdepääs (GET_USAGE_STATS). See segab andmete tühjendamist rakenduse seadetest ja vahemälu tühjendamist juurdepääsu teenuse kaudu. Kõikide võimaluste kasutamiseks andke vastav luba.</string>
-    <string name="appcleaner_automation_compat_forcestop_hint">See võib juhtuda ka siis, kui süsteemirakendus \"System UI\" on hiljuti sundpeatatud, näiteks mõne rakenduste puhastamise tööriista poolt. Android blokeerib seejärel SD Maidi automaatsed nupuvajutused kuni seadme taaskäivitamiseni.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">See võib juhtuda ka siis, kui süsteemirakendus „System UI“ on hiljuti sundpeatatud, näiteks mõne rakenduste puhastamise tööriista poolt. Android tõkestab seejärel SD Maidi isekäivituvad nupuvajutused kuni seadme taaskäivitamiseni.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Sundpeata enne tühjendamist</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sundpeatage rakendused enne nende vahemälu tühjendamist. Nii võib osade rakenduste vahemälu hõlpsamini tühjeneda, ent rakendused võivad toimida veidralt ja vajada taaskäivitamist.</string>
     <string name="appcleaner_progress_force_stopping">Rakenduste sundpeatamine…</string>
+    <string name="appcleaner_progress_checking_freed_space">Vabastatud ruumi kontrollimine…</string>
 </resources>

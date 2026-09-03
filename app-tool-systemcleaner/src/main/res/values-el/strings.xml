@@ -13,7 +13,7 @@
     <string name="systemcleaner_filter_custom_manage_label">Διαχείριση προσαρμοσμένων φίλτρων</string>
     <string name="systemcleaner_filter_custom_manage_summary">Δημιουργία, διαγραφή, εισαγωγή και εξαγωγή των προσαρμοσμένων φίλτρων σας.</string>
     <string name="systemcleaner_filter_logfiles_label">Αρχεία καταγραφής συστήματος</string>
-    <string name="systemcleaner_filter_logfiles_summary">Αρχεία καταγραφής υπηρεσιών συστήματος και συστήματος (π.χ. *.log) σε διάφορες τοποθεσίες.</string>
+    <string name="systemcleaner_filter_logfiles_summary">Αρχεία καταγραφής υπηρεσιών συστήματος (π.χ. *.log) σε διάφορες τοποθεσίες.</string>
     <string name="systemcleaner_filter_packagecaches_label">Προσωρινή μνήμη προγράμματος εγκατάστασης</string>
     <string name="systemcleaner_filter_packagecaches_summary">Προσωρινά αποθηκευμένα δεδομένα σχετικά με εγκατεστημένες εφαρμογές που χρησιμοποιούνται από τη διαχείριση πακέτων του συστήματος.</string>
     <string name="systemcleaner_filter_advertisements_label">Αρχεία διαφήμισης</string>
@@ -94,7 +94,7 @@
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Η διαδρομή ξεκινά με λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Η διαδρομή περιέχει λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Η διαδρομή τελειώνει με λέξη-κλειδί</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Η διαδρομή είναι ίση με τη λέξη-κλειδί</string>
+    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Η διαδρομή είναι ίδια με τη λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Τρόπος σύγκρισης ονόματος</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Το όνομα ξεκινά με λέξη-κλειδί</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Το όνομα περιέχει λέξη-κλειδί</string>
@@ -112,7 +112,6 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Περιορισμός αντιστοιχιών βάσει ηλικίας αρχείου (χρόνος τελευταίας τροποποίησης). Αφήστε κενό για αντιστοίχιση οποιασδήποτε ηλικίας.</string>
     <string name="systemcleaner_customfilter_import_action">Εισαγωγή νέου φίλτρου</string>
     <string name="systemcleaner_customfilter_export_action">Εξαγωγή επιλεγμένου φίλτρου</string>
-    <!-- Guided tour -->
     <string name="tour_systemcleaner_intro_body">Το SystemCleaner βρίσκει σκουπίδια χρησιμοποιώντας φίλτρα που δεν είναι ειδικά για συγκεκριμένες εφαρμογές. Υπάρχουν έτοιμοι κανόνες για πράγματα όπως άδειοι φάκελοι, υπολείμματα αρχεία καταγραφής και παλιές μικρογραφίες. Επισκεφθείτε τις ρυθμίσεις αν θέλετε να δημιουργήσετε δικές σας.</string>
     <string name="tour_systemcleaner_filter_body">Κάθε σειρά είναι ένα φίλτρο και αυτό που βρήκε. Ανοίξτε τις λεπτομέρειές του για να δείτε ακριβώς ποια αρχεία ταιριάζουν πριν διαγράψετε οτιδήποτε.</string>
 </resources>

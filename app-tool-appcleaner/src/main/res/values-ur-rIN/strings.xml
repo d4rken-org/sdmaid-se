@@ -60,6 +60,18 @@
         <item quantity="one">%d قابل حذف آئٹم ڈیلیٹ ہوا</item>
         <item quantity="other">%d قابل حذف آئٹمز ڈیلیٹ ہوئے</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d غیر ضروری چیز حذف کی گئی، اسکرین بند یا لاک ہونے سے رک گیا</item>
+        <item quantity="other">%d غیر ضروری چیزیں حذف کی گئیں، اسکرین بند یا لاک ہونے سے رک گیا</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d غیر ضروری چیز حذف کی گئی، خرابی سے رک گیا</item>
+        <item quantity="other">%d غیر ضروری چیزیں حذف کی گئیں، خرابی سے رک گیا</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s، %2$d کیش کو ابھی رسائی کی سروس کی ضرورت ہے</item>
+        <item quantity="other">%1$s، %2$d کیشز کو ابھی رسائی کی سروس کی ضرورت ہے</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d قابل حذف آئٹم ملا</item>
         <item quantity="other">%d قابل حذف آئٹمز ملے</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ڈیفالٹ کیشیز</string>
     <string name="appcleaner_item_caches_inaccessible_body">پبلک اور پرائیویٹ ڈیفالٹ کیشیز۔ براہ راست قابل رسائی نہیں، لیکن بالواسطہ ڈیلیٹ کیا جا سکتا ہے (جیسے رسائی سروس کے ذریعے)۔</string>
+    <string name="appcleaner_exclusion_limited_row_hint">خارج کیا گیا، لیکن تمام ایپس کو ایک ساتھ صاف کرنے سے یہ کیشز اب بھی حذف ہو جاتے ہیں</string>
+    <string name="appcleaner_exclusion_limited_title">خارج کردہ ایپ</string>
+    <string name="appcleaner_exclusion_limited_body">آپ نے اس ایپ کو AppCleaner سے خارج کیا ہے۔ تمام ایپس کے لیے کیشز کو ایک ساتھ صاف کرنے سے Shizuku کا نظام وسیع کیش ٹرم استعمال ہوتا ہے، جو انفرادی ایپس کو نہیں چھوڑ سکتا، اس لیے اس ایپ کا کیشڈ ڈیٹا باقی سب چیزوں کے ساتھ صاف ہو جاتا ہے۔ یہاں صرف دکھایا گیا کیشڈ ڈیٹا متاثر ہوتا ہے، باقی تمام چیزیں جو خارج کرنا احاطہ کرتا ہے وہ چھپی اور غیر متاثر رہتی ہیں۔</string>
     <string name="appcleaner_automation_unavailable_title">رسائی سروس دستیاب نہیں</string>
-    <string name="appcleaner_automation_unavailable_body">ناقابل رسائی کیشیز صاف کرنے کے لیے SD Maid کی رسائی سروس درکار ہے، لیکن یہ دستیاب نہیں تھی۔ اگر آپ اسے استعمال نہیں کرنا چاہتے: \"ناقابل رسائی کیشیز شامل کریں\" آپشن کو غیر فعال کریں۔</string>
+    <string name="appcleaner_automation_unavailable_body">ان کیشز کو صاف کرنے کے لیے SD Maid کی رسائی کی سروس درکار ہے، لیکن یہ دستیاب نہیں تھی۔</string>
     <string name="appcleaner_delete_confirmation_message_x">%s کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d منتخب ایپ کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">صاف کرنے سے پہلے زبردستی بند کریں</string>
     <string name="appcleaner_forcestop_before_clearing_summary">کیش صاف کرنے سے پہلے ایپس کو زبردستی بند کریں۔ یہ بعض ایپس کا کیش صاف کرنے میں مدد کر سکتا ہے، لیکن ایپس غلط برتاؤ کر سکتی ہیں اور دستی ری سٹارٹ کی ضرورت ہو سکتی ہے۔</string>
     <string name="appcleaner_progress_force_stopping">ایپس زبردستی بند ہو رہی ہیں…</string>
+    <string name="appcleaner_progress_checking_freed_space">خالی کی گئی جگہ کی جانچ…</string>
 </resources>

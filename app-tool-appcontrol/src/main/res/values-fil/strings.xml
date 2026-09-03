@@ -81,6 +81,10 @@
         <item quantity="one">%d app ay na-toggle</item>
         <item quantity="other">%d mga app ay na-toggle</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app ay hindi maaaring paganahin o i-disable</item>
+        <item quantity="other">%d apps ay hindi maaaring paganahin o i-disable</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Tukuyin ang mga laki</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Makakuha ng tantyang laki ng bawat app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tukuyin ang aktibidad</string>

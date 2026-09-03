@@ -60,6 +60,18 @@
         <item quantity="one">%d entbehrliches Objekt gelöscht</item>
         <item quantity="other">%d entbehrliche Objekte gelöscht</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d löschbare Elemente gelöscht, Vorgang beendet, da der Bildschirm ausgeschaltet oder gesperrt war</item>
+        <item quantity="other">%d löschbare Elemente gelöscht, Vorgang beendet, da der Bildschirm ausgeschaltet oder gesperrt war</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d löschbares Element gelöscht, Vorgang wegen eines Fehlers beendet</item>
+        <item quantity="other">%d löschbare Elemente gelöscht, Vorgang wegen eines Fehlers beendet</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, für %2$d Cache wird weiterhin der Bedienungshilfedienst benötigt</item>
+        <item quantity="other">%1$s, für %2$d Caches wird weiterhin der Bedienungshilfedienst benötigt</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d entbehrliches Objekt gefunden</item>
         <item quantity="other">%d entbehrliche Objekte gefunden</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Suche nach \"Cache löschen\"-Button (Schlüsselwörter: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z. B. über die Bedienungshilfe).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Ausgeschlossen, aber beim gleichzeitigen Bereinigen aller Apps werden diese Caches trotzdem geleert</string>
+    <string name="appcleaner_exclusion_limited_title">Ausgeschlossene App</string>
+    <string name="appcleaner_exclusion_limited_body">Du hast diese App von AppCleaner ausgeschlossen. Beim gleichzeitigen Leeren der Caches aller Apps wird der systemweite Cache-Bereinigungsvorgang von Shizuku verwendet, bei dem einzelne Apps nicht ausgeschlossen werden können. Daher werden die zwischengespeicherten Daten dieser App zusammen mit allen anderen gelöscht. Nur die hier angezeigten zwischengespeicherten Daten sind davon betroffen. Alles andere, was durch den Ausschluss abgedeckt ist, bleibt ausgeblendet und unangetastet.</string>
     <string name="appcleaner_automation_unavailable_title">Bedienungshilfe nicht verfügbar</string>
-    <string name="appcleaner_automation_unavailable_body">Das Löschen unzugänglicher Caches erfordert die Bedienungshilfe von SD Maid, diese war jedoch nicht verfügbar. Wenn du sie nicht verwenden möchtest: Deaktiviere die Option „Unzugängliche Caches einbeziehen“.</string>
+    <string name="appcleaner_automation_unavailable_body">Zum Leeren dieser Caches wird der Bedienungshilfedienst von SD Maid benötigt, er war jedoch nicht verfügbar.</string>
     <string name="appcleaner_delete_confirmation_message_x">Entbehrliche Dateien für %s löschen?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Entbehrliche Dateien für %d ausgewählte App löschen?</item>
@@ -84,8 +99,9 @@
     <string name="appcleaner_automation_error_locked_appcache_body">Das System hat den \"Cache löschen\"-Button für diese App deaktiviert. Schließe sie aus, um das Löschen des Caches zu beschleunigen.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">System-App falsch konfiguriert</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Der HyperOS-Sicherheits-App (com.miui.securitycenter) fehlt die Berechtigung zur Nutzung von Statistiken (GET_USAGE_STATS). Dies behindert Funktionen wie \"Daten löschen\" in den App-Details und das Leeren des Caches über die Bedienungshilfe. Gewähre die Berechtigung, um die volle Funktionalität wiederherzustellen.</string>
-    <string name="appcleaner_automation_compat_forcestop_hint">Dies kann auch passieren, wenn die Systemapp „System UI“ kürzlich erzwungen beendet wurde, z. B. durch ein App-Reinigungstool. Android blockiert dann die automatisierten Tastendrücke von SD Maid, bis du das Gerät neu startest.</string>
+    <string name="appcleaner_automation_compat_forcestop_hint">Dies kann auch passieren, wenn die System-App „System UI“ kürzlich zwangsbeendet wurde, z. B. durch ein App-Reinigungstool. Android blockiert dann die automatisierten Tastendrücke von SD Maid, bis du das Gerät neu startest.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Vor dem Leeren zwangsweise beenden</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Beende Apps sofort, bevor ihr Cache geleert wird. Das kann beim Leeren des Caches einiger Apps helfen, führt jedoch möglicherweise dazu, dass Apps nicht mehr ordnungsgemäß funktionieren und manuell neu gestartet werden müssen.</string>
     <string name="appcleaner_progress_force_stopping">Beenden von Apps erzwingen…</string>
+    <string name="appcleaner_progress_checking_freed_space">Freigegebenen Speicherplatz wird ermittelt…</string>
 </resources>

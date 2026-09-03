@@ -36,17 +36,17 @@
         <item quantity="one">%d element indecís quedarà per a una revisió posterior.</item>
         <item quantity="other">%d elements indecisos quedaran per a una revisió posterior.</item>
     </plurals>
-    <string name="swiper_delete_confirmation_sensitive_root_warning">Aquesta sessió es dirigeix a un volum d\'emmagatzematge sencer — eliminar aquí abasta cada carpeta d\'aquest emmagatzematge.</string>
+    <string name="swiper_delete_confirmation_sensitive_root_warning">Aquesta sessió té com a objectiu un volum d\'emmagatzematge complet: esborrar aquí abasta totes les carpetes d\'aquest emmagatzematge.</string>
     <plurals name="swiper_delete_confirmation_more_folders">
         <item quantity="one">…i %d carpeta més</item>
         <item quantity="other">…i %d carpetes més</item>
     </plurals>
     <string name="swiper_delete_confirmation_checkbox">Entenc que aquests fitxers s\'eliminaran permanentment.</string>
-    <string name="swiper_sensitive_root_warning_title">Vols escanejar tot l\'emmagatzematge?</string>
-    <string name="swiper_sensitive_root_warning_message">Escanejar %1$s inclou cada fitxer en aquest emmagatzematge — fotos, documents, descàrregues, multimèdia d\'aplicacions i més. Vols continuar?</string>
-    <string name="swiper_sensitive_root_warning_continue_action">Continua de totes maneres</string>
-    <string name="swiper_session_risky_label">Escanejament d\'emmagatzematge sencer</string>
-    <string name="swiper_session_risky_info_message">Aquesta sessió es dirigeix a l\'arrel d\'un volum d\'emmagatzematge, així que cada fitxer en aquest emmagatzematge està dins de l\'abast — fotos, documents, descàrregues, multimèdia d\'aplicacions i més.\n\nEls escanejaments d\'emmagatzematge sencer poden retornar molts elements, inclosos fitxers que potser no volies revisar. Aplica un filtre de tipus de fitxer per reduir l\'escanejament.</string>
+    <string name="swiper_sensitive_root_warning_title">Voleu escanejar tot l\'emmagatzematge?</string>
+    <string name="swiper_sensitive_root_warning_message">L\'escaneig %1$s inclou tots els fitxers d\'aquest emmagatzematge: fotos, documents, baixades, multimèdia d\'aplicacions i molt més. Voleu continuar?</string>
+    <string name="swiper_sensitive_root_warning_continue_action">Continua igualment</string>
+    <string name="swiper_session_risky_label">Escaneig d\'emmagatzematge complet</string>
+    <string name="swiper_session_risky_info_message">Aquesta sessió s\'adreça a l\'arrel d\'un volum d\'emmagatzematge, de manera que cada fitxer d\'aquest emmagatzematge té un abast: fotos, documents, baixades, multimèdia d\'aplicacions i molt més.\n\nEls escàners d\'emmagatzematge complet poden retornar molts elements, inclosos els fitxers que potser no heu volgut revisar. Apliqueu un filtre de tipus de fitxer per a reduir l\'escaneig.</string>
     <string name="swiper_delete_x_action">Suprimeix %1$d</string>
     <string name="swiper_settings_swap_directions_title">Commutació de la direcció de lliscament</string>
     <string name="swiper_settings_swap_directions_summary">Llisqueu cap a l\'esquerra per mantenir, cap a la dreta per suprimir.</string>
@@ -142,7 +142,7 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Desfés</string>
     <string name="swiper_help_title">Com funciona l\'escombrador</string>
     <string name="swiper_help_message">Llisqueu cada fitxer per prendre una decisió:\n\n← Llisca a l\'esquerra: %1$s\n→ Llisca a la dreta: %2$s\n↑ Llisca amunt: Omet\n↓ Llisca avall: Desfés (després del primer lliscament)\n\nTambé podeu usar els botons de la part inferior.\n\nQuan hàgiu acabat, toqueu «Revisa» per veure totes les decisions. No se suprimeix res fins que ho confirmeu a la pantalla de revisió.</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Entesos</string>
+    <string name="swiper_gesture_overlay_dismiss_action">D\'acord</string>
     <string name="swiper_file_type_filter_title">Mostra només aquests tipus de fitxers</string>
     <string name="swiper_file_type_filter_hint">Marqueu els tipus que voleu veure. Si no n\'hi ha cap de marcat, es mostren tots els fitxers.</string>
     <string name="swiper_file_type_category_images">Imatges</string>
@@ -159,10 +159,9 @@
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">No s\'han trobat fitxers coincidents</string>
     <string name="swiper_open_externally_action">Obre en una aplicació externa</string>
-    <!-- Guided tour -->
-    <string name="tour_swiper_gestures_body">Llisqueu un fitxer per decidir el seu destí: lateralment per mantenir o suprimir, cap amunt per saltar, cap avall per desfer. Els botons de sota fan el mateix, i mostren quin costat és quin.</string>
+    <string name="tour_swiper_gestures_body">Llisqueu un fitxer per decidir el seu destí: lateralment per mantenir o suprimir, cap amunt per ometre, cap avall per desfer. Els botons de sota fan el mateix, i mostren quin costat és quin.</string>
     <string name="tour_swiper_openin_body">Aquest botó obre el fitxer en una altra aplicació, útil per comprovar-lo abans de decidir.</string>
     <string name="tour_swiper_preview_body">Aquest botó obre una previsualització a pantalla completa per veure-la més de prop.</string>
-    <string name="tour_swiper_actions_body">No t\'agrada lliscar? També tenim botons! Omet la deixa pendent per més tard, i prémer llargament Omet exclou un fitxer dels escanejos futurs. Desfés reverteix la teva última elecció.</string>
-    <string name="tour_swiper_review_body">Les teves opcions de mantenir i eliminar només estan pendents d\'aplicar. Obre Revisió per repassar-les i aplicar les eliminacions quan estiguis a punt.</string>
+    <string name="tour_swiper_actions_body">No us agrada lliscar? També tenim botons! L\'opció Omet ho deixa pendent per més tard, i en prémer-lo perllongadament, exclou un fitxer dels escanejos futurs. L\'opció Desfés reverteix la vostra última elecció.</string>
+    <string name="tour_swiper_review_body">Les vostres opcions de mantenir i eliminar només estan pendents d\'aplicar. Obriu l\'opció Revisió per repassar-les i aplicar les eliminacions quan estigueu a punt.</string>
 </resources>

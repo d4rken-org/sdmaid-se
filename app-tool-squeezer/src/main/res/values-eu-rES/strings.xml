@@ -29,6 +29,18 @@
         <item quantity="one">%d saltatu (HDR/sakonera gordetuta)</item>
         <item quantity="other">%d saltatu (HDR/sakonera gordetuta)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d saltatu da (Motion Photo)</item>
+        <item quantity="other">%d saltatu dira (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d saltatu da (argazki oso handia)</item>
+        <item quantity="other">%d saltatu dira (argazki oso handiak)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d saltatu da (babestuta)</item>
+        <item quantity="other">%d saltatu dira (babestuta)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elementu hautatuta</item>
         <item quantity="other">%d elementu hautatuta</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Orokorra</string>
     <string name="squeezer_quality_description">Kalitate txikiagoak fitxategi-tamaina txikiagoa esan nahi du, baina ikusmen-kalitatea murrizten du.</string>
     <string name="squeezer_types_category_label">Irudien ezarpenak</string>
+    <string name="squeezer_protected_category_label">Zer galtzen den</string>
     <string name="squeezer_video_settings_category_label">Bideoen ezarpenak</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Sartu JPEG irudiak (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">JPEG irudiak sartu (.jpg, .jpeg). Berriz kodetzeko Androidek berezko duen JPEG kodetzailea erabiltzen da. Data, kokapena eta gainerako EXIF metadatuak mantentzen dira.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Sartu WebP irudiak (.webp).</string>
+    <string name="squeezer_type_webp_description">WebP irudiak sartu (.webp). Berriz kodetzeko Androidek berezko duen WebP kodetzailea erabiltzen da. Data, kokapena eta gainerako EXIF metadatuak mantentzen dira.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Sartu HEIC/HEIF irudiak (.heic, .heif). Data, kokalekua eta bestelako EXIF metadatuak gordetzen dira. HDR irabazien mapak, sakonera datuak eta Live/Motion Photo senideak ezin dira gorde; irudi anitzeko fitxategiak baztertzen dira.</string>
     <string name="squeezer_type_video_title">MP4 Bideoa</string>
-    <string name="squeezer_type_video_description">MP4 bideo fitxategiak sartu (.mp4).</string>
+    <string name="squeezer_type_video_description">MP4 bideo-fitxategiak sartu (.mp4). Bideo-pista bit-tasa txikiagoan berriz kodetzen du gailuaren bideo-kodetzaileak, audio-pista aldatu gabe kopiatzen da, eta fitxategiak MP4 izaten jarraitzen du.</string>
     <string name="squeezer_skip_compressed_title">Saltatu aurrez konprimatutakoak</string>
     <string name="squeezer_skip_compressed_description">SD Maid-ek dagoeneko konprimatu dituen fitxategiak saltatu.</string>
     <string name="squeezer_exif_marker_title">Idatzi EXIF marka</string>
     <string name="squeezer_exif_marker_description">Gehitu marka bat irudiaren EXIF erabiltzaile-iruzkin eremura berriro konprimatzea saihesteko, nahiz eta konpresio-historia garbitu.</string>
     <string name="squeezer_include_lossy_aux_title">Konprimitu HDR &amp; sakonera argazkiak</string>
-    <string name="squeezer_include_lossy_aux_description">Lehenetsiz desaktibatua: HDR irabazien mapa edo sakonera/portretua duten argazkiak baztertzen dira lautzatuak ez izateko. Gaitu ahal duzun lekuan konprimitzeko — HDR irabazien mapa edo sakonera datuak galduko dituzte. Zenbait irudi anitzeko HEIC argazki babestuak geratzen dira hala ere.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR edo sakonera-datuak dituzten argazkiak sartu. Konpresioak datu horiek kentzen ditu: HDR argazkiak argazki arrunt bihurtzen dira, eta erretratu-argazkiek atzeko planoaren lausotzearen atzean dagoen datua galtzen dute. Irudi anitzeko HEIC fitxategiak saltatuta jarraitzen dute.</string>
+    <string name="squeezer_include_motion_photos_title">Konprimatu Motion Photo-ak</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photo-ak sartu. Konpresioak argazki finkoa mantentzen du eta bideo-klipa kentzen du.</string>
+    <string name="squeezer_include_oversized_title">Konprimatu argazki oso handiak</string>
+    <string name="squeezer_include_oversized_description">8192 pixel baino zabalagoak edo altuagoak diren argazkiak sartu. Konpresioak, gainera, bereizmena erdira murrizten du.</string>
     <string name="squeezer_estimated_savings_format">~%s aurrezpen</string>
     <string name="squeezer_no_savings_expected">Aurrezpen mugatua</string>
     <string name="squeezer_current_size_format">Tamaina: %s</string>
+    <string name="squeezer_chip_compressed_before">Konprimatuta</string>
+    <string name="squeezer_chip_hdr_depth">HDR/sakonera</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Murriztuta</string>
+    <string name="squeezer_markers_dialog_title">Marka hauei buruz</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid-ek jada konprimitu du fitxategi hau. Berriz konprimitzeak kalitatea galarazten du eta gutxi aurrezten du.</string>
+    <string name="squeezer_markers_hdr_depth_description">Argazki honek HDR edo sakonera-datuak ditu, konpresioak mantendu ezin dituenak. HDR argazki bat arrunt bihurtzen da, eta erretratu-argazki batek atzeko planoaren lausotzean erabilitako sakonera-datua galtzen du.</string>
+    <string name="squeezer_markers_motion_photo_description">Hau Motion Photo bat da. Konpresioak argazki finkoa mantentzen du eta bideo-klipa kentzen du.</string>
+    <string name="squeezer_markers_downscaled_description">Argazki hau 8192 pixel baino zabalagoa edo altuagoa da. Konpresioak, gainera, bere bereizmena erdira murrizten du.</string>
     <string name="squeezer_compress_action">Konprimatu</string>
     <string name="squeezer_compress_all_action">Konprimatu guztiak</string>
     <string name="squeezer_preview_dialog_title">Berretsi konpresioa</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Ikusi konparazioa</string>
     <string name="squeezer_no_example_found">Ez da irudirik aurkitu hautatutako bideetan.</string>
     <string name="squeezer_result_empty_message">Ez da konprimatu daitekeen multimedia aurkitu.</string>
+    <string name="squeezer_result_empty_protected">Ez dago ezer konprimitzeko. Saltatuta: %s. Piztu ezarpenetako dagokion aukera horiek sartzeko.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/sakonera argazki</item>
+        <item quantity="other">%d HDR/sakonera argazki</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d argazki oso handi</item>
+        <item quantity="other">%d argazki oso handi</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d kokapen ezin da konprimatzeko erabili eta ezabatu da. Konprimatzeak barne-biltegiratze zuzeneko sarbidea behar du.</item>
         <item quantity="other">%d kokapen ezin dira konprimatzeko erabili eta ezabatu dira. Konprimatzeak barne-biltegiratze zuzeneko sarbidea behar du.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Gutxienez %d egun zaharrak</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Gutxi gorabehera ~%d%% aurrezkia JPEG fitxategientzat</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer zure argazkiak eta bideoak berriro konprimitzen ditu, gutxiago tokia hartzen dute. Kalitate txiki bat trukatzen duzu bueltatzen dizun espazioarekin. Elementu bakoitzak aurreztia erakusten du, harik eta zuk erabaki dezan zer balio duen.</string>
     <string name="tour_squeezer_compress_body">Konprimitu dena hemen aldi berean, edo kolpatu elementu bakarrean soilik bera txikitzeko. Luze sakatu batzuk aukeratzeko. Aurrebista ikusiko duzu beti, ezer aldatzen den aurretik.</string>
 </resources>

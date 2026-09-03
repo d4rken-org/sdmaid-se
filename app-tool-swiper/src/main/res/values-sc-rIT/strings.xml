@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibra cando si leat detzisiones de mantènnere o cantzellare.</string>
     <string name="swiper_discard_session_confirmation_title">Iscartare sa sessione?</string>
     <string name="swiper_discard_session_confirmation_message">Totu is detzisiones ant a èssere pèrdidas. Ses seguru?</string>
-    <string name="swiper_no_preview_available">Peruna anteprima disponìbile</string>
+    <string name="swiper_no_preview_available">Prèvia no disponìbile</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Sighit sa sessione de %1$d die a como (%2$d%% acabadu)</item>
         <item quantity="other">Sighit sa sessione de %1$d dies a como (%2$d%% acabadu)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">Agoa!</string>
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Firma!</string>
-    <string name="swiper_gesture_overlay_dismiss">Toca in cale si siat logu pro cumintzare</string>
-    <string name="swiper_gesture_overlay_left_delete">← Cantzella</string>
-    <string name="swiper_gesture_overlay_right_keep">Mantèni →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Mantèni</string>
-    <string name="swiper_gesture_overlay_right_delete">Cantzella →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Brinca</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
+    <string name="swiper_gesture_overlay_dismiss">Trache po comintzare</string>
+    <string name="swiper_gesture_overlay_left_delete">← Iscancellare</string>
+    <string name="swiper_gesture_overlay_right_keep">Mantzener →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mantzener</string>
+    <string name="swiper_gesture_overlay_right_delete">Iscancellare →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Passare</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Atzerru</string>
     <string name="swiper_help_title">Comente funtzionat Swiper</string>
     <string name="swiper_help_message">Iscorre cada archìviu pro leare una detzisione:\n\n← Iscorre a manu manca: %1$s\n→ Iscorre a manu dereta: %2$s\n↑ Iscorre a susu: Brinca\n↓ Iscorre a josso: Annulla (a pustis de su primu iscorrimentu)\n\nPodes fintzas impreare is butones in bàsciu.\n\nCando as acabadu, toca \"Revisione\" pro bìdere totu is detzisiones tuas. No si cantzellat nudda fintzas a cando non lu cunfirmas in sa pàgina de revisione.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Apat cumprèndiu</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtradu: %1$s</string>
     <string name="swiper_session_no_matching_files">Nisciunu archiviu currispundente agatadu</string>
     <string name="swiper_open_externally_action">Aberi in app esterna</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Passa un archivio pro decider sa sua suerte: de ladu pro mantere o borrai, in artu pro saltare, in bagu pro desfere. Sos bottones de basu faghent sa mesma cosa — e mostrant cuales lados pro cada cosa.</string>
     <string name="tour_swiper_openin_body">Custu bottone abrit s\'archivio in un\'altu programa, pro che podes verrigare ante de decider.</string>
     <string name="tour_swiper_preview_body">Custu buttone abrit una previsualizatzione in tota sa pantalla pro una guarda prus achosu.</string>

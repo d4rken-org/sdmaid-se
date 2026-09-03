@@ -60,6 +60,18 @@
         <item quantity="one">%d expendable item na nabura</item>
         <item quantity="other">%d mga expendable item na nabura</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d mapagkakalabasan na item na tinanggal, huminto dahil nag-off o naka-lock ang screen</item>
+        <item quantity="other">%d mapagkakalabasan na item na tinanggal, huminto dahil nag-off o naka-lock ang screen</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d mapagkakalabasan na item na tinanggal, huminto dahil sa error</item>
+        <item quantity="other">%d mapagkakalabasan na item na tinanggal, huminto dahil sa error</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache ang kailangan pa ng Accessibility Service</item>
+        <item quantity="other">%1$s, %2$d cache ang kailangan pa ng Accessibility Service</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d expendable item na nakita</item>
         <item quantity="other">%d mga expendable item na nakita</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Naghahanap ng \"Clear cache\" button (mga keyword: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Mga default cache</string>
     <string name="appcleaner_item_caches_inaccessible_body">Mga public at private default cache. Hindi direktang ma-access, pero maaaring matanggal nang hindi direkta (hal. sa pamamagitan ng accessibility service).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Eksklusyon, pero ang pag-clear ng lahat nang sabay-sabay ay nag-clear pa rin ng mga cache na ito</string>
+    <string name="appcleaner_exclusion_limited_title">Eksklusyong app</string>
+    <string name="appcleaner_exclusion_limited_body">Nag-exclude ka ng app na ito mula sa AppCleaner. Ang pag-clear ng cache para sa lahat ng apps nang sabay-sabay ay gumagamit ng system-wide cache trim ng Shizuku, na hindi maaaring iwanan ang mga indibidwal na app, kaya ang cached data ng app na ito ay na-clear kasama ang lahat ng iba. Tanging ang cached data na ipinakita dito ang naaapektuhan, lahat ng iba na saklaw ng eksklusyon ay nananatiling nakatagong at hindi nabawasan.</string>
     <string name="appcleaner_automation_unavailable_title">Hindi available ang accessibility service</string>
-    <string name="appcleaner_automation_unavailable_body">Ang paglilinis ng mga hindi ma-access na cache ay nangangailangan ng accessibility service ng SD Maid, pero hindi ito available. Kung ayaw ninyong gamitin ito: I-disable ang opsyong \"Include inaccessible caches\".</string>
+    <string name="appcleaner_automation_unavailable_body">Ang pag-clear ng mga cache na ito ay nangangailangan ng Accessibility Service ng SD Maid, ngunit hindi ito available.</string>
     <string name="appcleaner_delete_confirmation_message_x">Tanggalin ang mga expendable na file para sa %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Burahin ang mga expendable file para sa %d napiling app?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop bago i-clear</string>
     <string name="appcleaner_forcestop_before_clearing_summary">I-force-stop ang mga app bago i-clear ang kanilang cache. Maaari itong makatulong sa pag-clear ng cache ng ilang app, ngunit maaaring magdulot ng maling pagkilos ng mga app at mangailangan ng manu-manong pag-restart.</string>
     <string name="appcleaner_progress_force_stopping">Finoforce-stop ang mga app…</string>
+    <string name="appcleaner_progress_checking_freed_space">Sinusuri ang napalayaang espasyo…</string>
 </resources>

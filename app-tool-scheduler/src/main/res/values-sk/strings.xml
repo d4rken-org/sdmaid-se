@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Názov plánu</string>
     <string name="scheduler_schedule_toggle_enabled">Plán je povolený</string>
     <string name="scheduler_schedule_toggle_disabled">Plán je zakázaný</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Ak chceš plán upraviť, najprv ho vypni.</string>
     <string name="scheduler_edit_schedule_action">Upraviť plán</string>
     <string name="scheduler_schedule_time_label">Približný čas</string>
     <string name="scheduler_schedule_repeat_label">Interval opakovania v dňoch</string>
@@ -45,7 +46,6 @@
     <string name="scheduler_commands_after_schedule_label">Príkazy po rozvrhu</string>
     <string name="scheduler_commands_after_schedule_desc">Príkazy prostredia Android, ktoré sa vykonajú na konci plánu.</string>
     <string name="scheduler_battery_optimization_hint">Ak máte problémy so spustením na pozadí, zvážte vypnutie optimalizácie batérie pre SD Maid.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid môže čistiť podľa plánu. Vyberte si čas a ktoré nástroje sa spustia a aplikácia vykoná prácu na pozadí, (takmer) bez potreby otvoriť aplikáciu.</string>
     <string name="tour_scheduler_create_body">Klepnite sem, aby ste vytvorili nový plán, potom nastavte, kedy sa spustí a ktoré nástroje sa zahrniú.</string>
 </resources>

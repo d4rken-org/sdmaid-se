@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Saqlash yoki o\'chirish qarorlari qabul qilinganda tebratish.</string>
     <string name="swiper_discard_session_confirmation_title">Sessiyani rad etish kerakmi?</string>
     <string name="swiper_discard_session_confirmation_message">Barcha qarorlar yo\'qoladi. Ishonchingiz komilmi?</string>
-    <string name="swiper_no_preview_available">Oldindan ko\'rish mavjud emas</string>
+    <string name="swiper_no_preview_available">Oldindan ko\'rish yo\'q</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d kun oldingi sessiyani davom ettirish (%2$d%% tugallangan)</item>
         <item quantity="other">%1$d kun oldingi sessiyani davom ettirish (%2$d%% tugallangan)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">Orqaga!</string>
     <string name="swiper_stamp_undo_3">Voy!</string>
     <string name="swiper_stamp_undo_4">Kuting!</string>
-    <string name="swiper_gesture_overlay_dismiss">Boshlash uchun istalgan joyga bosing</string>
+    <string name="swiper_gesture_overlay_dismiss">Boshlash uchun bosing</string>
     <string name="swiper_gesture_overlay_left_delete">← O\'chirish</string>
     <string name="swiper_gesture_overlay_right_keep">Saqlash →</string>
     <string name="swiper_gesture_overlay_left_keep">← Saqlash</string>
     <string name="swiper_gesture_overlay_right_delete">O\'chirish →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ O\'tkazish</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Qaytarish</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ O\'tkazib yuborish</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Bekor qilish</string>
     <string name="swiper_help_title">Swiper qanday ishlaydi</string>
     <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Tushundim</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtrlangan: %1$s</string>
     <string name="swiper_session_no_matching_files">Mos keladigan fayllar topilmadi</string>
     <string name="swiper_open_externally_action">Tashqi ilovada ochish</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Faylning taqdirini qaror qilish uchun uni suring: yon tomoniga — saqlash yoki o\'chirish, tepaga — o\'tkazib yuborish, pastga — qaytarish. Quyidagi tugmalar ham xuddi shunday ishlaydi va qaysi tomon qaysi ekanligini ko\'rsatadi.</string>
     <string name="tour_swiper_openin_body">Ushbu tugma faylni boshqa ilovada ochadi, qaror qilishdan oldin tekshirish uchun qulay.</string>
     <string name="tour_swiper_preview_body">Bu tugma yaqindan ko\'rish uchun to\'liq ekranli ko\'rib chiqishni ochadi.</string>

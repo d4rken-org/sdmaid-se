@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Dardara gorde edo ezabatze-erabakiak hartzerakoan.</string>
     <string name="swiper_discard_session_confirmation_title">Baztertu saioa?</string>
     <string name="swiper_discard_session_confirmation_message">Erabaki guztiak galduko dira. Ziur zaude?</string>
-    <string name="swiper_no_preview_available">Ez dago aurreikuspenak erabilgarri</string>
+    <string name="swiper_no_preview_available">Ez dago aurretikustapenik erabilgarri</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Jarraitu saioa %1$d egun bueltatik (%2$d%% bukatua)</item>
         <item quantity="other">Jarraitu saioa %1$d egun bueltatik (%2$d%% bukatua)</item>
@@ -133,10 +133,10 @@
     <string name="swiper_stamp_undo_2">Atzera!</string>
     <string name="swiper_stamp_undo_3">Aupa!</string>
     <string name="swiper_stamp_undo_4">Itxaron!</string>
-    <string name="swiper_gesture_overlay_dismiss">Sakatu edonon hasteko</string>
+    <string name="swiper_gesture_overlay_dismiss">Sakatu nonbait hasteko</string>
     <string name="swiper_gesture_overlay_left_delete">← Ezabatu</string>
-    <string name="swiper_gesture_overlay_right_keep">Gorde →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Gorde</string>
+    <string name="swiper_gesture_overlay_right_keep">Mantendu →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mantendu</string>
     <string name="swiper_gesture_overlay_right_delete">Ezabatu →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Saltatu</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Desegin</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Iragazita: %1$s</string>
     <string name="swiper_session_no_matching_files">Ez da bat datorren fitxategirik aurkitu</string>
     <string name="swiper_open_externally_action">Ireki kanpoko aplikazioan</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Igurtzi fitxategi bat nola tratatu erabakitzeko: albora mantentzeko edo ezabatzeko, gora saltatzeko, behera desegin. Azpiko botoiek gauza bera egiten dute — eta zer aldea den adierazten dute.</string>
     <string name="tour_swiper_openin_body">Botoi honek fitxategia beste aplikazio batean irekitzen du, lagarra da erabaki aurretik egiaztatzeko.</string>
     <string name="tour_swiper_preview_body">Botoi honek pantaila osoan aurreikuspena irekitzen du, hurbilagotik begiratzeko.</string>

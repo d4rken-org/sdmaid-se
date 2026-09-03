@@ -62,6 +62,24 @@
         <item quantity="many">Удалено ненужных элементов: %d</item>
         <item quantity="other">Удалено ненужных элементов: %d</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d ненужный элемент удалён, остановлено, так как экран был отключен или заблокирован</item>
+        <item quantity="few">%d ненужных элем. удалено, остановлено, так как экран был отключен или заблокирован</item>
+        <item quantity="many">%d ненужных элем. удалено, остановлено, так как экран был отключен или заблокирован</item>
+        <item quantity="other">%d ненужных элем. удалено, остановлено, так как экран был отключен или заблокирован</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d ненужный элемент удалён, остановлено из-за ошибки</item>
+        <item quantity="few">%d ненужных элем. удалено, остановлено из-за ошибки</item>
+        <item quantity="many">%d ненужных элем. удалено, остановлено из-за ошибки</item>
+        <item quantity="other">%d ненужных элем. удалено, остановлено из-за ошибки</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d кэш все еще нуждается в службе специальных возможностей</item>
+        <item quantity="few">%1$s, %2$d кэш все еще нуждается в службе специальных возможностей</item>
+        <item quantity="many">%1$s, %2$d кэш все еще нуждается в службе специальных возможностей</item>
+        <item quantity="other">%1$s, %2$d кэш все еще нуждается в службе специальных возможностей</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Найдено ненужных элементов: %d</item>
         <item quantity="few">Найдено ненужных элементов: %d</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Поиск кнопки \"Очистка кэша\" (ключевые слова: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кэш по умолчанию</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публичный и приватный кэш по умолчанию. Не имеют прямого доступа, но могут быть удалены косвенно (например, через службу специальных возможностей).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Исключено, но очистка всех приложений все еще очищает этот кэш</string>
+    <string name="appcleaner_exclusion_limited_title">Исключённые приложения</string>
+    <string name="appcleaner_exclusion_limited_body">Вы исключили это приложение из AppCleaner. Очистка кэша для всех приложений одновременно использует системный отсек кэша Shizuku, , который не может выделить отдельные приложения, поэтому данные этого приложения очищаются вместе со всем остальным. Это влияет только на кэшированные данные, все остальное, входящее в исключение, остаётся скрытым и нетронутым.</string>
     <string name="appcleaner_automation_unavailable_title">Служба специальных возможностей недоступна</string>
-    <string name="appcleaner_automation_unavailable_body">Для очистки недоступного кэша необходима служба специальных возможностей SD Maid, которая была недоступна. Если Вы не хотите использовать эту функцию, выключите опцию \"Включать недоступный кэш\".</string>
+    <string name="appcleaner_automation_unavailable_body">Для очистки этого кэша требуется служба специальных возможностей SD Maid, но она недоступна.</string>
     <string name="appcleaner_delete_confirmation_message_x">Удалить ненужные данные для %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Удалить ненужные данные для %d выбранного приложения?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудительная остановка перед очисткой</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудительная остановка приложений перед очисткой их кэша. Это поможет очистить кэш некоторых приложений, но может привести к неправильному их функционированию и потребовать ручного перезапуска.</string>
     <string name="appcleaner_progress_force_stopping">Остановка приложений…</string>
+    <string name="appcleaner_progress_checking_freed_space">Проверка свободного места…</string>
 </resources>

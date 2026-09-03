@@ -81,6 +81,10 @@
         <item quantity="one">%d యాప్ టాగల్ చేయబడింది</item>
         <item quantity="other">%d యాప్‌లు టాగల్ చేయబడినాయి</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d యాప్‌ను ఎనేబుల్ చేయడం లేదా డిజేబుల్ చేయడం సాధ్యం కాదు</item>
+        <item quantity="other">%d యాప్‌లను ఎనేబుల్ చేయడం లేదా డిజేబుల్ చేయడం సాధ్యం కాదు</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">పరిమాణాలను నిర్ణయించండి</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ప్రతి యాప్ పరిమాణం శ్రేణుల అందాజు తెలుసుకోండి.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">కార్యాచరణను నిర్ణయించండి</string>

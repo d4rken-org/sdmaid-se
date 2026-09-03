@@ -24,7 +24,7 @@
     <string name="deduplicator_detection_method_phash_summary">Βρείτε παρόμοια αρχεία αναλύοντας χαρακτηριστικά περιεχομένου και συγκρίνοντας τις ομοιότητες εικόνων.</string>
     <string name="deduplicator_detection_method_media_title">Αποτύπωμα πολυμέσων</string>
     <string name="deduplicator_detection_method_media_summary">Βρείτε παρόμοια βίντεο και αρχεία ήχου αναλύοντας τα δακτυλικά αποτυπώματα ήχου.</string>
-    <string name="deduplicator_detection_method_similarity_caveat">Η ανίχνευση με βάση την ομοιότητα ενδέχεται να περιλαμβάνει ψευδώς θετικά που απαιτούν χειροκίνητη επαλήθευση.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">Η ανίχνευση με βάση την ομοιότητα ενδέχεται να περιλαμβάνει ψευδώς θετικά αποτελέσματα που απαιτούν χειροκίνητη επαλήθευση.</string>
     <string name="deduplicator_media_match_audio">Αντιστοιχία βάσει ήχου</string>
     <string name="deduplicator_media_match_visual">Αντιστοιχία βάσει βίντεο</string>
     <string name="deduplicator_media_match_audio_visual">Αντιστοιχία βάσει ήχου και βίντεο</string>
@@ -62,7 +62,7 @@
     <string name="deduplicator_arbiter_configure_paths_action">Ρύθμιση διαδρομών…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Τύπος διπλότυπου</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_description">Προτίμηση ακριβών αντιστοιχιών έναντι παρόμοιων αρχείων.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Ευρετηρίαση πολυμέσων</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Ευρετήριο μέσων</string>
     <string name="deduplicator_arbiter_criterium_media_provider_description">Λάβετε υπόψη αν τα αρχεία είναι ευρετηριασμένα από τον πάροχο πολυμέσων.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Τοποθεσία αποθήκευσης</string>
     <string name="deduplicator_arbiter_criterium_location_description">Προτίμηση αρχείων σε εσωτερικό ή εξωτερικό αποθηκευτικό χώρο.</string>

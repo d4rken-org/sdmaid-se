@@ -152,8 +152,8 @@
     <string name="swiper_stamp_undo_4">Pagaidi!</string>
     <string name="swiper_gesture_overlay_dismiss">Pieskarieties jebkur, lai sāktu</string>
     <string name="swiper_gesture_overlay_left_delete">← Dzēst</string>
-    <string name="swiper_gesture_overlay_right_keep">Paturēt →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Paturēt</string>
+    <string name="swiper_gesture_overlay_right_keep">Saglabāt →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saglabāt</string>
     <string name="swiper_gesture_overlay_right_delete">Dzēst →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Izlaist</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Atsaukt</string>
@@ -176,7 +176,6 @@
     <string name="swiper_file_type_filter_summary">Filtrēts: %1$s</string>
     <string name="swiper_session_no_matching_files">Nav atrasts neviens atbilstošs fails</string>
     <string name="swiper_open_externally_action">Atvērt ārējā lietotne</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Pavelciet failu, lai izlemtu tā likteni: uz sāniem, lai saglabātu vai dzēstu, uz augšu, lai pārlaistu, uz leju, lai atsauktu. Pogas zemāk dara to pašu — un parāda, kura puse ir kura.</string>
     <string name="tour_swiper_openin_body">Šī poga atver failu citā lietotnē — ērti, lai to pārbaudītu pirms lēmuma pieņemšanas.</string>
     <string name="tour_swiper_preview_body">Šī poga atver pilnekrāna priekšskatījumu, lai apskatītu detalizētāk.</string>

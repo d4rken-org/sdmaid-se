@@ -88,6 +88,11 @@
         <item quantity="few">%d aplicații au fost comutate</item>
         <item quantity="other">%d aplicații au fost comutate</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplicație nu poate fi activată sau dezactivată</item>
+        <item quantity="few">%d aplicații nu pot fi activate sau dezactivate</item>
+        <item quantity="other">%d de aplicații nu pot fi activate sau dezactivate</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determină dimensiunile</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obțineți o estimare aproximativă a dimensiunii fiecărei aplicații.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determină activitatea</string>

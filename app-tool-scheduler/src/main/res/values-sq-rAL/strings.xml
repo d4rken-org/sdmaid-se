@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Emri i orarit</string>
     <string name="scheduler_schedule_toggle_enabled">Orari është aktivizuar</string>
     <string name="scheduler_schedule_toggle_disabled">Orari është i çaktivizuar</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Çaktivizoni planin për ta ndryshuar atë.</string>
     <string name="scheduler_edit_schedule_action">Redakto orarin</string>
     <string name="scheduler_schedule_time_label">Koha e përafërt</string>
     <string name="scheduler_schedule_repeat_label">Përsëriteni intervalin në ditë</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Komandat pas orarit</string>
     <string name="scheduler_commands_after_schedule_desc">Komandat e guaskës Android që do të ekzekutohen në fund të një plani.</string>
     <string name="scheduler_battery_optimization_hint">Kjo veçori mund të kërkojë çaktivizimin e optimizimit të baterisë për SD Maid për të funksionuar si duhet.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid mund të pastrojë sipas një orari. Zgjidh një orë dhe cilat mjete do të punojnë, dhe ai do të bëjë punën në sfond, (pothuajse) nuk ka nevojë të hapësh aplikacionin.</string>
     <string name="tour_scheduler_create_body">Prek këtu për të krijuar një orar të ri, më pas vendos kur do të ekzekutohet dhe cilat mjete të përfshihen.</string>
 </resources>

@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">لرزش هنگام تصمیم‌گیری حفظ یا حذف.</string>
     <string name="swiper_discard_session_confirmation_title">جلسه کنار گذاشته شود؟</string>
     <string name="swiper_discard_session_confirmation_message">تمام تصمیم‌ها از دست خواهند رفت. آیا مطمئن هستید؟</string>
-    <string name="swiper_no_preview_available">پیش‌نمایش در دسترس نیست</string>
+    <string name="swiper_no_preview_available">پیش‌نمایشی موجود نیست</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">ادامه جلسه از %1$d روز پیش (%2$d%% تکمیل شده)</item>
         <item quantity="other">ادامه جلسه از %1$d روز پیش (%2$d%% تکمیل شده)</item>
@@ -133,13 +133,13 @@
     <string name="swiper_stamp_undo_2">برگرد!</string>
     <string name="swiper_stamp_undo_3">اوه!</string>
     <string name="swiper_stamp_undo_4">صبر!</string>
-    <string name="swiper_gesture_overlay_dismiss">برای شروع هر جایی ضربه بزنید</string>
+    <string name="swiper_gesture_overlay_dismiss">برای شروع، هر جا را لمس کنید</string>
     <string name="swiper_gesture_overlay_left_delete">← حذف</string>
     <string name="swiper_gesture_overlay_right_keep">نگه‌داشتن →</string>
     <string name="swiper_gesture_overlay_left_keep">← نگه‌داشتن</string>
     <string name="swiper_gesture_overlay_right_delete">حذف →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ رد شدن</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ بازگشت</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ رد کردن</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ واگرد</string>
     <string name="swiper_help_title">نحوه کار Swiper</string>
     <string name="swiper_help_message">هر فایل را بکشید تا تصمیم بگیرید:\n\n← کشیدن به چپ: %1$s\n→ کشیدن به راست: %2$s\n↑ کشیدن به بالا: رد شدن\n↓ کشیدن به پایین: بازگشت (پس از اولین کشیدن)\n\nهمچنین می‌توانید از دکمه‌های پایین استفاده کنید.\n\nوقتی کارتان تمام شد، روی \"بررسی\" ضربه بزنید تا همه تصمیم‌هایتان را ببینید. تا زمانی که در صفحه بررسی تأیید نکنید، هیچ چیز حذف نمی‌شود.</string>
     <string name="swiper_gesture_overlay_dismiss_action">فهمیدم</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">فیلتر شده: %1$s</string>
     <string name="swiper_session_no_matching_files">فایل مطابقی یافت نشد</string>
     <string name="swiper_open_externally_action">باز کردن در برنامه خارجی</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">یک فایل را اسلاید کنید تا درباره سرنوشت آن تصمیم بگیرید: به‌طرف کنار برای نگه‌داشتن یا حذف، به‌سمت بالا برای پرش، به‌سمت پایین برای لغو. دکمه‌های زیر کار یکسانی انجام می‌دهند — و نشان می‌دهند کدام سمت کدام است.</string>
     <string name="tour_swiper_openin_body">این دکمه فایل را در برنامه‌ای دیگر باز می‌کند، برای بررسی قبل از تصمیم‌گیری مفید است.</string>
     <string name="tour_swiper_preview_body">این دکمه یک پیش‌نمایش تمام‌صفحه را برای نگاهی نزدیک‌تر باز می‌کند.</string>

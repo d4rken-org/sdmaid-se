@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d個の不要なアイテムを削除しました</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">不要なアイテムを%d件削除しましたが、画面がオフまたはロックされていたため中断しました</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">不要なアイテムを%d件削除しましたが、エラーのため中断しました</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s、%2$d件のキャッシュはユーザー補助機能が必要です</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 消耗品が見つかりました</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">「キャッシュをクリア」ボタンを探しています (キーワード: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">デフォルトキャッシュ</string>
     <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (ユーザー補助サービスなど)。</string>
+    <string name="appcleaner_exclusion_limited_row_hint">除外されていますが、すべてのアプリを一括クリーンするとこれらのキャッシュも削除されます</string>
+    <string name="appcleaner_exclusion_limited_title">除外されたアプリ</string>
+    <string name="appcleaner_exclusion_limited_body">このアプリはAppCleanerから除外されています。すべてのアプリのキャッシュを一括削除する際はShizukuのシステム全体のキャッシュ整理機能を使用するため、個々のアプリを除外することができず、このアプリのキャッシュデータも他と一緒に削除されます。影響を受けるのはここに表示されているキャッシュデータのみで、除外対象のそれ以外のデータは非表示のまま変更されません。</string>
     <string name="appcleaner_automation_unavailable_title">ユーザー補助サービスは無効です。</string>
-    <string name="appcleaner_automation_unavailable_body">アクセスできないキャッシュをクリアするには、SD Maidのユーザー補助サービスが必要ですが、利用できませんでした。使用したくない場合は、「アクセスできないキャッシュを含める」オプションを無効にします。</string>
+    <string name="appcleaner_automation_unavailable_body">これらのキャッシュを削除するにはSD Maidのユーザー補助機能が必要ですが、利用できませんでした。</string>
     <string name="appcleaner_delete_confirmation_message_x">%s の消耗ファイルを削除しますか？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">%d 選択したアプリの消耗ファイルを削除しますか？</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">クリア前に強制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">キャッシュをクリアする前にアプリを強制停止します。一部のアプリのキャッシュクリアに役立ちますが、アプリが正常に動作しなくなり手動再起動が必要になる場合があります。</string>
     <string name="appcleaner_progress_force_stopping">アプリを強制停止中…</string>
+    <string name="appcleaner_progress_checking_freed_space">解放された容量を確認中…</string>
 </resources>

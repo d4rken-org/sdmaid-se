@@ -29,6 +29,18 @@
         <item quantity="one">%d kihagyva (HDR/mélység megőrizve)</item>
         <item quantity="other">%d kihagyva (HDR/mélység megőrizve)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d kihagyva (Motion Photo)</item>
+        <item quantity="other">%d kihagyva (Motion Photo)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d kihagyva (nagyon nagy fotó)</item>
+        <item quantity="other">%d kihagyva (nagyon nagy fotó)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d kihagyva (védett)</item>
+        <item quantity="other">%d kihagyva (védett)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elem kiválasztva</item>
         <item quantity="other">%d elem kiválasztva</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Általános</string>
     <string name="squeezer_quality_description">Az alacsonyabb minőség kisebb fájlméretet jelent, de csökkentett vizuális minőséggel.</string>
     <string name="squeezer_types_category_label">Képbeállítások</string>
+    <string name="squeezer_protected_category_label">Mi vész el</string>
     <string name="squeezer_video_settings_category_label">Videóbeállítások</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG képek (.jpg, .jpeg) bevonása.</string>
+    <string name="squeezer_type_jpeg_description">JPEG képek belefoglalása (.jpg, .jpeg). Az újrakódolás az Android beépített JPEG-kódolóját használja. A dátum, a helyadatok és az egyéb EXIF-metaadatok megmaradnak.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP képek (.webp) bevonása.</string>
+    <string name="squeezer_type_webp_description">WebP képek belefoglalása (.webp). Az újrakódolás az Android beépített WebP-kódolóját használja. A dátum, a helyadatok és az egyéb EXIF-metaadatok megmaradnak.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Vegyen fel HEIC/HEIF képeket (.heic, .heif). A dátum, hely és egyéb EXIF metaadat megmaradnak. A HDR gain map-ek, mélységi adatok és élő/mozgó fotó kísérőfájlok nem őrizhetők meg; többképes fájlok kimaradnak.</string>
     <string name="squeezer_type_video_title">MP4 videó</string>
-    <string name="squeezer_type_video_description">MP4 videófájlok (.mp4) hozzáadása.</string>
+    <string name="squeezer_type_video_description">MP4 videofájlok belefoglalása (.mp4). A videosávot a készülék saját videokódolója alacsonyabb bitrátával kódolja újra, a hangsáv változatlanul átmásolódik, a fájl pedig MP4 marad.</string>
     <string name="squeezer_skip_compressed_title">Már tömörítettek kihagyása</string>
     <string name="squeezer_skip_compressed_description">Az SD Maid által már tömörített fájlok kihagyása.</string>
     <string name="squeezer_exif_marker_title">EXIF jelölő írása</string>
     <string name="squeezer_exif_marker_description">Jelölő hozzáadása a kép EXIF felhasználói megjegyzés mezőjéhez az újratömörítés megakadályozására még a tömörítési előzmények törlése után is.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; mélységi fotók tömörítése</string>
-    <string name="squeezer_include_lossy_aux_description">Alapértelmezetten ki: a HDR gain map-pal vagy mélységi/portrés adatokkal rendelkező fotók kimaradnak, hogy ne váljanak lapossá. Engedélyezze a tömörítésüket ahol lehetséges — elveszítik a HDR gain map-jukat vagy mélységi adataikat. Egyes többképes HEIC fotók védelem alatt maradnak függetlenül attól.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR- vagy mélységadatokkal rendelkező fotók belefoglalása. A tömörítés eltávolítja ezeket: a HDR-fotókból normál fotók lesznek, a portréfotók elveszítik a háttérelmosáshoz használt adatokat. A több képet tartalmazó HEIC-fájlok továbbra is kimaradnak.</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photo fájlok tömörítése</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photo fájlok belefoglalása. A tömörítés megtartja az állóképet, és eltávolítja a videórészletet.</string>
+    <string name="squeezer_include_oversized_title">Nagyon nagy fotók tömörítése</string>
+    <string name="squeezer_include_oversized_description">A 8192 pixelnél szélesebb vagy magasabb fotók belefoglalása. A tömörítés a felbontásukat is felére csökkenti.</string>
     <string name="squeezer_estimated_savings_format">~%s megtakarítás</string>
     <string name="squeezer_no_savings_expected">Korlátozott megtakarítás</string>
     <string name="squeezer_current_size_format">Méret: %s</string>
+    <string name="squeezer_chip_compressed_before">Tömörítve</string>
+    <string name="squeezer_chip_hdr_depth">HDR/mélység</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Kicsinyítve</string>
+    <string name="squeezer_markers_dialog_title">Ezekről a jelölőkről</string>
+    <string name="squeezer_markers_compressed_before_description">Az SD Maid már tömörítette ezt a fájlt. Az újbóli tömörítés minőségromlással jár, és csak keveset spórol.</string>
+    <string name="squeezer_markers_hdr_depth_description">Ez a fotó HDR- vagy mélységadatokkal rendelkezik, amelyeket a tömörítés nem tud megtartani. Egy HDR-fotóból normál fotó lesz, egy portréfotó pedig elveszíti a háttérelmosáshoz használt mélységadatokat.</string>
+    <string name="squeezer_markers_motion_photo_description">Ez egy Motion Photo. A tömörítés megtartja az állóképet, és eltávolítja a videórészletet.</string>
+    <string name="squeezer_markers_downscaled_description">Ez a fotó szélesebb vagy magasabb 8192 pixelnél. A tömörítés a felbontását is felére csökkenti.</string>
     <string name="squeezer_compress_action">Tömörítés</string>
     <string name="squeezer_compress_all_action">Összes tömörítése</string>
     <string name="squeezer_preview_dialog_title">Tömörítés megerősítése</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
     <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
     <string name="squeezer_result_empty_message">Nem található tömöríthető média.</string>
+    <string name="squeezer_result_empty_protected">Nincs mit tömöríteni. Kihagyva: %s. Kapcsold be a megfelelő beállítást ahhoz, hogy ezek is bekerüljenek.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/mélység fotó</item>
+        <item quantity="other">%d HDR/mélység fotó</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d nagyon nagy fotó</item>
+        <item quantity="other">%d nagyon nagy fotó</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d helyszín nem használható tömörítésre és eltávolítottuk. A tömörítéshez közvetlen hozzáférés szükséges a belső tárhelyre.</item>
         <item quantity="other">%d helyszín nem használható tömörítésre és eltávolítottuk. A tömörítéshez közvetlen hozzáférés szükséges a belső tárhelyre.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Legalább %d napos</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás a JPEG fájlokhoz</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">A Squeezer újratömöríti a fényképeidet és videóidat, hogy kevesebb helyet foglaljanak. Egy kis minőséget adsz fel a visszanyert helyért cserébe. Minden elem megmutatja a becsült megtakarítást, hogy eldönthesd, mi éri meg.</string>
     <string name="tour_squeezer_compress_body">Tömörítse az összes fájlt egyszerre, vagy érintsen meg egy elemet, hogy csak azt tömörítse. Nyomja hosszan meg több elemet választásához. Ön mindig lát egy előnézetet, mielőtt bármi megváltozna.</string>
 </resources>

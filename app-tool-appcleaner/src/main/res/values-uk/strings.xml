@@ -62,6 +62,24 @@
         <item quantity="many">%d зайвих елементів видалено</item>
         <item quantity="other">Видалено %d витратних матеріалів</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Видалено %d непотрібний елемент, зупинено через вимкнений або заблокований екран</item>
+        <item quantity="few">Видалено %d непотрібні елементи, зупинено через вимкнений або заблокований екран</item>
+        <item quantity="many">Видалено %d непотрібних елементів, зупинено через вимкнений або заблокований екран</item>
+        <item quantity="other">Видалено %d непотрібних елементів, зупинено через вимкнений або заблокований екран</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Видалено %d непотрібний елемент, зупинено через помилку</item>
+        <item quantity="few">Видалено %d непотрібні елементи, зупинено через помилку</item>
+        <item quantity="many">Видалено %d непотрібних елементів, зупинено через помилку</item>
+        <item quantity="other">Видалено %d непотрібних елементів, зупинено через помилку</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d кеш усе ще потребує служби спеціальних можливостей</item>
+        <item quantity="few">%1$s, %2$d кеші усе ще потребують служби спеціальних можливостей</item>
+        <item quantity="many">%1$s, %2$d кешів усе ще потребують служби спеціальних можливостей</item>
+        <item quantity="other">%1$s, %2$d кешів усе ще потребують служби спеціальних можливостей</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знайдено %d витратний матеріал</item>
         <item quantity="few">Знайдено %d витратні матеріали</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопки \"Очистити кеш\" (ключові слова: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кеш за умовчанням</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публічні та приватні кеші за умовчанням. Не доступні безпосередньо, але можуть бути видалені опосередковано (наприклад, через сервіс спеціальних можливостей).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Виключено, але очищення всіх додатків одночасно все одно очищує ці кеші</string>
+    <string name="appcleaner_exclusion_limited_title">Виключений додаток</string>
+    <string name="appcleaner_exclusion_limited_body">Цей додаток виключено з AppCleaner. Очищення кешу всіх додатків одночасно використовує системне очищення кешу Shizuku, яке не може оминати окремі додатки, тому кешовані дані цього додатка очищуються разом з усіма іншими. Це стосується лише кешованих даних, показаних тут, — усе інше, на що поширюється виключення, залишається прихованим і неторкнутим.</string>
     <string name="appcleaner_automation_unavailable_title">Сервіс спеціальних можливостей недоступний</string>
-    <string name="appcleaner_automation_unavailable_body">Для очищення недоступних кешів потрібен сервіс спеціальних можливостей SD Maid, але він був недоступний. Якщо ви не хочете його використовувати: Вимкніть опцію \"Включати недоступні кеші\".</string>
+    <string name="appcleaner_automation_unavailable_body">Для очищення цих кешів потрібна служба спеціальних можливостей SD Maid, але вона була недоступна.</string>
     <string name="appcleaner_delete_confirmation_message_x">Видалити витратні файли для %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Видалити витратні файли для %d вибраного додатка?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Примусове зупинення перед очищенням</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Примусово зупиніть додатки перед очищенням їх кешу. Це може допомогти очистити кеш деяких додатків, але може призвести до неправильної роботи додатків і вимагати ручного перезапуску.</string>
     <string name="appcleaner_progress_force_stopping">Примусове зупинення додатків…</string>
+    <string name="appcleaner_progress_checking_freed_space">Перевірка звільненого місця…</string>
 </resources>

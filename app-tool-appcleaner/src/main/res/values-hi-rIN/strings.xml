@@ -60,6 +60,18 @@
         <item quantity="one">%d खर्च होने वाली वस्तु मिटाई गई</item>
         <item quantity="other">%d खर्च होने वाली वस्तुएं मिटाई गईं</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d फालतू आइटम हटाया गया, स्क्रीन बंद या लॉक होने के कारण रोका गया</item>
+        <item quantity="other">%d फालतू आइटम हटाए गए, स्क्रीन बंद या लॉक होने के कारण रोका गया</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d फालतू आइटम हटाया गया, त्रुटि से रोका गया</item>
+        <item quantity="other">%d फालतू आइटम हटाए गए, त्रुटि से रोका गए</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d कैश को अभी भी सुलभता सेवा की आवश्यकता है</item>
+        <item quantity="other">%1$s, %2$d कैशों को अभी भी सुलभता सेवा की आवश्यकता है</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d उपभोज्य वस्तु मिली</item>
         <item quantity="other">%d उपभोज्य वस्तुएँ मिलीं</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"कैश साफ़ करें\" बटन ढूंढ रहे हैं (कीवर्ड: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">डिफ़ॉल्ट कैश</string>
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक और निजी डिफ़ॉल्ट कैश। प्रत्यक्ष रूप से पहुंच योग्य नहीं है, लेकिन अप्रत्यक्ष रूप से हटाया जा सकता है (उदाहरण के लिए एक्सेसिबिलिटी सेवा के माध्यम से)।</string>
+    <string name="appcleaner_exclusion_limited_row_hint">बहिष्कृत, लेकिन सभी ऐप्स को एक साथ साफ करने से ये कैश अभी भी साफ हो जाते हैं</string>
+    <string name="appcleaner_exclusion_limited_title">बहिष्कृत ऐप्स</string>
+    <string name="appcleaner_exclusion_limited_body">आपने इस ऐप को AppCleaner से बहिष्कृत किया है। सभी ऐप्स के कैश को एक साथ साफ करने के लिए Shizuku की सिस्टम-वाइड कैश ट्रिम का उपयोग किया जाता है, जो किसी ऐप को छोड़ नहीं सकता, इसलिए इस ऐप का कैश्ड डेटा सब कुछ के साथ साफ हो जाता है। केवल यहां दिखाया गया कैश्ड डेटा प्रभावित होता है, बाकी सब कुछ जो बहिष्करण को कवर करता है छिपा रहता है और अछूता रहता है।</string>
     <string name="appcleaner_automation_unavailable_title">एक्सेसबिलिटी सेवा अनुपलब्ध है</string>
-    <string name="appcleaner_automation_unavailable_body">आपके डिवाइस पर स्वचालन समर्थित नहीं है या यह अक्षम है।</string>
+    <string name="appcleaner_automation_unavailable_body">इन कैशों को साफ करने के लिए SD Maid की सुलभता सेवा की आवश्यकता है, लेकिन यह उपलब्ध नहीं थी।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d चयनित ऐप के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">साफ़ करने से पहले बलपूर्वक रोकें</string>
     <string name="appcleaner_forcestop_before_clearing_summary">कैश साफ़ करने से पहले ऐप्स को बलपूर्वक रोकें। यह कुछ ऐप्स का कैश साफ़ करने में मदद कर सकता है, लेकिन ऐप्स में समस्या हो सकती है और मैन्युअल पुनः आरंभ की आवश्यकता हो सकती है।</string>
     <string name="appcleaner_progress_force_stopping">ऐप्स बलपूर्वक रोके जा रहे हैं…</string>
+    <string name="appcleaner_progress_checking_freed_space">मुक्त की गई जगह की जांच की जा रही है…</string>
 </resources>

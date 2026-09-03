@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">रखने या हटाने का निर्णय लेते समय कंपन करें।</string>
     <string name="swiper_discard_session_confirmation_title">सत्र छोड़ें?</string>
     <string name="swiper_discard_session_confirmation_message">सभी निर्णय खो जाएंगे। क्या आप निश्चित हैं?</string>
-    <string name="swiper_no_preview_available">कोई पूर्वावलोकन उपलब्ध नहीं</string>
+    <string name="swiper_no_preview_available">पूर्वावलोकन उपलब्ध नहीं है</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d दिन पहले का सत्र जारी रखें (%2$d%% पूर्ण)</item>
         <item quantity="other">%1$d दिन पहले का सत्र जारी रखें (%2$d%% पूर्ण)</item>
@@ -134,10 +134,10 @@
     <string name="swiper_stamp_undo_3">अरे!</string>
     <string name="swiper_stamp_undo_4">रुको!</string>
     <string name="swiper_gesture_overlay_dismiss">शुरू करने के लिए कहीं भी टैप करें</string>
-    <string name="swiper_gesture_overlay_left_delete">← हटाएं</string>
+    <string name="swiper_gesture_overlay_left_delete">← मिटाएं</string>
     <string name="swiper_gesture_overlay_right_keep">रखें →</string>
     <string name="swiper_gesture_overlay_left_keep">← रखें</string>
-    <string name="swiper_gesture_overlay_right_delete">हटाएं →</string>
+    <string name="swiper_gesture_overlay_right_delete">मिटाएं →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ छोड़ें</string>
     <string name="swiper_gesture_overlay_down_undo">↓ पूर्ववत करें</string>
     <string name="swiper_help_title">Swiper कैसे काम करता है</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">फ़िल्टर किया गया: %1$s</string>
     <string name="swiper_session_no_matching_files">कोई मिलान फ़ाइलें नहीं मिलीं</string>
     <string name="swiper_open_externally_action">बाहरी एप में खोलें</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">किसी फ़ाइल का भाग्य तय करने के लिए उसे स्वाइप करें: रखने या हटाने के लिए बगल में, छोड़ने के लिए ऊपर, पूर्ववत् करने के लिए नीचे। नीचे के बटन भी वही करते हैं — और दिखाते हैं कि कौन सी ओर कौन सी है।</string>
     <string name="tour_swiper_openin_body">यह बटन फ़ाइल को किसी अन्य ऐप में खोलता है, जिससे निर्णय लेने से पहले इसे जांचना आसान हो जाता है।</string>
     <string name="tour_swiper_preview_body">यह बटन अधिक बारीकी से देखने के लिए पूर्ण-स्क्रीन पूर्वावलोकन खोलता है।</string>

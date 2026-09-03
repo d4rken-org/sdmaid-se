@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nombre del horario</string>
     <string name="scheduler_schedule_toggle_enabled">El horario está activado</string>
     <string name="scheduler_schedule_toggle_disabled">El horario está desactivado</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Desactiva la programación para cambiarla.</string>
     <string name="scheduler_edit_schedule_action">Editar horario</string>
     <string name="scheduler_schedule_time_label">Tiempo aproximado</string>
     <string name="scheduler_schedule_repeat_label">Repetir intervalo en días</string>
@@ -47,7 +48,6 @@ Desactiva \"Incluir aplicaciones del sistema\", o ejecuta la programación cuand
     <string name="scheduler_commands_after_schedule_label">Comandos posteriores a la programación</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos de shell de Android que se ejecutarán al final de una programación.</string>
     <string name="scheduler_battery_optimization_hint">Considera desactivar las optimizaciones de batería para SD Maid si experimentas problemas con la ejecución en segundo plano.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid puede limpiar según un horario. Elige una hora y qué herramientas se ejecutan, y hará el trabajo en segundo plano, casi sin necesidad de abrir la app.</string>
     <string name="tour_scheduler_create_body">Toca aquí para crear un nuevo horario, después establece cuándo se ejecuta y qué herramientas incluir.</string>
 </resources>

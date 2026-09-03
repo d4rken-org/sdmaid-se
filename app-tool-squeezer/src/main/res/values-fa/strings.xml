@@ -29,6 +29,18 @@
         <item quantity="one">%d مورد رد شد (HDR/depth حفظ شد)</item>
         <item quantity="other">%d مورد رد شد (HDR/depth حفظ شد)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d پرش خورد (Motion Photo)</item>
+        <item quantity="other">%d پرش خورد (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d پرش خورد (عکس بسیار بزرگ)</item>
+        <item quantity="other">%d پرش خورد (عکس‌های بسیار بزرگ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d پرش خورد (محافظت‌شده)</item>
+        <item quantity="other">%d پرش خورد (محافظت‌شده)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d مورد انتخاب شد</item>
         <item quantity="other">%d مورد انتخاب شد</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">عمومی</string>
     <string name="squeezer_quality_description">کیفیت پایین‌تر به معنای حجم فایل کمتر اما کیفیت بصری کاهش‌یافته است.</string>
     <string name="squeezer_types_category_label">تنظیمات تصویر</string>
+    <string name="squeezer_protected_category_label">چه چیزهایی از بین می‌رود</string>
     <string name="squeezer_video_settings_category_label">تنظیمات ویدیو</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">شامل تصاویر JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">شامل تصاویر JPEG (.jpg, .jpeg). کدگذاری دوباره از رمزگذار JPEG داخلی Android استفاده می‌کند. تاریخ، موقعیت، و سایر ابرداده‌های EXIF حفظ می‌شوند.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">شامل تصاویر WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">شامل تصاویر WebP (.webp). کدگذاری دوباره از رمزگذار WebP داخلی Android استفاده می‌کند. تاریخ، موقعیت، و سایر ابرداده‌های EXIF حفظ می‌شوند.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">تصاویر HEIC/HEIF (.heic، .heif) را شامل کنید. تاریخ، مکان و سایر داده‌های EXIF حفظ می‌شوند. نقشه‌های بهره‌وری HDR، داده‌های عمق، و فایل‌های همراه Live/Motion Photo قابل حفظ نیستند؛ فایل‌های چندتصویری نادیده گرفته می‌شوند.</string>
     <string name="squeezer_type_video_title">ویدیوی MP4</string>
-    <string name="squeezer_type_video_description">فایل‌های ویدیویی MP4 (‎.mp4) را شامل شوید.</string>
+    <string name="squeezer_type_video_description">شامل فایل‌های ویدیوی MP4 (.mp4). مسیر ویدیو با کاهش نرخ بیتی توسط رمزگذار ویدیوی دستگاه کدگذاری دوباره می‌شود، مسیر صدا بدون تغییر کپی می‌شود، و فایل MP4 باقی می‌ماند.</string>
     <string name="squeezer_skip_compressed_title">رد کردن فایل‌های قبلاً فشرده شده</string>
     <string name="squeezer_skip_compressed_description">فایل‌هایی که قبلاً توسط SD Maid فشرده شده‌اند را رد کنید.</string>
     <string name="squeezer_exif_marker_title">نوشتن نشانگر EXIF</string>
     <string name="squeezer_exif_marker_description">افزودن نشانگر به فیلد نظر کاربر EXIF تصویر برای جلوگیری از فشرده‌سازی مجدد حتی اگر تاریخچه فشرده‌سازی پاک شود.</string>
     <string name="squeezer_include_lossy_aux_title">فشرده‌سازی عکس‌های HDR &amp; عمق</string>
-    <string name="squeezer_include_lossy_aux_description">به‌طور پیش‌فرض غیرفعال: عکس‌هایی که دارای نقشه بهره‌وری HDR یا داده‌های عمق/پرتره هستند نادیده گرفته می‌شوند تا مسطح نشوند. فعال کنید تا در صورت امکان، آنها را فشرده کنید — آنها نقشه بهره‌وری HDR یا داده‌های عمق خود را از دست خواهند داد. برخی عکس‌های HEIC چندتصویری در هر صورت محفوظ باقی می‌مانند.</string>
+    <string name="squeezer_include_lossy_aux_description">شامل عکس‌های دارای ابرداده HDR یا عمق. فشرده‌سازی آن را حذف می‌کند: عکس‌های HDR به عکس‌های عادی تبدیل می‌شوند، عکس‌های پرتره داده عمق پس‌زمینه را از دست می‌دهند. فایل‌های HEIC چندعکسی در پرش باقی می‌مانند.</string>
+    <string name="squeezer_include_motion_photos_title">فشرده‌سازی Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">شامل Motion Photos. فشرده‌سازی تصویر ثابت را نگاه می‌دارد و کلیپ ویدیو را حذف می‌کند.</string>
+    <string name="squeezer_include_oversized_title">فشرده‌سازی عکس‌های بسیار بزرگ</string>
+    <string name="squeezer_include_oversized_description">شامل عکس‌های عریض‌تر یا بلندتر از 8192 پیکسل. فشرده‌سازی همچنین وضوح آن‌ها را نصف می‌کند.</string>
     <string name="squeezer_estimated_savings_format">~%s صرفه‌جویی</string>
     <string name="squeezer_no_savings_expected">صرفه‌جویی محدود</string>
     <string name="squeezer_current_size_format">اندازه: %s</string>
+    <string name="squeezer_chip_compressed_before">فشرده‌شده</string>
+    <string name="squeezer_chip_hdr_depth">HDR/عمق</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">کاهش‌یافته</string>
+    <string name="squeezer_markers_dialog_title">درباره این نشانگرها</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid قبلاً این فایل را فشرده کرده است. فشرده کردن دوباره آن کیفیت را کاهش می‌دهد و صرفه‌جویی کمی دارد.</string>
+    <string name="squeezer_markers_hdr_depth_description">این عکس ابرداده HDR یا عمق دارد که فشرده‌سازی نمی‌تواند آن را حفظ کند. یک عکس HDR به عکس عادی تبدیل می‌شود، و عکس پرتره داده عمق پس‌زمینه را از دست می‌دهد.</string>
+    <string name="squeezer_markers_motion_photo_description">این یک Motion Photo است. فشرده‌سازی تصویر ثابت را نگاه می‌دارد و کلیپ ویدیو را حذف می‌کند.</string>
+    <string name="squeezer_markers_downscaled_description">این عکس عریض‌تر یا بلندتر از 8192 پیکسل است. فشرده‌سازی همچنین وضوح آن را نصف می‌کند.</string>
     <string name="squeezer_compress_action">فشرده‌سازی</string>
     <string name="squeezer_compress_all_action">فشرده‌سازی همه</string>
     <string name="squeezer_preview_dialog_title">تأیید فشرده‌سازی</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">مشاهده مقایسه</string>
     <string name="squeezer_no_example_found">تصویری در مسیرهای انتخابی یافت نشد.</string>
     <string name="squeezer_result_empty_message">هیچ رسانه‌ای قابل فشرده‌سازی پیدا نشد.</string>
+    <string name="squeezer_result_empty_protected">چیزی برای فشرده کردن نیست. رد شده: %s. برای افزودن آن‌ها، گزینهٔ مربوطه را در تنظیمات فعال کنید.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d عکس HDR/عمق</item>
+        <item quantity="other">%d عکس HDR/عمق</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d عکس بسیار بزرگ</item>
+        <item quantity="other">%d عکس بسیار بزرگ</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d مکان قابل استفاده برای فشرده‌سازی نیست و حذف شد. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>
         <item quantity="other">%d مکان قابل استفاده برای فشرده‌سازی نیستند و حذف شدند. فشرده‌سازی نیاز به دسترسی مستقیم به حافظه داخلی دارد.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">حداقل %d روزه</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">پس‌انداز برآوردی ~%d%% برای فایل‌های JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer عکس‌ها و ویدیوهای شما را دوباره فشرده می‌کند تا فضای کمتری مصرف کنند. شما کمی از کیفیت را برای فضایی که بدست می‌آورید قربانی می‌کنید. هر مورد صرفه‌جویی تخمینی خود را نشان می‌دهد، بنابراین می‌توانید تصمیم بگیرید کدام‌یک ارزشش را دارد.</string>
     <string name="tour_squeezer_compress_body">همه‌چیز را یکجا اینجا فشرده کنید یا روی یک مورد ضربه بزنید تا فقط همان یکی کوچک شود. برای انتخاب چندین، فشار طولانی بدهید. همیشه قبل از هر تغییری یک پیش‌نمایش خواهید دید.</string>
 </resources>

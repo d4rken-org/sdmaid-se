@@ -81,6 +81,10 @@
         <item quantity="one">%d app is omgeschakeld</item>
         <item quantity="other">%d apps zijn omgeschakeld</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app kan niet in- of uitgeschakeld worden</item>
+        <item quantity="other">%d apps kunnen niet in- of uitgeschakeld worden</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bepaal grootte</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Krijg een ruwe schatting van de grootte van elke app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Activiteit bepalen</string>

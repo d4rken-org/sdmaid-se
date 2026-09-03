@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">ვიბრაცია შენახვის ან წაშლის გადაწყვეტილებებისას.</string>
     <string name="swiper_discard_session_confirmation_title">სესიის გაუქმება?</string>
     <string name="swiper_discard_session_confirmation_message">ყველა გადაწყვეტილება დაიკარგება. დარწმუნებული ხართ?</string>
-    <string name="swiper_no_preview_available">წინასწარი ნახვა მიუწვდომელია</string>
+    <string name="swiper_no_preview_available">გადახედვა მიუწვდომელია</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">%1$d დღის წინანდელი სესიის გაგრძელება (%2$d%% დასრულებული)</item>
         <item quantity="other">%1$d დღის წინანდელი სესიის გაგრძელება (%2$d%% დასრულებული)</item>
@@ -133,10 +133,10 @@
     <string name="swiper_stamp_undo_2">უკან!</string>
     <string name="swiper_stamp_undo_3">უპს!</string>
     <string name="swiper_stamp_undo_4">მოიცა!</string>
-    <string name="swiper_gesture_overlay_dismiss">დასაწყებად შეეხეთ ნებისმიერ ადგილას</string>
+    <string name="swiper_gesture_overlay_dismiss">შეეხეთ ნებისმიერ ადგილს დასაწყებად</string>
     <string name="swiper_gesture_overlay_left_delete">← წაშლა</string>
-    <string name="swiper_gesture_overlay_right_keep">შენახვა →</string>
-    <string name="swiper_gesture_overlay_left_keep">← შენახვა</string>
+    <string name="swiper_gesture_overlay_right_keep">შენარჩუნება →</string>
+    <string name="swiper_gesture_overlay_left_keep">← შენარჩუნება</string>
     <string name="swiper_gesture_overlay_right_delete">წაშლა →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ გამოტოვება</string>
     <string name="swiper_gesture_overlay_down_undo">↓ გაუქმება</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">გაფილტრული: %1$s</string>
     <string name="swiper_session_no_matching_files">შესაბამისი ფაილები ვერ მოიძებნა</string>
     <string name="swiper_open_externally_action">გარე აპლიკაციაში გახსნა</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">გადაფურცლეთ ფაილი მისი ბედის გადასწყვეტად: გვერდით შესანარჭუნებლად ან წასაშლელად, ზემოთ გამოსატოვებლად, ქვემოთ გასაუკეთებლად. ქვემოთ მოცემული ღილაკები იგივეს აკეთებენ — და აჭვენებენ რომელი მხარე რომელია.</string>
     <string name="tour_swiper_openin_body">ეს ღილაკი ფაილს სხვა აპლიკაციაში ხსნის, რაც საშუალებელია მისი შემოწმებისთვის გადაწყვეტამდე.</string>
     <string name="tour_swiper_preview_body">ეს ღილაკი ხსნის სრული ეკრანის გადახედვას უფრო ახლო დათვალიერებისთვის.</string>

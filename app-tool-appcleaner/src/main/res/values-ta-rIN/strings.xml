@@ -60,6 +60,18 @@
         <item quantity="one">%d தேவையில்லாத பொருள் நீக்கப்பட்டது</item>
         <item quantity="other">%d தேவையில்லாத பொருட்கள் நீக்கப்பட்டது</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d தேவையற்ற உருப்படி நீக்கப்பட்டது, திரை அணைக்கப்பட்டதால் அல்லது பூட்டப்பட்டதால் நிறுத்தப்பட்டது</item>
+        <item quantity="other">%d தேவையற்ற உருப்படிகள் நீக்கப்பட்டன, திரை அணைக்கப்பட்டதால் அல்லது பூட்டப்பட்டதால் நிறுத்தப்பட்டது</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d தேவையற்ற உருப்படி நீக்கப்பட்டது, ஒரு பிழையால் நிறுத்தப்பட்டது</item>
+        <item quantity="other">%d தேவையற்ற உருப்படிகள் நீக்கப்பட்டன, ஒரு பிழையால் நிறுத்தப்பட்டது</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d தற்காலிக சேமிப்புக்கு இன்னும் அணுகல்தன்மை சேவை தேவை</item>
+        <item quantity="other">%1$s, %2$d தற்காலிக சேமிப்புகளுக்கு இன்னும் அணுகல்தன்மை சேவை தேவை</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d தேவையில்லாத பொருள் கண்டுபிடிக்கப்பட்டது</item>
         <item quantity="other">%d தேவையில்லாத பொருட்கள் கண்டுபிடிக்கப்பட்டது</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"துளையகத்தை அழிக்கும்\" பட்டனைத் தேடுகிறது (சொல்தொடர்கள்: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">இயல்பு கேச்கள்</string>
     <string name="appcleaner_item_caches_inaccessible_body">பொது மற்றும் தனியார் இயல்புநிலை துளையகங்கள். நேரடியாக அணுகலாம் இல்லை, ஆனால் மற்றவாறு நீக்கலாம் (உதா.: அக்செஸிபிலிட்டி சேவை மூலம்).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">விலக்கப்பட்டது, ஆனால் அனைத்து பயன்பாடுகளையும் ஒரே நேரத்தில் சுத்தம் செய்வது இந்த தற்காலிக சேமிப்புகளை இன்னும் அழிக்கும்</string>
+    <string name="appcleaner_exclusion_limited_title">விலக்கப்பட்ட பயன்பாடு</string>
+    <string name="appcleaner_exclusion_limited_body">நீங்கள் இந்த பயன்பாட்டை AppCleaner இலிருந்து விலக்கினீர்கள். அனைத்து பயன்பாடுகளுக்கும் ஒரே நேரத்தில் தற்காலிக சேமிப்புகளை அழிப்பது Shizuku இன் கணினி முழுவதற்குமான தற்காலிக சேமிப்பு குறைப்பைப் பயன்படுத்துகிறது, இது தனிப்பட்ட பயன்பாடுகளை விட்டுவிட முடியாது, எனவே இந்த பயன்பாட்டின் தற்காலிக சேமிப்பு தரவும் மற்ற அனைத்துடனும் அழிக்கப்படும். இங்கே காட்டப்பட்டுள்ள தற்காலிக சேமிப்பு தரவு மட்டுமே பாதிக்கப்படும், விலக்கு உள்ளடக்கும் மற்ற அனைத்தும் மறைக்கப்பட்டு தொடப்படாமல் இருக்கும்.</string>
     <string name="appcleaner_automation_unavailable_title">அணுகல் சேவை கிடைக்கவில்லை</string>
-    <string name="appcleaner_automation_unavailable_body">அணுக முடியாத கேச்களை நீக்குவதற்கு SD Maid இன் அணுகல் சேவை தேவை, ஆனால் அது கிடைக்கவில்லை. நீங்கள் அதைப் பயன்படுத்த விரும்பவில்லை என்றால்: \"அணுக முடியாத கேச்களை சேர்க்கவும்\" விருப்பத்தை அவலாக்கவும்.</string>
+    <string name="appcleaner_automation_unavailable_body">இந்த தற்காலிக சேமிப்புகளை அழிக்க SD Maid இன் அணுகல்தன்மை சேவை தேவை, ஆனால் அது கிடைக்கவில்லை.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s க்கான தேவையில்லாத கோப்புகளை நீக்கவுமா?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d தேர்ந்தெடுத்த பயன்பாடுக்கான தேவையில்லாத கோப்புகளை நீக்கவுமா?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">அழிக்கும் முன் கட்டாய நிறுத்தம்</string>
     <string name="appcleaner_forcestop_before_clearing_summary">தற்காலிக சேமிப்பை அழிக்கும் முன் செயலிகளை கட்டாயமாக நிறுத்து. சில செயலிகளின் தற்காலிக சேமிப்பை அழிக்க உதவலாம், ஆனால் செயலிகள் தவறாக செயல்படலாம் மற்றும் கைமுறையாக மறுதொடக்கம் தேவைப்படலாம்.</string>
     <string name="appcleaner_progress_force_stopping">செயலிகளை கட்டாயமாக நிறுத்துகிறது…</string>
+    <string name="appcleaner_progress_checking_freed_space">விடுவிக்கப்பட்ட இடத்தை சரிபார்க்கிறது…</string>
 </resources>

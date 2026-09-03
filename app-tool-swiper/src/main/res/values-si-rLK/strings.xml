@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">තබා ගැනීම හෝ මැකීම තීරණ ගන්නා විට කම්පනය.</string>
     <string name="swiper_discard_session_confirmation_title">සැසිය ඉවත ලන්නද?</string>
     <string name="swiper_discard_session_confirmation_message">සියලු තීරණ නැති වනු ඇත. ඔබට විශ්වාසද?</string>
-    <string name="swiper_no_preview_available">පෙරදසුනක් නැත</string>
+    <string name="swiper_no_preview_available">පෙරදසුන නොමැත</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">දින %1$d කට පෙර සැසිය දිගටම (%2$d%% අවසන්)</item>
         <item quantity="other">දින %1$d කට පෙර සැසිය දිගටම (%2$d%% අවසන්)</item>
@@ -135,11 +135,11 @@
     <string name="swiper_stamp_undo_4">ඉන්න!</string>
     <string name="swiper_gesture_overlay_dismiss">ආරම්භ කිරීමට ඕනෑම තැනක තට්ටු කරන්න</string>
     <string name="swiper_gesture_overlay_left_delete">← මකන්න</string>
-    <string name="swiper_gesture_overlay_right_keep">තබාගන්න →</string>
-    <string name="swiper_gesture_overlay_left_keep">← තබාගන්න</string>
+    <string name="swiper_gesture_overlay_right_keep">තබා ගන්න →</string>
+    <string name="swiper_gesture_overlay_left_keep">← තබා ගන්න</string>
     <string name="swiper_gesture_overlay_right_delete">මකන්න →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ මඟ හරින්න</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ අස් කරන්න</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ආපසු කරන්න</string>
     <string name="swiper_help_title">ස්වයිපර් ක්‍රියා කරන ආකාරය</string>
     <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
     <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">පෙරහන් කළ: %1$s</string>
     <string name="swiper_session_no_matching_files">ගැළපෙන ගොනු හමු නොවිණි</string>
     <string name="swiper_open_externally_action">බාහිර යෙදුමකින් විවෘත කරන්න</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ගොනුවක ඉරණම තීරණය කිරීමට එර්ජිය සිදු කරන්න: පැත්තට ගිරවීම තබා ගැනීමට හෝ මකා දැමීමට, ඉහළට මඟ හැරීමට, පහළට අහෝසි කිරීමට. පහතින් බොත්තම් එකම දෙයක් කරයි — සහ කුමන පැත්ත කුමක්ද යන්න පෙන්වයි.</string>
     <string name="tour_swiper_openin_body">මෙම බොත්තම ගොනුව වෙනත් යෙදුමක විවෘත කරයි, තීරණය කිරීමට පෙර එය පරීක්ෂා කිරීමට පහසුවි.</string>
     <string name="tour_swiper_preview_body">සමීපව බැලීම සඳහා මෙම බොත්තම සම්පූර්ණ-තිර පෙරදසුනක් විවෘත කරයි.</string>

@@ -6,7 +6,6 @@
     <plurals name="picker_selected_paths_subtitle">
         <item quantity="one">נבחר נתיב %d</item>
         <item quantity="two">נבחרו %d נתיבים</item>
-        <item quantity="many">נבחרו %d נתיבים</item>
         <item quantity="other">נבחרו %d נתיבים</item>
     </plurals>
     <string name="picker_home_action">אזורי נתונים</string>

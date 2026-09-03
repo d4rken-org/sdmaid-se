@@ -60,6 +60,18 @@
         <item quantity="one">%d elemento prescindible eliminado</item>
         <item quantity="other">%d elementos prescindibles eliminados</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d elemento prescindible eliminado, detido porque a pantalla estaba apagada ou bloqueada</item>
+        <item quantity="other">%d elementos prescindibles eliminados, detidos porque a pantalla estaba apagada ou bloqueada</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d elemento prescindible eliminado, detido por un erro</item>
+        <item quantity="other">%d elementos prescindibles eliminados, detidos por un erro</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d caché aínda necesita o servizo de accesibilidade</item>
+        <item quantity="other">%1$s, %2$d cachés aínda necesitan o servizo de accesibilidade</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elemento prescindible atopado</item>
         <item quantity="other">%d elementos prescindibles atopados</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Buscando botón \"Borrar caché\" (palabras clave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cachés predeterminadas</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cachés predeterminadas públicas e privadas. Non accesibles directamente, pero pódense eliminar indirectamente (p. ex. a través do servizo de accesibilidade).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Excluída, pero limpiar todas as aplicacións á vez aínda borra estas cachés</string>
+    <string name="appcleaner_exclusion_limited_title">Aplicación excluída</string>
+    <string name="appcleaner_exclusion_limited_body">Excluíches esta aplicación de AppCleaner. Ao limpiar cachés de todas as aplicacións á vez utilízase a limpeza de caché a nivel do sistema de Shizuku, que non pode deixar fóra aplicacións individuais, polo que os datos en caché desta aplicación se borran xunto con todo o resto. Só se ven afectados os datos en caché mostrados aquí, todo o resto que cobre a exclusión segue agochado e sen tocar.</string>
     <string name="appcleaner_automation_unavailable_title">Servizo de accesibilidade non dispoñible</string>
-    <string name="appcleaner_automation_unavailable_body">Borrar cachés inaccesibles require o servizo de accesibilidade de SD Maid, pero non estaba dispoñible. Se non queres usalo: Desactiva a opción \"Incluír cachés inaccesibles\".</string>
+    <string name="appcleaner_automation_unavailable_body">Limpiar estas cachés require o servizo de accesibilidade de SD Maid, pero non estaba dispoñible.</string>
     <string name="appcleaner_delete_confirmation_message_x">Eliminar ficheiros prescindibles para %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Eliminar ficheiros prescindibles para %d aplicación seleccionada?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forzar a detención das aplicacións antes de limpar a súa caché. Pode axudar a limpar as cachés dalgunhas aplicacións, pero pode causar mal funcionamento e requirir reinicio manual.</string>
     <string name="appcleaner_progress_force_stopping">Forzando detención de aplicacións…</string>
+    <string name="appcleaner_progress_checking_freed_space">Comprobando espazo liberado…</string>
 </resources>

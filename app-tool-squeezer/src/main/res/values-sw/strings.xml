@@ -29,6 +29,18 @@
         <item quantity="one">%d imerukwa (HDR/kina kimehifadhiwa)</item>
         <item quantity="other">%d zimerukwa (HDR/kina kimehifadhiwa)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d imerukwa (Motion Photo)</item>
+        <item quantity="other">%d zimerukwa (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d imerukwa (picha kubwa mno)</item>
+        <item quantity="other">%d zimerukwa (picha kubwa mno)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d imerukwa (imelindwa)</item>
+        <item quantity="other">%d zimerukwa (zimelindwa)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d kipande kimechaguliwa</item>
         <item quantity="other">%d vipande vimechaguliwa</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Jumla</string>
     <string name="squeezer_quality_description">Ubora mdogo unamaanisha ukubwa mdogo wa faili lakini ubora wa kuona umepungua.</string>
     <string name="squeezer_types_category_label">Mipangilio ya picha</string>
+    <string name="squeezer_protected_category_label">Kinachopotea</string>
     <string name="squeezer_video_settings_category_label">Mipangilio ya video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Jumuisha picha za JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Jumuisha picha za JPEG (.jpg, .jpeg). Kusimba upya hutumia kisimbaji cha JPEG kilichojengwa ndani ya Android. Tarehe, mahali, na data nyingine za metadata za EXIF huhifadhiwa.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Jumuisha picha za WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Jumuisha picha za WebP (.webp). Kusimba upya hutumia kisimbaji cha WebP kilichojengwa ndani ya Android. Tarehe, mahali, na data nyingine za metadata za EXIF huhifadhiwa.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Jumuisha picha za HEIC/HEIF (.heic, .heif). Tarehe, mahali, na metadata nyingine za EXIF zinahifadhiwa. Ramani za HDR, data ya kina, na faili ndugu za Live/Motion Photo haziwezi kuhifadhiwa; faili za picha nyingi zinarukwa.</string>
     <string name="squeezer_type_video_title">Video ya MP4</string>
-    <string name="squeezer_type_video_description">Jumuisha faili za video za MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Jumuisha faili za video za MP4 (.mp4). Wimbo wa video husimbwa upya kwa kiwango cha chini cha biti na kisimbaji cha video cha kifaa chenyewe, wimbo wa sauti hunakiliwa bila kubadilika, na faili hubaki ni MP4.</string>
     <string name="squeezer_skip_compressed_title">Ruka zilizobaniwa hapo awali</string>
     <string name="squeezer_skip_compressed_description">Ruka faili ambazo tayari zimebaniwa na SD Maid.</string>
     <string name="squeezer_exif_marker_title">Andika alama ya EXIF</string>
     <string name="squeezer_exif_marker_description">Ongeza alama kwenye sehemu ya maoni ya mtumiaji wa EXIF ya picha ili kuzuia kubaniwa tena hata kama historia ya kubana inafutwa.</string>
     <string name="squeezer_include_lossy_aux_title">Bana picha za HDR na kina</string>
-    <string name="squeezer_include_lossy_aux_description">Imezimwa kwa chaguo-msingi: picha zenye ramani ya HDR au data ya kina/portrait zinarukwa ili zisibapishwe. Wezesha ili kuzibana pale inapowezekana — zitapoteza ramani yao ya HDR au data ya kina. Baadhi ya picha za HEIC za picha nyingi zinasalia zikiwa zimelindwa bila kujali.</string>
+    <string name="squeezer_include_lossy_aux_description">Jumuisha picha zenye data ya HDR au kina. Ubanaji huondoa data hiyo: picha za HDR huwa picha za kawaida, picha za watu hupoteza data iliyo nyuma ya ufifiaji wa mandhari ya nyuma. Faili za HEIC zenye picha nyingi huendelea kurukwa.</string>
+    <string name="squeezer_include_motion_photos_title">Banaa Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Jumuisha Motion Photos. Ubanaji huhifadhi picha tuli na kuondoa klipu ya video.</string>
+    <string name="squeezer_include_oversized_title">Banaa picha kubwa mno</string>
+    <string name="squeezer_include_oversized_description">Jumuisha picha zenye upana au urefu zaidi ya pikseli 8192. Ubanaji pia hupunguza ubora wao kwa nusu.</string>
     <string name="squeezer_estimated_savings_format">~%s akiba</string>
     <string name="squeezer_no_savings_expected">Akiba ndogo</string>
     <string name="squeezer_current_size_format">Ukubwa: %s</string>
+    <string name="squeezer_chip_compressed_before">Imebanwa</string>
+    <string name="squeezer_chip_hdr_depth">HDR/kina</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Imepunguzwa</string>
+    <string name="squeezer_markers_dialog_title">Kuhusu alama hizi</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid tayari imebana faili hii. Kuibana tena kunapoteza ubora na kuokoa kidogo.</string>
+    <string name="squeezer_markers_hdr_depth_description">Picha hii ina data ya HDR au kina ambayo ubanaji hauwezi kuhifadhi. Picha ya HDR hurudi kuwa ya kawaida, na picha ya mtu hupoteza data ya kina inayotumika kwa ufifiaji wa mandhari ya nyuma.</string>
+    <string name="squeezer_markers_motion_photo_description">Hii ni Motion Photo. Ubanaji huhifadhi picha tuli na kuondoa klipu ya video.</string>
+    <string name="squeezer_markers_downscaled_description">Picha hii ina upana au urefu zaidi ya pikseli 8192. Ubanaji pia hupunguza ubora wake kwa nusu.</string>
     <string name="squeezer_compress_action">Bana</string>
     <string name="squeezer_compress_all_action">Bana zote</string>
     <string name="squeezer_preview_dialog_title">Thibitisha kubana</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Tazama kulinganisha</string>
     <string name="squeezer_no_example_found">Hakuna picha zilizopatikana katika njia zilizochaguliwa.</string>
     <string name="squeezer_result_empty_message">Hakuna midia inayoweza kubanwa iliyopatikana.</string>
+    <string name="squeezer_result_empty_protected">Hakuna cha kubana. Zilizorukwa: %s. Washa chaguo linalolingana katika mipangilio ili kuzijumuisha.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">picha %d ya HDR/kina</item>
+        <item quantity="other">picha %d za HDR/kina</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">Motion Photo %d</item>
+        <item quantity="other">Motion Photos %d</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">picha %d kubwa mno</item>
+        <item quantity="other">picha %d kubwa mno</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">Mahali %d haliwezi kutumika kwa kubana na limeondolewa. Kubana kunahitaji ufikiaji wa moja kwa moja wa hifadhi ya ndani.</item>
         <item quantity="other">Maeneo %d hayawezi kutumika kwa kubana na yameondolewa. Kubana kunahitaji ufikiaji wa moja kwa moja wa hifadhi ya ndani.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Angalau siku %d</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Makadirio ya ~%d%% akiba kwa faili za JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer hubana tena picha na video zako ili zichukue nafasi kidogo. Unabadilishana ubora kidogo kwa nafasi unayopata. Kila kipengele kinaonyesha akiba inayokadiriwa, ili uweze kuamua kinachostahili.</string>
     <string name="tour_squeezer_compress_body">Bana kila kitu mara moja hapa, au gusa kipengele kimoja ili kukibana peke yake. Bonyeza kwa muda mrefu ili kuchagua kadhaa. Utaona mapitio kila wakati kabla ya mabadiliko yoyote.</string>
 </resources>

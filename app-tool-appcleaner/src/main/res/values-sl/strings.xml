@@ -62,6 +62,24 @@
         <item quantity="few">Izbrisani so bili %d-je odvečni predmeti.</item>
         <item quantity="other">Izbrisanih je bilo %d odvečnih predmetov.</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d nepotrebni predmet izbrisan, zaustavljen ker je bil zaslon izklopljen ali zaklenjen</item>
+        <item quantity="two">%d nepotrebna predmeta izbrisana, zaustavljena ker je bil zaslon izklopljen ali zaklenjen</item>
+        <item quantity="few">%d nepotrebni predmeti izbrisani, zaustavljeni ker je bil zaslon izklopljen ali zaklenjen</item>
+        <item quantity="other">%d nepotrebnih predmetov izbrisanih, zaustavljeno ker je bil zaslon izklopljen ali zaklenjen</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d nepotrebni predmet izbrisan, zaustavljen zaradi napake</item>
+        <item quantity="two">%d nepotrebna predmeta izbrisana, zaustavljena zaradi napake</item>
+        <item quantity="few">%d nepotrebni predmeti izbrisani, zaustavljeni zaradi napake</item>
+        <item quantity="other">%d nepotrebnih predmetov izbrisanih, zaustavljeno zaradi napake</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d predpomnilnik še vedno potrebuje dostopnostno storitev</item>
+        <item quantity="two">%1$s, %2$d predpomnilnika še vedno potrebujeta dostopnostno storitev</item>
+        <item quantity="few">%1$s, %2$d predpomnilniki še vedno potrebujejo dostopnostno storitev</item>
+        <item quantity="other">%1$s, %2$d predpomnilnikov še vedno potrebuje dostopnostno storitev</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Najden je bil %d odvečen predmet.</item>
         <item quantity="two">Najdena sta bila %d odvečna predmeta.</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Iskanje gumba \"Počisti predpomnilnik\" (ključne besede: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Prevzeti predpomnilniki</string>
     <string name="appcleaner_item_caches_inaccessible_body">Privzeti javni in zasebni predpomnilniki, ki niso neposredno dostopni, ampak se jih lahko posredno izbriše (npr. preko storitve dostopnosti).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Izključen, vendar čiščenje vseh aplikacij skupaj te predpomnilnike vseeno izbriše</string>
+    <string name="appcleaner_exclusion_limited_title">Izključeni program</string>
+    <string name="appcleaner_exclusion_limited_body">Program ste izključili iz SD Maida. Čiščenje predpomnilnikov vseh aplikacij naenkrat uporablja Shizukovo sistemsko čiščenje predpomnilnika, ki ne more preskočiti posameznih aplikacij. Zato se predpomnilnik te aplikacije izbriše skupaj z vsemi drugimi. Prizadet je le prikazani predpomnilnik; ostali podatki, zaščiteni z izključitvijo, ostanejo nespremenjeni.</string>
     <string name="appcleaner_automation_unavailable_title">Storitev dostopnosti ni na voljo.</string>
-    <string name="appcleaner_automation_unavailable_body">Čiščenje nedostopnih predpomnilnikov zahteva SD Maidovo storitev dostopnosti, vendar ni bila na voljo.  Če je ne želite uporabljati, onemogočite možnost \"Vključi nedostopne predpomnilnike\". </string>
+    <string name="appcleaner_automation_unavailable_body">Čiščenje teh predpomnilnikov zahteva dostopnostno storitev SD Maida, vendar ni bila dostopna.</string>
     <string name="appcleaner_delete_confirmation_message_x">Izbriši odvečne predmete za uporabnika %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Izbriši odvečne datoteke za %d izbrani program?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Prisilno ustavi pred čiščenjem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Prisilno ustavi programe pred čiščenjem predpomnilnika. Lahko pomaga pri čiščenju nekaterih predpomnilnikov, vendar lahko povzroči nepravilno delovanje programov in zahteva ročni ponovni zagon.</string>
     <string name="appcleaner_progress_force_stopping">Prisilno ustavljanje programov …</string>
+    <string name="appcleaner_progress_checking_freed_space">Preverjanje osvobojenega prostora…</string>
 </resources>

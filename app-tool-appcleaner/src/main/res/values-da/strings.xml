@@ -60,6 +60,18 @@
         <item quantity="one">%d overflødigt element slettet</item>
         <item quantity="other">%d overflødige elementer slettet</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d overflødigt element slettet, stoppet fordi skærmen var slukket eller låst</item>
+        <item quantity="other">%d overflødige elementer slettet, stoppet fordi skærmen var slukket eller låst</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d overflødigt element slettet, stoppet af en fejl</item>
+        <item quantity="other">%d overflødige elementer slettet, stoppet af en fejl</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache mangler stadig hjælpefunktionstjenesten</item>
+        <item quantity="other">%1$s, %2$d caches mangler stadig hjælpefunktionstjenesten</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d overflødigt element fundet</item>
         <item quantity="other">%d overflødige elementer fundet</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Leder efter knappen \"Ryd cache\" (søgeord: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standardcacher</string>
     <string name="appcleaner_item_caches_inaccessible_body">Offentlige og private standardcacher. Ikke direkte tilgængelige, men kan slettes indirekte (f.eks. via tilgængelighedstjeneste).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Ekskluderet, men rensning af alle apps på én gang rydder stadig disse caches</string>
+    <string name="appcleaner_exclusion_limited_title">Ekskluderet app</string>
+    <string name="appcleaner_exclusion_limited_body">Du har ekskluderet denne app fra Apprenseren. Rydning af cache for alle apps på én gang bruger Shizukus systemdækkende cache-oprydning, som ikke kan udelade enkelte apps, så denne apps cachedata ryddes sammen med alt andet. Kun de cachedata, der vises her, er berørt. Alt andet, som eksklusionen dækker, forbliver skjult og urørt.</string>
     <string name="appcleaner_automation_unavailable_title">Tilgængelighedstjeneste utilgængelig</string>
-    <string name="appcleaner_automation_unavailable_body">Rydning af utilgængelige cacher kræver SD Maids tilgængelighedstjeneste, men den var ikke tilgængelig. Hvis du ikke vil bruge den, så deaktiver indstillingen \"Inkluder utilgængelige cacher\".</string>
+    <string name="appcleaner_automation_unavailable_body">Rydning af disse caches kræver SD Maids hjælpefunktionstjeneste, men den var ikke tilgængelig.</string>
     <string name="appcleaner_delete_confirmation_message_x">Slet overflødige filer for %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Slet overflødige filer for %d valgt app?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tvangsstop før rydning</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tvangsstop apps før rydning af deres cache. Det kan hjælpe med at rydde nogle apps\' caches, men kan medføre at apps opfører sig forkert og kræver manuel genstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvangsstopper apps…</string>
+    <string name="appcleaner_progress_checking_freed_space">Tjekker frigjort plads…</string>
 </resources>

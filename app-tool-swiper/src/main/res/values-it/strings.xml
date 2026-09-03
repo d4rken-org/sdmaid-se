@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Vibra quando si prendono decisioni di tenere o eliminare.</string>
     <string name="swiper_discard_session_confirmation_title">Scartare la sessione?</string>
     <string name="swiper_discard_session_confirmation_message">Tutte le decisioni saranno perse. Sei sicuro?</string>
-    <string name="swiper_no_preview_available">Nessuna anteprima disponibile</string>
+    <string name="swiper_no_preview_available">Anteprima non disponibile</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Continua sessione da %1$d giorno fa (%2$d%% completato)</item>
         <item quantity="other">Continua sessione da %1$d giorni fa (%2$d%% completato)</item>
@@ -135,8 +135,8 @@
     <string name="swiper_stamp_undo_4">Aspetta!</string>
     <string name="swiper_gesture_overlay_dismiss">Tocca ovunque per iniziare</string>
     <string name="swiper_gesture_overlay_left_delete">← Elimina</string>
-    <string name="swiper_gesture_overlay_right_keep">Tieni →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Tieni</string>
+    <string name="swiper_gesture_overlay_right_keep">Mantieni →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mantieni</string>
     <string name="swiper_gesture_overlay_right_delete">Elimina →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Salta</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Filtrati: %1$s</string>
     <string name="swiper_session_no_matching_files">Nessun file corrispondente trovato</string>
     <string name="swiper_open_externally_action">Apri nell’app esterna</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Fai swipe su un file per decidere il suo destino: lateralmente per tenerlo o eliminarlo, verso l’alto per saltarlo, verso il basso per annullare. I pulsanti sottostanti fanno lo stesso — e mostrano quale lato corrisponde a cosa.</string>
     <string name="tour_swiper_openin_body">Questo pulsante apre il file in un’altra app, utile per controllarlo prima di decidere.</string>
     <string name="tour_swiper_preview_body">Questo pulsante apre un’anteprima a schermo intero per uno sguardo più ravvicinato.</string>

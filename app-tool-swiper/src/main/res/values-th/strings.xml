@@ -50,7 +50,7 @@
     <string name="swiper_settings_haptic_feedback_summary">สั่นเมื่อตัดสินใจเก็บหรือลบ</string>
     <string name="swiper_discard_session_confirmation_title">ยกเลิกเซสชัน?</string>
     <string name="swiper_discard_session_confirmation_message">การตัดสินใจทั้งหมดจะสูญหาย คุณแน่ใจหรือไม่?</string>
-    <string name="swiper_no_preview_available">ไม่มีตัวอย่าง</string>
+    <string name="swiper_no_preview_available">ไม่มีตัวอย่างให้ดู</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">ดำเนินเซสชันต่อจาก %1$d วันที่แล้ว (เสร็จ %2$d%%)</item>
     </plurals>
@@ -118,8 +118,8 @@
     <string name="swiper_stamp_undo_4">เดี๋ยว!</string>
     <string name="swiper_gesture_overlay_dismiss">แตะที่ใดก็ได้เพื่อเริ่ม</string>
     <string name="swiper_gesture_overlay_left_delete">← ลบ</string>
-    <string name="swiper_gesture_overlay_right_keep">เก็บ →</string>
-    <string name="swiper_gesture_overlay_left_keep">← เก็บ</string>
+    <string name="swiper_gesture_overlay_right_keep">เก็บไว้ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← เก็บไว้</string>
     <string name="swiper_gesture_overlay_right_delete">ลบ →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ ข้าม</string>
     <string name="swiper_gesture_overlay_down_undo">↓ เลิกทำ</string>
@@ -142,7 +142,6 @@
     <string name="swiper_file_type_filter_summary">กรองแล้ว: %1$s</string>
     <string name="swiper_session_no_matching_files">ไม่พบไฟล์ที่ตรงกัน</string>
     <string name="swiper_open_externally_action">เปิดในแอปภายนอก</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ปัดไฟล์เพื่อตัดสินใจว่าจะทำอะไร ปัดข้างเพื่อเก็บหรือลบ ปัดขึ้นเพื่อข้าม ปัดลงเพื่อเลิกทำ ปุ่มด้านล่างทำสิ่งเดียวกัน — และแสดงว่าด้านไหนคือด้านไหน</string>
     <string name="tour_swiper_openin_body">ปุ่มนี้เปิดไฟล์ในแอปอื่น มีประโยชน์สำหรับการตรวจสอบก่อนตัดสินใจ</string>
     <string name="tour_swiper_preview_body">ปุ่มนี้เปิดตัวอย่างแบบเต็มหน้าจอเพื่อดูใกล้ชิดยิ่งขึ้น</string>

@@ -62,18 +62,16 @@
         <item quantity="one">Околу %d ден простор остал со оваа брзина</item>
         <item quantity="other">Околу %d денови простор остал со оваа брзина</item>
     </plurals>
-    <!-- Settings -->
     <string name="analyzer_settings_storage_category_label">Складиште</string>
     <string name="analyzer_settings_lowstorage_title">Праг на низок простор</string>
     <string name="analyzer_settings_lowstorage_desc">Кога слободниот простор паѓа под оваа граница, SD Maid го третира складиштото како исцрпено.</string>
+    <string name="analyzer_settings_lowstorage_value_auto">Автоматски (моментално %1$s)</string>
     <string name="analyzer_settings_lowstorage_value_auto_unknown">Автоматски</string>
     <string name="analyzer_settings_lowstorage_automatic_action">Автоматски</string>
     <string name="analyzer_settings_lowspace_notification_title">Предупредување за низок простор</string>
     <string name="analyzer_settings_lowspace_notification_desc">Добијте известување пред да останете без простор.</string>
-    <!-- Device storage upgrade hint -->
     <string name="analyzer_lowspace_hint_title">Никогаш не останете без простор</string>
     <string name="analyzer_lowspace_hint_body">Надградете за да добиете предупредување пред вашето складиште да се исцрпи, па можете да чистите додека има место за работа.</string>
-    <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Видете што навистина ви го полни складиштето. Analyzer-от прикажува каде оди вашиот простор. Секоја од овие картички претставува складишна единица на вашиот уред.</string>
     <string name="tour_analyzer_storage_body">Отворете складиште за да го разделите на апликации, медиуми и датотеки, па потоа продолжете да допирате за да ги проследите најголемите потрошувачи на простор.</string>
 </resources>

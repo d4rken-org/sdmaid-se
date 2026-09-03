@@ -29,6 +29,18 @@
         <item quantity="one">%d αρχείο παραλείφθηκε (HDR/βάθος διατηρήθηκε)</item>
         <item quantity="other">%d αρχεία παραλείφθηκαν (HDR/βάθος διατηρήθηκε)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d παραλείφθηκε (Motion Photo)</item>
+        <item quantity="other">%d παραλείφθηκαν (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d παραλείφθηκε (πολύ μεγάλη φωτογραφία)</item>
+        <item quantity="other">%d παραλείφθηκαν (πολύ μεγάλες φωτογραφίες)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d παραλείφθηκε (προστατευμένο)</item>
+        <item quantity="other">%d παραλείφθηκαν (προστατευμένα)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d στοιχείο επιλεγμένο</item>
         <item quantity="other">%d στοιχεία επιλεγμένα</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Γενικά</string>
     <string name="squeezer_quality_description">Χαμηλότερη ποιότητα σημαίνει μικρότερο μέγεθος αρχείου αλλά μειωμένη οπτική ποιότητα.</string>
     <string name="squeezer_types_category_label">Ρυθμίσεις εικόνας</string>
+    <string name="squeezer_protected_category_label">Τι χάνεται</string>
     <string name="squeezer_video_settings_category_label">Ρυθμίσεις βίντεο</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Συμπερίληψη εικόνων JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Συμπερίληψη εικόνων JPEG (.jpg, .jpeg). Η επανακωδικοποίηση χρησιμοποιεί τον ενσωματωμένο κωδικοποιητή JPEG του Android. Η ημερομηνία, η τοποθεσία και άλλα μεταδεδομένα EXIF διατηρούνται.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Συμπερίληψη εικόνων WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Συμπερίληψη εικόνων WebP (.webp). Η επανακωδικοποίηση χρησιμοποιεί τον ενσωματωμένο κωδικοποιητή WebP του Android. Η ημερομηνία, η τοποθεσία και άλλα μεταδεδομένα EXIF διατηρούνται.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
-    <string name="squeezer_type_heic_description">Συμπεριλάβετε εικόνες HEIC/HEIF (.heic, .heif). Η ημερομηνία, η τοποθεσία και άλλα μεταδεδομένα EXIF διατηρούνται. Οι χάρτες κέρδους HDR, τα δεδομένα βάθους και τα αδέλφια Live/Motion Photo δεν μπορούν να διατηρηθούν· τα αρχεία πολλαπλών εικόνων παραλείπονται.</string>
+    <string name="squeezer_type_heic_description">Συμπεριλάβετε εικόνες HEIC/HEIF (.heic, .heif). Η ημερομηνία, η τοποθεσία, και άλλα μεταδεδομένα EXIF διατηρούνται. Οι χάρτες κέρδους HDR, τα δεδομένα βάθους και τα αδέλφια Live/Motion Photo δεν μπορούν να διατηρηθούν; τα αρχεία πολλαπλών εικόνων παραλείπονται.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Συμπερίληψη αρχείων βίντεο MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Συμπερίληψη αρχείων βίντεο MP4 (.mp4). Το κομμάτι βίντεο επανακωδικοποιείται σε χαμηλότερο ρυθμό bit από τον δικό της κωδικοποιητή βίντεο της συσκευής, το κομμάτι ήχου αντιγράφεται αμετάβλητο και το αρχείο παραμένει MP4.</string>
     <string name="squeezer_skip_compressed_title">Παράλειψη ήδη συμπιεσμένων</string>
     <string name="squeezer_skip_compressed_description">Παράλειψη αρχείων που έχουν ήδη συμπιεστεί από το SD Maid.</string>
     <string name="squeezer_exif_marker_title">Εγγραφή δείκτη EXIF</string>
     <string name="squeezer_exif_marker_description">Προσάρτηση ενός δείκτη στο πεδίο σχολίων χρήστη EXIF της εικόνας για την αποτροπή επανασυμπίεσης ακόμη και αν εκκαθαριστεί το ιστορικό συμπίεσης.</string>
     <string name="squeezer_include_lossy_aux_title">Συμπίεση φωτογραφιών HDR &amp; βάθους</string>
-    <string name="squeezer_include_lossy_aux_description">Απενεργοποιημένο από προεπιλογή: οι φωτογραφίες με χάρτη κέρδους HDR ή δεδομένα βάθους/πορτρέτου παραλείπονται ώστε να μην ισοπεδωθούν. Ενεργοποιήστε για να τις συμπιέσετε όπου είναι δυνατόν — θα χάσουν το χάρτη κέρδους HDR ή τα δεδομένα βάθους τους. Ορισμένες φωτογραφίες HEIC με πολλές εικόνες παραμένουν προστατευμένες ούτως ή άλλως.</string>
+    <string name="squeezer_include_lossy_aux_description">Συμπερίληψη φωτογραφιών με δεδομένα HDR ή βάθους. Η συμπίεση τα αφαιρεί: οι φωτογραφίες HDR γίνονται κανονικές φωτογραφίες, οι φωτογραφίες πορτραίτου χάνουν τα δεδομένα πίσω από τη θόλωση φόντου τους. Τα αρχεία HEIC πολλαπλών εικόνων εξακολουθούν να παραλείπονται.</string>
+    <string name="squeezer_include_motion_photos_title">Συμπίεση Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Συμπερίληψη Motion Photos. Η συμπίεση διατηρεί τη στατική εικόνα και αφαιρεί το βίντεο κλιπ.</string>
+    <string name="squeezer_include_oversized_title">Συμπίεση πολύ μεγάλων φωτογραφιών</string>
+    <string name="squeezer_include_oversized_description">Συμπερίληψη φωτογραφιών με πλάτος ή ύψος πάνω από 8192 pixel. Η συμπίεση μειώνει επίσης την ανάλυσή τους στο μισό.</string>
     <string name="squeezer_estimated_savings_format">~%s εξοικονόμηση</string>
     <string name="squeezer_no_savings_expected">Περιορισμένη εξοικονόμηση</string>
     <string name="squeezer_current_size_format">Μέγεθος: %s</string>
+    <string name="squeezer_chip_compressed_before">Συμπιεσμένο</string>
+    <string name="squeezer_chip_hdr_depth">HDR/βάθος</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Μειωμένη ανάλυση</string>
+    <string name="squeezer_markers_dialog_title">Σχετικά με αυτούς τους δείκτες</string>
+    <string name="squeezer_markers_compressed_before_description">Το SD Maid έχει ήδη συμπιέσει αυτό το αρχείο. Η επανάληψη της συμπίεσης κοστίζει σε ποιότητα και εξοικονομεί λίγο.</string>
+    <string name="squeezer_markers_hdr_depth_description">Αυτή η φωτογραφία έχει δεδομένα HDR ή βάθους που η συμπίεση δεν μπορεί να διατηρήσει. Μια φωτογραφία HDR επιστρέφει ως κανονική, και μια φωτογραφία πορτραίτου χάνει τα δεδομένα βάθους που χρησιμοποιούνται για τη θόλωση φόντου.</string>
+    <string name="squeezer_markers_motion_photo_description">Αυτή είναι μια Motion Photo. Η συμπίεση διατηρεί τη στατική εικόνα και αφαιρεί το βίντεο κλιπ.</string>
+    <string name="squeezer_markers_downscaled_description">Αυτή η φωτογραφία έχει πλάτος ή ύψος πάνω από 8192 pixel. Η συμπίεση μειώνει επίσης την ανάλυσή της στο μισό.</string>
     <string name="squeezer_compress_action">Συμπίεση</string>
     <string name="squeezer_compress_all_action">Συμπίεση όλων</string>
     <string name="squeezer_preview_dialog_title">Επιβεβαίωση συμπίεσης</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Προβολή σύγκρισης</string>
     <string name="squeezer_no_example_found">Δεν βρέθηκαν εικόνες στις επιλεγμένες διαδρομές.</string>
     <string name="squeezer_result_empty_message">Δεν βρέθηκαν συμπιέσιμα αρχεία πολυμέσων.</string>
+    <string name="squeezer_result_empty_protected">Τίποτα για συμπίεση. Παραλείφθηκαν: %s. Ενεργοποίησε την αντίστοιχη επιλογή στις ρυθμίσεις για να τα συμπεριλάβεις.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d φωτογραφία HDR/βάθους</item>
+        <item quantity="other">%d φωτογραφίες HDR/βάθους</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d πολύ μεγάλη φωτογραφία</item>
+        <item quantity="other">%d πολύ μεγάλες φωτογραφίες</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d τοποθεσία δεν μπορεί να χρησιμοποιηθεί για συμπίεση και αφαιρέθηκε. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>
         <item quantity="other">%d τοποθεσίες δεν μπορούν να χρησιμοποιηθούν για συμπίεση και αφαιρέθηκαν. Η συμπίεση απαιτεί απευθείας πρόσβαση στον εσωτερικό χώρο αποθήκευσης.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Τουλάχιστον %d ημέρες παλιό</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Εκτιμώμενη ~%d%% εξοικονόμηση για αρχεία JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Το Squeezer συμπιέζει εκ νέου τις φωτογραφίες και τα βίντεό σας ώστε να καταλαμβάνουν λιγότερο χώρο. Ανταλλάσσετε λίγη ποιότητα με τον χώρο που ανακτάτε. Κάθε στοιχείο εμφανίζει την εκτιμώμενη εξοικονόμησή του, ώστε να μπορείτε να αποφασίσετε τι αξίζει.</string>
     <string name="tour_squeezer_compress_body">Συμπιέστε τα πάντα ταυτόχρονα εδώ ή πατήστε ένα μόνο στοιχείο για να συμπιέσετε μόνο αυτό. Πατήστε παρατεταμένα για να επιλέξετε πολλά. Θα δείτε πάντα μια προεπισκόπηση πριν αλλάξει κάτι.</string>
 </resources>

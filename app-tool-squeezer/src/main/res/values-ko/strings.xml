@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d개 건너뜀 (HDR/깊이 보존됨)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">%d개 건너뜀 (모션 사진)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">%d개 건너뜀 (매우 큰 사진)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">%d개 건너뜀 (보호됨)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d개 항목 선택됨</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">일반</string>
     <string name="squeezer_quality_description">낮은 품질은 파일 크기를 줄이지만 시각적 품질도 낮아집니다.</string>
     <string name="squeezer_types_category_label">이미지 설정</string>
+    <string name="squeezer_protected_category_label">손실되는 데이터</string>
     <string name="squeezer_video_settings_category_label">동영상 설정</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG 이미지 (.jpg, .jpeg)를 포함합니다.</string>
+    <string name="squeezer_type_jpeg_description">JPEG 이미지(.jpg, .jpeg)를 포함합니다. 재인코딩은 Android의 기본 JPEG 인코더를 사용합니다. 날짜, 위치 및 기타 EXIF 메타데이터는 유지됩니다.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP 이미지 (.webp)를 포함합니다.</string>
+    <string name="squeezer_type_webp_description">WebP 이미지(.webp)를 포함합니다. 재인코딩은 Android의 기본 WebP 인코더를 사용합니다. 날짜, 위치 및 기타 EXIF 메타데이터는 유지됩니다.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF 이미지(.heic, .heif) 포함. 날짜, 위치 및 기타 EXIF 메타데이터가 유지됩니다. HDR 게인 맵, 깊이 데이터 및 Live/Motion Photo 관련 파일은 보존할 수 없습니다. 다중 이미지 파일은 건너뜁니다.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 동영상 파일(.mp4)을 포함합니다.</string>
+    <string name="squeezer_type_video_description">MP4 동영상 파일(.mp4)을 포함합니다. 동영상 트랙은 기기의 자체 동영상 인코더에 의해 더 낮은 비트레이트로 재인코딩되고, 오디오 트랙은 변경되지 않은 상태로 복사되며, 파일은 MP4로 유지됩니다.</string>
     <string name="squeezer_skip_compressed_title">이미 압축된 파일 건너뛰기</string>
     <string name="squeezer_skip_compressed_description">SD Maid에서 이미 압축된 파일은 건너뜁니다.</string>
     <string name="squeezer_exif_marker_title">EXIF 마커 기록</string>
     <string name="squeezer_exif_marker_description">압축 기록이 삭제되더라도 재압축을 방지하기 위해 이미지의 EXIF 사용자 코멘트 필드에 마커를 추가합니다.</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; 깊이 사진 압축</string>
-    <string name="squeezer_include_lossy_aux_description">기본적으로 꿄: HDR 게인 맵 또는 깊이/포트레이트 데이터가 있는 사진은 손상되지 않도록 건너뜁니다. 가능한 한 압축하도록 활성화하면 HDR 게인 맵 또는 깊이 데이터가 손실됩니다. 일부 다중 이미지 HEIC 사진은 어챌 수 없이 보호됩니다.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR 또는 깊이 데이터가 있는 사진을 포함합니다. 압축하면 이들이 제거됩니다: HDR 사진은 일반 사진이 되고, 인물 사진은 배경 흐림 뒤의 데이터를 잃습니다. 다중 이미지 HEIC 파일은 계속 건너뜁니다.</string>
+    <string name="squeezer_include_motion_photos_title">모션 사진 압축</string>
+    <string name="squeezer_include_motion_photos_description">모션 사진을 포함합니다. 압축하면 정지 이미지는 유지되고 동영상 클립은 제거됩니다.</string>
+    <string name="squeezer_include_oversized_title">매우 큰 사진 압축</string>
+    <string name="squeezer_include_oversized_description">너비 또는 높이가 8192픽셀보다 큰 사진을 포함합니다. 압축하면 해상도도 절반으로 줄어듭니다.</string>
     <string name="squeezer_estimated_savings_format">~%s 절약</string>
     <string name="squeezer_no_savings_expected">절약 효과 미미</string>
     <string name="squeezer_current_size_format">크기: %s</string>
+    <string name="squeezer_chip_compressed_before">압축됨</string>
+    <string name="squeezer_chip_hdr_depth">HDR/깊이</string>
+    <string name="squeezer_chip_motion_photo">모션 사진</string>
+    <string name="squeezer_chip_downscaled">축소됨</string>
+    <string name="squeezer_markers_dialog_title">이 마커 정보</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid가 이미 이 파일을 압축했습니다. 다시 압축하면 품질만 떨어지고 저장 공간이 거의 절약되지 않습니다.</string>
+    <string name="squeezer_markers_hdr_depth_description">이 사진에는 압축으로 유지할 수 없는 HDR 또는 깊이 데이터가 있습니다. HDR 사진은 일반 사진이 되고, 인물 사진은 배경 흐림에 사용되는 깊이 데이터를 잃습니다.</string>
+    <string name="squeezer_markers_motion_photo_description">이것은 모션 사진입니다. 압축하면 정지 이미지는 유지되고 동영상 클립은 제거됩니다.</string>
+    <string name="squeezer_markers_downscaled_description">이 사진의 너비 또는 높이가 8192픽셀보다 큽니다. 압축하면 해상도도 절반으로 줄어듭니다.</string>
     <string name="squeezer_compress_action">압축</string>
     <string name="squeezer_compress_all_action">모두 압축</string>
     <string name="squeezer_preview_dialog_title">압축 확인</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">비교 보기</string>
     <string name="squeezer_no_example_found">선택한 경로에서 이미지를 찾을 수 없습니다.</string>
     <string name="squeezer_result_empty_message">압축 가능한 미디어를 찾을 수 없습니다.</string>
+    <string name="squeezer_result_empty_protected">압축할 항목이 없습니다. 건너뜀: %s. 설정에서 해당 옵션을 켜서 이들을 포함시킬 수 있습니다.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">%d개의 HDR/깊이 사진</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">%d개의 모션 사진</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">%d개의 매우 큰 사진</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d개의 위치는 압축에 사용할 수 없어 제거되었습니다. 압축을 위해서는 내부 저장소에 직접 접근이 필요합니다.</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">최소 %d일 경과</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 파일의 예상 ~%d%% 절감</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer는 사진과 동영상을 다시 압축하여 저장 공간을 절약합니다. 약간의 화질 손실로 더 많은 공간을 확보합니다. 각 항목은 예상 절약량을 표시하므로 가치 있는 항목을 선택할 수 있습니다.</string>
     <string name="tour_squeezer_compress_body">여기서 모든 항목을 한 번에 압축하거나 단일 항목을 탭하여 해당 항목만 줄입니다. 여러 항목을 선택하려면 길게 누르세요. 변경되기 전에 항상 미리보기를 볼 수 있습니다.</string>
 </resources>

@@ -21,10 +21,10 @@
     <string name="deduplicator_detection_method_checksum_title">Suma de comprovació del contingut</string>
     <string name="deduplicator_detection_method_checksum_summary">Determina els duplicats calculant les sumes de control dels fitxers. Els fitxers amb sumes de comprovació coincidents tenen exactament el mateix contingut.</string>
     <string name="deduplicator_detection_method_phash_title">Hash perceptiu</string>
-    <string name="deduplicator_detection_method_phash_summary">Troba fitxers similars analitzant les característiques de contingut i comparant els valors hash perceptius.</string>
+    <string name="deduplicator_detection_method_phash_summary">Troba fitxers similars analitzant les característiques del contingut i comparant els valors de hash perceptius.</string>
     <string name="deduplicator_detection_method_media_title">Empremta digital multimèdia</string>
-    <string name="deduplicator_detection_method_media_summary">Trobeu fitxers de vídeo i àudio similars analitzant empremtes d\'àudio.</string>
-    <string name="deduplicator_detection_method_similarity_caveat">La detecció basada en similitud pot incloure falsos positius que requereixen verificació manual.</string>
+    <string name="deduplicator_detection_method_media_summary">Troba fitxers de vídeo i àudio similars mitjançant l\'anàlisi d\'empremtes digitals d\'àudio.</string>
+    <string name="deduplicator_detection_method_similarity_caveat">La detecció basada en similituds pot incloure falsos positius que requereixen verificació manual.</string>
     <string name="deduplicator_media_match_audio">Coincidència basada en àudio</string>
     <string name="deduplicator_media_match_visual">Coincidència basada en vídeo</string>
     <string name="deduplicator_media_match_audio_visual">Coincidència basada en àudio i vídeo</string>
@@ -42,15 +42,15 @@
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Voleu suprimir tots els fitxers de cada conjunt seleccionat de fitxers duplicats? No sobra cap fitxer!</string>
     <string name="deduplicator_delete_all_toggle_msg">Suprimeix totes les còpies. No sobra cap fitxer!</string>
     <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
-        <item quantity="one">Vols suprimir %1$d duplicat en aquest conjunt, alliberant %2$s? La còpia conservada es mantindrà.</item>
-        <item quantity="other">Vols suprimir %1$d duplicats en aquest conjunt, alliberant %2$s? La còpia conservada es mantindrà.</item>
+        <item quantity="one">Voleu suprimir %1$d duplicat en aquest conjunt, alliberant %2$s? La còpia conservada es mantindrà.</item>
+        <item quantity="other">Voleu suprimir %1$d duplicats en aquest conjunt, alliberant %2$s? La còpia conservada es mantindrà.</item>
     </plurals>
     <string name="deduplicator_list_grid_freeable_x">%1$s alliberable</string>
     <string name="deduplicator_action_delete_set">Elimina el conjunt de duplicats</string>
     <string name="deduplicator_action_open_preview">Obre la previsualització</string>
-    <string name="deduplicator_marked_for_deletion">Marcat per a l\'eliminació</string>
+    <string name="deduplicator_marked_for_deletion">Marcat per a la supressió</string>
     <string name="deduplicator_cluster_preview_image">Previsualització del conjunt de duplicats</string>
-    <string name="deduplicator_selection_keep_one_required">Almenys un fitxer per conjunt de duplicats ha de romandre. Habilita «Permet ‘Eliminar-ho tot’» a la configuració per anul·lar-ho.</string>
+    <string name="deduplicator_selection_keep_one_required">Almenys un fitxer per conjunt de duplicats ha de romandre. Activeu «Fes que se suprimeixi tot el possible» a la configuració per a sobreescriure-ho.</string>
     <string name="deduplicator_progress_comparing_files">Comparació de fitxers</string>
     <string name="deduplicator_details_cluster_title">Conjunt de duplicats</string>
     <string name="deduplicator_matches_exact_label">Còpies exactes</string>
@@ -88,6 +88,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefereix fitxers més petits</string>
     <string name="deduplicator_view_mode_groups_label">Grups</string>
     <string name="deduplicator_view_mode_directories_label">Carpetes</string>
-    <string name="tour_deduplicator_details_cluster_body">Aquests fitxers semblen ser el mateix element o contingut multimèdia, un clúster de duplicats.</string>
-    <string name="tour_deduplicator_details_delete_mark_body">Els fitxers amb aquesta icona s\'eliminaran; el fitxer restant del grup és el que SD Maid manté. Pots canviar els criteris de selecció en la configuració de l\'estratègia d\'eliminació.</string>
+    <string name="tour_deduplicator_details_cluster_body">Tots aquests fitxers semblen ser el mateix element o contingut multimèdia, un clúster de duplicats.</string>
+    <string name="tour_deduplicator_details_delete_mark_body">Els fitxers amb aquesta icona s\'eliminaran; el fitxer restant del grup és el que l\'SD Maid manté. Podeu canviar els criteris de selecció en la configuració de l\'estratègia d\'eliminació.</string>
 </resources>

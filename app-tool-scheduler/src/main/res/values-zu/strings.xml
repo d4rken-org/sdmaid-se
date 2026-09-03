@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Igama lohlelo</string>
     <string name="scheduler_schedule_toggle_enabled">Uhlelo lunikwe amandla</string>
     <string name="scheduler_schedule_toggle_disabled">Uhlelo lukhubazekile</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Cisha ihlolelo ukuze ushintshele.</string>
     <string name="scheduler_edit_schedule_action">Hlela uhlelo</string>
     <string name="scheduler_schedule_time_label">Isikhathi esicishe</string>
     <string name="scheduler_schedule_repeat_label">Isikhathi sokuphinda ngezinsuku</string>
@@ -47,7 +48,6 @@ Vala \"Faka izihlelo zesisitemu\", noma sebenzisa ishediyuli ngenkathi evulekile
     <string name="scheduler_commands_after_schedule_label">Imiyalo yangemva kohlelo</string>
     <string name="scheduler_commands_after_schedule_desc">Imiyalo ye-Android shell ezokwenziwa ekugcineni kohlelo.</string>
     <string name="scheduler_battery_optimization_hint">Cabanga ngokukhubaza ukulungiswa kwebhethri kwe-SD Maid uma uhlangabezana nezinkinga zokwenza ngemuva.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">I-SD Maid ingakwazi ukunisela ngeshediyuli. Khetha isikhathi nokuthi yimaphi amathuluzi, kanti azokwenza umsebenzi ocushini, (cishe) akudingekile ukuvula ihlelo.</string>
     <string name="tour_scheduler_create_body">Nomboza lapha uze uqale ishediyuli entsha, bese uchaza isikhathi nokuthi yimaphi amathuluzi okufakiwe.</string>
 </resources>

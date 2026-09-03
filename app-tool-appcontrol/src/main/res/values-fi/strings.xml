@@ -81,6 +81,10 @@
         <item quantity="one">%d sovelluksen tilaa vaihdettiin</item>
         <item quantity="other">%d sovelluksen tilaa vaihdettiin</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d sovellus ei voi ottaa käyttöön tai poistaa käytöstä</item>
+        <item quantity="other">%d sovellusta ei voi ottaa käyttöön tai poistaa käytöstä</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Määritä koot</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Saa karkea arvio kunkin sovelluksen koosta.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Määritä aktiviteetti</string>

@@ -56,7 +56,7 @@
     <string name="swiper_settings_haptic_feedback_summary">Вибрирај при донесување одлуки за задржување или бришење.</string>
     <string name="swiper_discard_session_confirmation_title">Отфрли сесија?</string>
     <string name="swiper_discard_session_confirmation_message">Сите одлуки ќе бидат изгубени. Дали сте сигурни?</string>
-    <string name="swiper_no_preview_available">Нема достапен преглед</string>
+    <string name="swiper_no_preview_available">Нема расположив претпреглед</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Продолжи сесија од пред %1$d ден (%2$d%% завршено)</item>
         <item quantity="other">Продолжи сесија од пред %1$d дена (%2$d%% завршено)</item>
@@ -133,12 +133,12 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Упс!</string>
     <string name="swiper_stamp_undo_4">Чекај!</string>
-    <string name="swiper_gesture_overlay_dismiss">Допрете каде било за да почнете</string>
+    <string name="swiper_gesture_overlay_dismiss">Допрете каде да почнете</string>
     <string name="swiper_gesture_overlay_left_delete">← Избриши</string>
-    <string name="swiper_gesture_overlay_right_keep">Задржи →</string>
-    <string name="swiper_gesture_overlay_left_keep">← Задржи</string>
+    <string name="swiper_gesture_overlay_right_keep">Запази →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Запази</string>
     <string name="swiper_gesture_overlay_right_delete">Избриши →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ Прескокни</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Прескочи</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Врати</string>
     <string name="swiper_help_title">Како работи Swiper</string>
     <string name="swiper_help_message">Лизгајте секоја датотека за да донесете одлука:\n\n← Лизгајте лево: %1$s\n→ Лизгајте десно: %2$s\n↑ Лизгајте горе: Прескокни\n↓ Лизгајте долу: Врати (по првото лизгање)\n\nМожете исто така да ги користите копчињата на дното.\n\nКога ќе завршите, допрете \"Прегледај\" за да ги видите сите ваши одлуки. Ништо не се брише додека не потврдите на екранот за преглед.</string>
@@ -159,7 +159,6 @@
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не се понајдени соодветни датотеки</string>
     <string name="swiper_open_externally_action">Отвори во надворешна апликација</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Превлечи датотека за да одлучиш за нејзина судбина: странично за да задржиш или избришеш, нагоре за прескокнување, надолу за враќање. Копчињата подолу прават исто — и покажуваат која е која.</string>
     <string name="tour_swiper_openin_body">Ова копче ја отвора датотеката во друга апликација, практично за да ја провериш пред да одлучиш.</string>
     <string name="tour_swiper_preview_body">Ова копче отвора преглед на цел екран за поблиско гледање.</string>
