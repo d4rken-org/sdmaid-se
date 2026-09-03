@@ -95,6 +95,12 @@
         <item quantity="many">%d aplikácií bolo prepnutých</item>
         <item quantity="other">%d aplikácií bolo prepnutých</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplikáciu nemožno povoliť ani zakázať</item>
+        <item quantity="few">%d aplikácie nemožno povoliť ani zakázať</item>
+        <item quantity="many">%d aplikácií nemožno povoliť ani zakázať</item>
+        <item quantity="other">%d aplikácií nemožno povoliť ani zakázať</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Určte veľkosti</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Získajte hrubý odhad veľkosti každej aplikácie.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Určiť aktivitu</string>

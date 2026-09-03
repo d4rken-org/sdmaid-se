@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">اسم الجدول</string>
     <string name="scheduler_schedule_toggle_enabled">الجدول ممكن</string>
     <string name="scheduler_schedule_toggle_disabled">الجدول معطل</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">عطّل الجدول الزمني لتعديله.</string>
     <string name="scheduler_edit_schedule_action">تعديل الجدول</string>
     <string name="scheduler_schedule_time_label">وقت تقريبي</string>
     <string name="scheduler_schedule_repeat_label">كرر الفاصل في أيام</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">أوامر ما بعد الجدولة</string>
     <string name="scheduler_commands_after_schedule_desc">أوامر هيكل أندرويد التي ستُنفَّذ في نهاية الجدول الزمني.</string>
     <string name="scheduler_battery_optimization_hint">فكر في تعطيل تحسينات البطارية لـ SD Maid إذا واجهت مشكلات في التنفيذ في الخلفية.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">يمكن لـ SD Maid التنظيف وفقاً لجدول زمني. اختر وقتاً والأدوات التي تريد تشغيلها، وستقوم بالعمل في الخلفية دون الحاجة تقريباً لفتح التطبيق.</string>
     <string name="tour_scheduler_create_body">اضغط هنا لإنشاء جدول زمني جديد، ثم عيّن وقت التشغيل والأدوات المراد تضمينها.</string>
 </resources>

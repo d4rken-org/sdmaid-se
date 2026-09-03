@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Ergebnisse in allen Tools löschen?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kann freigegeben werden</string>
     <string name="dashboard_hero_freed_headline">%1$s freigegeben</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d Element kann entfernt werden</item>
         <item quantity="other">%d Elemente können entfernt werden</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Tippe auf die Schaltfläche, um Speicherplatz freizugeben, oder auf einen Chip, um es zuerst zu prüfen.</string>
     <string name="dashboard_hero_freed_hint">Tippe auf einen Chip für Details.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s frei</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nichts wurde freigegeben</string>
     <string name="dashboard_hero_nothing_freed_caption">Die Bereinigung ist abgeschlossen, aber keine der gefundenen Daten konnten entfernt werden.</string>
     <string name="dashboard_hero_nothing_freed_hint">Einige Daten können nur mit zusätzlichem Zugriff entfernt werden, z. B. über die Bedienungshilfe oder Root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s gefunden</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d Element benötigt SD Maid Pro</item>
         <item quantity="other">%d Elemente benötigen SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Tippen, um mit SD Maid Pro freizuschalten.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Mit SD Maid Pro lässt sich mehr freigeben</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Benötigt SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s gescannt</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s freigegeben</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s versucht</string>
@@ -51,7 +35,7 @@
     <string name="dashboard_settings_oneclick_tools_title">Ein-Tipp-Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welche Werkzeuge soll die Ein-Tipp-Bedienung umfassen?</string>
     <string name="dashboard_settings_summary_autoshow_title">Zusammenfassung automatisch anzeigen</string>
-    <string name="dashboard_settings_summary_autoshow_summary">Öffnet die Ergebniszusammenfassung automatisch nach Nutzung der Aktionsschaltfläche im Dashboard. Wenn deaktiviert, tippe auf den Größen-Chip in der unteren Leiste, um sie zu öffnen.</string>
+    <string name="dashboard_settings_summary_autoshow_summary">Zusammenfassung der Ergebnisse nach Verwendung der Aktionsschaltfläche im Dashboard automatisch öffnen. Wenn deaktiviert, tippe auf das Größenfeld in der unteren Leiste, um die Zusammenfassung zu öffnen.</string>
     <string name="dashboard_card_config_title">Dashboard Karten</string>
     <string name="dashboard_card_config_desc">Lege fest, welche Karten angezeigt werden und in welcher Reihenfolge</string>
     <string name="dashboard_card_config_header_title">Ziehen, um die Reihenfolge zu ändern, ein-/ausschalten zum Anzeigen oder Ausblenden</string>
@@ -244,11 +228,10 @@
     <string name="setup_root_card_title">Root-Zugriff</string>
     <string name="setup_root_card_body">Sollte SD Maid den Root-Zugriff verwenden, wenn er verfügbar ist? Über den Root-Zugriff können zusätzliche Systemordner und private Anwendungsdaten geprüft werden.</string>
     <string name="setup_root_state_ready_label">Root-Zugriff ist bereit.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root-Zugriff ist nicht verfügbar.</string>
     <string name="setup_root_state_failed_title">Root-Zugriff fehlgeschlagen</string>
-    <string name="setup_root_state_failed_body">SD Maid hat um Root-Zugriff gebeten und ihn nicht erhalten. Wenn dein Gerät gerootet ist, öffne deinen Root-Manager (Magisk, KernelSU oder ähnlich) und prüfe, ob die Anfrage von SD Maid abgelehnt wurde oder noch aussteht.</string>
-    <string name="setup_root_state_failed_body_nomanager">SD Maid hat um Root-Zugriff gebeten und ihn nicht erhalten, und es wurde keine Root-Manager-App erkannt. Wenn dein Gerät versteckten oder integrierten Root nutzt, versuche es erneut.</string>
+    <string name="setup_root_state_failed_body">SD Maid hat Root-Zugriff angefordert, ihn aber nicht erhalten. Wenn dein Gerät gerootet ist, öffne deinen Root-Manager (Magisk, KernelSU oder eine ähnliche App) und prüfe, ob die Anfrage von SD Maid abgelehnt wurde oder noch aussteht.</string>
+    <string name="setup_root_state_failed_body_nomanager">SD Maid hat Root-Zugriff angefordert, ihn aber nicht erhalten, und es wurde keine Root-Manager-App erkannt. Wenn dein Gerät einen versteckten oder integrierten Root-Zugriff verwendet, versuche es erneut.</string>
     <string name="setup_root_enable_root_use_label">Versuchen, Root-Zugriff zu verwenden</string>
     <string name="setup_root_disable_root_use_label">Ich habe mein Gerät nicht gerootet</string>
     <string name="setup_root_card_body2">Nur auf gerooteten Geräten verfügbar. Wenn du diese Modifikation nicht vorgenommen hast, ist dein Gerät nicht gerootet und diese Einstellung hat keine Auswirkungen.</string>
@@ -260,8 +243,8 @@
     <string name="setup_shizuku_state_waiting_label">Warte auf Verbindung mit Shizuku.</string>
     <string name="setup_shizuku_state_not_installed_label">Die Shizuku-App ist nicht installiert.</string>
     <string name="setup_shizuku_state_failed_title">Shizuku-Verbindung fehlgeschlagen</string>
-    <string name="setup_shizuku_state_failed_label">Shizuku läuft, hat SD Maid aber nie mit seinem Hilfsdienst verbunden.</string>
-    <string name="setup_shizuku_state_known_issue_hint">Manche Geräte sind von einem bekannten Shizuku-Problem betroffen, das den Start des Hilfsdiensts verhindert. Dies könnte eines davon sein.</string>
+    <string name="setup_shizuku_state_failed_label">Shizuku läuft, konnte SD Maid jedoch nicht mit seinem Hilfsdienst verbinden.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Bei einigen Geräten tritt ein bekanntes Shizuku-Problem auf, das verhindert, dass der Hilfsdienst gestartet wird. Möglicherweise ist dein Gerät davon betroffen.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Versuchen, Shizuku zu verwenden</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku nicht verwenden</string>
     <string name="setup_dismiss_hint">Du kannst die Einrichtung im Einstellungsmenü wiederfinden.</string>
@@ -297,13 +280,12 @@
     <string name="setup_inventory_limitation_body">Das System hat eine unvollständige Liste installierter Apps zurückgegeben, obwohl die erforderlichen Berechtigungen erteilt zu sein scheinen.</string>
     <string name="setup_inventory_limitation_body2">Einige Geräte (z. B. HarmonyOS) stellen niemals eine vollständige App-Liste bereit. Zum Schutz deiner Daten bleiben app-bezogene Werkzeuge deaktiviert, aber du kannst die Speichernutzung weiterhin mit reduzierten Details anzeigen.</string>
     <string name="setup_inventory_probe_failed_title">App-Liste konnte nicht gelesen werden</string>
-    <string name="setup_inventory_probe_failed_body">SD Maid hat Android nach der Liste installierter Apps gefragt, und die Anfrage ist fehlgeschlagen. App-bezogene Tools bleiben deaktiviert, bis es funktioniert. Ein erneuter Versuch kann helfen.</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid hat Android nach der Liste der installierten Apps gefragt, aber die Anfrage ist fehlgeschlagen. App-bezogene Funktionen bleiben deaktiviert, bis dies funktioniert. Ein erneuter Versuch kann helfen.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid hat keine Datenbereiche gefunden, die gescannt werden können. Hast du die Einrichtung abgeschlossen?</string>
     <string name="dataarea_warningcard_label">Datenbereiche</string>
     <string name="dataarea_warningcard_reload_action">Datenbereiche neu laden</string>
     <string name="debug_mode_label">Debug-Modus</string>
     <string name="debug_mode_explanation">Testoptionen und ausführlichere Ausgabe aktivieren. Die App läuft dadurch langsamer und verhält sich anders.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug-Modus ist aktiviert</string>
     <string name="debug_card_description">Entwicklerdiagnose und Laufzeitübersteuerungen. Diese Karte wird nur im Debug-Modus angezeigt.</string>
     <string name="debug_card_section_diagnostics">Diagnose</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Apps neu laden</string>
     <string name="debug_card_root_test_action">Root testen</string>
     <string name="debug_card_shizuku_test_action">Shizuku testen</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Testlauf-Modus ist aktiv</string>
     <string name="dashboard_dryrun_warning_body">Die Bereinigung wird simuliert. Dateien werden gescannt und gemeldet, aber nichts wird tatsächlich gelöscht.</string>
     <string name="dashboard_dryrun_warning_disable_action">Ausschalten</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Speichernutzung und Bereinigung mit einem Tippen</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Insgesamt freigegeben: %1$s</string>
     <string name="widget_home_clean_action">Bereinigen</string>
     <string name="widget_home_working">Läuft…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Nicht jetzt</string>
     <string name="shortcut_onetap_started">Scan + Löschen gestartet…</string>
     <string name="shortcut_onetap_nothing_enabled">Keine Tools für die Schnellaktion aktiviert</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Sicherung &amp; Wiederherstellung</string>
     <string name="backup_restore_desc">Einstellungen und Konfiguration in einer Datei speichern oder wiederherstellen</string>
     <string name="backup_restore_export_title">Sicherung erstellen</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">Die Verlaufssdaten dieses Backups (Statistiken, Komprimierungsverlauf, Wisch-Sitzungen) stammen von einer anderen App-Version und können nicht wiederhergestellt werden. Alles andere wird wiederhergestellt.</string>
     <string name="backup_restore_ack_understand">Ich verstehe und möchte fortfahren</string>
     <string name="backup_restore_action_restore">Wiederherstellen</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Speicherwarnungen</string>
     <string name="stats_lowspace_notification_title">Speicher wird knapp</string>
     <string name="stats_lowspace_notification_low_title">Speicher ist fast voll</string>

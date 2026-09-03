@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">வடிகட்டப்பட்டது: %1$s</string>
     <string name="swiper_session_no_matching_files">பொருந்தும் கோப்புகள் எதுவும் இல்லை</string>
     <string name="swiper_open_externally_action">வெளிப்புற பயன்பாட்டில் திற</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ஒரு கோப்பை வருடவவும் அதன் நிலை முடிவு செய்ய: பக்கவாக வைத்திருக்க அல்லது நீக்க, மேலே தவிர்க்க, கீழே ஸ்வைப் செய்ததை திருப்ப. கீழே உள்ள பொத்தான்கள் அதையே செய்கின்றன — மற்றும் எந்த பக்கம் எது என்பதைக் காட்டுகின்றன.</string>
     <string name="tour_swiper_openin_body">இந்த பொத்தான் கோப்பை மற்றொரு பயன்பாட்டில் திறக்கிறது, முடிவு செய்வதற்கு முன் அதை சரிபார்க்க பயனுள்ளதாக உள்ளது.</string>
     <string name="tour_swiper_preview_body">இந்த பொத்தான் முழு திரை முன்னோட்டத்தைத் திறக்கிறது, நெருக்கமாக பார்ப்பதற்கு.</string>

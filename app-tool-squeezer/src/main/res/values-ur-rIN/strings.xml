@@ -29,6 +29,18 @@
         <item quantity="one">%d فائل چھوڑ دی گئی (HDR/depth محفوظ ہے)</item>
         <item quantity="other">%d فائلیں چھوڑ دی گئیں (HDR/depth محفوظ ہے)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d چھوڑ دیا گیا (Motion Photo)</item>
+        <item quantity="other">%d چھوڑ دیے گئے (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d چھوڑ دیا گیا (بہت بڑی تصویر)</item>
+        <item quantity="other">%d چھوڑ دیے گئے (بہت بڑی تصویریں)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d چھوڑ دیا گیا (محفوظ)</item>
+        <item quantity="other">%d چھوڑ دیے گئے (محفوظ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d آئٹم منتخب</item>
         <item quantity="other">%d آئٹمز منتخب</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">عام</string>
     <string name="squeezer_quality_description">کم معیار کا مطلب ہے چھوٹا فائل سائز لیکن کم بصری معیار۔</string>
     <string name="squeezer_types_category_label">تصویر کی ترتیبات</string>
+    <string name="squeezer_protected_category_label">کیا کھو جاتا ہے</string>
     <string name="squeezer_video_settings_category_label">ویڈیو کی ترتیبات</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG تصاویر (.jpg, .jpeg) شامل کریں۔</string>
+    <string name="squeezer_type_jpeg_description">JPEG تصویریں شامل کریں (.jpg, .jpeg)۔ دوبارہ انکوڈنگ Android کے بلٹ ان JPEG انکوڈر کا استعمال کرتی ہے۔ تاریخ، مقام، اور دیگر EXIF میٹاڈیٹا محفوظ رہتے ہیں۔</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP تصاویر (.webp) شامل کریں۔</string>
+    <string name="squeezer_type_webp_description">WebP تصویریں شامل کریں (.webp)۔ دوبارہ انکوڈنگ Android کے بلٹ ان WebP انکوڈر کا استعمال کرتی ہے۔ تاریخ، مقام، اور دیگر EXIF میٹاڈیٹا محفوظ رہتے ہیں۔</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF تصاویر شامل کریں (.heic, .heif)۔ تاریخ، مقام، اور دیگر EXIF میٹا ڈیٹا محفوظ رکھی جاتی ہے۔ HDR gain maps، depth data، اور Live/Motion Photo siblings کو محفوظ نہیں کیا جا سکتا؛ متعدد تصویروں والی فائلیں چھوڑ دی جاتی ہیں۔</string>
     <string name="squeezer_type_video_title">MP4 ویڈیو</string>
-    <string name="squeezer_type_video_description">MP4 ویڈیو فائلیں (.mp4) شامل کریں۔</string>
+    <string name="squeezer_type_video_description">MP4 ویڈیو فائلیں شامل کریں (.mp4)۔ ویڈیو ٹریک کو ڈیوائس کے اپنے ویڈیو انکوڈر کے ذریعے کم بٹریٹ پر دوبارہ انکوڈ کیا جاتا ہے، آڈیو ٹریک کو بغیر تبدیلی کے کاپی کیا جاتا ہے، اور فائل MP4 رہتی ہے۔</string>
     <string name="squeezer_skip_compressed_title">پہلے سے کمپریس شدہ چھوڑیں</string>
     <string name="squeezer_skip_compressed_description">وہ فائلیں چھوڑ دیں جو SD Maid نے پہلے ہی کمپریس کی ہیں۔</string>
     <string name="squeezer_exif_marker_title">EXIF مارکر لکھیں</string>
     <string name="squeezer_exif_marker_description">تصویر کے EXIF یوزر کمنٹ فیلڈ میں مارکر شامل کریں تاکہ کمپریشن ہسٹری صاف ہونے پر بھی دوبارہ کمپریشن روکی جائے۔</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; depth تصاویر کو کمپریس کریں</string>
-    <string name="squeezer_include_lossy_aux_description">ڈیفالٹ طور پر بند: HDR gain map یا depth/portrait ڈیٹا والی تصاویر چھوڑ دی جاتی ہیں تاکہ وہ مسطح نہ ہوں۔ انہیں جہاں ممکن ہو کمپریس کرنے کے لیے فعال کریں — وہ اپنی HDR gain map یا depth data کو کھو دیں گے۔ کچھ متعدد تصویروں والی HEIC تصاویر بہر حال محفوظ رہتی ہیں۔</string>
+    <string name="squeezer_include_lossy_aux_description">HDR یا depth ڈیٹا والی تصویریں شامل کریں۔ کمپریشن اسے ہٹا دیتا ہے: HDR تصویریں عام تصویریں بن جاتی ہیں، پورٹریٹ تصویریں اپنی پس منظر کے blur کے پیچھے کا ڈیٹا کھو دیتی ہیں۔ ملٹی امیج HEIC فائلیں چھوڑی ہوئی رہتی ہیں۔</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos کو کمپریس کریں</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos شامل کریں۔ کمپریشن اسٹل تصویر کو محفوظ رکھتا ہے اور ویڈیو کلپ کو ہٹا دیتا ہے۔</string>
+    <string name="squeezer_include_oversized_title">بہت بڑی تصویروں کو کمپریس کریں</string>
+    <string name="squeezer_include_oversized_description">8192 پکسل سے زیادہ چوڑی یا لمبی تصویریں شامل کریں۔ کمپریشن ان کی ریزولوشن کو بھی آدھا کر دیتا ہے۔</string>
     <string name="squeezer_estimated_savings_format">~%s بچت</string>
     <string name="squeezer_no_savings_expected">محدود بچت</string>
     <string name="squeezer_current_size_format">سائز: %s</string>
+    <string name="squeezer_chip_compressed_before">ضغط شدہ</string>
+    <string name="squeezer_chip_hdr_depth">HDR/depth</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">سائز میں کمی</string>
+    <string name="squeezer_markers_dialog_title">ان نشانات کے بارے میں</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid نے اس فائل کو پہلے سے کمپریس کر دیا ہے۔ اسے دوبارہ کمپریس کرنے سے معیار خراب ہوتا ہے اور بہت کم بچت ہوتی ہے۔</string>
+    <string name="squeezer_markers_hdr_depth_description">اس تصویر میں HDR یا depth ڈیٹا ہے جو کمپریشن نہیں رکھ سکتا۔ ایک HDR تصویر عام تصویر کے طور پر واپس آتی ہے، اور ایک پورٹریٹ تصویر background blur کے لیے استعمال ہونے والا depth ڈیٹا کھو دیتی ہے۔</string>
+    <string name="squeezer_markers_motion_photo_description">یہ ایک Motion Photo ہے۔ کمپریشن اسٹل تصویر کو محفوظ رکھتا ہے اور ویڈیو کلپ کو ہٹا دیتا ہے۔</string>
+    <string name="squeezer_markers_downscaled_description">یہ تصویر 8192 پکسل سے زیادہ چوڑی یا لمبی ہے۔ کمپریشن اس کی ریزولوشن کو بھی آدھا کر دیتا ہے۔</string>
     <string name="squeezer_compress_action">کمپریس کریں</string>
     <string name="squeezer_compress_all_action">سب کمپریس کریں</string>
     <string name="squeezer_preview_dialog_title">کمپریشن کی تصدیق</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">موازنہ دیکھیں</string>
     <string name="squeezer_no_example_found">منتخب پاتھز میں کوئی تصاویر نہیں ملیں۔</string>
     <string name="squeezer_result_empty_message">کوئی قابل۔ کمپریس میڈیا نہیں ملا۔</string>
+    <string name="squeezer_result_empty_protected">کمپریس کرنے کے لیے کچھ نہیں۔ چھوڑ دیا گیا: %s۔ انہیں شامل کرنے کے لیے سیٹنگز میں متعلقہ آپشن کو آن کریں۔</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/depth تصویر</item>
+        <item quantity="other">%d HDR/depth تصویریں</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d بہت بڑی تصویر</item>
+        <item quantity="other">%d بہت بڑی تصویریں</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d مقام کمپریشن کے لیے استعمال نہیں ہو سکتا اور ہٹا دیا گیا۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>
         <item quantity="other">%d مقامات کمپریشن کے لیے استعمال نہیں ہو سکتے اور ہٹا دیے گئے۔ کمپریشن کے لیے اندرونی ذخیرے تک براہ راست رسائی درکار ہے۔</item>
@@ -98,7 +137,6 @@
         <item quantity="other">کم از کم %d دن پرانی</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG فائلوں کے لیے تخمینی ~%d%% بچت</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer آپ کی تصاویر اور ویڈیوز کو دوبارہ کمپریس کرتا ہے تاکہ وہ کم جگہ لیں۔ آپ معمولی کوالٹی سے سمجھوتہ کر کے جگہ حاصل کرتے ہیں۔ ہر چیز اپنی متوقع بچت دکھاتی ہے، تو آپ فیصلہ کر سکتے ہیں کہ یہ قابلِقدر ہے۔</string>
     <string name="tour_squeezer_compress_body">یہاں سب کچھ ایک ساتھ کمپریس کریں، یا صرف ایک چیز کو سکڑانے کے لیے اس پر ٹیپ کریں۔ متعدد کو منتخب کرنے کے لیے طویل دبائیں۔ آپ کو ہمیشہ کچھ بھی تبدیل ہونے سے پہلے پیش نظارہ نظر آئے گا۔</string>
 </resources>

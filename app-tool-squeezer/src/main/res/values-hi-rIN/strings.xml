@@ -29,6 +29,18 @@
         <item quantity="one">%d फ़ाइल छोड़ी गई (HDR/depth संरक्षित)</item>
         <item quantity="other">%d फ़ाइलें छोड़ी गईं (HDR/depth संरक्षित)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d छोड़ दिया गया (मोशन फोटो)</item>
+        <item quantity="other">%d छोड़ दिए गए (मोशन फोटो)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d छोड़ दिया गया (बहुत बड़ी फोटो)</item>
+        <item quantity="other">%d छोड़ दिए गए (बहुत बड़ी फोटोएं)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d छोड़ दिया गया (सुरक्षित)</item>
+        <item quantity="other">%d छोड़ दिए गए (सुरक्षित)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d आइटम चयनित</item>
         <item quantity="other">%d आइटम चयनित</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">सामान्य</string>
     <string name="squeezer_quality_description">कम गुणवत्ता का अर्थ है छोटा फ़ाइल आकार लेकिन दृश्य गुणवत्ता कम होगी।</string>
     <string name="squeezer_types_category_label">छवि सेटिंग</string>
+    <string name="squeezer_protected_category_label">क्या खो जाता है</string>
     <string name="squeezer_video_settings_category_label">वीडियो सेटिंग</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG छवियाँ शामिल करें (.jpg, .jpeg)।</string>
+    <string name="squeezer_type_jpeg_description">JPEG इमेजेस (.jpg, .jpeg) शामिल करें। पुनः एन्कोडिंग Android के built-in JPEG encoder का उपयोग करती है। तारीख़, स्थान, और अन्य EXIF मेटाडेटा संरक्षित रखा जाता है।</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP छवियाँ शामिल करें (.webp)।</string>
+    <string name="squeezer_type_webp_description">WebP इमेजेस (.webp) शामिल करें। पुनः एन्कोडिंग Android के built-in WebP encoder का उपयोग करती है। तारीख़, स्थान, और अन्य EXIF मेटाडेटा संरक्षित रखा जाता है।</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF छवियों (.heic, .heif) को शामिल करें। तारीख, स्थान, और अन्य EXIF मेटाडेटा को रखा जाता है। HDR gain maps, depth data, और Live/Motion Photo siblings को संरक्षित नहीं किया जा सकता; बहु-छवि फ़ाइलों को छोड़ दिया जाता है।</string>
     <string name="squeezer_type_video_title">MP4 वीडियो</string>
-    <string name="squeezer_type_video_description">MP4 वीडियो फ़ाइलें (.mp4) शामिल करें।</string>
+    <string name="squeezer_type_video_description">MP4 वीडियो फाइलें (.mp4) शामिल करें। वीडियो ट्रैक को डिवाइस के अपने वीडियो एन्कोडर द्वारा कम बिटरेट पर पुनः एन्कोड किया जाता है, ऑडियो ट्रैक अपरिवर्तित रूप से कॉपी किया जाता है, और फाइल MP4 बनी रहती है।</string>
     <string name="squeezer_skip_compressed_title">पहले से संपीड़ित को छोड़ें</string>
     <string name="squeezer_skip_compressed_description">उन फ़ाइलों को छोड़ें जो पहले से SD Maid द्वारा संपीड़ित की जा चुकी हैं।</string>
     <string name="squeezer_exif_marker_title">EXIF मार्कर लिखें</string>
     <string name="squeezer_exif_marker_description">संपीड़न इतिहास साफ़ होने पर भी पुनः-संपीड़न रोकने के लिए छवि के EXIF उपयोगकर्ता टिप्पणी फ़ील्ड में एक मार्कर जोड़ें।</string>
     <string name="squeezer_include_lossy_aux_title">HDR और depth फ़ोटो को संपीड़ित करें</string>
-    <string name="squeezer_include_lossy_aux_description">डिफ़ॉल्ट रूप से बंद: HDR gain map या depth/portrait data वाली फ़ोटो को छोड़ दिया जाता है ताकि वे समतल न हों। उन्हें जहां संभव हो संपीड़ित करने के लिए सक्षम करें — वे अपना HDR gain map या depth data खो देंगी। कुछ बहु-छवि HEIC फ़ोटो किसी भी स्थिति में सुरक्षित रहती हैं।</string>
+    <string name="squeezer_include_lossy_aux_description">HDR या गहराई की जानकारी के साथ फोटो शामिल करें। संपीड़न इसे हटा देता है: HDR फोटो सामान्य फोटो बन जाती हैं, पोर्ट्रेट फोटो पृष्ठभूमि ब्लर के डेटा को खो देती हैं। बहु-छवि HEIC फाइलें छोड़ी जाती हैं।</string>
+    <string name="squeezer_include_motion_photos_title">मोशन फोटो को संपीड़ित करें</string>
+    <string name="squeezer_include_motion_photos_description">मोशन फोटो शामिल करें। संपीड़न स्थिर इमेज को रखता है और वीडियो क्लिप को हटा देता है।</string>
+    <string name="squeezer_include_oversized_title">बहुत बड़ी फोटो को संपीड़ित करें</string>
+    <string name="squeezer_include_oversized_description">8192 पिक्सल से अधिक चौड़ी या लंबी फोटो शामिल करें। संपीड़न उनके रिजॉल्यूशन को भी आधा कर देता है।</string>
     <string name="squeezer_estimated_savings_format">~%s की बचत</string>
     <string name="squeezer_no_savings_expected">सीमित बचत</string>
     <string name="squeezer_current_size_format">आकार: %s</string>
+    <string name="squeezer_chip_compressed_before">संपीड़ित</string>
+    <string name="squeezer_chip_hdr_depth">HDR/गहराई</string>
+    <string name="squeezer_chip_motion_photo">मोशन फोटो</string>
+    <string name="squeezer_chip_downscaled">डाउनस्केल किया गया</string>
+    <string name="squeezer_markers_dialog_title">इन मार्कर्स के बारे में</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ने पहले ही इस फाइल को संपीड़ित कर दिया है। इसे दोबारा संपीड़ित करने से गुणवत्ता खराब होती है और बहुत कम जगह बचती है।</string>
+    <string name="squeezer_markers_hdr_depth_description">इस फोटो के पास HDR या गहराई की जानकारी है जिसे संपीड़न संरक्षित नहीं कर सकता। एक HDR फोटो सामान्य फोटो बन जाती है, और एक पोर्ट्रेट फोटो पृष्ठभूमि ब्लर के लिए उपयोग की गई गहराई की जानकारी खो देती है।</string>
+    <string name="squeezer_markers_motion_photo_description">यह एक मोशन फोटो है। संपीड़न स्थिर इमेज को रखता है और वीडियो क्लिप को हटा देता है।</string>
+    <string name="squeezer_markers_downscaled_description">यह फोटो 8192 पिक्सल से अधिक चौड़ी या लंबी है। संपीड़न इसके रिजॉल्यूशन को भी आधा कर देता है।</string>
     <string name="squeezer_compress_action">संपीड़ित करें</string>
     <string name="squeezer_compress_all_action">सभी को संपीड़ित करें</string>
     <string name="squeezer_preview_dialog_title">संपीड़न की पुष्टि करें</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">तुलना देखें</string>
     <string name="squeezer_no_example_found">चयनित पथों में कोई छवि नहीं मिली।</string>
     <string name="squeezer_result_empty_message">कोई संपीड़न योग्य मीडिया नहीं मिला।</string>
+    <string name="squeezer_result_empty_protected">संपीड़ित करने के लिए कुछ नहीं। छोड़ दिया गया: %s। उन्हें शामिल करने के लिए सेटिंग्स में संबंधित विकल्प चालू करें।</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/गहराई फोटो</item>
+        <item quantity="other">%d HDR/गहराई फोटोएं</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d मोशन फोटो</item>
+        <item quantity="other">%d मोशन फोटोएं</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d बहुत बड़ी फोटो</item>
+        <item quantity="other">%d बहुत बड़ी फोटोएं</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d स्थान संपीड़न के लिए उपयोग नहीं किया जा सकता और हटा दिया गया। संपीड़न के लिए आंतरिक संग्रहण तक सीधी पहुँच आवश्यक है।</item>
         <item quantity="other">%d स्थान संपीड़न के लिए उपयोग नहीं किए जा सकते और हटा दिए गए। संपीड़न के लिए आंतरिक संग्रहण तक सीधी पहुँच आवश्यक है।</item>
@@ -98,7 +137,6 @@
         <item quantity="other">कम से कम %d दिन पुरानी</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG फ़ाइलों के लिए अनुमानित ~%d%% बचत</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer आपकी तस्वीरों और वीडियो को फिर से कंप्रेस करता है ताकि वे कम जगह लें। आप गुणवत्ता में थोड़ी कमी के बदले मिली जगह पाते हैं। हर आइटम अनुमानित बचत दिखाता है, इसलिए आप तय कर सकते हैं कि यह लायक है या नहीं।</string>
     <string name="tour_squeezer_compress_body">यहाँ सब कुछ एक साथ संपीड़ित करें, या केवल किसी एक को छोटा करने के लिए उस पर टैप करें। कई को चुनने के लिए लंबे समय तक दबाएँ। कुछ भी बदलने से पहले आप हमेशा एक पूर्वावलोकन देखेंगे।</string>
 </resources>

@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">ଫିଲ୍ଟର୍ ହୋଇଛି: %1$s</string>
     <string name="swiper_session_no_matching_files">କୌଣସି ମିଳୁଥିବା ଫାଇଲ ମିଳିଲା ନାହିଁ</string>
     <string name="swiper_open_externally_action">ବାହ୍ୟ ଆପ୍‌ରେ ଖୋଲନ୍ତୁ</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ଏକ ଫାଇଲ ସ୍ୱାଇପ କରନ୍ତୁ ଏହାର ଭାଗ୍ୟ ନିଷ୍ପତ୍ତି ନେବାକୁ: ପାର୍ଶ୍ୱକୁ ରଖିବା ବା ଡିଲିଟ କରିବାକୁ, ଉପରକୁ ଛାଡ଼ିବାକୁ, ତଳକୁ ପୂର୍ବବସ୍ଥାକୁ ଫେରାଇବାକୁ। ତଳେ ଥିବା ବଟନଗୁଡ଼ିକ ସମାନ କାର୍ଯ୍ୟ କରେ — ଏବଂ ଦେଖାଏ ଯେ ଏକ ପାଖ ଅନ୍ୟଟି।</string>
     <string name="tour_swiper_openin_body">ଏହି ବଟନ ଫାଇଲଟିକୁ ଅନ୍ୟ ଆପ୍ଲିକେସନରେ ଖୋଲେ, ନିଷ୍ପତ୍ତି ନେବା ପୂର୍ବରୁ ଏଟି ଯାଞ୍ଚ କରିବାକୁ ସୁବିଧାଜନକ।</string>
     <string name="tour_swiper_preview_body">ଏହି ବଟନ ଭଲ ଭାବରେ ଦେଖିବା ପାଇଁ ଏକ ସଂପୂର୍ଣ୍ଣ-ସ୍କ୍ରିନ ପୂର୍ବାଦର୍ଶନ ଖୋଲାଏ।</string>

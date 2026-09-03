@@ -184,7 +184,6 @@
     <string name="swiper_file_type_filter_summary">Filtrirano: %1$s</string>
     <string name="swiper_session_no_matching_files">Ni ujemajočih se datotek.</string>
     <string name="swiper_open_externally_action">Odpri v zunanjem programu</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Povlecite datoteko: v stran, da jo obdržite ali izbrišete, navzgor, da preskočite, navzdol, da razveljavite. Spodnji gumbi delujejo enako — in pokažejo, katera stran je katera.</string>
     <string name="tour_swiper_openin_body">Ta gumb odpre datoteko v drugi aplikaciji, kar je priročno za preverjanje pred odločitvijo.</string>
     <string name="tour_swiper_preview_body">Ta gumb odpre celozaslonski predogled za podrobnejši pogled.</string>

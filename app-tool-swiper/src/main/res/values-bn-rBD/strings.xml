@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">ফিল্টার করা হয়েছে: %1$s</string>
     <string name="swiper_session_no_matching_files">কোনো মিলসম্পন্ন ফাইল পাওয়া যায়নি</string>
     <string name="swiper_open_externally_action">বাহ্যিক অ্যাপে খুলুন</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">একটি ফাইল সোয়াইপ করুন তার ভাগ্য নির্ধারণ করতে: পাশে রাখতে বা মুছতে, উপরে এড়িয়ে যেতে, নিচে পূর্বাবস্থায় ফিরতে। নিচের বোতামগুলি একই কাজ করে — এবং কোন পাশ কোনটি তা দেখায়।</string>
     <string name="tour_swiper_openin_body">এই বোতাম অন্য একটি অ্যাপে ফাইলটি খোলে, সিদ্ধান্ত নেওয়ার আগে এটি পরীক্ষা করার জন্য সুবিধাজনক।</string>
     <string name="tour_swiper_preview_body">এই বোতাম আরও কাছ থেকে দেখার জন্য একটি পূর্ণ-স্ক্রিন প্রিভিউ খোলে।</string>

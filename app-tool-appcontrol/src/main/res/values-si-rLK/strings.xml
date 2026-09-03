@@ -81,6 +81,10 @@
         <item quantity="one">%d යෙදුම මාරු කරන ලදී</item>
         <item quantity="other">%d යෙදුම් මාරු කරන ලදී</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">යෙදුම් %d ක් සක්‍රිය කිරීමට හෝ අක්‍රිය කිරීමට නොහැක</item>
+        <item quantity="other">යෙදුම් %d ක් සක්‍රිය කිරීමට හෝ අක්‍රිය කිරීමට නොහැක</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">ප්‍රමාත නිර්ණය කරන්න</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">සෑම යෙදුමකම ප්‍රමාණය පිළිබඳ ආසන්න ඇස්තමේන්තුවක් ලබා ගන්න.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">ක්‍රියාකාරිත්වය නිර්ණය කරන්න</string>

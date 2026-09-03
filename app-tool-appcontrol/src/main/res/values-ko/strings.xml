@@ -74,6 +74,9 @@
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="other">%d개의 앱을 전환했습니다</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="other">%d개의 앱을 활성화하거나 비활성화할 수 없습니다</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">크기 추정</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">앱 크기의 대략적인 값을 확인합니다.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">앱 활성 여부 확인</string>

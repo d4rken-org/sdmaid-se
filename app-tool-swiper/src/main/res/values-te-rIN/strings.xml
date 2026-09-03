@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">వడపోయబడినవి: %1$s</string>
     <string name="swiper_session_no_matching_files">సరిపోలే ఫైల్స్ కనుగొనబడలేదు</string>
     <string name="swiper_open_externally_action">బాహ్య యాప్‌లో తెరవండి</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ఫైల్‌ను స్వైప్ చేయండి, ఆ విధిని నిర్ణయించండి: పక్కకు ఉంచడానికి లేదా తొలగించడానికి, పైకి దాటవేయడానికి, క్రిందికి చేసిన పనిని రద్దు చేయడానికి. దిగువ బటన్‌లు సమానంగా చేస్తాయి — మరియు ఏ వైపు ఏది అని చూపుతాయి.</string>
     <string name="tour_swiper_openin_body">ఈ బటన్ ఫైల్‌ను మరొక యాప్‌లో తెరుస్తుంది, నిర్ణయించే ముందు దాన్ని తనిఖీ చేయడానికి సౌకర్యవంతమైనది.</string>
     <string name="tour_swiper_preview_body">ఈ బటన్ పూర్తి-స్క్రీన్ ప్రీవ్యూను తెరుస్తుంది దగ్గరగా చూడటానికి.</string>

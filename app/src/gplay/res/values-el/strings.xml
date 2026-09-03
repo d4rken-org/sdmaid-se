@@ -14,15 +14,13 @@
     <string name="upgrades_gplay_network_error_description">Αδυναμία σύνδεσης με το Google Play. Ελέγξτε τη σύνδεσή σας στο διαδίκτυο και δοκιμάστε ξανά.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Η προσφορά δεν είναι διαθέσιμη</string>
     <string name="upgrades_gplay_offer_unavailable_description">Το Google Play δεν προσφέρει αυτήν την επιλογή αναβάθμισης αυτήν τη στιγμή. Δοκιμάστε ξανά αργότερα ή ελέγξτε το Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Δεν ήταν δυνατό να ανοίξει το Google Play. Ενδέχεται να λείπει, να είναι απενεργοποιημένο ή περιορισμένο σε αυτή τη συσκευή.</string>
     <string name="upgrades_gplay_already_owned_error_title">Ήδη αγορασμένο</string>
     <string name="upgrades_gplay_already_owned_error_description">Χρησιμοποιήστε την επιλογή \"Επαναφορά αγοράς\" για να επαναφέρετε την αγορά σας. Εάν το πρόβλημα παραμένει, δοκιμάστε να καθαρίσετε την προσωρινή μνήμη του Google Play και να επανεκκινήσετε τη συσκευή σας.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Λήψη %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid δεν έχει διαφημίσεις και δεν πωλεί τα δεδομένα των χρηστών. Η εργασία μου χρηματοδοτείται από εσάς ❤️.</string>
     <string name="upgrade_screen_benefits_title">Πλεονεκτήματα αναβάθμισης</string>
-    <string name="upgrade_screen_benefits_body">• Καθαρισμός cache εφαρμογών και σκουπιδιών\n• Κατάργηση διπλών αρχείων\n• Συμπίεση φωτογραφιών και βίντεο\n• Σάρωση για αποσυσσώρευση παλιών αρχείων\n• Καθαρισμός με ένα άγγιγμα μέσω widget\n• Προγραμματισμός καθαρισμού\n• Προσαρμοσμένα φίλτρα και κανόνες\n• Τάσεις και ιστορικό αποθήκευσης\n• Περισσότερες λειτουργίες και στοιχεία ελέγχου σε όλη την εφαρμογή\n• Υποστήριξη συνεχιζόμενης ανάπτυξης</string>
+    <string name="upgrade_screen_benefits_body">• Καθαρισμός cache εφαρμογών και σκουπιδιών\n• Κατάργηση διπλότυπων αρχείων\n• Συμπίεση φωτογραφιών και βίντεο\n• Σάρωση για αποσυσσώρευση παλιών αρχείων\n• Καθαρισμός με ένα άγγιγμα μέσω widget\n• Προγραμματισμός καθαρισμού\n• Προσαρμοσμένα φίλτρα και κανόνες\n• Τάσεις και ιστορικό αποθήκευσης\n• Περισσότερες λειτουργίες και στοιχεία ελέγχου σε όλη την εφαρμογή\n• Υποστήριξη συνεχιζόμενης ανάπτυξης</string>
     <string name="upgrade_screen_offers_title">Επιλογές αναβάθμισης</string>
     <string name="upgrade_screen_offers_body">Οι ίδιες λειτουργίες, απλώς διαφορετικά μοντέλα τιμολόγησης.</string>
     <string name="upgrade_screen_offers_or">ή</string>
@@ -38,13 +36,13 @@
     <string name="upgrade_screen_iap_action">Εφάπαξ αγορά</string>
     <string name="upgrade_screen_thanks_toast">Είστε οι καλύτεροι! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Επαναφορά αγοράς</string>
-    <string name="upgrade_screen_restore_banner_title">Ήδη αγόρασες Pro;</string>
+    <string name="upgrade_screen_restore_banner_title">Ήδη αγόρασες το Pro;</string>
     <string name="upgrade_screen_restore_banner_body">Φαίνεται ότι αναβαθμίσατε σε Pro σε αυτήν τη συσκευή προηγουμένως. Επαναφέρετε την αγορά σας για να το ξεκλειδώσετε ξανά.</string>
     <string name="upgrade_screen_restore_sync_patience_hint">Ο συγχρονισμός του Play Store ενδέχεται να πάρει χρόνο. Δοκιμάστε να κάνετε επανεκκίνηση, να καθαρίσετε την προσωρινή μνήμη του Google Play ή απλώς να περιμένετε.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Πολλοί λογαριασμοί μπορεί να μπερδέψουν το Google Play. Εγκαταστήστε την εφαρμογή μέσω του ιστότοπου Google Play, κάτι που αναγκάζει τους συσχετισμούς με έναν συγκεκριμένο λογαριασμό.</string>
     <string name="upgrade_screen_owned_hero_title">Συγχαρητήρια!</string>
-    <string name="upgrade_screen_owned_hero_sub_body">Έχετε %1$s, ξεκλείδωση από τη συνδρομή σας.</string>
-    <string name="upgrade_screen_owned_hero_iap_body">Έχετε %1$s, ξεκλείδωση από την εφάπαξ αγορά σας.</string>
+    <string name="upgrade_screen_owned_hero_sub_body">Έχετε %1$s, ξεκλειδωμένο από τη συνδρομή σας.</string>
+    <string name="upgrade_screen_owned_hero_iap_body">Έχετε %1$s, ξεκλειδωμένο από την εφάπαξ αγορά σας.</string>
     <string name="upgrade_screen_owned_iap_title">Εφάπαξ αγορά</string>
     <string name="upgrade_screen_owned_iap_body">Κατέχετε την εφάπαξ αναβάθμιση Pro. Το Pro παραμένει ξεκλείδωτο σε αυτόν τον λογαριασμό Google. Ευχαριστούμε που υποστηρίξατε το SD Maid ❤️.</string>
     <string name="upgrade_screen_owned_sub_renewing_body">Η συνδρομή Pro σας είναι ενεργή και έχει οριστεί για ανανέωση. Η χρέωση διαχειρίζεται από το Google Play.</string>
@@ -59,7 +57,7 @@
     <string name="upgrade_screen_pending_card_title">Εκκρεμή πληρωμή</string>
     <string name="upgrade_screen_pending_card_body">Το Google Play επεξεργάζεται ακόμη την πληρωμή σας. Η έκδοση Pro θα ξεκλειδωθεί αυτόματα μόλις ολοκληρωθεί η πληρωμή. Ορισμένοι τρόποι πληρωμής ενδέχεται να χρειαστούν λίγο χρόνο. Δεν χρειάζεται να κάνετε κάτι άλλο.</string>
     <string name="upgrade_screen_pending_dialog_message">Το Google Play εντόπισε μια αγορά με εκκρεμή πληρωμή και εξακολουθεί να την επεξεργάζεται. Η έκδοση Pro θα ξεκλειδωθεί αυτόματα μόλις ολοκληρωθεί η πληρωμή.</string>
-    <string name="upgrade_screen_restore_success_message">Η αγορά επαναφέρθηκε, η αναβάθμιση Pro είναι ενεργή.</string>
+    <string name="upgrade_screen_restore_success_message">Έγινε επαναφορά αγοράς, η αναβάθμιση Pro είναι ενεργή.</string>
     <string name="upgrade_screen_grace_title">Επιβεβαίωση της αγοράς σας</string>
     <string name="upgrade_screen_grace_body_short">Το Pro είναι ακόμα ενεργό. Γίνεται αναμονή ώστε το Google Play να επιβεβαιώσει ξανά την αγορά σας, όλες οι δυνατότητες Pro παραμένουν ξεκλείδωτες στο μεταξύ.</string>
     <string name="upgrade_screen_grace_body">Το Pro είναι ακόμα ενεργό, αλλά το Google Play δεν έχει επιβεβαιώσει την αγορά σας εδώ και καιρό. Αν αγοράσατε το Pro, επαναφέρετε την αγορά και ελέγξτε ότι το Google Play χρησιμοποιεί τον λογαριασμό που το αγόρασε. Αν η συνδρομή έληξε ή η αγορά επιστράφηκε, το Pro θα απενεργοποιηθεί από μόνο του, δεν χρειάζεται κάτι άλλο.</string>

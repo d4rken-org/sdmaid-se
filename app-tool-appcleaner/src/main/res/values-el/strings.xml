@@ -60,6 +60,18 @@
         <item quantity="one">%d αναλώσιμο στοιχείο διαγράφηκε</item>
         <item quantity="other">%d αναλώσιμα στοιχεία διαγράφηκαν</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Διαγράφηκε %d αναλώσιμο στοιχείο, διακόπηκε επειδή η οθόνη ήταν απενεργοποιημένη ή κλειδωμένη</item>
+        <item quantity="other">Διαγράφηκαν %d αναλώσιμα στοιχεία, διακόπηκε επειδή η οθόνη ήταν απενεργοποιημένη ή κλειδωμένη</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Διαγράφηκε %d αναλώσιμο στοιχείο, διακόπηκε λόγω σφάλματος</item>
+        <item quantity="other">Διαγράφηκαν %d αναλώσιμα στοιχεία, διακόπηκε λόγω σφάλματος</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d κρυφή μνήμη εξακολουθεί να χρειάζεται την υπηρεσία προσβασιμότητας</item>
+        <item quantity="other">%1$s, %2$d κρυφές μνήμες εξακολουθούν να χρειάζονται την υπηρεσία προσβασιμότητας</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Βρέθηκε %d αναλώσιμο στοιχείο</item>
         <item quantity="other">Βρέθηκαν %d αναλώσιμα στοιχεία</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Αναζήτηση για το κουμπί \"Εκκαθάριση προσωρινής μνήμης\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Προεπιλεγμένες κρυφές μνήμες</string>
     <string name="appcleaner_item_caches_inaccessible_body">Δημόσιες και ιδιωτικές προεπιλεγμένες κρυφές μνήμες. Δεν είναι άμεσα προσβάσιμο, αλλά μπορεί να διαγραφεί έμμεσα (π.χ. μέσω της υπηρεσίας προσβασιμότητας).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Εξαιρείται, αλλά ο καθαρισμός όλων των εφαρμογών ταυτόχρονα διαγράφει και πάλι αυτές τις κρυφές μνήμες</string>
+    <string name="appcleaner_exclusion_limited_title">Εξαιρούμενη εφαρμογή</string>
+    <string name="appcleaner_exclusion_limited_body">Έχεις εξαιρέσει αυτή την εφαρμογή από το AppCleaner. Ο καθαρισμός κρυφών μνημών για όλες τις εφαρμογές ταυτόχρονα χρησιμοποιεί τον καθαρισμό κρυφής μνήμης σε επίπεδο συστήματος του Shizuku, ο οποίος δεν μπορεί να εξαιρέσει μεμονωμένες εφαρμογές, οπότε τα δεδομένα κρυφής μνήμης αυτής της εφαρμογής διαγράφονται μαζί με όλα τα υπόλοιπα. Επηρεάζονται μόνο τα δεδομένα κρυφής μνήμης που εμφανίζονται εδώ, όλα τα υπόλοιπα που καλύπτει η εξαίρεση παραμένουν κρυφά και ανέπαφα.</string>
     <string name="appcleaner_automation_unavailable_title">Η υπηρεσία προσβασιμότητας δεν είναι διαθέσιμη</string>
-    <string name="appcleaner_automation_unavailable_body">Η εκκαθάριση των απρόσιτων κρυφών μνήμης απαιτεί την υπηρεσία προσβασιμότητας της SD Maid, αλλά δεν ήταν διαθέσιμη. Εάν δε θέλετε να το χρησιμοποιήσετε: απενεργοποιήστε την επιλογή \"Συμπερίληψη μη προσβάσιμων κρυφών μνημών\".</string>
+    <string name="appcleaner_automation_unavailable_body">Ο καθαρισμός αυτών των κρυφών μνημών απαιτεί την υπηρεσία προσβασιμότητας του SD Maid, αλλά δεν ήταν διαθέσιμη.</string>
     <string name="appcleaner_delete_confirmation_message_x">Διαγραφή αναλώσιμων αρχείων για %s;</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Διαγραφή αναλώσιμων αρχείων για %d επιλεγμένη εφαρμογή;</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Αναγκαστική διακοπή πριν από την εκκαθάριση</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Αναγκαστική διακοπή εφαρμογών πριν από την εκκαθάριση της μνήμης cache τους. Μπορεί να βοηθήσει στην εκκαθάριση ορισμένων κρυφών μνημών εφαρμογών, αλλά μπορεί να προκαλέσει δυσλειτουργία εφαρμογών και να απαιτηθεί χειροκίνητη επανεκκίνηση.</string>
     <string name="appcleaner_progress_force_stopping">Αναγκαστική διακοπή εφαρμογών…</string>
+    <string name="appcleaner_progress_checking_freed_space">Έλεγχος ελευθερωμένου χώρου…</string>
 </resources>

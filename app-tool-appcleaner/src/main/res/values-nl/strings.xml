@@ -60,6 +60,18 @@
         <item quantity="one">%d overbodig artikel verwijderd</item>
         <item quantity="other">%d overbodige artikelen verwijderd</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d overbodig item verwijderd, gestopt omdat het scherm uit of vergrendeld was</item>
+        <item quantity="other">%d overbodige items verwijderd, gestopt omdat het scherm uit of vergrendeld was</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d overbodig item verwijderd, gestopt door een fout</item>
+        <item quantity="other">%d overbodige items verwijderd, gestopt door een fout</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache heeft de toegankelijkheidsservice nog nodig</item>
+        <item quantity="other">%1$s, %2$d caches hebben de toegankelijkheidsservice nog nodig</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d vervangbaar item gevonden</item>
         <item quantity="other">%d vervangbare items gevonden</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Cache wissen\' (trefwoorden: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standaard caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Uitgesloten, maar bij het in één keer wissen van alle apps worden deze caches toch gewist</string>
+    <string name="appcleaner_exclusion_limited_title">Uitgesloten app</string>
+    <string name="appcleaner_exclusion_limited_body">Je hebt deze app uitgesloten van AppCleaner. Bij het in één keer wissen van caches voor alle apps wordt Shizuku\'s systeembrede cache-opschoning gebruikt, die geen individuele apps kan overslaan. Daardoor worden de cachegegevens van deze app samen met de rest gewist. Alleen de hier getoonde cachegegevens worden geraakt, al het andere dat door de uitsluiting wordt gedekt blijft verborgen en onaangeroerd.</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
-    <string name="appcleaner_automation_unavailable_body">Voor het wissen van ontoegankelijke caches is de toegankelijkheidsservice van SD Maid nodig, maar deze was niet beschikbaar. Als je deze niet wilt gebruiken: schakel de optie \'Inclusief ontoegankelijke caches\' uit.</string>
+    <string name="appcleaner_automation_unavailable_body">Het wissen van deze caches vereist SD Maids toegankelijkheidsservice, maar die was niet beschikbaar.</string>
     <string name="appcleaner_delete_confirmation_message_x">Overbodige bestanden verwijderen voor %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Overbodige bestanden verwijderen voor %d geselecteerde app?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Geforceerd stoppen voor wissen</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sluit apps geforceerd af voordat je hun cache wist. Dit kan helpen om de cache van sommige apps te wissen, maar het kan er ook toe leiden dat apps niet goed meer werken en handmatig opnieuw moeten worden opgestart.</string>
     <string name="appcleaner_progress_force_stopping">Apps geforceerd stoppen…</string>
+    <string name="appcleaner_progress_checking_freed_space">Vrijgemaakte ruimte controleren…</string>
 </resources>

@@ -81,6 +81,10 @@
         <item quantity="one">%d app ble aktivert/deaktivert</item>
         <item quantity="other">%d apper ble aktivert/deaktivert</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d app kan ikke aktiveres eller deaktiveres</item>
+        <item quantity="other">%d apper kan ikke aktiveres eller deaktiveres</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Bestem størrelser</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et grovt estimat av størrelsen til hver app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>

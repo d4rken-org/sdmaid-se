@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Назив распореда</string>
     <string name="scheduler_schedule_toggle_enabled">Распоред је омогућен</string>
     <string name="scheduler_schedule_toggle_disabled">Распоред је онемогућен</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Онемогући распоред пре него што га измениш.</string>
     <string name="scheduler_edit_schedule_action">Уреди распоред</string>
     <string name="scheduler_schedule_time_label">Оквирно време</string>
     <string name="scheduler_schedule_repeat_label">Интервал понављања у данима</string>
@@ -44,7 +45,6 @@
     <string name="scheduler_commands_after_schedule_label">Команде након распореда</string>
     <string name="scheduler_commands_after_schedule_desc">Андроид shell команде које ће бити извршене на крају распореда.</string>
     <string name="scheduler_battery_optimization_hint">Размотрите искључивање оптимизације батерије за СД Чистач ако имате проблеме са извршавањем у позадини.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid може да чисти по распореду. Изаберите време и који алати се покрећу, и оно ради посао у позадини, (готово) без потребе да отварате апликацију.</string>
     <string name="tour_scheduler_create_body">Додирните овде да направите нови распоред, затим поставите када ће се покренути и које алате да укључите.</string>
 </resources>

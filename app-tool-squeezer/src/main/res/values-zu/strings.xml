@@ -29,6 +29,18 @@
         <item quantity="one">%d laphosiwe (i-HDR/ilobango licinywe)</item>
         <item quantity="other">%d laphosiwe (i-HDR/ilobango licinywe)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d liphuthelwe (Motion Photo)</item>
+        <item quantity="other">%d liphuthelwe (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d liphuthelwe (isithombe esikhulu kakhulu)</item>
+        <item quantity="other">%d liphuthelwe (izithombe ezikhulu kakhulu)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d liphuthelwe (kukongelwe)</item>
+        <item quantity="other">%d liphuthelwe (kukongelwe)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d into ekhethiwe</item>
         <item quantity="other">%d izinto ezikhethiwe</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Okujwayelekile</string>
     <string name="squeezer_quality_description">Ikhwalithi ephansi kusho ifayela elincane kodwa ikhwalithi yombono inciphisiwe.</string>
     <string name="squeezer_types_category_label">Izilungiselelo zezithombe</string>
+    <string name="squeezer_protected_category_label">Okuyolahlekelwa</string>
     <string name="squeezer_video_settings_category_label">Izilungiselelo zeviyo</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Faka izithombe ze-JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Faka izithombe ze-JPEG (.jpg, .jpeg). I-re-encoding isebenzisa i-encoder ye-JPEG ene-Android enekwe. Usuku, indawo, nezinye imininingwane ye-EXIF igcinwa.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Faka izithombe ze-WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Faka izithombe ze-WebP (.webp). I-re-encoding isebenzisa i-encoder ye-WebP ene-Android enekwe. Usuku, indawo, nezinye imininingwane ye-EXIF igcinwa.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Ibalisa izithombe ze-HEIC/HEIF (.heic, .heif). Usuku, indawo, nezinye i-metadata ye-EXIF igcinwe. I-HDR gain map, idatha yolunzima, kanye ne-Live/Motion Photo ezinombandlulwane azikwazi ukugcinwa; amafayili anemifanekiso eminingi ayaliwe.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Faka amafayela eviyo we-MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Faka amafayela avidiyo e-MP4 (.mp4). Iyithi yevidiyo ifaka kabusha nge-bitrate elincane yi-encoder yevidiyo yomshini, iyithi yezwi ikopwe phezu ephuye njengeyakuqala, futhi ifayela lihlala liyi-MP4.</string>
     <string name="squeezer_skip_compressed_title">Yeqa ezicindezelwe ngaphambilini</string>
     <string name="squeezer_skip_compressed_description">Yeqa amafayela asevele egoqiwe ngu-SD Maid.</string>
     <string name="squeezer_exif_marker_title">Bhala uphawu lwe-EXIF</string>
     <string name="squeezer_exif_marker_description">Engeza uphawu enkundleni yokuphawula komsebenzisi we-EXIF yesithombe ukuvimbela ukucindezelwa kabusha noma umlando wokucindezela usulwe.</string>
     <string name="squeezer_include_lossy_aux_title">Cinza izithombe ze-HDR &amp; depth</string>
-    <string name="squeezer_include_lossy_aux_description">Okuvaliwe ngesizinda: izithombe ezinamahlanganiselo e-HDR gain map noma idatha ye-depth/portrait ziyaliwe ukuze zingeliwe. Vumela ukuncinane lapho kunenzalo — zizazalulela amahlanganiselo e-HDR gain map noma idatha ye-depth. Izinye izithombe ze-HEIC ezinemifanekiso eminingi zihlala zivikelekile.</string>
+    <string name="squeezer_include_lossy_aux_description">Faka izithombe ezine-HDR noma idatha yejuba. Isikweliso sisuluza: izithombe ze-HDR ziba yizithombe ezijwayelekile, izithombe zomfanekiso ziphulukane idatha engemuva kokubhida kwengqondo yomhlaba. Amafayela e-HEIC anezithombe eziningi aqhubeka liphuthelwe.</string>
+    <string name="squeezer_include_motion_photos_title">Kwelisa izithombe ze-Motion</string>
+    <string name="squeezer_include_motion_photos_description">Faka izithombe ze-Motion. Isikweliso sugcina isithombe esimileyo futhi sisuluza ulwimi lovidiyo.</string>
+    <string name="squeezer_include_oversized_title">Kwelisa izithombe ezikhulu kakhulu</string>
+    <string name="squeezer_include_oversized_description">Faka izithombe ezibanzi noma eziphakeme kunezinso 8192. Isikweliso nakho kwahlasela isigexe sokubonakalisa.</string>
     <string name="squeezer_estimated_savings_format">~%s ukonga</string>
     <string name="squeezer_no_savings_expected">Ukonga okulinganiselwe</string>
     <string name="squeezer_current_size_format">Usayizi: %s</string>
+    <string name="squeezer_chip_compressed_before">Kweliwe</string>
+    <string name="squeezer_chip_hdr_depth">HDR/juba</string>
+    <string name="squeezer_chip_motion_photo">Isithombe se-Motion</string>
+    <string name="squeezer_chip_downscaled">Kuncitshe</string>
+    <string name="squeezer_markers_dialog_title">Mayelana nalezi izikali</string>
+    <string name="squeezer_markers_compressed_before_description">Inikhiwo ise-SD Maid ayikwelisile fayela eli. Ukuwelisa kabusha kumabuya inkalankala futhi kusiphakamisa kancane.</string>
+    <string name="squeezer_markers_hdr_depth_description">Lesisithombe sine-HDR noma idatha yejuba okuthi isikweliso akukhula ukugcina. Isithombe se-HDR sibuyela njengejwayelekile, futhi isithombe somfanekiso siphulukane idatha yejuba esetshenziswayo ekubhideni kwengqondo yomhlaba.</string>
+    <string name="squeezer_markers_motion_photo_description">Lesi isithombe se-Motion. Isikweliso sugcina isithombe esimileyo futhi sisuluza ulwimi lovidiyo.</string>
+    <string name="squeezer_markers_downscaled_description">Lesisithombe sibanzi noma siphakeme kunezinso 8192. Isikweliso nakho kwahlasela isigexe sokubonakalisa.</string>
     <string name="squeezer_compress_action">Cindezela</string>
     <string name="squeezer_compress_all_action">Cindezela konke</string>
     <string name="squeezer_preview_dialog_title">Qinisekisa ukucindezela</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Buka ukuqhathanisa</string>
     <string name="squeezer_no_example_found">Azikho izithombe ezitholakele ezindleleni ezikhethiwe.</string>
     <string name="squeezer_result_empty_message">Akukho imidiya engoqwa etholakele.</string>
+    <string name="squeezer_result_empty_protected">Akukho into yokuwelisa. Liphuthelwe: %s. Vula iketsi efanayo ezilinganisweni ukuyizifaka.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d isithombe se-HDR/juba</item>
+        <item quantity="other">%d izithombe ze-HDR/juba</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d isithombe se-Motion</item>
+        <item quantity="other">%d izithombe ze-Motion</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d isithombe esikhulu kakhulu</item>
+        <item quantity="other">%d izithombe ezikhulu kakhulu</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">Indawo engu-%d ayikwazi ukusetshenziswa ukugoqwa futhi isuswe. Ukugoqwa kudinga ukufinyelela ngokuqondile kwesitoreji sangaphakathi.</item>
         <item quantity="other">%d izindawo azikwazi ukusetshenziswa ukugoqwa futhi zisuswe. Ukugoqwa kudinga ukufinyelela ngokuqondile kwesitoreji sangaphakathi.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Okungenani izinsuku ezingu-%d</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Icilelo elilindelekile elingaba %d%% lwamafayili e-JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">I-Squeezer iyubusha izifanekiso zakho nevidiyo upho ukuze zicele isikhala esincane. Uthintela ubuciko obukaningincinci ngesikhala osuthola. Into ngayinye ikhombisa okusesha okuqikitshwe, ngakho ungakwazi ukunquma okuthile okumfanele.</string>
     <string name="tour_squeezer_compress_body">Cinza izinto zonke ngesikhathi esisodwa lapha, noma cindezela into eyodwa ukuncinane kuleyo kuphela. Cindezela isikhathi eside ukuze ukhethile eziningizane. Uzohlala ubona imodeli phambi kokuba okuthile itshintshwe.</string>
 </resources>

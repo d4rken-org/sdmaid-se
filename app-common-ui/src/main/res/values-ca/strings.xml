@@ -12,8 +12,8 @@
     <string name="tour_action_next">Següent</string>
     <string name="tour_action_previous">Anterior</string>
     <string name="tour_action_cancel">Omet</string>
-    <string name="tour_confirm_title">Vols saltar la visita guiada?</string>
-    <string name="tour_confirm_message">Pots reactivar les visites guiades en qualsevol moment des de Configuració.</string>
+    <string name="tour_confirm_title">Voleu saltar-vos la visita guiada?</string>
+    <string name="tour_confirm_message">Podeu reactivar les visites guiades en qualsevol moment des de la Configuració.</string>
     <string name="tour_confirm_continue">Continua la visita guiada</string>
     <string name="tour_confirm_dont_show_this_tour">No mostris aquesta visita guiada</string>
     <string name="tour_confirm_disable_all">Desactiva totes les visites guiades</string>

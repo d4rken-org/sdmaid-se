@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Ekki er hægt að tengjast Google Play. Athugaðu nettenginguna þína og reyndu aftur.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Tilboð ekki tiltækt</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play gefur ekki þessa uppfærsluaðgerð í augnablikinu. Reyndu aftur síðar eða athugaðu Google Play verslunina.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Gat ekki opnað Google Play. Það gæti verið vantar, óvirkt eða takmarkað á þessu tæki.</string>
     <string name="upgrades_gplay_already_owned_error_title">Þegar keypt</string>
     <string name="upgrades_gplay_already_owned_error_description">Notaðu \"Endurheimta kaup\" valkostinn til að endurheimta kaupin þín. Ef vandamálið er viðvarandi, reyndu að hreinsa Google Play skyndiminni og endurræsa tækið þitt.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Fá %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid hefur engar auglýsingar og selur ekki notendagögn. Vinna mín er fjármögnuð af þér ❤️.</string>
     <string name="upgrade_screen_benefits_title">Kostir uppfærslu</string>

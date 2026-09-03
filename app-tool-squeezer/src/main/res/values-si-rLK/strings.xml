@@ -29,6 +29,18 @@
         <item quantity="one">%d මඟ හැරිණි (HDR/ගැඹුර සුරැකී ඇත)</item>
         <item quantity="other">%d මඟ හැරිණි (HDR/ගැඹුර සුරැකී ඇත)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d මඟහරින ලදී (චලන ඡායාරූපය)</item>
+        <item quantity="other">%d මඟහරින ලදී (චලන ඡායාරූප)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d මඟහරින ලදී (ඉතා විශාල ඡායාරූපය)</item>
+        <item quantity="other">%d මඟහරින ලදී (ඉතා විශාල ඡායාරූප)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d මඟහරින ලදී (ආරක්ෂිත)</item>
+        <item quantity="other">%d මඟහරින ලදී (ආරක්ෂිත)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d අයිතමය තෝරා ගන්නා ලදි</item>
         <item quantity="other">%d අයිතම තෝරා ගන්නා ලදි</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">සාමාන්‍ය</string>
     <string name="squeezer_quality_description">අඩු ගුණාත්මකභාවය කුඩා ගොනු ප්‍රමාණය අදහස් කරයි නමුත් දෘශ්‍ය ගුණාත්මකභාවය අඩු වේ.</string>
     <string name="squeezer_types_category_label">රූප සැකසීම්</string>
+    <string name="squeezer_protected_category_label">අහිමි වන දේ</string>
     <string name="squeezer_video_settings_category_label">වීඩියෝ සැකසීම්</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG රූප (.jpg, .jpeg) ඇතුළත් කරන්න.</string>
+    <string name="squeezer_type_jpeg_description">JPEG රූප ඇතුළත් කරන්න (.jpg, .jpeg). නැවත කේතනය කිරීම සඳහා Android හි අභ්‍යන්තර JPEG එන්කෝඩරය භාවිත වේ. දිනය, ස්ථානය සහ අනෙකුත් EXIF පාරදත්ත රඳවා තබා ගනී.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP රූප (.webp) ඇතුළත් කරන්න.</string>
+    <string name="squeezer_type_webp_description">WebP රූප ඇතුළත් කරන්න (.webp). නැවත කේතනය කිරීම සඳහා Android හි අභ්‍යන්තර WebP එන්කෝඩරය භාවිත වේ. දිනය, ස්ථානය සහ අනෙකුත් EXIF පාරදත්ත රඳවා තබා ගනී.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF ඡායාරූප (.heic, .heif) ඇතුළත් කරන්න. දිනය, ස්ථානය සහ වෙනත් EXIF දත්ත සංරක්ෂණය කරනු ලැබේ. HDR gain map, ගැඹුරු දත්ත සහ Live/Motion Photo සහෝදර ගොනු සංරක්ෂණය කළ නොහැකිය; බහු-ඡායාරූප ගොනු මඟ හරිනු ලැබේ.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">MP4 වීඩියෝ ගොනු (.mp4) ඇතුළත් කරන්න.</string>
+    <string name="squeezer_type_video_description">MP4 වීඩියෝ ගොනු ඇතුළත් කරන්න (.mp4). වීඩියෝ ට්‍රැකය උපාංගයේ ම වීඩියෝ එන්කෝඩරය මගින් අඩු බිට්රේට් එකකින් නැවත කේතනය කරන අතර, ශබ්ද ට්‍රැකය නොවෙනස්ව පිටපත් කරන අතර, ගොනුව MP4 ලෙසම පවතී.</string>
     <string name="squeezer_skip_compressed_title">කලින් සංකෝචනය කළ ඒවා මඟ හරින්න</string>
     <string name="squeezer_skip_compressed_description">SD Maid විසින් දැනටමත් සම්පීඩනය කරන ලද ගොනු මඟ හරින්න.</string>
     <string name="squeezer_exif_marker_title">EXIF සලකුණ ලියන්න</string>
     <string name="squeezer_exif_marker_description">සංකෝචන ඉතිහාසය මකා දැමුවද නැවත සංකෝචනය වැළැක්වීමට රූපයේ EXIF පරිශීලක අදහස් ක්‍ෂේත්‍රයට සලකුණක් එකතු කරන්න.</string>
     <string name="squeezer_include_lossy_aux_title">HDR සහ ගැඹුරු ඡායාරූප සම්පීඩනය කරන්න</string>
-    <string name="squeezer_include_lossy_aux_description">පෙරනිමියෙන් අක්‍රියයි: HDR gain map හෝ ගැඹුරු/portrait දත්ත ඇති ඡායාරූප සමතල නොවන ලෙස මඟ හරිනු ලැබේ. හැකි තරමට සම්පීඩනය කිරීමට සක්‍රීය කරන්න — ඒවායේ HDR gain map හෝ ගැඹුරු දත්ත නැති වනු ඇත. සමහර බහු-ඡායාරූප HEIC ඡායාරූප කෙසේ වුවත් ආරක්ෂිතව පවතී.</string>
+    <string name="squeezer_include_lossy_aux_description">HDR හෝ ගැඹුර දත්ත සහිත ඡායාරූප ඇතුළත් කරන්න. සම්පීඩනය එය ඉවත් කරයි: HDR ඡායාරූප සාමාන්‍ය ඡායාරූප බවට පත්වේ, පෝට්‍රේට් ඡායාරූප වල පසුබිම් අපැහැදිලි බව සඳහා ඇති දත්ත අහිමි වේ. බහු-රූප HEIC ගොනු මඟහැරීම දිගටම කරගෙන යයි.</string>
+    <string name="squeezer_include_motion_photos_title">චලන ඡායාරූප සම්පීඩනය කරන්න</string>
+    <string name="squeezer_include_motion_photos_description">චලන ඡායාරූප ඇතුළත් කරන්න. සම්පීඩනය ස්ථාවර රූපය රඳවා තබා වීඩියෝ දිගුව ඉවත් කරයි.</string>
+    <string name="squeezer_include_oversized_title">ඉතා විශාල ඡායාරූප සම්පීඩනය කරන්න</string>
+    <string name="squeezer_include_oversized_description">පික්සල 8192 ට වඩා පළල හෝ උස ඡායාරූප ඇතුළත් කරන්න. සම්පීඩනය ඒවායේ විභේදනය අඩකින් අඩු කරයි.</string>
     <string name="squeezer_estimated_savings_format">~%s ඉතිරි</string>
     <string name="squeezer_no_savings_expected">සීමිත ඉතිරිකිරීම්</string>
     <string name="squeezer_current_size_format">ප්‍රමාණය: %s</string>
+    <string name="squeezer_chip_compressed_before">සම්පීඩිත</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ගැඹුර</string>
+    <string name="squeezer_chip_motion_photo">චලන ඡායාරූපය</string>
+    <string name="squeezer_chip_downscaled">අඩු විභේදනය</string>
+    <string name="squeezer_markers_dialog_title">මෙම සලකුණු ගැන</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid දැනටමත් මෙම ගොනුව සම්පීඩනය කර ඇත. එය නැවත සම්පීඩනය කිරීමෙන් ගුණාත්මකභාවය අඩුවන අතර ඉතිරි වන්නේ ස්වල්පයකි.</string>
+    <string name="squeezer_markers_hdr_depth_description">මෙම ඡායාරූපයට සම්පීඩනයට රඳවා ගත නොහැකි HDR හෝ ගැඹුර දත්ත ඇත. HDR ඡායාරූපයක් සාමාන්‍ය ඡායාරූපයක් ලෙස ආපසු පැමිණෙන අතර, පෝට්‍රේට් ඡායාරූපයකට පසුබිම් අපැහැදිලි බව සඳහා භාවිත කරන ගැඹුර දත්ත අහිමි වේ.</string>
+    <string name="squeezer_markers_motion_photo_description">මෙය චලන ඡායාරූපයකි. සම්පීඩනය ස්ථාවර රූපය රඳවා තබා වීඩියෝ දිගුව ඉවත් කරයි.</string>
+    <string name="squeezer_markers_downscaled_description">මෙම ඡායාරූපය පික්සල 8192 ට වඩා පළල හෝ උසින් වැඩිය. සම්පීඩනය එහි විභේදනය ද අඩකින් අඩු කරයි.</string>
     <string name="squeezer_compress_action">සංකෝචනය කරන්න</string>
     <string name="squeezer_compress_all_action">සියල්ල සංකෝචනය කරන්න</string>
     <string name="squeezer_preview_dialog_title">සංකෝචනය තහවුරු කරන්න</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">සැසඳීම බලන්න</string>
     <string name="squeezer_no_example_found">තෝරාගත් මාර්ගවල රූප හමු නොවීය.</string>
     <string name="squeezer_result_empty_message">සම්පීඩනය කළ හැකි මාධ්‍ය හමු නොවීය.</string>
+    <string name="squeezer_result_empty_protected">සම්පීඩනය කිරීමට කිසිවක් නැත. මඟහරින ලද: %s. ඒවා ඇතුළත් කිරීමට සැකසීම් තුළ අදාළ විකල්පය සක්‍රිය කරන්න.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">HDR/ගැඹුර ඡායාරූප %d ක්</item>
+        <item quantity="other">HDR/ගැඹුර ඡායාරූප %d ක්</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">චලන ඡායාරූප %d ක්</item>
+        <item quantity="other">චලන ඡායාරූප %d ක්</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">ඉතා විශාල ඡායාරූප %d ක්</item>
+        <item quantity="other">ඉතා විශාල ඡායාරූප %d ක්</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ස්ථානයක් සම්පීඩනය සඳහා භාවිතා කළ නොහැකි අතර ඉවත් කරන ලදි. සම්පීඩනයට අභ්‍යන්තර ගබඩාවට සෘජු ප්‍රවේශය අවශ්‍ය වේ.</item>
         <item quantity="other">%d ස්ථාන සම්පීඩනය සඳහා භාවිතා කළ නොහැකි අතර ඉවත් කරන ලදි. සම්පීඩනයට අභ්‍යන්තර ගබඩාවට සෘජු ප්‍රවේශය අවශ්‍ය වේ.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">අවම දින %d ක් පැරණි</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ගොනු සඳහා ඇස්තමේන්තුගත ඉතිරිය ~%d%%</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ඔබගේ ඡායාරූප සහ වීඩියෝ නැවත සම්පීඩනය කරයි එවිට ඒවා අඩු ඉඩ ගතා කරයි. ඔබ ටිකක් ගුණාත්මක බාවට වෙනුවෙන් ඔබ ආපසු ගන්නා ඉඩ ලබා ගනු ඇත. සෑම අයිතමයෙන්ම එහි ඇස්තමේන්තුගත සිතෙටුම් පෙන්වයි එවිට ඔබට එය වටින ද යන්න තීරණය කළ හැකිය.</string>
     <string name="tour_squeezer_compress_body">මෙහිදී සියල්ල එකවර සම්පීඩනය කරන්න, හෝ තනි අයිතමයක් කුඩා කිරීමට එය ටැප් කරන්න. කිහිපයක් තෝරා ගැනීමට දිගු වෙලාවක් ඔබා. කිසිවක් වෙනස් වීමට පෙර ඔබට සැම විටටම පෙරදසුනක් පෙනෙනු ඇත.</string>
 </resources>

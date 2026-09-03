@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">フィルター済み: %1$s</string>
     <string name="swiper_session_no_matching_files">一致するファイルが見つかりません</string>
     <string name="swiper_open_externally_action">外部アプリで開く</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ファイルをスワイプして、その運命を決めます: 横にスワイプすると保存または削除、上にスワイプするとスキップ、下にスワイプすると元に戻します。下のボタンでも同じことができ、どちらがどちらの操作かも表示されます。</string>
     <string name="tour_swiper_openin_body">このボタンでファイルを別のアプリで開き、判断前に確認できます。</string>
     <string name="tour_swiper_preview_body">このボタンで全画面プレビューを開いて、詳しく確認できます。</string>

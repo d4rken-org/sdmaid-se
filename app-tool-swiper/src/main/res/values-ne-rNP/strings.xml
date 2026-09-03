@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">फिल्टर गरिएको: %1$s</string>
     <string name="swiper_session_no_matching_files">मिल्दो फाइलहरू फेला परेनन्</string>
     <string name="swiper_open_externally_action">बाह्य एपमा खोल्नुहोस्</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">फाइलको भाग्य निर्णय गर्न स्वाइप गर्नुहोस्: बाजु राख्न वा मेटाउन, माथि छोड्न, तल पूर्ववत गर्न। तलका बटनहरूले पनि यही गर्छन — र कुन पक्ष कुन हो भनेर देखाउछन्।</string>
     <string name="tour_swiper_openin_body">यो बटनले फाइललाई अर्को एपमा खोल्छ, निर्णय गर्नु अघि यो जाँच गर्न सुविधाजनक छ।</string>
     <string name="tour_swiper_preview_body">यो बटनले नजिकबाट हेर्न पूर्ण-स्क्रिन पूर्वावलोकन खोल्छ।</string>

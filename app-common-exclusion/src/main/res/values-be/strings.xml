@@ -23,7 +23,7 @@
     <string name="exclusion_import_action">Імпартаваць выключэнні</string>
     <string name="exclusion_export_action">Экспартаваць выключэнні</string>
     <string name="exclusion_create_pkg_hint">З дапамогай Менеджара стварыце выключэнні для праграм.</string>
-    <string name="exclusion_create_path_hint">З дапамогай Аналізу сховішча стварыце выключэнні для шляхоў.</string>
+    <string name="exclusion_create_path_hint">З дапамогай Аналізатара сховішча стварыце выключэнні для шляхоў.</string>
     <string name="exclusion_create_segment_hint">Адпавідаць сегменту назвы, напрыклад «DCIM/Camera».</string>
     <string name="exclusion_show_defaults_action">Паказаць значэнні па змаўчанні</string>
     <plurals name="exclusion_import_success_x_items">

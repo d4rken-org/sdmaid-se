@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">ច្បើរការរង្វាំ</string>
     <string name="scheduler_schedule_toggle_enabled">ការរង្វាំត្រូវបានឡើង</string>
     <string name="scheduler_schedule_toggle_disabled">ការរង្វាំត្រូវបានបិត្ទ</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">បិទកាលវិភាគ ដើម្បីផ្លាស់ប្តូរវា។</string>
     <string name="scheduler_edit_schedule_action">កែសម្រការរង្វាំ</string>
     <string name="scheduler_schedule_time_label">ពេលវេលាជាញន័យ</string>
     <string name="scheduler_schedule_repeat_label">រយៀពេលសែនណ់ជាក្រោយតោមថ្ងៃ</string>
@@ -46,7 +47,6 @@
     <string name="scheduler_commands_after_schedule_label">កំរំផ័ន្ក័ស់បញ្ជាការរង្វាំ</string>
     <string name="scheduler_commands_after_schedule_desc">កំរំផ័ន្ក័ស់ Android ដែលត្រូវបានដំឡើរនៅចុងការរង្វាំ។</string>
     <string name="scheduler_battery_optimization_hint">សូមគិតជ្រើសបិតការអនុវាត់នៃឡើងសម្រាប់ SD Maid ប័ប័រអ្នកប័ត្រងបានកៀសនឹងការដែលវាគ្រើបល។</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid អាចសម្អាតតាមកាលវិភាគ។ ជ្រើសរើសពេលវេលា និងឧបករណ៍ដែលត្រូវដំណើរការ ហើយវាធ្វើការក្នុងផ្ទៃខាងក្រោយ (ស្ទើរតែ) មិនចាំបាច់បើកកម្មវិធីទេ។</string>
     <string name="tour_scheduler_create_body">ចុចលើនេះដើម្បីបង្កើតកាលវិភាគថ្មី បន្ទាប់មកកំណត់ពេលដែលវាដំណើរការ និងឧបករណ៍ដែលត្រូវរាប់បញ្ចូល។</string>
 </resources>

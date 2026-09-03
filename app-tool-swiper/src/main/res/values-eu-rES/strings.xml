@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Iragazita: %1$s</string>
     <string name="swiper_session_no_matching_files">Ez da bat datorren fitxategirik aurkitu</string>
     <string name="swiper_open_externally_action">Ireki kanpoko aplikazioan</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Igurtzi fitxategi bat nola tratatu erabakitzeko: albora mantentzeko edo ezabatzeko, gora saltatzeko, behera desegin. Azpiko botoiek gauza bera egiten dute — eta zer aldea den adierazten dute.</string>
     <string name="tour_swiper_openin_body">Botoi honek fitxategia beste aplikazio batean irekitzen du, lagarra da erabaki aurretik egiaztatzeko.</string>
     <string name="tour_swiper_preview_body">Botoi honek pantaila osoan aurreikuspena irekitzen du, hurbilagotik begiratzeko.</string>

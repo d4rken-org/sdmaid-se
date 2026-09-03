@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">පෙරහන් කළ: %1$s</string>
     <string name="swiper_session_no_matching_files">ගැළපෙන ගොනු හමු නොවිණි</string>
     <string name="swiper_open_externally_action">බාහිර යෙදුමකින් විවෘත කරන්න</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ගොනුවක ඉරණම තීරණය කිරීමට එර්ජිය සිදු කරන්න: පැත්තට ගිරවීම තබා ගැනීමට හෝ මකා දැමීමට, ඉහළට මඟ හැරීමට, පහළට අහෝසි කිරීමට. පහතින් බොත්තම් එකම දෙයක් කරයි — සහ කුමන පැත්ත කුමක්ද යන්න පෙන්වයි.</string>
     <string name="tour_swiper_openin_body">මෙම බොත්තම ගොනුව වෙනත් යෙදුමක විවෘත කරයි, තීරණය කිරීමට පෙර එය පරීක්ෂා කිරීමට පහසුවි.</string>
     <string name="tour_swiper_preview_body">සමීපව බැලීම සඳහා මෙම බොත්තම සම්පූර්ණ-තිර පෙරදසුනක් විවෘත කරයි.</string>

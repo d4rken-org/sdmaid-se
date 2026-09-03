@@ -81,6 +81,10 @@
         <item quantity="one">%d अनुप्रयोग टगल गरियो</item>
         <item quantity="other">%d अनुप्रयोगहरू टगल गरियो</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d अनुप्रयोग सक्रिय वा निष्क्रिय गर्न सक्दैन</item>
+        <item quantity="other">%d अनुप्रयोगहरू सक्रिय वा निष्क्रिय गर्न सक्दैन</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">साइजहरू निर्धारण गर्नुहोस्</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">प्रत्येक app को साइजको कच्चा अनुमान लगाउनुहोस्।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">गतिविधि निर्धारण गर्नुहोस्</string>

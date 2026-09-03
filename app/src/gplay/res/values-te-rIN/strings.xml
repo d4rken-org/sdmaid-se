@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Playకి కనెక్ట్ చేయడం సాధ్యం కాలేదు. దయచేసి మీ ఇంటర్నెట్ కనెక్షన్‌ను తనిఖీ చేసి మళ్ళీ ప్రయత్నించండి.</string>
     <string name="upgrades_gplay_offer_unavailable_title">ఆఫర్ అనుపలబ్ధం</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play ప్రస్తుతం ఈ అప్‌గ్రేడ్ ఆప్‌షన్‌ను అందించడం లేదు. దయచేసి తర్వాత ప్రయత్నించండి లేదా Google Play స్టోర్‌ను తనిఖీ చేయండి.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">గూగుల్ ప్లే ను తెరువలేకున్నాను. ఇది ఈ పరికరంలో లేకపోవచ్చు, నిలిపివేయబడి ఉండవచ్చు లేదా నిషేధించబడి ఉండవచ్చు.</string>
     <string name="upgrades_gplay_already_owned_error_title">ఇప్పటికే కొనుగోలు చేయబడింది</string>
     <string name="upgrades_gplay_already_owned_error_description">మీ కొనుగోలును పునరుద్ధరించడానికి \"కొనుగోలును పునరుద్ధరించండి\" ఎంపికను ఉపయోగించండి. సమస్య కొనసాగితే, Google Play కాష్‌ను క్లియర్ చేసి మీ పరికరాన్ని రీస్టార్ట్ చేయడానికి ప్రయత్నించండి.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s పొందండి</string>
     <string name="upgrade_screen_preamble">SD Maidకి ప్రకటనలు లేవు మరియు వినియోగదారు డేటాను విక్రయించదు. నా పని మీరు ఆర్థిక సహాయం చేస్తున్నారు ❤️.</string>
     <string name="upgrade_screen_benefits_title">అప్‌గ్రేడ్ ప్రయోజనాలు</string>

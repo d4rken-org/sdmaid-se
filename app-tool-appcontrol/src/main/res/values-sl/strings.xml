@@ -95,6 +95,12 @@
         <item quantity="few">%d-je programi so bili preklopljeni.</item>
         <item quantity="other">%d programov je bilo preklopljenih.</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d program se ne more omogočiti ali onemogočiti</item>
+        <item quantity="two">%d programa se ne moreta omogočiti ali onemogočiti</item>
+        <item quantity="few">%d programi se ne morejo omogočiti ali onemogočiti</item>
+        <item quantity="other">%d programov se ne more omogočiti ali onemogočiti</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Ugotovi velikosti</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Približno oceni velikost vsakega programa.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Ugotovi dejavnost</string>

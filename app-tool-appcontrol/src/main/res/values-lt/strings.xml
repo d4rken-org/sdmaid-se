@@ -95,6 +95,12 @@
         <item quantity="many">%d programų perjungta</item>
         <item quantity="other">%d programų buvo perjungta</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d programa negali būti įjungta arba išjungta</item>
+        <item quantity="few">%d programos negali būti įjungtos arba išjungtos</item>
+        <item quantity="many">%d programų negali būti įjungta arba išjungta</item>
+        <item quantity="other">%d programų negali būti įjungta arba išjungta</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Nustatyti dyžius</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Gauti apytikslį kiekvienos programos dydžio īvertį.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Nustatyti aktyvumą</string>

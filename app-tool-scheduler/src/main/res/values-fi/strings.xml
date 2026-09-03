@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Aikataulun nimi</string>
     <string name="scheduler_schedule_toggle_enabled">Aikataulu on käytössä</string>
     <string name="scheduler_schedule_toggle_disabled">Aikataulu on poistettu käytöstä</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Poista aikataulu käytöstä muuttaaksesi sitä.</string>
     <string name="scheduler_edit_schedule_action">Muokkaa aikataulua</string>
     <string name="scheduler_schedule_time_label">Likimääräinen aika</string>
     <string name="scheduler_schedule_repeat_label">Toistointervalli päivinä</string>
@@ -47,7 +48,6 @@ Poista \"Sisällytä järjestelmäsovellukset\" käytöstä, tai aja ajoitus lai
     <string name="scheduler_commands_after_schedule_label">Aikataulun jälkeiset komennot</string>
     <string name="scheduler_commands_after_schedule_desc">Android-komentorivi komennot, jotka suoritetaan aikataulun lopussa.</string>
     <string name="scheduler_battery_optimization_hint">Harkitse akun optimointien poistamista käytöstä SD Maidille, jos kohtaat ongelmia taustasuorituksen kanssa.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid voi puhdistaa aikataulun mukaan. Valitse aika ja mitkä työkalut ajetaan, ja se tekee työn taustalla – melkein ei tarvitse avata sovellusta.</string>
     <string name="tour_scheduler_create_body">Napauta tätä luodaksesi uuden aikataulun, aseta sitten milloin se suoritetaan ja mitkä työkalut sisällytetään.</string>
 </resources>

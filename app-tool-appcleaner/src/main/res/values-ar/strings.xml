@@ -64,6 +64,30 @@
         <item quantity="many">تم حذف %d من العناصر المستهلكة</item>
         <item quantity="other">تم حذف %d من العناصر المستهلكة</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="zero">لم يتم حذف أي عنصر غير ضروري، توقف العمل لأن الشاشة كانت مطفأة أو مقفلة</item>
+        <item quantity="one">تم حذف عنصر واحد غير ضروري، توقف العمل لأن الشاشة كانت مطفأة أو مقفلة</item>
+        <item quantity="two">تم حذف عنصرين غير ضروريين، توقف العمل لأن الشاشة كانت مطفأة أو مقفلة</item>
+        <item quantity="few">تم حذف %d عناصر غير ضرورية، توقف العمل لأن الشاشة كانت مطفأة أو مقفلة</item>
+        <item quantity="many">تم حذف %d عنصرًا غير ضروري، توقف العمل لأن الشاشة كانت مطفأة أو مقفلة</item>
+        <item quantity="other">تم حذف %d عنصر غير ضروري، توقف العمل لأن الشاشة كانت مطفأة أو مقفلة</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="zero">لم يتم حذف أي عنصر غير ضروري، توقف العمل بسبب خطأ</item>
+        <item quantity="one">تم حذف عنصر واحد غير ضروري، توقف العمل بسبب خطأ</item>
+        <item quantity="two">تم حذف عنصرين غير ضروريين، توقف العمل بسبب خطأ</item>
+        <item quantity="few">تم حذف %d عناصر غير ضرورية، توقف العمل بسبب خطأ</item>
+        <item quantity="many">تم حذف %d عنصرًا غير ضروري، توقف العمل بسبب خطأ</item>
+        <item quantity="other">تم حذف %d عنصر غير ضروري، توقف العمل بسبب خطأ</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="zero">%1$s، لا يوجد ملف تخزين مؤقت بحاجة إلى خدمة سهولة الوصول</item>
+        <item quantity="one">%1$s، ملف تخزين مؤقت واحد لا يزال بحاجة إلى خدمة سهولة الوصول</item>
+        <item quantity="two">%1$s، ملفا تخزين مؤقت لا يزالان بحاجة إلى خدمة سهولة الوصول</item>
+        <item quantity="few">%1$s، %2$d ملفات تخزين مؤقت لا تزال بحاجة إلى خدمة سهولة الوصول</item>
+        <item quantity="many">%1$s، %2$d ملف تخزين مؤقت لا يزال بحاجة إلى خدمة سهولة الوصول</item>
+        <item quantity="other">%1$s، %2$d ملف تخزين مؤقت لا يزال بحاجة إلى خدمة سهولة الوصول</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="zero">تم العثور على %d عنصر مستهلك</item>
         <item quantity="one">تم العثور على %d عنصر قابل للاستهلاك</item>
@@ -79,8 +103,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">البحث عن زر \"مسح ذاكرة التخزين المؤقتة\" (الكلمات الرئيسية: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ذاكرة التخزين المؤقت الافتراضية</string>
     <string name="appcleaner_item_caches_inaccessible_body">مخابئ افتراضية عامة وخاصة. لا يمكن الوصول إليها مباشرة ، ولكن يمكن حذفها بشكل غير مباشر (على سبيل المثال عبر خدمة إمكانية الوصول).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">مستبعد، لكن تنظيف كل التطبيقات دفعة واحدة يظل يمسح هذه الملفات المؤقتة</string>
+    <string name="appcleaner_exclusion_limited_title">تطبيق مستبعد</string>
+    <string name="appcleaner_exclusion_limited_body">لقد استبعدت هذا التطبيق من AppCleaner. يستخدم مسح ذاكرة التخزين المؤقت لكل التطبيقات دفعة واحدة أداة Shizuku لتقليم ذاكرة التخزين المؤقت على مستوى النظام، وهي لا تستطيع استثناء تطبيقات بعينها، لذلك تُمسح بيانات هذا التطبيق المؤقتة مع كل شيء آخر. يقتصر التأثير على بيانات ذاكرة التخزين المؤقت الظاهرة هنا فقط، ويبقى كل ما يشمله الاستبعاد غير ذلك مخفيًا وسليمًا.</string>
     <string name="appcleaner_automation_unavailable_title">خدمة أمكانية الوصول غير متاحة</string>
-    <string name="appcleaner_automation_unavailable_body">يتطلب حذف ذاكرات التخزين المؤقت التي يتعذر الوصول إليها خدمة الوصول إلى SD Maid ، لكنها لم تكن متاحة. إذا كنت لا ترغب في استخدامه: قم بتعطيل الخيار \"تضمين ذاكرات التخزين المؤقت التي يتعذر الوصول إليها\".</string>
+    <string name="appcleaner_automation_unavailable_body">يتطلب مسح ذاكرة التخزين المؤقت هذه خدمة سهولة الوصول الخاصة بـ SD Maid، لكنها لم تكن متاحة.</string>
     <string name="appcleaner_delete_confirmation_message_x">حذف الملفات المستهلكة لـ %s؟</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="zero">حذف الملفات المستهلكة لـ %d تطبيق مختار؟</item>
@@ -100,4 +127,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">إيقاف إجباري قبل التنظيف</string>
     <string name="appcleaner_forcestop_before_clearing_summary">إيقاف التطبيقات إجباريًا قبل مسح ذاكرة التخزين المؤقت. قد يساعد في مسح بعض ذاكرات التخزين المؤقت، لكنه قد يتسبب في سلوك غير طبيعي للتطبيقات ويتطلب إعادة تشغيل يدوية.</string>
     <string name="appcleaner_progress_force_stopping">جارٍ الإيقاف الإجباري للتطبيقات…</string>
+    <string name="appcleaner_progress_checking_freed_space">جارٍ التحقق من المساحة المحررة…</string>
 </resources>

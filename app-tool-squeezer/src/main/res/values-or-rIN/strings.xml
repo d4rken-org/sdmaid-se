@@ -29,6 +29,18 @@
         <item quantity="one">%d ଛାଡ଼ା ୟାଇଛି (HDR/ଗଭୀରତା ସଂରକ୍ଷିତ)</item>
         <item quantity="other">%d ଛାଡ଼ା ୟାଇଛି (HDR/ଗଭୀରତା ସଂରକ୍ଷିତ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d ଛାଡ଼ି ଦିଆଗଲା (Motion Photo)</item>
+        <item quantity="other">%d ଛାଡ଼ି ଦିଆଗଲା (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d ଛାଡ଼ି ଦିଆଗଲା (ବହୁତ ବଡ଼ ଫଟୋ)</item>
+        <item quantity="other">%d ଛାଡ଼ି ଦିଆଗଲା (ବହୁତ ବଡ଼ ଫଟୋଗୁଡ଼ିକ)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d ଛାଡ଼ି ଦିଆଗଲା (ସୁରକ୍ଷିତ)</item>
+        <item quantity="other">%d ଛାଡ଼ି ଦିଆଗଲା (ସୁରକ୍ଷିତ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ଆଇଟମ ମନୋନୀତ</item>
         <item quantity="other">%d ଆଇଟମ ମନୋନୀତ</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">ସାଧାରଣ</string>
     <string name="squeezer_quality_description">କମ ଗୁଣମାନ ମାନେ ଛୋଟ ଫାଇଲ ଆକାର କିନ୍ତୁ ଦୃଶ୍ୟ ଗୁଣମାନ ହ୍ରାସ ପାଏ।</string>
     <string name="squeezer_types_category_label">ଚିତ୍ର ସେଟିଂସ</string>
+    <string name="squeezer_protected_category_label">କଣ ହଜିଯାଏ</string>
     <string name="squeezer_video_settings_category_label">ଭିଡ଼ିଓ ସେଟିଂସ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG ଚିତ୍ର (.jpg, .jpeg) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_type_jpeg_description">JPEG ଛବି (.jpg, .jpeg) ସାମିଲ କରନ୍ତୁ। ପୁନଃ-ଏନ୍‌କୋଡିଂ ପାଇଁ Android ର ବିଲ୍ଟ-ଇନ୍ JPEG ଏନ୍‌କୋଡର ବ୍ୟବହାର ହୁଏ। ତାରିଖ, ଅବସ୍ଥିତି ଏବଂ ଅନ୍ୟାନ୍ୟ EXIF ମେଟାଡାଟା ରକ୍ଷିତ ରହେ।</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP ଚିତ୍ର (.webp) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_type_webp_description">WebP ଛବି (.webp) ସାମିଲ କରନ୍ତୁ। ପୁନଃ-ଏନ୍‌କୋଡିଂ ପାଇଁ Android ର ବିଲ୍ଟ-ଇନ୍ WebP ଏନ୍‌କୋଡର ବ୍ୟବହାର ହୁଏ। ତାରିଖ, ଅବସ୍ଥିତି ଏବଂ ଅନ୍ୟାନ୍ୟ EXIF ମେଟାଡାଟା ରକ୍ଷିତ ରହେ।</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF ଚିତ୍ର (.heic, .heif) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ। ତାରିଖ, ଅବସ୍ଥାନ ଏବଂ ଅନ୍ୟାନ୍ୟ EXIF ମେଟାଡେଟା ରଖାୟାଏ। HDR ଗେନ ମ୍ୟାପ, ଗଭୀରତା ଡେଟା ଏବଂ Live/Motion Photo ସଂୟୁକ୍ତ ଫଟୋଗୁଡ଼ିକ ସଂରକ୍ଷିତ କରାୟି ପାରେ ନାହିଁ; ବହୁ-ଚିତ୍ର ଫାଇଲଗୁଡ଼ିକ ଛାଡ଼ି ଦିଆ ୟାଏ।</string>
     <string name="squeezer_type_video_title">MP4 ଭିଡ଼ିଓ</string>
-    <string name="squeezer_type_video_description">MP4 ଭିଡ଼ିଓ ଫାଇଲ (.mp4) ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="squeezer_type_video_description">MP4 ଭିଡିଓ ଫାଇଲ (.mp4) ସାମିଲ କରନ୍ତୁ। ଡିଭାଇସ୍‌ର ନିଜ ଭିଡିଓ ଏନ୍‌କୋଡର ଦ୍ୱାରା ଭିଡିଓ ଟ୍ରାକ୍‌କୁ କମ ବିଟ୍‌ରେଟରେ ପୁନଃ-ଏନ୍‌କୋଡ କରାଯାଏ, ଅଡିଓ ଟ୍ରାକ୍‌କୁ ଅପରିବର୍ତ୍ତିତ ଭାବେ କପି କରାଯାଏ, ଏବଂ ଫାଇଲଟି MP4 ହିଁ ରହିଥାଏ।</string>
     <string name="squeezer_skip_compressed_title">ପୂର୍ବରୁ ସଙ୍କୋଚିତ ଛାଡନ୍ତୁ</string>
     <string name="squeezer_skip_compressed_description">SD Maid ଦ୍ଵାରା ଈତିମଧ୍ୟେ ସଙ୍କୁଚିତ ଫାଇଲ ଛଡ଼ାଇ ଦିଅନ୍ତୁ।</string>
     <string name="squeezer_exif_marker_title">EXIF ମାର୍କର ଲେଖନ୍ତୁ</string>
     <string name="squeezer_exif_marker_description">ସଙ୍କୋଚନ ଇତିହାସ ସଫା ହେଲେ ମଧ୍ୟ ପୁନଃ-ସଙ୍କୋଚନ ରୋକିବା ପାଇଁ ଚିତ୍ରର EXIF ବ୍ୟବହାରକାରୀ ମନ୍ତବ୍ୟ କ୍ଷେତ୍ରରେ ଏକ ମାର୍କର ଯୋଡନ୍ତୁ।</string>
     <string name="squeezer_include_lossy_aux_title">HDR ଓ ଗଭୀରତା ଫଟୋ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
-    <string name="squeezer_include_lossy_aux_description">ଡିଫଲ୍ଟରେ ବନ୍ଦ: HDR ଗେନ ମ୍ୟାପ ବା ଗଭୀରତା/ପୋର୍ଟ୍ରେଟ ଡେଟା ଥିବା ଫଟୋଗୁଡ଼ିକୁ ସେମାନେ ସରଳୀକୃତ ନ ହୋଇ ରଖିବା ପାଇଁ ଛାଡ଼ି ଦିଆ ୟାଏ। ୟେଠାରେ ସମ୍ଭବ ସେଠାରେ ସେମାନଙ୍କୁ ସଙ୍କୋଚନ କରିବାକୁ ସକ୍ଷମ କରନ୍ତୁ — ସେମାନେ ସେମାନଙ୍କ HDR ଗେନ ମ୍ୟାପ ବା ଗଭୀରତା ଡେଟା ହରାଇବେ। କିଛି ବହୁ-ଚିତ୍ର HEIC ଫଟୋ ୟଥାସ୍ଥାନେ ସୁରକ୍ଷିତ ରହନ୍ତି।</string>
+    <string name="squeezer_include_lossy_aux_description">HDR କିମ୍ବା ଡେପ୍ଥ ଡାଟା ଥିବା ଫଟୋ ସାମିଲ କରନ୍ତୁ। କମ୍ପ୍ରେସନ୍ ଏହାକୁ କାଢ଼ିଦିଏ: HDR ଫଟୋ ସାଧାରଣ ଫଟୋରେ ପରିଣତ ହୁଏ, ପୋର୍ଟ୍ରେଟ୍ ଫଟୋ ସେମାନଙ୍କର ବ୍ୟାକଗ୍ରାଉଣ୍ଡ ବ୍ଲର ପଛରେ ଥିବା ଡାଟା ହରାଏ। ମଲ୍ଟି-ଇମେଜ୍ HEIC ଫାଇଲ ଛାଡ଼ି ଦିଆଯିବା ଜାରି ରହେ।</string>
+    <string name="squeezer_include_motion_photos_title">Motion Photos କମ୍ପ୍ରେସ୍ କରନ୍ତୁ</string>
+    <string name="squeezer_include_motion_photos_description">Motion Photos ସାମିଲ କରନ୍ତୁ। କମ୍ପ୍ରେସନ୍ ସ୍ଥିର ଛବିକୁ ରଖେ ଏବଂ ଭିଡିଓ କ୍ଲିପ୍‌କୁ କାଢ଼ିଦିଏ।</string>
+    <string name="squeezer_include_oversized_title">ବହୁତ ବଡ଼ ଫଟୋ କମ୍ପ୍ରେସ୍ କରନ୍ତୁ</string>
+    <string name="squeezer_include_oversized_description">8192 ପିକ୍ସେଲରୁ ଅଧିକ ଚଉଡ଼ା କିମ୍ବା ଉଚ୍ଚ ଥିବା ଫଟୋ ସାମିଲ କରନ୍ତୁ। କମ୍ପ୍ରେସନ୍ ସେମାନଙ୍କ ରିଜୋଲୁସନ୍‌କୁ ମଧ୍ୟ ଅଧା କରିଦିଏ।</string>
     <string name="squeezer_estimated_savings_format">~%s ସଞ୍ଚୟ</string>
     <string name="squeezer_no_savings_expected">ସୀମିତ ସଞ୍ଚୟ</string>
     <string name="squeezer_current_size_format">ଆକାର: %s</string>
+    <string name="squeezer_chip_compressed_before">କମ୍ପ୍ରେସ୍ ହୋଇଛି</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ଡେପ୍ଥ</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">ଛୋଟ କରାଯାଇଛି</string>
+    <string name="squeezer_markers_dialog_title">ଏହି ମାର୍କର୍ ବିଷୟରେ</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ପୂର୍ବରୁ ଏହି ଫାଇଲକୁ କମ୍ପ୍ରେସ୍ କରିସାରିଛି। ପୁଣି କମ୍ପ୍ରେସ୍ କରିବାରେ ଗୁଣବତ୍ତା ହ୍ରାସ ପାଏ ଏବଂ ଖୁବ୍ କମ୍ ସ୍ଥାନ ବଞ୍ଚେ।</string>
+    <string name="squeezer_markers_hdr_depth_description">ଏହି ଫଟୋରେ HDR କିମ୍ବା ଡେପ୍ଥ ଡାଟା ଅଛି ଯାହା କମ୍ପ୍ରେସନ୍ ରଖିପାରେ ନାହିଁ। ଏକ HDR ଫଟୋ ସାଧାରଣ ଫଟୋ ଭାବେ ଫେରିଆସେ, ଏବଂ ଏକ ପୋର୍ଟ୍ରେଟ୍ ଫଟୋ ବ୍ୟାକଗ୍ରାଉଣ୍ଡ ବ୍ଲର ପାଇଁ ବ୍ୟବହୃତ ଡେପ୍ଥ ଡାଟା ହରାଏ।</string>
+    <string name="squeezer_markers_motion_photo_description">ଏହା ଏକ Motion Photo। କମ୍ପ୍ରେସନ୍ ସ୍ଥିର ଛବିକୁ ରଖେ ଏବଂ ଭିଡିଓ କ୍ଲିପ୍‌କୁ କାଢ଼ିଦିଏ।</string>
+    <string name="squeezer_markers_downscaled_description">ଏହି ଫଟୋ 8192 ପିକ୍ସେଲରୁ ଅଧିକ ଚଉଡ଼ା କିମ୍ବା ଉଚ୍ଚ ଅଛି। କମ୍ପ୍ରେସନ୍ ଏହାର ରିଜୋଲୁସନ୍‌କୁ ମଧ୍ୟ ଅଧା କରିଦିଏ।</string>
     <string name="squeezer_compress_action">ସଙ୍କୋଚନ</string>
     <string name="squeezer_compress_all_action">ସବୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
     <string name="squeezer_preview_dialog_title">ସଙ୍କୋଚନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">ତୁଳନା ଦେଖନ୍ତୁ</string>
     <string name="squeezer_no_example_found">ଚୟନ ହୋଇଥିବା ପଥରେ କୌଣସି ଚିତ୍ର ମିଳିଲା ନାହିଁ।</string>
     <string name="squeezer_result_empty_message">କୌଣସି ସଙ୍କୁଚିତ ଯୋଗ୍ୟ ମିଡ଼ିଆ ମିଳିଲା ନାହିଁ।</string>
+    <string name="squeezer_result_empty_protected">କମ୍ପ୍ରେସ୍ କରିବାକୁ କିଛି ନାହିଁ। ଛାଡ଼ି ଦିଆଗଲା: %s। ସେଗୁଡ଼ିକୁ ସାମିଲ କରିବାକୁ ସେଟିଂସ୍‌ରେ ମେଳ ଖାଉଥିବା ବିକଳ୍ପ ଚାଲୁ କରନ୍ତୁ।</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/ଡେପ୍ଥ ଫଟୋ</item>
+        <item quantity="other">%d HDR/ଡେପ୍ଥ ଫଟୋଗୁଡ଼ିକ</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d ବହୁତ ବଡ଼ ଫଟୋ</item>
+        <item quantity="other">%d ବହୁତ ବଡ଼ ଫଟୋଗୁଡ଼ିକ</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>
         <item quantity="other">%d ଅବସ୍ଥାନ ସଙ୍କୋଚନ ପାଇଁ ବ୍ୟବହାର ହୋଇ ପାରିବ ନାହିଁ ଏବଂ ହଟାଇ ଦିଆଗଲା। ସଙ୍କୋଚନ ପାଇଁ ଆଭ୍ୟନ୍ତରୀଣ ଷ୍ଟୋରେଜରେ ସିଧା ପ୍ରବେଶ ଆବଶ୍ୟକ।</item>
@@ -98,7 +137,6 @@
         <item quantity="other">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ଫାଇଲଗୁଡ଼ିକ ପାଇଁ ଅନୁମାନିତ ~%d%% ସଞ୍ଚୟ</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ଆପଣଙ୍କର ଫଟୋ ଏବଂ ଭିଡିଓଗୁଡ଼ିକୁ ପୁନଃ-ସଙ୍କୋଚିତ କରେ ଯାହାଫଳରୁ ସେଗୁଡ଼ିକ କମ ସ୍ଥାନ ନିଏ। ଆପଣ ଯେ ସ୍ଥାନ ଫେରି ପାଆନ୍ତି ସେଥିପାଇଁ ଟିକେ ଗୁଣମାନ ବିନିମୟ କରନ୍ତି। ପ୍ରତ୍ୟେକ ବସ୍ତୁ ଏହାର ଅନୁମାନିତ ସଞ୍ଚୟ ଦେଖାଏ, ତେଣୁ ଆପଣ ଚୟନ କରିପାରିବେ ଏଟି ସାର୍ଥକ ଅଥବା ନୁହେଁ।</string>
     <string name="tour_squeezer_compress_body">ଏଠାରେ ସବୁକିଛୁ ଏକ ସାଥେ ସଙ୍କୋଚନ କରନ୍ତୁ, ବା କେବଳ ସେହି ଏକଟିକୁ ସଙ୍କୋଚନ କରିବାକୁ ଏକ ବସ୍ତୁ ଟ୍ୟାପ କରନ୍ତୁ। ଅନେକଟି ବାଛିବାକୁ ଦୀର୍ଘ-ପ୍ରେସ କରନ୍ତୁ। କୌଣସି ପରିବର୍ତନ ହେବାର ଆଗରୁ ଆପଣ ସର୍ବଦା ପୂର୍ବାବଲୋକନ ଦେଖିବେ।</string>
 </resources>

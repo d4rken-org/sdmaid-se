@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Skedule naam</string>
     <string name="scheduler_schedule_toggle_enabled">Skedule is geaktiveer</string>
     <string name="scheduler_schedule_toggle_disabled">Skedule is gedeaktiveer</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Skakel die skedule af om dit te verander.</string>
     <string name="scheduler_edit_schedule_action">Wysig skedule</string>
     <string name="scheduler_schedule_time_label">Benaderde tyd</string>
     <string name="scheduler_schedule_repeat_label">Herhaal interval in dae</string>
@@ -47,7 +48,6 @@ Skakel \"Sluit stelselapps in\" af, of voer die skedule uit terwyl die toestel o
     <string name="scheduler_commands_after_schedule_label">Post-skedule opdragte</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell opdragte wat aan die einde van \'n skedule uitgevoer sal word.</string>
     <string name="scheduler_battery_optimization_hint">Oorweeg om battery optimiserings vir SD Maid te deaktiveer as jy probleme met agtergrond uitvoering ondervind.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid kan op \'n skedule skoonmaak. Kies \'n tyd en watter gereedskap loop, en dit doen die werk op die agtergrond, amper sonder dat jy die app hoef oop te maak.</string>
     <string name="tour_scheduler_create_body">Tik hier om \'n nuwe skedule te skep, stel dan wanneer dit loop en watter gereedskap om in te sluit.</string>
 </resources>

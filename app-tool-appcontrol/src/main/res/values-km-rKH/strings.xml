@@ -74,6 +74,9 @@
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="other">%d កម្មវិធីត្រូវបានបន្ត្ឡ</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="other">កម្មវិធី %d មិនអាចបើក ឬបិទបានទេ</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">រក្កទំហំ</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ទាក់ប័តិម្ឡតទំហំរបស់កម្មវិធីនិមួយ។</string>
     <string name="appcontrol_settings_module_activity_enabled_label">រក្កសកម្មេត្តហើត់</string>

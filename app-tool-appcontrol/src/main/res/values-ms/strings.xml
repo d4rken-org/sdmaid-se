@@ -74,6 +74,9 @@
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="other">%d aplikasi telah ditogol</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="other">%d aplikasi tidak boleh diaktifkan atau dinyahaktifkan</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Tentukan saiz</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Dapatkan anggaran kasar saiz setiap aplikasi.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tentukan aktiviti</string>

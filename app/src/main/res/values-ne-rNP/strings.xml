@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">सबै उपकरणहरूमा परिणामहरू मेटाउने?</string>
     <string name="dashboard_hero_freeable_headline">%1$s खाली गर्न सकिन्छ</string>
     <string name="dashboard_hero_freed_headline">%1$s खाली गरिएको छ</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d वस्तु हटाइन सक्छ</item>
         <item quantity="other">%d वस्तुहरू हटाइन सक्छन्</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">स्पेस खाली गर्न बटन दबाउनुहोस्, वा पहिले जाँच गर्न एक चिप दबाउनुहोस्।</string>
     <string name="dashboard_hero_freed_hint">विवरणका लागि चिप ट्याप गर्नुहोस्।</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s बाँकी</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">केही पनि मुक्त गरिएन</string>
     <string name="dashboard_hero_nothing_freed_caption">सफाइ पूरा भयो, तर पाइएको कुनै पनि डेटा हटाइन सकेन।</string>
     <string name="dashboard_hero_nothing_freed_hint">केही डेटा केवल अतिरिक्त पहुँचको साथ हटाइन सक्छ, जस्तै पहुँचयोग्यता सेवा वा रुट।</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s भेट्टाइयो</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d वस्तुलाई SD Maid Pro चाहिन्छ</item>
         <item quantity="other">%d वस्तुहरूलाई SD Maid Pro चाहिन्छ</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">SD Maid Pro सँग अनलक गर्न ट्याप गर्नुहोस्।</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">SD Maid Pro सँग अझै धेरै खाली गर्न सकिन्छ</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Pro चाहिन्छ</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s स्क्यान गरिएको छ</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s खाली गरिएको छ</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">प्रयास गरिएको %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">रुट पहुँच</string>
     <string name="setup_root_card_body">के SD Maid ले उपलब्ध भएमा root पहुँच प्रयोग गर्नुपर्छ? Root पहुँच अतिरिक्त प्रणाली फोल्डरहरू र निजी एप्लिकेसन डेटा जाँच गर्न प्रयोग गर्न सकिन्छ।</string>
     <string name="setup_root_state_ready_label">रूट पहुँच तयार छ।</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">मूल पहुँच उपलब्ध छैन।</string>
     <string name="setup_root_state_failed_title">रूट पहुँच असफल</string>
     <string name="setup_root_state_failed_body">SD Maid ले रूट पहुँच माग्यो तर पायो छैन। यदि तिम्रो डिभाइस रूटेड छ भने, आफ्नो रूट म्यानेजर (Magisk, KernelSU वा यस्तै) खोल्नुहोस् र SD Maid को अनुरोध अस्वीकार गरिएको वा अझै प्रतीक्षमा छ कि भनी जाँच गर्नुहोस्।</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">डाटा क्षेत्रहरू पुनः लोड गर्नुहोस्</string>
     <string name="debug_mode_label">डिबग मोड</string>
     <string name="debug_mode_explanation">परीक्षण विकल्पहरू र अधिक विस्तृत आउटपुट सक्षम गर्नुहोस्। एप सुस्त चल्नेछ र फरक तरिकाले काम गर्नेछ।</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">डिबग मोड सक्षम छ</string>
     <string name="debug_card_description">विकासकर्ता निदान र रनटाइम ओभरराइडहरू। यो कार्ड केवल डिबग मोड सक्षम हुँदा देखा पर्छ।</string>
     <string name="debug_card_section_diagnostics">निदान</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">अनुप्रयोगहरू पुनः लोड गर्नुहोस्</string>
     <string name="debug_card_root_test_action">रूट परीक्षण गर्नुहोस्</string>
     <string name="debug_card_shizuku_test_action">Shizuku परीक्षण गर्नुहोस्</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">ड्राई-रन मोड सक्रिय छ</string>
     <string name="dashboard_dryrun_warning_body">सफाइ सिमुलेट गरिँदैछ। फाइलहरू स्क्यान गरिएका छन् र रिपोर्ट गरिएका छन्, तर वास्तवमा केही पनि मेटाइएको छैन।</string>
     <string name="dashboard_dryrun_warning_disable_action">बन्द गर्नुहोस्</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">स्टोरेज उपयोग र एक-ट्याप सफाई</string>
     <string name="widget_home_storage_internal">आन्तरिक</string>
     <string name="widget_home_storage_external">बाह्य</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">कुल मुक्त: %1$s</string>
     <string name="widget_home_clean_action">सफा गर्नुहोस्</string>
     <string name="widget_home_working">काम गरिरहेको छ…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">अहिले होइन</string>
     <string name="shortcut_onetap_started">स्क्यान + डिलिट सुरु भयो…</string>
     <string name="shortcut_onetap_nothing_enabled">कुनै एक-ट्याप उपकरण सक्षम छैन</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">ब्याकअप &amp; पुनर्स्थापन</string>
     <string name="backup_restore_desc">आफ्नो सेटिङ्स र कन्फिगरेसन फाइलमा सेभ गर्नुहोस् वा पुनर्स्थापना गर्नुहोस्</string>
     <string name="backup_restore_export_title">ब्याकअप बनाउनुहोस्</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">यो ब्याकअपको इतिहास डेटा (तथ्याङ्क, कम्प्रेसन इतिहास, स्वाइप सत्र) फरक एपको संस्करणबाट छ र यसलाई पुनर्स्थापन गर्न सकिँदैन। बाकि सबै कुरा पुनर्स्थापन हुनेछ।</string>
     <string name="backup_restore_ack_understand">मैले बुझें र जारी राख्न चाहन्छु</string>
     <string name="backup_restore_action_restore">पुनः स्थापन गर्नुहोस्</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">भण्डारण चेतावनीहरू</string>
     <string name="stats_lowspace_notification_title">भण्डारण भरिरहेको छ</string>
     <string name="stats_lowspace_notification_low_title">भण्डारण लगभग पूर्ण छ</string>

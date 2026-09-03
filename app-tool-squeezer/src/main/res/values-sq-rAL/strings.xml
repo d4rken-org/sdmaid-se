@@ -29,6 +29,18 @@
         <item quantity="one">%d skedar anashkaluar (HDR/thellësia e ruajtur)</item>
         <item quantity="other">%d skedarë anashkaluar (HDR/thellësia e ruajtur)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d i anashkaluar (Motion Photo)</item>
+        <item quantity="other">%d të anashkaluar (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d i anashkaluar (foto shumë e madhe)</item>
+        <item quantity="other">%d të anashkaluar (foto shumë të mëdha)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d i anashkaluar (i mbrojtur)</item>
+        <item quantity="other">%d të anashkaluar (i mbrojtur)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d artikull i zgjedhur</item>
         <item quantity="other">%d artikuj të zgjedhur</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Gjenerik</string>
     <string name="squeezer_quality_description">Cilësia më e ulët nënkupton madhësi më të vogël të skedarit, por cilësi vizuale të reduktuar.</string>
     <string name="squeezer_types_category_label">Cilësimet e imazhit</string>
+    <string name="squeezer_protected_category_label">Çfarë humbet</string>
     <string name="squeezer_video_settings_category_label">Cilësimet e videos</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Përfshi imazhet JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Përfshini imazhe JPEG (.jpg, .jpeg). Kodimi i ri përdor enkoduesin e ndërtuar të JPEG të Android-it. Data, vendndodhja dhe metapërmasa të tjera EXIF ruhen.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Përfshi imazhet WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Përfshini imazhe WebP (.webp). Kodimi i ri përdor enkoduesin e ndërtuar të WebP të Android-it. Data, vendndodhja dhe metapërmasa të tjera EXIF ruhen.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Përfshi imazhe HEIC/HEIF (.heic, .heif). Data, lokacioni dhe metapodatë të tjera EXIF ruhen. Hartat e fitimit HDR, të dhënat e thellësisë dhe skedarët shoqe të Live/Motion Photos nuk mund të ruhen; skedarët me shumë imazhe anashkalohen.</string>
     <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Përfshi skedarët video MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Përfshini skedarë video MP4 (.mp4). Pista e videos rikodohet me një bitrate më të ulët nga enkoderi i videos i vetë paisjes, pista e audios kopjohet pa ndryshim, dhe skedari mbetet MP4.</string>
     <string name="squeezer_skip_compressed_title">Kapërce të kompresuarat më parë</string>
     <string name="squeezer_skip_compressed_description">Anashkalo skedarët që janë kompresuar tashmë nga SD Maid.</string>
     <string name="squeezer_exif_marker_title">Shkruaj shënuesin EXIF</string>
     <string name="squeezer_exif_marker_description">Shto një shënues në fushën e komentit EXIF të imazhit për të parandaluar rikompresimin edhe nëse historia e kompresimit pastrohet.</string>
     <string name="squeezer_include_lossy_aux_title">Kompresi fotot HDR &amp; të thellësisë</string>
-    <string name="squeezer_include_lossy_aux_description">I çaktivizuar si parazgjedhje: fotot me hartë fitimi HDR ose të dhëna thellësie/portret anashkalohen në mënyrë që të mos rrafshohen. Aktivizoni për t\'i kompresuar ato kur të jetë e mundur — ato do të humbin hartën e fitimit HDR ose të dhënat e thellësisë. Disa fotot HEIC me shumë imazhe mbeten të mbrojtura pavarësisht.</string>
+    <string name="squeezer_include_lossy_aux_description">Përfshini foton me të dhëna HDR ose thellësie. Ngjeshja e heq: fotografitë HDR bëhen fotografi normale, fotografitë e portretit humbin të dhënat pas mjegullimit të sfondit të tyre. Skedarët HEIC me shumë imazhe mbeten të anashkaluar.</string>
+    <string name="squeezer_include_motion_photos_title">Ngjeshni Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Përfshini Motion Photos. Ngjeshja e ruan imazhin statik dhe heq videoklipin.</string>
+    <string name="squeezer_include_oversized_title">Ngjeshni foton shumë të mëdha</string>
+    <string name="squeezer_include_oversized_description">Përfshini foton më të gjerë ose më të lartë se 8192 piksela. Ngjeshja gjithashtu përgjysmon rezolucionin e tyre.</string>
     <string name="squeezer_estimated_savings_format">~%s kursime</string>
     <string name="squeezer_no_savings_expected">Kursime të kufizuara</string>
     <string name="squeezer_current_size_format">Madhësia: %s</string>
+    <string name="squeezer_chip_compressed_before">I ngjeshur</string>
+    <string name="squeezer_chip_hdr_depth">HDR/thellësi</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Zvogëluar</string>
+    <string name="squeezer_markers_dialog_title">Për këto shënues</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid e ngjeshi tashmë këtë skedar. Ngjeshja e tij përsëri do të kushtojë cilësi dhe do të kursejë pak.</string>
+    <string name="squeezer_markers_hdr_depth_description">Kjo fotografi ka të dhëna HDR ose thellësie që ngjeshja nuk mund të mbajë. Një fotografi HDR kthehet si njëra normale, dhe një fotografi porteti humbin të dhënat e thellësisë të përdorura për mjegullimin e sfondit.</string>
+    <string name="squeezer_markers_motion_photo_description">Kjo është një Motion Photo. Ngjeshja e ruan imazhin statik dhe heq videoklipin.</string>
+    <string name="squeezer_markers_downscaled_description">Kjo fotografi është më e gjerë ose më e lartë se 8192 piksela. Ngjeshja gjithashtu përgjysmon rezolucionin e saj.</string>
     <string name="squeezer_compress_action">Kompreso</string>
     <string name="squeezer_compress_all_action">Kompreso të gjitha</string>
     <string name="squeezer_preview_dialog_title">Konfirmo kompresimin</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Shiko krahasimin</string>
     <string name="squeezer_no_example_found">Nuk u gjetën imazhe në shtegjet e zgjedhura.</string>
     <string name="squeezer_result_empty_message">Nuk u gjet asnjë media e kompresueshme.</string>
+    <string name="squeezer_result_empty_protected">Asgjë për t\'u ngjeshur. Të anashkaluar: %s. Aktivizoni opsionin përkatës në cilësimet për t\'i përfshirë.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d fotografi HDR/thellësie</item>
+        <item quantity="other">%d fotografi HDR/thellësie</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d fotografi shumë e madhe</item>
+        <item quantity="other">%d fotografi shumë të mëdha</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d vend nuk mund të përdoret për kompresim dhe u hoq. Kompresimi kërkon qasje të drejtëpërdrejtë në memorien e brendshme.</item>
         <item quantity="other">%d vende nuk mund të përdoren për kompresim dhe u hoqën. Kompresimi kërkon qasje të drejtëpërdrejtë në memorien e brendshme.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Të paktën %d ditë të vjetra</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Vlerësohet ~%d%% kursim për skedarët JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer ripunon fotografitë dhe videot tuaja në mënyrë që të zënë më pak vend. Ju sakrifikoni pak cilësi për hapësirën që fitoni. Çdo artikull tregon kursimet e vlerësuara, kështu që mund të vendosni se çfarë vlen.</string>
     <string name="tour_squeezer_compress_body">Kompresi gjithçka në të njëjtën kohë këtu, ose trokit një element për ta zvogëluar atë. Shtypja e gjatë për të zgjedhur disa. Gjithmonë do të shikoni një pamje përpara se të ndryshojë ndonjë gjë.</string>
 </resources>

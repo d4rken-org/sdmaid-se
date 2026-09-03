@@ -29,6 +29,18 @@
         <item quantity="one">%d پاڵێودراو (HDR/depth پارێزراو)</item>
         <item quantity="other">%d پاڵێودراون (HDR/depth پارێزراو)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d تێپەڕێنرا (وێنەی جوڵاو)</item>
+        <item quantity="other">%d تێپەڕێنرا (وێنە جوڵاوەکان)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d تێپەڕێنرا (وێنەی زۆر گەورە)</item>
+        <item quantity="other">%d تێپەڕێنرا (وێنە زۆر گەورەکان)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d تێپەڕێنرا (پارێزراو)</item>
+        <item quantity="other">%d تێپەڕێنرا (پارێزراو)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d دانە هەڵبژێردرا</item>
         <item quantity="other">%d دانە هەڵبژێردرا</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">گشتی</string>
     <string name="squeezer_quality_description">کوالیتی نزم یانی قەبارەی فایل بچووکتر دەبێت بەڵام کوالیتی دیداری کەمتر دەبێت.</string>
     <string name="squeezer_types_category_label">ڕێکخستنەکانی وێنە</string>
+    <string name="squeezer_protected_category_label">چی لەدەست دەچێت</string>
     <string name="squeezer_video_settings_category_label">ڕێکخستنەکانی ڤیدیۆ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">وێنەکانی JPEG تێبگرە (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">وێنە JPEG کان (.jpg, .jpeg) لەخۆبگرە. دووبارە کۆدکردنەوە کۆدکەری JPEG ی دانراوی ناو ئەندرۆید بەکاردەهێنێت. بەروار، شوێن، و زانیاری EXIF ی دیکە پارێزراو دەمێنێتەوە.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">وێنەکانی WebP تێبگرە (.webp).</string>
+    <string name="squeezer_type_webp_description">وێنە WebP کان (.webp) لەخۆبگرە. دووبارە کۆدکردنەوە کۆدکەری WebP ی دانراوی ناو ئەندرۆید بەکاردەهێنێت. بەروار، شوێن، و زانیاری EXIF ی دیکە پارێزراو دەمێنێتەوە.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">بڕۆچوونی وێنەکانی HEIC/HEIF (.heic, .heif). بەروار، شوێن، و دراوسڕاوی EXIF تریش پاراستراوە. نەخشەی HDR، داتای قوڵایی، و وێنەکانی Live/Motion Photo ناتوانرێت پاراستراو بێت; فایلەکانی فرە-وێنە تێدەپەڕێن.</string>
     <string name="squeezer_type_video_title">ڤیدیۆی MP4</string>
-    <string name="squeezer_type_video_description">فایلەکانی ڤیدیۆی MP4 لەخۆ بگرە (.mp4).</string>
+    <string name="squeezer_type_video_description">پەڕگە ڤیدیۆییەکانی MP4 (.mp4) لەخۆبگرە. تراکی ڤیدیۆ بە ڕێژەیەکی بیتی نزمتر لەلایەن کۆدکەری ڤیدیۆی ئامێرەکەوە دووبارە کۆد دەکرێتەوە، تراکی دەنگ بەبێ گۆڕانکاری کۆپی دەکرێت، و پەڕگەکە بە MP4 دەمێنێتەوە.</string>
     <string name="squeezer_skip_compressed_title">یەکانی پێشووی پەکاندراو بگوێزرێنەوە</string>
     <string name="squeezer_skip_compressed_description">فایلەکانی کە پێشتر لەلایەن SD Maid بچووک کراوەتەوە تێپەڕ بکە.</string>
     <string name="squeezer_exif_marker_title">نیشانەی EXIF بنووسە</string>
     <string name="squeezer_exif_marker_description">نیشانەیەک لە خانەی کۆمێنتی بەکارهێنەری EXIF ی وێنەکە زیاد بکە بۆ ئەوەی دووبارە پەکاندن جێگیر بکات تەوەکو مێژووی پەکاندن پاک بکرێتەوە.</string>
     <string name="squeezer_include_lossy_aux_title">کۆپێچکردنی وێنەکانی HDR و قوڵایی</string>
-    <string name="squeezer_include_lossy_aux_description">بە پێی بنەڕەتی چالاک نیە: وێنەکانی HDR gain map یان داتای قوڵایی/پۆرترێت تێدەپەڕێن بۆ ئەوەی تەخت نەبن. چالاککردن بۆ کۆپێچکردنی ئەمانە کاتێک کە دەکرێت — ئەمان HDR gain map یان داتای قوڵاییی خۆیان لەدەست دەدەن. هەندێک وێنەی HEIC فرە-وێنە بە هەر حالێکی پارێزراو دەمێننەوە.</string>
+    <string name="squeezer_include_lossy_aux_description">وێنە HDR یەکان یان ئەوانەی زانیاری قوڵایی هەیانە لەخۆبگرە. پەستاندن زانیارییەکە لادەبات: وێنە HDR کان دەبنە وێنەی ئاسایی، وێنە پۆرترەکان زانیارییەکە لەدەست دەدەن کە پشتی تێکەڵاوی باکگراوندیانە. پەڕگە HEIC ییە فرەوێنەکان هەر تێدەپەڕێنرێن.</string>
+    <string name="squeezer_include_motion_photos_title">پەستاندنی وێنە جوڵاوەکان</string>
+    <string name="squeezer_include_motion_photos_description">وێنە جوڵاوەکان لەخۆبگرە. پەستاندن وێنە ڕاوەستاوەکە دەپارێزێت و پارچە ڤیدیۆکە لادەبات.</string>
+    <string name="squeezer_include_oversized_title">پەستاندنی وێنە زۆر گەورەکان</string>
+    <string name="squeezer_include_oversized_description">وێنە کە پانتر یان بەرزتر لە 8192 پیکسڵن لەخۆبگرە. پەستاندن هەروەها ڕیزۆلیوشنەکەیان بۆ نیوە کەم دەکاتەوە.</string>
     <string name="squeezer_estimated_savings_format">~%s خەزن</string>
     <string name="squeezer_no_savings_expected">خەزنکردنی سنووردار</string>
     <string name="squeezer_current_size_format">قەبارە: %s</string>
+    <string name="squeezer_chip_compressed_before">پەستێنراو</string>
+    <string name="squeezer_chip_hdr_depth">HDR/قوڵایی</string>
+    <string name="squeezer_chip_motion_photo">وێنەی جوڵاو</string>
+    <string name="squeezer_chip_downscaled">بچووککراوە</string>
+    <string name="squeezer_markers_dialog_title">دەربارەی ئەم نیشانانە</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid پێشتر ئەم پەڕگەیەی پەستاندووە. دووبارە پەستاندنەوەی جۆرایەتی لەدەست دەدات و تەنها بۆشاییەکی کەم دەپارێزێت.</string>
+    <string name="squeezer_markers_hdr_depth_description">ئەم وێنەیە زانیاری HDR یان قوڵایی هەیە کە پەستاندن ناتوانێت بیپارێزێت. وێنەی HDR دەگەڕێتەوە بۆ وێنەیەکی ئاسایی، و وێنەی پۆرتریت زانیاری قوڵاییەکە لەدەست دەدات کە بۆ تێکەڵاوی باکگراوند بەکاردێت.</string>
+    <string name="squeezer_markers_motion_photo_description">ئەمە وێنەیەکی جوڵاوە. پەستاندن وێنە ڕاوەستاوەکە دەپارێزێت و پارچە ڤیدیۆکە لادەبات.</string>
+    <string name="squeezer_markers_downscaled_description">ئەم وێنەیە پانتر یان بەرزترە لە 8192 پیکسڵ. پەستاندن هەروەها ڕیزۆلیوشنەکەی بۆ نیوە کەم دەکاتەوە.</string>
     <string name="squeezer_compress_action">پەکاندن</string>
     <string name="squeezer_compress_all_action">هەموو بپەکێنە</string>
     <string name="squeezer_preview_dialog_title">پشتڕاستکردنەوەی پەکاندن</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">بەراوردکردن ببینە</string>
     <string name="squeezer_no_example_found">هیچ وێنەیەک لە ڕێگاکانی دیاریکراودا نەدۆزرایەوە.</string>
     <string name="squeezer_result_empty_message">هیچ میدیایەکی بچووک کراوەپەذیر نەدۆزرایەوە.</string>
+    <string name="squeezer_result_empty_protected">هیچ شتێک نییە بۆ پەستاندن. تێپەڕێنرا: %s. هەڵبژاردەی هاوتاکە لە ڕێکخستنەکاندا چالاک بکە بۆ ئەوەی لەخۆیانبگریت.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d وێنەی HDR/قوڵایی</item>
+        <item quantity="other">%d وێنەی HDR/قوڵایی</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d وێنەی جوڵاو</item>
+        <item quantity="other">%d وێنەی جوڵاو</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d وێنەی زۆر گەورە</item>
+        <item quantity="other">%d وێنەی زۆر گەورە</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d شوێن ناتوانرێت بۆ بچووک کردنەوە بەکار بهێنرێت و لابرا. بچووک کردنەوە پێویستی بە دەستڕاگەیشتنی ڕاستەوخۆ بە ساردەرگەی ناوەکی هەیە.</item>
         <item quantity="other">%d شوێن ناتوانرێت بۆ بچووک کردنەوە بەکار بهێنرێت و لابرا. بچووک کردنەوە پێویستی بە دەستڕاگەیشتنی ڕاستەوخۆ بە ساردەرگەی ناوەکی هەیە.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">لانی کەم %d ڕۆژ کۆنن</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">پێشبینی ~%d%% خودن بۆ فایلەکانی JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer وێنە و ڤیدیۆکانت دووبارە کۆمپرێس دەکات بۆ ئەوەی کەمتر جێگا بگرن. تۆ کەمێک کوالیتی بە جێگای جێگایەک دەدەیت کە لێی دەگەڕێتەوە. هەر دانەیەک پشکنینی خەلاتکردنی تەخمینکراو دەدات، بۆیە دەتوانیت بڕیار بدەیت کام بە کەڵک دێت.</string>
     <string name="tour_squeezer_compress_body">هەموو شتێک یەکجار لێرە کۆپێچ بکە، یان یەک خالە دەست لێ بکە بۆ بچووککردنی تەنیا ئەو یەکە. پاڵ درێژ دەست لێبکە بۆ هەڵبژاردنی چەند. هەمیشە پێش ئەوەی هیچ شتێک بگۆڕێت پێشبینیەک دەبینی.</string>
 </resources>

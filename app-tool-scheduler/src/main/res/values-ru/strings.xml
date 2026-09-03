@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Название расписания</string>
     <string name="scheduler_schedule_toggle_enabled">Расписание включено</string>
     <string name="scheduler_schedule_toggle_disabled">Расписание отключено</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Отключи расписание, чтобы изменить его.</string>
     <string name="scheduler_edit_schedule_action">Изменить расписание</string>
     <string name="scheduler_schedule_time_label">Приблизительное время</string>
     <string name="scheduler_schedule_repeat_label">Интервал повторения в днях</string>
@@ -45,7 +46,6 @@
     <string name="scheduler_commands_after_schedule_label">Команды пост-расписания</string>
     <string name="scheduler_commands_after_schedule_desc">Команды оболочки Android, которые будут выполняться в конце расписания.</string>
     <string name="scheduler_battery_optimization_hint">Рассмотрите возможность отключения оптимизации батареи для SD Maid, если у Вас возникли проблемы с работой в фоне.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid может выполнять очистку по расписанию. Выберите время и какие инструменты запускать, и приложение выполнит работу в фоне, (почти) без необходимости открывать приложение.</string>
     <string name="tour_scheduler_create_body">Коснитесь здесь, чтобы создать новое расписание, затем установите, когда оно будет запускаться, и какие инструменты включить.</string>
 </resources>

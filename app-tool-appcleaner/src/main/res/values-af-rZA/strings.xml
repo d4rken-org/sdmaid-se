@@ -60,6 +60,18 @@
         <item quantity="one">%d uitgeebare item geskrap</item>
         <item quantity="other">%d uitgeebare items geskrap</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d weggoibare item uitgevee, gestop omdat die skerm af of gesluit was</item>
+        <item quantity="other">%d weggoibare items uitgevee, gestop omdat die skerm af of gesluit was</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d weggoibare item uitgevee, gestop deur \'n fout</item>
+        <item quantity="other">%d weggoibare items uitgevee, gestop deur \'n fout</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache vereis nog steeds die toeganklikheidsdiens</item>
+        <item quantity="other">%1$s, %2$d caches vereis nog steeds die toeganklikheidsdiens</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d uitgeebare item gevind</item>
         <item quantity="other">%d uitgeebare items gevind</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Soek vir \"Maak kas skoon\" knoppie (sleutelwoorde: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Verstek kas</string>
     <string name="appcleaner_item_caches_inaccessible_body">Openbare en private verstek kas. Nie direk toeganklik nie, maar kan indirek geskrap word (bv. via toeganklikheid diens).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Uitgesluit, maar opknapping van alle apps op eenmaal verwyder dit steeds</string>
+    <string name="appcleaner_exclusion_limited_title">Uitgeslote toepassing</string>
+    <string name="appcleaner_exclusion_limited_body">Jy het hierdie toepassing van AppCleaner uitgesluit. Die opknapping van caches vir alle apps op eenmaal gebruik Shizuku se stelselwye cache-inkorting, wat individuele toepassings nie kan uitskakel nie, dus word hierdie toepassing se cache saam met alles ander gewis. Slegs die cache wat hier vertoon word, word beïnvloed, alles ander wat die uitsluiting dek, bly verborge en onaangeroerd.</string>
     <string name="appcleaner_automation_unavailable_title">Toeganklikheid diens nie beskikbaar nie</string>
-    <string name="appcleaner_automation_unavailable_body">Skoonmaak van ontoeganklike kas vereis SD Maid se toeganklikheid diens, maar dit was nie beskikbaar nie. As jy dit nie wil gebruik nie: Deaktiveer die opsie \"Sluit ontoeganklike kas in\".</string>
+    <string name="appcleaner_automation_unavailable_body">Die opknapping van caches vereis SD Maid se toeganklikheidsdiens, maar dit was nie beskikbaar nie.</string>
     <string name="appcleaner_delete_confirmation_message_x">Skrap uitgeebare lêers vir %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Skrap uitgeebare lêers vir %d gekiesde toepassing?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Geforseerd stop voor uitvee</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Stop toepassings geforseerd voor die uitvee van hul kas. Dit kan help om sommige toepassings se kas uit te vee, maar kan veroorsaak dat toepassings wanfunksioneer en handmatige herbegin vereis.</string>
     <string name="appcleaner_progress_force_stopping">Stop toepassings geforseerd…</string>
+    <string name="appcleaner_progress_checking_freed_space">Vrygemaakte spasie word nagegaan…</string>
 </resources>

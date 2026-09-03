@@ -81,6 +81,10 @@
         <item quantity="one">O estado de %d aplicação foi alterado</item>
         <item quantity="other">O estado de %d aplicações foi alterado</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplicação não pode ser ativada ou desativada</item>
+        <item quantity="other">%d aplicações não podem ser ativadas ou desativadas</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determinar tamanhos</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenha uma estimativa aproximada do tamanho de cada aplicação.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar atividade</string>

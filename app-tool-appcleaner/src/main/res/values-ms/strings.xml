@@ -59,6 +59,15 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="other">%d item dipadam</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="other">%d item boleh dibuang dipadam, berhenti kerana skrin dimatikan atau dikunci</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="other">%d item boleh dibuang dipadam, berhenti disebabkan ralat</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="other">%1$s, %2$d cache masih memerlukan perkhidmatan kebolehcapaian</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d item boleh dibelanjakan ditemui</item>
     </plurals>
@@ -69,8 +78,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Mencari butang kosongkan cache</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache lalai</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache lalai awam dan peribadi. Tidak boleh diakses secara langsung, tetapi boleh dipadamkan secara tidak langsung (cth. melalui perkhidmatan aksesibiliti).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Dikecualikan, tetapi membersihkan semua aplikasi sekali gus tetap mengosongkan cache ini</string>
+    <string name="appcleaner_exclusion_limited_title">Aplikasi dikecualikan</string>
+    <string name="appcleaner_exclusion_limited_body">Kamu mengecualikan aplikasi ini daripada AppCleaner. Mengosongkan cache untuk semua aplikasi sekali gus menggunakan pemangkasan cache seluruh sistem Shizuku, yang tidak boleh mengecualikan aplikasi tertentu, jadi data cache aplikasi ini turut dikosongkan bersama yang lain. Hanya data cache yang ditunjukkan di sini terjejas, semua yang lain yang diliputi pengecualian kekal tersembunyi dan tidak disentuh.</string>
     <string name="appcleaner_automation_unavailable_title">Perkhidmatan aksesibiliti tidak tersedia</string>
-    <string name="appcleaner_automation_unavailable_body">Membersihkan cache yang tidak boleh diakses memerlukan perkhidmatan kebolehcapaian SD Maid, tetapi ia tidak tersedia. Jika anda tidak mahu menggunakannya: Lumpuhkan pilihan \"Sertakan cache yang tidak boleh diakses\".</string>
+    <string name="appcleaner_automation_unavailable_body">Mengosongkan cache ini memerlukan perkhidmatan kebolehcapaian SD Maid, tetapi ia tidak tersedia.</string>
     <string name="appcleaner_delete_confirmation_message_x">Padamkan fail boleh guna untuk %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Padam fail yang boleh dibuang untuk %d aplikasi terpilih?</item>
@@ -85,4 +97,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersih</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cachenya. Ia boleh membantu membersihkan cache sesetengah aplikasi, tetapi mungkin menyebabkan aplikasi tidak berfungsi dengan betul dan memerlukan mula semula secara manual.</string>
     <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>
+    <string name="appcleaner_progress_checking_freed_space">Menyemak ruang yang dibebaskan…</string>
 </resources>

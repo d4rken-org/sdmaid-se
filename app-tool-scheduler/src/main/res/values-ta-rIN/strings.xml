@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">தேதி பெயர்</string>
     <string name="scheduler_schedule_toggle_enabled">தேதி இயக்கப்பட்டுள்ளது</string>
     <string name="scheduler_schedule_toggle_disabled">தேதி முடக்கப்பட்டுள்ளது</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">அதை மாற்ற அட்டவணையை முடக்கவும்.</string>
     <string name="scheduler_edit_schedule_action">தேதியைத் தருணி</string>
     <string name="scheduler_schedule_time_label">தகராறு நேரம்</string>
     <string name="scheduler_schedule_repeat_label">நாட்களில் மீண்டும் இடைவெளி</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">தேதியின் பின் கட்டளைகள்</string>
     <string name="scheduler_commands_after_schedule_desc">தேதியின் அந்திம ஆளாக நிறைவேற்றப்படும் Android கெல் கட்டளைகள்.</string>
     <string name="scheduler_battery_optimization_hint">பின்னணி நிறைவேற்றத்தில் சிக்கல்களைச் சந்தித்தால் SD Maid இன் பாட்டரி மேலேற்றத்தை முடக்குவதைக் கருதில் கொள்ளவும்.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid ஒரு அட்டவணையின்படி சுத்தம் செய்ய முடியும். ஒரு நேரத்தையும் எந்த கருவிகள் இயக்கப்படுவது என்பதையும் தேர்ந்தெடுக்கவும், பின்னர் இது பின்னணியில் வேலையைச் செய்கிறது, (கிட்டத்தட்ட) பயன்பாட்டைத் திறக்க அவசியம் இல்லை.</string>
     <string name="tour_scheduler_create_body">ஒரு புதிய அட்டவணையை உருவாக்க இங்கே தட்டவும், பின்னர் அது எப்போது இயக்கப்படும் மற்றும் எந்த கருவிகளைச் சேர்க்க வேண்டும் என்பதை அமைக்கவும்.</string>
 </resources>

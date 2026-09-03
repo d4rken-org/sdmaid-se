@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">ชื่อตารางเวลา</string>
     <string name="scheduler_schedule_toggle_enabled">ตารางเวลาถูกเปิดใช้งาน</string>
     <string name="scheduler_schedule_toggle_disabled">ตารางเวลาถูกปิดใช้งาน</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">ปิดใช้งานตารางเวลาเพื่อเปลี่ยนแปลง</string>
     <string name="scheduler_edit_schedule_action">แก้ไขตารางเวลา</string>
     <string name="scheduler_schedule_time_label">เวลาโดยประมาณ</string>
     <string name="scheduler_schedule_repeat_label">ช่วงเวลาการทำซ้ำเป็นวัน</string>
@@ -42,7 +43,6 @@
     <string name="scheduler_commands_after_schedule_label">คำสั่งหลังตาราง</string>
     <string name="scheduler_commands_after_schedule_desc">คำสั่ง Android shell ที่จะถูกทำงานเมื่อสิ้นสุดตาราง</string>
     <string name="scheduler_battery_optimization_hint">พิจารณาปิดการปรับปรุงแบตเตอรี่สำหรับ SD Maid หากคุณพบปัญหาการทำงานในพื้นหลัง</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid สามารถทำความสะอาดตามตารางเวลาได้ เลือกเวลาและเครื่องมือที่ต้องการ แล้วมันจะทำงานในพื้นหลัง เกือบไม่ต้องเปิดแอปเลย</string>
     <string name="tour_scheduler_create_body">แตะที่นี่เพื่อสร้างตารางเวลาใหม่ จากนั้นตั้งเวลาที่จะทำงาน และเลือกเครื่องมือที่จะรวม</string>
 </resources>

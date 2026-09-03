@@ -95,6 +95,12 @@
         <item quantity="many">Выключено приложений: %d</item>
         <item quantity="other">Выключено приложений: %d</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d приложение невозможно включить или отключить</item>
+        <item quantity="few">%d приложения невозможно включить или отключить</item>
+        <item quantity="many">%d приложений невозможно включить или отключить</item>
+        <item quantity="other">%d приложений невозможно включить или отключить</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Определение размеров</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Получите приблизительную оценку размера каждого приложения.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определение активности</string>

@@ -60,6 +60,18 @@
         <item quantity="one">%d xərclənə bilən element silindi</item>
         <item quantity="other">%d xərclənə bilən element silindi</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d lazımsız element silindi, ekran söndüyü və ya kilidləndiyi üçün dayandırıldı</item>
+        <item quantity="other">%d lazımsız element silindi, ekran söndüyü və ya kilidləndiyi üçün dayandırıldı</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d lazımsız element silindi, xəta səbəbindən dayandırıldı</item>
+        <item quantity="other">%d lazımsız element silindi, xəta səbəbindən dayandırıldı</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d keş hələ də Əlçatımlılıq xidmətini tələb edir</item>
+        <item quantity="other">%1$s, %2$d keş hələ də Əlçatımlılıq xidmətini tələb edir</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d xərclənə bilən element tapıldı</item>
         <item quantity="other">%d xərclənə bilən element tapıldı</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keşi təmizlə\" düyməsi axtarılır (açar sözlər: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standart keşlər</string>
     <string name="appcleaner_item_caches_inaccessible_body">İctimai və şəxsi standart keşlər. Birbaşa əlçatan deyil, lakin dolayısı ilə silinə bilər (məsələn əlçatanlıq xidməti vasitəsilə).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">İstisna edilib, lakin bütün tətbiqləri eyni anda təmizləmək yenə də bu keşləri silir</string>
+    <string name="appcleaner_exclusion_limited_title">İstisna edilmiş tətbiq</string>
+    <string name="appcleaner_exclusion_limited_body">Bu tətbiqi AppCleaner-dən istisna etmisən. Bütün tətbiqlərin keşini eyni anda təmizləmək Shizuku-nun sistem miqyaslı keş təmizləməsindən istifadə edir, bu isə ayrı-ayrı tətbiqləri kənarda saxlaya bilmir, ona görə də bu tətbiqin keş məlumatları da digərləri ilə birlikdə silinir. Yalnız burada göstərilən keş məlumatları təsirlənir, istisnanın əhatə etdiyi digər hər şey gizli və toxunulmamış qalır.</string>
     <string name="appcleaner_automation_unavailable_title">Əlçatanlıq xidməti əlçatan deyil</string>
-    <string name="appcleaner_automation_unavailable_body">Əlçatmaz keşləri təmizləmək SD Maid-in əlçatanlıq xidmətini tələb edir, lakin əlçatan deyildi. İstifadə etmək istəmirsinizsə: \"Əlçatmaz keşləri daxil et\" seçimini deaktiv edin.</string>
+    <string name="appcleaner_automation_unavailable_body">Bu keşləri təmizləmək üçün SD Maid-in Əlçatımlılıq xidməti tələb olunur, lakin o əlçatan deyildi.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s üçün xərclənə bilən fayllar silinsinmi?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d seçilmiş tətbiq üçün xərclənə bilən fayllar silinsinmi?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Təmizləmədən öncə məcburi dayandır</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Keşi təmizləmədən əvvəl tətbiqləri məcburi dayandırın. Bu bəzi tətbiqlərin keşini təmizləməyə kömək edə bilər, lakin tətbiqlərin düzgün işləməməsinə səbəb ola bilər və əl ilə yenidən başlatma tələb edə bilər.</string>
     <string name="appcleaner_progress_force_stopping">Tətbiqlər məcburi dayandırılır…</string>
+    <string name="appcleaner_progress_checking_freed_space">Azad edilmiş yer yoxlanılır…</string>
 </resources>

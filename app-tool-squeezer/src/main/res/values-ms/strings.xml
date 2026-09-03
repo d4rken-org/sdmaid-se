@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d dilangkau (HDR/kedalaman dikekalkan)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">%d dilangkau (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">%d dilangkau (foto sangat besar)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">%d dilangkau (dilindungi)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d item dipilih</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">Umum</string>
     <string name="squeezer_quality_description">Kualiti lebih rendah bermaksud saiz fail lebih kecil tetapi kualiti visual berkurangan.</string>
     <string name="squeezer_types_category_label">Tetapan imej</string>
+    <string name="squeezer_protected_category_label">Apa yang akan hilang</string>
     <string name="squeezer_video_settings_category_label">Tetapan video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Sertakan imej JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Sertakan imej JPEG (.jpg, .jpeg). Pengekodan semula menggunakan pengekod JPEG terbina dalam Android. Tarikh, lokasi, dan metadata EXIF lain dikekalkan.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Sertakan imej WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Sertakan imej WebP (.webp). Pengekodan semula menggunakan pengekod WebP terbina dalam Android. Tarikh, lokasi, dan metadata EXIF lain dikekalkan.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Sertakan imej HEIC/HEIF (.heic, .heif). Tarikh, lokasi, dan metadata EXIF lain dikekalkan. Peta keuntungan HDR, data kedalaman, dan saudara Live/Motion Photo tidak dapat dikekalkan; fail berbilang imej dilangkau.</string>
     <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Sertakan fail video MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Sertakan fail video MP4 (.mp4). Trek video dikodkan semula pada kadar bit yang lebih rendah oleh pengekod video peranti sendiri, trek audio disalin tanpa perubahan, dan fail kekal sebagai MP4.</string>
     <string name="squeezer_skip_compressed_title">Langkau yang telah dimampatkan</string>
     <string name="squeezer_skip_compressed_description">Langkau fail yang telah dimampatkan oleh SD Maid.</string>
     <string name="squeezer_exif_marker_title">Tulis penanda EXIF</string>
     <string name="squeezer_exif_marker_description">Tambah penanda pada medan ulasan pengguna EXIF imej untuk mengelakkan pemampatan semula walaupun sejarah pemampatan dikosongkan.</string>
     <string name="squeezer_include_lossy_aux_title">Mampat foto HDR &amp; kedalaman</string>
-    <string name="squeezer_include_lossy_aux_description">Matikan secara lalai: foto dengan peta keuntungan HDR atau data kedalaman/potret dilangkau supaya tidak diratakan. Dayakan untuk memampatnya di mana mungkin — mereka akan kehilangan peta keuntungan HDR atau data kedalaman mereka. Beberapa foto HEIC berbilang imej tetap dilindungi tanpa mengira.</string>
+    <string name="squeezer_include_lossy_aux_description">Sertakan foto dengan data HDR atau kedalaman. Pemampatan mengeluarkannya: foto HDR menjadi foto biasa, foto potret kehilangan data di sebalik kaburan latar belakangnya. Fail HEIC berbilang imej terus dilangkau.</string>
+    <string name="squeezer_include_motion_photos_title">Mampatkan Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">Sertakan Motion Photos. Pemampatan mengekalkan imej pegun dan mengeluarkan klip video.</string>
+    <string name="squeezer_include_oversized_title">Mampatkan foto sangat besar</string>
+    <string name="squeezer_include_oversized_description">Sertakan foto yang lebih lebar atau lebih tinggi daripada 8192 piksel. Pemampatan juga mengurangkan separuh resolusinya.</string>
     <string name="squeezer_estimated_savings_format">~%s penjimatan</string>
     <string name="squeezer_no_savings_expected">Penjimatan terhad</string>
     <string name="squeezer_current_size_format">Saiz: %s</string>
+    <string name="squeezer_chip_compressed_before">Dimampatkan</string>
+    <string name="squeezer_chip_hdr_depth">HDR/kedalaman</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Diskala turun</string>
+    <string name="squeezer_markers_dialog_title">Tentang penanda ini</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid telah memampatkan fail ini. Memampatkannya sekali lagi menjejaskan kualiti dan hanya menjimatkan sedikit ruang.</string>
+    <string name="squeezer_markers_hdr_depth_description">Foto ini mempunyai data HDR atau kedalaman yang tidak dapat dikekalkan oleh pemampatan. Foto HDR akan kembali menjadi foto biasa, dan foto potret kehilangan data kedalaman yang digunakan untuk kaburan latar belakang.</string>
+    <string name="squeezer_markers_motion_photo_description">Ini ialah Motion Photo. Pemampatan mengekalkan imej pegun dan mengeluarkan klip video.</string>
+    <string name="squeezer_markers_downscaled_description">Foto ini lebih lebar atau lebih tinggi daripada 8192 piksel. Pemampatan juga mengurangkan separuh resolusinya.</string>
     <string name="squeezer_compress_action">Mampat</string>
     <string name="squeezer_compress_all_action">Mampat semua</string>
     <string name="squeezer_preview_dialog_title">Sahkan pemampatan</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">Lihat perbandingan</string>
     <string name="squeezer_no_example_found">Tiada imej dijumpai di laluan yang dipilih.</string>
     <string name="squeezer_result_empty_message">Tiada media yang boleh dimampatkan ditemui.</string>
+    <string name="squeezer_result_empty_protected">Tiada apa untuk dimampatkan. Dilangkau: %s. Hidupkan pilihan yang berkaitan dalam tetapan untuk menyertakannya.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">%d foto HDR/kedalaman</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">%d foto sangat besar</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d lokasi tidak boleh digunakan untuk pemampatan dan telah dikeluarkan. Pemampatan memerlukan akses terus ke storan dalaman.</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">Sekurang-kurangnya %d hari</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Anggaran ~%d%% penjimatan untuk fail JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer memampatkan semula foto dan video anda supaya ia mengambil ruang yang lebih sedikit. Anda mengorbankan sedikit kualiti untuk ruang yang anda dapat kembali. Setiap item menunjukkan anggaran simpanan, jadi anda boleh memutuskan apa yang berbaloi.</string>
     <string name="tour_squeezer_compress_body">Mampatkan semuanya sekali gus di sini, atau ketuk satu item untuk mengecilkan hanya itu sahaja. Tekan lama untuk memilih beberapa. Anda akan sentiasa melihat pratonton sebelum sesuatu berubah.</string>
 </resources>

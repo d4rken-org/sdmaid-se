@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">បានត្រង: %1$s</string>
     <string name="swiper_session_no_matching_files">រកមិនខើញឯកសារដែត្រូវគ្នា</string>
     <string name="swiper_open_externally_action">បើកក្នុងកម្មវិធីខាងក្រៅ</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ឈូសឯកសារដើម្បីសម្រេចចិត្តលទ្ធភាពរបស់វា៖ ឈូសក្រោយដើម្បីរក្សាទុក ឬលុប ឈូសឡើងលើដើម្បីលោត ឈូសចុះក្រោមដើម្បីលុតចេញ។ ប៊ូតុងខាងក្រោមធ្វើដូចគ្នា — ហើយបង្ហាញថាមុខម្ខាងទាំងពីរ។</string>
     <string name="tour_swiper_openin_body">ប៊ូតុងនេះបើកឯកសារក្នុងកម្មវិធីមួយទៀត ដែលងាយស្រួលក្នុងការពិនិត្យវាមុនពេលសម្រេចចិត្ត។</string>
     <string name="tour_swiper_preview_body">ប៊ូតុងនេះបើកការមើលជាមុនពេញអេក្រង់ដើម្បីមើលលម្អិតកាន់តែច្បាស់។</string>

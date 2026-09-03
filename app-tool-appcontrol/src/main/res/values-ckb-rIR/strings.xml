@@ -81,6 +81,10 @@
         <item quantity="one">%d ئەپ گۆڕایەوە</item>
         <item quantity="other">%d ئەپ گۆڕایەوە</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d ئەپ ناتوانرێت چالاک یان ناچالاک بکرێت</item>
+        <item quantity="other">%d ئەپ ناتوانرێت چالاک یان ناچالاک بکرێت</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">قەبارەکان دیاربکە</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">خەمڵاندنێکی خام بگرە لە قەبارەی هەر ئەپێک.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">چالاکی دیاربکە</string>

@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Cədvəl adı</string>
     <string name="scheduler_schedule_toggle_enabled">Cədvəl aktiv edildi</string>
     <string name="scheduler_schedule_toggle_disabled">Cədvəl deaktiv edildi</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Onu dəyişmək üçün cədvəli deaktiv et.</string>
     <string name="scheduler_edit_schedule_action">Cədvəl redaktə et</string>
     <string name="scheduler_schedule_time_label">Təxmini vaxt</string>
     <string name="scheduler_schedule_repeat_label">Günlərlə təkrar intervalı</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Plan sonrası əmrlər</string>
     <string name="scheduler_commands_after_schedule_desc">Planın sonunda icra ediləcək Android shell əmrləri.</string>
     <string name="scheduler_battery_optimization_hint">Arxa plan icra problemləri yaşayırsınızsa SD Maid üçün batareya optimallaşdırmalarını deaktiv etməyi düşünün.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid cədvəl üzrə təmizləmə edə bilər. Bir vaxt və hansı alətlərin işləyəcəyini seçin, o da işi arxa fonda görəcək — demək olar ki, tətbiqi açmağa ehtiyac qalmayacaq.</string>
     <string name="tour_scheduler_create_body">Yeni cədvəl yaratmaq üçün buraya toxunun, sonra nə vaxt işləyəcəyini və hansı alətlərin daxil olacağını təyin edin.</string>
 </resources>

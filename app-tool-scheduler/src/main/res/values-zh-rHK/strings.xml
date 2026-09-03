@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">編排名稱</string>
     <string name="scheduler_schedule_toggle_enabled">編排已啟用</string>
     <string name="scheduler_schedule_toggle_disabled">編排已停用</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">停用此排程以進行變更。</string>
     <string name="scheduler_edit_schedule_action">編輯編排</string>
     <string name="scheduler_schedule_time_label">大約時間</string>
     <string name="scheduler_schedule_repeat_label">重複間隔 (天)</string>
@@ -46,7 +47,6 @@
     <string name="scheduler_commands_after_schedule_label">排程後指令</string>
     <string name="scheduler_commands_after_schedule_desc">將在排程結束時執行的 Android shell 指令。</string>
     <string name="scheduler_battery_optimization_hint">此功能可能需要停用 SD 女僕的電池最佳化才能正常運作。</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid 可以按排程自動清理。選擇執行時間和要執行的工具，它會在背景執行工作，（幾乎）無需開啟應用程式。</string>
     <string name="tour_scheduler_create_body">輕按此處以建立新排程，然後設定執行時間和要包括的工具。</string>
 </resources>

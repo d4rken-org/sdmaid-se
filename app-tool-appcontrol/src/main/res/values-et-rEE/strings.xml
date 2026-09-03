@@ -81,6 +81,10 @@
         <item quantity="one">%d rakendus märgiti</item>
         <item quantity="other">%d rakendust märgiti</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d rakendust ei saa lubada ega keelata</item>
+        <item quantity="other">%d rakendusi ei saa lubada ega keelata</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Arvuta mahud</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Hangi iga rakenduse umbkaudne maht.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Kontrolli kasutamist</string>

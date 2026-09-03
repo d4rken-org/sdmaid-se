@@ -60,6 +60,18 @@
         <item quantity="one">%d వ్యయించదగిన అంశం తొలగించబడింది</item>
         <item quantity="other">%d వ్యయించదగిన అంశాలు తొలగించబడినాయి</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d అనవసరమైన అంశం తొలగించబడింది, స్క్రీన్ ఆఫ్‌గా ఉన్నందున లేదా లాక్ చేయబడినందున ఆగిపోయింది</item>
+        <item quantity="other">%d అనవసరమైన అంశాలు తొలగించబడ్డాయి, స్క్రీన్ ఆఫ్‌గా ఉన్నందున లేదా లాక్ చేయబడినందున ఆగిపోయింది</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d అనవసరమైన అంశం తొలగించబడింది, ఒక లోపం వల్ల ఆగిపోయింది</item>
+        <item quantity="other">%d అనవసరమైన అంశాలు తొలగించబడ్డాయి, ఒక లోపం వల్ల ఆగిపోయింది</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d కాష్‌కు ఇంకా యాక్సెసిబిలిటీ సేవ అవసరం</item>
+        <item quantity="other">%1$s, %2$d కాష్‌లకు ఇంకా యాక్సెసిబిలిటీ సేవ అవసరం</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d వ్యయించదగిన అంశం కనుగొనబడింది</item>
         <item quantity="other">%d వ్యయించదగిన అంశాలు కనుగొనబడినాయి</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">డిఫాల్ట్ క్యాషేలు</string>
     <string name="appcleaner_item_caches_inaccessible_body">పబ్లిక్ మరియు ప్రైవేట్ డిఫాల్ట్ క్యాషేలు. నేరుగా ప్రాప్యత కాదు, కానీ పరోక్షంగా తొలగించవచ్చు (ఉదా. ప్రాప్యతా సేవ ద్వారా).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">బహిష్కరించబడింది, కానీ అన్ని యాప్‌లను ఒకేసారి క్లీన్ చేయడం వల్ల ఈ కాష్‌లు ఇప్పటికీ క్లియర్ అవుతాయి</string>
+    <string name="appcleaner_exclusion_limited_title">బహిష్కరించిన యాప్</string>
+    <string name="appcleaner_exclusion_limited_body">మీరు ఈ యాప్‌ను AppCleaner నుండి బహిష్కరించారు. అన్ని యాప్‌ల కాష్‌లను ఒకేసారి క్లియర్ చేయడం Shizuku యొక్క సిస్టమ్-వైడ్ కాష్ ట్రిమ్‌ను ఉపయోగిస్తుంది, ఇది వ్యక్తిగత యాప్‌లను మినహాయించలేదు, కాబట్టి మిగతా వాటితో పాటు ఈ యాప్ యొక్క కాష్ చేయబడిన డేటా కూడా క్లియర్ చేయబడుతుంది. ఇక్కడ చూపిన కాష్ చేయబడిన డేటా మాత్రమే ప్రభావితం అవుతుంది, బహిష్కరణ కవర్ చేసే మిగతా అన్నీ దాచబడి, తాకబడకుండా ఉంటాయి.</string>
     <string name="appcleaner_automation_unavailable_title">ప్రాప్యతా సేవ అనుపలబ్ధం</string>
-    <string name="appcleaner_automation_unavailable_body">ప్రాప్యత కాని క్యాషేలను క్లీర్ చేయడానికి SD Maid ప్రాప్యతా సేవ అవసరం, కానీ అది అనుపలబ్ధం. దీనిని ఉపయోగించాలనుకోకపోతే: \"Include inaccessible caches\" ఎంపికను రద్దు చేయండి.</string>
+    <string name="appcleaner_automation_unavailable_body">ఈ కాష్‌లను క్లియర్ చేయడానికి SD Maid యొక్క యాక్సెసిబిలిటీ సేవ అవసరం, కానీ అది అందుబాటులో లేదు.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s కోసం వ్యయించదగిన ఫైల్‌లను తొలగించాలా?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">ఎంచుకొన్న %d యాప్ కోసం వ్యయించదగిన ఫైల్‌లను తొలగించాలా?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">క్లియర్ చేయడానికి ముందు ఫోర్స్-స్టాప్ చేయి</string>
     <string name="appcleaner_forcestop_before_clearing_summary">వాటి కాష్‌ను క్లియర్ చేయడానికి ముందు యాప్‌లను ఫోర్స్-స్టాప్ చేయండి. ఇది కొన్ని యాప్‌ల కాష్‌లను క్లియర్ చేయడానికి సహాయపడవచ్చు, కానీ యాప్‌లు తప్పుగా ప్రవర్తించడానికి మరియు మాన్యువల్ రీస్టార్ట్ అవసరపడటానికి కారణం కావచ్చు.</string>
     <string name="appcleaner_progress_force_stopping">యాప్‌లను ఫోర్స్-స్టాప్ చేస్తోంది…</string>
+    <string name="appcleaner_progress_checking_freed_space">ఖాళీ చేసిన స్థలాన్ని తనిఖీ చేస్తోంది…</string>
 </resources>

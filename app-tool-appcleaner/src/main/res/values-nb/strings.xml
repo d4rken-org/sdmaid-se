@@ -60,6 +60,18 @@
         <item quantity="one">%d ubetydelig element slettet</item>
         <item quantity="other">%d ubetydelige elementer slettet</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d unødvendig fil slettet, stoppet fordi skjermen var av eller låst</item>
+        <item quantity="other">%d unødvendige filer slettet, stoppet fordi skjermen var av eller låst</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d unødvendig fil slettet, stoppet av en feil</item>
+        <item quantity="other">%d unødvendige filer slettet, stoppet av en feil</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d hurtigbuffer trenger fortsatt tilgjengelighetstjenesten</item>
+        <item quantity="other">%1$s, %2$d hurtigbuffere trenger fortsatt tilgjengelighetstjenesten</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ubetydelig element funnet</item>
         <item quantity="other">%d ubetydelige element funnet</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Ser etter \"Tøm hurtigbuffer\"-knapp (nøkkelord: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard hurtigbuffere</string>
     <string name="appcleaner_item_caches_inaccessible_body">Standard offentlige og private hurtigbuffere. Ikke direkte tilgjengelig, men kan slettes indirekte (f.eks. via tilgjengelighetstjeneste).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Ekskludert, men rensing av alle apper samtidig sletter fortsatt disse hurtigbufferne</string>
+    <string name="appcleaner_exclusion_limited_title">Ekskludert app</string>
+    <string name="appcleaner_exclusion_limited_body">Du ekskluderte denne appen fra AppCleaner. Rensing av hurtigbuffere for alle apper samtidig bruker Shizukus systemomfattende hurtigbuffer-rensing, som ikke kan utelate individuelle apper, så denne appens hurtigbufferdata slettes sammen med alt annet. Bare hurtigbufferdata som vises her er berørt, alt annet som ekskluderingen dekker forblir skjult og uberørt.</string>
     <string name="appcleaner_automation_unavailable_title">Tilgjengelighetstjeneste utilgjengelig</string>
-    <string name="appcleaner_automation_unavailable_body">Fjerning av utilgjengelige hurtigbuffere krever SD Maid sin tilgjengelighetstjeneste, men den var utilgjengelig. Hvis du ikke vil bruke den: Deaktiver alternativet \"Inkluder utilgjengelige hurtigbuffere\".</string>
+    <string name="appcleaner_automation_unavailable_body">Rensing av disse hurtigbufferne krever SD Maids tilgjengelighetstjeneste, men den var ikke tilgjengelig.</string>
     <string name="appcleaner_delete_confirmation_message_x">Slette unødvendige filer for %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Slette unødvendige filer for %d valgt app?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Tving avslutning før tømming</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Tving avslutning av apper før tømming av hurtigbufferen. Det kan hjelpe med å tømme noen appers hurtigbuffere, men kan forårsake at apper oppfører seg feil og krever manuell omstart.</string>
     <string name="appcleaner_progress_force_stopping">Tvinger avslutning av apper…</string>
+    <string name="appcleaner_progress_checking_freed_space">Sjekker frigitt plass…</string>
 </resources>

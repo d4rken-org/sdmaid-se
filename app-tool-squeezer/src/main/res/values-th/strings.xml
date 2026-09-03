@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d ข้ามไป (HDR/depth รักษาไว้)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">ข้ามไป %d รายการ (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">ข้ามไป %d รายการ (รูปภาพขนาดใหญ่มาก)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">ข้ามไป %d รายการ (ป้องกัน)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">เลือกแล้ว %d รายการ</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">ทั่วไป</string>
     <string name="squeezer_quality_description">คุณภาพต่ำกว่าหมายถึงขนาดไฟล์เล็กลงแต่คุณภาพภาพลดลง</string>
     <string name="squeezer_types_category_label">การตั้งค่าภาพ</string>
+    <string name="squeezer_protected_category_label">สิ่งที่สูญหาย</string>
     <string name="squeezer_video_settings_category_label">การตั้งค่าวิดีโอ</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">รวมรูปภาพ JPEG (.jpg, .jpeg)</string>
+    <string name="squeezer_type_jpeg_description">รวมรูปภาพ JPEG (.jpg, .jpeg) การแปลงรูปแบบใช้ encoder JPEG ของ Android ที่มีอยู่แล้ว จะเก็บวันที่ ตำแหน่ง และข้อมูล EXIF อื่น ๆ</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">รวมรูปภาพ WebP (.webp)</string>
+    <string name="squeezer_type_webp_description">รวมรูปภาพ WebP (.webp) การแปลงรูปแบบใช้ encoder WebP ของ Android ที่มีอยู่แล้ว จะเก็บวันที่ ตำแหน่ง และข้อมูล EXIF อื่น ๆ</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">รวมรูปภาพ HEIC/HEIF (.heic, .heif) วันที่ ตำแหน่งที่ตั้ง และข้อมูล EXIF อื่นๆ จะถูกเก็บไว้ แผนที่เกน HDR ข้อมูลความลึก และไฟล์ Live/Motion Photo ที่เกี่ยวข้องไม่สามารถเก็บไว้ได้ ไฟล์หลายรูปภาพจะถูกข้าม</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">รวมไฟล์วิดีโอ MP4 (.mp4)</string>
+    <string name="squeezer_type_video_description">รวมไฟล์วิดีโอ MP4 (.mp4) แทร็กวิดีโอถูกแปลงรูปแบบใหม่ที่บิตเรทต่ำโดย encoder วิดีโอของอุปกรณ์ แทร็กเสียงถูกคัดลอกไปโดยไม่มีการเปลี่ยนแปลง และไฟล์ยังคงเป็น MP4</string>
     <string name="squeezer_skip_compressed_title">ข้ามที่บีบอัดแล้ว</string>
     <string name="squeezer_skip_compressed_description">ข้ามไฟล์ที่บีบอัดโดย SD Maid ไปแล้ว</string>
     <string name="squeezer_exif_marker_title">เขียนเครื่องหมาย EXIF</string>
     <string name="squeezer_exif_marker_description">เพิ่มเครื่องหมายในช่องความคิดเห็นผู้ใช้ EXIF ของรูปภาพเพื่อป้องกันการบีบอัดซ้ำแม้ประวัติการบีบอัดจะถูกล้าง</string>
     <string name="squeezer_include_lossy_aux_title">บีบอัดรูปภาพ HDR &amp; ความลึก</string>
-    <string name="squeezer_include_lossy_aux_description">ปิดตามค่าเริ่มต้น: รูปภาพที่มีแผนที่เกน HDR หรือข้อมูลความลึก/พอร์เทรตจะถูกข้ามเพื่อไม่ให้ถูกทำให้แบน เปิดใช้งานเพื่อบีบอัดเมื่อเป็นไปได้ — รูปภาพจะสูญเสียแผนที่เกน HDR หรือข้อมูลความลึก รูปภาพ HEIC หลายภาพบางส่วนจะยังคงได้รับการปกป้องอยู่ดี</string>
+    <string name="squeezer_include_lossy_aux_description">รวมรูปภาพที่มีข้อมูล HDR หรือ depth การบีบอัดลบออก: รูปภาพ HDR กลายเป็นรูปถ่ายปกติ รูปภาพแนวตั้งสูญเสียข้อมูล depth ที่อยู่เบื้องหลังการเบลอพื้นหลัง ไฟล์ HEIC ที่มีหลายรูปภาพยังคงถูกข้าม</string>
+    <string name="squeezer_include_motion_photos_title">บีบอัด Motion Photos</string>
+    <string name="squeezer_include_motion_photos_description">รวม Motion Photos การบีบอัดเก็บรูปภาพนิ่งและลบคลิปวิดีโอ</string>
+    <string name="squeezer_include_oversized_title">บีบอัดรูปถ่ายขนาดใหญ่มาก</string>
+    <string name="squeezer_include_oversized_description">รวมรูปภาพที่กว้างหรือสูงกว่า 8192 พิกเซล การบีบอัดยังลดความละเอียดของพวกเขาลงครึ่งหนึ่ง</string>
     <string name="squeezer_estimated_savings_format">ประหยัด ~%s</string>
     <string name="squeezer_no_savings_expected">ประหยัดได้จำกัด</string>
     <string name="squeezer_current_size_format">ขนาด: %s</string>
+    <string name="squeezer_chip_compressed_before">บีบอัดแล้ว</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ความลึก</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">ลดขนาด</string>
+    <string name="squeezer_markers_dialog_title">เกี่ยวกับเครื่องหมายเหล่านี้</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ได้บีบอัดไฟล์นี้แล้ว การบีบอัดอีกครั้งจะสูญเสียคุณภาพและประหยัดเพียงเล็กน้อย</string>
+    <string name="squeezer_markers_hdr_depth_description">รูปภาพนี้มีข้อมูล HDR หรือ depth ที่การบีบอัดไม่สามารถเก็บได้ รูปภาพ HDR กลายเป็นรูปถ่ายปกติ และรูปภาพแนวตั้งสูญเสียข้อมูล depth ที่ใช้สำหรับการเบลอพื้นหลัง</string>
+    <string name="squeezer_markers_motion_photo_description">นี่คือ Motion Photo การบีบอัดเก็บรูปภาพนิ่งและลบคลิปวิดีโอ</string>
+    <string name="squeezer_markers_downscaled_description">รูปภาพนี้กว้างหรือสูงกว่า 8192 พิกเซล การบีบอัดยังลดความละเอียดลงครึ่งหนึ่ง</string>
     <string name="squeezer_compress_action">บีบอัด</string>
     <string name="squeezer_compress_all_action">บีบอัดทั้งหมด</string>
     <string name="squeezer_preview_dialog_title">ยืนยันการบีบอัด</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">ดูการเปรียบเทียบ</string>
     <string name="squeezer_no_example_found">ไม่พบรูปภาพในเส้นทางที่เลือก</string>
     <string name="squeezer_result_empty_message">ไม่พบสื่อที่สามารถบีบอัดได้</string>
+    <string name="squeezer_result_empty_protected">ไม่มีอะไรให้บีบอัด ข้ามไป: %s เปิดตัวเลือกที่ตรงกันในการตั้งค่าเพื่อรวมพวกเขา</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">%d รูปภาพ HDR/ความลึก</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">%d รูปภาพขนาดใหญ่มาก</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">ไม่สามารถใช้ %d ตำแหน่งสำหรับการบีบอัดและถูกลบออกแล้ว การบีบอัดต้องการการเข้าถึงโดยตรงไปยังพื้นที่จัดเก็บภายใน</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">อย่างน้อย %d วัน</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ประมาณการประหยัดได้ ~%d%% สำหรับไฟล์ JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer จะบีบอัดภาพและวิดีโอของคุณใหม่เพื่อให้ใช้พื้นที่น้อยลง คุณจะแลกเปลี่ยนคุณภาพเล็กน้อยเพื่อให้ได้พื้นที่กลับคืนมา แต่ละรายการจะแสดงการประหยัดโดยประมาณ ดังนั้นคุณจึงสามารถตัดสินใจได้ว่าคุ้มค่าหรือไม่</string>
     <string name="tour_squeezer_compress_body">บีบอัดทั้งหมดพร้อมกันที่นี่ หรือแตะรายการเดียวเพื่อบีบอัดเฉพาะรายการนั้น กดค้างเพื่อเลือกหลายรายการ คุณจะเห็นตัวอย่างเสมอก่อนที่จะมีการเปลี่ยนแปลงใดๆ</string>
 </resources>

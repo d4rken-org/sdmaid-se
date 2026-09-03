@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">已筛选：%1$s</string>
     <string name="swiper_session_no_matching_files">未找到匹配文件</string>
     <string name="swiper_open_externally_action">在外部应用中打开</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">滑动文件以做出选择：横向滑动保留或删除，向上滑动跳过，向下滑动撤销。下方的按钮功能相同 — 并显示每一侧是什么功能。</string>
     <string name="tour_swiper_openin_body">此按钮在另一个应用中打开文件，便于您在做决定前检查。</string>
     <string name="tour_swiper_preview_body">此按钮打开全屏预览以便更仔细地查看。</string>

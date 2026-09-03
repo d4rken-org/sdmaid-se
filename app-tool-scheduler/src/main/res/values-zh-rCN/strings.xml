@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">计划名称</string>
     <string name="scheduler_schedule_toggle_enabled">计划已启用</string>
     <string name="scheduler_schedule_toggle_disabled">计划已禁用</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">禁用日程以修改它。</string>
     <string name="scheduler_edit_schedule_action">编辑计划</string>
     <string name="scheduler_schedule_time_label">大约时间</string>
     <string name="scheduler_schedule_repeat_label">重复间隔（天）</string>
@@ -46,7 +47,6 @@
     <string name="scheduler_commands_after_schedule_label">计划任务后命令</string>
     <string name="scheduler_commands_after_schedule_desc">将在计划任务结束后执行的 Android shell 命令。</string>
     <string name="scheduler_battery_optimization_hint">如果您遇到后台执行问题，请考虑禁用 SD Maid 电池优化。</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid 可以按计划清理。选择运行时间和包含的工具，它将在后台执行任务（几乎）无需打开应用。</string>
     <string name="tour_scheduler_create_body">点击此处创建新计划，然后设置运行时间和包含的工具。</string>
 </resources>

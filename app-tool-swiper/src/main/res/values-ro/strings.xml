@@ -167,7 +167,6 @@
     <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
     <string name="swiper_session_no_matching_files">Nu s-au găsit fișiere corespunzătoare</string>
     <string name="swiper_open_externally_action">Deschide în aplicație externă</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Glisați un fișier pentru a-i decide soarta: lateral pentru a păstra sau șterge, sus pentru a omite, jos pentru a anula. Butoanele de mai jos fac același lucru — și arată care parte este care.</string>
     <string name="tour_swiper_openin_body">Acest buton deschide fișierul într-o altă aplicație, util pentru a-l verifica înainte de a decide.</string>
     <string name="tour_swiper_preview_body">Acest buton deschide o previzualizare pe ecran complet pentru o privire mai atentă.</string>

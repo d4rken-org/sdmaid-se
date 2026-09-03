@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">වේලාවේ නම</string>
     <string name="scheduler_schedule_toggle_enabled">වේලාව සක්‍රිය කර ඇත</string>
     <string name="scheduler_schedule_toggle_disabled">වේලාව අබල කර ඇත</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">එය වෙනස් කිරීමට කාලසටහන අක්‍රිය කරන්න.</string>
     <string name="scheduler_edit_schedule_action">වේලාව සංපාදනය කරන්න</string>
     <string name="scheduler_schedule_time_label">ආසන්න වේලාව</string>
     <string name="scheduler_schedule_repeat_label">දිනම අනුව සරටි අන්තරාලය</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">වේලාවෙන් පසු ඕදේශ</string>
     <string name="scheduler_commands_after_schedule_desc">වේලාවක් අවසානයෙ කාර්යාන්විත වන Android shell ඕදේශ.</string>
     <string name="scheduler_battery_optimization_hint">පෑළඳ කාර්යාන්විතය සමග සම්ස්යා අනුභව කරන්න නම් SD Maid සඳහා බැටරි ඔපඨමනය අබල කිරීම සලකන්න.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid කාලසටහනකට අනුව පිරිසිදු කළ හැක. වෙලාවක් සහ ධාවනය විය යුතු මෙවලම් තෝරා ගන්න, එවිට එය පසුබිමින් කාර්යය සිදු කරයි — යෙදුම විවෘත කිරීමට (ආසන්න වශයෙන්) අවශ්‍ය නොවේ.</string>
     <string name="tour_scheduler_create_body">නව කාලසටහනක් සැදීමට මෙතන ටැප් කරන්න, පසුව එය ධාවනය වන වේලාව සහ ඇතුළත් කල යුතු මෙවලම් සකසන්න.</string>
 </resources>

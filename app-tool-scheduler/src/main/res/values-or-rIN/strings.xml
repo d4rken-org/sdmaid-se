@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">ସିଡ୍ୟୁଲ୍ ନାମ</string>
     <string name="scheduler_schedule_toggle_enabled">ସିଡ୍ୟୁଲ୍ ସକ୍ଷମ ଅଛି</string>
     <string name="scheduler_schedule_toggle_disabled">ସିଡ୍ୟୁଲ୍ ଅକ୍ଷମ ଅଛି</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">ଏହାକୁ ପରିବର୍ତ୍ତନ କରିବାକୁ ସିଡ୍ୟୁଲ୍ ଅକ୍ଷମ କରନ୍ତୁ।</string>
     <string name="scheduler_edit_schedule_action">ସିଡ୍ୟୁଲ୍ ସମ୍ପାଦନା କରନ୍ତୁ</string>
     <string name="scheduler_schedule_time_label">ଆନୁମାନିକ ସମୟ</string>
     <string name="scheduler_schedule_repeat_label">ଦିନରେ ପୁନରାବୃତ୍ତି ବ୍ୟବଧାନ</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">ସମୟସୂଚୀ ପରବର୍ତ୍ତୀ କମାଣ୍ଡ</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell କମାଣ୍ଡ ଯାହା ଏକ ସମୟସୂଚୀର ଶେଷରେ କାର୍ଯ୍ୟକାରୀ ହେବ।</string>
     <string name="scheduler_battery_optimization_hint">ଯଦି ଆପଣ ପୃଷ୍ଠଭୂମି କାର୍ଯ୍ୟକାରିତା ସହିତ ସମସ୍ୟା ଅନୁଭବ କରୁଛନ୍ତି ତେବେ SD Maid ପାଇଁ ବ୍ୟାଟେରୀ ଅପ୍ଟିମାଇଜେସନ୍ ଅକ୍ଷମ କରିବାକୁ ବିଚାର କରନ୍ତୁ।</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid ଏକ ନିର୍ଧାରଣ ଅନୁୟାୟୀ ସଫାଇ କରିପାରେ। ଏକ ସମୟ ଏବଂ କେଉଞ୍ଚ ସାଧନଗୁଡ଼ିକ ଚଲିବ ତାହା ଚୟନ କରନ୍ତୁ, ଏବଂ ଏଟି ପୃଷ୍ଠଭୂମିରେ କାମ କରେ, (ପ୍ରାୟ) ଆପ୍ ଖୋଲିବାର ଆବଶ୍ୟକତା ନାହିଁ।</string>
     <string name="tour_scheduler_create_body">ଏଠାରେ ଟ୍ୟାପ କରନ୍ତୁ ଏକ ନୂତନ ନିର୍ଧାରଣ ସୃଷ୍ଟି କରିବାକୁ, ତାପରେ ଏଟି କେବେ ଚଲିବ ଏବଂ କେଉଞ୍ଚ ସାଧନଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ ହେବ ତାହା ସେଟ କରନ୍ତୁ।</string>
 </resources>

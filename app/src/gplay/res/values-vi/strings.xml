@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Không thể kết nối với Google Play. Vui lòng kiểm tra kết nối internet của bạn và thử lại.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Ưu đãi không có sẵn</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play hiện tại không cung cấp tùy chọn nâng cấp này. Vui lòng thử lại sau hoặc kiểm tra Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Không thể mở Google Play. Google Play có thể bị thiếu, vô hiệu hóa hoặc bị hạn chế trên thiết bị này.</string>
     <string name="upgrades_gplay_already_owned_error_title">Đã mua</string>
     <string name="upgrades_gplay_already_owned_error_description">Sử dụng tùy chọn \"Khôi phục giao dịch mua\" để khôi phục giao dịch mua của bạn. Nếu vấn đề vẫn tiếp diễn, hãy thử xóa bộ nhớ đệm Google Play và khởi động lại thiết bị của bạn.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Nhận %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid không có quảng cáo và không bán dữ liệu người dùng. Công việc của tôi được tài trợ bởi bạn ❤️.</string>
     <string name="upgrade_screen_benefits_title">Lợi ích nâng cấp</string>

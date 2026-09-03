@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">စစ်ထုတ်ထားသည်- %1$s</string>
     <string name="swiper_session_no_matching_files">ကိုက်ညီသောဖိုင်များ မတွေ့ပါ</string>
     <string name="swiper_open_externally_action">ပြင်ပအပ်ပ်တွင် ဖွင့်မည်</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ဖိုင်တစ်ခုကို ရွှဲယူသည်။ ယင်းကို ကျန်ရစ်သည် သို့မဟုတ် ဖျက်ရန် ဘက်ဘက်သို့ ရွှဲယူပါ။ ကျော်လွှားရန် အထက်သို့ ရွှဲယူပါ။ ပြန်လည်ပြင်ဆင်ရန် အောက်သို့ ရွှဲယူပါ။ အောက်ခြင်း ခလုတ်များသည် အလားတူ လုပ်ဆောင်ပြီး ဘယ်ဘက်က ဘယ်အရာဖြစ်သည်ကို ပြသည်။</string>
     <string name="tour_swiper_openin_body">ဤခလုတ်သည် ဖိုင်ကို အခြား အက်ပ်တစ်ခုတွင် ဖွင့်ပေးသည်။ သုံးသပ်ခွင့်ရမီ စစ်ဆေးရန် အသုံးဝင်သည်။</string>
     <string name="tour_swiper_preview_body">ဤခလုတ်သည် ပိုမိုအနီးကပ်ကြည့်ရှုရန် အကျယ်အဝန်းအစမ်းချက်ကို ဖွင့်သည်။</string>

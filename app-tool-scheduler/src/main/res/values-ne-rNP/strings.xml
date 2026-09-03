@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">समय सारणी नाम</string>
     <string name="scheduler_schedule_toggle_enabled">समय सारणी सक्षम छ</string>
     <string name="scheduler_schedule_toggle_disabled">समय सारणी अक्षम छ</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">यसलाई परिवर्तन गर्न समय तालिका अक्षम गर्नुहोस्।</string>
     <string name="scheduler_edit_schedule_action">समय सारणी सम्पादन गर्नुहोस्</string>
     <string name="scheduler_schedule_time_label">लगभग समय</string>
     <string name="scheduler_schedule_repeat_label">दिनमा दोहोर्याउने अन्तराल</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">अनुसूचन-पश्चात आदेशहरू</string>
     <string name="scheduler_commands_after_schedule_desc">Android शेल आदेशहरू जो अनुसूचनको अन्तमा कार्यान्वयन हुनेछन्।</string>
     <string name="scheduler_battery_optimization_hint">यदि तपाईंले पृष्ठभूमि कार्यान्वयनमा समस्या अनुभव गर्नुहुन्छ भने SD Maid को लागि ब्याटरी अनुकूलन अक्षम गर्न विचार गर्नुहोस्।</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid अनुसूचीमा सफाई गर्न सक्छ। समय र चलाउने उपकरणहरू छान्नुहोस्, र यसले पृष्ठभूमिमा काम गर्छ, (लगभग) एप खोल्न आवश्यक छैन।</string>
     <string name="tour_scheduler_create_body">नयाँ अनुसूची बनाउन यहाँ ट्याप गर्नुहोस्, त्यसपछि यो कहिले चल्छ र कुन उपकरणहरू समावेश गर्ने भनी सेट गर्नुहोस्।</string>
 </resources>

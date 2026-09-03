@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">ບໍ່ສາມາດເຊື່ອມຕໍ່ກັບ Google Play ໄດ້. ກະລຸນາກວດສອບການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ ແລະລອງໃໝ່.</string>
     <string name="upgrades_gplay_offer_unavailable_title">ບໍ່ມີການສະເຫນີ</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play ໃນປະຈຸບັນບໍ່ສະເຫນີທາງເລືອກການອັບເກຣດນີ້ ກະລຸນາລອງອີກຄັ້ງໃນພາຍຫຼັງ ຫືລກວດສອບ Google Play Store</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">ບໍ່ສາມາດເປີດ Google Play ໄດ້. ມັນອາດຈະບໍ່ມີ, ຖືກປິດໄວ້ ຫຼື ຖືກຈໍາກັດໃນອຸປະກອນນີ້.</string>
     <string name="upgrades_gplay_already_owned_error_title">ຊື້ແລ້ວ</string>
     <string name="upgrades_gplay_already_owned_error_description">ໃຊ້ຕົວເລືອກ \"ກູ້ຄືນການຊື້\" ເພື່ອກູ້ຄືນການຊື້ຂອງທ່ານ. ຖ້າບັນຫາຍັງຄົງຢູ່, ລອງລ້າງແຄສ Google Play ແລະຣີສະຕາດອຸປະກອນຂອງທ່ານ.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">ຮັບ %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid ບໍ່ມີໂຄສະນາ ແລະບໍ່ຂາຍຂໍ້ມູນຜູ້ໃຊ້. ວຽກຂອງຂ້ອຍໄດ້ຮັບການສະໜັບສະໜູນທາງການເງິນໂດຍທ່ານ ❤️.</string>
     <string name="upgrade_screen_benefits_title">ປະໂຫຍດຂອງການຍົກລະດັບ</string>

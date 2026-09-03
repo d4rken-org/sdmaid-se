@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">ກອງແລ້ວ: %1$s</string>
     <string name="swiper_session_no_matching_files">ບໍ່ພົບໄຟລ໌ທີ່ກົງກັນ</string>
     <string name="swiper_open_externally_action">ເປີດໃນແອັບພາຍນອກ</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">ປັດໄຟລ໌ເພື່ອຕັດສິນໃຈໂຊກຊະນະຂອງມັນ: ປັດທາງຂ້າງເພື່ອຮັກສາ ຫຼື ລຶບ, ປັດຂຶ້ນເພື່ອຂ້າມ, ປັດລົງເພື່ອຍົກເລີກ. ປຸ່ມຂ້າງລຸ່ມເຮັດສິ່ງດຽວກັນ ແລະ ສະແດງວ່າຂ້າງໃດເປັນຂ້າງໃດ.</string>
     <string name="tour_swiper_openin_body">ປຸ່ມນີ້ເປິດໄຟລ໌ໃນແອັບອື່ນ, ສະດວກໃນການກວດສອບມັນກໍ່ອນທີ່ຈະຕັດສິນໃຈ.</string>
     <string name="tour_swiper_preview_body">ປຸ່ມນີ້ເປີດກະບອກມອງເຕັມໝ້າຈໍສຳລັບເບິ່ງໃກ້ໆ.</string>

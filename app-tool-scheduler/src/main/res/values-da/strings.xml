@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Navn på tidsplan</string>
     <string name="scheduler_schedule_toggle_enabled">Tidsplan er aktiveret</string>
     <string name="scheduler_schedule_toggle_disabled">Tidsplan er deaktiveret</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Deaktiver planen for at ændre den.</string>
     <string name="scheduler_edit_schedule_action">Rediger tidsplan</string>
     <string name="scheduler_schedule_time_label">Omtrentlig tidspunkt</string>
     <string name="scheduler_schedule_repeat_label">Gentagelsesinterval i dage</string>
@@ -47,7 +48,6 @@ Deaktiver \"Medtag systemapps\", eller kør planen, mens enheden er låst op.</s
     <string name="scheduler_commands_after_schedule_label">Kommandoer efter tidsplanen</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell-kommandoer, der udføres til sidst i en tidsplan.</string>
     <string name="scheduler_battery_optimization_hint">Overvej at deaktivere batterioptimering for SD Maid, hvis du oplever problemer med udførelse i baggrunden.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid kan rengøre efter en tidsplan. Vælg et tidspunkt og hvilke værktøjer der skal køre, og det udfører arbejdet i baggrunden – (næsten) ingen grund til at åbne appen.</string>
     <string name="tour_scheduler_create_body">Tryk her for at oprette en ny tidsplan, indstil derefter hvornår den skal køre, og hvilke værktøjer der skal medtages.</string>
 </resources>

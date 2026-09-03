@@ -60,6 +60,18 @@
         <item quantity="one">%d ელემენტი წაშლილია</item>
         <item quantity="other">%d ელემენტი წაშლილია</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d არასაჭირო ფაილი წაიშალა, პროცესი შეჩერდა, რადგან ეკრანი გამორთული ან დაბლოკილი იყო</item>
+        <item quantity="other">%d არასაჭირო ფაილი წაიშალა, პროცესი შეჩერდა, რადგან ეკრანი გამორთული ან დაბლოკილი იყო</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d არასაჭირო ფაილი წაიშალა, პროცესი შეჩერდა შეცდომის გამო</item>
+        <item quantity="other">%d არასაჭირო ფაილი წაიშალა, პროცესი შეჩერდა შეცდომის გამო</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d ქეშს ჯერ კიდევ სჭირდება მარტივი წვდომის სერვისი</item>
+        <item quantity="other">%1$s, %2$d ქეშს ჯერ კიდევ სჭირდება მარტივი წვდომის სერვისი</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ელემენტი ნაპოვნია</item>
         <item quantity="other">%d ელემენტი ნაპოვნია</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"ქეშის გასუფთავების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ნაგულისხმევი ქეშები</string>
     <string name="appcleaner_item_caches_inaccessible_body">საჯარო და კერძო ნაგულისხმევი ქეშები. არ არის პირდაპირ წვდომა, მაგრამ შეიძლება წაიშალოს არაპირდაპირი გზით (მაგ. ხელმისაწვდომობის სერვისის საშუალებით).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">გამორიცხულია, მაგრამ ყველა აპის ერთდროულად გასუფთავება მაინც შლის ამ ქეშებს</string>
+    <string name="appcleaner_exclusion_limited_title">გამორიცხული აპი</string>
+    <string name="appcleaner_exclusion_limited_body">გამორიცხე ეს აპი AppCleaner-დან. ყველა აპის ქეშის ერთდროულად გასუფთავება იყენებს Shizuku-ს სისტემურ დონეზე ქეშის გასუფთავებას, რომელსაც ცალკეული აპების გამორიცხვა არ შეუძლია, ამიტომ ამ აპის ქეშირებული მონაცემებიც სუფთავდება დანარჩენთან ერთად. მხოლოდ აქ ნაჩვენები ქეშირებული მონაცემები განიცდის ზეგავლენას, დანარჩენი, რასაც გამორიცხვა მოიცავს, დამალული და ხელუხლებელი რჩება.</string>
     <string name="appcleaner_automation_unavailable_title">ხელმისაწვდომობის სერვისი მიუწვდომელია</string>
-    <string name="appcleaner_automation_unavailable_body">მიუწვდომელი ქეშების გასუფთავებას სჭირდება SD Maid-ის ხელმისაწვდომობის სერვისი, მაგრამ ის მიუწვდომელი იყო. თუ არ გსურთ მისი გამოყენება: გათიშეთ ოფცია \"მიუწვდომელი ქეშების ჩართვა\".</string>
+    <string name="appcleaner_automation_unavailable_body">ამ ქეშების გასუფთავებას სჭირდება SD Maid-ის მარტივი წვდომის სერვისი, მაგრამ ის ხელმისაწვდომი არ იყო.</string>
     <string name="appcleaner_delete_confirmation_message_x">წაიშალოს ხარჯვადი ფაილები %s-თვის?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">წაიშალოს ხარჯვადი ფაილები %d არჩეული აპისთვის?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">გასუფთავებამდე იძულებითი გაჩერება</string>
     <string name="appcleaner_forcestop_before_clearing_summary">აპების იძულებითი გაჩერება მათი ქეშის გასუფთავებამდე. ეს დაგეხმარებათ ზოგიერთი აპის ქეშის გასუფთავებაში, მაგრამ აპებმა შეიძლება არასწორად იმუშაონ და ხელით გადატვირთვა დაგჭირდეთ.</string>
     <string name="appcleaner_progress_force_stopping">აპების იძულებითი გაჩერება…</string>
+    <string name="appcleaner_progress_checking_freed_space">გათავისუფლებული სივრცის შემოწმება…</string>
 </resources>

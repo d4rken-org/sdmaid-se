@@ -29,6 +29,18 @@
         <item quantity="one">%d vahele jäetud (HDR/sügavus säilitatud)</item>
         <item quantity="other">%d vahele jäetud (HDR/sügavus säilitatud)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d vahele jäetud (Motion Photo)</item>
+        <item quantity="other">%d vahele jäetud (Motion Photos)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d vahele jäetud (väga suur foto)</item>
+        <item quantity="other">%d vahele jäetud (väga suured fotod)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d vahele jäetud (kaitstud)</item>
+        <item quantity="other">%d vahele jäetud (kaitstud)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d valitud</item>
         <item quantity="other">%d valitud</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">Üldine</string>
     <string name="squeezer_quality_description">Madal kvaliteet tähendab väiksemat faili mahtu, ent kehvemat visuaalset kvaliteeti.</string>
     <string name="squeezer_types_category_label">Pildi seaded</string>
+    <string name="squeezer_protected_category_label">Mis läheb kaduma</string>
     <string name="squeezer_video_settings_category_label">Video seaded</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Kaasa JPEG pilte (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Kaasa arvatud JPEG-pildid (.jpg, .jpeg). Uuesti kodeerimiseks kasutatakse Androidi sisseehitatud JPEG-kodeerijat. Kuupäev, asukoht ja muud EXIF-metaandmed säilitatakse.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Kaasa WebP pilte (.webp).</string>
+    <string name="squeezer_type_webp_description">Kaasa arvatud WebP-pildid (.webp). Uuesti kodeerimiseks kasutatakse Androidi sisseehitatud WebP-kodeerijat. Kuupäev, asukoht ja muud EXIF-metaandmed säilitatakse.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Kaasa HEIC/HEIF pildid (.heic, .heif). Kuupäev, asukoht ja muud EXIF-i metaandmed jäetakse alles. HDR võimenduse kaarte, sügavuse andmeid ja Live/Motion Photo siduseid ei saa säilitada; mitme pildiga failid jäetakse vahele.</string>
     <string name="squeezer_type_video_title">MP4 Video</string>
-    <string name="squeezer_type_video_description">Kaasa MP4 videofailid (.mp4).</string>
+    <string name="squeezer_type_video_description">Kaasa arvatud MP4-videofailid (.mp4). Videojälge kodeeritakse uuesti madalama bittidkiirusega seadme enda videokodeerija abil, audiojälge kopeeritakse muutumatult üle ja fail jääb MP4ks.</string>
     <string name="squeezer_skip_compressed_title">Eira varem kokkupakitut</string>
     <string name="squeezer_skip_compressed_description">Eira SD Maidi juba kokkupakitud failid.</string>
     <string name="squeezer_exif_marker_title">Kirjuta EXIF märkus</string>
     <string name="squeezer_exif_marker_description">Tee märge pildi EXIFi kasutaja kommentaari väljale, et ennetada uuesti kokkupakkimist isegi pärast kokkupakkimise ajaloo tühjenemist.</string>
     <string name="squeezer_include_lossy_aux_title">Tihenda HDR &amp; sügavusfotod</string>
-    <string name="squeezer_include_lossy_aux_description">Tavaliselt keelatud: pildid, millel on HDR võimenduse kaart või sügavuse/portree andmed, jäetakse vahele, et neid ei liigitataks. Luba neid vajadusel tihendada — nad kaotavad oma HDR võimenduse kaardi või sügavuse andmed. Mõned mitme pildiga HEIC-fotod jäävad niikuinii kaitstuks.</string>
+    <string name="squeezer_include_lossy_aux_description">Kaasa arvatud HDR- või sügavuse andmetega fotod. Tihendamine eemaldab need: HDR-fotod muutuvad tavaliseks fotodeks, portreefotod kaotavad tausta häguse taga olevad andmed. Mitmepildilised HEIC-failid jäävad vahele.</string>
+    <string name="squeezer_include_motion_photos_title">Tihenda Motion Photod</string>
+    <string name="squeezer_include_motion_photos_description">Kaasa arvatud Motion Photod. Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
+    <string name="squeezer_include_oversized_title">Tihenda väga suured fotod</string>
+    <string name="squeezer_include_oversized_description">Kaasa arvatud fotod, mis on laiemad või pikemad kui 8192 pikslit. Tihendamine poolitab ka nende eraldusvõime.</string>
     <string name="squeezer_estimated_savings_format">~%s sääst</string>
     <string name="squeezer_no_savings_expected">Piiratud säästud</string>
     <string name="squeezer_current_size_format">Maht: %s</string>
+    <string name="squeezer_chip_compressed_before">Tihendatud</string>
+    <string name="squeezer_chip_hdr_depth">HDR/sügavus</string>
+    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_downscaled">Vähendatud</string>
+    <string name="squeezer_markers_dialog_title">Markerite kohta</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid tihendas selle faili juba. Uuesti tihendamine maksab kvaliteeti ja säästab vähe.</string>
+    <string name="squeezer_markers_hdr_depth_description">Sellel fotol on HDR- või sügavuse andmed, mida tihendamine ei saa säilitada. HDR-foto naaseb tavaliseks fotoks ja portreefoto kaotab tausta häguse jaoks kasutatavad sügavuse andmed.</string>
+    <string name="squeezer_markers_motion_photo_description">See on Motion Photo. Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
+    <string name="squeezer_markers_downscaled_description">See foto on laiem või pikem kui 8192 pikslit. Tihendamine poolitab ka selle eraldusvõime.</string>
     <string name="squeezer_compress_action">Paki kokku</string>
     <string name="squeezer_compress_all_action">Paki kõik kokku</string>
     <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
+    <string name="squeezer_result_empty_protected">Midagi tihendada pole. Vahele jäetud: %s. Kaasamiseks lülitage seadetes vastavad suvandid sisse.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/sügavuse foto</item>
+        <item quantity="other">%d HDR/sügavuse fotot</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d väga suur foto</item>
+        <item quantity="other">%d väga suured fotod</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
         <item quantity="other">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
@@ -98,7 +137,6 @@
         <item quantity="other">Vähemalt %d päeva vana</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Tihendaja tihendab pildid ja videod uuesti, et need võtaksid vähem ruumi. Vahetate veidi kvaliteeti ruumi vastu. Iga faili juures on näha selle hinnangulist kokkuhoidu, nii et saate otsustada, kas see on väärt tihendamist.</string>
     <string name="tour_squeezer_compress_body">Tihenda kõik korraga siin või puuduta üksikut elementi, et see kahaneks. Pikk vajutus mitme valimiseks. Enne muutusi näed alati eelvaadet.</string>
 </resources>

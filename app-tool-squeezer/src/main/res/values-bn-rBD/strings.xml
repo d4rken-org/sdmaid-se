@@ -29,6 +29,18 @@
         <item quantity="one">%dটি এড়িয়ে যাওয়া হয়েছে (HDR/depth সংরক্ষিত)</item>
         <item quantity="other">%dটি এড়িয়ে যাওয়া হয়েছে (HDR/depth সংরক্ষিত)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d বাদ দেওয়া হয়েছে (মোশন ফটো)</item>
+        <item quantity="other">%d বাদ দেওয়া হয়েছে (মোশন ফটো)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d বাদ দেওয়া হয়েছে (অতি বড় ছবি)</item>
+        <item quantity="other">%d বাদ দেওয়া হয়েছে (অতি বড় ছবি)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d বাদ দেওয়া হয়েছে (সুরক্ষিত)</item>
+        <item quantity="other">%d বাদ দেওয়া হয়েছে (সুরক্ষিত)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%dটি আইটেম নির্বাচিত</item>
         <item quantity="other">%dটি আইটেম নির্বাচিত</item>
@@ -40,24 +52,38 @@
     <string name="squeezer_compression_settings_label">সাধারণ</string>
     <string name="squeezer_quality_description">কম মান মানে ছোট ফাইলের আকার কিন্তু কম দৃশ্যমান মান।</string>
     <string name="squeezer_types_category_label">ছবির সেটিংস</string>
+    <string name="squeezer_protected_category_label">যা হারিয়ে যায়</string>
     <string name="squeezer_video_settings_category_label">ভিডিও সেটিংস</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG ছবি (.jpg, .jpeg) অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_type_jpeg_description">JPEG ছবি অন্তর্ভুক্ত করুন (.jpg, .jpeg)। পুনরায় এনকোড করতে Android-এর নিজস্ব JPEG এনকোডার ব্যবহার করা হয়। তারিখ, অবস্থান এবং অন্যান্য EXIF মেটাডেটা রাখা হয়।</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP ছবি (.webp) অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_type_webp_description">WebP ছবি অন্তর্ভুক্ত করুন (.webp)। পুনরায় এনকোড করতে Android-এর নিজস্ব WebP এনকোডার ব্যবহার করা হয়। তারিখ, অবস্থান এবং অন্যান্য EXIF মেটাডেটা রাখা হয়।</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">HEIC/HEIF ছবি (.heic, .heif) অন্তর্ভুক্ত করুন। তারিখ, অবস্থান এবং অন্যান্য EXIF মেটাডেটা সংরক্ষিত থাকে। HDR gain map, depth ডেটা এবং Live/Motion Photo সংযুক্ত ছবি সংরক্ষণ করা যায় না; বহু-ছবি ফাইলগুলি বাদ দেওয়া হয়।</string>
     <string name="squeezer_type_video_title">MP4 ভিডিও</string>
-    <string name="squeezer_type_video_description">MP4 ভিডিও ফাইল (.mp4) অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_type_video_description">MP4 ভিডিও ফাইল অন্তর্ভুক্ত করুন (.mp4)। ডিভাইসের নিজস্ব ভিডিও এনকোডার দিয়ে ভিডিও ট্র্যাকটি কম বিটরেটে পুনরায় এনকোড করা হয়, অডিও ট্র্যাকটি অপরিবর্তিত অবস্থায় কপি করা হয়, এবং ফাইলটি MP4-ই থেকে যায়।</string>
     <string name="squeezer_skip_compressed_title">আগে সংকুচিত এড়িয়ে যান</string>
     <string name="squeezer_skip_compressed_description">SD Maid দ্বারা ইতিমধ্যে সংকুচিত ফাইলগুলি এড়িয়ে যান।</string>
     <string name="squeezer_exif_marker_title">EXIF মার্কার লিখুন</string>
     <string name="squeezer_exif_marker_description">সংকোচন ইতিহাস মুছে ফেলা হলেও পুনরায় সংকোচন রোধ করতে ছবির EXIF ব্যবহারকারী মন্তব্য ক্ষেত্রে একটি মার্কার যোগ করুন।</string>
     <string name="squeezer_include_lossy_aux_title">HDR &amp; depth ছবি সংকুচিত করুন</string>
-    <string name="squeezer_include_lossy_aux_description">ডিফল্টরূপে বন্ধ: HDR gain map বা depth/portrait ডেটা সহ ছবিগুলি বাদ দেওয়া হয় যাতে তারা সমতল না হয়। সম্ভব হলে সেগুলি সংকুচিত করতে সক্ষম করুন — তারা তাদের HDR gain map বা depth ডেটা হারাবে। কিছু বহু-ছবি HEIC ছবি তবুও সুরক্ষিত থাকে।</string>
+    <string name="squeezer_include_lossy_aux_description">HDR বা ডেপথ ডেটাযুক্ত ছবি অন্তর্ভুক্ত করুন। কম্প্রেশন এটি সরিয়ে দেয়: HDR ছবি সাধারণ ছবিতে পরিণত হয়, পোর্ট্রেট ছবি তাদের ব্যাকগ্রাউন্ড ব্লারের পেছনের ডেটা হারায়। একাধিক ছবিযুক্ত HEIC ফাইল বাদই থাকে।</string>
+    <string name="squeezer_include_motion_photos_title">মোশন ফটো কম্প্রেস করুন</string>
+    <string name="squeezer_include_motion_photos_description">মোশন ফটো অন্তর্ভুক্ত করুন। কম্প্রেশন স্থির ছবিটি রাখে এবং ভিডিও ক্লিপটি সরিয়ে দেয়।</string>
+    <string name="squeezer_include_oversized_title">অতি বড় ছবি কম্প্রেস করুন</string>
+    <string name="squeezer_include_oversized_description">8192 পিক্সেলের চেয়ে চওড়া বা উঁচু ছবি অন্তর্ভুক্ত করুন। কম্প্রেশন তাদের রেজোলুশনও অর্ধেক করে দেয়।</string>
     <string name="squeezer_estimated_savings_format">~%s সাশ্রয়</string>
     <string name="squeezer_no_savings_expected">সীমিত সাশ্রয়</string>
     <string name="squeezer_current_size_format">আকার: %s</string>
+    <string name="squeezer_chip_compressed_before">কম্প্রেসড</string>
+    <string name="squeezer_chip_hdr_depth">HDR/ডেপথ</string>
+    <string name="squeezer_chip_motion_photo">মোশন ফটো</string>
+    <string name="squeezer_chip_downscaled">ডাউনস্কেল করা</string>
+    <string name="squeezer_markers_dialog_title">এই চিহ্নগুলো সম্পর্কে</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid ইতিমধ্যে এই ফাইলটি কম্প্রেস করেছে। এটি আবার কম্প্রেস করলে মান কমে যায় এবং সামান্যই জায়গা বাঁচে।</string>
+    <string name="squeezer_markers_hdr_depth_description">এই ছবিতে HDR বা ডেপথ ডেটা আছে, যা কম্প্রেশন রাখতে পারে না। একটি HDR ছবি সাধারণ ছবিতে পরিণত হয়, এবং একটি পোর্ট্রেট ছবি ব্যাকগ্রাউন্ড ব্লারের জন্য ব্যবহৃত ডেপথ ডেটা হারায়।</string>
+    <string name="squeezer_markers_motion_photo_description">এটি একটি মোশন ফটো। কম্প্রেশন স্থির ছবিটি রাখে এবং ভিডিও ক্লিপটি সরিয়ে দেয়।</string>
+    <string name="squeezer_markers_downscaled_description">এই ছবিটি 8192 পিক্সেলের চেয়ে চওড়া বা উঁচু। কম্প্রেশন এর রেজোলুশনও অর্ধেক করে দেয়।</string>
     <string name="squeezer_compress_action">সংকুচিত করুন</string>
     <string name="squeezer_compress_all_action">সব সংকুচিত করুন</string>
     <string name="squeezer_preview_dialog_title">সংকোচন নিশ্চিত করুন</string>
@@ -79,6 +105,19 @@
     <string name="squeezer_compare_action">তুলনা দেখুন</string>
     <string name="squeezer_no_example_found">নির্বাচিত পাথে কোনো ছবি পাওয়া যায়নি।</string>
     <string name="squeezer_result_empty_message">কোনো সংকোচনযোগ্য মিডিয়া পাওয়া যায়নি।</string>
+    <string name="squeezer_result_empty_protected">কম্প্রেস করার মতো কিছু নেই। বাদ দেওয়া হয়েছে: %s। এগুলো অন্তর্ভুক্ত করতে সেটিংসে সংশ্লিষ্ট অপশনটি চালু করুন।</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/ডেপথ ছবি</item>
+        <item quantity="other">%d HDR/ডেপথ ছবি</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d মোশন ফটো</item>
+        <item quantity="other">%d মোশন ফটো</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d অতি বড় ছবি</item>
+        <item quantity="other">%d অতি বড় ছবি</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%dটি অবস্থান সংকোচনের জন্য ব্যবহার করা যাবে না এবং সরানো হয়েছে। সংকোচনের জন্য অভ্যন্তরীণ স্টোরেজে সরাসরি অ্যাক্সেস প্রয়োজন।</item>
         <item quantity="other">%dটি অবস্থান সংকোচনের জন্য ব্যবহার করা যাবে না এবং সরানো হয়েছে। সংকোচনের জন্য অভ্যন্তরীণ স্টোরেজে সরাসরি অ্যাক্সেস প্রয়োজন।</item>
@@ -98,7 +137,6 @@
         <item quantity="other">অন্তত %d দিন পুরনো</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ফাইলগুলির জন্য আনুমানিক ~%d%% সঞ্চয়</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer আপনার ফটো এবং ভিডিও পুনরায় সংকুচিত করে যাতে তারা কম জায়গা নেয়। আপনি একটু গুণমানের বিনিময়ে আরও জায়গা পান। প্রতিটি আইটেম তার অনুমানিত সাশ্রয় দেখায়, তাই আপনি সিদ্ধান্ত নিতে পারেন কোনটি সার্থক।</string>
     <string name="tour_squeezer_compress_body">এখানে সবকিছু একবারে সংকুচিত করুন, অথবা শুধুমাত্র সেই একটি সংকুচিত করতে একটি একক আইটেমে ট্যাপ করুন। বেশ কয়েকটি নির্বাচন করতে দীর্ঘ-প্রেস করুন। আপনি সর্বদা কিছু পরিবর্তনের আগে একটি পূর্বরূপ দেখবেন।</string>
 </resources>

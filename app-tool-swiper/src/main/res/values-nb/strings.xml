@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtrert: %1$s</string>
     <string name="swiper_session_no_matching_files">Ingen samsvarende filer funnet</string>
     <string name="swiper_open_externally_action">Åpne i ekstern app</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Sveip en fil for å bestemme dens skjebne: sideveis for å beholde eller slette, opp for å hoppe over, ned for å angre. Knappene nedenfor gjør det samme — og viser hvilken side som er hvilken.</string>
     <string name="tour_swiper_openin_body">Denne knappen åpner filen i en annen app, praktisk for å sjekke den før du bestemmer deg.</string>
     <string name="tour_swiper_preview_body">Denne knappen åpner en fullskjermforhåndsvisning for en nærmere titt.</string>

@@ -60,6 +60,18 @@
         <item quantity="one">%d elemento inutile eliminato</item>
         <item quantity="other">%d elementi inutili eliminati</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d elemento superfluo eliminato, interrotto perché lo schermo era spento o bloccato</item>
+        <item quantity="other">%d elementi superflui eliminati, interrotto perché lo schermo era spento o bloccato</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d elemento superfluo eliminato, interrotto da un errore</item>
+        <item quantity="other">%d elementi superflui eliminati, interrotto da un errore</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache necessita ancora del servizio di accessibilità</item>
+        <item quantity="other">%1$s, %2$d cache necessitano ancora del servizio di accessibilità</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d elemento inutile trovato</item>
         <item quantity="other">%d elementi inutili trovati</item>
@@ -71,9 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Cercando il pulsante \"Cancella cache\" (parole chiave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache predefinita</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache predefinite pubbliche e private. Non direttamente accessibili, ma possono essere cancellate indirettamente (ad esempio con il servizio di accessibilità).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Escluso, ma la pulizia di tutte le app contemporaneamente svuota comunque queste cache</string>
+    <string name="appcleaner_exclusion_limited_title">App esclusa</string>
+    <string name="appcleaner_exclusion_limited_body">Hai escluso questa app da AppCleaner. Lo svuotamento delle cache per tutte le app contemporaneamente utilizza la pulizia della cache a livello di sistema di Shizuku, che non può escludere singole app, quindi i dati della cache di questa app vengono eliminati insieme a tutto il resto. Solo i dati della cache mostrati qui sono interessati, tutto il resto coperto dall’esclusione rimane nascosto e non toccato.</string>
     <string name="appcleaner_automation_unavailable_title">Servizio di accessibilità non disponibile</string>
-    <string name="appcleaner_automation_unavailable_body">La cancellazione delle cache inaccessibili richiede il servizio di accessibilità di SD Maid, ma non era disponibile.
-Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".</string>
+    <string name="appcleaner_automation_unavailable_body">Per svuotare queste cache è necessario il servizio di accessibilità di SD Maid, ma non era disponibile.</string>
     <string name="appcleaner_delete_confirmation_message_x">Cancellare %s file inutili?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Cancellare %d file inutili dell\'app selezionata?</item>
@@ -89,4 +103,5 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcleaner_forcestop_before_clearing_label">Arresto forzato prima della pulizia</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Arresta forzatamente le app prima di cancellare la cache. Può aiutare a cancellare la cache di alcune app, ma potrebbe causare malfunzionamenti e richiedere il riavvio manuale.</string>
     <string name="appcleaner_progress_force_stopping">Arresto forzato delle app…</string>
+    <string name="appcleaner_progress_checking_freed_space">Controllo dello spazio liberato…</string>
 </resources>

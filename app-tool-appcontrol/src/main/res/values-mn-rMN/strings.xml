@@ -81,6 +81,10 @@
         <item quantity="one">%d апп тохируулагдсан</item>
         <item quantity="other">%d апп тохируулагдсан</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d апп асаах эсвэл унтраах боломжгүй</item>
+        <item quantity="other">%d апп асаах эсвэл унтраах боломжгүй</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Хэмжээг тодорхойлох</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Аппуудын хэмжээний ойролцоо тооцоог гаргах.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Идэвхийг тодорхойлох</string>

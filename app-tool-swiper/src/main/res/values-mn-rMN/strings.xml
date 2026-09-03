@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Шүүсэн: %1$s</string>
     <string name="swiper_session_no_matching_files">Тохирох файл олдсонгүй</string>
     <string name="swiper_open_externally_action">Гадаад аппликейшнд нээх</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Файлыг шүүрдэх нь түүний хувь заяг шийдэх: хөндлөн шүүрдэхээс үлдээх эсвэл арилгах, дээш нь шүүрдэхээс алгасах, доош нь шүүрдэхээс буцаах. Доорх товчнууд ижил үйлдэл хийдэг бөгөөд аль тал нь юу болохыг харуулдаг.</string>
     <string name="tour_swiper_openin_body">Энэ товчиор файлыг өөр програмаар нээж болох бөгөөд шийдэхийнээс өмнө шалгахад хэрэгтэй.</string>
     <string name="tour_swiper_preview_body">Энэ товч нь ойроос харахад бүтэн дэлгэцийн урьдчилсан үзүүлэлтийг нээдэг.</string>

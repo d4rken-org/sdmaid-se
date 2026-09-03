@@ -109,6 +109,14 @@
         <item quantity="many">تبديل %d من التطبيقات</item>
         <item quantity="other">تبديل %d من التطبيقات</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="zero">%d تطبيقات لا يمكن تفعيلها أو تعطيلها</item>
+        <item quantity="one">تطبيق واحد لا يمكن تفعيله أو تعطيله</item>
+        <item quantity="two">تطبيقان لا يمكن تفعيلهما أو تعطيلهما</item>
+        <item quantity="few">%d تطبيقات لا يمكن تفعيلها أو تعطيلها</item>
+        <item quantity="many">%d تطبيقًا لا يمكن تفعيله أو تعطيله</item>
+        <item quantity="other">%d تطبيق لا يمكن تفعيله أو تعطيله</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">تحديد الأحجام</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">احصل على تقدير تقريبي لحجم كل تطبيق.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">تحديد النشاط</string>

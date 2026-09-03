@@ -88,6 +88,10 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
         <item quantity="one">%d aplicación fue cambiada</item>
         <item quantity="other">%d aplicaciones fueron cambiadas</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplicación no puede habilitarse ni deshabilitarse</item>
+        <item quantity="other">%d aplicaciones no pueden habilitarse ni deshabilitarse</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Identificador (Clave):
 appcontrol_settings_module_sizing_enabled_label
 appcontrol_settings_module_sizing_enabled_label

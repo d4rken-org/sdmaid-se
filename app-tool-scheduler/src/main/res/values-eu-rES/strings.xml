@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Ordutegiaren izena</string>
     <string name="scheduler_schedule_toggle_enabled">Ordutegia gaituta dago</string>
     <string name="scheduler_schedule_toggle_disabled">Ordutegia desgaituta dago</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Desgaitu programazioa aldatzeko.</string>
     <string name="scheduler_edit_schedule_action">Editatu ordutegia</string>
     <string name="scheduler_schedule_time_label">Denbora gutxi gorabeherako</string>
     <string name="scheduler_schedule_repeat_label">Errepikapen-tartea egunetan</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Ordutegiaren osteko komandoak</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell komandoak ordutegiaren amaieran exekutatuko direnak.</string>
     <string name="scheduler_battery_optimization_hint">Kontuan izan bateria-optimizazioak SD Maid-entzat desgaitzea atzeko planoan exekuzioan arazoak badituzu.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maidek ordutegiaren arabera garbitu dezake. Aukeratu ordua eta zein tresna exekutatuko diren, eta atzean lana egiten du, ia ez da aplikazioa irekitzeko beharrik.</string>
     <string name="tour_scheduler_create_body">Sakatu hemen ordutegi berri bat sortzeko, ondoren zehaztu noiz exekutatuko den eta zein tresna sartuko diren.</string>
 </resources>

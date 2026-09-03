@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Zilizochujwa: %1$s</string>
     <string name="swiper_session_no_matching_files">Hakuna faili zinazofanana zilizopatikana</string>
     <string name="swiper_open_externally_action">Fungua katika programu ya nje</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Swaipi faili ili kuamua hatima yake: kando ili kuihifadhi au kuifuta, juu ili kuipita, chini ili kutendua. Vitufe vilivyo chini hufanya vivyo hivyo — na vinaonyesha ni upande gani ni upi.</string>
     <string name="tour_swiper_openin_body">Kitufe hiki kinafungua faili katika programu nyingine, hurahisisha kuikagua kabla ya kuamua.</string>
     <string name="tour_swiper_preview_body">Kitufe hiki kinafungua onyesho la skrini nzima kwa mwonekano wa karibu.</string>

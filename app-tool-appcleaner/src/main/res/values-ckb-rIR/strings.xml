@@ -60,6 +60,18 @@
         <item quantity="one">%d بابەتی خەرجکراوە سڕایەوە</item>
         <item quantity="other">%d بابەتی خەرجکراوە سڕایەوە</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d بابەتی زیادە سڕایەوە، ڕاوەستا چونکە شاشە داخراو یان قوفڵکراو بوو</item>
+        <item quantity="other">%d بابەتی زیادە سڕایەوە، ڕاوەستا چونکە شاشە داخراو یان قوفڵکراو بوو</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d بابەتی زیادە سڕایەوە، بەهۆی هەڵەیەکەوە ڕاوەستا</item>
+        <item quantity="other">%d بابەتی زیادە سڕایەوە، بەهۆی هەڵەیەکەوە ڕاوەستا</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s، %2$d کاش هێشتا پێویستی بە خزمەتگوزاری لەبەردەستبوونە</item>
+        <item quantity="other">%1$s، %2$d کاش هێشتا پێویستیان بە خزمەتگوزاری لەبەردەستبوونە</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d بابەتی خەرجکراوە دۆزرایەوە</item>
         <item quantity="other">%d بابەتی خەرجکراوە دۆزرایەوە</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Looking for \"پاککردنەوە cache\" button (keywords: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">بنەڕەت caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">گشتی and private default caches. نەخێرt directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">دەرکراوە، بەڵام پاککردنەوەی هەموو ئەپەکان بە یەکجار هێشتا ئەم کاشانە پاک دەکاتەوە</string>
+    <string name="appcleaner_exclusion_limited_title">ئەپی دەرکراو</string>
+    <string name="appcleaner_exclusion_limited_body">تۆ ئەم ئەپەت لە AppCleaner دەرخستووە. کاتێک کاشی هەموو ئەپەکان بە یەکجار پاک دەکرێتەوە، Shizuku کورتکردنەوەی کاشی گشتی سیستەم بەکاردەهێنێت کە ناتوانێت ئەپی تاکەکەسی لە دەرەوە بهێڵێتەوە، بۆیە داتای کاشکراوی ئەم ئەپەش لەگەڵ هەموو شتەکانی دیکە پاک دەکرێتەوە. تەنها ئەو داتا کاشکراوانەی لێرە پیشان دراون کاریگەرییان لەسەرە، هەموو ئەو شتانەی دیکەی داتاپۆشین دایدەپۆشێت، شاردراوە و دەستنەخراو دەمێنێتەوە.</string>
     <string name="appcleaner_automation_unavailable_title">دەسیەڵاتibility service unavailable</string>
-    <string name="appcleaner_automation_unavailable_body">پاککردنەوەing inaccessible caches requires SD Maid\'s accessibility service, but it was unavailable. If you don\'t want to use it: ناچالاککردن the option \"Include inaccessible caches\".</string>
+    <string name="appcleaner_automation_unavailable_body">پاککردنەوەی ئەم کاشانە پێویستی بە خزمەتگوزاری لەبەردەستبوونی SD Maid هەیە، بەڵام بەردەست نەبوو.</string>
     <string name="appcleaner_delete_confirmation_message_x">سڕینەوە expendable files for %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">فایلە خەرجکراوەکان بۆ %d ئەپی دیاریکراو بسڕێتەوە؟</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">بەهێزبوونی وەستانی پێش سڕینەوە</string>
     <string name="appcleaner_forcestop_before_clearing_summary">بەهێز ئەپەکان بوەستێنە پێش سڕینەوەی کاشەیان. دەتوانێت هاری سڕینەوەی کاشەکانی هەندێ ئەپ بکات، بەڵام لەوانەیە ئەپەکان خراپ بخاتە کارەوە و پێویستی بە دەستی دووبارەکردنەوە هەبێت.</string>
     <string name="appcleaner_progress_force_stopping">بەهێزبوونی وەستانی ئەپەکان…</string>
+    <string name="appcleaner_progress_checking_freed_space">پشکنینی بۆشایی ئازادکراو...</string>
 </resources>

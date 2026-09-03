@@ -61,6 +61,21 @@
         <item quantity="few">%d elemente consumabile șterse</item>
         <item quantity="other">%d elemente consumabile șterse</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d element redundant șters, oprit deoarece ecranul era stins sau blocat</item>
+        <item quantity="few">%d elemente redundante șterse, oprit deoarece ecranul era stins sau blocat</item>
+        <item quantity="other">%d de elemente redundante șterse, oprit deoarece ecranul era stins sau blocat</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d element redundant șters, oprit din cauza unei erori</item>
+        <item quantity="few">%d elemente redundante șterse, oprit din cauza unei erori</item>
+        <item quantity="other">%d de elemente redundante șterse, oprit din cauza unei erori</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d cache mai are nevoie de serviciul de accesibilitate</item>
+        <item quantity="few">%1$s, %2$d cache-uri mai au nevoie de serviciul de accesibilitate</item>
+        <item quantity="other">%1$s, %2$d de cache-uri mai au nevoie de serviciul de accesibilitate</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">A fost găsit %d articol consumabil</item>
         <item quantity="few">Au fost găsite %d articole consumabile</item>
@@ -73,8 +88,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Se caută butonul „Șterge memoria cache” (cuvinte cheie: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache Implicit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache-uri implicite publice și private. Nu este accesibil direct, dar poate fi șters indirect (ex: prin serviciul de accesibilitate).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Exclusă, dar curățarea tuturor aplicațiilor deodată tot golește aceste cache-uri</string>
+    <string name="appcleaner_exclusion_limited_title">Aplicație exclusă</string>
+    <string name="appcleaner_exclusion_limited_body">Ai exclus această aplicație din AppCleaner. Golirea cache-urilor pentru toate aplicațiile deodată folosește curățarea la nivel de sistem a cache-ului din Shizuku, care nu poate exclude aplicații individuale, așa că datele din cache ale acestei aplicații sunt golite împreună cu restul. Sunt afectate doar datele din cache afișate aici, tot ce mai acoperă excluderea rămâne ascuns și neatins.</string>
     <string name="appcleaner_automation_unavailable_title">Serviciul de accesibilitate indisponibil</string>
-    <string name="appcleaner_automation_unavailable_body">Golirea cache-urilor inaccesibile necesită serviciul de accesibilitate SD Maid, dar acesta nu a fost disponibil. Dacă nu doriți să-l utilizați: dezactivați opțiunea \"Include cache-uri inaccesibile\".</string>
+    <string name="appcleaner_automation_unavailable_body">Golirea acestor cache-uri necesită serviciul de accesibilitate al SD Maid, dar acesta nu a fost disponibil.</string>
     <string name="appcleaner_delete_confirmation_message_x">Ștergeți fișierele consumabile pentru %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Ștergeți fișierele consumabile pentru aplicația selectată %d?</item>
@@ -91,4 +109,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Oprire forțată înainte de curățare</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Aplicații de oprire forțată înainte de a șterge memoria cache. Aceasta poate ajuta la ștergerea cache-urilor unor aplicații, dar poate determina aplicații să se comporte greșit și să necesite repornirea manuală a acestora.</string>
     <string name="appcleaner_progress_force_stopping">Aplicații oprite forțat…</string>
+    <string name="appcleaner_progress_checking_freed_space">Se verifică spațiul eliberat…</string>
 </resources>

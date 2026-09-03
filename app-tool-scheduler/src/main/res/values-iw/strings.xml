@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">שם תיזמון</string>
     <string name="scheduler_schedule_toggle_enabled">תזמון מופעל</string>
     <string name="scheduler_schedule_toggle_disabled">תזמון כבוי</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">השבת את התזמון כדי לשנות אותו.</string>
     <string name="scheduler_edit_schedule_action">ערוך תיזמון</string>
     <string name="scheduler_schedule_time_label">זמן משוער</string>
     <string name="scheduler_schedule_repeat_label">חזור על מרווח בימים</string>
@@ -19,7 +20,6 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="one">יומי</item>
         <item quantity="two">כל %d ימים</item>
-        <item quantity="many">כל %d ימים</item>
         <item quantity="other">כל %d ימים</item>
     </plurals>
     <string name="scheduler_inaccurate_execution_hint">זמני הביצוע הצפויים הם בקירוב. תזמונים עשויים להתעכב או להקדים אם זה חוסך בסוללה.</string>
@@ -45,7 +45,6 @@
     <string name="scheduler_commands_after_schedule_label">פקודות לאחר תזמון</string>
     <string name="scheduler_commands_after_schedule_desc">פקודות מעטפת אנדרואיד שיבוצעו בסוף התזמון.</string>
     <string name="scheduler_battery_optimization_hint">שקול להשבית את אופטימיזציית הסוללה עבור SD Maid אם אתה נתקל בבעיות בביצוע ברקע.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid יכול לנקות לפי לוח זמנים. בחר זמן ואילו כלים יפעלו, והוא יעשה את העבודה ברקע, (כמעט) ללא צורך לפתוח את האפליקציה.</string>
     <string name="tour_scheduler_create_body">הקש כאן כדי ליצור לוח זמנים חדש, ואז הגדר מתי הוא יפעל ואילו כלים לכלול.</string>
 </resources>

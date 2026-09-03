@@ -62,6 +62,24 @@
         <item quantity="many">%d zbytočných položiek odstránených</item>
         <item quantity="other">%d zbytočných položiek odstránených</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">Bola vymazaná %d postrádateľná položka, zastavené, pretože bola obrazovka vypnutá alebo uzamknutá</item>
+        <item quantity="few">Boli vymazané %d postrádateľné položky, zastavené, pretože bola obrazovka vypnutá alebo uzamknutá</item>
+        <item quantity="many">Bolo vymazaných %d postrádateľných položiek, zastavené, pretože bola obrazovka vypnutá alebo uzamknutá</item>
+        <item quantity="other">Bolo vymazaných %d postrádateľných položiek, zastavené, pretože bola obrazovka vypnutá alebo uzamknutá</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">Bola vymazaná %d postrádateľná položka, zastavené chybou</item>
+        <item quantity="few">Boli vymazané %d postrádateľné položky, zastavené chybou</item>
+        <item quantity="many">Bolo vymazaných %d postrádateľných položiek, zastavené chybou</item>
+        <item quantity="other">Bolo vymazaných %d postrádateľných položiek, zastavené chybou</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d vyrovnávacia pamäť ešte potrebuje službu na zjednodušenie ovládania</item>
+        <item quantity="few">%1$s, %2$d vyrovnávacie pamäte ešte potrebujú službu na zjednodušenie ovládania</item>
+        <item quantity="many">%1$s, %2$d vyrovnávacích pamätí ešte potrebuje službu na zjednodušenie ovládania</item>
+        <item quantity="other">%1$s, %2$d vyrovnávacích pamätí ešte potrebuje službu na zjednodušenie ovládania</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d nepotrebná položka nájdená</item>
         <item quantity="few">%d nepotrebné položky nájdené</item>
@@ -75,8 +93,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Hľadá sa tlačidlo „Vymazať vyrovnávaciu pamäť“ (kľúčové slová: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Predvolená vyrovnávacia pamäť</string>
     <string name="appcleaner_item_caches_inaccessible_body">Verejné a súkromné predvolené vyrovnávacie pamäte. Nie je priamo prístupné, ale možno ho vymazať nepriamo (napr. prostredníctvom služby dostupnosti).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">Vylúčené, ale hromadné čistenie všetkých aplikácií tieto vyrovnávacie pamäte aj tak vymaže</string>
+    <string name="appcleaner_exclusion_limited_title">Vylúčená aplikácia</string>
+    <string name="appcleaner_exclusion_limited_body">Táto aplikácia bola vylúčená z AppCleaner. Hromadné čistenie vyrovnávacích pamätí všetkých aplikácií využíva systémové čistenie pamäte cez Shizuku, ktoré nedokáže vynechať jednotlivé aplikácie, takže vyrovnávacia pamäť tejto aplikácie sa vymaže spolu so všetkým ostatným. Týka sa to iba vyrovnávacej pamäte zobrazenej tu, všetko ostatné, na čo sa vylúčenie vzťahuje, zostáva skryté a nedotknuté.</string>
     <string name="appcleaner_automation_unavailable_title">Služba dostupnosti nie je k dispozícii</string>
-    <string name="appcleaner_automation_unavailable_body">Odstránenie nedostupných vyrovnávacích pamätí vyžaduje službu dostupnosti SD Maid, ktorá však bola nedostupná. Ak ju nechcete používať: Zakážte možnosť „Zahrnúť neprístupné vyrovnávacie pamäte“.</string>
+    <string name="appcleaner_automation_unavailable_body">Vymazanie týchto vyrovnávacích pamätí vyžaduje službu SD Maid na zjednodušenie ovládania, tá však nebola dostupná.</string>
     <string name="appcleaner_delete_confirmation_message_x">Odstrániť nepotrebné položky pre %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Odstrániť nepotrebné položky pre %d zvolenú aplikáciu?</item>
@@ -94,4 +115,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Vynútiť zastavenie pred vyčistením</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Vynútiť zastavenie aplikácií pred vyčistením ich vyrovnávacej pamäte. Môže to pomôcť vyčistiť vyrovnávaciu pamäť niektorých aplikácií, ale môže spôsobiť ich nesprávne správanie a vyžadovať manuálny reštart.</string>
     <string name="appcleaner_progress_force_stopping">Vynútené zastavovanie aplikácií…</string>
+    <string name="appcleaner_progress_checking_freed_space">Kontrola uvoľneného miesta…</string>
 </resources>

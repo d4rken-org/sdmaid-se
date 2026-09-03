@@ -36,6 +36,21 @@
         <item quantity="few">%d omise (HDR/profunzime păstrate)</item>
         <item quantity="other">%d de omise (HDR/profunzime păstrate)</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="one">%d omisă (fotografie în mișcare)</item>
+        <item quantity="few">%d omise (fotografii în mișcare)</item>
+        <item quantity="other">%d de omise (fotografii în mișcare)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="one">%d omisă (fotografie foarte mare)</item>
+        <item quantity="few">%d omise (fotografii foarte mari)</item>
+        <item quantity="other">%d de omise (fotografii foarte mari)</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="one">%d omisă (protejată)</item>
+        <item quantity="few">%d omise (protejate)</item>
+        <item quantity="other">%d de omise (protejate)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element selectat</item>
         <item quantity="few">%d elemente selectate</item>
@@ -48,24 +63,38 @@
     <string name="squeezer_compression_settings_label">General</string>
     <string name="squeezer_quality_description">Calitate mai scăzută înseamnă dimensiune mai mică a fișierului, dar calitate vizuală redusă.</string>
     <string name="squeezer_types_category_label">Setări imagine</string>
+    <string name="squeezer_protected_category_label">Ce se pierde</string>
     <string name="squeezer_video_settings_category_label">Setări video</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Includeți imagini JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Include imaginile JPEG (.jpg, .jpeg). Reencodarea folosește encoderul JPEG integrat în Android. Data, locația și alte metadate EXIF sunt păstrate.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Includeți imagini WebP (.webp).</string>
+    <string name="squeezer_type_webp_description">Include imaginile WebP (.webp). Reencodarea folosește encoderul WebP integrat în Android. Data, locația și alte metadate EXIF sunt păstrate.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Imagini HEIC/HEIF (.heic, .heif) incluse. Data, locația și alte metadate EXIF sunt păstrate. Hărțile de câștig HDR, datele de profunzime și componentele Live/Motion nu pot fi păstrate; fișierele cu mai multe imagini sunt omise.</string>
     <string name="squeezer_type_video_title">Video MP4</string>
-    <string name="squeezer_type_video_description">Include fișiere video MP4 (.mp4).</string>
+    <string name="squeezer_type_video_description">Include fișierele video MP4 (.mp4). Pista video este reencodată la un bitrate mai mic de encoderul video propriu al dispozitivului, pista audio este copiată nemodificată, iar fișierul rămâne un MP4.</string>
     <string name="squeezer_skip_compressed_title">Săriți peste compresiile anterioare</string>
     <string name="squeezer_skip_compressed_description">Omite fișierele care au fost deja comprimate de SD Maid.</string>
     <string name="squeezer_exif_marker_title">Scrieți marcajul EXIF</string>
     <string name="squeezer_exif_marker_description">Adăugați un marcaj la câmpul de comentarii EXIF al imaginii pentru a preveni recompresia, chiar dacă istoricul de compresie este șters.</string>
     <string name="squeezer_include_lossy_aux_title">Comprimă fotografiile HDR &amp; profunzime</string>
-    <string name="squeezer_include_lossy_aux_description">Dezactivată implicit: fotografiile cu o hartă de câștig HDR sau date de profunzime/portret sunt omise ca să nu se simplifice. Activează pentru a le comprima unde este posibil — vor pierde harta de câștig HDR sau datele de profunzime. Unele fotografii HEIC cu mai multe imagini rămân protejate indiferent.</string>
+    <string name="squeezer_include_lossy_aux_description">Include fotografiile cu date HDR sau de adâncime. Compresia le elimină: fotografiile HDR devin fotografii normale, iar fotografiile portret pierd datele din spatele efectului de estompare a fundalului. Fișierele HEIC cu mai multe imagini rămân omise.</string>
+    <string name="squeezer_include_motion_photos_title">Comprimă fotografiile în mișcare</string>
+    <string name="squeezer_include_motion_photos_description">Include fotografiile în mișcare. Compresia păstrează imaginea statică și elimină clipul video.</string>
+    <string name="squeezer_include_oversized_title">Comprimă fotografiile foarte mari</string>
+    <string name="squeezer_include_oversized_description">Include fotografiile mai late sau mai înalte de 8192 de pixeli. Compresia le înjumătățește și rezoluția.</string>
     <string name="squeezer_estimated_savings_format">~%s economisite</string>
     <string name="squeezer_no_savings_expected">Economisiri limitate</string>
     <string name="squeezer_current_size_format">Dimensiune: %s</string>
+    <string name="squeezer_chip_compressed_before">Comprimată</string>
+    <string name="squeezer_chip_hdr_depth">HDR/adâncime</string>
+    <string name="squeezer_chip_motion_photo">Fotografie în mișcare</string>
+    <string name="squeezer_chip_downscaled">Micșorată</string>
+    <string name="squeezer_markers_dialog_title">Despre aceste marcaje</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid a comprimat deja acest fișier. Comprimarea lui din nou costă calitate și economisește puțin.</string>
+    <string name="squeezer_markers_hdr_depth_description">Această fotografie are date HDR sau de adâncime pe care compresia nu le poate păstra. O fotografie HDR devine una normală, iar o fotografie portret pierde datele de adâncime folosite pentru estomparea fundalului.</string>
+    <string name="squeezer_markers_motion_photo_description">Aceasta este o fotografie în mișcare. Compresia păstrează imaginea statică și elimină clipul video.</string>
+    <string name="squeezer_markers_downscaled_description">Această fotografie este mai lată sau mai înaltă de 8192 de pixeli. Compresia îi înjumătățește și rezoluția.</string>
     <string name="squeezer_compress_action">Comprimă</string>
     <string name="squeezer_compress_all_action">Comprimați tot</string>
     <string name="squeezer_preview_dialog_title">Confirmați compresia</string>
@@ -88,6 +117,22 @@
     <string name="squeezer_compare_action">Vizualizare comparație</string>
     <string name="squeezer_no_example_found">Nu s-au găsit imagini în căile selectate.</string>
     <string name="squeezer_result_empty_message">Nu s-au găsit fișiere media compresibile.</string>
+    <string name="squeezer_result_empty_protected">Nimic de comprimat. Omise: %s. Activează opțiunea corespunzătoare din setări pentru a le include.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d fotografie HDR/adâncime</item>
+        <item quantity="few">%d fotografii HDR/adâncime</item>
+        <item quantity="other">%d de fotografii HDR/adâncime</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d fotografie în mișcare</item>
+        <item quantity="few">%d fotografii în mișcare</item>
+        <item quantity="other">%d de fotografii în mișcare</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="one">%d fotografie foarte mare</item>
+        <item quantity="few">%d fotografii foarte mari</item>
+        <item quantity="other">%d de fotografii foarte mari</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d locație nu poate fi utilizată pentru comprimare și a fost eliminată. Compresia necesită acces direct la memoria internă.</item>
         <item quantity="few">%d locații nu pot fi utilizate pentru comprimare și au fost eliminate. Compresia necesită acces direct la memoria internă.</item>
@@ -109,7 +154,6 @@
         <item quantity="other">Cel puțin %d zile vechime</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Se estimează că ~%d%% economii pentru fișierele JPEG</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer recomprimă fotografiile și videoclipurile dvs. pentru a ocupa mai puțin spațiu. Sacrificați puțin din calitate pentru spațiul pe care îl obțineți înapoi. Fiecare element afișează economiile estimate, așa că puteți decide ce merită.</string>
     <string name="tour_squeezer_compress_body">Comprimă totul dintr-o dată aici, sau atinge un singur element pentru a-l micșora. Apasă lung pentru a alege mai multe. Vei vedea întotdeauna o previzualizare înainte ca ceva să se schimbe.</string>
 </resources>

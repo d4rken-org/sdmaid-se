@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nome da programación</string>
     <string name="scheduler_schedule_toggle_enabled">A programación está activada</string>
     <string name="scheduler_schedule_toggle_disabled">A programación está desactivada</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Desactiva o plan para editalo.</string>
     <string name="scheduler_edit_schedule_action">Editar programación</string>
     <string name="scheduler_schedule_time_label">Hora aproximada</string>
     <string name="scheduler_schedule_repeat_label">Intervalo de repetición en días</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Comandos posteriores á programación</string>
     <string name="scheduler_commands_after_schedule_desc">Comandos shell de Android que se executarán ao final dunha programación.</string>
     <string name="scheduler_battery_optimization_hint">Considere desactivar as optimizacións de batería para SD Maid se experimenta problemas coa execución en segundo plano.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid pode limpar segundo unha programación. Escolle unha hora e que ferramentas executar, e fai o traballo en segundo plano, case sen necesidade de abrir a aplicación.</string>
     <string name="tour_scheduler_create_body">Toca aquí para crear unha nova programación, despois establece cando se executa e que ferramentas incluír.</string>
 </resources>

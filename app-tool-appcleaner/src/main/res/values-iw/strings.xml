@@ -59,13 +59,26 @@
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">פריט זמני %d נמחק</item>
         <item quantity="two">%d פריטים זמניים נמחקו</item>
-        <item quantity="many">%d פריטים זמניים נמחקו</item>
         <item quantity="other">%d פריטים זמניים נמחקו</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d פריט ניתן למחיקה נמחק, הפסיק כי המסך היה כבוי או נעול</item>
+        <item quantity="two">%d פריטים ניתנים למחיקה נמחקו, הפסיק כי המסך היה כבוי או נעול</item>
+        <item quantity="other">%d פריטים ניתנים למחיקה נמחקו, הפסיק כי המסך היה כבוי או נעול</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d פריט ניתן למחיקה נמחק, הופסק בשל שגיאה</item>
+        <item quantity="two">%d פריטים ניתנים למחיקה נמחקו, הופסקו בשל שגיאה</item>
+        <item quantity="other">%d פריטים ניתנים למחיקה נמחקו, הופסקו בשל שגיאה</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d מטמון עדיין צריך את שירות הנגישות</item>
+        <item quantity="two">%1$s, %2$d מטמונים עדיין צריכים את שירות הנגישות</item>
+        <item quantity="other">%1$s, %2$d מטמונים עדיין צריכים את שירות הנגישות</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">נמצא %d פריט זמני</item>
         <item quantity="two">נמצאו %d פריטים זמניים</item>
-        <item quantity="many">נמצאו %d פריטים זמניים</item>
         <item quantity="other">נמצאו %d פריטים זמניים</item>
     </plurals>
     <string name="appcleaner_automation_title">אוטומציה של ניקוי אפליקציות</string>
@@ -75,13 +88,15 @@
     <string name="appcleaner_automation_progress_find_clear_cache">מחפש כפתור \"נקה מטמון\" (מילות מפתח: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">מטמון ברירת מחדל</string>
     <string name="appcleaner_item_caches_inaccessible_body">מטמון ברירת מחדל ציבורי ופרטי. לא נגיש ישירות, אבל ניתן למחוק בעקיפין (למשל באמצעות שירות נגישות).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">מוחרג, אך ניקוי כל היישומים בבת אחת עדיין מנקה את המטמונים האלה</string>
+    <string name="appcleaner_exclusion_limited_title">יישום מוחרג</string>
+    <string name="appcleaner_exclusion_limited_body">החרגת את היישום הזה מ-AppCleaner. ניקוי מטמון עבור כל היישומים בבת אחת משתמש בקיצוץ מטמון כלל-מערכתי של Shizuku, שלא יכול להשאיר יישומים בודדים בחוץ, כך שנתוני המטמון של היישום הזה נמחקים יחד עם כל השאר. רק נתוני המטמון המוצגים כאן מושפעים, כל השאר שההחרגה מכסה נשאר מוסתר ולא נפגע.</string>
     <string name="appcleaner_automation_unavailable_title">שירות הנגישות לא זמין</string>
-    <string name="appcleaner_automation_unavailable_body">ניקוי מטמונים בלתי נגישים מצריך את שירות הנגישות של SD Maid, אך הוא לא היה זמין. אם אינך רוצה להשתמש בו: השבת את האפשרות \"כלול מטמונים בלתי נגישים\".</string>
+    <string name="appcleaner_automation_unavailable_body">ניקוי המטמונים האלה דורש את שירות הנגישות של SD Maid, אך הוא לא היה זמין.</string>
     <string name="appcleaner_delete_confirmation_message_x">למחוק קבצים זמניים עבור %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">האם למחוק קבצים שניתנים להרחבה עבור %d האפליקציה שנבחרה?</item>
         <item quantity="two">האם למחוק קבצים שניתנים להרחבה עבור %d אפליקציות שנבחרו?</item>
-        <item quantity="many">האם למחוק קבצים שניתנים להרחבה עבור %d אפליקציות שנבחרו?</item>
         <item quantity="other">האם למחוק קבצים שניתנים להרחבה עבור %d אפליקציות שנבחרו?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">מחיקת מטמונים באמצעות Shizuku</string>
@@ -94,4 +109,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">עצירה מאולצת לפני ניקוי</string>
     <string name="appcleaner_forcestop_before_clearing_summary">עצור אפליקציות בכוח לפני ניקוי המטמון. יכול לעזור לנקות את המטמון של חלק מהאפליקציות, אך עלול לגרום לתקלות ולדרוש הפעלה מחדש ידנית.</string>
     <string name="appcleaner_progress_force_stopping">עוצר אפליקציות בכוח…</string>
+    <string name="appcleaner_progress_checking_freed_space">בודק שטח שהתפנה…</string>
 </resources>

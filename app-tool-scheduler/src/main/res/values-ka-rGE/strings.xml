@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">განრიგის სახელი</string>
     <string name="scheduler_schedule_toggle_enabled">განრიგი ჩართულია</string>
     <string name="scheduler_schedule_toggle_disabled">განრიგი გათიშულია</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">განრიგის შესაცვლელად გამორთე ის.</string>
     <string name="scheduler_edit_schedule_action">განრიგის რედაქტირება</string>
     <string name="scheduler_schedule_time_label">მიახლოებითი დრო</string>
     <string name="scheduler_schedule_repeat_label">გამეორების ინტერვალი დღეებში</string>
@@ -47,7 +48,6 @@
     <string name="scheduler_commands_after_schedule_label">პოსტ-განრიგის ბრძანებები</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell ბრძანებები, რომლებიც შესრულდება განრიგის ბოლოს.</string>
     <string name="scheduler_battery_optimization_hint">განიხილეთ SD Maid-ისთვის ბატარეის ოპტიმიზაციის გათიშვა, თუ გაქვთ პრობლემები ფონური შესრულებით.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid შეიძლება გაასუფთავოს განრიგით. აირჩიე დრო და რომელი ხელსაწყოები გაეშვა, და ის ფონურად შეასრულებს მუშაობას — აპლიკაციის გახსნის საჭიროება (თითქმის) არ იქნება.</string>
     <string name="tour_scheduler_create_body">შეეხეთ აქ ახალი განრიგის შესაქმნელად, შემდეგ დააყენეთ როდის გაეშვება და რომელი ხელსაწყოები უნდა იყოს ჩართული.</string>
 </resources>

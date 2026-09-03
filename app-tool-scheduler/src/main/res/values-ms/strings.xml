@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Nama jadual</string>
     <string name="scheduler_schedule_toggle_enabled">Jadual didayakan</string>
     <string name="scheduler_schedule_toggle_disabled">Jadual dinyahdayakan</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Nyahaktifkan jadual untuk mengubahnya.</string>
     <string name="scheduler_edit_schedule_action">Edit jadual</string>
     <string name="scheduler_schedule_time_label">Anggaran masa</string>
     <string name="scheduler_schedule_repeat_label">Ulangi selang dalam beberapa hari</string>
@@ -46,7 +47,6 @@ Matikan \"Sertakan apl sistem\", atau jalankan jadual semasa peranti dibuka kunc
     <string name="scheduler_commands_after_schedule_label">Arahan selepas jadual</string>
     <string name="scheduler_commands_after_schedule_desc">Arahan shell Android yang akan dilaksanakan pada akhir jadual.</string>
     <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk melumpuhkan pengoptimuman bateri untuk SD Maid jika anda menghadapi masalah dengan pelaksanaan latar belakang.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid boleh membersihkan mengikut jadual. Pilih waktu dan alat mana yang dijalankan, dan ia melakukan kerja di latar belakang, (hampir) tidak perlu membuka aplikasi.</string>
     <string name="tour_scheduler_create_body">Ketik di sini untuk membuat jadual baharu, kemudian tetapkan bila ia dijalankan dan alat mana untuk disertakan.</string>
 </resources>

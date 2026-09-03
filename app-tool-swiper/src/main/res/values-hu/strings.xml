@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Szűrve: %1$s</string>
     <string name="swiper_session_no_matching_files">Nem található megfelelő fájl</string>
     <string name="swiper_open_externally_action">Megnyitás külső alkalmazásban</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Húzz egy fájlt a sorsának eldöntéséhez: oldalra a megtartáshoz vagy törléshez, felfelé a kihagyáshoz, lefelé a visszavonáshoz. Az alábbi gombok ugyanezt teszik — és megmutatják, melyik oldal melyik.</string>
     <string name="tour_swiper_openin_body">Ez a gomb megnyitja a fájlt egy másik alkalmazásban, hasznos, ha ellenőrizni szeretnéd döntés előtt.</string>
     <string name="tour_swiper_preview_body">Ez a gomb teljes képernyős előnézetet nyit meg a közelebbi megtekintéshez.</string>

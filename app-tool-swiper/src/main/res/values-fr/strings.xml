@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtrés : %1$s</string>
     <string name="swiper_session_no_matching_files">Aucun fichier correspondant n’a été trouvé</string>
     <string name="swiper_open_externally_action">Ouvrir dans une appli externe</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Balayez un fichier pour décider de son sort : de côté pour conserver ou supprimer, vers le haut pour ignorer, vers le bas pour annuler. Les boutons ci-dessous font de même et indiquent quel côté est quel.</string>
     <string name="tour_swiper_openin_body">Ce bouton ouvre le fichier dans une autre appli, pratique pour le vérifier avant de décider.</string>
     <string name="tour_swiper_preview_body">Ce bouton ouvre un aperçu plein écran pour un examen plus approfondi.</string>

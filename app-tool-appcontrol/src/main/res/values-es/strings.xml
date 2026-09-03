@@ -81,6 +81,10 @@
         <item quantity="one">%d aplicación desactivada</item>
         <item quantity="other">%d aplicaciones desactivadas</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d aplicación no se puede activar ni desactivar</item>
+        <item quantity="other">%d aplicaciones no se pueden activar ni desactivar</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Determinar los tamaños</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Obtenga una estimación aproximada del tamaño de cada aplicación.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar la actividad</string>

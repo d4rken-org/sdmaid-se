@@ -4,13 +4,11 @@
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">כפילות %d נמחקה</item>
         <item quantity="two">%d כפילויות נמחקו</item>
-        <item quantity="many">%d כפילויות נמחקו</item>
         <item quantity="other">%d כפילויות נמחקו</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">נמצאה קובץ %d כפול</item>
         <item quantity="two">נמצאו %d קבצים כפולים</item>
-        <item quantity="many">נמצאו %d קבצים כפולים</item>
         <item quantity="other">נמצאו %d ערכות כפולות</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">הפוך את \"מחק הכל\" לאפשרי</string>
@@ -35,7 +33,6 @@
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>
         <item quantity="two">%s תפוס על ידי כפילויות</item>
-        <item quantity="many">%s תפוס על ידי כפילויות</item>
         <item quantity="other">%s תפוס על ידי כפילויות</item>
     </plurals>
     <string name="deduplicator_average_size_label">גודל ממוצע</string>
@@ -49,7 +46,6 @@
     <plurals name="deduplicator_delete_set_freeable_confirmation_message_x">
         <item quantity="one">מחק כפיל אחד (%1$d) בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
         <item quantity="two">מחק %1$d כפילים בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
-        <item quantity="many">מחק %1$d כפילים בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
         <item quantity="other">מחק %1$d כפילים בקבוצה זו, ושחרר %2$s? העותק השמור נשאר.</item>
     </plurals>
     <string name="deduplicator_list_grid_freeable_x">%1$s ניתן לשחרור</string>

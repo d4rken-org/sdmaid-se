@@ -73,11 +73,11 @@
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Ordner</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Wenn kein Typ ausgewählt ist, werden alle Typen abgeglichen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Pfadkriterien</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mit mindestens einem Eintrag übereinstimmen (z. B. „Downloads/oldapks/game-“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf sein Symbol, um die Art des Abgleichs zu ändern.</string>
+    <string name="systemcleaner_customfilter_editor_path_explanation">Der Zielpfad muss mindestens einem Eintrag entsprechen (z. B. „Downloads/oldapks/game-“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf dessen Symbol, um zu ändern, wie er abgeglichen wird.</string>
     <string name="systemcleaner_customfilter_editor_name_label">Namenskriterien</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter enthalten (z. B. „-receipt“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf sein Symbol, um die Art des Abgleichs zu ändern.</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">Der Zielname muss mindestens eines der Schlüsselwörter enthalten (z. B. „-receipt“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf dessen Symbol, um zu ändern, wie er abgeglichen wird.</string>
     <string name="systemcleaner_customfilter_editor_exclusions_label">Ausschlüsse</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad mit einem der Einträge übereinstimmt (z. B. „DCIM“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf sein Symbol, um die Art des Abgleichs zu ändern.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Das Ergebnis wird ausgeschlossen, wenn der Pfad einem der Einträge entspricht (z. B. „DCIM“). Tippe auf einen Eintrag, um ihn zu bearbeiten, oder auf dessen Symbol, um zu ändern, wie er abgeglichen wird.</string>
     <string name="systemcleaner_customfilter_editor_path_criterium_add_action">Pfadeintrag hinzufügen</string>
     <string name="systemcleaner_customfilter_editor_name_criterium_add_action">Nameneintrag hinzufügen</string>
     <string name="systemcleaner_customfilter_editor_exclusion_criterium_add_action">Ausschlusseintrag hinzufügen</string>
@@ -112,7 +112,6 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Übereinstimmungen basierend auf dem Dateialter (Zeitpunkt der letzten Änderung) einschränken. Leer lassen, um jedes Alter zu berücksichtigen.</string>
     <string name="systemcleaner_customfilter_import_action">Neuen Filter importieren</string>
     <string name="systemcleaner_customfilter_export_action">Ausgewählten Filter exportieren</string>
-    <!-- Guided tour -->
     <string name="tour_systemcleaner_intro_body">SystemCleaner findet Datenmüll mithilfe von Filtern, die nicht app-spezifisch sind. Es gibt bereits vorgefertigte Regeln für Dinge wie leere Ordner, übrig gebliebene Protokolle und veraltete Vorschaubilder. Besuche die Einstellungen, wenn du eigene erstellen möchtest.</string>
     <string name="tour_systemcleaner_filter_body">Jede Zeile stellt einen Filter und die von ihm gefundenen Elemente dar. Öffne die Details, um genau zu sehen, welche Dateien übereinstimmen, bevor du etwas löschst.</string>
 </resources>

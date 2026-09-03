@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Impossìbile si connètere a Google Play. Controlla sa connessione internet tua e proa torra.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Oferta non disponìbile</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play in custu momentu no est oferendi cussa optu. Cusse si forza ancora prus tardi o cuntrolla Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Non apo pòdidu abèrrere Google Play. Podet serrere mancat, disabilitadu o ristrettu in custu dispositivu.</string>
     <string name="upgrades_gplay_already_owned_error_title">Giai cumperadu</string>
     <string name="upgrades_gplay_already_owned_error_description">Imprea s\'optzione \"Recùpera su cùmperu\" pro recuperare su cùmperu tuo. Si su problema sighit, proa a limpiare sa cache de Google Play e a torrare a allùghere su dispositivu tuo.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Impide %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>
     <string name="upgrade_screen_benefits_title">Beneficios de s\'aggiornamentu</string>

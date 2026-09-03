@@ -22,6 +22,15 @@
     <plurals name="squeezer_result_x_skipped_lossy_aux">
         <item quantity="other">%d 个文件已跳过（保留了 HDR/深度）</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_motion_photo">
+        <item quantity="other">%d 个已跳过（动态照片）</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_oversized">
+        <item quantity="other">%d 个已跳过（超大照片）</item>
+    </plurals>
+    <plurals name="squeezer_result_x_skipped_protected">
+        <item quantity="other">%d 个已跳过（受保护）</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">已选择 %d 个项目</item>
     </plurals>
@@ -32,24 +41,38 @@
     <string name="squeezer_compression_settings_label">常规</string>
     <string name="squeezer_quality_description">质量越低，文件越小，但视觉质量也越低。</string>
     <string name="squeezer_types_category_label">图片设置</string>
+    <string name="squeezer_protected_category_label">会丢失的内容</string>
     <string name="squeezer_video_settings_category_label">视频设置</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">包含 JPEG 图片（.jpg、.jpeg）。</string>
+    <string name="squeezer_type_jpeg_description">包含JPEG图像(.jpg、.jpeg)。重新编码使用Android内置的JPEG编码器。保留日期、位置和其他EXIF元数据。</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">包含 WebP 图片（.webp）。</string>
+    <string name="squeezer_type_webp_description">包含WebP图像(.webp)。重新编码使用Android内置的WebP编码器。保留日期、位置和其他EXIF元数据。</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">包括 HEIC/HEIF 图像（.heic、.heif）。日期、位置和其他 EXIF 元数据将被保留。HDR 增益贴图、深度数据和 Live/Motion Photo 兄弟文件无法保留；多图像文件将被跳过。</string>
     <string name="squeezer_type_video_title">MP4 视频</string>
-    <string name="squeezer_type_video_description">包含 MP4 视频文件（.mp4）。</string>
+    <string name="squeezer_type_video_description">包含MP4视频文件(.mp4)。视频轨道由设备的视频编码器以较低比特率重新编码，音频轨道原样复制，文件保持为MP4格式。</string>
     <string name="squeezer_skip_compressed_title">跳过已压缩的图片</string>
     <string name="squeezer_skip_compressed_description">跳过已被 SD Maid 压缩的文件。</string>
     <string name="squeezer_exif_marker_title">写入 EXIF 标记</string>
     <string name="squeezer_exif_marker_description">在图片的 EXIF 用户备注字段中添加标记，以防止即使压缩记录被清除也不会重新压缩。</string>
     <string name="squeezer_include_lossy_aux_title">压缩 HDR&amp;深度照片</string>
-    <string name="squeezer_include_lossy_aux_description">默认关闭：具有 HDR 增益贴图或深度/胖像数据的照片将被跳过以防止它们被扁平化。启用可在可能情况下压缩它们 — 它们将失去 HDR 增益贴图或深度数据。无论如何，某些多图像 HEIC 照片始终保持受保护状态。</string>
+    <string name="squeezer_include_lossy_aux_description">包含HDR或深度数据的照片。压缩会删除该数据：HDR照片变为普通照片，人像照片会丢失用于背景模糊的深度数据。多张图像HEIC文件仍被跳过。</string>
+    <string name="squeezer_include_motion_photos_title">压缩动态照片</string>
+    <string name="squeezer_include_motion_photos_description">包含动态照片。压缩保留静止图像并删除视频片段。</string>
+    <string name="squeezer_include_oversized_title">压缩超大照片</string>
+    <string name="squeezer_include_oversized_description">包含宽度或高度超过8192像素的照片。压缩还会将其分辨率减半。</string>
     <string name="squeezer_estimated_savings_format">约可节省 %s</string>
     <string name="squeezer_no_savings_expected">节省有限</string>
     <string name="squeezer_current_size_format">大小：%s</string>
+    <string name="squeezer_chip_compressed_before">已压缩</string>
+    <string name="squeezer_chip_hdr_depth">HDR/深度</string>
+    <string name="squeezer_chip_motion_photo">动态照片</string>
+    <string name="squeezer_chip_downscaled">已缩小</string>
+    <string name="squeezer_markers_dialog_title">关于这些标记</string>
+    <string name="squeezer_markers_compressed_before_description">SD Maid已压缩此文件。再次压缩会影响质量且节省空间有限。</string>
+    <string name="squeezer_markers_hdr_depth_description">此照片具有压缩无法保留的HDR或深度数据。HDR照片变为普通照片，人像照片会丢失用于背景模糊的深度数据。</string>
+    <string name="squeezer_markers_motion_photo_description">这是一张动态照片。压缩保留静止图像并删除视频片段。</string>
+    <string name="squeezer_markers_downscaled_description">此照片的宽度或高度超过8192像素。压缩还会将其分辨率减半。</string>
     <string name="squeezer_compress_action">压缩</string>
     <string name="squeezer_compress_all_action">全部压缩</string>
     <string name="squeezer_preview_dialog_title">确认压缩</string>
@@ -70,6 +93,16 @@
     <string name="squeezer_compare_action">查看对比</string>
     <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
     <string name="squeezer_result_empty_message">未找到可压缩的媒体文件。</string>
+    <string name="squeezer_result_empty_protected">没有要压缩的内容。已跳过：%s。在设置中打开相应选项以将其包含在内。</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="other">%d 张HDR/深度照片</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="other">%d 张动态照片</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_oversized">
+        <item quantity="other">%d 张超大照片</item>
+    </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="other">%d 个位置无法用于压缩，已被移除。压缩需要直接访问内部存储。</item>
     </plurals>
@@ -87,7 +120,6 @@
         <item quantity="other">至少 %d 天前</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 文件预计节省约 %d%%</string>
-    <!-- Guided tour -->
     <string name="tour_squeezer_intro_body">Squeezer 会重新压缩您的照片和视频，使其占用更少的空间。您可以用较少的质量换取更多的空间。每个项目都显示其估计的节省量，因此您可以决定哪些值得压缩。</string>
     <string name="tour_squeezer_compress_body">在此处一次性压缩所有内容，或点击单个项目以仅缩小该项目。长按可选择多个。在进行任何更改之前，您将始终看到预览。</string>
 </resources>

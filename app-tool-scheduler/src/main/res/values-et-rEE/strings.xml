@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">Ajakava nimi</string>
     <string name="scheduler_schedule_toggle_enabled">Ajakava on lubatud</string>
     <string name="scheduler_schedule_toggle_disabled">Ajakava on keelatud</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Muutmiseks keelake ajakava.</string>
     <string name="scheduler_edit_schedule_action">Muutke ajakava</string>
     <string name="scheduler_schedule_time_label">Umbmäärane kellaaeg</string>
     <string name="scheduler_schedule_repeat_label">Kordamisintervall päevades</string>
@@ -43,7 +44,6 @@
     <string name="scheduler_commands_after_schedule_label">Käsud pärast ajastajat</string>
     <string name="scheduler_commands_after_schedule_desc">Androidi shellikäsud, mis käivituvad pärast ajastaja tegevust.</string>
     <string name="scheduler_battery_optimization_hint">Taustatoimingute probleemide puhul keelake SD Maidi jaoks aku optimeerimine.</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid saab ajastamisel puhastada. Vali aeg ja millised vahendid käivituvad, ning see teeb töö taustal – (peaaegu) pole vaja rakendust avada.</string>
     <string name="tour_scheduler_create_body">Puuduta siin, et luua uus ajastus, siis määra, millal see käivitub ja millised vahendid kaasata.</string>
 </resources>

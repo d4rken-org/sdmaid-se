@@ -9,6 +9,7 @@
     <string name="scheduler_schedule_name_label">排程名稱</string>
     <string name="scheduler_schedule_toggle_enabled">排程已啟用</string>
     <string name="scheduler_schedule_toggle_disabled">排程已停用</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">停用排程以變更它。</string>
     <string name="scheduler_edit_schedule_action">編輯排程</string>
     <string name="scheduler_schedule_time_label">大約時間</string>
     <string name="scheduler_schedule_repeat_label">重複間隔 (天)</string>
@@ -46,7 +47,6 @@
     <string name="scheduler_commands_after_schedule_label">排程後命令</string>
     <string name="scheduler_commands_after_schedule_desc">將會在排程結束後執行的 Android 殼層命令。</string>
     <string name="scheduler_battery_optimization_hint">如果您在背景執行時遇到問題，請考慮為 SD Maid 停用電池最佳化。</string>
-    <!-- Guided tour -->
     <string name="tour_scheduler_intro_body">SD Maid 可以按排程進行清理。選擇時間和執行哪些工具，它會在背景執行工作，（幾乎）無需開啟應用程式。</string>
     <string name="tour_scheduler_create_body">點選此處建立新的排程，然後設定執行時間和包含哪些工具。</string>
 </resources>

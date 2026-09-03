@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Στη διάθεσή σας.</string>
     <string name="slogan_message_1">Καθαρό και τακτοποιημένο.</string>
@@ -210,11 +209,9 @@
     <string name="appcontrol_systemsettings_open_title">Εμφάνιση ρυθμίσεων</string>
     <string name="ui_theme_color_sunset_label">Δύση</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Αυτή η λειτουργία απαιτεί πρόσβαση root, αλλά το SD Maid δεν μπόρεσε να την αποκτήσει σε αυτήν τη συσκευή.</string>
     <string name="access_blocked_root_declined">Αυτή η λειτουργία απαιτεί πρόσβαση root. Μπορείτε να την ενεργοποιήσετε μέσω της οθόνης ρύθμισης.</string>
     <string name="access_blocked_root_or_shizuku">Αυτή η λειτουργία απαιτεί πρόσβαση root ή Shizuku, η οποία δεν είναι διαθέσιμη σε αυτήν τη συσκευή.</string>
-    <!-- Config backup/restore errors -->
     <string name="backup_restore_error_invalid_title">Μη έγκυρο αρχείο αντιγράφου ασφαλείας</string>
     <string name="backup_restore_error_invalid_body">Αυτό το αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας του SD Maid ή είναι κατεστραμμένο.</string>
     <string name="backup_restore_error_version_body">Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε με μια νεότερη έκδοση του SD Maid. Ενημερώστε την εφαρμογή και προσπαθήστε ξανά.</string>
@@ -224,6 +221,6 @@
     <string name="backup_restore_error_safety_body">Το SD Maid δεν μπόρεσε να αποθηκεύσει ένα στιγμιότυπο ασφαλείας της τρέχουσας διαμόρφωσής σας, γι\' αυτό δεν άλλαξε τίποτα.</string>
     <string name="backup_restore_error_busy_title">Παρακαλώ περιμένετε</string>
     <string name="backup_restore_error_busy_body">Μια εργασία καθαρισμού ή μια άλλη λειτουργία αντιγράφου ασφαλείας εκτελείται αυτήν τη στιγμή. Δοκιμάστε ξανά όταν τελειώσει.</string>
-    <string name="backup_restore_error_schema_title">Ασύμβατο αντίγραφο ασφαλείας</string>
+    <string name="backup_restore_error_schema_title">Μη συμβατό αντίγραφο ασφαλείας</string>
     <string name="backup_restore_error_schema_body">Η μορφή βάσης δεδομένων του αντιγράφου ασφαλείας δεν ταιριάζει με αυτήν την έκδοση του SD Maid. Η επαναφορά δεδομένων ιστορικού υποστηρίζεται μόνο μεταξύ πανομοιότυπων εκδόσεων εφαρμογής.</string>
 </resources>

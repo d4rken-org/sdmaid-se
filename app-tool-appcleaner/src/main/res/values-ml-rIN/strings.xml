@@ -60,6 +60,18 @@
         <item quantity="one">%d ചെലവഴിക്കാൻ പറ്റുന്ന ഇനം ഡിലീറ്റ് ചെയ്തു</item>
         <item quantity="other">%d ചെലവഴിക്കാൻ പറ്റുന്ന ഇനങ്ങൾ ഡിലീറ്റ് ചെയ്തു</item>
     </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_screen">
+        <item quantity="one">%d ഒഴിവാക്കാവുന്ന ഫയൽ ഇല്ലാതാക്കി, സ്ക്രീൻ ഓഫായതിനാലോ ലോക്ക് ചെയ്തതിനാലോ നിർത്തിവച്ചു</item>
+        <item quantity="other">%d ഒഴിവാക്കാവുന്ന ഫയലുകൾ ഇല്ലാതാക്കി, സ്ക്രീൻ ഓഫായതിനാലോ ലോക്ക് ചെയ്തതിനാലോ നിർത്തിവച്ചു</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_error">
+        <item quantity="one">%d ഒഴിവാക്കാവുന്ന ഫയൽ ഇല്ലാതാക്കി, ഒരു പിശക് കാരണം നിർത്തിവച്ചു</item>
+        <item quantity="other">%d ഒഴിവാക്കാവുന്ന ഫയലുകൾ ഇല്ലാതാക്കി, ഒരു പിശക് കാരണം നിർത്തിവച്ചു</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_deleted_stopped_automation">
+        <item quantity="one">%1$s, %2$d കാഷിന് ഇപ്പോഴും ഉപയോഗസഹായി സേവനം ആവശ്യമാണ്</item>
+        <item quantity="other">%1$s, %2$d കാഷുകൾക്ക് ഇപ്പോഴും ഉപയോഗസഹായി സേവനം ആവശ്യമാണ്</item>
+    </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">%d ചെലവഴിക്കാൻ പറ്റുന്ന ഇനം കണ്ടെത്തി</item>
         <item quantity="other">%d ചെലവഴിക്കാൻ പറ്റുന്ന ഇനങ്ങൾ കണ്ടെത്തി</item>
@@ -71,8 +83,11 @@
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" ബട്ടൻ തിരയുന്നു (കീവേഡുകൾ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ഡിഫോൾട്ട് ക്യാഷുകൾ</string>
     <string name="appcleaner_item_caches_inaccessible_body">പൊതു, സ്വകാർയ ഡിഫോൾട്ട് ക്യാഷുകൾ. നേരിട്ട് ആക്‍സസ് ചെയ്യാൻ കഴിയില്ല, പക്ഷേ പരോക്ഷമായി ഡിലീറ്റ് ചെയ്യാൻ കഴിയും (ഉദാ: ആക്‍സസിബിലിറ്റി സേവനം വഴി).</string>
+    <string name="appcleaner_exclusion_limited_row_hint">ഒഴിവാക്കിയിരിക്കുന്നു, പക്ഷേ എല്ലാ ആപ്പുകളും ഒരുമിച്ച് വൃത്തിയാക്കുമ്പോൾ ഈ കാഷുകൾ ഇപ്പോഴും മായ്ക്കപ്പെടും</string>
+    <string name="appcleaner_exclusion_limited_title">ഒഴിവാക്കിയ ആപ്പ്</string>
+    <string name="appcleaner_exclusion_limited_body">നിങ്ങൾ ഈ ആപ്പിനെ AppCleaner-ൽ നിന്ന് ഒഴിവാക്കിയിട്ടുണ്ട്. എല്ലാ ആപ്പുകളുടെയും കാഷ് ഒരുമിച്ച് മായ്ക്കുമ്പോൾ Shizuku-ന്റെ സിസ്റ്റം-വൈഡ് കാഷ് ട്രിം ഉപയോഗിക്കുന്നു, ഇതിന് ഓരോ ആപ്പിനെയും വേറിട്ട് ഒഴിവാക്കാൻ കഴിയില്ല, അതിനാൽ മറ്റെല്ലാറ്റിനുമൊപ്പം ഈ ആപ്പിന്റെ കാഷ് ചെയ്ത ഡാറ്റയും മായ്ക്കപ്പെടും. ഇവിടെ കാണിച്ചിരിക്കുന്ന കാഷ് ഡാറ്റയെ മാത്രമേ ഇത് ബാധിക്കൂ, ഒഴിവാക്കൽ ഉൾക്കൊള്ളുന്ന മറ്റെല്ലാം മറഞ്ഞും തൊടാതെയും തുടരും.</string>
     <string name="appcleaner_automation_unavailable_title">ആക്‍സസിബിലിറ്റി സേവനം ലഭ്യമല്ല</string>
-    <string name="appcleaner_automation_unavailable_body">ആക്‍സസ് ചെയ്യാൻ കഴിയാത്ത ക്യാഷുകൾ മായ്ക്കാൻ SD Maid-ന്റെ ആക്‍സസിബിലിറ്റി സേവനം ആവശ്യമാണ്, പക്ഷേ അത് ലഭ്യമല്ലായിരുന്നു. ഉപയോഗിക്കാൻ ആഗ്രഹമില്ലെങ്കിൽ: \"ആക്‍സസ് ചെയ്യാൻ കഴിയാത്ത ക്യാഷുകൾ ഉൾപ്പെടുത്തുക\" ഓപ്ഷൻ പ്രവർത്തനരഹിതമാക്കുക.</string>
+    <string name="appcleaner_automation_unavailable_body">ഈ കാഷുകൾ മായ്ക്കാൻ SD Maid-ന്റെ ഉപയോഗസഹായി സേവനം ആവശ്യമാണ്, പക്ഷേ അത് ലഭ്യമായിരുന്നില്ല.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s-നായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">%d തിരഞ്ഞെടുത്ത ആപ്പിനായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</item>
@@ -88,4 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">മായ്ക്കുന്നതിന് മുൻപ് ബലമായി നിർത്തുക</string>
     <string name="appcleaner_forcestop_before_clearing_summary">ആപ്പുകളുടെ ക്യാഷ് മായ്ക്കുന്നതിന് മുൻപ് അവ ബലമായി നിർത്തുക. ചില ആപ്പുകളുടെ ക്യാഷ് മായ്ക്കാൻ ഇത് സഹായിക്കും, എന്നാൽ ആപ്പുകൾ ശരിയായി പ്രവർത്തിക്കാതിരിക്കുകയും മാനുവൽ പുനരാരംഭം ആവശ്യമാകുകയും ചെയ്തേക്കാം.</string>
     <string name="appcleaner_progress_force_stopping">ആപ്പുകൾ ബലമായി നിർത്തുന്നു…</string>
+    <string name="appcleaner_progress_checking_freed_space">ഒഴിവാക്കിയ സ്ഥലം പരിശോധിക്കുന്നു…</string>
 </resources>

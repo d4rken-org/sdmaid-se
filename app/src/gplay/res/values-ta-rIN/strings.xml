@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Google Play உடன் இணைக்க முடியவில்லை. உங்கள் இணைய இணைப்பை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.</string>
     <string name="upgrades_gplay_offer_unavailable_title">ஆபர் கிடைக்கவில்லை</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play தற்போது இந்த மேம்பாட்டு விருப்பத்தை வழங்கவில்லை. பிறகு மீண்டும் முயற்சி செய்யவும் அல்லது Google Play Store ஐ சரிபார்க்கவும்.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Google Play ஐ திறக்க முடியவில்லை. இது சாதனத்தில் இல்லாமல் இருக்கலாம், முடக்கப்பட்டிருக்கலாம் அல்லது கட்டுப்படுத்தப்பட்டிருக்கலாம்.</string>
     <string name="upgrades_gplay_already_owned_error_title">ஏற்கனவே வாங்கப்பட்டது</string>
     <string name="upgrades_gplay_already_owned_error_description">உங்கள் வாங்குதலை மீட்டமைக்க \"வாங்குதலை மீட்டமை\" விருப்பத்தைப் பயன்படுத்தவும். சிக்கல் தொடர்ந்தால், Google Play தற்காலிக சேமிப்பை அழித்து உங்கள் சாதனத்தை மறுதொடக்கம் செய்ய முயற்சிக்கவும்.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s பெறுங்கள்</string>
     <string name="upgrade_screen_preamble">SD Maid இல் விளம்பரங்கள் இல்லை மற்றும் பயனர் தரவை விற்கவில்லை. எனது பணி உங்களால் நிதியளிக்கப்படுகிறது ❤️.</string>
     <string name="upgrade_screen_benefits_title">மேம்படுத்தல் நன்மைகள்</string>

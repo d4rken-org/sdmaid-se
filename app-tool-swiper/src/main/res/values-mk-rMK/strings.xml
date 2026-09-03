@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
     <string name="swiper_session_no_matching_files">Не се понајдени соодветни датотеки</string>
     <string name="swiper_open_externally_action">Отвори во надворешна апликација</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Превлечи датотека за да одлучиш за нејзина судбина: странично за да задржиш или избришеш, нагоре за прескокнување, надолу за враќање. Копчињата подолу прават исто — и покажуваат која е која.</string>
     <string name="tour_swiper_openin_body">Ова копче ја отвора датотеката во друга апликација, практично за да ја провериш пред да одлучиш.</string>
     <string name="tour_swiper_preview_body">Ова копче отвора преглед на цел екран за поблиско гледање.</string>

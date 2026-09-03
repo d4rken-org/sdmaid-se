@@ -81,6 +81,10 @@
         <item quantity="one">%d பயன்பாடு மாற்றப்பட்டது</item>
         <item quantity="other">%d பயன்பாடுகள் மாற்றப்பட்டன</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_skipped_x">
+        <item quantity="one">%d பயன்பாட்டை இயக்கவோ முடக்கவோ முடியாது</item>
+        <item quantity="other">%d பயன்பாடுகளை இயக்கவோ முடக்கவோ முடியாது</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">அளவுகளை நிர்ணயிக்கவும்</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">ஒவ்வொரு பயன்பாட்டின் அளவின் தவறான அனுமானத்தைப் பெறவும்.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">செயல்பாடை நிர்ணயிக்கவும்</string>
