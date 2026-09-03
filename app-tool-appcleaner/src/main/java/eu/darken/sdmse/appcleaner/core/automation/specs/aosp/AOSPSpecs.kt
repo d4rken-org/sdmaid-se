@@ -566,6 +566,7 @@ class AOSPSpecs @Inject constructor(
             var nodeActionAttempts = 0
             var dpadExhausted = false
             var sizeParser: SizeParser? = null
+            var pendingVerdict = false
             val verdictConfirmer = VerdictConfirmer()
             val nodeAction: suspend StepContext.() -> Boolean = action@{
                 val attempt = nodeActionAttempts++
@@ -595,6 +596,9 @@ class AOSPSpecs @Inject constructor(
                     if (sizeParser == null) sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
                     val cacheSize = readCacheRowSize(cacheSizeLabels, sizeParser)
                     val verdict = noButtonVerdict(cacheSize, pkg.isSystemApp, useDpadFallback)
+                    // A verdict that still needs its confirming pass must not be raced by a blind
+                    // click: an already empty cache would otherwise be reported as a failure.
+                    pendingVerdict = verdict != NoButtonVerdict.KEEP_TRYING
                     when (verdictConfirmer.confirm(verdict)) {
                         NoButtonVerdict.KEEP_TRYING -> {
                             log(tag, VERBOSE) { "$verdict, cacheSize=$cacheSize (attempt=$attempt)" }
@@ -621,13 +625,13 @@ class AOSPSpecs @Inject constructor(
                 val dpadMinAttempts = 2
                 if (useDpadFallback && dpadExhausted) {
                     throw StepAbortException("DPAD exhausted, clear-cache button not reachable (attempt=$attempt)")
-                } else if (useDpadFallback && attempt >= dpadMinAttempts) {
+                } else if (useDpadFallback && attempt >= dpadMinAttempts && !pendingVerdict) {
                     log(tag, INFO) { "DPAD fallback triggered (attempt=$attempt)" }
                     if (tryClickViaFocusNavigation(clearCacheButtonLabels, canInjectInput)) return@action true
                     dpadExhausted = true
                     log(tag, WARN) { "DPAD fallback exhausted, won't retry" }
                 } else if (useDpadFallback) {
-                    log(tag) { "Skipping DPAD fallback (attempt=$attempt < $dpadMinAttempts)" }
+                    log(tag) { "Skipping DPAD fallback (attempt=$attempt, pendingVerdict=$pendingVerdict)" }
                 }
 
                 false

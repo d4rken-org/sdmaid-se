@@ -155,6 +155,8 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
     protected suspend fun captureAndRunClearCacheAction(
         spec: S = createSpec(),
         pkg: Installed = createTestPkg(),
+        maxAttempts: Int = 10,
+        rethrowAbort: Boolean = false,
     ): Boolean {
         var actionResult = false
 
@@ -171,14 +173,15 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
                 val nodeAction = step.nodeAction
                 if (nodeAction != null) {
                     try {
-                        for (i in 0 until 10) {
+                        for (i in 0 until maxAttempts) {
                             val result = nodeAction.invoke(stepContext)
                             if (result) {
                                 actionResult = true
                                 break
                             }
                         }
-                    } catch (_: StepAbortException) {
+                    } catch (e: StepAbortException) {
+                        if (rethrowAbort) throw e
                         actionResult = false
                     }
                 }
