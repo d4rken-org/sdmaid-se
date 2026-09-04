@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Futa matokeo katika zana zote?</string>
     <string name="dashboard_hero_freeable_headline">%1$s inaweza kuachiliwa</string>
     <string name="dashboard_hero_freed_headline">Kuachiliwa %1$s</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">Kitu %d kinaweza kuondolewa</item>
         <item quantity="other">Vitu %d vinaweza kuondolewa</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Gusa kitufe ili kuachia nafasi, au chip ili kuangalia kwanza.</string>
     <string name="dashboard_hero_freed_hint">Gusa kiambishi kwa maelezo.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s iliyobaki</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Hakuna kitu kimeondolewa</string>
     <string name="dashboard_hero_nothing_freed_caption">Kusafisha kumekamilika, lakini hakuna data iliyopatikana inayoweza kuondolewa.</string>
     <string name="dashboard_hero_nothing_freed_hint">Baadhi ya data inaweza kuondolewa tu kwa njia za ziada, kama huduma ya ufikiaji au root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s zimepatikana</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">Kitu %d kinahitaji SD Maid Pro</item>
         <item quantity="other">Vitu %d vinahitaji SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Gusa ili kufungua kwa SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Nafasi zaidi inaweza kuachiliwa kwa SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Inahitaji SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Kuchunguzwa %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Kuachiliwa %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Jaribu %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Ufikiaji wa mizizi</string>
     <string name="setup_root_card_body">Je, SD Maid itumie ufikiaji wa mizizi ikiwa unapatikana? Ufikiaji wa mizizi unaweza kutumika kukagua folda za ziada za mfumo na data ya kibinafsi ya programu.</string>
     <string name="setup_root_state_ready_label">Ufikiaji wa mizizi uko tayari.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Ufikiaji wa root haupatikani.</string>
     <string name="setup_root_state_failed_title">Ufikiaji wa root umeshindwa</string>
     <string name="setup_root_state_failed_body">SD Maid iliomba ufikiaji wa root lakini haukupata. Ikiwa kifaa chako kina root, fungua programu yako ya kudhibiti root (Magisk, KernelSU au inayofanana) na uangalie kama ombi kutoka SD Maid lilikataliwa au bado linasubiri.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">Pakia upya maeneo ya data</string>
     <string name="debug_mode_label">Hali ya utatuzi</string>
     <string name="debug_mode_explanation">Wezesha chaguo za majaribio na matokeo zaidi ya kina. Programu itaendesha polepole na kutenda tofauti.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Hali ya marekebisho imewashwa</string>
     <string name="debug_card_description">Uchunguzi wa kiufundi kwa watengenezaji na ubatilishaji wa muda wa uendeshaji. Kadi hii inaonekana tu wakati hali ya utatuzi (debug) imewezeshwa.</string>
     <string name="debug_card_section_diagnostics">Uchunguzi wa Kiufundi</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Pakia upya programu</string>
     <string name="debug_card_root_test_action">Jaribu root</string>
     <string name="debug_card_shizuku_test_action">Jaribu Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Hali ya jaribio inaendelea</string>
     <string name="dashboard_dryrun_warning_body">Kusafisha kunajaribiwa. Faili hukaguliwa, lakini hakuna kitu kinachofutwa.</string>
     <string name="dashboard_dryrun_warning_disable_action">Zima</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Matumizi ya hifadhi na usafishaji kwa mgusoo mmoja</string>
     <string name="widget_home_storage_internal">Ndani</string>
     <string name="widget_home_storage_external">Nje</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Jumla iliyoachiliwa: %1$s</string>
     <string name="widget_home_clean_action">Safisha</string>
     <string name="widget_home_working">Inafanya kazi…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Sio sasa</string>
     <string name="shortcut_onetap_started">Ukaguzi + Kufuta kulianza…</string>
     <string name="shortcut_onetap_nothing_enabled">Hakuna zana za mgusoo mmoja zilizowezeshwa</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Nakala Rudufu na Urejeshaji</string>
     <string name="backup_restore_desc">Hifadhi mipangilio na usanidi wako kwenye faili, au uwarejeshe</string>
     <string name="backup_restore_export_title">Tengeneza nakala rudufu</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">Data ya historia ya nakala hii rudufu (takwimu, historia ya kubana, vikao vya kuswaipi) inatoka toleo tofauti la programu na haiwezi kurejeshwa. Kila kitu kingine kitarejeshwa.</string>
     <string name="backup_restore_ack_understand">Ninaelewa na nataka kuendelea</string>
     <string name="backup_restore_action_restore">Rejesha</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Maonyo ya hifadhi</string>
     <string name="stats_lowspace_notification_title">Hifadhi inajaa</string>
     <string name="stats_lowspace_notification_low_title">Hifadhi karibu imejaa</string>

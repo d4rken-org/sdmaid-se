@@ -8,9 +8,6 @@
         <item quantity="one">%s elementu protzessadu dae cando as invitadu SD Maid in su dispositivu tuo.</item>
         <item quantity="other">%s elementos protzessados dae cando as invitadu SD Maid in su dispositivu tuo.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Ospite tuo dae %d die.</item>
         <item quantity="other">Ospite tuo dae %d dies.</item>

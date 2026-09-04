@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Skrap resultate in alle gereedskap?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan vrygestel word</string>
     <string name="dashboard_hero_freed_headline">%1$s vrygestel</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d item kan verwyder word</item>
         <item quantity="other">%d items kan verwyder word</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Tik die knop om plek vry te maak, of \'n knoppie om eers na te gaan.</string>
     <string name="dashboard_hero_freed_hint">Tik \'n chip vir besonderhede.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s oor</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Niks is vrygestel</string>
     <string name="dashboard_hero_nothing_freed_caption">Die skoonmaak is voltooi, maar geen van die gevinde data kon verwyder word nie.</string>
     <string name="dashboard_hero_nothing_freed_hint">Sommige data kan slegs verwyder word met ekstra toegang, soos die toeganklikheidsdiens of root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s gevind</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d item benodig SD Maid Pro</item>
         <item quantity="other">%d items benodig SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Tik om met SD Maid Pro te ontsluit.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Meer kan vrygemaak word met SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Benodig SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Geskandeer %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Vrygestel %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Gepoog %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Root toegang</string>
     <string name="setup_root_card_body">Moet SD Maid root toegang gebruik as dit beskikbaar is? Root toegang kan gebruik word om addisionele stelsel lêers en private toepassing data te kontroleer.</string>
     <string name="setup_root_state_ready_label">Root toegang is gereed.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root toegang is nie beskikbaar nie.</string>
     <string name="setup_root_state_failed_title">Worteltoegang het misluk</string>
     <string name="setup_root_state_failed_body">SD Maid het om worteltoegang gevra en het dit nie ontvang nie. Indien jou toestel geworteld is, maak jou wortelbeheerder oop (Magisk, KernelSU of soortgelyk) en kontroleer of die versoek van SD Maid geweier of nog steeds wag.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">Herlaai data areas</string>
     <string name="debug_mode_label">Ontfout modus</string>
     <string name="debug_mode_explanation">Aktiveer toets opsies en meer uitvoerige uitset. Toepassing sal stadiger loop en anders presteer.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Ontfoutingsmodus is geaktiveer</string>
     <string name="debug_card_description">Ontwikkelaarsdiagnostiek en runtime-aanpassings. Hierdie kaart verskyn slegs wanneer foutopsporingsmodus geaktiveer is.</string>
     <string name="debug_card_section_diagnostics">Diagnostiek</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Herlaai toepassings</string>
     <string name="debug_card_root_test_action">Toets root</string>
     <string name="debug_card_shizuku_test_action">Toets Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Proefloping is aktief</string>
     <string name="dashboard_dryrun_warning_body">Skoonmaak word gesimuleer. Lêers word geskandeer en gerapporteer, maar niks word werklik verwyder nie.</string>
     <string name="dashboard_dryrun_warning_disable_action">Skakel uit</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Opslaggebruik en een-tik skoonmaak</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Ekstern</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Totaal bevry: %1$s</string>
     <string name="widget_home_clean_action">Maak skoon</string>
     <string name="widget_home_working">Besig…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Nie nou nie</string>
     <string name="shortcut_onetap_started">Skandeer + Skrap begin…</string>
     <string name="shortcut_onetap_nothing_enabled">Geen eentik-gereedskap is geaktiveer nie</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Rugsteun &amp; Herstel</string>
     <string name="backup_restore_desc">Stoor jou instellings en konfigurasie na \'n lêer, of herstel dit</string>
     <string name="backup_restore_export_title">Skep rugsteun</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">Hierdie rugsteun se geskiedenisdata (statistieke, kompressiegeskiedenis, veeg-sessies) is van \'n ander app-weergawe en kan nie herstel word nie. Alles anders sal herstel word.</string>
     <string name="backup_restore_ack_understand">Ek verstaan en wil voortgaan</string>
     <string name="backup_restore_action_restore">Herstel</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Opslagwaarskuwings</string>
     <string name="stats_lowspace_notification_title">Berging vul op</string>
     <string name="stats_lowspace_notification_low_title">Berging is amper vol</string>

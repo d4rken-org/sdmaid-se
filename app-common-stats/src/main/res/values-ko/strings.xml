@@ -6,9 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">SD Maid를 기기에 초대한 이후 %s개의 항목이 처리되었습니다.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="other">%d일째 당신의 손님이에요.</item>
     </plurals>

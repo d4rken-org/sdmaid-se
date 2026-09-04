@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">حذف النتائج في كل الأدوات؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s يمكن تحريره</string>
     <string name="dashboard_hero_freed_headline">%1$s محررة</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="zero">لا يمكن إزالة أي عناصر</item>
         <item quantity="one">يمكن إزالة %d عنصر</item>
@@ -24,16 +21,10 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">اضغط على الزر لتحرير مساحة، أو على شريحة للفحص أولاً</string>
     <string name="dashboard_hero_freed_hint">اضغط على شريط للاطلاع على التفاصيل.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">متبقي %1$s</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">لم يتم تحرير أي مساحة</string>
     <string name="dashboard_hero_nothing_freed_caption">انتهى التنظيف، لكن تعذر إزالة أي من البيانات المكتشفة.</string>
     <string name="dashboard_hero_nothing_freed_hint">يمكن إزالة بعض البيانات فقط بوصول إضافي، مثل خدمة إمكانية الوصول أو الوصول الجذري.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">وجد %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="zero">لا توجد عناصر تحتاج إلى SD Maid Pro</item>
@@ -43,16 +34,9 @@
         <item quantity="many">%d عنصر يحتاج إلى SD Maid Pro</item>
         <item quantity="other">%d عنصر يحتاج إلى SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">اضغط للفتح باستخدام SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">يمكن تحرير المزيد مع SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">يحتاج إلى SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">تم فحص %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">تم تحرير %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">تم محاولة %1$s</string>
@@ -276,7 +260,6 @@
     <string name="setup_root_card_title">صلاحيّة الجذر</string>
     <string name="setup_root_card_body">هل يجب أن يستخدم SD Maid استخدام صلاحيات الروت إذا كان متاحاً؟ يمكن استخدام صلاحيات الروت للتحقق من مجلدات النظام الإضافية وبيانات التطبيق الخاص.</string>
     <string name="setup_root_state_ready_label">صلاحيات Root جاهزة.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">صلاحية الجذر غير متوفرة.</string>
     <string name="setup_root_state_failed_title">فشل الوصول إلى صلاحيات الروت</string>
     <string name="setup_root_state_failed_body">طلب SD Maid الوصول إلى صلاحيات الروت ولم يحصل عليها. إذا كان جهازك يتمتع بصلاحيات الروت، فافتح تطبيق إدارة الروت (Magisk أو KernelSU أو ما شابه) وتحقق مما إذا تم رفض طلب SD Maid أو أنه ما زال قيد الانتظار.</string>
@@ -335,7 +318,6 @@
     <string name="dataarea_warningcard_reload_action">إعادة تحميل مناطق البيانات</string>
     <string name="debug_mode_label">وضع التطوير</string>
     <string name="debug_mode_explanation">تمكين خيارات الاختبار والمزيد من الإخراج المطول. سيعمل التطبيق بشكل أبطأ ويعمل بشكل مختلف.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">وضع التصحيح مفعّل</string>
     <string name="debug_card_description">تشخيصات المطور وتجاوزات وقت التشغيل. تظهر هذه البطاقة فقط أثناء تفعيل وضع التصحيح.</string>
     <string name="debug_card_section_diagnostics">التشخيصات</string>
@@ -348,7 +330,6 @@
     <string name="debug_card_pkgs_reload_action">إعادة تحميل التطبيقات</string>
     <string name="debug_card_root_test_action">اختبار الجذر</string>
     <string name="debug_card_shizuku_test_action">اختبار شيزوكو</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">وضع المحاكاة نشط</string>
     <string name="dashboard_dryrun_warning_body">يتم محاكاة التنظيف. يتم فحص الملفات والإبلاغ عنها، لكن لا يتم حذف شيء فعلياً.</string>
     <string name="dashboard_dryrun_warning_disable_action">إيقاف التشغيل</string>
@@ -410,10 +391,6 @@
     <string name="widget_home_description">استخدام التخزين والتنظيف بنقرة واحدة</string>
     <string name="widget_home_storage_internal">داخلي</string>
     <string name="widget_home_storage_external">خارجي</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">إجمالي المساحة المحررة: %1$s</string>
     <string name="widget_home_clean_action">تنظيف</string>
     <string name="widget_home_working">جاري العمل…</string>
@@ -426,7 +403,6 @@
     <string name="widget_oneclick_consent_decline_action">ليس الآن</string>
     <string name="shortcut_onetap_started">تم بدء المسح والحذف…</string>
     <string name="shortcut_onetap_nothing_enabled">لا توجد أدوات بنقرة واحدة مفعلة</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">النسخ الاحتياطي &amp; الاستعادة</string>
     <string name="backup_restore_desc">احفظ إعداداتك وتكوينك في ملف، أو استعدها</string>
     <string name="backup_restore_export_title">إنشاء نسخة احتياطية</string>
@@ -454,7 +430,6 @@
     <string name="backup_restore_warn_history_body">بيانات سجل هذه النسخة الاحتياطية (الإحصائيات وسجل الضغط وجلسات الكسح) من نسخة تطبيق مختلفة ولا يمكن استعادتها. سيتم استعادة كل شيء آخر.</string>
     <string name="backup_restore_ack_understand">أنا أفهم وأريد المتابعة</string>
     <string name="backup_restore_action_restore">استعادة</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">تنبيهات التخزين</string>
     <string name="stats_lowspace_notification_title">التخزين يمتلئ</string>
     <string name="stats_lowspace_notification_low_title">التخزين على وشك الامتلاء</string>

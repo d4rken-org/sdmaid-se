@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Törli az eredményeket az összes eszközben?</string>
     <string name="dashboard_hero_freeable_headline">%1$s felszabadítható</string>
     <string name="dashboard_hero_freed_headline">%1$s felszabadult</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d elem eltávolítható</item>
         <item quantity="other">%d elem eltávolítható</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Nyomd meg a gombot a hely felszabadításához, vagy egy gombot az ellenőrzéshez.</string>
     <string name="dashboard_hero_freed_hint">Koppints egy chipre a részletekért.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s maradt</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nem szabadult fel semmi</string>
     <string name="dashboard_hero_nothing_freed_caption">A tisztítás befejeződött, de semmi nem távolítható el.</string>
     <string name="dashboard_hero_nothing_freed_hint">Néhány adat csak kiterjesztett hozzáféréssel távolítható el, például az akadálymentesítési szolgáltatás vagy root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s megtalálva</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d elemhez SD Maid Pro szükséges</item>
         <item quantity="other">%d elemhez SD Maid Pro szükséges</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Koppints a feloldáshoz az SD Maid Pro segítségével.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Az SD Maid Pro segítségével több hely szabadítható fel</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Pro szükséges</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Beolvasva: %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Felszabadítva: %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Megpróbálva: %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Root hozzáférés</string>
     <string name="setup_root_card_body">Használja a SD Maid a root hozzáférést, ha elérhető? A root hozzáférés használható további rendszerkönyvtárak és privát alkalmazásadatok ellenőrzéséhez.</string>
     <string name="setup_root_state_ready_label">Root hozzáférés készen áll.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">A root hozzáférés nem érhető el.</string>
     <string name="setup_root_state_failed_title">A root hozzáférés sikertelen volt</string>
     <string name="setup_root_state_failed_body">Az SD Maid root hozzáférést kért, de nem kapta meg. Ha az eszközöd rooted, nyisd meg a root kezelődet (Magisk, KernelSU vagy hasonló), és ellenőrizd, hogy az SD Maid kérése megtagadva lett-e vagy még várakozik.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">Adatterületek újratöltése</string>
     <string name="debug_mode_label">Hibakeresési mód</string>
     <string name="debug_mode_explanation">Tesztbeállítások és részletesebb kimenet engedélyezése. Az alkalmazás lassabban fog futni, és másként fog működni.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">A hibakeresési mód engedélyezve van</string>
     <string name="debug_card_description">Fejlesztői diagnosztika és futásidejű felülbírálások. Ez a kártya csak akkor jelenik meg, ha a hibakeresési mód engedélyezve van.</string>
     <string name="debug_card_section_diagnostics">Diagnosztika</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
     <string name="debug_card_root_test_action">Root tesztelése</string>
     <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">A próbamód aktív</string>
     <string name="dashboard_dryrun_warning_body">A tisztítás szimulálva van. A fájlok letapogatva vannak, de semmi nem törlődik ténylegesen.</string>
     <string name="dashboard_dryrun_warning_disable_action">Kikapcsolás</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Tárolóhasználat és egykattintásos tisztítás</string>
     <string name="widget_home_storage_internal">Belső</string>
     <string name="widget_home_storage_external">Külső</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Összesen felszabadított: %1$s</string>
     <string name="widget_home_clean_action">Tisztítás</string>
     <string name="widget_home_working">Feldolgozás alatt…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Most nem</string>
     <string name="shortcut_onetap_started">Vizsgálat + törlés elindítva…</string>
     <string name="shortcut_onetap_nothing_enabled">Nincs egyérintéses eszköz engedélyezve</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Biztonsági mentés &amp; Visszaállítás</string>
     <string name="backup_restore_desc">Mentse el beállításait és konfigurációját egy fájlba, vagy állítsa vissza azokat</string>
     <string name="backup_restore_export_title">Biztonsági mentés létrehozása</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">A biztonsági mentés előzményadatai (statisztikák, tömörítési előzmények, swipe munkamenetek) egy másik alkalmazásverzióból származnak, és nem állíthatók vissza. Minden más vissza lesz állítva.</string>
     <string name="backup_restore_ack_understand">Megértettem, és folytatni szeretnék</string>
     <string name="backup_restore_action_restore">Visszaállítás</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Tárhelyi figyelmeztetések</string>
     <string name="stats_lowspace_notification_title">A tárterület megtelik</string>
     <string name="stats_lowspace_notification_low_title">A tárterület majdnem megtelt</string>

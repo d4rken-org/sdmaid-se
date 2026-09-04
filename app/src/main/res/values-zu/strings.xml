@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Susa imiphumela kuwo wonke amathuluzi?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ingakhululwa</string>
     <string name="dashboard_hero_freed_headline">%1$s khululiwe</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">Into eyodwa ingamusulwa</item>
         <item quantity="other">Izinto ezingu-%d zingamusulwa</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Cisha inkinobho ukuze kukhululeke indawo, noma ichips ukuze uhlole kuqala.</string>
     <string name="dashboard_hero_freed_hint">Thinta ichip ukuthola imininingwane.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">Kusele %1$s</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Akukho into ethile eyakhululiswa</string>
     <string name="dashboard_hero_nothing_freed_caption">Ukunganisa kuqedile, kodwa akukho idatha etholwe engamusulwa.</string>
     <string name="dashboard_hero_nothing_freed_hint">Idatha ethile ingamusulwa kuphela ngokufinyelela okwengeziwe, njengomsebenzi wokufika noma umuzi.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s okutholiwe</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">Into engu-%d idinga i-SD Maid Pro</item>
         <item quantity="other">Izinto ezingu-%d zidinga i-SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Thepha ukuze uvule nge-SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Okuningi kungakhululwa nge-SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Kudinga i-SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Skenwe %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Khululiwe %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Uzame %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Ukufinyelela kwe-root</string>
     <string name="setup_root_card_body">Ingabe i-SD Maid kufanele isebenzise ukufinyelela kwe-root uma kutholakala? Ukufinyelela kwe-root kungasetshenziswa ukuze kuhlolwe amafolda engeziwe esistimu nedatha yangasese yezinhlelo zokusebenza.</string>
     <string name="setup_root_state_ready_label">Ukufinyelela kwe-root sekulungile.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Ukufinyelela kwe-root akutholakali.</string>
     <string name="setup_root_state_failed_title">Ukufinyelela kweroot kuhlulekile</string>
     <string name="setup_root_state_failed_body">U-SD Maid ucele ukufinyelela kweroot futhi akakutholi. Uma idivayisi yakho ineroot, vula umlawuli wakho weroot (Magisk, KernelSU noma okufanayo) futhi uhlole ukuthi icelo esivela ku-SD Maid lakhange livumeleke noma likhona lisilinde.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">Layisha kabusha izindawo zedatha</string>
     <string name="debug_mode_label">Imodi yokulungisa amaphutha</string>
     <string name="debug_mode_explanation">Nika amandla izinketho zokuhlola nokukhipha okuningi. Uhlelo lokusebenza luzosebenza kancane futhi lusebenze ngendlela ehlukile.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Imodi yokulungisa amaphutha ivuliwe</string>
     <string name="debug_card_description">Ukunikezela kwabakuli kanye nezilungiselelo zesixwayelo sokusebenza. Ikhadi leli livela kuphela lapho indlela yokulungisa kumalalele.</string>
     <string name="debug_card_section_diagnostics">Ukunikezela</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
     <string name="debug_card_root_test_action">Hlola i-root</string>
     <string name="debug_card_shizuku_test_action">Hlola i-Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Isiteshi se-dry-run sisebenzile</string>
     <string name="dashboard_dryrun_warning_body">Ukunganisa kusenzakalisiwe. Amafayila avolavwa naphakanyiswa, kodwa akukho ethile osuswe.</string>
     <string name="dashboard_dryrun_warning_disable_action">Vala</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Ukusebenziswa kwesitoreji nokococela ngeshaya okukodwa</string>
     <string name="widget_home_storage_internal">Sangaphakathi</string>
     <string name="widget_home_storage_external">Sangaphandle</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Kukhululiwe konke: %1$s</string>
     <string name="widget_home_clean_action">Hlanza</string>
     <string name="widget_home_working">Isebenza…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Ayisekho manje</string>
     <string name="shortcut_onetap_started">Ukusukela + Ukususa kuqalile…</string>
     <string name="shortcut_onetap_nothing_enabled">Azikho amathulusi e-one-tap enabunkunqe</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">I-Backup Nokubuyisela</string>
     <string name="backup_restore_desc">Cumula imihlahlandlela yakho kanye nokuhlela kufayela, noma buyisela</string>
     <string name="backup_restore_export_title">Dala I-backup</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">Lena idatha yomlando yekopisi (izibalo, umlando wokucindezeleka, izinhlanganiso zokuswayipa) isevela ekugcineni okwehlelo okunye futhi ayikwazi ukubuyela. Konke okusisayo kuzolunga kabusha.</string>
     <string name="backup_restore_ack_understand">Ngiyaqonda futhi ngifuna ukuqhubeka</string>
     <string name="backup_restore_action_restore">Buyisa</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Izexwayiso zesikholo</string>
     <string name="stats_lowspace_notification_title">Isikholo sizuzela</string>
     <string name="stats_lowspace_notification_low_title">Isikholo sisezweli kahle</string>

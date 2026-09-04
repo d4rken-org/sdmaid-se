@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Eliminare i risultati in tutti gli strumenti?</string>
     <string name="dashboard_hero_freeable_headline">%1$s può essere liberato</string>
     <string name="dashboard_hero_freed_headline">%1$s liberato</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d elemento può essere rimosso</item>
         <item quantity="other">%d elementi possono essere rimossi</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Tocca il pulsante per liberare spazio, oppure un chip per controllare prima.</string>
     <string name="dashboard_hero_freed_hint">Tocca una scheda per i dettagli.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s rimasto</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nulla è stato liberato</string>
     <string name="dashboard_hero_nothing_freed_caption">La pulizia è stata completata, ma nessuno dei dati trovati potrebbe essere rimosso.</string>
     <string name="dashboard_hero_nothing_freed_hint">Alcuni dati possono essere rimossi solo con accesso aggiuntivo, come il servizio di accessibilità o root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s trovati</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d elemento richiede SD Maid Pro</item>
         <item quantity="other">%d elementi richiedono SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Tocca per sbloccare con SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Con SD Maid Pro puoi liberare più spazio</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Richiede SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scansionato %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Liberato %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Tentato %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Permessi di root</string>
     <string name="setup_root_card_body">SD Maid può accedere ai permessi di root se disponibili? I permessi di root vengono usati per controllare cartelle di sistema aggiuntive e dati privati delle applicazioni.</string>
     <string name="setup_root_state_ready_label">I permessi di root sono disponibili.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">L’accesso root non è disponibile.</string>
     <string name="setup_root_state_failed_title">Accesso root non riuscito</string>
     <string name="setup_root_state_failed_body">SD Maid ha richiesto l\'accesso root e non l\'ha ottenuto. Se il tuo dispositivo è rooted, apri il tuo gestore root (Magisk, KernelSU o simili) e verifica se la richiesta di SD Maid è stata negata o è ancora in attesa.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">Ricarica le aree di dati</string>
     <string name="debug_mode_label">Modalità di debug</string>
     <string name="debug_mode_explanation">Abilita le opzioni di test e output più dettagliato. L\'app verrà eseguita più lentamente e performerà diversamente.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">La modalità debug è attivata</string>
     <string name="debug_card_description">Diagnostica per sviluppatori e override runtime. Questa scheda appare solo quando la modalità debug è abilitata.</string>
     <string name="debug_card_section_diagnostics">Diagnostica</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Ricarica app</string>
     <string name="debug_card_root_test_action">Testa root</string>
     <string name="debug_card_shizuku_test_action">Testa Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">La modalità simulazione è attiva</string>
     <string name="dashboard_dryrun_warning_body">La pulizia viene simulata. I file vengono scansionati e segnalati, ma nulla viene effettivamente eliminato.</string>
     <string name="dashboard_dryrun_warning_disable_action">Disattiva</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Utilizzo dello spazio di archiviazione e pulizia con un tocco</string>
     <string name="widget_home_storage_internal">Interno</string>
     <string name="widget_home_storage_external">Esterno</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Totale liberato: %1$s</string>
     <string name="widget_home_clean_action">Pulisci</string>
     <string name="widget_home_working">In elaborazione…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Non ora</string>
     <string name="shortcut_onetap_started">Scansione + eliminazione avviata…</string>
     <string name="shortcut_onetap_nothing_enabled">Nessuno strumento a un tocco è abilitato</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Backup &amp; Ripristino</string>
     <string name="backup_restore_desc">Salva le tue impostazioni e configurazione in un file oppure ripristinale</string>
     <string name="backup_restore_export_title">Crea backup</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">I dati cronologici di questo backup (statistiche, cronologia della compressione, sessioni di swipe) provengono da una versione diversa dell’app e non possono essere ripristinati. Tutto il resto verrà ripristinato.</string>
     <string name="backup_restore_ack_understand">Ho capito e voglio continuare</string>
     <string name="backup_restore_action_restore">Ripristina</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Avvisi di spazio di archiviazione</string>
     <string name="stats_lowspace_notification_title">Lo spazio di archiviazione si sta riempiendo</string>
     <string name="stats_lowspace_notification_low_title">Lo spazio di archiviazione è quasi pieno</string>

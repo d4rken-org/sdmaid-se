@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">అన్ని టూల్స్‌లోని ఫలితాలను తొలగించాలా?</string>
     <string name="dashboard_hero_freeable_headline">%1$s విడిపించవచ్చు</string>
     <string name="dashboard_hero_freed_headline">%1$s విడిపించబడింది</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d వస్తువు తీసివేయవచ్చు</item>
         <item quantity="other">%d వస్తువులు తీసివేయవచ్చు</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">స్థలాన్ని విడిపించడానికి బటన్‌ను నొక్కండి లేదా ముందుగా చెక్ చేయడానికి చిప్‌ను నొక్కండి.</string>
     <string name="dashboard_hero_freed_hint">వివరాల కోసం చిప్‌ను నొక్కండి.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s మిగిలి ఉంది</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">ఏదీ విడుదల చేయబడలేదు</string>
     <string name="dashboard_hero_nothing_freed_caption">క్లీనప్ పూర్తయింది, కానీ కనుగొన్న డేటాలో ఏదీ తీసివేయబడలేదు.</string>
     <string name="dashboard_hero_nothing_freed_hint">కొన్ని డేటాను యాక్సెసిబిలిటీ సేవ లేదా రూట్ వంటి అదనపు యాక్సెస్‌ద్వారా మాత్రమే తీసివేయవచ్చు.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s కనుక్కోబడింది</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d ఐటమ్ SD Maid Pro అవసరం</item>
         <item quantity="other">%d ఐటమ్‌లు SD Maid Pro అవసరం</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">SD Maid Pro తో అన్‌లాక్ చేయడానికి ట్యాప్ చేయండి.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">SD Maid Pro తో మరిన్నిటిని ఖాళీ చేయవచ్చు</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Pro అవసరం</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s స్కాన్ చేయబడింది</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s విడిపించబడింది</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">ప్రయత్నించిన %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">రూట్ యాక్సెస్</string>
     <string name="setup_root_card_body">అందుబాటులో ఉంటే SD Maid రూట్ యాక్సెస్‌ను ఉపయోగించాలా? రూట్ యాక్సెస్ అదనపు సిస్టమ్ ఫోల్డర్లు మరియు ప్రైవేట్ అప్లికేషన్ డేటాను తనిఖీ చేయడానికి ఉపయోగించవచ్చు.</string>
     <string name="setup_root_state_ready_label">రూట్ యాక్సెస్ సిద్ధంగా ఉంది.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">రూట్ యాక్సెస్ అందుబాటులో లేదు.</string>
     <string name="setup_root_state_failed_title">రూట్ యాక్సెస్ విఫలమైంది</string>
     <string name="setup_root_state_failed_body">SD Maid రూట్ యాక్సెస్ కోసం అభ్యర్థించింది, కానీ అది లభించలేదు. మీ పరికరం రూట్ చేయబడి ఉంటే, మీ రూట్ మేనేజర్‌ని (Magisk, KernelSU లేదా ఇలాంటివి) తెరిచి SD Maid నుండి వచ్చిన అభ్యర్థన తిరస్కరించబడిందా లేదా ఇంకా వేచి ఉందా అని తనిఖీ చేయండి.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">డేటా ఏరియాలను మళ్లీ లోడ్ చేయండి</string>
     <string name="debug_mode_label">డీబగ్ మోడ్</string>
     <string name="debug_mode_explanation">టెస్ట్ ఆప్షన్లు మరియు కూడా విస్తృత అవుట్‌పుట్‌ను ప్రారంభించండి. యాప్ మందగా కార్యాచరణ చేస్తుంది మరియు వేరేవిధంగా పరివర్తన చేస్తుంది.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">డీబగ్ మోడ్ ఎనేబుల్ చేయబడింది</string>
     <string name="debug_card_description">డెవలపర్ డయాగ్నోస్టిక్‌లు మరియు రన్‌టైమ్ ఓవర్‌రైడ్‌లు. ఈ కార్డ్ డీబగ్ మోడ్ చేతనమైనప్పుడు మాత్రమే కనిపిస్తుంది.</string>
     <string name="debug_card_section_diagnostics">డయాగ్నోస్టిక్‌లు</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
     <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>
     <string name="debug_card_shizuku_test_action">Shizuku పరీక్షించు</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">డ్రై-రన్ మోడ్ క్రియాశీలం</string>
     <string name="dashboard_dryrun_warning_body">క్లీనప్ నకిలు చేయబడుతోంది. ఫైలులు స్కాన్ చేయబడతాయి మరియు నివేదించబడతాయి, కానీ ఏమీ నిజానికి తీసివేయబడదు.</string>
     <string name="dashboard_dryrun_warning_disable_action">ఆఫ్ చేయండి</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">నిల్వ వినియోగం మరియు ఒక-ట్యాప్ శుభ్రీకరణ</string>
     <string name="widget_home_storage_internal">అంతర్గత</string>
     <string name="widget_home_storage_external">బాహ్య</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">మొత్తం ఖాళీ చేయబడింది: %1$s</string>
     <string name="widget_home_clean_action">శుభ్రపరచు</string>
     <string name="widget_home_working">పని జరుగుతోంది…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">ఇప్పుడు కాదు</string>
     <string name="shortcut_onetap_started">స్కాన్ + డిలీట్ ప్రారంభమైంది…</string>
     <string name="shortcut_onetap_nothing_enabled">ఏ ఒక-ట్యాప్ సాధనాలు ప్రారంభించబడలేదు</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">బ్యాకప్ &amp; పునరుద్ధరించు</string>
     <string name="backup_restore_desc">మీ సెట్టింగ్‌లు మరియు కాన్ఫిగరేషన్‌ను ఫైల్‌కు సేవ్ చేయండి లేదా పునరుద్ధరించండి</string>
     <string name="backup_restore_export_title">బ్యాకప్ సృష్టించు</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">ఈ బ్యాకప్ యొక్క చరిత్ర డేటా (గణాంకాలు, కంప్రెషన్ చరిత్ర, స్వైప్ సెషన్‌లు) భిన్న ఆప్ సంస్కరణ నుండి ఉంది మరియు పునరుద్ధరించబడదు. మిగతావన్నీ పునరుద్ధరించబడుతుంది.</string>
     <string name="backup_restore_ack_understand">నేను అర్థం చేసుకున్నాను మరియు కొనసాగాలనుకుంటున్నాను</string>
     <string name="backup_restore_action_restore">పునరుద్ధరించు</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">నిల్వ హెచ్చరికలు</string>
     <string name="stats_lowspace_notification_title">నిల్వ నిండుతోంది</string>
     <string name="stats_lowspace_notification_low_title">నిల్వ దాదాపు నిండింది</string>

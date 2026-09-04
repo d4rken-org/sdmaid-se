@@ -9,7 +9,7 @@
     <string name="scheduler_schedule_name_label">Nom de la programació</string>
     <string name="scheduler_schedule_toggle_enabled">La programació està activada</string>
     <string name="scheduler_schedule_toggle_disabled">La programació està desactivada</string>
-    <string name="scheduler_schedule_disable_to_edit_hint">Desactiva la planificació per canviar-la.</string>
+    <string name="scheduler_schedule_disable_to_edit_hint">Desactiveu la programació per canviar-la.</string>
     <string name="scheduler_edit_schedule_action">Edita la programació</string>
     <string name="scheduler_schedule_time_label">Temps aproximat</string>
     <string name="scheduler_schedule_repeat_label">Repeteix l\'interval en dies</string>

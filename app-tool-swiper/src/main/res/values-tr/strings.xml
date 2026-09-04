@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtrelenmiş: %1$s</string>
     <string name="swiper_session_no_matching_files">Eşleşen dosya bulunamadı</string>
     <string name="swiper_open_externally_action">Harici uygulamada aç</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Bir dosyanın kaderini belirlemek için kaydırın: tutmak veya silmek için yana, atlamak için yukarı, geri almak için aşağı. Aşağıdaki düğmeler de aynı şeyi yapar ve hangi tarafın hangisi olduğunu gösterir.</string>
     <string name="tour_swiper_openin_body">Bu düğme, dosyayı başka bir uygulamada açar; karar vermeden önce kontrol etmek için uygun.</string>
     <string name="tour_swiper_preview_body">Bu düğme daha yakından bakmak için tam ekran bir önizleme açar.</string>

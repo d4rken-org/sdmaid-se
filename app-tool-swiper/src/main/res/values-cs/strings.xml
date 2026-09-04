@@ -184,7 +184,6 @@
     <string name="swiper_file_type_filter_summary">Filtrováno: %1$s</string>
     <string name="swiper_session_no_matching_files">Nenalezeny žádné odpovídající soubory</string>
     <string name="swiper_open_externally_action">Otevřít v externí aplikaci</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Potáhněte soubor a rozhodněte o jeho osudu: na stranu pro uchování nebo smazání, nahoru pro přeskočení, dolů pro vrácení zpět. Tlačítka níže dělají totéž — a ukazují, která strana je která.</string>
     <string name="tour_swiper_openin_body">Toto tlačítko otevře soubor v jiné aplikaci, praktické pro kontrolu před rozhodnutím.</string>
     <string name="tour_swiper_preview_body">Toto tlačítko otevře náhled na celou obrazovku pro podrobnější pohled.</string>

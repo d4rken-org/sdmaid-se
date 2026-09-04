@@ -71,7 +71,7 @@
     <string name="analyzer_settings_lowspace_notification_title">Waarschuwing voor weinig ruimte</string>
     <string name="analyzer_settings_lowspace_notification_desc">Ontvang een melding voordat je opslag opraakt.</string>
     <string name="analyzer_lowspace_hint_title">Kom nooit meer zonder ruimte te zitten</string>
-    <string name="analyzer_lowspace_hint_body">Upgrade om een waarschuwing te krijgen voordat je opslag opraakt, zodat je kunt opruimen terwijl er nog ruimte over is.</string>
+    <string name="analyzer_lowspace_hint_body">Upgrade je account om een ​​waarschuwing te ontvangen voordat je opslagruimte vol raakt, zodat je kunt opruimen terwijl er nog ruimte is.</string>
     <string name="tour_analyzer_intro_body">Bekijk wat je opslag werkelijk opvult. De Analyzer geeft een overzicht van waar je ruimte heen gaat. Elk van deze kaarten is een opslagchip op je apparaat.</string>
     <string name="tour_analyzer_storage_body">Open een opslagruimte om deze in apps, media en bestanden in te delen, tik vervolgens herhaaldelijk om de grootste ruimtevreters op te sporen.</string>
 </resources>

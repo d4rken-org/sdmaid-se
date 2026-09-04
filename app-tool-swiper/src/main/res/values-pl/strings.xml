@@ -184,7 +184,6 @@
     <string name="swiper_file_type_filter_summary">Przefiltrowano: %1$s</string>
     <string name="swiper_session_no_matching_files">Nie znaleziono pasujących plików</string>
     <string name="swiper_open_externally_action">Otwórz w aplikacji zewnętrznej</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Przesuń plik, aby zdecydować o jego losie: w bok, aby zachować lub usunąć, w górę, aby pominąć, w dół, aby cofnąć. Przyciski poniżej działają tak samo — i pokazują, która strona odpowiada której opcji.</string>
     <string name="tour_swiper_openin_body">Ten przycisk otwiera plik w innej aplikacji, co jest przydatne, aby go sprawdzić przed podjęciem decyzji.</string>
     <string name="tour_swiper_preview_body">Ten przycisk otwiera pełnoekranowy podgląd, aby lepiej zobaczyć.</string>

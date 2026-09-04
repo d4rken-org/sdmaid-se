@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Избрисати резултате у свим алаткама?</string>
     <string name="dashboard_hero_freeable_headline">%1$s се може ослободити</string>
     <string name="dashboard_hero_freed_headline">%1$s ослобођено</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d ставка може бити уклоњена</item>
         <item quantity="few">%d ставке могу бити уклоњене</item>
@@ -18,32 +15,19 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Притисните дугме да ослободите простор, или чип да прво проверите.</string>
     <string name="dashboard_hero_freed_hint">Додирните чип за детаље.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">Остало %1$s</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Ништа није ослобођено</string>
     <string name="dashboard_hero_nothing_freed_caption">Чишћење је завршено, али ниједан од пронађених података није могао бити уклоњен.</string>
     <string name="dashboard_hero_nothing_freed_hint">Неки подаци могу бити уклоњени само са додатним приступом, као што су услуга приступачности или root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">Пронађено %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d ставка захтева SD Maid Pro</item>
         <item quantity="few">%d ставке захтевају SD Maid Pro</item>
         <item quantity="other">%d ставки захтева SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Додирни да откључаш са SD Maid Pro-ом.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Може се ослободити још простора уз SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Захтева SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Сканирано %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Ослобођено %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Покушано %1$s</string>
@@ -252,7 +236,6 @@
     <string name="setup_root_card_title">Приступ суперкориснику</string>
     <string name="setup_root_card_body">Да ли СД Чистач треба да користи \"суперкорисник\" приступ ако је доступан? \"Суперкорисник\" приступ се може користити за проверу додатних системских фасцикли и података приватних апликација.</string>
     <string name="setup_root_state_ready_label">Приступ суперкориснику је спреман.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root приступ није доступан.</string>
     <string name="setup_root_state_failed_title">Администраторски приступ неуспешан</string>
     <string name="setup_root_state_failed_body">SD Maid је тражио администраторски приступ и није га добио. Ако је твој уређај покорен, отвори управљач администратора (Magisk, KernelSU или сличан) и провери да ли је захтев од SD Maid-а одбијен или чека.</string>
@@ -311,7 +294,6 @@
     <string name="dataarea_warningcard_reload_action">Поново учитај области података</string>
     <string name="debug_mode_label">Режим за отклањање грешака</string>
     <string name="debug_mode_explanation">Омогућите тест опције и детаљнији излаз. Апликација ће радити спорије и радити другачије.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
     <string name="debug_card_description">Дијагностика програмера и замене времена извршавања. Ова картица се појављује само када је режим отклањања грешака омогућен.</string>
     <string name="debug_card_section_diagnostics">Дијагностика</string>
@@ -324,7 +306,6 @@
     <string name="debug_card_pkgs_reload_action">Поново учитај апликације</string>
     <string name="debug_card_root_test_action">Тестирај root</string>
     <string name="debug_card_shizuku_test_action">Тестирај Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Режим сувог покретања је активан</string>
     <string name="dashboard_dryrun_warning_body">Чишћење се симулира. Датотеке се скенирају и пријављују, али ништа се заиста не брише.</string>
     <string name="dashboard_dryrun_warning_disable_action">Искључи</string>
@@ -380,10 +361,6 @@
     <string name="widget_home_description">Употреба складишта и чишћење једним додиром</string>
     <string name="widget_home_storage_internal">Унутрашњи</string>
     <string name="widget_home_storage_external">Спољашњи</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Укупно ослобођено: %1$s</string>
     <string name="widget_home_clean_action">Очисти</string>
     <string name="widget_home_working">Обрађивање…</string>
@@ -396,7 +373,6 @@
     <string name="widget_oneclick_consent_decline_action">Не сада</string>
     <string name="shortcut_onetap_started">Скенирање + Брисање започето…</string>
     <string name="shortcut_onetap_nothing_enabled">Нема омогућених алата за чишћење једним додиром</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Резервна копија и враћање</string>
     <string name="backup_restore_desc">Сачувајте своје поставке и конфигурацију у датотеку, или их вратите</string>
     <string name="backup_restore_export_title">Направи резервну копију</string>
@@ -424,7 +400,6 @@
     <string name="backup_restore_warn_history_body">Подаци историје резервне копије (статистика, историја компресије, сесије свајпа) су из другачије верзије апликације и не могу бити враћени. Све остало ће бити враћено.</string>
     <string name="backup_restore_ack_understand">Разумем и желим да наставим</string>
     <string name="backup_restore_action_restore">Врати</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Упозорења о простору</string>
     <string name="stats_lowspace_notification_title">Простор се попуњава</string>
     <string name="stats_lowspace_notification_low_title">Простор је скоро пун</string>

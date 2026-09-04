@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">نتایج در همه ابزارها حذف شود؟</string>
     <string name="dashboard_hero_freeable_headline">%1$s قابل آزادسازی است</string>
     <string name="dashboard_hero_freed_headline">%1$s آزادسازی شده</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d مورد می‌تواند حذف شود</item>
         <item quantity="other">%d مورد می‌تواند حذف شود</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">برای آزادسازی فضا روی دکمه ضربه بزنید یا روی یک برچسب برای بررسی اول ضربه بزنید.</string>
     <string name="dashboard_hero_freed_hint">برای جزئیات روی یک چیپ ضربه بزنید.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s باقی</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">هیچ‌چیزی آزاد نشد</string>
     <string name="dashboard_hero_nothing_freed_caption">تمیزکاری پایان یافت، اما هیچ‌کدام از داده‌های یافت‌شده نتوانست حذف شود.</string>
     <string name="dashboard_hero_nothing_freed_hint">برخی داده‌ها تنها با دسترسی اضافی، مثل سرویس دسترسی‌پذیری یا root، قابل حذف‌اند.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s پیدا شد</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d مورد به SD Maid Pro نیاز دارد</item>
         <item quantity="other">%d مورد به SD Maid Pro نیاز دارد</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">برای باز کردن قفل با SD Maid Pro ضربه بزن.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">با SD Maid Pro می‌توان فضای بیشتری آزاد کرد</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">به SD Maid Pro نیاز دارد</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s اسکن شده</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s آزادسازی شده</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">تلاش برای %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">دسترسی روت</string>
     <string name="setup_root_card_body">اگر SD Maid در دسترس باشد باید از دسترسی روت استفاده کند؟ از دسترسی ریشه می‌توان برای بررسی پوشه های اضافی سیستم و داده های برنامه خصوصی استفاده کرد.</string>
     <string name="setup_root_state_ready_label">دسترسی روت آماده است.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">دسترسی روت در دسترس نیست.</string>
     <string name="setup_root_state_failed_title">دسترسی روت ناموفق بود</string>
     <string name="setup_root_state_failed_body">SD Maid درخواست دسترسی روت داد اما دریافت نکرد. اگر دستگاه شما روت شده است، مدیر روت خود (Magisk، KernelSU یا مشابه آن) را باز کنید و بررسی کنید که آیا درخواست SD Maid رد شده یا هنوز در انتظار است.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">بارگذاری دوباره ناحیه‌های داده</string>
     <string name="debug_mode_label">حالت اشکال زدایی</string>
     <string name="debug_mode_explanation">گزینه‌های آزمایشی را فعال کرده و خروجی با جزئیات بیشتر را تنظیم کنید. برنامه کندتر اجرا خواهد شد و عملکرد متفاوتی خواهد داشت.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">حالت اشکال‌زدایی فعال است</string>
     <string name="debug_card_description">تشخیص‌های توسعه‌دهنده و جایگزینی‌های زمان اجرا. این کارت تنها زمانی ظاهر می‌شود که حالت اشکال‌زدایی فعال باشد.</string>
     <string name="debug_card_section_diagnostics">تشخیص‌ها</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">بارگذاری دوباره برنامه‌ها</string>
     <string name="debug_card_root_test_action">تست روت</string>
     <string name="debug_card_shizuku_test_action">تست Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">حالت آزمایشی فعال است</string>
     <string name="dashboard_dryrun_warning_body">تمیزکاری شبیه‌سازی می‌شود. فایل‌ها بررسی و گزارش می‌شوند، اما هیچ‌چیز واقعاً حذف نمی‌شود.</string>
     <string name="dashboard_dryrun_warning_disable_action">خاموش کردن</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">استفاده از فضای ذخیره‌سازی و پاکسازی یک‌ضربتی</string>
     <string name="widget_home_storage_internal">داخلی</string>
     <string name="widget_home_storage_external">خارجی</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">مجموع فضای آزادشده: %1$s</string>
     <string name="widget_home_clean_action">پاکسازی</string>
     <string name="widget_home_working">درحال انجام…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">فعلاً نه</string>
     <string name="shortcut_onetap_started">اسکن و حذف شروع شد…</string>
     <string name="shortcut_onetap_nothing_enabled">هیچ ابزار یک‌لمسی فعال نشده است</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">پشتیبان‌گیری &amp; بازیابی</string>
     <string name="backup_restore_desc">تنظیمات و پیکربندی خود را در یک فایل ذخیره کنید یا آنها را بازیابی کنید</string>
     <string name="backup_restore_export_title">ایجاد پشتیبان‌گیری</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">داده‌های تاریخچه این پشتیبان (آمار، تاریخچه فشرده‌سازی، جلسات سوایپ) از نسخه‌ای متفاوت از برنامه است و نمی‌تواند بازیابی شود. بقیه‌ی موارد بازیابی خواهند شد.</string>
     <string name="backup_restore_ack_understand">متوجه شدم و می‌خواهم ادامه دهم</string>
     <string name="backup_restore_action_restore">بازیابی</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">هشدارهای فضای ذخیره‌سازی</string>
     <string name="stats_lowspace_notification_title">فضای ذخیره‌سازی در حال پر شدن است</string>
     <string name="stats_lowspace_notification_low_title">فضای ذخیره‌سازی تقریباً پر است</string>

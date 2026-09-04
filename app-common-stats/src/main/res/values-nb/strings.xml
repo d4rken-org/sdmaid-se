@@ -8,9 +8,6 @@
         <item quantity="one">%s element har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
         <item quantity="other">%s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Din gjest i %d dag.</item>
         <item quantity="other">Din gjest i %d dager.</item>

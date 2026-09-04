@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">すべてのツールの結果を削除しますか？</string>
     <string name="dashboard_hero_freeable_headline">%1$sを解放できます</string>
     <string name="dashboard_hero_freed_headline">%1$s解放されました</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="other">%d 項目を削除できます</item>
     </plurals>
@@ -14,30 +11,17 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">ボタンをタップしてスペースを解放するか、チップをタップして最初に確認してください。</string>
     <string name="dashboard_hero_freed_hint">詳細を確認するにはチップをタップしてください。</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s が残っています</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">何も削除されませんでした</string>
     <string name="dashboard_hero_nothing_freed_caption">クリーンアップが完了しましたが、見つかったデータを削除できませんでした。</string>
     <string name="dashboard_hero_nothing_freed_hint">一部のデータはアクセシビリティサービスやroot などの追加のアクセス権限でのみ削除できます。</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$sが見つかりました</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="other">%d件のアイテムにSD Maid Proが必要です</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">タップしてSD Maid Proでロックを解除。</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">SD Maid Proでさらに空き容量を増やせます</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Proが必要</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$sをスキャンしました</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s解放されました</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s を試行しました</string>
@@ -236,7 +220,6 @@
     <string name="setup_root_card_title">Rootアクセス</string>
     <string name="setup_root_card_body">Rootアクセスが利用可能な場合、SDメイドがそれを使用する必要はありますか? Rootアクセスを使用して、追加のシステムフォルダとプライベートアプリケーションデータを確認できます。</string>
     <string name="setup_root_state_ready_label">ルートアクセスの準備ができました。</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Rootアクセスは利用できません。</string>
     <string name="setup_root_state_failed_title">ルートアクセスに失敗しました</string>
     <string name="setup_root_state_failed_body">SD Maidはルートアクセスを要求しましたが、許可されませんでした。端末がルート化されている場合は、ルート管理アプリ（Magisk、KernelSUなど）を開き、SD Maidからのリクエストが拒否されたか、まだ保留中かを確認してください。</string>
@@ -295,7 +278,6 @@
     <string name="dataarea_warningcard_reload_action">データエリアを再読み込み</string>
     <string name="debug_mode_label">デバッグモード</string>
     <string name="debug_mode_explanation">テストオプションを有効にし、より詳細に出力します。アプリの動作が遅くなり、異なる動作をします。</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">デバッグモードが有効です</string>
     <string name="debug_card_description">開発者診断とランタイムオーバーライド。このカードはデバッグモードが有効な場合のみ表示されます。</string>
     <string name="debug_card_section_diagnostics">診断</string>
@@ -308,7 +290,6 @@
     <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
     <string name="debug_card_root_test_action">Rootをテスト</string>
     <string name="debug_card_shizuku_test_action">Shizukuをテスト</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">ドライランモードが有効です</string>
     <string name="dashboard_dryrun_warning_body">クリーンアップはシミュレートされています。ファイルはスキャンされレポートされますが、実際には削除されません。</string>
     <string name="dashboard_dryrun_warning_disable_action">オフにする</string>
@@ -360,10 +341,6 @@
     <string name="widget_home_description">ストレージの使用量とワンタップクリーンアップ</string>
     <string name="widget_home_storage_internal">内部</string>
     <string name="widget_home_storage_external">外部</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">解放された容量の合計: %1$s</string>
     <string name="widget_home_clean_action">クリーン</string>
     <string name="widget_home_working">処理中…</string>
@@ -376,7 +353,6 @@
     <string name="widget_oneclick_consent_decline_action">後で</string>
     <string name="shortcut_onetap_started">スキャン＋削除を開始しました…</string>
     <string name="shortcut_onetap_nothing_enabled">ワンタップツールが有効になっていません</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">バックアップ &amp; 復元</string>
     <string name="backup_restore_desc">設定と構成をファイルに保存したり、復元したりできます</string>
     <string name="backup_restore_export_title">バックアップを作成</string>
@@ -404,7 +380,6 @@
     <string name="backup_restore_warn_history_body">このバックアップの履歴データ（統計、圧縮履歴、スワイプセッション）は別のアプリバージョンのものであるため復元できません。それ以外のデータはすべて復元されます。</string>
     <string name="backup_restore_ack_understand">理解しました。続行します</string>
     <string name="backup_restore_action_restore">復元</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">ストレージの警告</string>
     <string name="stats_lowspace_notification_title">ストレージの空き容量が減っています</string>
     <string name="stats_lowspace_notification_low_title">ストレージがほぼ満杯です</string>
