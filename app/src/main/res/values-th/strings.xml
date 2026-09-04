@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">ลบการรายงานผลทั้งหมดหรือไม่?</string>
     <string name="dashboard_hero_freeable_headline">%1$s สามารถปล่อยออกได้</string>
     <string name="dashboard_hero_freed_headline">%1$s ปล่อยออก</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="other">สามารถลบ %d รายการได้</item>
     </plurals>
@@ -14,30 +11,17 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">แตะปุ่มเพื่อเพิ่มพื้นที่ว่าง หรือแตะชิปเพื่อตรวจสอบก่อน</string>
     <string name="dashboard_hero_freed_hint">แตะชิปเพื่อดูรายละเอียด</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">เหลือ %1$s</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">ไม่มีอะไรถูกปลดปล่อย</string>
     <string name="dashboard_hero_nothing_freed_caption">การทำความสะอาดเสร็จสิ้นแล้ว แต่ไม่สามารถลบข้อมูลที่พบได้</string>
     <string name="dashboard_hero_nothing_freed_hint">ข้อมูลบางรายการสามารถลบได้เฉพาะเมื่อมีการเข้าถึงพิเศษ เช่น บริการการเข้าถึง หรือ root</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">พบ %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="other">%d รายการต้องการ SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">แตะเพื่อปลดล็อกด้วย SD Maid Pro</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">สามารถเพิ่มพื้นที่ว่างได้อีกด้วย SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">ต้องใช้ SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">สแกน %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">ปล่อยออก %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">พยายาม %1$s</string>
@@ -236,7 +220,6 @@
     <string name="setup_root_card_title">การเข้าถึงรูธ</string>
     <string name="setup_root_card_body">ให้ SD Maid ใช้การเข้าถึงรูธหากมี เพื่อให้เช็คโฟลเดอร์ระบบเพิ่มเติมและข้อมูลจำเพาะของแอพอื่นๆ</string>
     <string name="setup_root_state_ready_label">การเข้าถึงรูธพร้อมแล้ว</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">ไม่มี Root access</string>
     <string name="setup_root_state_failed_title">การขอสิทธิ์รูทล้มเหลว</string>
     <string name="setup_root_state_failed_body">SD Maid ขอสิทธิ์รูทแต่ไม่ได้รับอนุญาต หากอุปกรณ์ของคุณรูทแล้ว ให้เปิดแอปจัดการรูท (Magisk, KernelSU หรืออื่น ๆ) และตรวจสอบว่าคำขอจาก SD Maid ถูกปฏิเสธหรือยังรอดำเนินการอยู่</string>
@@ -295,7 +278,6 @@
     <string name="dataarea_warningcard_reload_action">โหลดพื้นที่เก็บข้อมูลใหม่</string>
     <string name="debug_mode_label">โหมดดีบัก</string>
     <string name="debug_mode_explanation">เปิดใช้การทดสอบเพื่อแสดงรายละเอียดมากขึ้นในรายงาน แอพจะทำงานช้าลงและประสิทธิภาพลดลง</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">เปิดใช้โหมดดีบักแล้ว</string>
     <string name="debug_card_description">การวินิจฉัยของผู้พัฒนา และการแทนที่ค่ารันไทม์ การ์ดนี้ปรากฏเฉพาะเมื่อเปิดใช้งานโหมดดีบัก</string>
     <string name="debug_card_section_diagnostics">การวินิจฉัย</string>
@@ -308,7 +290,6 @@
     <string name="debug_card_pkgs_reload_action">โหลดแอปใหม่</string>
     <string name="debug_card_root_test_action">ทดสอบ root</string>
     <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">โหมดจำลองเปิดใช้งาน</string>
     <string name="dashboard_dryrun_warning_body">การทำความสะอาดกำลังถูกจำลอง ไฟล์ถูกสแกนและรายงาน แต่ไม่มีการลบจริง</string>
     <string name="dashboard_dryrun_warning_disable_action">ปิด</string>
@@ -360,10 +341,6 @@
     <string name="widget_home_description">การใช้งานพื้นที่จัดเก็บข้อมูลและการทำความสะอาดแตะครั้งเดียว</string>
     <string name="widget_home_storage_internal">ภายใน</string>
     <string name="widget_home_storage_external">ภายนอก</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">ปล่อยพื้นที่ทั้งหมด: %1$s</string>
     <string name="widget_home_clean_action">ทำความสะอาด</string>
     <string name="widget_home_working">กำลังดำเนินการ…</string>
@@ -376,7 +353,6 @@
     <string name="widget_oneclick_consent_decline_action">ไม่ตอนนี้</string>
     <string name="shortcut_onetap_started">เริ่มการสแกนและลบแล้ว…</string>
     <string name="shortcut_onetap_nothing_enabled">ไม่มีเครื่องมือแตะครั้งเดียวที่เปิดใช้งาน</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">สำรองข้อมูล &amp; กู้คืน</string>
     <string name="backup_restore_desc">บันทึกการตั้งค่าและการกำหนดค่าของคุณลงในไฟล์ หรือกู้คืนการตั้งค่า</string>
     <string name="backup_restore_export_title">สร้างสำรองข้อมูล</string>
@@ -404,7 +380,6 @@
     <string name="backup_restore_warn_history_body">ข้อมูลประวัติของการสำรองข้อมูลนี้ (สถิติ ประวัติการบีบอัด เซสชันการปัด) มาจากเวอร์ชั่นแอปที่แตกต่างกัน และไม่สามารถกู้คืนได้ ข้อมูลอื่นๆ ทั้งหมดจะถูกกู้คืน</string>
     <string name="backup_restore_ack_understand">ฉันเข้าใจและต้องการดำเนินการต่อ</string>
     <string name="backup_restore_action_restore">กู้คืน</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">การแจ้งเตือนพื้นที่จัดเก็บ</string>
     <string name="stats_lowspace_notification_title">พื้นที่จัดเก็บกำลังจะเต็ม</string>
     <string name="stats_lowspace_notification_low_title">พื้นที่จัดเก็บใกล้เต็มแล้ว</string>

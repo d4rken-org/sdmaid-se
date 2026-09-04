@@ -8,9 +8,6 @@
         <item quantity="one">%s στοιχείο έχει επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
         <item quantity="other">%s στοιχεία έχουν επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Ο επισκέπτης σου για %d ημέρα.</item>
         <item quantity="other">Ο επισκέπτης σου για %d ημέρες.</item>

@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Gefiltert: %1$s</string>
     <string name="swiper_session_no_matching_files">Keine passenden Dateien gefunden</string>
     <string name="swiper_open_externally_action">In externer App öffnen</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Wische über eine Datei, um über ihr Schicksal zu entscheiden: zur Seite, um sie zu behalten oder zu löschen, nach oben, um sie zu überspringen, nach unten, um sie rückgängig zu machen. Die Buttons unten bewirken dasselbe – und zeigen an, welche Seite wozu gehört.</string>
     <string name="tour_swiper_openin_body">Diese Schaltfläche öffnet die Datei in einer anderen App, praktisch um sie vor der Entscheidung zu überprüfen.</string>
     <string name="tour_swiper_preview_body">Diese Schaltfläche öffnet eine Vollbildvorschau zum genaueren Betrachten.</string>

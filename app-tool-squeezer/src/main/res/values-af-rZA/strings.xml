@@ -110,6 +110,10 @@
         <item quantity="one">%d HDR-/diepte-foto</item>
         <item quantity="other">%d HDR-/diepte-foto\'s</item>
     </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photos</item>
+    </plurals>
     <plurals name="squeezer_result_empty_x_oversized">
         <item quantity="one">%d baie groot foto</item>
         <item quantity="other">%d baie groot foto\'s</item>

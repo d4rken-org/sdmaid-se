@@ -133,7 +133,6 @@
     <string name="swiper_file_type_filter_summary">Đã lọc: %1$s</string>
     <string name="swiper_session_no_matching_files">Không tìm thấy tệp phù hợp</string>
     <string name="swiper_open_externally_action">Mở trong ứng dụng bên ngoài</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Vuốt tệp để quyết định số phận của nó: Sang bên để giữ lại hoặc xóa, lên để bỏ qua, xuống để hoàn tác. Các nút bên dưới làm điều tương tự — và cho biết bên nào là bên nào.</string>
     <string name="tour_swiper_openin_body">Nút này mở tệp trong một ứng dụng khác, tiện lợi để kiểm tra trước khi quyết định.</string>
     <string name="tour_swiper_preview_body">Nút này mở bản xem trước toàn màn hình để xem rõ hơn.</string>

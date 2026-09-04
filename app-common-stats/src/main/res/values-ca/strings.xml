@@ -49,7 +49,7 @@
     <string name="stats_space_history_max_label">Màxim utilitzat</string>
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s en %2$s</string>
-    <string name="stats_space_history_upgrade_title">L’historial complet és una funció Pro</string>
+    <string name="stats_space_history_upgrade_title">L’historial complet és una funció del Pro</string>
     <string name="stats_space_history_upgrade_body_v2">Milloreu per desbloquejar la vista completa de tendències de 90 dies per a cada dispositiu d\'emmagatzematge i rebeu un avís abans que us quedeu sense espai.</string>
     <string name="stats_space_history_marker_freed">S\'ha alliberat %1$s</string>
     <string name="stats_storage_type_primary">Emmagatzematge primari</string>

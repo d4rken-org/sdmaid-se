@@ -280,7 +280,7 @@
     <string name="setup_inventory_limitation_body">Het systeem retourneerde een onvolledige lijst met geïnstalleerde apps, hoewel de vereiste machtigingen zijn verleend.</string>
     <string name="setup_inventory_limitation_body2">Sommige apparaten (bijv. HarmonyOS) bieden nooit een volledige app-lijst. Om uw gegevens te beschermen, blijven app-gerelateerde tools uitgeschakeld, maar u kunt nog steeds opslaggebruik met beperkte details bekijken.</string>
     <string name="setup_inventory_probe_failed_title">Kon de app-lijst niet lezen</string>
-    <string name="setup_inventory_probe_failed_body">SD Maid heeft Android om de lijst met geïnstalleerde apps gevraagd, maar het verzoek is mislukt. App-gerelateerde tools blijven uitgeschakeld totdat dit werkt. Het nogmaals proberen kan helpen.</string>
+    <string name="setup_inventory_probe_failed_body">SD Maid heeft Android gevraagd om een ​​lijst met geïnstalleerde apps, maar dit verzoek is mislukt. App-gerelateerde tools blijven uitgeschakeld totdat het probleem is opgelost. Het opnieuw proberen kan helpen.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid heeft geen gegevensgebieden gevonden die kunnen worden gescand. Heb je de installatie voltooid?</string>
     <string name="dataarea_warningcard_label">Gegevens gebieden</string>
     <string name="dataarea_warningcard_reload_action">Gegevensgebieden opnieuw laden</string>

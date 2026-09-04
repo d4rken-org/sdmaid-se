@@ -12,9 +12,6 @@
         <item quantity="many">Przetworzono %s elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
         <item quantity="other">Przetworzono %s elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Twój gość przez %d dzień.</item>
         <item quantity="few">Twój gość przez %d dni.</item>

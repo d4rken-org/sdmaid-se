@@ -8,9 +8,6 @@
         <item quantity="one">तपाईंले SD Maid लाई आफ्नो डिभाइसमा आमन्त्रण गरेकोदेखि %s वस्तु प्रक्रिया गरिएको छ।</item>
         <item quantity="other">तपाईंले SD Maid लाई आफ्नो डिभाइसमा आमन्त्रण गरेकोदेखि %s वस्तुहरू प्रक्रिया गरिएका छन्।</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">तपाईंको अतिथि %d दिनको लागि।</item>
         <item quantity="other">तपाईंको अतिथि %d दिनको लागि।</item>

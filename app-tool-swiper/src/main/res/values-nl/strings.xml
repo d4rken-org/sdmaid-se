@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Gefilterd: %1$s</string>
     <string name="swiper_session_no_matching_files">Geen overeenkomende bestanden gevonden</string>
     <string name="swiper_open_externally_action">Openen in externe app</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Veeg een bestand om zijn lot te bepalen: zijwaarts om te houden of te verwijderen, omhoog om over te slaan, omlaag om ongedaan te maken. De knoppen hieronder doen hetzelfde — en tonen welke kant welke is.</string>
     <string name="tour_swiper_openin_body">Deze knop opent het bestand in een andere app, handig om het eerst te controleren voordat je beslist.</string>
     <string name="tour_swiper_preview_body">Deze knop opent een volledig schermvoorbeeld voor een nader kijkje.</string>

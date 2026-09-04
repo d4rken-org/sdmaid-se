@@ -150,7 +150,6 @@
     <string name="swiper_file_type_filter_summary">Filtreeritud: %1$s</string>
     <string name="swiper_session_no_matching_files">Ühtegi sobivat faili ei leitud</string>
     <string name="swiper_open_externally_action">Ava muus rakenduses</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Lohistage faili, et otsustada selle saatus: küljele hoidmiseks või kustutamiseks, üles vahele jätmiseks, alla tühistamiseks. Allpool olevad nupud teevad sama ja näitavad, kumb pool on kumb.</string>
     <string name="tour_swiper_openin_body">See nupp avab faili teises rakenduses, käepärane selle kontrollimiseks enne otsustamist.</string>
     <string name="tour_swiper_preview_body">See nupp avab täisekraanil eelvaate lähemale vaatamiseks.</string>

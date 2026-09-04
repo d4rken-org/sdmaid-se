@@ -3,7 +3,7 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">Αποσυμφόρηση φακέλων γρήγορα — σαρώστε αρχεία για διατήρηση, διαγραφή ή παράλειψη.</string>
     <string name="swiper_dashcard_description">Αποσυμφόρηση συγκεκριμένων φακέλων πιο γρήγορα από μια εξερεύνηση αρχείων — απλά σαρώστε κάθε αρχείο.</string>
-    <string name="swiper_start_action">Ξεκινήστε σάρωση</string>
+    <string name="swiper_start_action">Ξεκινήστε σαρώσεις</string>
     <string name="swiper_continue_action">Συνέχεια συνεδρίας</string>
     <string name="swiper_sessions_description">Ελέγξτε αρχεία σε 3 απλά βήματα:\n\n1. Επιλέξτε φάκελο για σάρωση\n2. Σαρώστε αρχεία για διατήρηση, διαγραφή, ή παράλειψη\n3. Ελέγξτε τις επιλογές σας και επιβεβαιώστε\n\nΤίποτα δεν αφαιρείται μέχρι να πατήσετε το τελικό κουμπί διαγραφής.</string>
     <string name="swiper_select_folders_action">Επιλογή φακέλων</string>

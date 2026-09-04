@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Xóa kết quả trong tất cả công cụ?</string>
     <string name="dashboard_hero_freeable_headline">%1$s có thể được giải phóng</string>
     <string name="dashboard_hero_freed_headline">Đã giải phóng %1$s</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="other">%d mục có thể được xóa</item>
     </plurals>
@@ -14,30 +11,17 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Nhấn nút để giải phóng dung lượng, hoặc nhấn một chip để kiểm tra trước.</string>
     <string name="dashboard_hero_freed_hint">Nhấn một chip để xem chi tiết.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s còn lại</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Không có gì được giải phóng</string>
     <string name="dashboard_hero_nothing_freed_caption">Quá trình dọn dẹp đã hoàn tất, nhưng không thể xóa bất kỳ dữ liệu nào được tìm thấy.</string>
     <string name="dashboard_hero_nothing_freed_hint">Một số dữ liệu chỉ có thể xóa bằng quyền truy cập thêm, chẳng hạn như dịch vụ trợ năng hoặc root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s được tìm thấy</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="other">%d mục cần SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Nhấn để mở khóa với SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Có thể giải phóng thêm không gian với SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Cần SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Đã quét %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Đã giải phóng %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Đã cố gắng %1$s</string>
@@ -236,7 +220,6 @@
     <string name="setup_root_card_title">Truy cập root</string>
     <string name="setup_root_card_body">SD Maid có nên sử dụng quyền truy cập root nếu có? Quyền truy cập root có thể được sử dụng để kiểm tra các thư mục hệ thống bổ sung và dữ liệu ứng dụng riêng tư.</string>
     <string name="setup_root_state_ready_label">Quyền truy cập root đã sẵn sàng.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Quyền truy cập Root không khả dụng.</string>
     <string name="setup_root_state_failed_title">Truy cập quyền root không thành công</string>
     <string name="setup_root_state_failed_body">SD Maid yêu cầu truy cập quyền root nhưng không nhận được. Nếu thiết bị của bạn được root, hãy mở trình quản lý root (Magisk, KernelSU hoặc tương tự) và kiểm tra xem yêu cầu từ SD Maid đã bị từ chối hay vẫn đang chờ.</string>
@@ -295,7 +278,6 @@
     <string name="dataarea_warningcard_reload_action">Tải lại vùng dữ liệu</string>
     <string name="debug_mode_label">Chế độ kiểm tra sửa lỗi</string>
     <string name="debug_mode_explanation">Kích hoạt các tùy chọn kiểm tra và đầu ra dài dòng hơn. Ứng dụng sẽ chạy chậm hơn và hoạt động khác đi.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Chế độ gỡ lỗi đã được kích hoạt</string>
     <string name="debug_card_description">Chẩn đoán nhà phát triển và ghi đè thời gian chạy. Thẻ này chỉ xuất hiện khi bật chế độ gỡ lỗi.</string>
     <string name="debug_card_section_diagnostics">Chẩn đoán</string>
@@ -308,7 +290,6 @@
     <string name="debug_card_pkgs_reload_action">Tải lại các ứng dụng</string>
     <string name="debug_card_root_test_action">Kiểm tra root</string>
     <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Chế độ mô phỏng đang hoạt động</string>
     <string name="dashboard_dryrun_warning_body">Quá trình dọn dẹp đang được mô phỏng. Các tệp được quét và báo cáo, nhưng không có gì thực sự bị xóa.</string>
     <string name="dashboard_dryrun_warning_disable_action">Tắt</string>
@@ -362,10 +343,6 @@ TheNothingGuy</string>
     <string name="widget_home_description">Sử dụng bộ nhớ và dọn dẹp bằng một lần nhấn</string>
     <string name="widget_home_storage_internal">Nội bộ</string>
     <string name="widget_home_storage_external">Bên ngoài</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Tổng cộng đã giải phóng: %1$s</string>
     <string name="widget_home_clean_action">Làm sạch</string>
     <string name="widget_home_working">Đang xử lý…</string>
@@ -378,7 +355,6 @@ TheNothingGuy</string>
     <string name="widget_oneclick_consent_decline_action">Để sau</string>
     <string name="shortcut_onetap_started">Quét + Xóa đã bắt đầu…</string>
     <string name="shortcut_onetap_nothing_enabled">Không có công cụ một chạm nào được bật</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Sao lưu &amp; Khôi phục</string>
     <string name="backup_restore_desc">Lưu cài đặt và cấu hình của bạn vào một tệp, hoặc khôi phục chúng</string>
     <string name="backup_restore_export_title">Tạo bản sao lưu</string>
@@ -406,7 +382,6 @@ TheNothingGuy</string>
     <string name="backup_restore_warn_history_body">Dữ liệu lịch sử của bản sao lưu này (thống kê, lịch sử nén, phiên quét) từ một phiên bản ứng dụng khác và không thể khôi phục được. Mọi thứ khác sẽ được khôi phục.</string>
     <string name="backup_restore_ack_understand">Tôi hiểu và muốn tiếp tục</string>
     <string name="backup_restore_action_restore">Khôi phục</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Cảnh báo bộ nhớ</string>
     <string name="stats_lowspace_notification_title">Bộ nhớ đang được lấp đầy</string>
     <string name="stats_lowspace_notification_low_title">Bộ nhớ gần như đầy</string>

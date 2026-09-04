@@ -184,7 +184,6 @@
     <string name="swiper_file_type_filter_summary">Отфильтровано: %1$s</string>
     <string name="swiper_session_no_matching_files">Соответствующие файлы не найдены</string>
     <string name="swiper_open_externally_action">Открыть во внешнем приложении</string>
-    <!-- Guided tour -->
     <string name="tour_swiper_gestures_body">Проведите пальцем по файлу, чтобы решить его судьбу: в стороны — сохранить или удалить, вверх — пропустить, вниз — отменить. Кнопки ниже делают то же самое и показывают, какая сторона за что отвечает.</string>
     <string name="tour_swiper_openin_body">Эта кнопка открывает файл в другом приложении — удобно проверить перед выбором.</string>
     <string name="tour_swiper_preview_body">Эта кнопка открывает полноэкранный просмотр для более внимательного рассмотрения.</string>

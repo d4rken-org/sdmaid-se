@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">모든 도구의 결과를 삭제할까요?</string>
     <string name="dashboard_hero_freeable_headline">%1$s를 확보할 수 있습니다</string>
     <string name="dashboard_hero_freed_headline">%1$s 확보됨</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="other">%d개 항목을 제거할 수 있습니다</item>
     </plurals>
@@ -14,30 +11,17 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">버튼을 탭하여 공간을 확보하거나 먼저 확인하려면 칩을 탭하세요.</string>
     <string name="dashboard_hero_freed_hint">칩을 눌러 자세한 정보를 확인하세요.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s 남음</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">해제된 것이 없습니다</string>
     <string name="dashboard_hero_nothing_freed_caption">정리가 완료되었지만 발견된 데이터 중 제거할 수 있는 것이 없습니다.</string>
     <string name="dashboard_hero_nothing_freed_hint">일부 데이터는 접근성 서비스 또는 루트 권한 같은 추가 접근 권한이 있어야만 제거할 수 있습니다.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s 발견</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="other">%d개 항목에 SD Maid Pro가 필요해요</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">SD Maid Pro로 잠금 해제하려면 탭하세요.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">SD Maid Pro로 더 많은 공간을 확보할 수 있어요</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Pro 필요</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s 스캔됨</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s 확보됨</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s 시도됨</string>
@@ -236,7 +220,6 @@
     <string name="setup_root_card_title">루트 권한</string>
     <string name="setup_root_card_body">사용할 수 있으면 루트 권한을 사용할까요? 루트 권한이 존재한다면 이를 이용해 추가적인 시스템 폴더나 개인 애플리케이션 데이터 등에 접근할 수 있습니다.</string>
     <string name="setup_root_state_ready_label">루트 권한이 준비되었습니다.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">루트 권한이 없습니다.</string>
     <string name="setup_root_state_failed_title">루트 접근 실패</string>
     <string name="setup_root_state_failed_body">SD Maid가 루트 접근을 요청했지만 허용되지 않았어요. 기기가 루트화되어 있다면 루트 관리자 앱(Magisk, KernelSU 등)을 열어 SD Maid 요청이 거부됐는지 아니면 아직 대기 중인지 확인해 보세요.</string>
@@ -295,7 +278,6 @@
     <string name="dataarea_warningcard_reload_action">데이터 영역 새로고침</string>
     <string name="debug_mode_label">디버그 모드</string>
     <string name="debug_mode_explanation">실험적 설정을 활성화하고 더 자세한 정보를 출력합니다. 앱이 느려지거나 다르게 작동할 수 있습니다.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">디버그 모드가 활성화됨</string>
     <string name="debug_card_description">개발자 진단 및 런타임 재정의. 이 카드는 디버그 모드가 활성화되어 있을 때만 나타납니다.</string>
     <string name="debug_card_section_diagnostics">진단</string>
@@ -308,7 +290,6 @@
     <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
     <string name="debug_card_root_test_action">루트 테스트</string>
     <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">드라이 런 모드가 활성화되어 있습니다</string>
     <string name="dashboard_dryrun_warning_body">정리가 시뮬레이션 중입니다. 파일은 검사하고 보고하지만 실제로는 삭제되지 않습니다.</string>
     <string name="dashboard_dryrun_warning_disable_action">끄기</string>
@@ -360,10 +341,6 @@
     <string name="widget_home_description">저장 공간 사용량 및 한 번 탭 정리</string>
     <string name="widget_home_storage_internal">내부</string>
     <string name="widget_home_storage_external">외부</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">총 확보 용량: %1$s</string>
     <string name="widget_home_clean_action">정리</string>
     <string name="widget_home_working">작업 중…</string>
@@ -376,7 +353,6 @@
     <string name="widget_oneclick_consent_decline_action">지금은 아니오</string>
     <string name="shortcut_onetap_started">스캔 + 삭제 시작됨…</string>
     <string name="shortcut_onetap_nothing_enabled">활성화된 빠른 도구가 없습니다</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">백업 &amp; 복원</string>
     <string name="backup_restore_desc">설정과 구성을 파일에 저장하거나 복원합니다</string>
     <string name="backup_restore_export_title">백업 생성</string>
@@ -404,7 +380,6 @@
     <string name="backup_restore_warn_history_body">이 백업의 히스토리 데이터(통계, 압축 히스토리, 스와이프 세션)는 다른 앱 버전에서 생성되었으며 복원할 수 없습니다. 나머지는 모두 복원됩니다.</string>
     <string name="backup_restore_ack_understand">알겠고 계속하겠습니다</string>
     <string name="backup_restore_action_restore">복원</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">저장공간 경고</string>
     <string name="stats_lowspace_notification_title">저장공간이 부족해지고 있어요</string>
     <string name="stats_lowspace_notification_low_title">저장공간이 거의 가득 찼어요</string>

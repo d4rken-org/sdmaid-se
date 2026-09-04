@@ -12,9 +12,6 @@
         <item quantity="many">Apdorota %s elementų, nuo tada kai pakvietėte SD Maid į savo įrenginį.</item>
         <item quantity="other">%s elementų apdorota nuo tada, kai pakvieteėte SD Maid į savo įrenginį.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Tavo svečias jau %d dieną.</item>
         <item quantity="few">Tavo svečias jau %d dienas.</item>

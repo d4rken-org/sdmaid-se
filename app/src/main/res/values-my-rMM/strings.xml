@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">ကိရိယာအားလုံးရှိ ရလဒ်များကို ဖျက်မလား?</string>
     <string name="dashboard_hero_freeable_headline">%1$s ကို လွတ်လပ်စေနိုင်ပါသည်</string>
     <string name="dashboard_hero_freed_headline">%1$s လွတ်လပ်စေပြီးပါပြီ</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="other">%d ခုကို ဖယ်ရှားနိုင်သည်</item>
     </plurals>
@@ -14,30 +11,17 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">ခလုတ်ကို နှိပ်ပြီး နေရာ လွတ်ရန် သို့မဟုတ် ဦးစွာ စစ်ဆေးရန် အညွှန်းကို နှိပ်ပါ။</string>
     <string name="dashboard_hero_freed_hint">အချက်အလက်အတွက် အညွှန်းကို နှိပ်ပါ။</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s ကျန်ရှိသည်</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">သည်းတစ်ခုမျှ မလွှတ်မပေးခဲ့ပါ</string>
     <string name="dashboard_hero_nothing_freed_caption">ရှင်းအောင်းခြင်း ပြီးစီးခဲ့သည်၊ သို့သော် ရှာဖွေတွေ့ရှိခဲ့သည့် အချက်အလက်များ အားလုံးကို ဖယ်ရှားနိုင်မည်မဟုတ်ခဲ့သည်။</string>
     <string name="dashboard_hero_nothing_freed_hint">အချို့သော အချက်အလက်များကို အသုံးချခွင့် ဝန်ဆောင်မှု သို့မဟုတ် အဆင့်မြှင့်တင်ခြင်းကဲ့သို့ အပိုသုံးခွင့်နှင့်သာ ဖယ်ရှားနိုင်သည်။</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s တွေ့ရှိသည်</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="other">SD Maid Pro လိုအပ်သည့် အရာ %d ခု</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">SD Maid Pro ဖြင့် ဖွင့်ရန် တို့ပါ။</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">SD Maid Pro ဖြင့် နေရာလွတ် ပိုမိုရရှိနိုင်သည်</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">SD Maid Pro လိုအပ်သည်</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">%1$s စကင်းပြီးပါပြီ</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s ကို လွတ်လပ်စေပြီးပါပြီ</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">%1$s ကို ကြိုးစားခဲ့သည်</string>
@@ -236,7 +220,6 @@
     <string name="setup_root_card_title">Root ဝင်ရောက်ခွင့်</string>
     <string name="setup_root_card_body">SD Maid သည် ရရှိနိုင်ပါက root ဝင်ရောက်ခွင့်ကို အသုံးပြုသင့်သလား။ Root ဝင်ရောက်ခွင့်ကို နောက်ထပ်စနစ်ဖိုင်တွဲများနှင့် ပုဂ္ဂလိကအက်ပလီကေးရှင်း ဒေတာများကို စစ်ဆေးရန် အသုံးပြုနိုင်သည်။</string>
     <string name="setup_root_state_ready_label">Root ဝင်ရောက်ခွင့် အဆင်သင့်ဖြစ်နေပါသည်။</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root သုံးစွဲမှုမရနိုင်ပါ။</string>
     <string name="setup_root_state_failed_title">Root ဝင်ရောက်ခွင့် မအောင်မြင်ပါ</string>
     <string name="setup_root_state_failed_body">SD Maid သည် root ဝင်ရောက်ခွင့်ကို တောင်းဆိုခဲ့သော်လည်း မရရှိခဲ့ပါ။ သင့်စက်တွင် root ရရှိထားပါက သင့် root manager (Magisk၊ KernelSU သို့မဟုတ် အလားတူ) ကိုဖွင့်ပြီး SD Maid ၏ တောင်းဆိုချက်ကို ငြင်းပယ်ခံရသလား သို့မဟုတ် စောင့်ဆိုင်းနေဆဲလား စစ်ဆေးပါ။</string>
@@ -295,7 +278,6 @@
     <string name="dataarea_warningcard_reload_action">ဒေတာနယ်ပယ်များကို ပြန်လည်တင်ရန်</string>
     <string name="debug_mode_label">အမှားရှာမုဒ်</string>
     <string name="debug_mode_explanation">စမ်းသပ်ရွေးချယ်မှုများနှင့် ပိုမိုအသေးစိတ်ဖြစ်သော ရလဒ်များကို ဖွင့်ပါ။ အက်ပ်သည် ပိုနှေးကာ မတူညီစွာ လုပ်ဆောင်မည်။</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug မုံဒ်ကို အသုံးပြုထားသည်</string>
     <string name="debug_card_description">ဆော့ဖ်ဝဲယ်ကဏ္ဍအတွက် စမ်းသပ်မှုနှင့် လုပ်ဆောင်ချိန်တွင် ထိန်းချုပ်မှုများ။ ဤကဒ်သည် ဒီဘတ်ဂ်စနစ်ဖွင့်နေသည့်အခါတွင်သာ ပေါ်လာသည်။</string>
     <string name="debug_card_section_diagnostics">စမ်းသပ်မှု</string>
@@ -308,7 +290,6 @@
     <string name="debug_card_pkgs_reload_action">အပ်ပလီကေးရှင်းများကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
     <string name="debug_card_root_test_action">ရုံးနှင့်စမ်းသည်</string>
     <string name="debug_card_shizuku_test_action">Shizuku စမ်းသည်</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">စမ်းသပ်ခြင်း မုံက အလုပ်လုပ်နေသည်။</string>
     <string name="dashboard_dryrun_warning_body">သန့်ရှင်းမှုကို စမ်းသပ်မျှ လုပ်ဆောင်နေသည်။ ဖိုင်များကို စုံစမ်း၏အစီရင်ခံသည်သော် လုံးဝ ဖျက်သိမ်းခြင်း မပြူလုပ်ပါ။</string>
     <string name="dashboard_dryrun_warning_disable_action">ပိတ်ထားပါ</string>
@@ -360,10 +341,6 @@
     <string name="widget_home_description">သိုလှောင်ခန်း အသုံးပြုမှု နှင့် တစ်ချက်သန့်စင်ခြင်း</string>
     <string name="widget_home_storage_internal">အတွင်းပိုင်း</string>
     <string name="widget_home_storage_external">အပြင်ပိုင်း</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">စုစုပေါင်း ရှင်းလင်းရရှိသောနေရာ: %1$s</string>
     <string name="widget_home_clean_action">သန့်စင်</string>
     <string name="widget_home_working">လုပ်ဆောင်နေသည်…</string>
@@ -376,7 +353,6 @@
     <string name="widget_oneclick_consent_decline_action">ယခုတစ်ခါမ</string>
     <string name="shortcut_onetap_started">စကင်မတ် + ဖျက်ခြင်း စတင်ခဲ့သည်…</string>
     <string name="shortcut_onetap_nothing_enabled">တစ်ကလစ်ကိရိယာများ မည်မျှမဖွင့်ထားပါ</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">အရန်သိုလှုပ် &amp; ပြန်လည်ရယူခွင့်</string>
     <string name="backup_restore_desc">သင်၏ အဆင့်သတ်မှတ်ချက်များ နှင့် ဆက်စပ်မှုများကို ဖိုင်သို သိုလှုပ်ထားခြင်း သို့မဟုတ် ပြန်လည်ရယူခြင်း</string>
     <string name="backup_restore_export_title">အရန်သိုလှုပ်ဖန်တီးခြင်း</string>
@@ -404,7 +380,6 @@
     <string name="backup_restore_warn_history_body">ဤအရန်ကူးယူမှု၏ သမိုင်းဝင်ဒေတာ (စာရင်းအင်းများ၊ ချုံ့ခြင်းသမိုင်းဝင်၊ စွဲချက်အလုပ်ခွင်များ) သည် ကွဲပြားသောအက်ပ်ဗားရှင်းမှ ရှိပြီး ပြန်လည်ရယူ၍မရပါ။ အခြားအရာအားလုံးကို ပြန်လည်ရယူလိုက်မည်။</string>
     <string name="backup_restore_ack_understand">ကျွန်ုပ် နားလည်ပြီး ဆက်လက်လုပ်ဆောင်လိုသည်</string>
     <string name="backup_restore_action_restore">ပြန်လည်ရယူခြင်း</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">သိုလှောင်ခန်း သတိပေးချက်များ</string>
     <string name="stats_lowspace_notification_title">သိုလှောင်ခန်း ပြည့်လာနေပါသည်</string>
     <string name="stats_lowspace_notification_low_title">သိုလှောင်ခန်း နီးပါးပြည့်နေပါပြီ</string>

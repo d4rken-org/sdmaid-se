@@ -12,9 +12,6 @@
         <item quantity="many">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
         <item quantity="other">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="one">Tvoj hosť už %d deň.</item>
         <item quantity="few">Tvoj hosť už %d dni.</item>

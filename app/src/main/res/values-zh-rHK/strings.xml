@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">在所有工具中刪除結果？</string>
     <string name="dashboard_hero_freeable_headline">%1$s 可以釋放</string>
     <string name="dashboard_hero_freed_headline">%1$s 已釋出</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="other">%d 個項目可以移除</item>
     </plurals>
@@ -14,30 +11,17 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">點擊按鈕釋放空間，或先點擊標籤以檢查。</string>
     <string name="dashboard_hero_freed_hint">點擊卡片以查看詳細資料。</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">剩下 %1$s</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">沒有釋放任何空間</string>
     <string name="dashboard_hero_nothing_freed_caption">清理已完成，但找到的資料都無法移除。</string>
     <string name="dashboard_hero_nothing_freed_hint">部分資料只能透過額外的存取權限移除，例如無障礙服務或 root。</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">已發現 %1$s</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="other">%d 項需要 SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">點擊以使用 SD Maid Pro 解鎖。</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">使用 SD Maid Pro 可以釋放更多空間</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">需要 SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">已掃描 %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">%1$s 已釋出</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">嘗試 %1$s</string>
@@ -236,7 +220,6 @@
     <string name="setup_root_card_title">Root 存取</string>
     <string name="setup_root_card_body">如果要檢查額外的系統資料夾和私人應用程式資料，SD 女僕需要使用 Root 存取權。</string>
     <string name="setup_root_state_ready_label">Root 訪問已就緒。</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root 存取無法使用。</string>
     <string name="setup_root_state_failed_title">取得root權限失敗</string>
     <string name="setup_root_state_failed_body">SD Maid請求root權限但未能取得。如果你的裝置已root，請開啟root管理工具（Magisk、KernelSU或類似工具），查看SD Maid的請求是否被拒絕或仍在等待中。</string>
@@ -295,7 +278,6 @@
     <string name="dataarea_warningcard_reload_action">重新載入資料區域</string>
     <string name="debug_mode_label">偵錯模式</string>
     <string name="debug_mode_explanation">啟用測試選項和更多詳細資訊輸出，應用程式會降低速度並以不同方式執行。</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">偵錯模式已啟用</string>
     <string name="debug_card_description">開發者診斷和執行時期覆寫。此卡片僅在啟用偵錯模式時顯示。</string>
     <string name="debug_card_section_diagnostics">診斷</string>
@@ -308,7 +290,6 @@
     <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
     <string name="debug_card_root_test_action">測試 Root</string>
     <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">試運行模式已啟用</string>
     <string name="dashboard_dryrun_warning_body">正在模擬清理。檔案已掃描並報告，但實際上不會刪除任何項目。</string>
     <string name="dashboard_dryrun_warning_disable_action">關閉</string>
@@ -360,10 +341,6 @@
     <string name="widget_home_description">儲存空間使用量及一鍵清理</string>
     <string name="widget_home_storage_internal">內部</string>
     <string name="widget_home_storage_external">外部</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">已釋放總計：%1$s</string>
     <string name="widget_home_clean_action">清理</string>
     <string name="widget_home_working">處理中…</string>
@@ -376,7 +353,6 @@
     <string name="widget_oneclick_consent_decline_action">稍後再說</string>
     <string name="shortcut_onetap_started">掃描 + 刪除已開始…</string>
     <string name="shortcut_onetap_nothing_enabled">未啟用任何一鍵清理工具</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">備份及還原</string>
     <string name="backup_restore_desc">將您的設定及組態儲存至檔案，或還原它們</string>
     <string name="backup_restore_export_title">建立備份</string>
@@ -404,7 +380,6 @@
     <string name="backup_restore_warn_history_body">此備份的歷史數據（統計、壓縮歷史、滑動會話）來自不同的應用版本，無法恢復。其他所有內容將被恢復。</string>
     <string name="backup_restore_ack_understand">我明白，想繼續</string>
     <string name="backup_restore_action_restore">還原</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">儲存空間警告</string>
     <string name="stats_lowspace_notification_title">儲存空間即將用盡</string>
     <string name="stats_lowspace_notification_low_title">儲存空間即將爆滿</string>

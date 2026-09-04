@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Ștergeți rezultatele din toate instrumentele?</string>
     <string name="dashboard_hero_freeable_headline">%1$s poate fi eliberat</string>
     <string name="dashboard_hero_freed_headline">%1$s eliberat</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d element poate fi eliminat</item>
         <item quantity="few">%d elemente pot fi eliminate</item>
@@ -18,32 +15,19 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Atingeți butonul pentru a elibera spațiu, sau o etichetă pentru a verifica mai întâi.</string>
     <string name="dashboard_hero_freed_hint">Apasă o etichetă pentru detalii.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s a rămas</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Nimic nu a fost eliberat</string>
     <string name="dashboard_hero_nothing_freed_caption">Curățarea s-a terminat, dar niciuna din datele găsite nu a putut fi eliminată.</string>
     <string name="dashboard_hero_nothing_freed_hint">Unele date pot fi eliminate doar cu acces suplimentar, cum ar fi serviciul de accesibilitate sau root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s găsite</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d element necesită SD Maid Pro</item>
         <item quantity="few">%d elemente necesită SD Maid Pro</item>
         <item quantity="other">%d de elemente necesită SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Atinge pentru a debloca cu SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Poți elibera mai mult spațiu cu SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Necesită SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scanat %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Eliberat %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">A fost încercat %1$s</string>
@@ -252,7 +236,6 @@
     <string name="setup_root_card_title">Acces root</string>
     <string name="setup_root_card_body">Ar trebui ca SD Maid să folosească accesul root dacă este disponibil? Accesul root poate fi folosit pentru a verifica folderele de sistem și datele private ale aplicației.</string>
     <string name="setup_root_state_ready_label">Accesul root este gata.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Accesul la root nu este disponibil.</string>
     <string name="setup_root_state_failed_title">Accesul root a eșuat</string>
     <string name="setup_root_state_failed_body">SD Maid a solicitat acces root, dar nu l-a obținut. Dacă dispozitivul tău are root, deschide aplicația de gestionare root (Magisk, KernelSU sau similară) și verifică dacă cererea SD Maid a fost refuzată sau este încă în așteptare.</string>
@@ -311,7 +294,6 @@
     <string name="dataarea_warningcard_reload_action">Reîncarcă zonele de date</string>
     <string name="debug_mode_label">Mod de depanare</string>
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modul depanare este activat</string>
     <string name="debug_card_description">Diagnostice pentru dezvoltatori și anulări de runtime. Acest card apare numai atunci când modul de depanare este activat.</string>
     <string name="debug_card_section_diagnostics">Diagnostice</string>
@@ -324,7 +306,6 @@
     <string name="debug_card_pkgs_reload_action">Reîncărcați aplicațiile</string>
     <string name="debug_card_root_test_action">Testați root</string>
     <string name="debug_card_shizuku_test_action">Testați Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Modul test este activ</string>
     <string name="dashboard_dryrun_warning_body">Curățarea este simulată. Fișierele sunt scanate și raportate, dar nu se șterge nimic de fapt.</string>
     <string name="dashboard_dryrun_warning_disable_action">Opriți</string>
@@ -380,10 +361,6 @@
     <string name="widget_home_description">Utilizarea spațiului de stocare și curățare cu o singură atingere</string>
     <string name="widget_home_storage_internal">Intern</string>
     <string name="widget_home_storage_external">Extern</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Total eliberat: %1$s</string>
     <string name="widget_home_clean_action">Curăță</string>
     <string name="widget_home_working">Se lucrează…</string>
@@ -396,7 +373,6 @@
     <string name="widget_oneclick_consent_decline_action">Nu acum</string>
     <string name="shortcut_onetap_started">Scanare + Ștergere a început…</string>
     <string name="shortcut_onetap_nothing_enabled">Nu sunt activate unelte cu o singură apăsare</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Backup &amp; Restabilire</string>
     <string name="backup_restore_desc">Salvează-ți setările și configurația într-un fișier, sau restabilește-le</string>
     <string name="backup_restore_export_title">Creează o copie de siguranță</string>
@@ -424,7 +400,6 @@
     <string name="backup_restore_warn_history_body">Datele istorice ale acestei copii de siguranță (statistici, istoricul compresiei, sesiunile de ștergere) sunt dintr-o versiune diferită a aplicației și nu pot fi restaurate. Restul va fi restaurat.</string>
     <string name="backup_restore_ack_understand">Înțeleg și vreau să continui</string>
     <string name="backup_restore_action_restore">Restaurează</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Avertismente privind stocarea</string>
     <string name="stats_lowspace_notification_title">Spațiul de stocare se umple</string>
     <string name="stats_lowspace_notification_low_title">Spațiul de stocare este aproape plin</string>

@@ -6,9 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">%s ຣາຍການຖືກປະລົງຜລນັບເທົ່າທີ່ທ່ານ຺້ວ SD Maid ມາທີ່ອຸປະກອນຂອງທ່ານ.</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="other">ທ່ານເປັນແຂກມາເປັນເວລາ %d ວັນແລ້ວ.</item>
     </plurals>

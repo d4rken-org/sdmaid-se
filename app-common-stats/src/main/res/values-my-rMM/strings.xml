@@ -6,9 +6,6 @@
     <plurals name="stats_dash_body_count">
         <item quantity="other">သင်မ်းသည် SD Maid ကို သင်မ်း ကရိုးသိုချ သပြောက်မှ %s အခုများ ဆေးသပြောက်ပြီးသည်။</item>
     </plurals>
-    <!-- Dashboard statistics card caption: how long SD Maid has been installed. SD Maid is
-         personified as an invited houseguest (see stats_dash_body_count). Use the INFORMAL
-         register (du / tu / tú) in languages that distinguish it. %d is the count. -->
     <plurals name="stats_dash_since_days">
         <item quantity="other">%d ရက်ကြာ သင့်ဧည့်သည်ဖြစ်ခဲ့သည်။</item>
     </plurals>

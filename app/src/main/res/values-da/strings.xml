@@ -3,9 +3,6 @@
     <string name="dashboard_delete_all_message">Slet resultater i alle værktøjer?</string>
     <string name="dashboard_hero_freeable_headline">%1$s kan frigøres</string>
     <string name="dashboard_hero_freed_headline">%1$s frigjort</string>
-    <!-- Full sentences with the count inlined, not a count spliced into a separate string: languages
-         with verb agreement (de, it, fr, …) need a different verb form per quantity, and a plain
-         <string> can only ever offer the translator one. -->
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d element kan fjernes</item>
         <item quantity="other">%d elementer kan fjernes</item>
@@ -16,31 +13,18 @@
     </plurals>
     <string name="dashboard_hero_freeable_hint">Tryk på knappen for at frigøre plads, eller tryk på et chip for at kontrollere først.</string>
     <string name="dashboard_hero_freed_hint">Tryk på et chip for detaljer.</string>
-    <!-- Shown under a "freed" summary when the cleanup left something behind. Says "left", not
-         "couldn't be freed": the tools don't record whether an item was attempted and failed or
-         skipped, so naming a cause would claim more than is known. %1$s is a size, e.g. "5.8 MB" -->
     <string name="dashboard_hero_freed_residue">%1$s tilbage</string>
-    <!-- Shown when a cleanup ran to completion but could not free any space -->
     <string name="dashboard_hero_nothing_freed_headline">Intet blev frigivet</string>
     <string name="dashboard_hero_nothing_freed_caption">Oprydningen er afsluttet, men ingen af de fundne data kunne fjernes.</string>
     <string name="dashboard_hero_nothing_freed_hint">Nogle data kan kun fjernes med ekstra adgang, såsom tilgængelighedstjenesten eller root.</string>
-    <!-- Shown when every finding needs SD Maid Pro. Deliberately not "can be freed": the main action
-         will not free any of it. %1$s is the locked size, e.g. "3.7 GB" -->
     <string name="dashboard_hero_locked_headline">%1$s fundet</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d element kræver SD Maid Pro</item>
         <item quantity="other">%d elementer kræver SD Maid Pro</item>
     </plurals>
-    <!-- Tappable line on the hero card, routing to the upgrade screen -->
     <string name="dashboard_hero_locked_hint">Tryk for at låse op med SD Maid Pro.</string>
-    <!-- Caption of the nested block that collects Pro-gated findings sitting next to findings the
-         user can already free. "More" is load-bearing: it is on top of what the card's headline
-         already promises. Deliberately carries no size - the block's chips sit directly below it and
-         there is usually only one, so a total here would just print the same figure twice. -->
     <string name="dashboard_hero_locked_block_caption">Mere kan frigøres med SD Maid Pro</string>
-    <!-- Accessibility name for the bar's collapsed summary chip when the space it shows needs Pro -->
     <string name="dashboard_hero_locked_chip_description">Kræver SD Maid Pro</string>
-    <!-- Accessibility descriptions for the hero card's relative timestamp; %1$s is e.g. "5 min. ago" -->
     <string name="dashboard_hero_scanned_timestamp_description">Scannet %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Frigjort %1$s</string>
     <string name="dashboard_hero_nothing_freed_timestamp_description">Forsøgt %1$s</string>
@@ -244,7 +228,6 @@
     <string name="setup_root_card_title">Root-adgang</string>
     <string name="setup_root_card_body">Skal SD Maid bruge root-adgang, hvis den er tilgængelig? Root-adgang kan bruges til at gennemgå flere systemmapper og private applikationsdata.</string>
     <string name="setup_root_state_ready_label">Root-adgang er klar.</string>
-    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_root_state_waiting_label">Root-adgang er utilgængelig.</string>
     <string name="setup_root_state_failed_title">Root-adgang mislykkedes</string>
     <string name="setup_root_state_failed_body">SD Maid bad om root-adgang, men fik den ikke. Hvis din enhed er rootet, skal du åbne din root-manager (Magisk, KernelSU eller lignende) og tjekke, om anmodningen fra SD Maid blev afvist eller stadig venter.</string>
@@ -303,7 +286,6 @@
     <string name="dataarea_warningcard_reload_action">Genindlæs dataområder</string>
     <string name="debug_mode_label">Fejlfindingstilstand</string>
     <string name="debug_mode_explanation">Aktivér testindstillinger og mere detaljeret output. Appen vil køre langsommere og opføre sig anderledes.</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
     <string name="debug_card_description">Udviklerdiagnostik og køretidsindstillinger. Dette kort vises kun når fejlretningstilstand er aktiveret.</string>
     <string name="debug_card_section_diagnostics">Diagnostik</string>
@@ -316,7 +298,6 @@
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <!-- Dry-run warning card (dashboard) -->
     <string name="dashboard_dryrun_warning_title">Simuleringstilstand er aktiv</string>
     <string name="dashboard_dryrun_warning_body">Oprydning bliver simuleret. Filer scannes og rapporteres, men intet bliver faktisk slettet.</string>
     <string name="dashboard_dryrun_warning_disable_action">Slå fra</string>
@@ -370,10 +351,6 @@
     <string name="widget_home_description">Lagerforbrug og rydning med et tryk</string>
     <string name="widget_home_storage_internal">Internt</string>
     <string name="widget_home_storage_external">Eksternt</string>
-    <!-- Home-screen widget: cumulative space freed since install. NOT a duration - do not
-         translate "total" as lifespan/service-life ("Lebensdauer", "duree de vie", "寿命").
-         Renders on one line with no wrapping in a narrow widget, so keep the label short;
-         dropping "freed" is fine if the language needs the room. %1$s is a byte size. -->
     <string name="widget_home_freed_label">Frigjort i alt: %1$s</string>
     <string name="widget_home_clean_action">Rens</string>
     <string name="widget_home_working">Arbejder…</string>
@@ -386,7 +363,6 @@
     <string name="widget_oneclick_consent_decline_action">Ikke nu</string>
     <string name="shortcut_onetap_started">Scanning + Sletning startet…</string>
     <string name="shortcut_onetap_nothing_enabled">Ingen one-tap-værktøjer er aktiveret</string>
-    <!-- Config backup & restore -->
     <string name="backup_restore_title">Sikkerhedskopi &amp; Gendan</string>
     <string name="backup_restore_desc">Gem dine indstillinger og konfiguration til en fil, eller gendan dem</string>
     <string name="backup_restore_export_title">Opret sikkerhedskopi</string>
@@ -414,7 +390,6 @@
     <string name="backup_restore_warn_history_body">Denne sikkerhedskopis historiedata (statistikker, komprimeringhistorik, swipe-sessioner) er fra en anden appversion og kan ikke gendannes. Alt øvrigt bliver gendannet.</string>
     <string name="backup_restore_ack_understand">Jeg forstår og vil fortsætte</string>
     <string name="backup_restore_action_restore">Gendan</string>
-    <!-- Low space warning -->
     <string name="stats_lowspace_notification_channel_label">Lagerplads-advarsler</string>
     <string name="stats_lowspace_notification_title">Lagerpladsen fyldes op</string>
     <string name="stats_lowspace_notification_low_title">Lagerpladsen er næsten fuld</string>
