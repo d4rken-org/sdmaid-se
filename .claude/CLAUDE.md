@@ -23,45 +23,15 @@ SD Maid SE (AKA SD Maid 2) is an Android file management tool that specializes i
 - **FOSS**: Open source version without Google Play dependencies
 - **GPLAY**: Google Play version with additional features
 
-## Important File Locations
-
-### Database & Schemas
-- `app/schemas/`: Room database schema files for migrations
-
-### Localization
-- `app/src/main/res/values/strings.xml`: Base English strings
-- `app/src/main/res/values-*/strings.xml`: Translated strings
-
-### Build Configuration
-- `buildSrc/src/main/java/Versions.kt`: Dependency versions
-- `buildSrc/build.gradle.kts`: Build plugin versions (keep in sync!)
-- `.github/workflows/code-checks.yml`: CI configuration
-
-### Test Data & Tooling
-- `tooling/testdata-generator/`: Test data generation tools
-- `tooling/translation/`: Translation automation tools
-
-## CI/CD Pipeline
-
-The project uses GitHub Actions:
-- **Lint Vital**: Runs `lintVitalFossRelease` and `lintVitalGplayRelease`
-- **Build Apps**: Builds both FOSS and Google Play flavors
-- **Tests**: Runs unit tests across all modules
-
-All lint-vital checks, unit tests, and builds must pass.
-
 ## Development Tips
 
 - Use FOSS debug flavor for local development
-- Debug builds include additional logging and debug tools
-- Large file operations are chunked to prevent memory issues
-- Progress reporting is essential for long-running operations
 
 ## Rules Loading
 
 Some files in `.claude/rules/` are path-scoped (`paths:` frontmatter) and only load into context when matching files
-are touched: testing, localization, automation, release, build system. Two rules that must apply *before* their files
-would ever be touched:
+are touched: testing, localization, automation, release, build system, DataStore settings. Two rules that must apply
+*before* their files would ever be touched:
 
 - All user-facing text must be extracted into the owning module's `strings.xml` — never hardcode UI strings
   (details: `.claude/rules/localization.md`).
