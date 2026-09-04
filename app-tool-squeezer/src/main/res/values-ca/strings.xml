@@ -30,16 +30,16 @@
         <item quantity="other">%d s\'han omès (s\'ha conservat l\'HDR/profunditat)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_motion_photo">
-        <item quantity="one">%d omesa (Motion Photo)</item>
-        <item quantity="other">%d omeses (Motion Photos)</item>
+        <item quantity="one">S\'ha omès %d (foto en moviment)</item>
+        <item quantity="other">S\'han omès %d (fotos en moviment)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_oversized">
-        <item quantity="one">%d omesa (foto molt gran)</item>
-        <item quantity="other">%d omeses (fotos molt grans)</item>
+        <item quantity="one">S\'ha omès %d (foto molt gran)</item>
+        <item quantity="other">S\'han omès %d (fotos molt gran)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_protected">
-        <item quantity="one">%d omesa (protegida)</item>
-        <item quantity="other">%d omeses (protegides)</item>
+        <item quantity="one">S\'ha omès %d (protegida)</item>
+        <item quantity="other">S\'han omès %d (protegides)</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element seleccionat</item>
@@ -55,35 +55,35 @@
     <string name="squeezer_protected_category_label">Què es perd</string>
     <string name="squeezer_video_settings_category_label">Configuració de vídeo</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Inclou imatges JPEG (.jpg, .jpeg). La recodificació utilitza el codificador JPEG integrat d\'Android. Es conserven la data, la ubicació i altres metadades EXIF.</string>
+    <string name="squeezer_type_jpeg_description">Inclou imatges JPEG (.jpg, .jpeg). La recodificació utilitza el codificador JPEG integrat d\'Android. La data, la ubicació i altres metadades EXIF es mantenen.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Inclou imatges WebP (.webp). La recodificació utilitza el codificador WebP integrat d\'Android. Es conserven la data, la ubicació i altres metadades EXIF.</string>
+    <string name="squeezer_type_webp_description">Inclou imatges WebP (.webp). La recodificació utilitza el codificador WebP integrat d\'Android. La data, la ubicació i altres metadades EXIF es mantenen.</string>
     <string name="squeezer_type_heic_title">HEIC/HEIF</string>
     <string name="squeezer_type_heic_description">Inclou les imatges HEIC/HEIF (.heic, .heif). La data, la ubicació i altres metadades EXIF es mantenen. Els mapes de guany HDR, les dades de profunditat i els fitxers bessons de fotos en directe/moviment no es poden preservar; s\'ometen els fitxers multiimatge.</string>
     <string name="squeezer_type_video_title">Vídeo MP4</string>
-    <string name="squeezer_type_video_description">Inclou fitxers de vídeo MP4 (.mp4). La pista de vídeo es recodifica a una taxa de bits més baixa amb el codificador de vídeo propi del dispositiu, la pista d\'àudio es copia sense canvis i el fitxer continua sent un MP4.</string>
+    <string name="squeezer_type_video_description">Inclou fitxers de vídeo MP4 (.mp4). La pista de vídeo es recodifica a una taxa de bits més baixa pel mateix codificador de vídeo del dispositiu, la pista d\'àudio es copia sense canvis i el fitxer es manté en MP4.</string>
     <string name="squeezer_skip_compressed_title">Omet els elements comprimits anteriorment</string>
     <string name="squeezer_skip_compressed_description">Omet els fitxers que ja han estat comprimits per l\'SD Maid.</string>
     <string name="squeezer_exif_marker_title">Escriu el marcador EXIF</string>
     <string name="squeezer_exif_marker_description">Afegeix un marcador al camp de comentaris de l\'usuari EXIF ​​de la imatge per evitar la recompressió fins i tot si s\'esborra l\'historial de compressió.</string>
     <string name="squeezer_include_lossy_aux_title">Comprimeix les fotos HDR i de profunditat</string>
-    <string name="squeezer_include_lossy_aux_description">Inclou fotografies amb dades HDR o de profunditat. La compressió les elimina: les fotografies HDR es converteixen en fotografies normals i les fotografies de retrat perden les dades que fan possible el desenfocament del fons. Els fitxers HEIC amb diverses imatges es continuen ometent.</string>
-    <string name="squeezer_include_motion_photos_title">Comprimeix les Motion Photos</string>
-    <string name="squeezer_include_motion_photos_description">Inclou les Motion Photos. La compressió conserva la imatge fixa i elimina el clip de vídeo.</string>
-    <string name="squeezer_include_oversized_title">Comprimeix les fotografies molt grans</string>
-    <string name="squeezer_include_oversized_description">Inclou fotografies més amples o altes de 8192 píxels. La compressió també redueix la seva resolució a la meitat.</string>
+    <string name="squeezer_include_lossy_aux_description">Inclou fotos amb HDR o dades de profunditat. La compressió l\'elimina: les fotos HDR es converteixen en fotos normals, les fotos de retrat perden les dades darrere del seu difuminat de fons. Els fitxers HEIC multiimatge s\'ometen.</string>
+    <string name="squeezer_include_motion_photos_title">Comprimeix les fotos en moviment</string>
+    <string name="squeezer_include_motion_photos_description">Inclou fotos en moviment. La compressió manté la imatge fixa i elimina el clip de vídeo.</string>
+    <string name="squeezer_include_oversized_title">Comprimeix les fotos molt grans</string>
+    <string name="squeezer_include_oversized_description">Inclou fotos més amples o més altes que 8192 píxels. La compressió també redueix a la meitat la seva resolució.</string>
     <string name="squeezer_estimated_savings_format">~%s estalviats</string>
     <string name="squeezer_no_savings_expected">Estalvi limitat</string>
     <string name="squeezer_current_size_format">Mida: %s</string>
     <string name="squeezer_chip_compressed_before">Comprimida</string>
     <string name="squeezer_chip_hdr_depth">HDR/profunditat</string>
-    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_motion_photo">Foto en moviment</string>
     <string name="squeezer_chip_downscaled">Reduïda</string>
     <string name="squeezer_markers_dialog_title">Sobre aquests marcadors</string>
-    <string name="squeezer_markers_compressed_before_description">SD Maid ja ha comprimit aquest fitxer. Tornar-lo a comprimir costa qualitat i estalvia poc.</string>
-    <string name="squeezer_markers_hdr_depth_description">Aquesta fotografia té dades HDR o de profunditat que la compressió no pot conservar. Una fotografia HDR es converteix en una de normal, i una fotografia de retrat perd les dades de profunditat utilitzades per al desenfocament del fons.</string>
-    <string name="squeezer_markers_motion_photo_description">Això és una Motion Photo. La compressió conserva la imatge fixa i elimina el clip de vídeo.</string>
-    <string name="squeezer_markers_downscaled_description">Aquesta fotografia és més ampla o alta de 8192 píxels. La compressió també redueix la seva resolució a la meitat.</string>
+    <string name="squeezer_markers_compressed_before_description">L\'SD Maid ja ha comprimit aquest fitxer. Comprimir-lo de nou costa qualitat i estalvia poc.</string>
+    <string name="squeezer_markers_hdr_depth_description">Aquesta foto té dades HDR o de profunditat que la compressió no pot mantenir. Una foto HDR es torna com una de normal, i una foto de retrat perd les dades de profunditat utilitzades per difuminar el fons.</string>
+    <string name="squeezer_markers_motion_photo_description">Això és una foto en moviment. La compressió conserva la imatge fixa i elimina el clip de vídeo.</string>
+    <string name="squeezer_markers_downscaled_description">Aquesta foto és més ampla o més alta que 8192 píxels. La compressió també redueix a la meitat la seva resolució.</string>
     <string name="squeezer_compress_action">Comprimeix</string>
     <string name="squeezer_compress_all_action">Comprimeix-ho tot</string>
     <string name="squeezer_preview_dialog_title">Confirmeu la compressió</string>
@@ -105,18 +105,18 @@
     <string name="squeezer_compare_action">Mostra la comparació</string>
     <string name="squeezer_no_example_found">No s\'han trobat imatges a les rutes seleccionades.</string>
     <string name="squeezer_result_empty_message">No s\'han trobat fitxers multimèdia comprimibles.</string>
-    <string name="squeezer_result_empty_protected">Res a comprimir. S\'ha omès: %s. Activa l\'opció corresponent als ajustos per incloure-les.</string>
+    <string name="squeezer_result_empty_protected">Res a comprimir. S\'ha omès: %s. Activeu l\'opció de coincidència a la configuració per incloure-les.</string>
     <plurals name="squeezer_result_empty_x_lossy_aux">
-        <item quantity="one">%d fotografia HDR/profunditat</item>
-        <item quantity="other">%d fotografies HDR/profunditat</item>
+        <item quantity="one">%d foto HDR/profunditat</item>
+        <item quantity="other">%d fotos HDR/profunditat</item>
     </plurals>
     <plurals name="squeezer_result_empty_x_motion_photo">
-        <item quantity="one">%d Motion Photo</item>
-        <item quantity="other">%d Motion Photos</item>
+        <item quantity="one">%d foto en moviment</item>
+        <item quantity="other">%d fotos en moviment</item>
     </plurals>
     <plurals name="squeezer_result_empty_x_oversized">
-        <item quantity="one">%d fotografia molt gran</item>
-        <item quantity="other">%d fotografies molt grans</item>
+        <item quantity="one">%d foto molt gran</item>
+        <item quantity="other">%d fotos molt grans</item>
     </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d ubicació no es pot utilitzar per a la compressió i s\'ha eliminat. La compressió requereix accés directe a l\'emmagatzematge intern.</item>

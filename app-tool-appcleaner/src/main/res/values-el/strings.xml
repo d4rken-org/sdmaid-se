@@ -103,5 +103,5 @@
     <string name="appcleaner_forcestop_before_clearing_label">Αναγκαστική διακοπή πριν από την εκκαθάριση</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Αναγκαστική διακοπή εφαρμογών πριν από την εκκαθάριση της μνήμης cache τους. Μπορεί να βοηθήσει στην εκκαθάριση ορισμένων κρυφών μνημών εφαρμογών, αλλά μπορεί να προκαλέσει δυσλειτουργία εφαρμογών και να απαιτηθεί χειροκίνητη επανεκκίνηση.</string>
     <string name="appcleaner_progress_force_stopping">Αναγκαστική διακοπή εφαρμογών…</string>
-    <string name="appcleaner_progress_checking_freed_space">Έλεγχος ελευθερωμένου χώρου…</string>
+    <string name="appcleaner_progress_checking_freed_space">Έλεγχος απελευθερωμένου χώρου…</string>
 </resources>
