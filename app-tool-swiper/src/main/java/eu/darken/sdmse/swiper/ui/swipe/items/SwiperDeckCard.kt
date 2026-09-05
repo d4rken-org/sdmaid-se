@@ -89,8 +89,11 @@ internal fun SwiperDeckCard(
 
                 // Gesture-local source of truth. Animatable.snapTo is suspend and runs on the
                 // animation scope, so reading offsetX.value back mid-gesture can miss deltas that
-                // are still queued; this accumulates them synchronously instead.
-                var dragOffset = Offset(offsetX.value, offsetY.value)
+                // are still queued; this accumulates them synchronously instead. It is seeded in
+                // the slop callback rather than here: a press landing on a running snap-back must
+                // start from where the card has actually travelled to by the time the drag is
+                // claimed, not from where it sat when the finger went down.
+                var dragOffset = Offset.Zero
 
                 // Below touch slop this consumes nothing, so a tap still reaches the clickable
                 // corner buttons inside the card. It also cancels if another recognizer claims the
@@ -98,7 +101,7 @@ internal fun SwiperDeckCard(
                 val slopChange = awaitTouchSlopOrCancellation(down.id) { change, overSlop ->
                     change.consume()
                     tracker.addPointerInputChange(change)
-                    dragOffset += overSlop
+                    dragOffset = Offset(offsetX.value, offsetY.value) + overSlop
                     val target = dragOffset
                     animationScope.launch {
                         offsetX.snapTo(target.x)
