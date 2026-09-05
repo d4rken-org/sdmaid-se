@@ -30,6 +30,7 @@ import java.io.PipedOutputStream
 
 private const val CHUNK_COUNT = 100
 private const val LOOKUP_SIZE = 1024
+private const val HOST_PIPE_SIZE = 32 * 1024
 
 fun RemoteInputStream.toLocalPathLookupExtendedFlow(): Flow<LocalPathLookupExtended> = flow {
     if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "RemoteInputStream.toLocalPathLookupExtendedFlow() starting..." }
@@ -84,26 +85,23 @@ fun RemoteInputStream.toLocalPathLookupExtendedFlow(): Flow<LocalPathLookupExten
 fun Flow<LocalPathLookupExtended>.toRemoteInputStream(scope: CoroutineScope): RemoteInputStream {
     if (Bugs.isTrace) log(FileOpsHost.TAG, VERBOSE) { "Flow<LocalPathLookupExtended>.toRemoteInputStream()..." }
 
-    val inputStream = PipedInputStream(2 * CHUNK_COUNT * LOOKUP_SIZE)
+    val inputStream = PipedInputStream(HOST_PIPE_SIZE)
     val outputStream = PipedOutputStream()
     inputStream.connect(outputStream)
 
-    val buffer = outputStream.writer().buffered(CHUNK_COUNT * LOOKUP_SIZE)
+    val buffer = outputStream.writer().buffered()
 
     val resultFlow: Flow<LocalPathLookupExtendedResult> = flow {
-        try {
-            this@toRemoteInputStream.collect { lookup ->
-                emit(LocalPathLookupExtendedResult.Success(lookup))
-            }
-            // Terminal marker: tells the consumer the stream ended cleanly rather than being
-            // truncated by a dying host process.
-            emit(LocalPathLookupExtendedResult.Complete)
-        } catch (exception: CancellationException) {
-            // Cancellation is not a stream error — let it unwind instead of fabricating an Error frame.
-            throw exception
-        } catch (exception: Exception) {
-            emit(LocalPathLookupExtendedResult.Error(exception))
+        this@toRemoteInputStream.collect { lookup ->
+            emit(LocalPathLookupExtendedResult.Success(lookup))
         }
+        // Terminal marker: tells the consumer the stream ended cleanly rather than being
+        // truncated by a dying host process.
+        emit(LocalPathLookupExtendedResult.Complete)
+    }.catch { exception ->
+        // Cancellation is not a stream error — let it unwind instead of fabricating an Error frame.
+        if (exception !is Exception || exception is CancellationException) throw exception
+        emit(LocalPathLookupExtendedResult.Error(exception))
     }
 
     resultFlow

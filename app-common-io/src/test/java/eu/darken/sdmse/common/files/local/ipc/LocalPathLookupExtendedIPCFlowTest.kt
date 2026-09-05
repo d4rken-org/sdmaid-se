@@ -14,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.asFlow
@@ -207,6 +208,25 @@ class LocalPathLookupExtendedIPCFlowTest : BaseTest() {
             val collected = ByteArrayInputStream(bytes).remoteInputStream()
                 .toLocalPathLookupExtendedFlow().toList()
             collected shouldContainExactly listOf(lookup("before"))
+        }
+    }
+
+    @Test
+    fun `a chunk larger than the host pipe streams without deadlock`() {
+        // One full chunk of oversized items encodes to a base64 line of >100KB, several times the
+        // host pipe. The producer has to block until the client drains the pipe, not deadlock.
+        val items = (0 until 100).map { lookup("file$it".padEnd(1024, 'x')) }
+        val scope = makeScope()
+        try {
+            runBlocking {
+                val stream = items.asFlow().toRemoteInputStream(scope)
+                // The decoder's readLine() is a blocking read that cancellation can't interrupt,
+                // so collect off the test thread and bound the wait with a timeout.
+                val collected = scope.async(Dispatchers.IO) { stream.toLocalPathLookupExtendedFlow().toList() }
+                withTimeout(10_000) { collected.await() } shouldContainExactly items
+            }
+        } finally {
+            scope.cancel()
         }
     }
 }
