@@ -31,7 +31,6 @@ class SegmentExclusionTest : BaseTest() {
         ).id shouldBe "SegmentExclusion-some/dir"
     }
 
-
     @Test
     fun `custom tags`() {
         testFile.tryMkFile()
