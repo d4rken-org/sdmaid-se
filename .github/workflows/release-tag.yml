@@ -223,13 +223,3 @@ jobs:
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
           KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
           KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
-
-      - name: Upload R8 mapping files
-        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
-        if: always() && !(github.event_name == 'workflow_dispatch' && inputs.dry_run)
-        with:
-          name: r8-mapping-gplay-${{ github.ref_name }}
-          path: app/build/outputs/mapping/gplay*/mapping.txt
-          if-no-files-found: error
-          retention-days: 90
-          overwrite: true

@@ -30,7 +30,7 @@ Files updated by every release:
 | `-beta<n>` | `assembleFossBeta` | **pre-release** | `lane :beta` | `beta` | 10% |
 | `-rc<n>` | `assembleFossRelease` | **release** | `lane :production` | **`beta`** | 10% |
 
-Gplay builds are obfuscated; the R8 mapping for retracing Play vitals or user logs is attached to the release-tag workflow run as the artifact r8-mapping-gplay-<tag> (90-day retention) and is also embedded in the uploaded bundle (Play Console → App bundle explorer).
+Gplay builds are obfuscated; the R8 mapping for retracing Play vitals or user logs is embedded in the uploaded bundle and can be downloaded from Play Console (App bundle explorer).
 
 > **Surprising convention:** `lane :production` in the Fastfile uploads to the **beta** track in Play (not `production`). Manual promotion to GA is done via Play Console. `lane :listing_only` is the only path that touches the `production` track and only for metadata refreshes.
 
