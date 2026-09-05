@@ -5,12 +5,21 @@ import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.isChildOf
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.assertions.withClue
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.mockk.coEvery
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.yield
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -33,6 +42,26 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
         },
         gatewaySwitch = gatewaySwitch,
     )
+
+    private val counts = mutableMapOf<String, Int>()
+
+    /**
+     * Re-stubs an already mocked directory so every listing is counted. The `yield()` gives a
+     * second coroutine the chance to interleave while this listing is in flight.
+     */
+    private suspend fun countListings(dir: APathLookup<*>) {
+        val children = gatewaySwitch.lookupFiles(dir.lookedUp).toList()
+        coEvery { gatewaySwitch.lookupFiles(dir.lookedUp) } coAnswers {
+            counts.merge(dir.path, 1, Int::plus)
+            flow {
+                yield()
+                children.forEach { emit(it) }
+            }
+        }
+    }
+
+    private fun Collection<APathLookup<*>>.pick(areaPath: String, suffix: String): APathLookup<*> =
+        single { it.path.startsWith("$areaPath/") && it.path.endsWith("/$suffix") }
 
     @Test fun `test basic protected dirs`() = runTest {
         neg(SDCARD, "afile", Flag.File)
@@ -131,5 +160,91 @@ class EmptyDirectoryFilterTest : SystemCleanerFilterTest() {
         pos(SDCARD, "empty", Flag.Dir)
 
         confirm(create())
+    }
+
+    @Test fun `nested directories are listed once per scan, not once per ancestor`() = runTest {
+        pos(SDCARD, "tree", Flag.Dir)
+        pos(SDCARD, "tree/a", Flag.Dir)
+        pos(SDCARD, "tree/a/b", Flag.Dir)
+        pos(SDCARD, "tree/a/b/c", Flag.Dir)
+
+        neg(SDCARD, "full", Flag.Dir)
+        neg(SDCARD, "full/a", Flag.Dir)
+        neg(SDCARD, "full/a/b", Flag.Dir)
+        neg(SDCARD, "full/a/b/file", Flag.File)
+
+        val dirs = (positives + negatives).filter { it.fileType == FileType.DIRECTORY }
+        dirs.forEach { countListings(it) }
+
+        val filter = create()
+        filter.initialize()
+
+        val crawlOrder = listOf("tree", "tree/a", "tree/a/b", "tree/a/b/c", "full", "full/a", "full/a/b")
+        listOf(storageSdcard1, storageSdcard2).forEach { area ->
+            crawlOrder.forEach { suffix ->
+                val candidate = dirs.pick(area.path.path, suffix)
+                val result = filter.match(candidate)
+                withClue(candidate.path) {
+                    if (suffix.startsWith("tree")) result shouldNotBe null else result shouldBe null
+                }
+            }
+        }
+
+        dirs.forEach { withClue(it.path) { counts[it.path] shouldBe 1 } }
+    }
+
+    @Test fun `an unreadable directory is listed once and blocks every ancestor`() = runTest {
+        neg(SDCARD, "broken", Flag.Dir)
+        neg(SDCARD, "broken/a", Flag.Dir)
+        neg(SDCARD, "broken/a/b", Flag.Dir)
+
+        val dirs = negatives.filter { it.fileType == FileType.DIRECTORY }
+        val (unreadable, readable) = dirs.partition { it.path.endsWith("/broken/a/b") }
+        readable.forEach { countListings(it) }
+        unreadable.forEach { b ->
+            coEvery { gatewaySwitch.lookupFiles(b.lookedUp) } coAnswers {
+                counts.merge(b.path, 1, Int::plus)
+                flow { throw ReadException(path = b.lookedUp) }
+            }
+        }
+
+        val filter = create()
+        filter.initialize()
+
+        listOf(storageSdcard1, storageSdcard2).forEach { area ->
+            listOf("broken", "broken/a", "broken/a/b").forEach { suffix ->
+                val candidate = dirs.pick(area.path.path, suffix)
+                withClue(candidate.path) {
+                    shouldThrow<ReadException> { filter.match(candidate) }
+                }
+            }
+        }
+
+        dirs.forEach { withClue(it.path) { counts[it.path] shouldBe 1 } }
+    }
+
+    @Test fun `concurrent evaluations of an ancestor and its child share one listing`() = runTest {
+        pos(SDCARD, "tree", Flag.Dir)
+        pos(SDCARD, "tree/a", Flag.Dir)
+        pos(SDCARD, "tree/a/b", Flag.Dir)
+
+        val dirs = positives.filter { it.fileType == FileType.DIRECTORY }
+        dirs.forEach { countListings(it) }
+
+        val filter = create()
+        filter.initialize()
+
+        val areaPath = storageSdcard1.path.path
+        val tree = dirs.pick(areaPath, "tree")
+        val treeA = dirs.pick(areaPath, "tree/a")
+        val treeAB = dirs.pick(areaPath, "tree/a/b")
+
+        val outer = async { filter.match(tree) }
+        val inner = async { filter.match(treeA) }
+
+        outer.await() shouldNotBe null
+        inner.await() shouldNotBe null
+
+        listOf(tree, treeA, treeAB).forEach { withClue(it.path) { counts[it.path] shouldBe 1 } }
     }
 }
