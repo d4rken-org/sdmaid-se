@@ -25,13 +25,17 @@ import kotlin.time.Duration.Companion.seconds
 
 /**
  * Covers [ShizukuWrapper.getManagerPackage] — permission-based Shizuku detection that survives
- * "Hide Shizuku from other apps" mode and forks that rename their package (issue #2405) — and
- * [ShizukuWrapper.isGranted]'s binder-liveness gate.
+ * "Hide Shizuku from other apps" mode, forks that rename their package (issue #2405) and forks that
+ * declare their own permission name instead of the stock one — and [ShizukuWrapper.isGranted]'s
+ * binder-liveness gate.
  */
 class ShizukuWrapperTest {
 
     private val context = mockk<Context>()
     private val packageManager = mockk<PackageManager>()
+
+    private val stockPermission = "moe.shizuku.manager.permission.API_V23"
+    private val plusPermission = "af.shizuku.plus.permission.API_V23"
 
     private val dispatcherProvider = object : DispatcherProvider {
         override val IO: CoroutineDispatcher = Dispatchers.Unconfined
@@ -48,6 +52,14 @@ class ShizukuWrapperTest {
     // mockk gives us a real (Objenesis-instantiated) PermissionInfo whose inherited public
     // packageName field we can set directly, without invoking the Android constructor.
     private fun permissionInfo(pkg: String?) = mockk<PermissionInfo>().apply { packageName = pkg }
+
+    private fun definePermission(name: String, owner: String?) {
+        every { packageManager.getPermissionInfo(name, any<Int>()) } returns permissionInfo(owner)
+    }
+
+    private fun undefinePermission(name: String) {
+        every { packageManager.getPermissionInfo(name, any<Int>()) } throws PackageManager.NameNotFoundException()
+    }
 
     @Test
     fun `resolves the declaring package when the Shizuku permission exists`() = runTest {
@@ -85,6 +97,50 @@ class ShizukuWrapperTest {
         every { packageManager.getPermissionInfo(any(), any<Int>()) } returns permissionInfo("")
 
         wrapper().getManagerPackage() shouldBe null
+    }
+
+    @Test
+    fun `falls back to the Shizuku+ permission when the stock permission is undefined`() = runTest {
+        undefinePermission(stockPermission)
+        definePermission(plusPermission, "af.shizuku.plus.api")
+
+        wrapper().getManagerPackage() shouldBe "af.shizuku.plus.api"
+    }
+
+    @Test
+    fun `prefers the stock permission owner when both are defined`() = runTest {
+        definePermission(stockPermission, "moe.shizuku.privileged.api")
+        definePermission(plusPermission, "af.shizuku.plus.api")
+        val wrapper = wrapper()
+
+        wrapper.getManagerPackage() shouldBe "moe.shizuku.privileged.api"
+        wrapper.getManagerPackages() shouldBe listOf("moe.shizuku.privileged.api", "af.shizuku.plus.api")
+    }
+
+    @Test
+    fun `collapses one app defining both permissions to a single entry`() = runTest {
+        definePermission(stockPermission, "moe.shizuku.privileged.api")
+        definePermission(plusPermission, "moe.shizuku.privileged.api")
+
+        wrapper().getManagerPackages() shouldBe listOf("moe.shizuku.privileged.api")
+    }
+
+    @Test
+    fun `getManagerPackages is empty when no permission is defined`() = runTest {
+        undefinePermission(stockPermission)
+        undefinePermission(plusPermission)
+        val wrapper = wrapper()
+
+        wrapper.getManagerPackages() shouldBe emptyList()
+        wrapper.getManagerPackage() shouldBe null
+    }
+
+    @Test
+    fun `a failing lookup for one permission does not hide the other`() = runTest {
+        every { packageManager.getPermissionInfo(stockPermission, any<Int>()) } throws RuntimeException("OEM quirk")
+        definePermission(plusPermission, "af.shizuku.plus.api")
+
+        wrapper().getManagerPackage() shouldBe "af.shizuku.plus.api"
     }
 
     @Test

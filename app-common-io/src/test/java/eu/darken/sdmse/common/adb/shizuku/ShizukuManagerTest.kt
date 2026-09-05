@@ -72,12 +72,13 @@ class ShizukuManagerTest : BaseTest() {
         serviceClient = serviceClient,
     )
 
-    private fun setShizukuPackage(pkg: String?) {
-        coEvery { shizukuWrapper.getManagerPackage() } returns pkg
+    private fun setShizukuPackages(vararg pkgs: String) {
+        coEvery { shizukuWrapper.getManagerPackages() } returns pkgs.toList()
+        coEvery { shizukuWrapper.getManagerPackage() } returns pkgs.firstOrNull()
     }
 
     @Test fun `binder is not probed when Shizuku is not installed`() {
-        setShizukuPackage(null)
+        setShizukuPackages()
         val mgr = manager()
 
         val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
@@ -90,7 +91,7 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     @Test fun `binder is probed when Shizuku is installed`() {
-        setShizukuPackage(ShizukuManager.PKG_ID.name)
+        setShizukuPackages(ShizukuManager.PKG_ID.name)
         val mgr = manager()
 
         val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
@@ -102,7 +103,7 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     @Test fun `binder stays closed when user opted out even if installed`() {
-        setShizukuPackage(ShizukuManager.PKG_ID.name)
+        setShizukuPackages(ShizukuManager.PKG_ID.name)
         useShizukuFlow.value = false
         val mgr = manager()
 
@@ -118,27 +119,27 @@ class ShizukuManagerTest : BaseTest() {
     @Test fun `isInstalled is not cached and re-evaluates each call`() {
         val mgr = manager()
 
-        setShizukuPackage(null)
+        setShizukuPackages()
         runBlocking { mgr.isInstalled() } shouldBe false
 
         // Shizuku gets installed afterwards: the next call must reflect it (no stale cache).
-        setShizukuPackage(ShizukuManager.PKG_ID.name)
+        setShizukuPackages(ShizukuManager.PKG_ID.name)
         runBlocking { mgr.isInstalled() } shouldBe true
     }
 
     @Test fun `getManagerId resolves the detected package`() {
         val mgr = manager()
 
-        setShizukuPackage(null)
+        setShizukuPackages()
         runBlocking { mgr.getManagerId() } shouldBe null
 
-        setShizukuPackage(ShizukuManager.PKG_ID.name)
+        setShizukuPackages(ShizukuManager.PKG_ID.name)
         runBlocking { mgr.getManagerId() } shouldBe ShizukuManager.PKG_ID
     }
 
     @Test fun `getManagerId resolves a fork under a different package name`() {
         val forkPkg = "com.example.shizuku.fork"
-        setShizukuPackage(forkPkg)
+        setShizukuPackages(forkPkg)
         val mgr = manager()
 
         runBlocking { mgr.getManagerId() } shouldBe forkPkg.toPkgId()
@@ -167,13 +168,22 @@ class ShizukuManagerTest : BaseTest() {
         val mgr = manager()
 
         // Nothing installed: just the reference package.
-        setShizukuPackage(null)
+        setShizukuPackages()
         runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID)
 
         // Fork installed under a different package: both the reference and the fork are protected.
         val forkPkg = "com.example.shizuku.fork"
-        setShizukuPackage(forkPkg)
+        setShizukuPackages(forkPkg)
         runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, forkPkg.toPkgId())
+    }
+
+    @Test fun `managerIds includes every detected manager package`() {
+        // Shizuku+ next to its Compat Hub: the binder comes from Shizuku+, so its package has to be
+        // covered too, not just the first one the permission lookup resolves.
+        setShizukuPackages("moe.shizuku.privileged.api", "af.shizuku.plus.api")
+        val mgr = manager()
+
+        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, "af.shizuku.plus.api".toPkgId())
     }
 
     // --- getServiceState -----------------------------------------------------------------------

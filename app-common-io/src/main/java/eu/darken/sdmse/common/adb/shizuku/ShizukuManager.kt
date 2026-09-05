@@ -42,9 +42,10 @@ class ShizukuManager @Inject constructor(
     val serviceClient: AdbServiceClient,
 ) {
 
-    // The reference package plus, if a fork under a different package name is installed, its package too.
+    // The reference package plus every installed app that defines a Shizuku manager permission
+    // (a renamed fork, Shizuku+ next to its Compat Hub).
     // Consumers (e.g. AppCleaner) use this to recognize the Shizuku manager app.
-    suspend fun managerIds(): Set<Pkg.Id> = setOf(PKG_ID) + listOfNotNull(getManagerId())
+    suspend fun managerIds(): Set<Pkg.Id> = setOf(PKG_ID) + shizukuWrapper.getManagerPackages().map { it.toPkgId() }
 
     val permissionGrantEvents: Flow<ShizukuWrapper.ShizukuPermissionRequest> = shizukuWrapper.permissionGrantEvents
         .setupCommonEventHandlers(TAG) { "grantEvents" }
