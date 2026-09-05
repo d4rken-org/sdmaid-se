@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
@@ -31,7 +32,10 @@ import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.BaseSystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.firstOrNull
+import java.util.concurrent.ConcurrentHashMap
 import javax.inject.Inject
 import javax.inject.Provider
 
@@ -88,6 +92,8 @@ class EmptyDirectoryFilter @Inject constructor(
         "cache",
     )
 
+    private val subtreeCache = ConcurrentHashMap<String, CompletableDeferred<Boolean>>()
+
     override suspend fun initialize() {
         val config = SystemCrawlerSieve.Config(
             targetTypes = setOf(TypeCriterium.DIRECTORY),
@@ -126,22 +132,43 @@ class EmptyDirectoryFilter @Inject constructor(
             return null
         }
 
-        // Check for nested empty directories. Stream the children and stop at the first file:
-        // huge directories (e.g. 30k+ files in AnkiDroid's collection.media) would otherwise be
-        // fully listed over IPC just to determine "not empty".
-        val subDirs = mutableListOf<APathLookup<*>>()
-        val blockingChild = item.lookupFilesFlow(gatewaySwitch).firstOrNull { child ->
-            if (child.fileType == FileType.DIRECTORY) {
-                subDirs.add(child)
-                false
-            } else {
-                true
-            }
+        return if (isEmptyTree(item)) SystemCleanerFilter.Match.Deletion(item) else null
+    }
+
+    /**
+     * The crawler hands an ancestor and its descendants to parallel slots, so evaluations of the
+     * same directory overlap. Whoever gets there first owns the listing, everyone else awaits it.
+     * Read failures stay cached: every ancestor rethrows the same error instead of relisting.
+     */
+    private suspend fun isEmptyTree(item: APathLookup<*>): Boolean {
+        if (subtreeCache.size >= MAX_CACHE_ENTRIES) {
+            log(TAG, WARN) { "Subtree cache full, clearing" }
+            subtreeCache.clear()
         }
-        return when {
-            blockingChild != null -> null
-            subDirs.all { match(it) != null } -> SystemCleanerFilter.Match.Deletion(item)
-            else -> null
+
+        val mine = CompletableDeferred<Boolean>()
+        subtreeCache.putIfAbsent(item.path, mine)?.let { return it.await() }
+
+        try {
+            // Check for nested empty directories. Stream the children and stop at the first file:
+            // huge directories (e.g. 30k+ files in AnkiDroid's collection.media) would otherwise be
+            // fully listed over IPC just to determine "not empty".
+            val subDirs = mutableListOf<APathLookup<*>>()
+            val blockingChild = item.lookupFilesFlow(gatewaySwitch).firstOrNull { child ->
+                if (child.fileType == FileType.DIRECTORY) {
+                    subDirs.add(child)
+                    false
+                } else {
+                    true
+                }
+            }
+            val result = blockingChild == null && subDirs.all { match(it) != null }
+            mine.complete(result)
+            return result
+        } catch (e: Throwable) {
+            if (e is CancellationException) subtreeCache.remove(item.path, mine)
+            mine.completeExceptionally(e)
+            throw e
         }
     }
 
@@ -170,5 +197,6 @@ class EmptyDirectoryFilter @Inject constructor(
 
     companion object {
         private val TAG = logTag("SystemCleaner", "Filter", "EmptyDirectories")
+        private const val MAX_CACHE_ENTRIES = 100_000
     }
 }
