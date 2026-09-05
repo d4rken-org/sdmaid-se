@@ -2,7 +2,6 @@ package eu.darken.sdmse.swiper.ui.sessions.items
 
 import android.text.format.DateUtils
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -46,11 +45,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.SortOrder
+import eu.darken.sdmse.swiper.core.SwipeSession
 import eu.darken.sdmse.swiper.core.Swiper
+import java.time.Instant
 
 private const val MAX_VISIBLE_PATHS = 5
 
@@ -308,7 +312,10 @@ fun SwiperSessionRow(
                     }
                 }
                 Spacer(Modifier.weight(1f))
-                Box(contentAlignment = Alignment.Center) {
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
                     if (isScanning || isRefreshing) {
                         CircularProgressIndicator(modifier = Modifier.size(20.dp))
                     }
@@ -391,5 +398,41 @@ private fun SessionActionButton(
             Spacer(Modifier.width(8.dp))
             Text(stringResource(CommonR.string.general_scan_action))
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun SwiperSessionRowScanningPreview() {
+    PreviewWrapper {
+        SwiperSessionRow(
+            sessionWithStats = Swiper.SessionWithStats(
+                session = SwipeSession(
+                    sessionId = "session-1",
+                    sourcePaths = listOf(LocalPath.build("storage", "emulated", "0", "DCIM")),
+                    currentIndex = 0,
+                    totalItems = 0,
+                    createdAt = Instant.parse("2025-01-01T00:00:00Z"),
+                    lastModifiedAt = Instant.parse("2025-01-01T00:00:00Z"),
+                    state = SessionState.CREATED,
+                ),
+                keepCount = 0,
+                deleteCount = 0,
+                undecidedCount = 0,
+                deletedCount = 0,
+                deleteFailedCount = 0,
+            ),
+            position = 1,
+            isScanning = true,
+            isCancelling = false,
+            isRefreshing = false,
+            onScan = {},
+            onContinue = {},
+            onRemove = {},
+            onRename = {},
+            onCancel = {},
+            onFilter = {},
+            onSortOrder = {},
+        )
     }
 }
