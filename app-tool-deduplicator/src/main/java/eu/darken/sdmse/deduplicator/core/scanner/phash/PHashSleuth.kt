@@ -146,34 +146,7 @@ class PHashSleuth @Inject constructor(
         }
 
         val compareStart = System.currentTimeMillis()
-        val requiredSim = 0.95f
-        val remainingItems = LinkedList(filteredItems.keys)
-        val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
-
-        updateProgressCount(Progress.Count.Percent(remainingItems.size))
-
-        while (currentCoroutineContext().isActive && remainingItems.isNotEmpty()) {
-            val target = remainingItems.removeFirst()
-            val targetHash = filteredItems[target]!!
-
-            val others = remainingItems
-                .map { it to targetHash.similarityTo(filteredItems[it]!!) }
-                .onEach { (other, sim) ->
-                    if (Bugs.isTrace || sim > requiredSim) {
-                        log(TAG, VERBOSE) { "${String.format("%.2f%%", sim * 100)} : $target <-> $other" }
-                    }
-                }
-                .filter { it.second > requiredSim }
-
-            remainingItems.removeAll(others.map { it.first }.toSet())
-
-            if (others.isEmpty()) continue
-
-            // We group the target with others and use the average distance as it's distance
-            val targetWithOthers = others.plus(target to others.map { it.second }.average()).toSet()
-            hashBuckets.add(targetWithOthers)
-            increaseProgress(remainingItems.size)
-        }
+        val hashBuckets = groupBySimilarity(filteredItems)
 
         val hashStop = System.currentTimeMillis()
         val wallMs = hashStop - hashStart
@@ -203,6 +176,42 @@ class PHashSleuth @Inject constructor(
                 }.toSet()
             )
         }.toSet()
+    }
+
+    internal suspend fun groupBySimilarity(
+        hashes: Map<APathLookup<*>, PHasher.Result>,
+    ): Set<Set<Pair<APathLookup<*>, Double>>> {
+        // Greedy grouping: each item is compared against the first unassigned target only,
+        // so traversal order decides the partition. Sorting by path keeps it reproducible.
+        val remainingItems = LinkedList(hashes.keys.sortedBy { it.path })
+        val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
+
+        updateProgressCount(Progress.Count.Percent(remainingItems.size))
+
+        while (currentCoroutineContext().isActive && remainingItems.isNotEmpty()) {
+            val target = remainingItems.removeFirst()
+            val targetHash = hashes[target]!!
+
+            val others = remainingItems
+                .map { it to targetHash.similarityTo(hashes[it]!!) }
+                .onEach { (other, sim) ->
+                    if (Bugs.isTrace || sim > REQUIRED_SIMILARITY) {
+                        log(TAG, VERBOSE) { "${String.format("%.2f%%", sim * 100)} : $target <-> $other" }
+                    }
+                }
+                .filter { it.second > REQUIRED_SIMILARITY }
+
+            remainingItems.removeAll(others.map { it.first }.toSet())
+
+            if (others.isEmpty()) continue
+
+            // We group the target with others and use the average distance as it's distance
+            val targetWithOthers = others.plus(target to others.map { it.second }.average()).toSet()
+            hashBuckets.add(targetWithOthers)
+            increaseProgress(remainingItems.size)
+        }
+
+        return hashBuckets
     }
 
     private suspend fun APathLookup<*>.loadBitmap(): Bitmap {
@@ -244,6 +253,8 @@ class PHashSleuth @Inject constructor(
 
     companion object {
         private const val MAX_CONCURRENT_OPS = 4
+
+        private const val REQUIRED_SIMILARITY = 0.95f
 
         // Minimum AC coefficient variance for a meaningful pHash comparison.
         // Images below this have near-uniform content where DCT hash bits are noise-dominated.
