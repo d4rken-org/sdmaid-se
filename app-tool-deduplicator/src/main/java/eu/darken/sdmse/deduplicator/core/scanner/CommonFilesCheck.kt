@@ -38,6 +38,8 @@ class CommonFilesCheck @Inject constructor(
             "image/png",
             "image/gif",
             "image/webp",
+            "image/heic",
+            "image/heif",
             "image/svg+xml",
         )
 
