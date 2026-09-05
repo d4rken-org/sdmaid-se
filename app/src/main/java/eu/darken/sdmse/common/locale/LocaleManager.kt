@@ -52,7 +52,7 @@ class LocaleManager @Inject constructor(
                 when (intent.action) {
                     Intent.ACTION_LOCALE_CHANGED -> updateLocales()
 
-                    else -> log(ERROR) { "Unknown intent: $intent" }
+                    else -> log(TAG, ERROR) { "Unknown intent: $intent" }
                 }
             }
 
@@ -68,7 +68,7 @@ class LocaleManager @Inject constructor(
         updateLocales()
 
         awaitClose {
-            log { "unregisterReceiver($receiver)" }
+            log(TAG) { "unregisterReceiver($receiver)" }
             context.unregisterReceiver(receiver)
         }
     }

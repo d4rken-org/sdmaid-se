@@ -14,6 +14,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.coroutines.suspendCancellableCoroutine
@@ -62,7 +63,7 @@ fun PackageManager.getPackageInfosAsUser(
     )
     method.invoke(this, packageName, flags.toInt(), userHandle.handleId) as PackageInfo?
 } catch (e: Exception) {
-    log(ERROR) { e.asLog() }
+    log(TAG, ERROR) { e.asLog() }
     null
 }
 
@@ -98,7 +99,7 @@ fun PackageManager.getInstalledPackagesAsUser(
         (method.invoke(this, flags.toInt(), userHandle.handleId) as List<PackageInfo>)
     }
 } catch (e: Exception) {
-    log(ERROR) { e.asLog() }
+    log(TAG, ERROR) { e.asLog() }
     throw e
 }
 
@@ -115,7 +116,7 @@ fun PackageManager.toggleSelfComponent(
     component: ComponentName,
     enabled: Boolean,
 ) {
-    log { "toggleSelfComponent($component,$enabled)" }
+    log(TAG) { "toggleSelfComponent($component,$enabled)" }
     setComponentEnabledSetting(
         component,
         when {
@@ -164,13 +165,13 @@ suspend fun PackageManager.freeStorageAndNotify(
                             // package to the accessibility fallback, minutes of automation for
                             // work that already succeeded. Judge the outcome by re-reading the
                             // cache sizes instead, as InaccessibleDeleter does.
-                            log(VERBOSE) { "freeStorageAndNotify() $packageName -> $succeeded" }
+                            log(TAG, VERBOSE) { "freeStorageAndNotify() $packageName -> $succeeded" }
                             continuation.resume(true)
                         }
                     }
                 )
             } catch (e: Exception) {
-                log(WARN) { "freeStorageAndNotify($desiredBytes,$storageId) failed: ${e.asLog()}" }
+                log(TAG, WARN) { "freeStorageAndNotify($desiredBytes,$storageId) failed: ${e.asLog()}" }
                 continuation.resume(false)
             }
         }
@@ -200,13 +201,13 @@ suspend fun PackageManager.deleteApplicationCacheFiles(
                     object : IPackageDataObserver.Stub() {
                         @Throws(RemoteException::class)
                         override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
-                            log(VERBOSE) { "deleteApplicationCacheFiles() $packageName -> $succeeded" }
+                            log(TAG, VERBOSE) { "deleteApplicationCacheFiles() $packageName -> $succeeded" }
                             continuation.resume(succeeded)
                         }
                     }
                 )
             } catch (e: Exception) {
-                log(WARN) { "deleteApplicationCacheFiles($packageName) failed: ${e.asLog()}" }
+                log(TAG, WARN) { "deleteApplicationCacheFiles($packageName) failed: ${e.asLog()}" }
                 continuation.resume(false)
             }
         }
@@ -239,15 +240,18 @@ suspend fun PackageManager.deleteApplicationCacheFilesAsUser(
                     object : IPackageDataObserver.Stub() {
                         @Throws(RemoteException::class)
                         override fun onRemoveCompleted(packageName: String?, succeeded: Boolean) {
-                            log(VERBOSE) { "deleteApplicationCacheFilesAsUser() $packageName -> $succeeded" }
+                            log(TAG, VERBOSE) { "deleteApplicationCacheFilesAsUser() $packageName -> $succeeded" }
                             continuation.resume(succeeded)
                         }
                     }
                 )
             } catch (e: Exception) {
-                log(WARN) { "deleteApplicationCacheFilesAsUser($packageName,$userId) failed: ${e.asLog()}" }
+                log(TAG, WARN) { "deleteApplicationCacheFilesAsUser($packageName,$userId) failed: ${e.asLog()}" }
                 continuation.resume(false)
             }
         }
     }
 }
+
+
+private val TAG = logTag("PackageManager", "Extensions")

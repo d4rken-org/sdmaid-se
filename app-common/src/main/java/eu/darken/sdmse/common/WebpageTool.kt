@@ -11,6 +11,7 @@ import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
 
 @Reusable
@@ -30,7 +31,7 @@ class WebpageTool @Inject constructor(
             // Android TV has no browser, a system stub consumes browser intents and shows an unhelpful toast.
             val handler = intent.resolveActivity(context.packageManager)
             if (handler != null && handler.packageName in STUB_PACKAGES) {
-                log(ERROR) { "Failed to launch. Only stub handler ($handler) available for $address" }
+                log(TAG, ERROR) { "Failed to launch. Only stub handler ($handler) available for $address" }
                 showNoAppToast(context, address)
                 return false
             }
@@ -38,13 +39,13 @@ class WebpageTool @Inject constructor(
                 context.startActivity(intent)
                 true
             } catch (e: ActivityNotFoundException) {
-                log(ERROR) { "Failed to launch. No compatible activity for $address" }
+                log(TAG, ERROR) { "Failed to launch. No compatible activity for $address" }
                 showNoAppToast(context, address)
                 false
             } catch (e: SecurityException) {
                 // Permission Denial: starting Intent { act=android.intent.action.VIEW dat=https://github.com/...
                 // flg=0x10000000 cmp=com.mxtech.videoplayer.pro/com.mxtech.videoplayer.ActivityWebBrowser }
-                log(ERROR) { "Failed to launch activity due to $e" }
+                log(TAG, ERROR) { "Failed to launch activity due to $e" }
                 false
             }
         }
@@ -62,3 +63,6 @@ class WebpageTool @Inject constructor(
         )
     }
 }
+
+
+private val TAG = logTag("WebpageTool")

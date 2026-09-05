@@ -48,7 +48,7 @@ class UpgradeViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val upgradeRepo: UpgradeRepoGplay,
     private val webpageTool: WebpageTool,
-) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     // Route is bound from the Host via bindRoute(); SavedStateHandle.toRoute<>() crashes under Nav3.
     private val routeFlow = MutableStateFlow<UpgradeRoute?>(null)

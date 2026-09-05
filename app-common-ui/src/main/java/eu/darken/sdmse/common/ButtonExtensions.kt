@@ -5,6 +5,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.reflection.getField
 
 fun CompoundButton.setChecked2(checked: Boolean, animate: Boolean = true) {
@@ -21,6 +22,9 @@ fun CompoundButton.getOnCheckedChangeListener(): OnCheckedChangeListener? = try 
     val field = CompoundButton::class.getField("mOnCheckedChangeListener")
     field.get(this) as? OnCheckedChangeListener
 } catch (e: Exception) {
-    log(WARN) { "Failed to access CompoundButton.mOnCheckedChangeListener: ${e.asLog()}" }
+    log(TAG, WARN) { "Failed to access CompoundButton.mOnCheckedChangeListener: ${e.asLog()}" }
     null
 }
+
+
+private val TAG = logTag("Button", "Extensions")

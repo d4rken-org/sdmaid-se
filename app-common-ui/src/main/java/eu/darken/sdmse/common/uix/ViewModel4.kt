@@ -4,6 +4,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.navigation.NavigationDestination
@@ -77,6 +78,6 @@ abstract class ViewModel4(
         )
 
     companion object {
-        private fun defaultTag(): String = this::class.simpleName ?: "VM4"
+        private fun defaultTag(): String = logTag("ViewModel")
     }
 }

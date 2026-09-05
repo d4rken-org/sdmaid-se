@@ -8,6 +8,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
 
@@ -48,10 +49,13 @@ class GplayServiceUnavailableException(cause: Throwable) :
     )
 
     private fun onLaunchFailed(e: Exception) {
-        log(ERROR) { "Can't launch settings intent for Google Play: $e" }
+        log(TAG, ERROR) { "Can't launch settings intent for Google Play: $e" }
     }
 
     companion object {
         private const val GPLAY_PKG = "com.android.vending"
     }
 }
+
+
+private val TAG = logTag("Upgrade", "Gplay", "ServiceUnavailable")

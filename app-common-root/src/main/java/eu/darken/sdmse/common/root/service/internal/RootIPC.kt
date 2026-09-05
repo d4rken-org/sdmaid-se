@@ -202,10 +202,10 @@ class RootIPC @AssistedInject constructor(
             if (connections.size == 0) return
             connections.removeAll { con ->
                 !con.binder.isBinderAlive.also {
-                    log { "pruneConnections() $con: isBinderAlive=$it" }
+                    log(TAG) { "pruneConnections() $con: isBinderAlive=$it" }
                 }
             }
-            connections.forEach { log { "Remaining connection after pruning: $it" } }
+            connections.forEach { log(TAG) { "Remaining connection after pruning: $it" } }
             if (!connectionSeen && connections.size > 0) {
                 connectionSeen = true
                 synchronized(helloWaiter) { helloWaiter.notifyAll() }

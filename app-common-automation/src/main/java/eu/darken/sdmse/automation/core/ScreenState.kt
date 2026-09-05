@@ -58,7 +58,7 @@ class ScreenState @Inject constructor(
                         }
                     }
 
-                    else -> log(ERROR) { "Unknown intent: $intent" }
+                    else -> log(TAG, ERROR) { "Unknown intent: $intent" }
                 }
             }
         }

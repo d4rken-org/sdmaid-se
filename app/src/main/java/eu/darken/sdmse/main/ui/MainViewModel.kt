@@ -48,7 +48,7 @@ class MainViewModel @Inject constructor(
     private val generalSettings: GeneralSettings,
     private val oneTapCleaner: OneTapCleaner,
     private val appScope: AppCoroutineScope,
-) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     val startRoute: NavigationDestination = if (generalSettings.isOnboardingCompleted.valueBlocking) {
         DashboardRoute

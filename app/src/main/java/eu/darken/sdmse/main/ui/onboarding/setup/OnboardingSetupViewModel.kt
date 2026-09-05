@@ -24,7 +24,7 @@ class OnboardingSetupViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val generalSettings: GeneralSettings,
     private val navController: NavigationController,
-) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     // Authoritative, synchronous source of truth for the onboarding choice. Seeded from the persisted
     // value (default true on first run) and persisted blocking in finishOnboarding() BEFORE navigation —

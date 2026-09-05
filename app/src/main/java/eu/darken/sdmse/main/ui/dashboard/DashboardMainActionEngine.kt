@@ -718,7 +718,7 @@ class DashboardMainActionEngine(
         }
         launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickCorpseFinderEnabled.value()) {
-                log(VERBOSE) { "CorpseFinder is disabled one-click mode." }
+                log(TAG, VERBOSE) { "CorpseFinder is disabled one-click mode." }
                 return@launchMainBranch
             }
 
@@ -735,7 +735,7 @@ class DashboardMainActionEngine(
         }
         launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickSystemCleanerEnabled.value()) {
-                log(VERBOSE) { "SystemCleaner is disabled one-click mode." }
+                log(TAG, VERBOSE) { "SystemCleaner is disabled one-click mode." }
                 return@launchMainBranch
             }
 
@@ -752,7 +752,7 @@ class DashboardMainActionEngine(
         }
         launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickAppCleanerEnabled.value()) {
-                log(VERBOSE) { "AppCleaner is disabled one-click mode." }
+                log(TAG, VERBOSE) { "AppCleaner is disabled one-click mode." }
                 return@launchMainBranch
             }
 
@@ -779,7 +779,7 @@ class DashboardMainActionEngine(
         }
         launchMainBranch(isTracked = startsRun, isCleanup = isCleanup) {
             if (!generalSettings.oneClickDeduplicatorEnabled.value()) {
-                log(VERBOSE) { "Deduplicator is disabled one-click mode." }
+                log(TAG, VERBOSE) { "Deduplicator is disabled one-click mode." }
                 return@launchMainBranch
             }
 

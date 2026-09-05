@@ -6,6 +6,7 @@ import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -20,7 +21,7 @@ suspend fun AutomationHost.waitForWindowRoot(delayMs: Long = 250): ACSNodeInfo {
         root = windowRoot()
         if (root != null) break
 
-        if (Bugs.isDebug) log(VERBOSE) { "Waiting for windowRoot..." }
+        if (Bugs.isDebug) log(TAG, VERBOSE) { "Waiting for windowRoot..." }
         delay(delayMs)
     }
 
@@ -39,3 +40,6 @@ suspend fun AutomationHost.dispatchGesture(gesture: GestureDescription): Boolean
             }
         }, null)
     }
+
+
+private val TAG = logTag("Automation", "Host", "Extensions")

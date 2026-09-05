@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -49,6 +50,6 @@ abstract class ViewModel2(
         .launchIn(vmScope)
 
     companion object {
-        private fun defaultTag(): String = this::class.simpleName ?: "VM2"
+        private fun defaultTag(): String = logTag("ViewModel")
     }
 }

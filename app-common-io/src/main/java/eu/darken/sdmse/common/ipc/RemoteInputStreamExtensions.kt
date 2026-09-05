@@ -5,6 +5,7 @@ import android.os.RemoteException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import okio.Source
 import okio.source
 import java.io.IOException
@@ -34,21 +35,21 @@ internal fun InputStream.remoteInputStream(): RemoteInputStream.Stub = object : 
     override fun available(): Int = try {
         this@remoteInputStream.available()
     } catch (e: IOException) {
-        log(ERROR) { "available() failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "available() failed: ${e.asLog()}" }
         -2
     }
 
     override fun read(): Int = try {
         this@remoteInputStream.read()
     } catch (e: IOException) {
-        log(ERROR) { "read() failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "read() failed: ${e.asLog()}" }
         -2
     }
 
     override fun readBuffer(b: ByteArray, off: Int, len: Int): Int = try {
         this@remoteInputStream.read(b, off, len)
     } catch (e: IOException) {
-        log(ERROR) { "readBuffer() failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "readBuffer() failed: ${e.asLog()}" }
         -2
     }
 
@@ -113,3 +114,6 @@ internal fun RemoteInputStream.inputStream(): InputStream = object : InputStream
 }
 
 fun RemoteInputStream.source(): Source = inputStream().source()
+
+
+private val TAG = logTag("IPC", "RemoteInputStream")

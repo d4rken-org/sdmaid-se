@@ -12,6 +12,7 @@ import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.AKnownPkg
@@ -119,7 +120,7 @@ private fun PackageInfo.getInstallerInfoLegacy(packageManager: PackageManager): 
             ?.let { Pkg.Id(it) }
             ?.let { it.toKnownPkg() ?: it.toStub() }
     } catch (e: IllegalArgumentException) {
-        log(WARN) { "OS race condition, package ($packageName) was uninstalled?: ${e.asLog()}" }
+        log(TAG, WARN) { "OS race condition, package ($packageName) was uninstalled?: ${e.asLog()}" }
         null
     }
 
@@ -127,3 +128,6 @@ private fun PackageInfo.getInstallerInfoLegacy(packageManager: PackageManager): 
         installingPkg = installingPkg,
     )
 }
+
+
+private val TAG = logTag("Pkg", "InstallerInfo")

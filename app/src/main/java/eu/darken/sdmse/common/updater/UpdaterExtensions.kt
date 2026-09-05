@@ -13,7 +13,7 @@ fun UpdateChecker.Update.isNewer(): Boolean = try {
     val latest = Version.parse(versionName, strict = false)
     latest > current
 } catch (e: Exception) {
-    log(ERROR) { "Failed version check: ${e.asLog()}" }
+    log(TAG, ERROR) { "Failed version check: ${e.asLog()}" }
     false
 }
 

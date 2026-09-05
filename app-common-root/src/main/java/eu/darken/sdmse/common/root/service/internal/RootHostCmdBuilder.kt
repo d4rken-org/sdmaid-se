@@ -184,7 +184,7 @@ class RootHostCmdBuilder<Host : BaseRootHost>(
         withRelocation: Boolean,
         initialOptions: RootHostInitArgs,
     ): FlowCmd {
-        log { "build(relocate=$withRelocation, ${initialOptions})" }
+        log(TAG) { "build(relocate=$withRelocation, ${initialOptions})" }
         val cmds = mutableListOf<String>()
 
         val processPath: String = if (withRelocation) {
