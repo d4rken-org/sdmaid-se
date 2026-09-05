@@ -232,3 +232,4 @@ jobs:
           path: app/build/outputs/mapping/gplay*/mapping.txt
           if-no-files-found: error
           retention-days: 90
+          overwrite: true
