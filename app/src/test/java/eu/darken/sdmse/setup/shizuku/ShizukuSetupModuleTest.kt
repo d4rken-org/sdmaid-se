@@ -1,5 +1,8 @@
 package eu.darken.sdmse.setup.shizuku
 
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
@@ -16,6 +19,7 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -35,6 +39,8 @@ import java.util.concurrent.CountDownLatch
 
 class ShizukuSetupModuleTest : BaseTest() {
 
+    private val context: Context = mockk()
+    private val packageManager: PackageManager = mockk()
     private val adbSettings: AdbSettings = mockk()
     private val shizukuManager: ShizukuManager = mockk()
     private val dataAreaManager: DataAreaManager = mockk(relaxed = true)
@@ -51,6 +57,9 @@ class ShizukuSetupModuleTest : BaseTest() {
         useShizukuFlow = MutableStateFlow(true)
         scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
 
+        every { context.packageManager } returns packageManager
+        every { packageManager.getLaunchIntentForPackage(any()) } returns mockk<Intent>()
+
         every { adbSettings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
 
@@ -58,6 +67,7 @@ class ShizukuSetupModuleTest : BaseTest() {
         every { shizukuManager.shizukuBinder } returns flowOf(null)
         every { shizukuManager.permissionGrantEvents } returns emptyFlow()
         coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
+        coEvery { shizukuManager.managerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
         coEvery { shizukuManager.isCompatible() } returns true
         coEvery { shizukuManager.isGranted() } returns true
         coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; ShizukuServiceState.Available }
@@ -73,7 +83,15 @@ class ShizukuSetupModuleTest : BaseTest() {
     private fun module(
         moduleScope: CoroutineScope = scope,
         dispatchers: DispatcherProvider = TestDispatcherProvider(),
-    ) = ShizukuSetupModule(moduleScope, dispatchers, adbSettings, shizukuManager, dataAreaManager, rootManager)
+    ) = ShizukuSetupModule(
+        context,
+        moduleScope,
+        dispatchers,
+        adbSettings,
+        shizukuManager,
+        dataAreaManager,
+        rootManager,
+    )
 
     @Test fun `first subscription emits Loading then Result`() {
         val mod = module()
@@ -270,6 +288,49 @@ class ShizukuSetupModuleTest : BaseTest() {
         settled.isChecking shouldBe false
 
         runBlocking { collector.cancelAndJoin() }
+    }
+
+    // --- card package --------------------------------------------------------------------------
+
+    private fun firstResult(mod: ShizukuSetupModule): ShizukuSetupModule.Result {
+        val collector = mod.state.test(tag = "pkg", scope = scope)
+        collector.await { values, _ -> values.any { it is ShizukuSetupModule.Result } }
+        val result = collector.latestValues.filterIsInstance<ShizukuSetupModule.Result>().first()
+        runBlocking { collector.cancelAndJoin() }
+        return result
+    }
+
+    @Test fun `card package prefers the first manager that can be opened`() {
+        // Shizuku+ next to its Compat Hub: the Hub owns the stock permission but has no launcher
+        // activity, so opening it from the card would do nothing.
+        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
+        coEvery { shizukuManager.managerIds() } returns setOf(
+            "moe.shizuku.privileged.api".toPkgId(),
+            "af.shizuku.plus.api".toPkgId(),
+        )
+        every { packageManager.getLaunchIntentForPackage("moe.shizuku.privileged.api") } returns null
+        every { packageManager.getLaunchIntentForPackage("af.shizuku.plus.api") } returns mockk<Intent>()
+
+        firstResult(module()).pkg shouldBe "af.shizuku.plus.api".toPkgId()
+    }
+
+    @Test fun `card package falls back to the detected manager when none can be opened`() {
+        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
+        coEvery { shizukuManager.managerIds() } returns setOf(
+            "moe.shizuku.privileged.api".toPkgId(),
+            "af.shizuku.plus.api".toPkgId(),
+        )
+        every { packageManager.getLaunchIntentForPackage(any()) } returns null
+
+        firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
+    }
+
+    @Test fun `card package is the reference package when nothing is installed`() {
+        coEvery { shizukuManager.getManagerId() } returns null
+
+        firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
+
+        verify(exactly = 0) { packageManager.getLaunchIntentForPackage(any()) }
     }
 
 }

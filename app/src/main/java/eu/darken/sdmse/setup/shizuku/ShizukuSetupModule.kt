@@ -1,8 +1,10 @@
 package eu.darken.sdmse.setup.shizuku
 
+import android.content.Context
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbSettings
@@ -20,6 +22,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.setup.SetupModule
@@ -39,6 +42,7 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.transformLatest
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Instant
 import javax.inject.Inject
@@ -46,6 +50,7 @@ import javax.inject.Singleton
 
 @Singleton
 class ShizukuSetupModule @Inject constructor(
+    @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
     private val adbSettings: AdbSettings,
@@ -81,8 +86,15 @@ class ShizukuSetupModule @Inject constructor(
         rootManager.useRoot,
     ) { _, useShizuku, useRoot ->
         val managerId = shizukuManager.getManagerId()
+        // The card's open action launches this package. The detected manager can be Shizuku+'s Compat Hub,
+        // which has no launcher activity, so prefer the first manager app that can actually be opened.
+        val openable = managerId?.let {
+            withContext(dispatcherProvider.IO) {
+                shizukuManager.managerIds().firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
+            }
+        }
         val baseState = Result(
-            pkg = managerId ?: shizukuManager.shizukuPkgId,
+            pkg = openable ?: managerId ?: shizukuManager.shizukuPkgId,
             useShizuku = useShizuku,
             isInstalled = managerId != null,
             isCompatible = shizukuManager.isCompatible(),
