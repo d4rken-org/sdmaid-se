@@ -12,8 +12,8 @@ import kotlin.reflect.KClass
  */
 @Suppress("UNCHECKED_CAST")
 fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? {
-    // PROGUARD RULE REQUIRED: DESCRIPTOR field is otherwise removed
-    // e.g. eu.darken.sdmse.common.root.service.RootServiceConnection.DESCRIPTOR
+    // PROGUARD RULE REQUIRED: the `Stub` class and its DESCRIPTOR field are otherwise removed/renamed
+    // see app-common-io/consumer-rules.pro
     val fDescriptor = Class
         .forName(clazz.qualifiedName + "\$Stub")
         .getField("DESCRIPTOR")
@@ -30,8 +30,8 @@ fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? {
     log(VERBOSE) { "Creating remote instance" }
     val className = clazz.qualifiedName + "\$Stub\$Proxy"
 
-    // PROGUARD RULE REQUIRED: `Proxy` constructor is otherwise removed
-    // e.g. eu.darken.sdmse.common.shizuku.ShizukuServiceConnection$Stub$Proxy.<init> [interface android.os.IBinder]
+    // PROGUARD RULE REQUIRED: the `Proxy` class and its IBinder constructor are otherwise removed/renamed
+    // see app-common-io/consumer-rules.pro
     log(VERBOSE) { "Creating class $className" }
     val ctorProxy = Class
         .forName(className)

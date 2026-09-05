@@ -63,6 +63,7 @@ android {
         create("foss") {
             dimension = "version"
             signingConfig = signingConfigs["releaseFoss"]
+            proguardFiles("proguard-foss.pro")
             // The info block is encrypted and can only be read by Google
             dependenciesInfo {
                 includeInApk = false
@@ -72,6 +73,7 @@ android {
         create("gplay") {
             dimension = "version"
             signingConfig = signingConfigs["releaseGplay"]
+            proguardFiles("proguard-gplay.pro")
         }
     }
 
