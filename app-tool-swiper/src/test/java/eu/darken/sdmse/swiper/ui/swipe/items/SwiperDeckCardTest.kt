@@ -119,4 +119,34 @@ class SwiperDeckCardTest : BaseComposeRobolectricTest() {
             assertEquals(0, harness.openClicks)
         }
     }
+
+    @Test
+    fun `a gesture started during the snap-back is judged on its own drag`() {
+        val harness = setCard()
+        val card = composeRule.onNodeWithContentDescription("Open in external app")
+        composeRule.mainClock.autoAdvance = false
+
+        // Gesture 1: a third of the card in a single move event, so the Lsq2 tracker reports no
+        // velocity and the 0.33x drag stays under the 0.4x threshold. Release starts a snap-back.
+        card.performTouchInput {
+            down(center)
+            moveBy(Offset(harness.touchSlop + harness.cardWidth * 0.33f, 0f), delayMillis = 400)
+            up()
+        }
+
+        // Gesture 2 presses while that spring is in flight, then holds still long enough for it to
+        // finish: the card is drawn back at zero before this drag ever crosses slop.
+        composeRule.mainClock.advanceTimeByFrame()
+        card.performTouchInput { down(center) }
+        composeRule.mainClock.advanceTimeBy(600)
+        card.performTouchInput {
+            moveBy(Offset(harness.touchSlop + harness.cardWidth * 0.1f, 0f), delayMillis = 400)
+            up()
+        }
+
+        composeRule.mainClock.autoAdvance = true
+        composeRule.runOnIdle {
+            assertEquals("0.1x drag must not commit", null, harness.committed)
+        }
+    }
 }
