@@ -1,5 +1,6 @@
 package eu.darken.sdmse.exclusion.core.types
 
+import androidx.annotation.Keep
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.files.joinSegments
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Keep // simpleName is part of the persisted ExclusionId, see createId()
 @Serializable
 data class SegmentExclusion(
     @SerialName("segments") val segments: Segments,
