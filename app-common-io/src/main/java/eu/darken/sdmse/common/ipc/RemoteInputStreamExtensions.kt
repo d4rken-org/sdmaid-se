@@ -29,34 +29,52 @@ import java.io.InputStream
 /**
  * Use this on the root side
  */
-internal fun InputStream.remoteInputStream(): RemoteInputStream.Stub = object : RemoteInputStream.Stub() {
+internal fun InputStream.remoteInputStream(): RemoteInputStream.Stub = RemoteInputStreamStub(this)
 
-    override fun available(): Int = try {
-        this@remoteInputStream.available()
-    } catch (e: IOException) {
-        log(ERROR) { "available() failed: ${e.asLog()}" }
-        -2
+private class RemoteInputStreamStub(initial: InputStream) : RemoteInputStream.Stub() {
+
+    // Dropped on close() so the Stub, which the client may hold on to, stops pinning the stream
+    // and whatever buffer it owns.
+    @Volatile private var stream: InputStream? = initial
+
+    override fun available(): Int {
+        val s = stream ?: return -2
+        return try {
+            s.available()
+        } catch (e: IOException) {
+            log(ERROR) { "available() failed: ${e.asLog()}" }
+            -2
+        }
     }
 
-    override fun read(): Int = try {
-        this@remoteInputStream.read()
-    } catch (e: IOException) {
-        log(ERROR) { "read() failed: ${e.asLog()}" }
-        -2
+    override fun read(): Int {
+        val s = stream ?: return -2
+        return try {
+            s.read()
+        } catch (e: IOException) {
+            log(ERROR) { "read() failed: ${e.asLog()}" }
+            -2
+        }
     }
 
-    override fun readBuffer(b: ByteArray, off: Int, len: Int): Int = try {
-        this@remoteInputStream.read(b, off, len)
-    } catch (e: IOException) {
-        log(ERROR) { "readBuffer() failed: ${e.asLog()}" }
-        -2
+    override fun readBuffer(b: ByteArray, off: Int, len: Int): Int {
+        val s = stream ?: return -2
+        return try {
+            s.read(b, off, len)
+        } catch (e: IOException) {
+            log(ERROR) { "readBuffer() failed: ${e.asLog()}" }
+            -2
+        }
     }
 
-    override fun close() = try {
-        this@remoteInputStream.close()
-    } catch (_: IOException) {
+    override fun close() {
+        val s = stream ?: return
+        stream = null
+        try {
+            s.close()
+        } catch (_: IOException) {
+        }
     }
-
 }
 
 /**
