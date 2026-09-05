@@ -48,6 +48,10 @@ import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
 import eu.darken.sdmse.common.compose.tour.guidedTourTarget
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.exclusion.R as ExclusionR
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -66,6 +70,8 @@ import eu.darken.sdmse.swiper.ui.swipe.items.SwiperStatsCard
 import eu.darken.sdmse.swiper.ui.swipe.tour.SwiperSwipeTour
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+
+private val TAG = logTag("Swiper", "Swipe", "Screen")
 
 @Composable
 fun SwiperSwipeScreenHost(
@@ -89,7 +95,10 @@ fun SwiperSwipeScreenHost(
                     haptic.performHapticFeedback(HapticFeedbackType.LongPress)
                 is SwiperSwipeViewModel.Event.OpenExternally -> runCatching {
                     context.startActivity(event.intent)
-                }.onFailure { snackbarHostState.showSnackbar(openNotSupportedText) }
+                }.onFailure {
+                    log(TAG, ERROR) { "Failed to start activity for ${event.intent}: ${it.asLog()}" }
+                    snackbarHostState.showSnackbar(openNotSupportedText)
+                }
                 is SwiperSwipeViewModel.Event.ShowOpenNotSupported ->
                     snackbarHostState.showSnackbar(openNotSupportedText)
             }
