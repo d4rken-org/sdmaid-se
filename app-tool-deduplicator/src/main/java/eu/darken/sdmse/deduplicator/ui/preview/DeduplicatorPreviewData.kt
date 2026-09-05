@@ -118,8 +118,8 @@ internal fun previewCluster(
 
 /**
  * A list-row model for previews/tests: a favorite checksum group of two copies, keeping the first,
- * so one duplicate is a delete target and [DeduplicatorListViewModel.DeduplicatorListRow.freeableSize]
- * reflects that single copy.
+ * so one duplicate is a delete target, [DeduplicatorListViewModel.DeduplicatorListRow.freeableSize]
+ * reflects that single copy and [DeduplicatorListViewModel.DeduplicatorListRow.keeper] is the kept one.
  */
 internal fun previewDeduplicatorListRow(
     identifier: Duplicate.Cluster.Id = Duplicate.Cluster.Id("preview-cluster"),
@@ -152,6 +152,7 @@ internal fun previewDeduplicatorListRow(
         cluster = cluster,
         deleteTargetIds = targets,
         freeableSize = duplicates.filter { it.identifier in targets }.sumOf { it.size },
+        keeper = keeper,
     )
 }
 
@@ -170,5 +171,6 @@ internal fun previewDeduplicatorListRowAllTypes(
         cluster = cluster,
         deleteTargetIds = emptySet(),
         freeableSize = 13L * 1024 * 1024,
+        keeper = null,
     )
 }

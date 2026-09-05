@@ -440,6 +440,16 @@ internal fun DeduplicatorListScreen(
                         val onClusterPreviewTap: (Duplicate.Cluster) -> Unit = { cluster ->
                             if (selection.isEmpty) onClusterPreview(cluster) else toggleCluster(cluster)
                         }
+                        // The grid tile previews the keeper, so its preview button has to open on that
+                        // same file rather than on the cluster's first path.
+                        val onGridPreviewTap: (DeduplicatorListViewModel.DeduplicatorListRow) -> Unit = { row ->
+                            val keeper = row.keeper
+                            when {
+                                !selection.isEmpty -> toggleCluster(row.cluster)
+                                keeper != null -> onDuplicatePreview(row.cluster, keeper)
+                                else -> onClusterPreview(row.cluster)
+                            }
+                        }
                         val applyDupeChange: (Duplicate.Cluster, Duplicate, DupeChange) -> Unit = { cluster, dupe, mode ->
                             val cap = capFor(cluster.count, allowDeleteAll)
                             val result = selection.changeDupe(
@@ -481,7 +491,7 @@ internal fun DeduplicatorListScreen(
                                 selection = selectionHolder,
                                 onThumbnailClick = onClusterDeleteTap,
                                 onCaptionClick = onClusterDetailsTap,
-                                onPreviewButtonClick = onClusterPreviewTap,
+                                onPreviewButtonClick = onGridPreviewTap,
                                 onClusterLongPress = onClusterLongPress,
                             )
                         }
@@ -532,7 +542,7 @@ private fun GridList(
     selection: MixedSelectionHolder,
     onThumbnailClick: (Duplicate.Cluster) -> Unit,
     onCaptionClick: (Duplicate.Cluster) -> Unit,
-    onPreviewButtonClick: (Duplicate.Cluster) -> Unit,
+    onPreviewButtonClick: (DeduplicatorListViewModel.DeduplicatorListRow) -> Unit,
     onClusterLongPress: (Duplicate.Cluster) -> Unit,
 ) {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
@@ -552,7 +562,7 @@ private fun GridList(
                     selected = isSelected,
                     onThumbnailClick = { onThumbnailClick(row.cluster) },
                     onCaptionClick = { onCaptionClick(row.cluster) },
-                    onPreviewButtonClick = { onPreviewButtonClick(row.cluster) },
+                    onPreviewButtonClick = { onPreviewButtonClick(row) },
                     onLongClick = { onClusterLongPress(row.cluster) },
                 )
             }

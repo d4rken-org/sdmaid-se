@@ -48,6 +48,7 @@
     <string name="deduplicator_action_delete_set">Delete duplicate set</string>
     <string name="deduplicator_action_open_preview">Open preview</string>
     <string name="deduplicator_marked_for_deletion">Marked for deletion</string>
+    <string name="deduplicator_kept_copy_label">Kept</string>
     <string name="deduplicator_cluster_preview_image">Duplicate set preview</string>
     <string name="deduplicator_selection_keep_one_required">At least one file per duplicate set must remain. Enable \"Make \'Delete all\' possible\" in settings to override.</string>
     <string name="deduplicator_progress_comparing_files">Comparing files</string>

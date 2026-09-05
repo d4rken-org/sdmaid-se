@@ -158,6 +158,7 @@ class DeduplicatorListViewModel @Inject constructor(
                         cluster = cluster,
                         deleteTargetIds = deleteTargetIds,
                         freeableSize = cluster.freeableSizeOf(deleteTargetIds),
+                        keeper = cluster.survivorOf(deleteTargetIds),
                     )
                 }
             // Null rows mean "loading". Without data and without a scan that could still deliver
@@ -188,6 +189,11 @@ class DeduplicatorListViewModel @Inject constructor(
         val deleteTargetIds: Set<Duplicate.Id>,
         /** Bytes freed by deleting [deleteTargetIds] (the actual delete-target set, not the raw cluster size). */
         val freeableSize: Long,
+        /**
+         * The single file a default keep-one delete leaves behind in this cluster; null when
+         * [deleteTargetIds] leaves none or several.
+         */
+        val keeper: Duplicate?,
     )
 
     data class State(
@@ -404,3 +410,9 @@ private fun Duplicate.Cluster.freeableSizeOf(targets: Set<Duplicate.Id>): Long =
     .flatMap { it.duplicates }
     .filter { it.identifier in targets }
     .sumOf { it.size }
+
+private fun Duplicate.Cluster.survivorOf(targets: Set<Duplicate.Id>): Duplicate? = groups
+    .flatMap { it.duplicates }
+    .filter { it.identifier !in targets }
+    .distinctBy { it.identifier }
+    .singleOrNull()

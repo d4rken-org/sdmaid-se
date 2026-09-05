@@ -88,13 +88,15 @@ private fun mediaGroup(gid: String, dir: String, name: String, sizeMb: Int, n: I
 
 private fun row(cid: String, vararg groups: Duplicate.Group): DeduplicatorListRow {
     val cluster = previewCluster(Duplicate.Cluster.Id(cid), groups.toSet(), favoriteGroupIdentifier = groups.first().identifier)
-    val keeper = groups.first().duplicates.first().identifier
+    val keeper = groups.first().duplicates.first()
+    val keeperId = keeper.identifier
     val all = groups.flatMap { it.duplicates }
-    val targets = all.map { it.identifier }.toSet() - keeper
+    val targets = all.map { it.identifier }.toSet() - keeperId
     return DeduplicatorListRow(
         cluster = cluster,
         deleteTargetIds = targets,
         freeableSize = all.filter { it.identifier in targets }.sumOf { it.size },
+        keeper = keeper,
     )
 }
 

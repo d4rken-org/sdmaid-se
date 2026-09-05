@@ -85,7 +85,7 @@ internal fun DeduplicatorGridRow(
         ) {
             // Tapping the thumbnail deletes the cluster's duplicates (confirm dialog); long-press selects.
             FilePreviewImage(
-                lookup = cluster.previewFile,
+                lookup = row.keeper?.lookup ?: cluster.previewFile,
                 contentDescription = stringResource(DeduplicatorR.string.deduplicator_cluster_preview_image),
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
@@ -103,6 +103,9 @@ internal fun DeduplicatorGridRow(
                 onLongClick = onLongClick,
                 modifier = Modifier.align(Alignment.TopStart),
             )
+            if (row.keeper != null) {
+                KeeperBadge(modifier = Modifier.align(Alignment.TopEnd))
+            }
             // Caption overlaid at the bottom: tap = open details; long-press selects.
             Column(
                 modifier = Modifier
@@ -191,6 +194,27 @@ private fun PreviewOverlayButton(
     }
 }
 
+@Composable
+private fun KeeperBadge(modifier: Modifier = Modifier) {
+    // Overlay only: no click modifiers, so taps fall through to the thumbnail's delete/long-press
+    // handling underneath. The start padding keeps a long translation clear of the preview button.
+    Box(
+        modifier = modifier
+            .padding(start = 48.dp)
+            .clip(RoundedCornerShape(bottomStart = 12.dp))
+            .background(MaterialTheme.colorScheme.scrim.copy(alpha = 0.55f))
+            .padding(horizontal = 8.dp, vertical = 6.dp),
+    ) {
+        Text(
+            text = stringResource(DeduplicatorR.string.deduplicator_kept_copy_label),
+            style = MaterialTheme.typography.labelSmall,
+            color = Color.White,
+            maxLines = 1,
+            overflow = TextOverflow.Ellipsis,
+        )
+    }
+}
+
 /**
  * Grid cards show detection types as compact icons (no labels) to keep the card to two short lines.
  * All icons share the caption's text color so they stay legible on the scrim; the glyph shapes still
@@ -253,6 +277,24 @@ private fun DeduplicatorGridRowSelectedPreview() {
             DeduplicatorGridRow(
                 row = previewDeduplicatorListRow(),
                 selected = true,
+                onThumbnailClick = {},
+                onCaptionClick = {},
+                onPreviewButtonClick = {},
+                onLongClick = {},
+            )
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun DeduplicatorGridRowKeeperNarrowPreview() {
+    PreviewWrapper {
+        // Narrow tile (3-column layout) with a keeper: the tightest width for the badge.
+        Box(modifier = Modifier.width(115.dp)) {
+            DeduplicatorGridRow(
+                row = previewDeduplicatorListRow(),
+                selected = false,
                 onThumbnailClick = {},
                 onCaptionClick = {},
                 onPreviewButtonClick = {},

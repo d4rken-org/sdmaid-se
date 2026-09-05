@@ -1,5 +1,9 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.semantics.getOrNull
 import androidx.compose.ui.test.SemanticsMatcher
@@ -12,7 +16,11 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performTouchInput
+import eu.darken.sdmse.common.coil.LocalPreviewImageProvider
+import eu.darken.sdmse.common.coil.PreviewImageProvider
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
@@ -24,7 +32,11 @@ import testhelpers.compose.BaseComposeRobolectricTest
 
 class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
 
-    private fun clusterRow(name: String, size: Long = 1024L): DeduplicatorListViewModel.DeduplicatorListRow {
+    private fun clusterRow(
+        name: String,
+        size: Long = 1024L,
+        withKeeper: Boolean = false,
+    ): DeduplicatorListViewModel.DeduplicatorListRow {
         val duplicates = setOf(
             previewChecksumDuplicate(
                 pathSegments = arrayOf("storage", "emulated", "0", "Pictures", "$name-a.jpg"),
@@ -37,19 +49,25 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
                 hashSeed = "$name-b",
             ),
         )
+        // The keeper is deliberately the SECOND copy, which differs from `cluster.previewFile`
+        // (the first), so a tile that still shows the arbitrary preview file is detectable.
+        val keeper = if (withKeeper) duplicates.last() else null
         val group = ChecksumDuplicate.Group(
             duplicates = duplicates,
             identifier = Duplicate.Group.Id("$name-group"),
+            keeperIdentifier = keeper?.identifier,
         )
         val cluster = previewCluster(
             identifier = Duplicate.Cluster.Id(name),
             groups = setOf(group),
+            favoriteGroupIdentifier = if (keeper != null) group.identifier else null,
         )
-        val targetIds = duplicates.map { it.identifier }.toSet()
+        val targetIds = duplicates.filter { it.identifier != keeper?.identifier }.map { it.identifier }.toSet()
         return DeduplicatorListViewModel.DeduplicatorListRow(
             cluster = cluster,
             deleteTargetIds = targetIds,
             freeableSize = duplicates.filter { it.identifier in targetIds }.sumOf { it.size },
+            keeper = keeper,
         )
     }
 
@@ -147,6 +165,7 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
         onClusterClick: (Duplicate.Cluster) -> Unit = {},
         onClusterPreview: (Duplicate.Cluster) -> Unit = {},
         onDuplicateClick: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
+        onDuplicatePreview: (Duplicate.Cluster, Duplicate) -> Unit = { _, _ -> },
     ) {
         setContent {
             PreviewWrapper {
@@ -156,6 +175,7 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
                     onClusterClick = onClusterClick,
                     onClusterPreview = onClusterPreview,
                     onDuplicateClick = onDuplicateClick,
+                    onDuplicatePreview = onDuplicatePreview,
                 )
             }
         }
@@ -273,5 +293,109 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
         composeRule.runOnIdle {
             if (preview != 0) throw AssertionError("preview must not fire during selection, got preview=$preview")
         }
+    }
+
+    // ─────────────────────────── keeper marker ───────────────────────────
+
+    private fun keeperGridState() = DeduplicatorListViewModel.State(
+        rows = listOf(clusterRow("vacation", withKeeper = true)),
+        layoutMode = LayoutMode.GRID,
+    )
+
+    @Test
+    fun `GRID tile shows the Kept badge for a row with a keeper`() {
+        composeRule.setScreen(keeperGridState())
+        composeRule.onNodeWithText("Kept").assertExists()
+    }
+
+    @Test
+    fun `GRID tile shows no Kept badge for a row without a keeper`() {
+        composeRule.setScreen(gridState())
+        composeRule.onAllNodesWithText("Kept").assertCountEquals(0)
+    }
+
+    @Test
+    fun `GRID tile previews the keeper's file`() {
+        // FilePreviewImage only consults LocalPreviewImageProvider under inspection mode, so the
+        // recorder sees exactly the lookup the tile asked for a bitmap of.
+        val requested = mutableListOf<String>()
+        val recorder = object : PreviewImageProvider {
+            @Composable
+            override fun fileImage(lookup: APathLookup<*>): Painter? {
+                requested.add(lookup.path)
+                return null
+            }
+
+            @Composable
+            override fun appIcon(pkg: Pkg): Painter? = null
+        }
+        val row = clusterRow("vacation", withKeeper = true)
+        composeRule.setContent {
+            PreviewWrapper {
+                CompositionLocalProvider(
+                    LocalInspectionMode provides true,
+                    LocalPreviewImageProvider provides recorder,
+                ) {
+                    DeduplicatorListScreen(
+                        stateSource = MutableStateFlow(
+                            DeduplicatorListViewModel.State(rows = listOf(row), layoutMode = LayoutMode.GRID),
+                        ),
+                    )
+                }
+            }
+        }
+        composeRule.runOnIdle {
+            if (requested != listOf(row.keeper!!.lookup.path)) {
+                throw AssertionError("expected the keeper's lookup, got $requested")
+            }
+        }
+    }
+
+    @Test
+    fun `GRID preview button opens the preview on the keeper`() {
+        val row = clusterRow("vacation", withKeeper = true)
+        var clusterPreview = 0
+        val dupePreviews = mutableListOf<Duplicate>()
+        composeRule.setScreen(
+            DeduplicatorListViewModel.State(rows = listOf(row), layoutMode = LayoutMode.GRID),
+            onClusterPreview = { clusterPreview++ },
+            onDuplicatePreview = { _, dupe -> dupePreviews.add(dupe) },
+        )
+        composeRule.onNode(hasClickLabel("Open preview")).performClick()
+        composeRule.runOnIdle {
+            if (clusterPreview != 0) throw AssertionError("clusterPreview=$clusterPreview")
+            if (dupePreviews.map { it.identifier } != listOf(row.keeper!!.identifier)) {
+                throw AssertionError("expected one preview of the keeper, got ${dupePreviews.map { it.identifier }}")
+            }
+        }
+    }
+
+    @Test
+    fun `GRID preview button toggles selection rather than previewing while selecting, with a keeper`() {
+        var clusterPreview = 0
+        var dupePreview = 0
+        composeRule.setScreen(
+            keeperGridState(),
+            onClusterPreview = { clusterPreview++ },
+            onDuplicatePreview = { _, _ -> dupePreview++ },
+        )
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performTouchInput { longClick() }
+        composeRule.onNode(hasClickLabel("Open preview")).performClick()
+        composeRule.runOnIdle {
+            if (clusterPreview != 0 || dupePreview != 0) {
+                throw AssertionError("clusterPreview=$clusterPreview dupePreview=$dupePreview")
+            }
+        }
+    }
+
+    @Test
+    fun `LINEAR layout shows no Kept badge`() {
+        composeRule.setScreen(
+            DeduplicatorListViewModel.State(
+                rows = listOf(clusterRow("vacation", withKeeper = true)),
+                layoutMode = LayoutMode.LINEAR,
+            ),
+        )
+        composeRule.onAllNodesWithText("Kept").assertCountEquals(0)
     }
 }

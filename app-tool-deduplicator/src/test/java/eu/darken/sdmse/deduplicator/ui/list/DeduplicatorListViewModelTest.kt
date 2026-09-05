@@ -20,6 +20,7 @@ import eu.darken.sdmse.exclusion.core.types.ExclusionId
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
@@ -431,6 +432,122 @@ class DeduplicatorListViewModelTest : BaseTest() {
         state.rows.single().deleteTargetIds shouldBe emptySet()
     }
 
+    @Test
+    fun `state keeper is the favorite group's kept duplicate`() = runTest2 {
+        val c = cluster("a", keeperOf = "dup1", favoriteOf = "self")
+        val dupes = c.groups.single().duplicates
+        val dup0 = dupes.single { it.lookup.path.endsWith("dup0") }
+        val dup1 = dupes.single { it.lookup.path.endsWith("dup1") }
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.deleteTargetIds shouldBe setOf(dup0.identifier)
+        row.keeper?.identifier shouldBe dup1.identifier
+    }
+
+    @Test
+    fun `state keeper is null when the favorite group has no keeper metadata`() = runTest2 {
+        // No targets means both copies survive, so there is no single file to point at.
+        val c = cluster("a", favoriteOf = "self")
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.deleteTargetIds shouldBe emptySet()
+        row.keeper shouldBe null
+    }
+
+    @Test
+    fun `state keeper is null for a keeper-less non-favorite group`() = runTest2 {
+        // Everything is a target, so nothing survives a keep-one delete of this cluster.
+        val c = cluster("a")
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.deleteTargetIds shouldBe c.groups.flatMap { it.duplicates }.map { it.identifier }.toSet()
+        row.keeper shouldBe null
+    }
+
+    @Test
+    fun `state keeper is the sole member of a single-member favorite group`() = runTest2 {
+        // The scanner assigns no keeperIdentifier to a one-member group, yet that member IS the
+        // copy a keep-one delete leaves behind.
+        val soloDupe = previewChecksumDuplicate(
+            pathSegments = arrayOf("storage", "s", "solo"),
+            size = 100L,
+            hashSeed = "s-solo",
+        )
+        val favoriteGroup = ChecksumDuplicate.Group(
+            duplicates = setOf(soloDupe),
+            identifier = Duplicate.Group.Id("fav"),
+            keeperIdentifier = null,
+        )
+        val secondaryDupes = listOf(100L, 200L).mapIndexed { idx, size ->
+            previewChecksumDuplicate(
+                pathSegments = arrayOf("storage", "s", "sec$idx"),
+                size = size,
+                hashSeed = "s-sec-$idx",
+            )
+        }.toSet()
+        val secondaryGroup = ChecksumDuplicate.Group(
+            duplicates = secondaryDupes,
+            identifier = Duplicate.Group.Id("sec"),
+            keeperIdentifier = secondaryDupes.first().identifier,
+        )
+        val c = previewCluster(
+            identifier = Duplicate.Cluster.Id("s"),
+            groups = setOf(favoriteGroup, secondaryGroup),
+            favoriteGroupIdentifier = favoriteGroup.identifier,
+        )
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.deleteTargetIds shouldBe secondaryDupes.map { it.identifier }.toSet()
+        row.keeper?.identifier shouldBe soloDupe.identifier
+    }
+
+    @Test
+    fun `state keeper does not depend on group order`() = runTest2 {
+        // The favorite group is the SECOND entry: a survivor derived from "the first group" would
+        // pick the wrong file here.
+        val secondaryDupes = listOf(100L, 100L).mapIndexed { idx, size ->
+            previewChecksumDuplicate(
+                pathSegments = arrayOf("storage", "o", "sec$idx"),
+                size = size,
+                hashSeed = "o-sec-$idx",
+            )
+        }.toSet()
+        val secondaryGroup = ChecksumDuplicate.Group(
+            duplicates = secondaryDupes,
+            identifier = Duplicate.Group.Id("sec"),
+            keeperIdentifier = null,
+        )
+        val favoriteDupes = listOf(100L, 100L).mapIndexed { idx, size ->
+            previewChecksumDuplicate(
+                pathSegments = arrayOf("storage", "o", "fav$idx"),
+                size = size,
+                hashSeed = "o-fav-$idx",
+            )
+        }.toSet()
+        val favoriteKeeper = favoriteDupes.last()
+        val favoriteGroup = ChecksumDuplicate.Group(
+            duplicates = favoriteDupes,
+            identifier = Duplicate.Group.Id("fav"),
+            keeperIdentifier = favoriteKeeper.identifier,
+        )
+        val c = previewCluster(
+            identifier = Duplicate.Cluster.Id("o"),
+            groups = setOf(secondaryGroup, favoriteGroup),
+            favoriteGroupIdentifier = favoriteGroup.identifier,
+        )
+        val h = harness(clusters = setOf(c))
+
+        val row = h.vm.state.filterNotNull().first().rows.single()
+        row.keeper?.identifier shouldBe favoriteKeeper.identifier
+        row.deleteTargetIds shouldBe
+            secondaryDupes.map { it.identifier }.toSet() +
+            (favoriteDupes - favoriteKeeper).map { it.identifier }.toSet()
+    }
+
     // ─────────────────────────── navUp on drain ───────────────────────────
 
     @Test
@@ -776,6 +893,26 @@ class DeduplicatorListViewModelTest : BaseTest() {
         val event = nav.list.single()
         event.shouldBeInstanceOf<NavEvent.GoTo>()
         event.destination.shouldBeInstanceOf<PreviewRoute>()
+        nav.cancel()
+    }
+
+    @Test
+    fun `previewDuplicate positions the preview on the given duplicate`() = runTest2 {
+        val c = cluster("c", keeperOf = "dup1", favoriteOf = "self")
+        val dup1 = c.groups.single().duplicates.single { it.lookup.path.endsWith("dup1") }
+        val paths = c.groups.flatMap { gr -> gr.duplicates.map { it.path } }
+        val h = harness(clusters = setOf(c))
+        val nav = collectNavEvents(h.vm)
+
+        h.vm.previewDuplicate(c, dup1)
+        advanceUntilIdle()
+
+        val event = nav.list.single()
+        event.shouldBeInstanceOf<NavEvent.GoTo>()
+        val route = event.destination.shouldBeInstanceOf<PreviewRoute>()
+        route.options.position shouldBe paths.indexOf(dup1.path)
+        // Non-zero: position 0 is what previewCluster would have opened.
+        route.options.position shouldNotBe 0
         nav.cancel()
     }
 
