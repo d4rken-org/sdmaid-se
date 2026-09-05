@@ -111,7 +111,10 @@ class FlowShellTest : BaseTest() {
         val sharedSession = FlowShell().session.replayingShare(this)
         sharedSession.launchIn(this + Dispatchers.IO)
 
-        val loop = 1000
+        // Nothing reads stdout until close() returns, so all echoed lines have to fit in the OS
+        // pipe. Linux hands an unprivileged user as little as 8 KiB per pipe once
+        // fs.pipe-user-pages-soft is exceeded; ~42 bytes/line keeps 100 lines at ~4 KiB.
+        val loop = 100
         val expected = mutableListOf<String>()
         val output = mutableListOf<String>()
 

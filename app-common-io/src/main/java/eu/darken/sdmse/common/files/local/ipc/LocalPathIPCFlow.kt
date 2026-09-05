@@ -30,6 +30,7 @@ import java.io.PipedOutputStream
 
 private const val CHUNK_COUNT = 100
 private const val PATH_SIZE = 1024
+private const val HOST_PIPE_SIZE = 32 * 1024
 
 fun RemoteInputStream.toLocalPathFlow(): Flow<LocalPath> = flow {
     if (Bugs.isTrace) log(FileOpsClient.TAG, VERBOSE) { "RemoteInputStream.toLocalPathFlow() starting..." }
@@ -84,26 +85,23 @@ fun RemoteInputStream.toLocalPathFlow(): Flow<LocalPath> = flow {
 fun Flow<LocalPath>.toRemoteInputStream(scope: CoroutineScope): RemoteInputStream {
     if (Bugs.isTrace) log(FileOpsHost.TAG, VERBOSE) { "Flow<LocalPath>.toRemoteInputStream()..." }
 
-    val inputStream = PipedInputStream(2 * CHUNK_COUNT * PATH_SIZE)
+    val inputStream = PipedInputStream(HOST_PIPE_SIZE)
     val outputStream = PipedOutputStream()
     inputStream.connect(outputStream)
 
-    val buffer = outputStream.writer().buffered(CHUNK_COUNT * PATH_SIZE)
+    val buffer = outputStream.writer().buffered()
 
     val resultFlow: Flow<LocalPathResult> = flow {
-        try {
-            this@toRemoteInputStream.collect { path ->
-                emit(LocalPathResult.Success(path))
-            }
-            // Terminal marker: tells the consumer the stream ended cleanly rather than being
-            // truncated by a dying host process.
-            emit(LocalPathResult.Complete)
-        } catch (exception: CancellationException) {
-            // Cancellation is not a stream error — let it unwind instead of fabricating an Error frame.
-            throw exception
-        } catch (exception: Exception) {
-            emit(LocalPathResult.Error(exception))
+        this@toRemoteInputStream.collect { path ->
+            emit(LocalPathResult.Success(path))
         }
+        // Terminal marker: tells the consumer the stream ended cleanly rather than being
+        // truncated by a dying host process.
+        emit(LocalPathResult.Complete)
+    }.catch { exception ->
+        // Cancellation is not a stream error — let it unwind instead of fabricating an Error frame.
+        if (exception !is Exception || exception is CancellationException) throw exception
+        emit(LocalPathResult.Error(exception))
     }
 
     resultFlow

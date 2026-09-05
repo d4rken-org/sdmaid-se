@@ -5,6 +5,7 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.awaitTouchSlopOrCancellation
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
@@ -85,21 +87,43 @@ internal fun SwiperDeckCard(
                 val tracker = VelocityTracker()
                 tracker.addPointerInputChange(down)
 
+                // Gesture-local source of truth. Animatable.snapTo is suspend and runs on the
+                // animation scope, so reading offsetX.value back mid-gesture can miss deltas that
+                // are still queued; this accumulates them synchronously instead. It is seeded in
+                // the slop callback rather than here: a press landing on a running snap-back must
+                // start from where the card has actually travelled to by the time the drag is
+                // claimed, not from where it sat when the finger went down.
+                var dragOffset = Offset.Zero
+
+                // Below touch slop this consumes nothing, so a tap still reaches the clickable
+                // corner buttons inside the card. It also cancels if another recognizer claims the
+                // pointer and follows a pointer handoff when the tracked finger lifts.
+                val slopChange = awaitTouchSlopOrCancellation(down.id) { change, overSlop ->
+                    change.consume()
+                    tracker.addPointerInputChange(change)
+                    dragOffset = Offset(offsetX.value, offsetY.value) + overSlop
+                    val target = dragOffset
+                    animationScope.launch {
+                        offsetX.snapTo(target.x)
+                        offsetY.snapTo(target.y)
+                    }
+                } ?: return@awaitEachGesture
+
                 while (true) {
                     val event = awaitPointerEvent(PointerEventPass.Main)
-                    val change = event.changes.firstOrNull { it.id == down.id }
+                    val change = event.changes.firstOrNull { it.id == slopChange.id }
                         ?: event.changes.first()
                     if (!change.pressed) break
                     val drag = change.positionChange()
                     if (drag.x != 0f || drag.y != 0f) {
                         tracker.addPointerInputChange(change)
-                        val targetX = offsetX.value + drag.x
-                        val targetY = offsetY.value + drag.y
+                        dragOffset += drag
+                        val target = dragOffset
                         // Hop to the regular coroutine scope to call Animatable.snapTo;
                         // awaitEachGesture's RestrictsSuspension scope can't invoke it directly.
                         animationScope.launch {
-                            offsetX.snapTo(targetX)
-                            offsetY.snapTo(targetY)
+                            offsetX.snapTo(target.x)
+                            offsetY.snapTo(target.y)
                         }
                         change.consume()
                     }
@@ -107,8 +131,8 @@ internal fun SwiperDeckCard(
 
                 val velocity = tracker.calculateVelocity()
                 val outcome = decideSwipe(
-                    offsetX = offsetX.value,
-                    offsetY = offsetY.value,
+                    offsetX = dragOffset.x,
+                    offsetY = dragOffset.y,
                     velocityX = velocity.x,
                     velocityY = velocity.y,
                     threshold = swipeThreshold,
@@ -127,13 +151,13 @@ internal fun SwiperDeckCard(
                             offsetX.animateTo(0f, spring())
                             offsetY.animateTo(0f, spring())
                         }
-                        onCommit(outcome, offsetX.value, offsetY.value)
+                        onCommit(outcome, dragOffset.x, dragOffset.y)
                     }
                     else -> {
                         // Keep / Delete / Skip: hand the fly-off to a leaving overlay; this card is
                         // about to be dropped from the deck as the cursor advances.
                         isCommitting = true
-                        onCommit(outcome, offsetX.value, offsetY.value)
+                        onCommit(outcome, dragOffset.x, dragOffset.y)
                     }
                 }
             }
