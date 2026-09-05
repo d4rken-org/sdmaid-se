@@ -35,29 +35,35 @@ class ShizukuWrapper @Inject constructor(
 ) {
 
     /**
-     * Package that declares the Shizuku permission, or null if no installed app declares it.
+     * Packages that declare a Shizuku manager permission, in [MANAGER_PERMISSIONS] order.
      *
-     * Detects Shizuku via its permission ([ShizukuProvider.PERMISSION]) instead of a fixed package
-     * name. The permission name is shared across Shizuku forks, so this keeps working when a fork
-     * hides its package from enumeration ("Hide Shizuku from other apps") or ships under a different
-     * package name. Permissions live in a global namespace, so the lookup isn't subject to the
-     * package-visibility filtering that hides the app itself.
+     * Detects Shizuku via its permissions instead of a fixed package name. The permission names are
+     * shared across Shizuku forks, so this keeps working when a fork hides its package from
+     * enumeration ("Hide Shizuku from other apps") or ships under a different package name.
+     * Permissions live in a global namespace, so the lookup isn't subject to the package-visibility
+     * filtering that hides the app itself. Every name is tried because Shizuku+'s Plus flavor
+     * declares only its own permission and just requests the stock one.
      */
-    suspend fun getManagerPackage(): String? = withContext(dispatcherProvider.IO) {
-        try {
-            context.packageManager
-                .getPermissionInfo(ShizukuProvider.PERMISSION, 0)
-                .packageName
-                ?.takeUnless { it.isBlank() }
-        } catch (e: PackageManager.NameNotFoundException) {
-            log(TAG) { "getManagerPackage(): Shizuku permission not declared by any app" }
-            null
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            log(TAG, WARN) { "getManagerPackage(): Lookup failed: ${e.asLog()}" }
-            null
-        }
+    suspend fun getManagerPackages(): List<String> = withContext(dispatcherProvider.IO) {
+        MANAGER_PERMISSIONS.mapNotNull { resolvePermissionOwner(it) }.distinct()
+    }
+
+    /** The manager package to treat as *the* Shizuku app, see [getManagerPackages]. */
+    suspend fun getManagerPackage(): String? = getManagerPackages().firstOrNull()
+
+    private fun resolvePermissionOwner(permission: String): String? = try {
+        context.packageManager
+            .getPermissionInfo(permission, 0)
+            .packageName
+            ?.takeUnless { it.isBlank() }
+    } catch (e: PackageManager.NameNotFoundException) {
+        log(TAG) { "resolvePermissionOwner($permission): not declared by any app" }
+        null
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "resolvePermissionOwner($permission): Lookup failed: ${e.asLog()}" }
+        null
     }
 
     private val handlerThread: HandlerThread by lazy {
@@ -188,6 +194,12 @@ class ShizukuWrapper @Inject constructor(
 
     companion object {
         private val TAG = logTag("ADB", "Shizuku", "Wrapper")
+
+        internal const val SHIZUKU_PLUS_PERMISSION = "af.shizuku.plus.permission.API_V23"
+
+        // Priority order: the stock permission first, so an install that defines both (Shizuku+ Drop-In,
+        // or Shizuku+ Plus next to its Compat Hub) keeps resolving to the same package it does today.
+        internal val MANAGER_PERMISSIONS: List<String> = listOf(ShizukuProvider.PERMISSION, SHIZUKU_PLUS_PERMISSION)
 
         /**
          * Combined budget for the two binder round-trips behind [isGranted].
