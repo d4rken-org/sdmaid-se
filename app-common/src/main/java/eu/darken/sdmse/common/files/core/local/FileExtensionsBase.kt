@@ -4,6 +4,7 @@ import android.system.Os
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.io.File
@@ -22,7 +23,7 @@ fun File(vararg crumbs: String): File {
 fun File.tryMkDirs(): File {
     if (exists()) {
         if (isDirectory) {
-            log(VERBOSE) { "Directory already exists, not creating: $this" }
+            log(TAG, VERBOSE) { "Directory already exists, not creating: $this" }
             return this
         } else {
             throw IllegalStateException("Directory exists, but is not a directory: $this")
@@ -30,7 +31,7 @@ fun File.tryMkDirs(): File {
     }
 
     if (mkdirs()) {
-        log(VERBOSE) { "Directory created: $this" }
+        log(TAG, VERBOSE) { "Directory created: $this" }
         return this
     } else {
         throw IllegalStateException("Couldn't create Directory: $this")
@@ -40,7 +41,7 @@ fun File.tryMkDirs(): File {
 fun File.tryMkFile(): File {
     if (exists()) {
         if (isFile) {
-            log(VERBOSE) { "File already exists, not creating: $this" }
+            log(TAG, VERBOSE) { "File already exists, not creating: $this" }
             return this
         } else {
             throw IllegalStateException("Path exists but is not a file: $this")
@@ -50,7 +51,7 @@ fun File.tryMkFile(): File {
     if (parentFile?.exists() == false) parentFile?.tryMkDirs()
 
     if (createNewFile()) {
-        log(VERBOSE) { "File created: $this" }
+        log(TAG, VERBOSE) { "File created: $this" }
         return this
     } else {
         throw IllegalStateException("Couldn't create file: $this")
@@ -63,7 +64,7 @@ fun File.deleteRecursivelySafe(): Boolean {
     // as non-root, permission errors also block listFiles()/delete(), so recursion goes nowhere.
     val linkTarget = readLink()
     if (linkTarget != null) {
-        log(WARN) { "deleteRecursivelySafe(): Symlink detected, deleting link only: $this -> $linkTarget" }
+        log(TAG, WARN) { "deleteRecursivelySafe(): Symlink detected, deleting link only: $this -> $linkTarget" }
         return delete()
     }
     var success = true
@@ -158,3 +159,6 @@ val File.parents: Sequence<File>
 
 val File.parentsInclusive: Sequence<File>
     get() = sequenceOf(this) + parents
+
+
+private val TAG = logTag("File", "Extensions")

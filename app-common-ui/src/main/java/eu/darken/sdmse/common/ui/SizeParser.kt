@@ -6,6 +6,7 @@ import android.icu.util.Measure
 import android.icu.util.MeasureUnit
 import android.text.format.Formatter
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import java.text.DecimalFormatSymbols
 
 class SizeParser(private val context: Context) {
@@ -52,13 +53,13 @@ class SizeParser(private val context: Context) {
                         val key = unit.uppercase()
                         val existing = get(key)
                         if (existing != null && existing != multiplier) {
-                            log { "Unit collision: '$key' existing=${existing} vs new=$multiplier (width=$width)" }
+                            log(TAG) { "Unit collision: '$key' existing=${existing} vs new=$multiplier (width=$width)" }
                         }
                         put(key, multiplier)
                     }
                 }
             }
-        }.also { log { "Size lookup map: $it" } }
+        }.also { log(TAG) { "Size lookup map: $it" } }
     }
 
     private fun normalizeDigits(input: String): String = input.map {
@@ -71,7 +72,7 @@ class SizeParser(private val context: Context) {
     fun parse(input: String): Long? {
         val trimmed = input.trim()
         val match = sizeUnitsRegex.matchEntire(trimmed) ?: run {
-            log { "No regex match for '$input' (hex=${trimmed.map { "%04x".format(it.code) }})" }
+            log(TAG) { "No regex match for '$input' (hex=${trimmed.map { "%04x".format(it.code) }})" }
             return null
         }
         val (value, unit) = match.destructured
@@ -79,11 +80,14 @@ class SizeParser(private val context: Context) {
             .replace(decimalSeperator, '.')
             .toDoubleOrNull()
         val factor = sizeUnitsLocalized[unit.uppercase()] ?: run {
-            log { "Unknown unit '$unit' in '$input'" }
+            log(TAG) { "Unknown unit '$unit' in '$input'" }
             return null
         }
         return valueNormalized
             ?.times(factor)?.toLong()
-            .also { log { "Parsed size '$input' to: $it Byte" } }
+            .also { log(TAG) { "Parsed size '$input' to: $it Byte" } }
     }
 }
+
+
+private val TAG = logTag("SizeParser")

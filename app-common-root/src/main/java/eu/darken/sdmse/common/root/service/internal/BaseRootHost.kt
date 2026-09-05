@@ -116,7 +116,7 @@ abstract class BaseRootHost(
                     @Suppress("DEPRECATION")
                     Looper.prepareMainLooper()
                 } catch (e: Exception) {
-                    log(ERROR) { "Failed prepareMainLooper() for systemContext" }
+                    log(iTag, ERROR) { "Failed prepareMainLooper() for systemContext" }
                 }
             }
             val cActivityThread = Class.forName("android.app.ActivityThread")
@@ -124,10 +124,10 @@ abstract class BaseRootHost(
             val mGetSystemContext = cActivityThread.getMethod("getSystemContext")
             val oActivityThread = mSystemMain.invoke(null)
             val oContext = mGetSystemContext.invoke(oActivityThread)
-            log { "Grabbed context $oContext" }
+            log(iTag) { "Grabbed context $oContext" }
             oContext as Context
         } catch (e: Exception) {
-            log(ERROR) { "Failed to obtain system context: ${e.asLog()}" }
+            log(iTag, ERROR) { "Failed to obtain system context: ${e.asLog()}" }
             throw RuntimeException("Unexpected exception in getSystemContext()")
         }
     }

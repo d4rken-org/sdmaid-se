@@ -65,15 +65,15 @@ class ReflectionBroadcast @Inject constructor() {
      * ActivityManager.broadcastIntent() method
      */
     private val broadcastIntent: Method by lazy<Method> {
-        log { "broadcastIntent - init" }
+        log(TAG) { "broadcastIntent - init" }
         for (m in activityManager.javaClass.methods) {
             if (m.name == "broadcastIntent" && m.parameterTypes.size == 13) {
-                log { "broadcastIntent - size=13" }
+                log(TAG) { "broadcastIntent - size=13" }
                 // API 24+
                 return@lazy m
             }
             if (m.name == "broadcastIntent" && m.parameterTypes.size == 12) {
-                log { "broadcastIntent - size=12" }
+                log(TAG) { "broadcastIntent - size=12" }
                 // API 21+
                 return@lazy m
             }
@@ -93,15 +93,15 @@ class ReflectionBroadcast @Inject constructor() {
     @SuppressLint("PrivateApi")
     fun sendBroadcast(intent: Intent, userId: Int) {
         try {
-            log { "sendBroadcast(userId=$userId, intent=${intent})..." }
+            log(TAG) { "sendBroadcast(userId=$userId, intent=${intent})..." }
             // Prevent system from complaining about unprotected broadcast, if the field exists
             intent.flags = flagReceiverFromShell
-            log { "sendBroadcast(...) flags prepared" }
+            log(TAG) { "sendBroadcast(...) flags prepared" }
 
             // API 24+
             // https://cs.android.com/android/platform/superproject/+/master:frameworks/base/services/core/java/com/android/server/am/ActivityManagerService.java;l=14427
             if (broadcastIntent.parameterTypes.size == 13) {
-                log { "sendBroadcast(...) sending (type=13)" }
+                log(TAG) { "sendBroadcast(...) sending (type=13)" }
 
                 broadcastIntent.invoke(
                     activityManager,
@@ -119,12 +119,12 @@ class ReflectionBroadcast @Inject constructor() {
                     false, // boolean sticky
                     userId, // int userId
                 )
-                log { "sendBroadcast(..) (type=13) done." }
+                log(TAG) { "sendBroadcast(..) (type=13) done." }
                 return
             }
 
             if (broadcastIntent.parameterTypes.size == 12) {
-                log { "sendBroadcast(...) sending (type=12)" }
+                log(TAG) { "sendBroadcast(...) sending (type=12)" }
                 // API 21+
                 broadcastIntent.invoke(
                     activityManager,
@@ -141,7 +141,7 @@ class ReflectionBroadcast @Inject constructor() {
                     false,
                     userId,
                 )
-                log { "sendBroadcast(..) (type=12) done." }
+                log(TAG) { "sendBroadcast(..) (type=12) done." }
                 return
             }
         } catch (e: Exception) {

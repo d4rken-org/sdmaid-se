@@ -21,6 +21,15 @@ class SegmentExclusionTest : BaseTest() {
         testFile.delete()
     }
 
+    @Test
+    fun `id keeps the persisted prefix`() {
+        // Persisted in exclusion.default.removed; renaming the class needs a migration.
+        SegmentExclusion(
+            segments = segs("some", "dir"),
+            allowPartial = false,
+            ignoreCase = false,
+        ).id shouldBe "SegmentExclusion-some/dir"
+    }
 
     @Test
     fun `custom tags`() {

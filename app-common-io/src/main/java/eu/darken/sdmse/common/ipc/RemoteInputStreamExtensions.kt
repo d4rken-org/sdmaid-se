@@ -5,6 +5,7 @@ import android.os.RemoteException
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import okio.Source
 import okio.source
 import java.io.IOException
@@ -42,7 +43,7 @@ private class RemoteInputStreamStub(initial: InputStream) : RemoteInputStream.St
         return try {
             s.available()
         } catch (e: IOException) {
-            log(ERROR) { "available() failed: ${e.asLog()}" }
+            log(TAG, ERROR) { "available() failed: ${e.asLog()}" }
             -2
         }
     }
@@ -52,7 +53,7 @@ private class RemoteInputStreamStub(initial: InputStream) : RemoteInputStream.St
         return try {
             s.read()
         } catch (e: IOException) {
-            log(ERROR) { "read() failed: ${e.asLog()}" }
+            log(TAG, ERROR) { "read() failed: ${e.asLog()}" }
             -2
         }
     }
@@ -62,7 +63,7 @@ private class RemoteInputStreamStub(initial: InputStream) : RemoteInputStream.St
         return try {
             s.read(b, off, len)
         } catch (e: IOException) {
-            log(ERROR) { "readBuffer() failed: ${e.asLog()}" }
+            log(TAG, ERROR) { "readBuffer() failed: ${e.asLog()}" }
             -2
         }
     }
@@ -131,3 +132,6 @@ internal fun RemoteInputStream.inputStream(): InputStream = object : InputStream
 }
 
 fun RemoteInputStream.source(): Source = inputStream().source()
+
+
+private val TAG = logTag("IPC", "RemoteInputStream")

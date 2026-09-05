@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.TimeoutCancellationException
 
 open class AutomationTimeoutException(
@@ -31,9 +32,12 @@ open class AutomationTimeoutException(
                 }
                 it.startActivity(intent)
             } catch (e: Exception) {
-                log(WARN) { "Failed to open bug report URL: ${e.asLog()}" }
+                log(TAG, WARN) { "Failed to open bug report URL: ${e.asLog()}" }
             }
         }
     )
 
 }
+
+
+private val TAG = logTag("Automation", "Error", "Timeout")

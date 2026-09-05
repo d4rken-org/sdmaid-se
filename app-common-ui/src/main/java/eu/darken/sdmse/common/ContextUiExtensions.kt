@@ -8,6 +8,7 @@ import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
 import androidx.core.content.ContextCompat
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlin.math.max
 
 
@@ -40,6 +41,9 @@ fun Context.getSpanCount(widthDp: Int = 390): Int {
     val screenWidthDp = displayMetrics.widthPixels / displayMetrics.density
     val count = (screenWidthDp / widthDp + 0.5).toInt()
     return max(count, 1).also {
-        log { "getSpanCount($screenWidthDp/$widthDp)=$it" }
+        log(TAG) { "getSpanCount($screenWidthDp/$widthDp)=$it" }
     }
 }
+
+
+private val TAG = logTag("Context", "UI", "Extensions")

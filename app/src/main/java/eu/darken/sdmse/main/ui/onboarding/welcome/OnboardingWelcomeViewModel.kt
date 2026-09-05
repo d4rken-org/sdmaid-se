@@ -13,7 +13,7 @@ import javax.inject.Inject
 class OnboardingWelcomeViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
-) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     fun onContinue(isLegacySdmInstalled: Boolean) {
         if (isLegacySdmInstalled) {

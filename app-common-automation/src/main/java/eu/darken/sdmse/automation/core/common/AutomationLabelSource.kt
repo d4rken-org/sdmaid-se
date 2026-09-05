@@ -44,13 +44,13 @@ interface AutomationLabelSource {
         val identifier = localizedRes.getIdentifier(stringIdName, "string", pkgId.name).takeIf { it != 0 }
         identifier?.let { localizedRes.getString(it) }.also {
             if (it != null) {
-                log { "Read ${pkgId.name}:${stringIdName} [$locale] from settings APK: $it" }
+                log(TAG) { "Read ${pkgId.name}:${stringIdName} [$locale] from settings APK: $it" }
             } else {
-                log(WARN) { "Failed to read ${pkgId.name}:${stringIdName} [$locale] from settings APK." }
+                log(TAG, WARN) { "Failed to read ${pkgId.name}:${stringIdName} [$locale] from settings APK." }
             }
         }
     } catch (e: Exception) {
-        log(ERROR) { "get3rdPartyString(${pkgId.name}, $stringIdName, $locale) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "get3rdPartyString(${pkgId.name}, $stringIdName, $locale) failed: ${e.asLog()}" }
         null
     }
 
@@ -59,7 +59,7 @@ interface AutomationLabelSource {
             try {
                 source.invoke().toSet()
             } catch (e: Exception) {
-                log(WARN) { "Failed to source list: ${e.asLog()}" }
+                log(TAG, WARN) { "Failed to source list: ${e.asLog()}" }
                 emptySet()
             }
         ).toSet()

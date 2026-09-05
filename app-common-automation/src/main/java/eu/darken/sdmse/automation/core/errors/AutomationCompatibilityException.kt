@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.error.LocalizedError
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 
 open class AutomationCompatibilityException(
     override val message: String = "SD Maid couldn’t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it.",
@@ -48,9 +49,12 @@ open class AutomationCompatibilityException(
                 }
                 it.startActivity(intent)
             } catch (e: Exception) {
-                log(WARN) { "Failed to open bug report URL: ${e.asLog()}" }
+                log(TAG, WARN) { "Failed to open bug report URL: ${e.asLog()}" }
             }
         }
     )
 
 }
+
+
+private val TAG = logTag("Automation", "Error", "Compatibility")

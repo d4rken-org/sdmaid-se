@@ -31,6 +31,12 @@ class PkgExclusionTest : BaseTest() {
     }
 
     @Test
+    fun `id keeps the persisted prefix`() {
+        // Persisted in exclusion.default.removed; renaming the class needs a migration.
+        PkgExclusion("com.example.app".toPkgId()).id shouldBe "PkgExclusion-com.example.app"
+    }
+
+    @Test
     fun `custom tags`() {
         testFile.tryMkFile()
         val original = PkgExclusion(

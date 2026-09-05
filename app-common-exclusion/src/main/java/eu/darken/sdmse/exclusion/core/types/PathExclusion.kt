@@ -1,5 +1,6 @@
 package eu.darken.sdmse.exclusion.core.types
 
+import androidx.annotation.Keep
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -11,6 +12,7 @@ import eu.darken.sdmse.common.serialization.APathSerializer
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Keep // simpleName is part of the persisted ExclusionId, see createId()
 @Serializable
 data class PathExclusion(
     @SerialName("path") @Serializable(with = APathSerializer::class) val path: APath,

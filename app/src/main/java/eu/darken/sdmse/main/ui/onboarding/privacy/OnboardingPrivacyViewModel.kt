@@ -26,7 +26,7 @@ class OnboardingPrivacyViewModel @Inject constructor(
     private val motdSettings: MotdSettings,
     private val webpageTool: WebpageTool,
     private val updateChecker: UpdateChecker,
-) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     val state: StateFlow<State> = combine(
         motdSettings.isMotdEnabled.flow,

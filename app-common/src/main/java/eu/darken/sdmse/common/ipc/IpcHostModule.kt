@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.ipc
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import java.io.ByteArrayOutputStream
 import java.io.ObjectOutputStream
 import kotlin.io.encoding.Base64
@@ -31,7 +32,7 @@ interface IpcHostModule {
         }
 
         if (Bugs.isDebug) {
-            log(VERBOSE) { "Encoding stacktrace..." }
+            log(TAG, VERBOSE) { "Encoding stacktrace..." }
             // TODO Find better way to pass trace, see IpcClientModule
             val encodedTrace = stackTrace.encodeBase64()
             if (encodedTrace != null) {
@@ -49,3 +50,6 @@ interface IpcHostModule {
         const val STACK_MARKER = "#STACK#:"
     }
 }
+
+
+private val TAG = logTag("IPC", "HostModule")

@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.ipc
 import android.os.IBinder
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlin.reflect.KClass
 
 /**
@@ -12,27 +13,27 @@ import kotlin.reflect.KClass
  */
 @Suppress("UNCHECKED_CAST")
 fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? {
-    // PROGUARD RULE REQUIRED: DESCRIPTOR field is otherwise removed
-    // e.g. eu.darken.sdmse.common.root.service.RootServiceConnection.DESCRIPTOR
+    // PROGUARD RULE REQUIRED: the `Stub` class and its DESCRIPTOR field are otherwise removed/renamed
+    // see app-common-io/consumer-rules.pro
     val fDescriptor = Class
         .forName(clazz.qualifiedName + "\$Stub")
         .getField("DESCRIPTOR")
         .apply { isAccessible = true }
 
     val intf = queryLocalInterface(fDescriptor[this] as String)
-    log(VERBOSE) { "Queried interface is $intf" }
+    log(TAG, VERBOSE) { "Queried interface is $intf" }
 
     if (clazz.isInstance(intf)) {
-        log(VERBOSE) { "Using local instance" }
+        log(TAG, VERBOSE) { "Using local instance" }
         return intf as T?
     }
 
-    log(VERBOSE) { "Creating remote instance" }
+    log(TAG, VERBOSE) { "Creating remote instance" }
     val className = clazz.qualifiedName + "\$Stub\$Proxy"
 
-    // PROGUARD RULE REQUIRED: `Proxy` constructor is otherwise removed
-    // e.g. eu.darken.sdmse.common.shizuku.ShizukuServiceConnection$Stub$Proxy.<init> [interface android.os.IBinder]
-    log(VERBOSE) { "Creating class $className" }
+    // PROGUARD RULE REQUIRED: the `Proxy` class and its IBinder constructor are otherwise removed/renamed
+    // see app-common-io/consumer-rules.pro
+    log(TAG, VERBOSE) { "Creating class $className" }
     val ctorProxy = Class
         .forName(className)
         .getDeclaredConstructor(IBinder::class.java)
@@ -40,3 +41,6 @@ fun <T : Any> IBinder.getInterface(clazz: KClass<T>): T? {
 
     return ctorProxy.newInstance(this) as T
 }
+
+
+private val TAG = logTag("IPC", "Binder", "Extensions")

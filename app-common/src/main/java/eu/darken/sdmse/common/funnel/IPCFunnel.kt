@@ -31,7 +31,7 @@ class IPCFunnel @Inject constructor(
             hasApiLevel(31) -> 3
             hasApiLevel(29) -> 2
             else -> 1
-        }.also { log { "IPCFunnel init with parallelization set to $it" } }
+        }.also { log(TAG) { "IPCFunnel init with parallelization set to $it" } }
     )
 
     private val funnelEnv by lazy {

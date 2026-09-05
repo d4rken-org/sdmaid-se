@@ -31,6 +31,12 @@ class PathExclusionTest : BaseTest() {
     }
 
     @Test
+    fun `id keeps the persisted prefix`() {
+        // Persisted in exclusion.default.removed; renaming the class needs a migration.
+        PathExclusion(LocalPath.build("test", "path")).id shouldBe "PathExclusion-/test/path"
+    }
+
+    @Test
     fun `custom tags`() {
         testFile.tryMkFile()
         val original = PathExclusion(

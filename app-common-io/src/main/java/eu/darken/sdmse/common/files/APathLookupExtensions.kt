@@ -2,6 +2,7 @@ package eu.darken.sdmse.common.files
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.flow.Flow
 import okio.FileHandle
 
@@ -97,15 +98,18 @@ fun APathLookup<*>.removePrefix(prefix: APath, overlap: Int = 0) =
     lookedUp.removePrefix(prefix, overlap)
 
 fun Collection<APathLookup<*>>.filterDistinctRoots(): Set<APathLookup<*>> {
-    log(VERBOSE) { "Creating lookup map..." }
+    log(TAG, VERBOSE) { "Creating lookup map..." }
     val lookupMap = this.associateBy { it.lookedUp }
-    log(VERBOSE) { "Lookup map created with ${lookupMap.size} entries, now filtering..." }
+    log(TAG, VERBOSE) { "Lookup map created with ${lookupMap.size} entries, now filtering..." }
     return lookupMap.keys
         .filterDistinctRoots()
         .map { lookupMap.getValue(it) }
         .toSet()
-        .also { log(VERBOSE) { "After filtering we got ${it.size} distinct roots" } }
+        .also { log(TAG, VERBOSE) { "After filtering we got ${it.size} distinct roots" } }
 }
 
 val APathLookup<*>.extension: String?
     get() = lookedUp.extension
+
+
+private val TAG = logTag("APath", "Lookup", "Extensions")

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
@@ -81,7 +82,7 @@ fun <T : Progress.Client> T.increaseProgress(value: Int = 1) {
             is Progress.Count.Counter -> it.copy(count = (it.count as Progress.Count.Counter).increment(value))
             is Progress.Count.Percent -> it.copy(count = (it.count as Progress.Count.Percent).increment(value))
             else -> {
-                log(VERBOSE) { "Can't increaseProgress() on type: ${it?.count}" }
+                log(TAG, VERBOSE) { "Can't increaseProgress() on type: ${it?.count}" }
                 it
             }
         }
@@ -119,3 +120,6 @@ suspend fun <T : Progress.Host, R> T.withProgress(
         client.updateProgress { onCompletion(it) }
     }
 }
+
+
+private val TAG = logTag("Progress", "Extensions")

@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.files
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.crumbsTo
 import eu.darken.sdmse.common.files.local.isAncestorOf
@@ -77,7 +78,7 @@ suspend fun <T : APath> T.requireNotExists(gateway: APathGateway<T, out APathLoo
 suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     if (exists(gateway)) {
         if (gateway.lookup(this).fileType == FileType.FILE) {
-            log(VERBOSE) { "File already exists, not creating: $this" }
+            log(TAG, VERBOSE) { "File already exists, not creating: $this" }
             return this
         } else {
             throw IOException("Exists, but is not a file: $this")
@@ -89,14 +90,14 @@ suspend fun <T : APath> T.createFileIfNecessary(gateway: APathGateway<T, out APa
 
 suspend fun <T : APath> T.createFile(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     gateway.createFile(this)
-    log(VERBOSE) { "File created: $this" }
+    log(TAG, VERBOSE) { "File created: $this" }
     return this
 }
 
 suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APathLookup<T>, out APathLookupExtended<T>>): T {
     if (exists(gateway)) {
         if (gateway.lookup(this).isDirectory) {
-            log(VERBOSE) { "Directory already exists, not creating: $this" }
+            log(TAG, VERBOSE) { "Directory already exists, not creating: $this" }
             return this
         } else {
             throw IOException("Exists, but is not a directory: $this")
@@ -104,7 +105,7 @@ suspend fun <T : APath> T.createDirIfNecessary(gateway: APathGateway<T, out APat
     }
 
     gateway.createDir(this)
-    log(VERBOSE) { "Directory created: $this" }
+    log(TAG, VERBOSE) { "Directory created: $this" }
     return this
 }
 
@@ -116,7 +117,7 @@ suspend fun <T : APath> T.delete(
         this,
         recursive = recursive
     )
-    log(VERBOSE) { "APath.delete(recursive=$recursive): Deleted $this" }
+    log(TAG, VERBOSE) { "APath.delete(recursive=$recursive): Deleted $this" }
 }
 
 suspend fun <T : APath> T.deleteWalk(
@@ -136,13 +137,13 @@ suspend fun <T : APath> T.deleteWalk(
         }
 
         if (!filter(lookup)) {
-            log(VERBOSE) { "Skipped due to filter: $this" }
+            log(TAG, VERBOSE) { "Skipped due to filter: $this" }
             return
         }
     } catch (e: PathException) {
         val exists = gateway.exists(this)
         if (!exists) {
-            log(WARN) { "Path failed to delete, but no longer exists: $this" }
+            log(TAG, WARN) { "Path failed to delete, but no longer exists: $this" }
             return
         } else {
             throw e
@@ -304,3 +305,6 @@ val APath.extension: String?
     get() = name.substringAfterLast('.', "").takeIf { it.isNotEmpty() }
 
 fun APath.child(segs: Segments) = child(*segs.toTypedArray())
+
+
+private val TAG = logTag("APath", "Extensions")
