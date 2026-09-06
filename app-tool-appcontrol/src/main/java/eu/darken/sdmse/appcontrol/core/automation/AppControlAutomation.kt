@@ -20,6 +20,7 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.originos.OriginOSSpecs
+import eu.darken.sdmse.appcontrol.core.automation.specs.oxygenos.OxygenOSSpecs
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.appcontrol.core.restore.RestoreAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
@@ -98,6 +99,7 @@ class AppControlAutomation @AssistedInject constructor(
                 is OriginOSSpecs -> 80
                 is AndroidTVSpecs -> 70
 //                is NubiaSpecs -> 60
+                is OxygenOSSpecs -> 30
 //                is OnePlusSpecs -> 30
 //                is HonorSpecs -> 20
                 is AOSPSpecs -> -5
