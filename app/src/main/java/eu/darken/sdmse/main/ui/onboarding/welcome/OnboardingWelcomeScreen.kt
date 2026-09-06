@@ -14,7 +14,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
-import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -34,6 +33,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.compose.SdmMascot
+import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -95,6 +95,8 @@ internal fun OnboardingWelcomeScreen(
                     SdmMascot(
                         modifier = Modifier.height(116.dp),
                     )
+
+                    Spacer(modifier = Modifier.height(32.dp))
 
                     Text(
                         text = stringResource(R.string.onboarding_welcome_title),

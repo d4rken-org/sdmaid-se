@@ -160,7 +160,7 @@ internal fun TitleDashboardCard(
             mascot = {
                 SdmMascot(
                     modifier = Modifier
-                        .height(44.dp)
+                        .height(56.dp)
                         .graphicsLayer {
                             val impact = mascotImpact.value
                             translationY = impact * 3.dp.toPx()
