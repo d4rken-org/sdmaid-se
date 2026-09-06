@@ -4,7 +4,7 @@
     <string name="dashboard_hero_freeable_headline">Je možné uvolnit %1$s</string>
     <string name="dashboard_hero_freed_headline">Uvolněno %1$s</string>
     <plurals name="dashboard_hero_freeable_x_items">
-        <item quantity="one">%d položka lze odstranit</item>
+        <item quantity="one">%d položku lze odstranit</item>
         <item quantity="few">%d položky lze odstranit</item>
         <item quantity="many">%d položek lze odstranit</item>
         <item quantity="other">%d položek lze odstranit</item>
@@ -19,21 +19,21 @@
     <string name="dashboard_hero_freed_hint">Klepnutím na prvek zobrazíte podrobnosti.</string>
     <string name="dashboard_hero_freed_residue">%1$s zbývá</string>
     <string name="dashboard_hero_nothing_freed_headline">Nic nebylo uvolněno</string>
-    <string name="dashboard_hero_nothing_freed_caption">Čištění skončilo, ale žádná nalezená data se nepodařila odstranit.</string>
+    <string name="dashboard_hero_nothing_freed_caption">Čištění bylo dokončeno, ale žádná z nalezených dat se nepodařilo odstranit.</string>
     <string name="dashboard_hero_nothing_freed_hint">Některá data lze odstranit pouze s dodatečným přístupem, například prostřednictvím služby usnadnění nebo root.</string>
-    <string name="dashboard_hero_locked_headline">Nalezeno %1$s</string>
+    <string name="dashboard_hero_locked_headline">%1$s nalezeno</string>
     <plurals name="dashboard_hero_locked_x_items">
         <item quantity="one">%d položka vyžaduje SD Maid Pro.</item>
-        <item quantity="few">%d položky vyžadují SD Maid Pro.</item>
-        <item quantity="many">%d položky vyžaduje SD Maid Pro.</item>
-        <item quantity="other">%d položek vyžaduje SD Maid Pro.</item>
+        <item quantity="few">%d položky vyžadují SD Maid Pro</item>
+        <item quantity="many">%d položek vyžaduje SD Maid Pro</item>
+        <item quantity="other">%d položek vyžaduje SD Maid Pro</item>
     </plurals>
     <string name="dashboard_hero_locked_hint">Klepnutím odemkněte pomocí SD Maid Pro.</string>
-    <string name="dashboard_hero_locked_block_caption">S SD Maid Pro lze uvolnit více místa</string>
+    <string name="dashboard_hero_locked_block_caption">S aplikací SD Maid Pro lze uvolnit více místa</string>
     <string name="dashboard_hero_locked_chip_description">Vyžaduje SD Maid Pro</string>
     <string name="dashboard_hero_scanned_timestamp_description">Naskenováno %1$s</string>
     <string name="dashboard_hero_freed_timestamp_description">Uvolněno %1$s</string>
-    <string name="dashboard_hero_nothing_freed_timestamp_description">Pokus o %1$s</string>
+    <string name="dashboard_hero_nothing_freed_timestamp_description">Pokusy %1$s</string>
     <string name="dashboard_settings_category">Panel nástrojů</string>
     <string name="dashboard_motd_title">Zpráva od vývojáře</string>
     <string name="dashboard_settings_oneclick_title">Režim jedním klepnutím</string>

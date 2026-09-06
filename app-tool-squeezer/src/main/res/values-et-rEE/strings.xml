@@ -30,12 +30,12 @@
         <item quantity="other">%d vahele jäetud (HDR/sügavus säilitatud)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_motion_photo">
-        <item quantity="one">%d vahele jäetud (Motion Photo)</item>
-        <item quantity="other">%d vahele jäetud (Motion Photos)</item>
+        <item quantity="one">%d vahele jäetud (liikuv pilt)</item>
+        <item quantity="other">%d vahele jäetud (liikuvad pildid)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_oversized">
-        <item quantity="one">%d vahele jäetud (väga suur foto)</item>
-        <item quantity="other">%d vahele jäetud (väga suured fotod)</item>
+        <item quantity="one">%d vahele jäetud (väga suur pilt)</item>
+        <item quantity="other">%d vahele jäetud (väga suured pildid)</item>
     </plurals>
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="one">%d vahele jäetud (kaitstud)</item>
@@ -67,23 +67,23 @@
     <string name="squeezer_exif_marker_title">Kirjuta EXIF märkus</string>
     <string name="squeezer_exif_marker_description">Tee märge pildi EXIFi kasutaja kommentaari väljale, et ennetada uuesti kokkupakkimist isegi pärast kokkupakkimise ajaloo tühjenemist.</string>
     <string name="squeezer_include_lossy_aux_title">Tihenda HDR &amp; sügavusfotod</string>
-    <string name="squeezer_include_lossy_aux_description">Kaasa arvatud HDR- või sügavuse andmetega fotod. Tihendamine eemaldab need: HDR-fotod muutuvad tavaliseks fotodeks, portreefotod kaotavad tausta häguse taga olevad andmed. Mitmepildilised HEIC-failid jäävad vahele.</string>
-    <string name="squeezer_include_motion_photos_title">Tihenda Motion Photod</string>
-    <string name="squeezer_include_motion_photos_description">Kaasa arvatud Motion Photod. Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
-    <string name="squeezer_include_oversized_title">Tihenda väga suured fotod</string>
-    <string name="squeezer_include_oversized_description">Kaasa arvatud fotod, mis on laiemad või pikemad kui 8192 pikslit. Tihendamine poolitab ka nende eraldusvõime.</string>
+    <string name="squeezer_include_lossy_aux_description">Kaasa arvatud HDR- või sügavuse andmetega pildid. Tihendamine eemaldab need: HDR-pildid muutuvad tavalisteks piltideks, portreepildid kaotavad hägustatud andmed. Mitmepildilised HEIC-failid jäävad vahele.</string>
+    <string name="squeezer_include_motion_photos_title">Tihenda liikuvad pildid</string>
+    <string name="squeezer_include_motion_photos_description">Kaasa arvatud liikuvad pildid Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
+    <string name="squeezer_include_oversized_title">Tihenda väga suured pildid</string>
+    <string name="squeezer_include_oversized_description">Kaasa arvatud pildid, mis on laiemad või pikemad kui 8192 pikslit. Tihendamine poolitab ka nende eraldusvõime.</string>
     <string name="squeezer_estimated_savings_format">~%s sääst</string>
     <string name="squeezer_no_savings_expected">Piiratud säästud</string>
     <string name="squeezer_current_size_format">Maht: %s</string>
     <string name="squeezer_chip_compressed_before">Tihendatud</string>
     <string name="squeezer_chip_hdr_depth">HDR/sügavus</string>
-    <string name="squeezer_chip_motion_photo">Motion Photo</string>
+    <string name="squeezer_chip_motion_photo">Liikuv pilt</string>
     <string name="squeezer_chip_downscaled">Vähendatud</string>
     <string name="squeezer_markers_dialog_title">Markerite kohta</string>
     <string name="squeezer_markers_compressed_before_description">SD Maid tihendas selle faili juba. Uuesti tihendamine maksab kvaliteeti ja säästab vähe.</string>
-    <string name="squeezer_markers_hdr_depth_description">Sellel fotol on HDR- või sügavuse andmed, mida tihendamine ei saa säilitada. HDR-foto naaseb tavaliseks fotoks ja portreefoto kaotab tausta häguse jaoks kasutatavad sügavuse andmed.</string>
-    <string name="squeezer_markers_motion_photo_description">See on Motion Photo. Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
-    <string name="squeezer_markers_downscaled_description">See foto on laiem või pikem kui 8192 pikslit. Tihendamine poolitab ka selle eraldusvõime.</string>
+    <string name="squeezer_markers_hdr_depth_description">Sellel fotol on HDR- või sügavuse andmed, mida tihendamine ei saa säilitada. HDR-pilt naaseb tavaliseks pildiks ja portreepilt kaotab häguse tausta jaoks kasutatavad sügavuse andmed.</string>
+    <string name="squeezer_markers_motion_photo_description">See on liikuv pilt. Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
+    <string name="squeezer_markers_downscaled_description">See pilt on laiem või pikem kui 8192 pikslit. Tihendamine poolitab ka selle eraldusvõime.</string>
     <string name="squeezer_compress_action">Paki kokku</string>
     <string name="squeezer_compress_all_action">Paki kõik kokku</string>
     <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>
@@ -107,16 +107,16 @@
     <string name="squeezer_result_empty_message">Kokkupakitavat meediat ei leitud.</string>
     <string name="squeezer_result_empty_protected">Midagi tihendada pole. Vahele jäetud: %s. Kaasamiseks lülitage seadetes vastavad suvandid sisse.</string>
     <plurals name="squeezer_result_empty_x_lossy_aux">
-        <item quantity="one">%d HDR/sügavuse foto</item>
-        <item quantity="other">%d HDR/sügavuse fotot</item>
+        <item quantity="one">%d HDR/sügavuse pilt</item>
+        <item quantity="other">%d HDR/sügavuse pilti</item>
     </plurals>
     <plurals name="squeezer_result_empty_x_motion_photo">
-        <item quantity="one">%d Motion Photo</item>
-        <item quantity="other">%d Motion Photos</item>
+        <item quantity="one">%d liikuv pilt</item>
+        <item quantity="other">%d liikuvat pilti</item>
     </plurals>
     <plurals name="squeezer_result_empty_x_oversized">
-        <item quantity="one">%d väga suur foto</item>
-        <item quantity="other">%d väga suured fotod</item>
+        <item quantity="one">%d väga suur pilt</item>
+        <item quantity="other">%d väga suurt pilti</item>
     </plurals>
     <plurals name="squeezer_setup_path_dropped_message">
         <item quantity="one">%d asukohta ei saa tihendamiseks kasutada ja eemaldati. Tihendamine nõuab otsest juurdepääsu sisemälule.</item>
