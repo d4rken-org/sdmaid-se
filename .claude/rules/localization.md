@@ -45,6 +45,24 @@ caString { getString(R.plurals.xxx, count, count) }
   - Postfix with `_action` instead of prefixing with `button_`
   - Instead of `module_screen_button_open` it should be `module_screen_open_action`
 
+## Copy Style
+
+Rules for the English source text of user-facing strings:
+
+- No em dashes. Use a period or a comma.
+- A settings description never states the default ("Off by default: …"). The switch next to it already
+  shows the state.
+- Descriptions are two or three plain sentences: what the option covers, what happens to those files.
+  No justification clauses ("to keep memory use in check"), no "Enable to …" instructions.
+- Captions and hints must not repeat what the button label next to them already says.
+- Never over-promise on the one-time purchase. No "lifetime" or "forever" phrasing; the approved
+  wording is "One payment, no renewals."
+- Whimsy is welcome where it fits, e.g. the mascot mood variants reacting to app state.
+- Section headers get a translatability check before they are proposed. Puns rarely survive; prefer
+  wording that maps 1:1 into other languages.
+- Modelling a new string on an existing one is not a defence. Older strings predate these rules; new
+  strings are held to them regardless.
+
 ## Translator Context on Crowdin
 
 String context, character limits and file context are managed on Crowdin through the android-translation

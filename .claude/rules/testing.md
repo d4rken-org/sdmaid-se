@@ -192,6 +192,46 @@ pickerResults.tryEmit(PickerResult(selectedPaths = paths))
 advanceUntilIdle()
 ```
 
+## Pitfalls
+
+### Robolectric renders with stub font metrics
+
+`BaseComposeRobolectricTest` does not measure text realistically, so assertions that depend on text
+measurement prove nothing there:
+
+- Width is a flat ~1.0dp per character, identical across text styles and unchanged by font scale. A
+  13-character headline measures 13.0dp. **Text therefore never wraps**, at any width or font scale.
+- Line heights are wrong in both directions: `bodyMedium` measures ~36dp at font scale 1.0 against a
+  real M3 line height of ~20dp, and grows only to ~38dp at scale 2.0. `labelSmall` measures ~12dp at
+  scale 1.0 and ~36dp at scale 2.0.
+
+So a rendered `assertIsDisplayed()` check can fail on content that ships fine (phantom height overflows
+a fixed-height card), and a bounds assertion cannot guard a wrap-driven regression. Existing font-scale
+bounds tests pass largely because the card grows while the stub text does not; treat them as
+gross-overflow guards, not as evidence about real layout.
+
+Layout that depends on text metrics needs the `screenshotTest` source set
+(`android.experimental.enableScreenshotTest=true` is on) or on-device inspection. Before claiming any
+layout test guards something, reintroduce the defect and confirm the test goes red.
+
+### A green run can be testing stale bytecode
+
+Gradle in this repo has run tests against compiled classes that did not match the source on disk, in
+both directions, most often in a worktree with the `built_in_kotlinc` compiler. A newly added `@Test`
+was absent from the compiled class and the run reported success without it; after a fix was reverted,
+the class still contained the fix and the test still passed.
+
+Never accept a pass/fail on a test just added or a source just reverted without checking the binary.
+Cheapest check: compare `grep -c '@Test'` in the source against `tests="N"` in
+`<module>/build/test-results/<task>/TEST-<fqcn>.xml`. A mismatch means a stale compile, not a flaky
+test. To force a rebuild, delete the module's `build/intermediates/built_in_kotlinc/<variant>` and
+`build/intermediates/classes/<variant>`, and confirm with
+`javap -p <Class>.class | grep <method-or-token>`.
+
+Reading that XML: a passing testcase is self-closing, but the `/` follows the `time="…"` attribute
+(`<testcase name="…" classname="…" time="0.067"/>`), so a regex anchored right after `name="…"`
+misreports passes as failures. Cross-check `failures="0"` on the `<testsuite>` element.
+
 ## Testing Libraries
 
 - **Assertions**: Use Kotest matchers (`io.kotest.matchers.shouldBe`, `shouldThrow`, etc.)
