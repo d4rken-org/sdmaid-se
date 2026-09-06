@@ -37,13 +37,9 @@
     <string name="scheduler_notification_result_failure_message">Beberapa tugas berjadual gagal atau menghadapi ralat. Cuba jalankan secara manual.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Dilangkau, skrin telah mati atau terkunci</string>
     <string name="scheduler_acs_screenlocked_hint_title">Pembersihan apl mungkin dilangkau</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Pembersihan apl menggunakan perkhidmatan kebolehcapaian, yang memerlukan skrin dibuka kunci. Larian berjadual apabila peranti terkunci akan dilangkau.
-
-Gunakan Shizuku atau root untuk pembersihan latar belakang, atau jadualkan apabila anda sedang menggunakan peranti.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Pembersihan apl menggunakan perkhidmatan kebolehcapaian, yang memerlukan skrin dibuka kunci. Larian berjadual apabila peranti terkunci akan dilangkau.\n\nGunakan Shizuku atau root untuk pembersihan latar belakang, atau jadualkan apabila anda sedang menggunakan peranti.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Apl sistem mungkin dilangkau</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku membersihkan kebanyakan cache di latar belakang, tetapi apl sistem memerlukan perkhidmatan kebolehcapaian, yang memerlukan skrin dibuka kunci. Dengan \"Sertakan apl sistem\" dihidupkan, apl tersebut dilangkau apabila peranti terkunci.
-
-Matikan \"Sertakan apl sistem\", atau jalankan jadual semasa peranti dibuka kunci.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku membersihkan kebanyakan cache di latar belakang, tetapi apl sistem memerlukan perkhidmatan kebolehcapaian, yang memerlukan skrin dibuka kunci. Dengan \"Sertakan apl sistem\" dihidupkan, apl tersebut dilangkau apabila peranti terkunci.\n\nMatikan \"Sertakan apl sistem\", atau jalankan jadual semasa peranti dibuka kunci.</string>
     <string name="scheduler_commands_after_schedule_label">Arahan selepas jadual</string>
     <string name="scheduler_commands_after_schedule_desc">Arahan shell Android yang akan dilaksanakan pada akhir jadual.</string>
     <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk melumpuhkan pengoptimuman bateri untuk SD Maid jika anda menghadapi masalah dengan pelaksanaan latar belakang.</string>

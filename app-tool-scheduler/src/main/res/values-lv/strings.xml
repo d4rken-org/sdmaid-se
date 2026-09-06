@@ -39,13 +39,9 @@
     <string name="scheduler_notification_result_failure_message">Daži plānotić uzdevumi neizdevās vai saskara ar kļūdām. Mēģiniet tos izpildīt manuāli.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Izlaists, ekrāns bija izslēgts vai bloķēts</string>
     <string name="scheduler_acs_screenlocked_hint_title">Lietotnes tīrīšana var tikt izlaista</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Lietotnes tīrīšana izmanto pieejamības pakalpojumu, kas pieprasa ekrāna atbloķēšanu. Plānotie izpildījumi, kamēr ierīce ir bloķēta, tiek izlaisti.
-
-Lietojiet Shizuku vai root fona tīrīšanai, vai plānojiet to uz laiku, kad lietojat ierīci.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Lietotnes tīrīšana izmanto pieejamības pakalpojumu, kas pieprasa ekrāna atbloķēšanu. Plānotie izpildījumi, kamēr ierīce ir bloķēta, tiek izlaisti.\n\nLietojiet Shizuku vai root fona tīrīšanai, vai plānojiet to uz laiku, kad lietojat ierīci.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistēmas lietotnes var tikt izlaistas</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku tīra lielāko daļu kešatmiņas fonā, bet sistēmas lietotnes pieprasa pieejamības pakalpojumu, kas pieprasa ekrāna atbloķēšanu. Ja ir ieslēgts „Iekļaut sistēmas lietotnes“, tās tiek izlaistas, kad ierīce ir bloķēta.
-
-Izslēdziet „Iekļaut sistēmas lietotnes“ vai palaidiet grafiku, kamēr ierīce ir atbloķēta.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku tīra lielāko daļu kešatmiņas fonā, bet sistēmas lietotnes pieprasa pieejamības pakalpojumu, kas pieprasa ekrāna atbloķēšanu. Ja ir ieslēgts „Iekļaut sistēmas lietotnes“, tās tiek izlaistas, kad ierīce ir bloķēta.\n\nIzslēdziet „Iekļaut sistēmas lietotnes“ vai palaidiet grafiku, kamēr ierīce ir atbloķēta.</string>
     <string name="scheduler_commands_after_schedule_label">Komandas pēc grafika izpildes</string>
     <string name="scheduler_commands_after_schedule_desc">Android čaulas komandas, kas tiks izpildītas grafika beigās.</string>
     <string name="scheduler_battery_optimization_hint">Apsvermiet atspējot akumulatora optimizāciju SD Maid, ja radusīs problēmas ar fona izpildi.</string>
