@@ -153,7 +153,7 @@ class HiddenFilter @Inject constructor(
             "videocaches", "video-caches", "video_caches",
             ".videocaches", ".video-caches", ".video_caches",
             "mediacache", "media-cache", "media_cache",
-            ".mediacache", ".media-cache", ".media-cache",
+            ".mediacache", ".media-cache", ".media_cache",
             "mediacaches", "media-caches", "media_caches",
             ".mediacaches", ".media-caches", ".media_caches",
             "diskcache", "disk-cache", "disk_cache",
