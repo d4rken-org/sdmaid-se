@@ -532,7 +532,55 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         }
     }
 
+    @Test
+    fun `automation card shows the Xiaomi stopped hint when enabled but stopped on a Xiaomi ROM`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        automationCardItem(
+                            state = automationResult(
+                                isServiceEnabled = true,
+                                isServiceRunning = false,
+                                needsXiaomiAutostart = true,
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_state_stopped_hint)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_state_stopped_hint_miui_killed))
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_state_stopped_hint_miui))
+            .assertCountEquals(0)
+    }
+
+    @Test
+    fun `automation card keeps the Xiaomi stopped hint off when the service is running`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        automationCardItem(
+                            state = automationResult(
+                                isServiceEnabled = true,
+                                isServiceRunning = true,
+                                needsXiaomiAutostart = true,
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        }
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_acs_state_stopped_hint_miui_killed))
+            .assertCountEquals(0)
+    }
+
     private fun automationResult(
+        isServiceEnabled: Boolean = false,
+        isServiceRunning: Boolean = false,
+        needsXiaomiAutostart: Boolean = false,
         showAppOpsRestrictionHint: Boolean = false,
         showAdvancedProtectionHint: Boolean = false,
         isAdvancedProtectionBlocked: Boolean = false,
@@ -540,10 +588,10 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         isNotRequired = false,
         hasConsent = true,
         canSelfEnable = false,
-        isServiceEnabled = false,
-        isServiceRunning = false,
+        isServiceEnabled = isServiceEnabled,
+        isServiceRunning = isServiceRunning,
         isShortcutOrButtonEnabled = false,
-        needsXiaomiAutostart = false,
+        needsXiaomiAutostart = needsXiaomiAutostart,
         liftRestrictionsIntent = Intent(),
         showAppOpsRestrictionHint = showAppOpsRestrictionHint,
         showAdvancedProtectionHint = showAdvancedProtectionHint,

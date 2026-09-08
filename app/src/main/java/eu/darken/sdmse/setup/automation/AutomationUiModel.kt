@@ -15,6 +15,7 @@ internal data class AutomationUiModel(
     val showAdvancedProtectionHint: Boolean,
     val runningState: StateChip?,
     val showRunningStateHint: Boolean,
+    val showMiuiStoppedHint: Boolean,
     val showAllowAction: Boolean,
     val allowActionText: AllowActionText,
     val showShortcutHint: Boolean,
@@ -77,15 +78,20 @@ internal fun AutomationSetupModule.Result.toUiModel(): AutomationUiModel {
         else -> AutomationUiModel.AllowActionText.CONSENT_POSITIVE
     }
 
+    // Advanced Protection takes precedence; the MIUI hints would be a false remedy here.
+    val showMiuiAutostartHint = hasConsent == true && !isServiceEnabled && needsXiaomiAutostart
+            && !isAdvancedProtectionBlocked
+    val showMiuiStoppedHint = hasConsent == true && isServiceEnabled && !isServiceRunning && needsXiaomiAutostart
+            && !isAdvancedProtectionBlocked
+
     return AutomationUiModel(
         enabledState = enabledChip,
-        // Advanced Protection takes precedence; the MIUI autostart hint would be a false remedy here.
-        showMiuiAutostartHint = hasConsent == true && !isServiceEnabled && needsXiaomiAutostart
-                && !isAdvancedProtectionBlocked,
+        showMiuiAutostartHint = showMiuiAutostartHint,
         showAppOpsRestrictionHint = showAppOpsRestrictionHint,
         showAdvancedProtectionHint = showAdvancedProtectionHint,
         runningState = runningChip,
         showRunningStateHint = !isServiceRunning && isServiceEnabled,
+        showMiuiStoppedHint = showMiuiStoppedHint,
         showAllowAction = showAllow,
         allowActionText = allowText,
         showShortcutHint = hasConsent == true && isShortcutOrButtonEnabled,
