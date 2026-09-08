@@ -132,6 +132,16 @@ internal fun AutomationSetupCard(
             )
         }
 
+        if (ui.showMiuiStoppedHint) {
+            Text(
+                text = stringResource(R.string.setup_acs_state_stopped_hint_miui_killed),
+                style = MaterialTheme.typography.bodySmall,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(horizontal = 32.dp),
+            )
+        }
+
         if (ui.showAllowAction) {
             Button(
                 onClick = item.onGrantAction,
@@ -219,6 +229,37 @@ private fun AutomationSetupCardPreview() {
                     isServiceRunning = false,
                     isShortcutOrButtonEnabled = false,
                     needsXiaomiAutostart = false,
+                    liftRestrictionsIntent = Intent(),
+                    showAppOpsRestrictionHint = false,
+                    showAdvancedProtectionHint = false,
+                    isAdvancedProtectionBlocked = false,
+                    settingsIntent = Intent(),
+                ),
+                onGrantAction = {},
+                onDismiss = {},
+                onHelp = {},
+                onRestrictionsHelp = {},
+                onRestrictionsShow = {},
+                onAdvancedProtectionHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun AutomationSetupCardXiaomiStoppedPreview() {
+    PreviewWrapper {
+        AutomationSetupCard(
+            item = AutomationSetupCardItem(
+                state = AutomationSetupModule.Result(
+                    isNotRequired = false,
+                    hasConsent = true,
+                    canSelfEnable = false,
+                    isServiceEnabled = true,
+                    isServiceRunning = false,
+                    isShortcutOrButtonEnabled = false,
+                    needsXiaomiAutostart = true,
                     liftRestrictionsIntent = Intent(),
                     showAppOpsRestrictionHint = false,
                     showAdvancedProtectionHint = false,

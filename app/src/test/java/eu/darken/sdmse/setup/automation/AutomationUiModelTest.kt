@@ -95,6 +95,7 @@ class AutomationUiModelTest : BaseTest() {
         ui.runningState?.tint shouldBe AutomationUiModel.ChipTint.ERROR
         ui.runningState?.textRes shouldBe R.string.setup_acs_state_stopped
         ui.showRunningStateHint shouldBe true
+        ui.showMiuiStoppedHint shouldBe false
         ui.showAllowAction shouldBe true
         ui.allowActionText shouldBe AutomationUiModel.AllowActionText.ENABLE_SERVICE
     }
@@ -107,6 +108,7 @@ class AutomationUiModelTest : BaseTest() {
             needsXiaomiAutostart = true,
         ).toUiModel()
         enabled.showMiuiAutostartHint shouldBe false
+        enabled.showMiuiStoppedHint shouldBe true
 
         val disabled = result(
             hasConsent = true,
@@ -114,6 +116,65 @@ class AutomationUiModelTest : BaseTest() {
             needsXiaomiAutostart = true,
         ).toUiModel()
         disabled.showMiuiAutostartHint shouldBe true
+        disabled.showMiuiStoppedHint shouldBe false
+    }
+
+    @Test
+    fun `stopped MIUI hint needs enabled, not running and autostart`() {
+        val stopped = result(
+            hasConsent = true,
+            isServiceEnabled = true,
+            isServiceRunning = false,
+            needsXiaomiAutostart = true,
+        ).toUiModel()
+        stopped.showMiuiStoppedHint shouldBe true
+
+        val running = result(
+            hasConsent = true,
+            isServiceEnabled = true,
+            isServiceRunning = true,
+            needsXiaomiAutostart = true,
+        ).toUiModel()
+        running.showMiuiStoppedHint shouldBe false
+
+        val notXiaomi = result(
+            hasConsent = true,
+            isServiceEnabled = true,
+            isServiceRunning = false,
+            needsXiaomiAutostart = false,
+        ).toUiModel()
+        notXiaomi.showMiuiStoppedHint shouldBe false
+    }
+
+    @Test
+    fun `stopped MIUI hint requires consent`() {
+        val undecided = result(
+            hasConsent = null,
+            isServiceEnabled = true,
+            isServiceRunning = false,
+            needsXiaomiAutostart = true,
+        ).toUiModel()
+        undecided.showMiuiStoppedHint shouldBe false
+
+        val denied = result(
+            hasConsent = false,
+            isServiceEnabled = true,
+            isServiceRunning = false,
+            needsXiaomiAutostart = true,
+        ).toUiModel()
+        denied.showMiuiStoppedHint shouldBe false
+    }
+
+    @Test
+    fun `stopped MIUI hint is suppressed while Advanced Protection blocks the service`() {
+        val ui = result(
+            hasConsent = true,
+            isServiceEnabled = true,
+            isServiceRunning = false,
+            needsXiaomiAutostart = true,
+            isAdvancedProtectionBlocked = true,
+        ).toUiModel()
+        ui.showMiuiStoppedHint shouldBe false
     }
 
     @Test
