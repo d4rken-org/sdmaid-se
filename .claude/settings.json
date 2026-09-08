@@ -17,13 +17,7 @@
     "deny": []
   },
   "enabledPlugins": {
-    "android-translation@claude-code-cafe": false,
-    "debugbadger@claude-code-cafe": false,
-    "jvm-tools@claude-code-cafe": false,
     "frontend-design@claude-plugins-official": true,
-    "support@claude-code-cafe": false,
-    "devtools@claude-code-cafe": false,
-    "google-play@claude-code-cafe": false,
     "android-translation@clanker-cafe": true,
     "debugbadger@clanker-cafe": true,
     "jvm-tools@clanker-cafe": true,
