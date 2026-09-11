@@ -1,7 +1,5 @@
 package eu.darken.sdmse.corpsefinder.ui.settings
 
-import android.content.Context
-import android.content.pm.PackageManager
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.progress.Progress
@@ -15,7 +13,6 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
-import io.mockk.verify
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
@@ -73,8 +70,6 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
 
     private class Harness(
         val vm: CorpseFinderSettingsViewModel,
-        val context: Context,
-        val packageManager: PackageManager,
         val settings: CorpseFinderSettings,
         val values: Values,
         val watcherFlow: MutableStateFlow<Boolean>,
@@ -100,10 +95,6 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
         rootAccess: AccessState = AccessState.Undecided,
         cfState: CorpseFinder.State = cfState(),
     ): Harness {
-        val context = mockk<Context>().apply {
-            every { packageName } returns "eu.darken.sdmse.corpsefinder.test"
-        }
-        val packageManager = mockk<PackageManager>(relaxed = true)
         val watcherFlow = MutableStateFlow(isWatcherEnabled)
         val values = Values(
             isWatcherEnabled = rwDataStoreValue(isWatcherEnabled, watcherFlow),
@@ -149,15 +140,13 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
             every { accessState } returns flowOf(rootAccess)
         }
         val vm = CorpseFinderSettingsViewModel(
-            context = context,
-            packageManager = packageManager,
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
             upgradeRepo = upgradeRepo,
             corpseFinder = corpseFinder,
             rootManager = rootManager,
         )
-        return Harness(vm, context, packageManager, settings, values, watcherFlow)
+        return Harness(vm, settings, values, watcherFlow)
     }
 
     @Test
@@ -308,24 +297,4 @@ class CorpseFinderSettingsViewModelTest : BaseTest() {
         coVerify(exactly = 1) { h.values.isWatcherAutoDeleteEnabled.update(capture(captured)) }
         captured.captured(true) shouldBe false
     }
-
-    @Test
-    fun `init does not toggle watcher receiver for the initial flow replay`() = runTest2 {
-        val h = harness(isWatcherEnabled = false)
-
-        // VM init subscribes to isWatcherEnabled.flow with drop(1). The initial replay must NOT
-        // trigger the receiver toggle, even after the test scope drains.
-        advanceUntilIdle()
-
-        verify(exactly = 0) { h.packageManager.setComponentEnabledSetting(any(), any(), any()) }
-    }
-
-    // NOTE: A full assertion that subsequent flow emissions DO toggle the receiver isn't possible
-    // under stock JVM tests because the production code constructs `ComponentName(context, ...)`
-    // and ComponentName's constructor + hashCode() are stubbed (throw "Stub!") in android.jar
-    // without Robolectric. Moving the test to a Robolectric class would force JUnit 4 lifecycle
-    // annotations that conflict with the JUnit 5 + BaseTest pattern used elsewhere here. The
-    // drop(1) behaviour is still covered by the test above; user-driven writes through
-    // setWatcherEnabled are covered by `setWatcherEnabled writes through when pro`.
-
 }
