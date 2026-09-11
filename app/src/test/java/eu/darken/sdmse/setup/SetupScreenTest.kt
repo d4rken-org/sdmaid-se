@@ -7,6 +7,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -649,14 +650,17 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithText(expectedBody).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_state_waiting_label)).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
-        // The open button names the active backend, it no longer reuses the card title.
+        // The button shows the manager's own name; "Open <name>" is its content description.
+        composeRule.onAllNodesWithText("Porter").assertCountEquals(1)
         composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_open_manager_action, "Porter"))
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Porter")
+            )
             .assertCountEquals(1)
     }
 
     @Test
-    fun `shizuku card hides open action once complete`() {
+    fun `shizuku card still offers the manager once connected`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -670,6 +674,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                                 basicService = true,
                                 serviceState = ShizukuServiceState.Available,
                                 alsoHasRoot = false,
+                                managerLabel = "Shizuku",
                             ),
                             onToggleUseShizuku = {},
                             onOpen = {},
@@ -681,9 +686,13 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
+        // Connected is not a reason to hide the way into the manager: it is how a user checks on
+        // the app SD Maid actually bound to.
         composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_open_manager_action, "Shizuku"))
-            .assertCountEquals(0)
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Shizuku")
+            )
+            .assertCountEquals(1)
     }
 
     @Test
@@ -786,6 +795,37 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         serviceState = ShizukuServiceState.NotChecked,
         alsoHasRoot = false,
     )
+
+    @Test
+    fun `shizuku card failure names the manager in both the message and its button`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        shizukuItem(
+                            connectedState(managerLabel = "Shizuku+").copy(
+                                serviceState = ShizukuServiceState.TimedOut,
+                            )
+                        )
+                    ),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_service_failed_label, "Shizuku+"))
+            .assertCountEquals(1)
+        // Same icon-plus-name button as the other states, beside Retry.
+        composeRule.onAllNodesWithText("Shizuku+").assertCountEquals(1)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Shizuku+")
+            )
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(CommonR.string.general_retry_action))
+            .assertCountEquals(1)
+    }
 
     @Test
     fun `shizuku card offers the flavor's install target when nothing is installed`() {
