@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.currentCoroutineContext
@@ -16,6 +17,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.withContext
 import kotlin.coroutines.EmptyCoroutineContext
 
 fun <T : Progress.Client> T.updateProgressPrimary(primary: String) {
@@ -114,10 +116,12 @@ suspend fun <T : Progress.Host, R> T.withProgress(
     return try {
         action()
     } finally {
-        forwardingJob.cancelAndJoin()
-        scope.cancel("Finished scope")
-        // Flow's onCompletion doesn't restore because isActive is false after cancellation
-        client.updateProgress { onCompletion(it) }
+        withContext(NonCancellable) {
+            forwardingJob.cancelAndJoin()
+            scope.cancel("Finished scope")
+            // Flow's onCompletion doesn't restore because isActive is false after cancellation
+            client.updateProgress { onCompletion(it) }
+        }
     }
 }
 
