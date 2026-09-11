@@ -120,13 +120,11 @@ class PkgOps @Inject constructor(
         return when {
             mode == Mode.NORMAL || (mode == Mode.AUTO && userHandle == userManager2.currentUser().handle) -> ipcFunnel.use {
                 try {
-                    ipcFunnel.use {
-                        if (hasApiLevel(33)) {
-                            @Suppress("NewApi")
-                            packageManager.getPackageInfo(id.name, PackageInfoFlags.of(flags))
-                        } else {
-                            packageManager.getPackageInfo(id.name, flags.toInt())
-                        }
+                    if (hasApiLevel(33)) {
+                        @Suppress("NewApi")
+                        packageManager.getPackageInfo(id.name, PackageInfoFlags.of(flags))
+                    } else {
+                        packageManager.getPackageInfo(id.name, flags.toInt())
                     }
                 } catch (_: NameNotFoundException) {
                     log(TAG, VERBOSE) { "queryPkg($id, $flags): null" }
@@ -196,9 +194,7 @@ class PkgOps @Inject constructor(
 
     suspend fun getLabel(pkgId: Pkg.Id): String? = ipcFunnel.use {
         try {
-            ipcFunnel.use {
-                packageManager.getLabel2(pkgId)
-            }
+            packageManager.getLabel2(pkgId)
         } catch (_: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(packageName=$pkgId) packageName not found." }
             null
