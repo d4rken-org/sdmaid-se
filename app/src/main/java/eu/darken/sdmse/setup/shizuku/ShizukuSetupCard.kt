@@ -1,12 +1,19 @@
 package eu.darken.sdmse.setup.shizuku
 
+import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.CheckCircle
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
@@ -19,6 +26,7 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
+import eu.darken.sdmse.common.compose.icons.Porter
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Shizuku
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -35,6 +43,10 @@ data class ShizukuSetupCardItem(
     val onOpen: () -> Unit,
     val onHelp: () -> Unit,
     val onRetry: () -> Unit = {},
+    /** Which manager this build is allowed to send the user to when none is installed. */
+    val brand: AdbManagerBrand = AdbManagerBrand.PORTER,
+    @StringRes val notInstalledLabel: Int = R.string.setup_shizuku_state_not_installed_label,
+    val onInstall: () -> Unit = {},
     /**
      * Does this device match the hardware/ROM combination with the known upstream Shizuku problem?
      *
@@ -76,9 +88,33 @@ internal fun ShizukuSetupCard(
             // showing one while a probe is still running is what made the card feel dead.
             val failed = item.state.isInstalled && item.state.serviceState.isTerminalFailure
             val canOpen = item.state.isInstalled && !item.state.isComplete
+            val restartRequired = item.state.restartRequiredFor != null
+            // What the installed app calls itself, so a renamed fork isn't addressed as "Shizuku".
+            val managerName = item.state.managerLabel ?: item.state.backend.label
 
-            if (!failed) {
-                val restartRequired = item.state.restartRequiredFor != null
+            if (ready) {
+                // Same success row as the Inventory/Notification/Storage cards, so "this worked"
+                // looks identical everywhere in setup.
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Icon(
+                        imageVector = Icons.TwoTone.CheckCircle,
+                        contentDescription = null,
+                        tint = MaterialTheme.colorScheme.primary,
+                        modifier = Modifier.size(20.dp),
+                    )
+                    Text(
+                        text = stringResource(R.string.setup_shizuku_service_ready_label, managerName),
+                        style = MaterialTheme.typography.labelLarge,
+                        color = MaterialTheme.colorScheme.primary,
+                    )
+                }
+            } else if (!failed) {
                 // Single short line, so centring reads fine here and matches the other setup cards.
                 Text(
                     text = when {
@@ -86,24 +122,56 @@ internal fun ShizukuSetupCard(
                         // "nothing is installed", which no amount of refreshing would change.
                         restartRequired -> stringResource(
                             R.string.setup_shizuku_state_restart_required_label,
-                            item.state.backend.other.label,
+                            item.state.restartRequiredLabel ?: item.state.backend.other.label,
                         )
 
-                        !item.state.isInstalled -> stringResource(R.string.setup_shizuku_state_not_installed_label)
-                        ready -> stringResource(R.string.setup_shizuku_state_ready_label)
+                        !item.state.isInstalled -> stringResource(item.notInstalledLabel)
                         else -> stringResource(R.string.setup_shizuku_state_waiting_label)
                     },
                     style = MaterialTheme.typography.labelMedium,
-                    color = if (ready) {
-                        MaterialTheme.colorScheme.onSurfaceVariant
-                    } else {
-                        MaterialTheme.colorScheme.error
-                    },
+                    color = MaterialTheme.colorScheme.error,
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 16.dp),
                     textAlign = TextAlign.Center,
                 )
+            }
+
+            // Nothing to open yet, so offer the way to get one. Not while restartRequired: there the
+            // app IS installed and sending the user back to a store would be a dead end.
+            if (!item.state.isInstalled && !restartRequired) {
+                Row(
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                ) {
+                    OutlinedButton(onClick = item.onInstall) {
+                        when (item.brand) {
+                            // Porter's mark carries its own colours, Shizuku's is a tintable glyph.
+                            AdbManagerBrand.PORTER -> Image(
+                                imageVector = SdmIcons.Porter,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                            )
+
+                            AdbManagerBrand.SHIZUKU -> Icon(
+                                imageVector = SdmIcons.Shizuku,
+                                contentDescription = null,
+                                modifier = Modifier.size(20.dp),
+                            )
+                        }
+                        Spacer(modifier = Modifier.size(8.dp))
+                        Text(
+                            stringResource(
+                                when (item.brand) {
+                                    AdbManagerBrand.PORTER -> R.string.setup_shizuku_install_porter_action
+                                    AdbManagerBrand.SHIZUKU -> R.string.setup_shizuku_install_shizuku_action
+                                }
+                            )
+                        )
+                    }
+                }
             }
 
             if (failed) {
@@ -113,7 +181,7 @@ internal fun ShizukuSetupCard(
                 // this wraps to several lines, and centring those leaves both edges ragged.
                 SetupLimitationBox(
                     title = stringResource(R.string.setup_shizuku_state_failed_title),
-                    body = stringResource(R.string.setup_shizuku_service_failed_label, item.state.backend.label),
+                    body = stringResource(R.string.setup_shizuku_service_failed_label, managerName),
                     // No help button of its own: the card header already carries a help icon
                     // pointing at the same wiki page.
                     body2 = if (item.showKnownIssueHint) {
@@ -131,10 +199,7 @@ internal fun ShizukuSetupCard(
                             modifier = Modifier.weight(1f),
                         ) {
                             Text(
-                                stringResource(
-                                    R.string.setup_shizuku_open_manager_action,
-                                    item.state.backend.label,
-                                )
+                                stringResource(R.string.setup_shizuku_open_manager_action, managerName)
                             )
                         }
                         Button(
@@ -156,12 +221,7 @@ internal fun ShizukuSetupCard(
                         .padding(horizontal = 16.dp),
                 ) {
                     OutlinedButton(onClick = item.onOpen) {
-                        Text(
-                            stringResource(
-                                R.string.setup_shizuku_open_manager_action,
-                                item.state.backend.label,
-                            )
-                        )
+                        Text(stringResource(R.string.setup_shizuku_open_manager_action, managerName))
                     }
                 }
             }
@@ -209,9 +269,35 @@ private fun ShizukuSetupCardPreview() {
                     isCompatible = true,
                     isInstalled = true,
                     basicService = true,
-                    serviceState = ShizukuServiceState.NotChecked,
+                    serviceState = ShizukuServiceState.Available,
                     alsoHasRoot = false,
                     backend = AdbBackend.PORTER,
+                    managerLabel = "Porter",
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardReadyForkPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = true,
+                    basicService = true,
+                    serviceState = ShizukuServiceState.Available,
+                    alsoHasRoot = false,
+                    backend = AdbBackend.SHIZUKU,
+                    managerLabel = "Shizuku+",
                 ),
                 onToggleUseShizuku = {},
                 onOpen = {},
@@ -237,6 +323,7 @@ private fun ShizukuSetupCardRestartRequiredPreview() {
                     alsoHasRoot = false,
                     backend = AdbBackend.SHIZUKU,
                     restartRequiredFor = "eu.darken.porter".toPkgId(),
+                    restartRequiredLabel = "Porter",
                 ),
                 onToggleUseShizuku = {},
                 onOpen = {},
@@ -248,7 +335,32 @@ private fun ShizukuSetupCardRestartRequiredPreview() {
 
 @Preview2
 @Composable
-private fun ShizukuSetupCardNotInstalledPreview() {
+private fun ShizukuSetupCardNotInstalledFossPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "eu.darken.porter".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = false,
+                    basicService = false,
+                    serviceState = ShizukuServiceState.NotChecked,
+                    alsoHasRoot = false,
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+                brand = AdbManagerBrand.PORTER,
+                notInstalledLabel = R.string.setup_shizuku_state_not_installed_porter_label,
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardNotInstalledGplayPreview() {
     PreviewWrapper {
         ShizukuSetupCard(
             item = ShizukuSetupCardItem(
@@ -264,6 +376,8 @@ private fun ShizukuSetupCardNotInstalledPreview() {
                 onToggleUseShizuku = {},
                 onOpen = {},
                 onHelp = {},
+                brand = AdbManagerBrand.SHIZUKU,
+                notInstalledLabel = R.string.setup_shizuku_state_not_installed_label,
             ),
         )
     }

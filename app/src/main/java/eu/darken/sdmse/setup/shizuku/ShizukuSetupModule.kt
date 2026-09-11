@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
@@ -104,14 +105,17 @@ class ShizukuSetupModule @Inject constructor(
             null -> shizukuManager.inactiveFamilyManagerId()
             else -> null
         }
+        val pkg = openable ?: managerId ?: shizukuManager.referenceManagerId()
         val baseState = Result(
-            pkg = openable ?: managerId ?: shizukuManager.referenceManagerId(),
+            pkg = pkg,
             useShizuku = useShizuku,
             isInstalled = managerId != null,
             isCompatible = shizukuManager.isCompatible(),
             alsoHasRoot = useRoot,
             backend = shizukuManager.activeBackend(),
             restartRequiredFor = restartRequiredFor,
+            managerLabel = if (managerId != null) labelOf(pkg) else null,
+            restartRequiredLabel = labelOf(restartRequiredFor),
         )
 
         if (useShizuku != true) return@combine flowOf<SetupModule.State>(baseState)
@@ -183,6 +187,23 @@ class ShizukuSetupModule @Inject constructor(
         .onEach { log(TAG) { "New Shizuku setup state: $it" } }
         .replayingShare(appScope)
 
+    // Runs outside the probe's catch below, so it must not throw: getLabel2() only converts
+    // NameNotFoundException, and anything else (e.g. a PackageManager binder death) would kill the
+    // sharing coroutine, leaving every later subscriber stuck on the state it died in.
+    // Blank is treated as absent so the card can't render "... through .".
+    private suspend fun labelOf(pkgId: Pkg.Id?): String? = pkgId?.let {
+        withContext(dispatcherProvider.IO) {
+            try {
+                context.packageManager.getLabel2(it)?.takeIf { label -> label.isNotBlank() }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "labelOf($it) failed: ${e.asLog()}" }
+                null
+            }
+        }
+    }
+
     override suspend fun refresh() {
         log(TAG) { "refresh()" }
         refreshTrigger.value = rngString
@@ -244,6 +265,14 @@ class ShizukuSetupModule @Inject constructor(
          * restarted, because this process already latched a backend. Null in every other case.
          */
         val restartRequiredFor: Pkg.Id? = null,
+        /**
+         * What [pkg] calls itself, so a renamed fork is named correctly instead of "Shizuku".
+         * Null when nothing is installed or the label could not be read; callers fall back to
+         * [backend]'s own label.
+         */
+        val managerLabel: String? = null,
+        /** Same, for [restartRequiredFor]. */
+        val restartRequiredLabel: String? = null,
     ) : SetupModule.State.Current {
 
         /** Derived, not stored: one source of truth, so it can't disagree with [serviceState]. */

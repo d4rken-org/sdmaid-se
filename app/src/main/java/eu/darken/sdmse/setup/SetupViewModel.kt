@@ -36,6 +36,7 @@ import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardItem
 import eu.darken.sdmse.setup.saf.SAFSetupModule
+import eu.darken.sdmse.setup.shizuku.AdbManagerInstallGuide
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardItem
@@ -66,6 +67,7 @@ class SetupViewModel @Inject constructor(
     private val shizukuSetupModule: ShizukuSetupModule,
     private val inventorySetupModule: InventorySetupModule,
     private val deviceDetective: DeviceDetective,
+    private val adbManagerInstallGuide: AdbManagerInstallGuide,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
     // Options are driven from the Host via setScreenOptions() (the SetupRoute entry forwards the
@@ -254,10 +256,12 @@ class SetupViewModel @Inject constructor(
                                 },
                                 onHelp = {
                                     // Follows the active backend: a Porter user reading "ADB access
-                                    // failed" must not land on Shizuku's wiki section.
+                                    // failed" must not land on Shizuku's wiki section. Which page a
+                                    // Porter user gets is the flavor's call, because Porter's setup
+                                    // guide doubles as its install instructions.
                                     webpageTool.open(
                                         when (state.backend) {
-                                            AdbBackend.PORTER -> "https://porter.darken.eu/setup"
+                                            AdbBackend.PORTER -> adbManagerInstallGuide.porterHelpUrl
                                             AdbBackend.SHIZUKU ->
                                                 "https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku"
                                         }
@@ -274,6 +278,9 @@ class SetupViewModel @Inject constructor(
                                 },
                                 onRetry = { launch { shizukuSetupModule.refresh() } },
                                 showKnownIssueHint = hasKnownShizukuIssueRisk,
+                                brand = adbManagerInstallGuide.brand,
+                                notInstalledLabel = adbManagerInstallGuide.notInstalledLabel,
+                                onInstall = { webpageTool.open(adbManagerInstallGuide.url) },
                             )
 
                             is SetupModule.State.Loading -> SetupLoadingCardItem(state)

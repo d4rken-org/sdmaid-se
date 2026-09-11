@@ -277,9 +277,15 @@
     <string name="setup_shizuku_card_body">Allow SD Maid to use ADB access where possible to improve results and enable features.</string>
     <string name="setup_shizuku_card_body2">This setting has no effect unless Porter or Shizuku is set up on your device.</string>
     <string name="setup_shizuku_card_root_info">ADB access in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_shizuku_state_ready_label">The link is ready.</string>
+    <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_service_ready_label">SD Maid can now use ADB access through %1$s.</string>
     <string name="setup_shizuku_state_waiting_label">Waiting for the link.</string>
     <string name="setup_shizuku_state_not_installed_label">No ADB access app is installed. Install Porter or Shizuku.</string>
+    <string name="setup_shizuku_state_not_installed_porter_label">No ADB access app is installed. Install Porter.</string>
+    <string name="setup_shizuku_install_porter_action" translatable="false">Porter</string>
+    <string name="setup_shizuku_install_shizuku_action" translatable="false">Shizuku</string>
     <string name="setup_shizuku_state_failed_title">ADB access failed</string>
     <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_shizuku_state_failed_label">Shizuku is running, but it never connected SD Maid to its helper service.</string>
