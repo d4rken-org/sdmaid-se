@@ -17,6 +17,12 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.isArchived
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
+import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.progress.increaseProgress
+import eu.darken.sdmse.common.progress.updateProgressCount
+import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
@@ -24,9 +30,12 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.sync.Mutex
@@ -41,9 +50,16 @@ class AppScan @Inject constructor(
     private val usageTool: UsageTool,
     private val userManager: UserManager2,
     private val archiveSupport: ArchiveSupport,
-) : HasSharedResource<Any> {
+) : HasSharedResource<Any>, Progress.Host, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(PkgOps.TAG, appScope + dispatcherProvider.IO)
+
+    private val progressPub = MutableStateFlow<Progress.Data?>(restingProgress())
+    override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(250)
+
+    override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
+        progressPub.value = update(progressPub.value)
+    }
 
     private val mutex = Mutex()
     private var activeCache: Map<InstallId, Boolean?>? = null
@@ -53,7 +69,12 @@ class AppScan @Inject constructor(
 
     private suspend fun <T> doRun(action: suspend () -> T): T = mutex.withLock {
         adoptChildResource(pkgOps.sharedResource)
-        action()
+        progressPub.value = restingProgress()
+        try {
+            action()
+        } finally {
+            progressPub.value = restingProgress()
+        }
     }
 
     suspend fun refresh() = doRun {
@@ -103,23 +124,36 @@ class AppScan @Inject constructor(
         log(TAG, VERBOSE) { "allApps(user=$user)" }
         val pkgs = pkgRepo.current().filter { user == null || it.userHandle == user }
 
-        if (includeSize && sizeCache == null) {
+        val runSizeSweep = includeSize && sizeCache == null
+        // One counter spanning both phases: two Percent(pkgs.size) counters under the same label
+        // would run 0-100 twice and read as the scan restarting.
+        updateProgressCount(Progress.Count.Percent(if (runSizeSweep) pkgs.size * 2 else pkgs.size))
+
+        if (runSizeSweep) {
             sizeCache = pkgs
                 .map { it.installId }
                 .asFlow()
                 .flatMapMerge(4) {
                     flow { emit(it to pkgOps.querySizeStats(it)) }
                 }
+                // After the merge, so the read-modify-write runs in the collecting coroutine
+                // instead of racing across the four producers.
+                .onEach { increaseProgress() }
                 .toList().associate { (id, size) -> id to size }
         }
 
-        pkgs.map {
-            it.toAppInfo(
+        pkgs.map { pkg ->
+            // Package name, not Pkg.label: NormalPkg.label resolves through the PackageManager and
+            // the overlay resolves `secondary` on the composition thread.
+            updateProgressSecondary(pkg.packageName)
+            val appInfo = pkg.toAppInfo(
                 includeUsage = includeUsage,
                 includeActive = includeActive,
                 includeSize = includeSize,
                 includeUserProfiles = user == null,
             )
+            increaseProgress()
+            appInfo
         }.toSet()
     }
 
@@ -170,6 +204,14 @@ class AppScan @Inject constructor(
     )
 
     companion object {
+        /**
+         * What the publisher holds between runs. Never null and never a finished count: the
+         * forwarder started by `withProgress` replays whatever is in there as its first emission.
+         */
+        private fun restingProgress() = Progress.Data(
+            primary = eu.darken.sdmse.common.R.string.general_progress_loading_app_data.toCaString(),
+        )
+
         private val TAG = logTag("AppControl", "AppScan")
     }
 }

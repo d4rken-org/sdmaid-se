@@ -160,7 +160,7 @@ class AppControl @Inject constructor(
 
         val curState = state.first()
 
-        val appInfos = appScan.run {
+        val appInfos = appScan.withProgress(this) {
             if (task.refreshPkgCache) refresh()
             allApps(
                 user = if (task.includeMultiUser) null else userManager.currentUser().handle,
