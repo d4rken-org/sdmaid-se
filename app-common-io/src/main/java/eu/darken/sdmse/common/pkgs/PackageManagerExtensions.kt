@@ -127,6 +127,14 @@ fun PackageManager.toggleSelfComponent(
     )
 }
 
+/**
+ * The read counterpart to [toggleSelfComponent]: `true` only for an explicit ENABLED write.
+ * `COMPONENT_ENABLED_STATE_DEFAULT` (never toggled by us) reads as `false`, which is not the same as
+ * "effectively enabled" for a component whose manifest declares `enabled="true"`.
+ */
+fun PackageManager.isSelfComponentExplicitlyEnabled(component: ComponentName): Boolean =
+    getComponentEnabledSetting(component) == PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+
 suspend fun PackageManager.freeStorageAndNotify(
     desiredBytes: Long = Long.MAX_VALUE - 1000L,
     storageId: String? = null,

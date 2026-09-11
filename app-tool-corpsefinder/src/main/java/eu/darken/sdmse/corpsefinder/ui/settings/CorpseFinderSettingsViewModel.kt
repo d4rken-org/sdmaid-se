@@ -1,63 +1,35 @@
 package eu.darken.sdmse.corpsefinder.ui.settings
 
-import android.content.ComponentName
-import android.content.Context
-import android.content.pm.PackageManager
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.privilegedGateState
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
-import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
-import eu.darken.sdmse.common.pkgs.toggleSelfComponent
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
 import eu.darken.sdmse.corpsefinder.core.CorpseFinderSettings
-import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherReceiver
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 
 @HiltViewModel
 class CorpseFinderSettingsViewModel @Inject constructor(
-    @ApplicationContext private val context: Context,
-    private val packageManager: PackageManager,
     dispatcherProvider: DispatcherProvider,
     private val settings: CorpseFinderSettings,
     upgradeRepo: UpgradeRepo,
     corpseFinder: CorpseFinder,
     rootManager: RootManager,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
-
-    init {
-        // Preserve legacy receiver side-effect: when the user toggles the watcher on/off,
-        // enable or disable the UninstallWatcherReceiver component. drop(1) skips the
-        // initial replay so we only react to user toggles, not the first flow emission.
-        settings.isWatcherEnabled.flow
-            .drop(1)
-            .onEach { enabled ->
-                packageManager.toggleSelfComponent(
-                    ComponentName(context, UninstallWatcherReceiver::class.java),
-                    enabled,
-                )
-                log(TAG, INFO) { "New uninstall watcher state: enabled=$enabled" }
-            }
-            .launchInViewModel()
-    }
 
     private data class FilterToggles(
         val sdcard: Boolean,
