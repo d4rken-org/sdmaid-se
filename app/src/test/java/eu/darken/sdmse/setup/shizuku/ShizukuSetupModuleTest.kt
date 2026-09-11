@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -63,11 +64,14 @@ class ShizukuSetupModuleTest : BaseTest() {
         every { adbSettings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
 
-        every { shizukuManager.shizukuPkgId } returns "moe.shizuku.privileged.api".toPkgId()
+        coEvery { shizukuManager.referenceManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
         every { shizukuManager.shizukuBinder } returns flowOf(null)
         every { shizukuManager.permissionGrantEvents } returns emptyFlow()
         coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
         coEvery { shizukuManager.managerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
+        coEvery { shizukuManager.activeManagerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
+        coEvery { shizukuManager.inactiveFamilyManagerId() } returns null
+        coEvery { shizukuManager.activeBackend() } returns AdbBackend.SHIZUKU
         coEvery { shizukuManager.isCompatible() } returns true
         coEvery { shizukuManager.isGranted() } returns true
         coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; ShizukuServiceState.Available }
@@ -304,7 +308,7 @@ class ShizukuSetupModuleTest : BaseTest() {
         // Shizuku+ next to its Compat Hub: the Hub owns the stock permission but has no launcher
         // activity, so opening it from the card would do nothing.
         coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.managerIds() } returns setOf(
+        coEvery { shizukuManager.activeManagerIds() } returns setOf(
             "moe.shizuku.privileged.api".toPkgId(),
             "af.shizuku.plus.api".toPkgId(),
         )
@@ -316,7 +320,7 @@ class ShizukuSetupModuleTest : BaseTest() {
 
     @Test fun `card package falls back to the detected manager when none can be opened`() {
         coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.managerIds() } returns setOf(
+        coEvery { shizukuManager.activeManagerIds() } returns setOf(
             "moe.shizuku.privileged.api".toPkgId(),
             "af.shizuku.plus.api".toPkgId(),
         )
@@ -331,6 +335,55 @@ class ShizukuSetupModuleTest : BaseTest() {
         firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
 
         verify(exactly = 0) { packageManager.getLaunchIntentForPackage(any()) }
+    }
+
+    @Test fun `the open target never leaves the active backend's family`() {
+        // Porter is installed and openable, but this process talks to Shizuku. Sending the user to
+        // Porter would open an app that cannot affect the link the card is waiting on.
+        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
+        coEvery { shizukuManager.activeManagerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
+        coEvery { shizukuManager.managerIds() } returns setOf(
+            "moe.shizuku.privileged.api".toPkgId(),
+            "eu.darken.porter".toPkgId(),
+        )
+        every { packageManager.getLaunchIntentForPackage(any()) } returns mockk<Intent>()
+
+        firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
+    }
+
+    // --- backend -------------------------------------------------------------------------------
+
+    @Test fun `the result carries the active backend`() {
+        coEvery { shizukuManager.activeBackend() } returns AdbBackend.PORTER
+
+        firstResult(module()).backend shouldBe AdbBackend.PORTER
+    }
+
+    @Test fun `restartRequiredFor names the manager of the other family`() {
+        // Backend latched before Porter was installed: the active-family lookup stays empty, so the
+        // card has to say a full restart is needed instead of "nothing is installed".
+        coEvery { shizukuManager.getManagerId() } returns null
+        coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
+
+        val result = firstResult(module())
+        result.isInstalled shouldBe false
+        result.restartRequiredFor shouldBe "eu.darken.porter".toPkgId()
+    }
+
+    @Test fun `restartRequiredFor is null when nothing at all is installed`() {
+        coEvery { shizukuManager.getManagerId() } returns null
+        coEvery { shizukuManager.inactiveFamilyManagerId() } returns null
+
+        firstResult(module()).restartRequiredFor shouldBe null
+    }
+
+    @Test fun `restartRequiredFor is null while the active family has a manager`() {
+        // A manager we CAN talk to is installed, so there is nothing to restart for, even if the
+        // other family happens to be installed as well.
+        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
+        coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
+
+        firstResult(module()).restartRequiredFor shouldBe null
     }
 
 }

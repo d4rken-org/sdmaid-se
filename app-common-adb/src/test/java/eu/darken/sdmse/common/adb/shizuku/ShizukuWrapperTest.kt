@@ -3,10 +3,12 @@ package eu.darken.sdmse.common.adb.shizuku
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.pm.PermissionInfo
+import eu.darken.porter.client.PorterClient
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import io.kotest.matchers.nulls.shouldNotBeNull
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineDispatcher
@@ -24,16 +26,17 @@ import java.util.concurrent.CountDownLatch
 import kotlin.time.Duration.Companion.seconds
 
 /**
- * Covers [ShizukuWrapper.getManagerPackage] — permission-based Shizuku detection that survives
+ * Covers [ShizukuWrapper.getActiveManagerPackage] — permission-based manager detection that survives
  * "Hide Shizuku from other apps" mode, forks that rename their package (issue #2405) and forks that
- * declare their own permission name instead of the stock one — and [ShizukuWrapper.isGranted]'s
- * binder-liveness gate.
+ * declare their own permission name instead of the stock one — the split between the active
+ * backend's family and "any manager at all", and [ShizukuWrapper.isGranted]'s binder-liveness gate.
  */
 class ShizukuWrapperTest {
 
     private val context = mockk<Context>()
     private val packageManager = mockk<PackageManager>()
 
+    private val porterPermission = PorterClient.PERMISSION
     private val stockPermission = "moe.shizuku.manager.permission.API_V23"
     private val plusPermission = "af.shizuku.plus.permission.API_V23"
 
@@ -44,9 +47,13 @@ class ShizukuWrapperTest {
     private fun wrapper(
         scope: CoroutineScope = CoroutineScope(SupervisorJob() + Dispatchers.Unconfined),
         dispatchers: DispatcherProvider = dispatcherProvider,
+        backend: PorterClient.Backend = PorterClient.Backend.SHIZUKU,
     ): ShizukuWrapper {
         every { context.packageManager } returns packageManager
-        return ShizukuWrapper(context, scope, dispatchers)
+        return ShizukuWrapper(context, scope, dispatchers).apply {
+            // The real seam reads SharedPreferences and this app's manifest metadata.
+            activeBackendAction = { backend }
+        }
     }
 
     // mockk gives us a real (Objenesis-instantiated) PermissionInfo whose inherited public
@@ -61,87 +68,143 @@ class ShizukuWrapperTest {
         every { packageManager.getPermissionInfo(name, any<Int>()) } throws PackageManager.NameNotFoundException()
     }
 
+    /**
+     * Every permission has to be stubbed EXPLICITLY. An unstubbed lookup throws MockKException,
+     * which [ShizukuWrapper] swallows in its generic catch and reports as "not declared" - so a
+     * genuinely broken lookup would pass the test while only logging a WARN.
+     */
+    private fun definePermissions(porter: String?, stock: String?, plus: String?) {
+        porter?.let { definePermission(porterPermission, it) } ?: undefinePermission(porterPermission)
+        stock?.let { definePermission(stockPermission, it) } ?: undefinePermission(stockPermission)
+        plus?.let { definePermission(plusPermission, it) } ?: undefinePermission(plusPermission)
+    }
+
     @Test
     fun `resolves the declaring package when the Shizuku permission exists`() = runTest {
-        every { packageManager.getPermissionInfo(any(), any<Int>()) } returns
-            permissionInfo("moe.shizuku.privileged.api")
+        definePermissions(porter = null, stock = "moe.shizuku.privileged.api", plus = null)
 
-        wrapper().getManagerPackage() shouldBe "moe.shizuku.privileged.api"
+        wrapper().getActiveManagerPackage() shouldBe "moe.shizuku.privileged.api"
     }
 
     @Test
     fun `resolves a fork declaring the permission under a different package`() = runTest {
-        every { packageManager.getPermissionInfo(any(), any<Int>()) } returns
-            permissionInfo("com.example.shizuku.fork")
+        definePermissions(porter = null, stock = "com.example.shizuku.fork", plus = null)
 
-        wrapper().getManagerPackage() shouldBe "com.example.shizuku.fork"
+        wrapper().getActiveManagerPackage() shouldBe "com.example.shizuku.fork"
     }
 
     @Test
     fun `returns null when no app declares the Shizuku permission`() = runTest {
-        every { packageManager.getPermissionInfo(any(), any<Int>()) } throws
-            PackageManager.NameNotFoundException()
+        definePermissions(porter = null, stock = null, plus = null)
 
-        wrapper().getManagerPackage() shouldBe null
+        wrapper().getActiveManagerPackage() shouldBe null
     }
 
     @Test
     fun `returns null on unexpected PackageManager failure`() = runTest {
         every { packageManager.getPermissionInfo(any(), any<Int>()) } throws RuntimeException("OEM quirk")
 
-        wrapper().getManagerPackage() shouldBe null
+        wrapper().getActiveManagerPackage() shouldBe null
     }
 
     @Test
     fun `returns null when the declaring package name is blank`() = runTest {
-        every { packageManager.getPermissionInfo(any(), any<Int>()) } returns permissionInfo("")
+        definePermissions(porter = "", stock = "", plus = "")
 
-        wrapper().getManagerPackage() shouldBe null
+        wrapper().getActiveManagerPackage() shouldBe null
     }
 
     @Test
     fun `falls back to the Shizuku+ permission when the stock permission is undefined`() = runTest {
-        undefinePermission(stockPermission)
-        definePermission(plusPermission, "af.shizuku.plus.api")
+        definePermissions(porter = null, stock = null, plus = "af.shizuku.plus.api")
 
-        wrapper().getManagerPackage() shouldBe "af.shizuku.plus.api"
+        wrapper().getActiveManagerPackage() shouldBe "af.shizuku.plus.api"
     }
 
     @Test
     fun `prefers the stock permission owner when both are defined`() = runTest {
-        definePermission(stockPermission, "moe.shizuku.privileged.api")
-        definePermission(plusPermission, "af.shizuku.plus.api")
+        definePermissions(porter = null, stock = "moe.shizuku.privileged.api", plus = "af.shizuku.plus.api")
         val wrapper = wrapper()
 
-        wrapper.getManagerPackage() shouldBe "moe.shizuku.privileged.api"
-        wrapper.getManagerPackages() shouldBe listOf("moe.shizuku.privileged.api", "af.shizuku.plus.api")
+        wrapper.getActiveManagerPackage() shouldBe "moe.shizuku.privileged.api"
+        wrapper.getActiveManagerPackages() shouldBe listOf("moe.shizuku.privileged.api", "af.shizuku.plus.api")
     }
 
     @Test
     fun `collapses one app defining both permissions to a single entry`() = runTest {
-        definePermission(stockPermission, "moe.shizuku.privileged.api")
-        definePermission(plusPermission, "moe.shizuku.privileged.api")
+        definePermissions(porter = null, stock = "moe.shizuku.privileged.api", plus = "moe.shizuku.privileged.api")
 
-        wrapper().getManagerPackages() shouldBe listOf("moe.shizuku.privileged.api")
+        wrapper().getActiveManagerPackages() shouldBe listOf("moe.shizuku.privileged.api")
     }
 
     @Test
     fun `getManagerPackages is empty when no permission is defined`() = runTest {
-        undefinePermission(stockPermission)
-        undefinePermission(plusPermission)
+        definePermissions(porter = null, stock = null, plus = null)
         val wrapper = wrapper()
 
         wrapper.getManagerPackages() shouldBe emptyList()
-        wrapper.getManagerPackage() shouldBe null
+        wrapper.getActiveManagerPackage() shouldBe null
     }
 
     @Test
     fun `a failing lookup for one permission does not hide the other`() = runTest {
+        undefinePermission(porterPermission)
         every { packageManager.getPermissionInfo(stockPermission, any<Int>()) } throws RuntimeException("OEM quirk")
         definePermission(plusPermission, "af.shizuku.plus.api")
 
-        wrapper().getManagerPackage() shouldBe "af.shizuku.plus.api"
+        wrapper().getActiveManagerPackage() shouldBe "af.shizuku.plus.api"
     }
+
+    // --- backend split -------------------------------------------------------------------------
+
+    @Test
+    fun `under Porter the active manager is the Porter permission owner`() = runTest {
+        definePermissions(porter = "eu.darken.porter", stock = "moe.shizuku.privileged.api", plus = null)
+
+        wrapper(backend = PorterClient.Backend.PORTER).getActiveManagerPackage() shouldBe "eu.darken.porter"
+    }
+
+    @Test
+    fun `under Porter the Shizuku permissions are never consulted`() = runTest {
+        // Offering the other family's manager would send the user to an app that cannot affect the
+        // link this process is waiting on.
+        definePermissions(porter = "eu.darken.porter", stock = "moe.shizuku.privileged.api", plus = "af.shizuku.plus.api")
+
+        wrapper(backend = PorterClient.Backend.PORTER).getActiveManagerPackages() shouldBe listOf("eu.darken.porter")
+
+        verify(exactly = 0) { packageManager.getPermissionInfo(stockPermission, any<Int>()) }
+        verify(exactly = 0) { packageManager.getPermissionInfo(plusPermission, any<Int>()) }
+    }
+
+    @Test
+    fun `under Shizuku the Porter permission is never consulted`() = runTest {
+        definePermissions(porter = "eu.darken.porter", stock = "moe.shizuku.privileged.api", plus = null)
+
+        wrapper(backend = PorterClient.Backend.SHIZUKU).getActiveManagerPackages() shouldBe
+            listOf("moe.shizuku.privileged.api")
+
+        verify(exactly = 0) { packageManager.getPermissionInfo(porterPermission, any<Int>()) }
+    }
+
+    @Test
+    fun `getManagerPackages spans both families regardless of the active backend`() = runTest {
+        // Feeds "is this app an ADB manager", e.g. AppCleaner's protection of the manager app.
+        definePermissions(porter = "eu.darken.porter", stock = "moe.shizuku.privileged.api", plus = null)
+
+        val expected = listOf("eu.darken.porter", "moe.shizuku.privileged.api")
+        wrapper(backend = PorterClient.Backend.PORTER).getManagerPackages() shouldBe expected
+        wrapper(backend = PorterClient.Backend.SHIZUKU).getManagerPackages() shouldBe expected
+    }
+
+    @Test
+    fun `activeBackend maps the SDK backends, treating AUTO as Shizuku`() = runTest {
+        // The SDK resolves AUTO before handing a backend out, so this branch is defensive only.
+        wrapper(backend = PorterClient.Backend.PORTER).activeBackend() shouldBe AdbBackend.PORTER
+        wrapper(backend = PorterClient.Backend.SHIZUKU).activeBackend() shouldBe AdbBackend.SHIZUKU
+        wrapper(backend = PorterClient.Backend.AUTO).activeBackend() shouldBe AdbBackend.SHIZUKU
+    }
+
+    // --- isGranted -----------------------------------------------------------------------------
 
     @Test
     fun `isGranted returns null when the binder is not alive`() = runTest {

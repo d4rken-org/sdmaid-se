@@ -8,6 +8,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -252,7 +253,15 @@ class SetupViewModel @Inject constructor(
                                     launch { shizukuSetupModule.toggleUseShizuku(it) }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")
+                                    // Follows the active backend: a Porter user reading "ADB access
+                                    // failed" must not land on Shizuku's wiki section.
+                                    webpageTool.open(
+                                        when (state.backend) {
+                                            AdbBackend.PORTER -> "https://porter.darken.eu/setup"
+                                            AdbBackend.SHIZUKU ->
+                                                "https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku"
+                                        }
+                                    )
                                 },
                                 onOpen = {
                                     state.pkg.getLaunchIntent(context)?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)?.let {

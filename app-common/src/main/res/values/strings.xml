@@ -192,7 +192,7 @@
     <string name="general_information_for_the_developer">Information for the developer</string>
     <string name="general_error_report_bug_action">Report bug</string>
     <string name="general_error_ipc_deadobject_title">Service Connection Lost</string>
-    <string name="general_error_ipc_deadobject_description">The connection to a critical service (e.g. Magisk, Shizuku, or other system-level services) was unexpectedly lost. Please reboot your device. If the issue persists, check for updates or reach out to me so I can fix it.</string>
+    <string name="general_error_ipc_deadobject_description">The connection to a critical service (e.g. Magisk, Porter, Shizuku, or other system-level services) was unexpectedly lost. Please reboot your device. If the issue persists, check for updates or reach out to me so I can fix it.</string>
     <string name="general_error_upgrade_required_title">Upgrade required</string>
     <string name="general_error_upgrade_required_description">This feature requires an upgrade. Please upgrade SD Maid SE to use it.</string>
 
@@ -229,7 +229,7 @@
     <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">This feature needs root access, but SD Maid couldn\'t get it on this device.</string>
     <string name="access_blocked_root_declined">This feature needs root access. You can enable it via the setup screen.</string>
-    <string name="access_blocked_root_or_shizuku">This feature needs root or Shizuku access, which isn\'t available on this device.</string>
+    <string name="access_blocked_root_or_shizuku">This feature needs root or ADB access, which isn\'t available on this device.</string>
 
     <!-- Config backup/restore errors -->
     <string name="backup_restore_error_invalid_title">Invalid backup file</string>
