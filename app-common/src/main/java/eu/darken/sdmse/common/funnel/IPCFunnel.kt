@@ -44,6 +44,11 @@ class IPCFunnel @Inject constructor(
         log(TAG) { "IPCFunnel initialized." }
     }
 
+    /**
+     * The semaphore is not reentrant: a [use] block must not open another [use], directly or through a
+     * helper it calls. The nested call waits for a second permit while the outer one still holds the
+     * first, which can wedge the funnel for the whole process.
+     */
     suspend fun <T> use(block: suspend FunnelEnvironment.() -> T): T = withContext(dispatcherProvider.IO) {
         execLock.withPermit {
             try {
