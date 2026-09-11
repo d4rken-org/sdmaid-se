@@ -76,6 +76,10 @@ class AppControlListViewModel @Inject constructor(
     @SetupBinding(SetupModule.Type.STORAGE) private val storageSetupModule: SetupModule,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
+    // A scan cancelled before any data existed leaves rows == null with no progress, which is
+    // otherwise indistinguishable from cold start. Cleared on every new scan submission.
+    private val cancelRequested = MutableStateFlow(false)
+
     init {
         // Start an initial scan if AppControl has no data yet. AppControl is the entry point for
         // Dashboard, the launcher shortcut, and ExclusionList's "Add Pkg Exclusion" FAB — so the
@@ -84,7 +88,7 @@ class AppControlListViewModel @Inject constructor(
         launch {
             val initState = appControl.state.first()
             if (initState.data != null) return@launch
-            taskManager.submit(buildScanTask())
+            submitScan()
         }
         // Reset a persisted sort whose required setup has been revoked (e.g. usage access
         // permission removed while sorted by screen time), otherwise the stale mode wedges
@@ -168,10 +172,11 @@ class AppControlListViewModel @Inject constructor(
     val state: StateFlow<State> = combine(
         rowsState,
         appControl.progress,
-    ) { base, progress ->
+        cancelRequested,
+    ) { base, progress, cancelled ->
         // Outer combine: progress ticks must not invalidate the row pipeline above (which would
         // re-sort and flash the loading overlay).
-        base.copy(progress = progress)
+        base.copy(progress = progress, cancelRequested = cancelled)
     }
         .safeStateIn(initialValue = State(), onError = { State() })
 
@@ -334,15 +339,21 @@ class AppControlListViewModel @Inject constructor(
 
     fun onRefresh(refreshPkgCache: Boolean = false) = launch {
         log(TAG) { "onRefresh($refreshPkgCache)" }
-        taskManager.submit(buildScanTask(refreshPkgCache))
+        submitScan(refreshPkgCache)
     }
 
     fun onCancel() {
         log(TAG, INFO) { "onCancel()" }
+        cancelRequested.value = true
         taskManager.cancel(SDMTool.Type.APPCONTROL)
     }
 
-    private suspend fun refresh() = taskManager.submit(buildScanTask())
+    private suspend fun refresh() = submitScan()
+
+    private suspend fun submitScan(refreshPkgCache: Boolean = false) {
+        cancelRequested.value = false
+        taskManager.submit(buildScanTask(refreshPkgCache))
+    }
 
     private suspend fun buildScanTask(refreshPkgCache: Boolean = false) = AppControlScanTask(
         refreshPkgCache = refreshPkgCache,
@@ -530,6 +541,7 @@ class AppControlListViewModel @Inject constructor(
         val allowActionRestore: Boolean = false,
         val sizeSortModuleEnabled: Boolean = false,
         val allowFilterActive: Boolean = false,
+        val cancelRequested: Boolean = false,
     )
 
     data class Row(

@@ -670,6 +670,19 @@ internal fun AppControlListScreen(
                 modifier = Modifier.fillMaxSize(),
             ) {
                 when {
+                    rows == null && state.cancelRequested -> Box(
+                        modifier = Modifier
+                            .fillMaxSize()
+                            .padding(32.dp),
+                        contentAlignment = Alignment.Center,
+                    ) {
+                        Text(
+                            text = stringResource(R.string.appcontrol_list_scan_cancelled_label),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+
                     rows == null -> Box(modifier = Modifier.fillMaxSize())
 
                     rows.isEmpty() -> Box(
