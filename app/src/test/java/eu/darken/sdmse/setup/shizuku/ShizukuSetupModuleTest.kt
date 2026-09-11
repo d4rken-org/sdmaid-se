@@ -2,6 +2,8 @@ package eu.darken.sdmse.setup.shizuku
 
 import android.content.Context
 import android.content.Intent
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
@@ -60,6 +62,11 @@ class ShizukuSetupModuleTest : BaseTest() {
 
         every { context.packageManager } returns packageManager
         every { packageManager.getLaunchIntentForPackage(any()) } returns mockk<Intent>()
+        // Default: no label available, so managerLabel stays null and the card falls back to the
+        // backend's own name. Tests that care about the label override this.
+        every {
+            packageManager.getPackageInfo(any<String>(), any<Int>())
+        } throws PackageManager.NameNotFoundException()
 
         every { adbSettings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
@@ -384,6 +391,65 @@ class ShizukuSetupModuleTest : BaseTest() {
         coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
 
         firstResult(module()).restartRequiredFor shouldBe null
+    }
+
+    // Real PackageInfo/ApplicationInfo constructors hit the stubbed android.jar, so build them the
+    // way the Intent above is built and write the public fields getLabel2() reads.
+    private fun stubLabel(label: String) {
+        val appInfo = mockk<ApplicationInfo>(relaxed = true).apply {
+            labelRes = 0
+            nonLocalizedLabel = label
+        }
+        val info = mockk<PackageInfo>(relaxed = true).apply { applicationInfo = appInfo }
+        every { packageManager.getPackageInfo(any<String>(), any<Int>()) } returns info
+    }
+
+    @Test fun `managerLabel is what the installed app calls itself`() {
+        stubLabel("Shizuku+")
+
+        firstResult(module()).managerLabel shouldBe "Shizuku+"
+    }
+
+    @Test fun `managerLabel is absent when no manager is installed`() {
+        coEvery { shizukuManager.getManagerId() } returns null
+        coEvery { shizukuManager.activeManagerIds() } returns emptySet()
+        stubLabel("Shizuku")
+
+        // The reference package fills Result.pkg, but nothing is installed, so there is no name to
+        // report and the card must fall back to the backend label.
+        firstResult(module()).managerLabel shouldBe null
+    }
+
+    @Test fun `restartRequiredLabel names the unreachable app`() {
+        coEvery { shizukuManager.getManagerId() } returns null
+        coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
+        stubLabel("Porter")
+
+        firstResult(module()).restartRequiredLabel shouldBe "Porter"
+    }
+
+    @Test fun `a blank label is treated as no label`() {
+        stubLabel("   ")
+
+        firstResult(module()).managerLabel shouldBe null
+    }
+
+    @Test fun `a failing label lookup leaves the flow usable`() {
+        // getLabel2() only converts NameNotFoundException; anything else would escape into the
+        // sharing coroutine, which no later refresh could revive.
+        every { packageManager.getPackageInfo(any<String>(), any<Int>()) } throws RuntimeException("PM died")
+        val mod = module()
+
+        val collector = mod.state.test(tag = "first", scope = scope)
+        collector.await { values, _ -> values.any { it is ShizukuSetupModule.Result } }
+        collector.latestValues.last().shouldBeInstanceOf<ShizukuSetupModule.Result>().managerLabel shouldBe null
+
+        val before = probeCount
+        runBlocking { mod.refresh() }
+        collector.await { _, _ -> probeCount > before }
+        probeCount shouldBeGreaterThan before
+
+        runBlocking { collector.cancelAndJoin() }
     }
 
 }

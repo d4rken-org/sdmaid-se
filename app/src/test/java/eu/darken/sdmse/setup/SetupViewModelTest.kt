@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.SavedStateHandle
 import androidx.test.core.app.ApplicationProvider
+import eu.darken.sdmse.R
 import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
+import eu.darken.sdmse.setup.shizuku.AdbManagerBrand
+import eu.darken.sdmse.setup.shizuku.AdbManagerInstallGuide
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coVerify
 import io.mockk.every
@@ -40,6 +43,14 @@ class SetupViewModelTest : BaseTest() {
     private val setupManager: SetupManager = mockk(relaxed = true)
     private val rootSetupModule: RootSetupModule = mockk(relaxed = true)
     private val inventorySetupModule: InventorySetupModule = mockk(relaxed = true)
+
+    // Stands in for whichever flavor binding is compiled: the test source set sees neither impl.
+    private val installGuide = object : AdbManagerInstallGuide {
+        override val brand = AdbManagerBrand.PORTER
+        override val url = "https://example.test/install"
+        override val notInstalledLabel = R.string.setup_shizuku_state_not_installed_porter_label
+        override val porterHelpUrl = "https://example.test/help"
+    }
 
     @Before
     fun setup() {
@@ -74,6 +85,7 @@ class SetupViewModelTest : BaseTest() {
         shizukuSetupModule = mockk(relaxed = true),
         inventorySetupModule = inventorySetupModule,
         deviceDetective = mockk(relaxed = true),
+        adbManagerInstallGuide = installGuide,
     )
 
     @Test

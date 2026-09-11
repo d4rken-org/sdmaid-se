@@ -30,6 +30,7 @@ import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardItem
 import eu.darken.sdmse.setup.saf.SAFSetupModule
+import eu.darken.sdmse.setup.shizuku.AdbManagerBrand
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardItem
@@ -718,6 +719,152 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             .assertCountEquals(1)
         composeRule
             .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_label))
+            .assertCountEquals(0)
+    }
+
+    private fun shizukuItem(
+        state: ShizukuSetupModule.Result,
+        brand: AdbManagerBrand = AdbManagerBrand.PORTER,
+        notInstalledLabel: Int = R.string.setup_shizuku_state_not_installed_porter_label,
+        onInstall: () -> Unit = {},
+    ) = ShizukuSetupCardItem(
+        state = state,
+        onToggleUseShizuku = {},
+        onOpen = {},
+        onHelp = {},
+        brand = brand,
+        notInstalledLabel = notInstalledLabel,
+        onInstall = onInstall,
+    )
+
+    private fun connectedState(
+        backend: AdbBackend = AdbBackend.SHIZUKU,
+        managerLabel: String? = null,
+    ) = ShizukuSetupModule.Result(
+        pkg = "moe.shizuku.privileged.api".toPkgId(),
+        useShizuku = true,
+        isCompatible = true,
+        isInstalled = true,
+        basicService = true,
+        serviceState = ShizukuServiceState.Available,
+        alsoHasRoot = false,
+        backend = backend,
+        managerLabel = managerLabel,
+    )
+
+    @Test
+    fun `shizuku card ready message names the detected app`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(shizukuItem(connectedState(managerLabel = "Shizuku+"))),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_service_ready_label, "Shizuku+"))
+            .assertCountEquals(1)
+    }
+
+    @Test
+    fun `shizuku card falls back to the backend name without a detected label`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(shizukuItem(connectedState(backend = AdbBackend.PORTER, managerLabel = null))),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_service_ready_label, "Porter"))
+            .assertCountEquals(1)
+    }
+
+    private fun nothingInstalledState() = ShizukuSetupModule.Result(
+        pkg = "eu.darken.porter".toPkgId(),
+        useShizuku = true,
+        isCompatible = true,
+        isInstalled = false,
+        basicService = false,
+        serviceState = ShizukuServiceState.NotChecked,
+        alsoHasRoot = false,
+    )
+
+    @Test
+    fun `shizuku card offers the flavor's install target when nothing is installed`() {
+        var installed = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(shizukuItem(nothingInstalledState(), onInstall = { installed++ })),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_porter_label))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_porter_action))
+            .assertCountEquals(1)
+
+        composeRule.onNodeWithText(context.getString(R.string.setup_shizuku_install_porter_action)).performClick()
+        composeRule.runOnIdle { assertTrue(installed == 1) }
+    }
+
+    @Test
+    fun `shizuku card names Shizuku when the build may only point at Play`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        shizukuItem(
+                            nothingInstalledState(),
+                            brand = AdbManagerBrand.SHIZUKU,
+                            notInstalledLabel = R.string.setup_shizuku_state_not_installed_label,
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_label))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_shizuku_action))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_porter_action))
+            .assertCountEquals(0)
+    }
+
+    @Test
+    fun `shizuku card hides the install action while a restart is what's needed`() {
+        // The app IS installed here, so a store link would be a dead end.
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        shizukuItem(
+                            nothingInstalledState().copy(
+                                backend = AdbBackend.SHIZUKU,
+                                restartRequiredFor = "eu.darken.porter".toPkgId(),
+                                restartRequiredLabel = "Porter",
+                            ),
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_restart_required_label, "Porter"))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_porter_action))
             .assertCountEquals(0)
     }
 
