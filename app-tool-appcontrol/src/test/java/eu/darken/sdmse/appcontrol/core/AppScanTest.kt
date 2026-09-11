@@ -92,6 +92,27 @@ class AppScanTest : BaseTest() {
     }
 
     @Test
+    fun `a scan without sizing does not run the bulk prefetch`() = runTest2 {
+        val harness = harness(listOf(pkg("eu.thlab.one"), pkg("eu.thlab.two")))
+
+        harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = false)
+
+        coVerify(exactly = 0) { harness.pkgOps.querySizeStats(any(), any()) }
+    }
+
+    @Test
+    fun `a sizeless scan does not poison the cache for a later sizing scan`() = runTest2 {
+        val target = pkg("eu.thlab.target")
+        val targetId = target.installId
+        val harness = harness(listOf(target))
+
+        harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = false)
+        harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = true)
+
+        coVerify(exactly = 1) { harness.pkgOps.querySizeStats(targetId, any()) }
+    }
+
+    @Test
     fun `a size the bulk prefetch stored as null is not queried again`() = runTest2 {
         // The prefetch stores `id -> null` for a failed query. Reading that back as "no entry" makes
         // every single-package lookup re-run the query that already failed.
