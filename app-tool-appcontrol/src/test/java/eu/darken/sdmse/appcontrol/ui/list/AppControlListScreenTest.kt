@@ -313,6 +313,49 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
+    fun `a running task offers Cancel in place of Search and Refresh`() {
+        val cancels = mutableListOf<Unit>()
+        composeRule.setContent {
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    AppControlListScreen(
+                        stateSource = MutableStateFlow(
+                            AppControlListViewModel.State(
+                                rows = listOf(row("com.alpha.app", label = "Alpha")),
+                                progress = Progress.Data(),
+                            ),
+                        ),
+                        onCancel = { cancels += Unit },
+                    )
+                }
+            }
+        }
+
+        composeRule.onAllNodesWithContentDescription("Search").assertCountEquals(0)
+        composeRule.onAllNodesWithContentDescription("Refresh").assertCountEquals(0)
+        composeRule.onNodeWithContentDescription("Cancel").performClick()
+        cancels.size shouldBeEqual 1
+    }
+
+    @Test
+    fun `Cancel stays available while search is open`() {
+        // A scan can start while search is open (a sort change that needs data the current snapshot
+        // lacks triggers a refresh), so gating Cancel on !searchActive would strand that scan.
+        // A restored non-empty query auto-opens the search field.
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.alpha.app", label = "Alpha")),
+                progress = Progress.Data(),
+                options = AppControlListViewModel.DisplayOptions(searchQuery = "alpha"),
+            ),
+        )
+
+        // Title replaced by the search field proves search really is open here.
+        composeRule.onAllNodesWithText("AppControl").assertCountEquals(0)
+        composeRule.onNodeWithContentDescription("Cancel").assertExists()
+    }
+
+    @Test
     fun `filter row and top bar actions are visible when no task is executing`() {
         composeRule.setListScreen(
             AppControlListViewModel.State(

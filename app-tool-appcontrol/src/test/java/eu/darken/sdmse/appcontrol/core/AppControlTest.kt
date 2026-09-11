@@ -34,12 +34,16 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.awaitCancellation
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
@@ -328,6 +332,31 @@ class AppControlTest : BaseTest() {
 
         // canInfoActive=false → AND collapses to false.
         includeActiveSlot.captured shouldBe false
+    }
+
+    // ─────────────────────────── cancelled scan ───────────────────────────
+
+    @Test
+    fun `a cancelled scan restores the data the list was already showing`() = runTest2 {
+        // performScan clears the data before scanning, so at the moment a cancel lands the tool
+        // holds nothing and the list falls back to its empty placeholder. Cancelling a Refresh must
+        // not destroy the list the user already had.
+        val setup = setupAppControl(appsReturnedByScan = setOf(installedApp("eu.thlab.first")))
+
+        setup.appControl.submit(buildScanTask())
+        val before = setup.appControl.dataFromState()!!
+
+        val scanStarted = CompletableDeferred<Unit>()
+        coEvery { setup.appScan.allApps(any(), any(), any(), any()) } coAnswers {
+            scanStarted.complete(Unit)
+            awaitCancellation()
+        }
+
+        val job = launch { setup.appControl.submit(buildScanTask()) }
+        scanStarted.await()
+        job.cancelAndJoin()
+
+        setup.appControl.dataFromState() shouldBe before
     }
 
     // ─────────────────────────── export batch resilience ───────────────────────────

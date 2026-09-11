@@ -184,6 +184,7 @@ fun AppControlListScreenHost(
         onExportSelected = vm::onExportRequested,
         onShareSelected = vm::onShareList,
         onRefresh = { vm.onRefresh(refreshPkgCache = true) },
+        onCancel = vm::onCancel,
     )
 
     pendingConfirm?.let { ev ->
@@ -325,6 +326,7 @@ internal fun AppControlListScreen(
     onExportSelected: (Set<InstallId>) -> Unit = {},
     onShareSelected: (Set<InstallId>) -> Unit = {},
     onRefresh: () -> Unit = {},
+    onCancel: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -484,18 +486,29 @@ internal fun AppControlListScreen(
                                 )
                             },
                             actions = {
-                                if (!searchActive && !isBusy) {
-                                    SdmTooltipIconButton(
-                                        icon = Icons.TwoTone.Search,
-                                        label = stringResource(CommonR.string.general_search_action),
-                                        onClick = { searchActive = true },
-                                        modifier = Modifier.guidedTourTarget(AppControlListTour.SEARCH_TARGET),
+                                when {
+                                    // Not gated on !searchActive: a scan can start while search is
+                                    // open (a sort change that needs data the snapshot lacks), and
+                                    // that scan has to stay cancellable.
+                                    isBusy -> SdmTooltipIconButton(
+                                        icon = Icons.TwoTone.Close,
+                                        label = stringResource(CommonR.string.general_cancel_action),
+                                        onClick = onCancel,
                                     )
-                                    SdmTooltipIconButton(
-                                        icon = Icons.TwoTone.Refresh,
-                                        label = stringResource(CommonR.string.general_refresh_action),
-                                        onClick = onRefresh,
-                                    )
+
+                                    !searchActive -> {
+                                        SdmTooltipIconButton(
+                                            icon = Icons.TwoTone.Search,
+                                            label = stringResource(CommonR.string.general_search_action),
+                                            onClick = { searchActive = true },
+                                            modifier = Modifier.guidedTourTarget(AppControlListTour.SEARCH_TARGET),
+                                        )
+                                        SdmTooltipIconButton(
+                                            icon = Icons.TwoTone.Refresh,
+                                            label = stringResource(CommonR.string.general_refresh_action),
+                                            onClick = onRefresh,
+                                        )
+                                    }
                                 }
                             },
                         )
