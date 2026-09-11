@@ -103,7 +103,7 @@ class AppScan @Inject constructor(
         log(TAG, VERBOSE) { "allApps(user=$user)" }
         val pkgs = pkgRepo.current().filter { user == null || it.userHandle == user }
 
-        if (sizeCache == null) {
+        if (includeSize && sizeCache == null) {
             sizeCache = pkgs
                 .map { it.installId }
                 .asFlow()
