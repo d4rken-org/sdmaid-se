@@ -9,13 +9,11 @@ import androidx.annotation.StringRes
  * names Shizuku and links to its Play listing, while FOSS names Porter and links to porter.darken.eu.
  */
 interface AdbManagerInstallGuide {
-    val brand: AdbManagerBrand
+    /** Brand name of the manager this build can actually deliver. */
+    @get:StringRes val labelRes: Int
 
     /** Opened by the install action. */
     val url: String
-
-    /** Names whichever manager(s) [url] can actually deliver. */
-    @get:StringRes val notInstalledLabel: Int
 
     /**
      * Help target for an active Porter backend.
@@ -24,10 +22,4 @@ interface AdbManagerInstallGuide {
      * the Play build sends users to our wiki instead.
      */
     val porterHelpUrl: String
-}
-
-enum class AdbManagerBrand {
-    PORTER,
-    SHIZUKU,
-    ;
 }

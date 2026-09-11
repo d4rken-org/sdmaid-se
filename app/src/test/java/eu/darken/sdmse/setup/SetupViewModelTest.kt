@@ -9,7 +9,6 @@ import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
-import eu.darken.sdmse.setup.shizuku.AdbManagerBrand
 import eu.darken.sdmse.setup.shizuku.AdbManagerInstallGuide
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coVerify
@@ -46,9 +45,8 @@ class SetupViewModelTest : BaseTest() {
 
     // Stands in for whichever flavor binding is compiled: the test source set sees neither impl.
     private val installGuide = object : AdbManagerInstallGuide {
-        override val brand = AdbManagerBrand.PORTER
+        override val labelRes = R.string.setup_shizuku_install_manager_label
         override val url = "https://example.test/install"
-        override val notInstalledLabel = R.string.setup_shizuku_state_not_installed_porter_label
         override val porterHelpUrl = "https://example.test/help"
     }
 

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.setup.shizuku
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -12,7 +11,9 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.selection.selectableGroup
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.CheckCircle
+import androidx.compose.material.icons.twotone.Download
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
@@ -26,11 +27,12 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
-import eu.darken.sdmse.common.compose.icons.Porter
+import eu.darken.sdmse.common.coil.AppIconImage
 import eu.darken.sdmse.common.compose.icons.SdmIcons
 import eu.darken.sdmse.common.compose.icons.Shizuku
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.pkgs.container.toStub
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupLimitationBox
@@ -43,9 +45,8 @@ data class ShizukuSetupCardItem(
     val onOpen: () -> Unit,
     val onHelp: () -> Unit,
     val onRetry: () -> Unit = {},
-    /** Which manager this build is allowed to send the user to when none is installed. */
-    val brand: AdbManagerBrand = AdbManagerBrand.PORTER,
-    @StringRes val notInstalledLabel: Int = R.string.setup_shizuku_state_not_installed_label,
+    /** Brand name of the manager this build is allowed to send the user to. */
+    @StringRes val installLabelRes: Int = R.string.setup_shizuku_install_manager_label,
     val onInstall: () -> Unit = {},
     /**
      * Does this device match the hardware/ROM combination with the known upstream Shizuku problem?
@@ -125,7 +126,7 @@ internal fun ShizukuSetupCard(
                             item.state.restartRequiredLabel ?: item.state.backend.other.label,
                         )
 
-                        !item.state.isInstalled -> stringResource(item.notInstalledLabel)
+                        !item.state.isInstalled -> stringResource(R.string.setup_shizuku_state_not_installed_label)
                         else -> stringResource(R.string.setup_shizuku_state_waiting_label)
                     },
                     style = MaterialTheme.typography.labelMedium,
@@ -147,27 +148,16 @@ internal fun ShizukuSetupCard(
                         .padding(horizontal = 16.dp),
                 ) {
                     OutlinedButton(onClick = item.onInstall) {
-                        when (item.brand) {
-                            // Porter's mark carries its own colours, Shizuku's is a tintable glyph.
-                            AdbManagerBrand.PORTER -> Image(
-                                imageVector = SdmIcons.Porter,
-                                contentDescription = null,
-                                modifier = Modifier.size(20.dp),
-                            )
-
-                            AdbManagerBrand.SHIZUKU -> Icon(
-                                imageVector = SdmIcons.Shizuku,
-                                contentDescription = null,
-                                modifier = Modifier.size(20.dp),
-                            )
-                        }
-                        Spacer(modifier = Modifier.size(8.dp))
+                        Icon(
+                            imageVector = Icons.TwoTone.Download,
+                            contentDescription = null,
+                            modifier = Modifier.size(ButtonDefaults.IconSize),
+                        )
+                        Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
                         Text(
                             stringResource(
-                                when (item.brand) {
-                                    AdbManagerBrand.PORTER -> R.string.setup_shizuku_install_porter_action
-                                    AdbManagerBrand.SHIZUKU -> R.string.setup_shizuku_install_shizuku_action
-                                }
+                                R.string.setup_shizuku_install_manager_action,
+                                stringResource(item.installLabelRes),
                             )
                         )
                     }
@@ -221,6 +211,11 @@ internal fun ShizukuSetupCard(
                         .padding(horizontal = 16.dp),
                 ) {
                     OutlinedButton(onClick = item.onOpen) {
+                        AppIconImage(
+                            pkg = item.state.pkg.toStub(),
+                            modifier = Modifier.size(ButtonDefaults.IconSize),
+                        )
+                        Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
                         Text(stringResource(R.string.setup_shizuku_open_manager_action, managerName))
                     }
                 }
@@ -335,7 +330,7 @@ private fun ShizukuSetupCardRestartRequiredPreview() {
 
 @Preview2
 @Composable
-private fun ShizukuSetupCardNotInstalledFossPreview() {
+private fun ShizukuSetupCardNotInstalledPreview() {
     PreviewWrapper {
         ShizukuSetupCard(
             item = ShizukuSetupCardItem(
@@ -351,33 +346,6 @@ private fun ShizukuSetupCardNotInstalledFossPreview() {
                 onToggleUseShizuku = {},
                 onOpen = {},
                 onHelp = {},
-                brand = AdbManagerBrand.PORTER,
-                notInstalledLabel = R.string.setup_shizuku_state_not_installed_porter_label,
-            ),
-        )
-    }
-}
-
-@Preview2
-@Composable
-private fun ShizukuSetupCardNotInstalledGplayPreview() {
-    PreviewWrapper {
-        ShizukuSetupCard(
-            item = ShizukuSetupCardItem(
-                state = ShizukuSetupModule.Result(
-                    pkg = "moe.shizuku.privileged.api".toPkgId(),
-                    useShizuku = true,
-                    isCompatible = true,
-                    isInstalled = false,
-                    basicService = false,
-                    serviceState = ShizukuServiceState.NotChecked,
-                    alsoHasRoot = false,
-                ),
-                onToggleUseShizuku = {},
-                onOpen = {},
-                onHelp = {},
-                brand = AdbManagerBrand.SHIZUKU,
-                notInstalledLabel = R.string.setup_shizuku_state_not_installed_label,
             ),
         )
     }
