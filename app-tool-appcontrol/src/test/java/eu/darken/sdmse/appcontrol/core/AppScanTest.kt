@@ -11,15 +11,20 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.unmockkAll
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import org.junit.After
 import org.junit.Test
@@ -110,6 +115,45 @@ class AppScanTest : BaseTest() {
         harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = true)
 
         coVerify(exactly = 1) { harness.pkgOps.querySizeStats(targetId, any()) }
+    }
+
+    @Test
+    fun `a cancel lands inside the assembly loop instead of after it`() = runTest2 {
+        // Nothing in the loop is guaranteed to suspend, so without an explicit ensureActive() a
+        // cancel is only honoured once every package has been processed.
+        lateinit var job: Job
+        val seen = mutableListOf<String>()
+        val pkgs = (1..5).map { index ->
+            val pkgName = "eu.thlab.app$index"
+            // packageName is read once per assembly-loop iteration (progress label), so it doubles
+            // as the iteration counter and as the cancel trigger.
+            pkg(pkgName).apply {
+                every { packageName } answers {
+                    seen += pkgName
+                    if (seen.size == 2) job.cancel()
+                    pkgName
+                }
+            }
+        }
+        val harness = harness(pkgs)
+
+        var thrown: Throwable? = null
+        job = launch {
+            try {
+                harness.appScan.allApps(
+                    user = null,
+                    includeUsage = false,
+                    includeActive = false,
+                    includeSize = false,
+                )
+            } catch (e: Throwable) {
+                thrown = e
+            }
+        }
+        job.join()
+
+        thrown.shouldBeInstanceOf<CancellationException>()
+        seen shouldBe listOf("eu.thlab.app1", "eu.thlab.app2")
     }
 
     @Test

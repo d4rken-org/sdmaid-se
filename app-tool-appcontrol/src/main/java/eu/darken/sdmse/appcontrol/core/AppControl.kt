@@ -151,34 +151,43 @@ class AppControl @Inject constructor(
         log(TAG, VERBOSE) { "performScan(): $task" }
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
+        // Kept so a cancelled scan can hand the list back what it was already showing instead of
+        // the empty placeholder. An initial scan has nothing to restore, which is correct.
+        val previousData = internalData.value
         internalData.value = null
 
-        if (!appInventorySetupModule.isComplete()) {
-            log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
-            throw IncompleteSetupException(SetupModule.Type.INVENTORY)
-        }
+        try {
+            if (!appInventorySetupModule.isComplete()) {
+                log(TAG, WARN) { "SetupModule INVENTORY is not complete" }
+                throw IncompleteSetupException(SetupModule.Type.INVENTORY)
+            }
 
-        val curState = state.first()
+            val curState = state.first()
 
-        val appInfos = appScan.withProgress(this) {
-            if (task.refreshPkgCache) refresh()
-            allApps(
-                user = if (task.includeMultiUser) null else userManager.currentUser().handle,
-                includeActive = task.loadInfoActive && curState.canInfoActive,
-                includeSize = task.loadInfoSize && curState.canInfoSize,
-                includeUsage = task.loadInfoScreenTime && curState.canInfoScreenTime,
+            val appInfos = appScan.withProgress(this) {
+                if (task.refreshPkgCache) refresh()
+                allApps(
+                    user = if (task.includeMultiUser) null else userManager.currentUser().handle,
+                    includeActive = task.loadInfoActive && curState.canInfoActive,
+                    includeSize = task.loadInfoSize && curState.canInfoSize,
+                    includeUsage = task.loadInfoScreenTime && curState.canInfoScreenTime,
+                )
+            }
+
+            internalData.value = Data(
+                apps = appInfos,
+                hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
+                hasInfoActive = task.loadInfoActive && curState.canInfoActive,
+                hasInfoSize = task.loadInfoSize && curState.canInfoSize,
+                hasIncludedMultiUser = task.includeMultiUser && curState.canIncludeMultiUser,
             )
+
+            return AppControlScanTask.Result(itemCount = appInfos.size)
+        } catch (e: CancellationException) {
+            log(TAG, INFO) { "performScan(): Cancelled, restoring the previous data" }
+            internalData.value = previousData
+            throw e
         }
-
-        internalData.value = Data(
-            apps = appInfos,
-            hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
-            hasInfoActive = task.loadInfoActive && curState.canInfoActive,
-            hasInfoSize = task.loadInfoSize && curState.canInfoSize,
-            hasIncludedMultiUser = task.includeMultiUser && curState.canIncludeMultiUser,
-        )
-
-        return AppControlScanTask.Result(itemCount = appInfos.size)
     }
 
     private suspend fun performToggle(task: AppControlToggleTask): AppControlToggleTask.Result {

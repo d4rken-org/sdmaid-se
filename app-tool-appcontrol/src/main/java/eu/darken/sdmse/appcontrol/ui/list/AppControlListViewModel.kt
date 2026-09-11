@@ -45,6 +45,7 @@ import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupBinding
@@ -334,6 +335,11 @@ class AppControlListViewModel @Inject constructor(
     fun onRefresh(refreshPkgCache: Boolean = false) = launch {
         log(TAG) { "onRefresh($refreshPkgCache)" }
         taskManager.submit(buildScanTask(refreshPkgCache))
+    }
+
+    fun onCancel() {
+        log(TAG, INFO) { "onCancel()" }
+        taskManager.cancel(SDMTool.Type.APPCONTROL)
     }
 
     private suspend fun refresh() = taskManager.submit(buildScanTask())
