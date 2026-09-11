@@ -416,6 +416,36 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("Beta").assertExists()
     }
 
+    @Test
+    fun `the cancelled message appears only after a cancel, not on cold start`() {
+        // Cancelling the initial scan restores AppControl's pre-scan data, which is null, so the
+        // screen is left with rows == null and progress == null. That is the same combination as
+        // cold start, so the content area can only tell them apart via the explicit cancel flag.
+        // Without a flag-driven branch the area renders a bare Box: no rows, no "Empty", no filter
+        // row, no count, nothing explaining why the screen is blank.
+        val cancelledMessage = "Scan cancelled, no apps were loaded."
+        val stateSource = MutableStateFlow(
+            AppControlListViewModel.State(rows = null, progress = null),
+        )
+        composeRule.setContent {
+            CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
+                PreviewWrapper {
+                    AppControlListScreen(stateSource = stateSource)
+                }
+            }
+        }
+
+        // Cold start: no cancel yet, so the message must stay away (it would otherwise flash on
+        // every first open, which is why the flag exists instead of a bare rows/progress check).
+        composeRule.onAllNodesWithText(cancelledMessage).assertCountEquals(0)
+
+        // Only the flag changes — rows and progress stay exactly as they were.
+        stateSource.value = stateSource.value.copy(cancelRequested = true)
+        composeRule.waitForIdle()
+
+        composeRule.onNodeWithText(cancelledMessage).assertExists()
+    }
+
     private infix fun <T> T.shouldBeEqual(other: T) {
         if (this != other) throw AssertionError("Expected <$other> but was <$this>")
     }
