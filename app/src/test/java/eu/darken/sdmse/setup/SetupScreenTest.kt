@@ -30,7 +30,6 @@ import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardItem
 import eu.darken.sdmse.setup.saf.SAFSetupModule
-import eu.darken.sdmse.setup.shizuku.AdbManagerBrand
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardItem
@@ -724,16 +723,12 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
 
     private fun shizukuItem(
         state: ShizukuSetupModule.Result,
-        brand: AdbManagerBrand = AdbManagerBrand.PORTER,
-        notInstalledLabel: Int = R.string.setup_shizuku_state_not_installed_porter_label,
         onInstall: () -> Unit = {},
     ) = ShizukuSetupCardItem(
         state = state,
         onToggleUseShizuku = {},
         onOpen = {},
         onHelp = {},
-        brand = brand,
-        notInstalledLabel = notInstalledLabel,
         onInstall = onInstall,
     )
 
@@ -803,42 +798,20 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             )
         }
 
-        composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_porter_label))
-            .assertCountEquals(1)
-        composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_porter_action))
-            .assertCountEquals(1)
-
-        composeRule.onNodeWithText(context.getString(R.string.setup_shizuku_install_porter_action)).performClick()
-        composeRule.runOnIdle { assertTrue(installed == 1) }
-    }
-
-    @Test
-    fun `shizuku card names Shizuku when the build may only point at Play`() {
-        composeRule.setSetupContent {
-            SetupScreen(
-                uiState = SetupUiState.Cards(
-                    items = listOf(
-                        shizukuItem(
-                            nothingInstalledState(),
-                            brand = AdbManagerBrand.SHIZUKU,
-                            notInstalledLabel = R.string.setup_shizuku_state_not_installed_label,
-                        ),
-                    ),
-                ),
-            )
-        }
+        // Brand comes from a flavor resource, so this asserts "Install Porter" under testFoss and
+        // "Install Shizuku" under testGplay without the test knowing which it ran as.
+        val installAction = context.getString(
+            R.string.setup_shizuku_install_manager_action,
+            context.getString(R.string.setup_shizuku_install_manager_label),
+        )
 
         composeRule
             .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_label))
             .assertCountEquals(1)
-        composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_shizuku_action))
-            .assertCountEquals(1)
-        composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_porter_action))
-            .assertCountEquals(0)
+        composeRule.onAllNodesWithText(installAction).assertCountEquals(1)
+
+        composeRule.onNodeWithText(installAction).performClick()
+        composeRule.runOnIdle { assertTrue(installed == 1) }
     }
 
     @Test
@@ -864,7 +837,12 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_restart_required_label, "Porter"))
             .assertCountEquals(1)
         composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_install_porter_action))
+            .onAllNodesWithText(
+                context.getString(
+                    R.string.setup_shizuku_install_manager_action,
+                    context.getString(R.string.setup_shizuku_install_manager_label),
+                )
+            )
             .assertCountEquals(0)
     }
 

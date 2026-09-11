@@ -273,13 +273,16 @@ class SetupViewModel @Inject constructor(
                                             context.startActivity(it)
                                         } catch (e: ActivityNotFoundException) {
                                             errorEvents.tryEmit(e)
+                                        } catch (e: SecurityException) {
+                                            // An exported-but-guarded launcher activity rejects us at
+                                            // startActivity() rather than failing to resolve.
+                                            errorEvents.tryEmit(e)
                                         }
                                     }
                                 },
                                 onRetry = { launch { shizukuSetupModule.refresh() } },
                                 showKnownIssueHint = hasKnownShizukuIssueRisk,
-                                brand = adbManagerInstallGuide.brand,
-                                notInstalledLabel = adbManagerInstallGuide.notInstalledLabel,
+                                installLabelRes = adbManagerInstallGuide.labelRes,
                                 onInstall = { webpageTool.open(adbManagerInstallGuide.url) },
                             )
 
