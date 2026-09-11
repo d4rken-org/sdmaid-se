@@ -72,9 +72,21 @@ class ShizukuManagerTest : BaseTest() {
         serviceClient = serviceClient,
     )
 
-    private fun setShizukuPackages(vararg pkgs: String) {
-        coEvery { shizukuWrapper.getManagerPackages() } returns pkgs.toList()
-        coEvery { shizukuWrapper.getManagerPackage() } returns pkgs.firstOrNull()
+    /** Managers of both families, all of them belonging to the active backend. */
+    private fun setShizukuPackages(vararg pkgs: String) = setManagers(
+        all = pkgs.toList(),
+        active = pkgs.toList(),
+    )
+
+    private fun setManagers(
+        all: List<String>,
+        active: List<String>,
+        backend: AdbBackend = AdbBackend.SHIZUKU,
+    ) {
+        coEvery { shizukuWrapper.getManagerPackages() } returns all
+        coEvery { shizukuWrapper.getActiveManagerPackages() } returns active
+        coEvery { shizukuWrapper.getActiveManagerPackage() } returns active.firstOrNull()
+        coEvery { shizukuWrapper.activeBackend() } returns backend
     }
 
     @Test fun `binder is not probed when Shizuku is not installed`() {
@@ -164,17 +176,21 @@ class ShizukuManagerTest : BaseTest() {
         runBlocking { mgr.isOurServiceAvailable() } shouldBe false
     }
 
-    @Test fun `managerIds always includes the reference package plus any detected fork`() {
+    @Test fun `managerIds always includes both reference packages plus any detected fork`() {
         val mgr = manager()
 
-        // Nothing installed: just the reference package.
+        // Nothing installed: just the reference packages of both families.
         setShizukuPackages()
-        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID)
+        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, ShizukuManager.PORTER_PKG_ID)
 
-        // Fork installed under a different package: both the reference and the fork are protected.
+        // Fork installed under a different package: the references and the fork are all protected.
         val forkPkg = "com.example.shizuku.fork"
         setShizukuPackages(forkPkg)
-        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, forkPkg.toPkgId())
+        runBlocking { mgr.managerIds() } shouldBe setOf(
+            ShizukuManager.PKG_ID,
+            ShizukuManager.PORTER_PKG_ID,
+            forkPkg.toPkgId(),
+        )
     }
 
     @Test fun `managerIds includes every detected manager package`() {
@@ -183,7 +199,82 @@ class ShizukuManagerTest : BaseTest() {
         setShizukuPackages("moe.shizuku.privileged.api", "af.shizuku.plus.api")
         val mgr = manager()
 
-        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, "af.shizuku.plus.api".toPkgId())
+        runBlocking { mgr.managerIds() } shouldBe setOf(
+            ShizukuManager.PKG_ID,
+            ShizukuManager.PORTER_PKG_ID,
+            "af.shizuku.plus.api".toPkgId(),
+        )
+    }
+
+    @Test fun `managerIds spans both families even when only one is active`() {
+        // Porter installed while Shizuku is the latched backend: it still has to be recognized as a
+        // manager app, otherwise consumers stop protecting it.
+        setManagers(
+            all = listOf("moe.shizuku.privileged.api", "eu.darken.porter"),
+            active = listOf("moe.shizuku.privileged.api"),
+        )
+        val mgr = manager()
+
+        runBlocking { mgr.managerIds() } shouldBe setOf(ShizukuManager.PKG_ID, ShizukuManager.PORTER_PKG_ID)
+        runBlocking { mgr.activeManagerIds() } shouldBe setOf(ShizukuManager.PKG_ID)
+    }
+
+    // --- active backend ------------------------------------------------------------------------
+
+    @Test fun `getManagerId and isInstalled follow the active backend`() {
+        // Porter is installed, but this process latched Shizuku: the active-family lookup is empty,
+        // so as far as the link is concerned nothing usable is installed.
+        setManagers(
+            all = listOf("eu.darken.porter"),
+            active = emptyList(),
+        )
+        val mgr = manager()
+
+        runBlocking { mgr.getManagerId() } shouldBe null
+        runBlocking { mgr.isInstalled() } shouldBe false
+
+        setManagers(
+            all = listOf("eu.darken.porter"),
+            active = listOf("eu.darken.porter"),
+            backend = AdbBackend.PORTER,
+        )
+
+        runBlocking { mgr.getManagerId() } shouldBe ShizukuManager.PORTER_PKG_ID
+        runBlocking { mgr.isInstalled() } shouldBe true
+    }
+
+    @Test fun `referenceManagerId is the active backend's product package`() {
+        val mgr = manager()
+
+        setManagers(all = emptyList(), active = emptyList(), backend = AdbBackend.PORTER)
+        runBlocking { mgr.referenceManagerId() } shouldBe ShizukuManager.PORTER_PKG_ID
+
+        setManagers(all = emptyList(), active = emptyList(), backend = AdbBackend.SHIZUKU)
+        runBlocking { mgr.referenceManagerId() } shouldBe ShizukuManager.PKG_ID
+    }
+
+    @Test fun `inactiveFamilyManagerId reports a manager we cannot talk to`() {
+        setManagers(
+            all = listOf("eu.darken.porter"),
+            active = emptyList(),
+        )
+        val mgr = manager()
+
+        runBlocking { mgr.inactiveFamilyManagerId() } shouldBe ShizukuManager.PORTER_PKG_ID
+    }
+
+    @Test fun `inactiveFamilyManagerId is null when every manager belongs to the active family`() {
+        setShizukuPackages("moe.shizuku.privileged.api")
+        val mgr = manager()
+
+        runBlocking { mgr.inactiveFamilyManagerId() } shouldBe null
+    }
+
+    @Test fun `inactiveFamilyManagerId is null when nothing is installed`() {
+        setShizukuPackages()
+        val mgr = manager()
+
+        runBlocking { mgr.inactiveFamilyManagerId() } shouldBe null
     }
 
     // --- getServiceState -----------------------------------------------------------------------

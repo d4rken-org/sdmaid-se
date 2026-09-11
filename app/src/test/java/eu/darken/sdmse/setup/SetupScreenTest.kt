@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
@@ -629,6 +630,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                                 basicService = true,
                                 serviceState = ShizukuServiceState.NotChecked,
                                 alsoHasRoot = true,
+                                backend = AdbBackend.PORTER,
                             ),
                             onToggleUseShizuku = {},
                             onOpen = {},
@@ -646,7 +648,11 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         }
         composeRule.onAllNodesWithText(expectedBody).assertCountEquals(1)
         composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_state_waiting_label)).assertCountEquals(1)
-        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(2)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
+        // The open button names the active backend, it no longer reuses the card title.
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_open_manager_action, "Porter"))
+            .assertCountEquals(1)
     }
 
     @Test
@@ -675,6 +681,44 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_open_manager_action, "Shizuku"))
+            .assertCountEquals(0)
+    }
+
+    @Test
+    fun `shizuku card explains the restart when the other family is installed`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        ShizukuSetupCardItem(
+                            state = ShizukuSetupModule.Result(
+                                pkg = "eu.darken.porter".toPkgId(),
+                                useShizuku = true,
+                                isCompatible = true,
+                                isInstalled = false,
+                                basicService = false,
+                                serviceState = ShizukuServiceState.NotChecked,
+                                alsoHasRoot = false,
+                                backend = AdbBackend.SHIZUKU,
+                                restartRequiredFor = "eu.darken.porter".toPkgId(),
+                            ),
+                            onToggleUseShizuku = {},
+                            onOpen = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_restart_required_label, "Porter"))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_label))
+            .assertCountEquals(0)
     }
 
     @Test

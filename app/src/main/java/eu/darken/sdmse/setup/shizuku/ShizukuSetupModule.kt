@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
@@ -88,17 +89,29 @@ class ShizukuSetupModule @Inject constructor(
         val managerId = shizukuManager.getManagerId()
         // The card's open action launches this package. The detected manager can be Shizuku+'s Compat Hub,
         // which has no launcher activity, so prefer the first manager app that can actually be opened.
+        // Stays inside the active backend's family: the other manager can't affect the link we wait on.
         val openable = managerId?.let {
             withContext(dispatcherProvider.IO) {
-                shizukuManager.managerIds().firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
+                shizukuManager.activeManagerIds().firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
             }
         }
+        // The backend is picked and latched when the SDK's providers initialize. Someone who opened
+        // SD Maid before installing any manager latched Shizuku, so installing Porter afterwards keeps
+        // the active-family lookup empty however often the card is refreshed. Without this the card
+        // would keep insisting nothing is installed, which is exactly where our own copy sends a new
+        // Porter user.
+        val restartRequiredFor = when (managerId) {
+            null -> shizukuManager.inactiveFamilyManagerId()
+            else -> null
+        }
         val baseState = Result(
-            pkg = openable ?: managerId ?: shizukuManager.shizukuPkgId,
+            pkg = openable ?: managerId ?: shizukuManager.referenceManagerId(),
             useShizuku = useShizuku,
             isInstalled = managerId != null,
             isCompatible = shizukuManager.isCompatible(),
             alsoHasRoot = useRoot,
+            backend = shizukuManager.activeBackend(),
+            restartRequiredFor = restartRequiredFor,
         )
 
         if (useShizuku != true) return@combine flowOf<SetupModule.State>(baseState)
@@ -225,6 +238,12 @@ class ShizukuSetupModule @Inject constructor(
         /** A probe is running right now. Only gates the retry affordance, never the message. */
         val isChecking: Boolean = false,
         val alsoHasRoot: Boolean = false,
+        val backend: AdbBackend = AdbBackend.SHIZUKU,
+        /**
+         * A manager of the OTHER family is installed but unreachable until the app is fully
+         * restarted, because this process already latched a backend. Null in every other case.
+         */
+        val restartRequiredFor: Pkg.Id? = null,
     ) : SetupModule.State.Current {
 
         /** Derived, not stored: one source of truth, so it can't disagree with [serviceState]. */

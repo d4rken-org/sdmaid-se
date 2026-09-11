@@ -6,6 +6,7 @@ import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.debug.DebugTask
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -141,6 +142,8 @@ class DebugCardProvider @Inject constructor(
                         hasUserConsent = adbSettings.useShizuku.value(),
                         isInstalled = shizukuManager.isInstalled(),
                         isGranted = shizukuManager.isGranted(),
+                        backend = shizukuManager.activeBackend(),
+                        serverUid = shizukuManager.serverUid(),
                         serviceLaunched = withTimeoutOrNull(10 * 1000) {
                             val sb = StringBuilder()
 
@@ -311,6 +314,10 @@ class DebugCardProvider @Inject constructor(
         val hasUserConsent: Boolean?,
         val isInstalled: Boolean,
         val isGranted: Boolean?,
+        /** Without this a Porter failure and a Shizuku failure look identical in a debug log. */
+        val backend: AdbBackend,
+        /** 2000 when the helper really runs at shell privilege. */
+        val serverUid: Int?,
         val serviceLaunched: String?,
     )
 
