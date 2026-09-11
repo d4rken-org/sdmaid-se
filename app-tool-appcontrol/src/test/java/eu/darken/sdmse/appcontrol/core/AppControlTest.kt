@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
@@ -102,6 +103,8 @@ class AppControlTest : BaseTest() {
     ): Setup {
         val appScan = mockk<AppScan>().apply {
             every { sharedResource } returns SharedResource.createKeepAlive("appScan", keepAliveScope)
+            // performScan forwards the scanner's progress, so the strict mock has to answer it.
+            every { progress } returns flowOf(Progress.Data())
             coEvery { allApps(any(), any(), any(), any()) } returns appsReturnedByScan
             coJustRun { refresh() }
         }
