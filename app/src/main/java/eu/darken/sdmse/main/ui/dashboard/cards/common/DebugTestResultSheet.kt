@@ -66,6 +66,15 @@ internal fun DebugTestSheet.statuses(): List<DebugStatus> = when (this) {
     )
 }
 
+/** Values that aren't yes/no, rendered as plain lines above the service output. */
+internal fun DebugTestSheet.details(): List<String> = when (this) {
+    is DebugTestSheet.Root -> emptyList()
+    is DebugTestSheet.Shizuku -> listOf(
+        "Backend: ${result.backend.label}",
+        "Server UID: ${result.serverUid ?: "unknown"}",
+    )
+}
+
 @Composable
 internal fun DebugTestResultSheet(
     sheet: DebugTestSheet,
@@ -84,6 +93,7 @@ internal fun DebugTestResultSheet(
             icon = icon,
             title = title,
             statuses = sheet.statuses(),
+            details = sheet.details(),
             output = output,
             onClose = { dismiss {} },
         )
@@ -95,6 +105,7 @@ private fun DebugTestResultSheetContent(
     icon: ImageVector,
     title: String,
     statuses: List<DebugStatus>,
+    details: List<String>,
     output: String?,
     onClose: () -> Unit,
 ) {
@@ -126,6 +137,21 @@ private fun DebugTestResultSheetContent(
             verticalArrangement = Arrangement.spacedBy(8.dp),
         ) {
             statuses.forEach { DebugStatusChip(it) }
+        }
+
+        if (details.isNotEmpty()) {
+            Spacer(modifier = Modifier.height(16.dp))
+            SelectionContainer {
+                Column {
+                    details.forEach {
+                        Text(
+                            text = it,
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                }
+            }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -237,6 +263,7 @@ private fun DebugTestResultSheetOkPreview() {
                 DebugStatus("Consent", true),
                 DebugStatus("Magisk granted", true),
             ),
+            details = emptyList(),
             output = "BaseCheck:\nOK\nShellOps 'whoami':\nroot",
             onClose = {},
         )
@@ -255,6 +282,7 @@ private fun DebugTestResultSheetTimeoutPreview() {
                 DebugStatus("Consent", null),
                 DebugStatus("Granted", false),
             ),
+            details = listOf("Backend: Porter", "Server UID: 2000"),
             output = null,
             onClose = {},
         )

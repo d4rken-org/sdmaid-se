@@ -8,6 +8,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
@@ -22,6 +23,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.root.RootManager
@@ -30,10 +32,10 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -88,17 +90,32 @@ class ShizukuSetupModule @Inject constructor(
         val managerId = shizukuManager.getManagerId()
         // The card's open action launches this package. The detected manager can be Shizuku+'s Compat Hub,
         // which has no launcher activity, so prefer the first manager app that can actually be opened.
+        // Stays inside the active backend's family: the other manager can't affect the link we wait on.
         val openable = managerId?.let {
             withContext(dispatcherProvider.IO) {
-                shizukuManager.managerIds().firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
+                shizukuManager.activeManagerIds().firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
             }
         }
+        // The backend is picked and latched when the SDK's providers initialize. Someone who opened
+        // SD Maid before installing any manager latched Shizuku, so installing Porter afterwards keeps
+        // the active-family lookup empty however often the card is refreshed. Without this the card
+        // would keep insisting nothing is installed, which is exactly where our own copy sends a new
+        // Porter user.
+        val restartRequiredFor = when (managerId) {
+            null -> shizukuManager.inactiveFamilyManagerId()
+            else -> null
+        }
+        val pkg = openable ?: managerId ?: shizukuManager.referenceManagerId()
         val baseState = Result(
-            pkg = openable ?: managerId ?: shizukuManager.shizukuPkgId,
+            pkg = pkg,
             useShizuku = useShizuku,
             isInstalled = managerId != null,
             isCompatible = shizukuManager.isCompatible(),
             alsoHasRoot = useRoot,
+            backend = shizukuManager.activeBackend(),
+            restartRequiredFor = restartRequiredFor,
+            managerLabel = if (managerId != null) labelOf(pkg) else null,
+            restartRequiredLabel = labelOf(restartRequiredFor),
         )
 
         if (useShizuku != true) return@combine flowOf<SetupModule.State>(baseState)
@@ -170,6 +187,23 @@ class ShizukuSetupModule @Inject constructor(
         .onEach { log(TAG) { "New Shizuku setup state: $it" } }
         .replayingShare(appScope)
 
+    // Runs outside the probe's catch below, so it must not throw: getLabel2() only converts
+    // NameNotFoundException, and anything else (e.g. a PackageManager binder death) would kill the
+    // sharing coroutine, leaving every later subscriber stuck on the state it died in.
+    // Blank is treated as absent so the card can't render "... through .".
+    private suspend fun labelOf(pkgId: Pkg.Id?): String? = pkgId?.let {
+        withContext(dispatcherProvider.IO) {
+            try {
+                context.packageManager.getLabel2(it)?.takeIf { label -> label.isNotBlank() }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (e: Exception) {
+                log(TAG, WARN) { "labelOf($it) failed: ${e.asLog()}" }
+                null
+            }
+        }
+    }
+
     override suspend fun refresh() {
         log(TAG) { "refresh()" }
         refreshTrigger.value = rngString
@@ -201,9 +235,18 @@ class ShizukuSetupModule @Inject constructor(
         }
 
         if (!couldUseShizuku && useShizuku == true) {
-            // TODO find a smarter way to do this, i.e. by waiting for a specific event.
-            // Small delay to allow Shizuku service to bind
-            delay(1500)
+            // Wait for the binder to actually answer rather than guessing at how long it takes.
+            // The ping goes through the same detached bound as the probe above: pingBinder() is a
+            // synchronous transaction, so a plain withTimeoutOrNull around it could not release this
+            // coroutine if the server is alive but wedged, it would just sit here.
+            withTimeoutOrNull(SERVICE_BIND_TIMEOUT_MS) {
+                shizukuManager.shizukuBinder
+                    .filter { binder ->
+                        binder != null && appScope
+                            .runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { binder.pingBinder() } == true
+                    }
+                    .first()
+            } ?: log(TAG, WARN) { "Service did not bind within ${SERVICE_BIND_TIMEOUT_MS}ms" }
         }
 
         dataAreaManager.reload()
@@ -225,6 +268,20 @@ class ShizukuSetupModule @Inject constructor(
         /** A probe is running right now. Only gates the retry affordance, never the message. */
         val isChecking: Boolean = false,
         val alsoHasRoot: Boolean = false,
+        val backend: AdbBackend = AdbBackend.SHIZUKU,
+        /**
+         * A manager of the OTHER family is installed but unreachable until the app is fully
+         * restarted, because this process already latched a backend. Null in every other case.
+         */
+        val restartRequiredFor: Pkg.Id? = null,
+        /**
+         * What [pkg] calls itself, so a renamed fork is named correctly instead of "Shizuku".
+         * Null when nothing is installed or the label could not be read; callers fall back to
+         * [backend]'s own label.
+         */
+        val managerLabel: String? = null,
+        /** Same, for [restartRequiredFor]. */
+        val restartRequiredLabel: String? = null,
     ) : SetupModule.State.Current {
 
         /** Derived, not stored: one source of truth, so it can't disagree with [serviceState]. */
@@ -251,5 +308,9 @@ class ShizukuSetupModule @Inject constructor(
         // Generous on purpose: a false timeout would report a working Shizuku as unavailable, which is
         // worse than waiting. This only has to turn "never" into "eventually".
         internal const val PING_TIMEOUT_MS = 15 * 1000L
+
+        // Ceiling for the post-grant wait, not an expected duration: the wait ends as soon as the
+        // binder answers. Expiring only means the card reports "waiting" a moment longer.
+        internal const val SERVICE_BIND_TIMEOUT_MS = 10 * 1000L
     }
 }

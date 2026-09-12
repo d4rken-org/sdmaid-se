@@ -273,18 +273,28 @@
     <string name="setup_root_disable_root_use_label">I didn\'t root my device</string>
     <string name="setup_root_card_body2">Only available on rooted devices. If you didn\'t make this modification, then your device is not rooted and this setting has no effect.</string>
 
-    <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Allow SD Maid to use Shizuku where possible to improve results and enable features.</string>
-    <string name="setup_shizuku_card_body2">This setting has no effect if the Shizuku app is not set up on your device.</string>
-    <string name="setup_shizuku_card_root_info">Shizuku in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
-    <string name="setup_shizuku_state_ready_label">Shizuku link is ready.</string>
-    <string name="setup_shizuku_state_waiting_label">Waiting for link with Shizuku.</string>
-    <string name="setup_shizuku_state_not_installed_label">The Shizuku app is not installed.</string>
-    <string name="setup_shizuku_state_failed_title">Shizuku link failed</string>
+    <string name="setup_shizuku_card_title">ADB access</string>
+    <string name="setup_shizuku_card_body">Allow SD Maid to use ADB access where possible to improve results and enable features.</string>
+    <string name="setup_shizuku_card_body2">This setting has no effect unless Porter or Shizuku is set up on your device.</string>
+    <string name="setup_shizuku_card_root_info">ADB access in combination with root access does not enable additional features, but it improves reliability. SD Maid will use it as fallback method.</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
+    <string name="setup_shizuku_state_ready_label">The link is ready.</string>
+    <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_service_ready_label">SD Maid can now use ADB access through %1$s.</string>
+    <string name="setup_shizuku_state_waiting_label">Waiting for the link.</string>
+    <string name="setup_shizuku_state_not_installed_label">No ADB access app is installed.</string>
+    <!-- %1$s is the app this build can send the user to, "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_install_manager_action">Install %1$s</string>
+    <string name="setup_shizuku_state_failed_title">ADB access failed</string>
+    <!-- No longer rendered, kept because the locale files already translate it and ExtraTranslation is a fatal lint check -->
     <string name="setup_shizuku_state_failed_label">Shizuku is running, but it never connected SD Maid to its helper service.</string>
-    <string name="setup_shizuku_state_known_issue_hint">Some devices are affected by a known Shizuku problem that stops the helper service from starting. This may be one of them.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Try to use Shizuku</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">Don\'t use Shizuku</string>
+    <!-- %1$s is the product name, "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_service_failed_label">%1$s is running, but it never connected SD Maid to its helper service.</string>
+    <string name="setup_shizuku_state_restart_required_label">%1$s is installed, but SD Maid has to be fully closed and reopened before it can use it.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Some devices are affected by a known problem that stops the helper service from starting. This may be one of them.</string>
+    <string name="setup_shizuku_open_manager_action">Open %1$s</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Try to use ADB access</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Don\'t use ADB access</string>
 
     <string name="setup_dismiss_hint">You can find the setup screen again via the settings menu.</string>
     <string name="setup_permission_granted_label">Permission granted</string>

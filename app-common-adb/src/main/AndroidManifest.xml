@@ -2,8 +2,18 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application>
+        <!-- Porter delivers its binder here. -->
         <provider
-            android:name="rikka.shizuku.ShizukuProvider"
+            android:name="eu.darken.porter.client.PorterProvider"
+            android:authorities="${applicationId}.porter"
+            android:enabled="true"
+            android:exported="true"
+            android:multiprocess="false"
+            android:permission="android.permission.INTERACT_ACROSS_USERS_FULL" />
+        <!-- Stays declared even when Porter is the active backend: the SDK still uses this authority
+             for its own cross-process getBinder lookup. -->
+        <provider
+            android:name="eu.darken.porter.client.SelectedShizukuProvider"
             android:authorities="${applicationId}.shizuku"
             android:enabled="true"
             android:exported="true"

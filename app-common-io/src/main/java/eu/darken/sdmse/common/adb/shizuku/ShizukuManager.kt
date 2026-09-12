@@ -42,10 +42,27 @@ class ShizukuManager @Inject constructor(
     val serviceClient: AdbServiceClient,
 ) {
 
-    // The reference package plus every installed app that defines a Shizuku manager permission
-    // (a renamed fork, Shizuku+ next to its Compat Hub).
-    // Consumers (e.g. AppCleaner) use this to recognize the Shizuku manager app.
-    suspend fun managerIds(): Set<Pkg.Id> = setOf(PKG_ID) + shizukuWrapper.getManagerPackages().map { it.toPkgId() }
+    // Both reference packages plus every installed app that defines a manager permission of either
+    // family (a renamed fork, Shizuku+ next to its Compat Hub, Porter).
+    // Consumers (e.g. AppCleaner) use this as a set-membership test to recognize a manager app, so
+    // the reference packages are included whether or not they are installed - same as before.
+    suspend fun managerIds(): Set<Pkg.Id> =
+        setOf(PKG_ID, PORTER_PKG_ID) + shizukuWrapper.getManagerPackages().map { it.toPkgId() }
+
+    /** Managers belonging to the active backend's family, see [ShizukuWrapper.getActiveManagerPackages]. */
+    suspend fun activeManagerIds(): Set<Pkg.Id> =
+        shizukuWrapper.getActiveManagerPackages().map { it.toPkgId() }.toSet()
+
+    /**
+     * An installed manager that belongs to the OTHER family, i.e. one we cannot talk to this process.
+     *
+     * The backend latches at provider init, so a manager installed afterwards can be invisible to
+     * [getManagerId] until the app is fully restarted. This is what lets the UI say so.
+     */
+    suspend fun inactiveFamilyManagerId(): Pkg.Id? {
+        val active = shizukuWrapper.getActiveManagerPackages().toSet()
+        return shizukuWrapper.getManagerPackages().firstOrNull { it !in active }?.toPkgId()
+    }
 
     val permissionGrantEvents: Flow<ShizukuWrapper.ShizukuPermissionRequest> = shizukuWrapper.permissionGrantEvents
         .setupCommonEventHandlers(TAG) { "grantEvents" }
@@ -99,15 +116,22 @@ class ShizukuManager @Inject constructor(
         }
     }
 
-    // Reference package, also used as a fallback for previews and when nothing is installed.
-    val shizukuPkgId: Pkg.Id
-        get() = PKG_ID
+    // Reference package of the active backend, only used as a placeholder when nothing is installed.
+    suspend fun referenceManagerId(): Pkg.Id = when (activeBackend()) {
+        AdbBackend.PORTER -> PORTER_PKG_ID
+        AdbBackend.SHIZUKU -> PKG_ID
+    }
 
     /**
-     * The installed Shizuku manager's package, resolved via its permission so forks and hidden-mode
-     * installs are handled, or null if Shizuku isn't installed.
+     * The installed manager's package for the ACTIVE backend, resolved via its permission so forks
+     * and hidden-mode installs are handled, or null if no such manager is installed.
      */
-    suspend fun getManagerId(): Pkg.Id? = shizukuWrapper.getManagerPackage()?.toPkgId()
+    suspend fun getManagerId(): Pkg.Id? = shizukuWrapper.getActiveManagerPackage()?.toPkgId()
+
+    suspend fun activeBackend(): AdbBackend = shizukuWrapper.activeBackend()
+
+    /** Diagnostics only: the UID the privileged helper runs as, 2000 when it really is shell. */
+    suspend fun serverUid(): Int? = shizukuWrapper.serverUid()
 
     // Not cached: a stale "not installed" result would keep the binder gate (see shizukuBinder) closed
     // even after Shizuku gets installed, until the next process restart. The lookup is cheap.
@@ -222,5 +246,6 @@ class ShizukuManager @Inject constructor(
     companion object {
         private val TAG = logTag("ADB", "Shizuku", "Manager")
         internal val PKG_ID = "moe.shizuku.privileged.api".toPkgId()
+        internal val PORTER_PKG_ID = "eu.darken.porter".toPkgId()
     }
 }
