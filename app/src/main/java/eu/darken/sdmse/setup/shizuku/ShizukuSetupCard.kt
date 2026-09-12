@@ -21,6 +21,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
@@ -41,6 +42,7 @@ import eu.darken.sdmse.setup.SetupCardContainer
 import eu.darken.sdmse.setup.SetupLimitationBox
 import eu.darken.sdmse.setup.SetupCardItem
 import eu.darken.sdmse.setup.root.RadioOption
+import eu.darken.sdmse.common.io.R as IoR
 
 data class ShizukuSetupCardItem(
     override val state: ShizukuSetupModule.Result,
@@ -274,6 +276,9 @@ private fun ManagerButton(
         AppIconImage(
             pkg = pkg.toStub(),
             modifier = Modifier.size(ButtonDefaults.IconSize),
+            // Covers the load throwing rather than returning nothing: the fetcher's own default only
+            // catches a null icon, so without this a PackageManager failure leaves a gap in the row.
+            placeholder = painterResource(IoR.drawable.ic_default_app_icon_24),
         )
         Spacer(modifier = Modifier.size(ButtonDefaults.IconSpacing))
         Text(text = label)
