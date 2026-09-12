@@ -32,10 +32,10 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
@@ -235,9 +235,18 @@ class ShizukuSetupModule @Inject constructor(
         }
 
         if (!couldUseShizuku && useShizuku == true) {
-            // TODO find a smarter way to do this, i.e. by waiting for a specific event.
-            // Small delay to allow Shizuku service to bind
-            delay(1500)
+            // Wait for the binder to actually answer rather than guessing at how long it takes.
+            // The ping goes through the same detached bound as the probe above: pingBinder() is a
+            // synchronous transaction, so a plain withTimeoutOrNull around it could not release this
+            // coroutine if the server is alive but wedged, it would just sit here.
+            withTimeoutOrNull(SERVICE_BIND_TIMEOUT_MS) {
+                shizukuManager.shizukuBinder
+                    .filter { binder ->
+                        binder != null && appScope
+                            .runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { binder.pingBinder() } == true
+                    }
+                    .first()
+            } ?: log(TAG, WARN) { "Service did not bind within ${SERVICE_BIND_TIMEOUT_MS}ms" }
         }
 
         dataAreaManager.reload()
@@ -299,5 +308,9 @@ class ShizukuSetupModule @Inject constructor(
         // Generous on purpose: a false timeout would report a working Shizuku as unavailable, which is
         // worse than waiting. This only has to turn "never" into "eventually".
         internal const val PING_TIMEOUT_MS = 15 * 1000L
+
+        // Ceiling for the post-grant wait, not an expected duration: the wait ends as soon as the
+        // binder answers. Expiring only means the card reports "waiting" a moment longer.
+        internal const val SERVICE_BIND_TIMEOUT_MS = 10 * 1000L
     }
 }
