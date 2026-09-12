@@ -268,16 +268,19 @@ class SetupViewModel @Inject constructor(
                                     )
                                 },
                                 onOpen = {
-                                    state.pkg.getLaunchIntent(context)?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)?.let {
-                                        try {
-                                            context.startActivity(it)
-                                        } catch (e: ActivityNotFoundException) {
-                                            errorEvents.tryEmit(e)
-                                        } catch (e: SecurityException) {
-                                            // An exported-but-guarded launcher activity rejects us at
-                                            // startActivity() rather than failing to resolve.
-                                            errorEvents.tryEmit(e)
-                                        }
+                                    // Not every manager exports a launcher entry, e.g. Shizuku+'s Compat
+                                    // Hub. Its app info page is still somewhere the user can act, and a
+                                    // button that does nothing at all is worse than the wrong screen.
+                                    val intent = state.pkg.getLaunchIntent(context)
+                                        ?: state.pkg.getSettingsIntent(context)
+                                    try {
+                                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                                    } catch (e: ActivityNotFoundException) {
+                                        errorEvents.tryEmit(e)
+                                    } catch (e: SecurityException) {
+                                        // An exported-but-guarded launcher activity rejects us at
+                                        // startActivity() rather than failing to resolve.
+                                        errorEvents.tryEmit(e)
                                     }
                                 },
                                 onRetry = { launch { shizukuSetupModule.refresh() } },

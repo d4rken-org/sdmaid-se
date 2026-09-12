@@ -1,7 +1,9 @@
 package eu.darken.sdmse.setup
 
+import android.app.Application
 import android.content.Context
 import android.content.Intent
+import android.provider.Settings
 import androidx.lifecycle.SavedStateHandle
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.R
@@ -9,7 +11,13 @@ import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
+import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.shizuku.AdbManagerInstallGuide
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
+import io.kotest.matchers.nulls.shouldNotBeNull
+import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coVerify
 import io.mockk.every
@@ -28,6 +36,7 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
+import org.robolectric.Shadows.shadowOf
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
 import testhelpers.TestApplication
@@ -85,6 +94,38 @@ class SetupViewModelTest : BaseTest() {
         deviceDetective = mockk(relaxed = true),
         adbManagerInstallGuide = installGuide,
     )
+
+    @Test
+    fun `shizuku card open falls back to the app info page without a launcher entry`() =
+        runTest2(context = testDispatcher) {
+            // Nothing registers a launcher activity for this package in the test environment, which is
+            // the Shizuku+ Compat Hub case: the button must still land somewhere the user can act.
+            setupState(
+                ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isCompatible = true,
+                    isInstalled = true,
+                    // Not Available on purpose: a complete card is filtered out of the render state,
+                    // and the button exists in this state too.
+                    serviceState = ShizukuServiceState.NotChecked,
+                ),
+            )
+            val vm = buildVm()
+
+            backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.uiState.collect() }
+            advanceUntilIdle()
+
+            val cards = vm.uiState.value.shouldBeInstanceOf<SetupUiState.Cards>()
+            cards.items.filterIsInstance<ShizukuSetupCardItem>().single().onOpen()
+            advanceUntilIdle()
+
+            val started = shadowOf(ApplicationProvider.getApplicationContext<Application>())
+                .nextStartedActivity
+            started.shouldNotBeNull()
+            started.action shouldBe Settings.ACTION_APPLICATION_DETAILS_SETTINGS
+            started.data?.schemeSpecificPart shouldBe "moe.shizuku.privileged.api"
+        }
 
     @Test
     fun `root card retry refreshes the root setup module`() = runTest2(context = testDispatcher) {
