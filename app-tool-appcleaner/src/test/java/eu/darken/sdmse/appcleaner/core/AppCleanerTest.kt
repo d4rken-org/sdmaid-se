@@ -13,6 +13,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.appcleaner.ui.preview.previewInaccessibleCache
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
+import eu.darken.sdmse.automation.core.errors.AutomationNotRunningException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
@@ -916,6 +917,49 @@ class AppCleanerTest : BaseTest() {
         partial.stoppedEarly shouldBe AppCleanerTask.StopReason.ERROR
 
         // The cleared junk is gone entirely; only the app the run never reached is still listed.
+        val remaining = rebuilt.cleaner.state.first().data!!.junks
+        remaining.map { it.identifier } shouldBe listOf(installId("com.example.later"))
+    }
+
+    @Test
+    fun `the accessibility service dying after a clear is salvaged, not discarded`() = runTest2 {
+        // The system destroyed the accessibility service after the last app was cleared. That is a
+        // failed run, not a cancelled one: the work it completed has to be credited, otherwise a
+        // finished clean is reported as a failure and every cleared cache is offered again.
+        val cleared = installId("com.example.cleared")
+        val setup = setupCleaner(
+            scanResults = listOf(
+                inaccJunk("com.example.cleared", itemCount = 4, theoreticalPaths = emptySet()),
+                inaccJunk("com.example.later", itemCount = 4, theoreticalPaths = emptySet()),
+            ),
+        )
+        val serviceDied = AutomationNotRunningException()
+        val boom = InaccessibleDeletionException(serviceDied)
+        val deleter = mockk<InaccessibleDeleter>(relaxUnitFun = true).apply {
+            every { progress } returns MutableStateFlow<Progress.Data?>(null)
+            every { updateProgress(any()) } just Runs
+            coEvery { deleteInaccessible(any(), any(), any(), any(), any()) } answers {
+                // Index, not lastArg(): this is a suspend function, so the trailing JVM argument is
+                // the Continuation rather than the callback.
+                arg<(InaccessibleDeleter.InaccDelResult) -> Unit>(4)
+                    .invoke(InaccessibleDeleter.InaccDelResult(succesful = setOf(cleared), failed = emptyMap()))
+                throw boom
+            }
+        }
+        val rebuilt = rebuildWithDeleter(setup, deleter)
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        val thrown = shouldThrow<PartialResultException> {
+            rebuilt.cleaner.submit(AppCleanerProcessingTask())
+        }
+        thrown.cause shouldBe boom
+        boom.cause shouldBe serviceDied
+
+        val partial = thrown.partialResult.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        partial.affectedSpace shouldBe 24L * 1024 * 1024
+        partial.affectedCount shouldBe 4
+        partial.stoppedEarly shouldBe AppCleanerTask.StopReason.ERROR
+
         val remaining = rebuilt.cleaner.state.first().data!!.junks
         remaining.map { it.identifier } shouldBe listOf(installId("com.example.later"))
     }

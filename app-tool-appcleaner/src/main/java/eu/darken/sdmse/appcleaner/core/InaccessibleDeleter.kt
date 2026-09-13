@@ -259,7 +259,8 @@ class InaccessibleDeleter @Inject constructor(
                         failed = failedLive,
                     )
                 } catch (e: AutomationUnavailableException) {
-                    // Nothing ran, but fold anyway so the partial-result contract holds uniformly.
+                    // Not necessarily "nothing ran": the accessibility service can die mid-run, so
+                    // this may carry real successes. Folding them is what lets them survive.
                     successTargets.addAll(successLive)
                     failedTargets.putAll(failedLive)
                     onPartialResult(buildResult(successTargets, failedTargets))

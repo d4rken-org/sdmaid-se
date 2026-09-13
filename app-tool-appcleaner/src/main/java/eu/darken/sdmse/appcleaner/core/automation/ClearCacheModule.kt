@@ -33,12 +33,6 @@ import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationReturnHelper
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
-import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
-import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
-import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
-import eu.darken.sdmse.automation.core.errors.PlanAbortException
-import eu.darken.sdmse.automation.core.errors.StepAbortException
-import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -50,7 +44,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -61,14 +54,11 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
-import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.device.RomTypeProvider
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Provider
 
@@ -165,19 +155,15 @@ class ClearCacheModule @AssistedInject constructor(
         )
     }
 
-    private data class ProcessedTask(
+    internal data class ProcessedTask(
         val successful: Collection<InstallId>,
         val failed: Map<InstallId, Exception>,
         val cancelledByUser: Boolean,
     )
 
     private suspend fun processTask(task: ClearCacheTask): ProcessedTask {
-        val successful = mutableSetOf<InstallId>()
-        val failed = mutableMapOf<InstallId, Exception>()
-
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
-        var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
 
         var lastTarget: Pkg.Id? = null
@@ -187,83 +173,17 @@ class ClearCacheModule @AssistedInject constructor(
             }
         }
 
-        for (target in task.targets) {
-            lastTarget = target.pkgId
-            if (target.userHandle != currentUserHandle) {
-                throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
-            }
-
-            val installed = pkgRepo.get(target.pkgId, target.userHandle)
-
-            if (installed == null) {
-                log(TAG, WARN) { "$target is not in package repo" }
-                failed[target] = IllegalStateException("$target is not in package repo")
-                continue
-            }
-
-            log(TAG) { "Clearing cache for $installed" }
-            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
-
-            try {
-                processSpecForPkg(installed)
-                log(TAG, INFO) { "Successfully cleared cache for for $target" }
-                task.onSuccess(target)
-                successful.add(target)
-            } catch (e: Exception) {
-                when {
-                    e is InvalidSystemStateException -> {
-                        log(TAG, WARN) { "Invalid system state for ACS based cache deletion: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e.isAutomationUnusable() -> {
-                        log(TAG, WARN) { "Automation unusable while processing $installed: ${e.asLog()}" }
-                        task.onError(target, e)
-                        failed[target] = e
-                        val unusable = failed.count { it.value.isAutomationUnusable() }
-                        if (successful.isEmpty() && unusable >= FAILURE_LIMIT) break
-                    }
-
-                    e is AutomationOverlayException -> {
-                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is PlanAbortException && e.treatAsSuccess -> {
-                        log(TAG, INFO) { "Treating aborted plan as success for $target:\n${e.asLog()}" }
-                        successful.add(target)
-                    }
-
-                    e is CancellationException -> {
-                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                        updateProgressSecondary(CaString.EMPTY)
-                        updateProgressCount(Progress.Count.Indeterminate())
-                        if (e is UserCancelledAutomationException) {
-                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                            cancelledByUser = true
-                            break
-                        } else {
-                            throw e
-                        }
-                    }
-
-                    else -> {
-                        log(TAG, WARN) { "Failure for $target:\n${e.asLog()}" }
-                        task.onError(target, e)
-                        failed[target] = e
-                    }
+        return clearCachesFor(
+            task = task,
+            resolveOne = { target ->
+                lastTarget = target.pkgId
+                if (target.userHandle != currentUserHandle) {
+                    throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
                 }
-            } finally {
-                increaseProgress()
-                opsCounter.tick()
-            }
-        }
-
-        return ProcessedTask(
-            successful = successful,
-            failed = failed,
-            cancelledByUser = cancelledByUser,
+                pkgRepo.get(target.pkgId, target.userHandle)
+            },
+            onTick = { opsCounter.tick() },
+            clearOne = { processSpecForPkg(it) },
         )
     }
 
@@ -315,21 +235,6 @@ class ClearCacheModule @AssistedInject constructor(
     }
 
     companion object {
-        /** How many targets may fail with an unusable automation path before we stop trying. */
-        private const val FAILURE_LIMIT = 8
-
-        /**
-         * Failures that mean we could not drive the Settings UI at all, as opposed to one app
-         * being uncooperative. A timeout is the slow form, an unretryable step abort the fast one
-         * (e.g. the DPAD fallback finding the clear-cache button unreachable). Both indicate the
-         * automation path itself is broken, so both feed the give-up heuristic.
-         */
-        private fun Throwable.isAutomationUnusable(): Boolean = when (this) {
-            is AutomationTimeoutException -> true
-            is StepAbortException -> !treatAsSuccess
-            else -> false
-        }
-
         val TAG: String = logTag("Automation", "AppCleaner", "ClearCacheModule")
     }
 }

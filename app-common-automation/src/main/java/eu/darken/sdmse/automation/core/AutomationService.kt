@@ -59,7 +59,6 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -71,7 +70,6 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.flow.update
-import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.sync.Mutex
@@ -635,24 +633,8 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
         }
 
         log(TAG) { "submit($id): ...waiting for result" }
-        try {
-            deferred.await().also { log(TAG) { "submit($id): Result available: $it" } }
-        } catch (e: CancellationException) {
-            if (currentCoroutineContext().isActive) {
-                // The task itself was cancelled (overlay Cancel, cancelTask(), service destruction),
-                // await() only returned after its teardown finished.
-                log(TAG, INFO) { "submit($id): Task was cancelled: $e" }
-            } else {
-                // The task is not a child of this caller. Without cancelling and joining it here,
-                // taskLock would be released while the task is still running, so a second automation
-                // could overlap with it.
-                log(TAG, INFO) { "submit($id): Caller was cancelled, cancelling task and awaiting teardown" }
-                deferred.cancel(CancellationException("submit($id): Caller was cancelled").apply { initCause(e) })
-                withContext(NonCancellable) { deferred.join() }
-                log(TAG) { "submit($id): Task teardown finished" }
-            }
-            throw e
-        }
+        deferred.awaitAutomationResult(tag = TAG, logId = "submit($id)")
+            .also { log(TAG) { "submit($id): Result available: $it" } }
     }
 
     /** Hide the overlay and cancel the running task as if the user pressed Cancel (overlay button / TV Home). */

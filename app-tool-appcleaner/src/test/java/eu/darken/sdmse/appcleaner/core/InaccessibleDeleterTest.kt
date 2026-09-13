@@ -7,6 +7,7 @@ import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
+import eu.darken.sdmse.automation.core.errors.AutomationNotRunningException
 import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.adb.AdbManager
@@ -605,6 +606,42 @@ class InaccessibleDeleterTest : BaseTest() {
                 onPartialResult = { partial = it },
             )
         } shouldBe boom
+
+        partial.shouldNotBeNull()
+        partial!!.succesful shouldContain cleared.identifier
+        partial!!.failed shouldNotContainKey cleared.identifier
+    }
+
+    @Test
+    fun `the accessibility service dying mid-run still reports the caches it already cleared`() = runTest {
+        // Same salvage, but the service was destroyed instead of failing: submit() reports that as
+        // AutomationNotRunningException, which lands in the AutomationUnavailableException branch.
+        val cleared = createAppJunk("com.example.cleared", cacheSize = 100000)
+        val doomed = createAppJunk("com.example.doomed", cacheSize = 200000)
+        val snapshot = createSnapshot(cleared, doomed)
+
+        coEvery { inaccessibleCacheProvider.determineCache(cleared.pkg) } returns nonZeroCache(cleared)
+        coEvery { inaccessibleCacheProvider.determineCache(doomed.pkg) } returns nonZeroCache(doomed)
+        coEvery { noSettingsDetector.getUnreachableReason(any()) } returns null
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
+
+        val serviceDied = AutomationNotRunningException()
+        coEvery { automationManager.submit(match { it is ClearCacheTask }) } answers {
+            firstArg<ClearCacheTask>().onSuccess(cleared.identifier)
+            throw serviceDied
+        }
+
+        var partial: InaccessibleDeleter.InaccDelResult? = null
+        val thrown = shouldThrow<InaccessibleDeletionException> {
+            deleter.deleteInaccessible(
+                snapshot = snapshot,
+                targetPkgs = null,
+                useAutomation = true,
+                isBackground = false,
+                onPartialResult = { partial = it },
+            )
+        }
+        thrown.cause shouldBe serviceDied
 
         partial.shouldNotBeNull()
         partial!!.succesful shouldContain cleared.identifier
