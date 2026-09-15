@@ -57,8 +57,7 @@ class AutomationSetupModule @Inject constructor(
         val aapmBlocksAcs = context.isRestrictedByAdvancedProtection()
         log(TAG) { "aapmBlocksAcs=$aapmBlocksAcs" }
 
-        // Advanced Protection blocks the service bind entirely, so even root/ADB can't self-enable it
-        val canSelfEnable = automationManager.canSelfEnable() && !aapmBlocksAcs
+        val canSelfEnable = automationManager.canSelfEnable()
         log(TAG) { "canSelfEnable=$canSelfEnable" }
 
         val isShortcutOrButtonEnabled = automationManager.isShortcutOrButtonEnabled()

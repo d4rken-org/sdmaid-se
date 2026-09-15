@@ -70,6 +70,11 @@ fun decideAcsRestrictionHints(
     showAppOpsRestrictionHint = appOpsRestrictionApplies && !advancedProtectionBlocksAcs,
 )
 
+fun decideCanSelfEnable(
+    hasSecureSettings: Boolean,
+    advancedProtectionBlocksAcs: Boolean,
+): Boolean = hasSecureSettings && !advancedProtectionBlocksAcs
+
 /**
  * Decides whether to point the user at the system "Auto Start" toggle, which exists on MIUI and on
  * its HyperOS successor. A device that can enable the service on its own (root/ADB) has no use for
