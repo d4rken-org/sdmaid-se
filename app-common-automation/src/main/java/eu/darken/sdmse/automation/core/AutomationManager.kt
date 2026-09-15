@@ -38,6 +38,8 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.ourInstall
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.setup.SetupHelper
+import eu.darken.sdmse.setup.automation.decideCanSelfEnable
+import eu.darken.sdmse.setup.automation.isRestrictedByAdvancedProtection
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.currentCoroutineContext
@@ -242,7 +244,10 @@ class AutomationManager @Inject constructor(
 
     fun isServiceLaunched() = serviceHolder.value != null
 
-    suspend fun canSelfEnable() = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
+    suspend fun canSelfEnable() = decideCanSelfEnable(
+        hasSecureSettings = Permission.WRITE_SECURE_SETTINGS.isGranted(context),
+        advancedProtectionBlocksAcs = context.isRestrictedByAdvancedProtection(),
+    )
 
     private suspend fun startService(): AutomationServiceHandle {
         log(TAG, VERBOSE) { "startService()" }
