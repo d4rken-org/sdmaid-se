@@ -224,7 +224,9 @@ fun SpecGenerator.defaultFindAndClick(
     finder: suspend StepContext.() -> ACSNodeInfo?,
 ): suspend StepContext.() -> Boolean = action@{
     val target = finder(this) ?: return@action false
-    val mapped = findClickableParent(maxNesting = maxNesting, node = target) ?: return@action false
+    // A node that is itself clickable is the target, not a waypoint to an ancestor.
+    val mapped = findClickableParent(maxNesting = maxNesting, includeSelf = true, node = target)
+        ?: return@action false
     clickNormal(isDryRun = isDryRun, mapped)
 }
 

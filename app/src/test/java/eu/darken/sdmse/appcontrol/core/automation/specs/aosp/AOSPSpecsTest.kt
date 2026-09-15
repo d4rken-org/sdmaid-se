@@ -7,6 +7,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.hasApiLevel
@@ -53,6 +54,7 @@ class AOSPSpecsTest : BaseTest() {
     private lateinit var generalSettings: GeneralSettings
     private lateinit var stepper: Stepper
     private lateinit var labels: AOSPLabels
+    private lateinit var testHost: TestAutomationHost
 
     @Before
     fun setup() {
@@ -69,6 +71,8 @@ class AOSPSpecsTest : BaseTest() {
         // Android 15+ split action-row layout (Robolectric SDK is 33, so mock the level check).
         mockkStatic(::hasApiLevel)
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 35 }
+        // Global mutable state, other tests in this module flip it: it picks OK vs Cancel.
+        Bugs.isDryRun = false
     }
 
     @After
@@ -95,25 +99,35 @@ class AOSPSpecsTest : BaseTest() {
     }
 
     private fun testContext(scope: TestScope, root: TestACSNodeInfo): AutomationExplorer.Context {
-        val testHost = TestAutomationHost(scope).apply { setWindowRoot(root) }
+        val host = TestAutomationHost(scope).apply { setWindowRoot(root) }
+        testHost = host
         return object : AutomationExplorer.Context {
-            override val host get() = testHost
+            override val host get() = host
             override val progress = emptyFlow<Progress.Data?>()
             override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {}
         }
     }
 
     /**
-     * Runs the real force-stop plan, executing only the "Force stop button" step's nodeAction
-     * against [context]. Returns the descriptions of every step handed to the stepper (so callers
-     * can assert whether the confirmation step was reached).
+     * Runs the real force-stop plan, executing the "Force stop button" step's nodeAction against
+     * [context]. With a [dialogRoot], the window root swaps to it once the confirmation step is
+     * reached and that step's nodeAction runs too. Returns the descriptions of every step handed
+     * to the stepper (so callers can assert whether the confirmation step was reached).
      */
-    private suspend fun runForceStopPlan(context: AutomationExplorer.Context, pkg: Installed): List<String> {
+    private suspend fun runForceStopPlan(
+        context: AutomationExplorer.Context,
+        pkg: Installed,
+        dialogRoot: TestACSNodeInfo? = null,
+    ): List<String> {
         val processed = mutableListOf<String>()
         coEvery { stepper.process(any(), any()) } coAnswers {
             val step = secondArg<AutomationStep>()
             processed += step.descriptionInternal
-            if (step.descriptionInternal.startsWith("Force stop button")) {
+            val isConfirmStep = step.descriptionInternal.startsWith("Confirm force stop button")
+            if (isConfirmStep && dialogRoot != null) {
+                testHost.setWindowRoot(dialogRoot)
+            }
+            if (step.descriptionInternal.startsWith("Force stop button") || (isConfirmStep && dialogRoot != null)) {
                 val stepContext = StepContext(hostContext = context, tag = "test", stepAttempts = 0)
                 step.nodeAction?.let { action ->
                     for (i in 0 until 5) {
@@ -190,5 +204,127 @@ class AOSPSpecsTest : BaseTest() {
 
         fsClickable.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
         processed.size shouldBe 2
+    }
+
+    /** App-info row where Force stop is enabled, so step 1 clicks it and the plan reaches the dialog. */
+    private fun enabledForceStopRow(): TestACSNodeInfo {
+        val root = TestACSNodeInfo(viewIdResourceName = "root", packageName = "com.android.settings", bounds = Rect(0, 0, 960, 2142))
+        val row = TestACSNodeInfo(viewIdResourceName = "row", bounds = Rect(0, 600, 960, 900))
+        val uninstall = TestACSNodeInfo(viewIdResourceName = "uninstall", isClickable = true, bounds = Rect(332, 649, 628, 828))
+        val fsClickable = TestACSNodeInfo(viewIdResourceName = "fs_clickable", isClickable = true, bounds = Rect(646, 649, 906, 828))
+        val fsLabel = TestACSNodeInfo(text = "Force stop", viewIdResourceName = "fs_label", bounds = Rect(646, 789, 906, 873))
+        row.addChildren(uninstall, fsClickable, fsLabel)
+        root.addChild(row)
+        return root
+    }
+
+    private fun dialogRoot() = TestACSNodeInfo(
+        viewIdResourceName = "root",
+        packageName = "com.android.settings",
+        bounds = Rect(0, 0, 1080, 2400),
+    )
+
+    @Test
+    fun `confirmation clicks the OK button itself when the match is the clickable node`() = runTest {
+        // Stock platform AlertDialog: the only clickable is the button, its buttonPanel is not.
+        val context = testContext(this, enabledForceStopRow())
+
+        val dialogRoot = dialogRoot()
+        val parentPanel = TestACSNodeInfo(
+            viewIdResourceName = "android:id/parentPanel",
+            className = "android.widget.LinearLayout",
+            bounds = Rect(70, 880, 1010, 1320),
+        )
+        val alertTitle = TestACSNodeInfo(
+            text = "Force stop?",
+            className = "android.widget.TextView",
+            viewIdResourceName = "android:id/alertTitle",
+            bounds = Rect(130, 930, 950, 1020),
+        )
+        val buttonPanel = TestACSNodeInfo(
+            className = "android.widget.LinearLayout",
+            viewIdResourceName = "android:id/buttonPanel",
+            bounds = Rect(70, 1150, 1010, 1300),
+        )
+        val button1 = TestACSNodeInfo(
+            text = "OK",
+            className = "android.widget.Button",
+            viewIdResourceName = "android:id/button1",
+            isClickable = true,
+            isEnabled = true,
+            bounds = Rect(820, 1180, 980, 1270),
+        )
+        val button2 = TestACSNodeInfo(
+            text = "Cancel",
+            className = "android.widget.Button",
+            viewIdResourceName = "android:id/button2",
+            isClickable = true,
+            bounds = Rect(600, 1180, 790, 1270),
+        )
+        buttonPanel.addChildren(button1, button2)
+        parentPanel.addChildren(alertTitle, buttonPanel)
+        dialogRoot.addChild(parentPanel)
+
+        val processed = runForceStopPlan(context, createTestPkg(), dialogRoot = dialogRoot)
+
+        processed.size shouldBe 2
+        button1.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
+        button2.performedActions shouldBe emptyList()
+        buttonPanel.performedActions shouldBe emptyList()
+    }
+
+    @Test
+    fun `confirmation clicks the clickable ancestor when the OK label itself is not clickable`() = runTest {
+        val context = testContext(this, enabledForceStopRow())
+
+        val dialogRoot = dialogRoot()
+        val okRow = TestACSNodeInfo(
+            className = "android.widget.LinearLayout",
+            viewIdResourceName = "ok_row",
+            isClickable = true,
+            bounds = Rect(600, 1150, 1010, 1300),
+        )
+        val okLabel = TestACSNodeInfo(
+            text = "OK",
+            className = "android.widget.TextView",
+            viewIdResourceName = "ok_label",
+            bounds = Rect(820, 1180, 980, 1270),
+        )
+        okRow.addChild(okLabel)
+        dialogRoot.addChild(okRow)
+
+        val processed = runForceStopPlan(context, createTestPkg(), dialogRoot = dialogRoot)
+
+        processed.size shouldBe 2
+        okRow.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
+        okLabel.performedActions shouldBe emptyList()
+    }
+
+    @Test
+    fun `confirmation clicks the match, not its container, when both are clickable`() = runTest {
+        val context = testContext(this, enabledForceStopRow())
+
+        val dialogRoot = dialogRoot()
+        val okRow = TestACSNodeInfo(
+            className = "android.widget.LinearLayout",
+            viewIdResourceName = "ok_row",
+            isClickable = true,
+            bounds = Rect(600, 1150, 1010, 1300),
+        )
+        val okButton = TestACSNodeInfo(
+            text = "OK",
+            className = "android.widget.Button",
+            viewIdResourceName = "android:id/button1",
+            isClickable = true,
+            bounds = Rect(820, 1180, 980, 1270),
+        )
+        okRow.addChild(okButton)
+        dialogRoot.addChild(okRow)
+
+        val processed = runForceStopPlan(context, createTestPkg(), dialogRoot = dialogRoot)
+
+        processed.size shouldBe 2
+        okButton.performedActions shouldBe listOf(ACSNodeInfo.ACTION_CLICK)
+        okRow.performedActions shouldBe emptyList()
     }
 }
