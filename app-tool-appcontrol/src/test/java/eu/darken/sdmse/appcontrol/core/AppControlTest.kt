@@ -1,7 +1,5 @@
 package eu.darken.sdmse.appcontrol.core
 
-import android.content.Context
-import android.content.res.Resources
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
@@ -13,7 +11,6 @@ import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.common.adb.AdbManager
-import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -465,26 +462,6 @@ class AppControlTest : BaseTest() {
         }
     }
 
-    /**
-     * Resolves a [CaString] without Robolectric by faking the plural lookup that
-     * `Context.getQuantityString2` performs, tagging each clause with its resource.
-     */
-    private fun CaString.resolve(): String {
-        val res = mockk<Resources>().apply {
-            every { getQuantityString(any(), any(), *anyVararg()) } answers {
-                val quantity = secondArg<Int>()
-                val name = when (firstArg<Int>()) {
-                    eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_message_x -> "toggled"
-                    eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_result_skipped_x -> "skipped"
-                    eu.darken.sdmse.common.R.plurals.result_x_failed -> "failed"
-                    else -> "unknown"
-                }
-                "$quantity $name"
-            }
-        }
-        return get(mockk<Context>().apply { every { resources } returns res })
-    }
-
     @Test
     fun `a target that cannot be toggled is skipped instead of dispatched`() = runTest2 {
         // The reported symptom: a package that is not installed for this user was submitted to
@@ -646,6 +623,22 @@ class AppControlTest : BaseTest() {
         )
 
         result.primaryInfo.resolve() shouldBe "1 toggled, 1 failed, 1 skipped"
+    }
+
+    // ─────────────────────────── accessibility-backed action gates ───────────────────────────
+
+    @Test
+    fun `force stop archive and restore are all unavailable without ACS root or ADB`() = runTest2 {
+        // All three read the same predicate, so none of them may be offered once the accessibility
+        // path is gone and no privileged backend can stand in for it. archiveEnabled is on so the
+        // archive flags are not false for an unrelated reason.
+        val setup = setupAppControl(useAcs = false, useRoot = false, useAdb = false, archiveEnabled = true)
+
+        val state = setup.appControl.state.first()
+
+        state.canForceStop shouldBe false
+        state.canArchive shouldBe false
+        state.canRestore shouldBe false
     }
 
     // ─────────────────────────── missingSetup derivation ───────────────────────────

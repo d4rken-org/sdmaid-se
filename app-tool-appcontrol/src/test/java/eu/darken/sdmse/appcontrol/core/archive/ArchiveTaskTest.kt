@@ -69,13 +69,13 @@ class ArchiveTaskTest : BaseTest() {
     }
 
     @Test
-    fun `result provides secondary info when there are failures`() {
+    fun `result has no secondary info even with failures, the count lives in primaryInfo`() {
         val result = ArchiveTask.Result(
             success = setOf(installId1),
             failed = setOf(installId2),
         )
 
-        result.secondaryInfo shouldNotBe null
+        result.secondaryInfo shouldBe null
     }
 
     @Test
