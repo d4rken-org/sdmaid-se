@@ -104,6 +104,9 @@ class ForceStopper @Inject constructor(
             val result = automation.submit(task) as ForceStopAutomationTask.Result
             successful.addAll(result.successful)
             failed.addAll(result.failed)
+        } else {
+            log(TAG, WARN) { "No method available for force-stopping apps" }
+            failed.addAll(targets.map { it.installId })
         }
 
         return Result(
