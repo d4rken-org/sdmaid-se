@@ -149,13 +149,14 @@ class ForceStopperTest : BaseTest() {
     @Test
     fun `root uses pkgOps force stop`() = runTest2 {
         val target = appInfo("eu.thlab.target")
+        val targetId = target.installId
         val setup = setupForceStopper(useRoot = true)
 
         val result = setup.forceStopper.forceStop(listOf(target))
 
-        result.success shouldBe setOf(target.installId)
+        result.success shouldBe setOf(targetId)
         result.failed shouldBe emptySet()
-        coVerify(exactly = 1) { setup.pkgOps.forceStop(target.installId) }
+        coVerify(exactly = 1) { setup.pkgOps.forceStop(targetId) }
         coVerify(exactly = 0) { setup.automation.submit(any()) }
     }
 
