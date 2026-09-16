@@ -551,20 +551,22 @@ class AOSPSpecs @Inject constructor(
             val canInjectInput = inputInjector.canInject()
             log(TAG, INFO) { "InputInjector available? (canInjectInput=$canInjectInput)" }
 
-            // On Android 16+ Pixel devices, "Clear cache" and "Clear storage" buttons are marked
-            // as NAF (Not Accessibility Focusable), making them invisible to the accessibility service.
+            // On Android 16+, "Clear cache" and "Clear storage" buttons are marked as NAF
+            // (Not Accessibility Focusable) on some devices, making them invisible to the
+            // accessibility service. Known on Google and Motorola Hello UI.
             // DPAD navigation works around this by using keyboard-style navigation (DOWN, RIGHT, CENTER)
             // from the entity_header_content anchor to blindly click the invisible button.
             // https://github.com/d4rken-org/sdmaid-se/issues/2056
-            val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
-            val useDpadFallback = hasApiLevel(36) && isGoogle
+            val dpadManufacturer = supportsDpadFallback(BuildWrap.MANUFACTOR)
+            val useDpadFallback = hasApiLevel(36) && dpadManufacturer
             log(TAG, INFO) {
-                "isGoogle=$isGoogle, useDpadFallback=$useDpadFallback (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
+                "dpadManufacturer=$dpadManufacturer, useDpadFallback=$useDpadFallback (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
             }
 
             var nodeActionAttempts = 0
             var dpadExhausted = false
             var sizeParser: SizeParser? = null
+            var pendingVerdict = false
             val verdictConfirmer = VerdictConfirmer()
             val nodeAction: suspend StepContext.() -> Boolean = action@{
                 val attempt = nodeActionAttempts++
@@ -594,6 +596,9 @@ class AOSPSpecs @Inject constructor(
                     if (sizeParser == null) sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
                     val cacheSize = readCacheRowSize(cacheSizeLabels, sizeParser)
                     val verdict = noButtonVerdict(cacheSize, pkg.isSystemApp, useDpadFallback)
+                    // A verdict that still needs its confirming pass must not be raced by a blind
+                    // click: an already empty cache would otherwise be reported as a failure.
+                    pendingVerdict = verdict != NoButtonVerdict.KEEP_TRYING
                     when (verdictConfirmer.confirm(verdict)) {
                         NoButtonVerdict.KEEP_TRYING -> {
                             log(tag, VERBOSE) { "$verdict, cacheSize=$cacheSize (attempt=$attempt)" }
@@ -620,13 +625,13 @@ class AOSPSpecs @Inject constructor(
                 val dpadMinAttempts = 2
                 if (useDpadFallback && dpadExhausted) {
                     throw StepAbortException("DPAD exhausted, clear-cache button not reachable (attempt=$attempt)")
-                } else if (useDpadFallback && attempt >= dpadMinAttempts) {
+                } else if (useDpadFallback && attempt >= dpadMinAttempts && !pendingVerdict) {
                     log(tag, INFO) { "DPAD fallback triggered (attempt=$attempt)" }
                     if (tryClickViaFocusNavigation(clearCacheButtonLabels, canInjectInput)) return@action true
                     dpadExhausted = true
                     log(tag, WARN) { "DPAD fallback exhausted, won't retry" }
                 } else if (useDpadFallback) {
-                    log(tag) { "Skipping DPAD fallback (attempt=$attempt < $dpadMinAttempts)" }
+                    log(tag) { "Skipping DPAD fallback (attempt=$attempt, pendingVerdict=$pendingVerdict)" }
                 }
 
                 false
