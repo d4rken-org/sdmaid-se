@@ -18,6 +18,7 @@ data class FilterSettings(
         @SerialName("DISABLED") DISABLED,
         @SerialName("ACTIVE") ACTIVE,
         @SerialName("NOT_INSTALLED") NOT_INSTALLED,
+        @SerialName("HIDDEN") HIDDEN,
         ;
     }
 }

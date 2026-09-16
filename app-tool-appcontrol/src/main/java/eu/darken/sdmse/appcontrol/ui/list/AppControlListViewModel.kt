@@ -35,6 +35,7 @@ import eu.darken.sdmse.common.pkgs.features.AppStore
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.isHiddenInstalled
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.toKnownPkg
@@ -198,6 +199,7 @@ class AppControlListViewModel @Inject constructor(
                 if (tags.contains(FilterSettings.Tag.DISABLED) && app.pkg.isEnabled) return@filter false
                 if (tags.contains(FilterSettings.Tag.ACTIVE) && app.isActive == false) return@filter false
                 if (tags.contains(FilterSettings.Tag.NOT_INSTALLED) && app.pkg.isInstalled) return@filter false
+                if (tags.contains(FilterSettings.Tag.HIDDEN) && !app.pkg.isHiddenInstalled) return@filter false
                 true
             }
             .toList()
@@ -325,7 +327,13 @@ class AppControlListViewModel @Inject constructor(
                 FilterSettings.Tag.NOT_INSTALLED -> if (present) {
                     old.tags - tag
                 } else {
-                    old.tags + tag - FilterSettings.Tag.ENABLED
+                    old.tags + tag - FilterSettings.Tag.ENABLED - FilterSettings.Tag.HIDDEN
+                }
+
+                FilterSettings.Tag.HIDDEN -> if (present) {
+                    old.tags - tag
+                } else {
+                    old.tags + tag - FilterSettings.Tag.NOT_INSTALLED
                 }
             }
             old.copy(tags = newTags)
