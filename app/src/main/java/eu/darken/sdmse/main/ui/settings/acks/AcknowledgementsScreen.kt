@@ -125,6 +125,7 @@ internal fun AcknowledgementsScreen(
             LicenseItem("libRootJava", "Run Java (and Kotlin) code as root! (APACHE 2.0)", "https://github.com/Chainfire/librootjava", onOpenUrl)
             LicenseItem("librootkotlinx", "Run rooted Kotlin JVM code made easy with coroutines. (APACHE 2.0)", "https://github.com/Mygod/librootkotlinx", onOpenUrl)
             LicenseItem("Shizuku", "Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process. (APACHE 2.0)", "https://github.com/RikkaApps/Shizuku", onOpenUrl)
+            LicenseItem("Porter", "Privileged access for normal apps via adb, with a Shizuku-compatible client SDK. (APACHE 2.0)", "https://github.com/d4rken-org/porter", onOpenUrl)
             LicenseItem("Material Design Icons", "materialdesignicons.com (SIL Open Font License 1.1 / Attribution 4.0 International)", "https://github.com/Templarian/MaterialDesign", onOpenUrl)
             LicenseItem("Lottie", "Airbnb's Lottie for Android. (APACHE 2.0)", "https://github.com/airbnb/lottie-android", onOpenUrl)
             LicenseItem("Reorderable", "Reorderable Composables for Jetpack Compose. (APACHE 2.0)", "https://github.com/Calvin-LL/Reorderable", onOpenUrl)

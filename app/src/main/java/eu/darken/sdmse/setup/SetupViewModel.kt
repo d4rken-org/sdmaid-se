@@ -8,6 +8,7 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -35,6 +36,7 @@ import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
 import eu.darken.sdmse.setup.saf.SAFSetupCardItem
 import eu.darken.sdmse.setup.saf.SAFSetupModule
+import eu.darken.sdmse.setup.shizuku.AdbManagerInstallGuide
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
 import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardItem
@@ -65,6 +67,7 @@ class SetupViewModel @Inject constructor(
     private val shizukuSetupModule: ShizukuSetupModule,
     private val inventorySetupModule: InventorySetupModule,
     private val deviceDetective: DeviceDetective,
+    private val adbManagerInstallGuide: AdbManagerInstallGuide,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
     // Options are driven from the Host via setScreenOptions() (the SetupRoute entry forwards the
@@ -252,19 +255,38 @@ class SetupViewModel @Inject constructor(
                                     launch { shizukuSetupModule.toggleUseShizuku(it) }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku")
+                                    // Follows the active backend: a Porter user reading "ADB access
+                                    // failed" must not land on Shizuku's wiki section. Which page a
+                                    // Porter user gets is the flavor's call, because Porter's setup
+                                    // guide doubles as its install instructions.
+                                    webpageTool.open(
+                                        when (state.backend) {
+                                            AdbBackend.PORTER -> adbManagerInstallGuide.porterHelpUrl
+                                            AdbBackend.SHIZUKU ->
+                                                "https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku"
+                                        }
+                                    )
                                 },
                                 onOpen = {
-                                    state.pkg.getLaunchIntent(context)?.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)?.let {
-                                        try {
-                                            context.startActivity(it)
-                                        } catch (e: ActivityNotFoundException) {
-                                            errorEvents.tryEmit(e)
-                                        }
+                                    // Not every manager exports a launcher entry, e.g. Shizuku+'s Compat
+                                    // Hub. Its app info page is still somewhere the user can act, and a
+                                    // button that does nothing at all is worse than the wrong screen.
+                                    val intent = state.pkg.getLaunchIntent(context)
+                                        ?: state.pkg.getSettingsIntent(context)
+                                    try {
+                                        context.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK))
+                                    } catch (e: ActivityNotFoundException) {
+                                        errorEvents.tryEmit(e)
+                                    } catch (e: SecurityException) {
+                                        // An exported-but-guarded launcher activity rejects us at
+                                        // startActivity() rather than failing to resolve.
+                                        errorEvents.tryEmit(e)
                                     }
                                 },
                                 onRetry = { launch { shizukuSetupModule.refresh() } },
                                 showKnownIssueHint = hasKnownShizukuIssueRisk,
+                                installLabelRes = adbManagerInstallGuide.labelRes,
+                                onInstall = { webpageTool.open(adbManagerInstallGuide.url) },
                             )
 
                             is SetupModule.State.Loading -> SetupLoadingCardItem(state)
