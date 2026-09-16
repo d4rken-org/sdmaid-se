@@ -1,8 +1,11 @@
 package eu.darken.sdmse.common.pkgs
 
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.device.RomTypeProvider
+import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.user.UserHandle2
@@ -43,6 +46,26 @@ class NoSettingsDetectorTest : BaseTest() {
         // MockK intercepts the getters, the InstallDetails/Installed default impls never run
         every { isEnabled } returns enabled
         every { this@apply.hasNoSettings } returns hasNoSettings
+    }
+
+    private fun hiddenInstalledPkg(): HiddenPkg = HiddenPkg(
+        packageInfo = PackageInfo().apply {
+            packageName = "some.pkg"
+            applicationInfo = ApplicationInfo().apply {
+                this.packageName = "some.pkg"
+                enabled = true
+                flags = ApplicationInfo.FLAG_INSTALLED
+            }
+        },
+        userHandle = UserHandle2(handleId = 0),
+    )
+
+    @Test
+    fun `hidden packages have no settings page even while installed for this user`() = runTest {
+        every { deviceDetective.getROMType() } returns RomType.AOSP
+
+        create().getUnreachableReason(hiddenInstalledPkg()) shouldBe
+                NoSettingsDetector.Reason.NO_SETTINGS_PAGE
     }
 
     @Test

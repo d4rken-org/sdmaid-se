@@ -71,12 +71,14 @@ class PkgExtensionsTest : BaseTest() {
     private fun hiddenPkg(
         enabled: Boolean = true,
         systemFlag: Boolean = false,
+        installedForUser: Boolean = false,
         apkPath: APath? = null,
     ) = HiddenPkg(
         packageInfo = packageInfo(
             packageName = "test.hidden",
             enabled = enabled,
-            flags = if (systemFlag) ApplicationInfo.FLAG_SYSTEM else 0,
+            flags = (if (systemFlag) ApplicationInfo.FLAG_SYSTEM else 0) or
+                    (if (installedForUser) ApplicationInfo.FLAG_INSTALLED else 0),
         ),
         userHandle = userHandle,
         apkPath = apkPath,
@@ -145,11 +147,39 @@ class PkgExtensionsTest : BaseTest() {
     @Test fun `HiddenPkg reports isHidden=true and isInstalled=false`() {
         hiddenPkg().isHidden shouldBe true
         hiddenPkg().isInstalled shouldBe false
+        hiddenPkg().isNotInstalledForUser shouldBe true
+        hiddenPkg().isHiddenInstalled shouldBe false
+    }
+
+    @Test fun `HiddenPkg with FLAG_INSTALLED is hidden while staying installed for this user`() {
+        hiddenPkg(installedForUser = true).isHidden shouldBe true
+        hiddenPkg(installedForUser = true).isHiddenInstalled shouldBe true
+        hiddenPkg(installedForUser = true).isNotInstalledForUser shouldBe false
+        hiddenPkg(installedForUser = true).isInstalled shouldBe true
+    }
+
+    @Test fun `HiddenPkg without applicationInfo reads as not installed for this user`() {
+        hiddenPkgWithoutAppInfo().isHiddenInstalled shouldBe false
+        hiddenPkgWithoutAppInfo().isNotInstalledForUser shouldBe true
+    }
+
+    @Test fun `HiddenPkg parsed from an APK ignores FLAG_INSTALLED`() {
+        // getPackageArchiveInfo() parses against a default PackageUserState that has the flag set,
+        // which says nothing about the user this container was built for.
+        val fromArchive = hiddenPkg(
+            installedForUser = true,
+            apkPath = LocalPath.build("/product/app/Test/Test.apk"),
+        )
+        fromArchive.isInstalledForUser shouldBe false
+        fromArchive.isHiddenInstalled shouldBe false
+        fromArchive.isNotInstalledForUser shouldBe true
     }
 
     @Test fun `NormalPkg reports isHidden=false and isInstalled=true`() {
         normalPkg(enabled = true).isHidden shouldBe false
         normalPkg(enabled = true).isInstalled shouldBe true
+        normalPkg(enabled = true).isHiddenInstalled shouldBe false
+        normalPkg(enabled = true).isNotInstalledForUser shouldBe false
     }
 
     @Test fun `ArchivedPkg hardcodes isEnabled=false`() {

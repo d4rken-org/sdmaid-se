@@ -27,11 +27,20 @@ val Pkg.isUninstalled: Boolean
 val Pkg.isLibrary: Boolean
     get() = this is LibraryPkg
 
+/** The union of "installed for this user but hidden" and "not installed for this user". */
 val Pkg.isHidden: Boolean
     get() = this is HiddenPkg
 
+/** Installed for this user, but the package manager hides it (a device-policy controller, `pm hide`). */
+val Pkg.isHiddenInstalled: Boolean
+    get() = this is HiddenPkg && isInstalledForUser
+
+/** Known to the package manager, but not installed for this user. */
+val Pkg.isNotInstalledForUser: Boolean
+    get() = this is HiddenPkg && !isInstalledForUser
+
 val Pkg.isInstalled: Boolean
-    get() = !isArchived && !isUninstalled && !isHidden
+    get() = !isArchived && !isUninstalled && !isNotInstalledForUser
 
 val Pkg.isEnabled: Boolean
     get() = this is InstallDetails && this.isEnabled
