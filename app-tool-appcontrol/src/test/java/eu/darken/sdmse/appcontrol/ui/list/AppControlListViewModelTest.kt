@@ -1,6 +1,8 @@
 package eu.darken.sdmse.appcontrol.ui.list
 
 import android.content.Context
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageInfo
 import androidx.lifecycle.SavedStateHandle
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlScanTask
@@ -21,6 +23,7 @@ import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -98,6 +101,37 @@ class AppControlListViewModelTest : BaseTest() {
             isActive = isActive,
             sizes = sizes,
             usage = usage,
+            userProfile = null,
+            canBeToggled = false,
+            canBeStopped = false,
+            canBeExported = false,
+            canBeDeleted = false,
+            canBeArchived = false,
+            canBeRestored = false,
+        )
+    }
+
+    private fun hiddenAppInfo(
+        pkgName: String,
+        installedForUser: Boolean,
+    ): AppInfo {
+        // The filter predicates are `is HiddenPkg` checks, a mock can't satisfy them.
+        val pkg = HiddenPkg(
+            packageInfo = PackageInfo().apply {
+                packageName = pkgName
+                applicationInfo = ApplicationInfo().apply {
+                    this.packageName = pkgName
+                    enabled = true
+                    flags = if (installedForUser) ApplicationInfo.FLAG_INSTALLED else 0
+                }
+            },
+            userHandle = systemUserHandle,
+        )
+        return AppInfo(
+            pkg = pkg,
+            isActive = null,
+            sizes = null,
+            usage = null,
             userProfile = null,
             canBeToggled = false,
             canBeStopped = false,
@@ -426,6 +460,33 @@ class AppControlListViewModelTest : BaseTest() {
 
         val rows = h.vm.state.first().rows!!
         rows.map { it.appInfo.pkg.packageName } shouldBe listOf("com.active.app", "com.unknown.app")
+    }
+
+    @Test
+    fun `filter NOT_INSTALLED excludes a package that is installed but hidden`() = runTest2 {
+        val hidden = hiddenAppInfo("com.hidden.app", installedForUser = true)
+        val notInstalled = hiddenAppInfo("com.notinstalled.app", installedForUser = false)
+        val h = harness(
+            data = dataOf(hidden, notInstalled),
+            filter = FilterSettings(tags = setOf(FilterSettings.Tag.NOT_INSTALLED)),
+        )
+
+        val rows = h.vm.state.first().rows!!
+        rows.map { it.appInfo.pkg.packageName } shouldBe listOf("com.notinstalled.app")
+    }
+
+    @Test
+    fun `filter HIDDEN keeps only packages that are installed but hidden`() = runTest2 {
+        val hidden = hiddenAppInfo("com.hidden.app", installedForUser = true)
+        val notInstalled = hiddenAppInfo("com.notinstalled.app", installedForUser = false)
+        val normal = appInfo("com.user.app")
+        val h = harness(
+            data = dataOf(hidden, notInstalled, normal),
+            filter = FilterSettings(tags = setOf(FilterSettings.Tag.HIDDEN)),
+        )
+
+        val rows = h.vm.state.first().rows!!
+        rows.map { it.appInfo.pkg.packageName } shouldBe listOf("com.hidden.app")
     }
 
     @Test
@@ -885,6 +946,55 @@ class AppControlListViewModelTest : BaseTest() {
         coVerify(exactly = 1) { h.listFilter.update(capture(captured)) }
         val newFilter = captured.captured(FilterSettings(tags = setOf(FilterSettings.Tag.DISABLED)))
         newFilter shouldBe FilterSettings(tags = setOf(FilterSettings.Tag.ENABLED))
+    }
+
+    @Test
+    fun `onTagToggle HIDDEN replaces NOT_INSTALLED if NOT_INSTALLED is active`() = runTest2 {
+        // Contradictory: HIDDEN needs isInstalled=true, NOT_INSTALLED rejects exactly that.
+        val h = harness(
+            filter = FilterSettings(tags = setOf(FilterSettings.Tag.NOT_INSTALLED)),
+        )
+
+        h.vm.onTagToggle(FilterSettings.Tag.HIDDEN)
+        advanceUntilIdle()
+
+        val captured = slot<(FilterSettings) -> FilterSettings?>()
+        coVerify(exactly = 1) { h.listFilter.update(capture(captured)) }
+        val newFilter = captured.captured(FilterSettings(tags = setOf(FilterSettings.Tag.NOT_INSTALLED)))
+        newFilter shouldBe FilterSettings(tags = setOf(FilterSettings.Tag.HIDDEN))
+    }
+
+    @Test
+    fun `onTagToggle NOT_INSTALLED replaces HIDDEN if HIDDEN is active`() = runTest2 {
+        val h = harness(
+            filter = FilterSettings(tags = setOf(FilterSettings.Tag.HIDDEN)),
+        )
+
+        h.vm.onTagToggle(FilterSettings.Tag.NOT_INSTALLED)
+        advanceUntilIdle()
+
+        val captured = slot<(FilterSettings) -> FilterSettings?>()
+        coVerify(exactly = 1) { h.listFilter.update(capture(captured)) }
+        val newFilter = captured.captured(FilterSettings(tags = setOf(FilterSettings.Tag.HIDDEN)))
+        newFilter shouldBe FilterSettings(tags = setOf(FilterSettings.Tag.NOT_INSTALLED))
+    }
+
+    @Test
+    fun `onTagToggle HIDDEN keeps ENABLED active`() = runTest2 {
+        // Hidden-but-installed packages report enabled=1, so the combination is non-empty.
+        val h = harness(
+            filter = FilterSettings(tags = setOf(FilterSettings.Tag.ENABLED)),
+        )
+
+        h.vm.onTagToggle(FilterSettings.Tag.HIDDEN)
+        advanceUntilIdle()
+
+        val captured = slot<(FilterSettings) -> FilterSettings?>()
+        coVerify(exactly = 1) { h.listFilter.update(capture(captured)) }
+        val newFilter = captured.captured(FilterSettings(tags = setOf(FilterSettings.Tag.ENABLED)))
+        newFilter shouldBe FilterSettings(
+            tags = setOf(FilterSettings.Tag.ENABLED, FilterSettings.Tag.HIDDEN),
+        )
     }
 
     @Test

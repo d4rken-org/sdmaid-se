@@ -74,14 +74,15 @@ class AppInfoTagsRowTest : BaseComposeRobolectricTest() {
         }
     }
 
-    private fun hiddenPkg(): HiddenPkg = HiddenPkg(
+    private fun hiddenPkg(installedForUser: Boolean = false): HiddenPkg = HiddenPkg(
         packageInfo = PackageInfo().apply {
             packageName = "com.hidden.app"
             applicationInfo = ApplicationInfo().apply {
                 packageName = "com.hidden.app"
                 // `pm uninstall -k --user N` clears FLAG_INSTALLED, it does not disable the package
                 enabled = true
-                flags = ApplicationInfo.FLAG_SYSTEM
+                flags = ApplicationInfo.FLAG_SYSTEM or
+                        (if (installedForUser) ApplicationInfo.FLAG_INSTALLED else 0)
             }
         },
         userHandle = userHandle,
@@ -109,6 +110,19 @@ class AppInfoTagsRowTest : BaseComposeRobolectricTest() {
         }
 
         composeRule.onNodeWithText("Not installed").assertExists()
+        composeRule.onAllNodesWithText("Hidden").assertCountEquals(0)
+    }
+
+    @Test
+    fun `a package that is installed for this user but hidden renders the Hidden tag`() {
+        composeRule.setContent {
+            PreviewWrapper {
+                AppInfoTagsRow(appInfo = appInfo(hiddenPkg(installedForUser = true)))
+            }
+        }
+
+        composeRule.onNodeWithText("Hidden").assertExists()
+        composeRule.onAllNodesWithText("Not installed").assertCountEquals(0)
     }
 
     @Test

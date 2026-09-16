@@ -278,6 +278,11 @@ internal fun AppControlTagsSheetContent(
                 selected = FilterSettings.Tag.NOT_INSTALLED in tags,
                 onClick = { onTagToggle(FilterSettings.Tag.NOT_INSTALLED) },
             )
+            TagChip(
+                label = stringResource(R.string.appcontrol_tag_hidden),
+                selected = FilterSettings.Tag.HIDDEN in tags,
+                onClick = { onTagToggle(FilterSettings.Tag.HIDDEN) },
+            )
         }
     }
 }
@@ -366,6 +371,7 @@ internal fun tagLabel(tag: FilterSettings.Tag): String = when (tag) {
     FilterSettings.Tag.DISABLED -> stringResource(R.string.appcontrol_tag_disabled)
     FilterSettings.Tag.ACTIVE -> stringResource(R.string.appcontrol_tag_active)
     FilterSettings.Tag.NOT_INSTALLED -> stringResource(R.string.appcontrol_tag_not_installed)
+    FilterSettings.Tag.HIDDEN -> stringResource(R.string.appcontrol_tag_hidden)
 }
 
 @Composable

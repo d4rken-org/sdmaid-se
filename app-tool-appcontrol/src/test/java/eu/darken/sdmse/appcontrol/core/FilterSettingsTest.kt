@@ -74,7 +74,11 @@ class FilterSettingsTest : BaseTest() {
     @Test
     fun `round trip preserves value`() {
         val original = FilterSettings(
-            tags = setOf(FilterSettings.Tag.ACTIVE, FilterSettings.Tag.NOT_INSTALLED),
+            tags = setOf(
+                FilterSettings.Tag.ACTIVE,
+                FilterSettings.Tag.NOT_INSTALLED,
+                FilterSettings.Tag.HIDDEN,
+            ),
         )
         val jsonStr = json.encodeToString(FilterSettings.serializer(), original)
         val restored = json.decodeFromString(FilterSettings.serializer(), jsonStr)
