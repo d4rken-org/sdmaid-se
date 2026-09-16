@@ -100,5 +100,6 @@ class ShellLookUpPkgsSourceTest : BaseTest() {
         val hidden = result.single().shouldBeInstanceOf<HiddenPkg>()
         hidden.id shouldBe pkgName.toPkgId()
         hidden.apkPath?.path shouldBe apkPath
+        hidden.isInstalledForUser shouldBe false
     }
 }

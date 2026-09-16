@@ -38,6 +38,14 @@ data class HiddenPkg(
             return fromFlags ?: true
         }
 
+    /**
+     * Whether the package manager has this installed for [userHandle] — this container covers both
+     * "installed but hidden" and "not installed for this user". An [apkPath] instance was parsed from
+     * an APK, whose flags carry a default user state rather than this user's, so it reports false.
+     */
+    val isInstalledForUser: Boolean
+        get() = apkPath == null && applicationInfo?.let { it.flags and ApplicationInfo.FLAG_INSTALLED != 0 } == true
+
     override val label: CaString = caString { context ->
         context.packageManager.getLabel2(id) ?: id.name
     }.cache()
