@@ -37,3 +37,5 @@ vendor/bundle/
 # JVM crash logs (e.g. from a layoutlib render OOM)
 hs_err_pid*.log
 replay_pid*.log
+/.pi/*
+!/.pi/settings.json
