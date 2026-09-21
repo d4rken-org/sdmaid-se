@@ -5,6 +5,7 @@ import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
@@ -61,7 +62,7 @@ class RestorerTest : BaseTest() {
         val pkg = mockk<ArchivedPkg>().apply {
             every { id } returns pkgId
             every { packageName } returns pkgName
-            every { label } returns null
+            every { label } returns pkgName.toCaString()
             every { userHandle } returns systemUserHandle
             every { installId } returns InstallId(pkgId, systemUserHandle)
         }
