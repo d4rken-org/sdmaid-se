@@ -1,15 +1,22 @@
 package eu.darken.sdmse.appcontrol.core
 
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
+import eu.darken.sdmse.appcontrol.core.restore.RestoreException
+import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.restore.Restorer
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.automation.core.AutomationSubmitter
+import eu.darken.sdmse.automation.core.errors.AUTOMATION_FAILURE_LIMIT
+import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
@@ -22,6 +29,8 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldContainExactly
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -87,6 +96,8 @@ class AppControlTest : BaseTest() {
         val appControl: AppControl,
         val appScan: AppScan,
         val componentToggler: ComponentToggler,
+        val archiver: Archiver,
+        val restorer: Restorer,
     )
 
     private fun setupAppControl(
@@ -147,8 +158,13 @@ class AppControlTest : BaseTest() {
         }
         val forceStopper = mockk<ForceStopper>(relaxed = true)
         val uninstaller = mockk<Uninstaller>(relaxed = true)
-        val archiver = mockk<Archiver>(relaxed = true)
-        val restorer = mockk<Restorer>(relaxed = true)
+        val archiver = mockk<Archiver>(relaxed = true).apply {
+            // A relaxed mock would swallow the lambda, and with it the whole archive loop.
+            coEvery { useRes<Unit>(any()) } coAnswers { firstArg<suspend (Any) -> Unit>().invoke(Unit) }
+        }
+        val restorer = mockk<Restorer>(relaxed = true).apply {
+            coEvery { useRes<Unit>(any()) } coAnswers { firstArg<suspend (Any) -> Unit>().invoke(Unit) }
+        }
         val appExporterProvider = mockk<Provider<AppExporter>>(relaxed = true).apply {
             appExporter?.let { every { get() } returns it }
         }
@@ -171,7 +187,13 @@ class AppControlTest : BaseTest() {
             automationManager = automationSubmitter,
             appScan = appScan,
         )
-        return Setup(appControl = appControl, appScan = appScan, componentToggler = componentToggler)
+        return Setup(
+            appControl = appControl,
+            appScan = appScan,
+            componentToggler = componentToggler,
+            archiver = archiver,
+            restorer = restorer,
+        )
     }
 
     private fun buildScanTask(
@@ -623,6 +645,163 @@ class AppControlTest : BaseTest() {
         )
 
         result.primaryInfo.resolve() shouldBe "1 toggled, 1 failed, 1 skipped"
+    }
+
+    // ─────────────────────────── archive & restore give-up ───────────────────────────
+
+    /**
+     * Relaxed because the give-up path logs the failure and BaseTest installs a real logger that
+     * walks the cause chain. Its only constructor takes a TimeoutCancellationException we can't build.
+     */
+    private fun automationTimeout(): AutomationTimeoutException = mockk(relaxed = true)
+
+    private fun batchApps(count: Int): List<AppInfo> = (1..count).map { installedApp("eu.thlab.app$it") }
+
+    private suspend fun batchSetup(apps: List<AppInfo>): Setup {
+        val setup = setupAppControl(appsReturnedByScan = apps.toSet())
+        setup.appControl.submit(buildScanTask())
+        setup.stubReQuery(*apps.toTypedArray())
+        return setup
+    }
+
+    private fun List<AppInfo>.asTargets(): Set<InstallId> = map { it.installId }.toSet()
+
+    @Test
+    fun `archiving gives up once the automation failure budget is spent`() = runTest2 {
+        // Every target costs the user 30 seconds of a doomed accessibility interaction, so a batch
+        // has to stop submitting instead of grinding through the whole selection.
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 3)
+        val setup = batchSetup(apps)
+        val attempted = mutableListOf<InstallId>()
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            attempted.add(app.installId)
+            throw ArchiveException(installId = app.installId, cause = automationTimeout())
+        }
+
+        shouldThrow<AutomationCompatibilityException> {
+            setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+        }
+
+        attempted shouldContainExactly apps.take(AUTOMATION_FAILURE_LIMIT).map { it.installId }
+        coVerify(exactly = AUTOMATION_FAILURE_LIMIT) { setup.archiver.archive(any()) }
+    }
+
+    @Test
+    fun `successes in between do not pay the archive failure budget back`() = runTest2 {
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 5)
+        val working = setOf(apps[2].installId, apps[5].installId)
+        val setup = batchSetup(apps)
+        val attempted = mutableListOf<InstallId>()
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            attempted.add(app.installId)
+            if (!working.contains(app.installId)) {
+                throw ArchiveException(installId = app.installId, cause = automationTimeout())
+            }
+        }
+
+        shouldThrow<AutomationCompatibilityException> {
+            setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+        }
+
+        // The two that worked shift the give-up out by two targets, they don't prevent it.
+        attempted shouldContainExactly apps
+            .take(AUTOMATION_FAILURE_LIMIT + working.size)
+            .map { it.installId }
+    }
+
+    @Test
+    fun `archive failures that are not an unusable automation path never give up`() = runTest2 {
+        // A wrapped non-automation error and a bare wrapper both say nothing about whether the
+        // accessibility path works, so neither may count towards the limit.
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 4)
+        val setup = batchSetup(apps)
+        var attempts = 0
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            if (attempts++ % 2 == 0) {
+                throw ArchiveException(installId = app.installId, cause = IllegalStateException("pm archive failed"))
+            } else {
+                throw ArchiveException(installId = app.installId)
+            }
+        }
+
+        val result = setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+
+        result shouldBe ArchiveTask.Result(success = emptySet(), failed = apps.asTargets())
+        coVerify(exactly = apps.size) { setup.archiver.archive(any()) }
+    }
+
+    @Test
+    fun `a refresh failure after giving up on archiving is suppressed into the compatibility error`() = runTest2 {
+        // The package scan can fail for its own reasons. That's a downstream symptom, the user
+        // still needs to learn that their device isn't driving the accessibility service.
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT)
+        val setup = batchSetup(apps)
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            throw ArchiveException(installId = firstArg<AppInfo>().installId, cause = automationTimeout())
+        }
+        val refreshError = IllegalStateException("package source is unavailable")
+        coEvery { setup.appScan.refresh() } throws refreshError
+
+        val error = shouldThrow<AutomationCompatibilityException> {
+            setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+        }
+
+        error.suppressed.single() shouldBe refreshError
+    }
+
+    @Test
+    fun `an archive batch without unusable failures reports what it always did`() = runTest2 {
+        val apps = batchApps(3)
+        val stubborn = apps[1]
+        val setup = batchSetup(apps)
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            if (app.installId == stubborn.installId) {
+                throw ArchiveException(installId = app.installId, cause = IllegalStateException("nope"))
+            }
+        }
+
+        val result = setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+
+        result shouldBe ArchiveTask.Result(
+            success = setOf(apps[0].installId, apps[2].installId),
+            failed = setOf(stubborn.installId),
+        )
+    }
+
+    @Test
+    fun `restoring gives up once the automation failure budget is spent`() = runTest2 {
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 3)
+        val setup = batchSetup(apps)
+        val attempted = mutableListOf<InstallId>()
+        coEvery { setup.restorer.restore(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            attempted.add(app.installId)
+            throw RestoreException(installId = app.installId, cause = automationTimeout())
+        }
+
+        shouldThrow<AutomationCompatibilityException> {
+            setup.appControl.submit(RestoreTask(targets = apps.asTargets()))
+        }
+
+        attempted shouldContainExactly apps.take(AUTOMATION_FAILURE_LIMIT).map { it.installId }
+    }
+
+    @Test
+    fun `a restore batch without unusable failures reports what it always did`() = runTest2 {
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 2)
+        val setup = batchSetup(apps)
+        coEvery { setup.restorer.restore(any()) } coAnswers {
+            throw RestoreException(installId = firstArg<AppInfo>().installId, cause = IllegalStateException("nope"))
+        }
+
+        val result = setup.appControl.submit(RestoreTask(targets = apps.asTargets()))
+
+        result shouldBe RestoreTask.Result(success = emptySet(), failed = apps.asTargets())
+        coVerify(exactly = apps.size) { setup.restorer.restore(any()) }
     }
 
     // ─────────────────────────── accessibility-backed action gates ───────────────────────────
