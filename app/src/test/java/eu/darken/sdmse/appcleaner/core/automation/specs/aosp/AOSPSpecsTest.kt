@@ -631,8 +631,9 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
         // MANUFACTOR stays at the "TestOEM" default from aospSetup: the API level alone must not
         // open the fallback, or every AOSP device on 36+ would start blind-clicking. The cache row
-        // is deliberately non-empty, an empty one would end the run at the ALREADY_EMPTY verdict
-        // before the DPAD is ever reachable and leave the assertions below nothing to catch.
+        // is deliberately non-empty: if the gate ever regressed, a zero row would set
+        // pendingVerdict at the first size check and suppress the DPAD branch for the rest of the
+        // run, so the assertions below would still pass and the regression would slip through.
         mockkConstructor(SizeParser::class)
         every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
 
@@ -640,6 +641,44 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         every { testHost.service.performGlobalAction(any()) } returns true
 
         // Anchor is there, so DPAD could run, but there is no clickable clear-cache node at all.
+        testRoot = buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=row, bounds=Rect(0, 900 - 1080, 1000)
+            ACS-DEBUG: --2: text='Cache', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=rowTitle, bounds=Rect(60, 900 - 500, 1000)
+            ACS-DEBUG: --2: text='143 kB', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=rowSummary, bounds=Rect(600, 900 - 1020, 1000)
+            """.trimIndent()
+        )
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 5)
+
+        result shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    @Test
+    fun `an allowlisted manufacturer below API 36 never gets a DPAD click`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 35 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Sony"
+        every { BuildWrap.PRODUCT } returns "XQ-GE54"
+
+        // hasApiLevel stays below 36 while MANUFACTOR is allowlisted: the manufacturer alone must
+        // not open the fallback, or every Sony device on 35 and older would start blind-clicking.
+        // The cache row is deliberately non-empty: if the gate ever regressed, a zero row would
+        // set pendingVerdict at the first size check and suppress the DPAD branch for the rest of
+        // the run, so the assertions below would still pass and the regression would slip through.
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
         testRoot = buildTestTree(
             """
             ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
