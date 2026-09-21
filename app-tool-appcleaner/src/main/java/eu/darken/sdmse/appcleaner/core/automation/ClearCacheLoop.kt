@@ -1,11 +1,11 @@
 package eu.darken.sdmse.appcleaner.core.automation
 
+import eu.darken.sdmse.automation.core.errors.AUTOMATION_FAILURE_LIMIT
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
-import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
-import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
+import eu.darken.sdmse.automation.core.errors.isAutomationUnusable
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -75,7 +75,7 @@ internal suspend fun Progress.Client.clearCachesFor(
                     task.onError(target, e)
                     failed[target] = e
                     val unusable = failed.count { it.value.isAutomationUnusable() }
-                    if (successful.isEmpty() && unusable >= FAILURE_LIMIT) break
+                    if (successful.isEmpty() && unusable >= AUTOMATION_FAILURE_LIMIT) break
                 }
 
                 e is AutomationOverlayException -> {
@@ -120,21 +120,6 @@ internal suspend fun Progress.Client.clearCachesFor(
         failed = failed,
         cancelledByUser = cancelledByUser,
     )
-}
-
-/** How many targets may fail with an unusable automation path before we stop trying. */
-internal const val FAILURE_LIMIT = 8
-
-/**
- * Failures that mean we could not drive the Settings UI at all, as opposed to one app
- * being uncooperative. A timeout is the slow form, an unretryable step abort the fast one
- * (e.g. the DPAD fallback finding the clear-cache button unreachable). Both indicate the
- * automation path itself is broken, so both feed the give-up heuristic.
- */
-internal fun Throwable.isAutomationUnusable(): Boolean = when (this) {
-    is AutomationTimeoutException -> true
-    is StepAbortException -> !treatAsSuccess
-    else -> false
 }
 
 private val TAG: String = ClearCacheModule.TAG
