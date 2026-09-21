@@ -9,6 +9,6 @@ class RestoreAutomationTask(
 
     data class Result(
         val successful: Collection<InstallId>,
-        val failed: Collection<InstallId>,
+        val failed: Map<InstallId, Exception>,
     ) : AutomationTask.Result
 }
