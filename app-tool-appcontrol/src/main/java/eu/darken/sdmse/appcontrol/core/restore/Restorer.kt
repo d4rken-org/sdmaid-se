@@ -68,20 +68,25 @@ class Restorer @Inject constructor(
         // Try PackageInstaller API via Root/ADB first (API 35+)
         if (hasApiLevel(35) && hasElevatedAccess) {
             log(TAG) { "Attempting PackageInstaller.requestUnarchive via Root/ADB for ${app.installId}" }
-            try {
-                val result = unarchiveManager.requestUnarchive(pkgName)
-                if (result.isSuccess) {
+            // Only the request itself is guarded, the automation fallback must not catch its own failure
+            val result = try {
+                unarchiveManager.requestUnarchive(pkgName)
+            } catch (e: Exception) {
+                log(TAG, WARN) { "PackageInstaller unarchive exception, falling back: ${e.asLog()}" }
+                null
+            }
+            when {
+                result == null -> useAutomationFallback(app)
+                result.isSuccess -> {
                     log(TAG, INFO) { "PackageInstaller unarchive initiated successfully for ${app.installId}" }
                     // Continue to wait for the app to be fully restored below
-                } else {
+                }
+
+                else -> {
                     log(TAG, WARN) { "PackageInstaller unarchive failed: ${result.statusMessage}" }
                     // Fall through to automation
                     useAutomationFallback(app)
                 }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "PackageInstaller unarchive exception, falling back: ${e.asLog()}" }
-                // Fall through to automation
-                useAutomationFallback(app)
             }
         } else {
             // Pre-API 35 or no Root/ADB: Only automation is supported for restore
