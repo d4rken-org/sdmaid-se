@@ -32,7 +32,9 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationReturnHelper
 import eu.darken.sdmse.automation.core.AutomationTask
+import eu.darken.sdmse.automation.core.errors.AUTOMATION_FAILURE_LIMIT
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.isAutomationUnusable
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -142,7 +144,7 @@ class ClearCacheModule @AssistedInject constructor(
         }
 
         val unusableCount = result.failed.count { it.value.isAutomationUnusable() }
-        if (unusableCount >= FAILURE_LIMIT && result.successful.isEmpty()) {
+        if (unusableCount >= AUTOMATION_FAILURE_LIMIT && result.successful.isEmpty()) {
             log(TAG, ERROR) { "Continued automation failures, no successes so far, possible compatbility issue?" }
             throw AutomationCompatibilityException(
                 additionalHint = R.string.appcleaner_automation_compat_forcestop_hint.toCaString(),
