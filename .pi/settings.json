@@ -6,14 +6,12 @@
       "skills": [
         "plugins/android-translation/pi/skills/*",
         "plugins/debugbadger/pi/skills/*",
-        "plugins/devtools/pi/skills/*",
         "plugins/google-play/pi/skills/*",
         "plugins/support/pi/skills/*"
       ],
       "extensions": [
         "plugins/android-translation/pi/extensions/*",
         "plugins/debugbadger/pi/extensions/*",
-        "plugins/devtools/pi/extensions/*",
         "plugins/google-play/pi/extensions/*",
         "plugins/support/pi/extensions/*"
       ]
