@@ -5,6 +5,7 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
 import eu.darken.sdmse.appcontrol.core.archive.Archiver
@@ -12,6 +13,7 @@ import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
+import eu.darken.sdmse.appcontrol.core.restore.RestoreException
 import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.restore.Restorer
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
@@ -19,6 +21,8 @@ import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.core.uninstall.Uninstaller
 import eu.darken.sdmse.automation.core.AutomationSubmitter
+import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
+import eu.darken.sdmse.automation.core.errors.UnusableFailureBudget
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -440,9 +444,11 @@ class AppControl @Inject constructor(
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
+        val budget = UnusableFailureBudget()
+        var gaveUp: AutomationCompatibilityException? = null
 
         archiver.useRes {
-            task.targets.forEach { targetId ->
+            for (targetId in task.targets) {
                 val target = snapshot.apps.single { it.installId == targetId }
                 updateProgressPrimary(target.label)
                 updateProgressSecondary(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_archiving_app)
@@ -454,6 +460,13 @@ class AppControl @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to archive $targetId: ${e.asLog()}" }
                     failed.add(targetId)
+                    // The archiver wraps whatever went wrong, the budget classifies the wrapped cause.
+                    budget.onFailure(if (e is ArchiveException) e.cause ?: e else e)
+                    if (budget.isExhausted) {
+                        log(TAG, ERROR) { "Automation failure budget spent at $targetId, giving up" }
+                        gaveUp = AutomationCompatibilityException()
+                        break
+                    }
                 } finally {
                     increaseProgress()
                 }
@@ -464,24 +477,36 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        appScan.refresh()
+        // Runs even when we gave up, so the apps archived before that are reflected in the list.
+        val giveUpError = gaveUp
+        try {
+            appScan.refresh()
 
-        internalData.value = snapshot.copy(
-            apps = run {
-                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
-                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
-                val updatedPkgs = affectedPkgs.map {
-                    appScan.app(
-                        pkgId = it,
-                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
-                        includeSize = snapshot.hasInfoSize,
-                        includeActive = snapshot.hasInfoActive,
-                        includeUsage = snapshot.hasInfoScreenTime,
-                    )
-                }.flatten()
-                cleanedSnapshot + updatedPkgs
-            }
-        )
+            internalData.value = snapshot.copy(
+                apps = run {
+                    val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                    val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                    val updatedPkgs = affectedPkgs.map {
+                        appScan.app(
+                            pkgId = it,
+                            user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                            includeSize = snapshot.hasInfoSize,
+                            includeActive = snapshot.hasInfoActive,
+                            includeUsage = snapshot.hasInfoScreenTime,
+                        )
+                    }.flatten()
+                    cleanedSnapshot + updatedPkgs
+                }
+            )
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            if (giveUpError == null) throw e
+            log(TAG, ERROR) { "Refresh failed after giving up on archiving: ${e.asLog()}" }
+            giveUpError.addSuppressed(e)
+        }
+
+        if (giveUpError != null) throw giveUpError
 
         return ArchiveTask.Result(successful, failed)
     }
@@ -493,9 +518,11 @@ class AppControl @Inject constructor(
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
+        val budget = UnusableFailureBudget()
+        var gaveUp: AutomationCompatibilityException? = null
 
         restorer.useRes {
-            task.targets.forEach { targetId ->
+            for (targetId in task.targets) {
                 val target = snapshot.apps.single { it.installId == targetId }
                 updateProgressPrimary(target.label)
                 updateProgressSecondary(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_restoring_app)
@@ -507,6 +534,13 @@ class AppControl @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to restore $targetId: ${e.asLog()}" }
                     failed.add(targetId)
+                    // The restorer wraps whatever went wrong, the budget classifies the wrapped cause.
+                    budget.onFailure(if (e is RestoreException) e.cause ?: e else e)
+                    if (budget.isExhausted) {
+                        log(TAG, ERROR) { "Automation failure budget spent at $targetId, giving up" }
+                        gaveUp = AutomationCompatibilityException()
+                        break
+                    }
                 } finally {
                     increaseProgress()
                 }
@@ -517,24 +551,36 @@ class AppControl @Inject constructor(
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 
-        appScan.refresh()
+        // Runs even when we gave up, so the apps restored before that are reflected in the list.
+        val giveUpError = gaveUp
+        try {
+            appScan.refresh()
 
-        internalData.value = snapshot.copy(
-            apps = run {
-                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
-                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
-                val updatedPkgs = affectedPkgs.map {
-                    appScan.app(
-                        pkgId = it,
-                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
-                        includeSize = snapshot.hasInfoSize,
-                        includeActive = snapshot.hasInfoActive,
-                        includeUsage = snapshot.hasInfoScreenTime,
-                    )
-                }.flatten()
-                cleanedSnapshot + updatedPkgs
-            }
-        )
+            internalData.value = snapshot.copy(
+                apps = run {
+                    val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                    val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                    val updatedPkgs = affectedPkgs.map {
+                        appScan.app(
+                            pkgId = it,
+                            user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                            includeSize = snapshot.hasInfoSize,
+                            includeActive = snapshot.hasInfoActive,
+                            includeUsage = snapshot.hasInfoScreenTime,
+                        )
+                    }.flatten()
+                    cleanedSnapshot + updatedPkgs
+                }
+            )
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            if (giveUpError == null) throw e
+            log(TAG, ERROR) { "Refresh failed after giving up on restoring: ${e.asLog()}" }
+            giveUpError.addSuppressed(e)
+        }
+
+        if (giveUpError != null) throw giveUpError
 
         return RestoreTask.Result(successful, failed)
     }
