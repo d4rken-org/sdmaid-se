@@ -553,7 +553,7 @@ class AOSPSpecs @Inject constructor(
 
             // On Android 16+, "Clear cache" and "Clear storage" buttons are marked as NAF
             // (Not Accessibility Focusable) on some devices, making them invisible to the
-            // accessibility service. Known on Google and Motorola Hello UI.
+            // accessibility service. Reported per manufacturer, see DPAD_FALLBACK_MANUFACTURERS.
             // DPAD navigation works around this by using keyboard-style navigation (DOWN, RIGHT, CENTER)
             // from the entity_header_content anchor to blindly click the invisible button.
             // https://github.com/d4rken-org/sdmaid-se/issues/2056

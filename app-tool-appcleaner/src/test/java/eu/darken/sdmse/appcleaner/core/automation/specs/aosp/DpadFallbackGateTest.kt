@@ -9,7 +9,7 @@ import testhelpers.BaseTest
  *
  * BuildWrap.MANUFACTOR is whatever the ROM wrote into android.os.Build, so casing is not
  * guaranteed: the Motorola report that added it here reads "motorola", Google devices read
- * "Google".
+ * "Google", and the Xperia logs read "Sony".
  */
 class DpadFallbackGateTest : BaseTest() {
 
@@ -18,6 +18,13 @@ class DpadFallbackGateTest : BaseTest() {
         supportsDpadFallback("motorola") shouldBe true
         supportsDpadFallback("Motorola") shouldBe true
         supportsDpadFallback("MOTOROLA") shouldBe true
+    }
+
+    @Test
+    fun `sony gets the fallback regardless of casing`() {
+        supportsDpadFallback("sony") shouldBe true
+        supportsDpadFallback("Sony") shouldBe true
+        supportsDpadFallback("SONY") shouldBe true
     }
 
     @Test
