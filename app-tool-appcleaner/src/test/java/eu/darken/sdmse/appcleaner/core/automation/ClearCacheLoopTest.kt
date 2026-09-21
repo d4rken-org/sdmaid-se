@@ -1,7 +1,9 @@
 package eu.darken.sdmse.appcleaner.core.automation
 
+import eu.darken.sdmse.automation.core.errors.AUTOMATION_FAILURE_LIMIT
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -159,5 +161,19 @@ class ClearCacheLoopTest : BaseTest() {
         result.failed.keys shouldContainExactly listOf(missing)
         result.failed.getValue(missing).shouldBeInstanceOf<IllegalStateException>()
         result.failed.getValue(missing).message shouldBe "$missing is not in package repo"
+    }
+
+    @Test
+    fun `the loop gives up once the failure limit is hit without a single success`() = runTest2 {
+        val pkgNames = (1..AUTOMATION_FAILURE_LIMIT + 2).map { "pkg.$it" }
+        val attempted = pkgNames.take(AUTOMATION_FAILURE_LIMIT).map { installId(it) }
+
+        val result = runLoop(*pkgNames.toTypedArray()) { throw StepAbortException("Unreachable") }
+
+        cleared shouldContainExactly attempted
+        resolveRequests shouldContainExactly attempted
+        result.failed.keys shouldContainExactly attempted
+        result.successful.shouldBeEmpty()
+        result.cancelledByUser shouldBe false
     }
 }
