@@ -60,7 +60,7 @@ class Restorer @Inject constructor(
             )
         }
 
-        val isCurrentUser = app.installId.userHandle == userManager2.currentUser()
+        val isCurrentUser = app.installId.userHandle == userManager2.currentUser().handle
         val pkgName = app.installId.pkgId.name
 
         val hasElevatedAccess = rootManager.canUseRootNow() || adbManager.canUseAdbNow()
