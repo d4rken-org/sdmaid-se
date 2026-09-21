@@ -62,7 +62,7 @@ class Archiver @Inject constructor(
             )
         }
 
-        val isCurrentUser = app.installId.userHandle == userManager2.currentUser()
+        val isCurrentUser = app.installId.userHandle == userManager2.currentUser().handle
         val userId = app.installId.userHandle.handleId
         val pkgName = app.installId.pkgId.name
         val shellCmd = ShellOpsCmd("pm archive --user $userId $pkgName")
