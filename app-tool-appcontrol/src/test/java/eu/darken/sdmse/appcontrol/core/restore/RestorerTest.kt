@@ -55,16 +55,17 @@ class RestorerTest : BaseTest() {
     }
 
     private val systemUserHandle = UserHandle2(handleId = 0)
+    private val secondaryUserHandle = UserHandle2(handleId = 10)
 
-    private fun archivedApp(pkgName: String): AppInfo {
+    private fun archivedApp(pkgName: String, forUser: UserHandle2 = systemUserHandle): AppInfo {
         val pkgId = Pkg.Id(pkgName)
         // isArchived is a type check against ArchivedPkg, so the mock has to be of that type.
         val pkg = mockk<ArchivedPkg>().apply {
             every { id } returns pkgId
             every { packageName } returns pkgName
             every { label } returns pkgName.toCaString()
-            every { userHandle } returns systemUserHandle
-            every { installId } returns InstallId(pkgId, systemUserHandle)
+            every { userHandle } returns forUser
+            every { installId } returns InstallId(pkgId, forUser)
         }
         return AppInfo(
             pkg = pkg,
@@ -81,13 +82,13 @@ class RestorerTest : BaseTest() {
         )
     }
 
-    private fun restoredPkg(pkgName: String): Installed {
+    private fun restoredPkg(pkgName: String, forUser: UserHandle2 = systemUserHandle): Installed {
         val pkgId = Pkg.Id(pkgName)
         return mockk<Installed>().apply {
             every { id } returns pkgId
             every { packageName } returns pkgName
-            every { userHandle } returns systemUserHandle
-            every { installId } returns InstallId(pkgId, systemUserHandle)
+            every { userHandle } returns forUser
+            every { installId } returns InstallId(pkgId, forUser)
         }
     }
 
@@ -95,6 +96,7 @@ class RestorerTest : BaseTest() {
         val restorer: Restorer,
         val automation: AutomationSubmitter,
         val unarchiveManager: UnarchiveManager,
+        val pkgRepo: PkgRepo,
     )
 
     private fun setupRestorer(
@@ -156,7 +158,12 @@ class RestorerTest : BaseTest() {
             rootManager = rootManager,
             adbManager = adbManager,
         )
-        return Setup(restorer = restorer, automation = automation, unarchiveManager = unarchiveManager)
+        return Setup(
+            restorer = restorer,
+            automation = automation,
+            unarchiveManager = unarchiveManager,
+            pkgRepo = pkgRepo,
+        )
     }
 
     private fun unarchiveFailure() = UnarchiveManager.UnarchiveResult(
@@ -263,5 +270,32 @@ class RestorerTest : BaseTest() {
         setup.restorer.restore(target)
 
         coVerify(exactly = 0) { setup.automation.submit(any()) }
+    }
+
+    @Test
+    fun `a restore for the current user waits reactively`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = systemUserHandle)
+        val setup = setupRestorer(
+            unarchiveResult = unarchiveSuccess(),
+            restoredPkgs = setOf(restoredPkg("eu.thlab.target", forUser = systemUserHandle)),
+        )
+
+        setup.restorer.restore(target)
+
+        // refresh() only happens inside the polling branch
+        coVerify(exactly = 0) { setup.pkgRepo.refresh() }
+    }
+
+    @Test
+    fun `a restore for another user polls`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = secondaryUserHandle)
+        val setup = setupRestorer(
+            unarchiveResult = unarchiveSuccess(),
+            restoredPkgs = setOf(restoredPkg("eu.thlab.target", forUser = secondaryUserHandle)),
+        )
+
+        setup.restorer.restore(target)
+
+        coVerify(atLeast = 1) { setup.pkgRepo.refresh() }
     }
 }
