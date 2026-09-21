@@ -140,10 +140,11 @@ class Restorer @Inject constructor(
         log(TAG) { "Using Automation to restore ${app.installId}" }
         val task = RestoreAutomationTask(listOf(app.installId))
         val result = automation.submit(task) as RestoreAutomationTask.Result
-        if (result.failed.contains(app.installId)) {
+        result.failed[app.installId]?.let {
             throw RestoreException(
                 message = "Automation failed to restore app",
                 installId = app.installId,
+                cause = it,
             )
         }
     }

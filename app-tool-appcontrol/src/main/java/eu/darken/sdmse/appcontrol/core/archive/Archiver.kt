@@ -100,10 +100,11 @@ class Archiver @Inject constructor(
                 log(TAG) { "Using Automation to archive ${app.installId}" }
                 val task = ArchiveAutomationTask(listOf(app.installId))
                 val result = automation.submit(task) as ArchiveAutomationTask.Result
-                if (result.failed.contains(app.installId)) {
+                result.failed[app.installId]?.let {
                     throw ArchiveException(
                         message = "Automation failed to archive app",
                         installId = app.installId,
+                        cause = it,
                     )
                 }
             }
