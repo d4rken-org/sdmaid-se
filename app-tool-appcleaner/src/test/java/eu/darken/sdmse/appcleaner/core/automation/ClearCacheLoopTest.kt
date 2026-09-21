@@ -172,7 +172,7 @@ class ClearCacheLoopTest : BaseTest() {
 
         cleared shouldContainExactly attempted
         resolveRequests shouldContainExactly attempted
-        result.failed.keys shouldContainExactly attempted
+        result.failed.keys.toList() shouldContainExactly attempted
         result.successful.shouldBeEmpty()
         result.cancelledByUser shouldBe false
     }
