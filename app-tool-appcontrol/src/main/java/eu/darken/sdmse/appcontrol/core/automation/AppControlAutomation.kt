@@ -27,9 +27,7 @@ import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationReturnHelper
 import eu.darken.sdmse.automation.core.AutomationTask
-import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
-import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
-import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
+import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -37,10 +35,8 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -51,10 +47,8 @@ import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
-import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
@@ -154,93 +148,31 @@ class AppControlAutomation @AssistedInject constructor(
     private suspend fun processForceStop(task: ForceStopAutomationTask): ForceStopAutomationTask.Result {
         labelDebugger.logAllLabels()
 
-        val successful = mutableSetOf<InstallId>()
-        val failed = mutableSetOf<InstallId>()
-
         updateProgressCount(Progress.Count.Percent(task.targets.size))
 
-        var cancelledByUser = false
-        val currentUserHandle = userManager2.currentUser().handle
+        var result: AutomationLoopResult? = null
         try {
-            for (target in task.targets) {
-                if (target.userHandle != currentUserHandle) {
-                    throw UnsupportedOperationException("ACS based force-stop is not support for other users ($target)")
-                }
-
-                if (!task.allowOffLimits && ForceStopAutomationTask.OFF_LIMIT_PKGS.contains(target.pkgId)) {
-                    log(TAG, WARN) { "Skipping $target: force-stopping it would break accessibility automation" }
-                    failed.add(target)
-                    continue
-                }
-
-                val installed = pkgRepo.get(target.pkgId, target.userHandle)
-
-                if (installed == null) {
-                    log(TAG, WARN) { "$target is not in package repo" }
-                    failed.add(target)
-                    continue
-                }
-
-                log(TAG) { "Force stopping $installed" }
-                updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
-
-                try {
-                    processSpecForPkg(installed)
-                    log(TAG, INFO) { "Successfully force-stopped $target" }
-                    successful.add(target)
-                } catch (e: Exception) {
-                    when {
-                        e is InvalidSystemStateException -> {
-                            log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
-                            throw e
-                        }
-
-                        e is AutomationTimeoutException -> {
-                            log(TAG, WARN) { "Timeout while processing $installed: $e" }
-                            failed.add(target)
-                        }
-
-                        e is AutomationOverlayException -> {
-                            log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                            throw e
-                        }
-
-                        e is UnsupportedOperationException -> {
-                            log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
-                            throw e
-                        }
-
-                        e is CancellationException -> {
-                            log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                            updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                            updateProgressSecondary(CaString.EMPTY)
-                            updateProgressCount(Progress.Count.Indeterminate())
-                            if (e is UserCancelledAutomationException) {
-                                log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                                cancelledByUser = true
-                                break
-                            } else {
-                                throw e
-                            }
-                        }
-
-                        else -> {
-                            log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                            failed.add(target)
-                        }
-                    }
-                } finally {
-                    updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
-                }
-            }
+            result = automateEachTarget(
+                targets = task.targets,
+                currentUserHandle = userManager2.currentUser().handle,
+                actionLabel = "Force stopping",
+                unsupportedForOtherUsers = "ACS based force-stop is not supported for other users",
+                offLimitPkgs = when {
+                    task.allowOffLimits -> emptySet()
+                    else -> ForceStopAutomationTask.OFF_LIMIT_PKGS
+                },
+                resolveOne = { pkgRepo.get(it.pkgId, it.userHandle) },
+                processOne = { processSpecForPkg(it) },
+            )
         } finally {
+            val userCancelled = result?.cancelledByUser ?: false
             // Run cleanup even when cancelled, otherwise a user cancel skips the back-navigation
             // and leaves the user stranded on the system settings screen.
             withContext(NonCancellable) {
                 delay(250)
 
                 finishAutomation(
-                    userCancelled = cancelledByUser,
+                    userCancelled = userCancelled,
                     returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
                     deviceDetective = deviceDetective,
                 )
@@ -249,11 +181,16 @@ class AppControlAutomation @AssistedInject constructor(
 
         // Make the "user cancel => full stop" contract explicit instead of relying on the
         // cancelled job tripping a suspension point above.
-        if (cancelledByUser) throw UserCancelledAutomationException()
+        if (result.cancelledByUser) throw UserCancelledAutomationException()
+
+        if (result.gaveUp) {
+            log(TAG, ERROR) { "Force-stop kept failing, possible compatibility issue?" }
+            throw AutomationCompatibilityException()
+        }
 
         return ForceStopAutomationTask.Result(
-            successful = successful,
-            failed = failed,
+            successful = result.successful,
+            failed = result.failed.keys,
         )
     }
 
@@ -294,94 +231,42 @@ class AppControlAutomation @AssistedInject constructor(
     private suspend fun processOperation(
         targets: List<InstallId>,
         operation: Operation,
-    ): Pair<Set<InstallId>, Set<InstallId>> {
+    ): Pair<Set<InstallId>, Map<InstallId, Exception>> {
         labelDebugger.logAllLabels()
 
-        val successful = mutableSetOf<InstallId>()
-        val failed = mutableSetOf<InstallId>()
         val operationName = operation.name.lowercase()
 
         updateProgressCount(Progress.Count.Percent(targets.size))
 
-        var cancelledByUser = false
-        val currentUserHandle = userManager2.currentUser().handle
+        var result: AutomationLoopResult? = null
         try {
-            for (target in targets) {
-                if (target.userHandle != currentUserHandle) {
-                    throw UnsupportedOperationException("${operation.unsupportedMessage} ($target)")
-                }
-
-                val installed = pkgRepo.get(target.pkgId, target.userHandle)
-
-                if (installed == null) {
-                    log(TAG, WARN) { "$target is not in package repo" }
-                    failed.add(target)
-                    continue
-                }
-
-                log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }}ing $installed" }
-                updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
-
-                try {
-                    processOperationSpecForPkg(installed, operation)
-                    log(TAG, INFO) { "Successfully ${operationName}d $target" }
-                    successful.add(target)
-                } catch (e: Exception) {
-                    when {
-                        e is InvalidSystemStateException -> {
-                            log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
-                            throw e
-                        }
-
-                        e is AutomationTimeoutException -> {
-                            log(TAG, WARN) { "Timeout while processing $installed: $e" }
-                            failed.add(target)
-                        }
-
-                        e is AutomationOverlayException -> {
-                            log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                            throw e
-                        }
-
-                        e is UnsupportedOperationException -> {
-                            log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
-                            throw e
-                        }
-
-                        e is CancellationException -> {
-                            log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                            updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                            updateProgressSecondary(CaString.EMPTY)
-                            updateProgressCount(Progress.Count.Indeterminate())
-                            if (e is UserCancelledAutomationException) {
-                                log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                                cancelledByUser = true
-                                break
-                            } else {
-                                throw e
-                            }
-                        }
-
-                        else -> {
-                            log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                            failed.add(target)
-                        }
-                    }
-                } finally {
-                    updateProgressCount(Progress.Count.Percent(targets.indexOf(target), targets.size))
-                }
-            }
-        } finally {
-            delay(250)
-
-            finishAutomation(
-                userCancelled = cancelledByUser,
-            returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
-                deviceDetective = deviceDetective,
+            result = automateEachTarget(
+                targets = targets,
+                currentUserHandle = userManager2.currentUser().handle,
+                actionLabel = "${operationName.replaceFirstChar { it.uppercase() }}ing",
+                unsupportedForOtherUsers = operation.unsupportedMessage,
+                resolveOne = { pkgRepo.get(it.pkgId, it.userHandle) },
+                processOne = { processOperationSpecForPkg(it, operation) },
             )
+        } finally {
+            val userCancelled = result?.cancelledByUser ?: false
+            withContext(NonCancellable) {
+                delay(250)
+
+                finishAutomation(
+                    userCancelled = userCancelled,
+                    returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
+                    deviceDetective = deviceDetective,
+                )
+            }
         }
 
-        return successful to failed
+        if (result.gaveUp) {
+            log(TAG, ERROR) { "The $operationName automation kept failing, possible compatibility issue?" }
+            throw AutomationCompatibilityException()
+        }
+
+        return result.successful to result.failed
     }
 
     private suspend fun processOperationSpecForPkg(pkg: Installed, operation: Operation) {
