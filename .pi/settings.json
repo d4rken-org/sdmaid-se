@@ -1,0 +1,20 @@
+{
+  "packages": [
+    {
+      "source": "git:github.com/d4rken/clanker-cafe",
+      "autoload": false,
+      "skills": [
+        "plugins/support/pi/skills/*",
+        "plugins/google-play/pi/skills/*",
+        "plugins/debugbadger/pi/skills/*",
+        "plugins/android-translation/pi/skills/*"
+      ],
+      "extensions": [
+        "plugins/support/pi/extensions/*",
+        "plugins/google-play/pi/extensions/*",
+        "plugins/debugbadger/pi/extensions/*",
+        "plugins/android-translation/pi/extensions/*"
+      ]
+    }
+  ]
+}
