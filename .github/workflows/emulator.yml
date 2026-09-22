@@ -1,0 +1,65 @@
+name: Emulator tests
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  instrumented-tests:
+    name: Instrumented tests (API ${{ matrix.api }})
+    strategy:
+      fail-fast: false
+      matrix:
+        api: [ 28, 36 ]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Install emulator SDK packages
+        run: >
+          python3 tools/ci/install-sdk.py
+          'platform-tools'
+          'platforms;android-${{ matrix.api }}'
+          'emulator'
+          'system-images;android-${{ matrix.api }};google_apis;x86_64'
+
+      - name: Run instrumented tests
+        uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d #v2.38.0
+        with:
+          api-level: ${{ matrix.api }}
+          target: google_apis
+          arch: x86_64
+          profile: pixel_2
+          avd-name: sdmse-emu-ci-api${{ matrix.api }}
+          sdcard-path-or-size: 512M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
+          script: ANDROID_SERIAL=emulator-5554 ./gradlew :app-common-io:connectedDebugAndroidTest
+
+      - name: Upload test results
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
+        if: always()
+        with:
+          name: test-results-emulator-api-${{ matrix.api }}
+          path: |
+            app-common-io/build/outputs/androidTest-results/connected/debug/
+            app-common-io/build/reports/androidTests/connected/debug/
+          retention-days: 1
