@@ -7,7 +7,8 @@ import android.util.Log
 internal val deviceIdentity: String
     get() = "SDK_INT=${Build.VERSION.SDK_INT} fingerprint=${Build.FINGERPRINT}"
 
-internal fun clue(detail: String): String = "$deviceIdentity | $detail"
+/** Every observation is logged on every run, so a green run keeps its evidence. */
+internal fun clue(detail: String): String = "$deviceIdentity | $detail".also { Log.i("SDMSEPROBE", "observed: $it") }
 
 /**
  * A level this lane never ran on must fail loudly. Silently skipping is the regression these tests exist to prevent.
