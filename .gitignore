@@ -35,7 +35,7 @@ _site/
 .jekyll-cache/
 vendor/bundle/
 
-# The CI tooling in tools/ is the only Python in the tree; running its unit tests writes these.
+# Python bytecode caches, written whenever the tools/ci unit tests run.
 __pycache__/
 *.pyc
 

@@ -194,7 +194,7 @@ advanceUntilIdle()
 
 ## Instrumented Tests (`androidTest`)
 
-One thing in this repo actually needs a device. Everything else belongs in `src/test`.
+New tests default to `src/test`. The case below is the one this repo has found that genuinely needs a device; the `app` module's existing instrumentation harness (`BaseTestInstrumentation`, `BaseUITest`, listed above) stays where it is.
 
 ### The case that needs a device: reflection over hidden framework internals
 
