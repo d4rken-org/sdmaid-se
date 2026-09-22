@@ -39,7 +39,7 @@ class StorageVolumeXTest {
     )
 
     private val volumes: List<Pair<StorageVolume, StorageVolumeX>>
-        get() = storageManager.storageVolumes.map { it to StorageVolumeX(it) }
+        get() = storageManager.storageVolumes.zip(storageManager2.storageVolumes)
 
     private val primary: Pair<StorageVolume, StorageVolumeX>
         get() = volumes.single { it.second.isPrimary }
@@ -52,6 +52,11 @@ class StorageVolumeXTest {
 
     @Test
     fun fixtureHasPrimaryAndSdCard() {
+        storageManager2.storageVolumes.size shouldBe storageManager.storageVolumes.size
+        volumes.forEach { (raw, wrapped) ->
+            wrapped.uuid shouldBe raw.uuid
+            wrapped.isPrimary shouldBe raw.isPrimary
+        }
         val all = volumes.map { it.second }
         withClue(clue("volumes=$all")) {
             all.count { it.isPrimary && it.isEmulated } shouldBe 1
@@ -171,7 +176,7 @@ class StorageVolumeXTest {
     @Test
     fun primaryUrisAddressTheEmulatedRoot() {
         val wrapped = primary.second
-        withClue(clue("rootUri=${wrapped.rootUri}")) {
+        withClue(clue("rootUri=${wrapped.rootUri} documentUri=${wrapped.documentUri} treeUri=${wrapped.treeUri}")) {
             wrapped.rootUri.scheme shouldBe "content"
             wrapped.rootUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
             wrapped.rootUri.pathSegments shouldContainExactly listOf("root", "primary")
@@ -186,7 +191,7 @@ class StorageVolumeXTest {
     fun sdCardUrisAddressTheVolumeUuid() {
         val wrapped = sdCard.second
         val uuid = wrapped.uuid.shouldNotBeNull()
-        withClue(clue("rootUri=${wrapped.rootUri}")) {
+        withClue(clue("rootUri=${wrapped.rootUri} documentUri=${wrapped.documentUri} treeUri=${wrapped.treeUri}")) {
             wrapped.rootUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
             wrapped.rootUri.pathSegments shouldContainExactly listOf("root", uuid)
             wrapped.documentUri.pathSegments shouldContainExactly listOf("document", uuid)

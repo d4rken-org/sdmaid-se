@@ -15,11 +15,12 @@ class InstrumentationEnvironmentTest {
     @Test
     fun testApkRunsAtAppTargetSdk() {
         withClue(
-            "Test APK no longer runs at the app's targetSdk ($EXPECTED_TARGET_SDK); it fell back to " +
-                "an AGP default (compileSdk, or minSdk on older AGP). Hidden-API enforcement is keyed " +
-                "on the calling app's targetSdk, so reflection results measured here no longer " +
-                "represent what the shipped app sees. Check " +
-                "`testOptions { targetSdk = projectConfig.targetSdk }` in app-common-io/build.gradle.kts."
+            "Test APK does not run at the expected targetSdk ($EXPECTED_TARGET_SDK). If " +
+                "ProjectConfig.targetSdk was bumped, update EXPECTED_TARGET_SDK in this file and add the " +
+                "new level to the `api` matrix in .github/workflows/emulator.yml. Otherwise the test APK " +
+                "fell back to an AGP default, so check " +
+                "`testOptions { targetSdk = projectConfig.targetSdk }` in app-common-io/build.gradle.kts: " +
+                "hidden-API results are only representative at the app's own target."
         ) {
             targetContext.applicationInfo.targetSdkVersion shouldBe EXPECTED_TARGET_SDK
         }

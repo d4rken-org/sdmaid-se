@@ -62,7 +62,12 @@ class VolumeInfoXTest {
     @Test
     fun everyVolumeIsUsable() {
         rawVolumes.map { it to VolumeInfoX(it) }.forEach { (raw, wrapped) ->
-            withClue(clue("volume=$wrapped")) {
+            withClue(
+                clue(
+                    "volume id=${wrapped.id} type=${wrapped.type} state=${wrapped.state} path=${wrapped.path} " +
+                        "mountUserId=${wrapped.mountUserId} isPrimary=${wrapped.isPrimary}"
+                )
+            ) {
                 wrapped.id.shouldNotBeNull() shouldBe (raw.probe("getId") as ProbeResult.Returned).value
                 wrapped.type.shouldNotBeNull() shouldBe (raw.probe("getType") as ProbeResult.Returned).value
                 wrapped.state.shouldNotBeNull() shouldBe (raw.probe("getState") as ProbeResult.Returned).value
@@ -98,7 +103,7 @@ class VolumeInfoXTest {
      */
     @Test
     fun emulatedVolumeIdentityIsLevelDependent() {
-        withClue(clue("emulated=$emulated mountUserId=${emulated.mountUserId}")) {
+        withClue(clue("emulated id=${emulated.id} mountUserId=${emulated.mountUserId} isRemovable=${emulated.isRemovable}")) {
             when {
                 Build.VERSION.SDK_INT >= 36 -> {
                     emulated.id shouldBe "emulated;0"
@@ -139,16 +144,18 @@ class VolumeInfoXTest {
         }
     }
 
-    /**
-     * The fixture is an SD card, so `isSd` is the true predicate. `PortableModule.secondPass` selects portable
-     * candidates on `disk.isUsb == true`, which means this fixture deliberately does not reach that consumer.
-     */
+    /** The fixture is an SD card, so `isSd` is the true predicate. */
     @Test
     fun backingDiskIsAnSdCard() {
         val raw = rawVolumes.map { it to VolumeInfoX(it) }.first { it.second.disk != null }
         val rawDisk = (raw.first.probe("getDisk") as ProbeResult.Returned).value.shouldNotBeNull()
         val disk = raw.second.disk.shouldNotBeNull()
-        withClue(clue("disk=$disk")) {
+        withClue(
+            clue(
+                "disk id=${disk.id} isSd=${disk.isSd} isUsb=${disk.isUsb} isAdoptable=${disk.isAdoptable} " +
+                    "isDefaultPrimary=${disk.isDefaultPrimary}"
+            )
+        ) {
             disk.id.shouldNotBeNull() shouldBe (rawDisk.probe("getId") as ProbeResult.Returned).value
             disk.description.shouldNotBeNull()
             disk.isSd shouldBe true
