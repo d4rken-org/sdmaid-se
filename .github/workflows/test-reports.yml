@@ -2,7 +2,7 @@ name: Test Reports
 
 on:
   workflow_run:
-    workflows: ['Code tests & eval']
+    workflows: ['Code tests & eval', 'Emulator tests']
     types:
       - completed
 
@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Test Report - FOSS Debug
         uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2 #v3.0.0
-        if: always()
+        if: always() && github.event.workflow_run.name == 'Code tests & eval'
         with:
           name: 'Unit Tests - testFoss Debug'
           artifact: test-results-testFoss-Debug
@@ -32,10 +32,36 @@ jobs:
 
       - name: Test Report - GPlay Debug
         uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2 #v3.0.0
-        if: always()
+        if: always() && github.event.workflow_run.name == 'Code tests & eval'
         with:
           name: 'Unit Tests - testGplay Debug'
           artifact: test-results-testGplay-Debug
+          path: '**/*.xml'
+          reporter: java-junit
+          fail-on-error: false
+          list-suites: 'failed'
+          list-tests: 'failed'
+          max-annotations: 10
+
+      - name: Test Report - Emulator API 28
+        uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2 #v3.0.0
+        if: always() && github.event.workflow_run.name == 'Emulator tests'
+        with:
+          name: 'Instrumented Tests - API 28'
+          artifact: test-results-emulator-api-28
+          path: '**/*.xml'
+          reporter: java-junit
+          fail-on-error: false
+          list-suites: 'failed'
+          list-tests: 'failed'
+          max-annotations: 10
+
+      - name: Test Report - Emulator API 36
+        uses: dorny/test-reporter@a43b3a5f7366b97d083190328d2c652e1a8b6aa2 #v3.0.0
+        if: always() && github.event.workflow_run.name == 'Emulator tests'
+        with:
+          name: 'Instrumented Tests - API 36'
+          artifact: test-results-emulator-api-36
           path: '**/*.xml'
           reporter: java-junit
           fail-on-error: false
