@@ -24,6 +24,12 @@ android {
 
 
     testOptions {
+        // Left unset, a library's test APK inherits compileSdk (AGP 9's
+        // android.sdk.defaultTargetSdkToCompileSdkIfUnset). Hidden-API enforcement is keyed on the
+        // caller's targetSdk, so the storage reflection tests have to run at the app's target, not
+        // at whatever compileSdk is bumped to next.
+        targetSdk = projectConfig.targetSdk
+
         unitTests {
             isIncludeAndroidResources = true
         }
