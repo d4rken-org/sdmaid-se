@@ -138,3 +138,14 @@ jobs:
         run: bats tools/release/bump.bats
       - name: Live consistency check
         run: bash tools/release/bump.sh --mode=check
+
+  check-ci-tooling:
+    name: CI tooling
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+      - name: Run CI tooling unit tests
+        run: python3 -m unittest discover -s tools/ci -p 'test_*.py'
