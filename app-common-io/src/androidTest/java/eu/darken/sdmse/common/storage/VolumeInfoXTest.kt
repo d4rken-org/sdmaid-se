@@ -98,23 +98,21 @@ class VolumeInfoXTest {
 
     /**
      * The emulated volume is mounted per user from some level above 28, which renames it from "emulated" to
-     * "emulated;<userId>". [VolumeInfoX.isRemovable] compares against the old id only, so internal shared storage
-     * reports itself as removable wherever the per-user id is used. Pinned as observed, not as intended.
+     * "emulated;<userId>". [VolumeInfoX.isRemovable] has to treat both as internal shared storage.
      */
     @Test
     fun emulatedVolumeIdentityIsLevelDependent() {
         withClue(clue("emulated id=${emulated.id} mountUserId=${emulated.mountUserId} isRemovable=${emulated.isRemovable}")) {
+            emulated.isRemovable shouldBe false
             when {
                 Build.VERSION.SDK_INT >= 36 -> {
                     emulated.id shouldBe "emulated;0"
                     emulated.mountUserId shouldBe 0
-                    emulated.isRemovable shouldBe true
                 }
 
                 Build.VERSION.SDK_INT <= 28 -> {
                     emulated.id shouldBe "emulated"
                     emulated.mountUserId shouldBe -1
-                    emulated.isRemovable shouldBe false
                 }
 
                 else -> unpinnedSdk("VolumeInfoX emulated volume identity")

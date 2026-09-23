@@ -44,7 +44,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
 
     val isRemovable: Boolean
         get() = when (val type = type) {
-            TYPE_EMULATED -> id != ID_EMULATED_INTERNAL
+            TYPE_EMULATED -> id?.let { it.substringBefore(';') != ID_EMULATED_INTERNAL } ?: false
             else -> type == TYPE_PUBLIC
         }
 
@@ -132,7 +132,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         try {
             volumeInfoClass.getMethod("getFsUuid")
         } catch (e: Exception) {
-            log(TAG, WARN) { "Reflection failed: volumeInfoClass.getMethod(\"getId\"): ${e.asLog()}" }
+            log(TAG, WARN) { "Reflection failed: volumeInfoClass.getMethod(\"getFsUuid\"): ${e.asLog()}" }
             null
         }
     }
@@ -217,7 +217,7 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
         const val STATE_BAD_REMOVAL = 8
 
         /**
-         * Real volume representing internal emulated storage
+         * Real volume representing internal emulated storage, "emulated" or per user as "emulated;0"
          */
         private const val ID_EMULATED_INTERNAL = "emulated"
 
