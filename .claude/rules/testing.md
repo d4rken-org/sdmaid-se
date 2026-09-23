@@ -16,7 +16,7 @@ paths:
 ## What to Test
 
 - Write tests for web APIs and serialized data
-- `androidTest` instrumentation is slow and needs a device: default to the JVM and write one only for the case described under "Instrumented Tests" below
+- `androidTest` instrumentation is slow and needs a device: default to the JVM and write one only for the cases described under "Instrumented Tests" below
 - JVM-runnable Compose UI tests are acceptable when they catch behavior that JVM unit tests can't (route decoding, sheet/back interaction, selection-mode top bar transitions). **Extend `BaseComposeRobolectricTest`** (don't reinvent the `@RunWith` / `@Config` / `createComposeRule()` preamble). Drive the **internal `Screen` composable** with a mock `MutableStateFlow`, never the Hilt-injected Host — that keeps the test JVM-only and free of `HiltAndroidRule`.
 
 ## Base Test Classes
@@ -194,7 +194,7 @@ advanceUntilIdle()
 
 ## Instrumented Tests (`androidTest`)
 
-New tests default to `src/test`. The case below is the one this repo has found that genuinely needs a device; the `app` module's existing instrumentation harness (`BaseTestInstrumentation`, `BaseUITest`, listed above) stays where it is.
+New tests default to `src/test`. The cases below are the ones this repo has found that genuinely need a device.
 
 ### The case that needs a device: reflection over hidden framework internals
 
@@ -209,6 +209,23 @@ question.
 Worked example: `app-common-io/src/androidTest/java/eu/darken/sdmse/common/storage/`. `StorageVolumeXTest`
 and `VolumeInfoXTest` probe each member directly via `ReflectionProbe.kt` and assert the wrapper agrees
 with the probe, so a member going out of reach surfaces as a named failure instead of a null.
+
+### The case that needs a device: app flows through the real app
+
+The Robolectric screen tests drive each internal `Screen` composable with mock state, so nothing on the JVM
+starts the real Hilt graph, navigates from `MainActivity`, or sees real permission state. `app`'s
+`androidTest` covers exactly that: launch `MainActivity` with `ActivityScenario` and drive it through
+`createEmptyComposeRule()`. Worked example: `app/src/androidTest/java/eu/darken/sdmse/main/ui/onboarding/OnboardingFlowTest.kt`.
+
+- These run against the production `App`, not `HiltTestApplication`: the manifest removes WorkManager's
+  initializer, so the graph cannot be built without `App` acting as the `Configuration.Provider`. There is
+  no `@HiltAndroidTest` / `@TestInstallIn` in this module.
+- The Test Orchestrator runs each test in its own process with `clearPackageData`, so every test starts as
+  a fresh install. Files a test writes to shared storage survive that; clean them up in the test.
+- Only `:app:connectedFossDebugAndroidTest` runs in CI. Anything flavor-specific in a flow (GPlay has no
+  update check, for example) has to be branched on `BuildConfigWrap.FLAVOR`.
+- Match screens by their string resources, and wait with `composeRule.waitUntil` rather than assuming a
+  screen is already there: first-launch work and navigation are asynchronous.
 
 ### Room migrations do not need a device
 
@@ -228,7 +245,7 @@ running APK's target at runtime, so a lost pin fails there instead of quietly ch
 
 ### The API matrix is a maintenance obligation
 
-`.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest` on API 28 and 36, and can
+`.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest` and `:app:connectedFossDebugAndroidTest` on API 28 and 36, and can
 only catch a regression on a level it actually runs. When `compileSdk` / `targetSdk` moves
 (`buildSrc/src/main/java/ProjectConfigPlugin.kt`), add the new level to that matrix. The storage assertions
 are keyed on SDK *ranges* and call `unpinnedSdk(...)` for anything outside them, so a level nobody has
@@ -238,6 +255,7 @@ observed fails loudly rather than skipping - the new level announces itself on f
 
 ```bash
 ANDROID_SERIAL=<serial> ./gradlew :app-common-io:connectedDebugAndroidTest
+ANDROID_SERIAL=<serial> ./gradlew :app:connectedFossDebugAndroidTest
 ```
 
 Scope it to one device. Unscoped, `connectedDebugAndroidTest` runs against every attached device, and
