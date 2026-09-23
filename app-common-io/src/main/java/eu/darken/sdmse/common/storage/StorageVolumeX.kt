@@ -82,8 +82,8 @@ class StorageVolumeX(
             methodGetPath?.invoke(volumeObj) as? String
         } catch (e: ReflectiveOperationException) {
             log(TAG) { "StorageVolume.path reflection failed." }
-            directory?.path
-        }
+            null
+        } ?: directory?.path
 
     @IgnoredOnParcel
     private val methodGetPathFile: Method? by lazy {
@@ -144,7 +144,7 @@ class StorageVolumeX(
         try {
             volumeClass.getMethod("getOwner")
         } catch (e: Exception) {
-            log(TAG) { " volumeClass.getMethod(\"getDescription\", Context::class.java)" }
+            log(TAG) { "volumeClass.getMethod(\"getOwner\")" }
             null
         }
     }
@@ -169,27 +169,34 @@ class StorageVolumeX(
 //        }
     }
 
-    val rootUri: Uri
+    /**
+     * Null for a non-emulated volume without a filesystem UUID, which has no SAF root to address.
+     */
+    val rootUri: Uri?
         @Suppress("DEPRECATION")
         @SuppressLint("NewApi")
-        get() = if (hasApiLevel(29)) {
-            volume.createOpenDocumentTreeIntent().getParcelableExtra(DocumentsContract.EXTRA_INITIAL_URI)!!
-        } else {
-            DocumentsContract.buildRootUri(
-                EXTERNAL_STORAGE_PROVIDER_AUTHORITY,
-                if (isEmulated) EXTERNAL_STORAGE_PRIMARY_EMULATED_ROOT_ID else uuid!!
-            )
+        get() {
+            val rootId = if (isEmulated) EXTERNAL_STORAGE_PRIMARY_EMULATED_ROOT_ID else uuid ?: return null
+            return if (hasApiLevel(29)) {
+                volume.createOpenDocumentTreeIntent().getParcelableExtra(DocumentsContract.EXTRA_INITIAL_URI)
+            } else {
+                DocumentsContract.buildRootUri(EXTERNAL_STORAGE_PROVIDER_AUTHORITY, rootId)
+            }
         }
 
-    val documentUri: Uri
-        get() = rootUri.toString()
-            .replace("/root/", "/document/")
-            .toUri()
+    val documentUri: Uri?
+        get() = rootUri?.let {
+            it.toString()
+                .replace("/root/", "/document/")
+                .toUri()
+        }
 
-    val treeUri: Uri
-        get() = rootUri.toString()
-            .replace("/root/", "/tree/")
-            .toUri()
+    val treeUri: Uri?
+        get() = rootUri?.let {
+            it.toString()
+                .replace("/root/", "/tree/")
+                .toUri()
+        }
 
 
     val directory: File?

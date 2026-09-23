@@ -35,7 +35,7 @@ class PathMapperTest : BaseTest() {
     private val primaryTreeUri = "content://com.android.externalstorage.documents/tree/primary%3A".toUri()
     private val sdcardTreeUri = "content://com.android.externalstorage.documents/tree/1234-5678%3A".toUri()
 
-    private fun volume(directory: String?, treeUri: Uri) = mockk<StorageVolumeX> {
+    private fun volume(directory: String?, treeUri: Uri?) = mockk<StorageVolumeX> {
         every { this@mockk.directory } returns directory?.let { File(it) }
         every { this@mockk.treeUri } returns treeUri
     }
@@ -151,6 +151,21 @@ class PathMapperTest : BaseTest() {
             SAFPath.build(primaryTreeUri, "Music")
     }
 
+    @Test fun `a volume without a SAF root does not map`() = runTest2 {
+        val mapper = mapper(volume("/storage/1234-5678", null))
+
+        mapper.toSAFPath(LocalPath.build("/storage/1234-5678/Music")) shouldBe null
+    }
+
+    @Test fun `a volume without a SAF root is not covered by its parent volume`() = runTest2 {
+        val mapper = mapper(
+            volume("/storage/emulated", sdcardTreeUri),
+            volume("/storage/emulated/0", null),
+        )
+
+        mapper.toSAFPath(LocalPath.build("/storage/emulated/0/Music")) shouldBe null
+    }
+
     @Test fun `a SAF path maps back to the volume directory plus its segments`() = runTest2 {
         val mapper = mapper(volume("/storage/emulated/0", primaryTreeUri))
 
@@ -168,6 +183,15 @@ class PathMapperTest : BaseTest() {
         val mapper = mapper(volume("/storage/emulated/0", primaryTreeUri))
 
         mapper.toLocalPath(SAFPath.build(sdcardTreeUri, "Music")) shouldBe null
+    }
+
+    @Test fun `a volume without a SAF root does not stop mapping back`() = runTest2 {
+        val mapper = mapper(
+            volume("/storage/1234-5678", null),
+            volume("/storage/emulated/0", primaryTreeUri),
+        )
+
+        mapper.toLocalPath(SAFPath.build(primaryTreeUri, "Music")) shouldBe LocalPath.build("/storage/emulated/0/Music")
     }
 
     @Test fun `a failing volume listing does not map back`() = runTest2 {

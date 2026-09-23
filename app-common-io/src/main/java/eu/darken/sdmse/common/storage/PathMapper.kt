@@ -59,8 +59,13 @@ class PathMapper @Inject constructor(
                 return null
             }
 
+            val treeUri = osStorage.treeUri ?: run {
+                log(TAG, WARN) { "$osStorage has no SAF root, can't map $localPath" }
+                return null
+            }
+
             SAFPath.build(
-                base = osStorage.treeUri,
+                base = treeUri,
                 segs = segments.toTypedArray(),
             ).also {
                 log(TAG, VERBOSE) { "toSAFPath() $localPath -> $it" }
