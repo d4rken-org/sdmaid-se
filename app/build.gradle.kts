@@ -32,7 +32,8 @@ android {
         versionCode = projectConfig.version.code.toInt()
         versionName = projectConfig.version.name
 
-        testInstrumentationRunner = "eu.darken.sdmse.HiltTestRunner"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunnerArguments["clearPackageData"] = "true"
 
         buildConfigField("String", "PACKAGENAME", "\"${projectConfig.packageName}\"")
         buildConfigField("String", "GITSHA", "\"${commitHashProvider.get()}\"")
@@ -119,6 +120,7 @@ android {
     }
 
     testOptions {
+        execution = "ANDROIDX_TEST_ORCHESTRATOR"
         unitTests {
             isIncludeAndroidResources = true
         }
@@ -264,6 +266,8 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.4.2")
 
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
+    androidTestUtil("androidx.test:orchestrator:1.6.1")
+    androidTestUtil("androidx.test.services:test-services:1.6.0")
 
 
 

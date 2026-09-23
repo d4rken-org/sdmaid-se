@@ -55,7 +55,7 @@ jobs:
           sdcard-path-or-size: 512M
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
-          script: ANDROID_SERIAL=emulator-5554 ./gradlew :app-common-io:connectedDebugAndroidTest
+          script: ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-common-io:connectedDebugAndroidTest :app:connectedFossDebugAndroidTest
 
       - name: Upload test results
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
@@ -65,4 +65,6 @@ jobs:
           path: |
             app-common-io/build/outputs/androidTest-results/connected/debug/
             app-common-io/build/reports/androidTests/connected/debug/
+            app/build/outputs/androidTest-results/connected/
+            app/build/reports/androidTests/connected/
           retention-days: 1
