@@ -79,9 +79,7 @@ class StorageVolumeXTest {
             withClue(clue("getPath probe=$probe wrapper=${wrapped.path}")) {
                 probe.shouldBeInstanceOf<ProbeResult.Returned>()
                 wrapped.path shouldBe probe.value
-                // The `directory?.path` fallback in StorageVolumeX.path is dead code: methodGetPath swallows a
-                // failed lookup to null, so the safe call yields null instead of throwing into the catch block.
-                // It happens to be invisible here only because getPath() itself stays reachable.
+                // Pins the value StorageVolumeX.path falls back to once getPath() goes out of reach.
                 wrapped.path shouldBe wrapped.directory?.path
             }
         }
@@ -177,13 +175,16 @@ class StorageVolumeXTest {
     fun primaryUrisAddressTheEmulatedRoot() {
         val wrapped = primary.second
         withClue(clue("rootUri=${wrapped.rootUri} documentUri=${wrapped.documentUri} treeUri=${wrapped.treeUri}")) {
-            wrapped.rootUri.scheme shouldBe "content"
-            wrapped.rootUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
-            wrapped.rootUri.pathSegments shouldContainExactly listOf("root", "primary")
-            wrapped.documentUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
-            wrapped.documentUri.pathSegments shouldContainExactly listOf("document", "primary")
-            wrapped.treeUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
-            wrapped.treeUri.pathSegments shouldContainExactly listOf("tree", "primary")
+            val rootUri = wrapped.rootUri.shouldNotBeNull()
+            rootUri.scheme shouldBe "content"
+            rootUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
+            rootUri.pathSegments shouldContainExactly listOf("root", "primary")
+            val documentUri = wrapped.documentUri.shouldNotBeNull()
+            documentUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
+            documentUri.pathSegments shouldContainExactly listOf("document", "primary")
+            val treeUri = wrapped.treeUri.shouldNotBeNull()
+            treeUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
+            treeUri.pathSegments shouldContainExactly listOf("tree", "primary")
         }
     }
 
@@ -192,10 +193,11 @@ class StorageVolumeXTest {
         val wrapped = sdCard.second
         val uuid = wrapped.uuid.shouldNotBeNull()
         withClue(clue("rootUri=${wrapped.rootUri} documentUri=${wrapped.documentUri} treeUri=${wrapped.treeUri}")) {
-            wrapped.rootUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
-            wrapped.rootUri.pathSegments shouldContainExactly listOf("root", uuid)
-            wrapped.documentUri.pathSegments shouldContainExactly listOf("document", uuid)
-            wrapped.treeUri.pathSegments shouldContainExactly listOf("tree", uuid)
+            val rootUri = wrapped.rootUri.shouldNotBeNull()
+            rootUri.authority shouldBe EXTERNAL_STORAGE_AUTHORITY
+            rootUri.pathSegments shouldContainExactly listOf("root", uuid)
+            wrapped.documentUri.shouldNotBeNull().pathSegments shouldContainExactly listOf("document", uuid)
+            wrapped.treeUri.shouldNotBeNull().pathSegments shouldContainExactly listOf("tree", uuid)
         }
     }
 
