@@ -4,6 +4,8 @@ paths:
   - "**/src/androidTest/**"
   - "**/src/screenshotTest/**"
   - "app-common-test/**"
+  - ".github/workflows/emulator.yml"
+  - "tools/ci/**"
 ---
 
 # Testing Guidelines
@@ -242,7 +244,9 @@ ANDROID_SERIAL=<serial> ./gradlew :app-common-io:connectedDebugAndroidTest
 
 Scope it to one device. Unscoped, `connectedDebugAndroidTest` runs against every attached device, and
 contributors here usually have several. The AVD also needs an SD card (`sdcard-path-or-size: 512M` in the
-workflow) - the storage tests assert that a disk-backed volume exists and fail without one.
+workflow) - the storage tests assert that a disk-backed volume exists and fail without one. Use a system image
+at a level the matrix runs: on any other level the range-keyed storage tests fail through `unpinnedSdk(...)`
+by design.
 
 ## Pitfalls
 

@@ -24,6 +24,12 @@ CI lint `lintVitalFossRelease` / `lintVitalGplayRelease`.
 
 ## Pitfalls
 
+### Raising `compileSdk` / `targetSdk`
+
+Add the new level to the API matrix in `.github/workflows/emulator.yml` in the same change. The instrumented
+storage tests only catch hidden-API regressions on levels that matrix runs (see "Instrumented Tests" in
+`.claude/rules/testing.md`).
+
 ### Dependency Updates
 
 When updating Kotlin or other core dependencies:
