@@ -38,7 +38,7 @@ class OnboardingFlowTest : BaseUITest() {
     fun freshInstallWalksOnboardingIntoSetup() {
         ActivityScenario.launch(MainActivity::class.java).use {
             walkOnboarding()
-            awaitSetupCard(R.string.setup_root_card_title)
+            awaitOnboardingSetup()
         }
     }
 
@@ -46,7 +46,7 @@ class OnboardingFlowTest : BaseUITest() {
     fun completedOnboardingRelaunchesIntoDashboard() {
         ActivityScenario.launch(MainActivity::class.java).use {
             walkOnboarding()
-            awaitSetupCard(R.string.setup_root_card_title)
+            awaitOnboardingSetup()
         }
 
         ActivityScenario.launch(MainActivity::class.java).use {
@@ -59,9 +59,16 @@ class OnboardingFlowTest : BaseUITest() {
         awaitNode(hasText(str(R.string.onboarding_welcome_title)))
         composeRule.onNodeWithText(str(R.string.onboarding_welcome_continue_action)).performClick()
 
-        awaitNode(hasText(str(R.string.onboarding_privacy_title)))
+        val versus = hasText(str(R.string.onboarding_versus_title))
+        val privacy = hasText(str(R.string.onboarding_privacy_title))
+        awaitNode(versus or privacy)
         awaitGone(hasText(str(R.string.onboarding_welcome_title)))
-        // MOTD and update checks would reach the network from the dashboard.
+        if (composeRule.onAllNodes(versus).fetchSemanticsNodes().isNotEmpty()) {
+            composeRule.onNodeWithText(str(R.string.onboarding_versus_continue_action)).performClick()
+            awaitNode(privacy)
+            awaitGone(versus)
+        }
+        // Disable MOTD and update checks before entering the dashboard.
         switchOff(R.string.motd_setting_enabled_label)
         if (BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS) {
             switchOff(R.string.updatecheck_setting_enabled_label)
@@ -70,7 +77,7 @@ class OnboardingFlowTest : BaseUITest() {
 
         awaitNode(hasText(str(R.string.onboarding_setup_continue_action)))
         awaitGone(hasText(str(R.string.onboarding_privacy_title)))
-        // Tours would overlay Setup and Dashboard.
+        // Keep guided tours out of the flow under test.
         switchOff(R.string.onboarding_setup_tours_enabled_label)
         composeRule.onNodeWithText(str(R.string.onboarding_setup_continue_action)).performClick()
         awaitGone(hasText(str(R.string.onboarding_setup_continue_action)))
@@ -81,6 +88,11 @@ class OnboardingFlowTest : BaseUITest() {
         awaitNode(row)
         composeRule.onNode(row).performScrollTo().performClick()
         awaitNode(row and isOff())
+    }
+
+    private fun awaitOnboardingSetup() {
+        awaitSetupCard(R.string.setup_root_card_title)
+        awaitNode(hasContentDescription(str(CommonR.string.general_close_action)))
     }
 
     private fun awaitSetupCard(@StringRes title: Int) {

@@ -222,8 +222,10 @@ starts the real Hilt graph, navigates from `MainActivity`, or sees real permissi
 - These run against the production `App`, not `HiltTestApplication`: the manifest removes WorkManager's
   initializer, so the graph cannot be built without `App` acting as the `Configuration.Provider`. There is
   no `@HiltAndroidTest` / `@TestInstallIn` in this module.
-- The Test Orchestrator runs each test in its own process with `clearPackageData`, so every test starts as
-  a fresh install. Files a test writes to shared storage survive that; clean them up in the test.
+- The Test Orchestrator runs each test in its own process, and `clearPackageData` clears the app's data
+  after each test. Every test after the first starts as a fresh install; the first inherits whatever
+  `eu.darken.sdmse` data is already on the device. Files a test writes to shared storage survive the clear;
+  clean them up in the test.
 - Only `:app:connectedFossDebugAndroidTest` runs in CI. Anything flavor-specific in a flow (GPlay has no
   update check, for example) has to be branched on `BuildConfigWrap.FLAVOR`.
 - Match screens by their string resources, and wait with `composeRule.waitUntil` rather than assuming a
@@ -265,6 +267,9 @@ contributors here usually have several. The AVD also needs an SD card (`sdcard-p
 workflow) - the storage tests assert that a disk-backed volume exists and fail without one. Use a system image
 at a level the matrix runs: on any other level the range-keyed storage tests fail through `unpinnedSdk(...)`
 by design.
+
+Run the `:app` tests on a dedicated emulator. Debug builds use the release package name, so a run clears
+the data of an existing install on that device.
 
 ## Pitfalls
 
