@@ -9,6 +9,7 @@ on:
       - README.md
       - CHANGELOG.md
       - PRIVACY_POLICY.md
+      - SECURITY.md
       - CNAME
       - .github/workflows/pages.yml
   workflow_dispatch:
