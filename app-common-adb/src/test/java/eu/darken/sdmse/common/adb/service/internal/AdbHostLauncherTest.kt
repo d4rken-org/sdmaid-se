@@ -2,115 +2,96 @@ package eu.darken.sdmse.common.adb.service.internal
 
 import android.os.IBinder
 import android.os.IInterface
+import eu.darken.porter.sdk.UserServiceArgs
 import eu.darken.sdmse.common.adb.AdbConnectTimeoutException
 import eu.darken.sdmse.common.adb.AdbException
 import eu.darken.sdmse.common.adb.service.AdbHostOptions
-import io.kotest.assertions.throwables.shouldThrow
-import io.kotest.assertions.withClue
+import eu.darken.sdmse.common.adb.shizuku.AdbAvailability
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
+import eu.darken.sdmse.common.adb.shizuku.AdbLink
+import eu.darken.sdmse.common.adb.shizuku.PorterGateway
 import io.kotest.matchers.collections.shouldBeEmpty
+import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.collections.shouldContainInOrder
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.collections.shouldNotContain
-import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.mockk
 import kotlinx.coroutines.CompletableDeferred
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitCancellation
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.cancelAndJoin
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.consumeAsFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
-import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeoutOrNull
 import org.junit.jupiter.api.Test
 import testhelpers.coroutine.TestDispatcherProvider
-import java.util.concurrent.CountDownLatch
 import kotlin.reflect.KClass
-import kotlin.time.Duration.Companion.seconds
 
 /**
- * Unit coverage for [AdbHostLauncher.createConnection]'s teardown/orchestration. Shizuku is replaced
- * with a fake via the injectable seam (AdbHostLauncherSeam.kt).
+ * Unit coverage for [AdbHostLauncher.createConnection]'s orchestration and teardown, with the Porter
+ * SDK replaced by fakes of [PorterGateway]/[AdbLink] and the handshake by a fake seam.
  */
 class AdbHostLauncherTest {
 
     private val events = mutableListOf<String>()
 
-    private inner class FakeService(
-        val onUnbind: () -> Unit = {},
-        val onAwait: suspend () -> Unit = {},
-    ) : ShizukuUserService {
-        override fun bind() {
-            events += "bind"
-        }
+    private fun serviceConnected(): Flow<IBinder> = flow {
+        emit(mockk<IBinder>())
+        awaitCancellation()
+    }
 
-        override fun unbind() {
-            events += "unbind"
-            onUnbind()
-        }
+    private inner class FakeLink(
+        val name: String = "link",
+        val service: () -> Flow<IBinder> = { serviceConnected() },
+        val onStop: suspend () -> Unit = {},
+    ) : AdbLink {
+        override val backend: AdbBackend = AdbBackend.SHIZUKU
+        override val uid: Int = 2000
+        override val permission: Flow<Boolean> = flowOf(true)
+        override suspend fun checkPermission(): Boolean = true
+        override suspend fun requestPermission(): Boolean = true
 
-        override suspend fun awaitDisconnect() {
-            events += "awaitDisconnect"
-            onAwait()
+        override fun userService(args: UserServiceArgs): Flow<IBinder> = service()
+            .onStart { events += "$name:bind" }
+            .onCompletion { events += "$name:unbind" }
+
+        override suspend fun stopUserService(args: UserServiceArgs) {
+            events += "$name:stop"
+            onStop()
+            events += "$name:stopped"
         }
     }
 
-    private inner class FakeFactory(
-        val service: ShizukuUserService = FakeService(),
-        val version: Int = 11,
-        val bindError: Throwable? = null,
+    private class FakeGateway(link: AdbLink? = null) : PorterGateway {
+        val linkFlow = MutableStateFlow(link)
+        override val link: Flow<AdbLink?> = linkFlow
+        override suspend fun availability(): AdbAvailability = AdbAvailability.NotInstalled
+    }
+
+    private inner class FakeSeam(
         val handshakeError: Throwable? = null,
-        /** Blocks apiVersion() to model a wedged Shizuku.getVersion() binder transaction. */
-        val versionWedge: CountDownLatch? = null,
-        val versionEntered: CompletableDeferred<Unit>? = null,
-    ) : ShizukuUserServiceFactory {
-        /** Captured so a test can simulate an unexpected onServiceDisconnected. */
-        var disconnectCallback: (() -> Unit)? = null
-
-        /** Captured so a test can simulate onServiceConnected. */
-        var connectedCallback: ((IBinder?) -> Unit)? = null
-
-        override fun apiVersion(): Int {
-            versionEntered?.complete(Unit)
-            versionWedge?.await() // blocks the calling thread, like a wedged binder transaction
-            return version
-        }
-
-        override fun <Host : AdbConnection> create(
+    ) : AdbHostLauncherSeam {
+        override fun <Host : AdbConnection> userServiceArgs(
             hostClass: KClass<Host>,
             options: AdbHostOptions,
-            onConnected: (IBinder?) -> Unit,
-            onDisconnected: () -> Unit,
-        ): ShizukuUserService {
-            connectedCallback = onConnected
-            disconnectCallback = onDisconnected
-            return if (bindError != null) {
-                object : ShizukuUserService by service {
-                    override fun bind() {
-                        events += "bind"
-                        throw bindError
-                    }
-                }
-            } else {
-                service
-            }
-        }
+        ): UserServiceArgs = mockk()
 
         @Suppress("UNCHECKED_CAST")
         override fun <Service : IInterface, Host : AdbConnection> handshake(
-            binder: IBinder?,
+            binder: IBinder,
             serviceClass: KClass<Service>,
             options: AdbHostOptions,
         ): Pair<Service, Host> {
@@ -120,395 +101,236 @@ class AdbHostLauncherTest {
         }
     }
 
-    private fun TestScope.launcher(factory: ShizukuUserServiceFactory) = AdbHostLauncher(
-        serviceFactory = factory,
-        appScope = backgroundScope,
+    private fun launcher(gateway: PorterGateway, seam: AdbHostLauncherSeam = FakeSeam()) = AdbHostLauncher(
+        gateway = gateway,
+        seam = seam,
         dispatcherProvider = TestDispatcherProvider(),
     )
 
     private fun AdbHostLauncher.connect(
         connectTimeoutMs: Long = AdbHostLauncher.CONNECT_TIMEOUT_MS,
-        apiVersionTimeoutMs: Long = AdbHostLauncher.API_VERSION_TIMEOUT_MS,
-        unbindTimeoutMs: Long = AdbHostLauncher.UNBIND_TIMEOUT_MS,
+        stopTimeoutMs: Long = AdbHostLauncher.STOP_TIMEOUT_MS,
     ) = createConnection(
-        apiVersionTimeoutMs = apiVersionTimeoutMs,
-        unbindTimeoutMs = unbindTimeoutMs,
         serviceClass = AdbConnection::class,
         hostClass = AdbConnection::class,
         // Explicit values: AdbHostOptions()'s default isDebug=BuildConfigWrap.DEBUG triggers
         // BuildConfigWrap's static init, which isn't available on a plain JVM.
         options = AdbHostOptions(isDebug = false, isTrace = false, isDryRun = false, recorderPath = null),
         connectTimeoutMs = connectTimeoutMs,
+        stopTimeoutMs = stopTimeoutMs,
     )
 
-    /**
-     * Bounded await that fails loudly on timeout.
-     *
-     * withTimeout throws a TimeoutCancellationException, and a CancellationException escaping a
-     * test body unwinds it as a *cancellation* rather than a failure — so a wedge regression these
-     * tests exist to catch can silently pass. withTimeoutOrNull + an explicit null check turns
-     * "never settled" into a real assertion failure.
-     */
-    private suspend fun <T : Any> awaitOrFail(what: String, block: suspend () -> T): T {
-        val settled = withTimeoutOrNull(5_000L) { block() }
-        return withClue("$what did not settle within 5s") { settled.shouldNotBeNull() }
-    }
+    private class Collection(
+        val emitted: MutableList<AdbHostLauncher.ConnectionWrapper<AdbConnection, AdbConnection>> = mutableListOf(),
+        val caught: CompletableDeferred<Throwable> = CompletableDeferred(),
+    )
 
-    @Test fun `unsupported shizuku version fails before binding`() = runTest {
-        val l = launcher(FakeFactory(version = 9))
-
-        shouldThrow<IllegalStateException> { l.connect().collect { } }
-
-        events.shouldBeEmpty() // never bound
-    }
-
-    @Test fun `cancel unbinds then waits for disconnect`() = runTest {
-        val l = launcher(FakeFactory(FakeService()))
-
-        val job = launch { l.connect().collect { } }
-        // runCurrent, not advanceUntilIdle: the fakes never connect, so advancing virtual time would
-        // trip the connect-watchdog instead of testing the cancellation teardown.
-        runCurrent() // reach awaitClose (bound)
-        job.cancelAndJoin()
-
-        events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
-    }
-
-    @Test fun `a failing unbind is best-effort and still awaits disconnect`() = runTest {
-        val l = launcher(FakeFactory(FakeService(onUnbind = { throw IllegalStateException("unbind boom") })))
-
-        val job = launch { l.connect().collect { } }
-        runCurrent()
-        job.cancelAndJoin() // must not throw
-
-        events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
-    }
-
-    @Test fun `a hanging disconnect is bounded`() = runTest {
-        val l = launcher(FakeFactory(FakeService(onAwait = { awaitCancellation() }))) // never disconnects
-
-        val job = launch { l.connect().collect { } }
-        runCurrent()
-        job.cancelAndJoin() // runTest advances virtual time through the bounded await
-
-        events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect")
-    }
-
-    @Test fun `unexpected disconnect closes the connection and still tears down`() = runTest {
-        val factory = FakeFactory(FakeService())
-        val l = launcher(factory)
-
-        val caught = CompletableDeferred<Throwable>()
-        val job = launch {
-            try {
-                l.connect().collect { }
-            } catch (e: Throwable) {
-                caught.complete(e)
+    private fun TestScope.startCollecting(launcher: AdbHostLauncher, connectTimeoutMs: Long = AdbHostLauncher.CONNECT_TIMEOUT_MS) =
+        Collection().let { collection ->
+            collection to launch {
+                try {
+                    launcher.connect(connectTimeoutMs = connectTimeoutMs).collect { collection.emitted += it }
+                } catch (e: Throwable) {
+                    collection.caught.complete(e)
+                }
             }
         }
-        runCurrent() // reach awaitClose (bound)
 
-        factory.disconnectCallback!!.invoke() // simulate an unexpected onServiceDisconnected
+    @Test fun `waits for a late link, then emits after the handshake`() = runTest {
+        val gateway = FakeGateway(link = null)
+        val (collection, job) = startCollecting(launcher(gateway))
+
+        runCurrent()
+        events.shouldBeEmpty()
+
+        // Advancing a while first: a restarting server publishes no link for a bit, that is no failure.
+        advanceTimeBy(5_000L)
+        gateway.linkFlow.value = FakeLink()
+        runCurrent()
+
+        events shouldContainInOrder listOf("link:bind", "handshake")
+        collection.emitted shouldHaveSize 1
+        collection.caught.isCompleted shouldBe false
+        job.cancelAndJoin()
+    }
+
+    @Test fun `no link within the connect budget fails with AdbConnectTimeoutException`() = runTest {
+        val (collection, job) = startCollecting(launcher(FakeGateway(link = null)))
+
         advanceUntilIdle()
 
-        caught.await().shouldBeInstanceOf<AdbException>() // flow closed instead of leaking a dead connection
-        events shouldContainInOrder listOf("bind", "unbind") // finally still unbound
-        job.cancelAndJoin()
-    }
-
-    @Test fun `a failing bind does not attempt unbind`() = runTest {
-        val l = launcher(FakeFactory(bindError = IllegalStateException("bind boom")))
-
-        shouldThrow<IllegalStateException> { l.connect().collect { } }
-
-        events shouldBe listOf("bind") // bound never became true -> no unbind
-        events shouldNotContain "unbind"
-    }
-
-    @Test fun `a bind that never connects fails with AdbException after the timeout`() = runTest {
-        // Upstream Shizuku defect: bindUserService() returns fine but onServiceConnected never fires.
-        val l = launcher(FakeFactory(FakeService()))
-
-        val caught = CompletableDeferred<Throwable>()
-        val job = launch {
-            try {
-                l.connect().collect { }
-            } catch (e: Throwable) {
-                caught.complete(e)
-            }
-        }
-        advanceUntilIdle() // past the connect deadline
-
-        val error = caught.await()
-        error.shouldBeInstanceOf<AdbException>()
+        val error = collection.caught.await()
+        error.shouldBeInstanceOf<AdbConnectTimeoutException>()
         error.message!! shouldContain "did not connect"
-        events shouldContainInOrder listOf("bind", "unbind", "awaitDisconnect") // teardown still ran
+        events.shouldBeEmpty() // never bound, so nothing to stop
         job.cancelAndJoin()
     }
 
-    @Test fun `a failing handshake closes the flow bounded`() = runTest {
-        val factory = FakeFactory(FakeService(), handshakeError = IllegalStateException("handshake boom"))
-        val l = launcher(factory)
+    @Test fun `a service that never connects fails with AdbConnectTimeoutException and is stopped`() = runTest {
+        val link = FakeLink(service = { flow { awaitCancellation() } })
+        val (collection, job) = startCollecting(launcher(FakeGateway(link)))
 
-        val caught = CompletableDeferred<Throwable>()
-        val job = launch {
-            try {
-                l.connect().collect { }
-            } catch (e: Throwable) {
-                caught.complete(e)
-            }
-        }
-        runCurrent() // without this the callback isn't captured yet and this degrades to a timeout test
-
-        factory.connectedCallback.shouldNotBeNull().invoke(mockk<IBinder>())
         advanceUntilIdle()
 
-        val error = caught.await()
-        error.shouldBeInstanceOf<AdbException>()
-        error.message!! shouldContain "handshake failed"
-        events shouldContainInOrder listOf("bind", "handshake", "unbind")
+        val error = collection.caught.await()
+        error.shouldBeInstanceOf<AdbConnectTimeoutException>()
+        error.message!! shouldContain "did not connect"
+        events shouldContainInOrder listOf("link:bind", "link:unbind", "link:stop")
         job.cancelAndJoin()
-    }
-
-    @Test fun `a bind wedged in its binder transaction still releases collectors after the timeout`() = runTest(
-        timeout = 10.seconds,
-    ) {
-        // Upstream Shizuku defect, second variant: bindUserService() itself never returns (wedged
-        // synchronous binder transaction). The blocked thread can't be interrupted, but the
-        // watchdog's close() must still release everyone waiting on this flow.
-        val bindEntered = CompletableDeferred<Unit>()
-        val bindWedge = CountDownLatch(1)
-        val unboundLate = CompletableDeferred<Unit>()
-        val service = object : ShizukuUserService {
-            override fun bind() {
-                bindEntered.complete(Unit)
-                bindWedge.await() // blocks the calling thread, unaffected by coroutine cancellation
-            }
-
-            override fun unbind() {
-                unboundLate.complete(Unit)
-            }
-
-            override suspend fun awaitDisconnect() {}
-        }
-        // Real scope + real IO dispatcher: the wedge blocks an actual thread, virtual time and
-        // Unconfined execution can't model it (Unconfined would block the producer's own thread).
-        val realScope = CoroutineScope(SupervisorJob())
-        val l = AdbHostLauncher(
-            serviceFactory = FakeFactory(service),
-            appScope = realScope,
-            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
-        )
-
-        try {
-            // Collection runs in its own scope: on a regression the collector blocks forever, and
-            // it must do so in a coroutine the test only awaits WITH a timeout - a blocked child
-            // of the test coroutine itself would defeat runTest's timeout (non-cooperative
-            // cancellation) and hang the JVM.
-            val collectResult = realScope.async(Dispatchers.Default) {
-                runCatching { l.connect(connectTimeoutMs = 250L).collect { } }
-            }
-
-            withContext(Dispatchers.Default) {
-                // Only measure once the wedge is real: bind() has been entered and is blocked.
-                awaitOrFail("bind()") { bindEntered.await() }
-
-                val error = awaitOrFail("collector") { collectResult.await() }.exceptionOrNull()
-                error.shouldBeInstanceOf<AdbException>()
-                error.message!! shouldContain "did not connect"
-
-                // While bind() is still wedged there is nothing to unbind yet.
-                unboundLate.isCompleted shouldBe false
-
-                // When the wedged transaction finally returns, the binding must not leak:
-                // teardown already gave up, so the late unbind is the only cleanup left.
-                bindWedge.countDown()
-                awaitOrFail("late unbind") { unboundLate.await() }
-            }
-        } finally {
-            bindWedge.countDown()
-            realScope.cancel()
-        }
-    }
-
-    @Test fun `a getVersion wedged in its binder transaction fails instead of hanging`() = runTest(
-        timeout = 10.seconds,
-    ) {
-        // Shizuku.getVersion() only returns a cached field once the server has pushed its version via
-        // bindApplication(); until then it is a synchronous binder transaction. It runs before the
-        // connect watchdog is armed, so without its own bound a wedge here hangs every collector -
-        // the same eternal setup spinner, just one step earlier than the bind wedge above.
-        val versionEntered = CompletableDeferred<Unit>()
-        val versionWedge = CountDownLatch(1)
-        // Real scope + real IO dispatcher: the wedge blocks an actual thread, virtual time and
-        // Unconfined execution can't model it (Unconfined would block the producer's own thread).
-        val realScope = CoroutineScope(SupervisorJob())
-        val l = AdbHostLauncher(
-            serviceFactory = FakeFactory(versionWedge = versionWedge, versionEntered = versionEntered),
-            appScope = realScope,
-            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
-        )
-
-        try {
-            val collectResult = realScope.async(Dispatchers.Default) {
-                runCatching { l.connect(apiVersionTimeoutMs = 250L).collect { } }
-            }
-
-            withContext(Dispatchers.Default) {
-                // Only measure once the wedge is real: apiVersion() has been entered and is blocked.
-                awaitOrFail("apiVersion()") { versionEntered.await() }
-
-                val error = awaitOrFail("collector") { collectResult.await() }.exceptionOrNull()
-                error.shouldBeInstanceOf<AdbConnectTimeoutException>()
-                error.message!! shouldContain "getVersion"
-
-                // Bailed out before binding, so there is nothing to unbind.
-                events.shouldBeEmpty()
-            }
-        } finally {
-            versionWedge.countDown()
-            realScope.cancel()
-        }
     }
 
     @Test fun `watchdog does not fire after a successful connect`() = runTest {
-        val factory = FakeFactory(FakeService())
-        val l = launcher(factory)
-
-        val emitted = mutableListOf<AdbHostLauncher.ConnectionWrapper<AdbConnection, AdbConnection>>()
-        val caught = CompletableDeferred<Throwable>()
-        val job = launch {
-            try {
-                l.connect().collect { emitted += it }
-            } catch (e: Throwable) {
-                caught.complete(e)
-            }
-        }
+        val (collection, job) = startCollecting(launcher(FakeGateway(FakeLink())))
         runCurrent()
-
-        factory.connectedCallback.shouldNotBeNull().invoke(mockk<IBinder>())
-        runCurrent()
-        emitted shouldHaveSize 1
+        collection.emitted shouldHaveSize 1
 
         advanceTimeBy(60 * 1000L) // way past the connect deadline
-        advanceUntilIdle()
+        runCurrent()
 
-        caught.isCompleted shouldBe false // still connected, nothing was torn down
-        emitted shouldHaveSize 1
+        collection.caught.isCompleted shouldBe false
+        collection.emitted shouldHaveSize 1
         job.cancelAndJoin()
     }
 
-    @Test fun `an unbind wedged in its binder transaction still releases collectors`() = runTest(
-        timeout = 10.seconds,
-    ) {
-        // Third variant of the same upstream wedge, on the teardown side: bind() returns, the service
-        // never calls back, the watchdog close()s - and then unbindUserService() wedges against the
-        // same unresponsive server. Collection of a callbackFlow awaits its producer, so before this
-        // was bounded the close() never reached anyone: collectors waited on a flow whose producer sat
-        // in an uninterruptible binder call inside NonCancellable, forever.
-        val unbindEntered = CompletableDeferred<Unit>()
-        val unbindWedge = CountDownLatch(1)
-        val service = object : ShizukuUserService {
-            override fun bind() {} // returns cleanly, so teardown owns the unbind (BindState.BOUND)
-
-            override fun unbind() {
-                unbindEntered.complete(Unit)
-                unbindWedge.await() // blocks the calling thread, unaffected by coroutine cancellation
+    @Test fun `a completing userService flow closes the connection and still stops the service`() = runTest {
+        val died = CompletableDeferred<Unit>()
+        val link = FakeLink(service = {
+            flow {
+                emit(mockk<IBinder>())
+                died.await()
             }
+        })
+        val (collection, job) = startCollecting(launcher(FakeGateway(link)))
+        runCurrent()
+        collection.emitted shouldHaveSize 1
 
-            override suspend fun awaitDisconnect() {}
-        }
-        // Real scope + real IO dispatcher: the wedge blocks an actual thread, virtual time and
-        // Unconfined execution can't model it (Unconfined would block the producer's own thread).
-        val realScope = CoroutineScope(SupervisorJob())
-        val l = AdbHostLauncher(
-            serviceFactory = FakeFactory(service),
-            appScope = realScope,
-            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
-        )
+        died.complete(Unit) // service died, or the link was replaced
+        advanceUntilIdle()
 
-        try {
-            // Collection runs in its own scope: on a regression the collector blocks forever, and it
-            // must do so in a coroutine the test only awaits WITH a timeout - a blocked child of the
-            // test coroutine itself would defeat runTest's timeout and hang the JVM.
-            val collectResult = realScope.async(Dispatchers.Default) {
-                runCatching { l.connect(connectTimeoutMs = 250L, unbindTimeoutMs = 250L).collect { } }
-            }
-
-            withContext(Dispatchers.Default) {
-                // Only measure once the wedge is real: unbind() has been entered and is blocked.
-                awaitOrFail("unbind()") { unbindEntered.await() }
-
-                val error = awaitOrFail("collector") { collectResult.await() }.exceptionOrNull()
-                error.shouldBeInstanceOf<AdbConnectTimeoutException>()
-                error.message!! shouldContain "did not connect"
-            }
-        } finally {
-            unbindWedge.countDown()
-            realScope.cancel()
-        }
+        val error = collection.caught.await()
+        error.shouldBeInstanceOf<AdbException>()
+        error.message!! shouldContain "disconnected"
+        events shouldContainInOrder listOf("link:bind", "handshake", "link:unbind", "link:stop")
+        job.cancelAndJoin()
     }
 
+    @Test fun `a second binder closes the connection`() = runTest {
+        val binders = Channel<IBinder>(Channel.UNLIMITED)
+        val link = FakeLink(service = { binders.consumeAsFlow() })
+        val (collection, job) = startCollecting(launcher(FakeGateway(link)))
 
-    @Test fun `a dead app scope during teardown does not abandon the rest of it`() = runTest(
-        timeout = 10.seconds,
-    ) {
-        // The detached unbind runs on @AppScope. If that scope is already cancelled, async() yields a
-        // cancelled Deferred and await() throws a CancellationException that withTimeoutOrNull does
-        // NOT convert (it only converts its own timeout). What the collector sees is safe either way
-        // - the watchdog's close() latched the cause before teardown ran - so this asserts the part
-        // that is NOT safe: an escaping throw abandons the rest of teardown. The disconnect wait
-        // after the unbind is the observable half of that.
-        val bindReturned = CompletableDeferred<Unit>()
-        val disconnectAwaited = CompletableDeferred<Unit>()
-        val service = object : ShizukuUserService {
-            override fun bind() {
-                bindReturned.complete(Unit)
-            }
+        binders.send(mockk())
+        runCurrent()
+        collection.emitted shouldHaveSize 1
 
-            // Never reached: the dead scope means the detached block never runs.
-            override fun unbind() = error("must not be reached: the app scope is dead")
+        binders.send(mockk()) // server re-connected the service with a new binder
+        advanceUntilIdle()
 
-            override suspend fun awaitDisconnect() {
-                disconnectAwaited.complete(Unit)
-            }
-        }
-        val appScope = CoroutineScope(SupervisorJob())
-        val collectScope = CoroutineScope(SupervisorJob())
-        val l = AdbHostLauncher(
-            serviceFactory = FakeFactory(service),
-            appScope = appScope,
-            dispatcherProvider = TestDispatcherProvider(Dispatchers.IO),
-        )
-
-        try {
-            // Watchdog long enough that appScope is reliably dead before teardown starts.
-            val collectResult = collectScope.async(Dispatchers.Default) {
-                runCatching { l.connect(connectTimeoutMs = 1_500L).collect { } }
-            }
-
-            withContext(Dispatchers.Default) {
-                awaitOrFail("bind()") { bindReturned.await() }
-                // bind() has returned, so the bind job's CAS to BOUND (which runs immediately after)
-                // has effectively landed - that is the branch that reaches the unbind at teardown.
-                // Settle before killing the scope so this doesn't test the TEARDOWN branch instead.
-                delay(200)
-                appScope.cancel()
-
-                val error = awaitOrFail("collector") { collectResult.await() }.exceptionOrNull()
-                error.shouldBeInstanceOf<AdbConnectTimeoutException>()
-                error.message!! shouldContain "did not connect"
-
-                // The load-bearing assertion: teardown continued past the unbind it could not start.
-                // This also rules out a vacuous pass via the TEARDOWN branch, which never gets here.
-                withClue("teardown was abandoned when the detached unbind could not run") {
-                    disconnectAwaited.isCompleted shouldBe true
-                }
-            }
-        } finally {
-            appScope.cancel()
-            collectScope.cancel()
-        }
+        val error = collection.caught.await()
+        error.shouldBeInstanceOf<AdbException>()
+        error.message!! shouldContain "reconnected"
+        events.count { it == "handshake" } shouldBe 1
+        events shouldContain "link:stop"
+        job.cancelAndJoin()
     }
 
+    @Test fun `a failing handshake closes the flow and stops the service`() = runTest {
+        val seam = FakeSeam(handshakeError = IllegalStateException("handshake boom"))
+        val (collection, job) = startCollecting(launcher(FakeGateway(FakeLink()), seam))
+
+        advanceUntilIdle()
+
+        val error = collection.caught.await()
+        error.shouldBeInstanceOf<AdbException>()
+        error.message!! shouldContain "handshake failed"
+        collection.emitted.shouldBeEmpty()
+        events shouldContainInOrder listOf("link:bind", "handshake", "link:unbind", "link:stop")
+        job.cancelAndJoin()
+    }
+
+    @Test fun `a failing bind closes the flow with AdbException`() = runTest {
+        val link = FakeLink(service = { flow { throw IllegalStateException("bind boom") } })
+        val (collection, job) = startCollecting(launcher(FakeGateway(link)))
+
+        advanceUntilIdle()
+
+        val error = collection.caught.await()
+        error.shouldBeInstanceOf<AdbException>()
+        error.message!! shouldContain "bind failed"
+        job.cancelAndJoin()
+    }
+
+    @Test fun `cancelling stops the service after dropping the binding`() = runTest {
+        val (collection, job) = startCollecting(launcher(FakeGateway(FakeLink())))
+        runCurrent()
+        collection.emitted shouldHaveSize 1
+
+        job.cancelAndJoin()
+
+        events shouldContainInOrder listOf("link:bind", "handshake", "link:unbind", "link:stop", "link:stopped")
+    }
+
+    @Test fun `a hanging stop is bounded and releases the next generation`() = runTest {
+        val gateway = FakeGateway(FakeLink(name = "gen1", onStop = { awaitCancellation() }))
+        val l = launcher(gateway)
+
+        val (_, job1) = startCollecting(l)
+        runCurrent()
+        job1.cancelAndJoin() // runTest advances virtual time through the bounded stop
+
+        events shouldContain "gen1:stop"
+        events shouldNotContain "gen1:stopped"
+
+        gateway.linkFlow.value = FakeLink(name = "gen2")
+        val (collection2, job2) = startCollecting(l)
+        runCurrent()
+        collection2.emitted shouldHaveSize 1
+        events shouldContain "gen2:bind"
+        job2.cancelAndJoin()
+    }
+
+    @Test fun `a failing stop is best-effort and releases the next generation`() = runTest {
+        val gateway = FakeGateway(FakeLink(name = "gen1", onStop = { throw IllegalStateException("stop boom") }))
+        val l = launcher(gateway)
+
+        val (_, job1) = startCollecting(l)
+        runCurrent()
+        job1.cancelAndJoin() // must not throw
+
+        events shouldContain "gen1:stop"
+
+        gateway.linkFlow.value = FakeLink(name = "gen2")
+        val (collection2, job2) = startCollecting(l)
+        runCurrent()
+        collection2.emitted shouldHaveSize 1
+        job2.cancelAndJoin()
+    }
+
+    @Test fun `a new generation binds only after the previous generation's stop returned`() = runTest {
+        // Both generations use the same service args, so a late stop from the first would destroy the
+        // second one's helper. Separate launcher instances: the launcher is not a singleton.
+        val stopGate = CompletableDeferred<Unit>()
+        val first = launcher(FakeGateway(FakeLink(name = "gen1", onStop = { stopGate.await() })))
+        val second = launcher(FakeGateway(FakeLink(name = "gen2")))
+
+        val (collection1, job1) = startCollecting(first)
+        runCurrent()
+        collection1.emitted shouldHaveSize 1
+
+        job1.cancel()
+        runCurrent()
+        events shouldContain "gen1:stop"
+
+        val (collection2, job2) = startCollecting(second)
+        runCurrent()
+        events shouldNotContain "gen2:bind"
+
+        stopGate.complete(Unit)
+        runCurrent()
+
+        events shouldContainInOrder listOf("gen1:stop", "gen1:stopped", "gen2:bind")
+        collection2.emitted shouldHaveSize 1
+        job1.join()
+        job2.cancelAndJoin()
+    }
 }

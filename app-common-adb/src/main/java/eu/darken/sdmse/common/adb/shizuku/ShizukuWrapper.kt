@@ -2,37 +2,30 @@ package eu.darken.sdmse.common.adb.shizuku
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Handler
-import android.os.HandlerThread
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.porter.client.PorterClient
-import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.coroutine.runDetachedWithTimeout
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.channels.trySendBlocking
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
-import rikka.shizuku.Shizuku
-import rikka.shizuku.ShizukuBinderWrapper
-import rikka.shizuku.ShizukuProvider
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class ShizukuWrapper @Inject constructor(
     @ApplicationContext private val context: Context,
-    @AppScope private val appScope: CoroutineScope,
     private val dispatcherProvider: DispatcherProvider,
+    private val gateway: PorterGateway,
 ) {
 
     /**
@@ -52,13 +45,13 @@ class ShizukuWrapper @Inject constructor(
     }
 
     /**
-     * Packages declaring a manager permission of the ACTIVE backend's family, see [activeBackend].
+     * Packages declaring a manager permission of [backend]'s family, the [activeBackend] if null.
      *
-     * Everything we connect to goes through the selected backend, so the other family's manager must
+     * Everything we connect to goes through the active backend, so the other family's manager must
      * never be offered as a fallback: opening it can't affect the link we are waiting on.
      */
-    suspend fun getActiveManagerPackages(): List<String> {
-        val permissions = when (activeBackend()) {
+    suspend fun getActiveManagerPackages(backend: AdbBackend? = null): List<String> {
+        val permissions = when (backend ?: activeBackend()) {
             AdbBackend.PORTER -> PORTER_PERMISSIONS
             AdbBackend.SHIZUKU -> MANAGER_PERMISSIONS
         }
@@ -68,7 +61,8 @@ class ShizukuWrapper @Inject constructor(
     }
 
     /** The manager package to treat as *the* ADB manager app, see [getActiveManagerPackages]. */
-    suspend fun getActiveManagerPackage(): String? = getActiveManagerPackages().firstOrNull()
+    suspend fun getActiveManagerPackage(backend: AdbBackend? = null): String? =
+        getActiveManagerPackages(backend).firstOrNull()
 
     private fun resolvePermissionOwner(permission: String): String? = try {
         context.packageManager
@@ -85,201 +79,133 @@ class ShizukuWrapper @Inject constructor(
         null
     }
 
-    private val handlerThread: HandlerThread by lazy {
-        HandlerThread("shizuku:binder-handler")
-    }
-    private val handler: Handler by lazy {
-        handlerThread.start()
-        Handler(handlerThread.looper)
-    }
+    val link: Flow<AdbLink?> = gateway.link
 
-    val baseServiceBinder: Flow<ShizukuBaseServiceBinder?> = callbackFlow {
-        val sendBinder = {
-            val binder = Shizuku.getBinder()
-            log(TAG) { "Sending binder: $binder" }
-            trySendBlocking(binder?.let { ShizukuBinderWrapper(it) })
+    /**
+     * Emits when the current link's permission state changes. The state a link attached with is not
+     * re-announced, [link] itself emits for that.
+     */
+    val permissionChanges: Flow<Unit> = gateway.link
+        .flatMapLatest { link ->
+            link?.permission
+                ?.drop(1)
+                ?.catch { log(TAG, WARN) { "permissionChanges: $link failed: ${it.asLog()}" } }
+                ?: emptyFlow()
         }
-
-        val onReceive = Shizuku.OnBinderReceivedListener {
-            log(TAG) { "binderFlow(): OnBinderReceivedListener" }
-            sendBinder()
+        .map { granted ->
+            log(TAG) { "permissionChanges: granted=$granted" }
+            Unit
         }
-        val onDead = Shizuku.OnBinderDeadListener {
-            log(TAG) { "binderFlow(): OnBinderDeadListener :(" }
-            sendBinder()
-        }
-        log(TAG) { "binderFlow(): Registering..." }
+        .catch { log(TAG, WARN) { "permissionChanges failed: ${it.asLog()}" } }
 
-        Shizuku.addBinderReceivedListener(onReceive, handler)
-        Shizuku.addBinderDeadListener(onDead, handler)
-
-        sendBinder()
-
-        log(TAG) { "binderFlow(): Awaiting close" }
-        awaitClose {
-            log(TAG) { "binderFlow(): Closing..." }
-            Shizuku.removeBinderReceivedListener(onReceive)
-            Shizuku.removeBinderDeadListener(onDead)
-        }
-    }
-        .map { binder -> binder?.let { ShizukuBaseServiceBinder(it) } }
-
-
-    val permissionGrantEvents: Flow<ShizukuPermissionRequest> = callbackFlow {
-        val requestListener = Shizuku.OnRequestPermissionResultListener { requestCode, grantResult ->
-            log(TAG) { "permissionFlow(): Event: $requestCode -> $grantResult" }
-            trySendBlocking(ShizukuPermissionRequest(requestCode = requestCode, grantResult = grantResult))
-        }
-
-        log(TAG) { "permissionFlow(): Registering..." }
-        Shizuku.addRequestPermissionResultListener(requestListener, handler)
-
-        log(TAG) { "permissionFlow(): Awaiting close" }
-        awaitClose {
-            log(TAG) { "permissionFlow(): Closing..." }
-            Shizuku.removeRequestPermissionResultListener(requestListener)
-        }
-    }
-        .setupCommonEventHandlers(TAG) { "grantEvents" }
-
-    data class ShizukuPermissionRequest(
-        val requestCode: Int,
-        val grantResult: Int,
-    )
-
-    // Seams for the two Shizuku statics behind isGranted(). Mirrors the AdbHostLauncher seam: the
-    // Shizuku statics are untouchable in JVM unit tests, even via mockkStatic, because the class
-    // initializer builds a Handler on the main Looper. Overridden in tests, never in production.
-    internal var pingBinderAction: () -> Boolean = { Shizuku.pingBinder() }
-    internal var checkSelfPermissionAction: () -> Int = { Shizuku.checkSelfPermission() }
-
-    // Same reason: getActiveBackend() reads SharedPreferences and this app's manifest metadata and
-    // latches a static from it, getUid() does a binder round-trip on its first call. Neither is
-    // reachable from a JVM unit test.
-    internal var activeBackendAction: () -> PorterClient.Backend = { PorterClient.getActiveBackend(context) }
-    internal var getUidAction: () -> Int = { Shizuku.getUid() }
-
-    /** Overridden in tests to keep the wedge case fast, never in production. */
+    /** Overridden in tests to keep the wedge cases fast, never in production. */
     internal var ipcTimeoutMs: Long = IPC_TIMEOUT_MS
 
-    private fun pingBinderSafe(): Boolean = try {
-        pingBinderAction()
-    } catch (e: NullPointerException) {
-        // Upstream race: the binder can be nulled between Shizuku's null check and the ping.
-        false
-    }
+    private suspend fun currentLink(): AdbLink? = gateway.link.first()
 
-    /**
-     * The backend the client SDK picked for this process.
-     *
-     * Latched by the SDK on first use, so it can't change while the app runs. AUTO is never handed
-     * out by the SDK (it always resolves to a concrete backend first) and is mapped defensively.
-     */
-    suspend fun activeBackend(): AdbBackend = withContext(dispatcherProvider.IO) {
-        when (activeBackendAction()) {
-            PorterClient.Backend.PORTER -> AdbBackend.PORTER
-            PorterClient.Backend.SHIZUKU, PorterClient.Backend.AUTO -> AdbBackend.SHIZUKU
-        }.also { log(TAG) { "activeBackend()=$it" } }
-    }
-
-    /**
-     * UID the privileged helper runs as (2000 for shell), or null if it can't be determined.
-     *
-     * Diagnostics only. Detached + bounded like [isGranted]: the first call is a real binder
-     * round-trip, which can wedge against a server that is alive but not servicing requests.
-     */
-    suspend fun serverUid(): Int? {
-        // Boxed, because runDetachedWithTimeout reserves its own `null` for "timed out".
-        val probe = appScope.runDetachedWithTimeout(dispatcherProvider.IO, ipcTimeoutMs) {
-            try {
-                UidProbe(getUidAction())
-            } catch (e: IllegalStateException) {
-                // Thrown when no binder has been received yet.
-                log(TAG, WARN) { "serverUid(): $e" }
-                UidProbe(null)
-            }
-        }
-        if (probe == null) {
-            log(TAG, WARN) { "serverUid()=null (no response within ${ipcTimeoutMs}ms)" }
-        }
-        return probe?.uid.also { log(TAG) { "serverUid()=$it" } }
-    }
-
-    private data class UidProbe(val uid: Int?)
-
+    /** Null means "cannot know": no link, no answer in time, or the call failed. */
     suspend fun isGranted(): Boolean? {
-        // Both statics below are synchronous binder transactions that can wedge against a Shizuku
-        // server that is alive but not servicing requests: pingBinder() is a PING_TRANSACTION, and
-        // checkSelfPermission() does a real round-trip whenever its granted state was not latched yet
-        // (first connection). Neither is covered by AdbHostLauncher's connect watchdog, because both
-        // run before it is armed, so an unbounded wedge here reproduces the eternal setup spinner that
-        // watchdog exists to prevent. Detached + bounded: a wedged binder thread leaks, we don't hang.
-        // GrantState (not Boolean?) so the helper's `null` stays reserved for "timed out".
-        val state = appScope.runDetachedWithTimeout(dispatcherProvider.IO, ipcTimeoutMs) {
-            // Shizuku.checkSelfPermission() latches its granted state process-wide and never clears it
-            // on binder death, so without this gate it reports a stale `true` with no live binder
-            // behind it. UNKNOWN already means "cannot know" (see the ISE catch below), which covers
-            // this case too.
-            if (!pingBinderSafe()) {
-                log(TAG) { "isGranted()=null (binder not alive)" }
-                return@runDetachedWithTimeout GrantState.UNKNOWN
+        val result = try {
+            withTimeoutOrNull(ipcTimeoutMs) {
+                val link = currentLink() ?: return@withTimeoutOrNull GrantState.UNKNOWN
+                if (link.checkPermission()) GrantState.GRANTED else GrantState.DENIED
             }
-            val granted = try {
-                checkSelfPermissionAction() == PackageManager.PERMISSION_GRANTED
-            } catch (e: IllegalStateException) {
-                log(TAG, WARN) { "isGranted(): $e" }
-                log(TAG) { "isGranted()=null" }
-                return@runDetachedWithTimeout GrantState.UNKNOWN
-            }
-            log(TAG) { "isGranted()=$granted" }
-            if (granted) GrantState.GRANTED else GrantState.DENIED
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "isGranted(): ${e.asLog()}" }
+            GrantState.UNKNOWN
         }
-        if (state == null) {
-            log(TAG, WARN) { "isGranted()=null (Shizuku did not respond within ${ipcTimeoutMs}ms)" }
-        }
-        return when (state) {
+        if (result == null) log(TAG, WARN) { "isGranted(): No answer within ${ipcTimeoutMs}ms" }
+        return when (result) {
             GrantState.GRANTED -> true
             GrantState.DENIED -> false
             GrantState.UNKNOWN, null -> null
+        }.also { log(TAG) { "isGranted()=$it" } }
+    }
+
+    // Not Boolean?, so withTimeoutOrNull's `null` stays reserved for "timed out".
+    private enum class GrantState { GRANTED, DENIED, UNKNOWN }
+
+    /**
+     * Shows the manager's permission prompt and suspends until the user answered. Null when there is
+     * no link or the request failed, e.g. because the link was lost meanwhile.
+     *
+     * Deliberately unbounded: the user may take a while to read the prompt. Callers bound the wait.
+     */
+    suspend fun requestPermission(): Boolean? {
+        val link = currentLink()
+        if (link == null) {
+            log(TAG, WARN) { "requestPermission(): No link" }
+            return null
+        }
+        log(TAG) { "requestPermission() on $link" }
+        return try {
+            link.requestPermission()
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, WARN) { "requestPermission() failed: ${e.asLog()}" }
+            null
+        }.also { log(TAG) { "requestPermission()=$it" } }
+    }
+
+    /** Diagnostics only: the UID the privileged helper runs as (2000 for shell), null without a link. */
+    suspend fun serverUid(): Int? = currentLink()?.uid.also { log(TAG) { "serverUid()=$it" } }
+
+    /** Null means unknown: no answer within [ipcTimeoutMs] or the lookup failed. */
+    suspend fun availability(): AdbAvailability? = try {
+        withTimeoutOrNull(ipcTimeoutMs) { gateway.availability() }
+            .also { if (it == null) log(TAG, WARN) { "availability(): No answer within ${ipcTimeoutMs}ms" } }
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "availability() failed: ${e.asLog()}" }
+        null
+    }.also { log(TAG) { "availability()=$it" } }
+
+    /**
+     * The backend an [availability] snapshot points at. An installed Porter always wins, so an
+     * unknown availability falls back to whether any package declares Porter's permission.
+     */
+    suspend fun backendOf(availability: AdbAvailability?): AdbBackend = when (availability) {
+        is AdbAvailability.Installed -> availability.backend
+        is AdbAvailability.Incompatible -> availability.backend
+        AdbAvailability.NotInstalled -> AdbBackend.SHIZUKU
+        null -> withContext(dispatcherProvider.IO) {
+            if (PORTER_PERMISSIONS.any { resolvePermissionOwner(it) != null }) AdbBackend.PORTER else AdbBackend.SHIZUKU
         }
     }
 
-    private enum class GrantState { GRANTED, DENIED, UNKNOWN }
-
-    suspend fun isCompatible(): Boolean {
-        return !Shizuku.isPreV11()
-    }
-
-    suspend fun requestPermission() = withContext(dispatcherProvider.IO) {
-        log(TAG) { "requestPermission()" }
-        Shizuku.requestPermission(433)
-    }
+    /** Not latched: the SDK resolves the backend again whenever it holds no connection. */
+    suspend fun activeBackend(): AdbBackend = backendOf(availability()).also { log(TAG) { "activeBackend()=$it" } }
 
     companion object {
         private val TAG = logTag("ADB", "Shizuku", "Wrapper")
 
+        internal const val PORTER_PERMISSION = "eu.darken.porter.permission.API"
+        internal const val SHIZUKU_PERMISSION = "moe.shizuku.manager.permission.API_V23"
         internal const val SHIZUKU_PLUS_PERMISSION = "af.shizuku.plus.permission.API_V23"
 
         // Priority order: the stock permission first, so an install that defines both (Shizuku+ Drop-In,
         // or Shizuku+ Plus next to its Compat Hub) keeps resolving to the same package it does today.
-        internal val MANAGER_PERMISSIONS: List<String> = listOf(ShizukuProvider.PERMISSION, SHIZUKU_PLUS_PERMISSION)
+        internal val MANAGER_PERMISSIONS: List<String> = listOf(SHIZUKU_PERMISSION, SHIZUKU_PLUS_PERMISSION)
 
         // Porter's own family, deliberately not folded into MANAGER_PERMISSIONS: the Porter manager
         // removes the stock Shizuku permission instead of declaring it, so a Shizuku-family lookup
         // can never resolve to it, and the ACTIVE-manager lookup must not mix the two.
-        internal val PORTER_PERMISSIONS: List<String> = listOf(PorterClient.PERMISSION)
+        internal val PORTER_PERMISSIONS: List<String> = listOf(PORTER_PERMISSION)
 
         internal val ALL_MANAGER_PERMISSIONS: List<String> = PORTER_PERMISSIONS + MANAGER_PERMISSIONS
 
         /**
-         * Combined budget for the two binder round-trips behind [isGranted].
+         * Budget for a single call to the manager's server.
          *
          * Deliberately generous rather than tight: the job here is only to turn "never returns" into
-         * "eventually gives up". A too-tight bound would report a slow-but-working Shizuku as
-         * unavailable, and low-end devices under memory pressure (the exact hardware this defect shows
-         * up on) are where both a real wedge and a slow answer are most likely.
+         * "eventually gives up". A too-tight bound would report a slow-but-working server as
+         * unavailable, and low-end devices under memory pressure are where both a real wedge and a
+         * slow answer are most likely.
          */
         internal const val IPC_TIMEOUT_MS = 15 * 1000L
     }
-
 }

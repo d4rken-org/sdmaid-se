@@ -46,7 +46,8 @@ dependencies {
     addTesting()
     testImplementation(project(":app-common-test"))
 
-    // Republishes the rikka.shizuku.* API + provider alongside Porter's adapter. Must not coexist
-    // with dev.rikka.shizuku:api/:provider - both ship the same classes.
-    implementation("com.github.d4rken-org.porter-api:client:0.1.0")
+    implementation("com.github.d4rken-org.porter-api:sdk:0.7.0")
+    // Lets the SDK receive binders from Shizuku servers too. Must not coexist with
+    // dev.rikka.shizuku:provider - both ship moe.shizuku.api.BinderContainer.
+    implementation("com.github.d4rken-org.porter-api:shizuku-compat:0.7.0")
 }

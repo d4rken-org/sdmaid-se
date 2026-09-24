@@ -20,7 +20,7 @@ import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -37,26 +37,25 @@ class ShizukuManagerTest : BaseTest() {
 
     private val useShizukuValue: DataStoreValue<Boolean?> = mockk()
     private lateinit var useShizukuFlow: MutableStateFlow<Boolean?>
+    private lateinit var wrapperLink: MutableStateFlow<AdbLink?>
     private lateinit var scope: CoroutineScope
 
-    private var binderSubscriptions = 0
+    private var linkSubscriptions = 0
 
     @BeforeEach
     fun setup() {
-        binderSubscriptions = 0
+        linkSubscriptions = 0
         useShizukuFlow = MutableStateFlow(true)
+        wrapperLink = MutableStateFlow(null)
         scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
 
         every { settings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
 
-        every { shizukuWrapper.permissionGrantEvents } returns emptyFlow()
+        every { shizukuWrapper.permissionChanges } returns emptyFlow()
 
-        // Track whether the underlying Shizuku binder flow is ever collected.
-        every { shizukuWrapper.baseServiceBinder } returns flow {
-            binderSubscriptions++
-            emit(mockk<ShizukuBaseServiceBinder>())
-        }
+        // Track whether the wrapper's link flow is ever collected.
+        every { shizukuWrapper.link } returns wrapperLink.onStart { linkSubscriptions++ }
     }
 
     @AfterEach
@@ -84,49 +83,60 @@ class ShizukuManagerTest : BaseTest() {
         backend: AdbBackend = AdbBackend.SHIZUKU,
     ) {
         coEvery { shizukuWrapper.getManagerPackages() } returns all
-        coEvery { shizukuWrapper.getActiveManagerPackages() } returns active
-        coEvery { shizukuWrapper.getActiveManagerPackage() } returns active.firstOrNull()
+        coEvery { shizukuWrapper.getActiveManagerPackages(any()) } returns active
+        coEvery { shizukuWrapper.getActiveManagerPackage(any()) } returns active.firstOrNull()
         coEvery { shizukuWrapper.activeBackend() } returns backend
+        coEvery { shizukuWrapper.backendOf(any()) } returns backend
     }
 
-    @Test fun `binder is not probed when Shizuku is not installed`() {
-        setShizukuPackages()
+    // --- adbLink -------------------------------------------------------------------------------
+
+    @Test fun `link follows the wrapper when the user opted in`() {
+        val link = mockk<AdbLink>()
+        wrapperLink.value = link
         val mgr = manager()
 
-        val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
-        collector.await { values, _ -> values.isNotEmpty() }
-
-        collector.latestValues.last() shouldBe null
-        binderSubscriptions shouldBe 0
-
-        runBlocking { collector.cancelAndJoin() }
-    }
-
-    @Test fun `binder is probed when Shizuku is installed`() {
-        setShizukuPackages(ShizukuManager.PKG_ID.name)
-        val mgr = manager()
-
-        val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
+        val collector = mgr.adbLink.test(tag = "link", scope = scope)
         collector.await { values, _ -> values.any { it != null } }
 
-        binderSubscriptions shouldBe 1
+        collector.latestValues.last() shouldBe link
+        linkSubscriptions shouldBe 1
+
+        wrapperLink.value = null
+        collector.await { _, latest -> latest == null }
 
         runBlocking { collector.cancelAndJoin() }
     }
 
-    @Test fun `binder stays closed when user opted out even if installed`() {
-        setShizukuPackages(ShizukuManager.PKG_ID.name)
+    @Test fun `link stays null and untouched when the user opted out`() {
+        wrapperLink.value = mockk()
         useShizukuFlow.value = false
         val mgr = manager()
 
-        val collector = mgr.shizukuBinder.test(tag = "binder", scope = scope)
+        val collector = mgr.adbLink.test(tag = "link", scope = scope)
         collector.await { values, _ -> values.isNotEmpty() }
 
         collector.latestValues.last() shouldBe null
-        binderSubscriptions shouldBe 0
+        linkSubscriptions shouldBe 0
 
         runBlocking { collector.cancelAndJoin() }
     }
+
+    @Test fun `link stays null when the user has not decided yet`() {
+        wrapperLink.value = mockk()
+        useShizukuFlow.value = null
+        val mgr = manager()
+
+        val collector = mgr.adbLink.test(tag = "link", scope = scope)
+        collector.await { values, _ -> values.isNotEmpty() }
+
+        collector.latestValues.last() shouldBe null
+        linkSubscriptions shouldBe 0
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    // --- installation --------------------------------------------------------------------------
 
     @Test fun `isInstalled is not cached and re-evaluates each call`() {
         val mgr = manager()
@@ -158,8 +168,8 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     @Test fun `isOurServiceAvailable is false when isGranted is null`() {
-        // null = "cannot know", e.g. no live Shizuku binder. Probing the service would block on the
-        // host connection instead of failing fast.
+        // null = "cannot know", e.g. no live link. Probing the service would block on the host
+        // connection instead of failing fast.
         coEvery { shizukuWrapper.isGranted() } returns null
         val mgr = manager()
 
@@ -207,7 +217,7 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     @Test fun `managerIds spans both families even when only one is active`() {
-        // Porter installed while Shizuku is the latched backend: it still has to be recognized as a
+        // Porter installed while Shizuku is the active backend: it still has to be recognized as a
         // manager app, otherwise consumers stop protecting it.
         setManagers(
             all = listOf("moe.shizuku.privileged.api", "eu.darken.porter"),
@@ -222,8 +232,6 @@ class ShizukuManagerTest : BaseTest() {
     // --- active backend ------------------------------------------------------------------------
 
     @Test fun `getManagerId and isInstalled follow the active backend`() {
-        // Porter is installed, but this process latched Shizuku: the active-family lookup is empty,
-        // so as far as the link is concerned nothing usable is installed.
         setManagers(
             all = listOf("eu.darken.porter"),
             active = emptyList(),
@@ -253,34 +261,129 @@ class ShizukuManagerTest : BaseTest() {
         runBlocking { mgr.referenceManagerId() } shouldBe ShizukuManager.PKG_ID
     }
 
-    @Test fun `inactiveFamilyManagerId reports a manager we cannot talk to`() {
-        setManagers(
-            all = listOf("eu.darken.porter"),
-            active = emptyList(),
+    // --- priorityBlockedManagerId --------------------------------------------------------------
+
+    private fun setShizukuFamilyManager(pkg: String?) {
+        coEvery { shizukuWrapper.getActiveManagerPackage(AdbBackend.SHIZUKU) } returns pkg
+    }
+
+    @Test fun `priorityBlockedManagerId reports Shizuku while Porter is active and nothing is linked`() {
+        coEvery { shizukuWrapper.activeBackend() } returns AdbBackend.PORTER
+        setShizukuFamilyManager("moe.shizuku.privileged.api")
+        wrapperLink.value = null
+        val mgr = manager()
+
+        runBlocking { mgr.priorityBlockedManagerId() } shouldBe ShizukuManager.PKG_ID
+    }
+
+    @Test fun `priorityBlockedManagerId is null while a link is held`() {
+        coEvery { shizukuWrapper.activeBackend() } returns AdbBackend.PORTER
+        setShizukuFamilyManager("moe.shizuku.privileged.api")
+        wrapperLink.value = mockk()
+        val mgr = manager()
+
+        runBlocking { mgr.priorityBlockedManagerId() } shouldBe null
+    }
+
+    @Test fun `priorityBlockedManagerId is null while Shizuku is the active backend`() {
+        coEvery { shizukuWrapper.activeBackend() } returns AdbBackend.SHIZUKU
+        setShizukuFamilyManager("moe.shizuku.privileged.api")
+        wrapperLink.value = null
+        val mgr = manager()
+
+        runBlocking { mgr.priorityBlockedManagerId() } shouldBe null
+    }
+
+    @Test fun `priorityBlockedManagerId is null when no Shizuku-family manager is installed`() {
+        coEvery { shizukuWrapper.activeBackend() } returns AdbBackend.PORTER
+        setShizukuFamilyManager(null)
+        wrapperLink.value = null
+        val mgr = manager()
+
+        runBlocking { mgr.priorityBlockedManagerId() } shouldBe null
+    }
+
+    @Test fun `priorityBlockedManagerId reports a Shizuku fork`() {
+        coEvery { shizukuWrapper.activeBackend() } returns AdbBackend.PORTER
+        setShizukuFamilyManager("com.example.shizuku.fork")
+        wrapperLink.value = null
+        val mgr = manager()
+
+        runBlocking { mgr.priorityBlockedManagerId() } shouldBe "com.example.shizuku.fork".toPkgId()
+    }
+
+    @Test fun `priorityBlockedManagerId with a known backend skips the lookup`() {
+        setShizukuFamilyManager("moe.shizuku.privileged.api")
+        wrapperLink.value = null
+        val mgr = manager()
+
+        runBlocking { mgr.priorityBlockedManagerId(AdbBackend.PORTER) } shouldBe ShizukuManager.PKG_ID
+        runBlocking { mgr.priorityBlockedManagerId(AdbBackend.SHIZUKU) } shouldBe null
+
+        coVerify(exactly = 0) { shizukuWrapper.activeBackend() }
+    }
+
+    // --- isShizukud ----------------------------------------------------------------------------
+
+    @Test fun `isShizukud is false for an incompatible server`() {
+        val incompatible = AdbAvailability.Incompatible(
+            backend = AdbBackend.SHIZUKU,
+            packageName = "moe.shizuku.privileged.api",
+            serverTooOld = true,
+            clientTooOld = false,
         )
-        val mgr = manager()
-
-        runBlocking { mgr.inactiveFamilyManagerId() } shouldBe ShizukuManager.PORTER_PKG_ID
-    }
-
-    @Test fun `inactiveFamilyManagerId is null when every manager belongs to the active family`() {
         setShizukuPackages("moe.shizuku.privileged.api")
+        coEvery { shizukuWrapper.availability() } returns incompatible
+        coEvery { shizukuWrapper.isGranted() } returns true
         val mgr = manager()
 
-        runBlocking { mgr.inactiveFamilyManagerId() } shouldBe null
+        runBlocking { mgr.isShizukud() } shouldBe false
+
+        coVerify(exactly = 0) { shizukuWrapper.isGranted() }
+        coVerify(exactly = 0) { serviceClient.get() }
     }
 
-    @Test fun `inactiveFamilyManagerId is null when nothing is installed`() {
-        setShizukuPackages()
+    @Test fun `isShizukud is not blocked by an unknown availability`() {
+        setShizukuPackages("moe.shizuku.privileged.api")
+        coEvery { shizukuWrapper.availability() } returns null
+        coEvery { shizukuWrapper.isGranted() } returns false
         val mgr = manager()
 
-        runBlocking { mgr.inactiveFamilyManagerId() } shouldBe null
+        runBlocking { mgr.isShizukud() } shouldBe false
+
+        coVerify(exactly = 1) { shizukuWrapper.isGranted() }
+    }
+
+    @Test fun `isShizukud looks the availability up once`() {
+        setShizukuPackages("moe.shizuku.privileged.api")
+        coEvery { shizukuWrapper.availability() } returns AdbAvailability.Installed(
+            backend = AdbBackend.SHIZUKU,
+            packageName = "moe.shizuku.privileged.api",
+            connected = true,
+        )
+        coEvery { shizukuWrapper.isGranted() } returns false
+        val mgr = manager()
+
+        runBlocking { mgr.isShizukud() } shouldBe false
+
+        coVerify(exactly = 1) { shizukuWrapper.availability() }
+        coVerify(exactly = 0) { shizukuWrapper.activeBackend() }
+    }
+
+    @Test fun `isShizukud is false when no manager is installed`() {
+        setShizukuPackages()
+        coEvery { shizukuWrapper.availability() } returns AdbAvailability.NotInstalled
+        val mgr = manager()
+
+        runBlocking { mgr.isShizukud() } shouldBe false
+
+        coVerify(exactly = 0) { shizukuWrapper.isGranted() }
     }
 
     // --- getServiceState -----------------------------------------------------------------------
 
     @Test fun `getServiceState reports Unknown, not PermissionDenied, when isGranted is null`() {
-        // null means "cannot know" (no live binder), which resolves itself once Shizuku runs.
+        // null means "cannot know" (no live link), which resolves itself once the server runs.
         // Reporting it as a denial would tell the user to fix a permission that is not the problem.
         coEvery { shizukuWrapper.isGranted() } returns null
         val mgr = manager()
@@ -346,7 +449,6 @@ class ShizukuManagerTest : BaseTest() {
         ShizukuServiceState.Unknown.isTerminalFailure shouldBe false
     }
 
-
     @Test fun `getServiceState reports Failed when the host hands back nothing usable`() {
         // Connected, but checkBase() returned null: a connection we cannot use is a failure, not an
         // "unknown yet" that would leave the card waiting forever.
@@ -358,5 +460,4 @@ class ShizukuManagerTest : BaseTest() {
 
         runBlocking { mgr.getServiceState() } shouldBe ShizukuServiceState.Failed
     }
-
 }
