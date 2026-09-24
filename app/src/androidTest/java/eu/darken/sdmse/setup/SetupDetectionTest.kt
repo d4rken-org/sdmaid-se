@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Environment
+import android.os.SystemClock
 import android.provider.Settings
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.performClick
@@ -157,8 +158,14 @@ class SetupDetectionTest : BaseAppFlowTest() {
 
             writeEnabledAccessibilityServices(enabledAccessibilityServices() + "$pkg/$ACS_CLASS")
             pollUntil("accessibility service bound") { isAccessibilityServiceBound() }
-            shell("input keyevent KEYCODE_BACK")
-            pollUntil("MainActivity resumed") { scenario.state == Lifecycle.State.RESUMED }
+            // On CI's API 36 image a single back press here was lost while Settings refreshed.
+            pollUntil("MainActivity resumed") {
+                if (scenario.state != Lifecycle.State.RESUMED) {
+                    shell("input keyevent KEYCODE_BACK")
+                    SystemClock.sleep(3000)
+                }
+                scenario.state == Lifecycle.State.RESUMED
+            }
 
             awaitNoListItem(hasText(str(R.string.setup_acs_card_title)))
             awaitSetupScreen()
