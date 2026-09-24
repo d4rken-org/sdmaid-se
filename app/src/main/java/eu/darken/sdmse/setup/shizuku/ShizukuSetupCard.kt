@@ -90,13 +90,14 @@ internal fun ShizukuSetupCard(
 
         if (item.state.useShizuku == true) {
             val ready = item.state.isInstalled && item.state.ourService
+            val incompatible = item.state.managerTooOld || item.state.sdMaidTooOld
             // A settled "no", as opposed to "we haven't finished looking". Only this offers a retry:
-            // showing one while a probe is still running is what made the card feel dead.
-            val failed = item.state.isInstalled && item.state.serviceState.isTerminalFailure
+            // showing one while a probe is still running is what made the card feel dead. Not for an
+            // incompatible manager: retrying can't help there, updating one side does.
+            val failed = item.state.isInstalled && !incompatible && item.state.serviceState.isTerminalFailure
             // Offered whenever there is an app to open, connected or not: the card names the manager
             // SD Maid bound to, and the way to check on it is the same question in every state.
             val canOpen = item.state.isInstalled
-            val restartRequired = item.state.restartRequiredFor != null
             // What the installed app calls itself, so a renamed fork isn't addressed as "Shizuku".
             val managerName = item.state.managerLabel ?: item.state.backend.label
 
@@ -126,11 +127,22 @@ internal fun ShizukuSetupCard(
                 // Single short line, so centring reads fine here and matches the other setup cards.
                 Text(
                     text = when {
-                        // A manager of the other family is installed: naming it beats repeating
-                        // "nothing is installed", which no amount of refreshing would change.
-                        restartRequired -> stringResource(
-                            R.string.setup_shizuku_state_restart_required_label,
-                            item.state.restartRequiredLabel ?: item.state.backend.other.label,
+                        item.state.managerTooOld -> stringResource(
+                            R.string.setup_shizuku_state_manager_outdated_label,
+                            managerName,
+                        )
+
+                        item.state.sdMaidTooOld -> stringResource(
+                            R.string.setup_shizuku_state_sdmaid_outdated_label,
+                            managerName,
+                        )
+
+                        // A running Shizuku is ignored while Porter is installed: naming both beats
+                        // "waiting", which no amount of waiting would change.
+                        item.state.blockedManager != null -> stringResource(
+                            R.string.setup_shizuku_state_backend_priority_label,
+                            managerName,
+                            item.state.blockedManagerLabel ?: AdbBackend.SHIZUKU.label,
                         )
 
                         !item.state.isInstalled -> stringResource(R.string.setup_shizuku_state_not_installed_label)
@@ -145,9 +157,8 @@ internal fun ShizukuSetupCard(
                 )
             }
 
-            // Nothing to open yet, so offer the way to get one. Not while restartRequired: there the
-            // app IS installed and sending the user back to a store would be a dead end.
-            if (!item.state.isInstalled && !restartRequired) {
+            // Nothing to open yet, so offer the way to get one.
+            if (!item.state.isInstalled) {
                 Row(
                     horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
                     modifier = Modifier
@@ -294,9 +305,7 @@ private fun ShizukuSetupCardPreview() {
                 state = ShizukuSetupModule.Result(
                     pkg = "eu.darken.porter".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = true,
-                    basicService = true,
                     serviceState = ShizukuServiceState.Available,
                     alsoHasRoot = false,
                     backend = AdbBackend.PORTER,
@@ -319,9 +328,7 @@ private fun ShizukuSetupCardReadyForkPreview() {
                 state = ShizukuSetupModule.Result(
                     pkg = "moe.shizuku.privileged.api".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = true,
-                    basicService = true,
                     serviceState = ShizukuServiceState.Available,
                     alsoHasRoot = false,
                     backend = AdbBackend.SHIZUKU,
@@ -337,21 +344,44 @@ private fun ShizukuSetupCardReadyForkPreview() {
 
 @Preview2
 @Composable
-private fun ShizukuSetupCardRestartRequiredPreview() {
+private fun ShizukuSetupCardBackendPriorityPreview() {
     PreviewWrapper {
         ShizukuSetupCard(
             item = ShizukuSetupCardItem(
                 state = ShizukuSetupModule.Result(
                     pkg = "eu.darken.porter".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
-                    isInstalled = false,
-                    basicService = false,
-                    serviceState = ShizukuServiceState.NotChecked,
+                    isInstalled = true,
+                    serviceState = ShizukuServiceState.Unknown,
+                    alsoHasRoot = false,
+                    backend = AdbBackend.PORTER,
+                    managerLabel = "Porter",
+                    blockedManager = "moe.shizuku.privileged.api".toPkgId(),
+                    blockedManagerLabel = "Shizuku",
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardManagerOutdatedPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "moe.shizuku.privileged.api".toPkgId(),
+                    useShizuku = true,
+                    isInstalled = true,
+                    serviceState = ShizukuServiceState.Failed,
                     alsoHasRoot = false,
                     backend = AdbBackend.SHIZUKU,
-                    restartRequiredFor = "eu.darken.porter".toPkgId(),
-                    restartRequiredLabel = "Porter",
+                    managerLabel = "Shizuku",
+                    managerTooOld = true,
                 ),
                 onToggleUseShizuku = {},
                 onOpen = {},
@@ -370,9 +400,7 @@ private fun ShizukuSetupCardNotInstalledPreview() {
                 state = ShizukuSetupModule.Result(
                     pkg = "eu.darken.porter".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = false,
-                    basicService = false,
                     serviceState = ShizukuServiceState.NotChecked,
                     alsoHasRoot = false,
                 ),
@@ -393,9 +421,7 @@ private fun ShizukuSetupCardFailedPreview() {
                 state = ShizukuSetupModule.Result(
                     pkg = "moe.shizuku.privileged.api".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = true,
-                    basicService = true,
                     serviceState = ShizukuServiceState.TimedOut,
                     alsoHasRoot = false,
                     backend = AdbBackend.PORTER,
@@ -418,9 +444,7 @@ private fun ShizukuSetupCardKnownIssuePreview() {
                 state = ShizukuSetupModule.Result(
                     pkg = "moe.shizuku.privileged.api".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = true,
-                    basicService = true,
                     serviceState = ShizukuServiceState.Failed,
                     alsoHasRoot = false,
                 ),
@@ -443,9 +467,7 @@ private fun ShizukuSetupCardRetryingPreview() {
                 state = ShizukuSetupModule.Result(
                     pkg = "moe.shizuku.privileged.api".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = true,
-                    basicService = true,
                     serviceState = ShizukuServiceState.TimedOut,
                     isChecking = true,
                     alsoHasRoot = false,

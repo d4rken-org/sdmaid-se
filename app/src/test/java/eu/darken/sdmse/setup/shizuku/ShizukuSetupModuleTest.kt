@@ -6,23 +6,25 @@ import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.AdbAvailability
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
+import eu.darken.sdmse.common.adb.shizuku.AdbLink
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
-import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
-import eu.darken.sdmse.setup.SetupModule
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -32,13 +34,13 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.flow.test
-import java.util.concurrent.CountDownLatch
 
 class ShizukuSetupModuleTest : BaseTest() {
 
@@ -51,13 +53,18 @@ class ShizukuSetupModuleTest : BaseTest() {
 
     private val useShizukuValue: DataStoreValue<Boolean?> = mockk()
     private lateinit var useShizukuFlow: MutableStateFlow<Boolean?>
+    private lateinit var linkFlow: MutableStateFlow<AdbLink?>
     private lateinit var scope: CoroutineScope
     private var probeCount = 0
+
+    private val shizukuPkg = "moe.shizuku.privileged.api".toPkgId()
+    private val porterPkg = "eu.darken.porter".toPkgId()
 
     @BeforeEach
     fun setup() {
         probeCount = 0
         useShizukuFlow = MutableStateFlow(true)
+        linkFlow = MutableStateFlow(null)
         scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
 
         every { context.packageManager } returns packageManager
@@ -70,17 +77,36 @@ class ShizukuSetupModuleTest : BaseTest() {
 
         every { adbSettings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
+        coEvery { useShizukuValue.update(any()) } answers {
+            val old = useShizukuFlow.value
+            val new = firstArg<(Boolean?) -> Boolean?>().invoke(old)
+            useShizukuFlow.value = new
+            DataStoreValue.Updated(old = old, new = new)
+        }
 
-        coEvery { shizukuManager.referenceManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        every { shizukuManager.shizukuBinder } returns flowOf(null)
-        every { shizukuManager.permissionGrantEvents } returns emptyFlow()
-        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.managerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
-        coEvery { shizukuManager.activeManagerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
-        coEvery { shizukuManager.inactiveFamilyManagerId() } returns null
+        every { shizukuManager.adbLink } returns linkFlow
+        every { shizukuManager.permissionChanges } returns emptyFlow()
+        every { shizukuManager.useShizuku } returns flowOf(false)
+        coEvery { shizukuManager.availability() } returns AdbAvailability.Installed(
+            backend = AdbBackend.SHIZUKU,
+            packageName = shizukuPkg.name,
+            connected = true,
+        )
+        coEvery { shizukuManager.backendOf(any()) } answers {
+            when (val availability = firstArg<AdbAvailability?>()) {
+                is AdbAvailability.Installed -> availability.backend
+                is AdbAvailability.Incompatible -> availability.backend
+                AdbAvailability.NotInstalled, null -> AdbBackend.SHIZUKU
+            }
+        }
+        coEvery { shizukuManager.referenceManagerId(any()) } returns shizukuPkg
+        coEvery { shizukuManager.getManagerId(any()) } returns shizukuPkg
+        coEvery { shizukuManager.managerIds() } returns setOf(shizukuPkg)
+        coEvery { shizukuManager.activeManagerIds(any()) } returns setOf(shizukuPkg)
+        coEvery { shizukuManager.priorityBlockedManagerId(any()) } returns null
         coEvery { shizukuManager.activeBackend() } returns AdbBackend.SHIZUKU
-        coEvery { shizukuManager.isCompatible() } returns true
         coEvery { shizukuManager.isGranted() } returns true
+        coEvery { shizukuManager.requestPermission() } returns true
         coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; ShizukuServiceState.Available }
 
         every { rootManager.useRoot } returns flowOf(false)
@@ -187,32 +213,19 @@ class ShizukuSetupModuleTest : BaseTest() {
         runBlocking { collector.cancelAndJoin() }
     }
 
-    @Test fun `a wedged pingBinder still produces a Result`() {
-        // pingBinder() is a synchronous PING_TRANSACTION. Against a Shizuku server that is alive but
-        // not servicing requests it never returns, and unbounded it would stall this module's combine
-        // so the setup card sits on Loading forever.
-        val wedge = CountDownLatch(1)
-        val binder = mockk<ShizukuBaseServiceBinder>()
-        every { binder.pingBinder() } answers { wedge.await(); true }
-        every { shizukuManager.shizukuBinder } returns flowOf(binder)
+    @Test fun `an unknown availability still settles a Result`() {
+        coEvery { shizukuManager.availability() } returns null
 
-        // Real scope + real IO dispatcher: the wedge blocks an actual thread, Unconfined would run it
-        // inline and block the collector before any timeout could apply.
-        val realScope = CoroutineScope(Dispatchers.Default + SupervisorJob())
-        try {
-            val mod = module(realScope, TestDispatcherProvider(Dispatchers.IO)).apply { pingTimeoutMs = 250L }
+        val collector = module().state.test(tag = "unknown", scope = scope)
+        val settled = collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result && !latest.isChecking
+        }.shouldBeInstanceOf<ShizukuSetupModule.Result>()
 
-            val collector = mod.state.test(tag = "wedge", scope = realScope)
-            collector.await { values, _ -> values.any { it is ShizukuSetupModule.Result } }
+        settled.backend shouldBe AdbBackend.SHIZUKU
+        settled.managerTooOld shouldBe false
+        settled.sdMaidTooOld shouldBe false
 
-            val result = collector.latestValues.filterIsInstance<ShizukuSetupModule.Result>().last()
-            result.basicService shouldBe false
-
-            runBlocking { collector.cancelAndJoin() }
-        } finally {
-            wedge.countDown()
-            realScope.cancel()
-        }
+        runBlocking { collector.cancelAndJoin() }
     }
 
     // --- service state -------------------------------------------------------------------------
@@ -234,7 +247,7 @@ class ShizukuSetupModuleTest : BaseTest() {
 
     @Test fun `only Available counts as our service being up`() {
         fun resultWith(state: ShizukuServiceState) = ShizukuSetupModule.Result(
-            pkg = "moe.shizuku.privileged.api".toPkgId(),
+            pkg = shizukuPkg,
             useShizuku = true,
             serviceState = state,
         )
@@ -250,14 +263,16 @@ class ShizukuSetupModuleTest : BaseTest() {
     @Test fun `isComplete truth table across every service outcome`() {
         fun complete(
             useShizuku: Boolean?,
-            isCompatible: Boolean = true,
             isInstalled: Boolean = true,
+            managerTooOld: Boolean = false,
+            sdMaidTooOld: Boolean = false,
             state: ShizukuServiceState = ShizukuServiceState.NotChecked,
         ) = ShizukuSetupModule.Result(
-            pkg = "moe.shizuku.privileged.api".toPkgId(),
+            pkg = shizukuPkg,
             useShizuku = useShizuku,
-            isCompatible = isCompatible,
             isInstalled = isInstalled,
+            managerTooOld = managerTooOld,
+            sdMaidTooOld = sdMaidTooOld,
             serviceState = state,
         ).isComplete
 
@@ -272,21 +287,20 @@ class ShizukuSetupModuleTest : BaseTest() {
         // Wants Shizuku but it isn't installed stays incomplete, even when nothing failed.
         complete(true, isInstalled = false, state = ShizukuServiceState.Available) shouldBe false
 
-        // Opted out, or Shizuku too old to use, are both settled states.
-        complete(false, state = ShizukuServiceState.TimedOut) shouldBe true
-        complete(true, isCompatible = false, state = ShizukuServiceState.TimedOut) shouldBe true
-        complete(null, isCompatible = false) shouldBe true
-    }
+        // An incompatible manager keeps the card up, it needs an update on one side.
+        complete(true, managerTooOld = true, state = ShizukuServiceState.Unknown) shouldBe false
+        complete(true, sdMaidTooOld = true, state = ShizukuServiceState.Unknown) shouldBe false
 
+        // Opted out is settled, undecided is not.
+        complete(false, state = ShizukuServiceState.TimedOut) shouldBe true
+        complete(null) shouldBe false
+    }
 
     @Test fun `a probe that throws settles as Failed instead of stranding the checking state`() {
         // Regression guard: emitting isChecking=true and THEN throwing kills the sharing coroutine
         // with that state stuck in replayingShare's replay slot. No refresh can replace it, so every
-        // later subscriber inherits a permanently disabled retry button. pingBinder() is a binder
-        // call and runDetachedWithTimeout propagates whatever its block throws, so this is reachable.
-        val binder: ShizukuBaseServiceBinder = mockk()
-        every { binder.pingBinder() } throws RuntimeException("binder died")
-        every { shizukuManager.shizukuBinder } returns flowOf(binder)
+        // later subscriber inherits a permanently disabled retry button.
+        coEvery { shizukuManager.getServiceState() } throws RuntimeException("link died")
         val mod = module()
 
         val collector = mod.state.test(tag = "throwing", scope = scope)
@@ -314,9 +328,9 @@ class ShizukuSetupModuleTest : BaseTest() {
     @Test fun `card package prefers the first manager that can be opened`() {
         // Shizuku+ next to its Compat Hub: the Hub owns the stock permission but has no launcher
         // activity, so opening it from the card would do nothing.
-        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.activeManagerIds() } returns setOf(
-            "moe.shizuku.privileged.api".toPkgId(),
+        coEvery { shizukuManager.getManagerId(any()) } returns shizukuPkg
+        coEvery { shizukuManager.activeManagerIds(any()) } returns setOf(
+            shizukuPkg,
             "af.shizuku.plus.api".toPkgId(),
         )
         every { packageManager.getLaunchIntentForPackage("moe.shizuku.privileged.api") } returns null
@@ -326,20 +340,20 @@ class ShizukuSetupModuleTest : BaseTest() {
     }
 
     @Test fun `card package falls back to the detected manager when none can be opened`() {
-        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.activeManagerIds() } returns setOf(
-            "moe.shizuku.privileged.api".toPkgId(),
+        coEvery { shizukuManager.getManagerId(any()) } returns shizukuPkg
+        coEvery { shizukuManager.activeManagerIds(any()) } returns setOf(
+            shizukuPkg,
             "af.shizuku.plus.api".toPkgId(),
         )
         every { packageManager.getLaunchIntentForPackage(any()) } returns null
 
-        firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
+        firstResult(module()).pkg shouldBe shizukuPkg
     }
 
     @Test fun `card package is the reference package when nothing is installed`() {
-        coEvery { shizukuManager.getManagerId() } returns null
+        coEvery { shizukuManager.getManagerId(any()) } returns null
 
-        firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
+        firstResult(module()).pkg shouldBe shizukuPkg
 
         verify(exactly = 0) { packageManager.getLaunchIntentForPackage(any()) }
     }
@@ -347,50 +361,131 @@ class ShizukuSetupModuleTest : BaseTest() {
     @Test fun `the open target never leaves the active backend's family`() {
         // Porter is installed and openable, but this process talks to Shizuku. Sending the user to
         // Porter would open an app that cannot affect the link the card is waiting on.
-        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.activeManagerIds() } returns setOf("moe.shizuku.privileged.api".toPkgId())
-        coEvery { shizukuManager.managerIds() } returns setOf(
-            "moe.shizuku.privileged.api".toPkgId(),
-            "eu.darken.porter".toPkgId(),
-        )
+        coEvery { shizukuManager.getManagerId(any()) } returns shizukuPkg
+        coEvery { shizukuManager.activeManagerIds(any()) } returns setOf(shizukuPkg)
+        coEvery { shizukuManager.managerIds() } returns setOf(shizukuPkg, porterPkg)
         every { packageManager.getLaunchIntentForPackage(any()) } returns mockk<Intent>()
 
-        firstResult(module()).pkg shouldBe "moe.shizuku.privileged.api".toPkgId()
+        firstResult(module()).pkg shouldBe shizukuPkg
     }
 
     // --- backend -------------------------------------------------------------------------------
 
-    @Test fun `the result carries the active backend`() {
-        coEvery { shizukuManager.activeBackend() } returns AdbBackend.PORTER
+    @Test fun `the result carries the backend of the availability snapshot`() {
+        coEvery { shizukuManager.availability() } returns AdbAvailability.Installed(
+            backend = AdbBackend.PORTER,
+            packageName = porterPkg.name,
+            connected = true,
+        )
 
         firstResult(module()).backend shouldBe AdbBackend.PORTER
     }
 
-    @Test fun `restartRequiredFor names the manager of the other family`() {
-        // Backend latched before Porter was installed: the active-family lookup stays empty, so the
-        // card has to say a full restart is needed instead of "nothing is installed".
-        coEvery { shizukuManager.getManagerId() } returns null
-        coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
+    @Test fun `every lookup uses the backend of one availability snapshot`() {
+        coEvery { shizukuManager.availability() } returns AdbAvailability.Installed(
+            backend = AdbBackend.PORTER,
+            packageName = porterPkg.name,
+            connected = false,
+        )
+        coEvery { shizukuManager.getManagerId(any()) } returns null
+
+        firstResult(module())
+
+        coVerify { shizukuManager.getManagerId(AdbBackend.PORTER) }
+        coVerify { shizukuManager.referenceManagerId(AdbBackend.PORTER) }
+        coVerify { shizukuManager.priorityBlockedManagerId(AdbBackend.PORTER) }
+        coVerify(exactly = 0) { shizukuManager.activeBackend() }
+    }
+
+    private fun stubPorterInstalledNotConnected() {
+        coEvery { shizukuManager.availability() } coAnswers {
+            AdbAvailability.Installed(
+                backend = AdbBackend.PORTER,
+                packageName = porterPkg.name,
+                connected = linkFlow.value != null,
+            )
+        }
+        coEvery { shizukuManager.getManagerId(any()) } returns porterPkg
+        coEvery { shizukuManager.activeManagerIds(any()) } returns setOf(porterPkg)
+        coEvery { shizukuManager.priorityBlockedManagerId(any()) } coAnswers {
+            if (linkFlow.value == null) shizukuPkg else null
+        }
+    }
+
+    @Test fun `blockedManager names the Shizuku manager an installed Porter takes priority over`() {
+        stubPorterInstalledNotConnected()
 
         val result = firstResult(module())
-        result.isInstalled shouldBe false
-        result.restartRequiredFor shouldBe "eu.darken.porter".toPkgId()
+        result.isInstalled shouldBe true
+        result.pkg shouldBe porterPkg
+        result.backend shouldBe AdbBackend.PORTER
+        result.blockedManager shouldBe shizukuPkg
     }
 
-    @Test fun `restartRequiredFor is null when nothing at all is installed`() {
-        coEvery { shizukuManager.getManagerId() } returns null
-        coEvery { shizukuManager.inactiveFamilyManagerId() } returns null
-
-        firstResult(module()).restartRequiredFor shouldBe null
+    @Test fun `blockedManager is null when nothing is blocked`() {
+        firstResult(module()).blockedManager shouldBe null
     }
 
-    @Test fun `restartRequiredFor is null while the active family has a manager`() {
-        // A manager we CAN talk to is installed, so there is nothing to restart for, even if the
-        // other family happens to be installed as well.
-        coEvery { shizukuManager.getManagerId() } returns "moe.shizuku.privileged.api".toPkgId()
-        coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
+    @Test fun `Porter starting clears the priority hint while the state is collected`() {
+        stubPorterInstalledNotConnected()
+        val mod = module()
 
-        firstResult(module()).restartRequiredFor shouldBe null
+        val collector = mod.state.test(tag = "porter-start", scope = scope)
+        collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result && !latest.isChecking && latest.blockedManager == shizukuPkg
+        }
+
+        linkFlow.value = mockk<AdbLink>()
+
+        val settled = collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result && !latest.isChecking && latest.blockedManager == null
+        }.shouldBeInstanceOf<ShizukuSetupModule.Result>()
+        settled.isInstalled shouldBe true
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `an incompatible manager that is too old is reported`() {
+        coEvery { shizukuManager.availability() } returns AdbAvailability.Incompatible(
+            backend = AdbBackend.SHIZUKU,
+            packageName = shizukuPkg.name,
+            serverTooOld = true,
+            clientTooOld = false,
+        )
+        coEvery { shizukuManager.getServiceState() } returns ShizukuServiceState.Unknown
+
+        val collector = module().state.test(tag = "manager-too-old", scope = scope)
+        val settled = collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result && !latest.isChecking
+        }.shouldBeInstanceOf<ShizukuSetupModule.Result>()
+
+        settled.managerTooOld shouldBe true
+        settled.sdMaidTooOld shouldBe false
+        settled.isInstalled shouldBe true
+        settled.isComplete shouldBe false
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `an incompatible manager that is too new for SD Maid is reported`() {
+        coEvery { shizukuManager.availability() } returns AdbAvailability.Incompatible(
+            backend = AdbBackend.SHIZUKU,
+            packageName = shizukuPkg.name,
+            serverTooOld = false,
+            clientTooOld = true,
+        )
+        coEvery { shizukuManager.getServiceState() } returns ShizukuServiceState.Unknown
+
+        val collector = module().state.test(tag = "sdmaid-too-old", scope = scope)
+        val settled = collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result && !latest.isChecking
+        }.shouldBeInstanceOf<ShizukuSetupModule.Result>()
+
+        settled.managerTooOld shouldBe false
+        settled.sdMaidTooOld shouldBe true
+        settled.isComplete shouldBe false
+
+        runBlocking { collector.cancelAndJoin() }
     }
 
     // Real PackageInfo/ApplicationInfo constructors hit the stubbed android.jar, so build them the
@@ -411,8 +506,8 @@ class ShizukuSetupModuleTest : BaseTest() {
     }
 
     @Test fun `managerLabel is absent when no manager is installed`() {
-        coEvery { shizukuManager.getManagerId() } returns null
-        coEvery { shizukuManager.activeManagerIds() } returns emptySet()
+        coEvery { shizukuManager.getManagerId(any()) } returns null
+        coEvery { shizukuManager.activeManagerIds(any()) } returns emptySet()
         stubLabel("Shizuku")
 
         // The reference package fills Result.pkg, but nothing is installed, so there is no name to
@@ -420,12 +515,11 @@ class ShizukuSetupModuleTest : BaseTest() {
         firstResult(module()).managerLabel shouldBe null
     }
 
-    @Test fun `restartRequiredLabel names the unreachable app`() {
-        coEvery { shizukuManager.getManagerId() } returns null
-        coEvery { shizukuManager.inactiveFamilyManagerId() } returns "eu.darken.porter".toPkgId()
-        stubLabel("Porter")
+    @Test fun `blockedManagerLabel names the ignored app`() {
+        stubPorterInstalledNotConnected()
+        stubLabel("Shizuku")
 
-        firstResult(module()).restartRequiredLabel shouldBe "Porter"
+        firstResult(module()).blockedManagerLabel shouldBe "Shizuku"
     }
 
     @Test fun `a blank label is treated as no label`() {
@@ -452,4 +546,45 @@ class ShizukuSetupModuleTest : BaseTest() {
         runBlocking { collector.cancelAndJoin() }
     }
 
+    // --- permission ----------------------------------------------------------------------------
+
+    @Test fun `toggle leaves the setting undecided when the permission request fails`() {
+        useShizukuFlow.value = null
+        coEvery { shizukuManager.isGranted() } returns false
+        coEvery { shizukuManager.requestPermission() } returns null
+        val mod = module()
+
+        // Far below the 30s grant wait: the answer is taken from the request itself.
+        runBlocking { withTimeout(5_000) { mod.toggleUseShizuku(true) } }
+
+        useShizukuFlow.value shouldBe null
+        coVerify(exactly = 1) { shizukuManager.requestPermission() }
+        coVerify(exactly = 1) { useShizukuValue.update(any()) }
+    }
+
+    @Test fun `the automatic requester does not start a second request while one is in flight`() {
+        coEvery { shizukuManager.isGranted() } returns false
+        val answer = CompletableDeferred<Boolean?>()
+        var requests = 0
+        coEvery { shizukuManager.requestPermission() } coAnswers {
+            requests++
+            answer.await()
+        }
+        linkFlow.value = mockk<AdbLink>()
+        val mod = module()
+
+        val collector = mod.state.test(tag = "single-flight", scope = scope)
+        collector.await { _, _ -> requests >= 1 }
+
+        // A new link and a refresh both run the requester again while the prompt is still open.
+        linkFlow.value = mockk<AdbLink>()
+        runBlocking { mod.refresh() }
+        collector.await { _, latest -> latest is ShizukuSetupModule.Result && !latest.isChecking }
+        runBlocking { delay(50) }
+
+        requests shouldBe 1
+
+        answer.complete(true)
+        runBlocking { collector.cancelAndJoin() }
+    }
 }
