@@ -14,8 +14,7 @@ import java.io.Closeable
  * For *synchronous* calls that can wedge (binder transactions against an alive-but-unresponsive
  * process), [withTimeoutOrNull] on its own is not enough: it only unwinds at suspension points, so a
  * thread blocked inside the call keeps pinning the caller anyway. Detaching the call means a wedged
- * thread leaks instead of the caller hanging forever, the same trade-off
- * `AdbHostLauncher.createConnection` makes for `bindUserService()`.
+ * thread leaks instead of the caller hanging forever.
  *
  * [T] is non-nullable so a `null` return unambiguously means "timed out". Exceptions thrown by
  * [block] propagate to the caller.
