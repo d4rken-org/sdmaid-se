@@ -217,7 +217,9 @@ with the probe, so a member going out of reach surfaces as a named failure inste
 The Robolectric screen tests drive each internal `Screen` composable with mock state, so nothing on the JVM
 starts the real Hilt graph, navigates from `MainActivity`, or sees real permission state. `app`'s
 `androidTest` covers exactly that: launch `MainActivity` with `ActivityScenario` and drive it through
-`createEmptyComposeRule()`. Worked example: `app/src/androidTest/java/eu/darken/sdmse/main/ui/onboarding/OnboardingFlowTest.kt`.
+`createEmptyComposeRule()`. Extend `testhelper/BaseAppFlowTest`, which carries the compose rule, `walkOnboarding()`,
+the list helpers and `shell()`. Worked examples: `app/src/androidTest/java/eu/darken/sdmse/main/ui/onboarding/OnboardingFlowTest.kt`
+and, for real permission state, `app/src/androidTest/java/eu/darken/sdmse/setup/SetupDetectionTest.kt`.
 
 - These run against the production `App`, not `HiltTestApplication`: the manifest removes WorkManager's
   initializer, so the graph cannot be built without `App` acting as the `Configuration.Provider`. There is
@@ -230,6 +232,22 @@ starts the real Hilt graph, navigates from `MainActivity`, or sees real permissi
   update check, for example) has to be branched on `BuildConfigWrap.FLAVOR`.
 - Match screens by their string resources, and wait with `composeRule.waitUntil` rather than assuming a
   screen is already there: first-launch work and navigation are asynchronous.
+- Grant access from the test with `shell("pm grant …")` / `shell("appops set …")`; it runs as the shell uid.
+  The test runs inside the app's process, so revoking a runtime permission or `MANAGE_EXTERNAL_STORAGE`
+  kills it. Granting doesn't.
+- The orchestrator's clear resets runtime permissions but not app-ops, `WRITE_SECURE_SETTINGS` or secure
+  settings: a `GET_USAGE_STATS` / `MANAGE_EXTERNAL_STORAGE` app-op or an enabled accessibility service carries
+  into later tests of the same run. Reset what can be reset in `@Before` (`appops set <pkg> GET_USAGE_STATS
+  default` and `pm revoke <pkg> android.permission.WRITE_SECURE_SETTINGS` are safe). Only the test that grants
+  `MANAGE_EXTERNAL_STORAGE` may depend on storage state.
+- SD Maid's accessibility service stops itself and clears its secure-settings entry while in-app consent is
+  missing, so enable it from the shell only after the consent click.
+- Setup re-reads permission state in `ON_RESUME`, not continuously. After a shell grant, call
+  `scenario.cycleResume()`; without it the card never changes.
+- Off-screen lazy-list items are not in the semantics tree, so "no node found" proves nothing. Use
+  `awaitNoListItem()`, then an `awaitListItem()` for something that must still be there: absence also
+  passes on any other screen with a list. For presence of a Setup card, match its body text: a loading card
+  shows the same title.
 
 ### Room migrations do not need a device
 
