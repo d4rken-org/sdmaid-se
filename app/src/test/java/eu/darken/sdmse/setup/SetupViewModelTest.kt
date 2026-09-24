@@ -104,7 +104,6 @@ class SetupViewModelTest : BaseTest() {
                 ShizukuSetupModule.Result(
                     pkg = "moe.shizuku.privileged.api".toPkgId(),
                     useShizuku = true,
-                    isCompatible = true,
                     isInstalled = true,
                     // Not Available on purpose: a complete card is filtered out of the render state,
                     // and the button exists in this state too.

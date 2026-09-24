@@ -290,7 +290,12 @@
     <string name="setup_shizuku_state_failed_label">Shizuku is running, but it never connected SD Maid to its helper service.</string>
     <!-- %1$s is the product name, "Porter" or "Shizuku". -->
     <string name="setup_shizuku_service_failed_label">%1$s is running, but it never connected SD Maid to its helper service.</string>
-    <string name="setup_shizuku_state_restart_required_label">%1$s is installed, but SD Maid has to be fully closed and reopened before it can use it.</string>
+    <!-- %1$s is the preferred app's own name, e.g. "Porter". %2$s is the other installed app's own name, e.g. "Shizuku". -->
+    <string name="setup_shizuku_state_backend_priority_label">%1$s is installed, so SD Maid waits for %1$s instead of %2$s. Start %1$s to continue.</string>
+    <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_state_manager_outdated_label">Update %1$s to use it with SD Maid.</string>
+    <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_state_sdmaid_outdated_label">This version of SD Maid is too old for %1$s. Update SD Maid.</string>
     <string name="setup_shizuku_state_known_issue_hint">Some devices are affected by a known problem that stops the helper service from starting. This may be one of them.</string>
     <string name="setup_shizuku_open_manager_action">Open %1$s</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Try to use ADB access</string>

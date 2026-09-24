@@ -8,14 +8,13 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbSettings
+import eu.darken.sdmse.common.adb.shizuku.AdbAvailability
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
-import eu.darken.sdmse.common.adb.shizuku.ShizukuBaseServiceBinder
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.coroutine.runDetachedWithTimeout
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -30,17 +29,17 @@ import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.async
-import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.transformLatest
@@ -63,59 +62,70 @@ class ShizukuSetupModule @Inject constructor(
 
     private val refreshTrigger = MutableStateFlow(rngString)
 
-    /** Overridden in tests to keep the wedge case fast, never in production. */
-    internal var pingTimeoutMs: Long = PING_TIMEOUT_MS
-
     // Last SETTLED Result, kept so re-subscription (e.g. returning to the dashboard) can emit it
     // immediately instead of regressing to Loading and flickering the setup card while the availability
     // probe re-runs (a cold AdbHost bind can take ~10s). Never holds Loading or a mid-probe state.
     @Volatile
     private var lastResult: Result? = null
 
-    private val permissionRequester = shizukuManager.shizukuBinder
-        .onEach {
-            if (adbSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
-                log(TAG) { "Requesting Shizuku permission for us..." }
-                shizukuManager.requestPermission()
+    private val permissionRequestLock = Any()
+    private var permissionRequest: Deferred<Boolean?>? = null
+
+    // The request suspends until the user answers the manager's prompt, so it runs detached and is
+    // shared: a second caller joins the prompt already on screen instead of stacking another one.
+    private fun requestPermissionOnce(): Deferred<Boolean?> = synchronized(permissionRequestLock) {
+        permissionRequest?.takeIf { it.isActive } ?: appScope
+            .async {
+                log(TAG) { "Requesting ADB permission..." }
+                shizukuManager.requestPermission().also { log(TAG) { "ADB permission request result: $it" } }
+            }
+            .also { permissionRequest = it }
+    }
+
+    private val permissionRequester: Flow<Unit> = shizukuManager.adbLink
+        .onEach { link ->
+            if (link != null && adbSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
+                requestPermissionOnce()
             }
         }
+        // Only the lifecycle matters: a new link already restarts the whole state through the outer combine.
         .map { }
         .onStart { emit(Unit) }
+        .distinctUntilChanged()
 
     override val state: Flow<SetupModule.State> = combine(
         refreshTrigger,
         adbSettings.useShizuku.flow,
         rootManager.useRoot,
-    ) { _, useShizuku, useRoot ->
-        val managerId = shizukuManager.getManagerId()
+        // A link attaching can lift the priority block below, e.g. Porter being started.
+        shizukuManager.adbLink.onStart { emit(null) }.distinctUntilChanged(),
+    ) { _, useShizuku, useRoot, _ ->
+        // One snapshot per emission, so backend, manager and hints can't disagree with each other.
+        val availability = shizukuManager.availability()
+        val backend = shizukuManager.backendOf(availability)
+        val managerId = shizukuManager.getManagerId(backend)
         // The card's open action launches this package. The detected manager can be Shizuku+'s Compat Hub,
         // which has no launcher activity, so prefer the first manager app that can actually be opened.
         // Stays inside the active backend's family: the other manager can't affect the link we wait on.
         val openable = managerId?.let {
             withContext(dispatcherProvider.IO) {
-                shizukuManager.activeManagerIds().firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
+                shizukuManager.activeManagerIds(backend).firstOrNull { pkg -> pkg.getLaunchIntent(context) != null }
             }
         }
-        // The backend is picked and latched when the SDK's providers initialize. Someone who opened
-        // SD Maid before installing any manager latched Shizuku, so installing Porter afterwards keeps
-        // the active-family lookup empty however often the card is refreshed. Without this the card
-        // would keep insisting nothing is installed, which is exactly where our own copy sends a new
-        // Porter user.
-        val restartRequiredFor = when (managerId) {
-            null -> shizukuManager.inactiveFamilyManagerId()
-            else -> null
-        }
-        val pkg = openable ?: managerId ?: shizukuManager.referenceManagerId()
+        val blockedManager = shizukuManager.priorityBlockedManagerId(backend)
+        val incompatible = availability as? AdbAvailability.Incompatible
+        val pkg = openable ?: managerId ?: shizukuManager.referenceManagerId(backend)
         val baseState = Result(
             pkg = pkg,
             useShizuku = useShizuku,
             isInstalled = managerId != null,
-            isCompatible = shizukuManager.isCompatible(),
             alsoHasRoot = useRoot,
-            backend = shizukuManager.activeBackend(),
-            restartRequiredFor = restartRequiredFor,
+            backend = backend,
             managerLabel = if (managerId != null) labelOf(pkg) else null,
-            restartRequiredLabel = labelOf(restartRequiredFor),
+            blockedManager = blockedManager,
+            blockedManagerLabel = labelOf(blockedManager),
+            managerTooOld = incompatible?.serverTooOld == true,
+            sdMaidTooOld = incompatible?.clientTooOld == true,
         )
 
         if (useShizuku != true) return@combine flowOf<SetupModule.State>(baseState)
@@ -123,13 +133,12 @@ class ShizukuSetupModule @Inject constructor(
         combine(
             // Just tie the lifecycle of the requester to the state's subscribers
             permissionRequester,
-            shizukuManager.permissionGrantEvents.map { }.onStart { emit(Unit) },
-            shizukuManager.shizukuBinder.onStart { emit(null) },
-        ) { _, _, binder -> binder }
+            shizukuManager.permissionChanges.onStart { emit(Unit) },
+        ) { _, _ -> }
             // transformLatest, not map: the probe below has to announce itself BEFORE it runs. A cold
             // bind can take the full ADB connect budget, and without a state saying so the card kept
             // offering a retry button that silently did nothing for those seconds.
-            .transformLatest<ShizukuBaseServiceBinder?, SetupModule.State> { binder ->
+            .transformLatest<Unit, SetupModule.State> {
                 emit(
                     baseState.copy(
                         // Keep showing what we last knew rather than regressing to NotChecked, so a
@@ -140,19 +149,7 @@ class ShizukuSetupModule @Inject constructor(
                 )
 
                 val settled = try {
-                    // pingBinder() is a synchronous PING_TRANSACTION: against a Shizuku server that is
-                    // alive but not servicing requests it never returns, and an unbounded wedge here
-                    // stalls this flow so the card stays on Loading forever - the exact symptom the
-                    // ADB-side timeouts guard against. Detached + bounded, same trade as isGranted().
-                    val basicService = binder?.let { b ->
-                        appScope.runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { b.pingBinder() }
-                            ?: false.also { log(TAG) { "pingBinder() did not respond within ${pingTimeoutMs}ms" } }
-                    } ?: false
-
-                    baseState.copy(
-                        basicService = basicService,
-                        serviceState = shizukuManager.getServiceState(),
-                    )
+                    baseState.copy(serviceState = shizukuManager.getServiceState())
                 } catch (e: CancellationException) {
                     throw e
                 } catch (e: Exception) {
@@ -160,8 +157,6 @@ class ShizukuSetupModule @Inject constructor(
                     // above kills the sharing coroutine with that state left in replayingShare's
                     // replay slot, and since the coroutine is dead no refresh can ever replace it:
                     // every later subscriber would see a permanently disabled retry button.
-                    // runDetachedWithTimeout propagates whatever its block throws, and pingBinder()
-                    // is a binder call, so this is reachable (e.g. DeadObjectException).
                     log(TAG, WARN) { "Shizuku probe failed: ${e.asLog()}" }
                     baseState.copy(serviceState = ShizukuServiceState.Failed)
                 }
@@ -214,38 +209,19 @@ class ShizukuSetupModule @Inject constructor(
         // Drop any cached state so we don't replay a stale Result for the previous setting.
         lastResult = null
         val couldUseShizuku = shizukuManager.useShizuku.first()
-        if (useShizuku == true && shizukuManager.isGranted() == false) {
-            val grantResult = coroutineScope {
-                val eventResult = async {
-                    shizukuManager.permissionGrantEvents
-                        .mapLatest { shizukuManager.isGranted() }
-                        .first()
-                }
-
-                log(TAG) { "Requesting permission" }
-                shizukuManager.requestPermission()
-
-                withTimeoutOrNull(30 * 1000) { eventResult.await() }
-            }
-
+        val newValue = if (useShizuku == true && shizukuManager.isGranted() == false) {
+            val grantResult = withTimeoutOrNull(30 * 1000) { requestPermissionOnce().await() }
             log(TAG) { "Permission grant result was $grantResult" }
-            adbSettings.useShizuku.value(grantResult.takeIf { it == true })
+            grantResult.takeIf { it == true }
         } else {
-            adbSettings.useShizuku.value(useShizuku)
+            useShizuku
         }
+        adbSettings.useShizuku.value(newValue)
 
-        if (!couldUseShizuku && useShizuku == true) {
-            // Wait for the binder to actually answer rather than guessing at how long it takes.
-            // The ping goes through the same detached bound as the probe above: pingBinder() is a
-            // synchronous transaction, so a plain withTimeoutOrNull around it could not release this
-            // coroutine if the server is alive but wedged, it would just sit here.
+        if (!couldUseShizuku && newValue == true) {
+            // Wait for the link to actually attach rather than guessing at how long it takes.
             withTimeoutOrNull(SERVICE_BIND_TIMEOUT_MS) {
-                shizukuManager.shizukuBinder
-                    .filter { binder ->
-                        binder != null && appScope
-                            .runDetachedWithTimeout(dispatcherProvider.IO, pingTimeoutMs) { binder.pingBinder() } == true
-                    }
-                    .first()
+                shizukuManager.adbLink.filterNotNull().first()
             } ?: log(TAG, WARN) { "Service did not bind within ${SERVICE_BIND_TIMEOUT_MS}ms" }
         }
 
@@ -261,27 +237,29 @@ class ShizukuSetupModule @Inject constructor(
     data class Result(
         val pkg: Pkg.Id,
         val useShizuku: Boolean?,
-        val isCompatible: Boolean = false,
         val isInstalled: Boolean = false,
-        val basicService: Boolean = false,
         val serviceState: ShizukuServiceState = ShizukuServiceState.NotChecked,
         /** A probe is running right now. Only gates the retry affordance, never the message. */
         val isChecking: Boolean = false,
         val alsoHasRoot: Boolean = false,
         val backend: AdbBackend = AdbBackend.SHIZUKU,
         /**
-         * A manager of the OTHER family is installed but unreachable until the app is fully
-         * restarted, because this process already latched a backend. Null in every other case.
-         */
-        val restartRequiredFor: Pkg.Id? = null,
-        /**
          * What [pkg] calls itself, so a renamed fork is named correctly instead of "Shizuku".
          * Null when nothing is installed or the label could not be read; callers fall back to
          * [backend]'s own label.
          */
         val managerLabel: String? = null,
-        /** Same, for [restartRequiredFor]. */
-        val restartRequiredLabel: String? = null,
+        /**
+         * An installed Shizuku-family manager we can't use because an installed Porter takes priority
+         * and isn't connected. Null in every other case.
+         */
+        val blockedManager: Pkg.Id? = null,
+        /** Same as [managerLabel], for [blockedManager]. */
+        val blockedManagerLabel: String? = null,
+        /** The manager's server is too old to talk to this version of SD Maid. */
+        val managerTooOld: Boolean = false,
+        /** This version of SD Maid is too old to talk to the manager's server. */
+        val sdMaidTooOld: Boolean = false,
     ) : SetupModule.State.Current {
 
         /** Derived, not stored: one source of truth, so it can't disagree with [serviceState]. */
@@ -292,9 +270,10 @@ class ShizukuSetupModule @Inject constructor(
 
         // "Wants Shizuku but it isn't installed" is NOT complete. Treating it as complete hid the card
         // and rendered the whole setup screen as done, so users believed Shizuku was working while we
-        // silently fell back to the accessibility service.
+        // silently fell back to the accessibility service. An incompatible manager isn't complete
+        // either: the card has to say which side needs an update.
         override val isComplete: Boolean =
-            useShizuku == false || !isCompatible || (useShizuku == true && isInstalled && ourService)
+            useShizuku == false || (useShizuku == true && isInstalled && ourService)
     }
 
     @Module @InstallIn(SingletonComponent::class)
@@ -305,12 +284,8 @@ class ShizukuSetupModule @Inject constructor(
     companion object {
         private val TAG = logTag("Setup", "ADB", "Shizuku", "Module")
 
-        // Generous on purpose: a false timeout would report a working Shizuku as unavailable, which is
-        // worse than waiting. This only has to turn "never" into "eventually".
-        internal const val PING_TIMEOUT_MS = 15 * 1000L
-
         // Ceiling for the post-grant wait, not an expected duration: the wait ends as soon as the
-        // binder answers. Expiring only means the card reports "waiting" a moment longer.
+        // link attaches. Expiring only means the card reports "waiting" a moment longer.
         internal const val SERVICE_BIND_TIMEOUT_MS = 10 * 1000L
     }
 }

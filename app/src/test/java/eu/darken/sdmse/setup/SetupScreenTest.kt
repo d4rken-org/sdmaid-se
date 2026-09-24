@@ -626,9 +626,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             state = ShizukuSetupModule.Result(
                                 pkg = "moe.shizuku.privileged.api".toPkgId(),
                                 useShizuku = true,
-                                isCompatible = true,
                                 isInstalled = true,
-                                basicService = true,
                                 serviceState = ShizukuServiceState.NotChecked,
                                 alsoHasRoot = true,
                                 backend = AdbBackend.PORTER,
@@ -669,9 +667,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             state = ShizukuSetupModule.Result(
                                 pkg = "moe.shizuku.privileged.api".toPkgId(),
                                 useShizuku = true,
-                                isCompatible = true,
                                 isInstalled = true,
-                                basicService = true,
                                 serviceState = ShizukuServiceState.Available,
                                 alsoHasRoot = false,
                                 managerLabel = "Shizuku",
@@ -696,7 +692,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `shizuku card explains the restart when the other family is installed`() {
+    fun `shizuku card explains Porter's priority over an installed Shizuku`() {
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
@@ -705,13 +701,11 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                             state = ShizukuSetupModule.Result(
                                 pkg = "eu.darken.porter".toPkgId(),
                                 useShizuku = true,
-                                isCompatible = true,
-                                isInstalled = false,
-                                basicService = false,
-                                serviceState = ShizukuServiceState.NotChecked,
+                                isInstalled = true,
+                                serviceState = ShizukuServiceState.Unknown,
                                 alsoHasRoot = false,
-                                backend = AdbBackend.SHIZUKU,
-                                restartRequiredFor = "eu.darken.porter".toPkgId(),
+                                backend = AdbBackend.PORTER,
+                                blockedManager = "moe.shizuku.privileged.api".toPkgId(),
                             ),
                             onToggleUseShizuku = {},
                             onOpen = {},
@@ -722,8 +716,19 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             )
         }
 
+        // Without labels both names fall back to the product names.
         composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_restart_required_label, "Porter"))
+            .onAllNodesWithText(
+                context.getString(R.string.setup_shizuku_state_backend_priority_label, "Porter", "Shizuku")
+            )
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_waiting_label))
+            .assertCountEquals(0)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Porter")
+            )
             .assertCountEquals(1)
         composeRule
             .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_not_installed_label))
@@ -747,9 +752,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     ) = ShizukuSetupModule.Result(
         pkg = "moe.shizuku.privileged.api".toPkgId(),
         useShizuku = true,
-        isCompatible = true,
         isInstalled = true,
-        basicService = true,
         serviceState = ShizukuServiceState.Available,
         alsoHasRoot = false,
         backend = backend,
@@ -789,9 +792,7 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     private fun nothingInstalledState() = ShizukuSetupModule.Result(
         pkg = "eu.darken.porter".toPkgId(),
         useShizuku = true,
-        isCompatible = true,
         isInstalled = false,
-        basicService = false,
         serviceState = ShizukuServiceState.NotChecked,
         alsoHasRoot = false,
     )
@@ -855,17 +856,20 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
     }
 
     @Test
-    fun `shizuku card hides the install action while a restart is what's needed`() {
-        // The app IS installed here, so a store link would be a dead end.
+    fun `shizuku card offers Porter and no install action while Porter's priority blocks Shizuku`() {
+        // Porter IS installed here, so a store link would be a dead end.
         composeRule.setSetupContent {
             SetupScreen(
                 uiState = SetupUiState.Cards(
                     items = listOf(
                         shizukuItem(
                             nothingInstalledState().copy(
-                                backend = AdbBackend.SHIZUKU,
-                                restartRequiredFor = "eu.darken.porter".toPkgId(),
-                                restartRequiredLabel = "Porter",
+                                isInstalled = true,
+                                serviceState = ShizukuServiceState.Unknown,
+                                backend = AdbBackend.PORTER,
+                                managerLabel = "Porter",
+                                blockedManager = "moe.shizuku.privileged.api".toPkgId(),
+                                blockedManagerLabel = "Shizuku+",
                             ),
                         ),
                     ),
@@ -874,7 +878,15 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
         }
 
         composeRule
-            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_restart_required_label, "Porter"))
+            .onAllNodesWithText(
+                context.getString(R.string.setup_shizuku_state_backend_priority_label, "Porter", "Shizuku+")
+            )
+            .assertCountEquals(1)
+        composeRule.onAllNodesWithText("Porter").assertCountEquals(1)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Porter")
+            )
             .assertCountEquals(1)
         composeRule
             .onAllNodesWithText(
@@ -883,6 +895,64 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
                     context.getString(R.string.setup_shizuku_install_manager_label),
                 )
             )
+            .assertCountEquals(0)
+    }
+
+    private fun incompatibleState(
+        managerTooOld: Boolean = false,
+        sdMaidTooOld: Boolean = false,
+    ) = connectedState(managerLabel = "Shizuku+").copy(
+        serviceState = ShizukuServiceState.Failed,
+        managerTooOld = managerTooOld,
+        sdMaidTooOld = sdMaidTooOld,
+    )
+
+    @Test
+    fun `shizuku card asks to update an outdated manager`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(shizukuItem(incompatibleState(managerTooOld = true))),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_manager_outdated_label, "Shizuku+"))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Shizuku+")
+            )
+            .assertCountEquals(1)
+        // Retrying can't fix a version mismatch.
+        composeRule
+            .onAllNodesWithText(context.getString(CommonR.string.general_retry_action))
+            .assertCountEquals(0)
+    }
+
+    @Test
+    fun `shizuku card asks to update SD Maid when it is too old for the manager`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(shizukuItem(incompatibleState(sdMaidTooOld = true))),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_sdmaid_outdated_label, "Shizuku+"))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Shizuku+")
+            )
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(CommonR.string.general_retry_action))
             .assertCountEquals(0)
     }
 

@@ -48,9 +48,12 @@ class ShizukuManager @Inject constructor(
     suspend fun managerIds(): Set<Pkg.Id> =
         setOf(PKG_ID, PORTER_PKG_ID) + shizukuWrapper.getManagerPackages().map { it.toPkgId() }
 
-    /** Managers belonging to the active backend's family, see [ShizukuWrapper.getActiveManagerPackages]. */
-    suspend fun activeManagerIds(): Set<Pkg.Id> =
-        shizukuWrapper.getActiveManagerPackages().map { it.toPkgId() }.toSet()
+    /**
+     * Managers belonging to [backend]'s family (the active one if null), see
+     * [ShizukuWrapper.getActiveManagerPackages].
+     */
+    suspend fun activeManagerIds(backend: AdbBackend? = null): Set<Pkg.Id> =
+        shizukuWrapper.getActiveManagerPackages(backend).map { it.toPkgId() }.toSet()
 
     /**
      * An installed Shizuku-family manager that cannot serve us: an installed Porter always takes
@@ -115,8 +118,9 @@ class ShizukuManager @Inject constructor(
         }
     }
 
-    // Reference package of the active backend, only used as a placeholder when nothing is installed.
-    suspend fun referenceManagerId(): Pkg.Id = when (activeBackend()) {
+    // Reference package of [backend] (the active one if null), only used as a placeholder when nothing
+    // is installed.
+    suspend fun referenceManagerId(backend: AdbBackend? = null): Pkg.Id = when (backend ?: activeBackend()) {
         AdbBackend.PORTER -> PORTER_PKG_ID
         AdbBackend.SHIZUKU -> PKG_ID
     }
