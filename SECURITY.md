@@ -1,3 +1,9 @@
+---
+layout: plain
+permalink: /security
+title: "Security"
+---
+
 # Security
 
 ## Verifying APK authenticity

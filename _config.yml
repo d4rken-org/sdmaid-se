@@ -12,6 +12,11 @@ title: "SD Maid 2/SE"
 description: "Android's most thorough cleaning tool."
 author: "by Matthias Urhahn"
 
+header_pages:
+  - CHANGELOG.md
+  - PRIVACY_POLICY.md
+  - SECURITY.md
+
 include:
   - PRIVACY_POLICY.md
   - CHANGELOG.md
