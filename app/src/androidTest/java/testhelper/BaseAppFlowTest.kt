@@ -17,6 +17,8 @@ import androidx.compose.ui.test.performScrollToNode
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.Configurator
+import androidx.test.uiautomator.UiDevice
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import org.junit.Rule
@@ -37,6 +39,12 @@ abstract class BaseAppFlowTest : BaseUITest() {
             .getUiAutomation(UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES)
             .executeShellCommand(command)
         return ParcelFileDescriptor.AutoCloseInputStream(pfd).bufferedReader().use { it.readText() }
+    }
+
+    /** For system screens outside the app. Connects with the same flags as [shell]. */
+    protected val device: UiDevice by lazy {
+        Configurator.getInstance().uiAutomationFlags = UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES
+        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
     }
 
     /**
@@ -84,6 +92,19 @@ abstract class BaseAppFlowTest : BaseUITest() {
     protected fun ActivityScenario<*>.cycleResume() {
         moveToState(Lifecycle.State.STARTED)
         moveToState(Lifecycle.State.RESUMED)
+    }
+
+    /**
+     * Returns from a system screen. On CI's API 36 image a single back press from Settings was lost while Settings
+     * refreshed; a press landing after the app resumed would leave the app's screen, so a retry can't turn a failure
+     * green.
+     */
+    protected fun ActivityScenario<*>.pressBackUntilResumed() = pollUntil("activity resumed") {
+        if (state != Lifecycle.State.RESUMED) {
+            shell("input keyevent KEYCODE_BACK")
+            SystemClock.sleep(3000)
+        }
+        state == Lifecycle.State.RESUMED
     }
 
     protected fun switchOff(@StringRes label: Int) {
