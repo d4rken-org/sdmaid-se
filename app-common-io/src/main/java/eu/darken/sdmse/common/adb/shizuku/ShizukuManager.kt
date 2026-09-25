@@ -152,8 +152,11 @@ class ShizukuManager @Inject constructor(
 
     suspend fun isGranted(): Boolean? = shizukuWrapper.isGranted()
 
+    /** Null means "cannot know", see [ShizukuWrapper.permission]. */
+    suspend fun permission(): AdbPermission? = shizukuWrapper.permission()
+
     /** Null when there is no link or the request failed. Unbounded, the caller bounds the user's wait. */
-    suspend fun requestPermission(): Boolean? = shizukuWrapper.requestPermission()
+    suspend fun requestPermission(): AdbPermission? = shizukuWrapper.requestPermission()
 
     suspend fun isOurServiceAvailable(): Boolean = getServiceState() is ShizukuServiceState.Available
 
@@ -165,10 +168,12 @@ class ShizukuManager @Inject constructor(
      * should offer a retry.
      */
     suspend fun getServiceState(): ShizukuServiceState = withContext(dispatcherProvider.IO) {
-        when (isGranted()) {
-            false -> {
-                log(TAG, VERBOSE) { "getServiceState(): Shizuku permission not granted" }
-                return@withContext ShizukuServiceState.PermissionDenied
+        when (val permission = permission()) {
+            AdbPermission.DENIED, AdbPermission.DENIED_PERMANENTLY -> {
+                log(TAG, VERBOSE) { "getServiceState(): Shizuku permission not granted ($permission)" }
+                return@withContext ShizukuServiceState.PermissionDenied(
+                    permanently = permission == AdbPermission.DENIED_PERMANENTLY,
+                )
             }
             // Not a denial: no live link means the grant state cannot be read at all.
             null -> {
@@ -176,7 +181,7 @@ class ShizukuManager @Inject constructor(
                 return@withContext ShizukuServiceState.Unknown
             }
 
-            true -> {}
+            AdbPermission.GRANTED -> {}
         }
         try {
             log(TAG, VERBOSE) { "getServiceState(): Requesting service client" }

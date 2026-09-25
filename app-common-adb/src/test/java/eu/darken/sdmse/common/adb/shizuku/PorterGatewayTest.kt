@@ -91,8 +91,6 @@ class PorterGatewayTest {
             every { backend } returns PorterBackend.PORTER
             every { uid } returns 2000
             every { permission } returns state
-            coEvery { checkPermission() } returns PermissionState.Denied(permanentlyDenied = true)
-            coEvery { requestPermission() } returns PermissionState.Granted
         }
         val link = PorterAdbLink(connection)
 
@@ -101,8 +99,27 @@ class PorterGatewayTest {
         link.permission.first() shouldBe false
         state.value = PermissionState.Granted
         link.permission.first() shouldBe true
-        link.checkPermission() shouldBe false
-        link.requestPermission() shouldBe true
+    }
+
+    @Test
+    fun `the link maps every permission state for check and request`() = runTest {
+        val expected = mapOf(
+            PermissionState.Granted to AdbPermission.GRANTED,
+            PermissionState.Denied(permanentlyDenied = false) to AdbPermission.DENIED,
+            PermissionState.Denied(permanentlyDenied = true) to AdbPermission.DENIED_PERMANENTLY,
+        )
+        expected.forEach { (state, mapped) ->
+            val connection = mockk<PorterConnection> {
+                every { backend } returns PorterBackend.PORTER
+                every { permission } returns MutableStateFlow(state)
+                coEvery { checkPermission() } returns state
+                coEvery { requestPermission() } returns state
+            }
+            val link = PorterAdbLink(connection)
+
+            link.checkPermission() shouldBe mapped
+            link.requestPermission() shouldBe mapped
+        }
     }
 
     @Test

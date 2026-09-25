@@ -167,10 +167,10 @@ class ShizukuManagerTest : BaseTest() {
         runBlocking { mgr.getManagerId() } shouldBe forkPkg.toPkgId()
     }
 
-    @Test fun `isOurServiceAvailable is false when isGranted is null`() {
+    @Test fun `isOurServiceAvailable is false when permission is null`() {
         // null = "cannot know", e.g. no live link. Probing the service would block on the host
         // connection instead of failing fast.
-        coEvery { shizukuWrapper.isGranted() } returns null
+        coEvery { shizukuWrapper.permission() } returns null
         val mgr = manager()
 
         runBlocking { mgr.isOurServiceAvailable() } shouldBe false
@@ -179,7 +179,7 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     @Test fun `isOurServiceAvailable is false when the service client fails`() {
-        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.GRANTED
         coEvery { serviceClient.get() } throws AdbUnavailableException("test")
         val mgr = manager()
 
@@ -382,10 +382,10 @@ class ShizukuManagerTest : BaseTest() {
 
     // --- getServiceState -----------------------------------------------------------------------
 
-    @Test fun `getServiceState reports Unknown, not PermissionDenied, when isGranted is null`() {
+    @Test fun `getServiceState reports Unknown, not PermissionDenied, when permission is null`() {
         // null means "cannot know" (no live link), which resolves itself once the server runs.
         // Reporting it as a denial would tell the user to fix a permission that is not the problem.
-        coEvery { shizukuWrapper.isGranted() } returns null
+        coEvery { shizukuWrapper.permission() } returns null
         val mgr = manager()
 
         runBlocking { mgr.getServiceState() } shouldBe ShizukuServiceState.Unknown
@@ -393,17 +393,26 @@ class ShizukuManagerTest : BaseTest() {
         coVerify(exactly = 0) { serviceClient.get() }
     }
 
-    @Test fun `getServiceState reports PermissionDenied when isGranted is false`() {
-        coEvery { shizukuWrapper.isGranted() } returns false
+    @Test fun `getServiceState reports a non-permanent PermissionDenied when permission is denied`() {
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.DENIED
         val mgr = manager()
 
-        runBlocking { mgr.getServiceState() } shouldBe ShizukuServiceState.PermissionDenied
+        runBlocking { mgr.getServiceState() } shouldBe ShizukuServiceState.PermissionDenied(permanently = false)
+
+        coVerify(exactly = 0) { serviceClient.get() }
+    }
+
+    @Test fun `getServiceState reports a permanent PermissionDenied when permission is permanently denied`() {
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.DENIED_PERMANENTLY
+        val mgr = manager()
+
+        runBlocking { mgr.getServiceState() } shouldBe ShizukuServiceState.PermissionDenied(permanently = true)
 
         coVerify(exactly = 0) { serviceClient.get() }
     }
 
     @Test fun `getServiceState reports TimedOut for a direct connect timeout`() {
-        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.GRANTED
         coEvery { serviceClient.get() } throws AdbConnectTimeoutException("test")
         val mgr = manager()
 
@@ -412,7 +421,7 @@ class ShizukuManagerTest : BaseTest() {
 
     @Test fun `getServiceState reports TimedOut for a wrapped connect timeout`() {
         // How it actually arrives: AdbServiceClient wraps the launcher's failure on its way out.
-        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.GRANTED
         coEvery { serviceClient.get() } throws AdbUnavailableException(
             "wrapped",
             cause = AdbConnectTimeoutException("did not connect"),
@@ -425,7 +434,7 @@ class ShizukuManagerTest : BaseTest() {
     @Test fun `getServiceState reports Failed for a generic failure`() {
         // The same upstream defect can surface as a handshake failure rather than a timeout, so this
         // has to be a reportable terminal state too, not an "unknown yet".
-        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.GRANTED
         coEvery { serviceClient.get() } throws AdbUnavailableException("test")
         val mgr = manager()
 
@@ -433,7 +442,7 @@ class ShizukuManagerTest : BaseTest() {
     }
 
     @Test fun `getServiceState propagates cancellation instead of reporting a failure`() {
-        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.GRANTED
         coEvery { serviceClient.get() } throws CancellationException("cancelled")
         val mgr = manager()
 
@@ -445,14 +454,15 @@ class ShizukuManagerTest : BaseTest() {
         ShizukuServiceState.Failed.isTerminalFailure shouldBe true
         ShizukuServiceState.NotChecked.isTerminalFailure shouldBe false
         ShizukuServiceState.Available.isTerminalFailure shouldBe false
-        ShizukuServiceState.PermissionDenied.isTerminalFailure shouldBe false
+        ShizukuServiceState.PermissionDenied(permanently = false).isTerminalFailure shouldBe false
+        ShizukuServiceState.PermissionDenied(permanently = true).isTerminalFailure shouldBe false
         ShizukuServiceState.Unknown.isTerminalFailure shouldBe false
     }
 
     @Test fun `getServiceState reports Failed when the host hands back nothing usable`() {
         // Connected, but checkBase() returned null: a connection we cannot use is a failure, not an
         // "unknown yet" that would leave the card waiting forever.
-        coEvery { shizukuWrapper.isGranted() } returns true
+        coEvery { shizukuWrapper.permission() } returns AdbPermission.GRANTED
         val connection: AdbServiceClient.Connection = mockk()
         every { connection.ipc.checkBase() } returns null
         coEvery { serviceClient.get() } returns Resource(connection, mockk(relaxed = true))

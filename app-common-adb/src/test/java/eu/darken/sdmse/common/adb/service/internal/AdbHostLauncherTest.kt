@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.adb.service.AdbHostOptions
 import eu.darken.sdmse.common.adb.shizuku.AdbAvailability
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.AdbLink
+import eu.darken.sdmse.common.adb.shizuku.AdbPermission
 import eu.darken.sdmse.common.adb.shizuku.PorterGateway
 import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContain
@@ -61,8 +62,8 @@ class AdbHostLauncherTest {
         override val backend: AdbBackend = AdbBackend.SHIZUKU
         override val uid: Int = 2000
         override val permission: Flow<Boolean> = flowOf(true)
-        override suspend fun checkPermission(): Boolean = true
-        override suspend fun requestPermission(): Boolean = true
+        override suspend fun checkPermission(): AdbPermission = AdbPermission.GRANTED
+        override suspend fun requestPermission(): AdbPermission = AdbPermission.GRANTED
 
         override fun userService(args: UserServiceArgs): Flow<IBinder> = service()
             .onStart { events += "$name:bind" }

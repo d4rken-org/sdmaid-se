@@ -104,28 +104,25 @@ class ShizukuWrapper @Inject constructor(
     private suspend fun currentLink(): AdbLink? = gateway.link.first()
 
     /** Null means "cannot know": no link, no answer in time, or the call failed. */
-    suspend fun isGranted(): Boolean? {
-        val result = try {
-            withTimeoutOrNull(ipcTimeoutMs) {
-                val link = currentLink() ?: return@withTimeoutOrNull GrantState.UNKNOWN
-                if (link.checkPermission()) GrantState.GRANTED else GrantState.DENIED
-            }
+    suspend fun permission(): AdbPermission? {
+        val link = currentLink()
+        if (link == null) {
+            log(TAG) { "permission(): No link" }
+            return null
+        }
+        return try {
+            withTimeoutOrNull(ipcTimeoutMs) { link.checkPermission() }
+                .also { if (it == null) log(TAG, WARN) { "permission(): No answer within ${ipcTimeoutMs}ms" } }
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            log(TAG, WARN) { "isGranted(): ${e.asLog()}" }
-            GrantState.UNKNOWN
-        }
-        if (result == null) log(TAG, WARN) { "isGranted(): No answer within ${ipcTimeoutMs}ms" }
-        return when (result) {
-            GrantState.GRANTED -> true
-            GrantState.DENIED -> false
-            GrantState.UNKNOWN, null -> null
-        }.also { log(TAG) { "isGranted()=$it" } }
+            log(TAG, WARN) { "permission(): ${e.asLog()}" }
+            null
+        }.also { log(TAG) { "permission()=$it" } }
     }
 
-    // Not Boolean?, so withTimeoutOrNull's `null` stays reserved for "timed out".
-    private enum class GrantState { GRANTED, DENIED, UNKNOWN }
+    /** Null means "cannot know", see [permission]. */
+    suspend fun isGranted(): Boolean? = permission()?.isGranted
 
     /**
      * Shows the manager's permission prompt and suspends until the user answered. Null when there is
@@ -133,7 +130,7 @@ class ShizukuWrapper @Inject constructor(
      *
      * Deliberately unbounded: the user may take a while to read the prompt. Callers bound the wait.
      */
-    suspend fun requestPermission(): Boolean? {
+    suspend fun requestPermission(): AdbPermission? {
         val link = currentLink()
         if (link == null) {
             log(TAG, WARN) { "requestPermission(): No link" }

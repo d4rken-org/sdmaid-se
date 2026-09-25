@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.AdbAvailability
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.AdbLink
+import eu.darken.sdmse.common.adb.shizuku.AdbPermission
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -110,7 +111,7 @@ class ShizukuSetupModuleTest : BaseTest() {
         coEvery { shizukuManager.priorityBlockedManagerId(any()) } returns null
         coEvery { shizukuManager.activeBackend() } returns AdbBackend.SHIZUKU
         coEvery { shizukuManager.isGranted() } returns true
-        coEvery { shizukuManager.requestPermission() } returns true
+        coEvery { shizukuManager.requestPermission() } returns AdbPermission.GRANTED
         coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; ShizukuServiceState.Available }
 
         every { rootManager.useRoot } returns flowOf(false)
@@ -258,7 +259,8 @@ class ShizukuSetupModuleTest : BaseTest() {
 
         resultWith(ShizukuServiceState.Available).ourService shouldBe true
         resultWith(ShizukuServiceState.NotChecked).ourService shouldBe false
-        resultWith(ShizukuServiceState.PermissionDenied).ourService shouldBe false
+        resultWith(ShizukuServiceState.PermissionDenied(permanently = false)).ourService shouldBe false
+        resultWith(ShizukuServiceState.PermissionDenied(permanently = true)).ourService shouldBe false
         resultWith(ShizukuServiceState.Unknown).ourService shouldBe false
         resultWith(ShizukuServiceState.TimedOut).ourService shouldBe false
         resultWith(ShizukuServiceState.Failed).ourService shouldBe false
@@ -284,7 +286,8 @@ class ShizukuSetupModuleTest : BaseTest() {
         complete(true, state = ShizukuServiceState.Available) shouldBe true
         complete(true, state = ShizukuServiceState.TimedOut) shouldBe false
         complete(true, state = ShizukuServiceState.Failed) shouldBe false
-        complete(true, state = ShizukuServiceState.PermissionDenied) shouldBe false
+        complete(true, state = ShizukuServiceState.PermissionDenied(permanently = false)) shouldBe false
+        complete(true, state = ShizukuServiceState.PermissionDenied(permanently = true)) shouldBe false
         complete(true, state = ShizukuServiceState.Unknown) shouldBe false
         complete(true, state = ShizukuServiceState.NotChecked) shouldBe false
 
@@ -568,7 +571,7 @@ class ShizukuSetupModuleTest : BaseTest() {
 
     @Test fun `the automatic requester does not start a second request while one is in flight`() {
         coEvery { shizukuManager.isGranted() } returns false
-        val answer = CompletableDeferred<Boolean?>()
+        val answer = CompletableDeferred<AdbPermission?>()
         var requests = 0
         coEvery { shizukuManager.requestPermission() } coAnswers {
             requests++
@@ -588,7 +591,7 @@ class ShizukuSetupModuleTest : BaseTest() {
 
         requests shouldBe 1
 
-        answer.complete(true)
+        answer.complete(AdbPermission.GRANTED)
         runBlocking { collector.cancelAndJoin() }
     }
 
