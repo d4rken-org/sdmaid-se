@@ -84,7 +84,7 @@ internal class DashboardHeroToolRoutingTest : BaseTest() {
         }
         val schedulerManager = mockk<SchedulerManager>(relaxed = true).apply { every { state } returns emptyFlow() }
         val setupManager = mockk<SetupManager>(relaxed = true).apply { every { state } returns emptyFlow() }
-        val areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestState } returns emptyFlow() }
+        val areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestResult } returns emptyFlow() }
         val sessionManager = mockk<DebugLogSessionManager>(relaxed = true).apply { every { sessions } returns emptyFlow() }
         val motdRepo = mockk<MotdRepo>(relaxed = true).apply { every { motd } returns emptyFlow() }
         val reviewTool = mockk<ReviewTool>(relaxed = true).apply { every { state } returns emptyFlow() }

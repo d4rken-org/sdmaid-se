@@ -4,6 +4,8 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.FileType
@@ -27,10 +29,14 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
@@ -104,10 +110,15 @@ class CustomFilterEditorViewModel @Inject constructor(
     val state: StateFlow<State?> = currentState.flow.safeStateIn(initialValue = null) { null }
 
     init {
-        dataAreaManager.state
-            .onEach { areaState ->
+        dataAreaManager.results
+            .onEach { areaResult ->
                 currentState.updateBlocking {
-                    copy(availableAreas = areaState.areas.map { it.type }.toSet())
+                    areaResult.fold(
+                        onSuccess = { areaState ->
+                            copy(availableAreas = areaState.areas.map { it.type }.toSet(), areasUnavailable = false)
+                        },
+                        onFailure = { copy(areasUnavailable = true) },
+                    )
                 }
             }
             .launchIn(vmScope)
@@ -275,6 +286,10 @@ class CustomFilterEditorViewModel @Inject constructor(
                 log(TAG) { "Live search: Skipping due to under defined config" }
                 return@flatMapLatest flowOf(LiveSearchState())
             }
+            if (state.areasUnavailable) {
+                log(TAG) { "Live search: Skipping, data areas are unavailable" }
+                return@flatMapLatest flowOf(LiveSearchState(firstInit = true))
+            }
             val config = state.current
 
             val crawlerJobFlow = callbackFlow {
@@ -305,6 +320,14 @@ class CustomFilterEditorViewModel @Inject constructor(
             }
                 .flowOn(dispatcherProvider.IO)
                 .throttleLatest(200)
+                // A failed search ends only itself, so the next config or area change starts a new one.
+                .catch { e ->
+                    currentCoroutineContext().ensureActive()
+                    log(TAG, WARN) { "Live search failed: ${e.asLog()}" }
+                    val failure = if (e is CancellationException) IllegalStateException("Live search failed", e) else e
+                    errorEvents.tryEmit(failure)
+                    emit(LiveSearchState(firstInit = true))
+                }
         }
         .onStart { emit(LiveSearchState(firstInit = true)) }
         .safeStateIn(initialValue = LiveSearchState(firstInit = true)) { LiveSearchState(firstInit = true) }
@@ -313,6 +336,7 @@ class CustomFilterEditorViewModel @Inject constructor(
         val original: CustomFilterConfig?,
         val current: CustomFilterConfig,
         val availableAreas: Set<DataArea.Type>? = null,
+        val areasUnavailable: Boolean = false,
     ) {
         val canRemove: Boolean = original != null
         val canSave: Boolean = original != current && !current.isUnderdefined && current.label.isNotEmpty()

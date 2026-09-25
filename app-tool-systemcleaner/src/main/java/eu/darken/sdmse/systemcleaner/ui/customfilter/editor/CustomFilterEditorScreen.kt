@@ -302,6 +302,7 @@ internal fun CustomFilterEditorScreen(
                 CustomFilterEditorBody(
                     config = current,
                     contentBottomPadding = 16.dp,
+                    areasUnavailable = state?.areasUnavailable == true,
                     onLabelChange = onLabelChange,
                     onAddPath = onAddPath,
                     onRemovePath = onRemovePath,
@@ -341,6 +342,22 @@ private fun CustomFilterEditorScreenPopulatedPreview() {
                 CustomFilterEditorViewModel.State(
                     original = null,
                     current = CustomFilterConfig(identifier = "abc", label = "Test"),
+                ),
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun CustomFilterEditorScreenAreasUnavailablePreview() {
+    PreviewWrapper {
+        CustomFilterEditorScreen(
+            stateSource = MutableStateFlow(
+                CustomFilterEditorViewModel.State(
+                    original = null,
+                    current = CustomFilterConfig(identifier = "abc", label = "Test"),
+                    areasUnavailable = true,
                 ),
             ),
         )

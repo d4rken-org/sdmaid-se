@@ -138,7 +138,17 @@ internal fun DataAreasScreen(
         },
     ) { paddingValues ->
         val areas = state.areas
-        if (areas == null) {
+        if (state.areasUnavailable) {
+            Text(
+                text = stringResource(CommonR.string.general_data_areas_unavailable_message),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+                    .padding(16.dp),
+            )
+        } else if (areas == null) {
             CircularProgressIndicator(
                 modifier = Modifier
                     .fillMaxSize()
@@ -195,5 +205,13 @@ private fun DataAreaRow(area: DataArea) {
 private fun DataAreasScreenPreview() {
     PreviewWrapper {
         DataAreasScreen()
+    }
+}
+
+@Preview2
+@Composable
+private fun DataAreasScreenUnavailablePreview() {
+    PreviewWrapper {
+        DataAreasScreen(state = DataAreasViewModel.State(areasUnavailable = true, allowReload = true))
     }
 }

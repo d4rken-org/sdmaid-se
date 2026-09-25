@@ -230,7 +230,16 @@ internal fun PickerScreen(
                 .fillMaxSize()
                 .padding(paddingValues),
         ) {
-            if (state.progress != null) {
+            if (state.areasUnavailable) {
+                Text(
+                    text = stringResource(CommonR.string.general_data_areas_unavailable_message),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp),
+                )
+            } else if (state.progress != null) {
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center,
@@ -340,5 +349,13 @@ private val SHEET_PEEK_HEIGHT = 72.dp
 private fun PickerScreenPreview() {
     PreviewWrapper {
         PickerScreen()
+    }
+}
+
+@Preview2
+@Composable
+private fun PickerScreenAreasUnavailablePreview() {
+    PreviewWrapper {
+        PickerScreen(stateSource = MutableStateFlow(PickerViewModel.State(progress = null, areasUnavailable = true)))
     }
 }

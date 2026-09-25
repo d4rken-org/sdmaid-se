@@ -28,15 +28,15 @@ class DataAreasViewModelTest : BaseTest() {
     @MockK lateinit var taskManager: TaskManager
     @MockK lateinit var webpageTool: WebpageTool
 
-    private lateinit var areaState: MutableStateFlow<DataAreaManager.State>
+    private lateinit var areaResults: MutableStateFlow<Result<DataAreaManager.State>>
     private lateinit var taskState: MutableStateFlow<TaskSubmitter.State>
 
     @BeforeEach
     fun setup() {
-        areaState = MutableStateFlow(DataAreaManager.State(emptySet()))
+        areaResults = MutableStateFlow(Result.success(DataAreaManager.State(emptySet())))
         taskState = MutableStateFlow(TaskSubmitter.State())
 
-        every { dataAreaManager.state } returns areaState
+        every { dataAreaManager.results } returns areaResults
         every { taskManager.state } returns taskState
         every { webpageTool.open(any()) } returns true
         coEvery { dataAreaManager.reloadAndAwait() } returns DataAreaManager.State(
@@ -98,6 +98,27 @@ class DataAreasViewModelTest : BaseTest() {
 
         vm.state.first { !it.isReloading && it.allowReload }
         vm.errorEvents.first() shouldBe error
+    }
+
+    @Test
+    fun `a failed build shows the areas as unavailable and a later build recovers`() = runTest2 {
+        areaResults.value = Result.failure(IllegalStateException("build failed"))
+        val vm = buildVM()
+
+        vm.state.first { it.areasUnavailable } shouldBe DataAreasViewModel.State(
+            areas = null,
+            areasUnavailable = true,
+            allowReload = true,
+            isReloading = false,
+        )
+
+        areaResults.value = Result.success(DataAreaManager.State(emptySet(), refreshGeneration = 1L))
+
+        vm.state.first { !it.areasUnavailable } shouldBe DataAreasViewModel.State(
+            areas = emptySet(),
+            allowReload = true,
+            isReloading = false,
+        )
     }
 
     @Test
