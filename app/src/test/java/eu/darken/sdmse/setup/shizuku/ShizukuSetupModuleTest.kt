@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import io.kotest.matchers.ints.shouldBeGreaterThan
+import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -28,12 +29,15 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.currentTime
+import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -586,5 +590,19 @@ class ShizukuSetupModuleTest : BaseTest() {
 
         answer.complete(true)
         runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `toggle re-prompts after an unanswered request timed out`() = runTest {
+        coEvery { shizukuManager.isGranted() } returns false
+        coEvery { shizukuManager.requestPermission() } coAnswers { awaitCancellation() }
+        val mod = module(moduleScope = backgroundScope)
+
+        mod.toggleUseShizuku(true)
+        currentTime shouldBeGreaterThanOrEqual 30_000L
+
+        mod.toggleUseShizuku(true)
+        currentTime shouldBeGreaterThanOrEqual 60_000L
+
+        coVerify(exactly = 2) { shizukuManager.requestPermission() }
     }
 }
