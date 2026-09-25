@@ -210,7 +210,16 @@ class ShizukuSetupModule @Inject constructor(
         lastResult = null
         val couldUseShizuku = shizukuManager.useShizuku.first()
         val newValue = if (useShizuku == true && shizukuManager.isGranted() == false) {
-            val grantResult = withTimeoutOrNull(30 * 1000) { requestPermissionOnce().await() }
+            val request = requestPermissionOnce()
+            val grantResult = withTimeoutOrNull(30 * 1000) { request.await() }
+            if (request.isActive) {
+                // An unanswered prompt must not block the next attempt from sending a new one.
+                synchronized(permissionRequestLock) {
+                    if (permissionRequest === request) permissionRequest = null
+                }
+                request.cancel()
+                log(TAG, WARN) { "Abandoned unanswered permission request, next attempt will re-prompt" }
+            }
             log(TAG) { "Permission grant result was $grantResult" }
             grantResult.takeIf { it == true }
         } else {
