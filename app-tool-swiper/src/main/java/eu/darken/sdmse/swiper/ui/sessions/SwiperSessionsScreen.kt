@@ -114,6 +114,7 @@ internal fun SwiperSessionsScreen(
     var pendingDiscard by remember { mutableStateOf<String?>(null) }
     var pendingScanWarn by remember { mutableStateOf<PendingScanWarn?>(null) }
     var showRiskyInfo by remember { mutableStateOf(false) }
+    var showAreasUnavailable by remember { mutableStateOf(false) }
 
     SdmScaffold(
         topBar = {
@@ -183,7 +184,9 @@ internal fun SwiperSessionsScreen(
                     isRefreshing = state.isSessionRefreshing(sessionId),
                     isRisky = state.isSessionRisky(sessionId),
                     onScan = {
-                        if (state.isSessionRisky(sessionId)) {
+                        if (state.areasUnavailable) {
+                            showAreasUnavailable = true
+                        } else if (state.isSessionRisky(sessionId)) {
                             pendingScanWarn = PendingScanWarn(sessionId, state.riskySessionPaths[sessionId].orEmpty())
                         } else {
                             onScan(sessionId)
@@ -249,7 +252,7 @@ internal fun SwiperSessionsScreen(
                 label = stringResource(R.string.swiper_sensitive_root_warning_continue_action),
                 onClick = {
                     pendingScanWarn = null
-                    onScan(req.sessionId)
+                    if (state.areasUnavailable) showAreasUnavailable = true else onScan(req.sessionId)
                 },
             ),
             negative = SdmDialogAction(
@@ -286,6 +289,17 @@ internal fun SwiperSessionsScreen(
             positive = SdmDialogAction(
                 label = stringResource(CommonR.string.general_close_action),
                 onClick = { showRiskyInfo = false },
+            ),
+        )
+    }
+
+    if (showAreasUnavailable) {
+        SdmConfirmDialog(
+            message = stringResource(CommonR.string.general_data_areas_unavailable_message),
+            onDismissRequest = { showAreasUnavailable = false },
+            positive = SdmDialogAction(
+                label = stringResource(CommonR.string.general_close_action),
+                onClick = { showAreasUnavailable = false },
             ),
         )
     }

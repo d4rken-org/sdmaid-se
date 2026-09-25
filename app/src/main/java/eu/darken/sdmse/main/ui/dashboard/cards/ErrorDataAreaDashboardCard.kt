@@ -14,16 +14,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
 import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
+import eu.darken.sdmse.common.R as CommonR
 
 
 data class ErrorDataAreaDashboardCardItem(
-    val state: DataAreaManager.State,
+    val buildFailed: Boolean,
     val onReload: () -> Unit,
 ) : DashboardItem {
     override val stableId: Long = this.javaClass.hashCode().toLong()
@@ -38,7 +38,11 @@ internal fun ErrorDataAreaDashboardCard(item: ErrorDataAreaDashboardCardItem) {
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
-            text = stringResource(R.string.dataarea_warningcard_empty_message),
+            text = if (item.buildFailed) {
+                stringResource(CommonR.string.general_data_areas_unavailable_message)
+            } else {
+                stringResource(R.string.dataarea_warningcard_empty_message)
+            },
             style = MaterialTheme.typography.bodyMedium,
         )
         Spacer(modifier = Modifier.height(8.dp))
@@ -62,7 +66,20 @@ private fun ErrorDataAreaDashboardCardPreview() {
     PreviewWrapper {
         ErrorDataAreaDashboardCard(
             item = ErrorDataAreaDashboardCardItem(
-                state = DataAreaManager.State(emptySet()),
+                buildFailed = false,
+                onReload = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ErrorDataAreaDashboardCardBuildFailedPreview() {
+    PreviewWrapper {
+        ErrorDataAreaDashboardCard(
+            item = ErrorDataAreaDashboardCardItem(
+                buildFailed = true,
                 onReload = {},
             ),
         )

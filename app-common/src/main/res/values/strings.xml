@@ -50,6 +50,7 @@
     <string name="general_progress_loading">Loading</string>
     <string name="general_progress_loading_app_data">Loading app data</string>
     <string name="general_progress_loading_data_areas">Loading data areas</string>
+    <string name="general_data_areas_unavailable_message">Couldn\'t load the data areas, the storage locations SD Maid can work with.</string>
     <string name="general_progress_loading_egg_0">Still faster than an iPhone</string>
     <string name="general_progress_loading_egg_1">Downloading more RAM</string>
     <string name="general_progress_loading_egg_2">Soon™</string>

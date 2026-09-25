@@ -27,12 +27,13 @@ class DataAreasViewModel @Inject constructor(
     private val isReloading = MutableStateFlow(false)
 
     val state: StateFlow<State> = combine(
-        dataAreaManager.state,
+        dataAreaManager.results,
         taskManager.state,
         isReloading,
-    ) { areaState, taskState, reloading ->
+    ) { areaResult, taskState, reloading ->
         State(
-            areas = areaState.areas,
+            areas = areaResult.getOrNull()?.areas,
+            areasUnavailable = areaResult.isFailure,
             allowReload = taskState.isIdle && !reloading,
             isReloading = reloading,
         )
@@ -43,6 +44,7 @@ class DataAreasViewModel @Inject constructor(
 
     data class State(
         val areas: Set<DataArea>? = null,
+        val areasUnavailable: Boolean = false,
         val allowReload: Boolean = false,
         val isReloading: Boolean = false,
     )

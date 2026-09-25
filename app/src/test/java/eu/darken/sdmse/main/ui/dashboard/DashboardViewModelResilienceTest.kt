@@ -135,7 +135,7 @@ internal class DashboardViewModelResilienceTest : BaseTest() {
         }
         val schedulerManager = mockk<SchedulerManager>(relaxed = true).apply { every { state } returns emptyFlow() }
         val setupManager = mockk<SetupManager>(relaxed = true).apply { every { state } returns srcOr("setup", emptyFlow()) }
-        val areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestState } returns srcOr("dataArea", emptyFlow()) }
+        val areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestResult } returns srcOr("dataArea", emptyFlow()) }
         val sessionManager = mockk<DebugLogSessionManager>(relaxed = true).apply { every { sessions } returns srcOr("sessions", emptyFlow()) }
         val motdRepo = mockk<MotdRepo>(relaxed = true).apply { every { motd } returns srcOr("motd", emptyFlow()) }
         val reviewTool = mockk<ReviewTool>(relaxed = true).apply { every { state } returns srcOr("review", emptyFlow()) }

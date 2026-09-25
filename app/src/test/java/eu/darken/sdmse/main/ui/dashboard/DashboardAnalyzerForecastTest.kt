@@ -151,7 +151,7 @@ internal class DashboardAnalyzerForecastTest : BaseTest() {
         val vm = DashboardViewModel(
             context = mockk(relaxed = true),
             dispatcherProvider = TestDispatcherProvider(),
-            areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestState } returns emptyFlow() },
+            areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestResult } returns emptyFlow() },
             taskManager = mockk<TaskManager>(relaxed = true).apply {
                 every { state } returns MutableStateFlow(TaskSubmitter.State())
             },

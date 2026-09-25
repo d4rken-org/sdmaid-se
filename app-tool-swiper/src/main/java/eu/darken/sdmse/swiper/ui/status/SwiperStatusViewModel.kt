@@ -58,8 +58,8 @@ class SwiperStatusViewModel @Inject constructor(
             swiper.getSession(sid),
             swiper.getItemsForSession(sid),
             swiper.progress,
-            dataAreaManager.state,
-        ) { session: SwipeSession?, items: List<SwipeItem>, progress, areaState ->
+            dataAreaManager.results,
+        ) { session: SwipeSession?, items: List<SwipeItem>, progress, areaResult ->
             val keepCount = items.count { it.decision == SwipeDecision.KEEP }
             val deleteCount = items.count { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
             val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
@@ -71,8 +71,9 @@ class SwiperStatusViewModel @Inject constructor(
             val undecidedSize = items.filter { it.decision == SwipeDecision.UNDECIDED }.sumOf { it.lookup.size }
 
             val sourcePaths = session?.sourcePaths.orEmpty()
+            val areas = areaResult.getOrNull()?.areas.orEmpty()
             val hasSensitiveRoot = sourcePaths.any { source ->
-                areaState.areas.any { it.isSensitiveRoot && source.matches(it.path) }
+                areas.any { it.isSensitiveRoot && source.matches(it.path) }
             }
             val deletionPreview = DeletionPreview.from(items, sourcePaths)
 
@@ -90,6 +91,7 @@ class SwiperStatusViewModel @Inject constructor(
                 alreadyDeletedCount = session?.deletedCount ?: 0,
                 sourcePaths = sourcePaths,
                 hasSensitiveRoot = hasSensitiveRoot,
+                areasUnavailable = areaResult.isFailure,
                 deletionPreview = deletionPreview,
             )
         }
@@ -196,6 +198,8 @@ class SwiperStatusViewModel @Inject constructor(
         val alreadyDeletedCount: Int = 0,
         val sourcePaths: List<APath> = emptyList(),
         val hasSensitiveRoot: Boolean = false,
+        /** Without data areas a sensitive root can't be ruled out, so deleting is blocked. */
+        val areasUnavailable: Boolean = false,
         val deletionPreview: DeletionPreview = DeletionPreview(emptyList(), 0),
     ) {
         val canFinalize: Boolean = !isProcessing

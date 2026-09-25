@@ -34,6 +34,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.advanceUntilIdle
@@ -82,6 +83,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val navCtrl: NavigationController,
         val pickerResults: MutableSharedFlow<PickerResult>,
         val upgradeFlow: MutableStateFlow<UpgradeRepo.Info>,
+        val areaResults: MutableStateFlow<Result<DataAreaManager.State>>,
     )
 
     private class CollectedEvents<T>(val list: MutableList<T>, private val job: Job) {
@@ -105,6 +107,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         isPro: Boolean = false,
         isUpgradeSettled: Boolean = true,
         areas: Set<DataArea> = emptySet(),
+        areaFailure: Throwable? = null,
     ): Harness {
         val sessionsFlow = MutableStateFlow(sessions)
         val progressFlow = MutableStateFlow(progress)
@@ -113,7 +116,9 @@ class SwiperSessionsViewModelTest : BaseTest() {
             every { this@apply.isSettled } returns isUpgradeSettled
         }
         val upgradeFlow = MutableStateFlow(upgradeInfo)
-        val areaStateFlow = MutableStateFlow(DataAreaManager.State(areas = areas))
+        val areaResults = MutableStateFlow(
+            areaFailure?.let { Result.failure(it) } ?: Result.success(DataAreaManager.State(areas = areas)),
+        )
         // Use a hot SharedFlow so tests can inject picker results after construction. The VM's init
         // block collects this; emitting a PickerResult here exercises the createSession path.
         val pickerResults = MutableSharedFlow<PickerResult>(replay = 0, extraBufferCapacity = 1)
@@ -126,9 +131,10 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns upgradeFlow
         }
-        // currentAreas() is an extension that reads state.first().areas — no separate stub needed.
+        // currentAreas() is an extension that reads state.first().areas.
         val dataAreaManager = mockk<DataAreaManager>().apply {
-            every { state } returns areaStateFlow
+            every { results } returns areaResults
+            every { state } returns areaResults.map { it.getOrThrow() }
         }
         val navCtrl = mockk<NavigationController>(relaxed = true).apply {
             every { consumeResults<PickerResult>(any()) } returns pickerResults
@@ -156,6 +162,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             navCtrl = navCtrl,
             pickerResults = pickerResults,
             upgradeFlow = upgradeFlow,
+            areaResults = areaResults,
         )
     }
 
@@ -417,6 +424,33 @@ class SwiperSessionsViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.state.first().riskySessionIds shouldBe emptySet()
+    }
+
+    @Test
+    fun `without data areas scanning is blocked until they load`() = runTest2 {
+        val source = LocalPath.build("storage", "emulated", "0", "DCIM")
+        val s = sessionWithStats(session = session(id = "s1", sourcePaths = listOf(source)))
+        val h = harness(sessions = listOf(s), areaFailure = IllegalStateException("build failed"))
+        advanceUntilIdle()
+
+        h.vm.state.first().areasUnavailable shouldBe true
+        h.vm.state.first().isSessionRisky("s1") shouldBe false
+
+        h.areaResults.value = Result.success(DataAreaManager.State(areas = emptySet()))
+        advanceUntilIdle()
+        h.vm.state.first().areasUnavailable shouldBe false
+    }
+
+    @Test
+    fun `scanSession does not scan while data areas are unavailable`() = runTest2 {
+        val s = sessionWithStats(session = session(id = "s1"))
+        val h = harness(sessions = listOf(s), areaFailure = IllegalStateException("build failed"))
+        advanceUntilIdle()
+
+        h.vm.scanSession("s1")
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
     }
 
     @Test

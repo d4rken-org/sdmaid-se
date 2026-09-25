@@ -262,19 +262,8 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val dataAreaItem: Flow<ErrorDataAreaDashboardCardItem?> = areaManager.latestState
-        .map {
-            if (it == null) return@map null
-            if (it.areas.isNotEmpty()) return@map null
-            ErrorDataAreaDashboardCardItem(
-                state = it,
-                onReload = {
-                    launch {
-                        areaManager.reload()
-                    }
-                },
-            )
-        }
+    private val dataAreaItem: Flow<ErrorDataAreaDashboardCardItem?> = areaManager.latestResult
+        .map { result -> dataAreaCardFor(result) { launch { areaManager.reload() } } }
 
     private val motdItem: Flow<MotdDashboardCardItem?> = buildMotdItem()
 
@@ -677,5 +666,14 @@ class DashboardViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Dashboard", "ViewModel")
+
+        internal fun dataAreaCardFor(
+            result: Result<DataAreaManager.State>?,
+            onReload: () -> Unit,
+        ): ErrorDataAreaDashboardCardItem? = when {
+            result == null -> null
+            result.getOrNull()?.areas?.isNotEmpty() == true -> null
+            else -> ErrorDataAreaDashboardCardItem(buildFailed = result.isFailure, onReload = onReload)
+        }
     }
 }

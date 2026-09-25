@@ -85,6 +85,7 @@ class SwiperStatusViewModelTest : BaseTest() {
         val sessionFlow: MutableStateFlow<SwipeSession?>,
         val itemsFlow: MutableStateFlow<List<SwipeItem>>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
+        val areaResults: MutableStateFlow<Result<DataAreaManager.State>>,
     )
 
     // TestScope extension so the harness can launch a state collector inside the test scope.
@@ -95,12 +96,15 @@ class SwiperStatusViewModelTest : BaseTest() {
         items: List<SwipeItem> = emptyList(),
         progress: Progress.Data? = null,
         areas: Set<DataArea> = emptySet(),
+        areaFailure: Throwable? = null,
         bind: Boolean = true,
     ): Harness {
         val sessionFlow = MutableStateFlow(session)
         val itemsFlow = MutableStateFlow(items)
         val progressFlow = MutableStateFlow(progress)
-        val areaStateFlow = MutableStateFlow(DataAreaManager.State(areas = areas))
+        val areaResults = MutableStateFlow(
+            areaFailure?.let { Result.failure(it) } ?: Result.success(DataAreaManager.State(areas = areas)),
+        )
 
         val swiper = mockk<Swiper>(relaxed = true).apply {
             every { getSession(any()) } returns sessionFlow
@@ -110,7 +114,7 @@ class SwiperStatusViewModelTest : BaseTest() {
         val taskSubmitter = mockk<TaskSubmitter>(relaxed = true)
         val exclusionManager = mockk<ExclusionManager>(relaxed = true)
         val dataAreaManager = mockk<DataAreaManager>().apply {
-            every { state } returns areaStateFlow
+            every { results } returns areaResults
         }
 
         val vm = SwiperStatusViewModel(
@@ -138,6 +142,7 @@ class SwiperStatusViewModelTest : BaseTest() {
             sessionFlow = sessionFlow,
             itemsFlow = itemsFlow,
             progressFlow = progressFlow,
+            areaResults = areaResults,
         )
     }
 
@@ -203,6 +208,22 @@ class SwiperStatusViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.state.first().hasSensitiveRoot shouldBe true
+    }
+
+    @Test
+    fun `without data areas deleting is blocked until they load`() = runTest2 {
+        val h = harness(
+            session = session(sourcePaths = listOf(LocalPath.build("storage", "emulated", "0", "DCIM"))),
+            areaFailure = IllegalStateException("build failed"),
+        )
+        advanceUntilIdle()
+
+        h.vm.state.first().areasUnavailable shouldBe true
+        h.vm.state.first().hasSensitiveRoot shouldBe false
+
+        h.areaResults.value = Result.success(DataAreaManager.State(areas = emptySet()))
+        advanceUntilIdle()
+        h.vm.state.first().areasUnavailable shouldBe false
     }
 
     @Test

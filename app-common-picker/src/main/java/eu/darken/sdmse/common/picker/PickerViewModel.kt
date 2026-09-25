@@ -29,6 +29,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.stateIn
 import okio.IOException
 import javax.inject.Inject
@@ -94,6 +95,10 @@ class PickerViewModel @Inject constructor(
         }
     }
 
+    /** Waits out a failed data area build; the listing shows it as unavailable meanwhile. */
+    private suspend fun firstAvailableAreas(): DataAreaManager.State =
+        dataAreaManager.results.mapNotNull { it.getOrNull() }.first()
+
     private suspend fun hydrateFromRequest() {
         log(TAG) { "Loading pre-selected paths: ${request.selectedPaths}" }
         val preSelected = request.selectedPaths.mapNotNull { it.safeLookup() }
@@ -101,7 +106,7 @@ class PickerViewModel @Inject constructor(
         persistSelected(preSelected)
 
         val firstSelected = preSelected.firstOrNull() ?: return
-        val areaState = dataAreaManager.state.first()
+        val areaState = firstAvailableAreas()
         val targetArea = areaState.areas
             .filter { request.allowedAreas.isEmpty() || request.allowedAreas.contains(it.type) }
             .sortedByDescending { it.path.segments.size }
@@ -147,8 +152,8 @@ class PickerViewModel @Inject constructor(
 
         log(TAG, INFO) { "Pre-navigating to: ${navPath.map { it.lookup.lookedUp }}" }
         val navToSet = navPath.takeIf { it.isNotEmpty() }
-        navigationState.value = navToSet
-        persistNav(navToSet)
+        // Hydration can finish after the user already navigated, e.g. once data areas recovered.
+        if (navigationState.compareAndSet(null, navToSet)) persistNav(navToSet)
     }
 
     private suspend fun hydrateFromSavedState(
@@ -162,7 +167,7 @@ class PickerViewModel @Inject constructor(
             navigationState.value = null
             return
         }
-        val areaState = dataAreaManager.state.first()
+        val areaState = firstAvailableAreas()
         val rehydratedNav = mutableListOf<PickerItem>()
         for (path in savedNav) {
             val area = areaState.areas
@@ -180,7 +185,7 @@ class PickerViewModel @Inject constructor(
                 ),
             )
         }
-        navigationState.value = rehydratedNav.takeIf { it.isNotEmpty() }
+        navigationState.compareAndSet(null, rehydratedNav.takeIf { it.isNotEmpty() })
     }
 
     private suspend fun APath.safeLookup(): APathLookup<*>? = try {
@@ -208,6 +213,7 @@ class PickerViewModel @Inject constructor(
         val current: PickerItem?
 
         data class Loading(override val current: PickerItem?) : DirListing
+        data class Unavailable(override val current: PickerItem?) : DirListing
         data class Loaded(
             override val current: PickerItem?,
             val items: List<PickerItem>,
@@ -216,10 +222,14 @@ class PickerViewModel @Inject constructor(
 
     private val dirListing = combineTransform(
         requestFlow.filterNotNull(),
-        dataAreaManager.state,
+        dataAreaManager.results,
         navigationState,
-    ) { req, areaState, navState ->
+    ) { req, areaResult, navState ->
         val current: PickerItem? = navState?.lastOrNull()
+        val areaState = areaResult.getOrElse {
+            emit(DirListing.Unavailable(current))
+            return@combineTransform
+        }
         emit(DirListing.Loading(current))
 
         val items: List<PickerItem> = when {
@@ -289,6 +299,16 @@ class PickerViewModel @Inject constructor(
                 ),
             )
 
+            is DirListing.Unavailable -> emit(
+                State(
+                    current = listing.current,
+                    selected = selectedRows,
+                    hasChanges = hasChanges,
+                    progress = null,
+                    areasUnavailable = true,
+                ),
+            )
+
             is DirListing.Loaded -> {
                 val items = listing.items.map { item ->
                     PickerRow(item.copy(selected = selected.any { it.lookedUp == item.lookup.lookedUp }))
@@ -341,7 +361,7 @@ class PickerViewModel @Inject constructor(
         }
         // Read from the directory listing (not state) so we never act on a transient loading frame
         // and end up selecting nothing.
-        val loaded = dirListing.first { it is DirListing.Loaded } as DirListing.Loaded
+        val loaded = dirListing.first { it !is DirListing.Loading } as? DirListing.Loaded ?: return@launch
         val current = selectedItems.value
         // select() toggles. Routing an already-selected row through it would DEselect what the
         // user hand-picked before tapping "Select all", and routing a row that a selected
@@ -459,6 +479,7 @@ class PickerViewModel @Inject constructor(
         /** Select-all is a multi-select affordance; single-selection (DIR) mode hides it. */
         val allowSelectAll: Boolean = false,
         val progress: Progress.Data? = Progress.Data(),
+        val areasUnavailable: Boolean = false,
     )
 
     sealed interface Event {

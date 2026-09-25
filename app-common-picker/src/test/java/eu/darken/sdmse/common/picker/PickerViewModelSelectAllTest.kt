@@ -19,9 +19,11 @@ import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
-import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.advanceUntilIdle
 import org.junit.jupiter.api.Test
@@ -52,7 +54,11 @@ class PickerViewModelSelectAllTest : BaseTest() {
         val resourceScope: CoroutineScope,
     )
 
-    private fun harness(listings: Map<LocalPath, List<LocalPathLookup>>): Harness {
+    private fun harness(
+        listings: Map<LocalPath, List<LocalPathLookup>>,
+        areaResults: Flow<Result<DataAreaManager.State>> =
+            flowOf(Result.success(DataAreaManager.State(areas = setOf(area)))),
+    ): Harness {
         val resourceScope = CoroutineScope(SupervisorJob())
         val gatewaySwitch = mockk<GatewaySwitch> {
             every { sharedResource } returns SharedResource.createKeepAlive("test:gateway", resourceScope)
@@ -60,7 +66,7 @@ class PickerViewModelSelectAllTest : BaseTest() {
             coEvery { lookupFiles(any()) } answers { listings[arg<APath>(0) as LocalPath]?.asFlow() ?: emptyFlow() }
         }
         val dataAreaManager = mockk<DataAreaManager> {
-            every { state } returns flowOf(DataAreaManager.State(areas = setOf(area)))
+            every { results } returns areaResults
         }
         val vm = PickerViewModel(
             handle = SavedStateHandle(),
@@ -76,6 +82,51 @@ class PickerViewModelSelectAllTest : BaseTest() {
         val row = state.first { st -> st.items.any { it.item.lookup.lookedUp == path } }
             .items.first { it.item.lookup.lookedUp == path }
         onRowClick(row)
+    }
+
+    @Test
+    fun `a failed area build shows the listing as unavailable until a later build succeeds`() = runTest2 {
+        val areaResults = MutableStateFlow<Result<DataAreaManager.State>>(
+            Result.failure(IllegalStateException("build failed")),
+        )
+        val h = harness(emptyMap(), areaResults)
+        try {
+            h.vm.setRequest(PickerRequest(requestKey = "test", mode = PickerRequest.PickMode.FILES_AND_DIRS))
+            advanceUntilIdle()
+            h.vm.state.first { it.areasUnavailable }
+
+            areaResults.value = Result.success(DataAreaManager.State(areas = setOf(area)))
+            advanceUntilIdle()
+            h.vm.state.first { !it.areasUnavailable && it.items.isNotEmpty() }
+        } finally {
+            h.resourceScope.cancel()
+        }
+    }
+
+    @Test
+    fun `pre-selected paths navigate once a failed area build is followed by a good one`() = runTest2 {
+        val areaResults = MutableStateFlow<Result<DataAreaManager.State>>(
+            Result.failure(IllegalStateException("build failed")),
+        )
+        val file = lookupOf(areaPath.child("f1"), dir = false)
+        val h = harness(mapOf(areaPath to listOf(file)), areaResults)
+        try {
+            h.vm.setRequest(
+                PickerRequest(
+                    requestKey = "test",
+                    mode = PickerRequest.PickMode.FILES_AND_DIRS,
+                    selectedPaths = listOf(file.lookedUp),
+                ),
+            )
+            advanceUntilIdle()
+            h.vm.state.first { it.areasUnavailable }.current shouldBe null
+
+            areaResults.value = Result.success(DataAreaManager.State(areas = setOf(area)))
+            advanceUntilIdle()
+            h.vm.state.first { it.current?.lookup?.lookedUp == areaPath }
+        } finally {
+            h.resourceScope.cancel()
+        }
     }
 
     @Test
