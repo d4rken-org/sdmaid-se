@@ -296,6 +296,10 @@
     <string name="setup_shizuku_state_manager_outdated_label">Update %1$s to use it with SD Maid.</string>
     <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
     <string name="setup_shizuku_state_sdmaid_outdated_label">This version of SD Maid is too old for %1$s. Update SD Maid.</string>
+    <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_state_permission_denied_label">%1$s has not allowed SD Maid yet.</string>
+    <!-- %1$s is the installed app's own name, e.g. "Porter" or "Shizuku". -->
+    <string name="setup_shizuku_state_permission_denied_permanently_label">%1$s denies SD Maid access. Allow SD Maid in %1$s to continue.</string>
     <string name="setup_shizuku_state_known_issue_hint">Some devices are affected by a known problem that stops the helper service from starting. This may be one of them.</string>
     <string name="setup_shizuku_open_manager_action">Open %1$s</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Try to use ADB access</string>

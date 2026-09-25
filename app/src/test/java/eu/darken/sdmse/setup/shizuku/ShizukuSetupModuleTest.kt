@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.root.RootManager
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
+import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
@@ -30,14 +31,18 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.advanceTimeBy
 import kotlinx.coroutines.test.currentTime
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
@@ -569,7 +574,55 @@ class ShizukuSetupModuleTest : BaseTest() {
         coVerify(exactly = 1) { useShizukuValue.update(any()) }
     }
 
-    @Test fun `the automatic requester does not start a second request while one is in flight`() {
+    @Test fun `the state never asks for permission on its own`() {
+        // The manager's prompt closing resumes the Setup screen, which refreshes: a request issued
+        // from here would re-open the prompt every time it is dismissed.
+        coEvery { shizukuManager.isGranted() } returns false
+        coEvery { shizukuManager.getServiceState() } coAnswers {
+            probeCount++
+            ShizukuServiceState.PermissionDenied(permanently = false)
+        }
+        linkFlow.value = mockk<AdbLink>()
+        val mod = module()
+
+        val collector = mod.state.test(tag = "no-auto-request", scope = scope)
+        collector.await { _, latest -> latest is ShizukuSetupModule.Result && !latest.isChecking }
+
+        val beforeLink = probeCount
+        linkFlow.value = mockk<AdbLink>()
+        collector.await { _, _ -> probeCount > beforeLink }
+
+        repeat(3) {
+            val before = probeCount
+            runBlocking { mod.refresh() }
+            collector.await { _, _ -> probeCount > before }
+        }
+        runBlocking { delay(50) }
+
+        coVerify(exactly = 0) { shizukuManager.requestPermission() }
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `grantAccess asks once and re-probes`() {
+        coEvery { shizukuManager.isGranted() } returns false
+        coEvery { shizukuManager.requestPermission() } returns AdbPermission.DENIED
+        val mod = module()
+
+        val collector = mod.state.test(tag = "grant-access", scope = scope)
+        collector.await { _, latest -> latest is ShizukuSetupModule.Result && !latest.isChecking }
+
+        val before = probeCount
+        runBlocking { withTimeout(5_000) { mod.grantAccess() } }
+        collector.await { _, _ -> probeCount > before }
+
+        probeCount shouldBeGreaterThan before
+        coVerify(exactly = 1) { shizukuManager.requestPermission() }
+
+        runBlocking { collector.cancelAndJoin() }
+    }
+
+    @Test fun `grantAccess joins a request that is already open`() {
         coEvery { shizukuManager.isGranted() } returns false
         val answer = CompletableDeferred<AdbPermission?>()
         var requests = 0
@@ -577,21 +630,78 @@ class ShizukuSetupModuleTest : BaseTest() {
             requests++
             answer.await()
         }
-        linkFlow.value = mockk<AdbLink>()
         val mod = module()
 
-        val collector = mod.state.test(tag = "single-flight", scope = scope)
-        collector.await { _, _ -> requests >= 1 }
-
-        // A new link and a refresh both run the requester again while the prompt is still open.
-        linkFlow.value = mockk<AdbLink>()
-        runBlocking { mod.refresh() }
-        collector.await { _, latest -> latest is ShizukuSetupModule.Result && !latest.isChecking }
-        runBlocking { delay(50) }
+        val first = scope.async { mod.grantAccess() }
+        val second = scope.async { mod.grantAccess() }
 
         requests shouldBe 1
 
         answer.complete(AdbPermission.GRANTED)
+        runBlocking {
+            withTimeout(5_000) {
+                first.await()
+                second.await()
+            }
+        }
+
+        coVerify(exactly = 1) { shizukuManager.requestPermission() }
+    }
+
+    private fun toggleWithAnswer(answer: AdbPermission) {
+        useShizukuFlow.value = null
+        coEvery { shizukuManager.isGranted() } returns false
+        coEvery { shizukuManager.requestPermission() } returns answer
+        // Already attached, so the post-toggle link wait ends at once.
+        linkFlow.value = mockk<AdbLink>()
+        val mod = module()
+
+        runBlocking { withTimeout(5_000) { mod.toggleUseShizuku(true) } }
+    }
+
+    @Test fun `toggle keeps the option selected when the manager denies`() {
+        toggleWithAnswer(AdbPermission.DENIED)
+
+        useShizukuFlow.value shouldBe true
+    }
+
+    @Test fun `toggle keeps the option selected when the manager denies permanently`() {
+        toggleWithAnswer(AdbPermission.DENIED_PERMANENTLY)
+
+        useShizukuFlow.value shouldBe true
+    }
+
+    @Test fun `toggle re-probes when the answer changes nothing upstream`() {
+        // Re-selecting the selected option stores the same value, and DENIED turning into
+        // DENIED_PERMANENTLY does not change the granted flag, so nothing upstream emits.
+        coEvery { shizukuManager.isGranted() } returns false
+        var serviceState: ShizukuServiceState = ShizukuServiceState.PermissionDenied(permanently = false)
+        coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; serviceState }
+        coEvery { shizukuManager.requestPermission() } returns AdbPermission.DENIED_PERMANENTLY
+        linkFlow.value = mockk<AdbLink>()
+        val mod = module()
+
+        val collector = mod.state.test(tag = "toggle-reprobe", scope = scope)
+        collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result &&
+                !latest.isChecking &&
+                latest.serviceState == ShizukuServiceState.PermissionDenied(permanently = false)
+        }
+
+        serviceState = ShizukuServiceState.PermissionDenied(permanently = true)
+        val before = probeCount
+        runBlocking { withTimeout(5_000) { mod.toggleUseShizuku(true) } }
+
+        val settled = collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result &&
+                !latest.isChecking &&
+                latest.serviceState == ShizukuServiceState.PermissionDenied(permanently = true)
+        }.shouldBeInstanceOf<ShizukuSetupModule.Result>()
+
+        probeCount shouldBeGreaterThan before
+        settled.serviceState shouldBe ShizukuServiceState.PermissionDenied(permanently = true)
+        useShizukuFlow.value shouldBe true
+
         runBlocking { collector.cancelAndJoin() }
     }
 
@@ -607,5 +717,55 @@ class ShizukuSetupModuleTest : BaseTest() {
         currentTime shouldBeGreaterThanOrEqual 60_000L
 
         coVerify(exactly = 2) { shizukuManager.requestPermission() }
+    }
+
+    @Test fun `the shared request is bounded for every caller and survives the first one leaving`() = runTest {
+        coEvery { shizukuManager.isGranted() } returns false
+        coEvery { shizukuManager.requestPermission() } coAnswers { awaitCancellation() }
+        val mod = module(moduleScope = backgroundScope)
+
+        val first = launch { mod.grantAccess() }
+        runCurrent()
+        advanceTimeBy(20_000)
+        // E.g. the Setup screen's ViewModel being cleared while the prompt is still open.
+        first.cancel()
+
+        val joiner = async { mod.toggleUseShizuku(true) }
+        joiner.await()
+
+        // The joiner shares the first request's bound instead of starting its own 30s.
+        currentTime shouldBeGreaterThanOrEqual ShizukuSetupModule.PERMISSION_REQUEST_TIMEOUT_MS
+        currentTime shouldBeLessThan 50_000L
+        useShizukuFlow.value shouldBe null
+        first.isCancelled shouldBe true
+        coVerify(exactly = 1) { shizukuManager.requestPermission() }
+
+        mod.grantAccess()
+
+        coVerify(exactly = 2) { shizukuManager.requestPermission() }
+    }
+
+    // --- data areas ----------------------------------------------------------------------------
+
+    @Test fun `a settled change of ADB access reloads the data areas once`() {
+        var serviceState: ShizukuServiceState = ShizukuServiceState.PermissionDenied(permanently = false)
+        coEvery { shizukuManager.getServiceState() } coAnswers { probeCount++; serviceState }
+        val mod = module()
+
+        val collector = mod.state.test(tag = "reload", scope = scope)
+        collector.await { _, latest -> latest is ShizukuSetupModule.Result && !latest.isChecking }
+
+        // The first observation is not a change.
+        coVerify(exactly = 0) { dataAreaManager.reload() }
+
+        serviceState = ShizukuServiceState.Available
+        runBlocking { mod.refresh() }
+        collector.await { _, latest ->
+            latest is ShizukuSetupModule.Result && !latest.isChecking && latest.ourService
+        }
+
+        coVerify(exactly = 1) { dataAreaManager.reload() }
+
+        runBlocking { collector.cancelAndJoin() }
     }
 }

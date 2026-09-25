@@ -284,6 +284,7 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onRetry = { launch { shizukuSetupModule.refresh() } },
+                                onGrantAccess = { launch { shizukuSetupModule.grantAccess() } },
                                 showKnownIssueHint = hasKnownShizukuIssueRisk,
                                 installLabelRes = adbManagerInstallGuide.labelRes,
                                 onInstall = { webpageTool.open(adbManagerInstallGuide.url) },

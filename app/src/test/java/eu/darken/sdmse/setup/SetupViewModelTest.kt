@@ -11,6 +11,7 @@ import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
+import eu.darken.sdmse.common.adb.shizuku.AdbBackend
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.shizuku.AdbManagerInstallGuide
@@ -51,6 +52,7 @@ class SetupViewModelTest : BaseTest() {
     private val setupManager: SetupManager = mockk(relaxed = true)
     private val rootSetupModule: RootSetupModule = mockk(relaxed = true)
     private val inventorySetupModule: InventorySetupModule = mockk(relaxed = true)
+    private val shizukuSetupModule: ShizukuSetupModule = mockk(relaxed = true)
 
     // Stands in for whichever flavor binding is compiled: the test source set sees neither impl.
     private val installGuide = object : AdbManagerInstallGuide {
@@ -89,7 +91,7 @@ class SetupViewModelTest : BaseTest() {
         automationSetupModule = mockk(relaxed = true),
         webpageTool = mockk(relaxed = true),
         rootSetupModule = rootSetupModule,
-        shizukuSetupModule = mockk(relaxed = true),
+        shizukuSetupModule = shizukuSetupModule,
         inventorySetupModule = inventorySetupModule,
         deviceDetective = mockk(relaxed = true),
         adbManagerInstallGuide = installGuide,
@@ -172,5 +174,32 @@ class SetupViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 1) { inventorySetupModule.refresh() }
+    }
+
+    @Test
+    fun `shizuku card grant access asks the shizuku setup module`() = runTest2(context = testDispatcher) {
+        setupState(
+            ShizukuSetupModule.Result(
+                pkg = "eu.darken.porter".toPkgId(),
+                useShizuku = true,
+                isInstalled = true,
+                serviceState = ShizukuServiceState.PermissionDenied(permanently = false),
+                backend = AdbBackend.PORTER,
+                managerLabel = "Porter",
+            ),
+        )
+        val vm = buildVm()
+
+        // Keep the render state subscribed, otherwise WhileSubscribed never runs the upstream.
+        backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.uiState.collect() }
+        advanceUntilIdle()
+
+        val cards = vm.uiState.value.shouldBeInstanceOf<SetupUiState.Cards>()
+        val shizukuCard = cards.items.filterIsInstance<ShizukuSetupCardItem>().single()
+
+        shizukuCard.onGrantAccess()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { shizukuSetupModule.grantAccess() }
     }
 }

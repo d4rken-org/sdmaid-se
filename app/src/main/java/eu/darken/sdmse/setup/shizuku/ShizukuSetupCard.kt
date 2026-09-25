@@ -60,6 +60,7 @@ data class ShizukuSetupCardItem(
      * not happen during recomposition.
      */
     val showKnownIssueHint: Boolean = false,
+    val onGrantAccess: () -> Unit = {},
 ) : SetupCardItem
 
 @Composable
@@ -100,6 +101,7 @@ internal fun ShizukuSetupCard(
             val canOpen = item.state.isInstalled
             // What the installed app calls itself, so a renamed fork isn't addressed as "Shizuku".
             val managerName = item.state.managerLabel ?: item.state.backend.label
+            val permissionDenied = item.state.serviceState as? ShizukuServiceState.PermissionDenied
 
             if (ready) {
                 // Same success row as the Inventory/Notification/Storage cards, so "this worked"
@@ -143,6 +145,16 @@ internal fun ShizukuSetupCard(
                             R.string.setup_shizuku_state_backend_priority_label,
                             managerName,
                             item.state.blockedManagerLabel ?: AdbBackend.SHIZUKU.label,
+                        )
+
+                        permissionDenied?.permanently == true -> stringResource(
+                            R.string.setup_shizuku_state_permission_denied_permanently_label,
+                            managerName,
+                        )
+
+                        permissionDenied != null -> stringResource(
+                            R.string.setup_shizuku_state_permission_denied_label,
+                            managerName,
                         )
 
                         !item.state.isInstalled -> stringResource(R.string.setup_shizuku_state_not_installed_label)
@@ -215,6 +227,28 @@ internal fun ShizukuSetupCard(
                         ) {
                             Text(stringResource(eu.darken.sdmse.common.R.string.general_retry_action))
                         }
+                    }
+                }
+            } else if (permissionDenied?.permanently == false) {
+                // The manager still shows its prompt, so asking again is the direct way forward.
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 16.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                ) {
+                    ManagerButton(
+                        pkg = item.state.pkg,
+                        label = managerName,
+                        onClick = item.onOpen,
+                        modifier = Modifier.weight(1f),
+                    )
+                    Button(
+                        onClick = item.onGrantAccess,
+                        enabled = !item.state.isChecking,
+                        modifier = Modifier.weight(1f),
+                    ) {
+                        Text(stringResource(eu.darken.sdmse.common.R.string.general_grant_access_action))
                     }
                 }
             } else if (canOpen) {
@@ -358,6 +392,53 @@ private fun ShizukuSetupCardBackendPriorityPreview() {
                     managerLabel = "Porter",
                     blockedManager = "moe.shizuku.privileged.api".toPkgId(),
                     blockedManagerLabel = "Shizuku",
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardPermissionDeniedPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "eu.darken.porter".toPkgId(),
+                    useShizuku = true,
+                    isInstalled = true,
+                    serviceState = ShizukuServiceState.PermissionDenied(permanently = false),
+                    alsoHasRoot = false,
+                    backend = AdbBackend.PORTER,
+                    managerLabel = "Porter",
+                ),
+                onToggleUseShizuku = {},
+                onOpen = {},
+                onHelp = {},
+                onGrantAccess = {},
+            ),
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun ShizukuSetupCardPermissionDeniedPermanentlyPreview() {
+    PreviewWrapper {
+        ShizukuSetupCard(
+            item = ShizukuSetupCardItem(
+                state = ShizukuSetupModule.Result(
+                    pkg = "eu.darken.porter".toPkgId(),
+                    useShizuku = true,
+                    isInstalled = true,
+                    serviceState = ShizukuServiceState.PermissionDenied(permanently = true),
+                    alsoHasRoot = false,
+                    backend = AdbBackend.PORTER,
+                    managerLabel = "Porter",
                 ),
                 onToggleUseShizuku = {},
                 onOpen = {},

@@ -40,7 +40,6 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.transformLatest
@@ -69,30 +68,41 @@ class ShizukuSetupModule @Inject constructor(
     @Volatile
     private var lastResult: Result? = null
 
+    // Dedicated transition memory. Deliberately NOT lastResult, which toggleUseShizuku() clears.
+    @Volatile
+    private var lastActive: Boolean? = null
+
     private val permissionRequestLock = Any()
     private var permissionRequest: Deferred<AdbPermission?>? = null
 
     // The request suspends until the user answers the manager's prompt, so it runs detached and is
     // shared: a second caller joins the prompt already on screen instead of stacking another one.
-    private fun requestPermissionOnce(): Deferred<AdbPermission?> = synchronized(permissionRequestLock) {
+    // The bound lives in here, not in the callers, so every joiner gets the same answer and the
+    // request ends even when the coroutine that started it is cancelled.
+    private fun sharedPermissionRequest(): Deferred<AdbPermission?> = synchronized(permissionRequestLock) {
         permissionRequest?.takeIf { it.isActive } ?: appScope
             .async {
                 log(TAG) { "Requesting ADB permission..." }
-                shizukuManager.requestPermission().also { log(TAG) { "ADB permission request result: $it" } }
+                var answered = false
+                val result = withTimeoutOrNull(PERMISSION_REQUEST_TIMEOUT_MS) {
+                    shizukuManager.requestPermission().also { answered = true }
+                }
+                if (!answered) {
+                    log(TAG, WARN) { "Abandoned unanswered permission request, next attempt will re-prompt" }
+                }
+                log(TAG) { "ADB permission request result: $result" }
+                result
             }
-            .also { permissionRequest = it }
+            .also { request ->
+                permissionRequest = request
+                // An unanswered prompt must not block the next attempt from sending a new one.
+                request.invokeOnCompletion {
+                    synchronized(permissionRequestLock) {
+                        if (permissionRequest === request) permissionRequest = null
+                    }
+                }
+            }
     }
-
-    private val permissionRequester: Flow<Unit> = shizukuManager.adbLink
-        .onEach { link ->
-            if (link != null && adbSettings.useShizuku.value() == true && shizukuManager.isGranted() == false) {
-                requestPermissionOnce()
-            }
-        }
-        // Only the lifecycle matters: a new link already restarts the whole state through the outer combine.
-        .map { }
-        .onStart { emit(Unit) }
-        .distinctUntilChanged()
 
     override val state: Flow<SetupModule.State> = combine(
         refreshTrigger,
@@ -131,11 +141,8 @@ class ShizukuSetupModule @Inject constructor(
 
         if (useShizuku != true) return@combine flowOf<SetupModule.State>(baseState)
 
-        combine(
-            // Just tie the lifecycle of the requester to the state's subscribers
-            permissionRequester,
-            shizukuManager.permissionChanges.onStart { emit(Unit) },
-        ) { _, _ -> }
+        shizukuManager.permissionChanges
+            .onStart { emit(Unit) }
             // transformLatest, not map: the probe below has to announce itself BEFORE it runs. A cold
             // bind can take the full ADB connect budget, and without a state saying so the card kept
             // offering a retry button that silently did nothing for those seconds.
@@ -168,7 +175,16 @@ class ShizukuSetupModule @Inject constructor(
         .flatMapLatest { it }
         // Only settled results: caching a mid-probe state would let onStart replay isChecking=true
         // with no probe behind it, leaving the retry button disabled forever.
-        .onEach { if (it is Result && !it.isChecking) lastResult = it }
+        .onEach {
+            if (it !is Result || it.isChecking) return@onEach
+            lastResult = it
+            val isActive = it.useShizuku == true && it.ourService
+            val was = lastActive
+            lastActive = isActive
+            // ADB access changes which storage areas are detectable. Reload only on a real change, and
+            // never on the first observation, where nothing has changed yet.
+            if (was != null && was != isActive) dataAreaManager.reload()
+        }
         .onStart {
             // Don't regress to Loading if we already know the result: emit the last known state so the
             // dashboard setup card doesn't flicker while the probe re-runs in the background. Guard
@@ -210,19 +226,13 @@ class ShizukuSetupModule @Inject constructor(
         // Drop any cached state so we don't replay a stale Result for the previous setting.
         lastResult = null
         val couldUseShizuku = shizukuManager.useShizuku.first()
-        val newValue = if (useShizuku == true && shizukuManager.isGranted() == false) {
-            val request = requestPermissionOnce()
-            val grantResult = withTimeoutOrNull(30 * 1000) { request.await() }
-            if (request.isActive) {
-                // An unanswered prompt must not block the next attempt from sending a new one.
-                synchronized(permissionRequestLock) {
-                    if (permissionRequest === request) permissionRequest = null
-                }
-                request.cancel()
-                log(TAG, WARN) { "Abandoned unanswered permission request, next attempt will re-prompt" }
-            }
+        val requested = useShizuku == true && shizukuManager.isGranted() == false
+        val newValue = if (requested) {
+            val grantResult = sharedPermissionRequest().await()
             log(TAG) { "Permission grant result was $grantResult" }
-            true.takeIf { grantResult == AdbPermission.GRANTED }
+            // A definite answer keeps the option selected, a denial is explained on the card. Only a
+            // failed or unanswered request leaves the choice open.
+            true.takeIf { grantResult != null }
         } else {
             useShizuku
         }
@@ -236,6 +246,18 @@ class ShizukuSetupModule @Inject constructor(
         }
 
         dataAreaManager.reload()
+
+        // Neither storing an unchanged setting nor a denial turning permanent emits upstream, so the
+        // card has to re-probe explicitly to show the answer.
+        if (requested) refresh()
+    }
+
+    suspend fun grantAccess() {
+        log(TAG) { "grantAccess()" }
+        val result = sharedPermissionRequest().await()
+        log(TAG) { "grantAccess(): Permission request result was $result" }
+        // Neither an Allow nor a Deny given in the manager app is pushed to us, so re-probe to show it.
+        refresh()
     }
 
     data class Loading(
@@ -297,5 +319,7 @@ class ShizukuSetupModule @Inject constructor(
         // Ceiling for the post-grant wait, not an expected duration: the wait ends as soon as the
         // link attaches. Expiring only means the card reports "waiting" a moment longer.
         internal const val SERVICE_BIND_TIMEOUT_MS = 10 * 1000L
+
+        internal const val PERMISSION_REQUEST_TIMEOUT_MS = 30 * 1000L
     }
 }
