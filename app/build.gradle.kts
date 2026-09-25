@@ -266,6 +266,7 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.4.2")
 
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
+    androidTestImplementation("androidx.test.uiautomator:uiautomator:2.4.0")
     androidTestUtil("androidx.test:orchestrator:1.6.1")
     androidTestUtil("androidx.test.services:test-services:1.6.0")
 

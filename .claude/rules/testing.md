@@ -234,16 +234,17 @@ and, for real permission state, `app/src/androidTest/java/eu/darken/sdmse/setup/
   screen is already there: first-launch work and navigation are asynchronous.
 - Grant access from the test with `shell("pm grant …")` / `shell("appops set …")`; it runs as the shell uid.
   The test runs inside the app's process, so revoking a runtime permission or `MANAGE_EXTERNAL_STORAGE`
-  kills it. Granting doesn't.
+  kills it. Granting doesn't. Storage is the exception: `StorageCleanupFlowTest` grants it through the Setup card and
+  the system screen (UI Automator's `device`), because the app reloads its data areas only from that result; after a
+  shell grant a scan can miss `/sdcard`.
 - The orchestrator's clear resets runtime permissions but not app-ops, `WRITE_SECURE_SETTINGS` or secure
   settings: a `GET_USAGE_STATS` / `MANAGE_EXTERNAL_STORAGE` app-op or an enabled accessibility service carries
   into later tests of the same run. Reset what can be reset in `@Before` (`appops set <pkg> GET_USAGE_STATS
   default` and `pm revoke <pkg> android.permission.WRITE_SECURE_SETTINGS` are safe).
-- `MANAGE_EXTERNAL_STORAGE` cannot be reset, so storage tests form an ordered group: on API 30+
-  `SetupDetectionTest.grantingStorageAccessHidesTheStorageCard` needs it missing, and every other test that grants
-  it must run after that class. Observed runs order classes by fully qualified name, which nothing guarantees;
-  `SystemCleanerDashboardFlowTest` sits in `eu.darken.sdmse.systemcleaner.dashboard` to come after
-  `eu.darken.sdmse.setup`. If the order flips, the setup test fails on its storage precondition.
+- `StorageCleanupFlowTest.grantingStorageAccessHidesTheCardAndLetsTheDashboardDeleteJunk` is the only test that grants
+  storage access, and it needs to start without it. On API 30+ a `MANAGE_EXTERNAL_STORAGE` grant from any other test,
+  including one in the same class, would carry into it or not depending on test order, which nothing guarantees.
+  Extend that test rather than granting storage access elsewhere.
 - SD Maid's accessibility service stops itself and clears its secure-settings entry while in-app consent is
   missing, so enable it from the shell only after the consent click.
 - Setup re-reads permission state in `ON_RESUME`, not continuously. After a shell grant, call
