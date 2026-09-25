@@ -75,7 +75,9 @@ class SetupDetectionTest : BaseAppFlowTest() {
 
     @Test
     fun grantingStorageAccessHidesTheStorageCard() {
-        withClue("Storage access already granted, uninstall $pkg from the device first") {
+        withClue(
+            "Storage access already granted: uninstall $pkg from the device first, or a storage-granting test ran earlier",
+        ) {
             hasStorageAccess() shouldBe false
         }
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
