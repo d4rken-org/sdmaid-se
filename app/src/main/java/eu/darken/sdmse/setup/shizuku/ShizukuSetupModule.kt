@@ -10,6 +10,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.shizuku.AdbAvailability
 import eu.darken.sdmse.common.adb.shizuku.AdbBackend
+import eu.darken.sdmse.common.adb.shizuku.AdbPermission
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.adb.shizuku.ShizukuServiceState
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -69,11 +70,11 @@ class ShizukuSetupModule @Inject constructor(
     private var lastResult: Result? = null
 
     private val permissionRequestLock = Any()
-    private var permissionRequest: Deferred<Boolean?>? = null
+    private var permissionRequest: Deferred<AdbPermission?>? = null
 
     // The request suspends until the user answers the manager's prompt, so it runs detached and is
     // shared: a second caller joins the prompt already on screen instead of stacking another one.
-    private fun requestPermissionOnce(): Deferred<Boolean?> = synchronized(permissionRequestLock) {
+    private fun requestPermissionOnce(): Deferred<AdbPermission?> = synchronized(permissionRequestLock) {
         permissionRequest?.takeIf { it.isActive } ?: appScope
             .async {
                 log(TAG) { "Requesting ADB permission..." }
@@ -221,7 +222,7 @@ class ShizukuSetupModule @Inject constructor(
                 log(TAG, WARN) { "Abandoned unanswered permission request, next attempt will re-prompt" }
             }
             log(TAG) { "Permission grant result was $grantResult" }
-            grantResult.takeIf { it == true }
+            true.takeIf { grantResult == AdbPermission.GRANTED }
         } else {
             useShizuku
         }

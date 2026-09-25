@@ -1,12 +1,27 @@
 package eu.darken.sdmse.common.adb.shizuku
 
 import android.os.IBinder
+import eu.darken.porter.sdk.PermissionState
 import eu.darken.porter.sdk.PorterConnection
 import eu.darken.porter.sdk.UserServiceArgs
 import eu.darken.porter.sdk.isGranted
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
+
+/**
+ * [DENIED_PERMANENTLY]: the manager refuses further requests without prompting. The user can still
+ * allow SD Maid inside the manager app.
+ */
+enum class AdbPermission {
+    GRANTED,
+    DENIED,
+    DENIED_PERMANENTLY,
+    ;
+
+    val isGranted: Boolean
+        get() = this == GRANTED
+}
 
 /**
  * One connection to the ADB manager's server. A new instance per attach, so a restarted server is a
@@ -23,10 +38,10 @@ interface AdbLink {
     /** Whether the server lets this app through, as it last reported. */
     val permission: Flow<Boolean>
 
-    suspend fun checkPermission(): Boolean
+    suspend fun checkPermission(): AdbPermission
 
     /** Suspends until the user answered the manager's prompt. Throws if the link is lost first. */
-    suspend fun requestPermission(): Boolean
+    suspend fun requestPermission(): AdbPermission
 
     /**
      * Binds the user service while collected and emits its binder once connected. Completes when the
@@ -49,11 +64,16 @@ internal data class PorterAdbLink(private val connection: PorterConnection) : Ad
         .map { it.isGranted }
         .distinctUntilChanged()
 
-    override suspend fun checkPermission(): Boolean = connection.checkPermission().isGranted
+    override suspend fun checkPermission(): AdbPermission = connection.checkPermission().toAdbPermission()
 
-    override suspend fun requestPermission(): Boolean = connection.requestPermission().isGranted
+    override suspend fun requestPermission(): AdbPermission = connection.requestPermission().toAdbPermission()
 
     override fun userService(args: UserServiceArgs): Flow<IBinder> = connection.userService(args)
 
     override suspend fun stopUserService(args: UserServiceArgs) = connection.stopUserService(args)
+}
+
+private fun PermissionState.toAdbPermission(): AdbPermission = when (this) {
+    PermissionState.Granted -> AdbPermission.GRANTED
+    is PermissionState.Denied -> if (permanentlyDenied) AdbPermission.DENIED_PERMANENTLY else AdbPermission.DENIED
 }

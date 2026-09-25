@@ -15,13 +15,16 @@ sealed interface ShizukuServiceState {
     /** Our service is up and answering. */
     data object Available : ShizukuServiceState
 
-    /** Shizuku says we do not have permission. */
-    data object PermissionDenied : ShizukuServiceState
+    /**
+     * Shizuku says we do not have permission. [permanently]: the manager refuses further requests
+     * without prompting, so only allowing SD Maid inside the manager app helps.
+     */
+    data class PermissionDenied(val permanently: Boolean) : ShizukuServiceState
 
     /**
      * The grant state could not be read. NOT the same as [PermissionDenied]: it means "cannot know".
      *
-     * Deliberately NOT a terminal failure even though ShizukuWrapper.isGranted() also returns null
+     * Deliberately NOT a terminal failure even though ShizukuWrapper.permission() also returns null
      * when its own watchdog expires, so a wedged Shizuku server lands here too. The overwhelmingly
      * common cause is simply that Shizuku has not been started yet, and telling that user their
      * setup failed would be wrong. The helper-process defect this all exists for does not come

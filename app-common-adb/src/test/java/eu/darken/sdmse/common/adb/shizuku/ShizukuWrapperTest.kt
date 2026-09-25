@@ -49,12 +49,14 @@ class ShizukuWrapperTest {
         override val backend: AdbBackend = AdbBackend.SHIZUKU,
         override val uid: Int = 2000,
         val granted: MutableStateFlow<Boolean> = MutableStateFlow(true),
-        val check: suspend () -> Boolean = { granted.value },
-        val request: suspend () -> Boolean = { true },
+        val check: suspend () -> AdbPermission = {
+            if (granted.value) AdbPermission.GRANTED else AdbPermission.DENIED
+        },
+        val request: suspend () -> AdbPermission = { AdbPermission.GRANTED },
         override val permission: Flow<Boolean> = granted,
     ) : AdbLink {
-        override suspend fun checkPermission(): Boolean = check()
-        override suspend fun requestPermission(): Boolean = request()
+        override suspend fun checkPermission(): AdbPermission = check()
+        override suspend fun requestPermission(): AdbPermission = request()
         override fun userService(args: UserServiceArgs): Flow<IBinder> = emptyFlow()
         override suspend fun stopUserService(args: UserServiceArgs) {}
     }
@@ -304,7 +306,26 @@ class ShizukuWrapperTest {
             AdbBackend.SHIZUKU
     }
 
-    // --- isGranted -----------------------------------------------------------------------------
+    // --- permission / isGranted ---------------------------------------------------------------
+
+    @Test
+    fun `permission is null without a link`() = runTest {
+        wrapper(gateway = FakeGateway(link = null)).permission() shouldBe null
+    }
+
+    @Test
+    fun `permission passes the link's answer through`() = runTest {
+        AdbPermission.entries.forEach { answer ->
+            wrapper(gateway = FakeGateway(link = FakeLink(check = { answer }))).permission() shouldBe answer
+        }
+    }
+
+    @Test
+    fun `isGranted is false for a permanent denial`() = runTest {
+        val wrapper = wrapper(gateway = FakeGateway(link = FakeLink(check = { AdbPermission.DENIED_PERMANENTLY })))
+
+        wrapper.isGranted() shouldBe false
+    }
 
     @Test
     fun `isGranted is null without a link`() = runTest {
@@ -352,8 +373,9 @@ class ShizukuWrapperTest {
 
     @Test
     fun `requestPermission returns the user's answer`() = runTest {
-        wrapper(gateway = FakeGateway(link = FakeLink(request = { true }))).requestPermission() shouldBe true
-        wrapper(gateway = FakeGateway(link = FakeLink(request = { false }))).requestPermission() shouldBe false
+        AdbPermission.entries.forEach { answer ->
+            wrapper(gateway = FakeGateway(link = FakeLink(request = { answer }))).requestPermission() shouldBe answer
+        }
     }
 
     @Test
@@ -377,12 +399,12 @@ class ShizukuWrapperTest {
             gateway = FakeGateway(
                 link = FakeLink(request = {
                     delay(ShizukuWrapper.IPC_TIMEOUT_MS * 4)
-                    true
+                    AdbPermission.GRANTED
                 }),
             ),
         )
 
-        wrapper.requestPermission() shouldBe true
+        wrapper.requestPermission() shouldBe AdbPermission.GRANTED
     }
 
     // --- link state ----------------------------------------------------------------------------
