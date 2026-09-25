@@ -956,6 +956,77 @@ class SetupScreenTest : BaseComposeRobolectricTest() {
             .assertCountEquals(0)
     }
 
+    private fun deniedState(permanently: Boolean) = ShizukuSetupModule.Result(
+        pkg = "eu.darken.porter".toPkgId(),
+        useShizuku = true,
+        isInstalled = true,
+        serviceState = ShizukuServiceState.PermissionDenied(permanently = permanently),
+        alsoHasRoot = false,
+        backend = AdbBackend.PORTER,
+        managerLabel = "Porter",
+    )
+
+    @Test
+    fun `shizuku card offers to ask again while the manager has not allowed SD Maid`() {
+        var granted = 0
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        shizukuItem(deniedState(permanently = false)).copy(onGrantAccess = { granted++ }),
+                    ),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_permission_denied_label, "Porter"))
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_waiting_label))
+            .assertCountEquals(0)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Porter")
+            )
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action))
+            .assertCountEquals(1)
+
+        composeRule.onNodeWithText(context.getString(CommonR.string.general_grant_access_action)).performClick()
+        composeRule.runOnIdle { assertTrue(granted == 1) }
+    }
+
+    @Test
+    fun `shizuku card sends the user to the manager when it denies SD Maid permanently`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(shizukuItem(deniedState(permanently = true))),
+                ),
+            )
+        }
+
+        composeRule
+            .onAllNodesWithText(
+                context.getString(R.string.setup_shizuku_state_permission_denied_permanently_label, "Porter")
+            )
+            .assertCountEquals(1)
+        composeRule
+            .onAllNodesWithText(context.getString(R.string.setup_shizuku_state_waiting_label))
+            .assertCountEquals(0)
+        composeRule
+            .onAllNodesWithContentDescription(
+                context.getString(R.string.setup_shizuku_open_manager_action, "Porter")
+            )
+            .assertCountEquals(1)
+        // The manager refuses without prompting, so asking again from here could not help.
+        composeRule
+            .onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action))
+            .assertCountEquals(0)
+    }
+
     @Test
     fun `storage card renders path labels`() {
         composeRule.setSetupContent {
