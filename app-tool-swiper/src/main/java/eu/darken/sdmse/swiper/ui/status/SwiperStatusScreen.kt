@@ -274,7 +274,7 @@ internal fun SwiperStatusScreen(
             onDismissRequest = { confirmDelete = false },
             positive = SdmDialogAction(
                 label = stringResource(CommonR.string.general_delete_action),
-                enabled = !state.hasSensitiveRoot || understandChecked,
+                enabled = !state.areasUnavailable && (!state.hasSensitiveRoot || understandChecked),
                 onClick = {
                     confirmDelete = false
                     onFinalize()
@@ -289,6 +289,7 @@ internal fun SwiperStatusScreen(
                 deleteMsg = deleteMsg,
                 undecidedNotice = undecidedNotice,
                 hasSensitiveRoot = state.hasSensitiveRoot,
+                areasUnavailable = state.areasUnavailable,
                 deletionPreview = state.deletionPreview,
                 understandChecked = understandChecked,
                 onUnderstandToggle = { understandChecked = it },
@@ -302,6 +303,7 @@ private fun DeleteConfirmationBody(
     deleteMsg: String,
     undecidedNotice: String?,
     hasSensitiveRoot: Boolean,
+    areasUnavailable: Boolean,
     deletionPreview: DeletionPreview,
     understandChecked: Boolean,
     onUnderstandToggle: (Boolean) -> Unit,
@@ -312,6 +314,14 @@ private fun DeleteConfirmationBody(
         if (undecidedNotice != null) {
             Spacer(Modifier.height(12.dp))
             Text(undecidedNotice)
+        }
+        if (areasUnavailable) {
+            Spacer(Modifier.height(12.dp))
+            Text(
+                text = stringResource(CommonR.string.general_data_areas_unavailable_message),
+                color = MaterialTheme.colorScheme.error,
+                style = MaterialTheme.typography.bodyMedium,
+            )
         }
         if (hasSensitiveRoot) {
             Spacer(Modifier.height(12.dp))

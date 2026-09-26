@@ -3,6 +3,7 @@ package testhelper
 import android.app.UiAutomation
 import android.os.ParcelFileDescriptor
 import android.os.SystemClock
+import java.io.ByteArrayOutputStream
 import androidx.annotation.StringRes
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.hasScrollToNodeAction
@@ -17,8 +18,13 @@ import androidx.compose.ui.test.performScrollToNode
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.Configurator
+import androidx.test.uiautomator.UiDevice
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import org.junit.Rule
 
 abstract class BaseAppFlowTest : BaseUITest() {
@@ -39,6 +45,12 @@ abstract class BaseAppFlowTest : BaseUITest() {
         return ParcelFileDescriptor.AutoCloseInputStream(pfd).bufferedReader().use { it.readText() }
     }
 
+    /** For system screens outside the app. Connects with the same flags as [shell]. */
+    protected val device: UiDevice by lazy {
+        Configurator.getInstance().uiAutomationFlags = UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES
+        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+    }
+
     /**
      * For waits while the app is in the background, where `composeRule.waitUntil` finds no hierarchy. It doesn't
      * advance Compose effects: after a click whose handling must happen first, call `composeRule.waitForIdle()`.
@@ -46,9 +58,19 @@ abstract class BaseAppFlowTest : BaseUITest() {
     protected fun pollUntil(description: String, condition: () -> Boolean) {
         val deadline = SystemClock.uptimeMillis() + TIMEOUT_MS
         while (!condition()) {
-            if (SystemClock.uptimeMillis() > deadline) throw AssertionError("Timed out: $description")
+            if (SystemClock.uptimeMillis() > deadline) failWithScreen("Timed out: $description")
             SystemClock.sleep(100)
         }
+    }
+
+    /** Logs the on-screen UI hierarchy before failing; CI uploads each test's logcat. */
+    protected fun failWithScreen(message: String): Nothing {
+        val dump = ByteArrayOutputStream()
+        runCatching { device.dumpWindowHierarchy(dump) }
+            .onFailure { log(TAG, WARN) { "Screen dump failed: $it" } }
+        log(TAG, WARN) { "Screen at failure ($message):" }
+        dump.toString().lines().forEach { line -> line.chunked(1000).forEach { log(TAG, WARN) { it } } }
+        throw AssertionError(message)
     }
 
     /** Walks a fresh install from the welcome screen into the onboarding Setup screen. */
@@ -84,6 +106,19 @@ abstract class BaseAppFlowTest : BaseUITest() {
     protected fun ActivityScenario<*>.cycleResume() {
         moveToState(Lifecycle.State.STARTED)
         moveToState(Lifecycle.State.RESUMED)
+    }
+
+    /**
+     * Returns from a system screen. On CI's API 36 image a single back press from Settings was lost while Settings
+     * refreshed; a press landing after the app resumed would leave the app's screen, so a retry can't turn a failure
+     * green.
+     */
+    protected fun ActivityScenario<*>.pressBackUntilResumed() = pollUntil("activity resumed") {
+        if (state != Lifecycle.State.RESUMED) {
+            shell("input keyevent KEYCODE_BACK")
+            SystemClock.sleep(3000)
+        }
+        state == Lifecycle.State.RESUMED
     }
 
     protected fun switchOff(@StringRes label: Int) {
@@ -125,5 +160,6 @@ abstract class BaseAppFlowTest : BaseUITest() {
 
     companion object {
         private const val TIMEOUT_MS = 30_000L
+        private val TAG = logTag("Test", "AppFlow")
     }
 }

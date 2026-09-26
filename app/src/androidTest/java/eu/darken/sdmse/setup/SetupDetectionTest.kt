@@ -5,8 +5,6 @@ import android.app.AppOpsManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
-import android.os.Environment
-import android.os.SystemClock
 import android.provider.Settings
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.performClick
@@ -17,7 +15,6 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import eu.darken.sdmse.R
 import eu.darken.sdmse.main.ui.MainActivity
-import io.kotest.assertions.withClue
 import io.kotest.matchers.shouldBe
 import org.junit.After
 import org.junit.Assume.assumeTrue
@@ -28,10 +25,8 @@ import testhelper.BaseAppFlowTest
 
 /**
  * Each card backed by framework state must be shown while the real framework reports the access missing, and
- * hidden once it reports it granted. Root and Shizuku are settings-driven and not covered.
- *
- * Storage access granted by one test stays granted for the rest of the run, so only
- * [grantingStorageAccessHidesTheStorageCard] may depend on it.
+ * hidden once it reports it granted. Root and Shizuku are settings-driven and not covered. The storage card is
+ * covered by [StorageCleanupFlowTest].
  */
 @RunWith(AndroidJUnit4::class)
 class SetupDetectionTest : BaseAppFlowTest() {
@@ -69,29 +64,6 @@ class SetupDetectionTest : BaseAppFlowTest() {
                 awaitNoListItem(hasText(str(R.string.setup_saf_card_title)))
             }
             awaitNoListItem(hasText(str(R.string.setup_inventory_card_title)))
-            awaitSetupScreen()
-        }
-    }
-
-    @Test
-    fun grantingStorageAccessHidesTheStorageCard() {
-        withClue("Storage access already granted, uninstall $pkg from the device first") {
-            hasStorageAccess() shouldBe false
-        }
-        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
-            walkOnboarding()
-            awaitListItem(hasText(str(R.string.setup_manage_storage_card_body)))
-
-            if (Build.VERSION.SDK_INT >= 30) {
-                shell("appops set $pkg MANAGE_EXTERNAL_STORAGE allow")
-            } else {
-                shell("pm grant $pkg ${Manifest.permission.WRITE_EXTERNAL_STORAGE}")
-                shell("pm grant $pkg ${Manifest.permission.READ_EXTERNAL_STORAGE}")
-            }
-            hasStorageAccess() shouldBe true
-            scenario.cycleResume()
-
-            awaitNoListItem(hasText(str(R.string.setup_manage_storage_card_title)))
             awaitSetupScreen()
         }
     }
@@ -158,14 +130,7 @@ class SetupDetectionTest : BaseAppFlowTest() {
 
             writeEnabledAccessibilityServices(enabledAccessibilityServices() + "$pkg/$ACS_CLASS")
             pollUntil("accessibility service bound") { isAccessibilityServiceBound() }
-            // On CI's API 36 image a single back press here was lost while Settings refreshed.
-            pollUntil("MainActivity resumed") {
-                if (scenario.state != Lifecycle.State.RESUMED) {
-                    shell("input keyevent KEYCODE_BACK")
-                    SystemClock.sleep(3000)
-                }
-                scenario.state == Lifecycle.State.RESUMED
-            }
+            scenario.pressBackUntilResumed()
 
             awaitNoListItem(hasText(str(R.string.setup_acs_card_title)))
             awaitSetupScreen()
@@ -174,12 +139,6 @@ class SetupDetectionTest : BaseAppFlowTest() {
 
     // Root access stays incomplete throughout, so its card proves the list is still Setup's.
     private fun awaitSetupScreen() = awaitListItem(hasText(str(R.string.setup_root_card_title)))
-
-    private fun hasStorageAccess(): Boolean = when {
-        Build.VERSION.SDK_INT >= 30 -> Environment.isExternalStorageManager()
-        else -> isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE) &&
-            isGranted(Manifest.permission.READ_EXTERNAL_STORAGE)
-    }
 
     private fun isGranted(permission: String): Boolean =
         context.checkSelfPermission(permission) == PackageManager.PERMISSION_GRANTED

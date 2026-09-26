@@ -67,6 +67,7 @@ internal fun CustomFilterEditorBody(
     modifier: Modifier = Modifier,
     config: CustomFilterConfig,
     contentBottomPadding: androidx.compose.ui.unit.Dp,
+    areasUnavailable: Boolean = false,
     onLabelChange: (String) -> Unit,
     onAddPath: (SegmentCriterium) -> Unit,
     onRemovePath: (SegmentCriterium) -> Unit,
@@ -183,6 +184,14 @@ internal fun CustomFilterEditorBody(
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
+            if (areasUnavailable) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(CommonR.string.general_data_areas_unavailable_message),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.error,
+                )
+            }
         }
 
         SectionCard {

@@ -105,7 +105,7 @@ internal class DashboardDiscardTest : BaseTest() {
         val vm = DashboardViewModel(
             context = mockk(relaxed = true),
             dispatcherProvider = TestDispatcherProvider(),
-            areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestState } returns emptyFlow() },
+            areaManager = mockk<DataAreaManager>(relaxed = true).apply { every { latestResult } returns emptyFlow() },
             taskManager = taskManager,
             setupManager = mockk<SetupManager>(relaxed = true).apply { every { state } returns emptyFlow() },
             corpseFinder = corpseFinder,

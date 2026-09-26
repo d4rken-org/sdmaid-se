@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.areas.isSensitiveRoot
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -30,6 +31,7 @@ import eu.darken.sdmse.swiper.core.tasks.SwiperScanTask
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -68,12 +70,13 @@ class SwiperSessionsViewModel @Inject constructor(
         scanningSessionId,
         cancellingSessionId,
         refreshingSessionId,
-        dataAreaManager.state,
+        dataAreaManager.results,
     ) { sessionsWithStats, progress, paths, upgradeInfo,
-        scanningId, cancellingId, refreshingId, areaState ->
+        scanningId, cancellingId, refreshingId, areaResult ->
+        val areas = areaResult.getOrNull()?.areas.orEmpty()
         val riskySessionPaths = sessionsWithStats
             .associate { entry ->
-                entry.session.sessionId to entry.session.sourcePaths.filter { p -> p.isSensitiveRootIn(areaState.areas) }
+                entry.session.sessionId to entry.session.sourcePaths.filter { p -> p.isSensitiveRootIn(areas) }
             }
             .filterValues { it.isNotEmpty() }
         State(
@@ -95,6 +98,7 @@ class SwiperSessionsViewModel @Inject constructor(
             refreshingSessionId = refreshingId,
             riskySessionIds = riskySessionPaths.keys,
             riskySessionPaths = riskySessionPaths,
+            areasUnavailable = areaResult.isFailure,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -160,8 +164,14 @@ class SwiperSessionsViewModel @Inject constructor(
 
     fun scanSession(sessionId: String) = launch {
         log(TAG, INFO) { "scanSession($sessionId)" }
+        // Set before the wait so the row offers Cancel while a data area reload finishes.
         scanningSessionId.value = sessionId
         try {
+            if (dataAreaManager.results.first().isFailure) {
+                log(TAG, WARN) { "scanSession($sessionId): Data areas are unavailable, not scanning" }
+                return@launch
+            }
+            if (cancellingSessionId.value == sessionId) return@launch
             taskSubmitter.submit(SwiperScanTask(sessionId = sessionId))
         } finally {
             scanningSessionId.value = null
@@ -200,6 +210,8 @@ class SwiperSessionsViewModel @Inject constructor(
         val refreshingSessionId: String? = null,
         val riskySessionIds: Set<String> = emptySet(),
         val riskySessionPaths: Map<String, List<APath>> = emptyMap(),
+        /** Without data areas a sensitive root can't be ruled out, so scanning is blocked. */
+        val areasUnavailable: Boolean = false,
     ) {
         val canCreateNewSession: Boolean =
             isPro == true || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT

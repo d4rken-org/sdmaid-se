@@ -16,22 +16,28 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.rwDataStoreValue
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.coroutine.runTest2
 import java.time.Duration
 import java.time.Instant
+import java.util.concurrent.atomic.AtomicInteger
 
 class CustomFilterEditorViewModelTest : BaseTest() {
 
@@ -56,7 +62,7 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         val enabledFilterValue: eu.darken.sdmse.common.datastore.DataStoreValue<Set<String>>,
         val crawler: SystemCrawler,
         val filterFactory: CustomFilter.Factory,
-        val dataAreaState: MutableSharedFlow<DataAreaManager.State>,
+        val dataAreaResults: MutableSharedFlow<Result<DataAreaManager.State>>,
     )
 
     private fun buildHarness(
@@ -74,17 +80,19 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         val settings = mockk<SystemCleanerSettings>(relaxed = true).apply {
             every { enabledCustomFilter } returns enabledFilterValue
         }
-        val dataAreaState = MutableSharedFlow<DataAreaManager.State>(replay = 1).apply {
+        val dataAreaResults = MutableSharedFlow<Result<DataAreaManager.State>>(replay = 1).apply {
             tryEmit(
-                DataAreaManager.State(
-                    areas = availableAreas.map {
-                        mockk<DataArea>(relaxed = true).apply { every { type } returns it }
-                    }.toSet(),
+                Result.success(
+                    DataAreaManager.State(
+                        areas = availableAreas.map {
+                            mockk<DataArea>(relaxed = true).apply { every { type } returns it }
+                        }.toSet(),
+                    ),
                 ),
             )
         }
         val dataAreaManager = mockk<DataAreaManager>().apply {
-            every { state } returns dataAreaState
+            every { results } returns dataAreaResults
         }
         val crawler = mockk<SystemCrawler>(relaxed = true).apply {
             every { progress } returns flowOf(null)
@@ -102,7 +110,7 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         if (bindRoute) {
             vm.bindRoute(CustomFilterEditorRoute(identifier = identifier, initial = initial))
         }
-        return Harness(vm, repo, settings, enabledFilterValue, crawler, filterFactory, dataAreaState)
+        return Harness(vm, repo, settings, enabledFilterValue, crawler, filterFactory, dataAreaResults)
     }
 
     /**
@@ -480,6 +488,116 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         h.vm.state.value!!.availableAreas shouldBe setOf(DataArea.Type.SDCARD, DataArea.Type.PUBLIC_MEDIA)
+    }
+
+    @Test
+    fun `live search pauses while data areas are unavailable and resumes after`() = runTest2 {
+        val existing = config(id = "abc")
+        val h = buildHarness(identifier = "abc", existingConfigs = listOf(existing))
+        val crawls = AtomicInteger(0)
+        coEvery { h.crawler.crawl(any()) } coAnswers {
+            crawls.incrementAndGet()
+            emptyList()
+        }
+        keepStateAlive(h.vm)
+        backgroundScope.launch { h.vm.liveSearch.collect {} }
+        awaitRealTime { crawls.get() >= 1 }
+        val baseline = settledCount(crawls)
+
+        h.dataAreaResults.emit(Result.failure(IllegalStateException("build failed")))
+        settledCount(crawls) shouldBe baseline
+
+        h.dataAreaResults.emit(Result.success(DataAreaManager.State(areas = emptySet())))
+        awaitRealTime { crawls.get() > baseline }
+    }
+
+    @Test
+    fun `live search restarts when the available areas change`() = runTest2 {
+        val h = buildHarness(identifier = "abc", existingConfigs = listOf(config(id = "abc")))
+        val crawls = AtomicInteger(0)
+        coEvery { h.crawler.crawl(any()) } coAnswers {
+            crawls.incrementAndGet()
+            emptyList()
+        }
+        keepStateAlive(h.vm)
+        backgroundScope.launch { h.vm.liveSearch.collect {} }
+        awaitRealTime { crawls.get() >= 1 }
+        val baseline = settledCount(crawls)
+
+        h.dataAreaResults.emit(
+            Result.success(
+                DataAreaManager.State(
+                    areas = setOf(mockk<DataArea>(relaxed = true).apply { every { type } returns DataArea.Type.PORTABLE }),
+                ),
+            ),
+        )
+        awaitRealTime { crawls.get() > baseline }
+    }
+
+    @Test
+    fun `a failed live search is reported and the next edit searches again`() = runTest2 {
+        val h = buildHarness(identifier = "abc", existingConfigs = listOf(config(id = "abc")))
+        val crawls = AtomicInteger(0)
+        coEvery { h.crawler.crawl(any()) } coAnswers {
+            if (crawls.incrementAndGet() == 1) throw IllegalStateException("crawl failed") else emptyList()
+        }
+        val errors = mutableListOf<Throwable>()
+        backgroundScope.launch { h.vm.errorEvents.collect { errors.add(it) } }
+        keepStateAlive(h.vm)
+        backgroundScope.launch { h.vm.liveSearch.collect {} }
+        awaitRealTime { errors.isNotEmpty() }
+        errors.first().message shouldBe "crawl failed"
+        val baseline = settledCount(crawls)
+
+        h.vm.addPath(SegmentCriterium(listOf("Other"), SegmentCriterium.Mode.Start()))
+        awaitRealTime { crawls.get() > baseline }
+    }
+
+    // Live search runs on the VM's unconfined dispatchers and throttles in real time.
+    private suspend fun awaitRealTime(condition: () -> Boolean) = withContext(Dispatchers.Default) {
+        withTimeout(5_000) { while (!condition()) delay(10) }
+    }
+
+    private suspend fun settledCount(counter: AtomicInteger): Int = withContext(Dispatchers.Default) {
+        delay(500)
+        counter.get()
+    }
+
+    @Test
+    fun `a failed area build flags the areas as unavailable and keeps the last known ones`() = runTest2 {
+        val h = buildHarness(
+            identifier = null,
+            initial = CustomFilterEditorOptions(label = "x"),
+            availableAreas = setOf(DataArea.Type.SDCARD),
+        )
+        keepStateAlive(h.vm)
+        advanceUntilIdle()
+
+        h.dataAreaResults.emit(Result.failure(IllegalStateException("build failed")))
+        advanceUntilIdle()
+        h.vm.state.value!!.areasUnavailable shouldBe true
+        h.vm.state.value!!.availableAreas shouldBe setOf(DataArea.Type.SDCARD)
+
+        h.dataAreaResults.emit(Result.success(DataAreaManager.State(areas = emptySet())))
+        advanceUntilIdle()
+        h.vm.state.value!!.areasUnavailable shouldBe false
+    }
+
+    @Test
+    fun `live search reports unavailable areas even while the filter is still undefined`() = runTest2 {
+        val h = buildHarness(
+            identifier = null,
+            initial = CustomFilterEditorOptions(label = "x"),
+            availableAreas = setOf(DataArea.Type.SDCARD),
+        )
+        keepStateAlive(h.vm)
+        backgroundScope.launch { h.vm.liveSearch.collect {} }
+
+        h.dataAreaResults.emit(Result.failure(IllegalStateException("build failed")))
+        awaitRealTime { h.vm.liveSearch.value.areasUnavailable }
+
+        h.dataAreaResults.emit(Result.success(DataAreaManager.State(areas = emptySet())))
+        awaitRealTime { !h.vm.liveSearch.value.areasUnavailable }
     }
 
     // ──────────────────────────── route binding ────────────────────────────

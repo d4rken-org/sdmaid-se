@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.isSensitiveRoot
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -58,8 +59,8 @@ class SwiperStatusViewModel @Inject constructor(
             swiper.getSession(sid),
             swiper.getItemsForSession(sid),
             swiper.progress,
-            dataAreaManager.state,
-        ) { session: SwipeSession?, items: List<SwipeItem>, progress, areaState ->
+            dataAreaManager.results,
+        ) { session: SwipeSession?, items: List<SwipeItem>, progress, areaResult ->
             val keepCount = items.count { it.decision == SwipeDecision.KEEP }
             val deleteCount = items.count { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
             val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
@@ -71,8 +72,9 @@ class SwiperStatusViewModel @Inject constructor(
             val undecidedSize = items.filter { it.decision == SwipeDecision.UNDECIDED }.sumOf { it.lookup.size }
 
             val sourcePaths = session?.sourcePaths.orEmpty()
+            val areas = areaResult.getOrNull()?.areas.orEmpty()
             val hasSensitiveRoot = sourcePaths.any { source ->
-                areaState.areas.any { it.isSensitiveRoot && source.matches(it.path) }
+                areas.any { it.isSensitiveRoot && source.matches(it.path) }
             }
             val deletionPreview = DeletionPreview.from(items, sourcePaths)
 
@@ -90,6 +92,7 @@ class SwiperStatusViewModel @Inject constructor(
                 alreadyDeletedCount = session?.deletedCount ?: 0,
                 sourcePaths = sourcePaths,
                 hasSensitiveRoot = hasSensitiveRoot,
+                areasUnavailable = areaResult.isFailure,
                 deletionPreview = deletionPreview,
             )
         }
@@ -133,6 +136,13 @@ class SwiperStatusViewModel @Inject constructor(
     fun finalize() = launch {
         log(TAG, INFO) { "finalize()" }
         val sid = sessionId ?: return@launch
+        val deletes = swiper.getItemsForSession(sid).first().any {
+            it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED
+        }
+        if (deletes && dataAreaManager.results.first().isFailure) {
+            log(TAG, WARN) { "finalize(): Data areas are unavailable, not deleting" }
+            return@launch
+        }
         taskSubmitter.submit(SwiperDeleteTask(sessionId = sid))
 
         // Room's Flow.first() runs a fresh query against the latest DB state — taskSubmitter.submit
@@ -196,6 +206,8 @@ class SwiperStatusViewModel @Inject constructor(
         val alreadyDeletedCount: Int = 0,
         val sourcePaths: List<APath> = emptyList(),
         val hasSensitiveRoot: Boolean = false,
+        /** Without data areas a sensitive root can't be ruled out, so deleting is blocked. */
+        val areasUnavailable: Boolean = false,
         val deletionPreview: DeletionPreview = DeletionPreview(emptyList(), 0),
     ) {
         val canFinalize: Boolean = !isProcessing
