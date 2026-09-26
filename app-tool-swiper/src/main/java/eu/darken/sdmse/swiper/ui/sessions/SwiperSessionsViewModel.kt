@@ -164,12 +164,14 @@ class SwiperSessionsViewModel @Inject constructor(
 
     fun scanSession(sessionId: String) = launch {
         log(TAG, INFO) { "scanSession($sessionId)" }
-        if (dataAreaManager.results.first().isFailure) {
-            log(TAG, WARN) { "scanSession($sessionId): Data areas are unavailable, not scanning" }
-            return@launch
-        }
+        // Set before the wait so the row offers Cancel while a data area reload finishes.
         scanningSessionId.value = sessionId
         try {
+            if (dataAreaManager.results.first().isFailure) {
+                log(TAG, WARN) { "scanSession($sessionId): Data areas are unavailable, not scanning" }
+                return@launch
+            }
+            if (cancellingSessionId.value == sessionId) return@launch
             taskSubmitter.submit(SwiperScanTask(sessionId = sessionId))
         } finally {
             scanningSessionId.value = null
