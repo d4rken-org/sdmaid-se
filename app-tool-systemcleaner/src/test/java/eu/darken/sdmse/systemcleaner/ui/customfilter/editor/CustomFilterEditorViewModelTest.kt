@@ -583,6 +583,23 @@ class CustomFilterEditorViewModelTest : BaseTest() {
         h.vm.state.value!!.areasUnavailable shouldBe false
     }
 
+    @Test
+    fun `live search reports unavailable areas even while the filter is still undefined`() = runTest2 {
+        val h = buildHarness(
+            identifier = null,
+            initial = CustomFilterEditorOptions(label = "x"),
+            availableAreas = setOf(DataArea.Type.SDCARD),
+        )
+        keepStateAlive(h.vm)
+        backgroundScope.launch { h.vm.liveSearch.collect {} }
+
+        h.dataAreaResults.emit(Result.failure(IllegalStateException("build failed")))
+        awaitRealTime { h.vm.liveSearch.value.areasUnavailable }
+
+        h.dataAreaResults.emit(Result.success(DataAreaManager.State(areas = emptySet())))
+        awaitRealTime { !h.vm.liveSearch.value.areasUnavailable }
+    }
+
     // ──────────────────────────── route binding ────────────────────────────
 
     @Test

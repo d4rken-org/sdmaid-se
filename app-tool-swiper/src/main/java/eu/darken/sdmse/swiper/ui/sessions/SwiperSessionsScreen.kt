@@ -295,6 +295,7 @@ internal fun SwiperSessionsScreen(
 
     if (showAreasUnavailable) {
         SdmConfirmDialog(
+            title = stringResource(CommonR.string.general_error_label),
             message = stringResource(CommonR.string.general_data_areas_unavailable_message),
             onDismissRequest = { showAreasUnavailable = false },
             positive = SdmDialogAction(

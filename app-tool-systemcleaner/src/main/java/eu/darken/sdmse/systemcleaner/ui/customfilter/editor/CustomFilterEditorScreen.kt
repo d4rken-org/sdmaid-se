@@ -360,6 +360,9 @@ private fun CustomFilterEditorScreenAreasUnavailablePreview() {
                     areasUnavailable = true,
                 ),
             ),
+            liveSearchSource = MutableStateFlow(
+                CustomFilterEditorViewModel.LiveSearchState(firstInit = true, areasUnavailable = true),
+            ),
         )
     }
 }
