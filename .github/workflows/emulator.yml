@@ -19,7 +19,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        api: [ 28, 36 ]
+        # AOSP images skip Play services' first-boot work. API 28's AOSP image (r04) kernel-panics at boot on emulator 37.
+        include:
+          - api: 28
+            target: google_apis
+          - api: 36
+            target: default
     runs-on: ubuntu-22.04
     timeout-minutes: 60
     steps:
@@ -42,13 +47,13 @@ jobs:
           'platform-tools'
           'platforms;android-${{ matrix.api }}'
           'emulator'
-          'system-images;android-${{ matrix.api }};google_apis;x86_64'
+          'system-images;android-${{ matrix.api }};${{ matrix.target }};x86_64'
 
       - name: Run instrumented tests
         uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d #v2.38.0
         with:
           api-level: ${{ matrix.api }}
-          target: google_apis
+          target: ${{ matrix.target }}
           arch: x86_64
           profile: pixel_2
           avd-name: sdmse-emu-ci-api${{ matrix.api }}
