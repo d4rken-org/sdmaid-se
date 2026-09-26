@@ -84,6 +84,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val pickerResults: MutableSharedFlow<PickerResult>,
         val upgradeFlow: MutableStateFlow<UpgradeRepo.Info>,
         val areaResults: MutableStateFlow<Result<DataAreaManager.State>>,
+        val dataAreaManager: DataAreaManager,
     )
 
     private class CollectedEvents<T>(val list: MutableList<T>, private val job: Job) {
@@ -131,7 +132,6 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { this@apply.upgradeInfo } returns upgradeFlow
         }
-        // currentAreas() is an extension that reads state.first().areas.
         val dataAreaManager = mockk<DataAreaManager>().apply {
             every { results } returns areaResults
             every { state } returns areaResults.map { it.getOrThrow() }
@@ -163,6 +163,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             pickerResults = pickerResults,
             upgradeFlow = upgradeFlow,
             areaResults = areaResults,
+            dataAreaManager = dataAreaManager,
         )
     }
 
@@ -451,6 +452,27 @@ class SwiperSessionsViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `scanSession shows scanning while data areas load and a cancel stops it`() = runTest2 {
+        val s = sessionWithStats(session = session(id = "s1"))
+        val h = harness(sessions = listOf(s))
+        advanceUntilIdle()
+        // The state already holds a result; only the scan's own read waits for the running reload.
+        val pendingReload = MutableSharedFlow<Result<DataAreaManager.State>>()
+        every { h.dataAreaManager.results } returns pendingReload
+
+        h.vm.scanSession("s1")
+        advanceUntilIdle()
+        h.vm.state.first().scanningSessionId shouldBe "s1"
+
+        h.vm.cancelScan()
+        pendingReload.emit(Result.success(DataAreaManager.State(areas = emptySet())))
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+        h.vm.state.first().scanningSessionId shouldBe null
     }
 
     @Test

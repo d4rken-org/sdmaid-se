@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.isSensitiveRoot
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -135,6 +136,13 @@ class SwiperStatusViewModel @Inject constructor(
     fun finalize() = launch {
         log(TAG, INFO) { "finalize()" }
         val sid = sessionId ?: return@launch
+        val deletes = swiper.getItemsForSession(sid).first().any {
+            it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED
+        }
+        if (deletes && dataAreaManager.results.first().isFailure) {
+            log(TAG, WARN) { "finalize(): Data areas are unavailable, not deleting" }
+            return@launch
+        }
         taskSubmitter.submit(SwiperDeleteTask(sessionId = sid))
 
         // Room's Flow.first() runs a fresh query against the latest DB state — taskSubmitter.submit

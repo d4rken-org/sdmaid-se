@@ -30,6 +30,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
 import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -86,6 +87,7 @@ class SwiperStatusViewModelTest : BaseTest() {
         val itemsFlow: MutableStateFlow<List<SwipeItem>>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
         val areaResults: MutableStateFlow<Result<DataAreaManager.State>>,
+        val dataAreaManager: DataAreaManager,
     )
 
     // TestScope extension so the harness can launch a state collector inside the test scope.
@@ -143,6 +145,7 @@ class SwiperStatusViewModelTest : BaseTest() {
             itemsFlow = itemsFlow,
             progressFlow = progressFlow,
             areaResults = areaResults,
+            dataAreaManager = dataAreaManager,
         )
     }
 
@@ -373,6 +376,53 @@ class SwiperStatusViewModelTest : BaseTest() {
         val nav = h.vm.navEvents.first()
         nav.shouldBeInstanceOf<NavEvent.GoTo>()
         nav.inclusive shouldBe true
+    }
+
+    @Test
+    fun `finalize does not delete while data areas are unavailable`() = runTest2 {
+        val h = harness(
+            session = session(id = "session-x"),
+            items = listOf(item(1, SwipeDecision.DELETE, sessionId = "session-x")),
+            areaFailure = IllegalStateException("build failed"),
+        )
+
+        h.vm.finalize()
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `finalize waits for a pending data area reload before deleting`() = runTest2 {
+        val h = harness(
+            session = session(id = "session-x"),
+            items = listOf(item(1, SwipeDecision.DELETE, sessionId = "session-x")),
+        )
+        advanceUntilIdle()
+        val pendingReload = MutableSharedFlow<Result<DataAreaManager.State>>()
+        every { h.dataAreaManager.results } returns pendingReload
+
+        h.vm.finalize()
+        advanceUntilIdle()
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+
+        pendingReload.emit(Result.success(DataAreaManager.State(areas = emptySet())))
+        advanceUntilIdle()
+        coVerify(exactly = 1) { h.taskSubmitter.submit(SwiperDeleteTask(sessionId = "session-x")) }
+    }
+
+    @Test
+    fun `finalize applies keep-only decisions while data areas are unavailable`() = runTest2 {
+        val h = harness(
+            session = session(id = "session-x"),
+            items = listOf(item(1, SwipeDecision.KEEP, sessionId = "session-x")),
+            areaFailure = IllegalStateException("build failed"),
+        )
+
+        h.vm.finalize()
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) { h.taskSubmitter.submit(SwiperDeleteTask(sessionId = "session-x")) }
     }
 
     @Test
