@@ -282,13 +282,13 @@ class CustomFilterEditorViewModel @Inject constructor(
         }
         .map { it.second }
         .flatMapLatest { state ->
+            if (state.areasUnavailable) {
+                log(TAG) { "Live search: Skipping, data areas are unavailable" }
+                return@flatMapLatest flowOf(LiveSearchState(firstInit = true, areasUnavailable = true))
+            }
             if (state.current.isUnderdefined) {
                 log(TAG) { "Live search: Skipping due to under defined config" }
                 return@flatMapLatest flowOf(LiveSearchState())
-            }
-            if (state.areasUnavailable) {
-                log(TAG) { "Live search: Skipping, data areas are unavailable" }
-                return@flatMapLatest flowOf(LiveSearchState(firstInit = true))
             }
             val config = state.current
 
@@ -347,6 +347,7 @@ class CustomFilterEditorViewModel @Inject constructor(
         val matches: List<LiveSearchMatch> = emptyList(),
         val progress: Progress.Data? = null,
         val firstInit: Boolean = false,
+        val areasUnavailable: Boolean = false,
     )
 
     sealed interface Event {

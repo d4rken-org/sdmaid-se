@@ -234,7 +234,7 @@ internal fun PickerScreen(
                 Text(
                     text = stringResource(CommonR.string.general_data_areas_unavailable_message),
                     style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                    color = MaterialTheme.colorScheme.error,
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(16.dp),

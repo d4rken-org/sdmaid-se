@@ -66,6 +66,7 @@ internal fun LiveSearchSheetContent(
                     style = MaterialTheme.typography.bodyMedium,
                 )
                 val secondary = when {
+                    state.areasUnavailable -> stringResource(CommonR.string.general_data_areas_unavailable_message)
                     state.firstInit -> stringResource(CommonR.string.general_progress_ready)
                     state.progress == null -> stringResource(CommonR.string.general_progress_done)
                     else -> state.progress.primary.get(context)
@@ -74,7 +75,11 @@ internal fun LiveSearchSheetContent(
                     Text(
                         text = secondary,
                         style = MaterialTheme.typography.bodySmall,
-                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        color = if (state.areasUnavailable) {
+                            MaterialTheme.colorScheme.error
+                        } else {
+                            MaterialTheme.colorScheme.onSurfaceVariant
+                        },
                     )
                 }
             }
