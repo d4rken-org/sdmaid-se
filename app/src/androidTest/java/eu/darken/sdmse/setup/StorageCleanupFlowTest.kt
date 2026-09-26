@@ -108,13 +108,15 @@ class StorageCleanupFlowTest : BaseAppFlowTest() {
             // The "All files access" page has a single switch.
             val allFilesSwitch = By.pkg(SETTINGS_PKG).checkable(true)
             val switch = device.wait(Until.findObject(allFilesSwitch), SYSTEM_UI_TIMEOUT_MS)
-                ?: throw AssertionError("All files access switch not found")
+                ?: failWithScreen("All files access switch not found")
             switch.click()
-            device.wait(Until.hasObject(allFilesSwitch.checked(true)), SYSTEM_UI_TIMEOUT_MS) shouldBe true
+            if (device.wait(Until.hasObject(allFilesSwitch.checked(true)), SYSTEM_UI_TIMEOUT_MS) != true) {
+                failWithScreen("All files access switch didn't turn on")
+            }
             scenario.pressBackUntilResumed()
         } else {
             val allow = device.wait(Until.findObject(By.res(ALLOW_BUTTON)), SYSTEM_UI_TIMEOUT_MS)
-                ?: throw AssertionError("Permission dialog's allow button not found")
+                ?: failWithScreen("Permission dialog's allow button not found")
             allow.click()
         }
     }
