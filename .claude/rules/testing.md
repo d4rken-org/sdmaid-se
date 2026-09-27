@@ -270,9 +270,10 @@ running APK's target at runtime, so a lost pin fails there instead of quietly ch
 `.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest` and `:app:connectedFossDebugAndroidTest` on API 28 and 36, and can
 only catch a regression on a level it actually runs. When `compileSdk` / `targetSdk` moves
 (`buildSrc/src/main/java/ProjectConfigPlugin.kt`), add the new level to that matrix, on the AOSP `default`
-target unless a test needs Play services. `aosp_atd` images can't run the app flows: they ship without the
-Settings app, SystemUI and DocumentsUI. The storage assertions are keyed on SDK *ranges* and call `unpinnedSdk(...)` for anything outside them, so a level nobody has
-observed fails loudly rather than skipping - the new level announces itself on first run.
+target unless a test needs Play services. ATD images (`aosp_atd`, `google_atd`) can't run the app flows: they
+ship without the Settings app and SystemUI. The storage assertions are keyed on SDK *ranges* and call
+`unpinnedSdk(...)` for anything outside them, so a level nobody has observed fails loudly rather than skipping -
+the new level announces itself on first run.
 
 ### Running them locally
 
