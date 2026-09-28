@@ -57,6 +57,7 @@ import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
+import eu.darken.sdmse.common.compose.settleOnResize
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -263,6 +264,7 @@ private fun RestoreConfirmSheet(
     ModalBottomSheet(
         onDismissRequest = { if (!handled) { handled = true; onCancel() } },
         sheetState = sheetState,
+        modifier = Modifier.settleOnResize(sheetState, scope),
     ) {
         RestoreConfirmContent(
             info = info,

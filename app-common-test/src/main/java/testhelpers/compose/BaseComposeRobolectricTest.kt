@@ -11,6 +11,8 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.TestApplication
+import kotlin.coroutines.CoroutineContext
+import kotlin.coroutines.EmptyCoroutineContext
 
 /**
  * Base class for JVM Compose UI tests.
@@ -25,10 +27,10 @@ import testhelpers.TestApplication
  */
 @RunWith(RobolectricTestRunner::class)
 @Config(sdk = [33], application = TestApplication::class)
-abstract class BaseComposeRobolectricTest {
+abstract class BaseComposeRobolectricTest(effectContext: CoroutineContext = EmptyCoroutineContext) {
 
     @get:Rule
-    val composeRule: ComposeContentTestRule = createComposeRule()
+    val composeRule: ComposeContentTestRule = createComposeRule(effectContext)
 
     init {
         Logging.clearAll()

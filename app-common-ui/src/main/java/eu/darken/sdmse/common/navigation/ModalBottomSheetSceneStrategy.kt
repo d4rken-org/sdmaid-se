@@ -5,11 +5,14 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.NavEntry
 import androidx.navigation3.scene.OverlayScene
 import androidx.navigation3.scene.Scene
 import androidx.navigation3.scene.SceneStrategy
 import androidx.navigation3.scene.SceneStrategyScope
+import eu.darken.sdmse.common.compose.settleOnResize
 
 /**
  * Metadata key flagging a [NavEntry] as a modal bottom sheet. Recognised by
@@ -97,6 +100,7 @@ private class ModalBottomSheetScene<T : Any>(
             sheetState = sheetState,
             sheetGesturesEnabled = gesturesEnabled,
             dragHandle = dragHandle,
+            modifier = Modifier.settleOnResize(sheetState, rememberCoroutineScope()),
         ) {
             entry.Content()
         }
