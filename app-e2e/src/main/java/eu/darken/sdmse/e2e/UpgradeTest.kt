@@ -55,7 +55,8 @@ class UpgradeTest {
         app.tapScrolling(app.text("general_manage_action"))
         app.tap(app.text("scheduler_edit_schedule_action"))
         app.await(By.clazz("android.widget.EditText").text(app.str("scheduler_schedule_default_name"))).text = SCHEDULE
-        app.tap(app.text("general_save_action"))
+        // The sheet's name field shows the new name too, so wait for the sheet itself to close.
+        app.tapUntilGone(app.text("general_save_action"), By.clazz("android.widget.EditText"))
         app.await(By.text(SCHEDULE))
         app.navigateUp()
 
