@@ -177,8 +177,10 @@ internal fun BottomBar(
     // The node is the FAB's touch box, which is DASHBOARD_FAB_TOUCH_SLACK taller than the visual on
     // each side — drop it by that slack so the *visible* FAB still rests at navBottom + inset.
     val fabOffsetY = -(navBottom + fabBottomInset - DASHBOARD_FAB_TOUCH_SLACK)
+    // Never exactly 0: a layer scaled to zero keeps missing touches after it grows back
+    // (DashboardMainActionFlowTest). Alpha 0 hides the remaining sliver.
     val fabScale by animateFloatAsState(
-        targetValue = if (isVisible) 1f else 0f,
+        targetValue = if (isVisible) 1f else 0.01f,
         animationSpec = tween(
             durationMillis = if (isVisible) 240 else 150,
             delayMillis = if (isVisible) 80 else 0,
