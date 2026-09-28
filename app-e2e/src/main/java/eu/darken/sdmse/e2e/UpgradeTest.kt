@@ -56,7 +56,9 @@ class UpgradeTest {
         app.tap(app.text("scheduler_edit_schedule_action"))
         app.await(By.clazz("android.widget.EditText").text(app.str("scheduler_schedule_default_name"))).text = SCHEDULE
         // The sheet's name field shows the new name too, so wait for the sheet itself to close.
-        app.tapUntilGone(app.text("general_save_action"), By.clazz("android.widget.EditText"))
+        // Releases before the sheet fix can open this sheet too low, with Save's lower half under a 3-button nav bar.
+        app.tapTopEdge(By.clickable(true).hasDescendant(app.text("general_save_action")))
+        app.pollUntil("schedule sheet closed") { !app.device.hasObject(By.clazz("android.widget.EditText")) }
         app.await(By.text(SCHEDULE))
         app.navigateUp()
 
