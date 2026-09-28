@@ -60,7 +60,11 @@ jobs:
           sdcard-path-or-size: 512M
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
-          script: ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-common-io:connectedDebugAndroidTest :app:connectedFossDebugAndroidTest
+          # The emulator sometimes hangs System UI or the launcher, and the ANR dialog it raises hides the app
+          # from UI Automator. With error dialogs hidden, the system restarts the hung process instead.
+          script: |
+            ANDROID_SERIAL=emulator-5554 adb shell settings put global hide_error_dialogs 1
+            ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-common-io:connectedDebugAndroidTest :app:connectedFossDebugAndroidTest
 
       - name: Upload test results
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
@@ -131,7 +135,11 @@ jobs:
           sdcard-path-or-size: 512M
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
-          script: ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-e2e:connectedFossBetaAndroidTest :app-e2e:connectedGplayBetaAndroidTest
+          # The emulator sometimes hangs System UI or the launcher, and the ANR dialog it raises hides the app
+          # from UI Automator. With error dialogs hidden, the system restarts the hung process instead.
+          script: |
+            ANDROID_SERIAL=emulator-5554 adb shell settings put global hide_error_dialogs 1
+            ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-e2e:connectedFossBetaAndroidTest :app-e2e:connectedGplayBetaAndroidTest
 
       - name: Upload test results
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
