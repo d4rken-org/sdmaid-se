@@ -4,6 +4,7 @@ paths:
   - "**/src/androidTest/**"
   - "**/src/screenshotTest/**"
   - "app-common-test/**"
+  - "app-e2e/**"
   - ".github/workflows/emulator.yml"
   - "tools/ci/**"
 ---
@@ -254,6 +255,29 @@ and, for real permission state, `app/src/androidTest/java/eu/darken/sdmse/setup/
   passes on any other screen with a list. For presence of a Setup card, match its body text: a loading card
   shows the same title.
 
+### The case that needs a device: what R8 does to the shipped build
+
+Every test above runs against the unminified debug build, so a missing keep rule passes them all and crashes
+the beta. `app-e2e` is a `com.android.test` module with `android.experimental.self-instrumenting`: its APK runs
+in its own process and drives the app's R8-minified `beta` APK from outside with UI Automator, so the bytes
+under test are the ones that ship. `DashboardCleanupTest` walks onboarding, then the dashboard's scan, delete
+and confirmation against a planted file.
+
+- No app code is on its classpath. Match screens with `By.text` / `By.desc` on strings resolved by name from
+  the installed app (`str("general_scan_action")`), and set up state only through `shell()`.
+- Grant storage from the shell before the first launch (`pm clear`, then `appops` / `pm grant`). The app's first
+  data-area build then already covers shared storage, so the scan doesn't depend on a later reload.
+- Failures from the wait/poll helpers carry the visible screen texts and the device's crash-buffer entries since
+  the test started. A minification break usually shows up as a crash or an error dialog, not as a wrong screen.
+- Only the `beta` variants exist (`connectedFossBetaAndroidTest`, `connectedGplayBetaAndroidTest`). Each run
+  pays for a full R8 build of that flavor.
+- Turn the emulator's animation scales off, as CI does (`settings put global animator_duration_scale 0`, same for
+  `window_` and `transition_`). UI Automator waits for the UI to go idle before each step, and with animations
+  on the mascot never lets it, so every step sits out the idle timeout.
+
+Removing `-keep class eu.darken.sdmse.BuildConfig` from `app/proguard-rules.pro` must turn it red; that is
+the check that the module still tests the minified APK.
+
 ### Room migrations do not need a device
 
 `MigrationTestHelper` runs fine under Robolectric here. Two modules already do it:
@@ -272,9 +296,9 @@ running APK's target at runtime, so a lost pin fails there instead of quietly ch
 
 ### The API matrix is a maintenance obligation
 
-`.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest` and `:app:connectedFossDebugAndroidTest` on API 28 and 36, and can
-only catch a regression on a level it actually runs. When `compileSdk` / `targetSdk` moves
-(`buildSrc/src/main/java/ProjectConfigPlugin.kt`), add the new level to that matrix, on the AOSP `default`
+`.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest`, `:app:connectedFossDebugAndroidTest`
+and both `app-e2e` beta variants on API 28 and 36, and can only catch a regression on a level it actually runs.
+When `compileSdk` / `targetSdk` moves (`buildSrc/src/main/java/ProjectConfigPlugin.kt`), add the new level to that matrix, on the AOSP `default`
 target unless a test needs Play services. ATD images (`aosp_atd`, `google_atd`) can't run the app flows: they
 ship without the Settings app and SystemUI. The storage assertions are keyed on SDK *ranges* and call
 `unpinnedSdk(...)` for anything outside them, so a level nobody has observed fails loudly rather than skipping -
@@ -285,6 +309,8 @@ the new level announces itself on first run.
 ```bash
 ANDROID_SERIAL=<serial> ./gradlew :app-common-io:connectedDebugAndroidTest
 ANDROID_SERIAL=<serial> ./gradlew :app:connectedFossDebugAndroidTest
+ANDROID_SERIAL=<serial> ./gradlew :app-e2e:connectedFossBetaAndroidTest
+ANDROID_SERIAL=<serial> ./gradlew :app-e2e:connectedGplayBetaAndroidTest
 ```
 
 Scope it to one device. Unscoped, `connectedDebugAndroidTest` runs against every attached device, and
@@ -293,8 +319,11 @@ workflow) - the storage tests assert that a disk-backed volume exists and fail w
 at a level the matrix runs: on any other level the range-keyed storage tests fail through `unpinnedSdk(...)`
 by design.
 
-Run the `:app` tests on a dedicated emulator. Debug builds use the release package name, so a run clears
-the data of an existing install on that device.
+Run the `:app` and `app-e2e` tests only on a dedicated emulator. Both drive the release package name and clear
+the data of an existing install. `app-e2e` also confirms the dashboard's delete-all, which deletes everything
+CorpseFinder and SystemCleaner find on that device, not just its planted file. Its beta APK is signed with the
+flavor's release credentials when they are configured locally (the upload key for gplay), otherwise with the debug
+key; an existing install signed with another key fails with `INSTALL_FAILED_UPDATE_INCOMPATIBLE`.
 
 ## Pitfalls
 

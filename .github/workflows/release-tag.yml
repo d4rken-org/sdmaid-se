@@ -96,7 +96,7 @@ jobs:
 
       - name: Assemble beta APK
         if: "contains(github.ref_name, '-beta') && steps.existing_release.outputs.published != 'true'"
-        run: ./gradlew assembleFossBeta
+        run: ./gradlew :app:assembleFossBeta
         env:
           VERSION: ${{ github.ref }}
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
@@ -105,7 +105,7 @@ jobs:
 
       - name: Assemble production APK
         if: "!contains(github.ref_name, '-beta') && steps.existing_release.outputs.published != 'true'"
-        run: ./gradlew assembleFossRelease
+        run: ./gradlew :app:assembleFossRelease
         env:
           VERSION: ${{ github.ref }}
           STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
