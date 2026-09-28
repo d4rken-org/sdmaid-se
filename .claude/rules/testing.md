@@ -270,7 +270,9 @@ and confirmation against a planted file.
 - Failures from the wait/poll helpers carry the visible screen texts and the device's crash-buffer entries since
   the test started. A minification break usually shows up as a crash or an error dialog, not as a wrong screen.
 - Only the `beta` variants exist (`connectedFossBetaAndroidTest`, `connectedGplayBetaAndroidTest`). Each run
-  pays for a full R8 build of that flavor.
+  pays for a full R8 build of that flavor, which is why CI runs them in their own job.
+- Keep this module to flows where minification changes the outcome: code R8 can break through reflection or
+  serialization, reached on the user's main path. Checks against framework behavior stay in the debug suites.
 - Turn the emulator's animation scales off, as CI does (`settings put global animator_duration_scale 0`, same for
   `window_` and `transition_`). UI Automator waits for the UI to go idle before each step, and with animations
   on the mascot never lets it, so every step sits out the idle timeout.
@@ -296,8 +298,9 @@ running APK's target at runtime, so a lost pin fails there instead of quietly ch
 
 ### The API matrix is a maintenance obligation
 
-`.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest`, `:app:connectedFossDebugAndroidTest`
-and both `app-e2e` beta variants on API 28 and 36, and can only catch a regression on a level it actually runs.
+`.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest` and `:app:connectedFossDebugAndroidTest`
+on API 28 and 36, and both `app-e2e` beta variants in a parallel job on the same levels. It can only catch a
+regression on a level it actually runs.
 When `compileSdk` / `targetSdk` moves (`buildSrc/src/main/java/ProjectConfigPlugin.kt`), add the new level to that matrix, on the AOSP `default`
 target unless a test needs Play services. ATD images (`aosp_atd`, `google_atd`) can't run the app flows: they
 ship without the Settings app and SystemUI. The storage assertions are keyed on SDK *ranges* and call
