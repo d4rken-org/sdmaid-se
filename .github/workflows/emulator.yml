@@ -150,3 +150,108 @@ jobs:
             app-e2e/build/outputs/androidTest-results/connected/
             app-e2e/build/reports/androidTests/connected/
           retention-days: 1
+
+  upgrade-test:
+    name: Upgrade test (API 36)
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
+      # Beta falls back to the debug key without release credentials, but only a debug build makes AGP create it.
+      - name: Create the debug keystore
+        run: |
+          test -f ~/.android/debug.keystore && exit 0
+          mkdir -p ~/.android
+          keytool -genkeypair -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey \
+            -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
+      # The test updates the latest release in place to this build. FOSS starts from the published APK.
+      - name: Download the latest release
+        id: release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag=$(gh release view --repo "$GITHUB_REPOSITORY" --json tagName --jq .tagName)
+          echo "Upgrade test starts from $tag"
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          mkdir -p "$RUNNER_TEMP/previous-release"
+          gh release download "$tag" --repo "$GITHUB_REPOSITORY" --pattern '*-FOSS-RELEASE.apk' \
+            --output "$RUNNER_TEMP/previous-release/foss.apk"
+
+      # gplay is only published through Play, so its previous release is rebuilt from the tag.
+      - name: Restore the previous gplay build
+        id: previous-gplay
+        uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
+        with:
+          path: ${{ runner.temp }}/previous-gplay
+          key: previous-release-gplay-beta-${{ steps.release.outputs.tag }}
+
+      - name: Build the previous gplay release
+        if: steps.previous-gplay.outputs.cache-hit != 'true'
+        env:
+          TAG: ${{ steps.release.outputs.tag }}
+        run: |
+          git fetch --no-tags --depth=1 origin "refs/tags/$TAG:refs/tags/$TAG"
+          git worktree add --detach "$RUNNER_TEMP/upgrade-base" "$TAG"
+          cd "$RUNNER_TEMP/upgrade-base"
+          chmod +x gradlew
+          ./gradlew :app:assembleGplayBeta
+          mkdir -p "$RUNNER_TEMP/previous-gplay"
+          cp app/build/outputs/apk/gplay/beta/*.apk "$RUNNER_TEMP/previous-gplay/gplay.apk"
+
+      # Saved right away rather than at job end, so a failing upgrade test doesn't rebuild the tag on every run.
+      - name: Save the previous gplay build
+        if: steps.previous-gplay.outputs.cache-hit != 'true'
+        uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
+        with:
+          path: ${{ runner.temp }}/previous-gplay
+          key: ${{ steps.previous-gplay.outputs.cache-primary-key }}
+
+      - name: Build minified APKs
+        run: ./gradlew :app:assembleFossBeta :app:assembleGplayBeta :app-e2e:assembleFossBeta :app-e2e:assembleGplayBeta
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Install emulator SDK packages
+        run: >
+          python3 tools/ci/install-sdk.py
+          'platform-tools'
+          'platforms;android-36'
+          'emulator'
+          'system-images;android-36;default;x86_64'
+
+      - name: Run upgrade tests
+        uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d #v2.38.0
+        with:
+          api-level: 36
+          target: default
+          arch: x86_64
+          profile: pixel_2
+          avd-name: sdmse-emu-ci-upgrade-api36
+          sdcard-path-or-size: 512M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
+          # Each line runs on its own and the first failing one ends the step, so a FOSS failure is only recorded
+          # until gplay has run too.
+          script: |
+            ANDROID_SERIAL=emulator-5554 tools/e2e/upgrade-test.sh "$RUNNER_TEMP/previous-release/foss.apk" app/build/outputs/apk/foss/beta/*.apk app-e2e/build/outputs/apk/foss/beta/app-e2e-foss-beta.apk app-e2e/build/outputs/upgrade-test/foss || touch "$RUNNER_TEMP/upgrade-failed"
+            ANDROID_SERIAL=emulator-5554 tools/e2e/upgrade-test.sh "$RUNNER_TEMP/previous-gplay/gplay.apk" app/build/outputs/apk/gplay/beta/*.apk app-e2e/build/outputs/apk/gplay/beta/app-e2e-gplay-beta.apk app-e2e/build/outputs/upgrade-test/gplay || touch "$RUNNER_TEMP/upgrade-failed"
+            test ! -e "$RUNNER_TEMP/upgrade-failed"
+
+      - name: Upload test results
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
+        if: always()
+        with:
+          name: test-results-upgrade-api-36
+          path: app-e2e/build/outputs/upgrade-test/
+          retention-days: 1

@@ -280,6 +280,25 @@ and confirmation against a planted file.
 Removing `-keep class eu.darken.sdmse.BuildConfig` from `app/proguard-rules.pro` must turn it red; that is
 the check that the module still tests the minified APK.
 
+### The case that needs a device: data an older release left behind
+
+`UpgradeTest` in `app-e2e` installs the latest release, creates state through the UI (a SystemCleaner filter, a
+hidden dashboard card, a segment exclusion, a removed default exclusion, a renamed schedule), updates that install
+in place to the current beta, checks every value survived, then runs the dashboard's scan and delete. Several stores
+fall back to defaults, or delete their file, when they can't decode older data, so each check is on a non-default
+value.
+
+- Its two phases need the app swapped in between, so Gradle's connected run skips it (`notClass` in
+  `app-e2e/build.gradle.kts`). `tools/e2e/upgrade-test.sh <old.apk> <new.apk> <app-e2e.apk> <results-dir>` runs it,
+  after re-signing both app APKs with the local debug key.
+- FOSS starts from the release's published `*-FOSS-RELEASE.apk`. gplay is only published through Play, so CI rebuilds
+  the release tag's gplay beta (cached per tag). Only gplay is obfuscated, so only its run catches a class name that
+  R8 renamed between releases.
+- The before phase drives the older release with the current test code. When a screen it touches changes, keep the
+  step working against both until the next release ships.
+
+Renaming the `filter.thumbnails.enabled` key in `SystemCleanerSettings` must turn the after phase red.
+
 ### Room migrations do not need a device
 
 `MigrationTestHelper` runs fine under Robolectric here. Two modules already do it:
@@ -299,8 +318,8 @@ running APK's target at runtime, so a lost pin fails there instead of quietly ch
 ### The API matrix is a maintenance obligation
 
 `.github/workflows/emulator.yml` runs `:app-common-io:connectedDebugAndroidTest` and `:app:connectedFossDebugAndroidTest`
-on API 28 and 36, and both `app-e2e` beta variants in a parallel job on the same levels. It can only catch a
-regression on a level it actually runs.
+on API 28 and 36, and both `app-e2e` beta variants in a parallel job on the same levels, and the upgrade test in
+its own API 36 job. It can only catch a regression on a level it actually runs.
 When `compileSdk` / `targetSdk` moves (`buildSrc/src/main/java/ProjectConfigPlugin.kt`), add the new level to that matrix, on the AOSP `default`
 target unless a test needs Play services. ATD images (`aosp_atd`, `google_atd`) can't run the app flows: they
 ship without the Settings app and SystemUI. The storage assertions are keyed on SDK *ranges* and call
