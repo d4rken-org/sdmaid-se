@@ -205,7 +205,16 @@ class SdmApp {
     }
 
     fun await(selector: BySelector, timeoutMs: Long = TIMEOUT_MS): UiObject2 =
-        device.wait(Until.findObject(selector), timeoutMs) ?: fail("Not found: $selector")
+        device.wait(Until.findObject(selector), timeoutMs)
+            ?: device.takeIf { dismissSystemAnr() }?.wait(Until.findObject(selector), timeoutMs)
+            ?: fail("Not found: $selector")
+
+    // A freshly booted CI emulator can show "System UI isn't responding" over the app; waiting it out lets the app show.
+    private fun dismissSystemAnr(): Boolean {
+        val wait = device.findObject(By.res("android", "aerr_wait")) ?: return false
+        runCatching { wait.click() }
+        return true
+    }
 
     fun pollUntil(description: String, condition: () -> Boolean) {
         val deadline = SystemClock.uptimeMillis() + TIMEOUT_MS
