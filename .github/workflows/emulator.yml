@@ -94,6 +94,14 @@ jobs:
       - name: Setup project and build environment
         uses: ./.github/actions/common-setup
 
+      # Beta falls back to the debug key without release credentials, but only a debug build makes AGP create it.
+      - name: Create the debug keystore
+        run: |
+          test -f ~/.android/debug.keystore && exit 0
+          mkdir -p ~/.android
+          keytool -genkeypair -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey \
+            -keypass android -keyalg RSA -keysize 2048 -validity 10000 -dname "CN=Android Debug,O=Android,C=US"
+
       # R8 runs before the emulator boots, so the two don't compete for the runner.
       - name: Build minified APKs
         run: ./gradlew :app:assembleFossBeta :app:assembleGplayBeta :app-e2e:assembleFossBeta :app-e2e:assembleGplayBeta
