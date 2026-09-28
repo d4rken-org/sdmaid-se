@@ -4,11 +4,14 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SheetState
+import androidx.compose.material3.SheetValue
 import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.onSizeChanged
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 /**
@@ -48,8 +51,21 @@ fun SdmModalBottomSheet(
     ModalBottomSheet(
         onDismissRequest = onDismiss,
         sheetState = sheetState,
-        modifier = modifier,
+        modifier = modifier.settleOnResize(sheetState, scope),
     ) {
         content(dismiss)
+    }
+}
+
+/** Pass as the [ModalBottomSheet] `modifier` of a sheet that can't partially expand; see SheetResizeTest. */
+@OptIn(ExperimentalMaterial3Api::class)
+fun Modifier.settleOnResize(sheetState: SheetState, scope: CoroutineScope): Modifier {
+    val openingToExpanded = {
+        sheetState.currentValue != SheetValue.Expanded && sheetState.targetValue == SheetValue.Expanded
+    }
+    return onSizeChanged {
+        if (openingToExpanded()) {
+            scope.launch { if (openingToExpanded()) sheetState.expand() }
+        }
     }
 }
