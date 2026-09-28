@@ -60,7 +60,7 @@ jobs:
           sdcard-path-or-size: 512M
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
-          script: ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-common-io:connectedDebugAndroidTest :app:connectedFossDebugAndroidTest :app-e2e:connectedFossBetaAndroidTest :app-e2e:connectedGplayBetaAndroidTest
+          script: ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-common-io:connectedDebugAndroidTest :app:connectedFossDebugAndroidTest
 
       - name: Upload test results
         uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
@@ -72,6 +72,65 @@ jobs:
             app-common-io/build/reports/androidTests/connected/debug/
             app/build/outputs/androidTest-results/connected/
             app/build/reports/androidTests/connected/
+          retention-days: 1
+
+  minified-tests:
+    name: Minified tests (API ${{ matrix.api }})
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - api: 28
+            target: google_apis
+          - api: 36
+            target: default
+    runs-on: ubuntu-22.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+        with:
+          persist-credentials: false
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
+      # R8 runs before the emulator boots, so the two don't compete for the runner.
+      - name: Build minified APKs
+        run: ./gradlew :app:assembleFossBeta :app:assembleGplayBeta :app-e2e:assembleFossBeta :app-e2e:assembleGplayBeta
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: Install emulator SDK packages
+        run: >
+          python3 tools/ci/install-sdk.py
+          'platform-tools'
+          'platforms;android-${{ matrix.api }}'
+          'emulator'
+          'system-images;android-${{ matrix.api }};${{ matrix.target }};x86_64'
+
+      - name: Run minified tests
+        uses: ReactiveCircus/android-emulator-runner@a421e43855164a8197daf9d8d40fe71c6996bb0d #v2.38.0
+        with:
+          api-level: ${{ matrix.api }}
+          target: ${{ matrix.target }}
+          arch: x86_64
+          profile: pixel_2
+          avd-name: sdmse-emu-ci-min-api${{ matrix.api }}
+          sdcard-path-or-size: 512M
+          disable-animations: true
+          emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
+          script: ANDROID_SERIAL=emulator-5554 ./gradlew --continue :app-e2e:connectedFossBetaAndroidTest :app-e2e:connectedGplayBetaAndroidTest
+
+      - name: Upload test results
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f #v7.0.0
+        if: always()
+        with:
+          name: test-results-minified-api-${{ matrix.api }}
+          path: |
             app-e2e/build/outputs/androidTest-results/connected/
             app-e2e/build/reports/androidTests/connected/
           retention-days: 1
