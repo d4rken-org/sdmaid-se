@@ -11,6 +11,8 @@ android {
         minSdk = projectConfig.minSdk
         targetSdk = projectConfig.targetSdk
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        // Its two phases need the app swapped in between; tools/e2e/upgrade-test.sh runs them.
+        testInstrumentationRunnerArguments["notClass"] = "eu.darken.sdmse.e2e.UpgradeTest"
     }
 
     // Runs in its own process and drives the app from outside, so the app under test is the unmodified APK.
