@@ -161,22 +161,10 @@ class SdmApp {
         scrollToTop()
     }
 
-    // Scrolling down hides the dashboard's bottom bar and disables its actions. A single long scroll has stopped short of
-    // the top on CI, so this swipes a screen at a time until two swipes in a row leave the screen unchanged.
+    // Scrolling down hides the dashboard's bottom bar and disables its actions.
     fun scrollToTop() {
-        var before = visibleTexts()
-        var unchanged = 0
-        repeat(MAX_TOP_SWIPES) {
-            scrollList(Direction.UP, 1f)
-            val after = visibleTexts()
-            unchanged = if (after == before) unchanged + 1 else 0
-            if (unchanged == 2) return
-            before = after
-        }
+        scrollList(Direction.UP, 10f)
     }
-
-    private fun visibleTexts(): List<String> = device.findObjects(By.text(ANY_TEXT))
-        .mapNotNull { runCatching { "${it.text}@${it.visibleBounds.top}" }.getOrNull() }
 
     /** Scrolls the screen's list, found fresh each time; false once it can't scroll further or there is none. */
     private fun scrollList(direction: Direction, percent: Float): Boolean {
@@ -235,8 +223,9 @@ class SdmApp {
     // A minification break usually surfaces as a crash or an error dialog; without them the failure only names a missing screen.
     fun fail(message: String): Nothing {
         val screen = runCatching {
-            val texts = device.findObjects(By.text(ANY_TEXT)).mapNotNull { runCatching { it.text }.getOrNull() }
-            val descs = device.findObjects(By.desc(ANY_TEXT)).mapNotNull { runCatching { it.contentDescription }.getOrNull() }
+            val any = Pattern.compile("(?s).+")
+            val texts = device.findObjects(By.text(any)).mapNotNull { runCatching { it.text }.getOrNull() }
+            val descs = device.findObjects(By.desc(any)).mapNotNull { runCatching { it.contentDescription }.getOrNull() }
             "Screen (${device.currentPackageName}): ${texts.joinToString(" | ")}\nDescriptions: ${descs.joinToString(" | ")}"
         }.getOrElse { "Screen unavailable: $it" }
         val crashes = runCatching {
@@ -272,8 +261,6 @@ class SdmApp {
         private const val STALE_RETRIES = 3
         private const val HIERARCHY_MAX_CHARS = 60_000
         private const val TOP_EDGE_TAP_PX = 10
-        private const val MAX_TOP_SWIPES = 30
-        private val ANY_TEXT = Pattern.compile("(?s).+")
         private const val PLANT_DIR = "/sdcard/Download/sdmse-e2e"
         private const val PLANT_FILE = "$PLANT_DIR/desktop.ini"
     }
