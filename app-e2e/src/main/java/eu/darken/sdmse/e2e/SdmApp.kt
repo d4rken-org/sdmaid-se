@@ -183,14 +183,10 @@ class SdmApp {
 
     fun tapScrolling(selector: BySelector) = retryStale { findScrolling(selector).click() }
 
-    /** Taps [selector] until [gone] disappears; a tap during a layout change can land where the button was. */
-    fun tapUntilGone(selector: BySelector, gone: BySelector) {
-        tap(selector)
-        pollUntil("$gone gone after tapping $selector") {
-            if (device.wait(Until.gone(gone), RETAP_AFTER_MS)) return@pollUntil true
-            runCatching { device.findObject(selector)?.click() }
-            false
-        }
+    /** Taps just below [selector]'s top edge, for a button whose lower part can sit under the navigation bar. */
+    fun tapTopEdge(selector: BySelector) = retryStale {
+        val bounds = await(selector).visibleBounds
+        device.click(bounds.centerX(), bounds.top + TOP_EDGE_TAP_PX)
     }
 
     private fun retryStale(action: () -> Unit) {
@@ -264,7 +260,7 @@ class SdmApp {
         const val SCAN_TIMEOUT_MS = 120_000L
         private const val STALE_RETRIES = 3
         private const val HIERARCHY_MAX_CHARS = 60_000
-        private const val RETAP_AFTER_MS = 3_000L
+        private const val TOP_EDGE_TAP_PX = 10
         private const val PLANT_DIR = "/sdcard/Download/sdmse-e2e"
         private const val PLANT_FILE = "$PLANT_DIR/desktop.ini"
     }
