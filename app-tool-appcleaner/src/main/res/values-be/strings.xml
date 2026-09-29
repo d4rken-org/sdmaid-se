@@ -95,7 +95,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Публічны і прыватны стандартны кэш. Недаступны непасрэдна, але можа быць выдалены ўскосна (напрыклад, праз службу спецыяльных магчымасцей).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Выключана, аднак ачыстка ўсіх праграм адразу ўсё роўна ачышчае гэтыя кэшы</string>
     <string name="appcleaner_exclusion_limited_title">Выключаная праграма</string>
-    <string name="appcleaner_exclusion_limited_body">Вы выключылі гэтую праграму з AppCleaner. Ачыстка кэшаў усіх праграм адразу выкарыстоўвае агульнасістэмную ачыстку кэша Shizuku, якая не можа пакінуць асобныя праграмы па-за гэтым, таму кэш гэтай праграмы ачышчаецца разам з астатнімі. Закранутыя толькі дадзеныя кэша, паказаныя тут, усё астатняе, што ахоплівае выключэнне, застаецца схаваным і незакранутым.</string>
+    <string name="appcleaner_exclusion_limited_body">Вы выключылі гэту праграму з AppCleaner. Пры адначасовай ачыстцы кэшу ўсіх праграм выкарыстоўваецца сістэмнае скарачэнне кэшу, даступнае праз доступ ADB, і яно не можа прапусціць асобныя праграмы, таму кэшаваныя даныя гэтай праграмы ачышчаюцца разам з астатнімі. Закранаюцца толькі паказаныя тут кэшаваныя даныя, усё астатняе, што ахоплівае выключэнне, застаецца схаваным і некранутым.</string>
     <string name="appcleaner_automation_unavailable_title">Служба спецыяльных магчымасцей недаступна</string>
     <string name="appcleaner_automation_unavailable_body">Ачыстка гэтых кэшаў патрабуе сэрвіса даступнасці SD Maid, але ён не быў даступны.</string>
     <string name="appcleaner_delete_confirmation_message_x">Выдаліць непатрэбныя файлы ў %s?</string>
@@ -105,7 +105,7 @@
         <item quantity="many">Выдаліць непатрэбныя файлы ў %d выбраных праграмах?</item>
         <item quantity="other">Выдаліць непатрэбныя файлы ў %d выбраных праграмах?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Выдаленне кэшу з дапамогай Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Выдаленне кэшу праз доступ ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Вызначэнне недаступных кэшаў</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Немагчыма ачысціць кэш</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Сістэма адключыла кнопку «Ачысціць кэш» для гэтай праграмы. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>

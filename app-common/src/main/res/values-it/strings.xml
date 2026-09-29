@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Al tuo servizio.</string>
     <string name="slogan_message_1">Pulito e ordinato.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Caricamento</string>
     <string name="general_progress_loading_app_data">Caricamento dei dati dell\'app</string>
     <string name="general_progress_loading_data_areas">Caricamento aree dati</string>
+    <string name="general_data_areas_unavailable_message">Impossibile caricare le aree dati, le posizioni di archiviazione con cui SD Maid può lavorare.</string>
     <string name="general_progress_loading_egg_0">Ancora più veloce di un iPhone</string>
     <string name="general_progress_loading_egg_1">Download di più RAM in corso</string>
     <string name="general_progress_loading_egg_2">Presto™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Informazioni per lo sviluppatore</string>
     <string name="general_error_report_bug_action">Segnala bug</string>
     <string name="general_error_ipc_deadobject_title">Connessione al servizio persa</string>
-    <string name="general_error_ipc_deadobject_description">La connessione a un servizio critico (ad es. Magisk, Shizuku o altri servizi a livello di sistema) è stata persa inaspettatamente. Riavvia il dispositivo. Se il problema persiste, controlla gli aggiornamenti o contattami per risolvere il problema.</string>
+    <string name="general_error_ipc_deadobject_description">La connessione a un servizio critico (ad es. Magisk, Porter, Shizuku o altri servizi di sistema) si è interrotta inaspettatamente. Riavvia il dispositivo. Se il problema persiste, cerca aggiornamenti o contattami per risolverlo.</string>
     <string name="general_error_upgrade_required_title">Aggiornamento richiesto</string>
     <string name="general_error_upgrade_required_description">Questa funzionalità richiede un aggiornamento. Aggiorna SD Maid SE per utilizzarla.</string>
     <string name="general_user_label_owner">Proprietario</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Visualizza impostazioni</string>
     <string name="ui_theme_color_sunset_label">Tramonto</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Questa funzione richiede accesso root, ma non è stato possibile ottenerlo su questo dispositivo.</string>
     <string name="access_blocked_root_declined">Questa funzione richiede accesso root. Puoi abilitarla dalla schermata di configurazione.</string>
-    <string name="access_blocked_root_or_shizuku">Questa funzione richiede accesso root o Shizuku, che non è disponibile su questo dispositivo.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Questa funzione richiede l\'accesso root o ADB, che non è disponibile su questo dispositivo.</string>
     <string name="backup_restore_error_invalid_title">File di backup non valido</string>
     <string name="backup_restore_error_invalid_body">Questo file non è un backup SD Maid valido o è corrotto.</string>
     <string name="backup_restore_error_version_body">Questo backup è stato creato con una versione più recente di SD Maid. Aggiorna l’app e riprova.</string>

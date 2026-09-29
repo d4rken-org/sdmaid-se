@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">သင့်ကိုအစေခံပါ။</string>
     <string name="slogan_message_1">သန့်ရှင်းပြီး စနစ်တကျ။</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">တင်နေပါသည်</string>
     <string name="general_progress_loading_app_data">အက်ပ်ဒေတာတင်နေပါသည်</string>
     <string name="general_progress_loading_data_areas">ဒေတာနယ်ပယ်များတင်နေပါသည်</string>
+    <string name="general_data_areas_unavailable_message">SD Maid အလုပ်လုပ်နိုင်သော သိုလှောင်ရာနေရာများဖြစ်သည့် ဒေတာနယ်ပယ်များကို မတင်နိုင်ခဲ့ပါ။</string>
     <string name="general_progress_loading_egg_0">iPhone ထက်ပင်မြန်သည်</string>
     <string name="general_progress_loading_egg_1">RAM ထပ်ဆောင်းဒေါင်းလုပ်နေပါသည်</string>
     <string name="general_progress_loading_egg_2">မကြာခင်™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">ဖွံ့ဖြိုးတိုးတက်စေသူအတွက် အချက်အလက်</string>
     <string name="general_error_report_bug_action">အမှားတင်ပြပါ</string>
     <string name="general_error_ipc_deadobject_title">ဝန်ဆောင်မှုချိတ်ဆက်မှု ပြတ်တောက်သွားပါသည်</string>
-    <string name="general_error_ipc_deadobject_description">အရေးကြီးသောဝန်ဆောင်မှု (ဥပမာ - Magisk, Shizuku, သို့မဟုတ် အခြားစနစ်အဆင့် ဝန်ဆောင်မှုများ) နှင့် ချိတ်ဆက်မှုသည် မျှော်လင့်မထားစွာ ပြတ်တောက်သွားပါသည်။ သင့်စက်ပစ္စည်းကို ပြန်လည်စတင်ပါ။ အကယ်၍ ပြဿနာ ဆက်လက်ဖြစ်ပေါ်နေပါက အပ်ဒိတ်များကို စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်နှင့် ဆက်သွယ်ပါ။</string>
+    <string name="general_error_ipc_deadobject_description">အရေးကြီးသော ဝန်ဆောင်မှု (ဥပမာ Magisk၊ Porter၊ Shizuku သို့မဟုတ် အခြားစနစ်အဆင့် ဝန်ဆောင်မှုများ) နှင့် ချိတ်ဆက်မှု မမျှော်လင့်ဘဲ ပြတ်တောက်သွားသည်။ သင့်စက်ကို ပြန်လည်စတင်ပါ။ ပြဿနာ ဆက်ရှိနေပါက အပ်ဒိတ်များ စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ပြင်နိုင်ရန် ကျွန်ုပ်ထံ ဆက်သွယ်ပါ။</string>
     <string name="general_error_upgrade_required_title">အဆင့်မြှင့်တင်မှု လိုအပ်သည်</string>
     <string name="general_error_upgrade_required_description">ဤအင်္ဂါရပ်သည် အဆင့်မြှင့်တင်မှု လိုအပ်သည်။ ၎င်းကို အသုံးပြုရန် SD Maid SE ကို အဆင့်မြှင့်တင်ပါ။</string>
     <string name="general_user_label_owner">ပိုင်ရှင်</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">ဆက်တင်များပြပါ</string>
     <string name="ui_theme_color_sunset_label">နေဝင်ချိန်</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ဤလုပ်ဆောင်ချက်သည် root အခွင့်အရေး လိုအပ်သည်၊ သို့သော်လည်း SD Maid သည် ဤကိရိယာတွင် ၎င်းကိုရယူမရသည်။</string>
     <string name="access_blocked_root_declined">ဤလုပ်ဆောင်ချက်သည် root အခွင့်အရည်လိုအပ်သည်။ သင်သည် အစ်တန်းမျက်နှာပြင်မှတစ်ဆင့် ၎င်းကိုဖွင့်နိုင်သည်။</string>
-    <string name="access_blocked_root_or_shizuku">ဤလုပ်ဆောင်ချက်သည် root သို့မဟုတ် Shizuku အခွင့်အရည်လိုအပ်သည်၊ ၎င်းသည်ဤကိရိယာတွင်မရှိပါ။</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ဤလုပ်ဆောင်ချက်သည် root သို့မဟုတ် ADB အသုံးပြုခွင့် လိုအပ်ပြီး ဤစက်တွင် မရနိုင်ပါ။</string>
     <string name="backup_restore_error_invalid_title">မမှန်ကန်သောအရန်သိမ်းဆည်းမှုဖိုင်</string>
     <string name="backup_restore_error_invalid_body">ဤဖိုင်သည် SD Maid အရန်သိမ်းဆည်းမှုမဟုတ်ပါ သို့မဟုတ် ယိုယွင်းပါသည်။</string>
     <string name="backup_restore_error_version_body">ဤအရန်သိမ်းဆည်းမှုကို SD Maid ၏ အသစ်ထွက်ဖြန့်ဝေမှုဖြင့် ဖန်တီးခဲ့သည်။ အက်ပ်လီကေးရှင်းကို အဆင့်မြှင့်တင်ပြီး ထပ်မံစမ်းသပ်ပါ။</string>

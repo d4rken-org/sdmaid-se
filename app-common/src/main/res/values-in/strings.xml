@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Siap melayani anda.</string>
     <string name="slogan_message_1">Bersih dan rapi.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Memuat</string>
     <string name="general_progress_loading_app_data">Memuat data aplikasi</string>
     <string name="general_progress_loading_data_areas">Memuat area data</string>
+    <string name="general_data_areas_unavailable_message">Tidak dapat memuat area data, lokasi penyimpanan tempat SD Maid dapat bekerja.</string>
     <string name="general_progress_loading_egg_0">Masih lebih cepat dari iPhone</string>
     <string name="general_progress_loading_egg_1">Mengunduh RAM tambahan</string>
     <string name="general_progress_loading_egg_2">Segera™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">Informasi dari Pengembang</string>
     <string name="general_error_report_bug_action">Laporkan masalah</string>
     <string name="general_error_ipc_deadobject_title">Koneksi Layanan Terputus</string>
-    <string name="general_error_ipc_deadobject_description">Koneksi ke layanan penting (misalnya Magisk, Shizuku, atau layanan tingkat sistem lainnya) terputus secara tidak terduga. Silakan mulai ulang perangkat Anda. Jika masalah masih berlanjut, periksa pembaruan atau hubungi saya agar bisa memperbaikinya.</string>
+    <string name="general_error_ipc_deadobject_description">Koneksi ke layanan penting (misalnya Magisk, Porter, Shizuku, atau layanan tingkat sistem lainnya) tiba-tiba terputus. Silakan nyalakan ulang perangkat Anda. Jika masalah terus berlanjut, periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
     <string name="general_error_upgrade_required_title">Peningkatan diperlukan</string>
     <string name="general_error_upgrade_required_description">Fitur ini memerlukan peningkatan. Silakan tingkatkan SD Maid SE untuk menggunakannya.</string>
     <string name="general_user_label_owner">Pemilik</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">Tampilkan pengaturan</string>
     <string name="ui_theme_color_sunset_label">Matahari Terbenam</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Fitur ini memerlukan akses root, tetapi SD Maid tidak dapat memperolehnya di perangkat ini.</string>
     <string name="access_blocked_root_declined">Fitur ini memerlukan akses root. Anda dapat mengaktifkannya melalui layar pengaturan.</string>
-    <string name="access_blocked_root_or_shizuku">Fitur ini memerlukan akses root atau Shizuku, yang tidak tersedia di perangkat ini.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Fitur ini memerlukan akses root atau ADB, yang tidak tersedia di perangkat ini.</string>
     <string name="backup_restore_error_invalid_title">File cadangan tidak valid</string>
     <string name="backup_restore_error_invalid_body">File ini bukan cadangan SD Maid yang valid atau rusak.</string>
     <string name="backup_restore_error_version_body">Cadangan ini dibuat dengan versi SD Maid yang lebih baru. Silakan perbarui aplikasi dan coba lagi.</string>

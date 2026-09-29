@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Avalikud ja isiklikud tavalised vahemälud. Juurdepääsetavad kaudselt, ent kustutatavad otseselt (nt juurdepääsetavusteenuse kaudu).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Eiratud, kuid kõigi rakenduste korraga puhastamine puhastab neid vahemälusid ikkagi</string>
     <string name="appcleaner_exclusion_limited_title">Eiratud rakendus</string>
-    <string name="appcleaner_exclusion_limited_body">Olete eiranud selle rakenduse AppCleanerist. Kõigi rakenduste vahemälu puhastamisel korraga kasutatakse Shizuku süsteemi vahemälu kärpimist, mis ei saa üksikuid rakendusi välja jätta, mistõttu selle rakenduse vahemällu salvestatud andmed kustutatakse koos kõigega muuga. Mõjutatakse ainult siin näidatud vahemällu salvestatud andmeid – kõik muu, mida erand hõlmab, jääb peidetud ja puutumata.</string>
+    <string name="appcleaner_exclusion_limited_body">Olete selle rakenduse AppCleanerist välistanud. Kõikide rakenduste vahemälude korraga tühjendamine kasutab ADB-juurdepääsu kaudu saadaolevat süsteemset vahemälu puhastamist, mis ei saa üksikuid rakendusi välja jätta, seega tühjendatakse selle rakenduse vahemälus olevad andmed koos kõige muuga. Mõjutatud on ainult siin näidatud vahemälus olevad andmed, kõik muu, mida välistamine hõlmab, jääb peidetuks ja puutumatuks.</string>
     <string name="appcleaner_automation_unavailable_title">Juurdepääsetavusteenus kättesaamatu</string>
     <string name="appcleaner_automation_unavailable_body">Nende vahemälude puhastamine nõuab SD Maidi juurdepääsuteenust, kuid see polnud saadaval.</string>
     <string name="appcleaner_delete_confirmation_message_x">Kustutada %s ühekordsed failid?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Kustutada %d valitud rakenduse ühekordsed failid?</item>
         <item quantity="other">Kustutada %d valitud rakenduse ühekordsed failid?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine Shizukuga</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Vahemälude kustutamine ADB-juurdepääsu abil</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Juurdepääsmatu vahemälu tuvastamine</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Vahemälu pole võimalik tühjendada</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Süsteem ei lase vajutada selle rakenduse „Tühjenda vahemälu“ nuppu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>

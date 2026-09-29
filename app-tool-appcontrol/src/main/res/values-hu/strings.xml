@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Archiválva</string>
     <string name="appcontrol_tag_uninstalled">Csak adatok</string>
     <string name="appcontrol_tag_not_installed">Nincs telepítve</string>
+    <string name="appcontrol_tag_hidden">Rejtett</string>
     <string name="appcontrol_tag_enabled">Engedélyezve</string>
     <string name="appcontrol_tag_disabled">Letiltva</string>
     <string name="appcontrol_tag_debug">Hibakeresés</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Méret</string>
     <string name="appcontrol_list_sortmode_screentime_label">Képernyőidő</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Az alkalmazások mérete teljesítményi okokból becsült. Pontosabb adatokért használja a StorageAnalyzer eszközt.</string>
+    <string name="appcontrol_list_scan_cancelled_label">A vizsgálat megszakadt, egyetlen alkalmazás sem lett betöltve.</string>
     <string name="appcontrol_progress_uninstalling_app">App eltávolítása...</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d alkalmazás eltávolításra került</item>

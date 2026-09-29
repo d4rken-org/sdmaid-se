@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">පොදු සහ පුද්ගලික පෙරනිමි කැශ්. සෘජුව ප්‍රවේශ විය නොහැකි නමුත් වක්‍රව මකා දැමිය හැක (උදා. ප්‍රවේශ්‍යතා සේවාව හරහා).</string>
     <string name="appcleaner_exclusion_limited_row_hint">බැහැර කර ඇත, නමුත් සියලුම යෙදුම් එකවර පිරිසිදු කිරීමේදී මෙම කෑෂ් තවමත් හිස් කරයි</string>
     <string name="appcleaner_exclusion_limited_title">බැහැර කළ යෙදුම</string>
-    <string name="appcleaner_exclusion_limited_body">ඔබ මෙම යෙදුම AppCleaner වෙතින් බැහැර කළා. සියලුම යෙදුම් සඳහා කෑෂ් එකවර හිස් කිරීම Shizuku හි පද්ධතිය පුරා කෑෂ් කප්පාදුව භාවිත කරයි, එයට තනි තනි යෙදුම් හැර දැමිය නොහැක, එබැවින් මෙම යෙදුමේ කෑෂ් කළ දත්ත ද අනෙක් සියල්ල සමඟ හිස් කරයි. මෙහි පෙන්වා ඇති කෑෂ් දත්ත පමණක් මීට බලපායි, බැහැර කිරීම ආවරණය කරන අනෙකුත් සියල්ල සැඟවී නොවෙනස්ව පවතී.</string>
+    <string name="appcleaner_exclusion_limited_body">ඔබ මෙම යෙදුම AppCleaner වෙතින් බැහැර කර ඇත. සියලු යෙදුම්වල හැඹිලි එකවර හිස් කිරීම ADB ප්‍රවේශය හරහා ලබා ගත හැකි පද්ධති-පුරා හැඹිලි කප්පාදුව භාවිතා කරන අතර, එයට තනි යෙදුම් බැහැර කළ නොහැක, එබැවින් මෙම යෙදුමේ හැඹිලි දත්තද අනෙක් සියල්ල සමඟ හිස් කරනු ලැබේ. මෙහි පෙන්වන හැඹිලි දත්ත පමණක් බලපායි, බැහැර කිරීම ආවරණය කරන අනෙක් සියල්ල සැඟවී අස්පර්ශව පවතී.</string>
     <string name="appcleaner_automation_unavailable_title">ප්‍රවේශ්‍යතා සේවාව නොමැත</string>
     <string name="appcleaner_automation_unavailable_body">මෙම කෑෂ් හිස් කිරීමට SD Maid හි ප්‍රවේශ්‍යතා සේවාව අවශ්‍ය වේ, නමුත් එය ලබා ගත නොහැකි විය.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">තෝරන ලද %d යෙදුම සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</item>
         <item quantity="other">තෝරන ලද %d යෙදුම් සඳහා වියදම් කළ හැකි ගොනු මකා දමන්නද?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku භාවිතා කරමින් කැශ් මකමින්</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB ප්‍රවේශය භාවිතයෙන් හැඹිලි මකමින්</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">ප්‍රවේශ විය නොහැකි කැශ් නිර්ණය කරමින්</string>
     <string name="appcleaner_automation_error_locked_appcache_title">කැශ් ඉවත් කිරීම නොමැත</string>
     <string name="appcleaner_automation_error_locked_appcache_body">පද්ධතිය මෙම යෙදුම සඳහා \"කැශ් ඉවත් කරන්න\" බොත්තම අබල කර ඇත. කැශ් ඉවත් කිරීම වේගවත් කිරීම සඳහා එය බැහැර කරන්න.</string>

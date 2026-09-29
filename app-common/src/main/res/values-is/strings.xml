@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Til þjónustu.</string>
     <string name="slogan_message_1">Hreint og snyrtilegur.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Hleður</string>
     <string name="general_progress_loading_app_data">Hleður forritsupplýsingum</string>
     <string name="general_progress_loading_data_areas">Hleður gagnasvæðum</string>
+    <string name="general_data_areas_unavailable_message">Gat ekki hlaðið gagnasvæðum, geymslustaðsetningum sem SD Maid getur unnið með.</string>
     <string name="general_progress_loading_egg_0">Enn hraðari en iPhone</string>
     <string name="general_progress_loading_egg_1">Sækir meira vinnsluminni</string>
     <string name="general_progress_loading_egg_2">Bráðlega™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Upplýsingar fyrir forritara</string>
     <string name="general_error_report_bug_action">Tilkynna villu</string>
     <string name="general_error_ipc_deadobject_title">Þjónustutengingu tapað</string>
-    <string name="general_error_ipc_deadobject_description">Tenging við mikilvæga þjónustu (t.d. Magisk, Shizuku eða aðra kerfisstigs þjónustu) tapaðist óvænt. Vinsamlegast endurræstu tækið þitt. Ef vandamálið helst áfram skaltu athuga uppfærslur eða hafa samband við mig svo ég geti lagað það.</string>
+    <string name="general_error_ipc_deadobject_description">Tengingin við mikilvæga þjónustu (til dæmis Magisk, Porter, Shizuku, eða aðra þjónustu á kerfisstigi) slitnaði óvænt. Endurræstu tækið þitt. Ef vandamálið heldur áfram, athugaðu með uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
     <string name="general_error_upgrade_required_title">Uppfærsla krafist</string>
     <string name="general_error_upgrade_required_description">Þessi aðgerð krefst uppfærslu. Endilega uppfærðu SD Maid SE til að nota hana.</string>
     <string name="general_user_label_owner">Eigandi</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Sýna stillingar</string>
     <string name="ui_theme_color_sunset_label">Sólarlag</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Þessi eiginleiki þarf rótar aðgang, en SD Maid gat ekki fengið hann á þessu tæki.</string>
     <string name="access_blocked_root_declined">Þessi eiginleiki krefst kerfisstjóraðgangs. Þú getur virkjað hann gegnum uppsetningarskjáinn.</string>
-    <string name="access_blocked_root_or_shizuku">Þessi eiginleiki krefst kerfisstjóra- eða Shizuku-aðgangs, sem ekki er til staðar á þessu tæki.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Þessi eiginleiki þarf root eða ADB aðgang, sem er ekki tiltækur á þessu tæki.</string>
     <string name="backup_restore_error_invalid_title">Ógilt varaafrit</string>
     <string name="backup_restore_error_invalid_body">Þessi skrá er ekki gilt SD Maid varaafrit eða er skemmd.</string>
     <string name="backup_restore_error_version_body">Þetta varaafrit var búið til með nýrri útgáfu af SD Maid. Uppfærðu forritið og reyndu aftur.</string>

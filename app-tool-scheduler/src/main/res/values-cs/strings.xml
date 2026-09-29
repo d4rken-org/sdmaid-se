@@ -40,9 +40,9 @@
     <string name="scheduler_notification_result_failure_message">Některé naplánované úlohy selhaly nebo došlo k chybám. Zkuste je spustit ručně.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Přeskočeno, obrazovka byla vypnutá nebo uzamčená</string>
     <string name="scheduler_acs_screenlocked_hint_title">Čištění aplikací může být přeskočeno</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Čištění aplikací používá službu zpřístupnění, která vyžaduje odemknutou obrazovku. Naplánované úlohy při uzamčeném zařízení, jsou přeskočena.\n\nPro čištění na pozadí použijte Shizuku nebo root, nebo jej naplánujte na čas, kdy zařízení používáte.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Čištění aplikací používá službu usnadnění, která vyžaduje odemknutou obrazovku. Naplánovaná spuštění při zamknutém zařízení se přeskočí.\n\nPro čištění na pozadí použijte přístup ADB nebo root, případně čištění naplánujte na dobu, kdy zařízení používáte.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Systémové aplikace mohou být přeskočeny</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku čistí většinu mezipaměti na pozadí, ale systémové aplikace potřebují službu zpřístupnění, která vyžaduje odemknutou obrazovku. Když je zapnuto „Zahrnout systémové aplikace“ tak jsou přeskočeny, když je zařízení uzamčeno.\n\nVypněte „Zahrnout systémové aplikace“ nebo spusťte plán, když je zařízení odemčeno.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Přístup ADB vyčistí většinu mezipamětí na pozadí, ale systémové aplikace vyžadují službu usnadnění, která potřebuje odemknutou obrazovku. Při zapnuté volbě „Zahrnout systémové aplikace“ se tyto aplikace při zamknutém zařízení přeskočí.\n\nVypněte „Zahrnout systémové aplikace“ nebo spusťte plán při odemknutém zařízení.</string>
     <string name="scheduler_commands_after_schedule_label">Příkazy po naplánování</string>
     <string name="scheduler_commands_after_schedule_desc">Příkazy Android shell, které budou provedeny na konci plánu.</string>
     <string name="scheduler_battery_optimization_hint">Zvažte vypnutí optimalizace baterie pro SD Maid, pokud narazíte na problémy se spuštěním na pozadí.</string>

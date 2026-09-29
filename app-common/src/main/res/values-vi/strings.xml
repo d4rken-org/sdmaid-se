@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Hân hạnh phục vụ bạn.</string>
     <string name="slogan_message_1">Sạch sẽ và gọn gàng.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Đang tải</string>
     <string name="general_progress_loading_app_data">Đang tải dữ liệu ứng dụng</string>
     <string name="general_progress_loading_data_areas">Đang tải khu vực dữ liệu</string>
+    <string name="general_data_areas_unavailable_message">Không thể tải các khu vực dữ liệu - các vị trí lưu trữ mà SD Maid có thể sử dụng.</string>
     <string name="general_progress_loading_egg_0">Vẫn nhanh hơn một chiếc iPhone</string>
     <string name="general_progress_loading_egg_1">Đang tải xuống thêm RAM</string>
     <string name="general_progress_loading_egg_2">Sớm thôi™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">Thông tin cho nhà phát triển</string>
     <string name="general_error_report_bug_action">Báo cáo lỗi</string>
     <string name="general_error_ipc_deadobject_title">Kết nối dịch vụ bị mất</string>
-    <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="general_error_ipc_deadobject_description">Kết nối với một dịch vụ quan trọng (ví dụ: Magisk, Porter, Shizuku hoặc các dịch vụ cấp hệ thống khác) đã bị mất một cách không mong muốn. Vui lòng khởi động lại thiết bị của bạn. Nếu vấn đề vẫn tiếp tục, hãy kiểm tra các bản cập nhật hoặc liên hệ với tôi để tôi có thể sửa lỗi.</string>
     <string name="general_error_upgrade_required_title">Yêu cầu nâng cấp</string>
     <string name="general_error_upgrade_required_description">Tính năng này yêu cầu nâng cấp. Vui lòng nâng cấp SD Maid SE để sử dụng nó.</string>
     <string name="general_user_label_owner">Người sở hữu</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">Hiển thị cài đặt</string>
     <string name="ui_theme_color_sunset_label">Hoàng hôn</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Tính năng này cần quyền truy cập root, nhưng SD Maid không thể lấy được trên thiết bị này.</string>
     <string name="access_blocked_root_declined">Tính năng này cần quyền truy cập root. Bạn có thể bật nó qua màn hình thiết lập.</string>
-    <string name="access_blocked_root_or_shizuku">Tính năng này cần quyền truy cập root hoặc Shizuku, nhưng không khả dụng trên thiết bị này.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Tính năng này cần quyền root hoặc truy cập ADB, không có sẵn trên thiết bị này.</string>
     <string name="backup_restore_error_invalid_title">Tệp sao lưu không hợp lệ</string>
     <string name="backup_restore_error_invalid_body">Tệp này không phải là một bản sao lưu SD Maid hợp lệ hoặc bị hỏng.</string>
     <string name="backup_restore_error_version_body">Bản sao lưu này được tạo với phiên bản SD Maid mới hơn. Vui lòng cập nhật ứng dụng và thử lại.</string>

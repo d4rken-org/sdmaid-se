@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Palveluksessasi.</string>
     <string name="slogan_message_1">Puhdas ja järjestyksessä.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Ladataan</string>
     <string name="general_progress_loading_app_data">Ladataan sovellustietoja</string>
     <string name="general_progress_loading_data_areas">Ladataan tietoalueita</string>
+    <string name="general_data_areas_unavailable_message">Tietoalueiden lataaminen epäonnistui. Ne ovat tallennussijainteja, joiden kanssa SD Maid voi toimia.</string>
     <string name="general_progress_loading_egg_0">Vielä nopeampi kuin iPhone</string>
     <string name="general_progress_loading_egg_1">Ladataan lisää RAM-muistia</string>
     <string name="general_progress_loading_egg_2">Pian™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Tiedot kehittäjälle</string>
     <string name="general_error_report_bug_action">Raportoi virhe</string>
     <string name="general_error_ipc_deadobject_title">Palveluyhteys katosi</string>
-    <string name="general_error_ipc_deadobject_description">Yhteys kriittiseen palveluun (esim. Magisk, Shizuku tai muut järjestelmätason palvelut) katkesi odottamattomasti. Käynnistä laitteesi uudelleen. Jos ongelma jatkuu, tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
+    <string name="general_error_ipc_deadobject_description">Yhteys kriittiseen palveluun (esim. Magisk, Porter, Shizuku tai muu järjestelmätason palvelu) katkesi odottamatta. Käynnistä laite uudelleen. Jos ongelma jatkuu, tarkista päivitykset tai ota yhteyttä minuun, niin voin korjata sen.</string>
     <string name="general_error_upgrade_required_title">Päivitys vaaditaan</string>
     <string name="general_error_upgrade_required_description">Tämä ominaisuus vaatii päivityksen. Päivitä SD Maid SE käyttääksesi sitä.</string>
     <string name="general_user_label_owner">Omistaja</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Näytä asetukset</string>
     <string name="ui_theme_color_sunset_label">Auringonlasku</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Tämä ominaisuus vaatii root-käyttöoikeuksia, mutta SD Maid ei voinut saada niitä tällä laitteella.</string>
     <string name="access_blocked_root_declined">Tämä ominaisuus vaatii root-käyttöoikeuden. Voit ottaa sen käyttöön asennusnäytöltä.</string>
-    <string name="access_blocked_root_or_shizuku">Tämä ominaisuus vaatii root- tai Shizuku-käyttöoikeuden, joka ei ole saatavilla tällä laitteella.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Tämä ominaisuus vaatii root- tai ADB-käyttöä, mikä ei ole käytettävissä tällä laitteella.</string>
     <string name="backup_restore_error_invalid_title">Virheellinen varmuuskopiotiedosto</string>
     <string name="backup_restore_error_invalid_body">Tämä tiedosto ei ole kelvollinen SD Maid -varmuuskopio tai se on vioittunut.</string>
     <string name="backup_restore_error_version_body">Tämä varmuuskopio on luotu uudemmalla SD Maid -versiolla. Päivitä sovellus ja yritä uudelleen.</string>

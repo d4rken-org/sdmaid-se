@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Hizmetinizde.</string>
     <string name="slogan_message_1">Temiz ve düzenli.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Yükleniyor</string>
     <string name="general_progress_loading_app_data">Uygulama verileri yükleniyor</string>
     <string name="general_progress_loading_data_areas">Veri alanları yükleniyor</string>
+    <string name="general_data_areas_unavailable_message">Veri alanları yüklenemedi, SD Maid\'in çalışabileceği depolama konumları.</string>
     <string name="general_progress_loading_egg_0">Hala bir iPhone\'dan daha hızlı</string>
     <string name="general_progress_loading_egg_1">Daha fazla RAM indiriliyor</string>
     <string name="general_progress_loading_egg_2">Yakında™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Geliştirici için bilgiler</string>
     <string name="general_error_report_bug_action">Hata bildir</string>
     <string name="general_error_ipc_deadobject_title">Servis bağlantısı kesildi</string>
-    <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="general_error_ipc_deadobject_description">Kritik bir hizmetin bağlantısı (örn. Magisk, Porter, Shizuku veya diğer sistem düzeyindeki hizmetler) beklenmedik şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya bunu düzeltebilmem için bana ulaşın.</string>
     <string name="general_error_upgrade_required_title">Yükseltme gerekli</string>
     <string name="general_error_upgrade_required_description">Bu özellik bir yükseltme gerektirir. Bunu kullanmak için lütfen SD Maid SE\'yi yükseltin.</string>
     <string name="general_user_label_owner">Sahibi</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Ayarları göster</string>
     <string name="ui_theme_color_sunset_label">Gün Batımı</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Bu özellik root erişimi gerektiriyor, ancak SD Maid bu cihazda erişim sağlayamadı.</string>
     <string name="access_blocked_root_declined">Bu özellik root erişimi gerektiriyor. Bunu kurulum ekranından etkinleştirebilirsiniz.</string>
-    <string name="access_blocked_root_or_shizuku">Bu özellik root veya Shizuku erişimi gerektiriyor ve bu cihazda mevcut değil.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Bu özellik, bu cihazda mevcut olmayan root veya ADB erişimi gerektirir.</string>
     <string name="backup_restore_error_invalid_title">Geçersiz yedekleme dosyası</string>
     <string name="backup_restore_error_invalid_body">Bu dosya geçerli bir SD Maid yedek değildir veya bozuktur.</string>
     <string name="backup_restore_error_version_body">Bu yedek, SD Maid\'in daha yeni bir sürümüyle oluşturuldu. Lütfen uygulamayı güncelleyin ve tekrar deneyin.</string>

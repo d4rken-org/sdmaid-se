@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Offentlige og private standardcacher. Ikke direkte tilgængelige, men kan slettes indirekte (f.eks. via tilgængelighedstjeneste).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Ekskluderet, men rensning af alle apps på én gang rydder stadig disse caches</string>
     <string name="appcleaner_exclusion_limited_title">Ekskluderet app</string>
-    <string name="appcleaner_exclusion_limited_body">Du har ekskluderet denne app fra Apprenseren. Rydning af cache for alle apps på én gang bruger Shizukus systemdækkende cache-oprydning, som ikke kan udelade enkelte apps, så denne apps cachedata ryddes sammen med alt andet. Kun de cachedata, der vises her, er berørt. Alt andet, som eksklusionen dækker, forbliver skjult og urørt.</string>
+    <string name="appcleaner_exclusion_limited_body">Du udelukkede denne app fra AppCleaner. Når du rydder cachen for alle apps på en gang, bruges den systemomfattende cache-trimning gennem ADB-adgang, som ikke kan udelukke individuelle apps, så denne apps cachelagrede data bliver ryddet sammen med alt andet. Kun de cachelagrede data, der vises her, påvirkes; alt det andet, som udelukkelsen dækker, forbliver skjult og uberørt.</string>
     <string name="appcleaner_automation_unavailable_title">Tilgængelighedstjeneste utilgængelig</string>
     <string name="appcleaner_automation_unavailable_body">Rydning af disse caches kræver SD Maids hjælpefunktionstjeneste, men den var ikke tilgængelig.</string>
     <string name="appcleaner_delete_confirmation_message_x">Slet overflødige filer for %s?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Slet overflødige filer for %d valgt app?</item>
         <item quantity="other">Slet overflødige filer for %d valgte apps?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Sletter cacher ved brug af Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Sletter cache ved hjælp af ADB-adgang</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Finder utilgængelige cacher</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Cache kan ikke ryddes</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Systemet har deaktiveret knappen \"Ryd cache\" for denne app. Ekskluder den for at fremskynde cache-rydning.</string>

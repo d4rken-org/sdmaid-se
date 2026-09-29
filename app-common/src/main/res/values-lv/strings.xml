@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Jūsu pakalpojumā.</string>
     <string name="slogan_message_1">Tīrs un kārtīgs.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Ielāde</string>
     <string name="general_progress_loading_app_data">Ielādē lietotnes datus</string>
     <string name="general_progress_loading_data_areas">Ielādē datu apgabalus</string>
+    <string name="general_data_areas_unavailable_message">Nevarēja ielādēt datu apgabalus, vietas, kur SD Maid var strādāt.</string>
     <string name="general_progress_loading_egg_0">Joprojām ātrāks nekā iPhone</string>
     <string name="general_progress_loading_egg_1">Lejupielādē vairāk RAM</string>
     <string name="general_progress_loading_egg_2">Drīz™</string>
@@ -192,7 +192,7 @@
     <string name="general_information_for_the_developer">Informācija izstrādātājam</string>
     <string name="general_error_report_bug_action">Ziņot par kļūdu</string>
     <string name="general_error_ipc_deadobject_title">Pakalpojuma savienojums zaudēts</string>
-    <string name="general_error_ipc_deadobject_description">Savienojums ar kritiski svarīgu pakalpojumu (piemēram, Magisk, Shizuku vai citi sistēmas līmeņa pakalpojumi) tika negaidīti zaudēts. Lūdzu restartējiet savu ierīci. Ja problēma turpinās, pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to labotu.</string>
+    <string name="general_error_ipc_deadobject_description">Savienojums ar kritisko pakalpojumu (piem., Magisk, Porter, Shizuku vai citi sistēmas līmeņa pakalpojumi) negaidīti pārtrūka. Lūdzu restartējiet savu ierīci. Ja problēma turpinās, pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to labotu.</string>
     <string name="general_error_upgrade_required_title">Nepieciešams jauninājums</string>
     <string name="general_error_upgrade_required_description">Šī funkcija prasa jauninājumu. Lūdzu, iegādājieties SD Maid SE jauninājumu, lai to izmantotu.</string>
     <string name="general_user_label_owner">Īpašnieks</string>
@@ -223,11 +223,9 @@
     <string name="appcontrol_systemsettings_open_title">Rādīt iestatījumus</string>
     <string name="ui_theme_color_sunset_label">Saulriets</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Šai funkcijai nepieciešama saknes piekļuve, bet SD Maid to nevarēja iegūt šajā ierīcē.</string>
     <string name="access_blocked_root_declined">Šī iespēja prasa saknes piekļuvi. Varat to iespējot iestatīšanas ekrānā.</string>
-    <string name="access_blocked_root_or_shizuku">Šī iespēja prasa saknes vai Shizuku piekļuvi, kas nav pieejama šajā ierīcē.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Šim līdzeklim ir nepieciešama root vai ADB piekļuve, kas nav pieejama šajā ierīcē.</string>
     <string name="backup_restore_error_invalid_title">Nederīgs rezerves kopijas fails</string>
     <string name="backup_restore_error_invalid_body">Šis fails nav derīga SD Maid rezerves kopija vai ir bojāts.</string>
     <string name="backup_restore_error_version_body">Šī rezerves kopija tika izveidota ar jaunāku SD Maid versiju. Lūdzu, atjauniniet lietotni un mēģiniet vēlreiz.</string>

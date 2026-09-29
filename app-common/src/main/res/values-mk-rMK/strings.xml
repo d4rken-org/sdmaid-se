@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">На ваша услуга.</string>
     <string name="slogan_message_1">Чисто и уредно.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Вчитување</string>
     <string name="general_progress_loading_app_data">Се вчитуваат податоци за апликацијата</string>
     <string name="general_progress_loading_data_areas">Се вчитуваат области со податоци</string>
+    <string name="general_data_areas_unavailable_message">Не можеа да се вчитаат областите на податоци, локациите на складиштето со кои SD Maid може да работи.</string>
     <string name="general_progress_loading_egg_0">Сепак побрз од iPhone</string>
     <string name="general_progress_loading_egg_1">Се презема повеќе RAM меморија</string>
     <string name="general_progress_loading_egg_2">Наскоро™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Информации за програмерот</string>
     <string name="general_error_report_bug_action">Пријави грешка</string>
     <string name="general_error_ipc_deadobject_title">Врската со услугата е изгубена</string>
-    <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пр. Magisk, Shizuku или други услуги на системско ниво) неочекувано беше изгубена. Ве молиме рестартирајте го вашиот уред. Ако проблемот продолжи, проверете за ажурирања или контактирајте ме за да го поправам.</string>
+    <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пример Magisk, Porter, Shizuku или други системски услуги) неочекувано се прекина. Рестартирај го уредот. Ако проблемот продолжи, провери за ажурирања или контактирај ме за да го поправам.</string>
     <string name="general_error_upgrade_required_title">Потребна е надградба</string>
     <string name="general_error_upgrade_required_description">Оваа функција бара надградба. Ве молам надградете SD Maid SE за да ја користите.</string>
     <string name="general_user_label_owner">Сопственик</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Прикажи поставки</string>
     <string name="ui_theme_color_sunset_label">Самрак</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Оваа функција бара root пристап, но SD Maid не можеше да го добие на овој уред.</string>
     <string name="access_blocked_root_declined">Оваа функција бара root пристап. Можете да го вклучите преку екранот за поставки.</string>
-    <string name="access_blocked_root_or_shizuku">Оваа функција бара root пристап или пристап преку Shizuku, кој не е достапен на овој уред.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Оваа функција бара root или ADB пристап, кој не е достапен на овој уред.</string>
     <string name="backup_restore_error_invalid_title">Невалидна датотека за резервна копија</string>
     <string name="backup_restore_error_invalid_body">Оваа датотека не е валидна резервна копија на SD Maid или е оштетена.</string>
     <string name="backup_restore_error_version_body">Оваа резервна копија е направена со новија верзија на SD Maid. Молиме ажурирајте ја апликацијата и обидете се повторно.</string>

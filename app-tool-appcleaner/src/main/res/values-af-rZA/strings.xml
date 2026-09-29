@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Openbare en private verstek kas. Nie direk toeganklik nie, maar kan indirek geskrap word (bv. via toeganklikheid diens).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Uitgesluit, maar opknapping van alle apps op eenmaal verwyder dit steeds</string>
     <string name="appcleaner_exclusion_limited_title">Uitgeslote toepassing</string>
-    <string name="appcleaner_exclusion_limited_body">Jy het hierdie toepassing van AppCleaner uitgesluit. Die opknapping van caches vir alle apps op eenmaal gebruik Shizuku se stelselwye cache-inkorting, wat individuele toepassings nie kan uitskakel nie, dus word hierdie toepassing se cache saam met alles ander gewis. Slegs die cache wat hier vertoon word, word beïnvloed, alles ander wat die uitsluiting dek, bly verborge en onaangeroerd.</string>
+    <string name="appcleaner_exclusion_limited_body">Jy het hierdie toepassing uit AppCleaner uitgesluit. Die cache-skoonmaak vir alle toepassings gelyktydig gebruik die stelselwye cache-opruiming wat beskikbaar is via ADB-toegang, wat nie individuele toepassings kan oorslaan nie, dus word hierdie toepassing se cache-data saam met alles ander verwyder. Slegs die cache-data wat hier getoon word, word geraak; alles ander wat deur die uitsluiting gedek word, bly verborge en onaangeraak.</string>
     <string name="appcleaner_automation_unavailable_title">Toeganklikheid diens nie beskikbaar nie</string>
     <string name="appcleaner_automation_unavailable_body">Die opknapping van caches vereis SD Maid se toeganklikheidsdiens, maar dit was nie beskikbaar nie.</string>
     <string name="appcleaner_delete_confirmation_message_x">Skrap uitgeebare lêers vir %s?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Skrap uitgeebare lêers vir %d gekiesde toepassing?</item>
         <item quantity="other">Skrap uitgeebare lêers vir %d gekiesde toepassings?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Skrap kas deur Shizuku te gebruik</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Verwyder caches deur ADB-toegang te gebruik</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Bepaal ontoeganklike kas</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Maak kas skoon nie beskikbaar nie</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Die stelsel het die \"Maak kas skoon\" knoppie vir hierdie toepassing gedeaktiveer. Sluit dit uit om kas skoonmaak te versnel.</string>

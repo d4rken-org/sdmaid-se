@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Gearchiveerd</string>
     <string name="appcontrol_tag_uninstalled">Alleen data</string>
     <string name="appcontrol_tag_not_installed">Niet geïnstalleerd</string>
+    <string name="appcontrol_tag_hidden">Verborgen</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
     <string name="appcontrol_tag_disabled">Uitgeschakeld</string>
     <string name="appcontrol_tag_debug">Foutopsporing</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Grootte</string>
     <string name="appcontrol_list_sortmode_screentime_label">Schermtijd</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-grootes worden geschat om prestatieredenen. Gebruik de StorageAnalyzer-tool voor nauwkeurigere gegevens.</string>
+    <string name="appcontrol_list_scan_cancelled_label">Scan geannuleerd, er zijn geen apps geladen.</string>
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app werd verwijderd</item>

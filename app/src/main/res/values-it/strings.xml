@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Eliminare i risultati in tutti gli strumenti?</string>
-    <string name="dashboard_hero_freeable_headline">%1$s può essere liberato</string>
-    <string name="dashboard_hero_freed_headline">%1$s liberato</string>
+    <string name="dashboard_hero_freeable_headline">%1$s possono essere liberati</string>
+    <string name="dashboard_hero_freed_headline">%1$s liberati</string>
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="one">%d elemento può essere rimosso</item>
         <item quantity="other">%d elementi possono essere rimossi</item>
@@ -235,18 +235,27 @@
     <string name="setup_root_enable_root_use_label">Prova a utilizzare l’accesso root</string>
     <string name="setup_root_disable_root_use_label">Non ho effettuato il root del mio dispositivo</string>
     <string name="setup_root_card_body2">Disponibile solo su dispositivi rootati. Se non hai effettuato questa modifica, il tuo dispositivo non è rootato e questa impostazione non ha alcun effetto.</string>
-    <string name="setup_shizuku_card_title">Shizuku</string>
-    <string name="setup_shizuku_card_body">Concedi a SD Maid di utilizzare Shizuku dove possibile per migliorare i risultati e per abilitare le funzionalità.</string>
-    <string name="setup_shizuku_card_body2">Questa impostazione non ha alcun effetto se l\'app Shizuku non è impostata nel tuo dispositivo.</string>
-    <string name="setup_shizuku_card_root_info">Shizuku, in combinazione con l\'accesso root, non abilità funzionalità aggiuntive, tuttavia migliora l\'affidabilità. SD Maid lo utilizzerà come metodo di riserva.</string>
-    <string name="setup_shizuku_state_ready_label">Il collegamento a Shizuku è pronto.</string>
-    <string name="setup_shizuku_state_waiting_label">In attesa del collegamento con Shizuku.</string>
-    <string name="setup_shizuku_state_not_installed_label">L\'app Shizuku non è installata.</string>
-    <string name="setup_shizuku_state_failed_title">Collegamento Shizuku non riuscito</string>
+    <string name="setup_shizuku_card_title">Accesso ADB</string>
+    <string name="setup_shizuku_card_body">Consenti a SD Maid di usare l\'accesso ADB, dove possibile, per migliorare i risultati e abilitare funzionalità.</string>
+    <string name="setup_shizuku_card_body2">Questa impostazione non ha effetto a meno che Porter o Shizuku non sia configurato sul dispositivo.</string>
+    <string name="setup_shizuku_card_root_info">L\'accesso ADB combinato con l\'accesso root non abilita funzionalità aggiuntive, ma migliora l\'affidabilità. SD Maid lo userà come metodo di riserva.</string>
+    <string name="setup_shizuku_state_ready_label">Il collegamento è pronto.</string>
+    <string name="setup_shizuku_service_ready_label">SD Maid ora può usare l\'accesso ADB tramite %1$s.</string>
+    <string name="setup_shizuku_state_waiting_label">In attesa del collegamento.</string>
+    <string name="setup_shizuku_state_not_installed_label">Nessuna app per l\'accesso ADB è installata.</string>
+    <string name="setup_shizuku_install_manager_action">Installa %1$s</string>
+    <string name="setup_shizuku_state_failed_title">Accesso ADB non riuscito</string>
     <string name="setup_shizuku_state_failed_label">Shizuku è in esecuzione, ma non ha mai connesso SD Maid al suo servizio helper.</string>
-    <string name="setup_shizuku_state_known_issue_hint">Alcuni dispositivi sono interessati da un problema noto di Shizuku che impedisce l\'avvio del servizio helper. Questo potrebbe essere uno di loro.</string>
-    <string name="setup_shizuku_enable_shizuku_use_label">Prova a utilizzare Shizuku</string>
-    <string name="setup_shizuku_disable_shizuku_use_label">Non usare Shizuku</string>
+    <string name="setup_shizuku_service_failed_label">%1$s è in esecuzione, ma non ha mai collegato SD Maid al suo servizio di supporto.</string>
+    <string name="setup_shizuku_state_backend_priority_label">%1$s è installato, quindi SD Maid attende %1$s invece di %2$s. Avvia %1$s per continuare.</string>
+    <string name="setup_shizuku_state_manager_outdated_label">Aggiorna %1$s per usarlo con SD Maid.</string>
+    <string name="setup_shizuku_state_sdmaid_outdated_label">Questa versione di SD Maid è troppo vecchia per %1$s. Aggiorna SD Maid.</string>
+    <string name="setup_shizuku_state_permission_denied_label">%1$s non ha ancora autorizzato SD Maid.</string>
+    <string name="setup_shizuku_state_permission_denied_permanently_label">%1$s nega l\'accesso a SD Maid. Autorizza SD Maid in %1$s per continuare.</string>
+    <string name="setup_shizuku_state_known_issue_hint">Alcuni dispositivi sono interessati da un problema noto che impedisce l\'avvio del servizio di supporto. Potrebbe essere uno di questi.</string>
+    <string name="setup_shizuku_open_manager_action">Apri %1$s</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">Prova a usare l\'accesso ADB</string>
+    <string name="setup_shizuku_disable_shizuku_use_label">Non usare l\'accesso ADB</string>
     <string name="setup_dismiss_hint">Puoi riconfigurare la schermata iniziale nel menu delle impostazioni.</string>
     <string name="setup_permission_granted_label">Autorizzazione concessa</string>
     <string name="setup_usagestats_title">Statistiche di utilizzo</string>
@@ -265,6 +274,7 @@
     <string name="setup_acs_state_stopped">Il servizio di accessibilità è stato arrestato</string>
     <string name="setup_acs_state_stopped_hint">Il servizio è abilitato, ma non è attivo. Disabilitalo e riabilitalo o riavvia il tuo dispositivo. Controlla che SD Maid non sia \"ottimizzato\" dal sistema.</string>
     <string name="setup_acs_state_stopped_hint_miui">Se il servizio continua a disabilitarsi dopo un po\', prova ad attivare l\'opzione \"Avvio automatico\" per SD Maid nelle impostazioni di sistema.</string>
+    <string name="setup_acs_state_stopped_hint_miui_killed">Se il sistema continua a chiudere SD Maid, abilita l\'opzione \"Avvio automatico\" per SD Maid nelle impostazioni di sistema e blocca SD Maid nella vista delle app recenti.</string>
     <string name="setup_acs_consent_positive_action">Abilita il servizio e concedi l\'accesso</string>
     <string name="setup_acs_consent_negative_action">Non utilizzare il servizio di accessibilità</string>
     <string name="setup_acs_allow_hint">Se vedi una piccola icona sul bordo dello schermo, hai abilitato accidentalmente l\'opzione \"scorciatoia\".</string>

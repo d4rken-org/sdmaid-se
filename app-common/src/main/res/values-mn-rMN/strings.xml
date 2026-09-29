@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Таны үйлчилгээнд.</string>
     <string name="slogan_message_1">Цэвэр бөгөөд эмх цэгцтэй.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Ачаалж байна</string>
     <string name="general_progress_loading_app_data">Апп өгөгдөл ачаалж байна</string>
     <string name="general_progress_loading_data_areas">Өгөгдлийн бүсүүдийг ачаалж байна</string>
+    <string name="general_data_areas_unavailable_message">Өгөгдлийн бүсүүдийг, өөрөөр хэлбэл SD Maid-ийн ажиллах боломжтой хадгалалтын байршлуудыг ачаалж чадсангүй.</string>
     <string name="general_progress_loading_egg_0">iPhone-оос хурдан</string>
     <string name="general_progress_loading_egg_1">Нэмэлт RAM татаж авч байна</string>
     <string name="general_progress_loading_egg_2">Удахгүй™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Хөгжүүлэгчийн хувьд мэдээлэл</string>
     <string name="general_error_report_bug_action">Алдаа мэдээлэх</string>
     <string name="general_error_ipc_deadobject_title">Үйлчилгээний холболт тасарсан</string>
-    <string name="general_error_ipc_deadobject_description">Чухал үйлчилгээний холболт (жишээ нь Magisk, Shizuku эсвэл бусад системийн түвшний үйлчилгээнүүд) гэнэт тасарсан. Төхөөрөмжөө дахин эхлүүлнэ үү. Хэрэв асуудал үргэлжилвэл шинэчлэлийг шалгаж эсвэл надтай холбогдоно уу.</string>
+    <string name="general_error_ipc_deadobject_description">Чухал үйлчилгээтэй (жишээ нь Magisk, Porter, Shizuku эсвэл системийн түвшний бусад үйлчилгээ) холбоо гэнэт тасарлаа. Төхөөрөмжөө дахин асаана уу. Асуудал үргэлжилбэл шинэчлэлт шалгах эсвэл надтай холбогдоорой, би засна.</string>
     <string name="general_error_upgrade_required_title">Сайжруулалт шаардлагатай</string>
     <string name="general_error_upgrade_required_description">Энэ функц сайжруулалт шаардлагатай. Үүнийг ашиглахын тулд SD Maid SE-ийг сайжруулаарай.</string>
     <string name="general_user_label_owner">Эзэмшигч</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Тохиргоог харуулах</string>
     <string name="ui_theme_color_sunset_label">Нарны жаргал</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Энэ функц root-ийн эрхтэй байхыг шаарддаг ч SD Maid энэ төхөөрөмжид үүнийг авч чадсангүй.</string>
     <string name="access_blocked_root_declined">Энэ функц root-ийн эрхтэй байхыг шаарддаг. Та үүнийг суулгалтын дэлгэцээс идэвхжүүлж болно.</string>
-    <string name="access_blocked_root_or_shizuku">Энэ функц root эсвэл Shizuku-ийн эрхтэй байхыг шаарддаг ч энэ төхөөрөмжид ашиглах боломжгүй байна.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Энэ онцлогт root эсвэл ADB хандалт хэрэгтэй бөгөөд энэ төхөөрөмж дээр байхгүй байна.</string>
     <string name="backup_restore_error_invalid_title">Нөөц хуулбарын файл хүчингүй</string>
     <string name="backup_restore_error_invalid_body">Энэ файл нь хүчин төгстөй SD Maid нөөц хуулбар биш эсвэл эвдэрсэн байна.</string>
     <string name="backup_restore_error_version_body">Энэ нөөц хуулбар SD Maid-ийн шинэ хувилбартай үүсгэгдсэн байна. Апп-г шинэчлэж, дахин оролдоно уу.</string>

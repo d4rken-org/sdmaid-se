@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Тохиргооны дэлгэц боломжгүй</string>
     <string name="automation_error_no_settings_body">Энэ системийн апп тохиргооны дэлгэцгүй. Хандалтын үйлчилгээгээр кэш цэвхлэх боломжгүй. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
     <string name="automation_error_disabled_app_title">Програм идэвхгүй байна</string>
-    <string name="automation_error_disabled_app_body">Таны төхөөрөмж идэвхгүй байсан програмуудын тохиргооны дэлгэцийг нээх боломжгүй тул хадгалалыг сул чадалын үйлчилгээгээр цэвэрлэх боломжгүй. Програмыг идэвхжүүлэх эсвэл root эсвэл Shizuku/ADB ашиглана уу.</string>
+    <string name="automation_error_disabled_app_body">Таны төхөөрөмж идэвхгүй болгосон апп-уудын тохиргооны дэлгэцийг нээдэггүй тул кэшийг хандалтын үйлчилгээгээр цэвэрлэх боломжгүй. Апп-ыг идэвхжүүлэх эсвэл оронд нь root болон ADB хандалт ашиглана уу.</string>
     <string name="automation_error_interference_title">Тохиргооны экран хаагдсан</string>
     <string name="automation_error_interference_body">Өөр апп (%1$s) системийн тохиргооны экранг хааж байгаа тул SD Maid үргэлжлүүлэх боломжгүй. Тэр аппын апп-түгжээ эсвэл системийн тохиргооны экраны хамгаалалтыг идэвхгүй болгоод дахин оролдоно уу.</string>
     <string name="automation_loading">Хандалтын үйлчилгээгээр автоматжуулалт бэлтгэж байна</string>

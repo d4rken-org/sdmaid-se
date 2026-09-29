@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Tot uw dienst.</string>
     <string name="slogan_message_1">Schoon en netjes.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Bezig met laden</string>
     <string name="general_progress_loading_app_data">App-gegevens laden</string>
     <string name="general_progress_loading_data_areas">Datagebieden laden</string>
+    <string name="general_data_areas_unavailable_message">Kon de gegevensgebieden niet laden, de opslaglocaties waarmee SD Maid kan werken.</string>
     <string name="general_progress_loading_egg_0">Nog steeds sneller dan een iPhone</string>
     <string name="general_progress_loading_egg_1">Meer RAM downloaden</string>
     <string name="general_progress_loading_egg_2">Spoedig™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Informatie voor de ontwikkelaar</string>
     <string name="general_error_report_bug_action">Bug melden</string>
     <string name="general_error_ipc_deadobject_title">Serviceverbinding verbroken</string>
-    <string name="general_error_ipc_deadobject_description">De verbinding met een kritieke service (bijv. Magisk, Shizuku of andere services op systeemniveau) is onverwacht verbroken. Start je apparaat opnieuw op. Als het probleem aanhoudt, controleer dan op updates of neem contact met mij op zodat ik het kan oplossen.</string>
+    <string name="general_error_ipc_deadobject_description">De verbinding met een essentiële service (bijv. Magisk, Porter, Shizuku of andere systeemservices) is onverwacht verbroken. Start je apparaat opnieuw op. Controleer op updates als het probleem aanhoudt, of neem contact met me op zodat ik het kan oplossen.</string>
     <string name="general_error_upgrade_required_title">Upgrade vereist</string>
     <string name="general_error_upgrade_required_description">Deze functie vereist een upgrade. Upgrade SD Maid SE om deze te gebruiken.</string>
     <string name="general_user_label_owner">Eigenaar</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
     <string name="ui_theme_color_sunset_label">Zonsondergang</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Deze functie vereist root-toegang, maar SD Maid kon deze op dit apparaat niet verkrijgen.</string>
     <string name="access_blocked_root_declined">Deze functie vereist root-toegang. Je kunt dit inschakelen via het instellingenscherm.</string>
-    <string name="access_blocked_root_or_shizuku">Deze functie vereist root- of Shizuku-toegang, wat niet beschikbaar is op dit apparaat.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Deze functie vereist root- of ADB-toegang, die niet beschikbaar is op dit apparaat.</string>
     <string name="backup_restore_error_invalid_title">Ongeldig back-upbestand</string>
     <string name="backup_restore_error_invalid_body">Dit bestand is geen geldige SD Maid back-up of is beschadigd.</string>
     <string name="backup_restore_error_version_body">Deze back-up is gemaakt met een nieuwere versie van SD Maid. Werk de app bij en probeer het opnieuw.</string>

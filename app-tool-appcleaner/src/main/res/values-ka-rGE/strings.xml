@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">საჯარო და კერძო ნაგულისხმევი ქეშები. არ არის პირდაპირ წვდომა, მაგრამ შეიძლება წაიშალოს არაპირდაპირი გზით (მაგ. ხელმისაწვდომობის სერვისის საშუალებით).</string>
     <string name="appcleaner_exclusion_limited_row_hint">გამორიცხულია, მაგრამ ყველა აპის ერთდროულად გასუფთავება მაინც შლის ამ ქეშებს</string>
     <string name="appcleaner_exclusion_limited_title">გამორიცხული აპი</string>
-    <string name="appcleaner_exclusion_limited_body">გამორიცხე ეს აპი AppCleaner-დან. ყველა აპის ქეშის ერთდროულად გასუფთავება იყენებს Shizuku-ს სისტემურ დონეზე ქეშის გასუფთავებას, რომელსაც ცალკეული აპების გამორიცხვა არ შეუძლია, ამიტომ ამ აპის ქეშირებული მონაცემებიც სუფთავდება დანარჩენთან ერთად. მხოლოდ აქ ნაჩვენები ქეშირებული მონაცემები განიცდის ზეგავლენას, დანარჩენი, რასაც გამორიცხვა მოიცავს, დამალული და ხელუხლებელი რჩება.</string>
+    <string name="appcleaner_exclusion_limited_body">ეს აპი AppCleaner-იდან გამორიცხეთ. ყველა აპის ქეშის ერთდროულად გასუფთავება იყენებს ADB წვდომით ხელმისაწვდომ სისტემის მასშტაბის ქეშის შემცირებას, რომელსაც ცალკეული აპების გამოტოვება არ შეუძლია, ამიტომ ამ აპის ქეშირებული მონაცემებიც სხვებთან ერთად გასუფთავდება. ეს ეხება მხოლოდ აქ ნაჩვენებ ქეშირებულ მონაცემებს, გამორიცხვით დაფარული ყველაფერი დანარჩენი დამალული და ხელუხლებელი რჩება.</string>
     <string name="appcleaner_automation_unavailable_title">ხელმისაწვდომობის სერვისი მიუწვდომელია</string>
     <string name="appcleaner_automation_unavailable_body">ამ ქეშების გასუფთავებას სჭირდება SD Maid-ის მარტივი წვდომის სერვისი, მაგრამ ის ხელმისაწვდომი არ იყო.</string>
     <string name="appcleaner_delete_confirmation_message_x">წაიშალოს ხარჯვადი ფაილები %s-თვის?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">წაიშალოს ხარჯვადი ფაილები %d არჩეული აპისთვის?</item>
         <item quantity="other">წაიშალოს ხარჯვადი ფაილები %d არჩეული აპისთვის?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">ქეშების წაშლა Shizuku-ს გამოყენებით</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ქეშების წაშლა ADB წვდომით</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">მიუწვდომელი ქეშების განსაზღვრა</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ქეშის გასუფთავება მიუწვდომელია</string>
     <string name="appcleaner_automation_error_locked_appcache_body">სისტემამ გათიშა ამ აპისთვის \"ქეშის გასუფთავების\" ღილაკი. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>

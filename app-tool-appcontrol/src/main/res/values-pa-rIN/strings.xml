@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">ਸੰਗ੍ਰਹਿਤ</string>
     <string name="appcontrol_tag_uninstalled">ਕੇਵਲ ਡਾਟਾ</string>
     <string name="appcontrol_tag_not_installed">ਸਥਾਪਿਤ ਨਹੀਂ</string>
+    <string name="appcontrol_tag_hidden">ਲੁਕਿਆ ਹੋਇਆ</string>
     <string name="appcontrol_tag_enabled">ਸਮਰੱਥ</string>
     <string name="appcontrol_tag_disabled">ਅਸਮਰੱਥ</string>
     <string name="appcontrol_tag_debug">ਡੀਬੱਗ</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">ਆਕਾਰ</string>
     <string name="appcontrol_list_sortmode_screentime_label">ਸਕ੍ਰੀਨ ਸਮਾਂ</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ਕਾਰਗੁਜ਼ਾਰੀ ਕਾਰਨਾਂ ਕਰਕੇ ਐਪ ਦੇ ਆਕਾਰ ਦਾ ਅੰਦਾਜ਼ਾ ਲਗਾਇਆ ਜਾਂਦਾ ਹੈ। ਵਧੇਰੇ ਸਟੀਕ ਡਾਟਾ ਲਈ StorageAnalyzer ਟੂਲ ਵਰਤੋ।</string>
+    <string name="appcontrol_list_scan_cancelled_label">ਸਕੈਨ ਰੱਦ ਕੀਤਾ ਗਿਆ, ਕੋਈ ਐਪ ਲੋਡ ਨਹੀਂ ਹੋਈ।</string>
     <string name="appcontrol_progress_uninstalling_app">ਐਪ ਨੂੰ ਅਣਸਥਾਪਿਤ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ਐਪ ਅਣਸਥਾਪਿਤ ਕੀਤੀ ਗਈ</item>

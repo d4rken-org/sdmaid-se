@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Seadete ekraan juurdepääsmatu</string>
     <string name="automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
     <string name="automation_error_disabled_app_title">Rakendus on keelatud</string>
-    <string name="automation_error_disabled_app_body">Seade ei ava keelatud rakenduste seadete kuva, seega vahemälu ei saa juurdepääsuteenistuse kaudu kustutada. Lubage rakendus või kasutage selle asemel juurpääsu või Shizuku/ADB-d.</string>
+    <string name="automation_error_disabled_app_body">Teie seade ei ava keelatud rakenduste seadete ekraani, seega ei saa vahemälu juurdepääsuteenuse kaudu tühjendada. Lubage rakendus või kasutage hoopis juuripääsu või ADB-juurdepääsu.</string>
     <string name="automation_error_interference_title">Seadete ekraan on blokeeritud</string>
     <string name="automation_error_interference_body">Teine rakendus (%1$s) blokeerib süsteemiseadete ekraani, seega ei saa SD Maid jätkata. Keelake selle rakenduse lukk või keelake süsteemiseadete ekraankaitse ja proovige uuesti.</string>
     <string name="automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>

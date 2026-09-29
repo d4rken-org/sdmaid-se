@@ -50,6 +50,7 @@
     <string name="general_progress_loading">טוען</string>
     <string name="general_progress_loading_app_data">טוען נתונים</string>
     <string name="general_progress_loading_data_areas">טעינת אזורי נתונים</string>
+    <string name="general_data_areas_unavailable_message">לא היה אפשר לטעון את אזורי הנתונים, מיקומי האחסון שבהם SD Maid יכול לעבוד.</string>
     <string name="general_progress_loading_egg_0">עדין מהיר יותר מאייפון</string>
     <string name="general_progress_loading_egg_1">מוריד עוד זיכרון RAM</string>
     <string name="general_progress_loading_egg_2">בקרוב</string>
@@ -191,7 +192,7 @@
     <string name="general_information_for_the_developer">מידע למפתח</string>
     <string name="general_error_report_bug_action">דווח על באג</string>
     <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
-    <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
+    <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Porter, Shizuku, או שירותי מערכת אחרים) אבד באופן בלתי צפוי. אנא הפעל מחדש את ההתקן שלך. אם הבעיה נמשכת, בדוק אם יש עדכונים או צור איתי קשר כדי שאוכל לתקן זאת.</string>
     <string name="general_error_upgrade_required_title">שדרוג נדרש</string>
     <string name="general_error_upgrade_required_description">התכונה הזו דורשת שדרוג. אנא שדרג את SD Maid SE כדי להשתמש בה.</string>
     <string name="general_user_label_owner">בעלים</string>
@@ -224,7 +225,7 @@
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <string name="access_blocked_root_unavailable">תכונה זו דורשת גישת root, אך SD Maid לא הצליחה להשיגה בהתקן זה.</string>
     <string name="access_blocked_root_declined">תכונה זו דורשת גישת root. ניתן להפעיל אותה דרך מסך ההגדרה.</string>
-    <string name="access_blocked_root_or_shizuku">תכונה זו דורשת גישת root או Shizuku, שאינה זמינה בהתקן זה.</string>
+    <string name="access_blocked_root_or_shizuku">תכונה זו דורשת גישת root או ADB, שאינה זמינה בהתקן זה.</string>
     <string name="backup_restore_error_invalid_title">קובץ גיבוי שגוי</string>
     <string name="backup_restore_error_invalid_body">קובץ זה אינו קובץ גיבוי חוקי של SD Maid או שהוא פגום.</string>
     <string name="backup_restore_error_version_body">גיבוי זה נוצר בגרסה חדשה יותר של SD Maid. אנא עדכן את האפליקציה ונסה שוב.</string>

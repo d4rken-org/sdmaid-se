@@ -38,9 +38,9 @@
     <string name="scheduler_notification_result_failure_message">کچھ شیڈیول شدہ کام ناکام ہوئے یا خرابی کا سامنا کیا۔ انھیں دستی طور پر چلانے کی کوشش کریں۔</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">چھوڑ دیا گیا، اسکرین بند تھی یا لاک تھی</string>
     <string name="scheduler_acs_screenlocked_hint_title">ایپ صفائی چھوڑ دی جا سکتی ہے</string>
-    <string name="scheduler_acs_screenlocked_hint_body">ایپ صفائی رسائی کی سہولت استعمال کرتی ہے، جس کے لیے اسکرین کو کھلا ہونا ضروری ہے۔ جب ڈیوائس لاک ہو تو شیڈول شدہ رن چھوڑ دیے جاتے ہیں۔\n\nپس منظر میں صفائی کے لیے Shizuku یا root استعمال کریں، یا اسے ڈیوائس استعمال کرتے وقت شیڈول کریں۔</string>
+    <string name="scheduler_acs_screenlocked_hint_body">ایپ کی صفائی ایکسیسبیلٹی سروس استعمال کرتی ہے، جس کے لیے اسکرین ان لاک ہونا ضروری ہے۔ آلہ لاک ہونے پر شیڈول کی گئی رنز چھوڑ دی جاتی ہیں۔\n\nپس منظر میں صفائی کے لیے ADB رسائی یا روٹ استعمال کریں، یا اسے اس وقت کے لیے شیڈول کریں جب آپ آلہ استعمال کر رہے ہوں۔</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">سسٹم ایپس چھوڑ دیے جا سکتے ہیں</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku پس منظر میں زیادہ تر کیشز صاف کرتا ہے، لیکن سسٹم ایپس کو رسائی کی سہولت کی ضرورت ہے، جس کے لیے اسکرین کا کھلا ہونا ضروری ہے۔ \"سسٹم ایپس شامل کریں\" آن ہونے پر، جب ڈیوائس لاک ہو تو یہ چھوڑ دیے جاتے ہیں۔\n\n\"سسٹم ایپس شامل کریں\" کو بند کریں، یا اسکرین کھلی ہونے پر شیڈول چلائیں۔</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ADB رسائی پس منظر میں زیادہ تر کیشے صاف کرتی ہے، لیکن سسٹم ایپس کے لیے ایکسیسبیلٹی سروس درکار ہے، جس کے لیے اسکرین ان لاک ہونا ضروری ہے۔ \"سسٹم ایپس شامل کریں\" آن ہونے پر آلہ لاک ہونے پر وہ چھوڑ دیے جاتے ہیں۔\n\n\"سسٹم ایپس شامل کریں\" کو آف کریں، یا شیڈول اس وقت چلائیں جب آلہ ان لاک ہو۔</string>
     <string name="scheduler_commands_after_schedule_label">شیڈیول کے بعد کے کمانڈز</string>
     <string name="scheduler_commands_after_schedule_desc">Android شیل کمانڈز جو شیڈیول کے اختتام پر تعین کیے جائیں گے۔</string>
     <string name="scheduler_battery_optimization_hint">اگر آپ کو پس منظر کی تکمیل میں مسائل کا سامنا ہو تو SD Maid کے لیے بیٹری آپٹیمائزیشن بند کرنے پر غور کریں۔</string>

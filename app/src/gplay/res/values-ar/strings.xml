@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">تعذر الاتصال بـ Google Play. يرجى التحقق من اتصالك بالإنترنت والمحاولة مرة أخرى.</string>
     <string name="upgrades_gplay_offer_unavailable_title">العرض غير متاح</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play لا يقدم خيار الترقية هذا حالياً. يرجى المحاولة لاحقاً أو التحقق من متجر Google Play.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">تعذّر فتح Google Play. قد يكون التطبيق غير مثبت أو معطّل أو مقيّد على هذا الجهاز.</string>
     <string name="upgrades_gplay_already_owned_error_title">تم الشراء مسبقًا</string>
     <string name="upgrades_gplay_already_owned_error_description">استخدم خيار \"استعادة المُشتَرَى\" لاستعادة عملية الشراء الخاصة بك. إذا استمرت المشكلة، حاول مسح ذاكرة التخزين المؤقت لـ Google Play وإعادة تشغيل جهازك.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">احصل على %1$s</string>
     <string name="upgrade_screen_preamble">لا يعرض SD Maid أية إعلانات ولا يبيع بيانات المستخدم. يتم تمويل عملي من قِبَلكم ❤️.</string>
     <string name="upgrade_screen_benefits_title">فوائد الترقية</string>

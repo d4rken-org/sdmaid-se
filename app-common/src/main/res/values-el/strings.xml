@@ -50,6 +50,7 @@
     <string name="general_progress_loading">Φόρτωση</string>
     <string name="general_progress_loading_app_data">Φόρτωση δεδομένων εφαρμογών</string>
     <string name="general_progress_loading_data_areas">Φόρτωση περιοχών δεδομένων</string>
+    <string name="general_data_areas_unavailable_message">Δεν ήταν δυνατή η φόρτωση των περιοχών δεδομένων, δηλαδή των τοποθεσιών αποθήκευσης με τις οποίες μπορεί να εργαστεί το SD Maid.</string>
     <string name="general_progress_loading_egg_0">Ακόμα πιο γρήγορο από ένα iPhone</string>
     <string name="general_progress_loading_egg_1">Λήψη περισσότερης RAM</string>
     <string name="general_progress_loading_egg_2">Σύντομα™</string>
@@ -179,7 +180,7 @@
     <string name="general_information_for_the_developer">Πληροφορίες για τον προγραμματιστή</string>
     <string name="general_error_report_bug_action">Αναφορά σφάλματος</string>
     <string name="general_error_ipc_deadobject_title">Απώλεια Σύνδεσης Υπηρεσίας</string>
-    <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Shizuku ή άλλες υπηρεσίες σε επίπεδο συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Εάν το πρόβλημα επιμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
+    <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Porter, Shizuku ή άλλες υπηρεσίες επιπέδου συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Αν το πρόβλημα παραμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
     <string name="general_error_upgrade_required_title">Απαιτείται αναβάθμιση</string>
     <string name="general_error_upgrade_required_description">Αυτή η δυνατότητα απαιτεί αναβάθμιση. Αναβαθμίστε το SD Maid SE για να τη χρησιμοποιήσετε.</string>
     <string name="general_user_label_owner">Κάτοχος</string>
@@ -211,7 +212,7 @@
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <string name="access_blocked_root_unavailable">Αυτή η λειτουργία απαιτεί πρόσβαση root, αλλά το SD Maid δεν μπόρεσε να την αποκτήσει σε αυτήν τη συσκευή.</string>
     <string name="access_blocked_root_declined">Αυτή η λειτουργία απαιτεί πρόσβαση root. Μπορείτε να την ενεργοποιήσετε μέσω της οθόνης ρύθμισης.</string>
-    <string name="access_blocked_root_or_shizuku">Αυτή η λειτουργία απαιτεί πρόσβαση root ή Shizuku, η οποία δεν είναι διαθέσιμη σε αυτήν τη συσκευή.</string>
+    <string name="access_blocked_root_or_shizuku">Αυτή η λειτουργία απαιτεί πρόσβαση root ή ADB, η οποία δεν είναι διαθέσιμη σε αυτή τη συσκευή.</string>
     <string name="backup_restore_error_invalid_title">Μη έγκυρο αρχείο αντιγράφου ασφαλείας</string>
     <string name="backup_restore_error_invalid_body">Αυτό το αρχείο δεν είναι έγκυρο αντίγραφο ασφαλείας του SD Maid ή είναι κατεστραμμένο.</string>
     <string name="backup_restore_error_version_body">Αυτό το αντίγραφο ασφαλείας δημιουργήθηκε με μια νεότερη έκδοση του SD Maid. Ενημερώστε την εφαρμογή και προσπαθήστε ξανά.</string>

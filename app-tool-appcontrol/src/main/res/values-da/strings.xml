@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Arkiveret</string>
     <string name="appcontrol_tag_uninstalled">Kun data</string>
     <string name="appcontrol_tag_not_installed">Ikke installeret</string>
+    <string name="appcontrol_tag_hidden">Skjult</string>
     <string name="appcontrol_tag_enabled">Aktiveret</string>
     <string name="appcontrol_tag_disabled">Deaktiveret</string>
     <string name="appcontrol_tag_debug">Fejlsøgning</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Størrelse</string>
     <string name="appcontrol_list_sortmode_screentime_label">Skærmtid</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Appstørrelser er anslået af hensyn til ydeevnen. Brug værktøjet Lageranalyse for mere præcise data.</string>
+    <string name="appcontrol_list_scan_cancelled_label">Scanning annulleret, ingen apps blev indlæst.</string>
     <string name="appcontrol_progress_uninstalling_app">Afinstallerer app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app blev afinstalleret</item>

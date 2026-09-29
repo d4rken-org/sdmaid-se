@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Berkhidmat untuk anda.</string>
     <string name="slogan_message_1">Bersih dan kemas.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Memuatkan</string>
     <string name="general_progress_loading_app_data">Memuatkan data aplikasi</string>
     <string name="general_progress_loading_data_areas">Memuatkan kawasan data</string>
+    <string name="general_data_areas_unavailable_message">Tidak dapat memuatkan kawasan data, iaitu lokasi storan yang boleh digunakan oleh SD Maid.</string>
     <string name="general_progress_loading_egg_0">Masih lebih laju daripada iPhone</string>
     <string name="general_progress_loading_egg_1">Memuat turun lebih banyak RAM</string>
     <string name="general_progress_loading_egg_2">Soon™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">Maklumat untuk pembangun</string>
     <string name="general_error_report_bug_action">Laporkan pepijat</string>
     <string name="general_error_ipc_deadobject_title">Sambungan Perkhidmatan Terputus</string>
-    <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (contoh: Magisk, Shizuku, atau perkhidmatan tahap sistem lain) telah terputus secara tidak dijangka. Sila but semula peranti anda. Jika isu ini berterusan, semak kemas kini atau hubungi saya untuk pembaikan.</string>
+    <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (cth. Magisk, Porter, Shizuku, atau perkhidmatan peringkat sistem lain) terputus secara tidak dijangka. Sila mulakan semula peranti anda. Jika masalah berterusan, semak kemas kini atau hubungi saya supaya saya dapat membetulkannya.</string>
     <string name="general_error_upgrade_required_title">Peningkatan diperlukan</string>
     <string name="general_error_upgrade_required_description">Ciri ini memerlukan peningkatan. Sila tingkatkan SD Maid SE untuk menggunakannya.</string>
     <string name="general_user_label_owner">Pemilik</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">Tunjukkan tetapan</string>
     <string name="ui_theme_color_sunset_label">Matahari Terbenam</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Ciri ini memerlukan akses root, tetapi SD Maid tidak dapat memperolehnya pada peranti ini.</string>
     <string name="access_blocked_root_declined">Ciri ini memerlukan akses root. Anda boleh mengaktifkannya melalui skrin persediaan.</string>
-    <string name="access_blocked_root_or_shizuku">Ciri ini memerlukan akses root atau Shizuku, yang tidak tersedia pada peranti ini.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Ciri ini memerlukan akses root atau ADB, yang tidak tersedia pada peranti ini.</string>
     <string name="backup_restore_error_invalid_title">Fail sandaran tidak sah</string>
     <string name="backup_restore_error_invalid_body">Fail ini bukan sandaran SD Maid yang sah atau sudah rosak.</string>
     <string name="backup_restore_error_version_body">Sandaran ini dibuat dengan versi SD Maid yang lebih baru. Sila kemaskini aplikasi dan cuba lagi.</string>

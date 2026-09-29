@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Në shërbimin juaj.</string>
     <string name="slogan_message_1">I pastër dhe i rregullt.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Po ngarkohet</string>
     <string name="general_progress_loading_app_data">Të dhënat e aplikacionit po ngarkohen</string>
     <string name="general_progress_loading_data_areas">Po ngarkohen zonat e të dhënave</string>
+    <string name="general_data_areas_unavailable_message">Nuk mund të ngarkohen zonat e të dhënave, vendndodhjet e ruajtjes me të cilat SD Maid mund të punojë.</string>
     <string name="general_progress_loading_egg_0">Prap më i shpejt se një iPhone</string>
     <string name="general_progress_loading_egg_1">Duke shkarkuar më shumë RAM</string>
     <string name="general_progress_loading_egg_2">Së shpejti™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Informacion për zhvilluesin</string>
     <string name="general_error_report_bug_action">Raporto gabim</string>
     <string name="general_error_ipc_deadobject_title">Lidhja e shërbimit u ndërpre</string>
-    <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Shizuku, ose shërbime të tjera të nivelit të sistemit) u ndërpre papritur. Ju lutemi rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose më kontaktoni që ta rregulloj.</string>
+    <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Porter, Shizuku, ose shërbime të tjera të nivelit sistemi) humbi papritur. Ju lutemi, rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose kontaktoni me mua që ta rregulloj.</string>
     <string name="general_error_upgrade_required_title">Kërkohet përmirësim</string>
     <string name="general_error_upgrade_required_description">Kjo veçori kërkon një përmirësim. Ju lutem përmirësoni SD Maid SE për ta përdorur atë.</string>
     <string name="general_user_label_owner">Pronari</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Shfaq rregullime</string>
     <string name="ui_theme_color_sunset_label">Perëndim dieli</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Kjo veçori kërkon qasje rrënjë, por SD Maid nuk mund ta merrte në këtë pajisje.</string>
     <string name="access_blocked_root_declined">Kjo veçori kërkon akses root. Mund ta aktivizoni përmes ekranit të konfigurimit.</string>
-    <string name="access_blocked_root_or_shizuku">Kjo veçori kërkon akses root ose Shizuku, i cili nuk është i disponueshëm në këtë pajisje.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Kjo veçori ka nevojë për qasje root ose ADB, e cila nuk është e disponueshme në këtë pajisje.</string>
     <string name="backup_restore_error_invalid_title">Skedar kopjeje sigurie jo i vlefshëm</string>
     <string name="backup_restore_error_invalid_body">Ky skedar nuk është një kopje sigurie e vlefshme SD Maid ose është i korruptuar.</string>
     <string name="backup_restore_error_version_body">Kjo kopje sigurie u krijua me një version më të ri të SD Maid. Ju lutemi përditësoni aplikacionin dhe provoni përsëri.</string>

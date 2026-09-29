@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">আর্কাইভ</string>
     <string name="appcontrol_tag_uninstalled">শুধুমাত্র ডেটা</string>
     <string name="appcontrol_tag_not_installed">ইনস্টল করা নেই</string>
+    <string name="appcontrol_tag_hidden">লুকানো</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
     <string name="appcontrol_tag_debug">ডিবাগ</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">আকার</string>
     <string name="appcontrol_list_sortmode_screentime_label">স্ক্রিন সময়</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">অ্যাপ্লিকেশান আকার কর্মক্ষমতা কারণে অনুমান করা হয়. আরও সঠিক তথ্যের জন্য স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
+    <string name="appcontrol_list_scan_cancelled_label">স্ক্যান বাতিল করা হয়েছে, কোনো অ্যাপ লোড করা হয়নি।</string>
     <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d অ্যাপ আনইনস্টল করা হয়েছে</item>

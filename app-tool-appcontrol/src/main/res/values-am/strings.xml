@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">ተደርሷል</string>
     <string name="appcontrol_tag_uninstalled">ውሂብ ብቻ</string>
     <string name="appcontrol_tag_not_installed">አልተጫነም</string>
+    <string name="appcontrol_tag_hidden">ተደብቅ</string>
     <string name="appcontrol_tag_enabled">ተችሏል</string>
     <string name="appcontrol_tag_disabled">ተሰናክሏል</string>
     <string name="appcontrol_tag_debug">ማረም</string>

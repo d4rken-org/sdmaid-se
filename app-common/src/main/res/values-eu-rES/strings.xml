@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Zure zerbitzutan.</string>
     <string name="slogan_message_1">Garbi eta txukun.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Kargatzen</string>
     <string name="general_progress_loading_app_data">Aplikazioaren datuak kargatzen</string>
     <string name="general_progress_loading_data_areas">Datu-eremuak kargatzen</string>
+    <string name="general_data_areas_unavailable_message">Ezin izan dira datu-eremuak kargatu, hau da, SD Maid-ek erabil ditzakeen biltegiratze-kokalekuak.</string>
     <string name="general_progress_loading_egg_0">iPhone baino azkarragoa oraindik</string>
     <string name="general_progress_loading_egg_1">RAM gehiago deskargatzen</string>
     <string name="general_progress_loading_egg_2">Laster™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Garatzailearentzako informazioa</string>
     <string name="general_error_report_bug_action">Errore txostena</string>
     <string name="general_error_ipc_deadobject_title">Zerbitzuaren konexioa galdu da</string>
-    <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko batekin (adib. Magisk, Shizuku edo bestelako sistema-mailako zerbitzuak) konexioa ustekabean galdu da. Mesedez berrabiarazi zure gailua. Arazoa jarraitzen badu, eguneraketak egiaztatu edo nirekin harremanetan jarri konpon dezadan.</string>
+    <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko baterako konexioa (adibidez Magisk, Porter, Shizuku edo sistema-mailako beste zerbitzu batzuk) ustekabean galdu da. Berrabiarazi gailua. Arazoak jarraitzen badu, bilatu eguneraketak edo jarri nirekin harremanetan konpon dezadan.</string>
     <string name="general_error_upgrade_required_title">Eguneraketa beharrezkoa</string>
     <string name="general_error_upgrade_required_description">Funtzionalitate honek eguneraketa behar du. Mesedez, eguneratu SD Maid SE hau erabiltzeko.</string>
     <string name="general_user_label_owner">Jabea</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Erakutsi ezarpenak</string>
     <string name="ui_theme_color_sunset_label">Ilunabarra</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Ezaugarri honek root sarbidea behar du, baina SD Maidek ezin izan du lortu gailu honetan.</string>
     <string name="access_blocked_root_declined">Ezaugarri hau root sarbidea behar du. Konfigurazio pantailan gaitu dezakezu.</string>
-    <string name="access_blocked_root_or_shizuku">Ezaugarri hau root sarbidea edo Shizuku sarbidea behar du, eta ez daude erabilgarri gailu honetan.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Eginbide honek root edo ADB sarbidea behar du, eta ez dago erabilgarri gailu honetan.</string>
     <string name="backup_restore_error_invalid_title">Babeskopia fitxategi baliogabea</string>
     <string name="backup_restore_error_invalid_body">Fitxategi hau ez da SD Maid-en babeskopia baliozkoa, edo hondatuta dago.</string>
     <string name="backup_restore_error_version_body">Babeskopia hau SD Maiden bertsio berriagoa sortua da. Eguneratu aplikazioa eta saiatu berriro.</string>

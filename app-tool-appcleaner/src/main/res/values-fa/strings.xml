@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">حافظه‌های نهان پیش‌فرض عمومی و خصوصی. به‌طور مستقیم قابل دسترسی نیستند، اما می‌توان به‌طور غیرمستقیم آنها را حذف کرد (به عنوان مثال، از طریق سرویس دسترسی).</string>
     <string name="appcleaner_exclusion_limited_row_hint">استثناء شده، اما پاکسازی تمام برنامه‌ها این حافظه‌های پنهان را حذف می‌کند</string>
     <string name="appcleaner_exclusion_limited_title">برنامهٔ استثناء شده</string>
-    <string name="appcleaner_exclusion_limited_body">شما این برنامه را از AppCleaner استثناء کردید. پاکسازی حافظه‌های پنهان برای تمام برنامه‌ها به یک‌باره از سرویس کاهش حافظه پنهان سرتاسری Shizuku استفاده می‌کند، که نمی‌تواند برنامه‌های فردی را حذف کند، بنابراین داده‌های حافظه پنهان این برنامه به‌همراه هر چیز دیگری پاک می‌شود. تنها داده‌های حافظه پنهان نشان‌داده‌شدهٔ در اینجا تحت تأثیر قرار می‌گیرند، و بقیه موارد شامل در استثناء مخفی و دست‌نخورده می‌مانند.</string>
+    <string name="appcleaner_exclusion_limited_body">شما این برنامه را از AppCleaner مستثنی کرده‌اید. پاک‌سازی حافظه پنهان همه برنامه‌ها به‌صورت یکجا از قطع‌کردن حافظه پنهان در سطح سیستم استفاده می‌کند که از طریق دسترسی ADB در دسترس است و نمی‌تواند برنامه‌های خاصی را کنار بگذارد، بنابراین داده‌های حافظه پنهان این برنامه هم همراه با بقیه پاک می‌شود. فقط داده‌های حافظه پنهانی که در اینجا نمایش داده می‌شوند تحت تأثیر قرار می‌گیرند و هر چیز دیگری که استثنا پوشش می‌دهد پنهان و دست‌نخورده باقی می‌ماند.</string>
     <string name="appcleaner_automation_unavailable_title">سرویس دسترسی در دسترس نیست</string>
     <string name="appcleaner_automation_unavailable_body">پاکسازی این حافظه‌های پنهان نیاز به سرویس دسترسی SD Maid دارد، اما آن در دسترس نبود.</string>
     <string name="appcleaner_delete_confirmation_message_x">آیا فایل‌های قابل حذف برای %s حذف شوند؟</string>
@@ -93,7 +93,7 @@
         <item quantity="one">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
         <item quantity="other">آیا فایل‌های قابل حذف برای %d برنامه انتخاب شده حذف شوند؟</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">حذف حافظه پنهان با استفاده از Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">در حال حذف حافظه‌های پنهان با دسترسی ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">تعیین حافظه‌های پنهان غیرقابل دسترس</string>
     <string name="appcleaner_automation_error_locked_appcache_title">پاک کردن حافظه پنهان در دسترس نیست</string>
     <string name="appcleaner_automation_error_locked_appcache_body">سیستم دکمه \"پاک کردن کش\" را برای این برنامه غیرفعال کرده است. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>

@@ -80,14 +80,14 @@
     <string name="appcleaner_item_caches_inaccessible_body">cache ເລີ່ມຕ້ນສາທາລະນະ ແລະສ່ວນຕົວ. ບໍ່ສາມາຖເຂ້າຫາໄດ້ໂດຍກົງ, ແຕ່ສາມາຖລຶ້ໄດ້ທາງອ້ອມ (ເຊ່ນ: ຜ່ານບໍລິການການເຂ້າຫາ).</string>
     <string name="appcleaner_exclusion_limited_row_hint">ຖືກຍົກເວັ້ນ, ແຕ່ການລົບລ້າງທຸກແອັບພລິເຄຊັ່ນໃນເວລາດຽວກັນຍັງຄົງລົບລ້າງ cache ເຫຼົ່ານີ້</string>
     <string name="appcleaner_exclusion_limited_title">ແອັບພລິເຄຊັ່ນທີ່ຖືກຍົກເວັ້ນ</string>
-    <string name="appcleaner_exclusion_limited_body">ທ່ານໄດ້ຍົກເວັ້ນແອັບພລິເຄຊັ່ນນີ້ຈາກ AppCleaner. ການລົບລ້າງ cache ສຳລັບທຸກແອັບພລິເຄຊັ່ນໃນເວລາດຽວກັນໃຊ້ຟັງຊັ່ນທໍາລາຍ cache ທົ່ວລະບົບຂອງ Shizuku, ເຊິ່ງບໍ່ສາມາດອອກແອັບພລິເຄຊັ່ນແຕ່ລະອັນໄດ້, ສະນັ້ນ cache ຂອງແອັບພລິເຄຊັ່ນນີ້ຈະຖືກລົບລ້າງພ້ອມກັບທຸກສິ່ງ. ພຽງແຕ່ cache ທີ່ສະແດງຢູ່ນີ້ຈະໄດ້ຮັບຜົນກະທົບ, ສ່ວນອື່ນໆທີ່ການຍົກເວັ້ນກວມຄຸມຍັງຄົງເກັບກຳ ແລະ ບໍ່ມີການປ່ຽນແປງ.</string>
+    <string name="appcleaner_exclusion_limited_body">ທ່ານໄດ້ຍົກເວັ້ນແອັບນີ້ອອກຈາກ AppCleaner. ການລຶບ cache ສໍາລັບທຸກແອັບພ້ອມກັນໃຊ້ການຕັດຕໍ່ cache ທົ່ວລະບົບທີ່ມີຢູ່ໂດຍຜ່ານເຂົ້າເຖິງ ADB ເຊິ່ງບໍ່ສາມາດປ່ອຍໄວ້ແອັບສ່ວນບຸກຄົນອອກໄດ້ ສະນັ້ນຂໍ້ມູນ cache ຂອງແອັບນີ້ຈະຖືກລຶບພ້ອມກັບທຸກຢ່າງອື່ນ. ມີພຽງແຕ່ຂໍ້ມູນ cache ທີ່ສະແດງຢູ່ນີ້ເທົ່ານັ້ນທີ່ໄດ້ຮັບຜົນກະທົບ ທຸກຢ່າງອື່ນທີ່ກວມເອົາການຍົກເວັ້ນຍັງເຫຼືອທີ່ເຊື່ອງໄວ້ ແລະບໍ່ໄດ້ປ່ຽນແປງ</string>
     <string name="appcleaner_automation_unavailable_title">ບໍລິການການເຂ້າຫາບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
     <string name="appcleaner_automation_unavailable_body">ການລົບລ້າງ cache ເຫຼົ່ານີ້ຕ້ອງການບໍລິການຄວາມສາມາດໃນການເຂົ້າເຖິງຂອງ SD Maid, ແຕ່ມັນບໍ່ມີໃຫ້ໃຊ້.</string>
     <string name="appcleaner_delete_confirmation_message_x">ລຶ້ໄຟລ໌ທີ່ສາມາຖຖິ້ມໄດ້ສຳຫລັບ %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">ລຶ້ໄຟລ໌ທີ່ສາມາຖຖິ້ມໄດ້ສຳຫລັບ %d ແອັບທີ່ເລືອກ?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">ກຳລັງລຶ້ cache ໂດຍໃຊ້ Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ກຳລັງລຶບ cache ໂດຍໃຊ້ເຂົ້າເຖິງ ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">ກຳລັງກຳນົດ cache ທີ່ເຂ້າຫາບໍ່ໄດ້</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ການລ້າງ cache ບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
     <string name="appcleaner_automation_error_locked_appcache_body">ລະບົມໄດ້ປິດໃຊ້ງານປຸ່ມ \"ລ້າງ cache\" ສຳຫລັບແອັບນີ້. ຍົກເວັ້ນມັນເພື່ອເລ່ງການລ້າງ cache.</string>

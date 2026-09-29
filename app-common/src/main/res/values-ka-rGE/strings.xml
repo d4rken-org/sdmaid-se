@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Თქვენს სერვისში.</string>
     <string name="slogan_message_1">სუფთა და კოხტა.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">იტვირთება</string>
     <string name="general_progress_loading_app_data">მიმდინარეობს აპის მონაცემების ჩატვირთვა</string>
     <string name="general_progress_loading_data_areas">მონაცემთა ზონების ჩატვირთვა</string>
+    <string name="general_data_areas_unavailable_message">მონაცემთა არეების ჩატვირთვა ვერ მოხერხდა. ესენია საცავის მდებარეობები, რომლებთანაც SD Maid-ს შეუძლია მუშაობა.</string>
     <string name="general_progress_loading_egg_0">მაინც iPhone-ზე სწრაფია</string>
     <string name="general_progress_loading_egg_1">მეტი RAM-ის ჩამოტვირთვა</string>
     <string name="general_progress_loading_egg_2">მალე™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">ინფორმაცია დეველოპერისთვის</string>
     <string name="general_error_report_bug_action">ბაგის მოხსენება</string>
     <string name="general_error_ipc_deadobject_title">სერვისის კავშირი დაიკარგა</string>
-    <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Shizuku, ან სხვა სისტემის დონის სერვისები) მოულოდნელად დაიკარგა. გთხოვთ გადატვირთოთ თქვენი მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ შევასწოროთ.</string>
+    <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Porter, Shizuku ან სხვა სისტემური სერვისები) მოულოდნელად გაწყდა. გთხოვთ, გადატვირთეთ მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ გამოვასწორო.</string>
     <string name="general_error_upgrade_required_title">განახლება საჭიროა</string>
     <string name="general_error_upgrade_required_description">ეს ფუნქცია საჭიროებს განახლებას. გთხოვთ, განაახლოთ SD Maid SE მის გამოსაყენებლად.</string>
     <string name="general_user_label_owner">მფლობელი</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">პარამეტრების ჩვენება</string>
     <string name="ui_theme_color_sunset_label">მზის ჩასვლა</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ამ ფუნქციას სჭირდება root წვდომა, მაგრამ SD Maid ვერ შეძლო მის მიღება ამ მოწყობილობაზე.</string>
     <string name="access_blocked_root_declined">ეს ფუნქცია საჭიროებს root-ს დაშვებას. შეგიძლიათ გააქტიუროთ იგი პარამეტრების ეკრანიდან.</string>
-    <string name="access_blocked_root_or_shizuku">ეს ფუნქცია საჭიროებს root-ს ან Shizuku-ს დაშვებას, რომელიც არ არის ხელმისაწვდომი ამ მოწყობილობაზე.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ეს ფუნქცია საჭიროებს root ან ADB წვდომას, რომელიც ამ მოწყობილობაზე მიუწვდომელია.</string>
     <string name="backup_restore_error_invalid_title">არასწორი სარეზერვო კოპიის ფაილი</string>
     <string name="backup_restore_error_invalid_body">ეს ფაილი არ არის SD Maid-ის ვალიდური სარეზერვო კოპია ან დაზიანებულია.</string>
     <string name="backup_restore_error_version_body">ეს სარეზერვო კოპია შეიქმნა SD Maid-ის ახალი ვერსიით. გთხოვთ განაახლოთ აპლიკაცია და სცადეთ ხელახლა.</string>

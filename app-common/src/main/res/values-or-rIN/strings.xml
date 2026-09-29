@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">ଆପଣଙ୍କ ସେବାରେ।</string>
     <string name="slogan_message_1">ପରିଷ୍କାର ଓ ସୁବ୍ୟବସ୍ଥିତ।</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">ଲୋଡ୍ ହେଉଛି</string>
     <string name="general_progress_loading_app_data">ଆପ୍ ଡାଟା ଲୋଡ୍ ହେଉଛି</string>
     <string name="general_progress_loading_data_areas">ଡାଟା କ୍ଷେତ୍ର ଲୋଡ୍ ହେଉଛି</string>
+    <string name="general_data_areas_unavailable_message">ଡାଟା ଅଞ୍ଚଳଗୁଡ଼ିକୁ ଲୋଡ୍ କରିବାରେ ବିଫଳ, SD Maid ସହିତ କାମ କରିପାରୁଥିବା ସ୍ଟୋରେଜ ସ୍ଥାନ।</string>
     <string name="general_progress_loading_egg_0">iPhone ଠାରୁ ଏଯାବତ୍ ଦ୍ରୁତ</string>
     <string name="general_progress_loading_egg_1">ଅଧିକ RAM ଡାଉନଲୋଡ୍ କରୁଛି</string>
     <string name="general_progress_loading_egg_2">ଖୁବଶୀଘ୍ର™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">ଡେଭେଲପରଙ୍କ ପାଇଁ ସୂଚନା</string>
     <string name="general_error_report_bug_action">ବଗ୍ ରିପୋର୍ଟ କରିବା</string>
     <string name="general_error_ipc_deadobject_title">ସେବା ସଂଯୋଗ ହଜିଗଲା</string>
-    <string name="general_error_ipc_deadobject_description">ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସେବାକୁ (ଯେପରିକି Magisk, Shizuku, କିମ୍ବା ଅନ୍ୟାନ୍ୟ ସିସ୍ଟମ୍-ସ୍ତରୀୟ ସେବା) ସଂଯୋଗ ଅନପେକ୍ଷିତ ଭାବେ ହଜିଗଲା। ଦୟାକରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଚାଲୁଥାଏ, ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ସମ୍ପର୍କ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ସମାଧାନ କରିପାରିବି।</string>
+    <string name="general_error_ipc_deadobject_description">ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସେବାର ସଂଯୋଗ (ଯଥା Magisk, Porter, Shizuku, ବା ଅନ୍ୟ ସିଷ୍ଟମ-ସ୍ତରୀୟ ସେବା) ଅପ୍ରତ୍ୟାଶିତଭାବେ ହଜିଯାଇଛି। ଦୟାକରି ଆପଣଙ୍କ ଡିଭାଇସ ରିବୁଟ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଜାରି ରହେ, ଅପଡେଟ ଖୋଜନ୍ତୁ ବା ମୋତେ ଯୋଗାଯୋଗ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହା ସମାଧାନ କରିପାରିବି।</string>
     <string name="general_error_upgrade_required_title">ଅପଗ୍ରେଡ ଆବଶ୍ୟକ</string>
     <string name="general_error_upgrade_required_description">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଏକ ଅପଗ୍ରେଡ ଆବଶ୍ୟକ କରେ। ଏହାକୁ ବ୍ୟବହାର କରିବାକୁ ଦୟାକରି SD Maid SE କୁ ଅପଗ୍ରେଡ କରନ୍ତୁ।</string>
     <string name="general_user_label_owner">ମାଲିକ</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">ସେଟିଂ ଦେଖାଅ</string>
     <string name="ui_theme_color_sunset_label">ସୂର୍ୟାସ୍ତ</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ଏହି ବୈଶିଷ୍ଟ୍ୟର ରୁଟ ଅନୁମତି ଦରକାର, କିନ୍ତୁ SD Maid ଏହି ଡିଭାଇସରେ ଏହା ପାଇ ପାରିଲା ନାହିଁ।</string>
     <string name="access_blocked_root_declined">ଏହି ବୈଶିଷ୍ଟ୍ୟ ରୁଟ ଅଧିକାର ଦରକାର। ଆପଣ ସେଟଅପ ସ୍କ୍ରୀନ ମାଧ୍ୟମରେ ଏହା ସକ୍ଷମ କରିପାରେନ୍ତି।</string>
-    <string name="access_blocked_root_or_shizuku">ଏହି ବୈଶିଷ୍ଟ୍ୟ ରୁଟ ବା Shizuku ଅଧିକାର ଦରକାର, ୟାହା ଏହି ଡିଭାଇସରେ ଉପଲବ୍ଧ ନାହିଁ।</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ଏହି ବୈଶିଷ୍ଟ୍ୟ ପାଇଁ ରୁଟ ବା ADB ଆକ୍ସେସ ଆବଶ୍ୟକ, ଯାହା ଏହି ଡିଭାଇସରେ ଉପଲବ୍ଧ ନାହିଁ।</string>
     <string name="backup_restore_error_invalid_title">ଅବୈଧ ବ୍ୟାକଅପ୍ ଫାଇଲ</string>
     <string name="backup_restore_error_invalid_body">ଏହି ଫାଇଲ ଏକ ବୈଧ SD Maid ବ୍ୟାକଅପ୍ ନୁହେଁ ବା ଦୁର୍ନୀତ ଅଛି।</string>
     <string name="backup_restore_error_version_body">ଏହି ବ୍ୟାକଅପ୍ SD Maid ର ଏକ ନୂତନ ସଂସ୍କରଣ ସହିତ ସୃଷ୍ଟି ହୋଇଥିଲା। ଦୟାକରି ଆପ୍ଲିକେଶନ ଅପଡେଟ କରନ୍ତୁ ଏବଂ ପୁନରାୟ ଚେଷ୍ଟା କରନ୍ତୁ।</string>

@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">ناتوانرێت بە گوگڵ پلەیەوە پەیوەست ببێت. تکایە پەیوەندی ئینتەرنێتەکەت بپشکنە و دووبارە هەوڵبدەرەوە.</string>
     <string name="upgrades_gplay_offer_unavailable_title">پیشکەش دەستنیە</string>
     <string name="upgrades_gplay_offer_unavailable_description">Google Play لە ئێستادا ئەم گۆڕینی بەرنامەیە پیشکەش ناکات. تکایە دواتر دووبارە هەوڵ بدە یان Google Play Store بپشکنە.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">نتوانی Google Play بکەیت. ئەو ممکن ە کە نەبێت، ناچالاک بێت یان بە سنوور بەستراوە لە ئەم دەستگەدا.</string>
     <string name="upgrades_gplay_already_owned_error_title">پێشتر کڕدراوە</string>
     <string name="upgrades_gplay_already_owned_error_description">بژاردەی \"گەڕاندنەوەی کڕین\" بەکاربهێنە بۆ گەڕاندنەوەی کڕینەکەت. ئەگەر کێشەکە بەردەوام بوو، هەوڵبدە کاشەی گوگڵ پلەی بسڕیتەوە و ئامێرەکەت ڕیستارت بکەیتەوە.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">بگری %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid هیچ ڕێکلامێکی نییە و زانیاری بەکارهێنەر نافرۆشێت. کارەکانی من لەلایەن ئێوەوە پشتگیری دارایی دەکرێت ❤️.</string>
     <string name="upgrade_screen_benefits_title">سوودەکانی بەرزکردنەوە</string>

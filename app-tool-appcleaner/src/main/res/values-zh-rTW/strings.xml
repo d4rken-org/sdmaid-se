@@ -80,14 +80,14 @@
     <string name="appcleaner_item_caches_inaccessible_body">公用和私人的預設快取，無法直接存取，但可以間接刪除 (例如透過無障礙服務)。</string>
     <string name="appcleaner_exclusion_limited_row_hint">已排除，但一次清除所有應用程式仍會清除這些快取</string>
     <string name="appcleaner_exclusion_limited_title">已排除的應用程式</string>
-    <string name="appcleaner_exclusion_limited_body">您已從 AppCleaner 中排除此應用程式。一次清除所有應用程式的快取會使用 Shizuku 的系統級快取清理，無法排除個別應用程式，因此此應用程式的快取資料會連同其他所有資料一起被清除。只有此處顯示的快取資料會受到影響，排除項目涵蓋的所有其他內容仍會保持隱藏和未觸動。</string>
+    <string name="appcleaner_exclusion_limited_body">您已將此應用程式從 AppCleaner 中排除。一次清除所有應用程式的快取時，會使用 ADB 存取提供的系統層級快取清理功能，該功能無法排除個別應用程式，因此此應用程式的快取資料會與其他資料一併清除。僅此處顯示的快取資料會受影響，排除項目涵蓋的其他內容仍會保持隱藏且不受更動。</string>
     <string name="appcleaner_automation_unavailable_title">無障礙服務無法使用</string>
     <string name="appcleaner_automation_unavailable_body">清除這些快取需要 SD Maid 的無障礙服務，但該服務不可用。</string>
     <string name="appcleaner_delete_confirmation_message_x">為 %s 刪除無關緊要的檔案？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">正在使用 ADB 存取刪除快取</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">正在判斷無法存取的快取</string>
     <string name="appcleaner_automation_error_locked_appcache_title">清除快取不可用</string>
     <string name="appcleaner_automation_error_locked_appcache_body">系統已停用此應用程式的「清除快取」按鈕。排除它以加快快取清除速度。</string>

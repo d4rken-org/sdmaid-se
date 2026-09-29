@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">ସେଟିଂସ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="automation_error_no_settings_body">ଏହି ସିଷ୍ଟମ ଆପ୍‌ର କୌଣସି ସେଟିଂସ ସ୍କ୍ରିନ ନାହିଁ। ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ କ୍ୟାଶ ସଫା କରିବା ସମ୍ଭବ ନୁହେଁ। କ୍ୟାଶ ସଫା କରିବାର ଗତି ବଢ଼ାଇବା ପାଇଁ ଏହାକୁ ବାଦ ଦିଅନ୍ତୁ।</string>
     <string name="automation_error_disabled_app_title">ଆପ୍ ଅକ୍ଷମ ଅଛି</string>
-    <string name="automation_error_disabled_app_body">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଅକ୍ଷମ ଆପ୍ ଗୁଡ଼ିକର ସେଟିଙ୍ସ୍ ସ୍କ୍ରିନ୍ ଖୋଲିବ ନାହିଁ, ତେଣୁ ସୁଲଭତା ସେବା ଦ୍ଵାରା କ୍ୟାଚ୍ ଖାଲି କରାଯାଇ ପାରିବ ନାହିଁ। ଆପ୍ ସକ୍ଷମ କରନ୍ତୁ, ବା ରୁଟ୍ ବା Shizuku/ADB ବ୍ୟବହାର କରନ୍ତୁ।</string>
+    <string name="automation_error_disabled_app_body">ଆପଣଙ୍କ ଡିଭାଇସ ଅକ୍ଷମ ଆପର ସେଟିଂ ସ୍କ୍ରିନ ଖୋଲିବ ନାହିଁ, ତେଣୁ ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ କ୍ୟାଚ ସଫା କରାଯାଇପାରିବ ନାହିଁ। ଆପକୁ ସକ୍ଷମ କରନ୍ତୁ, ବା ଏହାର ବଦଳରେ ରୁଟ ବା ADB ଆକ୍ସେସ ବ୍ୟବହାର କରନ୍ତୁ।</string>
     <string name="automation_error_interference_title">ସେଟିଂସ୍ ସ୍କ୍ରିନ୍ ବ୍ଲକ୍ ହୋଇଛି</string>
     <string name="automation_error_interference_body">ଅନ୍ୟ ଏକ ଆପ୍ (%1$s) ସିସ୍ଟମ୍ ସେଟିଂସ୍ ସ୍କ୍ରିନ୍ ବ୍ଲକ୍ କରୁଛି, ତେଣୁ SD Maid ଚାଲିପାରେ ନାହିଁ। ସିସ୍ଟମ୍ ସେଟିଂସ୍ ପାଇଁ ସେହି ଆପ୍ ର ଆପ୍-ଲକ୍ ବା ସ୍କ୍ରିନ୍ ସୁରକ୍ଷା ଅକ୍ଷମ କରନ୍ତୁ, ତାପରେ ପୁନରାୟ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="automation_loading">ଅଭିଗମ୍ୟତା ସେବା ମାଧ୍ୟମରେ ସ୍ୱୟଂଚାଳନ ପ୍ରସ୍ତୁତ କରୁଛି</string>

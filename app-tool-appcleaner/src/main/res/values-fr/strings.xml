@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Caches par défaut publics et privés. Non accessible directement, mais qui peuvent être vidés indirectement (p. ex. avec le service d’accessibilité).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Exclue, mais le nettoyage de toutes les applis en une fois efface quand même ces caches</string>
     <string name="appcleaner_exclusion_limited_title">Appli exclue</string>
-    <string name="appcleaner_exclusion_limited_body">Tu as exclu cette appli d\'AppCleaner. Le vidage des caches pour toutes les applis en une fois utilise le nettoyage système de Shizuku, qui ne peut pas laisser certaines applis de côté, donc les données en cache de cette appli sont effacées avec le reste. Seules les données en cache affichées ici sont concernées, tout ce que couvre l\'exclusion par ailleurs reste masqué et intact.</string>
+    <string name="appcleaner_exclusion_limited_body">Tu as exclu cette appli d\'AppCleaner. Effacer les caches pour toutes les applis à la fois utilise le nettoyage du cache au niveau du système disponible via l\'accès ADB, qui ne peut pas laisser des applis individuelles de côté. Les données en cache de cette appli sont donc effacées en même temps que tout le reste. Seules les données en cache affichées ici sont affectées ; tout le reste couvert par l\'exclusion reste caché et inchangé.</string>
     <string name="appcleaner_automation_unavailable_title">Le service d’accessibilité est inaccessible</string>
     <string name="appcleaner_automation_unavailable_body">Le vidage de ces caches nécessite le service d\'accessibilité de SD Maid, mais il n\'était pas disponible.</string>
     <string name="appcleaner_delete_confirmation_message_x">Supprimer les fichiers superflus pour %s ?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Supprimer les fichiers superflus pour %d appli choisie ?</item>
         <item quantity="other">Supprimer les fichiers superflus pour les %d applis choisies ?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches avec Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Suppression des caches via l\'accès ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Détermination des caches inaccessibles</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Impossible de vider le cache</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Le système a désactivé le bouton « Vider le cache » pour cette appli. L’exclure accélère le vidage du cache.</string>

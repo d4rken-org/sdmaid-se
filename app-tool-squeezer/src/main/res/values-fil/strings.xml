@@ -106,6 +106,14 @@
     <string name="squeezer_no_example_found">Walang nahanap na larawan sa mga napiling path.</string>
     <string name="squeezer_result_empty_message">Walang nahanap na compressible na media.</string>
     <string name="squeezer_result_empty_protected">Walang dapat i-compress. Na-skip: %s. Buksan ang matching option sa settings upang isama ang mga ito.</string>
+    <plurals name="squeezer_result_empty_x_lossy_aux">
+        <item quantity="one">%d HDR/depth na larawan</item>
+        <item quantity="other">%d HDR/depth na larawan</item>
+    </plurals>
+    <plurals name="squeezer_result_empty_x_motion_photo">
+        <item quantity="one">%d Motion Photo</item>
+        <item quantity="other">%d Motion Photo</item>
+    </plurals>
     <plurals name="squeezer_result_empty_x_oversized">
         <item quantity="one">%d napakalalaking larawan</item>
         <item quantity="other">%d napakalalaking mga larawan</item>

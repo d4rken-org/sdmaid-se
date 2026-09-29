@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Δημόσιες και ιδιωτικές προεπιλεγμένες κρυφές μνήμες. Δεν είναι άμεσα προσβάσιμο, αλλά μπορεί να διαγραφεί έμμεσα (π.χ. μέσω της υπηρεσίας προσβασιμότητας).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Εξαιρείται, αλλά ο καθαρισμός όλων των εφαρμογών ταυτόχρονα διαγράφει και πάλι αυτές τις κρυφές μνήμες</string>
     <string name="appcleaner_exclusion_limited_title">Εξαιρούμενη εφαρμογή</string>
-    <string name="appcleaner_exclusion_limited_body">Έχεις εξαιρέσει αυτή την εφαρμογή από το AppCleaner. Ο καθαρισμός κρυφών μνημών για όλες τις εφαρμογές ταυτόχρονα χρησιμοποιεί τον καθαρισμό κρυφής μνήμης σε επίπεδο συστήματος του Shizuku, ο οποίος δεν μπορεί να εξαιρέσει μεμονωμένες εφαρμογές, οπότε τα δεδομένα κρυφής μνήμης αυτής της εφαρμογής διαγράφονται μαζί με όλα τα υπόλοιπα. Επηρεάζονται μόνο τα δεδομένα κρυφής μνήμης που εμφανίζονται εδώ, όλα τα υπόλοιπα που καλύπτει η εξαίρεση παραμένουν κρυφά και ανέπαφα.</string>
+    <string name="appcleaner_exclusion_limited_body">Εξαιρέσατε αυτή την εφαρμογή από το AppCleaner. Η εκκαθάριση της προσωρινής μνήμης όλων των εφαρμογών ταυτόχρονα χρησιμοποιεί το καθολικό κλάδεμα προσωρινής μνήμης του συστήματος που είναι διαθέσιμο μέσω πρόσβασης ADB και δεν μπορεί να αφήσει εκτός μεμονωμένες εφαρμογές, επομένως τα δεδομένα προσωρινής μνήμης αυτής της εφαρμογής εκκαθαρίζονται μαζί με όλα τα υπόλοιπα. Επηρεάζονται μόνο τα δεδομένα προσωρινής μνήμης που εμφανίζονται εδώ, ό,τι άλλο καλύπτει η εξαίρεση παραμένει κρυφό και ανέγγιχτο.</string>
     <string name="appcleaner_automation_unavailable_title">Η υπηρεσία προσβασιμότητας δεν είναι διαθέσιμη</string>
     <string name="appcleaner_automation_unavailable_body">Ο καθαρισμός αυτών των κρυφών μνημών απαιτεί την υπηρεσία προσβασιμότητας του SD Maid, αλλά δεν ήταν διαθέσιμη.</string>
     <string name="appcleaner_delete_confirmation_message_x">Διαγραφή αναλώσιμων αρχείων για %s;</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Διαγραφή αναλώσιμων αρχείων για %d επιλεγμένη εφαρμογή;</item>
         <item quantity="other">Διαγραφή αναλώσιμων αρχείων για %d επιλεγμένες εφαρμογές;</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή κρυφής προσωρινής μνήμης χρησιμοποιώντας το Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή προσωρινής μνήμης μέσω πρόσβασης ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Προσδιορισμός μη προσβάσιμων προσωρινών μνήμων</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Εκκαθάριση προσωρινής μνήμης μη διαθέσιμη</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Το σύστημα έχει απενεργοποιήσει το κουμπί \"Εκκαθάριση μνήμης cache\" για αυτήν την εφαρμογή. Εξαιρέστε το για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>

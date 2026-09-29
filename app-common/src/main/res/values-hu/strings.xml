@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Az Ön szolgálatában.</string>
     <string name="slogan_message_1">Tiszta és rendezett.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Betöltés</string>
     <string name="general_progress_loading_app_data">Alkalmazásadatok betöltése</string>
     <string name="general_progress_loading_data_areas">Adatterületek betöltése</string>
+    <string name="general_data_areas_unavailable_message">Nem sikerült betölteni az adatterületeket, vagyis azokat a tárhelyeket, amelyekkel az SD Maid dolgozhat.</string>
     <string name="general_progress_loading_egg_0">Még mindig gyorsabb, mint egy iPhone</string>
     <string name="general_progress_loading_egg_1">További RAM letöltése</string>
     <string name="general_progress_loading_egg_2">Hamarosan™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Információ a fejlesztőnek</string>
     <string name="general_error_report_bug_action">Hiba jelentése</string>
     <string name="general_error_ipc_deadobject_title">Szolgáltatás kapcsolat elveszett</string>
-    <string name="general_error_ipc_deadobject_description">Egy kritikus szolgáltatáshoz (pl. Magisk, Shizuku vagy más rendszerszintű szolgáltatások) való kapcsolat váratlanul megszakadt. Kérjük, indítsa újra az eszközét. Ha a probléma továbbra is fennáll, ellenőrizze a frissítéseket, vagy lépjen kapcsolatba velem, hogy kijavíthassam.</string>
+    <string name="general_error_ipc_deadobject_description">A kapcsolat egy kritikus szolgáltatással (pl. Magisk, Porter, Shizuku vagy más rendszerszintű szolgáltatás) váratlanul megszakadt. Indítsd újra az eszközt. Ha a probléma továbbra is fennáll, keress frissítéseket, vagy írj nekem, hogy javíthassam.</string>
     <string name="general_error_upgrade_required_title">Frissítés szükséges</string>
     <string name="general_error_upgrade_required_description">Ehhez a funkcióhoz frissítés szükséges. Kérjük, frissítsd az SD Maid SE-t a használatához.</string>
     <string name="general_user_label_owner">Tulajdonos</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
     <string name="ui_theme_color_sunset_label">Napnyugta</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Ez a funkció root hozzáférést igényel, de az SD Maid nem tudta megszerezni ezen az eszközön.</string>
     <string name="access_blocked_root_declined">Ez a funkció root hozzáférést igényel. Engedélyezheti a beállítási képernyőn.</string>
-    <string name="access_blocked_root_or_shizuku">Ez a funkció root vagy Shizuku hozzáférést igényel, amely nem érhető el ezen az eszközön.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Ehhez a funkcióhoz root- vagy ADB-hozzáférés szükséges, amely nem érhető el ezen az eszközön.</string>
     <string name="backup_restore_error_invalid_title">Érvénytelen biztonsági mentési fájl</string>
     <string name="backup_restore_error_invalid_body">Ez a fájl nem egy érvényes SD Maid biztonsági mentés, vagy sérült.</string>
     <string name="backup_restore_error_version_body">Ez a biztonsági mentés az SD Maid egy újabb verziójával lett létrehozva. Kérjük, frissítse az alkalmazást, majd próbálkozzon újra.</string>

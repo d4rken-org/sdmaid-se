@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">İctimai və şəxsi standart keşlər. Birbaşa əlçatan deyil, lakin dolayısı ilə silinə bilər (məsələn əlçatanlıq xidməti vasitəsilə).</string>
     <string name="appcleaner_exclusion_limited_row_hint">İstisna edilib, lakin bütün tətbiqləri eyni anda təmizləmək yenə də bu keşləri silir</string>
     <string name="appcleaner_exclusion_limited_title">İstisna edilmiş tətbiq</string>
-    <string name="appcleaner_exclusion_limited_body">Bu tətbiqi AppCleaner-dən istisna etmisən. Bütün tətbiqlərin keşini eyni anda təmizləmək Shizuku-nun sistem miqyaslı keş təmizləməsindən istifadə edir, bu isə ayrı-ayrı tətbiqləri kənarda saxlaya bilmir, ona görə də bu tətbiqin keş məlumatları da digərləri ilə birlikdə silinir. Yalnız burada göstərilən keş məlumatları təsirlənir, istisnanın əhatə etdiyi digər hər şey gizli və toxunulmamış qalır.</string>
+    <string name="appcleaner_exclusion_limited_body">Bu tətbiqi AppCleaner-dən istisna etmisiniz. Bütün tətbiqlərin keşlərini bir anda silmək ADB girişi vasitəsilə mövcud olan sistem miqyaslı keş təmizləməsini istifadə edir, fərdi tətbiqləri çıxara bilməz, buna görə bu tətbiqin keşləşdirilmiş məlumatları hər şey ilə birlikdə silinir. Yalnız burada göstərilən keşləşdirilmiş məlumatlar təsirlənir, istisnanın əhatə etdiyi hər şey gizli və dəyişdirilməmiş qalır.</string>
     <string name="appcleaner_automation_unavailable_title">Əlçatanlıq xidməti əlçatan deyil</string>
     <string name="appcleaner_automation_unavailable_body">Bu keşləri təmizləmək üçün SD Maid-in Əlçatımlılıq xidməti tələb olunur, lakin o əlçatan deyildi.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s üçün xərclənə bilən fayllar silinsinmi?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">%d seçilmiş tətbiq üçün xərclənə bilən fayllar silinsinmi?</item>
         <item quantity="other">%d seçilmiş tətbiq üçün xərclənə bilən fayllar silinsinmi?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku istifadə edərək keşlər silinir</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB girişindən istifadə etməklə keşlər silinir</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Əlçatmaz keşlər müəyyən edilir</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Keş təmizləmə əlçatan deyil</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu tətbiq üçün \"Keşi təmizlə\" düyməsini deaktiv edib. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>

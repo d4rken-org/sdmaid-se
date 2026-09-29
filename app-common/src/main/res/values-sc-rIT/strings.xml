@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">A su servìtziu tuo.</string>
     <string name="slogan_message_1">Lìmpia e ordinada.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Carrighende</string>
     <string name="general_progress_loading_app_data">Carrighende datos de s\'aplicatzione</string>
     <string name="general_progress_loading_data_areas">Carrighende àreas de datos</string>
+    <string name="general_data_areas_unavailable_message">No at poyudu carricai is zonas de datos, is localizatziones de armagosem cun chi SD Maid potèt traballare.</string>
     <string name="general_progress_loading_egg_0">Prus lestru de un iPhone</string>
     <string name="general_progress_loading_egg_1">Iscarrighende prus RAM</string>
     <string name="general_progress_loading_egg_2">In breve™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Informatziones pro su isviluppadore</string>
     <string name="general_error_report_bug_action">Sinnalare bug</string>
     <string name="general_error_ipc_deadobject_title">Connessione de su servìtziu pèrdida</string>
-    <string name="general_error_ipc_deadobject_description">Sa connessione a unu servìtziu crìticu (pro es. Magisk, Shizuku, o àteros servìtzios de sistema) est istada pèrdida in manera inaspetada. Pro piaghere torra a aviare su dispositivu. Si su problema persistit, verìfica sos agiornamentos o cuntàtami pro lu currigere.</string>
+    <string name="general_error_ipc_deadobject_description">Sa conessione a unu servitzio crìticu (p.e. Magisk, Porter, Shizuku, o alteros servitzios de livellu de sistima) est stada perida inoppinatamente. Daplighe aboria sa divisa. Si sa emustione persistit, controllit is atualizatziones o cuntantami seu potzo emendare.</string>
     <string name="general_error_upgrade_required_title">Atzuada rechesta</string>
     <string name="general_error_upgrade_required_description">Custa funtzionalidade rechesta una atzuada. Pro usala, atzua SD Maid SE.</string>
     <string name="general_user_label_owner">Propriedàriu</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Mustrare impostatziones</string>
     <string name="ui_theme_color_sunset_label">Tramuntu</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Custa caratzeristica rechert\'accesso root, ma SD Maid no at pottu ottenne su accesso in custu dispositivu.</string>
     <string name="access_blocked_root_declined">Custa funzionalidade abbisognat accessu de root. Podes abilidare in sa schermata de cunfiguratzione.</string>
-    <string name="access_blocked_root_or_shizuku">Custa funzionalidade abbisognat accessu de root o Shizuku, chi non est disponibilis in custa aparatu.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Custa funtzionalidade issehet root o accesu ADB, chi no est disponìbile in custa divisa.</string>
     <string name="backup_restore_error_invalid_title">Archiviu de cusserva non vàlidu</string>
     <string name="backup_restore_error_invalid_body">Cust\'archiviu non est una cusserva vàlida de SD Maid o est corrutu.</string>
     <string name="backup_restore_error_version_body">Custa cusserva fuit criada cun una versione prus bena de SD Maid. Agiorna s\'aplicatzione e torra a proare.</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Katika huduma yako.</string>
     <string name="slogan_message_1">Safi na mpangilio.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Kupagia</string>
     <string name="general_progress_loading_app_data">Kupagia data ya programu</string>
     <string name="general_progress_loading_data_areas">Kupagia maeneo ya data</string>
+    <string name="general_data_areas_unavailable_message">Imeshindwa kupakia maeneo ya data, yaani maeneo ya hifadhi ambayo SD Maid inaweza kufanyia kazi.</string>
     <string name="general_progress_loading_egg_0">Haraka kuliko iPhone</string>
     <string name="general_progress_loading_egg_1">Kupagia RAM zaidi</string>
     <string name="general_progress_loading_egg_2">Hivi karibuni™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Maelezo kwa msanidi programu</string>
     <string name="general_error_report_bug_action">Ripoti hitilafu</string>
     <string name="general_error_ipc_deadobject_title">Muunganisho wa Huduma Umepotea</string>
-    <string name="general_error_ipc_deadobject_description">Muunganisho na huduma muhimu (k.m. Magisk, Shizuku, au huduma zingine za kiwango cha mfumo) umepotea bila kutarajiwa. Tafadhali anzisha upya kifaa chako. Ikiwa tatizo linaendelea, angalia masasisho au niwasiliane nami ili niweze kulirekebisha.</string>
+    <string name="general_error_ipc_deadobject_description">Muunganisho kwa huduma muhimu (k.m. Magisk, Porter, Shizuku, au huduma nyingine za kiwango cha mfumo) umepotea bila kutarajiwa. Tafadhali washa upya kifaa chako. Tatizo likiendelea, angalia masasisho au wasiliana nami ili nilirekebishe.</string>
     <string name="general_error_upgrade_required_title">Boresho linahitajika</string>
     <string name="general_error_upgrade_required_description">Kipengele hiki kinahitaji boresho. Tafadhali boresha SD Maid SE ili kukitumia.</string>
     <string name="general_user_label_owner">Mmiliki</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Onyesha mipangilio</string>
     <string name="ui_theme_color_sunset_label">Machweo</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Kipengele hiki kinahitaji ufikiaji wa root, lakini SD Maid haikuweza kuupata kwenye kifaa hiki.</string>
     <string name="access_blocked_root_declined">Kipengele hiki kinahitaji ufikiaji wa root. Unaweza kukiwezesha kupitia skrini ya usanidi.</string>
-    <string name="access_blocked_root_or_shizuku">Kipengele hiki kinahitaji ufikiaji wa root au Shizuku, ambao haupatikani kwenye kifaa hiki.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Kipengele hiki kinahitaji ufikiaji wa root au ADB, ambao haupatikani kwenye kifaa hiki.</string>
     <string name="backup_restore_error_invalid_title">Faili batili ya nakala rudufu</string>
     <string name="backup_restore_error_invalid_body">Faili hili si nakala rudufu halali ya SD Maid au limeharibika.</string>
     <string name="backup_restore_error_version_body">Nakala rudufu hii iliundwa kwa toleo jipya zaidi la SD Maid. Tafadhali sasisha programu na ujaribu tena.</string>

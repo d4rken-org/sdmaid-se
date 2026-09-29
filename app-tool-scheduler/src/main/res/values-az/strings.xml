@@ -38,9 +38,9 @@
     <string name="scheduler_notification_result_failure_message">Bəzi planlaşdırılmış tapşırıqlar uğursuz oldu və ya xətalarla qarşılaşdı. Onları əl ilə işlətməyi cəhd edin.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Atlandı, ekran söndürülmüş və ya kilidli idi</string>
     <string name="scheduler_acs_screenlocked_hint_title">Tətbiq təmizliyi atlana bilər</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Tətbiq təmizliyi əlçatımlılıq xidmətindən istifadə edir, bu da ekranın kilidsiz olmasını tələb edir. Cihaz kilidli olduğu zaman planlaşdırılmış işlər atlanır.\n\nArxa fonda təmizləmə üçün Shizuku və ya root istifadə edin, ya da onu cihazdan istifadə etdiyiniz vaxta planlaşdırın.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Tətbiq təmizliyi Xüsusi imkanlar istifadə edir, ekranın kilidini açmaq lazımdır. Cihaz kilidli olduqda planlaşdırılmış işləmələr atlanır.\n\nFon təmizliyi üçün ADB girişindən və ya root-dan istifadə edin, ya da cihazı istifadə etdiyiniz zaman planlaşdırın.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sistem tətbiqləri atlana bilər</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku əksər keşləri arxa fonda təmizləyir, lakin sistem tətbiqləri əlçatımlılıq xidmətinə ehtiyac duyur, bu da ekranın kilidsiz olmasını tələb edir. \"Sistem tətbiqlərini daxil et\" aktivdirsə, cihaz kilidli olduğu zaman bunlar atlanır.\n\n\"Sistem tətbiqlərini daxil et\" seçimini söndürün, ya da cədvəli cihaz kilidsiz olduğu zaman işə salın.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ADB girişi fonda əksər keşləri təmizləyir, ancaq sistem tətbiqləri Xüsusi imkanlar tələb edir, ekranın kilidini açmaq lazımdır. \"Sistem tətbiqləri daxil et\" açıqdırsa, cihaz kilidli olduqda bunlar atlanır.\n\n\"Sistem tətbiqləri daxil et\"-i söndürün, ya da kilidini açdıqdan sonra cədvəli işə salın.</string>
     <string name="scheduler_commands_after_schedule_label">Plan sonrası əmrlər</string>
     <string name="scheduler_commands_after_schedule_desc">Planın sonunda icra ediləcək Android shell əmrləri.</string>
     <string name="scheduler_battery_optimization_hint">Arxa plan icra problemləri yaşayırsınızsa SD Maid üçün batareya optimallaşdırmalarını deaktiv etməyi düşünün.</string>

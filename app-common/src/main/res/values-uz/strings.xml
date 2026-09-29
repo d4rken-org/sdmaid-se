@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Sizning xizmatingizda.</string>
     <string name="slogan_message_1">Toza va tartibli.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Yuklanmoqda</string>
     <string name="general_progress_loading_app_data">Ilova ma\'lumotlari yuklanmoqda</string>
     <string name="general_progress_loading_data_areas">Ma\'lumotlar sohasi yuklanmoqda</string>
+    <string name="general_data_areas_unavailable_message">Ma\'lumot sohalari yuklanmadi, bu SD Maid ishlay oladigan saqlash joylaridir.</string>
     <string name="general_progress_loading_egg_0">iPhone dan tezroq</string>
     <string name="general_progress_loading_egg_1">Qo\'shimcha RAM yuklab olmoqda</string>
     <string name="general_progress_loading_egg_2">Tez orada™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Dasturchi uchun ma\'lumot</string>
     <string name="general_error_report_bug_action">Xato haqida xabar berish</string>
     <string name="general_error_ipc_deadobject_title">Xizmat aloqasi uzildi</string>
-    <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog\'laning.</string>
+    <string name="general_error_ipc_deadobject_description">Muhim xizmatga (masalan, Magisk, Porter, Shizuku yoki boshqa tizim darajasidagi xizmatlar) ulanish kutilmagan tarzda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki menga murojaat qiling, shunda uni tuzata olaman.</string>
     <string name="general_error_upgrade_required_title">Yangilash kerak</string>
     <string name="general_error_upgrade_required_description">Bu xususiyat yangilashni talab qiladi. Uni ishlatish uchun SD Maid SE\'ni yangilang.</string>
     <string name="general_user_label_owner">Egasi</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Sozlamalarni ko\'rsatish</string>
     <string name="ui_theme_color_sunset_label">Quyosh botishi</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Bu xususiyat root ruxsatini talab qiladi, ammo SD Maid bu qurilmada uni ololmadi.</string>
     <string name="access_blocked_root_declined">Bu xususiyat root ruxsatini talab qiladi. Uni sozlash ekrani orqali yoqishingiz mumkin.</string>
-    <string name="access_blocked_root_or_shizuku">Bu xususiyat root yoki Shizuku ruxsatini talab qiladi, ammo bu qurilmada mavjud emas.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Ushbu xususiyat root yoki ADB kirishuvini talab qiladi, bu qurilmada mavjud emas.</string>
     <string name="backup_restore_error_invalid_title">Yaroqsiz zaxira nusxasi fayli</string>
     <string name="backup_restore_error_invalid_body">Bu fayl yaroqli SD Maid zaxira nusxasi emas yoki buzilgan.</string>
     <string name="backup_restore_error_version_body">Bu zaxira nusxasi SD Maid\'ning yangiroq versiyasida yaratilgan. Iltimos, ilovani yangilang va qayta urinib ko\'ring.</string>

@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Arhivirano</string>
     <string name="appcontrol_tag_uninstalled">Samo podaci</string>
     <string name="appcontrol_tag_not_installed">Nije instalirano</string>
+    <string name="appcontrol_tag_hidden">Skriveno</string>
     <string name="appcontrol_tag_enabled">Omogućeno</string>
     <string name="appcontrol_tag_disabled">Onemogućeno</string>
     <string name="appcontrol_tag_debug">Otklanjanje pogrešaka</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Veličina</string>
     <string name="appcontrol_list_sortmode_screentime_label">Vrijeme upotrebe</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Veličine aplikacija su procijenjene radi boljih performansi. Za točnije podatke koristite alat Analizator pohrane.</string>
+    <string name="appcontrol_list_scan_cancelled_label">Skeniranje otkazano, nijedna aplikacija nije učitana.</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstaliranje aplikacije</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplikacija je deinstalirana</item>

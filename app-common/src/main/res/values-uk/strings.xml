@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">До ваших послуг.</string>
     <string name="slogan_message_1">Чисто й охайно.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Завантаження</string>
     <string name="general_progress_loading_app_data">Завантаження даних додатку</string>
     <string name="general_progress_loading_data_areas">Завантаження даних...</string>
+    <string name="general_data_areas_unavailable_message">Не вдалося завантажити розділи даних, місця для зберігання, з якими може працювати SD Maid.</string>
     <string name="general_progress_loading_egg_0">Все ще швидше, ніж iPhone</string>
     <string name="general_progress_loading_egg_1">Завантаження додаткової оперативної пам’яті</string>
     <string name="general_progress_loading_egg_2">Скоро™</string>
@@ -204,7 +204,7 @@
     <string name="general_information_for_the_developer">Інформація для розробника</string>
     <string name="general_error_report_bug_action">Повідомити про помилку</string>
     <string name="general_error_ipc_deadobject_title">З’єднання з сервісом втрачено</string>
-    <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
+    <string name="general_error_ipc_deadobject_description">Зв\'язок з критичною службою (наприклад, Magisk, Porter, Shizuku або іншими службами системного рівня) несподівано розірвався. Перезавантаж твій пристрій. Якщо проблема залишається, перевір наявність оновлень або зв\'яжись зі мною, щоб я міг це виправити.</string>
     <string name="general_error_upgrade_required_title">Потрібно оновлення</string>
     <string name="general_error_upgrade_required_description">Ця функція вимагає оновлення. Будь ласка, оновіть SD Maid SE, щоб використовувати її.</string>
     <string name="general_user_label_owner">Власник</string>
@@ -236,11 +236,9 @@
     <string name="appcontrol_systemsettings_open_title">Показати налаштування</string>
     <string name="ui_theme_color_sunset_label">Захід</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Ця функція потребує root доступу, але SD Maid не зміг його отримати на цьому пристрої.</string>
     <string name="access_blocked_root_declined">Ця функція потребує root доступу. Ви можете увімкнути його на екрані налаштування.</string>
-    <string name="access_blocked_root_or_shizuku">Ця функція потребує прав доступу root або Shizuku, які недоступні на цьому пристрої.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Ця функція потребує доступу root або ADB, яких немає на цьому пристрої.</string>
     <string name="backup_restore_error_invalid_title">Недійсний файл резервної копії</string>
     <string name="backup_restore_error_invalid_body">Цей файл не є дійсною резервною копією SD Maid або пошкоджений.</string>
     <string name="backup_restore_error_version_body">Цю резервну копію було створено з новішою версією SD Maid. Будь ласка, оновіть додаток і спробуйте ще раз.</string>

@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Não foi possível estabelecer ligação ao Google Play. Verifique a ligação à Internet e tente novamente.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Oferta indisponível</string>
     <string name="upgrades_gplay_offer_unavailable_description">O Google Play não está atualmente a oferecer esta opção de atualização. Tente novamente mais tarde ou consulte a Google Play Store.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Não foi possível abrir Google Play. Pode estar ausente, desativado ou restrito neste dispositivo.</string>
     <string name="upgrades_gplay_already_owned_error_title">Já comprado</string>
     <string name="upgrades_gplay_already_owned_error_description">Utilize a opção \"Restaurar compra\" para restaurar a sua compra. Se o problema persistir, tente limpar a cache do Google Play e reiniciar o dispositivo.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">Obter %1$s</string>
     <string name="upgrade_screen_preamble">SD Maid não tem anúncios e não vende dados dos utilizadores. O meu trabalho é financiado por si ❤️.</string>
     <string name="upgrade_screen_benefits_title">Benefícios da atualização</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Til tjeneste.</string>
     <string name="slogan_message_1">Rent og ryddeligt.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Indlæser</string>
     <string name="general_progress_loading_app_data">Indlæser appdata</string>
     <string name="general_progress_loading_data_areas">Indlæser dataområder</string>
+    <string name="general_data_areas_unavailable_message">Kunne ikke indlæse dataområderne, de lagerplaceringer, som SD Maid kan arbejde med.</string>
     <string name="general_progress_loading_egg_0">Stadig hurtigere end en iPhone</string>
     <string name="general_progress_loading_egg_1">Henter mere RAM</string>
     <string name="general_progress_loading_egg_2">Snart™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Oplysninger til udvikleren</string>
     <string name="general_error_report_bug_action">Rapportér fejl</string>
     <string name="general_error_ipc_deadobject_title">Tjenesteforbindelse tabt</string>
-    <string name="general_error_ipc_deadobject_description">Forbindelsen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre systemtjenester) blev uventet afbrudt. Genstart din enhed. Hvis problemet fortsætter, søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
+    <string name="general_error_ipc_deadobject_description">Forbindelsen til en kritisk tjeneste (f.eks. Magisk, Porter, Shizuku eller andre systemtjenester) blev uventet afbrudt. Genstart venligst din enhed. Hvis problemet fortsætter, skal du søge efter opdateringer eller kontakte mig, så jeg kan rette det.</string>
     <string name="general_error_upgrade_required_title">Opgradering påkrævet</string>
     <string name="general_error_upgrade_required_description">Denne funktion kræver en opgradering. Opgrader venligst SD Maid SE for at bruge den.</string>
     <string name="general_user_label_owner">Ejer</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Vis indstillinger</string>
     <string name="ui_theme_color_sunset_label">Solnedgang</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Denne funktion kræver root-adgang, men SD Maid kunne ikke få det på denne enhed.</string>
     <string name="access_blocked_root_declined">Denne funktion kræver root-adgang. Du kan aktivere det via opsætningsskærmen.</string>
-    <string name="access_blocked_root_or_shizuku">Denne funktion kræver root- eller Shizuku-adgang, som ikke er tilgængelig på denne enhed.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Denne funktion kræver root- eller ADB-adgang, som ikke er tilgængelig på denne enhed.</string>
     <string name="backup_restore_error_invalid_title">Ugyldig sikkerhedskopi-fil</string>
     <string name="backup_restore_error_invalid_body">Denne fil er ikke en gyldig SD Maid-sikkerhedskopi eller er beskadiget.</string>
     <string name="backup_restore_error_version_body">Denne sikkerhedskopi blev oprettet med en nyere version af SD Maid. Opdater venligst appen og prøv igen.</string>

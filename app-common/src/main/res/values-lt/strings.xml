@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">„SD Maid SE“</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Jūsų paslaugoms.</string>
     <string name="slogan_message_1">Švariai ir tvarkingai.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Įkeliama</string>
     <string name="general_progress_loading_app_data">Įkeliami programos duomenys</string>
     <string name="general_progress_loading_data_areas">Įkeliamos duomenų sritys</string>
+    <string name="general_data_areas_unavailable_message">Nepavyko įkelti duomenų sričių, saugojimo vietų, su kuriomis gali dirbti SD Maid.</string>
     <string name="general_progress_loading_egg_0">Vis tiek greičiau nei iPhone</string>
     <string name="general_progress_loading_egg_1">Atsisiunčiama daugiau RAM</string>
     <string name="general_progress_loading_egg_2">Greitai™</string>
@@ -204,7 +204,7 @@
     <string name="general_information_for_the_developer">Informacija kūrėjui</string>
     <string name="general_error_report_bug_action">Pranešti apie klaidą</string>
     <string name="general_error_ipc_deadobject_title">Prarastas ryšys su paslauga</string>
-    <string name="general_error_ipc_deadobject_description">Ryšys su kritiškai svarbia paslauga (pvz., Magisk, Shizuku ar kitomis sistemos paslaugomis) netikėtai nutrūko. Paleiskite įrenginį iš naujo. Jei problema išlieka, patikrinkite, ar yra atnaujinimų, arba kreipkitės į mane, kad galėčiau ją išspręsti.</string>
+    <string name="general_error_ipc_deadobject_description">Ryšys su svarbia tarnyba (pvz., Magisk, Porter, Shizuku ar kitomis sisteminėmis tarnybomis) netikėtai nutrūko. Perkraukite įrenginį. Jei problema išlieka, patikrinkite, ar nėra atnaujinimų, arba susisiekite su manimi, kad galėčiau tai ištaisyti.</string>
     <string name="general_error_upgrade_required_title">Reikalingas atnaujinimas</string>
     <string name="general_error_upgrade_required_description">Ši funkcija reikalinga atnaujinimo. Atnaujinkite SD Maid SE, kad ją naudotumėte.</string>
     <string name="general_user_label_owner">Savininkas</string>
@@ -236,11 +236,9 @@
     <string name="appcontrol_systemsettings_open_title">Rodyti nustatymus</string>
     <string name="ui_theme_color_sunset_label">Saulėlydis</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Ši funkcija reikalauja root prieigos, tačiau SD Maid negalėjo gauti jos šiame įrenginyje.</string>
     <string name="access_blocked_root_declined">Šiai funkcijai reikalinga root prieiga. Galite ją įjungti nustatymo ekrane.</string>
-    <string name="access_blocked_root_or_shizuku">Šiai funkcijai reikalinga root arba Shizuku prieiga, kuri nėra prieinama šiame įrenginyje.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Ši funkcija reikalauja root arba ADB prieigos, kuri šiame įrenginyje nepasiekiama.</string>
     <string name="backup_restore_error_invalid_title">Negaliojanti atsarginė kopija</string>
     <string name="backup_restore_error_invalid_body">Šis failas nėra galiojanti SD Maid atsarginė kopija arba yra pažeistas.</string>
     <string name="backup_restore_error_version_body">Ši atsarginė kopija buvo sukurta naujesne SD Maid versija. Atnaujinkite programą ir bandykite iš naujo.</string>

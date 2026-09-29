@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">พร้อมรับใช้คุณ</string>
     <string name="slogan_message_1">สะอาดและเป็นระเบียบ</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">กำลังโหลด</string>
     <string name="general_progress_loading_app_data">กำลังโหลดข้อมูลแอป</string>
     <string name="general_progress_loading_data_areas">กำลังโหลดพื้นที่ข้อมูล</string>
+    <string name="general_data_areas_unavailable_message">โหลดพื้นที่ข้อมูลไม่ได้ ซึ่งเป็นตำแหน่งจัดเก็บที่ SD Maid ทำงานด้วยได้</string>
     <string name="general_progress_loading_egg_0">ยังเร็วกว่า iPhone</string>
     <string name="general_progress_loading_egg_1">กำลังดาวน์โหลด RAM เพิ่ม</string>
     <string name="general_progress_loading_egg_2">เร็วๆ นี้™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">ข้อมูลสำหรับนักพัฒนา</string>
     <string name="general_error_report_bug_action">รายงานข้อผิดพลาด</string>
     <string name="general_error_ipc_deadobject_title">สูญเสียการเชื่อมต่อบริการ</string>
-    <string name="general_error_ipc_deadobject_description">การเชื่อมต่อกับบริการสำคัญ (เช่น Magisk, Shizuku หรือบริการระดับระบบอื่นๆ) สูญหายโดยไม่คาดคิด โปรดรีสตาร์ทอุปกรณ์ของคุณ หากปัญหายังคงอยู่ ให้ตรวจสอบการอัปเดตหรือติดต่อฉันเพื่อแก้ไข</string>
+    <string name="general_error_ipc_deadobject_description">การเชื่อมต่อกับบริการสำคัญ (เช่น Magisk, Porter, Shizuku หรือบริการระดับระบบอื่น ๆ) ขาดหายไปโดยไม่คาดคิด โปรดรีบูตอุปกรณ์ หากยังเกิดปัญหาอยู่ ให้ตรวจสอบการอัปเดตหรือติดต่อฉันเพื่อแก้ไข</string>
     <string name="general_error_upgrade_required_title">ต้องการอัปเกรด</string>
     <string name="general_error_upgrade_required_description">ฟีเจอร์นี้ต้องการอัปเกรด โปรดอัปเกรด SD Maid SE เพื่อใช้งาน</string>
     <string name="general_user_label_owner">เจ้าของ</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">แสดงการตั้งค่า</string>
     <string name="ui_theme_color_sunset_label">พระอาทิตย์ตก</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ฟีเจอร์นี้ต้องการสิทธิ์ root แต่ SD Maid ไม่สามารถได้รับสิทธิ์นี้บนอุปกรณ์นี้</string>
     <string name="access_blocked_root_declined">ฟีเจอร์นี้ต้องใช้การเข้าถึง root คุณสามารถเปิดใช้งานได้ผ่านหน้าจอการตั้งค่า</string>
-    <string name="access_blocked_root_or_shizuku">ฟีเจอร์นี้ต้องใช้การเข้าถึง root หรือ Shizuku ซึ่งไม่พร้อมใช้งานบนอุปกรณ์นี้</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ฟีเจอร์นี้ต้องใช้การเข้าถึงรูทหรือ ADB ซึ่งไม่พร้อมใช้งานบนอุปกรณ์นี้</string>
     <string name="backup_restore_error_invalid_title">ไฟล์สำรองข้อมูลไม่ถูกต้อง</string>
     <string name="backup_restore_error_invalid_body">ไฟล์นี้ไม่ใช่ไฟล์สำรองข้อมูล SD Maid ที่ถูกต้องหรือเสียหาย</string>
     <string name="backup_restore_error_version_body">การสำรองข้อมูลนี้สร้างขึ้นด้วยเวอร์ชัน SD Maid ที่ใหม่กว่า โปรดอัปเดตแอปและลองอีกครั้ง</string>
