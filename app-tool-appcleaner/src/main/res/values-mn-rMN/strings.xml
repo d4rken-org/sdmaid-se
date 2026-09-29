@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Нийтлэг ба хувийн үндсэн кэшүүд. Шууд шуусаар хүргэхгүй боловч шуудгаар устгаж болно (жишээ нь: хандалтын үйлчилгээгээр).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Хассан боловч бүх апп-уудыг цэвэрлэхэд эдгээр кэш-уудыг арилна</string>
     <string name="appcleaner_exclusion_limited_title">Хассан апп</string>
-    <string name="appcleaner_exclusion_limited_body">Та энэ апп-г AppCleaner-ээс хасачихсан байна. Бүх апп-ын кэш-уудыг нэг дор цэвэрлэх үед Shizuku-ийн систем-дэх кэш цэвэрлэлтийг ашигладаг бөгөөд энэ нь тусдаа апп-уудыг орхих боломжгүй. Иймээс энэ апп-ын кэшлэгдсэн өгөгдөл бусад бүхнийг хамт арилгагна. Зөвхөн энд харуулсан кэшлэгдсэн өгөгдөл нөлөөлөгддөг. Хассан бусад бүхэн нууцлагдаж үлддэг.</string>
+    <string name="appcleaner_exclusion_limited_body">Та энэ апп-ыг AppCleaner-аас хассан. Бүх апп-ын кэшийг нэг дор цэвэрлэх нь ADB хандалтаар боломжтой системийн хэмжээний кэш багасгалтыг ашигладаг бөгөөд энэ нь тусдаа апп-уудыг үлдээж чадахгүй тул энэ апп-ын кэш өгөгдөл бусадтай хамт цэвэрлэгдэнэ. Энд харагдаж буй кэш өгөгдөл л нөлөөлөгдөх бөгөөд хасалтад хамаарах бусад бүх зүйл нуугдмал, хөндөгдөхгүй хэвээр үлдэнэ.</string>
     <string name="appcleaner_automation_unavailable_title">Хандалтын үйлчилгээ боломжгүй</string>
     <string name="appcleaner_automation_unavailable_body">Эдгээр кэш-уудыг цэвэрлэхийн тул SD Maid-ийн Нэвтрэх эрхийн үйлчилгээ шаардлагатай боловч энэ нь боломжгүй байсан.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s-ийн зарцлаж болох файлуудыг устгах уу?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Сонгосон %d аппын зарцлаж болох файлуудыг устгах уу?</item>
         <item quantity="other">Сонгосон %d аппын зарцлаж болох файлуудыг устгах уу?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ашиглаад кэш устгаж байна</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB хандалтаар кэшийг устгаж байна</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Хүртэх боломжгүй кэшүүдийг тодорхойлж байна</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Кэш цэвхлэх боломжгүй</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Систем энэ аппын \"Kэш цэвхлэх\" товчийг идэвхгүй болгосон. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>

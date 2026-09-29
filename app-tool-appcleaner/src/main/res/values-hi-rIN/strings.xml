@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक और निजी डिफ़ॉल्ट कैश। प्रत्यक्ष रूप से पहुंच योग्य नहीं है, लेकिन अप्रत्यक्ष रूप से हटाया जा सकता है (उदाहरण के लिए एक्सेसिबिलिटी सेवा के माध्यम से)।</string>
     <string name="appcleaner_exclusion_limited_row_hint">बहिष्कृत, लेकिन सभी ऐप्स को एक साथ साफ करने से ये कैश अभी भी साफ हो जाते हैं</string>
     <string name="appcleaner_exclusion_limited_title">बहिष्कृत ऐप्स</string>
-    <string name="appcleaner_exclusion_limited_body">आपने इस ऐप को AppCleaner से बहिष्कृत किया है। सभी ऐप्स के कैश को एक साथ साफ करने के लिए Shizuku की सिस्टम-वाइड कैश ट्रिम का उपयोग किया जाता है, जो किसी ऐप को छोड़ नहीं सकता, इसलिए इस ऐप का कैश्ड डेटा सब कुछ के साथ साफ हो जाता है। केवल यहां दिखाया गया कैश्ड डेटा प्रभावित होता है, बाकी सब कुछ जो बहिष्करण को कवर करता है छिपा रहता है और अछूता रहता है।</string>
+    <string name="appcleaner_exclusion_limited_body">आपने इस ऐप को AppCleaner से बाहर रखा है। सभी ऐप्स के लिए कैश को एक बार में साफ़ करना सिस्टम-व्यापी कैश ट्रिम का उपयोग करता है जो ADB एक्सेस के माध्यम से उपलब्ध है, जो व्यक्तिगत ऐप्स को बाहर नहीं रख सकता। इसलिए इस ऐप का कैश डेटा बाकी सब कुछ के साथ साफ़ हो जाता है। केवल यहाँ दिखाया गया कैश डेटा प्रभावित होता है, बाकी सब कुछ जो बहिष्करण को कवर करता है वह छिपा रहता है और अछूता रहता है।</string>
     <string name="appcleaner_automation_unavailable_title">एक्सेसबिलिटी सेवा अनुपलब्ध है</string>
     <string name="appcleaner_automation_unavailable_body">इन कैशों को साफ करने के लिए SD Maid की सुलभता सेवा की आवश्यकता है, लेकिन यह उपलब्ध नहीं थी।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">%d चयनित ऐप के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</item>
         <item quantity="other">%d चयनित ऐप्स के लिए खर्च होने वाली फ़ाइलों को मिटाएं?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku का उपयोग करके कैश मिटाए जा रहे हैं</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB एक्सेस का उपयोग करके कैश को हटाया जा रहा है</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">दुर्गम कैश निर्धारित किए जा रहे हैं</string>
     <string name="appcleaner_automation_error_locked_appcache_title">कैश साफ़ करना उपलब्ध नहीं</string>
     <string name="appcleaner_automation_error_locked_appcache_body">सिस्टम ने इस ऐप के लिए \"कैश साफ़ करें\" बटन को अक्षम कर दिया है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>

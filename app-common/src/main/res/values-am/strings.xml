@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">ለአገልግሎትዎ ዝግጁ።</string>
     <string name="slogan_message_1">ንፁህ እና ተደራጅቶ።</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">መጫን</string>
     <string name="general_progress_loading_app_data">የመተግበሪያ ውሂብ መጫን</string>
     <string name="general_progress_loading_data_areas">የውሂብ አካባቢዎች መጫን</string>
+    <string name="general_data_areas_unavailable_message">ገብታ ቦታዎችን (SD Maid ሊሰራ ሚችሉ ማከማቻ ዓይነቶች) ሊጫኑ አልቻሉም።</string>
     <string name="general_progress_loading_egg_0">ከ iPhone አሁንም ፈጣን</string>
     <string name="general_progress_loading_egg_1">ተጨማሪ RAM እያወረደ</string>
     <string name="general_progress_loading_egg_2">በቅርቡ™</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">ቅንብሮችን አሳይ</string>
     <string name="ui_theme_color_sunset_label">ምሽት</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ይህ ባህሪይ ሩት መዳረሻ ይጠይቅካል፣ ግን SD Maid ከዚህ መሳሪያ ላይ ማግኛት አልቻሉም።</string>
     <string name="access_blocked_root_declined">ይህ ተግባር root ዳቅሊ ይፈልጋል። የሴቲንግ ማያ በኩል ማበጅ ይችላሉ።</string>
-    <string name="access_blocked_root_or_shizuku">ይህ ተግባር root ወይም Shizuku ዳቅሊ ይፈልጋል፣ ይህም በዚህ መሣሪያ ላይ አይገኝም።</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ይህ ባህሪ root ወይም ADB መዳረሻ ያስፈልጋል፣ ይህም በዚህ ስልክ ላይ የለም።</string>
     <string name="backup_restore_error_invalid_title">ልክ ያልሆነ ምትክ ፋይል</string>
     <string name="backup_restore_error_invalid_body">ይህ ፋይል ልክ ያለ SD Maid ምትክ አይደለም ወይም ተበላሸ ነው።</string>
     <string name="backup_restore_error_version_body">ይህ ምትክ ከአዲስ SD Maid ስሪት ጋር ተሰራ ነበር። እባክህ መተግበሪያውን ያሳናሩ እና እንደገና ሞክር።</string>

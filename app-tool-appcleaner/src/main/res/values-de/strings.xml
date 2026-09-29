@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z. B. über die Bedienungshilfe).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Ausgeschlossen, aber beim gleichzeitigen Bereinigen aller Apps werden diese Caches trotzdem geleert</string>
     <string name="appcleaner_exclusion_limited_title">Ausgeschlossene App</string>
-    <string name="appcleaner_exclusion_limited_body">Du hast diese App von AppCleaner ausgeschlossen. Beim gleichzeitigen Leeren der Caches aller Apps wird der systemweite Cache-Bereinigungsvorgang von Shizuku verwendet, bei dem einzelne Apps nicht ausgeschlossen werden können. Daher werden die zwischengespeicherten Daten dieser App zusammen mit allen anderen gelöscht. Nur die hier angezeigten zwischengespeicherten Daten sind davon betroffen. Alles andere, was durch den Ausschluss abgedeckt ist, bleibt ausgeblendet und unangetastet.</string>
+    <string name="appcleaner_exclusion_limited_body">Du hast diese App von AppCleaner ausgeschlossen. Das gleichzeitige Leeren der Caches aller Apps nutzt die systemweite Cache-Bereinigung über ADB-Zugriff, bei der sich einzelne Apps nicht auslassen lassen. Deshalb werden auch die Cache-Daten dieser App zusammen mit allen anderen geleert. Betroffen sind nur die hier angezeigten Cache-Daten, alles andere, was der Ausschluss abdeckt, bleibt verborgen und unberührt.</string>
     <string name="appcleaner_automation_unavailable_title">Bedienungshilfe nicht verfügbar</string>
     <string name="appcleaner_automation_unavailable_body">Zum Leeren dieser Caches wird der Bedienungshilfedienst von SD Maid benötigt, er war jedoch nicht verfügbar.</string>
     <string name="appcleaner_delete_confirmation_message_x">Entbehrliche Dateien für %s löschen?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Entbehrliche Dateien für %d ausgewählte App löschen?</item>
         <item quantity="other">Überflüssige Dateien für %d ausgewählte Apps löschen?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Caches mit Shizuku löschen</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Caches werden per ADB-Zugriff gelöscht</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Ermitteln nicht zugänglicher Caches</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Cache leeren nicht möglich</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Das System hat den \"Cache löschen\"-Button für diese App deaktiviert. Schließe sie aus, um das Löschen des Caches zu beschleunigen.</string>

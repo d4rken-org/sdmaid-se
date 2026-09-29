@@ -80,14 +80,14 @@
     <string name="appcleaner_item_caches_inaccessible_body">앱의 캐시 파일입니다. 직접적인 접근은 어렵지만, 접근성 서비스 등을 통해 간접적으로 지울 수 있습니다.</string>
     <string name="appcleaner_exclusion_limited_row_hint">제외되었으나, 모든 앱을 한 번에 정리하면 이 캐시는 여전히 삭제됩니다</string>
     <string name="appcleaner_exclusion_limited_title">제외된 앱</string>
-    <string name="appcleaner_exclusion_limited_body">이 앱을 AppCleaner에서 제외했습니다. 모든 앱의 캐시를 한 번에 정리하면 Shizuku의 시스템 전체 캐시 정리 기능을 사용하는데, 이는 개별 앱을 제외할 수 없어서 이 앱의 캐시 데이터도 다른 모든 데이터와 함께 삭제됩니다. 여기에 표시된 캐시 데이터만 영향을 받으며, 제외 설정에서 보호하는 다른 모든 데이터는 숨겨진 상태로 유지되고 손상되지 않습니다.</string>
+    <string name="appcleaner_exclusion_limited_body">이 앱을 AppCleaner에서 제외했습니다. 모든 앱의 캐시를 한 번에 삭제하는 작업은 ADB 접근으로 사용할 수 있는 시스템 전체 캐시 정리를 사용하며, 개별 앱을 제외할 수 없으므로 이 앱의 캐시 데이터도 함께 삭제됩니다. 여기에 표시된 캐시 데이터만 영향을 받으며, 제외 항목이 포함하는 나머지는 계속 숨겨진 채 그대로 유지됩니다.</string>
     <string name="appcleaner_automation_unavailable_title">접근성 서비스를 사용할 수 없습니다.</string>
     <string name="appcleaner_automation_unavailable_body">이 캐시를 정리하려면 SD Maid의 접근성 서비스가 필요하지만, 사용할 수 없습니다.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s의 임시 파일을 제거할까요?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">%d 개의 선택된 앱의 임시 파일을 제거할까요?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku를 이용해 캐시 삭제 중</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB 접근으로 캐시 삭제 중</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">접근할 수 없는 캐시 확인 중</string>
     <string name="appcleaner_automation_error_locked_appcache_title">캐시 지우기를 사용할 수 없음</string>
     <string name="appcleaner_automation_error_locked_appcache_body">시스템이 이 앱의 \"캐시 지우기\" 버튼을 비활성화했습니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>

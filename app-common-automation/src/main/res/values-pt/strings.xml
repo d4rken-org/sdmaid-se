@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Ecrã de definições indisponível</string>
     <string name="automation_error_no_settings_body">Esta aplicação do sistema não tem um ecrã de definições. Não é possível limpar a cache através do serviço de acessibilidade. Exclua-a para acelerar a limpeza da cache.</string>
     <string name="automation_error_disabled_app_title">A aplicação está desativada</string>
-    <string name="automation_error_disabled_app_body">O seu dispositivo não abrirá o ecrã de definições de aplicações desativadas, portanto a cache não pode ser apagada através do serviço de acessibilidade. Ative a aplicação ou use root ou Shizuku/ADB em vez disso.</string>
+    <string name="automation_error_disabled_app_body">O seu dispositivo não abrirá o ecrã de definições de aplicações desativadas, pelo que a cache não pode ser limpa através do serviço de acessibilidade. Ative a aplicação, ou utilize acesso root ou ADB.</string>
     <string name="automation_error_interference_title">Ecrã de definições bloqueado</string>
     <string name="automation_error_interference_body">Outra aplicação (%1$s) está a bloquear o ecrã de definições do sistema, por isso o SD Maid não pode continuar. Desative o bloqueio de aplicações ou proteção de ecrã dessa aplicação para as definições do sistema e tente novamente.</string>
     <string name="automation_loading">A preparar automação através do serviço de acessibilidade</string>

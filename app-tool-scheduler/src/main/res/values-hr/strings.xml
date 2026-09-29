@@ -39,9 +39,9 @@
     <string name="scheduler_notification_result_failure_message">Neki zakazani zadaci nisu uspješni ili su naišli na greške. Pokušajte ih pokrenuti ručno.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Preskočeno, zaslon je bio isključen ili zaključan</string>
     <string name="scheduler_acs_screenlocked_hint_title">Čišćenje aplikacija može biti preskočeno</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Čišćenje aplikacija koristi servis pristupačnosti koji zahtijeva otključan zaslon. Zakazana pokretanja dok je uređaj zaključan su preskočena.\n\nZa čišćenje u pozadini koristite Shizuku ili root, ili ga zakazite za vrijeme kada koristite uređaj.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Čišćenje aplikacija koristi uslugu pristupačnosti, koja zahtijeva otključan zaslon. Zakazana pokretanja dok je uređaj zaključan se preskaču.\n\nKoristi ADB pristup ili root za čišćenje u pozadini ili ga zakaži za vrijeme kad koristiš uređaj.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Sustavske aplikacije mogu biti preskočene</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku čisti većinu međuspremnika u pozadini, ali sustavske aplikacije trebaju uslugu pristupačnosti, što zahtijeva otključan zaslon. Kad je \"Uključi sustavske aplikacije\" uključeno, te se aplikacije preskaču kada je uređaj zaključan.\n\nIsključite \"Uključi sustavske aplikacije\" ili pokrenite raspored dok je uređaj otključan.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ADB pristup čisti većinu predmemorije u pozadini, ali sistemske aplikacije trebaju uslugu pristupačnosti, koja zahtijeva otključan zaslon. Kad je uključeno \"Uključi sistemske aplikacije\", one se preskaču dok je uređaj zaključan.\n\nIsključi \"Uključi sistemske aplikacije\" ili pokreni raspored dok je uređaj otključan.</string>
     <string name="scheduler_commands_after_schedule_label">Naredbe nakon rasporeda</string>
     <string name="scheduler_commands_after_schedule_desc">Android shell naredbe koje će se izvršiti na kraju rasporeda.</string>
     <string name="scheduler_battery_optimization_hint">Razmislite o onemogućavanju optimizacije baterije za SD Maid ako imate problema s pozadinskim izvršavanjem.</string>

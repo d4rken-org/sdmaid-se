@@ -80,14 +80,14 @@
     <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (ユーザー補助サービスなど)。</string>
     <string name="appcleaner_exclusion_limited_row_hint">除外されていますが、すべてのアプリを一括クリーンするとこれらのキャッシュも削除されます</string>
     <string name="appcleaner_exclusion_limited_title">除外されたアプリ</string>
-    <string name="appcleaner_exclusion_limited_body">このアプリはAppCleanerから除外されています。すべてのアプリのキャッシュを一括削除する際はShizukuのシステム全体のキャッシュ整理機能を使用するため、個々のアプリを除外することができず、このアプリのキャッシュデータも他と一緒に削除されます。影響を受けるのはここに表示されているキャッシュデータのみで、除外対象のそれ以外のデータは非表示のまま変更されません。</string>
+    <string name="appcleaner_exclusion_limited_body">このアプリはAppCleanerから除外されています。すべてのアプリのキャッシュを一括で消去する場合、ADBアクセスで利用できるシステム全体のキャッシュ削減が使用され、個別のアプリを除外できないため、このアプリのキャッシュデータも他のデータと一緒に消去されます。影響を受けるのはここに表示されているキャッシュデータのみで、除外が対象とするそれ以外のデータは非表示のまま変更されません。</string>
     <string name="appcleaner_automation_unavailable_title">ユーザー補助サービスは無効です。</string>
     <string name="appcleaner_automation_unavailable_body">これらのキャッシュを削除するにはSD Maidのユーザー補助機能が必要ですが、利用できませんでした。</string>
     <string name="appcleaner_delete_confirmation_message_x">%s の消耗ファイルを削除しますか？</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">%d 選択したアプリの消耗ファイルを削除しますか？</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizukuを使用してキャッシュを削除する</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADBアクセスでキャッシュを削除中</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">アクセスできないキャッシュを判定中</string>
     <string name="appcleaner_automation_error_locked_appcache_title">キャッシュクリアが利用できません</string>
     <string name="appcleaner_automation_error_locked_appcache_body">システムがこのアプリの「キャッシュを削除」ボタンを無効にしました。キャッシュクリアの高速化のため除外してください。</string>

@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">ถูกเก็บไว้</string>
     <string name="appcontrol_tag_uninstalled">ข้อมูลเท่านั้น</string>
     <string name="appcontrol_tag_not_installed">ไม่ได้ติดตั้ง</string>
+    <string name="appcontrol_tag_hidden">ซ่อนอยู่</string>
     <string name="appcontrol_tag_enabled">เปิดใช้งาน</string>
     <string name="appcontrol_tag_disabled">ปิดใช้งาน</string>
     <string name="appcontrol_tag_debug">ดีบัก</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">ขนาด</string>
     <string name="appcontrol_list_sortmode_screentime_label">เวลาใช้งานหน้าจอ</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ขนาดแอพเป็นการประมาณเพื่อประสิทธิภาพการทำงาน ใช้เครื่องมือ StorageAnalyzer สำหรับข้อมูลที่แม่นยำกว่า</string>
+    <string name="appcontrol_list_scan_cancelled_label">ยกเลิกการสแกนแล้ว ไม่มีการโหลดแอป</string>
     <string name="appcontrol_progress_uninstalling_app">กำลังถอนการติดตั้งแอพ</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">ถอนการติดตั้งแอพ %d แอพแล้ว</item>

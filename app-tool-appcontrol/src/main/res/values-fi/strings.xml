@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Arkistoitu</string>
     <string name="appcontrol_tag_uninstalled">Vain tiedot</string>
     <string name="appcontrol_tag_not_installed">Ei asennettu</string>
+    <string name="appcontrol_tag_hidden">Piilotettu</string>
     <string name="appcontrol_tag_enabled">Käytössä</string>
     <string name="appcontrol_tag_disabled">Poistettu käytöstä</string>
     <string name="appcontrol_tag_debug">Virheenkorjaus</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Koko</string>
     <string name="appcontrol_list_sortmode_screentime_label">Näyttöaika</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Sovelluskoot ovat arvioita suorituskyvyn vuoksi. Käytä Tallennustilan analysaattoria tarkempien tietojen saamiseksi.</string>
+    <string name="appcontrol_list_scan_cancelled_label">Skannaus peruttiin, sovelluksia ei ladattu.</string>
     <string name="appcontrol_progress_uninstalling_app">Poistetaan sovelluksen asennus</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d sovellus poistettiin</item>

@@ -95,7 +95,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Публічні та приватні кеші за умовчанням. Не доступні безпосередньо, але можуть бути видалені опосередковано (наприклад, через сервіс спеціальних можливостей).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Виключено, але очищення всіх додатків одночасно все одно очищує ці кеші</string>
     <string name="appcleaner_exclusion_limited_title">Виключений додаток</string>
-    <string name="appcleaner_exclusion_limited_body">Цей додаток виключено з AppCleaner. Очищення кешу всіх додатків одночасно використовує системне очищення кешу Shizuku, яке не може оминати окремі додатки, тому кешовані дані цього додатка очищуються разом з усіма іншими. Це стосується лише кешованих даних, показаних тут, — усе інше, на що поширюється виключення, залишається прихованим і неторкнутим.</string>
+    <string name="appcleaner_exclusion_limited_body">Програма виключена з AppCleaner. Очищення кешу усіх програм одночасно використовує системне очищення кешу, доступне через доступ ADB, яке не може пропустити окремі програми, тому кеш цієї програми очищується разом з усім іншим. Тільки кешовані дані, показані тут, видаляються, все інше, що охоплює виключення, залишається прихованим та недоторканим.</string>
     <string name="appcleaner_automation_unavailable_title">Сервіс спеціальних можливостей недоступний</string>
     <string name="appcleaner_automation_unavailable_body">Для очищення цих кешів потрібна служба спеціальних можливостей SD Maid, але вона була недоступна.</string>
     <string name="appcleaner_delete_confirmation_message_x">Видалити витратні файли для %s?</string>
@@ -105,7 +105,7 @@
         <item quantity="many">Видалити витратні файли для %d вибраних додатків?</item>
         <item quantity="other">Видалити витратні файли для %d вибраних додатків?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Видалення кешу за допомогою Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Видалення кешів за допомогою доступу ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Визначення недоступних кешів</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Очистити кеш неможливо</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Система вимкнула кнопку «Очистити кеш» для цього додатка. Вимкніть її, щоб пришвидшити очищення кешу.</string>

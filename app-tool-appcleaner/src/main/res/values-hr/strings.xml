@@ -90,7 +90,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Javne i privatne zadane predmemorije. Nisu izravno dostupne, ali se mogu neizravno izbrisati (npr. putem usluge pristupačnosti).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Izuzeto, ali čišćenje svih aplikacija odjednom ipak briše ove predmemorije</string>
     <string name="appcleaner_exclusion_limited_title">Izuzeta aplikacija</string>
-    <string name="appcleaner_exclusion_limited_body">Ova je aplikacija izuzeta iz AppCleanera. Čišćenje predmemorije svih aplikacija odjednom koristi Shizukuovo sustavsko čišćenje predmemorije koje ne može izostaviti pojedinačne aplikacije, pa se predmemorija ove aplikacije briše zajedno sa svime ostalim. Utječe samo na predmemoriju prikazanu ovdje; sve ostalo što izuzeće obuhvaća ostaje skriveno i netaknuto.</string>
+    <string name="appcleaner_exclusion_limited_body">Isključio si ovu aplikaciju iz AppCleanera. Brisanje predmemorije svih aplikacija odjednom koristi sistemsko čišćenje predmemorije dostupno putem ADB pristupa, koje ne može izostaviti pojedinačne aplikacije, pa se predmemorija ove aplikacije briše zajedno sa svim ostalim. Zahvaćena je samo ovdje prikazana predmemorija, sve ostalo što isključivanje pokriva ostaje skriveno i netaknuto.</string>
     <string name="appcleaner_automation_unavailable_title">Usluga pristupačnosti nije dostupna</string>
     <string name="appcleaner_automation_unavailable_body">Brisanje ovih predmemorija zahtijeva SD Maidovu uslugu pristupačnosti, ali ona nije bila dostupna.</string>
     <string name="appcleaner_delete_confirmation_message_x">Izbrisati potrošne datoteke za %s?</string>
@@ -99,7 +99,7 @@
         <item quantity="few">Izbrisati potrošne datoteke za %d odabrane aplikacije?</item>
         <item quantity="other">Izbrisati potrošne datoteke za %d odabranih aplikacija?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Brisanje predmemorija pomoću Shizukua</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Brisanje predmemorije pomoću ADB pristupa</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Određivanje nedostupnih predmemorija</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Čišćenje predmemorije nedostupno</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem je onemogućio gumb \"Očisti predmemoriju\" za ovu aplikaciju. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>

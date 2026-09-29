@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Pripravljen.</string>
     <string name="slogan_message_1">Čist in urejen.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Nalaganje</string>
     <string name="general_progress_loading_app_data">Nalaganje programskih podatkov</string>
     <string name="general_progress_loading_data_areas">Nalaganje podatkovnih področij</string>
+    <string name="general_data_areas_unavailable_message">Podatkovnih področij ni bilo mogoče naložiti - to so lokacije shranjevanja, s katerimi lahko dela SD Maid.</string>
     <string name="general_progress_loading_egg_0">Še vedno hitrejši od iPhonea.</string>
     <string name="general_progress_loading_egg_1">Prejemanje več RAM-a</string>
     <string name="general_progress_loading_egg_2">Kmalu™</string>
@@ -204,7 +204,7 @@
     <string name="general_information_for_the_developer">Informacije za razvijalca</string>
     <string name="general_error_report_bug_action">Prijavi napako</string>
     <string name="general_error_ipc_deadobject_title">Povezava s storitvijo je prekinjena</string>
-    <string name="general_error_ipc_deadobject_description">Povezava s kritično storitvijo (npr. Magisk, Shizuku ali druge sistemske storitve) je bila nepričakovano prekinjena. Prosimo, ponovno zaženite napravo. Če se težava ponavlja, preverite posodobitve ali me kontaktirajte, da lahko težavo odpravim.</string>
+    <string name="general_error_ipc_deadobject_description">Povezava s kritično storitvijo (npr. Magisk, Porter, Shizuku ali drugimi storitvami na ravni sistema) je bila nepričakovano prekinjena. Ponovno zaženi napravo. Če se problem nadaljuje, preveri posodobitve ali mi napiši, da ga lahko popravim.</string>
     <string name="general_error_upgrade_required_title">Nadgradnja je potrebna</string>
     <string name="general_error_upgrade_required_description">Ta funkcija zahteva nadgradnjo. Prosimo, nadgradite SD Maid SE, da jo lahko uporabite.</string>
     <string name="general_user_label_owner">Lastnik</string>
@@ -236,11 +236,9 @@
     <string name="appcontrol_systemsettings_open_title">Prikaži nastavitve</string>
     <string name="ui_theme_color_sunset_label">Sončni zahod</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Ta funkcija zahteva skrbniški dostop, ki ga SD Maid na tej napravi ni uspel pridobiti.</string>
     <string name="access_blocked_root_declined">Ta funkcija potrebuje skrbniški dostop. Lahko ga omogočite prek zaslona nastavitev.</string>
-    <string name="access_blocked_root_or_shizuku">Ta funkcija potrebuje skrbniški dostop ali dostop Shizuku, ki ni na voljo na tej napravi.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Ta funkcija potrebuje korenski ali ADB dostop, ki ni na voljo na tej napravi.</string>
     <string name="backup_restore_error_invalid_title">Neveljavna datoteka varnostne kopije</string>
     <string name="backup_restore_error_invalid_body">Ta datoteka ni veljavna varnostna kopija SD Maid ali je poškodovana.</string>
     <string name="backup_restore_error_version_body">Ta varnostna kopija je bila ustvarjena z novejšo različico SD Maid. Posodobite aplikacijo in poskusite znova.</string>

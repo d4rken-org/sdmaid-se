@@ -14,11 +14,9 @@
     <string name="upgrades_gplay_network_error_description">Nem sikerült csatlakozni a Google Playhez. Kérjük, ellenőrizd az internetkapcsolatod, és próbáld újra.</string>
     <string name="upgrades_gplay_offer_unavailable_title">Az ajánlat nem elérhető</string>
     <string name="upgrades_gplay_offer_unavailable_description">A Google Play jelenleg nem kínálja ezt a frissítési lehetőséget. Próbálkozzon később, vagy ellenőrizze a Google Play Áruházat.</string>
-    <!-- Toast shown when the "Google Play" button of an error dialog can't open Google Play's app info, e.g. Google Play is missing or blocked on this device. "Google Play" is a brand name, keep it untranslated. -->
     <string name="upgrades_gplay_not_installed_message">Nem sikerült megnyitni a Google Play-t. Lehetséges, hogy hiányzik, letiltott vagy korlátozott erre az eszközön.</string>
     <string name="upgrades_gplay_already_owned_error_title">Már megvásárolva</string>
     <string name="upgrades_gplay_already_owned_error_description">Használd a \"Vásárlás visszaállítása\" lehetőséget a vásárlás visszaállításához. Ha a probléma továbbra is fennáll, próbáld meg törölni a Google Play gyorsítótárát és újraindítani a készüléked.</string>
-    <!-- %1$s is the full localized brand ("SD Maid SE Pro", composed from the app name + postfix) — translate the sentence around it, keep the placeholder. -->
     <string name="upgrade_screen_title_template">%1$s letöltése</string>
     <string name="upgrade_screen_preamble">Az SD Maid nem tartalmaz hirdetéseket, és nem értékesít felhasználói adatokat. A munkámat Ön finanszírozza ❤️.</string>
     <string name="upgrade_screen_benefits_title">Frissítés előnyei</string>

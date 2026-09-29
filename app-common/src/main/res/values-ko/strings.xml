@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">성심껏 돕겠습니다.</string>
     <string name="slogan_message_1">정리 완료</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">불러오는 중</string>
     <string name="general_progress_loading_app_data">앱 데이터를 불러오는 중</string>
     <string name="general_progress_loading_data_areas">데이터 구역 불러오는 중</string>
+    <string name="general_data_areas_unavailable_message">SD Maid가 작업할 수 있는 저장 위치인 데이터 영역을 불러오지 못했습니다.</string>
     <string name="general_progress_loading_egg_0">그래도 아이폰보단 빠릅니다</string>
     <string name="general_progress_loading_egg_1">램을 더 다운로드 받는 중</string>
     <string name="general_progress_loading_egg_2">곧...™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">개발자 정보</string>
     <string name="general_error_report_bug_action">버그 신고</string>
     <string name="general_error_ipc_deadobject_title">서비스 연결 끊김</string>
-    <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Porter, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하세요. 문제가 계속되면 업데이트를 확인하거나 저에게 문의해 주세요. 수정하겠습니다.</string>
     <string name="general_error_upgrade_required_title">업그레이드 필요</string>
     <string name="general_error_upgrade_required_description">이 기능은 업그레이드가 필요합니다. SD Maid SE를 업그레이드하여 사용해주세요.</string>
     <string name="general_user_label_owner">소유자</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
     <string name="ui_theme_color_sunset_label">일몰</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">이 기능은 루트 접근이 필요하지만 이 기기에서 SD Maid가 루트를 획득할 수 없습니다.</string>
     <string name="access_blocked_root_declined">이 기능은 루트 접근이 필요합니다. 설정 화면에서 활성화할 수 있습니다.</string>
-    <string name="access_blocked_root_or_shizuku">이 기능은 루트 또는 Shizuku 접근이 필요하지만 이 기기에서 사용할 수 없습니다.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">이 기능에는 root 또는 ADB 접근이 필요하지만 이 기기에서는 사용할 수 없습니다.</string>
     <string name="backup_restore_error_invalid_title">유효하지 않은 백업 파일</string>
     <string name="backup_restore_error_invalid_body">이 파일은 유효한 SD Maid 백업이 아니거나 손상되었습니다.</string>
     <string name="backup_restore_error_version_body">이 백업은 최신 버전의 SD Maid로 생성되었습니다. 앱을 업데이트하고 다시 시도하세요.</string>

@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Arkiverad</string>
     <string name="appcontrol_tag_uninstalled">Endast data</string>
     <string name="appcontrol_tag_not_installed">Inte installerad</string>
+    <string name="appcontrol_tag_hidden">Dold</string>
     <string name="appcontrol_tag_enabled">Aktiverad</string>
     <string name="appcontrol_tag_disabled">Inaktiverad</string>
     <string name="appcontrol_tag_debug">Felsökning</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Storlek</string>
     <string name="appcontrol_list_sortmode_screentime_label">Skärmtid</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Appstorlekar är uppskattade av prestandaskäl. Använd StorageAnalyzer-verktyget för mer exakta data.</string>
+    <string name="appcontrol_list_scan_cancelled_label">Skanningen avbröts, inga appar lästes in.</string>
     <string name="appcontrol_progress_uninstalling_app">Avinstallerar app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app avinstallerades</item>

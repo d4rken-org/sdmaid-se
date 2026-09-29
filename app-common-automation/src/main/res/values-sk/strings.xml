@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
     <string name="automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
     <string name="automation_error_disabled_app_title">Aplikácia je zakázaná</string>
-    <string name="automation_error_disabled_app_body">Vaše zariadenie nedokáže otvoriť nastavenia zakázaných aplikácií, takže sa vyrovnávacia pamäť nedá vymazať prostredníctvom služby prístupnosti. Povoľte aplikáciu alebo použite root, Shizuku alebo ADB.</string>
+    <string name="automation_error_disabled_app_body">Vaše zariadenie neotvára obrazovku nastavení zakázaných aplikácií, preto cache nemôže byť vymazaná prostredníctvom služby zjednodušenia ovládania. Povoľte aplikáciu alebo namiesto toho používajte root alebo prístup cez ADB.</string>
     <string name="automation_error_interference_title">Obrazovka nastavení je zablokovaná</string>
     <string name="automation_error_interference_body">Iná aplikácia (%1$s) blokuje obrazovku nastavení systému, takže SD Maid nemôže pokračovať. Vypnite zámok aplikácie alebo ochranu obrazovky tejto aplikácie pre nastavenia systému a skúste znova.</string>
     <string name="automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>

@@ -90,7 +90,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">מטמון ברירת מחדל ציבורי ופרטי. לא נגיש ישירות, אבל ניתן למחוק בעקיפין (למשל באמצעות שירות נגישות).</string>
     <string name="appcleaner_exclusion_limited_row_hint">מוחרג, אך ניקוי כל היישומים בבת אחת עדיין מנקה את המטמונים האלה</string>
     <string name="appcleaner_exclusion_limited_title">יישום מוחרג</string>
-    <string name="appcleaner_exclusion_limited_body">החרגת את היישום הזה מ-AppCleaner. ניקוי מטמון עבור כל היישומים בבת אחת משתמש בקיצוץ מטמון כלל-מערכתי של Shizuku, שלא יכול להשאיר יישומים בודדים בחוץ, כך שנתוני המטמון של היישום הזה נמחקים יחד עם כל השאר. רק נתוני המטמון המוצגים כאן מושפעים, כל השאר שההחרגה מכסה נשאר מוסתר ולא נפגע.</string>
+    <string name="appcleaner_exclusion_limited_body">החרגת אפליקציה זו מ-AppCleaner. ניקוי מטמונים של כל האפליקציות בבת אחת משתמש בקיצוץ מטמון ברמת המערכת הזמין דרך גישת ADB, שאינו יכול להשאיר אפליקציות בודדות בחוץ, ולכן נתוני המטמון של אפליקציה זו נמחקים יחד עם כל השאר. רק נתוני המטמון המוצגים כאן מושפעים, כל השאר שההחרגה מכסה נשאר מוסתר ולא נפגע.</string>
     <string name="appcleaner_automation_unavailable_title">שירות הנגישות לא זמין</string>
     <string name="appcleaner_automation_unavailable_body">ניקוי המטמונים האלה דורש את שירות הנגישות של SD Maid, אך הוא לא היה זמין.</string>
     <string name="appcleaner_delete_confirmation_message_x">למחוק קבצים זמניים עבור %s?</string>
@@ -99,7 +99,7 @@
         <item quantity="two">האם למחוק קבצים שניתנים להרחבה עבור %d אפליקציות שנבחרו?</item>
         <item quantity="other">האם למחוק קבצים שניתנים להרחבה עבור %d אפליקציות שנבחרו?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">מחיקת מטמונים באמצעות Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">מוחק מטמונים באמצעות גישת ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">זיהוי מטמונים בלתי נגישים</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ניקוי מטמון אינו זמין</string>
     <string name="appcleaner_automation_error_locked_appcache_body">המערכת השביתה את כפתור \"ניקוי מטמון\" עבור אפליקציה זו. מומלץ לא לכלול אותו כדי להאיץ את ניקוי המטמון.</string>

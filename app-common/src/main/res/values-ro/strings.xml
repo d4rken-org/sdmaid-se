@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">La servirea dvs.</string>
     <string name="slogan_message_1">Curat şi maree.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Se încarcă</string>
     <string name="general_progress_loading_app_data">Se încarcă datele aplicației</string>
     <string name="general_progress_loading_data_areas">Se încarcă zonele de date</string>
+    <string name="general_data_areas_unavailable_message">Zonele de date, adică locațiile de stocare cu care poate lucra SD Maid, nu au putut fi încărcate.</string>
     <string name="general_progress_loading_egg_0">Încă mai rapid decât un iPhone</string>
     <string name="general_progress_loading_egg_1">Se descarcă mai mult RAM</string>
     <string name="general_progress_loading_egg_2">În curând™</string>
@@ -192,7 +192,7 @@
     <string name="general_information_for_the_developer">Informații pentru dezvoltator</string>
     <string name="general_error_report_bug_action">Raportare problemă</string>
     <string name="general_error_ipc_deadobject_title">Conexiune la servicii pierdută</string>
-    <string name="general_error_ipc_deadobject_description">Conexiunea la un serviciu critic (de ex. Magisk, Shizuku sau alte servicii la nivel de sistem) au fost pierdute în mod neașteptat. Vă rugăm să reporniți dispozitivul. Dacă problema persistă, verificați dacă există actualizări sau contactați-mă, astfel încât să o pot rezolva.</string>
+    <string name="general_error_ipc_deadobject_description">Conexiunea la un serviciu critic (de ex. Magisk, Porter, Shizuku sau alte servicii la nivel de sistem) a fost pierdută în mod neașteptat. Repornește dispozitivul. Dacă problema persistă, caută actualizări sau contactează-mă pentru a o putea remedia.</string>
     <string name="general_error_upgrade_required_title">Actualizare necesară</string>
     <string name="general_error_upgrade_required_description">Această funcție necesită o actualizare. Vă rugăm să actualizați SD Maid SE pentru a o utiliza.</string>
     <string name="general_user_label_owner">Proprietar</string>
@@ -223,11 +223,9 @@
     <string name="appcontrol_systemsettings_open_title">Arată setările</string>
     <string name="ui_theme_color_sunset_label">Apus</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Această funcție necesită acces root, dar SD Maid nu a putut să-l obțină pe acest dispozitiv.</string>
     <string name="access_blocked_root_declined">Această funcție necesită acces root. Poți să-l activezi din ecranul de configurare.</string>
-    <string name="access_blocked_root_or_shizuku">Această funcție necesită acces root sau Shizuku, care nu este disponibil pe acest dispozitiv.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Această funcție necesită acces root sau ADB, care nu este disponibil pe acest dispozitiv.</string>
     <string name="backup_restore_error_invalid_title">Fișier de copie de siguranță nevalid</string>
     <string name="backup_restore_error_invalid_body">Acest fișier nu este o copie de siguranță validă a SD Maid sau este corupt.</string>
     <string name="backup_restore_error_version_body">Această copie de siguranță a fost creată cu o versiune mai nouă a SD Maid. Te rog să actualizezi aplicația și să încerci din nou.</string>

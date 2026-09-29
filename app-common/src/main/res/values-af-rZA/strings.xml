@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Tot u diens.</string>
     <string name="slogan_message_1">Skoon en netjies.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Laai</string>
     <string name="general_progress_loading_app_data">Laai app data</string>
     <string name="general_progress_loading_data_areas">Laai data areas</string>
+    <string name="general_data_areas_unavailable_message">Kon nie die datagebiede laai nie, die bergingslokasies waarmee SD Maid kan werk.</string>
     <string name="general_progress_loading_egg_0">Steeds vinniger as \'n iPhone</string>
     <string name="general_progress_loading_egg_1">Laai meer RAM af</string>
     <string name="general_progress_loading_egg_2">Binnekort™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Inligting vir die ontwikkelaar</string>
     <string name="general_error_report_bug_action">Rapporteer fout</string>
     <string name="general_error_ipc_deadobject_title">Diens Verbinding Verloor</string>
-    <string name="general_error_ipc_deadobject_description">Die verbinding na \'n kritieke diens (bv. Magisk, Shizuku, of ander stelsel-vlak dienste) is onverwags verloor. Herlaai asseblief jou toestel. As die probleem voortduur, kontroleer vir opdaterings of kontak my sodat ek dit kan regstel.</string>
+    <string name="general_error_ipc_deadobject_description">Die verbinding met \'n kritiese diens (bv. Magisk, Porter, Shizuku, of ander stelselvlakdienste) is onverwags verlore gegaan. Herstart asseblief jou toestel. Indien die probleem aanhoud, kontroleer vir opdaterings of neem kontak met my op sodat ek dit kan regmaak.</string>
     <string name="general_error_upgrade_required_title">Opgradering vereis</string>
     <string name="general_error_upgrade_required_description">Hierdie funksie vereis \'n opgradering. Gradeer asseblief SD Maid SE op om dit te gebruik.</string>
     <string name="general_user_label_owner">Eienaar</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Wys instellings</string>
     <string name="ui_theme_color_sunset_label">Sonsondergang</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Hierdie funksie benodig root-toegang, maar SD Maid kon dit nie op hierdie toestel verkry nie.</string>
     <string name="access_blocked_root_declined">Hierdie funksie benodig root toegang. U kan dit deur die instellingskerm aktiveer.</string>
-    <string name="access_blocked_root_or_shizuku">Hierdie funksie benodig root- of Shizuku-toegang, wat nie op hierdie toestel beskikbaar is nie.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Hierdie funksie benodig root- of ADB-toegang, wat nie op hierdie toestel beskikbaar is nie.</string>
     <string name="backup_restore_error_invalid_title">Ongeldige rugsteunlêer</string>
     <string name="backup_restore_error_invalid_body">Hierdie lêer is nie \'n geldige SD Maid-rugsteun nie of is korrup.</string>
     <string name="backup_restore_error_version_body">Hierdie rugsteun is geskep met \'n nuwer weergawe van SD Maid. Bywerk die toepassing asseblief en probeer weer.</string>

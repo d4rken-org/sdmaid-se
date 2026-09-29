@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">پبلک اور پرائیویٹ ڈیفالٹ کیشیز۔ براہ راست قابل رسائی نہیں، لیکن بالواسطہ ڈیلیٹ کیا جا سکتا ہے (جیسے رسائی سروس کے ذریعے)۔</string>
     <string name="appcleaner_exclusion_limited_row_hint">خارج کیا گیا، لیکن تمام ایپس کو ایک ساتھ صاف کرنے سے یہ کیشز اب بھی حذف ہو جاتے ہیں</string>
     <string name="appcleaner_exclusion_limited_title">خارج کردہ ایپ</string>
-    <string name="appcleaner_exclusion_limited_body">آپ نے اس ایپ کو AppCleaner سے خارج کیا ہے۔ تمام ایپس کے لیے کیشز کو ایک ساتھ صاف کرنے سے Shizuku کا نظام وسیع کیش ٹرم استعمال ہوتا ہے، جو انفرادی ایپس کو نہیں چھوڑ سکتا، اس لیے اس ایپ کا کیشڈ ڈیٹا باقی سب چیزوں کے ساتھ صاف ہو جاتا ہے۔ یہاں صرف دکھایا گیا کیشڈ ڈیٹا متاثر ہوتا ہے، باقی تمام چیزیں جو خارج کرنا احاطہ کرتا ہے وہ چھپی اور غیر متاثر رہتی ہیں۔</string>
+    <string name="appcleaner_exclusion_limited_body">آپ نے اس ایپ کو AppCleaner سے خارج کیا ہے۔ تمام ایپس کے کیشے ایک ساتھ صاف کرنے میں ADB رسائی کے ذریعے دستیاب سسٹم بھر کی کیشے ٹرم استعمال ہوتی ہے، جو انفرادی ایپس کو چھوڑ نہیں سکتی، اس لیے اس ایپ کا کیشے ڈیٹا بھی باقی سب کے ساتھ صاف ہو جاتا ہے۔ صرف یہاں دکھایا گیا کیشے ڈیٹا متاثر ہوتا ہے، اخراج میں شامل باقی سب کچھ پوشیدہ اور محفوظ رہتا ہے۔</string>
     <string name="appcleaner_automation_unavailable_title">رسائی سروس دستیاب نہیں</string>
     <string name="appcleaner_automation_unavailable_body">ان کیشز کو صاف کرنے کے لیے SD Maid کی رسائی کی سروس درکار ہے، لیکن یہ دستیاب نہیں تھی۔</string>
     <string name="appcleaner_delete_confirmation_message_x">%s کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</string>
@@ -93,7 +93,7 @@
         <item quantity="one">%d منتخب ایپ کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
         <item quantity="other">%d منتخب ایپس کے لیے قابل حذف فائلیں ڈیلیٹ کریں؟</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku استعمال کرکے کیشیز ڈیلیٹ کر رہے ہیں</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB رسائی کے ذریعے کیشے حذف کیے جا رہے ہیں</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">ناقابل رسائی کیشیز کا تعین کر رہے ہیں</string>
     <string name="appcleaner_automation_error_locked_appcache_title">کیش صاف کرنا دستیاب نہیں</string>
     <string name="appcleaner_automation_error_locked_appcache_body">سسٹم نے اس ایپ کے لیے \"Clear cache\" بٹن کو غیر فعال کر دیا ہے۔ کیش صاف کرنے کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>

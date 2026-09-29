@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">এসডি মেইড এসই</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">আপনার সেবায় নিয়োজিত।</string>
     <string name="slogan_message_1">পরিষ্কার ও পরিপাটি.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">লোড হচ্ছে</string>
     <string name="general_progress_loading_app_data">অ্যাপ তথ্য লোড হচ্ছে</string>
     <string name="general_progress_loading_data_areas">ডেটা এরিয়া লোড হচ্ছে</string>
+    <string name="general_data_areas_unavailable_message">ডেটা এলাকা লোড করা যায়নি, স্টোরেজ অবস্থান যেখানে এসডি মেইড কাজ করতে পারে।</string>
     <string name="general_progress_loading_egg_0">এখনও আইফোনের চেয়ে দ্রুত</string>
     <string name="general_progress_loading_egg_1">আরো RAM ডাউনলোড হচ্ছে</string>
     <string name="general_progress_loading_egg_2">শীঘ্রই™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">ডেভেলপারের জন্য তথ্য</string>
     <string name="general_error_report_bug_action">বাগ রিপোর্ট করুন</string>
     <string name="general_error_ipc_deadobject_title">পরিষেবা সংযোগ বিচ্ছিন্ন হয়েছে</string>
-    <string name="general_error_ipc_deadobject_description">একটি গুরুত্বপূর্ণ পরিষেবার (যেমন Magisk, Shizuku, অথবা অন্যান্য সিস্টেম-স্তরের পরিষেবা) সাথে সংযোগ অপ্রত্যাশিতভাবে বিচ্ছিন্ন হয়ে গেছে। আপনার ডিভাইসটি রিবুট করুন। যদি সমস্যাটি থেকে যায়, তাহলে আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
+    <string name="general_error_ipc_deadobject_description">একটি গুরুত্বপূর্ণ সেবার সংযোগ (যেমন Magisk, Porter, Shizuku, বা অন্যান্য সিস্টেম-স্তরের সেবা) অপ্রত্যাশিতভাবে হারিয়ে গেছে। আপনার ডিভাইস পুনরায় চালু করুন। সমস্যা অব্যাহত থাকলে, আপডেট পরীক্ষা করুন বা আমার কাছে পৌঁছান যাতে আমি এটি সমাধান করতে পারি।</string>
     <string name="general_error_upgrade_required_title">আপগ্রেড প্রয়োজন</string>
     <string name="general_error_upgrade_required_description">এই বৈশিষ্ট্যটি একটি আপগ্রেড প্রয়োজন। এটি ব্যবহার করতে দয়া করে SD Maid SE আপগ্রেড করুন।</string>
     <string name="general_user_label_owner">মালিক</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">সেটিংস দেখান</string>
     <string name="ui_theme_color_sunset_label">সূর্যাস্ত</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">এই বৈশিষ্ট্যটির রুট অ্যাক্সেস প্রয়োজন, কিন্তু SD Maid এই ডিভাইসে এটি পেতে পারেনি।</string>
     <string name="access_blocked_root_declined">এই বৈশিষ্ট্যের জন্য রুট অ্যাক্সেস প্রয়োজন। আপনি সেটআপ স্ক্রিনের মাধ্যমে এটি সক্ষম করতে পারেন।</string>
-    <string name="access_blocked_root_or_shizuku">এই বৈশিষ্ট্যের জন্য রুট বা Shizuku অ্যাক্সেস প্রয়োজন, যা এই ডিভাইসে উপলব্ধ নয়।</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">এই বৈশিষ্ট্যের জন্য রুট বা এডিবি অ্যাক্সেস প্রয়োজন, যা এই ডিভাইসে উপলব্ধ নেই।</string>
     <string name="backup_restore_error_invalid_title">অবৈধ ব্যাকআপ ফাইল</string>
     <string name="backup_restore_error_invalid_body">এই ফাইলটি একটি বৈধ SD Maid ব্যাকআপ নয় বা ভাঙ্গা।</string>
     <string name="backup_restore_error_version_body">এই ব্যাকআপটি SD Maid এর একটি নতুন সংস্করণ দিয়ে তৈরি করা হয়েছে। অ্যাপটি আপডেট করুন এবং আবার চেষ্টা করুন।</string>

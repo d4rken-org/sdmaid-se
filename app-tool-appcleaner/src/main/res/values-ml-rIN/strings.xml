@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">പൊതു, സ്വകാർയ ഡിഫോൾട്ട് ക്യാഷുകൾ. നേരിട്ട് ആക്‍സസ് ചെയ്യാൻ കഴിയില്ല, പക്ഷേ പരോക്ഷമായി ഡിലീറ്റ് ചെയ്യാൻ കഴിയും (ഉദാ: ആക്‍സസിബിലിറ്റി സേവനം വഴി).</string>
     <string name="appcleaner_exclusion_limited_row_hint">ഒഴിവാക്കിയിരിക്കുന്നു, പക്ഷേ എല്ലാ ആപ്പുകളും ഒരുമിച്ച് വൃത്തിയാക്കുമ്പോൾ ഈ കാഷുകൾ ഇപ്പോഴും മായ്ക്കപ്പെടും</string>
     <string name="appcleaner_exclusion_limited_title">ഒഴിവാക്കിയ ആപ്പ്</string>
-    <string name="appcleaner_exclusion_limited_body">നിങ്ങൾ ഈ ആപ്പിനെ AppCleaner-ൽ നിന്ന് ഒഴിവാക്കിയിട്ടുണ്ട്. എല്ലാ ആപ്പുകളുടെയും കാഷ് ഒരുമിച്ച് മായ്ക്കുമ്പോൾ Shizuku-ന്റെ സിസ്റ്റം-വൈഡ് കാഷ് ട്രിം ഉപയോഗിക്കുന്നു, ഇതിന് ഓരോ ആപ്പിനെയും വേറിട്ട് ഒഴിവാക്കാൻ കഴിയില്ല, അതിനാൽ മറ്റെല്ലാറ്റിനുമൊപ്പം ഈ ആപ്പിന്റെ കാഷ് ചെയ്ത ഡാറ്റയും മായ്ക്കപ്പെടും. ഇവിടെ കാണിച്ചിരിക്കുന്ന കാഷ് ഡാറ്റയെ മാത്രമേ ഇത് ബാധിക്കൂ, ഒഴിവാക്കൽ ഉൾക്കൊള്ളുന്ന മറ്റെല്ലാം മറഞ്ഞും തൊടാതെയും തുടരും.</string>
+    <string name="appcleaner_exclusion_limited_body">നിങ്ങൾ ഈ ആപ്പ് AppCleaner-ൽ നിന്ന് ഒഴിവാക്കിയിരിക്കുന്നു. എല്ലാ ആപ്പുകളുടെയും കാഷെ ഒരേസമയം മായ്ക്കുന്നത് ADB ആക്സസ് വഴി ലഭ്യമായ സിസ്റ്റം-വ്യാപകമായ കാഷെ ട്രിം ഉപയോഗിക്കുന്നു, ഇതിന് വ്യക്തിഗത ആപ്പുകളെ ഒഴിവാക്കാൻ കഴിയില്ല, അതിനാൽ ഈ ആപ്പിന്റെ കാഷെ ഡേറ്റ മറ്റെല്ലാറ്റിനുമൊപ്പം മായ്ക്കപ്പെടുന്നു. ഇവിടെ കാണിക്കുന്ന കാഷെ ഡേറ്റ മാത്രമേ ബാധിക്കൂ, ഒഴിവാക്കൽ ഉൾക്കൊള്ളുന്ന ബാക്കിയെല്ലാം മറച്ചും തൊടാതെയും തുടരും.</string>
     <string name="appcleaner_automation_unavailable_title">ആക്‍സസിബിലിറ്റി സേവനം ലഭ്യമല്ല</string>
     <string name="appcleaner_automation_unavailable_body">ഈ കാഷുകൾ മായ്ക്കാൻ SD Maid-ന്റെ ഉപയോഗസഹായി സേവനം ആവശ്യമാണ്, പക്ഷേ അത് ലഭ്യമായിരുന്നില്ല.</string>
     <string name="appcleaner_delete_confirmation_message_x">%s-നായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">%d തിരഞ്ഞെടുത്ത ആപ്പിനായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</item>
         <item quantity="other">%d തിരഞ്ഞെടുത്ത ആപ്പുകൾക്കായി ചെലവഴിക്കാൻ പറ്റുന്ന ഫയലുകൾ ഡിലീറ്റ് ചെയ്യണോ?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ഉപയോഗിച്ച് ക്യാഷുകൾ ഡിലീറ്റ് ചെയ്യുന്നു</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB ആക്സസ് ഉപയോഗിച്ച് കാഷെ ഇല്ലാതാക്കുന്നു</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">ആക്‍സസ് ചെയ്യാൻ കഴിയാത്ത ക്യാഷുകൾ നിർണ്ണയിക്കുന്നു</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ക്യാഷ് മായ്ക്കൽ ലഭ്യമല്ല</string>
     <string name="appcleaner_automation_error_locked_appcache_body">ഈ ആപ്പിനായി സിസ്റം \"Clear cache\" ബട്ടൻ പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു. ക്യാഷ് മായ്ക്കൽ വേഗത്തിലാക്കാൻ ഇത് ഒഴിവാക്കുക.</string>

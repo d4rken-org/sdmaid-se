@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Cachés públicos y privados predeterminados. No accesibles directamente, pero pueden eliminarse indirectamente (p. ej. a través del servicio de accesibilidad).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Excluida, pero limpiar todas las apps a la vez sigue borrando estas cachés</string>
     <string name="appcleaner_exclusion_limited_title">Aplicación excluida</string>
-    <string name="appcleaner_exclusion_limited_body">Excluiste esta app de AppCleaner. Limpiar las cachés de todas las apps a la vez usa la limpieza de caché de todo el sistema de Shizuku, que no puede dejar fuera apps individuales, así que los datos en caché de esta app se borran junto con todo lo demás. Solo se ve afectada la caché mostrada aquí; todo lo demás que cubre la exclusión permanece oculto e intacto.</string>
+    <string name="appcleaner_exclusion_limited_body">Excluiste esta aplicación de AppCleaner. Borrar las cachés de todas las aplicaciones a la vez usa la depuración de caché de todo el sistema disponible mediante acceso ADB, que no puede dejar aplicaciones individuales fuera, así que los datos en caché de esta aplicación se borran junto con todo lo demás. Solo se ven afectados los datos en caché que se muestran aquí; todo lo demás que cubre la exclusión permanece oculto e intacto.</string>
     <string name="appcleaner_automation_unavailable_title">Servicio de accesibilidad no disponible</string>
     <string name="appcleaner_automation_unavailable_body">Para borrar estas cachés se necesita el servicio de accesibilidad de SD Maid, pero no estaba disponible.</string>
     <string name="appcleaner_delete_confirmation_message_x">¿Eliminar archivos prescindibles de %s?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">¿Eliminar archivos prescindibles de %d aplicación seleccionada?</item>
         <item quantity="other">¿Eliminar archivos prescindibles de %d aplicaciones seleccionadas?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Eliminando cachés usando Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Eliminando cachés con acceso ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Determinando cachés inaccesibles</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Limpiar caché no disponible</string>
     <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha desactivado el botón \"Limpiar caché\" para esta aplicación. Exclúyela para acelerar la limpieza del caché.</string>

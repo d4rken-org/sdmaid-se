@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">为你服务。</string>
     <string name="slogan_message_1">干净整洁</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">正在加载</string>
     <string name="general_progress_loading_app_data">正在加载应用数据</string>
     <string name="general_progress_loading_data_areas">正在加载数据区域</string>
+    <string name="general_data_areas_unavailable_message">无法加载数据区域，即 SD Maid 可以处理的存储位置。</string>
     <string name="general_progress_loading_egg_0">反正比 iPhone 快多了</string>
     <string name="general_progress_loading_egg_1">正在下载更多内存</string>
     <string name="general_progress_loading_egg_2">马上™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">开发者信息</string>
     <string name="general_error_report_bug_action">报告错误</string>
     <string name="general_error_ipc_deadobject_title">服务连接丢失</string>
-    <string name="general_error_ipc_deadobject_description">与关键服务（如 Magisk、Shizuku 或其他系统级服务）的连接意外丢失。请重启您的设备。如果问题仍然存在，请检查更新或与我联系，以便我可以修复它。</string>
+    <string name="general_error_ipc_deadobject_description">与关键服务（例如 Magisk、Porter、Shizuku 或其他系统级服务）的连接意外中断。请重启设备。如果问题仍然存在，请检查更新或联系我，以便我进行修复。</string>
     <string name="general_error_upgrade_required_title">需要升级</string>
     <string name="general_error_upgrade_required_description">此功能需要升级。请升级 SD Maid SE 来使用它。</string>
     <string name="general_user_label_owner">所有者</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">显示设置</string>
     <string name="ui_theme_color_sunset_label">日落</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">此功能需要 Root 权限，但 SD Maid 在此设备上无法获取。</string>
     <string name="access_blocked_root_declined">此功能需要 Root 权限。您可以在设置界面启用它。</string>
-    <string name="access_blocked_root_or_shizuku">此功能需要 Root 或 Shizuku 权限，但此设备上不可用。</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">此功能需要 root 或 ADB 访问权限，但此设备上不可用。</string>
     <string name="backup_restore_error_invalid_title">无效的备份文件</string>
     <string name="backup_restore_error_invalid_body">此文件不是有效的 SD Maid 备份或已损坏。</string>
     <string name="backup_restore_error_version_body">此备份是使用较新版本的 SD Maid 创建的。请更新应用并重试。</string>

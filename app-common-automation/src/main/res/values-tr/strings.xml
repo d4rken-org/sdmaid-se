@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
     <string name="automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="automation_error_disabled_app_title">Uygulama devre dışı</string>
-    <string name="automation_error_disabled_app_body">Cihazınız devre dışı bırakılmış uygulamaların ayarlar ekranını açmaz, bu nedenle önbellek erişilebilirlik hizmeti aracılığıyla temizlenemez. Uygulamayı etkinleştirin veya bunun yerine root veya Shizuku/ADB kullanın.</string>
+    <string name="automation_error_disabled_app_body">Cihazın, devre dışı bırakılmış uygulamaların ayarlar ekranını açmaz, bu nedenle önbellek erişilebilirlik hizmeti aracılığıyla temizlenemez. Uygulamayı etkinleştir veya bunun yerine root veya ADB erişimi kullan.</string>
     <string name="automation_error_interference_title">Ayarlar ekranı engellenmiş</string>
     <string name="automation_error_interference_body">Başka bir uygulama (%1$s) sistem ayarları ekranını engelliyor, bu nedenle SD Maid devam edemiyor. O uygulamanın sistem ayarları için uygulama kilidini veya ekran korumasını devre dışı bırakın ve yeniden deneyin.</string>
     <string name="automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>

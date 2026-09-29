@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">ਤੁਹਾਡੀ ਸੇਵਾ ਵਿੱਚ।</string>
     <string name="slogan_message_1">ਸਾਫ਼-ਸੁਥਰਾ।</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_loading_app_data">ਐਪ ਡਾਟਾ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_loading_data_areas">ਡਾਟਾ ਖੇਤਰ ਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="general_data_areas_unavailable_message">ਡਾਟਾ ਖੇਤਰ ਲੋਡ ਨਹੀਂ ਹੋ ਸਕੇ, ਜੋ ਉਹ ਸਟੋਰੇਜ ਟਿਕਾਣੇ ਹਨ ਜਿੱਥੇ SD Maid ਕੰਮ ਕਰ ਸਕਦਾ ਹੈ।</string>
     <string name="general_progress_loading_egg_0">ਅਜੇ ਵੀ iPhone ਨਾਲੋਂ ਤੇਜ਼</string>
     <string name="general_progress_loading_egg_1">ਹੋਰ RAM ਡਾਊਨਲੋਡ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_loading_egg_2">ਜਲਦੀ™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">ਡਿਵੈਲਪਰ ਲਈ ਜਾਣਕਾਰੀ</string>
     <string name="general_error_report_bug_action">ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ</string>
     <string name="general_error_ipc_deadobject_title">ਸੇਵਾ ਸੰਪਰਕ ਗੁਆਚ ਗਿਆ</string>
-    <string name="general_error_ipc_deadobject_description">ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਸੇਵਾ (ਜਿਵੇਂ ਕਿ Magisk, Shizuku, ਜਾਂ ਹੋਰ ਸਿਸਟਮ-ਪੱਧਰ ਦੀਆਂ ਸੇਵਾਵਾਂ) ਨਾਲ ਸੰਪਰਕ ਅਚਾਨਕ ਟੁੱਟ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਯੰਤਰ ਰੀਬੂਟ ਕਰੋ। ਜੇ ਸਮੱਸਿਆ ਜਾਰੀ ਰਹਿੰਦੀ ਹੈ, ਅਪਡੇਟ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <string name="general_error_ipc_deadobject_description">ਇੱਕ ਅਹਿਮ ਸੇਵਾ (ਜਿਵੇਂ Magisk, Porter, Shizuku, ਜਾਂ ਹੋਰ ਸਿਸਟਮ-ਪੱਧਰ ਦੀਆਂ ਸੇਵਾਵਾਂ) ਨਾਲ ਕਨੈਕਸ਼ਨ ਅਚਾਨਕ ਟੁੱਟ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਰੀਬੂਟ ਕਰੋ। ਜੇ ਸਮੱਸਿਆ ਬਣੀ ਰਹੇ, ਤਾਂ ਅੱਪਡੇਟ ਦੇਖੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
     <string name="general_error_upgrade_required_title">ਅਪਗ੍ਰੇਡ ਲਾਜ਼ਮੀ ਹੈ</string>
     <string name="general_error_upgrade_required_description">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਲਈ ਅਪਗ੍ਰੇਡ ਲਾਜ਼ਮੀ ਹੈ। ਕਿਰਪਾ ਕਰ ਕੇ ਇਸ ਨੂੰ ਵਰਤਣ ਲਈ SD Maid SE ਨੂੰ ਅਪਗ੍ਰੇਡ ਕਰੋ।</string>
     <string name="general_user_label_owner">ਮਾਲਕ</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">ਸੈਟਿੰਗਾਂ ਦਿਖਾਓ</string>
     <string name="ui_theme_color_sunset_label">ਸੂਰਜ ਅਸਤ</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਨੂੰ ਰੂਟ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੈ, ਪਰ SD Maid ਇਸ ਡਿਵਾਇਸ ਤੇ ਇਸਨੂੰ ਪ੍ਰਾਪਤ ਨਹੀਂ ਕਰ ਸਕਿਆ।</string>
     <string name="access_blocked_root_declined">ਇਸ ਫ਼ੀਚਰ ਨੂੰ ਰੂਟ ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੈ। ਤੁਸੀਂ ਇਸ ਨੂੰ ਸੈਟਅਪ ਸਕ੍ਰੀਨ ਰਾਹੀਂ ਸਮਰਥ ਕਰ ਸਕਦੇ ਹੋ।</string>
-    <string name="access_blocked_root_or_shizuku">ਇਸ ਫ਼ੀਚਰ ਨੂੰ ਰੂਟ ਜਾਂ Shizuku ਪਹੁੰਚ ਦੀ ਲੋੜ ਹੈ, ਜੋ ਇਸ ਡਿਵਾਇਸ \'ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ ਲਈ ਰੂਟ ਜਾਂ ADB ਪਹੁੰਚ ਚਾਹੀਦੀ ਹੈ, ਜੋ ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
     <string name="backup_restore_error_invalid_title">ਅਵੈਧ ਬੈਕਅੱਪ ਫਾਇਲ</string>
     <string name="backup_restore_error_invalid_body">ਇਹ ਫਾਇਲ ਇੱਕ ਵੈਧ SD Maid ਬੈਕਅੱਪ ਨਹੀਂ ਹੈ ਜਾਂ ਖਰਾਬ ਹੈ।</string>
     <string name="backup_restore_error_version_body">ਇਹ ਬੈਕਅੱਪ SD Maid ਦੇ ਇੱਕ ਨਵੇਂ ਸੰਸਕਰਣ ਨਾਲ ਬਣਾਇਆ ਗਿਆ ਸੀ। ਕਿਰਪਾ ਕਰਕੇ ਐਪ ਨੂੰ ਅੱਪਡੇਟ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>

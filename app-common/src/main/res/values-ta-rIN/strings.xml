@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">உங்கள் சேவையில்.</string>
     <string name="slogan_message_1">சுத்தமான மற்றும் ஒழுங்கான.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">ஏற்றுகிறது</string>
     <string name="general_progress_loading_app_data">பயன்பாட்டு தரவை ஏற்றுகிறது</string>
     <string name="general_progress_loading_data_areas">தரவு பகுதிகளை ஏற்றுகிறது</string>
+    <string name="general_data_areas_unavailable_message">தரவு பகுதிகளை ஏற்ற முடியவில்லை. இவை SD Maid செயல்படக்கூடிய சேமிப்பு இருப்புகளாகும்.</string>
     <string name="general_progress_loading_egg_0">iPhone ஐ விட வேகமாக</string>
     <string name="general_progress_loading_egg_1">கூடுதல் RAM பதிவிறக்குகிறது</string>
     <string name="general_progress_loading_egg_2">விரைவில்™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">டெவலப்பருக்கான தகவல்</string>
     <string name="general_error_report_bug_action">பிழையைப் புகாரளி</string>
     <string name="general_error_ipc_deadobject_title">சேவை இணைப்பு இழந்தது</string>
-    <string name="general_error_ipc_deadobject_description">முக்கியமான சேவைக்கான இணைப்பு (உதா. Magisk, Shizuku, அல்லது பிற கணினி-நிலை சேவைகள்) எதிர்பாராதவிதமாக இழக்கப்பட்டது. உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும். சிக்கல் தொடர்ந்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதை சரிசெய்வதற்காக என்னைத் தொடர்பு கொள்ளவும்.</string>
+    <string name="general_error_ipc_deadobject_description">ஒரு முக்கிய சேவைக்கான தொடர்பு (உ.ம். Magisk, Porter, Shizuku, அல்லது பிற முறைமை-நிலை சேவைகள்) எதிர்பாராமல் இழக்கப்பட்டுள்ளது. தயவுசெய்து உங்கள் சாதனத்தை மீண்டும் தொடங்கவும். சிக்கல் நீடித்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது சரிசெய்வதற்கு என்னைத் தொடர்பு கொள்ளவும்.</string>
     <string name="general_error_upgrade_required_title">மேம்படுத்தல் தேவை</string>
     <string name="general_error_upgrade_required_description">இந்த அம்சத்திற்கு மேம்படுத்தல் தேவை. இதைப் பயன்படுத்த SD Maid SE ஐ மேம்படுத்தவும்.</string>
     <string name="general_user_label_owner">உரிமையாளர்</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">அமைப்புகளைக் காட்டு</string>
     <string name="ui_theme_color_sunset_label">சூரிய அஸ்தமனம்</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">இந்த பண்பிற்கு root அணுகல் தேவை, ஆனால் SD Maid இந்த சாதனத்தில் அதைப் பெற முடியவில்லை.</string>
     <string name="access_blocked_root_declined">இந்த அம்சத்திற்கு root அணுகல் தேவை. நீங்கள் அமைப்பு திரையின் மூலம் இதை செயல்படுத்தலாம்.</string>
-    <string name="access_blocked_root_or_shizuku">இந்த அம்சத்திற்கு root அல்லது Shizuku அணுகல் தேவை, இது இந்த சாதனத்தில் கிடைக்கவில்லை.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">இந்த அம்சத்திற்கு root அல்லது ADB அணுக்கம் தேவை, இது இந்த சாதனத்தில் கிடைக்கவில்லை.</string>
     <string name="backup_restore_error_invalid_title">செல்லுபடியாகாத பேக்கப் கோப்பு</string>
     <string name="backup_restore_error_invalid_body">இந்த கோப்பு SD Maid இன் செல்லுபடியான பேக்கப் அல்ல அல்லது சிதைந்துவிட்டது.</string>
     <string name="backup_restore_error_version_body">இந்த பேக்கப் SD Maid இன் புதிய பதிப்பால் உருவாக்கப்பட்டது. தயவுசெய்து பயன்பாட்டை புதுப்பித்து மீண்டும் முயற்சிக்கவும்.</string>

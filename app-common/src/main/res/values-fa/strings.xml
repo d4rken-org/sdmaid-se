@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">در خدمت شما.</string>
     <string name="slogan_message_1">تمیز و مرتب.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">بارگذاری</string>
     <string name="general_progress_loading_app_data">بارگیری داده های برنامه</string>
     <string name="general_progress_loading_data_areas">بارگیری مناطق داده ها</string>
+    <string name="general_data_areas_unavailable_message">بارگذاری مناطق داده، یعنی مکان‌های ذخیره‌سازی که SD Maid می‌تواند با آن‌ها کار کند، ممکن نشد.</string>
     <string name="general_progress_loading_egg_0">هنوز هم سریعتر از آیفون</string>
     <string name="general_progress_loading_egg_1">در حال دانلود رم بیشتر</string>
     <string name="general_progress_loading_egg_2">به زودی™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">اطلاعات برای توسعه‌دهنده</string>
     <string name="general_error_report_bug_action">گزارش اشکال</string>
     <string name="general_error_ipc_deadobject_title">اتصال سرویس قطع شد</string>
-    <string name="general_error_ipc_deadobject_description">اتصال به یک سرویس حیاتی (مثلاً Magisk، Shizuku یا سایر سرویس‌های سطح سیستم) به طور غیرمنتظره‌ای قطع شد. لطفاً دستگاه خود را مجدداً راه‌اندازی کنید. اگر مشکل همچنان ادامه داشت، به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا بتوانم آن را برطرف کنم.</string>
+    <string name="general_error_ipc_deadobject_description">اتصال به یک سرویس حیاتی (مثلاً Magisk، Porter، Shizuku یا سایر سرویس‌های سطح سیستم) به‌طور غیرمنتظره قطع شد. لطفاً دستگاه خود را راه‌اندازی مجدد کنید. اگر مشکل ادامه داشت، به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا آن را رفع کنم.</string>
     <string name="general_error_upgrade_required_title">ارتقا مورد نیاز است</string>
     <string name="general_error_upgrade_required_description">این ویژگی نیازمند ارتقا است. لطفاً SD Maid SE را ارتقا دهید تا بتوانید از آن استفاده کنید.</string>
     <string name="general_user_label_owner">مالک</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">نمایش تنظیمات</string>
     <string name="ui_theme_color_sunset_label">غروب</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">این ویژگی نیازمند دسترسی روت است، اما SD Maid نتوانست آن را در این دستگاه دریافت کند.</string>
     <string name="access_blocked_root_declined">این ویژگی نیاز به دسترسی روت دارد. می‌توانید آن را از طریق صفحه تنظیمات فعال کنید.</string>
-    <string name="access_blocked_root_or_shizuku">این ویژگی نیاز به دسترسی روت یا Shizuku دارد که در این دستگاه در دسترس نیست.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">این قابلیت به دسترسی روت یا ADB نیاز دارد که در این دستگاه در دسترس نیست.</string>
     <string name="backup_restore_error_invalid_title">فایل پشتیبان نامعتبر</string>
     <string name="backup_restore_error_invalid_body">این فایل یک پشتیبان معتبر SD Maid نیست یا خراب است.</string>
     <string name="backup_restore_error_version_body">این پشتیبان با نسخه‌ای جدیدتر از SD Maid ایجاد شده است. لطفاً برنامه را به‌روزرسانی کنید و دوباره امتحان کنید.</string>

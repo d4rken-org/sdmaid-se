@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">في خدمتك.</string>
     <string name="slogan_message_1">نظيف ومرتب.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">جاري التحميل</string>
     <string name="general_progress_loading_app_data">تحميل بيانات التطبيق</string>
     <string name="general_progress_loading_data_areas">تحميل مناطق البيانات</string>
+    <string name="general_data_areas_unavailable_message">تعذر تحميل مناطق البيانات، مواقع التخزين التي يمكن لـ SD Maid العمل معها.</string>
     <string name="general_progress_loading_egg_0">لا يزال أسرع من أيفون (العالم الموازي)</string>
     <string name="general_progress_loading_egg_1">تحميل المزيد من الذاكرة العشوائية</string>
     <string name="general_progress_loading_egg_2">قريبا™</string>
@@ -228,7 +228,7 @@
     <string name="general_information_for_the_developer">معلومات للمطور</string>
     <string name="general_error_report_bug_action">إبلاغ عن خلل</string>
     <string name="general_error_ipc_deadobject_title">فقد الاتصال في الخدمات</string>
-    <string name="general_error_ipc_deadobject_description">انقطع الاتصال بخدمة مهمة (مثل ماجكسً أو شيزوكو أو خِدْمَات أخرى على مستوى النظام) بشكل غير متوقع. يُرجى إعادة تشغيل جهازك. إذا استمرت المشكلة، فتحقق من وجود تحديثات أو تواصل معي لحلها.</string>
+    <string name="general_error_ipc_deadobject_description">فُقد الاتصال بخدمة حرجة (مثل Magisk أو Porter أو Shizuku أو خدمات أخرى على مستوى النظام) بشكل غير متوقع. يرجى إعادة تشغيل جهازك. إذا استمرت المشكلة، تحقق من التحديثات أو تواصل معي لإصلاحها.</string>
     <string name="general_error_upgrade_required_title">مطلوب ترقية</string>
     <string name="general_error_upgrade_required_description">هذه الميزة تتطلب ترقية. يرجى ترقية SD Maid SE لاستخدامها.</string>
     <string name="general_user_label_owner">المالك</string>
@@ -262,11 +262,9 @@
     <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
     <string name="ui_theme_color_sunset_label">الغروب</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">تتطلب هذه الميزة حق الوصول الجذري، لكن SD Maid لم تتمكن من الحصول عليها على هذا الجهاز.</string>
     <string name="access_blocked_root_declined">تتطلب هذه الميزة حق الوصول الجذري. يمكنك تفعيلها من خلال شاشة الإعداد.</string>
-    <string name="access_blocked_root_or_shizuku">تتطلب هذه الميزة حق الوصول الجذري أو Shizuku، والذي غير متاح على هذا الجهاز.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">تحتاج هذه الميزة إلى وصول روت أو ADB، وهو غير متاح على هذا الجهاز.</string>
     <string name="backup_restore_error_invalid_title">ملف نسخة احتياطية غير صحيح</string>
     <string name="backup_restore_error_invalid_body">هذا الملف ليس نسخة احتياطية صحيحة من SD Maid أو أنه تالف.</string>
     <string name="backup_restore_error_version_body">تم إنشاء هذه النسخة الاحتياطية باستخدام إصدار أحدث من SD Maid. يرجى تحديث التطبيق والمحاولة مرة أخرى.</string>

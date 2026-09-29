@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">لە خزمەتتداین.</string>
     <string name="slogan_message_1">خاوێن و ڕێکخراو.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">بارکردن</string>
     <string name="general_progress_loading_app_data">بارکردنی داتای ئەپ</string>
     <string name="general_progress_loading_data_areas">بارکردنی ناوچەکانی داتا</string>
+    <string name="general_data_areas_unavailable_message">نەتوانرا بارکردنی شوێنە دراوسێکەكان، شوێنە جیهێشتنی کە SD Maid دەتوانێت پێیدا کار بکات.</string>
     <string name="general_progress_loading_egg_0">هێشتا خێراترە لە ئایفۆن</string>
     <string name="general_progress_loading_egg_1">داگرتنی ڕام زیاتر</string>
     <string name="general_progress_loading_egg_2">بەم زووانە™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">زانیاری بۆ پەرەپێدەر</string>
     <string name="general_error_report_bug_action">ڕاپۆرتکردنی هەڵە</string>
     <string name="general_error_ipc_deadobject_title">پەیوەندی خزمەتگوزاری پچڕا</string>
-    <string name="general_error_ipc_deadobject_description">پەیوەندی بە خزمەتگوزارییەکی گرنگەوە (بۆ نموونە ماجیسک، شیزوکو، یان خزمەتگوزارییەکانی ئاستی سیستەمی دیکە) بە شێوەیەکی چاوەڕواننەکراو پچڕا. تکایە ئامێرەکەت ڕیستارت بکە. ئەگەر کێشەکە بەردەوام بوو، نوێکردنەوەکان بپشکنە یان پەیوەندیم پێوە بکە تا بتوانم چاکی بکەمەوە.</string>
+    <string name="general_error_ipc_deadobject_description">پەیوەندی بە خزمەتی بنەڕەتیدا (بۆ نموونە Magisk, Porter, Shizuku, یان خزمەتی سیستەمی تریش) بە شێوەیەکی نا چاوەڕێکراو تێک چوو. تکاپۆ دەستگاکەت دووبارە ستارتبکە. ئەگەر کێشەکە ماوە، نوێکاری بگەڕ یان پێیت هەوڵدەم تا ئەتوانم ڕاستی بکەمەوە.</string>
     <string name="general_error_upgrade_required_title">بارگەری پێویستە</string>
     <string name="general_error_upgrade_required_description">ئەم تایبەتمەندیە پێویستی بارگەرییە. تکایە SD Maid SE بارگەر بکە بۆ بەکارهێنانی.</string>
     <string name="general_user_label_owner">خاوەن</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">نیشاندان settings</string>
     <string name="ui_theme_color_sunset_label">ئاوابوونی خۆر</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">ئەم تایبەتمەندیە پێویستی بە دسترسی root هەیە، بەڵام SD Maid نەیتوانی لە ئەم دەستگەیەدا بییگرێت.</string>
     <string name="access_blocked_root_declined">ئەم تایبەتمەندیە پێویستی دەسترسی root هەیە. دەتوانیت لە رێگەی سەرگێڵەی رێکخستندا چالاکی بکەیت.</string>
-    <string name="access_blocked_root_or_shizuku">ئەم تایبەتمەندیە پێویستی دەسترسی root یان Shizuku هەیە، کە لەم دەستگەیەدا بەردەست نیە.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">ئەم تایبەتمەندییە پێویستی بە root یان دەسپێشاندنی ADB دەکات، کە لە ئەم دەستگاوە بەردەست نیە.</string>
     <string name="backup_restore_error_invalid_title">فایلی پاڅپشتی نادرووست</string>
     <string name="backup_restore_error_invalid_body">ئەم فایلە پاڅپشتی دروستی SD Maid نیە یان خراپ بوویەتی.</string>
     <string name="backup_restore_error_version_body">ئەم پاڅپشتە بە وەشانی نوێی SD Maid دروست کراوە. تکایە ئەپلیکێشنەکە نوێ بکە و دووبارە هەوڵ بدە.</string>

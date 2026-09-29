@@ -80,14 +80,14 @@
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Đã loại trừ, nhưng dọn dẹp tất cả ứng dụng cùng lúc vẫn xóa các bộ nhớ đệm này</string>
     <string name="appcleaner_exclusion_limited_title">Ứng dụng bị loại trừ</string>
-    <string name="appcleaner_exclusion_limited_body">Bạn đã loại trừ ứng dụng này khỏi AppCleaner. Việc xóa bộ nhớ đệm cho tất cả ứng dụng cùng lúc sử dụng chức năng cắt giảm bộ nhớ đệm toàn hệ thống của Shizuku, chức năng này không thể bỏ qua từng ứng dụng riêng lẻ, nên dữ liệu bộ nhớ đệm của ứng dụng này cũng bị xóa cùng với mọi thứ khác. Chỉ dữ liệu bộ nhớ đệm hiển thị ở đây bị ảnh hưởng, mọi thứ khác thuộc phạm vi loại trừ vẫn được ẩn và giữ nguyên.</string>
+    <string name="appcleaner_exclusion_limited_body">Bạn đã loại trừ ứng dụng này khỏi AppCleaner. Xóa bộ đệm cho tất cả các ứng dụng cùng một lúc sử dụng tính năng cắt bộ đệm toàn hệ thống có sẵn thông qua truy cập ADB, không thể bỏ qua các ứng dụng riêng lẻ, vì vậy dữ liệu được lưu trong bộ đệm của ứng dụng này cũng được xóa cùng với mọi thứ khác. Chỉ dữ liệu được lưu trong bộ đệm được hiển thị ở đây bị ảnh hưởng, tất cả những thứ khác mà loại trừ bao phủ vẫn ẩn và không bị ảnh hưởng.</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>
     <string name="appcleaner_automation_unavailable_body">Việc xóa các bộ nhớ đệm này cần dịch vụ hỗ trợ tiếp cận của SD Maid, nhưng dịch vụ này không khả dụng.</string>
     <string name="appcleaner_delete_confirmation_message_x">Xóa các tệp có thể sử dụng cho %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="other">Xóa các tệp có thể sử dụng cho %d ứng dụng đã chọn?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng truy cập ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Xác định bộ nhớ đệm không thể truy cập</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Xóa bộ nhớ đệm không khả dụng</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã tắt nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>

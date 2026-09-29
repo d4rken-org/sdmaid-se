@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Archiviert</string>
     <string name="appcontrol_tag_uninstalled">Nur Daten</string>
     <string name="appcontrol_tag_not_installed">Nicht installiert</string>
+    <string name="appcontrol_tag_hidden">Versteckt</string>
     <string name="appcontrol_tag_enabled">Aktiviert</string>
     <string name="appcontrol_tag_disabled">Deaktiviert</string>
     <string name="appcontrol_tag_debug">Debug</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">Größe</string>
     <string name="appcontrol_list_sortmode_screentime_label">Bildschirmzeit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">App-Größen werden aus Leistungsgründen geschätzt. Verwende das Speicheranalyse-Tool für genauere Daten.</string>
+    <string name="appcontrol_list_scan_cancelled_label">Scan abgebrochen, es wurden keine Apps geladen.</string>
     <string name="appcontrol_progress_uninstalling_app">Deinstalliert App</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d App wurde deinstalliert</item>

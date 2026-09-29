@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Mga public at private default cache. Hindi direktang ma-access, pero maaaring matanggal nang hindi direkta (hal. sa pamamagitan ng accessibility service).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Eksklusyon, pero ang pag-clear ng lahat nang sabay-sabay ay nag-clear pa rin ng mga cache na ito</string>
     <string name="appcleaner_exclusion_limited_title">Eksklusyong app</string>
-    <string name="appcleaner_exclusion_limited_body">Nag-exclude ka ng app na ito mula sa AppCleaner. Ang pag-clear ng cache para sa lahat ng apps nang sabay-sabay ay gumagamit ng system-wide cache trim ng Shizuku, na hindi maaaring iwanan ang mga indibidwal na app, kaya ang cached data ng app na ito ay na-clear kasama ang lahat ng iba. Tanging ang cached data na ipinakita dito ang naaapektuhan, lahat ng iba na saklaw ng eksklusyon ay nananatiling nakatagong at hindi nabawasan.</string>
+    <string name="appcleaner_exclusion_limited_body">Na-exclude mo ang app na ito sa AppCleaner. Ang sabay-sabay na pag-clear ng cache ng lahat ng app ay gumagamit ng system-wide cache trim na available sa pamamagitan ng ADB access, na hindi makakaligtaan ang mga indibidwal na app, kaya nabubura rin ang cached data ng app na ito kasama ng lahat ng iba pa. Ang cached data lang na ipinapakita rito ang apektado, ang iba pang sakop ng exclusion ay mananatiling nakatago at hindi gagalawin.</string>
     <string name="appcleaner_automation_unavailable_title">Hindi available ang accessibility service</string>
     <string name="appcleaner_automation_unavailable_body">Ang pag-clear ng mga cache na ito ay nangangailangan ng Accessibility Service ng SD Maid, ngunit hindi ito available.</string>
     <string name="appcleaner_delete_confirmation_message_x">Tanggalin ang mga expendable na file para sa %s?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">Burahin ang mga expendable file para sa %d napiling app?</item>
         <item quantity="other">Burahin ang mga expendable file para sa %d mga napiling app?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Tinatanggal ang mga cache gamit ang Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Binubura ang cache gamit ang ADB access</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Tinutukoy ang mga hindi ma-access na cache</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Hindi available ang Clear cache</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Na-disable ng system ang \"Clear cache\" button para sa app na ito. I-exclude ito para mapabilis ang cache clearing.</string>

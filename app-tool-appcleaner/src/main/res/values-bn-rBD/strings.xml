@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">পাবলিক এবং ব্যক্তিগত ডিফল্ট ক্যাশ। সরাসরি অ্যাক্সেসযোগ্য নয়, তবে পরোক্ষভাবে মুছে ফেলা যেতে পারে (যেমন অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে)।</string>
     <string name="appcleaner_exclusion_limited_row_hint">বাদ দেওয়া হয়েছে, তবে সব অ্যাপ একসাথে পরিষ্কার করলে এই ক্যাশেগুলো তবুও মুছে যায়</string>
     <string name="appcleaner_exclusion_limited_title">বাদ দেওয়া অ্যাপ</string>
-    <string name="appcleaner_exclusion_limited_body">আপনি এই অ্যাপটিকে AppCleaner থেকে বাদ দিয়েছেন। সব অ্যাপের ক্যাশে একসাথে পরিষ্কার করার জন্য Shizuku-র সিস্টেম-ব্যাপী ক্যাশে ছাঁটাই ব্যবহার করা হয়, যা আলাদা আলাদা অ্যাপ বাদ রাখতে পারে না, তাই এই অ্যাপের ক্যাশে করা তথ্যও বাকি সবকিছুর সাথে মুছে যায়। শুধু এখানে দেখানো ক্যাশে করা তথ্যই প্রভাবিত হয়, বাদ দেওয়ার আওতাধীন বাকি সবকিছু লুকানো ও অক্ষত থাকে।</string>
+    <string name="appcleaner_exclusion_limited_body">আপনি এই অ্যাপটি AppCleaner থেকে বাদ দিয়েছেন। সমস্ত অ্যাপের জন্য একসাথে ক্যাশ সাফ করা এডিবি অ্যাক্সেসের মাধ্যমে উপলব্ধ সিস্টেম-ব্যাপী ক্যাশ ট্রিম ব্যবহার করে, যা পৃথক অ্যাপগুলি বাদ দিতে পারে না, তাই এই অ্যাপের ক্যাশড ডেটা সবকিছুর সাথে সাফ করা হয়। শুধুমাত্র এখানে দেখানো ক্যাশড ডেটা প্রভাবিত হয়, বাকি সবকিছু যা বর্জন কভার করে তা লুকানো এবং অস্পৃশ্য থাকে।</string>
     <string name="appcleaner_automation_unavailable_title">অ্যাক্সেসিবিলিটি পরিষেবা অনুপলব্ধ৷</string>
     <string name="appcleaner_automation_unavailable_body">এই ক্যাশেগুলো মোছার জন্য SD Maid-এর অ্যাক্সেসযোগ্যতা পরিষেবা প্রয়োজন, কিন্তু এটি উপলব্ধ ছিল না।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s জন্য ব্যয়যোগ্য ফাইল মুছবেন?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">%d নির্বাচিত অ্যাপের জন্য ব্যয়যোগ্য ফাইল মুছবেন?</item>
         <item quantity="other">%d নির্বাচিত অ্যাপের জন্য ব্যয়যোগ্য ফাইল মুছবেন?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ব্যবহার করে ক্যাশ মুছে ফেলা হচ্ছে।</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">এডিবি অ্যাক্সেস ব্যবহার করে ক্যাশ মুছছে</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">অ্যাক্সেসযোগ্য ক্যাশ নির্ধারণ করা</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ক্যাশ সাফ করার সুবিধা অনুপলব্ধ</string>
     <string name="appcleaner_automation_error_locked_appcache_body">সিস্টেমটি এই অ্যাপের জন্য \"ক্যাশ সাফ করুন\" বোতামটি অক্ষম করেছে। ক্যাশে সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>

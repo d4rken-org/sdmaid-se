@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">آپ کی خدمت میں۔</string>
     <string name="slogan_message_1">صاف اور منظم۔</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">لوڈ کر رہا ہے</string>
     <string name="general_progress_loading_app_data">ایپ ڈیٹا لوڈ کر رہا ہے</string>
     <string name="general_progress_loading_data_areas">ڈیٹا علاقے لوڈ کر رہا ہے</string>
+    <string name="general_data_areas_unavailable_message">ڈیٹا ایریاز لوڈ نہیں ہو سکے، یعنی وہ اسٹوریج مقامات جن پر SD Maid کام کر سکتا ہے۔</string>
     <string name="general_progress_loading_egg_0">iPhone سے تیز</string>
     <string name="general_progress_loading_egg_1">اضافی RAM ڈاؤن لوڈ کر رہا ہے</string>
     <string name="general_progress_loading_egg_2">جلدی™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">ڈویلپر کے لیے معلومات</string>
     <string name="general_error_report_bug_action">بگ کی رپورٹ کریں</string>
     <string name="general_error_ipc_deadobject_title">سروس کنکشن ضائع</string>
-    <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
+    <string name="general_error_ipc_deadobject_description">کسی اہم سروس (مثلاً Magisk، Porter، Shizuku یا دیگر سسٹم لیول سروسز) سے کنکشن غیر متوقع طور پر ٹوٹ گیا۔ براہ کرم اپنا آلہ ری بوٹ کریں۔ اگر مسئلہ برقرار رہے تو اپڈیٹس چیک کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
     <string name="general_error_upgrade_required_title">اپ گریڈ درکار ہے</string>
     <string name="general_error_upgrade_required_description">اس خصوصیت کو استعمال کرنے کے لیے اپ گریڈ کی ضرورت ہے۔ براہ کرم اسے استعمال کرنے کے لیے SD Maid SE کو اپ گریڈ کریں۔</string>
     <string name="general_user_label_owner">مالک</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
     <string name="ui_theme_color_sunset_label">غروب</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">اس خصوصیت کو روٹ رسائی درکار ہے، لیکن SD Maid اسے اس آلے پر حاصل نہیں کر سکا۔</string>
     <string name="access_blocked_root_declined">یہ خصوصیت روٹ رسائی کی ضرورت ہے۔ آپ اسے سیٹ اپ اسکرین کے ذریعے فعال کر سکتے ہیں۔</string>
-    <string name="access_blocked_root_or_shizuku">یہ خصوصیت روٹ یا Shizuku رسائی کی ضرورت ہے، جو اس ڈیوائس پر دستیاب نہیں ہے۔</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">اس خصوصیت کے لیے روٹ یا ADB رسائی درکار ہے، جو اس آلے پر دستیاب نہیں ہے۔</string>
     <string name="backup_restore_error_invalid_title">غلط بیک اپ فائل</string>
     <string name="backup_restore_error_invalid_body">یہ فائل SD Maid کا درست بیک اپ نہیں ہے یا خراب ہے۔</string>
     <string name="backup_restore_error_version_body">یہ بیک اپ SD Maid کے ایک نئے ورژن کے ساتھ بنایا گیا تھا۔ براہ کرم ایپ کو اپڈیٹ کریں اور دوبارہ کوشش کریں۔</string>

@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">ਜਨਤਕ ਅਤੇ ਨਿੱਜੀ ਮੂਲ ਕੈਸ਼। ਸਿੱਧੇ ਤੌਰ \'ਤੇ ਪਹੁੰਚਯੋਗ ਨਹੀਂ, ਪਰ ਅਸਿੱਧੇ ਤੌਰ \'ਤੇ ਮਿਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ (ਜਿਵੇਂ ਕਿ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ)।</string>
     <string name="appcleaner_exclusion_limited_row_hint">ਬਾਹਰ ਕੱਢਿਆ ਗਿਆ, ਪਰ ਇੱਕ ਵਾਰ ਵਿੱਚ ਸਾਰੀਆਂ ਐਪਸ ਨੂੰ ਸਾਫ ਕਰਨਾ ਅਜੇ ਵੀ ਇਨ੍ਹਾਂ ਕੈਸ਼ਾਂ ਨੂੰ ਸਾਫ ਕਰ ਦਿੰਦਾ ਹੈ</string>
     <string name="appcleaner_exclusion_limited_title">ਬਾਹਰ ਕੱਢਿਆ ਗਿਆ ਐਪ</string>
-    <string name="appcleaner_exclusion_limited_body">ਇਸ ਐਪ ਨੂੰ AppCleaner ਤੋਂ ਬਾਹਰ ਕੱਢਿਆ ਗਿਆ ਹੈ। ਇੱਕ ਵਾਰ ਵਿੱਚ ਸਾਰੀਆਂ ਐਪਸ ਦੀ ਕੈਸ਼ ਸਾਫ ਕਰਨਾ Shizuku ਦੀ ਸਿਸਟਮ-ਵਿਆਪੀ ਕੈਸ਼ ਟ੍ਰਿਮ ਵਰਤਦਾ ਹੈ, ਜੋ ਵਿਅਕਤੀਗਤ ਐਪਸ ਨੂੰ ਬਾਹਰ ਨਹੀਂ ਛੱਡ ਸਕਦਾ, ਇਸ ਲਈ ਇਸ ਐਪ ਦਾ ਕੈਸ਼ ਡੇਟਾ ਬਾਕੀ ਸਭ ਨਾਲ ਸਾਫ ਹੋ ਜਾਂਦਾ ਹੈ। ਸਿਰਫ ਇੱਥੇ ਦਿਖਾਇਆ ਗਿਆ ਕੈਸ਼ ਡੇਟਾ ਪ੍ਰਭਾਵਿਤ ਹੁੰਦਾ ਹੈ, ਬਾਕੀ ਸਭ ਕੁਝ ਜੋ ਬਾਹਰਕਢਾਉ ਕਵਰ ਕਰਦਾ ਹੈ ਲੁਕਿਆ ਅਤੇ ਛੂਤ ਨਹੀਂ ਹੁੰਦਾ।</string>
+    <string name="appcleaner_exclusion_limited_body">ਤੁਸੀਂ ਇਸ ਐਪ ਨੂੰ AppCleaner ਤੋਂ ਬਾਹਰ ਰੱਖਿਆ ਹੈ। ਸਾਰੀਆਂ ਐਪਾਂ ਦਾ ਕੈਸ਼ ਇੱਕੋ ਵਾਰ ਸਾਫ਼ ਕਰਨ ਲਈ ADB ਪਹੁੰਚ ਰਾਹੀਂ ਉਪਲਬਧ ਸਿਸਟਮ-ਵਿਆਪੀ ਕੈਸ਼ ਟ੍ਰਿਮ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ, ਜੋ ਵਿਅਕਤੀਗਤ ਐਪਾਂ ਨੂੰ ਬਾਹਰ ਨਹੀਂ ਰੱਖ ਸਕਦਾ, ਇਸ ਲਈ ਇਸ ਐਪ ਦਾ ਕੈਸ਼ ਡਾਟਾ ਬਾਕੀ ਸਭ ਦੇ ਨਾਲ ਸਾਫ਼ ਹੋ ਜਾਂਦਾ ਹੈ। ਸਿਰਫ਼ ਇੱਥੇ ਦਿਖਾਇਆ ਗਿਆ ਕੈਸ਼ ਡਾਟਾ ਪ੍ਰਭਾਵਿਤ ਹੁੰਦਾ ਹੈ, ਬਾਹਰ ਰੱਖੀ ਗਈ ਬਾਕੀ ਹਰ ਚੀਜ਼ ਲੁਕੀ ਅਤੇ ਅਛੂਤੀ ਰਹਿੰਦੀ ਹੈ।</string>
     <string name="appcleaner_automation_unavailable_title">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="appcleaner_automation_unavailable_body">ਇਨ੍ਹਾਂ ਕੈਸ਼ਾਂ ਨੂੰ ਸਾਫ ਕਰਨ ਲਈ SD Maid ਦੀ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਦੀ ਲੋੜ ਹੈ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ।</string>
     <string name="appcleaner_delete_confirmation_message_x">%s ਲਈ ਖਰਚਯੋਗ ਫਾਇਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</string>
@@ -93,7 +93,7 @@
         <item quantity="one">ਕੀ %d ਚੁਣੀ ਗਈ ਐਪ ਲਈ ਖਰਚੇਯੋਗ ਫਾਈਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>
         <item quantity="other">ਕੀ %d ਚੁਣੀਆਂ ਗਈਆਂ ਐਪਾਂ ਲਈ ਖਰਚੇਯੋਗ ਫਾਈਲਾਂ ਮਿਟਾਉਣੀਆਂ ਹਨ?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਕੈਸ਼ ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB ਪਹੁੰਚ ਨਾਲ ਕੈਸ਼ ਮਿਟਾਏ ਜਾ ਰਹੇ ਹਨ</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">ਅਪਹੁੰਚ ਕੈਸ਼ ਦਾ ਪਤਾ ਲਗਾ ਰਿਹਾ ਹੈ</string>
     <string name="appcleaner_automation_error_locked_appcache_title">ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="appcleaner_automation_error_locked_appcache_body">ਸਿਸਟਮ ਨੇ ਇਸ ਐਪ ਲਈ \"ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਨੂੰ ਅਯੋਗ ਕਰ ਦਿੱਤਾ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>

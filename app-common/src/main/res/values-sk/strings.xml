@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">K vašim službám.</string>
     <string name="slogan_message_1">Čistý a uprataný.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Načítava</string>
     <string name="general_progress_loading_app_data">Načítavajú sa údaje aplikácie</string>
     <string name="general_progress_loading_data_areas">Načítavajú sa oblasti údajov</string>
+    <string name="general_data_areas_unavailable_message">Nebolo možné načítať oblasti údajov, umiestnenia úložiska, s ktorými môže pracovať aplikácia SD Maid.</string>
     <string name="general_progress_loading_egg_0">Stále rýchlejšie ako iPhone</string>
     <string name="general_progress_loading_egg_1">Sťahuje sa viac pamäte RAM</string>
     <string name="general_progress_loading_egg_2">Čoskoro™</string>
@@ -204,7 +204,7 @@
     <string name="general_information_for_the_developer">Informácie pre vývojára</string>
     <string name="general_error_report_bug_action">Nahlásiť chybu</string>
     <string name="general_error_ipc_deadobject_title">Spojenie so službou sa pretržilo</string>
-    <string name="general_error_ipc_deadobject_description">Spojenie s kritickou službou (napr. Magisk, Shizuku alebo iné systémové služby) sa neočakávane pretržilo. Prosím, reštartujte svoje zariadenie. Ak problém pretrváva, skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="general_error_ipc_deadobject_description">Pripojenie ku kritickej službe (napr. Magisk, Porter, Shizuku alebo iné služby na úrovni systému) sa nečakane prerušilo. Prosím, reštartujte zariadenie. Ak sa problém naďalej vyskytuje, skontrolujte dostupné aktualizácie alebo sa na mňa obráťte, aby som to mohol opraviť.</string>
     <string name="general_error_upgrade_required_title">Upgrade potrebný</string>
     <string name="general_error_upgrade_required_description">Táto funkcia vyžaduje upgrade. Ak ju chcete používať, aktualizujte SD Maid SE.</string>
     <string name="general_user_label_owner">Vlastník</string>
@@ -236,11 +236,9 @@
     <string name="appcontrol_systemsettings_open_title">Zobraziť nastavenia</string>
     <string name="ui_theme_color_sunset_label">Západ slnka</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Táto funkcia vyžaduje prístup root, ale SD Maid ho na tomto zariadení nemohol získať.</string>
     <string name="access_blocked_root_declined">Táto funkcia vyžaduje prístup root. Môžete ho povoliť cez obrazovku nastavení.</string>
-    <string name="access_blocked_root_or_shizuku">Táto funkcia vyžaduje prístup root alebo Shizuku, ktoré nie sú dostupné na tomto zariadení.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Táto funkcia vyžaduje root alebo prístup cez ADB, ktoré nie sú na tomto zariadení dostupné.</string>
     <string name="backup_restore_error_invalid_title">Neplatný súbor zálohy</string>
     <string name="backup_restore_error_invalid_body">Tento súbor nie je platná záloha SD Maid alebo je poškodený.</string>
     <string name="backup_restore_error_version_body">Táto záloha bola vytvorená novšou verziou SD Maid. Prosím, aktualizujte aplikáciu a skúste znova.</string>
