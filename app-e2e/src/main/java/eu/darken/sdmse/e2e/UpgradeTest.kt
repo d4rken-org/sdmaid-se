@@ -104,8 +104,8 @@ class UpgradeTest {
         app.await(By.text(SCHEDULE))
         app.navigateUp()
         app.await(app.text("scheduler_label"))
-        app.scrollToTop()
-        app.await(app.desc("general_scan_action"))
+        // Back from the scheduler the dashboard is still scrolled to its bottom card.
+        app.scrollToTopUntil(app.desc("general_scan_action"))
     }
 
     private fun openSettings() {
