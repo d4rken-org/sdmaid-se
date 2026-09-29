@@ -166,6 +166,15 @@ class SdmApp {
         scrollList(Direction.UP, 10f)
     }
 
+    /** [scrollToTop], repeated while [selector] stays hidden: a single long scroll has stopped short of the top on CI. */
+    fun scrollToTopUntil(selector: BySelector): UiObject2 {
+        repeat(TOP_SCROLL_ATTEMPTS) {
+            scrollToTop()
+            device.wait(Until.findObject(selector), TOP_SETTLE_MS)?.let { return it }
+        }
+        return await(selector)
+    }
+
     /** Scrolls the screen's list, found fresh each time; false once it can't scroll further or there is none. */
     private fun scrollList(direction: Direction, percent: Float): Boolean {
         repeat(STALE_RETRIES) {
@@ -261,6 +270,8 @@ class SdmApp {
         private const val STALE_RETRIES = 3
         private const val HIERARCHY_MAX_CHARS = 60_000
         private const val TOP_EDGE_TAP_PX = 10
+        private const val TOP_SCROLL_ATTEMPTS = 3
+        private const val TOP_SETTLE_MS = 3_000L
         private const val PLANT_DIR = "/sdcard/Download/sdmse-e2e"
         private const val PLANT_FILE = "$PLANT_DIR/desktop.ini"
     }
