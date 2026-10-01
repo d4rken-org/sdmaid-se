@@ -31,6 +31,8 @@ abstract class BaseAppFlowTest : BaseUITest() {
 
     @get:Rule val composeRule = createEmptyComposeRule()
 
+    private val startedAt = System.currentTimeMillis()
+
     protected fun str(@StringRes id: Int): String =
         InstrumentationRegistry.getInstrumentation().targetContext.getString(id)
 
@@ -55,22 +57,55 @@ abstract class BaseAppFlowTest : BaseUITest() {
      * For waits while the app is in the background, where `composeRule.waitUntil` finds no hierarchy. It doesn't
      * advance Compose effects: after a click whose handling must happen first, call `composeRule.waitForIdle()`.
      */
-    protected fun pollUntil(description: String, condition: () -> Boolean) {
+    protected fun pollUntil(
+        description: String,
+        failureContext: (() -> String)? = null,
+        condition: () -> Boolean,
+    ) {
         val deadline = SystemClock.uptimeMillis() + TIMEOUT_MS
         while (!condition()) {
-            if (SystemClock.uptimeMillis() > deadline) failWithScreen("Timed out: $description")
+            if (SystemClock.uptimeMillis() > deadline) failWithScreen("Timed out: $description", failureContext)
             SystemClock.sleep(100)
         }
     }
 
-    /** Logs the on-screen UI hierarchy before failing; CI uploads each test's logcat. */
-    protected fun failWithScreen(message: String): Nothing {
-        val dump = ByteArrayOutputStream()
-        runCatching { device.dumpWindowHierarchy(dump) }
-            .onFailure { log(TAG, WARN) { "Screen dump failed: $it" } }
-        log(TAG, WARN) { "Screen at failure ($message):" }
-        dump.toString().lines().forEach { line -> line.chunked(1000).forEach { log(TAG, WARN) { it } } }
-        throw AssertionError(message)
+    /** Keeps failure context in the assertion as well as the separately uploaded logcat. */
+    protected fun failWithScreen(message: String, failureContext: (() -> String)? = null): Nothing {
+        fun capture(read: () -> String): String = runCatching(read).getOrElse { "unavailable: $it" }
+
+        val context = failureContext?.let { capture(it).take(STATE_MAX_CHARS) }
+        val hierarchy = capture {
+            ByteArrayOutputStream().also { device.dumpWindowHierarchy(it) }.toString()
+        }
+        val activity = capture {
+            shell("dumpsys activity activities").lineSequence()
+                .filter { it.contains("ResumedActivity", ignoreCase = true) }
+                .joinToString("\n").ifBlank { "No resumed activity reported" }
+        }.take(STATE_MAX_CHARS)
+        val window = capture {
+            shell("dumpsys window").lineSequence()
+                .filter { it.contains("mCurrentFocus") || it.contains("mFocusedApp") || it.contains("mFocusedWindow") }
+                .joinToString("\n").ifBlank { "No focused window reported" }
+        }.take(STATE_MAX_CHARS)
+        val events = capture {
+            val since = "${startedAt / 1000}.${(startedAt % 1000).toString().padStart(3, '0')}"
+            shell("logcat -b events -d -v threadtime -T $since am_anr:I am_crash:I am_kill:I am_proc_died:I wm_finish_activity:I wm_set_resumed_activity:I *:S")
+                .ifBlank { "No matching events recorded" }
+        }.takeLast(EVENTS_MAX_CHARS)
+        runCatching {
+            log(TAG, WARN) { "Screen at failure ($message):" }
+            hierarchy.lines().forEach { line -> line.chunked(1000).forEach { log(TAG, WARN) { it } } }
+        }
+        throw AssertionError(
+            buildString {
+                appendLine(message)
+                if (context != null) appendLine(context)
+                appendLine("Resumed activity:\n$activity")
+                appendLine("Focused window:\n$window")
+                appendLine("System events since test start (last $EVENTS_MAX_CHARS chars):\n$events")
+                append("Window hierarchy:\n${hierarchy.take(HIERARCHY_MAX_CHARS)}")
+            },
+        )
     }
 
     /** Walks a fresh install from the welcome screen into the onboarding Setup screen. */
@@ -113,7 +148,10 @@ abstract class BaseAppFlowTest : BaseUITest() {
      * refreshed; a press landing after the app resumed would leave the app's screen, so a retry can't turn a failure
      * green.
      */
-    protected fun ActivityScenario<*>.pressBackUntilResumed() = pollUntil("activity resumed") {
+    protected fun ActivityScenario<*>.pressBackUntilResumed() = pollUntil(
+        "activity resumed",
+        failureContext = { "ActivityScenario.state=$state" },
+    ) {
         if (state != Lifecycle.State.RESUMED) {
             shell("input keyevent KEYCODE_BACK")
             SystemClock.sleep(3000)
@@ -160,6 +198,9 @@ abstract class BaseAppFlowTest : BaseUITest() {
 
     companion object {
         private const val TIMEOUT_MS = 30_000L
+        private const val HIERARCHY_MAX_CHARS = 12 * 1024
+        private const val STATE_MAX_CHARS = 2 * 1024
+        private const val EVENTS_MAX_CHARS = 4 * 1024
         private val TAG = logTag("Test", "AppFlow")
     }
 }

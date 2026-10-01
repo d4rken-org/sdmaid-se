@@ -76,7 +76,7 @@ jobs:
             app-common-io/build/reports/androidTests/connected/debug/
             app/build/outputs/androidTest-results/connected/
             app/build/reports/androidTests/connected/
-          retention-days: 1
+          retention-days: 7
 
   minified-tests:
     name: Minified tests (API ${{ matrix.api }})
@@ -149,7 +149,7 @@ jobs:
           path: |
             app-e2e/build/outputs/androidTest-results/connected/
             app-e2e/build/reports/androidTests/connected/
-          retention-days: 1
+          retention-days: 7
 
   upgrade-test:
     name: Upgrade test (API 36)
@@ -254,4 +254,4 @@ jobs:
         with:
           name: test-results-upgrade-api-36
           path: app-e2e/build/outputs/upgrade-test/
-          retention-days: 1
+          retention-days: 7
