@@ -18,10 +18,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.test.runCurrent
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -38,6 +42,7 @@ class ShizukuManagerTest : BaseTest() {
     private val useShizukuValue: DataStoreValue<Boolean?> = mockk()
     private lateinit var useShizukuFlow: MutableStateFlow<Boolean?>
     private lateinit var wrapperLink: MutableStateFlow<AdbLink?>
+    private lateinit var connectionChanges: MutableSharedFlow<Unit>
     private lateinit var scope: CoroutineScope
 
     private var linkSubscriptions = 0
@@ -47,12 +52,14 @@ class ShizukuManagerTest : BaseTest() {
         linkSubscriptions = 0
         useShizukuFlow = MutableStateFlow(true)
         wrapperLink = MutableStateFlow(null)
+        connectionChanges = MutableSharedFlow()
         scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
 
         every { settings.useShizuku } returns useShizukuValue
         every { useShizukuValue.flow } returns useShizukuFlow
 
         every { shizukuWrapper.permissionChanges } returns emptyFlow()
+        every { shizukuWrapper.connectionChanges } returns connectionChanges
 
         // Track whether the wrapper's link flow is ever collected.
         every { shizukuWrapper.link } returns wrapperLink.onStart { linkSubscriptions++ }
@@ -87,6 +94,25 @@ class ShizukuManagerTest : BaseTest() {
         coEvery { shizukuWrapper.getActiveManagerPackage(any()) } returns active.firstOrNull()
         coEvery { shizukuWrapper.activeBackend() } returns backend
         coEvery { shizukuWrapper.backendOf(any()) } returns backend
+    }
+
+    @Test fun `connectionChanges delegates consecutive notifications even when opted out`() = runTest {
+        useShizukuFlow.value = false
+        val mgr = manager()
+        val changes = mutableListOf<Unit>()
+        backgroundScope.launch { mgr.connectionChanges.collect { changes += it } }
+        runCurrent()
+
+        repeat(3) { index ->
+            connectionChanges.emit(Unit)
+            runCurrent()
+            changes.size shouldBe index + 1
+        }
+
+        linkSubscriptions shouldBe 0
+        coVerify(exactly = 0) { shizukuWrapper.availability() }
+        coVerify(exactly = 0) { shizukuWrapper.requestPermission() }
+        coVerify(exactly = 0) { serviceClient.get() }
     }
 
     // --- adbLink -------------------------------------------------------------------------------
