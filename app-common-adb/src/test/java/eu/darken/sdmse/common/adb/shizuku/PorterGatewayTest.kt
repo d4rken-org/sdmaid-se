@@ -1,21 +1,121 @@
 package eu.darken.sdmse.common.adb.shizuku
 
 import eu.darken.porter.sdk.PermissionState
+import eu.darken.porter.sdk.Porter
 import eu.darken.porter.sdk.PorterAvailability
 import eu.darken.porter.sdk.PorterBackend
 import eu.darken.porter.sdk.PorterConnection
+import eu.darken.porter.sdk.PorterConnectionState
 import eu.darken.porter.sdk.PorterIncompatibility
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkObject
+import io.mockk.unmockkObject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
 
 /** The SDK types have no public constructors, so they are mocked here. */
-class PorterGatewayTest {
+class PorterGatewayTest : BaseTest() {
+
+    @Test
+    fun `connectionChanges emits for refusals and death while the link stays null`() = runTest {
+        val state = MutableStateFlow<PorterConnectionState>(PorterConnectionState.Disconnected)
+        val connection = MutableStateFlow<PorterConnection?>(null)
+        mockkObject(Porter)
+        try {
+            every { Porter.state } returns state
+            every { Porter.connection } returns connection
+            val gateway = DefaultPorterGateway(mockk())
+            val changes = mutableListOf<Unit>()
+            val links = mutableListOf<AdbLink?>()
+            backgroundScope.launch { gateway.connectionChanges.collect { changes += it } }
+            backgroundScope.launch { gateway.link.collect { links += it } }
+            runCurrent()
+            changes shouldBe listOf(Unit)
+            links shouldBe listOf(null)
+
+            val managerTooOld = mockk<PorterConnectionState.Incompatible> {
+                every { incompatibility } returns mockk {
+                    every { serverTooOld } returns true
+                    every { clientTooOld } returns false
+                }
+            }
+            val clientTooOld = mockk<PorterConnectionState.Incompatible> {
+                every { incompatibility } returns mockk {
+                    every { serverTooOld } returns false
+                    every { clientTooOld } returns true
+                }
+            }
+            listOf(
+                managerTooOld,
+                PorterConnectionState.Disconnected,
+                managerTooOld,
+                clientTooOld,
+                PorterConnectionState.Disconnected,
+            ).forEachIndexed { index, next ->
+                state.value = next
+                runCurrent()
+                changes.size shouldBe index + 2
+                links shouldBe listOf(null)
+                gateway.link.first() shouldBe null
+            }
+        } finally {
+            unmockkObject(Porter)
+        }
+    }
+
+    @Test
+    fun `connectionChanges follows compatible recovery replacement and death`() = runTest {
+        val state = MutableStateFlow<PorterConnectionState>(mockk<PorterConnectionState.Incompatible>())
+        val connection = MutableStateFlow<PorterConnection?>(null)
+        mockkObject(Porter)
+        try {
+            every { Porter.state } returns state
+            every { Porter.connection } returns connection
+            val gateway = DefaultPorterGateway(mockk())
+            val changes = mutableListOf<Unit>()
+            val links = mutableListOf<AdbLink?>()
+            backgroundScope.launch { gateway.connectionChanges.collect { changes += it } }
+            backgroundScope.launch { gateway.link.collect { links += it } }
+            runCurrent()
+            changes.size shouldBe 1
+            links shouldBe listOf(null)
+
+            val connections = List(2) {
+                mockk<PorterConnection> {
+                    every { backend } returns PorterBackend.PORTER
+                    every { permission } returns MutableStateFlow(PermissionState.Granted)
+                }
+            }
+            connections.forEachIndexed { index, next ->
+                // Match the SDK's publication order: the usable connection precedes its state.
+                connection.value = next
+                state.value = mockk<PorterConnectionState.Connected> {
+                    every { this@mockk.connection } returns next
+                }
+                runCurrent()
+                changes.size shouldBe index + 2
+                links.size shouldBe index + 2
+                links.last() shouldBe PorterAdbLink(next)
+            }
+
+            connection.value = null
+            state.value = PorterConnectionState.Disconnected
+            runCurrent()
+            changes.size shouldBe 4
+            links.size shouldBe 4
+            links.last() shouldBe null
+        } finally {
+            unmockkObject(Porter)
+        }
+    }
 
     @Test
     fun `NotInstalled maps to NotInstalled`() {

@@ -23,6 +23,9 @@ interface PorterGateway {
      */
     val link: Flow<AdbLink?>
 
+    /** Invalidates diagnostics, including refusals that leave [link] null. Emits the initial state too. */
+    val connectionChanges: Flow<Unit>
+
     /** Pings the server, so it takes as long as a wedged server does. Callers bound it. */
     suspend fun availability(): AdbAvailability
 }
@@ -33,6 +36,9 @@ internal class DefaultPorterGateway @Inject constructor(
 ) : PorterGateway {
 
     override val link: Flow<AdbLink?> = Porter.connection.map { connection -> connection?.let { PorterAdbLink(it) } }
+
+    // Keep every state notification: distinct/state sharing of Unit would hide later changes.
+    override val connectionChanges: Flow<Unit> = Porter.state.map { Unit }
 
     override suspend fun availability(): AdbAvailability = Porter.availability(context).toAdbAvailability()
 }

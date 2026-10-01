@@ -66,6 +66,8 @@ class ShizukuManager @Inject constructor(
         return shizukuWrapper.getActiveManagerPackage(AdbBackend.SHIZUKU)?.toPkgId()
     }
 
+    val connectionChanges: Flow<Unit> = shizukuWrapper.connectionChanges
+
     val permissionChanges: Flow<Unit> = shizukuWrapper.permissionChanges
         .setupCommonEventHandlers(TAG) { "permissionChanges" }
         .replayingShare(appScope)

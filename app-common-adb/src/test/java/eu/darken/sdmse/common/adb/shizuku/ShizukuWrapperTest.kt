@@ -18,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flow
@@ -25,6 +26,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runCurrent
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
 
 /**
  * Covers [ShizukuWrapper.getActiveManagerPackage] — permission-based manager detection that survives
@@ -32,7 +34,7 @@ import org.junit.jupiter.api.Test
  * declare their own permission name instead of the stock one — the split between the active
  * backend's family and "any manager at all", and the bounded, never-throwing calls on the link.
  */
-class ShizukuWrapperTest {
+class ShizukuWrapperTest : BaseTest() {
 
     private val context = mockk<Context>()
     private val packageManager = mockk<PackageManager>()
@@ -67,6 +69,7 @@ class ShizukuWrapperTest {
     ) : PorterGateway {
         val linkFlow = MutableStateFlow(link)
         override val link: Flow<AdbLink?> = linkFlow
+        override val connectionChanges = MutableSharedFlow<Unit>()
         override suspend fun availability(): AdbAvailability = onAvailability()
     }
 
@@ -408,6 +411,22 @@ class ShizukuWrapperTest {
     }
 
     // --- link state ----------------------------------------------------------------------------
+
+    @Test
+    fun `connectionChanges delegates every gateway notification while the link stays null`() = runTest {
+        val gateway = FakeGateway()
+        val wrapper = wrapper(gateway = gateway)
+        val changes = mutableListOf<Unit>()
+        backgroundScope.launch { wrapper.connectionChanges.collect { changes += it } }
+        runCurrent()
+
+        repeat(3) { index ->
+            gateway.connectionChanges.emit(Unit)
+            runCurrent()
+            changes.size shouldBe index + 1
+            gateway.linkFlow.value shouldBe null
+        }
+    }
 
     @Test
     fun `serverUid is the link's uid, null without a link`() = runTest {

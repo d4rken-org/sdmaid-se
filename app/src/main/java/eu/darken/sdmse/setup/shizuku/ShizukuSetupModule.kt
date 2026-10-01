@@ -35,7 +35,6 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -108,8 +107,8 @@ class ShizukuSetupModule @Inject constructor(
         refreshTrigger,
         adbSettings.useShizuku.flow,
         rootManager.useRoot,
-        // A link attaching can lift the priority block below, e.g. Porter being started.
-        shizukuManager.adbLink.onStart { emit(null) }.distinctUntilChanged(),
+        // Refusals and their death invalidate diagnostics too, even while the link stays null.
+        shizukuManager.connectionChanges.onStart { emit(Unit) },
     ) { _, useShizuku, useRoot, _ ->
         // One snapshot per emission, so backend, manager and hints can't disagree with each other.
         val availability = shizukuManager.availability()

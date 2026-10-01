@@ -79,6 +79,7 @@ class AdbHostLauncherTest {
     private class FakeGateway(link: AdbLink? = null) : PorterGateway {
         val linkFlow = MutableStateFlow(link)
         override val link: Flow<AdbLink?> = linkFlow
+        override val connectionChanges: Flow<Unit> = flowOf(Unit)
         override suspend fun availability(): AdbAvailability = AdbAvailability.NotInstalled
     }
 

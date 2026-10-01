@@ -81,6 +81,8 @@ class ShizukuWrapper @Inject constructor(
 
     val link: Flow<AdbLink?> = gateway.link
 
+    val connectionChanges: Flow<Unit> = gateway.connectionChanges
+
     /**
      * Emits when the current link's permission state changes. The state a link attached with is not
      * re-announced, [link] itself emits for that.
