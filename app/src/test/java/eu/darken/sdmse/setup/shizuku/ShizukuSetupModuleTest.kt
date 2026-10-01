@@ -78,7 +78,7 @@ class ShizukuSetupModuleTest : BaseTest() {
         probeCount = 0
         useShizukuFlow = MutableStateFlow(true)
         linkFlow = MutableStateFlow(null)
-        connectionChanges = MutableSharedFlow()
+        connectionChanges = MutableSharedFlow<Unit>(replay = 1).apply { tryEmit(Unit) }
         scope = CoroutineScope(Dispatchers.Unconfined + SupervisorJob())
 
         every { context.packageManager } returns packageManager
@@ -144,6 +144,30 @@ class ShizukuSetupModuleTest : BaseTest() {
         dataAreaManager,
         rootManager,
     )
+
+    @Test fun `initial connection notification starts exactly one snapshot and probe`() = runTest {
+        linkFlow.value = mockk()
+        var snapshots = 0
+        var cancelledProbes = 0
+        coEvery { shizukuManager.availability() } answers {
+            snapshots++
+            AdbAvailability.Installed(AdbBackend.SHIZUKU, shizukuPkg.name, connected = true)
+        }
+        coEvery { shizukuManager.getServiceState() } coAnswers {
+            probeCount++
+            try {
+                awaitCancellation()
+            } finally {
+                cancelledProbes++
+            }
+        }
+        val mod = module(moduleScope = backgroundScope)
+        backgroundScope.launch { mod.state.collect {} }
+        runCurrent()
+
+        println("Initial counts: snapshots=$snapshots, probes=$probeCount, cancelled=$cancelledProbes")
+        listOf(snapshots, probeCount, cancelledProbes) shouldBe listOf(1, 1, 0)
+    }
 
     @Test fun `first subscription emits Loading then Result`() {
         val mod = module()

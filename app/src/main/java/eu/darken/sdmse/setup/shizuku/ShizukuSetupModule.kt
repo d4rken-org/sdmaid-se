@@ -108,7 +108,7 @@ class ShizukuSetupModule @Inject constructor(
         adbSettings.useShizuku.flow,
         rootManager.useRoot,
         // Refusals and their death invalidate diagnostics too, even while the link stays null.
-        shizukuManager.connectionChanges.onStart { emit(Unit) },
+        shizukuManager.connectionChanges,
     ) { _, useShizuku, useRoot, _ ->
         // One snapshot per emission, so backend, manager and hints can't disagree with each other.
         val availability = shizukuManager.availability()
