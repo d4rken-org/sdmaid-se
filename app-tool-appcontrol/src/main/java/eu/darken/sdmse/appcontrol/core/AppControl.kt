@@ -35,7 +35,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.error.causes
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -464,11 +463,10 @@ class AppControl @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to archive $targetId: ${e.asLog()}" }
                     failed.add(targetId)
-                    if (e is ArchiveUnavailableException || e.causes.any { it is ArchiveUnavailableException }) {
-                        unavailable.add(targetId)
-                    }
-                    // The archiver wraps whatever went wrong, the budget classifies the wrapped cause.
-                    budget.onFailure(if (e is ArchiveException) e.cause ?: e else e)
+                    // The archiver wraps whatever went wrong, classify the wrapped cause.
+                    val cause = if (e is ArchiveException) e.cause ?: e else e
+                    if (cause is ArchiveUnavailableException) unavailable.add(targetId)
+                    budget.onFailure(cause)
                     if (budget.isExhausted) {
                         log(TAG, ERROR) { "Automation failure budget spent at $targetId, giving up" }
                         gaveUp = AutomationCompatibilityException()
@@ -542,11 +540,10 @@ class AppControl @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to restore $targetId: ${e.asLog()}" }
                     failed.add(targetId)
-                    if (e is RestoreUnavailableException || e.causes.any { it is RestoreUnavailableException }) {
-                        unavailable.add(targetId)
-                    }
-                    // The restorer wraps whatever went wrong, the budget classifies the wrapped cause.
-                    budget.onFailure(if (e is RestoreException) e.cause ?: e else e)
+                    // The restorer wraps whatever went wrong, classify the wrapped cause.
+                    val cause = if (e is RestoreException) e.cause ?: e else e
+                    if (cause is RestoreUnavailableException) unavailable.add(targetId)
+                    budget.onFailure(cause)
                     if (budget.isExhausted) {
                         log(TAG, ERROR) { "Automation failure budget spent at $targetId, giving up" }
                         gaveUp = AutomationCompatibilityException()
