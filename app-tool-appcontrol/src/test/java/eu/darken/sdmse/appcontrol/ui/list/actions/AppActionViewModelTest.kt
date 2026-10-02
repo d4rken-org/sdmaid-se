@@ -3,9 +3,13 @@ package eu.darken.sdmse.appcontrol.ui.list.actions
 import android.content.Context
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveUnavailableException
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreException
 import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreUnavailableException
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItem
@@ -139,6 +143,16 @@ class AppActionViewModelTest : BaseTest() {
         val list = mutableListOf<AppActionViewModel.Event>()
         val job = launch(start = CoroutineStart.UNDISPATCHED) {
             vm.events.collect { list.add(it) }
+        }
+        return CollectedEvents(list, job)
+    }
+
+    private fun CoroutineScope.collectErrors(
+        vm: AppActionViewModel,
+    ): CollectedEvents<Throwable> {
+        val list = mutableListOf<Throwable>()
+        val job = launch(start = CoroutineStart.UNDISPATCHED) {
+            vm.errorEvents.collect { list.add(it) }
         }
         return CollectedEvents(list, job)
     }
@@ -420,6 +434,106 @@ class AppActionViewModelTest : BaseTest() {
 
         val expectedTask = RestoreTask(setOf(installId))
         coVerify(exactly = 1) { h.taskSubmitter.submit(expectedTask) }
+    }
+
+    @Test
+    fun `onArchiveConfirmed with a disabled button routes ArchiveUnavailableException to errorEvents`() = runTest2 {
+        val app = appInfo("com.a.app", canBeArchived = true)
+        val installId = app.installId
+        val h = harness(apps = listOf(app), canArchive = true)
+        h.vm.setInstallId(installId)
+        advanceUntilIdle()
+
+        val result = ArchiveTask.Result(
+            success = emptySet(),
+            failed = setOf(installId),
+            unavailable = setOf(installId),
+        )
+        coEvery { h.taskSubmitter.submit(any<ArchiveTask>()) } returns result
+
+        val collected = collectEvents(h.vm)
+        val errors = collectErrors(h.vm)
+
+        h.vm.onArchiveConfirmed()
+        advanceUntilIdle()
+
+        errors.list.single().shouldBeInstanceOf<ArchiveUnavailableException>()
+        collected.list.filterIsInstance<AppActionViewModel.Event.ShowResult>() shouldBe emptyList()
+        collected.cancel()
+        errors.cancel()
+    }
+
+    @Test
+    fun `onArchiveConfirmed with any other failure routes ArchiveException to errorEvents`() = runTest2 {
+        val app = appInfo("com.a.app", canBeArchived = true)
+        val installId = app.installId
+        val h = harness(apps = listOf(app), canArchive = true)
+        h.vm.setInstallId(installId)
+        advanceUntilIdle()
+
+        val result = ArchiveTask.Result(success = emptySet(), failed = setOf(installId))
+        coEvery { h.taskSubmitter.submit(any<ArchiveTask>()) } returns result
+
+        val collected = collectEvents(h.vm)
+        val errors = collectErrors(h.vm)
+
+        h.vm.onArchiveConfirmed()
+        advanceUntilIdle()
+
+        errors.list.single().shouldBeInstanceOf<ArchiveException>()
+        collected.list.filterIsInstance<AppActionViewModel.Event.ShowResult>() shouldBe emptyList()
+        collected.cancel()
+        errors.cancel()
+    }
+
+    @Test
+    fun `onRestoreConfirmed with a disabled button routes RestoreUnavailableException to errorEvents`() = runTest2 {
+        val app = appInfo("com.a.app", canBeRestored = true)
+        val installId = app.installId
+        val h = harness(apps = listOf(app), canRestore = true)
+        h.vm.setInstallId(installId)
+        advanceUntilIdle()
+
+        val result = RestoreTask.Result(
+            success = emptySet(),
+            failed = setOf(installId),
+            unavailable = setOf(installId),
+        )
+        coEvery { h.taskSubmitter.submit(any<RestoreTask>()) } returns result
+
+        val collected = collectEvents(h.vm)
+        val errors = collectErrors(h.vm)
+
+        h.vm.onRestoreConfirmed()
+        advanceUntilIdle()
+
+        errors.list.single().shouldBeInstanceOf<RestoreUnavailableException>()
+        collected.list.filterIsInstance<AppActionViewModel.Event.ShowResult>() shouldBe emptyList()
+        collected.cancel()
+        errors.cancel()
+    }
+
+    @Test
+    fun `onRestoreConfirmed with any other failure routes RestoreException to errorEvents`() = runTest2 {
+        val app = appInfo("com.a.app", canBeRestored = true)
+        val installId = app.installId
+        val h = harness(apps = listOf(app), canRestore = true)
+        h.vm.setInstallId(installId)
+        advanceUntilIdle()
+
+        val result = RestoreTask.Result(success = emptySet(), failed = setOf(installId))
+        coEvery { h.taskSubmitter.submit(any<RestoreTask>()) } returns result
+
+        val collected = collectEvents(h.vm)
+        val errors = collectErrors(h.vm)
+
+        h.vm.onRestoreConfirmed()
+        advanceUntilIdle()
+
+        errors.list.single().shouldBeInstanceOf<RestoreException>()
+        collected.list.filterIsInstance<AppActionViewModel.Event.ShowResult>() shouldBe emptyList()
+        collected.cancel()
+        errors.cancel()
     }
 
     // ─────────────────────────── exclude handling ───────────────────────────
