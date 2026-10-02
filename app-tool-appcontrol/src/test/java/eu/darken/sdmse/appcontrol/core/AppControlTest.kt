@@ -3,11 +3,13 @@ package eu.darken.sdmse.appcontrol.core
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveUnavailableException
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
 import eu.darken.sdmse.appcontrol.core.restore.RestoreException
 import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreUnavailableException
 import eu.darken.sdmse.appcontrol.core.restore.Restorer
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
@@ -801,6 +803,106 @@ class AppControlTest : BaseTest() {
         val result = setup.appControl.submit(RestoreTask(targets = apps.asTargets()))
 
         result shouldBe RestoreTask.Result(success = emptySet(), failed = apps.asTargets())
+        coVerify(exactly = apps.size) { setup.restorer.restore(any()) }
+    }
+
+    // ─────────────────────────── archive & restore unavailable ───────────────────────────
+
+    @Test
+    fun `an archive target with a disabled button is failed and unavailable, other failures only failed`() = runTest2 {
+        val apps = batchApps(2)
+        val (disabled, broken) = apps
+        val setup = batchSetup(apps)
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            val cause = when (app.installId) {
+                disabled.installId -> ArchiveUnavailableException("Archive button is disabled")
+                else -> IllegalStateException("nope")
+            }
+            throw ArchiveException(installId = app.installId, cause = cause)
+        }
+
+        val result = setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+
+        result shouldBe ArchiveTask.Result(
+            success = emptySet(),
+            failed = setOf(disabled.installId, broken.installId),
+            unavailable = setOf(disabled.installId),
+        )
+    }
+
+    @Test
+    fun `disabled archive buttons never spend the automation failure budget`() = runTest2 {
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 3)
+        val working = apps.last()
+        val disabled = apps.dropLast(1)
+        val setup = batchSetup(apps)
+        coEvery { setup.archiver.archive(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            if (app.installId != working.installId) {
+                throw ArchiveException(
+                    installId = app.installId,
+                    cause = ArchiveUnavailableException("Archive button is disabled"),
+                )
+            }
+        }
+
+        val result = setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+
+        result shouldBe ArchiveTask.Result(
+            success = setOf(working.installId),
+            failed = disabled.asTargets(),
+            unavailable = disabled.asTargets(),
+        )
+        coVerify(exactly = apps.size) { setup.archiver.archive(any()) }
+    }
+
+    @Test
+    fun `a restore target with a disabled button is failed and unavailable, other failures only failed`() = runTest2 {
+        val apps = batchApps(2)
+        val (disabled, broken) = apps
+        val setup = batchSetup(apps)
+        coEvery { setup.restorer.restore(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            val cause = when (app.installId) {
+                disabled.installId -> RestoreUnavailableException("Restore button is disabled")
+                else -> IllegalStateException("nope")
+            }
+            throw RestoreException(installId = app.installId, cause = cause)
+        }
+
+        val result = setup.appControl.submit(RestoreTask(targets = apps.asTargets()))
+
+        result shouldBe RestoreTask.Result(
+            success = emptySet(),
+            failed = setOf(disabled.installId, broken.installId),
+            unavailable = setOf(disabled.installId),
+        )
+    }
+
+    @Test
+    fun `disabled restore buttons never spend the automation failure budget`() = runTest2 {
+        val apps = batchApps(AUTOMATION_FAILURE_LIMIT + 3)
+        val working = apps.last()
+        val disabled = apps.dropLast(1)
+        val setup = batchSetup(apps)
+        coEvery { setup.restorer.restore(any()) } coAnswers {
+            val app = firstArg<AppInfo>()
+            if (app.installId != working.installId) {
+                throw RestoreException(
+                    installId = app.installId,
+                    cause = RestoreUnavailableException("Restore button is disabled"),
+                )
+            }
+        }
+
+        val result = setup.appControl.submit(RestoreTask(targets = apps.asTargets()))
+
+        result shouldBe RestoreTask.Result(
+            success = setOf(working.installId),
+            failed = disabled.asTargets(),
+            unavailable = disabled.asTargets(),
+        )
         coVerify(exactly = apps.size) { setup.restorer.restore(any()) }
     }
 
