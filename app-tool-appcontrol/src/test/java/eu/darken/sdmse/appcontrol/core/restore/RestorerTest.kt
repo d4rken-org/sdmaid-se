@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.coEvery
 import io.mockk.coJustRun
 import io.mockk.coVerify
@@ -24,6 +25,7 @@ import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkObject
 import io.mockk.unmockkObject
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -297,5 +299,26 @@ class RestorerTest : BaseTest() {
         setup.restorer.restore(target)
 
         coVerify(atLeast = 1) { setup.pkgRepo.refresh() }
+    }
+
+    @Test
+    fun `a disabled restore button fails without waiting for the restore`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = systemUserHandle)
+        val unavailable = RestoreUnavailableException("Restore button is disabled for ${target.installId}")
+        val setup = setupRestorer(
+            useRoot = false,
+            useAdb = false,
+            automationResult = RestoreAutomationTask.Result(
+                successful = emptyList(),
+                failed = mapOf(target.installId to unavailable),
+            ),
+        )
+
+        val thrown = shouldThrow<RestoreException> { setup.restorer.restore(target) }
+
+        thrown.cause shouldBeSameInstanceAs unavailable
+        coVerify(exactly = 1) { setup.automation.submit(any()) }
+        verify(exactly = 0) { setup.pkgRepo.data }
+        coVerify(exactly = 0) { setup.pkgRepo.refresh() }
     }
 }
