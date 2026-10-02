@@ -8,6 +8,7 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveUnavailableException
 import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
@@ -15,6 +16,7 @@ import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
 import eu.darken.sdmse.appcontrol.core.restore.RestoreException
 import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreUnavailableException
 import eu.darken.sdmse.appcontrol.core.restore.Restorer
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
@@ -33,6 +35,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.causes
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -444,6 +447,7 @@ class AppControl @Inject constructor(
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
+        val unavailable = mutableSetOf<InstallId>()
         val budget = UnusableFailureBudget()
         var gaveUp: AutomationCompatibilityException? = null
 
@@ -460,6 +464,9 @@ class AppControl @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to archive $targetId: ${e.asLog()}" }
                     failed.add(targetId)
+                    if (e is ArchiveUnavailableException || e.causes.any { it is ArchiveUnavailableException }) {
+                        unavailable.add(targetId)
+                    }
                     // The archiver wraps whatever went wrong, the budget classifies the wrapped cause.
                     budget.onFailure(if (e is ArchiveException) e.cause ?: e else e)
                     if (budget.isExhausted) {
@@ -508,7 +515,7 @@ class AppControl @Inject constructor(
 
         if (giveUpError != null) throw giveUpError
 
-        return ArchiveTask.Result(successful, failed)
+        return ArchiveTask.Result(successful, failed, unavailable)
     }
 
     private suspend fun performRestore(task: RestoreTask): RestoreTask.Result {
@@ -518,6 +525,7 @@ class AppControl @Inject constructor(
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
         val successful = mutableSetOf<InstallId>()
         val failed = mutableSetOf<InstallId>()
+        val unavailable = mutableSetOf<InstallId>()
         val budget = UnusableFailureBudget()
         var gaveUp: AutomationCompatibilityException? = null
 
@@ -534,6 +542,9 @@ class AppControl @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to restore $targetId: ${e.asLog()}" }
                     failed.add(targetId)
+                    if (e is RestoreUnavailableException || e.causes.any { it is RestoreUnavailableException }) {
+                        unavailable.add(targetId)
+                    }
                     // The restorer wraps whatever went wrong, the budget classifies the wrapped cause.
                     budget.onFailure(if (e is RestoreException) e.cause ?: e else e)
                     if (budget.isExhausted) {
@@ -582,7 +593,7 @@ class AppControl @Inject constructor(
 
         if (giveUpError != null) throw giveUpError
 
-        return RestoreTask.Result(successful, failed)
+        return RestoreTask.Result(successful, failed, unavailable)
     }
 
     data class State(

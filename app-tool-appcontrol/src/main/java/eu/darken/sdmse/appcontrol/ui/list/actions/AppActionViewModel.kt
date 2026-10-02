@@ -12,12 +12,14 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveUnavailableException
 import eu.darken.sdmse.appcontrol.core.createGooglePlayIntent
 import eu.darken.sdmse.appcontrol.core.createSystemSettingsIntent
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.restore.RestoreException
 import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreUnavailableException
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
@@ -189,7 +191,11 @@ class AppActionViewModel @Inject constructor(
         val task = ArchiveTask(setOf(appInfo.installId))
         val result = taskManager.submit(task) as ArchiveTask.Result
         if (result.failed.isNotEmpty()) {
-            throw ArchiveException(installId = result.failed.first())
+            val id = result.failed.first()
+            if (id in result.unavailable) {
+                throw ArchiveUnavailableException("Archive button is disabled for $id")
+            }
+            throw ArchiveException(installId = id)
         }
         events.emit(Event.ShowResult(result))
     }
@@ -200,7 +206,11 @@ class AppActionViewModel @Inject constructor(
         val task = RestoreTask(setOf(appInfo.installId))
         val result = taskManager.submit(task) as RestoreTask.Result
         if (result.failed.isNotEmpty()) {
-            throw RestoreException(installId = result.failed.first())
+            val id = result.failed.first()
+            if (id in result.unavailable) {
+                throw RestoreUnavailableException("Restore button is disabled for $id")
+            }
+            throw RestoreException(installId = id)
         }
         events.emit(Event.ShowResult(result))
     }

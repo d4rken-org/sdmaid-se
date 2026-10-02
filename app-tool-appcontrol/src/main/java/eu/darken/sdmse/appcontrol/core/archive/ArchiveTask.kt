@@ -20,6 +20,7 @@ data class ArchiveTask(
     data class Result(
         val success: Set<InstallId>,
         val failed: Set<InstallId>,
+        val unavailable: Set<InstallId> = emptySet(),
     ) : AppControlTask.Result, ReportDetails.AffectedPkgs {
 
         override val affectedPkgs: Map<Pkg.Id, AffectedPkg.Action>
