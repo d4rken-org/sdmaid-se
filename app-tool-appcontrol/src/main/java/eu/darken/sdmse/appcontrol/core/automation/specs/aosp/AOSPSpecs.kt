@@ -6,7 +6,9 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveUnavailableException
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
+import eu.darken.sdmse.appcontrol.core.restore.RestoreUnavailableException
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.isEmpty
 import eu.darken.sdmse.automation.core.common.pkgId
@@ -230,8 +232,8 @@ class AOSPSpecs @Inject constructor(
         }
 
         if (wasDisabled) {
-            log(TAG) { "Archive button was disabled, app cannot be archived." }
-            return@plan
+            log(TAG, WARN) { "Archive button was disabled, app cannot be archived." }
+            throw ArchiveUnavailableException("Archive button is disabled for ${pkg.installId}")
         }
         // Note: Android 15+ doesn't show a confirmation dialog - archive happens immediately when the button is clicked
     }
@@ -288,8 +290,8 @@ class AOSPSpecs @Inject constructor(
         }
 
         if (wasDisabled) {
-            log(TAG) { "Restore button was disabled, app cannot be restored." }
-            return@plan
+            log(TAG, WARN) { "Restore button was disabled, app cannot be restored." }
+            throw RestoreUnavailableException("Restore button is disabled for ${pkg.installId}")
         }
         // Note: Similar to archive, restore typically doesn't show a confirmation dialog
     }
