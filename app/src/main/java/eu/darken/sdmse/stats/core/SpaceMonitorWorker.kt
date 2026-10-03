@@ -9,6 +9,7 @@ import dagger.assisted.AssistedInject
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.stats.core.db.ReportsDatabase
 import eu.darken.sdmse.widget.WidgetUpdater
 
 @HiltWorker
@@ -18,11 +19,13 @@ class SpaceMonitorWorker @AssistedInject constructor(
     private val spaceTracker: SpaceTracker,
     private val widgetUpdater: WidgetUpdater,
     private val lowSpaceMonitor: LowSpaceMonitor,
+    private val reportsDatabase: ReportsDatabase,
 ) : CoroutineWorker(context, params) {
 
     override suspend fun doWork(): Result {
         log(TAG, VERBOSE) { "doWork(): Recording storage snapshot" }
         spaceTracker.recordSnapshot()
+        reportsDatabase.applyRetention()
         // Backstop refresh for placed home-screen widgets (free space may drift between cleans).
         widgetUpdater.updateAll()
         // Never throws: a notification failure must not break snapshot recording or the widget.
