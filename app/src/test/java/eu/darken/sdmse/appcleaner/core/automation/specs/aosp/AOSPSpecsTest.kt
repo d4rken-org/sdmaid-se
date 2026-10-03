@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
+import android.util.DisplayMetrics
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
@@ -79,6 +80,38 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
             delay(1)
             testHost.emitEvent(pkgId, android.view.accessibility.AccessibilityEvent.TYPE_WINDOW_CONTENT_CHANGED)
         }
+    }
+
+    private fun stubDensity(density: Float = 2.75f) {
+        every { testHost.service.resources.displayMetrics } returns DisplayMetrics().apply { this.density = density }
+    }
+
+    // Storage page with the clear-cache button row withheld from the tree: nothing starts in the
+    // 296px strip between the header item (bottom 739) and the next item (top 1035), unless
+    // [stripRow] puts an unlabeled clickable row there.
+    private fun buttonBandTree(
+        cacheSummary: String = "143 kB",
+        stripRow: Boolean = false,
+    ): TestACSNodeInfo {
+        val stripLine = if (stripRow) {
+            "ACS-DEBUG: --2: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=null pkg=com.android.settings, identity=stripRow, bounds=Rect(0, 760 - 1080, 1000)\n"
+        } else {
+            ""
+        }
+        return buildTestTree(
+            "ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)\n" +
+                "ACS-DEBUG: -1: text='null', class=androidx.recyclerview.widget.RecyclerView, clickable=false, checkable=false enabled=true, id=com.android.settings:id/recycler_view pkg=com.android.settings, identity=list, bounds=Rect(0, 234 - 1080, 2400)\n" +
+                "ACS-DEBUG: --2: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=headerItem, bounds=Rect(0, 234 - 1080, 739)\n" +
+                "ACS-DEBUG: ---3: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(42, 260 - 1038, 700)\n" +
+                stripLine +
+                "ACS-DEBUG: --2: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=nextItem, bounds=Rect(0, 1035 - 1080, 1198)\n" +
+                "ACS-DEBUG: ---3: text='App size', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=sizeTitle, bounds=Rect(126, 1077 - 600, 1156)\n" +
+                "ACS-DEBUG: --2: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=cacheRow, bounds=Rect(0, 1198 - 1080, 1361)\n" +
+                "ACS-DEBUG: ---3: text='Cache', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=rowTitle, bounds=Rect(126, 1240 - 600, 1319)\n" +
+                "ACS-DEBUG: ---3: text='$cacheSummary', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=rowSummary, bounds=Rect(700, 1240 - 1038, 1319)\n" +
+                "ACS-DEBUG: --2: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=footer, bounds=Rect(0, 2185 - 1080, 2185)",
+            withBounds = true,
+        )
     }
 
     // ============================================================
@@ -629,11 +662,12 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         setupTestScope(this)
         mockkStatic(::hasApiLevel)
         every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
-        // MANUFACTOR stays at the "TestOEM" default from aospSetup: the API level alone must not
-        // open the fallback, or every AOSP device on 36+ would start blind-clicking. The cache row
-        // is deliberately non-empty: if the gate ever regressed, a zero row would set
-        // pendingVerdict at the first size check and suppress the DPAD branch for the rest of the
-        // run, so the assertions below would still pass and the regression would slip through.
+        // MANUFACTOR stays at the "TestOEM" default from aospSetup, so on 37 only the button band
+        // check could open the fallback, and it can't qualify here: the tree is parsed without
+        // bounds and the display density is unknown. The cache row is deliberately non-empty: if
+        // the gate ever regressed, a zero row would set pendingVerdict at the first size check and
+        // suppress the DPAD branch for the rest of the run, so the assertions below would still
+        // pass and the regression would slip through.
         mockkConstructor(SizeParser::class)
         every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
 
@@ -692,6 +726,241 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         val result = captureAndRunClearCacheAction(maxAttempts = 5)
 
         result shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    // ============================================================
+    // Empty button band gate (non-allowlisted manufacturers, API 37+)
+    // ============================================================
+
+    @Test
+    fun `an empty button band opens the DPAD fallback on API 37`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+        every { anyConstructed<SizeParser>().parse("12 kB") } returns 12288L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) {
+                testHost.setWindowRoot(buttonBandTree(cacheSummary = "12 kB"))
+                emitValidationEventAsync()
+            }
+            true
+        }
+
+        testRoot = buttonBandTree()
+
+        // Band observations land on attempts 2 and 12, so DPAD can only start on attempt 12.
+        val result = captureAndRunClearCacheAction(maxAttempts = 13)
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a band-gated DPAD click without a cache decrease does not succeed`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) {
+                emitValidationEventAsync()
+            }
+            true
+        }
+
+        testRoot = buttonBandTree()
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 13)
+
+        result shouldBe false
+        // 1 quick-try + 3 blind-sweep (positions 2-4), each rejected by the delta check
+        verify(exactly = 4) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a node inside the button band keeps the DPAD fallback closed`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        testRoot = buttonBandTree(stripRow = true)
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 13)
+
+        result shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    @Test
+    fun `an empty button band on API 36 keeps the DPAD fallback closed`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        stubDensity()
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        testRoot = buttonBandTree()
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 13)
+
+        result shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    @Test
+    fun `an allowlisted manufacturer gets DPAD regardless of the button band`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
+        stubDensity()
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+        every { anyConstructed<SizeParser>().parse("12 kB") } returns 12288L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) {
+                testHost.setWindowRoot(buttonBandTree(cacheSummary = "12 kB", stripRow = true))
+                emitValidationEventAsync()
+            }
+            true
+        }
+
+        // The strip is occupied, which would veto the band route, but the allowlist never asks.
+        testRoot = buttonBandTree(stripRow = true)
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 13)
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `an empty button band with unknown display density keeps the DPAD fallback closed`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        // No stubDensity(): the relaxed service mock reports a density of 0.
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        testRoot = buttonBandTree()
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 13)
+
+        result shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    @Test
+    fun `a row appearing in the button band during layout stabilization vetoes the first key`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        // The second size read (attempt 12) follows the confirming band observation and directly
+        // precedes the DPAD branch, whose layout stabilization waits 200ms between its checks.
+        // The row shows up halfway through that wait.
+        mockkConstructor(SizeParser::class)
+        var sizeReads = 0
+        every { anyConstructed<SizeParser>().parse("143 kB") } answers {
+            sizeReads++
+            if (sizeReads == 2) {
+                testHost.scope.launch {
+                    delay(100)
+                    testHost.setWindowRoot(buttonBandTree(stripRow = true))
+                }
+            }
+            143360L
+        }
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        testRoot = buttonBandTree()
+
+        // rethrowAbort: a veto must not count as exhausted, which would abort on attempt 13.
+        val result = captureAndRunClearCacheAction(maxAttempts = 23, rethrowAbort = true)
+
+        result shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    @Test
+    fun `a single empty band observation does not open the DPAD fallback`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        // Observations on attempts 2, 12 and 22 see empty, occupied, empty. Each size read follows
+        // the observation of its pass, so it swaps in the tree for the next one. Only a streak
+        // that resets on the occupied observation keeps attempt 22 from confirming.
+        mockkConstructor(SizeParser::class)
+        var sizeReads = 0
+        every { anyConstructed<SizeParser>().parse("143 kB") } answers {
+            sizeReads++
+            when (sizeReads) {
+                1 -> testHost.setWindowRoot(buttonBandTree(stripRow = true))
+                2 -> testHost.setWindowRoot(buttonBandTree())
+            }
+            143360L
+        }
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } returns true
+
+        testRoot = buttonBandTree()
+
+        val result = captureAndRunClearCacheAction(maxAttempts = 23)
+
+        result shouldBe false
+        sizeReads shouldBe 3
         verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
         verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
