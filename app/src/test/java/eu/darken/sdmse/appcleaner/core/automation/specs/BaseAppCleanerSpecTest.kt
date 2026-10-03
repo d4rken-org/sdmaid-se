@@ -144,8 +144,8 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
     /**
      * Builds a test tree from ACS debug log format.
      */
-    protected fun buildTestTree(acsLog: String): TestACSNodeInfo {
-        return AcsDebugParser.parseTree(acsLog) ?: TestACSNodeInfo()
+    protected fun buildTestTree(acsLog: String, withBounds: Boolean = false): TestACSNodeInfo {
+        return AcsDebugParser.parseTree(acsLog, withBounds) ?: TestACSNodeInfo()
     }
 
     /**
