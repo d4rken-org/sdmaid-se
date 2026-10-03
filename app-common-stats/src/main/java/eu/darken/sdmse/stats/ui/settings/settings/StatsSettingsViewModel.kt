@@ -30,13 +30,15 @@ class StatsSettingsViewModel @Inject constructor(
         upgradeRepo.upgradeInfo.map { it.isPro },
         settings.retentionReports.flow,
         settings.retentionPaths.flow,
-    ) { repoState, isPro, retentionReports, retentionPaths ->
+        settings.retentionSnapshots.flow,
+    ) { repoState, isPro, retentionReports, retentionPaths, retentionSnapshots ->
         State(
             reportsCount = repoState.reportsCount,
             totalSpaceFreed = repoState.totalSpaceFreed,
             itemsProcessed = repoState.itemsProcessed,
             retentionReports = retentionReports,
             retentionPaths = retentionPaths,
+            retentionSnapshots = retentionSnapshots,
             isPro = isPro,
         )
     }.safeStateIn(
@@ -58,6 +60,11 @@ class StatsSettingsViewModel @Inject constructor(
     fun setRetentionPaths(age: Duration) = launch { settings.retentionPaths.value(age) }
     fun resetRetentionPaths() = launch { settings.retentionPaths.value(StatsSettings.DEFAULT_RETENTION_PATHS) }
 
+    fun setRetentionSnapshots(age: Duration) = launch { settings.retentionSnapshots.value(age) }
+    fun resetRetentionSnapshots() = launch {
+        settings.retentionSnapshots.value(StatsSettings.DEFAULT_RETENTION_SNAPSHOTS)
+    }
+
     fun resetAll() = launch {
         log(TAG) { "resetAll()" }
         statsRepo.resetAll()
@@ -69,6 +76,7 @@ class StatsSettingsViewModel @Inject constructor(
         val itemsProcessed: Long = 0L,
         val retentionReports: Duration = StatsSettings.DEFAULT_RETENTION_REPORTS,
         val retentionPaths: Duration = StatsSettings.DEFAULT_RETENTION_PATHS,
+        val retentionSnapshots: Duration = StatsSettings.DEFAULT_RETENTION_SNAPSHOTS,
         val isPro: Boolean = false,
     )
 

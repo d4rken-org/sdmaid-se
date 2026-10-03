@@ -35,6 +35,8 @@ class StatsSettings @Inject constructor(
         val DEFAULT_RETENTION_REPORTS: Duration = Duration.ofDays(30)
         val DEFAULT_RETENTION_PATHS: Duration = Duration.ofDays(7)
         val DEFAULT_RETENTION_SNAPSHOTS: Duration = Duration.ofDays(90)
+        val MIN_RETENTION_SNAPSHOTS: Duration = Duration.ofDays(7)
+        val MAX_RETENTION_SNAPSHOTS: Duration = Duration.ofDays(365)
         val FREE_RETENTION_SNAPSHOTS: Duration = Duration.ofDays(7)
         internal val TAG = logTag("Stats", "Settings")
     }
