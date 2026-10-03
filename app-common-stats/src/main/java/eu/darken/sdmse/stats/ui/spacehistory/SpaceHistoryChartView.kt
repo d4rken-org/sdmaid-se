@@ -6,6 +6,7 @@ import android.graphics.Paint
 import android.graphics.Path
 import android.graphics.PointF
 import android.graphics.Typeface
+import android.text.format.DateFormat
 import android.util.AttributeSet
 import android.view.MotionEvent
 import android.view.View
@@ -16,6 +17,8 @@ import eu.darken.sdmse.common.spToPx
 import eu.darken.sdmse.common.stats.R
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
+import java.time.Instant
+import java.time.LocalDate
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Locale
@@ -78,9 +81,18 @@ class SpaceHistoryChartView @JvmOverloads constructor(
         style = Paint.Style.FILL
     }
 
-    private val dateFormatter = DateTimeFormatter.ofPattern("MMM d", Locale.getDefault())
+    private val dateFormatter = Locale.getDefault().let {
+        DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(it, "MMMd"), it)
+    }
+    private val dateYearFormatter = Locale.getDefault().let {
+        DateTimeFormatter.ofPattern(DateFormat.getBestDateTimePattern(it, "yMMMd"), it)
+    }
 
     private var snapshots: List<SpaceSnapshotEntity> = emptyList()
+    private var times: LongArray = LongArray(0)
+    private var used: LongArray = LongArray(0)
+    private var minUsed: Long = 0L
+    private var maxUsed: Long = 0L
     private var reports: List<ReportEntity> = emptyList()
     var isCompact: Boolean = false
         set(value) {
@@ -112,7 +124,12 @@ class SpaceHistoryChartView @JvmOverloads constructor(
     }
 
     fun setData(snapshots: List<SpaceSnapshotEntity>) {
-        this.snapshots = snapshots.sortedBy { it.recordedAt }
+        val sorted = snapshots.sortedBy { it.recordedAt }
+        this.snapshots = sorted
+        times = LongArray(sorted.size) { sorted[it].recordedAt.toEpochMilli() }
+        used = LongArray(sorted.size) { sorted[it].spaceCapacity - sorted[it].spaceFree }
+        minUsed = used.minOrNull() ?: 0L
+        maxUsed = used.maxOrNull() ?: 0L
         selectedMarkerIndex = -1
         invalidate()
     }
@@ -206,23 +223,22 @@ class SpaceHistoryChartView @JvmOverloads constructor(
 
         if (chartRight <= chartLeft || chartBottom <= chartTop) return
 
-        val minValue = snapshots.minOf { it.spaceCapacity - it.spaceFree }.toFloat()
-        val maxValue = max(snapshots.maxOf { it.spaceCapacity - it.spaceFree }.toFloat(), minValue + 1f)
-        val yRange = maxValue - minValue
-
-        val minTime = snapshots.first().recordedAt.toEpochMilli()
-        val maxTime = max(snapshots.last().recordedAt.toEpochMilli(), minTime + 1L)
+        val minTime = times.first()
+        val maxTime = max(times.last(), minTime + 1L)
 
         if (!isCompact) {
             drawGrid(canvas, chartLeft, chartTop, chartRight, chartBottom)
         }
 
+        val xs = FloatArray(times.size) { pointX(times[it], it, minTime, maxTime, chartLeft, chartRight) }
+        val kept = SpaceHistoryChartMath.downsampleIndices(xs, used)
+
         val linePath = Path()
         val fillPath = Path()
-        snapshots.forEachIndexed { index, snapshot ->
-            val x = pointX(snapshot, index, minTime, maxTime, chartLeft, chartRight)
-            val y = pointY(snapshot.spaceCapacity - snapshot.spaceFree, minValue, yRange, chartTop, chartBottom)
-            if (index == 0) {
+        kept.forEachIndexed { keptIndex, index ->
+            val x = xs[index]
+            val y = pointY(used[index].toDouble(), chartTop, chartBottom)
+            if (keptIndex == 0) {
                 linePath.moveTo(x, y)
                 fillPath.moveTo(x, chartBottom)
                 fillPath.lineTo(x, y)
@@ -232,24 +248,24 @@ class SpaceHistoryChartView @JvmOverloads constructor(
             }
         }
 
-        val endX = pointX(snapshots.last(), snapshots.lastIndex, minTime, maxTime, chartLeft, chartRight)
+        val endX = xs[kept.last()]
         fillPath.lineTo(endX, chartBottom)
         fillPath.close()
 
         canvas.drawPath(fillPath, fillPaint)
         canvas.drawPath(linePath, linePaint)
 
-        drawMarkers(canvas, chartLeft, chartTop, chartRight, chartBottom, minTime, maxTime, minValue, yRange)
+        drawMarkers(canvas, chartLeft, chartTop, chartRight, chartBottom, minTime, maxTime)
 
         if (isCompact) {
-            drawCompactLabels(canvas, chartLeft, chartTop, chartRight, chartBottom, minValue, maxValue)
+            drawCompactLabels(canvas, chartLeft, chartTop, chartRight, chartBottom)
         } else {
-            drawLabels(canvas, chartLeft, chartTop, chartRight, chartBottom, minValue, maxValue)
+            drawLabels(canvas, chartLeft, chartTop, chartRight, chartBottom)
         }
     }
 
     private fun pointX(
-        snapshot: SpaceSnapshotEntity,
+        time: Long,
         index: Int,
         minTime: Long,
         maxTime: Long,
@@ -261,21 +277,28 @@ class SpaceHistoryChartView @JvmOverloads constructor(
             val fraction = if (snapshots.size <= 1) 0f else index.toFloat() / (snapshots.size - 1).toFloat()
             chartLeft + (fraction * width)
         } else {
-            val fraction = (snapshot.recordedAt.toEpochMilli() - minTime).toFloat() / (maxTime - minTime).toFloat()
+            val fraction = (time - minTime).toFloat() / (maxTime - minTime).toFloat()
             chartLeft + (fraction * width)
         }
     }
 
     private fun pointY(
-        value: Long,
-        minValue: Float,
-        yRange: Float,
+        value: Double,
         chartTop: Float,
         chartBottom: Float,
     ): Float {
         val height = chartBottom - chartTop
-        val fraction = (value.toFloat() - minValue) / yRange
+        val fraction = SpaceHistoryChartMath.yFraction(value, minUsed, maxUsed - minUsed)
         return chartBottom - (fraction * height)
+    }
+
+    private fun formatDates(first: Instant, last: Instant): Pair<String, String> {
+        val zone = ZoneId.systemDefault()
+        val start = first.atZone(zone)
+        val end = last.atZone(zone)
+        val includeYear = SpaceHistoryChartMath.includeYear(start.toLocalDate(), end.toLocalDate(), LocalDate.now(zone))
+        val formatter = if (includeYear) dateYearFormatter else dateFormatter
+        return start.format(formatter) to end.format(formatter)
     }
 
     private fun drawGrid(canvas: Canvas, left: Float, top: Float, right: Float, bottom: Float) {
@@ -292,23 +315,20 @@ class SpaceHistoryChartView @JvmOverloads constructor(
         top: Float,
         right: Float,
         bottom: Float,
-        minValue: Float,
-        maxValue: Float,
     ) {
-        val midValue = (minValue + maxValue) / 2f
+        val midValue = minUsed + (maxUsed - minUsed) / 2
         val labelX = left - context.dpToPx(8f)
 
-        canvas.drawText(formatBytes(maxValue.toLong()), labelX.toFloat(), top + labelPaint.textSize, labelPaint)
+        canvas.drawText(formatBytes(maxUsed), labelX.toFloat(), top + labelPaint.textSize, labelPaint)
         canvas.drawText(
-            formatBytes(midValue.toLong()),
+            formatBytes(midValue),
             labelX.toFloat(),
             top + ((bottom - top) / 2f) + (labelPaint.textSize / 2f),
             labelPaint,
         )
-        canvas.drawText(formatBytes(minValue.toLong()), labelX.toFloat(), bottom, labelPaint)
+        canvas.drawText(formatBytes(minUsed), labelX.toFloat(), bottom, labelPaint)
 
-        val start = snapshots.first().recordedAt.atZone(ZoneId.systemDefault()).format(dateFormatter)
-        val end = snapshots.last().recordedAt.atZone(ZoneId.systemDefault()).format(dateFormatter)
+        val (start, end) = formatDates(snapshots.first().recordedAt, snapshots.last().recordedAt)
         val xLabelY = bottom + context.dpToPx(16f)
 
         xLabelPaint.textAlign = Paint.Align.LEFT
@@ -324,16 +344,13 @@ class SpaceHistoryChartView @JvmOverloads constructor(
         top: Float,
         right: Float,
         bottom: Float,
-        minValue: Float,
-        maxValue: Float,
     ) {
         val labelX = left - context.dpToPx(4f)
 
-        canvas.drawText(formatBytes(maxValue.toLong()), labelX.toFloat(), top + labelPaint.textSize, labelPaint)
-        canvas.drawText(formatBytes(minValue.toLong()), labelX.toFloat(), bottom, labelPaint)
+        canvas.drawText(formatBytes(maxUsed), labelX.toFloat(), top + labelPaint.textSize, labelPaint)
+        canvas.drawText(formatBytes(minUsed), labelX.toFloat(), bottom, labelPaint)
 
-        val start = snapshots.first().recordedAt.atZone(ZoneId.systemDefault()).format(dateFormatter)
-        val end = snapshots.last().recordedAt.atZone(ZoneId.systemDefault()).format(dateFormatter)
+        val (start, end) = formatDates(snapshots.first().recordedAt, snapshots.last().recordedAt)
         val xLabelY = bottom + context.dpToPx(12f)
 
         xLabelPaint.textAlign = Paint.Align.LEFT
@@ -351,8 +368,6 @@ class SpaceHistoryChartView @JvmOverloads constructor(
         chartBottom: Float,
         minTime: Long,
         maxTime: Long,
-        minValue: Float,
-        yRange: Float,
     ) {
         if (reports.isEmpty() || snapshots.size < 2) {
             markerPositions = emptyList()
@@ -371,7 +386,8 @@ class SpaceHistoryChartView @JvmOverloads constructor(
 
             val fraction = (reportTime - minTime).toFloat() / (maxTime - minTime).toFloat()
             val x = chartLeft + fraction * chartWidth
-            val y = interpolateY(reportTime, minValue, yRange, chartTop, chartBottom) ?: continue
+            val usedValue = SpaceHistoryChartMath.interpolateUsed(times, used, reportTime) ?: continue
+            val y = pointY(usedValue, chartTop, chartBottom)
 
             positions.add(MarkerPosition(report, PointF(x, y)))
         }
@@ -388,43 +404,6 @@ class SpaceHistoryChartView @JvmOverloads constructor(
                 canvas.drawCircle(marker.point.x, marker.point.y, markerRadius, markerStrokePaint)
             }
         }
-    }
-
-    private fun interpolateY(
-        timeMillis: Long,
-        minValue: Float,
-        yRange: Float,
-        chartTop: Float,
-        chartBottom: Float,
-    ): Float? {
-        var before: SpaceSnapshotEntity? = null
-        var after: SpaceSnapshotEntity? = null
-        for (snapshot in snapshots) {
-            if (snapshot.recordedAt.toEpochMilli() <= timeMillis) {
-                before = snapshot
-            } else {
-                after = snapshot
-                break
-            }
-        }
-
-        val usedValue = when {
-            before != null && after != null -> {
-                val t0 = before.recordedAt.toEpochMilli()
-                val t1 = after.recordedAt.toEpochMilli()
-                val v0 = (before.spaceCapacity - before.spaceFree).toFloat()
-                val v1 = (after.spaceCapacity - after.spaceFree).toFloat()
-                val t = if (t1 == t0) 0.5f else (timeMillis - t0).toFloat() / (t1 - t0).toFloat()
-                v0 + t * (v1 - v0)
-            }
-            before != null -> (before.spaceCapacity - before.spaceFree).toFloat()
-            after != null -> (after.spaceCapacity - after.spaceFree).toFloat()
-            else -> return null
-        }
-
-        val height = chartBottom - chartTop
-        val fraction = (usedValue - minValue) / yRange
-        return chartBottom - (fraction * height)
     }
 
     private fun formatBytes(value: Long): String = ByteFormatter.formatSize(context, value).first
