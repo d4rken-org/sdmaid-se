@@ -184,7 +184,7 @@ class Stepper @Inject constructor(
     private suspend fun logFailureNodes(tag: String, context: AutomationExplorer.Context) {
         if (Bugs.isDebug) {
             log(tag, WARN) { "Step failure, current nodes:" }
-            context.host.windowRoot()?.crawl(debug = false)?.forEach { log(tag, WARN) { it.infoShort } }
+            context.host.windowRoot()?.crawl(debug = false)?.forEach { log(tag, WARN) { "${it.infoShort}, childCount=${it.node.childCount}" } }
         }
     }
 
