@@ -25,7 +25,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
@@ -115,12 +114,24 @@ class ReportsDatabase @Inject constructor(
         if (deleted > 0) databaseSize.value = getDatabaseSize()
     }
 
+    private suspend fun pruneSnapshots(retention: Duration) {
+        val cutOff = Instant.now() - retention
+        val beforeCount = spaceSnapshotDao.snapshotCount().first()
+        log(TAG, INFO) { "Retention for snapshots is $retention, deleting older than $cutOff" }
+        spaceSnapshotDao.deleteOlderThan(cutOff)
+        val deleted = beforeCount - spaceSnapshotDao.snapshotCount().first()
+        log(TAG) { "Clean up of snapshots finished, deleted $deleted" }
+
+        if (deleted > 0) databaseSize.value = getDatabaseSize()
+    }
+
     /** Sweeps expired data now, instead of waiting for the retention settings to emit again. */
     suspend fun applyRetention() = withContext(dispatcherProvider.IO) {
         log(TAG) { "applyRetention()" }
         try {
             pruneReports(statsSettings.retentionReports.value())
             pruneAffectedPaths(statsSettings.retentionPaths.value())
+            pruneSnapshots(statsSettings.retentionSnapshots.value())
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -155,16 +166,14 @@ class ReportsDatabase @Inject constructor(
 
         statsSettings.retentionSnapshots.flow
             .onEach { retention ->
-                val cutOff = Instant.now() - retention
-                val beforeCount = spaceSnapshotDao.snapshotCount().first()
-                log(TAG, INFO) { "Retention for snapshots is $retention, deleting older than $cutOff" }
-                spaceSnapshotDao.deleteOlderThan(cutOff)
-                val deleted = beforeCount - spaceSnapshotDao.snapshotCount().first()
-                log(TAG) { "Clean up of snapshots finished, deleted $deleted" }
-
-                if (deleted > 0) databaseSize.value = getDatabaseSize()
+                try {
+                    pruneSnapshots(retention)
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to clean up snapshots: ${e.asLog()}" }
+                }
             }
-            .catch { log(TAG, ERROR) { "Failed to clean up snapshots: ${it.asLog()}" } }
             .launchIn(appScope + dispatcherProvider.IO)
 
         appScope.launch(dispatcherProvider.IO) {
