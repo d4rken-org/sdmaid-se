@@ -1,5 +1,7 @@
 package testhelpers
 
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+
 /**
  * Parses ACS debug output from logs into [TestACSNodeInfo] trees for testing.
  *
@@ -15,6 +17,9 @@ package testhelpers
  * val root = AcsDebugParser.parseTree(logContent)
  * val context = createStepContextWithTree(root!!)
  * ```
+ *
+ * `bounds=Rect(...)` is only applied with `withBounds = true`; otherwise every node reports the same
+ * default screen bounds.
  */
 object AcsDebugParser {
 
@@ -31,6 +36,7 @@ object AcsDebugParser {
     private val SCROLLABLE_PATTERN = Regex("""scrollable=(true|false)""")
     private val ID_PATTERN = Regex("""id=([^\s]+)\s+pkg=""")
     private val PKG_PATTERN = Regex("""pkg=([^,]+)""")
+    private val BOUNDS_PATTERN = Regex("""bounds=Rect\((-?\d+),\s*(-?\d+)\s*-\s*(-?\d+),\s*(-?\d+)\)""")
 
     data class ParsedNode(
         val level: Int,
@@ -43,22 +49,24 @@ object AcsDebugParser {
         val isScrollable: Boolean,
         val viewIdResourceName: String?,
         val packageName: String?,
+        val bounds: ACSNodeInfo.ScreenBounds? = null,
     )
 
     /**
      * Parses ACS debug log content and returns a [TestACSNodeInfo] tree.
      *
      * @param logContent Raw log content containing ACS-DEBUG lines
+     * @param withBounds Apply each line's `bounds=Rect(...)` as the node's screen bounds
      * @return Root [TestACSNodeInfo] node, or null if parsing fails
      */
-    fun parseTree(logContent: String): TestACSNodeInfo? {
+    fun parseTree(logContent: String, withBounds: Boolean = false): TestACSNodeInfo? {
         val parsedNodes = logContent.lines()
             .filter { it.contains("ACS-DEBUG:") && !it.contains("START") && !it.contains("STOP") }
             .mapNotNull { parseLine(it) }
 
         if (parsedNodes.isEmpty()) return null
 
-        return buildTree(parsedNodes)
+        return buildTree(parsedNodes, withBounds)
     }
 
     /**
@@ -88,6 +96,10 @@ object AcsDebugParser {
 
         val packageName = PKG_PATTERN.find(properties)?.groupValues?.get(1)?.trim()
 
+        val bounds = BOUNDS_PATTERN.find(properties)?.groupValues?.let { (_, left, top, right, bottom) ->
+            ACSNodeInfo.ScreenBounds(left.toInt(), top.toInt(), right.toInt(), bottom.toInt())
+        }
+
         return ParsedNode(
             level = level,
             text = text,
@@ -99,17 +111,18 @@ object AcsDebugParser {
             isScrollable = isScrollable,
             viewIdResourceName = viewIdResourceName,
             packageName = packageName,
+            bounds = bounds,
         )
     }
 
     /**
      * Builds a [TestACSNodeInfo] tree from a flat list of [ParsedNode]s.
      */
-    fun buildTree(nodes: List<ParsedNode>): TestACSNodeInfo? {
+    fun buildTree(nodes: List<ParsedNode>, withBounds: Boolean = false): TestACSNodeInfo? {
         if (nodes.isEmpty()) return null
 
         // Create TestACSNodeInfo for each parsed node
-        val nodeInfos = nodes.map { it.toTestNodeInfo() }
+        val nodeInfos = nodes.map { it.toTestNodeInfo(withBounds) }
 
         // Build parent-child relationships using a stack
         val stack = mutableListOf<Pair<Int, TestACSNodeInfo>>() // (level, node)
@@ -136,7 +149,7 @@ object AcsDebugParser {
         return nodeInfos.firstOrNull()
     }
 
-    private fun ParsedNode.toTestNodeInfo() = TestACSNodeInfo(
+    private fun ParsedNode.toTestNodeInfo(withBounds: Boolean) = TestACSNodeInfo(
         text = text,
         contentDescription = contentDescription,
         className = className,
@@ -146,5 +159,6 @@ object AcsDebugParser {
         isEnabled = isEnabled,
         isCheckable = isCheckable,
         isScrollable = isScrollable,
+        screenBoundsOverride = if (withBounds) bounds else null,
     )
 }

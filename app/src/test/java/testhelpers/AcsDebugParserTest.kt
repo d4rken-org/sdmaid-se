@@ -1,5 +1,6 @@
 package testhelpers
 
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -162,6 +163,24 @@ class AcsDebugParserTest : BaseTest() {
     fun `parseTree returns null for empty input`() {
         AcsDebugParser.parseTree("").shouldBeNull()
         AcsDebugParser.parseTree("no acs debug lines here").shouldBeNull()
+    }
+
+    @Test
+    fun `parseTree applies bounds only when asked to`() {
+        val log = """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=test, identity=a, bounds=Rect(0, 0 - 1080, 2400)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=test, identity=b, bounds=Rect(42, 260 - 1038, 700)
+        """.trimIndent()
+
+        val withBounds = AcsDebugParser.parseTree(log, withBounds = true)
+        withBounds.shouldNotBeNull()
+        withBounds.getScreenBounds() shouldBe ACSNodeInfo.ScreenBounds(0, 0, 1080, 2400)
+        withBounds.getChild(0)!!.getScreenBounds() shouldBe ACSNodeInfo.ScreenBounds(42, 260, 1038, 700)
+
+        val withoutBounds = AcsDebugParser.parseTree(log)
+        withoutBounds.shouldNotBeNull()
+        withoutBounds.getScreenBounds() shouldBe TestACSNodeInfo().getScreenBounds()
+        withoutBounds.getChild(0)!!.getScreenBounds() shouldBe TestACSNodeInfo().getScreenBounds()
     }
 
     @Test
