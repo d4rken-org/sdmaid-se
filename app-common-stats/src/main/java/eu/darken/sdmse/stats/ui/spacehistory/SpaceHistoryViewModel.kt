@@ -16,12 +16,14 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import eu.darken.sdmse.stats.core.StatsSettings
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
 import eu.darken.sdmse.stats.core.forecast.StorageTrendCalculator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
@@ -37,10 +39,11 @@ class SpaceHistoryViewModel @Inject constructor(
     private val spaceHistoryRepo: SpaceHistoryRepo,
     private val upgradeRepo: UpgradeRepo,
     private val storageManager2: StorageManager2,
+    statsSettings: StatsSettings,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private val selectedStorageId = MutableStateFlow<String?>(null)
-    private val selectedRange = MutableStateFlow(Range.DAYS_7)
+    private val requestedRange = MutableStateFlow(Range.DAYS_7)
     private var initialStorageConsumed = false
 
     fun setInitialStorageId(id: String?) {
@@ -69,25 +72,25 @@ class SpaceHistoryViewModel @Inject constructor(
                 }
             }
             .launchInViewModel()
-
-        upgradeRepo.upgradeInfo
-            .map { it.isPro }
-            .onEach { isPro ->
-                if (!isPro && selectedRange.value != Range.DAYS_7) {
-                    selectedRange.value = Range.DAYS_7
-                }
-            }
-            .launchInViewModel()
     }
+
+    private val snapshotRetention = statsSettings.retentionSnapshots.flow
+
+    private val effectiveRange = combine(
+        requestedRange,
+        snapshotRetention,
+        upgradeRepo.upgradeInfo.map { it.isPro },
+    ) { requested, retention, isPro ->
+        Companion.effectiveRange(requested, retention, isPro)
+    }.distinctUntilChanged()
 
     private val snapshots = combine(
         selectedStorageId,
-        selectedRange,
-        upgradeRepo.upgradeInfo.map { it.isPro },
-    ) { storageId, range, isPro ->
+        effectiveRange,
+    ) { storageId, range ->
         Query(
             storageId = storageId,
-            since = Instant.now() - if (isPro) range.retention else Range.DAYS_7.retention,
+            since = Instant.now() - range.retention,
         )
     }
         .flatMapLatest { query ->
@@ -98,28 +101,26 @@ class SpaceHistoryViewModel @Inject constructor(
             }
         }
 
-    private val reportMarkers = combine(
-        selectedRange,
-        upgradeRepo.upgradeInfo.map { it.isPro },
-    ) { range, isPro ->
-        Instant.now() - if (isPro) range.retention else Range.DAYS_7.retention
-    }
+    private val reportMarkers = effectiveRange
+        .map { range -> Instant.now() - range.retention }
         .flatMapLatest { since -> spaceHistoryRepo.getReports(since) }
 
     val state: StateFlow<State> = eu.darken.sdmse.common.flow.combine(
         upgradeRepo.upgradeInfo.map { it.isPro },
         storages,
         selectedStorageId,
-        selectedRange,
+        effectiveRange,
+        snapshotRetention.map { visibleRanges(it) },
         snapshots,
         reportMarkers,
-    ) { isPro, storages, selectedStorageId, selectedRange, snapshots, reports ->
+    ) { isPro, storages, selectedStorageId, selectedRange, visibleRanges, snapshots, reports ->
         State(
             isPro = isPro,
             showUpgradePrompt = !isPro,
             storages = storages,
             selectedStorageId = selectedStorageId,
             selectedRange = selectedRange,
+            visibleRanges = visibleRanges,
             snapshots = snapshots,
             reportMarkers = reports,
             currentUsed = snapshots.lastOrNull()?.let { it.spaceCapacity - it.spaceFree },
@@ -138,7 +139,7 @@ class SpaceHistoryViewModel @Inject constructor(
             navTo(UpgradeRoute())
             return@launch
         }
-        selectedRange.value = range
+        requestedRange.value = range
     }
 
     fun selectStorage(storageId: String) {
@@ -165,6 +166,7 @@ class SpaceHistoryViewModel @Inject constructor(
         val storages: List<StorageOption> = emptyList(),
         val selectedStorageId: String? = null,
         val selectedRange: Range = Range.DAYS_7,
+        val visibleRanges: List<Range> = listOf(Range.DAYS_7, Range.DAYS_30, Range.DAYS_90),
         val snapshots: List<SpaceSnapshotEntity> = emptyList(),
         val reportMarkers: List<ReportEntity> = emptyList(),
         val currentUsed: Long? = null,
@@ -182,6 +184,8 @@ class SpaceHistoryViewModel @Inject constructor(
         DAYS_7(Duration.ofDays(7)),
         DAYS_30(Duration.ofDays(30)),
         DAYS_90(Duration.ofDays(90)),
+        DAYS_180(Duration.ofDays(180)),
+        DAYS_365(Duration.ofDays(365)),
     }
 
     private data class Query(
@@ -225,5 +229,15 @@ class SpaceHistoryViewModel @Inject constructor(
         private val PRIMARY_STORAGE_ID: String =
             (StorageManager.UUID_DEFAULT ?: UUID.fromString("00000000-0000-0000-0000-000000000000")).toString()
         private val TAG = logTag("Stats", "SpaceHistory", "ViewModel")
+
+        internal fun visibleRanges(retention: Duration): List<Range> = Range.entries.filter { range ->
+            range == Range.DAYS_7 || range.retention <= retention
+        }
+
+        internal fun effectiveRange(requested: Range, retention: Duration, isPro: Boolean): Range {
+            if (!isPro) return Range.DAYS_7
+            val visible = visibleRanges(retention)
+            return if (requested in visible) requested else visible.last()
+        }
     }
 }

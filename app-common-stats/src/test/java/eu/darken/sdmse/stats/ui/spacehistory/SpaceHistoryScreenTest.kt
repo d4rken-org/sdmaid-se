@@ -82,4 +82,26 @@ class SpaceHistoryScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("Delete").performClick()
         composeRule.runOnIdle { assertEquals(listOf("storage-b"), deleted) }
     }
+
+    @Test
+    fun `all range chips show when every range is visible`() {
+        composeRule.setScreen(
+            state = SpaceHistoryViewModel.State(
+                isPro = true,
+                visibleRanges = SpaceHistoryViewModel.Range.entries,
+            ),
+        )
+
+        composeRule.onNodeWithText("180 days").performScrollTo().assertExists()
+        composeRule.onNodeWithText("1 year").performScrollTo().assertExists()
+    }
+
+    @Test
+    fun `the default state shows no range beyond 90 days`() {
+        composeRule.setScreen(state = SpaceHistoryViewModel.State())
+
+        composeRule.onNodeWithText("90 days").performScrollTo().assertExists()
+        composeRule.onNodeWithText("180 days").assertDoesNotExist()
+        composeRule.onNodeWithText("1 year").assertDoesNotExist()
+    }
 }

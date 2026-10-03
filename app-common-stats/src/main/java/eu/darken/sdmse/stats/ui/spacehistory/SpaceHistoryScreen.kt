@@ -132,24 +132,14 @@ internal fun SpaceHistoryScreen(
                 style = MaterialTheme.typography.labelLarge,
             )
             FlowRow(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                RangeChip(
-                    selected = state.selectedRange == SpaceHistoryViewModel.Range.DAYS_7,
-                    enabled = true,
-                    label = stringResource(R.string.stats_space_history_range_7d),
-                    onClick = { onSelectRange(SpaceHistoryViewModel.Range.DAYS_7) },
-                )
-                RangeChip(
-                    selected = state.selectedRange == SpaceHistoryViewModel.Range.DAYS_30,
-                    enabled = state.isPro,
-                    label = stringResource(R.string.stats_space_history_range_30d),
-                    onClick = { onSelectRange(SpaceHistoryViewModel.Range.DAYS_30) },
-                )
-                RangeChip(
-                    selected = state.selectedRange == SpaceHistoryViewModel.Range.DAYS_90,
-                    enabled = state.isPro,
-                    label = stringResource(R.string.stats_space_history_range_90d),
-                    onClick = { onSelectRange(SpaceHistoryViewModel.Range.DAYS_90) },
-                )
+                state.visibleRanges.forEach { range ->
+                    RangeChip(
+                        selected = state.selectedRange == range,
+                        enabled = range == SpaceHistoryViewModel.Range.DAYS_7 || state.isPro,
+                        label = stringResource(range.labelRes),
+                        onClick = { onSelectRange(range) },
+                    )
+                }
             }
 
             if (state.storages.size > 1) {
@@ -413,6 +403,8 @@ private val SpaceHistoryViewModel.Range.labelRes: Int
         SpaceHistoryViewModel.Range.DAYS_7 -> R.string.stats_space_history_range_7d
         SpaceHistoryViewModel.Range.DAYS_30 -> R.string.stats_space_history_range_30d
         SpaceHistoryViewModel.Range.DAYS_90 -> R.string.stats_space_history_range_90d
+        SpaceHistoryViewModel.Range.DAYS_180 -> R.string.stats_space_history_range_180d
+        SpaceHistoryViewModel.Range.DAYS_365 -> R.string.stats_space_history_range_365d
     }
 
 @Preview2
