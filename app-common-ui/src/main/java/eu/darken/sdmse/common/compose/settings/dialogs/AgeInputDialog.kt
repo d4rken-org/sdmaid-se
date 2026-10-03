@@ -73,10 +73,7 @@ fun AgeInputDialog(
                                 saveEnabled = true
                             }
                             parsed != null -> {
-                                val minLabel = context.getQuantityString2(
-                                    R.plurals.general_age_hours,
-                                    minimumAge.toHours().toInt(),
-                                )
+                                val minLabel = formatAge(context, minimumAge)
                                 val maxLabel = context.getQuantityString2(
                                     R.plurals.general_age_days,
                                     maximumAge.toDays().toInt(),
