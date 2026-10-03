@@ -6,6 +6,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.twotone.Assessment
 import androidx.compose.material.icons.twotone.BarChart
+import androidx.compose.material.icons.twotone.History
 import androidx.compose.material.icons.twotone.SettingsBackupRestore
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.Text
@@ -34,6 +35,7 @@ import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.formatAge
 import eu.darken.sdmse.common.stats.R
+import eu.darken.sdmse.stats.core.StatsSettings
 import java.time.Duration
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -54,6 +56,8 @@ fun StatsSettingsScreenHost(
         onRetentionReportsReset = vm::resetRetentionReports,
         onRetentionPathsSaved = vm::setRetentionPaths,
         onRetentionPathsReset = vm::resetRetentionPaths,
+        onRetentionSnapshotsSaved = vm::setRetentionSnapshots,
+        onRetentionSnapshotsReset = vm::resetRetentionSnapshots,
         onResetAllConfirmed = vm::resetAll,
     )
 }
@@ -68,11 +72,14 @@ internal fun StatsSettingsScreen(
     onRetentionReportsReset: () -> Unit = {},
     onRetentionPathsSaved: (Duration) -> Unit = {},
     onRetentionPathsReset: () -> Unit = {},
+    onRetentionSnapshotsSaved: (Duration) -> Unit = {},
+    onRetentionSnapshotsReset: () -> Unit = {},
     onResetAllConfirmed: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     var showReportsAgeDialog by remember { mutableStateOf(false) }
     var showPathsAgeDialog by remember { mutableStateOf(false) }
+    var showSnapshotsAgeDialog by remember { mutableStateOf(false) }
     var showResetAllDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
 
@@ -107,6 +114,24 @@ internal fun StatsSettingsScreen(
                 showPathsAgeDialog = false
             },
             onDismiss = { showPathsAgeDialog = false },
+        )
+    }
+
+    if (showSnapshotsAgeDialog) {
+        AgeInputDialog(
+            titleRes = R.string.stats_settings_retention_snapshots_label,
+            currentAge = state.retentionSnapshots,
+            minimumAge = StatsSettings.MIN_RETENTION_SNAPSHOTS,
+            maximumAge = StatsSettings.MAX_RETENTION_SNAPSHOTS,
+            onSave = {
+                onRetentionSnapshotsSaved(it)
+                showSnapshotsAgeDialog = false
+            },
+            onReset = {
+                onRetentionSnapshotsReset()
+                showSnapshotsAgeDialog = false
+            },
+            onDismiss = { showSnapshotsAgeDialog = false },
         )
     }
 
@@ -194,6 +219,15 @@ internal fun StatsSettingsScreen(
                     subtitle = stringResource(R.string.stats_settings_retention_paths_desc),
                     value = formatAge(context, state.retentionPaths),
                     onClick = { showPathsAgeDialog = true },
+                )
+            }
+            item {
+                SettingsPreferenceItem(
+                    icon = Icons.TwoTone.History,
+                    title = stringResource(R.string.stats_settings_retention_snapshots_label),
+                    subtitle = stringResource(R.string.stats_settings_retention_snapshots_desc),
+                    value = formatAge(context, state.retentionSnapshots),
+                    onClick = { showSnapshotsAgeDialog = true },
                 )
             }
             item {
