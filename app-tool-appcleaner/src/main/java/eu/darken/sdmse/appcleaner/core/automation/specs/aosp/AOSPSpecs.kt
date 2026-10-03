@@ -58,6 +58,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import kotlin.math.ceil
 
 @Reusable
 class AOSPSpecs @Inject constructor(
@@ -267,11 +268,16 @@ class AOSPSpecs @Inject constructor(
         return false
     }
 
+    /**
+     * Returns null when [preClickCheck] rejected the screen after layout stabilization, before any
+     * key was sent.
+     */
     @SuppressLint("InlinedApi")
     private suspend fun StepContext.tryClickViaFocusNavigation(
         labels: Collection<String>,
         canInjectInput: Boolean,
-    ): Boolean {
+        preClickCheck: (suspend () -> Boolean)? = null,
+    ): Boolean? {
         log(tag, INFO) { "Trying DPAD navigation (anchor-based, inputInjection=$canInjectInput)" }
 
         if (!canInjectInput && !hasApiLevel(33)) {
@@ -299,12 +305,17 @@ class AOSPSpecs @Inject constructor(
         val stepsPerCycle = 2
         val stepDelayMs = 120L
         val stallThreshold = 2
-        val anchorId = "com.android.settings:id/entity_header_content"
+        val anchorId = ENTITY_HEADER_CONTENT_ID
         var anchorHits = 0
         var totalRightSteps = 0
         var hadBootstrapInputFocus = false
 
         waitForLayoutStability(anchorId)
+
+        if (preClickCheck != null && !preClickCheck()) {
+            log(tag, WARN) { "DPAD aborted before any key, pre-click check no longer passes" }
+            return null
+        }
 
         val sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
         val preSnapshot = takeStorageSnapshot(sizeParser)
@@ -553,18 +564,36 @@ class AOSPSpecs @Inject constructor(
 
             // On Android 16+, "Clear cache" and "Clear storage" buttons are marked as NAF
             // (Not Accessibility Focusable) on some devices, making them invisible to the
-            // accessibility service. Reported per manufacturer, see DPAD_FALLBACK_MANUFACTURERS.
-            // DPAD navigation works around this by using keyboard-style navigation (DOWN, RIGHT, CENTER)
-            // from the entity_header_content anchor to blindly click the invisible button.
+            // accessibility service. DPAD navigation works around this by using keyboard-style
+            // navigation (DOWN, RIGHT, CENTER) from the entity_header_content anchor to blindly
+            // click the invisible button. Two routes open it: on 36+ the manufacturers in
+            // DPAD_FALLBACK_MANUFACTURERS, on 37+ any other device whose strip below the app header
+            // is empty (hasEmptyButtonBand) on two size checks in a row and again right before the
+            // first key.
             // https://github.com/d4rken-org/sdmaid-se/issues/2056
             val dpadManufacturer = supportsDpadFallback(BuildWrap.MANUFACTOR)
-            val useDpadFallback = hasApiLevel(36) && dpadManufacturer
+            val allowlistedDpad = hasApiLevel(36) && dpadManufacturer
+            val bandCheckEligible = !allowlistedDpad && hasApiLevel(37)
             log(TAG, INFO) {
-                "dpadManufacturer=$dpadManufacturer, useDpadFallback=$useDpadFallback (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
+                "dpadManufacturer=$dpadManufacturer, allowlistedDpad=$allowlistedDpad, bandCheckEligible=$bandCheckEligible (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
+            }
+
+            val bandMinGapPx = if (bandCheckEligible) {
+                val density = host.service.resources.displayMetrics.density
+                if (density > 0f) {
+                    ceil(BUTTON_BAND_MIN_GAP_DP * density).toInt()
+                } else {
+                    log(TAG, WARN) { "Unknown display density ($density), button band check can't qualify" }
+                    0
+                }
+            } else {
+                0
             }
 
             var nodeActionAttempts = 0
             var dpadExhausted = false
+            var bandStreak = 0
+            var bandConfirmed = false
             var sizeParser: SizeParser? = null
             var pendingVerdict = false
             val verdictConfirmer = VerdictConfirmer()
@@ -590,9 +619,25 @@ class AOSPSpecs @Inject constructor(
                 // blind-clicks, so it is safe on every ROM.
                 // Both crawls are expensive and this loop runs ~10x/s, so don't do it every pass.
                 // A terminal verdict needs two of these in a row, so it lands after ~1.2s.
-                if (attempt >= CACHE_SIZE_CHECK_MIN_ATTEMPTS &&
+                val sizeCheckDue = attempt >= CACHE_SIZE_CHECK_MIN_ATTEMPTS &&
                     (attempt - CACHE_SIZE_CHECK_MIN_ATTEMPTS) % CACHE_SIZE_CHECK_INTERVAL == 0
-                ) {
+
+                // Crawls the window as well, so it shares the size check's cadence. Runs before the
+                // verdict so that this pass's verdict and DPAD branch already see a confirmation.
+                if (sizeCheckDue && bandCheckEligible && !bandConfirmed) {
+                    val qualifies = bandMinGapPx > 0 &&
+                        host.windowRoot()?.hasEmptyButtonBand(bandMinGapPx) == true
+                    bandStreak = if (qualifies) bandStreak + 1 else 0
+                    if (bandStreak >= BUTTON_BAND_CONFIRMATIONS) {
+                        bandConfirmed = true
+                        log(tag, INFO) { "Empty button band confirmed, DPAD fallback enabled (attempt=$attempt)" }
+                    } else {
+                        log(tag) { "Button band qualifies=$qualifies, streak=$bandStreak (attempt=$attempt)" }
+                    }
+                }
+                val useDpadFallback = allowlistedDpad || bandConfirmed
+
+                if (sizeCheckDue) {
                     if (sizeParser == null) sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
                     val cacheSize = readCacheRowSize(cacheSizeLabels, sizeParser)
                     val verdict = noButtonVerdict(cacheSize, pkg.isSystemApp, useDpadFallback)
@@ -627,9 +672,24 @@ class AOSPSpecs @Inject constructor(
                     throw StepAbortException("DPAD exhausted, clear-cache button not reachable (attempt=$attempt)")
                 } else if (useDpadFallback && attempt >= dpadMinAttempts && !pendingVerdict) {
                     log(tag, INFO) { "DPAD fallback triggered (attempt=$attempt)" }
-                    if (tryClickViaFocusNavigation(clearCacheButtonLabels, canInjectInput)) return@action true
-                    dpadExhausted = true
-                    log(tag, WARN) { "DPAD fallback exhausted, won't retry" }
+                    val preClickCheck: (suspend () -> Boolean)? = if (allowlistedDpad) {
+                        null
+                    } else {
+                        suspend { host.windowRoot()?.hasEmptyButtonBand(bandMinGapPx) == true }
+                    }
+                    when (tryClickViaFocusNavigation(clearCacheButtonLabels, canInjectInput, preClickCheck)) {
+                        true -> return@action true
+                        false -> {
+                            dpadExhausted = true
+                            log(tag, WARN) { "DPAD fallback exhausted, won't retry" }
+                        }
+
+                        null -> {
+                            bandConfirmed = false
+                            bandStreak = 0
+                            log(tag, WARN) { "Button band changed before the first key, back to observing" }
+                        }
+                    }
                 } else if (useDpadFallback) {
                     log(tag) { "Skipping DPAD fallback (attempt=$attempt, pendingVerdict=$pendingVerdict)" }
                 }
@@ -661,6 +721,10 @@ class AOSPSpecs @Inject constructor(
         // crawls the whole window.
         private const val CACHE_SIZE_CHECK_MIN_ATTEMPTS = 2
         private const val CACHE_SIZE_CHECK_INTERVAL = 10
+
+        // Taken on size check passes, so two in a row span about a second.
+        private const val BUTTON_BAND_CONFIRMATIONS = 2
+        private const val BUTTON_BAND_MIN_GAP_DP = 48
 
         private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
     }
