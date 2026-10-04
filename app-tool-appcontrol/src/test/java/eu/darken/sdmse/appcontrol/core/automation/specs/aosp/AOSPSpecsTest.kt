@@ -17,12 +17,21 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.main.core.GeneralSettings
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.collections.shouldContainExactly
+import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.advanceTimeBy
+import kotlinx.coroutines.test.currentTime
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
@@ -92,9 +101,13 @@ class AOSPSpecsTest : BaseTest() {
         return Window(root = root, button = button)
     }
 
-    private fun contextFor(window: Window): AutomationExplorer.Context {
+    private fun contextFor(window: Window): AutomationExplorer.Context = contextFor(listOf(window.root))
+
+    // The n-th windowRoot() call returns roots[n]; the last entry repeats for every later call.
+    private fun contextFor(roots: List<ACSNodeInfo?>): AutomationExplorer.Context {
+        var reads = 0
         val automationHost = mockk<AutomationHost>(relaxed = true).apply {
-            coEvery { windowRoot() } returns window.root
+            coEvery { windowRoot() } coAnswers { roots[minOf(reads++, roots.lastIndex)] }
         }
         return mockk<AutomationExplorer.Context>(relaxed = true).apply {
             every { host } returns automationHost
@@ -106,7 +119,7 @@ class AOSPSpecsTest : BaseTest() {
     }
 
     @Test
-    fun `a disabled archive button aborts the plan`() = runTest2 {
+    fun `a disabled archive button aborts the plan after the settle window`() = runTest2 {
         val window = window("Archive", buttonEnabled = false)
 
         shouldThrow<ArchiveUnavailableException> {
@@ -115,6 +128,7 @@ class AOSPSpecsTest : BaseTest() {
 
         nodeActionResults shouldContainExactly listOf(true)
         verify(exactly = 0) { window.button.performAction(any()) }
+        currentTime shouldBeGreaterThanOrEqual 3000L
     }
 
     @Test
@@ -125,6 +139,64 @@ class AOSPSpecsTest : BaseTest() {
 
         nodeActionResults shouldContainExactly listOf(true)
         verify(exactly = 1) { window.button.performAction(ACSNodeInfo.ACTION_CLICK) }
+        currentTime shouldBe 0L
+    }
+
+    @Test
+    fun `an archive button that becomes enabled is clicked on its fresh node`() = runTest2 {
+        val loading = window("Archive", buttonEnabled = false)
+        val loaded = window("Archive", buttonEnabled = true)
+
+        specs.getArchive(pkg).runPlan(contextFor(listOf(loading.root, loading.root, loaded.root)))
+
+        nodeActionResults shouldContainExactly listOf(true)
+        verify(exactly = 1) { loaded.button.performAction(ACSNodeInfo.ACTION_CLICK) }
+        verify(exactly = 0) { loading.button.performAction(any()) }
+    }
+
+    @Test
+    fun `an archive button that vanishes while settling retries the step`() = runTest2 {
+        val loading = window("Archive", buttonEnabled = false)
+        val other = window("Uninstall", buttonEnabled = true)
+
+        specs.getArchive(pkg).runPlan(contextFor(listOf(loading.root, other.root)))
+
+        nodeActionResults shouldContainExactly listOf(false)
+        verify(exactly = 0) { loading.button.performAction(any()) }
+        verify(exactly = 0) { other.button.performAction(any()) }
+    }
+
+    @Test
+    fun `a missing window root while settling retries the step at the deadline`() = runTest2 {
+        val loading = window("Archive", buttonEnabled = false)
+
+        specs.getArchive(pkg).runPlan(contextFor(listOf(loading.root, null)))
+
+        nodeActionResults shouldContainExactly listOf(false)
+        verify(exactly = 0) { loading.button.performAction(any()) }
+        currentTime shouldBeGreaterThanOrEqual 3000L
+    }
+
+    @Test
+    fun `cancellation while settling propagates`() = runTest2 {
+        val loading = window("Archive", buttonEnabled = false)
+        var thrown: Throwable? = null
+
+        val job = launch {
+            try {
+                specs.getArchive(pkg).runPlan(contextFor(loading))
+            } catch (e: Throwable) {
+                thrown = e
+                throw e
+            }
+        }
+        advanceTimeBy(1000)
+        job.cancelAndJoin()
+
+        job.isCancelled shouldBe true
+        thrown.shouldBeInstanceOf<CancellationException>()
+        nodeActionResults.shouldBeEmpty()
+        verify(exactly = 0) { loading.button.performAction(any()) }
     }
 
     @Test
