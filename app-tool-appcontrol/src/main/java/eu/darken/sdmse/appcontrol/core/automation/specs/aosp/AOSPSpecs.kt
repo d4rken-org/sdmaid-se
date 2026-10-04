@@ -9,12 +9,14 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveUnavailableException
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.restore.RestoreUnavailableException
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.isEmpty
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.awaitEnabled
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findColumnAlignedClickable
@@ -27,6 +29,7 @@ import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -186,34 +189,42 @@ class AOSPSpecs @Inject constructor(
         val archiveLabels = aospLabels.getArchiveButtonDynamic(this)
         var wasDisabled = false
 
+        suspend fun StepContext.findArchiveTarget(root: ACSNodeInfo): ACSNodeInfo? {
+            val candidate = root.crawl().map { it.node }.firstOrNull { it.textMatchesAny(archiveLabels) }
+                ?: return null
+
+            var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
+
+            // Android 15+: icon and label are separate, unclickable nodes; the tappable wrapper
+            // is a sibling. Match only a clickable in the label's own column so we never grab an
+            // adjacent action.
+            if (target == null && hasApiLevel(35)) {
+                log(TAG, WARN) { "No clickable parent found for $candidate" }
+                target = findColumnAlignedClickable(candidate)
+                if (target != null) log(TAG, INFO) { "Column-aligned clickable found: $target" }
+            }
+
+            if (target == null) log(TAG, WARN) { "No clickable target found for $candidate" }
+            return target
+        }
+
         run {
             val action: suspend StepContext.() -> Boolean = action@{
-                val candidate = findNode { node ->
-                    node.textMatchesAny(archiveLabels)
-                } ?: return@action false
-
-                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
-
-                // Android 15+: icon and label are separate, unclickable nodes; the tappable wrapper
-                // is a sibling. Match only a clickable in the label's own column so we never grab an
-                // adjacent action.
-                if (target == null && hasApiLevel(35)) {
-                    log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findColumnAlignedClickable(candidate)
-                    if (target != null) log(TAG, INFO) { "Column-aligned clickable found: $target" }
-                }
-
-                if (target == null) {
-                    // Unlike force-stop, a missing Archive button is not a success state. Return false
-                    // so the step retries and ultimately fails honestly rather than reporting a no-op
-                    // success (which the caller would only discover after the archive-verify timeout).
-                    log(TAG, WARN) { "No clickable target found for $candidate" }
-                    return@action false
-                }
+                // Unlike force-stop, a missing Archive button is not a success state. Return false
+                // so the step retries and ultimately fails honestly rather than reporting a no-op
+                // success (which the caller would only discover after the archive-verify timeout).
+                var target = findArchiveTarget(host.waitForWindowRoot()) ?: return@action false
 
                 if (!target.isEnabled) {
-                    wasDisabled = true
-                    return@action true
+                    // App info renders Archive disabled until its async eligibility checks finish,
+                    // so a first disabled read does not yet mean the app can't be archived.
+                    log(TAG, INFO) { "Archive button disabled, waiting for it to settle: $target" }
+                    // Button or window gone during the wait: retry the step, don't claim it is disabled.
+                    target = awaitEnabled { root -> findArchiveTarget(root) } ?: return@action false
+                    if (!target.isEnabled) {
+                        wasDisabled = true
+                        return@action true
+                    }
                 }
 
                 clickNormal(node = target)
