@@ -109,6 +109,44 @@ suspend fun StepContext.waitForLayoutStability(
     return null
 }
 
+/**
+ * Re-reads a node that was just found disabled, every [intervalMs], until a read returns it enabled.
+ * Each read runs [finder] against the current window root; a missing root counts as a read that found nothing.
+ * Returns the first enabled node, otherwise the result of the last completed read (a disabled node or null),
+ * or null if no re-read completed within [timeoutMs].
+ */
+suspend fun StepContext.awaitEnabled(
+    timeoutMs: Long = 3000,
+    intervalMs: Long = 250,
+    finder: suspend StepContext.(root: ACSNodeInfo) -> ACSNodeInfo?,
+): ACSNodeInfo? {
+    require(intervalMs > 0 && timeoutMs >= 0)
+    var reads = 0
+    var lastRead: ACSNodeInfo? = null
+    val enabled = withTimeoutOrNull(timeoutMs) {
+        var node: ACSNodeInfo? = null
+        var isEnabled = false
+        do {
+            delay(intervalMs)
+            node = host.windowRoot()?.let { finder(it) }
+            reads++
+            lastRead = node
+            isEnabled = node?.isEnabled == true
+            when {
+                node == null -> log(tag, WARN) { "awaitEnabled(): no node on re-read #$reads" }
+                !isEnabled -> log(tag) { "awaitEnabled(): still disabled after re-read #$reads" }
+            }
+        } while (!isEnabled)
+        node
+    }
+    if (enabled != null) {
+        log(tag, INFO) { "awaitEnabled(): enabled after re-read #$reads" }
+        return enabled
+    }
+    log(tag, WARN) { "awaitEnabled(): not enabled within ${timeoutMs}ms" }
+    return lastRead
+}
+
 suspend fun StepContext.findClickableParent(
     maxNesting: Int = 6,
     includeSelf: Boolean = false,
