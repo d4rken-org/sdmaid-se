@@ -9,6 +9,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
@@ -25,6 +26,8 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkObject
+import io.mockk.unmockkObject
 import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.cancelAndJoin
@@ -101,6 +104,47 @@ class AOSPSpecsTest : BaseTest() {
         return Window(root = root, button = button)
     }
 
+    private class LabelOnlyWindow(
+        val root: ACSNodeInfo,
+        val label: ACSNodeInfo,
+    )
+
+    // root -> unclickable label, no clickable node anywhere: a disabled (or still loading) Archive action on Android 16
+    private fun labelOnlyWindow(label: String): LabelOnlyWindow {
+        val root = mockk<ACSNodeInfo>(relaxed = true)
+        val labelNode = mockk<ACSNodeInfo>(relaxed = true).apply {
+            every { text } returns label
+            every { isClickable } returns false
+            every { isEnabled } returns true
+            every { parent } returns root
+            every { childCount } returns 0
+            every { getScreenBounds() } returns ACSNodeInfo.ScreenBounds(left = 120, top = 600, right = 300, bottom = 650)
+            every { performAction(any()) } returns true
+        }
+        root.apply {
+            every { text } returns null
+            every { isClickable } returns false
+            every { parent } returns null
+            every { childCount } returns 1
+            every { getChild(0) } returns labelNode
+            every { getScreenBounds() } returns ACSNodeInfo.ScreenBounds(left = 0, top = 0, right = 1080, bottom = 2400)
+        }
+        return LabelOnlyWindow(root = root, label = labelNode)
+    }
+
+    private inline fun onApiLevel(level: Int, block: () -> Unit) {
+        mockkObject(BuildWrap)
+        mockkObject(BuildWrap.VERSION)
+        try {
+            every { BuildWrap.VERSION.SDK_INT } returns level
+            every { BuildWrap.VERSION.CODENAME } returns "REL"
+            block()
+        } finally {
+            unmockkObject(BuildWrap.VERSION)
+            unmockkObject(BuildWrap)
+        }
+    }
+
     private fun contextFor(window: Window): AutomationExplorer.Context = contextFor(listOf(window.root))
 
     // The n-th windowRoot() call returns roots[n]; the last entry repeats for every later call.
@@ -175,6 +219,35 @@ class AOSPSpecsTest : BaseTest() {
         nodeActionResults shouldContainExactly listOf(false)
         verify(exactly = 0) { loading.button.performAction(any()) }
         currentTime shouldBeGreaterThanOrEqual 3000L
+    }
+
+    @Test
+    fun `a label-only archive button on API 35 aborts the plan after the settle window`() = runTest2 {
+        onApiLevel(35) {
+            val window = labelOnlyWindow("Archive")
+
+            shouldThrow<ArchiveUnavailableException> {
+                specs.getArchive(pkg).runPlan(contextFor(listOf(window.root)))
+            }
+
+            nodeActionResults shouldContainExactly listOf(true)
+            verify(exactly = 0) { window.label.performAction(any()) }
+            currentTime shouldBeGreaterThanOrEqual 3000L
+        }
+    }
+
+    @Test
+    fun `a label-only archive button on API 35 that gains its button is clicked`() = runTest2 {
+        onApiLevel(35) {
+            val loading = labelOnlyWindow("Archive")
+            val loaded = window("Archive", buttonEnabled = true)
+
+            specs.getArchive(pkg).runPlan(contextFor(listOf(loading.root, loading.root, loaded.root)))
+
+            nodeActionResults shouldContainExactly listOf(true)
+            verify(exactly = 1) { loaded.button.performAction(ACSNodeInfo.ACTION_CLICK) }
+            verify(exactly = 0) { loading.label.performAction(any()) }
+        }
     }
 
     @Test
