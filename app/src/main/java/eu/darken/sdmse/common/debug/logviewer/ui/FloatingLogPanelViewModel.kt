@@ -4,6 +4,7 @@ import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.core.content.FileProvider
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -174,14 +175,7 @@ class FloatingLogPanelViewModel @Inject constructor(
             val file = File(dir, "logview.txt")
             file.writeText(visibleSnapshot().joinToString("\n") { it.render() })
             val uri = FileProvider.getUriForFile(context, "${BuildConfigWrap.APPLICATION_ID}.provider", file)
-            Intent(Intent.ACTION_SEND).apply {
-                type = "text/plain"
-                putExtra(Intent.EXTRA_STREAM, uri)
-                clipData = ClipData.newRawUri("", uri)
-                addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                putExtra(Intent.EXTRA_SUBJECT, "${BuildConfigWrap.APPLICATION_ID} LogView")
-            }
+            createShareIntent(uri, file.name)
         }
         events.emit(Event.LaunchShare(Intent.createChooser(intent, context.getString(R.string.debug_logview_share_label))))
     }
@@ -229,5 +223,14 @@ class FloatingLogPanelViewModel @Inject constructor(
         private val TAG = logTag("LogView", "Floating", "ViewModel")
         private const val SNAPSHOT_THROTTLE_MS = 250L
         private const val CLIP_LABEL = "SD Maid SE log"
+
+        internal fun createShareIntent(uri: Uri, fileName: String): Intent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_STREAM, uri)
+            clipData = ClipData.newRawUri("", uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            putExtra(Intent.EXTRA_SUBJECT, fileName)
+        }
     }
 }
