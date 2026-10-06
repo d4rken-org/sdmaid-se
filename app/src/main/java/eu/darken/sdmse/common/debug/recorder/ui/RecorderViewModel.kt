@@ -3,11 +3,11 @@ package eu.darken.sdmse.common.debug.recorder.ui
 import android.content.ClipData
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.theming.ThemeState
@@ -47,6 +48,7 @@ class RecorderViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val webpageTool: WebpageTool,
     private val sessionManager: DebugLogSessionManager,
+    private val debugLogZipper: DebugLogZipper,
     generalSettings: GeneralSettings,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
@@ -124,22 +126,9 @@ class RecorderViewModel @Inject constructor(
     }
 
     fun share() = launch {
-        val uri = sessionManager.getZipUri(sessionId)
-
-        val intent = Intent(Intent.ACTION_SEND).apply {
-            putExtra(Intent.EXTRA_STREAM, uri)
-            clipData = ClipData.newRawUri("", uri)
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            type = "application/zip"
-
-            addCategory(Intent.CATEGORY_DEFAULT)
-            putExtra(
-                Intent.EXTRA_SUBJECT,
-                "${BuildConfigWrap.APPLICATION_ID} DebugLog - ${BuildConfigWrap.VERSION_DESCRIPTION}",
-            )
-            putExtra(Intent.EXTRA_TEXT, "")
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
+        val zipFile = sessionManager.zipSession(sessionId)
+        val uri = debugLogZipper.getUriForZip(zipFile)
+        val intent = createShareIntent(uri, zipFile.name)
 
         val chooser = Intent.createChooser(intent, context.getString(R.string.debug_debuglog_file_label))
         events.emit(Event.LaunchShare(chooser))
@@ -186,5 +175,18 @@ class RecorderViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Debug", "Recorder", "ViewModel")
+
+        // Google Drive prefills the upload name from EXTRA_SUBJECT.
+        internal fun createShareIntent(uri: Uri, fileName: String): Intent = Intent(Intent.ACTION_SEND).apply {
+            putExtra(Intent.EXTRA_STREAM, uri)
+            clipData = ClipData.newRawUri("", uri)
+            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            type = "application/zip"
+
+            addCategory(Intent.CATEGORY_DEFAULT)
+            putExtra(Intent.EXTRA_SUBJECT, fileName)
+            putExtra(Intent.EXTRA_TEXT, "")
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
     }
 }
