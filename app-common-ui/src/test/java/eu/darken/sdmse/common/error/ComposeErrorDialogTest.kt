@@ -2,10 +2,13 @@ package eu.darken.sdmse.common.error
 
 import android.app.Activity
 import android.content.Context
+import android.view.ContextThemeWrapper
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.onAllNodesWithText
@@ -198,6 +201,32 @@ class ComposeErrorDialogTest : BaseComposeRobolectricTest() {
         verify { navController.goTo(Dest.TARGET, null, false) }
         dismissals shouldBe 1
         composeRule.onAllNodesWithText(FIX_LABEL).assertCountEquals(0)
+    }
+
+    @Test
+    fun `an error inside a wrapped context like a bottom sheet is still shown`() {
+        // A bottom sheet hosts its content on a ContextThemeWrapper around the Activity, so
+        // LocalContext there is not the Activity itself. The app always installs a customizer.
+        val previousCustomizer = errorDialogCustomizer
+        errorDialogCustomizer = { _, _ -> null }
+        try {
+            var hostContext: Context? = null
+            composeRule.setContent {
+                hostContext = LocalContext.current
+                PreviewWrapper {
+                    val wrapped = ContextThemeWrapper(LocalContext.current, android.R.style.Theme_DeviceDefault)
+                    CompositionLocalProvider(LocalContext provides wrapped) {
+                        ComposeErrorDialog(throwable = TestError(), onDismiss = {})
+                    }
+                }
+            }
+            composeRule.waitForIdle()
+
+            (hostContext is Activity) shouldBe true
+            composeRule.onNodeWithText(ERROR_TITLE).assertIsDisplayed()
+        } finally {
+            errorDialogCustomizer = previousCustomizer
+        }
     }
 }
 
