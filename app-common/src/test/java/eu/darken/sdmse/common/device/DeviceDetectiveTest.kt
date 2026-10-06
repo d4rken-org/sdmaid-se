@@ -325,6 +325,66 @@ class DeviceDetectiveTest : BaseTest() {
     }
 
     @Test
+    fun `detect HyperOS OS5 version - future major`() {
+        val context = mockDevice {
+            manufacturer = "Xiaomi"
+            versionIncremental = "OS5.0.0.1.YAAEUXM"
+            sdkInt = 38
+        }
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.HYPEROS
+    }
+
+    @Test
+    fun `HyperOS OS4 on API 32 - should be MIUI`() {
+        val context = mockDevice {
+            manufacturer = "Xiaomi"
+            versionIncremental = "OS4.0.0.11.XPAEUXM"
+            sdkInt = 32
+        }
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.MIUI
+    }
+
+    @Test
+    fun `HyperOS version without major digit - should be AOSP`() {
+        val context = mockDevice {
+            manufacturer = "Xiaomi"
+            versionIncremental = "OSX.0.0.1.XPAEUXM"
+            sdkInt = 37
+        }
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.AOSP
+    }
+
+    @Test
+    fun `HyperOS version not at start - should be AOSP`() {
+        val context = mockDevice {
+            manufacturer = "Xiaomi"
+            versionIncremental = "V1.OS4.0.0.11.XPAEUXM"
+            sdkInt = 37
+        }
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.AOSP
+    }
+
+    @Test
+    fun `HyperOS version on non-Xiaomi manufacturer - should be AOSP`() {
+        val context = mockDevice {
+            manufacturer = "Google"
+            versionIncremental = "OS4.0.0.11.XPAEUXM"
+            sdkInt = 37
+        }
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.AOSP
+    }
+
+    @Test
     fun `HyperOS false positive on API 32 - should be MIUI`() {
         // HyperOS detection requires API 33+, otherwise it's a false positive
         val context = mockDevice {
@@ -609,6 +669,29 @@ class DeviceDetectiveTest : BaseTest() {
         val context = deviceFromFingerprint(
             "Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys",
             installedPackages = setOf("com.miui.securitycenter")
+        )
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.HYPEROS
+    }
+
+    @Test
+    fun `detect HyperOS OS4 from fingerprint - Xiaomi nezha Android 17`() {
+        // Xiaomi/nezha_eea/nezha:17/CP2A.260605.016/OS4.0.0.11.XPAEUXM:user/release-keys
+        val context = deviceFromFingerprint(
+            "Xiaomi/nezha_eea/nezha:17/CP2A.260605.016/OS4.0.0.11.XPAEUXM:user/release-keys",
+            installedPackages = setOf("com.miui.securitycenter"),
+        )
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.HYPEROS
+    }
+
+    @Test
+    fun `detect HyperOS OS4 without securitycenter from fingerprint - Xiaomi nezha Android 17`() {
+        val context = deviceFromFingerprint(
+            "Xiaomi/nezha_eea/nezha:17/CP2A.260605.016/OS4.0.0.11.XPAEUXM:user/release-keys",
+            installedPackages = emptySet(),
         )
         detective = DeviceDetective(context)
 
