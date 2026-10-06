@@ -25,10 +25,14 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import com.airbnb.lottie.LottieComposition
 import com.airbnb.lottie.LottieCompositionFactory
+import com.airbnb.lottie.LottieProperty
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.LottieDynamicProperties
+import com.airbnb.lottie.compose.LottieDynamicProperty
 import com.airbnb.lottie.compose.rememberLottieComposition
+import com.airbnb.lottie.model.KeyPath
 import eu.darken.sdmse.common.ui.R
 import java.time.LocalDate
 import java.time.Month
@@ -38,41 +42,72 @@ import kotlin.math.roundToInt
 
 sealed interface SdmMascotMode {
     data object Animated : SdmMascotMode
+    data object Halloween : SdmMascotMode
     data object Christmas : SdmMascotMode
     data object NewYear : SdmMascotMode
     data object Party : SdmMascotMode
 }
 
-private val MASCOT_ANIMATION = LottieCompositionSpec.Asset("lottie/mascot_animation_coffee_relaxed.json")
+internal val MASCOT_ANIMATION = LottieCompositionSpec.Asset("lottie/mascot_animation_coffee_relaxed.json")
 
 // The Lottie composition is cropped to the character; hats sit partly above and beside it.
 private const val MASCOT_ASPECT_RATIO = 640f / 866f
 
 private val NEW_YEAR_HAT = HatConfig(
-    drawableRes = R.drawable.mascot_hat_newyears_crop,
+    drawableRes = R.drawable.mascot_hat_newyears,
     rotation = 25f,
     widthPercent = 0.6701f,
     heightPercent = 0.4815f,
     leftPercent = 0.4555f,
     topPercent = -0.2264f,
-    visibleLeft = 0.4792f,
-    visibleTop = -0.265f,
-    visibleRight = 1.1614f,
-    visibleBottom = 0.2751f,
+    visibleLeft = 0.4751f,
+    visibleTop = -0.2564f,
+    visibleRight = 1.162f,
+    visibleBottom = 0.2782f,
 )
 
 private val CHRISTMAS_HAT = HatConfig(
-    drawableRes = R.drawable.mascot_hat_xmas_crop,
+    drawableRes = R.drawable.mascot_hat_xmas,
     rotation = 31f,
     widthPercent = 0.4396f,
     heightPercent = 0.2596f,
     leftPercent = 0.5599f,
     topPercent = -0.0262f,
-    visibleLeft = 0.5024f,
-    visibleTop = -0.0411f,
-    visibleRight = 0.9738f,
-    visibleBottom = 0.2589f,
+    visibleLeft = 0.5042f,
+    visibleTop = -0.0453f,
+    visibleRight = 0.9745f,
+    visibleBottom = 0.2642f,
 )
+
+private val HALLOWEEN_HAT = HatConfig(
+    drawableRes = R.drawable.mascot_hat_witch,
+    rotation = 15f,
+    widthPercent = 0.57f,
+    heightPercent = 0.3932f,
+    leftPercent = 0.45f,
+    topPercent = -0.17f,
+    visibleLeft = 0.4012f,
+    visibleTop = -0.1464f,
+    visibleRight = 1.052f,
+    visibleBottom = 0.2508f,
+)
+
+internal const val MASCOT_ROOT_LAYER = "mascot_root"
+internal const val CUP_HANDLE_LAYER = "cup_handle"
+
+/** Turns on its cup layer and recolors the handle to match; SdmMascotCostumeLayersTest pins that every cup layer starts hidden. */
+internal enum class CupCostume(val layerName: String, val handleColor: Int) {
+    HALLOWEEN("cup_halloween", 0xFFD35400.toInt()),
+    CHRISTMAS("cup_christmas", 0xFFD62828.toInt()),
+    NEW_YEAR("cup_newyear", 0xFFE0A82E.toInt()),
+}
+
+private data class MascotCostume(val hat: HatConfig, val cup: CupCostume?)
+
+private val HALLOWEEN_COSTUME = MascotCostume(HALLOWEEN_HAT, CupCostume.HALLOWEEN)
+private val CHRISTMAS_COSTUME = MascotCostume(CHRISTMAS_HAT, CupCostume.CHRISTMAS)
+private val NEW_YEAR_COSTUME = MascotCostume(NEW_YEAR_HAT, CupCostume.NEW_YEAR)
+private val PARTY_COSTUME = MascotCostume(NEW_YEAR_HAT, cup = null)
 
 @Composable
 fun SdmMascot(
@@ -104,7 +139,10 @@ private fun SdmMascotContent(
     composition: LottieComposition?,
     mode: SdmMascotMode,
 ) {
-    val hat = resolveHat(mode)
+    // Store screenshots render previews; keep them free of whatever season they happen to be taken in.
+    val costume = resolveCostume(mode, today = if (LocalInspectionMode.current) null else LocalDate.now())
+    val hat = costume?.hat
+    val dynamicProperties = remember(costume?.cup) { costume?.cup?.toDynamicProperties() }
     Box(
         modifier = modifier,
         contentAlignment = Alignment.Center,
@@ -116,6 +154,7 @@ private fun SdmMascotContent(
                         LottieAnimation(
                             composition = composition,
                             iterations = LottieConstants.IterateForever,
+                            dynamicProperties = dynamicProperties,
                             modifier = Modifier.fillMaxSize(),
                         )
                     } else {
@@ -211,23 +250,33 @@ private fun loadCompositionForPreview(context: Context): LottieComposition? {
     return composition
 }
 
-private fun resolveHat(mode: SdmMascotMode): HatConfig? {
-    return when (mode) {
-        SdmMascotMode.Party,
-        SdmMascotMode.NewYear,
-        -> NEW_YEAR_HAT
+private fun CupCostume.toDynamicProperties() = LottieDynamicProperties(
+    listOf(
+        LottieDynamicProperty(LottieProperty.TRANSFORM_OPACITY, KeyPath(MASCOT_ROOT_LAYER, layerName), 100),
+        LottieDynamicProperty(LottieProperty.STROKE_COLOR, KeyPath(MASCOT_ROOT_LAYER, CUP_HANDLE_LAYER, "**"), handleColor),
+    )
+)
 
-        SdmMascotMode.Christmas -> CHRISTMAS_HAT
-
-        SdmMascotMode.Animated -> {
-            val now = LocalDate.now()
-            when {
-                isNewYears(now) -> NEW_YEAR_HAT
-                isXmasSeason(now) -> CHRISTMAS_HAT
-                else -> null
-            }
-        }
+private fun resolveCostume(mode: SdmMascotMode, today: LocalDate?): MascotCostume? = when (mode) {
+    SdmMascotMode.Party -> PARTY_COSTUME
+    SdmMascotMode.NewYear -> NEW_YEAR_COSTUME
+    SdmMascotMode.Christmas -> CHRISTMAS_COSTUME
+    SdmMascotMode.Halloween -> HALLOWEEN_COSTUME
+    SdmMascotMode.Animated -> when (today?.let { mascotSeasonOf(it) }) {
+        MascotSeason.NEW_YEAR -> NEW_YEAR_COSTUME
+        MascotSeason.CHRISTMAS -> CHRISTMAS_COSTUME
+        MascotSeason.HALLOWEEN -> HALLOWEEN_COSTUME
+        null -> null
     }
+}
+
+internal enum class MascotSeason { HALLOWEEN, CHRISTMAS, NEW_YEAR }
+
+internal fun mascotSeasonOf(date: LocalDate): MascotSeason? = when {
+    isNewYears(date) -> MascotSeason.NEW_YEAR
+    isXmasSeason(date) -> MascotSeason.CHRISTMAS
+    isHalloweenSeason(date) -> MascotSeason.HALLOWEEN
+    else -> null
 }
 
 /**
@@ -248,6 +297,9 @@ private data class HatConfig(
     val visibleBottom: Float,
 )
 
+private fun isHalloweenSeason(now: LocalDate): Boolean =
+    now.month == Month.OCTOBER && now.dayOfMonth >= 24
+
 private fun isXmasSeason(now: LocalDate): Boolean {
     val start = LocalDate.of(now.year, Month.DECEMBER, 21)
     val end = LocalDate.of(now.year, Month.DECEMBER, 29)
@@ -266,6 +318,12 @@ private fun isNewYears(now: LocalDate): Boolean {
 @Composable
 private fun SdmMascotPreview() {
     SdmMascotPreviewContent()
+}
+
+@Preview2
+@Composable
+private fun SdmMascotHalloweenPreview() {
+    SdmMascotPreviewContent(mode = SdmMascotMode.Halloween)
 }
 
 @Preview2
