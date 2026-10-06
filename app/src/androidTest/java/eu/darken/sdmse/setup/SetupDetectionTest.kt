@@ -125,7 +125,6 @@ class SetupDetectionTest : BaseAppFlowTest() {
             awaitListItem(consent)
             composeRule.onNode(consent).performScrollTo().performClick()
             // Without secure settings, consent sends the user to the system accessibility settings.
-            composeRule.waitForIdle()
             pollUntil("MainActivity stopped") { scenario.state == Lifecycle.State.CREATED }
 
             writeEnabledAccessibilityServices(enabledAccessibilityServices() + "$pkg/$ACS_CLASS")

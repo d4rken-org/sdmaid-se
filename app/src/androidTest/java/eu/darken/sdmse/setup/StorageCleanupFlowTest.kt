@@ -90,7 +90,6 @@ class StorageCleanupFlowTest : BaseAppFlowTest() {
             awaitNode(confirm)
             withClue("$PLANT_FILE deleted before the confirmation") { Files.exists(plantFile) shouldBe true }
             composeRule.onNode(confirm).performClick()
-            composeRule.waitForIdle()
 
             pollUntil("$PLANT_FILE deleted") { Files.notExists(plantFile) }
         }
