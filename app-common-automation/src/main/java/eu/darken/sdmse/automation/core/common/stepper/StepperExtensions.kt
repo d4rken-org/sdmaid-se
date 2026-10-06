@@ -110,14 +110,16 @@ suspend fun StepContext.waitForLayoutStability(
 }
 
 /**
- * Re-reads a node that was just found disabled, every [intervalMs], until a read returns it enabled.
+ * Re-reads a node that was just found not ready, every [intervalMs], until a read returns it ready
+ * ([isReady], by default: enabled).
  * Each read runs [finder] against the current window root; a missing root counts as a read that found nothing.
- * Returns the first enabled node, otherwise the result of the last completed read (a disabled node or null),
+ * Returns the first ready node, otherwise the result of the last completed read (a not-ready node or null),
  * or null if no re-read completed within [timeoutMs].
  */
 suspend fun StepContext.awaitEnabled(
     timeoutMs: Long = 3000,
     intervalMs: Long = 250,
+    isReady: (ACSNodeInfo) -> Boolean = { it.isEnabled },
     finder: suspend StepContext.(root: ACSNodeInfo) -> ACSNodeInfo?,
 ): ACSNodeInfo? {
     require(intervalMs > 0 && timeoutMs >= 0)
@@ -131,7 +133,7 @@ suspend fun StepContext.awaitEnabled(
             node = host.windowRoot()?.let { finder(it) }
             reads++
             lastRead = node
-            isEnabled = node?.isEnabled == true
+            isEnabled = node != null && isReady(node)
             when {
                 node == null -> log(tag, WARN) { "awaitEnabled(): no node on re-read #$reads" }
                 !isEnabled -> log(tag) { "awaitEnabled(): still disabled after re-read #$reads" }
