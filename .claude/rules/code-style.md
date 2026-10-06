@@ -55,7 +55,7 @@ internal fun MyScreen(
 
 ### Shared Compose Components
 
-- **`SdmMascot`** (`app-common-ui/.../compose/SdmMascot.kt`): Lottie-based animated mascot with seasonal hat overlays. Modes: `SdmMascotMode.Animated` (default looping), `SdmMascotMode.Party` (forces party hat)
+- **`SdmMascot`** (`app-common-ui/.../compose/SdmMascot.kt`): Lottie-based animated mascot with seasonal costumes (a hat overlay plus a re-skinned cup layer). Modes: `SdmMascotMode.Animated` (default; picks the costume by date: Halloween Oct 24-31, Christmas Dec 21-28, New Year Dec 29-Jan 2; never in previews), `Halloween` / `Christmas` / `NewYear` (force that costume), `Party` (New Year hat, plain cup)
 - **Settings toolkit** (`app-common-ui/.../compose/settings/`): `SettingsPreferenceItem`, `SettingsSwitchItem`, `SettingsBaseItem`
 - **`Preview2`/`PreviewWrapper`** (`app-common-ui/.../compose/preview/`): Multi-preview annotation (light+dark) and themed wrapper
 
