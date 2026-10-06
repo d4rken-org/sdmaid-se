@@ -5,6 +5,7 @@ import android.os.ParcelFileDescriptor
 import android.os.SystemClock
 import java.io.ByteArrayOutputStream
 import androidx.annotation.StringRes
+import androidx.compose.ui.test.ComposeTimeoutException
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.hasScrollToNodeAction
 import androidx.compose.ui.test.hasText
@@ -54,18 +55,18 @@ abstract class BaseAppFlowTest : BaseUITest() {
     }
 
     /**
-     * For waits while the app is in the background, where `composeRule.waitUntil` finds no hierarchy. It doesn't
-     * advance Compose effects: after a click whose handling must happen first, call `composeRule.waitForIdle()`.
+     * For waits on state outside the semantics tree, e.g. lifecycle, files or system services. A timeout fails
+     * through [failWithScreen], so the assertion carries the screen and system state.
      */
     protected fun pollUntil(
         description: String,
         failureContext: (() -> String)? = null,
         condition: () -> Boolean,
     ) {
-        val deadline = SystemClock.uptimeMillis() + TIMEOUT_MS
-        while (!condition()) {
-            if (SystemClock.uptimeMillis() > deadline) failWithScreen("Timed out: $description", failureContext)
-            SystemClock.sleep(100)
+        try {
+            composeRule.waitUntil(description, TIMEOUT_MS, condition)
+        } catch (_: ComposeTimeoutException) {
+            failWithScreen("Timed out: $description", failureContext)
         }
     }
 
