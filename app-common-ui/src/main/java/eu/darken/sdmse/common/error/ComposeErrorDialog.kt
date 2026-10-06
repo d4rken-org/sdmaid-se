@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.error
 
 import android.app.Activity
+import androidx.activity.compose.LocalActivity
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.selection.SelectionContainer
@@ -40,7 +41,7 @@ fun ComposeErrorDialog(
     navController: NavigationController? = null,
 ) {
     val context = LocalContext.current
-    val activity = context as? Activity
+    val activity = LocalActivity.current
 
     val localizedError = errorDialogCustomizer?.invoke(throwable, activity ?: return)
         ?: throwable.localized(context)
