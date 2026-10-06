@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
+import android.accessibilityservice.AccessibilityService
 import android.util.DisplayMetrics
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -12,6 +13,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.ui.SizeParser
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.string.shouldContain
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
@@ -964,5 +966,240 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
         verify(exactly = 0) { testHost.service.performGlobalAction(android.accessibilityservice.AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+    }
+
+    // ============================================================
+    // DPAD focus guard
+    // ============================================================
+
+    // Storage page with only the app header; [extraNodes] are appended to the root, e.g. app bar
+    // buttons or the node that holds input focus.
+    private fun focusGuardPage(vararg extraNodes: TestACSNodeInfo): TestACSNodeInfo = buildTestTree(
+        "ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)\n" +
+            "ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(42, 300 - 1038, 702)",
+        withBounds = true,
+    ).addChildren(*extraNodes)
+
+    private fun settingsNode(
+        className: String,
+        contentDesc: String?,
+        bounds: ACSNodeInfo.ScreenBounds,
+        focused: Boolean,
+    ) = TestACSNodeInfo(
+        className = className,
+        contentDescription = contentDesc,
+        packageName = "com.android.settings",
+        isClickable = true,
+        isFocused = focused,
+        screenBoundsOverride = bounds,
+    )
+
+    // Above the header of both focusGuardPage (top 300) and buttonBandTree (top 260).
+    private fun navigateUpButton(focused: Boolean = false) = settingsNode(
+        className = "android.widget.ImageButton",
+        contentDesc = "Navigate up",
+        bounds = ACSNodeInfo.ScreenBounds(0, 90, 132, 222),
+        focused = focused,
+    )
+
+    private fun searchButton(focused: Boolean = false) = settingsNode(
+        className = "android.widget.Button",
+        contentDesc = "Search settings",
+        bounds = ACSNodeInfo.ScreenBounds(948, 90, 1080, 222),
+        focused = focused,
+    )
+
+    @Test
+    fun `focus on the app bar search button after RIGHT never gets a DPAD_CENTER`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "leap_g"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) {
+                testHost.setWindowRoot(focusGuardPage(navigateUpButton(), searchButton(focused = true)))
+            }
+            true
+        }
+
+        testRoot = focusGuardPage(navigateUpButton(), searchButton())
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        // 1 quick-try + 4 cycles + 3 blind-sweep positions
+        verify(exactly = 8) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        // 1 quick-try + 4 cycles x 2 steps + 2 + 3 + 4 blind-sweep
+        verify(exactly = 18) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `focus on the app bar up button after DOWN never gets a DPAD_CENTER`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "leap_g"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) {
+                testHost.setWindowRoot(focusGuardPage(navigateUpButton(focused = true), searchButton()))
+            }
+            true
+        }
+
+        testRoot = focusGuardPage(navigateUpButton(), searchButton())
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 8) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 18) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `focus on the app bar search button blocks DPAD_CENTER on the button band route`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) {
+                testHost.setWindowRoot(buttonBandTree().addChildren(navigateUpButton(), searchButton(focused = true)))
+            }
+            true
+        }
+
+        testRoot = buttonBandTree().addChildren(navigateUpButton(), searchButton())
+
+        // The band is confirmed on attempt 12, which runs DPAD; attempt 13 hits the exhaustion abort.
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(maxAttempts = 14, rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 8) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 18) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `focus on the app bar search button never gets an injected DPAD_CENTER`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "leap_g"
+
+        coEvery { inputInjector.canInject() } returns true
+        coEvery { inputInjector.inject(any<InputInjector.Event>()) } coAnswers {
+            if (firstArg<InputInjector.Event>() == InputInjector.Event.DpadRight) {
+                testHost.setWindowRoot(focusGuardPage(navigateUpButton(), searchButton(focused = true)))
+            }
+            Unit
+        }
+
+        testRoot = focusGuardPage(navigateUpButton(), searchButton())
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        coVerify(exactly = 8) { inputInjector.inject(InputInjector.Event.DpadDown) }
+        coVerify(exactly = 18) { inputInjector.inject(InputInjector.Event.DpadRight) }
+        coVerify(exactly = 0) { inputInjector.inject(InputInjector.Event.DpadCenter) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `anchor disappearing before DPAD_CENTER vetoes the press`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "leap_g"
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) {
+                testHost.setWindowRoot(
+                    buildTestTree(
+                        "ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)",
+                        withBounds = true,
+                    )
+                )
+            }
+            true
+        }
+
+        testRoot = focusGuardPage(navigateUpButton(), searchButton())
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        // Quick-try only: the anchor stays gone, so neither cycles nor blind sweep get a key in.
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `focus below the header keeps the DPAD_CENTER`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "leap_g"
+
+        // Unlabeled node in the strip below the header, where the withheld button row is drawn.
+        val rowNode = TestACSNodeInfo(
+            className = "android.widget.LinearLayout",
+            packageName = "com.android.settings",
+            isFocused = true,
+            screenBoundsOverride = ACSNodeInfo.ScreenBounds(42, 760, 520, 880),
+        )
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            when (firstArg<Int>()) {
+                AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT -> {
+                    testHost.setWindowRoot(focusGuardPage(navigateUpButton(), searchButton(), rowNode))
+                }
+
+                AccessibilityService.GLOBAL_ACTION_DPAD_CENTER -> emitValidationEventAsync()
+            }
+            true
+        }
+
+        testRoot = focusGuardPage(navigateUpButton(), searchButton())
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 }
