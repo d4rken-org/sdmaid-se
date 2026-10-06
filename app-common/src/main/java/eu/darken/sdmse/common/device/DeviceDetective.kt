@@ -85,6 +85,8 @@ class DeviceDetective @Inject constructor(
         BuildWrap.VERSION.INCREMENTAL.startsWith(it)
     }
 
+    private fun versionMatches(regex: Regex) = regex.containsMatchIn(BuildWrap.VERSION.INCREMENTAL)
+
     fun getROMType(): RomType = when {
         isTvLikeDevice() -> when {
             // #1826, it's a "tv box" but runs a phone-style ROM
@@ -106,7 +108,7 @@ class DeviceDetective @Inject constructor(
 
         // Black Shark is a Xiaomi sub-brand running JoyUI (MIUI fork)
         manufactor("Xiaomi") || manufactor("POCO") || manufactor("blackshark") -> when {
-            versionStarts(HYPEROS_VERSION_STARTS) -> when {
+            versionStarts(HYPEROS_VERSION_STARTS) || versionMatches(HYPEROS_VERSION_REGEX) -> when {
                 // HyperOS 1.0 is based on Android 14 / API34, some backports exist (e.g. pissarropro)
                 hasApiLevel(33) -> RomType.HYPEROS
                 // Otherwise it is likely a false positive MIUI detection
@@ -166,13 +168,12 @@ class DeviceDetective @Inject constructor(
             // POCO/mondrian_global/mondrian:14/UKQ1.230804.001/V816.0.1.0.UMNMIXM:user/release-keys
             // Xiaomi/aristotle_eea/aristotle:14/UP1A.230905.011/V816.0.17.0.UMFEUXM:user/release-keys
             "V816.",
-            // OS1.0.12.0.ULLMIXM
-            "OS1",
-            // Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys
-            "OS2",
-            // POCO/miro_eea/miro:16/BP2A.250605.031.A3/OS3.0.3.0.WOMEUXM:user/release-keys
-            "OS3",
         )
+        // OS1.0.12.0.ULLMIXM
+        // Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys
+        // POCO/miro_eea/miro:16/BP2A.250605.031.A3/OS3.0.3.0.WOMEUXM:user/release-keys
+        // Xiaomi/nezha_eea/nezha:17/CP2A.260605.016/OS4.0.0.11.XPAEUXM:user/release-keys
+        private val HYPEROS_VERSION_REGEX = Regex("^OS\\d")
         private val FLYME_PKGS = setOf(
             "com.meizu.flyme.update"
         )
