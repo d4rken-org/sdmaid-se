@@ -204,9 +204,17 @@ class AOSPSpecs @Inject constructor(
                 if (target != null) log(TAG, INFO) { "Column-aligned clickable found: $target" }
             }
 
+            if (target == null && hasApiLevel(35) && !candidate.getScreenBounds().isEmpty()) {
+                log(TAG, WARN) { "No Archive button in its column, treating it as disabled: $candidate" }
+                return candidate
+            }
+
             if (target == null) log(TAG, WARN) { "No clickable target found for $candidate" }
             return target
         }
+
+        // The label stand-in from findArchiveTarget is not clickable, so it never counts as ready.
+        val isArchiveReady: (ACSNodeInfo) -> Boolean = { it.isClickable && it.isEnabled }
 
         run {
             val action: suspend StepContext.() -> Boolean = action@{
@@ -215,13 +223,14 @@ class AOSPSpecs @Inject constructor(
                 // success (which the caller would only discover after the archive-verify timeout).
                 var target = findArchiveTarget(host.waitForWindowRoot()) ?: return@action false
 
-                if (!target.isEnabled) {
+                if (!isArchiveReady(target)) {
                     // App info renders Archive disabled until its async eligibility checks finish,
                     // so a first disabled read does not yet mean the app can't be archived.
                     log(TAG, INFO) { "Archive button disabled, waiting for it to settle: $target" }
                     // Button or window gone during the wait: retry the step, don't claim it is disabled.
-                    target = awaitEnabled { root -> findArchiveTarget(root) } ?: return@action false
-                    if (!target.isEnabled) {
+                    target = awaitEnabled(isReady = isArchiveReady) { root -> findArchiveTarget(root) }
+                        ?: return@action false
+                    if (!isArchiveReady(target)) {
                         wasDisabled = true
                         return@action true
                     }
