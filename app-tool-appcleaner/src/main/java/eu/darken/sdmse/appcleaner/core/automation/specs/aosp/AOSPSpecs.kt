@@ -352,6 +352,25 @@ class AOSPSpecs @Inject constructor(
             }
         }
 
+        // Vetoes a blind DPAD_CENTER only on a reading that places focus outside the button row.
+        // Missing focus or focus on the anchor is inconclusive (see above) and keeps the press.
+        suspend fun focusVetoesCenter(source: String): Boolean {
+            val root = host.windowRoot()
+            val anchor = root?.crawl()?.map { it.node }?.firstOrNull { it.viewIdResourceName == anchorId }
+            val input = root?.findFocus(ACSNodeInfo.FOCUS_INPUT)
+            val a11y = root?.findFocus(ACSNodeInfo.FOCUS_ACCESSIBILITY)
+            val focused = input ?: a11y
+            val veto = when {
+                root == null || anchor == null -> true
+                focused == null -> false
+                else -> focused.isOutsideButtonRow(anchor)
+            }
+            log(tag, INFO) {
+                "DPAD focus guard ($source): root=${root != null}, anchor=$anchor, input=$input, a11y=$a11y, veto=$veto"
+            }
+            return veto
+        }
+
         run {
             val fastBootstrapped = bootstrapAnchor("quick-try")
             if (fastBootstrapped) {
@@ -366,9 +385,15 @@ class AOSPSpecs @Inject constructor(
                 }
                 if (moved) {
                     delay(stepDelayMs)
-                    val clicked = if (Bugs.isDryRun) true else dpadCenter()
-                    log(tag, INFO) { "DPAD_CENTER result=$clicked (source=quick-try)" }
-                    if (clicked && validateWithDelta("quick-try", preSnapshot, sizeParser, timeoutMs = 800)) return true
+                    if (focusVetoesCenter("quick-try")) {
+                        log(tag, WARN) { "DPAD_CENTER skipped, focus outside the button row (source=quick-try)" }
+                    } else {
+                        val clicked = if (Bugs.isDryRun) true else dpadCenter()
+                        log(tag, INFO) { "DPAD_CENTER result=$clicked (source=quick-try)" }
+                        if (clicked && validateWithDelta("quick-try", preSnapshot, sizeParser, timeoutMs = 800)) {
+                            return true
+                        }
+                    }
                 }
                 // Check if anchor is still present before falling through to cycle loop.
                 // If anchor is gone, the click likely had an effect (UI changed) — don't double-click.
@@ -499,7 +524,10 @@ class AOSPSpecs @Inject constructor(
                     if (!moved) log(tag, WARN) { "DPAD_RIGHT blind-sweep-$rightSteps step=${step + 1} failed" }
                     delay(stepDelayMs)
                 }
-                logFocus("blind-sweep-$rightSteps")
+                if (focusVetoesCenter("blind-sweep-$rightSteps")) {
+                    log(tag, WARN) { "DPAD_CENTER skipped, focus outside the button row (source=blind-sweep-$rightSteps)" }
+                    continue
+                }
 
                 val clicked = if (Bugs.isDryRun) true else dpadCenter()
                 log(tag, INFO) { "DPAD_CENTER result=$clicked (source=blind-sweep-$rightSteps)" }
