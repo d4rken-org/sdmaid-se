@@ -203,6 +203,8 @@ class MIUISpecs @Inject constructor(
 
         val clearDataLabels = miuiLabels.getClearDataButtonLabels(this)
         log(TAG) { "clearDataLabels=${clearDataLabels.toVisualStrings()}" }
+        val clearAllDataLabels = miuiLabels.getClearAllDataButtonLabels(this)
+        log(TAG) { "clearAllDataLabels=${clearAllDataLabels.toVisualStrings()}" }
         val clearCacheLabels = miuiLabels.getClearCacheButtonLabels(this)
         log(TAG) { "clearCacheLabels=${clearCacheLabels.toVisualStrings()}" }
         val dialogTitles = miuiLabels.getDialogTitles(this)
@@ -223,7 +225,17 @@ class MIUISpecs @Inject constructor(
                     )
                 }
 
-                var target = findNodeByLabel(clearDataLabels) ?: return@action false
+                var target = findNodeByLabel(clearDataLabels) ?: run {
+                    val tree = host.waitForWindowRoot().crawl().map { it.node }.toList()
+                    val hasClearAllData = tree.any { it.textMatchesAny(clearAllDataLabels) }
+                    val hasClearOption = tree.any { it.textMatchesAny(clearCacheLabels + clearDataLabels) }
+                    if (hasClearAllData && !hasClearOption) {
+                        throw PlanAbortException(
+                            message = "Got 'Clear all data' instead of 'Clear data', can't clear cache via security center.",
+                        )
+                    }
+                    return@action false
+                }
                 if (!target.isClickable) {
                     target = findClickableParent(node = target)
                         .also { if (it == null) log(TAG, WARN) { "No clickable parent found for $target" } }
