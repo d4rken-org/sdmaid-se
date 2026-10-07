@@ -304,6 +304,26 @@ class MIUILabels @Inject constructor() : AppCleanerLabelSource {
         .flatten()
         .toSet()
 
+    fun getClearAllDataButtonLabels(acsContext: AutomationExplorer.Context): Set<String> =
+        getClearAllDataButtonLabelsDynamic(acsContext) + getClearAllDataButtonLabelsFallback(acsContext)
+
+    private fun getClearAllDataButtonLabelsDynamic(
+        acsContext: AutomationExplorer.Context
+    ) = acsContext.getStrings(SETTINGS_PKG, setOf("app_manager_clear_all_data"))
+
+    private fun getClearAllDataButtonLabelsFallback(
+        acsContext: AutomationExplorer.Context
+    ): Collection<String> = acsContext.getLocales()
+        .mapNotNull { locale ->
+            when {
+                "en".toLang() == locale.language -> setOf("Clear all data")
+                "pt".toLang() == locale.language -> setOf("Limpar todos os dados")
+                else -> null
+            }
+        }
+        .flatten()
+        .toSet()
+
     companion object {
         private val TAG: String = logTag("AppCleaner", "Automation", "MIUI", "Labels")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
