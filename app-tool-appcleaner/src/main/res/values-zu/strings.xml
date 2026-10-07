@@ -93,7 +93,7 @@
         <item quantity="one">Susa amafayela angasetshenziswa wohlelo olukhethiwe olu-%d?</item>
         <item quantity="other">Susa amafayela angasetshenziswa wezinhlelo zokusebenza ezikhethiwe ezingu-%d?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Kusula ama-cache ngokusebenzisa i-Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Ukucisha ama-cache usebenzisa ukungenela i-ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Kunquma ama-cache angatholakalayo</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Ukusula i-cache akutholakali</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Isistimu sikhubazile inkinobho ethi \"Sula i-cache\" yale nhlelo. Yikhiphe ukuze usheshise ukusula i-cache.</string>

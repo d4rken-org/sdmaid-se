@@ -140,4 +140,8 @@
     <string name="tour_appcontrol_filter_body">Sašaurināt sarakstu pēc lietotāja/sistēmas lietotnēm, iespējotā stāvokļa, nesen paveiktajām darbībām un citiem. Aktīvie filtri šeit parādās kā žetoni.</string>
     <string name="tour_appcontrol_sort_body">Kārtot lietotnes pēc nosaukuma, instalēšanas datuma, pēdējā atjauninājuma, lieluma vai ekrāna laika. Pieskarieties tai pašai opcijai, lai mainītu virzienu.</string>
     <string name="tour_appcontrol_app_row_body">Pieskarieties lietotnei, lai atvērtu tās detaļas un pieejamās darbības. Ilgi pieskarieties, lai sāktu izvēli un izmantotu lielapjoma darbības.</string>
+    <string name="appcontrol_archive_unavailable_title">Nevar arhivēt šo lietotni</string>
+    <string name="appcontrol_archive_unavailable_body">Šīs lietotnes sistēmas iestatījumos arhivēšanas poga ir izslēgta, tāpēc Android to nearhivēs.</string>
+    <string name="appcontrol_restore_unavailable_title">Nevar atjaunot šo lietotni</string>
+    <string name="appcontrol_restore_unavailable_body">Šīs lietotnes sistēmas iestatījumos atjaunošanas poga ir izslēgta, tāpēc Android to šobrīd neatjaunos.</string>
 </resources>

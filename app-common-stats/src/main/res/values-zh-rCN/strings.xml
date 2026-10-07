@@ -26,6 +26,8 @@
     <string name="stats_settings_retention_reports_desc">删除 SD Maid 操作报告之前的天数。</string>
     <string name="stats_settings_retention_paths_label">路径详细信息</string>
     <string name="stats_settings_retention_paths_desc">保留受 SD Maid 影响路径的详细信息的天数。</string>
+    <string name="stats_settings_retention_snapshots_label">存储历史记录</string>
+    <string name="stats_settings_retention_snapshots_desc">为“存储趋势”图表保留存储使用情况快照的天数。较早的快照将被删除。</string>
     <string name="stats_settings_reset_all_label">全部重置</string>
     <string name="stats_settings_reset_all_desc">删除所有报告并将所有统计数据归零。</string>
     <string name="stats_affected_paths_label">受影响的路径</string>
@@ -37,6 +39,8 @@
     <string name="stats_space_history_range_7d">7天</string>
     <string name="stats_space_history_range_30d">30天</string>
     <string name="stats_space_history_range_90d">90天</string>
+    <string name="stats_space_history_range_180d">180 天</string>
+    <string name="stats_space_history_range_365d">1 年</string>
     <string name="stats_space_history_storage_title">存储</string>
     <string name="stats_space_history_current_used_label">当前已用</string>
     <string name="stats_space_history_min_label">最小已用</string>

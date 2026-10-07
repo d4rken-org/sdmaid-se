@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">فهرست را بر اساس برنامه‌های کاربری/سیستمی، وضعیت فعال‌بودن، فعالیت اخیر و دیگر موارد محدود کنید. فیلترهای فعال به‌صورت چیپ اینجا نمایان می‌شوند.</string>
     <string name="tour_appcontrol_sort_body">برنامه‌ها را بر اساس نام، تاریخ نصب، آخرین به‌روزرسانی، حجم یا زمان استفاده مرتب کنید. برای معکوس کردن جهت، همان گزینه را لمس کنید.</string>
     <string name="tour_appcontrol_app_row_body">برنامه‌ای را لمس کنید تا جزئیات و اقدامات موجود آن را باز کنید. برای شروع انتخاب و استفاده از اقدامات دسته‌جمعی، فشار طولانی دهید.</string>
+    <string name="appcontrol_archive_unavailable_title">نمی‌توان این برنامه را بایگانی کرد</string>
+    <string name="appcontrol_archive_unavailable_body">دکمه بایگانی در تنظیمات سیستم این برنامه غیرفعال است، بنابراین Android نمی‌تواند آن را بایگانی کند.</string>
+    <string name="appcontrol_restore_unavailable_title">نمی‌توان این برنامه را بازیابی کرد</string>
+    <string name="appcontrol_restore_unavailable_body">دکمه بازیابی در تنظیمات سیستم این برنامه غیرفعال است، بنابراین Android در حال حاضر نمی‌تواند آن را بازیابی کند.</string>
 </resources>

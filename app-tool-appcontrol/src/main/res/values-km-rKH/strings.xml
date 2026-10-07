@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">ត្រូវបានឈាកជៅកន្ល័យ</string>
     <string name="appcontrol_tag_uninstalled">តិន្នន័យប័ត័</string>
     <string name="appcontrol_tag_not_installed">មិនតិត្តាក់</string>
+    <string name="appcontrol_tag_hidden">បានលាក់</string>
     <string name="appcontrol_tag_enabled">បង្កើត</string>
     <string name="appcontrol_tag_disabled">បិត</string>
     <string name="appcontrol_tag_debug">ដ្បាកស្ញើងត្រូវបាន</string>
@@ -37,6 +38,7 @@
     <string name="appcontrol_list_sortmode_size_label">ទំហំ</string>
     <string name="appcontrol_list_sortmode_screentime_label">សម្អែវេលាស្វើសហន្តៀឧបករណ៍</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ទំហំកម្មវិធីត្រូវបានប័តិម្ឡ័លសម្រាប់លក្ខណៈសម្វ័ង។ ប្រើបរស់ឡាឡ់ StorageAnalyzer សម្រាប់តិន្នន័យផ័ត់ពិតជាង។</string>
+    <string name="appcontrol_list_scan_cancelled_label">ការស្កេនត្រូវបានបោះបង់ មិនមានកម្មវិធីណាត្រូវបានផ្ទុកទេ។</string>
     <string name="appcontrol_progress_uninstalling_app">កំពុងដកតិត្តាក់កម្មវិធី</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d កម្មវិធីត្រូវបានដកតិត្តាក់</item>
@@ -116,4 +118,8 @@
     <string name="tour_appcontrol_filter_body">កាត់បន្ថយបញ្ជីដោយកម្មវិធីអ្នកប្រើប្រាស់/ប្រព័ន្ធ ស្ថានភាពបើក/បិទ សកម្មភាពថ្មីៗ និងច្រើនទៀត។ តម្រងសកម្មបង្ហាញនៅទីនេះជាបន្ទះ។</string>
     <string name="tour_appcontrol_sort_body">រៀបចំកម្មវិធីតាមឈ្មោះ កាលបរិច្ឆេទដំឡើង ការធ្វើបច្ចុប្បន្នភាពចុងក្រោយ ទំហំ ឬពេលវេលានៅលើអេក្រង់។ ចុចជម្រើសដដែលដើម្បីប្តូរទិសដៅ។</string>
     <string name="tour_appcontrol_app_row_body">ចុចលើកម្មវិធីដើម្បីបើកលម្អិតរបស់វា និងសកម្មភាពដែលមាន។ ចុចយូរដើម្បីចាប់ផ្តើមការជ្រើសរើស និងប្រើសកម្មភាពជាក្រុម។</string>
+    <string name="appcontrol_archive_unavailable_title">មិនអាចរក្សាទុកកម្មវិធីនេះក្នុងប័ណ្ណសារបានទេ</string>
+    <string name="appcontrol_archive_unavailable_body">ប៊ូតុងរក្សាទុកក្នុងប័ណ្ណសារ (Archive) នៅក្នុងការកំណត់ប្រព័ន្ធរបស់កម្មវិធីនេះត្រូវបានបិទ ដូច្នេះ Android នឹងមិនរក្សាទុកវាក្នុងប័ណ្ណសារទេ។</string>
+    <string name="appcontrol_restore_unavailable_title">មិនអាចស្ដារកម្មវិធីនេះបានទេ</string>
+    <string name="appcontrol_restore_unavailable_body">ប៊ូតុងស្ដារ (Restore) នៅក្នុងការកំណត់ប្រព័ន្ធរបស់កម្មវិធីនេះត្រូវបានបិទ ដូច្នេះ Android នឹងមិនស្ដារវាឥឡូវនេះទេ។</string>
 </resources>

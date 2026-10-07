@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">لیستەکە بە ئەپلیکێشنی بەکارهێنەر/سیستەم، دۆخی چالاک، چالاکی نوێی و زیاتر پال بکەوە. پالاوتنە چالاکەکان لێرە بە شێوەی تاگ دیار دەبن.</string>
     <string name="tour_appcontrol_sort_body">ئەپلیکێشنەکان بە ناو، بەرواری دامەزراندن، نوێکاریی دوایین، قەبارە یان کاتی پەردە رێزدا بکە. داکێشە لەسەر هەمان هەڵبژاردە بۆ گۆڕینی ئاراستە.</string>
     <string name="tour_appcontrol_app_row_body">داکێشە لەسەر ئەپلیکێشنێک بۆ کردنەوەی وردەکاری و کردارە بەردەستەکانی. داکێشەی درێژ بۆ دەستپێکردنی هەڵبژاردنێک و بەکارهێنانی کردارە کۆمەلەکان.</string>
+    <string name="appcontrol_archive_unavailable_title">ناتوانرێت ئەم بەرنامەیە پاشمێتی بکرێت</string>
+    <string name="appcontrol_archive_unavailable_body">دوگمەی پاشمێتی کردن لە ڕێکخستنەکانی سیستەمی ئەم بەرنامەیە ناچالاک کراوە، بۆیە ئاندرۆید ئەمە پاشمێتی نای کات.</string>
+    <string name="appcontrol_restore_unavailable_title">ناتوانرێت ئەم بەرنامەیە هێنانەوە بکرێت</string>
+    <string name="appcontrol_restore_unavailable_body">دوگمەی هێنانەوە لە ڕێکخستنەکانی سیستەمی ئەم بەرنامەیە ناچالاک کراوە، بۆیە ئاندرۆید ئێستا ئەمە هێنانەوە نای کات.</string>
 </resources>

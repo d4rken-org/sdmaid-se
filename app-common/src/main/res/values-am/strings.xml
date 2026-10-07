@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">ለገንቢው መረጃ</string>
     <string name="general_error_report_bug_action">ስህተት ሪፖርት ያድርጉ</string>
     <string name="general_error_ipc_deadobject_title">የአገልግሎት ግንኙነት ጠፋ</string>
-    <string name="general_error_ipc_deadobject_description">ከአስፈላጊ አገልግሎት (ምሳሌ Magisk፣ Shizuku፣ ወይም ሌሎች የስርዓት-ደረጃ አገልግሎቶች) ጋር ያለው ግንኙነት በሚያስደንቅ ሁኔታ ጠፋ። እባክዎ መሳሪያዎን እንደገና ይጀምሩ። ችግሩ ቢቀጥል፣ ለዝመናዎች ይፈትሹ ወይም ለማስተካከል ያገኙኝ።</string>
+    <string name="general_error_ipc_deadobject_description">ወደ አስፈላጊ ሙያ (ለምሳሌ Magisk, Porter, Shizuku, ወይም ሌሎች ስርዓት-ደረጃ ሙያዎች) ያለ ተስፋ ተጠንቅቋል። እባክዎ መሳሪያዎን ዳግም ያስጀምሩ። ችግሩ ከቀጠለ፣ ለዝመቶች ይፈትሹ ወይም ሊያስተካክልበት ለእኔ ይገናኙ።</string>
     <string name="general_error_upgrade_required_title">ማሻሻል ያስፈልጋል</string>
     <string name="general_error_upgrade_required_description">ይህ ባህሪ ማሻሻል ያስፈልጋል። ይህን ለመጠቀም SD Maid SE ን እባክዎ ያሻሽሉ።</string>
     <string name="general_user_label_owner">ባለቤት</string>

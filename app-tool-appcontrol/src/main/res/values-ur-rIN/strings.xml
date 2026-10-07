@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">صارف/سسٹم ایپس، فعال حالت، حالیہ سرگرمی وغیرہ سے فہرست کو محدود کریں۔ فعال فلٹرز یہاں چپس کی طرح نظر آتے ہیں۔</string>
     <string name="tour_appcontrol_sort_body">ایپس کو نام، تنصیب کی تاریخ، آخری اپڈیٹ، سائز، یا اسکرین ٹائم سے ترتیب دیں۔ سمت الٹانے کے لیے ایک جیسا آپشن ٹیپ کریں۔</string>
     <string name="tour_appcontrol_app_row_body">تفصیلات اور دستیاب اعمال کھولنے کے لیے ایک ایپ پر ٹیپ کریں۔ انتخاب شروع کرنے اور بڑے پیمانے پر اعمال استعمال کرنے کے لیے لمبا دبائیں۔</string>
+    <string name="appcontrol_archive_unavailable_title">اس ایپ کو آرکائیو نہیں کیا جا سکتا</string>
+    <string name="appcontrol_archive_unavailable_body">اس ایپ کی سسٹم سیٹنگز میں آرکائیو بٹن غیر فعال ہے، اس لیے Android اسے آرکائیو نہیں کرے گا۔</string>
+    <string name="appcontrol_restore_unavailable_title">اس ایپ کو بحال نہیں کیا جا سکتا</string>
+    <string name="appcontrol_restore_unavailable_body">اس ایپ کی سسٹم سیٹنگز میں بحال کریں بٹن غیر فعال ہے، اس لیے Android اسے ابھی بحال نہیں کرے گا۔</string>
 </resources>

@@ -32,6 +32,8 @@
     <string name="stats_settings_retention_reports_desc">Aantal dae voor skrapping van basiese SD Maid bewerking verslae.</string>
     <string name="stats_settings_retention_paths_label">Gedetailleerde pad inligting</string>
     <string name="stats_settings_retention_paths_desc">Die aantal dae om besonderhede te hou oor paaie geaffekteer deur SD Maid.</string>
+    <string name="stats_settings_retention_snapshots_label">Opslaggeskiedenis</string>
+    <string name="stats_settings_retention_snapshots_desc">Aantal dae om opslagverbruik-momentopnames vir die opslagtendens-grafiek te bewaar. Ouer momentopnames word verwyder.</string>
     <string name="stats_settings_reset_all_label">Stel alles terug</string>
     <string name="stats_settings_reset_all_desc">Skrap alle verslae en stel alle statistieke op nul.</string>
     <string name="stats_affected_paths_label">Geaffekteerde paaie</string>
@@ -43,6 +45,8 @@
     <string name="stats_space_history_range_7d">7 dae</string>
     <string name="stats_space_history_range_30d">30 dae</string>
     <string name="stats_space_history_range_90d">90 dae</string>
+    <string name="stats_space_history_range_180d">180 dae</string>
+    <string name="stats_space_history_range_365d">1 jaar</string>
     <string name="stats_space_history_storage_title">Berging</string>
     <string name="stats_space_history_current_used_label">Huidig gebruik</string>
     <string name="stats_space_history_min_label">Minimum gebruik</string>

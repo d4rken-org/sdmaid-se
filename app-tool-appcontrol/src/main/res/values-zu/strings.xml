@@ -25,6 +25,7 @@
     <string name="appcontrol_tag_archived">Kubhokisiwe</string>
     <string name="appcontrol_tag_uninstalled">Idatha Kuphela</string>
     <string name="appcontrol_tag_not_installed">Akufakwanga</string>
+    <string name="appcontrol_tag_hidden">Fihlwe</string>
     <string name="appcontrol_tag_enabled">Kunikwe amandla</string>
     <string name="appcontrol_tag_disabled">Kukhubazekile</string>
     <string name="appcontrol_tag_debug">Ususa iziphazamiso</string>

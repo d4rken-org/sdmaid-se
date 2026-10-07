@@ -118,4 +118,8 @@
     <string name="tour_appcontrol_filter_body">按用户/系统应用、启用状态、最近活动等筛选列表。活跃的过滤器在此处显示为标签。</string>
     <string name="tour_appcontrol_sort_body">按名称、安装日期、最后更新、大小或屏幕时间对应用进行排序。点击同一选项可翻转排序方向。</string>
     <string name="tour_appcontrol_app_row_body">点击应用以打开其详细信息和可用操作。长按以开始选择并使用批量操作。</string>
+    <string name="appcontrol_archive_unavailable_title">无法归档此应用</string>
+    <string name="appcontrol_archive_unavailable_body">此应用系统设置中的“归档”按钮已被禁用，因此 Android 无法归档它。</string>
+    <string name="appcontrol_restore_unavailable_title">无法恢复此应用</string>
+    <string name="appcontrol_restore_unavailable_body">此应用系统设置中的“恢复”按钮已被禁用，因此 Android 目前无法恢复它。</string>
 </resources>

@@ -26,6 +26,8 @@
     <string name="stats_settings_retention_reports_desc">SD Maid အပြမြအအကြေးများကို ဖက်ချခြင်းသက်မတိုင် ရက်များကိုဆုံး</string>
     <string name="stats_settings_retention_paths_label">ပောထ် အသေးအစား အသေးအပါ</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ခရောကြေးသော ပောထ်များအကြေးများကို သိုထားမပြုမှအဆေး သိုထားလိုက်သော ရက်များကိုဆုံး။</string>
+    <string name="stats_settings_retention_snapshots_label">သိုလှောင်မှု မှတ်တမ်း</string>
+    <string name="stats_settings_retention_snapshots_desc">သိုလှောင်မှု ခေတ်ရေစီးကြောင်းဇယားအတွက် သိုလှောင်မှုအသုံးပြုမှု လျှပ်တစ်ပြက်မှတ်တမ်းများကို ထားရှိမည့် ရက်အရေအတွက်။ ပိုဟောင်းသော မှတ်တမ်းများကို ဖျက်ပါမည်။</string>
     <string name="stats_settings_reset_all_label">အားလုံး အသစ်သန်ပြန်ပါ</string>
     <string name="stats_settings_reset_all_desc">အအကြေးများကို ဖက်ချပြီးသောက စကᒰသတောများကို သုည်လုံးအသားသိုသွက်သွက်ချရန်။</string>
     <string name="stats_affected_paths_label">ခရောကြေးပောထ်များ</string>
@@ -37,6 +39,8 @@
     <string name="stats_space_history_range_7d">၇ ရက်</string>
     <string name="stats_space_history_range_30d">၃၀ ရက်</string>
     <string name="stats_space_history_range_90d">၉၀ ရက်</string>
+    <string name="stats_space_history_range_180d">ရက် ၁၈၀</string>
+    <string name="stats_space_history_range_365d">၁ နှစ်</string>
     <string name="stats_space_history_storage_title">သိုလှောင်မှု</string>
     <string name="stats_space_history_current_used_label">လောလောဆယ် အသုံးပြုထားသည်</string>
     <string name="stats_space_history_min_label">အနည်းဆုံး အသုံးပြုထားသည်</string>

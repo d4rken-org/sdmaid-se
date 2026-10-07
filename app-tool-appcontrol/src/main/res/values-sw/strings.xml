@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Punguza orodha kwa programu za mtumiaji/mfumo, hali ya kuwezeshwa, shughuli za hivi karibuni, na zaidi. Vichujio vinavyotumika huonekana kama chip hapa.</string>
     <string name="tour_appcontrol_sort_body">Panga programu kwa jina, tarehe ya usakinishaji, sasisho la mwisho, ukubwa, au muda wa skrini. Gusa chaguo lilelile kubadilisha mwelekeo.</string>
     <string name="tour_appcontrol_app_row_body">Gusa programu kufungua maelezo yake na vitendo vinavyopatikana. Bonyeza kwa muda mrefu kuanzisha uchaguzi na kutumia vitendo vya pamoja.</string>
+    <string name="appcontrol_archive_unavailable_title">Haiwezi kuakishi programu hii</string>
+    <string name="appcontrol_archive_unavailable_body">Kitufe cha Kuakishi katika mipangilio ya mfumo ya programu hii kimezimwa, kwa hivyo Android haitaiakishi.</string>
+    <string name="appcontrol_restore_unavailable_title">Haiwezi kurejesha programu hii</string>
+    <string name="appcontrol_restore_unavailable_body">Kitufe cha Kurejesha katika mipangilio ya mfumo ya programu hii kimezimwa, kwa hivyo Android haitairejesha sasa.</string>
 </resources>

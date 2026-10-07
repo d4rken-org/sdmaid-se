@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Siyahını istifadəçi/sistem tətbiqləri, fəallaşdırma vəziyyəti, son fəaliyyət və s. ilə filtrləyin. Aktiv filtrləri burada etiket şəklində görəcəksiniz.</string>
     <string name="tour_appcontrol_sort_body">Tətbiqləri ada, quraşdırma tarixinə, son yenilənməyə, ölçüyə və ya ekran vaxtına görə sıralayın. Sıralamağı dəyişmək üçün eyni seçimə toxunun.</string>
     <string name="tour_appcontrol_app_row_body">Tətbiqin detallarını və mövcud əməliyyatlarını açmaq üçün ona toxunun. Seçimi başlatmaq üçün uzun müddət basıb tutun və kütləvi əməliyyatlardan istifadə edin.</string>
+    <string name="appcontrol_archive_unavailable_title">Bu tətbiq arxivləşdirilə bilmir</string>
+    <string name="appcontrol_archive_unavailable_body">Bu tətbiqin sistem ayarlarındakı Arxivləş düyməsi deaktiv olduğu üçün Android onu arxivləşdirə bilmir.</string>
+    <string name="appcontrol_restore_unavailable_title">Bu tətbiq bərpa edilə bilmir</string>
+    <string name="appcontrol_restore_unavailable_body">Bu tətbiqin sistem ayarlarındakı Bərpa et düyməsi deaktiv olduğu üçün Android onu hazırda bərpa edə bilmir.</string>
 </resources>

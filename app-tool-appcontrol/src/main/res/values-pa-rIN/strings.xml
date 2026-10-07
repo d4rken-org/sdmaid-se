@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">ਸੂਚੀ ਨੂੰ ਯੂਜ਼ਰ/ਸਿਸਟਮ ਐਪਸ, ਸਮਰਥ ਸਥਿਤੀ, ਸਭ ਤੋਂ ਹਾਲੀਆ ਕਾਰਜਕਲਾਪ, ਅਤੇ ਹੋਰ ਕੁਝ ਦੁਆਰਾ ਸੀਮਿਤ ਕਰੋ। ਸਰਗਰਮ ਫਿਲਟਰ ਇੱਥੇ ਚਿਪਸ ਦੇ ਤੌਰ \'ਤੇ ਦਿਖਾਈ ਦਿੰਦੇ ਹਨ।</string>
     <string name="tour_appcontrol_sort_body">ਨਾਮ, ਇੰਸਟਾਲ ਮਿਤੀ, ਆਖਰੀ ਅਪਡੇਟ, ਸਾਈਜ਼, ਜਾਂ ਸਕ੍ਰੀਨ ਸਮਾਂ ਦੁਆਰਾ ਐਪਸ ਨੂੰ ਆਰਡਰ ਦਿਓ। ਦਿਸ਼ਾ ਪਲਟਾਉਣ ਲਈ ਉਸੇ ਵਿਕਲਪ ਨੂੰ ਟੈਪ ਕਰੋ।</string>
     <string name="tour_appcontrol_app_row_body">ਇਸ ਦੇ ਵੇਰਵੇ ਅਤੇ ਉਪਲਬਧ ਕਾਰਜ ਖੋਲ੍ਹਣ ਲਈ ਇੱਕ ਐਪ ਨੂੰ ਟੈਪ ਕਰੋ। ਚੋਣ ਸ਼ੁਰੂ ਕਰਨ ਲਈ ਲੰਬੇ ਸਮੇਂ ਲਈ ਦਬਾਓ ਅਤੇ ਸਮੂਹੀ ਕਾਰਜ ਵਰਤੋ।</string>
+    <string name="appcontrol_archive_unavailable_title">ਇਸ ਐਪ ਨੂੰ ਆਰਕਾਈਵ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</string>
+    <string name="appcontrol_archive_unavailable_body">ਇਸ ਐਪ ਦੀ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਆਰਕਾਈਵ ਬਟਨ ਅਸਮਰਥ ਹੈ, ਇਸ ਲਈ Android ਇਸ ਨੂੰ ਆਰਕਾਈਵ ਨਹੀਂ ਕਰੇਗਾ।</string>
+    <string name="appcontrol_restore_unavailable_title">ਇਸ ਐਪ ਨੂੰ ਰਿਸਟੋਰ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ</string>
+    <string name="appcontrol_restore_unavailable_body">ਇਸ ਐਪ ਦੀ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਰਿਸਟੋਰ ਬਟਨ ਅਸਮਰਥ ਹੈ, ਇਸ ਲਈ Android ਇਸ ਨੂੰ ਇਸ ਵੇਲੇ ਰਿਸਟੋਰ ਨਹੀਂ ਕਰੇਗਾ।</string>
 </resources>

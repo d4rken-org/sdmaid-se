@@ -32,6 +32,8 @@
     <string name="stats_settings_retention_reports_desc">बुनियादी SD Maid ऑपरेशन रिपोर्ट मिटाने से पहले दिनों की संख्या।</string>
     <string name="stats_settings_retention_paths_label">विस्तृत पथ जानकारी</string>
     <string name="stats_settings_retention_paths_desc">SD Maid द्वारा प्रभावित पथों के बारे में विवरण रखने के दिनों की संख्या।</string>
+    <string name="stats_settings_retention_snapshots_label">स्टोरेज इतिहास</string>
+    <string name="stats_settings_retention_snapshots_desc">स्टोरेज ट्रेंड चार्ट के लिए स्टोरेज उपयोग स्नैपशॉट रखने के दिनों की संख्या। पुराने स्नैपशॉट हटा दिए जाते हैं।</string>
     <string name="stats_settings_reset_all_label">सभी रीसेट करें</string>
     <string name="stats_settings_reset_all_desc">सभी रिपोर्ट मिटाएं और सभी आंकड़े शून्य पर सेट करें।</string>
     <string name="stats_affected_paths_label">प्रभावित पथ</string>
@@ -43,6 +45,8 @@
     <string name="stats_space_history_range_7d">7 दिन</string>
     <string name="stats_space_history_range_30d">30 दिन</string>
     <string name="stats_space_history_range_90d">90 दिन</string>
+    <string name="stats_space_history_range_180d">180 दिन</string>
+    <string name="stats_space_history_range_365d">1 साल</string>
     <string name="stats_space_history_storage_title">स्टोरेज</string>
     <string name="stats_space_history_current_used_label">वर्तमान उपयोग</string>
     <string name="stats_space_history_min_label">न्यूनतम उपयोग</string>

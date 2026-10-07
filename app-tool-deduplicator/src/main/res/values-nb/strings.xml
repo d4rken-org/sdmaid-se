@@ -78,7 +78,7 @@
     <string name="deduplicator_arbiter_mode_prefer_unknown">Behold ikke-indekserte filer</string>
     <string name="deduplicator_arbiter_mode_prefer_primary">Behold filer på internt minne</string>
     <string name="deduplicator_arbiter_mode_prefer_secondary">Behold filer på eksternt minne</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Foretrekk grunne mapper</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Behold filer i grunnere mapper</string>
     <string name="deduplicator_arbiter_mode_prefer_deeper">Behold filer i dypere mapper</string>
     <string name="deduplicator_arbiter_mode_prefer_older">Behold eldre filer</string>
     <string name="deduplicator_arbiter_mode_prefer_newer">Behold nyere filer</string>

@@ -50,7 +50,7 @@
     <string name="general_progress_loading">S\'està carregant</string>
     <string name="general_progress_loading_app_data">S\'estan carregant les dades de l\'aplicació</string>
     <string name="general_progress_loading_data_areas">S\'estan carregant les àrees de dades</string>
-    <string name="general_data_areas_unavailable_message">No s\'han pogut carregar les àrees de dades, les ubicacions d\'emmagatzematge amb què SD Maid pot treballar.</string>
+    <string name="general_data_areas_unavailable_message">No s\'han pogut carregar les àrees de dades, les ubicacions d\'emmagatzematge amb què l\'SD Maid pot treballar.</string>
     <string name="general_progress_loading_egg_0">Encara més ràpid que un iPhone</string>
     <string name="general_progress_loading_egg_1">S\'està alliberant més RAM</string>
     <string name="general_progress_loading_egg_2">Aviat™</string>
@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Informació per al desenvolupador</string>
     <string name="general_error_report_bug_action">Informa d\'un error</string>
     <string name="general_error_ipc_deadobject_title">S\'ha perdut la connexió amb el servei</string>
-    <string name="general_error_ipc_deadobject_description">S\'ha perdut inesperadament la connexió amb un servei crític (p. ex. Magisk, Porter, Shizuku o altres serveis a nivell de sistema). Reinicia el dispositiu. Si el problema persisteix, comprova si hi ha actualitzacions o contacta amb mi perquè el pugui solucionar.</string>
+    <string name="general_error_ipc_deadobject_description">S\'ha perdut inesperadament la connexió amb un servei crític (p. ex. Magisk, Porter, Shizuku o altres serveis a nivell de sistema). Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o contacteu amb mi perquè ho pugui solucionar.</string>
     <string name="general_error_upgrade_required_title">Millora necessària</string>
     <string name="general_error_upgrade_required_description">Aquesta característica requereix una millora. Milloreu l\'SD Maid SE per utilitzar-la.</string>
     <string name="general_user_label_owner">Propietari</string>

@@ -118,4 +118,8 @@
     <string name="tour_appcontrol_filter_body">Saring senarai mengikut apl pengguna/sistem, keadaan diaktifkan, aktiviti terkini, dan banyak lagi. Penapis aktif muncul sebagai cip di sini.</string>
     <string name="tour_appcontrol_sort_body">Susun apl mengikut nama, tarikh pemasangan, kemas kini terakhir, saiz, atau masa penggunaan skrin. Ketik pilihan yang sama untuk menukar arah.</string>
     <string name="tour_appcontrol_app_row_body">Ketik apl untuk membuka butiran dan tindakan yang tersedia. Tekan lama untuk memulakan pemilihan dan gunakan tindakan berkumpulan.</string>
+    <string name="appcontrol_archive_unavailable_title">Tidak dapat mengarkibkan aplikasi ini</string>
+    <string name="appcontrol_archive_unavailable_body">Butang Arkib dalam tetapan sistem aplikasi ini dilumpuhkan, jadi Android tidak akan mengarkibkannya.</string>
+    <string name="appcontrol_restore_unavailable_title">Tidak dapat memulihkan aplikasi ini</string>
+    <string name="appcontrol_restore_unavailable_body">Butang Pulihkan dalam tetapan sistem aplikasi ini dilumpuhkan, jadi Android tidak akan memulihkannya sekarang.</string>
 </resources>

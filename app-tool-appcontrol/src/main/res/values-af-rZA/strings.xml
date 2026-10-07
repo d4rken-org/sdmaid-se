@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Beperk die lys volgens gebruiker-/stelselapps, ingeskakel-toestand, onlangse aktiwiteit, en meer. Aktiewe filters verskyn hier as skyfies.</string>
     <string name="tour_appcontrol_sort_body">Rangskik apps volgens naam, installeringsdatum, laaste opdatering, grootte, of skermtyd. Tik dieselfde opsie om die rigting om te keer.</string>
     <string name="tour_appcontrol_app_row_body">Tik \'n app om sy besonderhede en beskikbare aksies oop te maak. Hou vasgedruk om \'n seleksie te begin en groepaksies te gebruik.</string>
+    <string name="appcontrol_archive_unavailable_title">Kan nie hierdie app argief nie</string>
+    <string name="appcontrol_archive_unavailable_body">Die Argief-knop in hierdie app se stelselstellings is uitgeskakel, dus Android sal dit nie argief nie.</string>
+    <string name="appcontrol_restore_unavailable_title">Kan nie hierdie app herstel nie</string>
+    <string name="appcontrol_restore_unavailable_body">Die Herstel-knop in hierdie app se stelselstellings is uitgeskakel, dus Android sal dit nou nie herstel nie.</string>
 </resources>

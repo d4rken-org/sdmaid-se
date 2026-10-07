@@ -118,4 +118,8 @@
     <string name="tour_appcontrol_filter_body">Thu hẹp danh sách theo ứng dụng người dùng/hệ thống, trạng thái bật, hoạt động gần đây và hơn thế nữa. Các bộ lọc đang hoạt động sẽ hiển thị dưới dạng chip ở đây.</string>
     <string name="tour_appcontrol_sort_body">Sắp xếp ứng dụng theo tên, ngày cài đặt, cập nhật cuối cùng, kích thước hoặc thời gian dùng màn hình. Nhấn cùng một tùy chọn để đảo chiều sắp xếp.</string>
     <string name="tour_appcontrol_app_row_body">Nhấn vào ứng dụng để mở chi tiết và các hành động khả dụng. Nhấn giữ để bắt đầu lựa chọn và sử dụng các hành động hàng loạt.</string>
+    <string name="appcontrol_archive_unavailable_title">Không thể lưu trữ ứng dụng này</string>
+    <string name="appcontrol_archive_unavailable_body">Nút Lưu trữ trong cài đặt hệ thống của ứng dụng này bị vô hiệu hóa, vì vậy Android sẽ không lưu trữ nó.</string>
+    <string name="appcontrol_restore_unavailable_title">Không thể khôi phục ứng dụng này</string>
+    <string name="appcontrol_restore_unavailable_body">Nút Khôi phục trong cài đặt hệ thống của ứng dụng này bị vô hiệu hóa, vì vậy Android sẽ không khôi phục nó ngay bây giờ.</string>
 </resources>

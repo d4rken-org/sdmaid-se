@@ -118,4 +118,8 @@
     <string name="tour_appcontrol_filter_body">กรองรายการตามแอปผู้ใช้/ระบบ สถานะที่เปิดใช้ กิจกรรมล่าสุด และอื่นๆ ตัวกรองที่ทำงานอยู่จะปรากฏเป็นชิปที่นี่</string>
     <string name="tour_appcontrol_sort_body">จัดเรียงแอปตามชื่อ วันที่ติดตั้ง การอัปเดตล่าสุด ขนาด หรือเวลาบนหน้าจอ แตะตัวเลือกเดียวกันเพื่อสลับทิศทาง</string>
     <string name="tour_appcontrol_app_row_body">แตะแอปเพื่อเปิดรายละเอียดและการดำเนินการที่พร้อมใช้งาน กดค้างเพื่อเริ่มการเลือกและใช้การดำเนินการแบบกลุ่ม</string>
+    <string name="appcontrol_archive_unavailable_title">ไม่สามารถจัดเก็บแอปนี้ได้</string>
+    <string name="appcontrol_archive_unavailable_body">ปุ่มจัดเก็บในการตั้งค่าระบบของแอปนี้ถูกปิดการใช้งาน ดังนั้น Android จึงไม่สามารถจัดเก็บแอปได้</string>
+    <string name="appcontrol_restore_unavailable_title">ไม่สามารถคืนค่าแอปนี้ได้</string>
+    <string name="appcontrol_restore_unavailable_body">ปุ่มคืนค่าในการตั้งค่าระบบของแอปนี้ถูกปิดการใช้งาน ดังนั้น Android จึงไม่สามารถคืนค่าแอปได้ในขณะนี้</string>
 </resources>

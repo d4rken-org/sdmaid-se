@@ -140,4 +140,8 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="tour_appcontrol_filter_body">Reducí la lista según aplicaciones de usuario/sistema, estado habilitado, actividad reciente y más. Los filtros activos aparecen como chips aquí.</string>
     <string name="tour_appcontrol_sort_body">Ordená aplicaciones por nombre, fecha de instalación, última actualización, tamaño o tiempo de pantalla. Tocá la misma opción para invertir la dirección.</string>
     <string name="tour_appcontrol_app_row_body">Tocá una aplicación para abrir sus detalles y acciones disponibles. Presioná prolongadamente para iniciar una selección y usar acciones en lote.</string>
+    <string name="appcontrol_archive_unavailable_title">No se puede archivar esta aplicación</string>
+    <string name="appcontrol_archive_unavailable_body">El botón Archivar en la configuración del sistema de esta aplicación está deshabilitado, por lo que Android no la archivará.</string>
+    <string name="appcontrol_restore_unavailable_title">No se puede restaurar esta aplicación</string>
+    <string name="appcontrol_restore_unavailable_body">El botón Restaurar en la configuración del sistema de esta aplicación está deshabilitado, por lo que Android no la restaurará ahora.</string>
 </resources>

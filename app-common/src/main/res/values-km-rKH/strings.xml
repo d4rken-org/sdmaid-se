@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">នៅសេវាកម្មរបស់អ្នក។</string>
     <string name="slogan_message_1">ស្អាត និងរៀបរយ។</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">កំពុងផ្ទុក</string>
     <string name="general_progress_loading_app_data">កំពុងផ្ទុកទិន្នន័យកម្មវិធី</string>
     <string name="general_progress_loading_data_areas">កំពុងផ្ទុកតំបន់ទិន្នន័យ</string>
+    <string name="general_data_areas_unavailable_message">មិនអាចផ្ទុកតំបន់ទិន្នន័យបានទេ ដែលជាទីតាំងផ្ទុកដែល SD Maid អាចធ្វើការជាមួយបាន។</string>
     <string name="general_progress_loading_egg_0">នៅតែលឿនជាងអាយហ្វូន</string>
     <string name="general_progress_loading_egg_1">កំពុងទាញយករែមបន្ថែម</string>
     <string name="general_progress_loading_egg_2">ឆាប់ៗ™</string>
@@ -168,7 +168,7 @@
     <string name="general_information_for_the_developer">ព័ត៌មានសម្រាប់អ្នកអភិវឌ្ឍន៍</string>
     <string name="general_error_report_bug_action">រាយការណ៍កំហុស</string>
     <string name="general_error_ipc_deadobject_title">ការតភ្ជាប់សេវាកម្មត្រូវបាត់បង់</string>
-    <string name="general_error_ipc_deadobject_description">ការតភ្ជាប់ទៅសេវាកម្មដែលមានហានិភ័យ(ឧ. Magisk, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) អាចនឹងត្រូវបានបាត់បង់ដោយស្មានមិនដល់។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានៅតែបន្តកើតមាន សូមពិនិត្យការអាប់ដេត ឬទាក់ទងមកខ្ញុំ ដូច្នេះខ្ញុំអាចជួសជុលវាបាន។</string>
+    <string name="general_error_ipc_deadobject_description">ការតភ្ជាប់ទៅសេវាកម្មសំខាន់ (ឧទាហរណ៍ Magisk, Porter, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) បានបាត់បង់ដោយមិនរំពឹងទុក។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានៅតែកើតមាន សូមពិនិត្យមើលបច្ចុប្បន្នភាព ឬទាក់ទងមកខ្ញុំ ដើម្បីឱ្យខ្ញុំអាចជួសជុលវាបាន។</string>
     <string name="general_error_upgrade_required_title">ការលក់ផ្នើមកូដចាំបាច់</string>
     <string name="general_error_upgrade_required_description">មុខងារនេះតម្រូវអ្យការការលក់ផ្នើមកូដ។ សូមលក់ផ្នើមកូដ SD Maid SE ដើម្បីប្រើវា។</string>
     <string name="general_user_label_owner">ម្ចាស់</string>
@@ -197,11 +197,9 @@
     <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
     <string name="ui_theme_color_sunset_label">ល្ងាច</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">លក្ខណៈពិសេសនេះត្រូវការលទ្ធិសមបត្តិ root ប៉ុន្តែ SD Maid មិនបានទទួលបាននៅលើឧបករណ៍នេះទេ។</string>
     <string name="access_blocked_root_declined">លក្ខណៈពិសេសនេះត្រូវការលទ្ធិសមបត្តិ root។ អ្នកអាចបើកវាតាមរយៈអេក្រង់ការរៀបចំ។</string>
-    <string name="access_blocked_root_or_shizuku">លក្ខណៈពិសេសនេះត្រូវការលទ្ធិសមបត្តិ root ឬ Shizuku ដែលមិនមាននៅលើឧបករណ៍នេះទេ។</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">មុខងារនេះត្រូវការ root ឬការចូលប្រើប្រាស់ ADB ដែលមិនមាននៅលើឧបករណ៍នេះទេ។</string>
     <string name="backup_restore_error_invalid_title">ឯកសារបម្រុងទុកមិនត្រឹមត្រូវ</string>
     <string name="backup_restore_error_invalid_body">ឯកសារនេះមិនមែនជាឯកសារបម្រុងទុក SD Maid ដែលមានសុពលភាព ឬខូច។</string>
     <string name="backup_restore_error_version_body">ឯកសារបម្រុងទុកនេះត្រូវបានបង្កើតដោយកំណែ SD Maid ថ្មីបន្ថែមទៀត។ សូមធ្វើឱ្យកម្មវិធីឡើងថ្មី ហើយព្យាយាមម្តងទៀត។</string>

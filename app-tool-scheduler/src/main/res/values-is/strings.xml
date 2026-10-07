@@ -40,7 +40,7 @@
     <string name="scheduler_acs_screenlocked_hint_title">Forritahreinsun getur verið sleppt</string>
     <string name="scheduler_acs_screenlocked_hint_body">Forritahreinsun notar aðgengisþjónustu, sem krefst þess að skjárinn sé opinn. Áætluðum keyrslum á meðan tækið er læst er sleppt.\n\nNotaðu ADB aðgang eða root fyrir bakgrunnshreinsun, eða tímasettu hana þegar þú ert að nota tækið.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Kerfisforrit geta verið sleppt</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">Shizuku hreinsar flest skyndiminni í bakgrunni, en kerfisforrit þarfnast aðgengiþbærðisjtónustunnar, sem krefst þess að skjárinn sé opinn. Það \"Taka kerfisforrit með\" er virkt eru þau sleppt þgar tækið er læst.\n\nSlökkþu á \"Taka kerfisforrit með\", eða keyrðu áætlunina meðan skjárinn er opinn.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ADB-aðgangur hreinsar flest skyndiminni í bakgrunni, en kerfisforrit þurfa aðgengisþjónustuna, sem krefst þess að skjárinn sé opinn. Þegar „Taka kerfisforrit með“ er virkt eru þau sleppt þegar tækið er læst.\n\nSlökktu á „Taka kerfisforrit með“ eða keyrðu áætlunina þegar skjárinn er opinn.</string>
     <string name="scheduler_commands_after_schedule_label">Eftir-áætlunar skipanir</string>
     <string name="scheduler_commands_after_schedule_desc">Android skeljar skipanir sem verða keyrðar eftir áætlun.</string>
     <string name="scheduler_battery_optimization_hint">Íhugaðu að slökkva á rafhlöðufínstillingu fyrir SD Maid ef þú átt í vandræðum með bakgrunnskeyrslu.</string>

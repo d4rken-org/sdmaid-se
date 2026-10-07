@@ -204,7 +204,7 @@
     <string name="general_information_for_the_developer">Informacje dla programisty</string>
     <string name="general_error_report_bug_action">Zgłoś błąd</string>
     <string name="general_error_ipc_deadobject_title">Połączenie z usługą zostało utracone</string>
-    <string name="general_error_ipc_deadobject_description">Połączenie z krytyczną usługą (np. Magisk, Porter, Shizuku lub inne usługi systemowe) zostało nieoczekiwanie utracone. Uruchom ponownie urządzenie. Jeśli problem nie ustąpi, sprawdź aktualizacje lub skontaktuj się ze mną, abym mógł go naprawić.</string>
+    <string name="general_error_ipc_deadobject_description">Połączenie z krytyczną usługą (np. Magisk, Porter, Shizuku lub inne usługi systemowe) zostało nieoczekiwanie utracone. Zrestartuj urządzenie. Jeśli problem nie ustąpi, sprawdź aktualizacje lub skontaktuj się ze mną, abym mógł go naprawić.</string>
     <string name="general_error_upgrade_required_title">Wymagana aktualizacja</string>
     <string name="general_error_upgrade_required_description">Ta funkcja wymaga aktualizacji. Aby z niej korzystać, zaktualizuj aplikację SD Maid SE.</string>
     <string name="general_user_label_owner">Właściciel</string>
@@ -238,7 +238,7 @@
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <string name="access_blocked_root_unavailable">Ta funkcja wymaga dostępu do root, ale SD Maid nie mógł go uzyskać na tym urządzeniu.</string>
     <string name="access_blocked_root_declined">Ta funkcja wymaga dostępu root. Możesz włączyć go za pośrednictwem ekranu konfiguracji.</string>
-    <string name="access_blocked_root_or_shizuku">Ta funkcja wymaga dostępu root lub ADB, który nie jest dostępny na tym urządzeniu.</string>
+    <string name="access_blocked_root_or_shizuku">Ta funkcja wymaga dostępu roota lub za pomocą ADB, który nie jest dostępny na tym urządzeniu.</string>
     <string name="backup_restore_error_invalid_title">Nieprawidłowy plik kopii</string>
     <string name="backup_restore_error_invalid_body">Ten plik nie jest prawidłową kopią SD Maid lub jest uszkodzony.</string>
     <string name="backup_restore_error_version_body">Ta kopia została utworzona w nowszej wersji SD Maid. Zaktualizuj aplikację i spróbuj ponownie.</string>

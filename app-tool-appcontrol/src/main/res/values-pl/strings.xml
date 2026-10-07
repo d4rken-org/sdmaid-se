@@ -151,4 +151,8 @@
     <string name="tour_appcontrol_filter_body">Zawęź listę według aplikacji użytkownika/systemu, stanu włączenia, ostatniej aktywności i wiele więcej. Aktywne filtry pojawiają się tutaj jako znaczniki.</string>
     <string name="tour_appcontrol_sort_body">Sortuj aplikacje według nazwy, daty instalacji, ostatniej aktualizacji, rozmiaru lub czasu ekranu. Naciśnij tę samą opcję, aby zmienić kierunek.</string>
     <string name="tour_appcontrol_app_row_body">Naciśnij aplikację, aby otworzyć jej szczegóły i dostępne akcje. Przytrzymanie umożliwia zaznaczenie i korzystanie z akcji zbiorczych.</string>
+    <string name="appcontrol_archive_unavailable_title">Nie można zarchiwizować tej aplikacji</string>
+    <string name="appcontrol_archive_unavailable_body">Przycisk Archiwizuj w ustawieniach systemowych tej aplikacji jest wyłączony, więc Android jej nie zarchiwizuje.</string>
+    <string name="appcontrol_restore_unavailable_title">Nie można przywrócić tej aplikacji</string>
+    <string name="appcontrol_restore_unavailable_body">Przycisk Przywróć w ustawieniach systemowych tej aplikacji jest wyłączony, więc Android nie przywróci jej w tej chwili.</string>
 </resources>
