@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Ограничете ја листата по кориснички/системски апликации, статус на активирање, скорешна активност и повеќе. Активните филтри се појавуваат како чипови овде.</string>
     <string name="tour_appcontrol_sort_body">Подредете апликации по име, датум на инсталирање, последно ажурирање, големина или време на екран. Допрете ја истата опција за да го промените правецот.</string>
     <string name="tour_appcontrol_app_row_body">Допрете апликација за да ги отворите нејзините детали и достапните акции. Долг допир за да започнете избор и да користите групни акции.</string>
+    <string name="appcontrol_archive_unavailable_title">Не може да се архивира оваа апликација</string>
+    <string name="appcontrol_archive_unavailable_body">Копчето за архивирање во системските поставки на оваа апликација е оневозможено, па затоа Android нема да ја архивира.</string>
+    <string name="appcontrol_restore_unavailable_title">Не може да се врати оваа апликација</string>
+    <string name="appcontrol_restore_unavailable_body">Копчето за враќање во системските поставки на оваа апликација е оневозможено, па затоа Android нема да ја врати сега.</string>
 </resources>

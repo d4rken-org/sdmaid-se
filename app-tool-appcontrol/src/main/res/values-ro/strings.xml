@@ -140,4 +140,8 @@
     <string name="tour_appcontrol_filter_body">Restrânge lista după aplicații de utilizator/sistem, stare de activare, activitate recentă și altele. Filtrele active apar ca chipuri aici.</string>
     <string name="tour_appcontrol_sort_body">Ordonează aplicațiile după nume, dată de instalare, ultima actualizare, dimensiune sau timp de ecran. Apasă pe aceeași opțiune pentru a inversa direcția.</string>
     <string name="tour_appcontrol_app_row_body">Apasă pe o aplicație pentru a deschide detaliile și acțiunile disponibile. Apasă lung pentru a începe o selecție și a folosi acțiuni în masă.</string>
+    <string name="appcontrol_archive_unavailable_title">Nu se poate arhiva această aplicație</string>
+    <string name="appcontrol_archive_unavailable_body">Butonul Arhivare din setările de sistem ale acestei aplicații este dezactivat, deci Android nu o va arhiva.</string>
+    <string name="appcontrol_restore_unavailable_title">Nu se poate restabili această aplicație</string>
+    <string name="appcontrol_restore_unavailable_body">Butonul Restabilire din setările de sistem ale acestei aplicații este dezactivat, deci Android nu o va restabili acum.</string>
 </resources>

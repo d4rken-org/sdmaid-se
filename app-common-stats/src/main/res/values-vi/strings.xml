@@ -26,6 +26,8 @@
     <string name="stats_settings_retention_reports_desc">Số ngày trước khi xóa báo cáo vận hành SD Maid cơ bản.</string>
     <string name="stats_settings_retention_paths_label">Thông tin đường dẫn chi tiết</string>
     <string name="stats_settings_retention_paths_desc">Số ngày lưu giữ thông tin chi tiết về các đường dẫn bị ảnh hưởng bởi SD Maid.</string>
+    <string name="stats_settings_retention_snapshots_label">Lịch sử dung lượng</string>
+    <string name="stats_settings_retention_snapshots_desc">Số ngày giữ lại các ảnh chụp nhanh mức sử dụng dung lượng cho biểu đồ Xu hướng dung lượng. Các ảnh chụp nhanh cũ hơn sẽ bị xóa.</string>
     <string name="stats_settings_reset_all_label">Đặt lại tất cả</string>
     <string name="stats_settings_reset_all_desc">Xóa tất cả các báo cáo và đặt tất cả số liệu thống kê về 0.</string>
     <string name="stats_affected_paths_label">Đường dẫn bị ảnh hưởng</string>
@@ -37,6 +39,8 @@
     <string name="stats_space_history_range_7d">7 ngày</string>
     <string name="stats_space_history_range_30d">30 ngày</string>
     <string name="stats_space_history_range_90d">90 ngày</string>
+    <string name="stats_space_history_range_180d">180 ngày</string>
+    <string name="stats_space_history_range_365d">1 năm</string>
     <string name="stats_space_history_storage_title">Bộ nhớ</string>
     <string name="stats_space_history_current_used_label">Đang sử dụng</string>
     <string name="stats_space_history_min_label">Sử dụng tối thiểu</string>

@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Teave arendajale</string>
     <string name="general_error_report_bug_action">Teata veast</string>
     <string name="general_error_ipc_deadobject_title">Ühendus teenusega katkes</string>
-    <string name="general_error_ipc_deadobject_description">Ühendus kriitilise teenusega (nt Magisk, Porter, Shizuku või muud süsteemitaseme teenused) katkes ootamatult. Palun taaskäivitage oma seade. Kui probleem jätkub, kontrollige uuendusi või võtke minuga ühendust, et saaksin selle parandada.</string>
+    <string name="general_error_ipc_deadobject_description">Ühendus olulise teenusega (nt Magisk, Porter, Shizuku või muu süsteemitaseme teenusega) katkes ootamatult. Taaskäivitage oma seade. Kui probleem jätkub, kontrollige uuendusi või suhelge minuga, et saaksin selle parandada.</string>
     <string name="general_error_upgrade_required_title">Uuendamine nõutav</string>
     <string name="general_error_upgrade_required_description">See võimalus nõuab uuendamist. Uuendage SD Maid SE, et seda kasutada.</string>
     <string name="general_user_label_owner">Omanik</string>
@@ -212,7 +212,7 @@
     <string name="ui_theme_color_amoled_label">AMOLED</string>
     <string name="access_blocked_root_unavailable">See võimalus vajab juurkasutaja juurdepääsu, kuid SD Maid ei saanud seda sellel seadmel hankida.</string>
     <string name="access_blocked_root_declined">See võimalus vajab juurkasutaja juurdepääsu. Saad selle lubada häälestamise ekraanis.</string>
-    <string name="access_blocked_root_or_shizuku">See funktsioon vajab juuripääsu või ADB-juurdepääsu, mis pole sellel seadmel saadaval.</string>
+    <string name="access_blocked_root_or_shizuku">See võimalus vajab juurpääsu või ADB-juurdepääsu, mis pole sellel seadmel saadaval.</string>
     <string name="backup_restore_error_invalid_title">Vigane varukoopia fail</string>
     <string name="backup_restore_error_invalid_body">See fail pole kehtiv SD Maid varukoopia või on see rikutud.</string>
     <string name="backup_restore_error_version_body">See varukoopia loodi SD Maidi uuema versiooniga. Uuendage rakendust ja proovige uuesti.</string>

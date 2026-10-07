@@ -151,4 +151,8 @@
     <string name="tour_appcontrol_filter_body">Звузьте список за користувацькими/системними програмами, станом увімкнення, останньою активністю та іншим. Активні фільтри відображаються як мітки.</string>
     <string name="tour_appcontrol_sort_body">Впорядкуйте програми за назвою, датою встановлення, датою останнього оновлення, розміром або часом екрана. Натисніть ту ж опцію, щоб змінити напрямок.</string>
     <string name="tour_appcontrol_app_row_body">Натисніть на програму, щоб відкрити її деталі та доступні дії. Довго натисніть для початку вибору та використання групових дій.</string>
+    <string name="appcontrol_archive_unavailable_title">Неможливо архівувати цей додаток</string>
+    <string name="appcontrol_archive_unavailable_body">Кнопка архівування в системних параметрах цього додатку відключена, тому Android не може його архівувати.</string>
+    <string name="appcontrol_restore_unavailable_title">Неможливо відновити цей додаток</string>
+    <string name="appcontrol_restore_unavailable_body">Кнопка відновлення в системних параметрах цього додатку відключена, тому Android не може його відновити прямо зараз.</string>
 </resources>

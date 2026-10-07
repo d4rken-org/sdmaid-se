@@ -38,6 +38,8 @@
     <string name="stats_settings_retention_reports_desc">מספר הימים לפני מחיקת דוחות תפעול בסיסיים של SD Maid.</string>
     <string name="stats_settings_retention_paths_label">מידע מפורט על נתיב</string>
     <string name="stats_settings_retention_paths_desc">מספר הימים לשמירת פרטים לגבי נתיבים שהושפעו על ידי SD Maid.</string>
+    <string name="stats_settings_retention_snapshots_label">היסטוריית אחסון</string>
+    <string name="stats_settings_retention_snapshots_desc">מספר הימים לשמירת תמונות מצב של שימוש באחסון עבור תרשים מגמת האחסון. תמונות מצב ישנות יותר נמחקות.</string>
     <string name="stats_settings_reset_all_label">איפוס הכל</string>
     <string name="stats_settings_reset_all_desc">מחק את כל הדוחות והגדר את כל הנתונים הסטטיסטיים לאפס.</string>
     <string name="stats_affected_paths_label">נתיבים מושפעים</string>
@@ -49,6 +51,8 @@
     <string name="stats_space_history_range_7d">7 ימים</string>
     <string name="stats_space_history_range_30d">30 ימים</string>
     <string name="stats_space_history_range_90d">90 ימים</string>
+    <string name="stats_space_history_range_180d">180 ימים</string>
+    <string name="stats_space_history_range_365d">שנה אחת</string>
     <string name="stats_space_history_storage_title">אחסון</string>
     <string name="stats_space_history_current_used_label">שימוש נוכחי</string>
     <string name="stats_space_history_min_label">מינימום שימוש</string>

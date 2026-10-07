@@ -32,6 +32,8 @@
     <string name="stats_settings_retention_reports_desc">Брой дни преди изтриване на основни отчети за операции на SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Подробна информация за пътища</string>
     <string name="stats_settings_retention_paths_desc">Броят дни за запазване на подробности за пътища, засегнати от SD Maid.</string>
+    <string name="stats_settings_retention_snapshots_label">История на хранилището</string>
+    <string name="stats_settings_retention_snapshots_desc">Брой дни, за които да се пазят снимките на използваното място в хранилището за графиката „Тенденция на хранилището“. По-старите снимки се изтриват.</string>
     <string name="stats_settings_reset_all_label">Нулиране на всички</string>
     <string name="stats_settings_reset_all_desc">Изтриване на всички отчети и задаване на всички статистики на нула.</string>
     <string name="stats_affected_paths_label">Засегнати пътища</string>
@@ -43,6 +45,8 @@
     <string name="stats_space_history_range_7d">7 дни</string>
     <string name="stats_space_history_range_30d">30 дни</string>
     <string name="stats_space_history_range_90d">90 дни</string>
+    <string name="stats_space_history_range_180d">180 дни</string>
+    <string name="stats_space_history_range_365d">1 година</string>
     <string name="stats_space_history_storage_title">Съхранение</string>
     <string name="stats_space_history_current_used_label">Текущо използвано</string>
     <string name="stats_space_history_min_label">Минимално използвано</string>

@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">प्रयोगकर्ता/प्रणाली एपहरू, सक्षम अवस्था, हालैको कार्यकलाप, र अन्य अनुसार सूची फिल्टर गर्नुहोस्। सक्रिय फिल्टरहरू यहाँ चिप्सको रूपमा देखा पर्छन्।</string>
     <string name="tour_appcontrol_sort_body">नाम, स्थापना मिति, अन्तिम अद्यावधिक, आकार, वा स्क्रिन समय द्वारा एपहरू क्रम गर्नुहोस्। दिशा फ्लिप गर्न एउटै विकल्प ट्याप गर्नुहोस्।</string>
     <string name="tour_appcontrol_app_row_body">यसको विवरण र उपलब्ध कार्यहरू खोल्न एप ट्याप गर्नुहोस्। चयन सुरु गर्न र बल्क कार्यहरू प्रयोग गर्न लामो दबाउनुहोस्।</string>
+    <string name="appcontrol_archive_unavailable_title">यस अनुप्रयोगलाई संग्रहित गर्न सकिएन</string>
+    <string name="appcontrol_archive_unavailable_body">यस अनुप्रयोगको प्रणाली सेटिङ्समा संग्रह बटन अक्षम छ, त्यसैले एन्ड्रोइडले यसलाई संग्रहित गर्न सक्दैन।</string>
+    <string name="appcontrol_restore_unavailable_title">यस अनुप्रयोगलाई पुनःस्थापन गर्न सकिएन</string>
+    <string name="appcontrol_restore_unavailable_body">यस अनुप्रयोगको प्रणाली सेटिङ्समा पुनःस्थापन बटन अक्षम छ, त्यसैले एन्ड्रोइडले यसलाई अहिले पुनःस्थापन गर्न सक्दैन।</string>
 </resources>

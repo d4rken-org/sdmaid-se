@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Filtra la lista por aplicaciones de usuario/sistema, estado activado, actividad reciente y más. Los filtros activos aparecen aquí como fichas.</string>
     <string name="tour_appcontrol_sort_body">Ordena las aplicaciones por nombre, fecha de instalación, última actualización, tamaño o tiempo de pantalla. Toca la misma opción para invertir la dirección.</string>
     <string name="tour_appcontrol_app_row_body">Toca una aplicación para abrir sus detalles y acciones disponibles. Mantén presionada para iniciar una selección y usar acciones en lote.</string>
+    <string name="appcontrol_archive_unavailable_title">No se puede archivar esta aplicación</string>
+    <string name="appcontrol_archive_unavailable_body">El botón Archivar en los ajustes del sistema de esta aplicación está deshabilitado, por lo que Android no la archivará.</string>
+    <string name="appcontrol_restore_unavailable_title">No se puede restaurar esta aplicación</string>
+    <string name="appcontrol_restore_unavailable_body">El botón Restaurar en los ajustes del sistema de esta aplicación está deshabilitado, por lo que Android no la restaurará ahora.</string>
 </resources>

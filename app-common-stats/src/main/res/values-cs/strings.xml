@@ -44,6 +44,8 @@
     <string name="stats_settings_retention_reports_desc">Počet dní před smazáním základních hlášení o operacích v SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Podrobné informace o cestě</string>
     <string name="stats_settings_retention_paths_desc">Počet dní k uchování podrobností o cestách ovlivněných aplikací SD Maid.</string>
+    <string name="stats_settings_retention_snapshots_label">Historie úložiště</string>
+    <string name="stats_settings_retention_snapshots_desc">Počet dní pro uchování snímků využití úložiště pro graf Trend úložiště. Starší snímky jsou smazány.</string>
     <string name="stats_settings_reset_all_label">Obnovit vše</string>
     <string name="stats_settings_reset_all_desc">Smazat všechna hlášení a nastavit všechny statistiky na nulu.</string>
     <string name="stats_affected_paths_label">Ovlivněné cesty</string>
@@ -55,6 +57,8 @@
     <string name="stats_space_history_range_7d">7 dní</string>
     <string name="stats_space_history_range_30d">30 dní</string>
     <string name="stats_space_history_range_90d">90 dní</string>
+    <string name="stats_space_history_range_180d">180 dní</string>
+    <string name="stats_space_history_range_365d">1 rok</string>
     <string name="stats_space_history_storage_title">Úložiště</string>
     <string name="stats_space_history_current_used_label">Aktuálně použito</string>
     <string name="stats_space_history_min_label">Minimálně použito</string>

@@ -32,6 +32,8 @@
     <string name="stats_settings_retention_reports_desc">ମୌଳିକ SD Maid କାର୍ଯ୍ୟ ରିପୋର୍ଟ ଡିଲିଟ୍ କରିବା ପୂର୍ବରୁ ଦିନ ସଂଖ୍ୟା।</string>
     <string name="stats_settings_retention_paths_label">ବିସ୍ତୃତ ପଥ ସୂଚନା</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ଦ୍ୱାରା ପ୍ରଭାବିତ ପଥ ବିଷୟରେ ବିବରଣୀ ରଖିବା ପାଇଁ ଦିନ ସଂଖ୍ୟା।</string>
+    <string name="stats_settings_retention_snapshots_label">ସଞ୍ଚୟ ସ୍ଥାନର ଇତିହାସ</string>
+    <string name="stats_settings_retention_snapshots_desc">ସଞ୍ଚୟ ସ୍ଥାନ ଟ୍ରେଣ୍ଡ ଚାର୍ଟ ପାଇଁ ସଞ୍ଚୟ ସ୍ଥାନ ବ୍ୟବହାରର ସ୍ନ୍ୟାପସଟ ରଖିବାକୁ ଦିନଗୁଡ଼ିକର ସଂଖ୍ୟା। ପୁରାତନ ସ୍ନ୍ୟାପସଟ ଲୋପ କରାଯାଏ।</string>
     <string name="stats_settings_reset_all_label">ସବୁ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
     <string name="stats_settings_reset_all_desc">ସମସ୍ତ ରିପୋର୍ଟ ଡିଲିଟ୍ କରନ୍ତୁ ଏବଂ ସମସ୍ତ ପରିସଂଖ୍ୟାନ ଶୂନ୍ୟରେ ସେଟ୍ କରନ୍ତୁ।</string>
     <string name="stats_affected_paths_label">ପ୍ରଭାବିତ ପଥ</string>
@@ -43,6 +45,8 @@
     <string name="stats_space_history_range_7d">୭ ଦିନ</string>
     <string name="stats_space_history_range_30d">୩୦ ଦିନ</string>
     <string name="stats_space_history_range_90d">୯୦ ଦିନ</string>
+    <string name="stats_space_history_range_180d">180 ଦିନ</string>
+    <string name="stats_space_history_range_365d">1 ବର୍ଷ</string>
     <string name="stats_space_history_storage_title">ଷ୍ଟୋରେଜ</string>
     <string name="stats_space_history_current_used_label">ବର୍ତ୍ତମାନ ବ୍ୟବହୃତ</string>
     <string name="stats_space_history_min_label">ସର୍ବନିମ୍ନ ବ୍ୟବହୃତ</string>

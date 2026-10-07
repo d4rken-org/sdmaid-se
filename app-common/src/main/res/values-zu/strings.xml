@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <!-- Upgraded app title. %1$s is the app name, %2$s the tier qualifier ("Pro" / "FOSS"). Reorder or repunctuate for your language; both placeholders must appear exactly once. -->
     <string name="app_name_upgraded_template">%1$s %2$s</string>
     <string name="slogan_message_0">Ekusizeni kwakho.</string>
     <string name="slogan_message_1">Kuhlanzekile futhi kuhlelekile.</string>
@@ -51,6 +50,7 @@
     <string name="general_progress_loading">Iyalayisha</string>
     <string name="general_progress_loading_app_data">Layisha idatha ye-app</string>
     <string name="general_progress_loading_data_areas">Layisha izindawo zedatha</string>
+    <string name="general_data_areas_unavailable_message">Ayikwazanga ukulayisha izindawo zedatha, izindawo zokugcina ezingasebenziswa nge-SD Maid.</string>
     <string name="general_progress_loading_egg_0">Isishesha kune-iPhone</string>
     <string name="general_progress_loading_egg_1">Idownloda i-RAM eyengeziwe</string>
     <string name="general_progress_loading_egg_2">Maduze™</string>
@@ -210,11 +210,9 @@
     <string name="appcontrol_systemsettings_open_title">Bonisa izilungiselelo</string>
     <string name="ui_theme_color_sunset_label">Kutsha</string>
     <string name="ui_theme_color_amoled_label">AMOLED</string>
-    <!-- Shown when a feature can only run with privileged access that turned out to be unavailable. -->
     <string name="access_blocked_root_unavailable">Lena inguqulo idinga i-root access, kodwa i-SD Maid ayikwazanga ukuyithola kule device.</string>
     <string name="access_blocked_root_declined">Lesi feature sidinga ikhona ye-root. Ungalinika nge-setup screen.</string>
-    <string name="access_blocked_root_or_shizuku">Lesi feature sidinga ikhona ye-root noma ye-Shizuku, ayikho kule divisi.</string>
-    <!-- Config backup/restore errors -->
+    <string name="access_blocked_root_or_shizuku">Lezi zici zidinga i-root noma ukungenela i-ADB, okungekho kumusebenzusi wakho.</string>
     <string name="backup_restore_error_invalid_title">I-backup file engavumelekile</string>
     <string name="backup_restore_error_invalid_body">Leli file asilona i-backup ye-SD Maid evumelekile noma lisiphukile.</string>
     <string name="backup_restore_error_version_body">Le backup yenziwe nge-version entsha ye-SD Maid. Sicela ukhulise i-app bese uzama futhi.</string>

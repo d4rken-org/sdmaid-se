@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Paliitin ang listahan ayon sa user/system apps, estado ng pagpapagana, kamakailang aktibidad, at marami pa. Ang mga aktibong filter ay lilitaw bilang mga chips dito.</string>
     <string name="tour_appcontrol_sort_body">Ayusin ang mga app ayon sa pangalan, petsa ng pag-install, huling update, laki, o oras sa screen. I-tap ang parehong opsyon upang baguhin ang direksyon.</string>
     <string name="tour_appcontrol_app_row_body">I-tap ang app upang buksan ang mga detalye at magagamit na aksyon. Mahabang pagpindot upang magsimula ng pagpili at gamitin ang mga bulk na aksyon.</string>
+    <string name="appcontrol_archive_unavailable_title">Hindi ma-archive ang app na ito</string>
+    <string name="appcontrol_archive_unavailable_body">Naka-disable ang Archive button sa system settings ng app na ito, kaya hindi ito ia-archive ng Android.</string>
+    <string name="appcontrol_restore_unavailable_title">Hindi ma-restore ang app na ito</string>
+    <string name="appcontrol_restore_unavailable_body">Naka-disable ang Restore button sa system settings ng app na ito, kaya hindi ito marerestore ng Android sa ngayon.</string>
 </resources>

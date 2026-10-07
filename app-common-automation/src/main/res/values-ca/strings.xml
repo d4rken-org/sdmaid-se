@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
     <string name="automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
     <string name="automation_error_disabled_app_title">L\'aplicació està desactivada</string>
-    <string name="automation_error_disabled_app_body">El dispositiu no obrirà la pantalla d\'ajustos de les aplicacions desactivades, així que la memòria cau no es pot netejar mitjançant el servei d\'accessibilitat. Activa l\'aplicació o utilitza l\'accés root o ADB.</string>
+    <string name="automation_error_disabled_app_body">El dispositiu no obrirà la pantalla de configuració de les aplicacions desactivades; per tant, no es pot esborrar la memòria cau mitjançant el servei d\'accessibilitat. Activeu l\'aplicació o utilitzeu l\'accés root o ADB.</string>
     <string name="automation_error_interference_title">Pantalla de configuració bloquejada</string>
     <string name="automation_error_interference_body">Una altra aplicació (%1$s) està bloquejant la pantalla de configuració del sistema, de manera que l\'SD Maid no pot continuar. Desactiveu el bloqueig d\'aplicacions o la protecció de pantalla d\'aquesta aplicació per a la configuració del sistema i torneu-ho a provar.</string>
     <string name="automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>

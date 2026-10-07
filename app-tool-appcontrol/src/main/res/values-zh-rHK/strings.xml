@@ -118,4 +118,8 @@
     <string name="tour_appcontrol_filter_body">按使用者/系統應用程式、啟用狀態、最近活動等項目篩選清單。使用中的篩選條件會在此顯示為標籤。</string>
     <string name="tour_appcontrol_sort_body">按名稱、安裝日期、上次更新、大小或螢幕使用時間排序應用程式。點選相同選項可翻轉方向。</string>
     <string name="tour_appcontrol_app_row_body">點選應用程式以開啟其詳細資料和可用動作。長按以開始選擇並使用批次動作。</string>
+    <string name="appcontrol_archive_unavailable_title">無法封存此應用</string>
+    <string name="appcontrol_archive_unavailable_body">此應用系統設定中的封存按鈕已停用，因此 Android 將不會封存此應用。</string>
+    <string name="appcontrol_restore_unavailable_title">無法還原此應用</string>
+    <string name="appcontrol_restore_unavailable_body">此應用系統設定中的還原按鈕已停用，因此 Android 現在不會還原此應用。</string>
 </resources>

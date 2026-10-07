@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Жагсаалтыг хэрэглэгч/системийн апп, идэвхийг төлөв, сүүлийн үйл ажиллагаа болон бусад зүйлээр нарийсгана. Идэвхтэй шүүлтүүрүүд энд чип хэлбэрээр гарч ирдэг.</string>
     <string name="tour_appcontrol_sort_body">Апп-уудыг нэр, суулгах огноо, сүүлийн шинэчлэл, хэмжээ, эсвэл экраны цаг хугацаагаар эрэмбэлнэ. Чиглэлийг ергүүлэхийн тулд ижил сонголтыг товшино.</string>
     <string name="tour_appcontrol_app_row_body">Апп-ын дэлгэрэнгүй мэдээ болон боломжтой үйлдлүүдийг нээхийн тулд апп дээр товшино. Урт дарах замаар сонголтыг эхлүүлж, олон сонголтын үйлдлүүд ашиглана.</string>
+    <string name="appcontrol_archive_unavailable_title">Энэ апп-ыг архивлах боломжгүй</string>
+    <string name="appcontrol_archive_unavailable_body">Энэ апп-ын системийн тохиргоон дахь «Архивлах» товч идэвхгүй байгаа тул Android үүнийг архивлахгүй.</string>
+    <string name="appcontrol_restore_unavailable_title">Энэ апп-ыг сэргээх боломжгүй</string>
+    <string name="appcontrol_restore_unavailable_body">Энэ апп-ын системийн тохиргоон дахь «Сэргээх» товч идэвхгүй байгаа тул Android одоохондоо үүнийг сэргээхгүй.</string>
 </resources>

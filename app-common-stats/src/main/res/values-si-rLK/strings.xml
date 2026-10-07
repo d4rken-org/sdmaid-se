@@ -32,6 +32,8 @@
     <string name="stats_settings_retention_reports_desc">මූලික SD Maid මෙහෙයුම් වාර්තා මකා දැමීමට පෙර දින සංඛ්‍යාව.</string>
     <string name="stats_settings_retention_paths_label">විස්තරාත්මක මාර්ග තොරතුරු</string>
     <string name="stats_settings_retention_paths_desc">SD Maid විසින් බලපෑමට ලක් වූ මාර්ග පිළිබඳ විස්තර රඳවා ගත යුතු දින සංඛ්‍යාව.</string>
+    <string name="stats_settings_retention_snapshots_label">ගබඩා ඉතිහාසය</string>
+    <string name="stats_settings_retention_snapshots_desc">ගබඩා ප්‍රවණතා ප්‍රස්තාරය සඳහා ගබඩා භාවිතා ගතිරූපවල තබා ගැනීමට දිනවල ගණන. පැරණි ගතිරූපවලු මකා දමනු ලැබේ.</string>
     <string name="stats_settings_reset_all_label">සියල්ල පුනරාරම්භ කරන්න</string>
     <string name="stats_settings_reset_all_desc">සියල්ල වාර්තා මකා සියලු සංඛ්‍යාලේඛන ශූන්යමට සවය කරන්න.</string>
     <string name="stats_affected_paths_label">බලපෑමට ලක්වූ මාර්ග</string>
@@ -43,6 +45,8 @@
     <string name="stats_space_history_range_7d">දින 7</string>
     <string name="stats_space_history_range_30d">දින 30</string>
     <string name="stats_space_history_range_90d">දින 90</string>
+    <string name="stats_space_history_range_180d">දින 180</string>
+    <string name="stats_space_history_range_365d">වසර 1</string>
     <string name="stats_space_history_storage_title">ගබඩාව</string>
     <string name="stats_space_history_current_used_label">වත්මනේ භාවිතා කළ</string>
     <string name="stats_space_history_min_label">අවම භාවිතා කළ</string>

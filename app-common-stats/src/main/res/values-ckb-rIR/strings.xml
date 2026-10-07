@@ -43,6 +43,8 @@
     <string name="stats_space_history_range_7d">٧ ڕۆژ</string>
     <string name="stats_space_history_range_30d">٣٠ ڕۆژ</string>
     <string name="stats_space_history_range_90d">٩٠ ڕۆژ</string>
+    <string name="stats_space_history_range_180d">180 ڕۆژ</string>
+    <string name="stats_space_history_range_365d">1 ساڵ</string>
     <string name="stats_space_history_storage_title">ئەنبار</string>
     <string name="stats_space_history_current_used_label">ئێستا بەکارهاتووە</string>
     <string name="stats_space_history_min_label">کەمترین بەکارهاتوو</string>

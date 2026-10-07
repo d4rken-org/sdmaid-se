@@ -95,7 +95,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień dostępu).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Wykluczone, ale jednoczesne czyszczenie wszystkich aplikacji nadal usuwa tę pamięć podręczną</string>
     <string name="appcleaner_exclusion_limited_title">Wykluczona aplikacja</string>
-    <string name="appcleaner_exclusion_limited_body">Wykluczono tę aplikację z AppCleaner. Jednoczesne czyszczenie pamięci podręcznej wszystkich aplikacji korzysta z ogólnosystemowego czyszczenia dostępnego przez dostęp ADB, które nie pozwala pominąć pojedynczych aplikacji, więc dane w pamięci podręcznej tej aplikacji zostaną wyczyszczone razem z resztą. Dotyczy to tylko widocznych tu danych z pamięci podręcznej, wszystko inne objęte wykluczeniem pozostaje ukryte i nietknięte.</string>
+    <string name="appcleaner_exclusion_limited_body">Wykluczono tę aplikację z czyszczenia aplikacji. Jednoczesne czyszczenie pamięci podręcznej wszystkich aplikacji korzysta z ogólno systemowego czyszczenia dostępnego przez dostęp za pomocą ADB, które nie pozwala pominąć pojedynczych aplikacji, więc dane w pamięci podręcznej tej aplikacji zostaną wyczyszczone razem z resztą. Dotyczy to tylko widocznych tu danych z pamięci podręcznej, wszystko inne objęte wykluczeniem pozostaje ukryte i nietknięte.</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień dostępu niedostępna</string>
     <string name="appcleaner_automation_unavailable_body">Wyczyszczenie tych pamięci podręcznych wymaga usługi ułatwień dostępu SD Maid, ale nie była ona dostępna.</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
@@ -105,7 +105,7 @@
         <item quantity="many">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
         <item quantity="other">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie pamięci podręcznej przez dostęp ADB</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie pamięci podręcznej przez dostęp za pomocą ADB</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Określanie niedostępnych pamięci podręcznych</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Czyszczenie pamięci podręcznej niedostępne</string>
     <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>

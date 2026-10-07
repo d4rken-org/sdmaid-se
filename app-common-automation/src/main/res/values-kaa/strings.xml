@@ -24,7 +24,7 @@
     <string name="automation_error_no_settings_title">Parametrler ekranı jetimli emes</string>
     <string name="automation_error_no_settings_body">Bul sistema qosımshasında parametrler ekranı joq. Jetimlilik qullıǵı arqalı keş tazalaw múmkin emes. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
     <string name="automation_error_disabled_app_title">Qollanba o\'shirtılğan</string>
-    <string name="automation_error_disabled_app_body">Sizin cihazı o\'shirtılğan qollanbalar sozlamala ekranın ashpa bolmaydy, shunga kesh erişim xizmetı arqalı tazalanpa bolmaydy. Qollanbany ishke qoşın, yaki root yaki Shizuku/ADB paidalanın.</string>
+    <string name="automation_error_disabled_app_body">Sizdiñ qurilmañız o\'chirilgan dasturların sozlama ekranın asmaydu, shuñ ushın kirişish xizmatı arasıdan keshleme to\'wıp bo\'lmaytady. Dasturman\'y qosıñız, yaki orninа root yaki ADB qollantuwıdan foydalanıñız.</string>
     <string name="automation_error_interference_title">Sazlamalar ekranı bógetlengen</string>
     <string name="automation_error_interference_body">Basqa qosımsha (%1$s) sistema sazlamalar ekranın bógetlep atır, sonlıqtan SD Maid dawam ete almaydi. Sol qosımshanıń qulpın yamasa ekran qorǵawın sistema sazlamaları ushın óshiriń, soń qayta urınıń.</string>
     <string name="automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>

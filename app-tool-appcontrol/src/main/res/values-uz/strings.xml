@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">Ro\'yxatni foydalanuvchi/tizim ilovalari, yoqilgan holati, so\'nggi faollik va boshqalar bo\'yicha toraytiring. Faol filtrlar shu yerda yorliq sifatida ko\'rinadi.</string>
     <string name="tour_appcontrol_sort_body">Ilovalarni nomi, o\'rnatilgan sanasi, oxirgi yangilanishi, hajmi yoki ekran vaqti bo\'yicha tartiblang. Yo\'nalishni teskari qilish uchun bir xil variantga qayta bosing.</string>
     <string name="tour_appcontrol_app_row_body">Ilovaning tafsilotlari va mavjud amallarini ochish uchun uni bosing. Tanlashni boshlash va ommaviy amallardan foydalanish uchun uzoq bosing.</string>
+    <string name="appcontrol_archive_unavailable_title">Bu ilovani arxivlab bo\'lmaydi</string>
+    <string name="appcontrol_archive_unavailable_body">Ushbu ilovaning tizim sozlamalarida Arxivlash tugmasi o\'chirilgan, shuning uchun Android uni arxivlamaydi.</string>
+    <string name="appcontrol_restore_unavailable_title">Bu ilovani tiklash mumkin emas</string>
+    <string name="appcontrol_restore_unavailable_body">Ushbu ilovaning tizim sozlamalarida Tiklash tugmasi o\'chirilgan, shuning uchun Android uni hozircha tiklamaydi.</string>
 </resources>

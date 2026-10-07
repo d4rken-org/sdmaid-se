@@ -32,6 +32,8 @@
     <string name="stats_settings_retention_reports_desc">Αριθμός ημερών πριν από τη διαγραφή βασικών αναφορών λειτουργίας του SD Maid.</string>
     <string name="stats_settings_retention_paths_label">Λεπτομερείς πληροφορίες διαδρομής</string>
     <string name="stats_settings_retention_paths_desc">Ο αριθμός των ημερών για τη διατήρηση λεπτομερειών σχετικά με τις διαδρομές που επηρεάζονται από το SD Maid.</string>
+    <string name="stats_settings_retention_snapshots_label">Ιστορικό αποθήκευσης</string>
+    <string name="stats_settings_retention_snapshots_desc">Αριθμός ημερών για διατήρηση στιγμιότυπων χρήσης αποθήκευσης για το γράφημα Τάσης χώρου. Τα παλιότερα στιγμιότυπα διαγράφονται.</string>
     <string name="stats_settings_reset_all_label">Επαναφορά όλων</string>
     <string name="stats_settings_reset_all_desc">Διαγράψτε όλες τις αναφορές και μηδενίστε όλα τα στατιστικά στοιχεία.</string>
     <string name="stats_affected_paths_label">Επηρεαζόμενες διαδρομές</string>
@@ -43,6 +45,8 @@
     <string name="stats_space_history_range_7d">7 ημέρες</string>
     <string name="stats_space_history_range_30d">30 ημέρες</string>
     <string name="stats_space_history_range_90d">90 ημέρες</string>
+    <string name="stats_space_history_range_180d">180 ημέρες</string>
+    <string name="stats_space_history_range_365d">1 χρόνο</string>
     <string name="stats_space_history_storage_title">Αποθηκευτικός χώρος</string>
     <string name="stats_space_history_current_used_label">Τρέχουσα χρήση</string>
     <string name="stats_space_history_min_label">Ελάχιστη χρήση</string>

@@ -140,4 +140,8 @@
     <string name="tour_appcontrol_filter_body">צמצם את הרשימה לפי אפליקציות משתמש/מערכת, מצב הפעלה, פעילות אחרונה, ועוד. מסננים פעילים מופיעים כתגיות כאן.</string>
     <string name="tour_appcontrol_sort_body">סדר אפליקציות לפי שם, תאריך התקנה, עדכון אחרון, גודל או זמן מסך. הקש על אותה אפשרות כדי להפוך את הכיוון.</string>
     <string name="tour_appcontrol_app_row_body">הקש על אפליקציה כדי לפתוח את הפרטים שלה והפעולות הזמינות. הקש הקשה ארוכה כדי להתחיל בחירה ולהשתמש בפעולות קבוצתיות.</string>
+    <string name="appcontrol_archive_unavailable_title">לא ניתן לארכיב את האפליקציה</string>
+    <string name="appcontrol_archive_unavailable_body">כפתור הארכיון בהגדרות המערכת של האפליקציה מבוטל, ולכן Android לא יארכיב אותה.</string>
+    <string name="appcontrol_restore_unavailable_title">לא ניתן לשחזר את האפליקציה</string>
+    <string name="appcontrol_restore_unavailable_body">כפתור השחזור בהגדרות המערכת של האפליקציה מבוטל, ולכן Android לא ישחזר אותה כעת.</string>
 </resources>

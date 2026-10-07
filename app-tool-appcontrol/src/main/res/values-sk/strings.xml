@@ -151,4 +151,8 @@
     <string name="tour_appcontrol_filter_body">Zúžte zoznam podľa aplikácií používateľa/systému, stavu povolenia, nedávnej aktivity a ďalších. Aktívne filtre sa tu zobrazujú ako čipy.</string>
     <string name="tour_appcontrol_sort_body">Zoraďte aplikácie podľa názvu, dátumu inštalácie, poslednej aktualizácie, veľkosti alebo času na obrazovke. Klepnutím na rovnakú možnosť zmeňte smer.</string>
     <string name="tour_appcontrol_app_row_body">Klepnite na aplikáciu, aby ste otvorili jej podrobnosti a dostupné akcie. Dlhým stlačením začnite výber a používajte hromadné akcie.</string>
+    <string name="appcontrol_archive_unavailable_title">Túto aplikáciu nie je možné archivovať</string>
+    <string name="appcontrol_archive_unavailable_body">Tlačidlo Archivovať v systémových nastaveniach tejto aplikácie je vypnuté, preto ju Android nearchivuje.</string>
+    <string name="appcontrol_restore_unavailable_title">Túto aplikáciu nie je možné obnoviť</string>
+    <string name="appcontrol_restore_unavailable_body">Tlačidlo Obnoviť v systémových nastaveniach tejto aplikácie je vypnuté, preto ju Android momentálne neobnoví.</string>
 </resources>

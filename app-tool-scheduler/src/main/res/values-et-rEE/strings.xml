@@ -38,9 +38,9 @@
     <string name="scheduler_notification_result_failure_message">Osad ajastatud ülesanded nurjusid või sattusid vea otsa. Üritage neid ise teha.</string>
     <string name="scheduler_notification_result_skipped_screen_unavailable">Jäetud vahele, kuva oli välja lülitatud või lukus</string>
     <string name="scheduler_acs_screenlocked_hint_title">Rakenduste puhastamine võib jääda vahele</string>
-    <string name="scheduler_acs_screenlocked_hint_body">Rakenduste puhastamine kasutab juurdepääsuteenust, mis vajab avatud ekraani. Ajastatud käivitused, kui seade on lukus, jäetakse vahele.\n\nKasutage taustapuhastuseks ADB-juurdepääsu või juuripääsu või ajastage see ajale, mil seadet kasutate.</string>
+    <string name="scheduler_acs_screenlocked_hint_body">Rakenduste puhastamine kasutab juurdepääsuteenust, mis vajab avatud ekraani. Ajastatud käivitused, kui seade on lukus, jäetakse vahele.\n\nKasutage taustapuhastuseks ADB-juurdepääsu või juurpääsu või ajastage see ajale, mil seadet kasutate.</string>
     <string name="scheduler_acs_screenlocked_hint_systemapps_title">Süsteemirakendused võivad jääda vahele</string>
-    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ADB-juurdepääs puhastab enamiku vahemälusid taustal, kuid süsteemirakendused vajavad juurdepääsuteenust, mis vajab avatud ekraani. Kui \"Kaasa süsteemirakendused\" on sisse lülitatud, jäetakse need vahele, kui seade on lukus.\n\nLülitage \"Kaasa süsteemirakendused\" välja või käivitage ajakava avatud seadmega.</string>
+    <string name="scheduler_acs_screenlocked_hint_systemapps_body">ADB-juurdepääs puhastab enamiku vahemälusid taustal, kuid süsteemirakendused vajavad juurdepääsuteenust, mis vajab avatud ekraani. Kui „Kaasa süsteemirakendused“ on sisse lülitatud, jäetakse need vahele, kui seade on lukus.\n\nLülitage „Kaasa süsteemirakendused“ välja või käivitage ajakava avatud seadmega.</string>
     <string name="scheduler_commands_after_schedule_label">Käsud pärast ajastajat</string>
     <string name="scheduler_commands_after_schedule_desc">Androidi shellikäsud, mis käivituvad pärast ajastaja tegevust.</string>
     <string name="scheduler_battery_optimization_hint">Taustatoimingute probleemide puhul keelake SD Maidi jaoks aku optimeerimine.</string>

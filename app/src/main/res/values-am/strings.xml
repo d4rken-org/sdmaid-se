@@ -242,14 +242,16 @@
     <string name="setup_shizuku_state_ready_label">ግንኙነቱ ዝግጁ ነው።</string>
     <string name="setup_shizuku_service_ready_label">SD Maid አሁን ADB መዳረሻን በ%1$s አማካሪነት ይጠቀምበታል።</string>
     <string name="setup_shizuku_state_waiting_label">ግንኙነቱን በመጠበቅ ላይ ነው።</string>
-    <string name="setup_shizuku_state_not_installed_label">Shizuku መተግበሪያ ተጭኖ አልተገኘም።</string>
+    <string name="setup_shizuku_state_not_installed_label">ምንም ADB ተደራሳ መተግበሪያ ተገብቷል።</string>
     <string name="setup_shizuku_install_manager_action">%1$s ይጫኑ</string>
-    <string name="setup_shizuku_state_failed_title">የShizuku ግንኙነት አልተሳካም</string>
+    <string name="setup_shizuku_state_failed_title">ADB ተደራሳ ወድቋል</string>
     <string name="setup_shizuku_state_failed_label">Shizuku በመሥራት ላይ ነው፣ ነገር ግን SD Maid ን ከረዳት አገልግሎቱ ጋር በጭራሽ አላገናኘውም።</string>
+    <string name="setup_shizuku_service_failed_label">%1$s ይሮ ነው፣ ነገር ግን SD Maid ን ወደ ራሱ ረዳት ሙያ ያገናኘ አልነበር።</string>
     <string name="setup_shizuku_state_backend_priority_label">%1$s ተጭኖ ነው፣ ስለዚህ SD Maid %2$s ሳይሆን %1$s ትጠብቀዋለች። ለመቀጠል %1$s ይጀምሩ።</string>
     <string name="setup_shizuku_state_manager_outdated_label">SD Maid ጋር ለመጠቀም %1$s ያሳድሩ።</string>
     <string name="setup_shizuku_state_sdmaid_outdated_label">ይህ SD Maid ስሪት %1$s ጋር ሙሙ ነው። SD Maid ያሳድሩ።</string>
     <string name="setup_shizuku_state_permission_denied_label">%1$s ገና SD Maid ን ፍቅደገው።</string>
+    <string name="setup_shizuku_state_permission_denied_permanently_label">%1$s ለ SD Maid ተደራሳ ይከልክላል። ለመቀጠል %1$s ውስጥ SD Maid ን ፍቀድ።</string>
     <string name="setup_shizuku_state_known_issue_hint">አንዳንድ ስልኮች ረዳት ድርጅቱ ከመጀመር ሚያከላክለውን ታዋቂ ችግር ታ አሉ። ይህ ከመካከላቸው አንዱ ሊሆን ይችላል።</string>
     <string name="setup_shizuku_open_manager_action">%1$s ክፈት</string>
     <string name="setup_shizuku_enable_shizuku_use_label">ADB መዳረሻን መጠቀም ሞክር</string>
@@ -272,6 +274,7 @@
     <string name="setup_acs_state_stopped">የተደራሽነት አገልግሎት ቆምዷል</string>
     <string name="setup_acs_state_stopped_hint">አገልግሎቱ ነቅቷል፤ ግን እየሮጠ አይደለም። ዝጋ/ክፈት ያድርጉት ወይም መሳሪያዎን እንደገና ያስጀምሩ። ኤስዲ ሜይድ በሲስተሙ \"የተመሻሻለ\" እንዳልሆነ ያረጋግጡ።</string>
     <string name="setup_acs_state_stopped_hint_miui">አገልግሎቱ ከጊዜ በኋላ እየተሰናከለ ከሆነ፤ በሲስተም ቅንብሮች ውስጥ ለኤስዲ ሜይድ \"በራስ ጀመር\" አማራጭን ማንቃት ይሞክሩ።</string>
+    <string name="setup_acs_state_stopped_hint_miui_killed">ስርዓቱ SD Maid ን መዘጋት ካስቀጠለ፣ ለ SD Maid \"ራስ ጀምር\" አማራጭ በስርዓቱ ቅናሾች ውስጥ ያንቁ እና SD Maid ን በቅርብ መተግበሪያዎች ውስጥ ታግዱ።</string>
     <string name="setup_acs_consent_positive_action">አገልግሎቱን አንቅ እና ፈቃድ ስጥ</string>
     <string name="setup_acs_consent_negative_action">የተደራሽነት አገልግሎት አትጠቀም</string>
     <string name="setup_acs_allow_hint">በስክሪኑ ጠርዝ ላይ ትንሽ አዶ ካዩ፤ ባልተጠበቀ ሁኔታ \"አቋራጭ\" አማራጭን አንቅተዋል።</string>

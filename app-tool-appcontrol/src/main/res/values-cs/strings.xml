@@ -151,4 +151,8 @@
     <string name="tour_appcontrol_filter_body">Zúžete seznam podle uživ./systém. aplikací, stavu povolení, nedávné aktivity a dalších. Aktivní filtry se zde zobrazují jako štítky.</string>
     <string name="tour_appcontrol_sort_body">Řazení aplikací podle názvu, data instalace, poslední aktualizace, velikosti nebo času u obrazovky. Klepnutím na stejnou možnost změníte směr.</string>
     <string name="tour_appcontrol_app_row_body">Klepnutím na aplikaci otevřete její podrobnosti a dostupné akce. Dlouhým stisknutím zahájíte výběr a použijete hromadné akce.</string>
+    <string name="appcontrol_archive_unavailable_title">Tuto aplikaci nelze archivovat</string>
+    <string name="appcontrol_archive_unavailable_body">Tlačítko Archivovat v nastavení systému této aplikace je zakázáno, proto Android tuto aplikaci nebude archivovat.</string>
+    <string name="appcontrol_restore_unavailable_title">Tuto aplikaci nelze obnovit</string>
+    <string name="appcontrol_restore_unavailable_body">Tlačítko Obnovit v nastavení systému této aplikace je zakázáno, proto Android tuto aplikaci nyní nebude obnovovat.</string>
 </resources>

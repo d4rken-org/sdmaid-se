@@ -129,4 +129,8 @@
     <string name="tour_appcontrol_filter_body">उपयोगकर्ता/सिस्टम ऐप्स, सक्षम स्थिति, हाल की गतिविधि और बहुत कुछ से सूची को संकीर्ण करें। सक्रिय फ़िल्टर यहाँ चिप्स के रूप में दिखाई देते हैं।</string>
     <string name="tour_appcontrol_sort_body">ऐप्स को नाम, इंस्टॉल तारीख, आखिरी अपडेट, आकार, या स्क्रीन टाइम से क्रमित करें। दिशा फ्लिप करने के लिए एक ही विकल्प को टैप करें।</string>
     <string name="tour_appcontrol_app_row_body">किसी ऐप को विवरण और उपलब्ध क्रिया खोलने के लिए टैप करें। चयन शुरू करने और बल्क क्रिया का उपयोग करने के लिए लंबे समय तक दबाएं।</string>
+    <string name="appcontrol_archive_unavailable_title">इस ऐप को आर्काइव नहीं किया जा सकता</string>
+    <string name="appcontrol_archive_unavailable_body">इस ऐप की सिस्टम सेटिंग में आर्काइव बटन अक्षम है, इसलिए Android इसे आर्काइव नहीं कर सकता।</string>
+    <string name="appcontrol_restore_unavailable_title">इस ऐप को बहाल नहीं किया जा सकता</string>
+    <string name="appcontrol_restore_unavailable_body">इस ऐप की सिस्टम सेटिंग में बहाल बटन अक्षम है, इसलिए Android इसे अभी बहाल नहीं कर सकता।</string>
 </resources>

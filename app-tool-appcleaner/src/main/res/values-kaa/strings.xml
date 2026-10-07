@@ -93,7 +93,7 @@
         <item quantity="one">Tańlangan %d ilova ushın artiqsha fayllar óśirip taslansinba?</item>
         <item quantity="other">Tańlangan %d ilova ushın artiqsha fayllar óśirip taslansinba?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku paydalanıp keşlerdı öshirip atır</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">ADB qollantuwı arasınan keshleme to\'wıp turmız</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Jetimli bolmaǵan keşlerdı anıqlaw</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Keşti tazalaw jetimli emes</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Sistema bul qosımsha ushın \"Keşti tazalaw\" tugmesin öshirgen. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
