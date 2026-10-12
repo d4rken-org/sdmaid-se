@@ -1,0 +1,10 @@
+source "https://rubygems.org"
+
+gem "jekyll", "~> 3.10"
+gem "jekyll-relative-links", "~> 0.7"
+gem "webrick", "~> 1.9"
+gem "base64", "~> 0.3"
+gem "bigdecimal", "~> 3.1"
+gem "kramdown-parser-gfm", "~> 1.1"
+gem "jekyll-github-metadata", "~> 2.16"
+gem "jemoji", "~> 0.13"

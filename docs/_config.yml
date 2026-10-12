@@ -1,0 +1,25 @@
+title: SD Maid 2/SE
+description: Android's most thorough cleaning tool.
+url: https://sdmse.darken.eu
+baseurl: ""
+repository_url: https://github.com/d4rken-org/sdmaid-se
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+plugins:
+  - jekyll-relative-links
+  - jekyll-github-metadata
+  - jemoji
+relative_links:
+  enabled: true
+  collections: false
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor

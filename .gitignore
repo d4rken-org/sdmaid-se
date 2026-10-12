@@ -44,3 +44,10 @@ hs_err_pid*.log
 replay_pid*.log
 /.pi/*
 !/.pi/settings.json
+
+# Docs site: pages copied in from the repo root before a build, and local Jekyll state
+/docs/CHANGELOG.md
+/docs/PRIVACY_POLICY.md
+/docs/SECURITY.md
+/docs/.bundle/
+/docs/vendor/

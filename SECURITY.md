@@ -1,5 +1,6 @@
 ---
-layout: plain
+lang: en
+translation_key: security
 permalink: /security
 title: "Security"
 ---

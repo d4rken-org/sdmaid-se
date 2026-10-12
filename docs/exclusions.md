@@ -1,0 +1,67 @@
+---
+title: "Exclusions"
+lang: en
+translation_key: exclusions
+permalink: /exclusions
+---
+# Exclusions
+
+SD Maid 2/SE's exclusion functionality allows users to define specific folders or files that the app should ignore during system scans and maintenance tasks. This is useful if there is data you want to keep unaffected by the app's processes. By setting exclusions, SD Maid 2/SE will skip these directories or files during tasks like corpse finder, app cleaner, and other system management features.
+
+The easiest way to add an exclusion is directly from the results. You can either use the "exclude" button on individual items or long press/multi-select entries, then choose the "exclude" option. Additionally, exclusions can be manually added through the app settings by specifying paths or wildcard patterns for more control.
+
+Exclusions can be exported and imported from the menu. Exclusion import is only supported on similar versions of SD Maid. If there are too many updates between the import and export versions, an error may occur. In that case, you can try to import on an earlier version, then export the exclusions again.
+
+<img src="/assets/images/c88c8675-4638-4eb0-b9a9-279323915a84.webp" width="150">
+<img src="/assets/images/c8238a76-7ceb-4416-af32-53d5f1121670.webp" width="150">
+<img src="/assets/images/deb3144a-2054-48e9-b124-933fbc80a432.webp" width="150">
+<img src="/assets/images/3cdbc05a-12c6-4ecf-827b-81009c11b3f1.webp" width="150">
+
+## Types
+
+SD Maid supports 3 different types of exclusions:
+
+### App exclusions
+
+App exclusions are based on the package name of each app. These can be created via the AppControl tool. Just pick an app from the list and use the related `Exclude` action.
+
+### Path exclusions
+
+Path exclusions can be created by selecting (long-pressing) paths in the StorageAnalyzer tool.
+
+### Segment exclusions 
+Segment exclusions are a type of path exclusion that doesn't require an exact match. A segment is a part of a path, such as a folder. The path `/sdcard/DCIM/Camera` consists of 3 segments. You could exclude all your camera pictures for both your internal storage (`/storage/emulated/0/DCIM/Camera`) and external storage (`/sdcard/DCIM/Camera`) by creating a segment exclusion for `DCIM/Camera`.
+
+If you tick the option `Allow partial matches`, you could create an exclusion for `DCIM/Cam` to match both the folder `Cam` and the folder `Camera`.
+
+## Tools
+
+Each tool of SD Maid has a different view of data. Not all exclusions affect all tools equally.
+
+### CorpseFinder
+
+The CorpseFinder tool knows what an "app" is and what files belong to an app. It respects all exclusion types. Creating an app exclusion means any files the CorpseFinder finds that it thinks belong to an excluded app will be excluded.
+
+Supported exclusion types: `APP`, `PATH`, `SEGMENTS`
+
+### SystemCleaner
+
+The SystemCleaner tool only works on path data. It does not know what an "app" is or which files belong to an app.
+
+Supported exclusion types: `PATH`, `SEGMENTS`
+
+### AppCleaner
+
+The AppCleaner tool respects all exclusion types. You can use exclusions to speed up scans if there are apps with many files to scan.
+
+Supported exclusion types: `APP`, `PATH`, `SEGMENTS`
+
+### Deduplicator
+
+The Deduplicator tool does not know what "apps" are and only works with file data.
+
+Supported exclusion types: `PATH`, `SEGMENTS`
+
+### StorageAnalyzer
+
+The StorageAnalyzer does not support exclusions, as all content needs to be scanned to calculate the correct total sizes.
