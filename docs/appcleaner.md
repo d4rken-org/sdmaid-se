@@ -58,21 +58,21 @@ Go to: `System Settings` > `Security and privacy` > `More security and privacy` 
 
 Alternatively, if you have ADB access or greater, run the command `pm grant com.miui.securitycenter android.permission.PACKAGE_USAGE_STATS`
 
-<a href="/assets/images/df7637fa-3fb5-4efe-883e-16eea11be3e2.webp">
-  <img src="/assets/images/df7637fa-3fb5-4efe-883e-16eea11be3e2.webp" width="100px">
+<a href="/assets/images/appcleaner/miui-usage-stats-1.webp">
+  <img src="/assets/images/appcleaner/miui-usage-stats-1.webp" width="100px">
 </a>
-<a href="/assets/images/fdbdd01a-6398-4719-a0ea-a444d53e0cc8.webp">
-  <img src="/assets/images/fdbdd01a-6398-4719-a0ea-a444d53e0cc8.webp" width="100px">
+<a href="/assets/images/appcleaner/miui-usage-stats-2.webp">
+  <img src="/assets/images/appcleaner/miui-usage-stats-2.webp" width="100px">
 </a>
-<a href="/assets/images/fe04895c-ba35-4a2a-9612-92818cd7e53a.webp">
-  <img src="/assets/images/fe04895c-ba35-4a2a-9612-92818cd7e53a.webp" width="100px">
+<a href="/assets/images/appcleaner/miui-usage-stats-3.webp">
+  <img src="/assets/images/appcleaner/miui-usage-stats-3.webp" width="100px">
 </a>
-<a href="/assets/images/4d5cbb0f-110b-4344-b363-31856f57106e.webp">
-  <img src="/assets/images/4d5cbb0f-110b-4344-b363-31856f57106e.webp" width="100px">
+<a href="/assets/images/appcleaner/miui-usage-stats-4.webp">
+  <img src="/assets/images/appcleaner/miui-usage-stats-4.webp" width="100px">
 </a>
-<a href="/assets/images/62c4b3fe-ceca-4dc6-9727-a99f580c5aea.webp">
-  <img src="/assets/images/62c4b3fe-ceca-4dc6-9727-a99f580c5aea.webp" width="100px">
+<a href="/assets/images/appcleaner/miui-usage-stats-5.webp">
+  <img src="/assets/images/appcleaner/miui-usage-stats-5.webp" width="100px">
 </a>
-<a href="/assets/images/86b0625e-275d-4140-a392-52693bf2f187.webp">
-  <img src="/assets/images/86b0625e-275d-4140-a392-52693bf2f187.webp" width="100px">
+<a href="/assets/images/appcleaner/miui-usage-stats-6.webp">
+  <img src="/assets/images/appcleaner/miui-usage-stats-6.webp" width="100px">
 </a>

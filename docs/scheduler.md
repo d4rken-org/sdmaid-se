@@ -8,12 +8,12 @@ permalink: /scheduler
 
 The **Scheduler** feature in SD Maid 2 allows you to automate maintenance tasks at specific intervals, ensuring that your device stays optimized without manual effort. It supports multiple tools such as **AppCleaner**, **CorpseFinder**, and **SystemCleaner**, which can be configured to run at regular intervals or specific times.
 
-<img src="/assets/images/87f9f64f-d8f2-47d2-be2d-0878e66166ee.webp" width="150">
-<img src="/assets/images/3d5fd239-f1cf-4163-a572-f66b2174404a.webp" width="150">
-<img src="/assets/images/a540eb2d-51a2-49d0-8ed4-afad50cd9ce2.webp" width="150">
-<img src="/assets/images/289958ce-e6d6-41bf-9c7b-3decb0954a58.webp" width="150">
-<img src="/assets/images/240254b4-ae53-4ec0-aa70-935ac29b20d7.webp" width="150">
-<img src="/assets/images/fee8a612-e4d1-4cc9-99f0-e5798bbc9453.webp" width="150">
+<img src="/assets/images/scheduler/overview-1.webp" width="150">
+<img src="/assets/images/scheduler/overview-2.webp" width="150">
+<img src="/assets/images/scheduler/overview-3.webp" width="150">
+<img src="/assets/images/scheduler/overview-4.webp" width="150">
+<img src="/assets/images/scheduler/overview-5.webp" width="150">
+<img src="/assets/images/scheduler/overview-6.webp" width="150">
 
 
 ## How to Set Up a Schedule

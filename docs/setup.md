@@ -36,10 +36,10 @@ SD Maid uses the [Android Storage Access framework (SAF)](http://developer.andro
 
 Repeat this process until all paths are green.
 
-<a href="/assets/images/229175730-bc15c389-5336-4935-99d4-f03a24928a66.webp"><img src="/assets/images/229175730-bc15c389-5336-4935-99d4-f03a24928a66.webp" width="100" alt=""></a>
-<a href="/assets/images/229175729-6d8809d6-2903-4771-8d2a-4d4e86715003.webp"><img src="/assets/images/229175729-6d8809d6-2903-4771-8d2a-4d4e86715003.webp" width="100" alt=""></a>
-<a href="/assets/images/229175726-901b8d7e-b133-4409-bb6d-bb68d13ff5c5.webp"><img src="/assets/images/229175726-901b8d7e-b133-4409-bb6d-bb68d13ff5c5.webp" width="100" alt=""></a>
-<a href="/assets/images/229175723-52993fe2-ce5a-469b-86db-b7a713465fa4.webp"><img src="/assets/images/229175723-52993fe2-ce5a-469b-86db-b7a713465fa4.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/saf-1.webp"><img src="/assets/images/setup/saf-1.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/saf-2.webp"><img src="/assets/images/setup/saf-2.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/saf-3.webp"><img src="/assets/images/setup/saf-3.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/saf-4.webp"><img src="/assets/images/setup/saf-4.webp" width="100" alt=""></a>
 
 ### SAF: Troubleshooting
 For when things don't go as planned.
@@ -106,7 +106,7 @@ The `QUERY_ALL_PACKAGES` permission is mandatory for:
 
 This permission exists since [Android 11](https://developer.android.com/training/package-visibility) and is normally granted by default. Since Android 14 some devices (e.g. [#1015](https://github.com/d4rken-org/sdmaid-se/issues/1015), [#1354](https://github.com/d4rken-org/sdmaid-se/issues/1354)) exist where the permission is not granted by default or can be revoked.
 
-[<img src="/assets/images/509981f4-134b-4f10-8703-62c59adafdbb.webp" width="100">](/assets/images/509981f4-134b-4f10-8703-62c59adafdbb.webp)
+[<img src="/assets/images/setup/app-inventory.webp" width="100">](/assets/images/setup/app-inventory.webp)
 
 ### Invalid app list
 
@@ -148,7 +148,7 @@ Try to disable battery optimisations and on MIUI ROMs there is an extra setting 
 
 You can also consider granting additional permission that [allow SD Maid to restart the service automatically](#acs-automatic-service-restart).
 
-[<img src="/assets/images/3cb6d064-20fd-4608-9812-839b60e2c793.webp" width="100">](/assets/images/3cb6d064-20fd-4608-9812-839b60e2c793.webp)
+[<img src="/assets/images/setup/acs-disabled.webp" width="100">](/assets/images/setup/acs-disabled.webp)
 
 #### ACS: Blocked by Phone Manager (OnePlus, OPPO, Realme)
 
@@ -231,10 +231,10 @@ To improve usability (this is sarcasm), Google decided that this setting will on
 
 Some additional background info [can be found here](https://blog.esper.io/android-13-sideloading-restriction-harder-malware-abuse-accessibility-apis/).
 
-<a href="/assets/images/229199474-60b829e0-2d03-4e7d-b553-1f704825825f.webp"><img src="/assets/images/229199474-60b829e0-2d03-4e7d-b553-1f704825825f.webp" width="100" alt=""></a>
-<a href="/assets/images/229199476-9f3845cc-4bee-4107-b830-21f39b7d53ec.webp"><img src="/assets/images/229199476-9f3845cc-4bee-4107-b830-21f39b7d53ec.webp" width="100" alt=""></a>
-<a href="/assets/images/229199471-c1db1aa0-d7bf-4185-bdbd-a17e99f18fcf.webp"><img src="/assets/images/229199471-c1db1aa0-d7bf-4185-bdbd-a17e99f18fcf.webp" width="100" alt=""></a>
-<a href="/assets/images/229199469-1b32ad60-4902-457c-a7c3-34faabe9a5bd.webp"><img src="/assets/images/229199469-1b32ad60-4902-457c-a7c3-34faabe9a5bd.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/acs-restricted-settings-1.webp"><img src="/assets/images/setup/acs-restricted-settings-1.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/acs-restricted-settings-2.webp"><img src="/assets/images/setup/acs-restricted-settings-2.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/acs-restricted-settings-3.webp"><img src="/assets/images/setup/acs-restricted-settings-3.webp" width="100" alt=""></a>
+<a href="/assets/images/setup/acs-restricted-settings-4.webp"><img src="/assets/images/setup/acs-restricted-settings-4.webp" width="100" alt=""></a>
 
 ## Root access
 

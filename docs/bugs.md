@@ -57,11 +57,11 @@ The debug log files are stored in `/storage/emulated/0/Android/data/eu.darken.sd
 
 In pictures:
 
-<a href="/assets/images/228806138-b9c7e812-be2d-44b0-9a73-c5547c4dbf34.webp"><img src="/assets/images/228806138-b9c7e812-be2d-44b0-9a73-c5547c4dbf34.webp" width="100" alt=""></a>
-<a href="/assets/images/228806135-92246f21-5355-4795-8a05-ddff226306d6.webp"><img src="/assets/images/228806135-92246f21-5355-4795-8a05-ddff226306d6.webp" width="100" alt=""></a>
-<a href="/assets/images/228806134-710b51f1-c138-4691-9bab-3631119a4dbe.webp"><img src="/assets/images/228806134-710b51f1-c138-4691-9bab-3631119a4dbe.webp" width="100" alt=""></a>
-<a href="/assets/images/228806131-0dd25849-bbc7-4547-94c7-00095810fbd4.webp"><img src="/assets/images/228806131-0dd25849-bbc7-4547-94c7-00095810fbd4.webp" width="100" alt=""></a>
-<a href="/assets/images/228806129-dacf06f0-66f4-4c6c-9d64-982be6fa1bcb.webp"><img src="/assets/images/228806129-dacf06f0-66f4-4c6c-9d64-982be6fa1bcb.webp" width="100" alt=""></a>
-<a href="/assets/images/228806127-b826dd0d-92c8-4131-bb0d-8d768add8553.webp"><img src="/assets/images/228806127-b826dd0d-92c8-4131-bb0d-8d768add8553.webp" width="100" alt=""></a>
-<a href="/assets/images/228806124-096172b9-bea7-4080-9638-c59fe6cd6aa0.webp"><img src="/assets/images/228806124-096172b9-bea7-4080-9638-c59fe6cd6aa0.webp" width="100" alt=""></a>
-<a href="/assets/images/228806116-6821a0b2-0b9b-4cca-a644-9999d98ee9e1.webp"><img src="/assets/images/228806116-6821a0b2-0b9b-4cca-a644-9999d98ee9e1.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-1.webp"><img src="/assets/images/bugs/debug-log-1.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-2.webp"><img src="/assets/images/bugs/debug-log-2.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-3.webp"><img src="/assets/images/bugs/debug-log-3.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-4.webp"><img src="/assets/images/bugs/debug-log-4.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-5.webp"><img src="/assets/images/bugs/debug-log-5.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-6.webp"><img src="/assets/images/bugs/debug-log-6.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-7.webp"><img src="/assets/images/bugs/debug-log-7.webp" width="100" alt=""></a>
+<a href="/assets/images/bugs/debug-log-8.webp"><img src="/assets/images/bugs/debug-log-8.webp" width="100" alt=""></a>

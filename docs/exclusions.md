@@ -12,10 +12,10 @@ The easiest way to add an exclusion is directly from the results. You can either
 
 Exclusions can be exported and imported from the menu. Exclusion import is only supported on similar versions of SD Maid. If there are too many updates between the import and export versions, an error may occur. In that case, you can try to import on an earlier version, then export the exclusions again.
 
-<img src="/assets/images/c88c8675-4638-4eb0-b9a9-279323915a84.webp" width="150">
-<img src="/assets/images/c8238a76-7ceb-4416-af32-53d5f1121670.webp" width="150">
-<img src="/assets/images/deb3144a-2054-48e9-b124-933fbc80a432.webp" width="150">
-<img src="/assets/images/3cdbc05a-12c6-4ecf-827b-81009c11b3f1.webp" width="150">
+<img src="/assets/images/exclusions/overview-1.webp" width="150">
+<img src="/assets/images/exclusions/overview-2.webp" width="150">
+<img src="/assets/images/exclusions/overview-3.webp" width="150">
+<img src="/assets/images/exclusions/overview-4.webp" width="150">
 
 ## Types
 
