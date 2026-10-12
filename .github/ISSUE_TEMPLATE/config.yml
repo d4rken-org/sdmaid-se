@@ -1,8 +1,8 @@
 blank_issues_enabled: true
 contact_links:
-  - name: SD Maid Wiki
-    url: https://github.com/d4rken-org/sdmaid-se/wiki/Bugs
+  - name: SD Maid Docs
+    url: https://sdmse.darken.eu/bugs
     about: Read this before opening a bug report.
   - name: FAQ
-    url: https://github.com/d4rken-org/sdmaid-se/wiki/FAQ
+    url: https://sdmse.darken.eu/faq
     about: Check if your question is already answered here.

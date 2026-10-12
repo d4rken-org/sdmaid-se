@@ -105,7 +105,7 @@ fun SupportScreenHost(
             }
         },
         onDebugLogFolderClick = { vm.navTo(DebugLogSessionsRoute) },
-        onDocumentationClick = { vm.openUrl(SdmSeLinks.WIKI) },
+        onDocumentationClick = { vm.openUrl(SdmSeLinks.DOCS) },
         onIssueTrackerClick = { vm.openUrl(SdmSeLinks.ISSUES) },
         onDiscordClick = { vm.openUrl(SdmSeLinks.DISCORD) },
     )

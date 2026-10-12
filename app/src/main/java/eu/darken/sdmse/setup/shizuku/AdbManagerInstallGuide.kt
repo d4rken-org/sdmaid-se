@@ -19,7 +19,7 @@ interface AdbManagerInstallGuide {
      * Help target for an active Porter backend.
      *
      * Porter's own setup guide is the better page, but it doubles as its install instructions, so
-     * the Play build sends users to our wiki instead.
+     * the Play build sends users to our docs instead.
      */
     val porterHelpUrl: String
 }

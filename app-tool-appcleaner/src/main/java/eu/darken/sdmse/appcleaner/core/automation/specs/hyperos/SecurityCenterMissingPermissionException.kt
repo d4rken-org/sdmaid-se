@@ -31,13 +31,13 @@ class SecurityCenterMissingPermissionException(
         infoActionLabel = eu.darken.sdmse.common.R.string.general_help_action.toCaString(),
         infoAction = {
             try {
-                val url = "https://github.com/d4rken-org/sdmaid-se/wiki/AppCleaner#commiuisecuritycenter".toUri()
+                val url = "https://sdmse.darken.eu/appcleaner#commiuisecuritycenter".toUri()
                 val intent = Intent(Intent.ACTION_VIEW, url).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
                 it.startActivity(intent)
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to open the wiki page: ${e.asLog()}" }
+                log(TAG, ERROR) { "Failed to open the docs page: ${e.asLog()}" }
             }
         }
     )

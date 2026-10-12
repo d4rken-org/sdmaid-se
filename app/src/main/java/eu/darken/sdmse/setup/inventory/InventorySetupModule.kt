@@ -174,7 +174,7 @@ class InventorySetupModule @Inject constructor(
 
     companion object {
         private val TAG = logTag("Setup", "Inventory", "Module")
-        const val INFO_URL = "https://github.com/d4rken-org/sdmaid-se/wiki/Setup#app-inventory"
+        const val INFO_URL = "https://sdmse.darken.eu/setup#app-inventory"
         private const val PKG_LOG_SAMPLE_SIZE = 20
     }
 }

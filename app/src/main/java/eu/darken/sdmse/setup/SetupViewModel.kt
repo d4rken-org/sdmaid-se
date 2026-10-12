@@ -140,7 +140,7 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#storage-access-framework")
                                 },
                             ).takeIf { it.state.paths.isNotEmpty() }
 
@@ -156,7 +156,7 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#manage-storage")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#manage-storage")
                                 },
                             )
 
@@ -173,7 +173,7 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#root-access")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#root-access")
                                 },
                                 onRetry = { launch { rootSetupModule.refresh() } },
                             )
@@ -190,7 +190,7 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#usage-statistics")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#usage-statistics")
                                 }
                             )
 
@@ -216,16 +216,16 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#accessibility-service")
                                 },
                                 onRestrictionsShow = {
                                     events.tryEmit(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
                                 },
                                 onRestrictionsHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#acs-appops-restrictions")
                                 },
                                 onAdvancedProtectionHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-advanced-protection")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#acs-advanced-protection")
                                 },
                             )
 
@@ -241,7 +241,7 @@ class SetupViewModel @Inject constructor(
                                     }
                                 },
                                 onHelp = {
-                                    webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#notifications")
+                                    webpageTool.open("https://sdmse.darken.eu/setup#notifications")
                                 }
                             )
 
@@ -256,14 +256,14 @@ class SetupViewModel @Inject constructor(
                                 },
                                 onHelp = {
                                     // Follows the active backend: a Porter user reading "ADB access
-                                    // failed" must not land on Shizuku's wiki section. Which page a
+                                    // failed" must not land on Shizuku's docs section. Which page a
                                     // Porter user gets is the flavor's call, because Porter's setup
                                     // guide doubles as its install instructions.
                                     webpageTool.open(
                                         when (state.backend) {
                                             AdbBackend.PORTER -> adbManagerInstallGuide.porterHelpUrl
                                             AdbBackend.SHIZUKU ->
-                                                "https://github.com/d4rken-org/sdmaid-se/wiki/Setup#shizuku"
+                                                "https://sdmse.darken.eu/setup#shizuku"
                                         }
                                     )
                                 },
@@ -383,15 +383,15 @@ class SetupViewModel @Inject constructor(
     }
 
     fun openSetupHelp() {
-        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup")
+        webpageTool.open("https://sdmse.darken.eu/setup")
     }
 
     fun openSafMissingAppHelpUrl() {
-        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#open_document_tree-activitynotfoundexception")
+        webpageTool.open("https://sdmse.darken.eu/setup#saf-open_document_tree-activitynotfoundexception")
     }
 
     fun openSafWrongPathHelpUrl() {
-        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
+        webpageTool.open("https://sdmse.darken.eu/setup#storage-access-framework")
     }
 
     fun navToDataAreas() {
