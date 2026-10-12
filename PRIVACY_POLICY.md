@@ -20,11 +20,9 @@ Send a [quick mail](mailto:support@darken.eu) if you have questions.
 
 Details about senstive permissions can be found below.
 
-In general, SD Maid only processes data locally, on your device. Two edge cases exist:
+In general, SD Maid only processes data locally, on your device. One edge case exists:
 
 * If you record a [debug log](#debug-log), the resulting file will contain a detailed log of SD Maids actions.
-* If you enable [automatic error reports](#automatic-error-reports) and an error occurs, the resulting bug report may
-  contain information about what SD Maid did shortly before the error occured.
 
 ### Query installed apps
 
