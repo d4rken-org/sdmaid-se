@@ -195,7 +195,7 @@ class ExclusionListViewModel @Inject constructor(
     }
 
     fun openHelp() = launch {
-        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Exclusions")
+        webpageTool.open("https://sdmse.darken.eu/exclusions")
     }
 
     fun requestImport() = launch {

@@ -78,7 +78,7 @@ internal fun RootSetupCard(
             } else {
                 // Start aligned, multi-line explanation instead of the centred one-liner, matching how
                 // the Shizuku card presents its settled failure. No help button of its own: the card
-                // header already carries a help icon pointing at the same wiki page.
+                // header already carries a help icon pointing at the same docs page.
                 SetupLimitationBox(
                     title = stringResource(R.string.setup_root_state_failed_title),
                     body = stringResource(

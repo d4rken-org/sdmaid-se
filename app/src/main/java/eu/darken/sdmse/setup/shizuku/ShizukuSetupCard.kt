@@ -203,7 +203,7 @@ internal fun ShizukuSetupCard(
                     title = stringResource(R.string.setup_shizuku_state_failed_title),
                     body = stringResource(R.string.setup_shizuku_service_failed_label, managerName),
                     // No help button of its own: the card header already carries a help icon
-                    // pointing at the same wiki page.
+                    // pointing at the same docs page.
                     body2 = if (item.showKnownIssueHint) {
                         stringResource(R.string.setup_shizuku_state_known_issue_hint)
                     } else {

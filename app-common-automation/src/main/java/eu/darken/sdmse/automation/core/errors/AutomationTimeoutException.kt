@@ -26,7 +26,7 @@ open class AutomationTimeoutException(
         infoActionLabel = eu.darken.sdmse.common.R.string.general_error_report_bug_action.toCaString(),
         infoAction = {
             try {
-                val url = "https://github.com/d4rken-org/sdmaid-se/wiki/Bugs".toUri()
+                val url = "https://sdmse.darken.eu/bugs".toUri()
                 val intent = Intent(Intent.ACTION_VIEW, url).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }

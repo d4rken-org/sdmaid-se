@@ -11,7 +11,7 @@ body:
 
         Please fill out as much info as possible.
 
-        More info: https://github.com/d4rken-org/sdmaid-se/wiki/Bugs
+        More info: https://sdmse.darken.eu/bugs
 
   - type: textarea
     id: describe-the-bug
@@ -97,7 +97,7 @@ body:
     attributes:
       label: Debug log
       description: |
-        If you can reproduce the bug, record the event in a [debug log](https://github.com/d4rken-org/sdmaid-se/wiki/Bugs#debug-log).
+        If you can reproduce the bug, record the event in a [debug log](https://sdmse.darken.eu/bugs#debug-log).
       placeholder: Paste the debug log here or attach it.
       render: shell
 

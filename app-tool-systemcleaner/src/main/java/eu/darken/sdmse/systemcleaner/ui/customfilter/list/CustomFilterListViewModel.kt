@@ -198,6 +198,6 @@ class CustomFilterListViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("SystemCleaner", "CustomFilter", "List", "ViewModel")
-        private const val HELP_URL = "https://github.com/d4rken-org/sdmaid-se/wiki/SystemCleaner#custom-filter"
+        private const val HELP_URL = "https://sdmse.darken.eu/systemcleaner#custom-filters"
     }
 }

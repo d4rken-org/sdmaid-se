@@ -351,7 +351,7 @@ class SchedulerManagerViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Scheduler", "Manager", "ViewModel")
-        private const val HELP_URL = "https://github.com/d4rken-org/sdmaid-se/wiki/Scheduler"
+        private const val HELP_URL = "https://sdmse.darken.eu/scheduler"
     }
 }
 

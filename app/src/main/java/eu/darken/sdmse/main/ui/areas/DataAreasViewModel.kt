@@ -62,7 +62,7 @@ class DataAreasViewModel @Inject constructor(
 
     fun openDocumentation() {
         // TODO: replace with a direct link to the data-areas documentation page.
-        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki")
+        webpageTool.open("https://sdmse.darken.eu/")
     }
 
     companion object {

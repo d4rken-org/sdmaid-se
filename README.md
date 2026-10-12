@@ -28,13 +28,13 @@ Features include:
 * Find duplicate data (Deduplicator)
 * Image compression (Media Squeeze)
 * Swipe assisted deletion (Swiper)
-* Root and Shizuku support
+* Root and ADB access (Porter or Shizuku) support
 
 [SD Maid SE](https://github.com/d4rken-org/sdmaid-se) is the successor
 to [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm). A complete rewrite, optimized for newer
 Android versions, with a focus on [SD Maid's](https://play.google.com/store/apps/details?id=eu.thedarken.sdm) most
 popular features. More details about SD Maid vs SD Maid SE can be found in
-the [FAQ](https://github.com/d4rken-org/sdmaid-se/wiki/FAQ).
+the [FAQ](https://sdmse.darken.eu/faq).
 
 ## Download
 
@@ -64,7 +64,7 @@ sponsor ❤️.
 
 * [Github Discussions](https://github.com/d4rken-org/sdmaid-se/discussions)
 * [Discord](https://discord.gg/8Fjy6PTfXu)
-* [Frequently Asked Question](https://github.com/d4rken-org/sdmaid-se/wiki/FAQ)
+* [Documentation](https://sdmse.darken.eu/) and [FAQ](https://sdmse.darken.eu/faq)
 
 ## Screenshots
 
