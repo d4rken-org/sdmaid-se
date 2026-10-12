@@ -1,5 +1,6 @@
 ---
-layout: plain
+lang: en
+translation_key: privacy
 permalink: /privacy
 title: "Privacy Policy"
 ---

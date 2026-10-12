@@ -1,0 +1,21 @@
+- section: Guide
+  pages:
+    - { key: index, label: Overview }
+    - { key: tutorial, label: Tutorial }
+    - { key: setup, label: Setup }
+    - { key: faq, label: FAQ }
+    - { key: bugs, label: Bugs & debug logs }
+- section: Tools
+  pages:
+    - { key: appcleaner, label: AppCleaner }
+    - { key: corpsefinder, label: CorpseFinder }
+    - { key: systemcleaner, label: SystemCleaner }
+    - { key: storageanalyzer, label: StorageAnalyzer }
+    - { key: appcontrol, label: AppControl }
+    - { key: scheduler, label: Scheduler }
+- section: More
+  pages:
+    - { key: exclusions, label: Exclusions }
+    - { key: stats, label: Stats & history }
+    - { key: translation, label: Translations }
+    - { key: changelog, label: Changelog }

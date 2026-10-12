@@ -1,5 +1,6 @@
 ---
-layout: plain
+lang: en
+translation_key: changelog
 permalink: /changelog
 title: "Changelog"
 ---

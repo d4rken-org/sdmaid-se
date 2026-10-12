@@ -4,21 +4,31 @@ on:
   push:
     branches: [ main ]
     paths:
-      - _config.yml
-      - _layouts/**
-      - README.md
+      - docs/**
       - CHANGELOG.md
       - PRIVACY_POLICY.md
       - SECURITY.md
-      - CNAME
+      - tooling/docs/**
       - .github/workflows/pages.yml
+  pull_request:
+    paths:
+      # Links into the docs site are checked against the built pages
+      - '**/*.kt'
+      - '**/*.md'
+      - '**/*.xml'
+      - '**/*.yml'
+      - '**/*.yaml'
+      - '!**/values-*/**'
+      - '!fastlane/metadata/**'
+      - docs/**
+      - tooling/docs/**
   workflow_dispatch:
 
 permissions:
   contents: read
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
@@ -31,21 +41,28 @@ jobs:
         with:
           persist-credentials: false
 
-      - name: Configure Pages
-        uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d #v6.0.0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b #v1.321.0
+        with:
+          ruby-version: '3.4'
+          bundler-cache: true
+          working-directory: docs
+
+      - name: Add the root pages
+        run: cp CHANGELOG.md PRIVACY_POLICY.md SECURITY.md docs/
 
       - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 #v1.0.13
-        with:
-          source: ./
-          destination: ./_site
+        working-directory: docs
+        run: bundle exec jekyll build --strict_front_matter --destination ../_site
         env:
           JEKYLL_GITHUB_TOKEN: ${{ github.token }}
+          PAGES_REPO_NWO: ${{ github.repository }}
 
-      - name: Sanity-check Jekyll output
-        run: test -f _site/index.html && test -f _site/CNAME
+      - name: Check docs links
+        run: python3 tooling/docs/check_links.py _site .
 
       - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 #v5.0.0
         with:
           path: ./_site
@@ -53,8 +70,11 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build
-    if: github.ref == 'refs/heads/main'
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-22.04
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
