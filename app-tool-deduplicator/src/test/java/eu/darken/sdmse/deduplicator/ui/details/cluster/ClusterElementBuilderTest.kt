@@ -55,6 +55,75 @@ class ClusterElementBuilderTest : BaseTest() {
         }
     }
 
+    private fun List<ClusterElement>.rowMarks(): Map<String, Boolean> = filterIsInstance<ClusterElement.DuplicateRow>()
+        .associate { it.duplicate.identifier.value to it.willBeDeleted }
+
+    private fun favoriteWithKeeperAndNonFavoriteWithKeeper(): Duplicate.Cluster {
+        val favGroup = ChecksumDuplicate.Group(
+            identifier = Duplicate.Group.Id("fav"),
+            duplicates = setOf(
+                mockChecksum("a", parent = listOf("storage", "DCIM")),
+                mockChecksum("b", parent = listOf("storage", "Download")),
+            ),
+            keeperIdentifier = Duplicate.Id("a"),
+        )
+        val otherGroup = ChecksumDuplicate.Group(
+            identifier = Duplicate.Group.Id("other"),
+            duplicates = setOf(
+                mockChecksum("c", parent = listOf("storage", "DCIM")),
+                mockChecksum("d", parent = listOf("storage", "Download")),
+            ),
+            keeperIdentifier = Duplicate.Id("c"),
+        )
+        return Duplicate.Cluster(
+            identifier = Duplicate.Cluster.Id("c1"),
+            groups = setOf(favGroup, otherGroup),
+            favoriteGroupIdentifier = Duplicate.Group.Id("fav"),
+        )
+    }
+
+    private fun singleMemberNonFavorite(): Duplicate.Cluster {
+        val favGroup = ChecksumDuplicate.Group(
+            identifier = Duplicate.Group.Id("fav"),
+            duplicates = setOf(
+                mockChecksum("a", parent = listOf("storage", "DCIM")),
+                mockChecksum("b", parent = listOf("storage", "Download")),
+            ),
+            keeperIdentifier = Duplicate.Id("a"),
+        )
+        val otherGroup = PHashDuplicate.Group(
+            identifier = Duplicate.Group.Id("other"),
+            duplicates = setOf(mockPHash("c", parent = listOf("storage", "Pictures"))),
+            keeperIdentifier = null,
+        )
+        return Duplicate.Cluster(
+            identifier = Duplicate.Cluster.Id("c1"),
+            groups = setOf(favGroup, otherGroup),
+            favoriteGroupIdentifier = Duplicate.Group.Id("fav"),
+        )
+    }
+
+    private fun singleMemberFavorite(): Duplicate.Cluster {
+        val favGroup = ChecksumDuplicate.Group(
+            identifier = Duplicate.Group.Id("fav"),
+            duplicates = setOf(mockChecksum("a", parent = listOf("storage", "DCIM"))),
+            keeperIdentifier = null,
+        )
+        val otherGroup = PHashDuplicate.Group(
+            identifier = Duplicate.Group.Id("other"),
+            duplicates = setOf(
+                mockPHash("c", parent = listOf("storage", "DCIM")),
+                mockPHash("d", parent = listOf("storage", "Download")),
+            ),
+            keeperIdentifier = Duplicate.Id("c"),
+        )
+        return Duplicate.Cluster(
+            identifier = Duplicate.Cluster.Id("c1"),
+            groups = setOf(favGroup, otherGroup),
+            favoriteGroupIdentifier = Duplicate.Group.Id("fav"),
+        )
+    }
+
     @Test
     fun `group view - single group emits header and file rows`() {
         val a = mockChecksum("a")
@@ -67,7 +136,7 @@ class ClusterElementBuilderTest : BaseTest() {
         val cluster = Duplicate.Cluster(
             identifier = Duplicate.Cluster.Id("c1"),
             groups = setOf(group),
-            favoriteGroupIdentifier = null,
+            favoriteGroupIdentifier = Duplicate.Group.Id("g1"),
         )
 
         val elements = buildClusterElements(cluster, isDirectoryView = false, collapsed = emptySet())
@@ -200,6 +269,7 @@ class ClusterElementBuilderTest : BaseTest() {
         val cluster = Duplicate.Cluster(
             identifier = Duplicate.Cluster.Id("c1"),
             groups = setOf(group),
+            favoriteGroupIdentifier = Duplicate.Group.Id("g1"),
         )
 
         val elements = buildClusterElements(cluster, isDirectoryView = true, collapsed = emptySet())
@@ -210,5 +280,55 @@ class ClusterElementBuilderTest : BaseTest() {
             .single { it.duplicate.identifier.value == "nk" }
         rowK.willBeDeleted shouldBe false
         rowNk.willBeDeleted shouldBe true
+    }
+
+    @Test
+    fun `group view - non-favorite group with keeper is marked whole, favorite keeper is kept`() {
+        val elements = buildClusterElements(
+            favoriteWithKeeperAndNonFavoriteWithKeeper(),
+            isDirectoryView = false,
+            collapsed = emptySet(),
+        )
+
+        elements.rowMarks() shouldBe mapOf("a" to false, "b" to true, "c" to true, "d" to true)
+    }
+
+    @Test
+    fun `group view - single-member non-favorite group is marked`() {
+        val elements = buildClusterElements(singleMemberNonFavorite(), isDirectoryView = false, collapsed = emptySet())
+
+        elements.rowMarks() shouldBe mapOf("a" to false, "b" to true, "c" to true)
+    }
+
+    @Test
+    fun `group view - single-member favorite group without keeper is kept`() {
+        val elements = buildClusterElements(singleMemberFavorite(), isDirectoryView = false, collapsed = emptySet())
+
+        elements.rowMarks() shouldBe mapOf("a" to false, "c" to true, "d" to true)
+    }
+
+    @Test
+    fun `directory view - non-favorite group with keeper is marked whole, favorite keeper is kept`() {
+        val elements = buildClusterElements(
+            favoriteWithKeeperAndNonFavoriteWithKeeper(),
+            isDirectoryView = true,
+            collapsed = emptySet(),
+        )
+
+        elements.rowMarks() shouldBe mapOf("a" to false, "b" to true, "c" to true, "d" to true)
+    }
+
+    @Test
+    fun `directory view - single-member non-favorite group is marked`() {
+        val elements = buildClusterElements(singleMemberNonFavorite(), isDirectoryView = true, collapsed = emptySet())
+
+        elements.rowMarks() shouldBe mapOf("a" to false, "b" to true, "c" to true)
+    }
+
+    @Test
+    fun `directory view - single-member favorite group without keeper is kept`() {
+        val elements = buildClusterElements(singleMemberFavorite(), isDirectoryView = true, collapsed = emptySet())
+
+        elements.rowMarks() shouldBe mapOf("a" to false, "c" to true, "d" to true)
     }
 }

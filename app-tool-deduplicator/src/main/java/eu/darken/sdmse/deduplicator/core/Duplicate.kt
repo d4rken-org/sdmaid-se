@@ -110,6 +110,34 @@ interface Duplicate {
                     }
                 }.toSet().size
             }
+
+        /**
+         * The duplicate copies that a default (keep-one) delete would remove from this cluster:
+         * every duplicate except the keeper of the favorite group. Single source of truth shared by the
+         * list row model (what the list marks/frees), the list's delete confirmation (what the confirm
+         * dialog reports) and the details screen (which rows it marks), so the displayed "freeable"
+         * always matches what is actually deleted.
+         *
+         * It mirrors the keeper/favorite assignment the scanner writes for every scanned cluster, so it
+         * matches DuplicatesDeleter's non-deleteAll path for scanned data. (Pre-scan clusters with a null
+         * favorite/keeper never reach these screens, so the keeper-less fallback here is defensive only.)
+         */
+        val deleteTargetIds: Set<Duplicate.Id>
+            get() {
+                val favId = favoriteGroupIdentifier
+                return groups.flatMap { group ->
+                    if (group.identifier == favId) {
+                        val keeper = group.keeperIdentifier
+                        if (keeper != null) {
+                            group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
+                        } else {
+                            emptyList()
+                        }
+                    } else {
+                        group.duplicates.map { it.identifier }
+                    }
+                }.toSet()
+            }
         val count: Int
             get() = groups.sumOf { it.count }
         val types: Set<Type>
