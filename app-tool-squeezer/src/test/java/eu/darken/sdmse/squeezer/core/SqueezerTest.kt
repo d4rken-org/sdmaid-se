@@ -738,6 +738,75 @@ class SqueezerTest : BaseTest() {
     }
 
     @Test
+    fun `submit ProcessTask counts only replaced items and prunes unchanged ones`() = runTest2 {
+        val imgSuccess = createImage("a.jpg")
+        val imgUnchanged = createImage("b.jpg")
+        val imgFailed = createImage("c.jpg")
+        val vidSuccess = createVideo("d.mp4")
+        val vidUnchanged = createVideo("e.mp4")
+        val untargeted = createImage("f.jpg")
+        val s = setup()
+        coEvery { s.scanner.scan(any()) } returns scanResult(
+            items = setOf(imgSuccess, imgUnchanged, imgFailed, vidSuccess, vidUnchanged, untargeted),
+        )
+        s.squeezer.submit(SqueezerScanTask())
+
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns ImageProcessor.Result(
+            success = setOf(imgSuccess),
+            failed = mapOf(imgFailed to java.io.IOException("io")),
+            savedSpace = 100L,
+            unchanged = setOf(imgUnchanged),
+        )
+        coEvery { s.videoProcessor.process(any(), any(), any(), any()) } returns VideoProcessor.Result(
+            success = setOf(vidSuccess),
+            failed = emptyMap(),
+            savedSpace = 200L,
+            unchanged = setOf(vidUnchanged),
+        )
+
+        val targets = setOf(imgSuccess, imgUnchanged, imgFailed, vidSuccess, vidUnchanged)
+            .map { it.identifier }
+            .toSet()
+        val result = s.squeezer.submit(
+            SqueezerProcessTask(mode = SqueezerProcessTask.TargetMode.Selected(targets)),
+        ) as SqueezerProcessTask.Success
+
+        result.processedCount shouldBe 2
+        result.affectedPaths shouldBe setOf(imgSuccess.path, vidSuccess.path)
+        result.unchangedCount shouldBe 2
+        s.squeezer.dataFromState()!!.media shouldBe setOf(imgFailed, untargeted)
+    }
+
+    @Test
+    fun `submit ProcessTask with only unchanged items reports nothing compressed`() = runTest2 {
+        val img = createImage("a.jpg")
+        val vid = createVideo("b.mp4")
+        val s = setup()
+        coEvery { s.scanner.scan(any()) } returns scanResult(items = setOf(img, vid))
+        s.squeezer.submit(SqueezerScanTask())
+
+        coEvery { s.imageProcessor.process(any(), any(), any(), any()) } returns ImageProcessor.Result(
+            success = emptySet(),
+            failed = emptyMap(),
+            savedSpace = 0L,
+            unchanged = setOf(img),
+        )
+        coEvery { s.videoProcessor.process(any(), any(), any(), any()) } returns VideoProcessor.Result(
+            success = emptySet(),
+            failed = emptyMap(),
+            savedSpace = 0L,
+            unchanged = setOf(vid),
+        )
+
+        val result = s.squeezer.submit(SqueezerProcessTask()) as SqueezerProcessTask.Success
+
+        result.processedCount shouldBe 0
+        result.affectedPaths shouldBe emptySet()
+        result.unchangedCount shouldBe 2
+        s.squeezer.dataFromState()!!.media shouldBe emptySet()
+    }
+
+    @Test
     fun `submit ProcessTask Success groups failures by FailureReason`() = runTest2 {
         val a = createImage("a.jpg")
         val b = createImage("b.jpg")

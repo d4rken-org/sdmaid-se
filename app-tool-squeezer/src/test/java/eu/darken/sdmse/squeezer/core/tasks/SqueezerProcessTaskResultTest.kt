@@ -43,4 +43,28 @@ class SqueezerProcessTaskResultTest : BaseTest() {
 
         success.secondaryInfo.get(context) shouldNotContain "protected"
     }
+
+    @Test
+    fun `not-smaller files appear in the result summary`() {
+        val success = SqueezerProcessTask.Success(
+            affectedSpace = 1024L,
+            affectedPaths = emptySet(),
+            processedCount = 2,
+            unchangedCount = 2,
+        )
+
+        success.secondaryInfo.get(context) shouldContain "2 unchanged (not smaller)"
+    }
+
+    @Test
+    fun `summary omits the unchanged clause when every file shrank`() {
+        val success = SqueezerProcessTask.Success(
+            affectedSpace = 1024L,
+            affectedPaths = emptySet(),
+            processedCount = 2,
+            unchangedCount = 0,
+        )
+
+        success.secondaryInfo.get(context) shouldNotContain "not smaller"
+    }
 }

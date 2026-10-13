@@ -228,6 +228,7 @@ class Squeezer @Inject constructor(
         }
 
         val allSuccess: Set<CompressibleMedia> = imageResult.success + videoResult.success
+        val allUnchanged: Set<CompressibleMedia> = imageResult.unchanged + videoResult.unchanged
         val totalSavedSpace = imageResult.savedSpace + videoResult.savedSpace
 
         val allFailures = imageResult.failed.values + videoResult.failed.values
@@ -238,9 +239,9 @@ class Squeezer @Inject constructor(
 
         updateProgress { itemsCompleted(it, totalItems, totalItems) }
 
-        // Consume both compressed items and guard-skipped (HDR/depth, Motion Photo, oversized) ones from the list,
-        // but only compressed items count toward processedCount / affectedPaths below.
-        val handledIds = (allSuccess.map { it.identifier } + imageResult.skippedGuarded.map { it.identifier }).toSet()
+        // Consume compressed items, not-smaller (unchanged) ones and guard-skipped (HDR/depth, Motion Photo,
+        // oversized) ones from the list, but only compressed items count toward processedCount / affectedPaths below.
+        val handledIds = (allSuccess + allUnchanged + imageResult.skippedGuarded).map { it.identifier }.toSet()
         internalData.value = snapshot.prune(handledIds)
 
         return SqueezerProcessTask.Success(
@@ -250,6 +251,7 @@ class Squeezer @Inject constructor(
             failedCount = allFailures.size,
             failureReasons = failureReasons,
             guardSkippedCount = imageResult.skippedGuarded.size,
+            unchangedCount = allUnchanged.size,
         )
     }
 

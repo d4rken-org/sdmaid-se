@@ -48,6 +48,8 @@ data class SqueezerProcessTask(
          * just vanish from the pending list, counted neither as processed nor failed.
          */
         val guardSkippedCount: Int = 0,
+        /** Files re-encoded without a smaller result, so the original was kept. Not in [processedCount]. */
+        val unchangedCount: Int = 0,
     ) : Result, ReportDetails.AffectedSpace, ReportDetails.AffectedPaths {
 
         /** Files aborted to preserve metadata (part of [failedCount], surfaced as their own clause). */
@@ -86,6 +88,12 @@ data class SqueezerProcessTask(
                     fragments += getQuantityString2(
                         R.plurals.squeezer_result_x_metadata_unpreservable,
                         metadataUnpreservableCount,
+                    )
+                }
+                if (unchangedCount > 0) {
+                    fragments += getQuantityString2(
+                        R.plurals.squeezer_result_x_unchanged_not_smaller,
+                        unchangedCount,
                     )
                 }
                 if (guardSkippedCount > 0) {
