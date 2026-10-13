@@ -161,7 +161,7 @@ fun DeduplicatorDetailsScreenHost(
         onDuplicatePreview = { dupe -> vm.previewDuplicate(dupe) },
         onDuplicateDelete = { clusterId, dupeId -> vm.deleteDuplicates(clusterId, listOf(dupeId)) },
         onDirectoryDeleteAll = { clusterId, dirGroup ->
-            vm.deleteDuplicates(clusterId, dirGroup.duplicates.map { it.identifier })
+            vm.deleteDirectory(clusterId, dirGroup.duplicates.map { it.identifier })
         },
         onDeleteSelectedDuplicates = { clusterId, ids -> vm.deleteDuplicates(clusterId, ids) },
         onExcludeSelectedDuplicates = { clusterId, ids -> vm.excludeDuplicates(clusterId, ids) },
@@ -191,12 +191,20 @@ fun DeduplicatorDetailsScreenHost(
                         ids = target.ids,
                         confirmed = true,
                     )
+
+                    is DeleteTarget.DirectoryTarget -> vm.deleteDirectory(
+                        clusterId = pending.event.clusterId,
+                        ids = target.ids,
+                        confirmed = true,
+                        deleteAll = deleteAll,
+                    )
                 }
             },
             onDismiss = { pendingDeletion = null },
             onPreviewClick = { options -> vm.navTo(eu.darken.sdmse.common.previews.PreviewRoute(options = options)) },
             // Single-duplicate delete dialog offers "Open" (open in external app) — legacy parity.
             onOpen = (pending.event.mode as? eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionMode.Duplicates)
+                ?.takeIf { it.deleteAllDuplicates == null }
                 ?.duplicates?.singleOrNull()
                 ?.let { dupe -> { pendingDeletion = null; vm.openDuplicate(dupe) } },
         )
