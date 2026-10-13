@@ -70,7 +70,7 @@ Switch the result list to the list layout to see a delete icon on each file that
 
 Select files with a long-press and delete them. At least one file per set has to remain, unless you enable [Make "Delete all" possible](#make-delete-all-possible).
 
-In the set details, the `Folders` view groups the files by folder. Deleting a folder there deletes all duplicates in that folder. If all copies of a file are in that folder, none of them remain.
+In the set details, the `Folders` view groups the files by folder. Deleting a folder there deletes the duplicates in that folder. If the folder holds every file of a set, the file that deleting the whole set would keep is left out. With [Make "Delete all" possible](#make-delete-all-possible) enabled, the confirmation lets you delete all of them.
 
 ### Deleting from the dashboard
 
