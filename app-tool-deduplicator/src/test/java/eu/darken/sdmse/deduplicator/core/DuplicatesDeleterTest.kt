@@ -332,4 +332,108 @@ class DuplicatesDeleterTest : BaseTest() {
             data = data,
         ).success shouldBe setOf(solo)
     }
+
+    private fun singleGroupData(
+        dupes: Set<ChecksumDuplicate>,
+        keeper: ChecksumDuplicate,
+    ) = Deduplicator.Data(
+        clusters = setOf(
+            Duplicate.Cluster(
+                identifier = Duplicate.Cluster.Id("cluster1"),
+                groups = setOf(
+                    ChecksumDuplicate.Group(
+                        identifier = Duplicate.Group.Id("group1"),
+                        duplicates = dupes,
+                        keeperIdentifier = keeper.identifier,
+                    ),
+                ),
+                favoriteGroupIdentifier = Duplicate.Group.Id("group1"),
+            )
+        )
+    )
+
+    private fun directoryTask(
+        targets: Set<ChecksumDuplicate>,
+        deleteAll: Boolean = false,
+        clusterId: String = "cluster1",
+    ) = DeduplicatorDeleteTask(
+        mode = DeduplicatorDeleteTask.TargetMode.Directory(
+            clusterId = Duplicate.Cluster.Id(clusterId),
+            targets = targets.map { it.identifier }.toSet(),
+            deleteAll = deleteAll,
+        )
+    )
+
+    @Test
+    fun `directory delete holding the whole set keeps the kept file`() = runTest {
+        val f1 = dupe("f1")
+        val f2 = dupe("f2")
+        val f3 = dupe("f3")
+        val data = singleGroupData(setOf(f1, f2, f3), keeper = f2)
+
+        create().delete(
+            task = directoryTask(setOf(f1, f2, f3)),
+            data = data,
+        ).success shouldBe setOf(f1, f3)
+    }
+
+    @Test
+    fun `directory delete holding the whole set with deleteAll deletes everything`() = runTest {
+        val f1 = dupe("f1")
+        val f2 = dupe("f2")
+        val f3 = dupe("f3")
+        val data = singleGroupData(setOf(f1, f2, f3), keeper = f2)
+
+        create().delete(
+            task = directoryTask(setOf(f1, f2, f3), deleteAll = true),
+            data = data,
+        ).success shouldBe setOf(f1, f2, f3)
+    }
+
+    @Test
+    fun `directory delete not holding the whole set deletes exactly its files`() = runTest {
+        val f1 = dupe("f1")
+        val f2 = dupe("f2")
+        val f3 = dupe("f3")
+        val data = singleGroupData(setOf(f1, f2, f3), keeper = f2)
+
+        create().delete(
+            task = directoryTask(setOf(f1, f2)),
+            data = data,
+        ).success shouldBe setOf(f1, f2)
+    }
+
+    @Test
+    fun `directory delete for an unknown cluster deletes nothing`() = runTest {
+        val f1 = dupe("f1")
+        val f2 = dupe("f2")
+        val data = singleGroupData(setOf(f1, f2), keeper = f1)
+
+        create().delete(
+            task = directoryTask(setOf(f1, f2), deleteAll = true, clusterId = "unknown"),
+            data = data,
+        ).success shouldBe emptySet()
+    }
+
+    @Test
+    fun `two directory deletes from one stale snapshot keep one file`() = runTest {
+        val deleter = create()
+        val a1 = dupe("a1")
+        val a2 = dupe("a2")
+        val b1 = dupe("b1")
+        val b2 = dupe("b2")
+        val initial = singleGroupData(setOf(a1, a2, b1, b2), keeper = a1)
+
+        // Both confirmed from the same UI snapshot: neither folder alone holds the whole set.
+        val taskA = directoryTask(setOf(a1, a2))
+        val taskB = directoryTask(setOf(b1, b2))
+
+        val resultA = deleter.delete(task = taskA, data = initial)
+        val pruned = initial.prune(resultA.success.map { it.identifier }.toSet(), arbiter)
+        val resultB = deleter.delete(task = taskB, data = pruned)
+
+        resultB.success.size shouldBe 1
+        setOf(b1, b2).containsAll(resultB.success) shouldBe true
+        (resultA.success + resultB.success).size shouldBe 3
+    }
 }

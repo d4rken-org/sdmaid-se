@@ -41,6 +41,13 @@ data class DeduplicatorDeleteTask(
         data class Duplicates(
             val targets: Set<Duplicate.Id>
         ) : TargetMode
+
+        @Parcelize
+        data class Directory(
+            val clusterId: Duplicate.Cluster.Id,
+            val targets: Set<Duplicate.Id>,
+            val deleteAll: Boolean = false,
+        ) : TargetMode
     }
 
     sealed interface Result : DeduplicatorTask.Result
