@@ -19,6 +19,18 @@ internal fun isManageSpaceDetour(
     targetPkg != AOSPSpecs.SETTINGS_PKG.name
 
 /**
+ * Mirrors GrapheneOS Settings' rule for showing "Manage storage" as a third storage button: Settings has
+ * the `manage_storage_text` string resource and the app declares a manageSpaceActivity that resolves.
+ */
+internal fun predictsManageStorageButton(
+    settingsHasManageStorageText: Boolean,
+    manageSpaceActivityName: String?,
+    manageSpaceActivityResolves: Boolean,
+): Boolean = settingsHasManageStorageText &&
+    manageSpaceActivityName != null &&
+    manageSpaceActivityResolves
+
+/**
  * Same row count as [original], and every row that was parseable there is parseable again.
  *
  * ```
