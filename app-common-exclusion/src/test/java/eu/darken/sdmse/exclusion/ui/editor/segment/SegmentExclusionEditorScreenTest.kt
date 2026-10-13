@@ -1,6 +1,5 @@
 package eu.darken.sdmse.exclusion.ui.editor.segment
 
-import androidx.compose.ui.test.and
 import androidx.compose.ui.test.assertIsOff
 import androidx.compose.ui.test.assertIsOn
 import androidx.compose.ui.test.hasText
