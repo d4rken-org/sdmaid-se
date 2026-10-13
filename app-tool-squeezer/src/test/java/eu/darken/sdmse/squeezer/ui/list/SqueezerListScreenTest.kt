@@ -307,7 +307,8 @@ class SqueezerListScreenTest : BaseComposeRobolectricTest() {
             "This is a Motion Photo. Compression keeps the still image and removes the video clip.",
         ).assertExists()
         composeRule.onNodeWithText(
-            "This photo is wider or taller than 8192 pixels. Compression also halves its resolution.",
+            "This photo is 8192 pixels or more wide or tall. Compression halves its width and height, " +
+                "and halves them again if needed, until both are below 8192 pixels.",
         ).assertExists()
     }
 

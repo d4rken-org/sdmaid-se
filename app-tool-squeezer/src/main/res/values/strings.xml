@@ -75,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Compress Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Include Motion Photos. Compression keeps the still image and removes the video clip.</string>
     <string name="squeezer_include_oversized_title">Compress very large photos</string>
-    <string name="squeezer_include_oversized_description">Include photos wider or taller than 8192 pixels. Compression also halves their resolution.</string>
+    <string name="squeezer_include_oversized_description">Include photos that are 8192 pixels or more wide or tall. Compression halves their width and height, and halves them again if needed, until both are below 8192 pixels.</string>
     <string name="squeezer_estimated_savings_format">~%s savings</string>
     <string name="squeezer_no_savings_expected">Limited savings</string>
     <string name="squeezer_current_size_format">Size: %s</string>
@@ -87,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid already compressed this file. Compressing it again costs quality and saves little.</string>
     <string name="squeezer_markers_hdr_depth_description">This photo has HDR or depth data that compression can\'t keep. An HDR photo comes back as a normal one, and a portrait photo loses the depth data used for background blur.</string>
     <string name="squeezer_markers_motion_photo_description">This is a Motion Photo. Compression keeps the still image and removes the video clip.</string>
-    <string name="squeezer_markers_downscaled_description">This photo is wider or taller than 8192 pixels. Compression also halves its resolution.</string>
+    <string name="squeezer_markers_downscaled_description">This photo is 8192 pixels or more wide or tall. Compression halves its width and height, and halves them again if needed, until both are below 8192 pixels.</string>
     <string name="squeezer_compress_action">Compress</string>
     <string name="squeezer_compress_all_action">Compress all</string>
     <string name="squeezer_preview_dialog_title">Confirm compression</string>
