@@ -52,7 +52,13 @@ fun PreviewDeletionDialog(
 ) {
     val context = LocalContext.current
     var deleteAllChecked by rememberSaveable(mode::class, mode.allowDeleteAll) { mutableStateOf(false) }
-    val previews = mode.previews
+    val shownMode = when {
+        mode is PreviewDeletionMode.Duplicates && deleteAllChecked && mode.deleteAllDuplicates != null ->
+            mode.copy(duplicates = mode.deleteAllDuplicates)
+
+        else -> mode
+    }
+    val previews = shownMode.previews
     val singlePreview = previews.singleOrNull()
 
     SdmConfirmDialog(
@@ -148,7 +154,7 @@ fun PreviewDeletionDialog(
             }
 
             Text(
-                text = formatMessage(mode = mode, deleteAll = deleteAllChecked, context = context),
+                text = formatMessage(mode = shownMode, deleteAll = deleteAllChecked, context = context),
                 style = MaterialTheme.typography.bodyMedium,
                 modifier = Modifier
                     .fillMaxWidth()

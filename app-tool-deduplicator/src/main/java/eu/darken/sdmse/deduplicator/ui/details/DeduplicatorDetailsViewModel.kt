@@ -284,6 +284,54 @@ class DeduplicatorDetailsViewModel @Inject constructor(
         taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
     }
 
+    fun deleteDirectory(
+        clusterId: Duplicate.Cluster.Id,
+        ids: Collection<Duplicate.Id>,
+        confirmed: Boolean = false,
+        deleteAll: Boolean = false,
+    ) = launch {
+        log(TAG, INFO) { "deleteDirectory($clusterId, ${ids.size}) confirmed=$confirmed deleteAll=$deleteAll" }
+        val cluster = currentClusterOrNull(clusterId) ?: return@launch
+        val liveDuplicates = cluster.groups.flatMap { it.duplicates }.distinctBy { it.identifier }
+        val folderIds = liveDuplicates.map { it.identifier }.filter { it in ids }.toSet()
+        if (folderIds.isEmpty()) return@launch
+
+        if (!confirmed) {
+            val capped = cluster.keepOneOf(folderIds)
+            val emptiesSet = capped != folderIds
+            val offerDeleteAll = emptiesSet && settings.allowDeleteAll.value()
+            if (capped.isEmpty() && !offerDeleteAll) return@launch
+            events.tryEmit(
+                Event.ConfirmDeletion(
+                    clusterId = clusterId,
+                    target = DeleteTarget.DirectoryTarget(folderIds),
+                    mode = PreviewDeletionMode.Duplicates(
+                        duplicates = liveDuplicates.filter { it.identifier in capped },
+                        allowDeleteAll = offerDeleteAll,
+                        deleteAllDuplicates = if (offerDeleteAll) {
+                            liveDuplicates.filter { it.identifier in folderIds }
+                        } else {
+                            null
+                        },
+                    ),
+                )
+            )
+            return@launch
+        }
+
+        if (!upgradeRepo.isProForUi()) {
+            navTo(UpgradeRoute())
+            return@launch
+        }
+
+        val mode = DeduplicatorDeleteTask.TargetMode.Directory(
+            clusterId = clusterId,
+            targets = folderIds,
+            deleteAll = deleteAll,
+        )
+        taskSubmitter.submit(DeduplicatorDeleteTask(mode = mode))
+    }
+
     fun excludeCluster(clusterId: Duplicate.Cluster.Id) = launch {
         log(TAG, INFO) { "excludeCluster($clusterId)" }
         val cluster = currentClusterOrNull(clusterId) ?: return@launch
@@ -326,6 +374,7 @@ class DeduplicatorDetailsViewModel @Inject constructor(
         data class ClusterTarget(val id: Duplicate.Cluster.Id) : DeleteTarget
         data class GroupTarget(val id: Duplicate.Group.Id) : DeleteTarget
         data class DuplicateTargets(val ids: Set<Duplicate.Id>) : DeleteTarget
+        data class DirectoryTarget(val ids: Set<Duplicate.Id>) : DeleteTarget
     }
 
     sealed interface Event {

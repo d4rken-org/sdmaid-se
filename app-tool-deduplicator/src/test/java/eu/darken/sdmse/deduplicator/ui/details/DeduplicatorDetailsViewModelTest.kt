@@ -69,6 +69,33 @@ class DeduplicatorDetailsViewModelTest : BaseTest() {
         )
     }
 
+    // Shaped like scanned data: the first group is the favorite, and every group with >= 2 members
+    // has a keeper (its last member, so "drop the first file" can't pass for "drop the kept file").
+    private fun scannedCluster(id: String, vararg groupSizes: Int): Duplicate.Cluster {
+        val groups = groupSizes.mapIndexed { gi, size ->
+            val duplicates = (0 until size).map { idx ->
+                previewChecksumDuplicate(
+                    pathSegments = arrayOf("storage", id, "g$gi-dup$idx"),
+                    size = 100L,
+                    hashSeed = "$id-$gi",
+                )
+            }
+            ChecksumDuplicate.Group(
+                duplicates = duplicates.toSet(),
+                identifier = Duplicate.Group.Id("$id-group$gi"),
+                keeperIdentifier = duplicates.takeIf { it.size >= 2 }?.last()?.identifier,
+            )
+        }
+        return previewCluster(
+            identifier = Duplicate.Cluster.Id(id),
+            groups = groups.toSet(),
+            favoriteGroupIdentifier = groups.first().identifier,
+        )
+    }
+
+    private val Duplicate.Cluster.allDuplicates: List<Duplicate>
+        get() = groups.flatMap { it.duplicates }
+
     private fun <T> rwDataStoreValue(initial: T, flow: Flow<T> = flowOf(initial)): DataStoreValue<T> =
         mockk<DataStoreValue<T>>().apply {
             every { this@apply.flow } returns flow
@@ -752,6 +779,199 @@ class DeduplicatorDetailsViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    // ─────────────────────────── deleteDirectory ───────────────────────────
+
+    @Test
+    fun `deleteDirectory on a folder holding the whole set leaves the kept file out`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        val all = a.allDuplicates
+        val kept = all[2]
+        val h = harness(clusters = setOf(a), allowDeleteAll = false)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+
+        h.vm.deleteDirectory(a.identifier, ids = all.map { it.identifier })
+        advanceUntilIdle()
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<DeduplicatorDetailsViewModel.Event.ConfirmDeletion>()
+        event.clusterId shouldBe a.identifier
+        event.target shouldBe DeduplicatorDetailsViewModel.DeleteTarget.DirectoryTarget(
+            all.map { it.identifier }.toSet(),
+        )
+        val mode = event.mode.shouldBeInstanceOf<PreviewDeletionMode.Duplicates>()
+        mode.duplicates.map { it.identifier } shouldBe (all - kept).map { it.identifier }
+        mode.allowDeleteAll shouldBe false
+        mode.deleteAllDuplicates shouldBe null
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `deleteDirectory on a folder holding the whole set offers delete-all when allowed`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        val all = a.allDuplicates
+        val kept = all[2]
+        val h = harness(clusters = setOf(a), allowDeleteAll = true)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+
+        h.vm.deleteDirectory(a.identifier, ids = all.map { it.identifier })
+        advanceUntilIdle()
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<DeduplicatorDetailsViewModel.Event.ConfirmDeletion>()
+        event.target shouldBe DeduplicatorDetailsViewModel.DeleteTarget.DirectoryTarget(
+            all.map { it.identifier }.toSet(),
+        )
+        val mode = event.mode.shouldBeInstanceOf<PreviewDeletionMode.Duplicates>()
+        mode.duplicates.map { it.identifier } shouldBe (all - kept).map { it.identifier }
+        mode.allowDeleteAll shouldBe true
+        mode.deleteAllDuplicates!!.map { it.identifier } shouldBe all.map { it.identifier }
+    }
+
+    @Test
+    fun `deleteDirectory on a partial-set folder deletes every folder file without a toggle`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        // Holds the kept file, but the set's first file stays outside the folder.
+        val folder = a.allDuplicates.drop(1)
+        val h = harness(clusters = setOf(a), allowDeleteAll = true)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+
+        h.vm.deleteDirectory(a.identifier, ids = folder.map { it.identifier })
+        advanceUntilIdle()
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<DeduplicatorDetailsViewModel.Event.ConfirmDeletion>()
+        event.target shouldBe DeduplicatorDetailsViewModel.DeleteTarget.DirectoryTarget(
+            folder.map { it.identifier }.toSet(),
+        )
+        val mode = event.mode.shouldBeInstanceOf<PreviewDeletionMode.Duplicates>()
+        mode.duplicates.map { it.identifier } shouldBe folder.map { it.identifier }
+        mode.allowDeleteAll shouldBe false
+        mode.deleteAllDuplicates shouldBe null
+    }
+
+    @Test
+    fun `deleteDirectory leaves out the sole member of a single-member favorite group`() = runTest2 {
+        val a = scannedCluster("a", 1, 2)
+        val all = a.allDuplicates
+        val favoriteMember = a.groups.single { it.identifier == a.favoriteGroupIdentifier }.duplicates.single()
+        val h = harness(clusters = setOf(a))
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+
+        h.vm.deleteDirectory(a.identifier, ids = all.map { it.identifier })
+        advanceUntilIdle()
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<DeduplicatorDetailsViewModel.Event.ConfirmDeletion>()
+        val mode = event.mode.shouldBeInstanceOf<PreviewDeletionMode.Duplicates>()
+        mode.duplicates.map { it.identifier } shouldBe (all - favoriteMember).map { it.identifier }
+    }
+
+    @Test
+    fun `deleteDirectory confirmed with pro submits TargetMode_Directory with all folder ids`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        val folderIds = a.allDuplicates.map { it.identifier }.toSet()
+        val h = harness(clusters = setOf(a), isPro = true)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+
+        h.vm.deleteDirectory(a.identifier, ids = folderIds, confirmed = true, deleteAll = false)
+        advanceUntilIdle()
+        h.vm.deleteDirectory(a.identifier, ids = folderIds, confirmed = true, deleteAll = true)
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            h.taskSubmitter.submit(
+                DeduplicatorDeleteTask(
+                    mode = DeduplicatorDeleteTask.TargetMode.Directory(
+                        clusterId = a.identifier,
+                        targets = folderIds,
+                        deleteAll = false,
+                    ),
+                ),
+            )
+        }
+        coVerify(exactly = 1) {
+            h.taskSubmitter.submit(
+                DeduplicatorDeleteTask(
+                    mode = DeduplicatorDeleteTask.TargetMode.Directory(
+                        clusterId = a.identifier,
+                        targets = folderIds,
+                        deleteAll = true,
+                    ),
+                ),
+            )
+        }
+        coVerify(exactly = 2) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `deleteDirectory confirmed without pro navigates to UpgradeRoute and does NOT submit`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        val h = harness(clusters = setOf(a), isPro = false)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+        val nav = collectNavEvents(h.vm)
+
+        h.vm.deleteDirectory(a.identifier, ids = a.allDuplicates.map { it.identifier }, confirmed = true)
+        advanceUntilIdle()
+
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+        val event = nav.list.single()
+        event.shouldBeInstanceOf<NavEvent.GoTo>()
+        event.destination shouldBe UpgradeRoute()
+        nav.cancel()
+    }
+
+    @Test
+    fun `deleteDirectory drops stale and foreign-cluster ids`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        val b = scannedCluster("b", 2)
+        val aIds = a.allDuplicates.map { it.identifier }.toSet()
+        val requested = aIds + b.allDuplicates.first().identifier + Duplicate.Id("not-in-any-cluster")
+        val h = harness(clusters = setOf(a, b), isPro = true)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+
+        h.vm.deleteDirectory(a.identifier, ids = requested)
+        advanceUntilIdle()
+
+        val event = h.vm.events.first()
+        event.shouldBeInstanceOf<DeduplicatorDetailsViewModel.Event.ConfirmDeletion>()
+        event.target shouldBe DeduplicatorDetailsViewModel.DeleteTarget.DirectoryTarget(aIds)
+
+        h.vm.deleteDirectory(a.identifier, ids = requested, confirmed = true)
+        advanceUntilIdle()
+
+        coVerify(exactly = 1) {
+            h.taskSubmitter.submit(
+                DeduplicatorDeleteTask(
+                    mode = DeduplicatorDeleteTask.TargetMode.Directory(
+                        clusterId = a.identifier,
+                        targets = aIds,
+                        deleteAll = false,
+                    ),
+                ),
+            )
+        }
+        coVerify(exactly = 1) { h.taskSubmitter.submit(any()) }
+    }
+
+    @Test
+    fun `deleteDirectory without live folder ids emits nothing and submits nothing`() = runTest2 {
+        val a = scannedCluster("a", 3)
+        val b = scannedCluster("b", 2)
+        val ids = setOf(b.allDuplicates.first().identifier, Duplicate.Id("stale"))
+        val h = harness(clusters = setOf(a, b), isPro = true)
+        h.vm.bindRoute(DeduplicatorDetailsRoute(identifier = a.identifier))
+        val events = collectEvents(h.vm)
+
+        h.vm.deleteDirectory(a.identifier, ids = ids)
+        advanceUntilIdle()
+        h.vm.deleteDirectory(a.identifier, ids = ids, confirmed = true)
+        advanceUntilIdle()
+
+        events.list shouldBe emptyList()
+        coVerify(exactly = 0) { h.taskSubmitter.submit(any()) }
+        events.cancel()
     }
 
     // ─────────────────────────── exclusions ───────────────────────────
