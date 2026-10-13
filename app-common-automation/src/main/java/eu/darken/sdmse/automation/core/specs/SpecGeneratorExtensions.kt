@@ -207,15 +207,34 @@ suspend fun SpecGenerator.checkIdentifiers(
 
     log(tag, VERBOSE) { "checkIdentifiers: Looking for: ${candidates.map { it.toVisualString() }}" }
 
+    val normalizedCandidates = candidates
+        .map { it to it.normalizeWhitespace() }
+        .filter { (_, normalized) -> normalized.isNotEmpty() }
+
     val passed = root.crawl().map { it.node }.any { toTest ->
-        candidates.any { candidate ->
-            val match = toTest.text == candidate || toTest.text?.contains(candidate) == true
+        val text = toTest.text?.normalizeWhitespace() ?: return@any false
+        normalizedCandidates.any { (candidate, normalized) ->
+            val match = text.contains(normalized)
             if (match) log(tag, INFO) { "checkIdentifiers: Passed ('$candidate' on ${toTest})" }
             match
         }
     }
     if (!passed) log(tag, WARN) { "checkIdentifiers: Window check failed." }
     passed
+}
+
+// "Reminder\n FLEX " -> "Reminder FLEX"
+internal fun CharSequence.normalizeWhitespace(): String = buildString {
+    var pendingSpace = false
+    for (c in this@normalizeWhitespace) {
+        if (c.isWhitespace()) {
+            pendingSpace = isNotEmpty()
+        } else {
+            if (pendingSpace) append(' ')
+            pendingSpace = false
+            append(c)
+        }
+    }
 }
 
 fun SpecGenerator.defaultFindAndClick(
