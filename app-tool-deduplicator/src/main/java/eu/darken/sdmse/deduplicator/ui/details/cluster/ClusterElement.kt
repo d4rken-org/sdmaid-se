@@ -83,23 +83,24 @@ internal fun buildClusterElements(
 ): List<ClusterElement> {
     val elements = mutableListOf<ClusterElement>()
     elements.add(ClusterElement.ClusterHeader(cluster))
+    val deleteTargetIds = cluster.deleteTargetIds
     if (isDirectoryView) {
-        addDirectoryViewElements(cluster, collapsed, elements)
+        addDirectoryViewElements(cluster, deleteTargetIds, collapsed, elements)
     } else {
-        addGroupViewElements(cluster, elements)
+        addGroupViewElements(cluster, deleteTargetIds, elements)
     }
     return elements
 }
 
 private fun addGroupViewElements(
     cluster: Duplicate.Cluster,
+    deleteTargetIds: Set<Duplicate.Id>,
     elements: MutableList<ClusterElement>,
 ) {
     val favoriteGroupId = cluster.favoriteGroupIdentifier
     cluster.groups
         .sortedByDescending { it.totalSize }
         .forEach { group ->
-            val keeperId = group.keeperIdentifier
             val isNonFavoriteGroup = favoriteGroupId != null
                 && cluster.groups.size >= 2
                 && group.identifier != favoriteGroupId
@@ -112,7 +113,7 @@ private fun addGroupViewElements(
                         elements.add(
                             ClusterElement.ChecksumDuplicateRow(
                                 duplicate = dupe,
-                                willBeDeleted = keeperId != null && dupe.identifier != keeperId,
+                                willBeDeleted = dupe.identifier in deleteTargetIds,
                                 groupId = group.identifier,
                             )
                         )
@@ -126,7 +127,7 @@ private fun addGroupViewElements(
                         elements.add(
                             ClusterElement.PHashDuplicateRow(
                                 duplicate = dupe,
-                                willBeDeleted = keeperId != null && dupe.identifier != keeperId,
+                                willBeDeleted = dupe.identifier in deleteTargetIds,
                                 groupId = group.identifier,
                             )
                         )
@@ -140,7 +141,7 @@ private fun addGroupViewElements(
                         elements.add(
                             ClusterElement.MediaDuplicateRow(
                                 duplicate = dupe,
-                                willBeDeleted = keeperId != null && dupe.identifier != keeperId,
+                                willBeDeleted = dupe.identifier in deleteTargetIds,
                                 groupId = group.identifier,
                             )
                         )
@@ -152,18 +153,10 @@ private fun addGroupViewElements(
 
 private fun addDirectoryViewElements(
     cluster: Duplicate.Cluster,
+    deleteTargetIds: Set<Duplicate.Id>,
     collapsed: Set<DirectoryGroup.Id>,
     elements: MutableList<ClusterElement>,
 ) {
-    val deleteTargetIds = cluster.groups
-        .filter { it.keeperIdentifier != null && it.duplicates.size >= 2 }
-        .flatMap { group ->
-            group.duplicates
-                .filter { it.identifier != group.keeperIdentifier }
-                .map { it.identifier }
-        }
-        .toSet()
-
     val dupeToGroupId = cluster.groups.flatMap { group ->
         group.duplicates.map { it.identifier to group.identifier }
     }.toMap()

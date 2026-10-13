@@ -142,7 +142,7 @@ class DeduplicatorListViewModel @Inject constructor(
     val events = SingleEventFlow<Event>()
 
     // Row production excludes progress so high-frequency progress ticks during a scan don't re-sort
-    // the clusters and re-run computeDeleteTargets/freeableSizeOf per cluster. Progress, layout and
+    // the clusters and recompute deleteTargetIds/freeableSizeOf per cluster. Progress, layout and
     // allowDeleteAll are merged in the outer combine (below) as a cheap field swap that preserves the
     // rows List instance, letting keyed lazy rows skip recomposition.
     private val rowsFlow = combine(
@@ -153,7 +153,7 @@ class DeduplicatorListViewModel @Inject constructor(
             data != null -> data.clusters
                 .sortedByDescending { it.averageSize }
                 .map { cluster ->
-                    val deleteTargetIds = cluster.computeDeleteTargets()
+                    val deleteTargetIds = cluster.deleteTargetIds
                     DeduplicatorListRow(
                         cluster = cluster,
                         deleteTargetIds = deleteTargetIds,
@@ -227,7 +227,7 @@ class DeduplicatorListViewModel @Inject constructor(
             if (sanitized.isEmpty()) return@launch
 
             if (!confirmed) {
-                val targetsByCluster = sanitized.map { it to it.computeDeleteTargets() }
+                val targetsByCluster = sanitized.map { it to it.deleteTargetIds }
                 events.tryEmit(
                     Event.ConfirmDeletion(
                         clusters = sanitized,
@@ -372,32 +372,6 @@ class DeduplicatorListViewModel @Inject constructor(
     companion object {
         private val TAG = logTag("Deduplicator", "List", "ViewModel")
     }
-}
-
-/**
- * The duplicate copies that a default (keep-one) delete would remove from this cluster:
- * every duplicate except the keeper of the favorite group. Single source of truth shared by the
- * row model (what the list marks/frees) and [DeduplicatorListViewModel.deleteClusters] (what the
- * confirm dialog reports), so the displayed "freeable" always matches what is actually deleted.
- *
- * It mirrors the keeper/favorite assignment the scanner writes for every scanned cluster, so it
- * matches DuplicatesDeleter's non-deleteAll path for real list data. (Pre-scan clusters with a null
- * favorite/keeper never reach the list, so the keeper-less fallback here is defensive only.)
- */
-private fun Duplicate.Cluster.computeDeleteTargets(): Set<Duplicate.Id> {
-    val favId = favoriteGroupIdentifier
-    return groups.flatMap { group ->
-        if (group.identifier == favId) {
-            val keeper = group.keeperIdentifier
-            if (keeper != null) {
-                group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
-            } else {
-                emptyList()
-            }
-        } else {
-            group.duplicates.map { it.identifier }
-        }
-    }.toSet()
 }
 
 private fun Duplicate.Cluster.freeableSizeOf(targets: Set<Duplicate.Id>): Long = groups
