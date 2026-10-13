@@ -390,6 +390,7 @@ class AOSPSpecs @Inject constructor(
                 logFocus("quick-try DOWN")
                 delay(stepDelayMs)
                 val moved = dpadRight()
+                log(tag, INFO) { "DPAD_RIGHT result=$moved (source=quick-try)" }
                 if (!moved) {
                     log(tag, WARN) { "DPAD_RIGHT failed (source=quick-try)" }
                     logFocus("quick-try failed RIGHT")
