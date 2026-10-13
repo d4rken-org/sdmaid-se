@@ -386,7 +386,7 @@ private fun UpgradeCard(onUpgradeClick: () -> Unit) {
                 style = MaterialTheme.typography.titleMedium,
             )
             Text(
-                text = stringResource(R.string.stats_space_history_upgrade_body_v2),
+                text = stringResource(R.string.stats_space_history_upgrade_body_v3),
                 style = MaterialTheme.typography.bodyMedium,
             )
             Row(modifier = Modifier.padding(top = 4.dp)) {
