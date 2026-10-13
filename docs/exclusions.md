@@ -62,6 +62,18 @@ The Deduplicator tool does not know what "apps" are and only works with file dat
 
 Supported exclusion types: `PATH`, `SEGMENTS`
 
+### Media Squeeze
+
+Media Squeeze only works with file data. Excluded files are not compressed.
+
+Supported exclusion types: `PATH`, `SEGMENTS`
+
+### Swiper
+
+Swiper only works with file data. Excluded files are not included in new sessions. Long-pressing `Skip` while swiping excludes the current file.
+
+Supported exclusion types: `PATH`, `SEGMENTS`
+
 ### StorageAnalyzer
 
 The StorageAnalyzer does not support exclusions, as all content needs to be scanned to calculate the correct total sizes.

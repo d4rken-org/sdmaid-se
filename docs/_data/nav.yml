@@ -11,6 +11,9 @@
     - { key: corpsefinder, label: CorpseFinder }
     - { key: systemcleaner, label: SystemCleaner }
     - { key: storageanalyzer, label: StorageAnalyzer }
+    - { key: deduplicator, label: Deduplicator }
+    - { key: mediasqueeze, label: Media Squeeze }
+    - { key: swiper, label: Swiper }
     - { key: appcontrol, label: AppControl }
     - { key: scheduler, label: Scheduler }
 - section: More

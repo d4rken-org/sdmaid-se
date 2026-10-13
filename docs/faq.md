@@ -90,12 +90,13 @@ All tools in SD Maid SE can **scan for free** — you can see exactly what would
 - CorpseFinder: Scan and delete remnants of uninstalled apps
 - SystemCleaner: Scan and delete system junk using built-in filters
 - AppControl: View and manage installed apps
-- Analyzer: Analyze storage usage
+- Analyzer: Analyze storage usage and delete files
 
 **Upgrade required for:**
 - AppCleaner: Deleting app caches and expendable files (scanning is free)
 - Deduplicator: Deleting duplicate files (scanning is free)
-- Analyzer: Deleting files from the storage analysis
+- Media Squeeze: Compressing photos and videos (scanning is free)
+- Analyzer: The Storage Trend chart, the low space warning, and creating SystemCleaner filters from the analysis
 - Scheduler: Enabling scheduled automatic cleaning
 - Swiper: Unlimited files and sessions
 
