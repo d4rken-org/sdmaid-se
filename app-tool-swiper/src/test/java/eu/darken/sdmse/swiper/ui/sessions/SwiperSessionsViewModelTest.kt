@@ -4,9 +4,11 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.SwiperSessionCreator
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.picker.PickerRoute
@@ -252,13 +254,30 @@ class SwiperSessionsViewModelTest : BaseTest() {
     fun `picker result with non-empty paths triggers createSession`() = runTest2 {
         val h = harness()
         val paths = setOf<APath>(LocalPath.build("storage", "emulated", "0", "Pictures"))
-        coEvery { h.swiper.createSession(paths) } returns "new-id"
+        coEvery { h.swiper.createSession(paths) } returns SwiperSessionCreator.Result.Created("new-id")
+        val nav = collectNavEvents(h.vm)
 
         h.pickerResults.tryEmit(PickerResult(selectedPaths = paths))
         advanceUntilIdle()
 
         coVerify(exactly = 1) { h.swiper.createSession(paths) }
         h.vm.state.first().selectedPaths shouldBe paths
+        nav.list shouldBe emptyList()
+        nav.cancel()
+    }
+
+    @Test
+    fun `picker result past the session limit redirects to the upgrade screen`() = runTest2 {
+        val h = harness()
+        val paths = setOf<APath>(LocalPath.build("storage", "emulated", "0", "Pictures"))
+        coEvery { h.swiper.createSession(paths) } returns SwiperSessionCreator.Result.LimitReached
+        val nav = collectNavEvents(h.vm)
+
+        h.pickerResults.tryEmit(PickerResult(selectedPaths = paths))
+        advanceUntilIdle()
+
+        nav.list.single().shouldBeInstanceOf<NavEvent.GoTo>().destination.shouldBeInstanceOf<UpgradeRoute>()
+        nav.cancel()
     }
 
     @Test
@@ -268,7 +287,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         h.pickerResults.tryEmit(PickerResult(selectedPaths = emptySet()))
         advanceUntilIdle()
 
-        // Defends the `if (paths.isNotEmpty())` guard in init — a regression that dropped it would
+        // Defends the empty-paths guard in init — a regression that dropped it would
         // call createSession with an empty set, which crashes (require(paths.isNotEmpty())).
         coVerify(exactly = 0) { h.swiper.createSession(any()) }
         h.vm.state.first().selectedPaths shouldBe emptySet<APath>()

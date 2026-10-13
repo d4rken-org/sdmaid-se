@@ -18,7 +18,10 @@ import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.SwiperSessionCreator
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.navigation.NavEvent
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
@@ -85,7 +88,7 @@ class ContentViewModelTest : BaseTest() {
     private class Harness(
         val vm: ContentViewModel,
         val analyzer: Analyzer,
-        val swiperSessionCreator: eu.darken.sdmse.common.files.SwiperSessionCreator,
+        val swiperSessionCreator: SwiperSessionCreator,
         val filterEditorOptionsCreator: eu.darken.sdmse.common.files.FilterEditorOptionsCreator,
         val viewIntentTool: ViewIntentTool,
         val exclusionManager: ExclusionManager,
@@ -110,7 +113,7 @@ class ContentViewModelTest : BaseTest() {
         val settings = mockk<AnalyzerSettings>().apply {
             every { contentLayoutMode } returns mockk { every { flow } returns flowOf(LayoutMode.LINEAR) }
         }
-        val swiperSessionCreator = mockk<eu.darken.sdmse.common.files.SwiperSessionCreator>(relaxed = true)
+        val swiperSessionCreator = mockk<SwiperSessionCreator>(relaxed = true)
         val filterEditorOptionsCreator =
             mockk<eu.darken.sdmse.common.files.FilterEditorOptionsCreator>(relaxed = true)
         val viewIntentTool = mockk<ViewIntentTool>(relaxed = true)
@@ -294,6 +297,35 @@ class ContentViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 0) { h.swiperSessionCreator.createSession(any()) }
+    }
+
+    @Test
+    fun `swiper session creation reports the created session`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.swiperSessionCreator.createSession(setOf(child.path)) } returns
+            SwiperSessionCreator.Result.Created("new-id")
+        advanceUntilIdle()
+
+        h.vm.onCreateSwiperSession(setOf(child))
+        advanceUntilIdle()
+
+        h.vm.events.first() shouldBe ContentViewModel.Event.SwiperSessionCreated("new-id", 1)
+    }
+
+    @Test
+    fun `swiper session limit redirects to the upgrade screen`() = runTest2 {
+        val child = dirItem("DCIM")
+        val group = ContentGroup(label = "Media".toCaString(), contents = setOf(child))
+        val h = harness(MediaCategory(storageId, setOf(group), isReadOnly = false), group)
+        coEvery { h.swiperSessionCreator.createSession(any()) } returns SwiperSessionCreator.Result.LimitReached
+        advanceUntilIdle()
+
+        h.vm.onCreateSwiperSession(setOf(child))
+        advanceUntilIdle()
+
+        h.vm.navEvents.first().shouldBeInstanceOf<NavEvent.GoTo>().destination.shouldBeInstanceOf<UpgradeRoute>()
     }
 
     @Test

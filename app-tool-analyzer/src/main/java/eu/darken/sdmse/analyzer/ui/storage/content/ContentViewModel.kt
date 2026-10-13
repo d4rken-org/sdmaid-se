@@ -333,9 +333,16 @@ class ContentViewModel @Inject constructor(
             log(TAG, WARN) { "createSwiperSession(): No accessible items to create session" }
             return@launch
         }
-        val sessionId = swiperSessionCreator.createSession(paths)
-        log(TAG) { "createSwiperSession(): Created session $sessionId with ${paths.size} paths" }
-        events.emit(Event.SwiperSessionCreated(sessionId, paths.size))
+        when (val result = swiperSessionCreator.createSession(paths)) {
+            is SwiperSessionCreator.Result.Created -> {
+                log(TAG) { "createSwiperSession(): Created session ${result.sessionId} with ${paths.size} paths" }
+                events.emit(Event.SwiperSessionCreated(result.sessionId, paths.size))
+            }
+            SwiperSessionCreator.Result.LimitReached -> {
+                log(TAG) { "createSwiperSession(): Session limit reached, redirecting to upgrade screen." }
+                navTo(UpgradeRoute())
+            }
+        }
     }
 
     fun onOpenExclusion(item: ContentItem) {

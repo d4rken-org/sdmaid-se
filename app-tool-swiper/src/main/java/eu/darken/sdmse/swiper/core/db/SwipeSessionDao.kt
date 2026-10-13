@@ -16,6 +16,9 @@ interface SwipeSessionDao {
     @Query("SELECT * FROM swipe_sessions WHERE state != 'COMPLETED' ORDER BY last_modified_at DESC")
     fun getAllActiveSessions(): Flow<List<SwipeSessionEntity>>
 
+    @Query("SELECT COUNT(*) FROM swipe_sessions WHERE state != 'COMPLETED'")
+    suspend fun countActiveSessions(): Int
+
     @Query("SELECT * FROM swipe_sessions WHERE session_id = :sessionId")
     suspend fun getSession(sessionId: String): SwipeSessionEntity?
 
