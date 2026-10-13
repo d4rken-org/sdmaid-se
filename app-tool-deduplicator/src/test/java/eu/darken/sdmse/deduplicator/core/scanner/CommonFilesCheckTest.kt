@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
 import eu.darken.sdmse.common.MimeTypeTool
+import eu.darken.sdmse.common.MimeTypes
 import eu.darken.sdmse.common.files.APathLookup
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -31,6 +32,11 @@ class CommonFilesCheckTest : BaseTest() {
         val lookup = lookupOfType("image/heif")
         subject.isCommon(lookup) shouldBe true
         subject.isImage(lookup) shouldBe true
+    }
+
+    @Test
+    fun `apk is common`() = runTest {
+        subject.isCommon(lookupOfType(MimeTypes.Apk.value)) shouldBe true
     }
 
     @Test
