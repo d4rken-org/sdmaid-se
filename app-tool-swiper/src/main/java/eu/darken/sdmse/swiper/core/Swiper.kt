@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.common.upgrade.isProForUi
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.swiper.core.db.SwipeItemDao
 import eu.darken.sdmse.swiper.core.db.SwipeSessionDao
@@ -162,92 +163,55 @@ class Swiper @Inject constructor(
         val isPro = upgradeRepo.isPro()
         val itemLimit = if (isPro) null else SwiperSettings.FREE_VERSION_LIMIT
 
-        // Determine paths and sessionId
-        val taskSessionId = task.sessionId
-        val existingSession: SwipeSessionEntity?
-        val (paths, sessionId) = if (taskSessionId != null) {
-            // Scanning existing session
-            val session = sessionDao.getSession(taskSessionId)
-                ?: throw IllegalArgumentException("Session not found: $taskSessionId")
-            existingSession = session
-            session.sourcePaths.toSet() to taskSessionId
-        } else {
-            // Creating new session (backward compatibility)
-            existingSession = null
-            task.paths!! to null
-        }
-
-        val fileTypeFilter = existingSession?.fileTypeFilter ?: FileTypeFilter.EMPTY
-        val sortOrder = existingSession?.sortOrder ?: SortOrder.DEFAULT
+        val sessionId = task.sessionId
+        val existingSession = sessionDao.getSession(sessionId)
+            ?: throw IllegalArgumentException("Session not found: $sessionId")
 
         val scanOptions = SwiperScanner.Options(
-            paths = paths,
+            paths = existingSession.sourcePaths.toSet(),
             itemLimit = itemLimit,
-            fileTypeFilter = fileTypeFilter,
-            sortOrder = sortOrder,
+            fileTypeFilter = existingSession.fileTypeFilter ?: FileTypeFilter.EMPTY,
+            sortOrder = existingSession.sortOrder,
         )
 
         val scanResult = scanner.get().withProgress(this) {
             scan(scanOptions)
         }
 
-        if (sessionId != null) {
-            // Update existing session - delete old items first, then insert new
-            // Clear cache for this session
-            clearCacheForSession(sessionId)
-            itemDao.deleteItemsForSession(sessionId)
+        // Update existing session - delete old items first, then insert new
+        // Clear cache for this session
+        clearCacheForSession(sessionId)
+        itemDao.deleteItemsForSession(sessionId)
 
-            // Update session entity with new scan results, preserving existing fields
-            val updatedSession = existingSession!!.copy(
-                totalItems = scanResult.session.totalItems,
-                state = SessionState.READY,
-                lastModifiedAt = Instant.now(),
-                currentIndex = 0,
-            )
-            sessionDao.update(updatedSession)
+        // Update session entity with new scan results, preserving existing fields
+        val updatedSession = existingSession.copy(
+            totalItems = scanResult.session.totalItems,
+            state = SessionState.READY,
+            lastModifiedAt = Instant.now(),
+            currentIndex = 0,
+        )
+        sessionDao.update(updatedSession)
 
-            // Insert items with correct sessionId
-            val itemsWithCorrectSession = scanResult.items.map { it.copy(sessionId = sessionId) }
-            itemDao.insertAll(itemsWithCorrectSession)
+        // Insert items with correct sessionId
+        val itemsWithCorrectSession = scanResult.items.map { it.copy(sessionId = sessionId) }
+        itemDao.insertAll(itemsWithCorrectSession)
 
-            // Populate cache with lookups - retrieve inserted items to get their auto-generated IDs
-            val insertedItems = itemDao.getItemsForSessionSync(sessionId)
-            check(insertedItems.size == scanResult.lookups.size) {
-                "Inserted items (${insertedItems.size}) != scan lookups (${scanResult.lookups.size})"
-            }
-            insertedItems.forEach { entity ->
-                lookupCache[entity.id] = scanResult.lookups[entity.itemIndex]
-            }
-            log(TAG, INFO) { "performScan(): Populated cache with ${insertedItems.size} lookups" }
-
-            log(TAG, INFO) { "performScan(): Updated session $sessionId with ${itemsWithCorrectSession.size} items" }
-
-            return SwiperScanTask.Success(
-                sessionId = sessionId,
-                itemCount = itemsWithCorrectSession.size,
-            )
-        } else {
-            // Save to database - session is created with READY state by the scanner
-            sessionDao.insert(scanResult.session)
-            itemDao.insertAll(scanResult.items)
-
-            // Populate cache with lookups - retrieve inserted items to get their auto-generated IDs
-            val insertedItems = itemDao.getItemsForSessionSync(scanResult.session.sessionId)
-            check(insertedItems.size == scanResult.lookups.size) {
-                "Inserted items (${insertedItems.size}) != scan lookups (${scanResult.lookups.size})"
-            }
-            insertedItems.forEach { entity ->
-                lookupCache[entity.id] = scanResult.lookups[entity.itemIndex]
-            }
-            log(TAG, INFO) { "performScan(): Populated cache with ${insertedItems.size} lookups" }
-
-            log(TAG, INFO) { "performScan(): ${scanResult.items.size} items found" }
-
-            return SwiperScanTask.Success(
-                sessionId = scanResult.session.sessionId,
-                itemCount = scanResult.items.size,
-            )
+        // Populate cache with lookups - retrieve inserted items to get their auto-generated IDs
+        val insertedItems = itemDao.getItemsForSessionSync(sessionId)
+        check(insertedItems.size == scanResult.lookups.size) {
+            "Inserted items (${insertedItems.size}) != scan lookups (${scanResult.lookups.size})"
         }
+        insertedItems.forEach { entity ->
+            lookupCache[entity.id] = scanResult.lookups[entity.itemIndex]
+        }
+        log(TAG, INFO) { "performScan(): Populated cache with ${insertedItems.size} lookups" }
+
+        log(TAG, INFO) { "performScan(): Updated session $sessionId with ${itemsWithCorrectSession.size} items" }
+
+        return SwiperScanTask.Success(
+            sessionId = sessionId,
+            itemCount = itemsWithCorrectSession.size,
+        )
     }
 
     private suspend fun performDelete(task: SwiperDeleteTask): SwiperDeleteTask.Result {
@@ -384,9 +348,16 @@ class Swiper @Inject constructor(
         itemDao.deleteItem(itemId)
     }
 
-    override suspend fun createSession(paths: Set<APath>): String = toolLock.withLock {
+    override suspend fun createSession(
+        paths: Set<APath>,
+    ): SwiperSessionCreator.Result = toolLock.withLock {
         require(paths.isNotEmpty()) { "Cannot create session with empty paths" }
         log(TAG, INFO) { "createSession(paths=$paths)" }
+        val activeCount = sessionDao.countActiveSessions()
+        if (activeCount >= SwiperSettings.FREE_VERSION_SESSION_LIMIT && !upgradeRepo.isProForUi()) {
+            log(TAG, WARN) { "createSession(): Free session limit reached ($activeCount active)" }
+            return@withLock SwiperSessionCreator.Result.LimitReached
+        }
         val sessionId = java.util.UUID.randomUUID().toString()
         val now = Instant.now()
         val session = SwipeSessionEntity(
@@ -400,7 +371,7 @@ class Swiper @Inject constructor(
         )
         sessionDao.insert(session)
         log(TAG, INFO) { "Created session: $sessionId" }
-        sessionId
+        SwiperSessionCreator.Result.Created(sessionId)
     }
 
     suspend fun updateSessionFilter(sessionId: String, filter: FileTypeFilter) = toolLock.withLock {

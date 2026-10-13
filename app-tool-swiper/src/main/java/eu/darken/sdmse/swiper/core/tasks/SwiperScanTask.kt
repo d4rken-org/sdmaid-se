@@ -2,18 +2,13 @@ package eu.darken.sdmse.swiper.core.tasks
 
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.common.ca.caString
-import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class SwiperScanTask(
-    val paths: Set<APath>? = null,
-    val sessionId: String? = null,
+    val sessionId: String,
 ) : SwiperTask {
-    init {
-        require(paths != null || sessionId != null) { "Either paths or sessionId must be provided" }
-    }
 
     sealed interface Result : SwiperTask.Result
 

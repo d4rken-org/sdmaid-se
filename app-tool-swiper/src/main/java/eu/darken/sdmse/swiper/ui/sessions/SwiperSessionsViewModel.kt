@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.SwiperSessionCreator
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.NavigationController
@@ -57,7 +58,10 @@ class SwiperSessionsViewModel @Inject constructor(
                 log(TAG, INFO) { "Picker returned ${result.selectedPaths.size} paths" }
                 val paths = result.selectedPaths
                 selectedPaths.value = paths
-                if (paths.isNotEmpty()) swiper.createSession(paths)
+                if (paths.isEmpty()) return@onEach
+                if (swiper.createSession(paths) is SwiperSessionCreator.Result.LimitReached) {
+                    navTo(UpgradeRoute())
+                }
             }
             .launchIn(vmScope)
     }
