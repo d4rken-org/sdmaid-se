@@ -334,6 +334,12 @@ private fun ReadyContent(
                     onToggle = { onToggleTag(Exclusion.Tag.DEDUPLICATOR) },
                 )
                 TagToggle(
+                    label = stringResource(CommonR.string.squeezer_tool_name),
+                    icon = SDMTool.Type.SQUEEZER.icon,
+                    checked = ready.current.tags.contains(Exclusion.Tag.SQUEEZER),
+                    onToggle = { onToggleTag(Exclusion.Tag.SQUEEZER) },
+                )
+                TagToggle(
                     label = stringResource(CommonR.string.swiper_tool_name),
                     icon = SDMTool.Type.SWIPER.icon,
                     checked = ready.current.tags.contains(Exclusion.Tag.SWIPER),
