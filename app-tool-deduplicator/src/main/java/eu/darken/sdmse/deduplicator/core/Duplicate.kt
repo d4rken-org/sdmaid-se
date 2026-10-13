@@ -138,6 +138,28 @@ interface Duplicate {
                     }
                 }.toSet()
             }
+
+        /**
+         * The file a set delete keeps: the favorite group's keeper, or its sole member if it has only one.
+         */
+        val keptDuplicateId: Duplicate.Id?
+            get() {
+                val favorite = groups.firstOrNull { it.identifier == favoriteGroupIdentifier } ?: return null
+                return favorite.keeperIdentifier ?: favorite.duplicates.singleOrNull()?.identifier
+            }
+
+        /**
+         * Caps a folder delete so one file of this cluster survives.
+         * Cluster {a, b, c}, kept a: {a, b, c} -> {b, c}; {a, b} -> {a, b}; {b, x} -> {b} (x is not in this cluster).
+         */
+        fun keepOneOf(targetIds: Set<Duplicate.Id>): Set<Duplicate.Id> {
+            val clusterIds = groups.flatMap { group -> group.duplicates.map { it.identifier } }.toSet()
+            val live = clusterIds.filter { targetIds.contains(it) }.toSet()
+            if (!live.containsAll(clusterIds)) return live
+            val keptId = keptDuplicateId ?: live.firstOrNull() ?: return live
+            return live - keptId
+        }
+
         val count: Int
             get() = groups.sumOf { it.count }
         val types: Set<Type>

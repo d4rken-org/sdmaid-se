@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.deleter
 
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -60,6 +61,12 @@ class DuplicatesDeleter @Inject constructor(
 
             is DeduplicatorDeleteTask.TargetMode.Duplicates -> data.targetDuplicates(
                 targets = task.mode.targets,
+            )
+
+            is DeduplicatorDeleteTask.TargetMode.Directory -> data.targetDirectory(
+                clusterId = task.mode.clusterId,
+                targets = task.mode.targets,
+                deleteAll = task.mode.deleteAll,
             )
         }
 
@@ -152,6 +159,26 @@ class DuplicatesDeleter @Inject constructor(
                 }
             }
             .flatten()
+    }
+
+    private suspend fun Deduplicator.Data.targetDirectory(
+        clusterId: Duplicate.Cluster.Id,
+        targets: Set<Duplicate.Id>,
+        deleteAll: Boolean,
+    ): Collection<Duplicate> {
+        val cluster = clusters.firstOrNull { it.identifier == clusterId }
+        if (cluster == null) {
+            log(TAG, WARN) { "#targetDirectory(): Unknown cluster $clusterId" }
+            return emptyList()
+        }
+        val ids = if (deleteAll) {
+            val clusterIds = cluster.groups.flatMap { group -> group.duplicates.map { it.identifier } }.toSet()
+            targets.filter { clusterIds.contains(it) }.toSet()
+        } else {
+            cluster.keepOneOf(targets)
+        }
+        log(TAG, VERBOSE) { "#targetDirectory(deleteAll=$deleteAll): $clusterId -> $ids" }
+        return targetDuplicates(ids)
     }
 
     private suspend fun Deduplicator.Data.targetDuplicates(
