@@ -54,6 +54,8 @@ class VideoProcessor @Inject constructor(
         val success: Set<CompressibleVideo>,
         val failed: Map<CompressibleVideo, Throwable>,
         val savedSpace: Long,
+        /** Videos whose transcode was not smaller; see [ImageProcessor.Result.unchanged]. */
+        val unchanged: Set<CompressibleVideo> = emptySet(),
     )
 
     /**
@@ -81,6 +83,7 @@ class VideoProcessor @Inject constructor(
 
         val successful = mutableSetOf<CompressibleVideo>()
         val failed = mutableMapOf<CompressibleVideo, Throwable>()
+        val unchanged = mutableSetOf<CompressibleVideo>()
         var totalSaved = 0L
 
         targets.forEachIndexed { index, video ->
@@ -101,9 +104,9 @@ class VideoProcessor @Inject constructor(
                 val outcome = processVideo(video, quality) { pct ->
                     updateProgressSubCount(Progress.Count.Percent(pct, 100))
                 }
-                successful.add(video)
 
                 if (outcome.replaced) {
+                    successful.add(video)
                     totalSaved += outcome.savedBytes
                     try {
                         val identifier = videoContentHasher.computeHash(video.path)
@@ -117,6 +120,7 @@ class VideoProcessor @Inject constructor(
                     // don't burn cycles re-trying a file we already know won't shrink. Dry runs
                     // fall through to the else branch (they have savedBytes > 0 even though
                     // replaced = false). User's retry escape hatch is clearing history.
+                    unchanged.add(video)
                     try {
                         val identifier = videoContentHasher.computeHash(video.path)
                         historyDatabase.recordNoSavings(identifier.contentId)
@@ -125,6 +129,7 @@ class VideoProcessor @Inject constructor(
                     }
                     log(TAG, INFO) { "Skipped ${video.path} (no savings, recorded)" }
                 } else {
+                    successful.add(video)
                     log(TAG, INFO) { "Skipped ${video.path} (dry-run)" }
                 }
             } catch (e: CancellationException) {
@@ -145,13 +150,15 @@ class VideoProcessor @Inject constructor(
         }
 
         log(TAG, INFO) {
-            "Processing complete: ${successful.size}/${targets.size} videos, ${failed.size} failed, saved $totalSaved bytes"
+            "Processing complete: ${successful.size}/${targets.size} videos, ${failed.size} failed, " +
+                "${unchanged.size} unchanged, saved $totalSaved bytes"
         }
 
         Result(
             success = successful,
             failed = failed,
             savedSpace = totalSaved,
+            unchanged = unchanged,
         )
     }
 

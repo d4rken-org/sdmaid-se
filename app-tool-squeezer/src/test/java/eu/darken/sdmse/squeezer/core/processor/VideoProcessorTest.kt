@@ -121,11 +121,36 @@ class VideoProcessorTest : BaseTest() {
 
         val result = subject.process(setOf(video), quality = 80)
 
-        result.success.size shouldBe 1
+        result.success shouldBe emptySet()
+        result.unchanged shouldBe setOf(video)
         result.failed.size shouldBe 0
         result.savedSpace shouldBe 0L
 
         coVerify { historyDatabase.recordNoSavings(hashId) }
+    }
+
+    @Test
+    fun `process - dry run with savings counts as success without history`() = runTest {
+        val video = createVideo()
+
+        coEvery { fileTransaction.replace(any(), any(), any()) } coAnswers {
+            FileTransaction.Outcome(
+                originalSize = 10_000_000L,
+                replacementSize = 5_000_000L,
+                savedBytes = 5_000_000L,
+                replaced = false,
+            )
+        }
+
+        val result = subject.process(setOf(video), quality = 80)
+
+        result.success shouldBe setOf(video)
+        result.unchanged shouldBe emptySet()
+        result.failed.size shouldBe 0
+        result.savedSpace shouldBe 0L
+
+        coVerify(exactly = 0) { historyDatabase.recordCompression(any()) }
+        coVerify(exactly = 0) { historyDatabase.recordNoSavings(any()) }
     }
 
     @Test

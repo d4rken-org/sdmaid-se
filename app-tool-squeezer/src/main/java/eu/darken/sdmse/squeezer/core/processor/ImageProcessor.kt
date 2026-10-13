@@ -63,6 +63,11 @@ class ImageProcessor @Inject constructor(
          * but still consumed from the scan list.
          */
         val skippedGuarded: Set<CompressibleImage> = emptySet(),
+        /**
+         * Photos that were re-encoded but whose output was not smaller, so the original was kept.
+         * Not "compressed" either, but still consumed from the scan list.
+         */
+        val unchanged: Set<CompressibleImage> = emptySet(),
     )
 
     /**
@@ -93,6 +98,7 @@ class ImageProcessor @Inject constructor(
         val successful = mutableSetOf<CompressibleImage>()
         val failed = mutableMapOf<CompressibleImage, Throwable>()
         val skippedGuarded = mutableSetOf<CompressibleImage>()
+        val unchanged = mutableSetOf<CompressibleImage>()
         var totalSaved = 0L
 
         targets.forEachIndexed { index, image ->
@@ -139,9 +145,9 @@ class ImageProcessor @Inject constructor(
 
             try {
                 val outcome = processImage(image, quality)
-                successful.add(image)
 
                 if (outcome.replaced) {
+                    successful.add(image)
                     totalSaved += outcome.savedBytes
                     try {
                         val identifier = imageContentHasher.computeHash(image.path)
@@ -155,6 +161,7 @@ class ImageProcessor @Inject constructor(
                     // don't burn cycles re-trying a file we already know won't shrink. Dry runs
                     // fall through to the else branch (they have savedBytes > 0 even though
                     // replaced = false). User's retry escape hatch is clearing history.
+                    unchanged.add(image)
                     try {
                         val identifier = imageContentHasher.computeHash(image.path)
                         historyDatabase.recordNoSavings(identifier.contentId)
@@ -163,6 +170,7 @@ class ImageProcessor @Inject constructor(
                     }
                     log(TAG, INFO) { "Skipped ${image.path} (no savings, recorded)" }
                 } else {
+                    successful.add(image)
                     log(TAG, INFO) { "Skipped ${image.path} (dry-run)" }
                 }
             } catch (e: CancellationException) {
@@ -184,7 +192,7 @@ class ImageProcessor @Inject constructor(
 
         log(TAG, INFO) {
             "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, " +
-                "${skippedGuarded.size} guard-preserved, saved $totalSaved bytes"
+                "${unchanged.size} unchanged, ${skippedGuarded.size} guard-preserved, saved $totalSaved bytes"
         }
 
         Result(
@@ -192,6 +200,7 @@ class ImageProcessor @Inject constructor(
             failed = failed,
             savedSpace = totalSaved,
             skippedGuarded = skippedGuarded,
+            unchanged = unchanged,
         )
     }
 
