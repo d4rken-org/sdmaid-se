@@ -34,6 +34,42 @@ class ManageSpaceDetourTest : BaseTest() {
         isManageSpaceDetour(centerSent = true, windowPkg = SETTINGS, targetPkg = SETTINGS) shouldBe false
     }
 
+    @Test
+    fun `three-button row predicted when all conditions hold`() {
+        predictsManageStorageButton(
+            settingsHasManageStorageText = true,
+            manageSpaceActivityName = MANAGE_SPACE_ACTIVITY,
+            manageSpaceActivityResolves = true,
+        ) shouldBe true
+    }
+
+    @Test
+    fun `no three-button row when Settings lacks the resource`() {
+        predictsManageStorageButton(
+            settingsHasManageStorageText = false,
+            manageSpaceActivityName = MANAGE_SPACE_ACTIVITY,
+            manageSpaceActivityResolves = true,
+        ) shouldBe false
+    }
+
+    @Test
+    fun `no three-button row without a manageSpaceActivity`() {
+        predictsManageStorageButton(
+            settingsHasManageStorageText = true,
+            manageSpaceActivityName = null,
+            manageSpaceActivityResolves = true,
+        ) shouldBe false
+    }
+
+    @Test
+    fun `no three-button row when the manageSpaceActivity does not resolve`() {
+        predictsManageStorageButton(
+            settingsHasManageStorageText = true,
+            manageSpaceActivityName = MANAGE_SPACE_ACTIVITY,
+            manageSpaceActivityResolves = false,
+        ) shouldBe false
+    }
+
     private val original = snapshot(12_000_000L to "12 MB", 3_000_000L to "3 MB")
     private val settled = snapshot(12_000_000L to "12 MB", 3_100_000L to "3.1 MB")
     private val calculating = snapshot(12_000_000L to "12 MB", null to "Calculating…")
@@ -218,6 +254,7 @@ class ManageSpaceDetourTest : BaseTest() {
     companion object {
         private const val VANADIUM = "app.vanadium.browser"
         private const val SETTINGS = "com.android.settings"
+        private const val MANAGE_SPACE_ACTIVITY = "org.chromium.chrome.browser.site_settings.ManageSpaceActivity"
 
         private const val BACK = "BACK"
         private const val ANCHOR = "ANCHOR"
