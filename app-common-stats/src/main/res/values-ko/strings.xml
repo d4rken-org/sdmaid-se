@@ -48,7 +48,6 @@
     <string name="stats_space_history_delta_label">변화량</string>
     <string name="stats_space_history_delta_in_x">%2$s 동안 %1$s</string>
     <string name="stats_space_history_upgrade_title">전체 기록은 Pro 기능입니다</string>
-    <string name="stats_space_history_upgrade_body_v2">업그레이드하면 각 저장 장치의 90일 전체 추이 보기를 이용할 수 있고, 저장공간이 부족해지기 전에 경고도 받을 수 있어요.</string>
     <string name="stats_space_history_marker_freed">%1$s 해제됨</string>
     <string name="stats_storage_type_primary">주 저장소</string>
     <string name="stats_storage_type_secondary">추가 저장소</string>

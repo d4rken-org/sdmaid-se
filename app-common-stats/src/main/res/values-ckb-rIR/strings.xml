@@ -52,7 +52,6 @@
     <string name="stats_space_history_delta_label">دێڵتا</string>
     <string name="stats_space_history_delta_in_x">%1$s لە %2$s</string>
     <string name="stats_space_history_upgrade_title">مێژووی تەواو تایبەتمەندییەکی Pro ە</string>
-    <string name="stats_space_history_upgrade_body_v2">بەرزکردنەوە بکە بۆ کردنەوەی بینینی تەواوی ڕەوتی ٩٠ ڕۆژ بۆ هەر ئامێرێکی بیرگە، و ئاگاداری وەربگرە پێش ئەوەی بۆشاییت تەواو بێت.</string>
     <string name="stats_space_history_marker_freed">%1$s ئازادکراوە</string>
     <string name="stats_storage_type_primary">ئەنبارێکی سەرەکی</string>
     <string name="stats_storage_type_secondary">ئەنبارێکی دووەم</string>

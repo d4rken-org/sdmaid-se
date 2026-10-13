@@ -54,7 +54,6 @@
     <string name="stats_space_history_delta_label">დელტა</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s-ში</string>
     <string name="stats_space_history_upgrade_title">სრული ისტორია Pro ფუნქციაა</string>
-    <string name="stats_space_history_upgrade_body_v2">განახლდი, რომ თითოეული საცავი მოწყობილობისთვის სრული 90-დღიანი ტენდენციის ხედი განბლოკო და მიიღო გაფრთხილება, სანამ სივრცე ამოიწურება.</string>
     <string name="stats_space_history_marker_freed">გათავისუფლდა %1$s</string>
     <string name="stats_storage_type_primary">ძირითადი მეხსიერება</string>
     <string name="stats_storage_type_secondary">მეორადი მეხსიერება</string>
