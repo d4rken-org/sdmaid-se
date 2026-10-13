@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.scanner
 
 import eu.darken.sdmse.common.MimeTypeTool
+import eu.darken.sdmse.common.MimeTypes
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -31,6 +32,9 @@ class CommonFilesCheck @Inject constructor(
         private val APPS_SUFFIXES = setOf(
             "apk",
             "apks"
+        )
+        private val APPS = setOf(
+            MimeTypes.Apk.value,
         )
         private val IMAGES = setOf(
             "image/x-ms-bmp",
@@ -86,7 +90,7 @@ class CommonFilesCheck @Inject constructor(
             "text/csv",
             "text/rtf"
         )
-        private val COMMON_TYPES = IMAGES + VIDEOS + AUDIO + ARCHIVES + DOCUMENTS
+        private val COMMON_TYPES = APPS + IMAGES + VIDEOS + AUDIO + ARCHIVES + DOCUMENTS
         private val TAG = logTag("Deduplicator", "CommonFilesCheck")
     }
 }
