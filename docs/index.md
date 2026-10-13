@@ -19,11 +19,11 @@ SD Maid SE (AKA SD Maid 2) is a file management tool for Android that specialise
 * [CorpseFinder](/corpsefinder): removes data that belongs to apps that are no longer installed
 * [SystemCleaner](/systemcleaner): user configurable filters for random files
 * [StorageAnalyzer](/storageanalyzer): storage overview
+* [Deduplicator](/deduplicator): finds duplicate data
+* [Media Squeeze](/mediasqueeze): compresses photos and videos
+* [Swiper](/swiper): swipe assisted deletion
 * [AppControl](/appcontrol): controls and disables apps
 * [Scheduler](/scheduler): schedules cleaning actions
-* Deduplicator: finds duplicate data
-* Squeezer: compresses images
-* Swiper: swipe assisted deletion
 
 ## Download
 
