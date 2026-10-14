@@ -21,7 +21,7 @@ from pathlib import Path
 from urllib.parse import urljoin, urlsplit
 
 # Pages without translations
-ENGLISH_ONLY = {"changelog", "privacy", "security"}
+ENGLISH_ONLY = set(json.loads((Path(__file__).parent / "english_only.json").read_text(encoding="utf-8")))
 HEADING = re.compile(r"^(#{1,6})\s+\S")
 # kramdown ignores `#id` unless it matches ID (e.g. `#2-or-se`), so those use the `id="..."` form
 ATTR = re.compile(r'^\{:\s*(?:#([^\s}]+)|id="([^"]+)")\s*\}\s*$')
