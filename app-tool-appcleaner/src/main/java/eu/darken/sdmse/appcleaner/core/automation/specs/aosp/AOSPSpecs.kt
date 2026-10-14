@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 import android.accessibilityservice.AccessibilityService
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import dagger.Binds
 import dagger.Module
@@ -297,10 +298,10 @@ class AOSPSpecs @Inject constructor(
 
     private class StatsMode(val reader: CacheStatsReader, val baseline: CacheStats.Positive)
 
-    // Only the target's cache bytes decide here. On stock Pixel Android 17 the storage page has no cache
-    // row and "User data" excludes the cache, so a press that cleared it can leave every row unchanged,
-    // and a zero or unparseable row says nothing about the cache. The event is waited for in parallel,
-    // for the log only.
+    // Only the target's cache bytes decide here. The Cache row can be missing from the accessibility tree
+    // (as on a Pixel 9 Pro with Android 17) and "User data" excludes the cache, so a press that cleared it
+    // can leave every row unchanged, and a zero or unparseable row says nothing about the cache. The event
+    // is waited for in parallel, for the log only.
     private suspend fun StepContext.validateWithStats(
         source: String,
         stats: StatsMode,
@@ -370,6 +371,31 @@ class AOSPSpecs @Inject constructor(
         }
         log(tag, INFO) {
             "Containment: GLOBAL_ACTION_BACK result=$wentBack from rootPkg=${root.packageName}, anchorReturned=$anchorReturned"
+        }
+    }
+
+    // Equal anchor reads don't mean the window is at rest: during Settings' entry transition the anchor
+    // read the same twice while the root still sat at Rect(217, 0 - 1177, 2142) on a 960px display.
+    // A root reaching past the display's horizontal bounds is still moving. With the display bounds
+    // unknown, every root counts as at rest.
+    private fun StepContext.windowAtRestCheck(): suspend (ACSNodeInfo) -> Boolean {
+        val display = readDisplayBounds()
+        log(tag, INFO) { "DPAD rest check: display=$display" }
+        if (display == null) return { true }
+        return { root -> root.getScreenBounds().let { it.left >= display.left && it.right <= display.right } }
+    }
+
+    private fun StepContext.readDisplayBounds(): ACSNodeInfo.ScreenBounds? {
+        if (!hasApiLevel(30)) return null
+        return try {
+            host.service.getSystemService(WindowManager::class.java)
+                ?.maximumWindowMetrics
+                ?.bounds
+                ?.takeIf { it.right - it.left > 0 }
+                ?.let { ACSNodeInfo.ScreenBounds(it.left, it.top, it.right, it.bottom) }
+        } catch (e: Exception) {
+            log(tag, WARN) { "DPAD rest check: display bounds unavailable: $e" }
+            null
         }
     }
 
@@ -479,11 +505,20 @@ class AOSPSpecs @Inject constructor(
         var anchorHits = 0
         var totalRightSteps = 0
         var hadBootstrapInputFocus = false
+        val isWindowAtRest = windowAtRestCheck()
+        val awaitWindowAtRest: suspend () -> Boolean = {
+            waitForLayoutStability(
+                anchorId = anchorId,
+                maxChecks = LAYOUT_REST_CHECKS,
+                delayMs = LAYOUT_REST_DELAY_MS,
+                isWindowAtRest = isWindowAtRest,
+            ) != null
+        }
 
-        val cacheBaseline = coroutineScope {
+        val (atRest, cacheBaseline) = coroutineScope {
             val baselineRead = async { cacheStats.read(BASELINE_READ_TIMEOUT_MS) }
-            waitForLayoutStability(anchorId)
-            baselineRead.await()
+            val settled = awaitWindowAtRest()
+            settled to baselineRead.await()
         }
         onBaseline(cacheBaseline)
         when (cacheBaseline) {
@@ -499,6 +534,10 @@ class AOSPSpecs @Inject constructor(
             CacheStats.Unavailable -> log(tag, INFO) {
                 "CacheStats[baseline]: unavailable, presses are verified by the storage page"
             }
+        }
+        if (!atRest) {
+            log(tag, WARN) { "DPAD aborted before any key, the storage page never came to rest" }
+            return false
         }
         val stats = (cacheBaseline as? CacheStats.Positive)?.let { StatsMode(cacheStats, it) }
 
@@ -640,7 +679,7 @@ class AOSPSpecs @Inject constructor(
                     if (detour) {
                         val ops = ManageSpaceDetourOps(
                             back = { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) },
-                            awaitAnchor = { waitForLayoutStability(anchorId) != null },
+                            awaitAnchor = awaitWindowAtRest,
                             takeSnapshot = { takeStorageSnapshot(sizeParser, host.windowRoot()) },
                             bootstrapAnchor = { bootstrapAnchor(MANAGE_SPACE_DETOUR_SOURCE) },
                             dpadDown = dpadDown,
@@ -1075,6 +1114,10 @@ class AOSPSpecs @Inject constructor(
         private const val DPAD_RUN_DEADLINE_MS = 10_000L
         private const val CONTAINMENT_POLLS = 10
         private const val CONTAINMENT_POLL_DELAY_MS = 100L
+
+        // Up to about 3s for Settings' entry transition to end.
+        private const val LAYOUT_REST_CHECKS = 15
+        private const val LAYOUT_REST_DELAY_MS = 200L
 
         private const val BASELINE_READ_TIMEOUT_MS = 2_000L
         private const val FINAL_RECHECK_READ_TIMEOUT_MS = 1_000L
