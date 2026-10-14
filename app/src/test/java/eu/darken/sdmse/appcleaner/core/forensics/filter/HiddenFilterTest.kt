@@ -5,6 +5,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.neg
 import eu.darken.sdmse.appcleaner.core.forensics.pos
 import eu.darken.sdmse.common.areas.DataArea.Type.PRIVATE_DATA
 import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_DATA
+import eu.darken.sdmse.common.areas.DataArea.Type.PUBLIC_MEDIA
 import eu.darken.sdmse.common.areas.DataArea.Type.SDCARD
 import eu.darken.sdmse.common.rngString
 import kotlinx.coroutines.test.runTest
@@ -1074,6 +1075,30 @@ class HiddenFilterTest : BaseFilterTest() {
         addDefaultNegatives()
         neg("com.whatsapp", SDCARD, "WhatsApp/.Shared")
         pos("com.whatsapp", SDCARD, "WhatsApp/.Shared/$rngString")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared")
+        pos("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/$rngString")
+        pos("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/$rngString/$rngString.tmp")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.SharedBackup/$rngString.tmp")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/.Links/$rngString")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/.nomedia")
+        neg("com.whatsapp", PUBLIC_DATA, "com.whatsapp/WhatsApp/.Shared/$rngString.tmp")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString")
+        confirm(create())
+    }
+
+    @Test fun testWhatsAppBusinessShared() = runTest {
+        addDefaultNegatives()
+        neg("com.whatsapp.w4b", SDCARD, "WhatsApp Business/.Shared")
+        pos("com.whatsapp.w4b", SDCARD, "WhatsApp Business/.Shared/$rngString")
+        pos("com.whatsapp.w4b", SDCARD, "WhatsApp Business/.Shared/$rngString/$rngString.tmp")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared")
+        pos("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString")
+        pos("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString/$rngString.tmp")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.SharedBackup/$rngString.tmp")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/Media/.Links/$rngString")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/.nomedia")
+        neg("com.whatsapp.w4b", PUBLIC_DATA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString.tmp")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/$rngString")
         confirm(create())
     }
 
