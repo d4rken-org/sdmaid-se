@@ -2,7 +2,10 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import android.accessibilityservice.AccessibilityService
 import android.content.res.Resources
+import android.graphics.Rect
 import android.util.DisplayMetrics
+import android.view.WindowManager
+import android.view.WindowMetrics
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
@@ -20,6 +23,7 @@ import eu.darken.sdmse.common.ui.SizeParser
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
+import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
@@ -1761,5 +1765,124 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         } finally {
             release.countDown()
         }
+    }
+
+    // ============================================================
+    // Starting the DPAD only on a window at rest
+    // ============================================================
+
+    private fun stubDisplayWidth(width: Int) {
+        val displayRect = Rect().apply {
+            left = 0
+            top = 0
+            right = width
+            bottom = 2142
+        }
+        val metrics = mockk<WindowMetrics> { every { bounds } returns displayRect }
+        val windowManager = mockk<WindowManager> { every { maximumWindowMetrics } returns metrics }
+        every { testHost.service.getSystemService(WindowManager::class.java) } returns windowManager
+    }
+
+    // Storage page on a 960px wide display. While Settings' entry transition runs, the root still sits
+    // to the right and the anchor keeps reporting bounds it only has once the window is at rest.
+    private fun transitionPage(sliding: Boolean): TestACSNodeInfo {
+        val rootBounds = if (sliding) "Rect(217, 0 - 1177, 2142)" else "Rect(0, 0 - 960, 2142)"
+        val headerBounds = if (sliding) "Rect(305, 373 - 1089, 819)" else "Rect(88, 373 - 872, 819)"
+        return buildTestTree(
+            "ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=$rootBounds\n" +
+                "ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=$headerBounds",
+            withBounds = true,
+        )
+    }
+
+    // Returns the virtual time of every global action. DPAD_CENTER emits the validation event.
+    private fun TestScope.recordGlobalActionTimes(): List<Long> {
+        val times = mutableListOf<Long>()
+        every { testHost.service.performGlobalAction(any()) } answers {
+            times += testScheduler.currentTime
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) emitValidationEventAsync()
+            true
+        }
+        return times
+    }
+
+    @Test
+    fun `no DPAD key is sent before the storage page has come to rest`() = runTest {
+        setupAllowlistedDpad(this)
+        stubDisplayWidth(960)
+        val keyTimes = recordGlobalActionTimes()
+        // The run's cache baseline read marks its start; the transition ends 1s later.
+        var runStartAt = -1L
+        coEvery { cacheProvider.determineCache(any()) } answers {
+            runStartAt = testScheduler.currentTime
+            testHost.scope.launch {
+                delay(1_000)
+                testHost.setWindowRoot(transitionPage(sliding = false))
+            }
+            null
+        }
+        testRoot = transitionPage(sliding = true)
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        (runStartAt >= 0) shouldBe true
+        keyTimes.min() shouldBeGreaterThanOrEqual runStartAt + 1_000
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a storage page that never comes to rest ends the attempt without any DPAD key`() = runTest {
+        setupAllowlistedDpad(this)
+        stubDisplayWidth(960)
+        recordGlobalActionTimes()
+        testRoot = transitionPage(sliding = true)
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        abort.replayable shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `a zero cache baseline ends the target as already empty on a page that never comes to rest`() = runTest {
+        setupAllowlistedDpad(this)
+        stubDisplayWidth(960)
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(0L)
+        recordGlobalActionTimes()
+        testRoot = transitionPage(sliding = true)
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.treatAsSuccess shouldBe true
+        abort.message shouldContain "already empty"
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `an unknown display width lets the DPAD start on a page that is still sliding in`() = runTest {
+        setupAllowlistedDpad(this)
+        stubDisplayWidth(0)
+        val keyTimes = recordGlobalActionTimes()
+        var runStartAt = -1L
+        coEvery { cacheProvider.determineCache(any()) } answers {
+            runStartAt = testScheduler.currentTime
+            null
+        }
+        testRoot = transitionPage(sliding = true)
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        (runStartAt >= 0) shouldBe true
+        (keyTimes.min() - runStartAt) shouldBeLessThan 1_000L
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 }
