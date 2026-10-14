@@ -290,16 +290,14 @@ fun APath.removePrefix(prefix: APath, overlap: Int = 0): Segments {
     }
 }
 
-fun Collection<APath>.filterDistinctRoots(): Set<APath> = this
-    .sortedBy { it.segments.size }
-    .fold<APath, Set<APath>>(emptySet()) { acc, path ->
-        if (acc.none { it.isAncestorOf(path) }) {
-            acc + path
-        } else {
-            acc
-        }
+fun Collection<APath>.filterDistinctRoots(): Set<APath> {
+    val index = APathAncestorIndex<APath> { it }
+    val roots = LinkedHashSet<APath>()
+    this.sortedBy { it.segments.size }.forEach { path ->
+        if (!index.hasAncestorOf(path) && roots.add(path)) index.add(path)
     }
-    .toSet()
+    return roots
+}
 
 val APath.extension: String?
     get() = name.substringAfterLast('.', "").takeIf { it.isNotEmpty() }

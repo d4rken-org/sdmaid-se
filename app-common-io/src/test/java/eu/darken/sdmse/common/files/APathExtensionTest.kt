@@ -790,6 +790,47 @@ class APathExtensionTest : BaseTest() {
         setOf(file1, file1s, file2, file2s).filterDistinctRoots() shouldBe setOf(file1, file2)
     }
 
+    @Test fun `filterDistinctRoots operator - same elements in the same order as a pairwise fold`() {
+        fun Collection<APath>.referenceRoots(): Set<APath> = this
+            .sortedBy { it.segments.size }
+            .fold<APath, Set<APath>>(emptySet()) { acc, path ->
+                if (acc.none { it.isAncestorOf(path) }) acc + path else acc
+            }
+            .toSet()
+
+        val otherTree = "content://com.example.otherprovider/tree/primary%3A"
+        val input: List<APath> = listOf(
+            LocalPath.build("a", "b", "c", "d"),
+            SAFPath.build(treeUri, "x", "y", "z"),
+            LocalPath.build("a", "b", "c"),
+            LocalPath.build("z", "file"),
+            SAFPath.build(otherTree, "x", "y"),
+            LocalPath.build("a", "bc"),
+            SAFPath.build(treeUri, "x", "y"),
+            LocalPath.build("a", "b"),
+            LocalPath.build("z", "file"),
+            SAFPath.build(treeUri, "x", "y"),
+            SAFPath.build(otherTree, "x", "y", "z"),
+            LocalPath.build("q", "r", "s"),
+            SAFPath.build(treeUri, "w"),
+            LocalPath.build("a", "b", "x"),
+            LocalPath.build("q", "r", "s", "t"),
+            SAFPath.build(treeUri, "w", "v"),
+        )
+
+        val expected = input.referenceRoots().toList()
+        expected shouldBe listOf(
+            SAFPath.build(treeUri, "w"),
+            SAFPath.build(otherTree, "x", "y"),
+            SAFPath.build(treeUri, "x", "y"),
+            LocalPath.build("z", "file"),
+            LocalPath.build("a", "bc"),
+            LocalPath.build("a", "b"),
+            LocalPath.build("q", "r", "s"),
+        )
+        input.filterDistinctRoots().toList() shouldBe expected
+    }
+
 
     @Test fun `file extensions`() {
         LocalPath.build("test", "file1").extension shouldBe null
