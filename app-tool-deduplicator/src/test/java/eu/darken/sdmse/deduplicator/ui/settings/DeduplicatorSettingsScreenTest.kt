@@ -1,12 +1,15 @@
 package eu.darken.sdmse.deduplicator.ui.settings
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -21,6 +24,7 @@ class DeduplicatorSettingsScreenTest : BaseComposeRobolectricTest() {
         onSleuthMediaChanged: (Boolean) -> Unit = {},
         onSearchLocationsClick: () -> Unit = {},
         onArbiterConfigClick: () -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
@@ -33,6 +37,7 @@ class DeduplicatorSettingsScreenTest : BaseComposeRobolectricTest() {
                     onSleuthMediaChanged = onSleuthMediaChanged,
                     onSearchLocationsClick = onSearchLocationsClick,
                     onArbiterConfigClick = onArbiterConfigClick,
+                    onHelp = onHelp,
                 )
             }
         }
@@ -158,5 +163,14 @@ class DeduplicatorSettingsScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("Skip uncommon file types").performClick()
 
         if (captured != false) throw AssertionError("Expected callback with false (inverted from true), got $captured")
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setSettingsScreen(onHelp = { help++ })
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 }

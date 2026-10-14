@@ -4,6 +4,7 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.datastore.DataStoreValue
@@ -21,6 +22,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
@@ -76,6 +78,7 @@ class AppControlSettingsViewModelTest : BaseTest() {
         val listFilter: DataStoreValue<FilterSettings>,
         val sizingFlow: MutableStateFlow<Boolean>,
         val activityFlow: MutableStateFlow<Boolean>,
+        val webpageTool: WebpageTool,
     )
 
     private fun harness(
@@ -126,6 +129,7 @@ class AppControlSettingsViewModelTest : BaseTest() {
         val shizukuManager = mockk<ShizukuManager>().apply {
             every { accessState } returns flowOf(shizukuAccess)
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = AppControlSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             appControl = appControl,
@@ -133,6 +137,7 @@ class AppControlSettingsViewModelTest : BaseTest() {
             rootManager = rootManager,
             shizukuManager = shizukuManager,
             settings = settings,
+            webpageTool = webpageTool,
         )
         return Harness(
             vm = vm,
@@ -144,6 +149,7 @@ class AppControlSettingsViewModelTest : BaseTest() {
             listFilter = listFilterValue,
             sizingFlow = sizingFlow,
             activityFlow = activityFlow,
+            webpageTool = webpageTool,
         )
     }
 
@@ -368,5 +374,14 @@ class AppControlSettingsViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 0) { h.listFilter.update(any()) }
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/appcontrol#settings") }
     }
 }

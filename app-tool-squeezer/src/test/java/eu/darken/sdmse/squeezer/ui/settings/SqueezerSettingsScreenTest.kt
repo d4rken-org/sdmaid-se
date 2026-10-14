@@ -1,12 +1,15 @@
 package eu.darken.sdmse.squeezer.ui.settings
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -22,6 +25,7 @@ class SqueezerSettingsScreenTest : BaseComposeRobolectricTest() {
         onWriteExifMarkerChanged: (Boolean) -> Unit = {},
         onMinSizeChanged: (Long) -> Unit = {},
         onClearHistoryConfirmed: () -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
@@ -35,6 +39,7 @@ class SqueezerSettingsScreenTest : BaseComposeRobolectricTest() {
                     onWriteExifMarkerChanged = onWriteExifMarkerChanged,
                     onMinSizeChanged = onMinSizeChanged,
                     onClearHistoryConfirmed = onClearHistoryConfirmed,
+                    onHelp = onHelp,
                 )
             }
         }
@@ -174,6 +179,15 @@ class SqueezerSettingsScreenTest : BaseComposeRobolectricTest() {
         composeRule.onNodeWithText("Reset").performClick()
 
         cleared shouldBe 1
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setSettingsScreen(SqueezerSettingsViewModel.State(), onHelp = { help++ })
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 
     private infix fun <T> T.shouldBe(expected: T) {

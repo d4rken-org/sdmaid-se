@@ -1,9 +1,11 @@
 package eu.darken.sdmse.scheduler.ui.settings
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.flow.first
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -17,6 +19,7 @@ class SchedulerSettingsViewModelTest : BaseTest() {
         skipPowerSaving: Boolean = true,
         skipNotCharging: Boolean = false,
         useAutomation: Boolean = false,
+        webpageTool: WebpageTool = mockk(relaxed = true),
     ): SchedulerSettingsViewModel {
         val settings = mockk<SchedulerSettings>().apply {
             coEvery { this@apply.skipWhenPowerSaving } returns mockDataStoreValue(skipPowerSaving)
@@ -26,6 +29,7 @@ class SchedulerSettingsViewModelTest : BaseTest() {
         return SchedulerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
+            webpageTool = webpageTool,
         )
     }
 
@@ -43,5 +47,14 @@ class SchedulerSettingsViewModelTest : BaseTest() {
         state.skipWhenPowerSaving shouldBe false
         state.skipWhenNotCharging shouldBe true
         state.useAutomation shouldBe true
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
+
+        vm(webpageTool = webpageTool).onHelpClick()
+
+        verify(exactly = 1) { webpageTool.open("https://sdmse.darken.eu/scheduler#additional-options") }
     }
 }

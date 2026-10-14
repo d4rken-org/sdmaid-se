@@ -1,16 +1,19 @@
 package eu.darken.sdmse.systemcleaner.ui.settings
 
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -20,6 +23,7 @@ class SystemCleanerSettingsScreenTest : BaseComposeRobolectricTest() {
         state: SystemCleanerSettingsViewModel.State,
         onScreenshotsAgeSaved: (java.time.Duration) -> Unit = {},
         onRootFilterBadgeClick: () -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
@@ -27,6 +31,7 @@ class SystemCleanerSettingsScreenTest : BaseComposeRobolectricTest() {
                     state = state,
                     onScreenshotsAgeSaved = onScreenshotsAgeSaved,
                     onRootFilterBadgeClick = onRootFilterBadgeClick,
+                    onHelp = onHelp,
                 )
             }
         }
@@ -149,5 +154,14 @@ class SystemCleanerSettingsScreenTest : BaseComposeRobolectricTest() {
         if (badgeClicks != 0) {
             throw AssertionError("Blocked row must not route to setup, but onRootFilterBadgeClick fired $badgeClicks time(s)")
         }
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setSettingsScreen(SystemCleanerSettingsViewModel.State(), onHelp = { help++ })
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 }

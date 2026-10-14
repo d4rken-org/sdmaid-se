@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.settings
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.files.APath
@@ -20,6 +21,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
@@ -62,6 +64,7 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
         val pickerResults: MutableStateFlow<PickerResult?>,
         val capturedConsumeKey: io.mockk.CapturingSlot<ResultKey<PickerResult>>,
         val values: Values,
+        val webpageTool: WebpageTool,
     )
 
     private class CollectedEvents<T>(
@@ -113,12 +116,14 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
                 pickerResults.collect { value -> if (value != null) emit(value) }
             }
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = DeduplicatorSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
             navCtrl = navCtrl,
+            webpageTool = webpageTool,
         )
-        return Harness(vm, settings, navCtrl, pickerResults, capturedKey, values)
+        return Harness(vm, settings, navCtrl, pickerResults, capturedKey, values, webpageTool)
     }
 
     @Test
@@ -339,5 +344,14 @@ class DeduplicatorSettingsViewModelTest : BaseTest() {
         // selected set verbatim — no `old`.
         val transformed = captured.captured(DeduplicatorSettings.ScanPaths(paths = setOf(old)))
         transformed?.paths shouldBe setOf(newA, newB)
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/deduplicator#settings") }
     }
 }

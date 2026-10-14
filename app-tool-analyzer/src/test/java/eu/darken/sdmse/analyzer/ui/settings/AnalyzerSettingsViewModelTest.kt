@@ -1,6 +1,7 @@
 package eu.darken.sdmse.analyzer.ui.settings
 
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.stats.core.LowStorage
@@ -11,6 +12,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -37,6 +39,7 @@ class AnalyzerSettingsViewModelTest : BaseTest() {
         val vm: AnalyzerSettingsViewModel,
         val threshold: DataStoreValue<Long?>,
         val notificationEnabled: DataStoreValue<Boolean>,
+        val webpageTool: WebpageTool,
     )
 
     private fun TestScope.harness(
@@ -64,16 +67,18 @@ class AnalyzerSettingsViewModelTest : BaseTest() {
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(info)
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = AnalyzerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
             spaceTracker = spaceTracker,
             upgradeRepo = upgradeRepo,
+            webpageTool = webpageTool,
         )
         // safeStateIn is WhileSubscribed: without a live subscriber `state.value` stays at the
         // initial State() and the Pro guard in setNotificationEnabled would never see isPro.
         backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
-        return Harness(vm, threshold, notification)
+        return Harness(vm, threshold, notification, webpageTool)
     }
 
     // ─────────────────────────── state ───────────────────────────
@@ -195,5 +200,14 @@ class AnalyzerSettingsViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 0) { h.notificationEnabled.update(any()) }
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/storageanalyzer#settings") }
     }
 }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.settings
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.navigation.NavEvent
@@ -16,6 +17,7 @@ import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -59,6 +61,7 @@ class SystemCleanerSettingsViewModelTest : BaseTest() {
         val vm: SystemCleanerSettingsViewModel,
         val settings: SystemCleanerSettings,
         val values: Values,
+        val webpageTool: WebpageTool,
     )
 
     private fun buildHarness(
@@ -163,14 +166,16 @@ class SystemCleanerSettingsViewModelTest : BaseTest() {
                 if (rooted) AccessState.Active else AccessState.Undecided,
             )
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = SystemCleanerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             upgradeRepo = upgradeRepo,
             systemCleaner = systemCleaner,
             rootManager = rootManager,
             settings = settings,
+            webpageTool = webpageTool,
         )
-        return Harness(vm, settings, values)
+        return Harness(vm, settings, values, webpageTool)
     }
 
     @Test
@@ -313,5 +318,14 @@ class SystemCleanerSettingsViewModelTest : BaseTest() {
         val event = h.vm.navEvents.first()
         event.shouldBeInstanceOf<NavEvent.GoTo>()
         event.destination.shouldBeInstanceOf<SetupRoute>()
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = buildHarness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/systemcleaner#settings") }
     }
 }

@@ -1,16 +1,19 @@
 package eu.darken.sdmse.corpsefinder.ui.settings
 
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -20,6 +23,7 @@ class CorpseFinderSettingsScreenTest : BaseComposeRobolectricTest() {
         state: CorpseFinderSettingsViewModel.State,
         onFilterSdcardChanged: (Boolean) -> Unit = {},
         onIncludeRiskKeeperChanged: (Boolean) -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
@@ -27,6 +31,7 @@ class CorpseFinderSettingsScreenTest : BaseComposeRobolectricTest() {
                     state = state,
                     onFilterSdcardChanged = onFilterSdcardChanged,
                     onIncludeRiskKeeperChanged = onIncludeRiskKeeperChanged,
+                    onHelp = onHelp,
                 )
             }
         }
@@ -150,6 +155,15 @@ class CorpseFinderSettingsScreenTest : BaseComposeRobolectricTest() {
         // Unavailable: tapping the row routes to the badge handler, NOT the filter toggle.
         filterToggled shouldBe null
         badgeClicked shouldBe 1
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setSettingsScreen(CorpseFinderSettingsViewModel.State(), onHelp = { help++ })
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 
     private infix fun <T> T.shouldBe(expected: T) {
