@@ -2,9 +2,9 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 
 import android.content.Intent
 import android.provider.Settings
-import androidx.core.net.toUri
 import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -29,17 +29,7 @@ class SecurityCenterMissingPermissionException(
             }
         },
         infoActionLabel = eu.darken.sdmse.common.R.string.general_help_action.toCaString(),
-        infoAction = {
-            try {
-                val url = "https://sdmse.darken.eu/appcleaner#commiuisecuritycenter".toUri()
-                val intent = Intent(Intent.ACTION_VIEW, url).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }
-                it.startActivity(intent)
-            } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to open the docs page: ${e.asLog()}" }
-            }
-        }
+        infoAction = { WebpageTool.open(it, "https://sdmse.darken.eu/appcleaner#commiuisecuritycenter") }
     )
 
     companion object {
