@@ -7,13 +7,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathAncestorIndex
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.PathException
 import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.exists
 import eu.darken.sdmse.common.files.filterDistinctRoots
-import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
@@ -56,10 +56,22 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
         log(TAG) { "Got ${distinctRoots.size} distinct roots" }
         updateProgressCount(Progress.Count.Percent(distinctRoots.size))
 
+        val mainByLookup = HashMap<APathLookup<*>, ExpendablesFilter.Match.Deletion>(targets.size)
+        targets.forEach { mainByLookup.getOrPut(it.lookup) { it } }
+
+        val rootIndex = APathAncestorIndex<APathLookup<*>> { it.lookedUp }
+        distinctRoots.forEach { rootIndex.add(it) }
+        val descendantsByRoot = HashMap<APathLookup<*>, MutableList<ExpendablesFilter.Match>>()
+        allMatches.forEach { match ->
+            rootIndex.ancestorsOf(match.lookup.lookedUp).forEach { root ->
+                descendantsByRoot.getOrPut(root) { ArrayList() }.add(match)
+            }
+        }
+
         distinctRoots.forEach { targetRoot ->
             log(TAG) { "Processing root: $targetRoot" }
             updateProgressPrimary(targetRoot.userReadablePath)
-            val main = targets.first { it.lookup == targetRoot }
+            val main = mainByLookup.getValue(targetRoot)
 
             val mainDeleted = try {
                 targetRoot.delete(gatewaySwitch, recursive = true)
@@ -83,7 +95,7 @@ abstract class BaseExpendablesFilter : ExpendablesFilter {
             }
 
             // deleteAll(...) starts at leafs, children may have been deleted, even if the top-level dir wasn't
-            val affected = allMatches.filter { it != main && main.lookup.isAncestorOf(it.lookup) }
+            val affected = descendantsByRoot[targetRoot].orEmpty().filter { it != main }
             if (Bugs.isTrace) {
                 log(TAG) { "$main affects ${affected.size} other matches" }
                 affected.forEach { log(TAG, VERBOSE) { "Affected: $it" } }
