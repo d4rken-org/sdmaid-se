@@ -7,6 +7,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.Chat
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.automirrored.twotone.RotateRight
 import androidx.compose.material.icons.twotone.AdsClick
@@ -112,6 +113,7 @@ fun AppCleanerSettingsScreenHost(
         onFilterWeChatChanged = vm::setFilterWeChat,
         onFilterViberChanged = vm::setFilterViber,
         onFilterMobileQQChanged = vm::setFilterMobileQQ,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -154,6 +156,7 @@ internal fun AppCleanerSettingsScreen(
     onFilterWeChatChanged: (Boolean) -> Unit = {},
     onFilterViberChanged: (Boolean) -> Unit = {},
     onFilterMobileQQChanged: (Boolean) -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     var showSizeDialog by remember { mutableStateOf(false) }
     var showAgeDialog by remember { mutableStateOf(false) }
@@ -209,6 +212,13 @@ internal fun AppCleanerSettingsScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

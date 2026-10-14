@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.LocalLibrary
 import androidx.compose.material.icons.twotone.PhotoLibrary
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -65,6 +66,7 @@ fun CorpseFinderSettingsScreenHost(
         onFilterAppSourcePrivateChanged = vm::setFilterAppSourcePrivateEnabled,
         onFilterAppSourceAsecChanged = vm::setFilterAppSourceAsecEnabled,
         onRootFilterBadgeClick = vm::onRootFilterBadgeClick,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -90,6 +92,7 @@ internal fun CorpseFinderSettingsScreen(
     onFilterAppSourcePrivateChanged: (Boolean) -> Unit = {},
     onFilterAppSourceAsecChanged: (Boolean) -> Unit = {},
     onRootFilterBadgeClick: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val watcherSummary = stringResource(R.string.corpsefinder_watcher_summary)
 
@@ -115,6 +118,13 @@ internal fun CorpseFinderSettingsScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

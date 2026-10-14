@@ -3,6 +3,7 @@ package eu.darken.sdmse.swiper.ui.settings
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.SwapHoriz
 import androidx.compose.material.icons.twotone.Vibration
@@ -13,6 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -20,6 +22,7 @@ import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.swiper.R
+import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 fun SwiperSettingsScreenHost(
@@ -35,6 +38,7 @@ fun SwiperSettingsScreenHost(
         onSwapDirectionsChanged = vm::setSwapSwipeDirections,
         onShowDetailsChanged = vm::setShowFileDetailsOverlay,
         onHapticFeedbackChanged = vm::setHapticFeedbackEnabled,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -45,12 +49,20 @@ internal fun SwiperSettingsScreen(
     onSwapDirectionsChanged: (Boolean) -> Unit = {},
     onShowDetailsChanged: (Boolean) -> Unit = {},
     onHapticFeedbackChanged: (Boolean) -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     SdmScaffold(
         topBar = {
             SdmTopAppBar(
                 title = stringResource(R.string.swiper_label),
                 onNavigateUp = onNavigateUp,
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
+                    )
+                },
             )
         },
     ) { paddingValues ->

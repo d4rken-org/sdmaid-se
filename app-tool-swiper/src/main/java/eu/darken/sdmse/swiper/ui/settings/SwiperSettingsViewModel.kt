@@ -1,6 +1,7 @@
 package eu.darken.sdmse.swiper.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -14,6 +15,7 @@ import javax.inject.Inject
 class SwiperSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val settings: SwiperSettings,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     val state: StateFlow<State> = combine(
@@ -43,6 +45,10 @@ class SwiperSettingsViewModel @Inject constructor(
         settings.hapticFeedbackEnabled.value(value)
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val swapSwipeDirections: Boolean = false,
         val showFileDetailsOverlay: Boolean = true,
@@ -51,5 +57,6 @@ class SwiperSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Swiper", "Settings", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/swiper#settings"
     }
 }

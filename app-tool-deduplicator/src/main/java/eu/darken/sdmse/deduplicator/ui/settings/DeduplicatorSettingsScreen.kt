@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.GraphicEq
@@ -24,6 +25,7 @@ import eu.darken.sdmse.common.compose.icons.ApproximatelyEqualBox
 import eu.darken.sdmse.common.compose.icons.CodeEqualBox
 import eu.darken.sdmse.common.compose.icons.Numeric0Box
 import eu.darken.sdmse.common.compose.icons.SdmIcons
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -57,6 +59,7 @@ fun DeduplicatorSettingsScreenHost(
         onSleuthChecksumChanged = vm::setSleuthChecksumEnabled,
         onSleuthPHashChanged = vm::setSleuthPHashEnabled,
         onSleuthMediaChanged = vm::setSleuthMediaEnabled,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -74,6 +77,7 @@ internal fun DeduplicatorSettingsScreen(
     onSleuthChecksumChanged: (Boolean) -> Unit = {},
     onSleuthPHashChanged: (Boolean) -> Unit = {},
     onSleuthMediaChanged: (Boolean) -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     var showSizeDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
@@ -105,6 +109,13 @@ internal fun DeduplicatorSettingsScreen(
             SdmTopAppBar(
                 title = stringResource(CommonR.string.deduplicator_tool_name),
                 onNavigateUp = onNavigateUp,
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
+                    )
+                },
             )
         },
     ) { paddingValues ->

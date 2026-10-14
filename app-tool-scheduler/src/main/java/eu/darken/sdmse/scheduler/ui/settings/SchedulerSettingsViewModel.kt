@@ -1,6 +1,7 @@
 package eu.darken.sdmse.scheduler.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -14,6 +15,7 @@ import javax.inject.Inject
 class SchedulerSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val settings: SchedulerSettings,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     val state: StateFlow<State> = combine(
@@ -43,6 +45,10 @@ class SchedulerSettingsViewModel @Inject constructor(
         settings.useAutomation.value(value)
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val skipWhenPowerSaving: Boolean = true,
         val skipWhenNotCharging: Boolean = false,
@@ -51,5 +57,6 @@ class SchedulerSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Scheduler", "Settings", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/scheduler#additional-options"
     }
 }

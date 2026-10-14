@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.FormatListBulleted
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.AccessTimeFilled
 import androidx.compose.material.icons.twotone.AdsClick
 import androidx.compose.material.icons.twotone.Analytics
@@ -100,6 +101,7 @@ fun SystemCleanerSettingsScreenHost(
         onUsageStatsChanged = vm::setFilterUsageStats,
         onPackageCacheChanged = vm::setFilterPackageCache,
         onRootFilterBadgeClick = vm::onRootFilterBadgeClick,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -135,6 +137,7 @@ internal fun SystemCleanerSettingsScreen(
     onUsageStatsChanged: (Boolean) -> Unit = {},
     onPackageCacheChanged: (Boolean) -> Unit = {},
     onRootFilterBadgeClick: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     var showScreenshotAgeDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
@@ -177,6 +180,13 @@ internal fun SystemCleanerSettingsScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

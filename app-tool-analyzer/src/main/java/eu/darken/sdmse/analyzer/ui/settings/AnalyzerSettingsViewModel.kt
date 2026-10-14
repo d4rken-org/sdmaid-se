@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -24,6 +25,7 @@ class AnalyzerSettingsViewModel @Inject constructor(
     private val settings: AnalyzerSettings,
     private val spaceTracker: SpaceTracker,
     upgradeRepo: UpgradeRepo,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     // A single reading is enough: capacity only informs the "currently X" hint next to Automatic.
@@ -68,6 +70,10 @@ class AnalyzerSettingsViewModel @Inject constructor(
         navTo(UpgradeRoute(forced = true))
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val customThresholdBytes: Long? = null,
         val primaryCapacityBytes: Long? = null,
@@ -78,5 +84,6 @@ class AnalyzerSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "Analyzer", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/storageanalyzer#settings"
     }
 }
