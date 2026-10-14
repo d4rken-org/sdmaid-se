@@ -3,7 +3,7 @@ title: "Usuwanie duplikatów"
 lang: pl
 translation_key: deduplicator
 permalink: /pl/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Usuwanie duplikatów (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Pomija pliki mniejsze niż ten rozmiar. Domyślnie 512 KB.
 ### Pomiń niestandardowe typy plików
 {: #skip-uncommon-file-types }
 
-Uwzględnia tylko popularne obrazy, filmy, pliki audio, dokumenty i archiwa. Domyślnie włączone. Typ jest określany na podstawie rozszerzenia pliku.
+Uwzględnia tylko popularne obrazy, filmy, pliki audio, dokumenty, archiwa i pliki APK. Domyślnie włączone. Typ jest określany na podstawie rozszerzenia pliku.
 
 ### Metoda wykrywania
 {: #detection-method }

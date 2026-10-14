@@ -3,7 +3,7 @@ title: "Desduplicador"
 lang: pt-BR
 translation_key: deduplicator
 permalink: /pt-br/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Desduplicador (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Ignora arquivos abaixo desse tamanho. Padrão de 512 KB.
 ### Ignorar tipos de arquivo incomuns
 {: #skip-uncommon-file-types }
 
-Inclui apenas imagens, vídeos, arquivos de áudio, documentos e arquivos compactados comuns. Ativado por padrão. O tipo é determinado pela extensão do arquivo.
+Inclui apenas imagens, vídeos, arquivos de áudio, documentos, arquivos compactados e arquivos APK comuns. Ativado por padrão. O tipo é determinado pela extensão do arquivo.
 
 ### Método de detecção
 {: #detection-method }

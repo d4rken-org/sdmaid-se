@@ -3,7 +3,7 @@ title: "去重工具（Deduplicator）"
 lang: zh-Hans
 translation_key: deduplicator
 permalink: /zh-hans/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # 去重工具（Deduplicator）
 {: #deduplicator }
@@ -126,7 +126,7 @@ SD Maid 会按顺序检查每条规则。第一条能决出明确胜者的规则
 ### 跳过不常见的文件类型
 {: #skip-uncommon-file-types }
 
-只包含常见的图片、视频、音频文件、文档和压缩包。默认开启。文件类型由文件扩展名决定。
+只包含常见的图片、视频、音频文件、文档、压缩包和 APK 文件。默认开启。文件类型由文件扩展名决定。
 
 ### 检测方法
 {: #detection-method }

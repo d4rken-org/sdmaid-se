@@ -125,7 +125,7 @@ Skip files below this size. Default 512 KB.
 ### Skip uncommon file types
 {: #skip-uncommon-file-types }
 
-Only include common images, videos, audio files, documents and archives. On by default. The type is determined by the file extension.
+Only include common images, videos, audio files, documents, archives and APK files. On by default. The type is determined by the file extension.
 
 ### Detection method
 {: #detection-method }

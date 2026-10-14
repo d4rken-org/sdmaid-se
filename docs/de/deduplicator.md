@@ -3,7 +3,7 @@ title: "Duplikat-Entferner"
 lang: de
 translation_key: deduplicator
 permalink: /de/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Duplikat-Entferner (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Dateien unterhalb dieser Größe überspringen. Standard ist 512 KB.
 ### Überspringe ungewöhnliche Dateitypen
 {: #skip-uncommon-file-types }
 
-Nur gängige Bilder, Videos, Audiodateien, Dokumente und Archive einbeziehen. Standardmäßig an. Der Typ wird anhand der Dateiendung bestimmt.
+Nur gängige Bilder, Videos, Audiodateien, Dokumente, Archive und APK-Dateien einbeziehen. Standardmäßig an. Der Typ wird anhand der Dateiendung bestimmt.
 
 ### Erkennungsmethode
 {: #detection-method }
