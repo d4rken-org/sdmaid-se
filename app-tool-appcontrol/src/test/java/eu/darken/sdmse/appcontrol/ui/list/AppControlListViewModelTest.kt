@@ -17,6 +17,7 @@ import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.core.usage.UsageInfo
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.DataStoreValue
@@ -43,6 +44,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
@@ -220,6 +222,7 @@ class AppControlListViewModelTest : BaseTest() {
         val includeMultiUserEnabled: DataStoreValue<Boolean>,
         val stateFlow: MutableStateFlow<AppControl.State>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
+        val webpageTool: WebpageTool,
     )
 
     private class CollectedEvents<T>(
@@ -317,6 +320,7 @@ class AppControlListViewModelTest : BaseTest() {
         val context = mockk<Context>(relaxed = true)
         val usageStatsSetupModule = mockk<SetupModule>(relaxed = true)
         val storageSetupModule = mockk<SetupModule>(relaxed = true)
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
 
         val vm = AppControlListViewModel(
             handle = SavedStateHandle(),
@@ -329,6 +333,7 @@ class AppControlListViewModelTest : BaseTest() {
             taskManager = taskSubmitter,
             usageStatsSetupModule = usageStatsSetupModule,
             storageSetupModule = storageSetupModule,
+            webpageTool = webpageTool,
         )
         return Harness(
             vm = vm,
@@ -348,6 +353,7 @@ class AppControlListViewModelTest : BaseTest() {
             includeMultiUserEnabled = includeMultiUserEnabledStore,
             stateFlow = stateFlow,
             progressFlow = progressFlow,
+            webpageTool = webpageTool,
         )
     }
 
@@ -1193,5 +1199,14 @@ class AppControlListViewModelTest : BaseTest() {
         val state = h.vm.state.first()
         state.options.listSort shouldBe SortSettings(mode = SortSettings.Mode.SCREEN_TIME, reversed = false)
         state.rows!!.map { it.appInfo.pkg.packageName } shouldBe listOf("com.newer.app", "com.older.app")
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/appcontrol") }
     }
 }

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.progress.Progress
@@ -18,6 +19,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -64,6 +66,7 @@ class CorpseFinderListViewModelTest : BaseTest() {
         val vm: CorpseFinderListViewModel,
         val corpseFinder: CorpseFinder,
         val taskSubmitter: TaskSubmitter,
+        val webpageTool: WebpageTool,
         val dataFlow: MutableStateFlow<CorpseFinder.Data?>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
         val taskStateFlow: MutableStateFlow<TaskSubmitter.State>,
@@ -135,14 +138,18 @@ class CorpseFinderListViewModelTest : BaseTest() {
             // MockK. Tests that need a decline re-stub this.
             coEvery { submitIfToolIdle(any()) } returns mockk<SDMTool.Task.Result>(relaxed = true)
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val newVm = {
             CorpseFinderListViewModel(
                 dispatcherProvider = TestDispatcherProvider(),
                 corpseFinder = corpseFinder,
                 taskSubmitter = taskSubmitter,
+                webpageTool = webpageTool,
             )
         }
-        return Harness(newVm(), corpseFinder, taskSubmitter, dataFlow, progressFlow, taskStateFlow, newVm)
+        return Harness(
+            newVm(), corpseFinder, taskSubmitter, webpageTool, dataFlow, progressFlow, taskStateFlow, newVm,
+        )
     }
 
     @Test
@@ -656,5 +663,14 @@ class CorpseFinderListViewModelTest : BaseTest() {
 
         nav.list shouldBe emptyList()
         nav.cancel()
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/corpsefinder") }
     }
 }

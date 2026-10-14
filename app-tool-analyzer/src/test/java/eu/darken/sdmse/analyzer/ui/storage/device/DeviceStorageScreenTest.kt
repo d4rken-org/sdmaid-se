@@ -1,7 +1,9 @@
 package eu.darken.sdmse.analyzer.ui.storage.device
 
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -22,6 +24,7 @@ class DeviceStorageScreenTest : BaseComposeRobolectricTest() {
         state: DeviceStorageViewModel.State,
         onLowSpaceHintDismiss: () -> Unit = {},
         onLowSpaceHintUpgrade: () -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
@@ -30,6 +33,7 @@ class DeviceStorageScreenTest : BaseComposeRobolectricTest() {
                         stateSource = MutableStateFlow(state),
                         onLowSpaceHintDismiss = onLowSpaceHintDismiss,
                         onLowSpaceHintUpgrade = onLowSpaceHintUpgrade,
+                        onHelp = onHelp,
                     )
                 }
             }
@@ -67,5 +71,17 @@ class DeviceStorageScreenTest : BaseComposeRobolectricTest() {
             assertEquals(1, dismissals)
             assertEquals(1, upgrades)
         }
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setStorageScreen(
+            state = DeviceStorageViewModel.State(),
+            onHelp = { help++ },
+        )
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 }

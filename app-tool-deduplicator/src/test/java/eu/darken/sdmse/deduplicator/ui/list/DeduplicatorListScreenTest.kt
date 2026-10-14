@@ -4,6 +4,7 @@ import androidx.compose.ui.semantics.SemanticsActions
 import androidx.compose.ui.semantics.getOrNull
 import androidx.compose.ui.test.SemanticsMatcher
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.click
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.longClick
@@ -273,5 +274,33 @@ class DeduplicatorListScreenTest : BaseComposeRobolectricTest() {
         composeRule.runOnIdle {
             if (preview != 0) throw AssertionError("preview must not fire during selection, got preview=$preview")
         }
+    }
+
+    @Test
+    fun `help action shows in the normal top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setContent {
+            PreviewWrapper {
+                DeduplicatorListScreen(
+                    stateSource = MutableStateFlow(gridState()),
+                    onHelp = { help++ },
+                )
+            }
+        }
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle {
+            if (help != 1) throw AssertionError("help=$help")
+        }
+    }
+
+    @Test
+    fun `help action is hidden in selection mode`() {
+        composeRule.setScreen(gridState())
+        composeRule.onNodeWithContentDescription("Help").assertExists()
+
+        composeRule.onNode(hasClickLabel("Delete duplicate set")).performTouchInput { longClick() }
+
+        composeRule.onNodeWithContentDescription("Help").assertDoesNotExist()
     }
 }

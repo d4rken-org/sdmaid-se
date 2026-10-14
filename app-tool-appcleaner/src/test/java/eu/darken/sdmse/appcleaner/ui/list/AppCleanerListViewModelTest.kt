@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.ui.preview.previewAppJunk
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -21,6 +22,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -72,6 +74,7 @@ class AppCleanerListViewModelTest : BaseTest() {
         val appCleaner: AppCleaner,
         val taskSubmitter: TaskSubmitter,
         val upgradeRepo: UpgradeRepo,
+        val webpageTool: WebpageTool,
         val stateFlow: MutableStateFlow<AppCleaner.State>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
         val taskStateFlow: MutableStateFlow<TaskSubmitter.State>,
@@ -150,6 +153,7 @@ class AppCleanerListViewModelTest : BaseTest() {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
         }
         val context = mockk<Context>(relaxed = true)
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val newVm = {
             AppCleanerListViewModel(
                 dispatcherProvider = TestDispatcherProvider(),
@@ -157,10 +161,11 @@ class AppCleanerListViewModelTest : BaseTest() {
                 appCleaner = appCleaner,
                 taskSubmitter = taskSubmitter,
                 upgradeRepo = upgradeRepo,
+                webpageTool = webpageTool,
             )
         }
         return Harness(
-            newVm(), appCleaner, taskSubmitter, upgradeRepo, stateFlow, progressFlow, taskStateFlow, newVm,
+            newVm(), appCleaner, taskSubmitter, upgradeRepo, webpageTool, stateFlow, progressFlow, taskStateFlow, newVm,
         )
     }
 
@@ -660,5 +665,14 @@ class AppCleanerListViewModelTest : BaseTest() {
 
         nav.list shouldBe emptyList()
         nav.cancel()
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/appcleaner") }
     }
 }

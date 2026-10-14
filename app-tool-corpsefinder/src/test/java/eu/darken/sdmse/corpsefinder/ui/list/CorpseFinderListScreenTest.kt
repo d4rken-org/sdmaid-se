@@ -2,11 +2,14 @@ package eu.darken.sdmse.corpsefinder.ui.list
 
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performTouchInput
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.tour.GuidedTourController
 import eu.darken.sdmse.common.compose.tour.LocalGuidedTourController
@@ -34,11 +37,14 @@ class CorpseFinderListScreenTest : BaseComposeRobolectricTest() {
             ),
         )
 
-    private fun ComposeContentTestRule.setListScreen(state: CorpseFinderListViewModel.State) {
+    private fun ComposeContentTestRule.setListScreen(
+        state: CorpseFinderListViewModel.State,
+        onHelp: () -> Unit = {},
+    ) {
         setContent {
             CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
                 PreviewWrapper {
-                    CorpseFinderListScreen(stateSource = MutableStateFlow(state))
+                    CorpseFinderListScreen(stateSource = MutableStateFlow(state), onHelp = onHelp)
                 }
             }
         }
@@ -116,6 +122,29 @@ class CorpseFinderListScreenTest : BaseComposeRobolectricTest() {
 
         clicked.size shouldBeAtLeastInt 1
         clicked.last().corpse.lookup.lookedUp shouldBeEqual second.corpse.lookup.lookedUp
+    }
+
+    @Test
+    fun `help action shows in the normal top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setListScreen(
+            CorpseFinderListViewModel.State(rows = listOf(row("alpha.dat"))),
+            onHelp = { help++ },
+        )
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { help shouldBeEqual 1 }
+    }
+
+    @Test
+    fun `help action is hidden in selection mode`() {
+        composeRule.setListScreen(CorpseFinderListViewModel.State(rows = listOf(row("alpha.dat"))))
+        composeRule.onNodeWithContentDescription("Help").assertExists()
+
+        composeRule.onNodeWithText("alpha.dat").performTouchInput { longClick() }
+
+        composeRule.onNodeWithContentDescription("Delete selected").assertExists()
+        composeRule.onNodeWithContentDescription("Help").assertDoesNotExist()
     }
 
     private infix fun Int.shouldBeAtLeastInt(min: Int) {

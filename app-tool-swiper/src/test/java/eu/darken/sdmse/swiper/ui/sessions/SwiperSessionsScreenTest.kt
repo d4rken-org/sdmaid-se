@@ -1,13 +1,17 @@
 package eu.darken.sdmse.swiper.ui.sessions
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.SwipeSession
 import eu.darken.sdmse.swiper.core.Swiper
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 import java.time.Instant
@@ -136,5 +140,21 @@ class SwiperSessionsScreenTest : BaseComposeRobolectricTest() {
         // The default-state row text is not asserted here — Robolectric's LazyColumn measurements
         // are unreliable for off-window content. We're checking the empty-header suppression by
         // proxy: the visible row is the labeled session, not the header card text.
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setContent {
+            PreviewWrapper {
+                SwiperSessionsScreen(
+                    stateSource = MutableStateFlow(SwiperSessionsViewModel.State(areSessionsLoaded = true)),
+                    onHelp = { help++ },
+                )
+            }
+        }
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 }

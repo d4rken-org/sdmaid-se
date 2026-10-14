@@ -1,6 +1,7 @@
 package eu.darken.sdmse.squeezer.ui.setup
 
 import eu.darken.sdmse.common.MimeTypeTool
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.local.LocalGateway
@@ -26,6 +27,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
@@ -67,6 +69,7 @@ class SqueezerSetupViewModelTest : BaseTest() {
         val squeezerState: MutableStateFlow<Squeezer.State>,
         val pickerResults: MutableStateFlow<PickerResult?>,
         val values: Values,
+        val webpageTool: WebpageTool,
     )
 
     private class CollectedEvents<T>(
@@ -135,6 +138,7 @@ class SqueezerSetupViewModelTest : BaseTest() {
         }
         val storageEnvironment = mockk<StorageEnvironment>(relaxed = true)
         val mimeTypeTool = mockk<MimeTypeTool>(relaxed = true)
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
 
         val pickerResults = MutableStateFlow<PickerResult?>(null)
         val navCtrl = mockk<NavigationController>(relaxed = true).apply {
@@ -156,6 +160,7 @@ class SqueezerSetupViewModelTest : BaseTest() {
             storageEnvironment = storageEnvironment,
             mimeTypeTool = mimeTypeTool,
             navCtrl = navCtrl,
+            webpageTool = webpageTool,
         )
         return Harness(
             vm = vm,
@@ -172,6 +177,7 @@ class SqueezerSetupViewModelTest : BaseTest() {
                 minAge = minAgeValue,
                 minSizeBytes = minSizeValue,
             ),
+            webpageTool = webpageTool,
         )
     }
 
@@ -461,5 +467,14 @@ class SqueezerSetupViewModelTest : BaseTest() {
         val captured = slot<(SqueezerSettings.ScanPaths) -> SqueezerSettings.ScanPaths?>()
         coVerify(atLeast = 1) { h.values.scanPaths.update(capture(captured)) }
         captured.captured(SqueezerSettings.ScanPaths())!!.paths shouldBe setOf(picked)
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/mediasqueeze") }
     }
 }
