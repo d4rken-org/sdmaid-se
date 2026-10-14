@@ -25,22 +25,25 @@ class WebpageTool @Inject constructor(
 
     companion object {
         fun open(context: Context, address: String): Boolean {
-            val intent = Intent(Intent.ACTION_VIEW, address.toUri()).apply {
+            val locales = context.resources.configuration.locales.let { list -> List(list.size()) { list[it] } }
+            val url = DocsUrls.localize(address, locales)
+            if (url != address) log(TAG) { "Localized $address to $url" }
+            val intent = Intent(Intent.ACTION_VIEW, url.toUri()).apply {
                 addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             }
             // Android TV has no browser, a system stub consumes browser intents and shows an unhelpful toast.
             val handler = intent.resolveActivity(context.packageManager)
             if (handler != null && handler.packageName in STUB_PACKAGES) {
-                log(TAG, ERROR) { "Failed to launch. Only stub handler ($handler) available for $address" }
-                showNoAppToast(context, address)
+                log(TAG, ERROR) { "Failed to launch. Only stub handler ($handler) available for $url" }
+                showNoAppToast(context, url)
                 return false
             }
             return try {
                 context.startActivity(intent)
                 true
             } catch (e: ActivityNotFoundException) {
-                log(TAG, ERROR) { "Failed to launch. No compatible activity for $address" }
-                showNoAppToast(context, address)
+                log(TAG, ERROR) { "Failed to launch. No compatible activity for $url" }
+                showNoAppToast(context, url)
                 false
             } catch (e: SecurityException) {
                 // Permission Denial: starting Intent { act=android.intent.action.VIEW dat=https://github.com/...

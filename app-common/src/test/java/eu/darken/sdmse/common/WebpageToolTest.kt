@@ -36,6 +36,14 @@ class WebpageToolTest : BaseTest() {
     }
 
     @Test
+    @Config(qualifiers = "de")
+    fun `docs links open in the app language`() {
+        WebpageTool(application).open("https://sdmse.darken.eu/setup#shizuku") shouldBe true
+
+        shadowOf(application).nextStartedActivity!!.data shouldBe "https://sdmse.darken.eu/de/setup#shizuku".toUri()
+    }
+
+    @Test
     fun `the android-tv stub handler is not a launch`() {
         // Android TV has no browser; the system stub would consume the intent and show an unhelpful
         // toast, so nothing is started at all.

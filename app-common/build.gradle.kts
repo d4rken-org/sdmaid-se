@@ -27,6 +27,8 @@ android {
         tasks.withType<Test> {
             useJUnitPlatform()
             setupTests()
+            inputs.file(rootProject.file("docs/_data/languages.json"))
+            inputs.file(rootProject.file("tooling/docs/english_only.json"))
         }
     }
 }
