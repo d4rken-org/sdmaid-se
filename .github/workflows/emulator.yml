@@ -99,8 +99,10 @@ jobs:
         uses: ./.github/actions/common-setup
 
       # Beta falls back to the debug key without release credentials, but only a debug build makes AGP create it.
+      # Pin the Android home to where the key lives; AGP can otherwise switch to $XDG_CONFIG_HOME/.android mid-job.
       - name: Create the debug keystore
         run: |
+          echo "ANDROID_USER_HOME=$HOME/.android" >> "$GITHUB_ENV"
           test -f ~/.android/debug.keystore && exit 0
           mkdir -p ~/.android
           keytool -genkeypair -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey \
@@ -164,8 +166,10 @@ jobs:
         uses: ./.github/actions/common-setup
 
       # Beta falls back to the debug key without release credentials, but only a debug build makes AGP create it.
+      # Pin the Android home to where the key lives; AGP can otherwise switch to $XDG_CONFIG_HOME/.android mid-job.
       - name: Create the debug keystore
         run: |
+          echo "ANDROID_USER_HOME=$HOME/.android" >> "$GITHUB_ENV"
           test -f ~/.android/debug.keystore && exit 0
           mkdir -p ~/.android
           keytool -genkeypair -keystore ~/.android/debug.keystore -storepass android -alias androiddebugkey \
