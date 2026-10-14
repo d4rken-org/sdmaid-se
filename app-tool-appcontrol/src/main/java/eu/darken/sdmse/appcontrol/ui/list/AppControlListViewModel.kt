@@ -21,6 +21,7 @@ import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -75,6 +76,7 @@ class AppControlListViewModel @Inject constructor(
     private val taskManager: TaskSubmitter,
     @SetupBinding(SetupModule.Type.USAGE_STATS) private val usageStatsSetupModule: SetupModule,
     @SetupBinding(SetupModule.Type.STORAGE) private val storageSetupModule: SetupModule,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     // A scan cancelled before any data existed leaves rows == null with no progress, which is
@@ -533,6 +535,10 @@ class AppControlListViewModel @Inject constructor(
         return ids intersect live
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class DisplayOptions(
         val searchQuery: String = "",
         val listSort: SortSettings = SortSettings(),
@@ -575,5 +581,6 @@ class AppControlListViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("AppControl", "List", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/appcontrol"
     }
 }

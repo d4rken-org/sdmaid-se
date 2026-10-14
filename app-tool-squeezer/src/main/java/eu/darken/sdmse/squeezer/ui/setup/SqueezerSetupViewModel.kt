@@ -2,6 +2,7 @@ package eu.darken.sdmse.squeezer.ui.setup
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.MimeTypeTool
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -57,6 +58,7 @@ class SqueezerSetupViewModel @Inject constructor(
     @Suppress("unused") private val storageEnvironment: StorageEnvironment,
     private val mimeTypeTool: MimeTypeTool,
     private val navCtrl: NavigationController,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     val events = SingleEventFlow<Event>()
@@ -249,6 +251,10 @@ class SqueezerSetupViewModel @Inject constructor(
         return null
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     sealed interface Event {
         data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : Event
         data object NoExampleFound : Event
@@ -263,5 +269,6 @@ class SqueezerSetupViewModel @Inject constructor(
     companion object {
         internal const val PICKER_REQUEST_KEY = "squeezer.setup.paths"
         private val TAG = logTag("Squeezer", "Setup", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/mediasqueeze"
     }
 }

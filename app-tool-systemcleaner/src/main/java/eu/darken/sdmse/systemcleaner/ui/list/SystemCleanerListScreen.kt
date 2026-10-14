@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -32,6 +34,7 @@ import eu.darken.sdmse.common.compose.layout.SdmListDefaults
 import eu.darken.sdmse.common.compose.layout.SdmLoadingState
 import eu.darken.sdmse.common.compose.layout.SdmSelectAllAction
 import eu.darken.sdmse.common.compose.layout.SdmSelectionTopAppBar
+import eu.darken.sdmse.common.compose.layout.SdmTooltipIconButton
 import eu.darken.sdmse.common.compose.layout.SdmTopAppBar
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -77,6 +80,7 @@ fun SystemCleanerListScreenHost(
         onDetailsClick = vm::onDetailsClick,
         onDeleteSelected = vm::onDeleteSelected,
         onExcludeSelected = vm::onExcludeSelected,
+        onHelp = vm::onHelpClick,
     )
 
     pendingDeletion?.let { pending ->
@@ -133,6 +137,7 @@ internal fun SystemCleanerListScreen(
     onDetailsClick: (SystemCleanerListViewModel.Row) -> Unit = {},
     onDeleteSelected: (Set<FilterIdentifier>) -> Unit = {},
     onExcludeSelected: (Set<FilterIdentifier>) -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -173,6 +178,13 @@ internal fun SystemCleanerListScreen(
                     title = stringResource(CommonR.string.systemcleaner_tool_name),
                     subtitle = subtitle,
                     onNavigateUp = onNavigateUp,
+                    actions = {
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                            label = stringResource(CommonR.string.general_help_action),
+                            onClick = onHelp,
+                        )
+                    },
                 )
             } else {
                 SdmSelectionTopAppBar(

@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -53,6 +54,7 @@ class AppCleanerListViewModel @Inject constructor(
     private val appCleaner: AppCleaner,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     /** Set when the scan this screen started for itself failed, see the entry logic below. */
@@ -236,6 +238,10 @@ class AppCleanerListViewModel @Inject constructor(
         navTo(ExclusionsListRoute)
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val rows: List<Row>? = null,
         val progress: Progress.Data? = null,
@@ -258,5 +264,6 @@ class AppCleanerListViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("AppCleaner", "List", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/appcleaner"
     }
 }

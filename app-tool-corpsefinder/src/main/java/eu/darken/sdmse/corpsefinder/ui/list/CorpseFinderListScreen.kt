@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Info
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
 import androidx.compose.material3.SnackbarHost
@@ -82,6 +83,7 @@ fun CorpseFinderListScreenHost(
         onDetailsClick = vm::onDetailsClick,
         onDeleteSelected = vm::onDeleteSelected,
         onExcludeSelected = vm::onExcludeSelected,
+        onHelp = vm::onHelpClick,
     )
 
     confirmDeletion?.let { pending ->
@@ -137,6 +139,7 @@ internal fun CorpseFinderListScreen(
     onDetailsClick: (CorpseFinderListViewModel.Row) -> Unit = {},
     onDeleteSelected: (Set<CorpseIdentifier>) -> Unit = {},
     onExcludeSelected: (Set<CorpseIdentifier>) -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -183,6 +186,11 @@ internal fun CorpseFinderListScreen(
                             icon = Icons.TwoTone.Info,
                             label = stringResource(R.string.corpsefinder_markers_dialog_title),
                             onClick = { showMarkersInfo = true },
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                            label = stringResource(CommonR.string.general_help_action),
+                            onClick = onHelp,
                         )
                     },
                 )

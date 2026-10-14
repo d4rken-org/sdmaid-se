@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -55,6 +56,7 @@ class DeduplicatorListViewModel @Inject constructor(
     private val settings: DeduplicatorSettings,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider, tag = TAG) {
 
     /** Set when the scan this screen started for itself failed, see the entry logic below. */
@@ -350,6 +352,10 @@ class DeduplicatorListViewModel @Inject constructor(
         }
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     sealed interface Event {
         data class ConfirmDeletion(
             val clusters: Collection<Duplicate.Cluster>,
@@ -371,6 +377,7 @@ class DeduplicatorListViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Deduplicator", "List", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/deduplicator"
     }
 }
 
