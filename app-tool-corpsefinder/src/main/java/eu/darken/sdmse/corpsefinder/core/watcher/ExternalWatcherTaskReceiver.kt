@@ -61,7 +61,7 @@ class ExternalWatcherTaskReceiver : BroadcastReceiver() {
 
             try {
                 log(TAG) { "Submitting task: $internalTask" }
-                taskSubmitter.submit(internalTask)
+                taskSubmitter.submit(internalTask, notifyOnFinish = false)
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Uninstall task ($internalTask) failed: ${e.asLog()}" }
             }

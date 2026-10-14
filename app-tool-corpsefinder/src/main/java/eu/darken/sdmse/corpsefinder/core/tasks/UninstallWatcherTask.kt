@@ -28,7 +28,11 @@ data class UninstallWatcherTask(
 
         override val primaryInfo: CaString
             get() = caString {
-                getQuantityString2(R.plurals.corpsefinder_result_x_corpses_deleted, affectedPaths.size)
+                if (affectedPaths.isEmpty()) {
+                    getQuantityString2(R.plurals.corpsefinder_result_x_corpses_found, foundItems)
+                } else {
+                    getQuantityString2(R.plurals.corpsefinder_result_x_corpses_deleted, affectedPaths.size)
+                }
             }
 
         override val secondaryInfo: CaString
