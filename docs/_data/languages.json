@@ -1,1 +1,15 @@
-[]
+[
+  { "code": "de", "path": "de", "name": "Deutsch", "app_values": "values-de" },
+  { "code": "es", "path": "es", "name": "Español", "app_values": "values-es" },
+  { "code": "pt-BR", "path": "pt-br", "name": "Português (Brasil)", "app_values": "values-pt-rBR" },
+  { "code": "ru", "path": "ru", "name": "Русский", "app_values": "values-ru" },
+  { "code": "fr", "path": "fr", "name": "Français", "app_values": "values-fr" },
+  { "code": "id", "path": "id", "name": "Bahasa Indonesia", "app_values": "values-in" },
+  { "code": "it", "path": "it", "name": "Italiano", "app_values": "values-it" },
+  { "code": "ar", "path": "ar", "name": "العربية", "app_values": "values-ar", "dir": "rtl" },
+  { "code": "tr", "path": "tr", "name": "Türkçe", "app_values": "values-tr" },
+  { "code": "zh-Hans", "path": "zh-hans", "name": "简体中文", "app_values": "values-zh-rCN" },
+  { "code": "uk", "path": "uk", "name": "Українська", "app_values": "values-uk" },
+  { "code": "vi", "path": "vi", "name": "Tiếng Việt", "app_values": "values-vi" },
+  { "code": "pl", "path": "pl", "name": "Polski", "app_values": "values-pl" }
+]

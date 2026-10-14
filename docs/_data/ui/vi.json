@@ -1,0 +1,39 @@
+{
+  "language_name": "Tiếng Việt",
+  "skip": "Chuyển đến nội dung",
+  "guide": "Hướng dẫn",
+  "language": "Ngôn ngữ",
+  "sections": {
+    "guide": "Hướng dẫn",
+    "tools": "Công cụ",
+    "more": "Thêm"
+  },
+  "nav": {
+    "index": "Tổng quan",
+    "tutorial": "Hướng dẫn nhanh",
+    "setup": "Thiết lập",
+    "faq": "Câu hỏi thường gặp",
+    "bugs": "Lỗi & nhật ký gỡ lỗi",
+    "appcleaner": "Dọn dẹp ứng dụng",
+    "corpsefinder": "Tìm kiếm tàn dư",
+    "systemcleaner": "Dọn dẹp hệ thống",
+    "storageanalyzer": "Phân tích bộ nhớ",
+    "deduplicator": "Quản lý tệp trùng lặp",
+    "mediasqueeze": "Nén media",
+    "swiper": "Vuốt",
+    "appcontrol": "Kiểm soát ứng dụng",
+    "scheduler": "Lịch trình",
+    "exclusions": "Loại trừ",
+    "stats": "Thống kê & lịch sử",
+    "translation": "Bản dịch",
+    "changelog": "Nhật ký thay đổi"
+  },
+  "tagline": "Công cụ dọn dẹp kỹ lưỡng nhất cho Android.",
+  "help": "Nhận trợ giúp",
+  "security": "Xác minh bản tải xuống",
+  "privacy": "Quyền riêng tư",
+  "suggest": "Trang này cũng có bằng tiếng Việt.",
+  "dismiss": "Đóng",
+  "stale": "Bản dịch này có thể đã lỗi thời.",
+  "stale_link": "Đọc phiên bản tiếng Anh"
+}

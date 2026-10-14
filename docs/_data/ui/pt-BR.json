@@ -1,0 +1,39 @@
+{
+  "language_name": "Português (Brasil)",
+  "skip": "Pular para o conteúdo",
+  "guide": "Guia",
+  "language": "Idioma",
+  "sections": {
+    "guide": "Guia",
+    "tools": "Ferramentas",
+    "more": "Mais"
+  },
+  "nav": {
+    "index": "Visão geral",
+    "tutorial": "Tutorial",
+    "setup": "Configuração",
+    "faq": "Perguntas frequentes",
+    "bugs": "Bugs e logs de depuração",
+    "appcleaner": "Limpador de Aplicativos",
+    "corpsefinder": "Localizador de Cadáver",
+    "systemcleaner": "Limpador do sistema",
+    "storageanalyzer": "Analisador de Armazenamento",
+    "deduplicator": "Desduplicador",
+    "mediasqueeze": "Compressor de Mídia",
+    "swiper": "Deslizador",
+    "appcontrol": "Gerenciamento de aplicativos",
+    "scheduler": "Agendador",
+    "exclusions": "Exceções",
+    "stats": "Estatísticas e histórico",
+    "translation": "Traduções",
+    "changelog": "Registro de alterações"
+  },
+  "tagline": "A ferramenta de limpeza mais completa para Android.",
+  "help": "Obter ajuda",
+  "security": "Verificar downloads",
+  "privacy": "Privacidade",
+  "suggest": "Esta página também está disponível em português (Brasil).",
+  "dismiss": "Dispensar",
+  "stale": "Esta tradução pode estar desatualizada.",
+  "stale_link": "Ler a versão em inglês"
+}

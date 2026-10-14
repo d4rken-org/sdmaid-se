@@ -1,0 +1,39 @@
+{
+  "language_name": "Polski",
+  "skip": "Przejdź do treści",
+  "guide": "Przewodnik",
+  "language": "Język",
+  "sections": {
+    "guide": "Przewodnik",
+    "tools": "Narzędzia",
+    "more": "Więcej"
+  },
+  "nav": {
+    "index": "Przegląd",
+    "tutorial": "Samouczek",
+    "setup": "Konfiguracja",
+    "faq": "FAQ",
+    "bugs": "Błędy i dzienniki debugowania",
+    "appcleaner": "Sprzątanie aplikacji",
+    "corpsefinder": "Wyszukiwanie pozostałości",
+    "systemcleaner": "Sprzątanie systemu",
+    "storageanalyzer": "Analiza pamięci",
+    "deduplicator": "Usuwanie duplikatów",
+    "mediasqueeze": "Kompresja multimediów",
+    "swiper": "Przesuwacz",
+    "appcontrol": "Zarządzanie aplikacjami",
+    "scheduler": "Harmonogram",
+    "exclusions": "Wykluczenia",
+    "stats": "Statystyki i historia",
+    "translation": "Tłumaczenia",
+    "changelog": "Lista zmian"
+  },
+  "tagline": "Najdokładniejsze narzędzie do czyszczenia Androida.",
+  "help": "Uzyskaj pomoc",
+  "security": "Weryfikacja pobranych plików",
+  "privacy": "Prywatność",
+  "suggest": "Ta strona jest dostępna także po polsku.",
+  "dismiss": "Odrzuć",
+  "stale": "To tłumaczenie może być nieaktualne.",
+  "stale_link": "Przeczytaj wersję angielską"
+}

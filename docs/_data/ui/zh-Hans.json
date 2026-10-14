@@ -1,0 +1,39 @@
+{
+  "language_name": "简体中文",
+  "skip": "跳到正文",
+  "guide": "指南",
+  "language": "语言",
+  "sections": {
+    "guide": "指南",
+    "tools": "工具",
+    "more": "更多"
+  },
+  "nav": {
+    "index": "概览",
+    "tutorial": "教程",
+    "setup": "设置",
+    "faq": "常见问题",
+    "bugs": "错误与调试日志",
+    "appcleaner": "应用清理",
+    "corpsefinder": "卸载残留",
+    "systemcleaner": "系统清理",
+    "storageanalyzer": "存储分析器",
+    "deduplicator": "去重工具",
+    "mediasqueeze": "媒体压缩",
+    "swiper": "Swiper",
+    "appcontrol": "应用控制",
+    "scheduler": "计划任务",
+    "exclusions": "排除项",
+    "stats": "统计与历史",
+    "translation": "翻译",
+    "changelog": "更新日志"
+  },
+  "tagline": "Android 上最彻底的清理工具。",
+  "help": "获取帮助",
+  "security": "验证下载",
+  "privacy": "隐私",
+  "suggest": "此页面也提供简体中文版本。",
+  "dismiss": "关闭",
+  "stale": "此翻译可能已过时。",
+  "stale_link": "阅读英文版"
+}

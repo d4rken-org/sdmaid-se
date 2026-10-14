@@ -1,0 +1,39 @@
+{
+  "language_name": "Bahasa Indonesia",
+  "skip": "Langsung ke konten",
+  "guide": "Panduan",
+  "language": "Bahasa",
+  "sections": {
+    "guide": "Panduan",
+    "tools": "Alat",
+    "more": "Lainnya"
+  },
+  "nav": {
+    "index": "Ikhtisar",
+    "tutorial": "Tutorial",
+    "setup": "Penyiapan",
+    "faq": "FAQ",
+    "bugs": "Bug & catatan debug",
+    "appcleaner": "Pembersih Aplikasi",
+    "corpsefinder": "PencariMayat",
+    "systemcleaner": "Pembersih Sistem",
+    "storageanalyzer": "Penganalisis Penyimpanan",
+    "deduplicator": "Penghapus Duplikat",
+    "mediasqueeze": "Optimasi Media",
+    "swiper": "Pemilah",
+    "appcontrol": "Pengendali Aplikasi",
+    "scheduler": "Penjadwal",
+    "exclusions": "Pengecualian",
+    "stats": "Statistik & riwayat",
+    "translation": "Terjemahan",
+    "changelog": "Catatan perubahan"
+  },
+  "tagline": "Alat pembersih paling menyeluruh untuk Android.",
+  "help": "Dapatkan bantuan",
+  "security": "Verifikasi unduhan",
+  "privacy": "Privasi",
+  "suggest": "Halaman ini juga tersedia dalam Bahasa Indonesia.",
+  "dismiss": "Tutup",
+  "stale": "Terjemahan ini mungkin sudah usang.",
+  "stale_link": "Baca versi bahasa Inggris"
+}
