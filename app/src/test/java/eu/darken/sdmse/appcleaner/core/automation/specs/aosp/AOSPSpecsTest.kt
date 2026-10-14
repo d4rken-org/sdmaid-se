@@ -4,6 +4,8 @@ import android.accessibilityservice.AccessibilityService
 import android.content.res.Resources
 import android.util.DisplayMetrics
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
+import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
+import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.errors.StepAbortException
@@ -12,7 +14,10 @@ import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.pkgs.features.InstallId
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.ui.SizeParser
+import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.longs.shouldBeLessThan
@@ -29,14 +34,17 @@ import io.mockk.unmockkConstructor
 import io.mockk.unmockkObject
 import io.mockk.unmockkStatic
 import io.mockk.verify
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
+import kotlinx.coroutines.withContext
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.TestACSNodeInfo
+import java.util.concurrent.CountDownLatch
 
 class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
@@ -44,6 +52,11 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
     private val inputInjector: InputInjector = mockk<InputInjector>().apply {
         coEvery { canInject() } returns false
+    }
+
+    // No cache stats by default, so presses are verified by the storage page.
+    private val cacheProvider: InaccessibleCacheProvider = mockk<InaccessibleCacheProvider>().apply {
+        coEvery { determineCache(any()) } returns null
     }
 
     override fun createLabels(): AOSPLabels = mockk()
@@ -56,6 +69,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         romTypeProvider = romTypeProvider,
         stepper = stepper,
         inputInjector = inputInjector,
+        inaccessibleCacheProvider = cacheProvider,
     )
 
     override fun mockLabelDefaults() {
@@ -1489,5 +1503,263 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
         (backAt - centerAt) shouldBeGreaterThan 0L
         (backAt - centerAt) shouldBeLessThan 10_000L
+    }
+
+    // ============================================================
+    // Verifying DPAD presses by the target's cache bytes
+    // ============================================================
+
+    private fun cacheOf(bytes: Long) = InaccessibleCache(
+        identifier = InstallId("test.pkg".toPkgId(), UserHandle2(0)),
+        isSystemApp = false,
+        itemCount = 2,
+        totalSize = bytes,
+        publicSize = null,
+        theoreticalPaths = emptySet(),
+    )
+
+    // Stock Pixel storage page on Android 17: no cache row, and "User data" excludes the cache.
+    private fun pixelStoragePage(userData: String = "3.52 MB") = buildTestTree(
+        """
+        ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=appSizeRow, bounds=Rect(0, 1000 - 1080, 1100)
+        ACS-DEBUG: --2: text='App size', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=appSizeTitle, bounds=Rect(60, 1000 - 500, 1100)
+        ACS-DEBUG: --2: text='90.60 MB', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=appSizeSummary, bounds=Rect(600, 1000 - 1020, 1100)
+        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=userDataRow, bounds=Rect(0, 1100 - 1080, 1200)
+        ACS-DEBUG: --2: text='User data', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=userDataTitle, bounds=Rect(60, 1100 - 500, 1200)
+        ACS-DEBUG: --2: text='$userData', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=userDataSummary, bounds=Rect(600, 1100 - 1020, 1200)
+        """.trimIndent()
+    )
+
+    private fun stubPixelSizes() {
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("90.60 MB") } returns 90_600_000L
+        every { anyConstructed<SizeParser>().parse("3.52 MB") } returns 3_520_000L
+        every { anyConstructed<SizeParser>().parse("0 B") } returns 0L
+    }
+
+    @Test
+    fun `a quick-try press counts once the cache bytes drop although the storage page does not change`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        var centerAt = -1L
+        coEvery { cacheProvider.determineCache(any()) } answers {
+            // StorageStats only catch up 2s after the press.
+            val cleared = centerAt >= 0 && testScheduler.currentTime >= centerAt + 2_000
+            cacheOf(if (cleared) 0L else 50_000L)
+        }
+        recordGlobalActions {
+            centerAt = testScheduler.currentTime
+            emitValidationEventAsync()
+        }
+        testRoot = pixelStoragePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a quick-try press counts on dropped cache bytes without any accessibility event`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        var centerSent = false
+        coEvery { cacheProvider.determineCache(any()) } answers { cacheOf(if (centerSent) 12_000L else 50_000L) }
+        recordGlobalActions { centerSent = true }
+        testRoot = pixelStoragePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a zero storage row is no success while the cache bytes stay at the baseline`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(50_000L)
+        recordGlobalActions { emitValidationEventAsync() }
+        testRoot = pixelStoragePage(userData = "0 B")
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(atLeast = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a storage row turning unparseable is no success while the cache bytes stay at the baseline`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(50_000L)
+        recordGlobalActions {
+            testHost.setWindowRoot(pixelStoragePage(userData = "Calculating…"))
+            emitValidationEventAsync()
+        }
+        testRoot = pixelStoragePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(atLeast = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a zero cache baseline ends the target as already empty before any DPAD key`() = runTest {
+        setupAllowlistedDpad(this)
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(0L)
+        recordGlobalActions { emitValidationEventAsync() }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.treatAsSuccess shouldBe true
+        abort.message shouldContain "already empty"
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    private suspend fun assertStoragePageDecides() {
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+        every { anyConstructed<SizeParser>().parse("12 kB") } returns 12288L
+        recordGlobalActions {
+            testHost.setWindowRoot(buttonBandTree(cacheSummary = "12 kB"))
+            emitValidationEventAsync()
+        }
+        testRoot = buttonBandTree()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        coVerify(exactly = 1) { cacheProvider.determineCache(any()) }
+    }
+
+    @Test
+    fun `without cache stats the storage page delta still decides`() = runTest {
+        setupAllowlistedDpad(this)
+        coEvery { cacheProvider.determineCache(any()) } returns null
+        assertStoragePageDecides()
+    }
+
+    @Test
+    fun `a cache baseline read that times out leaves the storage page delta to decide`() = runTest {
+        setupAllowlistedDpad(this)
+        coEvery { cacheProvider.determineCache(any()) } coAnswers {
+            delay(60_000)
+            cacheOf(50_000L)
+        }
+        assertStoragePageDecides()
+    }
+
+    @Test
+    fun `a cache drop that only shows after the run's deadline is caught by the final re-check`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        // The run starts at virtual time 0, so only reads after its 10s deadline see the drop: the
+        // quick-try poll and the blind sweep that follows still read the old size.
+        coEvery { cacheProvider.determineCache(any()) } answers {
+            cacheOf(if (testScheduler.currentTime >= 10_000) 0L else 50_000L)
+        }
+        recordGlobalActions { emitValidationEventAsync() }
+        testRoot = pixelStoragePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        // Quick-try and at least blind-sweep-2.
+        verify(atLeast = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `the final cache re-check runs after the open dialog was contained`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        var backSent = false
+        coEvery { cacheProvider.determineCache(any()) } answers { cacheOf(if (backSent) 0L else 50_000L) }
+        val actions = recordGlobalActions(
+            onBack = {
+                backSent = true
+                testHost.setWindowRoot(pixelStoragePage())
+            },
+        ) {
+            testHost.setWindowRoot(deleteAppDataDialog())
+        }
+        testRoot = pixelStoragePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `a cache baseline read that never returns is abandoned and never started twice`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        stubDensity()
+
+        val release = CountDownLatch(1)
+        var reads = 0
+        coEvery { cacheProvider.determineCache(any()) } coAnswers {
+            reads++
+            // A Binder call that never returns, run like IPCFunnel runs it: blocking an IO thread.
+            withContext(Dispatchers.IO) { release.await() }
+            cacheOf(50_000L)
+        }
+
+        // The band is confirmed on attempt 12. While that run waits out the hung baseline read, a row
+        // appears in the band, so the run stops before its first key. The row is gone again by the
+        // size read on attempt 22, and the band is confirmed once more on attempt 42 for a second run.
+        mockkConstructor(SizeParser::class)
+        var sizeReads = 0
+        every { anyConstructed<SizeParser>().parse("143 kB") } answers {
+            sizeReads++
+            when (sizeReads) {
+                2 -> testHost.scope.launch {
+                    delay(100)
+                    testHost.setWindowRoot(buttonBandTree(stripRow = true))
+                }
+
+                3 -> testHost.setWindowRoot(buttonBandTree())
+            }
+            143360L
+        }
+        every { anyConstructed<SizeParser>().parse("12 kB") } returns 12288L
+
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) {
+                testHost.setWindowRoot(buttonBandTree(cacheSummary = "12 kB"))
+                emitValidationEventAsync()
+            }
+            true
+        }
+        testRoot = buttonBandTree()
+
+        try {
+            val result = captureAndRunClearCacheAction(maxAttempts = 43, rethrowAbort = true)
+
+            result shouldBe true
+            reads shouldBe 1
+            verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+            verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        } finally {
+            release.countDown()
+        }
     }
 }
