@@ -3,7 +3,7 @@ title: "Налаштування SD Maid SE"
 lang: uk
 translation_key: setup
 permalink: /uk/setup
-source_hash: 448e6d67a51dde0a
+source_hash: a14003a95dd2336d
 ---
 # Налаштування SD Maid SE
 {: #setting-up-sd-maid-se }

@@ -3,7 +3,7 @@ title: "Câu hỏi thường gặp"
 lang: vi
 translation_key: faq
 permalink: /vi/faq
-source_hash: 7cd5a4a9a4a25a7c
+source_hash: 07d3da0243e351f8
 ---
 # Câu hỏi thường gặp
 {: #frequently-asked-questions }

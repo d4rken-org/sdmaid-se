@@ -121,7 +121,7 @@ This permission exists since [Android 11](https://developer.android.com/training
 ### Invalid app list
 {: #invalid-app-list }
 
-On some devices the "App list" permission (`QUERY_ALL_PACKAGES` / `GET_INSTALLED_APPS`) is granted, but the system still returns an **incomplete list of installed apps** — for example a list that is missing core system packages like `android`. When SD Maid detects this it shows an **"Invalid app list"** warning and a **"Possible device limitation"** note in the setup card instead of continuing.
+On some devices the "App list" permission (`QUERY_ALL_PACKAGES` / `GET_INSTALLED_APPS`) is granted, but the system still returns an **incomplete list of installed apps**, for example a list that is missing core system packages like `android`. When SD Maid detects this it shows an **"Invalid app list"** warning and a **"Possible device limitation"** note in the setup card instead of continuing.
 
 SD Maid stops here on purpose: if it can't see the full list of installed apps, it can't reliably tell which files belong to an app that is still installed. Continuing anyway could mean deleting data that belongs to an app SD Maid simply couldn't see, so app-related features stay disabled until a complete list is available.
 
@@ -133,7 +133,7 @@ SD Maid stops here on purpose: if it can't see the full list of installed apps, 
 
 If the "App list" permission is already allowed and the list is still reported as invalid, this is usually a **device limitation** rather than something you can fix: some systems (for example HarmonyOS, or heavily modified Android builds) never hand a complete app list to third-party apps. See [#2441](https://github.com/d4rken-org/sdmaid-se/issues/2441) for an example.
 
-In that case the app-related tools ([CorpseFinder](/corpsefinder), [AppCleaner](/appcleaner), [AppControl](/appcontrol)) stay disabled to protect your data, but the [StorageAnalyzer](/storageanalyzer) still works: it shows how much space your storage is using, just with reduced detail — folder sizes are shown read-only and can't be attributed to individual apps.
+In that case the app-related tools ([CorpseFinder](/corpsefinder), [AppCleaner](/appcleaner), [AppControl](/appcontrol)) stay disabled to protect your data, but the [StorageAnalyzer](/storageanalyzer) still works: it shows how much space your storage is using, just with reduced detail: folder sizes are shown read-only and can't be attributed to individual apps.
 
 ## Accessibility Service
 {: #accessibility-service }
@@ -216,7 +216,7 @@ If you are getting `Operation not allowed: java.lang.SecurityException`, [see he
 #### ACS: Advanced Protection
 {: #acs-advanced-protection }
 
-On Android 17 and newer, Google's [**Advanced Protection**](https://developer.android.com/privacy-and-security/advanced-protection-mode) mode blocks apps that aren't dedicated accessibility tools (screen readers, switch access, etc.) from using the accessibility service. SD Maid is a maintenance/cleaning tool, so while Advanced Protection is enabled its accessibility service **cannot** be enabled — Android rejects the service at the system level, even if you try to grant it through root or ADB access.
+On Android 17 and newer, Google's [**Advanced Protection**](https://developer.android.com/privacy-and-security/advanced-protection-mode) mode blocks apps that aren't dedicated accessibility tools (screen readers, switch access, etc.) from using the accessibility service. SD Maid is a maintenance/cleaning tool, so while Advanced Protection is enabled its accessibility service **cannot** be enabled. Android rejects the service at the system level, even if you try to grant it through root or ADB access.
 
 SD Maid cannot exempt itself from this: Only apps Google classifies as accessibility tools are eligible, and cleaners are explicitly excluded.
 

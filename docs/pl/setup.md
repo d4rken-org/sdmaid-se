@@ -3,7 +3,7 @@ title: "Konfiguracja SD Maid SE"
 lang: pl
 translation_key: setup
 permalink: /pl/setup
-source_hash: 448e6d67a51dde0a
+source_hash: a14003a95dd2336d
 ---
 # Konfiguracja SD Maid SE
 {: #setting-up-sd-maid-se }

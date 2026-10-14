@@ -3,7 +3,7 @@ title: "إعداد SD Maid SE"
 lang: ar
 translation_key: setup
 permalink: /ar/setup
-source_hash: 448e6d67a51dde0a
+source_hash: a14003a95dd2336d
 ---
 # إعداد SD Maid SE
 {: #setting-up-sd-maid-se }

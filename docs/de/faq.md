@@ -3,7 +3,7 @@ title: "Häufig gestellte Fragen"
 lang: de
 translation_key: faq
 permalink: /de/faq
-source_hash: 7cd5a4a9a4a25a7c
+source_hash: 07d3da0243e351f8
 ---
 # Häufig gestellte Fragen
 {: #frequently-asked-questions }

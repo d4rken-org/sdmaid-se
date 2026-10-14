@@ -3,7 +3,7 @@ title: "Perguntas frequentes"
 lang: pt-BR
 translation_key: faq
 permalink: /pt-br/faq
-source_hash: 7cd5a4a9a4a25a7c
+source_hash: 07d3da0243e351f8
 ---
 # Perguntas frequentes
 {: #frequently-asked-questions }

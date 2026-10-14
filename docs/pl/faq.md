@@ -3,7 +3,7 @@ title: "Często zadawane pytania"
 lang: pl
 translation_key: faq
 permalink: /pl/faq
-source_hash: 7cd5a4a9a4a25a7c
+source_hash: 07d3da0243e351f8
 ---
 # Często zadawane pytania
 {: #frequently-asked-questions }
