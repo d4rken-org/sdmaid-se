@@ -3,7 +3,7 @@ title: "Eliminar archivos duplicados"
 lang: es
 translation_key: deduplicator
 permalink: /es/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Eliminar archivos duplicados (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Omite los archivos por debajo de este tamaño. Por defecto, 512 KB.
 ### Omitir los tipos de archivos poco comunes
 {: #skip-uncommon-file-types }
 
-Incluye solo imágenes, videos, archivos de audio, documentos y archivos comprimidos comunes. Activado por defecto. El tipo se determina por la extensión del archivo.
+Incluye solo imágenes, videos, archivos de audio, documentos, archivos comprimidos y archivos APK comunes. Activado por defecto. El tipo se determina por la extensión del archivo.
 
 ### Método de detección
 {: #detection-method }

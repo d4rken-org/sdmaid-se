@@ -3,7 +3,7 @@ title: "Penghapus Duplikat (Deduplicator)"
 lang: id
 translation_key: deduplicator
 permalink: /id/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Penghapus Duplikat (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Lewati berkas di bawah ukuran ini. Bawaannya 512 KB.
 ### Lewati jenis file yang tidak umum
 {: #skip-uncommon-file-types }
 
-Hanya sertakan gambar, video, berkas audio, dokumen, dan arsip yang umum. Aktif secara bawaan. Jenisnya ditentukan oleh ekstensi berkas.
+Hanya sertakan gambar, video, berkas audio, dokumen, arsip, dan berkas APK yang umum. Aktif secara bawaan. Jenisnya ditentukan oleh ekstensi berkas.
 
 ### Metode deteksi
 {: #detection-method }

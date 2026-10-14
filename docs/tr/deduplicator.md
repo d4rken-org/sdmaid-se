@@ -3,7 +3,7 @@ title: "Tekilleyici"
 lang: tr
 translation_key: deduplicator
 permalink: /tr/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Tekilleyici (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Bu boyutun altındaki dosyaları atlar. Varsayılan 512 KB.
 ### Tanıdık olmayan dosya türlerini geç
 {: #skip-uncommon-file-types }
 
-Yalnızca yaygın görselleri, videoları, ses dosyalarını, belgeleri ve arşivleri dahil eder. Varsayılan olarak açıktır. Tür, dosya uzantısına göre belirlenir.
+Yalnızca yaygın görselleri, videoları, ses dosyalarını, belgeleri, arşivleri ve APK dosyalarını dahil eder. Varsayılan olarak açıktır. Tür, dosya uzantısına göre belirlenir.
 
 ### Algılama yöntemi
 {: #detection-method }

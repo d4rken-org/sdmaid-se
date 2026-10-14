@@ -3,7 +3,7 @@ title: "Quản lý tệp trùng lặp"
 lang: vi
 translation_key: deduplicator
 permalink: /vi/deduplicator
-source_hash: 9274d8d66ed50c8f
+source_hash: 08f0bb39baf9fb1e
 ---
 # Quản lý tệp trùng lặp (Deduplicator)
 {: #deduplicator }
@@ -126,7 +126,7 @@ Bỏ qua các tệp nhỏ hơn kích thước này. Mặc định 512 KB.
 ### Bỏ qua các loại tệp không phổ biến
 {: #skip-uncommon-file-types }
 
-Chỉ bao gồm các tệp hình ảnh, video, âm thanh, tài liệu và tệp lưu trữ phổ biến. Mặc định bật. Loại tệp được xác định dựa trên phần mở rộng của tệp.
+Chỉ bao gồm các tệp hình ảnh, video, âm thanh, tài liệu, tệp lưu trữ và tệp APK phổ biến. Mặc định bật. Loại tệp được xác định dựa trên phần mở rộng của tệp.
 
 ### Phương pháp phát hiện
 {: #detection-method }
