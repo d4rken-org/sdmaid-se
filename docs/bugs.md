@@ -5,6 +5,7 @@ translation_key: bugs
 permalink: /bugs
 ---
 # Bugs
+{: #bugs }
 
 🐌 🦋 🐛 🐜 🐝 🐞
 
@@ -20,6 +21,7 @@ In any case check that you are on the latest update, the bug might already be fi
 If the bug isn't fixed, then report it :grin:.
 
 ## Reporting a bug
+{: #reporting-a-bug }
 
 Create an issue ticket on GitHub:
 <https://github.com/d4rken-org/sdmaid-se/issues>
@@ -36,6 +38,7 @@ Include a [debug log](#debug-log) if you can reproduce the issue.
 Hint: You can [long press the "Changelog" entry](https://github.com/d4rken-org/sdmaid-se/pull/940) in SD Maid's settings to copy the version to your clipboard.
 
 ## Debug log
+{: #debug-log }
 
 A debug log is a recording of SD Maid's action. You start the recording, reproduce the issue, then stop it and can share a zip file with a chronological account of what SD Maid did.
 

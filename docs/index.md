@@ -5,6 +5,7 @@ translation_key: index
 permalink: /
 ---
 # SD Maid 2/SE
+{: #sd-maid-2se }
 
 SD Maid SE (AKA SD Maid 2) is a file management tool for Android that specialises in maintenance. Its core purpose is freeing up space and removing unwanted data.
 
@@ -14,6 +15,7 @@ SD Maid SE (AKA SD Maid 2) is a file management tool for Android that specialise
 * Found a bug? See [Bugs](/bugs) for how to report it and record a debug log.
 
 ## Tools
+{: #tools }
 
 * [AppCleaner](/appcleaner): deletes expendable files, e.g. caches
 * [CorpseFinder](/corpsefinder): removes data that belongs to apps that are no longer installed
@@ -26,6 +28,7 @@ SD Maid SE (AKA SD Maid 2) is a file management tool for Android that specialise
 * [Scheduler](/scheduler): schedules cleaning actions
 
 ## Download
+{: #download }
 
 * [Google Play](https://play.google.com/store/apps/details?id=eu.darken.sdmse) ([open testing](https://play.google.com/apps/testing/eu.darken.sdmse))
 * [GitHub releases](https://github.com/d4rken-org/sdmaid-se/releases)
