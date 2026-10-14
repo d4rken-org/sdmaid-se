@@ -3,7 +3,7 @@ title: "Hướng dẫn nhanh cho SD Maid 2/SE"
 lang: vi
 translation_key: tutorial
 permalink: /vi/tutorial
-source_hash: cd339afb78a7309e
+source_hash: 3b930340b3505fa4
 ---
 # Hướng dẫn nhanh cho SD Maid 2/SE
 {: #quick-start-tutorial-for-sd-maid-2se }
@@ -18,10 +18,10 @@ Chào mừng bạn đến với SD Maid 2/SE! Hãy làm theo các bước đơn 
   - Cấp các quyền cần thiết như **quyền truy cập bộ nhớ** để SD Maid có thể quét và làm việc trên thiết bị của bạn.
   - Hoàn tất các bước thiết lập bổ sung như bật các tính năng tùy chọn theo nhu cầu của bạn (ví dụ: dịch vụ trợ năng, tùy chọn lên lịch).
 
-## 2. **Chạy quét Quick Access**
+## 2. **Chạy quét**
 {: id="2-run-a-quick-access-scan" }
 
-- Khi thiết lập hoàn tất, nhấn **Quick Access** (Truy cập nhanh) trên màn hình chính để bắt đầu quét toàn hệ thống.
+- Khi thiết lập hoàn tất, nhấn nút quét hình tròn (biểu tượng kính lúp) ở giữa thanh dưới cùng của bảng điều khiển để bắt đầu quét toàn hệ thống.
 - SD Maid sẽ quét thiết bị của bạn để tìm tệp rác, dữ liệu ứng dụng còn sót lại, bộ nhớ đệm hệ thống và các tệp không cần thiết khác.
 
 ## 3. **Xem lại kết quả**

@@ -3,7 +3,7 @@ title: "SD Maid 2/SE 快速入门教程"
 lang: zh-Hans
 translation_key: tutorial
 permalink: /zh-hans/tutorial
-source_hash: cd339afb78a7309e
+source_hash: 3b930340b3505fa4
 ---
 # SD Maid 2/SE 快速入门教程
 {: #quick-start-tutorial-for-sd-maid-2se }
@@ -18,10 +18,10 @@ source_hash: cd339afb78a7309e
   - 授予所需权限，例如**存储访问权限**，以便 SD Maid 能够扫描您的设备并对其进行操作。
   - 根据您的偏好完成其他设置步骤，例如启用可选功能（如无障碍服务、计划选项）。
 
-## 2. **运行快速访问扫描**
+## 2. **运行扫描**
 {: id="2-run-a-quick-access-scan" }
 
-- 设置完成后，在主屏幕上点按 **Quick Access**（快速访问）以开始全系统扫描。
+- 设置完成后，点按控制面板底部栏中间的圆形扫描按钮（放大镜图标）以开始全系统扫描。
 - SD Maid 会扫描您的设备，查找垃圾文件、应用残留数据、系统缓存以及其他不需要的文件。
 
 ## 3. **查看结果**

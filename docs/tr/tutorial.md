@@ -3,7 +3,7 @@ title: "SD Maid 2/SE için hızlı başlangıç eğitimi"
 lang: tr
 translation_key: tutorial
 permalink: /tr/tutorial
-source_hash: cd339afb78a7309e
+source_hash: 3b930340b3505fa4
 ---
 # SD Maid 2/SE için hızlı başlangıç eğitimi
 {: #quick-start-tutorial-for-sd-maid-2se }
@@ -18,10 +18,10 @@ SD Maid 2/SE'ye hoş geldiniz! Başlamak için şu basit adımları izleyin:
   - SD Maid'in cihazınızı tarayıp üzerinde çalışabilmesi için **depolama erişimi** gibi gerekli izinleri verin.
   - Tercihlerinize göre isteğe bağlı özellikleri etkinleştirmek gibi ek kurulum adımlarını tamamlayın (ör. Erişilebilirlik hizmeti, zamanlama seçenekleri).
 
-## 2. **Bir Quick Access taraması çalıştırın**
+## 2. **Bir tarama çalıştırın**
 {: id="2-run-a-quick-access-scan" }
 
-- Kurulum tamamlandıktan sonra sistem genelinde bir tarama başlatmak için ana ekranda **Quick Access** (Hızlı Erişim) seçeneğine dokunun.
+- Kurulum tamamlandıktan sonra sistem genelinde bir tarama başlatmak için kontrol panelinin alt çubuğunun ortasındaki yuvarlak tarama düğmesine (büyüteç simgesi) dokunun.
 - SD Maid cihazınızı gereksiz dosyalar, uygulamalardan kalan veriler, sistem önbellekleri ve diğer gereksiz dosyalar için tarar.
 
 ## 3. **Sonuçları inceleyin**

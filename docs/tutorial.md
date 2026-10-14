@@ -17,10 +17,10 @@ Welcome to SD Maid 2/SE! Follow these simple steps to get started:
   - Grant the required permissions such as **storage access** so SD Maid can scan and work on your device.
   - Complete any additional setup steps like enabling optional features based on your preferences (e.g., accessibility service, scheduling options).
 
-## 2. **Run a Quick Access Scan**
+## 2. **Run a Scan**
 {: id="2-run-a-quick-access-scan" }
 
-- Once setup is complete, tap **Quick Access** on the main screen to start a system-wide scan.
+- Once setup is complete, tap the round scan button (magnifier icon) in the middle of the dashboard's bottom bar to start a system-wide scan.
 - SD Maid will scan your device for junk files, leftover app data, system caches, and other unnecessary files.
 
 ## 3. **Review the Results**
