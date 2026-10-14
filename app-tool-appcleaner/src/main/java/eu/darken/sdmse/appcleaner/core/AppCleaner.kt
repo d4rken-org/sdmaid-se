@@ -27,8 +27,8 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathAncestorIndex
 import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -379,6 +379,9 @@ class AppCleaner @Inject constructor(
 
             val deletedInaccessible = mutableSetOf<ExpendablesFilter.Match>()
 
+            val deletedIndex = APathAncestorIndex<ExpendablesFilter.Match> { it.path }
+            accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).forEach { deletedIndex.add(it) }
+
             val updatedExpendables = appJunk.expendables?.mapValues { (type, matches) ->
                 if (type == DefaultCachesPublicFilter::class && acsResult?.succesful?.contains(appJunk.identifier) == true) {
                     // It's inaccessible caches were deleted, this included the default public caches
@@ -386,9 +389,7 @@ class AppCleaner @Inject constructor(
                 }
 
                 matches.filter { match ->
-                    val isDeleted = accessibleDeletionMap.getOrDefault(appJunk.identifier, emptySet()).any {
-                        it.path.isAncestorOf(match.path) || it.path.matches(match.path)
-                    }
+                    val isDeleted = deletedIndex.hasAncestorOrMatchOf(match.path)
                     if (isDeleted) {
                         deleted.add(match.path)
                         if (match.identifier == DefaultCachesPublicFilter::class) {

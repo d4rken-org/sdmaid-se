@@ -19,7 +19,9 @@ import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
 import eu.darken.sdmse.appcleaner.ui.preview.previewExpendables
 import eu.darken.sdmse.appcleaner.ui.preview.previewInstalled
+import eu.darken.sdmse.common.JUnitLogger
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -65,10 +67,13 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.runBlocking
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertTimeoutPreemptively
 import testhelpers.BaseTest
 import testhelpers.coroutine.runTest2
+import java.time.Duration
 import java.time.Instant
 import javax.inject.Provider
 
@@ -1371,5 +1376,104 @@ class AppCleanerTest : BaseTest() {
             rebuilt.cleaner.submit(AppCleanerProcessingTask(onlyInaccessible = true))
         }
         thrown.cause.shouldBeInstanceOf<AutomationNoConsentException>()
+    }
+
+    // ─────────────────────────── post-delete reconciliation ───────────────────────────
+
+    @Test
+    fun `reconciliation drops deleted paths and their descendants, not name-prefix siblings`() = runTest2 {
+        val base = LocalPath.build("storage", "emulated", "0", "Android", "data", "com.example.recon")
+        val cacheDir = deletionMatch(LocalPath.build(base, "cache"), FileType.DIRECTORY)
+        val cacheChild = deletionMatch(LocalPath.build(base, "cache", "a.bin"))
+        val cacheNested = thumbnailMatch(LocalPath.build(base, "cache", "sub", "b.bin"))
+        val cachePrefixSibling = deletionMatch(LocalPath.build(base, "cache2", "c.bin"))
+        val exact = deletionMatch(LocalPath.build(base, "files", "x.tmp"))
+        val exactPrefixSibling = thumbnailMatch(LocalPath.build(base, "files", "x.tmp2"))
+        val junk = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.example.recon", label = "com.example.recon"),
+            expendables = mapOf(
+                DefaultCachesPublicFilter::class to listOf(cacheDir, cacheChild, cachePrefixSibling, exact),
+                ThumbnailsFilter::class to listOf(cacheNested, exactPrefixSibling),
+            ),
+            inaccessibleCache = null,
+        )
+        val rebuilt = rebuildWithDeleter(
+            setupCleaner(scanResults = listOf(junk)),
+            acsDeleter(succesful = emptySet()),
+            filterFactories = setOf(deletingFilterFactory()),
+        )
+
+        rebuilt.cleaner.submit(AppCleanerScanTask())
+        // The stub filter reports only these two as deleted, so their descendants can only drop
+        // out through reconciliation.
+        val result = rebuilt.cleaner.submit(
+            AppCleanerProcessingTask(
+                targetPkgs = setOf(junk.identifier),
+                targetContents = setOf(cacheDir.path, exact.path),
+                includeInaccessible = false,
+            ),
+        )
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        result.affectedPaths shouldBe setOf(cacheDir.path, cacheChild.path, cacheNested.path, exact.path)
+        result.affectedSpace shouldBe cacheDir.expectedGain + exact.expectedGain
+        rebuilt.cleaner.state.first().data!!.junks.single().expendables shouldBe mapOf(
+            DefaultCachesPublicFilter::class to listOf(cachePrefixSibling),
+            ThumbnailsFilter::class to listOf(exactPrefixSibling),
+        )
+    }
+
+    @Test
+    fun `reconciliation of flat sibling matches runs without a pairwise scan`() {
+        val photos = LocalPath.build("storage", "emulated", "0", "Android", "data", "com.example.flat", "files", "photos")
+        val deletedMatches = (0 until FLAT_COUNT).map { deletionMatch(LocalPath.build(photos, "file$it")) }
+        val keptMatches = (0 until FLAT_COUNT).map { thumbnailMatch(LocalPath.build(photos, "keep$it")) }
+        val junk = previewAppJunk(
+            pkg = previewInstalled(pkgName = "com.example.flat", label = "com.example.flat"),
+            expendables = mapOf(
+                DefaultCachesPublicFilter::class to deletedMatches,
+                ThumbnailsFilter::class to keptMatches,
+            ),
+            inaccessibleCache = null,
+        )
+        val rebuilt = rebuildWithDeleter(
+            setupCleaner(scanResults = listOf(junk)),
+            acsDeleter(succesful = emptySet()),
+            filterFactories = setOf(deletingFilterFactory()),
+        )
+        runBlocking { rebuilt.cleaner.submit(AppCleanerScanTask()) }
+        val task = AppCleanerProcessingTask(
+            targetFilters = setOf(DefaultCachesPublicFilter::class),
+            includeInaccessible = false,
+        )
+
+        val result = withQuietLogging {
+            assertTimeoutPreemptively(RECONCILIATION_BOUND) {
+                runBlocking { rebuilt.cleaner.submit(task) }
+            }
+        }
+
+        result.shouldBeInstanceOf<AppCleanerProcessingTask.Success>()
+        result.affectedPaths.size shouldBe FLAT_COUNT
+        val remaining = runBlocking { rebuilt.cleaner.state.first() }.data!!.junks.single().expendables!!
+        remaining.keys shouldBe setOf(ThumbnailsFilter::class)
+        remaining.getValue(ThumbnailsFilter::class).size shouldBe FLAT_COUNT
+    }
+
+    private inline fun <T> withQuietLogging(block: () -> T): T {
+        Logging.clearAll()
+        Logging.install(JUnitLogger(minLogLevel = Logging.Priority.WARN))
+        try {
+            return block()
+        } finally {
+            Logging.clearAll()
+            Logging.install(JUnitLogger())
+        }
+    }
+
+    companion object {
+        // A pairwise scan over 10^5 deleted and 2 * 10^5 scanned matches cannot meet this bound.
+        private val RECONCILIATION_BOUND: Duration = Duration.ofSeconds(10)
+        private const val FLAT_COUNT = 100_000
     }
 }
