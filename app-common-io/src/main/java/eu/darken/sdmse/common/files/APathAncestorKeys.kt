@@ -40,17 +40,20 @@ fun APath.ancestryKey(): String = when (pathType) {
  *   plus a segment prefix. Those components are length-prefixed instead of joined by a delimiter:
  *   segment content is arbitrary (display names come verbatim from a DocumentsProvider cursor), so no
  *   character can be reserved as a separator, while a length-prefixed concatenation is injective for
- *   any content.
+ *   any content. A tree root has no segments and therefore no ancestors.
  */
 inline fun APath.forEachAncestorKey(action: (String) -> Unit) {
     when (pathType) {
         APath.PathType.SAF -> {
             val safPath = this as SAFPath
-            val builder = StringBuilder().appendKeyComponent(safPath.treeRootUri.toString())
-            action(builder.toString())
-            for (i in 0 until safPath.segments.size - 1) {
-                builder.appendKeyComponent(safPath.segments[i])
+            val segments = safPath.segments
+            if (segments.isNotEmpty()) {
+                val builder = StringBuilder().appendKeyComponent(safPath.treeRootUri.toString())
                 action(builder.toString())
+                for (i in 0 until segments.size - 1) {
+                    builder.appendKeyComponent(segments[i])
+                    action(builder.toString())
+                }
             }
         }
 
