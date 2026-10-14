@@ -687,6 +687,23 @@
 		  "locations": ["SDCARD"],
 		  "startsWith": ["WhatsApp/.Shared/"],
 		  "patterns": ["^(?>WhatsApp/\\.Shared/)(.+?)$"]
+		}, {
+		  "locations": ["PUBLIC_MEDIA"],
+		  "startsWith": ["com.whatsapp/WhatsApp/.Shared/"],
+		  "patterns": ["^(?>com\\.whatsapp/WhatsApp/\\.Shared/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.whatsapp.w4b"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["WhatsApp Business/.Shared/"],
+		  "patterns": ["^(?>WhatsApp Business/\\.Shared/)(.+?)$"]
+		}, {
+		  "locations": ["PUBLIC_MEDIA"],
+		  "startsWith": ["com.whatsapp.w4b/WhatsApp Business/.Shared/"],
+		  "patterns": ["^(?>com\\.whatsapp\\.w4b/WhatsApp Business/\\.Shared/)(.+?)$"]
 		}
 	  ]
 	}, {
