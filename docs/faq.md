@@ -65,7 +65,7 @@ No. It will still receive security patches and some bug fixes, but no new featur
 Regular SD Maid and SD Maid SE will have similar performance at the beginning, and as time passes and new Android versions are released, SD Maid SE will overtake regular SD Maid with better performance, compatibility and features.
 
 ## 2 or SE?
-{: #2-or-se }
+{: id="2-or-se" }
 
 `SD Maid 2/SE`, `SD Maid 2` and `SD Maid SE` is fine. Internally and officially the app is called `SD Maid SE`.
 I renamed the old app to `SD Maid 1` and the new app `SD Maid 2/SE` to reduce confusion and emphasize succession.

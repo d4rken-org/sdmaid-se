@@ -35,6 +35,15 @@ pre { padding: 1rem; overflow: auto; background: var(--tint); border-radius: .5r
 pre code { overflow-wrap: normal; }
 footer { border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; color: var(--muted); font-size: .85rem; }
 footer span { margin-inline-end: auto; }
+.language-menu { position: relative; margin-inline-start: auto; }
+.language-menu summary { cursor: pointer; padding: .4rem .7rem; border-radius: .4rem; }
+.language-menu summary:hover { background: var(--tint); }
+.language-menu ul { position: absolute; inset-inline-end: 0; z-index: 1; margin: .3rem 0 0; padding: .4rem; list-style: none; background: var(--paper); border: 1px solid var(--line); border-radius: .5rem; min-width: 12rem; }
+.language-menu li { margin: 0; }
+.language-menu a { display: block; padding: .3rem .6rem; border-radius: .3rem; text-decoration: none; }
+.language-menu a[aria-current] { background: var(--tint); font-weight: 650; }
+.notice { margin: 0 0 1.5rem; padding: .7rem 1rem; border-inline-start: 3px solid var(--accent); background: var(--tint); }
+.notice button { margin-inline-start: .5rem; font: inherit; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline; }
 .skip { position: absolute; inset-inline-start: 1rem; top: -5rem; background: var(--paper); padding: .7rem; }
 .skip:focus { top: 1rem; }
 @media (max-width: 720px) {
