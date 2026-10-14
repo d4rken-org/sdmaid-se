@@ -61,7 +61,7 @@ class UninstallWatcherReceiver : BroadcastReceiver() {
             )
             try {
                 log(TAG) { "Submitting task: $task" }
-                taskSubmitter.submit(task)
+                taskSubmitter.submit(task, notifyOnFinish = false)
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Uninstall task ($task) failed: ${e.asLog()}" }
             }
