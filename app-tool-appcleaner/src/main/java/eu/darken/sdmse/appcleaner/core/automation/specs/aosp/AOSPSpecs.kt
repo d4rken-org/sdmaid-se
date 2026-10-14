@@ -57,6 +57,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.ui.SizeParser
 import eu.darken.sdmse.common.device.RomTypeProvider
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
@@ -203,12 +204,12 @@ class AOSPSpecs @Inject constructor(
     // Unparseable rows are preserved as ParsedSize(null, raw) so that snapshot sizes remain
     // stable across pre/post comparisons. This matters when cache clears to a locale-specific
     // zero format that SizeParser can't handle (e.g., "0 o" in French).
-    private suspend fun StepContext.takeStorageSnapshot(sizeParser: SizeParser?): StorageSnapshot {
+    private fun StepContext.takeStorageSnapshot(sizeParser: SizeParser?, root: ACSNodeInfo?): StorageSnapshot {
         if (sizeParser == null) {
             log(tag, WARN) { "takeStorageSnapshot(): SizeParser unavailable" }
             return StorageSnapshot(emptyList())
         }
-        val nodes = host.windowRoot()?.crawl()?.map { it.node }
+        val nodes = root?.crawl()?.map { it.node }
             ?.filter { it.viewIdResourceName == "android:id/summary" }
             ?: emptySequence()
         val values = nodes.mapNotNull { node ->
@@ -238,11 +239,16 @@ class AOSPSpecs @Inject constructor(
         val eventOk = validateClickEffect(source, timeoutMs)
         if (!eventOk) return false
 
-        // No parseable values → can't compare, degrade to event-only validation
-        if (preSnapshot.values.isEmpty()) {
-            log(tag, INFO) { "Delta[$source]: no pre-snapshot values, trusting event" }
-            return true
+        // The first Settings event can be the pressed button's own content change, before a dialog
+        // window is attached, so the anchor has to hold on every poll, not just at the event.
+        if (host.windowRoot()?.hasEntityHeader() != true) {
+            log(tag, WARN) { "Delta[$source]: anchor gone after the event" }
+            return false
         }
+
+        // No parseable values → can't compare, degrade to event-only validation
+        val eventOnly = preSnapshot.values.isEmpty()
+        if (eventOnly) log(tag, INFO) { "Delta[$source]: no pre-snapshot values, only watching the anchor" }
 
         // Retry snapshot comparison: the Settings UI may take a few hundred ms to update
         // accessibility node values after the click (observed ~340ms on Android 17 beta).
@@ -250,7 +256,13 @@ class AOSPSpecs @Inject constructor(
         val retryDelayMs = 250L
         for (attempt in 1..maxAttempts) {
             delay(retryDelayMs)
-            val postSnapshot = takeStorageSnapshot(sizeParser)
+            val root = host.windowRoot()
+            if (root?.hasEntityHeader() != true) {
+                log(tag, WARN) { "Delta[$source]: anchor gone (attempt=$attempt/$maxAttempts)" }
+                return false
+            }
+            if (eventOnly) continue
+            val postSnapshot = takeStorageSnapshot(sizeParser, root)
             when (compareSnapshots(preSnapshot, postSnapshot)) {
                 DeltaResult.SUCCESS -> {
                     log(tag, INFO) { "Delta[$source]: values decreased (attempt=$attempt)" }
@@ -268,20 +280,65 @@ class AOSPSpecs @Inject constructor(
                 }
             }
         }
+        if (eventOnly) {
+            log(tag, INFO) { "Delta[$source]: anchor held for ${maxAttempts * retryDelayMs}ms, trusting event" }
+            return true
+        }
         return false
+    }
+
+    private fun ACSNodeInfo.hasEntityHeader(): Boolean =
+        crawl().map { it.node }.any { it.viewIdResourceName == ENTITY_HEADER_CONTENT_ID }
+
+    // A DPAD_CENTER that didn't clear the cache may have opened something else, e.g. Settings'
+    // "Delete app data?" dialog or the app's own manage-space screen. Never sends a DPAD key.
+    private suspend fun StepContext.containStrayPress() {
+        var polledRoot: ACSNodeInfo? = null
+        for (poll in 0..CONTAINMENT_POLLS) {
+            polledRoot = host.windowRoot()
+            if (polledRoot != null || poll == CONTAINMENT_POLLS) break
+            delay(CONTAINMENT_POLL_DELAY_MS)
+        }
+        val root = polledRoot
+        if (root == null) {
+            log(tag, INFO) { "Containment: no window root, state unknown, no BACK sent" }
+            return
+        }
+        if (root.hasEntityHeader()) {
+            log(tag, INFO) { "Containment: storage page still shown, nothing to contain" }
+            return
+        }
+
+        val wentBack = host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+        var anchorReturned = false
+        for (poll in 1..CONTAINMENT_POLLS) {
+            delay(CONTAINMENT_POLL_DELAY_MS)
+            if (host.windowRoot()?.hasEntityHeader() == true) {
+                anchorReturned = true
+                break
+            }
+        }
+        log(tag, INFO) {
+            "Containment: GLOBAL_ACTION_BACK result=$wentBack from rootPkg=${root.packageName}, anchorReturned=$anchorReturned"
+        }
     }
 
     /**
      * Returns null when [preClickCheck] rejected the screen after layout stabilization, before any
      * key was sent.
+     *
+     * The key sequence runs under [deadlineMs], and running into it counts as exhausted. If the
+     * sequence ends without success after a DPAD_CENTER, [containStrayPress] runs afterwards,
+     * outside the deadline.
      */
-    @SuppressLint("InlinedApi")
     private suspend fun StepContext.tryClickViaFocusNavigation(
         labels: Collection<String>,
         targetPkg: Pkg.Id,
         canInjectInput: Boolean,
         threeButtonRow: Boolean,
+        settingsHasManageStorageText: Boolean,
         preClickCheck: (suspend () -> Boolean)? = null,
+        deadlineMs: Long = DPAD_RUN_DEADLINE_MS,
     ): Boolean? {
         log(tag, INFO) { "Trying DPAD navigation (anchor-based, inputInjection=$canInjectInput)" }
 
@@ -290,6 +347,42 @@ class AOSPSpecs @Inject constructor(
             return false
         }
 
+        var centerSent = false
+        var finished = false
+        val result = try {
+            withTimeoutOrNull(deadlineMs) {
+                runFocusNavigation(
+                    labels = labels,
+                    targetPkg = targetPkg,
+                    canInjectInput = canInjectInput,
+                    threeButtonRow = threeButtonRow,
+                    settingsHasManageStorageText = settingsHasManageStorageText,
+                    preClickCheck = preClickCheck,
+                    onCenter = { centerSent = true },
+                ).also { finished = true }
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            if (centerSent) containStrayPress()
+            throw e
+        }
+
+        if (!finished) log(tag, WARN) { "DPAD run hit its ${deadlineMs}ms deadline, counting it as exhausted" }
+        if (result != true && centerSent) containStrayPress()
+        return if (finished) result else false
+    }
+
+    @SuppressLint("InlinedApi")
+    private suspend fun StepContext.runFocusNavigation(
+        labels: Collection<String>,
+        targetPkg: Pkg.Id,
+        canInjectInput: Boolean,
+        threeButtonRow: Boolean,
+        settingsHasManageStorageText: Boolean,
+        preClickCheck: (suspend () -> Boolean)?,
+        onCenter: () -> Unit,
+    ): Boolean? {
         val dpadDown: suspend () -> Boolean = if (canInjectInput) {
             { inputInjector.inject(InputInjector.Event.DpadDown); true }
         } else {
@@ -305,10 +398,11 @@ class AOSPSpecs @Inject constructor(
         } else {
             { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_LEFT) }
         }
+        // Reported before sending: a press that fails or never returns may still have reached the window.
         val dpadCenter: suspend () -> Boolean = if (canInjectInput) {
-            { inputInjector.inject(InputInjector.Event.DpadCenter); true }
+            { onCenter(); inputInjector.inject(InputInjector.Event.DpadCenter); true }
         } else {
-            { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+            { onCenter(); host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         }
 
         val maxCycles = 4
@@ -328,7 +422,7 @@ class AOSPSpecs @Inject constructor(
         }
 
         val sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
-        val preSnapshot = takeStorageSnapshot(sizeParser)
+        val preSnapshot = takeStorageSnapshot(sizeParser, host.windowRoot())
 
         suspend fun bootstrapAnchor(reason: String): Boolean {
             val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
@@ -443,11 +537,19 @@ class AOSPSpecs @Inject constructor(
                             "Quick-try: detour=$detour, rootPkg=$windowPkg, target=${targetPkg.name} (source=$MANAGE_SPACE_DETOUR_SOURCE)"
                         }
                     }
+                    // Stock Settings has no third button, but its left button is "Manage space" for apps
+                    // with a manageSpaceActivity, so a retry there would press it again.
+                    if (detour && !settingsHasManageStorageText) {
+                        log(tag, WARN) {
+                            "Quick-try: detour without manage_storage_text, not retrying (source=$MANAGE_SPACE_DETOUR_SOURCE)"
+                        }
+                        return false
+                    }
                     if (detour) {
                         val ops = ManageSpaceDetourOps(
                             back = { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) },
                             awaitAnchor = { waitForLayoutStability(anchorId) != null },
-                            takeSnapshot = { takeStorageSnapshot(sizeParser) },
+                            takeSnapshot = { takeStorageSnapshot(sizeParser, host.windowRoot()) },
                             bootstrapAnchor = { bootstrapAnchor(MANAGE_SPACE_DETOUR_SOURCE) },
                             dpadDown = dpadDown,
                             dpadRight = dpadRight,
@@ -788,7 +890,11 @@ class AOSPSpecs @Inject constructor(
                 // internally, so we don't need many retries here to wait for the screen to load.
                 val dpadMinAttempts = 2
                 if (useDpadFallback && dpadExhausted) {
-                    throw StepAbortException("DPAD exhausted, clear-cache button not reachable (attempt=$attempt)")
+                    // Replaying the plan would press the same blind positions again.
+                    throw StepAbortException(
+                        "DPAD exhausted, clear-cache button not reachable (attempt=$attempt)",
+                        replayable = false,
+                    )
                 } else if (useDpadFallback && attempt >= dpadMinAttempts && !pendingVerdict) {
                     log(tag, INFO) { "DPAD fallback triggered (attempt=$attempt)" }
                     val preClickCheck: (suspend () -> Boolean)? = if (allowlistedDpad) {
@@ -802,6 +908,7 @@ class AOSPSpecs @Inject constructor(
                             pkg.id,
                             canInjectInput,
                             threeButtonRow,
+                            settingsHasManageStorageText,
                             preClickCheck,
                         )
                     ) {
@@ -852,6 +959,11 @@ class AOSPSpecs @Inject constructor(
         // Taken on size check passes, so two in a row span about a second.
         private const val BUTTON_BAND_CONFIRMATIONS = 2
         private const val BUTTON_BAND_MIN_GAP_DP = 48
+
+        // The DPAD run plus containment (two polls of up to 1s) has to fit into one step attempt.
+        private const val DPAD_RUN_DEADLINE_MS = 10_000L
+        private const val CONTAINMENT_POLLS = 10
+        private const val CONTAINMENT_POLL_DELAY_MS = 100L
 
         private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
     }

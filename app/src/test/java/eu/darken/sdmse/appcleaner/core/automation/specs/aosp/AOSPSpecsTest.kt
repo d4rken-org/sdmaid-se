@@ -1,17 +1,21 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import android.accessibilityservice.AccessibilityService
+import android.content.res.Resources
 import android.util.DisplayMetrics
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.errors.StepAbortException
+import eu.darken.sdmse.automation.core.errors.isAutomationUnusable
 import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.ui.SizeParser
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.longs.shouldBeGreaterThan
+import io.kotest.matchers.longs.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.string.shouldContain
 import io.mockk.coEvery
@@ -27,6 +31,7 @@ import io.mockk.unmockkStatic
 import io.mockk.verify
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -90,13 +95,19 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
     // Storage page with the clear-cache button row withheld from the tree: nothing starts in the
     // 296px strip between the header item (bottom 739) and the next item (top 1035), unless
-    // [stripRow] puts an unlabeled clickable row there.
+    // [stripRow] puts an unlabeled clickable row there. [header] = false drops entity_header_content.
     private fun buttonBandTree(
         cacheSummary: String = "143 kB",
         stripRow: Boolean = false,
+        header: Boolean = true,
     ): TestACSNodeInfo {
         val stripLine = if (stripRow) {
             "ACS-DEBUG: --2: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=null pkg=com.android.settings, identity=stripRow, bounds=Rect(0, 760 - 1080, 1000)\n"
+        } else {
+            ""
+        }
+        val headerLine = if (header) {
+            "ACS-DEBUG: ---3: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(42, 260 - 1038, 700)\n"
         } else {
             ""
         }
@@ -104,7 +115,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
             "ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)\n" +
                 "ACS-DEBUG: -1: text='null', class=androidx.recyclerview.widget.RecyclerView, clickable=false, checkable=false enabled=true, id=com.android.settings:id/recycler_view pkg=com.android.settings, identity=list, bounds=Rect(0, 234 - 1080, 2400)\n" +
                 "ACS-DEBUG: --2: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=headerItem, bounds=Rect(0, 234 - 1080, 739)\n" +
-                "ACS-DEBUG: ---3: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(42, 260 - 1038, 700)\n" +
+                headerLine +
                 stripLine +
                 "ACS-DEBUG: --2: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=nextItem, bounds=Rect(0, 1035 - 1080, 1198)\n" +
                 "ACS-DEBUG: ---3: text='App size', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=sizeTitle, bounds=Rect(126, 1077 - 600, 1156)\n" +
@@ -1201,5 +1212,282 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         result shouldBe true
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    // ============================================================
+    // Containing a DPAD press that left the storage page
+    // ============================================================
+
+    private fun storagePage() = buildTestTree(
+        """
+        ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
+        """.trimIndent()
+    )
+
+    // What a press on "Clear storage" opens.
+    private fun deleteAppDataDialog() = buildTestTree(
+        """
+        ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+        ACS-DEBUG: -1: text='Delete app data?', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/alertTitle pkg=com.android.settings, identity=title, bounds=Rect(100, 900 - 980, 980)
+        ACS-DEBUG: -1: text='Cancel', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=android:id/button2 pkg=com.android.settings, identity=cancel, bounds=Rect(500, 1300 - 720, 1400)
+        ACS-DEBUG: -1: text='Delete', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=android:id/button1 pkg=com.android.settings, identity=delete, bounds=Rect(740, 1300 - 980, 1400)
+        """.trimIndent()
+    )
+
+    // The target app's own manage-space activity; createTestPkg() is "test.pkg".
+    private fun targetAppScreen() = buildTestTree(
+        "ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=test.pkg, identity=root, bounds=Rect(0, 0 - 1080, 2400)"
+    )
+
+    private fun setupAllowlistedDpad(scope: TestScope) {
+        setupTestScope(scope)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 36 }
+        every { BuildWrap.MANUFACTOR } returns "Google"
+        every { BuildWrap.PRODUCT } returns "lynx_beta"
+        coEvery { inputInjector.canInject() } returns false
+    }
+
+    private fun stubManageStorageText(present: Boolean) {
+        val settingsResources = mockk<Resources> {
+            every { getIdentifier("manage_storage_text", "string", "com.android.settings") } returns if (present) 1 else 0
+        }
+        every { testHost.service.packageManager.getResourcesForApplication("com.android.settings") } returns settingsResources
+    }
+
+    // Records every global action in order. BACK runs [onBack], DPAD_CENTER runs [onCenter] with
+    // its 1-based count.
+    private fun recordGlobalActions(
+        onBack: () -> Unit = { testHost.setWindowRoot(storagePage()) },
+        onCenter: (Int) -> Unit,
+    ): List<Int> {
+        val actions = mutableListOf<Int>()
+        var centers = 0
+        every { testHost.service.performGlobalAction(any()) } answers {
+            val action = firstArg<Int>()
+            actions += action
+            when (action) {
+                AccessibilityService.GLOBAL_ACTION_DPAD_CENTER -> onCenter(++centers)
+                AccessibilityService.GLOBAL_ACTION_BACK -> onBack()
+            }
+            true
+        }
+        return actions
+    }
+
+    private fun List<Int>.afterLastCenter() = drop(lastIndexOf(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) + 1)
+
+    @Test
+    fun `a blind sweep press that opens a dialog gets one BACK and ends the attempt`() = runTest {
+        setupAllowlistedDpad(this)
+        val actions = recordGlobalActions { center ->
+            // The quick-try press does nothing, the blind-sweep-2 press opens the dialog.
+            if (center == 2) {
+                testHost.setWindowRoot(deleteAppDataDialog())
+                emitValidationEventAsync()
+            }
+        }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        abort.replayable shouldBe false
+        abort.isAutomationUnusable() shouldBe true
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `a quick-try press that opens a dialog gets one BACK and ends the attempt`() = runTest {
+        setupAllowlistedDpad(this)
+        val actions = recordGlobalActions {
+            testHost.setWindowRoot(deleteAppDataDialog())
+            emitValidationEventAsync()
+        }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `a window root that is missing after the press still gets the BACK once the dialog shows`() = runTest {
+        setupAllowlistedDpad(this)
+        val actions = recordGlobalActions {
+            testHost.setWindowRoot(null)
+            // Validation (800ms) and the detour check (1s) both see no root, the dialog shows up
+            // while containment is polling for one.
+            testHost.scope.launch {
+                delay(2_200)
+                testHost.setWindowRoot(deleteAppDataDialog())
+            }
+        }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `an event before the dialog attaches is no success without size rows`() = runTest {
+        setupAllowlistedDpad(this)
+        val actions = recordGlobalActions {
+            // The press's own content change arrives while the storage page is still shown.
+            emitValidationEventAsync()
+            testHost.scope.launch {
+                delay(100)
+                testHost.setWindowRoot(deleteAppDataDialog())
+            }
+        }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `an event before the dialog attaches is no success with size rows`() = runTest {
+        setupAllowlistedDpad(this)
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+        val actions = recordGlobalActions(onBack = { testHost.setWindowRoot(buttonBandTree()) }) {
+            emitValidationEventAsync()
+            testHost.scope.launch {
+                delay(100)
+                testHost.setWindowRoot(deleteAppDataDialog())
+            }
+        }
+        testRoot = buttonBandTree()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `a cache decrease read without the anchor is no success`() = runTest {
+        setupAllowlistedDpad(this)
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("143 kB") } returns 143360L
+        every { anyConstructed<SizeParser>().parse("12 kB") } returns 12288L
+        recordGlobalActions(onBack = { testHost.setWindowRoot(buttonBandTree()) }) {
+            testHost.setWindowRoot(buttonBandTree(cacheSummary = "12 kB", header = false))
+            emitValidationEventAsync()
+        }
+        testRoot = buttonBandTree()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a detour into the app without manage_storage_text gets one BACK and no retry`() = runTest {
+        setupAllowlistedDpad(this)
+        stubManageStorageText(present = false)
+        val actions = recordGlobalActions { testHost.setWindowRoot(targetAppScreen()) }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_LEFT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        actions.afterLastCenter() shouldBe listOf(AccessibilityService.GLOBAL_ACTION_BACK)
+    }
+
+    @Test
+    fun `a detour into the app with manage_storage_text is retried`() = runTest {
+        setupAllowlistedDpad(this)
+        stubManageStorageText(present = true)
+        recordGlobalActions { center ->
+            when (center) {
+                1 -> testHost.setWindowRoot(targetAppScreen())
+                else -> emitValidationEventAsync()
+            }
+        }
+        testRoot = storagePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        // Quick-try DOWN, RIGHT, CENTER; then BACK and the retry's DOWN, RIGHT, LEFT, CENTER.
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_LEFT) }
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a DPAD run that hits its deadline counts as exhausted and is still contained`() = runTest {
+        setupAllowlistedDpad(this)
+        coEvery { inputInjector.canInject() } returns true
+        var centerAt = -1L
+        coEvery { inputInjector.inject(any<InputInjector.Event>()) } coAnswers {
+            if (firstArg<InputInjector.Event>() == InputInjector.Event.DpadCenter) {
+                centerAt = testScheduler.currentTime
+                testHost.setWindowRoot(deleteAppDataDialog())
+                // Only the deadline ends this press.
+                delay(60_000)
+            }
+            Unit
+        }
+        var backAt = -1L
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_BACK) {
+                backAt = testScheduler.currentTime
+                testHost.setWindowRoot(storagePage())
+            }
+            true
+        }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        coVerify(exactly = 1) { inputInjector.inject(InputInjector.Event.DpadCenter) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        (backAt - centerAt) shouldBeGreaterThan 0L
+        (backAt - centerAt) shouldBeLessThan 10_000L
     }
 }
