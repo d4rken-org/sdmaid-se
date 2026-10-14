@@ -5,12 +5,14 @@ translation_key: storageanalyzer
 permalink: /storageanalyzer
 ---
 # Storage Analyzer
+{: #storage-analyzer }
 
 The storage analyzer answers "What takes up so much space on my storage?"
 
 It may look like a file browser, but it is not a file browser. Everything is sorted by size, so you can follow the largest items down to what is actually filling your storage.
 
 ## Storages
+{: #storages }
 
 The first screen shows each storage of your device:
 
@@ -21,6 +23,7 @@ The first screen shows each storage of your device:
 Each card shows free and used space, and how much the storage changed over the last 7 days, see [Storage Trend](#storage-trend).
 
 ## Categories
+{: #categories }
 
 Opening a storage scans it and splits the used space into categories:
 
@@ -32,6 +35,7 @@ Opening a storage scans it and splits the used space into categories:
 System data and Other users only exist for the primary storage.
 
 ### Apps
+{: #apps }
 
 Apps are sorted by size and can be searched by name. System apps can be listed here too, including their data. For system apps without an installed update, the built-in app code counts as System data. Opening an app shows where its space goes:
 
@@ -43,6 +47,7 @@ Apps are sorted by size and can be searched by name. System apps can be listed h
 `Show settings` opens the app's system settings page.
 
 ### Why the numbers don't match Android's settings
+{: #why-the-numbers-dont-match-androids-settings }
 
 The analyzer's categories won't exactly match the breakdown in Android's settings.
 
@@ -51,6 +56,7 @@ The analyzer's categories won't exactly match the breakdown in Android's setting
 Without the [App inventory](/setup#app-inventory) and [Usage statistics](/setup#usage-statistics) permissions, apps can't be measured. Their space then shows up as System data.
 
 ## Access
+{: #access }
 
 What the analyzer can see depends on the access SD Maid has:
 
@@ -63,6 +69,7 @@ Items SD Maid can't access show `No direct access available` when tapped.
 Folders with more than 100,000 items are only totalled and can't be browsed.
 
 ## Actions
+{: #actions }
 
 Tap a file to open it in another app. Long-press items to select them, then:
 
@@ -74,6 +81,7 @@ Tap a file to open it in another app. Long-press items to select them, then:
 System data and other users' content can only be browsed. Deleting there is not possible.
 
 ## Storage Trend
+{: #storage-trend }
 
 SD Maid records the free space of your storages every few hours and after each cleanup. `Storage Trend` shows this as a chart, with markers for how much each cleanup freed.
 
@@ -84,11 +92,14 @@ SD Maid records the free space of your storages every few hours and after each c
 The Storage Trend chart requires the upgrade. The 7-day change on the storage cards and the dashboard, and the days-left estimate, are free.
 
 ## Settings
+{: #settings }
 
 ### Low storage threshold
+{: #low-storage-threshold }
 
 When free space drops below this, SD Maid treats the storage as running out. Default `Automatic`: 5% of the storage size, at most 2 GB.
 
 ### Low space warning
+{: #low-space-warning }
 
 Requires the upgrade. Warns when free space on your primary storage reaches the low storage threshold. With at least 5 days of consistent history, it can also warn earlier: when storage is on track to reach the threshold within 14 days and free space is already at most 20% of the storage, capped at 25 GB. Off by default.

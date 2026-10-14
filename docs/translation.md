@@ -5,6 +5,7 @@ translation_key: translation
 permalink: /translation
 ---
 # Translations
+{: #translations }
 
 Translations are managed via Crowdin:
 <https://crowdin.com/project/sdmaid-se>
@@ -12,6 +13,7 @@ Translations are managed via Crowdin:
 Translations are pulled regularly before publishing new app updates. Completed strings on Crowdin will automatically be included in upcoming releases.
 
 ## Questions & Issues
+{: #questions--issues }
 
 If you have questions or find problems, please comment directly on the affected string in Crowdin.  
 String comments give context and make it easier to resolve translation issues quickly.
@@ -19,6 +21,7 @@ String comments give context and make it easier to resolve translation issues qu
 Use GitHub issues only for global translation problems, not for individual strings.
 
 ## Common Pitfalls
+{: #common-pitfalls }
 
 **Placeholders must stay unchanged**
 
@@ -64,10 +67,12 @@ Do not break:
 - Android formatting (`%1$s`, `&lt;`, `&amp;`)
 
 ## Languages
+{: #languages }
 
 Some languages require specific wording, formatting, or tone choices. Check the language-specific guidelines in this wiki before translating to keep terminology and style consistent. If no guideline exists yet, contributors can propose one.
 
 ### French
+{: #french }
 
 Coordination: 
 

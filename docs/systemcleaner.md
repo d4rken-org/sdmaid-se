@@ -5,6 +5,7 @@ translation_key: systemcleaner
 permalink: /systemcleaner
 ---
 # System Cleaner
+{: #system-cleaner }
 
 The SystemCleaner tool is basically a general purpose search engine. It will crawl all accessible storage and match found files and folders against a set of filters.
 
@@ -13,8 +14,10 @@ In contrast to other tools like the CorpseFinder or the AppCleaner, it doesn't k
 Any found file is passed through the enabled filters, and will be attributed to the first filter that is matched.
 
 ## Settings
+{: #settings }
 
 ### General filters
+{: #general-filters }
 
 General filters search **across all accessible storage areas** for certain file types that can appear anywhere on the device.
 
@@ -35,6 +38,7 @@ General filters search **across all accessible storage areas** for certain file 
 | **System log files** | System and system service log files (e.g., `*.log`) in various locations. |
 
 ### Specific filters
+{: #specific-filters }
 
 Specific filters target **fixed, known paths** on the device where certain types of data are stored.
 
@@ -51,12 +55,14 @@ Specific filters target **fixed, known paths** on the device where certain types
 | **Recent tasks** | Data related to the tasks history in the system's task switcher. |
 
 ### Custom filters
+{: #custom-filters }
 
 In addition to general filters that are provided by the app, you can create custom filters with your own criteria. Custom filters can be created from **Settings > SystemCleaner > Filter-Manager**.
 
 > **Warning**: Custom filters can be risky. Always check your scan results before deleting!
 
 #### Available Criteria
+{: #available-criteria }
 
 | Criterion | Description |
 |-----------|-------------|
@@ -73,6 +79,7 @@ In addition to general filters that are provided by the app, you can create cust
 | **Path Regex** | Advanced: Regular expressions for path matching |
 
 #### Path Criteria Modes
+{: #path-criteria-modes }
 
 | Mode | Description | Example |
 |------|-------------|---------|
@@ -82,6 +89,7 @@ In addition to general filters that are provided by the app, you can create cust
 | **Equals** | Path exactly matches the keyword | `Download/temp` matches only that exact path |
 
 #### Name Criteria Modes
+{: #name-criteria-modes }
 
 | Mode | Description | Example |
 |------|-------------|---------|
@@ -93,6 +101,7 @@ In addition to general filters that are provided by the app, you can create cust
 All matching is **case-insensitive** by default.
 
 #### Data Areas
+{: #data-areas }
 
 Common areas you can target:
 
@@ -106,6 +115,7 @@ Common areas you can target:
 | **PORTABLE** | Removable storage (USB/microSD) |
 
 #### Tips
+{: #tips }
 
 - **Performance**: Define only necessary criteria. Too many regex patterns slow down scanning.
 - **Multiple criteria**: All specified criteria must match (AND logic).
@@ -114,5 +124,6 @@ Common areas you can target:
 - **Import/Export**: Filters can be exported and shared with other users.
 
 #### Deprecated Options
+{: #deprecated-options }
 
 The `rootOnly` option from SD Maid 1 is **no longer available**. Use **Data Areas** to control which storage locations are scanned instead.

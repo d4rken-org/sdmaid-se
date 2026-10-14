@@ -5,6 +5,7 @@ translation_key: stats
 permalink: /stats
 ---
 # Stats and History
+{: #stats-and-history }
 
 SD Maid 2/SE keeps track of the amount of deleted files and the total space that has been freed during cleanups. This allows users to monitor the impact of their cleanups over time.
 
@@ -12,6 +13,7 @@ SD Maid 2/SE keeps track of the amount of deleted files and the total space that
 <img src="/assets/images/stats/overview-2.webp" width="150">
 
 ## Key Features:
+{: #key-features }
 
 - **Deleted Files and Freed Space**: SD Maid logs the total number of files deleted and the amount of storage space freed during each cleanup session.
   
