@@ -3,7 +3,7 @@ title: "Tutorial Memulai Cepat SD Maid 2/SE"
 lang: id
 translation_key: tutorial
 permalink: /id/tutorial
-source_hash: cd339afb78a7309e
+source_hash: 3b930340b3505fa4
 ---
 # Tutorial Memulai Cepat SD Maid 2/SE
 {: #quick-start-tutorial-for-sd-maid-2se }
@@ -18,10 +18,10 @@ Selamat datang di SD Maid 2/SE! Ikuti langkah-langkah sederhana ini untuk memula
   - Berikan izin yang diperlukan seperti **akses penyimpanan** agar SD Maid dapat memindai dan bekerja di perangkat Anda.
   - Selesaikan langkah penyiapan tambahan seperti mengaktifkan fitur opsional sesuai preferensi Anda (mis. layanan aksesibilitas, opsi penjadwalan).
 
-## 2. **Jalankan Pemindaian Quick Access**
+## 2. **Jalankan Pemindaian**
 {: id="2-run-a-quick-access-scan" }
 
-- Setelah penyiapan selesai, ketuk **Quick Access** (Akses Cepat) di layar utama untuk memulai pemindaian seluruh sistem.
+- Setelah penyiapan selesai, ketuk tombol pindai bundar (ikon kaca pembesar) di tengah bilah bawah dasbor untuk memulai pemindaian seluruh sistem.
 - SD Maid akan memindai perangkat Anda untuk mencari berkas sampah, sisa data aplikasi, cache sistem, dan berkas tidak perlu lainnya.
 
 ## 3. **Tinjau Hasilnya**

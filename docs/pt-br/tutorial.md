@@ -3,7 +3,7 @@ title: "Tutorial de início rápido do SD Maid 2/SE"
 lang: pt-BR
 translation_key: tutorial
 permalink: /pt-br/tutorial
-source_hash: cd339afb78a7309e
+source_hash: 3b930340b3505fa4
 ---
 # Tutorial de início rápido do SD Maid 2/SE
 {: #quick-start-tutorial-for-sd-maid-2se }
@@ -18,10 +18,10 @@ Bem-vindo ao SD Maid 2/SE! Siga estes passos simples para começar:
   - Conceda as permissões necessárias, como **acesso ao armazenamento**, para que o SD Maid possa escanear e trabalhar no seu dispositivo.
   - Conclua as etapas adicionais de configuração, como ativar recursos opcionais de acordo com suas preferências (por exemplo, serviço de acessibilidade, opções de agendamento).
 
-## 2. **Faça uma verificação pelo Acesso rápido**
+## 2. **Faça uma verificação**
 {: id="2-run-a-quick-access-scan" }
 
-- Depois de concluir a configuração, toque em **Quick Access** (Acesso rápido) na tela principal para iniciar uma verificação de todo o sistema.
+- Depois de concluir a configuração, toque no botão redondo de escanear (ícone de lupa) no centro da barra inferior do painel para iniciar uma verificação de todo o sistema.
 - O SD Maid vai escanear seu dispositivo em busca de arquivos inúteis, dados restantes de aplicativos, caches do sistema e outros arquivos desnecessários.
 
 ## 3. **Revise os resultados**

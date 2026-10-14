@@ -3,7 +3,7 @@ title: "Tutoriel de démarrage rapide pour SD Maid 2/SE"
 lang: fr
 translation_key: tutorial
 permalink: /fr/tutorial
-source_hash: cd339afb78a7309e
+source_hash: 3b930340b3505fa4
 ---
 # Tutoriel de démarrage rapide pour SD Maid 2/SE
 {: #quick-start-tutorial-for-sd-maid-2se }
@@ -18,10 +18,10 @@ Bienvenue dans SD Maid 2/SE ! Suivez ces étapes simples pour commencer :
   - Accordez les autorisations requises, comme l’**accès au stockage**, afin que SD Maid puisse analyser votre appareil et y travailler.
   - Terminez les éventuelles étapes de configuration supplémentaires, comme l’activation de fonctionnalités facultatives selon vos préférences (par ex. service d’accessibilité, options de planification).
 
-## 2. **Lancer une analyse « Quick Access »**
+## 2. **Lancer une analyse**
 {: id="2-run-a-quick-access-scan" }
 
-- Une fois la configuration terminée, appuyez sur **Quick Access** (accès rapide) sur l’écran principal pour lancer une analyse de tout le système.
+- Une fois la configuration terminée, appuyez sur le bouton rond d’analyse (icône de loupe) au centre de la barre inférieure du tableau de bord pour lancer une analyse de tout le système.
 - SD Maid analyse votre appareil à la recherche de fichiers indésirables, de restes de données d’applis, de caches système et d’autres fichiers inutiles.
 
 ## 3. **Examiner les résultats**
