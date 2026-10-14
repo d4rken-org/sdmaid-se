@@ -4,15 +4,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface SwipeItemDao {
 
+    @Transaction
     @Query("SELECT * FROM swipe_items WHERE session_id = :sessionId ORDER BY item_index ASC")
     fun getItemsForSession(sessionId: String): Flow<List<SwipeItemEntity>>
 
+    @Transaction
     @Query("SELECT * FROM swipe_items WHERE session_id = :sessionId ORDER BY item_index ASC")
     suspend fun getItemsForSessionSync(sessionId: String): List<SwipeItemEntity>
 
