@@ -23,4 +23,4 @@ jobs:
   thumbnail:
     permissions:
       issues: write
-    uses: d4rken-org/.github/.github/workflows/thumbnail-images.yml@94e36d9a67a887e24338f95fd0429925cea21c98
+    uses: d4rken-org/.github/.github/workflows/thumbnail-images.yml@9fdf0e31713bda26f2fe4233191c3f5472eea843
