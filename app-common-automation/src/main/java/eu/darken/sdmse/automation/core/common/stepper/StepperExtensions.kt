@@ -82,28 +82,40 @@ suspend fun StepContext.findFocusedNode(): FocusState {
  * Waits for the layout to stabilize by polling an anchor node's bounds.
  * Returns the anchor node once bounds are stable across two consecutive checks, or null if
  * the anchor is never found or bounds never stabilize within [maxChecks] iterations.
+ * A check that misses the anchor, or whose window root fails [isWindowAtRest], starts the count over.
  */
 suspend fun StepContext.waitForLayoutStability(
     anchorId: String,
     maxChecks: Int = 10,
     delayMs: Long = 200,
+    isWindowAtRest: suspend (root: ACSNodeInfo) -> Boolean = { true },
 ): ACSNodeInfo? {
     var lastBounds: ACSNodeInfo.ScreenBounds? = null
     for (i in 1..maxChecks) {
-        val node = host.windowRoot()?.crawl()?.map { it.node }
+        val root = host.windowRoot()
+        val node = root?.crawl()?.map { it.node }
             ?.firstOrNull { it.viewIdResourceName == anchorId }
-        if (node == null) {
-            log(tag, INFO) { "Stabilize check #$i: anchor '$anchorId' not found yet" }
-            delay(delayMs)
-            continue
+        when {
+            root == null || node == null -> {
+                log(tag, INFO) { "Stabilize check #$i: anchor '$anchorId' not found yet" }
+                lastBounds = null
+            }
+
+            !isWindowAtRest(root) -> {
+                log(tag, INFO) { "Stabilize check #$i: window not at rest, root=${root.getScreenBounds()}" }
+                lastBounds = null
+            }
+
+            else -> {
+                val bounds = node.getScreenBounds()
+                log(tag) { "Stabilize check #$i: bounds=$bounds" }
+                if (bounds == lastBounds) {
+                    log(tag, INFO) { "Layout stabilized after $i checks" }
+                    return node
+                }
+                lastBounds = bounds
+            }
         }
-        val bounds = node.getScreenBounds()
-        log(tag) { "Stabilize check #$i: bounds=$bounds" }
-        if (bounds == lastBounds) {
-            log(tag, INFO) { "Layout stabilized after $i checks" }
-            return node
-        }
-        lastBounds = bounds
         delay(delayMs)
     }
     return null

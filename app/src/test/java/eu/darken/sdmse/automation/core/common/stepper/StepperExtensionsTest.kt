@@ -9,7 +9,9 @@ import eu.darken.sdmse.common.progress.Progress
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContain
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.mockk
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.emptyFlow
@@ -422,6 +424,72 @@ class StepperExtensionsTest : BaseTest() {
         )
 
         result shouldBe null
+    }
+
+    private val restAnchorId = "com.android.settings:id/entity_header_content"
+
+    // Settings' entry transition on a 960px display: the root sits at 217..1177 while the anchor
+    // keeps reporting the same bounds.
+    private fun restTestRoot(rootLeft: Int, rootRight: Int): Pair<TestACSNodeInfo, TestACSNodeInfo> {
+        val anchor = TestACSNodeInfo(
+            viewIdResourceName = restAnchorId,
+            screenBoundsOverride = ACSNodeInfo.ScreenBounds(305, 373, 1089, 819),
+        )
+        val root = TestACSNodeInfo(
+            screenBoundsOverride = ACSNodeInfo.ScreenBounds(rootLeft, 0, rootRight, 2142),
+        ).addChild(anchor)
+        return root to anchor
+    }
+
+    private fun createStepContextWithRoots(roots: List<TestACSNodeInfo>): Pair<StepContext, AutomationHost> {
+        val mockHost = mockk<AutomationHost>()
+        coEvery { mockHost.windowRoot() } returnsMany roots
+        val mockHostContext = object : AutomationExplorer.Context {
+            override val host: AutomationHost = mockHost
+            override val progress: Flow<Progress.Data?> = emptyFlow()
+            override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {}
+        }
+        return StepContext(hostContext = mockHostContext, tag = "test", stepAttempts = 1) to mockHost
+    }
+
+    private val withinDisplay: suspend (ACSNodeInfo) -> Boolean = { root ->
+        root.getScreenBounds().let { it.left >= 0 && it.right <= 960 }
+    }
+
+    @Test
+    fun `waitForLayoutStability restarts the count on a root that is not at rest`() = runTest {
+        val (rest1, _) = restTestRoot(0, 960)
+        val (sliding, _) = restTestRoot(217, 1177)
+        val (rest2, _) = restTestRoot(0, 960)
+        val (rest3, anchor3) = restTestRoot(0, 960)
+        val (context, host) = createStepContextWithRoots(listOf(rest1, sliding, rest2, rest3))
+
+        val result = context.waitForLayoutStability(
+            anchorId = restAnchorId,
+            maxChecks = 10,
+            delayMs = 0,
+            isWindowAtRest = withinDisplay,
+        )
+
+        // Check 3 equals check 1, but the sliding root in between restarted the count.
+        result shouldBeSameInstanceAs anchor3
+        coVerify(exactly = 4) { host.windowRoot() }
+    }
+
+    @Test
+    fun `waitForLayoutStability returns null when the root never comes to rest`() = runTest {
+        val (sliding, _) = restTestRoot(217, 1177)
+        val (context, host) = createStepContextWithRoots(listOf(sliding))
+
+        val result = context.waitForLayoutStability(
+            anchorId = restAnchorId,
+            maxChecks = 5,
+            delayMs = 0,
+            isWindowAtRest = withinDisplay,
+        )
+
+        result shouldBe null
+        coVerify(exactly = 5) { host.windowRoot() }
     }
 
     // Tests for findFocusedNode
