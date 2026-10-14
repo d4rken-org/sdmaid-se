@@ -72,6 +72,42 @@ class AutomationExplorerTest : BaseTest() {
     }
 
     @Test
+    fun `a non-replayable step abort propagates without replaying the plan`() = runTest2 {
+        var attempts = 0
+        val abort = StepAbortException("DPAD exhausted", replayable = false)
+
+        val thrown = shouldThrow<StepAbortException> {
+            AutomationExplorer(host).process(
+                spec(retryCount = 3) {
+                    attempts++
+                    throw abort
+                }
+            )
+        }
+
+        thrown shouldBe abort
+        attempts shouldBe 1
+    }
+
+    @Test
+    fun `a step abort is replayable by default`() = runTest2 {
+        var attempts = 0
+        val abort = StepAbortException("Button not reachable")
+        abort.replayable shouldBe true
+
+        shouldThrow<StepAbortException> {
+            AutomationExplorer(host).process(
+                spec(retryCount = 2) {
+                    attempts++
+                    throw abort
+                }
+            )
+        }
+
+        attempts shouldBe 3
+    }
+
+    @Test
     fun `a step abort marked as success ends the plan without replaying`() = runTest2 {
         var attempts = 0
 

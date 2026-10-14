@@ -79,6 +79,10 @@ class AutomationExplorer @AssistedInject constructor(
                             log(TAG, WARN) { "Plan finished early, step skipped: ${e.asLog()}" }
                             return@withTimeout
                         }
+                        if (!e.replayable) {
+                            log(TAG, WARN) { "Step aborted, not replayable:\n${e.asLog()}" }
+                            throw e
+                        }
                         // The step declared itself unretryable, so replaying the plan re-runs the
                         // same failing step. Allow a bounded number of replays in case the screen
                         // was merely in a bad state, but don't keep going until executionTimeout:

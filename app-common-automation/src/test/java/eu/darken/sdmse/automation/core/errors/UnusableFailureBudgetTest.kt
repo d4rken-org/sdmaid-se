@@ -28,6 +28,17 @@ class UnusableFailureBudgetTest : BaseTest() {
     }
 
     @Test
+    fun `a non-replayable step abort counts`() {
+        val budget = UnusableFailureBudget(limit = 1)
+        val abort = StepAbortException("DPAD exhausted", replayable = false)
+
+        abort.isAutomationUnusable() shouldBe true
+        budget.onFailure(abort)
+
+        budget.isExhausted shouldBe true
+    }
+
+    @Test
     fun `a step abort treated as success does not count`() {
         val budget = UnusableFailureBudget(limit = 1)
 
