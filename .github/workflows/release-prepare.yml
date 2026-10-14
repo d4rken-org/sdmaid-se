@@ -36,7 +36,7 @@ concurrency:
 jobs:
   compute-and-validate:
     name: Compute and validate
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       checks: read
@@ -251,7 +251,7 @@ jobs:
     name: Push and dispatch
     needs: compute-and-validate
     if: ${{ !inputs.dry_run }}
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
     env:
