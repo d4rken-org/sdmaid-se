@@ -39,6 +39,7 @@ import androidx.compose.foundation.text.TextAutoSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Stars
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -600,7 +601,13 @@ private fun MainActionFab(
 
                     BottomBarState.Action.WORKING -> {
                         val workingLabel = stringResource(R.string.widget_home_working)
-                        Box(Modifier.semantics { contentDescription = workingLabel })
+                        CircularProgressIndicator(
+                            modifier = Modifier
+                                .size(24.dp)
+                                .semantics { contentDescription = workingLabel },
+                            color = contentColor,
+                            strokeWidth = 2.dp,
+                        )
                     }
 
                     BottomBarState.Action.WORKING_CANCELABLE -> Icon(
