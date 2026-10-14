@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.platform.LocalInspectionMode
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.longClick
@@ -85,11 +86,14 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
         every { session } returns MutableStateFlow<eu.darken.sdmse.common.compose.tour.TourSession?>(null)
     }
 
-    private fun ComposeContentTestRule.setListScreen(state: AppControlListViewModel.State) {
+    private fun ComposeContentTestRule.setListScreen(
+        state: AppControlListViewModel.State,
+        onHelp: () -> Unit = {},
+    ) {
         setContent {
             CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
                 PreviewWrapper {
-                    AppControlListScreen(stateSource = MutableStateFlow(state))
+                    AppControlListScreen(stateSource = MutableStateFlow(state), onHelp = onHelp)
                 }
             }
         }
@@ -444,6 +448,58 @@ class AppControlListScreenTest : BaseComposeRobolectricTest() {
         composeRule.waitForIdle()
 
         composeRule.onNodeWithText(cancelledMessage).assertExists()
+    }
+
+    @Test
+    fun `help action shows in the normal top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setListScreen(
+            AppControlListViewModel.State(rows = listOf(row("com.alpha.app", label = "Alpha"))),
+            onHelp = { help++ },
+        )
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { help shouldBeEqual 1 }
+    }
+
+    @Test
+    fun `help action is hidden while search is open`() {
+        // A restored non-empty query auto-opens the search field.
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.alpha.app", label = "Alpha")),
+                options = AppControlListViewModel.DisplayOptions(searchQuery = "alpha"),
+            ),
+        )
+
+        composeRule.onAllNodesWithText("AppControl").assertCountEquals(0)
+        composeRule.onAllNodesWithContentDescription("Help").assertCountEquals(0)
+    }
+
+    @Test
+    fun `help action is hidden while a task is executing`() {
+        composeRule.setListScreen(
+            AppControlListViewModel.State(
+                rows = listOf(row("com.alpha.app", label = "Alpha")),
+                progress = Progress.Data(),
+            ),
+        )
+
+        composeRule.onNodeWithContentDescription("Cancel").assertExists()
+        composeRule.onAllNodesWithContentDescription("Help").assertCountEquals(0)
+    }
+
+    @Test
+    fun `help action is hidden in selection mode`() {
+        composeRule.setListScreen(
+            AppControlListViewModel.State(rows = listOf(row("com.alpha.app", label = "Alpha"))),
+        )
+        composeRule.onNodeWithContentDescription("Help").assertExists()
+
+        composeRule.onNodeWithText("Alpha").performTouchInput { longClick() }
+
+        composeRule.onNodeWithContentDescription("Options").assertExists()
+        composeRule.onAllNodesWithContentDescription("Help").assertCountEquals(0)
     }
 
     private infix fun <T> T.shouldBeEqual(other: T) {

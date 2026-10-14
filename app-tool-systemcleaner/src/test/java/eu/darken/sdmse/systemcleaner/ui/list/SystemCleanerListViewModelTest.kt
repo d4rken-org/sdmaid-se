@@ -1,5 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
@@ -20,6 +21,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -42,6 +44,7 @@ class SystemCleanerListViewModelTest : BaseTest() {
         val vm: SystemCleanerListViewModel,
         val systemCleaner: SystemCleaner,
         val taskSubmitter: TaskSubmitter,
+        val webpageTool: WebpageTool,
         val stateFlow: MutableStateFlow<SystemCleaner.State>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
         val taskStateFlow: MutableStateFlow<TaskSubmitter.State>,
@@ -126,14 +129,18 @@ class SystemCleanerListViewModelTest : BaseTest() {
             // MockK. Tests that need a decline re-stub this.
             coEvery { submitIfToolIdle(any()) } returns mockk<SDMTool.Task.Result>(relaxed = true)
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val newVm = {
             SystemCleanerListViewModel(
                 dispatcherProvider = TestDispatcherProvider(),
                 systemCleaner = systemCleaner,
                 taskSubmitter = taskSubmitter,
+                webpageTool = webpageTool,
             )
         }
-        return Harness(newVm(), systemCleaner, taskSubmitter, stateFlow, progressFlow, taskStateFlow, newVm)
+        return Harness(
+            newVm(), systemCleaner, taskSubmitter, webpageTool, stateFlow, progressFlow, taskStateFlow, newVm,
+        )
     }
 
     private fun previewMatch(path: String, size: Long = 1024L): SystemCleanerFilter.Match.Deletion =
@@ -603,5 +610,14 @@ class SystemCleanerListViewModelTest : BaseTest() {
 
         nav.list shouldBe emptyList()
         nav.cancel()
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/systemcleaner") }
     }
 }

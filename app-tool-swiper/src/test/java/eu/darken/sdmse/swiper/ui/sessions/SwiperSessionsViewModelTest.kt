@@ -1,5 +1,6 @@
 package eu.darken.sdmse.swiper.ui.sessions
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.toCaString
@@ -30,6 +31,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Job
@@ -87,6 +89,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val upgradeFlow: MutableStateFlow<UpgradeRepo.Info>,
         val areaResults: MutableStateFlow<Result<DataAreaManager.State>>,
         val dataAreaManager: DataAreaManager,
+        val webpageTool: WebpageTool,
     )
 
     private class CollectedEvents<T>(val list: MutableList<T>, private val job: Job) {
@@ -141,6 +144,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
         val navCtrl = mockk<NavigationController>(relaxed = true).apply {
             every { consumeResults<PickerResult>(any()) } returns pickerResults
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
 
         val vm = SwiperSessionsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
@@ -149,6 +153,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             upgradeRepo = upgradeRepo,
             navCtrl = navCtrl,
             dataAreaManager = dataAreaManager,
+            webpageTool = webpageTool,
         )
 
         // Keep state subscribed via backgroundScope. Tests can now read state.value (or .first())
@@ -166,6 +171,7 @@ class SwiperSessionsViewModelTest : BaseTest() {
             upgradeFlow = upgradeFlow,
             areaResults = areaResults,
             dataAreaManager = dataAreaManager,
+            webpageTool = webpageTool,
         )
     }
 
@@ -519,5 +525,14 @@ class SwiperSessionsViewModelTest : BaseTest() {
         // rather than silently changing the UI text.
         state.freeVersionLimit shouldBe 50
         state.freeSessionLimit shouldBe 2
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/swiper") }
     }
 }

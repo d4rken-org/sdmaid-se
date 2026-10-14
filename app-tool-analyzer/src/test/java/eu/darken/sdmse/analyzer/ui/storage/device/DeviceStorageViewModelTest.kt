@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.device
 
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.AnalyzerSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
@@ -13,6 +14,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -37,6 +39,7 @@ class DeviceStorageViewModelTest : BaseTest() {
     private class Harness(
         val vm: DeviceStorageViewModel,
         val hintDismissed: DataStoreValue<Boolean>,
+        val webpageTool: WebpageTool,
     )
 
     private fun TestScope.harness(
@@ -54,6 +57,7 @@ class DeviceStorageViewModelTest : BaseTest() {
         val info = mockk<UpgradeRepo.Info>().apply {
             every { this@apply.isPro } returns isPro
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = DeviceStorageViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             analyzer = analyzer,
@@ -62,9 +66,10 @@ class DeviceStorageViewModelTest : BaseTest() {
                 every { getAllHistory(any()) } returns flowOf(emptyList())
             },
             upgradeRepo = mockk<UpgradeRepo>().apply { every { upgradeInfo } returns flowOf(info) },
+            webpageTool = webpageTool,
         )
         backgroundScope.launch(start = CoroutineStart.UNDISPATCHED) { vm.state.collect { } }
-        return Harness(vm, dismissed)
+        return Harness(vm, dismissed, webpageTool)
     }
 
     @Test
@@ -117,5 +122,14 @@ class DeviceStorageViewModelTest : BaseTest() {
 
         (events.single() as NavEvent.GoTo).destination shouldBe UpgradeRoute()
         job.cancel()
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/storageanalyzer") }
     }
 }

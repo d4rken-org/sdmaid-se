@@ -1,5 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.navigation.NavEvent
 import eu.darken.sdmse.common.previews.PreviewRoute
@@ -26,6 +27,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -95,6 +97,7 @@ class DeduplicatorListViewModelTest : BaseTest() {
         val deduplicator: Deduplicator,
         val settings: DeduplicatorSettings,
         val taskSubmitter: TaskSubmitter,
+        val webpageTool: WebpageTool,
         val stateFlow: MutableStateFlow<Deduplicator.State>,
         val progressFlow: MutableStateFlow<Progress.Data?>,
         val taskStateFlow: MutableStateFlow<TaskSubmitter.State>,
@@ -186,6 +189,7 @@ class DeduplicatorListViewModelTest : BaseTest() {
         val upgradeRepo = mockk<UpgradeRepo>().apply {
             every { upgradeInfo } returns flowOf(upgradeInfo(isPro = isPro))
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val newVm = {
             DeduplicatorListViewModel(
                 dispatcherProvider = TestDispatcherProvider(),
@@ -193,6 +197,7 @@ class DeduplicatorListViewModelTest : BaseTest() {
                 settings = settings,
                 taskSubmitter = taskSubmitter,
                 upgradeRepo = upgradeRepo,
+                webpageTool = webpageTool,
             )
         }
         return Harness(
@@ -200,6 +205,7 @@ class DeduplicatorListViewModelTest : BaseTest() {
             deduplicator = deduplicator,
             settings = settings,
             taskSubmitter = taskSubmitter,
+            webpageTool = webpageTool,
             stateFlow = stateFlow,
             progressFlow = progressFlow,
             taskStateFlow = taskStateFlow,
@@ -1175,5 +1181,14 @@ class DeduplicatorListViewModelTest : BaseTest() {
         event.shouldBeInstanceOf<DeduplicatorListViewModel.Event.TaskResult>()
         event.result shouldBe multiResult
         events.cancel()
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/deduplicator") }
     }
 }

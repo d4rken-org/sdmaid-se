@@ -2,6 +2,7 @@ package eu.darken.sdmse.systemcleaner.ui.list
 
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.longClick
 import androidx.compose.ui.test.onAllNodesWithContentDescription
@@ -17,6 +18,7 @@ import eu.darken.sdmse.systemcleaner.ui.preview.previewFilterContent
 import eu.darken.sdmse.systemcleaner.ui.preview.previewSystemCleanerRow
 import io.mockk.mockk
 import kotlinx.coroutines.flow.MutableStateFlow
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -26,11 +28,14 @@ class SystemCleanerListScreenTest : BaseComposeRobolectricTest() {
     // to false, so no tour starts) — these tests stay focused on the list UI.
     private val mockTourController: GuidedTourController = mockk(relaxed = true)
 
-    private fun ComposeContentTestRule.setListScreen(state: SystemCleanerListViewModel.State) {
+    private fun ComposeContentTestRule.setListScreen(
+        state: SystemCleanerListViewModel.State,
+        onHelp: () -> Unit = {},
+    ) {
         setContent {
             CompositionLocalProvider(LocalGuidedTourController provides mockTourController) {
                 PreviewWrapper {
-                    SystemCleanerListScreen(stateSource = MutableStateFlow(state))
+                    SystemCleanerListScreen(stateSource = MutableStateFlow(state), onHelp = onHelp)
                 }
             }
         }
@@ -128,5 +133,38 @@ class SystemCleanerListScreenTest : BaseComposeRobolectricTest() {
         composeRule.onAllNodesWithContentDescription("Select all").fetchSemanticsNodes().size.let {
             if (it == 0) throw AssertionError("Expected Select all action visible with partial selection")
         }
+    }
+
+    @Test
+    fun `help action shows in the normal top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setListScreen(
+            SystemCleanerListViewModel.State(
+                rows = listOf(
+                    previewSystemCleanerRow(content = previewFilterContent(identifier = "a", label = "A row")),
+                ),
+            ),
+            onHelp = { help++ },
+        )
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
+    }
+
+    @Test
+    fun `help action is hidden in selection mode`() {
+        composeRule.setListScreen(
+            SystemCleanerListViewModel.State(
+                rows = listOf(
+                    previewSystemCleanerRow(content = previewFilterContent(identifier = "a", label = "A row")),
+                ),
+            ),
+        )
+        composeRule.onNodeWithContentDescription("Help").assertExists()
+
+        composeRule.onNodeWithText("A row").performTouchInput { longClick() }
+
+        composeRule.onNodeWithContentDescription("Delete selected").assertExists()
+        composeRule.onNodeWithContentDescription("Help").assertDoesNotExist()
     }
 }
