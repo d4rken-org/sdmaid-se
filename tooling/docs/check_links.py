@@ -2,16 +2,20 @@
 """Fails if a link into the docs site points at a page or heading that the built site lacks.
 
 Checks every https://sdmse.darken.eu/... URL in the repository's sources (the app opens these) and
-every internal link inside the built site.
+every internal link inside the built site. URLs in .kt files that the app localizes must also have a
+page in every docs language.
 
 Usage: check_links.py <built site dir> <repo root>
 """
+import json
 import re
 import subprocess
 import sys
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urljoin, urlsplit
+
+from check_translations import ENGLISH_ONLY
 
 SITE_HOST = "sdmse.darken.eu"
 
@@ -46,6 +50,7 @@ def page_file(site, path):
 
 def main():
     site, repo = Path(sys.argv[1]), Path(sys.argv[2])
+    lang_paths = [lang["path"] for lang in json.loads((repo / "docs/_data/languages.json").read_text(encoding="utf-8"))]
     pages = {}
     for html in site.rglob("*.html"):
         parser = PageParser()
@@ -76,6 +81,16 @@ def main():
                 error = check(parts.path, unquote(parts.fragment))
                 if error:
                     errors.append(f"{name}:{lineno}: {match.group(0)}: {error}")
+                if file.suffix != ".kt":
+                    continue
+                path = parts.path or "/"
+                first = path[1:].split("/", 1)[0]
+                if first in ENGLISH_ONLY or first in lang_paths:
+                    continue
+                for lang_path in lang_paths:
+                    localized = f"/{lang_path}/" if path == "/" else f"/{lang_path}{path}"
+                    if page_file(site, localized) is None:
+                        errors.append(f"{name}:{lineno}: {match.group(0)}: no {lang_path} translation ({localized})")
 
     for html, parser in pages.items():
         page_url = "/" + html.relative_to(site).as_posix()
