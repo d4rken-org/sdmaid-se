@@ -1,0 +1,39 @@
+{
+  "language_name": "Türkçe",
+  "skip": "İçeriğe geç",
+  "guide": "Kılavuz",
+  "language": "Dil",
+  "sections": {
+    "guide": "Kılavuz",
+    "tools": "Araçlar",
+    "more": "Daha fazla"
+  },
+  "nav": {
+    "index": "Genel bakış",
+    "tutorial": "Eğitim",
+    "setup": "Kurulum",
+    "faq": "SSS",
+    "bugs": "Hatalar ve hata ayıklama günlükleri",
+    "appcleaner": "Uygulama Temizleyici",
+    "corpsefinder": "ArtıkBulucu",
+    "systemcleaner": "Sistem Temizleyicisi",
+    "storageanalyzer": "Depolama Analizcisi",
+    "deduplicator": "Tekilleyici",
+    "mediasqueeze": "Medya Sıkıştırıcı",
+    "swiper": "Kaydırıcı",
+    "appcontrol": "Uygulama Kontrolü",
+    "scheduler": "Zamanlayıcı",
+    "exclusions": "Hariç tutmalar",
+    "stats": "İstatistikler ve geçmiş",
+    "translation": "Çeviriler",
+    "changelog": "Değişiklik günlüğü"
+  },
+  "tagline": "Android'in en kapsamlı temizlik aracı.",
+  "help": "Yardım alın",
+  "security": "İndirmeleri doğrulayın",
+  "privacy": "Gizlilik",
+  "suggest": "Bu sayfa Türkçe olarak da mevcut.",
+  "dismiss": "Kapat",
+  "stale": "Bu çeviri güncel olmayabilir.",
+  "stale_link": "İngilizce sürümü okuyun"
+}

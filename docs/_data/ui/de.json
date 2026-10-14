@@ -1,0 +1,39 @@
+{
+  "language_name": "Deutsch",
+  "skip": "Zum Inhalt springen",
+  "guide": "Handbuch",
+  "language": "Sprache",
+  "sections": {
+    "guide": "Handbuch",
+    "tools": "Werkzeuge",
+    "more": "Mehr"
+  },
+  "nav": {
+    "index": "Übersicht",
+    "tutorial": "Tutorial",
+    "setup": "Einrichtung",
+    "faq": "FAQ",
+    "bugs": "Fehler & Debug-Protokolle",
+    "appcleaner": "App-Reiniger",
+    "corpsefinder": "Leichenfinder",
+    "systemcleaner": "System-Reiniger",
+    "storageanalyzer": "Speicheranalyse",
+    "deduplicator": "Duplikat-Entferner",
+    "mediasqueeze": "Medienkomprimierung",
+    "swiper": "Swiper",
+    "appcontrol": "App-Kontrolle",
+    "scheduler": "Planer",
+    "exclusions": "Ausschlüsse",
+    "stats": "Statistiken & Verlauf",
+    "translation": "Übersetzungen",
+    "changelog": "Änderungsprotokoll"
+  },
+  "tagline": "Das gründlichste Reinigungswerkzeug für Android.",
+  "help": "Hilfe erhalten",
+  "security": "Downloads überprüfen",
+  "privacy": "Datenschutz",
+  "suggest": "Diese Seite gibt es auch auf Deutsch.",
+  "dismiss": "Ausblenden",
+  "stale": "Diese Übersetzung ist möglicherweise veraltet.",
+  "stale_link": "Englische Version lesen"
+}
