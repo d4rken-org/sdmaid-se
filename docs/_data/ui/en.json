@@ -1,0 +1,39 @@
+{
+  "language_name": "English",
+  "skip": "Skip to content",
+  "guide": "Guide",
+  "language": "Language",
+  "sections": {
+    "guide": "Guide",
+    "tools": "Tools",
+    "more": "More"
+  },
+  "nav": {
+    "index": "Overview",
+    "tutorial": "Tutorial",
+    "setup": "Setup",
+    "faq": "FAQ",
+    "bugs": "Bugs & debug logs",
+    "appcleaner": "AppCleaner",
+    "corpsefinder": "CorpseFinder",
+    "systemcleaner": "SystemCleaner",
+    "storageanalyzer": "StorageAnalyzer",
+    "deduplicator": "Deduplicator",
+    "mediasqueeze": "Media Squeeze",
+    "swiper": "Swiper",
+    "appcontrol": "AppControl",
+    "scheduler": "Scheduler",
+    "exclusions": "Exclusions",
+    "stats": "Stats & history",
+    "translation": "Translations",
+    "changelog": "Changelog"
+  },
+  "tagline": "Android's most thorough cleaning tool.",
+  "help": "Get help",
+  "security": "Verify downloads",
+  "privacy": "Privacy",
+  "suggest": "This page is also available in English.",
+  "dismiss": "Dismiss",
+  "stale": "This translation may be out of date.",
+  "stale_link": "Read the English version"
+}

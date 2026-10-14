@@ -51,6 +51,9 @@ jobs:
       - name: Add the root pages
         run: cp CHANGELOG.md PRIVACY_POLICY.md SECURITY.md docs/
 
+      - name: Check translations
+        run: python3 tooling/docs/check_translations.py docs --write-status docs/_data/translation_status.json
+
       - name: Build with Jekyll
         working-directory: docs
         run: bundle exec jekyll build --strict_front_matter --destination ../_site
@@ -60,6 +63,9 @@ jobs:
 
       - name: Check docs links
         run: python3 tooling/docs/check_links.py _site .
+
+      - name: Check translated pages
+        run: python3 tooling/docs/check_translations.py docs --site _site
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

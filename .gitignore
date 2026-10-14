@@ -51,3 +51,4 @@ replay_pid*.log
 /docs/SECURITY.md
 /docs/.bundle/
 /docs/vendor/
+/docs/_data/translation_status.json

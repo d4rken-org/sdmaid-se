@@ -30,7 +30,6 @@ Tries to copy the apps `.apk` file from internal private storage to your public 
 ### Freeze app
 {: #freeze-app }
 Requires root or ADB/Shizuku. Disables the app. The app will not be visible and can't start itself. It has to be enabled again to work. No dataloss occurs and this state also persists if you uninstall SD Maid. Any good app enabled/disabler app can enable apps that have been disabled with SD Maid and vice versa.
-s.
 
 ### Delete app
 {: #delete-app }

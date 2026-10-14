@@ -1,37 +1,70 @@
+{% assign lang = page.lang | default: 'en' %}
+{% assign en_ui = site.data.ui.en %}
+{% assign ui = site.data.ui[lang] | default: en_ui %}
+{% assign language = site.data.languages | where: 'code', lang | first %}
+{% if page.translation_key %}{% assign versions = site.pages | where: 'translation_key', page.translation_key %}{% else %}{% assign versions = '' | split: '' %}{% endif %}
+{% assign english = versions | where: 'lang', 'en' | first %}
+{% assign home = site.pages | where: 'translation_key', 'index' | where: 'lang', lang | first %}
+{% unless home %}{% assign home = site.pages | where: 'translation_key', 'index' | where: 'lang', 'en' | first %}{% endunless %}
 <!doctype html>
-<html lang="{{ page.lang | default: 'en' }}">
+<html lang="{{ lang }}" dir="{{ language.dir | default: 'ltr' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
-  <meta name="description" content="{{ page.description | default: site.description | escape }}">
+  <meta name="description" content="{{ page.description | default: ui.tagline | escape }}">
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon.png' | relative_url }}">
   <link rel="canonical" href="{{ page.url | remove: '.html' | absolute_url }}">
+  {% if versions.size > 1 %}
+    {% for version in versions %}<link rel="alternate" hreflang="{{ version.lang }}" href="{{ version.url | remove: '.html' | absolute_url }}">
+    {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ english.url | remove: '.html' | absolute_url }}">
+    <script src="{{ '/assets/language.js' | relative_url }}" defer></script>
+  {% endif %}
 </head>
 <body>
-  <a class="skip" href="#content">Skip to content</a>
+  <a class="skip" href="#content">{{ ui.skip }}</a>
   <header>
-    <a class="brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/icon.png' | relative_url }}" width="40" height="40" alt="">SD Maid 2/SE</a>
+    <a class="brand" href="{{ home.url | relative_url }}"><img src="{{ '/assets/icon.png' | relative_url }}" width="40" height="40" alt="">SD Maid 2/SE</a>
+    {% if versions.size > 1 %}
+      <details class="language-menu">
+        <summary>{{ ui.language }}: {{ ui.language_name }}</summary>
+        <ul>
+          {% if english %}<li><a href="{{ english.url | remove: '.html' | relative_url }}" lang="en" hreflang="en" data-language="en"{% if lang == 'en' %} aria-current="page"{% endif %}>{{ en_ui.language_name }}</a></li>{% endif %}
+          {% for option in site.data.languages %}
+            {% assign version = versions | where: 'lang', option.code | first %}
+            {% assign option_ui = site.data.ui[option.code] %}
+            {% if version %}<li><a href="{{ version.url | remove: '.html' | relative_url }}" lang="{{ option.code }}" hreflang="{{ option.code }}" dir="{{ option.dir | default: 'ltr' }}" data-language="{{ option.code }}" data-suggest="{{ option_ui.suggest | escape }}" data-dismiss="{{ option_ui.dismiss | escape }}"{% if lang == option.code %} aria-current="page"{% endif %}>{{ option.name }}</a></li>{% endif %}
+          {% endfor %}
+        </ul>
+      </details>
+    {% endif %}
     <a class="github" href="{{ site.repository_url }}" aria-label="GitHub" title="GitHub"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943"/></svg></a>
   </header>
   <div class="page">
-    <nav class="guide-nav" aria-label="Guide">
+    <nav class="guide-nav" aria-label="{{ ui.guide }}">
       {% for group in site.data.nav %}
-        <h2>{{ group.section }}</h2>
-        {% for item in group.pages %}
-          {% assign target = site.pages | where: 'translation_key', item.key | where: 'lang', 'en' | first %}
-          <a href="{{ target.url | remove: '.html' | relative_url }}"{% if page.translation_key == item.key %} aria-current="page"{% endif %}>{{ item.label }}</a>
+        <h2>{{ ui.sections[group.section] | default: en_ui.sections[group.section] }}</h2>
+        {% for key in group.pages %}
+          {% assign target = site.pages | where: 'translation_key', key | where: 'lang', lang | first %}
+          {% unless target %}{% assign target = site.pages | where: 'translation_key', key | where: 'lang', 'en' | first %}{% endunless %}
+          <a href="{{ target.url | remove: '.html' | relative_url }}"{% if target.lang != lang %} hreflang="{{ target.lang }}"{% endif %}{% if page.translation_key == key %} aria-current="page"{% endif %}>{{ ui.nav[key] | default: en_ui.nav[key] }}</a>
         {% endfor %}
       {% endfor %}
     </nav>
-    <main id="content">{{ content }}</main>
+    <main id="content">
+      {% if lang != 'en' and english and site.data.translation_status[page.path].stale %}
+        <p class="notice" role="note">{{ ui.stale }} <a href="{{ english.url | remove: '.html' | relative_url }}" hreflang="en" data-language="en">{{ ui.stale_link }}</a></p>
+      {% endif %}
+      {% if lang == 'en' and versions.size > 1 %}<p class="notice language-suggestion" role="note" hidden></p>{% endif %}
+      {{ content }}
+    </main>
   </div>
   <footer>
-    <span>SD Maid 2/SE · {{ site.description }}</span>
-    <a href="{{ site.repository_url }}/discussions">Get help</a>
-    <a href="{{ '/security' | relative_url }}">Verify downloads</a>
-    <a href="{{ '/privacy' | relative_url }}">Privacy</a>
+    <span>SD Maid 2/SE · {{ ui.tagline }}</span>
+    <a href="{{ site.repository_url }}/discussions">{{ ui.help }}</a>
+    <a href="{{ '/security' | relative_url }}"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ ui.security }}</a>
+    <a href="{{ '/privacy' | relative_url }}"{% if lang != 'en' %} hreflang="en"{% endif %}>{{ ui.privacy }}</a>
   </footer>
 </body>
 </html>
