@@ -17,6 +17,7 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.twotone.Compress
 import androidx.compose.material.icons.twotone.Edit
@@ -156,6 +157,7 @@ fun SqueezerSetupScreenHost(
         onShowExample = vm::showExample,
         onMinAgeChange = vm::updateMinAge,
         onStartScan = vm::startScan,
+        onHelp = vm::onHelpClick,
     )
 
     exampleDialog?.let { event ->
@@ -178,6 +180,7 @@ internal fun SqueezerSetupScreen(
     onShowExample: () -> Unit = {},
     onMinAgeChange: (Duration) -> Unit = {},
     onStartScan: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     var showAgeDialog by remember { mutableStateOf(false) }
@@ -199,6 +202,13 @@ internal fun SqueezerSetupScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

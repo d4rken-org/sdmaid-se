@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -65,6 +66,7 @@ fun DeviceStorageScreenHost(
         onRefresh = vm::refresh,
         onLowSpaceHintDismiss = vm::dismissLowSpaceHint,
         onLowSpaceHintUpgrade = vm::openUpgrade,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -77,6 +79,7 @@ internal fun DeviceStorageScreen(
     onRefresh: () -> Unit = {},
     onLowSpaceHintDismiss: () -> Unit = {},
     onLowSpaceHintUpgrade: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val context = LocalContext.current
@@ -114,6 +117,13 @@ internal fun DeviceStorageScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

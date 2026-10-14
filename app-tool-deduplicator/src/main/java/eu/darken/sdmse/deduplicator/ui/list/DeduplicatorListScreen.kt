@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.ViewList
 import androidx.compose.material.icons.twotone.GridView
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -239,6 +240,7 @@ fun DeduplicatorListScreenHost(
         onDeleteDuplicates = { ids -> vm.deleteDuplicates(ids) },
         onExcludeClusters = { clusterIds -> vm.excludeClusterIds(clusterIds) },
         onToggleLayoutMode = vm::toggleLayoutMode,
+        onHelp = vm::onHelpClick,
     )
 
     deletion?.let { req ->
@@ -306,6 +308,7 @@ internal fun DeduplicatorListScreen(
     onDeleteDuplicates: (Set<Duplicate.Id>) -> Unit = {},
     onExcludeClusters: (Set<Duplicate.Cluster.Id>) -> Unit = {},
     onToggleLayoutMode: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state?.rows
@@ -368,6 +371,11 @@ internal fun DeduplicatorListScreen(
                             label = stringResource(CommonR.string.general_toggle_layout_mode),
                             onClick = onToggleLayoutMode,
                             enabled = state?.progress == null,
+                        )
+                        SdmTooltipIconButton(
+                            icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                            label = stringResource(CommonR.string.general_help_action),
+                            onClick = onHelp,
                         )
                     },
                 )

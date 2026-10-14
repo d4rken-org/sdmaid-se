@@ -6,6 +6,7 @@ import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.ui.StorageContentRoute
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.datastore.value
@@ -38,6 +39,7 @@ class DeviceStorageViewModel @Inject constructor(
     private val analyzerSettings: AnalyzerSettings,
     spaceHistoryRepo: SpaceHistoryRepo,
     upgradeRepo: UpgradeRepo,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
@@ -122,6 +124,10 @@ class DeviceStorageViewModel @Inject constructor(
         navTo(UpgradeRoute())
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val storages: List<Row> = emptyList(),
         val progress: Progress.Data? = null,
@@ -130,5 +136,6 @@ class DeviceStorageViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Analyzer", "Storage", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/storageanalyzer"
     }
 }

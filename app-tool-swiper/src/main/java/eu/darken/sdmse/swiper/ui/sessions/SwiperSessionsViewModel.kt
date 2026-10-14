@@ -1,6 +1,7 @@
 package eu.darken.sdmse.swiper.ui.sessions
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.areas.currentAreas
@@ -45,6 +46,7 @@ class SwiperSessionsViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepo,
     private val navCtrl: NavigationController,
     private val dataAreaManager: DataAreaManager,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private val selectedPaths = MutableStateFlow<Set<APath>>(emptySet())
@@ -202,6 +204,10 @@ class SwiperSessionsViewModel @Inject constructor(
         swiper.updateSessionLabel(sessionId, label)
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val sessionsWithStats: List<Swiper.SessionWithStats> = emptyList(),
         val areSessionsLoaded: Boolean = false,
@@ -231,5 +237,6 @@ class SwiperSessionsViewModel @Inject constructor(
     companion object {
         internal const val PICKER_REQUEST_KEY = "swiper_sessions_picker"
         private val TAG = logTag("Swiper", "Sessions", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/swiper"
     }
 }

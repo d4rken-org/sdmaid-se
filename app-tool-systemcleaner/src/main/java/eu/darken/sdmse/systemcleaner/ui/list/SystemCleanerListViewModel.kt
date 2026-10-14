@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -44,6 +45,7 @@ class SystemCleanerListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val systemCleaner: SystemCleaner,
     private val taskSubmitter: TaskSubmitter,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     /** Set when the scan this screen started for itself failed, see the entry logic below. */
@@ -201,6 +203,10 @@ class SystemCleanerListViewModel @Inject constructor(
         navTo(ExclusionsListRoute)
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val rows: List<Row>? = null,
         val progress: Progress.Data? = null,
@@ -220,5 +226,6 @@ class SystemCleanerListViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("SystemCleaner", "List", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/systemcleaner"
     }
 }

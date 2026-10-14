@@ -1,6 +1,7 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.snackbar.ToolListEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -42,6 +43,7 @@ class CorpseFinderListViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val corpseFinder: CorpseFinder,
     private val taskSubmitter: TaskSubmitter,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     /** Set when the scan this screen started for itself failed, see the entry logic below. */
@@ -191,6 +193,10 @@ class CorpseFinderListViewModel @Inject constructor(
         navTo(CorpseDetailsRoute(corpsePath = target))
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val rows: List<Row>? = null,
         val progress: Progress.Data? = null,
@@ -209,5 +215,6 @@ class CorpseFinderListViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("CorpseFinder", "List", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/corpsefinder"
     }
 }

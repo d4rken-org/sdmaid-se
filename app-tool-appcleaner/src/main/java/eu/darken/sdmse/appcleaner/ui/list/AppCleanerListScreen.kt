@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Search
 import androidx.compose.material3.MaterialTheme
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -89,6 +90,7 @@ fun AppCleanerListScreenHost(
         onDeleteSelected = vm::onDeleteSelected,
         onExcludeSelected = vm::onExcludeSelected,
         onSearchQueryChanged = vm::onSearchQueryChanged,
+        onHelp = vm::onHelpClick,
     )
 
     pendingDeletion?.let { pending ->
@@ -148,6 +150,7 @@ internal fun AppCleanerListScreen(
     onDeleteSelected: (Set<InstallId>) -> Unit = {},
     onExcludeSelected: (Set<InstallId>) -> Unit = {},
     onSearchQueryChanged: (String) -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -231,6 +234,11 @@ internal fun AppCleanerListScreen(
                                 icon = Icons.TwoTone.Search,
                                 label = stringResource(CommonR.string.general_search_action),
                                 onClick = { searchActive = true },
+                            )
+                            SdmTooltipIconButton(
+                                icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                                label = stringResource(CommonR.string.general_help_action),
+                                onClick = onHelp,
                             )
                         }
                     },

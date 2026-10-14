@@ -20,6 +20,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.AcUnit
 import androidx.compose.material.icons.twotone.Archive
 import androidx.compose.material.icons.twotone.Close
@@ -185,6 +186,7 @@ fun AppControlListScreenHost(
         onShareSelected = vm::onShareList,
         onRefresh = { vm.onRefresh(refreshPkgCache = true) },
         onCancel = vm::onCancel,
+        onHelp = vm::onHelpClick,
     )
 
     pendingConfirm?.let { ev ->
@@ -327,6 +329,7 @@ internal fun AppControlListScreen(
     onShareSelected: (Set<InstallId>) -> Unit = {},
     onRefresh: () -> Unit = {},
     onCancel: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val state by stateSource.collectAsStateWithLifecycle()
     val rows = state.rows
@@ -507,6 +510,11 @@ internal fun AppControlListScreen(
                                             icon = Icons.TwoTone.Refresh,
                                             label = stringResource(CommonR.string.general_refresh_action),
                                             onClick = onRefresh,
+                                        )
+                                        SdmTooltipIconButton(
+                                            icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                                            label = stringResource(CommonR.string.general_help_action),
+                                            onClick = onHelp,
                                         )
                                     }
                                 }
