@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcleaner.ui.settings
 
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.common.progress.Progress
@@ -12,6 +13,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
@@ -81,6 +83,7 @@ class AppCleanerSettingsViewModelTest : BaseTest() {
         val vm: AppCleanerSettingsViewModel,
         val settings: AppCleanerSettings,
         val values: Values,
+        val webpageTool: WebpageTool,
     )
 
     private fun harness(
@@ -181,13 +184,15 @@ class AppCleanerSettingsViewModelTest : BaseTest() {
         val rootManager = mockk<RootManager>().apply {
             every { accessState } returns flowOf(rootAccess)
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = AppCleanerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             appCleaner = appCleaner,
             rootManager = rootManager,
             settings = settings,
+            webpageTool = webpageTool,
         )
-        return Harness(vm, settings, values)
+        return Harness(vm, settings, values, webpageTool)
     }
 
     @Test
@@ -425,5 +430,14 @@ class AppCleanerSettingsViewModelTest : BaseTest() {
         val captured = slot<(Boolean) -> Boolean?>()
         coVerify(exactly = 1) { h.values.filterMobileQQEnabled.update(capture(captured)) }
         captured.captured(false) shouldBe true
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/appcleaner#settings") }
     }
 }

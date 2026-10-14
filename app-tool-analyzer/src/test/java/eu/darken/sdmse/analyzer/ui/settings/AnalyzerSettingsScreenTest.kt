@@ -1,11 +1,14 @@
 package eu.darken.sdmse.analyzer.ui.settings
 
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.stats.core.LowStorage
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -16,6 +19,7 @@ class AnalyzerSettingsScreenTest : BaseComposeRobolectricTest() {
         onThresholdChanged: (Long?) -> Unit = {},
         onNotificationChanged: (Boolean) -> Unit = {},
         onUpgradeClick: () -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
@@ -24,6 +28,7 @@ class AnalyzerSettingsScreenTest : BaseComposeRobolectricTest() {
                     onThresholdChanged = onThresholdChanged,
                     onNotificationChanged = onNotificationChanged,
                     onUpgradeClick = onUpgradeClick,
+                    onHelp = onHelp,
                 )
             }
         }
@@ -170,6 +175,15 @@ class AnalyzerSettingsScreenTest : BaseComposeRobolectricTest() {
 
         captured shouldBe true
         upgrades shouldBe 0
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setSettingsScreen(AnalyzerSettingsViewModel.State(), onHelp = { help++ })
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 
     private infix fun <T> T.shouldBe(expected: T) {

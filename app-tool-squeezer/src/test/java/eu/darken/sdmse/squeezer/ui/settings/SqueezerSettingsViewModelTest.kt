@@ -1,5 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.settings
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.datastore.DataStoreValue
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
@@ -9,6 +10,7 @@ import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
+import io.mockk.verify
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
@@ -44,6 +46,7 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         val settings: SqueezerSettings,
         val historyDatabase: CompressionHistoryDatabase,
         val values: Values,
+        val webpageTool: WebpageTool,
     )
 
     private fun harness(
@@ -88,12 +91,14 @@ class SqueezerSettingsViewModelTest : BaseTest() {
             every { count } returns flowOf(historyCount)
             every { databaseSize } returns flowOf(historyDatabaseSize)
         }
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
         val vm = SqueezerSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
             historyDatabase = historyDatabase,
+            webpageTool = webpageTool,
         )
-        return Harness(vm, settings, historyDatabase, values)
+        return Harness(vm, settings, historyDatabase, values, webpageTool)
     }
 
     // ─────────────────────────── state ───────────────────────────
@@ -285,5 +290,14 @@ class SqueezerSettingsViewModelTest : BaseTest() {
         advanceUntilIdle()
 
         coVerify(exactly = 1) { h.historyDatabase.clear() }
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val h = harness()
+
+        h.vm.onHelpClick()
+
+        verify(exactly = 1) { h.webpageTool.open("https://sdmse.darken.eu/mediasqueeze#settings") }
     }
 }

@@ -1,16 +1,19 @@
 package eu.darken.sdmse.appcontrol.ui.settings
 
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.hasScrollAction
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.ComposeContentTestRule
 import androidx.compose.ui.test.onAllNodesWithContentDescription
 import androidx.compose.ui.test.onAllNodesWithText
+import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollToNode
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
+import org.junit.Assert.assertEquals
 import org.junit.Test
 import testhelpers.compose.BaseComposeRobolectricTest
 
@@ -24,6 +27,7 @@ class AppControlSettingsScreenTest : BaseComposeRobolectricTest() {
         onActivityBadgeClick: () -> Unit = {},
         onMultiUserChanged: (Boolean) -> Unit = {},
         onMultiUserBadgeClick: () -> Unit = {},
+        onHelp: () -> Unit = {},
     ) {
         setContent {
             PreviewWrapper {
@@ -35,6 +39,7 @@ class AppControlSettingsScreenTest : BaseComposeRobolectricTest() {
                     onActivityBadgeClick = onActivityBadgeClick,
                     onMultiUserChanged = onMultiUserChanged,
                     onMultiUserBadgeClick = onMultiUserBadgeClick,
+                    onHelp = onHelp,
                 )
             }
         }
@@ -195,6 +200,15 @@ class AppControlSettingsScreenTest : BaseComposeRobolectricTest() {
         // The "Include other users" label exists.
         composeRule.scrollToText("Include other users")
         composeRule.onAllNodesWithText("Include other users").fetchSemanticsNodes().size shouldBeAtLeast 1
+    }
+
+    @Test
+    fun `help action shows in the top bar and invokes onHelp`() {
+        var help = 0
+        composeRule.setSettingsScreen(AppControlSettingsViewModel.State(), onHelp = { help++ })
+
+        composeRule.onNodeWithContentDescription("Help").assertIsDisplayed().performClick()
+        composeRule.runOnIdle { assertEquals(1, help) }
     }
 
     private infix fun <T> T.shouldBe(expected: T) {

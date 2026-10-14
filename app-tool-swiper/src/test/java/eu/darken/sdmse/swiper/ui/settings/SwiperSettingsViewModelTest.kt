@@ -1,9 +1,11 @@
 package eu.darken.sdmse.swiper.ui.settings
 
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.swiper.core.SwiperSettings
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.mockk
+import io.mockk.verify
 import kotlinx.coroutines.flow.first
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -17,6 +19,7 @@ class SwiperSettingsViewModelTest : BaseTest() {
         swap: Boolean = false,
         details: Boolean = true,
         haptic: Boolean = true,
+        webpageTool: WebpageTool = mockk(relaxed = true),
     ): SwiperSettingsViewModel {
         val settings = mockk<SwiperSettings>().apply {
             coEvery { swapSwipeDirections } returns mockDataStoreValue(swap)
@@ -26,6 +29,7 @@ class SwiperSettingsViewModelTest : BaseTest() {
         return SwiperSettingsViewModel(
             dispatcherProvider = TestDispatcherProvider(),
             settings = settings,
+            webpageTool = webpageTool,
         )
     }
 
@@ -43,5 +47,14 @@ class SwiperSettingsViewModelTest : BaseTest() {
         state.swapSwipeDirections shouldBe true
         state.showFileDetailsOverlay shouldBe false
         state.hapticFeedbackEnabled shouldBe false
+    }
+
+    @Test
+    fun `help opens the docs page`() = runTest2 {
+        val webpageTool = mockk<WebpageTool>(relaxed = true)
+
+        vm(webpageTool = webpageTool).onHelpClick()
+
+        verify(exactly = 1) { webpageTool.open("https://sdmse.darken.eu/swiper#settings") }
     }
 }
