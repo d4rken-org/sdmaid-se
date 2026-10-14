@@ -3,7 +3,7 @@ title: "设置 SD Maid SE"
 lang: zh-Hans
 translation_key: setup
 permalink: /zh-hans/setup
-source_hash: 448e6d67a51dde0a
+source_hash: a14003a95dd2336d
 ---
 # 设置 SD Maid SE
 {: #setting-up-sd-maid-se }

@@ -3,7 +3,7 @@ title: "Thiết lập SD Maid SE"
 lang: vi
 translation_key: setup
 permalink: /vi/setup
-source_hash: 448e6d67a51dde0a
+source_hash: a14003a95dd2336d
 ---
 # Thiết lập SD Maid SE
 {: #setting-up-sd-maid-se }

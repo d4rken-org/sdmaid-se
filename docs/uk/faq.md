@@ -3,7 +3,7 @@ title: "Поширені запитання"
 lang: uk
 translation_key: faq
 permalink: /uk/faq
-source_hash: 7cd5a4a9a4a25a7c
+source_hash: 07d3da0243e351f8
 ---
 # Поширені запитання
 {: #frequently-asked-questions }

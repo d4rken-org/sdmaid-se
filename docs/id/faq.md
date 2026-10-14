@@ -3,7 +3,7 @@ title: "Pertanyaan yang Sering Diajukan"
 lang: id
 translation_key: faq
 permalink: /id/faq
-source_hash: 7cd5a4a9a4a25a7c
+source_hash: 07d3da0243e351f8
 ---
 # Pertanyaan yang Sering Diajukan
 {: #frequently-asked-questions }

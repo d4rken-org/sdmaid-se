@@ -100,7 +100,7 @@ There is currently no functional difference between the Google Play and the `FOS
 ## What can I do for free and what requires the upgrade?
 {: #what-can-i-do-for-free-and-what-requires-the-upgrade }
 
-All tools in SD Maid SE can **scan for free** — you can see exactly what would be cleaned before deciding to upgrade.
+All tools in SD Maid SE can **scan for free**, so you can see exactly what would be cleaned before deciding to upgrade.
 
 **Free features:**
 - CorpseFinder: Scan and delete remnants of uninstalled apps
@@ -121,7 +121,7 @@ The upgrade is available as a **one-time purchase** or a **subscription** on Goo
 ## Why does SD Maid SE need the Accessibility Service and how do I fix issues with it?
 {: #why-does-sd-maid-se-need-the-accessibility-service-and-how-do-i-fix-issues-with-it }
 
-SD Maid SE uses the Accessibility Service to automate cache cleaning. On modern Android, there is no API for apps to clear another app's cache directly. Instead, SD Maid SE navigates to each app's settings page and taps the "Clear Cache" button for you — this requires the Accessibility Service.
+SD Maid SE uses the Accessibility Service to automate cache cleaning. On modern Android, there is no API for apps to clear another app's cache directly. Instead, SD Maid SE navigates to each app's settings page and taps the "Clear Cache" button for you, which requires the Accessibility Service.
 
 **Common issues:**
 
@@ -167,9 +167,9 @@ Android 16 introduced changes to how apps can use the Accessibility Service and 
 - Some manufacturers' Android 16 builds have additional restrictions
 
 **What you can do:**
-- Use **Shizuku** instead of the Accessibility Service — it is not affected by these restrictions
+- Use **Shizuku** instead of the Accessibility Service, it is not affected by these restrictions
 - Make sure you are running the **latest version** of SD Maid SE, as compatibility fixes are released regularly
-- If you are on a beta/preview version of Android 16, expect instability — SD Maid SE targets stable releases
+- If you are on a beta/preview version of Android 16, expect instability, SD Maid SE targets stable releases
 
 SD Maid SE is actively maintained and Android 16 compatibility improvements are ongoing.
 
@@ -188,8 +188,8 @@ SD Maid SE is designed to work across many Android versions and storage access m
 SD Maid SE scans more thoroughly than SD Maid 1, which means it finds more to clean but takes longer to do so.
 
 **Speeding things up:**
-- **Shizuku / ADB**: Significantly faster than the Accessibility Service — can clear caches directly without navigating the UI
-- **Root**: Fastest method — direct file system access
+- **Shizuku / ADB**: Significantly faster than the Accessibility Service, can clear caches directly without navigating the UI
+- **Root**: Fastest method, direct file system access
 
 ## How do I cancel my subscription or get a refund?
 {: #how-do-i-cancel-my-subscription-or-get-a-refund }
@@ -210,7 +210,7 @@ SD Maid SE subscriptions are managed through **Google Play**, not through the ap
 ## Can SD Maid SE delete important files?
 {: #can-sd-maid-se-delete-important-files }
 
-SD Maid SE is designed to only target expendable data — caches, temporary files, and remnants of uninstalled apps. It does **not** delete personal files like photos, music, or documents unless you explicitly tell it to (e.g., through the Analyzer's file browser or custom SystemCleaner filters).
+SD Maid SE is designed to only target expendable data: caches, temporary files, and remnants of uninstalled apps. It does **not** delete personal files like photos, music, or documents unless you explicitly tell it to (e.g., through the Analyzer's file browser or custom SystemCleaner filters).
 
 Before any deletion, SD Maid SE shows you exactly what will be removed, so you can review and deselect items.
 
@@ -229,7 +229,7 @@ This is a **false positive**. If you check SD Maid SE on [VirusTotal](https://ww
 
 **Why does this happen?**
 
-SD Maid SE requires permissions that are unusual for a normal app — most notably the Accessibility Service and broad storage access. Some antivirus engines use heuristic detection that flags any app requesting these permissions as suspicious, regardless of what the app actually does. These permissions are essential for SD Maid SE to function (e.g., automating cache cleaning, scanning storage).
+SD Maid SE requires permissions that are unusual for a normal app, most notably the Accessibility Service and broad storage access. Some antivirus engines use heuristic detection that flags any app requesting these permissions as suspicious, regardless of what the app actually does. These permissions are essential for SD Maid SE to function (e.g., automating cache cleaning, scanning storage).
 
 **What should you do?**
 
@@ -241,7 +241,7 @@ SD Maid SE has a fully [open-source FOSS build](https://github.com/d4rken-org/sd
 
 **A note on antivirus apps and Android**
 
-Android's built-in security model already provides strong protection through app sandboxing, the permission system, and Google Play Protect. Third-party antivirus apps on Android have limited effectiveness because they run in the same sandbox as every other app — they cannot deeply inspect other apps the way a desktop antivirus can. False positives from legitimate apps that use advanced permissions are a common side effect of this limitation.
+Android's built-in security model already provides strong protection through app sandboxing, the permission system, and Google Play Protect. Third-party antivirus apps on Android have limited effectiveness because they run in the same sandbox as every other app, so they cannot deeply inspect other apps the way a desktop antivirus can. False positives from legitimate apps that use advanced permissions are a common side effect of this limitation.
 
 If you are still unsure or have concerns, feel free to reach out via email at **support@darken.eu**.
 
