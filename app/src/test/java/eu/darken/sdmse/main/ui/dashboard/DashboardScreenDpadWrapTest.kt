@@ -3,6 +3,7 @@ package eu.darken.sdmse.main.ui.dashboard
 import android.content.Context
 import android.view.KeyEvent as NativeKeyEvent
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -177,6 +178,66 @@ class DashboardScreenDpadWrapTest : BaseComposeRobolectricTest() {
         composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
 
         composeRule.assertFocusedWithin(hasContentDescription(upgradeLabel))
+    }
+
+    @Test
+    fun `a focused FAB turning WORKING re-anchors focus on the dock`() {
+        val action = mutableStateOf(BottomBarState.Action.SCAN)
+        composeRule.setDashboardContent(action)
+        composeRule.onNodeWithText(firstToolTitle).requestFocus()
+        composeRule.waitForIdle()
+        composeRule.pressKey(NativeKeyEvent.KEYCODE_DPAD_UP)
+        composeRule.assertFocusedWithin(hasContentDescription(scanLabel))
+
+        action.value = BottomBarState.Action.WORKING
+        composeRule.waitForIdle()
+
+        composeRule.assertFocusedWithin(hasContentDescription(upgradeLabel))
+    }
+
+    @Test
+    fun `a focused card keeps focus when the FAB turns WORKING`() {
+        val action = mutableStateOf(BottomBarState.Action.SCAN)
+        composeRule.setDashboardContent(action)
+        composeRule.onNodeWithText(firstToolTitle).requestFocus()
+        composeRule.waitForIdle()
+
+        action.value = BottomBarState.Action.WORKING
+        composeRule.waitForIdle()
+
+        composeRule.assertFocusedWithin(hasText(firstToolTitle))
+    }
+
+    @Test
+    fun `an unfocused screen stays unfocused when the FAB turns WORKING`() {
+        val action = mutableStateOf(BottomBarState.Action.SCAN)
+        composeRule.setDashboardContent(action)
+
+        action.value = BottomBarState.Action.WORKING
+        composeRule.waitForIdle()
+
+        composeRule.onAllNodes(isFocused()).assertCountEquals(0)
+    }
+
+    private fun ComposeContentTestRule.setDashboardContent(action: MutableState<BottomBarState.Action>) {
+        val controller = mockk<GuidedTourController>(relaxed = true).also {
+            coEvery { it.shouldStart(any()) } returns false
+            every { it.session } returns MutableStateFlow(null)
+        }
+        setContent {
+            PreviewWrapper {
+                CompositionLocalProvider(
+                    LocalTourTargetRegistry provides TourTargetRegistry(),
+                    LocalGuidedTourController provides controller,
+                ) {
+                    DashboardScreen(
+                        listState = DashboardViewModel.ListState(items = defaultItems()),
+                        bottomBarState = bottomBarState(action = action.value),
+                    )
+                }
+            }
+        }
+        waitForIdle()
     }
 
     @Test

@@ -432,6 +432,25 @@ internal class DashboardMainActionEngineTest : BaseTest() {
     }
 
     @Test
+    fun `the button offers DELETE only once the scan batch settles`() {
+        // The gate holds a branch open while the task manager already reports idle and the findings
+        // are in. A DELETE confirmed in that window would be dropped by the single-flight guard.
+        val gate = CompletableDeferred<Unit>()
+        val h = harness(gate = gate)
+
+        try {
+            h.engine.mainAction(BottomBarState.Action.SCAN)
+            h.corpseState.value = corpseToolState(corpseData())
+            h.barState().actionState shouldBe BottomBarState.Action.WORKING
+
+            gate.complete(Unit)
+            h.barState().actionState shouldBe BottomBarState.Action.DELETE
+        } finally {
+            h.engineScope.cancel()
+        }
+    }
+
+    @Test
     fun `a second tracked run is ignored while the first is still in flight`() {
         // Scans open the batch counters too, so a second run of any kind would reset them under the
         // branches still on the first: both counters would hit 0 after any four of the eight
@@ -452,8 +471,8 @@ internal class DashboardMainActionEngineTest : BaseTest() {
 
     @Test
     fun `a rapid double tap on scan starts a single run`() {
-        // Until the task manager reports non-idle the FAB still resolves to SCAN, so both taps of a
-        // double tap reach mainAction.
+        // Until the bar re-renders as WORKING the FAB still shows SCAN, so both taps of a double tap
+        // reach mainAction.
         val gate = CompletableDeferred<Unit>()
         val h = harness(gate = gate)
 

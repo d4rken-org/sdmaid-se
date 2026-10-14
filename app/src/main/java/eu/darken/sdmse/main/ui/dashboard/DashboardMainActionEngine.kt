@@ -323,6 +323,7 @@ class DashboardMainActionEngine(
 
                 val actionState = resolveMainAction(
                     taskState = taskState,
+                    isSettled = phase.isSettled,
                     corpse = corpseState.data,
                     system = filterState.data,
                     app = junkState.data,
@@ -689,11 +690,10 @@ class DashboardMainActionEngine(
         // Single-flight across *every* run, scans included: a second batch would reset the tally
         // under the branches still running on the first, so both counters would hit 0 after any
         // four of the eight branches returned — settling the hero while tasks are still going and
-        // attributing results to the wrong batch. Reachable by double-tapping SCAN before the task
-        // manager reports non-idle, which is the window in which the FAB still offers SCAN. A
-        // second run would also gain nothing: every task queues on its tool's resource lock. Safe
-        // without a lock — this is not a suspend function and only the main thread calls it, so
-        // taps serialize.
+        // attributing results to the wrong batch. Reachable by a double tap on SCAN that lands before
+        // the bar re-renders as WORKING. A second run would also gain nothing: every task queues on
+        // its tool's resource lock. Safe without a lock — this is not a suspend function and only the
+        // main thread calls it, so taps serialize.
         if (startsRun && batchState.value.pending > 0) {
             log(TAG, WARN) { "mainAction($actionState): a main action is already in flight, ignoring." }
             return
@@ -900,6 +900,7 @@ class DashboardMainActionEngine(
          */
         internal fun resolveMainAction(
             taskState: TaskSubmitter.State,
+            isSettled: Boolean,
             corpse: CorpseFinder.Data?,
             system: SystemCleaner.Data?,
             app: AppCleaner.Data?,
@@ -910,6 +911,9 @@ class DashboardMainActionEngine(
         ): BottomBarState.Action = when {
             taskState.hasCancellable -> BottomBarState.Action.WORKING_CANCELABLE
             !taskState.isIdle -> BottomBarState.Action.WORKING
+            // [mainAction] drops any run while the batch is pending, so offering one now would do
+            // nothing (pinned by `the button offers DELETE only once the scan batch settles`).
+            !isSettled -> BottomBarState.Action.WORKING
             corpse.hasData && oneClick.corpseFinderEnabled -> BottomBarState.Action.DELETE
             system.hasData && oneClick.systemCleanerEnabled -> BottomBarState.Action.DELETE
             app.hasActionableData && oneClick.appCleanerEnabled -> BottomBarState.Action.DELETE

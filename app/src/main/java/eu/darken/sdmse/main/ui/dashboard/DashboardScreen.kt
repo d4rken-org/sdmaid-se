@@ -425,6 +425,17 @@ internal fun DashboardScreen(
         }
     }
 
+    // The FAB stops being focusable while WORKING. Its focus would otherwise go wherever the
+    // framework's default search lands, so it moves to the next dock control instead.
+    val fabWorking by rememberUpdatedState(bottomBarState?.actionState == BottomBarState.Action.WORKING)
+    var fabHasFocus by remember { mutableStateOf(false) }
+    var fabFocusLosses by remember { mutableIntStateOf(0) }
+    LaunchedEffect(fabFocusLosses) {
+        if (fabFocusLosses > 0 && dockVisible) {
+            runCatching { dockFocusRequester.requestFocus() }
+        }
+    }
+
     Scaffold(
         modifier = Modifier.onFocusEvent { screenHasFocus = it.hasFocus },
         bottomBar = {
@@ -490,7 +501,12 @@ internal fun DashboardScreen(
                 onExpandHero = onExpandHero,
                 onDiscardResults = onDiscardResults,
                 canExpandHero = !dashboardTourActive,
-                mainActionModifier = Modifier.guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
+                mainActionModifier = Modifier
+                    .onFocusEvent {
+                        if (fabHasFocus && !it.hasFocus && fabWorking) fabFocusLosses++
+                        fabHasFocus = it.hasFocus
+                    }
+                    .guidedTourTarget(DashboardTour.MAIN_ACTION_TARGET),
                 settingsModifier = Modifier.guidedTourTarget(DashboardTour.SETTINGS_TARGET),
             )
         },

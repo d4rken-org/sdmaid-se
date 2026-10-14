@@ -39,10 +39,16 @@ resign() {
         --ks-key-alias androiddebugkey --key-pass pass:android "$WORK/$2.apk"
 }
 
+# A failed phase keeps the device log since the last install, for system service deaths, ANRs and crashes the test output does not show.
 run_phase() {
     echo "== UpgradeTest#$1"
-    adb shell am instrument -w -e class "eu.darken.sdmse.e2e.UpgradeTest#$1" "$RUNNER" | tee "$RESULTS/$1.txt"
-    grep -q '^OK (1 test)' "$RESULTS/$1.txt"
+    # Callers test the result, which disables errexit in here, so both checks are explicit.
+    if adb shell am instrument -w -e class "eu.darken.sdmse.e2e.UpgradeTest#$1" "$RUNNER" | tee "$RESULTS/$1.txt" &&
+        grep -q '^OK (1 test)' "$RESULTS/$1.txt"; then
+        return 0
+    fi
+    adb logcat -d > "$RESULTS/$1-logcat.txt" || true
+    return 1
 }
 
 resign "$OLD_APK" old
@@ -54,11 +60,13 @@ mkdir -p "$RESULTS"
 
 adb uninstall "$APP" >/dev/null 2>&1 || true
 adb uninstall "$TEST_PKG" >/dev/null 2>&1 || true
+adb logcat -c || true
 adb install "$WORK/old.apk"
 adb install -t "$TEST_APK"
 
 result=0
 if run_phase beforeUpgrade; then
+    adb logcat -c || true
     adb install -r "$WORK/new.apk"
     run_phase afterUpgrade || result=1
 else

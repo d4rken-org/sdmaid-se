@@ -52,6 +52,7 @@ class DashboardMainActionTest : BaseTest() {
 
     private fun resolve(
         taskState: TaskSubmitter.State = idle,
+        isSettled: Boolean = true,
         corpse: CorpseFinder.Data? = null,
         system: SystemCleaner.Data? = null,
         app: AppCleaner.Data? = null,
@@ -61,6 +62,7 @@ class DashboardMainActionTest : BaseTest() {
         oneClickMode: Boolean = false,
     ) = DashboardMainActionEngine.resolveMainAction(
         taskState = taskState,
+        isSettled = isSettled,
         corpse = corpse,
         system = system,
         app = app,
@@ -175,5 +177,21 @@ class DashboardMainActionTest : BaseTest() {
             taskState = working,
             corpse = corpse(),
         ) shouldBe BottomBarState.Action.WORKING
+    }
+
+    @Test
+    fun `an unsettled batch resolves to WORKING even when the task manager is idle`() {
+        resolve(isSettled = false, corpse = corpse()) shouldBe BottomBarState.Action.WORKING
+        resolve(isSettled = false) shouldBe BottomBarState.Action.WORKING
+        resolve(isSettled = false, oneClickMode = true) shouldBe BottomBarState.Action.WORKING
+    }
+
+    @Test
+    fun `cancel stays available while the batch is unsettled`() {
+        val cancellable = mockk<TaskSubmitter.State> {
+            every { hasCancellable } returns true
+            every { isIdle } returns false
+        }
+        resolve(taskState = cancellable, isSettled = false) shouldBe BottomBarState.Action.WORKING_CANCELABLE
     }
 }
