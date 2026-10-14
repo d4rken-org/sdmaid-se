@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.automirrored.twotone.InsertDriveFile
 import androidx.compose.material.icons.automirrored.twotone.RotateRight
 import androidx.compose.material.icons.twotone.AutoAwesome
@@ -66,6 +67,7 @@ fun SqueezerSettingsScreenHost(
         onWriteExifMarkerChanged = vm::setWriteExifMarker,
         onMinSizeChanged = vm::setMinSizeBytes,
         onClearHistoryConfirmed = vm::clearHistory,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -84,6 +86,7 @@ internal fun SqueezerSettingsScreen(
     onWriteExifMarkerChanged: (Boolean) -> Unit = {},
     onMinSizeChanged: (Long) -> Unit = {},
     onClearHistoryConfirmed: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     var showClearDialog by remember { mutableStateOf(false) }
     var showMinSizeDialog by remember { mutableStateOf(false) }
@@ -141,6 +144,13 @@ internal fun SqueezerSettingsScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

@@ -5,6 +5,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
 import androidx.compose.material.icons.automirrored.twotone.DirectionsRun
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.Groups
 import androidx.compose.material.icons.twotone.MonitorWeight
 import eu.darken.sdmse.common.compose.layout.SdmScaffold
@@ -51,6 +52,7 @@ fun AppControlSettingsScreenHost(
         onActivityBadgeClick = vm::onActivityBadgeClick,
         onMultiUserChanged = vm::setMultiUserEnabled,
         onMultiUserBadgeClick = vm::onMultiUserBadgeClick,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -65,6 +67,7 @@ internal fun AppControlSettingsScreen(
     onActivityBadgeClick: () -> Unit = {},
     onMultiUserChanged: (Boolean) -> Unit = {},
     onMultiUserBadgeClick: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     val multiUserSummary = stringResource(CommonR.string.general_include_multiuser_summary)
 
@@ -80,6 +83,13 @@ internal fun AppControlSettingsScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

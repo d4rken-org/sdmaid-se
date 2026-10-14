@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.twotone.ArrowBack
+import androidx.compose.material.icons.automirrored.twotone.HelpOutline
 import androidx.compose.material.icons.twotone.NotificationImportant
 import androidx.compose.material.icons.twotone.Storage
 import androidx.compose.material3.Text
@@ -48,6 +49,7 @@ fun AnalyzerSettingsScreenHost(
         onThresholdChanged = vm::setThreshold,
         onNotificationChanged = vm::setNotificationEnabled,
         onUpgradeClick = vm::onUpgradeClick,
+        onHelp = vm::onHelpClick,
     )
 }
 
@@ -58,6 +60,7 @@ internal fun AnalyzerSettingsScreen(
     onThresholdChanged: (Long?) -> Unit = {},
     onNotificationChanged: (Boolean) -> Unit = {},
     onUpgradeClick: () -> Unit = {},
+    onHelp: () -> Unit = {},
 ) {
     var showThresholdDialog by remember { mutableStateOf(false) }
     val context = LocalContext.current
@@ -104,6 +107,13 @@ internal fun AnalyzerSettingsScreen(
                         icon = Icons.AutoMirrored.TwoTone.ArrowBack,
                         label = stringResource(CommonR.string.general_navigate_up_action),
                         onClick = onNavigateUp,
+                    )
+                },
+                actions = {
+                    SdmTooltipIconButton(
+                        icon = Icons.AutoMirrored.TwoTone.HelpOutline,
+                        label = stringResource(CommonR.string.general_help_action),
+                        onClick = onHelp,
                     )
                 },
             )

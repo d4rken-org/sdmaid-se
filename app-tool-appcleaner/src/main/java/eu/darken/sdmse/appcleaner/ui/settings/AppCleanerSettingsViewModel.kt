@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.ui.settings
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.privilegedGateState
@@ -24,6 +25,7 @@ class AppCleanerSettingsViewModel @Inject constructor(
     appCleaner: AppCleaner,
     rootManager: RootManager,
     private val settings: AppCleanerSettings,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private data class IncludeFlags(
@@ -197,6 +199,10 @@ class AppCleanerSettingsViewModel @Inject constructor(
         options = SetupScreenOptions(showCompleted = true, typeFilter = types),
     )
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val isOtherUsersAvailable: Boolean = false,
         val otherUsersAccess: AccessState = AccessState.Undecided,
@@ -236,5 +242,6 @@ class AppCleanerSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "AppCleaner", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/appcleaner#settings"
     }
 }

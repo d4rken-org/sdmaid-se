@@ -1,6 +1,7 @@
 package eu.darken.sdmse.corpsefinder.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.privilegedGateState
@@ -29,6 +30,7 @@ class CorpseFinderSettingsViewModel @Inject constructor(
     upgradeRepo: UpgradeRepo,
     corpseFinder: CorpseFinder,
     rootManager: RootManager,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private data class FilterToggles(
@@ -144,6 +146,10 @@ class CorpseFinderSettingsViewModel @Inject constructor(
         )
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val isPro: Boolean = false,
         val rootAccess: AccessState = AccessState.Undecided,
@@ -168,5 +174,6 @@ class CorpseFinderSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "CorpseFinder", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/corpsefinder"
     }
 }

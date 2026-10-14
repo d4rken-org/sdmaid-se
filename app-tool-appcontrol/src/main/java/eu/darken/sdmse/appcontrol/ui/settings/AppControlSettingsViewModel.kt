@@ -5,6 +5,7 @@ import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
@@ -34,6 +35,7 @@ class AppControlSettingsViewModel @Inject constructor(
     rootManager: RootManager,
     shizukuManager: ShizukuManager,
     private val settings: AppControlSettings,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
@@ -136,6 +138,10 @@ class AppControlSettingsViewModel @Inject constructor(
         }
     }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val isPro: Boolean = false,
         val sizingEnabled: Boolean = true,
@@ -151,5 +157,6 @@ class AppControlSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "AppControl", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/appcontrol#settings"
     }
 }

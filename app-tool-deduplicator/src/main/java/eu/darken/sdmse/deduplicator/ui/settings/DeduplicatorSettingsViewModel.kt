@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -26,6 +27,7 @@ class DeduplicatorSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val settings: DeduplicatorSettings,
     navCtrl: NavigationController,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private data class TopFlags(
@@ -126,6 +128,10 @@ class DeduplicatorSettingsViewModel @Inject constructor(
     fun setSleuthPHashEnabled(value: Boolean) = launch { settings.isSleuthPHashEnabled.value(value) }
     fun setSleuthMediaEnabled(value: Boolean) = launch { settings.isSleuthMediaEnabled.value(value) }
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val scanPaths: List<APath> = emptyList(),
         val allowDeleteAll: Boolean = false,
@@ -138,6 +144,7 @@ class DeduplicatorSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "Deduplicator", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/deduplicator#settings"
         private const val SCAN_PATHS_REQUEST_KEY = "scan.location.paths"
     }
 }

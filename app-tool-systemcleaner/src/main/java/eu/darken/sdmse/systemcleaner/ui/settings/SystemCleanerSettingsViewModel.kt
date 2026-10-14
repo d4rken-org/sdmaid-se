@@ -1,6 +1,7 @@
 package eu.darken.sdmse.systemcleaner.ui.settings
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.access.AccessState
 import eu.darken.sdmse.common.compose.settings.FeatureGateState
 import eu.darken.sdmse.common.compose.settings.privilegedGateState
@@ -29,6 +30,7 @@ class SystemCleanerSettingsViewModel @Inject constructor(
     systemCleaner: SystemCleaner,
     rootManager: RootManager,
     private val settings: SystemCleanerSettings,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private data class GenericFilters(
@@ -180,6 +182,10 @@ class SystemCleanerSettingsViewModel @Inject constructor(
         ),
     )
 
+    fun onHelpClick() {
+        webpageTool.open(HELP_URL)
+    }
+
     data class State(
         val isPro: Boolean = false,
         val areSystemFilterAvailable: Boolean = false,
@@ -213,5 +219,6 @@ class SystemCleanerSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "SystemCleaner", "ViewModel")
+        private const val HELP_URL = "https://sdmse.darken.eu/systemcleaner#settings"
     }
 }
