@@ -40,8 +40,8 @@ internal fun CacheStats.isBelow(baseline: CacheStats.Positive): Boolean = when (
  * Reads [query] on a job in [scope] and awaits that job with a timeout.
  *
  * The query is a blocking Binder call, so a timeout around it would not return before the call does.
- * A read that times out is left running, and while it runs, every further read joins it instead of
- * starting a second one.
+ * A read that times out is kept until a later read takes its answer: every further read awaits it,
+ * whether it is still running or has answered in the meantime, instead of starting a second one.
  */
 internal class CacheStatsReader(
     private val scope: CoroutineScope,
@@ -50,10 +50,12 @@ internal class CacheStatsReader(
 ) {
     private var inFlight: Deferred<Long?>? = null
 
+    private class Answer(val bytes: Long?)
+
     suspend fun read(timeoutMs: Long): CacheStats {
-        val running = inFlight?.takeIf { !it.isCompleted }
-        if (running != null) log(tag, INFO) { "CacheStats: earlier read still running, joining it" }
-        val job = running ?: scope.async {
+        val pending = inFlight
+        if (pending != null) log(tag, INFO) { "CacheStats: using the earlier read (completed=${pending.isCompleted})" }
+        val job = pending ?: scope.async {
             try {
                 query()
             } catch (e: CancellationException) {
@@ -64,14 +66,18 @@ internal class CacheStatsReader(
             }
         }.also { inFlight = it }
 
-        val bytes = try {
-            withTimeoutOrNull(timeoutMs) { job.await() }
+        val answer = try {
+            withTimeoutOrNull(timeoutMs) { Answer(job.await()) }
         } catch (e: CancellationException) {
             // The job was cancelled with its scope, not us.
             currentCoroutineContext().ensureActive()
-            null
+            Answer(null)
         }
-        if (!job.isCompleted) log(tag, WARN) { "CacheStats: no answer after ${timeoutMs}ms, leaving the read behind" }
-        return CacheStats.of(bytes)
+        if (answer == null) {
+            log(tag, WARN) { "CacheStats: no answer after ${timeoutMs}ms, leaving the read behind" }
+            return CacheStats.Unavailable
+        }
+        inFlight = null
+        return CacheStats.of(answer.bytes)
     }
 }
