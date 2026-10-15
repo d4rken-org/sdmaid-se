@@ -30,9 +30,13 @@ SD Maid SE uses an accessibility service for automation features (AppCleaner aut
 
 The scan path contains no automation at all. `AppCleaner.performScan` never touches the accessibility
 path. ACS work happens in `performProcessing`, gated on `AppCleanerProcessingTask.includeInaccessible`,
-which builds the `ClearCacheTask` via `InaccessibleDeleter`. `AutomationCompatibilityException`
-("Automation compatibility") has a single throw site, in `ClearCacheModule`, raised once
-`FAILURE_LIMIT` targets have failed with an unusable-automation error and nothing has succeeded.
+which builds the `ClearCacheTask` via `InaccessibleDeleter`. Within AppCleaner,
+`AutomationCompatibilityException` ("Automation compatibility") is thrown only by `ClearCacheModule`, once
+`AUTOMATION_FAILURE_LIMIT` targets have failed with an unusable-automation error and nothing has succeeded.
+AppControl throws it too, when force-stop, archive or restore give up.
+
+When the dialog also shows the ADB access sentence and a Setup button, neither root nor ADB was usable at
+the give-up. In AppCleaner this only happens on a whole-tool clean, not a delete of selected apps.
 
 Consequences:
 

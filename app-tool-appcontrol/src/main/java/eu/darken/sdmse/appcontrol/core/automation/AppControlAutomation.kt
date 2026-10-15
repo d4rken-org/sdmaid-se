@@ -32,6 +32,8 @@ import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -48,6 +50,8 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.withProgress
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserManager2
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.NonCancellable
@@ -65,6 +69,8 @@ class AppControlAutomation @AssistedInject constructor(
     private val labelDebugger: AppControlLabelDebugger,
     private val deviceDetective: DeviceDetective,
     private val automationReturnHelper: AutomationReturnHelper,
+    private val rootManager: RootManager,
+    private val adbManager: AdbManager,
 ) : AutomationModule(automationHost) {
 
     private enum class Operation {
@@ -185,7 +191,9 @@ class AppControlAutomation @AssistedInject constructor(
 
         if (result.gaveUp) {
             log(TAG, ERROR) { "Force-stop kept failing, possible compatibility issue?" }
-            throw AutomationCompatibilityException()
+            throw AutomationCompatibilityException(
+                suggestAdbSetup = !rootManager.canUseRootNow() && !adbManager.canUseAdbNow(),
+            )
         }
 
         return ForceStopAutomationTask.Result(
@@ -263,7 +271,9 @@ class AppControlAutomation @AssistedInject constructor(
 
         if (result.gaveUp) {
             log(TAG, ERROR) { "The $operationName automation kept failing, possible compatibility issue?" }
-            throw AutomationCompatibilityException()
+            throw AutomationCompatibilityException(
+                suggestAdbSetup = !rootManager.canUseRootNow() && !adbManager.canUseAdbNow(),
+            )
         }
 
         return result.successful to result.failed

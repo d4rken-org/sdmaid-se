@@ -659,8 +659,12 @@ class AppControlTest : BaseTest() {
 
     private fun batchApps(count: Int): List<AppInfo> = (1..count).map { installedApp("eu.thlab.app$it") }
 
-    private suspend fun batchSetup(apps: List<AppInfo>): Setup {
-        val setup = setupAppControl(appsReturnedByScan = apps.toSet())
+    private suspend fun batchSetup(
+        apps: List<AppInfo>,
+        useRoot: Boolean = false,
+        useAdb: Boolean = false,
+    ): Setup {
+        val setup = setupAppControl(useRoot = useRoot, useAdb = useAdb, appsReturnedByScan = apps.toSet())
         setup.appControl.submit(buildScanTask())
         setup.stubReQuery(*apps.toTypedArray())
         return setup
@@ -681,12 +685,30 @@ class AppControlTest : BaseTest() {
             throw ArchiveException(installId = app.installId, cause = automationTimeout())
         }
 
-        shouldThrow<AutomationCompatibilityException> {
+        val error = shouldThrow<AutomationCompatibilityException> {
             setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
         }
 
         attempted shouldContainExactly apps.take(AUTOMATION_FAILURE_LIMIT).map { it.installId }
         coVerify(exactly = AUTOMATION_FAILURE_LIMIT) { setup.archiver.archive(any()) }
+        error.suggestAdbSetup shouldBe true
+    }
+
+    @Test
+    fun `giving up on archiving does not suggest ADB access when root or ADB is already usable`() = runTest2 {
+        listOf(true to false, false to true).forEach { (useRoot, useAdb) ->
+            val apps = batchApps(AUTOMATION_FAILURE_LIMIT)
+            val setup = batchSetup(apps, useRoot = useRoot, useAdb = useAdb)
+            coEvery { setup.archiver.archive(any()) } coAnswers {
+                throw ArchiveException(installId = firstArg<AppInfo>().installId, cause = automationTimeout())
+            }
+
+            val error = shouldThrow<AutomationCompatibilityException> {
+                setup.appControl.submit(ArchiveTask(targets = apps.asTargets()))
+            }
+
+            error.suggestAdbSetup shouldBe false
+        }
     }
 
     @Test
@@ -785,11 +807,12 @@ class AppControlTest : BaseTest() {
             throw RestoreException(installId = app.installId, cause = automationTimeout())
         }
 
-        shouldThrow<AutomationCompatibilityException> {
+        val error = shouldThrow<AutomationCompatibilityException> {
             setup.appControl.submit(RestoreTask(targets = apps.asTargets()))
         }
 
         attempted shouldContainExactly apps.take(AUTOMATION_FAILURE_LIMIT).map { it.installId }
+        error.suggestAdbSetup shouldBe true
     }
 
     @Test

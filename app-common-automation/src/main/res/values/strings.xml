@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">The operation was aborted because the screen became unavailable (e.g. display off or lockscreen active).</string>
     <string name="automation_error_compatibility_title">Automation compatibility</string>
     <string name="automation_error_compatibility_body">SD Maid couldn\'t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it.</string>
+    <string name="automation_error_compatibility_adb_hint">With ADB access set up, SD Maid can do most of this without the accessibility service.</string>
     <string name="automation_error_timeout_title">Automation timeout</string>
     <string name="automation_error_timeout_body">SD Maid did not complete all steps within the time limit. If this keeps happening, I might need to adjust the app for your device. Check for updates or reach out to me so I can fix it.</string>
     <string name="automation_error_overlay_title">Automation overlay</string>

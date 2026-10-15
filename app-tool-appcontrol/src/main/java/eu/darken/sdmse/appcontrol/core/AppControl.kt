@@ -26,6 +26,7 @@ import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.UnusableFailureBudget
 import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -46,6 +47,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
 import eu.darken.sdmse.common.user.UserManager2
@@ -79,8 +81,8 @@ class AppControl @Inject constructor(
     private val archiveSupport: ArchiveSupport,
     @SetupBinding(SetupModule.Type.USAGE_STATS) usageStatsSetupModule: SetupModule,
     @SetupBinding(SetupModule.Type.STORAGE) storageSetupModule: SetupModule,
-    rootManager: RootManager,
-    adbManager: AdbManager,
+    private val rootManager: RootManager,
+    private val adbManager: AdbManager,
     private val appExporterProvider: Provider<AppExporter>,
     @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
     automationManager: AutomationSubmitter,
@@ -469,7 +471,9 @@ class AppControl @Inject constructor(
                     budget.onFailure(cause)
                     if (budget.isExhausted) {
                         log(TAG, ERROR) { "Automation failure budget spent at $targetId, giving up" }
-                        gaveUp = AutomationCompatibilityException()
+                        gaveUp = AutomationCompatibilityException(
+                            suggestAdbSetup = !rootManager.canUseRootNow() && !adbManager.canUseAdbNow(),
+                        )
                         break
                     }
                 } finally {
@@ -546,7 +550,9 @@ class AppControl @Inject constructor(
                     budget.onFailure(cause)
                     if (budget.isExhausted) {
                         log(TAG, ERROR) { "Automation failure budget spent at $targetId, giving up" }
-                        gaveUp = AutomationCompatibilityException()
+                        gaveUp = AutomationCompatibilityException(
+                            suggestAdbSetup = !rootManager.canUseRootNow() && !adbManager.canUseAdbNow(),
+                        )
                         break
                     }
                 } finally {

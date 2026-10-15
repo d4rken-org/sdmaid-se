@@ -245,6 +245,7 @@ class InaccessibleDeleter @Inject constructor(
                 val acsTask = ClearCacheTask(
                     targets = automationCandidates.map { it.identifier },
                     returnToApp = !isBackground,
+                    isWholeToolClean = isAllApps,
                     onSuccess = { successLive.add(it) },
                     onError = { id, error -> failedLive[id] = error }
                 )

@@ -684,6 +684,31 @@ class InaccessibleDeleterTest : BaseTest() {
     }
 
     @Test
+    fun `only a whole-tool clean marks the ACS task as one ADB access could take over`() = runTest {
+        // Selecting every scanned app is still a targeted clean, it never gets the ADB trim.
+        val junk = createAppJunk("com.example.normal", cacheSize = 200000)
+        coEvery { inaccessibleCacheProvider.determineCache(junk.pkg) } returns nonZeroCache(junk)
+        every { settings.forceStopBeforeClearing } returns mockDataStoreValue(false)
+
+        val capturedTasks = mutableListOf<ClearCacheTask>()
+        coEvery { automationManager.submit(capture(capturedTasks)) } returns ClearCacheTask.Result(
+            successful = setOf(junk.identifier),
+            failed = emptyMap(),
+        )
+
+        listOf(null, setOf(junk.identifier)).forEach { targetPkgs ->
+            deleter.deleteInaccessible(
+                snapshot = createSnapshot(junk),
+                targetPkgs = targetPkgs,
+                useAutomation = true,
+                isBackground = false,
+            )
+        }
+
+        capturedTasks.map { it.isWholeToolClean } shouldBe listOf(true, false)
+    }
+
+    @Test
     fun `all-no-settings batch - ACS is not called at all`() = runTest {
         val junk1 = createAppJunk("com.apex.one", cacheSize = 100000)
         val junk2 = createAppJunk("com.apex.two", cacheSize = 200000)
