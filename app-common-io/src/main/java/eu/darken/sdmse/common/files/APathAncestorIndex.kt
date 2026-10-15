@@ -2,11 +2,8 @@ package eu.darken.sdmse.common.files
 
 /**
  * Answers ancestry questions about a growing set of items in time proportional to the queried
- * path's depth instead of the number of items.
- *
- * Ancestry and exact matching use different keys on purpose: `SAFPath.path` omits the tree URI's
- * authority, so two paths in different trees can [matches] each other without either being an
- * ancestor of the other.
+ * path's depth instead of the number of items. Exact matches use their own key, separate from
+ * ancestry; see the cross-tree SAF case in `APathAncestorIndexTest`.
  */
 class APathAncestorIndex<T : Any>(private val pathOf: (T) -> APath) {
 

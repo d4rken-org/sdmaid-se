@@ -20,9 +20,10 @@ import eu.darken.sdmse.common.files.forEachAncestorKey
  * are decidable from keys that the candidate alone can produce, so the exclusions can be hashed:
  * - `matches` is string equality on `path` for every path type. For SAF that string already folds in
  *   `treeRootUri.pathSegments`, so the exact half needs no separate tree check.
- * - `isAncestorOf` is decided by [ancestryKey] and [forEachAncestorKey], which document why their keys
- *   are exact. For RAW they follow the generic `APath.isAncestorOf` branch, so
- *   `PathExclusion(RawPath("a"))` does not match `RawPath("/cwd/a/b")`.
+ * - `isAncestorOf` is decided by [ancestryKey] and [forEachAncestorKey], whose equivalence with
+ *   `isAncestorOf` is pinned by `APathAncestorIndexTest` (app-common-io). For RAW they follow the
+ *   generic `APath.isAncestorOf` branch, so `PathExclusion(RawPath("a"))` does not match
+ *   `RawPath("/cwd/a/b")`.
  *
  * Exclusions that are not [PathExclusion]s (today: [SegmentExclusion]) cannot be keyed and stay on
  * the linear path.
