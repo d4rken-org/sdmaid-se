@@ -466,7 +466,10 @@ class AOSPSpecs @Inject constructor(
                 val now = cacheStats.read(FINAL_RECHECK_READ_TIMEOUT_MS)
                 val dropped = now.isBelow(positive)
                 log(tag, INFO) { "CacheStats[final-check]: baseline=${positive.bytes}, now=$now, dropped=$dropped" }
-                if (dropped) return true
+                if (dropped) {
+                    if (host.windowRoot()?.hasEntityHeader() == true) return true
+                    log(tag, WARN) { "CacheStats[final-check]: dropped but the storage page is not shown" }
+                }
             }
         }
         return if (finished) result else false
