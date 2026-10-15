@@ -50,6 +50,7 @@ class ClearCacheLoopTest : BaseTest() {
         val task = ClearCacheTask(
             targets = ids,
             returnToApp = false,
+            isWholeToolClean = false,
             onSuccess = { succeeded.add(it) },
             onError = { id, e -> errored.add(id to e) },
         )
@@ -145,6 +146,7 @@ class ClearCacheLoopTest : BaseTest() {
         val task = ClearCacheTask(
             targets = listOf(missing, present),
             returnToApp = false,
+            isWholeToolClean = false,
             onSuccess = { succeeded.add(it) },
             onError = { id, e -> errored.add(id to e) },
         )

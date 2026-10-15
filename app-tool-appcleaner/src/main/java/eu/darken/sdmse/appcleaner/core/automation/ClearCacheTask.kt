@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 class ClearCacheTask(
     val targets: List<InstallId>,
     val returnToApp: Boolean,
+    val isWholeToolClean: Boolean,
     val onSuccess: (InstallId) -> Unit,
     val onError: (InstallId, Exception) -> Unit,
 ) : AutomationTask {

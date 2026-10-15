@@ -9,10 +9,14 @@ import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.setup.SetupRoute
+import eu.darken.sdmse.setup.SetupScreenOptions
 
 open class AutomationCompatibilityException(
     override val message: String = "SD Maid couldn’t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it.",
     private val additionalHint: CaString? = null,
+    val suggestAdbSetup: Boolean = false,
 ) : AutomationException(), HasLocalizedError {
 
     override fun getLocalizedError(): LocalizedError = LocalizedError(
@@ -25,6 +29,10 @@ open class AutomationCompatibilityException(
                 sb.append("\n\n")
                 sb.append(hint.get(this))
             }
+            if (suggestAdbSetup) {
+                sb.append("\n\n")
+                sb.append(getString(R.string.automation_error_compatibility_adb_hint))
+            }
             sb.append("\n\n\n")
             sb.append(
                 """
@@ -35,6 +43,13 @@ open class AutomationCompatibilityException(
             )
             sb.toString()
         },
+        fixActionLabel = eu.darken.sdmse.common.R.string.setup_title.toCaString().takeIf { suggestAdbSetup },
+        fixActionRoute = SetupRoute(
+            options = SetupScreenOptions(
+                showCompleted = true,
+                typeFilter = setOf(SetupModule.Type.SHIZUKU),
+            ),
+        ).takeIf { suggestAdbSetup },
         infoActionLabel = eu.darken.sdmse.common.R.string.general_error_report_bug_action.toCaString(),
         infoAction = { WebpageTool.open(it, "https://sdmse.darken.eu/bugs") }
     )

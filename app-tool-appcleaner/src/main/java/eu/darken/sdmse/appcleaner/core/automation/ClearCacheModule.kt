@@ -39,6 +39,8 @@ import eu.darken.sdmse.automation.core.finishAutomation
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.OpsCounter
+import eu.darken.sdmse.common.adb.AdbManager
+import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.Bugs
@@ -61,6 +63,8 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.device.RomTypeProvider
+import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.canUseRootNow
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Provider
 
@@ -76,6 +80,8 @@ class ClearCacheModule @AssistedInject constructor(
     private val deviceDetective: DeviceDetective,
     private val romTypeProvider: RomTypeProvider,
     private val automationReturnHelper: AutomationReturnHelper,
+    private val rootManager: RootManager,
+    private val adbManager: AdbManager,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
@@ -148,6 +154,7 @@ class ClearCacheModule @AssistedInject constructor(
             log(TAG, ERROR) { "Continued automation failures, no successes so far, possible compatbility issue?" }
             throw AutomationCompatibilityException(
                 additionalHint = R.string.appcleaner_automation_compat_forcestop_hint.toCaString(),
+                suggestAdbSetup = task.isWholeToolClean && !rootManager.canUseRootNow() && !adbManager.canUseAdbNow(),
             )
         }
 
