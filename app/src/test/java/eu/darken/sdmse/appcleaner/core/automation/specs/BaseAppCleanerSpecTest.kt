@@ -30,6 +30,7 @@ import testhelpers.AcsDebugParser
 import testhelpers.BaseTest
 import testhelpers.TestACSNodeInfo
 import testhelpers.automation.TestAutomationHost
+import kotlin.time.ComparableTimeMark
 
 /**
  * Base test class for AppCleaner automation specs.
@@ -157,6 +158,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
         pkg: Installed = createTestPkg(),
         maxAttempts: Int = 10,
         rethrowAbort: Boolean = false,
+        attemptDeadline: ComparableTimeMark? = null,
     ): Boolean {
         var actionResult = false
 
@@ -169,6 +171,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
                     hostContext = testContext,
                     tag = "test",
                     stepAttempts = 0,
+                    attemptDeadline = attemptDeadline,
                 )
                 val nodeAction = step.nodeAction
                 if (nodeAction != null) {

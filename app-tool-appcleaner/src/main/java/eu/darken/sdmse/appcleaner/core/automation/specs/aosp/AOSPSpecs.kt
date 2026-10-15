@@ -403,10 +403,11 @@ class AOSPSpecs @Inject constructor(
      * Returns null when [preClickCheck] rejected the screen after layout stabilization, before any
      * key was sent.
      *
-     * The key sequence runs under [deadlineMs], and running into it counts as exhausted. If the
-     * sequence ends without success after a DPAD_CENTER, [containStrayPress] runs afterwards,
-     * outside the deadline, followed by one more read of [cacheStats] when the run had a cache
-     * baseline: StorageStats can lag a clear past the last poll.
+     * The key sequence runs under [deadlineMs], cut down to what is left of the step attempt minus
+     * [POST_RUN_RESERVE_MS], and running into it counts as exhausted. If the sequence ends without
+     * success after a DPAD_CENTER, [containStrayPress] runs afterwards, outside the deadline,
+     * followed by one more read of [cacheStats] when the run had a cache baseline: StorageStats can
+     * lag a clear past the last poll.
      */
     private suspend fun StepContext.tryClickViaFocusNavigation(
         labels: Collection<String>,
@@ -425,11 +426,19 @@ class AOSPSpecs @Inject constructor(
             return false
         }
 
+        val budgetMs = attemptDeadline
+            ?.let { minOf(deadlineMs, -it.elapsedNow().inWholeMilliseconds - POST_RUN_RESERVE_MS) }
+            ?: deadlineMs
+        if (budgetMs <= 0) {
+            log(tag, WARN) { "DPAD skipped, the step attempt has no time left for a run (budget=${budgetMs}ms)" }
+            return false
+        }
+
         var centerSent = false
         var finished = false
         var baseline: CacheStats = CacheStats.Unavailable
         val result = try {
-            withTimeoutOrNull(deadlineMs) {
+            withTimeoutOrNull(budgetMs) {
                 runFocusNavigation(
                     labels = labels,
                     target = target,
@@ -449,7 +458,7 @@ class AOSPSpecs @Inject constructor(
             throw e
         }
 
-        if (!finished) log(tag, WARN) { "DPAD run hit its ${deadlineMs}ms deadline, counting it as exhausted" }
+        if (!finished) log(tag, WARN) { "DPAD run hit its ${budgetMs}ms deadline, counting it as exhausted" }
         if (result != true && centerSent) {
             containStrayPress()
             val positive = baseline as? CacheStats.Positive
@@ -966,6 +975,11 @@ class AOSPSpecs @Inject constructor(
             val cacheStats = CacheStatsReader(host.scope, TAG) {
                 inaccessibleCacheProvider.determineCache(pkg)?.totalSize
             }
+            // Replaying the plan would press the same blind positions again.
+            fun dpadExhaustedAbort(attempt: Int) = StepAbortException(
+                "DPAD exhausted, clear-cache button not reachable (attempt=$attempt)",
+                replayable = false,
+            )
             val nodeAction: suspend StepContext.() -> Boolean = action@{
                 val attempt = nodeActionAttempts++
                 val candidate = findClearCacheCandidate(clearCacheButtonLabels)
@@ -1038,11 +1052,7 @@ class AOSPSpecs @Inject constructor(
                 // internally, so we don't need many retries here to wait for the screen to load.
                 val dpadMinAttempts = 2
                 if (useDpadFallback && dpadExhausted) {
-                    // Replaying the plan would press the same blind positions again.
-                    throw StepAbortException(
-                        "DPAD exhausted, clear-cache button not reachable (attempt=$attempt)",
-                        replayable = false,
-                    )
+                    throw dpadExhaustedAbort(attempt)
                 } else if (useDpadFallback && attempt >= dpadMinAttempts && !pendingVerdict) {
                     log(tag, INFO) { "DPAD fallback triggered (attempt=$attempt)" }
                     val preClickCheck: (suspend () -> Boolean)? = if (allowlistedDpad) {
@@ -1065,6 +1075,7 @@ class AOSPSpecs @Inject constructor(
                         false -> {
                             dpadExhausted = true
                             log(tag, WARN) { "DPAD fallback exhausted, won't retry" }
+                            throw dpadExhaustedAbort(attempt)
                         }
 
                         null -> {
@@ -1110,8 +1121,9 @@ class AOSPSpecs @Inject constructor(
         private const val BUTTON_BAND_MIN_GAP_DP = 48
 
         // The DPAD run plus containment (two polls of up to 1s) and the final cache read has to fit
-        // into one step attempt.
+        // into one step attempt. The reserve keeps room for the latter two.
         private const val DPAD_RUN_DEADLINE_MS = 10_000L
+        private const val POST_RUN_RESERVE_MS = 3_500L
         private const val CONTAINMENT_POLLS = 10
         private const val CONTAINMENT_POLL_DELAY_MS = 100L
 

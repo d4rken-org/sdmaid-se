@@ -49,6 +49,7 @@ import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.TestACSNodeInfo
 import java.util.concurrent.CountDownLatch
+import kotlin.time.Duration.Companion.seconds
 
 class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
@@ -953,7 +954,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
         testRoot = buttonBandTree()
 
-        // rethrowAbort: a veto must not count as exhausted, which would abort on attempt 13.
+        // rethrowAbort: a veto must not count as exhausted, which would abort on attempt 12.
         val result = captureAndRunClearCacheAction(maxAttempts = 23, rethrowAbort = true)
 
         result shouldBe false
@@ -1118,9 +1119,9 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
 
         testRoot = buttonBandTree().addChildren(navigateUpButton(), searchButton())
 
-        // The band is confirmed on attempt 12, which runs DPAD; attempt 13 hits the exhaustion abort.
+        // The band is confirmed on attempt 12, which runs DPAD and ends in the exhaustion abort.
         val abort = shouldThrow<StepAbortException> {
-            captureAndRunClearCacheAction(maxAttempts = 14, rethrowAbort = true)
+            captureAndRunClearCacheAction(maxAttempts = 13, rethrowAbort = true)
         }
 
         abort.message shouldContain "DPAD exhausted"
@@ -1507,6 +1508,79 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
         (backAt - centerAt) shouldBeGreaterThan 0L
         (backAt - centerAt) shouldBeLessThan 10_000L
+    }
+
+    @Test
+    fun `a DPAD run only gets what the step attempt has left and is still contained`() = runTest {
+        setupAllowlistedDpad(this)
+        coEvery { inputInjector.canInject() } returns true
+        val keyTimes = mutableListOf<Long>()
+        coEvery { inputInjector.inject(any<InputInjector.Event>()) } coAnswers {
+            keyTimes += testScheduler.currentTime
+            if (firstArg<InputInjector.Event>() == InputInjector.Event.DpadCenter) {
+                testHost.setWindowRoot(deleteAppDataDialog())
+                // Only the deadline ends this press.
+                delay(60_000)
+            }
+            Unit
+        }
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_BACK) testHost.setWindowRoot(storagePage())
+            true
+        }
+        testRoot = storagePage()
+
+        // 6s left of the attempt, minus the 3.5s reserve, leaves the run 2.5s.
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(
+                rethrowAbort = true,
+                attemptDeadline = testScheduler.timeSource.markNow() + 6.seconds,
+            )
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        abort.replayable shouldBe false
+        testScheduler.currentTime shouldBeLessThan 6_000L
+        keyTimes.max() shouldBeLessThan 2_500L
+        coVerify(exactly = 1) { inputInjector.inject(InputInjector.Event.DpadCenter) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a step attempt without time for a DPAD run sends no key`() = runTest {
+        setupAllowlistedDpad(this)
+        recordGlobalActions { emitValidationEventAsync() }
+        testRoot = storagePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(
+                rethrowAbort = true,
+                attemptDeadline = testScheduler.timeSource.markNow() + 3.seconds,
+            )
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        abort.replayable shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `the nodeAction call whose DPAD run is exhausted throws the abort itself`() = runTest {
+        setupAllowlistedDpad(this)
+        recordGlobalActions {
+            testHost.setWindowRoot(deleteAppDataDialog())
+            emitValidationEventAsync()
+        }
+        testRoot = storagePage()
+
+        // The DPAD runs on attempt 2, the last nodeAction call here.
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(maxAttempts = 3, rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        abort.message shouldContain "attempt=2"
+        abort.replayable shouldBe false
     }
 
     // ============================================================
