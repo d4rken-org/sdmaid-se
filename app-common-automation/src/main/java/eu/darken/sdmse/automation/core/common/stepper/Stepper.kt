@@ -38,6 +38,7 @@ import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import kotlin.system.measureTimeMillis
 import kotlin.time.Duration.Companion.seconds
+import kotlin.time.TimeSource
 
 @Reusable
 class Stepper @Inject constructor(
@@ -76,9 +77,10 @@ class Stepper @Inject constructor(
                         hostContext = context,
                         tag = step.source,
                         stepAttempts = stepAttempts++,
+                        attemptDeadline = TimeSource.Monotonic.markNow() + ATTEMPT_TIMEOUT,
                     )
                     try {
-                        withTimeout(15.seconds) {
+                        withTimeout(ATTEMPT_TIMEOUT) {
                             val stepTime = measureTimeMillis {
                                 doProcess(stepContext, step)
                             }
@@ -189,4 +191,8 @@ class Stepper @Inject constructor(
     }
 
     data class Result(val success: Boolean, val exception: Exception? = null)
+
+    companion object {
+        private val ATTEMPT_TIMEOUT = 15.seconds
+    }
 }

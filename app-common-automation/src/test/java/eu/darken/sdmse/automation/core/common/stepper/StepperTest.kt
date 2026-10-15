@@ -6,6 +6,9 @@ import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.common.ca.toCaString
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.longs.shouldBeGreaterThan
+import io.kotest.matchers.longs.shouldBeLessThanOrEqual
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -61,5 +64,27 @@ class StepperTest : BaseTest() {
 
         thrown shouldBe abort
         nodeActions shouldBe 1
+    }
+
+    @Test
+    fun `nodeAction gets the deadline of its attempt`() = runTest2 {
+        var stepContext: StepContext? = null
+        val step = AutomationStep(
+            source = "test",
+            descriptionInternal = "Deadline step",
+            label = "Test".toCaString(),
+            windowCheck = { windowRoot },
+            nodeAction = {
+                stepContext = this
+                throw StepAbortException("Skipped, handled elsewhere", treatAsSuccess = true)
+            },
+        )
+
+        Stepper(screenState).process(hostContext, step)
+
+        val deadline = stepContext.shouldNotBeNull().attemptDeadline.shouldNotBeNull()
+        val remainingMs = -deadline.elapsedNow().inWholeMilliseconds
+        remainingMs shouldBeLessThanOrEqual 15_000L
+        remainingMs shouldBeGreaterThan 10_000L
     }
 }
