@@ -1596,7 +1596,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         theoreticalPaths = emptySet(),
     )
 
-    // Stock Pixel storage page on Android 17: no cache row, and "User data" excludes the cache.
+    // Storage page as the reporter's Pixel 9 Pro (Android 17) exposed it: no Cache row in the accessibility tree, and "User data" excludes the cache.
     private fun pixelStoragePage(userData: String = "3.52 MB") = buildTestTree(
         """
         ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
