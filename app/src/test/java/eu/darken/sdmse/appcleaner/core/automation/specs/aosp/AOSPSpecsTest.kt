@@ -1959,4 +1959,30 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         (keyTimes.min() - runStartAt) shouldBeLessThan 1_000L
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
+
+    @Test
+    fun `a cache read that answers after its poll timeout is still used by the next poll`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        var centerSent = false
+        // Every read after the press outlasts its 250ms poll timeout.
+        coEvery { cacheProvider.determineCache(any()) } coAnswers {
+            if (centerSent) {
+                delay(400)
+                cacheOf(0L)
+            } else {
+                cacheOf(50_000L)
+            }
+        }
+        recordGlobalActions {
+            centerSent = true
+            emitValidationEventAsync()
+        }
+        testRoot = pixelStoragePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
 }
