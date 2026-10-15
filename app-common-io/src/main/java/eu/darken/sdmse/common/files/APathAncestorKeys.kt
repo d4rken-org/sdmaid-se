@@ -25,22 +25,9 @@ fun APath.ancestryKey(): String = when (pathType) {
 }
 
 /**
- * Emits the key of every path that would be a strict ancestor of this one, so that for two paths of
- * the same [APath.PathType], `a.isAncestorOf(b)` holds exactly when `b` emits `a.ancestryKey()`.
- * Keys of different path types can collide and must be kept apart by the caller.
- *
- * - **LOCAL**: `isAncestorOf` is a proper string prefix that ends on a separator boundary, plus an
- *   explicit branch that makes the root `/` an ancestor of everything below it. The ancestor keys are
- *   therefore the proper prefixes cut right before each separator, plus `/` itself.
- * - **RAW**: the ancestor test is the generic RAW branch of `APath.isAncestorOf`,
- *   `descendant.path.startsWith(this.path + "/")`. It is NOT `RawPath.isAncestorOf`, which
- *   absolutizes both sides. There is no root branch here either: `/` is not an ancestor of `/a`,
- *   because `/a` does not start with `//`.
- * - **SAF**: `isAncestorOf` is same-tree plus a proper `segments` prefix, so a SAF key is the tree URI
- *   plus a segment prefix. Those components are length-prefixed instead of joined by a delimiter:
- *   segment content is arbitrary (display names come verbatim from a DocumentsProvider cursor), so no
- *   character can be reserved as a separator, while a length-prefixed concatenation is injective for
- *   any content. A tree root has no segments and therefore no ancestors.
+ * Emits the [ancestryKey] of every path that would be a strict ancestor of this one, e.g. LOCAL
+ * `/a/b/c` emits `""`, `/a`, `/a/b` and `/`. Keys of different path types can collide, so keep them
+ * apart per [APath.PathType]. Equivalence with `isAncestorOf` is pinned by `APathAncestorIndexTest`.
  */
 inline fun APath.forEachAncestorKey(action: (String) -> Unit) {
     when (pathType) {
@@ -62,8 +49,7 @@ inline fun APath.forEachAncestorKey(action: (String) -> Unit) {
             for (i in raw.indices) {
                 if (raw[i] == File.separatorChar) action(raw.substring(0, i))
             }
-            // LocalPath.isAncestorOf treats the root as an ancestor of everything below it, and the
-            // prefix walk above never produces the root on its own.
+            // The prefix walk above never emits the root itself.
             if (raw.length > 1 && raw[0] == File.separatorChar) action(File.separator)
         }
 
