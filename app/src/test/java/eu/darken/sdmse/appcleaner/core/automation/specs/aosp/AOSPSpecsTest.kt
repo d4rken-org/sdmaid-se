@@ -1985,4 +1985,24 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         result shouldBe true
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
+
+    @Test
+    fun `a final cache drop with the dialog still open is no success`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        var backSent = false
+        coEvery { cacheProvider.determineCache(any()) } answers { cacheOf(if (backSent) 0L else 50_000L) }
+        recordGlobalActions(onBack = { backSent = true }) {
+            testHost.setWindowRoot(deleteAppDataDialog())
+        }
+        testRoot = pixelStoragePage()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
 }
