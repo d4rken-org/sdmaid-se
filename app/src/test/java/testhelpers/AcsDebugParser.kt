@@ -27,8 +27,9 @@ object AcsDebugParser {
         """ACS-DEBUG:\s*(-*)(\d+):\s*(.+)"""
     )
 
-    private val TEXT_PATTERN = Regex("""text='([^']*)'""")
-    private val CONTENT_DESC_PATTERN = Regex("""contentDesc='([^']*)'""")
+    // Lazy up to the next field, so a label like "Don't ask" or "l'espace" keeps its apostrophe.
+    private val TEXT_PATTERN = Regex("""text='(.*?)', (?:contentDesc=|class=)""")
+    private val CONTENT_DESC_PATTERN = Regex("""contentDesc='(.*?)', class=""")
     private val CLASS_PATTERN = Regex("""class=([^,]+)""")
     private val CLICKABLE_PATTERN = Regex("""clickable=(true|false)""")
     private val CHECKABLE_PATTERN = Regex("""checkable=(true|false)""")
@@ -61,7 +62,9 @@ object AcsDebugParser {
      */
     fun parseTree(logContent: String, withBounds: Boolean = false): TestACSNodeInfo? {
         val parsedNodes = logContent.lines()
-            .filter { it.contains("ACS-DEBUG:") && !it.contains("START") && !it.contains("STOP") }
+            // START/STOP marker lines ("ACS-DEBUG -- <id> -- START -- ...") never match LINE_PATTERN, so a node whose
+            // text contains "START" or "STOP" (e.g. "FORCE STOP") is not dropped.
+            .filter { it.contains("ACS-DEBUG:") }
             .mapNotNull { parseLine(it) }
 
         if (parsedNodes.isEmpty()) return null

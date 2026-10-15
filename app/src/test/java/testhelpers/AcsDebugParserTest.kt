@@ -160,6 +160,43 @@ class AcsDebugParserTest : BaseTest() {
     }
 
     @Test
+    fun `parseTree keeps nodes whose text contains START or STOP`() {
+        val log = """
+            ACS-DEBUG -- abc123 -- START -- EventType: TYPE_WINDOW_CONTENT_CHANGED
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=test, identity=a, bounds=Rect(0, 0 - 100, 50)
+            ACS-DEBUG: -1: text='FORCE STOP', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=null pkg=test, identity=b, bounds=Rect(0, 0 - 100, 50)
+            ACS-DEBUG: -1: text='START', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=null pkg=test, identity=c, bounds=Rect(0, 0 - 100, 50)
+            ACS-DEBUG -- abc123 -- STOP -- ---
+        """.trimIndent()
+
+        val root = AcsDebugParser.parseTree(log)
+
+        root.shouldNotBeNull()
+        root.childCount shouldBe 2
+        (root.getChild(0) as TestACSNodeInfo).text shouldBe "FORCE STOP"
+        (root.getChild(1) as TestACSNodeInfo).text shouldBe "START"
+    }
+
+    @Test
+    fun `parseLine keeps apostrophes in text and contentDesc`() {
+        val withDesc = AcsDebugParser.parseLine(
+            "ACS-DEBUG: 0: text='Effacer l'espace', contentDesc='Don't ask', class=android.widget.Button, clickable=true, checkable=false enabled=true, focused=false, id=null pkg=com.android.settings, identity=abc, bounds=Rect(0, 0 - 100, 50)"
+        )
+        val withoutDesc = AcsDebugParser.parseLine(
+            "ACS-DEBUG: 0: text='Vider l'espace', class=android.widget.Button, clickable=true, checkable=false enabled=true, id=null pkg=com.android.settings, identity=abc, bounds=Rect(0, 0 - 100, 50)"
+        )
+
+        withDesc.shouldNotBeNull()
+        withDesc.text shouldBe "Effacer l'espace"
+        withDesc.contentDescription shouldBe "Don't ask"
+        withDesc.className shouldBe "android.widget.Button"
+
+        withoutDesc.shouldNotBeNull()
+        withoutDesc.text shouldBe "Vider l'espace"
+        withoutDesc.contentDescription.shouldBeNull()
+    }
+
+    @Test
     fun `parseTree returns null for empty input`() {
         AcsDebugParser.parseTree("").shouldBeNull()
         AcsDebugParser.parseTree("no acs debug lines here").shouldBeNull()
