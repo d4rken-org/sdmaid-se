@@ -1677,17 +1677,17 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         }
         testRoot = storagePage()
 
-        // 6s left of the attempt, minus the 3.5s reserve, leaves the run 2.5s.
+        // 8s left of the attempt, minus the 5.5s reserve, leaves the run 2.5s.
         val abort = shouldThrow<StepAbortException> {
             captureAndRunClearCacheAction(
                 rethrowAbort = true,
-                attemptDeadline = testScheduler.timeSource.markNow() + 6.seconds,
+                attemptDeadline = testScheduler.timeSource.markNow() + 8.seconds,
             )
         }
 
         abort.message shouldContain "DPAD exhausted"
         abort.replayable shouldBe false
-        testScheduler.currentTime shouldBeLessThan 6_000L
+        testScheduler.currentTime shouldBeLessThan 8_000L
         keyTimes.max() shouldBeLessThan 2_500L
         coVerify(exactly = 1) { inputInjector.inject(InputInjector.Event.DpadCenter) }
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
@@ -2269,5 +2269,350 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         abort.message shouldContain "DPAD exhausted"
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    // ============================================================
+    // Peeking at a Cache row below the fold (large font and display size)
+    // ============================================================
+
+    // A storage page whose list can scroll down one screen. At the top only the header and "App size" show;
+    // scrolled down, the Cache row does. [cache] is read on every swap, [scrollsBack] = false keeps the page down,
+    // [returnsShifted] brings the header back 100px higher than it started. The next [stuckForward] / [stuckBack]
+    // scrolls report success without moving.
+    private inner class LargeStoragePage(
+        var cache: String = "1.27 MB",
+        var scrollsBack: Boolean = true,
+        val returnsShifted: Boolean = false,
+    ) {
+        var scrolledDown = false
+            private set
+        val scrolls = mutableListOf<Int>()
+        private var returns = 0
+        var stuckForward = 0
+        var stuckBack = 0
+
+        private fun node(id: String?, text: String? = null, clickable: Boolean = false, rect: ACSNodeInfo.ScreenBounds? = null) =
+            TestACSNodeInfo(
+                text = text,
+                packageName = "com.android.settings",
+                viewIdResourceName = id,
+                isClickable = clickable,
+                screenBoundsOverride = rect,
+            )
+
+        private fun row(title: String, value: String) = node(null).addChildren(
+            node("android:id/title", text = title),
+            node("android:id/summary", text = value),
+        )
+
+        private fun onScroll(action: Int): Boolean {
+            scrolls += action
+            val moves = when (action) {
+                ACSNodeInfo.ACTION_SCROLL_FORWARD -> {
+                    if (!scrolledDown && stuckForward > 0) {
+                        stuckForward--
+                        return true
+                    }
+                    !scrolledDown
+                }
+
+                ACSNodeInfo.ACTION_SCROLL_BACKWARD -> {
+                    if (scrolledDown && stuckBack > 0) {
+                        stuckBack--
+                        return true
+                    }
+                    scrolledDown && scrollsBack
+                }
+
+                else -> return true
+            }
+            if (moves) {
+                scrolledDown = !scrolledDown
+                if (!scrolledDown) returns++
+                testHost.setWindowRoot(build())
+            }
+            return moves
+        }
+
+        fun build(): TestACSNodeInfo {
+            val list = TestACSNodeInfo(
+                className = "androidx.recyclerview.widget.RecyclerView",
+                packageName = "com.android.settings",
+                viewIdResourceName = "com.android.settings:id/recycler_view",
+                isScrollable = true,
+                onAction = ::onScroll,
+            )
+            if (scrolledDown) {
+                list.addChildren(row("User data", "16.91 MB"), row("Cache", cache), row("Total", "93 MB"))
+            } else {
+                val top = if (returnsShifted && returns > 0) 412 else 512
+                list.addChildren(
+                    node("com.android.settings:id/entity_header_content", clickable = true, rect = ACSNodeInfo.ScreenBounds(124, top, 1156, top + 629)),
+                    row("App size", "75.84 MB"),
+                )
+            }
+            return node(null, rect = ACSNodeInfo.ScreenBounds(0, 0, 1280, 2856)).addChild(list)
+        }
+    }
+
+    private fun stubLargeSizes() {
+        mockkConstructor(SizeParser::class)
+        every { anyConstructed<SizeParser>().parse("1.27 MB") } returns 1_270_000L
+        every { anyConstructed<SizeParser>().parse("0 B") } returns 0L
+    }
+
+    @Test
+    fun `a Cache row below the fold verifies the quick-try press by a peek`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        // StorageStats keep the old size, as on a Pixel 10 Pro with Android 17.
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions { page.cache = "0 B" }
+        testRoot = page.build()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `an unchanged Cache row below the fold stops after the quick-try press`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions { }
+        testRoot = page.build()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        page.scrolledDown shouldBe false
+        // No cycle or blind sweep press after a press the peek couldn't verify.
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a baseline peek that can't scroll back sends no key`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage(scrollsBack = false)
+        recordGlobalActions { }
+        testRoot = page.build()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `a page a peek left scrolled away gets no BACK`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        // The press clears nothing, and from then on the list doesn't scroll back up.
+        recordGlobalActions { page.scrollsBack = false }
+        testRoot = page.build()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        page.scrolledDown shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a header that comes back somewhere else after the baseline peek sends no key`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage(returnsShifted = true)
+        recordGlobalActions { }
+        testRoot = page.build()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `a Cache row still calculating at the baseline counts once it reads empty`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage(cache = "Calculating…")
+        recordGlobalActions { page.cache = "0 B" }
+        testRoot = page.build()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a press the peek couldn't verify still counts if the final check sees the cache bytes drop`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        val page = LargeStoragePage()
+        // StorageStats only catch up after the post-press peek, the row never updates.
+        coEvery { cacheProvider.determineCache(any()) } answers {
+            val peeks = page.scrolls.count { it == ACSNodeInfo.ACTION_SCROLL_FORWARD }
+            cacheOf(if (peeks >= 2) 0L else 1_269_760L)
+        }
+        recordGlobalActions { }
+        testRoot = page.build()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `an empty Cache row below the fold ends the target as already empty before any key`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage(cache = "0 B")
+        recordGlobalActions { }
+        testRoot = page.build()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.treatAsSuccess shouldBe true
+        abort.message shouldContain "already empty"
+        page.scrolledDown shouldBe false
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+    }
+
+    @Test
+    fun `a drop the peek saw counts even if the page doesn't scroll back`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions {
+            page.cache = "0 B"
+            page.scrollsBack = false
+        }
+        testRoot = page.build()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `the stats polls leave the peek time to read the row before the run's deadline`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions { page.cache = "0 B" }
+        testRoot = page.build()
+        val start = testScheduler.currentTime
+
+        // 11s left of the attempt, minus the 5.5s reserve, leaves the run 5.5s: too short for 16 polls (4s)
+        // after the baseline peek, the press and before the peek that verifies it.
+        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 11.seconds)
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        (testScheduler.currentTime - start) shouldBeLessThan 5_500L
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a run with too little time left for stats polls goes straight to the peek`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions {
+            page.cache = "0 B"
+            page.stuckForward = 2
+        }
+        testRoot = page.build()
+
+        // 9s left of the attempt leaves the run 3.5s, and the press less than this slow peek plus three polls.
+        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 9.seconds)
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a drop the peek saw counts when the run's deadline cuts its way back`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        // In the post-press peek, the first two scrolls down and the first three scrolls back don't move the list.
+        recordGlobalActions {
+            page.cache = "0 B"
+            page.stuckForward = 2
+            page.stuckBack = 3
+        }
+        testRoot = page.build()
+        val start = testScheduler.currentTime
+
+        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 11.seconds)
+
+        result shouldBe true
+        // Past the run's 5.5s, so the deadline did cut it, and the page is back at the top anyway.
+        (testScheduler.currentTime - start) shouldBeGreaterThan 5_500L
+        page.scrolledDown shouldBe false
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a manage-space detour retry is verified by a peek at a Cache row below the fold`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        stubManageStorageText(present = true)
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions(onBack = { testHost.setWindowRoot(page.build()) }) { center ->
+            when (center) {
+                1 -> testHost.setWindowRoot(targetAppScreen())
+                else -> page.cache = "0 B"
+            }
+        }
+        testRoot = page.build()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 }

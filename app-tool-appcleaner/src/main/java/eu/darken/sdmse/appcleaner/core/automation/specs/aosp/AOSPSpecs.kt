@@ -67,6 +67,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import kotlin.math.ceil
+import kotlin.time.ComparableTimeMark
+import kotlin.time.Duration.Companion.milliseconds
 
 @Reusable
 class AOSPSpecs @Inject constructor(
@@ -308,13 +310,20 @@ class AOSPSpecs @Inject constructor(
         val cacheRow: CacheRowBaseline?,
     )
 
-    // Settings' Cache row, when the storage page showed one with a positive size before the first key.
-    private class CacheRowBaseline(val labels: Collection<String>, val sizeParser: SizeParser, val bytes: Long)
-
-    private suspend fun StepContext.cacheRowDropped(row: CacheRowBaseline, root: ACSNodeInfo): Boolean {
-        val now = readCacheRowSize(row.labels, row.sizeParser, root) ?: return false
-        return now < row.bytes
+    // Settings' Cache row, when the storage page showed one before the first key. [bytes] is its positive
+    // size, or null if it never settled (e.g. still "Calculating…"): then only an empty row counts.
+    // [belowFold]: only a peek (scrolling the page) shows it, so the presses' polls can't see it.
+    private class CacheRowBaseline(
+        val labels: Collection<String>,
+        val sizeParser: SizeParser,
+        val bytes: Long?,
+        val belowFold: Boolean = false,
+    ) {
+        fun dropped(now: Long?): Boolean = now != null && (now == 0L || (bytes != null && now < bytes))
     }
+
+    private suspend fun StepContext.cacheRowDropped(row: CacheRowBaseline, root: ACSNodeInfo): Boolean =
+        row.dropped(readCacheRowSize(row.labels, row.sizeParser, root))
 
     // Decided by the target's cache bytes or by the Cache row, whichever drops first. The Cache row can be
     // missing from the accessibility tree (as on a Pixel 9 Pro with Android 17) and "User data" excludes
@@ -459,10 +468,12 @@ class AOSPSpecs @Inject constructor(
             log(tag, WARN) { "DPAD skipped, the step attempt has no time left for a run (budget=${budgetMs}ms)" }
             return false
         }
+        val runEnd = attemptDeadline?.let { it - (-it.elapsedNow().inWholeMilliseconds - budgetMs).milliseconds }
 
         var centerSent = false
         var finished = false
         var stats: StatsMode? = null
+        val peek = StoragePeek()
         val result = try {
             withTimeoutOrNull(budgetMs) {
                 runFocusNavigation(
@@ -474,6 +485,8 @@ class AOSPSpecs @Inject constructor(
                     settingsHasManageStorageText = settingsHasManageStorageText,
                     cacheSizeLabels = cacheSizeLabels,
                     preClickCheck = preClickCheck,
+                    peek = peek,
+                    runEnd = runEnd,
                     onStatsMode = { stats = it },
                     onCenter = { centerSent = true },
                 ).also { finished = true }
@@ -481,14 +494,24 @@ class AOSPSpecs @Inject constructor(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            if (centerSent) containStrayPress()
+            if (centerSent && !peek.away) containStrayPress()
             throw e
         }
 
         if (!finished) log(tag, WARN) { "DPAD run hit its ${budgetMs}ms deadline, counting it as exhausted" }
+        // The deadline can cut a peek after it saw the drop, while it was still scrolling back.
+        if (result != true && peek.sawDrop && (peek.away || host.windowRoot()?.hasEntityHeader() == true)) {
+            log(tag, INFO) { "CacheRow: a peek saw the drop before the run ended" }
+            return true
+        }
         val runStats = stats
         if (result != true && centerSent) {
-            containStrayPress()
+            // A page a peek left scrolled away has no header for containment to recognize.
+            if (peek.away) {
+                log(tag, WARN) { "Containment skipped, a peek didn't scroll back to the header" }
+            } else {
+                containStrayPress()
+            }
             if (runStats != null) {
                 val now = cacheStats.read(FINAL_RECHECK_READ_TIMEOUT_MS)
                 val dropped = now.isBelow(runStats.baseline)
@@ -519,6 +542,8 @@ class AOSPSpecs @Inject constructor(
         settingsHasManageStorageText: Boolean,
         cacheSizeLabels: Collection<String>,
         preClickCheck: (suspend () -> Boolean)?,
+        peek: StoragePeek,
+        runEnd: ComparableTimeMark?,
         onStatsMode: (StatsMode) -> Unit,
         onCenter: () -> Unit,
     ): Boolean? {
@@ -595,22 +620,71 @@ class AOSPSpecs @Inject constructor(
         val preRoot = host.windowRoot()
         val preSnapshot = takeStorageSnapshot(sizeParser, preRoot)
 
+        val hasCacheRow: (ACSNodeInfo) -> Boolean = { it.findRowTitle(cacheSizeLabels) != null }
+        val readRow: suspend (ACSNodeInfo) -> Long? = { root -> readCacheRowSize(cacheSizeLabels, sizeParser, root) }
+        var peeked = false
+
         val stats = (cacheBaseline as? CacheStats.Positive)?.let { baseline ->
-            val cacheRow = if (sizeParser != null && preRoot != null) {
-                readCacheRowSize(cacheSizeLabels, sizeParser, preRoot)
-                    ?.takeIf { it > 0 }
-                    ?.let { CacheRowBaseline(cacheSizeLabels, sizeParser, it) }
-            } else {
-                null
+            // A settled zero leaves the row out: an empty-looking row can't show a press clearing anything.
+            fun rowBaseline(bytes: Long?, belowFold: Boolean) = when {
+                sizeParser == null || bytes == 0L -> null
+                else -> CacheRowBaseline(cacheSizeLabels, sizeParser, bytes, belowFold)
+            }
+            val cacheRow = when {
+                sizeParser == null || preRoot == null -> null
+                hasCacheRow(preRoot) -> rowBaseline(readSettledRow(readRow), belowFold = false)
+                else -> when (val result = peekCacheRow(peek, hasCacheRow, readRow).also { peeked = true }) {
+                    PeekResult.NotRestored -> {
+                        log(tag, WARN) { "DPAD aborted before any key, the page didn't scroll back" }
+                        return false
+                    }
+
+                    PeekResult.Unavailable -> null
+                    is PeekResult.Read -> when {
+                        !result.shown -> null
+                        result.bytes == 0L -> {
+                            log(tag, INFO) { "CacheRow[baseline]: 0 below the fold, nothing to clear" }
+                            throw StepAbortException("Cache is already empty for ${target.installId}", treatAsSuccess = true)
+                        }
+
+                        else -> rowBaseline(result.bytes, belowFold = true)
+                    }
+                }
             }
             log(tag, INFO) {
-                if (cacheRow != null) {
-                    "CacheRow[baseline]: ${cacheRow.bytes}, verifies presses alongside the cache bytes"
-                } else {
-                    "CacheRow[baseline]: no Cache row with a size, only the cache bytes verify presses"
+                when {
+                    cacheRow == null -> "CacheRow[baseline]: no Cache row with a size, only the cache bytes verify presses"
+                    cacheRow.belowFold -> "CacheRow[baseline]: ${cacheRow.bytes} below the fold, a peek verifies presses"
+                    else -> "CacheRow[baseline]: ${cacheRow.bytes}, verifies presses alongside the cache bytes"
                 }
             }
             StatsMode(cacheStats, baseline, cacheRow).also(onStatsMode)
+        }
+        if (peeked && preClickCheck != null && !preClickCheck()) {
+            log(tag, WARN) { "DPAD aborted before any key, pre-click check no longer passes after the peek" }
+            return null
+        }
+
+        // A press whose polls saw no drop, with the Cache row below the fold: true if a peek shows it
+        // dropped, false if it doesn't (the press stays unverified, so no further key is sent), null if
+        // the row is on screen or the header is already gone (left to the existing handling).
+        suspend fun verifyBelowFold(source: String): Boolean? {
+            val row = stats?.cacheRow?.takeIf { it.belowFold } ?: return null
+            if (host.windowRoot()?.hasEntityHeader() != true) return null
+            val result = peekCacheRow(peek, hasCacheRow, readRow, isDrop = row::dropped)
+            // A drop counts even if the page didn't scroll back.
+            val dropped = peek.sawDrop
+            log(tag, INFO) { "CacheRow[$source]: peek=$result, baseline=${row.bytes}, dropped=$dropped" }
+            return dropped
+        }
+
+        // The stats polls stop early enough for a peek at a Cache row below the fold to read it within the run.
+        fun longStatsPolls(): Int {
+            val leftMs = runEnd?.takeIf { stats?.cacheRow?.belowFold == true }
+                ?.let { -it.elapsedNow().inWholeMilliseconds }
+                ?: return STATS_LONG_POLLS
+            val pollMs = leftMs - PEEK_READ_MS - STATS_POLL_READ_TIMEOUT_MS
+            return (pollMs / STATS_POLL_DELAY_MS).toInt().coerceIn(0, STATS_LONG_POLLS)
         }
 
         // Motorola edge 70, Android 17 (#2843): input focus reaches the anchor ~150ms after
@@ -728,9 +802,10 @@ class AOSPSpecs @Inject constructor(
                             sizeParser = sizeParser,
                             timeoutMs = 800,
                             stats = stats,
-                            statsPolls = STATS_LONG_POLLS,
+                            statsPolls = longStatsPolls(),
                         )
                         if (validated) return true
+                        if (clicked) verifyBelowFold("quick-try")?.let { return it }
                     }
                 }
                 // Check if anchor is still present before falling through to cycle loop.
@@ -779,7 +854,7 @@ class AOSPSpecs @Inject constructor(
                                     sizeParser = sizeParser,
                                     timeoutMs = 800,
                                     stats = stats,
-                                )
+                                ) || verifyBelowFold(MANAGE_SPACE_DETOUR_SOURCE) == true
                             },
                         )
                         return recoverFromManageSpaceDetour(tag, ops, preSnapshot, stepDelayMs)
@@ -868,9 +943,10 @@ class AOSPSpecs @Inject constructor(
                             preSnapshot = preSnapshot,
                             sizeParser = sizeParser,
                             stats = stats,
-                            statsPolls = STATS_LONG_POLLS,
+                            statsPolls = longStatsPolls(),
                         )
                         if (validated) return true
+                        verifyBelowFold("label-match")?.let { return it }
                         break // Delta validation failed, try next cycle
                     }
 
@@ -927,6 +1003,7 @@ class AOSPSpecs @Inject constructor(
                 if (validateWithDelta("blind-sweep-$rightSteps", preSnapshot, sizeParser, timeoutMs = 800, stats = stats)) {
                     return true
                 }
+                verifyBelowFold("blind-sweep-$rightSteps")?.let { return it }
 
                 val anchorStillPresent = host.windowRoot()?.crawl()?.map { it.node }
                     ?.any { it.viewIdResourceName == anchorId } == true
@@ -1197,10 +1274,11 @@ class AOSPSpecs @Inject constructor(
         private const val BUTTON_BAND_CONFIRMATIONS = 2
         private const val BUTTON_BAND_MIN_GAP_DP = 48
 
-        // The DPAD run plus containment (two polls of up to 1s) and the final cache read has to fit
-        // into one step attempt. The reserve keeps room for the latter two.
+        // The DPAD run plus a cut-off peek's way back (PEEK_RESTORE_TIMEOUT_MS), containment (two polls of
+        // up to 1s) and the final cache read has to fit into one step attempt. The reserve keeps room for
+        // the latter three.
         private const val DPAD_RUN_DEADLINE_MS = 10_000L
-        private const val POST_RUN_RESERVE_MS = 3_500L
+        private const val POST_RUN_RESERVE_MS = 3_500L + PEEK_RESTORE_TIMEOUT_MS
         private const val CONTAINMENT_POLLS = 10
         private const val CONTAINMENT_POLL_DELAY_MS = 100L
 
