@@ -8,9 +8,11 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.listFiles
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.forensics.FileForensics
@@ -91,8 +93,13 @@ abstract class StandardCorpseFilter(
                 if (indeterminateWhileListing) updateProgressCount(Progress.Count.Indeterminate())
 
                 log(filterTag) { "Reading $area" }
-                val topLevelContents = area.path
-                    .listFiles(gatewaySwitch)
+                val listing = try {
+                    area.path.listFiles(gatewaySwitch)
+                } catch (e: ReadException) {
+                    log(filterTag, WARN) { "Skipping unreadable area $area: ${e.asLog()}" }
+                    emptyList()
+                }
+                val topLevelContents = listing
                     .filter { path ->
                         val isExcluded = exclusionIndex.matches(path)
                         if (isExcluded) log(filterTag, INFO) { "Excluded due to path exclusion: $path" }
