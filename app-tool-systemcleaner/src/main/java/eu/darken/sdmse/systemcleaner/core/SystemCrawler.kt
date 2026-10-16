@@ -12,11 +12,14 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.isDirectory
+import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.walk
@@ -37,11 +40,14 @@ import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilter
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterException
 import eu.darken.sdmse.systemcleaner.core.filter.excludeNestedLookups
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
@@ -123,11 +129,19 @@ class SystemCrawler @Inject constructor(
                     }
                     log(TAG) { "Scanning $targetArea" }
 
-                    targetArea.path
-                        .walk(
+                    val areaWalk: Flow<APathLookup<APath>> = try {
+                        targetArea.path.lookup(gatewaySwitch)
+                        targetArea.path.walk(
                             gatewaySwitch,
                             options = APathGateway.WalkOptions(onFilter = filter)
                         )
+                    } catch (e: ReadException) {
+                        currentCoroutineContext().ensureActive()
+                        log(TAG, WARN) { "Skipping unreadable area $targetArea: ${e.asLog()}" }
+                        emptyFlow()
+                    }
+
+                    areaWalk
                         .map { targetArea to it }
                         .onCompletion { log(TAG) { "Finished scanning $targetArea" } }
                 }
