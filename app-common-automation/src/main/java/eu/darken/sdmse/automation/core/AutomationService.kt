@@ -23,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
+import eu.darken.sdmse.automation.core.debug.AcsSimulation
 import eu.darken.sdmse.automation.core.common.toNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
@@ -278,7 +279,7 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
     }
 
     override suspend fun windowRoot(): ACSNodeInfo? = suspendCancellableCoroutine {
-        val rootNode: ACSNodeInfo? = rootInActiveWindow?.toNodeInfo()
+        val rootNode: ACSNodeInfo? = rootInActiveWindow?.toNodeInfo()?.let { AcsSimulation.windowRoot(it) }
         log(TAG, VERBOSE) { "Providing windowRoot: $rootNode" }
         it.resume(rootNode)
     }

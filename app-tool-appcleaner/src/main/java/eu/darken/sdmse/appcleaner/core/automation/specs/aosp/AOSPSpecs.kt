@@ -32,6 +32,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findNodeByContentDesc
 import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.stepper.waitForLayoutStability
 import eu.darken.sdmse.automation.core.common.textMatches
+import eu.darken.sdmse.automation.core.debug.AcsSimulation
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -1105,7 +1106,7 @@ class AOSPSpecs @Inject constructor(
             val verdictConfirmer = VerdictConfirmer()
             // Outlives single DPAD runs and step attempts, so a read that never returned is never doubled.
             val cacheStats = CacheStatsReader(host.scope, TAG) {
-                inaccessibleCacheProvider.determineCache(pkg)?.totalSize
+                AcsSimulation.cacheStats(pkg.id.name, inaccessibleCacheProvider.determineCache(pkg)?.totalSize)
             }
             // Replaying the plan would press the same blind positions again.
             fun dpadExhaustedAbort(attempt: Int) = StepAbortException(
