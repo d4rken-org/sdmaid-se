@@ -613,7 +613,27 @@ class AOSPSpecs @Inject constructor(
             StatsMode(cacheStats, baseline, cacheRow).also(onStatsMode)
         }
 
-        suspend fun bootstrapAnchor(reason: String): Boolean {
+        // Motorola edge 70, Android 17 (#2843): input focus reaches the anchor ~150ms after
+        // ACTION_FOCUS returns true. A DPAD key sent before that starts from the app bar's up button,
+        // and DOWN then only reaches the anchor.
+        suspend fun awaitAnchorInputFocus(reason: String, polls: Int) {
+            var input: ACSNodeInfo? = null
+            for (poll in 0..polls) {
+                input = host.windowRoot()?.findFocus(ACSNodeInfo.FOCUS_INPUT)
+                if (input?.packageName?.toString() == SETTINGS_PKG.name && input.viewIdResourceName == anchorId) {
+                    log(tag, INFO) {
+                        "DPAD bootstrap focus ($reason): input focus on anchor after ${BOOTSTRAP_FOCUS_MIN_WAIT_MS + poll * BOOTSTRAP_FOCUS_POLL_DELAY_MS}ms"
+                    }
+                    return
+                }
+                if (poll < polls) delay(BOOTSTRAP_FOCUS_POLL_DELAY_MS)
+            }
+            log(tag, INFO) {
+                "DPAD bootstrap focus ($reason): input focus not on anchor after ${BOOTSTRAP_FOCUS_MIN_WAIT_MS + polls * BOOTSTRAP_FOCUS_POLL_DELAY_MS}ms (input=$input)"
+            }
+        }
+
+        suspend fun bootstrapAnchor(reason: String, focusPolls: Int = 0): Boolean {
             val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
                 ?.firstOrNull { it.viewIdResourceName == anchorId }
             if (anchorNode == null) {
@@ -629,7 +649,8 @@ class AOSPSpecs @Inject constructor(
             log(tag) {
                 "DPAD bootstrap focus ($reason): inputFocus=$bootstrapInputFocusResult, a11yFocus=$bootstrapA11yFocusResult, alreadyInputFocused=$alreadyInputFocused, alreadyA11yFocused=$alreadyA11yFocused, node=$anchorNode"
             }
-            delay(100)
+            delay(BOOTSTRAP_FOCUS_MIN_WAIT_MS)
+            if (focusPolls > 0) awaitAnchorInputFocus(reason, focusPolls)
             return bootstrapInputFocusResult || bootstrapA11yFocusResult || alreadyInputFocused || alreadyA11yFocused
         }
 
@@ -665,7 +686,7 @@ class AOSPSpecs @Inject constructor(
         }
 
         run {
-            val fastBootstrapped = bootstrapAnchor("quick-try")
+            val fastBootstrapped = bootstrapAnchor("quick-try", focusPolls = BOOTSTRAP_FOCUS_POLLS)
             if (fastBootstrapped) {
                 var centerSent = false
                 val steppedDown = dpadDown()
@@ -745,7 +766,7 @@ class AOSPSpecs @Inject constructor(
                             back = { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) },
                             awaitAnchor = awaitWindowAtRest,
                             takeSnapshot = { takeStorageSnapshot(sizeParser, host.windowRoot()) },
-                            bootstrapAnchor = { bootstrapAnchor(MANAGE_SPACE_DETOUR_SOURCE) },
+                            bootstrapAnchor = { bootstrapAnchor(MANAGE_SPACE_DETOUR_SOURCE, focusPolls = BOOTSTRAP_FOCUS_POLLS) },
                             dpadDown = dpadDown,
                             dpadRight = dpadRight,
                             dpadLeft = dpadLeft,
@@ -796,7 +817,7 @@ class AOSPSpecs @Inject constructor(
                         "Cycle $cycle focus on wrong node ($i/$maxFocusReadyChecks): $readyFocused, re-bootstrapping..."
                     }
                     bootstrapAnchor("cycle-$cycle-focus-wrong")
-                } else {
+                } else if (i < maxFocusReadyChecks) {
                     delay(120)
                 }
             }
@@ -881,7 +902,7 @@ class AOSPSpecs @Inject constructor(
             }
 
             for (rightSteps in startPosition..maxBlindPositions) {
-                if (!bootstrapAnchor("blind-sweep-$rightSteps")) {
+                if (!bootstrapAnchor("blind-sweep-$rightSteps", focusPolls = BOOTSTRAP_FOCUS_SHORT_POLLS)) {
                     log(tag, WARN) { "Blind sweep: anchor lost at position $rightSteps, aborting" }
                     return false
                 }
@@ -1182,6 +1203,14 @@ class AOSPSpecs @Inject constructor(
         private const val POST_RUN_RESERVE_MS = 3_500L
         private const val CONTAINMENT_POLLS = 10
         private const val CONTAINMENT_POLL_DELAY_MS = 100L
+
+        // How long after the focus actions input focus gets to reach the anchor: up to 600ms before the
+        // first key and the detour retry, 250ms before a blind-sweep key. The cycle loop checks focus
+        // on the anchor itself.
+        private const val BOOTSTRAP_FOCUS_MIN_WAIT_MS = 100L
+        private const val BOOTSTRAP_FOCUS_POLL_DELAY_MS = 50L
+        private const val BOOTSTRAP_FOCUS_POLLS = 10
+        private const val BOOTSTRAP_FOCUS_SHORT_POLLS = 3
 
         // Up to about 3s for Settings' entry transition to end.
         private const val LAYOUT_REST_CHECKS = 15
