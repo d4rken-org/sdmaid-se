@@ -147,16 +147,22 @@ class AOSPSpecs @Inject constructor(
      *
      * Returns null when the row can't be located or its value can't be parsed, which includes the
      * "still calculating" state, so callers must treat null as "don't know" and never as "not zero".
+     * Reads [root] when given, the current window otherwise.
      */
     private suspend fun StepContext.readCacheRowSize(
         cacheSizeLabels: Collection<String>,
         sizeParser: SizeParser?,
+        root: ACSNodeInfo? = null,
     ): Long? {
         if (sizeParser == null) {
             log(tag, WARN) { "readCacheRowSize(): SizeParser unavailable" }
             return null
         }
-        val title = findNodeByLabel(cacheSizeLabels) { it.viewIdResourceName == ROW_TITLE_ID }
+        val title = if (root != null) {
+            root.findRowTitle(cacheSizeLabels)
+        } else {
+            findNodeByLabel(cacheSizeLabels) { it.viewIdResourceName == ROW_TITLE_ID }
+        }
         if (title == null) {
             log(tag, VERBOSE) { "readCacheRowSize(): no cache row title" }
             return null
@@ -296,12 +302,26 @@ class AOSPSpecs @Inject constructor(
         return false
     }
 
-    private class StatsMode(val reader: CacheStatsReader, val baseline: CacheStats.Positive)
+    private class StatsMode(
+        val reader: CacheStatsReader,
+        val baseline: CacheStats.Positive,
+        val cacheRow: CacheRowBaseline?,
+    )
 
-    // Only the target's cache bytes decide here. The Cache row can be missing from the accessibility tree
-    // (as on a Pixel 9 Pro with Android 17) and "User data" excludes the cache, so a press that cleared it
-    // can leave every row unchanged, and a zero or unparseable row says nothing about the cache. The event
-    // is waited for in parallel, for the log only.
+    // Settings' Cache row, when the storage page showed one with a positive size before the first key.
+    private class CacheRowBaseline(val labels: Collection<String>, val sizeParser: SizeParser, val bytes: Long)
+
+    private suspend fun StepContext.cacheRowDropped(row: CacheRowBaseline, root: ACSNodeInfo): Boolean {
+        val now = readCacheRowSize(row.labels, row.sizeParser, root) ?: return false
+        return now < row.bytes
+    }
+
+    // Decided by the target's cache bytes or by the Cache row, whichever drops first. The Cache row can be
+    // missing from the accessibility tree (as on a Pixel 9 Pro with Android 17) and "User data" excludes
+    // the cache, so a press that cleared it can leave every row unchanged. StorageStats in turn can keep
+    // the old size for more than 10s while the Cache row already reads "0 Byte" (Pixel 7 and Pixel 10 Pro,
+    // Android 17). Other rows never decide: a zero or unparseable row says nothing about the cache. The
+    // event is waited for in parallel, for the log only.
     private suspend fun StepContext.validateWithStats(
         source: String,
         stats: StatsMode,
@@ -324,6 +344,11 @@ class AOSPSpecs @Inject constructor(
                         return@withTimeoutOrNull false
                     }
                     if (now.isBelow(stats.baseline)) return@withTimeoutOrNull true
+                    val row = stats.cacheRow
+                    if (row != null && cacheRowDropped(row, root)) {
+                        log(tag, INFO) { "CacheRow[$source]: below ${row.bytes} (poll $poll/$polls)" }
+                        return@withTimeoutOrNull true
+                    }
                     if (preSnapshot.values.isNotEmpty()) {
                         val ui = compareSnapshots(preSnapshot, takeStorageSnapshot(sizeParser, root))
                         log(tag, INFO) { "Delta[$source]: $ui, not used in stats mode (poll $poll/$polls)" }
@@ -406,8 +431,8 @@ class AOSPSpecs @Inject constructor(
      * The key sequence runs under [deadlineMs], cut down to what is left of the step attempt minus
      * [POST_RUN_RESERVE_MS], and running into it counts as exhausted. If the sequence ends without
      * success after a DPAD_CENTER, [containStrayPress] runs afterwards, outside the deadline,
-     * followed by one more read of [cacheStats] when the run had a cache baseline: StorageStats can
-     * lag a clear past the last poll.
+     * followed by one more read of [cacheStats] and of the Cache row when the run had a cache baseline:
+     * both can lag a clear past the last poll.
      */
     private suspend fun StepContext.tryClickViaFocusNavigation(
         labels: Collection<String>,
@@ -416,6 +441,7 @@ class AOSPSpecs @Inject constructor(
         canInjectInput: Boolean,
         threeButtonRow: Boolean,
         settingsHasManageStorageText: Boolean,
+        cacheSizeLabels: Collection<String>,
         preClickCheck: (suspend () -> Boolean)? = null,
         deadlineMs: Long = DPAD_RUN_DEADLINE_MS,
     ): Boolean? {
@@ -436,7 +462,7 @@ class AOSPSpecs @Inject constructor(
 
         var centerSent = false
         var finished = false
-        var baseline: CacheStats = CacheStats.Unavailable
+        var stats: StatsMode? = null
         val result = try {
             withTimeoutOrNull(budgetMs) {
                 runFocusNavigation(
@@ -446,8 +472,9 @@ class AOSPSpecs @Inject constructor(
                     canInjectInput = canInjectInput,
                     threeButtonRow = threeButtonRow,
                     settingsHasManageStorageText = settingsHasManageStorageText,
+                    cacheSizeLabels = cacheSizeLabels,
                     preClickCheck = preClickCheck,
-                    onBaseline = { baseline = it },
+                    onStatsMode = { stats = it },
                     onCenter = { centerSent = true },
                 ).also { finished = true }
             }
@@ -459,16 +486,23 @@ class AOSPSpecs @Inject constructor(
         }
 
         if (!finished) log(tag, WARN) { "DPAD run hit its ${budgetMs}ms deadline, counting it as exhausted" }
+        val runStats = stats
         if (result != true && centerSent) {
             containStrayPress()
-            val positive = baseline as? CacheStats.Positive
-            if (positive != null) {
+            if (runStats != null) {
                 val now = cacheStats.read(FINAL_RECHECK_READ_TIMEOUT_MS)
-                val dropped = now.isBelow(positive)
-                log(tag, INFO) { "CacheStats[final-check]: baseline=${positive.bytes}, now=$now, dropped=$dropped" }
-                if (dropped) {
-                    if (host.windowRoot()?.hasEntityHeader() == true) return true
-                    log(tag, WARN) { "CacheStats[final-check]: dropped but the storage page is not shown" }
+                val dropped = now.isBelow(runStats.baseline)
+                log(tag, INFO) {
+                    "CacheStats[final-check]: baseline=${runStats.baseline.bytes}, now=$now, dropped=$dropped"
+                }
+                val root = host.windowRoot()
+                val onStoragePage = root != null && root.hasEntityHeader()
+                val row = runStats.cacheRow
+                val rowDropped = row != null && root != null && cacheRowDropped(row, root)
+                if (row != null) log(tag, INFO) { "CacheRow[final-check]: baseline=${row.bytes}, dropped=$rowDropped" }
+                if (dropped || rowDropped) {
+                    if (onStoragePage) return true
+                    log(tag, WARN) { "Final check: dropped but the storage page is not shown" }
                 }
             }
         }
@@ -483,8 +517,9 @@ class AOSPSpecs @Inject constructor(
         canInjectInput: Boolean,
         threeButtonRow: Boolean,
         settingsHasManageStorageText: Boolean,
+        cacheSizeLabels: Collection<String>,
         preClickCheck: (suspend () -> Boolean)?,
-        onBaseline: (CacheStats) -> Unit,
+        onStatsMode: (StatsMode) -> Unit,
         onCenter: () -> Unit,
     ): Boolean? {
         val dpadDown: suspend () -> Boolean = if (canInjectInput) {
@@ -532,7 +567,6 @@ class AOSPSpecs @Inject constructor(
             val settled = awaitWindowAtRest()
             settled to baselineRead.await()
         }
-        onBaseline(cacheBaseline)
         when (cacheBaseline) {
             CacheStats.Zero -> {
                 log(tag, INFO) { "CacheStats[baseline]: cache is empty, nothing to clear" }
@@ -551,7 +585,6 @@ class AOSPSpecs @Inject constructor(
             log(tag, WARN) { "DPAD aborted before any key, the storage page never came to rest" }
             return false
         }
-        val stats = (cacheBaseline as? CacheStats.Positive)?.let { StatsMode(cacheStats, it) }
 
         if (preClickCheck != null && !preClickCheck()) {
             log(tag, WARN) { "DPAD aborted before any key, pre-click check no longer passes" }
@@ -559,7 +592,26 @@ class AOSPSpecs @Inject constructor(
         }
 
         val sizeParser = runCatching { SizeParser(host.service) }.getOrNull()
-        val preSnapshot = takeStorageSnapshot(sizeParser, host.windowRoot())
+        val preRoot = host.windowRoot()
+        val preSnapshot = takeStorageSnapshot(sizeParser, preRoot)
+
+        val stats = (cacheBaseline as? CacheStats.Positive)?.let { baseline ->
+            val cacheRow = if (sizeParser != null && preRoot != null) {
+                readCacheRowSize(cacheSizeLabels, sizeParser, preRoot)
+                    ?.takeIf { it > 0 }
+                    ?.let { CacheRowBaseline(cacheSizeLabels, sizeParser, it) }
+            } else {
+                null
+            }
+            log(tag, INFO) {
+                if (cacheRow != null) {
+                    "CacheRow[baseline]: ${cacheRow.bytes}, verifies presses alongside the cache bytes"
+                } else {
+                    "CacheRow[baseline]: no Cache row with a size, only the cache bytes verify presses"
+                }
+            }
+            StatsMode(cacheStats, baseline, cacheRow).also(onStatsMode)
+        }
 
         suspend fun bootstrapAnchor(reason: String): Boolean {
             val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
@@ -1071,6 +1123,7 @@ class AOSPSpecs @Inject constructor(
                             canInjectInput,
                             threeButtonRow,
                             settingsHasManageStorageText,
+                            cacheSizeLabels,
                             preClickCheck,
                         )
                     ) {

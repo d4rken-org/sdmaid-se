@@ -2,9 +2,19 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.children
+import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.textMatches
 
 internal const val ROW_TITLE_ID = "android:id/title"
 internal const val ROW_SUMMARY_ID = "android:id/summary"
+
+/** The first row title in this tree matching a label, trying [labels] in order. */
+internal fun ACSNodeInfo.findRowTitle(labels: Collection<String>): ACSNodeInfo? {
+    val tree = crawl().map { it.node }.toList()
+    return labels.firstNotNullOfOrNull { label ->
+        tree.find { it.textMatches(label) && it.viewIdResourceName == ROW_TITLE_ID }
+    }
+}
 
 /**
  * Reads the value of the storage row this title belongs to.
