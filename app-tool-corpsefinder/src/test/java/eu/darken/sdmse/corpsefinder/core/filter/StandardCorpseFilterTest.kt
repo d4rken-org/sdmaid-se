@@ -1,11 +1,15 @@
 package eu.darken.sdmse.corpsefinder.core.filter
 
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.corpsefinder.core.RiskLevel
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
 import io.mockk.coVerify
+import kotlinx.coroutines.flow.flow
 import org.junit.jupiter.api.Test
 import testhelpers.coroutine.runTest2
 import kotlin.reflect.KClass
@@ -104,6 +108,35 @@ abstract class StandardCorpseFilterTest : CorpseFilterTest() {
         corpses.single().shouldMatch(target, filterClass)
         corpses.single().content shouldBe emptyList()
         coVerify(exactly = 0) { gatewaySwitch.walk(target.path, any()) }
+    }
+
+    // ─────────────────────────── unreadable areas ───────────────────────────
+
+    @Test fun `an area whose listing fails right away is skipped`() = runTest2 {
+        candidate(area1, "com.orphan.one", preset = defaultPreset)
+        val second = candidate(area2, "com.orphan.two", preset = defaultPreset)
+        coEvery { gatewaySwitch.listFiles(area1.path) } throws ReadException(path = area1.path)
+
+        create().scan().paths() shouldBe setOf(second.path)
+    }
+
+    @Test fun `an area whose listing fails on collection is skipped`() = runTest2 {
+        candidate(area1, "com.orphan.one", preset = defaultPreset)
+        val second = candidate(area2, "com.orphan.two", preset = defaultPreset)
+        coEvery { gatewaySwitch.listFiles(area1.path) } returns flow { throw ReadException(path = area1.path) }
+
+        create().scan().paths() shouldBe setOf(second.path)
+    }
+
+    @Test fun `an area whose listing fails part-way is dropped as a whole`() = runTest2 {
+        val partial = candidate(area1, "com.orphan.one", preset = defaultPreset)
+        val second = candidate(area2, "com.orphan.two", preset = defaultPreset)
+        coEvery { gatewaySwitch.listFiles(area1.path) } returns flow<APath> {
+            emit(partial.path)
+            throw ReadException(path = area1.path)
+        }
+
+        create().scan().paths() shouldBe setOf(second.path)
     }
 
     // ─────────────────────────── helpers for per-filter gates ───────────────────────────
