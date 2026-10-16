@@ -1597,23 +1597,47 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     )
 
     // Storage page as the reporter's Pixel 9 Pro (Android 17) exposed it: no Cache row in the accessibility tree, and "User data" excludes the cache.
-    private fun pixelStoragePage(userData: String = "3.52 MB") = buildTestTree(
-        """
-        ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
-        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)
-        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=appSizeRow, bounds=Rect(0, 1000 - 1080, 1100)
-        ACS-DEBUG: --2: text='App size', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=appSizeTitle, bounds=Rect(60, 1000 - 500, 1100)
-        ACS-DEBUG: --2: text='90.60 MB', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=appSizeSummary, bounds=Rect(600, 1000 - 1020, 1100)
-        ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=userDataRow, bounds=Rect(0, 1100 - 1080, 1200)
-        ACS-DEBUG: --2: text='User data', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=userDataTitle, bounds=Rect(60, 1100 - 500, 1200)
-        ACS-DEBUG: --2: text='$userData', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=userDataSummary, bounds=Rect(600, 1100 - 1020, 1200)
-        """.trimIndent()
-    )
+    // With [cache], the Cache row a Pixel 7 and Pixel 10 Pro (Android 17) do show.
+    // [header] = false drops entity_header_content.
+    private fun pixelStoragePage(
+        userData: String = "3.52 MB",
+        cache: String? = null,
+        header: Boolean = true,
+    ): TestACSNodeInfo {
+        val cacheRow = if (cache != null) {
+            """
+
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=cacheRow, bounds=Rect(0, 1200 - 1080, 1300)
+            ACS-DEBUG: --2: text='Cache', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=cacheTitle, bounds=Rect(60, 1200 - 500, 1300)
+            ACS-DEBUG: --2: text='$cache', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=cacheSummary, bounds=Rect(600, 1200 - 1020, 1300)
+            """.trimIndent()
+        } else {
+            ""
+        }
+        val headerLine = if (header) {
+            "ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=true, checkable=false enabled=true, id=com.android.settings:id/entity_header_content pkg=com.android.settings, identity=header, bounds=Rect(84, 328 - 996, 675)"
+        } else {
+            ""
+        }
+        return buildTestTree(
+            """
+            ACS-DEBUG: 0: text='null', class=android.widget.FrameLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=root, bounds=Rect(0, 0 - 1080, 2400)
+            $headerLine
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=appSizeRow, bounds=Rect(0, 1000 - 1080, 1100)
+            ACS-DEBUG: --2: text='App size', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=appSizeTitle, bounds=Rect(60, 1000 - 500, 1100)
+            ACS-DEBUG: --2: text='90.60 MB', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=appSizeSummary, bounds=Rect(600, 1000 - 1020, 1100)
+            ACS-DEBUG: -1: text='null', class=android.widget.LinearLayout, clickable=false, checkable=false enabled=true, id=null pkg=com.android.settings, identity=userDataRow, bounds=Rect(0, 1100 - 1080, 1200)
+            ACS-DEBUG: --2: text='User data', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/title pkg=com.android.settings, identity=userDataTitle, bounds=Rect(60, 1100 - 500, 1200)
+            ACS-DEBUG: --2: text='$userData', class=android.widget.TextView, clickable=false, checkable=false enabled=true, id=android:id/summary pkg=com.android.settings, identity=userDataSummary, bounds=Rect(600, 1100 - 1020, 1200)
+            """.trimIndent() + cacheRow
+        )
+    }
 
     private fun stubPixelSizes() {
         mockkConstructor(SizeParser::class)
         every { anyConstructed<SizeParser>().parse("90.60 MB") } returns 90_600_000L
         every { anyConstructed<SizeParser>().parse("3.52 MB") } returns 3_520_000L
+        every { anyConstructed<SizeParser>().parse("42.93 MB") } returns 42_930_000L
         every { anyConstructed<SizeParser>().parse("0 B") } returns 0L
     }
 
@@ -2004,5 +2028,99 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         abort.message shouldContain "DPAD exhausted"
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a quick-try press counts once the Cache row drops although the cache bytes stay at the baseline`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(42_930_176L)
+        recordGlobalActions {
+            testHost.setWindowRoot(pixelStoragePage(cache = "0 B"))
+            emitValidationEventAsync()
+        }
+        testRoot = pixelStoragePage(cache = "42.93 MB")
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `another row dropping is no success while the Cache row and the cache bytes stay`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(42_930_176L)
+        recordGlobalActions {
+            testHost.setWindowRoot(pixelStoragePage(userData = "0 B", cache = "42.93 MB"))
+            emitValidationEventAsync()
+        }
+        testRoot = pixelStoragePage(cache = "42.93 MB")
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(atLeast = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a Cache row turning unparseable is no success while the cache bytes stay at the baseline`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(42_930_176L)
+        recordGlobalActions {
+            testHost.setWindowRoot(pixelStoragePage(cache = "Calculating…"))
+            emitValidationEventAsync()
+        }
+        testRoot = pixelStoragePage(cache = "42.93 MB")
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(atLeast = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a Cache row drop that only shows after the run's deadline is caught by the final re-check`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(42_930_176L)
+        // The run starts at virtual time 0, so only reads after its 10s deadline see the cleared row.
+        every { anyConstructed<SizeParser>().parse("42.93 MB") } answers {
+            if (testScheduler.currentTime >= 10_000) 0L else 42_930_000L
+        }
+        recordGlobalActions { emitValidationEventAsync() }
+        testRoot = pixelStoragePage(cache = "42.93 MB")
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(atLeast = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a Cache row drop without the storage page anchor is no success`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(42_930_176L)
+        recordGlobalActions(onBack = {}) {
+            testHost.setWindowRoot(pixelStoragePage(cache = "0 B", header = false))
+        }
+        testRoot = pixelStoragePage(cache = "42.93 MB")
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
     }
 }
