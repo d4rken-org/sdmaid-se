@@ -12,6 +12,7 @@ header { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; justify
 .github { display: inline-flex; padding: .5rem; border-radius: .4rem; }
 .github:hover { background: var(--tint); }
 .page { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 3.5rem; padding-top: 3rem; padding-bottom: 4rem; }
+.page.standalone { grid-template-columns: minmax(0, 1fr); }
 nav.guide-nav { display: flex; flex-direction: column; align-self: start; gap: .2rem; position: sticky; top: 1.5rem; max-height: calc(100vh - 3rem); overflow-y: auto; }
 nav.guide-nav h2 { margin: 1.2rem .7rem .3rem; font-size: .85rem; letter-spacing: 0; color: var(--muted); }
 nav.guide-nav h2:first-child { margin-top: 0; }

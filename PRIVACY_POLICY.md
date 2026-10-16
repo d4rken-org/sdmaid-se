@@ -3,6 +3,7 @@ lang: en
 translation_key: privacy
 permalink: /privacy
 title: "Privacy Policy"
+guide_nav: false
 ---
 
 # Privacy policy
