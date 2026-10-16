@@ -22,6 +22,8 @@ data class TestACSNodeInfo(
     private val bounds: Rect = Rect(0, 0, 100, 50),
     private val screenBoundsOverride: ACSNodeInfo.ScreenBounds? = null,
     private val performActionResult: Boolean = true,
+    // Answers performAction instead of [performActionResult], e.g. to swap the window root on a scroll.
+    private val onAction: ((Int) -> Boolean)? = null,
 ) : ACSNodeInfo {
 
     override val childCount: Int get() = childrenArray?.size ?: children.size
@@ -35,7 +37,7 @@ data class TestACSNodeInfo(
 
     override fun performAction(action: Int): Boolean {
         _performedActions.add(action)
-        return performActionResult
+        return onAction?.invoke(action) ?: performActionResult
     }
 
     fun clearPerformedActions() {
