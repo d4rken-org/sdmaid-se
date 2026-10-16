@@ -1233,6 +1233,153 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
+    // Motorola edge 70 (Android 17): input focus starts on the up button and reaches the header
+    // 150ms after ACTION_FOCUS. DOWN from the header lands on "Clear storage", RIGHT on "Clear
+    // cache"; both buttons are withheld from the tree, so focus on them reads as null.
+    @Test
+    fun `the first DPAD key waits until input focus has reached the header`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "roadstr_g"
+
+        var focus = "up"
+        fun page(): TestACSNodeInfo {
+            val header = settingsNode(
+                className = "android.widget.LinearLayout",
+                contentDesc = null,
+                bounds = ACSNodeInfo.ScreenBounds(42, 300, 1038, 702),
+                focused = focus == "header",
+            ).copy(viewIdResourceName = "com.android.settings:id/entity_header_content")
+            return TestACSNodeInfo(
+                className = "android.widget.FrameLayout",
+                packageName = "com.android.settings",
+                screenBoundsOverride = ACSNodeInfo.ScreenBounds(0, 0, 1080, 2400),
+            ).addChildren(header, navigateUpButton(focused = focus == "up"), searchButton(focused = focus == "search"))
+        }
+
+        val downTimes = mutableListOf<Long>()
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            when (firstArg<Int>()) {
+                AccessibilityService.GLOBAL_ACTION_DPAD_DOWN -> focus = when (focus) {
+                    "up" -> "header"
+                    "header" -> "clearStorage"
+                    else -> focus
+                }
+
+                AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT -> focus = when (focus) {
+                    "clearStorage" -> "clearCache"
+                    else -> "search"
+                }
+
+                AccessibilityService.GLOBAL_ACTION_DPAD_CENTER -> if (focus == "clearCache") emitValidationEventAsync()
+            }
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) downTimes += testScheduler.currentTime
+            testHost.setWindowRoot(page())
+            true
+        }
+
+        testRoot = page()
+        val firstAnchor = testRoot.crawl().map { it.node as TestACSNodeInfo }
+            .first { it.viewIdResourceName == "com.android.settings:id/entity_header_content" }
+        var focusActionAt = -1L
+        testHost.scope.launch {
+            repeat(1_000) {
+                if (ACSNodeInfo.ACTION_FOCUS in firstAnchor.performedActions) {
+                    focusActionAt = testScheduler.currentTime
+                    delay(150)
+                    if (focus == "up") {
+                        focus = "header"
+                        testHost.setWindowRoot(page())
+                    }
+                    return@launch
+                }
+                delay(10)
+            }
+        }
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        // DOWN follows the focus move, not the end of the 600ms window.
+        (downTimes.single() - focusActionAt) shouldBeGreaterThanOrEqual 150L
+        (downTimes.single() - focusActionAt) shouldBeLessThan 250L
+    }
+
+    @Test
+    fun `a window that never reports input focus on the header still gets the whole DPAD run`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "roadstr_g"
+
+        val downTimes = mutableListOf<Long>()
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) downTimes += testScheduler.currentTime
+            true
+        }
+
+        testRoot = storagePage()
+        val anchor = testRoot.crawl().map { it.node as TestACSNodeInfo }
+            .first { it.viewIdResourceName == "com.android.settings:id/entity_header_content" }
+        val focusActionTimes = mutableListOf<Long>()
+        val sampler = testHost.scope.launch {
+            repeat(2_000) {
+                val count = anchor.performedActions.count { it == ACSNodeInfo.ACTION_FOCUS }
+                if (count > focusActionTimes.size) focusActionTimes += testScheduler.currentTime
+                delay(10)
+            }
+        }
+
+        shouldThrow<StepAbortException> { captureAndRunClearCacheAction(rethrowAbort = true) }
+        sampler.cancel()
+
+        // 1 quick-try + 4 cycles + 3 blind-sweep positions, all within the run's deadline
+        verify(exactly = 8) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        // Quick-try: the full window. Blind sweep, the last bootstrap: the short one. The focus
+        // actions are sampled every 10ms.
+        (downTimes.first() - focusActionTimes.first()) shouldBeGreaterThanOrEqual 590L
+        (downTimes.first() - focusActionTimes.first()) shouldBeLessThan 700L
+        (downTimes.last() - focusActionTimes.last()) shouldBeGreaterThanOrEqual 240L
+        (downTimes.last() - focusActionTimes.last()) shouldBeLessThan 350L
+    }
+
+    @Test
+    fun `the last blind-sweep press on a window that never reports input focus is still validated`() = runTest {
+        setupTestScope(this)
+        mockkStatic(::hasApiLevel)
+        every { hasApiLevel(any()) } answers { firstArg<Int>() <= 37 }
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "motorola"
+        every { BuildWrap.PRODUCT } returns "roadstr_g"
+
+        // Quick-try + blind-sweep positions 2, 3 and 4; only the last one lands on "Clear cache".
+        var centers = 0
+        coEvery { inputInjector.canInject() } returns false
+        every { testHost.service.performGlobalAction(any()) } answers {
+            if (firstArg<Int>() == AccessibilityService.GLOBAL_ACTION_DPAD_CENTER && ++centers == 4) {
+                emitValidationEventAsync()
+            }
+            true
+        }
+
+        testRoot = storagePage()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 4) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
     // ============================================================
     // Containing a DPAD press that left the storage page
     // ============================================================
