@@ -123,18 +123,13 @@ class CorpseFilterWithholdingTest : BaseTest() {
         shouldThrow<CancellationException> { filter.scan() }
     }
 
-    /**
-     * Cancellation doesn't always arrive as a CancellationException. LocalGateway catches every
-     * Exception its operations throw, cancellation included, and rethrows it as a ReadException, so
-     * swallowing on the exception type alone would drop a cancellation on the floor.
-     */
     @Test fun `a failure delivered after cancellation is not swallowed`() = runTest2 {
         fakeSdkLevel = 37
         val filter = object : CorpseFilter("TestFilter", Progress.Data()) {
             override val untestedApiCeiling: Int = 37
             override suspend fun doScan(): Collection<Corpse> {
                 currentCoroutineContext().cancel(CancellationException("cancelled mid-scan"))
-                throw IOException("cancellation, wrapped by the gateway")
+                throw IOException("cancellation, wrapped by a lower layer")
             }
         }
 

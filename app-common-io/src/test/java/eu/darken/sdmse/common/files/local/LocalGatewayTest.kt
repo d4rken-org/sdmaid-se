@@ -15,16 +15,22 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.unmockkAll
 import io.mockk.verify
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.asCoroutineDispatcher
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.junit.After
 import org.junit.Test
@@ -232,6 +238,40 @@ class LocalGatewayTest : BaseTest() {
 
             gateway.hasRoot() shouldBe true // precondition: escalation WAS available
             gateway.lookup(LocalPath.build(link), LocalGateway.Mode.AUTO).fileType shouldBe FileType.SYMBOLIC_LINK
+        }
+
+    @Test
+    fun `lookup cancellation during escalation is not converted into a ReadException`() =
+        runTest2(autoCancel = true) {
+            val scope = CoroutineScope(Dispatchers.Unconfined)
+            val gateway = LocalGateway(
+                ipcFunnel = mockk(),
+                libcoreTool = mockk(),
+                appScope = this,
+                dispatcherProvider = TestDispatcherProvider(),
+                storageEnvironment = mockk(),
+                // The caller is cancelled while lookup() asks whether it can escalate to root.
+                rootManager = mockk<RootManager> {
+                    every { useRoot } returns flow {
+                        scope.cancel()
+                        emit(true)
+                    }
+                },
+                adbManager = mockk(relaxed = true),
+            )
+            val unreadable = LocalPath.build(File(testDir, "not-there"))
+            var caught: Throwable? = null
+
+            val job = scope.launch {
+                try {
+                    gateway.lookup(unreadable, LocalGateway.Mode.AUTO)
+                } catch (e: Throwable) {
+                    caught = e
+                }
+            }
+            job.join()
+
+            caught.shouldBeInstanceOf<CancellationException>()
         }
 
     @Test

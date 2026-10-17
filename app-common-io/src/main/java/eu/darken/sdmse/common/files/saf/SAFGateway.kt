@@ -337,6 +337,8 @@ class SAFGateway @Inject constructor(
     override suspend fun lookupExtended(path: SAFPath): SAFPathLookupExtended = runIO {
         try {
             SAFPathLookupExtended(lookup(path))
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             log(TAG, WARN) { "lookupExtended($path) failed." }
             throw ReadException(path = path, cause = e)
@@ -498,6 +500,8 @@ class SAFGateway @Inject constructor(
             }
 
             total
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             log(TAG, WARN) { "du($path) failed." }
             throw ReadException(path = path, cause = e)
