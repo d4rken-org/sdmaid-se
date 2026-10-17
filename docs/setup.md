@@ -283,12 +283,7 @@ If both Porter and Shizuku are installed, SD Maid uses Porter. The setup card th
 ### Using Shizuku
 {: #using-shizuku }
 
-There are two builds of Shizuku:
-
-* [thedjchi's fork](https://github.com/thedjchi/Shizuku) ([setup guide](https://github.com/thedjchi/Shizuku/wiki/setup)) is actively maintained and is reported to work on devices where the original [never connects](#shizuku-never-connects).
-* [The original by RikkaApps](https://shizuku.rikka.app/guide/setup/) still works fine on most devices.
-
-They can't be installed at the same time. If the original already works for you, there's no need to switch.
+SD Maid also supports the [original Shizuku by RikkaApps](https://shizuku.rikka.app/guide/setup/). If it already works for you, you can keep using it. For a new setup, use [Porter](#porter).
 
 ### Granting access
 {: #granting-access }
@@ -316,13 +311,14 @@ You can check SD Maid's ADB access status by going to `Settings > Setup` and vie
 
 The card says `ADB access failed` and `Shizuku is running, but it never connected SD Maid to its helper service.` Older versions said `Waiting for link with Shizuku` or `Shizuku link failed`.
 
-Open the Shizuku app. If it says it's running and SD Maid is in its authorized list, Shizuku is set up fine and setting it up again won't help. What's failing is Shizuku's helper service: it dies on startup before it can report back, and SD Maid gives up after about 15 seconds. `Retry` runs the same check and fails the same way.
+Open the Shizuku app. If it says it's running and SD Maid is in its authorized list, the failure may be in Shizuku's helper service rather than its setup. SD Maid gives up after about 15 seconds if the helper service doesn't connect.
 
-This is a Shizuku bug ([RikkaApps/Shizuku#1198](https://github.com/RikkaApps/Shizuku/issues/1198)), not an SD Maid one, and it breaks any app that uses Shizuku's helper service. It affects MediaTek devices, and devices running HyperOS or MIUI.
+A known Shizuku bug ([RikkaApps/Shizuku#1198](https://github.com/RikkaApps/Shizuku/issues/1198)) causes the helper service to crash on startup on affected MediaTek devices, including devices running HyperOS or MIUI. Retrying or granting permission again doesn't fix that crash.
 
-[thedjchi's fork](https://github.com/thedjchi/Shizuku) is reported to fix it. To switch:
+Try [Porter](#porter), which includes a workaround for this helper-service startup failure:
 
-* Uninstall the original first, they can't coexist
-* Un-pair it from wireless debugging if you used that
-* Install the fork from its [releases](https://github.com/thedjchi/Shizuku/releases) and follow its [setup guide](https://github.com/thedjchi/Shizuku/wiki/setup)
-* Re-grant Shizuku permission to SD Maid and anything else that used it
+* Install and start Porter using the instructions on its [website](https://porter.darken.eu)
+* Restart SD Maid so it connects to Porter, then grant access when Porter asks
+* Check the `ADB access` setup card to confirm SD Maid is connected
+
+You can keep Shizuku installed for other apps. SD Maid supports Porter directly and doesn't need the optional Porter Compatibility companion.
