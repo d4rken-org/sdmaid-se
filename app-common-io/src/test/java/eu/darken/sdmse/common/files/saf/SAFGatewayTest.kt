@@ -151,6 +151,25 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
+    fun `lookupExtended cancellation is not converted into a ReadException`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/file.txt") })
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onDocumentQuery = { scope.cancel() }
+        var caught: Throwable? = null
+
+        val job = scope.launch {
+            try {
+                harness.gateway.lookupExtended(harness.safPath("dir", "file.txt"))
+            } catch (e: Throwable) {
+                caught = e
+            }
+        }
+        job.join()
+
+        caught.shouldBeInstanceOf<CancellationException>()
+    }
+
+    @Test
     fun `listFiles emits the children`() = runTest2(autoCancel = true) {
         val harness = harness(
             FakeDocumentsProvider.tree {
@@ -394,6 +413,25 @@ class SAFGatewayTest : BaseTest() {
                 APathGateway.DuOptions(abortOnError = true),
             )
         }
+    }
+
+    @Test
+    fun `du cancellation is not converted into a ReadException`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/b.txt", size = 200L) })
+        val scope = CoroutineScope(Dispatchers.Unconfined)
+        harness.provider.onChildQuery = { scope.cancel() }
+        var caught: Throwable? = null
+
+        val job = scope.launch {
+            try {
+                harness.gateway.du(harness.safPath(), APathGateway.DuOptions())
+            } catch (e: Throwable) {
+                caught = e
+            }
+        }
+        job.join()
+
+        caught.shouldBeInstanceOf<CancellationException>()
     }
 
     // ------------------------------------------------------------------------------------- file

@@ -60,8 +60,8 @@ abstract class CorpseFilter(
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
-            // Cancellation doesn't always arrive as a CancellationException: LocalGateway wraps
-            // everything its operations throw, cancellation included, into a ReadException.
+            // A cancelled scan must not be swallowed as a failure, even if a lower layer wrapped the
+            // cancellation into another exception.
             currentCoroutineContext().ensureActive()
             log(tag, ERROR) { "Untested API level ($ceiling): scan failed: ${e.asLog()}" }
             return emptySet()

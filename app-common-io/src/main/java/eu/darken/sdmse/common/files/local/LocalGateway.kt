@@ -251,6 +251,8 @@ class LocalGateway @Inject constructor(
                 log(TAG, VERBOSE) { "Looked up: $it" }
             }
 
+        } catch (e: CancellationException) {
+            throw e
         } catch (e: Exception) {
             throw ReadException(path = path, cause = e).also {
                 log(TAG, WARN) { "lookup(path=$path, mode=$mode) failed:\n${it.asLog()}" }
