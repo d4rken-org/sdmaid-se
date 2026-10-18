@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d 个已跳过（受保护）</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d 个未更改(未变小)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">已选择 %d 个项目</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">压缩动态照片</string>
     <string name="squeezer_include_motion_photos_description">包含动态照片。压缩保留静止图像并删除视频片段。</string>
     <string name="squeezer_include_oversized_title">压缩超大照片</string>
-    <string name="squeezer_include_oversized_description">包含宽度或高度超过8192像素的照片。压缩还会将其分辨率减半。</string>
+    <string name="squeezer_include_oversized_description">包含宽度或高度达到 8192 像素或以上的照片。压缩会将其宽高减半,必要时再减半,直到两者都低于 8192 像素。</string>
     <string name="squeezer_estimated_savings_format">约可节省 %s</string>
     <string name="squeezer_no_savings_expected">节省有限</string>
     <string name="squeezer_current_size_format">大小：%s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid已压缩此文件。再次压缩会影响质量且节省空间有限。</string>
     <string name="squeezer_markers_hdr_depth_description">此照片具有压缩无法保留的HDR或深度数据。HDR照片变为普通照片，人像照片会丢失用于背景模糊的深度数据。</string>
     <string name="squeezer_markers_motion_photo_description">这是一张动态照片。压缩保留静止图像并删除视频片段。</string>
-    <string name="squeezer_markers_downscaled_description">此照片的宽度或高度超过8192像素。压缩还会将其分辨率减半。</string>
+    <string name="squeezer_markers_downscaled_description">这张照片的宽度或高度达到 8192 像素或以上。压缩会将其宽高减半,必要时再减半,直到两者都低于 8192 像素。</string>
     <string name="squeezer_compress_action">压缩</string>
     <string name="squeezer_compress_all_action">全部压缩</string>
     <string name="squeezer_preview_dialog_title">确认压缩</string>

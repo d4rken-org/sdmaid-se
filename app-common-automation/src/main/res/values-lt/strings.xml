@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operacija buvo nutraukta, nes ekranas tapo nepasiekiamas (pvz. ekranas išjungtas arba užraktas ekranas aktyvus).</string>
     <string name="automation_error_compatibility_title">Automatizavimo suderinamumas</string>
     <string name="automation_error_compatibility_body">SD Maid nepavyko atskirti ekrano išdėstymo. Jei tai kartojasi, jūsų kalba arba sankūra gali būti ne viskai palaikoma. Patikrinkite atnaujinimus arba susisiekite su manimi, kad galėčiau tai pataisyti.</string>
+    <string name="automation_error_compatibility_adb_hint">Kai turite nustatytą ADB prieigą, SD Maid gali atlikti didžiąją dalį šių veiksmų be pritaikymo paslaugos.</string>
     <string name="automation_error_timeout_title">Automatizavimo laiko limitas</string>
     <string name="automation_error_timeout_body">SD Maid nebaigė visų žingsnnių per laiko limitą. Jei tai kartojasi, gali reikėti pritaikyti programą jūsų įrenginiui. Patikrinkite atnaujinimus arba susisiekite su manimi, kad galėčiau tai pataisyti.</string>
     <string name="automation_error_overlay_title">Automatizavimo perdanga</string>

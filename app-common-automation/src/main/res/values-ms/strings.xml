@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operasi dibatalkan kerana skrin tidak tersedia (cth. paparan dimatikan atau berada pada skrin berkunci).</string>
     <string name="automation_error_compatibility_title">Ralat keserasian</string>
     <string name="automation_error_compatibility_body">Ciri ini tidak serasi dengan versi Android atau peranti anda.</string>
+    <string name="automation_error_compatibility_adb_hint">Dengan akses ADB disediakan, SD Maid boleh melakukan kebanyakan tugas ini tanpa perkhidmatan kebolehaksesan.</string>
     <string name="automation_error_timeout_title">Masa tamat</string>
     <string name="automation_error_timeout_body">Operasi telah dihentikan kerana masa tamat telah luput. Cuba lagi atau lumpuhkan automasi.</string>
     <string name="automation_error_overlay_title">Kandungan tindihan</string>

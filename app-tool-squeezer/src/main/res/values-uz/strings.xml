@@ -41,6 +41,10 @@
         <item quantity="one">%d o\'tkazib yuborildi (himoyalangan)</item>
         <item quantity="other">%d o\'tkazib yuborildi (himoyalangan)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ta o\'zgarmadi (kichraymadi)</item>
+        <item quantity="other">%d ta o\'zgarmadi (kichraymadi)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element tanlandi</item>
         <item quantity="other">%d element tanlandi</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos ni siqish</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos\'ni qo\'shing. Siqish statik rasmni saqlab, video-rolikni olib tashlaydi.</string>
     <string name="squeezer_include_oversized_title">Juda katta rasmlarni siqish</string>
-    <string name="squeezer_include_oversized_description">Kenglik yoki bo\'yi 8192 pikseldan ko\'p bo\'lgan rasmlarni qo\'shing. Siqish ularning rezolyutsiyasini yarimiga kamaytiradi.</string>
+    <string name="squeezer_include_oversized_description">Eni yoki bo\'yi 8192 piksel yoki undan ortiq bo\'lgan fotosuratlarni qo\'shish. Siqish ularning eni va bo\'yini ikki baravar kamaytiradi, kerak bo\'lsa yana ikki baravar kamaytiradi, to ikkalasi ham 8192 pikseldan kichik bo\'lguncha.</string>
     <string name="squeezer_estimated_savings_format">~%s tejash</string>
     <string name="squeezer_no_savings_expected">Cheklangan tejash</string>
     <string name="squeezer_current_size_format">Hajm: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid bu faylni allaqachon siqib qo\'ygan. Uni yana siqish sifatga zarar etadi va juda oz tejashadi.</string>
     <string name="squeezer_markers_hdr_depth_description">Bu rasmda siqish saqlay olmaydighan HDR yoki chuqurlik ma\'lumotlari bor. HDR rasmi oddiy rasmga aylanadi va portret rasmi fon bulanishi uchun ishlatilgan chuqurlik ma\'lumotlarini yo\'qotadi.</string>
     <string name="squeezer_markers_motion_photo_description">Bu Motion Photo. Siqish statik rasmni saqlab, video-rolikni olib tashlaydi.</string>
-    <string name="squeezer_markers_downscaled_description">Bu rasmi kenglik yoki bo\'yi 8192 pikseldan ko\'proq. Siqish uning rezolyutsiyasini yarimiga kamaytiradi.</string>
+    <string name="squeezer_markers_downscaled_description">Bu fotosuratning eni yoki bo\'yi 8192 piksel yoki undan ortiq. Siqish uning eni va bo\'yini ikki baravar kamaytiradi, kerak bo\'lsa yana ikki baravar kamaytiradi, to ikkalasi ham 8192 pikseldan kichik bo\'lguncha.</string>
     <string name="squeezer_compress_action">Siqish</string>
     <string name="squeezer_compress_all_action">Barchasini siqish</string>
     <string name="squeezer_preview_dialog_title">Siqishni tasdiqlash</string>

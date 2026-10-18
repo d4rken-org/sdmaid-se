@@ -66,6 +66,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s per %2$s</string>
     <string name="stats_space_history_upgrade_title">Visa istorija yra Pro funkcija</string>
+    <string name="stats_space_history_upgrade_body_v3">Atnaujinkite, kad matytumėte 90 dienų istoriją kiekvienam saugyklos įrenginiui arba iki metų, jei ją saugote ilgiau, ir gausite įspėjimą, prieš kai baigsis vieta.</string>
     <string name="stats_space_history_marker_freed">Atlaisvinta %1$s</string>
     <string name="stats_storage_type_primary">Pagrindinė saugykla</string>
     <string name="stats_storage_type_secondary">Antrinė saugykla</string>

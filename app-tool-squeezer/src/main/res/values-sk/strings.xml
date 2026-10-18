@@ -61,6 +61,12 @@
         <item quantity="many">%d preskočených (chránených)</item>
         <item quantity="other">%d preskočených (chránených)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d nezmenený (nie menší)</item>
+        <item quantity="few">%d nezmenené (nie menšie)</item>
+        <item quantity="many">%d nezmenených (nie menších)</item>
+        <item quantity="other">%d nezmenených (nie menších)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d položka vybraná</item>
         <item quantity="few">%d položky vybrané</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Komprimovať Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Zahrnúť Motion Photos. Kompresia ponechá statický obrázok a odstráni video klip.</string>
     <string name="squeezer_include_oversized_title">Komprimovať veľmi veľké fotografie</string>
-    <string name="squeezer_include_oversized_description">Zahrnúť fotografie širšie alebo vyššie ako 8192 pixelov. Kompresia zároveň zníži ich rozlíšenie na polovicu.</string>
+    <string name="squeezer_include_oversized_description">Zahrnúť fotografie, ktoré sú široké alebo vysoké 8192 pixelov alebo viac. Kompresia ich šírku a výšku zmenší na polovicu a v prípade potreby ich zmenší ešte raz na polovicu, kým budú obe menšie ako 8192 pixelov.</string>
     <string name="squeezer_estimated_savings_format">~%s úspora</string>
     <string name="squeezer_no_savings_expected">Obmedzená úspora</string>
     <string name="squeezer_current_size_format">Veľkosť: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid tento súbor už komprimoval. Opätovná kompresia zníži kvalitu a ušetrí len málo miesta.</string>
     <string name="squeezer_markers_hdr_depth_description">Táto fotografia obsahuje HDR alebo hĺbkové údaje, ktoré kompresia nedokáže zachovať. Z HDR fotografie sa stane bežná fotografia a portrétová fotografia príde o hĺbkové údaje použité na rozostrenie pozadia.</string>
     <string name="squeezer_markers_motion_photo_description">Toto je Motion Photo. Kompresia ponechá statický obrázok a odstráni video klip.</string>
-    <string name="squeezer_markers_downscaled_description">Táto fotografia je širšia alebo vyššia ako 8192 pixelov. Kompresia zároveň zníži jej rozlíšenie na polovicu.</string>
+    <string name="squeezer_markers_downscaled_description">Táto fotografia je široká alebo vysoká 8192 pixelov alebo viac. Kompresia jej šírku a výšku zmenší na polovicu a v prípade potreby ešte raz na polovicu, kým budú obe menšie ako 8192 pixelov.</string>
     <string name="squeezer_compress_action">Komprimovať</string>
     <string name="squeezer_compress_all_action">Komprimovať všetko</string>
     <string name="squeezer_preview_dialog_title">Potvrdiť kompresiu</string>

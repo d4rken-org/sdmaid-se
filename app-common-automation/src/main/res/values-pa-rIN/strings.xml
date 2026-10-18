@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">ਕਾਰਵਾਈ ਨੂੰ ਰੱਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਕਿਉਂਕਿ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ ਹੋ ਗਈ (ਜਿਵੇਂ ਕਿ ਡਿਸਪਲੇ ਬੰਦ ਜਾਂ ਲਾਕਸਕ੍ਰੀਨ ਸਰਗਰਮ)।</string>
     <string name="automation_error_compatibility_title">ਆਟੋਮੇਸ਼ਨ ਅਨੁਕੂਲਤਾ</string>
     <string name="automation_error_compatibility_body">SD Maid ਸਕ੍ਰੀਨ ਲੇਆਉਟ ਨੂੰ ਸਮਝ ਨਹੀਂ ਸਕਿਆ। ਜੇ ਇਹ ਹੁੰਦਾ ਰਿਹਾ ਤਾਂ ਹੋ ਸਕਦਾ ਹੈ ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਜਾਂ ਸੈੱਟਅੱਪ ਦਾ ਪੂਰਾ ਸਮਰਥਨ ਨਾ ਹੋਵੇ। ਅੱਪਡੇਟ ਲਈ ਚੈੱਕ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <string name="automation_error_compatibility_adb_hint">ਜੇ ADB ਪਹੁੰਚ ਸੈੱਟ ਅੱਪ ਕੀਤੀ ਹੋਵੇ, ਤਾਂ SD Maid ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਤੋਂ ਬਿਨਾਂ ਇਹਨਾਂ ਵਿੱਚੋਂ ਜ਼ਿਆਦਾਤਰ ਕੰਮ ਕਰ ਸਕਦਾ ਹੈ।</string>
     <string name="automation_error_timeout_title">ਆਟੋਮੇਸ਼ਨ ਟਾਈਮਆਉਟ</string>
     <string name="automation_error_timeout_body">SD Maid ਨੇ ਸਮਾਂ ਸੀਮਾ ਦੇ ਅੰਦਰ ਸਾਰੇ ਪੜਾਅ ਪੂਰੇ ਨਹੀਂ ਕੀਤੇ। ਜੇ ਇਹ ਹੁੰਦਾ ਰਿਹਾ ਤਾਂ ਹੋ ਸਕਦਾ ਹੈ ਮੈਨੂੰ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਲਈ ਐਪ ਨੂੰ ਅਡਜਸਟ ਕਰਨਾ ਪਵੇ। ਅੱਪਡੇਟ ਲਈ ਚੈੱਕ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
     <string name="automation_error_overlay_title">ਆਟੋਮੇਸ਼ਨ ਓਵਰਲੇ</string>

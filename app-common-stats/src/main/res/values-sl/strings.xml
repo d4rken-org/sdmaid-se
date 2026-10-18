@@ -66,6 +66,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s v %2$s</string>
     <string name="stats_space_history_upgrade_title">Polna zgodovina je funkcija Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Z nadgradnjo si lahko ogledaš 90 dni zgodovine za vsako napravo za shranjevanje ali do leta, če jo hraniš dlje, in dobiš opozorilo, preden zmanjka prostora.</string>
     <string name="stats_space_history_marker_freed">Sproščeno %1$s</string>
     <string name="stats_storage_type_primary">Primarna pomnilniška naprava</string>
     <string name="stats_storage_type_secondary">Sekundarna pomnilniška naprava</string>

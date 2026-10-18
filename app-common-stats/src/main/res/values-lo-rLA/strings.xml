@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">ການປ່ຽນແປງ</string>
     <string name="stats_space_history_delta_in_x">%1$s ໃນ %2$s</string>
     <string name="stats_space_history_upgrade_title">ປະຫວັດທັງໝົດເປັນຄຸນສົມບັດ Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">ອັບເກຣດເພື່ອເບິ່ງປະຫວັດ 90 ວັນສຳລັບອຸປະກອນເກັບຂໍ້ມູນແຕ່ລະອັນ ຫຼື ເຖິງ 1 ປີ ຖ້າທ່ານເກັບໄວ້ນານກວ່ານັ້ນ ແລະ ຮັບການແຈ້ງເຕືອນກ່ອນພື້ນທີ່ຈະໝົດ.</string>
     <string name="stats_space_history_marker_freed">ປົດປ່ອຍ %1$s</string>
     <string name="stats_storage_type_primary">ບ່ອນເກັບຂໍ້ມູນຫຼັກ</string>
     <string name="stats_storage_type_secondary">ບ່ອນເກັບຂໍ້ມູນສຳຮອງ</string>

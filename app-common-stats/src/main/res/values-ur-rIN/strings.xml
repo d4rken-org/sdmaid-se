@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">ڈیلٹا</string>
     <string name="stats_space_history_delta_in_x">%1$s میں %2$s</string>
     <string name="stats_space_history_upgrade_title">مکمل تاریخ ایک پرو فیچر ہے</string>
+    <string name="stats_space_history_upgrade_body_v3">ہر اسٹوریج ڈیوائس کی 90 دن کی ہسٹری دیکھنے کے لیے اپ گریڈ کریں، یا اگر آپ اسے زیادہ عرصہ رکھتے ہیں تو ایک سال تک، اور جگہ ختم ہونے سے پہلے وارننگ حاصل کریں۔</string>
     <string name="stats_space_history_marker_freed">%1$s آزاد کیا گیا</string>
     <string name="stats_storage_type_primary">بنیادی اسٹوریج</string>
     <string name="stats_storage_type_secondary">ثانوی اسٹوریج</string>

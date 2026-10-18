@@ -41,6 +41,10 @@
         <item quantity="one">%d ਛੱਡਿਆ ਗਿਆ (ਸੁਰੱਖਿਤ)</item>
         <item quantity="other">%d ਛੱਡੇ ਗਏ (ਸੁਰੱਖਿਤ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ਬਦਲਿਆ ਨਹੀਂ (ਛੋਟਾ ਨਹੀਂ ਹੋਇਆ)</item>
+        <item quantity="other">%d ਬਦਲੇ ਨਹੀਂ (ਛੋਟੇ ਨਹੀਂ ਹੋਏ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ਆਈਟਮ ਚੁਣੀ ਗਈ</item>
         <item quantity="other">%d ਆਈਟਮਾਂ ਚੁਣੀਆਂ ਗਈਆਂ</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos ਨੂੰ ਸੰਪੀੜਿਤ ਕਰੋ</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos ਸ਼ਾਮਲ ਕਰੋ। ਸੰਪੀੜਨ ਚਿਤਰ ਨੂੰ ਰਖਦਾ ਹੈ ਅਤੇ ਵਿਡੀਓ ਕਲਿੱਪ ਨੂੰ ਹਟਾ ਦਿੰਦਾ ਹੈ।</string>
     <string name="squeezer_include_oversized_title">ਬਹੁਤ ਵੱਡੀਆਂ ਫ਼ੋਟੋਆਂ ਨੂੰ ਸੰਪੀੜਿਤ ਕਰੋ</string>
-    <string name="squeezer_include_oversized_description">8192 ਪਿਕਸਲ ਤੋਂ ਚੌੜੀਆਂ ਜਾਂ ਲੰਬੀਆਂ ਫ਼ੋਟੋਆਂ ਸ਼ਾਮਲ ਕਰੋ। ਸੰਪੀੜਨ ਉਨ੍ਹਾਂ ਦੀ ਰੈਜ਼ੋਲੂਸ਼ਨ ਨੂੰ ਅੱਧਾ ਵੀ ਕਰ ਦਿੰਦਾ ਹੈ।</string>
+    <string name="squeezer_include_oversized_description">8192 ਪਿਕਸਲ ਜਾਂ ਇਸ ਤੋਂ ਵੱਧ ਚੌੜੀਆਂ ਜਾਂ ਉੱਚੀਆਂ ਫ਼ੋਟੋਆਂ ਸ਼ਾਮਲ ਕਰੋ। ਕੰਪਰੈਸ਼ਨ ਉਹਨਾਂ ਦੀ ਚੌੜਾਈ ਅਤੇ ਉਚਾਈ ਅੱਧੀ ਕਰਦੀ ਹੈ, ਅਤੇ ਲੋੜ ਪੈਣ \'ਤੇ ਫਿਰ ਅੱਧੀ ਕਰਦੀ ਹੈ, ਦੋਵੇਂ 8192 ਪਿਕਸਲ ਤੋਂ ਹੇਠਾਂ ਆਉਣ ਤੱਕ।</string>
     <string name="squeezer_estimated_savings_format">~%s ਬੱਚਤ</string>
     <string name="squeezer_no_savings_expected">ਸੀਮਤ ਬੱਚਤ</string>
     <string name="squeezer_current_size_format">ਆਕਾਰ: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ਨੇ ਇਸ ਫ਼ਾਇਲ ਨੂੰ ਪਹਿਲਾਂ ਹੀ ਸੰਪੀੜਿਤ ਕਰ ਦਿੱਤਾ ਹੈ। ਇਸਨੂੰ ਦੁਬਾਰਾ ਸੰਪੀੜਿਤ ਕਰਨਾ ਗੁਣਵਤਾ ਦੀ ਕੀਮਤ ਚੁਕਾਵਦਾ ਹੈ ਅਤੇ ਘੱਟ ਬਚਾਵਦਾ ਹੈ।</string>
     <string name="squeezer_markers_hdr_depth_description">ਇਸ ਫ਼ੋਟੋ ਵਿੱਚ HDR ਜਾਂ ਡੂੰਘਾਈ ਡੇਟਾ ਹੈ ਜੋ ਸੰਪੀੜਨ ਨਹੀਂ ਰਖ ਸਕਦਾ। ਇੱਕ HDR ਫ਼ੋਟੋ ਇੱਕ ਆਮ ਦਾ ਵਾਪਸ ਆ ਜਾਂਦੀ ਹੈ, ਅਤੇ ਪੋਰਟਰੇਟ ਫ਼ੋਟੋ ਪਿਛਲੀ ਧੁੰਦਲਾਪਨ ਲਈ ਵਰਤੀ ਜਾਣ ਵਾਲੀ ਡੂੰਘਾਈ ਡੇਟਾ ਗੁਆ ਦਿੰਦੀ ਹੈ।</string>
     <string name="squeezer_markers_motion_photo_description">ਇਹ Motion Photo ਹੈ। ਸੰਪੀੜਨ ਚਿਤਰ ਨੂੰ ਰਖਦਾ ਹੈ ਅਤੇ ਵਿਡੀਓ ਕਲਿੱਪ ਨੂੰ ਹਟਾ ਦਿੰਦਾ ਹੈ।</string>
-    <string name="squeezer_markers_downscaled_description">ਇਹ ਫ਼ੋਟੋ 8192 ਪਿਕਸਲ ਤੋਂ ਚੌੜੀ ਜਾਂ ਲੰਬੀ ਹੈ। ਸੰਪੀੜਨ ਇਸ ਦੀ ਰੈਜ਼ੋਲੂਸ਼ਨ ਨੂੰ ਅੱਧਾ ਵੀ ਕਰ ਦਿੰਦਾ ਹੈ।</string>
+    <string name="squeezer_markers_downscaled_description">ਇਹ ਫ਼ੋਟੋ 8192 ਪਿਕਸਲ ਜਾਂ ਇਸ ਤੋਂ ਵੱਧ ਚੌੜੀ ਜਾਂ ਉੱਚੀ ਹੈ। ਕੰਪਰੈਸ਼ਨ ਇਸਦੀ ਚੌੜਾਈ ਅਤੇ ਉਚਾਈ ਅੱਧੀ ਕਰਦੀ ਹੈ, ਅਤੇ ਲੋੜ ਪੈਣ \'ਤੇ ਫਿਰ ਅੱਧੀ ਕਰਦੀ ਹੈ, ਦੋਵੇਂ 8192 ਪਿਕਸਲ ਤੋਂ ਹੇਠਾਂ ਆਉਣ ਤੱਕ।</string>
     <string name="squeezer_compress_action">ਕੰਪ੍ਰੈਸ ਕਰੋ</string>
     <string name="squeezer_compress_all_action">ਸਭ ਕੰਪ੍ਰੈਸ ਕਰੋ</string>
     <string name="squeezer_preview_dialog_title">ਕੰਪ੍ਰੈਸ਼ਨ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>

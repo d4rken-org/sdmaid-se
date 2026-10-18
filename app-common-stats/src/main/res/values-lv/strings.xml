@@ -60,6 +60,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s laikā %2$s</string>
     <string name="stats_space_history_upgrade_title">Pilna vēsture ir Pro funkcija</string>
+    <string name="stats_space_history_upgrade_body_v3">Jauninieciet, lai redzētu 90 dienu vēsturi katram krātuves diskam, vai līdz vienam gadam, ja to saglabājat ilgāk, un saņemiet brīdinājumu, pirms krātuve beidzas.</string>
     <string name="stats_space_history_marker_freed">Atbrīvots %1$s</string>
     <string name="stats_storage_type_primary">Primārā krātuve</string>
     <string name="stats_storage_type_secondary">Sekundārā krātuve</string>

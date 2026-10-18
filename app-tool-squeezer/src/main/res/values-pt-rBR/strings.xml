@@ -41,6 +41,10 @@
         <item quantity="one">%d ignorado (protegido)</item>
         <item quantity="other">%d ignorados (protegidos)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d inalterado (não menor)</item>
+        <item quantity="other">%d inalterados (não menores)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item selecionado</item>
         <item quantity="other">%d itens selecionados</item>

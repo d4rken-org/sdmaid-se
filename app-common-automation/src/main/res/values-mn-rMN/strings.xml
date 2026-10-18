@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Дэлгэц боломжгүй болсон тул үйлдэл цуцлагдсан (жишээ нь: дэлгэц унтарсан эсвэл түгжээний дэлгэц идэвхтэй).</string>
     <string name="automation_error_compatibility_title">Автоматжуулалтын нийцтэй байдал</string>
     <string name="automation_error_compatibility_body">SD Maid дэлгэцийн бүтцийг тодорхойлж чадсангүй. Хэрэв энэ байнга тохиолдвол таны хэл эсвэл тохиргоо бүрэн дэмжигдэхгүй байж болно. Шинэчлэлт хайх эсвэл надтай холбогдоно уу.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB хандалтыг тохируулсан бол SD Maid үүний ихэнхийг хүртээмжийн үйлчилгээгүйгээр хийж чадна.</string>
     <string name="automation_error_timeout_title">Автоматжуулалтын хугацаа дууссан</string>
     <string name="automation_error_timeout_body">SD Maid бүх алхамыг цагийн хязаарт дуусгаагүй байна. Хэрэв энэ байнга тохиолдвол таны төхөөрөмжийн тулд аппыг тохируулах шаардлагатай байж болно. Шинэчлэлт хайх эсвэл надтай холбогдоно уу.</string>
     <string name="automation_error_overlay_title">Автоматжуулалтын давхцалга</string>

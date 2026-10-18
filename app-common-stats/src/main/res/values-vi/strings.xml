@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">Biến động</string>
     <string name="stats_space_history_delta_in_x">%1$s trong %2$s</string>
     <string name="stats_space_history_upgrade_title">Lịch sử đầy đủ là tính năng Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Nâng cấp để xem lịch sử 90 ngày của từng thiết bị lưu trữ, hoặc tối đa một năm nếu bạn giữ lâu hơn, và nhận cảnh báo trước khi hết dung lượng.</string>
     <string name="stats_space_history_marker_freed">Đã giải phóng %1$s</string>
     <string name="stats_storage_type_primary">Bộ nhớ chính</string>
     <string name="stats_storage_type_secondary">Bộ nhớ thứ cấp</string>

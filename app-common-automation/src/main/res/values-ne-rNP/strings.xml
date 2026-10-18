@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">स्क्रिन उपलब्ध नहुँदा (जस्तै डिस्प्ले बन्द वा लकस्क्रिन सक्रिय) कारण कार्य रद्द गरिएको।</string>
     <string name="automation_error_compatibility_title">स्वचालन अनुकूलता</string>
     <string name="automation_error_compatibility_body">SD Maid स्क्रिन लेआउट पत्ता लगाउन सकेन। यदि यो चलिरहन्छ भने, तपाईंको भाषा वा सेटअप पूर्ण रूपमा समर्थित नहुन सक्छ। अपडेटहरूको लागि जाँच गर्नुहोस् वा यसलाई ठीक गर्न मलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="automation_error_compatibility_adb_hint">ADB पहुँच सेटअप गरिएको अवस्थामा, SD Maid ले पहुँचयोग्यता सेवा बिना नै यसका अधिकांश काम गर्न सक्छ।</string>
     <string name="automation_error_timeout_title">स्वचालन समय सीमा</string>
     <string name="automation_error_timeout_body">SD Maid समय सीमा भित्र सबै चरणहरू पूरा गर्न सकेन। यदि यो चलिरहन्छ भने, मैले तपाईंको डिभाइसको लागि अनुप्रयोग समायोजन गर्नुपर्न सक्छ। अपडेटहरूको लागि जाँच गर्नुहोस् वा यसलाई ठीक गर्न मलाई सम्पर्क गर्नुहोस्।</string>
     <string name="automation_error_overlay_title">स्वचालन ओभरले</string>

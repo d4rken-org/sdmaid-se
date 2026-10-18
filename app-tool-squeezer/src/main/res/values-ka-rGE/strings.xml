@@ -41,6 +41,10 @@
         <item quantity="one">%d გამოტოვებულია (დაცული)</item>
         <item quantity="other">%d გამოტოვებულია (დაცული)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d არ შეცვლილა (არ შემცირებულა)</item>
+        <item quantity="other">%d არ შეცვლილა (არ შემცირებულა)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ელემენტი არჩეულია</item>
         <item quantity="other">%d ელემენტი არჩეულია</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photo-ების შეკუმშვა</string>
     <string name="squeezer_include_motion_photos_description">მოიცავს Motion Photo-ებს. შეკუმშვა ინარჩუნებს უძრავ სურათს და შლის ვიდეო კლიპს.</string>
     <string name="squeezer_include_oversized_title">ძალიან დიდი ფოტოების შეკუმშვა</string>
-    <string name="squeezer_include_oversized_description">მოიცავს ფოტოებს, რომლებიც სიგანით ან სიმაღლით 8192 პიქსელს აღემატება. შეკუმშვა ასევე ორჯერ ამცირებს მათ გარჩევადობას.</string>
+    <string name="squeezer_include_oversized_description">ჩართულია ფოტოები, რომელთა სიგანე ან სიმაღლე 8192 პიქსელს ან მეტია. შეკუმშვისას სიგანე და სიმაღლე ინახევრება, და საჭიროებისას კიდევ ერთხელ ინახევრება, სანამ ორივე 8192 პიქსელზე ნაკლები არ გახდება.</string>
     <string name="squeezer_estimated_savings_format">~%s დაზოგვა</string>
     <string name="squeezer_no_savings_expected">შეზღუდული დაზოგვა</string>
     <string name="squeezer_current_size_format">ზომა: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid-მა უკვე შეკუმშა ეს ფაილი. მისი ხელახლა შეკუმშვა აზარალებს ხარისხს და მცირე ადგილს ათავისუფლებს.</string>
     <string name="squeezer_markers_hdr_depth_description">ამ ფოტოს აქვს HDR ან სიღრმის მონაცემები, რომლის შენარჩუნებაც შეკუმშვას არ შეუძლია. HDR ფოტო ჩვეულებრივ ფოტოდ იქცევა, ხოლო პორტრეტული ფოტო კარგავს ფონის დაბინდვისთვის საჭირო სიღრმის მონაცემებს.</string>
     <string name="squeezer_markers_motion_photo_description">ეს არის Motion Photo. შეკუმშვა ინარჩუნებს უძრავ სურათს და შლის ვიდეო კლიპს.</string>
-    <string name="squeezer_markers_downscaled_description">ეს ფოტო სიგანით ან სიმაღლით 8192 პიქსელს აღემატება. შეკუმშვა ასევე ორჯერ ამცირებს მის გარჩევადობას.</string>
+    <string name="squeezer_markers_downscaled_description">ამ ფოტოს სიგანე ან სიმაღლე 8192 პიქსელს ან მეტია. შეკუმშვისას მისი სიგანე და სიმაღლე ინახევრება, და საჭიროებისას კიდევ ერთხელ ინახევრება, სანამ ორივე 8192 პიქსელზე ნაკლები არ გახდება.</string>
     <string name="squeezer_compress_action">შეკუმშვა</string>
     <string name="squeezer_compress_all_action">ყველას შეკუმშვა</string>
     <string name="squeezer_preview_dialog_title">შეკუმშვის დადასტურება</string>

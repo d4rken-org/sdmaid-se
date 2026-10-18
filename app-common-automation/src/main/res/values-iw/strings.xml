@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">הפעולה בוטלה מכיוון שהמסך לא זמין (למשל, תצוגה כבויה או מסך נעילה פעיל).</string>
     <string name="automation_error_compatibility_title">אוטומציה תאימות</string>
     <string name="automation_error_compatibility_body">SD Maid לא הצליחה להבין את פריסת המסך. אם זה ממשיך לקרות, ייתכן שהשפה או ההגדרה שלך לא נתמכים באופן מלא. בדוק אם יש עדכונים או פנה אליי כדי שאוכל לתקן את זה.</string>
+    <string name="automation_error_compatibility_adb_hint">כשגישת ADB מוגדרת, SD Maid יכול לעשות את רוב זה בלי שירות הנגישות.</string>
     <string name="automation_error_timeout_title">פסק זמן לאוטומציה</string>
     <string name="automation_error_timeout_body">SD Maid לא השלימה את כל השלבים בתוך מגבלת הזמן. אם זה ממשיך לקרות, ייתכן שאצטרך להתאים את האפליקציה למכשיר שלך. בדוק אם יש עדכונים או צור איתי קשר כדי שאוכל לתקן את זה.</string>
     <string name="automation_error_overlay_title">שכבת-על אוטומציה</string>

@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">作業已中止，因為螢幕無法使用 (例如顯示器已關閉或處於鎖定畫面)。</string>
     <string name="automation_error_compatibility_title">自動化相容性</string>
     <string name="automation_error_compatibility_body">SD 女僕無法判斷螢幕版面配置。如果這種情況持續發生，您的語言或設定可能未完全支援。檢查更新或聯絡我以便修復。</string>
+    <string name="automation_error_compatibility_adb_hint">設定好 ADB 存取權後，SD Maid 無需無障礙服務也能完成大部分操作。</string>
     <string name="automation_error_timeout_title">自動化逾時</string>
     <string name="automation_error_timeout_body">SD 女僕未在時間限制內完成所有步驟。如果這種情況持續發生，我可能需要為您的裝置調整應用程式。檢查更新或聯絡我以便修復。</string>
     <string name="automation_error_overlay_title">自動化覆蓋層</string>

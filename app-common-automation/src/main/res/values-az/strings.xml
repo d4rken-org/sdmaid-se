@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Ekran əlçatan olmadığı üçün əməliyyat dayandırıldı (məsələn ekran bağlı və ya kilit ekranı aktiv).</string>
     <string name="automation_error_compatibility_title">Avtomatlaşdırma uyğunluğu</string>
     <string name="automation_error_compatibility_body">SD Maid ekran qurğusunu anlaya bilmədi. Bu davam edərsə, diliniz və ya qurğunuz tam dəstəklənməyə bilər. Yeniləmələri yoxlayın və ya düzəltməyim üçün mənə müraciət edin.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB girişi quraşdırılıbsa, SD Maid bu əməliyyatların çoxunu əlçatanlıq xidməti olmadan yerinə yetirə bilər.</string>
     <string name="automation_error_timeout_title">Avtomatlaşdırma vaxt dolması</string>
     <string name="automation_error_timeout_body">SD Maid bütün addımları vaxt məhdudiyyəti daxilində tamamlamadı. Bu davam edərsə, tətbiqi cihazınız üçün tənzimləmək lazım ola bilər. Yeniləmələri yoxlayın və ya düzəltməyim üçün mənə müraciət edin.</string>
     <string name="automation_error_overlay_title">Avtomatlaşdırma örtüyü</string>

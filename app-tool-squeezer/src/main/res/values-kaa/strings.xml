@@ -41,6 +41,10 @@
         <item quantity="one">%d ótkerip jiberildi (qorǵalǵan)</item>
         <item quantity="other">%d ótkerip jiberildi (qorǵalǵan)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ózgermedi (kishireymedi)</item>
+        <item quantity="other">%d ózgermedi (kishireymedi)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element tańlandı</item>
         <item quantity="other">%d element tańlandı</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photo súwretlerin sıǵıw</string>
     <string name="squeezer_include_motion_photos_description">Motion Photo-lardı qosıń. Sıǵıw qozǵalmaytuǵın súwretti saqlap qaladı hám video úzindini alıp taslaydı.</string>
     <string name="squeezer_include_oversized_title">Júdá úlken súwretlerdi sıǵıw</string>
-    <string name="squeezer_include_oversized_description">Eni yamasa biyikligi 8192 pikselden úlken súwretlerdi qosıń. Sıǵıw sonday-aq olardıń ajıratıw qábiletin eki ese kishireytedi.</string>
+    <string name="squeezer_include_oversized_description">Eni yamasa boyı 8192 piksel yamasa onnan úlken fotolardı qosıw. Qısıw olardıń eni menen boyın eki esege kemeytedi, kerek bolsa tağı eki esege kemeytedi, ekewi de 8192 pikselden kishi bolǵansha.</string>
     <string name="squeezer_estimated_savings_format">~%s u\'nemlew</string>
     <string name="squeezer_no_savings_expected">Az u\'nemlew</string>
     <string name="squeezer_current_size_format">O\'lshem: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid bul fayldı aldın ala sıǵdı. Onı qayta sıǵıw sapanı joǵaltadı hám az orın bosatadı.</string>
     <string name="squeezer_markers_hdr_depth_description">Bul súwrette sıǵıw saqlay almaytuǵın HDR yamasa teren maǵlıwmatı bar. HDR súwreti ádettegi súwretke aylanadı, al portret súwreti fon xiralatıwı ushın qollanılatuǵın teren maǵlıwmattan ayırıladı.</string>
     <string name="squeezer_markers_motion_photo_description">Bul - Motion Photo. Sıǵıw qozǵalmaytuǵın súwretti saqlap qaladı hám video úzindini alıp taslaydı.</string>
-    <string name="squeezer_markers_downscaled_description">Bul súwrettiń eni yamasa biyikligi 8192 pikselden úlken. Sıǵıw sonday-aq onıń ajıratıw qábiletin eki ese kishireytedi.</string>
+    <string name="squeezer_markers_downscaled_description">Bul fotoniń eni yamasa boyı 8192 piksel yamasa onnan úlken. Qısıw onıń eni menen boyın eki esege kemeytedi, kerek bolsa tağı eki esege kemeytedi, ekewi de 8192 pikselden kishi bolǵansha.</string>
     <string name="squeezer_compress_action">Sıǵıstırıw</string>
     <string name="squeezer_compress_all_action">Barlıǵın sıǵıstırıw</string>
     <string name="squeezer_preview_dialog_title">Sıǵıstırıwdı tastıyıqlaw</string>

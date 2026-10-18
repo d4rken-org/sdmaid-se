@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">পরিবর্তন</string>
     <string name="stats_space_history_delta_in_x">%2$s এ %1$s</string>
     <string name="stats_space_history_upgrade_title">সম্পূর্ণ ইতিহাস একটি Pro বৈশিষ্ট্য</string>
+    <string name="stats_space_history_upgrade_body_v3">প্রতিটি স্টোরেজ ডিভাইসের ৯০ দিনের ইতিহাস দেখতে আপগ্রেড করুন, অথবা আপনি আরও বেশি সময় রাখলে এক বছর পর্যন্ত, এবং জায়গা শেষ হওয়ার আগে সতর্কতা পান।</string>
     <string name="stats_space_history_marker_freed">%1$s মুক্ত করা হয়েছে</string>
     <string name="stats_storage_type_primary">প্রাথমিক স্টোরেজ</string>
     <string name="stats_storage_type_secondary">সেকেন্ডারি স্টোরেজ</string>

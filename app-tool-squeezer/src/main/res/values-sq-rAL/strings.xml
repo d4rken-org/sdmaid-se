@@ -41,6 +41,10 @@
         <item quantity="one">%d i anashkaluar (i mbrojtur)</item>
         <item quantity="other">%d të anashkaluar (i mbrojtur)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d e pandryshuar (nuk u zvogëlua)</item>
+        <item quantity="other">%d të pandryshuara (nuk u zvogëluan)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d artikull i zgjedhur</item>
         <item quantity="other">%d artikuj të zgjedhur</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Ngjeshni Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Përfshini Motion Photos. Ngjeshja e ruan imazhin statik dhe heq videoklipin.</string>
     <string name="squeezer_include_oversized_title">Ngjeshni foton shumë të mëdha</string>
-    <string name="squeezer_include_oversized_description">Përfshini foton më të gjerë ose më të lartë se 8192 piksela. Ngjeshja gjithashtu përgjysmon rezolucionin e tyre.</string>
+    <string name="squeezer_include_oversized_description">Përfshi fotografitë që janë 8192 piksel ose më shumë të gjera ose të larta. Kompresimi e përgjysmon gjerësinë dhe lartësinë, dhe e përgjysmon përsëri nëse është e nevojshme, derisa të dyja të jenë nën 8192 piksel.</string>
     <string name="squeezer_estimated_savings_format">~%s kursime</string>
     <string name="squeezer_no_savings_expected">Kursime të kufizuara</string>
     <string name="squeezer_current_size_format">Madhësia: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid e ngjeshi tashmë këtë skedar. Ngjeshja e tij përsëri do të kushtojë cilësi dhe do të kursejë pak.</string>
     <string name="squeezer_markers_hdr_depth_description">Kjo fotografi ka të dhëna HDR ose thellësie që ngjeshja nuk mund të mbajë. Një fotografi HDR kthehet si njëra normale, dhe një fotografi porteti humbin të dhënat e thellësisë të përdorura për mjegullimin e sfondit.</string>
     <string name="squeezer_markers_motion_photo_description">Kjo është një Motion Photo. Ngjeshja e ruan imazhin statik dhe heq videoklipin.</string>
-    <string name="squeezer_markers_downscaled_description">Kjo fotografi është më e gjerë ose më e lartë se 8192 piksela. Ngjeshja gjithashtu përgjysmon rezolucionin e saj.</string>
+    <string name="squeezer_markers_downscaled_description">Kjo fotografi është 8192 piksel ose më shumë e gjerë ose e lartë. Kompresimi e përgjysmon gjerësinë dhe lartësinë, dhe e përgjysmon përsëri nëse është e nevojshme, derisa të dyja të jenë nën 8192 piksel.</string>
     <string name="squeezer_compress_action">Kompreso</string>
     <string name="squeezer_compress_all_action">Kompreso të gjitha</string>
     <string name="squeezer_preview_dialog_title">Konfirmo kompresimin</string>

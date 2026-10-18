@@ -66,6 +66,7 @@
     <string name="stats_space_history_delta_label">Дэльта</string>
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Поўная гісторыя — гэта функцыя Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Абнаві тарыф, каб бачыць гісторыю за 90 дзён для кожнай прылады захоўвання, а пры даўжэйшым захаванні да года, і атрымліваць папярэджанне, перш чым скончыцца месца.</string>
     <string name="stats_space_history_marker_freed">Вызвалена %1$s</string>
     <string name="stats_storage_type_primary">Асноўнае сховішча</string>
     <string name="stats_storage_type_secondary">Дадатковае сховішча</string>

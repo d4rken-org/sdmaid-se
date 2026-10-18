@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">திரை கிடைக்காமல் போனதால் செயல்பாடு நிறுத்தப்பட்டது (எ.கா. திரை அணைந்தது அல்லது பரிந்துரை செயல்படுத்திவது).</string>
     <string name="automation_error_compatibility_title">தனியாக்க இணங்கத்தன்மை</string>
     <string name="automation_error_compatibility_body">SD Maid திரை அமைப்பைக் கண்டுபிடிக்க முடியவில்லை. இது தொடர்ந்து நடந்தால், உங்கள் மொழி அல்லது அமைப்பு முழுமையாக ஆதரிக்கப்படாமல் இருக்கலாம். புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதைச் சரிசெய்ய எனக்கு தெரியப்படுத்தவும்.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB அணுகல் அமைக்கப்பட்ட நிலையில், அணுகல்தன்மை சேவை இல்லாமலேயே SD Maid இதில் பெரும்பாலானவற்றைச் செய்ய முடியும்.</string>
     <string name="automation_error_timeout_title">தனியாக்க நேரகடைதல்</string>
     <string name="automation_error_timeout_body">SD Maid நேர வரம்பிற்குள் அனைத்து படிகளையும் முடிக்கவில்லை. இது தொடர்ந்து நடந்தால், உங்கள் சாதனத்திற்காக பயன்பாட்டைச் சரிசெய்ய வேண்டியிருக்கலாம். புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதைச் சரிசெய்ய எனக்கு தெரியப்படுத்தவும்.</string>
     <string name="automation_error_overlay_title">தனியாக்க மேல்பதிவு</string>

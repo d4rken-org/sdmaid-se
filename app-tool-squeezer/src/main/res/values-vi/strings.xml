@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d đã bỏ qua (được bảo vệ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d không thay đổi (không nhỏ hơn)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d mục đã chọn</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">Nén Motion Photo</string>
     <string name="squeezer_include_motion_photos_description">Bao gồm Motion Photo. Nén sẽ giữ lại ảnh tĩnh và loại bỏ đoạn video.</string>
     <string name="squeezer_include_oversized_title">Nén ảnh rất lớn</string>
-    <string name="squeezer_include_oversized_description">Bao gồm ảnh có chiều rộng hoặc chiều cao lớn hơn 8192 pixel. Nén cũng giảm một nửa độ phân giải của ảnh.</string>
+    <string name="squeezer_include_oversized_description">Bao gồm các ảnh có chiều rộng hoặc chiều cao từ 8192 pixel trở lên. Quá trình nén sẽ giảm một nửa chiều rộng và chiều cao, và giảm thêm một nửa nếu cần, cho đến khi cả hai đều dưới 8192 pixel.</string>
     <string name="squeezer_estimated_savings_format">~%s đang lưu</string>
     <string name="squeezer_no_savings_expected">Giới hạn lưu</string>
     <string name="squeezer_current_size_format">Kích thước: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid đã nén tệp này rồi. Nén lại sẽ làm giảm chất lượng mà chỉ tiết kiệm được rất ít.</string>
     <string name="squeezer_markers_hdr_depth_description">Ảnh này có dữ liệu HDR hoặc độ sâu mà quá trình nén không thể giữ lại. Ảnh HDR sẽ trở thành ảnh thường, còn ảnh chân dung sẽ mất dữ liệu độ sâu dùng để làm mờ hậu cảnh.</string>
     <string name="squeezer_markers_motion_photo_description">Đây là Motion Photo. Nén sẽ giữ lại ảnh tĩnh và loại bỏ đoạn video.</string>
-    <string name="squeezer_markers_downscaled_description">Ảnh này có chiều rộng hoặc chiều cao lớn hơn 8192 pixel. Nén cũng giảm một nửa độ phân giải của ảnh.</string>
+    <string name="squeezer_markers_downscaled_description">Ảnh này có chiều rộng hoặc chiều cao từ 8192 pixel trở lên. Quá trình nén sẽ giảm một nửa chiều rộng và chiều cao, và giảm thêm một nửa nếu cần, cho đến khi cả hai đều dưới 8192 pixel.</string>
     <string name="squeezer_compress_action">Nén</string>
     <string name="squeezer_compress_all_action">Nén tất cả</string>
     <string name="squeezer_preview_dialog_title">Xác nhận nén</string>

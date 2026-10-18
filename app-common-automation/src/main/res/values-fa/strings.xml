@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">عملیات متوقف شد زیرا صفحه نمایش در دسترس نبود (مانند خاموش شدن نمایشگر یا فعال بودن قفل صفحه).</string>
     <string name="automation_error_compatibility_title">سازگاری اتوماسیون</string>
     <string name="automation_error_compatibility_body">به نظر می‌رسد SD Maid با مشکل تشخیص طرح صفحه روبرو است. اگر این مشکل همچنان ادامه دارد، ممکن است زبان یا تنظیمات دستگاه شما به طور کامل پشتیبانی نشود. پیشنهاد می‌کنم ابتدا بررسی کنید که آیا بروزرسانی برای برنامه وجود دارد یا خیر.</string>
+    <string name="automation_error_compatibility_adb_hint">با دسترسی ADB تنظیم‌شده، SD Maid می‌تواند بیشتر این کارها را بدون سرویس دسترس‌پذیری انجام دهد.</string>
     <string name="automation_error_timeout_title">پایان زمان اتوماسیون</string>
     <string name="automation_error_timeout_body">SD Maid تمام مراحل را در محدوده زمانی تکمیل نکرد. اگر این اتفاق ادامه یابد، ممکن است نیاز باشد برنامه را برای دستگاه شما تنظیم کنم. به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا بتوانم آن را برطرف کنم.</string>
     <string name="automation_error_overlay_title">پوشش اتوماسیون</string>

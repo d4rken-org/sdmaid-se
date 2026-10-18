@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Toiminto keskeytettiin, koska näyttö tuli saavuttamattomaksi (esim. näyttö pois päältä tai lukitusnäyttö aktiivinen).</string>
     <string name="automation_error_compatibility_title">Automaation yhteensopivuus</string>
     <string name="automation_error_compatibility_body">SD Maid ei voinut selvittää näytön asettelua. Jos tämä jatkuu, kielesi tai asetuksesi eivät ehkä ole täysin tuettuja. Tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
+    <string name="automation_error_compatibility_adb_hint">Kun ADB-käyttöoikeus on määritetty, SD Maid voi tehdä suurimman osan tästä ilman esteettömyyspalvelua.</string>
     <string name="automation_error_timeout_title">Automaation aikakatkaisu</string>
     <string name="automation_error_timeout_body">SD Maid ei suorittanut kaikkia vaiheita aikarajan sisällä. Jos tämä jatkuu, minun täytyy ehkä säätää sovellusta laitteellesi. Tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
     <string name="automation_error_overlay_title">Automaation peittokuva</string>

@@ -41,6 +41,10 @@
         <item quantity="one">%d ታልፏል (የተጠበቀ)</item>
         <item quantity="other">%d ታልፈዋል (የተጠበቀ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ያልተለወጠ (ያልቀነሰ)</item>
+        <item quantity="other">%d ያልተለወጡ (ያልቀነሱ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ንጥል ተመርጧል</item>
         <item quantity="other">%d ንጥሎች ተመርጠዋል</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">የተንቀሳቃሽ ፎቶዎችን ጭመቅ</string>
     <string name="squeezer_include_motion_photos_description">የተንቀሳቃሽ ፎቶዎችን ያካትቱ። መጭመቅ የቆመውን ምስል ይይዛል እና የቪዲዮ ክሊፑን ያስወግዳል።</string>
     <string name="squeezer_include_oversized_title">በጣም ትልቅ ፎቶዎችን ጭመቅ</string>
-    <string name="squeezer_include_oversized_description">ከ8192 ፒክሰሎች የሰፉ ወይም የረዘሙ ፎቶዎችን ያካትቱ። መጭመቅ ደግሞ ጥራታቸውን በግማሽ ይቀንሳል።</string>
+    <string name="squeezer_include_oversized_description">ስፋታቸው ወይም ቁመታቸው 8192 ፒክስል ወይም ከዚያ በላይ የሆኑ ፎቶዎችን አካት። መጭመቅ ስፋታቸውንና ቁመታቸውን በግማሽ ይቀንሳል፣ ሁለቱም ከ8192 ፒክስል በታች እስኪሆኑ ድረስ አስፈላጊ ከሆነም እንደገና በግማሽ ይቀንሳል።</string>
     <string name="squeezer_estimated_savings_format">~%s ቁጠባ</string>
     <string name="squeezer_no_savings_expected">ውስን ቁጠባ</string>
     <string name="squeezer_current_size_format">መጠን: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ይህን ፋይል አስቀድሞ ጭምቆታል። እንደገና መጭመቅ ጥራትን ያስከፍላል እና ትንሽ ቦታ ብቻ ይቆጥባል።</string>
     <string name="squeezer_markers_hdr_depth_description">ይህ ፎቶ መጭመቅ ማቆየት የማይችለው HDR ወይም ጥልቀት ውሂብ አለው። የHDR ፎቶ እንደ መደበኛ ፎቶ ይመለሳል፣ እና የፎቶግራፍ ፎቶ ለጀርባ ብዥታ የሚያገለግለውን የጥልቀት ውሂብ ያጣል።</string>
     <string name="squeezer_markers_motion_photo_description">ይህ የተንቀሳቃሽ ፎቶ ነው። መጭመቅ የቆመውን ምስል ይይዛል እና የቪዲዮ ክሊፑን ያስወግዳል።</string>
-    <string name="squeezer_markers_downscaled_description">ይህ ፎቶ ከ8192 ፒክሰሎች የሰፋ ወይም የረዘመ ነው። መጭመቅ ደግሞ ጥራቱን በግማሽ ይቀንሳል።</string>
+    <string name="squeezer_markers_downscaled_description">ይህ ፎቶ ስፋቱ ወይም ቁመቱ 8192 ፒክስል ወይም ከዚያ በላይ ነው። መጭመቅ ስፋቱንና ቁመቱን በግማሽ ይቀንሳል፣ ሁለቱም ከ8192 ፒክስል በታች እስኪሆኑ ድረስ አስፈላጊ ከሆነም እንደገና በግማሽ ይቀንሳል።</string>
     <string name="squeezer_compress_action">ጨምቅ</string>
     <string name="squeezer_compress_all_action">ሁሉንም ጨምቅ</string>
     <string name="squeezer_preview_dialog_title">መጨመቅ ያረጋግጡ</string>

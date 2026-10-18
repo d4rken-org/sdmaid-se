@@ -41,6 +41,10 @@
         <item quantity="one">%d ഒഴിവാക്കി (സംരക്ഷിതം)</item>
         <item quantity="other">%d ഒഴിവാക്കി (സംരക്ഷിതം)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d മാറ്റമില്ല (ചെറുതായിട്ടില്ല)</item>
+        <item quantity="other">%d മാറ്റമില്ല (ചെറുതായിട്ടില്ല)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ഇനം തിരഞ്ഞെടുത്തു</item>
         <item quantity="other">%d ഇനങ്ങൾ തിരഞ്ഞെടുത്തു</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">മോഷൻ ഫോട്ടോകൾ കംപ്രസ് ചെയ്യുക</string>
     <string name="squeezer_include_motion_photos_description">മോഷൻ ഫോട്ടോകൾ ഉൾപ്പെടുത്തുക. കംപ്രഷൻ സ്റ്റിൽ ഇമേജ് നിലനിർത്തുകയും വീഡിയോ ക്ലിപ്പ് നീക്കം ചെയ്യുകയും ചെയ്യും.</string>
     <string name="squeezer_include_oversized_title">വളരെ വലിയ ഫോട്ടോകൾ കംപ്രസ് ചെയ്യുക</string>
-    <string name="squeezer_include_oversized_description">8192 പിക്സലിലും വീതിയോ ഉയരമോ കൂടിയ ഫോട്ടോകൾ ഉൾപ്പെടുത്തുക. കംപ്രഷൻ അവയുടെ റെസല്യൂഷനും പകുതിയാക്കും.</string>
+    <string name="squeezer_include_oversized_description">വീതിയോ ഉയരമോ 8192 പിക്സൽ അല്ലെങ്കിൽ അതിലധികമുള്ള ഫോട്ടോകൾ ഉൾപ്പെടുത്തുക. കംപ്രഷൻ വീതിയും ഉയരവും പകുതിയാക്കുന്നു, ആവശ്യമെങ്കിൽ വീണ്ടും പകുതിയാക്കി, രണ്ടും 8192 പിക്സലിൽ താഴെയാകുന്നതുവരെ.</string>
     <string name="squeezer_estimated_savings_format">~%s ലാഭം</string>
     <string name="squeezer_no_savings_expected">പരിമിത ലാഭം</string>
     <string name="squeezer_current_size_format">വലുപ്പം: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ഇതിനകം ഈ ഫയൽ കംപ്രസ് ചെയ്തിട്ടുണ്ട്. വീണ്ടും കംപ്രസ് ചെയ്യുന്നത് ഗുണനിലവാരം കുറയ്ക്കുകയും ചെറിയ അളവിൽ മാത്രം സ്ഥലം ലാഭിക്കുകയും ചെയ്യും.</string>
     <string name="squeezer_markers_hdr_depth_description">ഈ ഫോട്ടോയിൽ കംപ്രഷന് നിലനിർത്താൻ കഴിയാത്ത HDR അല്ലെങ്കിൽ ഡെപ്ത് ഡാറ്റയുണ്ട്. ഒരു HDR ഫോട്ടോ സാധാരണ ഫോട്ടോയായി മാറും, പോർട്രെയ്റ്റ് ഫോട്ടോയ്ക്ക് പശ്ചാത്തല ബ്ലറിനായി ഉപയോഗിക്കുന്ന ഡെപ്ത് ഡാറ്റ നഷ്ടപ്പെടും.</string>
     <string name="squeezer_markers_motion_photo_description">ഇതൊരു മോഷൻ ഫോട്ടോയാണ്. കംപ്രഷൻ സ്റ്റിൽ ഇമേജ് നിലനിർത്തുകയും വീഡിയോ ക്ലിപ്പ് നീക്കം ചെയ്യുകയും ചെയ്യും.</string>
-    <string name="squeezer_markers_downscaled_description">ഈ ഫോട്ടോ 8192 പിക്സലിലും വീതിയോ ഉയരമോ കൂടിയതാണ്. കംപ്രഷൻ ഇതിന്റെ റെസല്യൂഷനും പകുതിയാക്കും.</string>
+    <string name="squeezer_markers_downscaled_description">ഈ ഫോട്ടോയുടെ വീതിയോ ഉയരമോ 8192 പിക്സൽ അല്ലെങ്കിൽ അതിലധികമാണ്. കംപ്രഷൻ അതിന്റെ വീതിയും ഉയരവും പകുതിയാക്കുന്നു, ആവശ്യമെങ്കിൽ വീണ്ടും പകുതിയാക്കി, രണ്ടും 8192 പിക്സലിൽ താഴെയാകുന്നതുവരെ.</string>
     <string name="squeezer_compress_action">കമ്പ്രസ് ചെയ്യുക</string>
     <string name="squeezer_compress_all_action">എല്ലാം കമ്പ്രസ് ചെയ്യുക</string>
     <string name="squeezer_preview_dialog_title">കമ്പ്രഷൻ സ്ഥിരീകരിക്കുക</string>

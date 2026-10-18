@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Делта</string>
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Целосната историја е Про функција</string>
+    <string name="stats_space_history_upgrade_body_v3">Надгради за да ја видиш 90-дневната историја за секој уред за складирање, или до една година ако ја чуваш подолго, и добиј предупредување пред да ти снема простор.</string>
     <string name="stats_space_history_marker_freed">Ослободено %1$s</string>
     <string name="stats_storage_type_primary">Примарно складиште</string>
     <string name="stats_storage_type_secondary">Секундарно складиште</string>

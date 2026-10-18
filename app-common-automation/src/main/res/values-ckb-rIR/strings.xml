@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">مەشقەکە هەڵوەشایەوە لەبەر ئەوەی شاشەکە بەردەست نەبوو (بۆ نموونە دیسپلەی تاریک بوو یان پاراستنی شاشە چالاک بوو).</string>
     <string name="automation_error_compatibility_title">گونجاندنی ئۆتۆماسیۆن</string>
     <string name="automation_error_compatibility_body">SD Maid نەیتوانی ڕووپێوەکەی شاشەکە دەرببکات. ئەگەر ئەمە بەردەوام دەکات، زمانەکەت یان ڕێکخستنەکانت لەوانەیە بە تەواوی پشتیوانی نەکرێت. دوای نوێکردنەوە بگەڕێ یان پەیوەندیم پێ بکە تا چارەیبکەم.</string>
+    <string name="automation_error_compatibility_adb_hint">ئەگەر دەستگەیشتنی ADB ڕێکبخەیت، SD Maid زۆربەی ئەمانە دەتوانێت بەبێ خزمەتگوزاری دەستگەیشتن ئەنجام بدات.</string>
     <string name="automation_error_timeout_title">کاتێکی تێکرد بۆ ئۆتۆماسیۆن</string>
     <string name="automation_error_timeout_body">SD Maid هەموو قەدەمەکانی ناتەواو کرد لە ماوەی کات. ئەگەر ئەمە بەردەوام دەکات، لەوانەیە پێویست بێت ئەپەکە بۆ ئامێرەکەت ئەکاڵ بکەم. دوای نوێکردنەوە بگەڕێ یان پەیوەندیم پێ بکە تا چارەیبکەم.</string>
     <string name="automation_error_overlay_title">ئۆتۆماسیۆن سەری سپی</string>

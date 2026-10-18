@@ -41,6 +41,10 @@
         <item quantity="one">%d saltadu (protetu)</item>
         <item quantity="other">%d saltados (protetus)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d non cambiadu (no prus pitzinu)</item>
+        <item quantity="other">%d non cambiados (no prus pitzinos)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elementu seletzionadu</item>
         <item quantity="other">%d elementos seletzionados</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Cumprimi Fotos in Movimentu</string>
     <string name="squeezer_include_motion_photos_description">Includi Fotos in Movimentu. Sa comprimidura conservat s\'imagine fissa e tollit sa clip de vìdeo.</string>
     <string name="squeezer_include_oversized_title">Cumprimi fotos meda grandes</string>
-    <string name="squeezer_include_oversized_description">Includi fotos prus largas o alteras de 8192 pixels. Sa comprimidura puru dimidiat sa resolutzione sua.</string>
+    <string name="squeezer_include_oversized_description">Includi sas fotografias chi sunt de 8192 pixel o prus de largària o de artària. Sa compressione dimezzat sa largària e s\'artària, e las dimezzat torra si serbit, finas a chi sunt ambas sutta de 8192 pixel.</string>
     <string name="squeezer_estimated_savings_format">~%s de isparagnu</string>
     <string name="squeezer_no_savings_expected">Isparagnos limitados</string>
     <string name="squeezer_current_size_format">Mannesa: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ha giai comprimidu custu archiviu. Su comprimire un\'atra borta costa calidade e avantat pagu.</string>
     <string name="squeezer_markers_hdr_depth_description">Custa foto at datos HDR o de profundidade chi sa comprimidura non podet conservare. Una foto HDR diventa una normale, e una foto de ritrattu perde sa datos de profundidade imprada pro sa disfocu de funtzu.</string>
     <string name="squeezer_markers_motion_photo_description">Custas sunt Fotos in Movimentu. Sa comprimidura conservat s\'imagine fissa e tollit sa clip de vìdeo.</string>
-    <string name="squeezer_markers_downscaled_description">Custa foto est prus larga o altera de 8192 pixels. Sa comprimidura puru dimidiat sa resolutzione sua.</string>
+    <string name="squeezer_markers_downscaled_description">Custa fotografia est de 8192 pixel o prus de largària o de artària. Sa compressione dimezzat sa largària e s\'artària, e las dimezzat torra si serbit, finas a chi sunt ambas sutta de 8192 pixel.</string>
     <string name="squeezer_compress_action">Cumprimi</string>
     <string name="squeezer_compress_all_action">Cumprimi totu</string>
     <string name="squeezer_preview_dialog_title">Cunfirma sa cumpressione</string>

@@ -21,6 +21,7 @@ Ez da inolako ekintzarik egingo erabiltzailearen aldez aurreko onespenaren gabe.
     <string name="automation_error_screen_unavailable_body">Eragiketa bertan behera utzi da pantaila erabilgarri ez zegoelako (adibidez, pantaila itzalita edo blokeo-pantaila aktibo).</string>
     <string name="automation_error_compatibility_title">Automatizazio-bateragarritasuna</string>
     <string name="automation_error_compatibility_body">SD Maid-ek ezin izan du pantailaren diseinua ulertu. Hau behin eta berriz gertatzen bada, agian zure hizkuntza edo konfigurazioa ez dago guztiz onartuta. Egiaztatu eguneratzeak edo jarri nirekin harremanetan konpon dezadan.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB sarbidea konfiguratuta badago, SD Maid-ek honen zatirik handiena egin dezake erabilerraztasun-zerbitzurik gabe.</string>
     <string name="automation_error_timeout_title">Automatizazio-denbora-muga</string>
     <string name="automation_error_timeout_body">SD Maid-ek ez ditu urrats guztiak denbora-mugaren barruan osatu. Hau behin eta berriz gertatzen bada, agian aplikazioa zure gailurako egokitu beharko dut. Egiaztatu eguneratzeak edo jarri nirekin harremanetan konpon dezadan.</string>
     <string name="automation_error_overlay_title">Automatizazio-gainjartzea</string>

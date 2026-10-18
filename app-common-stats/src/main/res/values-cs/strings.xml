@@ -66,6 +66,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s za %2$s</string>
     <string name="stats_space_history_upgrade_title">Celá historie je funkce Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Aktualizuj a uvidíš historii za 90 dní u každého úložiště, nebo až za rok, pokud ji necháš déle, a dostaneš upozornění, než ti dojde místo.</string>
     <string name="stats_space_history_marker_freed">Uvolněno %1$s</string>
     <string name="stats_storage_type_primary">Primární úložiště</string>
     <string name="stats_storage_type_secondary">Sekundární úložiště</string>

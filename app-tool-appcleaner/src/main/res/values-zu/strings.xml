@@ -85,7 +85,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Ama-cache azenzakalelayo omphakathi nangasese. Awakwazi ukuwafinyelela ngqo, kodwa angasuswa ngokungangqo (isib. ngensiza yokufinyelela).</string>
     <string name="appcleaner_exclusion_limited_row_hint">Likhiphiwe, kodwa ukulinganisa wonke amaphuroseso nangakusundu kusazilibazela amacache</string>
     <string name="appcleaner_exclusion_limited_title">Uhlelo olukhiphiwe</string>
-    <string name="appcleaner_exclusion_limited_body">Walikhisha lo hlelo kuSD Maid. Uma ulinganisa amacache awo wonke amaphuroseso ngakusundu, kusetshenziswa isixazululo sika-Shizuku sokubazulula amacache yeshintshi, okungakwazi ukusala amaphuroseso angakodwa; ngakho idatha yesicache yalolhlelo isulwa kanye nalunye. Kuphela idatha yesicache ekhonjisiwe lapha enomthelela; konke okunye omkhakhalweni wakho kuhlala ufihliwe futhi ungasenzwile.</string>
+    <string name="appcleaner_exclusion_limited_body">Uwuvimbele lolu hlelo ku-AppCleaner. Ukusula amakhashe wazo zonke izinhlelo ngesikhathi esisodwa kusebenzisa ukuncishiswa kwekhashe kwesistimu yonke okutholakala nge-ADB, okungeke kuvumele ukuthi izinhlelo ezithile zishiywe, ngakho idatha yekhashe yalolu hlelo izosulwa kanye nakho konke okunye. Idatha yekhashe ebonakala lapha kuphela ithintekile, konke okunye okuvinjelwe ukuvinjelwa kuzohlala kufihliwe futhi kungathintwa.</string>
     <string name="appcleaner_automation_unavailable_title">Insiza yokufinyelela ayitholakali</string>
     <string name="appcleaner_automation_unavailable_body">Ukulinganisa amacache edinga isebenza sentsha sika-SD Maid, kodwa ayikuvo.</string>
     <string name="appcleaner_delete_confirmation_message_x">Susa amafayela angasetshenziswa ka-%s?</string>

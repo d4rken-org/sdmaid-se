@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Der Vorgang wurde abgebrochen, da der Bildschirm nicht mehr verfügbar war (z.B. Bildschirm aus oder Sperrbildschirm).</string>
     <string name="automation_error_compatibility_title">Automatisierungskompatibilität</string>
     <string name="automation_error_compatibility_body">SD Maid konnte das Bildschirm-Layout nicht erkennen. Falls das weiterhin passiert, wird deine Sprache oder Konfiguration möglicherweise nicht vollständig unterstützt. Suche nach Updates oder kontaktiere mich, damit ich das Problem beheben kann.</string>
+    <string name="automation_error_compatibility_adb_hint">Mit eingerichtetem ADB-Zugriff kann SD Maid das meiste davon ohne den Bedienungshilfen-Dienst erledigen.</string>
     <string name="automation_error_timeout_title">Automatisierungs-Timeout</string>
     <string name="automation_error_timeout_body">SD Maid hat nicht alle Schritte innerhalb des Zeitlimits abgeschlossen. Wenn dies weiterhin passiert, könnte es sein, dass ich die App für dein Gerät anpassen muss. Suche nach Updates oder wenden dich an mich, damit ich es beheben kann.</string>
     <string name="automation_error_overlay_title">Automatisierungs-Overlay</string>

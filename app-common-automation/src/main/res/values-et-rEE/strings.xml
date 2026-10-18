@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Toiming tühistati, kuna ekraan lülitus välja või lukustus.</string>
     <string name="automation_error_compatibility_title">Automatiseerimise ühilduvus</string>
     <string name="automation_error_compatibility_body">SD Maid ei suutnud tuvastada ekraani suurust. Selle kordumisel ei pruugi teie keel või seadistus olla toetatud. Kontrollige uuendusi või suhelge minuga, et saaksin seda lahendada.</string>
+    <string name="automation_error_compatibility_adb_hint">Kui ADB-juurdepääs on seadistatud, saab SD Maid enamiku sellest teha ilma juurdepääsetavuse teenuseta.</string>
     <string name="automation_error_timeout_title">Automatiseerimise ajalõpp</string>
     <string name="automation_error_timeout_body">SD Maid lõpetas ajavahemikus vaid osad etapid. Niiviisi jätkates peaksin võib-olla kohandama rakendust teie seadme järgi. Selle lahendamiseks kontrollige uuenduste olemasolu või suhelge minuga.</string>
     <string name="automation_error_overlay_title">Automatiseerimise ülekate</string>

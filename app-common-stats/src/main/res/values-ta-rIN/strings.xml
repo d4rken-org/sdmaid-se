@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">வேறுபாடு</string>
     <string name="stats_space_history_delta_in_x">%2$s இல் %1$s</string>
     <string name="stats_space_history_upgrade_title">முழு வரலாறும் Pro அம்சம்</string>
+    <string name="stats_space_history_upgrade_body_v3">ஒவ்வொரு சேமிப்பகச் சாதனத்துக்கும் 90 நாட்கள் வரலாற்றைப் பார்க்க மேம்படுத்துங்கள், அல்லது நீண்ட காலம் வைத்திருந்தால் ஒரு ஆண்டு வரை, மேலும் இடம் தீர்ந்துபோவதற்கு முன் எச்சரிக்கை பெறுங்கள்.</string>
     <string name="stats_space_history_marker_freed">%1$s விடுவிக்கப்பட்டது</string>
     <string name="stats_storage_type_primary">முதன்மை சேமிப்பு</string>
     <string name="stats_storage_type_secondary">இரண்டாம் நிலை சேமிப்பு</string>

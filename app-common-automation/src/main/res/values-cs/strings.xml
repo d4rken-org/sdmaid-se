@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operace byla přerušena, protože obrazovka se stala nedostupnou (např. vypnutý displej nebo aktivní zámek obrazovky).</string>
     <string name="automation_error_compatibility_title">Kompatibilita automatizace</string>
     <string name="automation_error_compatibility_body">Aplikace SD Maid nedokázala rozeznat rozložení obrazovky. Pokud se toto opakuje, nemusí být váš jazyk nebo nastavení plně podporované. Zkontrolujte aktualizace nebo se mi ozvěte, abych to opravil.</string>
+    <string name="automation_error_compatibility_adb_hint">Když nastavíš přístup přes ADB, dokáže SD Maid většinu těchto věcí dělat bez služby usnadnění.</string>
     <string name="automation_error_timeout_title">Časový limit automatizace</string>
     <string name="automation_error_timeout_body">Aplikace SD Maid nedokončila všechny kroky v časovém limitu. Pokud se to bude opakovat, možná bude nutné aplikaci pro vaše zařízení upravit. Zkontrolujte aktualizace nebo mě kontaktujte, abych to mohl opravit.</string>
     <string name="automation_error_overlay_title">Překrytí automatizace</string>

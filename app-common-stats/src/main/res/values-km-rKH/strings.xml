@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">ភាពខុសគ្នា</string>
     <string name="stats_space_history_delta_in_x">%1$s ក្នុង %2$s</string>
     <string name="stats_space_history_upgrade_title">ប្រវត្តិពេញលេញជាមុខងារ Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">ដំឡើងទៅកំណែបើក ដើម្បីមើលប្រវត្តិ 90 ថ្ងៃសម្រាប់ឧបករណ៍ផ្ទុកនីមួយៗ ឬរហូតដល់មួយឆ្នាំប្រសិនបើអ្នករក្សាទុកវាយូរជាងនេះ ហើយទទួលការជូនដំណឹងមុនពេលទំហំផ្ទុកអស់។</string>
     <string name="stats_space_history_marker_freed">បានដោះលែង %1$s</string>
     <string name="stats_storage_type_primary">ឧបករណ៍ផ្ទុកចម្បង</string>
     <string name="stats_storage_type_secondary">ឧបករណ៍ផ្ទុកបន្ទាប់បន្សំ</string>

@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d dilewati (dilindungi)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d tidak berubah (tidak lebih kecil)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d item dipilih</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">Kompres Motion Photo</string>
     <string name="squeezer_include_motion_photos_description">Sertakan Motion Photo. Kompresi mempertahankan gambar diam dan menghapus klip videonya.</string>
     <string name="squeezer_include_oversized_title">Kompres foto yang sangat besar</string>
-    <string name="squeezer_include_oversized_description">Sertakan foto yang lebih lebar atau lebih tinggi dari 8192 piksel. Kompresi juga mengurangi separuh resolusinya.</string>
+    <string name="squeezer_include_oversized_description">Sertakan foto yang lebarnya atau tingginya 8192 piksel atau lebih. Kompresi akan membagi lebar dan tinggi foto menjadi dua, lalu membaginya lagi jika perlu, sampai keduanya di bawah 8192 piksel.</string>
     <string name="squeezer_estimated_savings_format">~%s penghematan</string>
     <string name="squeezer_no_savings_expected">Penghematan terbatas</string>
     <string name="squeezer_current_size_format">Ukuran: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid sudah mengompresi file ini. Mengompresinya lagi akan mengurangi kualitas dan hanya menghemat sedikit ruang.</string>
     <string name="squeezer_markers_hdr_depth_description">Foto ini memiliki data HDR atau kedalaman yang tidak dapat dipertahankan oleh kompresi. Foto HDR akan kembali menjadi foto biasa, dan foto potret akan kehilangan data kedalaman yang digunakan untuk efek blur latar belakang.</string>
     <string name="squeezer_markers_motion_photo_description">Ini adalah Motion Photo. Kompresi mempertahankan gambar diam dan menghapus klip videonya.</string>
-    <string name="squeezer_markers_downscaled_description">Foto ini lebih lebar atau lebih tinggi dari 8192 piksel. Kompresi juga mengurangi separuh resolusinya.</string>
+    <string name="squeezer_markers_downscaled_description">Foto ini lebarnya atau tingginya 8192 piksel atau lebih. Kompresi akan membagi lebar dan tinggi foto menjadi dua, lalu membaginya lagi jika perlu, sampai keduanya di bawah 8192 piksel.</string>
     <string name="squeezer_compress_action">Kompres</string>
     <string name="squeezer_compress_all_action">Kompres semua</string>
     <string name="squeezer_preview_dialog_title">Konfirmasi kompresi</string>

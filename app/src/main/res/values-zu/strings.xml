@@ -274,6 +274,7 @@
     <string name="setup_acs_state_stopped">Insiza yokufinyelela imisiwe</string>
     <string name="setup_acs_state_stopped_hint">Insiza inikwe amandla, kodwa ayisebenzi. Ivule/ivale noma uqalise kabusha idivayisi yakho. Hlola ukuthi i-SD Maid \"ayithuthukiswa\" yisistimu.</string>
     <string name="setup_acs_state_stopped_hint_miui">Uma insiza iqhubeka ikhubazeka ngemuva kwesikhathi, zama ukunika amandla inketho ye-\"Auto Start\" ye-SD Maid ezilungiselelweni zesistimu.</string>
+    <string name="setup_acs_state_stopped_hint_miui_killed">Uma uhlelo lupha ukuvala i-SD Maid, vula inketho ethi \"Auto Start\" ye-SD Maid kumasethingi wesistimu bese ukhulula i-SD Maid ku-recent apps view.</string>
     <string name="setup_acs_consent_positive_action">Nika amandla insiza futhi unikeze ukufinyelela</string>
     <string name="setup_acs_consent_negative_action">Ungasebenzisi insiza yokufinyelela</string>
     <string name="setup_acs_allow_hint">Uma ubona isithonjana esincane emngceleni wesikrini, khona-ke unike amandla inketho ye-\"shortcut\" ngephutha.</string>

@@ -41,6 +41,10 @@
         <item quantity="one">%d atlandı (korunmuş)</item>
         <item quantity="other">%d atlandı (korunmuş)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d değişmedi (daha küçük değil)</item>
+        <item quantity="other">%d değişmedi (daha küçük değil)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d öğe seçildi</item>
         <item quantity="other">%d öğe seçildi</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos\'u Sıkıştır</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos\'u dahil et. Sıkıştırma sabit görüntüyü saklar ve video klibini kaldırır.</string>
     <string name="squeezer_include_oversized_title">Çok büyük fotoğrafları sıkıştır</string>
-    <string name="squeezer_include_oversized_description">8192 pikselden daha geniş veya daha yüksek fotoğrafları dahil et. Sıkıştırma ayrıca çözünürlüğünü yarıya indirir.</string>
+    <string name="squeezer_include_oversized_description">Genişliği veya yüksekliği 8192 piksel ya da daha fazla olan fotoğrafları dahil et. Sıkıştırma genişliğini ve yüksekliğini yarıya indirir, gerekirse bunu bir kez daha yapar. Böylece ikisi de 8192 pikselin altına düşer.</string>
     <string name="squeezer_estimated_savings_format">~%s tasarruf</string>
     <string name="squeezer_no_savings_expected">Sınırlı tasarruf</string>
     <string name="squeezer_current_size_format">Boyut: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid bu dosyayı zaten sıkıştırdı. Tekrar sıkıştırmak kalite kaybettiriyor ve çok az tasarruf sağlıyor.</string>
     <string name="squeezer_markers_hdr_depth_description">Bu fotoğrafta sıkıştırmanın saklayamayacağı HDR veya derinlik verisi vardır. Bir HDR fotoğrafı normal bir fotoğraf olarak geri gelir ve portre fotoğrafı arka plan bulanıklığı için kullanılan derinlik verisini kaybeder.</string>
     <string name="squeezer_markers_motion_photo_description">Bu bir Motion Photo\'dur. Sıkıştırma sabit görüntüyü saklar ve video klibini kaldırır.</string>
-    <string name="squeezer_markers_downscaled_description">Bu fotoğraf 8192 pikselden daha geniş veya daha yüksektir. Sıkıştırma ayrıca çözünürlüğünü yarıya indirir.</string>
+    <string name="squeezer_markers_downscaled_description">Bu fotoğrafın genişliği veya yüksekliği 8192 piksel ya da daha fazla. Sıkıştırma genişliğini ve yüksekliğini yarıya indirir, gerekirse bunu bir kez daha yapar. Böylece ikisi de 8192 pikselin altına düşer.</string>
     <string name="squeezer_compress_action">Sıkıştır</string>
     <string name="squeezer_compress_all_action">Tümünü sıkıştır</string>
     <string name="squeezer_preview_dialog_title">Sıkıştırmayı onayla</string>

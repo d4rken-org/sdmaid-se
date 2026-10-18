@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Aðgerðinni var hætt vegna þess að skjárinn varð ótiltækur (t.d. skjár slökktur eða lásskjár virkur).</string>
     <string name="automation_error_compatibility_title">Samhæfni sjálfvirkni</string>
     <string name="automation_error_compatibility_body">SD Maid gat ekki greint skipulag skjásins. Ef þetta gerist áfram gæti tungumálið þitt eða uppsetning ekki verið fullstudd. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
+    <string name="automation_error_compatibility_adb_hint">Með ADB-aðgang uppsettan getur SD Maid gert flest af þessu án aðgengisþjónustunnar.</string>
     <string name="automation_error_timeout_title">Tímamörk sjálfvirkni</string>
     <string name="automation_error_timeout_body">SD Maid lauk ekki öllum skrefum innan tímamarka. Ef þetta gerist áfram gæti þurft að aðlaga forritið að tækinu þínu. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
     <string name="automation_error_overlay_title">Sjálfvirkniyfirlögn</string>

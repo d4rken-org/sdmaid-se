@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operasi dibatalkan karena layar tidak tersedia (misalnya layar mati atau layar kunci aktif).</string>
     <string name="automation_error_compatibility_title">Kompatibilitas otomasi</string>
     <string name="automation_error_compatibility_body">SD Maid tidak bisa mengetahui tata letak layar. Jika ini terus terjadi, bahasa atau pengaturan Anda mungkin belum sepenuhnya didukung. Periksa pembaruan atau hubungi saya agar saya bisa memperbaikinya.</string>
+    <string name="automation_error_compatibility_adb_hint">Dengan akses ADB yang sudah diatur, SD Maid dapat melakukan sebagian besar tugas ini tanpa layanan aksesibilitas.</string>
     <string name="automation_error_timeout_title">Timeout otomasi</string>
     <string name="automation_error_timeout_body">SD Maid tidak menyelesaikan semua langkah dalam batas waktu. Jika ini terus terjadi, saya mungkin perlu menyesuaikan aplikasi untuk perangkat Anda. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
     <string name="automation_error_overlay_title">Overlay otomasi</string>

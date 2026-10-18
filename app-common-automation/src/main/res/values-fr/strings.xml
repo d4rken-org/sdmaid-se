@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">L’opération a été interrompue, car l’écran est devenu inaccessible (p. ex. éteint ou verrouillé).</string>
     <string name="automation_error_compatibility_title">Compatibilité avec l’automatisation</string>
     <string name="automation_error_compatibility_body">SD Maid n’a pas réussi à déterminer l’agencement de l’écran. Si cela se produit régulièrement, il se peut que votre langue ou votre configuration ne soit pas entièrement prise en charge. Cherchez des mises à jour ou contactez-moi afin que je corrige la situation.</string>
+    <string name="automation_error_compatibility_adb_hint">Avec l’accès ADB configuré, SD Maid peut faire la plupart de ces tâches sans le service d’accessibilité.</string>
     <string name="automation_error_timeout_title">Expiration de l’automatisation</string>
     <string name="automation_error_timeout_body">SD Maid n’a pas effectué toutes les étapes dans le temps imparti. Si cela se reproduit, je devrais peut-être modifier l’appli pour votre appareil. Cherchez des mises à jour ou contactez-moi pour que je corrige la situation.</string>
     <string name="automation_error_overlay_title">Surcouche d’automatisation</string>

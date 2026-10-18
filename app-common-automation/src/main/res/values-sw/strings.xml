@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Shughuli ilighairiwa kwa sababu skrini haikupatikana (k.m. onyesho kimezimwa au skrini ya kufunga imewashwa).</string>
     <string name="automation_error_compatibility_title">Ulinganifu wa uotomatishaji</string>
     <string name="automation_error_compatibility_body">SD Maid haikuweza kutambua mpangilio wa skrini. Ikiwa hii inaendelea kutokea, lugha au usanidi wako huwenda hautegemezwi kikamilifu. Angalia masasisho au niwasiliane nami ili niweze kurekebisha.</string>
+    <string name="automation_error_compatibility_adb_hint">Ukiwa umeweka ufikiaji wa ADB, SD Maid inaweza kufanya mengi ya haya bila huduma ya ufikiaji.</string>
     <string name="automation_error_timeout_title">Muda wa uotomatishaji umeisha</string>
     <string name="automation_error_timeout_body">SD Maid haikukamilisha hatua zote ndani ya muda uliowekwa. Ikiwa hii inaendelea kutokea, huenda ninahitaji kurekebishia programu kwa kifaa chako. Angalia masasisho au niwasiliane nami ili niweze kurekebisha.</string>
     <string name="automation_error_overlay_title">Uwekaji wa uotomatishaji</string>

@@ -61,6 +61,12 @@
         <item quantity="many">%d пропущено (защищено)</item>
         <item quantity="other">%d пропущено (защищено)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d без изменений (не стало меньше)</item>
+        <item quantity="few">%d без изменений (не стало меньше)</item>
+        <item quantity="many">%d без изменений (не стало меньше)</item>
+        <item quantity="other">%d без изменений (не стало меньше)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d элемент выбран</item>
         <item quantity="few">%d элем. выбрано</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Сжимать Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Включить Motion Photos. Сжатие сохраняет неподвижное изображение и удаляет видеоклип.</string>
     <string name="squeezer_include_oversized_title">Сжимать очень большие фотографии</string>
-    <string name="squeezer_include_oversized_description">Включить фотографии шире или выше 8192 пикселей. Сжатие также уменьшает их разрешение вдвое.</string>
+    <string name="squeezer_include_oversized_description">Включать фото, ширина или высота которых составляет 8192 пикселя или больше. Сжатие уменьшает ширину и высоту вдвое, а при необходимости ещё раз вдвое, пока обе величины не станут меньше 8192 пикселей.</string>
     <string name="squeezer_estimated_savings_format">~%s экономия</string>
     <string name="squeezer_no_savings_expected">Ограниченная экономия</string>
     <string name="squeezer_current_size_format">Размер: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid уже сжал этот файл. Повторное сжатие ухудшает качество и даёт мало экономии.</string>
     <string name="squeezer_markers_hdr_depth_description">Эта фотография содержит данные HDR или глубины, которые сжатие не может сохранить. Фотография HDR становится обычной, а портретная фотография теряет данные глубины, используемые для размытия фона.</string>
     <string name="squeezer_markers_motion_photo_description">Это Motion Photo. Сжатие сохраняет неподвижное изображение и удаляет видеоклип.</string>
-    <string name="squeezer_markers_downscaled_description">Эта фотография шире или выше 8192 пикселей. Сжатие также уменьшает её разрешение вдвое.</string>
+    <string name="squeezer_markers_downscaled_description">Ширина или высота этого фото составляет 8192 пикселя или больше. Сжатие уменьшает его ширину и высоту вдвое, а при необходимости ещё раз вдвое, пока обе величины не станут меньше 8192 пикселей.</string>
     <string name="squeezer_compress_action">Сжатие</string>
     <string name="squeezer_compress_all_action">Сжать все</string>
     <string name="squeezer_preview_dialog_title">Подтвердите сжатие</string>

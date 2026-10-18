@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">ਡੈਲਟਾ</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s ਵਿੱਚ</string>
     <string name="stats_space_history_upgrade_title">ਪੂਰਾ ਇਤਿਹਾਸ ਇੱਕ Pro ਵਿਸ਼ੇਸ਼ਤਾ ਹੈ</string>
+    <string name="stats_space_history_upgrade_body_v3">ਹਰ ਸਟੋਰੇਜ ਡਿਵਾਈਸ ਲਈ 90 ਦਿਨਾਂ ਦਾ ਇਤਿਹਾਸ ਦੇਖਣ ਲਈ ਅੱਪਗ੍ਰੇਡ ਕਰੋ, ਜਾਂ ਜੇ ਤੁਸੀਂ ਇਸਨੂੰ ਲੰਮੇ ਸਮੇਂ ਲਈ ਰੱਖਦੇ ਹੋ ਤਾਂ ਇੱਕ ਸਾਲ ਤੱਕ, ਅਤੇ ਸਟੋਰੇਜ ਖ਼ਤਮ ਹੋਣ ਤੋਂ ਪਹਿਲਾਂ ਚੇਤਾਵਨੀ ਪ੍ਰਾਪਤ ਕਰੋ।</string>
     <string name="stats_space_history_marker_freed">%1$s ਮੁਕਤ ਕੀਤਾ</string>
     <string name="stats_storage_type_primary">ਮੁੱਖ ਸਟੋਰੇਜ</string>
     <string name="stats_storage_type_secondary">ਸੈਕੰਡਰੀ ਸਟੋਰੇਜ</string>

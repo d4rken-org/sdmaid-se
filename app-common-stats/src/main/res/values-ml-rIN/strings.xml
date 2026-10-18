@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">ഡെൽറ്റ</string>
     <string name="stats_space_history_delta_in_x">%2$s-ൽ %1$s</string>
     <string name="stats_space_history_upgrade_title">പൂർണ്ണ ചരിത്രം ഒരു Pro ഫീച്ചറാണ്</string>
+    <string name="stats_space_history_upgrade_body_v3">ഓരോ സ്റ്റോറേജ് ഉപകരണത്തിനും 90 ദിവസത്തെ ചരിത്രം കാണാൻ അപ്ഗ്രേഡ് ചെയ്യുക, അല്ലെങ്കിൽ കൂടുതൽ നാൾ സൂക്ഷിക്കുന്നെങ്കിൽ ഒരു വർഷം വരെ. സ്ഥലം തീരുന്നതിന് മുമ്പ് മുന്നറിയിപ്പും ലഭിക്കും.</string>
     <string name="stats_space_history_marker_freed">%1$s മോചിപ്പിച്ചു</string>
     <string name="stats_storage_type_primary">പ്രാഥമിക സ്റ്റോറേജ്</string>
     <string name="stats_storage_type_secondary">ദ്വിതീയ സ്റ്റോറേജ്</string>

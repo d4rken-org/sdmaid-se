@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">آپریشن منسوخ کر دیا گیا کیونکہ سکرین دستیاب نہیں ہو گئی (مثل ڈسپلے بند یا لاک سکرین فعال)۔</string>
     <string name="automation_error_compatibility_title">آٹومیشن کی موافقت</string>
     <string name="automation_error_compatibility_body">SD Maid سکرین لے آؤٹ سمجھ نہیں سکا۔ اگر یہ مسلسل ہوتا رہے، تو آپ کی زبان یا سیٹ اپ مکمل طور پر مدد شدہ نہیں ہو سکتا۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
+    <string name="automation_error_compatibility_adb_hint">ADB رسائی ترتیب دینے کے بعد، SD Maid ایکسیسبیلیٹی سروس کے بغیر بھی زیادہ تر یہ کام کر سکتا ہے۔</string>
     <string name="automation_error_timeout_title">آٹومیشن ٹائم آؤٹ</string>
     <string name="automation_error_timeout_body">SD Maid نے مقررہ وقت کی حد میں تمام مراحل مکمل نہیں کیے۔ اگر یہ مسلسل ہوتا رہے، تو مجھے آپ کے ڈیوائس کے لیے ایپ کو اڈجسٹ کرنے کی ضرورت ہو سکتی ہے۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
     <string name="automation_error_overlay_title">آٹومیشن اوورلے</string>

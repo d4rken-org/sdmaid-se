@@ -41,6 +41,10 @@
         <item quantity="one">%d saltatu da (babestuta)</item>
         <item quantity="other">%d saltatu dira (babestuta)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d aldatu gabe (ez da txikiagoa)</item>
+        <item quantity="other">%d aldatu gabe (ez dira txikiagoak)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elementu hautatuta</item>
         <item quantity="other">%d elementu hautatuta</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Konprimatu Motion Photo-ak</string>
     <string name="squeezer_include_motion_photos_description">Motion Photo-ak sartu. Konpresioak argazki finkoa mantentzen du eta bideo-klipa kentzen du.</string>
     <string name="squeezer_include_oversized_title">Konprimatu argazki oso handiak</string>
-    <string name="squeezer_include_oversized_description">8192 pixel baino zabalagoak edo altuagoak diren argazkiak sartu. Konpresioak, gainera, bereizmena erdira murrizten du.</string>
+    <string name="squeezer_include_oversized_description">Sartu 8192 pixel edo gehiagoko zabalera edo altuera duten argazkiak. Konpresioak zabalera eta altuera erdira murrizten ditu, eta beharrezkoa bada berriro erdira, biak 8192 pixel baino txikiagoak izan arte.</string>
     <string name="squeezer_estimated_savings_format">~%s aurrezpen</string>
     <string name="squeezer_no_savings_expected">Aurrezpen mugatua</string>
     <string name="squeezer_current_size_format">Tamaina: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid-ek jada konprimitu du fitxategi hau. Berriz konprimitzeak kalitatea galarazten du eta gutxi aurrezten du.</string>
     <string name="squeezer_markers_hdr_depth_description">Argazki honek HDR edo sakonera-datuak ditu, konpresioak mantendu ezin dituenak. HDR argazki bat arrunt bihurtzen da, eta erretratu-argazki batek atzeko planoaren lausotzean erabilitako sakonera-datua galtzen du.</string>
     <string name="squeezer_markers_motion_photo_description">Hau Motion Photo bat da. Konpresioak argazki finkoa mantentzen du eta bideo-klipa kentzen du.</string>
-    <string name="squeezer_markers_downscaled_description">Argazki hau 8192 pixel baino zabalagoa edo altuagoa da. Konpresioak, gainera, bere bereizmena erdira murrizten du.</string>
+    <string name="squeezer_markers_downscaled_description">Argazki honek 8192 pixel edo gehiagoko zabalera edo altuera du. Konpresioak zabalera eta altuera erdira murrizten ditu, eta beharrezkoa bada berriro erdira, biak 8192 pixel baino txikiagoak izan arte.</string>
     <string name="squeezer_compress_action">Konprimatu</string>
     <string name="squeezer_compress_all_action">Konprimatu guztiak</string>
     <string name="squeezer_preview_dialog_title">Berretsi konpresioa</string>

@@ -21,6 +21,7 @@ SD Maid ຈະສະແດງໃຫ້ເຫັນຢ່າງຊັດເຈນ
     <string name="automation_error_screen_unavailable_body">ການດຳເນີນງານຖືກຍົກເລີກເນື່ອງຈາກໜ້າຈອບໍ່ສາມາຖໃຊ້ງານໄດ້ (ເຊ່ນ: ໜ້າຈອດັບຫລືອ lockscreen ເປີດໃຊ້ງານ).</string>
     <string name="automation_error_compatibility_title">ຄວາມເຂ້າກັນໄດ້ຂອງການອັດຕະໂນມັດ</string>
     <string name="automation_error_compatibility_body">SD Maid ບໍ່ສາມາຖລະບຸຮູບແບບໜ້າຈອໄດ້. ຖ້ານີ້ຍັງເກີດຂຶ້ນ, ພາສາຫລືອການຕັ້ງຄ່າຂອງທ່ານອາດຍັງບໍ່ຮອງຮັບຍ່າງສົມບູນ. ກວດສອບການອັບເດດຫລືອຕິດຕໍ່ຂ້ອຍເພື່ອໃຫ້ຂ້ອຍສາມາຖແກ້ໄຂ.</string>
+    <string name="automation_error_compatibility_adb_hint">ເມື່ອຕັ້ງຄ່າການເຂົ້າເຖິງ ADB ແລ້ວ SD Maid ສາມາດເຮັດສ່ວນໃຫຍ່ຂອງວຽກນີ້ໄດ້ໂດຍບໍ່ຕ້ອງໃຊ້ບໍລິການການຊ່ວຍເຂົ້າເຖິງ.</string>
     <string name="automation_error_timeout_title">ໜມ້ເວລາການອັດຕະໂນມັດ</string>
     <string name="automation_error_timeout_body">SD Maid ບໍ່ສຳເລີດທຸກຂັ້ນຕອນພາຍໃນໄລຍະເວລາ. ຖ້ານີ້ຍັງເກີດຂຶ້ນ, ຂ້ອຍອາດຈຳເປັນຕ້ອງປັບແຕ່ງແອັບສຳຫລັບອຸປະກອນຂອງທ່ານ. ກວດສອບການອັບເດດຫລືອຕິດຕໍ່ຂ້ອຍເພື່ອໃຫ້ຂ້ອຍສາມາຖແກ້ໄຂ.</string>
     <string name="automation_error_overlay_title">ຊ່ອງຊ້ອນທັບການອັດຕະໂນມັດ</string>

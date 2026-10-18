@@ -61,6 +61,12 @@
         <item quantity="many">%d praleistų (apsaugotų)</item>
         <item quantity="other">%d praleistų (apsaugotų)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d nepakeistas (nemažesnis)</item>
+        <item quantity="few">%d nepakeisti (nemažesni)</item>
+        <item quantity="many">%d nepakeistų (nemažesnių)</item>
+        <item quantity="other">%d nepakeistų (nemažesnių)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elementas pasirinktas</item>
         <item quantity="few">%d elementai pasirinkti</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Suspausti judančias nuotraukas</string>
     <string name="squeezer_include_motion_photos_description">Įtraukti judančias nuotraukas. Suspaudimas išlaiko nejudantį vaizdą ir pašalina vaizdo klipą.</string>
     <string name="squeezer_include_oversized_title">Suspausti labai dideles nuotraukas</string>
-    <string name="squeezer_include_oversized_description">Įtraukti nuotraukas, kurios yra plačesnės arba aukštesnės nei 8192 pikseliai. Suspaudimas taip pat sumažina jų skyrą per pusę.</string>
+    <string name="squeezer_include_oversized_description">Įtraukti nuotraukas, kurių plotis arba aukštis yra 8192 pikseliai ar daugiau. Glaudinimas perpus sumažina jų plotį ir aukštį, o prireikus dar kartą perpus, kol abu matmenys tampa mažesni nei 8192 pikseliai.</string>
     <string name="squeezer_estimated_savings_format">~%s sutaupyta</string>
     <string name="squeezer_no_savings_expected">Ribotos sutaupymas</string>
     <string name="squeezer_current_size_format">Dydis: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid jau suspaudė šį failą. Jį suspaudus dar kartą pablogės kokybė ir sutaupys mažai.</string>
     <string name="squeezer_markers_hdr_depth_description">Ši nuotrauka turi HDR arba gylio duomenis, kuriuos suspaudimas negali palikti. HDR nuotrauka grąžinama kaip paprastoji, o portreto nuotrauka praranda gylio duomenis, naudotus fonui neryškinti.</string>
     <string name="squeezer_markers_motion_photo_description">Tai yra judanti nuotrauka. Suspaudimas išlaiko nejudantį vaizdą ir pašalina vaizdo klipą.</string>
-    <string name="squeezer_markers_downscaled_description">Ši nuotrauka yra platesnė arba aukštesnė nei 8192 pikseliai. Suspaudimas taip pat sumažina jos skyrą per pusę.</string>
+    <string name="squeezer_markers_downscaled_description">Ši nuotrauka yra 8192 pikselių pločio arba aukščio ar didesnė. Glaudinimas perpus sumažina jos plotį ir aukštį, o prireikus dar kartą perpus, kol abu matmenys tampa mažesni nei 8192 pikseliai.</string>
     <string name="squeezer_compress_action">Suglaudinti</string>
     <string name="squeezer_compress_all_action">Suglaudinti visus</string>
     <string name="squeezer_preview_dialog_title">Patvirtinti suglaudinimą</string>

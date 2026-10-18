@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Darbība tika pārtraukta, jo ekrāns kļuva nepieejams (piem., displejs izslēgts vai bloķēšanas ekrāns aktīvs).</string>
     <string name="automation_error_compatibility_title">Automātizācijas saderība</string>
     <string name="automation_error_compatibility_body">SD Maid nespēja noskaidrot ekrāna izklāstu. Ja tas turpinās, jūsu valoda vai iestatījumi, iespējams, netiek pilnībā atbalstīti. Pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to varētu novērst.</string>
+    <string name="automation_error_compatibility_adb_hint">Ja ADB piekļuve ir iestatīta, SD Maid var veikt lielāko daļu šo darbību bez pieejamības pakalpojuma.</string>
     <string name="automation_error_timeout_title">Automātizācijas noilgums</string>
     <string name="automation_error_timeout_body">SD Maid nepabeiga visus soļus noteiktajā laika limitā. Ja tas turpinās, iespējams, būs jāpielago lietotne jūsu ierīcei. Pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to varētu novērst.</string>
     <string name="automation_error_overlay_title">Automātizācijas pārklojums</string>

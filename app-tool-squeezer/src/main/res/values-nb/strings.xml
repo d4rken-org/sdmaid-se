@@ -41,6 +41,10 @@
         <item quantity="one">%d hoppet over (beskyttet)</item>
         <item quantity="other">%d hoppet over (beskyttet)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d uendret (ikke mindre)</item>
+        <item quantity="other">%d uendret (ikke mindre)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element valgt</item>
         <item quantity="other">%d elementer valgt</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Komprimer Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Inkluder Motion Photos. Komprimering beholder stillbildet og fjerner videoklippet.</string>
     <string name="squeezer_include_oversized_title">Komprimer veldig store bilder</string>
-    <string name="squeezer_include_oversized_description">Inkluder bilder bredere eller høyere enn 8192 piksler. Komprimering halverer også oppløsningen deres.</string>
+    <string name="squeezer_include_oversized_description">Ta med bilder som er 8192 piksler eller mer i bredde eller høyde. Komprimering halverer bredden og høyden, og halverer dem igjen ved behov, til begge er under 8192 piksler.</string>
     <string name="squeezer_estimated_savings_format">~%s besparelse</string>
     <string name="squeezer_no_savings_expected">Begrenset besparelse</string>
     <string name="squeezer_current_size_format">Størrelse: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid komprimerte allerede denne filen. Komprimering av den igjen koster kvalitet og sparer lite.</string>
     <string name="squeezer_markers_hdr_depth_description">Dette bildet har HDR- eller dybdedata som komprimering ikke kan beholde. Et HDR-bilde blir til et vanlig bilde, og et portrettbilde mister dybdedataene som brukes til bakgrunnsuskarpheten.</string>
     <string name="squeezer_markers_motion_photo_description">Dette er et Motion Photo. Komprimering beholder stillbildet og fjerner videoklippet.</string>
-    <string name="squeezer_markers_downscaled_description">Dette bildet er bredere eller høyere enn 8192 piksler. Komprimering halverer også oppløsningen.</string>
+    <string name="squeezer_markers_downscaled_description">Dette bildet er 8192 piksler eller mer i bredde eller høyde. Komprimering halverer bredden og høyden, og halverer dem igjen ved behov, til begge er under 8192 piksler.</string>
     <string name="squeezer_compress_action">Komprimer</string>
     <string name="squeezer_compress_all_action">Komprimer alle</string>
     <string name="squeezer_preview_dialog_title">Bekreft komprimering</string>

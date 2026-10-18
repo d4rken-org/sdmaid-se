@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">స్క్రీన్ అనుపలబ్ధం అవ్వడం వల్ల కార్యాచరణ రద్దు చేయబడింది (ఉదా. డిస్ప్లే ఆఫ్ లేదా లాక్‌స్క్రీన్ సక్రియం).</string>
     <string name="automation_error_compatibility_title">స్వయంచాలకత అనుకూలత</string>
     <string name="automation_error_compatibility_body">SD Maid స్క్రీన్ లేయౌట్‌ను అర్థం చేసుకోలేకపోయింది. ఇది సంభవిస్తే ఉండితే, మీ భాష లేదా సెటప్ పూర్తిగా సపోర్ట్ చేయబడకపోవచ్చు. అప్‌డేట్‌ల కోసం చూడండి లేదా నాకు తెలియజేయండి కాబట్టి నేను దానిని సరిచేయగలను.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB యాక్సెస్ సెటప్ చేసినప్పుడు, యాక్సెసిబిలిటీ సర్వీస్ లేకుండానే SD Maid ఇందులో చాలా వరకు చేయగలదు.</string>
     <string name="automation_error_timeout_title">స్వయంచాలకత సమయ మీరించింది</string>
     <string name="automation_error_timeout_body">SD Maid సమయ మర్యాదలో అన్ని దశలను పూర్తి చేయలేదు. ఇది సంభవిస్తే ఉండితే, నేను మీ పరికరం కోసం యాప్‌ను సరిచేయవలసివచ్చు. అప్‌డేట్‌ల కోసం చూడండి లేదా నాకు తెలియజేయండి కాబట్టి నేను దానిని సరిచేయగలను.</string>
     <string name="automation_error_overlay_title">స్వయంచాలకత ఓవర్‌లే</string>

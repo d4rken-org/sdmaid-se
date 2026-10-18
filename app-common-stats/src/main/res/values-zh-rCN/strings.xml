@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">变化量</string>
     <string name="stats_space_history_delta_in_x">%2$s 内 %1$s</string>
     <string name="stats_space_history_upgrade_title">完整历史记录是专业版功能</string>
+    <string name="stats_space_history_upgrade_body_v3">升级后可查看每个存储设备 90 天的历史记录(如保留更久,最长可达一年),并在空间用尽前收到警告。</string>
     <string name="stats_space_history_marker_freed">已释放 %1$s</string>
     <string name="stats_storage_type_primary">内部存储</string>
     <string name="stats_storage_type_secondary">外部存储</string>

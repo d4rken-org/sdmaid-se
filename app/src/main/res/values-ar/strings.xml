@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">حذف النتائج في كل الأدوات؟</string>
-    <string name="dashboard_hero_freeable_headline">%1$s يمكن تحريره</string>
-    <string name="dashboard_hero_freed_headline">%1$s محررة</string>
+    <string name="dashboard_delete_all_message">هل تريد حذف النتائج من جميع الأدوات؟</string>
+    <string name="dashboard_hero_freeable_headline">يمكن تحرير %1$s</string>
+    <string name="dashboard_hero_freed_headline">تم تحرير %1$s</string>
     <plurals name="dashboard_hero_freeable_x_items">
         <item quantity="zero">لا يمكن إزالة أي عناصر</item>
         <item quantity="one">يمكن إزالة %d عنصر</item>

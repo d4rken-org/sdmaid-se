@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">ข้ามไป %d รายการ (ป้องกัน)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">ไม่เปลี่ยนแปลง %d รายการ (ไม่เล็กลง)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">เลือกแล้ว %d รายการ</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">บีบอัด Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">รวม Motion Photos การบีบอัดเก็บรูปภาพนิ่งและลบคลิปวิดีโอ</string>
     <string name="squeezer_include_oversized_title">บีบอัดรูปถ่ายขนาดใหญ่มาก</string>
-    <string name="squeezer_include_oversized_description">รวมรูปภาพที่กว้างหรือสูงกว่า 8192 พิกเซล การบีบอัดยังลดความละเอียดของพวกเขาลงครึ่งหนึ่ง</string>
+    <string name="squeezer_include_oversized_description">รวมรูปภาพที่มีความกว้างหรือความสูง 8192 พิกเซลขึ้นไป การบีบอัดจะลดความกว้างและความสูงลงครึ่งหนึ่ง และลดอีกครั้งหากจำเป็น จนกว่าทั้งสองค่าจะต่ำกว่า 8192 พิกเซล</string>
     <string name="squeezer_estimated_savings_format">ประหยัด ~%s</string>
     <string name="squeezer_no_savings_expected">ประหยัดได้จำกัด</string>
     <string name="squeezer_current_size_format">ขนาด: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ได้บีบอัดไฟล์นี้แล้ว การบีบอัดอีกครั้งจะสูญเสียคุณภาพและประหยัดเพียงเล็กน้อย</string>
     <string name="squeezer_markers_hdr_depth_description">รูปภาพนี้มีข้อมูล HDR หรือ depth ที่การบีบอัดไม่สามารถเก็บได้ รูปภาพ HDR กลายเป็นรูปถ่ายปกติ และรูปภาพแนวตั้งสูญเสียข้อมูล depth ที่ใช้สำหรับการเบลอพื้นหลัง</string>
     <string name="squeezer_markers_motion_photo_description">นี่คือ Motion Photo การบีบอัดเก็บรูปภาพนิ่งและลบคลิปวิดีโอ</string>
-    <string name="squeezer_markers_downscaled_description">รูปภาพนี้กว้างหรือสูงกว่า 8192 พิกเซล การบีบอัดยังลดความละเอียดลงครึ่งหนึ่ง</string>
+    <string name="squeezer_markers_downscaled_description">รูปภาพนี้มีความกว้างหรือความสูง 8192 พิกเซลขึ้นไป การบีบอัดจะลดความกว้างและความสูงลงครึ่งหนึ่ง และลดอีกครั้งหากจำเป็น จนกว่าทั้งสองค่าจะต่ำกว่า 8192 พิกเซล</string>
     <string name="squeezer_compress_action">บีบอัด</string>
     <string name="squeezer_compress_all_action">บีบอัดทั้งหมด</string>
     <string name="squeezer_preview_dialog_title">ยืนยันการบีบอัด</string>

@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d件スキップ（保護対象）</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d 件は変化なし（小さくならず）</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d件のアイテムが選択されました</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photoを圧縮</string>
     <string name="squeezer_include_motion_photos_description">Motion Photoを対象に含めます。圧縮すると静止画は保持され、動画クリップは削除されます。</string>
     <string name="squeezer_include_oversized_title">非常に大きい写真を圧縮</string>
-    <string name="squeezer_include_oversized_description">幅または高さが8192ピクセルを超える写真を対象に含めます。圧縮により解像度も半分になります。</string>
+    <string name="squeezer_include_oversized_description">幅または高さが 8192 ピクセル以上の写真を含めます。圧縮では幅と高さが半分になり、必要に応じてさらに半分になります。どちらも 8192 ピクセル未満になるまで続きます。</string>
     <string name="squeezer_estimated_savings_format">約 %s 節約</string>
     <string name="squeezer_no_savings_expected">節約は限定的</string>
     <string name="squeezer_current_size_format">サイズ：%s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maidはこのファイルをすでに圧縮しています。再度圧縮すると画質が劣化するわりに、節約できる容量はわずかです。</string>
     <string name="squeezer_markers_hdr_depth_description">この写真にはHDRまたは深度データが含まれており、圧縮では保持できません。HDR写真は通常の写真になり、ポートレート写真は背景ぼかしに使われる深度データを失います。</string>
     <string name="squeezer_markers_motion_photo_description">これはMotion Photoです。圧縮すると静止画は保持され、動画クリップは削除されます。</string>
-    <string name="squeezer_markers_downscaled_description">この写真は幅または高さが8192ピクセルを超えています。圧縮により解像度も半分になります。</string>
+    <string name="squeezer_markers_downscaled_description">この写真は幅または高さが 8192 ピクセル以上です。圧縮では幅と高さが半分になり、必要に応じてさらに半分になります。どちらも 8192 ピクセル未満になるまで続きます。</string>
     <string name="squeezer_compress_action">圧縮</string>
     <string name="squeezer_compress_all_action">すべて圧縮</string>
     <string name="squeezer_preview_dialog_title">圧縮の確認</string>

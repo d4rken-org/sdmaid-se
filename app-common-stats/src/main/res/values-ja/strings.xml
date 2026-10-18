@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">差分</string>
     <string name="stats_space_history_delta_in_x">%2$s間の%1$s</string>
     <string name="stats_space_history_upgrade_title">全履歴はプロ機能です</string>
+    <string name="stats_space_history_upgrade_body_v3">アップグレードすると、ストレージデバイスごとに 90 日分の履歴を確認できます。長く保存している場合は最大 1 年分まで確認でき、空き容量が不足する前に警告を受け取れます。</string>
     <string name="stats_space_history_marker_freed">%1$s解放</string>
     <string name="stats_storage_type_primary">プライマリストレージ</string>
     <string name="stats_storage_type_secondary">セカンダリストレージ</string>

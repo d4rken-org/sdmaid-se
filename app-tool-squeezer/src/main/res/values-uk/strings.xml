@@ -61,6 +61,12 @@
         <item quantity="many">%d пропущено (захищено)</item>
         <item quantity="other">%d пропущено (захищено)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d без змін (розмір не зменшився)</item>
+        <item quantity="few">%d без змін (розмір не зменшився)</item>
+        <item quantity="many">%d без змін (розмір не зменшився)</item>
+        <item quantity="other">%d без змін (розмір не зменшився)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d елемент вибрано</item>
         <item quantity="few">%d елементи вибрано</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Стискати Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Включає Motion Photos. Стиснення зберігає нерухоме зображення та видаляє відеокліп.</string>
     <string name="squeezer_include_oversized_title">Стискати дуже великі фото</string>
-    <string name="squeezer_include_oversized_description">Включає фото, ширина або висота яких перевищує 8192 пікселі. Стиснення також зменшує їхню роздільну здатність удвічі.</string>
+    <string name="squeezer_include_oversized_description">Включати фото шириною або висотою 8192 пікселі чи більше. Стиснення зменшує їхню ширину та висоту вдвічі, а за потреби ще раз удвічі, доки обидва значення не стануть меншими за 8192 пікселі.</string>
     <string name="squeezer_estimated_savings_format">~%s заощадження</string>
     <string name="squeezer_no_savings_expected">Обмежені заощадження</string>
     <string name="squeezer_current_size_format">Розмір: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid вже стиснув цей файл. Повторне стиснення знижує якість і майже не економить місця.</string>
     <string name="squeezer_markers_hdr_depth_description">Це фото містить дані HDR або глибини, які стиснення не може зберегти. Фото HDR перетворюється на звичайне, а портретне фото втрачає дані глибини, що використовуються для розмиття фону.</string>
     <string name="squeezer_markers_motion_photo_description">Це Motion Photo. Стиснення зберігає нерухоме зображення та видаляє відеокліп.</string>
-    <string name="squeezer_markers_downscaled_description">Ширина або висота цього фото перевищує 8192 пікселі. Стиснення також зменшує його роздільну здатність удвічі.</string>
+    <string name="squeezer_markers_downscaled_description">Це фото має ширину або висоту 8192 пікселі чи більше. Стиснення зменшує його ширину та висоту вдвічі, а за потреби ще раз удвічі, доки обидва значення не стануть меншими за 8192 пікселі.</string>
     <string name="squeezer_compress_action">Стиснути</string>
     <string name="squeezer_compress_all_action">Стиснути все</string>
     <string name="squeezer_preview_dialog_title">Підтвердити стиснення</string>

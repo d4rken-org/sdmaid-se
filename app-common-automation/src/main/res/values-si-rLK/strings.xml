@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">තිරය ලබා ගත නොහැකි නිසා (උ.දා. තිරය අක්‍රිය වීම හෝ අගුළු තිරය සක්‍රිය වීම) මෙහදුම අවලංගු කරන ලදී.</string>
     <string name="automation_error_compatibility_title">ස්වයංක්‍රීයකරණ අනුකූලතාව</string>
     <string name="automation_error_compatibility_body">SD Maid හට තිර සැකැස්ම හ඾නා ගත නොහැකි විය. මෙය දිගටම සිදු වේනාවා නම්, ඔබේ භාෂාව හෝ සැකැස්ම සම්පූර්ණයෙන් සහාය නොදක්වනු ඇත. යාවත්කාලීනයක් සොයා බලන්න හෝ සකසු කල හැකි ලේස මා හා සම්බන්ද වන්න.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB ප්‍රවේශය සකසා ඇති විට, ප්‍රවේශ්‍යතා සේවාව නොමැතිව SD Maid මෙයින් බොහෝමයක් කළ හැක.</string>
     <string name="automation_error_timeout_title">ස්වයංක්‍රියකරණ කාලසමාප්ති</string>
     <string name="automation_error_timeout_body">SD Maid කාල සිමාව අතර සියලු පීසිරීම් සමාප්ත නොකැරීය. මෙය නිරන්තරව සිදු වෙම් නම්, මම ඔබේ පිකරණය සඳහා යෙදුම හරසාදනය කිරීමට සිදු වෙයි. යාවත්කාලීන බොන්න හෝ මම එය නිවැරදි කිරීමට මං කොඩාසන කරන්න.</string>
     <string name="automation_error_overlay_title">ස්වයංක්‍රියකරණ බහිරුවර</string>

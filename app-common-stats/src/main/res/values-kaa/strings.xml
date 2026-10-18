@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Дельта</string>
     <string name="stats_space_history_delta_in_x">%1$s ишинде %2$s</string>
     <string name="stats_space_history_upgrade_title">Толық тарийх Pro функциясы болып табылады</string>
+    <string name="stats_space_history_upgrade_body_v3">Hár bir saqlaw qurılması ushın 90 kúnlik tariyxtı kóriw ushın, yamasa uzaǵıraq saqlasań bir jılǵa shekem, jáne orın tawsılıp qalmastan aldın eskertiw alıw ushın jańalań.</string>
     <string name="stats_space_history_marker_freed">Босатылды %1$s</string>
     <string name="stats_storage_type_primary">Тийкарғы сақлау орны</string>
     <string name="stats_storage_type_secondary">Қосымша сақлау орны</string>

@@ -78,6 +78,7 @@
     <string name="stats_space_history_delta_label">الفارق</string>
     <string name="stats_space_history_delta_in_x">%1$s في %2$s</string>
     <string name="stats_space_history_upgrade_title">السجل الكامل ميزة Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">قم بالترقية لرؤية سجل 90 يومًا لكل جهاز تخزين، أو حتى عام إذا احتفظت به لفترة أطول، واحصل على تحذير قبل نفاد المساحة.</string>
     <string name="stats_space_history_marker_freed">تم تحرير %1$s</string>
     <string name="stats_storage_type_primary">التخزين الأساسي</string>
     <string name="stats_storage_type_secondary">التخزين الثانوي</string>

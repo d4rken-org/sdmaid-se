@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">স্ক্রীনটি অনুপলব্ধ হওয়ার কারণে অপারেশনটি বাতিল করা হয়েছে (যেমন ডিসপ্লে বন্ধ বা লকস্ক্রিন সক্রিয়)।</string>
     <string name="automation_error_compatibility_title">অটোমেশন সামঞ্জস্য</string>
     <string name="automation_error_compatibility_body">SD Maid স্ক্রিন লেআউটটি বুঝতে পারেনি। যদি এটি চলতে থাকে, তাহলে আপনার ভাষা বা সেটআপ সম্পূর্ণরূপে সমর্থিত নাও হতে পারে। আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
+    <string name="automation_error_compatibility_adb_hint">ADB অ্যাক্সেস সেট আপ করা থাকলে SD Maid অ্যাক্সেসিবিলিটি সার্ভিস ছাড়াই এর বেশিরভাগ কাজ করতে পারে।</string>
     <string name="automation_error_timeout_title">অটোমেশন টাইমআউট</string>
     <string name="automation_error_timeout_body">SD Maid নির্ধারিত সময়ের মধ্যে সব ধাপ সম্পন্ন করতে পারেনি। যদি এটি চলতে থাকে, তাহলে আপনার ডিভাইসের জন্য অ্যাপটি সামঞ্জস্য করতে হতে পারে। আপডেটের জন্য চেক করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
     <string name="automation_error_overlay_title">অটোমেশন ওভারলে</string>

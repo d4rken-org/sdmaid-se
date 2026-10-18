@@ -41,6 +41,10 @@
         <item quantity="one">%d liphuthelwe (kukongelwe)</item>
         <item quantity="other">%d liphuthelwe (kukongelwe)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d akushintshanga (akuncishisiwe)</item>
+        <item quantity="other">%d akushintshanga (akuncishisiwe)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d into ekhethiwe</item>
         <item quantity="other">%d izinto ezikhethiwe</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Kwelisa izithombe ze-Motion</string>
     <string name="squeezer_include_motion_photos_description">Faka izithombe ze-Motion. Isikweliso sugcina isithombe esimileyo futhi sisuluza ulwimi lovidiyo.</string>
     <string name="squeezer_include_oversized_title">Kwelisa izithombe ezikhulu kakhulu</string>
-    <string name="squeezer_include_oversized_description">Faka izithombe ezibanzi noma eziphakeme kunezinso 8192. Isikweliso nakho kwahlasela isigexe sokubonakalisa.</string>
+    <string name="squeezer_include_oversized_description">Faka izithombe ezinobubanzi noma ubude obungu-8192 pixels noma ngaphezulu. Ukucindezela kwehlisa ububanzi nobude bazo ngesigamu, futhi kuphinde kwehliswe ngesigamu uma kudingeka, kuze kube ububanzi nobude zombili buncane kuno-8192 pixels.</string>
     <string name="squeezer_estimated_savings_format">~%s ukonga</string>
     <string name="squeezer_no_savings_expected">Ukonga okulinganiselwe</string>
     <string name="squeezer_current_size_format">Usayizi: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">Inikhiwo ise-SD Maid ayikwelisile fayela eli. Ukuwelisa kabusha kumabuya inkalankala futhi kusiphakamisa kancane.</string>
     <string name="squeezer_markers_hdr_depth_description">Lesisithombe sine-HDR noma idatha yejuba okuthi isikweliso akukhula ukugcina. Isithombe se-HDR sibuyela njengejwayelekile, futhi isithombe somfanekiso siphulukane idatha yejuba esetshenziswayo ekubhideni kwengqondo yomhlaba.</string>
     <string name="squeezer_markers_motion_photo_description">Lesi isithombe se-Motion. Isikweliso sugcina isithombe esimileyo futhi sisuluza ulwimi lovidiyo.</string>
-    <string name="squeezer_markers_downscaled_description">Lesisithombe sibanzi noma siphakeme kunezinso 8192. Isikweliso nakho kwahlasela isigexe sokubonakalisa.</string>
+    <string name="squeezer_markers_downscaled_description">Lesi sithombe sinobubanzi noma ubude obungu-8192 pixels noma ngaphezulu. Ukucindezela kwehlisa ububanzi nobude baso ngesigamu, futhi kuphinde kwehliswe ngesigamu uma kudingeka, kuze kube ububanzi nobude zombili buncane kuno-8192 pixels.</string>
     <string name="squeezer_compress_action">Cindezela</string>
     <string name="squeezer_compress_all_action">Cindezela konke</string>
     <string name="squeezer_preview_dialog_title">Qinisekisa ukucindezela</string>

@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">화면을 볼 수 없게 되어 작업이 중단되었습니다(예: 디스플레이가 꺼져 있거나 잠금 화면이 활성화되어있음).</string>
     <string name="automation_error_compatibility_title">자동화 호환성</string>
     <string name="automation_error_compatibility_body">SD Maid가 화면 레이아웃을 파악할 수 없었습니다. 이 문제가 계속 발생하면 사용하시는 언어나 설정이 완전히 지원되지 않을 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB 접근을 설정하면 SD Maid가 접근성 서비스 없이도 대부분의 작업을 수행할 수 있습니다.</string>
     <string name="automation_error_timeout_title">자동화 시간 초과</string>
     <string name="automation_error_timeout_body">SD Maid가 시간 제한 내에 모든 단계를 완료하지 못했습니다. 이 문제가 계속 발생하면 사용자의 기기에 맞게 앱을 조정해야 할 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
     <string name="automation_error_overlay_title">자동화 오버레이</string>

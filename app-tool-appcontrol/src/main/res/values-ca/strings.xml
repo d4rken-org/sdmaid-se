@@ -130,7 +130,7 @@
     <string name="tour_appcontrol_sort_body">Ordeneu les aplicacions per nom, data d\'instal·lació, última actualització, mida o temps de pantalla. Toqueu la mateixa opció per invertir la direcció.</string>
     <string name="tour_appcontrol_app_row_body">Toqueu una aplicació per obrir els seus detalls i les accions disponibles. Premeu perllongadament per iniciar una selecció i utilitzar accions en bloc.</string>
     <string name="appcontrol_archive_unavailable_title">No es pot arxivar aquesta aplicació</string>
-    <string name="appcontrol_archive_unavailable_body">El botó d\'arxiu a la configuració del sistema d\'aquesta aplicació està desactivat, així que Android no l\'arxivarà.</string>
+    <string name="appcontrol_archive_unavailable_body">El botó Arxiva a la configuració del sistema d\'aquesta aplicació està desactivat, així que l\'Android no l\'arxivarà.</string>
     <string name="appcontrol_restore_unavailable_title">No es pot restaurar aquesta aplicació</string>
-    <string name="appcontrol_restore_unavailable_body">El botó de restauració a la configuració del sistema d\'aquesta aplicació està desactivat, així que Android no la restaurarà ara.</string>
+    <string name="appcontrol_restore_unavailable_body">El botó Restaura de la configuració del sistema d\'aquesta aplicació està desactivat, així que l\'Android no la restaurarà ara.</string>
 </resources>

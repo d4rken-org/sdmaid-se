@@ -41,6 +41,10 @@
         <item quantity="one">%d sleppt (verndað)</item>
         <item quantity="other">%d sleppt (verndað)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d óbreytt (ekki minni)</item>
+        <item quantity="other">%d óbreytt (ekki minni)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d atriði valið</item>
         <item quantity="other">%d atriðar valin</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Þjappa Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Taka með Motion Photos. Þjöppun heldur kyrrmyndinni og fjarlægir myndskeiðið.</string>
     <string name="squeezer_include_oversized_title">Þjappa mjög stórum myndum</string>
-    <string name="squeezer_include_oversized_description">Taka með myndir sem eru breiðari eða hærri en 8192 dílar. Þjöppun helmingar einnig upplausn þeirra.</string>
+    <string name="squeezer_include_oversized_description">Taka með myndir sem eru 8192 díla eða meira á breidd eða hæð. Þjöppun helmingar breidd þeirra og hæð, og helmingar þær aftur ef þörf krefur, þar til hvort tveggja er undir 8192 dílum.</string>
     <string name="squeezer_estimated_savings_format">~%s sparnaður</string>
     <string name="squeezer_no_savings_expected">Takmarkaður sparnaður</string>
     <string name="squeezer_current_size_format">Stærð: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid hefur þegar þjappað þessari skrá. Að þjappa henni aftur kostar gæði og sparar lítið.</string>
     <string name="squeezer_markers_hdr_depth_description">Þessi mynd hefur HDR- eða dýptargögn sem þjöppun getur ekki varðveitt. HDR-mynd verður að venjulegri mynd og andlitsmynd missir dýptargögnin sem notuð eru fyrir óskýrleika bakgrunns.</string>
     <string name="squeezer_markers_motion_photo_description">Þetta er Motion Photo. Þjöppun heldur kyrrmyndinni og fjarlægir myndskeiðið.</string>
-    <string name="squeezer_markers_downscaled_description">Þessi mynd er breiðari eða hærri en 8192 dílar. Þjöppun helmingar einnig upplausn hennar.</string>
+    <string name="squeezer_markers_downscaled_description">Þessi mynd er 8192 díla eða meiri á breidd eða hæð. Þjöppun helmingar breidd hennar og hæð, og helmingar þær aftur ef þörf krefur, þar til hvort tveggja er undir 8192 dílum.</string>
     <string name="squeezer_compress_action">Þjappa</string>
     <string name="squeezer_compress_all_action">Þjappa öllum</string>
     <string name="squeezer_preview_dialog_title">Staðfesta þjöppun</string>
