@@ -22,6 +22,18 @@
       }
     });
   });
+  const menu = document.querySelector('.language-menu');
+  if (menu) {
+    document.addEventListener('click', event => {
+      if (!menu.contains(event.target)) menu.open = false;
+    });
+    menu.addEventListener('keydown', event => {
+      if (event.key !== 'Escape' || !menu.open) return;
+      menu.open = false;
+      menu.querySelector('summary').focus();
+    });
+  }
+
   const syncHash = () => switches.forEach(link => { link.href = link.dataset.base + location.hash; });
   syncHash();
   window.addEventListener('hashchange', syncHash);
