@@ -2278,7 +2278,8 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     // A storage page whose list can scroll down one screen. At the top only the header and "App size" show;
     // scrolled down, the Cache row does. [cache] is read on every swap, [scrollsBack] = false keeps the page down,
     // [returnsShifted] brings the header back 100px higher than it started. The next [stuckForward] / [stuckBack]
-    // scrolls report success without moving.
+    // scrolls report success without moving. [onReturn] gets the count of returns to the top (the baseline peek's
+    // is 1). The [coverAt]th scroll down shows [cover] instead, as a window opening over the page.
     private inner class LargeStoragePage(
         var cache: String = "1.27 MB",
         var scrollsBack: Boolean = true,
@@ -2290,6 +2291,9 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         private var returns = 0
         var stuckForward = 0
         var stuckBack = 0
+        var onReturn: (Int) -> Unit = {}
+        var coverAt = 0
+        var cover: TestACSNodeInfo? = null
 
         private fun node(id: String?, text: String? = null, clickable: Boolean = false, rect: ACSNodeInfo.ScreenBounds? = null) =
             TestACSNodeInfo(
@@ -2309,6 +2313,10 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
             scrolls += action
             val moves = when (action) {
                 ACSNodeInfo.ACTION_SCROLL_FORWARD -> {
+                    if (scrolls.count { it == ACSNodeInfo.ACTION_SCROLL_FORWARD } == coverAt) {
+                        testHost.setWindowRoot(cover)
+                        return true
+                    }
                     if (!scrolledDown && stuckForward > 0) {
                         stuckForward--
                         return true
@@ -2328,7 +2336,10 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
             }
             if (moves) {
                 scrolledDown = !scrolledDown
-                if (!scrolledDown) returns++
+                if (!scrolledDown) {
+                    returns++
+                    onReturn(returns)
+                }
                 testHost.setWindowRoot(build())
             }
             return moves
@@ -2377,6 +2388,67 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         page.scrolledDown shouldBe false
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a Cache row below the fold that drops with the press is verified by an early peek`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        recordGlobalActions { page.cache = "0 B" }
+        testRoot = page.build()
+        val start = testScheduler.currentTime
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        // The baseline peek and one peek after the press, before the 16 polls (4s) would have run out.
+        page.scrolls.count { it == ACSNodeInfo.ACTION_SCROLL_FORWARD } shouldBe 2
+        (testScheduler.currentTime - start) shouldBeLessThan 5_000L
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a Cache row below the fold that drops after the early peek is verified by a second peek`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        // The row only reads empty once the early peek has scrolled back.
+        page.onReturn = { if (it == 2) page.cache = "0 B" }
+        recordGlobalActions { }
+        testRoot = page.build()
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        page.scrolledDown shouldBe false
+        page.scrolls.count { it == ACSNodeInfo.ACTION_SCROLL_FORWARD } shouldBe 3
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+    }
+
+    @Test
+    fun `a window the press opens during the early peek still gets one BACK`() = runTest {
+        setupAllowlistedDpad(this)
+        stubLargeSizes()
+        coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
+        val page = LargeStoragePage()
+        // The dialog only shows up under the early peek's first scroll down.
+        page.coverAt = 2
+        page.cover = deleteAppDataDialog()
+        recordGlobalActions(onBack = { testHost.setWindowRoot(page.build()) }) { }
+        testRoot = page.build()
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
     }
 
     @Test
@@ -2473,10 +2545,10 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         setupAllowlistedDpad(this)
         stubLargeSizes()
         val page = LargeStoragePage()
-        // StorageStats only catch up after the post-press peek, the row never updates.
+        // StorageStats only catch up after the second post-press peek, the row never updates.
         coEvery { cacheProvider.determineCache(any()) } answers {
             val peeks = page.scrolls.count { it == ACSNodeInfo.ACTION_SCROLL_FORWARD }
-            cacheOf(if (peeks >= 2) 0L else 1_269_760L)
+            cacheOf(if (peeks >= 3) 0L else 1_269_760L)
         }
         recordGlobalActions { }
         testRoot = page.build()
@@ -2529,22 +2601,22 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     }
 
     @Test
-    fun `the stats polls leave the peek time to read the row before the run's deadline`() = runTest {
+    fun `the polls after an early miss leave the second peek time to read the row before the run's deadline`() = runTest {
         setupAllowlistedDpad(this)
         stubLargeSizes()
         coEvery { cacheProvider.determineCache(any()) } returns cacheOf(1_269_760L)
         val page = LargeStoragePage()
-        recordGlobalActions { page.cache = "0 B" }
+        page.onReturn = { if (it == 2) page.cache = "0 B" }
+        recordGlobalActions { }
         testRoot = page.build()
-        val start = testScheduler.currentTime
 
-        // 11s left of the attempt, minus the 5.5s reserve, leaves the run 5.5s: too short for 16 polls (4s)
-        // after the baseline peek, the press and before the peek that verifies it.
-        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 11.seconds)
+        // 12s left of the attempt, minus the 5.5s reserve, leaves the run 6.5s: the rest of 16 polls (3.5s) after
+        // the early peek would push the second peek's read past it.
+        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 12.seconds)
 
         result shouldBe true
         page.scrolledDown shouldBe false
-        (testScheduler.currentTime - start) shouldBeLessThan 5_500L
+        page.scrolls.count { it == ACSNodeInfo.ACTION_SCROLL_FORWARD } shouldBe 3
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
     }
 
@@ -2583,11 +2655,11 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         testRoot = page.build()
         val start = testScheduler.currentTime
 
-        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 11.seconds)
+        val result = captureAndRunClearCacheAction(attemptDeadline = testScheduler.timeSource.markNow() + 10.5.seconds)
 
         result shouldBe true
-        // Past the run's 5.5s, so the deadline did cut it, and the page is back at the top anyway.
-        (testScheduler.currentTime - start) shouldBeGreaterThan 5_500L
+        // Past the run's 5s, so the deadline did cut the early peek, and the page is back at the top anyway.
+        (testScheduler.currentTime - start) shouldBeGreaterThan 5_000L
         page.scrolledDown shouldBe false
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
         verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }

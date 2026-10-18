@@ -52,6 +52,8 @@ private fun ACSNodeInfo.findStorageList(): ACSNodeInfo? = crawl().map { it.node 
 private fun ACSNodeInfo.findStorageHeader(): ACSNodeInfo? = crawl().map { it.node }
     .firstOrNull { it.viewIdResourceName == ENTITY_HEADER_CONTENT_ID }
 
+internal fun ACSNodeInfo.showsStorageList(): Boolean = crawl().any { it.node.viewIdResourceName == STORAGE_LIST_ID }
+
 /**
  * Scrolls the storage page forward until the Cache row shows, reads it, and scrolls back to the top.
  *
