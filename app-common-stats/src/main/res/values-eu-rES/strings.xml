@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s-tan</string>
     <string name="stats_space_history_upgrade_title">Historia osoa Pro ezaugarria da</string>
+    <string name="stats_space_history_upgrade_body_v3">Hobetu gailu bakoitzaren 90 eguneko historia ikusteko (edo urtebetekoa, luzaroago gordetzen baduzu), eta jaso abisua lekurik gabe gelditu aurretik.</string>
     <string name="stats_space_history_marker_freed">Askatuta %1$s</string>
     <string name="stats_storage_type_primary">Lehen mailako biltegiratzea</string>
     <string name="stats_storage_type_secondary">Bigarren mailako biltegiratzea</string>

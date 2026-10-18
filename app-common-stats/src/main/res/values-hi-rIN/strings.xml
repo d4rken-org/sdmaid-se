@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">डेल्टा</string>
     <string name="stats_space_history_delta_in_x">%1$s में %2$s</string>
     <string name="stats_space_history_upgrade_title">पूर्ण इतिहास एक Pro सुविधा है</string>
+    <string name="stats_space_history_upgrade_body_v3">हर स्टोरेज डिवाइस के लिए 90 दिनों का इतिहास देखने के लिए अपग्रेड करें, या अगर आप इतिहास ज़्यादा समय तक रखते हैं तो एक साल तक का, और जगह खत्म होने से पहले चेतावनी पाएँ।</string>
     <string name="stats_space_history_marker_freed">%1$s मुक्त किया</string>
     <string name="stats_storage_type_primary">प्रारंभिक संग्रहण</string>
     <string name="stats_storage_type_secondary">माध्यमिक संग्रहण</string>

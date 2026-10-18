@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">由于屏幕不可用（例如，息屏或锁屏状态）操作已终止。</string>
     <string name="automation_error_compatibility_title">自动操作兼容性</string>
     <string name="automation_error_compatibility_body">SD Maid 无法确定您的屏幕布局大小。 如果这种情况持续发生，可能是您的语言或系统设置不能完全支持。 请检查更新应用或联系我让我解决这个问题。</string>
+    <string name="automation_error_compatibility_adb_hint">设置好 ADB 权限后,SD Maid 无需无障碍服务即可完成其中大部分操作。</string>
     <string name="automation_error_timeout_title">自动操作超时</string>
     <string name="automation_error_timeout_body">SD Maid 未能在时间限制内完成所有步骤。 如果这种情况多次发生，开发者可能需要为您的设备调整应用程序。 检查应用更新或联系开发者，以便开发者能够修复它。</string>
     <string name="automation_error_overlay_title">自动操作叠加层</string>

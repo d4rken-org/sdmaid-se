@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Umsebenzi uyekisiwe ngoba isikrini asasatholakali (isib. isibonisi sivaliwe noma isikrini sokukhiya sisebenza).</string>
     <string name="automation_error_compatibility_title">Ukuhambisana kokuzenzelela</string>
     <string name="automation_error_compatibility_body">I-SD Maid ayikwazanga ukuqonda isakhiwo sesikrini. Uma lokhu kuqhubeka, ulimi noma ukusethwa kwakho kungase kungasekelwa ngokuphelele. Hlola izibuyekezo noma uxhumane nami ukuze ngikwazi ukukulungisa.</string>
+    <string name="automation_error_compatibility_adb_hint">Uma ukufinyelela kwe-ADB sekumisiwe, i-SD Maid ingenza iningi lalokhu ngaphandle kwesevisi yokufinyelela.</string>
     <string name="automation_error_timeout_title">Isikhathi sokuzenzelela siphelile</string>
     <string name="automation_error_timeout_body">I-SD Maid ayiqedanga zonke izinyathelo ngesikhathi esimisiwe. Uma lokhu kuqhubeka kwenzeka, kungase kudingeke ngilungise uhlelo kudivayisi yakho. Hlola izibuyekezo noma ungifinyelele ukuze ngikwazi ukukulungisa.</string>
     <string name="automation_error_overlay_title">Isembeso sokuzenzelela</string>
@@ -24,7 +25,7 @@
     <string name="automation_error_no_settings_title">Isikrini sezilungiselelo asitholakali</string>
     <string name="automation_error_no_settings_body">Le nhlelo yesistimu ayinaso isikrini sezilungiselelo. Ukusula i-cache ngensiza yokufinyelela akukwazeki. Yikhiphe ukuze usheshise ukusula i-cache.</string>
     <string name="automation_error_disabled_app_title">I-app ivaliwe</string>
-    <string name="automation_error_disabled_app_body">Idivayisi yakho ayingavuli isikrini sesetingi sezinhlelo ezivaliwe, ngakho i-cache ayikwazi ukusulelwa ngomsebenzi wokufika. Vula i-app, noma sebenzisa umuzi noma i-Shizuku/ADB esikhundleni.</string>
+    <string name="automation_error_disabled_app_body">Idivayisi yakho ayivuli isikrini sezilungiselelo sezinhlelo ezivaliwe, ngakho ukhashe alikwazi ukusulwa ngesevisi yokufinyelela. Vula uhlelo, noma sebenzisa ukufinyelela kwe-root noma kwe-ADB.</string>
     <string name="automation_error_interference_title">Isikrini sezithandathu sivaliwe</string>
     <string name="automation_error_interference_body">Enye iapp (%1$s) ibvimile isikrini yezithandathu zohlelo, ngakho I-SD Maid ayikwazi ukuqhubeka. Khubaza i-app-lock noma okuvikela isikrini salowa app zezithandathu zohlelo, bese uzama futhi.</string>
     <string name="automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>

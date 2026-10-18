@@ -41,6 +41,10 @@
         <item quantity="one">%d මඟහරින ලදී (ආරක්ෂිත)</item>
         <item quantity="other">%d මඟහරින ලදී (ආරක්ෂිත)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d වෙනස් නොවූ (කුඩා නොවූ)</item>
+        <item quantity="other">%d වෙනස් නොවූ (කුඩා නොවූ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d අයිතමය තෝරා ගන්නා ලදි</item>
         <item quantity="other">%d අයිතම තෝරා ගන්නා ලදි</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">චලන ඡායාරූප සම්පීඩනය කරන්න</string>
     <string name="squeezer_include_motion_photos_description">චලන ඡායාරූප ඇතුළත් කරන්න. සම්පීඩනය ස්ථාවර රූපය රඳවා තබා වීඩියෝ දිගුව ඉවත් කරයි.</string>
     <string name="squeezer_include_oversized_title">ඉතා විශාල ඡායාරූප සම්පීඩනය කරන්න</string>
-    <string name="squeezer_include_oversized_description">පික්සල 8192 ට වඩා පළල හෝ උස ඡායාරූප ඇතුළත් කරන්න. සම්පීඩනය ඒවායේ විභේදනය අඩකින් අඩු කරයි.</string>
+    <string name="squeezer_include_oversized_description">පළල හෝ උස පික්සල් 8192 හෝ ඊට වැඩි ඡායාරූප ඇතුළත් කරන්න. සම්පීඩනය ඒවායේ පළල සහ උස අඩකින් අඩු කරන අතර, දෙකම පික්සල් 8192ට අඩු වන තුරු අවශ්‍ය නම් නැවත අඩකින් අඩු කරයි.</string>
     <string name="squeezer_estimated_savings_format">~%s ඉතිරි</string>
     <string name="squeezer_no_savings_expected">සීමිත ඉතිරිකිරීම්</string>
     <string name="squeezer_current_size_format">ප්‍රමාණය: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid දැනටමත් මෙම ගොනුව සම්පීඩනය කර ඇත. එය නැවත සම්පීඩනය කිරීමෙන් ගුණාත්මකභාවය අඩුවන අතර ඉතිරි වන්නේ ස්වල්පයකි.</string>
     <string name="squeezer_markers_hdr_depth_description">මෙම ඡායාරූපයට සම්පීඩනයට රඳවා ගත නොහැකි HDR හෝ ගැඹුර දත්ත ඇත. HDR ඡායාරූපයක් සාමාන්‍ය ඡායාරූපයක් ලෙස ආපසු පැමිණෙන අතර, පෝට්‍රේට් ඡායාරූපයකට පසුබිම් අපැහැදිලි බව සඳහා භාවිත කරන ගැඹුර දත්ත අහිමි වේ.</string>
     <string name="squeezer_markers_motion_photo_description">මෙය චලන ඡායාරූපයකි. සම්පීඩනය ස්ථාවර රූපය රඳවා තබා වීඩියෝ දිගුව ඉවත් කරයි.</string>
-    <string name="squeezer_markers_downscaled_description">මෙම ඡායාරූපය පික්සල 8192 ට වඩා පළල හෝ උසින් වැඩිය. සම්පීඩනය එහි විභේදනය ද අඩකින් අඩු කරයි.</string>
+    <string name="squeezer_markers_downscaled_description">මෙම ඡායාරූපයේ පළල හෝ උස පික්සල් 8192 හෝ ඊට වැඩි ය. සම්පීඩනය එහි පළල සහ උස අඩකින් අඩු කරන අතර, දෙකම පික්සල් 8192ට අඩු වන තුරු අවශ්‍ය නම් නැවත අඩකින් අඩු කරයි.</string>
     <string name="squeezer_compress_action">සංකෝචනය කරන්න</string>
     <string name="squeezer_compress_all_action">සියල්ල සංකෝචනය කරන්න</string>
     <string name="squeezer_preview_dialog_title">සංකෝචනය තහවුරු කරන්න</string>

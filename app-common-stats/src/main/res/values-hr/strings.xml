@@ -60,6 +60,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s u %2$s</string>
     <string name="stats_space_history_upgrade_title">Potpuna povijest je Pro značajka</string>
+    <string name="stats_space_history_upgrade_body_v3">Nadogradite da biste vidjeli povijest od 90 dana za svaki uređaj za pohranu, ili do godinu dana ako je dulje čuvate, i dobili upozorenje prije nego što ostanete bez prostora.</string>
     <string name="stats_space_history_marker_freed">Oslobođeno %1$s</string>
     <string name="stats_storage_type_primary">Primarna pohrana</string>
     <string name="stats_storage_type_secondary">Sekundarna pohrana</string>

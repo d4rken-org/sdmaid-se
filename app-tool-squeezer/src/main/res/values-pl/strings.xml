@@ -61,6 +61,12 @@
         <item quantity="many">%d pominięto (chronione)</item>
         <item quantity="other">%d pominięto (chronione)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d bez zmian (nie zmniejszono)</item>
+        <item quantity="few">%d bez zmian (nie zmniejszono)</item>
+        <item quantity="many">%d bez zmian (nie zmniejszono)</item>
+        <item quantity="other">%d bez zmian (nie zmniejszono)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">wybrano %d element</item>
         <item quantity="few">wybrano %d elementy</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Kompresuj ruchome zdjęcia</string>
     <string name="squeezer_include_motion_photos_description">Dodaj ruchome zdjęcia. Kompresja powoduje zachowanie statycznego obrazu i usunięcie klipu wideo.</string>
     <string name="squeezer_include_oversized_title">Kompresuj bardzo duże zdjęcia</string>
-    <string name="squeezer_include_oversized_description">Uwzględnij zdjęcia szersze lub wyższe niż 8192 pikseli. Kompresja zmniejsza również ich rozdzielczość o połowę.</string>
+    <string name="squeezer_include_oversized_description">Uwzględnij zdjęcia o szerokości lub wysokości 8192 pikseli lub większej. Kompresja zmniejsza ich szerokość i wysokość o połowę, a w razie potrzeby jeszcze raz o połowę, aż oba wymiary będą mniejsze niż 8192 piksele.</string>
     <string name="squeezer_estimated_savings_format">~%s zaoszczędzone</string>
     <string name="squeezer_no_savings_expected">Ograniczone oszczędności</string>
     <string name="squeezer_current_size_format">Rozmiar: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid już skompresował ten plik. Ponowna kompresja obniża jakość i niewiele oszczędza.</string>
     <string name="squeezer_markers_hdr_depth_description">To zdjęcie zawiera dane HDR lub dane głębi, których kompresja nie jest w stanie zachować. Zdjęcie HDR jest przywracane jako normalne, a zdjęcie portretowe traci dane głębi używane do rozmycia tła.</string>
     <string name="squeezer_markers_motion_photo_description">To jest ruchome zdjęcie. Kompresja powoduje zachowanie statycznego obrazu i usunięcie klipu wideo.</string>
-    <string name="squeezer_markers_downscaled_description">To zdjęcie jest szersze lub wyższe niż 8192 pikseli. Kompresja zmniejsza również jego rozdzielczość o połowę.</string>
+    <string name="squeezer_markers_downscaled_description">To zdjęcie ma szerokość lub wysokość 8192 pikseli lub większą. Kompresja zmniejsza jego szerokość i wysokość o połowę, a w razie potrzeby jeszcze raz o połowę, aż oba wymiary będą mniejsze niż 8192 piksele.</string>
     <string name="squeezer_compress_action">Kompresuj</string>
     <string name="squeezer_compress_all_action">Kompresuj wszystko</string>
     <string name="squeezer_preview_dialog_title">Potwierdź kompresję</string>

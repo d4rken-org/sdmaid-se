@@ -21,6 +21,7 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     <string name="automation_error_screen_unavailable_body">Ang operasyon ay na-abort dahil naging hindi available ang screen (hal. display off o lockscreen active).</string>
     <string name="automation_error_compatibility_title">Pagkakatugma ng automation</string>
     <string name="automation_error_compatibility_body">Hindi na-figure out ng SD Maid ang screen layout. Kung patuloy itong mangyayari, maaaring hindi ganap na supported ang inyong wika o setup. Mag-check ng mga update o makipag-ugnayan sa akin para maayos ko ito.</string>
+    <string name="automation_error_compatibility_adb_hint">Kapag naka-set up ang ADB access, magagawa ng SD Maid ang karamihan nito nang walang accessibility service.</string>
     <string name="automation_error_timeout_title">Nag-timeout ang automation</string>
     <string name="automation_error_timeout_body">Hindi nakumpleto ng SD Maid ang lahat ng hakbang sa loob ng time limit. Kung patuloy itong mangyayari, maaaring kailangan kong mag-adjust ng app para sa inyong device. Mag-check ng mga update o makipag-ugnayan sa akin para maayos ko ito.</string>
     <string name="automation_error_overlay_title">Overlay ng automation</string>

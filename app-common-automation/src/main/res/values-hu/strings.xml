@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">A művelet megszakadt, mert a képernyő nem volt elérhető (pl. a kijelző kikapcsolt vagy a záróképernyő aktív).</string>
     <string name="automation_error_compatibility_title">Automatizálási kompatibilitás</string>
     <string name="automation_error_compatibility_body">Az SD Maid nem tudott rájönni a képernyő elrendezésére. Ha ez folyamatosan előfordul, akkor lehet, hogy a te nyelved vagy beállításod nem támogatott teljes mértékben. Ellenőrizd a frissítéseket, vagy keress meg engem, hogy megjavíthassam.</string>
+    <string name="automation_error_compatibility_adb_hint">Ha az ADB-hozzáférés be van állítva, az SD Maid a legtöbb műveletet a kisegítő szolgáltatás nélkül is el tudja végezni.</string>
     <string name="automation_error_timeout_title">Automatizálási időtúllépés</string>
     <string name="automation_error_timeout_body">Az SD Maid nem fejezett be minden lépést az időkorláton belül. Ha ez továbbra is előfordul, lehet, hogy módosítanom kell az alkalmazást az eszközéhez. Ellenőrizze a frissítéseket vagy lépjen kapcsolatba velem, hogy meg tudjam javítani.</string>
     <string name="automation_error_overlay_title">Automatizálási átfedés</string>

@@ -51,6 +51,11 @@
         <item quantity="two">%d דילוגים (מוגנים)</item>
         <item quantity="other">%d דילוגים (מוגנים)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ללא שינוי (לא קטן יותר)</item>
+        <item quantity="two">%d ללא שינוי (לא קטנים יותר)</item>
+        <item quantity="other">%d ללא שינוי (לא קטנים יותר)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d פריט נבחר</item>
         <item quantity="two">%d פריטים נבחרים</item>
@@ -82,7 +87,7 @@
     <string name="squeezer_include_motion_photos_title">דחיסת Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">כלול Motion Photos. הדחיסה שומרת את התמונה הקבועה ומסירה את קטע הווידאו.</string>
     <string name="squeezer_include_oversized_title">דחיסת תמונות גדולות מאוד</string>
-    <string name="squeezer_include_oversized_description">כלול תמונות שרוחבן או גובהן עולה על 8192 פיקסלים. הדחיסה גם מקטינה את הרזולוציה שלהן בחצי.</string>
+    <string name="squeezer_include_oversized_description">כלול תמונות ברוחב או בגובה של 8192 פיקסלים או יותר. הדחיסה מקטינה את הרוחב והגובה שלהן בחצי, ושוב בחצי אם צריך, עד ששניהם קטנים מ-8192 פיקסלים.</string>
     <string name="squeezer_estimated_savings_format">~%s חיסכון</string>
     <string name="squeezer_no_savings_expected">חיסכון מוגבל</string>
     <string name="squeezer_current_size_format">גודל: %s</string>
@@ -94,7 +99,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid כבר דחס את הקובץ הזה. דחיסה חוזרת פוגעת באיכות וחוסכת מעט.</string>
     <string name="squeezer_markers_hdr_depth_description">לתמונה הזו יש נתוני HDR או עומק שהדחיסה לא יכולה לשמור. תמונת HDR הופכת לתמונה רגילה, ותמונת פורטרט מאבדת את נתוני העומק שמשמשים לטשטוש הרקע.</string>
     <string name="squeezer_markers_motion_photo_description">זוהי Motion Photo. הדחיסה שומרת את התמונה הקבועה ומסירה את קטע הווידאו.</string>
-    <string name="squeezer_markers_downscaled_description">התמונה הזו רחבה או גבוהה מ-8192 פיקסלים. הדחיסה גם מקטינה את הרזולוציה שלה בחצי.</string>
+    <string name="squeezer_markers_downscaled_description">התמונה הזו ברוחב או בגובה של 8192 פיקסלים או יותר. הדחיסה מקטינה את הרוחב והגובה שלה בחצי, ושוב בחצי אם צריך, עד ששניהם קטנים מ-8192 פיקסלים.</string>
     <string name="squeezer_compress_action">דחוס</string>
     <string name="squeezer_compress_all_action">דחוס הכל</string>
     <string name="squeezer_preview_dialog_title">אשר דחיסה</string>

@@ -41,6 +41,10 @@
         <item quantity="one">%d தவிர்க்கப்பட்டது (பாதுகாக்கப்பட்டது)</item>
         <item quantity="other">%d தவிர்க்கப்பட்டன (பாதுகாக்கப்பட்டவை)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d மாறாதது (சிறியதாக இல்லை)</item>
+        <item quantity="other">%d மாறாதவை (சிறியதாக இல்லை)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d உருப்படி தேர்ந்தெடுக்கப்பட்டுள்ளது</item>
         <item quantity="other">%d உருப்படிகள் தேர்ந்தெடுக்கப்பட்டுள்ளன</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos ஐ சுருக்கு</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos ஐ சேர். சுருக்கம் நிலைப் படத்தை வைத்திருக்கும், வீடியோ கிளிப்பை அகற்றும்.</string>
     <string name="squeezer_include_oversized_title">மிகப் பெரிய புகைப்படங்களை சுருக்கு</string>
-    <string name="squeezer_include_oversized_description">8192 பிக்சல்களை விட அகலமான அல்லது உயரமான புகைப்படங்களை சேர். சுருக்கம் அவற்றின் தெளிவுத்திறனையும் பாதியாக் குறைக்கும்.</string>
+    <string name="squeezer_include_oversized_description">8192 பிக்சல்கள் அல்லது அதற்கு மேல் அகலமோ உயரமோ உள்ள புகைப்படங்களைச் சேர்க்கவும். சுருக்குதல் அவற்றின் அகலத்தையும் உயரத்தையும் பாதியாக்கும், தேவைப்பட்டால் மீண்டும் பாதியாக்கும், இரண்டும் 8192 பிக்சல்களுக்குக் கீழ் வரும் வரை.</string>
     <string name="squeezer_estimated_savings_format">~%s மிச்சம்</string>
     <string name="squeezer_no_savings_expected">வரையறுக்கப்பட்ட மிச்சம்</string>
     <string name="squeezer_current_size_format">அளவு: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ஏற்கனவே இந்த கோப்பை சுருக்கிவிட்டது. மீண்டும் சுருக்குவது தரத்தை இழக்கச் செய்யும், சிறிதளவே சேமிக்கும்.</string>
     <string name="squeezer_markers_hdr_depth_description">இந்த புகைப்படத்தில் சுருக்கத்தால் வைத்திருக்க முடியாத HDR அல்லது ஆழத் தரவு உள்ளது. ஒரு HDR புகைப்படம் சாதாரணமாக மாறும், மேலும் ஒரு போர்ட்ரைட் புகைப்படம் பின்னணி மங்கலுர்ப்புக்குப் பயன்படுத்தப்படும் ஆழத் தரவை இழக்கும்.</string>
     <string name="squeezer_markers_motion_photo_description">இது ஒரு Motion Photo. சுருக்கம் நிலைப் படத்தை வைத்திருக்கும், வீடியோ கிளிப்பை அகற்றும்.</string>
-    <string name="squeezer_markers_downscaled_description">இந்த புகைப்படம் 8192 பிக்சல்களை விட அகலாகவோ உயரமாகவோ உள்ளது. சுருக்கம் அதன் தெளிவுத்திறனையும் பாதியாக் குறைக்கும்.</string>
+    <string name="squeezer_markers_downscaled_description">இந்தப் புகைப்படம் 8192 பிக்சல்கள் அல்லது அதற்கு மேல் அகலமோ உயரமோ கொண்டது. சுருக்குதல் அதன் அகலத்தையும் உயரத்தையும் பாதியாக்கும், தேவைப்பட்டால் மீண்டும் பாதியாக்கும், இரண்டும் 8192 பிக்சல்களுக்குக் கீழ் வரும் வரை.</string>
     <string name="squeezer_compress_action">சுருக்கு</string>
     <string name="squeezer_compress_all_action">அனைத்தையும் சுருக்கு</string>
     <string name="squeezer_preview_dialog_title">சுருக்கத்தை உறுதிப்படுத்து</string>

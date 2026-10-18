@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Die bewerking is gestaak omdat die skerm onbeskikbaar geword het (bv. vertoon af of slotskerm aktief).</string>
     <string name="automation_error_compatibility_title">Outomatisering versoenbaar</string>
     <string name="automation_error_compatibility_body">SD Maid kon nie die skerm uitleg uitvind nie. As dit aanhou gebeur, is jou taal of opstelling dalk nie ten volle ondersteun nie. Kyk vir opdaterings of kontak my sodat ek dit kan regmaak.</string>
+    <string name="automation_error_compatibility_adb_hint">Met ADB-toegang ingestel, kan SD Maid die meeste hiervan doen sonder die toeganklikheidsdiens.</string>
     <string name="automation_error_timeout_title">Outomatisering tyduitloop</string>
     <string name="automation_error_timeout_body">SD Maid het nie alle stappe binne die tydlimiet voltooi nie. As dit aanhou gebeur, moet ek dalk die toepassing vir jou toestel aanpas. Kyk vir opdaterings of kontak my sodat ek dit kan regmaak.</string>
     <string name="automation_error_overlay_title">Outomatisering oorlegger</string>

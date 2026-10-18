@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">L\'operació s\'ha cancel·lat perquè la pantalla no estava disponible (p. ex. pantalla apagada o pantalla de bloqueig activa).</string>
     <string name="automation_error_compatibility_title">Compatibilitat d\'automatització</string>
     <string name="automation_error_compatibility_body">L\'SD Maid no ha pogut esbrinar la disposició de la pantalla. Si això continua passant, és possible que el vostre idioma o configuració no siguin totalment compatibles. Comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi per poder solucionar-ho.</string>
+    <string name="automation_error_compatibility_adb_hint">Amb l\'accés ADB configurat, l\'SD Maid pot fer la major part d\'això sense el servei d\'accessibilitat.</string>
     <string name="automation_error_timeout_title">Temps d\'espera d\'automatització</string>
     <string name="automation_error_timeout_body">L\'SD Maid no ha completat tots els passos dins del límit de temps. Si això continua passant, potser hauré d\'ajustar l\'aplicació per al vostre dispositiu. Comproveu si hi ha actualitzacions o contacteu amb mi perquè ho pugui solucionar.</string>
     <string name="automation_error_overlay_title">Superposició d\'automatització</string>

@@ -60,6 +60,7 @@
     <string name="stats_space_history_delta_label">דלתא</string>
     <string name="stats_space_history_delta_in_x">%1$s ב-%2$s</string>
     <string name="stats_space_history_upgrade_title">היסטוריה מלאה היא תכונת Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">שדרג כדי לראות היסטוריה של 90 יום לכל התקן אחסון, או עד שנה אם אתה שומר אותה זמן רב יותר, וקבל אזהרה לפני שיגמר לך המקום.</string>
     <string name="stats_space_history_marker_freed">שוחרר %1$s</string>
     <string name="stats_storage_type_primary">אחסון ראשי</string>
     <string name="stats_storage_type_secondary">אחסון משני</string>

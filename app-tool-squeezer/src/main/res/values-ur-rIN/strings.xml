@@ -41,6 +41,10 @@
         <item quantity="one">%d چھوڑ دیا گیا (محفوظ)</item>
         <item quantity="other">%d چھوڑ دیے گئے (محفوظ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d غیر تبدیل شدہ (چھوٹا نہیں)</item>
+        <item quantity="other">%d غیر تبدیل شدہ (چھوٹا نہیں)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d آئٹم منتخب</item>
         <item quantity="other">%d آئٹمز منتخب</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos کو کمپریس کریں</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos شامل کریں۔ کمپریشن اسٹل تصویر کو محفوظ رکھتا ہے اور ویڈیو کلپ کو ہٹا دیتا ہے۔</string>
     <string name="squeezer_include_oversized_title">بہت بڑی تصویروں کو کمپریس کریں</string>
-    <string name="squeezer_include_oversized_description">8192 پکسل سے زیادہ چوڑی یا لمبی تصویریں شامل کریں۔ کمپریشن ان کی ریزولوشن کو بھی آدھا کر دیتا ہے۔</string>
+    <string name="squeezer_include_oversized_description">8192 پکسل یا اس سے زیادہ چوڑی یا لمبی تصاویر شامل کریں۔ کمپریشن ان کی چوڑائی اور اونچائی کو آدھا کرتا ہے، اور ضرورت ہو تو دوبارہ آدھا کرتا ہے، جب تک دونوں 8192 پکسل سے کم نہ ہو جائیں۔</string>
     <string name="squeezer_estimated_savings_format">~%s بچت</string>
     <string name="squeezer_no_savings_expected">محدود بچت</string>
     <string name="squeezer_current_size_format">سائز: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid نے اس فائل کو پہلے سے کمپریس کر دیا ہے۔ اسے دوبارہ کمپریس کرنے سے معیار خراب ہوتا ہے اور بہت کم بچت ہوتی ہے۔</string>
     <string name="squeezer_markers_hdr_depth_description">اس تصویر میں HDR یا depth ڈیٹا ہے جو کمپریشن نہیں رکھ سکتا۔ ایک HDR تصویر عام تصویر کے طور پر واپس آتی ہے، اور ایک پورٹریٹ تصویر background blur کے لیے استعمال ہونے والا depth ڈیٹا کھو دیتی ہے۔</string>
     <string name="squeezer_markers_motion_photo_description">یہ ایک Motion Photo ہے۔ کمپریشن اسٹل تصویر کو محفوظ رکھتا ہے اور ویڈیو کلپ کو ہٹا دیتا ہے۔</string>
-    <string name="squeezer_markers_downscaled_description">یہ تصویر 8192 پکسل سے زیادہ چوڑی یا لمبی ہے۔ کمپریشن اس کی ریزولوشن کو بھی آدھا کر دیتا ہے۔</string>
+    <string name="squeezer_markers_downscaled_description">یہ تصویر 8192 پکسل یا اس سے زیادہ چوڑی یا لمبی ہے۔ کمپریشن اس کی چوڑائی اور اونچائی کو آدھا کرتا ہے، اور ضرورت ہو تو دوبارہ آدھا کرتا ہے، جب تک دونوں 8192 پکسل سے کم نہ ہو جائیں۔</string>
     <string name="squeezer_compress_action">کمپریس کریں</string>
     <string name="squeezer_compress_all_action">سب کمپریس کریں</string>
     <string name="squeezer_preview_dialog_title">کمپریشن کی تصدیق</string>

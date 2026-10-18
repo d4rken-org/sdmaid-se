@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Ámeliyat toqtatıldı, sebebi ekran jetimsiz boldı (mısalı, ekran óshik yamasa bloklawshı ekran aktiv).</string>
     <string name="automation_error_compatibility_title">Avtomatlashtırıw sáykesligi</string>
     <string name="automation_error_compatibility_body">SD Maid ekran dúzilisin anıqlay almadı. Eger bul qayta-qayta bolıp tursa, siz paydalanıp atırǵan til yamasa sazlamalar tolıq qollanbawı múmkin. Jańalanıwlardı tekseriń yamasa maǵan xabar beriń, men bul máselen sheshiw.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB kiriwi ornatılǵan bolsa, SD Maid buniń kópshiligin qol jetimlilik xızmetisiz orınlay aladı.</string>
     <string name="automation_error_timeout_title">Avtomatlashtırıw waqıtı ótti</string>
     <string name="automation_error_timeout_body">SD Maid barlıq qádemlerdi belgilengen waqıt ishinde tamamlay almadı. Eger bul qayta-qayta bolıp tursa, men qosımshany qurılmańızǵa moslastırıwım kerek bolıwı múmkin. Jańalanıwlardı tekseriń yamasa maǵan xabar beriń, men bul máselen sheshiw.</string>
     <string name="automation_error_overlay_title">Avtomatlashtırıw qatlamı</string>

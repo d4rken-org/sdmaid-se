@@ -41,6 +41,10 @@
         <item quantity="one">%d elemento saltato (protetto)</item>
         <item quantity="other">%d elementi saltati (protetti)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d invariato (non più piccolo)</item>
+        <item quantity="other">%d invariati (non più piccoli)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elemento selezionato</item>
         <item quantity="other">%d elementi selezionati</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Comprimi le Motion Photo</string>
     <string name="squeezer_include_motion_photos_description">Include le Motion Photo. La compressione mantiene l’immagine statica e rimuove il video.</string>
     <string name="squeezer_include_oversized_title">Comprimi le foto molto grandi</string>
-    <string name="squeezer_include_oversized_description">Include le foto più larghe o più alte di 8192 pixel. La compressione ne dimezza anche la risoluzione.</string>
+    <string name="squeezer_include_oversized_description">Includi le foto larghe o alte 8192 pixel o più. La compressione dimezza larghezza e altezza, e le dimezza di nuovo se necessario, finché entrambe sono inferiori a 8192 pixel.</string>
     <string name="squeezer_estimated_savings_format">~%s di risparmio</string>
     <string name="squeezer_no_savings_expected">Risparmio limitato</string>
     <string name="squeezer_current_size_format">Dimensione: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ha già compresso questo file. Comprimerlo di nuovo comporta una perdita di qualità e fa risparmiare poco.</string>
     <string name="squeezer_markers_hdr_depth_description">Questa foto ha dati HDR o di profondità che la compressione non può mantenere. Una foto HDR diventa una foto normale, mentre una foto ritratto perde i dati di profondità usati per la sfocatura dello sfondo.</string>
     <string name="squeezer_markers_motion_photo_description">Questa è una Motion Photo. La compressione mantiene l’immagine statica e rimuove il video.</string>
-    <string name="squeezer_markers_downscaled_description">Questa foto è più larga o più alta di 8192 pixel. La compressione ne dimezza anche la risoluzione.</string>
+    <string name="squeezer_markers_downscaled_description">Questa foto è larga o alta 8192 pixel o più. La compressione ne dimezza larghezza e altezza, e le dimezza di nuovo se necessario, finché entrambe sono inferiori a 8192 pixel.</string>
     <string name="squeezer_compress_action">Comprimi</string>
     <string name="squeezer_compress_all_action">Comprimi tutto</string>
     <string name="squeezer_preview_dialog_title">Conferma compressione</string>

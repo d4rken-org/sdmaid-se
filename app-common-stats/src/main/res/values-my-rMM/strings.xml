@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">ကွာခြားချက်</string>
     <string name="stats_space_history_delta_in_x">%2$s အတွင်း %1$s</string>
     <string name="stats_space_history_upgrade_title">မှတ်တမ်းအပြည့်အစုံသည် Pro အင်္ဂါရပ်ဖြစ်သည်</string>
+    <string name="stats_space_history_upgrade_body_v3">သိုလှောင်ကိရိယာတစ်ခုစီအတွက် ရက် 90 အထိ မှတ်တမ်းကြည့်ရန် အဆင့်မြှင့်ပါ၊ သို့မဟုတ် ပိုကြာသိမ်းထားလိုပါက တစ်နှစ်အထိ ကြည့်နိုင်ပါသည်။ သိုလှောင်မှု ကုန်တော့မည့်အခါ သတိပေးချက် ရရှိမည်။</string>
     <string name="stats_space_history_marker_freed">%1$s လွတ်မြောက်ခဲ့သည်</string>
     <string name="stats_storage_type_primary">မူလသိုလှောင်မှု</string>
     <string name="stats_storage_type_secondary">ဒုတိယသိုလှောင်မှု</string>

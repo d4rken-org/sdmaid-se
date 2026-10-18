@@ -81,6 +81,14 @@
         <item quantity="many">تم تخطي %d ملفًا (محميًا)</item>
         <item quantity="other">تم تخطي %d ملف (محمي)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="zero">%d غير متغيّر (ليس أصغر)</item>
+        <item quantity="one">%d غير متغيّر (ليس أصغر)</item>
+        <item quantity="two">%d غير متغيّرين (ليسا أصغر)</item>
+        <item quantity="few">%d غير متغيّرة (ليست أصغر)</item>
+        <item quantity="many">%d غير متغيّرة (ليست أصغر)</item>
+        <item quantity="other">%d غير متغيّرة (ليست أصغر)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="zero">لم يتم تحديد أي عنصر</item>
         <item quantity="one">تم تحديد عنصر واحد</item>
@@ -115,7 +123,7 @@
     <string name="squeezer_include_motion_photos_title">ضغط صور Motion Photo</string>
     <string name="squeezer_include_motion_photos_description">تضمين صور Motion Photo. يحتفظ الضغط بالصورة الثابتة ويزيل مقطع الفيديو.</string>
     <string name="squeezer_include_oversized_title">ضغط الصور الكبيرة جدًا</string>
-    <string name="squeezer_include_oversized_description">تضمين الصور التي يتجاوز عرضها أو ارتفاعها 8192 بكسل. يقلل الضغط أيضًا من دقتها إلى النصف.</string>
+    <string name="squeezer_include_oversized_description">تضمين الصور التي يبلغ عرضها أو ارتفاعها 8192 بكسل أو أكثر. يقوم الضغط بتقليص العرض والارتفاع إلى النصف، ويقلصهما مرة أخرى إذا لزم الأمر، حتى يصبح كلاهما أقل من 8192 بكسل.</string>
     <string name="squeezer_estimated_savings_format">~%s توفير</string>
     <string name="squeezer_no_savings_expected">توفير محدود</string>
     <string name="squeezer_current_size_format">الحجم: %s</string>
@@ -127,7 +135,7 @@
     <string name="squeezer_markers_compressed_before_description">سبق لتطبيق SD Maid أن ضغط هذا الملف. إعادة ضغطه تُضعف الجودة ولا توفر سوى القليل من المساحة.</string>
     <string name="squeezer_markers_hdr_depth_description">تحتوي هذه الصورة على بيانات HDR أو بيانات عمق لا يمكن للضغط الاحتفاظ بها. تعود صورة HDR كصورة عادية، وتفقد الصورة الشخصية بيانات العمق المستخدمة في تمويه الخلفية.</string>
     <string name="squeezer_markers_motion_photo_description">هذه صورة Motion Photo. يحتفظ الضغط بالصورة الثابتة ويزيل مقطع الفيديو.</string>
-    <string name="squeezer_markers_downscaled_description">يتجاوز عرض هذه الصورة أو ارتفاعها 8192 بكسل. يقلل الضغط أيضًا من دقتها إلى النصف.</string>
+    <string name="squeezer_markers_downscaled_description">يبلغ عرض هذه الصورة أو ارتفاعها 8192 بكسل أو أكثر. يقوم الضغط بتقليص العرض والارتفاع إلى النصف، ويقلصهما مرة أخرى إذا لزم الأمر، حتى يصبح كلاهما أقل من 8192 بكسل.</string>
     <string name="squeezer_compress_action">ضغط</string>
     <string name="squeezer_compress_all_action">ضغط الكل</string>
     <string name="squeezer_preview_dialog_title">تأكيد الضغط</string>

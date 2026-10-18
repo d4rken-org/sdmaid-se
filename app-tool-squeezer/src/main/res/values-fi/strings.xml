@@ -41,6 +41,10 @@
         <item quantity="one">%d ohitettu (suojattu)</item>
         <item quantity="other">%d ohitettu (suojattu)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ei muuttunut (ei pienentynyt)</item>
+        <item quantity="other">%d ei muuttunut (ei pienentynyt)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d kohde valittu</item>
         <item quantity="other">%d kohdetta valittu</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Pakkaa Motion Photo -kuvat</string>
     <string name="squeezer_include_motion_photos_description">Sisällytä Motion Photo -kuvat. Pakkaus säilyttää still-kuvan ja poistaa videopätkän.</string>
     <string name="squeezer_include_oversized_title">Pakkaa erittäin suuret kuvat</string>
-    <string name="squeezer_include_oversized_description">Sisällytä kuvat, jotka ovat leveämpiä tai korkeampia kuin 8192 pikseliä. Pakkaus myös puolittaa niiden resoluution.</string>
+    <string name="squeezer_include_oversized_description">Sisällytä valokuvat, jotka ovat vähintään 8192 pikseliä leveitä tai korkeita. Pakkaus puolittaa niiden leveyden ja korkeuden ja tarvittaessa puolittaa ne uudelleen, kunnes molemmat ovat alle 8192 pikseliä.</string>
     <string name="squeezer_estimated_savings_format">~%s säästöä</string>
     <string name="squeezer_no_savings_expected">Rajallinen säästö</string>
     <string name="squeezer_current_size_format">Koko: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid on jo pakannut tämän tiedoston. Sen pakkaaminen uudelleen heikentää laatua ja säästää vain vähän tilaa.</string>
     <string name="squeezer_markers_hdr_depth_description">Tässä kuvassa on HDR- tai syvyystietoa, jota pakkaus ei voi säilyttää. HDR-kuvasta tulee tavallinen kuva, ja muotokuva menettää taustan sumennukseen käytetyn syvyystiedon.</string>
     <string name="squeezer_markers_motion_photo_description">Tämä on Motion Photo -kuva. Pakkaus säilyttää still-kuvan ja poistaa videopätkän.</string>
-    <string name="squeezer_markers_downscaled_description">Tämä kuva on leveämpi tai korkeampi kuin 8192 pikseliä. Pakkaus myös puolittaa sen resoluution.</string>
+    <string name="squeezer_markers_downscaled_description">Tämä valokuva on vähintään 8192 pikseliä leveä tai korkea. Pakkaus puolittaa sen leveyden ja korkeuden ja tarvittaessa puolittaa ne uudelleen, kunnes molemmat ovat alle 8192 pikseliä.</string>
     <string name="squeezer_compress_action">Pakkaa</string>
     <string name="squeezer_compress_all_action">Pakkaa kaikki</string>
     <string name="squeezer_preview_dialog_title">Vahvista pakkaus</string>

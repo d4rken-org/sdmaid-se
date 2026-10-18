@@ -41,6 +41,10 @@
         <item quantity="one">%d na-skip (protektado)</item>
         <item quantity="other">%d na-skip (protektado)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ang hindi nagbago (hindi lumiit)</item>
+        <item quantity="other">%d ang hindi nagbago (hindi lumiit)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item ang napili</item>
         <item quantity="other">%d mga item ang napili</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">I-compress ang Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Kasama ang Motion Photos. Ang compression ay nagsasayang ng still image at nag-aalis ng video clip.</string>
     <string name="squeezer_include_oversized_title">I-compress ang napakalalaking mga larawan</string>
-    <string name="squeezer_include_oversized_description">Kasama ang mga larawan na mas malawak o mas mataas kaysa 8192 pixels. Ang compression ay binubawasan din ang kanilang resolution ng kalahati.</string>
+    <string name="squeezer_include_oversized_description">Isama ang mga larawang may lapad o taas na 8192 pixel o higit pa. Hinahati ng compression sa kalahati ang lapad at taas ng mga ito, at hinahati ulit kung kinakailangan, hanggang sa pareho nang mas mababa sa 8192 pixel.</string>
     <string name="squeezer_estimated_savings_format">~%s na matitipid</string>
     <string name="squeezer_no_savings_expected">Limitadong matitipid</string>
     <string name="squeezer_current_size_format">Sukat: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">Ang SD Maid ay na-compress na ang file na ito. Ang pag-compress nito ulit ay nagkakahalaga ng kalidad at nagsasave ng kaunti.</string>
     <string name="squeezer_markers_hdr_depth_description">Ang larawan na ito ay may HDR o depth data na hindi maaaring panatilihin ng compression. Ang HDR photo ay bumabalik bilang normal na isa, at ang portrait photo ay nawawalan ng depth data na ginagamit para sa background blur.</string>
     <string name="squeezer_markers_motion_photo_description">Ito ay isang Motion Photo. Ang compression ay nagsasayang ng still image at nag-aalis ng video clip.</string>
-    <string name="squeezer_markers_downscaled_description">Ang larawan na ito ay mas malawak o mas mataas kaysa 8192 pixels. Ang compression ay binubawasan din ang resolution nito ng kalahati.</string>
+    <string name="squeezer_markers_downscaled_description">Ang larawang ito ay may lapad o taas na 8192 pixel o higit pa. Hinahati ng compression sa kalahati ang lapad at taas nito, at hinahati ulit kung kinakailangan, hanggang sa pareho nang mas mababa sa 8192 pixel.</string>
     <string name="squeezer_compress_action">I-compress</string>
     <string name="squeezer_compress_all_action">I-compress lahat</string>
     <string name="squeezer_preview_dialog_title">Kumpirmahin ang compression</string>

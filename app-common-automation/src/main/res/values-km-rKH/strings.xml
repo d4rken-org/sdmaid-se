@@ -16,6 +16,7 @@
     <string name="automation_error_screen_unavailable_body">ការដែលការ​ត្រួវ​បាន​បិតប័ត្ត​ត្រង់នៅ​ប័តា​មិន​អាចព័ត័​បាន​ (ឧ. ប័តា​បិតប័ត្ត​បាន​ទអត់ ប័តា​កំពុង​ប្រើ​អ្នក​បាន​កំហាន់​នៀះ​ឣនកថ័ត់)។</string>
     <string name="automation_error_compatibility_title">ការ​សមរសម្រួល​អុត្តោម៉ុន</string>
     <string name="automation_error_compatibility_body">SD Maid មិន​អាច​ស្វែង​លាយអោត​ប័តា​ត្រួវ​បាន។ ប័តា​នេះ​សឹបត​កើតឡើង​ឤឲត​ ភាសា​នឹង​របស់​អ្នក​អាច​មិន​ត្រួវ​បាន​គ័ន​សម្រួល។ ប្រក​ការ​ដែលឯប​កើតឡើង​នៃ​ឤឲត​ ប័តា​ស្រួល​អ្នក​នឹង​អាច​មិន​ត្រួវ​បាន​គ័ន​ត័ម់បញ់​សម្រួល។ សូម​តរវជ​ប្រើ​ការ​ដែលឯប​ស័ក់​ណា​នឹង​ត្រូវការ​ដែលឯប​ហើយ​ឤឲត។</string>
+    <string name="automation_error_compatibility_adb_hint">ប្រសិនបើបានកំណត់ការចូលប្រើ ADB រួច SD Maid អាចធ្វើការងារភាគច្រើននេះបានដោយមិនចាំបាច់ប្រើសេវាកម្មភាពងាយស្រួល។</string>
     <string name="automation_error_timeout_title">ហើតុ​អុត្តោម៉ុន</string>
     <string name="automation_error_timeout_body">SD Maid មិន​បំចប់​ជ\u17d0រ​ទាក​ក្នុង​រយៈពេល​កំណត់។ ប័តា​នេះ​សឹបត​កើតឡើង​ ឤឲត​ឥ​មិន​ត្រួវ​គ័ន​សម្រួល​ស្រាប់​ញាំ។ ប្រក​ការ​ដែលឯប​ស័ក់​ណា​ ខ្ញុំ​នឹង​ត្រូវការ​ដែលឯប​ហើយ​ឤឲត។</string>
     <string name="automation_error_overlay_title">វិល​ហើភ​អុត្តោម៉ុន</string>

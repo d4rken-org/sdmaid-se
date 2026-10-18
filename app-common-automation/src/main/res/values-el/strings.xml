@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Η λειτουργία ματαιώθηκε επειδή η οθόνη δεν ήταν διαθέσιμη (π.χ. απενεργοποιημένη οθόνη ή ενεργή οθόνη κλειδώματος).</string>
     <string name="automation_error_compatibility_title">Συμβατότητα αυτοματισμού</string>
     <string name="automation_error_compatibility_body">Το SD Maid δεν μπόρεσε να καταλάβει τη διάταξη της οθόνης. Αν αυτό συνεχίσει να συμβαίνει, η γλώσσα ή η ρύθμιση σας ενδέχεται να μην υποστηρίζονται πλήρως. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου ώστε να μπορώ να το διορθώσω.</string>
+    <string name="automation_error_compatibility_adb_hint">Με ρυθμισμένη την πρόσβαση ADB, το SD Maid μπορεί να κάνει τα περισσότερα από αυτά χωρίς την υπηρεσία προσβασιμότητας.</string>
     <string name="automation_error_timeout_title">Λήξη χρονικού ορίου αυτοματισμού</string>
     <string name="automation_error_timeout_body">Το SD Maid δεν ολοκλήρωσε όλα τα βήματα εντός του χρονικού ορίου. Εάν συνεχιστεί αυτό, ίσως χρειαστεί να προσαρμόσω την εφαρμογή για τη συσκευή σας. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
     <string name="automation_error_overlay_title">Επικάλυψη αυτοματισμού</string>

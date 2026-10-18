@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">تفاضل</string>
     <string name="stats_space_history_delta_in_x">%1$s در %2$s</string>
     <string name="stats_space_history_upgrade_title">تاریخچه کامل یک ویژگی Pro است</string>
+    <string name="stats_space_history_upgrade_body_v3">ارتقا برای مشاهده تاریخچه ۹۰ روزه هر دستگاه ذخیره‌سازی، یا تا یک سال در صورت نگه‌داری بیشتر، و دریافت هشدار پیش از پر شدن فضا.</string>
     <string name="stats_space_history_marker_freed">آزاد شده %1$s</string>
     <string name="stats_storage_type_primary">حافظه اصلی</string>
     <string name="stats_storage_type_secondary">حافظه ثانویه</string>

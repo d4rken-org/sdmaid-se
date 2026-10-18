@@ -41,6 +41,10 @@
         <item quantity="one">%d atlandı (qorunan)</item>
         <item quantity="other">%d atlandı (qorunan)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d dəyişməyib (daha kiçik deyil)</item>
+        <item quantity="other">%d dəyişməyib (daha kiçik deyil)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element seçildi</item>
         <item quantity="other">%d element seçildi</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photo-ları sıxışdır</string>
     <string name="squeezer_include_motion_photos_description">Motion Photo-ları daxil et. Sıxma sabit şəkli saxlayır və video klipi silir.</string>
     <string name="squeezer_include_oversized_title">Çox böyük fotoları sıxışdır</string>
-    <string name="squeezer_include_oversized_description">8192 pikseldən enli və ya hündür fotoları daxil et. Sıxma həmçinin onların ayırdetmə qabiliyyətini yarıya endirir.</string>
+    <string name="squeezer_include_oversized_description">Eni və ya hündürlüyü 8192 piksel və ya daha çox olan fotoşəkillər daxil edilir. Sıxma onların eni və hündürlüyünü yarıya endirir və lazım olduqda, hər ikisi 8192 pikseldən kiçik olana qədər yenidən yarıya endirir.</string>
     <string name="squeezer_estimated_savings_format">~%s qənaət</string>
     <string name="squeezer_no_savings_expected">Məhdud qənaət</string>
     <string name="squeezer_current_size_format">Ölçü: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid bu faylı artıq sıxışdırıb. Onu yenidən sıxışdırmaq keyfiyyətə zərər verir və çox az yer qazandırır.</string>
     <string name="squeezer_markers_hdr_depth_description">Bu fotoda sıxmanın saxlaya bilmədiyi HDR və ya dərinlik məlumatı var. HDR foto adi fotoya çevrilir, portret foto isə arxa fon bulanıqlığı üçün istifadə olunan dərinlik məlumatını itirir.</string>
     <string name="squeezer_markers_motion_photo_description">Bu bir Motion Photo-dur. Sıxma sabit şəkli saxlayır və video klipi silir.</string>
-    <string name="squeezer_markers_downscaled_description">Bu foto 8192 pikseldən enli və ya hündürdür. Sıxma həmçinin onun ayırdetmə qabiliyyətini yarıya endirir.</string>
+    <string name="squeezer_markers_downscaled_description">Bu fotoşəkil eni və ya hündürlüyü 8192 piksel və ya daha çox olan şəkildir. Sıxma onun eni və hündürlüyünü yarıya endirir və lazım olduqda, hər ikisi 8192 pikseldən kiçik olana qədər yenidən yarıya endirir.</string>
     <string name="squeezer_compress_action">Sıxışdır</string>
     <string name="squeezer_compress_all_action">Hamısını sıxışdır</string>
     <string name="squeezer_preview_dialog_title">Sıxışdırmanı təsdiqləyin</string>

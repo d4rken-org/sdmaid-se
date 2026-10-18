@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operasjonen ble avbrutt fordi skjermen ble utilgjengelig (f.eks. skjerm av eller låseskjerm aktiv).</string>
     <string name="automation_error_compatibility_title">Automatiseringskompatibilitet</string>
     <string name="automation_error_compatibility_body">SD Maid fant ikke ut av skjermoppsettet. Hvis dette fortsetter å skje, kan det hende at språket eller oppsettet ditt ikke støttes helt. Se etter oppdateringer eller kontakt meg så jeg kan fikse det.</string>
+    <string name="automation_error_compatibility_adb_hint">Med ADB-tilgang satt opp kan SD Maid gjøre mesteparten av dette uten tilgjengelighetstjenesten.</string>
     <string name="automation_error_timeout_title">Tidsavbrudd for automatisering</string>
     <string name="automation_error_timeout_body">SD Maid fullførte ikke alle stegene innen tidsfristen. Hvis dette fortsetter å skje, må jeg kanskje justere appen for enheten din. Se etter oppdateringer eller kontakt meg så jeg kan fikse det.</string>
     <string name="automation_error_overlay_title">Automatiseringsoverlegg</string>

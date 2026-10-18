@@ -66,6 +66,7 @@
     <string name="stats_space_history_delta_label">Дельта</string>
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Полная история — функция Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Обновление позволит видеть историю за 90 дней для каждого накопителя или до года, если хранить её дольше, и получать предупреждение до того, как закончится место.</string>
     <string name="stats_space_history_marker_freed">Освобождено %1$s</string>
     <string name="stats_storage_type_primary">Основное хранилище</string>
     <string name="stats_storage_type_secondary">Дополнительное хранилище</string>

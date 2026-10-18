@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operacioni u ndërpre sepse ekrani u bë i padisponueshëm (p.sh. ekrani i fikur ose ekrani i kyçur aktiv).</string>
     <string name="automation_error_compatibility_title">Përputhshmëria e automatizimit</string>
     <string name="automation_error_compatibility_body">SD Maid nuk mund të kuptonte strukturën e ekranit. Nëse kjo vazhdon të ndodhë, gjuha ose konfigurimi juaj mund të mos mbështetet plotësisht. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
+    <string name="automation_error_compatibility_adb_hint">Me qasje ADB të konfiguruar, SD Maid mund ta bëjë pjesën më të madhe të kësaj pa shërbimin e qasshmërisë.</string>
     <string name="automation_error_timeout_title">Koha e automatizimit mbaroi</string>
     <string name="automation_error_timeout_body">SD Maid nuk përfundoi të gjitha hapat brenda kufirit kohor. Nëse kjo vazhdon të ndodhë, mund të duhet të rregulloj aplikacionin për pajisjen tuaj. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
     <string name="automation_error_overlay_title">Mbivendosja e automatizimit</string>

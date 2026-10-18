@@ -41,6 +41,10 @@
         <item quantity="one">%d imerukwa (imelindwa)</item>
         <item quantity="other">%d zimerukwa (zimelindwa)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d haijabadilika (haikupungua)</item>
+        <item quantity="other">%d hazijabadilika (hazikupungua)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d kipande kimechaguliwa</item>
         <item quantity="other">%d vipande vimechaguliwa</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Banaa Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Jumuisha Motion Photos. Ubanaji huhifadhi picha tuli na kuondoa klipu ya video.</string>
     <string name="squeezer_include_oversized_title">Banaa picha kubwa mno</string>
-    <string name="squeezer_include_oversized_description">Jumuisha picha zenye upana au urefu zaidi ya pikseli 8192. Ubanaji pia hupunguza ubora wao kwa nusu.</string>
+    <string name="squeezer_include_oversized_description">Jumuisha picha zenye upana au urefu wa pikseli 8192 au zaidi. Kubana hupunguza upana na urefu wake kwa nusu, na kuipunguza tena kwa nusu ikihitajika, hadi vyote viwili viwe chini ya pikseli 8192.</string>
     <string name="squeezer_estimated_savings_format">~%s akiba</string>
     <string name="squeezer_no_savings_expected">Akiba ndogo</string>
     <string name="squeezer_current_size_format">Ukubwa: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid tayari imebana faili hii. Kuibana tena kunapoteza ubora na kuokoa kidogo.</string>
     <string name="squeezer_markers_hdr_depth_description">Picha hii ina data ya HDR au kina ambayo ubanaji hauwezi kuhifadhi. Picha ya HDR hurudi kuwa ya kawaida, na picha ya mtu hupoteza data ya kina inayotumika kwa ufifiaji wa mandhari ya nyuma.</string>
     <string name="squeezer_markers_motion_photo_description">Hii ni Motion Photo. Ubanaji huhifadhi picha tuli na kuondoa klipu ya video.</string>
-    <string name="squeezer_markers_downscaled_description">Picha hii ina upana au urefu zaidi ya pikseli 8192. Ubanaji pia hupunguza ubora wake kwa nusu.</string>
+    <string name="squeezer_markers_downscaled_description">Picha hii ina upana au urefu wa pikseli 8192 au zaidi. Kubana hupunguza upana na urefu wake kwa nusu, na kuipunguza tena kwa nusu ikihitajika, hadi vyote viwili viwe chini ya pikseli 8192.</string>
     <string name="squeezer_compress_action">Bana</string>
     <string name="squeezer_compress_all_action">Bana zote</string>
     <string name="squeezer_preview_dialog_title">Thibitisha kubana</string>

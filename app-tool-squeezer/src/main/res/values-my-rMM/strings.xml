@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d ကျော်လွန်ခွင့်ပြုသည် (ကာကွယ်ထားသည်)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">မပြောင်းလဲသော %d ခု (မသေးငယ်ပါ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d ခု ရွေးချယ်ထားသည်</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">ရုပ်ရှင်ဓာတ်ပုံများ ချုံ့ခြင်း</string>
     <string name="squeezer_include_motion_photos_description">ရုပ်ရှင်ဓာတ်ပုံများ ထည့်သွင်းပါ။ ချုံ့ခြင်းသည် ရပ်တည်နေသည့်ဓာတ်ပုံကို ထိန်းသိမ်းပြီး ဗီဒီယိုအပိုင်းကို ဖယ်ရှားသည်။</string>
     <string name="squeezer_include_oversized_title">အလွန်ကြီးမားသောဓာတ်ပုံများ ချုံ့ခြင်း</string>
-    <string name="squeezer_include_oversized_description">အနံ သို့မဟုတ်အမြင့် ၈၁၉၂ ပစ်ခဲလ်ထက်ကျော်သည့်ဓာတ်ပုံများ ထည့်သွင်းပါ။ ချုံ့ခြင်းသည်၎င်းတို့ရ ရေဖျန်စည်းမှုကို ထက်ဝက်ဖြစ်စေသည်။</string>
+    <string name="squeezer_include_oversized_description">အကျယ် သို့မဟုတ် အမြင့် 8192 ပစ်ဇယ် သို့မဟုတ် ထို့ထက်ကြီးသော ဓာတ်ပုံများကို ထည့်သွင်းပါ။ ချုံ့ခြင်းသည် အကျယ်နှင့် အမြင့်ကို တစ်ဝက်စီ လျှော့ပြီး၊ လိုအပ်ပါက နောက်တစ်ဝက်ထပ်လျှော့ကာ နှစ်ခုစလုံး 8192 ပစ်ဇယ်အောက် ရောက်သည်အထိ လုပ်ဆောင်သည်။</string>
     <string name="squeezer_estimated_savings_format">~%s သက်သာမှု</string>
     <string name="squeezer_no_savings_expected">သက်သာမှု နည်းပါးသည်</string>
     <string name="squeezer_current_size_format">အရွယ်အစား: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid သည် ဤဖိုင်ကို အရင်ပြီးသားချုံ့ထားသည်။ ပြန်လည်ချုံ့ခြင်းသည်အရည်အသွေးကိုဆုံးရှုံးစေကာ အနည်းငယ်သာကယ်တင်စေသည်။</string>
     <string name="squeezer_markers_hdr_depth_description">ဤဓာတ်ပုံတွင် HDR သို့မဟုတ် အနက်အတောက် အချက်အလက်ရှိသည်။ ချုံ့ခြင်းသည် အဲဒာများကို ထိန်းသိမ်းလို့ မရသည်။ HDR ဓာတ်ပုံသည် သာမန်ဓာတ်ပုံအဖြစ် ပြန်လည်ဖြစ်လာသည်။ အနုစာအိုက်ဓာတ်ပုံသည် နောက်ခံမွဲးမုံသ၏နောက်ကွယ်ရှိ အချက်အလက်များကို ပျောက်သွားသည်။</string>
     <string name="squeezer_markers_motion_photo_description">ဤသည်ရုပ်ရှင်ဓာတ်ပုံ ဖြစ်သည်။ ချုံ့ခြင်းသည် ရပ်တည်နေသည့်ဓာတ်ပုံကို ထိန်းသိမ်းပြီး ဗီဒီယိုအပိုင်းကို ဖယ်ရှားသည်။</string>
-    <string name="squeezer_markers_downscaled_description">ဤဓာတ်ပုံသည် အနံ သို့မဟုတ်အမြင့် ၈၁၉၂ ပစ်ခဲလ်ထက်ကျော်သည်။ ချုံ့ခြင်းသည်၎င်း၏ ရေဖျန်စည်းမှုကို ထက်ဝက်ဖြစ်စေသည်။</string>
+    <string name="squeezer_markers_downscaled_description">ဤဓာတ်ပုံသည် အကျယ် သို့မဟုတ် အမြင့် 8192 ပစ်ဇယ် သို့မဟုတ် ထို့ထက်ကြီးသည်။ ချုံ့ခြင်းသည် ၎င်း၏ အကျယ်နှင့် အမြင့်ကို တစ်ဝက်စီ လျှော့ပြီး၊ လိုအပ်ပါက နောက်တစ်ဝက်ထပ်လျှော့ကာ နှစ်ခုစလုံး 8192 ပစ်ဇယ်အောက် ရောက်သည်အထိ လုပ်ဆောင်သည်။</string>
     <string name="squeezer_compress_action">ချုံ့ရန်</string>
     <string name="squeezer_compress_all_action">အားလုံး ချုံ့ရန်</string>
     <string name="squeezer_preview_dialog_title">ချုံ့ခြင်း အတည်ပြုရန်</string>

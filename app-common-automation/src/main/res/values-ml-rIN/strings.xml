@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">സ്‌ക്രീൻ ലഭ്യമല്ലാതായതിനാൽ ഓപ്പറേഷൻ നിർത്തലാക്കി (ഉദാ: ഡിസ്‌പ്ലേ ഓഫ് അല്ലെങ്കിൽ ലോക്ക്‌സ്‌ക്രീൻ സജീവം).</string>
     <string name="automation_error_compatibility_title">ഓട്ടോമേഷൻ അനുയോജ്യത</string>
     <string name="automation_error_compatibility_body">SD Maid-ന് സ്‌ക്രീൻ ലേഓട്ട് തിരിച്ചറിയാൻ കഴിഞ്ഞില്ല. ഇത് തുടർന്നും സംഭവിക്കുന്നുണ്ടെങ്കിൽ, നിങ്ങളുടെ ഭാഷ അല്ലെങ്കിൽ സജ്ജീകരണം പൂർണ്ണമായി പിന്തുണരപ്പെടുന്നില്ലായിരിക്കാം. അപ്‍ഡേറ്റ് പരിശോധിക്കുക അല്ലെങ്കിൽ ഞങ്ങളെ ബന്ധപ്പെടുക.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB ആക്സസ് സജ്ജീകരിച്ചാൽ, ആക്സസിബിലിറ്റി സേവനമില്ലാതെ തന്നെ SD Maid ഇതിൽ മിക്കതും ചെയ്യാനാകും.</string>
     <string name="automation_error_timeout_title">ഓട്ടോമേഷൻ ടൈംഓട്ട്</string>
     <string name="automation_error_timeout_body">SD Maid നിശ്ചിത സമയ പരിധിക്കുള്ളിൽ എല്ലാ ഘട്ടങ്ങളും പൂർത്തിയാക്കിയില്ല. ഇത് തുടർന്നും സംഭവിക്കുന്നുണ്ടെങ്കിൽ, നിങ്ങളുടെ ഉപകരണത്തിനനുസരിച്ച് ആപ്പ് ക്രമീകരിക്കേണ്ടിവരും. അപ്‍ഡേറ്റ് പരിശോധിക്കുക അല്ലെങ്കിൽ ഞങ്ങളെ ബന്ധപ്പെടുക.</string>
     <string name="automation_error_overlay_title">ഓട്ടോമേഷൻ ഓവർലേ</string>

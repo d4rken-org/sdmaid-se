@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Делта</string>
     <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
     <string name="stats_space_history_upgrade_title">Пълната история е функция Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Надстройката показва история от 90 дни за всяко устройство за съхранение или до една година, ако я пазите по-дълго, и предупреждава, преди да свърши мястото.</string>
     <string name="stats_space_history_marker_freed">Освободено %1$s</string>
     <string name="stats_storage_type_primary">Основно хранилище</string>
     <string name="stats_storage_type_secondary">Вторично хранилище</string>

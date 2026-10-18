@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">已略過 %d 張（受保護）</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d 項未變小（未縮減）</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">已選擇 %d 個項目</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">壓縮動態相片</string>
     <string name="squeezer_include_motion_photos_description">包含動態相片。壓縮會保留靜態影像並移除影片片段。</string>
     <string name="squeezer_include_oversized_title">壓縮超大相片</string>
-    <string name="squeezer_include_oversized_description">包含寬度或高度超過 8192 像素的相片。壓縮亦會將其解像度減半。</string>
+    <string name="squeezer_include_oversized_description">包括寬或高達 8192 像素或以上的相片。壓縮會將寬度和高度減半；如有需要，會再減半，直至兩者都低於 8192 像素。</string>
     <string name="squeezer_estimated_savings_format">預計節省約 %s</string>
     <string name="squeezer_no_savings_expected">有限的節省</string>
     <string name="squeezer_current_size_format">大小：%s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid 已經壓縮過這個檔案。再次壓縮只會犧牲畫質，節省的空間卻很少。</string>
     <string name="squeezer_markers_hdr_depth_description">這張相片具有壓縮無法保留的 HDR 或深度資料。HDR 相片會變回一般相片，人像相片則會失去用於背景模糊效果的深度資料。</string>
     <string name="squeezer_markers_motion_photo_description">這是一張動態相片。壓縮會保留靜態影像並移除影片片段。</string>
-    <string name="squeezer_markers_downscaled_description">這張相片的寬度或高度超過 8192 像素。壓縮亦會將其解像度減半。</string>
+    <string name="squeezer_markers_downscaled_description">此相片的寬或高達 8192 像素或以上。壓縮會將寬度和高度減半；如有需要，會再減半，直至兩者都低於 8192 像素。</string>
     <string name="squeezer_compress_action">壓縮</string>
     <string name="squeezer_compress_all_action">全部壓縮</string>
     <string name="squeezer_preview_dialog_title">確認壓縮</string>

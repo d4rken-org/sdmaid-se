@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">ଡେଲ୍ଟା</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s ମଧ୍ୟରେ</string>
     <string name="stats_space_history_upgrade_title">ସମ୍ପୂର୍ଣ୍ଣ ଇତିହାସ ଏକ Pro ବୈଶିଷ୍ଟ୍ୟ</string>
+    <string name="stats_space_history_upgrade_body_v3">ପ୍ରତ୍ୟେକ ଷ୍ଟୋରେଜ ଡିଭାଇସ ପାଇଁ 90 ଦିନର ଇତିହାସ ଦେଖିବାକୁ ଅପଗ୍ରେଡ କରନ୍ତୁ, କିମ୍ବା ଆପଣ ଅଧିକ ସମୟ ରଖିଥିଲେ ଏକ ବର୍ଷ ପର୍ଯ୍ୟନ୍ତ ଇତିହାସ ଦେଖନ୍ତୁ, ଏବଂ ସ୍ଥାନ ଶେଷ ହେବା ପୂର୍ବରୁ ଚେତାବନୀ ପାଆନ୍ତୁ।</string>
     <string name="stats_space_history_marker_freed">%1$s ମୁକ୍ତ ହୋଇଛି</string>
     <string name="stats_storage_type_primary">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
     <string name="stats_storage_type_secondary">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>

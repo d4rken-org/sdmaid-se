@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s në %2$s</string>
     <string name="stats_space_history_upgrade_title">Historia e plotë është një veçori Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Përmirëso për të parë historikun 90-ditor për secilën pajisje ruajtjeje, ose deri në një vit nëse e mban më gjatë, dhe merr një paralajmërim para se hapësira të mbarojë.</string>
     <string name="stats_space_history_marker_freed">U lirua %1$s</string>
     <string name="stats_storage_type_primary">Magazina primare</string>
     <string name="stats_storage_type_secondary">Magazina sekondare</string>

@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">ማያው ስላልተገኘ ተግባሩ ተቋርጧል (ለምሳሌ ማያ ከተዘጋ ወይም መቆለፊያ ማያ ንቁ)።</string>
     <string name="automation_error_compatibility_title">የራሳዊነት ተኳኋኝነት</string>
     <string name="automation_error_compatibility_body">SD Maid የማያ አቀማመጥን ሊገነዘብ አልቻለም። ይህ መቀጠሉ ከሆነ የእርስዎ ቋንቋ ወይም ማዋቀሪያ ሙሉ በሙሉ ያልተደገፈ ሊሆን ይችላል። ማሻሻያዎችን ይመርምሩ ወይም እኔ እንድጠግነው እኔን ያናግሩ።</string>
+    <string name="automation_error_compatibility_adb_hint">ADB መዳረሻ ከተዋቀረ፣ SD Maid ይህንን አብዛኛውን ያለ ተደራሽነት አገልግሎት ማከናወን ይችላል።</string>
     <string name="automation_error_timeout_title">የራሳዊነት ጊዜ ማብቂያ</string>
     <string name="automation_error_timeout_body">SD Maid ሁሉንም ደረጃዎች በጊዜ ገደብ ውስጥ አላጠናቀቀም። ይህ መቀጠሉ ከሆነ መተግበሪያውን ለመሣሪያዎ ማስተካከል ያስፈልገኝ ይሆናል። ማሻሻያዎችን ይመርምሩ ወይም እኔ እንድጠግነው እኔን ያናግሩ።</string>
     <string name="automation_error_overlay_title">የራሳዊነት መክተት</string>

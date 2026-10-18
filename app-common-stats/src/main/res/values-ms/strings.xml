@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s dalam %2$s</string>
     <string name="stats_space_history_upgrade_title">Sejarah penuh adalah ciri Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Naik taraf untuk melihat sejarah 90 hari bagi setiap peranti storan, atau sehingga setahun jika anda menyimpannya lebih lama, dan dapatkan amaran sebelum ruang kehabisan.</string>
     <string name="stats_space_history_marker_freed">Dibebaskan %1$s</string>
     <string name="stats_storage_type_primary">Storan utama</string>
     <string name="stats_storage_type_secondary">Storan sekunder</string>

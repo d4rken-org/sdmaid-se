@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">การดำเนินการถูกยกเลิกเนื่องจากหน้าจอไม่พร้อมใช้งาน (เช่น หน้าจอปิดหรือหน้าจอล็อกเปิดอยู่)</string>
     <string name="automation_error_compatibility_title">ความเข้ากันได้ของการทำงานอัตโนมัติ</string>
     <string name="automation_error_compatibility_body">SD Maid ไม่สามารถเข้าใจรูปแบบหน้าจอได้ หากปัญหานี้ยังคงเกิดขึ้นต่อไป ภาษาหรือการตั้งค่าของคุณอาจไม่ได้รับการรองรับอย่างเต็มที่ ตรวจสอบการอัปเดตหรือติดต่อผมเพื่อให้ผมแก้ไข</string>
+    <string name="automation_error_compatibility_adb_hint">เมื่อตั้งค่าการเข้าถึง ADB แล้ว SD Maid สามารถทำสิ่งเหล่านี้ส่วนใหญ่ได้โดยไม่ต้องใช้บริการการเข้าถึง</string>
     <string name="automation_error_timeout_title">การทำงานอัตโนมัติหมดเวลา</string>
     <string name="automation_error_timeout_body">SD Maid ไม่สามารถทำขั้นตอนทั้งหมดได้ภายในขอบเวลาที่กำหนด หากปัญหานี้ยังคงเกิดขึ้นต่อไป ผมอาจต้องปรับแอพสำหรับอุปกรณ์ของคุณ ตรวจสอบการอัปเดตหรือติดต่อผมเพื่อให้ผมแก้ไข</string>
     <string name="automation_error_overlay_title">เลเยอร์การทำงานอัตโนมัติ</string>

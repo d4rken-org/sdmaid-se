@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d dilangkau (dilindungi)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d tidak berubah (tidak menjadi lebih kecil)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d item dipilih</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">Mampatkan Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Sertakan Motion Photos. Pemampatan mengekalkan imej pegun dan mengeluarkan klip video.</string>
     <string name="squeezer_include_oversized_title">Mampatkan foto sangat besar</string>
-    <string name="squeezer_include_oversized_description">Sertakan foto yang lebih lebar atau lebih tinggi daripada 8192 piksel. Pemampatan juga mengurangkan separuh resolusinya.</string>
+    <string name="squeezer_include_oversized_description">Sertakan foto yang lebar atau tingginya 8192 piksel atau lebih. Pemampatan akan membahagi dua lebar dan tinggi foto, dan membahagi dua lagi jika perlu, sehingga kedua-duanya kurang daripada 8192 piksel.</string>
     <string name="squeezer_estimated_savings_format">~%s penjimatan</string>
     <string name="squeezer_no_savings_expected">Penjimatan terhad</string>
     <string name="squeezer_current_size_format">Saiz: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid telah memampatkan fail ini. Memampatkannya sekali lagi menjejaskan kualiti dan hanya menjimatkan sedikit ruang.</string>
     <string name="squeezer_markers_hdr_depth_description">Foto ini mempunyai data HDR atau kedalaman yang tidak dapat dikekalkan oleh pemampatan. Foto HDR akan kembali menjadi foto biasa, dan foto potret kehilangan data kedalaman yang digunakan untuk kaburan latar belakang.</string>
     <string name="squeezer_markers_motion_photo_description">Ini ialah Motion Photo. Pemampatan mengekalkan imej pegun dan mengeluarkan klip video.</string>
-    <string name="squeezer_markers_downscaled_description">Foto ini lebih lebar atau lebih tinggi daripada 8192 piksel. Pemampatan juga mengurangkan separuh resolusinya.</string>
+    <string name="squeezer_markers_downscaled_description">Foto ini lebarnya atau tingginya 8192 piksel atau lebih. Pemampatan akan membahagi dua lebar dan tinggi foto, dan membahagi dua lagi jika perlu, sehingga kedua-duanya kurang daripada 8192 piksel.</string>
     <string name="squeezer_compress_action">Mampat</string>
     <string name="squeezer_compress_all_action">Mampat semua</string>
     <string name="squeezer_preview_dialog_title">Sahkan pemampatan</string>

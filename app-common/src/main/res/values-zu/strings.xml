@@ -180,7 +180,7 @@
     <string name="general_information_for_the_developer">Ulwazi lomthuthukisi</string>
     <string name="general_error_report_bug_action">Bika iphutha</string>
     <string name="general_error_ipc_deadobject_title">Ukuxhuma Kwensizakalo Kulahlekile</string>
-    <string name="general_error_ipc_deadobject_description">Ukuxhuma ensizakalweni ebalulekile (isib. Magisk, Shizuku, noma ezinye izinsizakalo zezinga lesistimu) kulahleke ngendlela engalindelekile. Sicela uphinde uqalise idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma xhumana nami ukuze ngiyilungise.</string>
+    <string name="general_error_ipc_deadobject_description">Uxhumano nesevisi ebalulekile (njenge-Magisk, i-Porter, i-Shizuku, noma ezinye izevisi zezinga lesistimu) luphule ngokungalindelekile. Sicela uqalise kabusha idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma uxhumane nami ukuze ngiyilungise.</string>
     <string name="general_error_upgrade_required_title">I-upgrade iyafunekile</string>
     <string name="general_error_upgrade_required_description">Ingalo eningilo idinga i-upgrade. Ngiyacela u-upgrade SD Maid SE ukuze yisebenzise.</string>
     <string name="general_user_label_owner">Umnikazi</string>

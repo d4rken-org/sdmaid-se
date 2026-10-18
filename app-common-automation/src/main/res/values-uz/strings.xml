@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operatsiya bekor qilindi, chunki ekran mavjud bo\'lmadi (masalan, displey o\'chirilgan yoki qulflash ekrani faol).</string>
     <string name="automation_error_compatibility_title">Avtomatlashtirish mosligi</string>
     <string name="automation_error_compatibility_body">SD Maid ekran tartibini aniqlay olmadi. Agar bu davom etsa, sizning tilingiz yoki sozlamangiz to\'liq qo\'llab-quvvatlanmasligi mumkin. Yangilanishlarni tekshiring yoki men buni tuzatishim uchun men bilan bog\'laning.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB ruxsati sozlangan bo\'lsa, SD Maid buning ko\'pini maxsus imkoniyatlar xizmatisiz bajara oladi.</string>
     <string name="automation_error_timeout_title">Avtomatlashtirish vaqti tugadi</string>
     <string name="automation_error_timeout_body">SD Maid belgilangan vaqt ichida barcha bosqichlarni bajarmadi. Agar bu davom etsa, men qurilmangiz uchun ilovani sozlashim kerak bo\'lishi mumkin. Yangilanishlarni tekshiring yoki men buni tuzatishim uchun men bilan bog\'laning.</string>
     <string name="automation_error_overlay_title">Avtomatlashtirish qatlami</string>

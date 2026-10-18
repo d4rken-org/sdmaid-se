@@ -41,6 +41,10 @@
         <item quantity="one">%d स्किप गरिएको (सुरक्षित)</item>
         <item quantity="other">%d स्किप गरिएका (सुरक्षित)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d अपरिवर्तित (सानो नभएको)</item>
+        <item quantity="other">%d अपरिवर्तित (सानो नभएको)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d वस्तु चयन गरियो</item>
         <item quantity="other">%d वस्तुहरू चयन गरिए</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos सङ्कुचित गर्नुहोस्</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos समावेश गर्नुहोस्। कम्प्रेसनले स्थिर तस्विर राख्छ र भिडियो क्लिप हटाउछ।</string>
     <string name="squeezer_include_oversized_title">धेरै ठूलो तस्विरहरू सङ्कुचित गर्नुहोस्</string>
-    <string name="squeezer_include_oversized_description">8192 पिक्सेल भन्दा फराक वा अलि उच्च तस्विरहरू समावेश गर्नुहोस्। कम्प्रेसनले तिनीहरूको रिजोलुशन पनि आधा गर्छ।</string>
+    <string name="squeezer_include_oversized_description">8192 पिक्सेल वा सोभन्दा बढी चौडाइ वा उचाइ भएका तस्बिरहरू समावेश गरिन्छ। कम्प्रेसनले तिनीहरूको चौडाइ र उचाइलाई आधा बनाउँछ, र दुवै 8192 पिक्सेलभन्दा कम नहुञ्जेल आवश्यक परे फेरि आधा बनाउँछ।</string>
     <string name="squeezer_estimated_savings_format">~%s बचत</string>
     <string name="squeezer_no_savings_expected">सीमित बचत</string>
     <string name="squeezer_current_size_format">आकार: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ले पहिले नै यो फाइल सङ्कुचित गरिसकेको छ। यसलाई फेरि सङ्कुचित गर्दा गुणस्तर खर्च हुन्छ र कम बचत हुन्छ।</string>
     <string name="squeezer_markers_hdr_depth_description">यो तस्विरमा HDR वा गहिराई डेटा छ जो कम्प्रेसनले राख्न सक्दैन। एक HDR तस्विर सामान्य को रूपमा फिर्ता आउछ, र एक पोर्ट्रेट तस्विरले पृष्ठभूमि धमिलोपनको लागि प्रयोग गरिएको गहिराई डेटा हराउछ।</string>
     <string name="squeezer_markers_motion_photo_description">यो एक Motion Photo हो। कम्प्रेसनले स्थिर तस्विर राख्छ र भिडियो क्लिप हटाउछ।</string>
-    <string name="squeezer_markers_downscaled_description">यो तस्विर 8192 पिक्सेल भन्दा फराक वा अलि उच्च छ। कम्प्रेसनले यसको रिजोलुशन पनि आधा गर्छ।</string>
+    <string name="squeezer_markers_downscaled_description">यो तस्बिर 8192 पिक्सेल वा सोभन्दा बढी चौडा वा अग्लो छ। कम्प्रेसनले यसको चौडाइ र उचाइलाई आधा बनाउँछ, र दुवै 8192 पिक्सेलभन्दा कम नहुञ्जेल आवश्यक परे फेरि आधा बनाउँछ।</string>
     <string name="squeezer_compress_action">संकुचित गर्नुहोस्</string>
     <string name="squeezer_compress_all_action">सबै संकुचित गर्नुहोस्</string>
     <string name="squeezer_preview_dialog_title">संकुचन पुष्टि गर्नुहोस्</string>

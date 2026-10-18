@@ -51,6 +51,11 @@
         <item quantity="few">%d preskočeno (zaštićeno)</item>
         <item quantity="other">%d preskočeno (zaštićeno)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d nepromijenjeno (nije manje)</item>
+        <item quantity="few">%d nepromijenjeno (nije manje)</item>
+        <item quantity="other">%d nepromijenjeno (nije manje)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d stavka odabrana</item>
         <item quantity="few">%d stavke odabrane</item>
@@ -82,7 +87,7 @@
     <string name="squeezer_include_motion_photos_title">Sažmi pokretne fotografije</string>
     <string name="squeezer_include_motion_photos_description">Uključuje pokretne fotografije. Sažimanje zadržava fotografiju, a uklanja videozapis.</string>
     <string name="squeezer_include_oversized_title">Sažmi vrlo velike fotografije</string>
-    <string name="squeezer_include_oversized_description">Uključuje fotografije šire ili više od 8192 piksela. Sažimanje im također prepolovi rezoluciju.</string>
+    <string name="squeezer_include_oversized_description">Uključi fotografije široke ili visoke 8192 piksela ili više. Kompresija prepolovljuje njihovu širinu i visinu, a prema potrebi ih ponovno prepolovljuje dok obje ne budu ispod 8192 piksela.</string>
     <string name="squeezer_estimated_savings_format">~%s uštede</string>
     <string name="squeezer_no_savings_expected">Ograničena ušteda</string>
     <string name="squeezer_current_size_format">Veličina: %s</string>
@@ -94,7 +99,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid je već sažeo ovu datoteku. Ponovno sažimanje smanjuje kvalitetu, a štedi malo prostora.</string>
     <string name="squeezer_markers_hdr_depth_description">Ova fotografija sadrži HDR ili podatke o dubini koje sažimanje ne može zadržati. HDR fotografija se vraća kao obična, a portretna fotografija gubi podatke o dubini korištene za zamućenje pozadine.</string>
     <string name="squeezer_markers_motion_photo_description">Ovo je pokretna fotografija. Sažimanje zadržava fotografiju, a uklanja videozapis.</string>
-    <string name="squeezer_markers_downscaled_description">Ova fotografija je šira ili viša od 8192 piksela. Sažimanje joj također prepolovi rezoluciju.</string>
+    <string name="squeezer_markers_downscaled_description">Ova je fotografija široka ili visoka 8192 piksela ili više. Kompresija prepolovljuje njezinu širinu i visinu, a prema potrebi je ponovno prepolovljuje dok obje ne budu ispod 8192 piksela.</string>
     <string name="squeezer_compress_action">Komprimiraj</string>
     <string name="squeezer_compress_all_action">Komprimiraj sve</string>
     <string name="squeezer_preview_dialog_title">Potvrdi kompresiju</string>

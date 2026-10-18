@@ -41,6 +41,10 @@
         <item quantity="one">%d saltado (protexido)</item>
         <item quantity="other">%d saltados (protexidos)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d sen cambios (non máis pequenos)</item>
+        <item quantity="other">%d sen cambios (non máis pequenos)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elemento seleccionado</item>
         <item quantity="other">%d elementos seleccionados</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Comprimir fotos en movemento</string>
     <string name="squeezer_include_motion_photos_description">Incluír fotos en movemento. A compresión mantén a imaxe fixa e elimina o vídeo.</string>
     <string name="squeezer_include_oversized_title">Comprimir fotos moi grandes</string>
-    <string name="squeezer_include_oversized_description">Incluír fotos máis anchas ou máis altas que 8192 píxeles. A compresión tamén divide a súa resolución pola metade.</string>
+    <string name="squeezer_include_oversized_description">Inclúe as fotos que teñan 8192 píxeles ou máis de ancho ou de alto. A compresión divide á metade o ancho e o alto, e divídeos de novo á metade se é necesario, ata que ambos sexan inferiores a 8192 píxeles.</string>
     <string name="squeezer_estimated_savings_format">~%s de aforro</string>
     <string name="squeezer_no_savings_expected">Aforro limitado</string>
     <string name="squeezer_current_size_format">Tamaño: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid xa comprimiu este ficheiro. Comprimilo de novo reduce a calidade e libera moi pouco espazo.</string>
     <string name="squeezer_markers_hdr_depth_description">Esta foto ten datos de HDR ou profundidade que a compresión non pode manter. Unha foto HDR convértese en normal, e unha foto de retrato perde os datos de profundidade usados no desfoque de fondo.</string>
     <string name="squeezer_markers_motion_photo_description">Esta é unha foto en movemento. A compresión mantén a imaxe fixa e elimina o vídeo.</string>
-    <string name="squeezer_markers_downscaled_description">Esta foto é máis ancha ou máis alta que 8192 píxeles. A compresión tamén divide a súa resolución pola metade.</string>
+    <string name="squeezer_markers_downscaled_description">Esta foto ten 8192 píxeles ou máis de ancho ou de alto. A compresión divide á metade o seu ancho e alto, e divídeos de novo á metade se é necesario, ata que ambos sexan inferiores a 8192 píxeles.</string>
     <string name="squeezer_compress_action">Comprimir</string>
     <string name="squeezer_compress_all_action">Comprimir todo</string>
     <string name="squeezer_preview_dialog_title">Confirmar compresión</string>

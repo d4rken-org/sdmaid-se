@@ -41,6 +41,10 @@
         <item quantity="one">%d దాటవేయబడింది (రక్షించబడింది)</item>
         <item quantity="other">%d దాటవేయబడ్డాయి (రక్షించబడినవి)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d మారలేదు (చిన్నది కాలేదు)</item>
+        <item quantity="other">%d మారలేదు (చిన్నది కాలేదు)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d అంశం ఎంచుకొబడింది</item>
         <item quantity="other">%d అంశాలు ఎంచుకొబడినాయి</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">మోషన్ ఫోటోలను కంప్రెస్ చేయండి</string>
     <string name="squeezer_include_motion_photos_description">మోషన్ ఫోటోలను చేర్చండి. కంప్రెషన్ స్టిల్ చిత్రాన్ని ఉంచి వీడియో క్లిప్‌ను తొలగిస్తుంది.</string>
     <string name="squeezer_include_oversized_title">చాలా పెద్ద ఫోటోలను కంప్రెస్ చేయండి</string>
-    <string name="squeezer_include_oversized_description">8192 పిక్సెల్‌ల కంటే వెడల్పు లేదా ఎత్తు ఉన్న ఫోటోలను చేర్చండి. కంప్రెషన్ వాటి రిజల్యూషన్‌ను కూడా సగానికి తగ్గిస్తుంది.</string>
+    <string name="squeezer_include_oversized_description">8192 పిక్సెళ్ళు లేదా అంతకంటే ఎక్కువ వెడల్పు లేదా ఎత్తు ఉన్న ఫోటోలను చేర్చండి. కంప్రెషన్ వాటి వెడల్పు మరియు ఎత్తును సగానికి తగ్గిస్తుంది, అవసరమైతే మళ్లీ సగానికి తగ్గిస్తుంది, రెండూ 8192 పిక్సెళ్ళ కంటే తక్కువ అయ్యే వరకు.</string>
     <string name="squeezer_estimated_savings_format">~%s ఆదా</string>
     <string name="squeezer_no_savings_expected">పరిమిత ఆదా</string>
     <string name="squeezer_current_size_format">పరిమాణం: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ఇప్పటికే ఈ ఫైల్‌ను కంప్రెస్ చేసింది. దాన్ని మళ్లీ కంప్రెస్ చేయడం వల్ల నాణ్యత తగ్గుతుంది మరియు తక్కువ స్థలం ఆదా అవుతుంది.</string>
     <string name="squeezer_markers_hdr_depth_description">ఈ ఫోటోలో HDR లేదా డెప్త్ డేటా ఉంది, దీన్ని కంప్రెషన్ ఉంచలేదు. ఒక HDR ఫోటో సాధారణ ఫోటోగా మారుతుంది, మరియు పోర్ట్రెయిట్ ఫోటో బ్యాక్‌గ్రౌండ్ బ్లర్ కోసం ఉపయోగించే డెప్త్ డేటాను కోల్పోతుంది.</string>
     <string name="squeezer_markers_motion_photo_description">ఇది ఒక మోషన్ ఫోటో. కంప్రెషన్ స్టిల్ చిత్రాన్ని ఉంచి వీడియో క్లిప్‌ను తొలగిస్తుంది.</string>
-    <string name="squeezer_markers_downscaled_description">ఈ ఫోటో 8192 పిక్సెల్‌ల కంటే వెడల్పు లేదా ఎత్తు కలిగి ఉంది. కంప్రెషన్ దాని రిజల్యూషన్‌ను కూడా సగానికి తగ్గిస్తుంది.</string>
+    <string name="squeezer_markers_downscaled_description">ఈ ఫోటో 8192 పిక్సెళ్ళు లేదా అంతకంటే ఎక్కువ వెడల్పు లేదా ఎత్తు కలిగి ఉంది. కంప్రెషన్ దీని వెడల్పు మరియు ఎత్తును సగానికి తగ్గిస్తుంది, అవసరమైతే మళ్లీ సగానికి తగ్గిస్తుంది, రెండూ 8192 పిక్సెళ్ళ కంటే తక్కువ అయ్యే వరకు.</string>
     <string name="squeezer_compress_action">కుదించు</string>
     <string name="squeezer_compress_all_action">అన్నీ కుదించు</string>
     <string name="squeezer_preview_dialog_title">కుదింపును నిర్ధారించండి</string>

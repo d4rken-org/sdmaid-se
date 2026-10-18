@@ -41,6 +41,10 @@
         <item quantity="one">S\'ha omès %d (protegida)</item>
         <item quantity="other">S\'han omès %d (protegides)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d sense canvis (no més petit)</item>
+        <item quantity="other">%d sense canvis (no més petit)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element seleccionat</item>
         <item quantity="other">%d elements seleccionats</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Comprimeix les fotos en moviment</string>
     <string name="squeezer_include_motion_photos_description">Inclou fotos en moviment. La compressió manté la imatge fixa i elimina el clip de vídeo.</string>
     <string name="squeezer_include_oversized_title">Comprimeix les fotos molt grans</string>
-    <string name="squeezer_include_oversized_description">Inclou fotos més amples o més altes que 8192 píxels. La compressió també redueix a la meitat la seva resolució.</string>
+    <string name="squeezer_include_oversized_description">Inclou fotos que tinguin una amplada o alçada de 8192 píxels o més. La compressió en redueix l\'amplada i l\'alçada a la meitat, i les torna a reduir a la meitat si cal, fins que totes dues dimensions siguin inferiors a 8192 píxels.</string>
     <string name="squeezer_estimated_savings_format">~%s estalviats</string>
     <string name="squeezer_no_savings_expected">Estalvi limitat</string>
     <string name="squeezer_current_size_format">Mida: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">L\'SD Maid ja ha comprimit aquest fitxer. Comprimir-lo de nou costa qualitat i estalvia poc.</string>
     <string name="squeezer_markers_hdr_depth_description">Aquesta foto té dades HDR o de profunditat que la compressió no pot mantenir. Una foto HDR es torna com una de normal, i una foto de retrat perd les dades de profunditat utilitzades per difuminar el fons.</string>
     <string name="squeezer_markers_motion_photo_description">Això és una foto en moviment. La compressió conserva la imatge fixa i elimina el clip de vídeo.</string>
-    <string name="squeezer_markers_downscaled_description">Aquesta foto és més ampla o més alta que 8192 píxels. La compressió també redueix a la meitat la seva resolució.</string>
+    <string name="squeezer_markers_downscaled_description">Aquesta fotografia té una amplada o alçada de 8192 píxels o més. La compressió en redueix l\'amplada i l\'alçada a la meitat, i les torna a reduir a la meitat si cal, fins que totes dues dimensions siguin inferiors a 8192 píxels.</string>
     <string name="squeezer_compress_action">Comprimeix</string>
     <string name="squeezer_compress_all_action">Comprimeix-ho tot</string>
     <string name="squeezer_preview_dialog_title">Confirmeu la compressió</string>

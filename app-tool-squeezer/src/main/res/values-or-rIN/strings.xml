@@ -41,6 +41,10 @@
         <item quantity="one">%d ଛାଡ଼ି ଦିଆଗଲା (ସୁରକ୍ଷିତ)</item>
         <item quantity="other">%d ଛାଡ଼ି ଦିଆଗଲା (ସୁରକ୍ଷିତ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d ଅପରିବର୍ତ୍ତିତ (ଛୋଟ ନୁହେଁ)</item>
+        <item quantity="other">%d ଅପରିବର୍ତ୍ତିତ (ଛୋଟ ନୁହେଁ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d ଆଇଟମ ମନୋନୀତ</item>
         <item quantity="other">%d ଆଇଟମ ମନୋନୀତ</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos କମ୍ପ୍ରେସ୍ କରନ୍ତୁ</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos ସାମିଲ କରନ୍ତୁ। କମ୍ପ୍ରେସନ୍ ସ୍ଥିର ଛବିକୁ ରଖେ ଏବଂ ଭିଡିଓ କ୍ଲିପ୍‌କୁ କାଢ଼ିଦିଏ।</string>
     <string name="squeezer_include_oversized_title">ବହୁତ ବଡ଼ ଫଟୋ କମ୍ପ୍ରେସ୍ କରନ୍ତୁ</string>
-    <string name="squeezer_include_oversized_description">8192 ପିକ୍ସେଲରୁ ଅଧିକ ଚଉଡ଼ା କିମ୍ବା ଉଚ୍ଚ ଥିବା ଫଟୋ ସାମିଲ କରନ୍ତୁ। କମ୍ପ୍ରେସନ୍ ସେମାନଙ୍କ ରିଜୋଲୁସନ୍‌କୁ ମଧ୍ୟ ଅଧା କରିଦିଏ।</string>
+    <string name="squeezer_include_oversized_description">8192 ପିକ୍ସେଲ କିମ୍ବା ଅଧିକ ଓସାର କିମ୍ବା ଉଚ୍ଚତା ଥିବା ଫଟୋ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ। ସଙ୍କୋଚନ ଏମାନଙ୍କର ଓସାର ଓ ଉଚ୍ଚତାକୁ ଅଧା କରେ, ଏବଂ ଦୁଇଟିଇ 8192 ପିକ୍ସେଲରୁ କମ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଆବଶ୍ୟକ ହେଲେ ପୁନର୍ବାର ଅଧା କରେ।</string>
     <string name="squeezer_estimated_savings_format">~%s ସଞ୍ଚୟ</string>
     <string name="squeezer_no_savings_expected">ସୀମିତ ସଞ୍ଚୟ</string>
     <string name="squeezer_current_size_format">ଆକାର: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ପୂର୍ବରୁ ଏହି ଫାଇଲକୁ କମ୍ପ୍ରେସ୍ କରିସାରିଛି। ପୁଣି କମ୍ପ୍ରେସ୍ କରିବାରେ ଗୁଣବତ୍ତା ହ୍ରାସ ପାଏ ଏବଂ ଖୁବ୍ କମ୍ ସ୍ଥାନ ବଞ୍ଚେ।</string>
     <string name="squeezer_markers_hdr_depth_description">ଏହି ଫଟୋରେ HDR କିମ୍ବା ଡେପ୍ଥ ଡାଟା ଅଛି ଯାହା କମ୍ପ୍ରେସନ୍ ରଖିପାରେ ନାହିଁ। ଏକ HDR ଫଟୋ ସାଧାରଣ ଫଟୋ ଭାବେ ଫେରିଆସେ, ଏବଂ ଏକ ପୋର୍ଟ୍ରେଟ୍ ଫଟୋ ବ୍ୟାକଗ୍ରାଉଣ୍ଡ ବ୍ଲର ପାଇଁ ବ୍ୟବହୃତ ଡେପ୍ଥ ଡାଟା ହରାଏ।</string>
     <string name="squeezer_markers_motion_photo_description">ଏହା ଏକ Motion Photo। କମ୍ପ୍ରେସନ୍ ସ୍ଥିର ଛବିକୁ ରଖେ ଏବଂ ଭିଡିଓ କ୍ଲିପ୍‌କୁ କାଢ଼ିଦିଏ।</string>
-    <string name="squeezer_markers_downscaled_description">ଏହି ଫଟୋ 8192 ପିକ୍ସେଲରୁ ଅଧିକ ଚଉଡ଼ା କିମ୍ବା ଉଚ୍ଚ ଅଛି। କମ୍ପ୍ରେସନ୍ ଏହାର ରିଜୋଲୁସନ୍‌କୁ ମଧ୍ୟ ଅଧା କରିଦିଏ।</string>
+    <string name="squeezer_markers_downscaled_description">ଏହି ଫଟୋ 8192 ପିକ୍ସେଲ କିମ୍ବା ଅଧିକ ଓସାର କିମ୍ବା ଉଚ୍ଚତାର। ସଙ୍କୋଚନ ଏହାର ଓସାର ଓ ଉଚ୍ଚତାକୁ ଅଧା କରେ, ଏବଂ ଦୁଇଟିଇ 8192 ପିକ୍ସେଲରୁ କମ ନହେବା ପର୍ଯ୍ୟନ୍ତ ଆବଶ୍ୟକ ହେଲେ ପୁନର୍ବାର ଅଧା କରେ।</string>
     <string name="squeezer_compress_action">ସଙ୍କୋଚନ</string>
     <string name="squeezer_compress_all_action">ସବୁ ସଙ୍କୋଚନ କରନ୍ତୁ</string>
     <string name="squeezer_preview_dialog_title">ସଙ୍କୋଚନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>

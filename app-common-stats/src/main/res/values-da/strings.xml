@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s på %2$s</string>
     <string name="stats_space_history_upgrade_title">Fuld historik er en Pro-funktion</string>
+    <string name="stats_space_history_upgrade_body_v3">Opgrader for at se 90 dages historik for hver lagerenhed, eller op til et år, hvis du gemmer den længere, og få en advarsel, før du løber tør for plads.</string>
     <string name="stats_space_history_marker_freed">Frigjort %1$s</string>
     <string name="stats_storage_type_primary">Primær lager</string>
     <string name="stats_storage_type_secondary">Sekundær lager</string>

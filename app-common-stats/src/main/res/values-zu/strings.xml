@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Umehluko</string>
     <string name="stats_space_history_delta_in_x">%1$s ku-%2$s</string>
     <string name="stats_space_history_upgrade_title">Umlando ophelele iwuchiphile we-Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Thuthukela ukuze ubone umlando wezinsuku ezingu-90 wedivayisi ngayinye yesitoreji, noma kuya kunyaka uma uwugcina isikhathi eside, futhi uthole isexwayiso ngaphambi kokuthi isikhala siphele.</string>
     <string name="stats_space_history_marker_freed">Kukhishiwe %1$s</string>
     <string name="stats_storage_type_primary">Isitoreji esiyinhloko</string>
     <string name="stats_storage_type_secondary">Isitoreji sesibili</string>

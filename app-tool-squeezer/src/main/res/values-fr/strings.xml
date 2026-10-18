@@ -41,6 +41,10 @@
         <item quantity="one">%d ignoré (protégé)</item>
         <item quantity="other">%d ignorés (protégés)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d inchangé (pas plus petit)</item>
+        <item quantity="other">%d inchangés (pas plus petits)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d élément choisi</item>
         <item quantity="other">%d éléments choisis</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Compresser les Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Inclut les Motion Photos. La compression conserve l\'image fixe et supprime le clip vidéo.</string>
     <string name="squeezer_include_oversized_title">Compresser les photos très volumineuses</string>
-    <string name="squeezer_include_oversized_description">Inclut les photos plus larges ou plus hautes que 8192 pixels. La compression divise également leur résolution par deux.</string>
+    <string name="squeezer_include_oversized_description">Inclure les photos dont la largeur ou la hauteur est d’au moins 8192 pixels. La compression divise leur largeur et leur hauteur par deux, et les divise à nouveau si nécessaire, jusqu’à ce que les deux soient inférieures à 8192 pixels.</string>
     <string name="squeezer_estimated_savings_format">~%s en moins</string>
     <string name="squeezer_no_savings_expected">Économies limitées</string>
     <string name="squeezer_current_size_format">Taille : %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid a déjà compressé ce fichier. Le compresser à nouveau réduit la qualité pour un gain minime.</string>
     <string name="squeezer_markers_hdr_depth_description">Cette photo contient des données HDR ou de profondeur que la compression ne peut pas conserver. Une photo HDR redevient une photo normale, et une photo en mode portrait perd les données de profondeur utilisées pour le flou d\'arrière-plan.</string>
     <string name="squeezer_markers_motion_photo_description">Il s\'agit d\'une Motion Photo. La compression conserve l\'image fixe et supprime le clip vidéo.</string>
-    <string name="squeezer_markers_downscaled_description">Cette photo est plus large ou plus haute que 8192 pixels. La compression divise également sa résolution par deux.</string>
+    <string name="squeezer_markers_downscaled_description">Cette photo a une largeur ou une hauteur d’au moins 8192 pixels. La compression divise sa largeur et sa hauteur par deux, et les divise à nouveau si nécessaire, jusqu’à ce que les deux soient inférieures à 8192 pixels.</string>
     <string name="squeezer_compress_action">Compresser</string>
     <string name="squeezer_compress_all_action">Tout compresser</string>
     <string name="squeezer_preview_dialog_title">Confirmer la compression</string>

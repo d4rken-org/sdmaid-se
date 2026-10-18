@@ -61,6 +61,12 @@
         <item quantity="many">%d přeskočeno (chráněno)</item>
         <item quantity="other">%d přeskočeno (chráněno)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d nezměněn (není menší)</item>
+        <item quantity="few">%d nezměněny (nejsou menší)</item>
+        <item quantity="many">%d nezměněno (není menší)</item>
+        <item quantity="other">%d nezměněno (není menší)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d položka vybrána</item>
         <item quantity="few">%d položky vybrány</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Komprimovat Snímky s pohybem</string>
     <string name="squeezer_include_motion_photos_description">Zahrnout Snímky s pohybem. Komprese zachová statický snímek a odebere videoklip.</string>
     <string name="squeezer_include_oversized_title">Komprimovat velmi velké fotografie</string>
-    <string name="squeezer_include_oversized_description">Zahrnout fotografie širší nebo vyšší než 8192 pixelů. Komprese také rozpůlí jejich rozlišení.</string>
+    <string name="squeezer_include_oversized_description">Zahrne fotky, které jsou široké nebo vysoké 8192 pixelů nebo víc. Komprese jejich šířku a výšku zmenší na polovinu a případně ještě jednou, dokud nebudou obě hodnoty pod 8192 pixelů.</string>
     <string name="squeezer_estimated_savings_format">~%s ušetřeno</string>
     <string name="squeezer_no_savings_expected">Omezené úspory</string>
     <string name="squeezer_current_size_format">Velikost: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid již komprimoval tento soubor. Komprimování znovu sníží kvalitu a ušetří málo.</string>
     <string name="squeezer_markers_hdr_depth_description">Tato fotografie má data HDR nebo hloubky, která komprese nemůže zachovat. Fotografie HDR se vrátí jako běžná, a portrét ztratí data hloubky používaná pro rozostření pozadí.</string>
     <string name="squeezer_markers_motion_photo_description">Toto je Snímek s pohybem. Komprese zachová statický snímek a odebere videoklip.</string>
-    <string name="squeezer_markers_downscaled_description">Tato fotografie je širší nebo vyšší než 8192 pixelů. Komprese také rozpůlí její rozlišení.</string>
+    <string name="squeezer_markers_downscaled_description">Tato fotka je široká nebo vysoká 8192 pixelů nebo víc. Komprese její šířku a výšku zmenší na polovinu a případně ještě jednou, dokud nebudou obě hodnoty pod 8192 pixelů.</string>
     <string name="squeezer_compress_action">Komprimovat</string>
     <string name="squeezer_compress_all_action">Komprimovat vše</string>
     <string name="squeezer_preview_dialog_title">Potvrdit kompresi</string>

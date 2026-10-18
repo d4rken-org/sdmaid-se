@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Ekran kullanılamaz hale geldiği için işlem iptal edildi (örn. ekran kapalı veya ekran kilidi etkin).</string>
     <string name="automation_error_compatibility_title">Otomasyon uyumluluğu</string>
     <string name="automation_error_compatibility_body">SD Maid ekran düzenini çözemedi. Bu durum devam ederse, diliniz veya kurulumunuz tam olarak desteklenmiyor olabilir. Güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB erişimi ayarlandığında SD Maid bunların çoğunu erişilebilirlik hizmeti olmadan yapabilir.</string>
     <string name="automation_error_timeout_title">Otomasyon zaman aşımı</string>
     <string name="automation_error_timeout_body">SD Maid tüm adımları zaman sınırı içinde tamamlamadı. Bu durum devam ederse, uygulamayı cihazınız için ayarlamam gerekebilir. Güncellemeleri kontrol edin veya bana ulaşın, böylece düzeltebilirim.</string>
     <string name="automation_error_overlay_title">Otomasyon katmanı</string>

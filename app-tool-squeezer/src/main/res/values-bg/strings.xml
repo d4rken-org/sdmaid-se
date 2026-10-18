@@ -41,6 +41,10 @@
         <item quantity="one">%d пропусната (защитена)</item>
         <item quantity="other">%d пропуснати (защитени)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d без промяна (не е по-малко)</item>
+        <item quantity="other">%d без промяна (не е по-малко)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d избран елемент</item>
         <item quantity="other">%d избрани елемента</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Компресиране на Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Включва Motion Photos. Компресирането запазва неподвижното изображение и премахва видеоклипа.</string>
     <string name="squeezer_include_oversized_title">Компресиране на много големи снимки</string>
-    <string name="squeezer_include_oversized_description">Включва снимки, по-широки или по-високи от 8192 пиксела. Компресирането също наполовина намалява резолюцията им.</string>
+    <string name="squeezer_include_oversized_description">Включват се снимки, които са с 8192 пиксела или повече по ширина или височина. Компресирането намалява наполовина ширината и височината им, а при нужда ги намалява наполовина отново, докато и двете станат под 8192 пиксела.</string>
     <string name="squeezer_estimated_savings_format">~%s спестявания</string>
     <string name="squeezer_no_savings_expected">Ограничени спестявания</string>
     <string name="squeezer_current_size_format">Размер: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid вече е компресирал този файл. Повторното компресиране намалява качеството и пести малко.</string>
     <string name="squeezer_markers_hdr_depth_description">Тази снимка има HDR или данни за дълбочина, които компресирането не може да запази. HDR снимката се превръща в обикновена, а портретната снимка губи данните за дълбочина, използвани за замъгляването на фона.</string>
     <string name="squeezer_markers_motion_photo_description">Това е Motion Photo. Компресирането запазва неподвижното изображение и премахва видеоклипа.</string>
-    <string name="squeezer_markers_downscaled_description">Тази снимка е по-широка или по-висока от 8192 пиксела. Компресирането също наполовина намалява резолюцията й.</string>
+    <string name="squeezer_markers_downscaled_description">Тази снимка е с 8192 пиксела или повече по ширина или височина. Компресирането намалява наполовина ширината ѝ и височината ѝ, а при нужда ги намалява наполовина отново, докато и двете станат под 8192 пиксела.</string>
     <string name="squeezer_compress_action">Компресиране</string>
     <string name="squeezer_compress_all_action">Компресиране на всички</string>
     <string name="squeezer_preview_dialog_title">Потвърждаване на компресията</string>

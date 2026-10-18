@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Thao tác đã bị hủy vì màn hình không khả dụng (ví dụ: tắt màn hình hoặc kích hoạt màn hình khóa).</string>
     <string name="automation_error_compatibility_title">Tương thích tự động hóa</string>
     <string name="automation_error_compatibility_body">SD Maid không thể tìm ra bố cục màn hình. Nếu điều này tiếp tục xảy ra, ngôn ngữ hoặc thiết lập của bạn có thể không được hỗ trợ đầy đủ. Kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="automation_error_compatibility_adb_hint">Khi đã thiết lập quyền truy cập ADB, SD Maid có thể làm hầu hết các việc này mà không cần dịch vụ trợ năng.</string>
     <string name="automation_error_timeout_title">Hết thời gian tự động hóa</string>
     <string name="automation_error_timeout_body">SD Maid đã không hoàn thành tất cả các bước trong giới hạn thời gian. Nếu điều này tiếp tục xảy ra, tôi có thể cần điều chỉnh ứng dụng cho thiết bị của bạn. Kiểm tra cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
     <string name="automation_error_overlay_title">Lớp phủ tự động hóa</string>

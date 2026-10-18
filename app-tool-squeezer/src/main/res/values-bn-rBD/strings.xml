@@ -41,6 +41,10 @@
         <item quantity="one">%d বাদ দেওয়া হয়েছে (সুরক্ষিত)</item>
         <item quantity="other">%d বাদ দেওয়া হয়েছে (সুরক্ষিত)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%dটি অপরিবর্তিত (ছোট হয়নি)</item>
+        <item quantity="other">%dটি অপরিবর্তিত (ছোট হয়নি)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%dটি আইটেম নির্বাচিত</item>
         <item quantity="other">%dটি আইটেম নির্বাচিত</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">মোশন ফটো কম্প্রেস করুন</string>
     <string name="squeezer_include_motion_photos_description">মোশন ফটো অন্তর্ভুক্ত করুন। কম্প্রেশন স্থির ছবিটি রাখে এবং ভিডিও ক্লিপটি সরিয়ে দেয়।</string>
     <string name="squeezer_include_oversized_title">অতি বড় ছবি কম্প্রেস করুন</string>
-    <string name="squeezer_include_oversized_description">8192 পিক্সেলের চেয়ে চওড়া বা উঁচু ছবি অন্তর্ভুক্ত করুন। কম্প্রেশন তাদের রেজোলুশনও অর্ধেক করে দেয়।</string>
+    <string name="squeezer_include_oversized_description">৮১৯২ পিক্সেল বা তার বেশি চওড়া বা লম্বা ছবি অন্তর্ভুক্ত করুন। কম্প্রেশন তাদের প্রস্থ ও উচ্চতা অর্ধেক করে দেয়, এবং প্রয়োজনে আবার অর্ধেক করে, যতক্ষণ না দুটিই ৮১৯২ পিক্সেলের নিচে নামে।</string>
     <string name="squeezer_estimated_savings_format">~%s সাশ্রয়</string>
     <string name="squeezer_no_savings_expected">সীমিত সাশ্রয়</string>
     <string name="squeezer_current_size_format">আকার: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ইতিমধ্যে এই ফাইলটি কম্প্রেস করেছে। এটি আবার কম্প্রেস করলে মান কমে যায় এবং সামান্যই জায়গা বাঁচে।</string>
     <string name="squeezer_markers_hdr_depth_description">এই ছবিতে HDR বা ডেপথ ডেটা আছে, যা কম্প্রেশন রাখতে পারে না। একটি HDR ছবি সাধারণ ছবিতে পরিণত হয়, এবং একটি পোর্ট্রেট ছবি ব্যাকগ্রাউন্ড ব্লারের জন্য ব্যবহৃত ডেপথ ডেটা হারায়।</string>
     <string name="squeezer_markers_motion_photo_description">এটি একটি মোশন ফটো। কম্প্রেশন স্থির ছবিটি রাখে এবং ভিডিও ক্লিপটি সরিয়ে দেয়।</string>
-    <string name="squeezer_markers_downscaled_description">এই ছবিটি 8192 পিক্সেলের চেয়ে চওড়া বা উঁচু। কম্প্রেশন এর রেজোলুশনও অর্ধেক করে দেয়।</string>
+    <string name="squeezer_markers_downscaled_description">এই ছবিটি ৮১৯২ পিক্সেল বা তার বেশি চওড়া বা লম্বা। কম্প্রেশন এর প্রস্থ ও উচ্চতা অর্ধেক করে দেয়, এবং প্রয়োজনে আবার অর্ধেক করে, যতক্ষণ না দুটিই ৮১৯২ পিক্সেলের নিচে নামে।</string>
     <string name="squeezer_compress_action">সংকুচিত করুন</string>
     <string name="squeezer_compress_all_action">সব সংকুচিত করুন</string>
     <string name="squeezer_preview_dialog_title">সংকোচন নিশ্চিত করুন</string>

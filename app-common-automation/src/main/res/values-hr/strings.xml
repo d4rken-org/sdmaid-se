@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operacija je prekinuta jer je zaslon postao nedostupan (npr. zaslon je isključen ili se nalazi na zaključanom zaslonu).</string>
     <string name="automation_error_compatibility_title">Kompatibilnost automatizacije</string>
     <string name="automation_error_compatibility_body">SD Maid nije mogao prepoznati raspored zaslona. Ako se to nastavi događati, vaš jezik ili postavke možda nisu u potpunosti podržane. Provjerite ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
+    <string name="automation_error_compatibility_adb_hint">Uz postavljen ADB pristup, SD Maid može obaviti većinu toga bez usluge pristupačnosti.</string>
     <string name="automation_error_timeout_title">Istek vremena automatizacije</string>
     <string name="automation_error_timeout_body">SD Maid nije dovršio sve korake unutar vremenskog ograničenja. Ako se ovo nastavi događati, možda ću morati prilagoditi aplikaciju za vaš uređaj. Provjerite ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
     <string name="automation_error_overlay_title">Preklapajući sadržaj automatizacije</string>

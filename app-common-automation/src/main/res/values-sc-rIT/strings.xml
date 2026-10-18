@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">S\'operatzione est istada interrotta ca s\'ischermada est diventada non disponìbile (es. ischermada istudada o ischermada de blocu ativa).</string>
     <string name="automation_error_compatibility_title">Cumpatibilidade de automatizatzione</string>
     <string name="automation_error_compatibility_body">SD Maid no at potu cumprèndere sa dispositziane de s\'ischermada. Si custu sighit a sutzèdere, sa limba tua o sa cunfiguratzione diant non èssere cumplitamente suportadas. Verifica pro agiornamentos o cuntata·mene a mie ca devo currigere.</string>
+    <string name="automation_error_compatibility_adb_hint">Cun s\'atzessu ADB configuradu, SD Maid podet fàghere sa majoria de custas cosas sena su servìziu de atzessibilidade.</string>
     <string name="automation_error_timeout_title">Iscadèntzia de automatizatzione</string>
     <string name="automation_error_timeout_body">SD Maid no at cumpletu totu is passos intro de su lìmite de tempus. Si custu sighit a sutzèdere, devet agiu¬zare s\'aplicatzione pro su dispositivu tuo. Verifica pro agiornamentos o cuntata·mene a mie ca devo currigere.</string>
     <string name="automation_error_overlay_title">Sovrapositzinde de automatizatzione</string>

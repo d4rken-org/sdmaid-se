@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s / %2$s</string>
     <string name="stats_space_history_upgrade_title">Tam geçmiş bir Pro özelliğidir</string>
+    <string name="stats_space_history_upgrade_body_v3">Her depolama aygıtı için 90 günlük geçmişi görmek, daha uzun saklıyorsan bir yıla kadar geçmişi görmek ve alan bitmeden uyarı almak için yükselt.</string>
     <string name="stats_space_history_marker_freed">%1$s boşaltıldı</string>
     <string name="stats_storage_type_primary">Birincil depolama</string>
     <string name="stats_storage_type_secondary">İkincil depolama</string>

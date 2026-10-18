@@ -21,6 +21,7 @@ SD Maid သည် ဤဝန်ဆောင်မှုကို အသုံး�
     <string name="automation_error_screen_unavailable_body">မျက်နှာပြင် ရနိုင်မည်မဟုတ်သောကြောင့် လုပ်ဆောင်မှု ရပ်ဆိုင်းခဲ့သည် (ဥပမာ - မျက်နှာပြင်ပိတ် သို့မဟုတ် လော့ခ်မျက်နှာပြင် ဖွင့်ထားသည်)။</string>
     <string name="automation_error_compatibility_title">အလိုအလျောက် လုပ်ဆောင်မှု လိုက်ဖက်ညီမှု</string>
     <string name="automation_error_compatibility_body">SD Maid သည် မျက်နှာပြင်အပြင်အဆင်ကို မရှာဖွေနိုင်ခဲ့ပါ။ ဤအဖြစ်မျိုး ဆက်ဖြစ်နေပါက သင့်ဘာသာစကား သို့မဟုတ် ဆက်တင်ကို အပြည့်အဝ ထောက်ပံ့မထားနိုင်ဖြစ်နိုင်သည်။ အပ်ဒိတ် စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ကို ဆက်သွယ်ပါ။</string>
+    <string name="automation_error_compatibility_adb_hint">ADB ဝင်ရောက်ခွင့်ကို ပြင်ဆင်ထားပါက SD Maid သည် accessibility service မလိုဘဲ ဤလုပ်ဆောင်ချက်အများစုကို လုပ်ဆောင်နိုင်သည်။</string>
     <string name="automation_error_timeout_title">အလိုအလျောက်လုပ်ငန်း အချိန်ကုန်ခြင်း</string>
     <string name="automation_error_timeout_body">SD Maid သည် အချိန်ကန့်သတ်ချက်အတွင်း အဆင့်များ အားလုံးကို မပြီးစီးနိုင်ပါ။ ဤအခြေအနေ ဆက်လက် ဖြစ်ပေါ်ပါက၊ သင့်စက်အတွက် အက်ပ်ကို ချိန်ညှိရန် လိုအပ်နိုင်သည်။ အပ်ဒိတ်များ စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ထံ ဆက်သွယ်ပြီး ပြင်ဆင်စေပါ။</string>
     <string name="automation_error_overlay_title">အလိုအလျောက်လုပ်ငန်း ထပ်ဆင့်</string>

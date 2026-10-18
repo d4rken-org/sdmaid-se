@@ -61,6 +61,12 @@
         <item quantity="few">%d preskočeni (zaščiteni)</item>
         <item quantity="other">%d preskočenih (zaščitenih)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d nespremenjen (ni manjši)</item>
+        <item quantity="two">%d nespremenjena (nista manjša)</item>
+        <item quantity="few">%d nespremenjeni (niso manjši)</item>
+        <item quantity="other">%d nespremenjenih (ni manjših)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element izbran</item>
         <item quantity="two">%d elementa izbrana</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Kompresiraj Motion fotografije</string>
     <string name="squeezer_include_motion_photos_description">Vključi Motion fotografije. Kompresija ohrani mirno sliko in odstrani video posnetek.</string>
     <string name="squeezer_include_oversized_title">Kompresiraj zelo velike fotografije</string>
-    <string name="squeezer_include_oversized_description">Vključi fotografije, katerih širina ali višina presega 8192 pikslov. Kompresija tudi prepolovi njihovo ločljivost.</string>
+    <string name="squeezer_include_oversized_description">Vključi fotografije, ki so široke ali visoke 8192 slikovnih pik ali več. Stiskanje prepolovi njihovo širino in višino, po potrebi pa še enkrat, dokler obe ne bosta manjši od 8192 slikovnih pik.</string>
     <string name="squeezer_estimated_savings_format">~%s prihranka</string>
     <string name="squeezer_no_savings_expected">Omejen prihranek</string>
     <string name="squeezer_current_size_format">Velikost: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid je to datoteko že kompriminiral. Ponovno kompriminiranje zmanjša kakovost in malo prihrani.</string>
     <string name="squeezer_markers_hdr_depth_description">Ta fotografija ima HDR ali podatke o globini, ki jih kompresija ne more ohraniti. HDR fotografija postane običajna, portretna fotografija pa izgubi podatke o globini.</string>
     <string name="squeezer_markers_motion_photo_description">To je Motion fotografija. Kompresija ohrani mirno sliko in odstrani video posnetek.</string>
-    <string name="squeezer_markers_downscaled_description">Ta fotografija je širša ali višja od 8192 pikslov. Kompresija tudi prepolovi njeno ločljivost.</string>
+    <string name="squeezer_markers_downscaled_description">Ta fotografija je široka ali visoka 8192 slikovnih pik ali več. Stiskanje prepolovi njeno širino in višino, po potrebi pa še enkrat, dokler obe ne bosta manjši od 8192 slikovnih pik.</string>
     <string name="squeezer_compress_action">Stisni</string>
     <string name="squeezer_compress_all_action">Stisni vse</string>
     <string name="squeezer_preview_dialog_title">Potrdi stiskanje</string>

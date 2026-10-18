@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">រំលងចោល %d (ត្រូវបានការពារ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d មិនបានផ្លាស់ប្តូរ (មិនតូចជាង)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d ធាតុត្រូវបានជ្រើររើស</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">បង្ហាប់រូបភាពចលនា</string>
     <string name="squeezer_include_motion_photos_description">រួមបញ្ចូលរូបភាពចលនា។ ការបង្ហាប់រក្សាទុករូបភាពស្ថិត និងលុបចោលឈុតវីដេអូ។</string>
     <string name="squeezer_include_oversized_title">បង្ហាប់រូបថតធំខ្លាំង</string>
-    <string name="squeezer_include_oversized_description">រួមបញ្ចូលរូបថតដែលមានទទឹង ឬកម្ពស់លើសពី 8192 pixel។ ការបង្ហាប់ក៏កាត់បន្ថយគុណភាពបង្ហាញរបស់វាមួយពាក់កណ្តាលដែរ។</string>
+    <string name="squeezer_include_oversized_description">រួមបញ្ចូលរូបថតដែលមានទទឹង ឬកម្ពស់ 8192 ភីកសែល ឬច្រើនជាងនេះ។ ការបង្ហាប់កាត់ទទឹង និងកម្ពស់របស់វាជាពាក់កណ្តាល ហើយកាត់ម្តងទៀតប្រសិនបើចាំបាច់ រហូតដល់ទាំងទទឹង និងកម្ពស់មានតិចជាង 8192 ភីកសែល។</string>
     <string name="squeezer_estimated_savings_format">~%s នៅសល់</string>
     <string name="squeezer_no_savings_expected">ការសញ្ញតិត្តចាស់</string>
     <string name="squeezer_current_size_format">ទំហំ៖ %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid បានបង្ហាប់ឯកសារនេះរួចហើយ។ ការបង្ហាប់វាម្តងទៀតបន្ថយគុណភាព ហើយសន្សំសំចៃបានតិចតួច។</string>
     <string name="squeezer_markers_hdr_depth_description">រូបថតនេះមានទិន្នន័យ HDR ឬជម្រៅដែលការបង្ហាប់មិនអាចរក្សាទុកបាន។ រូបថត HDR នឹងក្លាយជារូបថតធម្មតាវិញ ហើយរូបថតបញ្ឈរនឹងបាត់បង់ទិន្នន័យជម្រៅដែលប្រើសម្រាប់ភាពព្រិលផ្ទៃខាងក្រោយ។</string>
     <string name="squeezer_markers_motion_photo_description">នេះជារូបភាពចលនា។ ការបង្ហាប់រក្សាទុករូបភាពស្ថិត និងលុបចោលឈុតវីដេអូ។</string>
-    <string name="squeezer_markers_downscaled_description">រូបថតនេះមានទទឹង ឬកម្ពស់លើសពី 8192 pixel។ ការបង្ហាប់ក៏កាត់បន្ថយគុណភាពបង្ហាញរបស់វាមួយពាក់កណ្តាលដែរ។</string>
+    <string name="squeezer_markers_downscaled_description">រូបថតនេះមានទទឹង ឬកម្ពស់ 8192 ភីកសែល ឬច្រើនជាងនេះ។ ការបង្ហាប់កាត់ទទឹង និងកម្ពស់របស់វាជាពាក់កណ្តាល ហើយកាត់ម្តងទៀតប្រសិនបើចាំបាច់ រហូតដល់ទាំងទទឹង និងកម្ពស់មានតិចជាង 8192 ភីកសែល។</string>
     <string name="squeezer_compress_action">ចុច</string>
     <string name="squeezer_compress_all_action">ចុចតាងអស់</string>
     <string name="squeezer_preview_dialog_title">បញ្ជាក់ការចុច</string>

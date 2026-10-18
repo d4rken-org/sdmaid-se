@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Δέλτα</string>
     <string name="stats_space_history_delta_in_x">%1$s σε %2$s</string>
     <string name="stats_space_history_upgrade_title">Το πλήρες ιστορικό είναι λειτουργία Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Με αναβάθμιση, βλέπεις 90 ημέρες ιστορικού για κάθε συσκευή αποθήκευσης, ή έως ένα έτος αν το διατηρείς περισσότερο, και λαμβάνεις προειδοποίηση πριν εξαντληθεί ο χώρος.</string>
     <string name="stats_space_history_marker_freed">Ελευθερώθηκε %1$s</string>
     <string name="stats_storage_type_primary">Πρωτεύων αποθηκευτικός χώρος</string>
     <string name="stats_storage_type_secondary">Δευτερεύων αποθηκευτικός χώρος</string>

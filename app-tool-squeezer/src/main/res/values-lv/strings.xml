@@ -51,6 +51,11 @@
         <item quantity="one">%d izlaists (aizsargāts)</item>
         <item quantity="other">%d izlaisti (aizsargāti)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="zero">%d nemainījās (nav mazāks)</item>
+        <item quantity="one">%d nemainījās (nav mazāks)</item>
+        <item quantity="other">%d nemainījās (nav mazāki)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="zero">%d vienumu atlasīts</item>
         <item quantity="one">%d vienums atlasīts</item>
@@ -82,7 +87,7 @@
     <string name="squeezer_include_motion_photos_title">Saspiest Motion Photo attēlus</string>
     <string name="squeezer_include_motion_photos_description">Iekļaut Motion Photo attēlus. Saspiešana saglabā nekustīgo attēlu un noņem video klipu.</string>
     <string name="squeezer_include_oversized_title">Saspiest ļoti lielus fotoattēlus</string>
-    <string name="squeezer_include_oversized_description">Iekļaut fotoattēlus, kas platāki vai augstāki par 8192 pikseļiem. Saspiešana arī samazina to izšķirtspēju uz pusi.</string>
+    <string name="squeezer_include_oversized_description">Iekļaut fotogrāfijas, kuru platums vai augstums ir vismaz 8192 pikseļi. Saspiešana samazina to platumu un augstumu uz pusi, un vajadzības gadījumā vēl uz pusi, līdz abi izmēri ir mazāki par 8192 pikseļiem.</string>
     <string name="squeezer_estimated_savings_format">~%s ietaupijums</string>
     <string name="squeezer_no_savings_expected">Ierobezots ietaupijums</string>
     <string name="squeezer_current_size_format">Izmērs: %s</string>
@@ -94,7 +99,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid jau saspieda šo failu. Saspiežot to atkārtoti, tiek zaudēta kvalitāte, bet ietaupījums ir neliels.</string>
     <string name="squeezer_markers_hdr_depth_description">Šim fotoattēlam ir HDR vai dziļuma dati, kurus saspiešana nevar saglabāt. HDR fotoattēls kļūst par parastu fotoattēlu, bet portreta fotoattēls zaudē dziļuma datus, kas tiek izmantoti fona izplūduma efektam.</string>
     <string name="squeezer_markers_motion_photo_description">Šis ir Motion Photo. Saspiešana saglabā nekustīgo attēlu un noņem video klipu.</string>
-    <string name="squeezer_markers_downscaled_description">Šis fotoattēls ir platāks vai augstāks par 8192 pikseļiem. Saspiešana arī samazina tā izšķirtspēju uz pusi.</string>
+    <string name="squeezer_markers_downscaled_description">Šīs fotogrāfijas platums vai augstums ir vismaz 8192 pikseļi. Saspiešana samazina tās platumu un augstumu uz pusi, un vajadzības gadījumā vēl uz pusi, līdz abi izmēri ir mazāki par 8192 pikseļiem.</string>
     <string name="squeezer_compress_action">Saspiest</string>
     <string name="squeezer_compress_all_action">Saspiest visus</string>
     <string name="squeezer_preview_dialog_title">Apstiprināt kompresiju</string>

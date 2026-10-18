@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">De bewerking is afgebroken omdat het scherm niet meer beschikbaar was (bijv. weergave uit of vergrendelscherm actief).</string>
     <string name="automation_error_compatibility_title">Automatiseringscompatibiliteit</string>
     <string name="automation_error_compatibility_body">SD Maid kon de schermindeling niet achterhalen. Als dit blijft gebeuren, wordt je taal of installatie mogelijk niet volledig ondersteund. Controleer op updates of neem contact met mij op, zodat ik het kan oplossen.</string>
+    <string name="automation_error_compatibility_adb_hint">Met ingestelde ADB-toegang kan SD Maid het meeste hiervan doen zonder de toegankelijkheidsservice.</string>
     <string name="automation_error_timeout_title">Automatiseringstime-out</string>
     <string name="automation_error_timeout_body">SD Maid heeft niet alle stappen binnen de tijdslimiet voltooid. Als dit probleem blijft optreden, moet ik de app mogelijk aanpassen voor je apparaat. Controleer op updates of neem contact met me op zodat ik het probleem kan oplossen.</string>
     <string name="automation_error_overlay_title">Automatiseringsoverlay</string>

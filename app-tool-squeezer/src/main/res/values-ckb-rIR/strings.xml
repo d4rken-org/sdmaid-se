@@ -41,6 +41,10 @@
         <item quantity="one">%d تێپەڕێنرا (پارێزراو)</item>
         <item quantity="other">%d تێپەڕێنرا (پارێزراو)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d نەگۆڕاو (بچووکتر نەبووە)</item>
+        <item quantity="other">%d نەگۆڕاو (بچووکتر نەبووە)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d دانە هەڵبژێردرا</item>
         <item quantity="other">%d دانە هەڵبژێردرا</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">پەستاندنی وێنە جوڵاوەکان</string>
     <string name="squeezer_include_motion_photos_description">وێنە جوڵاوەکان لەخۆبگرە. پەستاندن وێنە ڕاوەستاوەکە دەپارێزێت و پارچە ڤیدیۆکە لادەبات.</string>
     <string name="squeezer_include_oversized_title">پەستاندنی وێنە زۆر گەورەکان</string>
-    <string name="squeezer_include_oversized_description">وێنە کە پانتر یان بەرزتر لە 8192 پیکسڵن لەخۆبگرە. پەستاندن هەروەها ڕیزۆلیوشنەکەیان بۆ نیوە کەم دەکاتەوە.</string>
+    <string name="squeezer_include_oversized_description">وێنەکانی لەخۆبگرە کە پانی یان بەرزییان 8192 پیکسڵ یان زیاترە. کۆمپرێسکردن پانی و بەرزییان نیوە دەکات، و ئەگەر پێویست بوو دووبارە نیوە دەکات، هەتا هەردووکیان لە 8192 پیکسڵ کەمتر دەبن.</string>
     <string name="squeezer_estimated_savings_format">~%s خەزن</string>
     <string name="squeezer_no_savings_expected">خەزنکردنی سنووردار</string>
     <string name="squeezer_current_size_format">قەبارە: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid پێشتر ئەم پەڕگەیەی پەستاندووە. دووبارە پەستاندنەوەی جۆرایەتی لەدەست دەدات و تەنها بۆشاییەکی کەم دەپارێزێت.</string>
     <string name="squeezer_markers_hdr_depth_description">ئەم وێنەیە زانیاری HDR یان قوڵایی هەیە کە پەستاندن ناتوانێت بیپارێزێت. وێنەی HDR دەگەڕێتەوە بۆ وێنەیەکی ئاسایی، و وێنەی پۆرتریت زانیاری قوڵاییەکە لەدەست دەدات کە بۆ تێکەڵاوی باکگراوند بەکاردێت.</string>
     <string name="squeezer_markers_motion_photo_description">ئەمە وێنەیەکی جوڵاوە. پەستاندن وێنە ڕاوەستاوەکە دەپارێزێت و پارچە ڤیدیۆکە لادەبات.</string>
-    <string name="squeezer_markers_downscaled_description">ئەم وێنەیە پانتر یان بەرزترە لە 8192 پیکسڵ. پەستاندن هەروەها ڕیزۆلیوشنەکەی بۆ نیوە کەم دەکاتەوە.</string>
+    <string name="squeezer_markers_downscaled_description">ئەم وێنەیە پانی یان بەرزی 8192 پیکسڵ یان زیاترە. کۆمپرێسکردن پانی و بەرزییەکەی نیوە دەکات، و ئەگەر پێویست بوو دووبارە نیوە دەکات، هەتا هەردووکیان لە 8192 پیکسڵ کەمتر دەبن.</string>
     <string name="squeezer_compress_action">پەکاندن</string>
     <string name="squeezer_compress_all_action">هەموو بپەکێنە</string>
     <string name="squeezer_preview_dialog_title">پشتڕاستکردنەوەی پەکاندن</string>

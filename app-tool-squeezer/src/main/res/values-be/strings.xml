@@ -61,6 +61,12 @@
         <item quantity="many">%d прапушчаны (абаронены)</item>
         <item quantity="other">%d прапушчаны (абаронены)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d без змен (не меншы)</item>
+        <item quantity="few">%d без змен (не меншыя)</item>
+        <item quantity="many">%d без змен (не меншыя)</item>
+        <item quantity="other">%d без змен (не меншыя)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d элемент выбраны</item>
         <item quantity="few">%d элементы выбраны</item>
@@ -93,7 +99,7 @@
     <string name="squeezer_include_motion_photos_title">Сціснуць Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Уключыць Motion Photos. Сцісканне захоўвае нерухомы відарыс і выдаляе відэаролік.</string>
     <string name="squeezer_include_oversized_title">Сціснуць вельмі вялікія фота</string>
-    <string name="squeezer_include_oversized_description">Уключыць фота з шырынёй ці вышынёй больш за 8192 пікселі. Сцісканне таксама памяншае іх раздзяляльнасць напалову.</string>
+    <string name="squeezer_include_oversized_description">Уключаць фота шырынёй або вышынёй 8192 пікселі і больш. Сціск змяншае іх шырыню і вышыню ўдвая, а пры неабходнасці яшчэ раз удвая, пакуль абодва памеры не стануць меншымі за 8192 пікселі.</string>
     <string name="squeezer_estimated_savings_format">~%s эканоміі</string>
     <string name="squeezer_no_savings_expected">Абмежаваная эканомія</string>
     <string name="squeezer_current_size_format">Памер: %s</string>
@@ -105,7 +111,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ужо сціснуў гэты файл. Паўторнае сцісканне пагаршае якасць і амаль нічога не эканоміць.</string>
     <string name="squeezer_markers_hdr_depth_description">Гэта фота мае дадзеныя HDR ці глыбіні, якія сцісканне не можа захаваць. HDR-фота становіцца звычайным, а партрэтнае фота губляе дадзеныя глыбіні, якія выкарыстоўваліся для размыцця фону.</string>
     <string name="squeezer_markers_motion_photo_description">Гэта Motion Photo. Сцісканне захоўвае нерухомы відарыс і выдаляе відэаролік.</string>
-    <string name="squeezer_markers_downscaled_description">Гэта фота шырэйшае ці вышэйшае за 8192 пікселі. Сцісканне таксама памяншае яго раздзяляльнасць напалову.</string>
+    <string name="squeezer_markers_downscaled_description">Гэта фота шырынёй або вышынёй 8192 пікселі і больш. Сціск змяншае яго шырыню і вышыню ўдвая, а пры неабходнасці яшчэ раз удвая, пакуль абодва памеры не стануць меншымі за 8192 пікселі.</string>
     <string name="squeezer_compress_action">Сціснуць</string>
     <string name="squeezer_compress_all_action">Сціснуць усё</string>
     <string name="squeezer_preview_dialog_title">Пацвердзіць сцісканне</string>

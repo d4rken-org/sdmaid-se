@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">परिवर्तन</string>
     <string name="stats_space_history_delta_in_x">%1$s %2$s मा</string>
     <string name="stats_space_history_upgrade_title">पूर्ण इतिहास Pro सुविधा हो</string>
+    <string name="stats_space_history_upgrade_body_v3">हरेक भण्डारण यन्त्रको ९० दिनसम्मको इतिहास हेर्न अपग्रेड गर्नुहोस्, वा लामो समय राख्ने हो भने एक वर्षसम्मको इतिहास, र भण्डारण सकिनुअघि चेतावनी पाउनुहोस्।</string>
     <string name="stats_space_history_marker_freed">%1$s मुक्त गरियो</string>
     <string name="stats_storage_type_primary">प्राथमिक भण्डारण</string>
     <string name="stats_storage_type_secondary">द्वितीयक भण्डारण</string>

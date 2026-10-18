@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">画面が利用できなくなったため、操作が中断されました(たとえば、画面のスリープやロック画面の有効化など)。</string>
     <string name="automation_error_compatibility_title">自動化の互換性</string>
     <string name="automation_error_compatibility_body">SD Maidは画面レイアウトを判別できませんでした。これが続く場合、お使いの言語や設定が完全にサポートされていない可能性があります。更新を確認するか、修正できるよう私にご連絡ください。</string>
+    <string name="automation_error_compatibility_adb_hint">ADB アクセスを設定すると、SD Maid はユーザー補助サービスを使わなくても、この作業のほとんどを実行できます。</string>
     <string name="automation_error_timeout_title">自動化タイムアウト</string>
     <string name="automation_error_timeout_body">SD Maidは時間制限内にすべての手順を完了できませんでした。これが続く場合、お使いのデバイス用にアプリを調整する必要があるかもしれません。更新を確認するか、修正できるよう私にご連絡ください。</string>
     <string name="automation_error_overlay_title">自動化オーバーレイ</string>

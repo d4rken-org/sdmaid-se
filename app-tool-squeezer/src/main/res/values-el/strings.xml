@@ -41,6 +41,10 @@
         <item quantity="one">%d παραλείφθηκε (προστατευμένο)</item>
         <item quantity="other">%d παραλείφθηκαν (προστατευμένα)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d αμετάβλητο (όχι μικρότερο)</item>
+        <item quantity="other">%d αμετάβλητα (όχι μικρότερα)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d στοιχείο επιλεγμένο</item>
         <item quantity="other">%d στοιχεία επιλεγμένα</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Συμπίεση Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Συμπερίληψη Motion Photos. Η συμπίεση διατηρεί τη στατική εικόνα και αφαιρεί το βίντεο κλιπ.</string>
     <string name="squeezer_include_oversized_title">Συμπίεση πολύ μεγάλων φωτογραφιών</string>
-    <string name="squeezer_include_oversized_description">Συμπερίληψη φωτογραφιών με πλάτος ή ύψος πάνω από 8192 pixel. Η συμπίεση μειώνει επίσης την ανάλυσή τους στο μισό.</string>
+    <string name="squeezer_include_oversized_description">Συμπερίληψη φωτογραφιών με πλάτος ή ύψος 8192 pixel ή περισσότερο. Η συμπίεση μειώνει στο μισό το πλάτος και το ύψος τους, και τα μειώνει ξανά στο μισό αν χρειαστεί, έως ότου και τα δύο είναι κάτω από 8192 pixel.</string>
     <string name="squeezer_estimated_savings_format">~%s εξοικονόμηση</string>
     <string name="squeezer_no_savings_expected">Περιορισμένη εξοικονόμηση</string>
     <string name="squeezer_current_size_format">Μέγεθος: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">Το SD Maid έχει ήδη συμπιέσει αυτό το αρχείο. Η επανάληψη της συμπίεσης κοστίζει σε ποιότητα και εξοικονομεί λίγο.</string>
     <string name="squeezer_markers_hdr_depth_description">Αυτή η φωτογραφία έχει δεδομένα HDR ή βάθους που η συμπίεση δεν μπορεί να διατηρήσει. Μια φωτογραφία HDR επιστρέφει ως κανονική, και μια φωτογραφία πορτραίτου χάνει τα δεδομένα βάθους που χρησιμοποιούνται για τη θόλωση φόντου.</string>
     <string name="squeezer_markers_motion_photo_description">Αυτή είναι μια Motion Photo. Η συμπίεση διατηρεί τη στατική εικόνα και αφαιρεί το βίντεο κλιπ.</string>
-    <string name="squeezer_markers_downscaled_description">Αυτή η φωτογραφία έχει πλάτος ή ύψος πάνω από 8192 pixel. Η συμπίεση μειώνει επίσης την ανάλυσή της στο μισό.</string>
+    <string name="squeezer_markers_downscaled_description">Αυτή η φωτογραφία έχει πλάτος ή ύψος 8192 pixel ή περισσότερο. Η συμπίεση μειώνει στο μισό το πλάτος και το ύψος της, και τα μειώνει ξανά στο μισό αν χρειαστεί, έως ότου και τα δύο είναι κάτω από 8192 pixel.</string>
     <string name="squeezer_compress_action">Συμπίεση</string>
     <string name="squeezer_compress_all_action">Συμπίεση όλων</string>
     <string name="squeezer_preview_dialog_title">Επιβεβαίωση συμπίεσης</string>

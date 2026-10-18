@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">ოპერაცია შეწყვეტილ იქნა, რადგან ეკრანი გახდა მიუწვდომელი (მაგ. ეკრანი გათიშული ან დაბლოკვის ეკრანი აქტიური).</string>
     <string name="automation_error_compatibility_title">ავტომატიზაციის თავსებადობა</string>
     <string name="automation_error_compatibility_body">SD Maid-მ ვერ გაარკვია ეკრანის განლაგება. თუ ეს გრძელდება, შესაძლოა თქვენი ენა ან დაყენება სრულად არ არის მხარდაჭერილი. შეამოწმეთ განახლებები ან დამიკავშირდით, რათა შევასწორო.</string>
+    <string name="automation_error_compatibility_adb_hint">ADB წვდომის დაყენების შემდეგ, SD Maid-ს შეუძლია ამის უმეტესობის შესრულება მისაწვდომობის სერვისის გარეშე.</string>
     <string name="automation_error_timeout_title">ავტომატიზაციის ვადის გასვლა</string>
     <string name="automation_error_timeout_body">SD Maid-მ ვერ დაასრულა ყველა ნაბიჯი დროის ლიმიტში. თუ ეს გრძელდება, შესაძლოა დამჭირდეს აპის მორგება თქვენი მოწყობილობისთვის. შეამოწმეთ განახლებები ან დამიკავშირდით, რათა შევასწორო.</string>
     <string name="automation_error_overlay_title">ავტომატიზაციის ოვერლეი</string>

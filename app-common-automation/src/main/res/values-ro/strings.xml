@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
     <string name="automation_error_compatibility_title">Compatibilitate automată</string>
     <string name="automation_error_compatibility_body">SD Maid nu și-a putut da seama de aspectul ecranului. Dacă acest lucru se întâmplă în continuare, este posibil ca limba sau configurația dvs. să nu fie pe deplin acceptate. Verificați actualizările sau contactați-mă ca să pot remedia.</string>
+    <string name="automation_error_compatibility_adb_hint">Dacă ai configurat accesul ADB, SD Maid poate face cea mai mare parte din acestea fără serviciul de accesibilitate.</string>
     <string name="automation_error_timeout_title">Automatizarea a expirat</string>
     <string name="automation_error_timeout_body">SD Maid nu a parcurs toți pașii în termenul limită. Dacă acest lucru continuă să se întâmple, ar putea fi necesar să ajustați aplicația pentru dispozitivul dvs. Verificați dacă există actualizări sau contactați-mă pentru a le putea repara.</string>
     <string name="automation_error_overlay_title">Suprapunere automată</string>

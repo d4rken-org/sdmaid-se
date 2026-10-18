@@ -41,6 +41,10 @@
         <item quantity="one">%d vahele jäetud (kaitstud)</item>
         <item quantity="other">%d vahele jäetud (kaitstud)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d muutmata (ei ole väiksem)</item>
+        <item quantity="other">%d muutmata (ei ole väiksem)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d valitud</item>
         <item quantity="other">%d valitud</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Tihenda liikuvad pildid</string>
     <string name="squeezer_include_motion_photos_description">Kaasa arvatud liikuvad pildid Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
     <string name="squeezer_include_oversized_title">Tihenda väga suured pildid</string>
-    <string name="squeezer_include_oversized_description">Kaasa arvatud pildid, mis on laiemad või pikemad kui 8192 pikslit. Tihendamine poolitab ka nende eraldusvõime.</string>
+    <string name="squeezer_include_oversized_description">Kaasa fotod, mis on 8192 pikslit või rohkem laiad või kõrged. Tihendamine poolitab nende laiuse ja kõrguse ning vajaduse korral poolitab need uuesti, kuni mõlemad on alla 8192 piksli.</string>
     <string name="squeezer_estimated_savings_format">~%s sääst</string>
     <string name="squeezer_no_savings_expected">Piiratud säästud</string>
     <string name="squeezer_current_size_format">Maht: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid tihendas selle faili juba. Uuesti tihendamine maksab kvaliteeti ja säästab vähe.</string>
     <string name="squeezer_markers_hdr_depth_description">Sellel fotol on HDR- või sügavuse andmed, mida tihendamine ei saa säilitada. HDR-pilt naaseb tavaliseks pildiks ja portreepilt kaotab häguse tausta jaoks kasutatavad sügavuse andmed.</string>
     <string name="squeezer_markers_motion_photo_description">See on liikuv pilt. Tihendamine säilitab seisva pildi ja eemaldab videoklipi.</string>
-    <string name="squeezer_markers_downscaled_description">See pilt on laiem või pikem kui 8192 pikslit. Tihendamine poolitab ka selle eraldusvõime.</string>
+    <string name="squeezer_markers_downscaled_description">See foto on 8192 pikslit või rohkem lai või kõrge. Tihendamine poolitab selle laiuse ja kõrguse ning vajaduse korral poolitab need uuesti, kuni mõlemad on alla 8192 piksli.</string>
     <string name="squeezer_compress_action">Paki kokku</string>
     <string name="squeezer_compress_all_action">Paki kõik kokku</string>
     <string name="squeezer_preview_dialog_title">Kinnita kokkupakkimine</string>

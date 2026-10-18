@@ -48,6 +48,7 @@
     <string name="stats_space_history_delta_label">差異</string>
     <string name="stats_space_history_delta_in_x">%1$s（%2$s 內）</string>
     <string name="stats_space_history_upgrade_title">完整歷史記錄是 Pro 功能</string>
+    <string name="stats_space_history_upgrade_body_v3">升級後可查看每個儲存裝置最多 90 天的歷史記錄；如果你保留更長時間，可查看最多一年的記錄，並在儲存空間即將用盡前收到提醒。</string>
     <string name="stats_space_history_marker_freed">已釋放 %1$s</string>
     <string name="stats_storage_type_primary">主要儲存空間</string>
     <string name="stats_storage_type_secondary">次要儲存空間</string>

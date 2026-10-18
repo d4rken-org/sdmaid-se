@@ -41,6 +41,10 @@
         <item quantity="one">%d übersprungen (geschützt)</item>
         <item quantity="other">%d übersprungen (geschützt)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d unverändert (nicht kleiner)</item>
+        <item quantity="other">%d unverändert (nicht kleiner)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d Element ausgewählt</item>
         <item quantity="other">%d Elemente ausgewählt</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos komprimieren</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos einschließen. Bei der Komprimierung bleibt das Standbild erhalten und der Videoclip wird entfernt.</string>
     <string name="squeezer_include_oversized_title">Sehr große Fotos komprimieren</string>
-    <string name="squeezer_include_oversized_description">Fotos mit einer Breite oder Höhe von mehr als 8192 Pixeln einschließen. Bei der Komprimierung wird ihre Auflösung ebenfalls halbiert.</string>
+    <string name="squeezer_include_oversized_description">Fotos einbeziehen, die 8192 Pixel oder mehr in Breite oder Höhe haben. Bei der Komprimierung werden Breite und Höhe halbiert, bei Bedarf erneut halbiert, bis beide unter 8192 Pixel liegen.</string>
     <string name="squeezer_estimated_savings_format">~%s Ersparnis</string>
     <string name="squeezer_no_savings_expected">Begrenzte Ersparnis</string>
     <string name="squeezer_current_size_format">Größe: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid hat diese Datei bereits komprimiert. Eine erneute Komprimierung beeinträchtigt die Qualität und spart nur wenig Speicherplatz.</string>
     <string name="squeezer_markers_hdr_depth_description">Dieses Foto enthält HDR- oder Tiefendaten, die bei der Komprimierung nicht erhalten bleiben können. Ein HDR-Foto wird zu einem normalen Foto, und bei einem Porträtfoto gehen die für die Hintergrundunschärfe verwendeten Tiefendaten verloren.</string>
     <string name="squeezer_markers_motion_photo_description">Dies ist ein Motion Photo. Bei der Komprimierung bleibt das Standbild erhalten und der Videoclip wird entfernt.</string>
-    <string name="squeezer_markers_downscaled_description">Dieses Foto ist breiter oder höher als 8192 Pixel. Bei der Komprimierung wird seine Auflösung ebenfalls halbiert.</string>
+    <string name="squeezer_markers_downscaled_description">Dieses Foto hat 8192 Pixel oder mehr in Breite oder Höhe. Bei der Komprimierung werden Breite und Höhe halbiert, bei Bedarf erneut halbiert, bis beide unter 8192 Pixel liegen.</string>
     <string name="squeezer_compress_action">Komprimieren</string>
     <string name="squeezer_compress_all_action">Alle komprimieren</string>
     <string name="squeezer_preview_dialog_title">Komprimierung bestätigen</string>

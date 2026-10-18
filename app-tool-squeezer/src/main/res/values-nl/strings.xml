@@ -41,6 +41,10 @@
         <item quantity="one">%d overgeslagen (beschermd)</item>
         <item quantity="other">%d overgeslagen (beschermd)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d onveranderd (niet kleiner)</item>
+        <item quantity="other">%d onveranderd (niet kleiner)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item geselecteerd</item>
         <item quantity="other">%d items geselecteerd</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos comprimeren</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos opnemen. Compressie behoudt de stilstaande afbeelding en verwijdert het videofragment.</string>
     <string name="squeezer_include_oversized_title">Zeer grote foto\'s comprimeren</string>
-    <string name="squeezer_include_oversized_description">Foto\'s opnemen die breder of hoger zijn dan 8192 pixels. Compressie halveert ook hun resolutie.</string>
+    <string name="squeezer_include_oversized_description">Neem foto\'s op die 8192 pixels of meer breed of hoog zijn. Compressie halveert de breedte en hoogte, en indien nodig nogmaals, totdat beide kleiner zijn dan 8192 pixels.</string>
     <string name="squeezer_estimated_savings_format">~%s besparing</string>
     <string name="squeezer_no_savings_expected">Beperkte besparing</string>
     <string name="squeezer_current_size_format">Grootte: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid heeft dit bestand al gecomprimeerd. Nogmaals comprimeren kost kwaliteit en levert weinig op.</string>
     <string name="squeezer_markers_hdr_depth_description">Deze foto heeft HDR- of dieptegegevens die compressie niet kan behouden. Een HDR-foto komt terug als een normale foto, en een portretfoto verliest de dieptegegevens die worden gebruikt voor achtergrondvervaging.</string>
     <string name="squeezer_markers_motion_photo_description">Dit is een Motion Photo. Compressie behoudt de stilstaande afbeelding en verwijdert het videofragment.</string>
-    <string name="squeezer_markers_downscaled_description">Deze foto is breder of hoger dan 8192 pixels. Compressie halveert ook de resolutie.</string>
+    <string name="squeezer_markers_downscaled_description">Deze foto is 8192 pixels of meer breed of hoog. Compressie halveert de breedte en hoogte, en indien nodig nogmaals, totdat beide kleiner zijn dan 8192 pixels.</string>
     <string name="squeezer_compress_action">Comprimeren</string>
     <string name="squeezer_compress_all_action">Comprimeer alles</string>
     <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>

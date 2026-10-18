@@ -41,6 +41,10 @@
         <item quantity="one">%d алгасав (хамгаалагдсан)</item>
         <item quantity="other">%d алгасав (хамгаалагдсан)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d өөрчлөгдөөгүй (жижгээгүй)</item>
+        <item quantity="other">%d өөрчлөгдөөгүй (жижгээгүй)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d зүйл сонгогдлоо</item>
         <item quantity="other">%d зүйл сонгогдлоо</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photos-г шахах</string>
     <string name="squeezer_include_motion_photos_description">Motion Photos-г оруулна. Шахалт суулт зургийг хадгалж видео клипийг арилна.</string>
     <string name="squeezer_include_oversized_title">Маш том зургууд шахах</string>
-    <string name="squeezer_include_oversized_description">8192 пиксел-ээс өргөн эсвэл өндөр зургууд оруулна. Шахалт тэдгээрийн нарийвчлалыг хоёр удаа буулгана.</string>
+    <string name="squeezer_include_oversized_description">8192 пиксел ба түүнээс дээш өргөн эсвэл өндөр зургуудыг оруулна. Шахалт нь тэдгээрийн өргөн, өндрийг хоёр дахин багасгаж, шаардлагатай бол дахин хоёр дахин багасгаж, хоёулаа 8192 пикселээс бага болтол үргэлжилнэ.</string>
     <string name="squeezer_estimated_savings_format">~%s хадгалалт</string>
     <string name="squeezer_no_savings_expected">Хязаарлагдсан хадгалалт</string>
     <string name="squeezer_current_size_format">Хэмжээ: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid аль хэдийн энэ файлыг шахсан. Дахин шахахад чанар унаж, хэмнэлт бага болно.</string>
     <string name="squeezer_markers_hdr_depth_description">Энэ фото HDR эсвэл гүний мэдээлэл бүхий бөгөөд шахалт үүнийг хадгалах боломжгүй. HDR фото энгийн фото болж буцана, урлаг фото нь арын фоны бүрхүүлэхэд ашиглдаг гүний мэдээллийг алддаг.</string>
     <string name="squeezer_markers_motion_photo_description">Энэ нь Motion Photo юм. Шахалт суулт зургийг хадгалж видео клипийг арилна.</string>
-    <string name="squeezer_markers_downscaled_description">Энэ фото 8192 пиксел-ээс өргөн эсвэл өндөр. Шахалт түүний нарийвчлалыг хоёр удаа буулгана.</string>
+    <string name="squeezer_markers_downscaled_description">Энэ зураг 8192 пиксел ба түүнээс дээш өргөн эсвэл өндөр байна. Шахалт нь түүний өргөн, өндрийг хоёр дахин багасгаж, шаардлагатай бол дахин хоёр дахин багасгаж, хоёулаа 8192 пикселээс бага болтол үргэлжилнэ.</string>
     <string name="squeezer_compress_action">Шахаах</string>
     <string name="squeezer_compress_all_action">Бүгдийг шахаах</string>
     <string name="squeezer_preview_dialog_title">Шахалтыг баталгаажуулах</string>

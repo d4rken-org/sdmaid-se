@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d ຖືກຂ້າມ (ປົກປ້ອງ)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d ບໍ່ປ່ຽນແປງ (ບໍ່ໄດ້ນ້ອຍລົງ)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d ລາຍການທີ່ເລືອກ</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">ບີບອັດ Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">ລວມເອົາ Motion Photos. ການອັດຮັກສາຮູບພາບສະຖິດ ແລະລຶບວິດີ໐ອຄລິບ.</string>
     <string name="squeezer_include_oversized_title">ບີບອັດຮູບພາບຂະຫນາດໃຫຍ່ຫຼາຍ</string>
-    <string name="squeezer_include_oversized_description">ລວມຮູບພາບທີ່ກວ້າງ ຫຼື ສູງກວ່າ 8192 pixels. ການບີບອັດຍັງຫຼຸດຄວາມລະອີດເຄິ່ງໝຶ່ງ.</string>
+    <string name="squeezer_include_oversized_description">ລວມຮູບທີ່ມີຄວາມກວ້າງ ຫຼື ຄວາມສູງ 8192 ພິກເຊວ ຂຶ້ນໄປ. ການບີບອັດຈະຫຼຸດຄວາມກວ້າງ ແລະ ຄວາມສູງລົງເຄິ່ງໜຶ່ງ ແລະ ຫຼຸດອີກເຄິ່ງໜຶ່ງຖ້າຈຳເປັນ ຈົນກວ່າທັງສອງຢ່າງຈະຕ່ຳກວ່າ 8192 ພິກເຊວ.</string>
     <string name="squeezer_estimated_savings_format">ປະຫຍັດ ~%s</string>
     <string name="squeezer_no_savings_expected">ປະຫຍັດໄດ້ນ້ອຍ</string>
     <string name="squeezer_current_size_format">ຂນາດ: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid ໄດ້ບີບອັດໄຟລ໌ນີ້ແລ້ວ. ການບີບອັດມັນອີກຄັ້ງຈະສູນເສຍຄຸນະພາບ ແລະ ຊ໌ຢພື້ນທີ່ບໍ່ຫຼາຍ.</string>
     <string name="squeezer_markers_hdr_depth_description">ຮູບພາບນີ້ມີຂໍ້ມູນ HDR ຫຼື depth ທີ່ການບີບອັດບໍ່ສາມາດຮັກສາໄວ້ໄດ້. ຮູບພາບ HDR ກາຍໄປເປັນຮູບພາບປົກກະຕິ, ແລະຮູບພາບຕົວຕົນສູນເສຍຂໍ້ມູນເລິກທີ່ໃຊ້ສຳລັບຄວາມບໍ່ຊັດເຈົນຂອງພື້ນຫຼັງ.</string>
     <string name="squeezer_markers_motion_photo_description">ນີ້ແມ່ນ Motion Photo. ການອັດຮັກສາຮູບພາບສະຖິດ ແລະລຶບວິດີ໐ອຄລິບ.</string>
-    <string name="squeezer_markers_downscaled_description">ຮູບພາບນີ້ກວ້າງ ຫຼື ສູງກວ່າ 8192 pixels. ການບີບອັດຍັງຫຼຸດຄວາມລະອີດເຄິ່ງໝຶ່ງ.</string>
+    <string name="squeezer_markers_downscaled_description">ຮູບນີ້ມີຄວາມກວ້າງ ຫຼື ຄວາມສູງ 8192 ພິກເຊວ ຂຶ້ນໄປ. ການບີບອັດຈະຫຼຸດຄວາມກວ້າງ ແລະ ຄວາມສູງລົງເຄິ່ງໜຶ່ງ ແລະ ຫຼຸດອີກເຄິ່ງໜຶ່ງຖ້າຈຳເປັນ ຈົນກວ່າທັງສອງຢ່າງຈະຕ່ຳກວ່າ 8192 ພິກເຊວ.</string>
     <string name="squeezer_compress_action">ບີບອັດ</string>
     <string name="squeezer_compress_all_action">ບີບອັດທັງຫມດ</string>
     <string name="squeezer_preview_dialog_title">ຍືນຍັນການບີບອັດ</string>

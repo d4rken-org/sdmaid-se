@@ -51,6 +51,11 @@
         <item quantity="few">%d omise (protejate)</item>
         <item quantity="other">%d de omise (protejate)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d neschimbat (nu mai mic)</item>
+        <item quantity="few">%d neschimbate (nu mai mici)</item>
+        <item quantity="other">%d de neschimbate (nu mai mici)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d element selectat</item>
         <item quantity="few">%d elemente selectate</item>
@@ -82,7 +87,7 @@
     <string name="squeezer_include_motion_photos_title">Comprimă fotografiile în mișcare</string>
     <string name="squeezer_include_motion_photos_description">Include fotografiile în mișcare. Compresia păstrează imaginea statică și elimină clipul video.</string>
     <string name="squeezer_include_oversized_title">Comprimă fotografiile foarte mari</string>
-    <string name="squeezer_include_oversized_description">Include fotografiile mai late sau mai înalte de 8192 de pixeli. Compresia le înjumătățește și rezoluția.</string>
+    <string name="squeezer_include_oversized_description">Include fotografiile care au 8192 de pixeli sau mai mult pe lățime sau înălțime. Compresia înjumătățește lățimea și înălțimea, iar dacă este nevoie, le înjumătățește din nou, până când ambele dimensiuni sunt sub 8192 de pixeli.</string>
     <string name="squeezer_estimated_savings_format">~%s economisite</string>
     <string name="squeezer_no_savings_expected">Economisiri limitate</string>
     <string name="squeezer_current_size_format">Dimensiune: %s</string>
@@ -94,7 +99,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid a comprimat deja acest fișier. Comprimarea lui din nou costă calitate și economisește puțin.</string>
     <string name="squeezer_markers_hdr_depth_description">Această fotografie are date HDR sau de adâncime pe care compresia nu le poate păstra. O fotografie HDR devine una normală, iar o fotografie portret pierde datele de adâncime folosite pentru estomparea fundalului.</string>
     <string name="squeezer_markers_motion_photo_description">Aceasta este o fotografie în mișcare. Compresia păstrează imaginea statică și elimină clipul video.</string>
-    <string name="squeezer_markers_downscaled_description">Această fotografie este mai lată sau mai înaltă de 8192 de pixeli. Compresia îi înjumătățește și rezoluția.</string>
+    <string name="squeezer_markers_downscaled_description">Această fotografie are 8192 de pixeli sau mai mult pe lățime sau înălțime. Compresia înjumătățește lățimea și înălțimea, iar dacă este nevoie, le înjumătățește din nou, până când ambele dimensiuni sunt sub 8192 de pixeli.</string>
     <string name="squeezer_compress_action">Comprimă</string>
     <string name="squeezer_compress_all_action">Comprimați tot</string>
     <string name="squeezer_preview_dialog_title">Confirmați compresia</string>

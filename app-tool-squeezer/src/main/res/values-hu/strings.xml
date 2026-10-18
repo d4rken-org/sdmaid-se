@@ -41,6 +41,10 @@
         <item quantity="one">%d kihagyva (védett)</item>
         <item quantity="other">%d kihagyva (védett)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="one">%d nem változott (nem lett kisebb)</item>
+        <item quantity="other">%d nem változott (nem lett kisebb)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d elem kiválasztva</item>
         <item quantity="other">%d elem kiválasztva</item>
@@ -71,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Motion Photo fájlok tömörítése</string>
     <string name="squeezer_include_motion_photos_description">Motion Photo fájlok belefoglalása. A tömörítés megtartja az állóképet, és eltávolítja a videórészletet.</string>
     <string name="squeezer_include_oversized_title">Nagyon nagy fotók tömörítése</string>
-    <string name="squeezer_include_oversized_description">A 8192 pixelnél szélesebb vagy magasabb fotók belefoglalása. A tömörítés a felbontásukat is felére csökkenti.</string>
+    <string name="squeezer_include_oversized_description">Tartalmazza azokat a fényképeket is, amelyek szélessége vagy magassága legalább 8192 pixel. A tömörítés felezi a szélességüket és a magasságukat, szükség esetén újra felezi, amíg mindkettő 8192 pixel alá nem kerül.</string>
     <string name="squeezer_estimated_savings_format">~%s megtakarítás</string>
     <string name="squeezer_no_savings_expected">Korlátozott megtakarítás</string>
     <string name="squeezer_current_size_format">Méret: %s</string>
@@ -83,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">Az SD Maid már tömörítette ezt a fájlt. Az újbóli tömörítés minőségromlással jár, és csak keveset spórol.</string>
     <string name="squeezer_markers_hdr_depth_description">Ez a fotó HDR- vagy mélységadatokkal rendelkezik, amelyeket a tömörítés nem tud megtartani. Egy HDR-fotóból normál fotó lesz, egy portréfotó pedig elveszíti a háttérelmosáshoz használt mélységadatokat.</string>
     <string name="squeezer_markers_motion_photo_description">Ez egy Motion Photo. A tömörítés megtartja az állóképet, és eltávolítja a videórészletet.</string>
-    <string name="squeezer_markers_downscaled_description">Ez a fotó szélesebb vagy magasabb 8192 pixelnél. A tömörítés a felbontását is felére csökkenti.</string>
+    <string name="squeezer_markers_downscaled_description">Ennek a fényképnek a szélessége vagy magassága legalább 8192 pixel. A tömörítés felezi a szélességét és a magasságát, szükség esetén újra felezi, amíg mindkettő 8192 pixel alá nem kerül.</string>
     <string name="squeezer_compress_action">Tömörítés</string>
     <string name="squeezer_compress_all_action">Összes tömörítése</string>
     <string name="squeezer_preview_dialog_title">Tömörítés megerősítése</string>

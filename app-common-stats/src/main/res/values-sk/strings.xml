@@ -66,6 +66,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s za %2$s</string>
     <string name="stats_space_history_upgrade_title">Plná história je funkcia Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Vyššia verzia zobrazí históriu úložia za 90 dní pre každé úložné zariadenie, alebo až za rok, ak ju uchovávate dlhšie, a upozorní vás, skôr než dôjde miesto.</string>
     <string name="stats_space_history_marker_freed">Uvoľnené %1$s</string>
     <string name="stats_storage_type_primary">Primárne úložisko</string>
     <string name="stats_storage_type_secondary">Sekundárne úložisko</string>

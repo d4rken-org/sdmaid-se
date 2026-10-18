@@ -31,6 +31,9 @@
     <plurals name="squeezer_result_x_skipped_protected">
         <item quantity="other">%d개 건너뜀 (보호됨)</item>
     </plurals>
+    <plurals name="squeezer_result_x_unchanged_not_smaller">
+        <item quantity="other">%d개 변경 없음(더 작아지지 않음)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d개 항목 선택됨</item>
     </plurals>
@@ -60,7 +63,7 @@
     <string name="squeezer_include_motion_photos_title">모션 사진 압축</string>
     <string name="squeezer_include_motion_photos_description">모션 사진을 포함합니다. 압축하면 정지 이미지는 유지되고 동영상 클립은 제거됩니다.</string>
     <string name="squeezer_include_oversized_title">매우 큰 사진 압축</string>
-    <string name="squeezer_include_oversized_description">너비 또는 높이가 8192픽셀보다 큰 사진을 포함합니다. 압축하면 해상도도 절반으로 줄어듭니다.</string>
+    <string name="squeezer_include_oversized_description">가로 또는 세로가 8192픽셀 이상인 사진을 포함합니다. 압축 시 너비와 높이를 절반으로 줄이고, 필요하면 둘 다 8192픽셀 미만이 될 때까지 다시 절반으로 줄입니다.</string>
     <string name="squeezer_estimated_savings_format">~%s 절약</string>
     <string name="squeezer_no_savings_expected">절약 효과 미미</string>
     <string name="squeezer_current_size_format">크기: %s</string>
@@ -72,7 +75,7 @@
     <string name="squeezer_markers_compressed_before_description">SD Maid가 이미 이 파일을 압축했습니다. 다시 압축하면 품질만 떨어지고 저장 공간이 거의 절약되지 않습니다.</string>
     <string name="squeezer_markers_hdr_depth_description">이 사진에는 압축으로 유지할 수 없는 HDR 또는 깊이 데이터가 있습니다. HDR 사진은 일반 사진이 되고, 인물 사진은 배경 흐림에 사용되는 깊이 데이터를 잃습니다.</string>
     <string name="squeezer_markers_motion_photo_description">이것은 모션 사진입니다. 압축하면 정지 이미지는 유지되고 동영상 클립은 제거됩니다.</string>
-    <string name="squeezer_markers_downscaled_description">이 사진의 너비 또는 높이가 8192픽셀보다 큽니다. 압축하면 해상도도 절반으로 줄어듭니다.</string>
+    <string name="squeezer_markers_downscaled_description">이 사진은 가로 또는 세로가 8192픽셀 이상입니다. 압축 시 너비와 높이를 절반으로 줄이고, 필요하면 둘 다 8192픽셀 미만이 될 때까지 다시 절반으로 줄입니다.</string>
     <string name="squeezer_compress_action">압축</string>
     <string name="squeezer_compress_all_action">모두 압축</string>
     <string name="squeezer_preview_dialog_title">압축 확인</string>

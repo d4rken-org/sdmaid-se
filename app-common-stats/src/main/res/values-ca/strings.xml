@@ -33,7 +33,7 @@
     <string name="stats_settings_retention_paths_label">Informació detallada de la ruta</string>
     <string name="stats_settings_retention_paths_desc">El nombre de dies per conservar els detalls de les rutes afectades per l\'SD Maid.</string>
     <string name="stats_settings_retention_snapshots_label">Historial d\'emmagatzematge</string>
-    <string name="stats_settings_retention_snapshots_desc">Nombre de dies per mantenir les captures instantànies de l\'ús d\'emmagatzematge per al gràfic de tendència d\'emmagatzematge. Les captures instantànies més antigues s\'eliminen.</string>
+    <string name="stats_settings_retention_snapshots_desc">Nombre de dies per mantenir les instantànies de l\'ús d\'emmagatzematge per al gràfic de tendència d\'emmagatzematge. Les instantànies més antigues s\'eliminen.</string>
     <string name="stats_settings_reset_all_label">Reinicia-ho tot</string>
     <string name="stats_settings_reset_all_desc">Suprimeix tots els informes i posa totes les estadístiques a zero.</string>
     <string name="stats_affected_paths_label">Rutes afectades</string>
@@ -54,6 +54,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s en %2$s</string>
     <string name="stats_space_history_upgrade_title">L’historial complet és una funció del Pro</string>
+    <string name="stats_space_history_upgrade_body_v3">Milloreu per veure 90 dies d\'historial de cada dispositiu d\'emmagatzematge, o fins a un any si el conserves durant més temps, i rebeu un avís abans que us quedeu sense espai.</string>
     <string name="stats_space_history_marker_freed">S\'ha alliberat %1$s</string>
     <string name="stats_storage_type_primary">Emmagatzematge primari</string>
     <string name="stats_storage_type_secondary">Emmagatzematge secundari</string>

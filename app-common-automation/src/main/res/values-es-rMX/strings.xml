@@ -15,6 +15,7 @@
     <string name="automation_error_screen_unavailable_body">La operación se canceló porque la pantalla dejó de estar disponible (por ejemplo, pantalla apagada o pantalla de bloqueo activa).</string>
     <string name="automation_error_compatibility_title">Compatibilidad de automatización</string>
     <string name="automation_error_compatibility_body">SD Maid no pudo entender el diseño de la pantalla. Si esto sigue ocurriendo, es posible que el idioma o la configuración no sean totalmente compatibles. Busca actualizaciones o comunícate conmigo para que pueda arreglarlo.</string>
+    <string name="automation_error_compatibility_adb_hint">Con acceso ADB configurado, SD Maid puede hacer la mayor parte de esto sin el servicio de accesibilidad.</string>
     <string name="automation_error_timeout_title">Tiempo de espera de automatización</string>
     <string name="automation_error_timeout_body">SD Maid no completó todos los pasos dentro del tiempo límite. Si esto sigue ocurriendo, quizás tenga que adaptar la aplicación a su dispositivo. Busque actualizaciones o contácteme para solucionarlo.</string>
     <string name="automation_error_overlay_title">Superposición de automatización</string>
