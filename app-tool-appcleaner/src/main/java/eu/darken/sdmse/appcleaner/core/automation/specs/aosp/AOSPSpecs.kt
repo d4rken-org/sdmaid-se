@@ -507,8 +507,10 @@ class AOSPSpecs @Inject constructor(
         }
         val runStats = stats
         if (result != true && centerSent) {
-            // A page a peek left scrolled away has no header for containment to recognize.
-            if (peek.away) {
+            // A page a peek left scrolled away has no header for containment to recognize. A window the press
+            // opened while the peek was away has no storage list and still gets contained.
+            val covered = host.windowRoot()?.showsStorageList() == false
+            if (peek.away && !covered) {
                 log(tag, WARN) { "Containment skipped, a peek didn't scroll back to the header" }
             } else {
                 containStrayPress()
@@ -666,18 +668,19 @@ class AOSPSpecs @Inject constructor(
             return null
         }
 
-        // A press whose polls saw no drop, with the Cache row below the fold: true if a peek shows it
-        // dropped, false if it doesn't (the press stays unverified, so no further key is sent), null if
-        // the row is on screen or the header is already gone (left to the existing handling).
-        suspend fun verifyBelowFold(source: String): Boolean? {
+        // Null if the row is on screen or the header is already gone (left to the existing handling).
+        suspend fun peekBelowFold(source: String): PeekResult? {
             val row = stats?.cacheRow?.takeIf { it.belowFold } ?: return null
             if (host.windowRoot()?.hasEntityHeader() != true) return null
             val result = peekCacheRow(peek, hasCacheRow, readRow, isDrop = row::dropped)
-            // A drop counts even if the page didn't scroll back.
-            val dropped = peek.sawDrop
-            log(tag, INFO) { "CacheRow[$source]: peek=$result, baseline=${row.bytes}, dropped=$dropped" }
-            return dropped
+            log(tag, INFO) { "CacheRow[$source]: peek=$result, baseline=${row.bytes}, dropped=${peek.sawDrop}" }
+            return result
         }
+
+        // A press whose polls saw no drop, with the Cache row below the fold: true if a peek shows it
+        // dropped, false if it doesn't (the press stays unverified, so no further key is sent), null as
+        // for [peekBelowFold]. A drop counts even if the page didn't scroll back.
+        suspend fun verifyBelowFold(source: String): Boolean? = peekBelowFold(source)?.let { peek.sawDrop }
 
         // The stats polls stop early enough for a peek at a Cache row below the fold to read it within the run.
         fun longStatsPolls(): Int {
@@ -686,6 +689,24 @@ class AOSPSpecs @Inject constructor(
                 ?: return STATS_LONG_POLLS
             val pollMs = leftMs - PEEK_READ_MS - STATS_POLL_READ_TIMEOUT_MS
             return (pollMs / STATS_POLL_DELAY_MS).toInt().coerceIn(0, STATS_LONG_POLLS)
+        }
+
+        // For the presses most likely to hit "Clear cache", as validateWithDelta followed by verifyBelowFold.
+        // A Cache row below the fold gets a first peek after EARLY_PEEK_POLLS; only a miss on a page that
+        // scrolled back gets the rest of the polls and a second peek.
+        suspend fun validateLikelyPress(source: String, timeoutMs: Long): Boolean? {
+            val polls = longStatsPolls()
+            if (stats?.cacheRow?.belowFold != true || polls <= EARLY_PEEK_POLLS) {
+                if (validateWithDelta(source, preSnapshot, sizeParser, timeoutMs, stats, polls)) return true
+                return verifyBelowFold(source)
+            }
+            if (validateWithDelta(source, preSnapshot, sizeParser, timeoutMs, stats, EARLY_PEEK_POLLS)) return true
+            val early = peekBelowFold("$source-early") ?: return null
+            if (peek.sawDrop) return true
+            if (early is PeekResult.NotRestored) return false
+            val rest = longStatsPolls().coerceAtMost(STATS_LONG_POLLS - EARLY_PEEK_POLLS)
+            if (validateWithDelta(source, preSnapshot, sizeParser, timeoutMs, stats, rest)) return true
+            return verifyBelowFold(source)
         }
 
         // Motorola edge 70, Android 17 (#2843): input focus reaches the anchor ~150ms after
@@ -797,16 +818,7 @@ class AOSPSpecs @Inject constructor(
                     } else {
                         val clicked = if (Bugs.isDryRun) true else dpadCenter().also { centerSent = it }
                         log(tag, INFO) { "DPAD_CENTER result=$clicked (source=quick-try)" }
-                        val validated = clicked && validateWithDelta(
-                            source = "quick-try",
-                            preSnapshot = preSnapshot,
-                            sizeParser = sizeParser,
-                            timeoutMs = 800,
-                            stats = stats,
-                            statsPolls = longStatsPolls(),
-                        )
-                        if (validated) return true
-                        if (clicked) verifyBelowFold("quick-try")?.let { return it }
+                        if (clicked) validateLikelyPress("quick-try", timeoutMs = 800)?.let { return it }
                     }
                 }
                 // Check if anchor is still present before falling through to cycle loop.
@@ -939,15 +951,7 @@ class AOSPSpecs @Inject constructor(
                         val clicked = if (Bugs.isDryRun) true else dpadCenter()
                         log(tag, INFO) { "DPAD_CENTER result=$clicked (source=label-match)" }
                         if (!clicked) return false
-                        val validated = validateWithDelta(
-                            source = "label-match",
-                            preSnapshot = preSnapshot,
-                            sizeParser = sizeParser,
-                            stats = stats,
-                            statsPolls = longStatsPolls(),
-                        )
-                        if (validated) return true
-                        verifyBelowFold("label-match")?.let { return it }
+                        validateLikelyPress("label-match", timeoutMs = 3000)?.let { return it }
                         break // Delta validation failed, try next cycle
                     }
 
@@ -1304,6 +1308,7 @@ class AOSPSpecs @Inject constructor(
         private const val STATS_POLL_READ_TIMEOUT_MS = 250L
         private const val STATS_LONG_POLLS = 16
         private const val STATS_SHORT_POLLS = 3
+        private const val EARLY_PEEK_POLLS = 2
 
         private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Specs")
     }
