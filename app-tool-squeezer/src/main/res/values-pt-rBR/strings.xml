@@ -75,7 +75,7 @@
     <string name="squeezer_include_motion_photos_title">Comprimir Motion Photos</string>
     <string name="squeezer_include_motion_photos_description">Incluir Motion Photos. A compressão preserva a imagem estática e remove o videoclipe.</string>
     <string name="squeezer_include_oversized_title">Comprimir fotos muito grandes</string>
-    <string name="squeezer_include_oversized_description">Incluir fotos com largura ou altura maior que 8192 pixels. A compressão também reduz a resolução pela metade.</string>
+    <string name="squeezer_include_oversized_description">Incluir fotos com 8192 pixels ou mais de largura ou altura. A compressão reduz a largura e a altura pela metade, e repete isso se necessário, até que ambas fiquem abaixo de 8192 pixels.</string>
     <string name="squeezer_estimated_savings_format">~%s de economia</string>
     <string name="squeezer_no_savings_expected">Economia limitada</string>
     <string name="squeezer_current_size_format">Tamanho: %s</string>
@@ -87,7 +87,7 @@
     <string name="squeezer_markers_compressed_before_description">O SD Maid já comprimiu este arquivo. Comprimi-lo novamente reduz a qualidade e economiza pouco.</string>
     <string name="squeezer_markers_hdr_depth_description">Esta foto tem dados HDR ou de profundidade que a compressão não consegue manter. Uma foto HDR se torna uma foto normal e uma foto de retrato perde os dados de profundidade usados para o desfoque de fundo.</string>
     <string name="squeezer_markers_motion_photo_description">Esta é uma Motion Photo. A compressão preserva a imagem estática e remove o videoclipe.</string>
-    <string name="squeezer_markers_downscaled_description">Esta foto tem largura ou altura maior que 8192 pixels. A compressão também reduz a resolução pela metade.</string>
+    <string name="squeezer_markers_downscaled_description">Esta foto tem 8192 pixels ou mais de largura ou altura. A compressão reduz a largura e a altura pela metade, e repete isso se necessário, até que ambas fiquem abaixo de 8192 pixels.</string>
     <string name="squeezer_compress_action">Comprimir</string>
     <string name="squeezer_compress_all_action">Comprimir tudo</string>
     <string name="squeezer_preview_dialog_title">Confirmar compressão</string>
