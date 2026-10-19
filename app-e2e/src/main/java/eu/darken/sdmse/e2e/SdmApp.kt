@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Build
 import android.os.ParcelFileDescriptor
 import android.os.SystemClock
+import android.util.Log
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.uiautomator.By
 import androidx.test.uiautomator.BySelector
@@ -22,6 +23,10 @@ class SdmApp {
     val device: UiDevice = UiDevice.getInstance(instrumentation)
     private val appResources by lazy { instrumentation.context.packageManager.getResourcesForApplication(PKG) }
     private val startedAt = shell("date +%s").trim()
+
+    init {
+        device.registerWatcher("system ANR") { closeSystemAnrDialog() }
+    }
 
     fun resetWithStorageAccess() {
         shell("pm clear $PKG")
@@ -210,16 +215,35 @@ class SdmApp {
     }
 
     fun await(selector: BySelector, timeoutMs: Long = TIMEOUT_MS): UiObject2 =
-        device.wait(Until.findObject(selector), timeoutMs)
-            ?: device.takeIf { dismissSystemAnr() }?.wait(Until.findObject(selector), timeoutMs)
-            ?: fail("Not found: $selector")
+        device.wait(Until.findObject(selector), timeoutMs) ?: fail("Not found: $selector")
 
-    // A freshly booted CI emulator can show "System UI isn't responding" over the app; waiting it out lets the app show.
-    private fun dismissSystemAnr(): Boolean {
-        val wait = device.findObject(By.res("android", "aerr_wait")) ?: return false
-        runCatching { wait.click() }
+    /**
+     * A launcher or System UI ANR dialog hides every other window from UI Automator, and can stay after the process
+     * recovers. Closing it kills and restarts that process. An ANR in any other process, the app included, is left
+     * on screen to fail the test. Counterpart: BaseAppFlowTest.closeSystemAnrDialog in app's androidTest.
+     */
+    private fun closeSystemAnrDialog(): Boolean {
+        val close = device.findObjects(By.res("android", "aerr_close")).singleOrNull() ?: return false
+        // The dump opens with the state saved at the last ANR; the live focus line comes after it.
+        val victim = shell("dumpsys window").lineSequence()
+            .lastOrNull { it.contains("mCurrentFocus=") }
+            ?.let { ANR_WINDOW.find(it)?.groupValues?.get(1) }
+        if (victim !in RECOVERABLE_ANR_PROCESSES) return false
+        // A single logcat entry is cut at about 4 KB.
+        "Closing ANR dialog of $victim.\n${anrDiagnostics()}".lines().forEach { line ->
+            line.chunked(1000).forEach { Log.w(TAG, it) }
+        }
+        close.click()
         return true
     }
+
+    private fun anrDiagnostics(): String = runCatching {
+        val hidden = shell("settings get global hide_error_dialogs").trim()
+        val background = shell("settings get secure anr_show_background").trim()
+        val anrs = shell("logcat -b events -d -v threadtime am_anr:I *:S").ifBlank { "none logged" }
+        "hide_error_dialogs=$hidden anr_show_background=$background\n" +
+            "ANRs in the events log (last $ANR_MAX_CHARS chars):\n${anrs.takeLast(ANR_MAX_CHARS)}"
+    }.getOrElse { "ANR diagnostics unavailable: $it" }
 
     fun pollUntil(description: String, condition: () -> Boolean) {
         val deadline = SystemClock.uptimeMillis() + TIMEOUT_MS
@@ -246,7 +270,8 @@ class SdmApp {
             ByteArrayOutputStream().also { device.dumpWindowHierarchy(it) }.toString().take(HIERARCHY_MAX_CHARS)
         }.getOrElse { "unavailable: $it" }
         throw AssertionError(
-            "$message\n$screen\nCrash buffer since the test started, all processes:\n$crashes\nWindow hierarchy:\n$hierarchy",
+            "$message\n$screen\nCrash buffer since the test started, all processes:\n$crashes\n${anrDiagnostics()}\n" +
+                "Window hierarchy:\n$hierarchy",
         )
     }
 
@@ -274,5 +299,15 @@ class SdmApp {
         private const val TOP_SETTLE_MS = 3_000L
         private const val PLANT_DIR = "/sdcard/Download/sdmse-e2e"
         private const val PLANT_FILE = "$PLANT_DIR/desktop.ini"
+        private const val ANR_MAX_CHARS = 4 * 1024
+        private const val TAG = "SDMSE:E2E"
+
+        // "mCurrentFocus=Window{b0dee01 u0 Application Not Responding: com.android.launcher3}"
+        private val ANR_WINDOW = Regex("""Application Not Responding: ([\w.:]+)\}""")
+        private val RECOVERABLE_ANR_PROCESSES = setOf(
+            "com.android.launcher3",
+            "com.google.android.apps.nexuslauncher",
+            "com.android.systemui",
+        )
     }
 }

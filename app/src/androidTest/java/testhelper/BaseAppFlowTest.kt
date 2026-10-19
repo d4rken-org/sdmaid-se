@@ -19,6 +19,7 @@ import androidx.compose.ui.test.performScrollToNode
 import androidx.lifecycle.Lifecycle
 import androidx.test.core.app.ActivityScenario
 import androidx.test.platform.app.InstrumentationRegistry
+import androidx.test.uiautomator.By
 import androidx.test.uiautomator.Configurator
 import androidx.test.uiautomator.UiDevice
 import eu.darken.sdmse.R
@@ -51,8 +52,35 @@ abstract class BaseAppFlowTest : BaseUITest() {
     /** For system screens outside the app. Connects with the same flags as [shell]. */
     protected val device: UiDevice by lazy {
         Configurator.getInstance().uiAutomationFlags = UiAutomation.FLAG_DONT_SUPPRESS_ACCESSIBILITY_SERVICES
-        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation())
+        UiDevice.getInstance(InstrumentationRegistry.getInstrumentation()).apply {
+            registerWatcher("system ANR") { closeSystemAnrDialog() }
+        }
     }
+
+    /**
+     * A launcher or System UI ANR dialog hides every other window from UI Automator, and can stay after the process
+     * recovers. Closing it kills and restarts that process. An ANR in any other process, SD Maid included, is left
+     * on screen to fail the test. Counterpart: SdmApp.closeSystemAnrDialog in app-e2e.
+     */
+    private fun closeSystemAnrDialog(): Boolean {
+        val close = device.findObjects(By.res("android", "aerr_close")).singleOrNull() ?: return false
+        // The dump opens with the state saved at the last ANR; the live focus line comes after it.
+        val victim = shell("dumpsys window").lineSequence()
+            .lastOrNull { it.contains("mCurrentFocus=") }
+            ?.let { ANR_WINDOW.find(it)?.groupValues?.get(1) }
+        if (victim !in RECOVERABLE_ANR_PROCESSES) return false
+        log(TAG, WARN) { "Closing ANR dialog of $victim.\n${anrDiagnostics()}" }
+        close.click()
+        return true
+    }
+
+    private fun anrDiagnostics(): String = runCatching {
+        val hidden = shell("settings get global hide_error_dialogs").trim()
+        val background = shell("settings get secure anr_show_background").trim()
+        val anrs = shell("logcat -b events -d -v threadtime am_anr:I *:S").ifBlank { "none logged" }
+        "hide_error_dialogs=$hidden anr_show_background=$background\n" +
+            "ANRs in the events log (last $ANR_MAX_CHARS chars):\n${anrs.takeLast(ANR_MAX_CHARS)}"
+    }.getOrElse { "ANR diagnostics unavailable: $it" }
 
     /**
      * For waits on state outside the semantics tree, e.g. lifecycle, files or system services. A timeout fails
@@ -104,6 +132,7 @@ abstract class BaseAppFlowTest : BaseUITest() {
                 appendLine("Resumed activity:\n$activity")
                 appendLine("Focused window:\n$window")
                 appendLine("System events since test start (last $EVENTS_MAX_CHARS chars):\n$events")
+                appendLine(anrDiagnostics())
                 append("Window hierarchy:\n${hierarchy.take(HIERARCHY_MAX_CHARS)}")
             },
         )
@@ -153,6 +182,9 @@ abstract class BaseAppFlowTest : BaseUITest() {
         "activity resumed",
         failureContext = { "ActivityScenario.state=$state" },
     ) {
+        // An ANR dialog takes the back presses. UiAutomator 2.4.0 runs watchers only from a lookup that finds nothing,
+        // and there is none here.
+        device.runWatchers()
         if (state != Lifecycle.State.RESUMED) {
             shell("input keyevent KEYCODE_BACK")
             SystemClock.sleep(3000)
@@ -202,6 +234,15 @@ abstract class BaseAppFlowTest : BaseUITest() {
         private const val HIERARCHY_MAX_CHARS = 12 * 1024
         private const val STATE_MAX_CHARS = 2 * 1024
         private const val EVENTS_MAX_CHARS = 4 * 1024
+        private const val ANR_MAX_CHARS = 4 * 1024
         private val TAG = logTag("Test", "AppFlow")
+
+        // "mCurrentFocus=Window{b0dee01 u0 Application Not Responding: com.android.launcher3}"
+        private val ANR_WINDOW = Regex("""Application Not Responding: ([\w.:]+)\}""")
+        private val RECOVERABLE_ANR_PROCESSES = setOf(
+            "com.android.launcher3",
+            "com.google.android.apps.nexuslauncher",
+            "com.android.systemui",
+        )
     }
 }
