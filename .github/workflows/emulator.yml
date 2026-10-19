@@ -246,8 +246,9 @@ jobs:
           disable-animations: true
           emulator-options: -no-window -gpu swiftshader_indirect -no-snapshot -no-audio -no-boot-anim -camera-back none
           # Each line runs on its own and the first failing one ends the step, so a FOSS failure is only recorded
-          # until gplay has run too.
+          # until gplay has run too. Error dialogs are hidden as in the other jobs.
           script: |
+            ANDROID_SERIAL=emulator-5554 adb shell settings put global hide_error_dialogs 1
             ANDROID_SERIAL=emulator-5554 tools/e2e/upgrade-test.sh "$RUNNER_TEMP/previous-release/foss.apk" app/build/outputs/apk/foss/beta/*.apk app-e2e/build/outputs/apk/foss/beta/app-e2e-foss-beta.apk app-e2e/build/outputs/upgrade-test/foss || touch "$RUNNER_TEMP/upgrade-failed"
             ANDROID_SERIAL=emulator-5554 tools/e2e/upgrade-test.sh "$RUNNER_TEMP/previous-gplay/gplay.apk" app/build/outputs/apk/gplay/beta/*.apk app-e2e/build/outputs/apk/gplay/beta/app-e2e-gplay-beta.apk app-e2e/build/outputs/upgrade-test/gplay || touch "$RUNNER_TEMP/upgrade-failed"
             test ! -e "$RUNNER_TEMP/upgrade-failed"

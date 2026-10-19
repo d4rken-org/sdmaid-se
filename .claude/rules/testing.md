@@ -267,8 +267,12 @@ and confirmation against a planted file.
   the installed app (`str("general_scan_action")`), and set up state only through `shell()`.
 - Grant storage from the shell before the first launch (`pm clear`, then `appops` / `pm grant`). The app's first
   data-area build then already covers shared storage, so the scan doesn't depend on a later reload.
-- Failures from the wait/poll helpers carry the visible screen texts and the device's crash-buffer entries since
-  the test started. A minification break usually shows up as a crash or an error dialog, not as a wrong screen.
+- Failures from the wait/poll helpers carry the visible screen texts, the device's crash-buffer entries since
+  the test started, and the most recent ANRs in the events log. A minification break usually shows up as a crash
+  or an error dialog, not as a wrong screen.
+- `SdmApp` and `BaseAppFlowTest` register a UI Automator watcher that closes a launcher or System UI ANR dialog and
+  logs why. Watchers only run when a UI Automator lookup finds nothing, so a wait that never looks anything up
+  (lifecycle, shell state) has to call `device.runWatchers()` itself to recover, as `pressBackUntilResumed` does.
 - Only the `beta` variants exist (`connectedFossBetaAndroidTest`, `connectedGplayBetaAndroidTest`). Each run
   pays for a full R8 build of that flavor, which is why CI runs them in their own job.
 - Keep this module to flows where minification changes the outcome: code R8 can break through reflection or
