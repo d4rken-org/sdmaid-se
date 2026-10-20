@@ -65,7 +65,12 @@ class LinuxFilesFilter @Inject constructor(
 
 
     override suspend fun match(item: APathLookup<*>): SystemCleanerFilter.Match? {
-        return sieve.match(item).toDeletion()
+        val result = sieve.match(item)
+        if (!result.matches) return null
+        // `.Trash-1000` is Linux trash, `.trash-storage` is Android's own trash and holds restorable files
+        val topDir = result.areaInfo?.prefixFreeSegments?.firstOrNull() ?: return null
+        if (!TRASH_DIR.matches(topDir)) return null
+        return result.toDeletion()
     }
 
     override suspend fun process(
@@ -93,5 +98,6 @@ class LinuxFilesFilter @Inject constructor(
 
     companion object {
         private val TAG = logTag("SystemCleaner", "Filter", "LinuxFiles")
+        private val TRASH_DIR = Regex("^\\.Trash(-\\d+)?$", RegexOption.IGNORE_CASE)
     }
 }
