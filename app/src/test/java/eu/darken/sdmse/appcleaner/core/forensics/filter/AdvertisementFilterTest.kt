@@ -235,4 +235,13 @@ class AdvertisementFilterTest : BaseFilterTest() {
         pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/mb/res/.mbridge/$rngString")
         confirm(create())
     }
+
+
+    @Test fun `Mintegral SDK with version suffix`() = runTest {
+        addDefaultNegatives()
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/mb/res/.mbridge700")
+        pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/mb/res/.mbridge700/mb/res/img/$rngString")
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/mb/res/.mbridgeBackup/$rngString")
+        confirm(create())
+    }
 }

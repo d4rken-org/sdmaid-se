@@ -161,7 +161,10 @@ class BugReportingFilter @Inject constructor(
             "klog",
             "mipushlog",
             "xlog",
-            "tlog_v9"
+            "tlog_v9",
+            // KOBIL security SDK, used by banking apps
+            "stageOneLogs",
+            "logs_mPower",
         ).map { it.lowercase() }
 
         private val FILES: Collection<String> = listOf(

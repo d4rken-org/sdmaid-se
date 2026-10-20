@@ -1393,6 +1393,41 @@
 		  "patterns": ["^com\\.grofers\\.customerapp/.+?/video_cache/.+?\\.exo$"]
 		}
 	  ]
+	}, {
+	  "packages": ["com.arashivision.insta360akiko"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.arashivision.insta360akiko/files/Insta360OneR/cache/"],
+		  "patterns": ["^(?>com\\.arashivision\\.insta360akiko/files/Insta360OneR/cache/(?:workRuntimeStabilizerCache|progressThumb|thumbAll|workThumb|apeiCache)/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.whatsapp"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["WhatsApp/Media/.Links/"],
+		  "patterns": ["^(?>WhatsApp/Media/\\.Links/)(.+?)$"]
+		}, {
+		  "locations": ["PUBLIC_MEDIA"],
+		  "startsWith": ["com.whatsapp/WhatsApp/Media/.Links/"],
+		  "patterns": ["^(?>com\\.whatsapp/WhatsApp/Media/\\.Links/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.whatsapp.w4b"],
+	  "fileFilter": [
+		{
+		  "locations": ["SDCARD"],
+		  "startsWith": ["WhatsApp Business/Media/.Links/"],
+		  "patterns": ["^(?>WhatsApp Business/Media/\\.Links/)(.+?)$"]
+		}, {
+		  "locations": ["PUBLIC_MEDIA"],
+		  "startsWith": ["com.whatsapp.w4b/WhatsApp Business/Media/.Links/"],
+		  "patterns": ["^(?>com\\.whatsapp\\.w4b/WhatsApp Business/Media/\\.Links/)(.+?)$"]
+		}
+	  ]
 	}
   ]
 }

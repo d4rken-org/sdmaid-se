@@ -1116,4 +1116,35 @@ class BugReportingFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+
+    @Test fun `test kobil sdk logs`() = runTest {
+        addDefaultNegatives()
+        neg("de.ingdiba.bankingapp", PUBLIC_DATA, "de.ingdiba.bankingapp/files/stageOneLogs")
+        pos("de.ingdiba.bankingapp", PUBLIC_DATA, "de.ingdiba.bankingapp/files/stageOneLogs/ks1.log")
+        neg("de.ingdiba.bankingapp", PUBLIC_DATA, "de.ingdiba.bankingapp/files/logs_mPower")
+        pos("de.ingdiba.bankingapp", PUBLIC_DATA, "de.ingdiba.bankingapp/files/logs_mPower/ks1.log")
+        confirm(create())
+    }
+
+    @Test fun `test insta360 logs`() = runTest {
+        addDefaultNegatives()
+        val base = "com.arashivision.insta360akiko/files/Insta360OneR"
+        listOf("crashlog", "xlog", "xlogBugly", "LoggerLogs").forEach {
+            neg("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/$it")
+            pos("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/$it/$rngString")
+        }
+        neg("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/galleryOriginal/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `test tradingview app logs`() = runTest {
+        addDefaultNegatives()
+        val base = "com.tradingview.tradingviewapp/files/Documents"
+        pos("com.tradingview.tradingviewapp", PUBLIC_DATA, "$base/07-04-2025.applogs4692088660187271449.txt")
+        pos("com.tradingview.tradingviewapp", PUBLIC_DATA, "$base/10-04-2025.applogs.txt")
+        neg("com.tradingview.tradingviewapp", PUBLIC_DATA, "$base/watchlist.txt")
+        neg("com.tradingview.tradingviewapp", PUBLIC_DATA, base)
+        confirm(create())
+    }
 }
