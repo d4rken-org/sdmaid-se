@@ -257,8 +257,8 @@ data class SAFDocFile(
         return cursor.useQuietly { it.moveToFirst() }
     }
 
-    fun delete(): Boolean = try {
-        if (Bugs.isDryRun) {
+    fun delete(dryRun: Boolean = Bugs.isDryRun): Boolean = try {
+        if (dryRun) {
             log(SAFGateway.TAG, INFO) { "DRYRUN: Not deleting $uri" }
             exists
         } else {

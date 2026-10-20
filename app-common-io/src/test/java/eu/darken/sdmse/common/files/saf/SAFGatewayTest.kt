@@ -925,6 +925,58 @@ class SAFGatewayTest : BaseTest() {
     }
 
     @Test
+    fun `an explicit dryRun false deletes during a global dry-run`() = runTest2(autoCancel = true) {
+        val harness = harness(FakeDocumentsProvider.tree { file("dir/probe") })
+
+        Bugs.isDryRun = true
+        try {
+            harness.gateway.delete(harness.safPath("dir", "probe"), recursive = false, dryRun = false)
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        harness.provider.hasNode("dir", "probe") shouldBe false
+    }
+
+    @Test
+    fun `an explicit dryRun false reaches the post order fallback during a global dry-run`() =
+        runTest2(autoCancel = true) {
+            val harness = harness(
+                FakeDocumentsProvider.tree {
+                    file("dir/file1.txt")
+                    file("dir/sub/file2.txt")
+                }
+            )
+            harness.provider.dirDeleteMode = FakeDocumentsProvider.DirDeleteMode.REJECT_NONEMPTY
+
+            Bugs.isDryRun = true
+            try {
+                harness.gateway.delete(harness.safPath("dir"), recursive = true, dryRun = false)
+            } finally {
+                Bugs.isDryRun = false
+            }
+
+            harness.provider.hasNode("dir") shouldBe false
+            harness.provider.hasNode("dir", "sub") shouldBe false
+        }
+
+    @Test
+    fun `an explicit dryRun true deletes nothing outside a global dry-run`() = runTest2(autoCancel = true) {
+        val harness = harness(
+            FakeDocumentsProvider.tree {
+                file("dir/file1.txt")
+                file("dir/sub/file2.txt")
+            }
+        )
+        Bugs.isDryRun shouldBe false
+
+        harness.gateway.delete(harness.safPath("dir"), recursive = true, dryRun = true)
+
+        harness.provider.hasNode("dir", "sub", "file2.txt") shouldBe true
+        harness.provider.deleteCalls.shouldBeEmpty()
+    }
+
+    @Test
     fun `delete without a permission surfaces as WriteException`() = runTest2(autoCancel = true) {
         // CorpseFinder only catches WriteException around its delete calls, a ReadException escaping
         // from here would abort the whole run instead of just this corpse.

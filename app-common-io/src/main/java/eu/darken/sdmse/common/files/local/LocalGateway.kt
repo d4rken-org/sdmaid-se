@@ -846,7 +846,8 @@ class LocalGateway @Inject constructor(
     suspend fun delete(
         path: LocalPath,
         recursive: Boolean = false,
-        mode: Mode = Mode.AUTO
+        mode: Mode = Mode.AUTO,
+        dryRun: Boolean = Bugs.isDryRun,
     ): Unit = runIO {
         try {
             val javaFile = path.asFile()
@@ -877,7 +878,7 @@ class LocalGateway @Inject constructor(
 
                     var success = javaFile.run {
                         when {
-                            Bugs.isDryRun -> {
+                            dryRun -> {
                                 log(TAG, INFO) { "DRYRUN: Not deleting $javaFile" }
                                 javaFile.canWrite()
                             }
@@ -899,12 +900,12 @@ class LocalGateway @Inject constructor(
                     if (!success) {
                         when {
                             mode == Mode.AUTO && hasRoot() -> {
-                                delete(path, recursive = recursive, mode = Mode.ROOT)
+                                delete(path, recursive = recursive, mode = Mode.ROOT, dryRun = dryRun)
                                 return@runIO
                             }
 
                             mode == Mode.AUTO && hasAdb() -> {
-                                delete(path, recursive = recursive, mode = Mode.ADB)
+                                delete(path, recursive = recursive, mode = Mode.ADB, dryRun = dryRun)
                                 return@runIO
                             }
 
@@ -916,8 +917,8 @@ class LocalGateway @Inject constructor(
                 hasRoot() && (mode == Mode.ROOT || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ROOT): $path" }
                     rootOps {
-                        if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
-                        val success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
+                        if (dryRun) log(TAG, INFO) { "DRYRUN: Not deleting (root) $javaFile" }
+                        val success = it.delete(path, recursive = true, dryRun = dryRun)
                         if (!success) throw IOException("Root delete() call returned false")
                     }
                 }
@@ -925,8 +926,8 @@ class LocalGateway @Inject constructor(
                 hasAdb() && (mode == Mode.ADB || mode == Mode.AUTO) -> {
                     log(TAG, VERBOSE) { "delete($mode->ADB): $path" }
                     adbOps {
-                        if (Bugs.isDryRun) log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
-                        val success = it.delete(path, recursive = true, dryRun = Bugs.isDryRun)
+                        if (dryRun) log(TAG, INFO) { "DRYRUN: Not deleting (adb) $javaFile" }
+                        val success = it.delete(path, recursive = true, dryRun = dryRun)
                         if (!success) throw IOException("ADB delete() call returned false")
                     }
                 }

@@ -10,10 +10,8 @@ import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.areas.modules.probeWriteAccess
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -27,7 +25,6 @@ import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.user.UserManager2
-import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
@@ -75,124 +72,37 @@ class SdcardsModule @Inject constructor(
     }
 
     private suspend fun determineAreaAccessPath(targetPath: LocalPath): APath? {
-        // Normal
-        targetPath.let { localPath ->
-            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
+        val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 
-            val testFile = localPath.child("$TEST_FILE_PREFIX-local-$rngString")
-            var fileCreated = false
+        val localProbe = targetPath.child("$TEST_FILE_PREFIX-local-$rngString")
+        if (localGateway.probeWriteAccess(TAG, localProbe, LocalGateway.Mode.NORMAL)) {
+            log(TAG) { "Original targetPath is accessible $targetPath" }
+            return targetPath
+        }
 
-            try {
-                localGateway.createFile(testFile, mode = LocalGateway.Mode.NORMAL)
-
-                fileCreated = localGateway.exists(testFile, mode = LocalGateway.Mode.NORMAL)
-
-                if (fileCreated) {
-                    log(TAG) { "Original targetPath is accessible $targetPath" }
-                    return localPath
-                } else {
-                    log(TAG) { "Failed to create test file $testFile" }
-                }
-            } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create $testFile: ${e.asLog()}" }
-            } finally {
-                try {
-                    if (fileCreated) localGateway.delete(testFile, mode = LocalGateway.Mode.NORMAL)
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFile failed: $e" }
-                }
+        if (adbManager.canUseAdbNow()) {
+            val adbProbe = targetPath.child("$TEST_FILE_PREFIX-adb-$rngString")
+            if (localGateway.probeWriteAccess(TAG, adbProbe, LocalGateway.Mode.ADB)) {
+                log(TAG) { "Original targetPath is accessible via ADB $targetPath" }
+                return targetPath
             }
         }
 
-        // ADB
-        targetPath.let { localPath ->
-            if (!adbManager.canUseAdbNow()) return@let
-
-            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
-
-            val testFile = localPath.child("$TEST_FILE_PREFIX-adb-$rngString")
-            var fileCreated = false
-
-            try {
-                localGateway.createFile(testFile, mode = LocalGateway.Mode.ADB)
-
-                fileCreated = localGateway.exists(testFile, mode = LocalGateway.Mode.ADB)
-
-                if (fileCreated) {
-                    log(TAG) { "Original targetPath is accessible via ADB $targetPath" }
-                    return localPath
-                } else {
-                    log(TAG) { "Failed to create test file via ADB $testFile" }
-                }
-            } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create with ADB $testFile: $e" }
-            } finally {
-                try {
-                    if (fileCreated) localGateway.delete(testFile, mode = LocalGateway.Mode.ADB)
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFile with ADB failed: $e" }
-                }
+        if (rootManager.canUseRootNow()) {
+            val rootProbe = targetPath.child("$TEST_FILE_PREFIX-root-$rngString")
+            if (localGateway.probeWriteAccess(TAG, rootProbe, LocalGateway.Mode.ROOT)) {
+                log(TAG) { "Original targetPath is accessible via ROOT $targetPath" }
+                return targetPath
             }
         }
 
-        // Root
-        targetPath.let { localPath ->
-            if (!rootManager.canUseRootNow()) return@let
-
-            val localGateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
-
-            val testFile = localPath.child("$TEST_FILE_PREFIX-root-$rngString")
-            var fileCreated = false
-
-            try {
-                localGateway.createFile(testFile, mode = LocalGateway.Mode.ROOT)
-
-                fileCreated = localGateway.exists(testFile, mode = LocalGateway.Mode.ROOT)
-
-                if (fileCreated) {
-                    log(TAG) { "Original targetPath is accessible via ROOT $targetPath" }
-                    return localPath
-                } else {
-                    log(TAG) { "Failed to create test file via ROOT $testFile" }
-                }
-            } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create with ROOT $testFile: $e" }
-            } finally {
-                try {
-                    if (fileCreated) localGateway.delete(testFile, mode = LocalGateway.Mode.ROOT)
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFile with ROOT failed: $e" }
-                }
-            }
-        }
-
-        // SAF
         log(TAG) { "$targetPath wasn't accessible trying SAF mapping..." }
         pathMapper.toSAFPath(targetPath)?.let { safPath ->
             val safGateway = gatewaySwitch.getGateway(APath.PathType.SAF) as SAFGateway
-
-            val testFile = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
-            var fileCreated = false
-
-            try {
-                safGateway.createFile(testFile)
-
-                fileCreated = safGateway.exists(testFile)
-
-                if (fileCreated) {
-                    log(TAG) { "Switching from $targetPath to $safPath" }
-                    return safPath
-                } else {
-                    log(TAG) { "Failed to create test file via SAF $testFile" }
-                }
-            } catch (e: IOException) {
-                log(TAG, WARN) { "Couldn't create $testFile: $e" }
-            } finally {
-                try {
-                    if (fileCreated) safGateway.delete(testFile)
-                } catch (e: Exception) {
-                    log(TAG, ERROR) { "Clean up of $testFile with SAF failed: $e" }
-                }
+            val safProbe = safPath.child("$TEST_FILE_PREFIX-saf-$rngString")
+            if (safGateway.probeWriteAccess(TAG, safProbe)) {
+                log(TAG) { "Switching from $targetPath to $safPath" }
+                return safPath
             }
         }
 
