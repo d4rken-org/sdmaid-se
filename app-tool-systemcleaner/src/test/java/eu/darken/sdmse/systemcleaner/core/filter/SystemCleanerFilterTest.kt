@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.forensics.AreaInfo
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
 import eu.darken.sdmse.common.pkgs.container.PkgArchive
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -555,8 +556,8 @@ abstract class SystemCleanerFilterTest : BaseTest() {
     }
 
     private val pkgs = mutableMapOf<Pkg.Id, Installed>()
-    suspend fun mockPkg(pkgId: Pkg.Id): Installed {
-        val installed = mockk<Installed>().apply {
+    suspend fun mockPkg(pkgId: Pkg.Id, archived: Boolean = false): Installed {
+        val installed = (if (archived) mockk<ArchivedPkg>() else mockk<Installed>()).apply {
             every { id } returns pkgId
             every { packageName } returns id.name
         }
