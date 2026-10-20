@@ -39,6 +39,7 @@ class WhatsAppBackupsFilterTest : BaseFilterTest() {
             neg(p.first, SDCARD, "${p.second}/Media")
             pos(p.first, SDCARD, lastModified, "${p.second}/Databases/msgstore-2017-10-21.1.db.crypt12")
             pos(p.first, SDCARD, lastModified, "${p.second}/Databases/msgstore-2017-10-21.1.db.crypt16")
+            pos(p.first, SDCARD, lastModified, "${p.second}/Databases/msgstore-increment-1-2026-10-13.1.db.crypt14")
             neg(p.first, PUBLIC_MEDIA, p.second)
             neg(p.first, PUBLIC_MEDIA, "${p.second}/Media")
             pos(p.first, PUBLIC_MEDIA, lastModified, "${p.second}/Databases/msgstore-2017-10-21.1.db.crypt12")
@@ -93,6 +94,8 @@ class WhatsAppBackupsFilterTest : BaseFilterTest() {
             neg(p.first, PUBLIC_MEDIA, base)
             neg(p.first, PUBLIC_MEDIA, "$base/Databases")
             pos(p.first, PUBLIC_MEDIA, lastModified, "$base/Databases/msgstore-2021-11-12.1.db.crypt15")
+            pos(p.first, PUBLIC_MEDIA, lastModified, "$base/Databases/msgstore-increment-1-2026-10-13.1.db.crypt14")
+            pos(p.first, PUBLIC_MEDIA, lastModified, "$base/Databases/msgstore-increment-5-2026-10-13.1.db.crypt14")
             pos(p.first, PUBLIC_MEDIA, lastModified, "$base/Backups/wa-2021-11-12.1.db.crypt15")
         }
         confirm(create())
