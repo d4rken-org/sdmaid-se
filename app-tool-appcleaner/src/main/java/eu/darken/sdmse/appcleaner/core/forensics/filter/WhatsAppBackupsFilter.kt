@@ -44,7 +44,7 @@ class WhatsAppBackupsFilter @Inject constructor(
     ): ExpendablesFilter.Match? {
         if (pfpSegs.isNotEmpty() && IGNORED_FILES.contains(pfpSegs[pfpSegs.size - 1])) return null
 
-        if (!VALID_LOCS.contains(DataArea.Type.SDCARD)) return null
+        if (!VALID_LOCS.contains(areaType)) return null
         if (!VALID_PKGS.contains(pkgId)) return null
         if (VALID_PREFIXES.none { pfpSegs.startsWith(it) }) return null
         if (FILE_REGEXES.none { it.matches(pfpSegs.last()) }) return null
