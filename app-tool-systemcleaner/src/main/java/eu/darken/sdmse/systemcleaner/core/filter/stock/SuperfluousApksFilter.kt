@@ -31,6 +31,7 @@ import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.get
+import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
@@ -156,7 +157,8 @@ class SuperfluousApksFilter @Inject constructor(
         log(TAG) { "Checking status for ${apkInfo.packageName} (${apkInfo.versionCode})" }
 
         // TODO Multiple profiles can't have different versions of the same APK, right?
-        val installed = pkgRepo.get(apkInfo.id).firstOrNull()
+        // An archived or uninstalled-with-data app still has a version, but the APK may be its only way back
+        val installed = pkgRepo.get(apkInfo.id).firstOrNull { it.isInstalled }
         if (installed == null) {
             log(TAG, VERBOSE) {
                 "Not superfluous (not installed): ${apkInfo.packageName} (archive=${apkInfo.versionCode})"

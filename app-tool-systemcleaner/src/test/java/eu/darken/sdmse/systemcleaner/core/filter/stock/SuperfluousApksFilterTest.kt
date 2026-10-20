@@ -81,6 +81,16 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
                 }
             }
 
+            "archivedPkg".toPkgId().let { pkg ->
+                // Kept to restore the archived app, not superfluous
+                mockArchive(pkg, areaPath.child("Download", "archived.apk")).apply {
+                    every { versionCode } returns 2L
+                }
+                mockPkg(pkg, archived = true).apply {
+                    every { versionCode } returns 2L
+                }
+            }
+
             "packageName3".toPkgId().let { pkg ->
                 mockArchive(pkg, areaPath.child("Download", "honey.apk")).apply {
                     every { versionCode } returns 2L
@@ -96,6 +106,7 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
         neg(SDCARD, "Download/newer.apk", Flag.File)
 
         pos(SDCARD, "Download/honey.apk", Flag.File)
+        neg(SDCARD, "Download/archived.apk", Flag.File)
 
         neg(SDCARD, "Download/notafile.apk", Flag.Dir)
 

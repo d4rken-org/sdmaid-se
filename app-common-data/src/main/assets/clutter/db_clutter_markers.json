@@ -327,7 +327,7 @@
   "mrks": [{"loc": "SDCARD", "path": "baidu/ime"}]
 }, {
   "pkgs": ["com.ichi2.anki"],
-  "mrks": [{"loc": "SDCARD", "path": "AnkiDroid"}]
+  "mrks": [{"loc": "SDCARD", "path": "AnkiDroid", "flags": ["keeper"]}]
 }, {
   "pkgs": ["com.metago.astro"],
   "mrks": [{"loc": "SDCARD", "path": "tmp/.astro/"}]
@@ -10429,11 +10429,12 @@
   "pkgs": [
 	"com.nutomic.syncthingandroid",
 	"net.syncthing.lite",
-	"com.github.catfriend1.syncthingandroid"
+	"com.github.catfriend1.syncthingandroid",
+	"com.github.catfriend1.syncthingfork"
   ],
   "mrks": [
 	{"loc": "PUBLIC_DATA", "path": ".stignore"},
-	{"loc": "PUBLIC_DATA", "path": ".stfolder "},
+	{"loc": "PUBLIC_DATA", "path": ".stfolder"},
 	{"loc": "SDCARD", "path": "backups", "flags": ["keeper", "common"]}
   ]
 }, {
