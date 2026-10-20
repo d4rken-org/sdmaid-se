@@ -271,4 +271,13 @@ class ThumbnailsFilterTest : BaseFilterTest() {
 
         confirm(create())
     }
+
+
+    @Test fun `test podcast addict thumbnails`() = runTest {
+        addDefaultNegatives()
+        neg("com.bambuna.podcastaddict", PUBLIC_MEDIA, "com.bambuna.podcastaddict/podcast/thumbnails")
+        pos("com.bambuna.podcastaddict", PUBLIC_MEDIA, "com.bambuna.podcastaddict/podcast/thumbnails/$rngString.jpg")
+        neg("com.bambuna.podcastaddict", PUBLIC_MEDIA, "com.bambuna.podcastaddict/podcast/$rngString.mp3")
+        confirm(create())
+    }
 }

@@ -506,6 +506,24 @@
 		  ]
 		}
 	  ]
+	}, {
+	  "packages": ["com.arashivision.insta360akiko"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.arashivision.insta360akiko/files/Insta360OneR/"],
+		  "patterns": ["^(?>com\\.arashivision\\.insta360akiko/files/Insta360OneR/(?:crashlog|xlog|xlogBugly|LoggerLogs)/)(.+?)$"]
+		}
+	  ]
+	}, {
+	  "packages": ["com.tradingview.tradingviewapp"],
+	  "fileFilter": [
+		{
+		  "locations": ["PUBLIC_DATA"],
+		  "startsWith": ["com.tradingview.tradingviewapp/files/Documents/"],
+		  "patterns": ["^(?>com\\.tradingview\\.tradingviewapp/files/Documents/)(\\d{2}-\\d{2}-\\d{4}\\.applogs\\d*\\.txt)$"]
+		}
+	  ]
 	}
   ]
 }

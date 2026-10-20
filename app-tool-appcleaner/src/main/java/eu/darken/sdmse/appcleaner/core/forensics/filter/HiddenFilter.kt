@@ -161,7 +161,9 @@ class HiddenFilter @Inject constructor(
             "diskcaches", "disk-caches", "disk_caches",
             ".diskcaches", ".disk-caches", ".disk_caches",
             "filescache",
-            "AVFSCache"
+            "AVFSCache",
+            "exocache",
+            "ExoPlayerCacheDir",
         ).map { it.lowercase() }
 
         private val HIDDEN_CACHE_FILES: Collection<String> = listOf(

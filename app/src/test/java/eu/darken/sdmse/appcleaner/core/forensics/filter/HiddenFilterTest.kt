@@ -1079,7 +1079,7 @@ class HiddenFilterTest : BaseFilterTest() {
         pos("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/$rngString")
         pos("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/$rngString/$rngString.tmp")
         neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.SharedBackup/$rngString.tmp")
-        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/.Links/$rngString")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/WhatsApp Images/$rngString")
         neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/.nomedia")
         neg("com.whatsapp", PUBLIC_DATA, "com.whatsapp/WhatsApp/.Shared/$rngString.tmp")
         neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString")
@@ -1095,7 +1095,7 @@ class HiddenFilterTest : BaseFilterTest() {
         pos("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString")
         pos("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString/$rngString.tmp")
         neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.SharedBackup/$rngString.tmp")
-        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/Media/.Links/$rngString")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/Media/WhatsApp Business Images/$rngString")
         neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/.Shared/.nomedia")
         neg("com.whatsapp.w4b", PUBLIC_DATA, "com.whatsapp.w4b/WhatsApp Business/.Shared/$rngString.tmp")
         neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/.Shared/$rngString")
@@ -2060,6 +2060,52 @@ class HiddenFilterTest : BaseFilterTest() {
         neg("com.grofers.customerapp", PRIVATE_DATA, "com.grofers.customerapp/files/downloads/video_cache/0/$rngString.exo")
         neg("com.grofers.customerapp", SDCARD, "com.grofers.customerapp/files/downloads/video_cache/0/$rngString.exo")
 
+        confirm(create())
+    }
+
+
+    @Test fun `test filter exoplayer caches`() = runTest {
+        addDefaultNegatives()
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/exocache")
+        pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/exocache/$rngString")
+        neg("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/ExoPlayerCacheDir")
+        pos("com.some.pkg", PUBLIC_DATA, "com.some.pkg/files/ExoPlayerCacheDir/$rngString")
+        neg("com.soundcloud.android", PUBLIC_DATA, "com.soundcloud.android/files/exocache")
+        pos("com.soundcloud.android", PUBLIC_DATA, "com.soundcloud.android/files/exocache/4/0.0.1725954469095.v3.exo")
+        // Offline downloads
+        neg("com.soundcloud.android", PUBLIC_DATA, "com.soundcloud.android/files/offline-hls/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `test filter insta360`() = runTest {
+        addDefaultNegatives()
+        val base = "com.arashivision.insta360akiko/files/Insta360OneR/cache"
+        listOf("workRuntimeStabilizerCache", "progressThumb", "thumbAll", "workThumb", "apeiCache").forEach {
+            neg("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/$it")
+            pos("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/$it/$rngString")
+        }
+        // Clips that may not have been copied off the camera yet
+        neg("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/download/work/$rngString")
+        neg("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/share/$rngString")
+        neg("com.arashivision.insta360akiko", PUBLIC_DATA, "$base/cutScene/project/$rngString")
+        neg("com.arashivision.insta360akiko", PUBLIC_DATA, "com.arashivision.insta360akiko/files/Insta360OneR/galleryOriginal/$rngString")
+        confirm(create())
+    }
+
+    @Test fun `test filter whatsapp link previews`() = runTest {
+        addDefaultNegatives()
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/.Links")
+        pos("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/.Links/$rngString")
+        neg("com.whatsapp", SDCARD, "WhatsApp/Media/.Links")
+        pos("com.whatsapp", SDCARD, "WhatsApp/Media/.Links/$rngString")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/Media/.Links")
+        pos("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp.w4b/WhatsApp Business/Media/.Links/$rngString")
+        neg("com.whatsapp.w4b", SDCARD, "WhatsApp Business/Media/.Links")
+        pos("com.whatsapp.w4b", SDCARD, "WhatsApp Business/Media/.Links/$rngString")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/WhatsApp Images/$rngString")
+        neg("com.whatsapp", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/.LinksBackup/$rngString")
+        neg("com.whatsapp", PUBLIC_DATA, "com.whatsapp/WhatsApp/Media/.Links/$rngString")
+        neg("com.whatsapp.w4b", PUBLIC_MEDIA, "com.whatsapp/WhatsApp/Media/.Links/$rngString")
         confirm(create())
     }
 }

@@ -94,6 +94,15 @@ class AdvertisementFilter @Inject constructor(
             return target.toDeletionMatch()
         }
 
+        //    0      1    2   3       4
+        // topdir/files/mb/res/.mbridge700/...
+        if (lcsegments.size >= 6
+            && lcsegments.subList(1, 4) == MBRIDGE_RES
+            && MBRIDGE_VERSIONED.matches(lcsegments[4])
+        ) {
+            return target.toDeletionMatch()
+        }
+
         return if (pfpSegs.isNotEmpty() && sieve.matches(pkgId, areaType, pfpSegs)) {
             target.toDeletionMatch()
         } else {
@@ -145,6 +154,8 @@ class AdvertisementFilter @Inject constructor(
         private val HIDDEN_CACHE_SEGS: Collection<Segments> = listOf(
             "files/mb/res/.mbridge".toSegs()
         )
+        private val MBRIDGE_RES = listOf("files", "mb", "res")
+        private val MBRIDGE_VERSIONED = Regex("^\\.mbridge\\d+$")
         private val HIDDEN_CACHE_FILES: Collection<String> = listOf(
 
         )
