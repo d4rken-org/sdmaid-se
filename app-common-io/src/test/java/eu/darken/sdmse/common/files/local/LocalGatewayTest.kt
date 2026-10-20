@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.files.local
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.adb.service.runModuleAction
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.WriteException
@@ -11,6 +12,8 @@ import eu.darken.sdmse.common.files.local.ipc.FileOpsClient
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.common.root.service.RootServiceClient
+import eu.darken.sdmse.common.root.service.runModuleAction
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
@@ -76,12 +79,26 @@ class LocalGatewayTest : BaseTest() {
             every { externalDirs } returns listOf(LocalPath.build(storageRoot))
             every { publicDataDirs } returns listOf(LocalPath.build(publicData))
         },
-        rootManager = mockk<RootManager> { every { useRoot } returns flowOf(rootAvailable) },
+        rootManager = mockk<RootManager> {
+            every { useRoot } returns flowOf(rootAvailable)
+            every { serviceClient } returns mockk(relaxed = true)
+        },
         adbManager = mockk<AdbManager> {
             every { useAdb } returns flowOf(adbAvailable)
             every { serviceClient } returns mockk(relaxed = true)
         },
     )
+
+    private fun mockRootFileOps(): FileOpsClient {
+        val fileOps = mockk<FileOpsClient>()
+        mockkStatic("eu.darken.sdmse.common.root.service.RootServiceClientExtensionsKt")
+        coEvery {
+            any<RootServiceClient>().runModuleAction<FileOpsClient, Any?>(FileOpsClient::class.java, any())
+        } coAnswers {
+            arg<suspend (FileOpsClient) -> Any?>(2).invoke(fileOps)
+        }
+        return fileOps
+    }
 
     private fun mockAdbFileOps(): FileOpsClient {
         val fileOps = mockk<FileOpsClient>()
@@ -160,6 +177,119 @@ class LocalGatewayTest : BaseTest() {
 
             verify(exactly = 1) { fileOps.delete(targetPath, recursive = true, dryRun = false) }
         }
+
+    @Test
+    fun `NORMAL delete honors the global dry-run by default`() = runTest2(autoCancel = true) {
+        storageRoot.mkdirs()
+        val probe = File(storageRoot, "probe").apply { createNewFile() }
+
+        Bugs.isDryRun = true
+        try {
+            gateway().delete(LocalPath.build(probe), mode = LocalGateway.Mode.NORMAL)
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        probe.exists() shouldBe true
+    }
+
+    @Test
+    fun `NORMAL delete with dryRun false deletes during a global dry-run`() = runTest2(autoCancel = true) {
+        storageRoot.mkdirs()
+        val probe = File(storageRoot, "probe").apply { createNewFile() }
+
+        Bugs.isDryRun = true
+        try {
+            gateway().delete(LocalPath.build(probe), mode = LocalGateway.Mode.NORMAL, dryRun = false)
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        probe.exists() shouldBe false
+    }
+
+    @Test
+    fun `ADB delete forwards an explicit dryRun false`() = runTest2(autoCancel = true) {
+        val targetPath = LocalPath.build(File(storageRoot, "probe"))
+        val fileOps = mockAdbFileOps().apply {
+            every { delete(targetPath, recursive = true, dryRun = false) } returns true
+        }
+
+        Bugs.isDryRun = true
+        try {
+            gateway(adbAvailable = true).delete(targetPath, mode = LocalGateway.Mode.ADB, dryRun = false)
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        verify(exactly = 1) { fileOps.delete(targetPath, recursive = true, dryRun = false) }
+    }
+
+    @Test
+    fun `AUTO fallback to ADB forwards an explicit dryRun false`() = runTest2(autoCancel = true) {
+        // Non-empty directory: the non-recursive NORMAL delete fails and AUTO escalates
+        val fullDir = File(storageRoot, "Documents/full").apply { mkdirs() }
+        File(fullDir, "content.txt").writeText("data")
+        val targetPath = LocalPath.build(fullDir)
+        val fileOps = mockAdbFileOps().apply {
+            every { delete(targetPath, recursive = true, dryRun = false) } returns true
+        }
+
+        Bugs.isDryRun = true
+        try {
+            gateway(adbAvailable = true).delete(
+                targetPath,
+                recursive = false,
+                mode = LocalGateway.Mode.AUTO,
+                dryRun = false,
+            )
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        verify(exactly = 1) { fileOps.delete(targetPath, recursive = true, dryRun = false) }
+    }
+
+    @Test
+    fun `AUTO fallback to ROOT forwards an explicit dryRun false`() = runTest2(autoCancel = true) {
+        val fullDir = File(storageRoot, "Documents/full").apply { mkdirs() }
+        File(fullDir, "content.txt").writeText("data")
+        val targetPath = LocalPath.build(fullDir)
+        val fileOps = mockRootFileOps().apply {
+            every { delete(targetPath, recursive = true, dryRun = false) } returns true
+        }
+
+        Bugs.isDryRun = true
+        try {
+            gateway(rootAvailable = true).delete(
+                targetPath,
+                recursive = false,
+                mode = LocalGateway.Mode.AUTO,
+                dryRun = false,
+            )
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        verify(exactly = 1) { fileOps.delete(targetPath, recursive = true, dryRun = false) }
+    }
+
+    @Test
+    fun `ROOT delete forwards an explicit dryRun false`() = runTest2(autoCancel = true) {
+        val targetPath = LocalPath.build(File(storageRoot, "probe"))
+        val fileOps = mockRootFileOps().apply {
+            every { delete(targetPath, recursive = true, dryRun = false) } returns true
+        }
+
+        Bugs.isDryRun = true
+        try {
+            gateway(rootAvailable = true).delete(targetPath, mode = LocalGateway.Mode.ROOT, dryRun = false)
+        } finally {
+            Bugs.isDryRun = false
+        }
+
+        verify(exactly = 1) { fileOps.delete(targetPath, recursive = true, dryRun = false) }
+    }
 
     @Test
     @Config(sdk = [31])

@@ -190,9 +190,11 @@ class SAFGateway @Inject constructor(
 
     suspend fun delete(path: SAFPath) = delete(path, recursive = false)
 
-    override suspend fun delete(path: SAFPath, recursive: Boolean) = runIO {
+    override suspend fun delete(path: SAFPath, recursive: Boolean) = delete(path, recursive, dryRun = Bugs.isDryRun)
 
-        log(TAG, VERBOSE) { "delete(recursive=$recursive): $path" }
+    suspend fun delete(path: SAFPath, recursive: Boolean, dryRun: Boolean) = runIO {
+
+        log(TAG, VERBOSE) { "delete(recursive=$recursive, dryRun=$dryRun): $path" }
 
         // Every failure is a failed delete, including the lookups and enumerations it needs.
         // Callers like CorpseFinder only handle WriteException, a ReadException escaping from here
@@ -201,9 +203,9 @@ class SAFGateway @Inject constructor(
             val target = lookup(path)
 
             when {
-                !target.isDirectory -> deleteDocument(target.docFile, path)
+                !target.isDirectory -> deleteDocument(target.docFile, path, dryRun)
 
-                recursive -> deleteTreeCascading(target)
+                recursive -> deleteTreeCascading(target, dryRun)
 
                 else -> {
                     // Best-effort refusal, see the APathGateway.delete contract: a child that appears
@@ -213,7 +215,7 @@ class SAFGateway @Inject constructor(
 
                     if (hasChildren) throw WriteException("Directory not empty", path)
 
-                    deleteDocument(target.docFile, path)
+                    deleteDocument(target.docFile, path, dryRun)
                 }
             }
         } catch (e: CancellationException) {
@@ -232,11 +234,11 @@ class SAFGateway @Inject constructor(
      * refuses, fails or only gets part way through falls back to a post-order walk, where every
      * directory is already empty by the time it is deleted.
      */
-    private suspend fun deleteTreeCascading(target: SAFPathLookup) {
+    private suspend fun deleteTreeCascading(target: SAFPathLookup, dryRun: Boolean) {
         currentCoroutineContext().ensureActive()
 
         val cascaded = try {
-            target.docFile.delete()
+            target.docFile.delete(dryRun)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {
@@ -256,7 +258,7 @@ class SAFGateway @Inject constructor(
         }
 
         log(TAG, WARN) { "Provider didn't cascade ${target.lookedUp}, deleting children individually" }
-        deleteTreePostOrder(target.docFile, target.lookedUp)
+        deleteTreePostOrder(target.docFile, target.lookedUp, dryRun)
     }
 
     /**
@@ -267,17 +269,17 @@ class SAFGateway @Inject constructor(
      * is exactly the kind that doesn't cascade, i.e. the only reason this fallback exists. [root] is
      * carried along for log and exception context only.
      */
-    private suspend fun deleteTreePostOrder(docFile: SAFDocFile, root: SAFPath) {
+    private suspend fun deleteTreePostOrder(docFile: SAFDocFile, root: SAFPath, dryRun: Boolean) {
         if (docFile.isDirectory) {
-            docFile.listFiles().forEach { deleteTreePostOrder(it, root) }
+            docFile.listFiles().forEach { deleteTreePostOrder(it, root, dryRun) }
         }
-        deleteDocument(docFile, root)
+        deleteDocument(docFile, root, dryRun)
     }
 
-    private suspend fun deleteDocument(docFile: SAFDocFile, path: SAFPath) {
+    private suspend fun deleteDocument(docFile: SAFDocFile, path: SAFPath, dryRun: Boolean) {
         currentCoroutineContext().ensureActive()
 
-        if (docFile.delete()) return
+        if (docFile.delete(dryRun)) return
 
         // Providers report a failure for a document that is already gone, but only a query that
         // actually answers may turn that into a success.
