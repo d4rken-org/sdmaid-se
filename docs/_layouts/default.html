@@ -16,6 +16,8 @@
   <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon.png' | relative_url }}">
   <link rel="canonical" href="{{ page.url | remove: '.html' | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  {% if page.url == '/' %}<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": {{ site.title | jsonify }}, "url": {{ '/' | absolute_url | jsonify }}}</script>{% endif %}
   {% if versions.size > 1 %}
     {% for version in versions %}<link rel="alternate" hreflang="{{ version.lang }}" href="{{ version.url | remove: '.html' | absolute_url }}">
     {% endfor %}<link rel="alternate" hreflang="x-default" href="{{ english.url | remove: '.html' | absolute_url }}">
