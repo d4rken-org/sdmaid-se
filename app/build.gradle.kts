@@ -97,6 +97,8 @@ android {
 
     lint {
         abortOnError = true
+        // AGP 9.3: lint and lintVital skip library modules unless checkDependencies is set
+        checkDependencies = true
         applySdmSeDefaults()
         fatal.add("StopShip")
         // AGP has no per-buildType lint config; beta builds tolerate translations ahead of source strings
