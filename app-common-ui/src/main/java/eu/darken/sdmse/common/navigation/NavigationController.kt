@@ -22,9 +22,9 @@ class NavigationController @Inject constructor() {
     private val resultFlowsLock = Any()
     private val resultFlows = mutableMapOf<String, MutableStateFlow<Any?>>()
 
-    // Deep-link / shortcut handling can call goTo() from MainActivity.onResume(), which on a
-    // cold start fires before the LaunchedEffect that calls setup(). Queue such calls and drain
-    // them once the back stack is wired up, instead of crashing with "not initialized".
+    // goTo() can arrive before setup() attaches a back stack (e.g. shortcut handling on a cold
+    // start). Queue such calls and drain them once the back stack is wired up, instead of
+    // crashing with "not initialized".
     private val pendingActions = mutableListOf<GoToAction>()
 
     private data class GoToAction(
