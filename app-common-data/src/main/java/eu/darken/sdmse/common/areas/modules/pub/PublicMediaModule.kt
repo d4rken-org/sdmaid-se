@@ -44,7 +44,13 @@ class PublicMediaModule @Inject constructor(
                 parentArea to parentArea.path.child("Android", "media")
             }
             .filter { (area, path) ->
-                if (!path.canRead(gatewaySwitch)) {
+                val canRead = try {
+                    path.canRead(gatewaySwitch)
+                } catch (e: IOException) {
+                    log(TAG, ERROR) { "Failed canRead() for $area: ${e.asLog()}" }
+                    return@filter false
+                }
+                if (!canRead) {
                     log(TAG) { "Can't read $area" }
                     return@filter false
                 }
@@ -85,9 +91,14 @@ class PublicMediaModule @Inject constructor(
                 }
                 .flatten()
                 .filter { (_, path) ->
-                    val canRead = path.canWrite(gatewaySwitch)
-                    if (!canRead) log(TAG) { "Can't write $path" }
-                    canRead
+                    val canWrite = try {
+                        path.canWrite(gatewaySwitch)
+                    } catch (e: IOException) {
+                        log(TAG, ERROR) { "Failed canWrite() for $path: ${e.asLog()}" }
+                        false
+                    }
+                    if (!canWrite) log(TAG) { "Can't write $path" }
+                    canWrite
                 }
                 .map { (profile, path) ->
                     DataArea(
