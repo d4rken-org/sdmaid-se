@@ -55,6 +55,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.EntryPointAccessors
 import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.capZoomDecodeSize
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -346,6 +347,7 @@ private fun ImagePane(
                     factory = { ctx -> CoilZoomImageView(ctx).also(onViewReady) },
                     update = { view ->
                         view.load(file) {
+                            capZoomDecodeSize()
                             memoryCachePolicy(CachePolicy.DISABLED)
                             diskCachePolicy(CachePolicy.DISABLED)
                         }
