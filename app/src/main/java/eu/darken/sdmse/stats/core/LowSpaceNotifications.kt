@@ -47,21 +47,21 @@ class LowSpaceNotifications @Inject constructor(
     private val notificationManager: NotificationManager,
 ) {
 
-    private val contentPendingIntent: PendingIntent
-
-    init {
-        NotificationChannel(
-            CHANNEL_ID,
-            context.getString(R.string.stats_lowspace_notification_channel_label),
-            NotificationManager.IMPORTANCE_DEFAULT,
-        ).run { notificationManager.createNotificationChannel(this) }
-
-        contentPendingIntent = PendingIntent.getActivity(
+    private val contentPendingIntent: PendingIntent by lazy {
+        PendingIntent.getActivity(
             context,
             REQUEST_CODE,
             lowSpaceContentIntent(context),
             PendingIntent.FLAG_IMMUTABLE or PendingIntent.FLAG_UPDATE_CURRENT,
         )
+    }
+
+    private fun ensureChannel() {
+        NotificationChannel(
+            CHANNEL_ID,
+            context.getString(R.string.stats_lowspace_notification_channel_label),
+            NotificationManager.IMPORTANCE_DEFAULT,
+        ).run { notificationManager.createNotificationChannel(this) }
     }
 
     /**
@@ -72,6 +72,9 @@ class LowSpaceNotifications @Inject constructor(
      * still gets warned while the storage is still filling.
      */
     fun notifyLowSpace(forecast: StorageForecast, freeBytes: Long): PostResult {
+        // Before canPost(): re-creating an existing channel never raises its importance, so a
+        // channel the user muted still reads as IMPORTANCE_NONE there.
+        ensureChannel()
         if (!canPost()) {
             log(TAG, WARN) { "notifyLowSpace(): Blocked, notifications are not deliverable" }
             return PostResult.BLOCKED

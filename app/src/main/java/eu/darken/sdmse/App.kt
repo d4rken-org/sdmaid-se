@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.coil.CoilTempFiles
 import eu.darken.sdmse.common.coroutine.AppScope
-import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.AutomaticBugReporter
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.DebugSettings
@@ -26,11 +25,9 @@ import eu.darken.sdmse.common.debug.exit.ExitInfoLogger
 import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.storage.StorageRescue
-import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.corpsefinder.core.watcher.UninstallWatcherControl
 import eu.darken.sdmse.main.core.CurriculumVitae
-import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.core.taskmanager.TaskResultNotifier
 import eu.darken.sdmse.stats.core.LowSpaceMonitor
@@ -48,15 +45,12 @@ import kotlin.system.exitProcess
 open class App : Application(), Configuration.Provider {
 
     @Inject @AppScope lateinit var appScope: CoroutineScope
-    @Inject lateinit var dispatcherProvider: DispatcherProvider
     @Inject lateinit var workerFactory: HiltWorkerFactory
     @Inject lateinit var bugReporter: AutomaticBugReporter
-    @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var recorderModule: RecorderModule
     @Inject lateinit var imageLoaderFactory: ImageLoaderFactory
     @Inject lateinit var debugSettings: DebugSettings
     @Inject lateinit var curriculumVitae: CurriculumVitae
-    @Inject lateinit var updateService: UpdateService
     @Inject lateinit var coilTempFiles: CoilTempFiles
     @Inject lateinit var memoryMonitor: MemoryMonitor
     @Inject lateinit var exitInfoLogger: ExitInfoLogger

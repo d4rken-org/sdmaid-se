@@ -3,14 +3,21 @@ package eu.darken.sdmse.stats.core
 import android.Manifest
 import android.app.Application
 import android.app.Notification
+import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.stats.core.forecast.StorageForecast
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.nulls.shouldBeNull
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.string.shouldContain
+import io.mockk.Called
+import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -42,6 +49,13 @@ class LowSpaceNotificationsTest : BaseTest() {
     private fun lastPosted(): Notification = Shadows
         .shadowOf(notificationManager)
         .getNotification(LowSpaceNotifications.NOTIFICATION_ID)
+
+    private fun existingContentPendingIntent(): PendingIntent? = PendingIntent.getActivity(
+        context,
+        LowSpaceNotifications.REQUEST_CODE,
+        lowSpaceContentIntent(context),
+        PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE,
+    )
 
     private fun Notification.title(): String = extras.getCharSequence(Notification.EXTRA_TITLE).toString()
 
@@ -99,5 +113,49 @@ class LowSpaceNotificationsTest : BaseTest() {
             forecast = StorageForecast.BelowFloor,
             freeBytes = 1_000_000_000L,
         ) shouldBe LowSpaceNotifications.PostResult.BLOCKED
+    }
+
+    @Test
+    fun `construction does not touch the NotificationManager`() {
+        val mockManager = mockk<NotificationManager>(relaxed = true)
+
+        LowSpaceNotifications(context = context, notificationManager = mockManager)
+
+        verify { mockManager wasNot Called }
+    }
+
+    @Test
+    fun `construction creates neither the channel nor the PendingIntent`() {
+        notifications()
+
+        notificationManager.getNotificationChannel(LowSpaceNotifications.CHANNEL_ID).shouldBeNull()
+        existingContentPendingIntent().shouldBeNull()
+    }
+
+    @Test
+    fun `a posted warning creates the channel and the PendingIntent`() {
+        notifications().notifyLowSpace(
+            forecast = StorageForecast.BelowFloor,
+            freeBytes = 1_000_000_000L,
+        ) shouldBe LowSpaceNotifications.PostResult.POSTED
+
+        notificationManager.getNotificationChannel(LowSpaceNotifications.CHANNEL_ID).shouldNotBeNull()
+        existingContentPendingIntent().shouldNotBeNull()
+    }
+
+    @Test
+    fun `a channel the user muted stays muted and blocks the post`() {
+        notificationManager.createNotificationChannel(
+            NotificationChannel(LowSpaceNotifications.CHANNEL_ID, "Muted", NotificationManager.IMPORTANCE_NONE),
+        )
+
+        notifications().notifyLowSpace(
+            forecast = StorageForecast.BelowFloor,
+            freeBytes = 1_000_000_000L,
+        ) shouldBe LowSpaceNotifications.PostResult.BLOCKED
+
+        notificationManager.getNotificationChannel(LowSpaceNotifications.CHANNEL_ID)!!.importance shouldBe
+            NotificationManager.IMPORTANCE_NONE
+        Shadows.shadowOf(notificationManager).getNotification(LowSpaceNotifications.NOTIFICATION_ID).shouldBeNull()
     }
 }

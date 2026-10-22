@@ -11,11 +11,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
 class TaskWorkerControl @Inject constructor(
-    private val workerManager: WorkManager,
+    // Resolved on use, not at construction: resolving WorkManager initializes it (Room database, trackers).
+    private val workerManager: Provider<WorkManager>,
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
@@ -32,7 +34,7 @@ class TaskWorkerControl @Inject constructor(
 
         log(TAG, VERBOSE) { "Worker request: $workRequest" }
 
-        val operation = workerManager.enqueueUniqueWork(
+        val operation = workerManager.get().enqueueUniqueWork(
             "${BuildConfigWrap.APPLICATION_ID}.taskmanager.worker",
             ExistingWorkPolicy.KEEP,
             workRequest,
