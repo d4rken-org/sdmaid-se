@@ -54,6 +54,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import coil.load
 import com.github.panpf.zoomimage.CoilZoomImageView
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.coil.capZoomDecodeSize
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -295,7 +296,7 @@ private fun PreviewPage(
                     }
                 },
                 update = { view ->
-                    view.load(resolvedLookup)
+                    view.load(resolvedLookup) { capZoomDecodeSize() }
                 },
                 modifier = Modifier.fillMaxSize(),
             )
