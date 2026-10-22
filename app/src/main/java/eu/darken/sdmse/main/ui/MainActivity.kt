@@ -19,6 +19,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -194,15 +195,24 @@ class MainActivity : ComponentActivity() {
         // config change rememberNavBackStack restores the saved stack and ignores these args.
         val backStack = rememberNavBackStack(launchRoute ?: vm.startRoute)
 
-        // Re-register on EVERY resume, not once: navCtrl is app-scoped, so if another MainActivity
-        // instance ever stacks on top of this one (e.g. an external intent that defeats the system's
-        // root-intent matching), that instance's setup() takes over the singleton. When it finishes
-        // and this instance resumes, we must re-attach OUR stack — a one-shot LaunchedEffect left the
-        // controller wired to the dead instance's stack, freezing all navigation (device-confirmed).
         // The home route enables up-to-Dashboard from rootless deep-link stacks; never during
         // onboarding, where a synthetic "up" would skip consent.
+        val homeRoute = DashboardRoute.takeIf { vm.startRoute == DashboardRoute }
+
+        // Attach during composition: the activity can compose while below RESUMED (e.g. restarted
+        // while the display sleeps), and a restored screen's Up must already find the stack attached.
+        DisposableEffect(backStack) {
+            navCtrl.setup(backStack, homeRoute = homeRoute)
+            onDispose { }
+        }
+
+        // Re-attach on EVERY resume too: navCtrl is app-scoped, so if another MainActivity instance
+        // ever stacks on top of this one (e.g. an external intent that defeats the system's
+        // root-intent matching), that instance's setup() takes over the singleton. When it finishes
+        // and this instance resumes, we must re-attach OUR stack, or the controller stays wired to
+        // the dead instance's stack, freezing all navigation (device-confirmed).
         LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
-            navCtrl.setup(backStack, homeRoute = DashboardRoute.takeIf { vm.startRoute == DashboardRoute })
+            navCtrl.setup(backStack, homeRoute = homeRoute)
         }
 
         // Breadcrumb logging

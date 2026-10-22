@@ -91,6 +91,19 @@ class NavigationControllerGoToTest : BaseTest() {
     }
 
     @Test
+    fun `queued goTo is drained only once when setup runs twice`() {
+        val ctrl = NavigationController()
+
+        ctrl.goTo(Dest.A)
+
+        val stack = backStackOf(Dest.HOME)
+        ctrl.setup(stack)
+        ctrl.setup(stack)
+
+        stack.shouldContainExactly(Dest.HOME, Dest.A)
+    }
+
+    @Test
     fun `queued goTo with popUpTo applies its pop semantics when drained`() {
         val ctrl = NavigationController()
 
