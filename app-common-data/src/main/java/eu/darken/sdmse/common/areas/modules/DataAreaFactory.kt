@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -15,6 +16,7 @@ import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.closeAll
 import eu.darken.sdmse.common.shell.ShellOps
+import java.io.IOException
 import javax.inject.Inject
 
 @Reusable
@@ -31,10 +33,10 @@ class DataAreaFactory @Inject constructor(
         try {
             setOf(pkgOps, gatewaySwitch, shellOps).forEach { leases.add(it.sharedResource.get()) }
 
-            val firstPass = areaModules.map { it.firstPass() }.flatten()
+            val firstPass = areaModules.map { it.runPass("firstPass") { firstPass() } }.flatten()
             log(TAG, VERBOSE) { "build(): First pass: ${firstPass.joinToString("\n")}" }
 
-            val secondPass = areaModules.map { it.secondPass(firstPass) }.flatten()
+            val secondPass = areaModules.map { it.runPass("secondPass") { secondPass(firstPass) } }.flatten()
             log(TAG, VERBOSE) { "build(): Second pass:\n${secondPass.joinToString("\n")}" }
 
             val newAreas = (firstPass + secondPass).toSet()
@@ -64,6 +66,16 @@ class DataAreaFactory @Inject constructor(
         } finally {
             leases.closeAll()
         }
+    }
+
+    private suspend fun DataAreaModule.runPass(
+        pass: String,
+        block: suspend DataAreaModule.() -> Collection<DataArea>,
+    ): Collection<DataArea> = try {
+        block()
+    } catch (e: IOException) {
+        log(TAG, ERROR) { "$pass() failed for ${this::class.simpleName}: ${e.asLog()}" }
+        emptyList()
     }
 
     companion object {
