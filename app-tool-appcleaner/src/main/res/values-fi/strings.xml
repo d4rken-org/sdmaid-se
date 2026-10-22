@@ -88,7 +88,6 @@
     <string name="appcleaner_exclusion_limited_body">Rajasit tämän sovelluksen pois AppCleanerista. Kaikkien sovellusten välimuistien tyhjentäminen kerralla käyttää ADB-käytön kautta saatavaa järjestelmänlaajuista välimuistin karsintaa, joka ei voi jättää yksittäisiä sovelluksia pois, joten tämän sovelluksen välimuistitiedot tyhjennetään muiden mukana. Vaikutus koskee vain tässä näkyviä välimuistitietoja, kaikki muu rajauksen piirissä oleva pysyy piilossa ja koskemattomana.</string>
     <string name="appcleaner_automation_unavailable_title">Automaatio ei käytettävissä</string>
     <string name="appcleaner_automation_unavailable_body">Näiden välimuistien tyhjentäminen vaatii SD Maidin esteettömyyspalvelun, mutta se ei ollut käytettävissä.</string>
-    <string name="appcleaner_delete_confirmation_message_x">Poista %d tiedostoa?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Poista kulutettavat tiedostot %d valitulta sovellukselta?</item>
         <item quantity="other">Poista kulutettavat tiedostot %d valitulta sovellukselta?</item>
