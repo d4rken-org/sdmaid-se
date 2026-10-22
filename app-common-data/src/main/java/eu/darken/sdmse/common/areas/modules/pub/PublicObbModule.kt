@@ -54,7 +54,13 @@ class PublicObbModule @Inject constructor(
                 accessPath?.let { parentArea to it }
             }
             .filter { (area, path) ->
-                if (!path.canRead(gatewaySwitch)) {
+                val canRead = try {
+                    path.canRead(gatewaySwitch)
+                } catch (e: IOException) {
+                    log(TAG, ERROR) { "Failed canRead() for $area: ${e.asLog()}" }
+                    return@filter false
+                }
+                if (!canRead) {
                     log(TAG) { "Can't read $area" }
                     return@filter false
                 }
