@@ -102,6 +102,14 @@ class TaskResultNotifier @Inject constructor(
             return
         }
 
+        // Built before taking notifyLock, which dismissAll() takes on the main thread.
+        val notification = try {
+            resultNotifications.getNotification(task)
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to build result notification for ${task.id}: ${e.asLog()}" }
+            return
+        }
+
         synchronized(notifyLock) {
             // Re-check foreground inside the lock so a concurrent ON_START → dismissAll()
             // either runs entirely before we post (we then skip), or entirely after (it
@@ -113,7 +121,6 @@ class TaskResultNotifier @Inject constructor(
 
             val id = TaskResultNotifications.notificationIdFor(task.toolType)
             try {
-                val notification = resultNotifications.getNotification(task)
                 notificationManager.notify(id, notification)
                 log(TAG) { "Posted result notification id=$id for $task" }
             } catch (e: Exception) {

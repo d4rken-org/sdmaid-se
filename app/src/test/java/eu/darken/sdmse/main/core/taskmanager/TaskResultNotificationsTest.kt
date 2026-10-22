@@ -2,13 +2,20 @@ package eu.darken.sdmse.main.core.taskmanager
 
 import android.app.Notification
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import androidx.test.core.app.ApplicationProvider
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.ui.MainActivity
+import io.kotest.matchers.nulls.shouldBeNull
+import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
+import io.mockk.Called
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.verify
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
@@ -44,6 +51,13 @@ class TaskResultNotificationsTest : BaseTest() {
         error = error,
     )
 
+    private fun existingOpenPendingIntent(): PendingIntent? = PendingIntent.getActivity(
+        context,
+        0,
+        Intent(context, MainActivity::class.java),
+        PendingIntent.FLAG_NO_CREATE or PendingIntent.FLAG_IMMUTABLE,
+    )
+
     private fun Notification.body(): String = extras.getCharSequence(Notification.EXTRA_TEXT).toString()
 
     @Test
@@ -64,5 +78,32 @@ class TaskResultNotificationsTest : BaseTest() {
         val notification = notifications.getNotification(managedTask(null, IOException("Screen went off")))
 
         notification.body() shouldBe "Task didn't finish successfully."
+    }
+
+    @Test
+    fun `construction does not touch the NotificationManager`() {
+        val mockManager = mockk<NotificationManager>(relaxed = true)
+
+        TaskResultNotifications(context, mockManager)
+
+        verify { mockManager wasNot Called }
+    }
+
+    @Test
+    fun `construction creates neither the channel nor the PendingIntent`() {
+        TaskResultNotifications(context, notificationManager)
+
+        notificationManager.getNotificationChannel(TaskResultNotifications.CHANNEL_ID).shouldBeNull()
+        existingOpenPendingIntent().shouldBeNull()
+    }
+
+    @Test
+    fun `building a notification creates the channel and the PendingIntent`() {
+        val notifications = TaskResultNotifications(context, notificationManager)
+
+        notifications.getNotification(managedTask(result("46 expendable items deleted"), null))
+
+        notificationManager.getNotificationChannel(TaskResultNotifications.CHANNEL_ID).shouldNotBeNull()
+        existingOpenPendingIntent().shouldNotBeNull()
     }
 }

@@ -21,20 +21,12 @@ import javax.inject.Inject
 
 class TaskResultNotifications @Inject constructor(
     @ApplicationContext private val context: Context,
-    notificationManager: NotificationManager,
+    private val notificationManager: NotificationManager,
 ) {
 
-    private val openPendingIntent: PendingIntent
-
-    init {
-        NotificationChannel(
-            CHANNEL_ID,
-            context.getString(R.string.tasks_result_notification_channel_label),
-            NotificationManager.IMPORTANCE_DEFAULT
-        ).run { notificationManager.createNotificationChannel(this) }
-
+    private val openPendingIntent: PendingIntent by lazy {
         val openIntent = Intent(context, MainActivity::class.java)
-        openPendingIntent = PendingIntent.getActivity(
+        PendingIntent.getActivity(
             context,
             0,
             openIntent,
@@ -42,7 +34,17 @@ class TaskResultNotifications @Inject constructor(
         )
     }
 
+    private fun ensureChannel() {
+        NotificationChannel(
+            CHANNEL_ID,
+            context.getString(R.string.tasks_result_notification_channel_label),
+            NotificationManager.IMPORTANCE_DEFAULT
+        ).run { notificationManager.createNotificationChannel(this) }
+    }
+
     fun getNotification(task: TaskSubmitter.ManagedTask): Notification {
+        ensureChannel()
+
         val body = task.result?.primaryInfo?.get(context)
             ?: context.getString(R.string.tasks_result_failed_msg)
 
@@ -65,7 +67,7 @@ class TaskResultNotifications @Inject constructor(
 
     companion object {
         val TAG = logTag("TaskManager", "Notifications", "Result")
-        private val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.taskmanager.result"
+        internal val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.taskmanager.result"
         private const val NOTIFICATION_ID_BASE = 2000
 
         // Explicit per-type ID mapping — do NOT use SDMTool.Type.ordinal: enum reorders

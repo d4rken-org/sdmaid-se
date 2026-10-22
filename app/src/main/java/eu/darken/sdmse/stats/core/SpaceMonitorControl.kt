@@ -12,12 +12,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
 class SpaceMonitorControl @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
-    private val workManager: WorkManager,
+    // Resolved on use, not at construction: resolving WorkManager initializes it (Room database, trackers).
+    private val workManager: Provider<WorkManager>,
     private val spaceTracker: SpaceTracker,
 ) {
 
@@ -28,23 +30,25 @@ class SpaceMonitorControl @Inject constructor(
             spaceTracker.recordSnapshot()
         }
 
-        val workRequest = PeriodicWorkRequestBuilder<SpaceMonitorWorker>(
-            INTERVAL_HOURS,
-            TimeUnit.HOURS,
-        ).build()
+        appScope.launch {
+            val workRequest = PeriodicWorkRequestBuilder<SpaceMonitorWorker>(
+                INTERVAL_HOURS,
+                TimeUnit.HOURS,
+            ).build()
 
-        workManager.enqueueUniquePeriodicWork(
-            "${BuildConfigWrap.APPLICATION_ID}.stats.space-monitor",
-            ExistingPeriodicWorkPolicy.KEEP,
-            workRequest,
-        )
+            workManager.get().enqueueUniquePeriodicWork(
+                "${BuildConfigWrap.APPLICATION_ID}.stats.space-monitor",
+                ExistingPeriodicWorkPolicy.KEEP,
+                workRequest,
+            )
 
-        log(TAG) { "Periodic space monitoring scheduled (interval=${INTERVAL_HOURS}h)" }
+            log(TAG) { "Periodic space monitoring scheduled (interval=${INTERVAL_HOURS}h)" }
+        }
     }
 
     fun stop() {
         log(TAG) { "stop(): Cancelling periodic space monitoring" }
-        workManager.cancelUniqueWork("${BuildConfigWrap.APPLICATION_ID}.stats.space-monitor")
+        workManager.get().cancelUniqueWork("${BuildConfigWrap.APPLICATION_ID}.stats.space-monitor")
     }
 
     companion object {

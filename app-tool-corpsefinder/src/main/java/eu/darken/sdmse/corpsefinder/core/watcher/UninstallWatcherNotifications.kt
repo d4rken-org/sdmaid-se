@@ -28,15 +28,7 @@ class UninstallWatcherNotifications @Inject constructor(
     private val notificationManager: NotificationManager,
 ) : WatcherNotifications {
 
-    private val builder: NotificationCompat.Builder
-
-    init {
-        NotificationChannel(
-            CHANNEL_ID,
-            context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_title),
-            NotificationManager.IMPORTANCE_DEFAULT
-        ).run { notificationManager.createNotificationChannel(this) }
-
+    private val builder: NotificationCompat.Builder by lazy {
         val openIntent = context.packageManager.getLaunchIntentForPackage(context.packageName)
         val openPi = openIntent?.let {
             PendingIntent.getActivity(
@@ -47,7 +39,7 @@ class UninstallWatcherNotifications @Inject constructor(
             )
         }
 
-        builder = NotificationCompat.Builder(context, CHANNEL_ID).apply {
+        NotificationCompat.Builder(context, CHANNEL_ID).apply {
             setChannelId(CHANNEL_ID)
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_DEFAULT
@@ -55,6 +47,14 @@ class UninstallWatcherNotifications @Inject constructor(
             setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
             setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
         }
+    }
+
+    private fun ensureChannel() {
+        NotificationChannel(
+            CHANNEL_ID,
+            context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_title),
+            NotificationManager.IMPORTANCE_DEFAULT
+        ).run { notificationManager.createNotificationChannel(this) }
     }
 
     private fun getBuilder(result: ExternalWatcherResult?): NotificationCompat.Builder {
@@ -122,12 +122,14 @@ class UninstallWatcherNotifications @Inject constructor(
 
     override fun notifyOfScan(result: ExternalWatcherResult.Scan) {
         log(TAG) { "notifyOfScan($result)" }
+        ensureChannel()
         val notification = forScanResult(result)
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
     override fun notifyOfDeletion(result: ExternalWatcherResult.Deletion) {
         log(TAG) { "notifyOfDeletion($result)" }
+        ensureChannel()
         val notification = forDeletionResult(result)
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
