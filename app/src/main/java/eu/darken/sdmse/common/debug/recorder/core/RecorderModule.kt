@@ -423,6 +423,7 @@ class RecorderModule @Inject constructor(
         val pkgInfo = context.getPackageInfo()
         log(TAG, INFO) { "APILEVEL: ${BuildWrap.VERSION.SDK_INT}" }
         log(TAG, INFO) { "Build.FINGERPRINT: ${BuildWrap.FINGERPRINT}" }
+        log(TAG, INFO) { "Build.VERSION.SECURITY_PATCH: ${Build.VERSION.SECURITY_PATCH}" }
         log(TAG, INFO) { "Build.MANUFACTOR: ${Build.MANUFACTURER}" }
         log(TAG, INFO) { "Build.BRAND: ${Build.BRAND}" }
         log(TAG, INFO) { "Build.PRODUCT: ${Build.PRODUCT}" }
