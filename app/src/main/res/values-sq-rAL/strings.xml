@@ -104,7 +104,7 @@
     <string name="tasks_timeout_error_desc">Detyra zgjati shumë dhe u ndal. Ju lutem provoni përsëri.</string>
     <string name="onboarding_welcome_title">Mirë se vini</string>
     <string name="onboarding_welcome_body1">SD Maid SE menaxhon skedarët, aplikacionet dhe hapësirën ruajtëse.</string>
-    <string name="onboarding_welcome_body2">Fito hapësirë ​​ruajtëse duke pastruar prapa aplikacioneve të tjera. Fshini skedarët e shpenzuar dhe hiqni të dhënat e mbetura.</string>
+    <string name="onboarding_welcome_body2">Fito hapësirë ruajtëse duke pastruar prapa aplikacioneve të tjera. Fshini skedarët e shpenzuar dhe hiqni të dhënat e mbetura.</string>
     <string name="onboarding_welcome_body_beta">Ky është një ndërtim beta (testues). Vazhdoni me një sens humori dhe një plan rezervë. Ju lutemi raportoni problemet që hasni.</string>
     <string name="onboarding_welcome_continue_action">Vazhdo</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
@@ -334,13 +334,13 @@
     <string name="anniversary_card_title">Gëzuar përvjetorin e SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Me ty që nga %s</string>
     <plurals name="anniversary_card_body">
-        <item quantity="one">Tashmë %1$d vit së bashku. Faleminderit që i besuat SD Maid për ta mbajtur Android-in tuaj të pastër dhe të rregullt. Hapësirë ​​e lirë: %2$s</item>
-        <item quantity="other">%1$d vjet i fortë. Pajisja juaj qëndron e pastër dhe e rregullt me ​​SD Maid. Hapësirë ​​e lirë: %2$s</item>
+        <item quantity="one">Tashmë %1$d vit së bashku. Faleminderit që i besuat SD Maid për ta mbajtur Android-in tuaj të pastër dhe të rregullt. Hapësirë e lirë: %2$s</item>
+        <item quantity="other">%1$d vjet i fortë. Pajisja juaj qëndron e pastër dhe e rregullt me SD Maid. Hapësirë e lirë: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">Ndani përvjetorin tuaj të SD Maid</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d vit me SD Maid — Hapësirë ​​e liruar: %2$s. Duke e mbajtur Android-in tuaj të pastër dhe të rregullt. #SDMaid\nProvoje: %3$s</item>
-        <item quantity="other">%1$d vjet me SD Maid — Hapësirë ​​e liruar: %2$s. Duke e mbajtur Android-in tuaj të pastër dhe të rregullt. #SDMaid\nProvoje: %3$s</item>
+        <item quantity="one">%1$d vit me SD Maid — Hapësirë e liruar: %2$s. Duke e mbajtur Android-in tuaj të pastër dhe të rregullt. #SDMaid\nProvoje: %3$s</item>
+        <item quantity="other">%1$d vjet me SD Maid — Hapësirë e liruar: %2$s. Duke e mbajtur Android-in tuaj të pastër dhe të rregullt. #SDMaid\nProvoje: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Skano + Fshi</string>
     <string name="shortcut_onetap_long">Skano dhe fshi me një veprim të vetëm</string>

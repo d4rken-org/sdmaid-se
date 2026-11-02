@@ -93,7 +93,7 @@
     <string name="squeezer_skip_compressed_title">Прапускаць раней сціснутыя</string>
     <string name="squeezer_skip_compressed_description">Прапускаць файлы, якія ўжо былі сціснуты SD Maid.</string>
     <string name="squeezer_exif_marker_title">Запісаць маркер EXIF</string>
-    <string name="squeezer_exif_marker_description">Дадае маркер у поле EXIF карыстальніцкага каментарыя ​выявы для прадухілення паўторнага сціскання, нават калі гісторыя сціскання ачышчана.</string>
+    <string name="squeezer_exif_marker_description">Дадае маркер у поле EXIF карыстальніцкага каментарыя выявы для прадухілення паўторнага сціскання, нават калі гісторыя сціскання ачышчана.</string>
     <string name="squeezer_include_lossy_aux_title">Сціскаць фота з HDR і глыбінёй</string>
     <string name="squeezer_include_lossy_aux_description">Уключыць фота з дадзенымі HDR ці глыбіні. Сцісканне выдаляе іх: HDR-фота становіцца звычайным, а партрэтныя фота губляюць дадзеныя, якія выкарыстоўваюцца для размыцця фону. Шматкадравыя файлы HEIC застаюцца прапушчанымі.</string>
     <string name="squeezer_include_motion_photos_title">Сціснуць Motion Photos</string>

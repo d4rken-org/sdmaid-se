@@ -104,7 +104,7 @@
     <string name="tasks_timeout_error_desc">A tarefa demorou muito e foi interrompida. Por favor, tente novamente.</string>
     <string name="onboarding_welcome_title">Bem-vindo</string>
     <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, apps e armazenamento.</string>
-    <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando arquivos desnecessários deixados por aplicativos. Exclua arquivos descartáveis ​​e remova os dados restantes.</string>
+    <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando arquivos desnecessários deixados por aplicativos. Exclua arquivos descartáveis e remova os dados restantes.</string>
     <string name="onboarding_welcome_body_beta">Esta é uma compilação beta (teste). Prossiga com senso de humor e um plano B. Relate os problemas que encontrar.</string>
     <string name="onboarding_welcome_continue_action">Continuar</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>

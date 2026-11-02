@@ -40,7 +40,7 @@
     <string name="dashboard_settings_summary_autoshow_title">Prikaži sažetak automatski</string>
     <string name="dashboard_settings_summary_autoshow_summary">Automatski otvara sažetak rezultata nakon korištenja gumba za akciju na nadzornoj ploči. Ako je onemogućeno, dodirnite veličinu čipa u donjoj traci da ga otvorite.</string>
     <string name="dashboard_card_config_title">Kartice nadzorne ploče</string>
-    <string name="dashboard_card_config_desc">Konfigurirajte koje će se kartice prikazivati ​​i njihov redoslijed</string>
+    <string name="dashboard_card_config_desc">Konfigurirajte koje će se kartice prikazivati i njihov redoslijed</string>
     <string name="dashboard_card_config_header_title">Povucite za promjenu redoslijeda, prebacite za prikaz/skrivanje</string>
     <string name="debug_debuglog_file_label">Snimljena datoteka zapisnika</string>
     <string name="debug_debuglog_recording_progress">Snimanje zapisnika za otklanjanje pogrešaka</string>
@@ -285,7 +285,7 @@
     <string name="setup_acs_state_stopped_hint_miui_killed">Ako sustav stalno zatvara SD Maid, omogući opciju \"Auto Start\" za SD Maid u postavkama sustava i zaključaj SD Maid u prikazu nedavnih aplikacija.</string>
     <string name="setup_acs_consent_positive_action">Omogući uslugu i odobri pristup</string>
     <string name="setup_acs_consent_negative_action">Nemoj koristiti uslugu pristupačnosti</string>
-    <string name="setup_acs_allow_hint">Ako vidite malu ikonu na rubu zaslona, ​​onda ste slučajno omogućili opciju \"prečac\".</string>
+    <string name="setup_acs_allow_hint">Ako vidite malu ikonu na rubu zaslona, onda ste slučajno omogućili opciju \"prečac\".</string>
     <string name="setup_acs_disallow_hint">Ako se predomislite, možete ponovno promijeniti ovu opciju odlaskom u postavke i ponovnim pokretanjem postavljanja.</string>
     <string name="setup_acs_appops_restriction_title">Ograničene postavke</string>
     <string name="setup_acs_appops_restriction_body">Ne možete omogućiti uslugu pristupačnosti SD Maida? Android 13+ može primijeniti ograničenja na aplikacije koje nisu instalirane putem Google Playa. Uklonite ova ograničenja sa stranice podataka o aplikaciji SD Maid. Opcija se nalazi u kontekstnom izborniku u gornjem desnom kutu.</string>

@@ -29,7 +29,7 @@
     <string name="stats_settings_desc">Stilltu tölfræði SD Maid, skýrslur og gagnageymslu.</string>
     <string name="stats_settings_retention_category">Gagnageymsla</string>
     <string name="stats_settings_retention_reports_label">Almennar skýrslur</string>
-    <string name="stats_settings_retention_reports_desc">Fjöldi daga áður en grunnsk​ýrslur SD Maid aðgerða eru eyddar.</string>
+    <string name="stats_settings_retention_reports_desc">Fjöldi daga áður en grunnskýrslur SD Maid aðgerða eru eyddar.</string>
     <string name="stats_settings_retention_paths_label">Nákvæmar slóðarupplýsingar</string>
     <string name="stats_settings_retention_paths_desc">Fjöldi daga til að geyma smáatriði um slóðir sem SD Maid hefur áhrif á.</string>
     <string name="stats_settings_retention_snapshots_label">Geymslusaga</string>

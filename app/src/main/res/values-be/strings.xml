@@ -116,7 +116,7 @@
     <string name="tasks_timeout_error_desc">Задача заняла занадта шмат часу і была спынена. Калі ласка, паспрабуйце яшчэ раз.</string>
     <string name="onboarding_welcome_title">Вітаем</string>
     <string name="onboarding_welcome_body1">SD Maid SE кіруе файламі, праграмамі і сховішчам.</string>
-    <string name="onboarding_welcome_body2">Вызваліце месца ў памяці, ачысціўшы непатрэбныя ​​непатрэбныя файлы і ​​рэшткі даных ад праграм на прыладзе.</string>
+    <string name="onboarding_welcome_body2">Вызваліце месца ў памяці, ачысціўшы непатрэбныя файлы і рэшткі даных ад праграм на прыладзе.</string>
     <string name="onboarding_welcome_body_beta">Гэта бэта-версія (тэставая зборка) праграмы. Карыстайцеся праграмай з пачуццём гумару і планам адыходу. Калі ласка, паведамляйце аб праблемах, з якімі вы сутыкаецеся.</string>
     <string name="onboarding_welcome_continue_action">Працягнуць</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
