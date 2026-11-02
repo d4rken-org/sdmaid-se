@@ -7,7 +7,7 @@ Kukaan ei ole täydellinen, eikä Androidkaan.
 * Tallennustilaasi kerääntyy tiedostoja ja kansioita, joita et tunnista.
 * Kaksoiskuvia galleriassasi.
 
-Ei jatketa ​​tähän. Anna SD Maid 2/SE:n auttaa sinua!
+Ei jatketa tähän. Anna SD Maid 2/SE:n auttaa sinua!
 
 SD Maid 2/SE on sovellus- ja tiedostonhallinta, joka tietää mitkä sovellukset ovat luoneet tiedostoja laitteellesi. Se vertaa tiedostoja asennettuihin sovelluksiin auttaen vapauttamaan tallennustilaa turvallisesti.
 
@@ -17,7 +17,7 @@ Jos sovellukset luovat tiedostoja niiden nimettyjen kansioiden ulkopuolelle, tie
 
 🔍 Hae laitteeltasi älykkäästi
 
-Suodata tyhjiä kansioita, väliaikaisia ​​tiedostoja, jo asennettuja sovelluksia ja enemmänkin. Voit jopa luoda omia hakukriteerejä. "SystemCleaner"-työkalu etsii ja poistaa tiedostoja automaattisesti eri kriteerien perusteella.
+Suodata tyhjiä kansioita, väliaikaisia tiedostoja, jo asennettuja sovelluksia ja enemmänkin. Voit jopa luoda omia hakukriteerejä. "SystemCleaner"-työkalu etsii ja poistaa tiedostoja automaattisesti eri kriteerien perusteella.
 
 🧹 Poista kertakäyttöiset tiedostot ja piilotetut välimuistit
 
@@ -48,7 +48,7 @@ Tämä sovellus on mainokseton. Jotkin ominaisuudet vaativat maksullisen päivit
 SD Maid 2/SE on SD Maid 1/Legacyn seuraaja.
 Optimoitu uudemmille Android-versioille ja keskittynyt siivoamiseen.
 
-Tässä sovelluksessa on valinnaisia ​​ominaisuuksia, jotka hyödyntävät AccessibilityService-rajapintaa automatisoidakseen ikäviä toimintoja.
+Tässä sovelluksessa on valinnaisia ominaisuuksia, jotka hyödyntävät AccessibilityService-rajapintaa automatisoidakseen ikäviä toimintoja.
 Käyttämällä AccessibilityService-rajapintaa, tämä sovellus voi napsauttaa painikkeita puolestasi suorittaaksesi toimintoja useissa sovelluksissa, esim. välimuistien poistaminen.
 Tämä sovellus ei käytä AccessibilityService-rajapintaa tietojen keräämiseen.
 

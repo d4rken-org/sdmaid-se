@@ -69,7 +69,7 @@
     <string name="squeezer_skip_compressed_title">Omet els elements comprimits anteriorment</string>
     <string name="squeezer_skip_compressed_description">Omet els fitxers que ja han estat comprimits per l\'SD Maid.</string>
     <string name="squeezer_exif_marker_title">Escriu el marcador EXIF</string>
-    <string name="squeezer_exif_marker_description">Afegeix un marcador al camp de comentaris de l\'usuari EXIF ​​de la imatge per evitar la recompressió fins i tot si s\'esborra l\'historial de compressió.</string>
+    <string name="squeezer_exif_marker_description">Afegeix un marcador al camp de comentaris de l\'usuari EXIF de la imatge per evitar la recompressió fins i tot si s\'esborra l\'historial de compressió.</string>
     <string name="squeezer_include_lossy_aux_title">Comprimeix les fotos HDR i de profunditat</string>
     <string name="squeezer_include_lossy_aux_description">Inclou fotos amb HDR o dades de profunditat. La compressió l\'elimina: les fotos HDR es converteixen en fotos normals, les fotos de retrat perden les dades darrere del seu difuminat de fons. Els fitxers HEIC multiimatge s\'ometen.</string>
     <string name="squeezer_include_motion_photos_title">Comprimeix les fotos en moviment</string>

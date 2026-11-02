@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_explanation_short">Zbuloni se çfarë po zë hapësirë ​​në pajisjen tuaj.</string>
+    <string name="analyzer_explanation_short">Zbuloni se çfarë po zë hapësirë në pajisjen tuaj.</string>
     <string name="analyzer_progress_scanning_device">Duke kërkuar për pajisje ruajtëse</string>
     <string name="analyzer_progress_scanning_storage">Skanimi i ruajtjes</string>
     <string name="analyzer_progress_scanning_apps">Skanimi i aplikacioneve</string>
@@ -25,7 +25,7 @@
     <string name="analyzer_storage_type_primary_title">Magazina primare</string>
     <string name="analyzer_storage_type_primary_description">Ruajtja kryesore e pajisjes suaj. Përmban kartën e brendshme SD, hapësirën ruajtëse private për aplikacionet dhe të dhënat e sistemit.</string>
     <string name="analyzer_storage_type_secondary_title">Magazina sekondare</string>
-    <string name="analyzer_storage_type_secondary_description">Një hapësirë ​​ruajtëse shtesë ose dytësore, zakonisht një kartë SD e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
+    <string name="analyzer_storage_type_secondary_description">Një hapësirë ruajtëse shtesë ose dytësore, zakonisht një kartë SD e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
     <string name="analyzer_storage_type_tertiary_title">Magazinim portativ(i jashtëm)</string>
     <string name="analyzer_storage_type_tertiary_description">Një ruajtje portative, p.sh. një flash drive i lidhur në portën tuaj USB.</string>
     <string name="analyzer_storage_identifier_internal">Ruajtja e brendshme</string>
@@ -48,7 +48,7 @@
     <string name="analyzer_storage_content_type_otherusers_user_unknown">Madhësia nuk është e disponueshme, hapësira e këtij përdoruesi nuk mund të lexohet.</string>
     <string name="analyzer_storage_content_type_otherusers_info">Hapësira e një përdoruesi tjetër në këtë pajisje. Vetëm shfletim, fshirja nuk mbështetet.</string>
     <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
-    <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë ​​mund të lirohet duke çinstaluar aplikacionin ose duke e arkivuar atë (e disponueshme në versionin më të ri të Android).</string>
+    <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë mund të lirohet duke çinstaluar aplikacionin ose duke e arkivuar atë (e disponueshme në versionin më të ri të Android).</string>
     <string name="analyzer_storage_content_app_data_label">Të dhenat e programit</string>
     <string name="analyzer_storage_content_app_data_description">Të dhënat, cilësimet dhe cache.</string>
     <string name="analyzer_storage_content_app_media_label">Media e aplikacionit</string>

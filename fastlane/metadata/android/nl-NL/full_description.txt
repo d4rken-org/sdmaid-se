@@ -21,7 +21,7 @@ Filter op lege mappen, tijdelijke bestanden, reeds geïnstalleerde apps en meer.
 
 🧹 Verwijder overbodige bestanden en verborgen caches
 
-Miniaturen, prullenbakken, offline caches en meer: ​​als apps zichzelf niet opruimen, dan zal deze app dat wel doen. Het hulpprogramma "AppCleaner" vindt apps met vervangbare bestanden.
+Miniaturen, prullenbakken, offline caches en meer: als apps zichzelf niet opruimen, dan zal deze app dat wel doen. Het hulpprogramma "AppCleaner" vindt apps met vervangbare bestanden.
 
 📦 Beheer al je apps
 
