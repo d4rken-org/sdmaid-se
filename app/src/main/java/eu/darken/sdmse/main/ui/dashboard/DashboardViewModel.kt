@@ -335,7 +335,6 @@ class DashboardViewModel @Inject constructor(
         anniversaryItem.listStateSource("anniversary", null),
         statsItem.listStateSource("stats", null),
         swiperItem.listStateDiag("swiper"),
-        easterEggTriggered.listStateDiag("easterEgg"),
         cardConfigWithRefresh.listStateDiag("cardConfig"),
     ) { sessions: List<DebugLogSession>,
         debugItem: DebugDashboardCardItem?,
@@ -357,7 +356,6 @@ class DashboardViewModel @Inject constructor(
         anniversaryItem: AnniversaryDashboardCardItem?,
         statsItem: StatsDashboardCardItem?,
         swiperItem: SwiperDashboardCardItem?,
-        easterEggTriggered,
         cardConfig: DashboardCardConfig ->
         val items = mutableListOf<DashboardItem>(titleInfo)
 
@@ -449,10 +447,7 @@ class DashboardViewModel @Inject constructor(
 
         debugItem?.let { items.add(it) }
 
-        ListState(
-            items = items,
-            isEasterEgg = easterEggTriggered,
-        )
+        ListState(items = items)
     }
         .throttleLatest(500)
         .safeStateIn(
@@ -462,7 +457,6 @@ class DashboardViewModel @Inject constructor(
 
     data class ListState(
         val items: List<DashboardItem>,
-        val isEasterEgg: Boolean = false,
     )
 
     /** The main-action/hero state machine; this VM delegates to it and keeps error/navigation routing. */

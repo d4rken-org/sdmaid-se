@@ -84,6 +84,7 @@ fun DashboardScreenHost(
     val listState by vm.listState.collectAsStateWithLifecycle()
     val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle()
     val isHeroExpanded by vm.isHeroExpanded.collectAsStateWithLifecycle()
+    val isEasterEgg by vm.easterEggTriggered.collectAsStateWithLifecycle()
 
     var dialogState by remember { mutableStateOf<DashboardDialogState?>(null) }
 
@@ -171,6 +172,7 @@ fun DashboardScreenHost(
         bottomBarState = bottomBarState,
         isTv = vm.isTvDevice,
         isHeroExpanded = isHeroExpanded,
+        isEasterEgg = isEasterEgg,
         snackbarHostState = snackbarHostState,
         onDismissHero = vm::dismissHero,
         onMainAction = {
@@ -198,6 +200,7 @@ internal fun DashboardScreen(
     bottomBarState: BottomBarState? = null,
     isTv: Boolean = false,
     isHeroExpanded: Boolean = false,
+    isEasterEgg: Boolean = false,
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onMainAction: () -> Unit = {},
     onToolClick: (HeroSummary.Mode, SDMTool.Type) -> Unit = { _, _ -> },
@@ -615,7 +618,7 @@ internal fun DashboardScreen(
                     }
                 }
 
-                if (items.isEmpty() || listState.isEasterEgg) {
+                if (items.isEmpty() || isEasterEgg) {
                     MascotOverlay()
                 }
             }
