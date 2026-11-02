@@ -7,11 +7,7 @@ import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.gestures.awaitEachGesture
-import androidx.compose.foundation.gestures.awaitFirstDown
-import androidx.compose.foundation.gestures.awaitLongPressOrCancellation
 import androidx.compose.foundation.gestures.detectTapGestures
-import androidx.compose.foundation.gestures.waitForUpOrCancellation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -28,9 +24,11 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
@@ -38,6 +36,7 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.Layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalInspectionMode
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -68,6 +67,8 @@ private fun getRngSlogan() = when ((0..8).random()) {
     else -> throw IllegalArgumentException()
 }
 
+internal const val TITLE_MASCOT_TEST_TAG = "dashboard.title.mascot"
+
 data class TitleDashboardCardItem(
     val upgradeInfo: UpgradeRepo.Info?,
     val isWorking: Boolean,
@@ -94,6 +95,7 @@ internal fun TitleDashboardCard(
     val subtitleImpact = remember { Animatable(0f) }
     val clickCount = remember { mutableIntStateOf(0) }
     val scope = rememberCoroutineScope()
+    val onMascotTriggered by rememberUpdatedState(item.onMascotTriggered)
 
     LaunchedEffect(mascotTopBump) {
         if (mascotTopBump == 0) return@LaunchedEffect
@@ -160,6 +162,7 @@ internal fun TitleDashboardCard(
             mascot = {
                 SdmMascot(
                     modifier = Modifier
+                        .testTag(TITLE_MASCOT_TEST_TAG)
                         .height(56.dp)
                         .graphicsLayer {
                             val impact = mascotImpact.value
@@ -168,8 +171,15 @@ internal fun TitleDashboardCard(
                             scaleY = 1f - impact * 0.02f
                             rotationZ = mascotRotation.value
                         }
-                        .pointerInput(item) {
+                        .pointerInput(Unit) {
                             detectTapGestures(
+                                onPress = {
+                                    try {
+                                        tryAwaitRelease()
+                                    } finally {
+                                        onMascotTriggered(false)
+                                    }
+                                },
                                 onTap = {
                                     val count = clickCount.intValue + 1
                                     clickCount.intValue = count
@@ -192,19 +202,9 @@ internal fun TitleDashboardCard(
                                     }
                                 },
                                 onLongPress = {
-                                    item.onMascotTriggered(true)
+                                    onMascotTriggered(true)
                                 },
                             )
-                        }
-                        .pointerInput(item) {
-                            awaitEachGesture {
-                                val down = awaitFirstDown(requireUnconsumed = false)
-                                val longPress = awaitLongPressOrCancellation(down.id)
-                                if (longPress != null) {
-                                    waitForUpOrCancellation()
-                                    item.onMascotTriggered(false)
-                                }
-                            }
                         },
                 )
             },
