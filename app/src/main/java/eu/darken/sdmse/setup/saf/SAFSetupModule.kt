@@ -12,6 +12,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
@@ -35,6 +36,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.rngString
+import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
@@ -43,6 +45,7 @@ import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onStart
 import java.time.Instant
@@ -62,20 +65,37 @@ class SAFSetupModule @Inject constructor(
     private val deviceDetective: DeviceDetective,
     private val pkgOps: PkgOps,
     private val userManager: UserManager2,
+    rootManager: RootManager,
+    adbManager: AdbManager,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
-    override val state: Flow<SetupModule.State> = refreshTrigger
-        .mapLatest {
+    override val state: Flow<SetupModule.State> = combine(
+        rootManager.useRoot,
+        adbManager.useAdb,
+        refreshTrigger,
+    ) { useRoot, useAdb, refreshToken ->
+        EvalInput(useRoot = useRoot, useAdb = useAdb, refreshToken = refreshToken)
+    }
+        .mapLatest { input ->
             @Suppress("USELESS_CAST")
             Result(
-                paths = getAccessObjects(),
+                paths = getAccessObjects(useRoot = input.useRoot, useAdb = input.useAdb),
             ) as SetupModule.State
         }
         .onStart { emit(Loading()) }
         .replayingShare(appScope)
 
-    private suspend fun getAccessObjects(): List<Result.PathAccess> {
+    private data class EvalInput(
+        val useRoot: Boolean,
+        val useAdb: Boolean,
+        val refreshToken: String,
+    )
+
+    private suspend fun getAccessObjects(
+        useRoot: Boolean,
+        useAdb: Boolean,
+    ): List<Result.PathAccess> {
         val requestObjects = mutableListOf<Result.PathAccess>()
 
         val currentUriPerms = contentResolver.persistedUriPermissions
@@ -199,13 +219,18 @@ class SAFSetupModule @Inject constructor(
 
             log(TAG) { "Files-DocumentsUI: is restricted? $isRestricted" }
 
+            val skipForRootAdb = useRoot || useAdb
+            if (skipForRootAdb) {
+                log(TAG, INFO) { "Skipping Android/data and Android/obb targets, root/ADB in use (useRoot=$useRoot, useAdb=$useAdb)" }
+            }
+
             storageEnvironment.externalDirs
                 .map { baseDir ->
                     val viableTargets = mutableListOf<LocalPath>()
 
                     // The newer `Files` app if updates through Google Play system updates, no longer supports selecting this
                     // https://cs.android.com/android/platform/superproject/main/+/main:packages/apps/DocumentsUI/src/com/android/documentsui/picker/ActionHandler.java;l=84;bpv=1;bpt=0;drc=901f1d6044aade190bb943ccc18d26244132648e;dlc=306a2b606a1f01498d2d83a1d8362962f114e6e8
-                    if (!isRestricted) {
+                    if (!isRestricted && !skipForRootAdb) {
                         viableTargets.add(baseDir.child("Android", "data"))
                         viableTargets.add(baseDir.child("Android", "obb"))
                     }
@@ -262,7 +287,7 @@ class SAFSetupModule @Inject constructor(
 
     suspend fun takePermission(uri: Uri) {
         log(TAG) { "takePermission(uri=$uri)" }
-        val match = getAccessObjects().singleOrNull {
+        val match = getAccessObjects(useRoot = false, useAdb = false).singleOrNull {
             log(TAG, VERBOSE) { "Comparing $uri with ${it.safPath.pathUri}" }
             it.safPath.pathUri == uri.dropLastColon()
         }
