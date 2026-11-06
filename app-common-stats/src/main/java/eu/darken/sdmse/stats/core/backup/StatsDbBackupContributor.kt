@@ -22,6 +22,7 @@ class StatsDbBackupContributor @Inject constructor(
     sqliteProvider = { db.roomDb.openHelper.writableDatabase },
     dbFileProvider = { context.getDatabasePath("reports") },
     tables = listOf("reports", "affected_paths", "affected_pkgs", "space_snapshots"),
+    onRestored = { db.roomDb.invalidationTracker.refreshAsync() },
 ) {
     override val key = "stats.db"
 }

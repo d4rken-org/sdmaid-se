@@ -22,6 +22,7 @@ class CompressionHistoryDbBackupContributor @Inject constructor(
     sqliteProvider = { db.roomDb.openHelper.writableDatabase },
     dbFileProvider = { context.getDatabasePath("compression_history") },
     tables = listOf("compression_history"),
+    onRestored = { db.roomDb.invalidationTracker.refreshAsync() },
 ) {
     override val key = "squeezer.db"
 }

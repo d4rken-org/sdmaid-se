@@ -22,6 +22,7 @@ class SwipeDbBackupContributor @Inject constructor(
     sqliteProvider = { db.openHelper.writableDatabase },
     dbFileProvider = { context.getDatabasePath("swiper.db") },
     tables = listOf("swipe_sessions", "swipe_items"),
+    onRestored = { db.invalidationTracker.refreshAsync() },
 ) {
     override val key = "swiper.db"
 }
