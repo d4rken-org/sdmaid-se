@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.room.backup
 
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import eu.darken.sdmse.common.backup.DatabaseBackupContributor
@@ -23,9 +24,11 @@ import java.io.IOException
  * (`VACUUM INTO` would be cleaner but needs SQLite 3.27 / API 30; minSdk here is 26.)
  *
  * Restore only accepts a backup that provably has the installed schema (see [validate]);
- * rows are then copied verbatim with `INSERT … SELECT` per table inside one transaction, so a failed
- * restore never leaves the live database partially modified. ATTACH/DETACH run outside the
- * transaction (SQLite requirement).
+ * rows are then read from a standalone read-only connection to the backup and inserted verbatim into
+ * the live database inside one transaction, so a failed restore never leaves it partially modified.
+ * The backup is never ATTACHed to the live database: on a WAL database, SQLiteDatabase.executeSql
+ * (AOSP, checked against API 36) turns WAL off at the first ATTACH, and the pool reopens its primary connection.
+ * That drops Room's TEMP invalidation table and triggers (StatsDbBackupContributorTest).
  * - REPLACE clears each table first, then a plain `INSERT` re-keys verbatim (original PKs preserved,
  *   collision-free) — the mode for a full device transfer.
  * - MERGE uses `INSERT OR IGNORE`: it adds backup rows that don't conflict with an existing row (by
@@ -42,6 +45,8 @@ abstract class RoomDbBackupContributor(
     private val sqliteProvider: () -> SupportSQLiteDatabase,
     private val dbFileProvider: () -> File,
     private val tables: List<String>,
+    /** Restore writes bypass Room, so this has to tell Room to re-check its tables (`InvalidationTracker.refreshAsync()`). */
+    private val onRestored: () -> Unit = {},
 ) : DatabaseBackupContributor {
 
     override suspend fun exportTo(target: File) {
@@ -52,12 +57,7 @@ abstract class RoomDbBackupContributor(
         log(TAG) { "exportTo($key): copied ${source.length()} bytes -> $target" }
     }
 
-    /**
-     * Probes [source] on its own standalone connection and compares its schema to the live database.
-     * Never ATTACHes an unvalidated file to the live connection: SQLite reports a garbage/corrupt
-     * attach target as connection-level corruption, which trips Android's corruption handler against
-     * the LIVE database — the standalone probe keeps an untrusted file completely isolated.
-     */
+    /** Probes [source] on its own standalone connection and compares its schema to the live database. */
     override suspend fun validate(source: File) {
         val backup = probeBackup(source)
         compareToLive(sqliteProvider(), backup)
@@ -65,22 +65,15 @@ abstract class RoomDbBackupContributor(
 
     override suspend fun restoreFrom(source: File, mode: RestoreMode) {
         // Validated again even though the manager preflights — restoreFrom must be safe on its own.
-        // Only a proven-healthy SQLite file with the exact live schema is ever ATTACHed.
         validate(source)
         val db = sqliteProvider()
         log(TAG) { "restoreFrom($key, mode=$mode)" }
-        db.execSQL("ATTACH DATABASE ? AS backup_src", arrayOf(source.absolutePath))
-        try {
+        openBackup(source).use { backup ->
             db.beginTransaction()
             try {
                 var total = 0
                 tables.forEach { table ->
-                    // Schema equality is proven, so all live columns are copied verbatim.
-                    val cols = columns(db, "main", table).joinToString(", ") { "`$it`" }
-                    if (mode == RestoreMode.REPLACE) db.execSQL("DELETE FROM main.`$table`")
-                    val verb = if (mode == RestoreMode.MERGE) "INSERT OR IGNORE" else "INSERT"
-                    db.execSQL("$verb INTO main.`$table` ($cols) SELECT $cols FROM backup_src.`$table`")
-                    val inserted = changes(db)
+                    val inserted = copyTable(backup, db, table, mode)
                     total += inserted
                     log(TAG) { "restoreFrom($key): $table +$inserted rows" }
                 }
@@ -89,8 +82,35 @@ abstract class RoomDbBackupContributor(
             } finally {
                 db.endTransaction()
             }
-        } finally {
-            db.execSQL("DETACH DATABASE backup_src")
+        }
+        onRestored()
+    }
+
+    /** Schema equality is proven by [validate], so all live columns are copied verbatim. */
+    private fun copyTable(backup: SQLiteDatabase, db: SupportSQLiteDatabase, table: String, mode: RestoreMode): Int {
+        val cols = columns(db, "main", table)
+        val colList = cols.joinToString(", ") { "`$it`" }
+        if (mode == RestoreMode.REPLACE) db.execSQL("DELETE FROM main.`$table`")
+        val verb = if (mode == RestoreMode.MERGE) "INSERT OR IGNORE" else "INSERT"
+        val placeholders = cols.joinToString(", ") { "?" }
+        return db.compileStatement("$verb INTO main.`$table` ($colList) VALUES ($placeholders)").use { insert ->
+            var count = 0
+            backup.rawQuery("SELECT $colList FROM `$table`", null).use { c ->
+                while (c.moveToNext()) {
+                    insert.clearBindings()
+                    for (i in cols.indices) {
+                        when (c.getType(i)) {
+                            Cursor.FIELD_TYPE_NULL -> insert.bindNull(i + 1)
+                            Cursor.FIELD_TYPE_INTEGER -> insert.bindLong(i + 1, c.getLong(i))
+                            Cursor.FIELD_TYPE_FLOAT -> insert.bindDouble(i + 1, c.getDouble(i))
+                            Cursor.FIELD_TYPE_BLOB -> insert.bindBlob(i + 1, c.getBlob(i))
+                            else -> insert.bindString(i + 1, c.getString(i))
+                        }
+                    }
+                    count += insert.executeUpdateDelete()
+                }
+            }
+            count
         }
     }
 
@@ -100,17 +120,18 @@ abstract class RoomDbBackupContributor(
     )
 
     /**
-     * Opens [source] read-only on a throwaway connection (no-op error handler, so the framework
-     * never auto-deletes a file it deems corrupt) and extracts everything the comparison needs:
-     * Room identity hash, per-table columns, and a `quick_check` verdict.
+     * Opens [source] read-only on a throwaway connection, with a no-op error handler so the framework
+     * never auto-deletes a file it deems corrupt.
      */
+    private fun openBackup(source: File): SQLiteDatabase = try {
+        SQLiteDatabase.openDatabase(source.absolutePath, null, SQLiteDatabase.OPEN_READONLY) { /* no-op */ }
+    } catch (e: Exception) {
+        throw InvalidBackupException("Backup database '$key' is not a valid SQLite database", e)
+    }
+
+    /** Extracts what the comparison needs: Room identity hash, per-table columns, and a `quick_check` verdict. */
     private fun probeBackup(source: File): ProbedSchema {
-        val backupDb = try {
-            SQLiteDatabase.openDatabase(source.absolutePath, null, SQLiteDatabase.OPEN_READONLY) { /* no-op */ }
-        } catch (e: Exception) {
-            throw InvalidBackupException("Backup database '$key' is not a valid SQLite database", e)
-        }
-        backupDb.use { bdb ->
+        openBackup(source).use { bdb ->
             val check = try {
                 bdb.rawQuery("PRAGMA quick_check", null).use { c -> if (c.moveToFirst()) c.getString(0) else null }
             } catch (e: Exception) {
@@ -181,9 +202,6 @@ abstract class RoomDbBackupContributor(
         }
         throw IOException("WAL checkpoint did not complete for '$key'; database stayed busy")
     }
-
-    private fun changes(db: SupportSQLiteDatabase): Int =
-        db.query("SELECT changes()").use { if (it.moveToFirst()) it.getInt(0) else 0 }
 
     private fun columns(db: SupportSQLiteDatabase, schema: String, table: String): List<String> {
         val out = mutableListOf<String>()
