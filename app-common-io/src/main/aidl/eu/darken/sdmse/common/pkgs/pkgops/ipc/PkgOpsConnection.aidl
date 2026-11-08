@@ -32,5 +32,7 @@ interface PkgOpsConnection {
 
     boolean setAppOps(String packageName, int handleId, String key, String value);
 
-    void requestUnarchive(String packageName, in IntentSender statusReceiver);
+    void requestUnarchive(String packageName, int handleId, in IntentSender statusReceiver);
+
+    List<String> getArchivablePackages(int handleId);
 }

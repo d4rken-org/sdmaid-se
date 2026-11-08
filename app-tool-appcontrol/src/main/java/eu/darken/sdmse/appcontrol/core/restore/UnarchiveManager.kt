@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.withTimeout
@@ -37,8 +38,8 @@ class UnarchiveManager @Inject constructor(
     }
 
     @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
-    suspend fun requestUnarchive(pkgName: String, timeoutMs: Long = 5000L): UnarchiveResult {
-        log(TAG, VERBOSE) { "requestUnarchive($pkgName)" }
+    suspend fun requestUnarchive(installId: InstallId, timeoutMs: Long = 5000L): UnarchiveResult {
+        log(TAG, VERBOSE) { "requestUnarchive($installId)" }
 
         val requestCode = requestCodeCounter.incrementAndGet()
         val resultChannel = Channel<UnarchiveResult>(1)
@@ -60,8 +61,8 @@ class UnarchiveManager @Inject constructor(
                 PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE,
             )
 
-            log(TAG) { "Calling pkgOps.requestUnarchive for $pkgName via Root/ADB" }
-            pkgOps.requestUnarchive(pkgName, pendingIntent.intentSender)
+            log(TAG) { "Calling pkgOps.requestUnarchive for $installId via Root/ADB" }
+            pkgOps.requestUnarchive(installId, pendingIntent.intentSender)
 
             return withTimeout(timeoutMs) {
                 resultChannel.receive()

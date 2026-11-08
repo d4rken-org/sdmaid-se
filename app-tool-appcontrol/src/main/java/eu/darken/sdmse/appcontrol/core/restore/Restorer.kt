@@ -1,5 +1,7 @@
 package eu.darken.sdmse.appcontrol.core.restore
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import dagger.Reusable
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.automation.core.AutomationSubmitter
@@ -27,6 +29,7 @@ import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
@@ -61,16 +64,17 @@ class Restorer @Inject constructor(
         }
 
         val isCurrentUser = app.installId.userHandle == userManager2.currentUser().handle
-        val pkgName = app.installId.pkgId.name
 
         val hasElevatedAccess = rootManager.canUseRootNow() || adbManager.canUseAdbNow()
 
         // Try PackageInstaller API via Root/ADB first (API 35+)
-        if (hasApiLevel(35) && hasElevatedAccess) {
+        if (hasApiLevel(35) && hasElevatedAccess && !isCurrentUser) {
+            requestUnarchiveForOtherUser(app)
+        } else if (hasApiLevel(35) && hasElevatedAccess) {
             log(TAG) { "Attempting PackageInstaller.requestUnarchive via Root/ADB for ${app.installId}" }
             // Only the request itself is guarded, the automation fallback must not catch its own failure
             val result = try {
-                unarchiveManager.requestUnarchive(pkgName)
+                unarchiveManager.requestUnarchive(app.installId)
             } catch (e: Exception) {
                 log(TAG, WARN) { "PackageInstaller unarchive exception, falling back: ${e.asLog()}" }
                 null
@@ -132,6 +136,29 @@ class Restorer @Inject constructor(
             log(TAG, ERROR) { "Failed to verify restore for ${app.installId}: ${e.asLog()}" }
             throw RestoreException(installId = app.installId, cause = e)
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.VANILLA_ICE_CREAM)
+    private suspend fun requestUnarchiveForOtherUser(app: AppInfo) {
+        log(TAG) { "Attempting PackageInstaller.requestUnarchive via Root/ADB for other user ${app.installId}" }
+        val result = try {
+            unarchiveManager.requestUnarchive(app.installId)
+        } catch (e: TimeoutCancellationException) {
+            log(TAG, WARN) { "No unarchive status for ${app.installId}, waiting for the restore anyway: $e" }
+            return
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "PackageInstaller unarchive failed for ${app.installId}: ${e.asLog()}" }
+            throw RestoreException(installId = app.installId, cause = e)
+        }
+
+        if (!result.isSuccess) {
+            log(TAG, WARN) { "PackageInstaller unarchive failed for ${app.installId}: $result" }
+            throw RestoreException(
+                message = "Unarchive request failed (status=${result.status}): ${result.statusMessage}",
+                installId = app.installId,
+            )
+        }
+        log(TAG, INFO) { "PackageInstaller unarchive initiated successfully for ${app.installId}" }
     }
 
     private suspend fun useAutomationFallback(app: AppInfo) {

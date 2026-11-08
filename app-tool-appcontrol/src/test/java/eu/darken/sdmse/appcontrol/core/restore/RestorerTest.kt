@@ -17,6 +17,8 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.common.user.UserProfile2
 import eu.darken.sdmse.setup.SetupModule
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.string.shouldContain
+import io.kotest.matchers.types.shouldBeInstanceOf
 import io.kotest.matchers.types.shouldBeSameInstanceAs
 import io.mockk.coEvery
 import io.mockk.coJustRun
@@ -30,7 +32,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.withTimeout
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
@@ -138,8 +143,8 @@ class RestorerTest : BaseTest() {
         }
         val unarchiveManager = mockk<UnarchiveManager>().apply {
             when {
-                unarchiveError != null -> coEvery { requestUnarchive(any(), any()) } throws unarchiveError
-                unarchiveResult != null -> coEvery { requestUnarchive(any(), any()) } returns unarchiveResult
+                unarchiveError != null -> coEvery { requestUnarchive(any<InstallId>(), any()) } throws unarchiveError
+                unarchiveResult != null -> coEvery { requestUnarchive(any<InstallId>(), any()) } returns unarchiveResult
             }
         }
         val rootManager = mockk<RootManager>().apply {
@@ -179,6 +184,10 @@ class RestorerTest : BaseTest() {
         status = PackageInstaller.STATUS_SUCCESS,
         statusMessage = null,
     )
+
+    // TimeoutCancellationException's constructor is internal, so take one from a real timeout.
+    private suspend fun statusTimeout(): TimeoutCancellationException =
+        runCatching { withTimeout(1) { awaitCancellation() } }.exceptionOrNull() as TimeoutCancellationException
 
     private fun automationFailure(target: AppInfo) = RestoreAutomationTask.Result(
         successful = emptySet(),
@@ -242,7 +251,7 @@ class RestorerTest : BaseTest() {
         setup.restorer.restore(target)
 
         coVerify(exactly = 1) { setup.automation.submit(any()) }
-        coVerify(exactly = 0) { setup.unarchiveManager.requestUnarchive(any(), any()) }
+        coVerify(exactly = 0) { setup.unarchiveManager.requestUnarchive(any<InstallId>(), any()) }
     }
 
     @Test
@@ -258,7 +267,7 @@ class RestorerTest : BaseTest() {
         setup.restorer.restore(target)
 
         coVerify(exactly = 1) { setup.automation.submit(any()) }
-        coVerify(exactly = 0) { setup.unarchiveManager.requestUnarchive(any(), any()) }
+        coVerify(exactly = 0) { setup.unarchiveManager.requestUnarchive(any<InstallId>(), any()) }
     }
 
     @Test
@@ -299,6 +308,78 @@ class RestorerTest : BaseTest() {
         setup.restorer.restore(target)
 
         coVerify(atLeast = 1) { setup.pkgRepo.refresh() }
+    }
+
+    @Test
+    fun `a restore for another user requests the unarchive for that user's install`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = secondaryUserHandle)
+        val setup = setupRestorer(
+            unarchiveResult = unarchiveSuccess(),
+            restoredPkgs = setOf(restoredPkg("eu.thlab.target", forUser = secondaryUserHandle)),
+        )
+
+        setup.restorer.restore(target)
+
+        coVerify(exactly = 1) {
+            setup.unarchiveManager.requestUnarchive(InstallId(Pkg.Id("eu.thlab.target"), secondaryUserHandle), any())
+        }
+    }
+
+    @Test
+    fun `another user's restore keeps polling when the unarchive status times out`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = secondaryUserHandle)
+        val restored = restoredPkg("eu.thlab.target", forUser = secondaryUserHandle)
+        val setup = setupRestorer(unarchiveError = statusTimeout())
+        every { setup.pkgRepo.data } returnsMany listOf(
+            flowOf(PkgRepo.PkgData.from(setOf(target.pkg))),
+            flowOf(PkgRepo.PkgData.from(setOf(restored))),
+        )
+
+        setup.restorer.restore(target)
+
+        coVerify(exactly = 2) { setup.pkgRepo.refresh() }
+        coVerify(exactly = 0) { setup.automation.submit(any()) }
+    }
+
+    @Test
+    fun `another user's restore fails without automation when the unarchive request throws`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = secondaryUserHandle)
+        val error = IllegalStateException("PackageInstaller exploded")
+        val setup = setupRestorer(unarchiveError = error)
+
+        val thrown = shouldThrow<RestoreException> { setup.restorer.restore(target) }
+
+        thrown.cause shouldBeSameInstanceAs error
+        coVerify(exactly = 0) { setup.automation.submit(any()) }
+        coVerify(exactly = 0) { setup.pkgRepo.refresh() }
+    }
+
+    @Test
+    fun `another user's restore fails without automation when the unarchive request fails`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = secondaryUserHandle)
+        val setup = setupRestorer(unarchiveResult = unarchiveFailure())
+
+        val thrown = shouldThrow<RestoreException> { setup.restorer.restore(target) }
+
+        thrown.message shouldContain "Nope"
+        thrown.message shouldContain "status=${PackageInstaller.STATUS_FAILURE}"
+        coVerify(exactly = 0) { setup.automation.submit(any()) }
+        coVerify(exactly = 0) { setup.pkgRepo.refresh() }
+    }
+
+    @Test
+    fun `another user's restore is not completed by a restored copy in a different user`() = runTest2 {
+        val target = archivedApp("eu.thlab.target", forUser = secondaryUserHandle)
+        val setup = setupRestorer(
+            unarchiveResult = unarchiveSuccess(),
+            restoredPkgs = setOf(restoredPkg("eu.thlab.target", forUser = systemUserHandle)),
+        )
+
+        val thrown = shouldThrow<RestoreException> { setup.restorer.restore(target) }
+
+        thrown.cause.shouldBeInstanceOf<TimeoutCancellationException>()
+        coVerify(atLeast = 2) { setup.pkgRepo.refresh() }
+        coVerify(exactly = 0) { setup.automation.submit(any()) }
     }
 
     @Test

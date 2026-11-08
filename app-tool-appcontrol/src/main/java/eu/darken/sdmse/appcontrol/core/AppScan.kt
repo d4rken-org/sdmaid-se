@@ -68,6 +68,7 @@ class AppScan @Inject constructor(
     private var sizeCache: Map<InstallId, PkgOps.SizeStats?>? = null
     private var usageCache: Map<InstallId, UsageInfo?>? = null
     private var userProfilesCache: Map<UserHandle2, UserProfile2>? = null
+    private val archivableCache = mutableMapOf<UserHandle2, Set<String>>()
 
     private suspend fun <T> doRun(action: suspend () -> T): T = mutex.withLock {
         adoptChildResource(pkgOps.sharedResource)
@@ -84,6 +85,7 @@ class AppScan @Inject constructor(
         sizeCache = null
         usageCache = null
         userProfilesCache = null
+        archivableCache.clear()
         pkgRepo.refresh()
     }
 
@@ -115,6 +117,10 @@ class AppScan @Inject constructor(
             userProfilesCache = userManager.allUsers().associateBy { it.handle }
         }
         return userProfilesCache!![id.userHandle]
+    }
+
+    private suspend fun getArchivable(user: UserHandle2): Set<String> = archivableCache.getOrPut(user) {
+        archiveSupport.getArchivablePackages(user)
     }
 
     suspend fun allApps(
@@ -202,7 +208,7 @@ class AppScan @Inject constructor(
         canBeExported = this is SourceAvailable,
         canBeDeleted = true,
         canBeArchived = this is NormalPkg &&
-                archiveSupport.isArchivable(this) &&
+                archiveSupport.isArchivable(this) { getArchivable(it) } &&
                 !isArchived &&
                 !isSystemApp,
         canBeRestored = isArchived && archiveSupport.isArchivingEnabled,

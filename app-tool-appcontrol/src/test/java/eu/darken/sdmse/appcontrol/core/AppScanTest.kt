@@ -1,11 +1,15 @@
 package eu.darken.sdmse.appcontrol.core
 
+import android.content.Context
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
 import eu.darken.sdmse.appcontrol.core.usage.UsageTool
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.container.NormalPkg
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserHandle2
@@ -17,6 +21,7 @@ import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
+import io.mockk.mockkObject
 import io.mockk.unmockkAll
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -55,6 +60,8 @@ class AppScanTest : BaseTest() {
     }
 
     private val user = UserHandle2(handleId = 0)
+    private val otherUser = UserHandle2(handleId = 10)
+    private val thirdUser = UserHandle2(handleId = 11)
 
     private fun pkg(pkgName: String): Installed {
         val pkgId = Pkg.Id(pkgName)
@@ -66,20 +73,53 @@ class AppScanTest : BaseTest() {
         }
     }
 
+    private fun normalPkg(pkgName: String, handle: UserHandle2): NormalPkg {
+        val pkgId = Pkg.Id(pkgName)
+        return mockk<NormalPkg>(relaxed = true).apply {
+            every { id } returns pkgId
+            every { packageName } returns pkgName
+            every { userHandle } returns handle
+            every { installId } returns InstallId(pkgId, handle)
+            every { isSystemApp } returns false
+            every { isUpdatedSystemApp } returns false
+            every { installerInfo } returns InstallerInfo()
+        }
+    }
+
+    private fun realArchiveSupport(pkgOps: PkgOps): ArchiveSupport {
+        mockkObject(BuildWrap)
+        mockkObject(BuildWrap.VERSION)
+        every { BuildWrap.VERSION.SDK_INT } returns 35
+        every { BuildWrap.VERSION.CODENAME } returns "REL"
+        val context = mockk<Context>().apply {
+            // PackageManager.isAppArchivable is API 35 and absent from the SDK 33 Robolectric runtime.
+            every { packageManager } throws IllegalStateException("No isAppArchivable on SDK 33")
+        }
+        val userManager = mockk<UserManager2>().apply {
+            coEvery { currentUser() } returns UserProfile2(handle = user)
+        }
+        return ArchiveSupport(context = context, userManager2 = userManager, pkgOps = pkgOps)
+    }
+
     private class Harness(
         val appScan: AppScan,
         val pkgOps: PkgOps,
         val repoData: MutableStateFlow<PkgRepo.PkgData>,
     )
 
-    private fun harness(pkgs: Collection<Installed>): Harness {
+    private fun harness(
+        pkgs: Collection<Installed>,
+        archiveSupport: (PkgOps) -> ArchiveSupport = { mockk(relaxed = true) },
+    ): Harness {
         val repoData = MutableStateFlow(PkgRepo.PkgData.from(pkgs))
         val pkgRepo = mockk<PkgRepo>().apply {
             every { data } returns repoData
+            coEvery { refresh() } answers { repoData.value.pkgs }
         }
         val pkgOps = mockk<PkgOps>().apply {
             every { sharedResource } returns SharedResource.createKeepAlive("pkgOps", keepAliveScope)
             coEvery { querySizeStats(any(), any()) } returns null
+            coEvery { getArchivablePackages(any(), any()) } returns emptySet()
         }
         val userManager = mockk<UserManager2>().apply {
             coEvery { allUsers() } returns setOf(UserProfile2(handle = user))
@@ -91,7 +131,7 @@ class AppScanTest : BaseTest() {
             pkgOps = pkgOps,
             usageTool = mockk<UsageTool>(relaxed = true),
             userManager = userManager,
-            archiveSupport = mockk<ArchiveSupport>(relaxed = true),
+            archiveSupport = archiveSupport(pkgOps),
         )
         return Harness(appScan = appScan, pkgOps = pkgOps, repoData = repoData)
     }
@@ -195,5 +235,48 @@ class AppScanTest : BaseTest() {
         )
 
         coVerify(exactly = 1) { harness.pkgOps.querySizeStats(lateId, any()) }
+    }
+
+    @Test
+    fun `archivable packages are looked up once per other user until refresh`() = runTest2 {
+        val pkgs = listOf(
+            normalPkg("eu.thlab.one", otherUser),
+            normalPkg("eu.thlab.two", otherUser),
+            normalPkg("eu.thlab.three", otherUser),
+            normalPkg("eu.thlab.four", thirdUser),
+            normalPkg("eu.thlab.five", thirdUser),
+        )
+        val harness = harness(pkgs) { realArchiveSupport(it) }
+        coEvery { harness.pkgOps.getArchivablePackages(otherUser, any()) } returns setOf("eu.thlab.two")
+        coEvery { harness.pkgOps.getArchivablePackages(thirdUser, any()) } returns setOf("eu.thlab.five")
+
+        val apps = harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = false)
+        harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = false)
+
+        apps.filter { it.canBeArchived }.map { it.installId }.toSet() shouldBe setOf(
+            InstallId(Pkg.Id("eu.thlab.two"), otherUser),
+            InstallId(Pkg.Id("eu.thlab.five"), thirdUser),
+        )
+        coVerify(exactly = 1) { harness.pkgOps.getArchivablePackages(otherUser, any()) }
+        coVerify(exactly = 1) { harness.pkgOps.getArchivablePackages(thirdUser, any()) }
+
+        harness.appScan.refresh()
+        harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = false)
+
+        coVerify(exactly = 2) { harness.pkgOps.getArchivablePackages(otherUser, any()) }
+        coVerify(exactly = 2) { harness.pkgOps.getArchivablePackages(thirdUser, any()) }
+    }
+
+    @Test
+    fun `current user apps never look up archivable packages`() = runTest2 {
+        val pkgs = listOf(
+            normalPkg("eu.thlab.one", user),
+            normalPkg("eu.thlab.two", user),
+        )
+        val harness = harness(pkgs) { realArchiveSupport(it) }
+
+        harness.appScan.allApps(user = null, includeUsage = false, includeActive = false, includeSize = false)
+
+        coVerify(exactly = 0) { harness.pkgOps.getArchivablePackages(any(), any()) }
     }
 }

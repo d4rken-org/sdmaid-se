@@ -178,14 +178,15 @@ class NotInstalledPkgsSource @Inject constructor(
     private suspend fun PackageInfo.isArchived(): Boolean {
         if (!hasApiLevel(35)) return false
 
-        // Verify the APK is removed (archived apps have no sourceDir), fast check
+        // Archive time is per user, the APK stays on disk while another user still has the app installed
+        if (archiveTimeMillis > 0) return true
+
+        // Without an archive time, an APK on disk means the package is not archived, fast check
         if (applicationInfo?.sourceDir != null) return false
 
-        // A package is truly archived only if:
-        // 1. The system has archive info for it (getArchivedPackage returns non-null)
-        //    Note: This returns non-null for archivable apps too (Play Store apps with pre-generated stubs)
-        // 2. The APK is actually removed (sourceDir is null)
-        // Without both conditions, it's just an archivable but still-installed package
+        // Otherwise it's archived if the system has archive info for it (getArchivedPackage returns non-null)
+        // Note: This returns non-null for archivable apps too (Play Store apps with pre-generated stubs),
+        // which is why the APK must also be gone (sourceDir is null)
         val hasArchiveInfo = try {
             context.packageManager.getArchivedPackage(packageName) != null
         } catch (e: Exception) {
