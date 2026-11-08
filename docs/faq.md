@@ -84,17 +84,25 @@ The FOSS version has no Google dependencies and can be upgraded through a volunt
 
 There is currently no functional difference between the Google Play and the `FOSS` version, only some small visual differences.
 
-## Google Play won't update SD Maid SE or says the developer is not verified
+## Google Play won't update SD Maid SE
 {: #google-play-wont-update-sd-maid-se-or-says-the-developer-is-not-verified }
 
-The Google Play version and the `FOSS` version (GitHub Releases, Obtainium, IzzyOnDroid) are signed with different keys. Android only installs an update that is signed with the same key as the installed app, so the two builds can't update each other. If you installed the `FOSS` version, Google Play can't update it. Depending on your device, Google Play may show an error or a warning about the developer instead.
+SD Maid SE is signed with a different key depending on where you got it:
 
-To find out which build you have, compare its signature with the fingerprints on the [Security](/security) page, or check where you first installed it from.
+* Google Play
+* GitHub Releases, Obtainium and IzzyOnDroid (the `FOSS` version)
+* The F-Droid main repository, which signs the `FOSS` version with F-Droid's own key
 
-* **Keep your current build:** keep updating from the place you installed it from.
-* **Switch builds:** uninstall SD Maid SE, then install it from the other source. Uninstalling removes your settings. A Pro upgrade bought on Google Play only applies to the Google Play version.
+Android only installs an update that is signed with the same key as the installed app, so each install can only be updated from the source it came from. Google Play can't update an install from GitHub or F-Droid, and the F-Droid main repository can't update an install from GitHub or IzzyOnDroid.
 
-Android is also starting to check developer verification for apps installed from outside Google Play. In some regions, Android may warn that an APK is not from a verified developer. This warning alone does not mean the APK was modified. Check it against the fingerprints on the [Security](/security) page.
+To find out which one you have, compare its signature with the fingerprints on the [Security](/security) page, or check where you first installed it from.
+
+To switch, create a backup in *Settings > Backup & Restore* (needs Pro), uninstall SD Maid SE, install it from the other source, then restore the backup there. Without a backup, uninstalling removes your settings. A Pro upgrade bought on Google Play only applies to the Google Play version.
+
+## Android says SD Maid SE is not from a verified developer
+{: #android-says-sd-maid-se-is-not-from-a-verified-developer }
+
+Android is introducing developer verification for apps installed from outside Google Play, region by region. Depending on your device and region, it can warn about or block an APK whose signing key isn't registered to a verified developer. This doesn't mean the APK was modified. Check it against the fingerprints on the [Security](/security) page.
 
 ## Should I use SD Maid 1 or 2?
 {: #should-i-use-sd-maid-1-or-2 }
