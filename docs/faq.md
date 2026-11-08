@@ -84,6 +84,18 @@ The FOSS version has no Google dependencies and can be upgraded through a volunt
 
 There is currently no functional difference between the Google Play and the `FOSS` version, only some small visual differences.
 
+## Google Play won't update SD Maid SE or says the developer is not verified
+{: #google-play-wont-update-sd-maid-se-or-says-the-developer-is-not-verified }
+
+The Google Play version and the `FOSS` version (GitHub Releases, Obtainium, IzzyOnDroid) are signed with different keys. Android only installs an update that is signed with the same key as the installed app, so the two builds can't update each other. If you installed the `FOSS` version, Google Play can't update it. Depending on your device, Google Play may show an error or a warning about the developer instead.
+
+To find out which build you have, compare its signature with the fingerprints on the [Security](/security) page, or check where you first installed it from.
+
+* **Keep your current build:** keep updating from the place you installed it from.
+* **Switch builds:** uninstall SD Maid SE, then install it from the other source. Uninstalling removes your settings. A Pro upgrade bought on Google Play only applies to the Google Play version.
+
+Android is also starting to check developer verification for apps installed from outside Google Play. In some regions, Android may warn that an APK is not from a verified developer. This warning alone does not mean the APK was modified. Check it against the fingerprints on the [Security](/security) page.
+
 ## Should I use SD Maid 1 or 2?
 {: #should-i-use-sd-maid-1-or-2 }
 
