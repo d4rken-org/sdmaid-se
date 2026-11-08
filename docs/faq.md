@@ -102,7 +102,9 @@ To switch, create a backup in *Settings > Backup & Restore* (needs Pro), uninsta
 ## Android says SD Maid SE is not from a verified developer
 {: #android-says-sd-maid-se-is-not-from-a-verified-developer }
 
-Android is introducing developer verification for apps installed from outside Google Play, region by region. Depending on your device and region, it can warn about or block an APK whose signing key isn't registered to a verified developer. This doesn't mean the APK was modified. Check it against the fingerprints on the [Security](/security) page.
+Android is introducing developer verification for apps installed from outside Google Play. SD Maid SE comes from a verified developer, and the signing keys used for Google Play, GitHub Releases, Obtainium and IzzyOnDroid are registered.
+
+The F-Droid main repository signs SD Maid SE with F-Droid's own key, so depending on your device and region, Android may warn about or block those installs. This doesn't mean the APK was modified. To avoid the warning, switch to the GitHub or IzzyOnDroid version, see [Google Play won't update SD Maid SE](#google-play-wont-update-sd-maid-se-or-says-the-developer-is-not-verified).
 
 ## Should I use SD Maid 1 or 2?
 {: #should-i-use-sd-maid-1-or-2 }
