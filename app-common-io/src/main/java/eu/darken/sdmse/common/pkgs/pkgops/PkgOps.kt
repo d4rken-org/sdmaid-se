@@ -430,31 +430,57 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun requestUnarchive(packageName: String, statusReceiver: IntentSender, mode: Mode = Mode.AUTO) {
-        log(TAG, VERBOSE) { "requestUnarchive($packageName, mode=$mode)" }
+    suspend fun requestUnarchive(id: InstallId, statusReceiver: IntentSender, mode: Mode = Mode.AUTO) {
+        log(TAG, VERBOSE) { "requestUnarchive($id, mode=$mode)" }
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("requestUnarchive does not support mode=NORMAL")
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "requestUnarchive($packageName, $mode->ROOT)" }
-                rootOps { it.requestUnarchive(packageName, statusReceiver) }
+                log(TAG) { "requestUnarchive($id, $mode->ROOT)" }
+                rootOps { it.requestUnarchive(id, statusReceiver) }
                 return
             }
 
             if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
-                log(TAG) { "requestUnarchive($packageName, $mode->ADB)" }
-                adbOps { it.requestUnarchive(packageName, statusReceiver) }
+                log(TAG) { "requestUnarchive($id, $mode->ADB)" }
+                adbOps { it.requestUnarchive(id, statusReceiver) }
                 return
             }
 
             throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
             if (e is ModeUnavailableException) {
-                log(TAG, DEBUG) { "requestUnarchive(...): $mode unavailable" }
+                log(TAG, DEBUG) { "requestUnarchive(...): $mode unavailable for $id" }
             } else {
-                log(TAG, WARN) { "requestUnarchive($packageName, $mode) failed: ${e.asLog()}" }
+                log(TAG, WARN) { "requestUnarchive($id, $mode) failed: ${e.asLog()}" }
             }
-            throw PkgOpsException(message = "requestUnarchive($packageName, $mode) failed", cause = e)
+            throw PkgOpsException(message = "requestUnarchive($id, $mode) failed", cause = e)
+        }
+    }
+
+    suspend fun getArchivablePackages(user: UserHandle2, mode: Mode = Mode.AUTO): Set<String> {
+        log(TAG, VERBOSE) { "getArchivablePackages($user, mode=$mode)" }
+        try {
+            if (mode == Mode.NORMAL) throw PkgOpsException("getArchivablePackages does not support mode=NORMAL")
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "getArchivablePackages($user, $mode->ROOT)" }
+                return rootOps { it.getArchivablePackages(user) }
+            }
+
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "getArchivablePackages($user, $mode->ADB)" }
+                return adbOps { it.getArchivablePackages(user) }
+            }
+
+            throw ModeUnavailableException("Mode $mode is unavailable")
+        } catch (e: Exception) {
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "getArchivablePackages(...): $mode unavailable for $user" }
+            } else {
+                log(TAG, WARN) { "getArchivablePackages($user, $mode) failed: ${e.asLog()}" }
+            }
+            throw PkgOpsException(message = "getArchivablePackages($user, $mode) failed", cause = e)
         }
     }
 

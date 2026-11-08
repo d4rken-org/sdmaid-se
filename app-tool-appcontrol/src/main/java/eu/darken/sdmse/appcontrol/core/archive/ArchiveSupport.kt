@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Context
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
@@ -11,13 +12,19 @@ import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUpdatedSystemApp
+import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
+import kotlinx.coroutines.CancellationException
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class ArchiveSupport @Inject constructor(
     @ApplicationContext private val context: Context,
+    private val userManager2: UserManager2,
+    private val pkgOps: PkgOps,
 ) {
     /**
      * Checks if app archiving is available and enabled on this device.
@@ -56,12 +63,16 @@ class ArchiveSupport @Inject constructor(
     }
 
     /**
-     * Checks if a specific package can be archived.
-     * On API 35+, apps installed from Play Store with Android Gradle Plugin 7.3+ have pre-generated
-     * archived APK stubs. getArchivedPackage() returns non-null for these apps.
+     * Whether Android can archive [installed] and its installer can restore it later.
+     * Apps in SD Maid's own user go through `PackageManager.isAppArchivable`, which also requires the installer to
+     * have an unarchive receiver. Apps in other users must be in the set [archivablePackages] returns for their
+     * user, see [getArchivablePackages].
      */
     @SuppressLint("NewApi")
-    fun isArchivable(installed: Installed): Boolean {
+    suspend fun isArchivable(
+        installed: Installed,
+        archivablePackages: suspend (UserHandle2) -> Set<String>,
+    ): Boolean {
         if (!isArchivingEnabled) return false
         if (installed.isSystemApp || installed.isUpdatedSystemApp) return false
 
@@ -72,12 +83,30 @@ class ArchiveSupport @Inject constructor(
             return false
         }
 
+        val user = installed.installId.userHandle
+        if (user != userManager2.currentUser().handle) {
+            return archivablePackages(user).contains(installed.packageName)
+        }
+
         return try {
-            context.packageManager.getArchivedPackage(installed.packageName) != null
+            context.packageManager.isAppArchivable(installed.packageName)
         } catch (e: Exception) {
             log(TAG, VERBOSE) { "Failed to check archive support for ${installed.installId}: $e" }
             false
         }
+    }
+
+    /**
+     * Packages of [user] that Android can archive and whose installer can restore them, looked up via root or ADB.
+     * Empty if neither is available or the lookup fails.
+     */
+    suspend fun getArchivablePackages(user: UserHandle2): Set<String> = try {
+        pkgOps.getArchivablePackages(user)
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "getArchivablePackages($user) failed: $e" }
+        emptySet()
     }
 
     private val unsupportedInstallers = setOf(

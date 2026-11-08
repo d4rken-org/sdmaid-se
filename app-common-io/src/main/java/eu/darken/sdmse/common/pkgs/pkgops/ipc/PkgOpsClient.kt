@@ -117,11 +117,19 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun requestUnarchive(packageName: String, statusReceiver: IntentSender): Unit = try {
-        connection.requestUnarchive(packageName, statusReceiver)
+    fun requestUnarchive(id: InstallId, statusReceiver: IntentSender): Unit = try {
+        connection.requestUnarchive(id.pkgId.name, id.userHandle.handleId, statusReceiver)
     } catch (e: Exception) {
         throw e.refineException().also {
-            log(TAG, ERROR) { "requestUnarchive($packageName) failed: ${it.asLog()}" }
+            log(TAG, ERROR) { "requestUnarchive(id=$id) failed: ${it.asLog()}" }
+        }
+    }
+
+    fun getArchivablePackages(userHandle: UserHandle2): Set<String> = try {
+        connection.getArchivablePackages(userHandle.handleId).toSet()
+    } catch (e: Exception) {
+        throw e.refineException().also {
+            log(TAG, ERROR) { "getArchivablePackages(userHandle=$userHandle) failed: ${it.asLog()}" }
         }
     }
 
