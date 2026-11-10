@@ -3,10 +3,12 @@ package eu.darken.sdmse.automation.core.common.stepper
 import android.accessibilityservice.AccessibilityService
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.graphics.Rect
 import dagger.Reusable
 import eu.darken.sdmse.automation.core.ScreenState
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.toNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
@@ -186,7 +188,34 @@ class Stepper @Inject constructor(
     private suspend fun logFailureNodes(tag: String, context: AutomationExplorer.Context) {
         if (Bugs.isDebug) {
             log(tag, WARN) { "Step failure, current nodes:" }
-            context.host.windowRoot()?.crawl(debug = false)?.forEach { log(tag, WARN) { "${it.infoShort}, childCount=${it.node.childCount}" } }
+            val root = context.host.windowRoot()
+            root?.crawl(debug = false)?.forEach { log(tag, WARN) { "${it.infoShort}, childCount=${it.node.childCount}" } }
+            logFailureWindows(tag, context, root?.packageName)
+        }
+    }
+
+    // Shows whether controls missing from the active window, e.g. a ROM's button row, live in another window
+    private fun logFailureWindows(tag: String, context: AutomationExplorer.Context, rootPkg: CharSequence?) {
+        try {
+            val windows = context.host.service.windows
+            log(tag, WARN) { "Step failure, ${windows.size} windows:" }
+            windows.forEachIndexed { index, window ->
+                val windowRoot = window.root
+                val bounds = Rect().also { window.getBoundsInScreen(it) }
+                log(tag, WARN) {
+                    "Window #$index: id=${window.id}, type=${window.type}, layer=${window.layer}, title=${window.title}, " +
+                        "bounds=$bounds, active=${window.isActive}, focused=${window.isFocused}, " +
+                        "rootPkg=${windowRoot?.packageName}, rootClass=${windowRoot?.className}, " +
+                        "rootChildCount=${windowRoot?.childCount}"
+                }
+                if (window.isActive || windowRoot == null || rootPkg == null) return@forEachIndexed
+                if (windowRoot.packageName?.toString() != rootPkg.toString()) return@forEachIndexed
+                windowRoot.toNodeInfo().crawl(debug = false).take(FAILURE_WINDOW_NODE_LIMIT).forEach {
+                    log(tag, WARN) { "Window #$index ${it.infoShort}, childCount=${it.node.childCount}" }
+                }
+            }
+        } catch (e: Exception) {
+            log(tag, WARN) { "Failed to log windows: ${e.asLog()}" }
         }
     }
 
@@ -194,5 +223,6 @@ class Stepper @Inject constructor(
 
     companion object {
         private val ATTEMPT_TIMEOUT = 15.seconds
+        private const val FAILURE_WINDOW_NODE_LIMIT = 200
     }
 }
