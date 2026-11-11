@@ -60,14 +60,14 @@ class ChecksumSleuth @Inject constructor(
             .asFlow()
             .flatMapMerge { items ->
                 flow {
-                    val checksummedGroup = items.map { item ->
+                    val checksummedGroup = items.mapNotNull { item ->
                         val start = System.currentTimeMillis()
 
                         val hash = try {
                             gatewaySwitch.file(item.lookedUp, readWrite = false).source().hash(Hasher.Type.SHA256)
                         } catch (e: Exception) {
                             log(TAG, ERROR) { "Failed to read $item: ${e.asLog()}" }
-                            return@flow
+                            return@mapNotNull null
                         }
                         val hexHash = hash.format()
 
