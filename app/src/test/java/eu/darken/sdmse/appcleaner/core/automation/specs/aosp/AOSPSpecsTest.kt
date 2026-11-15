@@ -2698,13 +2698,15 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     // button (Motorola edge 70 at 1272x2772@450); otherwise DOWN lands on "Clear storage" and RIGHT on "Clear
     // cache". Both buttons are withheld from the tree, so input focus on them reads as null. ACTION_FOCUS on the
     // header moves input focus there 150ms later, if [takesFocus] allows that call (1-based) and no key came in
-    // between. Focus on the search button is reported [searchReportDelayMs] after it moved there. A CENTER on
-    // "Clear cache" drops the cache bytes, then [onCenter] runs; BACK shows the page again.
+    // between. Focus on the search button is reported [searchReportDelayMs] after it moved there. With
+    // [centerClears], a CENTER on "Clear cache" drops the cache bytes; every CENTER then runs [onCenter]. BACK
+    // shows the page again.
     private inner class FocusTrackingPage(
         val rightmost: Boolean,
         val cacheRow: Boolean = true,
         val takesFocus: (Int) -> Boolean = { true },
         val searchReportDelayMs: Long = 0L,
+        val centerClears: Boolean = true,
         val onCenter: () -> Unit = {},
     ) {
         private var focus = "up"
@@ -2784,7 +2786,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
                 "RIGHT" -> moveTo(if (focus == "clearStorage") "clearCache" else "search")
                 "CENTER" -> {
                     centerFocus += focus
-                    if (focus == "clearCache") cleared = true
+                    if (centerClears && focus == "clearCache") cleared = true
                 }
             }
             show()
@@ -2934,6 +2936,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         stubPixelSizes()
         val page = FocusTrackingPage(
             rightmost = true,
+            centerClears = false,
             onCenter = { testHost.setWindowRoot(deleteAppDataDialog()) },
         ).apply { install() }
 
