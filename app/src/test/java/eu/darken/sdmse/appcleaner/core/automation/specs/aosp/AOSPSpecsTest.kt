@@ -22,6 +22,7 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.ui.SizeParser
 import eu.darken.sdmse.common.user.UserHandle2
 import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldNotContain
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.longs.shouldBeGreaterThanOrEqual
 import io.kotest.matchers.longs.shouldBeLessThan
@@ -2686,5 +2687,262 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         page.scrolledDown shouldBe false
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
         verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    // ============================================================
+    // DOWN from the header landing on "Clear cache" (#2911)
+    // ============================================================
+
+    // Storage page with a positive Cache row ([cacheRow] = false drops it) whose input focus follows the keys.
+    // With [rightmost], DOWN from the header lands on "Clear cache" and RIGHT from there on the app bar's search
+    // button (Motorola edge 70 at 1272x2772@450); otherwise DOWN lands on "Clear storage" and RIGHT on "Clear
+    // cache". Both buttons are withheld from the tree, so input focus on them reads as null. ACTION_FOCUS on the
+    // header moves input focus there 150ms later, if [takesFocus] allows that call (1-based) and no key came in
+    // between. Focus on the search button is reported [searchReportDelayMs] after it moved there. A CENTER on
+    // "Clear cache" drops the cache bytes, then [onCenter] runs; BACK shows the page again.
+    private inner class FocusTrackingPage(
+        val rightmost: Boolean,
+        val cacheRow: Boolean = true,
+        val takesFocus: (Int) -> Boolean = { true },
+        val searchReportDelayMs: Long = 0L,
+        val onCenter: () -> Unit = {},
+    ) {
+        private var focus = "up"
+        private var reported = "up"
+        private var focusCalls = 0
+        private var keyCount = 0
+        var cleared = false
+            private set
+
+        // Keys in order, plus "FOCUS" for each ACTION_FOCUS on the header.
+        val events = mutableListOf<String>()
+        val keys: List<String> get() = events.filter { it != "FOCUS" }
+        val centerFocus = mutableListOf<String>()
+
+        fun page(): TestACSNodeInfo {
+            val header = TestACSNodeInfo(
+                className = "android.widget.LinearLayout",
+                packageName = "com.android.settings",
+                viewIdResourceName = "com.android.settings:id/entity_header_content",
+                isClickable = true,
+                isFocused = reported == "header",
+                screenBoundsOverride = ACSNodeInfo.ScreenBounds(42, 300, 1038, 702),
+                onAction = { action ->
+                    if (action == ACSNodeInfo.ACTION_FOCUS) onFocusAction()
+                    true
+                },
+            )
+            return pixelStoragePage(cache = if (cacheRow) "42.93 MB" else null, header = false).addChildren(
+                header,
+                navigateUpButton(focused = reported == "up"),
+                searchButton(focused = reported == "search"),
+            )
+        }
+
+        private fun show() = testHost.setWindowRoot(page())
+
+        private fun onFocusAction() {
+            events += "FOCUS"
+            if (!takesFocus(++focusCalls)) return
+            val keysAtFocus = keyCount
+            testHost.scope.launch {
+                delay(150)
+                if (keyCount != keysAtFocus) return@launch
+                focus = "header"
+                reported = "header"
+                show()
+            }
+        }
+
+        private fun moveTo(target: String) {
+            focus = target
+            if (target == "search" && searchReportDelayMs > 0 && reported != "search") {
+                testHost.scope.launch {
+                    delay(searchReportDelayMs)
+                    if (focus == target) {
+                        reported = target
+                        show()
+                    }
+                }
+            } else {
+                reported = target
+            }
+        }
+
+        fun key(name: String) {
+            keyCount++
+            events += name
+            when (name) {
+                "DOWN" -> moveTo(
+                    when (focus) {
+                        "up" -> "header"
+                        "header" -> if (rightmost) "clearCache" else "clearStorage"
+                        else -> focus
+                    }
+                )
+
+                "RIGHT" -> moveTo(if (focus == "clearStorage") "clearCache" else "search")
+                "CENTER" -> {
+                    centerFocus += focus
+                    if (focus == "clearCache") cleared = true
+                }
+            }
+            show()
+            if (name == "CENTER") onCenter()
+        }
+
+        fun install() {
+            every { testHost.service.performGlobalAction(any()) } answers {
+                when (firstArg<Int>()) {
+                    AccessibilityService.GLOBAL_ACTION_DPAD_DOWN -> key("DOWN")
+                    AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT -> key("RIGHT")
+                    AccessibilityService.GLOBAL_ACTION_DPAD_LEFT -> key("LEFT")
+                    AccessibilityService.GLOBAL_ACTION_DPAD_CENTER -> key("CENTER")
+                    AccessibilityService.GLOBAL_ACTION_BACK -> key("BACK")
+                }
+                true
+            }
+            coEvery { inputInjector.inject(any<InputInjector.Event>()) } coAnswers {
+                when (firstArg<InputInjector.Event>()) {
+                    InputInjector.Event.DpadDown -> key("DOWN")
+                    InputInjector.Event.DpadRight -> key("RIGHT")
+                    InputInjector.Event.DpadLeft -> key("LEFT")
+                    InputInjector.Event.DpadCenter -> key("CENTER")
+                    else -> Unit
+                }
+                Unit
+            }
+            coEvery { cacheProvider.determineCache(any()) } answers { cacheOf(if (cleared) 12_000L else 50_000L) }
+            testRoot = page()
+        }
+    }
+
+    private fun List<String>.hasDownDirectlyBeforeCenter() = zipWithNext().any { it == "DOWN" to "CENTER" }
+
+    @Test
+    fun `DOWN landing on Clear cache gets one more DOWN from the header and a CENTER`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(rightmost = true).apply { install() }
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        page.centerFocus shouldBe listOf("clearCache")
+    }
+
+    @Test
+    fun `DOWN landing on Clear cache gets one more injected DOWN from the header and a CENTER`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        coEvery { inputInjector.canInject() } returns true
+        val page = FocusTrackingPage(rightmost = true).apply { install() }
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        coVerify(exactly = 2) { inputInjector.inject(InputInjector.Event.DpadDown) }
+        coVerify(exactly = 1) { inputInjector.inject(InputInjector.Event.DpadRight) }
+        coVerify(exactly = 1) { inputInjector.inject(InputInjector.Event.DpadCenter) }
+        verify(exactly = 0) { testHost.service.performGlobalAction(any()) }
+        page.centerFocus shouldBe listOf("clearCache")
+    }
+
+    @Test
+    fun `search focus reported 300ms after RIGHT still gets the DOWN from the header`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(rightmost = true, searchReportDelayMs = 300L).apply { install() }
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 2) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        page.centerFocus shouldBe listOf("clearCache")
+    }
+
+    @Test
+    fun `DOWN landing on Clear storage keeps the RIGHT and CENTER`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(rightmost = false).apply { install() }
+
+        val result = captureAndRunClearCacheAction()
+
+        result shouldBe true
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_RIGHT) }
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+        page.centerFocus shouldBe listOf("clearCache")
+    }
+
+    @Test
+    fun `a first DOWN that started before input focus reached the header gets no DOWN and CENTER`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        // The quick-try's DOWN starts from the up button, so it only reaches the header and RIGHT the search
+        // button. A DOWN from the header and a CENTER would press "Clear storage".
+        val page = FocusTrackingPage(rightmost = false, takesFocus = { it > 1 }).apply { install() }
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        page.keys.hasDownDirectlyBeforeCenter() shouldBe false
+        page.centerFocus shouldNotContain "clearStorage"
+    }
+
+    @Test
+    fun `without a Cache row a DOWN landing on Clear cache gets no DOWN and CENTER`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(rightmost = true, cacheRow = false).apply { install() }
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        page.keys.hasDownDirectlyBeforeCenter() shouldBe false
+    }
+
+    @Test
+    fun `a header that doesn't take input focus again gets no second DOWN in the quick-try`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(rightmost = true, takesFocus = { it == 1 }).apply { install() }
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        // Quick-try bootstrap, DOWN, RIGHT, the unconfirmed bootstrap; the cycle loop's bootstrap is next.
+        val cycleBootstrap = page.events.withIndex().filter { it.value == "FOCUS" }[2].index
+        page.events.take(cycleBootstrap) shouldBe listOf("FOCUS", "DOWN", "RIGHT", "FOCUS")
+        verify(exactly = 0) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_CENTER) }
+    }
+
+    @Test
+    fun `a DOWN from the header that opens a dialog gets one BACK and ends the attempt`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(
+            rightmost = true,
+            onCenter = { testHost.setWindowRoot(deleteAppDataDialog()) },
+        ).apply { install() }
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
+        page.keys shouldBe listOf("DOWN", "RIGHT", "DOWN", "CENTER", "BACK")
     }
 }

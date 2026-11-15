@@ -580,6 +580,7 @@ class AOSPSpecs @Inject constructor(
         var anchorHits = 0
         var totalRightSteps = 0
         var hadBootstrapInputFocus = false
+        var lastBootstrapInputConfirmed = false
         val isWindowAtRest = windowAtRestCheck()
         val awaitWindowAtRest: suspend () -> Boolean = {
             waitForLayoutStability(
@@ -712,7 +713,7 @@ class AOSPSpecs @Inject constructor(
         // Motorola edge 70, Android 17 (#2843): input focus reaches the anchor ~150ms after
         // ACTION_FOCUS returns true. A DPAD key sent before that starts from the app bar's up button,
         // and DOWN then only reaches the anchor.
-        suspend fun awaitAnchorInputFocus(reason: String, polls: Int) {
+        suspend fun awaitAnchorInputFocus(reason: String, polls: Int): Boolean {
             var input: ACSNodeInfo? = null
             for (poll in 0..polls) {
                 input = host.windowRoot()?.findFocus(ACSNodeInfo.FOCUS_INPUT)
@@ -720,16 +721,18 @@ class AOSPSpecs @Inject constructor(
                     log(tag, INFO) {
                         "DPAD bootstrap focus ($reason): input focus on anchor after ${BOOTSTRAP_FOCUS_MIN_WAIT_MS + poll * BOOTSTRAP_FOCUS_POLL_DELAY_MS}ms"
                     }
-                    return
+                    return true
                 }
                 if (poll < polls) delay(BOOTSTRAP_FOCUS_POLL_DELAY_MS)
             }
             log(tag, INFO) {
                 "DPAD bootstrap focus ($reason): input focus not on anchor after ${BOOTSTRAP_FOCUS_MIN_WAIT_MS + polls * BOOTSTRAP_FOCUS_POLL_DELAY_MS}ms (input=$input)"
             }
+            return false
         }
 
         suspend fun bootstrapAnchor(reason: String, focusPolls: Int = 0): Boolean {
+            lastBootstrapInputConfirmed = false
             val anchorNode = host.windowRoot()?.crawl()?.map { it.node }
                 ?.firstOrNull { it.viewIdResourceName == anchorId }
             if (anchorNode == null) {
@@ -746,7 +749,7 @@ class AOSPSpecs @Inject constructor(
                 "DPAD bootstrap focus ($reason): inputFocus=$bootstrapInputFocusResult, a11yFocus=$bootstrapA11yFocusResult, alreadyInputFocused=$alreadyInputFocused, alreadyA11yFocused=$alreadyA11yFocused, node=$anchorNode"
             }
             delay(BOOTSTRAP_FOCUS_MIN_WAIT_MS)
-            if (focusPolls > 0) awaitAnchorInputFocus(reason, focusPolls)
+            if (focusPolls > 0) lastBootstrapInputConfirmed = awaitAnchorInputFocus(reason, focusPolls)
             return bootstrapInputFocusResult || bootstrapA11yFocusResult || alreadyInputFocused || alreadyA11yFocused
         }
 
@@ -783,6 +786,7 @@ class AOSPSpecs @Inject constructor(
 
         run {
             val fastBootstrapped = bootstrapAnchor("quick-try", focusPolls = BOOTSTRAP_FOCUS_POLLS)
+            val quickTryInputConfirmed = lastBootstrapInputConfirmed
             if (fastBootstrapped) {
                 var centerSent = false
                 val steppedDown = dpadDown()
@@ -795,7 +799,25 @@ class AOSPSpecs @Inject constructor(
                     log(tag, WARN) { "DPAD_RIGHT failed (source=quick-try)" }
                     logFocus("quick-try failed RIGHT")
                 }
-                if (moved) {
+                val probeRightmost = quickTryInputConfirmed && steppedDown && moved && !threeButtonRow &&
+                    stats?.cacheRow != null
+                var pastRow = false
+                if (probeRightmost) {
+                    // Motorola Edge 70 Pro, 1272x2772@450 (#2911): DOWN from the header lands on "Clear cache",
+                    // RIGHT reaches the app bar's Search.
+                    var lastInput: ACSNodeInfo? = null
+                    pastRow = awaitPastRowLanding(
+                        readPastRow = {
+                            val root = host.windowRoot()
+                            val anchor = root?.crawl()?.map { it.node }?.firstOrNull { it.viewIdResourceName == anchorId }
+                            val input = root?.findFocus(ACSNodeInfo.FOCUS_INPUT).also { lastInput = it }
+                            anchor != null && input?.landedPastRow(anchor) == true
+                        },
+                        polls = RIGHT_PROBE_POLLS,
+                        pollDelayMs = RIGHT_PROBE_POLL_DELAY_MS,
+                    )
+                    log(tag, INFO) { "DPAD RIGHT probe (quick-try): pastRow=$pastRow, input=$lastInput" }
+                } else if (moved) {
                     delay(stepDelayMs)
                 }
                 val positioned = if (moved && threeButtonRow) {
@@ -812,7 +834,20 @@ class AOSPSpecs @Inject constructor(
                 } else {
                     moved
                 }
-                if (positioned) {
+                if (pastRow) {
+                    val ops = RightmostLandingOps(
+                        bootstrapAnchorFocused = {
+                            bootstrapAnchor(RIGHTMOST_LANDING_SOURCE, focusPolls = BOOTSTRAP_FOCUS_POLLS) &&
+                                lastBootstrapInputConfirmed
+                        },
+                        dpadDown = dpadDown,
+                        focusVetoesCenter = { focusVetoesCenter(RIGHTMOST_LANDING_SOURCE) },
+                        dpadCenter = { if (Bugs.isDryRun) true else dpadCenter().also { centerSent = it } },
+                    )
+                    if (pressFromRightmostLanding(tag, ops, stepDelayMs)) {
+                        validateLikelyPress(RIGHTMOST_LANDING_SOURCE, timeoutMs = 800)?.let { return it }
+                    }
+                } else if (positioned) {
                     if (focusVetoesCenter("quick-try")) {
                         log(tag, WARN) { "DPAD_CENTER skipped, focus outside the button row (source=quick-try)" }
                     } else {
