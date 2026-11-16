@@ -39,6 +39,7 @@ import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
+import eu.darken.sdmse.automation.core.specs.isSystemLayoutRtl
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.BuildWrap
@@ -450,6 +451,7 @@ class AOSPSpecs @Inject constructor(
         cacheStats: CacheStatsReader,
         canInjectInput: Boolean,
         threeButtonRow: Boolean,
+        systemLayoutRtl: Boolean,
         settingsHasManageStorageText: Boolean,
         cacheSizeLabels: Collection<String>,
         preClickCheck: (suspend () -> Boolean)? = null,
@@ -483,6 +485,7 @@ class AOSPSpecs @Inject constructor(
                     cacheStats = cacheStats,
                     canInjectInput = canInjectInput,
                     threeButtonRow = threeButtonRow,
+                    systemLayoutRtl = systemLayoutRtl,
                     settingsHasManageStorageText = settingsHasManageStorageText,
                     cacheSizeLabels = cacheSizeLabels,
                     preClickCheck = preClickCheck,
@@ -542,6 +545,7 @@ class AOSPSpecs @Inject constructor(
         cacheStats: CacheStatsReader,
         canInjectInput: Boolean,
         threeButtonRow: Boolean,
+        systemLayoutRtl: Boolean,
         settingsHasManageStorageText: Boolean,
         cacheSizeLabels: Collection<String>,
         preClickCheck: (suspend () -> Boolean)?,
@@ -800,7 +804,7 @@ class AOSPSpecs @Inject constructor(
                     logFocus("quick-try failed RIGHT")
                 }
                 val probeRightmost = quickTryInputConfirmed && steppedDown && moved && !threeButtonRow &&
-                    stats?.cacheRow != null
+                    !systemLayoutRtl && stats?.cacheRow?.bytes != null
                 var pastRow = false
                 if (probeRightmost) {
                     // Motorola Edge 70 Pro, 1272x2772@450 (#2911): DOWN from the header lands on "Clear cache",
@@ -1144,6 +1148,8 @@ class AOSPSpecs @Inject constructor(
             log(TAG, INFO) {
                 "threeButtonRow=$threeButtonRow (manageStorageText=$settingsHasManageStorageText, manageSpaceActivity=$manageSpaceActivityName, resolves=$manageSpaceActivityResolves)"
             }
+            val systemLayoutRtl = isSystemLayoutRtl()
+            log(TAG, INFO) { "systemLayoutRtl=$systemLayoutRtl" }
 
             val bandMinGapPx = if (bandCheckEligible) {
                 val density = host.service.resources.displayMetrics.density
@@ -1260,6 +1266,7 @@ class AOSPSpecs @Inject constructor(
                             cacheStats,
                             canInjectInput,
                             threeButtonRow,
+                            systemLayoutRtl,
                             settingsHasManageStorageText,
                             cacheSizeLabels,
                             preClickCheck,
