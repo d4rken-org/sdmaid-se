@@ -31,6 +31,7 @@ class AcsActivatorTest : BaseTest() {
         val avoidDirect: Boolean = false,
         val mode: ShellOps.Mode? = ShellOps.Mode.ADB,
         val directReverts: Boolean = false,
+        val directRetryPersists: Boolean = false,
         val boundAfterDirect: Boolean = false,
         val shellWriteSucceeds: Boolean = true,
         val boundAfterShell: Boolean = true,
@@ -40,6 +41,7 @@ class AcsActivatorTest : BaseTest() {
         var writeShellCalls = 0
         var markCalls = 0
         var lastShellServices: Set<ComponentName>? = null
+        val directWrites = mutableListOf<Set<ComponentName>>()
         var lastAwaitTimeout: Long? = null
         private var bound = false
 
@@ -61,8 +63,10 @@ class AcsActivatorTest : BaseTest() {
         override suspend fun writeDirect(services: Set<ComponentName>): Set<ComponentName> {
             events += "writeDirect"
             writeDirectCalls++
-            if (!directReverts && boundAfterDirect) bound = true
-            return if (directReverts) emptySet() else services
+            directWrites += services
+            val reverted = directReverts && !(directRetryPersists && writeDirectCalls > 1)
+            if (!reverted && boundAfterDirect) bound = true
+            return if (reverted) emptySet() else services
         }
 
         override suspend fun writeShell(services: Set<ComponentName>, mode: ShellOps.Mode): Boolean {
@@ -140,14 +144,31 @@ class AcsActivatorTest : BaseTest() {
         )
     }
 
-    @Test fun `mode A - no shell marks and returns null without shell write`() = runTest2 {
+    @Test fun `mode A - no shell, repair retry also reverts, marks once and returns null`() = runTest2 {
         val io = FakeIo(directReverts = true, mode = null)
 
         AcsActivator(io).enable(setOf(ourComp)) shouldBe null
 
         io.markCalls shouldBe 1
+        io.writeDirectCalls shouldBe 2
         io.writeShellCalls shouldBe 0
-        io.events shouldContainExactly listOf("shellMode", "isAvoidDirectWrite", "writeDirect", "mark")
+        // No awaitBound after a reverted repair retry.
+        io.events shouldContainExactly listOf("shellMode", "isAvoidDirectWrite", "writeDirect", "mark", "writeDirect")
+    }
+
+    @Test fun `mode A - no shell, repair retry persists, restores full intended set and binds`() = runTest2 {
+        val io = FakeIo(directReverts = true, directRetryPersists = true, boundAfterDirect = true, mode = null)
+        val intended = setOf(ourComp, thirdParty)
+
+        AcsActivator(io).enable(intended) shouldBe handle
+
+        io.markCalls shouldBe 1
+        io.writeShellCalls shouldBe 0
+        // The retry writes the full original set, incl. the third-party service the wipe took out.
+        io.directWrites shouldContainExactly listOf(intended, intended)
+        io.events shouldContainExactly listOf(
+            "shellMode", "isAvoidDirectWrite", "writeDirect", "mark", "writeDirect", "awaitBound",
+        )
     }
 
     @Test fun `mode B - no shell returns null and does NOT mark (bind timeout alone is insufficient)`() = runTest2 {
