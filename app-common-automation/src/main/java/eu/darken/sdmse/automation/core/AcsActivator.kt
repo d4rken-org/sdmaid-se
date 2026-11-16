@@ -19,7 +19,8 @@ import eu.darken.sdmse.common.shell.ShellOps
  * - **Mode B**: the value persists but the system never binds the service.
  *
  * Both surface as "the service didn't come up", so the privileged-shell fallback is triggered by the
- * bind result, not merely by whether the value persisted. At most one direct + one shell attempt.
+ * bind result, not merely by whether the value persisted. At most one direct + one shell attempt, except
+ * for a Mode A revert without a shell, which gets one repair retry of the direct write instead.
  */
 class AcsActivator(
     private val io: Io,
@@ -62,8 +63,18 @@ class AcsActivator(
             // Mode A: the write was reverted (often wiping unrelated third-party services too).
             log(TAG, WARN) { "enable(): Direct write was reverted (intended=$intended, actual=$afterDirect)" }
             io.markDirectWriteUnreliable()
-            if (mode == null) return null
-            return if (io.writeShell(intended, mode)) io.awaitBound(bindTimeoutMs) else null
+            if (mode != null) {
+                return if (io.writeShell(intended, mode)) io.awaitBound(bindTimeoutMs) else null
+            }
+            // No privileged shell to fall back on: retry the direct write once so a service the revert
+            // collaterally wiped (e.g. a screen reader) has a chance to be restored.
+            log(TAG, WARN) { "enable(): No privileged shell available, retrying direct write once to repair" }
+            val afterRetry = io.writeDirect(intended)
+            if (!writeMatchesIntent(intent = intended, actual = afterRetry)) {
+                log(TAG, WARN) { "enable(): Repair retry also reverted (intended=$intended, actual=$afterRetry)" }
+                return null
+            }
+            return io.awaitBound(bindTimeoutMs)
         }
 
         io.awaitBound(bindTimeoutMs)?.let { return it }
