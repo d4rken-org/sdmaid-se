@@ -373,7 +373,7 @@ Karol Szastok (K4r0lSz);</string>
     <string name="tour_dashboard_setup_body">Karta ustawień pojawia się, gdy coś wymaga konfiguracji. Otwórz ją i rozwiąż problemy, aby SD Maid mógł robić więcej. Możesz również dotrzeć do ustawień z menu ustawień, jeśli ją zamkniesz.</string>
     <string name="tour_dashboard_tools_body">Otwórz kartę narzędzia, aby uzyskać szczegóły. Akcje skanowania i usuwania znajdują się na każdej karcie, szczegóły pojawiają się po znalezieniu czegoś w skanowaniu.</string>
     <string name="tour_dashboard_main_action_body">Duży przycisk u dołu to działanie jednym naciśnięciem. Jedno naciśnięcie do skanowania, jedno naciśnięcie do czyszczenia, wszystkie narzędzia automatyczne.</string>
-    <string name="tour_dashboard_manual_tools_body">Niektóre narzędzia, takie jak Przesuwacz, nie są automatyczne, oferują przepływ pracy z przewodnikiem, przez który przechodzisz sam.</string>
+    <string name="tour_dashboard_manual_tools_body">Niektóre narzędzia, takie jak Przesuwanie, nie są automatyczne, oferują przepływ pracy z przewodnikiem, przez który przechodzisz sam.</string>
     <string name="tour_dashboard_settings_body">Ustawienia domyślne SD Maid są konserwatywne i bezpieczne. Każde urządzenie jest trochę inne, więc dostosuj ustawienia, aby wyciągnąć z niego więcej.</string>
     <string name="tour_setup_intro_body">Każda karta na tym ekranie to uprawnienie, którego może używać SD Maid. Wszystkie są opcjonalne, ale więcej uprawnień oznacza więcej funkcji i dokładniejsze skanowanie. Bez nich większość narzędzi znajdzie mało do czyszczenia.</string>
     <string name="general_settings_reset_guided_tours_label">Zresetuj przewodniki</string>

@@ -66,7 +66,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s w %2$s</string>
     <string name="stats_space_history_upgrade_title">Pełna historia jest funkcją Pro</string>
-    <string name="stats_space_history_upgrade_body_v3">Ulepsz, aby zobaczyć 90 dni historii dla każdego nośnika pamięci, a jeśli chcesz zachowywać ją dłużej, nawet rok, i dostawać ostrzeżenie, zanim zabraknie miejsca.</string>
+    <string name="stats_space_history_upgrade_body_v3">Zaktualizuj, aby zobaczyć 90 dni historii dla każdego nośnika pamięci, a jeśli chcesz zachować ją dłużej, nawet rok, i dostawać ostrzeżenie, zanim zabraknie miejsca.</string>
     <string name="stats_space_history_marker_freed">Zwolniono %1$s</string>
     <string name="stats_storage_type_primary">Pamięć podstawowa</string>
     <string name="stats_storage_type_secondary">Pamięć dodatkowa</string>
