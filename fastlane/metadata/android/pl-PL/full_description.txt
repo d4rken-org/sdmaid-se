@@ -37,7 +37,7 @@ Duplikaty pobrań, zdjęcia wysyłane za pośrednictwem mediów społecznościow
 
 👆 Posprzątaj jednym gestem
 
-Wybierz folder i przeglądaj pliki pojedynczo, wykonując proste gesty, aby zachować, usunąć lub pominąć. Narzędzie „Przesuwacz” pozwala przejrzeć wszystkie decyzje przed usunięciem czegokolwiek, a sesję można zapisać, by kontynuować później.
+Wybierz folder i przeglądaj pliki pojedynczo, wykonując proste gesty, aby zachować, usunąć lub pominąć. Narzędzie Przesuwanie pozwala przejrzeć wszystkie decyzje przed usunięciem czegokolwiek, a sesję można zapisać, by kontynuować później.
 
 🗜️ Zwolnij miejsce bez usuwania zdjęć
 
