@@ -33,7 +33,7 @@
     <string name="stats_settings_retention_paths_label">Gedetailleerde padinformatie</string>
     <string name="stats_settings_retention_paths_desc">Het aantal dagen dat gegevens moeten worden bewaard over paden die worden beïnvloed door SD Maid.</string>
     <string name="stats_settings_retention_snapshots_label">Opslaggeschiedenis</string>
-    <string name="stats_settings_retention_snapshots_desc">Aantal dagen om opslagruimte-snapshots voor de Opslagtrendgrafiek te bewaren. Oudere snapshots worden verwijderd.</string>
+    <string name="stats_settings_retention_snapshots_desc">Aantal dagen dat snapshots van het opslaggebruik worden bewaard voor de grafiek Opslagtrend. Oudere snapshots worden verwijderd.</string>
     <string name="stats_settings_reset_all_label">Reset Alles</string>
     <string name="stats_settings_reset_all_desc">Verwijder alle rapporten en zet alle statistieken op nul.</string>
     <string name="stats_affected_paths_label">Beïnvloede paden</string>
@@ -54,7 +54,7 @@
     <string name="stats_space_history_delta_label">Delta</string>
     <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
     <string name="stats_space_history_upgrade_title">Volledige geschiedenis is een Pro-functie</string>
-    <string name="stats_space_history_upgrade_body_v3">Upgrade om 90 dagen geschiedenis per opslagapparaat te zien, of tot een jaar als je het langer bewaart, en krijg een waarschuwing voordat je geen ruimte meer hebt.</string>
+    <string name="stats_space_history_upgrade_body_v3">Upgrade om de geschiedenis van elk opslagapparaat over een periode van 90 dagen te bekijken – of zelfs tot een jaar als je de gegevens langer bewaart – en ontvang een waarschuwing voordat je opslagruimte opraakt.</string>
     <string name="stats_space_history_marker_freed">%1$s vrijgemaakt</string>
     <string name="stats_storage_type_primary">Primaire opslag</string>
     <string name="stats_storage_type_secondary">Secundaire opslag</string>

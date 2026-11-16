@@ -12,7 +12,7 @@
         <item quantity="other">%d itens removidos</item>
     </plurals>
     <string name="dashboard_hero_freeable_hint">Toque o botão para liberar espaço, ou um chip para verificar primeiro.</string>
-    <string name="dashboard_hero_freed_hint">Toque um chip para obter detalhes.</string>
+    <string name="dashboard_hero_freed_hint">Toque um chipe para obter detalhes.</string>
     <string name="dashboard_hero_freed_residue">%1$s restante</string>
     <string name="dashboard_hero_nothing_freed_headline">Nada foi liberado</string>
     <string name="dashboard_hero_nothing_freed_caption">A limpeza foi concluída, mas nenhum dos dados encontrados pôde ser removido.</string>

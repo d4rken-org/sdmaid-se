@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="swiper_label">Przesuwacz</string>
+    <string name="swiper_label">Przesuwanie</string>
     <string name="swiper_tool_description">Szybko pozbądź się zbędnych folderów — przeglądaj pliki, aby je zachować, usunąć lub pominąć.</string>
     <string name="swiper_dashcard_description">Uporządkuj konkretne foldery szybciej niż eksplorator plików. Po prostu przesuń każdy plik.</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>
@@ -88,7 +88,7 @@
     </plurals>
     <string name="swiper_session_timestamps">Utworzono %1$s, ostatnia aktywność %2$s</string>
     <string name="swiper_session_remove_action">Usuń sesję</string>
-    <string name="swiper_sessions_empty_hint">Dotknij +, aby wybrać folder i zacząć przesuwać</string>
+    <string name="swiper_sessions_empty_hint">Naciśnij +, aby wybrać folder i zacząć przesuwać</string>
     <string name="swiper_sessions_upgrade_body">Uaktualnij, aby usunąć te limity i wesprzeć rozwój. Wersja darmowa jest ograniczona do:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
         <item quantity="one">%d plik na sesję</item>
@@ -144,7 +144,7 @@
         <item quantity="many">%d usuniętych</item>
         <item quantity="other">%d usuniętych</item>
     </plurals>
-    <string name="swiper_exclude_confirmation_message">Wykluczyć \"%1$s\" ze skanowania Przesuwacza?</string>
+    <string name="swiper_exclude_confirmation_message">Wykluczyć %1$s ze skanowania narzędzia Przesuwanie?</string>
     <string name="swiper_sessions_header_title">Gotowy na porządki?</string>
     <string name="swiper_sessions_suggestions_label">Spróbuj, zaczynając od:</string>
     <string name="swiper_sessions_suggestion_downloads">Folder pobierania</string>
@@ -166,7 +166,7 @@
     <string name="swiper_stamp_undo_2">Wstecz!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Czekaj!</string>
-    <string name="swiper_help_title">Jak działa Przesuwacz</string>
+    <string name="swiper_help_title">Jak działa Przesuwanie</string>
     <string name="swiper_help_message">Przesuń każdy plik, aby podjąć decyzję:\n\n← Przesuń w lewo: %1$s\n→ Przesuń w prawo: %2$s\n↑ Przesuń w górę: Pomiń\n↓ Przesuń w dół: Cofnij (po pierwszym przesunięciu)\n\nMożesz również użyć przycisków na dole.\n\nPo zakończeniu dotknij „Przejrzyj”, aby zobaczyć wszystkie swoje decyzje. Nic nie zostanie usunięte, dopóki nie potwierdzisz na ekranie przeglądu.</string>
     <string name="swiper_file_type_filter_title">Pokaż tylko te typy plików</string>
     <string name="swiper_file_type_filter_hint">Zaznacz typy, które chcesz zobaczyć. Jeśli żaden nie jest zaznaczony, wyświetlone zostaną wszystkie pliki.</string>

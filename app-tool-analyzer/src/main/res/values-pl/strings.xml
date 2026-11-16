@@ -20,13 +20,13 @@
         <item quantity="other">%s używanych</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Brak bezpośredniego dostępu</string>
-    <string name="analyzer_content_create_swiper_session_action">Utwórz sesję Przesuwacza</string>
+    <string name="analyzer_content_create_swiper_session_action">Utwórz sesję narzędzia Przesuwanie</string>
     <string name="analyzer_content_open_externally_action">Otwórz w menedżerze plików</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Sesja Przesuwacza utworzona z %d elementu</item>
-        <item quantity="few">Sesja Przesuwacza utworzona z %d elementów</item>
-        <item quantity="many">Sesja Przesuwacza utworzona z %d elementów</item>
-        <item quantity="other">Sesja Przesuwacza utworzona z %d elementów</item>
+        <item quantity="one">Sesja narzędzia Przesuwanie utworzona z %d elementu</item>
+        <item quantity="few">Sesja narzędzia Przesuwanie utworzona z %d elementów</item>
+        <item quantity="many">Sesja narzędzia Przesuwanie utworzona z %d elementów</item>
+        <item quantity="other">Sesja narzędzia Przesuwanie utworzona z %d elementów</item>
     </plurals>
     <string name="analyzer_storage_type_primary_title">Pamięć podstawowa</string>
     <string name="analyzer_storage_type_primary_description">Podstawowa pamięć twojego urządzenia. Zawiera wewnętrzną kartę SD, prywatne miejsce na aplikacje i dane systemowe.</string>
@@ -70,7 +70,6 @@
         <item quantity="many">Przy tym tempie miejsce wystarczy na około %1$d dni.</item>
         <item quantity="other">Przy tym tempie miejsce wystarczy na około %1$d dni.</item>
     </plurals>
-    <!-- Settings -->
     <string name="analyzer_settings_storage_category_label">Pamięć wewnętrzna</string>
     <string name="analyzer_settings_lowstorage_title">Próg małej ilości miejsca na pamięci wewnętrznej</string>
     <string name="analyzer_settings_lowstorage_desc">Gdy ilość wolnego miejsca spadnie poniżej tej wartości, SD Maid uznaje, że miejsce na pamięci wewnętrznej się kończy.</string>
@@ -79,10 +78,8 @@
     <string name="analyzer_settings_lowstorage_automatic_action">Automatycznie</string>
     <string name="analyzer_settings_lowspace_notification_title">Ostrzeżenie o małej ilości miejsca na pamięci wewnętrznej</string>
     <string name="analyzer_settings_lowspace_notification_desc">Otrzymaj powiadomienie, zanim zabraknie ci miejsca.</string>
-    <!-- Device storage upgrade hint -->
     <string name="analyzer_lowspace_hint_title">Nigdy nie zabraknie ci miejsca</string>
     <string name="analyzer_lowspace_hint_body">Zaktualizuj, aby otrzymywać ostrzeżenie przed wyczerpaniem się miejsca na pamięci wewnętrznej, dzięki czemu będziesz mógł uporządkować dane, póki jest jeszcze wolne miejsce.</string>
-    <!-- Guided tour -->
     <string name="tour_analyzer_intro_body">Zobacz, co naprawdę zajmuje miejsce w pamięci. Analiza pamięci pokazuje, na co jest wykorzystywana dostępna przestrzeń. Każda z tych kart przedstawia element pamięci na urządzeniu.</string>
     <string name="tour_analyzer_storage_body">Otwórz pamięć wewnętrzną, aby podzielić ją na aplikacje, multimedia i pliki, a następnie stale naciskaj, aby znaleźć największych sprawców.</string>
 </resources>
