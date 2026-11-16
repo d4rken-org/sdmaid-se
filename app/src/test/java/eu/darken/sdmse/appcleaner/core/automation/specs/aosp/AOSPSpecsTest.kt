@@ -1,9 +1,11 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import android.accessibilityservice.AccessibilityService
+import android.content.res.Configuration
 import android.content.res.Resources
 import android.graphics.Rect
 import android.util.DisplayMetrics
+import android.view.View
 import android.view.WindowManager
 import android.view.WindowMetrics
 import eu.darken.sdmse.appcleaner.core.automation.specs.BaseAppCleanerSpecTest
@@ -93,6 +95,8 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         mockkObject(BuildWrap)
         every { BuildWrap.MANUFACTOR } returns "TestOEM"
         every { BuildWrap.PRODUCT } returns "test_product"
+        mockkStatic(Resources::class)
+        every { Resources.getSystem() } returns systemResources(View.LAYOUT_DIRECTION_LTR)
     }
 
     @AfterEach
@@ -100,6 +104,13 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         unmockkStatic(::hasApiLevel)
         unmockkObject(BuildWrap)
         unmockkConstructor(SizeParser::class)
+        unmockkStatic(Resources::class)
+    }
+
+    private fun systemResources(direction: Int): Resources = mockk {
+        every { configuration } returns mockk<Configuration> {
+            every { layoutDirection } returns direction
+        }
     }
 
     private fun emitValidationEventAsync(pkgId: String = "com.android.settings") {
@@ -2693,17 +2704,20 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     // DOWN from the header landing on "Clear cache" (#2911)
     // ============================================================
 
-    // Storage page with a positive Cache row ([cacheRow] = false drops it) whose input focus follows the keys.
-    // With [rightmost], DOWN from the header lands on "Clear cache" and RIGHT from there on the app bar's search
+    // Storage page with a Cache row showing [cacheText] ([cacheRow] = false drops it) whose input focus follows the
+    // keys. With [rightmost], DOWN from the header lands on "Clear cache" and RIGHT from there on the app bar's search
     // button (Motorola edge 70 at 1272x2772@450); otherwise DOWN lands on "Clear storage" and RIGHT on "Clear
-    // cache". Both buttons are withheld from the tree, so input focus on them reads as null. ACTION_FOCUS on the
+    // cache". With [mirrored] (right-to-left row), RIGHT from "Clear storage" goes to the app bar's up button
+    // instead. Both buttons are withheld from the tree, so input focus on them reads as null. ACTION_FOCUS on the
     // header moves input focus there 150ms later, if [takesFocus] allows that call (1-based) and no key came in
     // between. Focus on the search button is reported [searchReportDelayMs] after it moved there. With
     // [centerClears], a CENTER on "Clear cache" drops the cache bytes; every CENTER then runs [onCenter]. BACK
     // shows the page again.
     private inner class FocusTrackingPage(
         val rightmost: Boolean,
+        val mirrored: Boolean = false,
         val cacheRow: Boolean = true,
+        val cacheText: String = "42.93 MB",
         val takesFocus: (Int) -> Boolean = { true },
         val searchReportDelayMs: Long = 0L,
         val centerClears: Boolean = true,
@@ -2734,7 +2748,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
                     true
                 },
             )
-            return pixelStoragePage(cache = if (cacheRow) "42.93 MB" else null, header = false).addChildren(
+            return pixelStoragePage(cache = if (cacheRow) cacheText else null, header = false).addChildren(
                 header,
                 navigateUpButton(focused = reported == "up"),
                 searchButton(focused = reported == "search"),
@@ -2783,7 +2797,13 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
                     }
                 )
 
-                "RIGHT" -> moveTo(if (focus == "clearStorage") "clearCache" else "search")
+                "RIGHT" -> moveTo(
+                    when (focus) {
+                        "clearStorage" -> if (mirrored) "up" else "clearCache"
+                        else -> "search"
+                    }
+                )
+
                 "CENTER" -> {
                     centerFocus += focus
                     if (centerClears && focus == "clearCache") cleared = true
@@ -2947,5 +2967,33 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         abort.message shouldContain "DPAD exhausted"
         verify(exactly = 1) { testHost.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK) }
         page.keys shouldBe listOf("DOWN", "RIGHT", "DOWN", "CENTER", "BACK")
+    }
+
+    @Test
+    fun `a Cache row still calculating keeps a DOWN landing on Clear cache from the DOWN and CENTER`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        val page = FocusTrackingPage(rightmost = true, cacheText = "Calculating…").apply { install() }
+
+        runCatching { captureAndRunClearCacheAction(rethrowAbort = true) }
+
+        page.keys.hasDownDirectlyBeforeCenter() shouldBe false
+    }
+
+    @Test
+    fun `an RTL row where DOWN lands on Clear storage gets no CENTER on it`() = runTest {
+        setupAllowlistedDpad(this)
+        stubPixelSizes()
+        every { Resources.getSystem() } returns systemResources(View.LAYOUT_DIRECTION_RTL)
+        // Mirrored row: DOWN from the header lands on "Clear storage" (right-hand), RIGHT leaves to the up button.
+        val page = FocusTrackingPage(rightmost = false, mirrored = true).apply { install() }
+
+        val abort = shouldThrow<StepAbortException> {
+            captureAndRunClearCacheAction(rethrowAbort = true)
+        }
+
+        abort.message shouldContain "DPAD exhausted"
+        page.centerFocus shouldNotContain "clearStorage"
+        page.keys.hasDownDirectlyBeforeCenter() shouldBe false
     }
 }
