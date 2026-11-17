@@ -25,7 +25,7 @@ private fun internalLow(usedGb: Long, totalGb: Long) =
 private fun externalLow(usedGb: Long, totalGb: Long) =
     StorageEntry(StorageEntry.Kind.EXTERNAL, usedGb * GB, totalGb * GB, isLow = true)
 
-@Preview(widthDp = 200, heightDp = 140)
+@Preview(widthDp = 200, heightDp = 160)
 @Composable
 private fun WidgetContentNormalPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB))
@@ -71,7 +71,7 @@ private fun WidgetContentRowMediumLargeValuesPreview() {
 }
 
 // Row layout's working/cancellable states, at the breakpoint height — the other working/cancellable
-// previews below are all 140dp tall and only ever exercise StackedLayout.
+// previews below are 160dp or taller and only ever exercise StackedLayout.
 @Preview(widthDp = 220, heightDp = 80)
 @Composable
 private fun WidgetContentRowCancellablePreview() {
@@ -80,13 +80,13 @@ private fun WidgetContentRowCancellablePreview() {
     )
 }
 
-@Preview(widthDp = 200, heightDp = 140)
+@Preview(widthDp = 200, heightDp = 160)
 @Composable
 private fun WidgetContentNearFullPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(121, 128)), freedBytes = 3 * GB))
 }
 
-@Preview(widthDp = 220, heightDp = 170)
+@Preview(widthDp = 220, heightDp = 200)
 @Composable
 private fun WidgetContentWithSdCardPreview() {
     WidgetContent(
@@ -97,7 +97,45 @@ private fun WidgetContentWithSdCardPreview() {
     )
 }
 
-@Preview(widthDp = 200, heightDp = 140)
+// Two storages at about the default two-cell height: too short for both rows, so only the primary one
+// shows and the Cancel button stays fully inside the widget.
+@Preview(widthDp = 220, heightDp = 180)
+@Composable
+private fun WidgetContentWithSdCardShortCancellablePreview() {
+    WidgetContent(
+        WidgetRenderState.Data(
+            storages = listOf(internal(124, 128), external(209, 256)),
+            freedBytes = 22 * GB,
+            isWorking = true,
+            isCancellable = true,
+        )
+    )
+}
+
+// Three storages (MAX_STORAGES): all rows at this height, two at the 220x200 one below.
+@Preview(widthDp = 220, heightDp = 240)
+@Composable
+private fun WidgetContentThreeStoragesPreview() {
+    WidgetContent(
+        WidgetRenderState.Data(
+            storages = listOf(internal(45, 128), external(20, 64), external(100, 256)),
+            freedBytes = 12 * GB,
+        )
+    )
+}
+
+@Preview(widthDp = 220, heightDp = 200)
+@Composable
+private fun WidgetContentThreeStoragesShortPreview() {
+    WidgetContent(
+        WidgetRenderState.Data(
+            storages = listOf(internal(45, 128), external(20, 64), external(100, 256)),
+            freedBytes = 12 * GB,
+        )
+    )
+}
+
+@Preview(widthDp = 200, heightDp = 160)
 @Composable
 private fun WidgetContentCancellablePreview() {
     WidgetContent(
@@ -105,7 +143,7 @@ private fun WidgetContentCancellablePreview() {
     )
 }
 
-@Preview(widthDp = 200, heightDp = 140)
+@Preview(widthDp = 200, heightDp = 160)
 @Composable
 private fun WidgetContentWorkingPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internal(45, 128)), freedBytes = 12 * GB, isWorking = true))
@@ -117,7 +155,7 @@ private fun WidgetContentUnavailablePreview() {
     WidgetContent(WidgetRenderState.Unavailable)
 }
 
-@Preview(widthDp = 320, heightDp = 190)
+@Preview(widthDp = 320, heightDp = 210)
 @Composable
 private fun WidgetContentLargePreview() {
     WidgetContent(
@@ -133,7 +171,7 @@ private fun WidgetContentLargePreview() {
 // the stacked and value-row layouts, ring arc in the narrow one. Note the amber bar only renders on
 // API 31+ (Glance limitation), which is why the label is coloured too — check both here.
 
-@Preview(widthDp = 200, heightDp = 140)
+@Preview(widthDp = 200, heightDp = 160)
 @Composable
 private fun WidgetContentLowStackedPreview() {
     WidgetContent(WidgetRenderState.Data(listOf(internalLow(126, 128)), freedBytes = 3 * GB))
@@ -152,7 +190,7 @@ private fun WidgetContentLowRingPreview() {
 }
 
 // Per-volume: the SD card is low while the primary is fine, so only the second row goes amber.
-@Preview(widthDp = 220, heightDp = 170)
+@Preview(widthDp = 220, heightDp = 200)
 @Composable
 private fun WidgetContentLowSecondaryOnlyPreview() {
     WidgetContent(
