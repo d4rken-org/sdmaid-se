@@ -8,6 +8,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.max
 import androidx.compose.ui.unit.sp
 import androidx.glance.ColorFilter
 import androidx.glance.GlanceModifier
@@ -43,12 +44,13 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.main.ui.MainActivity
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import eu.darken.sdmse.widget.WidgetRenderState
+import kotlin.math.floor
 import androidx.glance.color.ColorProvider as dayNightColorProvider
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.ui.R as CommonUiR
 
-// Breakpoints on the actual cell size (SizeMode.Exact). Column↔dp is approximate.
-private val STACKED_MIN_HEIGHT = 110.dp
+// Breakpoints on the actual cell size (SizeMode.Exact). Column↔dp is approximate. The stacked layout's
+// breakpoint is not a constant: it depends on the storage row count and font scale, see StackedBudget.
 private val RING_MAX_WIDTH = 190.dp     // below this (1 row) → ring (~2 col)
 private val BUTTON_LABEL_MIN_WIDTH = 300.dp // at/above this (1 row) → show the Clean text (~4 col)
 
@@ -57,9 +59,47 @@ private val WIDGET_CHROME_VERTICAL_PADDING = 12.dp
 
 // WidgetChrome's vertical padding (both sides) leaves ~56dp of content height at 80dp outer height —
 // enough for the row's text+bar+freed-text stack; below this the compact 2-line layout (value + bar)
-// stays as-is. Must stay below STACKED_MIN_HEIGHT, otherwise ValueRowLayout is never reached at this
-// height and the freed-text branch becomes dead code.
+// stays as-is. Must stay below the stacked layout's smallest height (one storage row, ~157dp, see
+// StackedBudget), otherwise ValueRowLayout is never reached at this height and the freed-text branch
+// becomes dead code.
 private val VALUE_ROW_FREED_MIN_HEIGHT = 80.dp
+
+// Element sizes of the stacked layout, shared between the composables below and StackedBudget.
+private val HEADER_MASCOT_SIZE = 42.dp
+private val HEADER_TEXT_GAP = 2.dp
+private val STACKED_HEADER_GAP = 12.dp
+private val STACKED_ROW_GAP = 10.dp
+private val STORAGE_ROW_BAR_GAP = 5.dp
+private val STORAGE_BAR_HEIGHT = 8.dp
+private val STACKED_BUTTON_GAP = 12.dp
+private val BUTTON_ICON_SIZE = 18.dp
+private val BUTTON_VERTICAL_PADDING = 9.dp
+
+/**
+ * Height budget of [StackedLayout]. The text line heights are for font scale 1.0 (Roboto with font
+ * padding, checked against measured TextViews in WidgetStackedBudgetTest) and grow with the font scale.
+ */
+internal object StackedBudget {
+    val TITLE_LINE = 21.dp  // 15sp bold
+    val FREED_LINE = 15.dp  // 11sp
+    val ROW_LINE = 18.dp    // 13sp bold value, the 12sp label is shorter
+    val BUTTON_LINE = 18.dp // 13sp medium label
+
+    /** Height kept free at the bottom of the stacked layout for the Clean button and its gap. */
+    fun buttonReserve(fontScale: Float): Dp =
+        max(BUTTON_ICON_SIZE, BUTTON_LINE * fontScale) + BUTTON_VERTICAL_PADDING * 2 + STACKED_BUTTON_GAP
+
+    /** How many storage rows fit between the header and the Clean button; 0 means the stacked layout doesn't fit. */
+    fun rowsThatFit(height: Dp, rowCount: Int, fontScale: Float): Int {
+        val headerText = (TITLE_LINE + FREED_LINE) * fontScale + HEADER_TEXT_GAP
+        val header = max(HEADER_MASCOT_SIZE, headerText) + STACKED_HEADER_GAP
+        val row = ROW_LINE * fontScale + STORAGE_ROW_BAR_GAP + STORAGE_BAR_HEIGHT
+        val space = height - WIDGET_CHROME_VERTICAL_PADDING * 2 - header - buttonReserve(fontScale)
+        // n rows take n * row + (n - 1) * gap.
+        val fit = floor((space + STACKED_ROW_GAP) / (row + STACKED_ROW_GAP)).toInt()
+        return fit.coerceIn(0, rowCount)
+    }
+}
 
 // Equal element size for the symmetric narrow (ring) row.
 private val NARROW_ELEMENT_SIZE = 44.dp
@@ -131,8 +171,10 @@ internal fun WidgetContent(state: WidgetRenderState) {
         when (state) {
             is WidgetRenderState.Data -> {
                 val size = LocalSize.current
+                val fontScale = LocalContext.current.resources.configuration.fontScale
+                val stackedRows = StackedBudget.rowsThatFit(size.height, state.storages.size, fontScale)
                 when {
-                    size.height >= STACKED_MIN_HEIGHT -> StackedLayout(state)
+                    stackedRows > 0 -> StackedLayout(state, rowLimit = stackedRows)
                     size.width < RING_MAX_WIDTH -> RingRowLayout(state)
                     else -> ValueRowLayout(
                         state,
@@ -177,23 +219,26 @@ private fun WidgetChrome(content: @Composable () -> Unit) {
 }
 
 /**
- * Tall (2+ rows): branding + storage (tap → app) at the top, Clean button pinned to the bottom.
+ * Tall: branding + the first [rowLimit] storages (tap → app) at the top, Clean button pinned to the
+ * bottom. The content sits above a reserved strip and the button is a separate child of the Box, so
+ * content taller than the budget assumed cannot push the button out of the widget.
  *
  * Internal (not private) so WidgetContentLowStateTest can compose it in isolation.
  */
 @Composable
-internal fun StackedLayout(data: WidgetRenderState.Data) {
-    Column(modifier = GlanceModifier.fillMaxSize()) {
-        BrandingHeader(data.freedBytes, GlanceModifier.fillMaxWidth().clickable(openApp()))
-        Spacer(GlanceModifier.height(12.dp))
-        Column(modifier = GlanceModifier.fillMaxWidth().clickable(openAnalyzer())) {
-            data.storages.forEachIndexed { index, entry ->
-                if (index > 0) Spacer(GlanceModifier.height(10.dp))
-                StorageRow(entry)
+internal fun StackedLayout(data: WidgetRenderState.Data, rowLimit: Int = data.storages.size) {
+    val fontScale = LocalContext.current.resources.configuration.fontScale
+    Box(modifier = GlanceModifier.fillMaxSize(), contentAlignment = Alignment.BottomCenter) {
+        Column(modifier = GlanceModifier.fillMaxSize().padding(bottom = StackedBudget.buttonReserve(fontScale))) {
+            BrandingHeader(data.freedBytes, GlanceModifier.fillMaxWidth().clickable(openApp()))
+            Spacer(GlanceModifier.height(STACKED_HEADER_GAP))
+            Column(modifier = GlanceModifier.fillMaxWidth().clickable(openAnalyzer())) {
+                data.storages.take(rowLimit).forEachIndexed { index, entry ->
+                    if (index > 0) Spacer(GlanceModifier.height(STACKED_ROW_GAP))
+                    StorageRow(entry)
+                }
             }
         }
-        Spacer(GlanceModifier.defaultWeight())
-        Spacer(GlanceModifier.height(12.dp))
         CleanButton(GlanceModifier.fillMaxWidth(), mode = data.cleanMode)
     }
 }
@@ -265,7 +310,7 @@ private fun RingRowLayout(data: WidgetRenderState.Data) {
 private fun BrandingHeader(freedBytes: Long, modifier: GlanceModifier = GlanceModifier) {
     val context = LocalContext.current
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
-        Mascot(42.dp)
+        Mascot(HEADER_MASCOT_SIZE)
         Spacer(GlanceModifier.width(10.dp))
         Column(modifier = GlanceModifier.defaultWeight()) {
             Text(
@@ -273,7 +318,7 @@ private fun BrandingHeader(freedBytes: Long, modifier: GlanceModifier = GlanceMo
                 style = TextStyle(color = GlanceTheme.colors.onBackground, fontSize = 15.sp, fontWeight = FontWeight.Bold),
                 maxLines = 1,
             )
-            Spacer(GlanceModifier.height(2.dp))
+            Spacer(GlanceModifier.height(HEADER_TEXT_GAP))
             Text(
                 text = freedLabel(context, freedBytes),
                 style = TextStyle(color = GlanceTheme.colors.onSurfaceVariant, fontSize = 11.sp),
@@ -341,7 +386,7 @@ private fun StorageRow(entry: WidgetRenderState.Data.StorageEntry) {
                 maxLines = 1,
             )
         }
-        Spacer(GlanceModifier.height(5.dp))
+        Spacer(GlanceModifier.height(STORAGE_ROW_BAR_GAP))
         StorageBar(entry.usedRatio, entry.isLow)
     }
 }
@@ -351,7 +396,7 @@ private fun StorageBar(ratio: Float, isLow: Boolean = false) {
     val context = LocalContext.current
     LinearProgressIndicator(
         progress = ratio,
-        modifier = GlanceModifier.fillMaxWidth().height(8.dp).cornerRadius(4.dp),
+        modifier = GlanceModifier.fillMaxWidth().height(STORAGE_BAR_HEIGHT).cornerRadius(4.dp),
         // IMPORTANT: Glance (1.2.0-rc01) only applies a custom LinearProgressIndicator tint on
         // API 31+ — below that this argument compiles and is then silently ignored, so the bar stays
         // the default colour. minSdk is 26, which means on Android 8-11 the amber BAR never renders
@@ -401,12 +446,12 @@ private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Bo
             .background(bg)
             .cornerRadius(22.dp)
             .clickable(mode.action())
-            .padding(horizontal = if (showLabel) 16.dp else 12.dp, vertical = 9.dp),
+            .padding(horizontal = if (showLabel) 16.dp else 12.dp, vertical = BUTTON_VERTICAL_PADDING),
         verticalAlignment = Alignment.CenterVertically,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         when (mode) {
-            CleanMode.WORKING -> CircularProgressIndicator(modifier = GlanceModifier.size(18.dp), color = fg)
+            CleanMode.WORKING -> CircularProgressIndicator(modifier = GlanceModifier.size(BUTTON_ICON_SIZE), color = fg)
             else -> Image(
                 provider = ImageProvider(
                     if (mode == CleanMode.CANCEL) CommonUiR.drawable.ic_cancel
@@ -414,7 +459,7 @@ private fun CleanButton(modifier: GlanceModifier = GlanceModifier, showLabel: Bo
                 ),
                 contentDescription = label,
                 colorFilter = ColorFilter.tint(fg),
-                modifier = GlanceModifier.size(18.dp),
+                modifier = GlanceModifier.size(BUTTON_ICON_SIZE),
             )
         }
         if (showLabel) {
