@@ -298,7 +298,16 @@ class AppScanner @Inject constructor(
                         .filter { it.isDirectMatch } // Can't reverse lookup regex markers
                         .filter { it.segments.startsWith(topLevelArea.prefixFreeSegments, ignoreCase = true) }
                         .map { topLevelArea.prefix.child(*it.segments.toTypedArray()) }
-                        .filter { it.exists(gatewaySwitch) }
+                        .filter { target ->
+                            try {
+                                target.exists(gatewaySwitch)
+                            } catch (e: ReadException) {
+                                log(TAG, WARN) {
+                                    "Nested marker target could not be checked, skipping $target: ${e.asLog()}"
+                                }
+                                false
+                            }
+                        }
                         .onEach { log(TAG) { "Nested marker target exists: $it" } }
                         .mapNotNull { fileForensics.identifyArea(it) }
                         .forEach { interestingPaths.add(it) }
