@@ -78,15 +78,28 @@ class RecorderModule @Inject constructor(
     // Test seam: the resume fallback measures against the wall clock, which a test cannot move.
     internal var wallClock: () -> Instant = { Instant.now() }
 
-    private val triggerFile by lazy {
-        try {
-            File(context.getExternalFilesDir(null), FORCE_FILE)
-        } catch (_: Exception) {
-            File(
-                Environment.getExternalStorageDirectory(),
-                "/Android/data/${BuildConfigWrap.APPLICATION_ID}/files/$FORCE_FILE"
-            )
-        }
+    @Volatile private var triggerFile: File? = null
+
+    private fun lookupExternalFilesDir(): Result<File?> = runCatching { context.getExternalFilesDir(null) }
+        .onFailure { log(TAG, WARN) { "External files dir lookup failed: ${it.asLog()}" } }
+
+    /**
+     * Null while the external files dir is unavailable, and retried on the next call: a null parent
+     * would make the marker a path relative to the working dir.
+     */
+    private fun resolveTriggerFile(externalFilesDir: Result<File?> = lookupExternalFilesDir()): File? {
+        triggerFile?.let { return it }
+        val resolved = externalFilesDir.fold(
+            onSuccess = { dir -> dir?.let { File(it, FORCE_FILE) } },
+            onFailure = {
+                File(
+                    Environment.getExternalStorageDirectory(),
+                    "/Android/data/${BuildConfigWrap.APPLICATION_ID}/files/$FORCE_FILE",
+                )
+            },
+        )
+        if (resolved != null) triggerFile = resolved
+        return resolved
     }
 
     // Serializes the public start/stop API: each caller holds it from publishing its request through
@@ -95,7 +108,7 @@ class RecorderModule @Inject constructor(
     private val requestLock = Mutex()
 
     private val internalState = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
-        val triggerFileExists = triggerFile.exists()
+        val triggerFileExists = resolveTriggerFile()?.exists() == true
         val savedPath = debugSettings.recorderPath.value()
         State(
             shouldRecord = triggerFileExists || savedPath != null,
@@ -133,7 +146,7 @@ class RecorderModule @Inject constructor(
         // Only what THIS attempt created may be rolled back: a resume marker or log dir from an
         // earlier session belongs to that session and must survive a failed start.
         var createdLogDir: File? = null
-        var createdTriggerFile = false
+        var createdTriggerFile: File? = null
         var candidate: Recorder? = null
 
         try {
@@ -141,11 +154,12 @@ class RecorderModule @Inject constructor(
             // here, and outside the guard that throw would end the collector instead of the attempt.
             val savedPath = debugSettings.recorderPath.value()
             val isResuming = savedPath != null
+            val externalFilesDir = lookupExternalFilesDir()
 
             val logDir = savedPath?.let {
                 log(TAG) { "Continuing existing log: $it" }
                 File(it)
-            } ?: createRecordingDir().also {
+            } ?: createRecordingDir(externalFilesDir.getOrNull()).also {
                 log(TAG) { "Starting new log: $it" }
                 createdLogDir = it
                 debugSettings.recorderPath.value(it.path)
@@ -155,11 +169,14 @@ class RecorderModule @Inject constructor(
             // else can reach, so the rollback has to know about the candidate already.
             val newRecorder = recorderProvider.get().also { candidate = it }
             newRecorder.start(logDir)
+            log(TAG, INFO) {
+                "Log dir: $logDir, external files dir: ${externalFilesDir.getOrElse { "lookup failed ($it)" }}"
+            }
             // The file logger is installed now: re-emit the previous process exit reasons so they
             // land in THIS recording too, including one started long after app launch.
             exitInfoLogger.logPreviousExits()
 
-            if (!triggerFile.exists() && triggerFile.createNewFile()) createdTriggerFile = true
+            createdTriggerFile = createTriggerFile(externalFilesDir)
 
             logInfos()
 
@@ -190,6 +207,26 @@ class RecorderModule @Inject constructor(
     }
 
     /**
+     * Best effort: the trigger file is only a resume marker, the saved recorder path resumes a session
+     * on its own. Returns the file only if this call created it.
+     */
+    private fun createTriggerFile(externalFilesDir: Result<File?>): File? = try {
+        val file = resolveTriggerFile(externalFilesDir)
+        when {
+            file == null -> {
+                log(TAG, WARN) { "No location for the trigger file, recording without it" }
+                null
+            }
+
+            !file.exists() && file.createNewFile() -> file
+            else -> null
+        }
+    } catch (e: Exception) {
+        log(TAG, WARN) { "Failed to create the trigger file, recording without it: ${e.asLog()}" }
+        null
+    }
+
+    /**
      * Undoes a failed start attempt. Runs [NonCancellable] because the failure may BE a cancellation,
      * and every step is guarded on its own so one broken cleanup can't skip the rest.
      */
@@ -197,7 +234,7 @@ class RecorderModule @Inject constructor(
         cause: Exception,
         candidate: Recorder?,
         createdLogDir: File?,
-        createdTriggerFile: Boolean,
+        createdTriggerFile: File?,
     ) = withContext(NonCancellable) {
         if (candidate != null) {
             try {
@@ -207,9 +244,9 @@ class RecorderModule @Inject constructor(
             }
         }
 
-        if (createdTriggerFile) {
+        if (createdTriggerFile != null) {
             try {
-                if (triggerFile.exists() && !triggerFile.delete()) {
+                if (createdTriggerFile.exists() && !createdTriggerFile.delete()) {
                     log(TAG, ERROR) { "Failed to delete trigger file during rollback" }
                 }
             } catch (e: Exception) {
@@ -267,8 +304,8 @@ class RecorderModule @Inject constructor(
             // Independent of the stop above: a recorder that failed to close must not leave the
             // resume marker behind, or the next app start silently resumes into a dead session.
             debugSettings.recorderPath.value(null)
-            if (triggerFile.exists() && !triggerFile.delete()) {
-                log(TAG, ERROR) { "Failed to delete trigger file" }
+            resolveTriggerFile()?.let {
+                if (it.exists() && !it.delete()) log(TAG, ERROR) { "Failed to delete trigger file" }
             }
         } catch (e: Exception) {
             currentCoroutineContext().ensureActive()
@@ -282,7 +319,7 @@ class RecorderModule @Inject constructor(
         )
     }
 
-    private fun createRecordingDir(): File {
+    private fun createRecordingDir(externalFilesDir: File?): File {
         val pkg = BuildConfigWrap.APPLICATION_ID
         val version = BuildConfigWrap.VERSION_CODE
         val timestamp = DateTimeFormatter
@@ -293,16 +330,20 @@ class RecorderModule @Inject constructor(
         val logId = sdmId.id.take(4)
         var sessionDir: File? = null
 
-        File(File(context.getExternalFilesDir(null), "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
-            @Suppress("SetWorldWritable", "SetWorldReadable")
-            if (mkdirs()) {
-                log(TAG) { "Public session dir created" }
-                if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
-                if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
-                sessionDir = this
-            } else {
-                log(TAG, ERROR) { "Failed to create public session dir" }
+        if (externalFilesDir != null) {
+            File(File(externalFilesDir, "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
+                @Suppress("SetWorldWritable", "SetWorldReadable")
+                if (mkdirs()) {
+                    log(TAG) { "Public session dir created" }
+                    if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
+                    if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
+                    sessionDir = this
+                } else {
+                    log(TAG, ERROR) { "Failed to create public session dir" }
+                }
             }
+        } else {
+            log(TAG, WARN) { "External files dir unavailable, skipping the public session dir" }
         }
 
         if (sessionDir == null) {
