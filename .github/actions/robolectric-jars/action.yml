@@ -34,7 +34,9 @@ runs:
     - name: List restored jars
       if: inputs.mode == 'restore'
       shell: bash
-      run: find ~/.m2/repository/org/robolectric -name '*.jar' 2>/dev/null | sort > "$RUNNER_TEMP/robolectric-jars-restored.txt"
+      run: |
+        mkdir -p ~/.m2/repository/org/robolectric
+        find ~/.m2/repository/org/robolectric -name '*.jar' | sort > "$RUNNER_TEMP/robolectric-jars-restored.txt"
 
     - name: Check for new jars
       id: new-jars
@@ -42,7 +44,8 @@ runs:
       shell: bash
       run: |
         touch "$RUNNER_TEMP/robolectric-jars-restored.txt"
-        find ~/.m2/repository/org/robolectric -name '*.jar' 2>/dev/null | sort > "$RUNNER_TEMP/robolectric-jars-now.txt"
+        mkdir -p ~/.m2/repository/org/robolectric
+        find ~/.m2/repository/org/robolectric -name '*.jar' | sort > "$RUNNER_TEMP/robolectric-jars-now.txt"
         added=$(comm -13 "$RUNNER_TEMP/robolectric-jars-restored.txt" "$RUNNER_TEMP/robolectric-jars-now.txt" | wc -l)
         echo "Robolectric jars downloaded in this job: $added"
         echo "added=$added" >> "$GITHUB_OUTPUT"
