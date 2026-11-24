@@ -27,8 +27,8 @@ Files updated by every release:
 
 | Tag suffix | FOSS build | FOSS GitHub release | Gplay lane | Play Store track | Rollout |
 |---|---|---|---|---|---|
-| `-beta<n>` | `assembleFossBeta` | **pre-release** | `lane :beta` | `beta` | 10% |
-| `-rc<n>` | `assembleFossRelease` | **release** | `lane :production` | **`beta`** | 10% |
+| `-beta<n>` | `assembleFossBeta` | **pre-release** | `lane :beta` | `beta` | 100% |
+| `-rc<n>` | `assembleFossRelease` | **release** | `lane :production` | **`beta`** | 100% |
 
 Gplay builds are obfuscated; the R8 mapping for retracing Play vitals or user logs is embedded in the uploaded bundle and can be downloaded from Play Console (App bundle explorer).
 
