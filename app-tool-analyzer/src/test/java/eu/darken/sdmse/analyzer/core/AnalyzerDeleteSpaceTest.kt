@@ -103,6 +103,7 @@ class AnalyzerDeleteSpaceTest : BaseTest() {
             storageSetupModule = storageSetup,
             mediaStoreTool = mediaStoreTool,
             spaceTracker = mockk(relaxed = true),
+            pathMapper = mockk(relaxed = true),
         )
 
         val field = Analyzer::class.java.getDeclaredField("coreState").apply { isAccessible = true }
