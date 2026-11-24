@@ -1,0 +1,55 @@
+name: 'Robolectric android-all jars'
+description: 'Restore, or save when new jars arrived, the android-all jars Robolectric downloads at test runtime'
+inputs:
+  mode:
+    description: 'restore or save'
+    required: true
+  group:
+    description: 'Jobs in the same group share cached jars'
+    required: true
+  instance:
+    description: 'Unique per job within a group, so parallel saves get distinct keys'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Resolve Robolectric version
+      id: version
+      shell: bash
+      run: |
+        version=$(grep -A2 'object Robolectric' buildSrc/src/main/java/Versions.kt | sed -n 's/.*core = "\(.*\)".*/\1/p')
+        [ -n "$version" ] || { echo "Robolectric version not found in Versions.kt"; exit 1; }
+        echo "prefix=${{ runner.os }}-robolectric-${{ inputs.group }}-$version-" >> "$GITHUB_OUTPUT"
+
+    # Robolectric 4.16.1 keeps android-all jars in ~/.m2/repository and only moves a jar there once it is fully
+    # downloaded, so a directory left by a failed run holds no partial files and is still worth saving.
+    - name: Restore jars
+      if: inputs.mode == 'restore'
+      uses: actions/cache/restore@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
+      with:
+        path: ~/.m2/repository/org/robolectric
+        key: ${{ steps.version.outputs.prefix }}${{ github.run_id }}-${{ github.run_attempt }}-${{ inputs.instance }}
+        restore-keys: ${{ steps.version.outputs.prefix }}
+
+    - name: List restored jars
+      if: inputs.mode == 'restore'
+      shell: bash
+      run: find ~/.m2/repository/org/robolectric -name '*.jar' 2>/dev/null | sort > "$RUNNER_TEMP/robolectric-jars-restored.txt"
+
+    - name: Check for new jars
+      id: new-jars
+      if: inputs.mode == 'save'
+      shell: bash
+      run: |
+        touch "$RUNNER_TEMP/robolectric-jars-restored.txt"
+        find ~/.m2/repository/org/robolectric -name '*.jar' 2>/dev/null | sort > "$RUNNER_TEMP/robolectric-jars-now.txt"
+        added=$(comm -13 "$RUNNER_TEMP/robolectric-jars-restored.txt" "$RUNNER_TEMP/robolectric-jars-now.txt" | wc -l)
+        echo "Robolectric jars downloaded in this job: $added"
+        echo "added=$added" >> "$GITHUB_OUTPUT"
+
+    - name: Save jars
+      if: inputs.mode == 'save' && steps.new-jars.outputs.added != '0'
+      uses: actions/cache/save@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
+      with:
+        path: ~/.m2/repository/org/robolectric
+        key: ${{ steps.version.outputs.prefix }}${{ github.run_id }}-${{ github.run_attempt }}-${{ inputs.instance }}
