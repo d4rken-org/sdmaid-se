@@ -9,7 +9,9 @@ import dagger.multibindings.IntoSet
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
+import eu.darken.sdmse.automation.core.common.idMatches
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.isEmpty
 import eu.darken.sdmse.automation.core.common.pkgId
@@ -27,6 +29,7 @@ import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
+import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
@@ -148,24 +151,34 @@ class ColorOSSpecs @Inject constructor(
 
             val windowCheck = windowCheck { _, root ->
                 if (root.pkgId != SETTINGS_PKG) return@windowCheck false
-                root.crawl().map { it.node }.any { subNode -> subNode.textMatchesAny(titleLbl) }
+                root.crawl().map { it.node }.any { it.isForceStopConfirmDialogNode(titleLbl, forceStopLabels) }
             }
 
             val action: suspend StepContext.() -> Boolean = action@{
+                val root = host.waitForWindowRoot()
+                if (root.pkgId != SETTINGS_PKG) return@action false
+                val nodes = root.crawl().map { it.node }.toList()
+                // The window check ran against an earlier root: without re-checking here, a dialog
+                // that vanished mid-retry would let us click App info's own Force stop button,
+                // reopen the dialog and report success while the app is still running.
+                if (nodes.none { it.isForceStopConfirmDialogNode(titleLbl, forceStopLabels) }) return@action false
+
                 // ColorOS repeats the action verb on the confirm button ("Force stop" instead of
-                // "OK"), and the dialog title can carry the same text. Prefer an actual Button
-                // (the title never is one), only then fall back to a non-title text match.
+                // "OK"), and the dialog title can carry the same text. Prefer the dialog's positive
+                // button, then an actual button (COUI's own button classes are covered by the
+                // isClickable pass), only then fall back to a non-title text match.
                 val labels = when (Bugs.isDryRun) {
                     true -> cancelLbl
                     false -> okLbl + forceStopLabels
                 }
-                val candidate = findNode { node -> node.isClickyButton() && node.textMatchesAny(labels) }
-                    ?: findNode { node -> node.textMatchesAny(labels) && !node.textMatchesAny(titleLbl) }
-                    ?: return@action false
-                val mapped = when {
-                    candidate.isClickyButton() -> candidate
-                    else -> findClickableParent(includeSelf = true, node = candidate) ?: return@action false
+                val candidate = nodes.firstOrNull {
+                    it.isClickable && it.idMatches(DIALOG_CONFIRM_BUTTON_ID) && it.textMatchesAny(labels)
                 }
+                    ?: nodes.firstOrNull { it.isClickyButton() && it.textMatchesAny(labels) }
+                    ?: nodes.firstOrNull { it.isClickable && it.textMatchesAny(labels) }
+                    ?: nodes.firstOrNull { it.textMatchesAny(labels) && !it.textMatchesAny(titleLbl) }
+                    ?: return@action false
+                val mapped = findClickableParent(includeSelf = true, node = candidate) ?: return@action false
                 clickNormal(node = mapped)
             }
 
@@ -192,3 +205,17 @@ class ColorOSSpecs @Inject constructor(
     }
 
 }
+
+private const val DIALOG_CONFIRM_BUTTON_ID = "android:id/button1"
+
+/**
+ * Some ColorOS versions show the force-stop dialog without a title node, only a message and the
+ * buttons. Recognize it either by an AOSP-style title, or by the framework AlertDialog positive
+ * button carrying the force-stop verb: the id alone would also match unrelated Settings dialogs,
+ * the text alone would also match the App info screen's own Force stop button.
+ */
+private fun ACSNodeInfo.isForceStopConfirmDialogNode(
+    titleLabels: Collection<String>,
+    forceStopLabels: Collection<String>,
+): Boolean = textMatchesAny(titleLabels) ||
+        (isClickable && idMatches(DIALOG_CONFIRM_BUTTON_ID) && textMatchesAny(forceStopLabels))
