@@ -69,6 +69,14 @@ jobs:
       - name: Setup project and build environment
         uses: ./.github/actions/common-setup
 
+      - name: Cache Robolectric android-all jars
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
+        with:
+          path: ~/.m2/repository/org/robolectric
+          key: ${{ runner.os }}-robolectric-app-${{ hashFiles('buildSrc/src/main/java/Versions.kt') }}
+          restore-keys: |
+            ${{ runner.os }}-robolectric-app-
+
       - name: Test modules
         run: ./gradlew ${{ matrix.flavor }}${{ matrix.variant }}UnitTest
 
@@ -97,6 +105,14 @@ jobs:
           persist-credentials: false
       - name: Setup project and build environment
         uses: ./.github/actions/common-setup
+
+      - name: Cache Robolectric android-all jars
+        uses: actions/cache@cdf6c1fa76f9f475f3d7449005a359c84ca0f306 #v5.0.3
+        with:
+          path: ~/.m2/repository/org/robolectric
+          key: ${{ runner.os }}-robolectric-${{ matrix.task }}-${{ hashFiles('buildSrc/src/main/java/Versions.kt') }}
+          restore-keys: |
+            ${{ runner.os }}-robolectric-${{ matrix.task }}-
 
       - name: Test library modules
         run: ./gradlew ${{ matrix.task }}
