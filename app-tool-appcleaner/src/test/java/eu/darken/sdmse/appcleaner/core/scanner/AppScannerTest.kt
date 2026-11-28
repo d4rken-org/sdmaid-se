@@ -18,7 +18,10 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.forensics.AreaInfo
+import eu.darken.sdmse.common.forensics.FileForensics
+import eu.darken.sdmse.common.forensics.OwnerInfo
 import eu.darken.sdmse.common.clutter.ClutterRepo
+import eu.darken.sdmse.common.clutter.Marker
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.container.NormalPkg
@@ -40,6 +43,7 @@ import io.kotest.matchers.collections.shouldContainExactlyInAnyOrder
 import io.kotest.matchers.maps.shouldBeEmpty
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
+import io.mockk.coVerify
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.CancellationException
@@ -251,8 +255,8 @@ class AppScannerTest : BaseTest() {
     )
 
     /**
-     * The whole `scan()` collaborator set. Data areas are empty, so no search paths and no
-     * accessible matches are produced and the only content is what `determineCache` returns.
+     * The whole `scan()` collaborator set. Data areas are empty by default, so no search paths and
+     * no accessible matches are produced and the only content is what `determineCache` returns.
      */
     private suspend fun scanScanner(
         pkgs: List<NormalPkg>,
@@ -263,6 +267,10 @@ class AppScannerTest : BaseTest() {
         includeInaccessible: Boolean = true,
         defaultCachesPublic: Boolean = true,
         defaultCachesPrivate: Boolean = true,
+        areas: Set<DataArea> = emptySet(),
+        markers: (Pkg.Id) -> Collection<Marker> = { emptySet() },
+        fileForensics: FileForensics = mockk(),
+        filter: FakeFilter = FakeFilter { null },
     ): AppScanner {
         every { settings.minCacheAgeMs } returns mockDataStoreValue(0L)
         every { settings.includeSystemAppsEnabled } returns mockDataStoreValue(true)
@@ -285,12 +293,12 @@ class AppScannerTest : BaseTest() {
 
         val factory = object : ExpendablesFilter.Factory {
             override suspend fun isEnabled(): Boolean = true
-            override suspend fun create(): ExpendablesFilter = FakeFilter { null }
+            override suspend fun create(): ExpendablesFilter = filter
         }
 
         return AppScanner(
             areaManager = mockk<DataAreaManager>().apply {
-                every { state } returns flowOf(DataAreaManager.State(areas = emptySet()))
+                every { state } returns flowOf(DataAreaManager.State(areas = areas))
             },
             gatewaySwitch = gatewaySwitch,
             filterFactories = setOf(factory),
@@ -298,7 +306,7 @@ class AppScannerTest : BaseTest() {
                 coEvery { postProcess(any()) } answers { firstArg() }
             },
             context = context,
-            fileForensics = mockk(),
+            fileForensics = fileForensics,
             rootManager = mockk<RootManager>().apply {
                 every { this@apply.useRoot } returns flowOf(useRoot)
             },
@@ -318,7 +326,7 @@ class AppScannerTest : BaseTest() {
                 every { data } returns flowOf(PkgRepo.PkgData.from(pkgs))
             },
             clutterRepo = mockk<ClutterRepo>().apply {
-                coEvery { getMarkerForPkg(any()) } returns emptySet()
+                coEvery { getMarkerForPkg(any()) } answers { markers(firstArg()) }
             },
             settings = settings,
             inaccessibleCacheProvider = mockk<InaccessibleCacheProvider>().apply {
@@ -395,5 +403,106 @@ class AppScannerTest : BaseTest() {
         )
 
         s.scan() shouldContainExactlyInAnyOrder emptyList()
+    }
+
+    // ─────────────────────────── scan(): nested clutter markers ───────────────────────────
+
+    private class DirectMarker(override val segments: List<String>) : Marker {
+        override val areaType: DataArea.Type = DataArea.Type.SDCARD
+        override val flags: Set<Marker.Flag> = emptySet()
+        override val isDirectMatch: Boolean = true
+        override fun match(otherAreaType: DataArea.Type, otherSegments: Segments): Marker.Match? = null
+    }
+
+    private val sdcard = LocalPath.build("/storage/emulated/0")
+    private val sdcardArea = DataArea(
+        path = sdcard,
+        type = DataArea.Type.SDCARD,
+        userHandle = UserHandle2(handleId = 0),
+    )
+    private val failingTrash = sdcard.child("Android", ".Trash", "com.normal")
+    private val healthyNested = sdcard.child("Android", ".Healthy", "com.normal")
+    private val otherTrash = sdcard.child("Android", ".Trash", "com.other")
+
+    /**
+     * One SDCARD area with a single top-level `Android` dir. `com.normal` has a nested trash
+     * candidate whose existence check throws [probeFailure] plus a healthy nested candidate,
+     * `com.other` has a healthy trash candidate. Every walked candidate yields one junk file.
+     */
+    private suspend fun nestedMarkerScanner(probeFailure: Exception): AppScanner {
+        coEvery { gatewaySwitch.lookupFiles(sdcard) } returns flowOf(
+            LocalPathLookup(
+                lookedUp = sdcard.child("Android"),
+                fileType = FileType.DIRECTORY,
+                size = 0L,
+                modifiedAt = Instant.EPOCH,
+                target = null,
+            ),
+        )
+        coEvery { gatewaySwitch.exists(failingTrash) } throws probeFailure
+        coEvery { gatewaySwitch.exists(healthyNested) } returns true
+        coEvery { gatewaySwitch.exists(otherTrash) } returns true
+        coEvery { gatewaySwitch.walk(any(), any()) } answers {
+            flowOf(lookup("${firstArg<APath>().path}/junk"))
+        }
+
+        val fileForensics = mockk<FileForensics>().apply {
+            coEvery { identifyArea(any<APath>()) } answers {
+                AreaInfo(
+                    file = firstArg(),
+                    prefix = sdcard,
+                    dataArea = sdcardArea,
+                    isBlackListLocation = false,
+                )
+            }
+            coEvery { findOwners(any<AreaInfo>()) } answers {
+                OwnerInfo(
+                    areaInfo = firstArg(),
+                    owners = emptySet(),
+                    installedOwners = emptySet(),
+                    hasUnknownOwner = false,
+                )
+            }
+        }
+
+        return scanScanner(
+            pkgs = listOf(normalPkg("com.normal"), normalPkg("com.other")),
+            areas = setOf(sdcardArea),
+            markers = { pkgId ->
+                when (pkgId.name) {
+                    "com.normal" -> setOf(
+                        DirectMarker(listOf("Android", ".Trash", "com.normal")),
+                        DirectMarker(listOf("Android", ".Healthy", "com.normal")),
+                    )
+
+                    "com.other" -> setOf(DirectMarker(listOf("Android", ".Trash", "com.other")))
+                    else -> emptySet()
+                }
+            },
+            fileForensics = fileForensics,
+            filter = FakeFilter { deletion(it) },
+        )
+    }
+
+    @Test fun `a nested marker candidate that cannot be checked is skipped and the scan goes on`() = runTest {
+        val s = nestedMarkerScanner(ReadException(path = failingTrash))
+
+        val junks = s.scan().associateBy { it.pkg.packageName }
+
+        junks.keys.toList() shouldContainExactlyInAnyOrder listOf("com.normal", "com.other")
+        junks.getValue("com.normal").expendables!!.values.flatten().map { it.path } shouldBe listOf(
+            healthyNested.child("junk"),
+        )
+        junks.getValue("com.other").expendables!!.values.flatten().map { it.path } shouldBe listOf(
+            otherTrash.child("junk"),
+        )
+        coVerify { gatewaySwitch.exists(failingTrash) }
+        coVerify(exactly = 0) { gatewaySwitch.walk(failingTrash, any()) }
+    }
+
+    @Test fun `a nested marker probe failing with anything but a read error still fails the scan`() = runTest {
+        val s = nestedMarkerScanner(IllegalStateException("probe boom"))
+
+        shouldThrow<IllegalStateException> { s.scan() }.message shouldBe "probe boom"
     }
 }

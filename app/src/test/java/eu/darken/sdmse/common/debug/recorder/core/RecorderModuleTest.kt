@@ -798,6 +798,121 @@ class RecorderModuleTest : BaseTest() {
         }
     }
 
+    /**
+     * The external files dir and the trigger file are optional: without them the recording lands in
+     * the cache dir and resumes through the saved path alone.
+     */
+    @Nested
+    inner class UnavailableExternalStorage {
+
+        private val relativeTrigger = File("force_debug_run")
+
+        @Test
+        fun `a null external files dir records into the cache dir`() = runTest {
+            every { context.getExternalFilesDir(null) } returns null
+            coEvery { recorderPath.value() } returns null
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            val logDir = withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+
+            File(cacheDir, "debug/logs").listFiles()?.toList() shouldBe listOf(logDir)
+            coVerify { mockRecorder.start(logDir) }
+            val pathSlot = slot<(String?) -> String?>()
+            coVerify(exactly = 1) { recorderPath.update(capture(pathSlot)) }
+            pathSlot.captured("ignored") shouldBe logDir.path
+            coVerify(exactly = 0) { mockRecorder.stop() }
+            module.state.first().isRecording shouldBe true
+            relativeTrigger.exists() shouldBe false
+        }
+
+        @Test
+        fun `a trigger file that cannot be created does not fail the start`() = runTest {
+            // A regular file where the dir should be: mkdirs and createNewFile below it both fail,
+            // like on a read-only file system.
+            val brokenExternal = File(tempDir, "broken").apply { createNewFile() }
+            every { context.getExternalFilesDir(null) } returns brokenExternal
+            coEvery { recorderPath.value() } returns null
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            val logDir = withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+
+            logDir.parentFile shouldBe File(cacheDir, "debug/logs")
+            module.state.first().apply {
+                isRecording shouldBe true
+                startFailure shouldBe null
+            }
+            coVerify(exactly = 0) { mockRecorder.stop() }
+
+            withTimeout(START_ENVELOPE_MS) { module.stopRecorder() } shouldBe logDir
+            module.state.first().isRecording shouldBe false
+            coVerify(exactly = 1) { mockRecorder.stop() }
+        }
+
+        @Test
+        fun `a null external files dir is resolved again once it becomes available`() = runTest {
+            every { context.getExternalFilesDir(null) } returns null
+            coEvery { recorderPath.value() } returns null
+            val triggerFile = File(externalDir, "force_debug_run")
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+            triggerFile.exists() shouldBe false
+            withTimeout(START_ENVELOPE_MS) { module.stopRecorder() }
+
+            every { context.getExternalFilesDir(null) } returns externalDir
+
+            val logDir = withTimeout(START_ENVELOPE_MS) { module.startRecorder() }
+            logDir.parentFile shouldBe File(externalDir, "debug/logs")
+            triggerFile.exists() shouldBe true
+            relativeTrigger.exists() shouldBe false
+        }
+
+        @Test
+        fun `a rollback deletes the trigger file this attempt created and nothing else`() = runTest {
+            val triggerFile = File(externalDir, "force_debug_run")
+            var triggerExistedAtFailure = false
+            // Fails right after the trigger file step, inside the log header.
+            every { context.getPackageInfo() } answers {
+                triggerExistedAtFailure = triggerFile.exists()
+                throw IOException("no package info")
+            }
+            coEvery { recorderPath.value() } returns null
+            val sibling = File(externalDir, "unrelated").apply { createNewFile() }
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            shouldThrow<IOException> { module.startRecorder() }
+
+            triggerExistedAtFailure shouldBe true
+            coVerify { mockRecorder.stop() }
+            triggerFile.exists() shouldBe false
+            sibling.exists() shouldBe true
+        }
+
+        @Test
+        fun `a failed start without a trigger location still rolls back the log dir`() = runTest {
+            every { context.getExternalFilesDir(null) } returns null
+            every { context.getPackageInfo() } throws IOException("no package info")
+            coEvery { recorderPath.value() } returns null
+
+            val module = createModule(backgroundScope, StandardTestDispatcher(testScheduler))
+            advanceUntilIdle()
+
+            shouldThrow<IOException> { module.startRecorder() }
+
+            coVerify { mockRecorder.stop() }
+            File(cacheDir, "debug/logs").listFiles()?.toList() shouldBe emptyList()
+            relativeTrigger.exists() shouldBe false
+        }
+    }
+
     companion object {
         /** Arbitrary fixed [SystemClock.elapsedRealtime] value that recordings start at. */
         private const val RECORDING_START = 12345L
